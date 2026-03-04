@@ -1,6 +1,6 @@
 # Commonly Used High-Value Skills
 
-一个按场景组织的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化与 AI 安全等常见高频任务。
+一个按场景组织的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、AI 平台与安全治理等常见高频任务。当前共 **14 个分类 / 118 个技能**。
 
 ## 仓库目标
 
@@ -12,14 +12,20 @@
 
 ```text
 skills/
+  ai-agent-platform/                  # AI 平台与 Agent 开发
   customized-solutions/               # 预留的定制化方案分类（当前为空）
+  deployment-platforms/               # 部署平台（Vercel/Netlify/Render/Cloudflare）
   developer-engineering/              # 开发工程
   devops-sre/                         # DevOps / SRE
+  engineering-workflow-automation/    # 工程工作流自动化（GitHub/CI/测试）
   growth-operations-xiaohongshu/      # 增长运营（小红书/社媒）
+  knowledge-and-pm-integrations/      # 项目管理与知识库集成（Linear/Notion）
+  multimodal-media/                   # 多模态内容（图像/语音/视频/转写）
   office-white-collar/                # 办公与文档生产力
   openclaw-memory-and-safety/         # 记忆与安全
   operations-general/                 # 通用运营
   product-design/                     # 产品与设计
+  security-and-reliability/           # 安全治理与稳定性
   task-understanding-decomposition/   # 任务理解与拆解
 ```
 
@@ -29,7 +35,7 @@ skills/
 2. 打开对应技能的 `SKILL.md` 查看触发条件、操作流程和脚本说明。
 3. 若技能下含 `scripts/`、`references/`、`assets/`，优先复用现成内容。
 
-## 技能总览（按分类）
+## 技能总览（按分类，14 类 / 118 技能）
 
 ### 1. 开发工程（developer-engineering，25）
 
@@ -84,9 +90,10 @@ skills/
 - `social-media-analyzer`：用于社媒数据分析与趋势洞察。
 - `twitter-reader`：用于读取、整理和提炼 Twitter 信息。
 
-### 4. 办公与文档（office-white-collar，15）
+### 4. 办公与文档（office-white-collar，17）
 
 - `capture-screen`：用于系统级截图与区域截图。
+- `doc`：用于 `.docx` 文档的读取、创建与编辑（偏工作流编排）。
 - `doc-coauthoring`：用于文档协同编辑与审阅流程。
 - `docx`：用于 Word（.docx）文档创建、编辑与分析。
 - `excel-automation`：用于 Excel 自动化处理与批量操作。
@@ -99,6 +106,7 @@ skills/
 - `pdf-creator`：用于从 Markdown/文本生成 PDF。
 - `ppt-creator`：用于快速生成演示文稿内容。
 - `pptx`：用于 PPTX 文件编辑、清理与结构操作。
+- `spreadsheet`：用于电子表格（xlsx/csv/tsv）通用处理与分析。
 - `transcript-fixer`：用于转录文本纠错、对比与修订。
 - `xlsx`：用于电子表格分析、公式与格式处理。
 
@@ -142,6 +150,52 @@ skills/
 - `skill-reviewer`：用于技能质量评审与改进建议。
 - `skills-search`：用于快速检索并匹配可用技能。
 - `writing-plans`：用于编写可执行的实施计划。
+
+### 9. AI 平台与 Agent 开发（ai-agent-platform，5）
+
+- `chatgpt-apps`：用于构建、脚手架化和调试 ChatGPT Apps。
+- `develop-web-game`：用于 Web 游戏快速迭代开发与自动化验证。
+- `figma`：用于通过 Figma MCP 获取设计上下文与资源信息。
+- `figma-implement-design`：用于把 Figma 节点高保真转成可生产代码。
+- `openai-docs`：用于基于 OpenAI 官方文档进行能力检索与实现指导。
+
+### 10. 工程工作流自动化（engineering-workflow-automation，5）
+
+- `gh-address-comments`：用于处理 GitHub PR 的 review/issue 评论并闭环。
+- `gh-fix-ci`：用于诊断并修复 GitHub Actions CI 失败。
+- `jupyter-notebook`：用于创建和维护实验分析类 Notebook。
+- `playwright`：用于终端驱动的真实浏览器自动化测试与排查。
+- `yeet`：用于一体化执行 stage/commit/push/PR 流程。
+
+### 11. 项目管理与知识库集成（knowledge-and-pm-integrations，5）
+
+- `linear`：用于 Linear 任务与项目流程管理。
+- `notion-knowledge-capture`：用于将讨论沉淀为结构化 Notion 知识页。
+- `notion-meeting-intelligence`：用于基于 Notion 上下文准备会议材料。
+- `notion-research-documentation`：用于跨 Notion 页面研究并汇总文档。
+- `notion-spec-to-implementation`：用于把 Notion 规格转为实施计划与任务。
+
+### 12. 部署平台（deployment-platforms，4）
+
+- `cloudflare-deploy`：用于部署到 Cloudflare Workers/Pages 等平台。
+- `netlify-deploy`：用于通过 Netlify CLI 发布站点。
+- `render-deploy`：用于在 Render 上生成和部署应用蓝图。
+- `vercel-deploy`：用于在 Vercel 上进行预览和生产部署。
+
+### 13. 多模态内容（multimodal-media，5）
+
+- `imagegen`：用于图像生成、编辑、抠图和变体产出。
+- `screenshot`：用于系统级截图采集（全屏/窗口/区域）。
+- `sora`：用于 Sora 视频生成、轮询、下载与管理。
+- `speech`：用于文本转语音旁白生成。
+- `transcribe`：用于音视频转写与可选说话人区分。
+
+### 14. 安全治理与稳定性（security-and-reliability，4）
+
+- `security-best-practices`：用于按语言/框架执行安全最佳实践检查。
+- `security-ownership-map`：用于基于 Git 历史构建安全责任与 Bus Factor 图谱。
+- `security-threat-model`：用于仓库级威胁建模与缓解建议输出。
+- `sentry`：用于读取并汇总 Sentry 线上异常与健康信息。
 
 ## 快速检索命令
 
