@@ -1,0 +1,2 @@
+# Required for LLM scanning and taxonomy refresh
+requests>=2.28.0

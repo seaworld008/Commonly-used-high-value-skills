@@ -1,0 +1,104 @@
+# Learnings Schema
+# Defines the structure of ~/.claude/session/learnings.yaml
+# Used to track all applied learnings from reflection
+
+$schema: "http://json-schema.org/draft-07/schema#"
+title: Learnings Log
+description: Log of all learnings applied through reflection
+
+type: object
+properties:
+  version:
+    type: string
+    description: Schema version
+    default: "1.0.0"
+
+  entries:
+    type: array
+    description: List of applied learnings
+    items:
+      type: object
+      required:
+        - timestamp
+        - signal
+        - confidence
+        - target
+        - status
+      properties:
+        timestamp:
+          type: string
+          format: date-time
+          description: When the learning was applied
+
+        signal:
+          type: string
+          description: The extracted learning signal
+
+        confidence:
+          type: string
+          enum: [high, medium, low]
+          description: Confidence level of the learning
+
+        source:
+          type: string
+          description: Type of source (explicit_correction, approval, observation)
+
+        source_quote:
+          type: string
+          description: Exact quote from the conversation
+
+        target:
+          type: string
+          description: Path to the file that was updated
+
+        section:
+          type: string
+          description: Section within the file where learning was added
+
+        status:
+          type: string
+          enum: [applied, rejected, pending, reverted]
+          description: Current status of the learning
+
+        session_id:
+          type: string
+          description: ID of the session where learning was detected
+
+        commit_hash:
+          type: string
+          description: Git commit hash if committed
+
+        category:
+          type: string
+          enum:
+            - Code Style
+            - Architecture
+            - Process
+            - Domain
+            - Tools
+            - Security
+            - New Skill
+          description: Category of the learning
+
+        reverted_at:
+          type: string
+          format: date-time
+          description: Timestamp if the learning was reverted
+
+        revert_reason:
+          type: string
+          description: Reason for reverting if applicable
+
+# Example entry:
+# entries:
+#   - timestamp: 2026-01-18T10:30:00Z
+#     signal: "Never use var in TypeScript"
+#     confidence: high
+#     source: explicit_correction
+#     source_quote: "never use var, always use const or let"
+#     target: ~/.claude/agents/universal/frontend-developer.md
+#     section: Style Guidelines
+#     status: applied
+#     session_id: abc123
+#     commit_hash: def456
+#     category: Code Style
