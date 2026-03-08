@@ -1,0 +1,17 @@
+{
+  "owner": "dgriffin831",
+  "slug": "input-guard",
+  "displayName": "Input Guard",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1770063234923,
+    "commit": "https://github.com/clawdbot/skills/commit/38a97e3ec3ffe081b075a643b26e362f411904ef"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1769975235802,
+      "commit": "https://github.com/clawdbot/skills/commit/02e7e89a6ab75f84eeeb26d8d6ba6f608b8193fa"
+    }
+  ]
+}

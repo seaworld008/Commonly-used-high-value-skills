@@ -8,6 +8,41 @@
 - 通过统一目录和文档结构，降低检索和使用成本。
 - 让常见任务可以快速匹配到可执行的方法与模板。
 
+## 多客户端兼容安装
+
+这个仓库现在提供两套消费入口，用来兼容不同 AI 客户端的技能发现方式：
+
+| 客户端 | 应使用的目录 | 原因 |
+|--------|---------------|------|
+| `Codex` / `Claude Code` / 其他按源码浏览的 coding assistants | `skills/` | 保留分类结构，便于检索、维护与编辑 |
+| `OpenClaw` | `openclaw-skills/` | OpenClaw 需要扁平的一层技能目录，不能直接识别 `skills/<分类>/<skill>` |
+
+### 给 AI 机器人看的规则
+
+仓库根目录新增了 [AGENTS.md](/Volumes/soft/13-openclaw%20安装部署/5-Commonly-used-high-value-skills/Commonly-used-high-value-skills/AGENTS.md)，明确约束如下：
+
+- `OpenClaw` 安装时必须使用 `openclaw-skills/`
+- `Codex`、`Claude Code` 等按原方式使用 `skills/`
+- 不要把 `OpenClaw` 指向仓库根目录或 `skills/`
+- `openclaw-skills/` 不手改，统一通过脚本生成
+
+### OpenClaw 推荐接入方式
+
+1. 克隆本仓库。
+2. 生成或刷新 OpenClaw 兼容目录：
+
+```bash
+python3 scripts/export_openclaw_skills.py
+```
+
+3. 在 OpenClaw 配置里把克隆仓库的 `openclaw-skills/` 加到 `skills.load.extraDirs`。
+4. 用下面命令确认是否已识别：
+
+```bash
+openclaw skills list
+openclaw skills check
+```
+
 ## 目录结构
 
 ```text
@@ -27,6 +62,7 @@ skills/
   product-design/                     # 产品与设计
   security-and-reliability/           # 安全治理与稳定性
   task-understanding-decomposition/   # 任务理解与拆解
+openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出目录
 ```
 
 ## 使用方式
@@ -197,6 +233,26 @@ skills/
 - `security-threat-model`：用于仓库级威胁建模与缓解建议输出。
 - `sentry`：用于读取并汇总 Sentry 线上异常与健康信息。
 
+## 建议补充的高热度技能（候选）
+
+以下技能是建议纳入下一批扩充的候选项，当前 **尚未** 在 `skills/` 目录中落地，因此 **不计入** 上方的 `14 类 / 118 技能` 统计。
+
+### 安全工具（建议优先补充）
+
+- `skill-vetter`（3.5K 下载）：建议归类到 `security-and-reliability`，用于在安装其他 Skills 之前做安全审查、风险提示与来源把关。
+- `link-checker`（2.1K 下载）：建议归类到 `security-and-reliability`，用于 URL 安全检测、钓鱼链接识别与基础可达性检查。
+
+### 办公协作与信息整合
+
+- `gog`（33.8K 下载）：建议归类到 `office-white-collar`，用于 Google Workspace 全家桶自动化，包括 Gmail、Calendar、Drive、Docs、Sheets、Contacts。
+- `summarize`（26.1K 下载）：建议归类到 `multimodal-media`，用于总结 URL、PDF、图片、音频和 YouTube 视频内容。
+- `weather`（21.1K 下载）：建议归类到 `operations-general`，用于无需 API Key 的天气查询。
+
+### Agent 与工程工作流
+
+- `self-improving-agent`（32K 下载 / 338 星）：建议归类到 `ai-agent-platform`，用于自我改进型代理流程、反思迭代与能力增强。
+- `github`（24.8K 下载）：建议归类到 `engineering-workflow-automation`，用于通过 GitHub CLI 管理 Issues、PRs 和 CI 运行；可与 `gh-address-comments`、`gh-fix-ci`、`yeet` 形成互补。
+
 ## 快速检索命令
 
 ```bash
@@ -210,6 +266,8 @@ rg -n "prompt|security|pdf|deploy" skills/**/SKILL.md
 ## 维护建议
 
 - 新增技能时保持 `skills/<分类>/<skill-name>/SKILL.md` 结构。
+- OpenClaw 兼容目录通过 `python3 scripts/export_openclaw_skills.py` 生成，不直接手工维护 `openclaw-skills/`。
+- 若将候选技能正式落地，请同步把对应条目从“建议补充的高热度技能（候选）”迁移到正式分类列表，并更新总数统计。
 - 每个技能应提供清晰触发条件、步骤、边界和验证方式。
 - 优先复用 `scripts/` 与 `references/`，减少重复实现。
 

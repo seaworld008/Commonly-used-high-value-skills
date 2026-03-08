@@ -1,0 +1,44 @@
+{
+  "_comment": "Copy the relevant sections to your ~/.claude/settings.json",
+
+  "hooks": {
+    "PreCompact": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "_comment": "Option 1: Just add reminder to run /reflect",
+            "type": "command",
+            "command": "uv run ~/.claude/hooks/precompact_reflect.py --remind"
+          }
+        ]
+      }
+    ],
+
+    "_PreCompact_auto": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "_comment": "Option 2: Auto-reflect if enabled via /reflect on",
+            "type": "command",
+            "command": "uv run ~/.claude/hooks/precompact_reflect.py --auto --verbose"
+          }
+        ]
+      }
+    ],
+
+    "_PreCompact_full": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "_comment": "Option 3: Full integration with handover + backup + reflect",
+            "type": "command",
+            "command": "claude handover && uv run ~/.claude/hooks/pre_compact.py --backup && uv run ~/.claude/hooks/precompact_reflect.py --auto"
+          }
+        ]
+      }
+    ]
+  }
+}
