@@ -1,6 +1,6 @@
 # Commonly Used High-Value Skills
 
-一个按场景组织的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、AI 平台与安全治理等常见高频任务。当前共 **14 个分类 / 118 个技能**。
+一个按场景组织的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、AI 平台与安全治理等常见高频任务。当前共 **14 个分类 / 129 个技能**。
 
 ## 仓库目标
 
@@ -71,7 +71,7 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 2. 打开对应技能的 `SKILL.md` 查看触发条件、操作流程和脚本说明。
 3. 若技能下含 `scripts/`、`references/`、`assets/`，优先复用现成内容。
 
-## 技能总览（按分类，14 类 / 118 技能）
+## 技能总览（按分类，14 类 / 129 技能）
 
 ### 1. 开发工程（developer-engineering，25）
 
@@ -126,7 +126,7 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `social-media-analyzer`：用于社媒数据分析与趋势洞察。
 - `twitter-reader`：用于读取、整理和提炼 Twitter 信息。
 
-### 4. 办公与文档（office-white-collar，17）
+### 4. 办公与文档（office-white-collar，18）
 
 - `capture-screen`：用于系统级截图与区域截图。
 - `doc`：用于 `.docx` 文档的读取、创建与编辑（偏工作流编排）。
@@ -135,6 +135,7 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `excel-automation`：用于 Excel 自动化处理与批量操作。
 - `financial-analyst`：用于财务分析、预测与报告输出。
 - `financial-data-collector`：用于财务数据抓取、清洗与校验。
+- `gog`：用于 Google Workspace（Gmail/Calendar/Drive/Docs）自动化办公。
 - `markdown-tools`：用于 Markdown 转换、合并和内容处理。
 - `meeting-minutes-taker`：用于会议纪要结构化整理。
 - `mermaid-tools`：用于 Mermaid 图表提取、生成与渲染。
@@ -152,7 +153,7 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `rag-architect`：用于 RAG 系统架构设计与评估。
 - `runbook-generator`：用于生成标准化运维 Runbook。
 
-### 6. 通用运营（operations-general，8）
+### 6. 通用运营（operations-general，9）
 
 - `brand-guidelines`：用于品牌规范制定与统一表达。
 - `docs-cleaner`：用于文档清洗、重构与降噪。
@@ -162,6 +163,7 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `slack-gif-creator`：用于制作 Slack 场景 GIF 素材。
 - `teams-channel-post-writer`：用于撰写 Teams 频道发布文案。
 - `theme-factory`：用于主题风格配置与视觉模板输出。
+- `weather`：用于免 API Key 的天气查询与出行场景支持。
 
 ### 7. 产品与设计（product-design，9）
 
@@ -175,32 +177,38 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `ui-design-system`：用于 UI 设计系统与 Design Token 规范。
 - `ux-researcher-designer`：用于用户研究与体验设计方法。
 
-### 8. 任务理解与拆解（task-understanding-decomposition，9）
+### 8. 任务理解与拆解（task-understanding-decomposition，11）
 
 - `agent-workflow-designer`：用于设计 Agent 协作流程与分工。
 - `brainstorming`：用于在实现前进行需求澄清与方案发散。
 - `deep-research`：用于深度研究、证据汇总与结论输出。
+- `find-skills`：用于自动检索并安装目标任务所需技能。
 - `prompt-optimizer`：用于优化提示词结构与效果。
 - `reflect-learn`：用于复盘总结并沉淀可复用经验。
 - `skill-creator`：用于新技能创建、迭代与评测。
 - `skill-reviewer`：用于技能质量评审与改进建议。
 - `skills-search`：用于快速检索并匹配可用技能。
+- `tavily-search`：用于联网实时检索与来源证据补充。
 - `writing-plans`：用于编写可执行的实施计划。
 
-### 9. AI 平台与 Agent 开发（ai-agent-platform，5）
+### 9. AI 平台与 Agent 开发（ai-agent-platform，7）
 
 - `chatgpt-apps`：用于构建、脚手架化和调试 ChatGPT Apps。
 - `develop-web-game`：用于 Web 游戏快速迭代开发与自动化验证。
 - `figma`：用于通过 Figma MCP 获取设计上下文与资源信息。
 - `figma-implement-design`：用于把 Figma 节点高保真转成可生产代码。
 - `openai-docs`：用于基于 OpenAI 官方文档进行能力检索与实现指导。
+- `proactive-agent`：用于提升 Agent 主动规划与持续协作能力。
+- `self-improving-agent`：用于记忆驱动的反思迭代与自我优化。
 
-### 10. 工程工作流自动化（engineering-workflow-automation，5）
+### 10. 工程工作流自动化（engineering-workflow-automation，7）
 
+- `agent-browser`：用于语义驱动的真实浏览器自动化操作。
 - `gh-address-comments`：用于处理 GitHub PR 的 review/issue 评论并闭环。
 - `gh-fix-ci`：用于诊断并修复 GitHub Actions CI 失败。
 - `jupyter-notebook`：用于创建和维护实验分析类 Notebook。
 - `playwright`：用于终端驱动的真实浏览器自动化测试与排查。
+- `github`：用于通过 GitHub CLI 管理 Issues、PR 与 CI 自动化协作。
 - `yeet`：用于一体化执行 stage/commit/push/PR 流程。
 
 ### 11. 项目管理与知识库集成（knowledge-and-pm-integrations，5）
@@ -218,40 +226,33 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `render-deploy`：用于在 Render 上生成和部署应用蓝图。
 - `vercel-deploy`：用于在 Vercel 上进行预览和生产部署。
 
-### 13. 多模态内容（multimodal-media，5）
+### 13. 多模态内容（multimodal-media，6）
 
 - `imagegen`：用于图像生成、编辑、抠图和变体产出。
 - `screenshot`：用于系统级截图采集（全屏/窗口/区域）。
 - `sora`：用于 Sora 视频生成、轮询、下载与管理。
 - `speech`：用于文本转语音旁白生成。
+- `summarize`：用于网页、文档与长文本内容摘要。
 - `transcribe`：用于音视频转写与可选说话人区分。
 
-### 14. 安全治理与稳定性（security-and-reliability，4）
+### 14. 安全治理与稳定性（security-and-reliability，6）
 
 - `security-best-practices`：用于按语言/框架执行安全最佳实践检查。
 - `security-ownership-map`：用于基于 Git 历史构建安全责任与 Bus Factor 图谱。
 - `security-threat-model`：用于仓库级威胁建模与缓解建议输出。
 - `sentry`：用于读取并汇总 Sentry 线上异常与健康信息。
+- `skill-vetter`：用于安装前技能安全审计与风险识别。
+- `link-checker`：用于检测 URL 安全性、可达性与重定向风险。
 
 ## 建议补充的高热度技能（候选）
 
-以下技能是建议纳入下一批扩充的候选项，当前 **尚未** 在 `skills/` 目录中落地，因此 **不计入** 上方的 `14 类 / 118 技能` 统计。
+当前候选池已基本清空（近期已落地 `gog`、`summarize`、`weather`、`self-improving-agent`、`skill-vetter`、`github`、`link-checker` 等）。
 
-### 安全工具（建议优先补充）
+如需继续扩充，建议下一批优先关注：
 
-- `skill-vetter`（3.5K 下载）：建议归类到 `security-and-reliability`，用于在安装其他 Skills 之前做安全审查、风险提示与来源把关。
-- `link-checker`（2.1K 下载）：建议归类到 `security-and-reliability`，用于 URL 安全检测、钓鱼链接识别与基础可达性检查。
-
-### 办公协作与信息整合
-
-- `gog`（33.8K 下载）：建议归类到 `office-white-collar`，用于 Google Workspace 全家桶自动化，包括 Gmail、Calendar、Drive、Docs、Sheets、Contacts。
-- `summarize`（26.1K 下载）：建议归类到 `multimodal-media`，用于总结 URL、PDF、图片、音频和 YouTube 视频内容。
-- `weather`（21.1K 下载）：建议归类到 `operations-general`，用于无需 API Key 的天气查询。
-
-### Agent 与工程工作流
-
-- `self-improving-agent`（32K 下载 / 338 星）：建议归类到 `ai-agent-platform`，用于自我改进型代理流程、反思迭代与能力增强。
-- `github`（24.8K 下载）：建议归类到 `engineering-workflow-automation`，用于通过 GitHub CLI 管理 Issues、PRs 和 CI 运行；可与 `gh-address-comments`、`gh-fix-ci`、`yeet` 形成互补。
+- 多数据源检索与事实核验类技能
+- 端到端工作流编排与可观测性技能
+- 跨文档/邮件/IM 的自动化协作技能
 
 ## 快速检索命令
 
@@ -270,6 +271,21 @@ rg -n "prompt|security|pdf|deploy" skills/**/SKILL.md
 - 若将候选技能正式落地，请同步把对应条目从“建议补充的高热度技能（候选）”迁移到正式分类列表，并更新总数统计。
 - 每个技能应提供清晰触发条件、步骤、边界和验证方式。
 - 优先复用 `scripts/` 与 `references/`，减少重复实现。
+- 版本新鲜度校验建议采用“离线快照 + 本地比对”，避免逐个技能联网探测触发风控：
+
+```bash
+# 1) 快速生成 snapshot 模板（最小示例）
+python3 scripts/skill_snapshot_template.py generate --output /tmp/clawhub_skills_snapshot.json
+
+# 2) 用本仓库当前技能一键生成 snapshot（推荐）
+python3 scripts/skill_snapshot_template.py generate --output /tmp/clawhub_skills_snapshot.json --from-local
+
+# 3) 校验 snapshot 结构是否合法
+python3 scripts/skill_snapshot_template.py validate --snapshot /tmp/clawhub_skills_snapshot.json
+
+# 4) 再做离线新鲜度比对
+python3 scripts/audit_skill_freshness.py --snapshot /tmp/clawhub_skills_snapshot.json
+```
 
 ---
 
