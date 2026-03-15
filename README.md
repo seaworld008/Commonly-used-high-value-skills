@@ -250,10 +250,7 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 
 - `link-checker`（2.1K 下载）：建议归类到 `security-and-reliability`，用于 URL 安全检测、钓鱼链接识别与基础可达性检查。
 
-### 办公协作与信息整合
-
-
-### Agent 与工程工作流
+### 工程工作流与协作（仍在候选）
 
 - `github`（24.8K 下载）：建议归类到 `engineering-workflow-automation`，用于通过 GitHub CLI 管理 Issues、PRs 和 CI 运行；可与 `gh-address-comments`、`gh-fix-ci`、`yeet` 形成互补。
 
