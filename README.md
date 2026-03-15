@@ -208,6 +208,7 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `gh-fix-ci`：用于诊断并修复 GitHub Actions CI 失败。
 - `jupyter-notebook`：用于创建和维护实验分析类 Notebook。
 - `playwright`：用于终端驱动的真实浏览器自动化测试与排查。
+- `github`：用于通过 GitHub CLI 管理 Issues、PR 与 CI 自动化协作。
 - `yeet`：用于一体化执行 stage/commit/push/PR 流程。
 
 ### 11. 项目管理与知识库集成（knowledge-and-pm-integrations，5）
@@ -246,7 +247,7 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 
 以下技能是建议纳入下一批扩充的候选项，当前 **尚未** 在 `skills/` 目录中落地，因此 **不计入** 上方的 `14 类 / 127 技能` 统计。
 
-### 安全工具（建议优先补充）
+如需继续扩充，建议下一批优先关注：
 
 - `link-checker`（2.1K 下载）：建议归类到 `security-and-reliability`，用于 URL 安全检测、钓鱼链接识别与基础可达性检查。
 
@@ -271,6 +272,21 @@ rg -n "prompt|security|pdf|deploy" skills/**/SKILL.md
 - 若将候选技能正式落地，请同步把对应条目从“建议补充的高热度技能（候选）”迁移到正式分类列表，并更新总数统计。
 - 每个技能应提供清晰触发条件、步骤、边界和验证方式。
 - 优先复用 `scripts/` 与 `references/`，减少重复实现。
+- 版本新鲜度校验建议采用“离线快照 + 本地比对”，避免逐个技能联网探测触发风控：
+
+```bash
+# 1) 快速生成 snapshot 模板（最小示例）
+python3 scripts/skill_snapshot_template.py generate --output /tmp/clawhub_skills_snapshot.json
+
+# 2) 用本仓库当前技能一键生成 snapshot（推荐）
+python3 scripts/skill_snapshot_template.py generate --output /tmp/clawhub_skills_snapshot.json --from-local
+
+# 3) 校验 snapshot 结构是否合法
+python3 scripts/skill_snapshot_template.py validate --snapshot /tmp/clawhub_skills_snapshot.json
+
+# 4) 再做离线新鲜度比对
+python3 scripts/audit_skill_freshness.py --snapshot /tmp/clawhub_skills_snapshot.json
+```
 
 ---
 
