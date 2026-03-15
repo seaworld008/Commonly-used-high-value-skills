@@ -1,6 +1,6 @@
 # Commonly Used High-Value Skills
 
-一个按场景组织的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、AI 平台与安全治理等常见高频任务。当前共 **14 个分类 / 129 个技能**。
+一个按场景组织的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、AI 平台与安全治理等常见高频任务。当前共 **14 个分类 / 127 个技能**。
 
 ## 仓库目标
 
@@ -71,7 +71,7 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 2. 打开对应技能的 `SKILL.md` 查看触发条件、操作流程和脚本说明。
 3. 若技能下含 `scripts/`、`references/`、`assets/`，优先复用现成内容。
 
-## 技能总览（按分类，14 类 / 129 技能）
+## 技能总览（按分类，14 类 / 127 技能）
 
 ### 1. 开发工程（developer-engineering，25）
 
@@ -201,7 +201,7 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `proactive-agent`：用于提升 Agent 主动规划与持续协作能力。
 - `self-improving-agent`：用于记忆驱动的反思迭代与自我优化。
 
-### 10. 工程工作流自动化（engineering-workflow-automation，7）
+### 10. 工程工作流自动化（engineering-workflow-automation，6）
 
 - `agent-browser`：用于语义驱动的真实浏览器自动化操作。
 - `gh-address-comments`：用于处理 GitHub PR 的 review/issue 评论并闭环。
@@ -235,24 +235,25 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `summarize`：用于网页、文档与长文本内容摘要。
 - `transcribe`：用于音视频转写与可选说话人区分。
 
-### 14. 安全治理与稳定性（security-and-reliability，6）
+### 14. 安全治理与稳定性（security-and-reliability，5）
 
 - `security-best-practices`：用于按语言/框架执行安全最佳实践检查。
 - `security-ownership-map`：用于基于 Git 历史构建安全责任与 Bus Factor 图谱。
 - `security-threat-model`：用于仓库级威胁建模与缓解建议输出。
 - `sentry`：用于读取并汇总 Sentry 线上异常与健康信息。
 - `skill-vetter`：用于安装前技能安全审计与风险识别。
-- `link-checker`：用于检测 URL 安全性、可达性与重定向风险。
 
 ## 建议补充的高热度技能（候选）
 
-当前候选池已基本清空（近期已落地 `gog`、`summarize`、`weather`、`self-improving-agent`、`skill-vetter`、`github`、`link-checker` 等）。
+以下技能是建议纳入下一批扩充的候选项，当前 **尚未** 在 `skills/` 目录中落地，因此 **不计入** 上方的 `14 类 / 127 技能` 统计。
 
 如需继续扩充，建议下一批优先关注：
 
-- 多数据源检索与事实核验类技能
-- 端到端工作流编排与可观测性技能
-- 跨文档/邮件/IM 的自动化协作技能
+- `link-checker`（2.1K 下载）：建议归类到 `security-and-reliability`，用于 URL 安全检测、钓鱼链接识别与基础可达性检查。
+
+### 工程工作流与协作（仍在候选）
+
+- `github`（24.8K 下载）：建议归类到 `engineering-workflow-automation`，用于通过 GitHub CLI 管理 Issues、PRs 和 CI 运行；可与 `gh-address-comments`、`gh-fix-ci`、`yeet` 形成互补。
 
 ## 快速检索命令
 
