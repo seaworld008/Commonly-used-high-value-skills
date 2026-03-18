@@ -43,6 +43,12 @@ python3 scripts/export_openclaw_skills.py
 
 3. 按你的 AI 工具把 `skills/` 或 `openclaw-skills/` 配进去，开始使用。
 
+如果你修改了仓库里的源码技能，推荐统一刷新生成视图：
+
+```bash
+python3 scripts/refresh_repo_views.py
+```
+
 ## 分类快速跳转
 
 | 分类 | 说明 | 文档跳转 | 目录 |
@@ -88,7 +94,7 @@ python3 scripts/export_openclaw_skills.py
 
 - 阅读 [CONTRIBUTING.md](./CONTRIBUTING.md)
 - 按 `skills/<分类>/<skill-name>/SKILL.md` 结构新增技能
-- 修改后运行 `python3 scripts/export_openclaw_skills.py`
+- 修改后运行 `python3 scripts/refresh_repo_views.py`
 - 提交 PR 时附上验证命令和适用场景
 
 ## 精选分类

@@ -20,10 +20,11 @@ This repository supports multiple AI clients, but they must not install skills f
 - Do not point OpenClaw at the repository root.
 - Do not point OpenClaw at `skills/`.
 - Do not manually edit `openclaw-skills/`; regenerate it from source.
+- Do not manually edit generated category `README.md` files under `skills/*/README.md`; regenerate them from source.
 - When source skills change, refresh the OpenClaw export with:
 
 ```bash
-python3 scripts/export_openclaw_skills.py
+python3 scripts/refresh_repo_views.py
 ```
 
 ## Recommended Usage

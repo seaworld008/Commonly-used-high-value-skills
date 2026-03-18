@@ -35,11 +35,13 @@ skills/<category>/<skill-name>/
 
 - `skills/` is the source-of-truth tree
 - `openclaw-skills/` is generated output
+- `skills/*/README.md` is generated output
 - do not hand-edit `openclaw-skills/`
-- refresh it with:
+- do not hand-edit generated category README files
+- refresh generated views with:
 
 ```bash
-python3 scripts/export_openclaw_skills.py
+python3 scripts/refresh_repo_views.py
 ```
 
 ## Before Opening a PR
@@ -49,7 +51,7 @@ Please verify:
 - the skill lives in the correct category
 - `SKILL.md` includes valid frontmatter
 - any new scripts or helpers are documented
-- `openclaw-skills/` has been refreshed if source skills changed
+- generated views have been refreshed if source skills changed
 - README counts and category descriptions stay accurate when relevant
 
 ## Recommended Verification
@@ -59,7 +61,9 @@ Examples:
 ```bash
 python -m unittest tests.test_export_openclaw_skills -v
 python -m unittest tests.test_finance_investing_skills -v
-python3 scripts/export_openclaw_skills.py
+python -m unittest tests.test_generate_category_readmes -v
+python -m unittest tests.test_refresh_repo_views -v
+python3 scripts/refresh_repo_views.py
 ```
 
 If your change adds a new script, include the exact command you used to test it.
@@ -80,4 +84,3 @@ A strong PR should clearly explain:
 - add verification tests for a script-backed skill
 - improve bilingual README and onboarding docs
 - add a high-signal skill in an underdeveloped category
-

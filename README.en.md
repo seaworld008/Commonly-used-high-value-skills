@@ -43,6 +43,12 @@ python3 scripts/export_openclaw_skills.py
 
 3. Point your AI tool to either `skills/` or `openclaw-skills/`, depending on the client.
 
+If you change source skills in the repository, refresh generated views with:
+
+```bash
+python3 scripts/refresh_repo_views.py
+```
+
 ## Quick Category Jump Table
 
 | Category | What It Covers | Jump | Folder |
@@ -87,7 +93,7 @@ If you want to help grow this repository:
 
 - read [CONTRIBUTING.md](./CONTRIBUTING.md)
 - add or improve skills under `skills/`
-- refresh `openclaw-skills/` with `python3 scripts/export_openclaw_skills.py`
+- refresh generated views with `python3 scripts/refresh_repo_views.py`
 - include verification steps in your PR
 
 ## If This Repo Helps You
