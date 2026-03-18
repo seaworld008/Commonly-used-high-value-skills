@@ -2,74 +2,78 @@
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1280" y2="640" gradientUnits="userSpaceOnUse">
       <stop stop-color="#0B1220"/>
-      <stop offset="0.55" stop-color="#10203B"/>
-      <stop offset="1" stop-color="#0F5132"/>
+      <stop offset="0.58" stop-color="#13233F"/>
+      <stop offset="1" stop-color="#123B31"/>
     </linearGradient>
-    <linearGradient id="card" x1="140" y1="120" x2="1120" y2="520" gradientUnits="userSpaceOnUse">
+    <linearGradient id="glass" x1="84" y1="76" x2="1196" y2="564" gradientUnits="userSpaceOnUse">
       <stop stop-color="white" stop-opacity="0.18"/>
-      <stop offset="1" stop-color="white" stop-opacity="0.06"/>
+      <stop offset="1" stop-color="white" stop-opacity="0.05"/>
     </linearGradient>
   </defs>
 
   <rect width="1280" height="640" rx="36" fill="url(#bg)"/>
-  <circle cx="1080" cy="120" r="160" fill="#60A5FA" fill-opacity="0.12"/>
-  <circle cx="160" cy="530" r="180" fill="#34D399" fill-opacity="0.10"/>
-  <circle cx="1180" cy="520" r="120" fill="#F59E0B" fill-opacity="0.10"/>
+  <circle cx="1110" cy="110" r="170" fill="#38BDF8" fill-opacity="0.10"/>
+  <circle cx="104" cy="540" r="176" fill="#34D399" fill-opacity="0.10"/>
+  <circle cx="1180" cy="540" r="138" fill="#EAB308" fill-opacity="0.10"/>
 
-  <rect x="120" y="92" width="1040" height="456" rx="28" fill="url(#card)" stroke="white" stroke-opacity="0.14"/>
+  <rect x="84" y="76" width="1112" height="488" rx="28" fill="url(#glass)" stroke="white" stroke-opacity="0.14"/>
 
-  <text x="168" y="182" fill="#C7D2FE" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">
+  <text x="136" y="152" fill="#C7D2FE" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">
     High-Value Skills for AI Developers
   </text>
 
-  <text x="168" y="258" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="54" font-weight="800">
+  <text x="136" y="236" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="60" font-weight="800">
     Commonly Used
   </text>
-  <text x="168" y="324" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="54" font-weight="800">
+  <text x="136" y="310" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="60" font-weight="800">
     High-Value Skills
   </text>
 
-  <text x="168" y="388" fill="#D1FAE5" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="600">
-    Codex · Claude Code · OpenClaw
+  <text x="136" y="378" fill="#D1FAE5" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="600">
+    A practical skills library for Codex, Claude Code, OpenClaw,
   </text>
-  <text x="168" y="420" fill="#D1FAE5" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="600">
-    Agents · Prompts · Skills · Automation
+  <text x="136" y="414" fill="#D1FAE5" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="600">
+    prompts, agents, and automation workflows.
   </text>
 
-  <rect x="168" y="466" width="236" height="52" rx="14" fill="#2563EB"/>
-  <text x="196" y="500" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">
+  <rect x="136" y="460" width="212" height="52" rx="14" fill="#2563EB"/>
+  <text x="165" y="494" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">
     Reusable Skills
   </text>
 
-  <rect x="420" y="466" width="246" height="52" rx="14" fill="#7C3AED"/>
-  <text x="448" y="500" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">
+  <rect x="368" y="460" width="272" height="52" rx="14" fill="#7C3AED"/>
+  <text x="398" y="494" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">
     Real-World Workflows
   </text>
 
-  <rect x="852" y="154" width="234" height="94" rx="20" fill="white" fill-opacity="0.09" stroke="white" stroke-opacity="0.12"/>
-  <text x="878" y="178" fill="#93C5FD" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700" dominant-baseline="hanging">
+  <text x="804" y="158" fill="#E2E8F0" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700">
+    FEATURED AREAS
+  </text>
+
+  <rect x="804" y="188" width="324" height="58" rx="18" fill="white" fill-opacity="0.08" stroke="white" stroke-opacity="0.12"/>
+  <text x="834" y="224" fill="#93C5FD" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">
     Developer Engineering
   </text>
-  <text x="878" y="210" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="16" dominant-baseline="hanging">
-    Testing · Review · MCP · Perf
+
+  <rect x="804" y="264" width="324" height="58" rx="18" fill="white" fill-opacity="0.08" stroke="white" stroke-opacity="0.12"/>
+  <text x="834" y="300" fill="#FDE68A" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">
+    Workflow Automation
   </text>
 
-  <rect x="852" y="270" width="234" height="94" rx="20" fill="white" fill-opacity="0.09" stroke="white" stroke-opacity="0.12"/>
-  <text x="878" y="294" fill="#FDE68A" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700" dominant-baseline="hanging">
+  <rect x="804" y="340" width="324" height="58" rx="18" fill="white" fill-opacity="0.08" stroke="white" stroke-opacity="0.12"/>
+  <text x="834" y="376" fill="#86EFAC" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">
     Finance Investing
   </text>
-  <text x="878" y="326" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="16" dominant-baseline="hanging">
-    Data · Risk · Backtest
-  </text>
 
-  <rect x="806" y="392" width="280" height="120" rx="20" fill="white" fill-opacity="0.09" stroke="white" stroke-opacity="0.12"/>
-  <text x="832" y="416" fill="#86EFAC" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700" dominant-baseline="hanging">
+  <rect x="804" y="416" width="324" height="58" rx="18" fill="white" fill-opacity="0.08" stroke="white" stroke-opacity="0.12"/>
+  <text x="834" y="452" fill="#F9FAFB" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">
     Multi-Client Compatible
   </text>
-  <text x="832" y="448" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="16" dominant-baseline="hanging">
+
+  <text x="804" y="520" fill="#CBD5E1" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="600">
     Source tree for coding assistants
   </text>
-  <text x="832" y="474" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="16" dominant-baseline="hanging">
-    Flat export for OpenClaw
+  <text x="804" y="548" fill="#CBD5E1" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="600">
+    Flat export support for OpenClaw
   </text>
 </svg>
