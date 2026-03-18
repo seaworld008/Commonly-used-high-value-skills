@@ -1,6 +1,65 @@
 # Commonly Used High-Value Skills
 
-一个按场景组织的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理等常见高频任务。当前共 **15 个分类 / 139 个技能**。
+[![简体中文](https://img.shields.io/badge/README-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1677ff)](./README.md)
+[![English](https://img.shields.io/badge/README-English-111111)](./README.en.md)
+[![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b894)](./openclaw-skills/README.md)
+[![Skills](https://img.shields.io/badge/Skills-139-7c3aed)](./skills/)
+
+面向中文 AI 开发者的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理等高频任务场景。当前共 **15 个分类 / 139 个技能**。
+
+## 为什么值得收藏
+
+- 一次收齐高频可复用 Skills，减少到处找 prompt、脚本和工作流的时间。
+- 同时兼容 `Codex`、`Claude Code`、`OpenClaw` 等多种 AI 工具使用方式。
+- 按场景分类组织，既适合日常检索，也适合二次扩展和团队沉淀。
+- 很多技能不只是文档，还带 `scripts/`、`references/`、`assets/`，可以直接复用。
+
+## 适合谁
+
+- 中文 AI 开发者和自动化工作流使用者
+- 想把常见任务沉淀为 Skills 的个人或团队
+- 正在使用 `Codex`、`Claude Code`、`OpenClaw` 等工具的工程师
+- 想搭建一个自己的高价值技能库、提示库、Agent 工作流库的人
+
+## 快速开始
+
+### 我应该用哪个目录
+
+| 使用场景 | 应使用的目录 |
+|----------|---------------|
+| `Codex` / `Claude Code` / 按源码浏览的 AI coding assistants | `skills/` |
+| `OpenClaw` | `openclaw-skills/` |
+
+### 三步上手
+
+1. 克隆仓库。
+2. 如果你使用 `OpenClaw`，先运行：
+
+```bash
+python3 scripts/export_openclaw_skills.py
+```
+
+3. 按你的 AI 工具把 `skills/` 或 `openclaw-skills/` 配进去，开始使用。
+
+## 精选分类
+
+- `developer-engineering`：开发工程、测试、代码审查、性能与架构
+- `engineering-workflow-automation`：GitHub、CI、浏览器自动化、Notebook
+- `finance-investing`：金融分析、数据采集、组合风险、回测、投研写作
+- `knowledge-and-pm-integrations`：Notion、Linear 等知识与项目流转
+- `multimodal-media`：图像、语音、视频、截图、转写
+- `security-and-reliability`：Sentry、安全检查、威胁建模、所有权分析
+
+## 仓库定位
+
+如果你想找的是：
+
+- 可复用的 AI Skills 模板
+- 面向真实工作的 Agent 工作流
+- 多客户端兼容的 Skills 组织方式
+- 一个可以持续扩展成“明星仓库”的 Skills 基础设施
+
+这个仓库就是为这类目标准备的。
 
 ## 仓库目标
 
