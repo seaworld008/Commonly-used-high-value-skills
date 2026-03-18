@@ -43,6 +43,26 @@ python3 scripts/export_openclaw_skills.py
 
 3. Point your AI tool to either `skills/` or `openclaw-skills/`, depending on the client.
 
+## Quick Category Jump Table
+
+| Category | What It Covers | Jump |
+|----------|----------------|------|
+| Developer Engineering | Testing, review, performance, architecture, databases | [Jump](./README.md#cat-developer-engineering) |
+| DevOps / SRE | Releases, observability, incidents, CI/CD, secrets | [Jump](./README.md#cat-devops-sre) |
+| Growth Operations | Xiaohongshu, social media, content, attribution, competitor work | [Jump](./README.md#cat-growth-operations) |
+| Finance Investing | Financial data, valuation, risk, backtesting, research writing | [Jump](./README.md#cat-finance-investing) |
+| Office and Documents | Word, Excel, PPT, PDF, meeting output | [Jump](./README.md#cat-office-white-collar) |
+| Memory and Safety | Input guard, RAG, runbooks | [Jump](./README.md#cat-memory-safety) |
+| General Operations | Brand, fact-checking, internal comms, themes, weather | [Jump](./README.md#cat-operations-general) |
+| Product and Design | Product analysis, design systems, UX, SaaS scaffolding | [Jump](./README.md#cat-product-design) |
+| Task Understanding | Brainstorming, research, plans, skill search | [Jump](./README.md#cat-task-understanding) |
+| AI Platform and Agents | ChatGPT Apps, Figma, OpenAI docs, proactive agents | [Jump](./README.md#cat-ai-agent-platform) |
+| Workflow Automation | Browser automation, GitHub, notebooks, Playwright | [Jump](./README.md#cat-workflow-automation) |
+| Knowledge and PM Integrations | Notion, Linear, spec-to-implementation | [Jump](./README.md#cat-knowledge-pm) |
+| Deployment Platforms | Cloudflare, Netlify, Render, Vercel | [Jump](./README.md#cat-deployment-platforms) |
+| Multimodal Media | Images, speech, video, screenshots, summaries, transcription | [Jump](./README.md#cat-multimodal-media) |
+| Security and Reliability | Sentry, best practices, threat modeling, ownership | [Jump](./README.md#cat-security-reliability) |
+
 ## Recommended Starting Categories
 
 - `developer-engineering`

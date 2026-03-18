@@ -43,6 +43,26 @@ python3 scripts/export_openclaw_skills.py
 
 3. 按你的 AI 工具把 `skills/` 或 `openclaw-skills/` 配进去，开始使用。
 
+## 分类快速跳转
+
+| 分类 | 说明 | 跳转 |
+|------|------|------|
+| 开发工程 | 开发、测试、性能、代码审查、数据库与架构 | [跳转](#cat-developer-engineering) |
+| DevOps / SRE | 发布、监控、故障响应、CI/CD、环境管理 | [跳转](#cat-devops-sre) |
+| 增长运营 | 小红书、社媒、内容、归因、竞品分析 | [跳转](#cat-growth-operations) |
+| 金融投资 | 金融数据、估值、风控、回测、投研写作 | [跳转](#cat-finance-investing) |
+| 办公与文档 | Word、Excel、PPT、PDF、会议纪要 | [跳转](#cat-office-white-collar) |
+| 记忆与安全 | 输入防护、RAG、Runbook | [跳转](#cat-memory-safety) |
+| 通用运营 | 品牌、事实核查、内沟通、主题与天气 | [跳转](#cat-operations-general) |
+| 产品与设计 | 产品分析、设计系统、UX 研究、SaaS 脚手架 | [跳转](#cat-product-design) |
+| 任务理解与拆解 | brainstorming、research、plans、skills 搜索 | [跳转](#cat-task-understanding) |
+| AI 平台与 Agent 开发 | ChatGPT Apps、Figma、OpenAI Docs、自主 Agent | [跳转](#cat-ai-agent-platform) |
+| 工程工作流自动化 | 浏览器自动化、GitHub、Notebook、Playwright | [跳转](#cat-workflow-automation) |
+| 项目管理与知识库集成 | Notion、Linear、规格到实施 | [跳转](#cat-knowledge-pm) |
+| 部署平台 | Cloudflare、Netlify、Render、Vercel | [跳转](#cat-deployment-platforms) |
+| 多模态内容 | 图像、语音、视频、截图、摘要、转写 | [跳转](#cat-multimodal-media) |
+| 安全治理与稳定性 | Sentry、安全最佳实践、威胁建模 | [跳转](#cat-security-reliability) |
+
 ## 从哪里开始最容易上手
 
 如果你是第一次来到这个仓库，推荐从下面几类开始：
@@ -169,6 +189,7 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 
 ## 技能总览（按分类，15 类 / 139 技能）
 
+<a id="cat-developer-engineering"></a>
 ### 1. 开发工程（developer-engineering，25）
 
 - `agent-designer`：用于设计和评估多智能体系统架构。
@@ -197,6 +218,7 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `web-artifacts-builder`：用于构建和管理前端制品。
 - `webapp-testing`：用于 Web 应用自动化测试与回归验证。
 
+<a id="cat-devops-sre"></a>
 ### 2. DevOps / SRE（devops-sre，9）
 
 - `changelog-generator`：用于自动生成版本变更日志。
@@ -209,6 +231,7 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `release-manager`：用于发布节奏、版本流程与变更管控。
 - `senior-devops`：用于综合 DevOps 工程实践与体系落地。
 
+<a id="cat-growth-operations"></a>
 ### 3. 增长运营（growth-operations-xiaohongshu，10）
 
 - `algorithmic-art`：用于生成算法风格视觉内容与创意素材。
@@ -222,6 +245,7 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `social-media-analyzer`：用于社媒数据分析与趋势洞察。
 - `twitter-reader`：用于读取、整理和提炼 Twitter 信息。
 
+<a id="cat-finance-investing"></a>
 ### 4. 金融投资（finance-investing，12）
 
 - `comps-valuation-analyst`：用于可比公司估值、倍数区间分析与相对估值判断。
@@ -237,6 +261,7 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `sec-filing-reviewer`：用于审阅 SEC 披露文件并提取核心风险线索。
 - `stock-screener-builder`：用于构建选股条件、筛选股票池与生成研究 shortlist。
 
+<a id="cat-office-white-collar"></a>
 ### 5. 办公与文档（office-white-collar，16）
 
 - `capture-screen`：用于系统级截图与区域截图。
@@ -256,12 +281,14 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `transcript-fixer`：用于转录文本纠错、对比与修订。
 - `xlsx`：用于电子表格分析、公式与格式处理。
 
+<a id="cat-memory-safety"></a>
 ### 6. 记忆与安全（openclaw-memory-and-safety，3）
 
 - `input-guard`：用于检测外部文本中的提示注入风险。
 - `rag-architect`：用于 RAG 系统架构设计与评估。
 - `runbook-generator`：用于生成标准化运维 Runbook。
 
+<a id="cat-operations-general"></a>
 ### 7. 通用运营（operations-general，9）
 
 - `brand-guidelines`：用于品牌规范制定与统一表达。
@@ -274,6 +301,7 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `theme-factory`：用于主题风格配置与视觉模板输出。
 - `weather`：用于免 API Key 的天气查询与出行场景支持。
 
+<a id="cat-product-design"></a>
 ### 8. 产品与设计（product-design，9）
 
 - `agile-product-owner`：用于敏捷需求管理与迭代推进。
@@ -286,6 +314,7 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `ui-design-system`：用于 UI 设计系统与 Design Token 规范。
 - `ux-researcher-designer`：用于用户研究与体验设计方法。
 
+<a id="cat-task-understanding"></a>
 ### 9. 任务理解与拆解（task-understanding-decomposition，11）
 
 - `agent-workflow-designer`：用于设计 Agent 协作流程与分工。
@@ -300,6 +329,7 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `tavily-search`：用于联网实时检索与来源证据补充。
 - `writing-plans`：用于编写可执行的实施计划。
 
+<a id="cat-ai-agent-platform"></a>
 ### 10. AI 平台与 Agent 开发（ai-agent-platform，7）
 
 - `chatgpt-apps`：用于构建、脚手架化和调试 ChatGPT Apps。
@@ -310,6 +340,7 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `proactive-agent`：用于提升 Agent 主动规划与持续协作能力。
 - `self-improving-agent`：用于记忆驱动的反思迭代与自我优化。
 
+<a id="cat-workflow-automation"></a>
 ### 11. 工程工作流自动化（engineering-workflow-automation，7）
 
 - `agent-browser`：用于语义驱动的真实浏览器自动化操作。
@@ -320,6 +351,7 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `github`：用于通过 GitHub CLI 管理 Issues、PR 与 CI 自动化协作。
 - `yeet`：用于一体化执行 stage/commit/push/PR 流程。
 
+<a id="cat-knowledge-pm"></a>
 ### 12. 项目管理与知识库集成（knowledge-and-pm-integrations，5）
 
 - `linear`：用于 Linear 任务与项目流程管理。
@@ -328,6 +360,7 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `notion-research-documentation`：用于跨 Notion 页面研究并汇总文档。
 - `notion-spec-to-implementation`：用于把 Notion 规格转为实施计划与任务。
 
+<a id="cat-deployment-platforms"></a>
 ### 13. 部署平台（deployment-platforms，4）
 
 - `cloudflare-deploy`：用于部署到 Cloudflare Workers/Pages 等平台。
@@ -335,6 +368,7 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `render-deploy`：用于在 Render 上生成和部署应用蓝图。
 - `vercel-deploy`：用于在 Vercel 上进行预览和生产部署。
 
+<a id="cat-multimodal-media"></a>
 ### 14. 多模态内容（multimodal-media，6）
 
 - `imagegen`：用于图像生成、编辑、抠图和变体产出。
@@ -344,6 +378,7 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `summarize`：用于网页、文档与长文本内容摘要。
 - `transcribe`：用于音视频转写与可选说话人区分。
 
+<a id="cat-security-reliability"></a>
 ### 15. 安全治理与稳定性（security-and-reliability，6）
 
 - `link-checker`：用于 URL 安全检测、钓鱼链接识别与基础可达性检查。
