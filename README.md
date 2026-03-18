@@ -45,23 +45,23 @@ python3 scripts/export_openclaw_skills.py
 
 ## 分类快速跳转
 
-| 分类 | 说明 | 跳转 |
-|------|------|------|
-| 开发工程 | 开发、测试、性能、代码审查、数据库与架构 | [跳转](#cat-developer-engineering) |
-| DevOps / SRE | 发布、监控、故障响应、CI/CD、环境管理 | [跳转](#cat-devops-sre) |
-| 增长运营 | 小红书、社媒、内容、归因、竞品分析 | [跳转](#cat-growth-operations) |
-| 金融投资 | 金融数据、估值、风控、回测、投研写作 | [跳转](#cat-finance-investing) |
-| 办公与文档 | Word、Excel、PPT、PDF、会议纪要 | [跳转](#cat-office-white-collar) |
-| 记忆与安全 | 输入防护、RAG、Runbook | [跳转](#cat-memory-safety) |
-| 通用运营 | 品牌、事实核查、内沟通、主题与天气 | [跳转](#cat-operations-general) |
-| 产品与设计 | 产品分析、设计系统、UX 研究、SaaS 脚手架 | [跳转](#cat-product-design) |
-| 任务理解与拆解 | brainstorming、research、plans、skills 搜索 | [跳转](#cat-task-understanding) |
-| AI 平台与 Agent 开发 | ChatGPT Apps、Figma、OpenAI Docs、自主 Agent | [跳转](#cat-ai-agent-platform) |
-| 工程工作流自动化 | 浏览器自动化、GitHub、Notebook、Playwright | [跳转](#cat-workflow-automation) |
-| 项目管理与知识库集成 | Notion、Linear、规格到实施 | [跳转](#cat-knowledge-pm) |
-| 部署平台 | Cloudflare、Netlify、Render、Vercel | [跳转](#cat-deployment-platforms) |
-| 多模态内容 | 图像、语音、视频、截图、摘要、转写 | [跳转](#cat-multimodal-media) |
-| 安全治理与稳定性 | Sentry、安全最佳实践、威胁建模 | [跳转](#cat-security-reliability) |
+| 分类 | 说明 | 文档跳转 | 目录 |
+|------|------|----------|------|
+| 开发工程 | 开发、测试、性能、代码审查、数据库与架构 | [跳转](#cat-developer-engineering) | [目录](./skills/developer-engineering/) |
+| DevOps / SRE | 发布、监控、故障响应、CI/CD、环境管理 | [跳转](#cat-devops-sre) | [目录](./skills/devops-sre/) |
+| 增长运营 | 小红书、社媒、内容、归因、竞品分析 | [跳转](#cat-growth-operations) | [目录](./skills/growth-operations-xiaohongshu/) |
+| 金融投资 | 金融数据、估值、风控、回测、投研写作 | [跳转](#cat-finance-investing) | [目录](./skills/finance-investing/) |
+| 办公与文档 | Word、Excel、PPT、PDF、会议纪要 | [跳转](#cat-office-white-collar) | [目录](./skills/office-white-collar/) |
+| 记忆与安全 | 输入防护、RAG、Runbook | [跳转](#cat-memory-safety) | [目录](./skills/openclaw-memory-and-safety/) |
+| 通用运营 | 品牌、事实核查、内沟通、主题与天气 | [跳转](#cat-operations-general) | [目录](./skills/operations-general/) |
+| 产品与设计 | 产品分析、设计系统、UX 研究、SaaS 脚手架 | [跳转](#cat-product-design) | [目录](./skills/product-design/) |
+| 任务理解与拆解 | brainstorming、research、plans、skills 搜索 | [跳转](#cat-task-understanding) | [目录](./skills/task-understanding-decomposition/) |
+| AI 平台与 Agent 开发 | ChatGPT Apps、Figma、OpenAI Docs、自主 Agent | [跳转](#cat-ai-agent-platform) | [目录](./skills/ai-agent-platform/) |
+| 工程工作流自动化 | 浏览器自动化、GitHub、Notebook、Playwright | [跳转](#cat-workflow-automation) | [目录](./skills/engineering-workflow-automation/) |
+| 项目管理与知识库集成 | Notion、Linear、规格到实施 | [跳转](#cat-knowledge-pm) | [目录](./skills/knowledge-and-pm-integrations/) |
+| 部署平台 | Cloudflare、Netlify、Render、Vercel | [跳转](#cat-deployment-platforms) | [目录](./skills/deployment-platforms/) |
+| 多模态内容 | 图像、语音、视频、截图、摘要、转写 | [跳转](#cat-multimodal-media) | [目录](./skills/multimodal-media/) |
+| 安全治理与稳定性 | Sentry、安全最佳实践、威胁建模 | [跳转](#cat-security-reliability) | [目录](./skills/security-and-reliability/) |
 
 ## 从哪里开始最容易上手
 
