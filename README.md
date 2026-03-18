@@ -1,5 +1,7 @@
 # Commonly Used High-Value Skills
 
+![Repository Banner](./.github/assets/repo-banner.svg)
+
 [![简体中文](https://img.shields.io/badge/README-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1677ff)](./README.md)
 [![English](https://img.shields.io/badge/README-English-111111)](./README.en.md)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b894)](./openclaw-skills/README.md)
@@ -41,6 +43,34 @@ python3 scripts/export_openclaw_skills.py
 
 3. 按你的 AI 工具把 `skills/` 或 `openclaw-skills/` 配进去，开始使用。
 
+## 从哪里开始最容易上手
+
+如果你是第一次来到这个仓库，推荐从下面几类开始：
+
+- 开发提效：`developer-engineering`
+- 工作流自动化：`engineering-workflow-automation`
+- 金融投研和分析：`finance-investing`
+- 知识库与项目流转：`knowledge-and-pm-integrations`
+- 多模态生产力：`multimodal-media`
+
+你也可以优先看这些代表性技能：
+
+- `codebase-onboarding`
+- `gh-fix-ci`
+- `financial-data-collector`
+- `portfolio-risk-manager`
+- `notion-spec-to-implementation`
+- `transcribe`
+
+## 如何参与共建
+
+如果你希望把这个仓库一起做成更强的公共 Skills 基础设施：
+
+- 阅读 [CONTRIBUTING.md](./CONTRIBUTING.md)
+- 按 `skills/<分类>/<skill-name>/SKILL.md` 结构新增技能
+- 修改后运行 `python3 scripts/export_openclaw_skills.py`
+- 提交 PR 时附上验证命令和适用场景
+
 ## 精选分类
 
 - `developer-engineering`：开发工程、测试、代码审查、性能与架构
@@ -60,6 +90,12 @@ python3 scripts/export_openclaw_skills.py
 - 一个可以持续扩展成“明星仓库”的 Skills 基础设施
 
 这个仓库就是为这类目标准备的。
+
+## 如果这个仓库对你有帮助
+
+- 欢迎点一个 Star，让更多 AI 开发者更容易发现它
+- 欢迎提 PR，把你自己的高价值技能沉淀进来
+- 欢迎分享给使用 `Codex`、`Claude Code`、`OpenClaw` 的朋友或团队
 
 ## 仓库目标
 

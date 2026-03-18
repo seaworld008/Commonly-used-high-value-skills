@@ -1,5 +1,7 @@
 # Commonly Used High-Value Skills
 
+![Repository Banner](./.github/assets/repo-banner.svg)
+
 [![简体中文](https://img.shields.io/badge/README-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1677ff)](./README.md)
 [![English](https://img.shields.io/badge/README-English-111111)](./README.en.md)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b894)](./openclaw-skills/README.md)
@@ -50,9 +52,32 @@ python3 scripts/export_openclaw_skills.py
 - `multimodal-media`
 - `security-and-reliability`
 
+## Representative Skills
+
+- `codebase-onboarding`
+- `gh-fix-ci`
+- `financial-data-collector`
+- `portfolio-risk-manager`
+- `notion-spec-to-implementation`
+- `transcribe`
+
+## Contributing
+
+If you want to help grow this repository:
+
+- read [CONTRIBUTING.md](./CONTRIBUTING.md)
+- add or improve skills under `skills/`
+- refresh `openclaw-skills/` with `python3 scripts/export_openclaw_skills.py`
+- include verification steps in your PR
+
+## If This Repo Helps You
+
+- give it a Star
+- share it with AI developers and agent workflow builders
+- contribute skills that are truly reusable
+
 ## Chinese Main README
 
 The full primary documentation is in Chinese:
 
 - [Open Chinese README](./README.md)
-
