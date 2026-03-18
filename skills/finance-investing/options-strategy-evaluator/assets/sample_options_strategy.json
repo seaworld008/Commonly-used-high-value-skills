@@ -1,0 +1,13 @@
+{
+  "strategy_name": "Bull Call Spread",
+  "underlying": "ACME",
+  "price_checkpoints": [35, 40, 45, 50, 55],
+  "risk_notes": [
+    "Implied volatility crush can hurt mark-to-market before expiry.",
+    "Liquidity should be checked at both strikes."
+  ],
+  "legs": [
+    {"type": "call", "side": "long", "strike": 40, "premium": 4.2, "quantity": 1},
+    {"type": "call", "side": "short", "strike": 50, "premium": 1.3, "quantity": 1}
+  ]
+}

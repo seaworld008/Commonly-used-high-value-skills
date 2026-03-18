@@ -1,0 +1,9 @@
+{
+  "as_of": "2026-03-18",
+  "events": [
+    {"company": "ACME", "type": "earnings", "date": "2026-03-24", "importance": 5},
+    {"company": "BETA", "type": "product_launch", "date": "2026-03-20", "importance": 3},
+    {"company": "GAMMA", "type": "buyback_update", "date": "2026-04-02", "importance": 4},
+    {"company": "DELTA", "type": "m&a_vote", "date": "2026-03-27", "importance": 5}
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "subject_company": {
+    "ticker": "ACME",
+    "current_price": 42.5,
+    "ebitda": 620.0,
+    "eps": 2.35,
+    "revenue": 4800.0,
+    "net_debt": 900.0,
+    "shares_outstanding": 250.0
+  },
+  "peers": [
+    {"ticker": "PEER1", "ev_ebitda": 11.5, "pe_ratio": 21.0, "ev_sales": 2.2},
+    {"ticker": "PEER2", "ev_ebitda": 10.8, "pe_ratio": 19.5, "ev_sales": 2.0},
+    {"ticker": "PEER3", "ev_ebitda": 12.1, "pe_ratio": 23.0, "ev_sales": 2.5},
+    {"ticker": "PEER4", "ev_ebitda": 10.1, "pe_ratio": 18.8, "ev_sales": 1.9}
+  ]
+}

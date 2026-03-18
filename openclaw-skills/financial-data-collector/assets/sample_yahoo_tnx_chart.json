@@ -1,0 +1,16 @@
+{
+  "chart": {
+    "result": [
+      {
+        "indicators": {
+          "quote": [
+            {
+              "close": [4.22, 4.25, 4.31]
+            }
+          ]
+        }
+      }
+    ],
+    "error": null
+  }
+}

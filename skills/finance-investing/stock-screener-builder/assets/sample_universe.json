@@ -1,0 +1,14 @@
+{
+  "filters": {
+    "revenue_growth": {"min": 0.1},
+    "gross_margin": {"min": 0.45},
+    "net_debt_to_ebitda": {"max": 2.0},
+    "forward_pe": {"max": 28.0}
+  },
+  "universe": [
+    {"ticker": "AAA", "revenue_growth": 0.14, "gross_margin": 0.51, "net_debt_to_ebitda": 1.2, "forward_pe": 26.0, "quality_score": 91},
+    {"ticker": "BBB", "revenue_growth": 0.08, "gross_margin": 0.47, "net_debt_to_ebitda": 1.0, "forward_pe": 22.0, "quality_score": 82},
+    {"ticker": "CCC", "revenue_growth": 0.19, "gross_margin": 0.58, "net_debt_to_ebitda": 0.4, "forward_pe": 30.0, "quality_score": 88},
+    {"ticker": "DDD", "revenue_growth": 0.11, "gross_margin": 0.49, "net_debt_to_ebitda": 1.7, "forward_pe": 24.0, "quality_score": 85}
+  ]
+}

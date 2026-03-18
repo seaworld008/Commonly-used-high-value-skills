@@ -1,0 +1,92 @@
+{
+  "cik": 320193,
+  "entityName": "Apple Inc.",
+  "facts": {
+    "us-gaap": {
+      "Revenues": {
+        "units": {
+          "USD": [
+            {"fy": 2024, "val": 391035000000}
+          ]
+        }
+      },
+      "OperatingIncomeLoss": {
+        "units": {
+          "USD": [
+            {"fy": 2024, "val": 123216000000}
+          ]
+        }
+      },
+      "NetIncomeLoss": {
+        "units": {
+          "USD": [
+            {"fy": 2024, "val": 93736000000}
+          ]
+        }
+      },
+      "NetCashProvidedByUsedInOperatingActivities": {
+        "units": {
+          "USD": [
+            {"fy": 2024, "val": 118254000000}
+          ]
+        }
+      },
+      "PaymentsToAcquirePropertyPlantAndEquipment": {
+        "units": {
+          "USD": [
+            {"fy": 2024, "val": -9447000000}
+          ]
+        }
+      },
+      "DepreciationDepletionAndAmortization": {
+        "units": {
+          "USD": [
+            {"fy": 2024, "val": 11445000000}
+          ]
+        }
+      },
+      "CashAndCashEquivalentsAtCarryingValue": {
+        "units": {
+          "USD": [
+            {"fy": 2024, "val": 29943000000}
+          ]
+        }
+      },
+      "Assets": {
+        "units": {
+          "USD": [
+            {"fy": 2024, "val": 364980000000}
+          ]
+        }
+      },
+      "AssetsCurrent": {
+        "units": {
+          "USD": [
+            {"fy": 2024, "val": 152987000000}
+          ]
+        }
+      },
+      "LiabilitiesCurrent": {
+        "units": {
+          "USD": [
+            {"fy": 2024, "val": 145308000000}
+          ]
+        }
+      },
+      "StockholdersEquity": {
+        "units": {
+          "USD": [
+            {"fy": 2024, "val": 56950000000}
+          ]
+        }
+      },
+      "CommonStockSharesOutstanding": {
+        "units": {
+          "shares": [
+            {"fy": 2024, "val": 15117000000}
+          ]
+        }
+      }
+    }
+  }
+}

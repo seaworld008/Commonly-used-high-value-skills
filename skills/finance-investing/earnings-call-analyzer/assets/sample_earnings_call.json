@@ -1,0 +1,17 @@
+{
+  "company": "ACME Holdings",
+  "segments": [
+    {
+      "speaker": "CEO",
+      "text": "We saw strong demand, improving momentum, and confidence in the second half outlook."
+    },
+    {
+      "speaker": "CFO",
+      "text": "Our guidance range remains intact, though we still see some macro headwind and softness in Europe."
+    },
+    {
+      "speaker": "Analyst Q&A",
+      "text": "Capex will step up as we expand capacity, but the investment should support margin improvement."
+    }
+  ]
+}

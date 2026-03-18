@@ -1,6 +1,6 @@
 # Commonly Used High-Value Skills
 
-一个按场景组织的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、AI 平台与安全治理等常见高频任务。当前共 **14 个分类 / 127 个技能**。
+一个按场景组织的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理等常见高频任务。当前共 **15 个分类 / 139 个技能**。
 
 ## 仓库目标
 
@@ -53,6 +53,7 @@ skills/
   developer-engineering/              # 开发工程
   devops-sre/                         # DevOps / SRE
   engineering-workflow-automation/    # 工程工作流自动化（GitHub/CI/测试）
+  finance-investing/                  # 金融投资与投研分析
   growth-operations-xiaohongshu/      # 增长运营（小红书/社媒）
   knowledge-and-pm-integrations/      # 项目管理与知识库集成（Linear/Notion）
   multimodal-media/                   # 多模态内容（图像/语音/视频/转写）
@@ -71,7 +72,7 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 2. 打开对应技能的 `SKILL.md` 查看触发条件、操作流程和脚本说明。
 3. 若技能下含 `scripts/`、`references/`、`assets/`，优先复用现成内容。
 
-## 技能总览（按分类，14 类 / 127 技能）
+## 技能总览（按分类，15 类 / 139 技能）
 
 ### 1. 开发工程（developer-engineering，25）
 
@@ -126,15 +127,28 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `social-media-analyzer`：用于社媒数据分析与趋势洞察。
 - `twitter-reader`：用于读取、整理和提炼 Twitter 信息。
 
-### 4. 办公与文档（office-white-collar，18）
+### 4. 金融投资（finance-investing，12）
+
+- `comps-valuation-analyst`：用于可比公司估值、倍数区间分析与相对估值判断。
+- `earnings-call-analyzer`：用于财报电话会摘要、管理层口径变化和风险信号提取。
+- `event-driven-tracker`：用于跟踪财报、并购、回购、分红等重要事件催化剂。
+- `factor-backtester`：用于因子策略回测、收益拆解、换手与成本敏感性检查。
+- `financial-analyst`：用于财务分析、预测与报告输出。
+- `financial-data-collector`：用于财务数据抓取、清洗与校验。
+- `investment-memo-writer`：用于把研究结论整理成投委会或投资备忘录。
+- `macro-regime-monitor`：用于宏观 regime 跟踪与风险偏好框架判断。
+- `options-strategy-evaluator`：用于期权策略盈亏结构、风险点和情景分析。
+- `portfolio-risk-manager`：用于组合风险、暴露、集中度与 Beta 视角分析。
+- `sec-filing-reviewer`：用于审阅 SEC 披露文件并提取核心风险线索。
+- `stock-screener-builder`：用于构建选股条件、筛选股票池与生成研究 shortlist。
+
+### 5. 办公与文档（office-white-collar，16）
 
 - `capture-screen`：用于系统级截图与区域截图。
 - `doc`：用于 `.docx` 文档的读取、创建与编辑（偏工作流编排）。
 - `doc-coauthoring`：用于文档协同编辑与审阅流程。
 - `docx`：用于 Word（.docx）文档创建、编辑与分析。
 - `excel-automation`：用于 Excel 自动化处理与批量操作。
-- `financial-analyst`：用于财务分析、预测与报告输出。
-- `financial-data-collector`：用于财务数据抓取、清洗与校验。
 - `gog`：用于 Google Workspace（Gmail/Calendar/Drive/Docs）自动化办公。
 - `markdown-tools`：用于 Markdown 转换、合并和内容处理。
 - `meeting-minutes-taker`：用于会议纪要结构化整理。
@@ -147,13 +161,13 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `transcript-fixer`：用于转录文本纠错、对比与修订。
 - `xlsx`：用于电子表格分析、公式与格式处理。
 
-### 5. 记忆与安全（openclaw-memory-and-safety，3）
+### 6. 记忆与安全（openclaw-memory-and-safety，3）
 
 - `input-guard`：用于检测外部文本中的提示注入风险。
 - `rag-architect`：用于 RAG 系统架构设计与评估。
 - `runbook-generator`：用于生成标准化运维 Runbook。
 
-### 6. 通用运营（operations-general，9）
+### 7. 通用运营（operations-general，9）
 
 - `brand-guidelines`：用于品牌规范制定与统一表达。
 - `docs-cleaner`：用于文档清洗、重构与降噪。
@@ -165,7 +179,7 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `theme-factory`：用于主题风格配置与视觉模板输出。
 - `weather`：用于免 API Key 的天气查询与出行场景支持。
 
-### 7. 产品与设计（product-design，9）
+### 8. 产品与设计（product-design，9）
 
 - `agile-product-owner`：用于敏捷需求管理与迭代推进。
 - `canvas-design`：用于商业/产品画布设计与梳理。
@@ -177,7 +191,7 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `ui-design-system`：用于 UI 设计系统与 Design Token 规范。
 - `ux-researcher-designer`：用于用户研究与体验设计方法。
 
-### 8. 任务理解与拆解（task-understanding-decomposition，11）
+### 9. 任务理解与拆解（task-understanding-decomposition，11）
 
 - `agent-workflow-designer`：用于设计 Agent 协作流程与分工。
 - `brainstorming`：用于在实现前进行需求澄清与方案发散。
@@ -191,7 +205,7 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `tavily-search`：用于联网实时检索与来源证据补充。
 - `writing-plans`：用于编写可执行的实施计划。
 
-### 9. AI 平台与 Agent 开发（ai-agent-platform，7）
+### 10. AI 平台与 Agent 开发（ai-agent-platform，7）
 
 - `chatgpt-apps`：用于构建、脚手架化和调试 ChatGPT Apps。
 - `develop-web-game`：用于 Web 游戏快速迭代开发与自动化验证。
@@ -201,7 +215,7 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `proactive-agent`：用于提升 Agent 主动规划与持续协作能力。
 - `self-improving-agent`：用于记忆驱动的反思迭代与自我优化。
 
-### 10. 工程工作流自动化（engineering-workflow-automation，6）
+### 11. 工程工作流自动化（engineering-workflow-automation，7）
 
 - `agent-browser`：用于语义驱动的真实浏览器自动化操作。
 - `gh-address-comments`：用于处理 GitHub PR 的 review/issue 评论并闭环。
@@ -211,7 +225,7 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `github`：用于通过 GitHub CLI 管理 Issues、PR 与 CI 自动化协作。
 - `yeet`：用于一体化执行 stage/commit/push/PR 流程。
 
-### 11. 项目管理与知识库集成（knowledge-and-pm-integrations，5）
+### 12. 项目管理与知识库集成（knowledge-and-pm-integrations，5）
 
 - `linear`：用于 Linear 任务与项目流程管理。
 - `notion-knowledge-capture`：用于将讨论沉淀为结构化 Notion 知识页。
@@ -219,14 +233,14 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `notion-research-documentation`：用于跨 Notion 页面研究并汇总文档。
 - `notion-spec-to-implementation`：用于把 Notion 规格转为实施计划与任务。
 
-### 12. 部署平台（deployment-platforms，4）
+### 13. 部署平台（deployment-platforms，4）
 
 - `cloudflare-deploy`：用于部署到 Cloudflare Workers/Pages 等平台。
 - `netlify-deploy`：用于通过 Netlify CLI 发布站点。
 - `render-deploy`：用于在 Render 上生成和部署应用蓝图。
 - `vercel-deploy`：用于在 Vercel 上进行预览和生产部署。
 
-### 13. 多模态内容（multimodal-media，6）
+### 14. 多模态内容（multimodal-media，6）
 
 - `imagegen`：用于图像生成、编辑、抠图和变体产出。
 - `screenshot`：用于系统级截图采集（全屏/窗口/区域）。
@@ -235,8 +249,9 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `summarize`：用于网页、文档与长文本内容摘要。
 - `transcribe`：用于音视频转写与可选说话人区分。
 
-### 14. 安全治理与稳定性（security-and-reliability，5）
+### 15. 安全治理与稳定性（security-and-reliability，6）
 
+- `link-checker`：用于 URL 安全检测、钓鱼链接识别与基础可达性检查。
 - `security-best-practices`：用于按语言/框架执行安全最佳实践检查。
 - `security-ownership-map`：用于基于 Git 历史构建安全责任与 Bus Factor 图谱。
 - `security-threat-model`：用于仓库级威胁建模与缓解建议输出。
@@ -245,7 +260,7 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 
 ## 建议补充的高热度技能（候选）
 
-以下技能是建议纳入下一批扩充的候选项，当前 **尚未** 在 `skills/` 目录中落地，因此 **不计入** 上方的 `14 类 / 127 技能` 统计。
+以下技能是建议纳入下一批扩充的候选项，当前 **尚未** 在 `skills/` 目录中落地，因此 **不计入** 上方的 `15 类 / 139 技能` 统计。
 
 如需继续扩充，建议下一批优先关注：
 

@@ -1,0 +1,8 @@
+{
+  "periods": [
+    {"period": "2025-01", "long_return": 0.034, "short_return": -0.011, "benchmark_return": 0.018, "turnover": 0.21},
+    {"period": "2025-02", "long_return": -0.012, "short_return": -0.026, "benchmark_return": -0.014, "turnover": 0.18},
+    {"period": "2025-03", "long_return": 0.021, "short_return": -0.008, "benchmark_return": 0.011, "turnover": 0.24},
+    {"period": "2025-04", "long_return": 0.009, "short_return": 0.002, "benchmark_return": 0.004, "turnover": 0.19}
+  ]
+}

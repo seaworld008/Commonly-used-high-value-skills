@@ -1,0 +1,89 @@
+{
+  "quoteSummary": {
+    "result": [
+      {
+        "price": {
+          "longName": "Apple Inc.",
+          "regularMarketPrice": {"raw": 225.17},
+          "marketCap": {"raw": 3404263884800}
+        },
+        "defaultKeyStatistics": {
+          "sharesOutstanding": {"raw": 15117000000},
+          "beta": {"raw": 1.24}
+        },
+        "incomeStatementHistory": {
+          "incomeStatementHistory": [
+            {
+              "endDate": {"raw": "2024-09-28"},
+              "totalRevenue": {"raw": 391035000000},
+              "operatingIncome": {"raw": 123216000000},
+              "ebitda": {"raw": 134661000000},
+              "incomeTaxExpense": {"raw": 29749000000},
+              "netIncome": {"raw": 93736000000}
+            },
+            {
+              "endDate": {"raw": "2023-09-30"},
+              "totalRevenue": {"raw": 383285000000},
+              "operatingIncome": {"raw": 114301000000},
+              "ebitda": {"raw": 125820000000},
+              "incomeTaxExpense": {"raw": 16741000000},
+              "netIncome": {"raw": 96995000000}
+            }
+          ]
+        },
+        "cashflowStatementHistory": {
+          "cashflowStatements": [
+            {
+              "endDate": {"raw": "2024-09-28"},
+              "totalCashFromOperatingActivities": {"raw": 118254000000},
+              "capitalExpenditures": {"raw": -9447000000},
+              "depreciation": {"raw": 11445000000},
+              "freeCashFlow": {"raw": 108807000000},
+              "changeToWorkingCapital": {"raw": -4500000000},
+              "stockBasedCompensation": {"raw": 11600000000}
+            },
+            {
+              "endDate": {"raw": "2023-09-30"},
+              "totalCashFromOperatingActivities": {"raw": 110543000000},
+              "capitalExpenditures": {"raw": -10959000000},
+              "depreciation": {"raw": 11519000000},
+              "freeCashFlow": {"raw": 99584000000},
+              "changeToWorkingCapital": {"raw": 3650000000},
+              "stockBasedCompensation": {"raw": 10833000000}
+            }
+          ]
+        },
+        "balanceSheetHistory": {
+          "balanceSheetStatements": [
+            {
+              "endDate": {"raw": "2024-09-28"},
+              "longTermDebt": {"raw": 85750000000},
+              "shortLongTermDebt": {"raw": 10912000000},
+              "cash": {"raw": 29943000000},
+              "shortTermInvestments": {"raw": 46777000000},
+              "totalCurrentAssets": {"raw": 7662000000},
+              "totalCurrentLiabilities": {"raw": 7296000000},
+              "totalAssets": {"raw": 364980000000},
+              "totalStockholderEquity": {"raw": 56950000000}
+            }
+          ]
+        },
+        "earningsTrend": {
+          "trend": [
+            {
+              "period": "0y",
+              "earningsEstimate": {"avg": {"raw": 7.21}},
+              "revenueEstimate": {"avg": {"raw": 403000000000}}
+            },
+            {
+              "period": "+1y",
+              "revenueEstimate": {"avg": {"raw": 435000000000}},
+              "growth": {"raw": 0.081}
+            }
+          ]
+        }
+      }
+    ],
+    "error": null
+  }
+}

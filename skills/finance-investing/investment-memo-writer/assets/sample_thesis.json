@@ -1,0 +1,23 @@
+{
+  "company": "ACME Holdings",
+  "recommendation": "Buy for a 12-18 month horizon based on margin expansion and multiple re-rating potential.",
+  "thesis_points": [
+    "Core product growth is accelerating after two muted quarters.",
+    "Operating leverage is improving as cloud costs normalize.",
+    "Management has restarted buybacks after de-levering."
+  ],
+  "catalysts": [
+    "Next earnings call with updated FY guidance",
+    "Large enterprise customer launch",
+    "Margin inflection in the second half"
+  ],
+  "risks": [
+    "Demand slows if enterprise budgets tighten.",
+    "Competitive pricing pressure hits gross margin."
+  ],
+  "monitoring_items": [
+    "Net retention",
+    "Free cash flow conversion",
+    "Peer multiple spread"
+  ]
+}

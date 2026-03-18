@@ -1,0 +1,13 @@
+{
+  "portfolio_name": "Global Compounders",
+  "cash_weight": 0.08,
+  "holdings": [
+    {"ticker": "AAPL", "weight": 0.18, "beta": 1.1, "volatility": 0.24, "sector": "Technology", "region": "US"},
+    {"ticker": "MSFT", "weight": 0.17, "beta": 0.95, "volatility": 0.21, "sector": "Technology", "region": "US"},
+    {"ticker": "NOVO", "weight": 0.14, "beta": 0.8, "volatility": 0.19, "sector": "Healthcare", "region": "Europe"},
+    {"ticker": "TSM", "weight": 0.13, "beta": 1.05, "volatility": 0.28, "sector": "Technology", "region": "Asia"},
+    {"ticker": "SPGI", "weight": 0.12, "beta": 0.9, "volatility": 0.18, "sector": "Financials", "region": "US"},
+    {"ticker": "MELI", "weight": 0.1, "beta": 1.2, "volatility": 0.31, "sector": "Consumer", "region": "LatAm"},
+    {"ticker": "ASML", "weight": 0.08, "beta": 1.0, "volatility": 0.27, "sector": "Technology", "region": "Europe"}
+  ]
+}

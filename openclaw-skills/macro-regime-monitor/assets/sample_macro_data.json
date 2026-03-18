@@ -1,0 +1,11 @@
+{
+  "inflation": {"current": 3.1, "previous": 3.4},
+  "growth": {"current": 2.2, "previous": 1.9},
+  "credit_spreads": {"current": 3.8, "previous": 4.1},
+  "liquidity": {"current": 1.4, "previous": 1.2},
+  "watch_items": [
+    "Next CPI print",
+    "Payroll revisions",
+    "High-yield spread widening"
+  ]
+}
