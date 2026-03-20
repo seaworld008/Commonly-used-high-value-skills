@@ -66,6 +66,8 @@ python -m unittest tests.test_refresh_repo_views -v
 python3 scripts/refresh_repo_views.py
 ```
 
+GitHub Actions will run the same refresh flow in CI and fail if generated files are stale, so local refresh before pushing is strongly recommended.
+
 If your change adds a new script, include the exact command you used to test it.
 
 ## PR Quality Bar

@@ -1,0 +1,40 @@
+name: Repository Validation
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install test dependency
+        run: python -m pip install pyyaml
+
+      - name: Refresh generated repository views
+        run: python scripts/refresh_repo_views.py
+
+      - name: Run repository validation tests
+        run: >
+          python -m unittest
+          tests.test_export_openclaw_skills
+          tests.test_generate_category_readmes
+          tests.test_normalize_codex_skills
+          tests.test_refresh_repo_views
+          tests.test_repo_skill_compatibility
+          tests.test_repo_validation_workflow
+          -v
+
+      - name: Ensure generated files are up to date
+        run: git diff --exit-code
