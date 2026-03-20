@@ -1,6 +1,6 @@
 ---
 name: portfolio-risk-manager
-description: Use when reviewing portfolio exposures, checking concentration and beta risk, summarizing sector or region tilts, or preparing a risk note before reallocating capital.
+description: 'Use when reviewing portfolio exposures, checking concentration and beta risk, summarizing sector or region tilts, or preparing a risk note before reallocating capital.'
 ---
 
 # Portfolio Risk Manager

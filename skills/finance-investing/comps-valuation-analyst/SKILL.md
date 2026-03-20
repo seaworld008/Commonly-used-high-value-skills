@@ -1,6 +1,6 @@
 ---
 name: comps-valuation-analyst
-description: Use when valuing a public company with peer multiples, building comparable-company tables, or pressure-testing a valuation range with EV/EBITDA, P/E, and EV/Sales.
+description: 'Use when valuing a public company with peer multiples, building comparable-company tables, or pressure-testing a valuation range with EV/EBITDA, P/E, and EV/Sales.'
 ---
 
 # Comps Valuation Analyst
@@ -43,4 +43,3 @@ python scripts/calculate_comps.py assets/sample_comps_input.json
 ## References
 
 - `references/comps-methodology.md`
-

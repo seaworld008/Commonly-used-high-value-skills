@@ -1,6 +1,6 @@
 ---
-name: "gog"
-description: "Google Workspace 自动化技能，统一处理 Gmail、Calendar、Drive 与 Docs 等办公流程。"
+name: gog
+description: 'Google Workspace 自动化技能，统一处理 Gmail、Calendar、Drive 与 Docs 等办公流程。'
 ---
 
 # GoG (Google 全家桶)

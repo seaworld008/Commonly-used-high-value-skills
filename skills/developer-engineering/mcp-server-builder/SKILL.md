@@ -1,3 +1,8 @@
+---
+name: mcp-server-builder
+description: 'Design and implement Model Context Protocol (MCP) servers that expose any REST API, database, or service as structured tools for Claude and other LLMs. Covers both FastMCP (Python) and the TypeScript MCP SDK, with patterns for reading OpenAPI/Swagger specs, generating tool definitions, handling auth, errors, and testing.'
+---
+
 # MCP Server Builder
 
 **Tier:** POWERFUL  

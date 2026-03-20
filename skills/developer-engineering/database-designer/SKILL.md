@@ -1,3 +1,8 @@
+---
+name: database-designer
+description: 'A comprehensive database design skill that provides expert-level analysis, optimization, and migration capabilities for modern database systems. This skill combines theoretical principles with practical tools to help architects and developers create scalable, performant, and maintainable database schemas.'
+---
+
 # Database Designer - POWERFUL Tier Skill
 
 ## Overview

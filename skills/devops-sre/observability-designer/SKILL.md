@@ -1,3 +1,8 @@
+---
+name: observability-designer
+description: 'Description: Design comprehensive observability strategies for production systems including SLI/SLO frameworks, alerting optimization, and dashboard generation.'
+---
+
 # Observability Designer (POWERFUL)
 
 **Category:** Engineering  

@@ -1,3 +1,8 @@
+---
+name: agent-workflow-designer
+description: 'Design production-grade multi-agent orchestration systems. Covers five core patterns (sequential pipeline, parallel fan-out/fan-in, hierarchical delegation, event-driven, consensus), platform-specific implementations, handoff protocols, state management, error recovery, context window budgeting, and cost optimization.'
+---
+
 # Agent Workflow Designer
 
 **Tier:** POWERFUL  

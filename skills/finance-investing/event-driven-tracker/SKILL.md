@@ -1,6 +1,6 @@
 ---
 name: event-driven-tracker
-description: Use when tracking earnings, product launches, M&A, dividends, buybacks, unlocks, or other market-moving dates that need a prioritized event calendar.
+description: 'Use when tracking earnings, product launches, M&A, dividends, buybacks, unlocks, or other market-moving dates that need a prioritized event calendar.'
 ---
 
 # Event Driven Tracker
@@ -35,4 +35,3 @@ python scripts/track_events.py assets/sample_events.json
 ## References
 
 - `references/event-catalog.md`
-

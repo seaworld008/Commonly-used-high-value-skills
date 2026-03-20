@@ -1,6 +1,6 @@
 ---
 name: factor-backtester
-description: Use when testing factor signals, running long-short spread backtests, checking hit rate and turnover, or sanity-checking whether a ranking signal survives basic transaction cost assumptions.
+description: 'Use when testing factor signals, running long-short spread backtests, checking hit rate and turnover, or sanity-checking whether a ranking signal survives basic transaction cost assumptions.'
 ---
 
 # Factor Backtester
@@ -35,4 +35,3 @@ python scripts/backtest_factor.py assets/sample_factor_data.json
 ## References
 
 - `references/backtest-checklist.md`
-

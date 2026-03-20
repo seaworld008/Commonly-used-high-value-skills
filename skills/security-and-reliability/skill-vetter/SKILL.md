@@ -1,6 +1,6 @@
 ---
-name: "skill-vetter"
-description: "在安装前审计技能安全性，识别恶意指令、越权行为与高风险配置。"
+name: skill-vetter
+description: '在安装前审计技能安全性，识别恶意指令、越权行为与高风险配置。'
 ---
 
 # Skill Vetter

@@ -1,3 +1,8 @@
+---
+name: skill-tester
+description: 'Name: skill-tester Tier: POWERFUL Category: Engineering Quality Assurance Dependencies: None (Python Standard Library Only) Author: Claude Skills Engineering Team Version: 1.0.0 Last Updated: 2026-02-16.'
+---
+
 # Skill Tester
 
 ---

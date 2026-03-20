@@ -1,6 +1,6 @@
 ---
 name: sec-filing-reviewer
-description: Use when reviewing SEC filings, extracting material risk disclosures, scanning 10-K or 10-Q sections, or building a follow-up checklist from filing language.
+description: 'Use when reviewing SEC filings, extracting material risk disclosures, scanning 10-K or 10-Q sections, or building a follow-up checklist from filing language.'
 ---
 
 # SEC Filing Reviewer
@@ -35,4 +35,3 @@ python scripts/review_filing.py assets/sample_filing_sections.json
 ## References
 
 - `references/sec-sources.md`
-

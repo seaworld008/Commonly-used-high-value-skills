@@ -1,6 +1,6 @@
 ---
 name: macro-regime-monitor
-description: Use when tracking macro regime shifts, summarizing inflation, growth, spreads, and liquidity signals, or creating a house view before updating sector or asset-allocation calls.
+description: 'Use when tracking macro regime shifts, summarizing inflation, growth, spreads, and liquidity signals, or creating a house view before updating sector or asset-allocation calls.'
 ---
 
 # Macro Regime Monitor
@@ -35,4 +35,3 @@ python scripts/classify_regime.py assets/sample_macro_data.json
 ## References
 
 - `references/regime-framework.md`
-

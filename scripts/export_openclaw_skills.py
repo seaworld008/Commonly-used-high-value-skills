@@ -245,11 +245,12 @@ def export_openclaw_skills(source_root: Path | str, output_root: Path | str) -> 
         destination = output_root / skill_dir.name
         shutil.copytree(skill_dir, destination, ignore=ignore_entries)
 
-        skill_md = destination / SKILL_FILENAME
-        skill_md.write_text(
-            normalize_skill_markdown(skill_dir.name, skill_md.read_text(encoding="utf-8")),
-            encoding="utf-8",
-        )
+        for skill_md in destination.rglob(SKILL_FILENAME):
+            normalized_name = skill_md.parent.name
+            skill_md.write_text(
+                normalize_skill_markdown(normalized_name, skill_md.read_text(encoding="utf-8")),
+                encoding="utf-8",
+            )
         exported.append(destination)
 
     return exported

@@ -10,7 +10,7 @@
 
 - [cloudflare-deploy](./cloudflare-deploy/) - Deploy applications and infrastructure to Cloudflare using Workers, Pages, and related platform services. Use when the user asks to deploy, host, publish, or set up a project on Cloudflare.
 - [netlify-deploy](./netlify-deploy/) - Deploy web projects to Netlify using the Netlify CLI (`npx netlify`). Use when the user asks to deploy, host, publish, or link a site/repo on Netlify, including preview and production deploys.
-- [render-deploy](./render-deploy/) - Deploy applications to Render by analyzing codebases, generating render.yaml Blueprints, and providing Dashboard deeplinks. Use when the user wants to deploy, host, publish, or set up their application on Render's cloud platform.
+- [render-deploy](./render-deploy/) - Deploy applications to Render by analyzing codebases, generating render.yaml Blueprints, and providing Dashboard deeplinks. Use when the user wants to deploy, host, publish, or set up their application on Render''s cloud platform.
 - [vercel-deploy](./vercel-deploy/) - Deploy applications and websites to Vercel. Use when the user requests deployment actions like "deploy my app", "deploy and give me the link", "push this live", or "create a preview deployment".
 
 ## 技能总览
@@ -19,7 +19,7 @@
 |------|------|------|------|
 | `cloudflare-deploy` | Deploy applications and infrastructure to Cloudflare using Workers, Pages, and related platform services. Use when the user asks to deploy, host, publish, or set up a project on Cloudflare. | [目录](./cloudflare-deploy/) | [SKILL.md](./cloudflare-deploy/SKILL.md) |
 | `netlify-deploy` | Deploy web projects to Netlify using the Netlify CLI (`npx netlify`). Use when the user asks to deploy, host, publish, or link a site/repo on Netlify, including preview and production deploys. | [目录](./netlify-deploy/) | [SKILL.md](./netlify-deploy/SKILL.md) |
-| `render-deploy` | Deploy applications to Render by analyzing codebases, generating render.yaml Blueprints, and providing Dashboard deeplinks. Use when the user wants to deploy, host, publish, or set up their application on Render's cloud platform. | [目录](./render-deploy/) | [SKILL.md](./render-deploy/SKILL.md) |
+| `render-deploy` | Deploy applications to Render by analyzing codebases, generating render.yaml Blueprints, and providing Dashboard deeplinks. Use when the user wants to deploy, host, publish, or set up their application on Render''s cloud platform. | [目录](./render-deploy/) | [SKILL.md](./render-deploy/SKILL.md) |
 | `vercel-deploy` | Deploy applications and websites to Vercel. Use when the user requests deployment actions like "deploy my app", "deploy and give me the link", "push this live", or "create a preview deployment". | [目录](./vercel-deploy/) | [SKILL.md](./vercel-deploy/SKILL.md) |
 
 ## 维护方式

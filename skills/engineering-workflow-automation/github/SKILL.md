@@ -1,6 +1,6 @@
 ---
-name: "github"
-description: "通过 GitHub CLI 自动化 Issue、PR、Review 与 CI 检查，适合工程协作闭环。"
+name: github
+description: '通过 GitHub CLI 自动化 Issue、PR、Review 与 CI 检查，适合工程协作闭环。'
 ---
 
 # GitHub

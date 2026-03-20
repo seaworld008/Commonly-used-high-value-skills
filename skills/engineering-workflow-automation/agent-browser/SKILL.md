@@ -1,6 +1,6 @@
 ---
-name: "agent-browser"
-description: "为 Agent 提供真实浏览器自动化能力，支持语义定位、表单交互、截图录屏、脚本执行与会话管理。"
+name: agent-browser
+description: '为 Agent 提供真实浏览器自动化能力，支持语义定位、表单交互、截图录屏、脚本执行与会话管理。'
 ---
 
 # Agent Browser

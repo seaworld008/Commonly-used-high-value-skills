@@ -1,6 +1,6 @@
 ---
 name: financial-data-collector
-description: "Use when collecting financial data for a US public company, assembling DCF inputs, pulling market and filing facts, or grounding downstream analysis in structured yfinance and SEC data."
+description: 'Use when collecting financial data for a US public company, assembling DCF inputs, pulling market and filing facts, or grounding downstream analysis in structured yfinance and SEC data.'
 ---
 
 # Financial Data Collector

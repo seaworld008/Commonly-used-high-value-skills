@@ -1,3 +1,8 @@
+---
+name: database-schema-designer
+description: 'Design relational database schemas from requirements and generate migrations, TypeScript/Python types, seed data, RLS policies, and indexes. Handles multi-tenancy, soft deletes, audit trails, versioning, and polymorphic associations.'
+---
+
 # Database Schema Designer
 
 **Tier:** POWERFUL  

@@ -1,6 +1,6 @@
 ---
-name: "link-checker"
-description: "检测 URL 可达性与潜在风险，识别失效链接、跳转链路和可疑域名。"
+name: link-checker
+description: '检测 URL 可达性与潜在风险，识别失效链接、跳转链路和可疑域名。'
 ---
 
 # Link Checker

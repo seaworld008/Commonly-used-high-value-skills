@@ -1,6 +1,6 @@
 ---
-name: "summarize"
-description: "对网页、文档、邮件与长文本进行快速摘要，提炼核心信息。"
+name: summarize
+description: '对网页、文档、邮件与长文本进行快速摘要，提炼核心信息。'
 ---
 
 # Summarize

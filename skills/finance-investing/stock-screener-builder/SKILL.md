@@ -1,6 +1,6 @@
 ---
 name: stock-screener-builder
-description: Use when building a stock screen, filtering a universe by valuation, growth, quality, or momentum rules, or creating a repeatable shortlist for deeper research.
+description: 'Use when building a stock screen, filtering a universe by valuation, growth, quality, or momentum rules, or creating a repeatable shortlist for deeper research.'
 ---
 
 # Stock Screener Builder
@@ -35,4 +35,3 @@ python scripts/screen_stocks.py assets/sample_universe.json
 ## References
 
 - `references/screener-design.md`
-

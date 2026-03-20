@@ -1,3 +1,8 @@
+---
+name: migration-architect
+description: 'Purpose: Zero-downtime migration planning, compatibility validation, and rollback strategy generation.'
+---
+
 # Migration Architect
 
 **Tier:** POWERFUL  

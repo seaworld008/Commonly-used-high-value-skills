@@ -1,3 +1,8 @@
+---
+name: pr-review-expert
+description: 'Structured, systematic code review for GitHub PRs and GitLab MRs. Goes beyond style nits — this skill performs blast radius analysis, security scanning, breaking change detection, and test coverage delta calculation. Produces a reviewer-ready report with a 30+ item checklist and prioritized findings.'
+---
+
 # PR Review Expert
 
 **Tier:** POWERFUL

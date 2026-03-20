@@ -1,6 +1,6 @@
 ---
-name: "self-improving-agent"
-description: "带记忆与自我优化机制的 Agent 技能，能在迭代中持续改进行为。"
+name: self-improving-agent
+description: '带记忆与自我优化机制的 Agent 技能，能在迭代中持续改进行为。'
 ---
 
 # Self Improving Agent

@@ -1,6 +1,6 @@
 ---
-name: "tavily-search"
-description: "提供实时联网检索能力，帮助 Agent 获取最新资讯、数据与来源证据。"
+name: tavily-search
+description: '提供实时联网检索能力，帮助 Agent 获取最新资讯、数据与来源证据。'
 ---
 
 # Tavily Web Search

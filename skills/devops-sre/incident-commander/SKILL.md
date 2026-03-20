@@ -1,3 +1,8 @@
+---
+name: incident-commander
+description: 'Author: Claude Skills Team Version: 1.0.0 Last Updated: February 2026.'
+---
+
 # Incident Commander Skill
 
 **Category:** Engineering Team  

@@ -1,3 +1,8 @@
+---
+name: prompt-engineer-toolkit
+description: 'Systematic prompt engineering from first principles. Build, test, version, and optimize prompts for any LLM task. Covers technique selection, a testing framework with scored A/B comparison, version control, quality metrics, and optimization strategies. Includes a 10-template library ready to adapt.'
+---
+
 # Prompt Engineer Toolkit
 
 **Tier:** POWERFUL  

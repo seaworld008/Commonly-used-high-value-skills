@@ -1,3 +1,8 @@
+---
+name: codebase-onboarding
+description: 'Analyze a codebase and generate comprehensive onboarding documentation tailored to your audience. Produces architecture overviews, key file maps, local setup guides, common task runbooks, debugging guides, and contribution guidelines. Outputs to Markdown, Notion, or Confluence.'
+---
+
 # Codebase Onboarding
 
 **Tier:** POWERFUL  

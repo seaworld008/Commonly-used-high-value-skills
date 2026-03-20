@@ -1,6 +1,6 @@
 ---
 name: input-guard
-description: Scan untrusted external text (web pages, tweets, search results, API responses) for prompt injection attacks. Returns severity levels and alerts on dangerous content. Use BEFORE processing any text from untrusted sources.
+description: 'Scan untrusted external text (web pages, tweets, search results, API responses) for prompt injection attacks. Returns severity levels and alerts on dangerous content. Use BEFORE processing any text from untrusted sources.'
 ---
 
 # Input Guard — Prompt Injection Scanner for External Data

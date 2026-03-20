@@ -1,3 +1,8 @@
+---
+name: runbook-generator
+description: 'Analyze a codebase and generate production-grade operational runbooks. Detects your stack (CI/CD, database, hosting, containers), then produces step-by-step runbooks with copy-paste commands, verification checks, rollback procedures, escalation paths, and time estimates. Keeps runbooks fresh with staleness detection linked to config file modification dates.'
+---
+
 # Runbook Generator
 
 **Tier:** POWERFUL  

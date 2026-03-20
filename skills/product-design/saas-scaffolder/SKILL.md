@@ -1,3 +1,8 @@
+---
+name: saas-scaffolder
+description: 'Generate complete, production-ready SaaS projects from a product brief. Outputs a fully wired Next.js App Router project with authentication, database, payments, and a working dashboard — not a toy starter kit.'
+---
+
 # SaaS Scaffolder
 
 **Tier:** POWERFUL  

@@ -1,3 +1,8 @@
+---
+name: sample-skill
+description: 'Name: sample-text-processor Tier: BASIC Category: Text Processing Dependencies: None (Python Standard Library Only) Author: Claude Skills Engineering Team Version: 1.0.0 Last Updated: 2026-02-16.'
+---
+
 # Sample Text Processor
 
 ---

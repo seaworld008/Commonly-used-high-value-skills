@@ -185,6 +185,49 @@ class ExportOpenClawSkillsTests(unittest.TestCase):
             )
             self.assertIn("name: reflect-learn", exported_skill_md)
 
+    def test_export_normalizes_nested_sample_skill_markdown(self):
+        module = load_export_module()
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp = Path(tmpdir)
+            source_root = tmp / "skills"
+            output_root = tmp / "openclaw-skills"
+
+            skill_dir = source_root / "developer-engineering" / "skill-tester"
+            nested = skill_dir / "assets" / "sample-skill"
+            nested.mkdir(parents=True)
+            (skill_dir / "SKILL.md").write_text(
+                textwrap.dedent(
+                    """\
+                    ---
+                    name: skill-tester
+                    description: Validate skills.
+                    ---
+
+                    # Skill Tester
+                    """
+                ),
+                encoding="utf-8",
+            )
+            (nested / "SKILL.md").write_text(
+                textwrap.dedent(
+                    """\
+                    # Sample Skill
+
+                    Broken nested skill example.
+                    """
+                ),
+                encoding="utf-8",
+            )
+
+            module.export_openclaw_skills(source_root, output_root)
+
+            nested_text = (output_root / "skill-tester" / "assets" / "sample-skill" / "SKILL.md").read_text(
+                encoding="utf-8"
+            )
+            self.assertTrue(nested_text.startswith("---\n"))
+            self.assertIn("name: sample-skill", nested_text)
+
 
 if __name__ == "__main__":
     unittest.main()

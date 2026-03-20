@@ -1,3 +1,8 @@
+---
+name: competitive-teardown
+description: 'Run a structured competitive analysis on any product or company. Synthesizes data from pricing pages, app store reviews, job postings, SEO signals, and social media into actionable insights: feature matrices, SWOT, positioning maps, UX audits, and a stakeholder presentation template.'
+---
+
 # Competitive Teardown
 
 **Tier:** POWERFUL  

@@ -1,6 +1,6 @@
 ---
 name: investment-memo-writer
-description: Use when turning research notes into an investment memo, writing a buy or sell thesis, or structuring catalysts, risks, and monitoring items for an IC-style document.
+description: 'Use when turning research notes into an investment memo, writing a buy or sell thesis, or structuring catalysts, risks, and monitoring items for an IC-style document.'
 ---
 
 # Investment Memo Writer
@@ -35,4 +35,3 @@ python scripts/build_memo.py assets/sample_thesis.json
 ## References
 
 - `references/memo-outline.md`
-

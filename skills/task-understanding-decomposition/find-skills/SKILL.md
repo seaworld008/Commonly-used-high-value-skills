@@ -1,6 +1,6 @@
 ---
-name: "find-skills"
-description: "让 Agent 自动搜索并安装合适技能，解决不知道该用哪个技能的问题。"
+name: find-skills
+description: '让 Agent 自动搜索并安装合适技能，解决不知道该用哪个技能的问题。'
 ---
 
 # Find Skills

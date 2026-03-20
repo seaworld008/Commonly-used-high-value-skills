@@ -1,3 +1,8 @@
+---
+name: agent-designer
+description: 'Tags: AI agents, architecture, system design, orchestration, multi-agent systems.'
+---
+
 # Agent Designer - Multi-Agent System Architecture
 
 **Tier:** POWERFUL  

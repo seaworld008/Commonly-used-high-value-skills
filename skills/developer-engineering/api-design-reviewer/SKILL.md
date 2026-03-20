@@ -1,3 +1,8 @@
+---
+name: api-design-reviewer
+description: 'Maintainer: Claude Skills Team.'
+---
+
 # API Design Reviewer
 
 **Tier:** POWERFUL  

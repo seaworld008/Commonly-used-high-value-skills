@@ -1,6 +1,6 @@
 ---
 name: earnings-call-analyzer
-description: Use when summarizing earnings calls, extracting management tone changes, surfacing guidance language, or turning transcript snippets into an actionable investor update.
+description: 'Use when summarizing earnings calls, extracting management tone changes, surfacing guidance language, or turning transcript snippets into an actionable investor update.'
 ---
 
 # Earnings Call Analyzer
@@ -35,4 +35,3 @@ python scripts/analyze_earnings_call.py assets/sample_earnings_call.json
 ## References
 
 - `references/transcript-signals.md`
-

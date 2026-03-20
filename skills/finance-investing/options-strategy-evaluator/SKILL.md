@@ -1,6 +1,6 @@
 ---
 name: options-strategy-evaluator
-description: Use when evaluating an options structure, checking expiry payoff checkpoints, comparing premium outlay versus downside protection, or preparing a short strategy note for a trade review.
+description: 'Use when evaluating an options structure, checking expiry payoff checkpoints, comparing premium outlay versus downside protection, or preparing a short strategy note for a trade review.'
 ---
 
 # Options Strategy Evaluator
@@ -35,4 +35,3 @@ python scripts/evaluate_strategy.py assets/sample_options_strategy.json
 ## References
 
 - `references/options-review-checklist.md`
-

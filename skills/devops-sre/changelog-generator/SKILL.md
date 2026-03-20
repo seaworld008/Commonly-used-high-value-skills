@@ -1,3 +1,8 @@
+---
+name: changelog-generator
+description: 'Parse conventional commits, determine semantic version bumps, and generate structured changelogs in Keep a Changelog format. Supports monorepo changelogs, GitHub Releases integration, and separates user-facing from developer changelogs.'
+---
+
 # Changelog Generator
 
 **Tier:** POWERFUL  

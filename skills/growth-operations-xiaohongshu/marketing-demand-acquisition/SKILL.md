@@ -1,6 +1,6 @@
 ---
 name: marketing-demand-acquisition
-description: Multi-channel demand generation, paid media optimization, SEO strategy, and partnership programs for Series A+ startups
+description: 'Multi-channel demand generation, paid media optimization, SEO strategy, and partnership programs for Series A+ startups'
 triggers:
   - demand gen
   - demand generation

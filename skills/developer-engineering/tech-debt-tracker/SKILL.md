@@ -1,3 +1,8 @@
+---
+name: tech-debt-tracker
+description: 'Tier: POWERFUL 🔥 Category: Engineering Process Automation Expertise: Code Quality, Technical Debt Management, Software Engineering.'
+---
+
 # Tech Debt Tracker
 
 **Tier**: POWERFUL 🔥  

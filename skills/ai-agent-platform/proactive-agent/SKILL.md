@@ -1,6 +1,6 @@
 ---
-name: "proactive-agent"
-description: "增强 Agent 的主动规划与自我迭代能力，从被动执行升级为主动协作。"
+name: proactive-agent
+description: '增强 Agent 的主动规划与自我迭代能力，从被动执行升级为主动协作。'
 ---
 
 # Proactive Agent

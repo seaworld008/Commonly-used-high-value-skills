@@ -57,9 +57,19 @@ def refresh_repo_views(repo_root: Path | str, scripts_root: Path | str | None = 
     export_module = load_module(
         "export_openclaw_skills", scripts_root / "export_openclaw_skills.py"
     )
+    normalize_module = load_module(
+        "normalize_codex_skills", scripts_root / "normalize_codex_skills.py"
+    )
+
+    normalization_summary = normalize_module.normalize_codex_skill_tree(
+        skills_root, repo_root=repo_root, scripts_root=scripts_root
+    )
 
     category_outputs = category_module.generate_category_readmes(skills_root)
     export_outputs = export_module.export_openclaw_skills(skills_root, output_root)
+    normalize_module.normalize_codex_skill_tree(
+        output_root, repo_root=repo_root, scripts_root=scripts_root
+    )
 
     summary = {
         "source_skill_count": count_source_skills(skills_root),
@@ -67,6 +77,7 @@ def refresh_repo_views(repo_root: Path | str, scripts_root: Path | str | None = 
         "exported_skill_count": count_exported_skills(output_root),
         "generated_category_readmes": len(category_outputs),
         "generated_openclaw_skills": len(export_outputs),
+        "normalized_source_skills": normalization_summary["normalized_count"],
     }
 
     if summary["source_skill_count"] != summary["exported_skill_count"]:

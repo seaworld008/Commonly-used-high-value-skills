@@ -1,6 +1,6 @@
 ---
-name: "weather"
-description: "免 API Key 的天气查询技能，支持多数据源与自然语言请求。"
+name: weather
+description: '免 API Key 的天气查询技能，支持多数据源与自然语言请求。'
 ---
 
 # Weather
