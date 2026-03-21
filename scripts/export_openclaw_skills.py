@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import shutil
 from pathlib import Path
@@ -161,10 +162,68 @@ def normalize_frontmatter_block(block_lines: list[str]) -> list[str]:
         if (value.startswith("'") and value.endswith("'")) or (
             value.startswith('"') and value.endswith('"')
         ):
+            unquoted = value[1:-1]
+            parsed_json = try_parse_json_mapping(unquoted)
+            if parsed_json is not None:
+                return render_yaml_mapping_block(key, parsed_json)
             return block_lines
         return [f"{key}: {yaml_scalar(value)}"]
 
     return block_lines
+
+
+def try_parse_json_mapping(text: str) -> dict | None:
+    stripped = text.strip()
+    if not (stripped.startswith("{") and stripped.endswith("}")):
+        return None
+    try:
+        parsed = json.loads(stripped)
+    except Exception:
+        return None
+    return parsed if isinstance(parsed, dict) else None
+
+
+def render_yaml_mapping_block(key: str, mapping: dict) -> list[str]:
+    lines = [f"{key}:"]
+
+    def format_scalar(value):
+        if isinstance(value, bool):
+            return "true" if value else "false"
+        if isinstance(value, (int, float)):
+            return str(value)
+        return yaml_scalar(str(value))
+
+    def emit(prefix: str, value):
+        if isinstance(value, dict):
+            for child_key, child_value in value.items():
+                if isinstance(child_value, (dict, list)):
+                    lines.append(f"{prefix}{child_key}:")
+                    emit(prefix + "  ", child_value)
+                else:
+                    lines.append(f"{prefix}{child_key}: {format_scalar(child_value)}")
+        elif isinstance(value, list):
+            for item in value:
+                if isinstance(item, dict):
+                    first = True
+                    for child_key, child_value in item.items():
+                        if first:
+                            if isinstance(child_value, (dict, list)):
+                                lines.append(f"{prefix}- {child_key}:")
+                                emit(prefix + "    ", child_value)
+                            else:
+                                lines.append(f"{prefix}- {child_key}: {format_scalar(child_value)}")
+                            first = False
+                        else:
+                            if isinstance(child_value, (dict, list)):
+                                lines.append(f"{prefix}  {child_key}:")
+                                emit(prefix + "    ", child_value)
+                            else:
+                                lines.append(f"{prefix}  {child_key}: {format_scalar(child_value)}")
+                else:
+                    lines.append(f"{prefix}- {format_scalar(item)}")
+
+    emit("  ", mapping)
+    return lines
 
 
 def normalize_skill_markdown(skill_name: str, raw_text: str) -> str:

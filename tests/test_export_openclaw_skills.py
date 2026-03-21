@@ -228,6 +228,38 @@ class ExportOpenClawSkillsTests(unittest.TestCase):
             self.assertTrue(nested_text.startswith("---\n"))
             self.assertIn("name: sample-skill", nested_text)
 
+    def test_export_converts_stringified_metadata_to_yaml_mapping(self):
+        module = load_export_module()
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp = Path(tmpdir)
+            source_root = tmp / "skills"
+            output_root = tmp / "openclaw-skills"
+
+            skill_dir = source_root / "developer-engineering" / "git-essentials"
+            skill_dir.mkdir(parents=True)
+            (skill_dir / "SKILL.md").write_text(
+                textwrap.dedent(
+                    """\
+                    ---
+                    name: git-essentials
+                    description: Essential Git commands.
+                    metadata: '{"clawdbot":{"emoji":"🌳","requires":{"bins":["git"]}}}'
+                    ---
+
+                    # Git Essentials
+                    """
+                ),
+                encoding="utf-8",
+            )
+
+            module.export_openclaw_skills(source_root, output_root)
+
+            exported_text = (output_root / "git-essentials" / "SKILL.md").read_text(encoding="utf-8")
+            self.assertIn("metadata:", exported_text)
+            self.assertIn("clawdbot:", exported_text)
+            self.assertNotIn("metadata: '{", exported_text)
+
 
 if __name__ == "__main__":
     unittest.main()

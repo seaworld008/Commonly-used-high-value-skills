@@ -49,6 +49,12 @@ If you change source skills in the repository, refresh generated views with:
 python3 scripts/refresh_repo_views.py
 ```
 
+If Codex shows local skill warnings such as `invalid SKILL.md`, `missing YAML frontmatter`, or broken `metadata`, you can normalize a local Codex skill tree with:
+
+```bash
+python3 scripts/normalize_codex_skills.py ~/.codex/skills
+```
+
 ## Quick Category Jump Table
 
 | Category | What It Covers | Jump | Folder |

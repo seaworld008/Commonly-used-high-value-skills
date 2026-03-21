@@ -49,6 +49,18 @@ python3 scripts/export_openclaw_skills.py
 python3 scripts/refresh_repo_views.py
 ```
 
+如果你在本地 Codex skills 目录里看到 `invalid SKILL.md`、`missing YAML frontmatter`、`metadata` 类型错误等警告，也可以直接运行：
+
+```bash
+python3 scripts/normalize_codex_skills.py ~/.codex/skills
+```
+
+Windows 示例：
+
+```powershell
+python scripts/normalize_codex_skills.py "C:\Users\admin\.codex\skills"
+```
+
 ## 分类快速跳转
 
 | 分类 | 说明 | 文档跳转 | 目录 |
