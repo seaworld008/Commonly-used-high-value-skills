@@ -15,3 +15,8 @@ __pycache__/
 # Editor
 .vscode/
 .idea/
+
+# Generated provenance artifacts (reproducible via scripts/provenance_pipeline.py)
+docs/sources/index.json
+docs/sources/reports/*.json
+docs/sources/reports/*.md

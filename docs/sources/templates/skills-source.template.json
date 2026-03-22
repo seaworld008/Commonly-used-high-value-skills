@@ -1,0 +1,42 @@
+{
+  "video": {
+    "url": "https://example.com/source",
+    "checked_at": "2026-03-22",
+    "note": "What this source is and why it was collected."
+  },
+  "official_references": [
+    {
+      "name": "Official docs/repo",
+      "url": "https://example.com/official",
+      "purpose": "How this reference is used for verification"
+    }
+  ],
+  "skills": [
+    {
+      "video_name": "Skill Name From Source",
+      "normalized_slug": null,
+      "status": "unverified_slug",
+      "repo_skill": null,
+      "source": "https://example.com/skill-source",
+      "notes": "Verification notes",
+      "upstream": {
+        "repo": "owner/repo",
+        "path": "skills/<category>/<skill>",
+        "ref": "main",
+        "last_checked_at": "2026-03-22",
+        "last_synced_at": null,
+        "last_synced_commit": null
+      }
+    }
+  ],
+  "verification_attempts": [
+    {
+      "date": "2026-03-22",
+      "method": "docs|cli|http",
+      "target": "https://example.com",
+      "result": "success|failed",
+      "evidence": "optional",
+      "error": "optional"
+    }
+  ]
+}
