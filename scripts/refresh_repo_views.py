@@ -60,6 +60,14 @@ def update_root_readmes(repo_root: Path, category_count: int, skill_count: int) 
                     re.compile(r"当前共 \*\*\d+ 个分类 / \d+ 个技能\*\*。"),
                     f"当前共 **{category_count} 个分类 / {skill_count} 个技能**。",
                 ),
+                (
+                    re.compile(r"## 技能总览（按分类，\d+ 类 / \d+ 技能）"),
+                    f"## 技能总览（按分类，{category_count} 类 / {skill_count} 技能）",
+                ),
+                (
+                    re.compile(r"`\d+ 类 / \d+ 技能`"),
+                    f"`{category_count} 类 / {skill_count} 技能`",
+                ),
             ],
         ),
         (

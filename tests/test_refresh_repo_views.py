@@ -19,6 +19,50 @@ def load_module():
 
 
 class RefreshRepoViewsTests(unittest.TestCase):
+    def test_update_root_readmes_refreshes_all_cn_counters(self):
+        module = load_module()
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            repo = Path(tmpdir)
+            readme = repo / "README.md"
+            readme_en = repo / "README.en.md"
+
+            readme.write_text(
+                textwrap.dedent(
+                    """\
+                    [![Skills](https://img.shields.io/badge/Skills-1-7c3aed)](./skills/)
+                    当前共 **1 个分类 / 1 个技能**。
+                    ## 技能总览（按分类，1 类 / 1 技能）
+                    以下 **不计入** 上方的 `1 类 / 1 技能` 统计。
+                    """
+                ),
+                encoding="utf-8",
+            )
+            readme_en.write_text(
+                textwrap.dedent(
+                    """\
+                    [![Skills](https://img.shields.io/badge/Skills-1-7c3aed)](./skills/)
+                    This repository currently contains **1 categories / 1 skills**.
+                    """
+                ),
+                encoding="utf-8",
+            )
+
+            module.update_root_readmes(repo, category_count=15, skill_count=139)
+
+            cn_updated = readme.read_text(encoding="utf-8")
+            en_updated = readme_en.read_text(encoding="utf-8")
+
+            self.assertIn("Skills-139-7c3aed", cn_updated)
+            self.assertIn("当前共 **15 个分类 / 139 个技能**。", cn_updated)
+            self.assertIn("## 技能总览（按分类，15 类 / 139 技能）", cn_updated)
+            self.assertIn("`15 类 / 139 技能`", cn_updated)
+            self.assertIn("Skills-139-7c3aed", en_updated)
+            self.assertIn(
+                "This repository currently contains **15 categories / 139 skills**.",
+                en_updated,
+            )
+
     def test_refresh_repo_views_generates_category_readmes_and_openclaw_export(self):
         module = load_module()
 
