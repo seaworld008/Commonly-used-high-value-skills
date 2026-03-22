@@ -17,6 +17,9 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Check merge conflict markers
+        run: python3 scripts/check_merge_conflicts.py
+
       - name: Run provenance tests
         run: python3 -m unittest tests.test_provenance_pipeline -v
 
