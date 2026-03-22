@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import importlib.util
+import re
 from pathlib import Path
 
 
@@ -45,6 +46,48 @@ def count_exported_skills(output_root: Path) -> int:
     return total
 
 
+def update_root_readmes(repo_root: Path, category_count: int, skill_count: int) -> None:
+    """Update top-level README counters (CN + EN) and badge numbers."""
+    replacements = [
+        (
+            repo_root / "README.md",
+            [
+                (
+                    re.compile(r"\[!\[Skills\]\(https://img\.shields\.io/badge/Skills-\d+-7c3aed\)\]\(\./skills/\)"),
+                    f"[![Skills](https://img.shields.io/badge/Skills-{skill_count}-7c3aed)](./skills/)",
+                ),
+                (
+                    re.compile(r"当前共 \*\*\d+ 个分类 / \d+ 个技能\*\*。"),
+                    f"当前共 **{category_count} 个分类 / {skill_count} 个技能**。",
+                ),
+            ],
+        ),
+        (
+            repo_root / "README.en.md",
+            [
+                (
+                    re.compile(r"\[!\[Skills\]\(https://img\.shields\.io/badge/Skills-\d+-7c3aed\)\]\(\./skills/\)"),
+                    f"[![Skills](https://img.shields.io/badge/Skills-{skill_count}-7c3aed)](./skills/)",
+                ),
+                (
+                    re.compile(r"This repository currently contains \*\*\d+ categories / \d+ skills\*\*\."),
+                    f"This repository currently contains **{category_count} categories / {skill_count} skills**.",
+                ),
+            ],
+        ),
+    ]
+
+    for readme_path, rules in replacements:
+        if not readme_path.exists():
+            continue
+        content = readme_path.read_text(encoding="utf-8")
+        updated = content
+        for pattern, repl in rules:
+            updated = pattern.sub(repl, updated)
+        if updated != content:
+            readme_path.write_text(updated, encoding="utf-8")
+
+
 def refresh_repo_views(repo_root: Path | str, scripts_root: Path | str | None = None) -> dict:
     repo_root = Path(repo_root)
     skills_root = repo_root / "skills"
@@ -70,6 +113,8 @@ def refresh_repo_views(repo_root: Path | str, scripts_root: Path | str | None = 
     normalize_module.normalize_codex_skill_tree(
         output_root, repo_root=repo_root, scripts_root=scripts_root
     )
+
+    update_root_readmes(repo_root, count_category_readmes(skills_root), count_source_skills(skills_root))
 
     summary = {
         "source_skill_count": count_source_skills(skills_root),
