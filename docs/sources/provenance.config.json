@@ -1,0 +1,12 @@
+{
+  "coverage_min_percent": 95,
+  "stale_days": 30,
+  "paths": {
+    "in_house_mapping": "docs/sources/in-house.skills.json",
+    "refresh_queue": "docs/sources/reports/refresh-queue.json",
+    "catalog": "docs/sources/reports/catalog.json",
+    "bulk_plan": "docs/sources/reports/bulk-update-plan.md",
+    "sources_index": "docs/sources/index.json",
+    "upstream_check": "docs/sources/reports/upstream-check.json"
+  }
+}

@@ -1,0 +1,24 @@
+name: skills-provenance-ci
+
+on:
+  pull_request:
+  push:
+    branches: ["main", "master"]
+
+jobs:
+  provenance-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run provenance tests
+        run: python3 -m unittest tests.test_provenance_pipeline -v
+
+      - name: Run unified provenance pipeline
+        run: python3 scripts/provenance_pipeline.py --mode all --config docs/sources/provenance.config.json
