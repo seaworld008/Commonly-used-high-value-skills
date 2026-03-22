@@ -1,0 +1,119 @@
+{
+  "video": {
+    "url": "https://www.youtube.com/watch?v=2nP0YCjM_hk",
+    "checked_at": "2026-03-22",
+    "note": "Cross-validated against repository skill slugs and OpenClaw official docs where accessible."
+  },
+  "official_references": [
+    {
+      "name": "OpenClaw Skills docs",
+      "url": "https://docs.openclaw.ai/tools/skills",
+      "purpose": "Confirms ClawHub is registry/CLI flow (install/update/sync), not a skill slug itself."
+    }
+  ],
+  "skills": [
+    {
+      "video_name": "Cloudhub",
+      "normalized_slug": null,
+      "status": "not_a_skill",
+      "repo_skill": null,
+      "source": "https://docs.openclaw.ai/tools/skills",
+      "notes": "ClawHub is the public skill registry and CLI workflow, not an installable skill package."
+    },
+    {
+      "video_name": "Find skills",
+      "normalized_slug": "find-skills",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/task-understanding-decomposition/find-skills/SKILL.md",
+      "source": "https://www.clawhub.com",
+      "notes": "Skill slug matches repository entry."
+    },
+    {
+      "video_name": "Skill Vator",
+      "normalized_slug": null,
+      "status": "unverified_slug",
+      "repo_skill": null,
+      "source": "https://www.clawhub.com",
+      "notes": "Could not verify an official slug in this environment; keep pending until registry confirmation."
+    },
+    {
+      "video_name": "Skill create",
+      "normalized_slug": "skill-creator",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/task-understanding-decomposition/skill-creator/SKILL.md",
+      "source": "https://www.clawhub.com",
+      "notes": "Repository canonical skill is skill-creator."
+    },
+    {
+      "video_name": "Web Search",
+      "normalized_slug": "tavily-search",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/task-understanding-decomposition/tavily-search/SKILL.md",
+      "source": "https://www.clawhub.com",
+      "notes": "Repository currently tracks tavily-search for realtime web retrieval."
+    },
+    {
+      "video_name": "Agent browse",
+      "normalized_slug": "agent-browser",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/engineering-workflow-automation/agent-browser/SKILL.md",
+      "source": "https://www.clawhub.com",
+      "notes": "Repository canonical skill is agent-browser."
+    },
+    {
+      "video_name": "Self-improving agent",
+      "normalized_slug": "self-improving-agent",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/ai-agent-platform/self-improving-agent/SKILL.md",
+      "source": "https://www.clawhub.com",
+      "notes": "Skill exists in canonical tree."
+    },
+    {
+      "video_name": "Proactive agent",
+      "normalized_slug": "proactive-agent",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/ai-agent-platform/proactive-agent/SKILL.md",
+      "source": "https://www.clawhub.com",
+      "notes": "Skill exists in canonical tree."
+    },
+    {
+      "video_name": "Agent memory",
+      "normalized_slug": null,
+      "status": "unverified_slug",
+      "repo_skill": null,
+      "source": "https://www.clawhub.com",
+      "notes": "Could not verify official slug in this environment; keep pending until registry confirmation."
+    },
+    {
+      "video_name": "Summarize",
+      "normalized_slug": "summarize",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/multimodal-media/summarize/SKILL.md",
+      "source": "https://www.clawhub.com",
+      "notes": "Skill exists in canonical tree."
+    }
+  ],
+  "verification_attempts": [
+    {
+      "date": "2026-03-22",
+      "method": "openclaw-docs",
+      "target": "https://docs.openclaw.ai/tools/skills",
+      "result": "success",
+      "evidence": "ClawHub documented as registry/install+sync flow"
+    },
+    {
+      "date": "2026-03-22",
+      "method": "clawhub-cli",
+      "command": "npx -y clawhub@latest --help",
+      "result": "failed",
+      "error": "npm registry 403 Forbidden in current environment"
+    },
+    {
+      "date": "2026-03-22",
+      "method": "direct-http",
+      "target": "https://clawhub.ai/api/...",
+      "result": "failed",
+      "error": "proxy tunnel 403 Forbidden in current environment"
+    }
+  ]
+}
