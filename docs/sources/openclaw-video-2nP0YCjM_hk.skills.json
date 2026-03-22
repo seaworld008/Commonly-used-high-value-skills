@@ -26,15 +26,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/task-understanding-decomposition/find-skills/SKILL.md",
       "source": "https://www.clawhub.com",
-      "notes": "Skill slug matches repository entry.",
-      "upstream": {
-        "repo": "openclaw/skills",
-        "path": "find-skills",
-        "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
-        "last_synced_commit": null
-      }
+      "notes": "Skill slug matches repository entry."
     },
     {
       "video_name": "Skill Vator",
@@ -50,15 +42,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/task-understanding-decomposition/skill-creator/SKILL.md",
       "source": "https://www.clawhub.com",
-      "notes": "Repository canonical skill is skill-creator.",
-      "upstream": {
-        "repo": "openclaw/skills",
-        "path": "skill-creator",
-        "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
-        "last_synced_commit": null
-      }
+      "notes": "Repository canonical skill is skill-creator."
     },
     {
       "video_name": "Web Search",
@@ -66,15 +50,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/task-understanding-decomposition/tavily-search/SKILL.md",
       "source": "https://www.clawhub.com",
-      "notes": "Repository currently tracks tavily-search for realtime web retrieval.",
-      "upstream": {
-        "repo": "openclaw/skills",
-        "path": "tavily-search",
-        "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
-        "last_synced_commit": null
-      }
+      "notes": "Repository currently tracks tavily-search for realtime web retrieval."
     },
     {
       "video_name": "Agent browse",
@@ -82,15 +58,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/engineering-workflow-automation/agent-browser/SKILL.md",
       "source": "https://www.clawhub.com",
-      "notes": "Repository canonical skill is agent-browser.",
-      "upstream": {
-        "repo": "openclaw/skills",
-        "path": "agent-browser",
-        "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
-        "last_synced_commit": null
-      }
+      "notes": "Repository canonical skill is agent-browser."
     },
     {
       "video_name": "Self-improving agent",
@@ -98,15 +66,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-agent-platform/self-improving-agent/SKILL.md",
       "source": "https://www.clawhub.com",
-      "notes": "Skill exists in canonical tree.",
-      "upstream": {
-        "repo": "openclaw/skills",
-        "path": "self-improving-agent",
-        "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
-        "last_synced_commit": null
-      }
+      "notes": "Skill exists in canonical tree."
     },
     {
       "video_name": "Proactive agent",
@@ -114,15 +74,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-agent-platform/proactive-agent/SKILL.md",
       "source": "https://www.clawhub.com",
-      "notes": "Skill exists in canonical tree.",
-      "upstream": {
-        "repo": "openclaw/skills",
-        "path": "proactive-agent",
-        "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
-        "last_synced_commit": null
-      }
+      "notes": "Skill exists in canonical tree."
     },
     {
       "video_name": "Agent memory",
@@ -138,15 +90,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/multimodal-media/summarize/SKILL.md",
       "source": "https://www.clawhub.com",
-      "notes": "Skill exists in canonical tree.",
-      "upstream": {
-        "repo": "openclaw/skills",
-        "path": "summarize",
-        "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
-        "last_synced_commit": null
-      }
+      "notes": "Skill exists in canonical tree."
     }
   ],
   "verification_attempts": [
