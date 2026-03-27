@@ -36,16 +36,47 @@
 | `Codex` / `Claude Code` / 按源码浏览的 AI coding assistants | `skills/` |
 | `OpenClaw` | `openclaw-skills/` |
 
-### 三步上手
+### 方式一：直接发给 AI 工具的安装提示词（推荐）
 
-1. 克隆仓库。
-2. 如果你使用 `OpenClaw`，先运行：
+如果你希望让 AI 工具直接帮你安装，可以把下面这段提示词原样发给它，只需要把本地路径改成你自己的：
+
+```
+你现在是我的本地安装助手，请把这个仓库里的 Skills 安装到当前 AI 工具中，并按下面规则执行：
+
+1. 仓库本地路径是：`<替换成你的本地仓库路径>`
+2. 如果当前工具是 `Codex`、`Claude Code`、`Cursor` 或其他按源码浏览技能目录的 AI coding assistant，请使用仓库里的 `skills/`
+3. 如果当前工具是 `OpenClaw`，请先运行 `python scripts/export_openclaw_skills.py`，然后使用 `openclaw-skills/`
+4. 如果当前机器已经有本地 `Codex` skills 目录，请运行 `python scripts/sync_codex_skills.py --source-root "<仓库路径>\\skills" --codex-root "<Codex skills 路径>"` 进行同步
+5. 安装完成后，请明确告诉我：
+   - 你为当前工具使用了哪个目录
+   - 你改了哪些本地配置或文件
+   - 应该如何验证安装成功
+   - 如果失败，失败点在哪里
+```
+
+如果你不确定自己的工具该用哪个目录，就直接把上面的提示词发给 AI 工具，它会按客户端类型自动选择。
+
+### 方式二：手动安装步骤
+
+1. 克隆本仓库到本地。
+2. 判断你当前使用的是哪类工具：
+   - 如果是 `Codex` / `Claude Code` / `Cursor` / 其他源码浏览型 AI coding assistant，直接使用 `skills/`
+   - 如果是 `OpenClaw`，使用 `openclaw-skills/`
+3. 如果你使用 `OpenClaw`，先生成扁平导出目录：
 
 ```bash
 python3 scripts/export_openclaw_skills.py
 ```
 
-3. 按你的 AI 工具把 `skills/` 或 `openclaw-skills/` 配进去，开始使用。
+4. 把对应目录配置到你的 AI 工具里：
+   - `Codex` / `Claude Code` / `Cursor`：配置 `skills/`
+   - `OpenClaw`：配置 `openclaw-skills/`
+5. 任选几个技能目录检查是否能正常读取，例如：
+   - `skills/developer-engineering/codebase-onboarding`
+   - `skills/security-and-reliability/skill-vetter`
+   - `openclaw-skills/codebase-onboarding`
+
+### 常见维护命令
 
 如果你修改了仓库里的源码技能，推荐统一刷新生成视图：
 
@@ -53,7 +84,7 @@ python3 scripts/export_openclaw_skills.py
 python3 scripts/refresh_repo_views.py
 ```
 
-如果你在本地 Codex skills 目录里看到 `invalid SKILL.md`、`missing YAML frontmatter`、`metadata` 类型错误等警告，也可以直接运行：
+如果你在本地 Codex skills 目录里看到 `invalid SKILL.md`、`missing YAML frontmatter`、`metadata` 类型错误等警告，可以运行：
 
 ```bash
 python3 scripts/normalize_codex_skills.py ~/.codex/skills
@@ -65,7 +96,7 @@ Windows 示例：
 python scripts/normalize_codex_skills.py "C:\Users\admin\.codex\skills"
 ```
 
-如果你想把仓库里的最新技能同步到本地 Codex 目录，可以直接运行：
+如果你想把仓库里的最新技能同步到本地 Codex 目录，可以运行：
 
 ```powershell
 python scripts/sync_codex_skills.py --source-root "E:\AI-codex\003-Commonly-used-high-value-skills\skills" --codex-root "C:\Users\admin\.codex\skills"

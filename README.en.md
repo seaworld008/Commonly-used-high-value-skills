@@ -38,14 +38,45 @@ This repository currently contains **15 categories / 163 skills**.
 
 ## Quick Start
 
+### Option 1: Give This Prompt to Your AI Tool (Recommended)
+
+If you want your AI tool to install the skills for you, send it the prompt below and replace the local path:
+
+```text
+You are my local installation assistant. Please install the skills from this repository into the current AI tool and follow these rules:
+
+1. The local repository path is: `<replace with your local repo path>`
+2. If the current tool is `Codex`, `Claude Code`, `Cursor`, or another source-browsing AI coding assistant, use the repository `skills/` directory
+3. If the current tool is `OpenClaw`, first run `python scripts/export_openclaw_skills.py`, then use `openclaw-skills/`
+4. If this machine already has a local Codex skills directory, run `python scripts/sync_codex_skills.py --source-root "<repo path>/skills" --codex-root "<Codex skills path>"` to sync it
+5. When finished, tell me:
+   - which directory you used
+   - which local files or settings you changed
+   - how I should verify the installation worked
+   - where it failed if anything did not work
+```
+
+If you are unsure which directory your tool should use, this is the easiest and safest way to start.
+
+### Option 2: Manual Setup
+
 1. Clone the repository.
-2. If you use OpenClaw, generate the flat export:
+2. Choose the correct directory for your client:
+   - `Codex` / `Claude Code` / `Cursor` / other source-browsing assistants: use `skills/`
+   - `OpenClaw`: use `openclaw-skills/`
+3. If you use OpenClaw, generate the flat export first:
 
 ```bash
 python3 scripts/export_openclaw_skills.py
 ```
 
-3. Point your AI tool to either `skills/` or `openclaw-skills/`, depending on the client.
+4. Point your AI tool to the correct directory.
+5. Verify by opening a few known skills, for example:
+   - `skills/developer-engineering/codebase-onboarding`
+   - `skills/security-and-reliability/skill-vetter`
+   - `openclaw-skills/codebase-onboarding`
+
+### Common Maintenance Commands
 
 If you change source skills in the repository, refresh generated views with:
 
