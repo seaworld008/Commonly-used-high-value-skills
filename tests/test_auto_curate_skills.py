@@ -48,7 +48,7 @@ class AutoCurateSkillsTests(unittest.TestCase):
             ]
         }
 
-        ranked = module.rank_discoveries(
+        ranked, skipped = module.rank_discoveries(
             report,
             existing_names={"test-driven-development"},
             limit=10,
@@ -57,6 +57,7 @@ class AutoCurateSkillsTests(unittest.TestCase):
         self.assertEqual("infra-automation", ranked[0]["name"])
         self.assertEqual("random-helper", ranked[1]["name"])
         self.assertNotIn("test-driven-development", [item["name"] for item in ranked])
+        self.assertEqual("already_indexed", skipped[0]["reason"])
         self.assertGreater(ranked[0]["curation_score"], ranked[1]["curation_score"])
 
     def test_build_execution_plan_syncs_before_discovery_and_pipeline(self):
@@ -69,6 +70,7 @@ class AutoCurateSkillsTests(unittest.TestCase):
             sync_mode="apply",
             top=5,
             min_score=20,
+            policy_path="docs/sources/curation-policy.json",
         )
 
         rendered = [" ".join(step["cmd"]) for step in plan]
@@ -97,8 +99,27 @@ class AutoCurateSkillsTests(unittest.TestCase):
                                 "url": "https://skills.sh/example/platform-best-practices",
                                 "repo_stars": 1200,
                                 "description": "Operational patterns with examples",
-                            }
+                            },
+                            {
+                                "name": "blocked-skill",
+                                "source": "skills.sh (bad/repo)",
+                                "url": "https://skills.sh/example/blocked-skill",
+                                "repo_stars": 9999,
+                                "description": "Should be filtered",
+                            },
                         ]
+                    }
+                ),
+                encoding="utf-8",
+            )
+            policy_path = repo / "docs" / "sources" / "curation-policy.json"
+            policy_path.parent.mkdir(parents=True, exist_ok=True)
+            policy_path.write_text(
+                json.dumps(
+                    {
+                        "deny_repos": ["bad/repo"],
+                        "prefer_repos": {"vercel-labs/agent-skills": 20},
+                        "min_repo_stars": 100,
                     }
                 ),
                 encoding="utf-8",
@@ -110,16 +131,68 @@ class AutoCurateSkillsTests(unittest.TestCase):
                 candidate_output=repo / "docs" / "sources" / "reports" / "curation-candidates.json",
                 top=10,
                 min_score=1,
+                policy=module.load_curation_policy(policy_path),
             )
 
             self.assertEqual(1, report["selected_count"])
             self.assertEqual("platform-best-practices", report["selected"][0]["name"])
+            self.assertEqual(1, report["skipped_count"])
+            self.assertEqual("blocked-skill", report["skipped"][0]["name"])
+            self.assertEqual("deny_repo", report["skipped"][0]["reason"])
 
     def test_build_branch_name_uses_codex_prefix(self):
         module = load_module()
         branch = module.build_branch_name("skills-curation")
         self.assertTrue(branch.startswith("codex/"))
         self.assertIn("skills-curation", branch)
+
+    def test_rank_discoveries_applies_policy_preferences_and_filters(self):
+        module = load_module()
+
+        policy = {
+            "allow_repos": [],
+            "deny_repos": ["bad/repo"],
+            "prefer_repos": {"trusted/repo": 30},
+            "min_repo_stars": 50,
+            "min_score_override": None,
+        }
+        ranked, skipped = module.rank_discoveries(
+            {
+                "discoveries": [
+                    {
+                        "name": "preferred-skill",
+                        "source": "skills.sh (trusted/repo)",
+                        "url": "https://skills.sh/trusted/repo/preferred-skill",
+                        "repo_stars": 100,
+                        "description": "Useful automation patterns",
+                    },
+                    {
+                        "name": "denied-skill",
+                        "source": "skills.sh (bad/repo)",
+                        "url": "https://skills.sh/bad/repo/denied-skill",
+                        "repo_stars": 1000,
+                        "description": "Should not pass policy",
+                    },
+                    {
+                        "name": "tiny-signal",
+                        "source": "skills.sh (small/repo)",
+                        "url": "https://skills.sh/small/repo/tiny-signal",
+                        "repo_stars": 2,
+                        "description": "Too small",
+                    },
+                ]
+            },
+            existing_names=set(),
+            limit=10,
+            min_score=1,
+            policy=policy,
+        )
+
+        self.assertEqual(["preferred-skill"], [item["name"] for item in ranked])
+        self.assertEqual({"denied-skill", "tiny-signal"}, {item["name"] for item in skipped})
+        reasons = {item["name"]: item["reason"] for item in skipped}
+        self.assertEqual("deny_repo", reasons["denied-skill"])
+        self.assertEqual("below_min_repo_stars", reasons["tiny-signal"])
 
     def test_write_pr_summary_includes_candidates_and_results(self):
         module = load_module()

@@ -17,6 +17,7 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_PR_BODY = "docs/sources/reports/curation-pr.md"
+DEFAULT_POLICY_PATH = "docs/sources/curation-policy.json"
 
 TRUSTED_SOURCE_SCORES = {
     "vercel-labs/agent-skills": 28,
@@ -67,9 +68,32 @@ FULL_PIPELINE_COMMANDS = [
     ["-m", "unittest", "discover", "tests", "-v"],
 ]
 
+DEFAULT_POLICY = {
+    "allow_repos": [],
+    "deny_repos": [],
+    "prefer_repos": {},
+    "min_repo_stars": 0,
+    "min_score_override": None,
+}
+
 
 def resolve_python_cmd() -> list[str]:
     return [sys.executable] if sys.executable else ["python"]
+
+
+def load_curation_policy(path: Path | None = None) -> dict:
+    policy = dict(DEFAULT_POLICY)
+    if path is None or not path.exists():
+        return policy
+
+    raw = json.loads(path.read_text(encoding="utf-8"))
+    if isinstance(raw, dict):
+        policy.update(raw)
+    policy["allow_repos"] = list(policy.get("allow_repos") or [])
+    policy["deny_repos"] = list(policy.get("deny_repos") or [])
+    policy["prefer_repos"] = dict(policy.get("prefer_repos") or {})
+    policy["min_repo_stars"] = int(policy.get("min_repo_stars") or 0)
+    return policy
 
 
 def run_command(
@@ -194,15 +218,60 @@ def score_candidate(candidate: dict) -> tuple[int, list[str]]:
     return score, reasons
 
 
-def rank_discoveries(report: dict, *, existing_names: set[str], limit: int, min_score: int = 0) -> list[dict]:
+def evaluate_policy(candidate: dict, policy: dict) -> tuple[bool, str | None, int]:
+    repo = parse_repo_from_candidate(candidate)
+    stars = int(candidate.get("repo_stars", 0) or 0)
+    allow_repos = set(policy.get("allow_repos") or [])
+    deny_repos = set(policy.get("deny_repos") or [])
+    prefer_repos = dict(policy.get("prefer_repos") or {})
+    min_repo_stars = int(policy.get("min_repo_stars") or 0)
+
+    if allow_repos and repo not in allow_repos:
+        return False, "not_in_allowlist", 0
+    if repo in deny_repos:
+        return False, "deny_repo", 0
+    if stars < min_repo_stars:
+        return False, "below_min_repo_stars", 0
+    return True, None, int(prefer_repos.get(repo, 0) or 0)
+
+
+def rank_discoveries(
+    report: dict,
+    *,
+    existing_names: set[str],
+    limit: int,
+    min_score: int = 0,
+    policy: dict | None = None,
+) -> tuple[list[dict], list[dict]]:
     ranked = []
+    skipped = []
+    policy = policy or dict(DEFAULT_POLICY)
+    effective_min_score = policy.get("min_score_override")
+    effective_min_score = min_score if effective_min_score in (None, "") else int(effective_min_score)
+
     for item in report.get("discoveries", []):
         name = item.get("name", "").strip()
-        if not name or name in existing_names or name.startswith("[repo]"):
+        if not name:
+            skipped.append({"name": name, "reason": "missing_name"})
+            continue
+        if name in existing_names:
+            skipped.append({"name": name, "reason": "already_indexed"})
+            continue
+        if name.startswith("[repo]"):
+            skipped.append({"name": name, "reason": "repo_only_not_skill"})
+            continue
+
+        allowed, reason, policy_bonus = evaluate_policy(item, policy)
+        if not allowed:
+            skipped.append({"name": name, "reason": reason, "source_repo": parse_repo_from_candidate(item)})
             continue
 
         score, reasons = score_candidate(item)
-        if score < min_score:
+        if policy_bonus:
+            score += policy_bonus
+            reasons.append(f"policy_bonus:{policy_bonus}")
+        if score < effective_min_score:
+            skipped.append({"name": name, "reason": "below_min_score", "score": score})
             continue
 
         candidate = dict(item)
@@ -214,7 +283,7 @@ def rank_discoveries(report: dict, *, existing_names: set[str], limit: int, min_
         ranked.append(candidate)
 
     ranked.sort(key=lambda item: (-item["curation_score"], -int(item.get("repo_stars", 0) or 0), item["name"]))
-    return ranked[:limit]
+    return ranked[:limit], skipped
 
 
 def curate_candidates(
@@ -224,19 +293,23 @@ def curate_candidates(
     candidate_output: Path,
     top: int,
     min_score: int,
+    policy: dict | None = None,
 ) -> dict:
     report = json.loads(discovery_output.read_text(encoding="utf-8"))
-    ranked = rank_discoveries(
+    ranked, skipped = rank_discoveries(
         report,
         existing_names=get_local_skill_names(repo_root / "skills"),
         limit=top,
         min_score=min_score,
+        policy=policy,
     )
     payload = {
         "generated_at": datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "source_report": str(discovery_output.relative_to(repo_root)),
         "selected_count": len(ranked),
         "selected": ranked,
+        "skipped_count": len(skipped),
+        "skipped": skipped,
     }
     candidate_output.parent.mkdir(parents=True, exist_ok=True)
     candidate_output.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -251,6 +324,7 @@ def build_execution_plan(
     sync_mode: str,
     top: int,
     min_score: int,
+    policy_path: str,
 ) -> list[dict]:
     steps: list[dict] = []
     if sync_mode == "check":
@@ -279,6 +353,8 @@ def build_execution_plan(
                 str(top),
                 "--min-score",
                 str(min_score),
+                "--policy",
+                policy_path,
             ],
         }
     )
@@ -530,6 +606,7 @@ def main() -> int:
     parser.add_argument("--sync-mode", choices=["skip", "check", "apply"], default="check")
     parser.add_argument("--discovery-output", default="docs/sources/reports/discovery.json")
     parser.add_argument("--candidate-output", default="docs/sources/reports/curation-candidates.json")
+    parser.add_argument("--policy", default=DEFAULT_POLICY_PATH, help="Path to curation policy JSON")
     parser.add_argument("--top", type=int, default=20)
     parser.add_argument("--min-score", type=int, default=20)
     parser.add_argument("--curate-only", action="store_true", help="Only rank candidates from an existing discovery report")
@@ -548,8 +625,10 @@ def main() -> int:
     repo_root = REPO_ROOT
     discovery_output = repo_root / args.discovery_output
     candidate_output = repo_root / args.candidate_output
+    policy_path = repo_root / args.policy
     python_cmd = resolve_python_cmd()
     initial_status = get_git_status(repo_root) if (args.prepare_pr or args.open_pr) else ""
+    policy = load_curation_policy(policy_path)
     if args.prepare_pr or args.open_pr:
         assert_clean_worktree(repo_root, status_output=initial_status)
 
@@ -560,6 +639,7 @@ def main() -> int:
             candidate_output=candidate_output,
             top=args.top,
             min_score=args.min_score,
+            policy=policy,
         )
         print(f"Wrote candidate report: {candidate_output.relative_to(repo_root)} ({report['selected_count']} selected)")
         return 0
@@ -571,6 +651,7 @@ def main() -> int:
         sync_mode=args.sync_mode,
         top=args.top,
         min_score=args.min_score,
+        policy_path=args.policy,
     )
 
     if not args.execute:
