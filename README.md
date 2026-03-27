@@ -15,6 +15,10 @@
 - 同时兼容 `Codex`、`Claude Code`、`OpenClaw` 等多种 AI 工具使用方式。
 - 按场景分类组织，既适合日常检索，也适合二次扩展和团队沉淀。
 - 很多技能不只是文档，还带 `scripts/`、`references/`、`assets/`，可以直接复用。
+- 仓库已经具备发现新 Skill、同步上游更新、候选优选、质量校验和生成视图的自动化链路，适合持续运营而不是一次性收集。
+- 现在支持用策略文件对白名单来源、黑名单来源、优先来源和基础门槛做统一治理，优选结果更稳定、更可控。
+- 已提供 `scripts/sync_codex_skills.py`，可以把仓库中的最新技能一键同步到本地 `Codex` 技能目录，减少手工拷贝和版本漂移。
+- 除了功能覆盖，仓库也重视安全与可信度：既有来源追踪、候选筛选与安装前风险识别能力，也内置 `skill-vetter`、`skill-security-auditor`、`input-guard`、`link-checker` 等安全审查类技能。
 
 ## 适合谁
 
@@ -59,6 +63,12 @@ Windows 示例：
 
 ```powershell
 python scripts/normalize_codex_skills.py "C:\Users\admin\.codex\skills"
+```
+
+如果你想把仓库里的最新技能同步到本地 Codex 目录，可以直接运行：
+
+```powershell
+python scripts/sync_codex_skills.py --source-root "E:\AI-codex\003-Commonly-used-high-value-skills\skills" --codex-root "C:\Users\admin\.codex\skills"
 ```
 
 ## 分类快速跳转
