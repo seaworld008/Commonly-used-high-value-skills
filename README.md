@@ -5,9 +5,9 @@
 [![简体中文](https://img.shields.io/badge/README-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1677ff)](./README.md)
 [![English](https://img.shields.io/badge/README-English-111111)](./README.en.md)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b894)](./openclaw-skills/README.md)
-[![Skills](https://img.shields.io/badge/Skills-139-7c3aed)](./skills/)
+[![Skills](https://img.shields.io/badge/Skills-164-7c3aed)](./skills/)
 
-面向中文 AI 开发者的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理等高频任务场景。当前共 **15 个分类 / 139 个技能**。
+面向中文 AI 开发者的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理等高频任务场景。当前共 **15 个分类 / 164 个技能**。
 
 ## 为什么值得收藏
 
@@ -205,10 +205,10 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 2. 打开对应技能的 `SKILL.md` 查看触发条件、操作流程和脚本说明。
 3. 若技能下含 `scripts/`、`references/`、`assets/`，优先复用现成内容。
 
-## 技能总览（按分类，15 类 / 139 技能）
+## 技能总览（按分类，15 类 / 164 技能）
 
 <a id="cat-developer-engineering"></a>
-### 1. 开发工程（developer-engineering，25）
+### 1. 开发工程（developer-engineering，40）
 
 - `agent-designer`：用于设计和评估多智能体系统架构。
 - `api-design-reviewer`：用于审查 API 设计规范、可维护性与一致性。
@@ -235,9 +235,23 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `tech-debt-tracker`：用于识别、记录和治理技术债。
 - `web-artifacts-builder`：用于构建和管理前端制品。
 - `webapp-testing`：用于 Web 应用自动化测试与回归验证。
+- `aws-solution-architect`：用于 AWS 云架构设计、服务选型与 Well-Architected Framework 评估。
+- `context-engineering`：用于 AI 编码助手的上下文优化、Prompt 结构设计和指令冲突防御。
+- `docker-expert`：用于 Docker 容器化最佳实践、多阶段构建优化与 Compose 编排。
+- `graphql-expert`：用于 GraphQL API 设计、查询优化、Schema 管理和安全最佳实践。
+- `kubernetes-specialist`：用于 K8s 集群管理、部署编排、Pod 调试与 Helm Chart 设计。
+- `nextjs-app-router`：用于 Next.js App Router 模式开发，包含 RSC 与 Server Actions。
+- `python-performance`：用于 Python 性能优化、内存分析和并发编程最佳实践。
+- `rust-engineer`：用于 Rust 语言开发最佳实践、异步编程和系统级编程指导。
+- `supabase-postgres`：用于 Supabase 平台开发与 PostgreSQL 最佳实践。
+- `systematic-debugging`：用于系统化调试方法论，包含根因分析与最小复现。
+- `tailwind-design-system`：用于 Tailwind CSS 设计系统搭建与主题定制。
+- `terraform-engineer`：用于 Terraform IaC 设计、模块化管理和状态管理。
+- `test-driven-development`：用于 TDD 红绿重构循环与测试策略制定。
+- `typescript-best-practices`：用于 TypeScript 高级类型编程与类型安全设计。
 
 <a id="cat-devops-sre"></a>
-### 2. DevOps / SRE（devops-sre，9）
+### 2. DevOps / SRE（devops-sre，10）
 
 - `changelog-generator`：用于自动生成版本变更日志。
 - `ci-cd-pipeline-builder`：用于设计与搭建 CI/CD 流水线。
@@ -248,9 +262,10 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `observability-designer`：用于监控、告警和 SLO 体系设计。
 - `release-manager`：用于发布节奏、版本流程与变更管控。
 - `senior-devops`：用于综合 DevOps 工程实践与体系落地。
+- `senior-architect`：用于软件架构评审、技术选型决策和系统可扩展性分析。
 
 <a id="cat-growth-operations"></a>
-### 3. 增长运营（growth-operations-xiaohongshu，10）
+### 3. 增长运营（growth-operations-xiaohongshu，11）
 
 - `algorithmic-art`：用于生成算法风格视觉内容与创意素材。
 - `app-store-optimization`：用于应用商店优化（ASO）与关键词策略。
@@ -262,9 +277,10 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `prompt-engineer-toolkit`：用于运营场景下的提示词工程实践。
 - `social-media-analyzer`：用于社媒数据分析与趋势洞察。
 - `twitter-reader`：用于读取、整理和提炼 Twitter 信息。
+- `seo-audit`：用于网站 SEO 全面审计、On-page 优化建议和技术 SEO 检查。
 
 <a id="cat-finance-investing"></a>
-### 4. 金融投资（finance-investing，12）
+### 4. 金融投资（finance-investing，13）
 
 - `comps-valuation-analyst`：用于可比公司估值、倍数区间分析与相对估值判断。
 - `earnings-call-analyzer`：用于财报电话会摘要、管理层口径变化和风险信号提取。
@@ -278,6 +294,7 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `portfolio-risk-manager`：用于组合风险、暴露、集中度与 Beta 视角分析。
 - `sec-filing-reviewer`：用于审阅 SEC 披露文件并提取核心风险线索。
 - `stock-screener-builder`：用于构建选股条件、筛选股票池与生成研究 shortlist。
+- `saas-metrics-coach`：用于 SaaS 关键指标分析与健康度诊断（ARR/MRR/Churn/LTV/CAC）。
 
 <a id="cat-office-white-collar"></a>
 ### 5. 办公与文档（office-white-collar，16）
@@ -307,7 +324,7 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `runbook-generator`：用于生成标准化运维 Runbook。
 
 <a id="cat-operations-general"></a>
-### 7. 通用运营（operations-general，9）
+### 7. 通用运营（operations-general，11）
 
 - `brand-guidelines`：用于品牌规范制定与统一表达。
 - `docs-cleaner`：用于文档清洗、重构与降噪。
@@ -318,9 +335,11 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `teams-channel-post-writer`：用于撰写 Teams 频道发布文案。
 - `theme-factory`：用于主题风格配置与视觉模板输出。
 - `weather`：用于免 API Key 的天气查询与出行场景支持。
+- `supermemory`：用于长期记忆管理、偏好捕获和矛盾检测。
+- `confidence-check`：用于结构化自我审查，验证假设和减少幻觉输出。
 
 <a id="cat-product-design"></a>
-### 8. 产品与设计（product-design，9）
+### 8. 产品与设计（product-design，10）
 
 - `agile-product-owner`：用于敏捷需求管理与迭代推进。
 - `canvas-design`：用于商业/产品画布设计与梳理。
@@ -331,9 +350,10 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `saas-scaffolder`：用于 SaaS 产品方案脚手架与初始结构。
 - `ui-design-system`：用于 UI 设计系统与 Design Token 规范。
 - `ux-researcher-designer`：用于用户研究与体验设计方法。
+- `landing-page-generator`：用于快速生成高转化率落地页结构与 TSX/Tailwind 代码脚手架。
 
 <a id="cat-task-understanding"></a>
-### 9. 任务理解与拆解（task-understanding-decomposition，11）
+### 9. 任务理解与拆解（task-understanding-decomposition，12）
 
 - `agent-workflow-designer`：用于设计 Agent 协作流程与分工。
 - `brainstorming`：用于在实现前进行需求澄清与方案发散。
@@ -346,9 +366,10 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `skills-search`：用于快速检索并匹配可用技能。
 - `tavily-search`：用于联网实时检索与来源证据补充。
 - `writing-plans`：用于编写可执行的实施计划。
+- `subagent-driven-development`：用于多子 Agent 并行开发编排与两阶段审查。
 
 <a id="cat-ai-agent-platform"></a>
-### 10. AI 平台与 Agent 开发（ai-agent-platform，7）
+### 10. AI 平台与 Agent 开发（ai-agent-platform，8）
 
 - `chatgpt-apps`：用于构建、脚手架化和调试 ChatGPT Apps。
 - `develop-web-game`：用于 Web 游戏快速迭代开发与自动化验证。
@@ -357,9 +378,10 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `openai-docs`：用于基于 OpenAI 官方文档进行能力检索与实现指导。
 - `proactive-agent`：用于提升 Agent 主动规划与持续协作能力。
 - `self-improving-agent`：用于记忆驱动的反思迭代与自我优化。
+- `agent-hub`：用于多 Agent 系统编排、通信协议设计与生命周期管理。
 
 <a id="cat-workflow-automation"></a>
-### 11. 工程工作流自动化（engineering-workflow-automation，7）
+### 11. 工程工作流自动化（engineering-workflow-automation，8）
 
 - `agent-browser`：用于语义驱动的真实浏览器自动化操作。
 - `gh-address-comments`：用于处理 GitHub PR 的 review/issue 评论并闭环。
@@ -368,6 +390,7 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `playwright`：用于终端驱动的真实浏览器自动化测试与排查。
 - `github`：用于通过 GitHub CLI 管理 Issues、PR 与 CI 自动化协作。
 - `yeet`：用于一体化执行 stage/commit/push/PR 流程。
+- `web-scraper`：用于网页数据抓取、结构化提取和反爬策略应对。
 
 <a id="cat-knowledge-pm"></a>
 ### 12. 项目管理与知识库集成（knowledge-and-pm-integrations，5）
@@ -397,7 +420,7 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `transcribe`：用于音视频转写与可选说话人区分。
 
 <a id="cat-security-reliability"></a>
-### 15. 安全治理与稳定性（security-and-reliability，6）
+### 15. 安全治理与稳定性（security-and-reliability，7）
 
 - `link-checker`：用于 URL 安全检测、钓鱼链接识别与基础可达性检查。
 - `security-best-practices`：用于按语言/框架执行安全最佳实践检查。
@@ -405,6 +428,7 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 - `security-threat-model`：用于仓库级威胁建模与缓解建议输出。
 - `sentry`：用于读取并汇总 Sentry 线上异常与健康信息。
 - `skill-vetter`：用于安装前技能安全审计与风险识别。
+- `skill-security-auditor`：用于第三方 Skill 安装前安全扫描（命令注入/数据泄露/提示注入检测）。
 
 ## 建议补充的高热度技能（候选）
 
