@@ -13,191 +13,15 @@
   ],
   "skills": [
     {
-      "video_name": "agent-hub",
-      "normalized_slug": "agent-hub",
+      "video_name": "agent-browser",
+      "normalized_slug": "agent-browser",
       "status": "in_house",
-      "repo_skill": "skills/ai-agent-platform/agent-hub/SKILL.md",
+      "repo_skill": "skills/engineering-workflow-automation/agent-browser/SKILL.md",
       "source": "https://github.com/your-org/Commonly-used-high-value-skills",
       "notes": "In-house canonical skill (local repository source of truth).",
       "upstream": {
         "repo": "local-repo/in-house",
-        "path": "skills/ai-agent-platform/agent-hub",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "chatgpt-apps",
-      "normalized_slug": "chatgpt-apps",
-      "status": "in_house",
-      "repo_skill": "skills/ai-agent-platform/chatgpt-apps/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/ai-agent-platform/chatgpt-apps",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "develop-web-game",
-      "normalized_slug": "develop-web-game",
-      "status": "in_house",
-      "repo_skill": "skills/ai-agent-platform/develop-web-game/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/ai-agent-platform/develop-web-game",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "figma",
-      "normalized_slug": "figma",
-      "status": "in_house",
-      "repo_skill": "skills/ai-agent-platform/figma/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/ai-agent-platform/figma",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "figma-implement-design",
-      "normalized_slug": "figma-implement-design",
-      "status": "in_house",
-      "repo_skill": "skills/ai-agent-platform/figma-implement-design/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/ai-agent-platform/figma-implement-design",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "openai-docs",
-      "normalized_slug": "openai-docs",
-      "status": "in_house",
-      "repo_skill": "skills/ai-agent-platform/openai-docs/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/ai-agent-platform/openai-docs",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "proactive-agent",
-      "normalized_slug": "proactive-agent",
-      "status": "in_house",
-      "repo_skill": "skills/ai-agent-platform/proactive-agent/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/ai-agent-platform/proactive-agent",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "self-improving-agent",
-      "normalized_slug": "self-improving-agent",
-      "status": "in_house",
-      "repo_skill": "skills/ai-agent-platform/self-improving-agent/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/ai-agent-platform/self-improving-agent",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "cloudflare-deploy",
-      "normalized_slug": "cloudflare-deploy",
-      "status": "in_house",
-      "repo_skill": "skills/deployment-platforms/cloudflare-deploy/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/deployment-platforms/cloudflare-deploy",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "netlify-deploy",
-      "normalized_slug": "netlify-deploy",
-      "status": "in_house",
-      "repo_skill": "skills/deployment-platforms/netlify-deploy/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/deployment-platforms/netlify-deploy",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "render-deploy",
-      "normalized_slug": "render-deploy",
-      "status": "in_house",
-      "repo_skill": "skills/deployment-platforms/render-deploy/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/deployment-platforms/render-deploy",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "vercel-deploy",
-      "normalized_slug": "vercel-deploy",
-      "status": "in_house",
-      "repo_skill": "skills/deployment-platforms/vercel-deploy/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/deployment-platforms/vercel-deploy",
+        "path": "skills/engineering-workflow-automation/agent-browser",
         "ref": "main",
         "last_checked_at": "2026-03-27",
         "last_synced_at": "2026-03-27",
@@ -214,6 +38,70 @@
       "upstream": {
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/agent-designer",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "agent-hub",
+      "normalized_slug": "agent-hub",
+      "status": "in_house",
+      "repo_skill": "skills/ai-agent-platform/agent-hub/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/ai-agent-platform/agent-hub",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "agent-workflow-designer",
+      "normalized_slug": "agent-workflow-designer",
+      "status": "in_house",
+      "repo_skill": "skills/task-understanding-decomposition/agent-workflow-designer/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/task-understanding-decomposition/agent-workflow-designer",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "agile-product-owner",
+      "normalized_slug": "agile-product-owner",
+      "status": "in_house",
+      "repo_skill": "skills/product-design/agile-product-owner/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/product-design/agile-product-owner",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "algorithmic-art",
+      "normalized_slug": "algorithmic-art",
+      "status": "in_house",
+      "repo_skill": "skills/growth-operations-xiaohongshu/algorithmic-art/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/growth-operations-xiaohongshu/algorithmic-art",
         "ref": "main",
         "last_checked_at": "2026-03-27",
         "last_synced_at": "2026-03-27",
@@ -253,6 +141,22 @@
       }
     },
     {
+      "video_name": "app-store-optimization",
+      "normalized_slug": "app-store-optimization",
+      "status": "in_house",
+      "repo_skill": "skills/growth-operations-xiaohongshu/app-store-optimization/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/growth-operations-xiaohongshu/app-store-optimization",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
       "video_name": "aws-solution-architect",
       "normalized_slug": "aws-solution-architect",
       "status": "in_house",
@@ -262,6 +166,134 @@
       "upstream": {
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/aws-solution-architect",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "brainstorming",
+      "normalized_slug": "brainstorming",
+      "status": "in_house",
+      "repo_skill": "skills/task-understanding-decomposition/brainstorming/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/task-understanding-decomposition/brainstorming",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "brand-guidelines",
+      "normalized_slug": "brand-guidelines",
+      "status": "in_house",
+      "repo_skill": "skills/operations-general/brand-guidelines/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/operations-general/brand-guidelines",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "campaign-analytics",
+      "normalized_slug": "campaign-analytics",
+      "status": "in_house",
+      "repo_skill": "skills/growth-operations-xiaohongshu/campaign-analytics/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/growth-operations-xiaohongshu/campaign-analytics",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "canvas-design",
+      "normalized_slug": "canvas-design",
+      "status": "in_house",
+      "repo_skill": "skills/product-design/canvas-design/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/product-design/canvas-design",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "capture-screen",
+      "normalized_slug": "capture-screen",
+      "status": "in_house",
+      "repo_skill": "skills/office-white-collar/capture-screen/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/office-white-collar/capture-screen",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "changelog-generator",
+      "normalized_slug": "changelog-generator",
+      "status": "in_house",
+      "repo_skill": "skills/devops-sre/changelog-generator/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/devops-sre/changelog-generator",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "chatgpt-apps",
+      "normalized_slug": "chatgpt-apps",
+      "status": "in_house",
+      "repo_skill": "skills/ai-agent-platform/chatgpt-apps/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/ai-agent-platform/chatgpt-apps",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "ci-cd-pipeline-builder",
+      "normalized_slug": "ci-cd-pipeline-builder",
+      "status": "in_house",
+      "repo_skill": "skills/devops-sre/ci-cd-pipeline-builder/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/devops-sre/ci-cd-pipeline-builder",
         "ref": "main",
         "last_checked_at": "2026-03-27",
         "last_synced_at": "2026-03-27",
@@ -285,6 +317,38 @@
       }
     },
     {
+      "video_name": "cloudflare-deploy",
+      "normalized_slug": "cloudflare-deploy",
+      "status": "in_house",
+      "repo_skill": "skills/deployment-platforms/cloudflare-deploy/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/deployment-platforms/cloudflare-deploy",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "cloudflare-troubleshooting",
+      "normalized_slug": "cloudflare-troubleshooting",
+      "status": "in_house",
+      "repo_skill": "skills/devops-sre/cloudflare-troubleshooting/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/devops-sre/cloudflare-troubleshooting",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
       "video_name": "codebase-onboarding",
       "normalized_slug": "codebase-onboarding",
       "status": "in_house",
@@ -294,6 +358,86 @@
       "upstream": {
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/codebase-onboarding",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "competitive-teardown",
+      "normalized_slug": "competitive-teardown",
+      "status": "in_house",
+      "repo_skill": "skills/product-design/competitive-teardown/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/product-design/competitive-teardown",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "competitors-analysis",
+      "normalized_slug": "competitors-analysis",
+      "status": "in_house",
+      "repo_skill": "skills/growth-operations-xiaohongshu/competitors-analysis/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/growth-operations-xiaohongshu/competitors-analysis",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "comps-valuation-analyst",
+      "normalized_slug": "comps-valuation-analyst",
+      "status": "in_house",
+      "repo_skill": "skills/finance-investing/comps-valuation-analyst/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/finance-investing/comps-valuation-analyst",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "confidence-check",
+      "normalized_slug": "confidence-check",
+      "status": "in_house",
+      "repo_skill": "skills/operations-general/confidence-check/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/operations-general/confidence-check",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "content-creator",
+      "normalized_slug": "content-creator",
+      "status": "in_house",
+      "repo_skill": "skills/growth-operations-xiaohongshu/content-creator/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/growth-operations-xiaohongshu/content-creator",
         "ref": "main",
         "last_checked_at": "2026-03-27",
         "last_synced_at": "2026-03-27",
@@ -349,6 +493,22 @@
       }
     },
     {
+      "video_name": "deep-research",
+      "normalized_slug": "deep-research",
+      "status": "in_house",
+      "repo_skill": "skills/task-understanding-decomposition/deep-research/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/task-understanding-decomposition/deep-research",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
       "video_name": "dependency-auditor",
       "normalized_slug": "dependency-auditor",
       "status": "in_house",
@@ -358,6 +518,54 @@
       "upstream": {
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/dependency-auditor",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "develop-web-game",
+      "normalized_slug": "develop-web-game",
+      "status": "in_house",
+      "repo_skill": "skills/ai-agent-platform/develop-web-game/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/ai-agent-platform/develop-web-game",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "doc",
+      "normalized_slug": "doc",
+      "status": "in_house",
+      "repo_skill": "skills/office-white-collar/doc/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/office-white-collar/doc",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "doc-coauthoring",
+      "normalized_slug": "doc-coauthoring",
+      "status": "in_house",
+      "repo_skill": "skills/office-white-collar/doc-coauthoring/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/office-white-collar/doc-coauthoring",
         "ref": "main",
         "last_checked_at": "2026-03-27",
         "last_synced_at": "2026-03-27",
@@ -381,15 +589,15 @@
       }
     },
     {
-      "video_name": "frontend-design",
-      "normalized_slug": "frontend-design",
+      "video_name": "docs-cleaner",
+      "normalized_slug": "docs-cleaner",
       "status": "in_house",
-      "repo_skill": "skills/developer-engineering/frontend-design/SKILL.md",
+      "repo_skill": "skills/operations-general/docs-cleaner/SKILL.md",
       "source": "https://github.com/your-org/Commonly-used-high-value-skills",
       "notes": "In-house canonical skill (local repository source of truth).",
       "upstream": {
         "repo": "local-repo/in-house",
-        "path": "skills/developer-engineering/frontend-design",
+        "path": "skills/operations-general/docs-cleaner",
         "ref": "main",
         "last_checked_at": "2026-03-27",
         "last_synced_at": "2026-03-27",
@@ -397,735 +605,15 @@
       }
     },
     {
-      "video_name": "git-worktree-manager",
-      "normalized_slug": "git-worktree-manager",
+      "video_name": "docx",
+      "normalized_slug": "docx",
       "status": "in_house",
-      "repo_skill": "skills/developer-engineering/git-worktree-manager/SKILL.md",
+      "repo_skill": "skills/office-white-collar/docx/SKILL.md",
       "source": "https://github.com/your-org/Commonly-used-high-value-skills",
       "notes": "In-house canonical skill (local repository source of truth).",
       "upstream": {
         "repo": "local-repo/in-house",
-        "path": "skills/developer-engineering/git-worktree-manager",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "github-contributor",
-      "normalized_slug": "github-contributor",
-      "status": "in_house",
-      "repo_skill": "skills/developer-engineering/github-contributor/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/developer-engineering/github-contributor",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "graphql-expert",
-      "normalized_slug": "graphql-expert",
-      "status": "in_house",
-      "repo_skill": "skills/developer-engineering/graphql-expert/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/developer-engineering/graphql-expert",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "i18n-expert",
-      "normalized_slug": "i18n-expert",
-      "status": "in_house",
-      "repo_skill": "skills/developer-engineering/i18n-expert/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/developer-engineering/i18n-expert",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "kubernetes-specialist",
-      "normalized_slug": "kubernetes-specialist",
-      "status": "in_house",
-      "repo_skill": "skills/developer-engineering/kubernetes-specialist/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/developer-engineering/kubernetes-specialist",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "mcp-builder",
-      "normalized_slug": "mcp-builder",
-      "status": "in_house",
-      "repo_skill": "skills/developer-engineering/mcp-builder/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/developer-engineering/mcp-builder",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "mcp-server-builder",
-      "normalized_slug": "mcp-server-builder",
-      "status": "in_house",
-      "repo_skill": "skills/developer-engineering/mcp-server-builder/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/developer-engineering/mcp-server-builder",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "migration-architect",
-      "normalized_slug": "migration-architect",
-      "status": "in_house",
-      "repo_skill": "skills/developer-engineering/migration-architect/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/developer-engineering/migration-architect",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "monorepo-navigator",
-      "normalized_slug": "monorepo-navigator",
-      "status": "in_house",
-      "repo_skill": "skills/developer-engineering/monorepo-navigator/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/developer-engineering/monorepo-navigator",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "nextjs-app-router",
-      "normalized_slug": "nextjs-app-router",
-      "status": "in_house",
-      "repo_skill": "skills/developer-engineering/nextjs-app-router/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/developer-engineering/nextjs-app-router",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "performance-profiler",
-      "normalized_slug": "performance-profiler",
-      "status": "in_house",
-      "repo_skill": "skills/developer-engineering/performance-profiler/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/developer-engineering/performance-profiler",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "pr-review-expert",
-      "normalized_slug": "pr-review-expert",
-      "status": "in_house",
-      "repo_skill": "skills/developer-engineering/pr-review-expert/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/developer-engineering/pr-review-expert",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "promptfoo-evaluation",
-      "normalized_slug": "promptfoo-evaluation",
-      "status": "in_house",
-      "repo_skill": "skills/developer-engineering/promptfoo-evaluation/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/developer-engineering/promptfoo-evaluation",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "python-performance",
-      "normalized_slug": "python-performance",
-      "status": "in_house",
-      "repo_skill": "skills/developer-engineering/python-performance/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/developer-engineering/python-performance",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "qa-expert",
-      "normalized_slug": "qa-expert",
-      "status": "in_house",
-      "repo_skill": "skills/developer-engineering/qa-expert/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/developer-engineering/qa-expert",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "repomix-safe-mixer",
-      "normalized_slug": "repomix-safe-mixer",
-      "status": "in_house",
-      "repo_skill": "skills/developer-engineering/repomix-safe-mixer/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/developer-engineering/repomix-safe-mixer",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "rust-engineer",
-      "normalized_slug": "rust-engineer",
-      "status": "in_house",
-      "repo_skill": "skills/developer-engineering/rust-engineer/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/developer-engineering/rust-engineer",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "skill-tester",
-      "normalized_slug": "skill-tester",
-      "status": "in_house",
-      "repo_skill": "skills/developer-engineering/skill-tester/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/developer-engineering/skill-tester",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "supabase-postgres",
-      "normalized_slug": "supabase-postgres",
-      "status": "in_house",
-      "repo_skill": "skills/developer-engineering/supabase-postgres/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/developer-engineering/supabase-postgres",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "systematic-debugging",
-      "normalized_slug": "systematic-debugging",
-      "status": "in_house",
-      "repo_skill": "skills/developer-engineering/systematic-debugging/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/developer-engineering/systematic-debugging",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "tailwind-design-system",
-      "normalized_slug": "tailwind-design-system",
-      "status": "in_house",
-      "repo_skill": "skills/developer-engineering/tailwind-design-system/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/developer-engineering/tailwind-design-system",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "tech-debt-tracker",
-      "normalized_slug": "tech-debt-tracker",
-      "status": "in_house",
-      "repo_skill": "skills/developer-engineering/tech-debt-tracker/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/developer-engineering/tech-debt-tracker",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "terraform-engineer",
-      "normalized_slug": "terraform-engineer",
-      "status": "in_house",
-      "repo_skill": "skills/developer-engineering/terraform-engineer/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/developer-engineering/terraform-engineer",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "test-driven-development",
-      "normalized_slug": "test-driven-development",
-      "status": "in_house",
-      "repo_skill": "skills/developer-engineering/test-driven-development/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/developer-engineering/test-driven-development",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "typescript-best-practices",
-      "normalized_slug": "typescript-best-practices",
-      "status": "in_house",
-      "repo_skill": "skills/developer-engineering/typescript-best-practices/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/developer-engineering/typescript-best-practices",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "web-artifacts-builder",
-      "normalized_slug": "web-artifacts-builder",
-      "status": "in_house",
-      "repo_skill": "skills/developer-engineering/web-artifacts-builder/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/developer-engineering/web-artifacts-builder",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "webapp-testing",
-      "normalized_slug": "webapp-testing",
-      "status": "in_house",
-      "repo_skill": "skills/developer-engineering/webapp-testing/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/developer-engineering/webapp-testing",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "changelog-generator",
-      "normalized_slug": "changelog-generator",
-      "status": "in_house",
-      "repo_skill": "skills/devops-sre/changelog-generator/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/devops-sre/changelog-generator",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "ci-cd-pipeline-builder",
-      "normalized_slug": "ci-cd-pipeline-builder",
-      "status": "in_house",
-      "repo_skill": "skills/devops-sre/ci-cd-pipeline-builder/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/devops-sre/ci-cd-pipeline-builder",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "cloudflare-troubleshooting",
-      "normalized_slug": "cloudflare-troubleshooting",
-      "status": "in_house",
-      "repo_skill": "skills/devops-sre/cloudflare-troubleshooting/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/devops-sre/cloudflare-troubleshooting",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "env-secrets-manager",
-      "normalized_slug": "env-secrets-manager",
-      "status": "in_house",
-      "repo_skill": "skills/devops-sre/env-secrets-manager/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/devops-sre/env-secrets-manager",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "github-ops",
-      "normalized_slug": "github-ops",
-      "status": "in_house",
-      "repo_skill": "skills/devops-sre/github-ops/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/devops-sre/github-ops",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "incident-commander",
-      "normalized_slug": "incident-commander",
-      "status": "in_house",
-      "repo_skill": "skills/devops-sre/incident-commander/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/devops-sre/incident-commander",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "observability-designer",
-      "normalized_slug": "observability-designer",
-      "status": "in_house",
-      "repo_skill": "skills/devops-sre/observability-designer/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/devops-sre/observability-designer",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "release-manager",
-      "normalized_slug": "release-manager",
-      "status": "in_house",
-      "repo_skill": "skills/devops-sre/release-manager/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/devops-sre/release-manager",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "senior-architect",
-      "normalized_slug": "senior-architect",
-      "status": "in_house",
-      "repo_skill": "skills/devops-sre/senior-architect/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/devops-sre/senior-architect",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "senior-devops",
-      "normalized_slug": "senior-devops",
-      "status": "in_house",
-      "repo_skill": "skills/devops-sre/senior-devops/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/devops-sre/senior-devops",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "agent-browser",
-      "normalized_slug": "agent-browser",
-      "status": "in_house",
-      "repo_skill": "skills/engineering-workflow-automation/agent-browser/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/engineering-workflow-automation/agent-browser",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "gh-address-comments",
-      "normalized_slug": "gh-address-comments",
-      "status": "in_house",
-      "repo_skill": "skills/engineering-workflow-automation/gh-address-comments/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/engineering-workflow-automation/gh-address-comments",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "gh-fix-ci",
-      "normalized_slug": "gh-fix-ci",
-      "status": "in_house",
-      "repo_skill": "skills/engineering-workflow-automation/gh-fix-ci/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/engineering-workflow-automation/gh-fix-ci",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "github",
-      "normalized_slug": "github",
-      "status": "in_house",
-      "repo_skill": "skills/engineering-workflow-automation/github/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/engineering-workflow-automation/github",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "jupyter-notebook",
-      "normalized_slug": "jupyter-notebook",
-      "status": "in_house",
-      "repo_skill": "skills/engineering-workflow-automation/jupyter-notebook/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/engineering-workflow-automation/jupyter-notebook",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "playwright",
-      "normalized_slug": "playwright",
-      "status": "in_house",
-      "repo_skill": "skills/engineering-workflow-automation/playwright/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/engineering-workflow-automation/playwright",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "web-scraper",
-      "normalized_slug": "web-scraper",
-      "status": "in_house",
-      "repo_skill": "skills/engineering-workflow-automation/web-scraper/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/engineering-workflow-automation/web-scraper",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "yeet",
-      "normalized_slug": "yeet",
-      "status": "in_house",
-      "repo_skill": "skills/engineering-workflow-automation/yeet/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/engineering-workflow-automation/yeet",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "comps-valuation-analyst",
-      "normalized_slug": "comps-valuation-analyst",
-      "status": "in_house",
-      "repo_skill": "skills/finance-investing/comps-valuation-analyst/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/finance-investing/comps-valuation-analyst",
+        "path": "skills/office-white-collar/docx",
         "ref": "main",
         "last_checked_at": "2026-03-27",
         "last_synced_at": "2026-03-27",
@@ -1149,6 +637,22 @@
       }
     },
     {
+      "video_name": "env-secrets-manager",
+      "normalized_slug": "env-secrets-manager",
+      "status": "in_house",
+      "repo_skill": "skills/devops-sre/env-secrets-manager/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/devops-sre/env-secrets-manager",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
       "video_name": "event-driven-tracker",
       "normalized_slug": "event-driven-tracker",
       "status": "in_house",
@@ -1165,6 +669,38 @@
       }
     },
     {
+      "video_name": "excel-automation",
+      "normalized_slug": "excel-automation",
+      "status": "in_house",
+      "repo_skill": "skills/office-white-collar/excel-automation/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/office-white-collar/excel-automation",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "fact-checker",
+      "normalized_slug": "fact-checker",
+      "status": "in_house",
+      "repo_skill": "skills/operations-general/fact-checker/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/operations-general/fact-checker",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
       "video_name": "factor-backtester",
       "normalized_slug": "factor-backtester",
       "status": "in_house",
@@ -1174,6 +710,38 @@
       "upstream": {
         "repo": "local-repo/in-house",
         "path": "skills/finance-investing/factor-backtester",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "figma",
+      "normalized_slug": "figma",
+      "status": "in_house",
+      "repo_skill": "skills/ai-agent-platform/figma/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/ai-agent-platform/figma",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "figma-implement-design",
+      "normalized_slug": "figma-implement-design",
+      "status": "in_house",
+      "repo_skill": "skills/ai-agent-platform/figma-implement-design/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/ai-agent-platform/figma-implement-design",
         "ref": "main",
         "last_checked_at": "2026-03-27",
         "last_synced_at": "2026-03-27",
@@ -1213,6 +781,262 @@
       }
     },
     {
+      "video_name": "find-skills",
+      "normalized_slug": "find-skills",
+      "status": "in_house",
+      "repo_skill": "skills/task-understanding-decomposition/find-skills/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/task-understanding-decomposition/find-skills",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "frontend-design",
+      "normalized_slug": "frontend-design",
+      "status": "in_house",
+      "repo_skill": "skills/developer-engineering/frontend-design/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/developer-engineering/frontend-design",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "gh-address-comments",
+      "normalized_slug": "gh-address-comments",
+      "status": "in_house",
+      "repo_skill": "skills/engineering-workflow-automation/gh-address-comments/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/engineering-workflow-automation/gh-address-comments",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "gh-fix-ci",
+      "normalized_slug": "gh-fix-ci",
+      "status": "in_house",
+      "repo_skill": "skills/engineering-workflow-automation/gh-fix-ci/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/engineering-workflow-automation/gh-fix-ci",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "git-worktree-manager",
+      "normalized_slug": "git-worktree-manager",
+      "status": "in_house",
+      "repo_skill": "skills/developer-engineering/git-worktree-manager/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/developer-engineering/git-worktree-manager",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "github",
+      "normalized_slug": "github",
+      "status": "in_house",
+      "repo_skill": "skills/engineering-workflow-automation/github/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/engineering-workflow-automation/github",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "github-contributor",
+      "normalized_slug": "github-contributor",
+      "status": "in_house",
+      "repo_skill": "skills/developer-engineering/github-contributor/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/developer-engineering/github-contributor",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "github-ops",
+      "normalized_slug": "github-ops",
+      "status": "in_house",
+      "repo_skill": "skills/devops-sre/github-ops/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/devops-sre/github-ops",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "gog",
+      "normalized_slug": "gog",
+      "status": "in_house",
+      "repo_skill": "skills/office-white-collar/gog/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/office-white-collar/gog",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "graphql-expert",
+      "normalized_slug": "graphql-expert",
+      "status": "in_house",
+      "repo_skill": "skills/developer-engineering/graphql-expert/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/developer-engineering/graphql-expert",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "i18n-expert",
+      "normalized_slug": "i18n-expert",
+      "status": "in_house",
+      "repo_skill": "skills/developer-engineering/i18n-expert/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/developer-engineering/i18n-expert",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "imagegen",
+      "normalized_slug": "imagegen",
+      "status": "in_house",
+      "repo_skill": "skills/multimodal-media/imagegen/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/multimodal-media/imagegen",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "incident-commander",
+      "normalized_slug": "incident-commander",
+      "status": "in_house",
+      "repo_skill": "skills/devops-sre/incident-commander/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/devops-sre/incident-commander",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "input-guard",
+      "normalized_slug": "input-guard",
+      "status": "in_house",
+      "repo_skill": "skills/openclaw-memory-and-safety/input-guard/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/openclaw-memory-and-safety/input-guard",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "internal-comms",
+      "normalized_slug": "internal-comms",
+      "status": "in_house",
+      "repo_skill": "skills/operations-general/internal-comms/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/operations-general/internal-comms",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "interview-system-designer",
+      "normalized_slug": "interview-system-designer",
+      "status": "in_house",
+      "repo_skill": "skills/operations-general/interview-system-designer/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/operations-general/interview-system-designer",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
       "video_name": "investment-memo-writer",
       "normalized_slug": "investment-memo-writer",
       "status": "in_house",
@@ -1222,6 +1046,86 @@
       "upstream": {
         "repo": "local-repo/in-house",
         "path": "skills/finance-investing/investment-memo-writer",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "jupyter-notebook",
+      "normalized_slug": "jupyter-notebook",
+      "status": "in_house",
+      "repo_skill": "skills/engineering-workflow-automation/jupyter-notebook/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/engineering-workflow-automation/jupyter-notebook",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "kubernetes-specialist",
+      "normalized_slug": "kubernetes-specialist",
+      "status": "in_house",
+      "repo_skill": "skills/developer-engineering/kubernetes-specialist/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/developer-engineering/kubernetes-specialist",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "landing-page-generator",
+      "normalized_slug": "landing-page-generator",
+      "status": "in_house",
+      "repo_skill": "skills/product-design/landing-page-generator/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/product-design/landing-page-generator",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "linear",
+      "normalized_slug": "linear",
+      "status": "in_house",
+      "repo_skill": "skills/knowledge-and-pm-integrations/linear/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/knowledge-and-pm-integrations/linear",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "link-checker",
+      "normalized_slug": "link-checker",
+      "status": "in_house",
+      "repo_skill": "skills/security-and-reliability/link-checker/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/security-and-reliability/link-checker",
         "ref": "main",
         "last_checked_at": "2026-03-27",
         "last_synced_at": "2026-03-27",
@@ -1245,159 +1149,15 @@
       }
     },
     {
-      "video_name": "options-strategy-evaluator",
-      "normalized_slug": "options-strategy-evaluator",
+      "video_name": "markdown-tools",
+      "normalized_slug": "markdown-tools",
       "status": "in_house",
-      "repo_skill": "skills/finance-investing/options-strategy-evaluator/SKILL.md",
+      "repo_skill": "skills/office-white-collar/markdown-tools/SKILL.md",
       "source": "https://github.com/your-org/Commonly-used-high-value-skills",
       "notes": "In-house canonical skill (local repository source of truth).",
       "upstream": {
         "repo": "local-repo/in-house",
-        "path": "skills/finance-investing/options-strategy-evaluator",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "portfolio-risk-manager",
-      "normalized_slug": "portfolio-risk-manager",
-      "status": "in_house",
-      "repo_skill": "skills/finance-investing/portfolio-risk-manager/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/finance-investing/portfolio-risk-manager",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "saas-metrics-coach",
-      "normalized_slug": "saas-metrics-coach",
-      "status": "in_house",
-      "repo_skill": "skills/finance-investing/saas-metrics-coach/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/finance-investing/saas-metrics-coach",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "sec-filing-reviewer",
-      "normalized_slug": "sec-filing-reviewer",
-      "status": "in_house",
-      "repo_skill": "skills/finance-investing/sec-filing-reviewer/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/finance-investing/sec-filing-reviewer",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "stock-screener-builder",
-      "normalized_slug": "stock-screener-builder",
-      "status": "in_house",
-      "repo_skill": "skills/finance-investing/stock-screener-builder/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/finance-investing/stock-screener-builder",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "algorithmic-art",
-      "normalized_slug": "algorithmic-art",
-      "status": "in_house",
-      "repo_skill": "skills/growth-operations-xiaohongshu/algorithmic-art/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/growth-operations-xiaohongshu/algorithmic-art",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "app-store-optimization",
-      "normalized_slug": "app-store-optimization",
-      "status": "in_house",
-      "repo_skill": "skills/growth-operations-xiaohongshu/app-store-optimization/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/growth-operations-xiaohongshu/app-store-optimization",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "campaign-analytics",
-      "normalized_slug": "campaign-analytics",
-      "status": "in_house",
-      "repo_skill": "skills/growth-operations-xiaohongshu/campaign-analytics/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/growth-operations-xiaohongshu/campaign-analytics",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "competitors-analysis",
-      "normalized_slug": "competitors-analysis",
-      "status": "in_house",
-      "repo_skill": "skills/growth-operations-xiaohongshu/competitors-analysis/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/growth-operations-xiaohongshu/competitors-analysis",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "content-creator",
-      "normalized_slug": "content-creator",
-      "status": "in_house",
-      "repo_skill": "skills/growth-operations-xiaohongshu/content-creator/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/growth-operations-xiaohongshu/content-creator",
+        "path": "skills/office-white-collar/markdown-tools",
         "ref": "main",
         "last_checked_at": "2026-03-27",
         "last_synced_at": "2026-03-27",
@@ -1437,15 +1197,15 @@
       }
     },
     {
-      "video_name": "prompt-engineer-toolkit",
-      "normalized_slug": "prompt-engineer-toolkit",
+      "video_name": "mcp-builder",
+      "normalized_slug": "mcp-builder",
       "status": "in_house",
-      "repo_skill": "skills/growth-operations-xiaohongshu/prompt-engineer-toolkit/SKILL.md",
+      "repo_skill": "skills/developer-engineering/mcp-builder/SKILL.md",
       "source": "https://github.com/your-org/Commonly-used-high-value-skills",
       "notes": "In-house canonical skill (local repository source of truth).",
       "upstream": {
         "repo": "local-repo/in-house",
-        "path": "skills/growth-operations-xiaohongshu/prompt-engineer-toolkit",
+        "path": "skills/developer-engineering/mcp-builder",
         "ref": "main",
         "last_checked_at": "2026-03-27",
         "last_synced_at": "2026-03-27",
@@ -1453,15 +1213,15 @@
       }
     },
     {
-      "video_name": "seo-audit",
-      "normalized_slug": "seo-audit",
+      "video_name": "mcp-server-builder",
+      "normalized_slug": "mcp-server-builder",
       "status": "in_house",
-      "repo_skill": "skills/growth-operations-xiaohongshu/seo-audit/SKILL.md",
+      "repo_skill": "skills/developer-engineering/mcp-server-builder/SKILL.md",
       "source": "https://github.com/your-org/Commonly-used-high-value-skills",
       "notes": "In-house canonical skill (local repository source of truth).",
       "upstream": {
         "repo": "local-repo/in-house",
-        "path": "skills/growth-operations-xiaohongshu/seo-audit",
+        "path": "skills/developer-engineering/mcp-server-builder",
         "ref": "main",
         "last_checked_at": "2026-03-27",
         "last_synced_at": "2026-03-27",
@@ -1469,15 +1229,15 @@
       }
     },
     {
-      "video_name": "social-media-analyzer",
-      "normalized_slug": "social-media-analyzer",
+      "video_name": "meeting-minutes-taker",
+      "normalized_slug": "meeting-minutes-taker",
       "status": "in_house",
-      "repo_skill": "skills/growth-operations-xiaohongshu/social-media-analyzer/SKILL.md",
+      "repo_skill": "skills/office-white-collar/meeting-minutes-taker/SKILL.md",
       "source": "https://github.com/your-org/Commonly-used-high-value-skills",
       "notes": "In-house canonical skill (local repository source of truth).",
       "upstream": {
         "repo": "local-repo/in-house",
-        "path": "skills/growth-operations-xiaohongshu/social-media-analyzer",
+        "path": "skills/office-white-collar/meeting-minutes-taker",
         "ref": "main",
         "last_checked_at": "2026-03-27",
         "last_synced_at": "2026-03-27",
@@ -1485,15 +1245,15 @@
       }
     },
     {
-      "video_name": "twitter-reader",
-      "normalized_slug": "twitter-reader",
+      "video_name": "mermaid-tools",
+      "normalized_slug": "mermaid-tools",
       "status": "in_house",
-      "repo_skill": "skills/growth-operations-xiaohongshu/twitter-reader/SKILL.md",
+      "repo_skill": "skills/office-white-collar/mermaid-tools/SKILL.md",
       "source": "https://github.com/your-org/Commonly-used-high-value-skills",
       "notes": "In-house canonical skill (local repository source of truth).",
       "upstream": {
         "repo": "local-repo/in-house",
-        "path": "skills/growth-operations-xiaohongshu/twitter-reader",
+        "path": "skills/office-white-collar/mermaid-tools",
         "ref": "main",
         "last_checked_at": "2026-03-27",
         "last_synced_at": "2026-03-27",
@@ -1501,15 +1261,63 @@
       }
     },
     {
-      "video_name": "linear",
-      "normalized_slug": "linear",
+      "video_name": "migration-architect",
+      "normalized_slug": "migration-architect",
       "status": "in_house",
-      "repo_skill": "skills/knowledge-and-pm-integrations/linear/SKILL.md",
+      "repo_skill": "skills/developer-engineering/migration-architect/SKILL.md",
       "source": "https://github.com/your-org/Commonly-used-high-value-skills",
       "notes": "In-house canonical skill (local repository source of truth).",
       "upstream": {
         "repo": "local-repo/in-house",
-        "path": "skills/knowledge-and-pm-integrations/linear",
+        "path": "skills/developer-engineering/migration-architect",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "monorepo-navigator",
+      "normalized_slug": "monorepo-navigator",
+      "status": "in_house",
+      "repo_skill": "skills/developer-engineering/monorepo-navigator/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/developer-engineering/monorepo-navigator",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "netlify-deploy",
+      "normalized_slug": "netlify-deploy",
+      "status": "in_house",
+      "repo_skill": "skills/deployment-platforms/netlify-deploy/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/deployment-platforms/netlify-deploy",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "nextjs-app-router",
+      "normalized_slug": "nextjs-app-router",
+      "status": "in_house",
+      "repo_skill": "skills/developer-engineering/nextjs-app-router/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/developer-engineering/nextjs-app-router",
         "ref": "main",
         "last_checked_at": "2026-03-27",
         "last_synced_at": "2026-03-27",
@@ -1581,15 +1389,15 @@
       }
     },
     {
-      "video_name": "imagegen",
-      "normalized_slug": "imagegen",
+      "video_name": "observability-designer",
+      "normalized_slug": "observability-designer",
       "status": "in_house",
-      "repo_skill": "skills/multimodal-media/imagegen/SKILL.md",
+      "repo_skill": "skills/devops-sre/observability-designer/SKILL.md",
       "source": "https://github.com/your-org/Commonly-used-high-value-skills",
       "notes": "In-house canonical skill (local repository source of truth).",
       "upstream": {
         "repo": "local-repo/in-house",
-        "path": "skills/multimodal-media/imagegen",
+        "path": "skills/devops-sre/observability-designer",
         "ref": "main",
         "last_checked_at": "2026-03-27",
         "last_synced_at": "2026-03-27",
@@ -1597,15 +1405,15 @@
       }
     },
     {
-      "video_name": "screenshot",
-      "normalized_slug": "screenshot",
+      "video_name": "openai-docs",
+      "normalized_slug": "openai-docs",
       "status": "in_house",
-      "repo_skill": "skills/multimodal-media/screenshot/SKILL.md",
+      "repo_skill": "skills/ai-agent-platform/openai-docs/SKILL.md",
       "source": "https://github.com/your-org/Commonly-used-high-value-skills",
       "notes": "In-house canonical skill (local repository source of truth).",
       "upstream": {
         "repo": "local-repo/in-house",
-        "path": "skills/multimodal-media/screenshot",
+        "path": "skills/ai-agent-platform/openai-docs",
         "ref": "main",
         "last_checked_at": "2026-03-27",
         "last_synced_at": "2026-03-27",
@@ -1613,207 +1421,15 @@
       }
     },
     {
-      "video_name": "sora",
-      "normalized_slug": "sora",
+      "video_name": "options-strategy-evaluator",
+      "normalized_slug": "options-strategy-evaluator",
       "status": "in_house",
-      "repo_skill": "skills/multimodal-media/sora/SKILL.md",
+      "repo_skill": "skills/finance-investing/options-strategy-evaluator/SKILL.md",
       "source": "https://github.com/your-org/Commonly-used-high-value-skills",
       "notes": "In-house canonical skill (local repository source of truth).",
       "upstream": {
         "repo": "local-repo/in-house",
-        "path": "skills/multimodal-media/sora",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "speech",
-      "normalized_slug": "speech",
-      "status": "in_house",
-      "repo_skill": "skills/multimodal-media/speech/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/multimodal-media/speech",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "summarize",
-      "normalized_slug": "summarize",
-      "status": "in_house",
-      "repo_skill": "skills/multimodal-media/summarize/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/multimodal-media/summarize",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "transcribe",
-      "normalized_slug": "transcribe",
-      "status": "in_house",
-      "repo_skill": "skills/multimodal-media/transcribe/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/multimodal-media/transcribe",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "capture-screen",
-      "normalized_slug": "capture-screen",
-      "status": "in_house",
-      "repo_skill": "skills/office-white-collar/capture-screen/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/office-white-collar/capture-screen",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "doc",
-      "normalized_slug": "doc",
-      "status": "in_house",
-      "repo_skill": "skills/office-white-collar/doc/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/office-white-collar/doc",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "doc-coauthoring",
-      "normalized_slug": "doc-coauthoring",
-      "status": "in_house",
-      "repo_skill": "skills/office-white-collar/doc-coauthoring/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/office-white-collar/doc-coauthoring",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "docx",
-      "normalized_slug": "docx",
-      "status": "in_house",
-      "repo_skill": "skills/office-white-collar/docx/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/office-white-collar/docx",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "excel-automation",
-      "normalized_slug": "excel-automation",
-      "status": "in_house",
-      "repo_skill": "skills/office-white-collar/excel-automation/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/office-white-collar/excel-automation",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "gog",
-      "normalized_slug": "gog",
-      "status": "in_house",
-      "repo_skill": "skills/office-white-collar/gog/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/office-white-collar/gog",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "markdown-tools",
-      "normalized_slug": "markdown-tools",
-      "status": "in_house",
-      "repo_skill": "skills/office-white-collar/markdown-tools/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/office-white-collar/markdown-tools",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "meeting-minutes-taker",
-      "normalized_slug": "meeting-minutes-taker",
-      "status": "in_house",
-      "repo_skill": "skills/office-white-collar/meeting-minutes-taker/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/office-white-collar/meeting-minutes-taker",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "mermaid-tools",
-      "normalized_slug": "mermaid-tools",
-      "status": "in_house",
-      "repo_skill": "skills/office-white-collar/mermaid-tools/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/office-white-collar/mermaid-tools",
+        "path": "skills/finance-investing/options-strategy-evaluator",
         "ref": "main",
         "last_checked_at": "2026-03-27",
         "last_synced_at": "2026-03-27",
@@ -1853,6 +1469,54 @@
       }
     },
     {
+      "video_name": "performance-profiler",
+      "normalized_slug": "performance-profiler",
+      "status": "in_house",
+      "repo_skill": "skills/developer-engineering/performance-profiler/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/developer-engineering/performance-profiler",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "playwright",
+      "normalized_slug": "playwright",
+      "status": "in_house",
+      "repo_skill": "skills/engineering-workflow-automation/playwright/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/engineering-workflow-automation/playwright",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "portfolio-risk-manager",
+      "normalized_slug": "portfolio-risk-manager",
+      "status": "in_house",
+      "repo_skill": "skills/finance-investing/portfolio-risk-manager/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/finance-investing/portfolio-risk-manager",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
       "video_name": "ppt-creator",
       "normalized_slug": "ppt-creator",
       "status": "in_house",
@@ -1885,15 +1549,15 @@
       }
     },
     {
-      "video_name": "spreadsheet",
-      "normalized_slug": "spreadsheet",
+      "video_name": "pr-review-expert",
+      "normalized_slug": "pr-review-expert",
       "status": "in_house",
-      "repo_skill": "skills/office-white-collar/spreadsheet/SKILL.md",
+      "repo_skill": "skills/developer-engineering/pr-review-expert/SKILL.md",
       "source": "https://github.com/your-org/Commonly-used-high-value-skills",
       "notes": "In-house canonical skill (local repository source of truth).",
       "upstream": {
         "repo": "local-repo/in-house",
-        "path": "skills/office-white-collar/spreadsheet",
+        "path": "skills/developer-engineering/pr-review-expert",
         "ref": "main",
         "last_checked_at": "2026-03-27",
         "last_synced_at": "2026-03-27",
@@ -1901,319 +1565,15 @@
       }
     },
     {
-      "video_name": "transcript-fixer",
-      "normalized_slug": "transcript-fixer",
+      "video_name": "proactive-agent",
+      "normalized_slug": "proactive-agent",
       "status": "in_house",
-      "repo_skill": "skills/office-white-collar/transcript-fixer/SKILL.md",
+      "repo_skill": "skills/ai-agent-platform/proactive-agent/SKILL.md",
       "source": "https://github.com/your-org/Commonly-used-high-value-skills",
       "notes": "In-house canonical skill (local repository source of truth).",
       "upstream": {
         "repo": "local-repo/in-house",
-        "path": "skills/office-white-collar/transcript-fixer",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "xlsx",
-      "normalized_slug": "xlsx",
-      "status": "in_house",
-      "repo_skill": "skills/office-white-collar/xlsx/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/office-white-collar/xlsx",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "input-guard",
-      "normalized_slug": "input-guard",
-      "status": "in_house",
-      "repo_skill": "skills/openclaw-memory-and-safety/input-guard/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/openclaw-memory-and-safety/input-guard",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "rag-architect",
-      "normalized_slug": "rag-architect",
-      "status": "in_house",
-      "repo_skill": "skills/openclaw-memory-and-safety/rag-architect/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/openclaw-memory-and-safety/rag-architect",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "runbook-generator",
-      "normalized_slug": "runbook-generator",
-      "status": "in_house",
-      "repo_skill": "skills/openclaw-memory-and-safety/runbook-generator/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/openclaw-memory-and-safety/runbook-generator",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "brand-guidelines",
-      "normalized_slug": "brand-guidelines",
-      "status": "in_house",
-      "repo_skill": "skills/operations-general/brand-guidelines/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/operations-general/brand-guidelines",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "confidence-check",
-      "normalized_slug": "confidence-check",
-      "status": "in_house",
-      "repo_skill": "skills/operations-general/confidence-check/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/operations-general/confidence-check",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "docs-cleaner",
-      "normalized_slug": "docs-cleaner",
-      "status": "in_house",
-      "repo_skill": "skills/operations-general/docs-cleaner/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/operations-general/docs-cleaner",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "fact-checker",
-      "normalized_slug": "fact-checker",
-      "status": "in_house",
-      "repo_skill": "skills/operations-general/fact-checker/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/operations-general/fact-checker",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "internal-comms",
-      "normalized_slug": "internal-comms",
-      "status": "in_house",
-      "repo_skill": "skills/operations-general/internal-comms/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/operations-general/internal-comms",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "interview-system-designer",
-      "normalized_slug": "interview-system-designer",
-      "status": "in_house",
-      "repo_skill": "skills/operations-general/interview-system-designer/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/operations-general/interview-system-designer",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "slack-gif-creator",
-      "normalized_slug": "slack-gif-creator",
-      "status": "in_house",
-      "repo_skill": "skills/operations-general/slack-gif-creator/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/operations-general/slack-gif-creator",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "supermemory",
-      "normalized_slug": "supermemory",
-      "status": "in_house",
-      "repo_skill": "skills/operations-general/supermemory/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/operations-general/supermemory",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "teams-channel-post-writer",
-      "normalized_slug": "teams-channel-post-writer",
-      "status": "in_house",
-      "repo_skill": "skills/operations-general/teams-channel-post-writer/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/operations-general/teams-channel-post-writer",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "theme-factory",
-      "normalized_slug": "theme-factory",
-      "status": "in_house",
-      "repo_skill": "skills/operations-general/theme-factory/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/operations-general/theme-factory",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "weather",
-      "normalized_slug": "weather",
-      "status": "in_house",
-      "repo_skill": "skills/operations-general/weather/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/operations-general/weather",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "agile-product-owner",
-      "normalized_slug": "agile-product-owner",
-      "status": "in_house",
-      "repo_skill": "skills/product-design/agile-product-owner/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/product-design/agile-product-owner",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "canvas-design",
-      "normalized_slug": "canvas-design",
-      "status": "in_house",
-      "repo_skill": "skills/product-design/canvas-design/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/product-design/canvas-design",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "competitive-teardown",
-      "normalized_slug": "competitive-teardown",
-      "status": "in_house",
-      "repo_skill": "skills/product-design/competitive-teardown/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/product-design/competitive-teardown",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "landing-page-generator",
-      "normalized_slug": "landing-page-generator",
-      "status": "in_house",
-      "repo_skill": "skills/product-design/landing-page-generator/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/product-design/landing-page-generator",
+        "path": "skills/ai-agent-platform/proactive-agent",
         "ref": "main",
         "last_checked_at": "2026-03-27",
         "last_synced_at": "2026-03-27",
@@ -2269,6 +1629,214 @@
       }
     },
     {
+      "video_name": "prompt-engineer-toolkit",
+      "normalized_slug": "prompt-engineer-toolkit",
+      "status": "in_house",
+      "repo_skill": "skills/growth-operations-xiaohongshu/prompt-engineer-toolkit/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/growth-operations-xiaohongshu/prompt-engineer-toolkit",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "prompt-optimizer",
+      "normalized_slug": "prompt-optimizer",
+      "status": "in_house",
+      "repo_skill": "skills/task-understanding-decomposition/prompt-optimizer/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/task-understanding-decomposition/prompt-optimizer",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "promptfoo-evaluation",
+      "normalized_slug": "promptfoo-evaluation",
+      "status": "in_house",
+      "repo_skill": "skills/developer-engineering/promptfoo-evaluation/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/developer-engineering/promptfoo-evaluation",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "python-performance",
+      "normalized_slug": "python-performance",
+      "status": "in_house",
+      "repo_skill": "skills/developer-engineering/python-performance/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/developer-engineering/python-performance",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "qa-expert",
+      "normalized_slug": "qa-expert",
+      "status": "in_house",
+      "repo_skill": "skills/developer-engineering/qa-expert/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/developer-engineering/qa-expert",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "rag-architect",
+      "normalized_slug": "rag-architect",
+      "status": "in_house",
+      "repo_skill": "skills/openclaw-memory-and-safety/rag-architect/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/openclaw-memory-and-safety/rag-architect",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "reflect-learn",
+      "normalized_slug": "reflect-learn",
+      "status": "in_house",
+      "repo_skill": "skills/task-understanding-decomposition/reflect-learn/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/task-understanding-decomposition/reflect-learn",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "release-manager",
+      "normalized_slug": "release-manager",
+      "status": "in_house",
+      "repo_skill": "skills/devops-sre/release-manager/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/devops-sre/release-manager",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "render-deploy",
+      "normalized_slug": "render-deploy",
+      "status": "in_house",
+      "repo_skill": "skills/deployment-platforms/render-deploy/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/deployment-platforms/render-deploy",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "repomix-safe-mixer",
+      "normalized_slug": "repomix-safe-mixer",
+      "status": "in_house",
+      "repo_skill": "skills/developer-engineering/repomix-safe-mixer/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/developer-engineering/repomix-safe-mixer",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "runbook-generator",
+      "normalized_slug": "runbook-generator",
+      "status": "in_house",
+      "repo_skill": "skills/openclaw-memory-and-safety/runbook-generator/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/openclaw-memory-and-safety/runbook-generator",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "rust-engineer",
+      "normalized_slug": "rust-engineer",
+      "status": "in_house",
+      "repo_skill": "skills/developer-engineering/rust-engineer/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/developer-engineering/rust-engineer",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "saas-metrics-coach",
+      "normalized_slug": "saas-metrics-coach",
+      "status": "in_house",
+      "repo_skill": "skills/finance-investing/saas-metrics-coach/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/finance-investing/saas-metrics-coach",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
       "video_name": "saas-scaffolder",
       "normalized_slug": "saas-scaffolder",
       "status": "in_house",
@@ -2285,15 +1853,15 @@
       }
     },
     {
-      "video_name": "ui-design-system",
-      "normalized_slug": "ui-design-system",
+      "video_name": "screenshot",
+      "normalized_slug": "screenshot",
       "status": "in_house",
-      "repo_skill": "skills/product-design/ui-design-system/SKILL.md",
+      "repo_skill": "skills/multimodal-media/screenshot/SKILL.md",
       "source": "https://github.com/your-org/Commonly-used-high-value-skills",
       "notes": "In-house canonical skill (local repository source of truth).",
       "upstream": {
         "repo": "local-repo/in-house",
-        "path": "skills/product-design/ui-design-system",
+        "path": "skills/multimodal-media/screenshot",
         "ref": "main",
         "last_checked_at": "2026-03-27",
         "last_synced_at": "2026-03-27",
@@ -2301,31 +1869,15 @@
       }
     },
     {
-      "video_name": "ux-researcher-designer",
-      "normalized_slug": "ux-researcher-designer",
+      "video_name": "sec-filing-reviewer",
+      "normalized_slug": "sec-filing-reviewer",
       "status": "in_house",
-      "repo_skill": "skills/product-design/ux-researcher-designer/SKILL.md",
+      "repo_skill": "skills/finance-investing/sec-filing-reviewer/SKILL.md",
       "source": "https://github.com/your-org/Commonly-used-high-value-skills",
       "notes": "In-house canonical skill (local repository source of truth).",
       "upstream": {
         "repo": "local-repo/in-house",
-        "path": "skills/product-design/ux-researcher-designer",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "link-checker",
-      "normalized_slug": "link-checker",
-      "status": "in_house",
-      "repo_skill": "skills/security-and-reliability/link-checker/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/security-and-reliability/link-checker",
+        "path": "skills/finance-investing/sec-filing-reviewer",
         "ref": "main",
         "last_checked_at": "2026-03-27",
         "last_synced_at": "2026-03-27",
@@ -2381,6 +1933,54 @@
       }
     },
     {
+      "video_name": "self-improving-agent",
+      "normalized_slug": "self-improving-agent",
+      "status": "in_house",
+      "repo_skill": "skills/ai-agent-platform/self-improving-agent/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/ai-agent-platform/self-improving-agent",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "senior-architect",
+      "normalized_slug": "senior-architect",
+      "status": "in_house",
+      "repo_skill": "skills/devops-sre/senior-architect/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/devops-sre/senior-architect",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "senior-devops",
+      "normalized_slug": "senior-devops",
+      "status": "in_house",
+      "repo_skill": "skills/devops-sre/senior-devops/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/devops-sre/senior-devops",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
       "video_name": "sentry",
       "normalized_slug": "sentry",
       "status": "in_house",
@@ -2397,127 +1997,15 @@
       }
     },
     {
-      "video_name": "skill-security-auditor",
-      "normalized_slug": "skill-security-auditor",
+      "video_name": "seo-audit",
+      "normalized_slug": "seo-audit",
       "status": "in_house",
-      "repo_skill": "skills/security-and-reliability/skill-security-auditor/SKILL.md",
+      "repo_skill": "skills/growth-operations-xiaohongshu/seo-audit/SKILL.md",
       "source": "https://github.com/your-org/Commonly-used-high-value-skills",
       "notes": "In-house canonical skill (local repository source of truth).",
       "upstream": {
         "repo": "local-repo/in-house",
-        "path": "skills/security-and-reliability/skill-security-auditor",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "skill-vetter",
-      "normalized_slug": "skill-vetter",
-      "status": "in_house",
-      "repo_skill": "skills/security-and-reliability/skill-vetter/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/security-and-reliability/skill-vetter",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "agent-workflow-designer",
-      "normalized_slug": "agent-workflow-designer",
-      "status": "in_house",
-      "repo_skill": "skills/task-understanding-decomposition/agent-workflow-designer/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/task-understanding-decomposition/agent-workflow-designer",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "brainstorming",
-      "normalized_slug": "brainstorming",
-      "status": "in_house",
-      "repo_skill": "skills/task-understanding-decomposition/brainstorming/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/task-understanding-decomposition/brainstorming",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "deep-research",
-      "normalized_slug": "deep-research",
-      "status": "in_house",
-      "repo_skill": "skills/task-understanding-decomposition/deep-research/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/task-understanding-decomposition/deep-research",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "find-skills",
-      "normalized_slug": "find-skills",
-      "status": "in_house",
-      "repo_skill": "skills/task-understanding-decomposition/find-skills/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/task-understanding-decomposition/find-skills",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "prompt-optimizer",
-      "normalized_slug": "prompt-optimizer",
-      "status": "in_house",
-      "repo_skill": "skills/task-understanding-decomposition/prompt-optimizer/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/task-understanding-decomposition/prompt-optimizer",
-        "ref": "main",
-        "last_checked_at": "2026-03-27",
-        "last_synced_at": "2026-03-27",
-        "last_synced_commit": null
-      }
-    },
-    {
-      "video_name": "reflect-learn",
-      "normalized_slug": "reflect-learn",
-      "status": "in_house",
-      "repo_skill": "skills/task-understanding-decomposition/reflect-learn/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/task-understanding-decomposition/reflect-learn",
+        "path": "skills/growth-operations-xiaohongshu/seo-audit",
         "ref": "main",
         "last_checked_at": "2026-03-27",
         "last_synced_at": "2026-03-27",
@@ -2557,6 +2045,54 @@
       }
     },
     {
+      "video_name": "skill-security-auditor",
+      "normalized_slug": "skill-security-auditor",
+      "status": "in_house",
+      "repo_skill": "skills/security-and-reliability/skill-security-auditor/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/security-and-reliability/skill-security-auditor",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "skill-tester",
+      "normalized_slug": "skill-tester",
+      "status": "in_house",
+      "repo_skill": "skills/developer-engineering/skill-tester/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/developer-engineering/skill-tester",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "skill-vetter",
+      "normalized_slug": "skill-vetter",
+      "status": "in_house",
+      "repo_skill": "skills/security-and-reliability/skill-vetter/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/security-and-reliability/skill-vetter",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
       "video_name": "skills-search",
       "normalized_slug": "skills-search",
       "status": "in_house",
@@ -2566,6 +2102,102 @@
       "upstream": {
         "repo": "local-repo/in-house",
         "path": "skills/task-understanding-decomposition/skills-search",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "slack-gif-creator",
+      "normalized_slug": "slack-gif-creator",
+      "status": "in_house",
+      "repo_skill": "skills/operations-general/slack-gif-creator/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/operations-general/slack-gif-creator",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "social-media-analyzer",
+      "normalized_slug": "social-media-analyzer",
+      "status": "in_house",
+      "repo_skill": "skills/growth-operations-xiaohongshu/social-media-analyzer/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/growth-operations-xiaohongshu/social-media-analyzer",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "sora",
+      "normalized_slug": "sora",
+      "status": "in_house",
+      "repo_skill": "skills/multimodal-media/sora/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/multimodal-media/sora",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "speech",
+      "normalized_slug": "speech",
+      "status": "in_house",
+      "repo_skill": "skills/multimodal-media/speech/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/multimodal-media/speech",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "spreadsheet",
+      "normalized_slug": "spreadsheet",
+      "status": "in_house",
+      "repo_skill": "skills/office-white-collar/spreadsheet/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/office-white-collar/spreadsheet",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "stock-screener-builder",
+      "normalized_slug": "stock-screener-builder",
+      "status": "in_house",
+      "repo_skill": "skills/finance-investing/stock-screener-builder/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/finance-investing/stock-screener-builder",
         "ref": "main",
         "last_checked_at": "2026-03-27",
         "last_synced_at": "2026-03-27",
@@ -2589,6 +2221,86 @@
       }
     },
     {
+      "video_name": "summarize",
+      "normalized_slug": "summarize",
+      "status": "in_house",
+      "repo_skill": "skills/multimodal-media/summarize/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/multimodal-media/summarize",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "supabase-postgres",
+      "normalized_slug": "supabase-postgres",
+      "status": "in_house",
+      "repo_skill": "skills/developer-engineering/supabase-postgres/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/developer-engineering/supabase-postgres",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "supermemory",
+      "normalized_slug": "supermemory",
+      "status": "in_house",
+      "repo_skill": "skills/operations-general/supermemory/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/operations-general/supermemory",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "systematic-debugging",
+      "normalized_slug": "systematic-debugging",
+      "status": "in_house",
+      "repo_skill": "skills/developer-engineering/systematic-debugging/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/developer-engineering/systematic-debugging",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "tailwind-design-system",
+      "normalized_slug": "tailwind-design-system",
+      "status": "in_house",
+      "repo_skill": "skills/developer-engineering/tailwind-design-system/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/developer-engineering/tailwind-design-system",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
       "video_name": "tavily-search",
       "normalized_slug": "tavily-search",
       "status": "in_house",
@@ -2598,6 +2310,262 @@
       "upstream": {
         "repo": "local-repo/in-house",
         "path": "skills/task-understanding-decomposition/tavily-search",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "teams-channel-post-writer",
+      "normalized_slug": "teams-channel-post-writer",
+      "status": "in_house",
+      "repo_skill": "skills/operations-general/teams-channel-post-writer/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/operations-general/teams-channel-post-writer",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "tech-debt-tracker",
+      "normalized_slug": "tech-debt-tracker",
+      "status": "in_house",
+      "repo_skill": "skills/developer-engineering/tech-debt-tracker/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/developer-engineering/tech-debt-tracker",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "terraform-engineer",
+      "normalized_slug": "terraform-engineer",
+      "status": "in_house",
+      "repo_skill": "skills/developer-engineering/terraform-engineer/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/developer-engineering/terraform-engineer",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "test-driven-development",
+      "normalized_slug": "test-driven-development",
+      "status": "in_house",
+      "repo_skill": "skills/developer-engineering/test-driven-development/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/developer-engineering/test-driven-development",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "theme-factory",
+      "normalized_slug": "theme-factory",
+      "status": "in_house",
+      "repo_skill": "skills/operations-general/theme-factory/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/operations-general/theme-factory",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "transcribe",
+      "normalized_slug": "transcribe",
+      "status": "in_house",
+      "repo_skill": "skills/multimodal-media/transcribe/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/multimodal-media/transcribe",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "transcript-fixer",
+      "normalized_slug": "transcript-fixer",
+      "status": "in_house",
+      "repo_skill": "skills/office-white-collar/transcript-fixer/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/office-white-collar/transcript-fixer",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "twitter-reader",
+      "normalized_slug": "twitter-reader",
+      "status": "in_house",
+      "repo_skill": "skills/growth-operations-xiaohongshu/twitter-reader/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/growth-operations-xiaohongshu/twitter-reader",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "typescript-best-practices",
+      "normalized_slug": "typescript-best-practices",
+      "status": "in_house",
+      "repo_skill": "skills/developer-engineering/typescript-best-practices/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/developer-engineering/typescript-best-practices",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "ui-design-system",
+      "normalized_slug": "ui-design-system",
+      "status": "in_house",
+      "repo_skill": "skills/product-design/ui-design-system/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/product-design/ui-design-system",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "ux-researcher-designer",
+      "normalized_slug": "ux-researcher-designer",
+      "status": "in_house",
+      "repo_skill": "skills/product-design/ux-researcher-designer/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/product-design/ux-researcher-designer",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "vercel-deploy",
+      "normalized_slug": "vercel-deploy",
+      "status": "in_house",
+      "repo_skill": "skills/deployment-platforms/vercel-deploy/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/deployment-platforms/vercel-deploy",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "weather",
+      "normalized_slug": "weather",
+      "status": "in_house",
+      "repo_skill": "skills/operations-general/weather/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/operations-general/weather",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "web-artifacts-builder",
+      "normalized_slug": "web-artifacts-builder",
+      "status": "in_house",
+      "repo_skill": "skills/developer-engineering/web-artifacts-builder/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/developer-engineering/web-artifacts-builder",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "web-scraper",
+      "normalized_slug": "web-scraper",
+      "status": "in_house",
+      "repo_skill": "skills/engineering-workflow-automation/web-scraper/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/engineering-workflow-automation/web-scraper",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "webapp-testing",
+      "normalized_slug": "webapp-testing",
+      "status": "in_house",
+      "repo_skill": "skills/developer-engineering/webapp-testing/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/developer-engineering/webapp-testing",
         "ref": "main",
         "last_checked_at": "2026-03-27",
         "last_synced_at": "2026-03-27",
@@ -2619,6 +2587,38 @@
         "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
+    },
+    {
+      "video_name": "xlsx",
+      "normalized_slug": "xlsx",
+      "status": "in_house",
+      "repo_skill": "skills/office-white-collar/xlsx/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/office-white-collar/xlsx",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "yeet",
+      "normalized_slug": "yeet",
+      "status": "in_house",
+      "repo_skill": "skills/engineering-workflow-automation/yeet/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/engineering-workflow-automation/yeet",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
     }
   ],
   "verification_attempts": [
@@ -2628,6 +2628,41 @@
       "target": "skills/*/*/SKILL.md",
       "result": "success",
       "evidence": "Discovered 163 local skills"
+    },
+    {
+      "date": "2026-03-27",
+      "method": "local-scan",
+      "target": "skills/*/*/SKILL.md",
+      "result": "success",
+      "evidence": "Merged provenance for 163 local skills"
+    },
+    {
+      "date": "2026-03-27",
+      "method": "local-scan",
+      "target": "skills/*/*/SKILL.md",
+      "result": "success",
+      "evidence": "Merged provenance for 163 local skills"
+    },
+    {
+      "date": "2026-03-27",
+      "method": "local-scan",
+      "target": "skills/*/*/SKILL.md",
+      "result": "success",
+      "evidence": "Merged provenance for 163 local skills"
+    },
+    {
+      "date": "2026-03-27",
+      "method": "local-scan",
+      "target": "skills/*/*/SKILL.md",
+      "result": "success",
+      "evidence": "Merged provenance for 163 local skills"
+    },
+    {
+      "date": "2026-03-27",
+      "method": "local-scan",
+      "target": "skills/*/*/SKILL.md",
+      "result": "success",
+      "evidence": "Merged provenance for 163 local skills"
     }
   ]
 }
