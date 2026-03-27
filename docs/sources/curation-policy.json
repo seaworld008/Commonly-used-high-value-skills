@@ -1,12 +1,40 @@
 {
-  "allow_repos": [],
-  "deny_repos": [],
+  "allow_repos": [
+    "vercel-labs/agent-skills",
+    "supabase/agent-skills",
+    "obra/superpowers",
+    "alirezarezvani/claude-skills",
+    "getsentry/skills",
+    "better-auth/skills",
+    "antfu/skills",
+    "sergiodxa/agent-skills",
+    "google-labs-code/stitch-skills",
+    "neondatabase/agent-skills",
+    "expo/skills",
+    "inferen-sh/skills",
+    "wshobson/agents"
+  ],
+  "deny_repos": [
+    "aj-geddes/useful-ai-prompts",
+    "supercent-io/skills-template",
+    "hieutrtr/ai1-skills",
+    "giuseppe-trisciuoglio/developer-kit"
+  ],
   "prefer_repos": {
-    "vercel-labs/agent-skills": 20,
-    "supabase/agent-skills": 18,
-    "obra/superpowers": 16,
-    "alirezarezvani/claude-skills": 14
+    "vercel-labs/agent-skills": 24,
+    "supabase/agent-skills": 22,
+    "obra/superpowers": 20,
+    "alirezarezvani/claude-skills": 18,
+    "getsentry/skills": 16,
+    "better-auth/skills": 14,
+    "antfu/skills": 12,
+    "sergiodxa/agent-skills": 12,
+    "google-labs-code/stitch-skills": 10,
+    "neondatabase/agent-skills": 10,
+    "expo/skills": 8,
+    "inferen-sh/skills": 8,
+    "wshobson/agents": 8
   },
-  "min_repo_stars": 0,
-  "min_score_override": null
+  "min_repo_stars": 200,
+  "min_score_override": 40
 }
