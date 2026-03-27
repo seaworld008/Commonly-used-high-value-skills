@@ -1,0 +1,12 @@
+{
+  "allow_repos": [],
+  "deny_repos": [],
+  "prefer_repos": {
+    "vercel-labs/agent-skills": 20,
+    "supabase/agent-skills": 18,
+    "obra/superpowers": 16,
+    "alirezarezvani/claude-skills": 14
+  },
+  "min_repo_stars": 0,
+  "min_score_override": null
+}
