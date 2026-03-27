@@ -1,6 +1,15 @@
 ---
 name: release-manager
 description: 'The Release Manager skill provides comprehensive tools and knowledge for managing software releases end-to-end. From parsing conventional commits to generating changelogs, determining version bumps, and orchestrating release processes, this skill ensures reliable, predictable, and well-documented software releases.'
+version: "1.0.0"
+author: "seaworld008"
+source: "in-house"
+source_url: ""
+tags: '["devops", "manager", "release", "sre"]'
+created_at: "2026-03-04"
+updated_at: "2026-03-20"
+quality: 5
+complexity: "intermediate"
 ---
 
 # Release Manager

@@ -1,0 +1,57 @@
+name: 技能请求 / Skill Request
+description: 建议收录一个新的优秀 Agent Skill
+title: "[Skill Request] "
+labels: ["skill-request"]
+body:
+  - type: input
+    id: skill-name
+    attributes:
+      label: 技能名称 / Skill Name
+      placeholder: "e.g. vue-composition-api"
+    validations:
+      required: true
+  - type: textarea
+    id: skill-description
+    attributes:
+      label: 技能描述 / Description
+      description: 这个技能做什么？为什么值得收录？
+      placeholder: "描述技能的核心功能和价值..."
+    validations:
+      required: true
+  - type: input
+    id: source-url
+    attributes:
+      label: 来源 URL / Source URL
+      description: 技能的原始来源（GitHub 仓库、skills.sh 链接等）
+      placeholder: "https://github.com/..."
+  - type: dropdown
+    id: category
+    attributes:
+      label: 建议分类 / Suggested Category
+      options:
+        - developer-engineering
+        - devops-sre
+        - finance-investing
+        - growth-operations-xiaohongshu
+        - product-design
+        - security-and-reliability
+        - ai-agent-platform
+        - engineering-workflow-automation
+        - operations-general
+        - task-understanding-decomposition
+        - deployment-platforms
+        - office-automation
+        - media-and-content
+        - other
+    validations:
+      required: true
+  - type: dropdown
+    id: quality
+    attributes:
+      label: 质量评估 / Quality Assessment
+      description: 你觉得这个技能的质量如何？
+      options:
+        - "5 - 精选级 (Best-in-class)"
+        - "4 - 优秀 (High quality)"
+        - "3 - 合格 (Acceptable)"
+        - "2 - 一般 (Needs improvement)"

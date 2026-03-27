@@ -1,6 +1,15 @@
 ---
 name: kubernetes-specialist
 description: '用于 Kubernetes 集群管理、部署编排、Pod 调试与 Helm Chart 设计。来源：skills.sh 5K+ installs。'
+version: "1.0.0"
+author: "seaworld008"
+source: "skills.sh"
+source_url: ""
+tags: '["development", "kubernetes", "specialist"]'
+created_at: "2026-03-27"
+updated_at: "2026-03-27"
+quality: 4
+complexity: "intermediate"
 ---
 
 # Kubernetes Specialist

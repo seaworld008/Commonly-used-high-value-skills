@@ -1,8 +1,17 @@
 ---
 name: notion-knowledge-capture
 description: 'Capture conversations and decisions into structured Notion pages; use when turning chats/notes into wiki entries, how-tos, decisions, or FAQs with proper linking.'
-metadata:
-  short-description: Capture conversations into structured Notion pages
+version: "1.0.0"
+author: "seaworld008"
+source: "in-house"
+source_url: ""
+tags: '["capture", "knowledge", "notion"]'
+created_at: "2026-03-04"
+updated_at: "2026-03-20"
+quality: 3
+complexity: "intermediate"
+metadata: 
+short-description: Capture conversations into structured Notion pages
 ---
 
 # Knowledge Capture

@@ -1,6 +1,15 @@
 ---
 name: webapp-testing
 description: 'Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs.'
+version: "1.0.0"
+author: "seaworld008"
+source: "in-house"
+source_url: ""
+tags: '["development", "testing", "webapp"]'
+created_at: "2026-03-04"
+updated_at: "2026-03-20"
+quality: 3
+complexity: "intermediate"
 license: Complete terms in LICENSE.txt
 ---
 

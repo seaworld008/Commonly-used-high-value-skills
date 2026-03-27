@@ -1,6 +1,15 @@
 ---
 name: systematic-debugging
 description: '用于系统化调试方法论，包含根因分析、最小复现和防御性编程。来源：obra/superpowers。'
+version: "1.0.0"
+author: "seaworld008"
+source: "github:obra/superpowers"
+source_url: ""
+tags: '["debugging", "development", "systematic"]'
+created_at: "2026-03-27"
+updated_at: "2026-03-27"
+quality: 4
+complexity: "intermediate"
 ---
 
 # Systematic Debugging Methodology

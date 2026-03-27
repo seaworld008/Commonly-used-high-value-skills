@@ -1,6 +1,15 @@
 ---
 name: supabase-postgres
 description: '用于 Supabase 平台开发与 PostgreSQL 最佳实践，包含 RLS、Edge Functions 和实时订阅。来源：supabase 官方 52.5K installs。'
+version: "1.0.0"
+author: "seaworld008"
+source: "skills.sh"
+source_url: ""
+tags: '["development", "postgres", "supabase"]'
+created_at: "2026-03-27"
+updated_at: "2026-03-27"
+quality: 4
+complexity: "intermediate"
 ---
 
 # Supabase & PostgreSQL

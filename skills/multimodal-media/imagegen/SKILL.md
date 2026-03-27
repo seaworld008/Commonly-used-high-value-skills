@@ -1,6 +1,15 @@
 ---
 name: imagegen
 description: 'Use when the user asks to generate or edit images via the OpenAI Image API (for example: generate image, edit/inpaint/mask, background removal or replacement, transparent background, product shots, concept art, covers, or batch variants); run the bundled CLI (`scripts/image_gen.py`) and require `OPENAI_API_KEY` for live calls.'
+version: "1.0.0"
+author: "seaworld008"
+source: "in-house"
+source_url: ""
+tags: '["imagegen"]'
+created_at: "2026-03-04"
+updated_at: "2026-03-20"
+quality: 4
+complexity: "intermediate"
 ---
 
 # Image Generation Skill

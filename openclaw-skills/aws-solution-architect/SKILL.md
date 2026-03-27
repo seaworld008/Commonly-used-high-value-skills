@@ -1,6 +1,15 @@
 ---
 name: aws-solution-architect
 description: '用于 AWS 云架构设计、服务选型、成本优化与 Well-Architected Framework 评估。来源：alirezarezvani/claude-skills。'
+version: "1.0.0"
+author: "seaworld008"
+source: "skills.sh"
+source_url: ""
+tags: '["architect", "aws", "development", "solution"]'
+created_at: "2026-03-27"
+updated_at: "2026-03-27"
+quality: 4
+complexity: "intermediate"
 ---
 
 # AWS Solution Architect

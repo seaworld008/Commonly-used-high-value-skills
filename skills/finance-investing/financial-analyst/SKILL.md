@@ -1,6 +1,15 @@
 ---
 name: financial-analyst
 description: 'Performs financial ratio analysis, DCF valuation, budget variance analysis, and rolling forecast construction for strategic decision-making'
+version: "1.0.0"
+author: "seaworld008"
+source: "in-house"
+source_url: ""
+tags: '["analyst", "finance", "financial"]'
+created_at: "2026-03-18"
+updated_at: "2026-03-20"
+quality: 4
+complexity: "intermediate"
 ---
 
 # Financial Analyst Skill

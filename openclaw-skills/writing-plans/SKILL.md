@@ -1,6 +1,15 @@
 ---
 name: writing-plans
 description: 'Use when you have a spec or requirements for a multi-step task, before touching code'
+version: "1.0.0"
+author: "seaworld008"
+source: "in-house"
+source_url: ""
+tags: '["planning", "plans", "workflow", "writing"]'
+created_at: "2026-03-04"
+updated_at: "2026-03-20"
+quality: 4
+complexity: "intermediate"
 ---
 
 # Writing Plans

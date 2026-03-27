@@ -1,28 +1,20 @@
 ---
 name: marketing-demand-acquisition
 description: 'Multi-channel demand generation, paid media optimization, SEO strategy, and partnership programs for Series A+ startups'
-triggers:
-  - demand gen
-  - demand generation
-  - paid ads
-  - paid media
-  - LinkedIn ads
-  - Google ads
-  - Meta ads
-  - CAC
-  - customer acquisition cost
-  - lead generation
-  - MQL
-  - SQL
-  - pipeline generation
-  - acquisition strategy
-  - HubSpot campaigns
-metadata:
-  version: 1.1.0
-  author: Alireza Rezvani
-  category: marketing
-  domain: demand-generation
-  updated: 2025-01
+version: 1.1.0
+author: Alireza Rezvani
+source: "in-house"
+source_url: ""
+tags: '["acquisition", "demand", "growth", "marketing"]'
+created_at: "2026-03-04"
+updated_at: "2026-03-20"
+quality: 5
+complexity: "intermediate"
+triggers: 
+metadata: 
+category: marketing
+domain: demand-generation
+updated: 2025-01
 ---
 
 # Marketing Demand & Acquisition

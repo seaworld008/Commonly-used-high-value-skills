@@ -1,6 +1,15 @@
 ---
 name: vercel-deploy
 description: 'Deploy applications and websites to Vercel. Use when the user requests deployment actions like "deploy my app", "deploy and give me the link", "push this live", or "create a preview deployment".'
+version: "1.0.0"
+author: "seaworld008"
+source: "in-house"
+source_url: ""
+tags: '["deploy", "deployment", "vercel"]'
+created_at: "2026-03-04"
+updated_at: "2026-03-20"
+quality: 3
+complexity: "intermediate"
 ---
 
 # Vercel Deploy

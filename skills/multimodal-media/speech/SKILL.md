@@ -1,6 +1,15 @@
 ---
 name: speech
 description: 'Use when the user asks for text-to-speech narration or voiceover, accessibility reads, audio prompts, or batch speech generation via the OpenAI Audio API; run the bundled CLI (`scripts/text_to_speech.py`) with built-in voices and require `OPENAI_API_KEY` for live calls. Custom voice creation is out of scope.'
+version: "1.0.0"
+author: "seaworld008"
+source: "in-house"
+source_url: ""
+tags: '["speech"]'
+created_at: "2026-03-04"
+updated_at: "2026-03-20"
+quality: 4
+complexity: "intermediate"
 ---
 
 # Speech Generation Skill

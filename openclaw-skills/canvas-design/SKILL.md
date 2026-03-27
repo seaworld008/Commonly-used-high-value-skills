@@ -1,6 +1,15 @@
 ---
 name: canvas-design
 description: 'Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this skill when the user asks to create a poster, piece of art, design, or other static piece. Create original visual designs, never copying existing artists'' work to avoid copyright violations.'
+version: "1.0.0"
+author: "seaworld008"
+source: "in-house"
+source_url: ""
+tags: '["canvas", "design", "product"]'
+created_at: "2026-03-04"
+updated_at: "2026-03-20"
+quality: 4
+complexity: "intermediate"
 license: Complete terms in LICENSE.txt
 ---
 

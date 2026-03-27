@@ -1,6 +1,15 @@
 ---
 name: migration-architect
 description: 'Purpose: Zero-downtime migration planning, compatibility validation, and rollback strategy generation.'
+version: "1.0.0"
+author: "seaworld008"
+source: "in-house"
+source_url: ""
+tags: '["architect", "development", "migration"]'
+created_at: "2026-03-04"
+updated_at: "2026-03-20"
+quality: 5
+complexity: "intermediate"
 ---
 
 # Migration Architect

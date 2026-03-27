@@ -1,6 +1,15 @@
 ---
 name: incident-commander
 description: 'Author: Claude Skills Team Version: 1.0.0 Last Updated: February 2026.'
+version: "1.0.0"
+author: "seaworld008"
+source: "in-house"
+source_url: ""
+tags: '["commander", "devops", "incident", "sre"]'
+created_at: "2026-03-04"
+updated_at: "2026-03-20"
+quality: 5
+complexity: "intermediate"
 ---
 
 # Incident Commander Skill

@@ -1,6 +1,15 @@
 ---
 name: competitive-teardown
 description: 'Run a structured competitive analysis on any product or company. Synthesizes data from pricing pages, app store reviews, job postings, SEO signals, and social media into actionable insights: feature matrices, SWOT, positioning maps, UX audits, and a stakeholder presentation template.'
+version: "1.0.0"
+author: "seaworld008"
+source: "in-house"
+source_url: ""
+tags: '["competitive", "design", "product", "teardown"]'
+created_at: "2026-03-04"
+updated_at: "2026-03-20"
+quality: 5
+complexity: "intermediate"
 ---
 
 # Competitive Teardown

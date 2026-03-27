@@ -1,6 +1,15 @@
 ---
 name: doc
 description: 'Use when the task involves reading, creating, or editing `.docx` documents, especially when formatting or layout fidelity matters; prefer `python-docx` plus the bundled `scripts/render_docx.py` for visual checks.'
+version: "1.0.0"
+author: "seaworld008"
+source: "in-house"
+source_url: ""
+tags: '["doc"]'
+created_at: "2026-03-04"
+updated_at: "2026-03-20"
+quality: 3
+complexity: "intermediate"
 ---
 
 # DOCX Skill

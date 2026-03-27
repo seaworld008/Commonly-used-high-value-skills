@@ -1,6 +1,15 @@
 ---
 name: twitter-reader
 description: 'Fetch Twitter/X post content by URL using jina.ai API to bypass JavaScript restrictions. Use when Claude needs to retrieve tweet content including author, timestamp, post text, images, and thread replies. Supports individual posts or batch fetching from x.com or twitter.com URLs.'
+version: "1.0.0"
+author: "seaworld008"
+source: "in-house"
+source_url: ""
+tags: '["growth", "marketing", "reader", "twitter"]'
+created_at: "2026-03-04"
+updated_at: "2026-03-20"
+quality: 3
+complexity: "intermediate"
 ---
 
 # Twitter Reader

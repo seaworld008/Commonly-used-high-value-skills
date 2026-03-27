@@ -1,6 +1,15 @@
 ---
 name: brainstorming
 description: 'You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation.'
+version: "1.0.0"
+author: "seaworld008"
+source: "in-house"
+source_url: ""
+tags: '["brainstorming", "planning", "workflow"]'
+created_at: "2026-03-04"
+updated_at: "2026-03-20"
+quality: 3
+complexity: "intermediate"
 ---
 
 # Brainstorming Ideas Into Designs

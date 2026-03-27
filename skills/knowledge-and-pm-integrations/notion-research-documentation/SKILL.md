@@ -1,8 +1,17 @@
 ---
 name: notion-research-documentation
 description: 'Research across Notion and synthesize into structured documentation; use when gathering info from multiple Notion sources to produce briefs, comparisons, or reports with citations.'
-metadata:
-  short-description: Research Notion content and produce briefs/reports
+version: "1.0.0"
+author: "seaworld008"
+source: "in-house"
+source_url: ""
+tags: '["documentation", "notion", "research"]'
+created_at: "2026-03-04"
+updated_at: "2026-03-20"
+quality: 3
+complexity: "intermediate"
+metadata: 
+short-description: Research Notion content and produce briefs/reports
 ---
 
 # Research & Documentation

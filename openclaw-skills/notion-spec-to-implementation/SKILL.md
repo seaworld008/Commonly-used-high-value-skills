@@ -1,8 +1,17 @@
 ---
 name: notion-spec-to-implementation
 description: 'Turn Notion specs into implementation plans, tasks, and progress tracking; use when implementing PRDs/feature specs and creating Notion plans + tasks from them.'
-metadata:
-  short-description: Turn Notion specs into implementation plans, tasks, and progress tracking
+version: "1.0.0"
+author: "seaworld008"
+source: "in-house"
+source_url: ""
+tags: '["implementation", "notion", "spec"]'
+created_at: "2026-03-04"
+updated_at: "2026-03-20"
+quality: 3
+complexity: "intermediate"
+metadata: 
+short-description: 'Turn Notion specs into implementation plans, tasks, and progress tracking'
 ---
 
 # Spec to Implementation

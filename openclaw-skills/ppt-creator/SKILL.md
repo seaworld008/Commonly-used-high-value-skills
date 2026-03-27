@@ -1,6 +1,15 @@
 ---
 name: ppt-creator
 description: 'Create professional slide decks from topics or documents. Generates structured content with data-driven charts, speaker notes, and complete PPTX files. Applies persuasive storytelling principles (Pyramid Principle, assertion-evidence). Supports multiple formats (Marp, PowerPoint). Use for presentations, pitches, slide decks, or keynotes.'
+version: "1.0.0"
+author: "seaworld008"
+source: "in-house"
+source_url: ""
+tags: '["creator", "ppt"]'
+created_at: "2026-03-04"
+updated_at: "2026-03-20"
+quality: 4
+complexity: "intermediate"
 ---
 
 # PPT Creator

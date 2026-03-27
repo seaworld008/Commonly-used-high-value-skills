@@ -1,6 +1,15 @@
 ---
 name: web-scraper
 description: '用于网页数据抓取、结构化提取和反爬策略应对。来源：全网高频推荐。'
+version: "1.0.0"
+author: "seaworld008"
+source: "community"
+source_url: ""
+tags: '["automation", "scraper", "web", "workflow"]'
+created_at: "2026-03-27"
+updated_at: "2026-03-27"
+quality: 4
+complexity: "intermediate"
 ---
 
 # Web Scraper

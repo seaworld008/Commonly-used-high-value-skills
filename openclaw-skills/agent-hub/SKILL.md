@@ -1,6 +1,15 @@
 ---
 name: agent-hub
 description: '用于多 Agent 系统编排、Agent 间通信协议设计与生命周期管理。来源：alirezarezvani/claude-skills POWERFUL tier。'
+version: "1.0.0"
+author: "seaworld008"
+source: "github:alirezarezvani/claude-skills"
+source_url: ""
+tags: '["agent", "ai", "hub"]'
+created_at: "2026-03-27"
+updated_at: "2026-03-27"
+quality: 4
+complexity: "intermediate"
 ---
 
 # Agent Hub

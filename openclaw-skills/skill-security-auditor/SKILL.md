@@ -1,6 +1,15 @@
 ---
 name: skill-security-auditor
 description: '用于在安装第三方 Skill 前进行安全审计，检测命令注入、代码执行和数据泄露风险。来源：alirezarezvani/claude-skills。'
+version: "1.0.0"
+author: "seaworld008"
+source: "github:alirezarezvani/claude-skills"
+source_url: ""
+tags: '["auditor", "security", "skill"]'
+created_at: "2026-03-27"
+updated_at: "2026-03-27"
+quality: 4
+complexity: "intermediate"
 ---
 
 # Skill Security Auditor

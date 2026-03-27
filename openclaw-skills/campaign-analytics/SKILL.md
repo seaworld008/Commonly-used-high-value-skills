@@ -1,15 +1,22 @@
 ---
 name: campaign-analytics
 description: 'Analyzes campaign performance with multi-touch attribution, funnel conversion, and ROI calculation for marketing optimization'
+version: 1.0.0
+author: Alireza Rezvani
+source: "in-house"
+source_url: ""
+tags: '["analytics", "campaign", "growth", "marketing"]'
+created_at: "2026-03-04"
+updated_at: "2026-03-20"
+quality: 5
+complexity: "intermediate"
 license: MIT
-metadata:
-  version: 1.0.0
-  author: Alireza Rezvani
-  category: marketing
-  domain: campaign-analytics
-  updated: 2026-02-06
-  python-tools: attribution_analyzer.py, funnel_analyzer.py, campaign_roi_calculator.py
-  tech-stack: marketing-analytics, attribution-modeling
+metadata: 
+category: marketing
+domain: campaign-analytics
+updated: 2026-02-06
+python-tools: 'attribution_analyzer.py, funnel_analyzer.py, campaign_roi_calculator.py'
+tech-stack: 'marketing-analytics, attribution-modeling'
 ---
 
 # Campaign Analytics

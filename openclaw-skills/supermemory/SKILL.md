@@ -1,6 +1,15 @@
 ---
 name: supermemory
 description: '用于长期记忆管理、偏好捕获、矛盾检测和项目状态跟踪。来源：supermemoryai/supermemory。'
+version: "1.0.0"
+author: "seaworld008"
+source: "community"
+source_url: ""
+tags: '["productivity", "supermemory"]'
+created_at: "2026-03-27"
+updated_at: "2026-03-27"
+quality: 3
+complexity: "intermediate"
 ---
 
 # Supermemory

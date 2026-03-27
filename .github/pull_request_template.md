@@ -1,37 +1,25 @@
-## Summary
+## 提交类型 / Change Type
 
-- What changed?
-- Why does it matter?
+- [ ] 新增技能 (New Skill)
+- [ ] 更新技能 (Skill Update)
+- [ ] 修复问题 (Bug Fix)
+- [ ] 文档改进 (Documentation)
+- [ ] 脚本/CI 改进 (Tooling)
 
-## Scope
+## 变更说明 / Description
 
-- [ ] New skill
-- [ ] Existing skill improvement
-- [ ] README / docs update
-- [ ] Generated `openclaw-skills/` refresh
-- [ ] Script or test change
+<!-- 简要描述你的变更 -->
 
-## Paths Touched
+## 技能来源 / Skill Source
 
-- `skills/...`
-- `openclaw-skills/...`
-- `README.md`
-- `README.en.md`
-- `tests/...`
+- [ ] 原创 (in-house)
+- [ ] 改编自 / Adapted from: <!-- 注明原始来源 URL 和 License -->
 
-## Verification
+## 检查清单 / Checklist
 
-- [ ] I ran relevant tests or scripts locally
-- [ ] I refreshed `openclaw-skills/` if source skills changed
-- [ ] I updated docs or counts if needed
-
-Commands used:
-
-```bash
-# Paste commands here
-```
-
-## Notes
-
-- Any edge cases, follow-ups, or compatibility details
-
+- [ ] 我已阅读 [CONTRIBUTING.md](./CONTRIBUTING.md)
+- [ ] SKILL.md 包含完整的 frontmatter (`name`, `description`, `version`, `tags`)
+- [ ] SKILL.md 内容 ≥ 80 行，包含触发条件和核心能力等 Section
+- [ ] 已运行 `python scripts/refresh_repo_views.py` 并提交生成文件
+- [ ] 已运行 `python scripts/lint_skill_quality.py` 无 FAIL
+- [ ] 所有测试通过：`python -m unittest discover tests -v`

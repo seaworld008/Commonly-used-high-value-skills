@@ -1,6 +1,15 @@
 ---
 name: context-engineering
 description: '用于 AI 编码助手的上下文优化、Prompt 结构设计和指令冲突防御。来源：全网高频推荐的元技能。'
+version: "1.0.0"
+author: "seaworld008"
+source: "community"
+source_url: ""
+tags: '["context", "development", "engineering"]'
+created_at: "2026-03-27"
+updated_at: "2026-03-27"
+quality: 4
+complexity: "intermediate"
 ---
 
 # Context Engineering

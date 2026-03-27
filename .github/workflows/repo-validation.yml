@@ -22,13 +22,23 @@ jobs:
       - name: Install test dependency
         run: python -m pip install pyyaml
 
+      - name: Lint skill quality
+        run: python scripts/lint_skill_quality.py --min-lines 50
+
       - name: Refresh generated repository views
         run: python scripts/refresh_repo_views.py
+
+      - name: Generate tags index
+        run: python scripts/generate_tags_index.py
+
+      - name: Build catalog JSON
+        run: python scripts/build_catalog_json.py
 
       - name: Run repository validation tests
         run: >
           python -m unittest
           tests.test_export_openclaw_skills
+          tests.test_finance_investing_skills
           tests.test_generate_category_readmes
           tests.test_normalize_codex_skills
           tests.test_refresh_repo_views

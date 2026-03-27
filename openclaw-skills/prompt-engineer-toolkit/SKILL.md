@@ -1,6 +1,15 @@
 ---
 name: prompt-engineer-toolkit
 description: 'Systematic prompt engineering from first principles. Build, test, version, and optimize prompts for any LLM task. Covers technique selection, a testing framework with scored A/B comparison, version control, quality metrics, and optimization strategies. Includes a 10-template library ready to adapt.'
+version: "1.0.0"
+author: "seaworld008"
+source: "in-house"
+source_url: ""
+tags: '["engineer", "growth", "marketing", "prompt", "toolkit"]'
+created_at: "2026-03-04"
+updated_at: "2026-03-20"
+quality: 5
+complexity: "intermediate"
 ---
 
 # Prompt Engineer Toolkit

@@ -1,6 +1,15 @@
 ---
 name: senior-architect
 description: '用于软件架构评审、技术选型决策和系统可扩展性分析。来源：alirezarezvani/claude-skills。'
+version: "1.0.0"
+author: "seaworld008"
+source: "github:alirezarezvani/claude-skills"
+source_url: ""
+tags: '["architect", "devops", "senior", "sre"]'
+created_at: "2026-03-27"
+updated_at: "2026-03-27"
+quality: 4
+complexity: "intermediate"
 ---
 
 # Senior Architect

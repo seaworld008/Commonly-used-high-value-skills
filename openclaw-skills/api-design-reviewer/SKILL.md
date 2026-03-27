@@ -1,6 +1,15 @@
 ---
 name: api-design-reviewer
 description: 'Maintainer: Claude Skills Team.'
+version: "1.0.0"
+author: "seaworld008"
+source: "in-house"
+source_url: ""
+tags: '["api", "design", "development", "reviewer"]'
+created_at: "2026-03-04"
+updated_at: "2026-03-20"
+quality: 5
+complexity: "intermediate"
 ---
 
 # API Design Reviewer

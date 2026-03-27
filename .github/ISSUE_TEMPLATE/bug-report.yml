@@ -1,0 +1,26 @@
+name: 问题报告 / Bug Report
+description: 报告技能内容错误、脚本 Bug 或 CI 问题
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: 问题描述 / Description
+      description: 详细描述问题
+    validations:
+      required: true
+  - type: input
+    id: skill-path
+    attributes:
+      label: 相关文件路径 / File Path
+      placeholder: "skills/developer-engineering/kubernetes-specialist/SKILL.md"
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤 / Steps to Reproduce
+      description: 如何复现这个问题
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望行为 / Expected Behavior

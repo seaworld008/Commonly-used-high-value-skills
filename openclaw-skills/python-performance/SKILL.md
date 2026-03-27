@@ -1,6 +1,15 @@
 ---
 name: python-performance
 description: '用于 Python 性能优化、内存分析和并发编程最佳实践。来源：skills.sh 12.8K installs。'
+version: "1.0.0"
+author: "seaworld008"
+source: "skills.sh"
+source_url: ""
+tags: '["development", "performance", "python"]'
+created_at: "2026-03-27"
+updated_at: "2026-03-27"
+quality: 4
+complexity: "intermediate"
 ---
 
 # Python Performance Optimization

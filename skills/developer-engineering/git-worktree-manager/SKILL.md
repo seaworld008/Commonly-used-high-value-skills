@@ -1,6 +1,15 @@
 ---
 name: git-worktree-manager
 description: 'The Git Worktree Manager skill provides systematic management of Git worktrees for parallel development workflows. It handles worktree creation with automatic port allocation, environment file management, secret copying, and cleanup — enabling developers to run multiple Claude Code instances on separate features simultaneously without conflicts.'
+version: "1.0.0"
+author: "seaworld008"
+source: "in-house"
+source_url: ""
+tags: '["development", "git", "manager", "worktree"]'
+created_at: "2026-03-04"
+updated_at: "2026-03-20"
+quality: 4
+complexity: "intermediate"
 ---
 
 # Git Worktree Manager

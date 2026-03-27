@@ -1,6 +1,15 @@
 ---
 name: test-driven-development
 description: '用于 TDD 红绿重构循环、测试策略制定和测试反模式规避。来源：obra/superpowers。'
+version: "1.0.0"
+author: "seaworld008"
+source: "github:obra/superpowers"
+source_url: ""
+tags: '["development", "driven", "test"]'
+created_at: "2026-03-27"
+updated_at: "2026-03-27"
+quality: 4
+complexity: "intermediate"
 ---
 
 # Test-Driven Development (TDD)

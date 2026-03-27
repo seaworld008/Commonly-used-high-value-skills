@@ -1,6 +1,15 @@
 ---
 name: subagent-driven-development
 description: '用于多子 Agent 并行开发编排，包含任务分派、两阶段审查和自动化质量门控。来源：obra/superpowers。'
+version: "1.0.0"
+author: "seaworld008"
+source: "github:obra/superpowers"
+source_url: ""
+tags: '["development", "driven", "planning", "subagent", "workflow"]'
+created_at: "2026-03-27"
+updated_at: "2026-03-27"
+quality: 3
+complexity: "intermediate"
 ---
 
 # Subagent Driven Development (SDD)

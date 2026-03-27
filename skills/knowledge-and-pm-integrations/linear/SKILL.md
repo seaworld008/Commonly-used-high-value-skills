@@ -1,8 +1,17 @@
 ---
 name: linear
 description: 'Manage issues, projects & team workflows in Linear. Use when the user wants to read, create or updates tickets in Linear.'
-metadata:
-  short-description: Manage Linear issues in Codex
+version: "1.0.0"
+author: "seaworld008"
+source: "in-house"
+source_url: ""
+tags: '["linear"]'
+created_at: "2026-03-04"
+updated_at: "2026-03-20"
+quality: 3
+complexity: "intermediate"
+metadata: 
+short-description: Manage Linear issues in Codex
 ---
 
 # Linear

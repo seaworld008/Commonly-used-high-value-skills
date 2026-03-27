@@ -1,6 +1,15 @@
 ---
 name: api-test-suite-builder
 description: 'Scans API route definitions across frameworks (Next.js App Router, Express, FastAPI, Django REST) and auto-generates comprehensive test suites covering auth, input validation, error codes, pagination, file uploads, and rate limiting. Outputs ready-to-run test files for Vitest+Supertest (Node) or Pytest+httpx (Python).'
+version: "1.0.0"
+author: "seaworld008"
+source: "in-house"
+source_url: ""
+tags: '["api", "development", "suite", "test"]'
+created_at: "2026-03-04"
+updated_at: "2026-03-20"
+quality: 5
+complexity: "intermediate"
 ---
 
 # API Test Suite Builder

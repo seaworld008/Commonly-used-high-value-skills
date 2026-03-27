@@ -1,6 +1,15 @@
 ---
 name: landing-page-generator
 description: '用于快速生成高转化率落地页结构、文案框架和 TSX/Tailwind 代码脚手架。来源：alirezarezvani/claude-skills。'
+version: "1.0.0"
+author: "seaworld008"
+source: "github:alirezarezvani/claude-skills"
+source_url: ""
+tags: '["design", "generator", "landing", "page", "product"]'
+created_at: "2026-03-27"
+updated_at: "2026-03-27"
+quality: 4
+complexity: "intermediate"
 ---
 
 # Landing Page Generator

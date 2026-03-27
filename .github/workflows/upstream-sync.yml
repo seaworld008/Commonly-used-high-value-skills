@@ -1,0 +1,51 @@
+name: Upstream Skill Sync
+
+on:
+  schedule:
+    - cron: '0 2 * * 1'  # 每周一凌晨 2 点 UTC
+  workflow_dispatch:       # 支持手动触发
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  discover-and-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Discover new skills from external sources
+        run: python scripts/discover_new_skills.py --output docs/sources/reports/discovery.json
+        continue-on-error: true
+
+      - name: Check upstream GitHub updates
+        run: python scripts/check_upstream_github_updates.py --online --write-json docs/sources/reports/upstream-check.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true
+
+      - name: Generate sync report
+        id: report
+        run: python scripts/generate_sync_report.py --discovery docs/sources/reports/discovery.json --upstream docs/sources/reports/upstream-check.json --output docs/sources/reports/sync-report.md
+
+      - name: Create issue if updates found
+        if: steps.report.outputs.has_updates == 'true'
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: "[Auto Sync] Weekly skill discovery report — ${{ github.event.schedule && 'scheduled' || 'manual' }}"
+          content-filepath: docs/sources/reports/sync-report.md
+          labels: auto-sync,skill-discovery
+
+      - name: Upload reports as artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: sync-reports
+          path: docs/sources/reports/
+          retention-days: 30

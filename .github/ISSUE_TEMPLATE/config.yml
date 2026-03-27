@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 贡献指南 / Contributing Guide
+    url: https://github.com/seaworld008/Commonly-used-high-value-skills/blob/main/CONTRIBUTING.md
+    about: 请先阅读贡献指南

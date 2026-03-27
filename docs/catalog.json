@@ -1,0 +1,3368 @@
+{
+  "version": "1.0.0",
+  "generated_at": "2026-03-27T06:29:36Z",
+  "total_skills": 163,
+  "total_categories": 15,
+  "categories": [
+    {
+      "name": "developer-engineering",
+      "count": 39
+    },
+    {
+      "name": "office-white-collar",
+      "count": 16
+    },
+    {
+      "name": "finance-investing",
+      "count": 13
+    },
+    {
+      "name": "task-understanding-decomposition",
+      "count": 12
+    },
+    {
+      "name": "growth-operations-xiaohongshu",
+      "count": 11
+    },
+    {
+      "name": "operations-general",
+      "count": 11
+    },
+    {
+      "name": "devops-sre",
+      "count": 10
+    },
+    {
+      "name": "product-design",
+      "count": 10
+    },
+    {
+      "name": "ai-agent-platform",
+      "count": 8
+    },
+    {
+      "name": "engineering-workflow-automation",
+      "count": 8
+    },
+    {
+      "name": "security-and-reliability",
+      "count": 7
+    },
+    {
+      "name": "multimodal-media",
+      "count": 6
+    },
+    {
+      "name": "knowledge-and-pm-integrations",
+      "count": 5
+    },
+    {
+      "name": "deployment-platforms",
+      "count": 4
+    },
+    {
+      "name": "openclaw-memory-and-safety",
+      "count": 3
+    }
+  ],
+  "skills": [
+    {
+      "name": "agent-hub",
+      "category": "ai-agent-platform",
+      "description": "用于多 Agent 系统编排、Agent 间通信协议设计与生命周期管理。来源：alirezarezvani/claude-skills POWERFUL tier。",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "github:alirezarezvani/claude-skills",
+      "source_url": "",
+      "tags": [
+        "agent",
+        "ai",
+        "hub"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-27",
+      "updated_at": "2026-03-27",
+      "line_count": 117,
+      "path": "skills/ai-agent-platform/agent-hub/SKILL.md"
+    },
+    {
+      "name": "chatgpt-apps",
+      "category": "ai-agent-platform",
+      "description": "Build, scaffold, refactor, and troubleshoot ChatGPT Apps SDK applications that combine an MCP server and widget UI. Use when Codex needs to design tools, register UI resources, wire the MCP Apps bridge or ChatGPT compatibility APIs, apply Apps SDK metadata or CSP or domain settings, or produce a docs-aligned project scaffold. Prefer a docs-first workflow by invoking the openai-docs skill or OpenAI developer docs MCP tools before generating code.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "agent",
+        "ai",
+        "apps",
+        "chatgpt"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 329,
+      "path": "skills/ai-agent-platform/chatgpt-apps/SKILL.md"
+    },
+    {
+      "name": "develop-web-game",
+      "category": "ai-agent-platform",
+      "description": "Use when Codex is building or iterating on a web game (HTML/JS) and needs a reliable development + testing loop: implement small changes, run a Playwright-based test script with short input bursts and intentional pauses, inspect screenshots/text, and review console errors with render_game_to_text.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "agent",
+        "ai",
+        "develop",
+        "game",
+        "web"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 157,
+      "path": "skills/ai-agent-platform/develop-web-game/SKILL.md"
+    },
+    {
+      "name": "figma",
+      "category": "ai-agent-platform",
+      "description": "Use the Figma MCP server to fetch design context, screenshots, variables, and assets from Figma, and to translate Figma nodes into production code. Trigger when a task involves Figma URLs, node IDs, design-to-code implementation, or Figma MCP setup and troubleshooting.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "agent",
+        "ai",
+        "figma"
+      ],
+      "quality": 2,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 129,
+      "path": "skills/ai-agent-platform/figma/SKILL.md"
+    },
+    {
+      "name": "figma-implement-design",
+      "category": "ai-agent-platform",
+      "description": "Translate Figma nodes into production-ready code with 1:1 visual fidelity using the Figma MCP workflow (design context, screenshots, assets, and project-convention translation). Trigger when the user provides Figma URLs or node IDs, or asks to implement designs or components that must match Figma specs. Requires a working Figma MCP server connection.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "agent",
+        "ai",
+        "design",
+        "figma",
+        "implement"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 272,
+      "path": "skills/ai-agent-platform/figma-implement-design/SKILL.md"
+    },
+    {
+      "name": "openai-docs",
+      "category": "ai-agent-platform",
+      "description": "Use when the user asks how to build with OpenAI products or APIs and needs up-to-date official documentation with citations (for example: Codex, Responses API, Chat Completions, Apps SDK, Agents SDK, Realtime, model capabilities or limits); prioritize OpenAI docs MCP tools and restrict any fallback browsing to official OpenAI domains.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "agent",
+        "ai",
+        "docs",
+        "openai"
+      ],
+      "quality": 3,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 64,
+      "path": "skills/ai-agent-platform/openai-docs/SKILL.md"
+    },
+    {
+      "name": "proactive-agent",
+      "category": "ai-agent-platform",
+      "description": "增强 Agent 的主动规划与自我迭代能力，从被动执行升级为主动协作。",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "agent",
+        "ai",
+        "proactive"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-15",
+      "updated_at": "2026-03-20",
+      "line_count": 127,
+      "path": "skills/ai-agent-platform/proactive-agent/SKILL.md"
+    },
+    {
+      "name": "self-improving-agent",
+      "category": "ai-agent-platform",
+      "description": "带记忆与自我优化机制的 Agent 技能，能在迭代中持续改进行为。",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "agent",
+        "ai",
+        "improving",
+        "self"
+      ],
+      "quality": 2,
+      "complexity": "intermediate",
+      "created_at": "2026-03-15",
+      "updated_at": "2026-03-20",
+      "line_count": 126,
+      "path": "skills/ai-agent-platform/self-improving-agent/SKILL.md"
+    },
+    {
+      "name": "cloudflare-deploy",
+      "category": "deployment-platforms",
+      "description": "Deploy applications and infrastructure to Cloudflare using Workers, Pages, and related platform services. Use when the user asks to deploy, host, publish, or set up a project on Cloudflare.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "cloudflare",
+        "deploy",
+        "deployment"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 233,
+      "path": "skills/deployment-platforms/cloudflare-deploy/SKILL.md"
+    },
+    {
+      "name": "netlify-deploy",
+      "category": "deployment-platforms",
+      "description": "Deploy web projects to Netlify using the Netlify CLI (`npx netlify`). Use when the user asks to deploy, host, publish, or link a site/repo on Netlify, including preview and production deploys.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "deploy",
+        "deployment",
+        "netlify"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 256,
+      "path": "skills/deployment-platforms/netlify-deploy/SKILL.md"
+    },
+    {
+      "name": "render-deploy",
+      "category": "deployment-platforms",
+      "description": "Deploy applications to Render by analyzing codebases, generating render.yaml Blueprints, and providing Dashboard deeplinks. Use when the user wants to deploy, host, publish, or set up their application on Render''s cloud platform.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "deploy",
+        "deployment",
+        "render"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 488,
+      "path": "skills/deployment-platforms/render-deploy/SKILL.md"
+    },
+    {
+      "name": "vercel-deploy",
+      "category": "deployment-platforms",
+      "description": "Deploy applications and websites to Vercel. Use when the user requests deployment actions like \"deploy my app\", \"deploy and give me the link\", \"push this live\", or \"create a preview deployment\".",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "deploy",
+        "deployment",
+        "vercel"
+      ],
+      "quality": 3,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 86,
+      "path": "skills/deployment-platforms/vercel-deploy/SKILL.md"
+    },
+    {
+      "name": "agent-designer",
+      "category": "developer-engineering",
+      "description": "Tags: AI agents, architecture, system design, orchestration, multi-agent systems.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "agent",
+        "designer",
+        "development"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 288,
+      "path": "skills/developer-engineering/agent-designer/SKILL.md"
+    },
+    {
+      "name": "api-design-reviewer",
+      "category": "developer-engineering",
+      "description": "Maintainer: Claude Skills Team.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "api",
+        "design",
+        "development",
+        "reviewer"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 430,
+      "path": "skills/developer-engineering/api-design-reviewer/SKILL.md"
+    },
+    {
+      "name": "api-test-suite-builder",
+      "category": "developer-engineering",
+      "description": "Scans API route definitions across frameworks (Next.js App Router, Express, FastAPI, Django REST) and auto-generates comprehensive test suites covering auth, input validation, error codes, pagination, file uploads, and rate limiting. Outputs ready-to-run test files for Vitest+Supertest (Node) or Pytest+httpx (Python).",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "api",
+        "development",
+        "suite",
+        "test"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 690,
+      "path": "skills/developer-engineering/api-test-suite-builder/SKILL.md"
+    },
+    {
+      "name": "aws-solution-architect",
+      "category": "developer-engineering",
+      "description": "用于 AWS 云架构设计、服务选型、成本优化与 Well-Architected Framework 评估。来源：alirezarezvani/claude-skills。",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "skills.sh",
+      "source_url": "",
+      "tags": [
+        "architect",
+        "aws",
+        "development",
+        "solution"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-27",
+      "updated_at": "2026-03-27",
+      "line_count": 142,
+      "path": "skills/developer-engineering/aws-solution-architect/SKILL.md"
+    },
+    {
+      "name": "cli-demo-generator",
+      "category": "developer-engineering",
+      "description": "This skill should be used when users want to create animated CLI demos, terminal recordings, or command-line demonstration GIFs. It supports both manual tape file creation and automated demo generation from command descriptions. Use when users mention creating demos, recording terminal sessions, or generating animated GIFs of CLI workflows.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "cli",
+        "demo",
+        "development",
+        "generator"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 355,
+      "path": "skills/developer-engineering/cli-demo-generator/SKILL.md"
+    },
+    {
+      "name": "codebase-onboarding",
+      "category": "developer-engineering",
+      "description": "Analyze a codebase and generate comprehensive onboarding documentation tailored to your audience. Produces architecture overviews, key file maps, local setup guides, common task runbooks, debugging guides, and contribution guidelines. Outputs to Markdown, Notion, or Confluence.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "codebase",
+        "development",
+        "onboarding"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 511,
+      "path": "skills/developer-engineering/codebase-onboarding/SKILL.md"
+    },
+    {
+      "name": "context-engineering",
+      "category": "developer-engineering",
+      "description": "用于 AI 编码助手的上下文优化、Prompt 结构设计和指令冲突防御。来源：全网高频推荐的元技能。",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "community",
+      "source_url": "",
+      "tags": [
+        "context",
+        "development",
+        "engineering"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-27",
+      "updated_at": "2026-03-27",
+      "line_count": 110,
+      "path": "skills/developer-engineering/context-engineering/SKILL.md"
+    },
+    {
+      "name": "database-designer",
+      "category": "developer-engineering",
+      "description": "A comprehensive database design skill that provides expert-level analysis, optimization, and migration capabilities for modern database systems. This skill combines theoretical principles with practical tools to help architects and developers create scalable, performant, and maintainable database schemas.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "database",
+        "designer",
+        "development"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 547,
+      "path": "skills/developer-engineering/database-designer/SKILL.md"
+    },
+    {
+      "name": "database-schema-designer",
+      "category": "developer-engineering",
+      "description": "Design relational database schemas from requirements and generate migrations, TypeScript/Python types, seed data, RLS policies, and indexes. Handles multi-tenancy, soft deletes, audit trails, versioning, and polymorphic associations.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "database",
+        "designer",
+        "development",
+        "schema"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 536,
+      "path": "skills/developer-engineering/database-schema-designer/SKILL.md"
+    },
+    {
+      "name": "dependency-auditor",
+      "category": "developer-engineering",
+      "description": "> Skill Type: POWERFUL > Category: Engineering > Domain: Dependency Management & Security.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "auditor",
+        "dependency",
+        "development"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 347,
+      "path": "skills/developer-engineering/dependency-auditor/SKILL.md"
+    },
+    {
+      "name": "docker-expert",
+      "category": "developer-engineering",
+      "description": "用于 Docker 容器化最佳实践、多阶段构建优化与 Docker Compose 编排。来源：skills.sh 8.7K installs。",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "skills.sh",
+      "source_url": "",
+      "tags": [
+        "development",
+        "docker",
+        "expert"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-27",
+      "updated_at": "2026-03-27",
+      "line_count": 146,
+      "path": "skills/developer-engineering/docker-expert/SKILL.md"
+    },
+    {
+      "name": "frontend-design",
+      "category": "developer-engineering",
+      "description": "Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, artifacts, posters, or applications (examples include websites, landing pages, dashboards, React components, HTML/CSS layouts, or when styling/beautifying any web UI). Generates creative, polished code and UI design that avoids generic AI aesthetics.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "design",
+        "development",
+        "frontend"
+      ],
+      "quality": 2,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 125,
+      "path": "skills/developer-engineering/frontend-design/SKILL.md"
+    },
+    {
+      "name": "git-worktree-manager",
+      "category": "developer-engineering",
+      "description": "The Git Worktree Manager skill provides systematic management of Git worktrees for parallel development workflows. It handles worktree creation with automatic port allocation, environment file management, secret copying, and cleanup — enabling developers to run multiple Claude Code instances on separate features simultaneously without conflicts.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "development",
+        "git",
+        "manager",
+        "worktree"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 171,
+      "path": "skills/developer-engineering/git-worktree-manager/SKILL.md"
+    },
+    {
+      "name": "github-contributor",
+      "category": "developer-engineering",
+      "description": "Strategic guide for becoming an effective GitHub contributor. Covers opportunity discovery, project selection, high-quality PR creation, and reputation building. Use when looking to contribute to open-source projects, building GitHub presence, or learning contribution best practices.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "contributor",
+        "development",
+        "github"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 269,
+      "path": "skills/developer-engineering/github-contributor/SKILL.md"
+    },
+    {
+      "name": "graphql-expert",
+      "category": "developer-engineering",
+      "description": "用于 GraphQL API 设计、查询优化、Schema 管理和安全最佳实践。来源：全网高频推荐。",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "community",
+      "source_url": "",
+      "tags": [
+        "development",
+        "expert",
+        "graphql"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-27",
+      "updated_at": "2026-03-27",
+      "line_count": 121,
+      "path": "skills/developer-engineering/graphql-expert/SKILL.md"
+    },
+    {
+      "name": "i18n-expert",
+      "category": "developer-engineering",
+      "description": "This skill should be used when setting up, auditing, or enforcing internationalization/localization in UI codebases (React/TS, i18next or similar, JSON locales), including installing/configuring the i18n framework, replacing hard-coded strings, ensuring en-US/zh-CN coverage, mapping error codes to localized messages, and validating key parity, pluralization, and formatting.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "development",
+        "expert",
+        "i18n"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 137,
+      "path": "skills/developer-engineering/i18n-expert/SKILL.md"
+    },
+    {
+      "name": "kubernetes-specialist",
+      "category": "developer-engineering",
+      "description": "用于 Kubernetes 集群管理、部署编排、Pod 调试与 Helm Chart 设计。来源：skills.sh 5K+ installs。",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "skills.sh",
+      "source_url": "",
+      "tags": [
+        "development",
+        "kubernetes",
+        "specialist"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-27",
+      "updated_at": "2026-03-27",
+      "line_count": 139,
+      "path": "skills/developer-engineering/kubernetes-specialist/SKILL.md"
+    },
+    {
+      "name": "mcp-builder",
+      "category": "developer-engineering",
+      "description": "Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. Use when building MCP servers to integrate external APIs or services, whether in Python (FastMCP) or Node/TypeScript (MCP SDK).",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "builder",
+        "development",
+        "mcp"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 245,
+      "path": "skills/developer-engineering/mcp-builder/SKILL.md"
+    },
+    {
+      "name": "mcp-server-builder",
+      "category": "developer-engineering",
+      "description": "Design and implement Model Context Protocol (MCP) servers that expose any REST API, database, or service as structured tools for Claude and other LLMs. Covers both FastMCP (Python) and the TypeScript MCP SDK, with patterns for reading OpenAPI/Swagger specs, generating tool definitions, handling auth, errors, and testing.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "builder",
+        "development",
+        "mcp",
+        "server"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 589,
+      "path": "skills/developer-engineering/mcp-server-builder/SKILL.md"
+    },
+    {
+      "name": "migration-architect",
+      "category": "developer-engineering",
+      "description": "Purpose: Zero-downtime migration planning, compatibility validation, and rollback strategy generation.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "architect",
+        "development",
+        "migration"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 487,
+      "path": "skills/developer-engineering/migration-architect/SKILL.md"
+    },
+    {
+      "name": "monorepo-navigator",
+      "category": "developer-engineering",
+      "description": "Navigate, manage, and optimize monorepos. Covers Turborepo, Nx, pnpm workspaces, and Lerna. Enables cross-package impact analysis, selective builds/tests on affected packages only, remote caching, dependency graph visualization, and structured migrations from multi-repo to monorepo. Includes Claude Code configuration for workspace-aware development.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "development",
+        "monorepo",
+        "navigator"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 609,
+      "path": "skills/developer-engineering/monorepo-navigator/SKILL.md"
+    },
+    {
+      "name": "nextjs-app-router",
+      "category": "developer-engineering",
+      "description": "用于 Next.js App Router 模式开发，包含 RSC、Server Actions 和路由最佳实践。来源：skills.sh 10.2K installs。",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "skills.sh",
+      "source_url": "",
+      "tags": [
+        "app",
+        "development",
+        "nextjs",
+        "router"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-27",
+      "updated_at": "2026-03-27",
+      "line_count": 145,
+      "path": "skills/developer-engineering/nextjs-app-router/SKILL.md"
+    },
+    {
+      "name": "performance-profiler",
+      "category": "developer-engineering",
+      "description": "Systematic performance profiling for Node.js, Python, and Go applications. Identifies CPU, memory, and I/O bottlenecks; generates flamegraphs; analyzes bundle sizes; optimizes database queries; detects memory leaks; and runs load tests with k6 and Artillery. Always measures before and after.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "development",
+        "performance",
+        "profiler"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 635,
+      "path": "skills/developer-engineering/performance-profiler/SKILL.md"
+    },
+    {
+      "name": "pr-review-expert",
+      "category": "developer-engineering",
+      "description": "Structured, systematic code review for GitHub PRs and GitLab MRs. Goes beyond style nits — this skill performs blast radius analysis, security scanning, breaking change detection, and test coverage delta calculation. Produces a reviewer-ready report with a 30+ item checklist and prioritized findings.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "development",
+        "expert",
+        "review"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 393,
+      "path": "skills/developer-engineering/pr-review-expert/SKILL.md"
+    },
+    {
+      "name": "promptfoo-evaluation",
+      "category": "developer-engineering",
+      "description": "Configures and runs LLM evaluation using Promptfoo framework. Use when setting up prompt testing, creating evaluation configs (promptfooconfig.yaml), writing Python custom assertions, implementing llm-rubric for LLM-as-judge, or managing few-shot examples in prompts. Triggers on keywords like \"promptfoo\", \"eval\", \"LLM evaluation\", \"prompt testing\", or \"model comparison\".",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "development",
+        "evaluation",
+        "promptfoo"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 456,
+      "path": "skills/developer-engineering/promptfoo-evaluation/SKILL.md"
+    },
+    {
+      "name": "python-performance",
+      "category": "developer-engineering",
+      "description": "用于 Python 性能优化、内存分析和并发编程最佳实践。来源：skills.sh 12.8K installs。",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "skills.sh",
+      "source_url": "",
+      "tags": [
+        "development",
+        "performance",
+        "python"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-27",
+      "updated_at": "2026-03-27",
+      "line_count": 124,
+      "path": "skills/developer-engineering/python-performance/SKILL.md"
+    },
+    {
+      "name": "qa-expert",
+      "category": "developer-engineering",
+      "description": "This skill should be used when establishing comprehensive QA testing processes for any software project. Use when creating test strategies, writing test cases following Google Testing Standards, executing test plans, tracking bugs with P0-P4 classification, calculating quality metrics, or generating progress reports. Includes autonomous execution capability via master prompts and complete documentation templates for third-party QA team handoffs. Implements OWASP security testing and achieves 90% coverage targets.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "development",
+        "expert"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 298,
+      "path": "skills/developer-engineering/qa-expert/SKILL.md"
+    },
+    {
+      "name": "repomix-safe-mixer",
+      "category": "developer-engineering",
+      "description": "Safely package codebases with repomix by automatically detecting and removing hardcoded credentials before packing. Use when packaging code for distribution, creating reference packages, or when the user mentions security concerns about sharing code with repomix.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "development",
+        "mixer",
+        "repomix",
+        "safe"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 324,
+      "path": "skills/developer-engineering/repomix-safe-mixer/SKILL.md"
+    },
+    {
+      "name": "rust-engineer",
+      "category": "developer-engineering",
+      "description": "用于 Rust 语言开发最佳实践、异步编程和系统级编程指导。来源：skills.sh 1.5K+ installs。",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "skills.sh",
+      "source_url": "",
+      "tags": [
+        "development",
+        "engineer",
+        "rust"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-27",
+      "updated_at": "2026-03-27",
+      "line_count": 139,
+      "path": "skills/developer-engineering/rust-engineer/SKILL.md"
+    },
+    {
+      "name": "skill-tester",
+      "category": "developer-engineering",
+      "description": "Name: skill-tester Tier: POWERFUL Category: Engineering Quality Assurance Dependencies: None (Python Standard Library Only) Author: Claude Skills Engineering Team Version: 1.0.0 Last Updated: 2026-02-16.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "development",
+        "skill",
+        "tester"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 399,
+      "path": "skills/developer-engineering/skill-tester/SKILL.md"
+    },
+    {
+      "name": "supabase-postgres",
+      "category": "developer-engineering",
+      "description": "用于 Supabase 平台开发与 PostgreSQL 最佳实践，包含 RLS、Edge Functions 和实时订阅。来源：supabase 官方 52.5K installs。",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "skills.sh",
+      "source_url": "",
+      "tags": [
+        "development",
+        "postgres",
+        "supabase"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-27",
+      "updated_at": "2026-03-27",
+      "line_count": 156,
+      "path": "skills/developer-engineering/supabase-postgres/SKILL.md"
+    },
+    {
+      "name": "systematic-debugging",
+      "category": "developer-engineering",
+      "description": "用于系统化调试方法论，包含根因分析、最小复现和防御性编程。来源：obra/superpowers。",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "github:obra/superpowers",
+      "source_url": "",
+      "tags": [
+        "debugging",
+        "development",
+        "systematic"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-27",
+      "updated_at": "2026-03-27",
+      "line_count": 110,
+      "path": "skills/developer-engineering/systematic-debugging/SKILL.md"
+    },
+    {
+      "name": "tailwind-design-system",
+      "category": "developer-engineering",
+      "description": "用于 Tailwind CSS 设计系统搭建、组件库开发与主题定制。来源：skills.sh 24.7K installs。",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "skills.sh",
+      "source_url": "",
+      "tags": [
+        "design",
+        "development",
+        "system",
+        "tailwind"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-27",
+      "updated_at": "2026-03-27",
+      "line_count": 135,
+      "path": "skills/developer-engineering/tailwind-design-system/SKILL.md"
+    },
+    {
+      "name": "tech-debt-tracker",
+      "category": "developer-engineering",
+      "description": "Tier: POWERFUL 🔥 Category: Engineering Process Automation Expertise: Code Quality, Technical Debt Management, Software Engineering.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "debt",
+        "development",
+        "tech",
+        "tracker"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 584,
+      "path": "skills/developer-engineering/tech-debt-tracker/SKILL.md"
+    },
+    {
+      "name": "terraform-engineer",
+      "category": "developer-engineering",
+      "description": "用于 Terraform 基础设施即代码（IaC）设计、模块化管理和状态管理。来源：HashiCorp 官方 + skills.sh。",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "skills.sh",
+      "source_url": "",
+      "tags": [
+        "development",
+        "engineer",
+        "terraform"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-27",
+      "updated_at": "2026-03-27",
+      "line_count": 139,
+      "path": "skills/developer-engineering/terraform-engineer/SKILL.md"
+    },
+    {
+      "name": "test-driven-development",
+      "category": "developer-engineering",
+      "description": "用于 TDD 红绿重构循环、测试策略制定和测试反模式规避。来源：obra/superpowers。",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "github:obra/superpowers",
+      "source_url": "",
+      "tags": [
+        "development",
+        "driven",
+        "test"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-27",
+      "updated_at": "2026-03-27",
+      "line_count": 111,
+      "path": "skills/developer-engineering/test-driven-development/SKILL.md"
+    },
+    {
+      "name": "typescript-best-practices",
+      "category": "developer-engineering",
+      "description": "用于 TypeScript 高级类型编程、类型安全设计和常见反模式避免。来源：全网高频推荐。",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "community",
+      "source_url": "",
+      "tags": [
+        "best",
+        "development",
+        "practices",
+        "typescript"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-27",
+      "updated_at": "2026-03-27",
+      "line_count": 144,
+      "path": "skills/developer-engineering/typescript-best-practices/SKILL.md"
+    },
+    {
+      "name": "web-artifacts-builder",
+      "category": "developer-engineering",
+      "description": "Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "artifacts",
+        "builder",
+        "development",
+        "web"
+      ],
+      "quality": 3,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 83,
+      "path": "skills/developer-engineering/web-artifacts-builder/SKILL.md"
+    },
+    {
+      "name": "webapp-testing",
+      "category": "developer-engineering",
+      "description": "Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "development",
+        "testing",
+        "webapp"
+      ],
+      "quality": 3,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 105,
+      "path": "skills/developer-engineering/webapp-testing/SKILL.md"
+    },
+    {
+      "name": "changelog-generator",
+      "category": "devops-sre",
+      "description": "Parse conventional commits, determine semantic version bumps, and generate structured changelogs in Keep a Changelog format. Supports monorepo changelogs, GitHub Releases integration, and separates user-facing from developer changelogs.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "changelog",
+        "devops",
+        "generator",
+        "sre"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 501,
+      "path": "skills/devops-sre/changelog-generator/SKILL.md"
+    },
+    {
+      "name": "ci-cd-pipeline-builder",
+      "category": "devops-sre",
+      "description": "Analyzes your project stack and generates production-ready CI/CD pipeline configurations for GitHub Actions, GitLab CI, and Bitbucket Pipelines. Handles matrix testing, caching strategies, deployment stages, environment promotion, and secret management — tailored to your actual tech stack.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "builder",
+        "devops",
+        "pipeline",
+        "sre"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 531,
+      "path": "skills/devops-sre/ci-cd-pipeline-builder/SKILL.md"
+    },
+    {
+      "name": "cloudflare-troubleshooting",
+      "category": "devops-sre",
+      "description": "Investigate and resolve Cloudflare configuration issues using API-driven evidence gathering. Use when troubleshooting ERR_TOO_MANY_REDIRECTS, SSL errors, DNS issues, or any Cloudflare-related problems. Focus on systematic investigation using Cloudflare API to examine actual configuration rather than making assumptions.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "cloudflare",
+        "devops",
+        "sre",
+        "troubleshooting"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 334,
+      "path": "skills/devops-sre/cloudflare-troubleshooting/SKILL.md"
+    },
+    {
+      "name": "env-secrets-manager",
+      "category": "devops-sre",
+      "description": "Complete environment and secrets management workflow: .env file lifecycle across dev/staging/prod, .env.example auto-generation, required-var validation, secret leak detection in git history, and credential rotation playbook. Integrates with HashiCorp Vault, AWS SSM, 1Password CLI, and Doppler.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "devops",
+        "env",
+        "manager",
+        "secrets",
+        "sre"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 700,
+      "path": "skills/devops-sre/env-secrets-manager/SKILL.md"
+    },
+    {
+      "name": "github-ops",
+      "category": "devops-sre",
+      "description": "Provides comprehensive GitHub operations using gh CLI and GitHub API. Activates when working with pull requests, issues, repositories, workflows, or GitHub API operations including creating/viewing/merging PRs, managing issues, querying API endpoints, and handling GitHub workflows in enterprise or public GitHub environments.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "devops",
+        "github",
+        "ops",
+        "sre"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 219,
+      "path": "skills/devops-sre/github-ops/SKILL.md"
+    },
+    {
+      "name": "incident-commander",
+      "category": "devops-sre",
+      "description": "Author: Claude Skills Team Version: 1.0.0 Last Updated: February 2026.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "commander",
+        "devops",
+        "incident",
+        "sre"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 682,
+      "path": "skills/devops-sre/incident-commander/SKILL.md"
+    },
+    {
+      "name": "observability-designer",
+      "category": "devops-sre",
+      "description": "Description: Design comprehensive observability strategies for production systems including SLI/SLO frameworks, alerting optimization, and dashboard generation.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "designer",
+        "devops",
+        "observability",
+        "sre"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 278,
+      "path": "skills/devops-sre/observability-designer/SKILL.md"
+    },
+    {
+      "name": "release-manager",
+      "category": "devops-sre",
+      "description": "The Release Manager skill provides comprehensive tools and knowledge for managing software releases end-to-end. From parsing conventional commits to generating changelogs, determining version bumps, and orchestrating release processes, this skill ensures reliable, predictable, and well-documented software releases.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "devops",
+        "manager",
+        "release",
+        "sre"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 499,
+      "path": "skills/devops-sre/release-manager/SKILL.md"
+    },
+    {
+      "name": "senior-architect",
+      "category": "devops-sre",
+      "description": "用于软件架构评审、技术选型决策和系统可扩展性分析。来源：alirezarezvani/claude-skills。",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "github:alirezarezvani/claude-skills",
+      "source_url": "",
+      "tags": [
+        "architect",
+        "devops",
+        "senior",
+        "sre"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-27",
+      "updated_at": "2026-03-27",
+      "line_count": 113,
+      "path": "skills/devops-sre/senior-architect/SKILL.md"
+    },
+    {
+      "name": "senior-devops",
+      "category": "devops-sre",
+      "description": "Comprehensive DevOps skill for CI/CD, infrastructure automation, containerization, and cloud platforms (AWS, GCP, Azure). Includes pipeline setup, infrastructure as code, deployment automation, and monitoring. Use when setting up pipelines, deploying applications, managing infrastructure, implementing monitoring, or optimizing deployment processes.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "devops",
+        "senior",
+        "sre"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 218,
+      "path": "skills/devops-sre/senior-devops/SKILL.md"
+    },
+    {
+      "name": "agent-browser",
+      "category": "engineering-workflow-automation",
+      "description": "为 Agent 提供真实浏览器自动化能力，支持语义定位、表单交互、截图录屏、脚本执行与会话管理。",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "agent",
+        "automation",
+        "browser",
+        "workflow"
+      ],
+      "quality": 2,
+      "complexity": "intermediate",
+      "created_at": "2026-03-15",
+      "updated_at": "2026-03-20",
+      "line_count": 136,
+      "path": "skills/engineering-workflow-automation/agent-browser/SKILL.md"
+    },
+    {
+      "name": "gh-address-comments",
+      "category": "engineering-workflow-automation",
+      "description": "Help address review/issue comments on the open GitHub PR for the current branch using gh CLI; verify gh auth first and prompt the user to authenticate if not logged in.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "address",
+        "automation",
+        "comments",
+        "workflow"
+      ],
+      "quality": 2,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 120,
+      "path": "skills/engineering-workflow-automation/gh-address-comments/SKILL.md"
+    },
+    {
+      "name": "gh-fix-ci",
+      "category": "engineering-workflow-automation",
+      "description": "Use when a user asks to debug or fix failing GitHub PR checks that run in GitHub Actions; use `gh` to inspect checks and logs, summarize failure context, draft a fix plan, and implement only after explicit approval. Treat external providers (for example Buildkite) as out of scope and report only the details URL.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "automation",
+        "fix",
+        "workflow"
+      ],
+      "quality": 3,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 77,
+      "path": "skills/engineering-workflow-automation/gh-fix-ci/SKILL.md"
+    },
+    {
+      "name": "github",
+      "category": "engineering-workflow-automation",
+      "description": "通过 GitHub CLI 自动化 Issue、PR、Review 与 CI 检查，适合工程协作闭环。",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "automation",
+        "github",
+        "workflow"
+      ],
+      "quality": 2,
+      "complexity": "intermediate",
+      "created_at": "2026-03-15",
+      "updated_at": "2026-03-20",
+      "line_count": 122,
+      "path": "skills/engineering-workflow-automation/github/SKILL.md"
+    },
+    {
+      "name": "jupyter-notebook",
+      "category": "engineering-workflow-automation",
+      "description": "Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) for experiments, explorations, or tutorials; prefer the bundled templates and run the helper script `new_notebook.py` to generate a clean starting notebook.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "automation",
+        "jupyter",
+        "notebook",
+        "workflow"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 115,
+      "path": "skills/engineering-workflow-automation/jupyter-notebook/SKILL.md"
+    },
+    {
+      "name": "playwright",
+      "category": "engineering-workflow-automation",
+      "description": "Use when the task requires automating a real browser from the terminal (navigation, form filling, snapshots, screenshots, data extraction, UI-flow debugging) via `playwright-cli` or the bundled wrapper script.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "automation",
+        "playwright",
+        "workflow"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 155,
+      "path": "skills/engineering-workflow-automation/playwright/SKILL.md"
+    },
+    {
+      "name": "web-scraper",
+      "category": "engineering-workflow-automation",
+      "description": "用于网页数据抓取、结构化提取和反爬策略应对。来源：全网高频推荐。",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "community",
+      "source_url": "",
+      "tags": [
+        "automation",
+        "scraper",
+        "web",
+        "workflow"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-27",
+      "updated_at": "2026-03-27",
+      "line_count": 109,
+      "path": "skills/engineering-workflow-automation/web-scraper/SKILL.md"
+    },
+    {
+      "name": "yeet",
+      "category": "engineering-workflow-automation",
+      "description": "Use only when the user explicitly asks to stage, commit, push, and open a GitHub pull request in one flow using the GitHub CLI (`gh`).",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "automation",
+        "workflow",
+        "yeet"
+      ],
+      "quality": 2,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 129,
+      "path": "skills/engineering-workflow-automation/yeet/SKILL.md"
+    },
+    {
+      "name": "comps-valuation-analyst",
+      "category": "finance-investing",
+      "description": "Use when valuing a public company with peer multiples, building comparable-company tables, or pressure-testing a valuation range with EV/EBITDA, P/E, and EV/Sales.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "analyst",
+        "comps",
+        "finance",
+        "valuation"
+      ],
+      "quality": 2,
+      "complexity": "intermediate",
+      "created_at": "2026-03-18",
+      "updated_at": "2026-03-20",
+      "line_count": 121,
+      "path": "skills/finance-investing/comps-valuation-analyst/SKILL.md"
+    },
+    {
+      "name": "earnings-call-analyzer",
+      "category": "finance-investing",
+      "description": "Use when summarizing earnings calls, extracting management tone changes, surfacing guidance language, or turning transcript snippets into an actionable investor update.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "analyzer",
+        "call",
+        "earnings",
+        "finance"
+      ],
+      "quality": 2,
+      "complexity": "intermediate",
+      "created_at": "2026-03-18",
+      "updated_at": "2026-03-20",
+      "line_count": 119,
+      "path": "skills/finance-investing/earnings-call-analyzer/SKILL.md"
+    },
+    {
+      "name": "event-driven-tracker",
+      "category": "finance-investing",
+      "description": "Use when tracking earnings, product launches, M&A, dividends, buybacks, unlocks, or other market-moving dates that need a prioritized event calendar.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "driven",
+        "event",
+        "finance",
+        "tracker"
+      ],
+      "quality": 2,
+      "complexity": "intermediate",
+      "created_at": "2026-03-18",
+      "updated_at": "2026-03-20",
+      "line_count": 128,
+      "path": "skills/finance-investing/event-driven-tracker/SKILL.md"
+    },
+    {
+      "name": "factor-backtester",
+      "category": "finance-investing",
+      "description": "Use when testing factor signals, running long-short spread backtests, checking hit rate and turnover, or sanity-checking whether a ranking signal survives basic transaction cost assumptions.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "backtester",
+        "factor",
+        "finance"
+      ],
+      "quality": 2,
+      "complexity": "intermediate",
+      "created_at": "2026-03-18",
+      "updated_at": "2026-03-20",
+      "line_count": 132,
+      "path": "skills/finance-investing/factor-backtester/SKILL.md"
+    },
+    {
+      "name": "financial-analyst",
+      "category": "finance-investing",
+      "description": "Performs financial ratio analysis, DCF valuation, budget variance analysis, and rolling forecast construction for strategic decision-making",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "analyst",
+        "finance",
+        "financial"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-18",
+      "updated_at": "2026-03-20",
+      "line_count": 187,
+      "path": "skills/finance-investing/financial-analyst/SKILL.md"
+    },
+    {
+      "name": "financial-data-collector",
+      "category": "finance-investing",
+      "description": "Use when collecting financial data for a US public company, assembling DCF inputs, pulling market and filing facts, or grounding downstream analysis in structured yfinance and SEC data.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "collector",
+        "data",
+        "finance",
+        "financial"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-18",
+      "updated_at": "2026-03-20",
+      "line_count": 183,
+      "path": "skills/finance-investing/financial-data-collector/SKILL.md"
+    },
+    {
+      "name": "investment-memo-writer",
+      "category": "finance-investing",
+      "description": "Use when turning research notes into an investment memo, writing a buy or sell thesis, or structuring catalysts, risks, and monitoring items for an IC-style document.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "finance",
+        "investment",
+        "memo",
+        "writer"
+      ],
+      "quality": 2,
+      "complexity": "intermediate",
+      "created_at": "2026-03-18",
+      "updated_at": "2026-03-20",
+      "line_count": 136,
+      "path": "skills/finance-investing/investment-memo-writer/SKILL.md"
+    },
+    {
+      "name": "macro-regime-monitor",
+      "category": "finance-investing",
+      "description": "Use when tracking macro regime shifts, summarizing inflation, growth, spreads, and liquidity signals, or creating a house view before updating sector or asset-allocation calls.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "finance",
+        "macro",
+        "monitor",
+        "regime"
+      ],
+      "quality": 2,
+      "complexity": "intermediate",
+      "created_at": "2026-03-18",
+      "updated_at": "2026-03-20",
+      "line_count": 135,
+      "path": "skills/finance-investing/macro-regime-monitor/SKILL.md"
+    },
+    {
+      "name": "options-strategy-evaluator",
+      "category": "finance-investing",
+      "description": "Use when evaluating an options structure, checking expiry payoff checkpoints, comparing premium outlay versus downside protection, or preparing a short strategy note for a trade review.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "evaluator",
+        "finance",
+        "options",
+        "strategy"
+      ],
+      "quality": 2,
+      "complexity": "intermediate",
+      "created_at": "2026-03-18",
+      "updated_at": "2026-03-20",
+      "line_count": 138,
+      "path": "skills/finance-investing/options-strategy-evaluator/SKILL.md"
+    },
+    {
+      "name": "portfolio-risk-manager",
+      "category": "finance-investing",
+      "description": "Use when reviewing portfolio exposures, checking concentration and beta risk, summarizing sector or region tilts, or preparing a risk note before reallocating capital.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "finance",
+        "manager",
+        "portfolio",
+        "risk"
+      ],
+      "quality": 2,
+      "complexity": "intermediate",
+      "created_at": "2026-03-18",
+      "updated_at": "2026-03-20",
+      "line_count": 139,
+      "path": "skills/finance-investing/portfolio-risk-manager/SKILL.md"
+    },
+    {
+      "name": "saas-metrics-coach",
+      "category": "finance-investing",
+      "description": "用于 SaaS 关键指标分析与健康度诊断，包含 ARR/MRR/Churn/LTV/CAC 等核心指标。来源：alirezarezvani/claude-skills。",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "github:alirezarezvani/claude-skills",
+      "source_url": "",
+      "tags": [
+        "coach",
+        "finance",
+        "metrics",
+        "saas"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-27",
+      "updated_at": "2026-03-27",
+      "line_count": 121,
+      "path": "skills/finance-investing/saas-metrics-coach/SKILL.md"
+    },
+    {
+      "name": "sec-filing-reviewer",
+      "category": "finance-investing",
+      "description": "Use when reviewing SEC filings, extracting material risk disclosures, scanning 10-K or 10-Q sections, or building a follow-up checklist from filing language.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "filing",
+        "finance",
+        "reviewer",
+        "sec"
+      ],
+      "quality": 2,
+      "complexity": "intermediate",
+      "created_at": "2026-03-18",
+      "updated_at": "2026-03-20",
+      "line_count": 132,
+      "path": "skills/finance-investing/sec-filing-reviewer/SKILL.md"
+    },
+    {
+      "name": "stock-screener-builder",
+      "category": "finance-investing",
+      "description": "Use when building a stock screen, filtering a universe by valuation, growth, quality, or momentum rules, or creating a repeatable shortlist for deeper research.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "builder",
+        "finance",
+        "screener",
+        "stock"
+      ],
+      "quality": 2,
+      "complexity": "intermediate",
+      "created_at": "2026-03-18",
+      "updated_at": "2026-03-20",
+      "line_count": 142,
+      "path": "skills/finance-investing/stock-screener-builder/SKILL.md"
+    },
+    {
+      "name": "algorithmic-art",
+      "category": "growth-operations-xiaohongshu",
+      "description": "Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. Use this when users request creating art using code, generative art, algorithmic art, flow fields, or particle systems. Create original algorithmic art rather than copying existing artists'' work to avoid copyright violations.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "algorithmic",
+        "art",
+        "growth",
+        "marketing"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 414,
+      "path": "skills/growth-operations-xiaohongshu/algorithmic-art/SKILL.md"
+    },
+    {
+      "name": "app-store-optimization",
+      "category": "growth-operations-xiaohongshu",
+      "description": "App Store Optimization toolkit for researching keywords, optimizing metadata, and tracking mobile app performance on Apple App Store and Google Play Store.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "app",
+        "growth",
+        "marketing",
+        "optimization",
+        "store"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 492,
+      "path": "skills/growth-operations-xiaohongshu/app-store-optimization/SKILL.md"
+    },
+    {
+      "name": "campaign-analytics",
+      "category": "growth-operations-xiaohongshu",
+      "description": "Analyzes campaign performance with multi-touch attribution, funnel conversion, and ROI calculation for marketing optimization",
+      "version": "1.0.0",
+      "author": "Alireza Rezvani",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "analytics",
+        "campaign",
+        "growth",
+        "marketing"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 223,
+      "path": "skills/growth-operations-xiaohongshu/campaign-analytics/SKILL.md"
+    },
+    {
+      "name": "competitors-analysis",
+      "category": "growth-operations-xiaohongshu",
+      "description": "Analyze competitor repositories with evidence-based approach. Use when tracking competitors, creating competitor profiles, or generating competitive analysis. CRITICAL - all analysis must be based on actual cloned code, never assumptions. Triggers include \"analyze competitor\", \"add competitor\", \"competitive analysis\", or \"竞品分析\".",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "analysis",
+        "competitors",
+        "growth",
+        "marketing"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 260,
+      "path": "skills/growth-operations-xiaohongshu/competitors-analysis/SKILL.md"
+    },
+    {
+      "name": "content-creator",
+      "category": "growth-operations-xiaohongshu",
+      "description": "Create SEO-optimized marketing content with consistent brand voice. Includes brand voice analyzer, SEO optimizer, content frameworks, and social media templates. Use when writing blog posts, creating social media content, analyzing brand voice, optimizing SEO, planning content calendars, or when user mentions content creation, brand voice, SEO optimization, social media marketing, or content strategy.",
+      "version": "1.0.0",
+      "author": "Alireza Rezvani",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "content",
+        "creator",
+        "growth",
+        "marketing"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 310,
+      "path": "skills/growth-operations-xiaohongshu/content-creator/SKILL.md"
+    },
+    {
+      "name": "marketing-demand-acquisition",
+      "category": "growth-operations-xiaohongshu",
+      "description": "Multi-channel demand generation, paid media optimization, SEO strategy, and partnership programs for Series A+ startups",
+      "version": "1.1.0",
+      "author": "Alireza Rezvani",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "acquisition",
+        "demand",
+        "growth",
+        "marketing"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 302,
+      "path": "skills/growth-operations-xiaohongshu/marketing-demand-acquisition/SKILL.md"
+    },
+    {
+      "name": "marketing-strategy-pmm",
+      "category": "growth-operations-xiaohongshu",
+      "description": "Product marketing skill for positioning, GTM strategy, competitive intelligence, and product launches. Covers April Dunford positioning, ICP definition, competitive battlecards, launch playbooks, and international market entry.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "growth",
+        "marketing",
+        "pmm",
+        "strategy"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 376,
+      "path": "skills/growth-operations-xiaohongshu/marketing-strategy-pmm/SKILL.md"
+    },
+    {
+      "name": "prompt-engineer-toolkit",
+      "category": "growth-operations-xiaohongshu",
+      "description": "Systematic prompt engineering from first principles. Build, test, version, and optimize prompts for any LLM task. Covers technique selection, a testing framework with scored A/B comparison, version control, quality metrics, and optimization strategies. Includes a 10-template library ready to adapt.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "engineer",
+        "growth",
+        "marketing",
+        "prompt",
+        "toolkit"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 709,
+      "path": "skills/growth-operations-xiaohongshu/prompt-engineer-toolkit/SKILL.md"
+    },
+    {
+      "name": "seo-audit",
+      "category": "growth-operations-xiaohongshu",
+      "description": "用于网站 SEO 全面审计、On-page 优化建议和技术 SEO 检查清单生成。来源：全网高频推荐。",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "community",
+      "source_url": "",
+      "tags": [
+        "audit",
+        "growth",
+        "marketing",
+        "seo"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-27",
+      "updated_at": "2026-03-27",
+      "line_count": 116,
+      "path": "skills/growth-operations-xiaohongshu/seo-audit/SKILL.md"
+    },
+    {
+      "name": "social-media-analyzer",
+      "category": "growth-operations-xiaohongshu",
+      "description": "Social media campaign analysis and performance tracking. Calculates engagement rates, ROI, and benchmarks across platforms. Use for analyzing social media performance, calculating engagement rate, measuring campaign ROI, comparing platform metrics, or benchmarking against industry standards.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "analyzer",
+        "growth",
+        "marketing",
+        "media",
+        "social"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 279,
+      "path": "skills/growth-operations-xiaohongshu/social-media-analyzer/SKILL.md"
+    },
+    {
+      "name": "twitter-reader",
+      "category": "growth-operations-xiaohongshu",
+      "description": "Fetch Twitter/X post content by URL using jina.ai API to bypass JavaScript restrictions. Use when Claude needs to retrieve tweet content including author, timestamp, post text, images, and thread replies. Supports individual posts or batch fetching from x.com or twitter.com URLs.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "growth",
+        "marketing",
+        "reader",
+        "twitter"
+      ],
+      "quality": 3,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 81,
+      "path": "skills/growth-operations-xiaohongshu/twitter-reader/SKILL.md"
+    },
+    {
+      "name": "linear",
+      "category": "knowledge-and-pm-integrations",
+      "description": "Manage issues, projects & team workflows in Linear. Use when the user wants to read, create or updates tickets in Linear.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "linear"
+      ],
+      "quality": 3,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 96,
+      "path": "skills/knowledge-and-pm-integrations/linear/SKILL.md"
+    },
+    {
+      "name": "notion-knowledge-capture",
+      "category": "knowledge-and-pm-integrations",
+      "description": "Capture conversations and decisions into structured Notion pages; use when turning chats/notes into wiki entries, how-tos, decisions, or FAQs with proper linking.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "capture",
+        "knowledge",
+        "notion"
+      ],
+      "quality": 3,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 65,
+      "path": "skills/knowledge-and-pm-integrations/notion-knowledge-capture/SKILL.md"
+    },
+    {
+      "name": "notion-meeting-intelligence",
+      "category": "knowledge-and-pm-integrations",
+      "description": "Prepare meeting materials with Notion context and Codex research; use when gathering context, drafting agendas/pre-reads, and tailoring materials to attendees.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "intelligence",
+        "meeting",
+        "notion"
+      ],
+      "quality": 3,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 69,
+      "path": "skills/knowledge-and-pm-integrations/notion-meeting-intelligence/SKILL.md"
+    },
+    {
+      "name": "notion-research-documentation",
+      "category": "knowledge-and-pm-integrations",
+      "description": "Research across Notion and synthesize into structured documentation; use when gathering info from multiple Notion sources to produce briefs, comparisons, or reports with citations.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "documentation",
+        "notion",
+        "research"
+      ],
+      "quality": 3,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 68,
+      "path": "skills/knowledge-and-pm-integrations/notion-research-documentation/SKILL.md"
+    },
+    {
+      "name": "notion-spec-to-implementation",
+      "category": "knowledge-and-pm-integrations",
+      "description": "Turn Notion specs into implementation plans, tasks, and progress tracking; use when implementing PRDs/feature specs and creating Notion plans + tasks from them.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "implementation",
+        "notion",
+        "spec"
+      ],
+      "quality": 3,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 67,
+      "path": "skills/knowledge-and-pm-integrations/notion-spec-to-implementation/SKILL.md"
+    },
+    {
+      "name": "imagegen",
+      "category": "multimodal-media",
+      "description": "Use when the user asks to generate or edit images via the OpenAI Image API (for example: generate image, edit/inpaint/mask, background removal or replacement, transparent background, product shots, concept art, covers, or batch variants); run the bundled CLI (`scripts/image_gen.py`) and require `OPENAI_API_KEY` for live calls.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "imagegen"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 182,
+      "path": "skills/multimodal-media/imagegen/SKILL.md"
+    },
+    {
+      "name": "screenshot",
+      "category": "multimodal-media",
+      "description": "Use when the user explicitly asks for a desktop or system screenshot (full screen, specific app or window, or a pixel region), or when tool-specific capture capabilities are unavailable and an OS-level capture is needed.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "screenshot"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 275,
+      "path": "skills/multimodal-media/screenshot/SKILL.md"
+    },
+    {
+      "name": "sora",
+      "category": "multimodal-media",
+      "description": "Use when the user asks to generate, remix, poll, list, download, or delete Sora videos via OpenAI\\u2019s video API using the bundled CLI (`scripts/sora.py`), including requests like \\u201cgenerate AI video,\\u201d \\u201cSora,\\u201d \\u201cvideo remix,\\u201d \\u201cdownload video/thumbnail/spritesheet,\\u201d and batch video generation; requires `OPENAI_API_KEY` and Sora API access.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "sora"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 161,
+      "path": "skills/multimodal-media/sora/SKILL.md"
+    },
+    {
+      "name": "speech",
+      "category": "multimodal-media",
+      "description": "Use when the user asks for text-to-speech narration or voiceover, accessibility reads, audio prompts, or batch speech generation via the OpenAI Audio API; run the bundled CLI (`scripts/text_to_speech.py`) with built-in voices and require `OPENAI_API_KEY` for live calls. Custom voice creation is out of scope.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "speech"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 152,
+      "path": "skills/multimodal-media/speech/SKILL.md"
+    },
+    {
+      "name": "summarize",
+      "category": "multimodal-media",
+      "description": "对网页、文档、邮件与长文本进行快速摘要，提炼核心信息。",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "summarize"
+      ],
+      "quality": 2,
+      "complexity": "intermediate",
+      "created_at": "2026-03-15",
+      "updated_at": "2026-03-20",
+      "line_count": 130,
+      "path": "skills/multimodal-media/summarize/SKILL.md"
+    },
+    {
+      "name": "transcribe",
+      "category": "multimodal-media",
+      "description": "Transcribe audio files to text with optional diarization and known-speaker hints. Use when a user asks to transcribe speech from audio/video, extract text from recordings, or label speakers in interviews or meetings.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "transcribe"
+      ],
+      "quality": 3,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 89,
+      "path": "skills/multimodal-media/transcribe/SKILL.md"
+    },
+    {
+      "name": "capture-screen",
+      "category": "office-white-collar",
+      "description": "Programmatic screenshot capture on macOS. Find window IDs with Swift CGWindowListCopyWindowInfo, control application windows via AppleScript (zoom, scroll, select), and capture with screencapture. Use when automating screenshots, capturing application windows for documentation, or building multi-shot visual workflows.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "capture",
+        "screen"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 247,
+      "path": "skills/office-white-collar/capture-screen/SKILL.md"
+    },
+    {
+      "name": "doc",
+      "category": "office-white-collar",
+      "description": "Use when the task involves reading, creating, or editing `.docx` documents, especially when formatting or layout fidelity matters; prefer `python-docx` plus the bundled `scripts/render_docx.py` for visual checks.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "doc"
+      ],
+      "quality": 3,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 88,
+      "path": "skills/office-white-collar/doc/SKILL.md"
+    },
+    {
+      "name": "doc-coauthoring",
+      "category": "office-white-collar",
+      "description": "Guide users through a structured workflow for co-authoring documentation. Use when user wants to write documentation, proposals, technical specs, decision docs, or similar structured content. This workflow helps users efficiently transfer context, refine content through iteration, and verify the doc works for readers. Trigger when user mentions writing docs, creating proposals, drafting specs, or similar documentation tasks.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "coauthoring",
+        "doc"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 384,
+      "path": "skills/office-white-collar/doc-coauthoring/SKILL.md"
+    },
+    {
+      "name": "docx",
+      "category": "office-white-collar",
+      "description": "Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.docx files). Triggers include: any mention of ''Word doc'', ''word document'', ''.docx'', or requests to produce professional documents with formatting like tables of contents, headings, page numbers, or letterheads. Also use when extracting or reorganizing content from .docx files, inserting or replacing images in documents, performing find-and-replace in Word files, working with tracked changes or comments, or converting content into a polished Word document. If the user asks for a ''report'', ''memo'', ''letter'', ''template'', or similar deliverable as a Word or .docx file, use this skill. Do NOT use for PDFs, spreadsheets, Google Docs, or general coding tasks unrelated to document generation.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "docx"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 599,
+      "path": "skills/office-white-collar/docx/SKILL.md"
+    },
+    {
+      "name": "excel-automation",
+      "category": "office-white-collar",
+      "description": "Create, parse, and control Excel files on macOS. Professional formatting with openpyxl, complex xlsm parsing with stdlib zipfile+xml for investment bank financial models, and Excel window control via AppleScript. Use when creating formatted Excel reports, parsing financial models that openpyxl cannot handle, or automating Excel on macOS.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "automation",
+        "excel"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 322,
+      "path": "skills/office-white-collar/excel-automation/SKILL.md"
+    },
+    {
+      "name": "gog",
+      "category": "office-white-collar",
+      "description": "Google Workspace 自动化技能，统一处理 Gmail、Calendar、Drive 与 Docs 等办公流程。",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "gog"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-15",
+      "updated_at": "2026-03-20",
+      "line_count": 117,
+      "path": "skills/office-white-collar/gog/SKILL.md"
+    },
+    {
+      "name": "markdown-tools",
+      "category": "office-white-collar",
+      "description": "Converts documents to markdown with multi-tool orchestration for best quality. Supports Quick Mode (fast, single tool) and Heavy Mode (best quality, multi-tool merge). Use when converting PDF/DOCX/PPTX files to markdown, extracting images from documents, validating conversion quality, or needing LLM-optimized document output.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "markdown",
+        "tools"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 169,
+      "path": "skills/office-white-collar/markdown-tools/SKILL.md"
+    },
+    {
+      "name": "meeting-minutes-taker",
+      "category": "office-white-collar",
+      "description": "Transforms raw meeting transcripts into high-fidelity, structured meeting minutes with iterative review for completeness. This skill should be used when (1) a meeting transcript is provided and meeting minutes, notes, or summaries are requested, (2) multiple versions of meeting minutes need to be merged without losing content, (3) existing minutes need to be reviewed against the original transcript for missing items, (4) transcript has anonymous speakers like \"Speaker 1/2/3\" that need identification. Features include: speaker identification via feature analysis (word count, speaking style, topic focus) with context.md team directory mapping, intelligent file naming from content, integration with transcript-fixer for pre-processing, evidence-based recording with speaker quotes, Mermaid diagrams for architecture discussions, multi-turn parallel generation to avoid content loss, and iterative human-in-the-loop refinement.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "meeting",
+        "minutes",
+        "taker"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 653,
+      "path": "skills/office-white-collar/meeting-minutes-taker/SKILL.md"
+    },
+    {
+      "name": "mermaid-tools",
+      "category": "office-white-collar",
+      "description": "Extracts Mermaid diagrams from markdown files and generates high-quality PNG images using bundled scripts. Activates when working with Mermaid diagrams, converting diagrams to PNG, extracting diagrams from markdown, or processing markdown files with embedded Mermaid code.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "mermaid",
+        "tools"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 173,
+      "path": "skills/office-white-collar/mermaid-tools/SKILL.md"
+    },
+    {
+      "name": "pdf",
+      "category": "office-white-collar",
+      "description": "Use this skill whenever the user wants to do anything with PDF files. This includes reading or extracting text/tables from PDFs, combining or merging multiple PDFs into one, splitting PDFs apart, rotating pages, adding watermarks, creating new PDFs, filling PDF forms, encrypting/decrypting PDFs, extracting images, and OCR on scanned PDFs to make them searchable. If the user mentions a .pdf file or asks to produce one, use this skill.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "pdf"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 323,
+      "path": "skills/office-white-collar/pdf/SKILL.md"
+    },
+    {
+      "name": "pdf-creator",
+      "category": "office-white-collar",
+      "description": "Create PDF documents from markdown with proper Chinese font support using weasyprint. This skill should be used when converting markdown to PDF, generating formal documents (legal, trademark filings, reports), or when Chinese typography is required. Triggers include \"convert to PDF\", \"generate PDF\", \"markdown to PDF\", or any request for creating printable documents.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "creator",
+        "pdf"
+      ],
+      "quality": 3,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 64,
+      "path": "skills/office-white-collar/pdf-creator/SKILL.md"
+    },
+    {
+      "name": "ppt-creator",
+      "category": "office-white-collar",
+      "description": "Create professional slide decks from topics or documents. Generates structured content with data-driven charts, speaker notes, and complete PPTX files. Applies persuasive storytelling principles (Pyramid Principle, assertion-evidence). Supports multiple formats (Marp, PowerPoint). Use for presentations, pitches, slide decks, or keynotes.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "creator",
+        "ppt"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 179,
+      "path": "skills/office-white-collar/ppt-creator/SKILL.md"
+    },
+    {
+      "name": "pptx",
+      "category": "office-white-collar",
+      "description": "Use this skill any time a .pptx file is involved in any way — as input, output, or both. This includes: creating slide decks, pitch decks, or presentations; reading, parsing, or extracting text from any .pptx file (even if the extracted content will be used elsewhere, like in an email or summary); editing, modifying, or updating existing presentations; combining or splitting slide files; working with templates, layouts, speaker notes, or comments. Trigger whenever the user mentions \\\"deck,\\\" \\\"slides,\\\" \\\"presentation,\\\" or references a .pptx filename, regardless of what they plan to do with the content afterward. If a .pptx file needs to be opened, created, or touched, use this skill.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "pptx"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 241,
+      "path": "skills/office-white-collar/pptx/SKILL.md"
+    },
+    {
+      "name": "spreadsheet",
+      "category": "office-white-collar",
+      "description": "Use when tasks involve creating, editing, analyzing, or formatting spreadsheets (`.xlsx`, `.csv`, `.tsv`) using Python (`openpyxl`, `pandas`), especially when formulas, references, and formatting need to be preserved and verified.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "spreadsheet"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 130,
+      "path": "skills/office-white-collar/spreadsheet/SKILL.md"
+    },
+    {
+      "name": "transcript-fixer",
+      "category": "office-white-collar",
+      "description": "Corrects speech-to-text transcription errors in meeting notes, lectures, and interviews using dictionary rules and AI. Learns patterns to build personalized correction databases. Use when working with transcripts containing ASR/STT errors, homophones, or Chinese/English mixed content requiring cleanup.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "fixer",
+        "transcript"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 191,
+      "path": "skills/office-white-collar/transcript-fixer/SKILL.md"
+    },
+    {
+      "name": "xlsx",
+      "category": "office-white-collar",
+      "description": "Use this skill any time a spreadsheet file is the primary input or output. This means any task where the user wants to: open, read, edit, or fix an existing .xlsx, .xlsm, .csv, or .tsv file (e.g., adding columns, computing formulas, formatting, charting, cleaning messy data); create a new spreadsheet from scratch or from other data sources; or convert between tabular file formats. Trigger especially when the user references a spreadsheet file by name or path — even casually (like \\\"the xlsx in my downloads\\\") — and wants something done to it or produced from it. Also trigger for cleaning or restructuring messy tabular data files (malformed rows, misplaced headers, junk data) into proper spreadsheets. The deliverable must be a spreadsheet file. Do NOT trigger when the primary deliverable is a Word document, HTML report, standalone Python script, database pipeline, or Google Sheets API integration, even if tabular data is involved.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "xlsx"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 301,
+      "path": "skills/office-white-collar/xlsx/SKILL.md"
+    },
+    {
+      "name": "input-guard",
+      "category": "openclaw-memory-and-safety",
+      "description": "Scan untrusted external text (web pages, tweets, search results, API responses) for prompt injection attacks. Returns severity levels and alerts on dangerous content. Use BEFORE processing any text from untrusted sources.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "guard",
+        "input"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 405,
+      "path": "skills/openclaw-memory-and-safety/input-guard/SKILL.md"
+    },
+    {
+      "name": "rag-architect",
+      "category": "openclaw-memory-and-safety",
+      "description": "The RAG (Retrieval-Augmented Generation) Architect skill provides comprehensive tools and knowledge for designing, implementing, and optimizing production-grade RAG pipelines. This skill covers the entire RAG ecosystem from document chunking strategies to evaluation frameworks, enabling you to build scalable, efficient, and accurate retrieval systems.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "architect",
+        "rag"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 327,
+      "path": "skills/openclaw-memory-and-safety/rag-architect/SKILL.md"
+    },
+    {
+      "name": "runbook-generator",
+      "category": "openclaw-memory-and-safety",
+      "description": "Analyze a codebase and generate production-grade operational runbooks. Detects your stack (CI/CD, database, hosting, containers), then produces step-by-step runbooks with copy-paste commands, verification checks, rollback procedures, escalation paths, and time estimates. Keeps runbooks fresh with staleness detection linked to config file modification dates.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "generator",
+        "runbook"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 424,
+      "path": "skills/openclaw-memory-and-safety/runbook-generator/SKILL.md"
+    },
+    {
+      "name": "brand-guidelines",
+      "category": "operations-general",
+      "description": "Applies Anthropic''s official brand colors and typography to any sort of artifact that may benefit from having Anthropic''s look-and-feel. Use it when brand colors or style guidelines, visual formatting, or company design standards apply.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "brand",
+        "guidelines",
+        "productivity"
+      ],
+      "quality": 3,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 82,
+      "path": "skills/operations-general/brand-guidelines/SKILL.md"
+    },
+    {
+      "name": "confidence-check",
+      "category": "operations-general",
+      "description": "用于结构化自我审查，验证假设、识别不确定性和减少幻觉输出。来源：全网高频推荐的可靠性技能。",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "community",
+      "source_url": "",
+      "tags": [
+        "check",
+        "confidence",
+        "productivity"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-27",
+      "updated_at": "2026-03-27",
+      "line_count": 116,
+      "path": "skills/operations-general/confidence-check/SKILL.md"
+    },
+    {
+      "name": "docs-cleaner",
+      "category": "operations-general",
+      "description": "Consolidates redundant documentation while preserving all valuable content. This skill should be used when users want to clean up documentation bloat, merge redundant docs, reduce documentation sprawl, or consolidate multiple files covering the same topic. Triggers include \"clean up docs\", \"consolidate documentation\", \"too many doc files\", \"merge these docs\", or when documentation exceeds 500 lines across multiple files covering similar topics.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "cleaner",
+        "docs",
+        "productivity"
+      ],
+      "quality": 3,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 93,
+      "path": "skills/operations-general/docs-cleaner/SKILL.md"
+    },
+    {
+      "name": "fact-checker",
+      "category": "operations-general",
+      "description": "Verifies factual claims in documents using web search and official sources, then proposes corrections with user confirmation. Use when the user asks to fact-check, verify information, validate claims, check accuracy, or update outdated information in documents. Supports AI model specs, technical documentation, statistics, and general factual statements.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "checker",
+        "fact",
+        "productivity"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 292,
+      "path": "skills/operations-general/fact-checker/SKILL.md"
+    },
+    {
+      "name": "internal-comms",
+      "category": "operations-general",
+      "description": "A set of resources to help me write all kinds of internal communications, using the formats that my company likes to use. Claude should use this skill whenever asked to write some sort of internal communications (status reports, leadership updates, 3P updates, company newsletters, FAQs, incident reports, project updates, etc.).",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "comms",
+        "internal",
+        "productivity"
+      ],
+      "quality": 2,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 131,
+      "path": "skills/operations-general/internal-comms/SKILL.md"
+    },
+    {
+      "name": "interview-system-designer",
+      "category": "operations-general",
+      "description": "This skill should be used when the user asks to \"design interview processes\", \"create hiring pipelines\", \"calibrate interview loops\", \"generate interview questions\", \"design competency matrices\", \"analyze interviewer bias\", \"create scoring rubrics\", \"build question banks\", or \"optimize hiring systems\". Use for designing role-specific interview loops, competency assessments, and hiring calibration systems.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "designer",
+        "interview",
+        "productivity",
+        "system"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 467,
+      "path": "skills/operations-general/interview-system-designer/SKILL.md"
+    },
+    {
+      "name": "slack-gif-creator",
+      "category": "operations-general",
+      "description": "Knowledge and utilities for creating animated GIFs optimized for Slack. Provides constraints, validation tools, and animation concepts. Use when users request animated GIFs for Slack like \"make me a GIF of X doing Y for Slack.\"",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "creator",
+        "gif",
+        "productivity",
+        "slack"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 263,
+      "path": "skills/operations-general/slack-gif-creator/SKILL.md"
+    },
+    {
+      "name": "supermemory",
+      "category": "operations-general",
+      "description": "用于长期记忆管理、偏好捕获、矛盾检测和项目状态跟踪。来源：supermemoryai/supermemory。",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "community",
+      "source_url": "",
+      "tags": [
+        "productivity",
+        "supermemory"
+      ],
+      "quality": 3,
+      "complexity": "intermediate",
+      "created_at": "2026-03-27",
+      "updated_at": "2026-03-27",
+      "line_count": 102,
+      "path": "skills/operations-general/supermemory/SKILL.md"
+    },
+    {
+      "name": "teams-channel-post-writer",
+      "category": "operations-general",
+      "description": "Creates educational Teams channel posts for internal knowledge sharing about Claude Code features, tools, and best practices. Applies when writing posts, announcements, or documentation to teach colleagues effective Claude Code usage, announce new features, share productivity tips, or document lessons learned. Provides templates, writing guidelines, and structured approaches emphasizing concrete examples, underlying principles, and connections to best practices like context engineering. Activates for content involving Teams posts, channel announcements, feature documentation, or tip sharing.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "channel",
+        "post",
+        "productivity",
+        "teams"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 117,
+      "path": "skills/operations-general/teams-channel-post-writer/SKILL.md"
+    },
+    {
+      "name": "theme-factory",
+      "category": "operations-general",
+      "description": "Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML landing pages, etc. There are 10 pre-set themes with colors/fonts that you can apply to any artifact that has been creating, or can generate a new theme on-the-fly.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "factory",
+        "productivity",
+        "theme"
+      ],
+      "quality": 3,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 67,
+      "path": "skills/operations-general/theme-factory/SKILL.md"
+    },
+    {
+      "name": "weather",
+      "category": "operations-general",
+      "description": "免 API Key 的天气查询技能，支持多数据源与自然语言请求。",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "productivity",
+        "weather"
+      ],
+      "quality": 2,
+      "complexity": "intermediate",
+      "created_at": "2026-03-15",
+      "updated_at": "2026-03-20",
+      "line_count": 128,
+      "path": "skills/operations-general/weather/SKILL.md"
+    },
+    {
+      "name": "agile-product-owner",
+      "category": "product-design",
+      "description": "Agile product ownership for backlog management and sprint execution. Covers user story writing, acceptance criteria, sprint planning, and velocity tracking. Use for writing user stories, creating acceptance criteria, planning sprints, estimating story points, breaking down epics, or prioritizing backlog.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "agile",
+        "design",
+        "owner",
+        "product"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 388,
+      "path": "skills/product-design/agile-product-owner/SKILL.md"
+    },
+    {
+      "name": "canvas-design",
+      "category": "product-design",
+      "description": "Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this skill when the user asks to create a poster, piece of art, design, or other static piece. Create original visual designs, never copying existing artists'' work to avoid copyright violations.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "canvas",
+        "design",
+        "product"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 139,
+      "path": "skills/product-design/canvas-design/SKILL.md"
+    },
+    {
+      "name": "competitive-teardown",
+      "category": "product-design",
+      "description": "Run a structured competitive analysis on any product or company. Synthesizes data from pricing pages, app store reviews, job postings, SEO signals, and social media into actionable insights: feature matrices, SWOT, positioning maps, UX audits, and a stakeholder presentation template.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "competitive",
+        "design",
+        "product",
+        "teardown"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 452,
+      "path": "skills/product-design/competitive-teardown/SKILL.md"
+    },
+    {
+      "name": "landing-page-generator",
+      "category": "product-design",
+      "description": "用于快速生成高转化率落地页结构、文案框架和 TSX/Tailwind 代码脚手架。来源：alirezarezvani/claude-skills。",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "github:alirezarezvani/claude-skills",
+      "source_url": "",
+      "tags": [
+        "design",
+        "generator",
+        "landing",
+        "page",
+        "product"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-27",
+      "updated_at": "2026-03-27",
+      "line_count": 114,
+      "path": "skills/product-design/landing-page-generator/SKILL.md"
+    },
+    {
+      "name": "product-analysis",
+      "category": "product-design",
+      "description": "Multi-path parallel product analysis with cross-model test-time compute scaling. Spawns parallel agents (Claude Code agent teams + Codex CLI) to explore product from multiple perspectives, then synthesizes findings into actionable optimization plans. Can invoke competitors-analysis for competitive benchmarking. Use when \"product audit\", \"self-review\", \"发布前审查\", \"产品分析\", \"analyze our product\", \"UX audit\", or \"信息架构审计\".",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "analysis",
+        "design",
+        "product"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 240,
+      "path": "skills/product-design/product-analysis/SKILL.md"
+    },
+    {
+      "name": "product-manager-toolkit",
+      "category": "product-design",
+      "description": "Comprehensive toolkit for product managers including RICE prioritization, customer interview analysis, PRD templates, discovery frameworks, and go-to-market strategies. Use for feature prioritization, user research synthesis, requirement documentation, and product strategy development.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "design",
+        "manager",
+        "product",
+        "toolkit"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 513,
+      "path": "skills/product-design/product-manager-toolkit/SKILL.md"
+    },
+    {
+      "name": "product-strategist",
+      "category": "product-design",
+      "description": "Strategic product leadership toolkit for Head of Product including OKR cascade generation, market analysis, vision setting, and team scaling. Use for strategic planning, goal alignment, competitive analysis, and organizational design.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "design",
+        "product",
+        "strategist"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 385,
+      "path": "skills/product-design/product-strategist/SKILL.md"
+    },
+    {
+      "name": "saas-scaffolder",
+      "category": "product-design",
+      "description": "Generate complete, production-ready SaaS projects from a product brief. Outputs a fully wired Next.js App Router project with authentication, database, payments, and a working dashboard — not a toy starter kit.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "design",
+        "product",
+        "saas",
+        "scaffolder"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 364,
+      "path": "skills/product-design/saas-scaffolder/SKILL.md"
+    },
+    {
+      "name": "ui-design-system",
+      "category": "product-design",
+      "description": "UI design system toolkit for Senior UI Designer including design token generation, component documentation, responsive design calculations, and developer handoff tools. Use for creating design systems, maintaining visual consistency, and facilitating design-dev collaboration.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "design",
+        "product",
+        "system"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 388,
+      "path": "skills/product-design/ui-design-system/SKILL.md"
+    },
+    {
+      "name": "ux-researcher-designer",
+      "category": "product-design",
+      "description": "UX research and design toolkit for Senior UX Designer/Researcher including data-driven persona generation, journey mapping, usability testing frameworks, and research synthesis. Use for user research, persona creation, journey mapping, and design validation.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "design",
+        "designer",
+        "product",
+        "researcher"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 423,
+      "path": "skills/product-design/ux-researcher-designer/SKILL.md"
+    },
+    {
+      "name": "link-checker",
+      "category": "security-and-reliability",
+      "description": "检测 URL 可达性与潜在风险，识别失效链接、跳转链路和可疑域名。",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "checker",
+        "link",
+        "security"
+      ],
+      "quality": 2,
+      "complexity": "intermediate",
+      "created_at": "2026-03-15",
+      "updated_at": "2026-03-20",
+      "line_count": 140,
+      "path": "skills/security-and-reliability/link-checker/SKILL.md"
+    },
+    {
+      "name": "security-best-practices",
+      "category": "security-and-reliability",
+      "description": "Perform language and framework specific security best-practice reviews and suggest improvements. Trigger only when the user explicitly requests security best practices guidance, a security review/report, or secure-by-default coding help. Trigger only for supported languages (python, javascript/typescript, go). Do not trigger for general code review, debugging, or non-security tasks.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "best",
+        "practices",
+        "security"
+      ],
+      "quality": 3,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 95,
+      "path": "skills/security-and-reliability/security-best-practices/SKILL.md"
+    },
+    {
+      "name": "security-ownership-map",
+      "category": "security-and-reliability",
+      "description": "Analyze git repositories to build a security ownership topology (people-to-file), compute bus factor and sensitive-code ownership, and export CSV/JSON for graph databases and visualization. Trigger only when the user explicitly wants a security-oriented ownership or bus-factor analysis grounded in git history (for example: orphaned sensitive code, security maintainers, CODEOWNERS reality checks for risk, sensitive hotspots, or ownership clusters). Do not trigger for general maintainer lists or non-security ownership questions.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "map",
+        "ownership",
+        "security"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 215,
+      "path": "skills/security-and-reliability/security-ownership-map/SKILL.md"
+    },
+    {
+      "name": "security-threat-model",
+      "category": "security-and-reliability",
+      "description": "Repository-grounded threat modeling that enumerates trust boundaries, assets, attacker capabilities, abuse paths, and mitigations, and writes a concise Markdown threat model. Trigger only when the user explicitly asks to threat model a codebase or path, enumerate threats/abuse paths, or perform AppSec threat modeling. Do not trigger for general architecture summaries, code review, or non-security design work.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "model",
+        "security",
+        "threat"
+      ],
+      "quality": 3,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 90,
+      "path": "skills/security-and-reliability/security-threat-model/SKILL.md"
+    },
+    {
+      "name": "sentry",
+      "category": "security-and-reliability",
+      "description": "Use when the user asks to inspect Sentry issues or events, summarize recent production errors, or pull basic Sentry health data via the Sentry API; perform read-only queries with the bundled script and require `SENTRY_AUTH_TOKEN`.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "security",
+        "sentry"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 131,
+      "path": "skills/security-and-reliability/sentry/SKILL.md"
+    },
+    {
+      "name": "skill-security-auditor",
+      "category": "security-and-reliability",
+      "description": "用于在安装第三方 Skill 前进行安全审计，检测命令注入、代码执行和数据泄露风险。来源：alirezarezvani/claude-skills。",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "github:alirezarezvani/claude-skills",
+      "source_url": "",
+      "tags": [
+        "auditor",
+        "security",
+        "skill"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-27",
+      "updated_at": "2026-03-27",
+      "line_count": 112,
+      "path": "skills/security-and-reliability/skill-security-auditor/SKILL.md"
+    },
+    {
+      "name": "skill-vetter",
+      "category": "security-and-reliability",
+      "description": "在安装前审计技能安全性，识别恶意指令、越权行为与高风险配置。",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "security",
+        "skill",
+        "vetter"
+      ],
+      "quality": 2,
+      "complexity": "intermediate",
+      "created_at": "2026-03-15",
+      "updated_at": "2026-03-20",
+      "line_count": 121,
+      "path": "skills/security-and-reliability/skill-vetter/SKILL.md"
+    },
+    {
+      "name": "agent-workflow-designer",
+      "category": "task-understanding-decomposition",
+      "description": "Design production-grade multi-agent orchestration systems. Covers five core patterns (sequential pipeline, parallel fan-out/fan-in, hierarchical delegation, event-driven, consensus), platform-specific implementations, handoff protocols, state management, error recovery, context window budgeting, and cost optimization.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "agent",
+        "designer",
+        "planning",
+        "workflow"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 452,
+      "path": "skills/task-understanding-decomposition/agent-workflow-designer/SKILL.md"
+    },
+    {
+      "name": "brainstorming",
+      "category": "task-understanding-decomposition",
+      "description": "You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "brainstorming",
+        "planning",
+        "workflow"
+      ],
+      "quality": 3,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 105,
+      "path": "skills/task-understanding-decomposition/brainstorming/SKILL.md"
+    },
+    {
+      "name": "deep-research",
+      "category": "task-understanding-decomposition",
+      "description": "Generate format-controlled research reports with evidence tracking, citations, and iterative review. This skill should be used when users request a research report, literature review, market or industry analysis, competitive landscape, policy or technical brief, or require a strict report template and section formatting that a single deepresearch pass cannot reliably enforce.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "deep",
+        "planning",
+        "research",
+        "workflow"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 215,
+      "path": "skills/task-understanding-decomposition/deep-research/SKILL.md"
+    },
+    {
+      "name": "find-skills",
+      "category": "task-understanding-decomposition",
+      "description": "让 Agent 自动搜索并安装合适技能，解决不知道该用哪个技能的问题。",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "find",
+        "planning",
+        "skills",
+        "workflow"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-15",
+      "updated_at": "2026-03-20",
+      "line_count": 126,
+      "path": "skills/task-understanding-decomposition/find-skills/SKILL.md"
+    },
+    {
+      "name": "prompt-optimizer",
+      "category": "task-understanding-decomposition",
+      "description": "Transform vague prompts into precise, well-structured specifications using EARS (Easy Approach to Requirements Syntax) methodology. This skill should be used when users provide loose requirements, ambiguous feature descriptions, or need to enhance prompts for AI-generated code, products, or documents. Triggers include requests to \"optimize my prompt\", \"improve this requirement\", \"make this more specific\", or when raw requirements lack detail and structure.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "optimizer",
+        "planning",
+        "prompt",
+        "workflow"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 204,
+      "path": "skills/task-understanding-decomposition/prompt-optimizer/SKILL.md"
+    },
+    {
+      "name": "reflect-learn",
+      "category": "task-understanding-decomposition",
+      "description": "Self-improvement through conversation analysis. Extracts learnings from corrections and success patterns, proposes updates to agent files or creates new skills. Philosophy: \"Correct once, never again.\" Use when: (1) User explicitly corrects behavior (\"never do X\", \"always Y\"), (2) Session ending or context compaction, (3) User requests /reflect, (4) Successful pattern worth preserving.",
+      "version": "2.0.0",
+      "author": "Claude Code Toolkit",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "learn",
+        "planning",
+        "reflect",
+        "workflow"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 400,
+      "path": "skills/task-understanding-decomposition/reflect-learn/SKILL.md"
+    },
+    {
+      "name": "skill-creator",
+      "category": "task-understanding-decomposition",
+      "description": "Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, update or optimize an existing skill, run evals to test a skill, benchmark skill performance with variance analysis, or optimize a skill''s description for better triggering accuracy.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "creator",
+        "planning",
+        "skill",
+        "workflow"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 488,
+      "path": "skills/task-understanding-decomposition/skill-creator/SKILL.md"
+    },
+    {
+      "name": "skill-reviewer",
+      "category": "task-understanding-decomposition",
+      "description": "Reviews and improves Claude Code skills against official best practices. Supports three modes - self-review (validate your own skills), external review (evaluate others'' skills), and auto-PR (fork, improve, submit). Use when checking skill quality, reviewing skill repositories, or contributing improvements to open-source skills.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "planning",
+        "reviewer",
+        "skill",
+        "workflow"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 209,
+      "path": "skills/task-understanding-decomposition/skill-reviewer/SKILL.md"
+    },
+    {
+      "name": "skills-search",
+      "category": "task-understanding-decomposition",
+      "description": "This skill should be used when users want to search, discover, install, or manage Claude Code skills from the CCPM registry. Triggers include requests like \"find skills for PDF\", \"search for code review skills\", \"install cloudflare-troubleshooting\", \"list my installed skills\", \"what does skill-creator do\", or any mention of finding/installing/managing Claude Code skills or plugins.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "planning",
+        "search",
+        "skills",
+        "workflow"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 116,
+      "path": "skills/task-understanding-decomposition/skills-search/SKILL.md"
+    },
+    {
+      "name": "subagent-driven-development",
+      "category": "task-understanding-decomposition",
+      "description": "用于多子 Agent 并行开发编排，包含任务分派、两阶段审查和自动化质量门控。来源：obra/superpowers。",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "github:obra/superpowers",
+      "source_url": "",
+      "tags": [
+        "development",
+        "driven",
+        "planning",
+        "subagent",
+        "workflow"
+      ],
+      "quality": 3,
+      "complexity": "intermediate",
+      "created_at": "2026-03-27",
+      "updated_at": "2026-03-27",
+      "line_count": 97,
+      "path": "skills/task-understanding-decomposition/subagent-driven-development/SKILL.md"
+    },
+    {
+      "name": "tavily-search",
+      "category": "task-understanding-decomposition",
+      "description": "提供实时联网检索能力，帮助 Agent 获取最新资讯、数据与来源证据。",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "planning",
+        "search",
+        "tavily",
+        "workflow"
+      ],
+      "quality": 2,
+      "complexity": "intermediate",
+      "created_at": "2026-03-15",
+      "updated_at": "2026-03-20",
+      "line_count": 125,
+      "path": "skills/task-understanding-decomposition/tavily-search/SKILL.md"
+    },
+    {
+      "name": "writing-plans",
+      "category": "task-understanding-decomposition",
+      "description": "Use when you have a spec or requirements for a multi-step task, before touching code",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "planning",
+        "plans",
+        "workflow",
+        "writing"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 125,
+      "path": "skills/task-understanding-decomposition/writing-plans/SKILL.md"
+    }
+  ]
+}
