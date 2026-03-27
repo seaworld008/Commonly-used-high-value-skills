@@ -70,7 +70,7 @@ def main() -> None:
 
     catalog = {
         "version": "1.0.0",
-        "generated_at": __import__("datetime").datetime.now(__import__("datetime").timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "generated_at": __import__("datetime").date.today().isoformat(),
         "total_skills": len(skills),
         "total_categories": len(categories),
         "categories": [
