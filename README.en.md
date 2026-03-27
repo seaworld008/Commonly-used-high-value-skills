@@ -40,23 +40,19 @@ This repository currently contains **15 categories / 163 skills**.
 
 ### Option 1: Give This Prompt to Your AI Tool (Recommended)
 
-If you want your AI tool to install the skills for you, send it the prompt below and replace the local path:
+If you want your AI tool to install the skills for you, start with this short prompt:
 
 ```text
-You are my local installation assistant. Please install the skills from this repository into the current AI tool and follow these rules:
-
-1. The local repository path is: `<replace with your local repo path>`
-2. If the current tool is `Codex`, `Claude Code`, `Cursor`, or another source-browsing AI coding assistant, use the repository `skills/` directory
-3. If the current tool is `OpenClaw`, first run `python scripts/export_openclaw_skills.py`, then use `openclaw-skills/`
-4. If this machine already has a local Codex skills directory, run `python scripts/sync_codex_skills.py --source-root "<repo path>/skills" --codex-root "<Codex skills path>"` to sync it
-5. When finished, tell me:
-   - which directory you used
-   - which local files or settings you changed
-   - how I should verify the installation worked
-   - where it failed if anything did not work
+You are my local installation assistant. Please install the skills from this repository into the current AI tool: https://github.com/seaworld008/Commonly-used-high-value-skills
 ```
 
-If you are unsure which directory your tool should use, this is the easiest and safest way to start.
+If the AI tool cannot infer enough context, add one more line:
+
+```text
+The current tool is `<Codex / Claude Code / Cursor / OpenClaw>`, and the local repository path is `<your local repo path>`.
+```
+
+This works because the repository already includes AI-readable installation rules and directory conventions, so users usually do not need to spell out the full install workflow in the prompt.
 
 ### Option 2: Manual Setup
 
