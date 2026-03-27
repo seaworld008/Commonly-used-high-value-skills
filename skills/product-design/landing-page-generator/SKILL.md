@@ -1,6 +1,6 @@
 ---
 name: landing-page-generator
-description: 用于快速生成高转化率落地页结构、文案框架和 TSX/Tailwind 代码脚手架。来源：alirezarezvani/claude-skills。
+description: '用于快速生成高转化率落地页结构、文案框架和 TSX/Tailwind 代码脚手架。来源：alirezarezvani/claude-skills。'
 ---
 
 # Landing Page Generator

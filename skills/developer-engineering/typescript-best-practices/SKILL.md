@@ -1,6 +1,6 @@
 ---
 name: typescript-best-practices
-description: 用于 TypeScript 高级类型编程、类型安全设计和常见反模式避免。来源：全网高频推荐。
+description: '用于 TypeScript 高级类型编程、类型安全设计和常见反模式避免。来源：全网高频推荐。'
 ---
 
 # TypeScript Best Practices

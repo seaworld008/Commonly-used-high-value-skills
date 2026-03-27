@@ -1,6 +1,6 @@
 ---
 name: tailwind-design-system
-description: 用于 Tailwind CSS 设计系统搭建、组件库开发与主题定制。来源：skills.sh 24.7K installs。
+description: '用于 Tailwind CSS 设计系统搭建、组件库开发与主题定制。来源：skills.sh 24.7K installs。'
 ---
 
 # Tailwind Design System

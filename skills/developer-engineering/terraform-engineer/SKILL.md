@@ -1,6 +1,6 @@
 ---
 name: terraform-engineer
-description: 用于 Terraform 基础设施即代码（IaC）设计、模块化管理和状态管理。来源：HashiCorp 官方 + skills.sh。
+description: '用于 Terraform 基础设施即代码（IaC）设计、模块化管理和状态管理。来源：HashiCorp 官方 + skills.sh。'
 ---
 
 # Terraform Engineer

@@ -1,6 +1,6 @@
 ---
 name: python-performance
-description: 用于 Python 性能优化、内存分析和并发编程最佳实践。来源：skills.sh 12.8K installs。
+description: '用于 Python 性能优化、内存分析和并发编程最佳实践。来源：skills.sh 12.8K installs。'
 ---
 
 # Python Performance Optimization

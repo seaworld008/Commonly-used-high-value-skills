@@ -1,6 +1,6 @@
 ---
 name: supermemory
-description: 用于长期记忆管理、偏好捕获、矛盾检测和项目状态跟踪。来源：supermemoryai/supermemory。
+description: '用于长期记忆管理、偏好捕获、矛盾检测和项目状态跟踪。来源：supermemoryai/supermemory。'
 ---
 
 # Supermemory

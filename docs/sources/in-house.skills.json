@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://github.com/your-org/Commonly-used-high-value-skills",
-    "checked_at": "2026-03-22",
+    "checked_at": "2026-03-27",
     "note": "Auto-generated in-house provenance mapping for all local skills."
   },
   "official_references": [
@@ -13,6 +13,22 @@
   ],
   "skills": [
     {
+      "video_name": "agent-hub",
+      "normalized_slug": "agent-hub",
+      "status": "in_house",
+      "repo_skill": "skills/ai-agent-platform/agent-hub/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/ai-agent-platform/agent-hub",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
       "video_name": "chatgpt-apps",
       "normalized_slug": "chatgpt-apps",
       "status": "in_house",
@@ -23,8 +39,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/ai-agent-platform/chatgpt-apps",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -39,8 +55,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/ai-agent-platform/develop-web-game",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -55,8 +71,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/ai-agent-platform/figma",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -71,8 +87,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/ai-agent-platform/figma-implement-design",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -87,8 +103,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/ai-agent-platform/openai-docs",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -103,8 +119,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/ai-agent-platform/proactive-agent",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -119,8 +135,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/ai-agent-platform/self-improving-agent",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -135,8 +151,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/deployment-platforms/cloudflare-deploy",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -151,8 +167,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/deployment-platforms/netlify-deploy",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -167,8 +183,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/deployment-platforms/render-deploy",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -183,8 +199,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/deployment-platforms/vercel-deploy",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -199,8 +215,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/agent-designer",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -215,8 +231,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/api-design-reviewer",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -231,8 +247,24 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/api-test-suite-builder",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "aws-solution-architect",
+      "normalized_slug": "aws-solution-architect",
+      "status": "in_house",
+      "repo_skill": "skills/developer-engineering/aws-solution-architect/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/developer-engineering/aws-solution-architect",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -247,8 +279,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/cli-demo-generator",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -263,8 +295,24 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/codebase-onboarding",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "context-engineering",
+      "normalized_slug": "context-engineering",
+      "status": "in_house",
+      "repo_skill": "skills/developer-engineering/context-engineering/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/developer-engineering/context-engineering",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -279,8 +327,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/database-designer",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -295,8 +343,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/database-schema-designer",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -311,8 +359,24 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/dependency-auditor",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "docker-expert",
+      "normalized_slug": "docker-expert",
+      "status": "in_house",
+      "repo_skill": "skills/developer-engineering/docker-expert/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/developer-engineering/docker-expert",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -327,8 +391,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/frontend-design",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -343,8 +407,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/git-worktree-manager",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -359,8 +423,24 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/github-contributor",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "graphql-expert",
+      "normalized_slug": "graphql-expert",
+      "status": "in_house",
+      "repo_skill": "skills/developer-engineering/graphql-expert/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/developer-engineering/graphql-expert",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -375,8 +455,24 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/i18n-expert",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "kubernetes-specialist",
+      "normalized_slug": "kubernetes-specialist",
+      "status": "in_house",
+      "repo_skill": "skills/developer-engineering/kubernetes-specialist/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/developer-engineering/kubernetes-specialist",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -391,8 +487,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/mcp-builder",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -407,8 +503,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/mcp-server-builder",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -423,8 +519,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/migration-architect",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -439,8 +535,24 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/monorepo-navigator",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "nextjs-app-router",
+      "normalized_slug": "nextjs-app-router",
+      "status": "in_house",
+      "repo_skill": "skills/developer-engineering/nextjs-app-router/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/developer-engineering/nextjs-app-router",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -455,8 +567,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/performance-profiler",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -471,8 +583,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/pr-review-expert",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -487,8 +599,24 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/promptfoo-evaluation",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "python-performance",
+      "normalized_slug": "python-performance",
+      "status": "in_house",
+      "repo_skill": "skills/developer-engineering/python-performance/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/developer-engineering/python-performance",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -503,8 +631,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/qa-expert",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -519,8 +647,24 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/repomix-safe-mixer",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "rust-engineer",
+      "normalized_slug": "rust-engineer",
+      "status": "in_house",
+      "repo_skill": "skills/developer-engineering/rust-engineer/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/developer-engineering/rust-engineer",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -535,8 +679,56 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/skill-tester",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "supabase-postgres",
+      "normalized_slug": "supabase-postgres",
+      "status": "in_house",
+      "repo_skill": "skills/developer-engineering/supabase-postgres/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/developer-engineering/supabase-postgres",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "systematic-debugging",
+      "normalized_slug": "systematic-debugging",
+      "status": "in_house",
+      "repo_skill": "skills/developer-engineering/systematic-debugging/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/developer-engineering/systematic-debugging",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "tailwind-design-system",
+      "normalized_slug": "tailwind-design-system",
+      "status": "in_house",
+      "repo_skill": "skills/developer-engineering/tailwind-design-system/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/developer-engineering/tailwind-design-system",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -551,8 +743,56 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/tech-debt-tracker",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "terraform-engineer",
+      "normalized_slug": "terraform-engineer",
+      "status": "in_house",
+      "repo_skill": "skills/developer-engineering/terraform-engineer/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/developer-engineering/terraform-engineer",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "test-driven-development",
+      "normalized_slug": "test-driven-development",
+      "status": "in_house",
+      "repo_skill": "skills/developer-engineering/test-driven-development/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/developer-engineering/test-driven-development",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "typescript-best-practices",
+      "normalized_slug": "typescript-best-practices",
+      "status": "in_house",
+      "repo_skill": "skills/developer-engineering/typescript-best-practices/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/developer-engineering/typescript-best-practices",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -567,8 +807,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/web-artifacts-builder",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -583,8 +823,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/webapp-testing",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -599,8 +839,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/devops-sre/changelog-generator",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -615,8 +855,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/devops-sre/ci-cd-pipeline-builder",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -631,8 +871,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/devops-sre/cloudflare-troubleshooting",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -647,8 +887,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/devops-sre/env-secrets-manager",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -663,8 +903,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/devops-sre/github-ops",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -679,8 +919,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/devops-sre/incident-commander",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -695,8 +935,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/devops-sre/observability-designer",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -711,8 +951,24 @@
         "repo": "local-repo/in-house",
         "path": "skills/devops-sre/release-manager",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "senior-architect",
+      "normalized_slug": "senior-architect",
+      "status": "in_house",
+      "repo_skill": "skills/devops-sre/senior-architect/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/devops-sre/senior-architect",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -727,8 +983,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/devops-sre/senior-devops",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -743,8 +999,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/engineering-workflow-automation/agent-browser",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -759,8 +1015,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/engineering-workflow-automation/gh-address-comments",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -775,8 +1031,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/engineering-workflow-automation/gh-fix-ci",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -791,8 +1047,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/engineering-workflow-automation/github",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -807,8 +1063,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/engineering-workflow-automation/jupyter-notebook",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -823,8 +1079,24 @@
         "repo": "local-repo/in-house",
         "path": "skills/engineering-workflow-automation/playwright",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "web-scraper",
+      "normalized_slug": "web-scraper",
+      "status": "in_house",
+      "repo_skill": "skills/engineering-workflow-automation/web-scraper/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/engineering-workflow-automation/web-scraper",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -839,8 +1111,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/engineering-workflow-automation/yeet",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -855,8 +1127,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/finance-investing/comps-valuation-analyst",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -871,8 +1143,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/finance-investing/earnings-call-analyzer",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -887,8 +1159,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/finance-investing/event-driven-tracker",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -903,8 +1175,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/finance-investing/factor-backtester",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -919,8 +1191,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/finance-investing/financial-analyst",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -935,8 +1207,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/finance-investing/financial-data-collector",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -951,8 +1223,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/finance-investing/investment-memo-writer",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -967,8 +1239,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/finance-investing/macro-regime-monitor",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -983,8 +1255,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/finance-investing/options-strategy-evaluator",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -999,8 +1271,24 @@
         "repo": "local-repo/in-house",
         "path": "skills/finance-investing/portfolio-risk-manager",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "saas-metrics-coach",
+      "normalized_slug": "saas-metrics-coach",
+      "status": "in_house",
+      "repo_skill": "skills/finance-investing/saas-metrics-coach/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/finance-investing/saas-metrics-coach",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1015,8 +1303,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/finance-investing/sec-filing-reviewer",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1031,8 +1319,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/finance-investing/stock-screener-builder",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1047,8 +1335,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/growth-operations-xiaohongshu/algorithmic-art",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1063,8 +1351,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/growth-operations-xiaohongshu/app-store-optimization",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1079,8 +1367,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/growth-operations-xiaohongshu/campaign-analytics",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1095,8 +1383,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/growth-operations-xiaohongshu/competitors-analysis",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1111,8 +1399,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/growth-operations-xiaohongshu/content-creator",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1127,8 +1415,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/growth-operations-xiaohongshu/marketing-demand-acquisition",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1143,8 +1431,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/growth-operations-xiaohongshu/marketing-strategy-pmm",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1159,8 +1447,24 @@
         "repo": "local-repo/in-house",
         "path": "skills/growth-operations-xiaohongshu/prompt-engineer-toolkit",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "seo-audit",
+      "normalized_slug": "seo-audit",
+      "status": "in_house",
+      "repo_skill": "skills/growth-operations-xiaohongshu/seo-audit/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/growth-operations-xiaohongshu/seo-audit",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1175,8 +1479,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/growth-operations-xiaohongshu/social-media-analyzer",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1191,8 +1495,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/growth-operations-xiaohongshu/twitter-reader",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1207,8 +1511,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/knowledge-and-pm-integrations/linear",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1223,8 +1527,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/knowledge-and-pm-integrations/notion-knowledge-capture",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1239,8 +1543,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/knowledge-and-pm-integrations/notion-meeting-intelligence",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1255,8 +1559,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/knowledge-and-pm-integrations/notion-research-documentation",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1271,8 +1575,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/knowledge-and-pm-integrations/notion-spec-to-implementation",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1287,8 +1591,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/multimodal-media/imagegen",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1303,8 +1607,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/multimodal-media/screenshot",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1319,8 +1623,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/multimodal-media/sora",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1335,8 +1639,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/multimodal-media/speech",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1351,8 +1655,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/multimodal-media/summarize",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1367,8 +1671,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/multimodal-media/transcribe",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1383,8 +1687,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/office-white-collar/capture-screen",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1399,8 +1703,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/office-white-collar/doc",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1415,8 +1719,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/office-white-collar/doc-coauthoring",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1431,8 +1735,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/office-white-collar/docx",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1447,8 +1751,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/office-white-collar/excel-automation",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1463,8 +1767,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/office-white-collar/gog",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1479,8 +1783,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/office-white-collar/markdown-tools",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1495,8 +1799,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/office-white-collar/meeting-minutes-taker",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1511,8 +1815,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/office-white-collar/mermaid-tools",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1527,8 +1831,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/office-white-collar/pdf",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1543,8 +1847,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/office-white-collar/pdf-creator",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1559,8 +1863,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/office-white-collar/ppt-creator",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1575,8 +1879,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/office-white-collar/pptx",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1591,8 +1895,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/office-white-collar/spreadsheet",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1607,8 +1911,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/office-white-collar/transcript-fixer",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1623,8 +1927,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/office-white-collar/xlsx",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1639,8 +1943,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/openclaw-memory-and-safety/input-guard",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1655,8 +1959,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/openclaw-memory-and-safety/rag-architect",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1671,8 +1975,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/openclaw-memory-and-safety/runbook-generator",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1687,8 +1991,24 @@
         "repo": "local-repo/in-house",
         "path": "skills/operations-general/brand-guidelines",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "confidence-check",
+      "normalized_slug": "confidence-check",
+      "status": "in_house",
+      "repo_skill": "skills/operations-general/confidence-check/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/operations-general/confidence-check",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1703,8 +2023,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/operations-general/docs-cleaner",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1719,8 +2039,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/operations-general/fact-checker",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1735,8 +2055,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/operations-general/internal-comms",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1751,8 +2071,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/operations-general/interview-system-designer",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1767,8 +2087,24 @@
         "repo": "local-repo/in-house",
         "path": "skills/operations-general/slack-gif-creator",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "supermemory",
+      "normalized_slug": "supermemory",
+      "status": "in_house",
+      "repo_skill": "skills/operations-general/supermemory/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/operations-general/supermemory",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1783,8 +2119,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/operations-general/teams-channel-post-writer",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1799,8 +2135,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/operations-general/theme-factory",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1815,8 +2151,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/operations-general/weather",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1831,8 +2167,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/product-design/agile-product-owner",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1847,8 +2183,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/product-design/canvas-design",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1863,8 +2199,24 @@
         "repo": "local-repo/in-house",
         "path": "skills/product-design/competitive-teardown",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "landing-page-generator",
+      "normalized_slug": "landing-page-generator",
+      "status": "in_house",
+      "repo_skill": "skills/product-design/landing-page-generator/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/product-design/landing-page-generator",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1879,8 +2231,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/product-design/product-analysis",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1895,8 +2247,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/product-design/product-manager-toolkit",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1911,8 +2263,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/product-design/product-strategist",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1927,8 +2279,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/product-design/saas-scaffolder",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1943,8 +2295,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/product-design/ui-design-system",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1959,8 +2311,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/product-design/ux-researcher-designer",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1975,8 +2327,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/security-and-reliability/link-checker",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -1991,8 +2343,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/security-and-reliability/security-best-practices",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -2007,8 +2359,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/security-and-reliability/security-ownership-map",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -2023,8 +2375,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/security-and-reliability/security-threat-model",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -2039,8 +2391,24 @@
         "repo": "local-repo/in-house",
         "path": "skills/security-and-reliability/sentry",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "skill-security-auditor",
+      "normalized_slug": "skill-security-auditor",
+      "status": "in_house",
+      "repo_skill": "skills/security-and-reliability/skill-security-auditor/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/security-and-reliability/skill-security-auditor",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -2055,8 +2423,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/security-and-reliability/skill-vetter",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -2071,8 +2439,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/task-understanding-decomposition/agent-workflow-designer",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -2087,8 +2455,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/task-understanding-decomposition/brainstorming",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -2103,8 +2471,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/task-understanding-decomposition/deep-research",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -2119,8 +2487,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/task-understanding-decomposition/find-skills",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -2135,8 +2503,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/task-understanding-decomposition/prompt-optimizer",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -2151,8 +2519,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/task-understanding-decomposition/reflect-learn",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -2167,8 +2535,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/task-understanding-decomposition/skill-creator",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -2183,8 +2551,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/task-understanding-decomposition/skill-reviewer",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -2199,8 +2567,24 @@
         "repo": "local-repo/in-house",
         "path": "skills/task-understanding-decomposition/skills-search",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "subagent-driven-development",
+      "normalized_slug": "subagent-driven-development",
+      "status": "in_house",
+      "repo_skill": "skills/task-understanding-decomposition/subagent-driven-development/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/task-understanding-decomposition/subagent-driven-development",
+        "ref": "main",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -2215,8 +2599,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/task-understanding-decomposition/tavily-search",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     },
@@ -2231,19 +2615,19 @@
         "repo": "local-repo/in-house",
         "path": "skills/task-understanding-decomposition/writing-plans",
         "ref": "main",
-        "last_checked_at": "2026-03-22",
-        "last_synced_at": "2026-03-22",
+        "last_checked_at": "2026-03-27",
+        "last_synced_at": "2026-03-27",
         "last_synced_commit": null
       }
     }
   ],
   "verification_attempts": [
     {
-      "date": "2026-03-22",
+      "date": "2026-03-27",
       "method": "local-scan",
       "target": "skills/*/*/SKILL.md",
       "result": "success",
-      "evidence": "Discovered 139 local skills"
+      "evidence": "Discovered 163 local skills"
     }
   ]
 }

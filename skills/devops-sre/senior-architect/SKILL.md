@@ -1,6 +1,6 @@
 ---
 name: senior-architect
-description: 用于软件架构评审、技术选型决策和系统可扩展性分析。来源：alirezarezvani/claude-skills。
+description: '用于软件架构评审、技术选型决策和系统可扩展性分析。来源：alirezarezvani/claude-skills。'
 ---
 
 # Senior Architect

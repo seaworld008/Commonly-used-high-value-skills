@@ -4,7 +4,7 @@
 
 聚焦 brainstorming、research、计划编写、skills 检索与任务拆解。
 
-当前分类共 **11** 个技能。
+当前分类共 **12** 个技能。
 
 ## 推荐先看
 
@@ -26,6 +26,7 @@
 | `skill-creator` | Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, update or optimize an existing skill, run evals to test a skill, benchmark skill performance with variance analysis, or optimize a skill''s description for better triggering accuracy. | [目录](./skill-creator/) | [SKILL.md](./skill-creator/SKILL.md) |
 | `skill-reviewer` | Reviews and improves Claude Code skills against official best practices. Supports three modes - self-review (validate your own skills), external review (evaluate others'' skills), and auto-PR (fork, improve, submit). Use when checking skill quality, reviewing skill repositories, or contributing improvements to open-source skills. | [目录](./skill-reviewer/) | [SKILL.md](./skill-reviewer/SKILL.md) |
 | `skills-search` | This skill should be used when users want to search, discover, install, or manage Claude Code skills from the CCPM registry. Triggers include requests like "find skills for PDF", "search for code review skills", "install cloudflare-troubleshooting", "list my installed skills", "what does skill-creator do", or any mention of finding/installing/managing Claude Code skills or plugins. | [目录](./skills-search/) | [SKILL.md](./skills-search/SKILL.md) |
+| `subagent-driven-development` | 用于多子 Agent 并行开发编排，包含任务分派、两阶段审查和自动化质量门控。来源：obra/superpowers。 | [目录](./subagent-driven-development/) | [SKILL.md](./subagent-driven-development/SKILL.md) |
 | `tavily-search` | 提供实时联网检索能力，帮助 Agent 获取最新资讯、数据与来源证据。 | [目录](./tavily-search/) | [SKILL.md](./tavily-search/SKILL.md) |
 | `writing-plans` | Use when you have a spec or requirements for a multi-step task, before touching code | [目录](./writing-plans/) | [SKILL.md](./writing-plans/SKILL.md) |
 

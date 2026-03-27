@@ -1,6 +1,6 @@
 ---
 name: agent-hub
-description: 用于多 Agent 系统编排、Agent 间通信协议设计与生命周期管理。来源：alirezarezvani/claude-skills POWERFUL tier。
+description: '用于多 Agent 系统编排、Agent 间通信协议设计与生命周期管理。来源：alirezarezvani/claude-skills POWERFUL tier。'
 ---
 
 # Agent Hub

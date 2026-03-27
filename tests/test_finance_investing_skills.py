@@ -21,6 +21,7 @@ EXPECTED_FINANCE_SKILLS = {
     "options-strategy-evaluator",
     "event-driven-tracker",
     "investment-memo-writer",
+    "saas-metrics-coach",
 }
 
 SCRIPT_CASES = [

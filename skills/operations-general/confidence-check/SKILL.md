@@ -1,6 +1,6 @@
 ---
 name: confidence-check
-description: 用于结构化自我审查，验证假设、识别不确定性和减少幻觉输出。来源：全网高频推荐的可靠性技能。
+description: '用于结构化自我审查，验证假设、识别不确定性和减少幻觉输出。来源：全网高频推荐的可靠性技能。'
 ---
 
 # Confidence Check

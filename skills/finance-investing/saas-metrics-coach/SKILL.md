@@ -1,6 +1,6 @@
 ---
 name: saas-metrics-coach
-description: 用于 SaaS 关键指标分析与健康度诊断，包含 ARR/MRR/Churn/LTV/CAC 等核心指标。来源：alirezarezvani/claude-skills。
+description: '用于 SaaS 关键指标分析与健康度诊断，包含 ARR/MRR/Churn/LTV/CAC 等核心指标。来源：alirezarezvani/claude-skills。'
 ---
 
 # SaaS Metrics Coach

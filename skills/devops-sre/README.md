@@ -4,7 +4,7 @@
 
 面向发布、CI/CD、可观测性、故障响应和环境治理的技能集合。
 
-当前分类共 **9** 个技能。
+当前分类共 **10** 个技能。
 
 ## 推荐先看
 
@@ -25,6 +25,7 @@
 | `incident-commander` | Author: Claude Skills Team Version: 1.0.0 Last Updated: February 2026. | [目录](./incident-commander/) | [SKILL.md](./incident-commander/SKILL.md) |
 | `observability-designer` | Description: Design comprehensive observability strategies for production systems including SLI/SLO frameworks, alerting optimization, and dashboard generation. | [目录](./observability-designer/) | [SKILL.md](./observability-designer/SKILL.md) |
 | `release-manager` | The Release Manager skill provides comprehensive tools and knowledge for managing software releases end-to-end. From parsing conventional commits to generating changelogs, determining version bumps, and orchestrating release processes, this skill ensures reliable, predictable, and well-documented software releases. | [目录](./release-manager/) | [SKILL.md](./release-manager/SKILL.md) |
+| `senior-architect` | 用于软件架构评审、技术选型决策和系统可扩展性分析。来源：alirezarezvani/claude-skills。 | [目录](./senior-architect/) | [SKILL.md](./senior-architect/SKILL.md) |
 | `senior-devops` | Comprehensive DevOps skill for CI/CD, infrastructure automation, containerization, and cloud platforms (AWS, GCP, Azure). Includes pipeline setup, infrastructure as code, deployment automation, and monitoring. Use when setting up pipelines, deploying applications, managing infrastructure, implementing monitoring, or optimizing deployment processes. | [目录](./senior-devops/) | [SKILL.md](./senior-devops/SKILL.md) |
 
 ## 维护方式

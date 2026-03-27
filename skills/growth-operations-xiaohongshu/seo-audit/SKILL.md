@@ -1,6 +1,6 @@
 ---
 name: seo-audit
-description: 用于网站 SEO 全面审计、On-page 优化建议和技术 SEO 检查清单生成。来源：全网高频推荐。
+description: '用于网站 SEO 全面审计、On-page 优化建议和技术 SEO 检查清单生成。来源：全网高频推荐。'
 ---
 
 # SEO Audit

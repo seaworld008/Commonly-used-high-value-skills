@@ -1,6 +1,6 @@
 ---
 name: test-driven-development
-description: 用于 TDD 红绿重构循环、测试策略制定和测试反模式规避。来源：obra/superpowers。
+description: '用于 TDD 红绿重构循环、测试策略制定和测试反模式规避。来源：obra/superpowers。'
 ---
 
 # Test-Driven Development (TDD)

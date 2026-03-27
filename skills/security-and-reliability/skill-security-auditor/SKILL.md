@@ -1,6 +1,6 @@
 ---
 name: skill-security-auditor
-description: 用于在安装第三方 Skill 前进行安全审计，检测命令注入、代码执行和数据泄露风险。来源：alirezarezvani/claude-skills。
+description: '用于在安装第三方 Skill 前进行安全审计，检测命令注入、代码执行和数据泄露风险。来源：alirezarezvani/claude-skills。'
 ---
 
 # Skill Security Auditor

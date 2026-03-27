@@ -1,6 +1,6 @@
 ---
 name: docker-expert
-description: 用于 Docker 容器化最佳实践、多阶段构建优化与 Docker Compose 编排。来源：skills.sh 8.7K installs。
+description: '用于 Docker 容器化最佳实践、多阶段构建优化与 Docker Compose 编排。来源：skills.sh 8.7K installs。'
 ---
 
 # Docker Expert

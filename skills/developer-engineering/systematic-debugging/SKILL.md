@@ -1,6 +1,6 @@
 ---
 name: systematic-debugging
-description: 用于系统化调试方法论，包含根因分析、最小复现和防御性编程。来源：obra/superpowers。
+description: '用于系统化调试方法论，包含根因分析、最小复现和防御性编程。来源：obra/superpowers。'
 ---
 
 # Systematic Debugging Methodology

@@ -4,7 +4,7 @@
 
 聚焦小红书、社媒、内容、归因、竞品和增长分析的技能集合。
 
-当前分类共 **10** 个技能。
+当前分类共 **11** 个技能。
 
 ## 推荐先看
 
@@ -25,6 +25,7 @@
 | `marketing-demand-acquisition` | Multi-channel demand generation, paid media optimization, SEO strategy, and partnership programs for Series A+ startups | [目录](./marketing-demand-acquisition/) | [SKILL.md](./marketing-demand-acquisition/SKILL.md) |
 | `marketing-strategy-pmm` | Product marketing skill for positioning, GTM strategy, competitive intelligence, and product launches. Covers April Dunford positioning, ICP definition, competitive battlecards, launch playbooks, and international market entry. | [目录](./marketing-strategy-pmm/) | [SKILL.md](./marketing-strategy-pmm/SKILL.md) |
 | `prompt-engineer-toolkit` | Systematic prompt engineering from first principles. Build, test, version, and optimize prompts for any LLM task. Covers technique selection, a testing framework with scored A/B comparison, version control, quality metrics, and optimization strategies. Includes a 10-template library ready to adapt. | [目录](./prompt-engineer-toolkit/) | [SKILL.md](./prompt-engineer-toolkit/SKILL.md) |
+| `seo-audit` | 用于网站 SEO 全面审计、On-page 优化建议和技术 SEO 检查清单生成。来源：全网高频推荐。 | [目录](./seo-audit/) | [SKILL.md](./seo-audit/SKILL.md) |
 | `social-media-analyzer` | Social media campaign analysis and performance tracking. Calculates engagement rates, ROI, and benchmarks across platforms. Use for analyzing social media performance, calculating engagement rate, measuring campaign ROI, comparing platform metrics, or benchmarking against industry standards. | [目录](./social-media-analyzer/) | [SKILL.md](./social-media-analyzer/SKILL.md) |
 | `twitter-reader` | Fetch Twitter/X post content by URL using jina.ai API to bypass JavaScript restrictions. Use when Claude needs to retrieve tweet content including author, timestamp, post text, images, and thread replies. Supports individual posts or batch fetching from x.com or twitter.com URLs. | [目录](./twitter-reader/) | [SKILL.md](./twitter-reader/SKILL.md) |
 

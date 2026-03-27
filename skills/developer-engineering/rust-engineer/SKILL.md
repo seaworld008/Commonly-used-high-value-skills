@@ -1,6 +1,6 @@
 ---
 name: rust-engineer
-description: 用于 Rust 语言开发最佳实践、异步编程和系统级编程指导。来源：skills.sh 1.5K+ installs。
+description: '用于 Rust 语言开发最佳实践、异步编程和系统级编程指导。来源：skills.sh 1.5K+ installs。'
 ---
 
 # Rust Engineer Toolkit

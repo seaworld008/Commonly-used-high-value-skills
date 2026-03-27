@@ -1,6 +1,6 @@
 ---
 name: web-scraper
-description: 用于网页数据抓取、结构化提取和反爬策略应对。来源：全网高频推荐。
+description: '用于网页数据抓取、结构化提取和反爬策略应对。来源：全网高频推荐。'
 ---
 
 # Web Scraper

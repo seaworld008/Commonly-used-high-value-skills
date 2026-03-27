@@ -1,6 +1,6 @@
 ---
 name: graphql-expert
-description: 用于 GraphQL API 设计、查询优化、Schema 管理和安全最佳实践。来源：全网高频推荐。
+description: '用于 GraphQL API 设计、查询优化、Schema 管理和安全最佳实践。来源：全网高频推荐。'
 ---
 
 # GraphQL Expert
