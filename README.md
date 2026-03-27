@@ -38,23 +38,19 @@
 
 ### 方式一：直接发给 AI 工具的安装提示词（推荐）
 
-如果你希望让 AI 工具直接帮你安装，可以把下面这段提示词原样发给它，只需要把本地路径改成你自己的：
+如果你希望让 AI 工具直接帮你安装，优先发这段短提示词：
 
 ```
-你现在是我的本地安装助手，请把这个仓库里的 Skills 安装到当前 AI 工具中，并按下面规则执行：
-
-1. 仓库本地路径是：`<替换成你的本地仓库路径>`
-2. 如果当前工具是 `Codex`、`Claude Code`、`Cursor` 或其他按源码浏览技能目录的 AI coding assistant，请使用仓库里的 `skills/`
-3. 如果当前工具是 `OpenClaw`，请先运行 `python scripts/export_openclaw_skills.py`，然后使用 `openclaw-skills/`
-4. 如果当前机器已经有本地 `Codex` skills 目录，请运行 `python scripts/sync_codex_skills.py --source-root "<仓库路径>\\skills" --codex-root "<Codex skills 路径>"` 进行同步
-5. 安装完成后，请明确告诉我：
-   - 你为当前工具使用了哪个目录
-   - 你改了哪些本地配置或文件
-   - 应该如何验证安装成功
-   - 如果失败，失败点在哪里
+你现在是我的本地安装助手，请把这个仓库 https://github.com/seaworld008/Commonly-used-high-value-skills 里的 Skills 安装到当前 AI 工具中。
 ```
 
-如果你不确定自己的工具该用哪个目录，就直接把上面的提示词发给 AI 工具，它会按客户端类型自动选择。
+如果 AI 工具没有自动识别出来，再补一句即可：
+
+```text
+当前工具是 `<Codex / Claude Code / Cursor / OpenClaw>`，本地仓库路径是 `<你的本地仓库路径>`。
+```
+
+之所以可以这样简化，是因为仓库里已经包含给 AI 工具读取的安装规则与目录约定文档，通常不需要你手动把安装逻辑全部写进提示词里。
 
 ### 方式二：手动安装步骤
 
