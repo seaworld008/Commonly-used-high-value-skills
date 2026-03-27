@@ -24,6 +24,10 @@ This repository currently contains **15 categories / 163 skills**.
 - Many skills include `scripts/`, `references/`, and `assets/`
 - The repository supports both categorized source usage and flat OpenClaw export
 - It is suitable both for daily usage and long-term team knowledge accumulation
+- The repo now supports automated discovery, upstream sync, candidate ranking, quality checks, and generated view refreshes, so it can be maintained as a living skill system rather than a static dump
+- Curation is policy-driven: trusted sources can be preferred, noisy sources can be denied, and minimum quality thresholds can be enforced in one place
+- `scripts/sync_codex_skills.py` lets you sync the latest repository skills into a local Codex skill directory without manual copying
+- The repository also emphasizes trust and safety through provenance tracking, curated source controls, and built-in security-review skills such as `skill-vetter`, `skill-security-auditor`, `input-guard`, and `link-checker`
 
 ## Which Directory Should You Use
 
@@ -53,6 +57,12 @@ If Codex shows local skill warnings such as `invalid SKILL.md`, `missing YAML fr
 
 ```bash
 python3 scripts/normalize_codex_skills.py ~/.codex/skills
+```
+
+If you want to sync the latest repository skills into a local Codex skills directory, run:
+
+```bash
+python3 scripts/sync_codex_skills.py --source-root ./skills --codex-root ~/.codex/skills
 ```
 
 ## Quick Category Jump Table
