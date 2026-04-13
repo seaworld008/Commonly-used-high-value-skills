@@ -37,14 +37,6 @@
       }
     },
     {
-      "video_name": "Skill Vator",
-      "normalized_slug": null,
-      "status": "unverified_slug",
-      "repo_skill": null,
-      "source": "https://www.clawhub.com",
-      "notes": "Could not verify an official slug in this environment; keep pending until registry confirmation."
-    },
-    {
       "video_name": "Skill create",
       "normalized_slug": "skill-creator",
       "status": "verified_in_repo",
@@ -123,14 +115,6 @@
         "last_synced_at": "2026-04-13",
         "last_synced_commit": null
       }
-    },
-    {
-      "video_name": "Agent memory",
-      "normalized_slug": null,
-      "status": "unverified_slug",
-      "repo_skill": null,
-      "source": "https://www.clawhub.com",
-      "notes": "Could not verify official slug in this environment; keep pending until registry confirmation."
     },
     {
       "video_name": "Summarize",

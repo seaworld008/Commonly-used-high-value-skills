@@ -4,6 +4,8 @@ description: 'Search and retrieve academic papers from arXiv using their free RE
 version: 1.0.0
 author: Hermes Agent
 license: MIT
+quality: 4
+tags: '["research", "papers", "arxiv"]'
 metadata:
   hermes:
     tags: [Research, Arxiv, Papers, Academic, Science, API]

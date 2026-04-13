@@ -4,6 +4,8 @@ description: 'Inspect and analyze codebases using pygount for LOC counting, lang
 version: 1.0.0
 author: Hermes Agent
 license: MIT
+quality: 4
+tags: '["codebase", "metrics", "repository"]'
 metadata:
   hermes:
     tags: [LOC, Code Analysis, pygount, Codebase, Metrics, Repository]

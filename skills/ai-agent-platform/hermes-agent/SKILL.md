@@ -4,6 +4,8 @@ description: 'Complete guide to using and extending Hermes Agent — CLI usage, 
 version: 2.0.0
 author: Hermes Agent + Teknium
 license: MIT
+quality: 4
+tags: '["hermes", "agents", "platform"]'
 metadata:
   hermes:
     tags: [hermes, setup, configuration, multi-agent, spawning, cli, gateway, development]

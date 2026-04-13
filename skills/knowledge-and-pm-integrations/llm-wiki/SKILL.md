@@ -4,6 +4,8 @@ description: 'Karpathy''s LLM Wiki — build and maintain a persistent, interlin
 version: 2.0.0
 author: Hermes Agent
 license: MIT
+quality: 4
+tags: '["wiki", "knowledge-base", "research"]'
 metadata:
   hermes:
     tags: [wiki, knowledge-base, research, notes, markdown, rag-alternative]

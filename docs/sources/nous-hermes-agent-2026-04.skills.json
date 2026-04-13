@@ -144,6 +144,22 @@
         "last_synced_at": "2026-04-13",
         "last_synced_commit": "3636f64540a3d80c8425f195f46e53e940956cba"
       }
+    },
+    {
+      "video_name": "linear",
+      "normalized_slug": "linear",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/knowledge-and-pm-integrations/linear/SKILL.md",
+      "source": "https://github.com/NousResearch/hermes-agent/blob/main/skills/productivity/linear/SKILL.md",
+      "notes": "Repository version is upgraded to an API-first Linear workflow adapted from Hermes so it works even without an MCP connection.",
+      "upstream": {
+        "repo": "NousResearch/hermes-agent",
+        "path": "skills/productivity/linear/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-13",
+        "last_synced_at": "2026-04-13",
+        "last_synced_commit": "3636f64540a3d80c8425f195f46e53e940956cba"
+      }
     }
   ],
   "verification_attempts": [

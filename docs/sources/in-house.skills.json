@@ -1069,22 +1069,6 @@
       }
     },
     {
-      "video_name": "linear",
-      "normalized_slug": "linear",
-      "status": "in_house",
-      "repo_skill": "skills/knowledge-and-pm-integrations/linear/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/knowledge-and-pm-integrations/linear",
-        "ref": "main",
-        "last_checked_at": "2026-04-13",
-        "last_synced_at": "2026-04-13",
-        "last_synced_commit": null
-      }
-    },
-    {
       "video_name": "link-checker",
       "normalized_slug": "link-checker",
       "status": "in_house",
@@ -2523,6 +2507,27 @@
       "target": "skills/*/*/SKILL.md",
       "result": "success",
       "evidence": "Merged provenance for 156 local skills"
+    },
+    {
+      "date": "2026-04-13",
+      "method": "local-scan",
+      "target": "skills/*/*/SKILL.md",
+      "result": "success",
+      "evidence": "Merged provenance for 156 local skills"
+    },
+    {
+      "date": "2026-04-13",
+      "method": "local-scan",
+      "target": "skills/*/*/SKILL.md",
+      "result": "success",
+      "evidence": "Merged provenance for 155 local skills"
+    },
+    {
+      "date": "2026-04-13",
+      "method": "local-scan",
+      "target": "skills/*/*/SKILL.md",
+      "result": "success",
+      "evidence": "Merged provenance for 155 local skills"
     }
   ]
 }

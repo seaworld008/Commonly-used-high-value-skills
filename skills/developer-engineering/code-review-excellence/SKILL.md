@@ -1,6 +1,9 @@
 ---
 name: code-review-excellence
 description: 'Master effective code review practices to provide constructive feedback, catch bugs early, and foster knowledge sharing while maintaining team morale. Use when reviewing pull requests, establishing review standards, or mentoring developers.'
+version: 1.0.0
+tags: '["code-review", "engineering", "mentoring"]'
+quality: 4
 ---
 
 # Code Review Excellence

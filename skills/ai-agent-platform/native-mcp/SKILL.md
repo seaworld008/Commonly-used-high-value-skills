@@ -4,6 +4,8 @@ description: 'Built-in MCP (Model Context Protocol) client that connects to exte
 version: 1.0.0
 author: Hermes Agent
 license: MIT
+quality: 4
+tags: '["mcp", "integration", "tools"]'
 metadata:
   hermes:
     tags: [MCP, Tools, Integrations]

@@ -1,96 +1,316 @@
 ---
 name: linear
-description: 'Manage issues, projects & team workflows in Linear. Use when the user wants to read, create or updates tickets in Linear.'
-version: "1.0.0"
+description: 'Manage Linear issues, projects, and teams with an API-first workflow. Uses the GraphQL API by default and can fall back to the Linear MCP server when it is already configured.'
+version: "2.0.0"
 author: "seaworld008"
-source: "in-house"
-source_url: ""
-tags: '["linear"]'
+source: "adapted-from-hermes-agent"
+source_url: "https://github.com/NousResearch/hermes-agent/blob/main/skills/productivity/linear/SKILL.md"
+tags: '["graphql", "issues", "linear", "mcp", "productivity", "project-management"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
-quality: 3
+updated_at: "2026-04-13"
+quality: 4
 complexity: "intermediate"
-metadata: 
-short-description: Manage Linear issues in Codex
+metadata:
+short-description: 'Manage Linear with GraphQL API first, MCP second'
 ---
 
 # Linear
 
-## Overview
+## When to Use
 
-This skill provides a structured workflow for managing issues, projects & team workflows in Linear. It ensures consistent integration with the Linear MCP server, which offers natural-language project management for issues, projects, documentation, and team collaboration.
+Use this skill when the user wants to:
+
+- read, search, create, or update Linear issues
+- triage bugs or organize backlog state
+- assign work, set priority, labels, or due dates
+- create or inspect projects and team workflow states
+- automate repeatable Linear operations from the terminal
+
+## Recommended Approach
+
+Prefer the **Linear GraphQL API** first.
+
+Why:
+
+- it works even when the Linear MCP server is not installed
+- it is explicit and scriptable
+- it gives full control over issue fields, workflow states, and pagination
+- it is easier to debug than opaque tool-calling failures
+
+Use the **Linear MCP server** only when:
+
+- the user already has it connected
+- the task benefits from natural-language tool invocation over direct API calls
+- OAuth is already working and there is no reason to switch
 
 ## Prerequisites
-- Linear MCP server must be connected and accessible via OAuth
-- Confirm access to the relevant Linear workspace, teams, and projects
 
-## Required Workflow
+### API-first mode
 
-**Follow these steps in order. Do not skip steps.**
+You need:
 
-### Step 0: Set up Linear MCP (if not already configured)
+- a Linear personal API key
+- `curl`
 
-If any MCP call fails because Linear MCP is not connected, pause and set it up:
+Set the API key:
 
-1. Add the Linear MCP:
-   - `codex mcp add linear --url https://mcp.linear.app/mcp`
-2. Enable remote MCP client:
-   - Set `[features] rmcp_client = true` in `config.toml` **or** run `codex --enable rmcp_client`
-3. Log in with OAuth:
-   - `codex mcp login linear`
-
-After successful login, the user will have to restart codex. You should finish your answer and tell them so when they try again they can continue with Step 1.
-
-**Windows/WSL note:** If you see connection errors on Windows, try configuring the Linear MCP to run via WSL:
-```json
-{"mcpServers": {"linear": {"command": "wsl", "args": ["npx", "-y", "mcp-remote", "https://mcp.linear.app/sse", "--transport", "sse-only"]}}}
+```bash
+export LINEAR_API_KEY="lin_api_xxx"
 ```
 
-### Step 1
-Clarify the user's goal and scope (e.g., issue triage, sprint planning, documentation audit, workload balance). Confirm team/project, priority, labels, cycle, and due dates as needed.
+Get it from:
 
-### Step 2
-Select the appropriate workflow (see Practical Workflows below) and identify the Linear MCP tools you will need. Confirm required identifiers (issue ID, project ID, team key) before calling tools.
+- Linear Settings
+- API
+- Personal API keys
 
-### Step 3
-Execute Linear MCP tool calls in logical batches:
-- Read first (list/get/search) to build context.
-- Create or update next (issues, projects, labels, comments) with all required fields.
-- For bulk operations, explain the grouping logic before applying changes.
+### MCP fallback mode
 
-### Step 4
-Summarize results, call out remaining gaps or blockers, and propose next actions (additional issues, label changes, assignments, or follow-up comments).
+If the user prefers MCP and it is not connected yet:
 
-## Available Tools
+```bash
+codex mcp add linear --url https://mcp.linear.app/mcp
+codex --enable rmcp_client
+codex mcp login linear
+```
 
-Issue Management: `list_issues`, `get_issue`, `create_issue`, `update_issue`, `list_my_issues`, `list_issue_statuses`, `list_issue_labels`, `create_issue_label`
+After login they need to restart Codex before using the MCP path.
 
-Project & Team: `list_projects`, `get_project`, `create_project`, `update_project`, `list_teams`, `get_team`, `list_users`
+## API Basics
 
-Documentation & Collaboration: `list_documents`, `get_document`, `search_documentation`, `list_comments`, `create_comment`, `list_cycles`
+- Endpoint: `https://api.linear.app/graphql`
+- Method: `POST`
+- Auth header: `Authorization: $LINEAR_API_KEY`
+- Content type: `application/json`
 
-## Practical Workflows
+Base request pattern:
 
-- Sprint Planning: Review open issues for a target team, pick top items by priority, and create a new cycle (e.g., "Q1 Performance Sprint") with assignments.
-- Bug Triage: List critical/high-priority bugs, rank by user impact, and move the top items to "In Progress."
-- Documentation Audit: Search documentation (e.g., API auth), then open labeled "documentation" issues for gaps or outdated sections with detailed fixes.
-- Team Workload Balance: Group active issues by assignee, flag anyone with high load, and suggest or apply redistributions.
-- Release Planning: Create a project (e.g., "v2.0 Release") with milestones (feature freeze, beta, docs, launch) and generate issues with estimates.
-- Cross-Project Dependencies: Find all "blocked" issues, identify blockers, and create linked issues if missing.
-- Automated Status Updates: Find your issues with stale updates and add status comments based on current state/blockers.
-- Smart Labeling: Analyze unlabeled issues, suggest/apply labels, and create missing label categories.
-- Sprint Retrospectives: Generate a report for the last completed cycle, note completed vs. pushed work, and open discussion issues for patterns.
+```bash
+curl -s -X POST https://api.linear.app/graphql \
+  -H "Authorization: $LINEAR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"query":"{ viewer { id name email } }"}' | python -m json.tool
+```
 
-## Tips for Maximum Productivity
+Important:
 
-- Batch operations for related changes; consider smart templates for recurring issue structures.
-- Use natural queries when possible ("Show me what John is working on this week").
-- Leverage context: reference prior issues in new requests.
-- Break large updates into smaller batches to avoid rate limits; cache or reuse filters when listing frequently.
+- GraphQL can return HTTP 200 with an `errors` array, so always inspect the body
+- issue identifiers like `ENG-123` are often easier to use than UUIDs for reads
+- updates to status require the target `stateId`, not just the state name
+
+## Workflow States
+
+Linear workflow state `type` values:
+
+- `triage`
+- `backlog`
+- `unstarted`
+- `started`
+- `completed`
+- `canceled`
+
+Priority values:
+
+- `0` none
+- `1` urgent
+- `2` high
+- `3` medium
+- `4` low
+
+## Core Workflow
+
+Follow this order for most tasks:
+
+1. Identify the target team
+2. Fetch workflow states for that team
+3. Search or inspect relevant issues
+4. Apply changes with explicit IDs
+5. Summarize what changed and what remains open
+
+## Common Queries
+
+### Get current user
+
+```bash
+curl -s -X POST https://api.linear.app/graphql \
+  -H "Authorization: $LINEAR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"query":"{ viewer { id name email } }"}' | python -m json.tool
+```
+
+### List teams
+
+```bash
+curl -s -X POST https://api.linear.app/graphql \
+  -H "Authorization: $LINEAR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"query":"{ teams { nodes { id name key } } }"}' | python -m json.tool
+```
+
+### List workflow states for a team
+
+```bash
+curl -s -X POST https://api.linear.app/graphql \
+  -H "Authorization: $LINEAR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"query":"{ workflowStates(filter:{ team:{ key:{ eq:\"ENG\" } } }) { nodes { id name type } } }"}' | python -m json.tool
+```
+
+### Search issues
+
+```bash
+curl -s -X POST https://api.linear.app/graphql \
+  -H "Authorization: $LINEAR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"query":"{ issueSearch(query:\"login bug\", first:10) { nodes { id identifier title state { name type } assignee { name } url } } }"}' | python -m json.tool
+```
+
+### Get one issue
+
+```bash
+curl -s -X POST https://api.linear.app/graphql \
+  -H "Authorization: $LINEAR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"query":"{ issue(id:\"ENG-123\") { id identifier title description priority dueDate state { id name type } assignee { id name } labels { nodes { id name } } project { id name } url } }"}' | python -m json.tool
+```
+
+### List projects
+
+```bash
+curl -s -X POST https://api.linear.app/graphql \
+  -H "Authorization: $LINEAR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"query":"{ projects(first:20) { nodes { id name progress lead { name } url } } }"}' | python -m json.tool
+```
+
+## Common Mutations
+
+### Create issue
+
+```bash
+curl -s -X POST https://api.linear.app/graphql \
+  -H "Authorization: $LINEAR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "query":"mutation($input: IssueCreateInput!) { issueCreate(input:$input) { success issue { id identifier title url } } }",
+    "variables":{
+      "input":{
+        "teamId":"TEAM_UUID",
+        "title":"Fix login redirect bug",
+        "description":"Redirect loses the next parameter",
+        "priority":2
+      }
+    }
+  }' | python -m json.tool
+```
+
+### Update status
+
+```bash
+curl -s -X POST https://api.linear.app/graphql \
+  -H "Authorization: $LINEAR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"query":"mutation { issueUpdate(id:\"ENG-123\", input:{ stateId:\"STATE_UUID\" }) { success issue { identifier state { name type } } } }"}' | python -m json.tool
+```
+
+### Assign issue
+
+```bash
+curl -s -X POST https://api.linear.app/graphql \
+  -H "Authorization: $LINEAR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"query":"mutation { issueUpdate(id:\"ENG-123\", input:{ assigneeId:\"USER_UUID\" }) { success issue { identifier assignee { name } } } }"}' | python -m json.tool
+```
+
+### Set priority
+
+```bash
+curl -s -X POST https://api.linear.app/graphql \
+  -H "Authorization: $LINEAR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"query":"mutation { issueUpdate(id:\"ENG-123\", input:{ priority:1 }) { success issue { identifier priority } } }"}' | python -m json.tool
+```
+
+### Add comment
+
+```bash
+curl -s -X POST https://api.linear.app/graphql \
+  -H "Authorization: $LINEAR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"query":"mutation { commentCreate(input:{ issueId:\"ISSUE_UUID\", body:\"Root cause identified and fix in progress.\" }) { success comment { id body } } }"}' | python -m json.tool
+```
+
+### Set due date
+
+```bash
+curl -s -X POST https://api.linear.app/graphql \
+  -H "Authorization: $LINEAR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"query":"mutation { issueUpdate(id:\"ENG-123\", input:{ dueDate:\"2026-04-20\" }) { success issue { identifier dueDate } } }"}' | python -m json.tool
+```
+
+## Practical Patterns
+
+### Bug triage
+
+1. Query team workflow states
+2. Search for matching issues
+3. Raise priority for user-facing regressions
+4. Move urgent issues into a `started` state
+5. Add a short triage comment with rationale
+
+### Sprint planning
+
+1. List backlog items for a team
+2. Filter by priority or labels
+3. Assign owners
+4. Add due dates or attach to a project
+5. Summarize remaining backlog risk
+
+### Status cleanup
+
+1. Find issues in `started`
+2. Identify stale assignees or overdue items
+3. Add follow-up comments
+4. Move blocked or abandoned work out of `started`
+
+## Pagination
+
+Linear uses cursor pagination:
+
+```bash
+curl -s -X POST https://api.linear.app/graphql \
+  -H "Authorization: $LINEAR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"query":"{ issues(first:20) { nodes { identifier title } pageInfo { hasNextPage endCursor } } }"}' | python -m json.tool
+```
+
+Use the returned `endCursor` as `after:"CURSOR"` in the next request.
+
+## MCP Fallback
+
+If the user already has Linear MCP working, you can still use it for:
+
+- fast natural-language listing and search
+- team and project lookups
+- small updates where raw GraphQL adds no value
+
+Prefer API mode if:
+
+- you need reproducible curl commands
+- the MCP server is not available
+- you need explicit control of fields and IDs
+- you are debugging authentication or workflow-state issues
 
 ## Troubleshooting
 
-- Authentication: Clear browser cookies, re-run OAuth, verify workspace permissions, ensure API access is enabled.
-- Tool Calling Errors: Confirm the model supports multiple tool calls, provide all required fields, and split complex requests.
-- Missing Data: Refresh token, verify workspace access, check for archived projects, and confirm correct team selection.
-- Performance: Remember Linear API rate limits; batch bulk operations, use specific filters, or cache frequent queries.
+- `Unauthorized` means the API key is missing or invalid
+- HTTP 200 with GraphQL `errors` means the request shape is wrong
+- unknown workflow status usually means you passed a name instead of `stateId`
+- no search results may mean wrong team key or stale identifier
+- if MCP is configured but failing on Windows, prefer API mode instead of blocking on WSL transport
+
+## Notes
+
+- This skill is intentionally API-first because it is more portable than MCP-only workflows
+- If you later want parity with Hermes upstream provenance, map this skill to the Hermes Linear source rather than treating it as purely in-house

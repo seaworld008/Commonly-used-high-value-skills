@@ -8,7 +8,7 @@
 
 ## 推荐先看
 
-- [linear](./linear/) - Manage issues, projects & team workflows in Linear. Use when the user wants to read, create or updates tickets in Linear.
+- [linear](./linear/) - Manage Linear issues, projects, and teams with an API-first workflow. Uses the GraphQL API by default and can fall back to the Linear MCP server when it is already configured.
 - [notion-knowledge-capture](./notion-knowledge-capture/) - Capture conversations and decisions into structured Notion pages; use when turning chats/notes into wiki entries, how-tos, decisions, or FAQs with proper linking.
 - [notion-meeting-intelligence](./notion-meeting-intelligence/) - Prepare meeting materials with Notion context and Codex research; use when gathering context, drafting agendas/pre-reads, and tailoring materials to attendees.
 - [notion-research-documentation](./notion-research-documentation/) - Research across Notion and synthesize into structured documentation; use when gathering info from multiple Notion sources to produce briefs, comparisons, or reports with citations.
@@ -18,7 +18,7 @@
 | 技能 | 简介 | 目录 | 详情 |
 |------|------|------|------|
 | `arxiv` | Search and retrieve academic papers from arXiv using their free REST API. No API key needed. Search by keyword, author, category, or ID. Combine with web_extract or the ocr-and-documents skill to read full paper content. | [目录](./arxiv/) | [SKILL.md](./arxiv/SKILL.md) |
-| `linear` | Manage issues, projects & team workflows in Linear. Use when the user wants to read, create or updates tickets in Linear. | [目录](./linear/) | [SKILL.md](./linear/SKILL.md) |
+| `linear` | Manage Linear issues, projects, and teams with an API-first workflow. Uses the GraphQL API by default and can fall back to the Linear MCP server when it is already configured. | [目录](./linear/) | [SKILL.md](./linear/SKILL.md) |
 | `llm-wiki` | Karpathy''s LLM Wiki — build and maintain a persistent, interlinked markdown knowledge base. Ingest sources, query compiled knowledge, and lint for consistency. | [目录](./llm-wiki/) | [SKILL.md](./llm-wiki/SKILL.md) |
 | `notion-knowledge-capture` | Capture conversations and decisions into structured Notion pages; use when turning chats/notes into wiki entries, how-tos, decisions, or FAQs with proper linking. | [目录](./notion-knowledge-capture/) | [SKILL.md](./notion-knowledge-capture/SKILL.md) |
 | `notion-meeting-intelligence` | Prepare meeting materials with Notion context and Codex research; use when gathering context, drafting agendas/pre-reads, and tailoring materials to attendees. | [目录](./notion-meeting-intelligence/) | [SKILL.md](./notion-meeting-intelligence/SKILL.md) |

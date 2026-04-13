@@ -2,6 +2,9 @@
 name: graphify
 description: 'any input (code, docs, papers, images) → knowledge graph → clustered communities → HTML + JSON + audit report'
 trigger: '/graphify'
+version: 1.0.0
+tags: '["knowledge-graph", "codebase", "research"]'
+quality: 5
 ---
 
 # /graphify
