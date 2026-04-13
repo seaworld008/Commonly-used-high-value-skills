@@ -10,7 +10,7 @@ import argparse
 import json
 import urllib.parse
 import urllib.request
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 
@@ -87,7 +87,7 @@ def main() -> int:
             rows.append(item)
 
     payload = {
-        "generated_at": datetime.utcnow().isoformat() + "Z",
+        "generated_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
         "mode": "online" if args.online else "offline",
         "total_checked": len(rows),
         "needs_update_count": sum(1 for r in rows if r.get("needs_update")),

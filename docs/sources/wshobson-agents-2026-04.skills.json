@@ -1,0 +1,95 @@
+{
+  "video": {
+    "url": "https://github.com/wshobson/agents",
+    "checked_at": "2026-04-13",
+    "note": "Curated from wshobson/agents after validating exact upstream plugin paths and cross-checking public skills registry listings."
+  },
+  "official_references": [
+    {
+      "name": "wshobson/agents repository",
+      "url": "https://github.com/wshobson/agents",
+      "purpose": "Canonical upstream repository for the imported code review and debugging skills."
+    },
+    {
+      "name": "skills.sh code-review-excellence",
+      "url": "https://skills.sh/wshobson/agents/code-review-excellence",
+      "purpose": "Confirms the skill is currently published and discoverable."
+    },
+    {
+      "name": "skills.sh debugging-strategies",
+      "url": "https://skills.sh/wshobson/agents/debugging-strategies",
+      "purpose": "Confirms the skill is currently published and discoverable."
+    },
+    {
+      "name": "skills.sh parallel-debugging",
+      "url": "https://skills.sh/wshobson/agents/parallel-debugging",
+      "purpose": "Confirms the skill is currently published and discoverable."
+    }
+  ],
+  "skills": [
+    {
+      "video_name": "code-review-excellence",
+      "normalized_slug": "code-review-excellence",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/developer-engineering/code-review-excellence/SKILL.md",
+      "source": "https://skills.sh/wshobson/agents/code-review-excellence",
+      "notes": "Imported to deepen reviewer heuristics, severity framing, and collaborative feedback quality in engineering workflows.",
+      "upstream": {
+        "repo": "wshobson/agents",
+        "path": "plugins/developer-essentials/skills/code-review-excellence/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-13",
+        "last_synced_at": "2026-04-13",
+        "last_synced_commit": "47a5dbc3f9c2661c6afb13638f80d4a4d4449040"
+      }
+    },
+    {
+      "video_name": "debugging-strategies",
+      "normalized_slug": "debugging-strategies",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/developer-engineering/debugging-strategies/SKILL.md",
+      "source": "https://skills.sh/wshobson/agents/debugging-strategies",
+      "notes": "Imported to strengthen systematic debugging and profiling guidance across languages and runtime environments.",
+      "upstream": {
+        "repo": "wshobson/agents",
+        "path": "plugins/developer-essentials/skills/debugging-strategies/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-13",
+        "last_synced_at": "2026-04-13",
+        "last_synced_commit": "47a5dbc3f9c2661c6afb13638f80d4a4d4449040"
+      }
+    },
+    {
+      "video_name": "parallel-debugging",
+      "normalized_slug": "parallel-debugging",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/developer-engineering/parallel-debugging/SKILL.md",
+      "source": "https://skills.sh/wshobson/agents/parallel-debugging",
+      "notes": "Imported to add Analysis of Competing Hypotheses style investigation for bugs spanning multiple subsystems or root-cause candidates.",
+      "upstream": {
+        "repo": "wshobson/agents",
+        "path": "plugins/agent-teams/skills/parallel-debugging/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-13",
+        "last_synced_at": "2026-04-13",
+        "last_synced_commit": "a5ab5d8f31256c0c03b0accb228cf238c11b4ed8"
+      }
+    }
+  ],
+  "verification_attempts": [
+    {
+      "date": "2026-04-13",
+      "method": "temporary-repo-clone",
+      "target": "https://github.com/wshobson/agents",
+      "result": "success",
+      "evidence": "Cloned upstream repository and confirmed exact skill paths under plugin directories."
+    },
+    {
+      "date": "2026-04-13",
+      "method": "github-api-path-check",
+      "target": "wshobson/agents",
+      "result": "success",
+      "evidence": "Validated each skill path and latest upstream commit via GitHub commits API."
+    }
+  ]
+}

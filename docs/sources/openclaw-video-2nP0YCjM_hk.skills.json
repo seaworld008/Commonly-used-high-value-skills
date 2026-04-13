@@ -26,7 +26,15 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/task-understanding-decomposition/find-skills/SKILL.md",
       "source": "https://www.clawhub.com",
-      "notes": "Skill slug matches repository entry."
+      "notes": "Skill slug matches repository entry.",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/task-understanding-decomposition/find-skills/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-13",
+        "last_synced_at": "2026-04-13",
+        "last_synced_commit": null
+      }
     },
     {
       "video_name": "Skill Vator",
@@ -42,7 +50,15 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/task-understanding-decomposition/skill-creator/SKILL.md",
       "source": "https://www.clawhub.com",
-      "notes": "Repository canonical skill is skill-creator."
+      "notes": "Repository canonical skill is skill-creator.",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/task-understanding-decomposition/skill-creator/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-13",
+        "last_synced_at": "2026-04-13",
+        "last_synced_commit": null
+      }
     },
     {
       "video_name": "Web Search",
@@ -50,7 +66,15 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/task-understanding-decomposition/tavily-search/SKILL.md",
       "source": "https://www.clawhub.com",
-      "notes": "Repository currently tracks tavily-search for realtime web retrieval."
+      "notes": "Repository currently tracks tavily-search for realtime web retrieval.",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/task-understanding-decomposition/tavily-search/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-13",
+        "last_synced_at": "2026-04-13",
+        "last_synced_commit": null
+      }
     },
     {
       "video_name": "Agent browse",
@@ -58,7 +82,15 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/engineering-workflow-automation/agent-browser/SKILL.md",
       "source": "https://www.clawhub.com",
-      "notes": "Repository canonical skill is agent-browser."
+      "notes": "Repository canonical skill is agent-browser.",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/engineering-workflow-automation/agent-browser/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-13",
+        "last_synced_at": "2026-04-13",
+        "last_synced_commit": null
+      }
     },
     {
       "video_name": "Self-improving agent",
@@ -66,7 +98,15 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-agent-platform/self-improving-agent/SKILL.md",
       "source": "https://www.clawhub.com",
-      "notes": "Skill exists in canonical tree."
+      "notes": "Skill exists in canonical tree.",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/ai-agent-platform/self-improving-agent/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-13",
+        "last_synced_at": "2026-04-13",
+        "last_synced_commit": null
+      }
     },
     {
       "video_name": "Proactive agent",
@@ -74,7 +114,15 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-agent-platform/proactive-agent/SKILL.md",
       "source": "https://www.clawhub.com",
-      "notes": "Skill exists in canonical tree."
+      "notes": "Skill exists in canonical tree.",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/ai-agent-platform/proactive-agent/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-13",
+        "last_synced_at": "2026-04-13",
+        "last_synced_commit": null
+      }
     },
     {
       "video_name": "Agent memory",
@@ -90,7 +138,15 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/multimodal-media/summarize/SKILL.md",
       "source": "https://www.clawhub.com",
-      "notes": "Skill exists in canonical tree."
+      "notes": "Skill exists in canonical tree.",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/multimodal-media/summarize/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-13",
+        "last_synced_at": "2026-04-13",
+        "last_synced_commit": null
+      }
     }
   ],
   "verification_attempts": [
