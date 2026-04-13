@@ -24,7 +24,7 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 WATCHED_REPOS = [
     "alirezarezvani/claude-skills",
     "obra/superpowers",
-    "anthropics/prompt-eng",
+    "anthropics/skills",
     "ComposioHQ/awesome-claude-skills",
 ]
 
@@ -193,7 +193,7 @@ def fetch_url(
         record_error(source_health, source_key, status_code=None, message=str(exc))
         print(f"  Warning: Request failed for {url}: {exc}", file=sys.stderr)
         return None
-    except Exception as exc:  # pragma: no cover - defensive
+    except Exception as exc:  # pragma: no cover
         record_error(source_health, source_key, status_code=None, message=str(exc))
         print(f"  Warning: Request failed for {url}: {exc}", file=sys.stderr)
         return None
@@ -217,14 +217,7 @@ def github_api_get(url: str, token: str | None, source_health: dict[str, dict]) 
         return None
 
 
-def make_discovery(
-    *,
-    name: str,
-    source: str,
-    url: str,
-    repo_stars: int,
-    description: str,
-) -> dict:
+def make_discovery(*, name: str, source: str, url: str, repo_stars: int, description: str) -> dict:
     return {
         "name": name,
         "source": source,
@@ -337,12 +330,12 @@ def discover_from_skills_sh(keywords: list[str], source_health: dict[str, dict])
         if not html:
             continue
 
+        count = 0
         matches = re.finditer(
             r'href="/([^"]+/[^"]+/[^"]+)"[^>]*>.*?<strong>(.*?)</strong>.*?(\d+\.?\d*[Kk]?)',
             html,
             re.DOTALL,
         )
-        count = 0
         for match in matches:
             skill_id = match.group(1)
             if skill_id in seen_ids:

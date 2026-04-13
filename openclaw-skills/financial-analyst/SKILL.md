@@ -14,6 +14,27 @@ complexity: "intermediate"
 
 # Financial Analyst Skill
 
+## When to Use
+
+Use this skill when the user wants to:
+
+- run ratio analysis or valuation work
+- build or review a DCF
+- analyze budget variance or forecast performance
+- turn financial statement data into executive insights
+
+## Usage
+
+Recommended flow:
+
+```text
+scope analysis goal
+-> collect and validate inputs
+-> run the appropriate model
+-> interpret outputs
+-> present insights and follow-up actions
+```
+
 ## Overview
 
 Production-ready financial analysis toolkit providing ratio analysis, DCF valuation, budget variance analysis, and rolling forecast construction. Designed for financial analysts with 3-6 years experience performing financial modeling, forecasting & budgeting, management reporting, business performance analysis, and investment analysis.

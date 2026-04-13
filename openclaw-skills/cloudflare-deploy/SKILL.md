@@ -16,6 +16,27 @@ complexity: "intermediate"
 
 Consolidated skill for building on the Cloudflare platform. Use decision trees below to find the right product, then load detailed references.
 
+## When to Use
+
+Use this skill when the user asks to:
+
+- deploy an app or site on Cloudflare
+- choose between Workers, Pages, R2, D1, KV, or related Cloudflare products
+- configure wrangler-based deployment workflows
+- map an application need to the right Cloudflare platform service
+
+## Usage
+
+Recommended flow:
+
+```text
+identify workload type
+-> choose the right Cloudflare product
+-> verify auth and environment
+-> follow the matching reference path
+-> deploy and validate
+```
+
 ## Prerequisites
 
 - When sandboxing blocks the deployment network calls, rerun with `sandbox_permissions=require_escalated`.

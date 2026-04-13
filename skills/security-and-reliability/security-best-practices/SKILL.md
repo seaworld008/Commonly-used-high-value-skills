@@ -93,3 +93,13 @@ When assigning an ID for some resource, which will then be used by exposed to th
 ### A note on TLS
 
 While TLS is important for production deployments, most development work will be with TLS disabled or provided by some out-of-scope TLS proxy. Due to this, be very careful about not reporting lack of TLS as a security issue. Also be very careful around use of "secure" cookies. They should only be set if the application will actually be over TLS. If they are set on non-TLS applications (such as when deployed for local dev or testing), it will break the application. You can provide a env or other flag to override setting secure as a way to keep it off until on a TLS production deployment. Additionally avoid recommending HSTS. It is dangerous to use without full understanding of the lasting impacts (can cause major outages and user lockout) and it is not generally recommended for the scope of projects being reviewed by codex.
+
+## Example Review Workflow
+
+```text
+1. Identify the primary language and framework in scope.
+2. Load matching security guidance from references/.
+3. Review the codebase for only the highest-impact deviations first.
+4. Write findings with file paths, line numbers, impact, and recommended fixes.
+5. If asked to remediate, fix one finding at a time and run regression checks.
+```

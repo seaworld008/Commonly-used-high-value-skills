@@ -19,6 +19,27 @@ argument-hint: '[product-name] [competitor-url]'
 
 Evidence-based competitor tracking and analysis. **All analysis must be based on actual code, never assumptions.**
 
+## When to Use
+
+Use this skill when the user wants to:
+
+- analyze a competitor repository with evidence
+- create or update a competitor profile
+- compare a competing product's technical stack or architecture
+- track competitor changes over time using cloned code
+
+## Usage
+
+Recommended flow:
+
+```text
+clone repo locally
+-> inspect source files and metadata
+-> cite every factual claim
+-> write profile from evidence only
+-> run post-analysis verification
+```
+
 ## CRITICAL: Evidence-Based Analysis Only
 
 **在开始分析之前，必须完成以下检查：**

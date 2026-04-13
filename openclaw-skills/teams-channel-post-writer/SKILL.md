@@ -115,3 +115,23 @@ Ready-to-use markdown template with placeholder structure for:
 - Call-to-action and resources
 
 Copy this template as a starting point for new posts, then customize the content while maintaining the proven structure.
+
+## Example Post Skeleton
+
+```markdown
+# Tip: Use Explore Agents for Faster Context Gathering
+
+What it is:
+- Explore agents let you parallelize repo discovery without bloating the main thread.
+
+Normal:
+- "Read these ten files and summarize them."
+
+Better:
+- "Spawn 3 focused explore passes: routing, data model, and tests. Return only risks and key files."
+
+Why it helps:
+- Keeps context lean
+- Surfaces contradictions sooner
+- Produces cleaner handoff notes
+```

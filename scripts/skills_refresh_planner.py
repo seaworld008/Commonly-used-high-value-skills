@@ -145,17 +145,18 @@ def main() -> int:
     root = Path(__file__).resolve().parents[1]
     queue = build_queue(root, args.stale_days)
 
+    if args.write_json:
+        out = root / args.write_json
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(json.dumps([asdict(x) for x in queue], ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        if queue:
+            print(f"\nWrote refresh queue JSON: {out.relative_to(root)}")
+
     if not queue:
         print("No refresh candidates found.")
         return 0
 
     print_table(queue, args.limit)
-
-    if args.write_json:
-        out = root / args.write_json
-        out.parent.mkdir(parents=True, exist_ok=True)
-        out.write_text(json.dumps([asdict(x) for x in queue], ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-        print(f"\nWrote refresh queue JSON: {out.relative_to(root)}")
 
     return 0
 

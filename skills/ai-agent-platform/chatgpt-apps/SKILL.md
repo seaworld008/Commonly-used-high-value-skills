@@ -14,6 +14,28 @@ complexity: "intermediate"
 
 # ChatGPT Apps
 
+## When to Use
+
+Use this skill when the user wants to:
+
+- build a ChatGPT app with an MCP server and widget UI
+- scaffold or refactor an Apps SDK project
+- register tools, UI resources, or bridge wiring for ChatGPT
+- prepare a local app for developer-mode testing or public submission
+
+## Usage
+
+Recommended flow:
+
+```text
+fetch current OpenAI docs
+-> classify app archetype
+-> plan tools before code
+-> choose an example or scaffold
+-> implement server and widget
+-> validate local loop and deploy path
+```
+
 ## Overview
 
 Scaffold ChatGPT Apps SDK implementations with a docs-first, example-first workflow, then generate code that follows current Apps SDK and MCP Apps bridge patterns.

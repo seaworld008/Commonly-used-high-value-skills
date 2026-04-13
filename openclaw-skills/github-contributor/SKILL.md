@@ -16,6 +16,28 @@ complexity: "intermediate"
 
 Strategic guide for becoming an effective GitHub contributor and building your open-source reputation.
 
+## When to Use
+
+Use this skill when the user wants to:
+
+- start contributing to open source
+- choose a good project for first contributions
+- write stronger pull requests for public repositories
+- build a visible GitHub contribution track record
+
+## Usage
+
+Recommended flow:
+
+```text
+choose project carefully
+-> start with a focused issue
+-> follow repo conventions
+-> write a high-quality PR
+-> respond well to review
+-> contribute consistently over time
+```
+
 ## The Strategy
 
 **Core insight**: Many open-source projects have room for improvement. By contributing high-quality PRs, you:

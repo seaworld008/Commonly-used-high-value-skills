@@ -88,3 +88,16 @@ Deliver an actionable AppSec-grade threat model that is specific to the reposito
 - Optional controls/asset list: `references/security-controls-and-assets.md`
 
 Only load the reference files you need. Keep the final result concise, grounded, and reviewable.
+
+## Example Threat Entry
+
+```markdown
+### Threat: Untrusted file upload reaches parser without schema checks
+- Asset: internal document processing workers
+- Entry point: `/api/uploads`
+- Likelihood: medium
+- Impact: high
+- Priority: high
+- Evidence: upload route accepts arbitrary MIME types and forwards to parser job
+- Mitigation: enforce MIME allowlist, file size caps, and sandboxed parsing worker
+```

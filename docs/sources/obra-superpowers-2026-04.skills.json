@@ -1,0 +1,201 @@
+{
+  "video": {
+    "url": "https://github.com/obra/superpowers",
+    "checked_at": "2026-04-13",
+    "note": "Curated from obra/superpowers after validating current upstream paths and recent popularity/discovery signals."
+  },
+  "official_references": [
+    {
+      "name": "obra/superpowers repository",
+      "url": "https://github.com/obra/superpowers",
+      "purpose": "Canonical upstream repository for the imported review workflow skills."
+    },
+    {
+      "name": "skills.sh requesting-code-review",
+      "url": "https://skills.sh/obra/superpowers/requesting-code-review",
+      "purpose": "Confirms the skill is currently discoverable in the public registry."
+    },
+    {
+      "name": "skills.sh receiving-code-review",
+      "url": "https://skills.sh/obra/superpowers/receiving-code-review",
+      "purpose": "Confirms the skill is currently discoverable in the public registry."
+    },
+    {
+      "name": "skills.sh verification-before-completion",
+      "url": "https://skills.sh/obra/superpowers/verification-before-completion",
+      "purpose": "Confirms the skill is currently discoverable in the public registry."
+    },
+    {
+      "name": "skills.sh using-superpowers",
+      "url": "https://skills.sh/obra/superpowers/using-superpowers",
+      "purpose": "Confirms the skill is currently discoverable in the public registry."
+    },
+    {
+      "name": "skills.sh using-git-worktrees",
+      "url": "https://skills.sh/obra/superpowers/using-git-worktrees",
+      "purpose": "Confirms the skill is currently discoverable in the public registry."
+    }
+  ],
+  "skills": [
+    {
+      "video_name": "requesting-code-review",
+      "normalized_slug": "requesting-code-review",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/task-understanding-decomposition/requesting-code-review/SKILL.md",
+      "source": "https://skills.sh/obra/superpowers/requesting-code-review",
+      "notes": "Imported to strengthen the repository's review-request workflow coverage before merge or milestone handoff.",
+      "upstream": {
+        "repo": "obra/superpowers",
+        "path": "skills/requesting-code-review/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-13",
+        "last_synced_at": "2026-04-13",
+        "last_synced_commit": "9ccce3bf07a40e45259004a330409ba00970eff7"
+      }
+    },
+    {
+      "video_name": "receiving-code-review",
+      "normalized_slug": "receiving-code-review",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/task-understanding-decomposition/receiving-code-review/SKILL.md",
+      "source": "https://skills.sh/obra/superpowers/receiving-code-review",
+      "notes": "Imported to help teams evaluate review comments rigorously instead of applying them blindly.",
+      "upstream": {
+        "repo": "obra/superpowers",
+        "path": "skills/receiving-code-review/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-13",
+        "last_synced_at": "2026-04-13",
+        "last_synced_commit": "1455ac0631e2f3824229f6a31a1877dc6b96952f"
+      }
+    },
+    {
+      "video_name": "verification-before-completion",
+      "normalized_slug": "verification-before-completion",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/task-understanding-decomposition/verification-before-completion/SKILL.md",
+      "source": "https://skills.sh/obra/superpowers/verification-before-completion",
+      "notes": "Imported to enforce evidence-first completion claims before commit, PR, or handoff.",
+      "upstream": {
+        "repo": "obra/superpowers",
+        "path": "skills/verification-before-completion/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-13",
+        "last_synced_at": "2026-04-13",
+        "last_synced_commit": "48410c7f1973bd66569a627ef27ef6619e0ba923"
+      }
+    },
+    {
+      "video_name": "dispatching-parallel-agents",
+      "normalized_slug": "dispatching-parallel-agents",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/task-understanding-decomposition/dispatching-parallel-agents/SKILL.md",
+      "source": "https://github.com/obra/superpowers/blob/main/skills/dispatching-parallel-agents/SKILL.md",
+      "notes": "Imported to complete the superpowers execution workflow for independent parallel subtasks.",
+      "upstream": {
+        "repo": "obra/superpowers",
+        "path": "skills/dispatching-parallel-agents/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-13",
+        "last_synced_at": "2026-04-13",
+        "last_synced_commit": "9ccce3bf07a40e45259004a330409ba00970eff7"
+      }
+    },
+    {
+      "video_name": "executing-plans",
+      "normalized_slug": "executing-plans",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/task-understanding-decomposition/executing-plans/SKILL.md",
+      "source": "https://github.com/obra/superpowers/blob/main/skills/executing-plans/SKILL.md",
+      "notes": "Imported to pair design docs and implementation plans with a disciplined execution workflow.",
+      "upstream": {
+        "repo": "obra/superpowers",
+        "path": "skills/executing-plans/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-13",
+        "last_synced_at": "2026-04-13",
+        "last_synced_commit": "3bdd66eaa5d74faee2d11c933b7a4bbe604c222e"
+      }
+    },
+    {
+      "video_name": "finishing-a-development-branch",
+      "normalized_slug": "finishing-a-development-branch",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/task-understanding-decomposition/finishing-a-development-branch/SKILL.md",
+      "source": "https://github.com/obra/superpowers/blob/main/skills/finishing-a-development-branch/SKILL.md",
+      "notes": "Imported to formalize the endgame for feature branches after implementation and verification.",
+      "upstream": {
+        "repo": "obra/superpowers",
+        "path": "skills/finishing-a-development-branch/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-13",
+        "last_synced_at": "2026-04-13",
+        "last_synced_commit": "141953a4bedbb539551c5eebcfe2024771876bb7"
+      }
+    },
+    {
+      "video_name": "using-git-worktrees",
+      "normalized_slug": "using-git-worktrees",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/task-understanding-decomposition/using-git-worktrees/SKILL.md",
+      "source": "https://github.com/obra/superpowers/blob/main/skills/using-git-worktrees/SKILL.md",
+      "notes": "Imported to support isolated multi-stream development when current worktrees are busy or dirty.",
+      "upstream": {
+        "repo": "obra/superpowers",
+        "path": "skills/using-git-worktrees/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-13",
+        "last_synced_at": "2026-04-13",
+        "last_synced_commit": "bb2ff5d309e5da6e021eb517c5012eb53c50a969"
+      }
+    },
+    {
+      "video_name": "using-superpowers",
+      "normalized_slug": "using-superpowers",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/task-understanding-decomposition/using-superpowers/SKILL.md",
+      "source": "https://github.com/obra/superpowers/blob/main/skills/using-superpowers/SKILL.md",
+      "notes": "Imported as the umbrella process skill that forces proper skill discovery before action.",
+      "upstream": {
+        "repo": "obra/superpowers",
+        "path": "skills/using-superpowers/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-13",
+        "last_synced_at": "2026-04-13",
+        "last_synced_commit": "8b1669269c51835168c98fd435a7af1e5f15ec12"
+      }
+    },
+    {
+      "video_name": "writing-skills",
+      "normalized_slug": "writing-skills",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/task-understanding-decomposition/writing-skills/SKILL.md",
+      "source": "https://github.com/obra/superpowers/blob/main/skills/writing-skills/SKILL.md",
+      "notes": "Imported to strengthen authoring, packaging, and validation guidance for new skills in this repository.",
+      "upstream": {
+        "repo": "obra/superpowers",
+        "path": "skills/writing-skills/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-13",
+        "last_synced_at": "2026-04-13",
+        "last_synced_commit": "4fd9aa2dd5b602a102a1ff4743849642b73655c1"
+      }
+    }
+  ],
+  "verification_attempts": [
+    {
+      "date": "2026-04-13",
+      "method": "github-api-path-check",
+      "target": "obra/superpowers",
+      "result": "success",
+      "evidence": "Validated each skill path and latest upstream commit via GitHub commits API."
+    },
+    {
+      "date": "2026-04-13",
+      "method": "skills-registry-check",
+      "target": "skills.sh/obra/superpowers/*",
+      "result": "success",
+      "evidence": "Verified public discoverability through skills.sh search results."
+    }
+  ]
+}

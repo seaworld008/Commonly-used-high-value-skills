@@ -1,12 +1,16 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-03-27",
-  "total_skills": 163,
+  "generated_at": "2026-04-13",
+  "total_skills": 184,
   "total_categories": 15,
   "categories": [
     {
       "name": "developer-engineering",
-      "count": 39
+      "count": 44
+    },
+    {
+      "name": "task-understanding-decomposition",
+      "count": 21
     },
     {
       "name": "office-white-collar",
@@ -17,8 +21,8 @@
       "count": 13
     },
     {
-      "name": "task-understanding-decomposition",
-      "count": 12
+      "name": "ai-agent-platform",
+      "count": 11
     },
     {
       "name": "growth-operations-xiaohongshu",
@@ -37,11 +41,11 @@
       "count": 10
     },
     {
-      "name": "ai-agent-platform",
+      "name": "engineering-workflow-automation",
       "count": 8
     },
     {
-      "name": "engineering-workflow-automation",
+      "name": "knowledge-and-pm-integrations",
       "count": 8
     },
     {
@@ -53,16 +57,12 @@
       "count": 6
     },
     {
-      "name": "knowledge-and-pm-integrations",
-      "count": 5
-    },
-    {
       "name": "deployment-platforms",
       "count": 4
     },
     {
       "name": "openclaw-memory-and-safety",
-      "count": 3
+      "count": 4
     }
   ],
   "skills": [
@@ -104,7 +104,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-04",
       "updated_at": "2026-03-20",
-      "line_count": 329,
+      "line_count": 351,
       "path": "skills/ai-agent-platform/chatgpt-apps/SKILL.md"
     },
     {
@@ -168,8 +168,75 @@
       "complexity": "intermediate",
       "created_at": "2026-03-04",
       "updated_at": "2026-03-20",
-      "line_count": 272,
+      "line_count": 293,
       "path": "skills/ai-agent-platform/figma-implement-design/SKILL.md"
+    },
+    {
+      "name": "hermes-agent",
+      "category": "ai-agent-platform",
+      "description": "Complete guide to using and extending Hermes Agent — CLI usage, setup, configuration, spawning additional agents, gateway platforms, skills, voice, tools, profiles, and a concise contributor reference. Load this skill when helping users configure Hermes, troubleshoot issues, spawn agent instances, or make code contributions.",
+      "version": "2.0.0",
+      "author": "Hermes Agent + Teknium",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "hermes",
+        "setup",
+        "configuration",
+        "multi-agent",
+        "spawning",
+        "cli",
+        "gateway",
+        "development"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-04-13",
+      "updated_at": "2026-04-13",
+      "line_count": 660,
+      "path": "skills/ai-agent-platform/hermes-agent/SKILL.md"
+    },
+    {
+      "name": "mcporter",
+      "category": "ai-agent-platform",
+      "description": "Use the mcporter CLI to list, configure, auth, and call MCP servers/tools directly (HTTP or stdio), including ad-hoc servers, config edits, and CLI/type generation.",
+      "version": "1.0.0",
+      "author": "community",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "MCP",
+        "Tools",
+        "API",
+        "Integrations",
+        "Interop"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-04-13",
+      "updated_at": "2026-04-13",
+      "line_count": 160,
+      "path": "skills/ai-agent-platform/mcporter/SKILL.md"
+    },
+    {
+      "name": "native-mcp",
+      "category": "ai-agent-platform",
+      "description": "Built-in MCP (Model Context Protocol) client that connects to external MCP servers, discovers their tools, and registers them as native Hermes Agent tools. Supports stdio and HTTP transports with automatic reconnection, security filtering, and zero-config tool injection.",
+      "version": "1.0.0",
+      "author": "Hermes Agent",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "MCP",
+        "Tools",
+        "Integrations"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-04-13",
+      "updated_at": "2026-04-13",
+      "line_count": 362,
+      "path": "skills/ai-agent-platform/native-mcp/SKILL.md"
     },
     {
       "name": "openai-docs",
@@ -189,7 +256,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-04",
       "updated_at": "2026-03-20",
-      "line_count": 64,
+      "line_count": 105,
       "path": "skills/ai-agent-platform/openai-docs/SKILL.md"
     },
     {
@@ -250,7 +317,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-04",
       "updated_at": "2026-03-20",
-      "line_count": 233,
+      "line_count": 254,
       "path": "skills/deployment-platforms/cloudflare-deploy/SKILL.md"
     },
     {
@@ -270,7 +337,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-04",
       "updated_at": "2026-03-20",
-      "line_count": 256,
+      "line_count": 277,
       "path": "skills/deployment-platforms/netlify-deploy/SKILL.md"
     },
     {
@@ -330,7 +397,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-04",
       "updated_at": "2026-03-20",
-      "line_count": 288,
+      "line_count": 323,
       "path": "skills/developer-engineering/agent-designer/SKILL.md"
     },
     {
@@ -418,6 +485,49 @@
       "path": "skills/developer-engineering/cli-demo-generator/SKILL.md"
     },
     {
+      "name": "code-review-excellence",
+      "category": "developer-engineering",
+      "description": "Master effective code review practices to provide constructive feedback, catch bugs early, and foster knowledge sharing while maintaining team morale. Use when reviewing pull requests, establishing review standards, or mentoring developers.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "code-review",
+        "engineering",
+        "mentoring"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-04-13",
+      "updated_at": "2026-04-13",
+      "line_count": 538,
+      "path": "skills/developer-engineering/code-review-excellence/SKILL.md"
+    },
+    {
+      "name": "codebase-inspection",
+      "category": "developer-engineering",
+      "description": "Inspect and analyze codebases using pygount for LOC counting, language breakdown, and code-vs-comment ratios. Use when asked to check lines of code, repo size, language composition, or codebase stats.",
+      "version": "1.0.0",
+      "author": "Hermes Agent",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "LOC",
+        "Code Analysis",
+        "pygount",
+        "Codebase",
+        "Metrics",
+        "Repository"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-04-13",
+      "updated_at": "2026-04-13",
+      "line_count": 121,
+      "path": "skills/developer-engineering/codebase-inspection/SKILL.md"
+    },
+    {
       "name": "codebase-onboarding",
       "category": "developer-engineering",
       "description": "Analyze a codebase and generate comprehensive onboarding documentation tailored to your audience. Produces architecture overviews, key file maps, local setup guides, common task runbooks, debugging guides, and contribution guidelines. Outputs to Markdown, Notion, or Confluence.",
@@ -497,6 +607,26 @@
       "updated_at": "2026-03-20",
       "line_count": 536,
       "path": "skills/developer-engineering/database-schema-designer/SKILL.md"
+    },
+    {
+      "name": "debugging-strategies",
+      "category": "developer-engineering",
+      "description": "Master systematic debugging techniques, profiling tools, and root cause analysis to efficiently track down bugs across any codebase or technology stack. Use when investigating bugs, performance issues, or unexpected behavior.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "debugging",
+        "profiling",
+        "root-cause-analysis"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-04-13",
+      "updated_at": "2026-04-13",
+      "line_count": 536,
+      "path": "skills/developer-engineering/debugging-strategies/SKILL.md"
     },
     {
       "name": "dependency-auditor",
@@ -596,8 +726,28 @@
       "complexity": "intermediate",
       "created_at": "2026-03-04",
       "updated_at": "2026-03-20",
-      "line_count": 269,
+      "line_count": 291,
       "path": "skills/developer-engineering/github-contributor/SKILL.md"
+    },
+    {
+      "name": "graphify",
+      "category": "developer-engineering",
+      "description": "any input (code, docs, papers, images) → knowledge graph → clustered communities → HTML + JSON + audit report",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "knowledge-graph",
+        "codebase",
+        "research"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-04-13",
+      "updated_at": "2026-04-13",
+      "line_count": 1202,
+      "path": "skills/developer-engineering/graphify/SKILL.md"
     },
     {
       "name": "graphql-expert",
@@ -760,6 +910,26 @@
       "updated_at": "2026-03-27",
       "line_count": 145,
       "path": "skills/developer-engineering/nextjs-app-router/SKILL.md"
+    },
+    {
+      "name": "parallel-debugging",
+      "category": "developer-engineering",
+      "description": "Debug complex issues using competing hypotheses with parallel investigation, evidence collection, and root cause arbitration. Use this skill when debugging bugs with multiple potential causes, performing root cause analysis, or organizing parallel investigation workflows.",
+      "version": "1.0.2",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "debugging",
+        "parallel",
+        "root-cause-analysis"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-04-13",
+      "updated_at": "2026-04-13",
+      "line_count": 141,
+      "path": "skills/developer-engineering/parallel-debugging/SKILL.md"
     },
     {
       "name": "performance-profiler",
@@ -1250,7 +1420,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-04",
       "updated_at": "2026-03-20",
-      "line_count": 278,
+      "line_count": 296,
       "path": "skills/devops-sre/observability-designer/SKILL.md"
     },
     {
@@ -1374,7 +1544,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-04",
       "updated_at": "2026-03-20",
-      "line_count": 77,
+      "line_count": 86,
       "path": "skills/engineering-workflow-automation/gh-fix-ci/SKILL.md"
     },
     {
@@ -1579,7 +1749,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-18",
       "updated_at": "2026-03-20",
-      "line_count": 187,
+      "line_count": 208,
       "path": "skills/finance-investing/financial-analyst/SKILL.md"
     },
     {
@@ -1600,7 +1770,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-18",
       "updated_at": "2026-03-20",
-      "line_count": 183,
+      "line_count": 203,
       "path": "skills/finance-investing/financial-data-collector/SKILL.md"
     },
     {
@@ -1768,7 +1938,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-04",
       "updated_at": "2026-03-20",
-      "line_count": 414,
+      "line_count": 435,
       "path": "skills/growth-operations-xiaohongshu/algorithmic-art/SKILL.md"
     },
     {
@@ -1790,7 +1960,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-04",
       "updated_at": "2026-03-20",
-      "line_count": 492,
+      "line_count": 514,
       "path": "skills/growth-operations-xiaohongshu/app-store-optimization/SKILL.md"
     },
     {
@@ -1832,7 +2002,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-04",
       "updated_at": "2026-03-20",
-      "line_count": 260,
+      "line_count": 281,
       "path": "skills/growth-operations-xiaohongshu/competitors-analysis/SKILL.md"
     },
     {
@@ -1895,7 +2065,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-04",
       "updated_at": "2026-03-20",
-      "line_count": 376,
+      "line_count": 397,
       "path": "skills/growth-operations-xiaohongshu/marketing-strategy-pmm/SKILL.md"
     },
     {
@@ -1985,22 +2155,73 @@
       "path": "skills/growth-operations-xiaohongshu/twitter-reader/SKILL.md"
     },
     {
-      "name": "linear",
+      "name": "arxiv",
       "category": "knowledge-and-pm-integrations",
-      "description": "Manage issues, projects & team workflows in Linear. Use when the user wants to read, create or updates tickets in Linear.",
+      "description": "Search and retrieve academic papers from arXiv using their free REST API. No API key needed. Search by keyword, author, category, or ID. Combine with web_extract or the ocr-and-documents skill to read full paper content.",
       "version": "1.0.0",
-      "author": "seaworld008",
+      "author": "Hermes Agent",
       "source": "in-house",
       "source_url": "",
       "tags": [
-        "linear"
+        "Research",
+        "Arxiv",
+        "Papers",
+        "Academic",
+        "Science",
+        "API"
       ],
-      "quality": 3,
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-04-13",
+      "updated_at": "2026-04-13",
+      "line_count": 308,
+      "path": "skills/knowledge-and-pm-integrations/arxiv/SKILL.md"
+    },
+    {
+      "name": "linear",
+      "category": "knowledge-and-pm-integrations",
+      "description": "Manage Linear issues, projects, and teams with an API-first workflow. Uses the GraphQL API by default and can fall back to the Linear MCP server when it is already configured.",
+      "version": "2.0.0",
+      "author": "seaworld008",
+      "source": "adapted-from-hermes-agent",
+      "source_url": "https://github.com/NousResearch/hermes-agent/blob/main/skills/productivity/linear/SKILL.md",
+      "tags": [
+        "graphql",
+        "issues",
+        "linear",
+        "mcp",
+        "productivity",
+        "project-management"
+      ],
+      "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-04",
-      "updated_at": "2026-03-20",
-      "line_count": 96,
+      "updated_at": "2026-04-13",
+      "line_count": 316,
       "path": "skills/knowledge-and-pm-integrations/linear/SKILL.md"
+    },
+    {
+      "name": "llm-wiki",
+      "category": "knowledge-and-pm-integrations",
+      "description": "Path to the LLM Wiki knowledge base directory",
+      "version": "2.0.0",
+      "author": "Hermes Agent",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "wiki",
+        "knowledge-base",
+        "research",
+        "notes",
+        "markdown",
+        "rag-alternative"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-04-13",
+      "updated_at": "2026-04-13",
+      "line_count": 465,
+      "path": "skills/knowledge-and-pm-integrations/llm-wiki/SKILL.md"
     },
     {
       "name": "notion-knowledge-capture",
@@ -2019,7 +2240,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-04",
       "updated_at": "2026-03-20",
-      "line_count": 65,
+      "line_count": 126,
       "path": "skills/knowledge-and-pm-integrations/notion-knowledge-capture/SKILL.md"
     },
     {
@@ -2039,7 +2260,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-04",
       "updated_at": "2026-03-20",
-      "line_count": 69,
+      "line_count": 135,
       "path": "skills/knowledge-and-pm-integrations/notion-meeting-intelligence/SKILL.md"
     },
     {
@@ -2059,7 +2280,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-04",
       "updated_at": "2026-03-20",
-      "line_count": 68,
+      "line_count": 135,
       "path": "skills/knowledge-and-pm-integrations/notion-research-documentation/SKILL.md"
     },
     {
@@ -2079,8 +2300,28 @@
       "complexity": "intermediate",
       "created_at": "2026-03-04",
       "updated_at": "2026-03-20",
-      "line_count": 67,
+      "line_count": 122,
       "path": "skills/knowledge-and-pm-integrations/notion-spec-to-implementation/SKILL.md"
+    },
+    {
+      "name": "obsidian",
+      "category": "knowledge-and-pm-integrations",
+      "description": "Read, search, and create notes in the Obsidian vault.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "obsidian",
+        "notes",
+        "knowledge-base"
+      ],
+      "quality": 3,
+      "complexity": "intermediate",
+      "created_at": "2026-04-13",
+      "updated_at": "2026-04-13",
+      "line_count": 117,
+      "path": "skills/knowledge-and-pm-integrations/obsidian/SKILL.md"
     },
     {
       "name": "imagegen",
@@ -2206,7 +2447,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-04",
       "updated_at": "2026-03-20",
-      "line_count": 247,
+      "line_count": 268,
       "path": "skills/office-white-collar/capture-screen/SKILL.md"
     },
     {
@@ -2243,7 +2484,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-04",
       "updated_at": "2026-03-20",
-      "line_count": 384,
+      "line_count": 420,
       "path": "skills/office-white-collar/doc-coauthoring/SKILL.md"
     },
     {
@@ -2317,7 +2558,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-04",
       "updated_at": "2026-03-20",
-      "line_count": 169,
+      "line_count": 190,
       "path": "skills/office-white-collar/markdown-tools/SKILL.md"
     },
     {
@@ -2489,6 +2730,29 @@
       "path": "skills/office-white-collar/xlsx/SKILL.md"
     },
     {
+      "name": "honcho",
+      "category": "openclaw-memory-and-safety",
+      "description": "Configure and use Honcho memory with Hermes -- cross-session user modeling, multi-profile peer isolation, observation config, and dialectic reasoning. Use when setting up Honcho, troubleshooting memory, managing profiles with Honcho peers, or tuning observation and recall settings.",
+      "version": "1.0.0",
+      "author": "Hermes Agent",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "Honcho",
+        "Memory",
+        "Profiles",
+        "Observation",
+        "Dialectic",
+        "User-Modeling"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-04-13",
+      "updated_at": "2026-04-13",
+      "line_count": 249,
+      "path": "skills/openclaw-memory-and-safety/honcho/SKILL.md"
+    },
+    {
       "name": "input-guard",
       "category": "openclaw-memory-and-safety",
       "description": "Scan untrusted external text (web pages, tweets, search results, API responses) for prompt injection attacks. Returns severity levels and alerts on dangerous content. Use BEFORE processing any text from untrusted sources.",
@@ -2523,7 +2787,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-04",
       "updated_at": "2026-03-20",
-      "line_count": 327,
+      "line_count": 346,
       "path": "skills/openclaw-memory-and-safety/rag-architect/SKILL.md"
     },
     {
@@ -2562,7 +2826,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-04",
       "updated_at": "2026-03-20",
-      "line_count": 82,
+      "line_count": 111,
       "path": "skills/operations-general/brand-guidelines/SKILL.md"
     },
     {
@@ -2724,7 +2988,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-04",
       "updated_at": "2026-03-20",
-      "line_count": 117,
+      "line_count": 137,
       "path": "skills/operations-general/teams-channel-post-writer/SKILL.md"
     },
     {
@@ -2744,7 +3008,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-04",
       "updated_at": "2026-03-20",
-      "line_count": 67,
+      "line_count": 83,
       "path": "skills/operations-general/theme-factory/SKILL.md"
     },
     {
@@ -2784,7 +3048,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-04",
       "updated_at": "2026-03-20",
-      "line_count": 388,
+      "line_count": 410,
       "path": "skills/product-design/agile-product-owner/SKILL.md"
     },
     {
@@ -2804,7 +3068,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-04",
       "updated_at": "2026-03-20",
-      "line_count": 139,
+      "line_count": 167,
       "path": "skills/product-design/canvas-design/SKILL.md"
     },
     {
@@ -3010,7 +3274,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-04",
       "updated_at": "2026-03-20",
-      "line_count": 95,
+      "line_count": 105,
       "path": "skills/security-and-reliability/security-best-practices/SKILL.md"
     },
     {
@@ -3050,7 +3314,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-04",
       "updated_at": "2026-03-20",
-      "line_count": 90,
+      "line_count": 103,
       "path": "skills/security-and-reliability/security-threat-model/SKILL.md"
     },
     {
@@ -3150,7 +3414,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-04",
       "updated_at": "2026-03-20",
-      "line_count": 105,
+      "line_count": 126,
       "path": "skills/task-understanding-decomposition/brainstorming/SKILL.md"
     },
     {
@@ -3175,6 +3439,46 @@
       "path": "skills/task-understanding-decomposition/deep-research/SKILL.md"
     },
     {
+      "name": "dispatching-parallel-agents",
+      "category": "task-understanding-decomposition",
+      "description": "Use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "agents",
+        "parallel",
+        "workflow"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-04-13",
+      "updated_at": "2026-04-13",
+      "line_count": 191,
+      "path": "skills/task-understanding-decomposition/dispatching-parallel-agents/SKILL.md"
+    },
+    {
+      "name": "executing-plans",
+      "category": "task-understanding-decomposition",
+      "description": "Use when you have a written implementation plan to execute in a separate session with review checkpoints",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "plans",
+        "execution",
+        "workflow"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-04-13",
+      "updated_at": "2026-04-13",
+      "line_count": 93,
+      "path": "skills/task-understanding-decomposition/executing-plans/SKILL.md"
+    },
+    {
       "name": "find-skills",
       "category": "task-understanding-decomposition",
       "description": "让 Agent 自动搜索并安装合适技能，解决不知道该用哪个技能的问题。",
@@ -3194,6 +3498,26 @@
       "updated_at": "2026-03-20",
       "line_count": 126,
       "path": "skills/task-understanding-decomposition/find-skills/SKILL.md"
+    },
+    {
+      "name": "finishing-a-development-branch",
+      "category": "task-understanding-decomposition",
+      "description": "Use when implementation is complete, all tests pass, and you need to decide how to integrate the work - guides completion of development work by presenting structured options for merge, PR, or cleanup",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "git",
+        "workflow",
+        "delivery"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-04-13",
+      "updated_at": "2026-04-13",
+      "line_count": 209,
+      "path": "skills/task-understanding-decomposition/finishing-a-development-branch/SKILL.md"
     },
     {
       "name": "prompt-optimizer",
@@ -3217,6 +3541,26 @@
       "path": "skills/task-understanding-decomposition/prompt-optimizer/SKILL.md"
     },
     {
+      "name": "receiving-code-review",
+      "category": "task-understanding-decomposition",
+      "description": "Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable - requires technical rigor and verification, not performative agreement or blind implementation",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "code-review",
+        "workflow",
+        "feedback"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-04-13",
+      "updated_at": "2026-04-13",
+      "line_count": 222,
+      "path": "skills/task-understanding-decomposition/receiving-code-review/SKILL.md"
+    },
+    {
       "name": "reflect-learn",
       "category": "task-understanding-decomposition",
       "description": "Self-improvement through conversation analysis. Extracts learnings from corrections and success patterns, proposes updates to agent files or creates new skills. Philosophy: \"Correct once, never again.\" Use when: (1) User explicitly corrects behavior (\"never do X\", \"always Y\"), (2) Session ending or context compaction, (3) User requests /reflect, (4) Successful pattern worth preserving.",
@@ -3236,6 +3580,26 @@
       "updated_at": "2026-03-20",
       "line_count": 400,
       "path": "skills/task-understanding-decomposition/reflect-learn/SKILL.md"
+    },
+    {
+      "name": "requesting-code-review",
+      "category": "task-understanding-decomposition",
+      "description": "Use when completing tasks, implementing major features, or before merging to verify work meets requirements",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "code-review",
+        "workflow",
+        "quality-gate"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-04-13",
+      "updated_at": "2026-04-13",
+      "line_count": 114,
+      "path": "skills/task-understanding-decomposition/requesting-code-review/SKILL.md"
     },
     {
       "name": "skill-creator",
@@ -3344,6 +3708,66 @@
       "path": "skills/task-understanding-decomposition/tavily-search/SKILL.md"
     },
     {
+      "name": "using-git-worktrees",
+      "category": "task-understanding-decomposition",
+      "description": "Use when starting feature work that needs isolation from current workspace or before executing implementation plans - creates isolated git worktrees with smart directory selection and safety verification",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "git",
+        "worktree",
+        "workflow"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-04-13",
+      "updated_at": "2026-04-13",
+      "line_count": 227,
+      "path": "skills/task-understanding-decomposition/using-git-worktrees/SKILL.md"
+    },
+    {
+      "name": "using-superpowers",
+      "category": "task-understanding-decomposition",
+      "description": "Use when starting any conversation - establishes how to find and use skills, requiring Skill tool invocation before ANY response including clarifying questions",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "skills",
+        "workflow",
+        "process"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-04-13",
+      "updated_at": "2026-04-13",
+      "line_count": 130,
+      "path": "skills/task-understanding-decomposition/using-superpowers/SKILL.md"
+    },
+    {
+      "name": "verification-before-completion",
+      "category": "task-understanding-decomposition",
+      "description": "Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "verification",
+        "workflow",
+        "quality-gate"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-04-13",
+      "updated_at": "2026-04-13",
+      "line_count": 148,
+      "path": "skills/task-understanding-decomposition/verification-before-completion/SKILL.md"
+    },
+    {
       "name": "writing-plans",
       "category": "task-understanding-decomposition",
       "description": "Use when you have a spec or requirements for a multi-step task, before touching code",
@@ -3363,6 +3787,26 @@
       "updated_at": "2026-03-20",
       "line_count": 125,
       "path": "skills/task-understanding-decomposition/writing-plans/SKILL.md"
+    },
+    {
+      "name": "writing-skills",
+      "category": "task-understanding-decomposition",
+      "description": "Use when creating new skills, editing existing skills, or verifying skills work before deployment",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "skills",
+        "authoring",
+        "workflow"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-04-13",
+      "updated_at": "2026-04-13",
+      "line_count": 664,
+      "path": "skills/task-understanding-decomposition/writing-skills/SKILL.md"
     }
   ]
 }

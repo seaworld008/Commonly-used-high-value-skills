@@ -16,11 +16,45 @@ complexity: "intermediate"
 
 Provide authoritative, current guidance from OpenAI developer docs using the developers.openai.com MCP server. Always prioritize the developer docs MCP tools over web.run for OpenAI-related questions. Only if the MCP server is installed and returns no meaningful results should you fall back to web search.
 
+## When to Use
+
+Use this skill when the user asks about:
+
+- OpenAI APIs or SDKs
+- model capabilities, limits, or migration guidance
+- Codex, Responses API, Chat Completions, Realtime, Agents SDK, or Apps SDK
+- official OpenAI setup instructions where current docs matter
+
+Do not use this skill when:
+
+- the task is general coding help with no OpenAI product dependency
+- the user only wants speculative comparison without needing official guidance
+
+## Usage
+
+Preferred flow:
+
+```text
+search official docs
+-> fetch exact page or section
+-> answer with citation
+-> only fall back to official-domain web search if MCP docs fail
+```
+
 ## Quick start
 
 - Use `mcp__openaiDeveloperDocs__search_openai_docs` to find the most relevant doc pages.
 - Use `mcp__openaiDeveloperDocs__fetch_openai_doc` to pull exact sections and quote/paraphrase accurately.
 - Use `mcp__openaiDeveloperDocs__list_openai_docs` only when you need to browse or discover pages without a clear query.
+
+Example:
+
+```text
+1. Search docs for "Responses API tool calling"
+2. Fetch the best page
+3. Cite the fetched URL in the answer
+4. If needed, fetch a narrower anchor section
+```
 
 ## OpenAI product snapshots
 
@@ -62,3 +96,10 @@ If MCP tools fail or no OpenAI docs resources are available:
 - Always use MCP doc tools before any web search for OpenAI-related questions.
 - If the MCP server is installed but returns no meaningful results, then use web search as a fallback.
 - When falling back to web search, restrict to official OpenAI domains (developers.openai.com, platform.openai.com) and cite sources.
+
+## Common Pitfalls
+
+- answering from memory when the docs should be checked
+- mixing official guidance with uncited third-party blog claims
+- using broad web search before trying the docs MCP tools
+- giving model or feature guidance without current source attribution

@@ -1,0 +1,181 @@
+{
+  "video": {
+    "url": "https://github.com/NousResearch/hermes-agent",
+    "checked_at": "2026-04-13",
+    "note": "Curated subset from Hermes Agent focused on persistent knowledge workflows and self-improving agent infrastructure."
+  },
+  "official_references": [
+    {
+      "name": "Hermes Agent repository",
+      "url": "https://github.com/NousResearch/hermes-agent",
+      "purpose": "Canonical upstream repository for the selected Hermes skills."
+    },
+    {
+      "name": "Hermes Agent docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/",
+      "purpose": "Product documentation confirming concepts like skills, memory, and multi-agent usage."
+    }
+  ],
+  "skills": [
+    {
+      "video_name": "llm-wiki",
+      "normalized_slug": "llm-wiki",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/knowledge-and-pm-integrations/llm-wiki/SKILL.md",
+      "source": "https://github.com/NousResearch/hermes-agent/blob/main/skills/research/llm-wiki/SKILL.md",
+      "notes": "Selected as the strongest Karpathy-style persistent markdown knowledge-base workflow in the Hermes ecosystem.",
+      "upstream": {
+        "repo": "NousResearch/hermes-agent",
+        "path": "skills/research/llm-wiki/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-13",
+        "last_synced_at": "2026-04-13",
+        "last_synced_commit": "539629923c05e98fee06258a3341af94f2dcccba"
+      }
+    },
+    {
+      "video_name": "hermes-agent",
+      "normalized_slug": "hermes-agent",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/ai-agent-platform/hermes-agent/SKILL.md",
+      "source": "https://github.com/NousResearch/hermes-agent/blob/main/skills/autonomous-ai-agents/hermes-agent/SKILL.md",
+      "notes": "Selected as a high-value platform guide for provider-agnostic, skill-accumulating autonomous agent workflows.",
+      "upstream": {
+        "repo": "NousResearch/hermes-agent",
+        "path": "skills/autonomous-ai-agents/hermes-agent/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-13",
+        "last_synced_at": "2026-04-13",
+        "last_synced_commit": "1780ad24b1279e63027a42c5cdb75f2ea7324fea"
+      }
+    },
+    {
+      "video_name": "honcho",
+      "normalized_slug": "honcho",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/openclaw-memory-and-safety/honcho/SKILL.md",
+      "source": "https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/autonomous-ai-agents/honcho/SKILL.md",
+      "notes": "Selected as the most directly useful Hermes memory skill for long-lived personalization and self-improving agent setups.",
+      "upstream": {
+        "repo": "NousResearch/hermes-agent",
+        "path": "optional-skills/autonomous-ai-agents/honcho/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-13",
+        "last_synced_at": "2026-04-13",
+        "last_synced_commit": "c02c3dc723aea2b62d5a8052e7b4e7d81c367a67"
+      }
+    },
+    {
+      "video_name": "native-mcp",
+      "normalized_slug": "native-mcp",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/ai-agent-platform/native-mcp/SKILL.md",
+      "source": "https://github.com/NousResearch/hermes-agent/blob/main/skills/mcp/native-mcp/SKILL.md",
+      "notes": "Selected as a practical MCP runtime integration skill that complements builder-oriented MCP skills already in the repository.",
+      "upstream": {
+        "repo": "NousResearch/hermes-agent",
+        "path": "skills/mcp/native-mcp/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-13",
+        "last_synced_at": "2026-04-13",
+        "last_synced_commit": "3636f64540a3d80c8425f195f46e53e940956cba"
+      }
+    },
+    {
+      "video_name": "codebase-inspection",
+      "normalized_slug": "codebase-inspection",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/developer-engineering/codebase-inspection/SKILL.md",
+      "source": "https://github.com/NousResearch/hermes-agent/blob/main/skills/github/codebase-inspection/SKILL.md",
+      "notes": "Selected as a lightweight repository sizing and language breakdown skill with low overlap against the deeper onboarding and review workflows.",
+      "upstream": {
+        "repo": "NousResearch/hermes-agent",
+        "path": "skills/github/codebase-inspection/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-13",
+        "last_synced_at": "2026-04-13",
+        "last_synced_commit": "3636f64540a3d80c8425f195f46e53e940956cba"
+      }
+    },
+    {
+      "video_name": "arxiv",
+      "normalized_slug": "arxiv",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/knowledge-and-pm-integrations/arxiv/SKILL.md",
+      "source": "https://github.com/NousResearch/hermes-agent/blob/main/skills/research/arxiv/SKILL.md",
+      "notes": "Selected as a strong no-key academic search entrypoint that complements deep-research and llm-wiki workflows.",
+      "upstream": {
+        "repo": "NousResearch/hermes-agent",
+        "path": "skills/research/arxiv/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-13",
+        "last_synced_at": "2026-04-13",
+        "last_synced_commit": "3636f64540a3d80c8425f195f46e53e940956cba"
+      }
+    },
+    {
+      "video_name": "obsidian",
+      "normalized_slug": "obsidian",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/knowledge-and-pm-integrations/obsidian/SKILL.md",
+      "source": "https://github.com/NousResearch/hermes-agent/blob/main/skills/note-taking/obsidian/SKILL.md",
+      "notes": "Selected as a simple but useful bridge skill for markdown vault workflows that pair well with llm-wiki and knowledge capture.",
+      "upstream": {
+        "repo": "NousResearch/hermes-agent",
+        "path": "skills/note-taking/obsidian/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-13",
+        "last_synced_at": "2026-04-13",
+        "last_synced_commit": "3636f64540a3d80c8425f195f46e53e940956cba"
+      }
+    },
+    {
+      "video_name": "mcporter",
+      "normalized_slug": "mcporter",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/ai-agent-platform/mcporter/SKILL.md",
+      "source": "https://github.com/NousResearch/hermes-agent/blob/main/skills/mcp/mcporter/SKILL.md",
+      "notes": "Selected as a practical ad-hoc MCP exploration and invocation skill that complements native-mcp's persistent configuration model.",
+      "upstream": {
+        "repo": "NousResearch/hermes-agent",
+        "path": "skills/mcp/mcporter/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-13",
+        "last_synced_at": "2026-04-13",
+        "last_synced_commit": "3636f64540a3d80c8425f195f46e53e940956cba"
+      }
+    },
+    {
+      "video_name": "linear",
+      "normalized_slug": "linear",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/knowledge-and-pm-integrations/linear/SKILL.md",
+      "source": "https://github.com/NousResearch/hermes-agent/blob/main/skills/productivity/linear/SKILL.md",
+      "notes": "Repository version is upgraded to an API-first Linear workflow adapted from Hermes so it works even without an MCP connection.",
+      "upstream": {
+        "repo": "NousResearch/hermes-agent",
+        "path": "skills/productivity/linear/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-13",
+        "last_synced_at": "2026-04-13",
+        "last_synced_commit": "3636f64540a3d80c8425f195f46e53e940956cba"
+      }
+    }
+  ],
+  "verification_attempts": [
+    {
+      "date": "2026-04-13",
+      "method": "temporary-repo-clone",
+      "target": "https://github.com/NousResearch/hermes-agent",
+      "result": "success",
+      "evidence": "Cloned upstream repository and reviewed the candidate skill files in place."
+    },
+    {
+      "date": "2026-04-13",
+      "method": "github-api-path-check",
+      "target": "NousResearch/hermes-agent",
+      "result": "success",
+      "evidence": "Validated each selected skill path and latest upstream commit via GitHub commits API."
+    }
+  ]
+}

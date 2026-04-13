@@ -15,6 +15,26 @@ license: Complete terms in LICENSE.txt
 
 # Anthropic Brand Styling
 
+## When to Use
+
+Use this skill when the user wants to:
+
+- apply Anthropic brand colors or typography
+- restyle an artifact to feel consistent with Anthropic visual identity
+- normalize headings, body text, and accent colors across a deliverable
+
+## Usage
+
+Recommended flow:
+
+```text
+inspect artifact
+-> apply brand palette
+-> assign typography roles
+-> style shapes and accents
+-> verify consistency and readability
+```
+
 ## Overview
 
 To access Anthropic's official brand identity and style resources, use this skill.
@@ -80,3 +100,12 @@ To access Anthropic's official brand identity and style resources, use this skil
 - Uses RGB color values for precise brand matching
 - Applied via python-pptx's RGBColor class
 - Maintains color fidelity across different systems
+
+### Example
+
+```python
+from pptx.dml.color import RGBColor
+
+ANTHROPIC_ORANGE = RGBColor(0xD9, 0x77, 0x57)
+ANTHROPIC_DARK = RGBColor(0x14, 0x14, 0x13)
+```

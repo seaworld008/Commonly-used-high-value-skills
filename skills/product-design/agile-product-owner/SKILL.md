@@ -17,6 +17,28 @@ triggers:
 
 Backlog management and sprint execution toolkit for product owners, including user story generation, acceptance criteria patterns, sprint planning, and velocity tracking.
 
+## When to Use
+
+Use this skill when the user wants to:
+
+- turn product requirements into user stories
+- write or improve acceptance criteria
+- break down epics into sprint-sized work
+- prioritize backlog items or prepare a sprint plan
+- reason about velocity, commitment, and delivery scope
+
+## Usage
+
+Recommended flow:
+
+```text
+define product goal
+-> choose story or planning workflow
+-> write stories and acceptance criteria
+-> size and prioritize
+-> load sprint or backlog with explicit trade-offs
+```
+
 ---
 
 ## Table of Contents

@@ -1,0 +1,48 @@
+{
+  "video": {
+    "url": "https://github.com/safishamsi/graphify",
+    "checked_at": "2026-04-13",
+    "note": "Curated from graphify as a codebase-and-corpus knowledge graph workflow aligned with the Karpathy-style wiki pattern."
+  },
+  "official_references": [
+    {
+      "name": "graphify repository",
+      "url": "https://github.com/safishamsi/graphify",
+      "purpose": "Canonical upstream repository for the graphify skill."
+    }
+  ],
+  "skills": [
+    {
+      "video_name": "graphify",
+      "normalized_slug": "graphify",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/developer-engineering/graphify/SKILL.md",
+      "source": "https://github.com/safishamsi/graphify/blob/main/graphify/skill.md",
+      "notes": "Imported as a high-leverage codebase and research graph workflow; repository copy is adapted to the canonical SKILL.md layout while preserving the upstream workflow.",
+      "upstream": {
+        "repo": "safishamsi/graphify",
+        "path": "graphify/skill.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-13",
+        "last_synced_at": "2026-04-13",
+        "last_synced_commit": "d23ae1774df42ab1309b314968c1f02987db244a"
+      }
+    }
+  ],
+  "verification_attempts": [
+    {
+      "date": "2026-04-13",
+      "method": "temporary-repo-clone",
+      "target": "https://github.com/safishamsi/graphify",
+      "result": "success",
+      "evidence": "Cloned upstream repository and confirmed the graphify skill source file."
+    },
+    {
+      "date": "2026-04-13",
+      "method": "github-api-path-check",
+      "target": "safishamsi/graphify",
+      "result": "success",
+      "evidence": "Validated the upstream skill path and latest commit via GitHub commits API."
+    }
+  ]
+}

@@ -14,6 +14,27 @@ complexity: "intermediate"
 
 # Brainstorming Ideas Into Designs
 
+## When to Use
+
+Use this skill before:
+
+- building a new feature
+- changing behavior in a meaningful way
+- creating a new component or workflow
+- turning a rough idea into an implementation-ready design
+
+## Usage
+
+Recommended flow:
+
+```text
+explore context
+-> ask one clarifying question at a time
+-> propose a few approaches
+-> present a design
+-> get approval before implementation
+```
+
 ## Overview
 
 Help turn ideas into fully formed designs and specs through natural collaborative dialogue.

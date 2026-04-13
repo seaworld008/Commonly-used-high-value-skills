@@ -35,20 +35,23 @@ def main() -> int:
     coverage = str(cfg.get("coverage_min_percent", 95))
     python_cmd = resolve_python_cmd()
 
-    # 1) Ensure in-house mapping is up to date.
     run(python_cmd + ["scripts/bootstrap_in_house_sources.py", "--write-json", p["in_house_mapping"]], root)
-
-    # 2) Validate + gate.
     run(python_cmd + ["scripts/validate_skill_sources.py"], root)
     run(python_cmd + ["scripts/check_source_coverage.py", "--min-percent", coverage], root)
-
-    # 3) Reporting artifacts.
-    run(python_cmd + ["scripts/skills_refresh_planner.py", "--stale-days", stale_days, "--write-json", p["refresh_queue"]], root)
+    run(
+        python_cmd
+        + ["scripts/skills_refresh_planner.py", "--stale-days", stale_days, "--write-json", p["refresh_queue"]],
+        root,
+    )
     run(python_cmd + ["scripts/build_skills_catalog.py", "--write-json", p["catalog"]], root)
     run(python_cmd + ["scripts/generate_sources_index.py", "--write-json", p["sources_index"]], root)
 
     if args.mode == "all":
-        run(python_cmd + ["scripts/skills_bulk_update_stub.py", "--queue", p["refresh_queue"], "--write-plan", p["bulk_plan"]], root)
+        run(
+            python_cmd
+            + ["scripts/skills_bulk_update_stub.py", "--queue", p["refresh_queue"], "--write-plan", p["bulk_plan"]],
+            root,
+        )
         run(python_cmd + ["scripts/check_upstream_github_updates.py", "--write-json", p["upstream_check"]], root)
 
     print("Provenance pipeline completed.")

@@ -14,6 +14,27 @@ complexity: "intermediate"
 
 # Implement Design
 
+## When to Use
+
+Use this skill when the user wants to:
+
+- implement a Figma frame or component in code
+- translate a Figma node into production-ready UI
+- match an existing design with high visual fidelity
+- bridge design tokens and project conventions during implementation
+
+## Usage
+
+Recommended flow:
+
+```text
+identify target node
+-> fetch design context and screenshot
+-> gather assets
+-> translate into project conventions
+-> validate against Figma
+```
+
 ## Overview
 
 This skill provides a structured workflow for translating Figma designs into production-ready code with pixel-perfect accuracy. It ensures consistent integration with the Figma MCP server, proper use of design tokens, and 1:1 visual parity with designs.

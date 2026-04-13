@@ -16,6 +16,27 @@ complexity: "intermediate"
 
 Programmatic screenshot capture on macOS: find windows, control views, capture images.
 
+## When to Use
+
+Use this skill when the user wants to:
+
+- capture a specific macOS application window
+- automate a sequence of screenshots for documentation
+- control Excel or another app before taking precise screenshots
+- build repeatable multi-shot workflows on macOS
+
+## Usage
+
+Recommended flow:
+
+```text
+find window id
+-> control or position the app
+-> wait for UI to settle
+-> capture with screencapture
+-> verify output file
+```
+
 ## Quick Start
 
 ```bash

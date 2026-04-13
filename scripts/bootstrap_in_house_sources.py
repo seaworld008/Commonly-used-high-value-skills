@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """Bootstrap or refresh the repository skill provenance mapping.
 
-The original implementation rewrote every entry as `in_house`, which erased
-externally tracked provenance metadata. This version preserves existing tracked
-entries and only backfills truly local-only skills.
+The mapping should preserve existing externally tracked provenance while only
+backfilling truly local-only skills as `in_house`.
 """
 from __future__ import annotations
 
@@ -30,6 +29,21 @@ def load_existing_payload(path: Path) -> dict | None:
     if not path.exists():
         return None
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def load_externally_mapped_repo_skills(root: Path, target_mapping: Path | None = None) -> set[str]:
+    """Return repo_skill paths already claimed by non-in-house mapping files."""
+    claimed: set[str] = set()
+    for mapping in sorted((root / "docs/sources").glob("*.skills.json")):
+        if target_mapping is not None and mapping.resolve() == target_mapping.resolve():
+            continue
+        data = json.loads(mapping.read_text(encoding="utf-8"))
+        for item in data.get("skills", []):
+            repo_skill = item.get("repo_skill")
+            status = item.get("status")
+            if repo_skill and status and status != "in_house":
+                claimed.add(str(repo_skill))
+    return claimed
 
 
 def build_default_entry(name: str, rel: str, repo_url: str, today: str) -> dict:
@@ -133,11 +147,13 @@ def build_in_house_mapping(
     *,
     repo_root: Path,
     repo_url: str,
+    target_mapping: Path | None = None,
     existing_payload: dict | None = None,
     today: str | None = None,
 ) -> dict:
     today = today or date.today().isoformat()
     skill_files = sorted(repo_root.glob("skills/*/*/SKILL.md"))
+    externally_mapped = load_externally_mapped_repo_skills(repo_root, target_mapping)
 
     existing_by_path: dict[str, dict] = {}
     existing_by_name: dict[str, dict] = {}
@@ -156,6 +172,8 @@ def build_in_house_mapping(
     for sf in skill_files:
         name = parse_frontmatter_name(sf)
         rel = sf.relative_to(repo_root).as_posix()
+        if rel in externally_mapped:
+            continue
         existing = existing_by_path.get(rel) or existing_by_name.get(name)
         if existing:
             skills.append(
@@ -205,6 +223,7 @@ def main() -> int:
     payload = build_in_house_mapping(
         repo_root=root,
         repo_url=args.repo_url,
+        target_mapping=out,
         existing_payload=load_existing_payload(out),
     )
 

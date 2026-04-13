@@ -15,6 +15,34 @@ license: Complete terms in LICENSE.txt
 
 These are instructions for creating design philosophies - aesthetic movements that are then EXPRESSED VISUALLY. Output only .md files, .pdf files, and .png files.
 
+## When to Use
+
+Use this skill when the user wants to:
+
+- create a poster, cover, or single-page visual artifact
+- turn an idea into a static, design-forward PDF or PNG
+- build an original visual system instead of a generic layout
+- produce gallery-style or editorial-style compositions
+
+## Usage
+
+Recommended flow:
+
+```text
+extract conceptual seed
+-> write visual philosophy
+-> deduce subtle reference
+-> compose static canvas artifact
+-> refine toward museum-quality execution
+```
+
+### Minimal Output Pattern
+
+```text
+design-philosophy.md
+artifact.pdf or artifact.png
+```
+
 Complete this in two steps:
 1. Design Philosophy Creation (.md file)
 2. Express by creating it on a canvas (.pdf file or .png file)

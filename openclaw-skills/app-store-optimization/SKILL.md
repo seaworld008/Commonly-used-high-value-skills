@@ -17,6 +17,28 @@ triggers:
 
 ASO tools for researching keywords, optimizing metadata, analyzing competitors, and improving app store visibility on Apple App Store and Google Play Store.
 
+## When to Use
+
+Use this skill when the user wants to:
+
+- improve App Store or Google Play discoverability
+- research keywords and metadata for a mobile app
+- analyze competitors in app stores
+- prepare a launch or plan ASO experiments
+- optimize screenshots, title, subtitle, or store copy
+
+## Usage
+
+Recommended flow:
+
+```text
+understand app and audience
+-> research keywords and competitors
+-> optimize metadata and visuals
+-> plan launch or A/B test
+-> track learnings and iterate
+```
+
 ---
 
 ## Table of Contents
