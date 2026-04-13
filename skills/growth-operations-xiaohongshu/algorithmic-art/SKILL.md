@@ -15,6 +15,27 @@ license: Complete terms in LICENSE.txt
 
 Algorithmic philosophies are computational aesthetic movements that are then expressed through code. Output .md files (philosophy), .html files (interactive viewer), and .js files (generative algorithms).
 
+## When to Use
+
+Use this skill when the user wants:
+
+- original generative or algorithmic art
+- p5.js based visual experiments
+- flow fields, particles, noise systems, or seeded visual variation
+- an interactive art artifact rather than a static design mock
+
+## Usage
+
+Recommended flow:
+
+```text
+extract conceptual seed
+-> write algorithmic philosophy
+-> design parameters and seeded system
+-> implement p5.js artifact
+-> expose controls for exploration
+```
+
 This happens in two steps:
 1. Algorithmic Philosophy Creation (.md file)
 2. Express by creating p5.js generative art (.html + .js files)
