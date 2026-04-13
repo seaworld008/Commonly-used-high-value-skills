@@ -276,3 +276,21 @@ Creates comprehensive dashboard specifications:
 - **Customer Satisfaction:** User-reported reliability and performance satisfaction
 
 This comprehensive observability design skill enables organizations to build robust, scalable monitoring and alerting systems that provide actionable insights while maintaining cost efficiency and operational excellence.
+
+## Example Deliverable Shape
+
+```yaml
+service: checkout-api
+slis:
+  - request_success_rate
+  - p95_latency
+slos:
+  - target: 99.9%
+    window: 30d
+alerts:
+  - page_on: error_budget_burn
+dashboards:
+  - executive
+  - oncall
+  - service-drilldown
+```

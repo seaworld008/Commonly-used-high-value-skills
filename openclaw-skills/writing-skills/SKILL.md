@@ -2,8 +2,14 @@
 name: writing-skills
 description: 'Use when creating new skills, editing existing skills, or verifying skills work before deployment'
 version: 1.0.0
+author: "seaworld008"
+source: "in-house"
+source_url: ""
 tags: '["skills", "authoring", "workflow"]'
+created_at: "2026-04-13"
+updated_at: "2026-04-13"
 quality: 4
+complexity: "intermediate"
 ---
 
 # Writing Skills

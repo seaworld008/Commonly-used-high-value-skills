@@ -325,3 +325,22 @@ The RAG (Retrieval-Augmented Generation) Architect skill provides comprehensive 
 Building effective RAG systems requires careful consideration of each component in the pipeline. The key to success is understanding the tradeoffs between different approaches and choosing the right combination of techniques for your specific use case. Start with simple approaches and gradually add sophistication based on evaluation results and production requirements.
 
 This skill provides the foundation for making informed decisions throughout the RAG development lifecycle, from initial design to production deployment and ongoing maintenance.
+
+## Example Architecture Sketch
+
+```yaml
+corpus:
+  source_types: [pdf, html, markdown]
+  refresh_mode: nightly
+retrieval:
+  chunk_size: 800
+  overlap: 120
+  embeddings: text-embedding-3-large
+  reranker: cross-encoder
+generation:
+  answer_style: grounded
+  citations: required
+evaluation:
+  faithfulness: tracked
+  latency_budget_ms: 2500
+```

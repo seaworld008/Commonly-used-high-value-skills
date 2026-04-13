@@ -2,8 +2,14 @@
 name: obsidian
 description: 'Read, search, and create notes in the Obsidian vault.'
 version: 1.0.0
-quality: 3
+author: "seaworld008"
+source: "in-house"
+source_url: ""
 tags: '["obsidian", "notes", "knowledge-base"]'
+created_at: "2026-04-13"
+updated_at: "2026-04-13"
+quality: 3
+complexity: "intermediate"
 ---
 
 # Obsidian Vault

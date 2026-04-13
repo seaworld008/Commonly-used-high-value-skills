@@ -2,8 +2,14 @@
 name: debugging-strategies
 description: 'Master systematic debugging techniques, profiling tools, and root cause analysis to efficiently track down bugs across any codebase or technology stack. Use when investigating bugs, performance issues, or unexpected behavior.'
 version: 1.0.0
+author: "seaworld008"
+source: "in-house"
+source_url: ""
 tags: '["debugging", "profiling", "root-cause-analysis"]'
+created_at: "2026-04-13"
+updated_at: "2026-04-13"
 quality: 4
+complexity: "intermediate"
 ---
 
 # Debugging Strategies

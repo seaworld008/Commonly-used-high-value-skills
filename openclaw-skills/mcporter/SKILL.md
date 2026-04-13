@@ -3,15 +3,19 @@ name: mcporter
 description: 'Use the mcporter CLI to list, configure, auth, and call MCP servers/tools directly (HTTP or stdio), including ad-hoc servers, config edits, and CLI/type generation.'
 version: 1.0.0
 author: community
-license: MIT
+source: "in-house"
+source_url: ""
+tags: '[MCP, Tools, API, Integrations, Interop]'
+created_at: "2026-04-13"
+updated_at: "2026-04-13"
 quality: 4
-tags: '["mcp", "cli", "integration"]'
-metadata:
-  hermes:
-    tags: [MCP, Tools, API, Integrations, Interop]
-    homepage: https://mcporter.dev
-prerequisites:
-  commands: [npx]
+complexity: "intermediate"
+license: MIT
+metadata: 
+hermes: 
+homepage: https://mcporter.dev
+prerequisites: 
+commands: '[npx]'
 ---
 
 # mcporter

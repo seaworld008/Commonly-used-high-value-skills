@@ -2,8 +2,14 @@
 name: using-superpowers
 description: 'Use when starting any conversation - establishes how to find and use skills, requiring Skill tool invocation before ANY response including clarifying questions'
 version: 1.0.0
+author: "seaworld008"
+source: "in-house"
+source_url: ""
 tags: '["skills", "workflow", "process"]'
+created_at: "2026-04-13"
+updated_at: "2026-04-13"
 quality: 4
+complexity: "intermediate"
 ---
 
 <SUBAGENT-STOP>
@@ -17,6 +23,10 @@ IF A SKILL APPLIES TO YOUR TASK, YOU DO NOT HAVE A CHOICE. YOU MUST USE IT.
 
 This is not negotiable. This is not optional. You cannot rationalize your way out of this.
 </EXTREMELY-IMPORTANT>
+
+## Overview
+
+Use this skill at the very start of a conversation to determine whether any installed skill should be invoked before you answer, plan, or edit. Treat it as the routing layer for the rest of the skill system.
 
 ## Instruction Priority
 

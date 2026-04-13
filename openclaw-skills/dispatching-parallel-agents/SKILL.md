@@ -2,8 +2,14 @@
 name: dispatching-parallel-agents
 description: Use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies
 version: 1.0.0
+author: "seaworld008"
+source: "in-house"
+source_url: ""
 tags: '["agents", "parallel", "workflow"]'
+created_at: "2026-04-13"
+updated_at: "2026-04-13"
 quality: 4
+complexity: "intermediate"
 ---
 
 # Dispatching Parallel Agents

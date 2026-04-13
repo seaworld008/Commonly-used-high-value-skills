@@ -2,8 +2,14 @@
 name: verification-before-completion
 description: 'Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always'
 version: 1.0.0
+author: "seaworld008"
+source: "in-house"
+source_url: ""
 tags: '["verification", "workflow", "quality-gate"]'
+created_at: "2026-04-13"
+updated_at: "2026-04-13"
 quality: 4
+complexity: "intermediate"
 ---
 
 # Verification Before Completion

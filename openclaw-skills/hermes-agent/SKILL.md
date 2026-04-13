@@ -3,14 +3,18 @@ name: hermes-agent
 description: 'Complete guide to using and extending Hermes Agent — CLI usage, setup, configuration, spawning additional agents, gateway platforms, skills, voice, tools, profiles, and a concise contributor reference. Load this skill when helping users configure Hermes, troubleshoot issues, spawn agent instances, or make code contributions.'
 version: 2.0.0
 author: Hermes Agent + Teknium
-license: MIT
+source: "in-house"
+source_url: ""
+tags: '[hermes, setup, configuration, multi-agent, spawning, cli, gateway, development]'
+created_at: "2026-04-13"
+updated_at: "2026-04-13"
 quality: 4
-tags: '["hermes", "agents", "platform"]'
-metadata:
-  hermes:
-    tags: [hermes, setup, configuration, multi-agent, spawning, cli, gateway, development]
-    homepage: https://github.com/NousResearch/hermes-agent
-    related_skills: [claude-code, codex, opencode]
+complexity: "intermediate"
+license: MIT
+metadata: 
+hermes: 
+homepage: https://github.com/NousResearch/hermes-agent
+related_skills: '[claude-code, codex, opencode]'
 ---
 
 # Hermes Agent

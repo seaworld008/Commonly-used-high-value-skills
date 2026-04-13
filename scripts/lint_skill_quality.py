@@ -70,11 +70,46 @@ def lint_skill(file_path: Path, min_lines: int) -> Dict[str, Any]:
     # 4. Section check
     trigger_patterns = [r"## 触发条件", r"## When to Use", r"## Trigger"]
     core_patterns = [r"## 核心能力", r"## Core", r"## Capabilities", r"## Usage"]
-    
+    common_section_keywords = [
+        "overview",
+        "workflow",
+        "quick start",
+        "quick reference",
+        "reference",
+        "usage",
+        "how it works",
+        "process",
+        "resources",
+        "purpose",
+        "description",
+        "features",
+        "inputs",
+        "requirements",
+        "prerequisites",
+        "examples",
+        "checklist",
+        "integration",
+        "best practices",
+        "guidance",
+        "decision tree",
+        "tool priority",
+        "output",
+    ]
+
+    headings = re.findall(r"^##\s+(.+)$", content, re.MULTILINE)
+    normalized_headings = [
+        re.sub(r"[^a-z0-9]+", " ", heading.lower()).strip() for heading in headings
+    ]
+
     has_trigger = any(re.search(p, content, re.IGNORECASE) for p in trigger_patterns)
     has_core = any(re.search(p, content, re.IGNORECASE) for p in core_patterns)
-    
-    if not (has_trigger or has_core):
+    has_common_sections = any(
+        keyword in heading
+        for heading in normalized_headings
+        for keyword in common_section_keywords
+    )
+
+    if len(headings) < 2 or not (has_trigger or has_core or has_common_sections):
         warnings.append("missing sections")
     else:
         passed_count += 1

@@ -3,15 +3,19 @@ name: codebase-inspection
 description: 'Inspect and analyze codebases using pygount for LOC counting, language breakdown, and code-vs-comment ratios. Use when asked to check lines of code, repo size, language composition, or codebase stats.'
 version: 1.0.0
 author: Hermes Agent
-license: MIT
+source: "in-house"
+source_url: ""
+tags: '[LOC, Code Analysis, pygount, Codebase, Metrics, Repository]'
+created_at: "2026-04-13"
+updated_at: "2026-04-13"
 quality: 4
-tags: '["codebase", "metrics", "repository"]'
-metadata:
-  hermes:
-    tags: [LOC, Code Analysis, pygount, Codebase, Metrics, Repository]
-    related_skills: [github-repo-management]
-prerequisites:
-  commands: [pygount]
+complexity: "intermediate"
+license: MIT
+metadata: 
+hermes: 
+related_skills: '[github-repo-management]'
+prerequisites: 
+commands: '[pygount]'
 ---
 
 # Codebase Inspection with pygount

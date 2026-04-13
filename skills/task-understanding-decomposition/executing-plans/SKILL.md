@@ -2,8 +2,14 @@
 name: executing-plans
 description: Use when you have a written implementation plan to execute in a separate session with review checkpoints
 version: 1.0.0
+author: "seaworld008"
+source: "in-house"
+source_url: ""
 tags: '["plans", "execution", "workflow"]'
+created_at: "2026-04-13"
+updated_at: "2026-04-13"
 quality: 4
+complexity: "intermediate"
 ---
 
 # Executing Plans
@@ -71,3 +77,17 @@ After all tasks complete and verified:
 - **superpowers:using-git-worktrees** - REQUIRED: Set up isolated workspace before starting
 - **superpowers:writing-plans** - Creates the plan this skill executes
 - **superpowers:finishing-a-development-branch** - Complete development after all tasks
+
+## Example Execution Loop
+
+```text
+1. Load the approved plan file and restate the goal.
+2. Turn each plan step into a tracked todo item.
+3. Work one task at a time:
+   - mark in_progress
+   - implement exactly what the plan says
+   - run the listed verification
+   - mark completed
+4. If verification fails twice or scope becomes unclear, stop and ask for help.
+5. When all tasks are done, hand off to finishing-a-development-branch.
+```

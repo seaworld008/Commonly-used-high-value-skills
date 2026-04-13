@@ -2,8 +2,14 @@
 name: requesting-code-review
 description: 'Use when completing tasks, implementing major features, or before merging to verify work meets requirements'
 version: 1.0.0
+author: "seaworld008"
+source: "in-house"
+source_url: ""
 tags: '["code-review", "workflow", "quality-gate"]'
+created_at: "2026-04-13"
+updated_at: "2026-04-13"
 quality: 4
+complexity: "intermediate"
 ---
 
 # Requesting Code Review

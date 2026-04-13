@@ -75,3 +75,12 @@ Usage examples:
 - `python "<path-to-skill>/scripts/inspect_pr_checks.py" --repo "." --pr "123"`
 - `python "<path-to-skill>/scripts/inspect_pr_checks.py" --repo "." --pr "https://github.com/org/repo/pull/123" --json`
 - `python "<path-to-skill>/scripts/inspect_pr_checks.py" --repo "." --max-lines 200 --context 40`
+
+## Example Command Sequence
+
+```bash
+gh auth status
+gh pr view --json number,url
+python "<path-to-skill>/scripts/inspect_pr_checks.py" --repo "." --pr "123" --json
+gh run view <run_id> --log
+```

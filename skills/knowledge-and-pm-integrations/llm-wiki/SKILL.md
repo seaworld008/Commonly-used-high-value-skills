@@ -1,21 +1,24 @@
 ---
 name: llm-wiki
-description: 'Karpathy''s LLM Wiki — build and maintain a persistent, interlinked markdown knowledge base. Ingest sources, query compiled knowledge, and lint for consistency.'
+description: Path to the LLM Wiki knowledge base directory
 version: 2.0.0
 author: Hermes Agent
-license: MIT
+source: "in-house"
+source_url: ""
+tags: '[wiki, knowledge-base, research, notes, markdown, rag-alternative]'
+created_at: "2026-04-13"
+updated_at: "2026-04-13"
 quality: 4
-tags: '["wiki", "knowledge-base", "research"]'
-metadata:
-  hermes:
-    tags: [wiki, knowledge-base, research, notes, markdown, rag-alternative]
-    category: research
-    related_skills: [obsidian, arxiv, agentic-research-ideas]
-    config:
-      - key: wiki.path
-        description: Path to the LLM Wiki knowledge base directory
-        default: "~/wiki"
-        prompt: Wiki directory path
+complexity: "intermediate"
+license: MIT
+metadata: 
+hermes: 
+category: research
+related_skills: '[obsidian, arxiv, agentic-research-ideas]'
+config: 
+- key: wiki.path
+default: "~/wiki"
+prompt: Wiki directory path
 ---
 
 # Karpathy's LLM Wiki

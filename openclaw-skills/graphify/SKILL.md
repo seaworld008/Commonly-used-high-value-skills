@@ -1,10 +1,16 @@
 ---
 name: graphify
 description: 'any input (code, docs, papers, images) → knowledge graph → clustered communities → HTML + JSON + audit report'
-trigger: '/graphify'
 version: 1.0.0
+author: "seaworld008"
+source: "in-house"
+source_url: ""
 tags: '["knowledge-graph", "codebase", "research"]'
+created_at: "2026-04-13"
+updated_at: "2026-04-13"
 quality: 5
+complexity: "intermediate"
+trigger: '/graphify'
 ---
 
 # /graphify

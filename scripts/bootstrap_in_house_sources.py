@@ -31,11 +31,11 @@ def load_existing_payload(path: Path) -> dict | None:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def load_externally_mapped_repo_skills(root: Path, target_mapping: Path) -> set[str]:
+def load_externally_mapped_repo_skills(root: Path, target_mapping: Path | None = None) -> set[str]:
     """Return repo_skill paths already claimed by non-in-house mapping files."""
     claimed: set[str] = set()
     for mapping in sorted((root / "docs/sources").glob("*.skills.json")):
-        if mapping.resolve() == target_mapping.resolve():
+        if target_mapping is not None and mapping.resolve() == target_mapping.resolve():
             continue
         data = json.loads(mapping.read_text(encoding="utf-8"))
         for item in data.get("skills", []):
@@ -147,7 +147,7 @@ def build_in_house_mapping(
     *,
     repo_root: Path,
     repo_url: str,
-    target_mapping: Path,
+    target_mapping: Path | None = None,
     existing_payload: dict | None = None,
     today: str | None = None,
 ) -> dict:
