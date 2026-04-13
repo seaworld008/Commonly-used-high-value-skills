@@ -2516,6 +2516,13 @@
       "target": "skills/*/*/SKILL.md",
       "result": "success",
       "evidence": "Merged provenance for 156 local skills"
+    },
+    {
+      "date": "2026-04-13",
+      "method": "local-scan",
+      "target": "skills/*/*/SKILL.md",
+      "result": "success",
+      "evidence": "Merged provenance for 156 local skills"
     }
   ]
 }
