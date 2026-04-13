@@ -16,6 +16,42 @@ complexity: "intermediate"
 
 This skill provides a structured workflow for guiding users through collaborative document creation. Act as an active guide, walking users through three stages: Context Gathering, Refinement & Structure, and Reader Testing.
 
+## When to Use
+
+Use this skill when the user wants to:
+
+- co-author a proposal, spec, memo, RFC, or decision document
+- iteratively refine a document with active guidance
+- make sure a draft actually works for future readers
+- turn scattered context into a structured document
+
+## Usage
+
+Recommended flow:
+
+```text
+gather context
+-> build document structure
+-> refine section by section
+-> test with a fresh-reader mindset
+-> close only when the document is readable without hidden context
+```
+
+### Minimal Section Scaffold
+
+```markdown
+# Title
+
+## Context
+[To be written]
+
+## Proposal
+[To be written]
+
+## Risks
+[To be written]
+```
+
 ## When to Offer This Workflow
 
 **Trigger conditions:**

@@ -17,6 +17,26 @@ complexity: "intermediate"
 Collect and validate real financial data for US public companies using free data sources.
 Output is a standardized JSON file ready for consumption by other financial skills.
 
+## When to Use
+
+Use this skill when the user wants to:
+
+- collect filing and market data for a US public company
+- prepare structured inputs for valuation work
+- ground downstream analysis in sourced SEC and market data
+- generate a machine-readable financial dataset instead of a narrative report
+
+## Usage
+
+Recommended flow:
+
+```text
+collect data
+-> validate output
+-> preserve source attribution
+-> hand off standardized JSON to downstream analysis
+```
+
 For the most portable workflow, prefer the SEC helper first because it uses Python standard library only. Use the `yfinance` collector when you specifically need market data and analyst estimates.
 
 ## Critical Constraints

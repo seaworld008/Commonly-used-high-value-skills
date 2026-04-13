@@ -17,6 +17,27 @@ triggers:
 
 Product marketing patterns for positioning, GTM strategy, and competitive intelligence.
 
+## When to Use
+
+Use this skill when the user wants to:
+
+- define ICP and positioning
+- build launch plans and PMM messaging
+- prepare battlecards or competitive intelligence
+- support sales enablement and market expansion
+
+## Usage
+
+Recommended flow:
+
+```text
+define target customer
+-> shape positioning
+-> assess competition
+-> build launch and enablement materials
+-> adapt for market or segment expansion
+```
+
 ---
 
 ## Table of Contents

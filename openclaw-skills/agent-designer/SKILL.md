@@ -14,6 +14,41 @@ complexity: "intermediate"
 
 # Agent Designer - Multi-Agent System Architecture
 
+## When to Use
+
+Use this skill when the user wants to:
+
+- design a multi-agent system or agent topology
+- compare orchestration patterns for agents
+- define agent roles, tool boundaries, or communication protocols
+- evaluate safety, scaling, and failure-handling trade-offs in an agent architecture
+
+## Usage
+
+Recommended flow:
+
+```text
+analyze requirements
+-> choose architecture pattern
+-> define agent roles and interfaces
+-> design communication and safety mechanisms
+-> specify evaluation and scaling strategy
+```
+
+### Minimal Design Skeleton
+
+```yaml
+system:
+  pattern: supervisor
+  agents:
+    - name: coordinator
+      role: routes work and aggregates results
+    - name: researcher
+      role: gathers evidence
+    - name: implementer
+      role: executes bounded changes
+```
+
 **Tier:** POWERFUL  
 **Category:** Engineering  
 **Tags:** AI agents, architecture, system design, orchestration, multi-agent systems
