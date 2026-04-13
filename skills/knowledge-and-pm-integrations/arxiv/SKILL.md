@@ -16,6 +16,27 @@ metadata:
 
 Search and retrieve academic papers from arXiv via their free REST API. No API key, no dependencies — just curl.
 
+## When to Use
+
+Use this skill when the user wants to:
+
+- search arXiv by topic, author, category, or paper ID
+- pull abstracts, PDF links, or BibTeX-style metadata
+- build a paper shortlist before deeper reading
+- combine lightweight paper discovery with a later reading or synthesis workflow
+
+## Usage
+
+Recommended flow:
+
+```text
+search papers
+-> shortlist candidates
+-> inspect metadata and citations
+-> fetch abstract or full PDF
+-> carry best papers into a deeper research workflow
+```
+
 ## Quick Reference
 
 | Action | Command |
