@@ -16,6 +16,27 @@ complexity: "intermediate"
 
 Convert documents to high-quality markdown with intelligent multi-tool orchestration.
 
+## When to Use
+
+Use this skill when the user wants to:
+
+- convert PDF, DOCX, PPTX, or XLSX into Markdown
+- extract images alongside Markdown output
+- compare multiple converters for quality
+- validate a conversion before downstream LLM use
+
+## Usage
+
+Recommended flow:
+
+```text
+choose quick or heavy mode
+-> convert with best-fit tool(s)
+-> validate output quality
+-> extract images if needed
+-> merge or refine outputs
+```
+
 ## Dual Mode Architecture
 
 | Mode | Speed | Quality | Use Case |

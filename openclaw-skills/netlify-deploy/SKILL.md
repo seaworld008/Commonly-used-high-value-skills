@@ -16,6 +16,27 @@ complexity: "intermediate"
 
 Deploy web projects to Netlify using the Netlify CLI with intelligent detection of project configuration and deployment context.
 
+## When to Use
+
+Use this skill when the user wants to:
+
+- deploy a web project to Netlify
+- link an existing repo to a Netlify site
+- create preview or production deploys
+- troubleshoot Netlify CLI auth or site linking
+
+## Usage
+
+Recommended flow:
+
+```text
+verify auth
+-> detect linked site or create/link one
+-> install dependencies
+-> deploy preview first
+-> promote to production when ready
+```
+
 ## Overview
 
 This skill automates Netlify deployments by:
