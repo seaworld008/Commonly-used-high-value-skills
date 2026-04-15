@@ -4,7 +4,7 @@
 
 聚焦 GitHub、浏览器自动化、CI 排障、Playwright 与工程协作自动化。
 
-当前分类共 **8** 个技能。
+当前分类共 **9** 个技能。
 
 ## 推荐先看
 
@@ -21,6 +21,7 @@
 | `gh-address-comments` | Help address review/issue comments on the open GitHub PR for the current branch using gh CLI; verify gh auth first and prompt the user to authenticate if not logged in. | [目录](./gh-address-comments/) | [SKILL.md](./gh-address-comments/SKILL.md) |
 | `gh-fix-ci` | Use when a user asks to debug or fix failing GitHub PR checks that run in GitHub Actions; use `gh` to inspect checks and logs, summarize failure context, draft a fix plan, and implement only after explicit approval. Treat external providers (for example Buildkite) as out of scope and report only the details URL. | [目录](./gh-fix-ci/) | [SKILL.md](./gh-fix-ci/SKILL.md) |
 | `github` | 通过 GitHub CLI 自动化 Issue、PR、Review 与 CI 检查，适合工程协作闭环。 | [目录](./github/) | [SKILL.md](./github/SKILL.md) |
+| `hermes-graphify-gsd-project-integration` | Use when integrating Hermes Agent, graphify, and GSD into a specific repository, especially for adding project-local graph refresh scripts, AGENTS.md guidance, README workflow docs, gitignore entries, and a brownfield-friendly planning loop without modifying upstream tool repositories. | [目录](./hermes-graphify-gsd-project-integration/) | [SKILL.md](./hermes-graphify-gsd-project-integration/SKILL.md) |
 | `jupyter-notebook` | Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) for experiments, explorations, or tutorials; prefer the bundled templates and run the helper script `new_notebook.py` to generate a clean starting notebook. | [目录](./jupyter-notebook/) | [SKILL.md](./jupyter-notebook/SKILL.md) |
 | `playwright` | Use when the task requires automating a real browser from the terminal (navigation, form filling, snapshots, screenshots, data extraction, UI-flow debugging) via `playwright-cli` or the bundled wrapper script. | [目录](./playwright/) | [SKILL.md](./playwright/SKILL.md) |
 | `web-scraper` | 用于网页数据抓取、结构化提取和反爬策略应对。来源：全网高频推荐。 | [目录](./web-scraper/) | [SKILL.md](./web-scraper/SKILL.md) |

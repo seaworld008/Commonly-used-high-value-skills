@@ -1,24 +1,24 @@
 # Tags Index
 
-> Auto-generated from 614 skill-tag mappings across 304 tags.
+> Auto-generated from 630 skill-tag mappings across 310 tags.
 > Last updated: see git log.
 
 ## Quick Navigation
 
 - [`development`](#development) (41)
-- [`workflow`](#workflow) (29)
+- [`workflow`](#workflow) (31)
 - [`design`](#design) (14)
 - [`finance`](#finance) (13)
-- [`planning`](#planning) (12)
+- [`planning`](#planning) (13)
+- [`agent`](#agent) (12)
 - [`productivity`](#productivity) (12)
-- [`agent`](#agent) (11)
 - [`growth`](#growth) (11)
 - [`marketing`](#marketing) (11)
+- [`automation`](#automation) (10)
 - [`devops`](#devops) (10)
 - [`product`](#product) (10)
 - [`sre`](#sre) (10)
-- [`automation`](#automation) (9)
-- [`ai`](#ai) (8)
+- [`ai`](#ai) (9)
 - [`designer`](#designer) (7)
 - [`security`](#security) (7)
 - [`builder`](#builder) (5)
@@ -43,6 +43,7 @@
 - [`engineer`](#engineer) (3)
 - [`git`](#git) (3)
 - [`github`](#github) (3)
+- [`hermes`](#hermes) (3)
 - [`reviewer`](#reviewer) (3)
 - [`system`](#system) (3)
 - [`web`](#web) (3)
@@ -62,7 +63,9 @@
 - [`engineering`](#engineering) (2)
 - [`figma`](#figma) (2)
 - [`financial`](#financial) (2)
+- [`graphify`](#graphify) (2)
 - [`graphql`](#graphql) (2)
+- [`gsd`](#gsd) (2)
 - [`integrations`](#integrations) (2)
 - [`knowledge-base`](#knowledge-base) (2)
 - [`markdown`](#markdown) (2)
@@ -102,6 +105,7 @@
 - [`backtester`](#backtester) (1)
 - [`brainstorming`](#brainstorming) (1)
 - [`brand`](#brand) (1)
+- [`brownfield`](#brownfield) (1)
 - [`browser`](#browser) (1)
 - [`call`](#call) (1)
 - [`campaign`](#campaign) (1)
@@ -160,7 +164,6 @@
 - [`gog`](#gog) (1)
 - [`guard`](#guard) (1)
 - [`guidelines`](#guidelines) (1)
-- [`hermes`](#hermes) (1)
 - [`honcho`](#honcho) (1)
 - [`hub`](#hub) (1)
 - [`i18n`](#i18n) (1)
@@ -202,6 +205,7 @@
 - [`navigator`](#navigator) (1)
 - [`netlify`](#netlify) (1)
 - [`nextjs`](#nextjs) (1)
+- [`non-intrusive`](#non-intrusive) (1)
 - [`notebook`](#notebook) (1)
 - [`observability`](#observability) (1)
 - [`observation`](#observation) (1)
@@ -240,6 +244,7 @@
 - [`regime`](#regime) (1)
 - [`release`](#release) (1)
 - [`render`](#render) (1)
+- [`repo-integration`](#repo-integration) (1)
 - [`repomix`](#repomix) (1)
 - [`repository`](#repository) (1)
 - [`researcher`](#researcher) (1)
@@ -297,6 +302,7 @@
 - [`troubleshooting`](#troubleshooting) (1)
 - [`twitter`](#twitter) (1)
 - [`typescript`](#typescript) (1)
+- [`upgrade-safe`](#upgrade-safe) (1)
 - [`user-modeling`](#user-modeling) (1)
 - [`valuation`](#valuation) (1)
 - [`vercel`](#vercel) (1)
@@ -362,10 +368,12 @@
 
 ## workflow
 
-**29 skills**
+**31 skills**
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
+| [hermes-graphify-gsd-nonintrusive-workflow](skills/ai-agent-platform/hermes-graphify-gsd-nonintrusive-workflow) | ai-agent-platform | ★★★★★ | Use when integrating Hermes Agent, graphify, and GSD into a local development wo |
+| [hermes-graphify-gsd-project-integration](skills/engineering-workflow-automation/hermes-graphify-gsd-project-integration) | engineering-workflow-automation | ★★★★★ | Use when integrating Hermes Agent, graphify, and GSD into a specific repository, |
 | [agent-workflow-designer](skills/task-understanding-decomposition/agent-workflow-designer) | task-understanding-decomposition | ★★★★★ | Design production-grade multi-agent orchestration systems. Covers five core patt |
 | [deep-research](skills/task-understanding-decomposition/deep-research) | task-understanding-decomposition | ★★★★★ | Generate format-controlled research reports with evidence tracking, citations, a |
 | [reflect-learn](skills/task-understanding-decomposition/reflect-learn) | task-understanding-decomposition | ★★★★★ | Self-improvement through conversation analysis. Extracts learnings from correcti |
@@ -439,10 +447,11 @@
 
 ## planning
 
-**12 skills**
+**13 skills**
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
+| [hermes-graphify-gsd-project-integration](skills/engineering-workflow-automation/hermes-graphify-gsd-project-integration) | engineering-workflow-automation | ★★★★★ | Use when integrating Hermes Agent, graphify, and GSD into a specific repository, |
 | [agent-workflow-designer](skills/task-understanding-decomposition/agent-workflow-designer) | task-understanding-decomposition | ★★★★★ | Design production-grade multi-agent orchestration systems. Covers five core patt |
 | [deep-research](skills/task-understanding-decomposition/deep-research) | task-understanding-decomposition | ★★★★★ | Generate format-controlled research reports with evidence tracking, citations, a |
 | [reflect-learn](skills/task-understanding-decomposition/reflect-learn) | task-understanding-decomposition | ★★★★★ | Self-improvement through conversation analysis. Extracts learnings from correcti |
@@ -455,6 +464,25 @@
 | [brainstorming](skills/task-understanding-decomposition/brainstorming) | task-understanding-decomposition | ★★★☆☆ | You MUST use this before any creative work - creating features, building compone |
 | [subagent-driven-development](skills/task-understanding-decomposition/subagent-driven-development) | task-understanding-decomposition | ★★★☆☆ | 用于多子 Agent 并行开发编排，包含任务分派、两阶段审查和自动化质量门控。来源：obra/superpowers。 |
 | [tavily-search](skills/task-understanding-decomposition/tavily-search) | task-understanding-decomposition | ★★☆☆☆ | 提供实时联网检索能力，帮助 Agent 获取最新资讯、数据与来源证据。 |
+
+## agent
+
+**12 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [chatgpt-apps](skills/ai-agent-platform/chatgpt-apps) | ai-agent-platform | ★★★★★ | Build, scaffold, refactor, and troubleshoot ChatGPT Apps SDK applications that c |
+| [figma-implement-design](skills/ai-agent-platform/figma-implement-design) | ai-agent-platform | ★★★★★ | Translate Figma nodes into production-ready code with 1:1 visual fidelity using  |
+| [hermes-graphify-gsd-nonintrusive-workflow](skills/ai-agent-platform/hermes-graphify-gsd-nonintrusive-workflow) | ai-agent-platform | ★★★★★ | Use when integrating Hermes Agent, graphify, and GSD into a local development wo |
+| [agent-designer](skills/developer-engineering/agent-designer) | developer-engineering | ★★★★★ | Tags: AI agents, architecture, system design, orchestration, multi-agent systems |
+| [agent-workflow-designer](skills/task-understanding-decomposition/agent-workflow-designer) | task-understanding-decomposition | ★★★★★ | Design production-grade multi-agent orchestration systems. Covers five core patt |
+| [agent-hub](skills/ai-agent-platform/agent-hub) | ai-agent-platform | ★★★★☆ | 用于多 Agent 系统编排、Agent 间通信协议设计与生命周期管理。来源：alirezarezvani/claude-skills POWERFUL tie |
+| [develop-web-game](skills/ai-agent-platform/develop-web-game) | ai-agent-platform | ★★★★☆ | Use when Codex is building or iterating on a web game (HTML/JS) and needs a reli |
+| [proactive-agent](skills/ai-agent-platform/proactive-agent) | ai-agent-platform | ★★★★☆ | 增强 Agent 的主动规划与自我迭代能力，从被动执行升级为主动协作。 |
+| [openai-docs](skills/ai-agent-platform/openai-docs) | ai-agent-platform | ★★★☆☆ | Use when the user asks how to build with OpenAI products or APIs and needs up-to |
+| [figma](skills/ai-agent-platform/figma) | ai-agent-platform | ★★☆☆☆ | Use the Figma MCP server to fetch design context, screenshots, variables, and as |
+| [self-improving-agent](skills/ai-agent-platform/self-improving-agent) | ai-agent-platform | ★★☆☆☆ | 带记忆与自我优化机制的 Agent 技能，能在迭代中持续改进行为。 |
+| [agent-browser](skills/engineering-workflow-automation/agent-browser) | engineering-workflow-automation | ★★☆☆☆ | 为 Agent 提供真实浏览器自动化能力，支持语义定位、表单交互、截图录屏、脚本执行与会话管理。 |
 
 ## productivity
 
@@ -474,24 +502,6 @@
 | [theme-factory](skills/operations-general/theme-factory) | operations-general | ★★★☆☆ | Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, |
 | [internal-comms](skills/operations-general/internal-comms) | operations-general | ★★☆☆☆ | A set of resources to help me write all kinds of internal communications, using  |
 | [weather](skills/operations-general/weather) | operations-general | ★★☆☆☆ | 免 API Key 的天气查询技能，支持多数据源与自然语言请求。 |
-
-## agent
-
-**11 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [chatgpt-apps](skills/ai-agent-platform/chatgpt-apps) | ai-agent-platform | ★★★★★ | Build, scaffold, refactor, and troubleshoot ChatGPT Apps SDK applications that c |
-| [figma-implement-design](skills/ai-agent-platform/figma-implement-design) | ai-agent-platform | ★★★★★ | Translate Figma nodes into production-ready code with 1:1 visual fidelity using  |
-| [agent-designer](skills/developer-engineering/agent-designer) | developer-engineering | ★★★★★ | Tags: AI agents, architecture, system design, orchestration, multi-agent systems |
-| [agent-workflow-designer](skills/task-understanding-decomposition/agent-workflow-designer) | task-understanding-decomposition | ★★★★★ | Design production-grade multi-agent orchestration systems. Covers five core patt |
-| [agent-hub](skills/ai-agent-platform/agent-hub) | ai-agent-platform | ★★★★☆ | 用于多 Agent 系统编排、Agent 间通信协议设计与生命周期管理。来源：alirezarezvani/claude-skills POWERFUL tie |
-| [develop-web-game](skills/ai-agent-platform/develop-web-game) | ai-agent-platform | ★★★★☆ | Use when Codex is building or iterating on a web game (HTML/JS) and needs a reli |
-| [proactive-agent](skills/ai-agent-platform/proactive-agent) | ai-agent-platform | ★★★★☆ | 增强 Agent 的主动规划与自我迭代能力，从被动执行升级为主动协作。 |
-| [openai-docs](skills/ai-agent-platform/openai-docs) | ai-agent-platform | ★★★☆☆ | Use when the user asks how to build with OpenAI products or APIs and needs up-to |
-| [figma](skills/ai-agent-platform/figma) | ai-agent-platform | ★★☆☆☆ | Use the Figma MCP server to fetch design context, screenshots, variables, and as |
-| [self-improving-agent](skills/ai-agent-platform/self-improving-agent) | ai-agent-platform | ★★☆☆☆ | 带记忆与自我优化机制的 Agent 技能，能在迭代中持续改进行为。 |
-| [agent-browser](skills/engineering-workflow-automation/agent-browser) | engineering-workflow-automation | ★★☆☆☆ | 为 Agent 提供真实浏览器自动化能力，支持语义定位、表单交互、截图录屏、脚本执行与会话管理。 |
 
 ## growth
 
@@ -528,6 +538,23 @@
 | [social-media-analyzer](skills/growth-operations-xiaohongshu/social-media-analyzer) | growth-operations-xiaohongshu | ★★★★★ | Social media campaign analysis and performance tracking. Calculates engagement r |
 | [seo-audit](skills/growth-operations-xiaohongshu/seo-audit) | growth-operations-xiaohongshu | ★★★★☆ | 用于网站 SEO 全面审计、On-page 优化建议和技术 SEO 检查清单生成。来源：全网高频推荐。 |
 | [twitter-reader](skills/growth-operations-xiaohongshu/twitter-reader) | growth-operations-xiaohongshu | ★★★☆☆ | Fetch Twitter/X post content by URL using jina.ai API to bypass JavaScript restr |
+
+## automation
+
+**10 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [hermes-graphify-gsd-project-integration](skills/engineering-workflow-automation/hermes-graphify-gsd-project-integration) | engineering-workflow-automation | ★★★★★ | Use when integrating Hermes Agent, graphify, and GSD into a specific repository, |
+| [excel-automation](skills/office-white-collar/excel-automation) | office-white-collar | ★★★★★ | Create, parse, and control Excel files on macOS. Professional formatting with op |
+| [jupyter-notebook](skills/engineering-workflow-automation/jupyter-notebook) | engineering-workflow-automation | ★★★★☆ | Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) |
+| [playwright](skills/engineering-workflow-automation/playwright) | engineering-workflow-automation | ★★★★☆ | Use when the task requires automating a real browser from the terminal (navigati |
+| [web-scraper](skills/engineering-workflow-automation/web-scraper) | engineering-workflow-automation | ★★★★☆ | 用于网页数据抓取、结构化提取和反爬策略应对。来源：全网高频推荐。 |
+| [gh-fix-ci](skills/engineering-workflow-automation/gh-fix-ci) | engineering-workflow-automation | ★★★☆☆ | Use when a user asks to debug or fix failing GitHub PR checks that run in GitHub |
+| [agent-browser](skills/engineering-workflow-automation/agent-browser) | engineering-workflow-automation | ★★☆☆☆ | 为 Agent 提供真实浏览器自动化能力，支持语义定位、表单交互、截图录屏、脚本执行与会话管理。 |
+| [gh-address-comments](skills/engineering-workflow-automation/gh-address-comments) | engineering-workflow-automation | ★★☆☆☆ | Help address review/issue comments on the open GitHub PR for the current branch  |
+| [github](skills/engineering-workflow-automation/github) | engineering-workflow-automation | ★★☆☆☆ | 通过 GitHub CLI 自动化 Issue、PR、Review 与 CI 检查，适合工程协作闭环。 |
+| [yeet](skills/engineering-workflow-automation/yeet) | engineering-workflow-automation | ★★☆☆☆ | Use only when the user explicitly asks to stage, commit, push, and open a GitHub |
 
 ## devops
 
@@ -580,30 +607,15 @@
 | [senior-devops](skills/devops-sre/senior-devops) | devops-sre | ★★★★★ | Comprehensive DevOps skill for CI/CD, infrastructure automation, containerizatio |
 | [senior-architect](skills/devops-sre/senior-architect) | devops-sre | ★★★★☆ | 用于软件架构评审、技术选型决策和系统可扩展性分析。来源：alirezarezvani/claude-skills。 |
 
-## automation
+## ai
 
 **9 skills**
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [excel-automation](skills/office-white-collar/excel-automation) | office-white-collar | ★★★★★ | Create, parse, and control Excel files on macOS. Professional formatting with op |
-| [jupyter-notebook](skills/engineering-workflow-automation/jupyter-notebook) | engineering-workflow-automation | ★★★★☆ | Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) |
-| [playwright](skills/engineering-workflow-automation/playwright) | engineering-workflow-automation | ★★★★☆ | Use when the task requires automating a real browser from the terminal (navigati |
-| [web-scraper](skills/engineering-workflow-automation/web-scraper) | engineering-workflow-automation | ★★★★☆ | 用于网页数据抓取、结构化提取和反爬策略应对。来源：全网高频推荐。 |
-| [gh-fix-ci](skills/engineering-workflow-automation/gh-fix-ci) | engineering-workflow-automation | ★★★☆☆ | Use when a user asks to debug or fix failing GitHub PR checks that run in GitHub |
-| [agent-browser](skills/engineering-workflow-automation/agent-browser) | engineering-workflow-automation | ★★☆☆☆ | 为 Agent 提供真实浏览器自动化能力，支持语义定位、表单交互、截图录屏、脚本执行与会话管理。 |
-| [gh-address-comments](skills/engineering-workflow-automation/gh-address-comments) | engineering-workflow-automation | ★★☆☆☆ | Help address review/issue comments on the open GitHub PR for the current branch  |
-| [github](skills/engineering-workflow-automation/github) | engineering-workflow-automation | ★★☆☆☆ | 通过 GitHub CLI 自动化 Issue、PR、Review 与 CI 检查，适合工程协作闭环。 |
-| [yeet](skills/engineering-workflow-automation/yeet) | engineering-workflow-automation | ★★☆☆☆ | Use only when the user explicitly asks to stage, commit, push, and open a GitHub |
-
-## ai
-
-**8 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
 | [chatgpt-apps](skills/ai-agent-platform/chatgpt-apps) | ai-agent-platform | ★★★★★ | Build, scaffold, refactor, and troubleshoot ChatGPT Apps SDK applications that c |
 | [figma-implement-design](skills/ai-agent-platform/figma-implement-design) | ai-agent-platform | ★★★★★ | Translate Figma nodes into production-ready code with 1:1 visual fidelity using  |
+| [hermes-graphify-gsd-nonintrusive-workflow](skills/ai-agent-platform/hermes-graphify-gsd-nonintrusive-workflow) | ai-agent-platform | ★★★★★ | Use when integrating Hermes Agent, graphify, and GSD into a local development wo |
 | [agent-hub](skills/ai-agent-platform/agent-hub) | ai-agent-platform | ★★★★☆ | 用于多 Agent 系统编排、Agent 间通信协议设计与生命周期管理。来源：alirezarezvani/claude-skills POWERFUL tie |
 | [develop-web-game](skills/ai-agent-platform/develop-web-game) | ai-agent-platform | ★★★★☆ | Use when Codex is building or iterating on a web game (HTML/JS) and needs a reli |
 | [proactive-agent](skills/ai-agent-platform/proactive-agent) | ai-agent-platform | ★★★★☆ | 增强 Agent 的主动规划与自我迭代能力，从被动执行升级为主动协作。 |
@@ -881,6 +893,16 @@
 | [github-ops](skills/devops-sre/github-ops) | devops-sre | ★★★★★ | Provides comprehensive GitHub operations using gh CLI and GitHub API. Activates  |
 | [github](skills/engineering-workflow-automation/github) | engineering-workflow-automation | ★★☆☆☆ | 通过 GitHub CLI 自动化 Issue、PR、Review 与 CI 检查，适合工程协作闭环。 |
 
+## hermes
+
+**3 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [hermes-graphify-gsd-nonintrusive-workflow](skills/ai-agent-platform/hermes-graphify-gsd-nonintrusive-workflow) | ai-agent-platform | ★★★★★ | Use when integrating Hermes Agent, graphify, and GSD into a local development wo |
+| [hermes-graphify-gsd-project-integration](skills/engineering-workflow-automation/hermes-graphify-gsd-project-integration) | engineering-workflow-automation | ★★★★★ | Use when integrating Hermes Agent, graphify, and GSD into a specific repository, |
+| [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Complete guide to using and extending Hermes Agent — CLI usage, setup, configura |
+
 ## reviewer
 
 **3 skills**
@@ -1055,6 +1077,15 @@
 | [financial-analyst](skills/finance-investing/financial-analyst) | finance-investing | ★★★★☆ | Performs financial ratio analysis, DCF valuation, budget variance analysis, and  |
 | [financial-data-collector](skills/finance-investing/financial-data-collector) | finance-investing | ★★★★☆ | Use when collecting financial data for a US public company, assembling DCF input |
 
+## graphify
+
+**2 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [hermes-graphify-gsd-nonintrusive-workflow](skills/ai-agent-platform/hermes-graphify-gsd-nonintrusive-workflow) | ai-agent-platform | ★★★★★ | Use when integrating Hermes Agent, graphify, and GSD into a local development wo |
+| [hermes-graphify-gsd-project-integration](skills/engineering-workflow-automation/hermes-graphify-gsd-project-integration) | engineering-workflow-automation | ★★★★★ | Use when integrating Hermes Agent, graphify, and GSD into a specific repository, |
+
 ## graphql
 
 **2 skills**
@@ -1063,6 +1094,15 @@
 |-------|----------|---------|-------------|
 | [graphql-expert](skills/developer-engineering/graphql-expert) | developer-engineering | ★★★★☆ | 用于 GraphQL API 设计、查询优化、Schema 管理和安全最佳实践。来源：全网高频推荐。 |
 | [linear](skills/knowledge-and-pm-integrations/linear) | knowledge-and-pm-integrations | ★★★★☆ | Manage Linear issues, projects, and teams with an API-first workflow. Uses the G |
+
+## gsd
+
+**2 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [hermes-graphify-gsd-nonintrusive-workflow](skills/ai-agent-platform/hermes-graphify-gsd-nonintrusive-workflow) | ai-agent-platform | ★★★★★ | Use when integrating Hermes Agent, graphify, and GSD into a local development wo |
+| [hermes-graphify-gsd-project-integration](skills/engineering-workflow-automation/hermes-graphify-gsd-project-integration) | engineering-workflow-automation | ★★★★★ | Use when integrating Hermes Agent, graphify, and GSD into a specific repository, |
 
 ## integrations
 
@@ -1397,6 +1437,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [brand-guidelines](skills/operations-general/brand-guidelines) | operations-general | ★★★☆☆ | Applies Anthropic''s official brand colors and typography to any sort of artifac |
+
+## brownfield
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [hermes-graphify-gsd-project-integration](skills/engineering-workflow-automation/hermes-graphify-gsd-project-integration) | engineering-workflow-automation | ★★★★★ | Use when integrating Hermes Agent, graphify, and GSD into a specific repository, |
 
 ## browser
 
@@ -1862,14 +1910,6 @@
 |-------|----------|---------|-------------|
 | [brand-guidelines](skills/operations-general/brand-guidelines) | operations-general | ★★★☆☆ | Applies Anthropic''s official brand colors and typography to any sort of artifac |
 
-## hermes
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Complete guide to using and extending Hermes Agent — CLI usage, setup, configura |
-
 ## honcho
 
 **1 skills**
@@ -2198,6 +2238,14 @@
 |-------|----------|---------|-------------|
 | [nextjs-app-router](skills/developer-engineering/nextjs-app-router) | developer-engineering | ★★★★☆ | 用于 Next.js App Router 模式开发，包含 RSC、Server Actions 和路由最佳实践。来源：skills.sh 10.2K inst |
 
+## non-intrusive
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [hermes-graphify-gsd-nonintrusive-workflow](skills/ai-agent-platform/hermes-graphify-gsd-nonintrusive-workflow) | ai-agent-platform | ★★★★★ | Use when integrating Hermes Agent, graphify, and GSD into a local development wo |
+
 ## notebook
 
 **1 skills**
@@ -2501,6 +2549,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [render-deploy](skills/deployment-platforms/render-deploy) | deployment-platforms | ★★★★★ | Deploy applications to Render by analyzing codebases, generating render.yaml Blu |
+
+## repo-integration
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [hermes-graphify-gsd-project-integration](skills/engineering-workflow-automation/hermes-graphify-gsd-project-integration) | engineering-workflow-automation | ★★★★★ | Use when integrating Hermes Agent, graphify, and GSD into a specific repository, |
 
 ## repomix
 
@@ -2957,6 +3013,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [typescript-best-practices](skills/developer-engineering/typescript-best-practices) | developer-engineering | ★★★★☆ | 用于 TypeScript 高级类型编程、类型安全设计和常见反模式避免。来源：全网高频推荐。 |
+
+## upgrade-safe
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [hermes-graphify-gsd-nonintrusive-workflow](skills/ai-agent-platform/hermes-graphify-gsd-nonintrusive-workflow) | ai-agent-platform | ★★★★★ | Use when integrating Hermes Agent, graphify, and GSD into a local development wo |
 
 ## user-modeling
 
