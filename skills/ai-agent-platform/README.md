@@ -13,6 +13,56 @@
 - [figma](./figma/) - Use the Figma MCP server to fetch design context, screenshots, variables, and assets from Figma, and to translate Figma nodes into production code. Trigger when a task involves Figma URLs, node IDs, design-to-code implementation, or Figma MCP setup and troubleshooting.
 - [figma-implement-design](./figma-implement-design/) - Translate Figma nodes into production-ready code with 1:1 visual fidelity using the Figma MCP workflow (design context, screenshots, assets, and project-convention translation). Trigger when the user provides Figma URLs or node IDs, or asks to implement designs or components that must match Figma specs. Requires a working Figma MCP server connection.
 
+<a id="hermes-graphify-gsd-global-workflow"></a>
+## Hermes + graphify + GSD 全局非侵入式工作流
+
+`hermes-graphify-gsd-nonintrusive-workflow` 适合在还没有进入具体项目之前，先把 Hermes Agent、graphify 和 GSD 组合成一套可复用、可升级、非侵入式的本机工作流。
+
+### 什么时候使用
+
+- 想让 Hermes 负责 orchestration / memory / execution。
+- 想让 graphify 负责代码图谱、架构回忆和低成本刷新。
+- 想让 GSD 负责 planning cadence、phase management 和执行节奏。
+- 想保留 Hermes、graphify、GSD 上游仓库的干净状态，不希望为了本机集成去 patch 上游源码。
+- 想把适配层放在 wrappers、项目脚本和文档中，方便未来升级。
+
+### 推荐提示词
+
+```text
+请使用 hermes-graphify-gsd-nonintrusive-workflow，帮我检查本机 Hermes 是否已安装，并在不修改上游仓库代码的前提下，配置 graphify 和 GSD 的全局工作流。
+```
+
+### 核心执行原则
+
+1. 先检查 `command -v hermes` 和 `hermes --version`。
+2. 如果 Hermes 不存在，只提示用户手动安装 Hermes，不自动安装 Hermes。
+3. 如果 Hermes 已存在，再安装或升级 graphify 与 GSD。
+4. graphify 使用当前 PyPI 包名 `graphifyy`，CLI 入口仍是 `graphify`。
+5. GSD 默认使用 Codex runtime：`npx -y get-shit-done-cc@latest --codex --global --sdk`。
+6. 优先创建或复用 `~/.local/bin/` wrappers，不直接修改 Hermes、graphify、GSD 上游源码。
+
+### 可复用文件
+
+| 文件 | 用途 |
+|------|------|
+| `templates/bootstrap-toolchain.sh` | 检查 Hermes，并安装/升级 graphify 与 GSD。 |
+| `templates/graphify-wrapper.sh` | 在多个 Python 环境中寻找可 import graphify 的解释器。 |
+| `templates/gsd-sdk-wrapper.sh` | 通过稳定路径调用 GSD SDK CLI。 |
+| `templates/ai-workflow.sh` | 给项目提供统一的 `doctor` / `context` / `sync` 入口。 |
+| `references/first-install.md` | 首次安装策略和推荐命令。 |
+| `references/upgrade-contract.md` | 升级时优先修 wrappers 和项目脚本，而不是上游源码。 |
+
+### 常用验证命令
+
+```bash
+command -v hermes
+hermes --version
+command -v graphify
+graphify --help
+command -v gsd-sdk
+gsd-sdk --version
+```
+
 ## 技能总览
 
 | 技能 | 简介 | 目录 | 详情 |
