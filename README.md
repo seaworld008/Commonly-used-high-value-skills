@@ -137,6 +137,109 @@ python scripts/sync_codex_skills.py --source-root "E:\AI-codex\003-Commonly-used
 - `notion-spec-to-implementation`
 - `transcribe`
 
+## Hermes + graphify + GSD 新增技能使用方法
+
+本次新增了两个配套技能，适合想把 Hermes Agent、graphify 和 GSD 组合成稳定 AI 开发工作流的用户。两者的分工不同：
+
+| 技能 | 放置位置 | 适用场景 |
+|------|----------|----------|
+| `hermes-graphify-gsd-nonintrusive-workflow` | `skills/ai-agent-platform/hermes-graphify-gsd-nonintrusive-workflow/` | 设计或搭建全局级、非侵入式、可升级的 Hermes + graphify + GSD 工作流。重点是 wrappers、全局工具链、升级契约和跨项目复用。 |
+| `hermes-graphify-gsd-project-integration` | `skills/engineering-workflow-automation/hermes-graphify-gsd-project-integration/` | 把这套工作流接入某一个具体仓库。重点是 `scripts/graphify-sync.sh`、`scripts/ai-workflow.sh`、`AGENTS.md`、`README.md`、`.gitignore` 和项目内验证。 |
+
+### 使用前先安装到本地 AI 工具
+
+如果你使用 Codex / Claude Code / Cursor 这类按源码读取技能的工具，推荐把仓库的 `skills/` 同步到本地技能目录。例如 Codex 用户可以运行：
+
+```bash
+python3 scripts/sync_codex_skills.py \
+  --source-root "$(pwd)/skills" \
+  --codex-root "$HOME/.codex/skills"
+```
+
+如果你使用 OpenClaw，先刷新扁平导出目录，再在 OpenClaw 配置里加载 `openclaw-skills/`：
+
+```bash
+python3 scripts/export_openclaw_skills.py
+```
+
+### 场景一：先建立全局非侵入式工作流
+
+当你还没有决定要改哪个项目，只是想把 Hermes、graphify、GSD 的协作方式搭起来时，使用：
+
+```text
+请使用 hermes-graphify-gsd-nonintrusive-workflow，帮我检查本机 Hermes 是否已安装，并在不修改上游仓库代码的前提下，配置 graphify 和 GSD 的全局工作流。
+```
+
+这个技能会引导 AI 助手遵守三条核心原则：
+
+- Hermes 是前置条件：如果 `hermes` 不存在，只提示用户手动安装，不自动安装 Hermes。
+- graphify 和 GSD 可以在 Hermes 存在后自动安装或升级到最新稳定入口。
+- 所有适配优先放在 `~/.local/bin/` wrappers、项目内脚本和文档里，不直接 patch Hermes、graphify 或 GSD 上游源码。
+
+技能包内可复用的文件包括：
+
+- `templates/bootstrap-toolchain.sh`：检查 Hermes，并安装/升级 graphify 与 GSD。
+- `templates/graphify-wrapper.sh`：在不同 Python 环境里定位可用的 graphify。
+- `templates/gsd-sdk-wrapper.sh`：通过稳定路径调用 GSD SDK CLI。
+- `templates/ai-workflow.sh`：给项目提供统一的 doctor/context/sync 入口。
+- `references/first-install.md`：首次安装策略。
+- `references/upgrade-contract.md`：后续升级时优先改 wrappers 和项目脚本，而不是上游源码。
+
+### 场景二：把工作流接入某个仓库
+
+当你已经在一个具体项目目录中，希望让该项目拥有图谱刷新、规划上下文和 AI 工作流入口时，使用：
+
+```text
+请使用 hermes-graphify-gsd-project-integration，把当前仓库接入 Hermes + graphify + GSD 工作流。请添加必要脚本、更新 AGENTS.md / README.md / .gitignore，并运行可用的验证命令。
+```
+
+这个技能通常会让 AI 助手按下面顺序执行：
+
+1. 检查 `hermes`、`graphify`、`gsd-sdk` 是否可用。
+2. 如果 Hermes 已存在，先全局安装或升级 graphify 与 GSD。
+3. 审计目标仓库是否已有 `AGENTS.md`、`README.md`、`scripts/`、`.planning/`、`.codex/`、`graphify-out/`。
+4. 复用或新增 `scripts/graphify-sync.sh`，支持 `status`、`smart`、`force`、`serve`。
+5. 视项目需要新增 `scripts/ai-workflow.sh`，提供 `doctor`、`context`、`sync`、`force`、`next`。
+6. 更新 `AGENTS.md` 和 `README.md`，让未来的 AI 助手和人类开发者知道该读什么、跑什么。
+7. 把 `.planning/` 和 `graphify-out/` 加入 `.gitignore`，除非你明确想提交这些本地工作流产物。
+8. 运行实际验证命令，确认集成不是只停留在文档层。
+
+常用验证命令如下：
+
+```bash
+command -v hermes
+hermes --version
+command -v graphify
+graphify --help
+command -v gsd-sdk
+gsd-sdk --version
+./scripts/graphify-sync.sh status
+./scripts/graphify-sync.sh smart
+./scripts/ai-workflow.sh doctor
+./scripts/ai-workflow.sh context
+```
+
+技能包内可复用的文件包括：
+
+- `templates/graphify-sync.sh`：项目级 graphify 刷新脚本，优先做低成本代码图谱刷新。
+- `templates/ai-workflow.sh`：项目级 AI 工作流统一入口。
+- `templates/agents-section.md`：可插入 `AGENTS.md` 的工作流说明。
+- `templates/readme-section.md`：可插入项目 `README.md` 的用户说明。
+- `templates/bootstrap-toolchain.sh`：项目接入前的工具链 bootstrap。
+- `references/integration-checklist.md`：仓库接入检查清单。
+- `references/first-install.md`：repo 级首次安装策略。
+
+### 两个技能怎么搭配
+
+推荐顺序是先全局、再项目：
+
+```text
+第一步：使用 hermes-graphify-gsd-nonintrusive-workflow，建立非侵入式全局工具链和升级契约。
+第二步：进入目标仓库，使用 hermes-graphify-gsd-project-integration，把脚本、文档和验证流程接进去。
+```
+
+如果你只想给一个仓库快速接入，也可以直接使用 `hermes-graphify-gsd-project-integration`。它会先检查全局工具链，再处理项目内文件。
+
 ## 如何参与共建
 
 如果你希望把这个仓库一起做成更强的公共 Skills 基础设施：
