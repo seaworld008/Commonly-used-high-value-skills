@@ -143,6 +143,7 @@ Recommended responsibilities:
 - **hook**: only enqueue or trigger; keep it lightweight
 - **cron/timer**: watchdog + periodic reconciliation; restart the runner if needed
 - **runner**: read planning/graph context, continue work, update docs, run focused verification, and only attempt final completion when the project is actually done
+- **per-trigger loop**: let one trigger run multiple internal passes before giving up, so the workflow does not stop after one small task when more scoped work remains
 - **completion gate**: a dedicated script that runs the full verification command and writes the sentinel/evidence only on success
 
 Recommended repo-local files:
@@ -161,6 +162,10 @@ Recommended optional relay artifacts:
 - optional explicit delivery env vars such as:
   - `HERMES_AUTO_CONTINUE_NOTIFY_DELIVER`
   - `HERMES_AUTO_CONTINUE_NOTIFY_SCHEDULE`
+- recommended runtime tuning env vars such as:
+  - `HERMES_AUTO_CONTINUE_MAX_PASSES_PER_TRIGGER`
+  - `HERMES_AUTO_CONTINUE_PASS_IDLE_SECONDS`
+  - `HERMES_AUTO_CONTINUE_CRON_SCHEDULE`
 
 ### Reality-tested runtime contract
 When this workflow grows into an autonomous repo-local runtime, prefer these additional constraints by default:
@@ -206,10 +211,12 @@ Core rule:
 Trigger semantics note:
 - The default repo-local auto-continue loop described here is **code-event driven + periodic reconciliation**, not chat-turn driven.
 - Typical immediate triggers are: `post-commit`, optional `post-merge`, explicit manual checkpoint scripts, and periodic `cron`/timer reconciliation.
+- A strong default is: one trigger may run **multiple internal passes** until completion is reached, a structured handoff becomes active, or the pass budget is exhausted.
 - A normal assistant reply ending does **not** automatically create a new trigger event unless your wrapper explicitly does so.
 - If the user expects "回复一停就继续跑", add a lightweight non-commit checkpoint trigger (for example `scripts/hermes-auto-continue-checkpoint.sh`) at agreed milestone boundaries rather than assuming message completion will fire hooks.
 - If the user also expects autonomous run summaries to return to chat, do **not** assume the local shell knows the current conversation origin. Repo-local scripts run without current-chat delivery context, so reliable auto-delivery requires an **explicit target** (for example `discord:chat_id`, `telegram:chat_id:thread_id`, or another concrete deliver string).
 - A practical pattern is: write `.planning/auto-continue-last-summary.md` after each run, then create a one-shot Hermes cron notification job only when an explicit deliver target is configured.
+- Hermes cron runs in fresh sessions, so the trigger prompt itself should be self-contained and explicitly tell the runner which local files to read first (`GRAPH_REPORT.md`, `PROJECT.md`, `REQUIREMENTS.md`, `ROADMAP.md`, `STATE.md`, and runtime summary/mirror files when present).
 
 ## Project-Level Completion Gate
 
@@ -337,6 +344,10 @@ If something breaks after upstream updates, fix in this order:
 - if a stale sandbox/worktree cron is still running, remove the cron entry first, then clear or correct state/lease metadata so operator output returns to the main repo
 - if state says `running` but kernel locks are already free, treat it as stale metadata and reconcile it explicitly instead of trusting the stale file forever
 
+10. Using one generic cron tag for every repo
+- cron install/uninstall should be keyed by project, not by one shared tag string
+- otherwise one repo's install step can silently overwrite another repo's autonomous loop
+
 ## Files to Reuse
 
 Load these bundled files when implementing:
@@ -371,3 +382,4 @@ When using this skill:
 8. Document the contract so future upgrades stay safe
 9. For auto-continue setups, explicitly verify that partial completion does **not** stop the loop and that only the completion sentinel can stop it
 10. Verify that the bundled `ai-workflow.sh` surface, auto-continue scripts, and operator docs all expose the same command names before packaging the workflow for teammates
+11. Verify that Hermes runner failures become explicit blocked/operator state instead of being silently treated as ordinary incomplete runs

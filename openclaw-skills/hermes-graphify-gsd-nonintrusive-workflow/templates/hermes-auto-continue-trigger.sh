@@ -16,6 +16,10 @@ writer_recommended="$(printf '%s\n' "$writer_status" | awk -F= '$1=="writer_reco
 execution_surface="$(printf '%s\n' "$writer_status" | awk -F= '$1=="execution_surface"{print $2}')"
 current_head="$(git rev-parse HEAD 2>/dev/null || echo unknown)"
 branch_name="$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo unknown)"
+max_passes="${HERMES_AUTO_CONTINUE_MAX_PASSES_PER_TRIGGER:-4}"
+pass_idle_seconds="${HERMES_AUTO_CONTINUE_PASS_IDLE_SECONDS:-5}"
+requirements_rel="${HERMES_AUTO_CONTINUE_REQUIREMENTS_FILE#$ROOT/}"
+tasks_rel="${HERMES_AUTO_CONTINUE_TASKS_FILE#$ROOT/}"
 
 write_json_state() {
   local path="$1"
@@ -94,6 +98,14 @@ PY
   bash "$SUMMARY_SCRIPT" >/dev/null 2>&1 || true
 }
 
+clear_blocked() {
+  rm -f "$HERMES_AUTO_CONTINUE_BLOCKED_FILE"
+}
+
+handoff_active() {
+  [ -s "$HERMES_AUTO_CONTINUE_HANDOFF_FILE" ]
+}
+
 if [ "$writer_recommended" != "yes" ] && [ "${HERMES_AUTO_CONTINUE_ALLOW_INCOMPLETE_ROOT:-0}" != "1" ]; then
   write_blocked writer_surface_not_recommended "execution_surface=$execution_surface"
   echo "[auto-continue] refusing to run on non-recommended writer surface"
@@ -118,6 +130,14 @@ if [[ "$status_line" == COMPLETE* ]]; then
   exit 0
 fi
 
+if handoff_active; then
+  write_runtime_state handoff waiting_for_input "handoff file present before new run"
+  write_lease_state false "handoff active"
+  bash "$SUMMARY_SCRIPT" >/dev/null 2>&1 || true
+  echo "[auto-continue] handoff already active; waiting for input"
+  exit 0
+fi
+
 exec 8>"$HERMES_AUTO_CONTINUE_PROJECT_LOCK"
 if ! flock -n 8; then
   holder_detail="$(python3 - <<'PY' "$HERMES_AUTO_CONTINUE_LEASE_FILE"
@@ -139,32 +159,88 @@ PY
   exit 0
 fi
 
-write_lease_state true "writer lease acquired"
-write_runtime_state running started "auto-continue session started"
-bash "$SUMMARY_SCRIPT" >/dev/null 2>&1 || true
+pass_no=1
+while [ "$pass_no" -le "$max_passes" ]; do
+  clear_blocked
+  write_lease_state true "writer lease acquired (pass $pass_no/$max_passes)"
+  write_runtime_state running started "auto-continue pass $pass_no/$max_passes started"
+  bash "$SUMMARY_SCRIPT" >/dev/null 2>&1 || true
 
-read -r -d '' PROMPT <<'EOF' || true
+  PROMPT="$(cat <<EOF
 You are automatically continuing work in this repository.
-Read the local planning/docs/graph context first.
+This is pass $pass_no of $max_passes for trigger source "$source_name".
+Read the local planning/docs/graph context first. Start with these files if they exist:
+- graphify-out/GRAPH_REPORT.md
+- .planning/PROJECT.md
+- $requirements_rel
+- $tasks_rel
+- .planning/ROADMAP.md
+- .planning/STATE.md
+- .planning/auto-continue-last-summary.md
+- .planning/auto-workflow-state.json
 Default continue, not default stop.
 Do not stop because one small task is done.
+Pick the highest-priority incomplete requirement or roadmap item and keep moving until the whole scoped project is complete, you are truly blocked, or you need external input.
+After each meaningful implementation step, update the planning docs so the next pass can continue from current reality.
 This runner currently holds the canonical writer lease for the project.
 Any delegated helper agents must remain read-only unless they also hold the writer lease.
+If you need human or external input before you can continue, write a structured handoff first by running:
+  bash scripts/ai-workflow.sh auto-handoff-set "<reason>" "<detail>" "<requested_input>" "<resume_condition>" "<next_action>"
+Then stop.
 Only when the whole scoped project is complete should you run:
   bash scripts/hermes-auto-continue-mark-complete.sh
 That script is the only allowed way to stop the loop.
 EOF
+)"
 
-hermes chat -q "$PROMPT" >> "$HERMES_AUTO_CONTINUE_LOG_FILE" 2>&1 || true
-status_after="$(bash "$STATUS_SCRIPT")"
-echo "[auto-continue] post-run status=$status_after"
-if [[ "$status_after" == COMPLETE* ]]; then
-  write_runtime_state complete verified "$status_after"
-  write_lease_state false "completion reached"
-  bash "$INSTALL_SCRIPT" uninstall >/dev/null 2>&1 || true
-  echo "[auto-continue] project complete after run; cron removed"
-else
-  write_runtime_state inactive run_finished "$status_after"
-  write_lease_state false "run finished without completion"
-fi
+  set +e
+  hermes chat -q "$PROMPT" >> "$HERMES_AUTO_CONTINUE_LOG_FILE" 2>&1
+  hermes_exit=$?
+  set -e
+
+  if [ "$hermes_exit" -ne 0 ]; then
+    write_blocked hermes_run_failed "exit=$hermes_exit source=$source_name pass=$pass_no/$max_passes"
+    write_lease_state false "run failed"
+    echo "[auto-continue] hermes run failed on pass $pass_no/$max_passes"
+    exit "$hermes_exit"
+  fi
+
+  status_after="$(bash "$STATUS_SCRIPT")"
+  echo "[auto-continue] post-run status=$status_after pass=$pass_no/$max_passes"
+
+  if [[ "$status_after" == COMPLETE* ]]; then
+    clear_blocked
+    write_runtime_state complete verified "$status_after"
+    write_lease_state false "completion reached"
+    bash "$INSTALL_SCRIPT" uninstall >/dev/null 2>&1 || true
+    bash "$SUMMARY_SCRIPT" >/dev/null 2>&1 || true
+    echo "[auto-continue] project complete after run; cron removed"
+    exit 0
+  fi
+
+  if handoff_active; then
+    clear_blocked
+    write_runtime_state handoff waiting_for_input "handoff file present after pass $pass_no/$max_passes"
+    write_lease_state false "handoff active"
+    bash "$SUMMARY_SCRIPT" >/dev/null 2>&1 || true
+    echo "[auto-continue] handoff active after pass $pass_no/$max_passes; stopping autonomous loop"
+    exit 0
+  fi
+
+  clear_blocked
+  write_runtime_state inactive pass_finished "pass $pass_no/$max_passes finished without completion"
+  write_lease_state false "pass $pass_no/$max_passes finished without completion"
+  bash "$SUMMARY_SCRIPT" >/dev/null 2>&1 || true
+
+  if [ "$pass_no" -lt "$max_passes" ]; then
+    echo "[auto-continue] incomplete after pass $pass_no/$max_passes; continuing"
+    sleep "$pass_idle_seconds"
+  fi
+
+  pass_no=$((pass_no + 1))
+done
+
+write_runtime_state inactive pass_budget_exhausted "max passes reached without completion or handoff"
+write_lease_state false "pass budget exhausted"
 bash "$SUMMARY_SCRIPT" >/dev/null 2>&1 || true
+echo "[auto-continue] pass budget exhausted without completion"

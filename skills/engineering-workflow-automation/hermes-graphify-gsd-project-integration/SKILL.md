@@ -81,6 +81,7 @@ For any repo allowed to write, prefer an execution-surface guard requiring at le
 - `package.json`
 - `pnpm-lock.yaml`
 - `src-tauri/` or the repo's real backend root
+- `.planning/REQUIREMENTS.md`
 - `.planning/STATE.md`
 - executable `scripts/graphify-sync.sh`
 
@@ -151,6 +152,12 @@ Use it to:
 - print the repo's standard iteration loop
 - expose operator/runtime diagnostics such as `auto-status`, `auto-progress`, `auto-runner-show`, `auto-execution-surface-show`, `auto-workflow-state-show`, and `auto-handoff-show`
 
+If the user wants **autonomous continuation** rather than only repo integration:
+- also add the repo-local auto-continue script family from the companion workflow skill
+- make the trigger prompt self-contained because Hermes cron runs in fresh sessions
+- prefer a multi-pass per-trigger loop so the runtime does not stop after one small task when more scoped work remains
+- use a project-specific cron tag / schedule instead of one shared global tag string
+
 ### 4. Update AGENTS.md
 Add or refine a workflow section covering:
 - GSD local runtime location
@@ -183,6 +190,11 @@ If `.planning/` does not exist and the repo needs a real brownfield planning bas
 - do not pretend this repo-integration skill alone fully solves planning bootstrap
 - delegate to `gsd-graphify-brownfield-bootstrap`
 - then return to this skill for workflow docs/script verification if needed
+
+If `.planning/` exists but `REQUIREMENTS.md` is missing and the user wants autonomous continuation:
+- add or normalize `REQUIREMENTS.md`
+- make sure `ROADMAP.md` and `STATE.md` reference the same active scope
+- ensure the runtime prompt can recover the next highest-priority unfinished requirement from those files
 
 ## Brownfield Guidance
 
@@ -221,6 +233,7 @@ Also verify:
 - AGENTS.md and README.md mention the workflow clearly
 - if the repo exposes autonomous runtime commands, `doctor` / `auto-progress` / `auto-runner-show` agree on the current writer facts
 - if the repo uses a primary-root contract, `auto-execution-surface-show` reports `writer_recommended=yes` only on the intended main repo
+- if the repo exposes autonomous continuation, one trigger is allowed to run multiple internal passes before yielding back to cron/timer
 
 ## Common Pitfalls
 

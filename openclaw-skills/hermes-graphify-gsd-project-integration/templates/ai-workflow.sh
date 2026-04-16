@@ -100,6 +100,8 @@ auto_runner_show() {
   json_pretty "$HERMES_AUTO_CONTINUE_STATE_FILE"
   echo "[auto-runner-show] lease_file=$HERMES_AUTO_CONTINUE_LEASE_FILE"
   json_pretty "$HERMES_AUTO_CONTINUE_LEASE_FILE"
+  echo "[auto-runner-show] blocked_file=$HERMES_AUTO_CONTINUE_BLOCKED_FILE"
+  json_pretty "$HERMES_AUTO_CONTINUE_BLOCKED_FILE"
 }
 
 auto_workflow_state_show() {
@@ -118,19 +120,26 @@ auto_progress() {
   summary_path="$HERMES_AUTO_CONTINUE_SUMMARY_FILE"
   state_json='{}'
   if [ -f "$HERMES_AUTO_CONTINUE_STATE_FILE" ]; then state_json="$(cat "$HERMES_AUTO_CONTINUE_STATE_FILE")"; fi
-  python3 - <<'PY' "$status_line" "$writer_status" "$state_json" "$summary_path" "$HERMES_AUTO_CONTINUE_HANDOFF_FILE"
+  python3 - <<'PY' "$status_line" "$writer_status" "$state_json" "$summary_path" "$HERMES_AUTO_CONTINUE_HANDOFF_FILE" "$HERMES_AUTO_CONTINUE_BLOCKED_FILE"
 import json, sys
 status_line = sys.argv[1]
 writer = dict(line.split('=', 1) for line in sys.argv[2].splitlines() if '=' in line)
 state = json.loads(sys.argv[3]) if sys.argv[3].strip() else {}
 summary_path = sys.argv[4]
 handoff_file = sys.argv[5]
+blocked_file = sys.argv[6]
 handoff_active = False
+blocked = {}
 try:
     with open(handoff_file) as f:
         handoff_active = bool(json.load(f))
 except Exception:
     handoff_active = False
+try:
+    with open(blocked_file) as f:
+        blocked = json.load(f)
+except Exception:
+    blocked = {}
 print(f"status={status_line}")
 print(f"execution_surface={writer.get('execution_surface','unknown')}")
 print(f"writer_recommended={writer.get('writer_recommended','unknown')}")
@@ -138,6 +147,8 @@ print(f"runner_state={state.get('state','unknown')}")
 print(f"reason={state.get('reason','n/a')}")
 print(f"head={state.get('head','unknown')}")
 print(f"handoff_active={'yes' if handoff_active else 'no'}")
+print(f"blocked_active={'yes' if bool(blocked) else 'no'}")
+print(f"blocked_reason={blocked.get('reason','n/a')}")
 print(f"summary_file={summary_path}")
 PY
 }
