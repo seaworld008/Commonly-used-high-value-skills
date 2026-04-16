@@ -16,7 +16,7 @@ pick_python() {
   fi
   candidates+=(
     "$ROOT/venv/bin/python3"
-    "/root/.hermes/hermes-agent/venv/bin/python3"
+    "$HOME/.hermes/hermes-agent/venv/bin/python3"
     "$(command -v python3 2>/dev/null || true)"
     "$(command -v python 2>/dev/null || true)"
   )

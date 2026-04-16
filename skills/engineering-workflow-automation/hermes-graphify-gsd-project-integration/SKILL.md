@@ -1,17 +1,20 @@
 ---
 name: hermes-graphify-gsd-project-integration
 description: 'Use when integrating Hermes Agent, graphify, and GSD into a specific repository, especially for adding project-local graph refresh scripts, AGENTS.md guidance, README workflow docs, gitignore entries, and a brownfield-friendly planning loop without modifying upstream tool repositories.'
-version: "1.0.0"
+version: "1.3.0"
 author: Hermes Agent
 source: "in-house"
 source_url: "https://github.com/seaworld008/Commonly-used-high-value-skills"
 tags: '["automation", "workflow", "hermes", "graphify", "gsd", "repo-integration", "planning", "brownfield"]'
-created_at: "2026-04-15"
-updated_at: "2026-04-15"
+created_at: "2026-04-16"
+updated_at: "2026-04-16"
 quality: 5
 complexity: "intermediate"
 license: MIT
-companion_skill: hermes-graphify-gsd-nonintrusive-workflow
+metadata:
+  hermes:
+    tags: [hermes, graphify, gsd, repo-integration, planning, project-workflow, brownfield]
+    companion_skill: hermes-graphify-gsd-nonintrusive-workflow
 ---
 
 # Hermes + graphify + GSD Project Integration
@@ -23,6 +26,7 @@ Use this skill to integrate Hermes, graphify, and GSD into one specific reposito
 This is the repo-level companion to `hermes-graphify-gsd-nonintrusive-workflow`.
 - The companion skill defines the upgrade-safe architecture and wrapper strategy
 - This skill applies that strategy inside a project
+- If the repo is already integrated and the current task is runtime diagnosis or writer/operator recovery, switch to `hermes-graphify-gsd-runtime-operator`
 
 Observed repo-level outputs from this skill typically include:
 - local GSD Codex runtime bootstrap (`.codex/`)
@@ -60,6 +64,27 @@ A successful integration usually leaves the repo with:
 Important boundary:
 - this skill does not guarantee automatic creation of `.planning/`
 - if the repo needs a fresh or manual brownfield planning baseline, delegate that step to `gsd-graphify-brownfield-bootstrap`
+
+## Reality-tested repo contract
+For repos that also use autonomous continuation, prefer these repo-level defaults:
+- the **main project repo** should be the primary writer execution surface
+- do not default to a sandbox/worktree as the canonical writer just because it feels safer
+- only promote an extra worktree into runtime if it is rebuilt into a complete project environment and explicitly becomes the primary root
+
+At repo level, expose and verify:
+- `./scripts/ai-workflow.sh doctor`
+- `./scripts/ai-workflow.sh auto-progress`
+- `./scripts/ai-workflow.sh auto-runner-show`
+- `./scripts/ai-workflow.sh auto-execution-surface-show`
+
+For any repo allowed to write, prefer an execution-surface guard requiring at least:
+- `package.json`
+- `pnpm-lock.yaml`
+- `src-tauri/` or the repo's real backend root
+- `.planning/STATE.md`
+- executable `scripts/graphify-sync.sh`
+
+If the repo adopts a primary-root writer contract, runtime-binding commands should only succeed when the current repo reports `writer_recommended=yes`.
 
 ## Standard Integration Steps
 
@@ -124,6 +149,7 @@ Use it to:
 - show recommended reading order
 - trigger graph sync
 - print the repo's standard iteration loop
+- expose operator/runtime diagnostics such as `auto-status`, `auto-progress`, `auto-runner-show`, `auto-execution-surface-show`, `auto-workflow-state-show`, and `auto-handoff-show`
 
 ### 4. Update AGENTS.md
 Add or refine a workflow section covering:
@@ -193,6 +219,8 @@ Also verify:
 - git hooks exist if graphify hooks are part of the contract
 - `graphify-out/GRAPH_REPORT.md` exists
 - AGENTS.md and README.md mention the workflow clearly
+- if the repo exposes autonomous runtime commands, `doctor` / `auto-progress` / `auto-runner-show` agree on the current writer facts
+- if the repo uses a primary-root contract, `auto-execution-surface-show` reports `writer_recommended=yes` only on the intended main repo
 
 ## Common Pitfalls
 
@@ -219,6 +247,11 @@ Also verify:
 - a stale Claude-side graphify install can keep warning even after Hermes-side install is current
 - update all installed graphify platform targets you actually use before treating it as a broken Hermes integration
 
+7. Leaving stale sandbox cron/state/lease artifacts active after moving back to main-repo single-writer mode
+- check both `hermes cron list --all` and system `crontab -l`
+- if observed writer metadata points at an unexpected worktree, inspect live PIDs and cron tags before assuming the runtime is healthy
+- after removing a stale sandbox writer, reconcile state/lease files so `auto-runner-show` and `auto-progress` return to `inactive` or the real current writer
+
 ## Bundled Files
 
 Load these when implementing repo integration:
@@ -240,4 +273,5 @@ When using this skill:
 5. reuse existing workflow files if already present
 6. add only the missing thin integration layer
 7. verify with real commands
-8. document the workflow for both agents and humans
+8. if the repo includes autonomous continuation, verify that `scripts/ai-workflow.sh` exposes the same auto-* operator commands documented by the companion skills
+9. document the workflow for both agents and humans

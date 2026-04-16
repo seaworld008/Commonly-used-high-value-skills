@@ -1,17 +1,23 @@
 ---
 name: hermes-graphify-gsd-nonintrusive-workflow
 description: 'Use when integrating Hermes Agent, graphify, and GSD into a local development workflow without modifying upstream repositories, especially when the user wants upgrade-safe wrappers, project-level workflow scripts, graph-aware planning, and a reusable setup that survives future upstream updates.'
-version: "1.0.0"
+version: "1.4.0"
 author: Hermes Agent
 source: "in-house"
 source_url: "https://github.com/seaworld008/Commonly-used-high-value-skills"
 tags: '["ai", "agent", "hermes", "graphify", "gsd", "workflow", "non-intrusive", "upgrade-safe"]'
-created_at: "2026-04-15"
-updated_at: "2026-04-15"
+created_at: "2026-04-16"
+updated_at: "2026-04-16"
 quality: 5
 complexity: "intermediate"
 license: MIT
-related_repos: '["https://github.com/NousResearch/hermes-agent", "https://github.com/safishamsi/graphify", "https://github.com/gsd-build/get-shit-done"]'
+metadata:
+  hermes:
+    tags: [hermes, graphify, gsd, workflow, non-intrusive, upgrade-safe, wrappers, planning]
+    github_repos:
+      - https://github.com/NousResearch/hermes-agent
+      - https://github.com/safishamsi/graphify
+      - https://github.com/gsd-build/get-shit-done
 ---
 
 # Hermes + graphify + GSD Non-Intrusive Workflow
@@ -22,6 +28,8 @@ Use this skill to build an upgrade-safe local AI development workflow that combi
 - Hermes Agent for orchestration, memory, and execution
 - graphify for codebase graph recall and low-cost refresh
 - GSD for planning, phase management, and execution cadence
+
+If the repo already has this workflow and the task is now about **runtime diagnosis, writer ownership, stale cron/state/lease cleanup, or handoff/operator recovery**, switch to `hermes-graphify-gsd-runtime-operator`.
 
 Core rule: do not modify upstream Hermes, graphify, or GSD repository code unless the user explicitly wants to contribute upstream. Prefer thin wrappers, project-local scripts, and repo documentation.
 
@@ -123,6 +131,105 @@ Per repo, add:
 - `README.md` workflow section
 - `.gitignore` entries for `.planning/` and `graphify-out/`
 
+### Optional Layer 4 — autonomous continuation loop
+When the user wants the repo to keep advancing with minimal manual prompting, add a repo-local auto-continue layer:
+- lightweight Git hooks for event triggers (`post-commit`, optionally `post-merge`)
+- a periodic reconciler (`cron` or systemd timer) that re-checks progress every N minutes
+- a single-runner lock to prevent concurrent agent executions
+- a project-level completion sentinel written only after full verification succeeds
+- evidence docs that record the final verification command and output
+
+Recommended responsibilities:
+- **hook**: only enqueue or trigger; keep it lightweight
+- **cron/timer**: watchdog + periodic reconciliation; restart the runner if needed
+- **runner**: read planning/graph context, continue work, update docs, run focused verification, and only attempt final completion when the project is actually done
+- **completion gate**: a dedicated script that runs the full verification command and writes the sentinel/evidence only on success
+
+Recommended repo-local files:
+- `scripts/hermes-auto-continue-config.sh`
+- `scripts/hermes-auto-continue-status.sh`
+- `scripts/hermes-auto-continue-trigger.sh`
+- `scripts/hermes-auto-continue-checkpoint.sh` (manual no-commit checkpoint trigger)
+- `scripts/hermes-auto-continue-summary.sh` (generate the last-run summary artifact)
+- `scripts/hermes-auto-continue-mark-complete.sh`
+- `scripts/install-hermes-auto-continue-cron.sh`
+- `.husky/post-commit`
+- optional `.husky/post-merge`
+
+Recommended optional relay artifacts:
+- `.planning/auto-continue-last-summary.md`
+- optional explicit delivery env vars such as:
+  - `HERMES_AUTO_CONTINUE_NOTIFY_DELIVER`
+  - `HERMES_AUTO_CONTINUE_NOTIFY_SCHEDULE`
+
+### Reality-tested runtime contract
+When this workflow grows into an autonomous repo-local runtime, prefer these additional constraints by default:
+- **main project repo = primary writer execution surface**
+- do not assume a separate sandbox/worktree should be the canonical writer
+- treat extra worktrees as read-only analysis or temporary experiments unless they are rebuilt into a complete project environment and explicitly promoted
+
+Recommended operator contract:
+- maintain a project-level writer lease, state file, handoff file, and planning mirror under a shared state dir
+- expose a repo-local doctor/operator surface such as:
+  - `./scripts/ai-workflow.sh doctor`
+  - `./scripts/ai-workflow.sh auto-status`
+  - `./scripts/ai-workflow.sh auto-progress`
+  - `./scripts/ai-workflow.sh auto-runner-show`
+  - `./scripts/ai-workflow.sh auto-execution-surface-show`
+  - `./scripts/ai-workflow.sh auto-workflow-state-show`
+  - `./scripts/ai-workflow.sh auto-handoff-show`
+- the bundled `templates/ai-workflow.sh` in this skill now exposes those subcommands and delegates to the repo-local auto-continue scripts
+- use the operator commands as the primary fact source before assuming the runtime is healthy
+
+Recommended execution-surface guard for any repo allowed to write:
+- require at least:
+  - `package.json`
+  - `pnpm-lock.yaml`
+  - `src-tauri/` or the repo's real backend root
+  - `.planning/STATE.md`
+  - executable `scripts/graphify-sync.sh`
+- `doctor`, `trigger`, and cron/timer install paths should all refuse to proceed on an incomplete execution surface
+- if temporary experiments must bypass the guard, require an explicit override env var and treat it as an exception path, not the normal workflow
+
+Recommended writer-surface contract:
+- define a **primary root** for the project
+- compute and expose:
+  - `writer_eligible`
+  - `primary_root_match`
+  - `writer_recommended`
+- only allow runtime-binding commands or cron installation on `writer_recommended=yes`
+
+Core rule:
+- **Do not stop because one small task or one local checklist is done.**
+- Stop only when a project-level completion sentinel exists and still matches the current HEAD/worktree state.
+
+Trigger semantics note:
+- The default repo-local auto-continue loop described here is **code-event driven + periodic reconciliation**, not chat-turn driven.
+- Typical immediate triggers are: `post-commit`, optional `post-merge`, explicit manual checkpoint scripts, and periodic `cron`/timer reconciliation.
+- A normal assistant reply ending does **not** automatically create a new trigger event unless your wrapper explicitly does so.
+- If the user expects "回复一停就继续跑", add a lightweight non-commit checkpoint trigger (for example `scripts/hermes-auto-continue-checkpoint.sh`) at agreed milestone boundaries rather than assuming message completion will fire hooks.
+- If the user also expects autonomous run summaries to return to chat, do **not** assume the local shell knows the current conversation origin. Repo-local scripts run without current-chat delivery context, so reliable auto-delivery requires an **explicit target** (for example `discord:chat_id`, `telegram:chat_id:thread_id`, or another concrete deliver string).
+- A practical pattern is: write `.planning/auto-continue-last-summary.md` after each run, then create a one-shot Hermes cron notification job only when an explicit deliver target is configured.
+
+## Project-Level Completion Gate
+
+For autonomous continuation loops, use a **completion sentinel** instead of guessing from partial task lists.
+
+Recommended design:
+1. The normal runner keeps going by default.
+2. When the agent believes the whole scoped project is finished, it runs a dedicated completion script.
+3. That script executes the repo's **full verification command**.
+4. Only if verification succeeds and the worktree is clean does it write:
+   - a sentinel file such as `.planning/auto-continue-complete.json`
+   - an evidence doc such as `docs/auto-continue-completion-evidence.md`
+5. Status checks should return `COMPLETE` only when:
+   - sentinel exists
+   - sentinel says `complete`
+   - sentinel HEAD matches current HEAD
+   - worktree is clean
+
+This avoids the common failure mode where automation stops after a subtask, a phase checklist, or a focused test subset passes.
+
 ## Minimum Verification Checklist
 
 Run these before claiming success:
@@ -153,6 +260,8 @@ Also verify:
 - `.codex/` exists if local GSD runtime is used
 - `graphify-out/graph.json` and `graphify-out/GRAPH_REPORT.md` exist after graph build
 - git hooks exist if graphify hook automation is expected
+- if the repo uses an autonomous writer runtime, `doctor` / `auto-progress` / `auto-runner-show` all report the same primary writer facts
+- if the repo uses a primary-root contract, `auto-execution-surface-show` reports `writer_recommended=yes` only for the intended main repo
 
 ## Standard Project Operating Loop
 
@@ -208,6 +317,26 @@ If something breaks after upstream updates, fix in this order:
 - put reusable logic in this skill
 - put project-specific facts in repo docs or AGENTS.md
 
+6. Stopping on partial completion
+- do not treat a single phase checklist, one small task, or a focused test subset as project completion
+- require a project-level completion sentinel written by a dedicated verification script
+- prefer **default continue, not default stop**
+
+7. Letting hooks do long-running work
+- hooks should stay lightweight and should not run long autonomous sessions inline
+- use hooks to enqueue/trigger and let a runner or cron/timer do the heavy work
+
+8. Missing concurrency control in auto-continue loops
+- use a single-runner lock (`flock` or equivalent)
+- if you want queue semantics, prefer one running + one pending over unbounded backlog
+- periodic reconciliation should recover from stale locks or crashed runners
+
+9. Letting stale cron/state/lease metadata redefine the writer by accident
+- `hermes cron list --all` being empty does **not** prove there is no system cron entry
+- check system `crontab -l` when the observed writer and the intended writer disagree
+- if a stale sandbox/worktree cron is still running, remove the cron entry first, then clear or correct state/lease metadata so operator output returns to the main repo
+- if state says `running` but kernel locks are already free, treat it as stale metadata and reconcile it explicitly instead of trusting the stale file forever
+
 ## Files to Reuse
 
 Load these bundled files when implementing:
@@ -215,8 +344,19 @@ Load these bundled files when implementing:
 - `templates/graphify-wrapper.sh`
 - `templates/gsd-sdk-wrapper.sh`
 - `templates/ai-workflow.sh`
+- `templates/hermes-auto-continue-config.sh`
+- `templates/hermes-auto-continue-status.sh`
+- `templates/hermes-auto-continue-trigger.sh`
+- `templates/hermes-auto-continue-checkpoint.sh`
+- `templates/hermes-auto-continue-summary.sh`
+- `templates/hermes-auto-continue-mark-complete.sh`
+- `templates/install-hermes-auto-continue-cron.sh`
+- `templates/husky-post-commit-auto-continue.sh`
+- `templates/husky-post-merge-auto-continue.sh`
 - `references/first-install.md`
 - `references/upgrade-contract.md`
+- `references/auto-continue-best-practices.md`
+- `references/ai-workflow-auto-continue-snippet.md`
 
 ## Execution Pattern
 
@@ -226,5 +366,8 @@ When using this skill:
 3. If Hermes exists, automatically install or upgrade latest graphify and GSD globally
 4. Add wrappers only if the native commands are missing or inconsistent after install
 5. Add project-local scripts second
-6. Verify the full loop with real commands
-7. Document the contract so future upgrades stay safe
+6. If the user wants autonomous continuation, add the repo-local auto-continue layer with hook + cron/timer + lock + completion gate
+7. Verify the full loop with real commands
+8. Document the contract so future upgrades stay safe
+9. For auto-continue setups, explicitly verify that partial completion does **not** stop the loop and that only the completion sentinel can stop it
+10. Verify that the bundled `ai-workflow.sh` surface, auto-continue scripts, and operator docs all expose the same command names before packaging the workflow for teammates

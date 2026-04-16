@@ -13,7 +13,6 @@ pick_python() {
   local candidates=(
     "${PYTHON_BIN:-}"
     "$HOME/.hermes/hermes-agent/venv/bin/python3"
-    "/root/.hermes/hermes-agent/venv/bin/python3"
     "$(command -v python3 2>/dev/null || true)"
     "$(command -v python 2>/dev/null || true)"
   )

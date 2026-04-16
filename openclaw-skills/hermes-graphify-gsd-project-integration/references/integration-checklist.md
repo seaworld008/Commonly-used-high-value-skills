@@ -5,7 +5,16 @@ Use this checklist when applying repo-level integration.
 1. Global prerequisite layer
 - Hermes already installed
 - if Hermes is missing, stop and request manual install
-- graphify installed or upgraded globally via `python3 -m pip install --user -U graphifyy`
+- graphify installed or upgraded globally via a venv-aware pip flow, for example:
+  ```bash
+  PY_BIN="${PYTHON_BIN:-$HOME/.hermes/hermes-agent/venv/bin/python3}"
+  [ -x "$PY_BIN" ] || PY_BIN="$(command -v python3)"
+  if "$PY_BIN" -c 'import sys; print(int(sys.prefix != sys.base_prefix))' 2>/dev/null | grep -q '^1$'; then
+    "$PY_BIN" -m pip install -U graphifyy
+  else
+    "$PY_BIN" -m pip install --user -U graphifyy
+  fi
+  ```
 - graphify integrated for Hermes via `~/.local/bin/graphify install --platform hermes || graphify install --platform hermes`
 - GSD installed or upgraded globally via `npx -y get-shit-done-cc@latest --codex --global --sdk`
 

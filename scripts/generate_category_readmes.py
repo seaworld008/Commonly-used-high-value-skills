@@ -123,6 +123,40 @@ graphify --help
 command -v gsd-sdk
 gsd-sdk --version
 ```
+
+<a id="hermes-graphify-gsd-runtime-operator"></a>
+## Hermes + graphify + GSD Runtime Operator
+
+`hermes-graphify-gsd-runtime-operator` 适合在仓库已经完成接入之后，专门处理运行态诊断、writer ownership、auto-continue、handoff / blocked / lease / cron 等状态问题。
+
+### 什么时候使用
+
+- 想知道“现在是谁在写”。
+- 想确认当前 repo 还是不是推荐 writer surface。
+- 想排查 `auto-progress` 一直显示 running 的原因。
+- 想清理旧 sandbox / worktree 遗留的 writer lease。
+- 想确认 handoff、blocked、planning mirror、lease 状态是否一致。
+
+### 推荐提示词
+
+```text
+请使用 hermes-graphify-gsd-runtime-operator，检查当前仓库的 auto-continue / writer lease / blocked / handoff 状态，并告诉我现在是否还是主仓库在负责写入。
+```
+
+### 推荐先跑的命令
+
+```bash
+./scripts/ai-workflow.sh doctor
+./scripts/ai-workflow.sh auto-execution-surface-show
+./scripts/ai-workflow.sh auto-runner-show
+./scripts/ai-workflow.sh auto-progress
+./scripts/ai-workflow.sh auto-workflow-state-show
+```
+
+### 和其他技能的关系
+
+- 还没接入工作流时，先用 `hermes-graphify-gsd-nonintrusive-workflow` 或 `hermes-graphify-gsd-project-integration`。
+- 已经接入，只是运行态异常时，优先切到 `hermes-graphify-gsd-runtime-operator`。
 """,
     "engineering-workflow-automation": """
 <a id="hermes-graphify-gsd-project-workflow"></a>
@@ -194,6 +228,37 @@ gsd-sdk --version
 ```
 
 如果你只想给一个仓库快速接入，也可以直接使用 `hermes-graphify-gsd-project-integration`。它会先检查全局工具链，再处理项目内文件。
+
+<a id="gsd-graphify-brownfield-bootstrap"></a>
+## GSD + graphify Brownfield Bootstrap
+
+`gsd-graphify-brownfield-bootstrap` 适合复杂 brownfield 仓库，特别是当前仓库缺少 `.planning/`、需要手工种下 current-state / roadmap / docs 基线，而且不想依赖交互式 `gsd-sdk init` 的时候。
+
+### 什么时候使用
+
+- 现有仓库想接入 GSD + graphify，但 `.planning/` 还是空的。
+- 想统一 one canonical brownfield bootstrap 流程给团队复用。
+- 想把 `.codex/`、`graphify-out/`、`.planning/`、README / AGENTS / docs 一次性收敛起来。
+- 想在大改造前先沉淀 current state、entrypoints、roadmaps。
+
+### 推荐提示词
+
+```text
+请使用 gsd-graphify-brownfield-bootstrap，为当前 brownfield 仓库建立统一的 GSD + graphify 启动流程，并手工种下 .planning 基线，不要依赖交互式 gsd-sdk init。
+```
+
+### 典型产物
+
+1. `./.codex/` 本地 runtime 文件
+2. `scripts/graphify-sync.sh`
+3. `graphify-out/`
+4. 手工 seeded 的 `.planning/`
+5. `AGENTS.md`、`README.md`、docs 中的 brownfield 指引
+
+### 和项目接入技能的关系
+
+- 普通仓库接入优先用 `hermes-graphify-gsd-project-integration`。
+- 发现仓库确实需要补 `.planning/`、补 brownfield current-state baseline 时，再切到 `gsd-graphify-brownfield-bootstrap`。
 """,
 }
 

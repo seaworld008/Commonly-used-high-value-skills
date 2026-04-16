@@ -6,7 +6,6 @@ if [ -n "${GRAPHIFY_PY:-}" ] && [ -x "${GRAPHIFY_PY}" ]; then
 fi
 
 candidates=(
-  "/root/.hermes/hermes-agent/venv/bin/python3"
   "${HOME}/.hermes/hermes-agent/venv/bin/python3"
   "$(command -v python3 2>/dev/null || true)"
   "$(command -v python 2>/dev/null || true)"

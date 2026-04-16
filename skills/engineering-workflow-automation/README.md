@@ -4,7 +4,7 @@
 
 聚焦 GitHub、浏览器自动化、CI 排障、Playwright 与工程协作自动化。
 
-当前分类共 **9** 个技能。
+当前分类共 **10** 个技能。
 
 ## 推荐先看
 
@@ -83,6 +83,37 @@ gsd-sdk --version
 
 如果你只想给一个仓库快速接入，也可以直接使用 `hermes-graphify-gsd-project-integration`。它会先检查全局工具链，再处理项目内文件。
 
+<a id="gsd-graphify-brownfield-bootstrap"></a>
+## GSD + graphify Brownfield Bootstrap
+
+`gsd-graphify-brownfield-bootstrap` 适合复杂 brownfield 仓库，特别是当前仓库缺少 `.planning/`、需要手工种下 current-state / roadmap / docs 基线，而且不想依赖交互式 `gsd-sdk init` 的时候。
+
+### 什么时候使用
+
+- 现有仓库想接入 GSD + graphify，但 `.planning/` 还是空的。
+- 想统一 one canonical brownfield bootstrap 流程给团队复用。
+- 想把 `.codex/`、`graphify-out/`、`.planning/`、README / AGENTS / docs 一次性收敛起来。
+- 想在大改造前先沉淀 current state、entrypoints、roadmaps。
+
+### 推荐提示词
+
+```text
+请使用 gsd-graphify-brownfield-bootstrap，为当前 brownfield 仓库建立统一的 GSD + graphify 启动流程，并手工种下 .planning 基线，不要依赖交互式 gsd-sdk init。
+```
+
+### 典型产物
+
+1. `./.codex/` 本地 runtime 文件
+2. `scripts/graphify-sync.sh`
+3. `graphify-out/`
+4. 手工 seeded 的 `.planning/`
+5. `AGENTS.md`、`README.md`、docs 中的 brownfield 指引
+
+### 和项目接入技能的关系
+
+- 普通仓库接入优先用 `hermes-graphify-gsd-project-integration`。
+- 发现仓库确实需要补 `.planning/`、补 brownfield current-state baseline 时，再切到 `gsd-graphify-brownfield-bootstrap`。
+
 ## 技能总览
 
 | 技能 | 简介 | 目录 | 详情 |
@@ -91,6 +122,7 @@ gsd-sdk --version
 | `gh-address-comments` | Help address review/issue comments on the open GitHub PR for the current branch using gh CLI; verify gh auth first and prompt the user to authenticate if not logged in. | [目录](./gh-address-comments/) | [SKILL.md](./gh-address-comments/SKILL.md) |
 | `gh-fix-ci` | Use when a user asks to debug or fix failing GitHub PR checks that run in GitHub Actions; use `gh` to inspect checks and logs, summarize failure context, draft a fix plan, and implement only after explicit approval. Treat external providers (for example Buildkite) as out of scope and report only the details URL. | [目录](./gh-fix-ci/) | [SKILL.md](./gh-fix-ci/SKILL.md) |
 | `github` | 通过 GitHub CLI 自动化 Issue、PR、Review 与 CI 检查，适合工程协作闭环。 | [目录](./github/) | [SKILL.md](./github/SKILL.md) |
+| `gsd-graphify-brownfield-bootstrap` | Bootstrap GSD + graphify for an existing brownfield repo when the project needs a single canonical workflow for local runtime setup, graph refresh, and manually seeded .planning/ context without depending on interactive GSD init. | [目录](./gsd-graphify-brownfield-bootstrap/) | [SKILL.md](./gsd-graphify-brownfield-bootstrap/SKILL.md) |
 | `hermes-graphify-gsd-project-integration` | Use when integrating Hermes Agent, graphify, and GSD into a specific repository, especially for adding project-local graph refresh scripts, AGENTS.md guidance, README workflow docs, gitignore entries, and a brownfield-friendly planning loop without modifying upstream tool repositories. | [目录](./hermes-graphify-gsd-project-integration/) | [SKILL.md](./hermes-graphify-gsd-project-integration/SKILL.md) |
 | `jupyter-notebook` | Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) for experiments, explorations, or tutorials; prefer the bundled templates and run the helper script `new_notebook.py` to generate a clean starting notebook. | [目录](./jupyter-notebook/) | [SKILL.md](./jupyter-notebook/SKILL.md) |
 | `playwright` | Use when the task requires automating a real browser from the terminal (navigation, form filling, snapshots, screenshots, data extraction, UI-flow debugging) via `playwright-cli` or the bundled wrapper script. | [目录](./playwright/) | [SKILL.md](./playwright/SKILL.md) |
