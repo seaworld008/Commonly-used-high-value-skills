@@ -128,6 +128,10 @@ print("status=done")
 raise SystemExit(0)
 PY
 
+if [ -x "$ROOT/scripts/hermes-auto-continue-notify.sh" ]; then
+  bash "$ROOT/scripts/hermes-auto-continue-notify.sh" task_done "${1:-task_done}" "${2:-Complete-if-ready gate passed}" >/dev/null 2>&1 || true
+fi
+
 if [ -x "$ROOT/scripts/hermes-auto-continue-task-board-sync-docs.sh" ]; then
   bash "$ROOT/scripts/hermes-auto-continue-task-board-sync-docs.sh" >/dev/null 2>&1 || true
 fi

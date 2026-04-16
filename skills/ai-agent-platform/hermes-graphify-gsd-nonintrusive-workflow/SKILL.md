@@ -158,6 +158,7 @@ Recommended repo-local files:
 - `scripts/hermes-auto-continue-task-board-complete-if-ready.sh`
 - `scripts/hermes-auto-continue-task-board-sync-docs.sh`
 - `scripts/hermes-auto-continue-resume-if-ready.sh`
+- `scripts/hermes-auto-continue-notify.sh`
 - `scripts/hermes-auto-continue-mark-complete.sh`
 - `scripts/install-hermes-auto-continue-cron.sh`
 - `.husky/post-commit`
@@ -166,9 +167,12 @@ Recommended repo-local files:
 Recommended optional relay artifacts:
 - `.planning/auto-continue-last-summary.md`
 - `.planning/task-board.json`
+- `.planning/notifications/`
 - optional explicit delivery env vars such as:
   - `HERMES_AUTO_CONTINUE_NOTIFY_DELIVER`
   - `HERMES_AUTO_CONTINUE_NOTIFY_SCHEDULE`
+  - `HERMES_AUTO_CONTINUE_NOTIFY_COMMAND`
+  - `HERMES_AUTO_CONTINUE_NOTIFY_EVENTS`
 - recommended runtime tuning env vars such as:
   - `HERMES_AUTO_CONTINUE_MAX_PASSES_PER_TRIGGER`
   - `HERMES_AUTO_CONTINUE_PASS_IDLE_SECONDS`
@@ -251,6 +255,7 @@ Trigger semantics note:
 - If the user expects "回复一停就继续跑", add a lightweight non-commit checkpoint trigger (for example `scripts/hermes-auto-continue-checkpoint.sh`) at agreed milestone boundaries rather than assuming message completion will fire hooks.
 - If the user also expects autonomous run summaries to return to chat, do **not** assume the local shell knows the current conversation origin. Repo-local scripts run without current-chat delivery context, so reliable auto-delivery requires an **explicit target** (for example `discord:chat_id`, `telegram:chat_id:thread_id`, or another concrete deliver string).
 - A practical pattern is: write `.planning/auto-continue-last-summary.md` after each run, then create a one-shot Hermes cron notification job only when an explicit deliver target is configured.
+- A robust default is: always write notifications to a local outbox under `.planning/notifications/`, then optionally invoke an external delivery command when `HERMES_AUTO_CONTINUE_NOTIFY_COMMAND` is configured.
 - Hermes cron runs in fresh sessions, so the trigger prompt itself should be self-contained and explicitly tell the runner which local files to read first (`GRAPH_REPORT.md`, `PROJECT.md`, `REQUIREMENTS.md`, `ROADMAP.md`, `STATE.md`, and runtime summary/mirror files when present).
 - If a machine-readable task board exists, the trigger prompt should explicitly tell the runner to use that board as the canonical next-task selector and to update it after each meaningful step.
 - If handoff is meant to auto-resume later, prefer machine-readable `resume_condition` probes such as:
@@ -412,6 +417,7 @@ Load these bundled files when implementing:
 - `templates/hermes-auto-continue-task-board-complete-if-ready.sh`
 - `templates/hermes-auto-continue-task-board-sync-docs.sh`
 - `templates/hermes-auto-continue-resume-if-ready.sh`
+- `templates/hermes-auto-continue-notify.sh`
 - `templates/hermes-auto-continue-mark-complete.sh`
 - `templates/install-hermes-auto-continue-cron.sh`
 - `templates/husky-post-commit-auto-continue.sh`

@@ -56,3 +56,6 @@ evidence_path.write_text(evidence)
 PY
 echo "[auto-continue] completion sentinel written: $HERMES_AUTO_CONTINUE_SENTINEL"
 echo "[auto-continue] evidence written: $HERMES_AUTO_CONTINUE_EVIDENCE_DOC"
+if [ -x "$ROOT/scripts/hermes-auto-continue-notify.sh" ]; then
+  bash "$ROOT/scripts/hermes-auto-continue-notify.sh" complete "project_complete" "$HERMES_AUTO_CONTINUE_EVIDENCE_DOC" >/dev/null 2>&1 || true
+fi

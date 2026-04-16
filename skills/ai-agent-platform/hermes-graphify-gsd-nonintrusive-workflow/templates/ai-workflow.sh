@@ -24,6 +24,7 @@ AUTO_TASK_BOARD_UPDATE="$ROOT/scripts/hermes-auto-continue-task-board-update.sh"
 AUTO_TASK_BOARD_COMPLETE="$ROOT/scripts/hermes-auto-continue-task-board-complete-if-ready.sh"
 AUTO_TASK_BOARD_SYNC="$ROOT/scripts/hermes-auto-continue-task-board-sync-docs.sh"
 AUTO_RESUME_IF_READY="$ROOT/scripts/hermes-auto-continue-resume-if-ready.sh"
+AUTO_NOTIFY="$ROOT/scripts/hermes-auto-continue-notify.sh"
 
 have_cmd() { command -v "$1" >/dev/null 2>&1; }
 have_file() { [ -f "$1" ]; }
@@ -98,6 +99,7 @@ auto_task_board_update() { require_exec "$AUTO_TASK_BOARD_UPDATE"; bash "$AUTO_T
 auto_task_board_complete_if_ready() { require_exec "$AUTO_TASK_BOARD_COMPLETE"; bash "$AUTO_TASK_BOARD_COMPLETE" "$@"; }
 auto_task_board_sync_docs() { require_exec "$AUTO_TASK_BOARD_SYNC"; bash "$AUTO_TASK_BOARD_SYNC"; }
 auto_resume_if_ready() { require_exec "$AUTO_RESUME_IF_READY"; bash "$AUTO_RESUME_IF_READY"; }
+auto_notify() { require_exec "$AUTO_NOTIFY"; bash "$AUTO_NOTIFY" "$@"; }
 
 auto_execution_surface_show() {
   maybe_source_auto_config
@@ -192,6 +194,9 @@ Path(sys.argv[1]).parent.mkdir(parents=True, exist_ok=True)
 Path(sys.argv[1]).write_text(json.dumps(payload, ensure_ascii=False, indent=2) + '\n')
 print(sys.argv[1])
 PY
+  if [ -x "$AUTO_NOTIFY" ]; then
+    bash "$AUTO_NOTIFY" handoff "$reason" "$detail" >/dev/null 2>&1 || true
+  fi
 }
 
 auto_handoff_clear() {
@@ -222,6 +227,7 @@ case "$cmd" in
   auto-task-board-complete-if-ready) shift; auto_task_board_complete_if_ready "$@" ;;
   auto-task-board-sync-docs) auto_task_board_sync_docs ;;
   auto-resume-if-ready) auto_resume_if_ready ;;
+  auto-notify) shift; auto_notify "$@" ;;
   auto-progress) auto_progress ;;
   auto-runner-show) auto_runner_show ;;
   auto-execution-surface-show) auto_execution_surface_show ;;
@@ -230,7 +236,7 @@ case "$cmd" in
   auto-handoff-set) shift; auto_handoff_set "$@" ;;
   auto-handoff-clear) auto_handoff_clear ;;
   *)
-    echo "Usage: $0 {doctor|context|sync|force|next|auto-status|auto-trigger|auto-checkpoint|auto-mark-complete|auto-install|auto-uninstall|auto-summary|auto-task-board-init|auto-task-board-show|auto-task-board-claim-next|auto-task-board-update|auto-task-board-complete-if-ready|auto-task-board-sync-docs|auto-resume-if-ready|auto-progress|auto-runner-show|auto-execution-surface-show|auto-workflow-state-show|auto-handoff-show|auto-handoff-set|auto-handoff-clear}" >&2
+    echo "Usage: $0 {doctor|context|sync|force|next|auto-status|auto-trigger|auto-checkpoint|auto-mark-complete|auto-install|auto-uninstall|auto-summary|auto-task-board-init|auto-task-board-show|auto-task-board-claim-next|auto-task-board-update|auto-task-board-complete-if-ready|auto-task-board-sync-docs|auto-resume-if-ready|auto-notify|auto-progress|auto-runner-show|auto-execution-surface-show|auto-workflow-state-show|auto-handoff-show|auto-handoff-set|auto-handoff-clear}" >&2
     exit 1
     ;;
 esac

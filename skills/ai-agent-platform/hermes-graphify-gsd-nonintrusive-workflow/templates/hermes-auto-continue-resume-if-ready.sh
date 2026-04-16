@@ -20,6 +20,7 @@ if flock -n 8; then
   project_lock_free="yes"
 fi
 
+set +e
 python3 - <<'PY' "$ROOT" "$HERMES_AUTO_CONTINUE_HANDOFF_FILE" "$HERMES_AUTO_CONTINUE_BLOCKED_FILE" "$HERMES_AUTO_CONTINUE_STATE_FILE" "$HERMES_AUTO_CONTINUE_PLANNING_MIRROR" "$HERMES_AUTO_CONTINUE_TASK_BOARD_FILE" "$writer_recommended" "$repo_lock_free" "$project_lock_free"
 from __future__ import annotations
 
@@ -194,3 +195,10 @@ print("resume_ready=no")
 print("reason=no_handoff_or_blocked")
 raise SystemExit(2)
 PY
+
+resume_exit=$?
+set -e
+if [ "$resume_exit" -eq 0 ] && [ -x "$ROOT/scripts/hermes-auto-continue-notify.sh" ]; then
+  bash "$ROOT/scripts/hermes-auto-continue-notify.sh" resume "auto-resume" "A blocked or handoff state was cleared because its resume condition is now satisfied." >/dev/null 2>&1 || true
+fi
+exit "$resume_exit"

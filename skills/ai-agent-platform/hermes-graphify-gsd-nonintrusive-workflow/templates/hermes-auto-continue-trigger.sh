@@ -7,6 +7,7 @@ STATUS_SCRIPT="$ROOT/scripts/hermes-auto-continue-status.sh"
 SUMMARY_SCRIPT="$ROOT/scripts/hermes-auto-continue-summary.sh"
 INSTALL_SCRIPT="$ROOT/scripts/install-hermes-auto-continue-cron.sh"
 RESUME_SCRIPT="$ROOT/scripts/hermes-auto-continue-resume-if-ready.sh"
+NOTIFY_SCRIPT="$ROOT/scripts/hermes-auto-continue-notify.sh"
 hermes_auto_continue_ensure_dirs
 cd "$ROOT"
 
@@ -230,6 +231,9 @@ EOF
   if [ "$hermes_exit" -ne 0 ]; then
     write_blocked hermes_run_failed "exit=$hermes_exit source=$source_name pass=$pass_no/$max_passes"
     write_lease_state false "run failed"
+    if [ -x "$NOTIFY_SCRIPT" ]; then
+      bash "$NOTIFY_SCRIPT" run_failed "hermes_run_failed" "exit=$hermes_exit source=$source_name pass=$pass_no/$max_passes" >/dev/null 2>&1 || true
+    fi
     echo "[auto-continue] hermes run failed on pass $pass_no/$max_passes"
     exit "$hermes_exit"
   fi
@@ -272,4 +276,7 @@ done
 write_runtime_state inactive pass_budget_exhausted "max passes reached without completion or handoff"
 write_lease_state false "pass budget exhausted"
 bash "$SUMMARY_SCRIPT" >/dev/null 2>&1 || true
+if [ -x "$NOTIFY_SCRIPT" ]; then
+  bash "$NOTIFY_SCRIPT" pass_budget_exhausted "pass_budget_exhausted" "max passes reached without completion or handoff" >/dev/null 2>&1 || true
+fi
 echo "[auto-continue] pass budget exhausted without completion"
