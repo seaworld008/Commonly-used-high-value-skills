@@ -188,6 +188,9 @@ Recommended operator contract:
 - maintain a project-level writer lease, state file, handoff file, and planning mirror under a shared state dir
 - expose a repo-local doctor/operator surface such as:
   - `./scripts/ai-workflow.sh doctor`
+  - `./scripts/ai-workflow.sh gsd-doctor`
+  - `./scripts/ai-workflow.sh gsd-skill-show <name>`
+  - `./scripts/ai-workflow.sh gsd-workflow-show <name>`
   - `./scripts/ai-workflow.sh auto-status`
   - `./scripts/ai-workflow.sh auto-progress`
   - `./scripts/ai-workflow.sh auto-runner-show`
@@ -223,10 +226,12 @@ Core rule:
 Recommended machine-readable planning contract:
 - keep human-readable docs (`PROJECT.md`, `REQUIREMENTS.md`, `ROADMAP.md`, `STATE.md`)
 - also keep a machine-readable task board at `.planning/task-board.json`
+- if local GSD is installed under `.codex/get-shit-done/`, treat GSD workflow files as the lifecycle source of truth and use the task board as execution cache
 - the autonomous runner should prefer:
-  1. `in_progress` task
-  2. highest-priority executable `todo`
-  3. documented fallback to `REQUIREMENTS.md` / `ROADMAP.md` only when the board is missing or stale
+  1. GSD phase truth (`gsd-next`, discuss / plan / execute / verify workflow docs when available)
+  2. `in_progress` task
+  3. highest-priority executable `todo`
+  4. documented fallback to `REQUIREMENTS.md` / `ROADMAP.md` only when the board is missing or stale
 - expose task-board operator commands for:
   - initialization
   - current/next task inspection
@@ -258,6 +263,8 @@ Trigger semantics note:
 - A robust default is: always write notifications to a local outbox under `.planning/notifications/`, then optionally invoke an external delivery command when `HERMES_AUTO_CONTINUE_NOTIFY_COMMAND` is configured.
 - Hermes cron runs in fresh sessions, so the trigger prompt itself should be self-contained and explicitly tell the runner which local files to read first (`GRAPH_REPORT.md`, `PROJECT.md`, `REQUIREMENTS.md`, `ROADMAP.md`, `STATE.md`, and runtime summary/mirror files when present).
 - If a machine-readable task board exists, the trigger prompt should explicitly tell the runner to use that board as the canonical next-task selector and to update it after each meaningful step.
+- If local GSD skills/workflows are installed, the trigger prompt should read `gsd-next` first and let GSD decide whether the system currently needs discuss, plan, execute, or verify.
+- If graphify is installed, prefer `query`, `path`, and `explain` before guessing at cross-module structure.
 - If handoff is meant to auto-resume later, prefer machine-readable `resume_condition` probes such as:
   - `file_exists:<path>`
   - `file_missing:<path>`
@@ -418,6 +425,7 @@ Load these bundled files when implementing:
 - `templates/hermes-auto-continue-task-board-sync-docs.sh`
 - `templates/hermes-auto-continue-resume-if-ready.sh`
 - `templates/hermes-auto-continue-notify.sh`
+- `templates/hermes-gsd-phase-engine-status.sh`
 - `templates/hermes-auto-continue-mark-complete.sh`
 - `templates/install-hermes-auto-continue-cron.sh`
 - `templates/husky-post-commit-auto-continue.sh`

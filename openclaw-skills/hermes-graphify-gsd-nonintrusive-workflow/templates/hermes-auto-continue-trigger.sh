@@ -177,6 +177,8 @@ while [ "$pass_no" -le "$max_passes" ]; do
 You are automatically continuing work in this repository.
 This is pass $pass_no of $max_passes for trigger source "$source_name".
 Read the local planning/docs/graph context first. Start with these files if they exist:
+- .codex/skills/gsd-next/SKILL.md
+- .codex/get-shit-done/workflows/next.md
 - graphify-out/GRAPH_REPORT.md
 - .planning/PROJECT.md
 - $task_board_rel
@@ -188,6 +190,22 @@ Read the local planning/docs/graph context first. Start with these files if they
 - .planning/auto-workflow-state.json
 Default continue, not default stop.
 Do not stop because one small task is done.
+If a local GSD install exists under `.codex/get-shit-done/` and `.codex/skills/`, treat GSD as the lifecycle engine:
+- use `.codex/skills/gsd-next/SKILL.md` plus `.codex/get-shit-done/workflows/next.md` to decide whether the project currently needs discuss, plan, execute, or verify
+- when the lifecycle step is unclear, inspect with:
+  bash scripts/ai-workflow.sh gsd-doctor
+  bash scripts/ai-workflow.sh gsd-skill-show gsd-next
+  bash scripts/ai-workflow.sh gsd-workflow-show next
+- if the next GSD step is discuss / plan / execute / verify, read the matching local GSD skill/workflow docs before proceeding:
+  bash scripts/ai-workflow.sh gsd-skill-show gsd-discuss-phase
+  bash scripts/ai-workflow.sh gsd-workflow-show discuss-phase
+  bash scripts/ai-workflow.sh gsd-skill-show gsd-plan-phase
+  bash scripts/ai-workflow.sh gsd-workflow-show plan-phase
+  bash scripts/ai-workflow.sh gsd-skill-show gsd-execute-phase
+  bash scripts/ai-workflow.sh gsd-workflow-show execute-phase
+  bash scripts/ai-workflow.sh gsd-skill-show gsd-verify-work
+  bash scripts/ai-workflow.sh gsd-workflow-show verify-work
+Treat task board as the execution cache for the current step, not as a replacement for GSD phase truth.
 If $task_board_rel does not exist yet and the repo already has planning docs, initialize it first by running:
   bash scripts/hermes-auto-continue-task-board-init.sh
 When task board exists, prefer it as the canonical next-task selector:
@@ -205,6 +223,11 @@ When task board exists, prefer it as the canonical next-task selector:
 - do not mark tasks done purely by intuition; rely on the completion gate so dependencies, acceptance, and artifact existence are checked first
 - after changing the task board, sync the managed planning mirror with:
   bash scripts/ai-workflow.sh auto-task-board-sync-docs
+When architecture or dependency relationships are unclear, use graphify as a live retrieval layer instead of guessing:
+- bash scripts/ai-workflow.sh graphify-query "<question>"
+- bash scripts/ai-workflow.sh graphify-path "<nodeA>" "<nodeB>"
+- bash scripts/ai-workflow.sh graphify-explain "<node>"
+- for larger brownfield navigation refreshes: bash scripts/ai-workflow.sh graphify-wiki
 Pick the highest-priority executable task and keep moving until the whole scoped project is complete, you are truly blocked, or you need external input.
 After each meaningful implementation step, update the planning docs so the next pass can continue from current reality.
 This runner currently holds the canonical writer lease for the project.

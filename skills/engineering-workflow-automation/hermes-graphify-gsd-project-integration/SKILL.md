@@ -151,6 +151,8 @@ Use it to:
 - trigger graph sync
 - print the repo's standard iteration loop
 - expose operator/runtime diagnostics such as `auto-status`, `auto-progress`, `auto-runner-show`, `auto-execution-surface-show`, `auto-workflow-state-show`, and `auto-handoff-show`
+- surface local GSD workflow docs / skills when `.codex/get-shit-done/` is installed
+- surface graphify retrieval helpers (`query`, `path`, `explain`, `wiki`) for architecture debugging
 
 If the user wants **autonomous continuation** rather than only repo integration:
 - also add the repo-local auto-continue script family from the companion workflow skill
@@ -159,6 +161,8 @@ If the user wants **autonomous continuation** rather than only repo integration:
 - use a project-specific cron tag / schedule instead of one shared global tag string
 - add or normalize a machine-readable task board such as `.planning/task-board.json`
 - expose task-board operator commands so humans and agents can inspect next actionable work
+- if local GSD is installed, let GSD phase workflows drive discuss / plan / execute / verify order
+- use graphify retrieval commands when cross-module structure is unclear
 
 ### 4. Update AGENTS.md
 Add or refine a workflow section covering:

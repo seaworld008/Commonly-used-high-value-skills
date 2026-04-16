@@ -25,6 +25,7 @@ AUTO_TASK_BOARD_COMPLETE="$ROOT/scripts/hermes-auto-continue-task-board-complete
 AUTO_TASK_BOARD_SYNC="$ROOT/scripts/hermes-auto-continue-task-board-sync-docs.sh"
 AUTO_RESUME_IF_READY="$ROOT/scripts/hermes-auto-continue-resume-if-ready.sh"
 AUTO_NOTIFY="$ROOT/scripts/hermes-auto-continue-notify.sh"
+AUTO_GSD_STATUS="$ROOT/scripts/hermes-gsd-phase-engine-status.sh"
 
 have_cmd() { command -v "$1" >/dev/null 2>&1; }
 have_file() { [ -f "$1" ]; }
@@ -100,6 +101,27 @@ auto_task_board_complete_if_ready() { require_exec "$AUTO_TASK_BOARD_COMPLETE"; 
 auto_task_board_sync_docs() { require_exec "$AUTO_TASK_BOARD_SYNC"; bash "$AUTO_TASK_BOARD_SYNC"; }
 auto_resume_if_ready() { require_exec "$AUTO_RESUME_IF_READY"; bash "$AUTO_RESUME_IF_READY"; }
 auto_notify() { require_exec "$AUTO_NOTIFY"; bash "$AUTO_NOTIFY" "$@"; }
+auto_gsd_doctor() { require_exec "$AUTO_GSD_STATUS"; bash "$AUTO_GSD_STATUS"; }
+gsd_workflow_show() {
+  maybe_source_auto_config
+  local name="${1:-}"
+  [ -n "$name" ] || { echo "Usage: $0 gsd-workflow-show <name>" >&2; exit 1; }
+  local path="$HERMES_GSD_WORKFLOWS_DIR/${name}.md"
+  [ -f "$path" ] || { echo "missing: $path" >&2; exit 1; }
+  sed -n '1,220p' "$path"
+}
+gsd_skill_show() {
+  maybe_source_auto_config
+  local name="${1:-}"
+  [ -n "$name" ] || { echo "Usage: $0 gsd-skill-show <name>" >&2; exit 1; }
+  local path="$HERMES_GSD_SKILLS_DIR/${name}/SKILL.md"
+  [ -f "$path" ] || { echo "missing: $path" >&2; exit 1; }
+  sed -n '1,220p' "$path"
+}
+graphify_query() { shift 0; command -v graphify >/dev/null 2>&1 || { echo "graphify missing" >&2; exit 1; }; graphify query "$*"; }
+graphify_path() { command -v graphify >/dev/null 2>&1 || { echo "graphify missing" >&2; exit 1; }; [ $# -eq 2 ] || { echo "Usage: $0 graphify-path <from> <to>" >&2; exit 1; }; graphify path "$1" "$2"; }
+graphify_explain() { command -v graphify >/dev/null 2>&1 || { echo "graphify missing" >&2; exit 1; }; [ $# -ge 1 ] || { echo "Usage: $0 graphify-explain <node>" >&2; exit 1; }; graphify explain "$*"; }
+graphify_wiki() { command -v graphify >/dev/null 2>&1 || { echo "graphify missing" >&2; exit 1; }; graphify . --wiki; }
 
 auto_execution_surface_show() {
   maybe_source_auto_config
@@ -228,6 +250,13 @@ case "$cmd" in
   auto-task-board-sync-docs) auto_task_board_sync_docs ;;
   auto-resume-if-ready) auto_resume_if_ready ;;
   auto-notify) shift; auto_notify "$@" ;;
+  gsd-doctor) auto_gsd_doctor ;;
+  gsd-workflow-show) shift; gsd_workflow_show "$@" ;;
+  gsd-skill-show) shift; gsd_skill_show "$@" ;;
+  graphify-query) shift; graphify_query "$@" ;;
+  graphify-path) shift; graphify_path "$@" ;;
+  graphify-explain) shift; graphify_explain "$@" ;;
+  graphify-wiki) graphify_wiki ;;
   auto-progress) auto_progress ;;
   auto-runner-show) auto_runner_show ;;
   auto-execution-surface-show) auto_execution_surface_show ;;
@@ -236,7 +265,7 @@ case "$cmd" in
   auto-handoff-set) shift; auto_handoff_set "$@" ;;
   auto-handoff-clear) auto_handoff_clear ;;
   *)
-    echo "Usage: $0 {doctor|context|sync|force|next|auto-status|auto-trigger|auto-checkpoint|auto-mark-complete|auto-install|auto-uninstall|auto-summary|auto-task-board-init|auto-task-board-show|auto-task-board-claim-next|auto-task-board-update|auto-task-board-complete-if-ready|auto-task-board-sync-docs|auto-resume-if-ready|auto-notify|auto-progress|auto-runner-show|auto-execution-surface-show|auto-workflow-state-show|auto-handoff-show|auto-handoff-set|auto-handoff-clear}" >&2
+    echo "Usage: $0 {doctor|context|sync|force|next|auto-status|auto-trigger|auto-checkpoint|auto-mark-complete|auto-install|auto-uninstall|auto-summary|auto-task-board-init|auto-task-board-show|auto-task-board-claim-next|auto-task-board-update|auto-task-board-complete-if-ready|auto-task-board-sync-docs|auto-resume-if-ready|auto-notify|gsd-doctor|gsd-workflow-show|gsd-skill-show|graphify-query|graphify-path|graphify-explain|graphify-wiki|auto-progress|auto-runner-show|auto-execution-surface-show|auto-workflow-state-show|auto-handoff-show|auto-handoff-set|auto-handoff-clear}" >&2
     exit 1
     ;;
 esac
