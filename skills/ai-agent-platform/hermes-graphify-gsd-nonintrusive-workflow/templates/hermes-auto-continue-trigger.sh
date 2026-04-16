@@ -20,6 +20,7 @@ max_passes="${HERMES_AUTO_CONTINUE_MAX_PASSES_PER_TRIGGER:-4}"
 pass_idle_seconds="${HERMES_AUTO_CONTINUE_PASS_IDLE_SECONDS:-5}"
 requirements_rel="${HERMES_AUTO_CONTINUE_REQUIREMENTS_FILE#$ROOT/}"
 tasks_rel="${HERMES_AUTO_CONTINUE_TASKS_FILE#$ROOT/}"
+task_board_rel="${HERMES_AUTO_CONTINUE_TASK_BOARD_FILE#$ROOT/}"
 
 write_json_state() {
   local path="$1"
@@ -172,6 +173,7 @@ This is pass $pass_no of $max_passes for trigger source "$source_name".
 Read the local planning/docs/graph context first. Start with these files if they exist:
 - graphify-out/GRAPH_REPORT.md
 - .planning/PROJECT.md
+- $task_board_rel
 - $requirements_rel
 - $tasks_rel
 - .planning/ROADMAP.md
@@ -180,7 +182,13 @@ Read the local planning/docs/graph context first. Start with these files if they
 - .planning/auto-workflow-state.json
 Default continue, not default stop.
 Do not stop because one small task is done.
-Pick the highest-priority incomplete requirement or roadmap item and keep moving until the whole scoped project is complete, you are truly blocked, or you need external input.
+If $task_board_rel does not exist yet and the repo already has planning docs, initialize it first by running:
+  bash scripts/hermes-auto-continue-task-board-init.sh
+When task board exists, prefer it as the canonical next-task selector:
+- continue any task already marked in_progress
+- otherwise pick the highest-priority task whose dependencies are satisfied
+- update task status / notes / last_updated when you start, block, or finish meaningful work
+Pick the highest-priority executable task and keep moving until the whole scoped project is complete, you are truly blocked, or you need external input.
 After each meaningful implementation step, update the planning docs so the next pass can continue from current reality.
 This runner currently holds the canonical writer lease for the project.
 Any delegated helper agents must remain read-only unless they also hold the writer lease.

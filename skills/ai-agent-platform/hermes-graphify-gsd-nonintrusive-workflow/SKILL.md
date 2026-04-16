@@ -152,6 +152,8 @@ Recommended repo-local files:
 - `scripts/hermes-auto-continue-trigger.sh`
 - `scripts/hermes-auto-continue-checkpoint.sh` (manual no-commit checkpoint trigger)
 - `scripts/hermes-auto-continue-summary.sh` (generate the last-run summary artifact)
+- `scripts/hermes-auto-continue-task-board-init.sh`
+- `scripts/hermes-auto-continue-task-board-status.sh`
 - `scripts/hermes-auto-continue-mark-complete.sh`
 - `scripts/install-hermes-auto-continue-cron.sh`
 - `.husky/post-commit`
@@ -159,6 +161,7 @@ Recommended repo-local files:
 
 Recommended optional relay artifacts:
 - `.planning/auto-continue-last-summary.md`
+- `.planning/task-board.json`
 - optional explicit delivery env vars such as:
   - `HERMES_AUTO_CONTINUE_NOTIFY_DELIVER`
   - `HERMES_AUTO_CONTINUE_NOTIFY_SCHEDULE`
@@ -208,6 +211,23 @@ Core rule:
 - **Do not stop because one small task or one local checklist is done.**
 - Stop only when a project-level completion sentinel exists and still matches the current HEAD/worktree state.
 
+Recommended machine-readable planning contract:
+- keep human-readable docs (`PROJECT.md`, `REQUIREMENTS.md`, `ROADMAP.md`, `STATE.md`)
+- also keep a machine-readable task board at `.planning/task-board.json`
+- the autonomous runner should prefer:
+  1. `in_progress` task
+  2. highest-priority executable `todo`
+  3. documented fallback to `REQUIREMENTS.md` / `ROADMAP.md` only when the board is missing or stale
+- every task should ideally include:
+  - `id`
+  - `title`
+  - `status`
+  - `priority`
+  - `depends_on`
+  - `acceptance`
+  - `blocked_by`
+  - `last_updated`
+
 Trigger semantics note:
 - The default repo-local auto-continue loop described here is **code-event driven + periodic reconciliation**, not chat-turn driven.
 - Typical immediate triggers are: `post-commit`, optional `post-merge`, explicit manual checkpoint scripts, and periodic `cron`/timer reconciliation.
@@ -217,6 +237,7 @@ Trigger semantics note:
 - If the user also expects autonomous run summaries to return to chat, do **not** assume the local shell knows the current conversation origin. Repo-local scripts run without current-chat delivery context, so reliable auto-delivery requires an **explicit target** (for example `discord:chat_id`, `telegram:chat_id:thread_id`, or another concrete deliver string).
 - A practical pattern is: write `.planning/auto-continue-last-summary.md` after each run, then create a one-shot Hermes cron notification job only when an explicit deliver target is configured.
 - Hermes cron runs in fresh sessions, so the trigger prompt itself should be self-contained and explicitly tell the runner which local files to read first (`GRAPH_REPORT.md`, `PROJECT.md`, `REQUIREMENTS.md`, `ROADMAP.md`, `STATE.md`, and runtime summary/mirror files when present).
+- If a machine-readable task board exists, the trigger prompt should explicitly tell the runner to use that board as the canonical next-task selector and to update it after each meaningful step.
 
 ## Project-Level Completion Gate
 
@@ -360,6 +381,8 @@ Load these bundled files when implementing:
 - `templates/hermes-auto-continue-trigger.sh`
 - `templates/hermes-auto-continue-checkpoint.sh`
 - `templates/hermes-auto-continue-summary.sh`
+- `templates/hermes-auto-continue-task-board-init.sh`
+- `templates/hermes-auto-continue-task-board-status.sh`
 - `templates/hermes-auto-continue-mark-complete.sh`
 - `templates/install-hermes-auto-continue-cron.sh`
 - `templates/husky-post-commit-auto-continue.sh`

@@ -158,6 +158,7 @@ Create:
 .planning/
   PROJECT.md
   REQUIREMENTS.md
+  task-board.json
   ROADMAP.md
   STATE.md
   config.json
@@ -176,6 +177,11 @@ Practical `config.json` defaults:
 - `discuss_mode: assumptions`
 - `planning.commit_docs: false`
 - keep destructive / external-service confirmations enabled
+
+Recommended `task-board.json` role:
+- act as the machine-readable task selector for autonomous continuation
+- map each major brownfield step to explicit task ids, dependencies, priorities, and acceptance notes
+- stay aligned with `REQUIREMENTS.md`, `ROADMAP.md`, and `STATE.md`
 
 ### 5. Optional cleanup of legacy entrypoints
 

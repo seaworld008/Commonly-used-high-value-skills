@@ -11,11 +11,15 @@ state_json='{}'
 lease_json='{}'
 handoff_json='{}'
 blocked_json='{}'
+task_board_output=''
 [ -f "$HERMES_AUTO_CONTINUE_STATE_FILE" ] && state_json="$(cat "$HERMES_AUTO_CONTINUE_STATE_FILE")"
 [ -f "$HERMES_AUTO_CONTINUE_LEASE_FILE" ] && lease_json="$(cat "$HERMES_AUTO_CONTINUE_LEASE_FILE")"
 [ -f "$HERMES_AUTO_CONTINUE_HANDOFF_FILE" ] && handoff_json="$(cat "$HERMES_AUTO_CONTINUE_HANDOFF_FILE")"
 [ -f "$HERMES_AUTO_CONTINUE_BLOCKED_FILE" ] && blocked_json="$(cat "$HERMES_AUTO_CONTINUE_BLOCKED_FILE")"
-python3 - <<'PY' "$HERMES_AUTO_CONTINUE_SUMMARY_FILE" "$status_line" "$writer_status" "$state_json" "$lease_json" "$handoff_json" "$blocked_json"
+if [ -x "$ROOT/scripts/hermes-auto-continue-task-board-status.sh" ] && [ -f "$HERMES_AUTO_CONTINUE_TASK_BOARD_FILE" ]; then
+  task_board_output="$(bash "$ROOT/scripts/hermes-auto-continue-task-board-status.sh" 2>/dev/null || true)"
+fi
+python3 - <<'PY' "$HERMES_AUTO_CONTINUE_SUMMARY_FILE" "$status_line" "$writer_status" "$state_json" "$lease_json" "$handoff_json" "$blocked_json" "$task_board_output"
 import json, sys
 from pathlib import Path
 summary_path = Path(sys.argv[1])
@@ -25,6 +29,7 @@ state = json.loads(sys.argv[4]) if sys.argv[4].strip() else {}
 lease = json.loads(sys.argv[5]) if sys.argv[5].strip() else {}
 handoff = json.loads(sys.argv[6]) if sys.argv[6].strip() else {}
 blocked = json.loads(sys.argv[7]) if sys.argv[7].strip() else {}
+task_board_lines = sys.argv[8].splitlines()
 summary_path.parent.mkdir(parents=True, exist_ok=True)
 parts = ['# Auto Continue Last Summary', '', f'- Status: `{status_line}`']
 for line in writer_status_lines:
@@ -43,6 +48,11 @@ if handoff:
 if blocked:
     parts.append(f"- Blocked reason: `{blocked.get('reason', 'n/a')}`")
     parts.append(f"- Blocked detail: `{blocked.get('detail', 'n/a')}`")
+for line in task_board_lines:
+    if line.strip():
+        k, _, v = line.partition('=')
+        if k in {"todo", "in_progress", "blocked", "done", "dropped", "next_id", "next_status", "next_priority", "next_title"}:
+            parts.append(f"- task_board_{k}: `{v}`")
 summary_path.write_text('\n'.join(parts) + '\n')
 print(summary_path)
 PY

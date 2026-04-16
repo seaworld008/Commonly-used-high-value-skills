@@ -157,6 +157,8 @@ If the user wants **autonomous continuation** rather than only repo integration:
 - make the trigger prompt self-contained because Hermes cron runs in fresh sessions
 - prefer a multi-pass per-trigger loop so the runtime does not stop after one small task when more scoped work remains
 - use a project-specific cron tag / schedule instead of one shared global tag string
+- add or normalize a machine-readable task board such as `.planning/task-board.json`
+- expose task-board operator commands so humans and agents can inspect next actionable work
 
 ### 4. Update AGENTS.md
 Add or refine a workflow section covering:
@@ -195,6 +197,11 @@ If `.planning/` exists but `REQUIREMENTS.md` is missing and the user wants auton
 - add or normalize `REQUIREMENTS.md`
 - make sure `ROADMAP.md` and `STATE.md` reference the same active scope
 - ensure the runtime prompt can recover the next highest-priority unfinished requirement from those files
+
+If the repo uses a machine-readable task board:
+- prefer the board as the canonical next-task selector
+- keep it aligned with `REQUIREMENTS.md`, `ROADMAP.md`, and `STATE.md`
+- the runtime should continue `in_progress` tasks first, then choose the highest-priority executable `todo`
 
 ## Brownfield Guidance
 
