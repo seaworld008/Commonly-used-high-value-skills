@@ -155,6 +155,7 @@ Recommended repo-local files:
 - `scripts/hermes-auto-continue-task-board-init.sh`
 - `scripts/hermes-auto-continue-task-board-status.sh`
 - `scripts/hermes-auto-continue-task-board-update.sh`
+- `scripts/hermes-auto-continue-task-board-complete-if-ready.sh`
 - `scripts/hermes-auto-continue-mark-complete.sh`
 - `scripts/install-hermes-auto-continue-cron.sh`
 - `.husky/post-commit`
@@ -225,6 +226,7 @@ Recommended machine-readable planning contract:
   - claiming the next task
   - status transitions (`todo`, `in_progress`, `blocked`, `done`, `dropped`)
   - appending notes and acceptance evidence
+  - `complete-if-ready` evaluation before marking a task done
 - every task should ideally include:
   - `id`
   - `title`
@@ -232,8 +234,10 @@ Recommended machine-readable planning contract:
   - `priority`
   - `depends_on`
   - `acceptance`
+  - `artifacts`
   - `blocked_by`
   - `last_updated`
+- a strong default is: tasks should become `done` only through a lightweight completion gate that checks dependencies, acceptance evidence, and artifact existence
 
 Trigger semantics note:
 - The default repo-local auto-continue loop described here is **code-event driven + periodic reconciliation**, not chat-turn driven.
@@ -391,6 +395,7 @@ Load these bundled files when implementing:
 - `templates/hermes-auto-continue-task-board-init.sh`
 - `templates/hermes-auto-continue-task-board-status.sh`
 - `templates/hermes-auto-continue-task-board-update.sh`
+- `templates/hermes-auto-continue-task-board-complete-if-ready.sh`
 - `templates/hermes-auto-continue-mark-complete.sh`
 - `templates/install-hermes-auto-continue-cron.sh`
 - `templates/husky-post-commit-auto-continue.sh`

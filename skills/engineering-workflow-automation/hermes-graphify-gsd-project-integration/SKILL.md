@@ -203,6 +203,7 @@ If the repo uses a machine-readable task board:
 - keep it aligned with `REQUIREMENTS.md`, `ROADMAP.md`, and `STATE.md`
 - the runtime should continue `in_progress` tasks first, then choose the highest-priority executable `todo`
 - expose operator commands for claim-next and task status transitions so humans can safely intervene without editing JSON by hand
+- prefer a lightweight `complete-if-ready` gate before changing task status to `done`
 
 ## Brownfield Guidance
 

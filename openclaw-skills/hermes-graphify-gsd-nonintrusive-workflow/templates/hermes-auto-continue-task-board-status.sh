@@ -65,4 +65,35 @@ else:
     print("next_status=")
     print("next_priority=")
     print("next_title=")
+
+ready_to_complete = []
+for task in tasks:
+    status = task.get("status")
+    if status != "in_progress":
+        continue
+    deps = task.get("depends_on") or []
+    acceptance = task.get("acceptance") or []
+    artifacts = task.get("artifacts") or []
+    blocked_by = task.get("blocked_by") or ""
+    if blocked_by:
+        continue
+    if deps and not all(dep in done_ids for dep in deps):
+        continue
+    if not acceptance:
+        continue
+    artifact_missing = False
+    for artifact in artifacts:
+        if not artifact:
+            continue
+        path = Path(artifact)
+        if not path.is_absolute():
+            path = (board_path.parent.parent / artifact).resolve()
+        if not path.exists():
+            artifact_missing = True
+            break
+    if artifact_missing:
+        continue
+    ready_to_complete.append(task.get("id", "unknown"))
+
+print(f"ready_to_complete={','.join(ready_to_complete)}")
 PY

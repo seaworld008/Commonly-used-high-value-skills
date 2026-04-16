@@ -194,6 +194,9 @@ When task board exists, prefer it as the canonical next-task selector:
 - append notes or acceptance evidence with:
   bash scripts/ai-workflow.sh auto-task-board-update append-note <task_id> "<note>"
   bash scripts/ai-workflow.sh auto-task-board-update append-acceptance <task_id> "<acceptance evidence>"
+- before marking a task done, run:
+  bash scripts/ai-workflow.sh auto-task-board-complete-if-ready <task_id> "<evidence summary>"
+- do not mark tasks done purely by intuition; rely on the completion gate so dependencies, acceptance, and artifact existence are checked first
 Pick the highest-priority executable task and keep moving until the whole scoped project is complete, you are truly blocked, or you need external input.
 After each meaningful implementation step, update the planning docs so the next pass can continue from current reality.
 This runner currently holds the canonical writer lease for the project.
