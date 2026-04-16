@@ -19,6 +19,9 @@ task_board_output=''
 if [ -x "$ROOT/scripts/hermes-auto-continue-task-board-status.sh" ] && [ -f "$HERMES_AUTO_CONTINUE_TASK_BOARD_FILE" ]; then
   task_board_output="$(bash "$ROOT/scripts/hermes-auto-continue-task-board-status.sh" 2>/dev/null || true)"
 fi
+if [ -x "$ROOT/scripts/hermes-auto-continue-task-board-sync-docs.sh" ] && [ -f "$HERMES_AUTO_CONTINUE_TASK_BOARD_FILE" ]; then
+  bash "$ROOT/scripts/hermes-auto-continue-task-board-sync-docs.sh" >/dev/null 2>&1 || true
+fi
 python3 - <<'PY' "$HERMES_AUTO_CONTINUE_SUMMARY_FILE" "$status_line" "$writer_status" "$state_json" "$lease_json" "$handoff_json" "$blocked_json" "$task_board_output"
 import json, sys
 from pathlib import Path

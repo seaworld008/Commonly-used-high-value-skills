@@ -22,6 +22,7 @@ AUTO_TASK_BOARD_INIT="$ROOT/scripts/hermes-auto-continue-task-board-init.sh"
 AUTO_TASK_BOARD_STATUS="$ROOT/scripts/hermes-auto-continue-task-board-status.sh"
 AUTO_TASK_BOARD_UPDATE="$ROOT/scripts/hermes-auto-continue-task-board-update.sh"
 AUTO_TASK_BOARD_COMPLETE="$ROOT/scripts/hermes-auto-continue-task-board-complete-if-ready.sh"
+AUTO_TASK_BOARD_SYNC="$ROOT/scripts/hermes-auto-continue-task-board-sync-docs.sh"
 
 have_cmd() { command -v "$1" >/dev/null 2>&1; }
 have_file() { [ -f "$1" ]; }
@@ -94,6 +95,7 @@ auto_task_board_show() { require_exec "$AUTO_TASK_BOARD_STATUS"; bash "$AUTO_TAS
 auto_task_board_claim_next() { require_exec "$AUTO_TASK_BOARD_UPDATE"; bash "$AUTO_TASK_BOARD_UPDATE" claim-next; }
 auto_task_board_update() { require_exec "$AUTO_TASK_BOARD_UPDATE"; bash "$AUTO_TASK_BOARD_UPDATE" "$@"; }
 auto_task_board_complete_if_ready() { require_exec "$AUTO_TASK_BOARD_COMPLETE"; bash "$AUTO_TASK_BOARD_COMPLETE" "$@"; }
+auto_task_board_sync_docs() { require_exec "$AUTO_TASK_BOARD_SYNC"; bash "$AUTO_TASK_BOARD_SYNC"; }
 
 auto_execution_surface_show() {
   maybe_source_auto_config
@@ -216,6 +218,7 @@ case "$cmd" in
   auto-task-board-claim-next) auto_task_board_claim_next ;;
   auto-task-board-update) shift; auto_task_board_update "$@" ;;
   auto-task-board-complete-if-ready) shift; auto_task_board_complete_if_ready "$@" ;;
+  auto-task-board-sync-docs) auto_task_board_sync_docs ;;
   auto-progress) auto_progress ;;
   auto-runner-show) auto_runner_show ;;
   auto-execution-surface-show) auto_execution_surface_show ;;
@@ -224,7 +227,7 @@ case "$cmd" in
   auto-handoff-set) shift; auto_handoff_set "$@" ;;
   auto-handoff-clear) auto_handoff_clear ;;
   *)
-    echo "Usage: $0 {doctor|context|sync|force|next|auto-status|auto-trigger|auto-checkpoint|auto-mark-complete|auto-install|auto-uninstall|auto-summary|auto-task-board-init|auto-task-board-show|auto-task-board-claim-next|auto-task-board-update|auto-task-board-complete-if-ready|auto-progress|auto-runner-show|auto-execution-surface-show|auto-workflow-state-show|auto-handoff-show|auto-handoff-set|auto-handoff-clear}" >&2
+    echo "Usage: $0 {doctor|context|sync|force|next|auto-status|auto-trigger|auto-checkpoint|auto-mark-complete|auto-install|auto-uninstall|auto-summary|auto-task-board-init|auto-task-board-show|auto-task-board-claim-next|auto-task-board-update|auto-task-board-complete-if-ready|auto-task-board-sync-docs|auto-progress|auto-runner-show|auto-execution-surface-show|auto-workflow-state-show|auto-handoff-show|auto-handoff-set|auto-handoff-clear}" >&2
     exit 1
     ;;
 esac

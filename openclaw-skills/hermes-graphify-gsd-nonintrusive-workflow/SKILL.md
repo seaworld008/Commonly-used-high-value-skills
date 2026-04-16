@@ -156,6 +156,7 @@ Recommended repo-local files:
 - `scripts/hermes-auto-continue-task-board-status.sh`
 - `scripts/hermes-auto-continue-task-board-update.sh`
 - `scripts/hermes-auto-continue-task-board-complete-if-ready.sh`
+- `scripts/hermes-auto-continue-task-board-sync-docs.sh`
 - `scripts/hermes-auto-continue-mark-complete.sh`
 - `scripts/install-hermes-auto-continue-cron.sh`
 - `.husky/post-commit`
@@ -227,6 +228,7 @@ Recommended machine-readable planning contract:
   - status transitions (`todo`, `in_progress`, `blocked`, `done`, `dropped`)
   - appending notes and acceptance evidence
   - `complete-if-ready` evaluation before marking a task done
+  - syncing the machine task board back into managed sections of `STATE.md` and `ROADMAP.md`
 - every task should ideally include:
   - `id`
   - `title`
@@ -396,6 +398,7 @@ Load these bundled files when implementing:
 - `templates/hermes-auto-continue-task-board-status.sh`
 - `templates/hermes-auto-continue-task-board-update.sh`
 - `templates/hermes-auto-continue-task-board-complete-if-ready.sh`
+- `templates/hermes-auto-continue-task-board-sync-docs.sh`
 - `templates/hermes-auto-continue-mark-complete.sh`
 - `templates/install-hermes-auto-continue-cron.sh`
 - `templates/husky-post-commit-auto-continue.sh`

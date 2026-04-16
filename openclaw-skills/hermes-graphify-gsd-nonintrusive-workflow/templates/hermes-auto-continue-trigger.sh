@@ -197,6 +197,8 @@ When task board exists, prefer it as the canonical next-task selector:
 - before marking a task done, run:
   bash scripts/ai-workflow.sh auto-task-board-complete-if-ready <task_id> "<evidence summary>"
 - do not mark tasks done purely by intuition; rely on the completion gate so dependencies, acceptance, and artifact existence are checked first
+- after changing the task board, sync the managed planning mirror with:
+  bash scripts/ai-workflow.sh auto-task-board-sync-docs
 Pick the highest-priority executable task and keep moving until the whole scoped project is complete, you are truly blocked, or you need external input.
 After each meaningful implementation step, update the planning docs so the next pass can continue from current reality.
 This runner currently holds the canonical writer lease for the project.

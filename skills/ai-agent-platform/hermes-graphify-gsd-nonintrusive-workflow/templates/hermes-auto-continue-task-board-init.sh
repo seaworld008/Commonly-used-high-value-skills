@@ -115,3 +115,7 @@ board_path.parent.mkdir(parents=True, exist_ok=True)
 board_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 print(board_path)
 PY
+
+if [ -x "$ROOT/scripts/hermes-auto-continue-task-board-sync-docs.sh" ]; then
+  bash "$ROOT/scripts/hermes-auto-continue-task-board-sync-docs.sh" >/dev/null 2>&1 || true
+fi

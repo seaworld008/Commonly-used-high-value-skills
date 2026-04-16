@@ -171,3 +171,7 @@ if command == "append-acceptance":
 print(f"unknown_command={command}")
 raise SystemExit(1)
 PY
+
+if [ -x "$ROOT/scripts/hermes-auto-continue-task-board-sync-docs.sh" ]; then
+  bash "$ROOT/scripts/hermes-auto-continue-task-board-sync-docs.sh" >/dev/null 2>&1 || true
+fi

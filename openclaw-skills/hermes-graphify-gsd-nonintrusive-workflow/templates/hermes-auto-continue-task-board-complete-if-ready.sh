@@ -127,3 +127,7 @@ print("ready=yes")
 print("status=done")
 raise SystemExit(0)
 PY
+
+if [ -x "$ROOT/scripts/hermes-auto-continue-task-board-sync-docs.sh" ]; then
+  bash "$ROOT/scripts/hermes-auto-continue-task-board-sync-docs.sh" >/dev/null 2>&1 || true
+fi
