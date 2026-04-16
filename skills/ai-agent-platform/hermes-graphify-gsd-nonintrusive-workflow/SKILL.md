@@ -157,6 +157,7 @@ Recommended repo-local files:
 - `scripts/hermes-auto-continue-task-board-update.sh`
 - `scripts/hermes-auto-continue-task-board-complete-if-ready.sh`
 - `scripts/hermes-auto-continue-task-board-sync-docs.sh`
+- `scripts/hermes-auto-continue-resume-if-ready.sh`
 - `scripts/hermes-auto-continue-mark-complete.sh`
 - `scripts/install-hermes-auto-continue-cron.sh`
 - `.husky/post-commit`
@@ -189,6 +190,7 @@ Recommended operator contract:
   - `./scripts/ai-workflow.sh auto-execution-surface-show`
   - `./scripts/ai-workflow.sh auto-workflow-state-show`
   - `./scripts/ai-workflow.sh auto-handoff-show`
+  - `./scripts/ai-workflow.sh auto-resume-if-ready`
 - the bundled `templates/ai-workflow.sh` in this skill now exposes those subcommands and delegates to the repo-local auto-continue scripts
 - use the operator commands as the primary fact source before assuming the runtime is healthy
 
@@ -251,6 +253,16 @@ Trigger semantics note:
 - A practical pattern is: write `.planning/auto-continue-last-summary.md` after each run, then create a one-shot Hermes cron notification job only when an explicit deliver target is configured.
 - Hermes cron runs in fresh sessions, so the trigger prompt itself should be self-contained and explicitly tell the runner which local files to read first (`GRAPH_REPORT.md`, `PROJECT.md`, `REQUIREMENTS.md`, `ROADMAP.md`, `STATE.md`, and runtime summary/mirror files when present).
 - If a machine-readable task board exists, the trigger prompt should explicitly tell the runner to use that board as the canonical next-task selector and to update it after each meaningful step.
+- If handoff is meant to auto-resume later, prefer machine-readable `resume_condition` probes such as:
+  - `file_exists:<path>`
+  - `file_missing:<path>`
+  - `task_done:<task_id>`
+  - `task_status:<task_id>:<status>`
+  - `ready_to_complete:<task_id>`
+  - `writer_recommended`
+  - `board_has_next_task`
+  - `repo_lock_free`
+  - `project_lock_free`
 
 ## Project-Level Completion Gate
 
@@ -399,6 +411,7 @@ Load these bundled files when implementing:
 - `templates/hermes-auto-continue-task-board-update.sh`
 - `templates/hermes-auto-continue-task-board-complete-if-ready.sh`
 - `templates/hermes-auto-continue-task-board-sync-docs.sh`
+- `templates/hermes-auto-continue-resume-if-ready.sh`
 - `templates/hermes-auto-continue-mark-complete.sh`
 - `templates/install-hermes-auto-continue-cron.sh`
 - `templates/husky-post-commit-auto-continue.sh`

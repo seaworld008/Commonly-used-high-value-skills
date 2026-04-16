@@ -12,6 +12,7 @@ lease_json='{}'
 handoff_json='{}'
 blocked_json='{}'
 task_board_output=''
+resume_output=''
 [ -f "$HERMES_AUTO_CONTINUE_STATE_FILE" ] && state_json="$(cat "$HERMES_AUTO_CONTINUE_STATE_FILE")"
 [ -f "$HERMES_AUTO_CONTINUE_LEASE_FILE" ] && lease_json="$(cat "$HERMES_AUTO_CONTINUE_LEASE_FILE")"
 [ -f "$HERMES_AUTO_CONTINUE_HANDOFF_FILE" ] && handoff_json="$(cat "$HERMES_AUTO_CONTINUE_HANDOFF_FILE")"
@@ -19,10 +20,13 @@ task_board_output=''
 if [ -x "$ROOT/scripts/hermes-auto-continue-task-board-status.sh" ] && [ -f "$HERMES_AUTO_CONTINUE_TASK_BOARD_FILE" ]; then
   task_board_output="$(bash "$ROOT/scripts/hermes-auto-continue-task-board-status.sh" 2>/dev/null || true)"
 fi
+if [ -x "$ROOT/scripts/hermes-auto-continue-resume-if-ready.sh" ]; then
+  resume_output="$(bash "$ROOT/scripts/hermes-auto-continue-resume-if-ready.sh" 2>/dev/null || true)"
+fi
 if [ -x "$ROOT/scripts/hermes-auto-continue-task-board-sync-docs.sh" ] && [ -f "$HERMES_AUTO_CONTINUE_TASK_BOARD_FILE" ]; then
   bash "$ROOT/scripts/hermes-auto-continue-task-board-sync-docs.sh" >/dev/null 2>&1 || true
 fi
-python3 - <<'PY' "$HERMES_AUTO_CONTINUE_SUMMARY_FILE" "$status_line" "$writer_status" "$state_json" "$lease_json" "$handoff_json" "$blocked_json" "$task_board_output"
+python3 - <<'PY' "$HERMES_AUTO_CONTINUE_SUMMARY_FILE" "$status_line" "$writer_status" "$state_json" "$lease_json" "$handoff_json" "$blocked_json" "$task_board_output" "$resume_output"
 import json, sys
 from pathlib import Path
 summary_path = Path(sys.argv[1])
@@ -33,6 +37,7 @@ lease = json.loads(sys.argv[5]) if sys.argv[5].strip() else {}
 handoff = json.loads(sys.argv[6]) if sys.argv[6].strip() else {}
 blocked = json.loads(sys.argv[7]) if sys.argv[7].strip() else {}
 task_board_lines = sys.argv[8].splitlines()
+resume_lines = sys.argv[9].splitlines()
 summary_path.parent.mkdir(parents=True, exist_ok=True)
 parts = ['# Auto Continue Last Summary', '', f'- Status: `{status_line}`']
 for line in writer_status_lines:
@@ -56,6 +61,11 @@ for line in task_board_lines:
         k, _, v = line.partition('=')
         if k in {"todo", "in_progress", "blocked", "done", "dropped", "current_id", "current_status", "current_priority", "current_title", "next_id", "next_status", "next_priority", "next_title", "ready_to_complete"}:
             parts.append(f"- task_board_{k}: `{v}`")
+for line in resume_lines:
+    if line.strip():
+        k, _, v = line.partition('=')
+        if k in {"resume_ready", "reason", "cleared"}:
+            parts.append(f"- resume_{k}: `{v}`")
 summary_path.write_text('\n'.join(parts) + '\n')
 print(summary_path)
 PY

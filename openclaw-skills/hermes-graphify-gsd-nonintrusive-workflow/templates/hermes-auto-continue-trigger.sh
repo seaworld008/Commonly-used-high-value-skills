@@ -6,6 +6,7 @@ source "$ROOT/scripts/hermes-auto-continue-config.sh"
 STATUS_SCRIPT="$ROOT/scripts/hermes-auto-continue-status.sh"
 SUMMARY_SCRIPT="$ROOT/scripts/hermes-auto-continue-summary.sh"
 INSTALL_SCRIPT="$ROOT/scripts/install-hermes-auto-continue-cron.sh"
+RESUME_SCRIPT="$ROOT/scripts/hermes-auto-continue-resume-if-ready.sh"
 hermes_auto_continue_ensure_dirs
 cd "$ROOT"
 
@@ -131,6 +132,10 @@ if [[ "$status_line" == COMPLETE* ]]; then
   exit 0
 fi
 
+if [ -x "$RESUME_SCRIPT" ]; then
+  bash "$RESUME_SCRIPT" >/dev/null 2>&1 || true
+fi
+
 if handoff_active; then
   write_runtime_state handoff waiting_for_input "handoff file present before new run"
   write_lease_state false "handoff active"
@@ -205,6 +210,11 @@ This runner currently holds the canonical writer lease for the project.
 Any delegated helper agents must remain read-only unless they also hold the writer lease.
 If you need human or external input before you can continue, write a structured handoff first by running:
   bash scripts/ai-workflow.sh auto-handoff-set "<reason>" "<detail>" "<requested_input>" "<resume_condition>" "<next_action>"
+Use machine-readable `resume_condition` probes whenever possible, for example:
+- `file_exists:.planning/human-approved.txt`
+- `task_done:T003`
+- `ready_to_complete:T003`
+- `writer_recommended && board_has_next_task`
 Then stop.
 Only when the whole scoped project is complete should you run:
   bash scripts/hermes-auto-continue-mark-complete.sh

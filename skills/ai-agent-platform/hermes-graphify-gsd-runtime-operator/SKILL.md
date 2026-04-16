@@ -126,6 +126,7 @@ Use these commands:
 ./scripts/ai-workflow.sh auto-handoff-show
 ./scripts/ai-workflow.sh auto-handoff-set <reason> <detail> [requested_input] [resume_condition] [next_action]
 ./scripts/ai-workflow.sh auto-handoff-clear
+./scripts/ai-workflow.sh auto-resume-if-ready
 ```
 
 Interpretation:
@@ -140,6 +141,7 @@ When handoff is active, prefer preserving the structured payload:
 - `next_action`
 
 Do not clear handoff casually if the required input has not actually arrived.
+Prefer machine-readable `resume_condition` probes when the runtime should recover automatically on the next cron/timer cycle.
 
 ## Planning Mirror
 
