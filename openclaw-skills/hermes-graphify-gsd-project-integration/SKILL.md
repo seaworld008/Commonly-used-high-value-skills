@@ -202,6 +202,7 @@ If the repo uses a machine-readable task board:
 - prefer the board as the canonical next-task selector
 - keep it aligned with `REQUIREMENTS.md`, `ROADMAP.md`, and `STATE.md`
 - the runtime should continue `in_progress` tasks first, then choose the highest-priority executable `todo`
+- expose operator commands for claim-next and task status transitions so humans can safely intervene without editing JSON by hand
 
 ## Brownfield Guidance
 

@@ -20,6 +20,7 @@ AUTO_INSTALL="$ROOT/scripts/install-hermes-auto-continue-cron.sh"
 AUTO_SUMMARY="$ROOT/scripts/hermes-auto-continue-summary.sh"
 AUTO_TASK_BOARD_INIT="$ROOT/scripts/hermes-auto-continue-task-board-init.sh"
 AUTO_TASK_BOARD_STATUS="$ROOT/scripts/hermes-auto-continue-task-board-status.sh"
+AUTO_TASK_BOARD_UPDATE="$ROOT/scripts/hermes-auto-continue-task-board-update.sh"
 
 have_cmd() { command -v "$1" >/dev/null 2>&1; }
 have_file() { [ -f "$1" ]; }
@@ -89,6 +90,8 @@ auto_uninstall() { require_exec "$AUTO_INSTALL"; bash "$AUTO_INSTALL" uninstall;
 auto_summary() { require_exec "$AUTO_SUMMARY"; bash "$AUTO_SUMMARY"; }
 auto_task_board_init() { require_exec "$AUTO_TASK_BOARD_INIT"; bash "$AUTO_TASK_BOARD_INIT" "$@"; }
 auto_task_board_show() { require_exec "$AUTO_TASK_BOARD_STATUS"; bash "$AUTO_TASK_BOARD_STATUS"; }
+auto_task_board_claim_next() { require_exec "$AUTO_TASK_BOARD_UPDATE"; bash "$AUTO_TASK_BOARD_UPDATE" claim-next; }
+auto_task_board_update() { require_exec "$AUTO_TASK_BOARD_UPDATE"; bash "$AUTO_TASK_BOARD_UPDATE" "$@"; }
 
 auto_execution_surface_show() {
   maybe_source_auto_config
@@ -208,6 +211,8 @@ case "$cmd" in
   auto-summary) auto_summary ;;
   auto-task-board-init) shift; auto_task_board_init "$@" ;;
   auto-task-board-show) auto_task_board_show ;;
+  auto-task-board-claim-next) auto_task_board_claim_next ;;
+  auto-task-board-update) shift; auto_task_board_update "$@" ;;
   auto-progress) auto_progress ;;
   auto-runner-show) auto_runner_show ;;
   auto-execution-surface-show) auto_execution_surface_show ;;
@@ -216,7 +221,7 @@ case "$cmd" in
   auto-handoff-set) shift; auto_handoff_set "$@" ;;
   auto-handoff-clear) auto_handoff_clear ;;
   *)
-    echo "Usage: $0 {doctor|context|sync|force|next|auto-status|auto-trigger|auto-checkpoint|auto-mark-complete|auto-install|auto-uninstall|auto-summary|auto-task-board-init|auto-task-board-show|auto-progress|auto-runner-show|auto-execution-surface-show|auto-workflow-state-show|auto-handoff-show|auto-handoff-set|auto-handoff-clear}" >&2
+    echo "Usage: $0 {doctor|context|sync|force|next|auto-status|auto-trigger|auto-checkpoint|auto-mark-complete|auto-install|auto-uninstall|auto-summary|auto-task-board-init|auto-task-board-show|auto-task-board-claim-next|auto-task-board-update|auto-progress|auto-runner-show|auto-execution-surface-show|auto-workflow-state-show|auto-handoff-show|auto-handoff-set|auto-handoff-clear}" >&2
     exit 1
     ;;
 esac

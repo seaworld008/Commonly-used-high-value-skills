@@ -51,7 +51,7 @@ if blocked:
 for line in task_board_lines:
     if line.strip():
         k, _, v = line.partition('=')
-        if k in {"todo", "in_progress", "blocked", "done", "dropped", "next_id", "next_status", "next_priority", "next_title"}:
+        if k in {"todo", "in_progress", "blocked", "done", "dropped", "current_id", "current_status", "current_priority", "current_title", "next_id", "next_status", "next_priority", "next_title"}:
             parts.append(f"- task_board_{k}: `{v}`")
 summary_path.write_text('\n'.join(parts) + '\n')
 print(summary_path)

@@ -185,9 +185,15 @@ Do not stop because one small task is done.
 If $task_board_rel does not exist yet and the repo already has planning docs, initialize it first by running:
   bash scripts/hermes-auto-continue-task-board-init.sh
 When task board exists, prefer it as the canonical next-task selector:
-- continue any task already marked in_progress
-- otherwise pick the highest-priority task whose dependencies are satisfied
-- update task status / notes / last_updated when you start, block, or finish meaningful work
+- inspect it with:
+  bash scripts/ai-workflow.sh auto-task-board-show
+- claim or resume the current task with:
+  bash scripts/ai-workflow.sh auto-task-board-claim-next
+- update task state with:
+  bash scripts/ai-workflow.sh auto-task-board-update set-status <task_id> <todo|in_progress|blocked|done> "<note>"
+- append notes or acceptance evidence with:
+  bash scripts/ai-workflow.sh auto-task-board-update append-note <task_id> "<note>"
+  bash scripts/ai-workflow.sh auto-task-board-update append-acceptance <task_id> "<acceptance evidence>"
 Pick the highest-priority executable task and keep moving until the whole scoped project is complete, you are truly blocked, or you need external input.
 After each meaningful implementation step, update the planning docs so the next pass can continue from current reality.
 This runner currently holds the canonical writer lease for the project.
