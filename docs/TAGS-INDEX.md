@@ -392,7 +392,6 @@
 | [playwright](skills/engineering-workflow-automation/playwright) | engineering-workflow-automation | ★★★★☆ | Use when the task requires automating a real browser from the terminal (navigati |
 | [web-scraper](skills/engineering-workflow-automation/web-scraper) | engineering-workflow-automation | ★★★★☆ | 用于网页数据抓取、结构化提取和反爬策略应对。来源：全网高频推荐。 |
 | [dispatching-parallel-agents](skills/task-understanding-decomposition/dispatching-parallel-agents) | task-understanding-decomposition | ★★★★☆ | Use when facing 2+ independent tasks that can be worked on without shared state  |
-| [executing-plans](skills/task-understanding-decomposition/executing-plans) | task-understanding-decomposition | ★★★★☆ | Use when you have a written implementation plan to execute in a separate session |
 | [find-skills](skills/task-understanding-decomposition/find-skills) | task-understanding-decomposition | ★★★★☆ | 让 Agent 自动搜索并安装合适技能，解决不知道该用哪个技能的问题。 |
 | [finishing-a-development-branch](skills/task-understanding-decomposition/finishing-a-development-branch) | task-understanding-decomposition | ★★★★☆ | Use when implementation is complete, all tests pass, and you need to decide how  |
 | [prompt-optimizer](skills/task-understanding-decomposition/prompt-optimizer) | task-understanding-decomposition | ★★★★☆ | Transform vague prompts into precise, well-structured specifications using EARS  |
@@ -406,6 +405,7 @@
 | [writing-skills](skills/task-understanding-decomposition/writing-skills) | task-understanding-decomposition | ★★★★☆ | Use when creating new skills, editing existing skills, or verifying skills work  |
 | [gh-fix-ci](skills/engineering-workflow-automation/gh-fix-ci) | engineering-workflow-automation | ★★★☆☆ | Use when a user asks to debug or fix failing GitHub PR checks that run in GitHub |
 | [brainstorming](skills/task-understanding-decomposition/brainstorming) | task-understanding-decomposition | ★★★☆☆ | You MUST use this before any creative work - creating features, building compone |
+| [executing-plans](skills/task-understanding-decomposition/executing-plans) | task-understanding-decomposition | ★★★☆☆ | Use when you have a written implementation plan to execute in a separate session |
 | [subagent-driven-development](skills/task-understanding-decomposition/subagent-driven-development) | task-understanding-decomposition | ★★★☆☆ | 用于多子 Agent 并行开发编排，包含任务分派、两阶段审查和自动化质量门控。来源：obra/superpowers。 |
 | [agent-browser](skills/engineering-workflow-automation/agent-browser) | engineering-workflow-automation | ★★☆☆☆ | 为 Agent 提供真实浏览器自动化能力，支持语义定位、表单交互、截图录屏、脚本执行与会话管理。 |
 | [gh-address-comments](skills/engineering-workflow-automation/gh-address-comments) | engineering-workflow-automation | ★★☆☆☆ | Help address review/issue comments on the open GitHub PR for the current branch  |
@@ -681,7 +681,7 @@
 | [slack-gif-creator](skills/operations-general/slack-gif-creator) | operations-general | ★★★★★ | Knowledge and utilities for creating animated GIFs optimized for Slack. Provides |
 | [skill-creator](skills/task-understanding-decomposition/skill-creator) | task-understanding-decomposition | ★★★★★ | Create new skills, modify and improve existing skills, and measure skill perform |
 | [ppt-creator](skills/office-white-collar/ppt-creator) | office-white-collar | ★★★★☆ | Create professional slide decks from topics or documents. Generates structured c |
-| [pdf-creator](skills/office-white-collar/pdf-creator) | office-white-collar | ★★★☆☆ | Create PDF documents from markdown with proper Chinese font support using weasyp |
+| [pdf-creator](skills/office-white-collar/pdf-creator) | office-white-collar | ★★☆☆☆ | Create PDF documents from markdown with proper Chinese font support using weasyp |
 
 ## expert
 
@@ -1196,7 +1196,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [pdf](skills/office-white-collar/pdf) | office-white-collar | ★★★★★ | Use this skill whenever the user wants to do anything with PDF files. This inclu |
-| [pdf-creator](skills/office-white-collar/pdf-creator) | office-white-collar | ★★★☆☆ | Create PDF documents from markdown with proper Chinese font support using weasyp |
+| [pdf-creator](skills/office-white-collar/pdf-creator) | office-white-collar | ★★☆☆☆ | Create PDF documents from markdown with proper Chinese font support using weasyp |
 
 ## performance
 
@@ -1213,8 +1213,8 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [executing-plans](skills/task-understanding-decomposition/executing-plans) | task-understanding-decomposition | ★★★★☆ | Use when you have a written implementation plan to execute in a separate session |
 | [writing-plans](skills/task-understanding-decomposition/writing-plans) | task-understanding-decomposition | ★★★★☆ | Use when you have a spec or requirements for a multi-step task, before touching  |
+| [executing-plans](skills/task-understanding-decomposition/executing-plans) | task-understanding-decomposition | ★★★☆☆ | Use when you have a written implementation plan to execute in a separate session |
 
 ## practices
 
@@ -1834,7 +1834,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [executing-plans](skills/task-understanding-decomposition/executing-plans) | task-understanding-decomposition | ★★★★☆ | Use when you have a written implementation plan to execute in a separate session |
+| [executing-plans](skills/task-understanding-decomposition/executing-plans) | task-understanding-decomposition | ★★★☆☆ | Use when you have a written implementation plan to execute in a separate session |
 
 ## fact
 

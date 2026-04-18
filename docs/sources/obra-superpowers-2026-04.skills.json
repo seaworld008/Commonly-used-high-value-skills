@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://github.com/obra/superpowers",
-    "checked_at": "2026-04-13",
+    "checked_at": "2026-04-18",
     "note": "Curated from obra/superpowers after validating current upstream paths and recent popularity/discovery signals."
   },
   "official_references": [
@@ -37,54 +37,6 @@
     }
   ],
   "skills": [
-    {
-      "video_name": "requesting-code-review",
-      "normalized_slug": "requesting-code-review",
-      "status": "verified_in_repo",
-      "repo_skill": "skills/task-understanding-decomposition/requesting-code-review/SKILL.md",
-      "source": "https://skills.sh/obra/superpowers/requesting-code-review",
-      "notes": "Imported to strengthen the repository's review-request workflow coverage before merge or milestone handoff.",
-      "upstream": {
-        "repo": "obra/superpowers",
-        "path": "skills/requesting-code-review/SKILL.md",
-        "ref": "main",
-        "last_checked_at": "2026-04-13",
-        "last_synced_at": "2026-04-13",
-        "last_synced_commit": "9ccce3bf07a40e45259004a330409ba00970eff7"
-      }
-    },
-    {
-      "video_name": "receiving-code-review",
-      "normalized_slug": "receiving-code-review",
-      "status": "verified_in_repo",
-      "repo_skill": "skills/task-understanding-decomposition/receiving-code-review/SKILL.md",
-      "source": "https://skills.sh/obra/superpowers/receiving-code-review",
-      "notes": "Imported to help teams evaluate review comments rigorously instead of applying them blindly.",
-      "upstream": {
-        "repo": "obra/superpowers",
-        "path": "skills/receiving-code-review/SKILL.md",
-        "ref": "main",
-        "last_checked_at": "2026-04-13",
-        "last_synced_at": "2026-04-13",
-        "last_synced_commit": "1455ac0631e2f3824229f6a31a1877dc6b96952f"
-      }
-    },
-    {
-      "video_name": "verification-before-completion",
-      "normalized_slug": "verification-before-completion",
-      "status": "verified_in_repo",
-      "repo_skill": "skills/task-understanding-decomposition/verification-before-completion/SKILL.md",
-      "source": "https://skills.sh/obra/superpowers/verification-before-completion",
-      "notes": "Imported to enforce evidence-first completion claims before commit, PR, or handoff.",
-      "upstream": {
-        "repo": "obra/superpowers",
-        "path": "skills/verification-before-completion/SKILL.md",
-        "ref": "main",
-        "last_checked_at": "2026-04-13",
-        "last_synced_at": "2026-04-13",
-        "last_synced_commit": "48410c7f1973bd66569a627ef27ef6619e0ba923"
-      }
-    },
     {
       "video_name": "dispatching-parallel-agents",
       "normalized_slug": "dispatching-parallel-agents",
@@ -134,6 +86,86 @@
       }
     },
     {
+      "video_name": "receiving-code-review",
+      "normalized_slug": "receiving-code-review",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/task-understanding-decomposition/receiving-code-review/SKILL.md",
+      "source": "https://skills.sh/obra/superpowers/receiving-code-review",
+      "notes": "Imported to help teams evaluate review comments rigorously instead of applying them blindly.",
+      "upstream": {
+        "repo": "obra/superpowers",
+        "path": "skills/receiving-code-review/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-13",
+        "last_synced_at": "2026-04-13",
+        "last_synced_commit": "1455ac0631e2f3824229f6a31a1877dc6b96952f"
+      }
+    },
+    {
+      "video_name": "requesting-code-review",
+      "normalized_slug": "requesting-code-review",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/task-understanding-decomposition/requesting-code-review/SKILL.md",
+      "source": "https://skills.sh/obra/superpowers/requesting-code-review",
+      "notes": "Imported to strengthen the repository's review-request workflow coverage before merge or milestone handoff.",
+      "upstream": {
+        "repo": "obra/superpowers",
+        "path": "skills/requesting-code-review/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-13",
+        "last_synced_at": "2026-04-13",
+        "last_synced_commit": "9ccce3bf07a40e45259004a330409ba00970eff7"
+      }
+    },
+    {
+      "video_name": "subagent-driven-development",
+      "normalized_slug": "subagent-driven-development",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/task-understanding-decomposition/subagent-driven-development/SKILL.md",
+      "source": "https://skills.sh/obra/superpowers/subagent-driven-development",
+      "notes": "Reconciled from SKILL.md source declaration; upstream tracking enabled.",
+      "upstream": {
+        "repo": "obra/superpowers",
+        "path": "skills/subagent-driven-development/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-18",
+        "last_synced_at": "2026-04-18",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "systematic-debugging",
+      "normalized_slug": "systematic-debugging",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/developer-engineering/systematic-debugging/SKILL.md",
+      "source": "https://skills.sh/obra/superpowers/systematic-debugging",
+      "notes": "Reconciled from SKILL.md source declaration; upstream tracking enabled.",
+      "upstream": {
+        "repo": "obra/superpowers",
+        "path": "skills/systematic-debugging/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-18",
+        "last_synced_at": "2026-04-18",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "test-driven-development",
+      "normalized_slug": "test-driven-development",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/developer-engineering/test-driven-development/SKILL.md",
+      "source": "https://skills.sh/obra/superpowers/test-driven-development",
+      "notes": "Reconciled from SKILL.md source declaration; upstream tracking enabled.",
+      "upstream": {
+        "repo": "obra/superpowers",
+        "path": "skills/test-driven-development/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-18",
+        "last_synced_at": "2026-04-18",
+        "last_synced_commit": null
+      }
+    },
+    {
       "video_name": "using-git-worktrees",
       "normalized_slug": "using-git-worktrees",
       "status": "verified_in_repo",
@@ -163,6 +195,22 @@
         "last_checked_at": "2026-04-13",
         "last_synced_at": "2026-04-13",
         "last_synced_commit": "8b1669269c51835168c98fd435a7af1e5f15ec12"
+      }
+    },
+    {
+      "video_name": "verification-before-completion",
+      "normalized_slug": "verification-before-completion",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/task-understanding-decomposition/verification-before-completion/SKILL.md",
+      "source": "https://skills.sh/obra/superpowers/verification-before-completion",
+      "notes": "Imported to enforce evidence-first completion claims before commit, PR, or handoff.",
+      "upstream": {
+        "repo": "obra/superpowers",
+        "path": "skills/verification-before-completion/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-13",
+        "last_synced_at": "2026-04-13",
+        "last_synced_commit": "48410c7f1973bd66569a627ef27ef6619e0ba923"
       }
     },
     {

@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "note": "Persisted rejection cache for discover_new_skills.py. Entries here are skipped on future discovery runs so the weekly sync issue doesn't repeatedly re-propose the same candidates. Each entry may match by `name` (skill display name) or `url` (source URL). Add entries manually after triaging a sync issue.",
+  "updated_at": "2026-04-18",
+  "rejected": []
+}

@@ -10,7 +10,7 @@ created_at: "2026-03-04"
 updated_at: "2026-03-20"
 quality: 2
 complexity: "intermediate"
-metadata: 
+metadata:
 short-description: Address comments in a GitHub PR review
 ---
 

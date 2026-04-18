@@ -11,11 +11,11 @@ updated_at: "2026-04-13"
 quality: 4
 complexity: "intermediate"
 license: MIT
-metadata: 
-hermes: 
+metadata:
+hermes:
 category: research
 related_skills: '[obsidian, arxiv, agentic-research-ideas]'
-config: 
+config:
 - key: wiki.path
 default: "~/wiki"
 prompt: Wiki directory path

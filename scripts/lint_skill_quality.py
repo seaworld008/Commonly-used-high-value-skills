@@ -22,7 +22,28 @@ def parse_frontmatter(content: str) -> Dict[str, str]:
             data[key.strip()] = val.strip().strip("'").strip('"')
     return data
 
-def lint_skill(file_path: Path, min_lines: int) -> Dict[str, Any]:
+# Per-quality-tier minimum line expectations. Tier floors are treated as
+# hard FAIL; falling below the configured --min-lines floor is also FAIL.
+QUALITY_TIER_FLOOR: Dict[int, int] = {
+    5: 200,
+    4: 100,
+    3: 80,
+    2: 50,
+    1: 0,
+}
+
+
+def _parse_quality(frontmatter: Dict[str, str]) -> Optional[int]:
+    raw = frontmatter.get("quality")
+    if raw is None:
+        return None
+    try:
+        return int(str(raw).strip())
+    except (TypeError, ValueError):
+        return None
+
+
+def lint_skill(file_path: Path, min_lines: int, tiered: bool = True) -> Dict[str, Any]:
     try:
         content = file_path.read_text(encoding='utf-8')
     except Exception as e:
@@ -37,21 +58,28 @@ def lint_skill(file_path: Path, min_lines: int) -> Dict[str, Any]:
 
     lines = content.splitlines()
     line_count = len(lines)
-    
+
     errors = []
     warnings = []
     passed_count = 0
-    
-    # 1. Line count check
-    if line_count < 50:
-        errors.append(f"below minimum 50 lines")
-    elif line_count < min_lines:
-        warnings.append(f"below minimum {min_lines} lines")
-    else:
-        passed_count += 1
-    
-    # Frontmatter checks
     frontmatter = parse_frontmatter(content)
+    quality = _parse_quality(frontmatter)
+
+    # 1. Line count check (hard floor + tier floor + soft target)
+    if line_count < 50:
+        errors.append(f"below hard minimum 50 lines")
+    else:
+        tier_floor = (
+            QUALITY_TIER_FLOOR.get(quality, 0) if tiered and quality is not None else 0
+        )
+        if tier_floor and line_count < tier_floor:
+            errors.append(
+                f"below quality-{quality} tier floor {tier_floor} lines"
+            )
+        elif line_count < min_lines:
+            warnings.append(f"below recommended {min_lines} lines")
+        else:
+            passed_count += 1
     
     # 2. Required fields
     missing_req = [f for f in ["name", "description"] if f not in frontmatter or not frontmatter[f]]
@@ -151,7 +179,12 @@ def main():
     parser.add_argument("--min-lines", type=int, default=80, help="Minimum line count for WARN")
     parser.add_argument("--strict", action="store_true", help="Treat warnings as failures")
     parser.add_argument("--json", action="store_true", help="Output in JSON format")
-    
+    parser.add_argument(
+        "--no-tiered",
+        action="store_true",
+        help="Disable per-quality-tier line-count enforcement (5>=200, 4>=100, 3>=80, 2>=50)",
+    )
+
     args = parser.parse_args()
     
     skills_dir = Path(args.skills_dir)
@@ -170,7 +203,7 @@ def main():
     
     reports = []
     for f in skill_files:
-        reports.append(lint_skill(f, args.min_lines))
+        reports.append(lint_skill(f, args.min_lines, tiered=not args.no_tiered))
         
     # Sort: FAIL first, then WARN, then PASS
     status_order = {"FAIL": 0, "WARN": 1, "PASS": 2}

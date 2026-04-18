@@ -8,7 +8,7 @@ source_url: ""
 tags: '["creator", "pdf"]'
 created_at: "2026-03-04"
 updated_at: "2026-03-20"
-quality: 3
+quality: 2
 complexity: "intermediate"
 ---
 

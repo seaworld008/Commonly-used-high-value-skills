@@ -11,8 +11,8 @@ updated_at: "2026-04-13"
 quality: 4
 complexity: "intermediate"
 license: MIT
-metadata: 
-hermes: 
+metadata:
+hermes:
 homepage: https://github.com/NousResearch/hermes-agent
 related_skills: '[claude-code, codex, opencode]'
 ---

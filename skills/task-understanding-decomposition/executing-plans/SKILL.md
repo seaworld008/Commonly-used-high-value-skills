@@ -8,7 +8,7 @@ source_url: ""
 tags: '["plans", "execution", "workflow"]'
 created_at: "2026-04-13"
 updated_at: "2026-04-13"
-quality: 4
+quality: 3
 complexity: "intermediate"
 ---
 

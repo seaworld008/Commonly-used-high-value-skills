@@ -10,7 +10,7 @@ created_at: "2026-03-04"
 updated_at: "2026-03-20"
 quality: 3
 complexity: "intermediate"
-metadata: 
+metadata:
 short-description: 'Turn Notion specs into implementation plans, tasks, and progress tracking'
 ---
 

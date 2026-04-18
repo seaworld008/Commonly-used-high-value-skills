@@ -88,6 +88,33 @@ def get_local_skill_names(skills_dir: Path) -> set[str]:
     return names
 
 
+def load_rejected_keys(path: Path) -> tuple[set[str], set[str]]:
+    """Return (rejected_names, rejected_urls) from the persistent rejection cache.
+
+    The rejection cache lets maintainers record "we already looked at this and
+    decided not to add it" so weekly discovery runs don't keep re-proposing it.
+    Missing file is treated as empty cache.
+    """
+    names: set[str] = set()
+    urls: set[str] = set()
+    if not path.exists():
+        return names, urls
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return names, urls
+    for entry in data.get("rejected", []) or []:
+        if not isinstance(entry, dict):
+            continue
+        name = entry.get("name") or entry.get("key")
+        url = entry.get("url")
+        if name:
+            names.add(name.strip())
+        if url:
+            urls.add(url.strip())
+    return names, urls
+
+
 def new_source_health() -> dict[str, dict]:
     return {
         SOURCE_GITHUB: {"status": "unknown", "queries": 0, "results": 0, "errors": []},
@@ -425,12 +452,22 @@ def discover_from_clawhub(keywords: list[str], source_health: dict[str, dict]) -
     return discoveries
 
 
-def dedupe_discoveries(all_discoveries: list[dict], local_names: set[str]) -> list[dict]:
+def dedupe_discoveries(
+    all_discoveries: list[dict],
+    local_names: set[str],
+    rejected_names: set[str] | None = None,
+    rejected_urls: set[str] | None = None,
+) -> list[dict]:
+    rejected_names = rejected_names or set()
+    rejected_urls = rejected_urls or set()
     seen_names = set()
     unique_discoveries = []
     for item in all_discoveries:
         name = item["name"]
+        url = item.get("url", "")
         if name in local_names or name in seen_names:
+            continue
+        if name in rejected_names or (url and url in rejected_urls):
             continue
         seen_names.add(name)
         unique_discoveries.append(item)
@@ -463,6 +500,11 @@ def main() -> None:
     parser.add_argument("--skills-dir", default="skills")
     parser.add_argument("--keywords", help="Comma-separated list of custom keywords to search")
     parser.add_argument("--recommend", action="store_true", help="Output a recommendation Markdown table")
+    parser.add_argument(
+        "--rejected-file",
+        default="docs/sources/rejected-candidates.json",
+        help="Path to persistent rejection cache (names/URLs to skip).",
+    )
     args = parser.parse_args()
 
     skills_dir = REPO_ROOT / args.skills_dir
@@ -471,7 +513,10 @@ def main() -> None:
 
     token = os.environ.get("GITHUB_TOKEN")
     local_names = get_local_skill_names(skills_dir)
+    rejected_names, rejected_urls = load_rejected_keys(REPO_ROOT / args.rejected_file)
     print(f"Local skills indexed: {len(local_names)}")
+    if rejected_names or rejected_urls:
+        print(f"Rejection cache: {len(rejected_names)} names, {len(rejected_urls)} URLs")
 
     keywords = SEARCH_KEYWORDS
     if args.keywords:
@@ -497,7 +542,9 @@ def main() -> None:
         all_discoveries.extend(skills_future.result())
         all_discoveries.extend(clawhub_future.result())
 
-    unique_discoveries = dedupe_discoveries(all_discoveries, local_names)
+    unique_discoveries = dedupe_discoveries(
+        all_discoveries, local_names, rejected_names, rejected_urls
+    )
     report = build_discovery_report(
         local_skill_count=len(local_names),
         all_discoveries=all_discoveries,

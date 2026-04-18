@@ -11,11 +11,11 @@ updated_at: "2026-04-13"
 quality: 4
 complexity: "intermediate"
 license: MIT
-metadata: 
-hermes: 
+metadata:
+hermes:
 homepage: https://docs.honcho.dev
 related_skills: '[hermes-agent]'
-prerequisites: 
+prerequisites:
 pip: '[honcho-ai]'
 ---
 

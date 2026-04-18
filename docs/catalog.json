@@ -2728,7 +2728,7 @@
         "creator",
         "pdf"
       ],
-      "quality": 3,
+      "quality": 2,
       "complexity": "intermediate",
       "created_at": "2026-03-04",
       "updated_at": "2026-03-20",
@@ -3569,7 +3569,7 @@
         "execution",
         "workflow"
       ],
-      "quality": 4,
+      "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-04-13",
       "updated_at": "2026-04-13",

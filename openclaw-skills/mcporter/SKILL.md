@@ -11,10 +11,10 @@ updated_at: "2026-04-13"
 quality: 4
 complexity: "intermediate"
 license: MIT
-metadata: 
-hermes: 
+metadata:
+hermes:
 homepage: https://mcporter.dev
-prerequisites: 
+prerequisites:
 commands: '[npx]'
 ---
 

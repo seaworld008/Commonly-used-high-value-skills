@@ -11,7 +11,7 @@ updated_at: "2026-03-20"
 quality: 5
 complexity: "intermediate"
 license: MIT
-metadata: 
+metadata:
 category: marketing
 domain: content-marketing
 updated: 2025-10-20

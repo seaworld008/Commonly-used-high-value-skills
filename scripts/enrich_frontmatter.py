@@ -134,13 +134,24 @@ def main() -> int:
             
         fm_text = match.group(1)
         body = match.group(2)
-        
-        # Parse existing fields into a dictionary
-        fm_data = {}
+
+        # Parse existing fields, preserving nested (indented) blocks verbatim.
+        # A "nested block" is a top-level key whose value spans subsequent
+        # indented lines (e.g. `metadata:\n  hermes:\n    tags: [...]`).
+        # These must not be flattened or we lose structured metadata.
+        fm_data: dict[str, str] = {}
+        nested_blocks: dict[str, list[str]] = {}
+        current_top_key: str | None = None
         for line in fm_text.splitlines():
+            if line and (line[0] == " " or line[0] == "\t"):
+                # Indented continuation — belongs to the most recent top-level key.
+                if current_top_key is not None:
+                    nested_blocks.setdefault(current_top_key, []).append(line)
+                continue
             if ":" in line:
                 k, v = line.split(":", 1)
-                fm_data[k.strip()] = v.strip()
+                current_top_key = k.strip()
+                fm_data[current_top_key] = v.strip()
         
         # 1. Fill missing fields or apply defaults
         if "version" not in fm_data:
@@ -212,16 +223,24 @@ def main() -> int:
         if "description" in fm_data:
             fm_data["description"] = quote_value(fm_data["description"])
             
-        # Construct new frontmatter with fixed field order
-        new_fm_lines = []
+        # Construct new frontmatter with fixed field order. Preserve any
+        # nested block (indented continuation lines) attached to a key.
+        def _emit(field: str) -> list[str]:
+            val = fm_data[field]
+            lines_out = [f"{field}: {val}" if val != "" else f"{field}:"]
+            for cont in nested_blocks.get(field, []):
+                lines_out.append(cont)
+            return lines_out
+
+        new_fm_lines: list[str] = []
         for field in FIELD_ORDER:
             if field in fm_data:
-                new_fm_lines.append(f"{field}: {fm_data[field]}")
-        
+                new_fm_lines.extend(_emit(field))
+
         # Add any other fields that might have existed but aren't in FIELD_ORDER
         for k in fm_data:
             if k not in FIELD_ORDER:
-                new_fm_lines.append(f"{k}: {fm_data[k]}")
+                new_fm_lines.extend(_emit(k))
                 
         new_fm_text = "---\n" + "\n".join(new_fm_lines) + "\n---\n"
         new_content = new_fm_text + body
