@@ -10,6 +10,7 @@ Welcome to the documentation directory for the Commonly Used High-Value Skills r
 
 ## Other Documentation
 
+- [Client Install Guides](./client-install-guides.md)
 - [Optimization Roadmap](./OPTIMIZATION-ROADMAP.md)
 - [Skill Provenance & Governance](./skill-provenance-governance.md)
 - [Repo Maintenance Runbook](./repo-maintenance-runbook.md)

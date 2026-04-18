@@ -74,6 +74,10 @@ python3 scripts/export_openclaw_skills.py
    - `skills/security-and-reliability/skill-vetter`
    - `openclaw-skills/codebase-onboarding`
 
+If you want client-specific examples instead of the generic setup above, continue with:
+
+- [Client Install Guides](./docs/client-install-guides.md)
+
 ### Common Maintenance Commands
 
 If you change source skills in the repository, refresh generated views with:
@@ -153,6 +157,7 @@ Recommended starting points for Hermes users:
 - [`skills/ai-agent-platform/hermes-agent`](./skills/ai-agent-platform/hermes-agent/)
 - [`skills/ai-agent-platform/native-mcp`](./skills/ai-agent-platform/native-mcp/)
 - [`skills/ai-agent-platform/README.md`](./skills/ai-agent-platform/README.md)
+- [Client Install Guides](./docs/client-install-guides.md)
 
 ## Contributing
 

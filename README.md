@@ -74,6 +74,10 @@ python3 scripts/export_openclaw_skills.py
    - `skills/security-and-reliability/skill-vetter`
    - `openclaw-skills/codebase-onboarding`
 
+如果你希望按客户端直接看安装示例，可继续阅读：
+
+- [按客户端安装示例](./docs/client-install-guides.md)
+
 ### 常见维护命令
 
 如果你修改了仓库里的源码技能，推荐统一刷新生成视图：
@@ -169,6 +173,7 @@ python scripts/sync_codex_skills.py --source-root "E:\AI-codex\003-Commonly-used
 - [`skills/ai-agent-platform/hermes-agent`](./skills/ai-agent-platform/hermes-agent/)
 - [`skills/ai-agent-platform/native-mcp`](./skills/ai-agent-platform/native-mcp/)
 - [`skills/ai-agent-platform/README.md`](./skills/ai-agent-platform/README.md)
+- [按客户端安装示例](./docs/client-install-guides.md)
 
 ## 如何参与共建
 
