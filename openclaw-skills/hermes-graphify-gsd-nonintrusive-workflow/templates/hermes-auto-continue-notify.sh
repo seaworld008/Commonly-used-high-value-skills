@@ -26,7 +26,7 @@ head_sha="$(git rev-parse HEAD 2>/dev/null || echo unknown)"
 json_path="$HERMES_AUTO_CONTINUE_NOTIFY_DIR/${timestamp}-${event}.json"
 md_path="$HERMES_AUTO_CONTINUE_NOTIFY_DIR/${timestamp}-${event}.md"
 
-python3 - <<'PY' "$json_path" "$md_path" "$event" "$title" "$detail" "$ROOT" "$branch_name" "$head_sha" "$HERMES_AUTO_CONTINUE_SUMMARY_FILE" "$HERMES_AUTO_CONTINUE_NOTIFY_DELIVER"
+python3 - <<'PY' "$json_path" "$md_path" "$event" "$title" "$detail" "$ROOT" "$branch_name" "$head_sha" "$HERMES_AUTO_CONTINUE_SUMMARY_FILE" "$HERMES_AUTO_CONTINUE_NOTIFY_DELIVER" "$HERMES_GSD_NEXT_STATE_FILE"
 from __future__ import annotations
 
 import datetime as dt
@@ -44,7 +44,14 @@ branch = sys.argv[7]
 head = sys.argv[8]
 summary_file = sys.argv[9]
 deliver = sys.argv[10]
+gsd_state_file = sys.argv[11]
 time = dt.datetime.now(dt.timezone.utc).astimezone().isoformat()
+
+gsd_state = {}
+try:
+    gsd_state = json.loads(Path(gsd_state_file).read_text(encoding="utf-8"))
+except Exception:
+    gsd_state = {}
 
 payload = {
     "time": time,
@@ -56,6 +63,7 @@ payload = {
     "head": head,
     "summary_file": summary_file,
     "deliver": deliver,
+    "gsd": gsd_state,
 }
 json_path.parent.mkdir(parents=True, exist_ok=True)
 json_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -78,6 +86,14 @@ body = [
 ]
 if deliver:
     body.append(f"- Deliver: `{deliver}`")
+if gsd_state:
+    body.extend(
+        [
+            f"- GSD current phase: `{gsd_state.get('current_phase', '')}`",
+            f"- GSD next step: `{gsd_state.get('gsd_next_step', '')}`",
+            f"- GSD next command: `{gsd_state.get('gsd_next_command', '')}`",
+        ]
+    )
 if detail:
     body.extend(["", "## Detail", "", detail])
 if summary_text:

@@ -34,6 +34,7 @@ export HERMES_GSD_LOCAL_ROOT="${HERMES_GSD_LOCAL_ROOT:-$ROOT/.codex/get-shit-don
 export HERMES_GSD_WORKFLOWS_DIR="${HERMES_GSD_WORKFLOWS_DIR:-$HERMES_GSD_LOCAL_ROOT/workflows}"
 export HERMES_GSD_SKILLS_DIR="${HERMES_GSD_SKILLS_DIR:-$ROOT/.codex/skills}"
 export HERMES_GSD_TOOLS_CJS="${HERMES_GSD_TOOLS_CJS:-$HERMES_GSD_LOCAL_ROOT/bin/gsd-tools.cjs}"
+export HERMES_GSD_NEXT_STATE_FILE="${HERMES_GSD_NEXT_STATE_FILE:-$ROOT/.planning/auto-gsd-next-state.json}"
 
 hermes_auto_continue_ensure_dirs() {
   mkdir -p "$ROOT/.planning" "$ROOT/docs" "$HERMES_AUTO_CONTINUE_STATE_DIR" "$HERMES_AUTO_CONTINUE_LOG_DIR" "$ROOT/.planning/checkpoints" "$HERMES_AUTO_CONTINUE_NOTIFY_DIR"

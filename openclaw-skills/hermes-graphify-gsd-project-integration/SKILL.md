@@ -163,6 +163,7 @@ If the user wants **autonomous continuation** rather than only repo integration:
 - expose task-board operator commands so humans and agents can inspect next actionable work
 - if local GSD is installed, let GSD phase workflows drive discuss / plan / execute / verify order
 - use graphify retrieval commands when cross-module structure is unclear
+- mirror GSD next-step judgment into a machine-readable runtime file such as `.planning/auto-gsd-next-state.json`
 
 ### 4. Update AGENTS.md
 Add or refine a workflow section covering:

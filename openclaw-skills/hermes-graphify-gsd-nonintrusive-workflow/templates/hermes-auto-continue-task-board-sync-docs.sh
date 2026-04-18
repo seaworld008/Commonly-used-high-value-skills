@@ -4,7 +4,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 source "$ROOT/scripts/hermes-auto-continue-config.sh"
 
-python3 - <<'PY' "$HERMES_AUTO_CONTINUE_TASK_BOARD_FILE" "$ROOT/.planning/STATE.md" "$ROOT/.planning/ROADMAP.md"
+python3 - <<'PY' "$HERMES_AUTO_CONTINUE_TASK_BOARD_FILE" "$ROOT/.planning/STATE.md" "$ROOT/.planning/ROADMAP.md" "$HERMES_GSD_NEXT_STATE_FILE"
 from __future__ import annotations
 
 import json
@@ -16,6 +16,7 @@ from pathlib import Path
 board_path = Path(sys.argv[1])
 state_path = Path(sys.argv[2])
 roadmap_path = Path(sys.argv[3])
+gsd_state_path = Path(sys.argv[4])
 
 if not board_path.exists():
     print(f"missing={board_path}")
@@ -24,6 +25,10 @@ if not board_path.exists():
 data = json.loads(board_path.read_text(encoding="utf-8"))
 tasks = data.get("tasks", [])
 counts = Counter(task.get("status", "unknown") for task in tasks)
+try:
+    gsd_state = json.loads(gsd_state_path.read_text(encoding="utf-8"))
+except Exception:
+    gsd_state = {}
 
 current = next((task for task in tasks if task.get("status") == "in_progress"), None)
 blocked = [task for task in tasks if task.get("status") == "blocked"]
@@ -92,6 +97,17 @@ if blocked:
 else:
     state_lines.append("- Blocked tasks: none")
 
+if gsd_state:
+    state_lines.extend(
+        [
+            f"- GSD current phase: `{gsd_state.get('current_phase', '')}`",
+            f"- GSD current phase name: {gsd_state.get('current_phase_name', '')}",
+            f"- GSD next step: `{gsd_state.get('gsd_next_step', '')}`",
+            f"- GSD next command: `{gsd_state.get('gsd_next_command', '')}`",
+            f"- GSD next reason: `{gsd_state.get('gsd_next_reason', '')}`",
+        ]
+    )
+
 state_lines.extend(["<!-- AUTO-TASK-BOARD-STATE:END -->", ""])
 
 
@@ -106,6 +122,18 @@ if current:
 
 if next_task:
     roadmap_lines.extend(["### Next", task_line(next_task), ""])
+
+if gsd_state:
+    roadmap_lines.extend(
+        [
+            "### GSD Lifecycle",
+            f"- Current phase: `{gsd_state.get('current_phase', '')}` — {gsd_state.get('current_phase_name', '')}",
+            f"- Next step: `{gsd_state.get('gsd_next_step', '')}`",
+            f"- Next command: `{gsd_state.get('gsd_next_command', '')}`",
+            f"- Reason: `{gsd_state.get('gsd_next_reason', '')}`",
+            "",
+        ]
+    )
 
 pending = [task for task in tasks if task.get("status") == "todo"]
 pending.sort(key=lambda task: (priority_rank(task.get("priority", "p9")), task.get("id", "")))

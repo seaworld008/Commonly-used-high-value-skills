@@ -14,6 +14,7 @@ blocked_json='{}'
 task_board_output=''
 resume_output=''
 notify_paths=''
+gsd_next_output=''
 [ -f "$HERMES_AUTO_CONTINUE_STATE_FILE" ] && state_json="$(cat "$HERMES_AUTO_CONTINUE_STATE_FILE")"
 [ -f "$HERMES_AUTO_CONTINUE_LEASE_FILE" ] && lease_json="$(cat "$HERMES_AUTO_CONTINUE_LEASE_FILE")"
 [ -f "$HERMES_AUTO_CONTINUE_HANDOFF_FILE" ] && handoff_json="$(cat "$HERMES_AUTO_CONTINUE_HANDOFF_FILE")"
@@ -24,13 +25,18 @@ fi
 if [ -x "$ROOT/scripts/hermes-auto-continue-resume-if-ready.sh" ]; then
   resume_output="$(bash "$ROOT/scripts/hermes-auto-continue-resume-if-ready.sh" 2>/dev/null || true)"
 fi
+if [ -f "$HERMES_GSD_NEXT_STATE_FILE" ]; then
+  gsd_next_output="$(cat "$HERMES_GSD_NEXT_STATE_FILE" 2>/dev/null || true)"
+elif [ -x "$ROOT/scripts/hermes-gsd-next-state.sh" ]; then
+  gsd_next_output="$(bash "$ROOT/scripts/hermes-gsd-next-state.sh" 2>/dev/null || true)"
+fi
 if [ -d "$HERMES_AUTO_CONTINUE_NOTIFY_DIR" ]; then
   notify_paths="$(find "$HERMES_AUTO_CONTINUE_NOTIFY_DIR" -maxdepth 1 -type f | sort | tail -2 || true)"
 fi
 if [ -x "$ROOT/scripts/hermes-auto-continue-task-board-sync-docs.sh" ] && [ -f "$HERMES_AUTO_CONTINUE_TASK_BOARD_FILE" ]; then
   bash "$ROOT/scripts/hermes-auto-continue-task-board-sync-docs.sh" >/dev/null 2>&1 || true
 fi
-python3 - <<'PY' "$HERMES_AUTO_CONTINUE_SUMMARY_FILE" "$status_line" "$writer_status" "$state_json" "$lease_json" "$handoff_json" "$blocked_json" "$task_board_output" "$resume_output" "$notify_paths"
+python3 - <<'PY' "$HERMES_AUTO_CONTINUE_SUMMARY_FILE" "$status_line" "$writer_status" "$state_json" "$lease_json" "$handoff_json" "$blocked_json" "$task_board_output" "$resume_output" "$notify_paths" "$gsd_next_output"
 import json, sys
 from pathlib import Path
 summary_path = Path(sys.argv[1])
@@ -43,6 +49,7 @@ blocked = json.loads(sys.argv[7]) if sys.argv[7].strip() else {}
 task_board_lines = sys.argv[8].splitlines()
 resume_lines = sys.argv[9].splitlines()
 notify_lines = sys.argv[10].splitlines()
+gsd_lines = sys.argv[11].splitlines()
 summary_path.parent.mkdir(parents=True, exist_ok=True)
 parts = ['# Auto Continue Last Summary', '', f'- Status: `{status_line}`']
 for line in writer_status_lines:
@@ -74,6 +81,11 @@ for line in resume_lines:
 if notify_lines:
     parts.append("- notify_recent_files:")
     parts.extend([f"  - `{line}`" for line in notify_lines if line.strip()])
+for line in gsd_lines:
+    if line.strip():
+        k, _, v = line.partition('=')
+        if k in {"current_phase", "current_phase_name", "state_status", "phase_has_context", "phase_has_plan", "phase_has_summary", "gsd_next_step", "gsd_next_phase", "gsd_next_command", "gsd_next_reason"}:
+            parts.append(f"- gsd_{k}: `{v}`")
 summary_path.write_text('\n'.join(parts) + '\n')
 print(summary_path)
 PY

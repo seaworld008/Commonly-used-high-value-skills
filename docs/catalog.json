@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-04-17",
+  "generated_at": "2026-04-18",
   "total_skills": 188,
   "total_categories": 15,
   "categories": [
@@ -218,7 +218,7 @@
       "complexity": "intermediate",
       "created_at": "2026-04-16",
       "updated_at": "2026-04-16",
-      "line_count": 451,
+      "line_count": 457,
       "path": "skills/ai-agent-platform/hermes-graphify-gsd-nonintrusive-workflow/SKILL.md"
     },
     {
@@ -1662,7 +1662,7 @@
       "complexity": "intermediate",
       "created_at": "2026-04-16",
       "updated_at": "2026-04-16",
-      "line_count": 304,
+      "line_count": 305,
       "path": "skills/engineering-workflow-automation/hermes-graphify-gsd-project-integration/SKILL.md"
     },
     {

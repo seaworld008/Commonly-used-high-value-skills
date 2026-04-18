@@ -159,6 +159,8 @@ Recommended repo-local files:
 - `scripts/hermes-auto-continue-task-board-sync-docs.sh`
 - `scripts/hermes-auto-continue-resume-if-ready.sh`
 - `scripts/hermes-auto-continue-notify.sh`
+- `scripts/hermes-gsd-phase-engine-status.sh`
+- `scripts/hermes-gsd-next-state.sh`
 - `scripts/hermes-auto-continue-mark-complete.sh`
 - `scripts/install-hermes-auto-continue-cron.sh`
 - `.husky/post-commit`
@@ -167,6 +169,7 @@ Recommended repo-local files:
 Recommended optional relay artifacts:
 - `.planning/auto-continue-last-summary.md`
 - `.planning/task-board.json`
+- `.planning/auto-gsd-next-state.json`
 - `.planning/notifications/`
 - optional explicit delivery env vars such as:
   - `HERMES_AUTO_CONTINUE_NOTIFY_DELIVER`
@@ -189,6 +192,7 @@ Recommended operator contract:
 - expose a repo-local doctor/operator surface such as:
   - `./scripts/ai-workflow.sh doctor`
   - `./scripts/ai-workflow.sh gsd-doctor`
+  - `./scripts/ai-workflow.sh gsd-next-state`
   - `./scripts/ai-workflow.sh gsd-skill-show <name>`
   - `./scripts/ai-workflow.sh gsd-workflow-show <name>`
   - `./scripts/ai-workflow.sh auto-status`
@@ -226,6 +230,7 @@ Core rule:
 Recommended machine-readable planning contract:
 - keep human-readable docs (`PROJECT.md`, `REQUIREMENTS.md`, `ROADMAP.md`, `STATE.md`)
 - also keep a machine-readable task board at `.planning/task-board.json`
+- also keep a machine-readable GSD lifecycle mirror at `.planning/auto-gsd-next-state.json`
 - if local GSD is installed under `.codex/get-shit-done/`, treat GSD workflow files as the lifecycle source of truth and use the task board as execution cache
 - the autonomous runner should prefer:
   1. GSD phase truth (`gsd-next`, discuss / plan / execute / verify workflow docs when available)
@@ -426,6 +431,7 @@ Load these bundled files when implementing:
 - `templates/hermes-auto-continue-resume-if-ready.sh`
 - `templates/hermes-auto-continue-notify.sh`
 - `templates/hermes-gsd-phase-engine-status.sh`
+- `templates/hermes-gsd-next-state.sh`
 - `templates/hermes-auto-continue-mark-complete.sh`
 - `templates/install-hermes-auto-continue-cron.sh`
 - `templates/husky-post-commit-auto-continue.sh`
