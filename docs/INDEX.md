@@ -6,6 +6,7 @@ Welcome to the documentation directory for the Commonly Used High-Value Skills r
 
 - [**Tags Index**](./TAGS-INDEX.md) - A comprehensive index of all skills categorized by tags, including quality ratings (Leaderboard).
 - [**Catalog JSON**](./catalog.json) - A machine-readable API directory of all skills in the repository.
+- [**Repo Health Report**](./sources/reports/repo-health.md) - Unified maintenance snapshot covering source coverage, license audit, dead links, and refresh backlog.
 
 ## Other Documentation
 
