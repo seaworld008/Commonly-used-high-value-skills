@@ -137,6 +137,7 @@ Required modes:
 Behavior guidance:
 - detect a Python interpreter that can import `graphify`
 - use code-only rebuild for code changes when possible
+- if the upstream `graphify.watch._rebuild_code` helper is unavailable or changes shape, fall back automatically to `graphify update .`
 - fallback to full `graphify update .` when outputs are missing
 - treat `graphify-out/graph.json` and `graphify-out/GRAPH_REPORT.md` as the required outputs
 - do not require `manifest.json`; newer graphify versions may not emit it

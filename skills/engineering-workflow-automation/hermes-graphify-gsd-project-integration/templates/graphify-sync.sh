@@ -74,12 +74,19 @@ smart() {
   fi
   if code_changed_since_head; then
     echo "[graphify-sync] code changes detected -> running code-only rebuild"
-    run_graphify_python - <<'PY'
+    if ! run_graphify_python - <<'PY'
 from pathlib import Path
-from graphify.watch import _rebuild_code
+try:
+    from graphify.watch import _rebuild_code
+except Exception as exc:
+    raise SystemExit(f"fallback:update:{exc}")
 _rebuild_code(Path('.'))
 print('[graphify-sync] code graph rebuilt')
 PY
+    then
+      echo "[graphify-sync] code-only rebuild unavailable -> falling back to graphify update ."
+      graphify update .
+    fi
     return 0
   fi
   if docs_only_changed_since_head; then
