@@ -224,6 +224,8 @@ When task board exists, prefer it as the canonical next-task selector:
 - after changing the task board, sync the managed planning mirror with:
   bash scripts/ai-workflow.sh auto-task-board-sync-docs
 When architecture or dependency relationships are unclear, use graphify as a live retrieval layer instead of guessing:
+- inspect current hints with:
+  bash scripts/ai-workflow.sh graphify-hints
 - bash scripts/ai-workflow.sh graphify-query "<question>"
 - bash scripts/ai-workflow.sh graphify-path "<nodeA>" "<nodeB>"
 - bash scripts/ai-workflow.sh graphify-explain "<node>"

@@ -162,6 +162,8 @@ Recommended repo-local files:
 - `scripts/hermes-gsd-phase-engine-status.sh`
 - `scripts/hermes-gsd-next-state.sh`
 - `scripts/hermes-gsd-sync-runtime-mirror.sh`
+- `scripts/hermes-graphify-strategy-hints.sh`
+- `scripts/hermes-auto-continue-learnings.sh`
 - `scripts/hermes-auto-continue-mark-complete.sh`
 - `scripts/install-hermes-auto-continue-cron.sh`
 - `.husky/post-commit`
@@ -172,6 +174,8 @@ Recommended optional relay artifacts:
 - `.planning/task-board.json`
 - `.planning/auto-gsd-next-state.json`
 - `.planning/notifications/`
+- `.planning/learnings/`
+- `.planning/skill-candidates/`
 - optional explicit delivery env vars such as:
   - `HERMES_AUTO_CONTINUE_NOTIFY_DELIVER`
   - `HERMES_AUTO_CONTINUE_NOTIFY_SCHEDULE`
@@ -196,6 +200,8 @@ Recommended operator contract:
   - `./scripts/ai-workflow.sh gsd-next-state`
   - `./scripts/ai-workflow.sh gsd-skill-show <name>`
   - `./scripts/ai-workflow.sh gsd-workflow-show <name>`
+  - `./scripts/ai-workflow.sh graphify-hints`
+  - `./scripts/ai-workflow.sh auto-learnings <event> [title] [detail]`
   - `./scripts/ai-workflow.sh auto-status`
   - `./scripts/ai-workflow.sh auto-progress`
   - `./scripts/ai-workflow.sh auto-runner-show`
@@ -272,6 +278,7 @@ Trigger semantics note:
 - If a machine-readable task board exists, the trigger prompt should explicitly tell the runner to use that board as the canonical next-task selector and to update it after each meaningful step.
 - If local GSD skills/workflows are installed, the trigger prompt should read `gsd-next` first and let GSD decide whether the system currently needs discuss, plan, execute, or verify.
 - If graphify is installed, prefer `query`, `path`, and `explain` before guessing at cross-module structure.
+- A useful next step is to auto-surface graphify hints from recent file changes so the agent can tell when `path`, `query`, `explain`, or `wiki` are especially valuable.
 - If handoff is meant to auto-resume later, prefer machine-readable `resume_condition` probes such as:
   - `file_exists:<path>`
   - `file_missing:<path>`
@@ -435,6 +442,8 @@ Load these bundled files when implementing:
 - `templates/hermes-gsd-phase-engine-status.sh`
 - `templates/hermes-gsd-next-state.sh`
 - `templates/hermes-gsd-sync-runtime-mirror.sh`
+- `templates/hermes-graphify-strategy-hints.sh`
+- `templates/hermes-auto-continue-learnings.sh`
 - `templates/hermes-auto-continue-mark-complete.sh`
 - `templates/install-hermes-auto-continue-cron.sh`
 - `templates/husky-post-commit-auto-continue.sh`

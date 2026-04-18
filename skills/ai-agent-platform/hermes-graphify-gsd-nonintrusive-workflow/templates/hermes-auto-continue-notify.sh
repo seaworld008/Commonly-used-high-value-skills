@@ -113,5 +113,9 @@ if [ -n "$HERMES_AUTO_CONTINUE_NOTIFY_COMMAND" ]; then
   bash -lc "$HERMES_AUTO_CONTINUE_NOTIFY_COMMAND" || true
 fi
 
+if [ -x "$ROOT/scripts/hermes-auto-continue-learnings.sh" ]; then
+  bash "$ROOT/scripts/hermes-auto-continue-learnings.sh" "$event" "$title" "$detail" >/dev/null 2>&1 || true
+fi
+
 echo "notify_json=$json_path"
 echo "notify_md=$md_path"
