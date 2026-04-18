@@ -16,8 +16,10 @@
 - 文件：
   - `docs/sources/reports/repo-health.json`
   - `docs/sources/reports/repo-health.md`
+  - `docs/sources/reports/repo-health-eval.md`
 - 用途：
   - 一眼看全局健康状态
+  - 用阈值规则判断当前是 PASS 还是 FAIL
   - 重点关注：
     - source coverage
     - license audit
@@ -66,6 +68,7 @@ python3 scripts/check_dead_links.py \
   --output docs/sources/reports/dead-links.json
 
 python3 scripts/generate_repo_health_report.py
+python3 scripts/evaluate_repo_health.py
 ```
 
 ### 完整刷新
@@ -124,6 +127,7 @@ python3 -m unittest \
 - 质量 lint
 - license audit
 - 生成 repo health 报告
+- 评估 repo health 阈值
 - 关键测试
 - generated files diff 校验
 - 上传 `repo-health` artifact

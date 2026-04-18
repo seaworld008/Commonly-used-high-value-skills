@@ -40,12 +40,19 @@ jobs:
       - name: Generate repo health report
         run: python scripts/generate_repo_health_report.py
 
+      - name: Evaluate repo health thresholds
+        run: python scripts/evaluate_repo_health.py
+
       - name: Publish repo health summary
-        run: cat docs/sources/reports/repo-health.md >> "$GITHUB_STEP_SUMMARY"
+        run: |
+          cat docs/sources/reports/repo-health.md >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          cat docs/sources/reports/repo-health-eval.md >> "$GITHUB_STEP_SUMMARY"
 
       - name: Run repository validation tests
         run: >
           python -m unittest
+          tests.test_evaluate_repo_health
           tests.test_dead_links_workflow
           tests.test_generate_repo_health_report
           tests.test_export_openclaw_skills
@@ -67,4 +74,5 @@ jobs:
           path: |
             docs/sources/reports/repo-health.json
             docs/sources/reports/repo-health.md
+            docs/sources/reports/repo-health-eval.md
           retention-days: 30

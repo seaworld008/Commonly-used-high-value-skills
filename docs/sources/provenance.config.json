@@ -1,6 +1,14 @@
 {
   "coverage_min_percent": 95,
   "stale_days": 30,
+  "health_thresholds": {
+    "source_coverage_min_percent": 95,
+    "license_missing_max": 0,
+    "license_unknown_max": 0,
+    "dead_links_max": 0,
+    "refresh_queue_max": 0,
+    "source_conflicts_max": 0
+  },
   "paths": {
     "in_house_mapping": "docs/sources/in-house.skills.json",
     "refresh_queue": "docs/sources/reports/refresh-queue.json",
