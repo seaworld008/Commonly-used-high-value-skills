@@ -28,9 +28,15 @@ class RepoValidationWorkflowTests(unittest.TestCase):
             if isinstance(step, dict) and "run" in step
         )
         self.assertIn("python scripts/audit_licenses.py", commands)
+        self.assertIn("python scripts/generate_repo_health_report.py", commands)
         self.assertIn("python scripts/refresh_repo_views.py", commands)
         self.assertIn("python -m unittest", commands)
         self.assertIn("git diff --exit-code", commands)
+
+        upload_steps = [
+            step for step in job["steps"] if isinstance(step, dict) and step.get("uses") == "actions/upload-artifact@v4"
+        ]
+        self.assertTrue(upload_steps, "repo-validation should upload a repo health artifact")
 
 
 if __name__ == "__main__":

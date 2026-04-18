@@ -37,9 +37,13 @@ jobs:
       - name: Build catalog JSON
         run: python scripts/build_catalog_json.py
 
+      - name: Generate repo health report
+        run: python scripts/generate_repo_health_report.py
+
       - name: Run repository validation tests
         run: >
           python -m unittest
+          tests.test_generate_repo_health_report
           tests.test_export_openclaw_skills
           tests.test_finance_investing_skills
           tests.test_generate_category_readmes
@@ -51,3 +55,12 @@ jobs:
 
       - name: Ensure generated files are up to date
         run: git diff --exit-code
+
+      - name: Upload repo health artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: repo-health-report
+          path: |
+            docs/sources/reports/repo-health.json
+            docs/sources/reports/repo-health.md
+          retention-days: 30

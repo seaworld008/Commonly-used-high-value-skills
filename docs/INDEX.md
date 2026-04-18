@@ -12,6 +12,7 @@ Welcome to the documentation directory for the Commonly Used High-Value Skills r
 
 - [Optimization Roadmap](./OPTIMIZATION-ROADMAP.md)
 - [Skill Provenance & Governance](./skill-provenance-governance.md)
+- [Repo Maintenance Runbook](./repo-maintenance-runbook.md)
 - [Sources](./sources/)
 - [Implementation Plans](./plans/)
 
