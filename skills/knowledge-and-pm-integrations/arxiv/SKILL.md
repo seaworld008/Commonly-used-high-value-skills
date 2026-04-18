@@ -247,12 +247,10 @@ curl -s "https://api.semanticscholar.org/graph/v1/paper/arXiv:2402.03300/referen
 curl -s "https://api.semanticscholar.org/graph/v1/paper/search?query=GRPO+reinforcement+learning&limit=5&fields=title,authors,year,citationCount,externalIds" | python3 -m json.tool
 ```
 
-### Get paper recommendations
+### Get richer paper metadata (practical alternative to the deprecated recommendations endpoint)
 
 ```bash
-curl -s -X POST "https://api.semanticscholar.org/recommendations/v1/papers/" \
-  -H "Content-Type: application/json" \
-  -d '{"positivePaperIds": ["arXiv:2402.03300"], "negativePaperIds": []}' | python3 -m json.tool
+curl -s "https://api.semanticscholar.org/graph/v1/paper/arXiv:2402.03300?fields=title,authors,year,referenceCount,citationCount,influentialCitationCount" | python3 -m json.tool
 ```
 
 ### Author profile

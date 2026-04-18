@@ -552,7 +552,7 @@ grep -i "failed to send\|error" ~/.hermes/logs/gateway.log | tail -20
 
 ## Contributor Quick Reference
 
-For occasional contributors and PR authors. Full developer docs: https://hermes-agent.nousresearch.com/docs/developer-guide/
+For occasional contributors and PR authors. Full developer docs: https://github.com/NousResearch/hermes-agent/blob/main/CONTRIBUTING.md
 
 ### Project Layout
 

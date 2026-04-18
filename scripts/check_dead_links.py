@@ -56,6 +56,17 @@ IGNORE_URL_SNIPPETS = (
     "arxiv.org/abs/ID",
     "arXiv:ID",
     "DOI:10.1234/example",
+    "staging.myapp.com",
+    "your-project-ref.supabase.co",
+    "suspect.xyz/login",
+    "some-mcp-server.com",
+    "mcp.internal.company.com",
+    "mcp.mycompany.com",
+    "vault.internal.company.com",
+    "mcp.render.com/mcp",
+    "bit.ly/3xyz",
+    ":fileKey",
+    ":fileName",
 )
 # Treat these codes as ok; some servers block HEAD or require cookies.
 ACCEPTED_CODES = {200, 201, 202, 203, 204, 301, 302, 303, 307, 308, 400, 401, 403, 405, 429}
@@ -68,8 +79,20 @@ SCAN_GLOBS = (
 IGNORE_PATH_FRAGMENTS = (
     "openclaw-skills/",
     "docs/TAGS-INDEX.md",
+    "docs/sources/reports/",
     "skills/.system/",
     "plugins/cache/",
+)
+
+PLACEHOLDER_PATH_PATTERNS = (
+    "/user/repo",
+    "/username/repo",
+    "/org/repo",
+    "/myorg/web-app",
+    "/status/ID",
+    "/status/123",
+    "/article/123",
+    "/pdf/ID",
 )
 
 
@@ -89,6 +112,20 @@ def iter_markdown_files() -> list[Path]:
     return sorted(files)
 
 
+def should_ignore_url(url: str) -> bool:
+    parsed = urlparse(url)
+    host = parsed.hostname or ""
+    if host in IGNORE_HOSTS or any(host.endswith(suffix) for suffix in IGNORE_HOST_SUFFIXES):
+        return True
+    if any(snippet in url for snippet in IGNORE_URL_SNIPPETS):
+        return True
+    if any(ch in url for ch in ("{", "}", "[", "]", "\\")):
+        return True
+    if any(pattern in parsed.path for pattern in PLACEHOLDER_PATH_PATTERNS):
+        return True
+    return False
+
+
 def collect_urls() -> dict[str, set[str]]:
     """Return {url: {repo_paths_that_reference_it}}."""
     urls: dict[str, set[str]] = {}
@@ -96,10 +133,7 @@ def collect_urls() -> dict[str, set[str]]:
         text = md_file.read_text(encoding="utf-8", errors="replace")
         for m in URL_RE.finditer(text):
             url = m.group(0).rstrip(".,;:)")
-            host = urlparse(url).hostname or ""
-            if host in IGNORE_HOSTS or any(host.endswith(suffix) for suffix in IGNORE_HOST_SUFFIXES):
-                continue
-            if any(snippet in url for snippet in IGNORE_URL_SNIPPETS):
+            if should_ignore_url(url):
                 continue
             urls.setdefault(url, set()).add(str(md_file.relative_to(REPO_ROOT)))
     return urls
