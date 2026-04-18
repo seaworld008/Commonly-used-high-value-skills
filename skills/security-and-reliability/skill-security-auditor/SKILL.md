@@ -10,6 +10,7 @@ created_at: "2026-03-27"
 updated_at: "2026-03-27"
 quality: 4
 complexity: "intermediate"
+license: MIT
 ---
 
 # Skill Security Auditor

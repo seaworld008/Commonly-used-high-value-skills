@@ -83,7 +83,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-27",
       "updated_at": "2026-03-27",
-      "line_count": 117,
+      "line_count": 118,
       "path": "skills/ai-agent-platform/agent-hub/SKILL.md"
     },
     {
@@ -510,7 +510,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-27",
       "updated_at": "2026-03-27",
-      "line_count": 142,
+      "line_count": 143,
       "path": "skills/developer-engineering/aws-solution-architect/SKILL.md"
     },
     {
@@ -614,7 +614,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-27",
       "updated_at": "2026-03-27",
-      "line_count": 110,
+      "line_count": 111,
       "path": "skills/developer-engineering/context-engineering/SKILL.md"
     },
     {
@@ -715,7 +715,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-27",
       "updated_at": "2026-03-27",
-      "line_count": 146,
+      "line_count": 147,
       "path": "skills/developer-engineering/docker-expert/SKILL.md"
     },
     {
@@ -816,7 +816,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-27",
       "updated_at": "2026-03-27",
-      "line_count": 121,
+      "line_count": 122,
       "path": "skills/developer-engineering/graphql-expert/SKILL.md"
     },
     {
@@ -856,7 +856,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-27",
       "updated_at": "2026-03-27",
-      "line_count": 139,
+      "line_count": 140,
       "path": "skills/developer-engineering/kubernetes-specialist/SKILL.md"
     },
     {
@@ -958,7 +958,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-27",
       "updated_at": "2026-03-27",
-      "line_count": 145,
+      "line_count": 146,
       "path": "skills/developer-engineering/nextjs-app-router/SKILL.md"
     },
     {
@@ -1058,7 +1058,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-27",
       "updated_at": "2026-03-27",
-      "line_count": 124,
+      "line_count": 125,
       "path": "skills/developer-engineering/python-performance/SKILL.md"
     },
     {
@@ -1118,7 +1118,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-27",
       "updated_at": "2026-03-27",
-      "line_count": 139,
+      "line_count": 140,
       "path": "skills/developer-engineering/rust-engineer/SKILL.md"
     },
     {
@@ -1158,7 +1158,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-27",
       "updated_at": "2026-03-27",
-      "line_count": 156,
+      "line_count": 157,
       "path": "skills/developer-engineering/supabase-postgres/SKILL.md"
     },
     {
@@ -1178,7 +1178,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-27",
       "updated_at": "2026-03-27",
-      "line_count": 110,
+      "line_count": 111,
       "path": "skills/developer-engineering/systematic-debugging/SKILL.md"
     },
     {
@@ -1199,7 +1199,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-27",
       "updated_at": "2026-03-27",
-      "line_count": 135,
+      "line_count": 136,
       "path": "skills/developer-engineering/tailwind-design-system/SKILL.md"
     },
     {
@@ -1240,7 +1240,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-27",
       "updated_at": "2026-03-27",
-      "line_count": 139,
+      "line_count": 140,
       "path": "skills/developer-engineering/terraform-engineer/SKILL.md"
     },
     {
@@ -1260,7 +1260,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-27",
       "updated_at": "2026-03-27",
-      "line_count": 111,
+      "line_count": 112,
       "path": "skills/developer-engineering/test-driven-development/SKILL.md"
     },
     {
@@ -1281,7 +1281,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-27",
       "updated_at": "2026-03-27",
-      "line_count": 144,
+      "line_count": 145,
       "path": "skills/developer-engineering/typescript-best-practices/SKILL.md"
     },
     {
@@ -1512,7 +1512,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-27",
       "updated_at": "2026-03-27",
-      "line_count": 113,
+      "line_count": 114,
       "path": "skills/devops-sre/senior-architect/SKILL.md"
     },
     {
@@ -1724,7 +1724,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-27",
       "updated_at": "2026-03-27",
-      "line_count": 109,
+      "line_count": 110,
       "path": "skills/engineering-workflow-automation/web-scraper/SKILL.md"
     },
     {
@@ -1973,7 +1973,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-27",
       "updated_at": "2026-03-27",
-      "line_count": 121,
+      "line_count": 122,
       "path": "skills/finance-investing/saas-metrics-coach/SKILL.md"
     },
     {
@@ -2206,7 +2206,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-27",
       "updated_at": "2026-03-27",
-      "line_count": 116,
+      "line_count": 117,
       "path": "skills/growth-operations-xiaohongshu/seo-audit/SKILL.md"
     },
     {
@@ -2295,7 +2295,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-04",
       "updated_at": "2026-04-13",
-      "line_count": 316,
+      "line_count": 317,
       "path": "skills/knowledge-and-pm-integrations/linear/SKILL.md"
     },
     {
@@ -2944,7 +2944,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-27",
       "updated_at": "2026-03-27",
-      "line_count": 116,
+      "line_count": 117,
       "path": "skills/operations-general/confidence-check/SKILL.md"
     },
     {
@@ -3065,7 +3065,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-27",
       "updated_at": "2026-03-27",
-      "line_count": 102,
+      "line_count": 103,
       "path": "skills/operations-general/supermemory/SKILL.md"
     },
     {
@@ -3209,7 +3209,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-27",
       "updated_at": "2026-03-27",
-      "line_count": 114,
+      "line_count": 115,
       "path": "skills/product-design/landing-page-generator/SKILL.md"
     },
     {
@@ -3451,7 +3451,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-27",
       "updated_at": "2026-03-27",
-      "line_count": 112,
+      "line_count": 113,
       "path": "skills/security-and-reliability/skill-security-auditor/SKILL.md"
     },
     {
@@ -3781,7 +3781,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-27",
       "updated_at": "2026-03-27",
-      "line_count": 97,
+      "line_count": 98,
       "path": "skills/task-understanding-decomposition/subagent-driven-development/SKILL.md"
     },
     {

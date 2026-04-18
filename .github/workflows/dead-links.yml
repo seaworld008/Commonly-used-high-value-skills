@@ -1,0 +1,56 @@
+name: Dead Link Check
+
+on:
+  schedule:
+    - cron: '0 4 1 * *'  # Monthly, 1st day 04:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Probe external links
+        id: probe
+        continue-on-error: true
+        run: |
+          python scripts/check_dead_links.py --output docs/sources/reports/dead-links.json
+          DEAD=$(python -c "import json; print(json.load(open('docs/sources/reports/dead-links.json'))['dead_count'])")
+          echo "dead_count=$DEAD" >> "$GITHUB_OUTPUT"
+
+      - name: Prepare issue body if any dead
+        if: steps.probe.outputs.dead_count != '0'
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          data = json.load(open('docs/sources/reports/dead-links.json'))
+          lines = [f"# Dead links report — {data['generated_at']}", "",
+                   f"**{data['dead_count']}** unreachable URLs out of **{data['total']}** scanned.", ""]
+          for row in data['dead']:
+              refs = ', '.join(f"`{r}`" for r in row['refs'])
+              extra = f" (+{row['ref_count']-len(row['refs'])} more)" if row['ref_count']>len(row['refs']) else ""
+              lines.append(f"- [{row['status'] or 'err'}] {row['url']} — {refs}{extra}")
+          pathlib.Path('dead-links-issue.md').write_text('\n'.join(lines))
+          PY
+
+      - name: Open issue
+        if: steps.probe.outputs.dead_count != '0'
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: "[Monthly] Dead link report: ${{ steps.probe.outputs.dead_count }} URLs unreachable"
+          content-filepath: dead-links-issue.md
+          labels: auto-sync,dead-links
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dead-links-report
+          path: docs/sources/reports/dead-links.json
+          retention-days: 90

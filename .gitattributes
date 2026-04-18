@@ -1,0 +1,5 @@
+# Generated outputs — foldable in GitHub diffs, excluded from language stats.
+openclaw-skills/** linguist-generated=true
+docs/catalog.json linguist-generated=true
+docs/TAGS-INDEX.md linguist-generated=true
+skills/*/README.md linguist-generated=true
