@@ -4,7 +4,7 @@ description: '用于 TypeScript 高级类型编程、类型安全设计和常见
 version: "1.0.0"
 author: "seaworld008"
 source: "community"
-source_url: ""
+source_url: "https://skills.sh/jwynia/agent-skills/typescript-best-practices"
 tags: '["best", "development", "practices", "typescript"]'
 created_at: "2026-03-27"
 updated_at: "2026-03-27"

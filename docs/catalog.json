@@ -947,7 +947,7 @@
       "version": "1.0.0",
       "author": "seaworld008",
       "source": "skills.sh",
-      "source_url": "",
+      "source_url": "https://skills.sh/wshobson/agents/nextjs-app-router-patterns",
       "tags": [
         "app",
         "development",
@@ -1048,7 +1048,7 @@
       "version": "1.0.0",
       "author": "seaworld008",
       "source": "skills.sh",
-      "source_url": "",
+      "source_url": "https://skills.sh/wshobson/agents/python-performance-optimization",
       "tags": [
         "development",
         "performance",
@@ -1148,7 +1148,7 @@
       "version": "1.0.0",
       "author": "seaworld008",
       "source": "skills.sh",
-      "source_url": "",
+      "source_url": "https://skills.sh/supabase/agent-skills/supabase-postgres-best-practices",
       "tags": [
         "development",
         "postgres",
@@ -1270,7 +1270,7 @@
       "version": "1.0.0",
       "author": "seaworld008",
       "source": "community",
-      "source_url": "",
+      "source_url": "https://skills.sh/jwynia/agent-skills/typescript-best-practices",
       "tags": [
         "best",
         "development",

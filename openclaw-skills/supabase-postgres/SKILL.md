@@ -4,13 +4,13 @@ description: '用于 Supabase 平台开发与 PostgreSQL 最佳实践，包含 R
 version: "1.0.0"
 author: "seaworld008"
 source: "skills.sh"
-source_url: ""
+source_url: "https://skills.sh/supabase/agent-skills/supabase-postgres-best-practices"
 tags: '["development", "postgres", "supabase"]'
 created_at: "2026-03-27"
 updated_at: "2026-03-27"
 quality: 4
 complexity: "intermediate"
-license: "UNKNOWN - verify upstream"
+license: "MIT"
 ---
 
 # Supabase & PostgreSQL
