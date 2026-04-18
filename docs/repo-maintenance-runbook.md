@@ -86,6 +86,7 @@ python3 scripts/generate_repo_health_report.py
 
 ```bash
 python3 -m unittest \
+  tests.test_evaluate_repo_health \
   tests.test_check_dead_links \
   tests.test_generate_repo_health_report \
   tests.test_audit_licenses \
