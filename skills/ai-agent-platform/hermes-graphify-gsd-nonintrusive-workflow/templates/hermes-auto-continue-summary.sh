@@ -30,6 +30,9 @@ if [ -f "$HERMES_GSD_NEXT_STATE_FILE" ]; then
 elif [ -x "$ROOT/scripts/hermes-gsd-next-state.sh" ]; then
   gsd_next_output="$(bash "$ROOT/scripts/hermes-gsd-next-state.sh" 2>/dev/null || true)"
 fi
+if [ -x "$ROOT/scripts/hermes-gsd-sync-runtime-mirror.sh" ]; then
+  bash "$ROOT/scripts/hermes-gsd-sync-runtime-mirror.sh" >/dev/null 2>&1 || true
+fi
 if [ -d "$HERMES_AUTO_CONTINUE_NOTIFY_DIR" ]; then
   notify_paths="$(find "$HERMES_AUTO_CONTINUE_NOTIFY_DIR" -maxdepth 1 -type f | sort | tail -2 || true)"
 fi

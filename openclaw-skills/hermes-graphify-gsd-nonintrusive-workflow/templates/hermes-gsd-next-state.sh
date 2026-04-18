@@ -158,3 +158,7 @@ output_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
 for key, value in payload.items():
     print(f"{key}={value}")
 PY
+
+if [ -x "$ROOT/scripts/hermes-gsd-sync-runtime-mirror.sh" ]; then
+  bash "$ROOT/scripts/hermes-gsd-sync-runtime-mirror.sh" >/dev/null 2>&1 || true
+fi

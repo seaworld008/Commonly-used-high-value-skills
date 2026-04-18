@@ -27,6 +27,7 @@ AUTO_RESUME_IF_READY="$ROOT/scripts/hermes-auto-continue-resume-if-ready.sh"
 AUTO_NOTIFY="$ROOT/scripts/hermes-auto-continue-notify.sh"
 AUTO_GSD_STATUS="$ROOT/scripts/hermes-gsd-phase-engine-status.sh"
 AUTO_GSD_NEXT_STATE="$ROOT/scripts/hermes-gsd-next-state.sh"
+AUTO_GSD_SYNC_MIRROR="$ROOT/scripts/hermes-gsd-sync-runtime-mirror.sh"
 
 have_cmd() { command -v "$1" >/dev/null 2>&1; }
 have_file() { [ -f "$1" ]; }
@@ -104,6 +105,7 @@ auto_resume_if_ready() { require_exec "$AUTO_RESUME_IF_READY"; bash "$AUTO_RESUM
 auto_notify() { require_exec "$AUTO_NOTIFY"; bash "$AUTO_NOTIFY" "$@"; }
 auto_gsd_doctor() { require_exec "$AUTO_GSD_STATUS"; bash "$AUTO_GSD_STATUS"; }
 auto_gsd_next_state() { require_exec "$AUTO_GSD_NEXT_STATE"; bash "$AUTO_GSD_NEXT_STATE"; }
+auto_gsd_sync_mirror() { require_exec "$AUTO_GSD_SYNC_MIRROR"; bash "$AUTO_GSD_SYNC_MIRROR"; }
 gsd_workflow_show() {
   maybe_source_auto_config
   local name="${1:-}"
@@ -254,6 +256,7 @@ case "$cmd" in
   auto-notify) shift; auto_notify "$@" ;;
   gsd-doctor) auto_gsd_doctor ;;
   gsd-next-state) auto_gsd_next_state ;;
+  gsd-sync-mirror) auto_gsd_sync_mirror ;;
   gsd-workflow-show) shift; gsd_workflow_show "$@" ;;
   gsd-skill-show) shift; gsd_skill_show "$@" ;;
   graphify-query) shift; graphify_query "$@" ;;
@@ -268,7 +271,7 @@ case "$cmd" in
   auto-handoff-set) shift; auto_handoff_set "$@" ;;
   auto-handoff-clear) auto_handoff_clear ;;
   *)
-    echo "Usage: $0 {doctor|context|sync|force|next|auto-status|auto-trigger|auto-checkpoint|auto-mark-complete|auto-install|auto-uninstall|auto-summary|auto-task-board-init|auto-task-board-show|auto-task-board-claim-next|auto-task-board-update|auto-task-board-complete-if-ready|auto-task-board-sync-docs|auto-resume-if-ready|auto-notify|gsd-doctor|gsd-next-state|gsd-workflow-show|gsd-skill-show|graphify-query|graphify-path|graphify-explain|graphify-wiki|auto-progress|auto-runner-show|auto-execution-surface-show|auto-workflow-state-show|auto-handoff-show|auto-handoff-set|auto-handoff-clear}" >&2
+    echo "Usage: $0 {doctor|context|sync|force|next|auto-status|auto-trigger|auto-checkpoint|auto-mark-complete|auto-install|auto-uninstall|auto-summary|auto-task-board-init|auto-task-board-show|auto-task-board-claim-next|auto-task-board-update|auto-task-board-complete-if-ready|auto-task-board-sync-docs|auto-resume-if-ready|auto-notify|gsd-doctor|gsd-next-state|gsd-sync-mirror|gsd-workflow-show|gsd-skill-show|graphify-query|graphify-path|graphify-explain|graphify-wiki|auto-progress|auto-runner-show|auto-execution-surface-show|auto-workflow-state-show|auto-handoff-show|auto-handoff-set|auto-handoff-clear}" >&2
     exit 1
     ;;
 esac
