@@ -41,6 +41,26 @@ jobs:
           pathlib.Path('dead-links-issue.md').write_text('\n'.join(lines))
           PY
 
+      - name: Publish dead-link summary
+        run: |
+          python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          data = json.load(open('docs/sources/reports/dead-links.json'))
+          print("# Dead Link Summary")
+          print()
+          print(f"- Scanned URLs: **{data['total']}**")
+          print(f"- Dead URLs: **{data['dead_count']}**")
+          print()
+          if data['dead']:
+              print("| URL | Status | Refs |")
+              print("|---|---:|---|")
+              for row in data['dead'][:10]:
+                  refs = ', '.join(f"`{r}`" for r in row['refs'][:2])
+                  print(f"| {row['url']} | {row['status'] or 'err'} | {refs} |")
+          else:
+              print("- No dead links detected.")
+          PY
+
       - name: Open issue
         if: steps.probe.outputs.dead_count != '0'
         uses: peter-evans/create-issue-from-file@v5
