@@ -28,6 +28,7 @@ This repository currently contains **15 categories / 188 skills**.
 - Curation is policy-driven: trusted sources can be preferred, noisy sources can be denied, and minimum quality thresholds can be enforced in one place
 - `scripts/sync_codex_skills.py` lets you sync the latest repository skills into a local Codex skill directory without manual copying
 - The repository also emphasizes trust and safety through provenance tracking, curated source controls, and built-in security-review skills such as `skill-vetter`, `skill-security-auditor`, `input-guard`, and `link-checker`
+- The repository now also includes license auditing and scheduled dead-link checks: `repo-validation` blocks external skills that are missing license metadata, while the monthly `dead-links` workflow produces a link health report instead of silently drifting.
 
 ## Which Directory Should You Use
 
@@ -78,6 +79,13 @@ If you change source skills in the repository, refresh generated views with:
 
 ```bash
 python3 scripts/refresh_repo_views.py
+```
+
+If you also want to validate external skill license metadata and outbound link health locally, run:
+
+```bash
+python3 scripts/audit_licenses.py
+python3 scripts/check_dead_links.py --output docs/sources/reports/dead-links.json
 ```
 
 If Codex shows local skill warnings such as `invalid SKILL.md`, `missing YAML frontmatter`, or broken `metadata`, you can normalize a local Codex skill tree with:

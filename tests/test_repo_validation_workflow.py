@@ -27,6 +27,7 @@ class RepoValidationWorkflowTests(unittest.TestCase):
             for step in job["steps"]
             if isinstance(step, dict) and "run" in step
         )
+        self.assertIn("python scripts/audit_licenses.py", commands)
         self.assertIn("python scripts/refresh_repo_views.py", commands)
         self.assertIn("python -m unittest", commands)
         self.assertIn("git diff --exit-code", commands)

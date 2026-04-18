@@ -19,6 +19,7 @@
 - 现在支持用策略文件对白名单来源、黑名单来源、优先来源和基础门槛做统一治理，优选结果更稳定、更可控。
 - 已提供 `scripts/sync_codex_skills.py`，可以把仓库中的最新技能一键同步到本地 `Codex` 技能目录，减少手工拷贝和版本漂移。
 - 除了功能覆盖，仓库也重视安全与可信度：既有来源追踪、候选筛选与安装前风险识别能力，也内置 `skill-vetter`、`skill-security-auditor`、`input-guard`、`link-checker` 等安全审查类技能。
+- 现在还内置了许可证审计与月度死链巡检：`repo-validation` 会阻止缺失 license 元数据的外源技能进入主分支，`dead-links` 工作流会按月生成外链巡检报告。
 
 ## 适合谁
 
@@ -78,6 +79,13 @@ python3 scripts/export_openclaw_skills.py
 
 ```bash
 python3 scripts/refresh_repo_views.py
+```
+
+如果你想在本地额外检查外源技能的许可证元数据与外链健康度，可以运行：
+
+```bash
+python3 scripts/audit_licenses.py
+python3 scripts/check_dead_links.py --output docs/sources/reports/dead-links.json
 ```
 
 如果你在本地 Codex skills 目录里看到 `invalid SKILL.md`、`missing YAML frontmatter`、`metadata` 类型错误等警告，可以运行：
