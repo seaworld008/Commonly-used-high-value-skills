@@ -4,13 +4,13 @@ description: '用于 AWS 云架构设计、服务选型、成本优化与 Well-A
 version: "1.0.0"
 author: "seaworld008"
 source: "skills.sh"
-source_url: ""
+source_url: "https://skills.sh/alirezarezvani/claude-skills/aws-solution-architect"
 tags: '["architect", "aws", "development", "solution"]'
 created_at: "2026-03-27"
 updated_at: "2026-03-27"
 quality: 4
 complexity: "intermediate"
-license: "UNKNOWN - verify upstream"
+license: "MIT"
 ---
 
 # AWS Solution Architect

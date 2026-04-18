@@ -499,7 +499,7 @@
       "version": "1.0.0",
       "author": "seaworld008",
       "source": "skills.sh",
-      "source_url": "",
+      "source_url": "https://skills.sh/alirezarezvani/claude-skills/aws-solution-architect",
       "tags": [
         "architect",
         "aws",
@@ -705,7 +705,7 @@
       "version": "1.0.0",
       "author": "seaworld008",
       "source": "skills.sh",
-      "source_url": "",
+      "source_url": "https://skills.sh/sickn33/antigravity-awesome-skills/docker-expert",
       "tags": [
         "development",
         "docker",
@@ -846,7 +846,7 @@
       "version": "1.0.0",
       "author": "seaworld008",
       "source": "skills.sh",
-      "source_url": "",
+      "source_url": "https://skills.sh/jeffallan/claude-skills/kubernetes-specialist",
       "tags": [
         "development",
         "kubernetes",
@@ -1108,7 +1108,7 @@
       "version": "1.0.0",
       "author": "seaworld008",
       "source": "skills.sh",
-      "source_url": "",
+      "source_url": "https://skills.sh/404kidwiz/claude-supercode-skills/rust-engineer",
       "tags": [
         "development",
         "engineer",
@@ -1188,7 +1188,7 @@
       "version": "1.0.0",
       "author": "seaworld008",
       "source": "skills.sh",
-      "source_url": "",
+      "source_url": "https://skills.sh/wshobson/agents/tailwind-design-system",
       "tags": [
         "design",
         "development",
@@ -1230,7 +1230,7 @@
       "version": "1.0.0",
       "author": "seaworld008",
       "source": "skills.sh",
-      "source_url": "",
+      "source_url": "https://skills.sh/jeffallan/claude-skills/terraform-engineer",
       "tags": [
         "development",
         "engineer",
@@ -3056,7 +3056,7 @@
       "version": "1.0.0",
       "author": "seaworld008",
       "source": "community",
-      "source_url": "",
+      "source_url": "https://github.com/supermemoryai/supermemory",
       "tags": [
         "productivity",
         "supermemory"

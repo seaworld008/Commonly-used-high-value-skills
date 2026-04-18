@@ -4,13 +4,13 @@ description: '用于 Kubernetes 集群管理、部署编排、Pod 调试与 Helm
 version: "1.0.0"
 author: "seaworld008"
 source: "skills.sh"
-source_url: ""
+source_url: "https://skills.sh/jeffallan/claude-skills/kubernetes-specialist"
 tags: '["development", "kubernetes", "specialist"]'
 created_at: "2026-03-27"
 updated_at: "2026-03-27"
 quality: 4
 complexity: "intermediate"
-license: "UNKNOWN - verify upstream"
+license: "MIT"
 ---
 
 # Kubernetes Specialist

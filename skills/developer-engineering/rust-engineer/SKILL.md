@@ -4,13 +4,13 @@ description: '用于 Rust 语言开发最佳实践、异步编程和系统级编
 version: "1.0.0"
 author: "seaworld008"
 source: "skills.sh"
-source_url: ""
+source_url: "https://skills.sh/404kidwiz/claude-supercode-skills/rust-engineer"
 tags: '["development", "engineer", "rust"]'
 created_at: "2026-03-27"
 updated_at: "2026-03-27"
 quality: 4
 complexity: "intermediate"
-license: "UNKNOWN - verify upstream"
+license: "MIT"
 ---
 
 # Rust Engineer Toolkit

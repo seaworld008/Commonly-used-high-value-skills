@@ -4,13 +4,13 @@ description: '用于长期记忆管理、偏好捕获、矛盾检测和项目状
 version: "1.0.0"
 author: "seaworld008"
 source: "community"
-source_url: ""
+source_url: "https://github.com/supermemoryai/supermemory"
 tags: '["productivity", "supermemory"]'
 created_at: "2026-03-27"
 updated_at: "2026-03-27"
 quality: 3
 complexity: "intermediate"
-license: "UNKNOWN - verify upstream"
+license: "MIT"
 ---
 
 # Supermemory
