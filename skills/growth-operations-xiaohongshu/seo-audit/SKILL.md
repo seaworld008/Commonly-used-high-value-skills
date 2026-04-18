@@ -1,16 +1,15 @@
 ---
 name: seo-audit
-description: '用于网站 SEO 全面审计、On-page 优化建议和技术 SEO 检查清单生成。来源：全网高频推荐。'
+description: '用于网站 SEO 全面审计、On-page 优化建议和技术 SEO 检查清单生成。仓库整理版，吸收社区高频最佳实践。'
 version: "1.0.0"
 author: "seaworld008"
-source: "community"
+source: "in-house"
 source_url: ""
 tags: '["audit", "growth", "marketing", "seo"]'
 created_at: "2026-03-27"
 updated_at: "2026-03-27"
 quality: 4
 complexity: "intermediate"
-license: "UNKNOWN - verify upstream"
 ---
 
 # SEO Audit

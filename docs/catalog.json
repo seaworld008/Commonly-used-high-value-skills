@@ -600,10 +600,10 @@
     {
       "name": "context-engineering",
       "category": "developer-engineering",
-      "description": "用于 AI 编码助手的上下文优化、Prompt 结构设计和指令冲突防御。来源：全网高频推荐的元技能。",
+      "description": "用于 AI 编码助手的上下文优化、Prompt 结构设计和指令冲突防御。仓库整理版，吸收社区高频最佳实践。",
       "version": "1.0.0",
       "author": "seaworld008",
-      "source": "community",
+      "source": "in-house",
       "source_url": "",
       "tags": [
         "context",
@@ -614,7 +614,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-27",
       "updated_at": "2026-03-27",
-      "line_count": 111,
+      "line_count": 110,
       "path": "skills/developer-engineering/context-engineering/SKILL.md"
     },
     {
@@ -802,10 +802,10 @@
     {
       "name": "graphql-expert",
       "category": "developer-engineering",
-      "description": "用于 GraphQL API 设计、查询优化、Schema 管理和安全最佳实践。来源：全网高频推荐。",
+      "description": "用于 GraphQL API 设计、查询优化、Schema 管理和安全最佳实践。仓库整理版，吸收社区高频最佳实践。",
       "version": "1.0.0",
       "author": "seaworld008",
-      "source": "community",
+      "source": "in-house",
       "source_url": "",
       "tags": [
         "development",
@@ -816,7 +816,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-27",
       "updated_at": "2026-03-27",
-      "line_count": 122,
+      "line_count": 121,
       "path": "skills/developer-engineering/graphql-expert/SKILL.md"
     },
     {
@@ -1266,11 +1266,11 @@
     {
       "name": "typescript-best-practices",
       "category": "developer-engineering",
-      "description": "用于 TypeScript 高级类型编程、类型安全设计和常见反模式避免。来源：全网高频推荐。",
+      "description": "用于 TypeScript 高级类型编程、类型安全设计和常见反模式避免。仓库整理版，吸收社区高频最佳实践。",
       "version": "1.0.0",
       "author": "seaworld008",
-      "source": "community",
-      "source_url": "https://skills.sh/jwynia/agent-skills/typescript-best-practices",
+      "source": "in-house",
+      "source_url": "",
       "tags": [
         "best",
         "development",
@@ -1281,7 +1281,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-27",
       "updated_at": "2026-03-27",
-      "line_count": 145,
+      "line_count": 144,
       "path": "skills/developer-engineering/typescript-best-practices/SKILL.md"
     },
     {
@@ -1709,10 +1709,10 @@
     {
       "name": "web-scraper",
       "category": "engineering-workflow-automation",
-      "description": "用于网页数据抓取、结构化提取和反爬策略应对。来源：全网高频推荐。",
+      "description": "用于网页数据抓取、结构化提取和反爬策略应对。仓库整理版，吸收社区高频最佳实践。",
       "version": "1.0.0",
       "author": "seaworld008",
-      "source": "community",
+      "source": "in-house",
       "source_url": "",
       "tags": [
         "automation",
@@ -1724,7 +1724,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-27",
       "updated_at": "2026-03-27",
-      "line_count": 110,
+      "line_count": 109,
       "path": "skills/engineering-workflow-automation/web-scraper/SKILL.md"
     },
     {
@@ -2191,10 +2191,10 @@
     {
       "name": "seo-audit",
       "category": "growth-operations-xiaohongshu",
-      "description": "用于网站 SEO 全面审计、On-page 优化建议和技术 SEO 检查清单生成。来源：全网高频推荐。",
+      "description": "用于网站 SEO 全面审计、On-page 优化建议和技术 SEO 检查清单生成。仓库整理版，吸收社区高频最佳实践。",
       "version": "1.0.0",
       "author": "seaworld008",
-      "source": "community",
+      "source": "in-house",
       "source_url": "",
       "tags": [
         "audit",
@@ -2206,7 +2206,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-27",
       "updated_at": "2026-03-27",
-      "line_count": 117,
+      "line_count": 116,
       "path": "skills/growth-operations-xiaohongshu/seo-audit/SKILL.md"
     },
     {
@@ -2930,10 +2930,10 @@
     {
       "name": "confidence-check",
       "category": "operations-general",
-      "description": "用于结构化自我审查，验证假设、识别不确定性和减少幻觉输出。来源：全网高频推荐的可靠性技能。",
+      "description": "用于结构化自我审查，验证假设、识别不确定性和减少幻觉输出。仓库整理版，吸收社区高频最佳实践。",
       "version": "1.0.0",
       "author": "seaworld008",
-      "source": "community",
+      "source": "in-house",
       "source_url": "",
       "tags": [
         "check",
@@ -2944,7 +2944,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-27",
       "updated_at": "2026-03-27",
-      "line_count": 117,
+      "line_count": 116,
       "path": "skills/operations-general/confidence-check/SKILL.md"
     },
     {

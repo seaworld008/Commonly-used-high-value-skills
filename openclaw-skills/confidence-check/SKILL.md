@@ -1,16 +1,15 @@
 ---
 name: confidence-check
-description: '用于结构化自我审查，验证假设、识别不确定性和减少幻觉输出。来源：全网高频推荐的可靠性技能。'
+description: '用于结构化自我审查，验证假设、识别不确定性和减少幻觉输出。仓库整理版，吸收社区高频最佳实践。'
 version: "1.0.0"
 author: "seaworld008"
-source: "community"
+source: "in-house"
 source_url: ""
 tags: '["check", "confidence", "productivity"]'
 created_at: "2026-03-27"
 updated_at: "2026-03-27"
 quality: 4
 complexity: "intermediate"
-license: "UNKNOWN - verify upstream"
 ---
 
 # Confidence Check

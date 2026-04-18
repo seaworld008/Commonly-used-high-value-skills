@@ -1,16 +1,15 @@
 ---
 name: graphql-expert
-description: '用于 GraphQL API 设计、查询优化、Schema 管理和安全最佳实践。来源：全网高频推荐。'
+description: '用于 GraphQL API 设计、查询优化、Schema 管理和安全最佳实践。仓库整理版，吸收社区高频最佳实践。'
 version: "1.0.0"
 author: "seaworld008"
-source: "community"
+source: "in-house"
 source_url: ""
 tags: '["development", "expert", "graphql"]'
 created_at: "2026-03-27"
 updated_at: "2026-03-27"
 quality: 4
 complexity: "intermediate"
-license: "UNKNOWN - verify upstream"
 ---
 
 # GraphQL Expert
