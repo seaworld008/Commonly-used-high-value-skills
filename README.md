@@ -12,7 +12,7 @@
 ## 为什么值得收藏
 
 - 一次收齐高频可复用 Skills，减少到处找 prompt、脚本和工作流的时间。
-- 同时兼容 `Codex`、`Claude Code`、`OpenClaw` 等多种 AI 工具使用方式。
+- 同时兼容 `Codex`、`Claude Code`、`Hermes Agent`、`OpenClaw` 等多种 AI 工具使用方式。
 - 按场景分类组织，既适合日常检索，也适合二次扩展和团队沉淀。
 - 很多技能不只是文档，还带 `scripts/`、`references/`、`assets/`，可以直接复用。
 - 仓库已经具备发现新 Skill、同步上游更新、候选优选、质量校验和生成视图的自动化链路，适合持续运营而不是一次性收集。
@@ -20,12 +20,13 @@
 - 已提供 `scripts/sync_codex_skills.py`，可以把仓库中的最新技能一键同步到本地 `Codex` 技能目录，减少手工拷贝和版本漂移。
 - 除了功能覆盖，仓库也重视安全与可信度：既有来源追踪、候选筛选与安装前风险识别能力，也内置 `skill-vetter`、`skill-security-auditor`、`input-guard`、`link-checker` 等安全审查类技能。
 - 现在还内置了许可证审计与月度死链巡检：`repo-validation` 会阻止缺失 license 元数据的外源技能进入主分支，`dead-links` 工作流会按月生成外链巡检报告。
+- `Hermes Agent` 也被作为一等支持对象维护：可直接使用 `skills/` 分类目录，并且仓库已包含 `hermes-agent`、`native-mcp`、`hermes-graphify-gsd-*` 等 Hermes 生态专用技能。
 
 ## 适合谁
 
 - 中文 AI 开发者和自动化工作流使用者
 - 想把常见任务沉淀为 Skills 的个人或团队
-- 正在使用 `Codex`、`Claude Code`、`OpenClaw` 等工具的工程师
+- 正在使用 `Codex`、`Claude Code`、`Hermes Agent`、`OpenClaw` 等工具的工程师
 - 想搭建一个自己的高价值技能库、提示库、Agent 工作流库的人
 
 ## 快速开始
@@ -34,7 +35,7 @@
 
 | 使用场景 | 应使用的目录 |
 |----------|---------------|
-| `Codex` / `Claude Code` / 按源码浏览的 AI coding assistants | `skills/` |
+| `Codex` / `Claude Code` / `Hermes Agent` / 按源码浏览的 AI coding assistants | `skills/` |
 | `OpenClaw` | `openclaw-skills/` |
 
 ### 方式一：直接发给 AI 工具的安装提示词（推荐）
@@ -48,7 +49,7 @@
 如果 AI 工具没有自动识别出来，再补一句即可：
 
 ```text
-当前工具是 `<Codex / Claude Code / Cursor / OpenClaw>`，本地仓库路径是 `<你的本地仓库路径>`。
+当前工具是 `<Codex / Claude Code / Hermes Agent / Cursor / OpenClaw>`，本地仓库路径是 `<你的本地仓库路径>`。
 ```
 
 之所以可以这样简化，是因为仓库里已经包含给 AI 工具读取的安装规则与目录约定文档，通常不需要你手动把安装逻辑全部写进提示词里。
@@ -57,7 +58,7 @@
 
 1. 克隆本仓库到本地。
 2. 判断你当前使用的是哪类工具：
-   - 如果是 `Codex` / `Claude Code` / `Cursor` / 其他源码浏览型 AI coding assistant，直接使用 `skills/`
+   - 如果是 `Codex` / `Claude Code` / `Hermes Agent` / `Cursor` / 其他源码浏览型 AI coding assistant，直接使用 `skills/`
    - 如果是 `OpenClaw`，使用 `openclaw-skills/`
 3. 如果你使用 `OpenClaw`，先生成扁平导出目录：
 
@@ -66,7 +67,7 @@ python3 scripts/export_openclaw_skills.py
 ```
 
 4. 把对应目录配置到你的 AI 工具里：
-   - `Codex` / `Claude Code` / `Cursor`：配置 `skills/`
+   - `Codex` / `Claude Code` / `Hermes Agent` / `Cursor`：配置 `skills/`
    - `OpenClaw`：配置 `openclaw-skills/`
 5. 任选几个技能目录检查是否能正常读取，例如：
    - `skills/developer-engineering/codebase-onboarding`
@@ -154,6 +155,21 @@ python scripts/sync_codex_skills.py --source-root "E:\AI-codex\003-Commonly-used
 - 项目接入工作流：[`hermes-graphify-gsd-project-integration`](./skills/engineering-workflow-automation/README.md#hermes-graphify-gsd-project-workflow)
 - brownfield 启动流程：[`gsd-graphify-brownfield-bootstrap`](./skills/engineering-workflow-automation/README.md#gsd-graphify-brownfield-bootstrap)
 
+## Hermes Agent 支持
+
+这个仓库不只是“包含几个 Hermes 相关技能”，而是把 `Hermes Agent` 作为正式支持的消费端之一来维护：
+
+- 安装目录与 `Codex` / `Claude Code` 一致，统一使用 `skills/`
+- 已内置 [`hermes-agent`](./skills/ai-agent-platform/hermes-agent/) 技能，覆盖 CLI、gateway、profiles、memory、skills、MCP 与贡献开发说明
+- 已内置 [`native-mcp`](./skills/ai-agent-platform/native-mcp/) 技能，方便 Hermes 连接外部 MCP server
+- 已内置 `hermes-graphify-gsd-*` 系列技能，支持把 Hermes 与 graphify、GSD 组合成自动化开发工作流
+
+如果你是 Hermes 用户，推荐从这些入口开始：
+
+- [`skills/ai-agent-platform/hermes-agent`](./skills/ai-agent-platform/hermes-agent/)
+- [`skills/ai-agent-platform/native-mcp`](./skills/ai-agent-platform/native-mcp/)
+- [`skills/ai-agent-platform/README.md`](./skills/ai-agent-platform/README.md)
+
 ## 如何参与共建
 
 如果你希望把这个仓库一起做成更强的公共 Skills 基础设施：
@@ -187,7 +203,7 @@ python scripts/sync_codex_skills.py --source-root "E:\AI-codex\003-Commonly-used
 
 - 欢迎点一个 Star，让更多 AI 开发者更容易发现它
 - 欢迎提 PR，把你自己的高价值技能沉淀进来
-- 欢迎分享给使用 `Codex`、`Claude Code`、`OpenClaw` 的朋友或团队
+- 欢迎分享给使用 `Codex`、`Claude Code`、`Hermes Agent`、`OpenClaw` 的朋友或团队
 
 ## 仓库目标
 
@@ -201,7 +217,7 @@ python scripts/sync_codex_skills.py --source-root "E:\AI-codex\003-Commonly-used
 
 | 客户端 | 应使用的目录 | 原因 |
 |--------|---------------|------|
-| `Codex` / `Claude Code` / 其他按源码浏览的 coding assistants | `skills/` | 保留分类结构，便于检索、维护与编辑 |
+| `Codex` / `Claude Code` / `Hermes Agent` / 其他按源码浏览的 coding assistants | `skills/` | 保留分类结构，便于检索、维护与编辑 |
 | `OpenClaw` | `openclaw-skills/` | OpenClaw 需要扁平的一层技能目录，不能直接识别 `skills/<分类>/<skill>` |
 
 ### 给 AI 机器人看的规则
@@ -209,7 +225,7 @@ python scripts/sync_codex_skills.py --source-root "E:\AI-codex\003-Commonly-used
 仓库根目录新增了 [AGENTS.md](/Volumes/soft/13-openclaw%20安装部署/5-Commonly-used-high-value-skills/Commonly-used-high-value-skills/AGENTS.md)，明确约束如下：
 
 - `OpenClaw` 安装时必须使用 `openclaw-skills/`
-- `Codex`、`Claude Code` 等按原方式使用 `skills/`
+- `Codex`、`Claude Code`、`Hermes Agent` 等按原方式使用 `skills/`
 - 不要把 `OpenClaw` 指向仓库根目录或 `skills/`
 - `openclaw-skills/` 不手改，统一通过脚本生成
 

@@ -13,7 +13,7 @@ This repository currently contains **15 categories / 188 skills**.
 
 ## Who This Is For
 
-- AI developers using `Codex`, `Claude Code`, or similar coding assistants
+- AI developers using `Codex`, `Claude Code`, `Hermes Agent`, or similar coding assistants
 - Teams building reusable skill libraries for common workflows
 - OpenClaw users who need a flat exported skill directory
 - Builders who want a practical, extensible agent workflow repository instead of a loose prompt collection
@@ -29,12 +29,13 @@ This repository currently contains **15 categories / 188 skills**.
 - `scripts/sync_codex_skills.py` lets you sync the latest repository skills into a local Codex skill directory without manual copying
 - The repository also emphasizes trust and safety through provenance tracking, curated source controls, and built-in security-review skills such as `skill-vetter`, `skill-security-auditor`, `input-guard`, and `link-checker`
 - The repository now also includes license auditing and scheduled dead-link checks: `repo-validation` blocks external skills that are missing license metadata, while the monthly `dead-links` workflow produces a link health report instead of silently drifting.
+- `Hermes Agent` is also treated as a first-class supported client: it uses the same categorized `skills/` tree and already has dedicated Hermes runtime, MCP, and Hermes + graphify + GSD workflow skills in the repository.
 
 ## Which Directory Should You Use
 
 | Client | Directory |
 |--------|-----------|
-| `Codex` / `Claude Code` / source-browsing AI coding assistants | `skills/` |
+| `Codex` / `Claude Code` / `Hermes Agent` / source-browsing AI coding assistants | `skills/` |
 | `OpenClaw` | `openclaw-skills/` |
 
 ## Quick Start
@@ -50,7 +51,7 @@ You are my local installation assistant. Please install the skills from this rep
 If the AI tool cannot infer enough context, add one more line:
 
 ```text
-The current tool is `<Codex / Claude Code / Cursor / OpenClaw>`, and the local repository path is `<your local repo path>`.
+The current tool is `<Codex / Claude Code / Hermes Agent / Cursor / OpenClaw>`, and the local repository path is `<your local repo path>`.
 ```
 
 This works because the repository already includes AI-readable installation rules and directory conventions, so users usually do not need to spell out the full install workflow in the prompt.
@@ -59,7 +60,7 @@ This works because the repository already includes AI-readable installation rule
 
 1. Clone the repository.
 2. Choose the correct directory for your client:
-   - `Codex` / `Claude Code` / `Cursor` / other source-browsing assistants: use `skills/`
+   - `Codex` / `Claude Code` / `Hermes Agent` / `Cursor` / other source-browsing assistants: use `skills/`
    - `OpenClaw`: use `openclaw-skills/`
 3. If you use OpenClaw, generate the flat export first:
 
@@ -137,6 +138,21 @@ python3 scripts/sync_codex_skills.py --source-root ./skills --codex-root ~/.code
 - `portfolio-risk-manager`
 - `notion-spec-to-implementation`
 - `transcribe`
+
+## Hermes Agent Support
+
+This repository does not just happen to include a few Hermes-related skills. It explicitly supports `Hermes Agent` as one of the maintained consumption targets:
+
+- installation layout matches `Codex` / `Claude Code`, using the categorized `skills/` tree
+- it includes the dedicated [`hermes-agent`](./skills/ai-agent-platform/hermes-agent/) skill covering CLI usage, gateway setup, profiles, memory, skills, MCP, and contributor guidance
+- it includes [`native-mcp`](./skills/ai-agent-platform/native-mcp/) for Hermes MCP usage
+- it includes the `hermes-graphify-gsd-*` workflow skills for graph-aware and autonomous development loops
+
+Recommended starting points for Hermes users:
+
+- [`skills/ai-agent-platform/hermes-agent`](./skills/ai-agent-platform/hermes-agent/)
+- [`skills/ai-agent-platform/native-mcp`](./skills/ai-agent-platform/native-mcp/)
+- [`skills/ai-agent-platform/README.md`](./skills/ai-agent-platform/README.md)
 
 ## Contributing
 
