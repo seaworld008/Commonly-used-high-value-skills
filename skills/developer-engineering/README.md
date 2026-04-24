@@ -4,7 +4,7 @@
 
 覆盖开发、测试、性能、架构、数据库和工程效率的核心技能集合。
 
-当前分类共 **44** 个技能。
+当前分类共 **42** 个技能。
 
 ## 推荐先看
 
@@ -25,7 +25,6 @@
 | `code-review-excellence` | Master effective code review practices to provide constructive feedback, catch bugs early, and foster knowledge sharing while maintaining team morale. Use when reviewing pull requests, establishing review standards, or mentoring developers. | [目录](./code-review-excellence/) | [SKILL.md](./code-review-excellence/SKILL.md) |
 | `codebase-inspection` | Inspect and analyze codebases using pygount for LOC counting, language breakdown, and code-vs-comment ratios. Use when asked to check lines of code, repo size, language composition, or codebase stats. | [目录](./codebase-inspection/) | [SKILL.md](./codebase-inspection/SKILL.md) |
 | `codebase-onboarding` | Analyze a codebase and generate comprehensive onboarding documentation tailored to your audience. Produces architecture overviews, key file maps, local setup guides, common task runbooks, debugging guides, and contribution guidelines. Outputs to Markdown, Notion, or Confluence. | [目录](./codebase-onboarding/) | [SKILL.md](./codebase-onboarding/SKILL.md) |
-| `context-engineering` | 用于 AI 编码助手的上下文优化、Prompt 结构设计和指令冲突防御。仓库整理版，吸收社区高频最佳实践。 | [目录](./context-engineering/) | [SKILL.md](./context-engineering/SKILL.md) |
 | `database-designer` | A comprehensive database design skill that provides expert-level analysis, optimization, and migration capabilities for modern database systems. This skill combines theoretical principles with practical tools to help architects and developers create scalable, performant, and maintainable database schemas. | [目录](./database-designer/) | [SKILL.md](./database-designer/SKILL.md) |
 | `database-schema-designer` | Design relational database schemas from requirements and generate migrations, TypeScript/Python types, seed data, RLS policies, and indexes. Handles multi-tenancy, soft deletes, audit trails, versioning, and polymorphic associations. | [目录](./database-schema-designer/) | [SKILL.md](./database-schema-designer/SKILL.md) |
 | `debugging-strategies` | Master systematic debugging techniques, profiling tools, and root cause analysis to efficiently track down bugs across any codebase or technology stack. Use when investigating bugs, performance issues, or unexpected behavior. | [目录](./debugging-strategies/) | [SKILL.md](./debugging-strategies/SKILL.md) |
@@ -57,7 +56,6 @@
 | `tailwind-design-system` | 用于 Tailwind CSS 设计系统搭建、组件库开发与主题定制。来源：skills.sh 24.7K installs。 | [目录](./tailwind-design-system/) | [SKILL.md](./tailwind-design-system/SKILL.md) |
 | `tech-debt-tracker` | Tier: POWERFUL 🔥 Category: Engineering Process Automation Expertise: Code Quality, Technical Debt Management, Software Engineering. | [目录](./tech-debt-tracker/) | [SKILL.md](./tech-debt-tracker/SKILL.md) |
 | `terraform-engineer` | 用于 Terraform 基础设施即代码（IaC）设计、模块化管理和状态管理。来源：HashiCorp 官方 + skills.sh。 | [目录](./terraform-engineer/) | [SKILL.md](./terraform-engineer/SKILL.md) |
-| `test-driven-development` | Use when implementing any feature or bugfix, before writing implementation code | [目录](./test-driven-development/) | [SKILL.md](./test-driven-development/SKILL.md) |
 | `typescript-best-practices` | 用于 TypeScript 高级类型编程、类型安全设计和常见反模式避免。仓库整理版，吸收社区高频最佳实践。 | [目录](./typescript-best-practices/) | [SKILL.md](./typescript-best-practices/SKILL.md) |
 | `web-artifacts-builder` | Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts. | [目录](./web-artifacts-builder/) | [SKILL.md](./web-artifacts-builder/SKILL.md) |
 | `webapp-testing` | Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs. | [目录](./webapp-testing/) | [SKILL.md](./webapp-testing/SKILL.md) |

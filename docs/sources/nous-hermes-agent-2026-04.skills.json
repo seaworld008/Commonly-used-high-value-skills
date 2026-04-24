@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://github.com/NousResearch/hermes-agent",
-    "checked_at": "2026-04-13",
+    "checked_at": "2026-04-24",
     "note": "Curated subset from Hermes Agent focused on persistent knowledge workflows and self-improving agent infrastructure."
   },
   "official_references": [
@@ -44,8 +44,8 @@
         "repo": "NousResearch/hermes-agent",
         "path": "skills/autonomous-ai-agents/hermes-agent/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-13",
-        "last_synced_at": "2026-04-13",
+        "last_checked_at": "2026-04-24",
+        "last_synced_at": "2026-04-24",
         "last_synced_commit": "1780ad24b1279e63027a42c5cdb75f2ea7324fea"
       }
     },
@@ -60,8 +60,8 @@
         "repo": "NousResearch/hermes-agent",
         "path": "optional-skills/autonomous-ai-agents/honcho/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-13",
-        "last_synced_at": "2026-04-13",
+        "last_checked_at": "2026-04-24",
+        "last_synced_at": "2026-04-24",
         "last_synced_commit": "c02c3dc723aea2b62d5a8052e7b4e7d81c367a67"
       }
     },
@@ -108,8 +108,8 @@
         "repo": "NousResearch/hermes-agent",
         "path": "skills/research/arxiv/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-13",
-        "last_synced_at": "2026-04-13",
+        "last_checked_at": "2026-04-24",
+        "last_synced_at": "2026-04-24",
         "last_synced_commit": "3636f64540a3d80c8425f195f46e53e940956cba"
       }
     },
@@ -124,8 +124,8 @@
         "repo": "NousResearch/hermes-agent",
         "path": "skills/note-taking/obsidian/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-13",
-        "last_synced_at": "2026-04-13",
+        "last_checked_at": "2026-04-24",
+        "last_synced_at": "2026-04-24",
         "last_synced_commit": "3636f64540a3d80c8425f195f46e53e940956cba"
       }
     },
@@ -156,8 +156,8 @@
         "repo": "NousResearch/hermes-agent",
         "path": "skills/productivity/linear/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-13",
-        "last_synced_at": "2026-04-13",
+        "last_checked_at": "2026-04-24",
+        "last_synced_at": "2026-04-24",
         "last_synced_commit": "3636f64540a3d80c8425f195f46e53e940956cba"
       }
     }

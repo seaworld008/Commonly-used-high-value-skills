@@ -37,12 +37,12 @@
       "video_name": "agent-workflow-designer",
       "normalized_slug": "agent-workflow-designer",
       "status": "in_house",
-      "repo_skill": "skills/task-understanding-decomposition/agent-workflow-designer/SKILL.md",
+      "repo_skill": "skills/ai-workflow/agent-workflow-designer/SKILL.md",
       "source": "https://github.com/your-org/Commonly-used-high-value-skills",
       "notes": "In-house canonical skill (local repository source of truth).",
       "upstream": {
         "repo": "local-repo/in-house",
-        "path": "skills/task-understanding-decomposition/agent-workflow-designer",
+        "path": "skills/ai-workflow/agent-workflow-designer",
         "ref": "main",
         "last_checked_at": "2026-04-24",
         "last_synced_at": "2026-04-13",
@@ -149,12 +149,12 @@
       "video_name": "brainstorming",
       "normalized_slug": "brainstorming",
       "status": "in_house",
-      "repo_skill": "skills/task-understanding-decomposition/brainstorming/SKILL.md",
+      "repo_skill": "skills/ai-workflow/brainstorming/SKILL.md",
       "source": "https://github.com/your-org/Commonly-used-high-value-skills",
       "notes": "In-house canonical skill (local repository source of truth).",
       "upstream": {
         "repo": "local-repo/in-house",
-        "path": "skills/task-understanding-decomposition/brainstorming",
+        "path": "skills/ai-workflow/brainstorming",
         "ref": "main",
         "last_checked_at": "2026-04-24",
         "last_synced_at": "2026-04-13",
@@ -418,22 +418,6 @@
       }
     },
     {
-      "video_name": "context-engineering",
-      "normalized_slug": "context-engineering",
-      "status": "in_house",
-      "repo_skill": "skills/developer-engineering/context-engineering/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/developer-engineering/context-engineering",
-        "ref": "main",
-        "last_checked_at": "2026-04-24",
-        "last_synced_at": "2026-04-13",
-        "last_synced_commit": null
-      }
-    },
-    {
       "video_name": "database-designer",
       "normalized_slug": "database-designer",
       "status": "in_house",
@@ -469,12 +453,12 @@
       "video_name": "deep-research",
       "normalized_slug": "deep-research",
       "status": "in_house",
-      "repo_skill": "skills/task-understanding-decomposition/deep-research/SKILL.md",
+      "repo_skill": "skills/ai-workflow/deep-research/SKILL.md",
       "source": "https://github.com/your-org/Commonly-used-high-value-skills",
       "notes": "In-house canonical skill (local repository source of truth).",
       "upstream": {
         "repo": "local-repo/in-house",
-        "path": "skills/task-understanding-decomposition/deep-research",
+        "path": "skills/ai-workflow/deep-research",
         "ref": "main",
         "last_checked_at": "2026-04-24",
         "last_synced_at": "2026-04-13",
@@ -1621,12 +1605,12 @@
       "video_name": "prompt-optimizer",
       "normalized_slug": "prompt-optimizer",
       "status": "in_house",
-      "repo_skill": "skills/task-understanding-decomposition/prompt-optimizer/SKILL.md",
+      "repo_skill": "skills/ai-workflow/prompt-optimizer/SKILL.md",
       "source": "https://github.com/your-org/Commonly-used-high-value-skills",
       "notes": "In-house canonical skill (local repository source of truth).",
       "upstream": {
         "repo": "local-repo/in-house",
-        "path": "skills/task-understanding-decomposition/prompt-optimizer",
+        "path": "skills/ai-workflow/prompt-optimizer",
         "ref": "main",
         "last_checked_at": "2026-04-24",
         "last_synced_at": "2026-04-13",
@@ -1941,12 +1925,12 @@
       "video_name": "skill-reviewer",
       "normalized_slug": "skill-reviewer",
       "status": "in_house",
-      "repo_skill": "skills/task-understanding-decomposition/skill-reviewer/SKILL.md",
+      "repo_skill": "skills/ai-workflow/skill-reviewer/SKILL.md",
       "source": "https://github.com/your-org/Commonly-used-high-value-skills",
       "notes": "In-house canonical skill (local repository source of truth).",
       "upstream": {
         "repo": "local-repo/in-house",
-        "path": "skills/task-understanding-decomposition/skill-reviewer",
+        "path": "skills/ai-workflow/skill-reviewer",
         "ref": "main",
         "last_checked_at": "2026-04-24",
         "last_synced_at": "2026-04-13",
@@ -1989,12 +1973,12 @@
       "video_name": "skills-search",
       "normalized_slug": "skills-search",
       "status": "in_house",
-      "repo_skill": "skills/task-understanding-decomposition/skills-search/SKILL.md",
+      "repo_skill": "skills/ai-workflow/skills-search/SKILL.md",
       "source": "https://github.com/your-org/Commonly-used-high-value-skills",
       "notes": "In-house canonical skill (local repository source of truth).",
       "upstream": {
         "repo": "local-repo/in-house",
-        "path": "skills/task-understanding-decomposition/skills-search",
+        "path": "skills/ai-workflow/skills-search",
         "ref": "main",
         "last_checked_at": "2026-04-24",
         "last_synced_at": "2026-04-13",
@@ -2389,12 +2373,12 @@
       "video_name": "writing-plans",
       "normalized_slug": "writing-plans",
       "status": "in_house",
-      "repo_skill": "skills/task-understanding-decomposition/writing-plans/SKILL.md",
+      "repo_skill": "skills/ai-workflow/writing-plans/SKILL.md",
       "source": "https://github.com/your-org/Commonly-used-high-value-skills",
       "notes": "In-house canonical skill (local repository source of truth).",
       "upstream": {
         "repo": "local-repo/in-house",
-        "path": "skills/task-understanding-decomposition/writing-plans",
+        "path": "skills/ai-workflow/writing-plans",
         "ref": "main",
         "last_checked_at": "2026-04-24",
         "last_synced_at": "2026-04-13",
@@ -2497,6 +2481,83 @@
       "target": "skills/*/*/SKILL.md",
       "result": "success",
       "evidence": "Merged provenance for 151 local skills"
+    },
+    {
+      "date": "2026-04-24",
+      "method": "local-scan",
+      "target": "skills/*/*/SKILL.md",
+      "result": "success",
+      "evidence": "Merged provenance for 150 local skills"
+    },
+    {
+      "date": "2026-04-24",
+      "method": "local-scan",
+      "target": "skills/*/*/SKILL.md",
+      "result": "success",
+      "evidence": "Merged provenance for 150 local skills"
+    },
+    {
+      "date": "2026-04-24",
+      "method": "local-scan",
+      "target": "skills/*/*/SKILL.md",
+      "result": "success",
+      "evidence": "Merged provenance for 150 local skills"
+    },
+    {
+      "date": "2026-04-24",
+      "method": "local-scan",
+      "target": "skills/*/*/SKILL.md",
+      "result": "success",
+      "evidence": "Merged provenance for 150 local skills"
+    },
+    {
+      "date": "2026-04-24",
+      "method": "local-scan",
+      "target": "skills/*/*/SKILL.md",
+      "result": "success",
+      "evidence": "Merged provenance for 150 local skills"
+    },
+    {
+      "date": "2026-04-24",
+      "method": "local-scan",
+      "target": "skills/*/*/SKILL.md",
+      "result": "success",
+      "evidence": "Merged provenance for 150 local skills"
+    },
+    {
+      "date": "2026-04-24",
+      "method": "local-scan",
+      "target": "skills/*/*/SKILL.md",
+      "result": "success",
+      "evidence": "Merged provenance for 150 local skills"
+    },
+    {
+      "date": "2026-04-24",
+      "method": "local-scan",
+      "target": "skills/*/*/SKILL.md",
+      "result": "success",
+      "evidence": "Merged provenance for 150 local skills"
+    },
+    {
+      "date": "2026-04-24",
+      "method": "local-scan",
+      "target": "skills/*/*/SKILL.md",
+      "result": "success",
+      "evidence": "Merged provenance for 150 local skills"
+    },
+    {
+      "date": "2026-04-24",
+      "method": "local-scan",
+      "target": "skills/*/*/SKILL.md",
+      "result": "success",
+      "evidence": "Merged provenance for 150 local skills"
+    },
+    {
+      "date": "2026-04-24",
+      "method": "local-scan",
+      "target": "skills/*/*/SKILL.md",
+      "result": "success",
+      "evidence": "Merged provenance for 150 local skills"
     }
   ]
 }

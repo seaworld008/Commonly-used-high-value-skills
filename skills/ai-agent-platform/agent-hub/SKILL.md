@@ -1,118 +1,289 @@
 ---
 name: agent-hub
-description: '用于多 Agent 系统编排、Agent 间通信协议设计与生命周期管理。来源：alirezarezvani/claude-skills POWERFUL tier。'
-version: "1.0.0"
+description: 'Multi-agent collaboration plugin that spawns N parallel subagents competing on the same task via git worktree isolation. Agents work independently, results are evaluated by metric or LLM judge, and the best branch is merged. Use when: user wants multiple approaches tried in parallel — code optimization, content variation, research exploration, or any task that benefits from parallel competition. Requires: a git repo.'
+version: "1.0.1"
 author: "seaworld008"
 source: "github:alirezarezvani/claude-skills"
 source_url: ""
 tags: '["agent", "ai", "hub"]'
 created_at: "2026-03-27"
-updated_at: "2026-03-27"
+updated_at: "2026-04-24"
 quality: 4
 complexity: "intermediate"
 license: MIT
 ---
 
-# Agent Hub
+# AgentHub — Multi-Agent Collaboration
 
-## 触发条件
-- 当需要设计和实现多智能体系统（Multi-Agent System, MAS）时。
-- 在构建复杂的任务编排流程（Workflow Orchestration），且单一 Agent 无法胜任时。
-- 需要管理 Agent 的生命周期、状态、并发和通信协议时。
-- 系统需要具备高可用性、故障转移（Failover）和负载均衡能力时。
-- 需要定义 Agent 间的标准消息交换格式（如 JSON-RPC, MCP 等）时。
+Spawn N parallel AI agents that compete on the same task. Each agent works in an isolated git worktree. The coordinator evaluates results and merges the winner.
 
-## 核心能力
+## Slash Commands
 
-### 1. Agent 注册与发现机制 (Registration & Discovery)
-- **注册中心 (Registry)**: 所有活动的 Agent 必须在注册中心进行身份登记，包括其能力（Capability）、所支持的工具（Tools）、输入/输出 schema。
-- **动态发现**: 系统运行过程中，编排层能够实时查询当前可用的 Agent 列表及其负载状态。
-- **能力建模**: 使用语义化描述或标签系统来定义 Agent 的专长领域。
+| Command | Description |
+|---------|-------------|
+| `/hub:init` | Create a new collaboration session — task, agent count, eval criteria |
+| `/hub:spawn` | Launch N parallel subagents in isolated worktrees |
+| `/hub:status` | Show DAG state, agent progress, branch status |
+| `/hub:eval` | Rank agent results by metric or LLM judge |
+| `/hub:merge` | Merge winning branch, archive losers |
+| `/hub:board` | Read/write the agent message board |
+| `/hub:run` | One-shot lifecycle: init → baseline → spawn → eval → merge |
 
-### 2. 消息路由与通信协议 (Routing & Protocol)
-- **异步通信**: 采用消息队列（如 RabbitMQ/Redis）实现 Agent 间的解耦。
-- **消息路由策略**:
-  - **点对点 (P2P)**: 特定任务指派。
-  - **广播 (Broadcast)**: 寻找能够处理某一任务的 Agent。
-  - **基于内容的路由**: 根据任务的复杂度或领域自动分发。
-- **标准协议**: 采用统一的 Envelope 包装（包含 TraceID, Priority, Timestamp, Payload）。
+## Agent Templates
 
-### 3. 多样化编排模式 (Orchestration Patterns)
-- **Sequential (顺序模式)**: 任务 A 完成后，其输出作为任务 B 的输入。
-- **Parallel (并行模式)**: 多个 Agent 同时处理子任务，最后由 Aggregator 聚合结果。
-- **Router (路由模式)**: 主控 Agent 根据输入意图，将请求分发至最合适的子 Agent。
-- **Evaluator/Optimizer (评审模式)**: 一个 Agent 生成内容，另一个 Agent 进行质量审核和优化建议。
-- **Hierarchy (层级模式)**: 复杂的层级管理，Manager Agent 拆分任务并管理多个 Worker Agent。
+When spawning with `--template`, agents follow a predefined iteration pattern:
 
-### 4. 生命周期与状态管理 (Lifecycle & State Management)
-- **生命周期钩子**: `onInit`, `onTaskStart`, `onTaskComplete`, `onShutdown`。
-- **状态持久化**: 在任务执行过程中，定期保存内存上下文（Memory Snapshot），防止系统崩溃导致数据丢失。
-- **上下文管理**: 管理共享记忆（Shared Memory）与私有记忆（Private Memory）的权限和同步。
+| Template | Pattern | Use Case |
+|----------|---------|----------|
+| `optimizer` | Edit → eval → keep/discard → repeat x10 | Performance, latency, size |
+| `refactorer` | Restructure → test → iterate until green | Code quality, tech debt |
+| `test-writer` | Write tests → measure coverage → repeat | Test coverage gaps |
+| `bug-fixer` | Reproduce → diagnose → fix → verify | Bug fix approaches |
 
-### 5. 高可用与负载均衡 (Reliability)
-- **状态监控**: 定期发送 Heartbeat，检测 Agent 是否存活。
-- **故障转移 (Failover)**: 若 Worker Agent A 异常退出，任务自动重定向至备用的 Worker Agent B。
-- **重试机制**: 指数级退避（Exponential Backoff）重试策略。
-- **流控与熔断**: 防止过量请求击穿下游 Agent 服务。
+Templates are defined in `references/agent-templates.md`.
 
-### 6. 安全与权限控制 (Security)
-- **双向认证 (mTLS)**: 确保 Agent 间通信的合法性。
-- **资源限额 (Quotas)**: 限制单个 Agent 的 Token 消耗、API 调用次数。
-- **隔离沙箱**: 对于执行代码的 Agent，强制要求在受限容器内运行。
+## When This Skill Activates
 
-## 常用命令/模板
+Trigger phrases:
+- "try multiple approaches"
+- "have agents compete"
+- "parallel optimization"
+- "spawn N agents"
+- "compare different solutions"
+- "fan-out" or "tournament"
+- "generate content variations"
+- "compare different drafts"
+- "A/B test copy"
+- "explore multiple strategies"
 
-### Agent 定义 JSON 模板
-```json
-{
-  "agent_id": "data-analyst-001",
-  "role": "data_analysis",
-  "capabilities": ["SQL generation", "Pandas visualization"],
-  "endpoint": "http://agents.internal/v1/analyze",
-  "status": "healthy",
-  "last_heartbeat": "2026-03-27T10:00:00Z"
-}
+## Coordinator Protocol
+
+The main Claude Code session is the coordinator. It follows this lifecycle:
+
+```
+INIT → DISPATCH → MONITOR → EVALUATE → MERGE
 ```
 
-### 任务调度命令示例
+### 1. Init
+
+Run `/hub:init` to create a session. This generates:
+- `.agenthub/sessions/{session-id}/config.yaml` — task config
+- `.agenthub/sessions/{session-id}/state.json` — state machine
+- `.agenthub/board/` — message board channels
+
+### 2. Dispatch
+
+Run `/hub:spawn` to launch agents. For each agent 1..N:
+- Post task assignment to `.agenthub/board/dispatch/`
+- Spawn via Agent tool with `isolation: "worktree"`
+- All agents launched in a single message (parallel)
+
+### 3. Monitor
+
+Run `/hub:status` to check progress:
+- `dag_analyzer.py --status --session {id}` shows branch state
+- Board `progress/` channel has agent updates
+
+### 4. Evaluate
+
+Run `/hub:eval` to rank results:
+- **Metric mode**: run eval command in each worktree, parse numeric result
+- **Judge mode**: read diffs, coordinator ranks by quality
+- **Hybrid**: metric first, LLM-judge for ties
+
+### 5. Merge
+
+Run `/hub:merge` to finalize:
+- `git merge --no-ff` winner into base branch
+- Tag losers: `git tag hub/archive/{session}/agent-{i}`
+- Clean up worktrees
+- Post merge summary to board
+
+## Agent Protocol
+
+Each subagent receives this prompt pattern:
+
+```
+You are agent-{i} in hub session {session-id}.
+Your task: {task description}
+
+Instructions:
+1. Read your assignment at .agenthub/board/dispatch/{seq}-agent-{i}.md
+2. Work in your worktree — make changes, run tests, iterate
+3. Commit all changes with descriptive messages
+4. Write your result summary to .agenthub/board/results/agent-{i}-result.md
+5. Exit when done
+```
+
+Agents do NOT see each other's work. They do NOT communicate with each other. They only write to the board for the coordinator to read.
+
+## DAG Model
+
+### Branch Naming
+
+```
+hub/{session-id}/agent-{N}/attempt-{M}
+```
+
+- Session ID: timestamp-based (`YYYYMMDD-HHMMSS`)
+- Agent N: sequential (1 to agent-count)
+- Attempt M: increments on retry (usually 1)
+
+### Frontier Detection
+
+Frontier = branch tips with no child branches. Equivalent to AgentHub's "leaves" query.
+
 ```bash
-# 启动多 Agent 编排集群
-agent-hub run --config ./orchestration/multi-agent-config.yaml
-
-# 查看当前活跃 Agent 负载
-agent-hub status --verbose
-
-# 手动触发 Agent 故障转移测试
-agent-hub kill data-analyst-001 && agent-hub check-failover
+python scripts/dag_analyzer.py --frontier --session {id}
 ```
 
-### 编排 DSL 示例 (YAML)
-```yaml
-pipeline:
-  name: market_research_flow
-  steps:
-    - step1:
-        agent: scraper_agent
-        task: fetch_latest_news
-    - step2:
-        agent: summarizer_agent
-        input: step1.output
-        task: extract_key_points
-    - step3:
-        agent: writer_agent
-        input: step2.output
-        task: create_final_report
-```
+### Immutability
 
-## 边界与限制
-- **延迟问题**: 多次 Agent 间的往返（Round-trip）会增加整体系统的响应延迟。
-- **幻觉累积**: 链式编排中，上游 Agent 的错误输出会被下游 Agent 放大。
-- **调试难度**: 分布式 Agent 系统的 Trace 追踪比单体系统复杂得多。
-- **Token 消耗**: 并行和多 Agent 协同会显著提高 Token 成本。
-- **同步冲突**: 多个 Agent 同时修改共享状态（Shared Memory）可能导致数据竞争（Race Condition）。
+The DAG is append-only:
+- Never rebase or force-push agent branches
+- Never delete commits (only branch refs after archival)
+- Every approach preserved via git tags
 
+## Message Board
+
+Location: `.agenthub/board/`
+
+### Channels
+
+| Channel | Writer | Reader | Purpose |
+|---------|--------|--------|---------|
+| `dispatch/` | Coordinator | Agents | Task assignments |
+| `progress/` | Agents | Coordinator | Status updates |
+| `results/` | Agents + Coordinator | All | Final results + merge summary |
+
+### Post Format
+
+```markdown
 ---
-*注：本技能适用于企业级 AI Agent 应用开发，需配合成熟的编排框架如 LangChain/AutoGen 使用。*
-* lines: 110
-* word count: ~1000 characters
-* detailed best practices included.
+author: agent-1
+timestamp: 2026-03-17T14:30:22Z
+channel: results
+parent: null
+---
+
+## Result Summary
+
+- **Approach**: Replaced O(n²) sort with hash map
+- **Files changed**: 3
+- **Metric**: 142ms (baseline: 180ms, delta: -38ms)
+- **Confidence**: High — all tests pass
+```
+
+### Board Rules
+
+- Append-only: never edit or delete posts
+- Unique filenames: `{seq:03d}-{author}-{timestamp}.md`
+- YAML frontmatter required on all posts
+
+## Evaluation Modes
+
+### Metric-Based
+
+Best for: benchmarks, test pass rates, file sizes, response times.
+
+```bash
+python scripts/result_ranker.py --session {id} \
+  --eval-cmd "pytest bench.py --json" \
+  --metric p50_ms --direction lower
+```
+
+The ranker runs the eval command in each agent's worktree directory and parses the metric from stdout.
+
+### LLM Judge
+
+Best for: code quality, readability, architecture decisions.
+
+The coordinator reads each agent's diff (`git diff base...agent-branch`) and ranks by:
+1. Correctness (does it solve the task?)
+2. Simplicity (fewer lines changed preferred)
+3. Quality (clean execution, good structure)
+
+### Hybrid
+
+Run metric first. If top agents are within 10% of each other, use LLM judge to break ties.
+
+## Session Lifecycle
+
+```
+init → running → evaluating → merged
+                            → archived (if no winner)
+```
+
+State transitions managed by `session_manager.py`:
+
+| From | To | Trigger |
+|------|----|---------|
+| `init` | `running` | `/hub:spawn` completes |
+| `running` | `evaluating` | All agents return |
+| `evaluating` | `merged` | `/hub:merge` completes |
+| `evaluating` | `archived` | No winner / all failed |
+
+## Proactive Triggers
+
+The coordinator should act when:
+
+| Signal | Action |
+|--------|--------|
+| All agents crashed | Post failure summary, suggest retry with different constraints |
+| No improvement over baseline | Archive session, suggest different approaches |
+| Orphan worktrees detected | Run `session_manager.py --cleanup {id}` |
+| Session stuck in `running` | Check board for progress, consider timeout |
+
+## Installation
+
+```bash
+# Copy to your Claude Code skills directory
+cp -r engineering/agenthub ~/.claude/skills/agenthub
+
+# Or install via ClawHub
+clawhub install agenthub
+```
+
+## Scripts
+
+| Script | Purpose |
+|--------|---------|
+| `hub_init.py` | Initialize `.agenthub/` structure and session |
+| `dag_analyzer.py` | Frontier detection, DAG graph, branch status |
+| `board_manager.py` | Message board CRUD (channels, posts, threads) |
+| `result_ranker.py` | Rank agents by metric or diff quality |
+| `session_manager.py` | Session state machine and cleanup |
+
+## Related Skills
+
+- **autoresearch-agent** — Single-agent optimization loop (use AgentHub when you want N agents competing)
+- **self-improving-agent** — Self-modifying agent (use AgentHub when you want external competition)
+- **git-worktree-manager** — Git worktree utilities (AgentHub uses worktrees internally)
+
+<!-- LOCAL-QUALITY-SUPPLEMENT:START -->
+## Usage Notes
+
+This supplement is maintained by the repository sync pipeline. It keeps the
+imported upstream skill usable inside this curated collection when the upstream
+source is intentionally concise or uses headings that the local quality gate
+cannot classify.
+
+## Common Patterns
+
+```text
+1. Confirm that the user's task matches the skill trigger.
+2. Read the relevant project files or user-provided context before acting.
+3. Choose the smallest reversible action that advances the task.
+4. Run the verification command or manual check that proves the result.
+5. Report the outcome, evidence, and any remaining risk.
+```
+
+## Boundaries
+
+- Prefer the upstream workflow for Agent Hub; this section only adds local quality
+  guardrails.
+- Do not invent project facts when required files, services, tools, or agent
+  workspaces are unavailable.
+- Stop and ask for clarification when the next action could overwrite user work,
+  expose private data, or change production state.
+<!-- LOCAL-QUALITY-SUPPLEMENT:END -->

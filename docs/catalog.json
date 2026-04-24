@@ -1,16 +1,16 @@
 {
   "version": "1.0.0",
   "generated_at": "2026-04-24",
-  "total_skills": 188,
-  "total_categories": 15,
+  "total_skills": 207,
+  "total_categories": 16,
   "categories": [
     {
       "name": "developer-engineering",
-      "count": 44
+      "count": 42
     },
     {
-      "name": "task-understanding-decomposition",
-      "count": 21
+      "name": "ai-workflow",
+      "count": 40
     },
     {
       "name": "office-white-collar",
@@ -63,14 +63,18 @@
     {
       "name": "openclaw-memory-and-safety",
       "count": 4
+    },
+    {
+      "name": "task-understanding-decomposition",
+      "count": 2
     }
   ],
   "skills": [
     {
       "name": "agent-hub",
       "category": "ai-agent-platform",
-      "description": "用于多 Agent 系统编排、Agent 间通信协议设计与生命周期管理。来源：alirezarezvani/claude-skills POWERFUL tier。",
-      "version": "1.0.0",
+      "description": "Multi-agent collaboration plugin that spawns N parallel subagents competing on the same task via git worktree isolation. Agents work independently, results are evaluated by metric or LLM judge, and the best branch is merged. Use when: user wants multiple approaches tried in parallel — code optimization, content variation, research exploration, or any task that benefits from parallel competition. Requires: a git repo.",
+      "version": "1.0.1",
       "author": "seaworld008",
       "source": "github:alirezarezvani/claude-skills",
       "source_url": "",
@@ -82,8 +86,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-27",
-      "updated_at": "2026-03-27",
-      "line_count": 118,
+      "updated_at": "2026-04-24",
+      "line_count": 289,
       "path": "skills/ai-agent-platform/agent-hub/SKILL.md"
     },
     {
@@ -175,7 +179,7 @@
       "name": "hermes-agent",
       "category": "ai-agent-platform",
       "description": "Complete guide to using and extending Hermes Agent — CLI usage, setup, configuration, spawning additional agents, gateway platforms, skills, voice, tools, profiles, and a concise contributor reference. Load this skill when helping users configure Hermes, troubleshoot issues, spawn agent instances, or make code contributions.",
-      "version": "2.0.0",
+      "version": "2.0.1",
       "author": "Hermes Agent + Teknium",
       "source": "in-house",
       "source_url": "",
@@ -192,8 +196,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-04-13",
-      "updated_at": "2026-04-13",
-      "line_count": 660,
+      "updated_at": "2026-04-24",
+      "line_count": 710,
       "path": "skills/ai-agent-platform/hermes-agent/SKILL.md"
     },
     {
@@ -349,6 +353,858 @@
       "updated_at": "2026-03-20",
       "line_count": 126,
       "path": "skills/ai-agent-platform/self-improving-agent/SKILL.md"
+    },
+    {
+      "name": "agent-workflow-designer",
+      "category": "ai-workflow",
+      "description": "Design production-grade multi-agent orchestration systems. Covers five core patterns (sequential pipeline, parallel fan-out/fan-in, hierarchical delegation, event-driven, consensus), platform-specific implementations, handoff protocols, state management, error recovery, context window budgeting, and cost optimization.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "agent",
+        "designer",
+        "planning",
+        "workflow"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 452,
+      "path": "skills/ai-workflow/agent-workflow-designer/SKILL.md"
+    },
+    {
+      "name": "api-and-interface-design",
+      "category": "ai-workflow",
+      "description": "Guides stable API and interface design. Use when designing APIs, module boundaries, or any public interface. Use when creating REST or GraphQL endpoints, defining type contracts between modules, or establishing boundaries between frontend and backend.",
+      "version": "1.0.0",
+      "author": "addyosmani",
+      "source": "github:addyosmani/agent-skills",
+      "source_url": "https://github.com/addyosmani/agent-skills/blob/main/skills/api-and-interface-design/SKILL.md",
+      "tags": [
+        "agent",
+        "ai",
+        "api-and-interface-design",
+        "engineering",
+        "workflow"
+      ],
+      "quality": 5,
+      "complexity": "advanced",
+      "created_at": "2026-04-24",
+      "updated_at": "2026-04-24",
+      "line_count": 304,
+      "path": "skills/ai-workflow/api-and-interface-design/SKILL.md"
+    },
+    {
+      "name": "brainstorming",
+      "category": "ai-workflow",
+      "description": "You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "brainstorming",
+        "planning",
+        "workflow"
+      ],
+      "quality": 3,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 126,
+      "path": "skills/ai-workflow/brainstorming/SKILL.md"
+    },
+    {
+      "name": "browser-testing-with-devtools",
+      "category": "ai-workflow",
+      "description": "Tests in real browsers. Use when building or debugging anything that runs in a browser. Use when you need to inspect the DOM, capture console errors, analyze network requests, profile performance, or verify visual output with real runtime data via Chrome DevTools MCP.",
+      "version": "1.0.0",
+      "author": "addyosmani",
+      "source": "github:addyosmani/agent-skills",
+      "source_url": "https://github.com/addyosmani/agent-skills/blob/main/skills/browser-testing-with-devtools/SKILL.md",
+      "tags": [
+        "agent",
+        "ai",
+        "browser-testing-with-devtools",
+        "engineering",
+        "workflow"
+      ],
+      "quality": 5,
+      "complexity": "advanced",
+      "created_at": "2026-04-24",
+      "updated_at": "2026-04-24",
+      "line_count": 312,
+      "path": "skills/ai-workflow/browser-testing-with-devtools/SKILL.md"
+    },
+    {
+      "name": "ci-cd-and-automation",
+      "category": "ai-workflow",
+      "description": "Automates CI/CD pipeline setup. Use when setting up or modifying build and deployment pipelines. Use when you need to automate quality gates, configure test runners in CI, or establish deployment strategies.",
+      "version": "1.0.0",
+      "author": "addyosmani",
+      "source": "github:addyosmani/agent-skills",
+      "source_url": "https://github.com/addyosmani/agent-skills/blob/main/skills/ci-cd-and-automation/SKILL.md",
+      "tags": [
+        "agent",
+        "ai",
+        "ci-cd-and-automation",
+        "engineering",
+        "workflow"
+      ],
+      "quality": 5,
+      "complexity": "advanced",
+      "created_at": "2026-04-24",
+      "updated_at": "2026-04-24",
+      "line_count": 400,
+      "path": "skills/ai-workflow/ci-cd-and-automation/SKILL.md"
+    },
+    {
+      "name": "code-review-and-quality",
+      "category": "ai-workflow",
+      "description": "Conducts multi-axis code review. Use before merging any change. Use when reviewing code written by yourself, another agent, or a human. Use when you need to assess code quality across multiple dimensions before it enters the main branch.",
+      "version": "1.0.0",
+      "author": "addyosmani",
+      "source": "github:addyosmani/agent-skills",
+      "source_url": "https://github.com/addyosmani/agent-skills/blob/main/skills/code-review-and-quality/SKILL.md",
+      "tags": [
+        "agent",
+        "ai",
+        "code-review-and-quality",
+        "engineering",
+        "workflow"
+      ],
+      "quality": 5,
+      "complexity": "advanced",
+      "created_at": "2026-04-24",
+      "updated_at": "2026-04-24",
+      "line_count": 357,
+      "path": "skills/ai-workflow/code-review-and-quality/SKILL.md"
+    },
+    {
+      "name": "code-simplification",
+      "category": "ai-workflow",
+      "description": "Simplifies code for clarity. Use when refactoring code for clarity without changing behavior. Use when code works but is harder to read, maintain, or extend than it should be. Use when reviewing code that has accumulated unnecessary complexity.",
+      "version": "1.0.0",
+      "author": "addyosmani",
+      "source": "github:addyosmani/agent-skills",
+      "source_url": "https://github.com/addyosmani/agent-skills/blob/main/skills/code-simplification/SKILL.md",
+      "tags": [
+        "agent",
+        "ai",
+        "code-simplification",
+        "engineering",
+        "workflow"
+      ],
+      "quality": 5,
+      "complexity": "advanced",
+      "created_at": "2026-04-24",
+      "updated_at": "2026-04-24",
+      "line_count": 341,
+      "path": "skills/ai-workflow/code-simplification/SKILL.md"
+    },
+    {
+      "name": "context-engineering",
+      "category": "ai-workflow",
+      "description": "Optimizes agent context setup. Use when starting a new session, when agent output quality degrades, when switching between tasks, or when you need to configure rules files and context for a project.",
+      "version": "1.0.0",
+      "author": "addyosmani",
+      "source": "github:addyosmani/agent-skills",
+      "source_url": "https://github.com/addyosmani/agent-skills/blob/main/skills/context-engineering/SKILL.md",
+      "tags": [
+        "agent",
+        "ai",
+        "context-engineering",
+        "engineering",
+        "workflow"
+      ],
+      "quality": 5,
+      "complexity": "advanced",
+      "created_at": "2026-04-24",
+      "updated_at": "2026-04-24",
+      "line_count": 299,
+      "path": "skills/ai-workflow/context-engineering/SKILL.md"
+    },
+    {
+      "name": "debugging-and-error-recovery",
+      "category": "ai-workflow",
+      "description": "Guides systematic root-cause debugging. Use when tests fail, builds break, behavior doesn''t match expectations, or you encounter any unexpected error. Use when you need a systematic approach to finding and fixing the root cause rather than guessing.",
+      "version": "1.0.0",
+      "author": "addyosmani",
+      "source": "github:addyosmani/agent-skills",
+      "source_url": "https://github.com/addyosmani/agent-skills/blob/main/skills/debugging-and-error-recovery/SKILL.md",
+      "tags": [
+        "agent",
+        "ai",
+        "debugging-and-error-recovery",
+        "engineering",
+        "workflow"
+      ],
+      "quality": 5,
+      "complexity": "advanced",
+      "created_at": "2026-04-24",
+      "updated_at": "2026-04-24",
+      "line_count": 310,
+      "path": "skills/ai-workflow/debugging-and-error-recovery/SKILL.md"
+    },
+    {
+      "name": "deep-research",
+      "category": "ai-workflow",
+      "description": "Generate format-controlled research reports with evidence tracking, citations, and iterative review. This skill should be used when users request a research report, literature review, market or industry analysis, competitive landscape, policy or technical brief, or require a strict report template and section formatting that a single deepresearch pass cannot reliably enforce.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "deep",
+        "planning",
+        "research",
+        "workflow"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 215,
+      "path": "skills/ai-workflow/deep-research/SKILL.md"
+    },
+    {
+      "name": "deprecation-and-migration",
+      "category": "ai-workflow",
+      "description": "Manages deprecation and migration. Use when removing old systems, APIs, or features. Use when migrating users from one implementation to another. Use when deciding whether to maintain or sunset existing code.",
+      "version": "1.0.0",
+      "author": "addyosmani",
+      "source": "github:addyosmani/agent-skills",
+      "source_url": "https://github.com/addyosmani/agent-skills/blob/main/skills/deprecation-and-migration/SKILL.md",
+      "tags": [
+        "agent",
+        "ai",
+        "deprecation-and-migration",
+        "engineering",
+        "workflow"
+      ],
+      "quality": 5,
+      "complexity": "advanced",
+      "created_at": "2026-04-24",
+      "updated_at": "2026-04-24",
+      "line_count": 216,
+      "path": "skills/ai-workflow/deprecation-and-migration/SKILL.md"
+    },
+    {
+      "name": "dispatching-parallel-agents",
+      "category": "ai-workflow",
+      "description": "Use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "agents",
+        "parallel",
+        "workflow"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-04-13",
+      "updated_at": "2026-04-13",
+      "line_count": 191,
+      "path": "skills/ai-workflow/dispatching-parallel-agents/SKILL.md"
+    },
+    {
+      "name": "documentation-and-adrs",
+      "category": "ai-workflow",
+      "description": "Records decisions and documentation. Use when making architectural decisions, changing public APIs, shipping features, or when you need to record context that future engineers and agents will need to understand the codebase.",
+      "version": "1.0.0",
+      "author": "addyosmani",
+      "source": "github:addyosmani/agent-skills",
+      "source_url": "https://github.com/addyosmani/agent-skills/blob/main/skills/documentation-and-adrs/SKILL.md",
+      "tags": [
+        "agent",
+        "ai",
+        "documentation-and-adrs",
+        "engineering",
+        "workflow"
+      ],
+      "quality": 5,
+      "complexity": "advanced",
+      "created_at": "2026-04-24",
+      "updated_at": "2026-04-24",
+      "line_count": 288,
+      "path": "skills/ai-workflow/documentation-and-adrs/SKILL.md"
+    },
+    {
+      "name": "executing-plans",
+      "category": "ai-workflow",
+      "description": "Use when you have a written implementation plan to execute in a separate session with review checkpoints",
+      "version": "1.0.1",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "plans",
+        "execution",
+        "workflow"
+      ],
+      "quality": 3,
+      "complexity": "intermediate",
+      "created_at": "2026-04-13",
+      "updated_at": "2026-04-24",
+      "line_count": 106,
+      "path": "skills/ai-workflow/executing-plans/SKILL.md"
+    },
+    {
+      "name": "find-skills",
+      "category": "ai-workflow",
+      "description": "让 Agent 自动搜索并安装合适技能，解决不知道该用哪个技能的问题。",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "find",
+        "planning",
+        "skills",
+        "workflow"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-15",
+      "updated_at": "2026-03-20",
+      "line_count": 126,
+      "path": "skills/ai-workflow/find-skills/SKILL.md"
+    },
+    {
+      "name": "finishing-a-development-branch",
+      "category": "ai-workflow",
+      "description": "Use when implementation is complete, all tests pass, and you need to decide how to integrate the work - guides completion of development work by presenting structured options for merge, PR, or cleanup",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "git",
+        "workflow",
+        "delivery"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-04-13",
+      "updated_at": "2026-04-13",
+      "line_count": 209,
+      "path": "skills/ai-workflow/finishing-a-development-branch/SKILL.md"
+    },
+    {
+      "name": "frontend-ui-engineering",
+      "category": "ai-workflow",
+      "description": "Builds production-quality UIs. Use when building or modifying user-facing interfaces. Use when creating components, implementing layouts, managing state, or when the output needs to look and feel production-quality rather than AI-generated.",
+      "version": "1.0.0",
+      "author": "addyosmani",
+      "source": "github:addyosmani/agent-skills",
+      "source_url": "https://github.com/addyosmani/agent-skills/blob/main/skills/frontend-ui-engineering/SKILL.md",
+      "tags": [
+        "agent",
+        "ai",
+        "engineering",
+        "frontend-ui-engineering",
+        "workflow"
+      ],
+      "quality": 5,
+      "complexity": "advanced",
+      "created_at": "2026-04-24",
+      "updated_at": "2026-04-24",
+      "line_count": 338,
+      "path": "skills/ai-workflow/frontend-ui-engineering/SKILL.md"
+    },
+    {
+      "name": "git-workflow-and-versioning",
+      "category": "ai-workflow",
+      "description": "Structures git workflow practices. Use when making any code change. Use when committing, branching, resolving conflicts, or when you need to organize work across multiple parallel streams.",
+      "version": "1.0.0",
+      "author": "addyosmani",
+      "source": "github:addyosmani/agent-skills",
+      "source_url": "https://github.com/addyosmani/agent-skills/blob/main/skills/git-workflow-and-versioning/SKILL.md",
+      "tags": [
+        "agent",
+        "ai",
+        "engineering",
+        "git-workflow-and-versioning",
+        "workflow"
+      ],
+      "quality": 5,
+      "complexity": "advanced",
+      "created_at": "2026-04-24",
+      "updated_at": "2026-04-24",
+      "line_count": 310,
+      "path": "skills/ai-workflow/git-workflow-and-versioning/SKILL.md"
+    },
+    {
+      "name": "idea-refine",
+      "category": "ai-workflow",
+      "description": "Refines ideas iteratively. Refine ideas through structured divergent and convergent thinking. Use \\\"idea-refine\\\" or \\\"ideate\\\" to trigger.",
+      "version": "1.0.0",
+      "author": "addyosmani",
+      "source": "github:addyosmani/agent-skills",
+      "source_url": "https://github.com/addyosmani/agent-skills/blob/main/skills/idea-refine/SKILL.md",
+      "tags": [
+        "agent",
+        "ai",
+        "engineering",
+        "idea-refine",
+        "workflow"
+      ],
+      "quality": 4,
+      "complexity": "advanced",
+      "created_at": "2026-04-24",
+      "updated_at": "2026-04-24",
+      "line_count": 188,
+      "path": "skills/ai-workflow/idea-refine/SKILL.md"
+    },
+    {
+      "name": "incremental-implementation",
+      "category": "ai-workflow",
+      "description": "Delivers changes incrementally. Use when implementing any feature or change that touches more than one file. Use when you''re about to write a large amount of code at once, or when a task feels too big to land in one step.",
+      "version": "1.0.0",
+      "author": "addyosmani",
+      "source": "github:addyosmani/agent-skills",
+      "source_url": "https://github.com/addyosmani/agent-skills/blob/main/skills/incremental-implementation/SKILL.md",
+      "tags": [
+        "agent",
+        "ai",
+        "engineering",
+        "incremental-implementation",
+        "workflow"
+      ],
+      "quality": 5,
+      "complexity": "advanced",
+      "created_at": "2026-04-24",
+      "updated_at": "2026-04-24",
+      "line_count": 251,
+      "path": "skills/ai-workflow/incremental-implementation/SKILL.md"
+    },
+    {
+      "name": "performance-optimization",
+      "category": "ai-workflow",
+      "description": "Optimizes application performance. Use when performance requirements exist, when you suspect performance regressions, or when Core Web Vitals or load times need improvement. Use when profiling reveals bottlenecks that need fixing.",
+      "version": "1.0.0",
+      "author": "addyosmani",
+      "source": "github:addyosmani/agent-skills",
+      "source_url": "https://github.com/addyosmani/agent-skills/blob/main/skills/performance-optimization/SKILL.md",
+      "tags": [
+        "agent",
+        "ai",
+        "engineering",
+        "performance-optimization",
+        "workflow"
+      ],
+      "quality": 5,
+      "complexity": "advanced",
+      "created_at": "2026-04-24",
+      "updated_at": "2026-04-24",
+      "line_count": 360,
+      "path": "skills/ai-workflow/performance-optimization/SKILL.md"
+    },
+    {
+      "name": "planning-and-task-breakdown",
+      "category": "ai-workflow",
+      "description": "Breaks work into ordered tasks. Use when you have a spec or clear requirements and need to break work into implementable tasks. Use when a task feels too large to start, when you need to estimate scope, or when parallel work is possible.",
+      "version": "1.0.0",
+      "author": "addyosmani",
+      "source": "github:addyosmani/agent-skills",
+      "source_url": "https://github.com/addyosmani/agent-skills/blob/main/skills/planning-and-task-breakdown/SKILL.md",
+      "tags": [
+        "agent",
+        "ai",
+        "engineering",
+        "planning-and-task-breakdown",
+        "workflow"
+      ],
+      "quality": 5,
+      "complexity": "advanced",
+      "created_at": "2026-04-24",
+      "updated_at": "2026-04-24",
+      "line_count": 233,
+      "path": "skills/ai-workflow/planning-and-task-breakdown/SKILL.md"
+    },
+    {
+      "name": "prompt-optimizer",
+      "category": "ai-workflow",
+      "description": "Transform vague prompts into precise, well-structured specifications using EARS (Easy Approach to Requirements Syntax) methodology. This skill should be used when users provide loose requirements, ambiguous feature descriptions, or need to enhance prompts for AI-generated code, products, or documents. Triggers include requests to \"optimize my prompt\", \"improve this requirement\", \"make this more specific\", or when raw requirements lack detail and structure.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "optimizer",
+        "planning",
+        "prompt",
+        "workflow"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 204,
+      "path": "skills/ai-workflow/prompt-optimizer/SKILL.md"
+    },
+    {
+      "name": "receiving-code-review",
+      "category": "ai-workflow",
+      "description": "Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable - requires technical rigor and verification, not performative agreement or blind implementation",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "code-review",
+        "workflow",
+        "feedback"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-04-13",
+      "updated_at": "2026-04-13",
+      "line_count": 222,
+      "path": "skills/ai-workflow/receiving-code-review/SKILL.md"
+    },
+    {
+      "name": "requesting-code-review",
+      "category": "ai-workflow",
+      "description": "Use when completing tasks, implementing major features, or before merging to verify work meets requirements",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "code-review",
+        "workflow",
+        "quality-gate"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-04-13",
+      "updated_at": "2026-04-13",
+      "line_count": 114,
+      "path": "skills/ai-workflow/requesting-code-review/SKILL.md"
+    },
+    {
+      "name": "security-and-hardening",
+      "category": "ai-workflow",
+      "description": "Hardens code against vulnerabilities. Use when handling user input, authentication, data storage, or external integrations. Use when building any feature that accepts untrusted data, manages user sessions, or interacts with third-party services.",
+      "version": "1.0.0",
+      "author": "addyosmani",
+      "source": "github:addyosmani/agent-skills",
+      "source_url": "https://github.com/addyosmani/agent-skills/blob/main/skills/security-and-hardening/SKILL.md",
+      "tags": [
+        "agent",
+        "ai",
+        "engineering",
+        "security-and-hardening",
+        "workflow"
+      ],
+      "quality": 5,
+      "complexity": "advanced",
+      "created_at": "2026-04-24",
+      "updated_at": "2026-04-24",
+      "line_count": 359,
+      "path": "skills/ai-workflow/security-and-hardening/SKILL.md"
+    },
+    {
+      "name": "shipping-and-launch",
+      "category": "ai-workflow",
+      "description": "Prepares production launches. Use when preparing to deploy to production. Use when you need a pre-launch checklist, when setting up monitoring, when planning a staged rollout, or when you need a rollback strategy.",
+      "version": "1.0.0",
+      "author": "addyosmani",
+      "source": "github:addyosmani/agent-skills",
+      "source_url": "https://github.com/addyosmani/agent-skills/blob/main/skills/shipping-and-launch/SKILL.md",
+      "tags": [
+        "agent",
+        "ai",
+        "engineering",
+        "shipping-and-launch",
+        "workflow"
+      ],
+      "quality": 5,
+      "complexity": "advanced",
+      "created_at": "2026-04-24",
+      "updated_at": "2026-04-24",
+      "line_count": 319,
+      "path": "skills/ai-workflow/shipping-and-launch/SKILL.md"
+    },
+    {
+      "name": "skill-creator",
+      "category": "ai-workflow",
+      "description": "Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, update or optimize an existing skill, run evals to test a skill, benchmark skill performance with variance analysis, or optimize a skill''s description for better triggering accuracy.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "creator",
+        "planning",
+        "skill",
+        "workflow"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 488,
+      "path": "skills/ai-workflow/skill-creator/SKILL.md"
+    },
+    {
+      "name": "skill-reviewer",
+      "category": "ai-workflow",
+      "description": "Reviews and improves Claude Code skills against official best practices. Supports three modes - self-review (validate your own skills), external review (evaluate others'' skills), and auto-PR (fork, improve, submit). Use when checking skill quality, reviewing skill repositories, or contributing improvements to open-source skills.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "planning",
+        "reviewer",
+        "skill",
+        "workflow"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 209,
+      "path": "skills/ai-workflow/skill-reviewer/SKILL.md"
+    },
+    {
+      "name": "skills-search",
+      "category": "ai-workflow",
+      "description": "This skill should be used when users want to search, discover, install, or manage Claude Code skills from the CCPM registry. Triggers include requests like \"find skills for PDF\", \"search for code review skills\", \"install cloudflare-troubleshooting\", \"list my installed skills\", \"what does skill-creator do\", or any mention of finding/installing/managing Claude Code skills or plugins.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "planning",
+        "search",
+        "skills",
+        "workflow"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 116,
+      "path": "skills/ai-workflow/skills-search/SKILL.md"
+    },
+    {
+      "name": "source-driven-development",
+      "category": "ai-workflow",
+      "description": "Grounds every implementation decision in official documentation. Use when you want authoritative, source-cited code free from outdated patterns. Use when building with any framework or library where correctness matters.",
+      "version": "1.0.0",
+      "author": "addyosmani",
+      "source": "github:addyosmani/agent-skills",
+      "source_url": "https://github.com/addyosmani/agent-skills/blob/main/skills/source-driven-development/SKILL.md",
+      "tags": [
+        "agent",
+        "ai",
+        "engineering",
+        "source-driven-development",
+        "workflow"
+      ],
+      "quality": 4,
+      "complexity": "advanced",
+      "created_at": "2026-04-24",
+      "updated_at": "2026-04-24",
+      "line_count": 204,
+      "path": "skills/ai-workflow/source-driven-development/SKILL.md"
+    },
+    {
+      "name": "spec-driven-development",
+      "category": "ai-workflow",
+      "description": "Creates specs before coding. Use when starting a new project, feature, or significant change and no specification exists yet. Use when requirements are unclear, ambiguous, or only exist as a vague idea.",
+      "version": "1.0.0",
+      "author": "addyosmani",
+      "source": "github:addyosmani/agent-skills",
+      "source_url": "https://github.com/addyosmani/agent-skills/blob/main/skills/spec-driven-development/SKILL.md",
+      "tags": [
+        "agent",
+        "ai",
+        "engineering",
+        "spec-driven-development",
+        "workflow"
+      ],
+      "quality": 5,
+      "complexity": "advanced",
+      "created_at": "2026-04-24",
+      "updated_at": "2026-04-24",
+      "line_count": 210,
+      "path": "skills/ai-workflow/spec-driven-development/SKILL.md"
+    },
+    {
+      "name": "subagent-driven-development",
+      "category": "ai-workflow",
+      "description": "Use when executing implementation plans with independent tasks in the current session",
+      "version": "1.0.1",
+      "author": "seaworld008",
+      "source": "github:obra/superpowers",
+      "source_url": "https://github.com/obra/superpowers/tree/main/skills/subagent-driven-development",
+      "tags": [
+        "development",
+        "driven",
+        "planning",
+        "subagent",
+        "workflow"
+      ],
+      "quality": 3,
+      "complexity": "intermediate",
+      "created_at": "2026-03-27",
+      "updated_at": "2026-04-24",
+      "line_count": 286,
+      "path": "skills/ai-workflow/subagent-driven-development/SKILL.md"
+    },
+    {
+      "name": "test-driven-development",
+      "category": "ai-workflow",
+      "description": "Drives development with tests. Use when implementing any logic, fixing any bug, or changing any behavior. Use when you need to prove that code works, when a bug report arrives, or when you''re about to modify existing functionality.",
+      "version": "1.0.0",
+      "author": "addyosmani",
+      "source": "github:addyosmani/agent-skills",
+      "source_url": "https://github.com/addyosmani/agent-skills/blob/main/skills/test-driven-development/SKILL.md",
+      "tags": [
+        "agent",
+        "ai",
+        "engineering",
+        "test-driven-development",
+        "workflow"
+      ],
+      "quality": 5,
+      "complexity": "advanced",
+      "created_at": "2026-04-24",
+      "updated_at": "2026-04-24",
+      "line_count": 389,
+      "path": "skills/ai-workflow/test-driven-development/SKILL.md"
+    },
+    {
+      "name": "using-agent-skills",
+      "category": "ai-workflow",
+      "description": "Discovers and invokes agent skills. Use when starting a session or when you need to discover which skill applies to the current task. This is the meta-skill that governs how all other skills are discovered and invoked.",
+      "version": "1.0.0",
+      "author": "addyosmani",
+      "source": "github:addyosmani/agent-skills",
+      "source_url": "https://github.com/addyosmani/agent-skills/blob/main/skills/using-agent-skills/SKILL.md",
+      "tags": [
+        "agent",
+        "ai",
+        "engineering",
+        "using-agent-skills",
+        "workflow"
+      ],
+      "quality": 4,
+      "complexity": "advanced",
+      "created_at": "2026-04-24",
+      "updated_at": "2026-04-24",
+      "line_count": 184,
+      "path": "skills/ai-workflow/using-agent-skills/SKILL.md"
+    },
+    {
+      "name": "using-git-worktrees",
+      "category": "ai-workflow",
+      "description": "Use when starting feature work that needs isolation from current workspace or before executing implementation plans - creates isolated git worktrees with smart directory selection and safety verification",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "git",
+        "worktree",
+        "workflow"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-04-13",
+      "updated_at": "2026-04-13",
+      "line_count": 227,
+      "path": "skills/ai-workflow/using-git-worktrees/SKILL.md"
+    },
+    {
+      "name": "using-superpowers",
+      "category": "ai-workflow",
+      "description": "Use when starting any conversation - establishes how to find and use skills, requiring Skill tool invocation before ANY response including clarifying questions",
+      "version": "1.0.1",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "skills",
+        "workflow",
+        "process"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-04-13",
+      "updated_at": "2026-04-24",
+      "line_count": 154,
+      "path": "skills/ai-workflow/using-superpowers/SKILL.md"
+    },
+    {
+      "name": "verification-before-completion",
+      "category": "ai-workflow",
+      "description": "Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "verification",
+        "workflow",
+        "quality-gate"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-04-13",
+      "updated_at": "2026-04-13",
+      "line_count": 148,
+      "path": "skills/ai-workflow/verification-before-completion/SKILL.md"
+    },
+    {
+      "name": "writing-plans",
+      "category": "ai-workflow",
+      "description": "Use when you have a spec or requirements for a multi-step task, before touching code",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "planning",
+        "plans",
+        "workflow",
+        "writing"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-03-04",
+      "updated_at": "2026-03-20",
+      "line_count": 125,
+      "path": "skills/ai-workflow/writing-plans/SKILL.md"
+    },
+    {
+      "name": "writing-skills",
+      "category": "ai-workflow",
+      "description": "Use when creating new skills, editing existing skills, or verifying skills work before deployment",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "skills",
+        "authoring",
+        "workflow"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-04-13",
+      "updated_at": "2026-04-13",
+      "line_count": 664,
+      "path": "skills/ai-workflow/writing-skills/SKILL.md"
     },
     {
       "name": "cloudflare-deploy",
@@ -596,26 +1452,6 @@
       "updated_at": "2026-03-20",
       "line_count": 511,
       "path": "skills/developer-engineering/codebase-onboarding/SKILL.md"
-    },
-    {
-      "name": "context-engineering",
-      "category": "developer-engineering",
-      "description": "用于 AI 编码助手的上下文优化、Prompt 结构设计和指令冲突防御。仓库整理版，吸收社区高频最佳实践。",
-      "version": "1.0.0",
-      "author": "seaworld008",
-      "source": "in-house",
-      "source_url": "",
-      "tags": [
-        "context",
-        "development",
-        "engineering"
-      ],
-      "quality": 4,
-      "complexity": "intermediate",
-      "created_at": "2026-03-27",
-      "updated_at": "2026-03-27",
-      "line_count": 110,
-      "path": "skills/developer-engineering/context-engineering/SKILL.md"
     },
     {
       "name": "database-designer",
@@ -1248,26 +2084,6 @@
       "path": "skills/developer-engineering/terraform-engineer/SKILL.md"
     },
     {
-      "name": "test-driven-development",
-      "category": "developer-engineering",
-      "description": "Use when implementing any feature or bugfix, before writing implementation code",
-      "version": "1.0.1",
-      "author": "seaworld008",
-      "source": "github:obra/superpowers",
-      "source_url": "https://github.com/obra/superpowers/tree/main/skills/test-driven-development",
-      "tags": [
-        "development",
-        "driven",
-        "test"
-      ],
-      "quality": 4,
-      "complexity": "intermediate",
-      "created_at": "2026-03-27",
-      "updated_at": "2026-04-24",
-      "line_count": 380,
-      "path": "skills/developer-engineering/test-driven-development/SKILL.md"
-    },
-    {
       "name": "typescript-best-practices",
       "category": "developer-engineering",
       "description": "用于 TypeScript 高级类型编程、类型安全设计和常见反模式避免。仓库整理版，吸收社区高频最佳实践。",
@@ -1501,8 +2317,8 @@
     {
       "name": "senior-architect",
       "category": "devops-sre",
-      "description": "用于软件架构评审、技术选型决策和系统可扩展性分析。来源：alirezarezvani/claude-skills。",
-      "version": "1.0.0",
+      "description": "This skill should be used when the user asks to \\\"design system architecture\\\", \\\"evaluate microservices vs monolith\\\", \\\"create architecture diagrams\\\", \\\"analyze dependencies\\\", \\\"choose a database\\\", \\\"plan for scalability\\\", \\\"make technical decisions\\\", or \\\"review system design\\\". Use for architecture decision records (ADRs), tech stack evaluation, system design reviews, dependency analysis, and generating architecture diagrams in Mermaid, PlantUML, or ASCII format.",
+      "version": "1.0.1",
       "author": "seaworld008",
       "source": "github:alirezarezvani/claude-skills",
       "source_url": "",
@@ -1515,8 +2331,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-27",
-      "updated_at": "2026-03-27",
-      "line_count": 114,
+      "updated_at": "2026-04-24",
+      "line_count": 353,
       "path": "skills/devops-sre/senior-architect/SKILL.md"
     },
     {
@@ -1962,8 +2778,8 @@
     {
       "name": "saas-metrics-coach",
       "category": "finance-investing",
-      "description": "用于 SaaS 关键指标分析与健康度诊断，包含 ARR/MRR/Churn/LTV/CAC 等核心指标。来源：alirezarezvani/claude-skills。",
-      "version": "1.0.0",
+      "description": "SaaS financial health advisor. Use when a user shares revenue or customer numbers, or mentions ARR, MRR, churn, LTV, CAC, NRR, or asks how their SaaS business is doing.",
+      "version": "1.0.1",
       "author": "seaworld008",
       "source": "github:alirezarezvani/claude-skills",
       "source_url": "",
@@ -1976,8 +2792,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-27",
-      "updated_at": "2026-03-27",
-      "line_count": 122,
+      "updated_at": "2026-04-24",
+      "line_count": 162,
       "path": "skills/finance-investing/saas-metrics-coach/SKILL.md"
     },
     {
@@ -2260,7 +3076,7 @@
       "name": "arxiv",
       "category": "knowledge-and-pm-integrations",
       "description": "Search and retrieve academic papers from arXiv using their free REST API. No API key needed. Search by keyword, author, category, or ID. Combine with web_extract or the ocr-and-documents skill to read full paper content.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": "Hermes Agent",
       "source": "in-house",
       "source_url": "",
@@ -2275,15 +3091,15 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-04-13",
-      "updated_at": "2026-04-13",
-      "line_count": 306,
+      "updated_at": "2026-04-24",
+      "line_count": 287,
       "path": "skills/knowledge-and-pm-integrations/arxiv/SKILL.md"
     },
     {
       "name": "linear",
       "category": "knowledge-and-pm-integrations",
-      "description": "Manage Linear issues, projects, and teams with an API-first workflow. Uses the GraphQL API by default and can fall back to the Linear MCP server when it is already configured.",
-      "version": "2.0.0",
+      "description": "Manage Linear issues, projects, and teams via the GraphQL API. Create, update, search, and organize issues. Uses API key auth (no OAuth needed). All operations via curl — no dependencies.",
+      "version": "2.0.1",
       "author": "seaworld008",
       "source": "adapted-from-hermes-agent",
       "source_url": "https://github.com/NousResearch/hermes-agent/blob/main/skills/productivity/linear/SKILL.md",
@@ -2298,8 +3114,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-04",
-      "updated_at": "2026-04-13",
-      "line_count": 317,
+      "updated_at": "2026-04-24",
+      "line_count": 300,
       "path": "skills/knowledge-and-pm-integrations/linear/SKILL.md"
     },
     {
@@ -2409,7 +3225,7 @@
       "name": "obsidian",
       "category": "knowledge-and-pm-integrations",
       "description": "Read, search, and create notes in the Obsidian vault.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -2421,8 +3237,8 @@
       "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-04-13",
-      "updated_at": "2026-04-13",
-      "line_count": 117,
+      "updated_at": "2026-04-24",
+      "line_count": 102,
       "path": "skills/knowledge-and-pm-integrations/obsidian/SKILL.md"
     },
     {
@@ -2834,8 +3650,8 @@
     {
       "name": "honcho",
       "category": "openclaw-memory-and-safety",
-      "description": "Configure and use Honcho memory with Hermes -- cross-session user modeling, multi-profile peer isolation, observation config, and dialectic reasoning. Use when setting up Honcho, troubleshooting memory, managing profiles with Honcho peers, or tuning observation and recall settings.",
-      "version": "1.0.0",
+      "description": "Configure and use Honcho memory with Hermes -- cross-session user modeling, multi-profile peer isolation, observation config, dialectic reasoning, session summaries, and context budget enforcement. Use when setting up Honcho, troubleshooting memory, managing profiles with Honcho peers, or tuning observation, recall, and dialectic settings.",
+      "version": "1.0.1",
       "author": "Hermes Agent",
       "source": "in-house",
       "source_url": "",
@@ -2850,8 +3666,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-04-13",
-      "updated_at": "2026-04-13",
-      "line_count": 249,
+      "updated_at": "2026-04-24",
+      "line_count": 436,
       "path": "skills/openclaw-memory-and-safety/honcho/SKILL.md"
     },
     {
@@ -3197,8 +4013,8 @@
     {
       "name": "landing-page-generator",
       "category": "product-design",
-      "description": "用于快速生成高转化率落地页结构、文案框架和 TSX/Tailwind 代码脚手架。来源：alirezarezvani/claude-skills。",
-      "version": "1.0.0",
+      "description": "Generates high-converting landing pages as complete Next.js/React (TSX) components with Tailwind CSS. Creates hero sections, feature grids, pricing tables, FAQ accordions, testimonial blocks, and CTA sections using proven copy frameworks (PAS, AIDA, BAB). Outputs SEO meta tags, structured data, and performance-optimised code targeting Core Web Vitals (LCP < 1s, CLS < 0.1). Use when the user asks to create a landing page, marketing page, homepage, single-page site, lead capture page, campaign page, promo page, or conversion-optimised web page — or when they want to A/B test landing page variants or replace a static page with one designed to convert.",
+      "version": "1.0.1",
       "author": "seaworld008",
       "source": "github:alirezarezvani/claude-skills",
       "source_url": "",
@@ -3212,8 +4028,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-27",
-      "updated_at": "2026-03-27",
-      "line_count": 115,
+      "updated_at": "2026-04-24",
+      "line_count": 208,
       "path": "skills/product-design/landing-page-generator/SKILL.md"
     },
     {
@@ -3441,8 +4257,8 @@
     {
       "name": "skill-security-auditor",
       "category": "security-and-reliability",
-      "description": "用于在安装第三方 Skill 前进行安全审计，检测命令注入、代码执行和数据泄露风险。来源：alirezarezvani/claude-skills。",
-      "version": "1.0.0",
+      "description": "Audit AI agent skills for security risks before installation, with PASS/WARN/FAIL findings and remediation guidance.",
+      "version": "1.0.1",
       "author": "seaworld008",
       "source": "github:alirezarezvani/claude-skills",
       "source_url": "",
@@ -3454,8 +4270,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-27",
-      "updated_at": "2026-03-27",
-      "line_count": 113,
+      "updated_at": "2026-04-24",
+      "line_count": 172,
       "path": "skills/security-and-reliability/skill-security-auditor/SKILL.md"
     },
     {
@@ -3479,190 +4295,6 @@
       "path": "skills/security-and-reliability/skill-vetter/SKILL.md"
     },
     {
-      "name": "agent-workflow-designer",
-      "category": "task-understanding-decomposition",
-      "description": "Design production-grade multi-agent orchestration systems. Covers five core patterns (sequential pipeline, parallel fan-out/fan-in, hierarchical delegation, event-driven, consensus), platform-specific implementations, handoff protocols, state management, error recovery, context window budgeting, and cost optimization.",
-      "version": "1.0.0",
-      "author": "seaworld008",
-      "source": "in-house",
-      "source_url": "",
-      "tags": [
-        "agent",
-        "designer",
-        "planning",
-        "workflow"
-      ],
-      "quality": 5,
-      "complexity": "intermediate",
-      "created_at": "2026-03-04",
-      "updated_at": "2026-03-20",
-      "line_count": 452,
-      "path": "skills/task-understanding-decomposition/agent-workflow-designer/SKILL.md"
-    },
-    {
-      "name": "brainstorming",
-      "category": "task-understanding-decomposition",
-      "description": "You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation.",
-      "version": "1.0.0",
-      "author": "seaworld008",
-      "source": "in-house",
-      "source_url": "",
-      "tags": [
-        "brainstorming",
-        "planning",
-        "workflow"
-      ],
-      "quality": 3,
-      "complexity": "intermediate",
-      "created_at": "2026-03-04",
-      "updated_at": "2026-03-20",
-      "line_count": 126,
-      "path": "skills/task-understanding-decomposition/brainstorming/SKILL.md"
-    },
-    {
-      "name": "deep-research",
-      "category": "task-understanding-decomposition",
-      "description": "Generate format-controlled research reports with evidence tracking, citations, and iterative review. This skill should be used when users request a research report, literature review, market or industry analysis, competitive landscape, policy or technical brief, or require a strict report template and section formatting that a single deepresearch pass cannot reliably enforce.",
-      "version": "1.0.0",
-      "author": "seaworld008",
-      "source": "in-house",
-      "source_url": "",
-      "tags": [
-        "deep",
-        "planning",
-        "research",
-        "workflow"
-      ],
-      "quality": 5,
-      "complexity": "intermediate",
-      "created_at": "2026-03-04",
-      "updated_at": "2026-03-20",
-      "line_count": 215,
-      "path": "skills/task-understanding-decomposition/deep-research/SKILL.md"
-    },
-    {
-      "name": "dispatching-parallel-agents",
-      "category": "task-understanding-decomposition",
-      "description": "Use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies",
-      "version": "1.0.0",
-      "author": "seaworld008",
-      "source": "in-house",
-      "source_url": "",
-      "tags": [
-        "agents",
-        "parallel",
-        "workflow"
-      ],
-      "quality": 4,
-      "complexity": "intermediate",
-      "created_at": "2026-04-13",
-      "updated_at": "2026-04-13",
-      "line_count": 191,
-      "path": "skills/task-understanding-decomposition/dispatching-parallel-agents/SKILL.md"
-    },
-    {
-      "name": "executing-plans",
-      "category": "task-understanding-decomposition",
-      "description": "Use when you have a written implementation plan to execute in a separate session with review checkpoints",
-      "version": "1.0.0",
-      "author": "seaworld008",
-      "source": "in-house",
-      "source_url": "",
-      "tags": [
-        "plans",
-        "execution",
-        "workflow"
-      ],
-      "quality": 3,
-      "complexity": "intermediate",
-      "created_at": "2026-04-13",
-      "updated_at": "2026-04-13",
-      "line_count": 93,
-      "path": "skills/task-understanding-decomposition/executing-plans/SKILL.md"
-    },
-    {
-      "name": "find-skills",
-      "category": "task-understanding-decomposition",
-      "description": "让 Agent 自动搜索并安装合适技能，解决不知道该用哪个技能的问题。",
-      "version": "1.0.0",
-      "author": "seaworld008",
-      "source": "in-house",
-      "source_url": "",
-      "tags": [
-        "find",
-        "planning",
-        "skills",
-        "workflow"
-      ],
-      "quality": 4,
-      "complexity": "intermediate",
-      "created_at": "2026-03-15",
-      "updated_at": "2026-03-20",
-      "line_count": 126,
-      "path": "skills/task-understanding-decomposition/find-skills/SKILL.md"
-    },
-    {
-      "name": "finishing-a-development-branch",
-      "category": "task-understanding-decomposition",
-      "description": "Use when implementation is complete, all tests pass, and you need to decide how to integrate the work - guides completion of development work by presenting structured options for merge, PR, or cleanup",
-      "version": "1.0.0",
-      "author": "seaworld008",
-      "source": "in-house",
-      "source_url": "",
-      "tags": [
-        "git",
-        "workflow",
-        "delivery"
-      ],
-      "quality": 4,
-      "complexity": "intermediate",
-      "created_at": "2026-04-13",
-      "updated_at": "2026-04-13",
-      "line_count": 209,
-      "path": "skills/task-understanding-decomposition/finishing-a-development-branch/SKILL.md"
-    },
-    {
-      "name": "prompt-optimizer",
-      "category": "task-understanding-decomposition",
-      "description": "Transform vague prompts into precise, well-structured specifications using EARS (Easy Approach to Requirements Syntax) methodology. This skill should be used when users provide loose requirements, ambiguous feature descriptions, or need to enhance prompts for AI-generated code, products, or documents. Triggers include requests to \"optimize my prompt\", \"improve this requirement\", \"make this more specific\", or when raw requirements lack detail and structure.",
-      "version": "1.0.0",
-      "author": "seaworld008",
-      "source": "in-house",
-      "source_url": "",
-      "tags": [
-        "optimizer",
-        "planning",
-        "prompt",
-        "workflow"
-      ],
-      "quality": 4,
-      "complexity": "intermediate",
-      "created_at": "2026-03-04",
-      "updated_at": "2026-03-20",
-      "line_count": 204,
-      "path": "skills/task-understanding-decomposition/prompt-optimizer/SKILL.md"
-    },
-    {
-      "name": "receiving-code-review",
-      "category": "task-understanding-decomposition",
-      "description": "Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable - requires technical rigor and verification, not performative agreement or blind implementation",
-      "version": "1.0.0",
-      "author": "seaworld008",
-      "source": "in-house",
-      "source_url": "",
-      "tags": [
-        "code-review",
-        "workflow",
-        "feedback"
-      ],
-      "quality": 4,
-      "complexity": "intermediate",
-      "created_at": "2026-04-13",
-      "updated_at": "2026-04-13",
-      "line_count": 222,
-      "path": "skills/task-understanding-decomposition/receiving-code-review/SKILL.md"
-    },
-    {
       "name": "reflect-learn",
       "category": "task-understanding-decomposition",
       "description": "Self-improvement through conversation analysis. Extracts learnings from corrections and success patterns, proposes updates to agent files or creates new skills. Philosophy: \"Correct once, never again.\" Use when: (1) User explicitly corrects behavior (\"never do X\", \"always Y\"), (2) Session ending or context compaction, (3) User requests /reflect, (4) Successful pattern worth preserving.",
@@ -3684,111 +4316,6 @@
       "path": "skills/task-understanding-decomposition/reflect-learn/SKILL.md"
     },
     {
-      "name": "requesting-code-review",
-      "category": "task-understanding-decomposition",
-      "description": "Use when completing tasks, implementing major features, or before merging to verify work meets requirements",
-      "version": "1.0.0",
-      "author": "seaworld008",
-      "source": "in-house",
-      "source_url": "",
-      "tags": [
-        "code-review",
-        "workflow",
-        "quality-gate"
-      ],
-      "quality": 4,
-      "complexity": "intermediate",
-      "created_at": "2026-04-13",
-      "updated_at": "2026-04-13",
-      "line_count": 114,
-      "path": "skills/task-understanding-decomposition/requesting-code-review/SKILL.md"
-    },
-    {
-      "name": "skill-creator",
-      "category": "task-understanding-decomposition",
-      "description": "Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, update or optimize an existing skill, run evals to test a skill, benchmark skill performance with variance analysis, or optimize a skill''s description for better triggering accuracy.",
-      "version": "1.0.0",
-      "author": "seaworld008",
-      "source": "in-house",
-      "source_url": "",
-      "tags": [
-        "creator",
-        "planning",
-        "skill",
-        "workflow"
-      ],
-      "quality": 5,
-      "complexity": "intermediate",
-      "created_at": "2026-03-04",
-      "updated_at": "2026-03-20",
-      "line_count": 488,
-      "path": "skills/task-understanding-decomposition/skill-creator/SKILL.md"
-    },
-    {
-      "name": "skill-reviewer",
-      "category": "task-understanding-decomposition",
-      "description": "Reviews and improves Claude Code skills against official best practices. Supports three modes - self-review (validate your own skills), external review (evaluate others'' skills), and auto-PR (fork, improve, submit). Use when checking skill quality, reviewing skill repositories, or contributing improvements to open-source skills.",
-      "version": "1.0.0",
-      "author": "seaworld008",
-      "source": "in-house",
-      "source_url": "",
-      "tags": [
-        "planning",
-        "reviewer",
-        "skill",
-        "workflow"
-      ],
-      "quality": 5,
-      "complexity": "intermediate",
-      "created_at": "2026-03-04",
-      "updated_at": "2026-03-20",
-      "line_count": 209,
-      "path": "skills/task-understanding-decomposition/skill-reviewer/SKILL.md"
-    },
-    {
-      "name": "skills-search",
-      "category": "task-understanding-decomposition",
-      "description": "This skill should be used when users want to search, discover, install, or manage Claude Code skills from the CCPM registry. Triggers include requests like \"find skills for PDF\", \"search for code review skills\", \"install cloudflare-troubleshooting\", \"list my installed skills\", \"what does skill-creator do\", or any mention of finding/installing/managing Claude Code skills or plugins.",
-      "version": "1.0.0",
-      "author": "seaworld008",
-      "source": "in-house",
-      "source_url": "",
-      "tags": [
-        "planning",
-        "search",
-        "skills",
-        "workflow"
-      ],
-      "quality": 4,
-      "complexity": "intermediate",
-      "created_at": "2026-03-04",
-      "updated_at": "2026-03-20",
-      "line_count": 116,
-      "path": "skills/task-understanding-decomposition/skills-search/SKILL.md"
-    },
-    {
-      "name": "subagent-driven-development",
-      "category": "task-understanding-decomposition",
-      "description": "Use when executing implementation plans with independent tasks in the current session",
-      "version": "1.0.1",
-      "author": "seaworld008",
-      "source": "github:obra/superpowers",
-      "source_url": "https://github.com/obra/superpowers/tree/main/skills/subagent-driven-development",
-      "tags": [
-        "development",
-        "driven",
-        "planning",
-        "subagent",
-        "workflow"
-      ],
-      "quality": 3,
-      "complexity": "intermediate",
-      "created_at": "2026-03-27",
-      "updated_at": "2026-04-24",
-      "line_count": 286,
-      "path": "skills/task-understanding-decomposition/subagent-driven-development/SKILL.md"
-    },
-    {
       "name": "tavily-search",
       "category": "task-understanding-decomposition",
       "description": "提供实时联网检索能力，帮助 Agent 获取最新资讯、数据与来源证据。",
@@ -3808,107 +4335,6 @@
       "updated_at": "2026-03-20",
       "line_count": 125,
       "path": "skills/task-understanding-decomposition/tavily-search/SKILL.md"
-    },
-    {
-      "name": "using-git-worktrees",
-      "category": "task-understanding-decomposition",
-      "description": "Use when starting feature work that needs isolation from current workspace or before executing implementation plans - creates isolated git worktrees with smart directory selection and safety verification",
-      "version": "1.0.0",
-      "author": "seaworld008",
-      "source": "in-house",
-      "source_url": "",
-      "tags": [
-        "git",
-        "worktree",
-        "workflow"
-      ],
-      "quality": 4,
-      "complexity": "intermediate",
-      "created_at": "2026-04-13",
-      "updated_at": "2026-04-13",
-      "line_count": 227,
-      "path": "skills/task-understanding-decomposition/using-git-worktrees/SKILL.md"
-    },
-    {
-      "name": "using-superpowers",
-      "category": "task-understanding-decomposition",
-      "description": "Use when starting any conversation - establishes how to find and use skills, requiring Skill tool invocation before ANY response including clarifying questions",
-      "version": "1.0.0",
-      "author": "seaworld008",
-      "source": "in-house",
-      "source_url": "",
-      "tags": [
-        "skills",
-        "workflow",
-        "process"
-      ],
-      "quality": 4,
-      "complexity": "intermediate",
-      "created_at": "2026-04-13",
-      "updated_at": "2026-04-13",
-      "line_count": 130,
-      "path": "skills/task-understanding-decomposition/using-superpowers/SKILL.md"
-    },
-    {
-      "name": "verification-before-completion",
-      "category": "task-understanding-decomposition",
-      "description": "Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always",
-      "version": "1.0.0",
-      "author": "seaworld008",
-      "source": "in-house",
-      "source_url": "",
-      "tags": [
-        "verification",
-        "workflow",
-        "quality-gate"
-      ],
-      "quality": 4,
-      "complexity": "intermediate",
-      "created_at": "2026-04-13",
-      "updated_at": "2026-04-13",
-      "line_count": 148,
-      "path": "skills/task-understanding-decomposition/verification-before-completion/SKILL.md"
-    },
-    {
-      "name": "writing-plans",
-      "category": "task-understanding-decomposition",
-      "description": "Use when you have a spec or requirements for a multi-step task, before touching code",
-      "version": "1.0.0",
-      "author": "seaworld008",
-      "source": "in-house",
-      "source_url": "",
-      "tags": [
-        "planning",
-        "plans",
-        "workflow",
-        "writing"
-      ],
-      "quality": 4,
-      "complexity": "intermediate",
-      "created_at": "2026-03-04",
-      "updated_at": "2026-03-20",
-      "line_count": 125,
-      "path": "skills/task-understanding-decomposition/writing-plans/SKILL.md"
-    },
-    {
-      "name": "writing-skills",
-      "category": "task-understanding-decomposition",
-      "description": "Use when creating new skills, editing existing skills, or verifying skills work before deployment",
-      "version": "1.0.0",
-      "author": "seaworld008",
-      "source": "in-house",
-      "source_url": "",
-      "tags": [
-        "skills",
-        "authoring",
-        "workflow"
-      ],
-      "quality": 4,
-      "complexity": "intermediate",
-      "created_at": "2026-04-13",
-      "updated_at": "2026-04-13",
-      "line_count": 664,
-      "path": "skills/task-understanding-decomposition/writing-skills/SKILL.md"
     }
   ]
 }

@@ -14,6 +14,10 @@ CATEGORY_METADATA = {
         "title": "AI 平台与 Agent 开发 / AI Agent Platform",
         "summary": "围绕 AI 平台能力、Agent 构建、设计到代码以及主动式工作流的技能集合。",
     },
+    "ai-workflow": {
+        "title": "AI 工作流 / AI Workflow",
+        "summary": "聚焦 AI 编程 Agent 的规格、计划、实现、测试、审查、发布与持续同步工作流。",
+    },
     "deployment-platforms": {
         "title": "部署平台 / Deployment Platforms",
         "summary": "聚焦 Vercel、Netlify、Render、Cloudflare 等部署平台的发布与接入技能。",

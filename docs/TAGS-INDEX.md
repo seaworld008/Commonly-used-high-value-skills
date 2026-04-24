@@ -1,24 +1,25 @@
 # Tags Index
 
-> Auto-generated from 648 skill-tag mappings across 321 tags.
+> Auto-generated from 747 skill-tag mappings across 341 tags.
 > Last updated: see git log.
 
 ## Quick Navigation
 
-- [`development`](#development) (41)
-- [`workflow`](#workflow) (31)
+- [`workflow`](#workflow) (52)
+- [`development`](#development) (39)
+- [`agent`](#agent) (32)
+- [`ai`](#ai) (29)
+- [`engineering`](#engineering) (22)
 - [`planning`](#planning) (15)
 - [`design`](#design) (14)
 - [`finance`](#finance) (13)
 - [`productivity`](#productivity) (12)
-- [`agent`](#agent) (11)
 - [`growth`](#growth) (11)
 - [`marketing`](#marketing) (11)
 - [`devops`](#devops) (10)
 - [`product`](#product) (10)
 - [`sre`](#sre) (10)
 - [`automation`](#automation) (9)
-- [`ai`](#ai) (8)
 - [`designer`](#designer) (7)
 - [`security`](#security) (7)
 - [`builder`](#builder) (5)
@@ -42,7 +43,6 @@
 - [`code-review`](#code-review) (3)
 - [`codebase`](#codebase) (3)
 - [`debugging`](#debugging) (3)
-- [`driven`](#driven) (3)
 - [`engineer`](#engineer) (3)
 - [`git`](#git) (3)
 - [`github`](#github) (3)
@@ -64,7 +64,7 @@
 - [`database`](#database) (2)
 - [`doc`](#doc) (2)
 - [`docs`](#docs) (2)
-- [`engineering`](#engineering) (2)
+- [`driven`](#driven) (2)
 - [`figma`](#figma) (2)
 - [`financial`](#financial) (2)
 - [`graphql`](#graphql) (2)
@@ -86,7 +86,6 @@
 - [`search`](#search) (2)
 - [`senior`](#senior) (2)
 - [`strategy`](#strategy) (2)
-- [`test`](#test) (2)
 - [`toolkit`](#toolkit) (2)
 - [`tracker`](#tracker) (2)
 - [`worktree`](#worktree) (2)
@@ -97,6 +96,7 @@
 - [`agile`](#agile) (1)
 - [`algorithmic`](#algorithmic) (1)
 - [`analytics`](#analytics) (1)
+- [`api-and-interface-design`](#api-and-interface-design) (1)
 - [`apps`](#apps) (1)
 - [`architecture`](#architecture) (1)
 - [`art`](#art) (1)
@@ -111,6 +111,7 @@
 - [`brainstorming`](#brainstorming) (1)
 - [`brand`](#brand) (1)
 - [`browser`](#browser) (1)
+- [`browser-testing-with-devtools`](#browser-testing-with-devtools) (1)
 - [`call`](#call) (1)
 - [`campaign`](#campaign) (1)
 - [`canvas`](#canvas) (1)
@@ -118,10 +119,13 @@
 - [`channel`](#channel) (1)
 - [`chatgpt`](#chatgpt) (1)
 - [`check`](#check) (1)
+- [`ci-cd-and-automation`](#ci-cd-and-automation) (1)
 - [`cleaner`](#cleaner) (1)
 - [`coach`](#coach) (1)
 - [`coauthoring`](#coauthoring) (1)
 - [`code analysis`](#code-analysis) (1)
+- [`code-review-and-quality`](#code-review-and-quality) (1)
+- [`code-simplification`](#code-simplification) (1)
 - [`collector`](#collector) (1)
 - [`commander`](#commander) (1)
 - [`comments`](#comments) (1)
@@ -132,20 +136,23 @@
 - [`confidence`](#confidence) (1)
 - [`configuration`](#configuration) (1)
 - [`content`](#content) (1)
-- [`context`](#context) (1)
+- [`context-engineering`](#context-engineering) (1)
 - [`contributor`](#contributor) (1)
 - [`data`](#data) (1)
 - [`debt`](#debt) (1)
+- [`debugging-and-error-recovery`](#debugging-and-error-recovery) (1)
 - [`deep`](#deep) (1)
 - [`delivery`](#delivery) (1)
 - [`demand`](#demand) (1)
 - [`demo`](#demo) (1)
 - [`dependency`](#dependency) (1)
+- [`deprecation-and-migration`](#deprecation-and-migration) (1)
 - [`develop`](#develop) (1)
 - [`diagnostics`](#diagnostics) (1)
 - [`dialectic`](#dialectic) (1)
 - [`docker`](#docker) (1)
 - [`documentation`](#documentation) (1)
+- [`documentation-and-adrs`](#documentation-and-adrs) (1)
 - [`docx`](#docx) (1)
 - [`earnings`](#earnings) (1)
 - [`env`](#env) (1)
@@ -163,20 +170,24 @@
 - [`fix`](#fix) (1)
 - [`fixer`](#fixer) (1)
 - [`frontend`](#frontend) (1)
+- [`frontend-ui-engineering`](#frontend-ui-engineering) (1)
 - [`game`](#game) (1)
 - [`gateway`](#gateway) (1)
 - [`gif`](#gif) (1)
+- [`git-workflow-and-versioning`](#git-workflow-and-versioning) (1)
 - [`gog`](#gog) (1)
 - [`guard`](#guard) (1)
 - [`guidelines`](#guidelines) (1)
 - [`honcho`](#honcho) (1)
 - [`hub`](#hub) (1)
 - [`i18n`](#i18n) (1)
+- [`idea-refine`](#idea-refine) (1)
 - [`imagegen`](#imagegen) (1)
 - [`implement`](#implement) (1)
 - [`implementation`](#implementation) (1)
 - [`improving`](#improving) (1)
 - [`incident`](#incident) (1)
+- [`incremental-implementation`](#incremental-implementation) (1)
 - [`input`](#input) (1)
 - [`intelligence`](#intelligence) (1)
 - [`internal`](#internal) (1)
@@ -226,7 +237,9 @@
 - [`ownership`](#ownership) (1)
 - [`page`](#page) (1)
 - [`papers`](#papers) (1)
+- [`performance-optimization`](#performance-optimization) (1)
 - [`pipeline`](#pipeline) (1)
+- [`planning-and-task-breakdown`](#planning-and-task-breakdown) (1)
 - [`playwright`](#playwright) (1)
 - [`pmm`](#pmm) (1)
 - [`portfolio`](#portfolio) (1)
@@ -271,17 +284,21 @@
 - [`screenshot`](#screenshot) (1)
 - [`sec`](#sec) (1)
 - [`secrets`](#secrets) (1)
+- [`security-and-hardening`](#security-and-hardening) (1)
 - [`self`](#self) (1)
 - [`sentry`](#sentry) (1)
 - [`seo`](#seo) (1)
 - [`server`](#server) (1)
 - [`setup`](#setup) (1)
+- [`shipping-and-launch`](#shipping-and-launch) (1)
 - [`slack`](#slack) (1)
 - [`social`](#social) (1)
 - [`solution`](#solution) (1)
 - [`sora`](#sora) (1)
+- [`source-driven-development`](#source-driven-development) (1)
 - [`spawning`](#spawning) (1)
 - [`spec`](#spec) (1)
+- [`spec-driven-development`](#spec-driven-development) (1)
 - [`specialist`](#specialist) (1)
 - [`speech`](#speech) (1)
 - [`spreadsheet`](#spreadsheet) (1)
@@ -301,6 +318,8 @@
 - [`teardown`](#teardown) (1)
 - [`tech`](#tech) (1)
 - [`terraform`](#terraform) (1)
+- [`test`](#test) (1)
+- [`test-driven-development`](#test-driven-development) (1)
 - [`tester`](#tester) (1)
 - [`testing`](#testing) (1)
 - [`theme`](#theme) (1)
@@ -312,6 +331,7 @@
 - [`typescript`](#typescript) (1)
 - [`upgrade-safe`](#upgrade-safe) (1)
 - [`user-modeling`](#user-modeling) (1)
+- [`using-agent-skills`](#using-agent-skills) (1)
 - [`valuation`](#valuation) (1)
 - [`vercel`](#vercel) (1)
 - [`verification`](#verification) (1)
@@ -329,9 +349,68 @@
 
 ---
 
+## workflow
+
+**52 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [hermes-graphify-gsd-nonintrusive-workflow](skills/ai-agent-platform/hermes-graphify-gsd-nonintrusive-workflow) | ai-agent-platform | ★★★★★ | Use when integrating Hermes Agent, graphify, and GSD into a local development wo |
+| [agent-workflow-designer](skills/ai-workflow/agent-workflow-designer) | ai-workflow | ★★★★★ | Design production-grade multi-agent orchestration systems. Covers five core patt |
+| [api-and-interface-design](skills/ai-workflow/api-and-interface-design) | ai-workflow | ★★★★★ | Guides stable API and interface design. Use when designing APIs, module boundari |
+| [browser-testing-with-devtools](skills/ai-workflow/browser-testing-with-devtools) | ai-workflow | ★★★★★ | Tests in real browsers. Use when building or debugging anything that runs in a b |
+| [ci-cd-and-automation](skills/ai-workflow/ci-cd-and-automation) | ai-workflow | ★★★★★ | Automates CI/CD pipeline setup. Use when setting up or modifying build and deplo |
+| [code-review-and-quality](skills/ai-workflow/code-review-and-quality) | ai-workflow | ★★★★★ | Conducts multi-axis code review. Use before merging any change. Use when reviewi |
+| [code-simplification](skills/ai-workflow/code-simplification) | ai-workflow | ★★★★★ | Simplifies code for clarity. Use when refactoring code for clarity without chang |
+| [context-engineering](skills/ai-workflow/context-engineering) | ai-workflow | ★★★★★ | Optimizes agent context setup. Use when starting a new session, when agent outpu |
+| [debugging-and-error-recovery](skills/ai-workflow/debugging-and-error-recovery) | ai-workflow | ★★★★★ | Guides systematic root-cause debugging. Use when tests fail, builds break, behav |
+| [deep-research](skills/ai-workflow/deep-research) | ai-workflow | ★★★★★ | Generate format-controlled research reports with evidence tracking, citations, a |
+| [deprecation-and-migration](skills/ai-workflow/deprecation-and-migration) | ai-workflow | ★★★★★ | Manages deprecation and migration. Use when removing old systems, APIs, or featu |
+| [documentation-and-adrs](skills/ai-workflow/documentation-and-adrs) | ai-workflow | ★★★★★ | Records decisions and documentation. Use when making architectural decisions, ch |
+| [frontend-ui-engineering](skills/ai-workflow/frontend-ui-engineering) | ai-workflow | ★★★★★ | Builds production-quality UIs. Use when building or modifying user-facing interf |
+| [git-workflow-and-versioning](skills/ai-workflow/git-workflow-and-versioning) | ai-workflow | ★★★★★ | Structures git workflow practices. Use when making any code change. Use when com |
+| [incremental-implementation](skills/ai-workflow/incremental-implementation) | ai-workflow | ★★★★★ | Delivers changes incrementally. Use when implementing any feature or change that |
+| [performance-optimization](skills/ai-workflow/performance-optimization) | ai-workflow | ★★★★★ | Optimizes application performance. Use when performance requirements exist, when |
+| [planning-and-task-breakdown](skills/ai-workflow/planning-and-task-breakdown) | ai-workflow | ★★★★★ | Breaks work into ordered tasks. Use when you have a spec or clear requirements a |
+| [security-and-hardening](skills/ai-workflow/security-and-hardening) | ai-workflow | ★★★★★ | Hardens code against vulnerabilities. Use when handling user input, authenticati |
+| [shipping-and-launch](skills/ai-workflow/shipping-and-launch) | ai-workflow | ★★★★★ | Prepares production launches. Use when preparing to deploy to production. Use wh |
+| [skill-creator](skills/ai-workflow/skill-creator) | ai-workflow | ★★★★★ | Create new skills, modify and improve existing skills, and measure skill perform |
+| [skill-reviewer](skills/ai-workflow/skill-reviewer) | ai-workflow | ★★★★★ | Reviews and improves Claude Code skills against official best practices. Support |
+| [spec-driven-development](skills/ai-workflow/spec-driven-development) | ai-workflow | ★★★★★ | Creates specs before coding. Use when starting a new project, feature, or signif |
+| [test-driven-development](skills/ai-workflow/test-driven-development) | ai-workflow | ★★★★★ | Drives development with tests. Use when implementing any logic, fixing any bug,  |
+| [gsd-graphify-brownfield-bootstrap](skills/engineering-workflow-automation/gsd-graphify-brownfield-bootstrap) | engineering-workflow-automation | ★★★★★ | Bootstrap GSD + graphify for an existing brownfield repo when the project needs  |
+| [reflect-learn](skills/task-understanding-decomposition/reflect-learn) | task-understanding-decomposition | ★★★★★ | Self-improvement through conversation analysis. Extracts learnings from correcti |
+| [dispatching-parallel-agents](skills/ai-workflow/dispatching-parallel-agents) | ai-workflow | ★★★★☆ | Use when facing 2+ independent tasks that can be worked on without shared state  |
+| [find-skills](skills/ai-workflow/find-skills) | ai-workflow | ★★★★☆ | 让 Agent 自动搜索并安装合适技能，解决不知道该用哪个技能的问题。 |
+| [finishing-a-development-branch](skills/ai-workflow/finishing-a-development-branch) | ai-workflow | ★★★★☆ | Use when implementation is complete, all tests pass, and you need to decide how  |
+| [idea-refine](skills/ai-workflow/idea-refine) | ai-workflow | ★★★★☆ | Refines ideas iteratively. Refine ideas through structured divergent and converg |
+| [prompt-optimizer](skills/ai-workflow/prompt-optimizer) | ai-workflow | ★★★★☆ | Transform vague prompts into precise, well-structured specifications using EARS  |
+| [receiving-code-review](skills/ai-workflow/receiving-code-review) | ai-workflow | ★★★★☆ | Use when receiving code review feedback, before implementing suggestions, especi |
+| [requesting-code-review](skills/ai-workflow/requesting-code-review) | ai-workflow | ★★★★☆ | Use when completing tasks, implementing major features, or before merging to ver |
+| [skills-search](skills/ai-workflow/skills-search) | ai-workflow | ★★★★☆ | This skill should be used when users want to search, discover, install, or manag |
+| [source-driven-development](skills/ai-workflow/source-driven-development) | ai-workflow | ★★★★☆ | Grounds every implementation decision in official documentation. Use when you wa |
+| [using-agent-skills](skills/ai-workflow/using-agent-skills) | ai-workflow | ★★★★☆ | Discovers and invokes agent skills. Use when starting a session or when you need |
+| [using-git-worktrees](skills/ai-workflow/using-git-worktrees) | ai-workflow | ★★★★☆ | Use when starting feature work that needs isolation from current workspace or be |
+| [using-superpowers](skills/ai-workflow/using-superpowers) | ai-workflow | ★★★★☆ | Use when starting any conversation - establishes how to find and use skills, req |
+| [verification-before-completion](skills/ai-workflow/verification-before-completion) | ai-workflow | ★★★★☆ | Use when about to claim work is complete, fixed, or passing, before committing o |
+| [writing-plans](skills/ai-workflow/writing-plans) | ai-workflow | ★★★★☆ | Use when you have a spec or requirements for a multi-step task, before touching  |
+| [writing-skills](skills/ai-workflow/writing-skills) | ai-workflow | ★★★★☆ | Use when creating new skills, editing existing skills, or verifying skills work  |
+| [jupyter-notebook](skills/engineering-workflow-automation/jupyter-notebook) | engineering-workflow-automation | ★★★★☆ | Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) |
+| [playwright](skills/engineering-workflow-automation/playwright) | engineering-workflow-automation | ★★★★☆ | Use when the task requires automating a real browser from the terminal (navigati |
+| [web-scraper](skills/engineering-workflow-automation/web-scraper) | engineering-workflow-automation | ★★★★☆ | 用于网页数据抓取、结构化提取和反爬策略应对。仓库整理版，吸收社区高频最佳实践。 |
+| [brainstorming](skills/ai-workflow/brainstorming) | ai-workflow | ★★★☆☆ | You MUST use this before any creative work - creating features, building compone |
+| [executing-plans](skills/ai-workflow/executing-plans) | ai-workflow | ★★★☆☆ | Use when you have a written implementation plan to execute in a separate session |
+| [subagent-driven-development](skills/ai-workflow/subagent-driven-development) | ai-workflow | ★★★☆☆ | Use when executing implementation plans with independent tasks in the current se |
+| [gh-fix-ci](skills/engineering-workflow-automation/gh-fix-ci) | engineering-workflow-automation | ★★★☆☆ | Use when a user asks to debug or fix failing GitHub PR checks that run in GitHub |
+| [agent-browser](skills/engineering-workflow-automation/agent-browser) | engineering-workflow-automation | ★★☆☆☆ | 为 Agent 提供真实浏览器自动化能力，支持语义定位、表单交互、截图录屏、脚本执行与会话管理。 |
+| [gh-address-comments](skills/engineering-workflow-automation/gh-address-comments) | engineering-workflow-automation | ★★☆☆☆ | Help address review/issue comments on the open GitHub PR for the current branch  |
+| [github](skills/engineering-workflow-automation/github) | engineering-workflow-automation | ★★☆☆☆ | 通过 GitHub CLI 自动化 Issue、PR、Review 与 CI 检查，适合工程协作闭环。 |
+| [yeet](skills/engineering-workflow-automation/yeet) | engineering-workflow-automation | ★★☆☆☆ | Use only when the user explicitly asks to stage, commit, push, and open a GitHub |
+| [tavily-search](skills/task-understanding-decomposition/tavily-search) | task-understanding-decomposition | ★★☆☆☆ | 提供实时联网检索能力，帮助 Agent 获取最新资讯、数据与来源证据。 |
+
 ## development
 
-**41 skills**
+**39 skills**
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
@@ -357,7 +436,6 @@
 | [tech-debt-tracker](skills/developer-engineering/tech-debt-tracker) | developer-engineering | ★★★★★ | Tier: POWERFUL 🔥 Category: Engineering Process Automation Expertise: Code Qualit |
 | [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Complete guide to using and extending Hermes Agent — CLI usage, setup, configura |
 | [aws-solution-architect](skills/developer-engineering/aws-solution-architect) | developer-engineering | ★★★★☆ | 用于 AWS 云架构设计、服务选型、成本优化与 Well-Architected Framework 评估。来源：alirezarezvani/claude-s |
-| [context-engineering](skills/developer-engineering/context-engineering) | developer-engineering | ★★★★☆ | 用于 AI 编码助手的上下文优化、Prompt 结构设计和指令冲突防御。仓库整理版，吸收社区高频最佳实践。 |
 | [docker-expert](skills/developer-engineering/docker-expert) | developer-engineering | ★★★★☆ | 用于 Docker 容器化最佳实践、多阶段构建优化与 Docker Compose 编排。来源：skills.sh 8.7K installs。 |
 | [git-worktree-manager](skills/developer-engineering/git-worktree-manager) | developer-engineering | ★★★★☆ | The Git Worktree Manager skill provides systematic management of Git worktrees f |
 | [graphql-expert](skills/developer-engineering/graphql-expert) | developer-engineering | ★★★★☆ | 用于 GraphQL API 设计、查询优化、Schema 管理和安全最佳实践。仓库整理版，吸收社区高频最佳实践。 |
@@ -370,50 +448,115 @@
 | [systematic-debugging](skills/developer-engineering/systematic-debugging) | developer-engineering | ★★★★☆ | Use when encountering any bug, test failure, or unexpected behavior, before prop |
 | [tailwind-design-system](skills/developer-engineering/tailwind-design-system) | developer-engineering | ★★★★☆ | 用于 Tailwind CSS 设计系统搭建、组件库开发与主题定制。来源：skills.sh 24.7K installs。 |
 | [terraform-engineer](skills/developer-engineering/terraform-engineer) | developer-engineering | ★★★★☆ | 用于 Terraform 基础设施即代码（IaC）设计、模块化管理和状态管理。来源：HashiCorp 官方 + skills.sh。 |
-| [test-driven-development](skills/developer-engineering/test-driven-development) | developer-engineering | ★★★★☆ | Use when implementing any feature or bugfix, before writing implementation code |
 | [typescript-best-practices](skills/developer-engineering/typescript-best-practices) | developer-engineering | ★★★★☆ | 用于 TypeScript 高级类型编程、类型安全设计和常见反模式避免。仓库整理版，吸收社区高频最佳实践。 |
+| [subagent-driven-development](skills/ai-workflow/subagent-driven-development) | ai-workflow | ★★★☆☆ | Use when executing implementation plans with independent tasks in the current se |
 | [web-artifacts-builder](skills/developer-engineering/web-artifacts-builder) | developer-engineering | ★★★☆☆ | Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts  |
 | [webapp-testing](skills/developer-engineering/webapp-testing) | developer-engineering | ★★★☆☆ | Toolkit for interacting with and testing local web applications using Playwright |
-| [subagent-driven-development](skills/task-understanding-decomposition/subagent-driven-development) | task-understanding-decomposition | ★★★☆☆ | Use when executing implementation plans with independent tasks in the current se |
 | [frontend-design](skills/developer-engineering/frontend-design) | developer-engineering | ★★☆☆☆ | Create distinctive, production-grade frontend interfaces with high design qualit |
 
-## workflow
+## agent
 
-**31 skills**
+**32 skills**
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [hermes-graphify-gsd-nonintrusive-workflow](skills/ai-agent-platform/hermes-graphify-gsd-nonintrusive-workflow) | ai-agent-platform | ★★★★★ | Use when integrating Hermes Agent, graphify, and GSD into a local development wo |
-| [gsd-graphify-brownfield-bootstrap](skills/engineering-workflow-automation/gsd-graphify-brownfield-bootstrap) | engineering-workflow-automation | ★★★★★ | Bootstrap GSD + graphify for an existing brownfield repo when the project needs  |
-| [agent-workflow-designer](skills/task-understanding-decomposition/agent-workflow-designer) | task-understanding-decomposition | ★★★★★ | Design production-grade multi-agent orchestration systems. Covers five core patt |
-| [deep-research](skills/task-understanding-decomposition/deep-research) | task-understanding-decomposition | ★★★★★ | Generate format-controlled research reports with evidence tracking, citations, a |
-| [reflect-learn](skills/task-understanding-decomposition/reflect-learn) | task-understanding-decomposition | ★★★★★ | Self-improvement through conversation analysis. Extracts learnings from correcti |
-| [skill-creator](skills/task-understanding-decomposition/skill-creator) | task-understanding-decomposition | ★★★★★ | Create new skills, modify and improve existing skills, and measure skill perform |
-| [skill-reviewer](skills/task-understanding-decomposition/skill-reviewer) | task-understanding-decomposition | ★★★★★ | Reviews and improves Claude Code skills against official best practices. Support |
-| [jupyter-notebook](skills/engineering-workflow-automation/jupyter-notebook) | engineering-workflow-automation | ★★★★☆ | Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) |
-| [playwright](skills/engineering-workflow-automation/playwright) | engineering-workflow-automation | ★★★★☆ | Use when the task requires automating a real browser from the terminal (navigati |
-| [web-scraper](skills/engineering-workflow-automation/web-scraper) | engineering-workflow-automation | ★★★★☆ | 用于网页数据抓取、结构化提取和反爬策略应对。仓库整理版，吸收社区高频最佳实践。 |
-| [dispatching-parallel-agents](skills/task-understanding-decomposition/dispatching-parallel-agents) | task-understanding-decomposition | ★★★★☆ | Use when facing 2+ independent tasks that can be worked on without shared state  |
-| [find-skills](skills/task-understanding-decomposition/find-skills) | task-understanding-decomposition | ★★★★☆ | 让 Agent 自动搜索并安装合适技能，解决不知道该用哪个技能的问题。 |
-| [finishing-a-development-branch](skills/task-understanding-decomposition/finishing-a-development-branch) | task-understanding-decomposition | ★★★★☆ | Use when implementation is complete, all tests pass, and you need to decide how  |
-| [prompt-optimizer](skills/task-understanding-decomposition/prompt-optimizer) | task-understanding-decomposition | ★★★★☆ | Transform vague prompts into precise, well-structured specifications using EARS  |
-| [receiving-code-review](skills/task-understanding-decomposition/receiving-code-review) | task-understanding-decomposition | ★★★★☆ | Use when receiving code review feedback, before implementing suggestions, especi |
-| [requesting-code-review](skills/task-understanding-decomposition/requesting-code-review) | task-understanding-decomposition | ★★★★☆ | Use when completing tasks, implementing major features, or before merging to ver |
-| [skills-search](skills/task-understanding-decomposition/skills-search) | task-understanding-decomposition | ★★★★☆ | This skill should be used when users want to search, discover, install, or manag |
-| [using-git-worktrees](skills/task-understanding-decomposition/using-git-worktrees) | task-understanding-decomposition | ★★★★☆ | Use when starting feature work that needs isolation from current workspace or be |
-| [using-superpowers](skills/task-understanding-decomposition/using-superpowers) | task-understanding-decomposition | ★★★★☆ | Use when starting any conversation - establishes how to find and use skills, req |
-| [verification-before-completion](skills/task-understanding-decomposition/verification-before-completion) | task-understanding-decomposition | ★★★★☆ | Use when about to claim work is complete, fixed, or passing, before committing o |
-| [writing-plans](skills/task-understanding-decomposition/writing-plans) | task-understanding-decomposition | ★★★★☆ | Use when you have a spec or requirements for a multi-step task, before touching  |
-| [writing-skills](skills/task-understanding-decomposition/writing-skills) | task-understanding-decomposition | ★★★★☆ | Use when creating new skills, editing existing skills, or verifying skills work  |
-| [gh-fix-ci](skills/engineering-workflow-automation/gh-fix-ci) | engineering-workflow-automation | ★★★☆☆ | Use when a user asks to debug or fix failing GitHub PR checks that run in GitHub |
-| [brainstorming](skills/task-understanding-decomposition/brainstorming) | task-understanding-decomposition | ★★★☆☆ | You MUST use this before any creative work - creating features, building compone |
-| [executing-plans](skills/task-understanding-decomposition/executing-plans) | task-understanding-decomposition | ★★★☆☆ | Use when you have a written implementation plan to execute in a separate session |
-| [subagent-driven-development](skills/task-understanding-decomposition/subagent-driven-development) | task-understanding-decomposition | ★★★☆☆ | Use when executing implementation plans with independent tasks in the current se |
+| [chatgpt-apps](skills/ai-agent-platform/chatgpt-apps) | ai-agent-platform | ★★★★★ | Build, scaffold, refactor, and troubleshoot ChatGPT Apps SDK applications that c |
+| [figma-implement-design](skills/ai-agent-platform/figma-implement-design) | ai-agent-platform | ★★★★★ | Translate Figma nodes into production-ready code with 1:1 visual fidelity using  |
+| [agent-workflow-designer](skills/ai-workflow/agent-workflow-designer) | ai-workflow | ★★★★★ | Design production-grade multi-agent orchestration systems. Covers five core patt |
+| [api-and-interface-design](skills/ai-workflow/api-and-interface-design) | ai-workflow | ★★★★★ | Guides stable API and interface design. Use when designing APIs, module boundari |
+| [browser-testing-with-devtools](skills/ai-workflow/browser-testing-with-devtools) | ai-workflow | ★★★★★ | Tests in real browsers. Use when building or debugging anything that runs in a b |
+| [ci-cd-and-automation](skills/ai-workflow/ci-cd-and-automation) | ai-workflow | ★★★★★ | Automates CI/CD pipeline setup. Use when setting up or modifying build and deplo |
+| [code-review-and-quality](skills/ai-workflow/code-review-and-quality) | ai-workflow | ★★★★★ | Conducts multi-axis code review. Use before merging any change. Use when reviewi |
+| [code-simplification](skills/ai-workflow/code-simplification) | ai-workflow | ★★★★★ | Simplifies code for clarity. Use when refactoring code for clarity without chang |
+| [context-engineering](skills/ai-workflow/context-engineering) | ai-workflow | ★★★★★ | Optimizes agent context setup. Use when starting a new session, when agent outpu |
+| [debugging-and-error-recovery](skills/ai-workflow/debugging-and-error-recovery) | ai-workflow | ★★★★★ | Guides systematic root-cause debugging. Use when tests fail, builds break, behav |
+| [deprecation-and-migration](skills/ai-workflow/deprecation-and-migration) | ai-workflow | ★★★★★ | Manages deprecation and migration. Use when removing old systems, APIs, or featu |
+| [documentation-and-adrs](skills/ai-workflow/documentation-and-adrs) | ai-workflow | ★★★★★ | Records decisions and documentation. Use when making architectural decisions, ch |
+| [frontend-ui-engineering](skills/ai-workflow/frontend-ui-engineering) | ai-workflow | ★★★★★ | Builds production-quality UIs. Use when building or modifying user-facing interf |
+| [git-workflow-and-versioning](skills/ai-workflow/git-workflow-and-versioning) | ai-workflow | ★★★★★ | Structures git workflow practices. Use when making any code change. Use when com |
+| [incremental-implementation](skills/ai-workflow/incremental-implementation) | ai-workflow | ★★★★★ | Delivers changes incrementally. Use when implementing any feature or change that |
+| [performance-optimization](skills/ai-workflow/performance-optimization) | ai-workflow | ★★★★★ | Optimizes application performance. Use when performance requirements exist, when |
+| [planning-and-task-breakdown](skills/ai-workflow/planning-and-task-breakdown) | ai-workflow | ★★★★★ | Breaks work into ordered tasks. Use when you have a spec or clear requirements a |
+| [security-and-hardening](skills/ai-workflow/security-and-hardening) | ai-workflow | ★★★★★ | Hardens code against vulnerabilities. Use when handling user input, authenticati |
+| [shipping-and-launch](skills/ai-workflow/shipping-and-launch) | ai-workflow | ★★★★★ | Prepares production launches. Use when preparing to deploy to production. Use wh |
+| [spec-driven-development](skills/ai-workflow/spec-driven-development) | ai-workflow | ★★★★★ | Creates specs before coding. Use when starting a new project, feature, or signif |
+| [test-driven-development](skills/ai-workflow/test-driven-development) | ai-workflow | ★★★★★ | Drives development with tests. Use when implementing any logic, fixing any bug,  |
+| [agent-designer](skills/developer-engineering/agent-designer) | developer-engineering | ★★★★★ | Tags: AI agents, architecture, system design, orchestration, multi-agent systems |
+| [agent-hub](skills/ai-agent-platform/agent-hub) | ai-agent-platform | ★★★★☆ | Multi-agent collaboration plugin that spawns N parallel subagents competing on t |
+| [develop-web-game](skills/ai-agent-platform/develop-web-game) | ai-agent-platform | ★★★★☆ | Use when Codex is building or iterating on a web game (HTML/JS) and needs a reli |
+| [proactive-agent](skills/ai-agent-platform/proactive-agent) | ai-agent-platform | ★★★★☆ | 增强 Agent 的主动规划与自我迭代能力，从被动执行升级为主动协作。 |
+| [idea-refine](skills/ai-workflow/idea-refine) | ai-workflow | ★★★★☆ | Refines ideas iteratively. Refine ideas through structured divergent and converg |
+| [source-driven-development](skills/ai-workflow/source-driven-development) | ai-workflow | ★★★★☆ | Grounds every implementation decision in official documentation. Use when you wa |
+| [using-agent-skills](skills/ai-workflow/using-agent-skills) | ai-workflow | ★★★★☆ | Discovers and invokes agent skills. Use when starting a session or when you need |
+| [openai-docs](skills/ai-agent-platform/openai-docs) | ai-agent-platform | ★★★☆☆ | Use when the user asks how to build with OpenAI products or APIs and needs up-to |
+| [figma](skills/ai-agent-platform/figma) | ai-agent-platform | ★★☆☆☆ | Use the Figma MCP server to fetch design context, screenshots, variables, and as |
+| [self-improving-agent](skills/ai-agent-platform/self-improving-agent) | ai-agent-platform | ★★☆☆☆ | 带记忆与自我优化机制的 Agent 技能，能在迭代中持续改进行为。 |
 | [agent-browser](skills/engineering-workflow-automation/agent-browser) | engineering-workflow-automation | ★★☆☆☆ | 为 Agent 提供真实浏览器自动化能力，支持语义定位、表单交互、截图录屏、脚本执行与会话管理。 |
-| [gh-address-comments](skills/engineering-workflow-automation/gh-address-comments) | engineering-workflow-automation | ★★☆☆☆ | Help address review/issue comments on the open GitHub PR for the current branch  |
-| [github](skills/engineering-workflow-automation/github) | engineering-workflow-automation | ★★☆☆☆ | 通过 GitHub CLI 自动化 Issue、PR、Review 与 CI 检查，适合工程协作闭环。 |
-| [yeet](skills/engineering-workflow-automation/yeet) | engineering-workflow-automation | ★★☆☆☆ | Use only when the user explicitly asks to stage, commit, push, and open a GitHub |
-| [tavily-search](skills/task-understanding-decomposition/tavily-search) | task-understanding-decomposition | ★★☆☆☆ | 提供实时联网检索能力，帮助 Agent 获取最新资讯、数据与来源证据。 |
+
+## ai
+
+**29 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [chatgpt-apps](skills/ai-agent-platform/chatgpt-apps) | ai-agent-platform | ★★★★★ | Build, scaffold, refactor, and troubleshoot ChatGPT Apps SDK applications that c |
+| [figma-implement-design](skills/ai-agent-platform/figma-implement-design) | ai-agent-platform | ★★★★★ | Translate Figma nodes into production-ready code with 1:1 visual fidelity using  |
+| [api-and-interface-design](skills/ai-workflow/api-and-interface-design) | ai-workflow | ★★★★★ | Guides stable API and interface design. Use when designing APIs, module boundari |
+| [browser-testing-with-devtools](skills/ai-workflow/browser-testing-with-devtools) | ai-workflow | ★★★★★ | Tests in real browsers. Use when building or debugging anything that runs in a b |
+| [ci-cd-and-automation](skills/ai-workflow/ci-cd-and-automation) | ai-workflow | ★★★★★ | Automates CI/CD pipeline setup. Use when setting up or modifying build and deplo |
+| [code-review-and-quality](skills/ai-workflow/code-review-and-quality) | ai-workflow | ★★★★★ | Conducts multi-axis code review. Use before merging any change. Use when reviewi |
+| [code-simplification](skills/ai-workflow/code-simplification) | ai-workflow | ★★★★★ | Simplifies code for clarity. Use when refactoring code for clarity without chang |
+| [context-engineering](skills/ai-workflow/context-engineering) | ai-workflow | ★★★★★ | Optimizes agent context setup. Use when starting a new session, when agent outpu |
+| [debugging-and-error-recovery](skills/ai-workflow/debugging-and-error-recovery) | ai-workflow | ★★★★★ | Guides systematic root-cause debugging. Use when tests fail, builds break, behav |
+| [deprecation-and-migration](skills/ai-workflow/deprecation-and-migration) | ai-workflow | ★★★★★ | Manages deprecation and migration. Use when removing old systems, APIs, or featu |
+| [documentation-and-adrs](skills/ai-workflow/documentation-and-adrs) | ai-workflow | ★★★★★ | Records decisions and documentation. Use when making architectural decisions, ch |
+| [frontend-ui-engineering](skills/ai-workflow/frontend-ui-engineering) | ai-workflow | ★★★★★ | Builds production-quality UIs. Use when building or modifying user-facing interf |
+| [git-workflow-and-versioning](skills/ai-workflow/git-workflow-and-versioning) | ai-workflow | ★★★★★ | Structures git workflow practices. Use when making any code change. Use when com |
+| [incremental-implementation](skills/ai-workflow/incremental-implementation) | ai-workflow | ★★★★★ | Delivers changes incrementally. Use when implementing any feature or change that |
+| [performance-optimization](skills/ai-workflow/performance-optimization) | ai-workflow | ★★★★★ | Optimizes application performance. Use when performance requirements exist, when |
+| [planning-and-task-breakdown](skills/ai-workflow/planning-and-task-breakdown) | ai-workflow | ★★★★★ | Breaks work into ordered tasks. Use when you have a spec or clear requirements a |
+| [security-and-hardening](skills/ai-workflow/security-and-hardening) | ai-workflow | ★★★★★ | Hardens code against vulnerabilities. Use when handling user input, authenticati |
+| [shipping-and-launch](skills/ai-workflow/shipping-and-launch) | ai-workflow | ★★★★★ | Prepares production launches. Use when preparing to deploy to production. Use wh |
+| [spec-driven-development](skills/ai-workflow/spec-driven-development) | ai-workflow | ★★★★★ | Creates specs before coding. Use when starting a new project, feature, or signif |
+| [test-driven-development](skills/ai-workflow/test-driven-development) | ai-workflow | ★★★★★ | Drives development with tests. Use when implementing any logic, fixing any bug,  |
+| [agent-hub](skills/ai-agent-platform/agent-hub) | ai-agent-platform | ★★★★☆ | Multi-agent collaboration plugin that spawns N parallel subagents competing on t |
+| [develop-web-game](skills/ai-agent-platform/develop-web-game) | ai-agent-platform | ★★★★☆ | Use when Codex is building or iterating on a web game (HTML/JS) and needs a reli |
+| [proactive-agent](skills/ai-agent-platform/proactive-agent) | ai-agent-platform | ★★★★☆ | 增强 Agent 的主动规划与自我迭代能力，从被动执行升级为主动协作。 |
+| [idea-refine](skills/ai-workflow/idea-refine) | ai-workflow | ★★★★☆ | Refines ideas iteratively. Refine ideas through structured divergent and converg |
+| [source-driven-development](skills/ai-workflow/source-driven-development) | ai-workflow | ★★★★☆ | Grounds every implementation decision in official documentation. Use when you wa |
+| [using-agent-skills](skills/ai-workflow/using-agent-skills) | ai-workflow | ★★★★☆ | Discovers and invokes agent skills. Use when starting a session or when you need |
+| [openai-docs](skills/ai-agent-platform/openai-docs) | ai-agent-platform | ★★★☆☆ | Use when the user asks how to build with OpenAI products or APIs and needs up-to |
+| [figma](skills/ai-agent-platform/figma) | ai-agent-platform | ★★☆☆☆ | Use the Figma MCP server to fetch design context, screenshots, variables, and as |
+| [self-improving-agent](skills/ai-agent-platform/self-improving-agent) | ai-agent-platform | ★★☆☆☆ | 带记忆与自我优化机制的 Agent 技能，能在迭代中持续改进行为。 |
+
+## engineering
+
+**22 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [api-and-interface-design](skills/ai-workflow/api-and-interface-design) | ai-workflow | ★★★★★ | Guides stable API and interface design. Use when designing APIs, module boundari |
+| [browser-testing-with-devtools](skills/ai-workflow/browser-testing-with-devtools) | ai-workflow | ★★★★★ | Tests in real browsers. Use when building or debugging anything that runs in a b |
+| [ci-cd-and-automation](skills/ai-workflow/ci-cd-and-automation) | ai-workflow | ★★★★★ | Automates CI/CD pipeline setup. Use when setting up or modifying build and deplo |
+| [code-review-and-quality](skills/ai-workflow/code-review-and-quality) | ai-workflow | ★★★★★ | Conducts multi-axis code review. Use before merging any change. Use when reviewi |
+| [code-simplification](skills/ai-workflow/code-simplification) | ai-workflow | ★★★★★ | Simplifies code for clarity. Use when refactoring code for clarity without chang |
+| [context-engineering](skills/ai-workflow/context-engineering) | ai-workflow | ★★★★★ | Optimizes agent context setup. Use when starting a new session, when agent outpu |
+| [debugging-and-error-recovery](skills/ai-workflow/debugging-and-error-recovery) | ai-workflow | ★★★★★ | Guides systematic root-cause debugging. Use when tests fail, builds break, behav |
+| [deprecation-and-migration](skills/ai-workflow/deprecation-and-migration) | ai-workflow | ★★★★★ | Manages deprecation and migration. Use when removing old systems, APIs, or featu |
+| [documentation-and-adrs](skills/ai-workflow/documentation-and-adrs) | ai-workflow | ★★★★★ | Records decisions and documentation. Use when making architectural decisions, ch |
+| [frontend-ui-engineering](skills/ai-workflow/frontend-ui-engineering) | ai-workflow | ★★★★★ | Builds production-quality UIs. Use when building or modifying user-facing interf |
+| [git-workflow-and-versioning](skills/ai-workflow/git-workflow-and-versioning) | ai-workflow | ★★★★★ | Structures git workflow practices. Use when making any code change. Use when com |
+| [incremental-implementation](skills/ai-workflow/incremental-implementation) | ai-workflow | ★★★★★ | Delivers changes incrementally. Use when implementing any feature or change that |
+| [performance-optimization](skills/ai-workflow/performance-optimization) | ai-workflow | ★★★★★ | Optimizes application performance. Use when performance requirements exist, when |
+| [planning-and-task-breakdown](skills/ai-workflow/planning-and-task-breakdown) | ai-workflow | ★★★★★ | Breaks work into ordered tasks. Use when you have a spec or clear requirements a |
+| [security-and-hardening](skills/ai-workflow/security-and-hardening) | ai-workflow | ★★★★★ | Hardens code against vulnerabilities. Use when handling user input, authenticati |
+| [shipping-and-launch](skills/ai-workflow/shipping-and-launch) | ai-workflow | ★★★★★ | Prepares production launches. Use when preparing to deploy to production. Use wh |
+| [spec-driven-development](skills/ai-workflow/spec-driven-development) | ai-workflow | ★★★★★ | Creates specs before coding. Use when starting a new project, feature, or signif |
+| [test-driven-development](skills/ai-workflow/test-driven-development) | ai-workflow | ★★★★★ | Drives development with tests. Use when implementing any logic, fixing any bug,  |
+| [idea-refine](skills/ai-workflow/idea-refine) | ai-workflow | ★★★★☆ | Refines ideas iteratively. Refine ideas through structured divergent and converg |
+| [source-driven-development](skills/ai-workflow/source-driven-development) | ai-workflow | ★★★★☆ | Grounds every implementation decision in official documentation. Use when you wa |
+| [using-agent-skills](skills/ai-workflow/using-agent-skills) | ai-workflow | ★★★★☆ | Discovers and invokes agent skills. Use when starting a session or when you need |
+| [code-review-excellence](skills/developer-engineering/code-review-excellence) | developer-engineering | ★★★★☆ | Master effective code review practices to provide constructive feedback, catch b |
 
 ## planning
 
@@ -422,19 +565,19 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [hermes-graphify-gsd-nonintrusive-workflow](skills/ai-agent-platform/hermes-graphify-gsd-nonintrusive-workflow) | ai-agent-platform | ★★★★★ | Use when integrating Hermes Agent, graphify, and GSD into a local development wo |
+| [agent-workflow-designer](skills/ai-workflow/agent-workflow-designer) | ai-workflow | ★★★★★ | Design production-grade multi-agent orchestration systems. Covers five core patt |
+| [deep-research](skills/ai-workflow/deep-research) | ai-workflow | ★★★★★ | Generate format-controlled research reports with evidence tracking, citations, a |
+| [skill-creator](skills/ai-workflow/skill-creator) | ai-workflow | ★★★★★ | Create new skills, modify and improve existing skills, and measure skill perform |
+| [skill-reviewer](skills/ai-workflow/skill-reviewer) | ai-workflow | ★★★★★ | Reviews and improves Claude Code skills against official best practices. Support |
 | [gsd-graphify-brownfield-bootstrap](skills/engineering-workflow-automation/gsd-graphify-brownfield-bootstrap) | engineering-workflow-automation | ★★★★★ | Bootstrap GSD + graphify for an existing brownfield repo when the project needs  |
 | [hermes-graphify-gsd-project-integration](skills/engineering-workflow-automation/hermes-graphify-gsd-project-integration) | engineering-workflow-automation | ★★★★★ | Use when integrating Hermes Agent, graphify, and GSD into a specific repository, |
-| [agent-workflow-designer](skills/task-understanding-decomposition/agent-workflow-designer) | task-understanding-decomposition | ★★★★★ | Design production-grade multi-agent orchestration systems. Covers five core patt |
-| [deep-research](skills/task-understanding-decomposition/deep-research) | task-understanding-decomposition | ★★★★★ | Generate format-controlled research reports with evidence tracking, citations, a |
 | [reflect-learn](skills/task-understanding-decomposition/reflect-learn) | task-understanding-decomposition | ★★★★★ | Self-improvement through conversation analysis. Extracts learnings from correcti |
-| [skill-creator](skills/task-understanding-decomposition/skill-creator) | task-understanding-decomposition | ★★★★★ | Create new skills, modify and improve existing skills, and measure skill perform |
-| [skill-reviewer](skills/task-understanding-decomposition/skill-reviewer) | task-understanding-decomposition | ★★★★★ | Reviews and improves Claude Code skills against official best practices. Support |
-| [find-skills](skills/task-understanding-decomposition/find-skills) | task-understanding-decomposition | ★★★★☆ | 让 Agent 自动搜索并安装合适技能，解决不知道该用哪个技能的问题。 |
-| [prompt-optimizer](skills/task-understanding-decomposition/prompt-optimizer) | task-understanding-decomposition | ★★★★☆ | Transform vague prompts into precise, well-structured specifications using EARS  |
-| [skills-search](skills/task-understanding-decomposition/skills-search) | task-understanding-decomposition | ★★★★☆ | This skill should be used when users want to search, discover, install, or manag |
-| [writing-plans](skills/task-understanding-decomposition/writing-plans) | task-understanding-decomposition | ★★★★☆ | Use when you have a spec or requirements for a multi-step task, before touching  |
-| [brainstorming](skills/task-understanding-decomposition/brainstorming) | task-understanding-decomposition | ★★★☆☆ | You MUST use this before any creative work - creating features, building compone |
-| [subagent-driven-development](skills/task-understanding-decomposition/subagent-driven-development) | task-understanding-decomposition | ★★★☆☆ | Use when executing implementation plans with independent tasks in the current se |
+| [find-skills](skills/ai-workflow/find-skills) | ai-workflow | ★★★★☆ | 让 Agent 自动搜索并安装合适技能，解决不知道该用哪个技能的问题。 |
+| [prompt-optimizer](skills/ai-workflow/prompt-optimizer) | ai-workflow | ★★★★☆ | Transform vague prompts into precise, well-structured specifications using EARS  |
+| [skills-search](skills/ai-workflow/skills-search) | ai-workflow | ★★★★☆ | This skill should be used when users want to search, discover, install, or manag |
+| [writing-plans](skills/ai-workflow/writing-plans) | ai-workflow | ★★★★☆ | Use when you have a spec or requirements for a multi-step task, before touching  |
+| [brainstorming](skills/ai-workflow/brainstorming) | ai-workflow | ★★★☆☆ | You MUST use this before any creative work - creating features, building compone |
+| [subagent-driven-development](skills/ai-workflow/subagent-driven-development) | ai-workflow | ★★★☆☆ | Use when executing implementation plans with independent tasks in the current se |
 | [tavily-search](skills/task-understanding-decomposition/tavily-search) | task-understanding-decomposition | ★★☆☆☆ | 提供实时联网检索能力，帮助 Agent 获取最新资讯、数据与来源证据。 |
 
 ## design
@@ -455,7 +598,7 @@
 | [ux-researcher-designer](skills/product-design/ux-researcher-designer) | product-design | ★★★★★ | UX research and design toolkit for Senior UX Designer/Researcher including data- |
 | [tailwind-design-system](skills/developer-engineering/tailwind-design-system) | developer-engineering | ★★★★☆ | 用于 Tailwind CSS 设计系统搭建、组件库开发与主题定制。来源：skills.sh 24.7K installs。 |
 | [canvas-design](skills/product-design/canvas-design) | product-design | ★★★★☆ | Create beautiful visual art in .png and .pdf documents using design philosophy.  |
-| [landing-page-generator](skills/product-design/landing-page-generator) | product-design | ★★★★☆ | 用于快速生成高转化率落地页结构、文案框架和 TSX/Tailwind 代码脚手架。来源：alirezarezvani/claude-skills。 |
+| [landing-page-generator](skills/product-design/landing-page-generator) | product-design | ★★★★☆ | Generates high-converting landing pages as complete Next.js/React (TSX) componen |
 | [frontend-design](skills/developer-engineering/frontend-design) | developer-engineering | ★★☆☆☆ | Create distinctive, production-grade frontend interfaces with high design qualit |
 
 ## finance
@@ -466,7 +609,7 @@
 |-------|----------|---------|-------------|
 | [financial-analyst](skills/finance-investing/financial-analyst) | finance-investing | ★★★★☆ | Performs financial ratio analysis, DCF valuation, budget variance analysis, and  |
 | [financial-data-collector](skills/finance-investing/financial-data-collector) | finance-investing | ★★★★☆ | Use when collecting financial data for a US public company, assembling DCF input |
-| [saas-metrics-coach](skills/finance-investing/saas-metrics-coach) | finance-investing | ★★★★☆ | 用于 SaaS 关键指标分析与健康度诊断，包含 ARR/MRR/Churn/LTV/CAC 等核心指标。来源：alirezarezvani/claude-ski |
+| [saas-metrics-coach](skills/finance-investing/saas-metrics-coach) | finance-investing | ★★★★☆ | SaaS financial health advisor. Use when a user shares revenue or customer number |
 | [comps-valuation-analyst](skills/finance-investing/comps-valuation-analyst) | finance-investing | ★★☆☆☆ | Use when valuing a public company with peer multiples, building comparable-compa |
 | [earnings-call-analyzer](skills/finance-investing/earnings-call-analyzer) | finance-investing | ★★☆☆☆ | Use when summarizing earnings calls, extracting management tone changes, surfaci |
 | [event-driven-tracker](skills/finance-investing/event-driven-tracker) | finance-investing | ★★☆☆☆ | Use when tracking earnings, product launches, M&A, dividends, buybacks, unlocks, |
@@ -487,7 +630,7 @@
 | [fact-checker](skills/operations-general/fact-checker) | operations-general | ★★★★★ | Verifies factual claims in documents using web search and official sources, then |
 | [interview-system-designer](skills/operations-general/interview-system-designer) | operations-general | ★★★★★ | This skill should be used when the user asks to "design interview processes", "c |
 | [slack-gif-creator](skills/operations-general/slack-gif-creator) | operations-general | ★★★★★ | Knowledge and utilities for creating animated GIFs optimized for Slack. Provides |
-| [linear](skills/knowledge-and-pm-integrations/linear) | knowledge-and-pm-integrations | ★★★★☆ | Manage Linear issues, projects, and teams with an API-first workflow. Uses the G |
+| [linear](skills/knowledge-and-pm-integrations/linear) | knowledge-and-pm-integrations | ★★★★☆ | Manage Linear issues, projects, and teams via the GraphQL API. Create, update, s |
 | [confidence-check](skills/operations-general/confidence-check) | operations-general | ★★★★☆ | 用于结构化自我审查，验证假设、识别不确定性和减少幻觉输出。仓库整理版，吸收社区高频最佳实践。 |
 | [teams-channel-post-writer](skills/operations-general/teams-channel-post-writer) | operations-general | ★★★★☆ | Creates educational Teams channel posts for internal knowledge sharing about Cla |
 | [brand-guidelines](skills/operations-general/brand-guidelines) | operations-general | ★★★☆☆ | Applies Anthropic''s official brand colors and typography to any sort of artifac |
@@ -496,24 +639,6 @@
 | [theme-factory](skills/operations-general/theme-factory) | operations-general | ★★★☆☆ | Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, |
 | [internal-comms](skills/operations-general/internal-comms) | operations-general | ★★☆☆☆ | A set of resources to help me write all kinds of internal communications, using  |
 | [weather](skills/operations-general/weather) | operations-general | ★★☆☆☆ | 免 API Key 的天气查询技能，支持多数据源与自然语言请求。 |
-
-## agent
-
-**11 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [chatgpt-apps](skills/ai-agent-platform/chatgpt-apps) | ai-agent-platform | ★★★★★ | Build, scaffold, refactor, and troubleshoot ChatGPT Apps SDK applications that c |
-| [figma-implement-design](skills/ai-agent-platform/figma-implement-design) | ai-agent-platform | ★★★★★ | Translate Figma nodes into production-ready code with 1:1 visual fidelity using  |
-| [agent-designer](skills/developer-engineering/agent-designer) | developer-engineering | ★★★★★ | Tags: AI agents, architecture, system design, orchestration, multi-agent systems |
-| [agent-workflow-designer](skills/task-understanding-decomposition/agent-workflow-designer) | task-understanding-decomposition | ★★★★★ | Design production-grade multi-agent orchestration systems. Covers five core patt |
-| [agent-hub](skills/ai-agent-platform/agent-hub) | ai-agent-platform | ★★★★☆ | 用于多 Agent 系统编排、Agent 间通信协议设计与生命周期管理。来源：alirezarezvani/claude-skills POWERFUL tie |
-| [develop-web-game](skills/ai-agent-platform/develop-web-game) | ai-agent-platform | ★★★★☆ | Use when Codex is building or iterating on a web game (HTML/JS) and needs a reli |
-| [proactive-agent](skills/ai-agent-platform/proactive-agent) | ai-agent-platform | ★★★★☆ | 增强 Agent 的主动规划与自我迭代能力，从被动执行升级为主动协作。 |
-| [openai-docs](skills/ai-agent-platform/openai-docs) | ai-agent-platform | ★★★☆☆ | Use when the user asks how to build with OpenAI products or APIs and needs up-to |
-| [figma](skills/ai-agent-platform/figma) | ai-agent-platform | ★★☆☆☆ | Use the Figma MCP server to fetch design context, screenshots, variables, and as |
-| [self-improving-agent](skills/ai-agent-platform/self-improving-agent) | ai-agent-platform | ★★☆☆☆ | 带记忆与自我优化机制的 Agent 技能，能在迭代中持续改进行为。 |
-| [agent-browser](skills/engineering-workflow-automation/agent-browser) | engineering-workflow-automation | ★★☆☆☆ | 为 Agent 提供真实浏览器自动化能力，支持语义定位、表单交互、截图录屏、脚本执行与会话管理。 |
 
 ## growth
 
@@ -566,7 +691,7 @@
 | [observability-designer](skills/devops-sre/observability-designer) | devops-sre | ★★★★★ | Description: Design comprehensive observability strategies for production system |
 | [release-manager](skills/devops-sre/release-manager) | devops-sre | ★★★★★ | The Release Manager skill provides comprehensive tools and knowledge for managin |
 | [senior-devops](skills/devops-sre/senior-devops) | devops-sre | ★★★★★ | Comprehensive DevOps skill for CI/CD, infrastructure automation, containerizatio |
-| [senior-architect](skills/devops-sre/senior-architect) | devops-sre | ★★★★☆ | 用于软件架构评审、技术选型决策和系统可扩展性分析。来源：alirezarezvani/claude-skills。 |
+| [senior-architect](skills/devops-sre/senior-architect) | devops-sre | ★★★★☆ | This skill should be used when the user asks to \"design system architecture\",  |
 
 ## product
 
@@ -583,7 +708,7 @@
 | [ui-design-system](skills/product-design/ui-design-system) | product-design | ★★★★★ | UI design system toolkit for Senior UI Designer including design token generatio |
 | [ux-researcher-designer](skills/product-design/ux-researcher-designer) | product-design | ★★★★★ | UX research and design toolkit for Senior UX Designer/Researcher including data- |
 | [canvas-design](skills/product-design/canvas-design) | product-design | ★★★★☆ | Create beautiful visual art in .png and .pdf documents using design philosophy.  |
-| [landing-page-generator](skills/product-design/landing-page-generator) | product-design | ★★★★☆ | 用于快速生成高转化率落地页结构、文案框架和 TSX/Tailwind 代码脚手架。来源：alirezarezvani/claude-skills。 |
+| [landing-page-generator](skills/product-design/landing-page-generator) | product-design | ★★★★☆ | Generates high-converting landing pages as complete Next.js/React (TSX) componen |
 
 ## sre
 
@@ -600,7 +725,7 @@
 | [observability-designer](skills/devops-sre/observability-designer) | devops-sre | ★★★★★ | Description: Design comprehensive observability strategies for production system |
 | [release-manager](skills/devops-sre/release-manager) | devops-sre | ★★★★★ | The Release Manager skill provides comprehensive tools and knowledge for managin |
 | [senior-devops](skills/devops-sre/senior-devops) | devops-sre | ★★★★★ | Comprehensive DevOps skill for CI/CD, infrastructure automation, containerizatio |
-| [senior-architect](skills/devops-sre/senior-architect) | devops-sre | ★★★★☆ | 用于软件架构评审、技术选型决策和系统可扩展性分析。来源：alirezarezvani/claude-skills。 |
+| [senior-architect](skills/devops-sre/senior-architect) | devops-sre | ★★★★☆ | This skill should be used when the user asks to \"design system architecture\",  |
 
 ## automation
 
@@ -618,34 +743,19 @@
 | [github](skills/engineering-workflow-automation/github) | engineering-workflow-automation | ★★☆☆☆ | 通过 GitHub CLI 自动化 Issue、PR、Review 与 CI 检查，适合工程协作闭环。 |
 | [yeet](skills/engineering-workflow-automation/yeet) | engineering-workflow-automation | ★★☆☆☆ | Use only when the user explicitly asks to stage, commit, push, and open a GitHub |
 
-## ai
-
-**8 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [chatgpt-apps](skills/ai-agent-platform/chatgpt-apps) | ai-agent-platform | ★★★★★ | Build, scaffold, refactor, and troubleshoot ChatGPT Apps SDK applications that c |
-| [figma-implement-design](skills/ai-agent-platform/figma-implement-design) | ai-agent-platform | ★★★★★ | Translate Figma nodes into production-ready code with 1:1 visual fidelity using  |
-| [agent-hub](skills/ai-agent-platform/agent-hub) | ai-agent-platform | ★★★★☆ | 用于多 Agent 系统编排、Agent 间通信协议设计与生命周期管理。来源：alirezarezvani/claude-skills POWERFUL tie |
-| [develop-web-game](skills/ai-agent-platform/develop-web-game) | ai-agent-platform | ★★★★☆ | Use when Codex is building or iterating on a web game (HTML/JS) and needs a reli |
-| [proactive-agent](skills/ai-agent-platform/proactive-agent) | ai-agent-platform | ★★★★☆ | 增强 Agent 的主动规划与自我迭代能力，从被动执行升级为主动协作。 |
-| [openai-docs](skills/ai-agent-platform/openai-docs) | ai-agent-platform | ★★★☆☆ | Use when the user asks how to build with OpenAI products or APIs and needs up-to |
-| [figma](skills/ai-agent-platform/figma) | ai-agent-platform | ★★☆☆☆ | Use the Figma MCP server to fetch design context, screenshots, variables, and as |
-| [self-improving-agent](skills/ai-agent-platform/self-improving-agent) | ai-agent-platform | ★★☆☆☆ | 带记忆与自我优化机制的 Agent 技能，能在迭代中持续改进行为。 |
-
 ## designer
 
 **7 skills**
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
+| [agent-workflow-designer](skills/ai-workflow/agent-workflow-designer) | ai-workflow | ★★★★★ | Design production-grade multi-agent orchestration systems. Covers five core patt |
 | [agent-designer](skills/developer-engineering/agent-designer) | developer-engineering | ★★★★★ | Tags: AI agents, architecture, system design, orchestration, multi-agent systems |
 | [database-designer](skills/developer-engineering/database-designer) | developer-engineering | ★★★★★ | A comprehensive database design skill that provides expert-level analysis, optim |
 | [database-schema-designer](skills/developer-engineering/database-schema-designer) | developer-engineering | ★★★★★ | Design relational database schemas from requirements and generate migrations, Ty |
 | [observability-designer](skills/devops-sre/observability-designer) | devops-sre | ★★★★★ | Description: Design comprehensive observability strategies for production system |
 | [interview-system-designer](skills/operations-general/interview-system-designer) | operations-general | ★★★★★ | This skill should be used when the user asks to "design interview processes", "c |
 | [ux-researcher-designer](skills/product-design/ux-researcher-designer) | product-design | ★★★★★ | UX research and design toolkit for Senior UX Designer/Researcher including data- |
-| [agent-workflow-designer](skills/task-understanding-decomposition/agent-workflow-designer) | task-understanding-decomposition | ★★★★★ | Design production-grade multi-agent orchestration systems. Covers five core patt |
 
 ## security
 
@@ -655,7 +765,7 @@
 |-------|----------|---------|-------------|
 | [security-ownership-map](skills/security-and-reliability/security-ownership-map) | security-and-reliability | ★★★★★ | Analyze git repositories to build a security ownership topology (people-to-file) |
 | [sentry](skills/security-and-reliability/sentry) | security-and-reliability | ★★★★☆ | Use when the user asks to inspect Sentry issues or events, summarize recent prod |
-| [skill-security-auditor](skills/security-and-reliability/skill-security-auditor) | security-and-reliability | ★★★★☆ | 用于在安装第三方 Skill 前进行安全审计，检测命令注入、代码执行和数据泄露风险。来源：alirezarezvani/claude-skills。 |
+| [skill-security-auditor](skills/security-and-reliability/skill-security-auditor) | security-and-reliability | ★★★★☆ | Audit AI agent skills for security risks before installation, with PASS/WARN/FAI |
 | [security-best-practices](skills/security-and-reliability/security-best-practices) | security-and-reliability | ★★★☆☆ | Perform language and framework specific security best-practice reviews and sugge |
 | [security-threat-model](skills/security-and-reliability/security-threat-model) | security-and-reliability | ★★★☆☆ | Repository-grounded threat modeling that enumerates trust boundaries, assets, at |
 | [link-checker](skills/security-and-reliability/link-checker) | security-and-reliability | ★★☆☆☆ | 检测 URL 可达性与潜在风险，识别失效链接、跳转链路和可疑域名。 |
@@ -679,9 +789,9 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
+| [skill-creator](skills/ai-workflow/skill-creator) | ai-workflow | ★★★★★ | Create new skills, modify and improve existing skills, and measure skill perform |
 | [content-creator](skills/growth-operations-xiaohongshu/content-creator) | growth-operations-xiaohongshu | ★★★★★ | Create SEO-optimized marketing content with consistent brand voice. Includes bra |
 | [slack-gif-creator](skills/operations-general/slack-gif-creator) | operations-general | ★★★★★ | Knowledge and utilities for creating animated GIFs optimized for Slack. Provides |
-| [skill-creator](skills/task-understanding-decomposition/skill-creator) | task-understanding-decomposition | ★★★★★ | Create new skills, modify and improve existing skills, and measure skill perform |
 | [ppt-creator](skills/office-white-collar/ppt-creator) | office-white-collar | ★★★★☆ | Create professional slide decks from topics or documents. Generates structured c |
 | [pdf-creator](skills/office-white-collar/pdf-creator) | office-white-collar | ★★☆☆☆ | Create PDF documents from markdown with proper Chinese font support using weasyp |
 
@@ -731,7 +841,7 @@
 | [mcp-server-builder](skills/developer-engineering/mcp-server-builder) | developer-engineering | ★★★★★ | Design and implement Model Context Protocol (MCP) servers that expose any REST A |
 | [mcporter](skills/ai-agent-platform/mcporter) | ai-agent-platform | ★★★★☆ | Use the mcporter CLI to list, configure, auth, and call MCP servers/tools direct |
 | [native-mcp](skills/ai-agent-platform/native-mcp) | ai-agent-platform | ★★★★☆ | Built-in MCP (Model Context Protocol) client that connects to external MCP serve |
-| [linear](skills/knowledge-and-pm-integrations/linear) | knowledge-and-pm-integrations | ★★★★☆ | Manage Linear issues, projects, and teams with an API-first workflow. Uses the G |
+| [linear](skills/knowledge-and-pm-integrations/linear) | knowledge-and-pm-integrations | ★★★★☆ | Manage Linear issues, projects, and teams via the GraphQL API. Create, update, s |
 
 ## research
 
@@ -739,8 +849,8 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
+| [deep-research](skills/ai-workflow/deep-research) | ai-workflow | ★★★★★ | Generate format-controlled research reports with evidence tracking, citations, a |
 | [graphify](skills/developer-engineering/graphify) | developer-engineering | ★★★★★ | any input (code, docs, papers, images, video/audio) -> knowledge graph -> cluste |
-| [deep-research](skills/task-understanding-decomposition/deep-research) | task-understanding-decomposition | ★★★★★ | Generate format-controlled research reports with evidence tracking, citations, a |
 | [arxiv](skills/knowledge-and-pm-integrations/arxiv) | knowledge-and-pm-integrations | ★★★★☆ | Search and retrieve academic papers from arXiv using their free REST API. No API |
 | [llm-wiki](skills/knowledge-and-pm-integrations/llm-wiki) | knowledge-and-pm-integrations | ★★★★☆ | Path to the LLM Wiki knowledge base directory |
 | [notion-research-documentation](skills/knowledge-and-pm-integrations/notion-research-documentation) | knowledge-and-pm-integrations | ★★★☆☆ | Research across Notion and synthesize into structured documentation; use when ga |
@@ -751,10 +861,10 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
+| [skill-creator](skills/ai-workflow/skill-creator) | ai-workflow | ★★★★★ | Create new skills, modify and improve existing skills, and measure skill perform |
+| [skill-reviewer](skills/ai-workflow/skill-reviewer) | ai-workflow | ★★★★★ | Reviews and improves Claude Code skills against official best practices. Support |
 | [skill-tester](skills/developer-engineering/skill-tester) | developer-engineering | ★★★★★ | Name: skill-tester Tier: POWERFUL Category: Engineering Quality Assurance Depend |
-| [skill-creator](skills/task-understanding-decomposition/skill-creator) | task-understanding-decomposition | ★★★★★ | Create new skills, modify and improve existing skills, and measure skill perform |
-| [skill-reviewer](skills/task-understanding-decomposition/skill-reviewer) | task-understanding-decomposition | ★★★★★ | Reviews and improves Claude Code skills against official best practices. Support |
-| [skill-security-auditor](skills/security-and-reliability/skill-security-auditor) | security-and-reliability | ★★★★☆ | 用于在安装第三方 Skill 前进行安全审计，检测命令注入、代码执行和数据泄露风险。来源：alirezarezvani/claude-skills。 |
+| [skill-security-auditor](skills/security-and-reliability/skill-security-auditor) | security-and-reliability | ★★★★☆ | Audit AI agent skills for security risks before installation, with PASS/WARN/FAI |
 | [skill-vetter](skills/security-and-reliability/skill-vetter) | security-and-reliability | ★★☆☆☆ | 在安装前审计技能安全性，识别恶意指令、越权行为与高风险配置。 |
 
 ## api
@@ -777,7 +887,7 @@
 | [migration-architect](skills/developer-engineering/migration-architect) | developer-engineering | ★★★★★ | Purpose: Zero-downtime migration planning, compatibility validation, and rollbac |
 | [rag-architect](skills/openclaw-memory-and-safety/rag-architect) | openclaw-memory-and-safety | ★★★★★ | The RAG (Retrieval-Augmented Generation) Architect skill provides comprehensive  |
 | [aws-solution-architect](skills/developer-engineering/aws-solution-architect) | developer-engineering | ★★★★☆ | 用于 AWS 云架构设计、服务选型、成本优化与 Well-Architected Framework 评估。来源：alirezarezvani/claude-s |
-| [senior-architect](skills/devops-sre/senior-architect) | devops-sre | ★★★★☆ | 用于软件架构评审、技术选型决策和系统可扩展性分析。来源：alirezarezvani/claude-skills。 |
+| [senior-architect](skills/devops-sre/senior-architect) | devops-sre | ★★★★☆ | This skill should be used when the user asks to \"design system architecture\",  |
 
 ## deploy
 
@@ -810,7 +920,7 @@
 | [cli-demo-generator](skills/developer-engineering/cli-demo-generator) | developer-engineering | ★★★★★ | This skill should be used when users want to create animated CLI demos, terminal |
 | [changelog-generator](skills/devops-sre/changelog-generator) | devops-sre | ★★★★★ | Parse conventional commits, determine semantic version bumps, and generate struc |
 | [runbook-generator](skills/openclaw-memory-and-safety/runbook-generator) | openclaw-memory-and-safety | ★★★★★ | Analyze a codebase and generate production-grade operational runbooks. Detects y |
-| [landing-page-generator](skills/product-design/landing-page-generator) | product-design | ★★★★☆ | 用于快速生成高转化率落地页结构、文案框架和 TSX/Tailwind 代码脚手架。来源：alirezarezvani/claude-skills。 |
+| [landing-page-generator](skills/product-design/landing-page-generator) | product-design | ★★★★☆ | Generates high-converting landing pages as complete Next.js/React (TSX) componen |
 
 ## gsd
 
@@ -851,10 +961,10 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [find-skills](skills/task-understanding-decomposition/find-skills) | task-understanding-decomposition | ★★★★☆ | 让 Agent 自动搜索并安装合适技能，解决不知道该用哪个技能的问题。 |
-| [skills-search](skills/task-understanding-decomposition/skills-search) | task-understanding-decomposition | ★★★★☆ | This skill should be used when users want to search, discover, install, or manag |
-| [using-superpowers](skills/task-understanding-decomposition/using-superpowers) | task-understanding-decomposition | ★★★★☆ | Use when starting any conversation - establishes how to find and use skills, req |
-| [writing-skills](skills/task-understanding-decomposition/writing-skills) | task-understanding-decomposition | ★★★★☆ | Use when creating new skills, editing existing skills, or verifying skills work  |
+| [find-skills](skills/ai-workflow/find-skills) | ai-workflow | ★★★★☆ | 让 Agent 自动搜索并安装合适技能，解决不知道该用哪个技能的问题。 |
+| [skills-search](skills/ai-workflow/skills-search) | ai-workflow | ★★★★☆ | This skill should be used when users want to search, discover, install, or manag |
+| [using-superpowers](skills/ai-workflow/using-superpowers) | ai-workflow | ★★★★☆ | Use when starting any conversation - establishes how to find and use skills, req |
+| [writing-skills](skills/ai-workflow/writing-skills) | ai-workflow | ★★★★☆ | Use when creating new skills, editing existing skills, or verifying skills work  |
 
 ## tools
 
@@ -873,9 +983,9 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
+| [receiving-code-review](skills/ai-workflow/receiving-code-review) | ai-workflow | ★★★★☆ | Use when receiving code review feedback, before implementing suggestions, especi |
+| [requesting-code-review](skills/ai-workflow/requesting-code-review) | ai-workflow | ★★★★☆ | Use when completing tasks, implementing major features, or before merging to ver |
 | [code-review-excellence](skills/developer-engineering/code-review-excellence) | developer-engineering | ★★★★☆ | Master effective code review practices to provide constructive feedback, catch b |
-| [receiving-code-review](skills/task-understanding-decomposition/receiving-code-review) | task-understanding-decomposition | ★★★★☆ | Use when receiving code review feedback, before implementing suggestions, especi |
-| [requesting-code-review](skills/task-understanding-decomposition/requesting-code-review) | task-understanding-decomposition | ★★★★☆ | Use when completing tasks, implementing major features, or before merging to ver |
 
 ## codebase
 
@@ -897,16 +1007,6 @@
 | [parallel-debugging](skills/developer-engineering/parallel-debugging) | developer-engineering | ★★★★☆ | Debug complex issues using competing hypotheses with parallel investigation, evi |
 | [systematic-debugging](skills/developer-engineering/systematic-debugging) | developer-engineering | ★★★★☆ | Use when encountering any bug, test failure, or unexpected behavior, before prop |
 
-## driven
-
-**3 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [test-driven-development](skills/developer-engineering/test-driven-development) | developer-engineering | ★★★★☆ | Use when implementing any feature or bugfix, before writing implementation code |
-| [subagent-driven-development](skills/task-understanding-decomposition/subagent-driven-development) | task-understanding-decomposition | ★★★☆☆ | Use when executing implementation plans with independent tasks in the current se |
-| [event-driven-tracker](skills/finance-investing/event-driven-tracker) | finance-investing | ★★☆☆☆ | Use when tracking earnings, product launches, M&A, dividends, buybacks, unlocks, |
-
 ## engineer
 
 **3 skills**
@@ -923,9 +1023,9 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
+| [finishing-a-development-branch](skills/ai-workflow/finishing-a-development-branch) | ai-workflow | ★★★★☆ | Use when implementation is complete, all tests pass, and you need to decide how  |
+| [using-git-worktrees](skills/ai-workflow/using-git-worktrees) | ai-workflow | ★★★★☆ | Use when starting feature work that needs isolation from current workspace or be |
 | [git-worktree-manager](skills/developer-engineering/git-worktree-manager) | developer-engineering | ★★★★☆ | The Git Worktree Manager skill provides systematic management of Git worktrees f |
-| [finishing-a-development-branch](skills/task-understanding-decomposition/finishing-a-development-branch) | task-understanding-decomposition | ★★★★☆ | Use when implementation is complete, all tests pass, and you need to decide how  |
-| [using-git-worktrees](skills/task-understanding-decomposition/using-git-worktrees) | task-understanding-decomposition | ★★★★☆ | Use when starting feature work that needs isolation from current workspace or be |
 
 ## github
 
@@ -943,8 +1043,8 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
+| [skill-reviewer](skills/ai-workflow/skill-reviewer) | ai-workflow | ★★★★★ | Reviews and improves Claude Code skills against official best practices. Support |
 | [api-design-reviewer](skills/developer-engineering/api-design-reviewer) | developer-engineering | ★★★★★ | Maintainer: Claude Skills Team. |
-| [skill-reviewer](skills/task-understanding-decomposition/skill-reviewer) | task-understanding-decomposition | ★★★★★ | Reviews and improves Claude Code skills against official best practices. Support |
 | [sec-filing-reviewer](skills/finance-investing/sec-filing-reviewer) | finance-investing | ★★☆☆☆ | Use when reviewing SEC filings, extracting material risk disclosures, scanning 1 |
 
 ## system
@@ -1010,7 +1110,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [dependency-auditor](skills/developer-engineering/dependency-auditor) | developer-engineering | ★★★★★ | > Skill Type: POWERFUL > Category: Engineering > Domain: Dependency Management & |
-| [skill-security-auditor](skills/security-and-reliability/skill-security-auditor) | security-and-reliability | ★★★★☆ | 用于在安装第三方 Skill 前进行安全审计，检测命令注入、代码执行和数据泄露风险。来源：alirezarezvani/claude-skills。 |
+| [skill-security-auditor](skills/security-and-reliability/skill-security-auditor) | security-and-reliability | ★★★★☆ | Audit AI agent skills for security risks before installation, with PASS/WARN/FAI |
 
 ## best
 
@@ -1102,14 +1202,14 @@
 | [openai-docs](skills/ai-agent-platform/openai-docs) | ai-agent-platform | ★★★☆☆ | Use when the user asks how to build with OpenAI products or APIs and needs up-to |
 | [docs-cleaner](skills/operations-general/docs-cleaner) | operations-general | ★★★☆☆ | Consolidates redundant documentation while preserving all valuable content. This |
 
-## engineering
+## driven
 
 **2 skills**
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [code-review-excellence](skills/developer-engineering/code-review-excellence) | developer-engineering | ★★★★☆ | Master effective code review practices to provide constructive feedback, catch b |
-| [context-engineering](skills/developer-engineering/context-engineering) | developer-engineering | ★★★★☆ | 用于 AI 编码助手的上下文优化、Prompt 结构设计和指令冲突防御。仓库整理版，吸收社区高频最佳实践。 |
+| [subagent-driven-development](skills/ai-workflow/subagent-driven-development) | ai-workflow | ★★★☆☆ | Use when executing implementation plans with independent tasks in the current se |
+| [event-driven-tracker](skills/finance-investing/event-driven-tracker) | finance-investing | ★★☆☆☆ | Use when tracking earnings, product launches, M&A, dividends, buybacks, unlocks, |
 
 ## figma
 
@@ -1136,7 +1236,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [graphql-expert](skills/developer-engineering/graphql-expert) | developer-engineering | ★★★★☆ | 用于 GraphQL API 设计、查询优化、Schema 管理和安全最佳实践。仓库整理版，吸收社区高频最佳实践。 |
-| [linear](skills/knowledge-and-pm-integrations/linear) | knowledge-and-pm-integrations | ★★★★☆ | Manage Linear issues, projects, and teams with an API-first workflow. Uses the G |
+| [linear](skills/knowledge-and-pm-integrations/linear) | knowledge-and-pm-integrations | ★★★★☆ | Manage Linear issues, projects, and teams via the GraphQL API. Create, update, s |
 
 ## integrations
 
@@ -1181,7 +1281,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [codebase-inspection](skills/developer-engineering/codebase-inspection) | developer-engineering | ★★★★☆ | Inspect and analyze codebases using pygount for LOC counting, language breakdown |
-| [saas-metrics-coach](skills/finance-investing/saas-metrics-coach) | finance-investing | ★★★★☆ | 用于 SaaS 关键指标分析与健康度诊断，包含 ARR/MRR/Churn/LTV/CAC 等核心指标。来源：alirezarezvani/claude-ski |
+| [saas-metrics-coach](skills/finance-investing/saas-metrics-coach) | finance-investing | ★★★★☆ | SaaS financial health advisor. Use when a user shares revenue or customer number |
 
 ## notes
 
@@ -1198,8 +1298,8 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
+| [dispatching-parallel-agents](skills/ai-workflow/dispatching-parallel-agents) | ai-workflow | ★★★★☆ | Use when facing 2+ independent tasks that can be worked on without shared state  |
 | [parallel-debugging](skills/developer-engineering/parallel-debugging) | developer-engineering | ★★★★☆ | Debug complex issues using competing hypotheses with parallel investigation, evi |
-| [dispatching-parallel-agents](skills/task-understanding-decomposition/dispatching-parallel-agents) | task-understanding-decomposition | ★★★★☆ | Use when facing 2+ independent tasks that can be worked on without shared state  |
 
 ## pdf
 
@@ -1225,8 +1325,8 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [writing-plans](skills/task-understanding-decomposition/writing-plans) | task-understanding-decomposition | ★★★★☆ | Use when you have a spec or requirements for a multi-step task, before touching  |
-| [executing-plans](skills/task-understanding-decomposition/executing-plans) | task-understanding-decomposition | ★★★☆☆ | Use when you have a written implementation plan to execute in a separate session |
+| [writing-plans](skills/ai-workflow/writing-plans) | ai-workflow | ★★★★☆ | Use when you have a spec or requirements for a multi-step task, before touching  |
+| [executing-plans](skills/ai-workflow/executing-plans) | ai-workflow | ★★★☆☆ | Use when you have a written implementation plan to execute in a separate session |
 
 ## practices
 
@@ -1244,7 +1344,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [prompt-engineer-toolkit](skills/growth-operations-xiaohongshu/prompt-engineer-toolkit) | growth-operations-xiaohongshu | ★★★★★ | Systematic prompt engineering from first principles. Build, test, version, and o |
-| [prompt-optimizer](skills/task-understanding-decomposition/prompt-optimizer) | task-understanding-decomposition | ★★★★☆ | Transform vague prompts into precise, well-structured specifications using EARS  |
+| [prompt-optimizer](skills/ai-workflow/prompt-optimizer) | ai-workflow | ★★★★☆ | Transform vague prompts into precise, well-structured specifications using EARS  |
 
 ## quality-gate
 
@@ -1252,8 +1352,8 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [requesting-code-review](skills/task-understanding-decomposition/requesting-code-review) | task-understanding-decomposition | ★★★★☆ | Use when completing tasks, implementing major features, or before merging to ver |
-| [verification-before-completion](skills/task-understanding-decomposition/verification-before-completion) | task-understanding-decomposition | ★★★★☆ | Use when about to claim work is complete, fixed, or passing, before committing o |
+| [requesting-code-review](skills/ai-workflow/requesting-code-review) | ai-workflow | ★★★★☆ | Use when completing tasks, implementing major features, or before merging to ver |
+| [verification-before-completion](skills/ai-workflow/verification-before-completion) | ai-workflow | ★★★★☆ | Use when about to claim work is complete, fixed, or passing, before committing o |
 
 ## root-cause-analysis
 
@@ -1271,7 +1371,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [saas-scaffolder](skills/product-design/saas-scaffolder) | product-design | ★★★★★ | Generate complete, production-ready SaaS projects from a product brief. Outputs  |
-| [saas-metrics-coach](skills/finance-investing/saas-metrics-coach) | finance-investing | ★★★★☆ | 用于 SaaS 关键指标分析与健康度诊断，包含 ARR/MRR/Churn/LTV/CAC 等核心指标。来源：alirezarezvani/claude-ski |
+| [saas-metrics-coach](skills/finance-investing/saas-metrics-coach) | finance-investing | ★★★★☆ | SaaS financial health advisor. Use when a user shares revenue or customer number |
 
 ## search
 
@@ -1279,7 +1379,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [skills-search](skills/task-understanding-decomposition/skills-search) | task-understanding-decomposition | ★★★★☆ | This skill should be used when users want to search, discover, install, or manag |
+| [skills-search](skills/ai-workflow/skills-search) | ai-workflow | ★★★★☆ | This skill should be used when users want to search, discover, install, or manag |
 | [tavily-search](skills/task-understanding-decomposition/tavily-search) | task-understanding-decomposition | ★★☆☆☆ | 提供实时联网检索能力，帮助 Agent 获取最新资讯、数据与来源证据。 |
 
 ## senior
@@ -1289,7 +1389,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [senior-devops](skills/devops-sre/senior-devops) | devops-sre | ★★★★★ | Comprehensive DevOps skill for CI/CD, infrastructure automation, containerizatio |
-| [senior-architect](skills/devops-sre/senior-architect) | devops-sre | ★★★★☆ | 用于软件架构评审、技术选型决策和系统可扩展性分析。来源：alirezarezvani/claude-skills。 |
+| [senior-architect](skills/devops-sre/senior-architect) | devops-sre | ★★★★☆ | This skill should be used when the user asks to \"design system architecture\",  |
 
 ## strategy
 
@@ -1299,15 +1399,6 @@
 |-------|----------|---------|-------------|
 | [marketing-strategy-pmm](skills/growth-operations-xiaohongshu/marketing-strategy-pmm) | growth-operations-xiaohongshu | ★★★★★ | Product marketing skill for positioning, GTM strategy, competitive intelligence, |
 | [options-strategy-evaluator](skills/finance-investing/options-strategy-evaluator) | finance-investing | ★★☆☆☆ | Use when evaluating an options structure, checking expiry payoff checkpoints, co |
-
-## test
-
-**2 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [api-test-suite-builder](skills/developer-engineering/api-test-suite-builder) | developer-engineering | ★★★★★ | Scans API route definitions across frameworks (Next.js App Router, Express, Fast |
-| [test-driven-development](skills/developer-engineering/test-driven-development) | developer-engineering | ★★★★☆ | Use when implementing any feature or bugfix, before writing implementation code |
 
 ## toolkit
 
@@ -1333,8 +1424,8 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
+| [using-git-worktrees](skills/ai-workflow/using-git-worktrees) | ai-workflow | ★★★★☆ | Use when starting feature work that needs isolation from current workspace or be |
 | [git-worktree-manager](skills/developer-engineering/git-worktree-manager) | developer-engineering | ★★★★☆ | The Git Worktree Manager skill provides systematic management of Git worktrees f |
-| [using-git-worktrees](skills/task-understanding-decomposition/using-git-worktrees) | task-understanding-decomposition | ★★★★☆ | Use when starting feature work that needs isolation from current workspace or be |
 
 ## academic
 
@@ -1366,7 +1457,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [dispatching-parallel-agents](skills/task-understanding-decomposition/dispatching-parallel-agents) | task-understanding-decomposition | ★★★★☆ | Use when facing 2+ independent tasks that can be worked on without shared state  |
+| [dispatching-parallel-agents](skills/ai-workflow/dispatching-parallel-agents) | ai-workflow | ★★★★☆ | Use when facing 2+ independent tasks that can be worked on without shared state  |
 
 ## agile
 
@@ -1391,6 +1482,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [campaign-analytics](skills/growth-operations-xiaohongshu/campaign-analytics) | growth-operations-xiaohongshu | ★★★★★ | Analyzes campaign performance with multi-touch attribution, funnel conversion, a |
+
+## api-and-interface-design
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [api-and-interface-design](skills/ai-workflow/api-and-interface-design) | ai-workflow | ★★★★★ | Guides stable API and interface design. Use when designing APIs, module boundari |
 
 ## apps
 
@@ -1454,7 +1553,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [writing-skills](skills/task-understanding-decomposition/writing-skills) | task-understanding-decomposition | ★★★★☆ | Use when creating new skills, editing existing skills, or verifying skills work  |
+| [writing-skills](skills/ai-workflow/writing-skills) | ai-workflow | ★★★★☆ | Use when creating new skills, editing existing skills, or verifying skills work  |
 
 ## auto-continue
 
@@ -1486,7 +1585,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [brainstorming](skills/task-understanding-decomposition/brainstorming) | task-understanding-decomposition | ★★★☆☆ | You MUST use this before any creative work - creating features, building compone |
+| [brainstorming](skills/ai-workflow/brainstorming) | ai-workflow | ★★★☆☆ | You MUST use this before any creative work - creating features, building compone |
 
 ## brand
 
@@ -1503,6 +1602,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [agent-browser](skills/engineering-workflow-automation/agent-browser) | engineering-workflow-automation | ★★☆☆☆ | 为 Agent 提供真实浏览器自动化能力，支持语义定位、表单交互、截图录屏、脚本执行与会话管理。 |
+
+## browser-testing-with-devtools
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [browser-testing-with-devtools](skills/ai-workflow/browser-testing-with-devtools) | ai-workflow | ★★★★★ | Tests in real browsers. Use when building or debugging anything that runs in a b |
 
 ## call
 
@@ -1560,6 +1667,14 @@
 |-------|----------|---------|-------------|
 | [confidence-check](skills/operations-general/confidence-check) | operations-general | ★★★★☆ | 用于结构化自我审查，验证假设、识别不确定性和减少幻觉输出。仓库整理版，吸收社区高频最佳实践。 |
 
+## ci-cd-and-automation
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [ci-cd-and-automation](skills/ai-workflow/ci-cd-and-automation) | ai-workflow | ★★★★★ | Automates CI/CD pipeline setup. Use when setting up or modifying build and deplo |
+
 ## cleaner
 
 **1 skills**
@@ -1574,7 +1689,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [saas-metrics-coach](skills/finance-investing/saas-metrics-coach) | finance-investing | ★★★★☆ | 用于 SaaS 关键指标分析与健康度诊断，包含 ARR/MRR/Churn/LTV/CAC 等核心指标。来源：alirezarezvani/claude-ski |
+| [saas-metrics-coach](skills/finance-investing/saas-metrics-coach) | finance-investing | ★★★★☆ | SaaS financial health advisor. Use when a user shares revenue or customer number |
 
 ## coauthoring
 
@@ -1591,6 +1706,22 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [codebase-inspection](skills/developer-engineering/codebase-inspection) | developer-engineering | ★★★★☆ | Inspect and analyze codebases using pygount for LOC counting, language breakdown |
+
+## code-review-and-quality
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [code-review-and-quality](skills/ai-workflow/code-review-and-quality) | ai-workflow | ★★★★★ | Conducts multi-axis code review. Use before merging any change. Use when reviewi |
+
+## code-simplification
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [code-simplification](skills/ai-workflow/code-simplification) | ai-workflow | ★★★★★ | Simplifies code for clarity. Use when refactoring code for clarity without chang |
 
 ## collector
 
@@ -1672,13 +1803,13 @@
 |-------|----------|---------|-------------|
 | [content-creator](skills/growth-operations-xiaohongshu/content-creator) | growth-operations-xiaohongshu | ★★★★★ | Create SEO-optimized marketing content with consistent brand voice. Includes bra |
 
-## context
+## context-engineering
 
 **1 skills**
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [context-engineering](skills/developer-engineering/context-engineering) | developer-engineering | ★★★★☆ | 用于 AI 编码助手的上下文优化、Prompt 结构设计和指令冲突防御。仓库整理版，吸收社区高频最佳实践。 |
+| [context-engineering](skills/ai-workflow/context-engineering) | ai-workflow | ★★★★★ | Optimizes agent context setup. Use when starting a new session, when agent outpu |
 
 ## contributor
 
@@ -1704,13 +1835,21 @@
 |-------|----------|---------|-------------|
 | [tech-debt-tracker](skills/developer-engineering/tech-debt-tracker) | developer-engineering | ★★★★★ | Tier: POWERFUL 🔥 Category: Engineering Process Automation Expertise: Code Qualit |
 
+## debugging-and-error-recovery
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [debugging-and-error-recovery](skills/ai-workflow/debugging-and-error-recovery) | ai-workflow | ★★★★★ | Guides systematic root-cause debugging. Use when tests fail, builds break, behav |
+
 ## deep
 
 **1 skills**
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [deep-research](skills/task-understanding-decomposition/deep-research) | task-understanding-decomposition | ★★★★★ | Generate format-controlled research reports with evidence tracking, citations, a |
+| [deep-research](skills/ai-workflow/deep-research) | ai-workflow | ★★★★★ | Generate format-controlled research reports with evidence tracking, citations, a |
 
 ## delivery
 
@@ -1718,7 +1857,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [finishing-a-development-branch](skills/task-understanding-decomposition/finishing-a-development-branch) | task-understanding-decomposition | ★★★★☆ | Use when implementation is complete, all tests pass, and you need to decide how  |
+| [finishing-a-development-branch](skills/ai-workflow/finishing-a-development-branch) | ai-workflow | ★★★★☆ | Use when implementation is complete, all tests pass, and you need to decide how  |
 
 ## demand
 
@@ -1743,6 +1882,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [dependency-auditor](skills/developer-engineering/dependency-auditor) | developer-engineering | ★★★★★ | > Skill Type: POWERFUL > Category: Engineering > Domain: Dependency Management & |
+
+## deprecation-and-migration
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [deprecation-and-migration](skills/ai-workflow/deprecation-and-migration) | ai-workflow | ★★★★★ | Manages deprecation and migration. Use when removing old systems, APIs, or featu |
 
 ## develop
 
@@ -1783,6 +1930,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [notion-research-documentation](skills/knowledge-and-pm-integrations/notion-research-documentation) | knowledge-and-pm-integrations | ★★★☆☆ | Research across Notion and synthesize into structured documentation; use when ga |
+
+## documentation-and-adrs
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [documentation-and-adrs](skills/ai-workflow/documentation-and-adrs) | ai-workflow | ★★★★★ | Records decisions and documentation. Use when making architectural decisions, ch |
 
 ## docx
 
@@ -1846,7 +2001,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [executing-plans](skills/task-understanding-decomposition/executing-plans) | task-understanding-decomposition | ★★★☆☆ | Use when you have a written implementation plan to execute in a separate session |
+| [executing-plans](skills/ai-workflow/executing-plans) | ai-workflow | ★★★☆☆ | Use when you have a written implementation plan to execute in a separate session |
 
 ## fact
 
@@ -1878,7 +2033,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [receiving-code-review](skills/task-understanding-decomposition/receiving-code-review) | task-understanding-decomposition | ★★★★☆ | Use when receiving code review feedback, before implementing suggestions, especi |
+| [receiving-code-review](skills/ai-workflow/receiving-code-review) | ai-workflow | ★★★★☆ | Use when receiving code review feedback, before implementing suggestions, especi |
 
 ## filing
 
@@ -1894,7 +2049,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [find-skills](skills/task-understanding-decomposition/find-skills) | task-understanding-decomposition | ★★★★☆ | 让 Agent 自动搜索并安装合适技能，解决不知道该用哪个技能的问题。 |
+| [find-skills](skills/ai-workflow/find-skills) | ai-workflow | ★★★★☆ | 让 Agent 自动搜索并安装合适技能，解决不知道该用哪个技能的问题。 |
 
 ## fix
 
@@ -1920,6 +2075,14 @@
 |-------|----------|---------|-------------|
 | [frontend-design](skills/developer-engineering/frontend-design) | developer-engineering | ★★☆☆☆ | Create distinctive, production-grade frontend interfaces with high design qualit |
 
+## frontend-ui-engineering
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [frontend-ui-engineering](skills/ai-workflow/frontend-ui-engineering) | ai-workflow | ★★★★★ | Builds production-quality UIs. Use when building or modifying user-facing interf |
+
 ## game
 
 **1 skills**
@@ -1943,6 +2106,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [slack-gif-creator](skills/operations-general/slack-gif-creator) | operations-general | ★★★★★ | Knowledge and utilities for creating animated GIFs optimized for Slack. Provides |
+
+## git-workflow-and-versioning
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [git-workflow-and-versioning](skills/ai-workflow/git-workflow-and-versioning) | ai-workflow | ★★★★★ | Structures git workflow practices. Use when making any code change. Use when com |
 
 ## gog
 
@@ -1982,7 +2153,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [agent-hub](skills/ai-agent-platform/agent-hub) | ai-agent-platform | ★★★★☆ | 用于多 Agent 系统编排、Agent 间通信协议设计与生命周期管理。来源：alirezarezvani/claude-skills POWERFUL tie |
+| [agent-hub](skills/ai-agent-platform/agent-hub) | ai-agent-platform | ★★★★☆ | Multi-agent collaboration plugin that spawns N parallel subagents competing on t |
 
 ## i18n
 
@@ -1991,6 +2162,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [i18n-expert](skills/developer-engineering/i18n-expert) | developer-engineering | ★★★★☆ | This skill should be used when setting up, auditing, or enforcing internationali |
+
+## idea-refine
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [idea-refine](skills/ai-workflow/idea-refine) | ai-workflow | ★★★★☆ | Refines ideas iteratively. Refine ideas through structured divergent and converg |
 
 ## imagegen
 
@@ -2031,6 +2210,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [incident-commander](skills/devops-sre/incident-commander) | devops-sre | ★★★★★ | Author: Claude Skills Team Version: 1.0.0 Last Updated: February 2026. |
+
+## incremental-implementation
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [incremental-implementation](skills/ai-workflow/incremental-implementation) | ai-workflow | ★★★★★ | Delivers changes incrementally. Use when implementing any feature or change that |
 
 ## input
 
@@ -2086,7 +2273,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [linear](skills/knowledge-and-pm-integrations/linear) | knowledge-and-pm-integrations | ★★★★☆ | Manage Linear issues, projects, and teams with an API-first workflow. Uses the G |
+| [linear](skills/knowledge-and-pm-integrations/linear) | knowledge-and-pm-integrations | ★★★★☆ | Manage Linear issues, projects, and teams via the GraphQL API. Create, update, s |
 
 ## jupyter
 
@@ -2126,7 +2313,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [landing-page-generator](skills/product-design/landing-page-generator) | product-design | ★★★★☆ | 用于快速生成高转化率落地页结构、文案框架和 TSX/Tailwind 代码脚手架。来源：alirezarezvani/claude-skills。 |
+| [landing-page-generator](skills/product-design/landing-page-generator) | product-design | ★★★★☆ | Generates high-converting landing pages as complete Next.js/React (TSX) componen |
 
 ## learn
 
@@ -2142,7 +2329,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [linear](skills/knowledge-and-pm-integrations/linear) | knowledge-and-pm-integrations | ★★★★☆ | Manage Linear issues, projects, and teams with an API-first workflow. Uses the G |
+| [linear](skills/knowledge-and-pm-integrations/linear) | knowledge-and-pm-integrations | ★★★★☆ | Manage Linear issues, projects, and teams via the GraphQL API. Create, update, s |
 
 ## link
 
@@ -2382,7 +2569,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [prompt-optimizer](skills/task-understanding-decomposition/prompt-optimizer) | task-understanding-decomposition | ★★★★☆ | Transform vague prompts into precise, well-structured specifications using EARS  |
+| [prompt-optimizer](skills/ai-workflow/prompt-optimizer) | ai-workflow | ★★★★☆ | Transform vague prompts into precise, well-structured specifications using EARS  |
 
 ## options
 
@@ -2414,7 +2601,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [landing-page-generator](skills/product-design/landing-page-generator) | product-design | ★★★★☆ | 用于快速生成高转化率落地页结构、文案框架和 TSX/Tailwind 代码脚手架。来源：alirezarezvani/claude-skills。 |
+| [landing-page-generator](skills/product-design/landing-page-generator) | product-design | ★★★★☆ | Generates high-converting landing pages as complete Next.js/React (TSX) componen |
 
 ## papers
 
@@ -2424,6 +2611,14 @@
 |-------|----------|---------|-------------|
 | [arxiv](skills/knowledge-and-pm-integrations/arxiv) | knowledge-and-pm-integrations | ★★★★☆ | Search and retrieve academic papers from arXiv using their free REST API. No API |
 
+## performance-optimization
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [performance-optimization](skills/ai-workflow/performance-optimization) | ai-workflow | ★★★★★ | Optimizes application performance. Use when performance requirements exist, when |
+
 ## pipeline
 
 **1 skills**
@@ -2431,6 +2626,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [ci-cd-pipeline-builder](skills/devops-sre/ci-cd-pipeline-builder) | devops-sre | ★★★★★ | Analyzes your project stack and generates production-ready CI/CD pipeline config |
+
+## planning-and-task-breakdown
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [planning-and-task-breakdown](skills/ai-workflow/planning-and-task-breakdown) | ai-workflow | ★★★★★ | Breaks work into ordered tasks. Use when you have a spec or clear requirements a |
 
 ## playwright
 
@@ -2502,7 +2705,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [using-superpowers](skills/task-understanding-decomposition/using-superpowers) | task-understanding-decomposition | ★★★★☆ | Use when starting any conversation - establishes how to find and use skills, req |
+| [using-superpowers](skills/ai-workflow/using-superpowers) | ai-workflow | ★★★★☆ | Use when starting any conversation - establishes how to find and use skills, req |
 
 ## profiler
 
@@ -2534,7 +2737,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [linear](skills/knowledge-and-pm-integrations/linear) | knowledge-and-pm-integrations | ★★★★☆ | Manage Linear issues, projects, and teams with an API-first workflow. Uses the G |
+| [linear](skills/knowledge-and-pm-integrations/linear) | knowledge-and-pm-integrations | ★★★★☆ | Manage Linear issues, projects, and teams via the GraphQL API. Create, update, s |
 
 ## project-workflow
 
@@ -2784,6 +2987,14 @@
 |-------|----------|---------|-------------|
 | [env-secrets-manager](skills/devops-sre/env-secrets-manager) | devops-sre | ★★★★★ | Complete environment and secrets management workflow: .env file lifecycle across |
 
+## security-and-hardening
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [security-and-hardening](skills/ai-workflow/security-and-hardening) | ai-workflow | ★★★★★ | Hardens code against vulnerabilities. Use when handling user input, authenticati |
+
 ## self
 
 **1 skills**
@@ -2824,6 +3035,14 @@
 |-------|----------|---------|-------------|
 | [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Complete guide to using and extending Hermes Agent — CLI usage, setup, configura |
 
+## shipping-and-launch
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [shipping-and-launch](skills/ai-workflow/shipping-and-launch) | ai-workflow | ★★★★★ | Prepares production launches. Use when preparing to deploy to production. Use wh |
+
 ## slack
 
 **1 skills**
@@ -2856,6 +3075,14 @@
 |-------|----------|---------|-------------|
 | [sora](skills/multimodal-media/sora) | multimodal-media | ★★★★☆ | Use when the user asks to generate, remix, poll, list, download, or delete Sora  |
 
+## source-driven-development
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [source-driven-development](skills/ai-workflow/source-driven-development) | ai-workflow | ★★★★☆ | Grounds every implementation decision in official documentation. Use when you wa |
+
 ## spawning
 
 **1 skills**
@@ -2871,6 +3098,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [notion-spec-to-implementation](skills/knowledge-and-pm-integrations/notion-spec-to-implementation) | knowledge-and-pm-integrations | ★★★☆☆ | Turn Notion specs into implementation plans, tasks, and progress tracking; use w |
+
+## spec-driven-development
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [spec-driven-development](skills/ai-workflow/spec-driven-development) | ai-workflow | ★★★★★ | Creates specs before coding. Use when starting a new project, feature, or signif |
 
 ## specialist
 
@@ -2926,7 +3161,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [subagent-driven-development](skills/task-understanding-decomposition/subagent-driven-development) | task-understanding-decomposition | ★★★☆☆ | Use when executing implementation plans with independent tasks in the current se |
+| [subagent-driven-development](skills/ai-workflow/subagent-driven-development) | ai-workflow | ★★★☆☆ | Use when executing implementation plans with independent tasks in the current se |
 
 ## suite
 
@@ -3024,6 +3259,22 @@
 |-------|----------|---------|-------------|
 | [terraform-engineer](skills/developer-engineering/terraform-engineer) | developer-engineering | ★★★★☆ | 用于 Terraform 基础设施即代码（IaC）设计、模块化管理和状态管理。来源：HashiCorp 官方 + skills.sh。 |
 
+## test
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [api-test-suite-builder](skills/developer-engineering/api-test-suite-builder) | developer-engineering | ★★★★★ | Scans API route definitions across frameworks (Next.js App Router, Express, Fast |
+
+## test-driven-development
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [test-driven-development](skills/ai-workflow/test-driven-development) | ai-workflow | ★★★★★ | Drives development with tests. Use when implementing any logic, fixing any bug,  |
+
 ## tester
 
 **1 skills**
@@ -3112,6 +3363,14 @@
 |-------|----------|---------|-------------|
 | [honcho](skills/openclaw-memory-and-safety/honcho) | openclaw-memory-and-safety | ★★★★☆ | Configure and use Honcho memory with Hermes -- cross-session user modeling, mult |
 
+## using-agent-skills
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [using-agent-skills](skills/ai-workflow/using-agent-skills) | ai-workflow | ★★★★☆ | Discovers and invokes agent skills. Use when starting a session or when you need |
+
 ## valuation
 
 **1 skills**
@@ -3134,7 +3393,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [verification-before-completion](skills/task-understanding-decomposition/verification-before-completion) | task-understanding-decomposition | ★★★★☆ | Use when about to claim work is complete, fixed, or passing, before committing o |
+| [verification-before-completion](skills/ai-workflow/verification-before-completion) | ai-workflow | ★★★★☆ | Use when about to claim work is complete, fixed, or passing, before committing o |
 
 ## vetter
 
@@ -3206,7 +3465,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [writing-plans](skills/task-understanding-decomposition/writing-plans) | task-understanding-decomposition | ★★★★☆ | Use when you have a spec or requirements for a multi-step task, before touching  |
+| [writing-plans](skills/ai-workflow/writing-plans) | ai-workflow | ★★★★☆ | Use when you have a spec or requirements for a multi-step task, before touching  |
 
 ## xlsx
 

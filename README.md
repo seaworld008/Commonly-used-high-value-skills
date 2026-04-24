@@ -5,9 +5,9 @@
 [![简体中文](https://img.shields.io/badge/README-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1677ff)](./README.md)
 [![English](https://img.shields.io/badge/README-English-111111)](./README.en.md)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b894)](./openclaw-skills/README.md)
-[![Skills](https://img.shields.io/badge/Skills-188-7c3aed)](./skills/)
+[![Skills](https://img.shields.io/badge/Skills-207-7c3aed)](./skills/)
 
-面向中文 AI 开发者的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理等高频任务场景。当前共 **15 个分类 / 188 个技能**。
+面向中文 AI 开发者的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理等高频任务场景。当前共 **16 个分类 / 207 个技能**。
 
 ## 为什么值得收藏
 
@@ -280,7 +280,7 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 2. 打开对应技能的 `SKILL.md` 查看触发条件、操作流程和脚本说明。
 3. 若技能下含 `scripts/`、`references/`、`assets/`，优先复用现成内容。
 
-## 技能总览（按分类，15 类 / 188 技能）
+## 技能总览（按分类，16 类 / 207 技能）
 
 <a id="cat-developer-engineering"></a>
 ### 1. 开发工程（developer-engineering，40）
@@ -507,7 +507,7 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 
 ## 建议补充的高热度技能（候选）
 
-以下技能是建议纳入下一批扩充的候选项，当前 **尚未** 在 `skills/` 目录中落地，因此 **不计入** 上方的 `15 类 / 188 技能` 统计。
+以下技能是建议纳入下一批扩充的候选项，当前 **尚未** 在 `skills/` 目录中落地，因此 **不计入** 上方的 `16 类 / 207 技能` 统计。
 
 如需继续扩充，建议下一批优先关注：
 

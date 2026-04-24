@@ -1,0 +1,366 @@
+{
+  "video": {
+    "url": "https://github.com/addyosmani/agent-skills",
+    "checked_at": "2026-04-24",
+    "note": "Curated full import of addyosmani/agent-skills; refresh with scripts/sync_addyosmani_agent_skills.py."
+  },
+  "official_references": [
+    {
+      "name": "addyosmani/agent-skills repository",
+      "url": "https://github.com/addyosmani/agent-skills",
+      "purpose": "Canonical upstream repository for the imported AI workflow skills."
+    },
+    {
+      "name": "Agent Skills getting started guide",
+      "url": "https://github.com/addyosmani/agent-skills/blob/main/docs/getting-started.md",
+      "purpose": "Installation and configuration guidance for multiple AI coding clients."
+    }
+  ],
+  "skills": [
+    {
+      "video_name": "api-and-interface-design",
+      "normalized_slug": "api-and-interface-design",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/ai-workflow/api-and-interface-design/SKILL.md",
+      "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/api-and-interface-design/SKILL.md",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "upstream": {
+        "repo": "addyosmani/agent-skills",
+        "path": "skills/api-and-interface-design/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-24",
+        "last_synced_at": "2026-04-24",
+        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+      }
+    },
+    {
+      "video_name": "browser-testing-with-devtools",
+      "normalized_slug": "browser-testing-with-devtools",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/ai-workflow/browser-testing-with-devtools/SKILL.md",
+      "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/browser-testing-with-devtools/SKILL.md",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "upstream": {
+        "repo": "addyosmani/agent-skills",
+        "path": "skills/browser-testing-with-devtools/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-24",
+        "last_synced_at": "2026-04-24",
+        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+      }
+    },
+    {
+      "video_name": "ci-cd-and-automation",
+      "normalized_slug": "ci-cd-and-automation",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/ai-workflow/ci-cd-and-automation/SKILL.md",
+      "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/ci-cd-and-automation/SKILL.md",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "upstream": {
+        "repo": "addyosmani/agent-skills",
+        "path": "skills/ci-cd-and-automation/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-24",
+        "last_synced_at": "2026-04-24",
+        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+      }
+    },
+    {
+      "video_name": "code-review-and-quality",
+      "normalized_slug": "code-review-and-quality",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/ai-workflow/code-review-and-quality/SKILL.md",
+      "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/code-review-and-quality/SKILL.md",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "upstream": {
+        "repo": "addyosmani/agent-skills",
+        "path": "skills/code-review-and-quality/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-24",
+        "last_synced_at": "2026-04-24",
+        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+      }
+    },
+    {
+      "video_name": "code-simplification",
+      "normalized_slug": "code-simplification",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/ai-workflow/code-simplification/SKILL.md",
+      "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/code-simplification/SKILL.md",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "upstream": {
+        "repo": "addyosmani/agent-skills",
+        "path": "skills/code-simplification/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-24",
+        "last_synced_at": "2026-04-24",
+        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+      }
+    },
+    {
+      "video_name": "context-engineering",
+      "normalized_slug": "context-engineering",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/ai-workflow/context-engineering/SKILL.md",
+      "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/context-engineering/SKILL.md",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "upstream": {
+        "repo": "addyosmani/agent-skills",
+        "path": "skills/context-engineering/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-24",
+        "last_synced_at": "2026-04-24",
+        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+      }
+    },
+    {
+      "video_name": "debugging-and-error-recovery",
+      "normalized_slug": "debugging-and-error-recovery",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/ai-workflow/debugging-and-error-recovery/SKILL.md",
+      "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/debugging-and-error-recovery/SKILL.md",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "upstream": {
+        "repo": "addyosmani/agent-skills",
+        "path": "skills/debugging-and-error-recovery/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-24",
+        "last_synced_at": "2026-04-24",
+        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+      }
+    },
+    {
+      "video_name": "deprecation-and-migration",
+      "normalized_slug": "deprecation-and-migration",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/ai-workflow/deprecation-and-migration/SKILL.md",
+      "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/deprecation-and-migration/SKILL.md",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "upstream": {
+        "repo": "addyosmani/agent-skills",
+        "path": "skills/deprecation-and-migration/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-24",
+        "last_synced_at": "2026-04-24",
+        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+      }
+    },
+    {
+      "video_name": "documentation-and-adrs",
+      "normalized_slug": "documentation-and-adrs",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/ai-workflow/documentation-and-adrs/SKILL.md",
+      "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/documentation-and-adrs/SKILL.md",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "upstream": {
+        "repo": "addyosmani/agent-skills",
+        "path": "skills/documentation-and-adrs/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-24",
+        "last_synced_at": "2026-04-24",
+        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+      }
+    },
+    {
+      "video_name": "frontend-ui-engineering",
+      "normalized_slug": "frontend-ui-engineering",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/ai-workflow/frontend-ui-engineering/SKILL.md",
+      "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/frontend-ui-engineering/SKILL.md",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "upstream": {
+        "repo": "addyosmani/agent-skills",
+        "path": "skills/frontend-ui-engineering/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-24",
+        "last_synced_at": "2026-04-24",
+        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+      }
+    },
+    {
+      "video_name": "git-workflow-and-versioning",
+      "normalized_slug": "git-workflow-and-versioning",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/ai-workflow/git-workflow-and-versioning/SKILL.md",
+      "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/git-workflow-and-versioning/SKILL.md",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "upstream": {
+        "repo": "addyosmani/agent-skills",
+        "path": "skills/git-workflow-and-versioning/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-24",
+        "last_synced_at": "2026-04-24",
+        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+      }
+    },
+    {
+      "video_name": "idea-refine",
+      "normalized_slug": "idea-refine",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/ai-workflow/idea-refine/SKILL.md",
+      "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/idea-refine/SKILL.md",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "upstream": {
+        "repo": "addyosmani/agent-skills",
+        "path": "skills/idea-refine/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-24",
+        "last_synced_at": "2026-04-24",
+        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+      }
+    },
+    {
+      "video_name": "incremental-implementation",
+      "normalized_slug": "incremental-implementation",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/ai-workflow/incremental-implementation/SKILL.md",
+      "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/incremental-implementation/SKILL.md",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "upstream": {
+        "repo": "addyosmani/agent-skills",
+        "path": "skills/incremental-implementation/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-24",
+        "last_synced_at": "2026-04-24",
+        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+      }
+    },
+    {
+      "video_name": "performance-optimization",
+      "normalized_slug": "performance-optimization",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/ai-workflow/performance-optimization/SKILL.md",
+      "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/performance-optimization/SKILL.md",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "upstream": {
+        "repo": "addyosmani/agent-skills",
+        "path": "skills/performance-optimization/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-24",
+        "last_synced_at": "2026-04-24",
+        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+      }
+    },
+    {
+      "video_name": "planning-and-task-breakdown",
+      "normalized_slug": "planning-and-task-breakdown",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/ai-workflow/planning-and-task-breakdown/SKILL.md",
+      "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/planning-and-task-breakdown/SKILL.md",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "upstream": {
+        "repo": "addyosmani/agent-skills",
+        "path": "skills/planning-and-task-breakdown/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-24",
+        "last_synced_at": "2026-04-24",
+        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+      }
+    },
+    {
+      "video_name": "security-and-hardening",
+      "normalized_slug": "security-and-hardening",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/ai-workflow/security-and-hardening/SKILL.md",
+      "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/security-and-hardening/SKILL.md",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "upstream": {
+        "repo": "addyosmani/agent-skills",
+        "path": "skills/security-and-hardening/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-24",
+        "last_synced_at": "2026-04-24",
+        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+      }
+    },
+    {
+      "video_name": "shipping-and-launch",
+      "normalized_slug": "shipping-and-launch",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/ai-workflow/shipping-and-launch/SKILL.md",
+      "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/shipping-and-launch/SKILL.md",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "upstream": {
+        "repo": "addyosmani/agent-skills",
+        "path": "skills/shipping-and-launch/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-24",
+        "last_synced_at": "2026-04-24",
+        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+      }
+    },
+    {
+      "video_name": "source-driven-development",
+      "normalized_slug": "source-driven-development",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/ai-workflow/source-driven-development/SKILL.md",
+      "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/source-driven-development/SKILL.md",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "upstream": {
+        "repo": "addyosmani/agent-skills",
+        "path": "skills/source-driven-development/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-24",
+        "last_synced_at": "2026-04-24",
+        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+      }
+    },
+    {
+      "video_name": "spec-driven-development",
+      "normalized_slug": "spec-driven-development",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/ai-workflow/spec-driven-development/SKILL.md",
+      "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/spec-driven-development/SKILL.md",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "upstream": {
+        "repo": "addyosmani/agent-skills",
+        "path": "skills/spec-driven-development/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-24",
+        "last_synced_at": "2026-04-24",
+        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+      }
+    },
+    {
+      "video_name": "test-driven-development",
+      "normalized_slug": "test-driven-development",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/ai-workflow/test-driven-development/SKILL.md",
+      "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/test-driven-development/SKILL.md",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "upstream": {
+        "repo": "addyosmani/agent-skills",
+        "path": "skills/test-driven-development/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-24",
+        "last_synced_at": "2026-04-24",
+        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+      }
+    },
+    {
+      "video_name": "using-agent-skills",
+      "normalized_slug": "using-agent-skills",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/ai-workflow/using-agent-skills/SKILL.md",
+      "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/using-agent-skills/SKILL.md",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "upstream": {
+        "repo": "addyosmani/agent-skills",
+        "path": "skills/using-agent-skills/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-24",
+        "last_synced_at": "2026-04-24",
+        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+      }
+    }
+  ],
+  "verification_attempts": [
+    {
+      "date": "2026-04-24",
+      "method": "git-clone-and-local-import",
+      "target": "https://github.com/addyosmani/agent-skills@1f66d57a5e1b041b11e49a8cdca275aa472f0131",
+      "result": "success",
+      "evidence": "Imported 21 upstream skills into skills/ai-workflow/."
+    }
+  ]
+}

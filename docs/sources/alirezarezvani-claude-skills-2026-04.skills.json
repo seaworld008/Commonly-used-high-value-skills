@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://github.com/alirezarezvani/claude-skills",
-    "checked_at": "2026-04-18",
+    "checked_at": "2026-04-24",
     "note": "Curated from alirezarezvani/claude-skills with upstream tracking enabled."
   },
   "official_references": [
@@ -23,8 +23,8 @@
         "repo": "alirezarezvani/claude-skills",
         "path": "engineering/agenthub/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-18",
-        "last_synced_at": "2026-04-18",
+        "last_checked_at": "2026-04-24",
+        "last_synced_at": "2026-04-24",
         "last_synced_commit": null
       }
     },
@@ -39,8 +39,8 @@
         "repo": "alirezarezvani/claude-skills",
         "path": "product-team/landing-page-generator/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-18",
-        "last_synced_at": "2026-04-18",
+        "last_checked_at": "2026-04-24",
+        "last_synced_at": "2026-04-24",
         "last_synced_commit": null
       }
     },
@@ -55,8 +55,8 @@
         "repo": "alirezarezvani/claude-skills",
         "path": "finance/saas-metrics-coach/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-18",
-        "last_synced_at": "2026-04-18",
+        "last_checked_at": "2026-04-24",
+        "last_synced_at": "2026-04-24",
         "last_synced_commit": null
       }
     },
@@ -71,8 +71,8 @@
         "repo": "alirezarezvani/claude-skills",
         "path": "engineering-team/senior-architect/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-18",
-        "last_synced_at": "2026-04-18",
+        "last_checked_at": "2026-04-24",
+        "last_synced_at": "2026-04-24",
         "last_synced_commit": null
       }
     },
@@ -87,8 +87,8 @@
         "repo": "alirezarezvani/claude-skills",
         "path": "engineering/skill-security-auditor/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-18",
-        "last_synced_at": "2026-04-18",
+        "last_checked_at": "2026-04-24",
+        "last_synced_at": "2026-04-24",
         "last_synced_commit": null
       }
     }

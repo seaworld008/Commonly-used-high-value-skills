@@ -81,9 +81,9 @@ def merge_existing_entry(existing: dict, *, name: str, rel: str, repo_url: str, 
 
     upstream = deepcopy(merged.get("upstream") or {})
     if status == "in_house":
-        upstream.setdefault("repo", "local-repo/in-house")
-        upstream.setdefault("path", rel.rsplit("/", 1)[0])
-        upstream.setdefault("ref", "main")
+        upstream["repo"] = "local-repo/in-house"
+        upstream["path"] = rel.rsplit("/", 1)[0]
+        upstream["ref"] = "main"
         upstream["last_checked_at"] = today
         upstream.setdefault("last_synced_at", today)
         upstream.setdefault("last_synced_commit", None)

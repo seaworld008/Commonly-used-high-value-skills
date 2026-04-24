@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://github.com/obra/superpowers",
-    "checked_at": "2026-04-18",
+    "checked_at": "2026-04-24",
     "note": "Curated from obra/superpowers after validating current upstream paths and recent popularity/discovery signals."
   },
   "official_references": [
@@ -41,7 +41,7 @@
       "video_name": "dispatching-parallel-agents",
       "normalized_slug": "dispatching-parallel-agents",
       "status": "verified_in_repo",
-      "repo_skill": "skills/task-understanding-decomposition/dispatching-parallel-agents/SKILL.md",
+      "repo_skill": "skills/ai-workflow/dispatching-parallel-agents/SKILL.md",
       "source": "https://github.com/obra/superpowers/blob/main/skills/dispatching-parallel-agents/SKILL.md",
       "notes": "Imported to complete the superpowers execution workflow for independent parallel subtasks.",
       "upstream": {
@@ -57,15 +57,15 @@
       "video_name": "executing-plans",
       "normalized_slug": "executing-plans",
       "status": "verified_in_repo",
-      "repo_skill": "skills/task-understanding-decomposition/executing-plans/SKILL.md",
+      "repo_skill": "skills/ai-workflow/executing-plans/SKILL.md",
       "source": "https://github.com/obra/superpowers/blob/main/skills/executing-plans/SKILL.md",
       "notes": "Imported to pair design docs and implementation plans with a disciplined execution workflow.",
       "upstream": {
         "repo": "obra/superpowers",
         "path": "skills/executing-plans/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-13",
-        "last_synced_at": "2026-04-13",
+        "last_checked_at": "2026-04-24",
+        "last_synced_at": "2026-04-24",
         "last_synced_commit": "3bdd66eaa5d74faee2d11c933b7a4bbe604c222e"
       }
     },
@@ -73,7 +73,7 @@
       "video_name": "finishing-a-development-branch",
       "normalized_slug": "finishing-a-development-branch",
       "status": "verified_in_repo",
-      "repo_skill": "skills/task-understanding-decomposition/finishing-a-development-branch/SKILL.md",
+      "repo_skill": "skills/ai-workflow/finishing-a-development-branch/SKILL.md",
       "source": "https://github.com/obra/superpowers/blob/main/skills/finishing-a-development-branch/SKILL.md",
       "notes": "Imported to formalize the endgame for feature branches after implementation and verification.",
       "upstream": {
@@ -89,7 +89,7 @@
       "video_name": "receiving-code-review",
       "normalized_slug": "receiving-code-review",
       "status": "verified_in_repo",
-      "repo_skill": "skills/task-understanding-decomposition/receiving-code-review/SKILL.md",
+      "repo_skill": "skills/ai-workflow/receiving-code-review/SKILL.md",
       "source": "https://skills.sh/obra/superpowers/receiving-code-review",
       "notes": "Imported to help teams evaluate review comments rigorously instead of applying them blindly.",
       "upstream": {
@@ -105,7 +105,7 @@
       "video_name": "requesting-code-review",
       "normalized_slug": "requesting-code-review",
       "status": "verified_in_repo",
-      "repo_skill": "skills/task-understanding-decomposition/requesting-code-review/SKILL.md",
+      "repo_skill": "skills/ai-workflow/requesting-code-review/SKILL.md",
       "source": "https://skills.sh/obra/superpowers/requesting-code-review",
       "notes": "Imported to strengthen the repository's review-request workflow coverage before merge or milestone handoff.",
       "upstream": {
@@ -121,7 +121,7 @@
       "video_name": "subagent-driven-development",
       "normalized_slug": "subagent-driven-development",
       "status": "verified_in_repo",
-      "repo_skill": "skills/task-understanding-decomposition/subagent-driven-development/SKILL.md",
+      "repo_skill": "skills/ai-workflow/subagent-driven-development/SKILL.md",
       "source": "https://skills.sh/obra/superpowers/subagent-driven-development",
       "notes": "Reconciled from SKILL.md source declaration; upstream tracking enabled.",
       "upstream": {
@@ -150,26 +150,10 @@
       }
     },
     {
-      "video_name": "test-driven-development",
-      "normalized_slug": "test-driven-development",
-      "status": "verified_in_repo",
-      "repo_skill": "skills/developer-engineering/test-driven-development/SKILL.md",
-      "source": "https://skills.sh/obra/superpowers/test-driven-development",
-      "notes": "Reconciled from SKILL.md source declaration; upstream tracking enabled.",
-      "upstream": {
-        "repo": "obra/superpowers",
-        "path": "skills/test-driven-development/SKILL.md",
-        "ref": "main",
-        "last_checked_at": "2026-04-18",
-        "last_synced_at": "2026-04-18",
-        "last_synced_commit": null
-      }
-    },
-    {
       "video_name": "using-git-worktrees",
       "normalized_slug": "using-git-worktrees",
       "status": "verified_in_repo",
-      "repo_skill": "skills/task-understanding-decomposition/using-git-worktrees/SKILL.md",
+      "repo_skill": "skills/ai-workflow/using-git-worktrees/SKILL.md",
       "source": "https://github.com/obra/superpowers/blob/main/skills/using-git-worktrees/SKILL.md",
       "notes": "Imported to support isolated multi-stream development when current worktrees are busy or dirty.",
       "upstream": {
@@ -185,15 +169,15 @@
       "video_name": "using-superpowers",
       "normalized_slug": "using-superpowers",
       "status": "verified_in_repo",
-      "repo_skill": "skills/task-understanding-decomposition/using-superpowers/SKILL.md",
+      "repo_skill": "skills/ai-workflow/using-superpowers/SKILL.md",
       "source": "https://github.com/obra/superpowers/blob/main/skills/using-superpowers/SKILL.md",
       "notes": "Imported as the umbrella process skill that forces proper skill discovery before action.",
       "upstream": {
         "repo": "obra/superpowers",
         "path": "skills/using-superpowers/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-13",
-        "last_synced_at": "2026-04-13",
+        "last_checked_at": "2026-04-24",
+        "last_synced_at": "2026-04-24",
         "last_synced_commit": "8b1669269c51835168c98fd435a7af1e5f15ec12"
       }
     },
@@ -201,7 +185,7 @@
       "video_name": "verification-before-completion",
       "normalized_slug": "verification-before-completion",
       "status": "verified_in_repo",
-      "repo_skill": "skills/task-understanding-decomposition/verification-before-completion/SKILL.md",
+      "repo_skill": "skills/ai-workflow/verification-before-completion/SKILL.md",
       "source": "https://skills.sh/obra/superpowers/verification-before-completion",
       "notes": "Imported to enforce evidence-first completion claims before commit, PR, or handoff.",
       "upstream": {
@@ -217,7 +201,7 @@
       "video_name": "writing-skills",
       "normalized_slug": "writing-skills",
       "status": "verified_in_repo",
-      "repo_skill": "skills/task-understanding-decomposition/writing-skills/SKILL.md",
+      "repo_skill": "skills/ai-workflow/writing-skills/SKILL.md",
       "source": "https://github.com/obra/superpowers/blob/main/skills/writing-skills/SKILL.md",
       "notes": "Imported to strengthen authoring, packaging, and validation guidance for new skills in this repository.",
       "upstream": {

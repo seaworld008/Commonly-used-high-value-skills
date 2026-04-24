@@ -1,13 +1,13 @@
 ---
 name: arxiv
 description: 'Search and retrieve academic papers from arXiv using their free REST API. No API key needed. Search by keyword, author, category, or ID. Combine with web_extract or the ocr-and-documents skill to read full paper content.'
-version: 1.0.0
+version: "1.0.1"
 author: Hermes Agent
 source: "in-house"
 source_url: ""
 tags: '[Research, Arxiv, Papers, Academic, Science, API]'
 created_at: "2026-04-13"
-updated_at: "2026-04-13"
+updated_at: "2026-04-24"
 quality: 4
 complexity: "intermediate"
 license: MIT
@@ -19,27 +19,6 @@ related_skills: '[ocr-and-documents]'
 # arXiv Research
 
 Search and retrieve academic papers from arXiv via their free REST API. No API key, no dependencies — just curl.
-
-## When to Use
-
-Use this skill when the user wants to:
-
-- search arXiv by topic, author, category, or paper ID
-- pull abstracts, PDF links, or BibTeX-style metadata
-- build a paper shortlist before deeper reading
-- combine lightweight paper discovery with a later reading or synthesis workflow
-
-## Usage
-
-Recommended flow:
-
-```text
-search papers
--> shortlist candidates
--> inspect metadata and citations
--> fetch abstract or full PDF
--> carry best papers into a deeper research workflow
-```
 
 ## Quick Reference
 
@@ -247,10 +226,12 @@ curl -s "https://api.semanticscholar.org/graph/v1/paper/arXiv:2402.03300/referen
 curl -s "https://api.semanticscholar.org/graph/v1/paper/search?query=GRPO+reinforcement+learning&limit=5&fields=title,authors,year,citationCount,externalIds" | python3 -m json.tool
 ```
 
-### Get richer paper metadata (practical alternative to the deprecated recommendations endpoint)
+### Get paper recommendations
 
 ```bash
-curl -s "https://api.semanticscholar.org/graph/v1/paper/arXiv:2402.03300?fields=title,authors,year,referenceCount,citationCount,influentialCitationCount" | python3 -m json.tool
+curl -s -X POST "https://api.semanticscholar.org/recommendations/v1/papers/" \
+  -H "Content-Type: application/json" \
+  -d '{"positivePaperIds": ["arXiv:2402.03300"], "negativePaperIds": []}' | python3 -m json.tool
 ```
 
 ### Author profile

@@ -45,6 +45,7 @@ CATEGORY_TAGS = {
     "growth-operations-xiaohongshu": ["marketing", "growth"],
     "security-and-reliability": ["security"],
     "ai-agent-platform": ["ai", "agent"],
+    "ai-workflow": ["ai", "agent", "workflow"],
     "product-design": ["product", "design"],
     "operations-general": ["productivity"],
     "task-understanding-decomposition": ["planning", "workflow"],
