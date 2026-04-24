@@ -355,24 +355,24 @@
 | [tech-debt-tracker](skills/developer-engineering/tech-debt-tracker) | developer-engineering | ★★★★★ | Tier: POWERFUL 🔥 Category: Engineering Process Automation Expertise: Code Qualit |
 | [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Complete guide to using and extending Hermes Agent — CLI usage, setup, configura |
 | [aws-solution-architect](skills/developer-engineering/aws-solution-architect) | developer-engineering | ★★★★☆ | 用于 AWS 云架构设计、服务选型、成本优化与 Well-Architected Framework 评估。来源：alirezarezvani/claude-s |
-| [context-engineering](skills/developer-engineering/context-engineering) | developer-engineering | ★★★★☆ | 用于 AI 编码助手的上下文优化、Prompt 结构设计和指令冲突防御。来源：全网高频推荐的元技能。 |
+| [context-engineering](skills/developer-engineering/context-engineering) | developer-engineering | ★★★★☆ | 用于 AI 编码助手的上下文优化、Prompt 结构设计和指令冲突防御。仓库整理版，吸收社区高频最佳实践。 |
 | [docker-expert](skills/developer-engineering/docker-expert) | developer-engineering | ★★★★☆ | 用于 Docker 容器化最佳实践、多阶段构建优化与 Docker Compose 编排。来源：skills.sh 8.7K installs。 |
 | [git-worktree-manager](skills/developer-engineering/git-worktree-manager) | developer-engineering | ★★★★☆ | The Git Worktree Manager skill provides systematic management of Git worktrees f |
-| [graphql-expert](skills/developer-engineering/graphql-expert) | developer-engineering | ★★★★☆ | 用于 GraphQL API 设计、查询优化、Schema 管理和安全最佳实践。来源：全网高频推荐。 |
+| [graphql-expert](skills/developer-engineering/graphql-expert) | developer-engineering | ★★★★☆ | 用于 GraphQL API 设计、查询优化、Schema 管理和安全最佳实践。仓库整理版，吸收社区高频最佳实践。 |
 | [i18n-expert](skills/developer-engineering/i18n-expert) | developer-engineering | ★★★★☆ | This skill should be used when setting up, auditing, or enforcing internationali |
 | [kubernetes-specialist](skills/developer-engineering/kubernetes-specialist) | developer-engineering | ★★★★☆ | 用于 Kubernetes 集群管理、部署编排、Pod 调试与 Helm Chart 设计。来源：skills.sh 5K+ installs。 |
 | [nextjs-app-router](skills/developer-engineering/nextjs-app-router) | developer-engineering | ★★★★☆ | 用于 Next.js App Router 模式开发，包含 RSC、Server Actions 和路由最佳实践。来源：skills.sh 10.2K inst |
 | [python-performance](skills/developer-engineering/python-performance) | developer-engineering | ★★★★☆ | 用于 Python 性能优化、内存分析和并发编程最佳实践。来源：skills.sh 12.8K installs。 |
 | [rust-engineer](skills/developer-engineering/rust-engineer) | developer-engineering | ★★★★☆ | 用于 Rust 语言开发最佳实践、异步编程和系统级编程指导。来源：skills.sh 1.5K+ installs。 |
 | [supabase-postgres](skills/developer-engineering/supabase-postgres) | developer-engineering | ★★★★☆ | 用于 Supabase 平台开发与 PostgreSQL 最佳实践，包含 RLS、Edge Functions 和实时订阅。来源：supabase 官方 52. |
-| [systematic-debugging](skills/developer-engineering/systematic-debugging) | developer-engineering | ★★★★☆ | 用于系统化调试方法论，包含根因分析、最小复现和防御性编程。来源：obra/superpowers。 |
+| [systematic-debugging](skills/developer-engineering/systematic-debugging) | developer-engineering | ★★★★☆ | Use when encountering any bug, test failure, or unexpected behavior, before prop |
 | [tailwind-design-system](skills/developer-engineering/tailwind-design-system) | developer-engineering | ★★★★☆ | 用于 Tailwind CSS 设计系统搭建、组件库开发与主题定制。来源：skills.sh 24.7K installs。 |
 | [terraform-engineer](skills/developer-engineering/terraform-engineer) | developer-engineering | ★★★★☆ | 用于 Terraform 基础设施即代码（IaC）设计、模块化管理和状态管理。来源：HashiCorp 官方 + skills.sh。 |
-| [test-driven-development](skills/developer-engineering/test-driven-development) | developer-engineering | ★★★★☆ | 用于 TDD 红绿重构循环、测试策略制定和测试反模式规避。来源：obra/superpowers。 |
-| [typescript-best-practices](skills/developer-engineering/typescript-best-practices) | developer-engineering | ★★★★☆ | 用于 TypeScript 高级类型编程、类型安全设计和常见反模式避免。来源：全网高频推荐。 |
+| [test-driven-development](skills/developer-engineering/test-driven-development) | developer-engineering | ★★★★☆ | Use when implementing any feature or bugfix, before writing implementation code |
+| [typescript-best-practices](skills/developer-engineering/typescript-best-practices) | developer-engineering | ★★★★☆ | 用于 TypeScript 高级类型编程、类型安全设计和常见反模式避免。仓库整理版，吸收社区高频最佳实践。 |
 | [web-artifacts-builder](skills/developer-engineering/web-artifacts-builder) | developer-engineering | ★★★☆☆ | Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts  |
 | [webapp-testing](skills/developer-engineering/webapp-testing) | developer-engineering | ★★★☆☆ | Toolkit for interacting with and testing local web applications using Playwright |
-| [subagent-driven-development](skills/task-understanding-decomposition/subagent-driven-development) | task-understanding-decomposition | ★★★☆☆ | 用于多子 Agent 并行开发编排，包含任务分派、两阶段审查和自动化质量门控。来源：obra/superpowers。 |
+| [subagent-driven-development](skills/task-understanding-decomposition/subagent-driven-development) | task-understanding-decomposition | ★★★☆☆ | Use when executing implementation plans with independent tasks in the current se |
 | [frontend-design](skills/developer-engineering/frontend-design) | developer-engineering | ★★☆☆☆ | Create distinctive, production-grade frontend interfaces with high design qualit |
 
 ## workflow
@@ -390,7 +390,7 @@
 | [skill-reviewer](skills/task-understanding-decomposition/skill-reviewer) | task-understanding-decomposition | ★★★★★ | Reviews and improves Claude Code skills against official best practices. Support |
 | [jupyter-notebook](skills/engineering-workflow-automation/jupyter-notebook) | engineering-workflow-automation | ★★★★☆ | Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) |
 | [playwright](skills/engineering-workflow-automation/playwright) | engineering-workflow-automation | ★★★★☆ | Use when the task requires automating a real browser from the terminal (navigati |
-| [web-scraper](skills/engineering-workflow-automation/web-scraper) | engineering-workflow-automation | ★★★★☆ | 用于网页数据抓取、结构化提取和反爬策略应对。来源：全网高频推荐。 |
+| [web-scraper](skills/engineering-workflow-automation/web-scraper) | engineering-workflow-automation | ★★★★☆ | 用于网页数据抓取、结构化提取和反爬策略应对。仓库整理版，吸收社区高频最佳实践。 |
 | [dispatching-parallel-agents](skills/task-understanding-decomposition/dispatching-parallel-agents) | task-understanding-decomposition | ★★★★☆ | Use when facing 2+ independent tasks that can be worked on without shared state  |
 | [find-skills](skills/task-understanding-decomposition/find-skills) | task-understanding-decomposition | ★★★★☆ | 让 Agent 自动搜索并安装合适技能，解决不知道该用哪个技能的问题。 |
 | [finishing-a-development-branch](skills/task-understanding-decomposition/finishing-a-development-branch) | task-understanding-decomposition | ★★★★☆ | Use when implementation is complete, all tests pass, and you need to decide how  |
@@ -406,7 +406,7 @@
 | [gh-fix-ci](skills/engineering-workflow-automation/gh-fix-ci) | engineering-workflow-automation | ★★★☆☆ | Use when a user asks to debug or fix failing GitHub PR checks that run in GitHub |
 | [brainstorming](skills/task-understanding-decomposition/brainstorming) | task-understanding-decomposition | ★★★☆☆ | You MUST use this before any creative work - creating features, building compone |
 | [executing-plans](skills/task-understanding-decomposition/executing-plans) | task-understanding-decomposition | ★★★☆☆ | Use when you have a written implementation plan to execute in a separate session |
-| [subagent-driven-development](skills/task-understanding-decomposition/subagent-driven-development) | task-understanding-decomposition | ★★★☆☆ | 用于多子 Agent 并行开发编排，包含任务分派、两阶段审查和自动化质量门控。来源：obra/superpowers。 |
+| [subagent-driven-development](skills/task-understanding-decomposition/subagent-driven-development) | task-understanding-decomposition | ★★★☆☆ | Use when executing implementation plans with independent tasks in the current se |
 | [agent-browser](skills/engineering-workflow-automation/agent-browser) | engineering-workflow-automation | ★★☆☆☆ | 为 Agent 提供真实浏览器自动化能力，支持语义定位、表单交互、截图录屏、脚本执行与会话管理。 |
 | [gh-address-comments](skills/engineering-workflow-automation/gh-address-comments) | engineering-workflow-automation | ★★☆☆☆ | Help address review/issue comments on the open GitHub PR for the current branch  |
 | [github](skills/engineering-workflow-automation/github) | engineering-workflow-automation | ★★☆☆☆ | 通过 GitHub CLI 自动化 Issue、PR、Review 与 CI 检查，适合工程协作闭环。 |
@@ -432,7 +432,7 @@
 | [skills-search](skills/task-understanding-decomposition/skills-search) | task-understanding-decomposition | ★★★★☆ | This skill should be used when users want to search, discover, install, or manag |
 | [writing-plans](skills/task-understanding-decomposition/writing-plans) | task-understanding-decomposition | ★★★★☆ | Use when you have a spec or requirements for a multi-step task, before touching  |
 | [brainstorming](skills/task-understanding-decomposition/brainstorming) | task-understanding-decomposition | ★★★☆☆ | You MUST use this before any creative work - creating features, building compone |
-| [subagent-driven-development](skills/task-understanding-decomposition/subagent-driven-development) | task-understanding-decomposition | ★★★☆☆ | 用于多子 Agent 并行开发编排，包含任务分派、两阶段审查和自动化质量门控。来源：obra/superpowers。 |
+| [subagent-driven-development](skills/task-understanding-decomposition/subagent-driven-development) | task-understanding-decomposition | ★★★☆☆ | Use when executing implementation plans with independent tasks in the current se |
 | [tavily-search](skills/task-understanding-decomposition/tavily-search) | task-understanding-decomposition | ★★☆☆☆ | 提供实时联网检索能力，帮助 Agent 获取最新资讯、数据与来源证据。 |
 
 ## design
@@ -486,7 +486,7 @@
 | [interview-system-designer](skills/operations-general/interview-system-designer) | operations-general | ★★★★★ | This skill should be used when the user asks to "design interview processes", "c |
 | [slack-gif-creator](skills/operations-general/slack-gif-creator) | operations-general | ★★★★★ | Knowledge and utilities for creating animated GIFs optimized for Slack. Provides |
 | [linear](skills/knowledge-and-pm-integrations/linear) | knowledge-and-pm-integrations | ★★★★☆ | Manage Linear issues, projects, and teams with an API-first workflow. Uses the G |
-| [confidence-check](skills/operations-general/confidence-check) | operations-general | ★★★★☆ | 用于结构化自我审查，验证假设、识别不确定性和减少幻觉输出。来源：全网高频推荐的可靠性技能。 |
+| [confidence-check](skills/operations-general/confidence-check) | operations-general | ★★★★☆ | 用于结构化自我审查，验证假设、识别不确定性和减少幻觉输出。仓库整理版，吸收社区高频最佳实践。 |
 | [teams-channel-post-writer](skills/operations-general/teams-channel-post-writer) | operations-general | ★★★★☆ | Creates educational Teams channel posts for internal knowledge sharing about Cla |
 | [brand-guidelines](skills/operations-general/brand-guidelines) | operations-general | ★★★☆☆ | Applies Anthropic''s official brand colors and typography to any sort of artifac |
 | [docs-cleaner](skills/operations-general/docs-cleaner) | operations-general | ★★★☆☆ | Consolidates redundant documentation while preserving all valuable content. This |
@@ -528,7 +528,7 @@
 | [marketing-strategy-pmm](skills/growth-operations-xiaohongshu/marketing-strategy-pmm) | growth-operations-xiaohongshu | ★★★★★ | Product marketing skill for positioning, GTM strategy, competitive intelligence, |
 | [prompt-engineer-toolkit](skills/growth-operations-xiaohongshu/prompt-engineer-toolkit) | growth-operations-xiaohongshu | ★★★★★ | Systematic prompt engineering from first principles. Build, test, version, and o |
 | [social-media-analyzer](skills/growth-operations-xiaohongshu/social-media-analyzer) | growth-operations-xiaohongshu | ★★★★★ | Social media campaign analysis and performance tracking. Calculates engagement r |
-| [seo-audit](skills/growth-operations-xiaohongshu/seo-audit) | growth-operations-xiaohongshu | ★★★★☆ | 用于网站 SEO 全面审计、On-page 优化建议和技术 SEO 检查清单生成。来源：全网高频推荐。 |
+| [seo-audit](skills/growth-operations-xiaohongshu/seo-audit) | growth-operations-xiaohongshu | ★★★★☆ | 用于网站 SEO 全面审计、On-page 优化建议和技术 SEO 检查清单生成。仓库整理版，吸收社区高频最佳实践。 |
 | [twitter-reader](skills/growth-operations-xiaohongshu/twitter-reader) | growth-operations-xiaohongshu | ★★★☆☆ | Fetch Twitter/X post content by URL using jina.ai API to bypass JavaScript restr |
 
 ## marketing
@@ -546,7 +546,7 @@
 | [marketing-strategy-pmm](skills/growth-operations-xiaohongshu/marketing-strategy-pmm) | growth-operations-xiaohongshu | ★★★★★ | Product marketing skill for positioning, GTM strategy, competitive intelligence, |
 | [prompt-engineer-toolkit](skills/growth-operations-xiaohongshu/prompt-engineer-toolkit) | growth-operations-xiaohongshu | ★★★★★ | Systematic prompt engineering from first principles. Build, test, version, and o |
 | [social-media-analyzer](skills/growth-operations-xiaohongshu/social-media-analyzer) | growth-operations-xiaohongshu | ★★★★★ | Social media campaign analysis and performance tracking. Calculates engagement r |
-| [seo-audit](skills/growth-operations-xiaohongshu/seo-audit) | growth-operations-xiaohongshu | ★★★★☆ | 用于网站 SEO 全面审计、On-page 优化建议和技术 SEO 检查清单生成。来源：全网高频推荐。 |
+| [seo-audit](skills/growth-operations-xiaohongshu/seo-audit) | growth-operations-xiaohongshu | ★★★★☆ | 用于网站 SEO 全面审计、On-page 优化建议和技术 SEO 检查清单生成。仓库整理版，吸收社区高频最佳实践。 |
 | [twitter-reader](skills/growth-operations-xiaohongshu/twitter-reader) | growth-operations-xiaohongshu | ★★★☆☆ | Fetch Twitter/X post content by URL using jina.ai API to bypass JavaScript restr |
 
 ## devops
@@ -609,7 +609,7 @@
 | [excel-automation](skills/office-white-collar/excel-automation) | office-white-collar | ★★★★★ | Create, parse, and control Excel files on macOS. Professional formatting with op |
 | [jupyter-notebook](skills/engineering-workflow-automation/jupyter-notebook) | engineering-workflow-automation | ★★★★☆ | Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) |
 | [playwright](skills/engineering-workflow-automation/playwright) | engineering-workflow-automation | ★★★★☆ | Use when the task requires automating a real browser from the terminal (navigati |
-| [web-scraper](skills/engineering-workflow-automation/web-scraper) | engineering-workflow-automation | ★★★★☆ | 用于网页数据抓取、结构化提取和反爬策略应对。来源：全网高频推荐。 |
+| [web-scraper](skills/engineering-workflow-automation/web-scraper) | engineering-workflow-automation | ★★★★☆ | 用于网页数据抓取、结构化提取和反爬策略应对。仓库整理版，吸收社区高频最佳实践。 |
 | [gh-fix-ci](skills/engineering-workflow-automation/gh-fix-ci) | engineering-workflow-automation | ★★★☆☆ | Use when a user asks to debug or fix failing GitHub PR checks that run in GitHub |
 | [agent-browser](skills/engineering-workflow-automation/agent-browser) | engineering-workflow-automation | ★★☆☆☆ | 为 Agent 提供真实浏览器自动化能力，支持语义定位、表单交互、截图录屏、脚本执行与会话管理。 |
 | [gh-address-comments](skills/engineering-workflow-automation/gh-address-comments) | engineering-workflow-automation | ★★☆☆☆ | Help address review/issue comments on the open GitHub PR for the current branch  |
@@ -692,7 +692,7 @@
 | [pr-review-expert](skills/developer-engineering/pr-review-expert) | developer-engineering | ★★★★★ | Structured, systematic code review for GitHub PRs and GitLab MRs. Goes beyond st |
 | [qa-expert](skills/developer-engineering/qa-expert) | developer-engineering | ★★★★★ | This skill should be used when establishing comprehensive QA testing processes f |
 | [docker-expert](skills/developer-engineering/docker-expert) | developer-engineering | ★★★★☆ | 用于 Docker 容器化最佳实践、多阶段构建优化与 Docker Compose 编排。来源：skills.sh 8.7K installs。 |
-| [graphql-expert](skills/developer-engineering/graphql-expert) | developer-engineering | ★★★★☆ | 用于 GraphQL API 设计、查询优化、Schema 管理和安全最佳实践。来源：全网高频推荐。 |
+| [graphql-expert](skills/developer-engineering/graphql-expert) | developer-engineering | ★★★★☆ | 用于 GraphQL API 设计、查询优化、Schema 管理和安全最佳实践。仓库整理版，吸收社区高频最佳实践。 |
 | [i18n-expert](skills/developer-engineering/i18n-expert) | developer-engineering | ★★★★☆ | This skill should be used when setting up, auditing, or enforcing internationali |
 
 ## manager
@@ -892,7 +892,7 @@
 |-------|----------|---------|-------------|
 | [debugging-strategies](skills/developer-engineering/debugging-strategies) | developer-engineering | ★★★★☆ | Master systematic debugging techniques, profiling tools, and root cause analysis |
 | [parallel-debugging](skills/developer-engineering/parallel-debugging) | developer-engineering | ★★★★☆ | Debug complex issues using competing hypotheses with parallel investigation, evi |
-| [systematic-debugging](skills/developer-engineering/systematic-debugging) | developer-engineering | ★★★★☆ | 用于系统化调试方法论，包含根因分析、最小复现和防御性编程。来源：obra/superpowers。 |
+| [systematic-debugging](skills/developer-engineering/systematic-debugging) | developer-engineering | ★★★★☆ | Use when encountering any bug, test failure, or unexpected behavior, before prop |
 
 ## driven
 
@@ -900,8 +900,8 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [test-driven-development](skills/developer-engineering/test-driven-development) | developer-engineering | ★★★★☆ | 用于 TDD 红绿重构循环、测试策略制定和测试反模式规避。来源：obra/superpowers。 |
-| [subagent-driven-development](skills/task-understanding-decomposition/subagent-driven-development) | task-understanding-decomposition | ★★★☆☆ | 用于多子 Agent 并行开发编排，包含任务分派、两阶段审查和自动化质量门控。来源：obra/superpowers。 |
+| [test-driven-development](skills/developer-engineering/test-driven-development) | developer-engineering | ★★★★☆ | Use when implementing any feature or bugfix, before writing implementation code |
+| [subagent-driven-development](skills/task-understanding-decomposition/subagent-driven-development) | task-understanding-decomposition | ★★★☆☆ | Use when executing implementation plans with independent tasks in the current se |
 | [event-driven-tracker](skills/finance-investing/event-driven-tracker) | finance-investing | ★★☆☆☆ | Use when tracking earnings, product launches, M&A, dividends, buybacks, unlocks, |
 
 ## engineer
@@ -961,7 +961,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [develop-web-game](skills/ai-agent-platform/develop-web-game) | ai-agent-platform | ★★★★☆ | Use when Codex is building or iterating on a web game (HTML/JS) and needs a reli |
-| [web-scraper](skills/engineering-workflow-automation/web-scraper) | engineering-workflow-automation | ★★★★☆ | 用于网页数据抓取、结构化提取和反爬策略应对。来源：全网高频推荐。 |
+| [web-scraper](skills/engineering-workflow-automation/web-scraper) | engineering-workflow-automation | ★★★★☆ | 用于网页数据抓取、结构化提取和反爬策略应对。仓库整理版，吸收社区高频最佳实践。 |
 | [web-artifacts-builder](skills/developer-engineering/web-artifacts-builder) | developer-engineering | ★★★☆☆ | Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts  |
 
 ## analysis
@@ -1015,7 +1015,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [typescript-best-practices](skills/developer-engineering/typescript-best-practices) | developer-engineering | ★★★★☆ | 用于 TypeScript 高级类型编程、类型安全设计和常见反模式避免。来源：全网高频推荐。 |
+| [typescript-best-practices](skills/developer-engineering/typescript-best-practices) | developer-engineering | ★★★★☆ | 用于 TypeScript 高级类型编程、类型安全设计和常见反模式避免。仓库整理版，吸收社区高频最佳实践。 |
 | [security-best-practices](skills/security-and-reliability/security-best-practices) | security-and-reliability | ★★★☆☆ | Perform language and framework specific security best-practice reviews and sugge |
 
 ## brownfield
@@ -1097,7 +1097,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [code-review-excellence](skills/developer-engineering/code-review-excellence) | developer-engineering | ★★★★☆ | Master effective code review practices to provide constructive feedback, catch b |
-| [context-engineering](skills/developer-engineering/context-engineering) | developer-engineering | ★★★★☆ | 用于 AI 编码助手的上下文优化、Prompt 结构设计和指令冲突防御。来源：全网高频推荐的元技能。 |
+| [context-engineering](skills/developer-engineering/context-engineering) | developer-engineering | ★★★★☆ | 用于 AI 编码助手的上下文优化、Prompt 结构设计和指令冲突防御。仓库整理版，吸收社区高频最佳实践。 |
 
 ## figma
 
@@ -1123,7 +1123,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [graphql-expert](skills/developer-engineering/graphql-expert) | developer-engineering | ★★★★☆ | 用于 GraphQL API 设计、查询优化、Schema 管理和安全最佳实践。来源：全网高频推荐。 |
+| [graphql-expert](skills/developer-engineering/graphql-expert) | developer-engineering | ★★★★☆ | 用于 GraphQL API 设计、查询优化、Schema 管理和安全最佳实践。仓库整理版，吸收社区高频最佳实践。 |
 | [linear](skills/knowledge-and-pm-integrations/linear) | knowledge-and-pm-integrations | ★★★★☆ | Manage Linear issues, projects, and teams with an API-first workflow. Uses the G |
 
 ## integrations
@@ -1222,7 +1222,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [typescript-best-practices](skills/developer-engineering/typescript-best-practices) | developer-engineering | ★★★★☆ | 用于 TypeScript 高级类型编程、类型安全设计和常见反模式避免。来源：全网高频推荐。 |
+| [typescript-best-practices](skills/developer-engineering/typescript-best-practices) | developer-engineering | ★★★★☆ | 用于 TypeScript 高级类型编程、类型安全设计和常见反模式避免。仓库整理版，吸收社区高频最佳实践。 |
 | [security-best-practices](skills/security-and-reliability/security-best-practices) | security-and-reliability | ★★★☆☆ | Perform language and framework specific security best-practice reviews and sugge |
 
 ## prompt
@@ -1295,7 +1295,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [api-test-suite-builder](skills/developer-engineering/api-test-suite-builder) | developer-engineering | ★★★★★ | Scans API route definitions across frameworks (Next.js App Router, Express, Fast |
-| [test-driven-development](skills/developer-engineering/test-driven-development) | developer-engineering | ★★★★☆ | 用于 TDD 红绿重构循环、测试策略制定和测试反模式规避。来源：obra/superpowers。 |
+| [test-driven-development](skills/developer-engineering/test-driven-development) | developer-engineering | ★★★★☆ | Use when implementing any feature or bugfix, before writing implementation code |
 
 ## toolkit
 
@@ -1426,7 +1426,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [seo-audit](skills/growth-operations-xiaohongshu/seo-audit) | growth-operations-xiaohongshu | ★★★★☆ | 用于网站 SEO 全面审计、On-page 优化建议和技术 SEO 检查清单生成。来源：全网高频推荐。 |
+| [seo-audit](skills/growth-operations-xiaohongshu/seo-audit) | growth-operations-xiaohongshu | ★★★★☆ | 用于网站 SEO 全面审计、On-page 优化建议和技术 SEO 检查清单生成。仓库整理版，吸收社区高频最佳实践。 |
 
 ## authoring
 
@@ -1538,7 +1538,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [confidence-check](skills/operations-general/confidence-check) | operations-general | ★★★★☆ | 用于结构化自我审查，验证假设、识别不确定性和减少幻觉输出。来源：全网高频推荐的可靠性技能。 |
+| [confidence-check](skills/operations-general/confidence-check) | operations-general | ★★★★☆ | 用于结构化自我审查，验证假设、识别不确定性和减少幻觉输出。仓库整理版，吸收社区高频最佳实践。 |
 
 ## cleaner
 
@@ -1642,7 +1642,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [confidence-check](skills/operations-general/confidence-check) | operations-general | ★★★★☆ | 用于结构化自我审查，验证假设、识别不确定性和减少幻觉输出。来源：全网高频推荐的可靠性技能。 |
+| [confidence-check](skills/operations-general/confidence-check) | operations-general | ★★★★☆ | 用于结构化自我审查，验证假设、识别不确定性和减少幻觉输出。仓库整理版，吸收社区高频最佳实践。 |
 
 ## configuration
 
@@ -1666,7 +1666,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [context-engineering](skills/developer-engineering/context-engineering) | developer-engineering | ★★★★☆ | 用于 AI 编码助手的上下文优化、Prompt 结构设计和指令冲突防御。来源：全网高频推荐的元技能。 |
+| [context-engineering](skills/developer-engineering/context-engineering) | developer-engineering | ★★★★☆ | 用于 AI 编码助手的上下文优化、Prompt 结构设计和指令冲突防御。仓库整理版，吸收社区高频最佳实践。 |
 
 ## contributor
 
@@ -2730,7 +2730,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [web-scraper](skills/engineering-workflow-automation/web-scraper) | engineering-workflow-automation | ★★★★☆ | 用于网页数据抓取、结构化提取和反爬策略应对。来源：全网高频推荐。 |
+| [web-scraper](skills/engineering-workflow-automation/web-scraper) | engineering-workflow-automation | ★★★★☆ | 用于网页数据抓取、结构化提取和反爬策略应对。仓库整理版，吸收社区高频最佳实践。 |
 
 ## screen
 
@@ -2794,7 +2794,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [seo-audit](skills/growth-operations-xiaohongshu/seo-audit) | growth-operations-xiaohongshu | ★★★★☆ | 用于网站 SEO 全面审计、On-page 优化建议和技术 SEO 检查清单生成。来源：全网高频推荐。 |
+| [seo-audit](skills/growth-operations-xiaohongshu/seo-audit) | growth-operations-xiaohongshu | ★★★★☆ | 用于网站 SEO 全面审计、On-page 优化建议和技术 SEO 检查清单生成。仓库整理版，吸收社区高频最佳实践。 |
 
 ## server
 
@@ -2914,7 +2914,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [subagent-driven-development](skills/task-understanding-decomposition/subagent-driven-development) | task-understanding-decomposition | ★★★☆☆ | 用于多子 Agent 并行开发编排，包含任务分派、两阶段审查和自动化质量门控。来源：obra/superpowers。 |
+| [subagent-driven-development](skills/task-understanding-decomposition/subagent-driven-development) | task-understanding-decomposition | ★★★☆☆ | Use when executing implementation plans with independent tasks in the current se |
 
 ## suite
 
@@ -2954,7 +2954,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [systematic-debugging](skills/developer-engineering/systematic-debugging) | developer-engineering | ★★★★☆ | 用于系统化调试方法论，包含根因分析、最小复现和防御性编程。来源：obra/superpowers。 |
+| [systematic-debugging](skills/developer-engineering/systematic-debugging) | developer-engineering | ★★★★☆ | Use when encountering any bug, test failure, or unexpected behavior, before prop |
 
 ## tailwind
 
@@ -3082,7 +3082,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [typescript-best-practices](skills/developer-engineering/typescript-best-practices) | developer-engineering | ★★★★☆ | 用于 TypeScript 高级类型编程、类型安全设计和常见反模式避免。来源：全网高频推荐。 |
+| [typescript-best-practices](skills/developer-engineering/typescript-best-practices) | developer-engineering | ★★★★☆ | 用于 TypeScript 高级类型编程、类型安全设计和常见反模式避免。仓库整理版，吸收社区高频最佳实践。 |
 
 ## upgrade-safe
 

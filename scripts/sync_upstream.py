@@ -20,6 +20,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import base64
 import json
 import os
 import re
@@ -50,6 +51,9 @@ def fetch_url(url: str, token: str | None = None) -> str | None:
             return resp.read().decode("utf-8", errors="replace")
     except (urllib.error.URLError, urllib.error.HTTPError) as e:
         print(f"    Warning: fetch failed for {url}: {e}", file=sys.stderr)
+        fallback = fetch_github_raw_via_api(url, token)
+        if fallback is not None:
+            return fallback
         return None
 
 
@@ -68,6 +72,24 @@ def github_api_get(url: str, token: str | None = None) -> dict | None:
     except (urllib.error.URLError, urllib.error.HTTPError, json.JSONDecodeError) as e:
         print(f"    Warning: API request failed: {e}", file=sys.stderr)
         return None
+
+
+def fetch_github_raw_via_api(raw_url: str, token: str | None = None) -> str | None:
+    """Fallback for raw.githubusercontent.com fetches using GitHub Contents API."""
+    m = re.match(r"https://raw\.githubusercontent\.com/([^/]+/[^/]+)/([^/]+)/(.*)", raw_url)
+    if not m:
+        return None
+
+    repo, ref, path = m.groups()
+    api_url = f"https://api.github.com/repos/{repo}/contents/{path}?ref={ref}"
+    data = github_api_get(api_url, token)
+    if not data or data.get("type") != "file":
+        return None
+
+    content = data.get("content", "")
+    if data.get("encoding") == "base64":
+        return base64.b64decode(content).decode("utf-8", errors="replace")
+    return content
 
 
 def parse_frontmatter(text: str) -> dict[str, str]:
@@ -120,10 +142,9 @@ def merge_frontmatter(local_content: str, upstream_content: str) -> str:
                    "tags", "created_at", "updated_at", "quality", "complexity"]
     for key in field_order:
         if key in merged_fm:
-            val = merged_fm[key]
+            val = merged_fm[key] if merged_fm[key] != "" else '""'
             # Quote values with special chars
-            if key == "tags" or (isinstance(val, str) and not val.startswith("[") and
-                                 any(c in val for c in ":,#'\"[]")):
+            if isinstance(val, str) and not val.startswith(("[", '"')) and any(c in val for c in ":,#'\"[]"):
                 if not val.startswith('"'):
                     val = f'"{val}"'
             fm_lines.append(f"{key}: {val}")
@@ -193,6 +214,34 @@ def check_upstream_changes(skill: dict, token: str | None) -> dict | None:
     return None  # Could not find upstream file
 
 
+def sync_github_auxiliary_files(skill: dict, upstream_path: str, token: str | None) -> int:
+    """Sync non-SKILL.md files that live beside the upstream SKILL.md."""
+    repo = skill["repo"]
+    upstream_dir = str(Path(upstream_path).parent)
+    api_url = f"https://api.github.com/repos/{repo}/contents/{upstream_dir}?ref=main"
+    data = github_api_get(api_url, token)
+    if not isinstance(data, list):
+        return 0
+
+    synced = 0
+    local_dir = skill["local_path"].parent
+    for item in data:
+        if item.get("type") != "file":
+            continue
+        name = item.get("name", "")
+        if name == "SKILL.md" or not name:
+            continue
+        download_url = item.get("download_url")
+        if not download_url:
+            continue
+        content = fetch_url(download_url, token)
+        if content is None:
+            continue
+        (local_dir / name).write_text(content, encoding="utf-8")
+        synced += 1
+    return synced
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(
         description="Check and synchronize upstream changes for tracked skills."
@@ -250,6 +299,10 @@ def main() -> None:
             merged = merge_frontmatter(s["local_content"], u["upstream_content"])
             s["local_path"].write_text(merged, encoding="utf-8")
             print(f"    Updated: {s['local_path']}")
+            if s["source"].startswith("github:"):
+                aux_count = sync_github_auxiliary_files(s, u["upstream_path"], token)
+                if aux_count:
+                    print(f"    Synced auxiliary files: {aux_count}")
             applied += 1
         
         print(f"\nApplied {applied} updates.")

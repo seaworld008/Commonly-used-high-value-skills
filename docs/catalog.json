@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-04-18",
+  "generated_at": "2026-04-24",
   "total_skills": 188,
   "total_categories": 15,
   "categories": [
@@ -1164,11 +1164,11 @@
     {
       "name": "systematic-debugging",
       "category": "developer-engineering",
-      "description": "用于系统化调试方法论，包含根因分析、最小复现和防御性编程。来源：obra/superpowers。",
-      "version": "1.0.0",
+      "description": "Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes",
+      "version": "1.0.1",
       "author": "seaworld008",
       "source": "github:obra/superpowers",
-      "source_url": "",
+      "source_url": "https://github.com/obra/superpowers/tree/main/skills/systematic-debugging",
       "tags": [
         "debugging",
         "development",
@@ -1177,8 +1177,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-27",
-      "updated_at": "2026-03-27",
-      "line_count": 111,
+      "updated_at": "2026-04-24",
+      "line_count": 305,
       "path": "skills/developer-engineering/systematic-debugging/SKILL.md"
     },
     {
@@ -1246,11 +1246,11 @@
     {
       "name": "test-driven-development",
       "category": "developer-engineering",
-      "description": "用于 TDD 红绿重构循环、测试策略制定和测试反模式规避。来源：obra/superpowers。",
-      "version": "1.0.0",
+      "description": "Use when implementing any feature or bugfix, before writing implementation code",
+      "version": "1.0.1",
       "author": "seaworld008",
       "source": "github:obra/superpowers",
-      "source_url": "",
+      "source_url": "https://github.com/obra/superpowers/tree/main/skills/test-driven-development",
       "tags": [
         "development",
         "driven",
@@ -1259,8 +1259,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-27",
-      "updated_at": "2026-03-27",
-      "line_count": 112,
+      "updated_at": "2026-04-24",
+      "line_count": 380,
       "path": "skills/developer-engineering/test-driven-development/SKILL.md"
     },
     {
@@ -3765,11 +3765,11 @@
     {
       "name": "subagent-driven-development",
       "category": "task-understanding-decomposition",
-      "description": "用于多子 Agent 并行开发编排，包含任务分派、两阶段审查和自动化质量门控。来源：obra/superpowers。",
-      "version": "1.0.0",
+      "description": "Use when executing implementation plans with independent tasks in the current session",
+      "version": "1.0.1",
       "author": "seaworld008",
       "source": "github:obra/superpowers",
-      "source_url": "",
+      "source_url": "https://github.com/obra/superpowers/tree/main/skills/subagent-driven-development",
       "tags": [
         "development",
         "driven",
@@ -3780,8 +3780,8 @@
       "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-03-27",
-      "updated_at": "2026-03-27",
-      "line_count": 98,
+      "updated_at": "2026-04-24",
+      "line_count": 286,
       "path": "skills/task-understanding-decomposition/subagent-driven-development/SKILL.md"
     },
     {
