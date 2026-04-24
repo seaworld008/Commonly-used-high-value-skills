@@ -1,16 +1,21 @@
 ---
 name: graphify
-description: 'any input (code, docs, papers, images) → knowledge graph → clustered communities → HTML + JSON + audit report'
-version: 1.0.0
+description: 'any input (code, docs, papers, images, video/audio) -> knowledge graph -> clustered communities -> HTML + JSON + audit report'
+version: "1.1.0"
 author: "seaworld008"
-source: "in-house"
-source_url: ""
-tags: '["knowledge-graph", "codebase", "research"]'
+source: "community"
+source_url: "https://pypi.org/project/graphifyy/0.5.0/"
+tags: '["knowledge-graph", "codebase", "research", "graphify", "codex", "video", "audio"]'
 created_at: "2026-04-13"
-updated_at: "2026-04-13"
+updated_at: "2026-04-24"
 quality: 5
-complexity: "intermediate"
-trigger: '/graphify'
+complexity: "advanced"
+trigger: "/graphify"
+metadata:
+  upstream_package: graphifyy
+  upstream_version: "0.5.0"
+  upstream_repo: "https://github.com/safishamsi/graphify"
+  platform_variant: codex
 ---
 
 # /graphify
@@ -47,7 +52,7 @@ Turn any folder of files into a navigable knowledge graph with community detecti
 
 graphify is built around Andrej Karpathy's /raw folder workflow: drop anything into a folder - papers, tweets, screenshots, code, notes - and get a structured knowledge graph that shows you what you didn't know was connected.
 
-Three things it does that Claude alone cannot:
+Three things it does that your AI assistant alone cannot:
 1. **Persistent graph** - relationships are stored in `graphify-out/graph.json` and survive across sessions. Ask questions weeks later without re-reading everything.
 2. **Honest audit trail** - every edge is tagged EXTRACTED, INFERRED, or AMBIGUOUS. You know what was found vs invented.
 3. **Cross-document surprise** - community detection finds connections between concepts in different files that you would never think to ask about directly.
@@ -79,7 +84,7 @@ else
 fi
 "$PYTHON" -c "import graphify" 2>/dev/null || "$PYTHON" -m pip install graphifyy -q 2>/dev/null || "$PYTHON" -m pip install graphifyy -q --break-system-packages 2>&1 | tail -3
 # Write interpreter path for all subsequent steps
-"$PYTHON" -c "import sys; open('graphify-out/.graphify_python', 'w').write(sys.executable)"
+"$PYTHON" -c "import sys; open('.graphify_python', 'w').write(sys.executable)"
 ```
 
 If the import succeeds, print nothing and move straight to Step 2.
@@ -106,19 +111,66 @@ Corpus: X files · ~Y words
   docs:     N files (.md .txt ...)
   papers:   N files (.pdf ...)
   images:   N files
+  video:    N files (.mp4 .mp3 ...)
 ```
+
+Omit any category with 0 files from the summary.
 
 Then act on it:
 - If `total_files` is 0: stop with "No supported files found in [path]."
 - If `skipped_sensitive` is non-empty: mention file count skipped, not the file names.
 - If `total_words` > 2,000,000 OR `total_files` > 200: show the warning and the top 5 subdirectories by file count, then ask which subfolder to run on. Wait for the user's answer before proceeding.
-- Otherwise: proceed directly to Step 3 - no need to ask anything.
+- Otherwise: proceed directly to Step 2.5 if video files were detected, or Step 3 if not.
+
+### Step 2.5 - Transcribe video / audio files (only if video files detected)
+
+Skip this step entirely if `detect` returned zero `video` files.
+
+Video and audio files cannot be read directly. Transcribe them to text first, then treat the transcripts as doc files in Step 3.
+
+**Strategy:** Read the god nodes from the detect output or analysis file. You are already a language model — write a one-sentence domain hint yourself from those labels. Then pass it to Whisper as the initial prompt. No separate API call needed.
+
+**However**, if the corpus has *only* video files and no other docs/code, use the generic fallback prompt: `"Use proper punctuation and paragraph breaks."`
+
+**Step 1 - Write the Whisper prompt yourself.**
+
+Read the top god node labels from detect output or analysis, then compose a short domain hint sentence, for example:
+
+- Labels: `transformer, attention, encoder, decoder` → `"Machine learning research on transformer architectures and attention mechanisms. Use proper punctuation and paragraph breaks."`
+- Labels: `kubernetes, deployment, pod, helm` → `"DevOps discussion about Kubernetes deployments and Helm charts. Use proper punctuation and paragraph breaks."`
+
+Set it as `GRAPHIFY_WHISPER_PROMPT` in the environment before running the transcription command.
+
+**Step 2 - Transcribe:**
+
+```bash
+$(cat .graphify_python) -c "
+import json, os
+from pathlib import Path
+from graphify.transcribe import transcribe_all
+
+detect = json.loads(Path('.graphify_detect.json').read_text())
+video_files = detect.get('files', {}).get('video', [])
+prompt = os.environ.get('GRAPHIFY_WHISPER_PROMPT', 'Use proper punctuation and paragraph breaks.')
+
+transcript_paths = transcribe_all(video_files, initial_prompt=prompt)
+print(json.dumps(transcript_paths))
+" > .graphify_transcripts.json
+```
+
+After transcription:
+- Read the transcript paths from `.graphify_transcripts.json`
+- Add them to the docs list before dispatching semantic subagents in Step 3B
+- Print how many transcripts were created: `Transcribed N video file(s) -> treating as docs`
+- If transcription fails for a file, print a warning and continue with the rest
+
+**Whisper model:** Default is `base`. If the user passed `--whisper-model <name>`, set `GRAPHIFY_WHISPER_MODEL=<name>` in the environment before running the command above.
 
 ### Step 3 - Extract entities and relationships
 
 **Before starting:** note whether `--mode deep` was given. You must pass `DEEP_MODE=true` to every subagent in Step B2 if it was. Track this from the original invocation - do not lose it.
 
-This step has two parts: **structural extraction** (deterministic, free) and **semantic extraction** (Claude, costs tokens).
+This step has two parts: **structural extraction** (deterministic, free) and **semantic extraction** (your AI model, costs tokens).
 
 **Run Part A (AST) and Part B (semantic) in parallel. Dispatch all semantic subagents AND start AST extraction in the same message. Both can run simultaneously since they operate on different file types. Merge results in Part C as before.**
 
@@ -192,7 +244,7 @@ Load files from `.graphify_uncached.txt`. Split into chunks of 20-25 files each.
 
 **Step B2 - Dispatch ALL subagents in a single message (Codex)**
 
-> **Codex platform:** Uses `spawn_agent` + `wait` + `close_agent` instead of the Agent tool.
+> **Codex platform:** Uses `spawn_agent` + `wait_agent` + `close_agent` instead of the Agent tool.
 > Requires `multi_agent = true` under `[features]` in `~/.codex/config.toml`.
 > If `spawn_agent` is unavailable, tell the user to add that config and restart Codex.
 
@@ -204,7 +256,7 @@ spawn_agent(agent_type="worker", message="Your task is to perform the following.
 
 After all agents are dispatched, collect results sequentially:
 ```
-result = wait(handle); close_agent(handle)   # repeat per handle
+result = wait_agent(handle); close_agent(handle)   # repeat per handle
 ```
 
 Parse each result as JSON. Accumulate nodes/edges/hyperedges across all results and write to `.graphify_semantic_new.json`.
@@ -267,10 +319,12 @@ Output exactly this JSON (no other text):
 **Step B3 - Collect, cache, and merge**
 
 Wait for all subagents. For each result:
-- If a subagent returned valid JSON with `nodes` and `edges`, include it and save each file's nodes/edges to the cache
+- Check that `graphify-out/.graphify_chunk_NN.json` exists on disk — this is the success signal
+- If the file exists and contains valid JSON with `nodes` and `edges`, include it and save to cache
+- If the file is missing, the subagent was likely dispatched as read-only (Explore type) — print a warning: "chunk N missing from disk — subagent may have been read-only. Re-run with general-purpose agent." Do not silently skip.
 - If a subagent failed or returned invalid JSON, print a warning and skip that chunk - do not abort
 
-If more than half the chunks failed, stop and tell the user.
+If more than half the chunks failed or are missing, stop and tell the user to re-run and ensure `subagent_type="general-purpose"` is used.
 
 Save new results to cache:
 ```bash
@@ -659,7 +713,7 @@ cost_path.write_text(json.dumps(cost, indent=2))
 print(f'This run: {input_tok:,} input tokens, {output_tok:,} output tokens')
 print(f'All time: {cost[\"total_input_tokens\"]:,} input, {cost[\"total_output_tokens\"]:,} output ({len(cost[\"runs\"])} runs)')
 "
-rm -f .graphify_detect.json .graphify_extract.json .graphify_ast.json .graphify_semantic.json .graphify_analysis.json .graphify_labels.json
+rm -f .graphify_python .graphify_detect.json .graphify_transcripts.json .graphify_extract.json .graphify_ast.json .graphify_semantic.json .graphify_analysis.json .graphify_labels.json .graphify_chunk_*.json
 rm -f graphify-out/.needs_update 2>/dev/null || true
 ```
 
@@ -1135,7 +1189,7 @@ Supported URL types (auto-detected):
 - Twitter/X → fetched via oEmbed, saved as `.md` with tweet text and author
 - arXiv → abstract + metadata saved as `.md`  
 - PDF → downloaded as `.pdf`
-- Images (.png/.jpg/.webp) → downloaded, Claude vision extracts on next run
+- Images (.png/.jpg/.webp) → downloaded, vision extraction runs on next build
 - Any webpage → converted to markdown via html2text
 
 ---

@@ -1,6 +1,6 @@
 # Tags Index
 
-> Auto-generated from 644 skill-tag mappings across 319 tags.
+> Auto-generated from 648 skill-tag mappings across 321 tags.
 > Last updated: see git log.
 
 ## Quick Navigation
@@ -24,6 +24,7 @@
 - [`builder`](#builder) (5)
 - [`creator`](#creator) (5)
 - [`expert`](#expert) (5)
+- [`graphify`](#graphify) (5)
 - [`manager`](#manager) (5)
 - [`mcp`](#mcp) (5)
 - [`research`](#research) (5)
@@ -33,7 +34,6 @@
 - [`deploy`](#deploy) (4)
 - [`deployment`](#deployment) (4)
 - [`generator`](#generator) (4)
-- [`graphify`](#graphify) (4)
 - [`gsd`](#gsd) (4)
 - [`hermes`](#hermes) (4)
 - [`notion`](#notion) (4)
@@ -60,6 +60,7 @@
 - [`checker`](#checker) (2)
 - [`cli`](#cli) (2)
 - [`cloudflare`](#cloudflare) (2)
+- [`codex`](#codex) (2)
 - [`database`](#database) (2)
 - [`doc`](#doc) (2)
 - [`docs`](#docs) (2)
@@ -101,6 +102,7 @@
 - [`art`](#art) (1)
 - [`artifacts`](#artifacts) (1)
 - [`arxiv`](#arxiv) (1)
+- [`audio`](#audio) (1)
 - [`audit`](#audit) (1)
 - [`authoring`](#authoring) (1)
 - [`auto-continue`](#auto-continue) (1)
@@ -120,7 +122,6 @@
 - [`coach`](#coach) (1)
 - [`coauthoring`](#coauthoring) (1)
 - [`code analysis`](#code-analysis) (1)
-- [`codex`](#codex) (1)
 - [`collector`](#collector) (1)
 - [`commander`](#commander) (1)
 - [`comments`](#comments) (1)
@@ -315,6 +316,7 @@
 - [`vercel`](#vercel) (1)
 - [`verification`](#verification) (1)
 - [`vetter`](#vetter) (1)
+- [`video`](#video) (1)
 - [`weather`](#weather) (1)
 - [`webapp`](#webapp) (1)
 - [`wiki`](#wiki) (1)
@@ -695,6 +697,18 @@
 | [graphql-expert](skills/developer-engineering/graphql-expert) | developer-engineering | ★★★★☆ | 用于 GraphQL API 设计、查询优化、Schema 管理和安全最佳实践。仓库整理版，吸收社区高频最佳实践。 |
 | [i18n-expert](skills/developer-engineering/i18n-expert) | developer-engineering | ★★★★☆ | This skill should be used when setting up, auditing, or enforcing internationali |
 
+## graphify
+
+**5 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [hermes-graphify-gsd-nonintrusive-workflow](skills/ai-agent-platform/hermes-graphify-gsd-nonintrusive-workflow) | ai-agent-platform | ★★★★★ | Use when integrating Hermes Agent, graphify, and GSD into a local development wo |
+| [hermes-graphify-gsd-runtime-operator](skills/ai-agent-platform/hermes-graphify-gsd-runtime-operator) | ai-agent-platform | ★★★★★ | Use when operating or debugging a repo-local Hermes + graphify + GSD autonomous  |
+| [graphify](skills/developer-engineering/graphify) | developer-engineering | ★★★★★ | any input (code, docs, papers, images, video/audio) -> knowledge graph -> cluste |
+| [gsd-graphify-brownfield-bootstrap](skills/engineering-workflow-automation/gsd-graphify-brownfield-bootstrap) | engineering-workflow-automation | ★★★★★ | Bootstrap GSD + graphify for an existing brownfield repo when the project needs  |
+| [hermes-graphify-gsd-project-integration](skills/engineering-workflow-automation/hermes-graphify-gsd-project-integration) | engineering-workflow-automation | ★★★★★ | Use when integrating Hermes Agent, graphify, and GSD into a specific repository, |
+
 ## manager
 
 **5 skills**
@@ -725,7 +739,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [graphify](skills/developer-engineering/graphify) | developer-engineering | ★★★★★ | any input (code, docs, papers, images) → knowledge graph → clustered communities |
+| [graphify](skills/developer-engineering/graphify) | developer-engineering | ★★★★★ | any input (code, docs, papers, images, video/audio) -> knowledge graph -> cluste |
 | [deep-research](skills/task-understanding-decomposition/deep-research) | task-understanding-decomposition | ★★★★★ | Generate format-controlled research reports with evidence tracking, citations, a |
 | [arxiv](skills/knowledge-and-pm-integrations/arxiv) | knowledge-and-pm-integrations | ★★★★☆ | Search and retrieve academic papers from arXiv using their free REST API. No API |
 | [llm-wiki](skills/knowledge-and-pm-integrations/llm-wiki) | knowledge-and-pm-integrations | ★★★★☆ | Path to the LLM Wiki knowledge base directory |
@@ -797,17 +811,6 @@
 | [changelog-generator](skills/devops-sre/changelog-generator) | devops-sre | ★★★★★ | Parse conventional commits, determine semantic version bumps, and generate struc |
 | [runbook-generator](skills/openclaw-memory-and-safety/runbook-generator) | openclaw-memory-and-safety | ★★★★★ | Analyze a codebase and generate production-grade operational runbooks. Detects y |
 | [landing-page-generator](skills/product-design/landing-page-generator) | product-design | ★★★★☆ | 用于快速生成高转化率落地页结构、文案框架和 TSX/Tailwind 代码脚手架。来源：alirezarezvani/claude-skills。 |
-
-## graphify
-
-**4 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [hermes-graphify-gsd-nonintrusive-workflow](skills/ai-agent-platform/hermes-graphify-gsd-nonintrusive-workflow) | ai-agent-platform | ★★★★★ | Use when integrating Hermes Agent, graphify, and GSD into a local development wo |
-| [hermes-graphify-gsd-runtime-operator](skills/ai-agent-platform/hermes-graphify-gsd-runtime-operator) | ai-agent-platform | ★★★★★ | Use when operating or debugging a repo-local Hermes + graphify + GSD autonomous  |
-| [gsd-graphify-brownfield-bootstrap](skills/engineering-workflow-automation/gsd-graphify-brownfield-bootstrap) | engineering-workflow-automation | ★★★★★ | Bootstrap GSD + graphify for an existing brownfield repo when the project needs  |
-| [hermes-graphify-gsd-project-integration](skills/engineering-workflow-automation/hermes-graphify-gsd-project-integration) | engineering-workflow-automation | ★★★★★ | Use when integrating Hermes Agent, graphify, and GSD into a specific repository, |
 
 ## gsd
 
@@ -881,7 +884,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [codebase-onboarding](skills/developer-engineering/codebase-onboarding) | developer-engineering | ★★★★★ | Analyze a codebase and generate comprehensive onboarding documentation tailored  |
-| [graphify](skills/developer-engineering/graphify) | developer-engineering | ★★★★★ | any input (code, docs, papers, images) → knowledge graph → clustered communities |
+| [graphify](skills/developer-engineering/graphify) | developer-engineering | ★★★★★ | any input (code, docs, papers, images, video/audio) -> knowledge graph -> cluste |
 | [codebase-inspection](skills/developer-engineering/codebase-inspection) | developer-engineering | ★★★★☆ | Inspect and analyze codebases using pygount for LOC counting, language breakdown |
 
 ## debugging
@@ -1062,6 +1065,15 @@
 |-------|----------|---------|-------------|
 | [cloudflare-deploy](skills/deployment-platforms/cloudflare-deploy) | deployment-platforms | ★★★★★ | Deploy applications and infrastructure to Cloudflare using Workers, Pages, and r |
 | [cloudflare-troubleshooting](skills/devops-sre/cloudflare-troubleshooting) | devops-sre | ★★★★★ | Investigate and resolve Cloudflare configuration issues using API-driven evidenc |
+
+## codex
+
+**2 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [graphify](skills/developer-engineering/graphify) | developer-engineering | ★★★★★ | any input (code, docs, papers, images, video/audio) -> knowledge graph -> cluste |
+| [gsd-graphify-brownfield-bootstrap](skills/engineering-workflow-automation/gsd-graphify-brownfield-bootstrap) | engineering-workflow-automation | ★★★★★ | Bootstrap GSD + graphify for an existing brownfield repo when the project needs  |
 
 ## database
 
@@ -1420,6 +1432,14 @@
 |-------|----------|---------|-------------|
 | [arxiv](skills/knowledge-and-pm-integrations/arxiv) | knowledge-and-pm-integrations | ★★★★☆ | Search and retrieve academic papers from arXiv using their free REST API. No API |
 
+## audio
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [graphify](skills/developer-engineering/graphify) | developer-engineering | ★★★★★ | any input (code, docs, papers, images, video/audio) -> knowledge graph -> cluste |
+
 ## audit
 
 **1 skills**
@@ -1571,14 +1591,6 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [codebase-inspection](skills/developer-engineering/codebase-inspection) | developer-engineering | ★★★★☆ | Inspect and analyze codebases using pygount for LOC counting, language breakdown |
-
-## codex
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [gsd-graphify-brownfield-bootstrap](skills/engineering-workflow-automation/gsd-graphify-brownfield-bootstrap) | engineering-workflow-automation | ★★★★★ | Bootstrap GSD + graphify for an existing brownfield repo when the project needs  |
 
 ## collector
 
@@ -2098,7 +2110,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [graphify](skills/developer-engineering/graphify) | developer-engineering | ★★★★★ | any input (code, docs, papers, images) → knowledge graph → clustered communities |
+| [graphify](skills/developer-engineering/graphify) | developer-engineering | ★★★★★ | any input (code, docs, papers, images, video/audio) -> knowledge graph -> cluste |
 
 ## kubernetes
 
@@ -3131,6 +3143,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [skill-vetter](skills/security-and-reliability/skill-vetter) | security-and-reliability | ★★☆☆☆ | 在安装前审计技能安全性，识别恶意指令、越权行为与高风险配置。 |
+
+## video
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [graphify](skills/developer-engineering/graphify) | developer-engineering | ★★★★★ | any input (code, docs, papers, images, video/audio) -> knowledge graph -> cluste |
 
 ## weather
 

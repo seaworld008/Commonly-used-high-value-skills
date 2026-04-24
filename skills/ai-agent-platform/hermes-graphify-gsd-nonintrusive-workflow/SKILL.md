@@ -1,13 +1,13 @@
 ---
 name: hermes-graphify-gsd-nonintrusive-workflow
 description: 'Use when integrating Hermes Agent, graphify, and GSD into a local development workflow without modifying upstream repositories, especially when the user wants upgrade-safe wrappers, project-level workflow scripts, graph-aware planning, and a reusable setup that survives future upstream updates.'
-version: "1.4.0"
+version: "1.5.0"
 author: Hermes Agent
 source: "in-house"
 source_url: "https://github.com/seaworld008/Commonly-used-high-value-skills"
 tags: '["ai", "agent", "hermes", "graphify", "gsd", "workflow", "non-intrusive", "upgrade-safe"]'
 created_at: "2026-04-16"
-updated_at: "2026-04-16"
+updated_at: "2026-04-24"
 quality: 5
 complexity: "intermediate"
 license: MIT
@@ -93,13 +93,14 @@ Recommended commands:
 
 ```bash
 # graphify — latest package, then global Hermes integration
+# Baseline checked 2026-04-24: graphifyy 0.5.0.
 # prefer a Python that actually has pip available; Hermes venv python is a valid fallback
 PY_BIN="${PYTHON_BIN:-$HOME/.hermes/hermes-agent/venv/bin/python3}"
 [ -x "$PY_BIN" ] || PY_BIN="$(command -v python3)"
 if "$PY_BIN" -c 'import sys; print(int(sys.prefix != sys.base_prefix))' 2>/dev/null | grep -q '^1$'; then
-  "$PY_BIN" -m pip install -U graphifyy
+  "$PY_BIN" -m pip install -U "graphifyy>=0.5.0"
 else
-  "$PY_BIN" -m pip install --user -U graphifyy
+  "$PY_BIN" -m pip install --user -U "graphifyy>=0.5.0"
 fi
 ~/.local/bin/graphify install --platform hermes || graphify install --platform hermes
 
@@ -109,6 +110,8 @@ npx -y get-shit-done-cc@latest --codex --global --sdk
 
 Notes:
 - graphify's current PyPI package name is `graphifyy`, while the CLI remains `graphify`
+- graphify 0.5+ adds video/audio handling through transcription (`graphifyy[video]` when needed) and Codex-specific chunk files; wrappers must not delete `.graphify_chunk_*.json` until semantic extraction has collected them
+- graphify 0.5+ still treats `graphify-out/graph.json` and `graphify-out/GRAPH_REPORT.md` as required outputs; manifest files are useful diagnostics, not a hard contract
 - graphify version warnings are global across installed platforms, not Hermes-only; if `graphify --help` still warns after updating Hermes, also check other installed platform copies such as `~/.claude/skills/graphify/.graphify_version` and rerun `graphify install --platform <platform>` there
 - for GSD, `--codex --global --sdk` is the default global baseline for this workflow; choose another runtime only when the user explicitly wants it
 - if a repo also needs local `.codex/` files, do a second repo-local install later during project integration

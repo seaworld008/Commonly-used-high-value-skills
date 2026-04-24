@@ -1,13 +1,13 @@
 ---
 name: gsd-graphify-brownfield-bootstrap
 description: 'Bootstrap GSD + graphify for an existing brownfield repo when the project needs a single canonical workflow for local runtime setup, graph refresh, and manually seeded .planning/ context without depending on interactive GSD init.'
-version: "2.0.0"
+version: "2.1.0"
 author: Hermes Agent
 source: "in-house"
 source_url: "https://github.com/seaworld008/Commonly-used-high-value-skills"
 tags: '["automation", "workflow", "gsd", "graphify", "brownfield", "planning", "architecture", "codex"]'
 created_at: "2026-04-16"
-updated_at: "2026-04-16"
+updated_at: "2026-04-24"
 quality: 5
 complexity: "intermediate"
 license: MIT
@@ -56,12 +56,13 @@ Prefer the same baseline as the main Hermes + graphify + GSD workflow skills:
 command -v hermes
 hermes --version
 
+# Baseline checked 2026-04-24: graphifyy 0.5.0.
 PY_BIN="${PYTHON_BIN:-$HOME/.hermes/hermes-agent/venv/bin/python3}"
 [ -x "$PY_BIN" ] || PY_BIN="$(command -v python3)"
 if "$PY_BIN" -c 'import sys; print(int(sys.prefix != sys.base_prefix))' 2>/dev/null | grep -q '^1$'; then
-  "$PY_BIN" -m pip install -U graphifyy
+  "$PY_BIN" -m pip install -U "graphifyy>=0.5.0"
 else
-  "$PY_BIN" -m pip install --user -U graphifyy
+  "$PY_BIN" -m pip install --user -U "graphifyy>=0.5.0"
 fi
 ~/.local/bin/graphify install --platform hermes || graphify install --platform hermes
 npx -y get-shit-done-cc@latest --codex --global --sdk
@@ -120,6 +121,8 @@ Important rule:
 - do **not** require `graphify-out/manifest.json`
 - newer graphify versions may not emit it
 - treat manifest as optional diagnostic output only
+- graphify 0.5+ may create transient `.graphify_chunk_*.json` files during Codex semantic extraction; do not clean those before collection finishes
+- if the brownfield corpus includes video/audio, install `graphifyy[video]` or surface manual transcription guidance before expecting a complete semantic graph
 
 The repo-local `scripts/graphify-sync.sh` should support:
 - `status`

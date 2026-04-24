@@ -1,13 +1,13 @@
 ---
 name: hermes-graphify-gsd-runtime-operator
 description: 'Use when operating or debugging a repo-local Hermes + graphify + GSD autonomous runtime, especially when checking writer ownership, execution-surface eligibility, handoff/blocked state, stale cron or lease metadata, and whether the main project repo is still the only recommended writer surface.'
-version: "1.1.0"
+version: "1.2.0"
 author: Hermes Agent
 source: "in-house"
 source_url: "https://github.com/seaworld008/Commonly-used-high-value-skills"
 tags: '["ai", "agent", "hermes", "graphify", "gsd", "runtime", "operator", "diagnostics"]'
 created_at: "2026-04-16"
-updated_at: "2026-04-16"
+updated_at: "2026-04-24"
 quality: 5
 complexity: "intermediate"
 license: MIT
@@ -62,6 +62,19 @@ Always start with the repo-local operator surface:
 ./scripts/ai-workflow.sh auto-progress
 ./scripts/ai-workflow.sh auto-workflow-state-show
 ```
+
+Also check the graphify runtime baseline when diagnosing graph or planning drift:
+
+```bash
+graphify --help | sed -n '1,40p'
+python3 -m pip show graphifyy 2>/dev/null | sed -n '1,20p'
+```
+
+Expected baseline as of 2026-04-24:
+- `graphifyy` should be `0.5.0` or newer
+- required graph outputs are still `graphify-out/graph.json` and `graphify-out/GRAPH_REPORT.md`
+- missing `manifest.json` is not a runtime failure
+- transient `.graphify_chunk_*.json` files can indicate an interrupted Codex semantic extraction and should be treated as evidence, not immediately deleted
 
 Interpretation:
 - `execution_surface: ready` means the repo looks complete enough to participate

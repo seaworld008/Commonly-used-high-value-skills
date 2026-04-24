@@ -1,14 +1,19 @@
 {
   "video": {
     "url": "https://github.com/safishamsi/graphify",
-    "checked_at": "2026-04-13",
-    "note": "Curated from graphify as a codebase-and-corpus knowledge graph workflow aligned with the Karpathy-style wiki pattern."
+    "checked_at": "2026-04-24",
+    "note": "Curated from graphify as a codebase-and-corpus knowledge graph workflow aligned with the Karpathy-style wiki pattern. Updated from the graphifyy 0.5.0 PyPI wheel Codex skill variant."
   },
   "official_references": [
     {
       "name": "graphify repository",
       "url": "https://github.com/safishamsi/graphify",
       "purpose": "Canonical upstream repository for the graphify skill."
+    },
+    {
+      "name": "graphifyy 0.5.0 PyPI package",
+      "url": "https://pypi.org/project/graphifyy/0.5.0/",
+      "purpose": "Published package artifact containing the Codex-specific graphify skill variant used for the 2026-04-24 refresh."
     }
   ],
   "skills": [
@@ -17,15 +22,15 @@
       "normalized_slug": "graphify",
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/graphify/SKILL.md",
-      "source": "https://github.com/safishamsi/graphify/blob/main/graphify/skill.md",
-      "notes": "Imported as a high-leverage codebase and research graph workflow; repository copy is adapted to the canonical SKILL.md layout while preserving the upstream workflow.",
+      "source": "https://pypi.org/project/graphifyy/0.5.0/",
+      "notes": "Imported as a high-leverage codebase and research graph workflow; repository copy is adapted to the canonical SKILL.md layout while preserving the upstream Codex workflow.",
       "upstream": {
         "repo": "safishamsi/graphify",
-        "path": "graphify/skill.md",
-        "ref": "main",
-        "last_checked_at": "2026-04-13",
-        "last_synced_at": "2026-04-13",
-        "last_synced_commit": "d23ae1774df42ab1309b314968c1f02987db244a"
+        "path": "graphify/skill-codex.md",
+        "ref": "pypi:graphifyy==0.5.0",
+        "last_checked_at": "2026-04-24",
+        "last_synced_at": "2026-04-24",
+        "last_synced_commit": null
       }
     }
   ],
@@ -43,6 +48,13 @@
       "target": "safishamsi/graphify",
       "result": "success",
       "evidence": "Validated the upstream skill path and latest commit via GitHub commits API."
+    },
+    {
+      "date": "2026-04-24",
+      "method": "pypi-wheel-download",
+      "target": "graphifyy==0.5.0",
+      "result": "success",
+      "evidence": "Downloaded the graphifyy 0.5.0 wheel and imported graphify/skill-codex.md into the canonical repository skill."
     }
   ]
 }

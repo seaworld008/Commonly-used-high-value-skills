@@ -1,13 +1,13 @@
 ---
 name: hermes-graphify-gsd-project-integration
 description: 'Use when integrating Hermes Agent, graphify, and GSD into a specific repository, especially for adding project-local graph refresh scripts, AGENTS.md guidance, README workflow docs, gitignore entries, and a brownfield-friendly planning loop without modifying upstream tool repositories.'
-version: "1.3.0"
+version: "1.4.0"
 author: Hermes Agent
 source: "in-house"
 source_url: "https://github.com/seaworld008/Commonly-used-high-value-skills"
 tags: '["automation", "workflow", "hermes", "graphify", "gsd", "repo-integration", "planning", "brownfield"]'
 created_at: "2026-04-16"
-updated_at: "2026-04-16"
+updated_at: "2026-04-24"
 quality: 5
 complexity: "intermediate"
 license: MIT
@@ -95,12 +95,13 @@ Before touching the repo:
 2. If Hermes is missing, stop and ask for manual Hermes installation
 3. If Hermes exists, automatically install or upgrade graphify globally:
    ```bash
+   # Baseline checked 2026-04-24: graphifyy 0.5.0.
    PY_BIN="${PYTHON_BIN:-$HOME/.hermes/hermes-agent/venv/bin/python3}"
    [ -x "$PY_BIN" ] || PY_BIN="$(command -v python3)"
    if "$PY_BIN" -c 'import sys; print(int(sys.prefix != sys.base_prefix))' 2>/dev/null | grep -q '^1$'; then
-     "$PY_BIN" -m pip install -U graphifyy
+     "$PY_BIN" -m pip install -U "graphifyy>=0.5.0"
    else
-     "$PY_BIN" -m pip install --user -U graphifyy
+     "$PY_BIN" -m pip install --user -U "graphifyy>=0.5.0"
    fi
    ~/.local/bin/graphify install --platform hermes || graphify install --platform hermes
    ```
@@ -141,6 +142,8 @@ Behavior guidance:
 - fallback to full `graphify update .` when outputs are missing
 - treat `graphify-out/graph.json` and `graphify-out/GRAPH_REPORT.md` as the required outputs
 - do not require `manifest.json`; newer graphify versions may not emit it
+- preserve transient `.graphify_chunk_*.json` files until Codex semantic extraction has collected them
+- if video/audio files are part of the repo knowledge corpus, install `graphifyy[video]` and expect a transcription step before semantic extraction
 - skip automatic rebuild when only docs/media changed
 
 ### 3. Add optional unified repo entrypoint
