@@ -110,24 +110,27 @@ python3 scripts/sync_codex_skills.py --source-root ./skills --codex-root ~/.code
 | Category | What It Covers | Jump | Folder |
 |----------|----------------|------|--------|
 | Developer Engineering | Testing, review, performance, architecture, databases | [Jump](./README.md#cat-developer-engineering) | [Folder](./skills/developer-engineering/) |
+| AI Workflow | Agent skill usage, planning, implementation, review, verification, and shipping loops | [Jump](./README.md#cat-ai-workflow) | [Folder](./skills/ai-workflow/) |
+| AI Platform and Agents | ChatGPT Apps, Hermes, MCP, Figma, OpenAI docs, proactive agents | [Jump](./README.md#cat-ai-agent-platform) | [Folder](./skills/ai-agent-platform/) |
+| Workflow Automation | Browser automation, GitHub, notebooks, Playwright, graphify/GSD | [Jump](./README.md#cat-workflow-automation) | [Folder](./skills/engineering-workflow-automation/) |
 | DevOps / SRE | Releases, observability, incidents, CI/CD, secrets | [Jump](./README.md#cat-devops-sre) | [Folder](./skills/devops-sre/) |
-| Growth Operations | Xiaohongshu, social media, content, attribution, competitor work | [Jump](./README.md#cat-growth-operations) | [Folder](./skills/growth-operations-xiaohongshu/) |
 | Finance Investing | Financial data, valuation, risk, backtesting, research writing | [Jump](./README.md#cat-finance-investing) | [Folder](./skills/finance-investing/) |
+| Growth Operations | Xiaohongshu, social media, content, attribution, competitor work | [Jump](./README.md#cat-growth-operations) | [Folder](./skills/growth-operations-xiaohongshu/) |
 | Office and Documents | Word, Excel, PPT, PDF, meeting output | [Jump](./README.md#cat-office-white-collar) | [Folder](./skills/office-white-collar/) |
-| Memory and Safety | Input guard, RAG, runbooks | [Jump](./README.md#cat-memory-safety) | [Folder](./skills/openclaw-memory-and-safety/) |
+| Knowledge and PM Integrations | Notion, Linear, Obsidian, spec-to-implementation | [Jump](./README.md#cat-knowledge-pm) | [Folder](./skills/knowledge-and-pm-integrations/) |
 | General Operations | Brand, fact-checking, internal comms, themes, weather | [Jump](./README.md#cat-operations-general) | [Folder](./skills/operations-general/) |
 | Product and Design | Product analysis, design systems, UX, SaaS scaffolding | [Jump](./README.md#cat-product-design) | [Folder](./skills/product-design/) |
-| Task Understanding | Brainstorming, research, plans, skill search | [Jump](./README.md#cat-task-understanding) | [Folder](./skills/task-understanding-decomposition/) |
-| AI Platform and Agents | ChatGPT Apps, Figma, OpenAI docs, proactive agents | [Jump](./README.md#cat-ai-agent-platform) | [Folder](./skills/ai-agent-platform/) |
-| Workflow Automation | Browser automation, GitHub, notebooks, Playwright | [Jump](./README.md#cat-workflow-automation) | [Folder](./skills/engineering-workflow-automation/) |
-| Knowledge and PM Integrations | Notion, Linear, spec-to-implementation | [Jump](./README.md#cat-knowledge-pm) | [Folder](./skills/knowledge-and-pm-integrations/) |
-| Deployment Platforms | Cloudflare, Netlify, Render, Vercel | [Jump](./README.md#cat-deployment-platforms) | [Folder](./skills/deployment-platforms/) |
-| Multimodal Media | Images, speech, video, screenshots, summaries, transcription | [Jump](./README.md#cat-multimodal-media) | [Folder](./skills/multimodal-media/) |
 | Security and Reliability | Sentry, best practices, threat modeling, ownership | [Jump](./README.md#cat-security-reliability) | [Folder](./skills/security-and-reliability/) |
+| Multimodal Media | Images, speech, video, screenshots, summaries, transcription | [Jump](./README.md#cat-multimodal-media) | [Folder](./skills/multimodal-media/) |
+| Deployment Platforms | Cloudflare, Netlify, Render, Vercel | [Jump](./README.md#cat-deployment-platforms) | [Folder](./skills/deployment-platforms/) |
+| Memory and Safety | Memory, input guard, RAG, runbooks | [Jump](./README.md#cat-memory-safety) | [Folder](./skills/openclaw-memory-and-safety/) |
+| Task Understanding | Live search, reflection, and task-understanding support | [Jump](./README.md#cat-task-understanding) | [Folder](./skills/task-understanding-decomposition/) |
 
 ## Recommended Starting Categories
 
 - `developer-engineering`
+- `ai-workflow`
+- `ai-agent-platform`
 - `engineering-workflow-automation`
 - `finance-investing`
 - `knowledge-and-pm-integrations`

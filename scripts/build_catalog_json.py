@@ -8,6 +8,8 @@ import re
 from collections import defaultdict
 from pathlib import Path
 
+from generate_repo_banner import generate_banner_from_catalog
+
 REPO_ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -82,6 +84,7 @@ def main() -> None:
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(json.dumps(catalog, indent=2, ensure_ascii=False), encoding="utf-8")
+    generate_banner_from_catalog(output_path, REPO_ROOT / ".github" / "assets" / "repo-banner.svg")
     print(f"Wrote catalog: {output_path}")
     print(f"Skills: {len(skills)}, Categories: {len(categories)}")
 

@@ -93,6 +93,12 @@ python3 scripts/audit_licenses.py
 python3 scripts/check_dead_links.py --output docs/sources/reports/dead-links.json
 ```
 
+首页 banner 的技能数量、分类数量和重点分类来自 `docs/catalog.json`，会在运行下面命令时自动同步刷新：
+
+```bash
+python3 scripts/build_catalog_json.py
+```
+
 如果你在本地 Codex skills 目录里看到 `invalid SKILL.md`、`missing YAML frontmatter`、`metadata` 类型错误等警告，可以运行：
 
 ```bash
@@ -116,37 +122,42 @@ python scripts/sync_codex_skills.py --source-root "E:\AI-codex\003-Commonly-used
 | 分类 | 说明 | 文档跳转 | 目录 |
 |------|------|----------|------|
 | 开发工程 | 开发、测试、性能、代码审查、数据库与架构 | [跳转](#cat-developer-engineering) | [目录](./skills/developer-engineering/) |
+| AI 工作流 | Agent 技能使用、规划、实现、评审、验证与发布闭环 | [跳转](#cat-ai-workflow) | [目录](./skills/ai-workflow/) |
+| AI 平台与 Agent 开发 | ChatGPT Apps、Hermes、MCP、Figma、OpenAI Docs 与自主 Agent | [跳转](#cat-ai-agent-platform) | [目录](./skills/ai-agent-platform/) |
+| 工程工作流自动化 | 浏览器自动化、GitHub、Notebook、Playwright、graphify/GSD | [跳转](#cat-workflow-automation) | [目录](./skills/engineering-workflow-automation/) |
 | DevOps / SRE | 发布、监控、故障响应、CI/CD、环境管理 | [跳转](#cat-devops-sre) | [目录](./skills/devops-sre/) |
-| 增长运营 | 小红书、社媒、内容、归因、竞品分析 | [跳转](#cat-growth-operations) | [目录](./skills/growth-operations-xiaohongshu/) |
 | 金融投资 | 金融数据、估值、风控、回测、投研写作 | [跳转](#cat-finance-investing) | [目录](./skills/finance-investing/) |
+| 增长运营 | 小红书、社媒、内容、归因、竞品分析 | [跳转](#cat-growth-operations) | [目录](./skills/growth-operations-xiaohongshu/) |
 | 办公与文档 | Word、Excel、PPT、PDF、会议纪要 | [跳转](#cat-office-white-collar) | [目录](./skills/office-white-collar/) |
-| 记忆与安全 | 输入防护、RAG、Runbook | [跳转](#cat-memory-safety) | [目录](./skills/openclaw-memory-and-safety/) |
+| 项目管理与知识库集成 | Notion、Linear、Obsidian、规格到实施 | [跳转](#cat-knowledge-pm) | [目录](./skills/knowledge-and-pm-integrations/) |
 | 通用运营 | 品牌、事实核查、内沟通、主题与天气 | [跳转](#cat-operations-general) | [目录](./skills/operations-general/) |
 | 产品与设计 | 产品分析、设计系统、UX 研究、SaaS 脚手架 | [跳转](#cat-product-design) | [目录](./skills/product-design/) |
-| 任务理解与拆解 | brainstorming、research、plans、skills 搜索 | [跳转](#cat-task-understanding) | [目录](./skills/task-understanding-decomposition/) |
-| AI 平台与 Agent 开发 | ChatGPT Apps、Figma、OpenAI Docs、自主 Agent | [跳转](#cat-ai-agent-platform) | [目录](./skills/ai-agent-platform/) |
-| 工程工作流自动化 | 浏览器自动化、GitHub、Notebook、Playwright | [跳转](#cat-workflow-automation) | [目录](./skills/engineering-workflow-automation/) |
-| 项目管理与知识库集成 | Notion、Linear、规格到实施 | [跳转](#cat-knowledge-pm) | [目录](./skills/knowledge-and-pm-integrations/) |
-| 部署平台 | Cloudflare、Netlify、Render、Vercel | [跳转](#cat-deployment-platforms) | [目录](./skills/deployment-platforms/) |
+| 安全治理与稳定性 | Sentry、安全最佳实践、威胁建模、所有权分析 | [跳转](#cat-security-reliability) | [目录](./skills/security-and-reliability/) |
 | 多模态内容 | 图像、语音、视频、截图、摘要、转写 | [跳转](#cat-multimodal-media) | [目录](./skills/multimodal-media/) |
-| 安全治理与稳定性 | Sentry、安全最佳实践、威胁建模 | [跳转](#cat-security-reliability) | [目录](./skills/security-and-reliability/) |
+| 部署平台 | Cloudflare、Netlify、Render、Vercel | [跳转](#cat-deployment-platforms) | [目录](./skills/deployment-platforms/) |
+| 记忆与安全 | 长期记忆、输入防护、RAG、Runbook | [跳转](#cat-memory-safety) | [目录](./skills/openclaw-memory-and-safety/) |
+| 任务理解与拆解 | 联网检索、复盘学习与任务理解补充能力 | [跳转](#cat-task-understanding) | [目录](./skills/task-understanding-decomposition/) |
 
 ## 从哪里开始最容易上手
 
 如果你是第一次来到这个仓库，推荐从下面几类开始：
 
-- 开发提效：`developer-engineering`
-- 工作流自动化：`engineering-workflow-automation`
-- 金融投研和分析：`finance-investing`
-- 知识库与项目流转：`knowledge-and-pm-integrations`
-- 多模态生产力：`multimodal-media`
+- 开发工程：`developer-engineering`
+- AI 工作流：`ai-workflow`
+- AI 平台与 Agent 开发：`ai-agent-platform`
+- 工程工作流自动化：`engineering-workflow-automation`
+- 金融投资：`finance-investing`
+- 项目管理与知识库集成：`knowledge-and-pm-integrations`
+- 多模态内容：`multimodal-media`
+- 安全治理与稳定性：`security-and-reliability`
 
 你也可以优先看这些代表性技能：
 
 - `codebase-onboarding`
+- `context-engineering`
+- `agent-workflow-designer`
 - `gh-fix-ci`
 - `financial-data-collector`
-- `portfolio-risk-manager`
 - `notion-spec-to-implementation`
 - `transcribe`
 
@@ -186,12 +197,14 @@ python scripts/sync_codex_skills.py --source-root "E:\AI-codex\003-Commonly-used
 
 ## 精选分类
 
-- `developer-engineering`：开发工程、测试、代码审查、性能与架构
-- `engineering-workflow-automation`：GitHub、CI、浏览器自动化、Notebook
-- `finance-investing`：金融分析、数据采集、组合风险、回测、投研写作
-- `knowledge-and-pm-integrations`：Notion、Linear 等知识与项目流转
-- `multimodal-media`：图像、语音、视频、截图、转写
-- `security-and-reliability`：Sentry、安全检查、威胁建模、所有权分析
+- `developer-engineering`：开发、测试、性能、代码审查、数据库与架构
+- `ai-workflow`：Agent 技能使用、规划、实现、评审、验证与发布闭环
+- `ai-agent-platform`：ChatGPT Apps、Hermes、MCP、Figma、OpenAI Docs 与自主 Agent
+- `engineering-workflow-automation`：浏览器自动化、GitHub、Notebook、Playwright、graphify/GSD
+- `finance-investing`：金融数据、估值、风控、回测、投研写作
+- `knowledge-and-pm-integrations`：Notion、Linear、Obsidian、规格到实施
+- `multimodal-media`：图像、语音、视频、截图、摘要、转写
+- `security-and-reliability`：Sentry、安全最佳实践、威胁建模、所有权分析
 
 ## 仓库定位
 
@@ -255,23 +268,23 @@ openclaw skills check
 
 ```text
 skills/
-  ai-agent-platform/                  # AI 平台与 Agent 开发
-  customized-solutions/               # 预留的定制化方案分类（当前为空）
-  deployment-platforms/               # 部署平台（Vercel/Netlify/Render/Cloudflare）
-  developer-engineering/              # 开发工程
-  devops-sre/                         # DevOps / SRE
-  engineering-workflow-automation/    # 工程工作流自动化（GitHub/CI/测试）
-  finance-investing/                  # 金融投资与投研分析
-  growth-operations-xiaohongshu/      # 增长运营（小红书/社媒）
-  knowledge-and-pm-integrations/      # 项目管理与知识库集成（Linear/Notion）
-  multimodal-media/                   # 多模态内容（图像/语音/视频/转写）
-  office-white-collar/                # 办公与文档生产力
-  openclaw-memory-and-safety/         # 记忆与安全
-  operations-general/                 # 通用运营
-  product-design/                     # 产品与设计
-  security-and-reliability/           # 安全治理与稳定性
-  task-understanding-decomposition/   # 任务理解与拆解
-openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出目录
+  developer-engineering/                # 开发工程
+  ai-workflow/                          # AI 工作流（Agent Skills / 上下文工程 / 计划执行）
+  ai-agent-platform/                    # AI 平台与 Agent 开发
+  engineering-workflow-automation/      # 工程工作流自动化（GitHub/CI/测试）
+  devops-sre/                           # DevOps / SRE
+  finance-investing/                    # 金融投资与投研分析
+  growth-operations-xiaohongshu/        # 增长运营（小红书/社媒）
+  office-white-collar/                  # 办公与文档生产力
+  knowledge-and-pm-integrations/        # 项目管理与知识库集成（Linear/Notion/Obsidian）
+  operations-general/                   # 通用运营
+  product-design/                       # 产品与设计
+  security-and-reliability/             # 安全治理与稳定性
+  multimodal-media/                     # 多模态内容（图像/语音/视频/转写）
+  deployment-platforms/                 # 部署平台（Vercel/Netlify/Render/Cloudflare）
+  openclaw-memory-and-safety/           # 记忆与安全
+  task-understanding-decomposition/     # 任务理解与拆解
+openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导出目录
 ```
 
 ## 使用方式
@@ -283,227 +296,275 @@ openclaw-skills/                      # 为 OpenClaw 生成的扁平兼容导出
 ## 技能总览（按分类，16 类 / 207 技能）
 
 <a id="cat-developer-engineering"></a>
-### 1. 开发工程（developer-engineering，40）
+### 1. 开发工程（developer-engineering，42）
 
-- `agent-designer`：用于设计和评估多智能体系统架构。
-- `api-design-reviewer`：用于审查 API 设计规范、可维护性与一致性。
-- `api-test-suite-builder`：用于构建 API 自动化测试套件。
-- `cli-demo-generator`：用于生成命令行工具演示与示例流程。
-- `codebase-onboarding`：用于快速理解陌生代码库结构与关键模块。
-- `database-designer`：用于数据库建模与表结构设计。
-- `database-schema-designer`：用于设计或优化数据库 Schema。
-- `dependency-auditor`：用于依赖审计、漏洞排查与许可证检查。
-- `frontend-design`：用于前端界面设计实现与体验优化。
-- `git-worktree-manager`：用于管理 Git Worktree 并行开发工作流。
-- `github-contributor`：用于规范化 GitHub 贡献流程（Issue/PR/协作）。
-- `i18n-expert`：用于国际化与本地化能力建设。
-- `mcp-builder`：用于搭建 MCP 工具与集成能力。
-- `mcp-server-builder`：用于构建和调试 MCP Server。
-- `migration-architect`：用于制定数据或系统迁移方案。
-- `monorepo-navigator`：用于在 Monorepo 中快速定位代码与依赖关系。
-- `performance-profiler`：用于性能剖析、瓶颈定位与优化建议。
-- `pr-review-expert`：用于提升 Pull Request 审查质量。
-- `promptfoo-evaluation`：用于提示词/模型输出评测与对比。
-- `qa-expert`：用于测试策略制定与质量保障。
-- `repomix-safe-mixer`：用于安全打包与整理仓库上下文。
-- `skill-tester`：用于技能可用性测试与效果验证。
-- `tech-debt-tracker`：用于识别、记录和治理技术债。
-- `web-artifacts-builder`：用于构建和管理前端制品。
-- `webapp-testing`：用于 Web 应用自动化测试与回归验证。
-- `aws-solution-architect`：用于 AWS 云架构设计、服务选型与 Well-Architected Framework 评估。
-- `context-engineering`：用于 AI 编码助手的上下文优化、Prompt 结构设计和指令冲突防御。
-- `docker-expert`：用于 Docker 容器化最佳实践、多阶段构建优化与 Compose 编排。
-- `graphql-expert`：用于 GraphQL API 设计、查询优化、Schema 管理和安全最佳实践。
-- `kubernetes-specialist`：用于 K8s 集群管理、部署编排、Pod 调试与 Helm Chart 设计。
-- `nextjs-app-router`：用于 Next.js App Router 模式开发，包含 RSC 与 Server Actions。
-- `python-performance`：用于 Python 性能优化、内存分析和并发编程最佳实践。
-- `rust-engineer`：用于 Rust 语言开发最佳实践、异步编程和系统级编程指导。
-- `supabase-postgres`：用于 Supabase 平台开发与 PostgreSQL 最佳实践。
-- `systematic-debugging`：用于系统化调试方法论，包含根因分析与最小复现。
-- `tailwind-design-system`：用于 Tailwind CSS 设计系统搭建与主题定制。
-- `terraform-engineer`：用于 Terraform IaC 设计、模块化管理和状态管理。
-- `test-driven-development`：用于 TDD 红绿重构循环与测试策略制定。
-- `typescript-best-practices`：用于 TypeScript 高级类型编程与类型安全设计。
+- `agent-designer`：Tags: AI agents, architecture, system design, orchestration, multi-agent systems.
+- `api-design-reviewer`：Maintainer: Claude Skills Team.
+- `api-test-suite-builder`：Scans API route definitions across frameworks (Next.js App Router, Express, FastAPI, Django REST) and auto-generates comprehensive test suites...
+- `aws-solution-architect`：用于 AWS 云架构设计、服务选型、成本优化与 Well-Architected Framework 评估。来源：alirezarezvani/claude-skills。
+- `cli-demo-generator`：This skill should be used when users want to create animated CLI demos, terminal recordings, or command-line demonstration GIFs. It supports both...
+- `code-review-excellence`：Master effective code review practices to provide constructive feedback, catch bugs early, and foster knowledge sharing while maintaining team...
+- `codebase-inspection`：Inspect and analyze codebases using pygount for LOC counting, language breakdown, and code-vs-comment ratios. Use when asked to check lines of code...
+- `codebase-onboarding`：Analyze a codebase and generate comprehensive onboarding documentation tailored to your audience. Produces architecture overviews, key file maps...
+- `database-designer`：A comprehensive database design skill that provides expert-level analysis, optimization, and migration capabilities for modern database systems. This...
+- `database-schema-designer`：Design relational database schemas from requirements and generate migrations, TypeScript/Python types, seed data, RLS policies, and indexes. Handles...
+- `debugging-strategies`：Master systematic debugging techniques, profiling tools, and root cause analysis to efficiently track down bugs across any codebase or technology...
+- `dependency-auditor`：> Skill Type: POWERFUL > Category: Engineering > Domain: Dependency Management & Security.
+- `docker-expert`：用于 Docker 容器化最佳实践、多阶段构建优化与 Docker Compose 编排。来源：skills.sh 8.7K installs。
+- `frontend-design`：Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages...
+- `git-worktree-manager`：The Git Worktree Manager skill provides systematic management of Git worktrees for parallel development workflows. It handles worktree creation with...
+- `github-contributor`：Strategic guide for becoming an effective GitHub contributor. Covers opportunity discovery, project selection, high-quality PR creation, and...
+- `graphify`：any input (code, docs, papers, images, video/audio) -> knowledge graph -> clustered communities -> HTML + JSON + audit report
+- `graphql-expert`：用于 GraphQL API 设计、查询优化、Schema 管理和安全最佳实践。仓库整理版，吸收社区高频最佳实践。
+- `i18n-expert`：This skill should be used when setting up, auditing, or enforcing internationalization/localization in UI codebases (React/TS, i18next or similar...
+- `kubernetes-specialist`：用于 Kubernetes 集群管理、部署编排、Pod 调试与 Helm Chart 设计。来源：skills.sh 5K+ installs。
+- `mcp-builder`：Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools...
+- `mcp-server-builder`：Design and implement Model Context Protocol (MCP) servers that expose any REST API, database, or service as structured tools for Claude and other...
+- `migration-architect`：Purpose: Zero-downtime migration planning, compatibility validation, and rollback strategy generation.
+- `monorepo-navigator`：Navigate, manage, and optimize monorepos. Covers Turborepo, Nx, pnpm workspaces, and Lerna. Enables cross-package impact analysis, selective...
+- `nextjs-app-router`：用于 Next.js App Router 模式开发，包含 RSC、Server Actions 和路由最佳实践。来源：skills.sh 10.2K installs。
+- `parallel-debugging`：Debug complex issues using competing hypotheses with parallel investigation, evidence collection, and root cause arbitration. Use this skill when...
+- `performance-profiler`：Systematic performance profiling for Node.js, Python, and Go applications. Identifies CPU, memory, and I/O bottlenecks; generates flamegraphs...
+- `pr-review-expert`：Structured, systematic code review for GitHub PRs and GitLab MRs. Goes beyond style nits — this skill performs blast radius analysis, security...
+- `promptfoo-evaluation`：Configures and runs LLM evaluation using Promptfoo framework. Use when setting up prompt testing, creating evaluation configs (promptfooconfig.yaml)...
+- `python-performance`：用于 Python 性能优化、内存分析和并发编程最佳实践。来源：skills.sh 12.8K installs。
+- `qa-expert`：This skill should be used when establishing comprehensive QA testing processes for any software project. Use when creating test strategies, writing...
+- `repomix-safe-mixer`：Safely package codebases with repomix by automatically detecting and removing hardcoded credentials before packing. Use when packaging code for...
+- `rust-engineer`：用于 Rust 语言开发最佳实践、异步编程和系统级编程指导。来源：skills.sh 1.5K+ installs。
+- `skill-tester`：Name: skill-tester Tier: POWERFUL Category: Engineering Quality Assurance Dependencies: None (Python Standard Library Only) Author: Claude Skills...
+- `supabase-postgres`：用于 Supabase 平台开发与 PostgreSQL 最佳实践，包含 RLS、Edge Functions 和实时订阅。来源：supabase 官方 52.5K installs。
+- `systematic-debugging`：Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes
+- `tailwind-design-system`：用于 Tailwind CSS 设计系统搭建、组件库开发与主题定制。来源：skills.sh 24.7K installs。
+- `tech-debt-tracker`：Tier: POWERFUL 🔥 Category: Engineering Process Automation Expertise: Code Quality, Technical Debt Management, Software Engineering.
+- `terraform-engineer`：用于 Terraform 基础设施即代码（IaC）设计、模块化管理和状态管理。来源：HashiCorp 官方 + skills.sh。
+- `typescript-best-practices`：用于 TypeScript 高级类型编程、类型安全设计和常见反模式避免。仓库整理版，吸收社区高频最佳实践。
+- `web-artifacts-builder`：Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS...
+- `webapp-testing`：Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior...
 
-<a id="cat-devops-sre"></a>
-### 2. DevOps / SRE（devops-sre，10）
+<a id="cat-ai-workflow"></a>
+### 2. AI 工作流（ai-workflow，40）
 
-- `changelog-generator`：用于自动生成版本变更日志。
-- `ci-cd-pipeline-builder`：用于设计与搭建 CI/CD 流水线。
-- `cloudflare-troubleshooting`：用于 Cloudflare 常见问题排查。
-- `env-secrets-manager`：用于环境变量与密钥管理。
-- `github-ops`：用于 GitHub 运维与仓库流程自动化。
-- `incident-commander`：用于事故响应、升级与复盘流程。
-- `observability-designer`：用于监控、告警和 SLO 体系设计。
-- `release-manager`：用于发布节奏、版本流程与变更管控。
-- `senior-devops`：用于综合 DevOps 工程实践与体系落地。
-- `senior-architect`：用于软件架构评审、技术选型决策和系统可扩展性分析。
-
-<a id="cat-growth-operations"></a>
-### 3. 增长运营（growth-operations-xiaohongshu，11）
-
-- `algorithmic-art`：用于生成算法风格视觉内容与创意素材。
-- `app-store-optimization`：用于应用商店优化（ASO）与关键词策略。
-- `campaign-analytics`：用于活动归因分析与 ROI 评估。
-- `competitors-analysis`：用于竞品信息采集与对标分析。
-- `content-creator`：用于内容策划、脚本与发布节奏设计。
-- `marketing-demand-acquisition`：用于获客漏斗与需求增长策略。
-- `marketing-strategy-pmm`：用于市场定位、信息传达与 PMM 策略。
-- `prompt-engineer-toolkit`：用于运营场景下的提示词工程实践。
-- `social-media-analyzer`：用于社媒数据分析与趋势洞察。
-- `twitter-reader`：用于读取、整理和提炼 Twitter 信息。
-- `seo-audit`：用于网站 SEO 全面审计、On-page 优化建议和技术 SEO 检查。
-
-<a id="cat-finance-investing"></a>
-### 4. 金融投资（finance-investing，13）
-
-- `comps-valuation-analyst`：用于可比公司估值、倍数区间分析与相对估值判断。
-- `earnings-call-analyzer`：用于财报电话会摘要、管理层口径变化和风险信号提取。
-- `event-driven-tracker`：用于跟踪财报、并购、回购、分红等重要事件催化剂。
-- `factor-backtester`：用于因子策略回测、收益拆解、换手与成本敏感性检查。
-- `financial-analyst`：用于财务分析、预测与报告输出。
-- `financial-data-collector`：用于财务数据抓取、清洗与校验。
-- `investment-memo-writer`：用于把研究结论整理成投委会或投资备忘录。
-- `macro-regime-monitor`：用于宏观 regime 跟踪与风险偏好框架判断。
-- `options-strategy-evaluator`：用于期权策略盈亏结构、风险点和情景分析。
-- `portfolio-risk-manager`：用于组合风险、暴露、集中度与 Beta 视角分析。
-- `sec-filing-reviewer`：用于审阅 SEC 披露文件并提取核心风险线索。
-- `stock-screener-builder`：用于构建选股条件、筛选股票池与生成研究 shortlist。
-- `saas-metrics-coach`：用于 SaaS 关键指标分析与健康度诊断（ARR/MRR/Churn/LTV/CAC）。
-
-<a id="cat-office-white-collar"></a>
-### 5. 办公与文档（office-white-collar，16）
-
-- `capture-screen`：用于系统级截图与区域截图。
-- `doc`：用于 `.docx` 文档的读取、创建与编辑（偏工作流编排）。
-- `doc-coauthoring`：用于文档协同编辑与审阅流程。
-- `docx`：用于 Word（.docx）文档创建、编辑与分析。
-- `excel-automation`：用于 Excel 自动化处理与批量操作。
-- `gog`：用于 Google Workspace（Gmail/Calendar/Drive/Docs）自动化办公。
-- `markdown-tools`：用于 Markdown 转换、合并和内容处理。
-- `meeting-minutes-taker`：用于会议纪要结构化整理。
-- `mermaid-tools`：用于 Mermaid 图表提取、生成与渲染。
-- `pdf`：用于 PDF 的读取、解析和内容处理。
-- `pdf-creator`：用于从 Markdown/文本生成 PDF。
-- `ppt-creator`：用于快速生成演示文稿内容。
-- `pptx`：用于 PPTX 文件编辑、清理与结构操作。
-- `spreadsheet`：用于电子表格（xlsx/csv/tsv）通用处理与分析。
-- `transcript-fixer`：用于转录文本纠错、对比与修订。
-- `xlsx`：用于电子表格分析、公式与格式处理。
-
-<a id="cat-memory-safety"></a>
-### 6. 记忆与安全（openclaw-memory-and-safety，3）
-
-- `input-guard`：用于检测外部文本中的提示注入风险。
-- `rag-architect`：用于 RAG 系统架构设计与评估。
-- `runbook-generator`：用于生成标准化运维 Runbook。
-
-<a id="cat-operations-general"></a>
-### 7. 通用运营（operations-general，11）
-
-- `brand-guidelines`：用于品牌规范制定与统一表达。
-- `docs-cleaner`：用于文档清洗、重构与降噪。
-- `fact-checker`：用于信息事实核查与可信度评估。
-- `internal-comms`：用于内部沟通文案与公告写作。
-- `interview-system-designer`：用于面试流程、题库与评估体系设计。
-- `slack-gif-creator`：用于制作 Slack 场景 GIF 素材。
-- `teams-channel-post-writer`：用于撰写 Teams 频道发布文案。
-- `theme-factory`：用于主题风格配置与视觉模板输出。
-- `weather`：用于免 API Key 的天气查询与出行场景支持。
-- `supermemory`：用于长期记忆管理、偏好捕获和矛盾检测。
-- `confidence-check`：用于结构化自我审查，验证假设和减少幻觉输出。
-
-<a id="cat-product-design"></a>
-### 8. 产品与设计（product-design，10）
-
-- `agile-product-owner`：用于敏捷需求管理与迭代推进。
-- `canvas-design`：用于商业/产品画布设计与梳理。
-- `competitive-teardown`：用于产品竞品拆解分析。
-- `product-analysis`：用于产品诊断、问题分析与优化建议。
-- `product-manager-toolkit`：用于产品经理常用方法与模板。
-- `product-strategist`：用于产品战略规划与路线图设计。
-- `saas-scaffolder`：用于 SaaS 产品方案脚手架与初始结构。
-- `ui-design-system`：用于 UI 设计系统与 Design Token 规范。
-- `ux-researcher-designer`：用于用户研究与体验设计方法。
-- `landing-page-generator`：用于快速生成高转化率落地页结构与 TSX/Tailwind 代码脚手架。
-
-<a id="cat-task-understanding"></a>
-### 9. 任务理解与拆解（task-understanding-decomposition，12）
-
-- `agent-workflow-designer`：用于设计 Agent 协作流程与分工。
-- `brainstorming`：用于在实现前进行需求澄清与方案发散。
-- `deep-research`：用于深度研究、证据汇总与结论输出。
-- `find-skills`：用于自动检索并安装目标任务所需技能。
-- `prompt-optimizer`：用于优化提示词结构与效果。
-- `reflect-learn`：用于复盘总结并沉淀可复用经验。
-- `skill-creator`：用于新技能创建、迭代与评测。
-- `skill-reviewer`：用于技能质量评审与改进建议。
-- `skills-search`：用于快速检索并匹配可用技能。
-- `tavily-search`：用于联网实时检索与来源证据补充。
-- `writing-plans`：用于编写可执行的实施计划。
-- `subagent-driven-development`：用于多子 Agent 并行开发编排与两阶段审查。
+- `agent-workflow-designer`：Design production-grade multi-agent orchestration systems. Covers five core patterns (sequential pipeline, parallel fan-out/fan-in, hierarchical...
+- `api-and-interface-design`：Guides stable API and interface design. Use when designing APIs, module boundaries, or any public interface. Use when creating REST or GraphQL...
+- `brainstorming`：You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user...
+- `browser-testing-with-devtools`：Tests in real browsers. Use when building or debugging anything that runs in a browser. Use when you need to inspect the DOM, capture console errors...
+- `ci-cd-and-automation`：Automates CI/CD pipeline setup. Use when setting up or modifying build and deployment pipelines. Use when you need to automate quality gates...
+- `code-review-and-quality`：Conducts multi-axis code review. Use before merging any change. Use when reviewing code written by yourself, another agent, or a human. Use when you...
+- `code-simplification`：Simplifies code for clarity. Use when refactoring code for clarity without changing behavior. Use when code works but is harder to read, maintain, or...
+- `context-engineering`：Optimizes agent context setup. Use when starting a new session, when agent output quality degrades, when switching between tasks, or when you need to...
+- `debugging-and-error-recovery`：Guides systematic root-cause debugging. Use when tests fail, builds break, behavior doesn''t match expectations, or you encounter any unexpected...
+- `deep-research`：Generate format-controlled research reports with evidence tracking, citations, and iterative review. This skill should be used when users request a...
+- `deprecation-and-migration`：Manages deprecation and migration. Use when removing old systems, APIs, or features. Use when migrating users from one implementation to another. Use...
+- `dispatching-parallel-agents`：Use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies
+- `documentation-and-adrs`：Records decisions and documentation. Use when making architectural decisions, changing public APIs, shipping features, or when you need to record...
+- `executing-plans`：Use when you have a written implementation plan to execute in a separate session with review checkpoints
+- `find-skills`：让 Agent 自动搜索并安装合适技能，解决不知道该用哪个技能的问题。
+- `finishing-a-development-branch`：Use when implementation is complete, all tests pass, and you need to decide how to integrate the work - guides completion of development work by...
+- `frontend-ui-engineering`：Builds production-quality UIs. Use when building or modifying user-facing interfaces. Use when creating components, implementing layouts, managing...
+- `git-workflow-and-versioning`：Structures git workflow practices. Use when making any code change. Use when committing, branching, resolving conflicts, or when you need to organize...
+- `idea-refine`：Refines ideas iteratively. Refine ideas through structured divergent and convergent thinking. Use \"idea-refine\" or \"ideate\" to trigger.
+- `incremental-implementation`：Delivers changes incrementally. Use when implementing any feature or change that touches more than one file. Use when you''re about to write a large...
+- `performance-optimization`：Optimizes application performance. Use when performance requirements exist, when you suspect performance regressions, or when Core Web Vitals or load...
+- `planning-and-task-breakdown`：Breaks work into ordered tasks. Use when you have a spec or clear requirements and need to break work into implementable tasks. Use when a task feels...
+- `prompt-optimizer`：Transform vague prompts into precise, well-structured specifications using EARS (Easy Approach to Requirements Syntax) methodology. This skill should...
+- `receiving-code-review`：Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable - requires...
+- `requesting-code-review`：Use when completing tasks, implementing major features, or before merging to verify work meets requirements
+- `security-and-hardening`：Hardens code against vulnerabilities. Use when handling user input, authentication, data storage, or external integrations. Use when building any...
+- `shipping-and-launch`：Prepares production launches. Use when preparing to deploy to production. Use when you need a pre-launch checklist, when setting up monitoring, when...
+- `skill-creator`：Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, update or...
+- `skill-reviewer`：Reviews and improves Claude Code skills against official best practices. Supports three modes - self-review (validate your own skills), external...
+- `skills-search`：This skill should be used when users want to search, discover, install, or manage Claude Code skills from the CCPM registry. Triggers include...
+- `source-driven-development`：Grounds every implementation decision in official documentation. Use when you want authoritative, source-cited code free from outdated patterns. Use...
+- `spec-driven-development`：Creates specs before coding. Use when starting a new project, feature, or significant change and no specification exists yet. Use when requirements...
+- `subagent-driven-development`：Use when executing implementation plans with independent tasks in the current session
+- `test-driven-development`：Drives development with tests. Use when implementing any logic, fixing any bug, or changing any behavior. Use when you need to prove that code works...
+- `using-agent-skills`：Discovers and invokes agent skills. Use when starting a session or when you need to discover which skill applies to the current task. This is the...
+- `using-git-worktrees`：Use when starting feature work that needs isolation from current workspace or before executing implementation plans - creates isolated git worktrees...
+- `using-superpowers`：Use when starting any conversation - establishes how to find and use skills, requiring Skill tool invocation before ANY response including clarifying...
+- `verification-before-completion`：Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and...
+- `writing-plans`：Use when you have a spec or requirements for a multi-step task, before touching code
+- `writing-skills`：Use when creating new skills, editing existing skills, or verifying skills work before deployment
 
 <a id="cat-ai-agent-platform"></a>
-### 10. AI 平台与 Agent 开发（ai-agent-platform，8）
+### 3. AI 平台与 Agent 开发（ai-agent-platform，13）
 
-- `chatgpt-apps`：用于构建、脚手架化和调试 ChatGPT Apps。
-- `develop-web-game`：用于 Web 游戏快速迭代开发与自动化验证。
-- `figma`：用于通过 Figma MCP 获取设计上下文与资源信息。
-- `figma-implement-design`：用于把 Figma 节点高保真转成可生产代码。
-- `openai-docs`：用于基于 OpenAI 官方文档进行能力检索与实现指导。
-- `proactive-agent`：用于提升 Agent 主动规划与持续协作能力。
-- `self-improving-agent`：用于记忆驱动的反思迭代与自我优化。
-- `agent-hub`：用于多 Agent 系统编排、通信协议设计与生命周期管理。
+- `agent-hub`：Multi-agent collaboration plugin that spawns N parallel subagents competing on the same task via git worktree isolation. Agents work independently...
+- `chatgpt-apps`：Build, scaffold, refactor, and troubleshoot ChatGPT Apps SDK applications that combine an MCP server and widget UI. Use when Codex needs to design...
+- `develop-web-game`：Use when Codex is building or iterating on a web game (HTML/JS) and needs a reliable development + testing loop: implement small changes, run a...
+- `figma`：Use the Figma MCP server to fetch design context, screenshots, variables, and assets from Figma, and to translate Figma nodes into production code...
+- `figma-implement-design`：Translate Figma nodes into production-ready code with 1:1 visual fidelity using the Figma MCP workflow (design context, screenshots, assets, and...
+- `hermes-agent`：Complete guide to using and extending Hermes Agent — CLI usage, setup, configuration, spawning additional agents, gateway platforms, skills, voice...
+- `hermes-graphify-gsd-nonintrusive-workflow`：Use when integrating Hermes Agent, graphify, and GSD into a local development workflow without modifying upstream repositories, especially when the...
+- `hermes-graphify-gsd-runtime-operator`：Use when operating or debugging a repo-local Hermes + graphify + GSD autonomous runtime, especially when checking writer ownership, execution-surface...
+- `mcporter`：Use the mcporter CLI to list, configure, auth, and call MCP servers/tools directly (HTTP or stdio), including ad-hoc servers, config edits, and...
+- `native-mcp`：Built-in MCP (Model Context Protocol) client that connects to external MCP servers, discovers their tools, and registers them as native Hermes Agent...
+- `openai-docs`：Use when the user asks how to build with OpenAI products or APIs and needs up-to-date official documentation with citations (for example: Codex...
+- `proactive-agent`：增强 Agent 的主动规划与自我迭代能力，从被动执行升级为主动协作。
+- `self-improving-agent`：带记忆与自我优化机制的 Agent 技能，能在迭代中持续改进行为。
 
 <a id="cat-workflow-automation"></a>
-### 11. 工程工作流自动化（engineering-workflow-automation，8）
+### 4. 工程工作流自动化（engineering-workflow-automation，10）
 
-- `agent-browser`：用于语义驱动的真实浏览器自动化操作。
-- `gh-address-comments`：用于处理 GitHub PR 的 review/issue 评论并闭环。
-- `gh-fix-ci`：用于诊断并修复 GitHub Actions CI 失败。
-- `jupyter-notebook`：用于创建和维护实验分析类 Notebook。
-- `playwright`：用于终端驱动的真实浏览器自动化测试与排查。
-- `github`：用于通过 GitHub CLI 管理 Issues、PR 与 CI 自动化协作。
-- `yeet`：用于一体化执行 stage/commit/push/PR 流程。
-- `web-scraper`：用于网页数据抓取、结构化提取和反爬策略应对。
+- `agent-browser`：为 Agent 提供真实浏览器自动化能力，支持语义定位、表单交互、截图录屏、脚本执行与会话管理。
+- `gh-address-comments`：Help address review/issue comments on the open GitHub PR for the current branch using gh CLI; verify gh auth first and prompt the user to...
+- `gh-fix-ci`：Use when a user asks to debug or fix failing GitHub PR checks that run in GitHub Actions; use `gh` to inspect checks and logs, summarize failure...
+- `github`：通过 GitHub CLI 自动化 Issue、PR、Review 与 CI 检查，适合工程协作闭环。
+- `gsd-graphify-brownfield-bootstrap`：Bootstrap GSD + graphify for an existing brownfield repo when the project needs a single canonical workflow for local runtime setup, graph refresh...
+- `hermes-graphify-gsd-project-integration`：Use when integrating Hermes Agent, graphify, and GSD into a specific repository, especially for adding project-local graph refresh scripts, AGENTS.md...
+- `jupyter-notebook`：Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) for experiments, explorations, or tutorials; prefer the bundled...
+- `playwright`：Use when the task requires automating a real browser from the terminal (navigation, form filling, snapshots, screenshots, data extraction, UI-flow...
+- `web-scraper`：用于网页数据抓取、结构化提取和反爬策略应对。仓库整理版，吸收社区高频最佳实践。
+- `yeet`：Use only when the user explicitly asks to stage, commit, push, and open a GitHub pull request in one flow using the GitHub CLI (`gh`).
+
+<a id="cat-devops-sre"></a>
+### 5. DevOps / SRE（devops-sre，10）
+
+- `changelog-generator`：Parse conventional commits, determine semantic version bumps, and generate structured changelogs in Keep a Changelog format. Supports monorepo...
+- `ci-cd-pipeline-builder`：Analyzes your project stack and generates production-ready CI/CD pipeline configurations for GitHub Actions, GitLab CI, and Bitbucket Pipelines...
+- `cloudflare-troubleshooting`：Investigate and resolve Cloudflare configuration issues using API-driven evidence gathering. Use when troubleshooting ERR_TOO_MANY_REDIRECTS, SSL...
+- `env-secrets-manager`：Complete environment and secrets management workflow: .env file lifecycle across dev/staging/prod, .env.example auto-generation, required-var...
+- `github-ops`：Provides comprehensive GitHub operations using gh CLI and GitHub API. Activates when working with pull requests, issues, repositories, workflows, or...
+- `incident-commander`：Author: Claude Skills Team Version: 1.0.0 Last Updated: February 2026.
+- `observability-designer`：Description: Design comprehensive observability strategies for production systems including SLI/SLO frameworks, alerting optimization, and dashboard...
+- `release-manager`：The Release Manager skill provides comprehensive tools and knowledge for managing software releases end-to-end. From parsing conventional commits to...
+- `senior-architect`：This skill should be used when the user asks to \"design system architecture\", \"evaluate microservices vs monolith\", \"create architecture...
+- `senior-devops`：Comprehensive DevOps skill for CI/CD, infrastructure automation, containerization, and cloud platforms (AWS, GCP, Azure). Includes pipeline setup...
+
+<a id="cat-finance-investing"></a>
+### 6. 金融投资（finance-investing，13）
+
+- `comps-valuation-analyst`：Use when valuing a public company with peer multiples, building comparable-company tables, or pressure-testing a valuation range with EV/EBITDA, P/E...
+- `earnings-call-analyzer`：Use when summarizing earnings calls, extracting management tone changes, surfacing guidance language, or turning transcript snippets into an...
+- `event-driven-tracker`：Use when tracking earnings, product launches, M&A, dividends, buybacks, unlocks, or other market-moving dates that need a prioritized event calendar.
+- `factor-backtester`：Use when testing factor signals, running long-short spread backtests, checking hit rate and turnover, or sanity-checking whether a ranking signal...
+- `financial-analyst`：Performs financial ratio analysis, DCF valuation, budget variance analysis, and rolling forecast construction for strategic decision-making
+- `financial-data-collector`：Use when collecting financial data for a US public company, assembling DCF inputs, pulling market and filing facts, or grounding downstream analysis...
+- `investment-memo-writer`：Use when turning research notes into an investment memo, writing a buy or sell thesis, or structuring catalysts, risks, and monitoring items for an...
+- `macro-regime-monitor`：Use when tracking macro regime shifts, summarizing inflation, growth, spreads, and liquidity signals, or creating a house view before updating sector...
+- `options-strategy-evaluator`：Use when evaluating an options structure, checking expiry payoff checkpoints, comparing premium outlay versus downside protection, or preparing a...
+- `portfolio-risk-manager`：Use when reviewing portfolio exposures, checking concentration and beta risk, summarizing sector or region tilts, or preparing a risk note before...
+- `saas-metrics-coach`：SaaS financial health advisor. Use when a user shares revenue or customer numbers, or mentions ARR, MRR, churn, LTV, CAC, NRR, or asks how their SaaS...
+- `sec-filing-reviewer`：Use when reviewing SEC filings, extracting material risk disclosures, scanning 10-K or 10-Q sections, or building a follow-up checklist from filing...
+- `stock-screener-builder`：Use when building a stock screen, filtering a universe by valuation, growth, quality, or momentum rules, or creating a repeatable shortlist for...
+
+<a id="cat-growth-operations"></a>
+### 7. 增长运营（growth-operations-xiaohongshu，11）
+
+- `algorithmic-art`：Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. Use this when users request creating art using...
+- `app-store-optimization`：App Store Optimization toolkit for researching keywords, optimizing metadata, and tracking mobile app performance on Apple App Store and Google Play...
+- `campaign-analytics`：Analyzes campaign performance with multi-touch attribution, funnel conversion, and ROI calculation for marketing optimization
+- `competitors-analysis`：Analyze competitor repositories with evidence-based approach. Use when tracking competitors, creating competitor profiles, or generating competitive...
+- `content-creator`：Create SEO-optimized marketing content with consistent brand voice. Includes brand voice analyzer, SEO optimizer, content frameworks, and social...
+- `marketing-demand-acquisition`：Multi-channel demand generation, paid media optimization, SEO strategy, and partnership programs for Series A+ startups
+- `marketing-strategy-pmm`：Product marketing skill for positioning, GTM strategy, competitive intelligence, and product launches. Covers April Dunford positioning, ICP...
+- `prompt-engineer-toolkit`：Systematic prompt engineering from first principles. Build, test, version, and optimize prompts for any LLM task. Covers technique selection, a...
+- `seo-audit`：用于网站 SEO 全面审计、On-page 优化建议和技术 SEO 检查清单生成。仓库整理版，吸收社区高频最佳实践。
+- `social-media-analyzer`：Social media campaign analysis and performance tracking. Calculates engagement rates, ROI, and benchmarks across platforms. Use for analyzing social...
+- `twitter-reader`：Fetch Twitter/X post content by URL using jina.ai API to bypass JavaScript restrictions. Use when Claude needs to retrieve tweet content including...
+
+<a id="cat-office-white-collar"></a>
+### 8. 办公与文档（office-white-collar，16）
+
+- `capture-screen`：Programmatic screenshot capture on macOS. Find window IDs with Swift CGWindowListCopyWindowInfo, control application windows via AppleScript (zoom...
+- `doc`：Use when the task involves reading, creating, or editing `.docx` documents, especially when formatting or layout fidelity matters; prefer...
+- `doc-coauthoring`：Guide users through a structured workflow for co-authoring documentation. Use when user wants to write documentation, proposals, technical specs...
+- `docx`：Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.docx files). Triggers include: any mention of ''Word...
+- `excel-automation`：Create, parse, and control Excel files on macOS. Professional formatting with openpyxl, complex xlsm parsing with stdlib zipfile+xml for investment...
+- `gog`：Google Workspace 自动化技能，统一处理 Gmail、Calendar、Drive 与 Docs 等办公流程。
+- `markdown-tools`：Converts documents to markdown with multi-tool orchestration for best quality. Supports Quick Mode (fast, single tool) and Heavy Mode (best quality...
+- `meeting-minutes-taker`：Transforms raw meeting transcripts into high-fidelity, structured meeting minutes with iterative review for completeness. This skill should be used...
+- `mermaid-tools`：Extracts Mermaid diagrams from markdown files and generates high-quality PNG images using bundled scripts. Activates when working with Mermaid...
+- `pdf`：Use this skill whenever the user wants to do anything with PDF files. This includes reading or extracting text/tables from PDFs, combining or merging...
+- `pdf-creator`：Create PDF documents from markdown with proper Chinese font support using weasyprint. This skill should be used when converting markdown to PDF...
+- `ppt-creator`：Create professional slide decks from topics or documents. Generates structured content with data-driven charts, speaker notes, and complete PPTX...
+- `pptx`：Use this skill any time a .pptx file is involved in any way — as input, output, or both. This includes: creating slide decks, pitch decks, or...
+- `spreadsheet`：Use when tasks involve creating, editing, analyzing, or formatting spreadsheets (`.xlsx`, `.csv`, `.tsv`) using Python (`openpyxl`, `pandas`)...
+- `transcript-fixer`：Corrects speech-to-text transcription errors in meeting notes, lectures, and interviews using dictionary rules and AI. Learns patterns to build...
+- `xlsx`：Use this skill any time a spreadsheet file is the primary input or output. This means any task where the user wants to: open, read, edit, or fix an...
 
 <a id="cat-knowledge-pm"></a>
-### 12. 项目管理与知识库集成（knowledge-and-pm-integrations，5）
+### 9. 项目管理与知识库集成（knowledge-and-pm-integrations，8）
 
-- `linear`：用于 Linear 任务与项目流程管理。
-- `notion-knowledge-capture`：用于将讨论沉淀为结构化 Notion 知识页。
-- `notion-meeting-intelligence`：用于基于 Notion 上下文准备会议材料。
-- `notion-research-documentation`：用于跨 Notion 页面研究并汇总文档。
-- `notion-spec-to-implementation`：用于把 Notion 规格转为实施计划与任务。
+- `arxiv`：Search and retrieve academic papers from arXiv using their free REST API. No API key needed. Search by keyword, author, category, or ID. Combine with...
+- `linear`：Manage Linear issues, projects, and teams via the GraphQL API. Create, update, search, and organize issues. Uses API key auth (no OAuth needed). All...
+- `llm-wiki`：Path to the LLM Wiki knowledge base directory
+- `notion-knowledge-capture`：Capture conversations and decisions into structured Notion pages; use when turning chats/notes into wiki entries, how-tos, decisions, or FAQs with...
+- `notion-meeting-intelligence`：Prepare meeting materials with Notion context and Codex research; use when gathering context, drafting agendas/pre-reads, and tailoring materials to...
+- `notion-research-documentation`：Research across Notion and synthesize into structured documentation; use when gathering info from multiple Notion sources to produce briefs...
+- `notion-spec-to-implementation`：Turn Notion specs into implementation plans, tasks, and progress tracking; use when implementing PRDs/feature specs and creating Notion plans + tasks...
+- `obsidian`：Read, search, and create notes in the Obsidian vault.
 
-<a id="cat-deployment-platforms"></a>
-### 13. 部署平台（deployment-platforms，4）
+<a id="cat-operations-general"></a>
+### 10. 通用运营（operations-general，11）
 
-- `cloudflare-deploy`：用于部署到 Cloudflare Workers/Pages 等平台。
-- `netlify-deploy`：用于通过 Netlify CLI 发布站点。
-- `render-deploy`：用于在 Render 上生成和部署应用蓝图。
-- `vercel-deploy`：用于在 Vercel 上进行预览和生产部署。
+- `brand-guidelines`：Applies Anthropic''s official brand colors and typography to any sort of artifact that may benefit from having Anthropic''s look-and-feel. Use it...
+- `confidence-check`：用于结构化自我审查，验证假设、识别不确定性和减少幻觉输出。仓库整理版，吸收社区高频最佳实践。
+- `docs-cleaner`：Consolidates redundant documentation while preserving all valuable content. This skill should be used when users want to clean up documentation...
+- `fact-checker`：Verifies factual claims in documents using web search and official sources, then proposes corrections with user confirmation. Use when the user asks...
+- `internal-comms`：A set of resources to help me write all kinds of internal communications, using the formats that my company likes to use. Claude should use this...
+- `interview-system-designer`：This skill should be used when the user asks to "design interview processes", "create hiring pipelines", "calibrate interview loops", "generate...
+- `slack-gif-creator`：Knowledge and utilities for creating animated GIFs optimized for Slack. Provides constraints, validation tools, and animation concepts. Use when...
+- `supermemory`：用于长期记忆管理、偏好捕获、矛盾检测和项目状态跟踪。来源：supermemoryai/supermemory。
+- `teams-channel-post-writer`：Creates educational Teams channel posts for internal knowledge sharing about Claude Code features, tools, and best practices. Applies when writing...
+- `theme-factory`：Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML landing pages, etc. There are 10 pre-set themes...
+- `weather`：免 API Key 的天气查询技能，支持多数据源与自然语言请求。
 
-<a id="cat-multimodal-media"></a>
-### 14. 多模态内容（multimodal-media，6）
+<a id="cat-product-design"></a>
+### 11. 产品与设计（product-design，10）
 
-- `imagegen`：用于图像生成、编辑、抠图和变体产出。
-- `screenshot`：用于系统级截图采集（全屏/窗口/区域）。
-- `sora`：用于 Sora 视频生成、轮询、下载与管理。
-- `speech`：用于文本转语音旁白生成。
-- `summarize`：用于网页、文档与长文本内容摘要。
-- `transcribe`：用于音视频转写与可选说话人区分。
+- `agile-product-owner`：Agile product ownership for backlog management and sprint execution. Covers user story writing, acceptance criteria, sprint planning, and velocity...
+- `canvas-design`：Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this skill when the user asks to create a poster...
+- `competitive-teardown`：Run a structured competitive analysis on any product or company. Synthesizes data from pricing pages, app store reviews, job postings, SEO signals...
+- `landing-page-generator`：Generates high-converting landing pages as complete Next.js/React (TSX) components with Tailwind CSS. Creates hero sections, feature grids, pricing...
+- `product-analysis`：Multi-path parallel product analysis with cross-model test-time compute scaling. Spawns parallel agents (Claude Code agent teams + Codex CLI) to...
+- `product-manager-toolkit`：Comprehensive toolkit for product managers including RICE prioritization, customer interview analysis, PRD templates, discovery frameworks, and...
+- `product-strategist`：Strategic product leadership toolkit for Head of Product including OKR cascade generation, market analysis, vision setting, and team scaling. Use for...
+- `saas-scaffolder`：Generate complete, production-ready SaaS projects from a product brief. Outputs a fully wired Next.js App Router project with authentication...
+- `ui-design-system`：UI design system toolkit for Senior UI Designer including design token generation, component documentation, responsive design calculations, and...
+- `ux-researcher-designer`：UX research and design toolkit for Senior UX Designer/Researcher including data-driven persona generation, journey mapping, usability testing...
 
 <a id="cat-security-reliability"></a>
-### 15. 安全治理与稳定性（security-and-reliability，7）
+### 12. 安全治理与稳定性（security-and-reliability，7）
 
-- `link-checker`：用于 URL 安全检测、钓鱼链接识别与基础可达性检查。
-- `security-best-practices`：用于按语言/框架执行安全最佳实践检查。
-- `security-ownership-map`：用于基于 Git 历史构建安全责任与 Bus Factor 图谱。
-- `security-threat-model`：用于仓库级威胁建模与缓解建议输出。
-- `sentry`：用于读取并汇总 Sentry 线上异常与健康信息。
-- `skill-vetter`：用于安装前技能安全审计与风险识别。
-- `skill-security-auditor`：用于第三方 Skill 安装前安全扫描（命令注入/数据泄露/提示注入检测）。
+- `link-checker`：检测 URL 可达性与潜在风险，识别失效链接、跳转链路和可疑域名。
+- `security-best-practices`：Perform language and framework specific security best-practice reviews and suggest improvements. Trigger only when the user explicitly requests...
+- `security-ownership-map`：Analyze git repositories to build a security ownership topology (people-to-file), compute bus factor and sensitive-code ownership, and export...
+- `security-threat-model`：Repository-grounded threat modeling that enumerates trust boundaries, assets, attacker capabilities, abuse paths, and mitigations, and writes a...
+- `sentry`：Use when the user asks to inspect Sentry issues or events, summarize recent production errors, or pull basic Sentry health data via the Sentry API...
+- `skill-security-auditor`：Audit AI agent skills for security risks before installation, with PASS/WARN/FAIL findings and remediation guidance.
+- `skill-vetter`：在安装前审计技能安全性，识别恶意指令、越权行为与高风险配置。
+
+<a id="cat-multimodal-media"></a>
+### 13. 多模态内容（multimodal-media，6）
+
+- `imagegen`：Use when the user asks to generate or edit images via the OpenAI Image API (for example: generate image, edit/inpaint/mask, background removal or...
+- `screenshot`：Use when the user explicitly asks for a desktop or system screenshot (full screen, specific app or window, or a pixel region), or when tool-specific...
+- `sora`：Use when the user asks to generate, remix, poll, list, download, or delete Sora videos via OpenAI\u2019s video API using the bundled CLI...
+- `speech`：Use when the user asks for text-to-speech narration or voiceover, accessibility reads, audio prompts, or batch speech generation via the OpenAI Audio...
+- `summarize`：对网页、文档、邮件与长文本进行快速摘要，提炼核心信息。
+- `transcribe`：Transcribe audio files to text with optional diarization and known-speaker hints. Use when a user asks to transcribe speech from audio/video, extract...
+
+<a id="cat-deployment-platforms"></a>
+### 14. 部署平台（deployment-platforms，4）
+
+- `cloudflare-deploy`：Deploy applications and infrastructure to Cloudflare using Workers, Pages, and related platform services. Use when the user asks to deploy, host...
+- `netlify-deploy`：Deploy web projects to Netlify using the Netlify CLI (`npx netlify`). Use when the user asks to deploy, host, publish, or link a site/repo on...
+- `render-deploy`：Deploy applications to Render by analyzing codebases, generating render.yaml Blueprints, and providing Dashboard deeplinks. Use when the user wants...
+- `vercel-deploy`：Deploy applications and websites to Vercel. Use when the user requests deployment actions like "deploy my app", "deploy and give me the link", "push...
+
+<a id="cat-memory-safety"></a>
+### 15. 记忆与安全（openclaw-memory-and-safety，4）
+
+- `honcho`：Configure and use Honcho memory with Hermes -- cross-session user modeling, multi-profile peer isolation, observation config, dialectic reasoning...
+- `input-guard`：Scan untrusted external text (web pages, tweets, search results, API responses) for prompt injection attacks. Returns severity levels and alerts on...
+- `rag-architect`：The RAG (Retrieval-Augmented Generation) Architect skill provides comprehensive tools and knowledge for designing, implementing, and optimizing...
+- `runbook-generator`：Analyze a codebase and generate production-grade operational runbooks. Detects your stack (CI/CD, database, hosting, containers), then produces...
+
+<a id="cat-task-understanding"></a>
+### 16. 任务理解与拆解（task-understanding-decomposition，2）
+
+- `reflect-learn`：Self-improvement through conversation analysis. Extracts learnings from corrections and success patterns, proposes updates to agent files or creates...
+- `tavily-search`：提供实时联网检索能力，帮助 Agent 获取最新资讯、数据与来源证据。
 
 ## 建议补充的高热度技能（候选）
 

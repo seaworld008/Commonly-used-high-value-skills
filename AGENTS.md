@@ -10,6 +10,7 @@ openclaw-skills/<skill>/SKILL.md      ← Auto-generated flat export for OpenCla
 docs/sources/in-house.skills.json     ← Provenance mapping (every skill tracked)
 docs/catalog.json                     ← Machine-readable full catalog
 docs/TAGS-INDEX.md                    ← Cross-category tag-based index
+.github/assets/repo-banner.svg        ← Auto-generated README banner from docs/catalog.json
 ```
 
 ## Installation Root By Client
@@ -19,7 +20,7 @@ docs/TAGS-INDEX.md                    ← Cross-category tag-based index
 
 ## Golden Rules
 
-1. **Never manually edit** `openclaw-skills/`, `skills/*/README.md`, `docs/catalog.json`, or `docs/TAGS-INDEX.md` — they are auto-generated.
+1. **Never manually edit** `openclaw-skills/`, `skills/*/README.md`, `docs/catalog.json`, `docs/TAGS-INDEX.md`, or `.github/assets/repo-banner.svg` — they are auto-generated.
 2. **Always run the full pipeline** after any skill change (see §Pipeline below).
 3. **Every skill must have complete frontmatter** (name, description, version, tags, quality, source).
 4. **Every skill must pass quality lint** (`python scripts/lint_skill_quality.py --min-lines 50`).
@@ -52,7 +53,7 @@ Step 2: EVALUATE — Score and filter candidates
   │   ├── Practical value: contains actionable guidance, not just descriptions
   │   ├── Non-overlapping: does not duplicate an existing skill's coverage
   │   └── Well-scoped: focused on one domain, not a vague meta-skill
-  └── Assign recommended category from the 15 existing categories (see §Categories)
+  └── Assign recommended category from the 16 existing categories (see §Categories)
 
 Step 3: INGEST — Download and add to repository
   ├── For each approved skill:
@@ -121,25 +122,26 @@ Step 5: COMMIT & PUSH
 
 ---
 
-## Categories (15 total)
+## Categories (16 total)
 
 | Category Directory | Description | Example Skills |
 |---|---|---|
 | `developer-engineering` | Programming languages, frameworks, dev tools | kubernetes-specialist, nextjs-app-router, rust-engineer |
+| `ai-workflow` | Agent workflows, planning, context engineering, review, verification | context-engineering, agent-workflow-designer, test-driven-development |
+| `ai-agent-platform` | Agent platforms, orchestration, MCP, memory systems | agent-hub, hermes-agent, self-improving-agent |
+| `engineering-workflow-automation` | Git workflows, CI/CD automation, browser testing, code generation | yeet, gh-fix-ci, playwright |
 | `devops-sre` | Infrastructure, CI/CD, monitoring, reliability | senior-devops, senior-architect |
 | `finance-investing` | Financial analysis, trading, portfolio management | financial-analyst, saas-metrics-coach |
 | `growth-operations-xiaohongshu` | Marketing, SEO, social media, growth | seo-audit, campaign-manager |
+| `office-white-collar` | Document processing, spreadsheets, presentations, office workflows | spreadsheet, pptx, docx |
+| `knowledge-and-pm-integrations` | Knowledge bases and project-management integrations | notion-spec-to-implementation, linear, obsidian |
+| `operations-general` | Productivity, search, communication, utilities | confidence-check, fact-checker |
 | `product-design` | UX/UI, product management, design systems | figma, ux-researcher-designer |
 | `security-and-reliability` | Security auditing, compliance, threat modeling | security-best-practices, skill-security-auditor |
-| `ai-agent-platform` | Agent design, orchestration, memory systems | agent-hub, self-improving-agent |
-| `engineering-workflow-automation` | Git workflows, CI/CD automation, code generation | yeet, web-scraper |
-| `operations-general` | Productivity, search, communication, utilities | summarize, confidence-check |
-| `task-understanding-decomposition` | Task planning, decomposition, execution | gog, subagent-driven-development |
+| `multimodal-media` | Images, speech, video, screenshots, summaries, transcription | imagegen, sora, transcribe |
 | `deployment-platforms` | Platform-specific deployment guides | cloudflare-workers, vercel |
-| `office-automation` | Document processing, spreadsheets, presentations | spreadsheet, presentation |
-| `media-and-content` | Content creation, video, social media | video-script-creator, social-content |
-| `cross-border-ecommerce` | International trade, sourcing, product selection | product-selection, tariff-search |
-| `customer-lifecycle` | CRM, customer success, retention | customer-onboarding, churn-prevention |
+| `openclaw-memory-and-safety` | Memory, input guards, RAG, runbooks | honcho, input-guard, rag-architect |
+| `task-understanding-decomposition` | Task understanding support, live search, reflection | tavily-search, reflect-learn |
 
 **Category selection rules**:
 - Match primary function, not secondary use case
@@ -193,7 +195,8 @@ complexity: intermediate            # beginner | intermediate | advanced
 | `bootstrap_in_house_sources.py` | Regenerate provenance mapping | After any skill addition |
 | `refresh_repo_views.py` | Regenerate category READMEs + openclaw export | After any change |
 | `generate_tags_index.py` | Regenerate docs/TAGS-INDEX.md | After any change |
-| `build_catalog_json.py` | Regenerate docs/catalog.json | After any change |
+| `build_catalog_json.py` | Regenerate docs/catalog.json and README banner | After any change |
+| `generate_repo_banner.py` | Regenerate .github/assets/repo-banner.svg from docs/catalog.json | Usually via build_catalog_json.py |
 | `lint_skill_quality.py` | Quality gate check | Before commit |
 | `generate_changelog.py` | Auto-generate CHANGELOG.md | Before release |
 

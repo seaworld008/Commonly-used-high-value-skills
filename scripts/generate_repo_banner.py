@@ -1,4 +1,115 @@
-<svg width="1280" height="640" viewBox="0 0 1280 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+#!/usr/bin/env python3
+"""Generate the repository SVG banner from docs/catalog.json."""
+from __future__ import annotations
+
+import argparse
+import html
+import json
+from pathlib import Path
+
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+
+CATEGORY_LABELS = {
+    "developer-engineering": "Developer Engineering",
+    "ai-workflow": "AI Workflow",
+    "engineering-workflow-automation": "Workflow Automation",
+    "ai-agent-platform": "AI Platform",
+    "office-white-collar": "Office Automation",
+    "finance-investing": "Finance Investing",
+    "growth-operations-xiaohongshu": "Growth Operations",
+    "operations-general": "General Operations",
+    "product-design": "Product Design",
+    "knowledge-and-pm-integrations": "Knowledge + PM",
+    "security-and-reliability": "Security + Reliability",
+    "multimodal-media": "Multimodal Media",
+    "deployment-platforms": "Deployment Platforms",
+    "openclaw-memory-and-safety": "Memory + Safety",
+    "task-understanding-decomposition": "Task Understanding",
+}
+
+FEATURED_CATEGORY_ORDER = (
+    "developer-engineering",
+    "ai-workflow",
+    "engineering-workflow-automation",
+)
+
+
+def load_catalog(catalog_path: Path) -> dict:
+    return json.loads(catalog_path.read_text(encoding="utf-8"))
+
+
+def category_counts(catalog: dict) -> dict[str, int]:
+    return {entry["name"]: int(entry["count"]) for entry in catalog.get("categories", [])}
+
+
+def label_for(category: str) -> str:
+    if category in CATEGORY_LABELS:
+        return CATEGORY_LABELS[category]
+    return " ".join(part.capitalize() for part in category.replace("-", " ").split())
+
+
+def select_featured_categories(catalog: dict) -> list[tuple[str, int]]:
+    counts = category_counts(catalog)
+    featured: list[tuple[str, int]] = []
+
+    for category in FEATURED_CATEGORY_ORDER:
+        if category in counts:
+            featured.append((category, counts[category]))
+
+    for entry in catalog.get("categories", []):
+        category = entry["name"]
+        if category not in {item[0] for item in featured}:
+            featured.append((category, int(entry["count"])))
+        if len(featured) >= 3:
+            break
+
+    return featured[:3]
+
+
+def svg_text(value: object) -> str:
+    return html.escape(str(value), quote=False)
+
+
+def skill_word(count: int) -> str:
+    return "skill" if count == 1 else "skills"
+
+
+def render_featured_rows(featured: list[tuple[str, int]]) -> str:
+    colors = ("#93C5FD", "#BBF7D0", "#FDE68A")
+    fills = (
+        'fill="url(#card)" stroke="#FFFFFF" stroke-opacity="0.14"',
+        'fill="#34D399" fill-opacity="0.14" stroke="#6EE7B7" stroke-opacity="0.24"',
+        'fill="url(#card)" stroke="#FFFFFF" stroke-opacity="0.14"',
+    )
+    rows = []
+    for index, (category, count) in enumerate(featured):
+        y = 26 + index * 82
+        label = svg_text(label_for(category))
+        metric = svg_text(f"{count} {skill_word(count)}")
+        rows.append(
+            f'''    <rect x="24" y="{y}" width="342" height="62" rx="18" {fills[index]}/>
+    <text x="50" y="{y + 29}" fill="{colors[index]}" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="800">
+      {label}
+    </text>
+    <text x="50" y="{y + 51}" fill="#CBD5E1" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700">
+      {metric}
+    </text>'''
+        )
+    return "\n\n".join(rows)
+
+
+def render_banner(catalog: dict) -> str:
+    total_skills = int(catalog.get("total_skills", 0))
+    total_categories = int(catalog.get("total_categories", 0))
+    featured = select_featured_categories(catalog)
+    featured_rows = render_featured_rows(featured)
+
+    badge = svg_text(f"{total_skills} skills · {total_categories} categories · upstream sync")
+    total_skills_text = svg_text(total_skills)
+    total_categories_text = svg_text(total_categories)
+
+    return f'''<svg width="1280" height="640" viewBox="0 0 1280 640" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1280" y2="640" gradientUnits="userSpaceOnUse">
       <stop stop-color="#111827"/>
@@ -40,7 +151,7 @@
     <rect x="0" y="0" width="376" height="42" rx="21" fill="#020617" fill-opacity="0.28" stroke="#FFFFFF" stroke-opacity="0.15"/>
     <circle cx="24" cy="21" r="8" fill="#34D399"/>
     <text x="44" y="28" fill="#D1FAE5" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700">
-      207 skills · 16 categories · upstream sync
+      {badge}
     </text>
 
     <text x="0" y="124" fill="#FFFFFF" font-family="Segoe UI, Arial, sans-serif" font-size="56" font-weight="850">
@@ -77,36 +188,14 @@
 
   <g transform="translate(762 126)" filter="url(#softShadow)">
     <rect x="0" y="0" width="390" height="388" rx="26" fill="#0B1120" fill-opacity="0.56" stroke="#FFFFFF" stroke-opacity="0.15"/>
-    <rect x="24" y="26" width="342" height="62" rx="18" fill="url(#card)" stroke="#FFFFFF" stroke-opacity="0.14"/>
-    <text x="50" y="55" fill="#93C5FD" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="800">
-      Developer Engineering
-    </text>
-    <text x="50" y="77" fill="#CBD5E1" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700">
-      42 skills
-    </text>
-
-    <rect x="24" y="108" width="342" height="62" rx="18" fill="#34D399" fill-opacity="0.14" stroke="#6EE7B7" stroke-opacity="0.24"/>
-    <text x="50" y="137" fill="#BBF7D0" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="800">
-      AI Workflow
-    </text>
-    <text x="50" y="159" fill="#CBD5E1" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700">
-      40 skills
-    </text>
-
-    <rect x="24" y="190" width="342" height="62" rx="18" fill="url(#card)" stroke="#FFFFFF" stroke-opacity="0.14"/>
-    <text x="50" y="219" fill="#FDE68A" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="800">
-      Workflow Automation
-    </text>
-    <text x="50" y="241" fill="#CBD5E1" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700">
-      10 skills
-    </text>
+{featured_rows}
 
     <rect x="24" y="272" width="158" height="72" rx="18" fill="#FFFFFF" fill-opacity="0.09" stroke="#FFFFFF" stroke-opacity="0.13"/>
     <text x="48" y="302" fill="#E5E7EB" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700">
       Skills
     </text>
     <text x="48" y="330" fill="#FFFFFF" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="850">
-      207
+      {total_skills_text}
     </text>
 
     <rect x="208" y="272" width="158" height="72" rx="18" fill="#FFFFFF" fill-opacity="0.09" stroke="#FFFFFF" stroke-opacity="0.13"/>
@@ -114,7 +203,7 @@
       Categories
     </text>
     <text x="232" y="330" fill="#FFFFFF" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="850">
-      16
+      {total_categories_text}
     </text>
   </g>
 
@@ -134,3 +223,27 @@
     </text>
   </g>
 </svg>
+'''
+
+
+def generate_banner_from_catalog(catalog_path: Path, output_path: Path) -> None:
+    catalog = load_catalog(catalog_path)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(render_banner(catalog), encoding="utf-8")
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description="Generate the README SVG banner from docs/catalog.json.")
+    parser.add_argument("--catalog", default="docs/catalog.json")
+    parser.add_argument("--output", default=".github/assets/repo-banner.svg")
+    args = parser.parse_args()
+
+    catalog_path = (REPO_ROOT / args.catalog).resolve()
+    output_path = (REPO_ROOT / args.output).resolve()
+    generate_banner_from_catalog(catalog_path, output_path)
+    print(f"Wrote banner: {output_path}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
