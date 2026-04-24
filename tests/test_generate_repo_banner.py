@@ -41,6 +41,9 @@ class GenerateRepoBannerTests(unittest.TestCase):
         self.assertIn("29 skills", svg)
         self.assertIn("Workflow Automation", svg)
         self.assertIn("12 skills", svg)
+        self.assertIn("Auto-synced", svg)
+        self.assertIn("From catalog", svg)
+        self.assertNotIn("source-driven updates", svg)
         ET.fromstring(svg)
 
     def test_generate_banner_from_catalog_writes_valid_svg(self):
