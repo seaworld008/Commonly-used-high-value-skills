@@ -42,7 +42,7 @@
     <rect x="0" y="0" width="508" height="42" rx="21" fill="#020617" fill-opacity="0.28" stroke="#FFFFFF" stroke-opacity="0.15"/>
     <circle cx="24" cy="21" r="8" fill="#34D399"/>
     <text x="44" y="28" fill="#D1FAE5" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700">
-      207 skills · 16 categories · upstream sync
+      255 skills · 16 categories · upstream sync
     </text>
 
     <text x="0" y="124" fill="#FFFFFF" font-family="Segoe UI, Arial, sans-serif" font-size="56" font-weight="850">
@@ -98,7 +98,7 @@
       Developer Engineering
     </text>
     <text x="72" y="138" fill="#CBD5E1" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700">
-      42 skills
+      45 skills
     </text>
 
     <rect x="28" y="164" width="336" height="54" rx="15" fill="#34D399" fill-opacity="0.13" stroke="#6EE7B7" stroke-opacity="0.24"/>
@@ -107,7 +107,7 @@
       AI Workflow
     </text>
     <text x="72" y="208" fill="#CBD5E1" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700">
-      40 skills
+      43 skills
     </text>
 
     <rect x="28" y="234" width="336" height="54" rx="15" fill="#FFFFFF" fill-opacity="0.08" stroke="#FFFFFF" stroke-opacity="0.13"/>
@@ -116,7 +116,7 @@
       Workflow Automation
     </text>
     <text x="72" y="278" fill="#CBD5E1" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700">
-      10 skills
+      13 skills
     </text>
 
     <rect x="28" y="318" width="152" height="62" rx="17" fill="#FFFFFF" fill-opacity="0.09" stroke="#FFFFFF" stroke-opacity="0.13"/>
@@ -124,7 +124,7 @@
       Skills
     </text>
     <text x="52" y="370" fill="#FFFFFF" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="850">
-      207
+      255
     </text>
 
     <rect x="208" y="318" width="152" height="62" rx="17" fill="#FFFFFF" fill-opacity="0.09" stroke="#FFFFFF" stroke-opacity="0.13"/>

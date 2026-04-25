@@ -22,6 +22,9 @@ EXPECTED_FINANCE_SKILLS = {
     "event-driven-tracker",
     "investment-memo-writer",
     "saas-metrics-coach",
+    "ledger",
+    "helm",
+    "levy",
 }
 
 SCRIPT_CASES = [

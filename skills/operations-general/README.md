@@ -4,14 +4,14 @@
 
 覆盖品牌、事实核查、内部沟通、主题与常用运营辅助技能。
 
-当前分类共 **11** 个技能。
+当前分类共 **14** 个技能。
 
 ## 推荐先看
 
 - [interview-system-designer](./interview-system-designer/) - This skill should be used when the user asks to "design interview processes", "create hiring pipelines", "calibrate interview loops", "generate interview questions", "design competency matrices", "analyze interviewer bias", "create scoring rubrics", "build question banks", or "optimize hiring systems". Use for designing role-specific interview loops, competency assessments, and hiring calibration systems.
 - [teams-channel-post-writer](./teams-channel-post-writer/) - Creates educational Teams channel posts for internal knowledge sharing about Claude Code features, tools, and best practices. Applies when writing posts, announcements, or documentation to teach colleagues effective Claude Code usage, announce new features, share productivity tips, or document lessons learned. Provides templates, writing guidelines, and structured approaches emphasizing concrete examples, underlying principles, and connections to best practices like context engineering. Activates for content involving Teams posts, channel announcements, feature documentation, or tip sharing.
+- [crest](./crest/) - 技术个人品牌、主页资料、文章和公开形象策略。
 - [docs-cleaner](./docs-cleaner/) - Consolidates redundant documentation while preserving all valuable content. This skill should be used when users want to clean up documentation bloat, merge redundant docs, reduce documentation sprawl, or consolidate multiple files covering the same topic. Triggers include "clean up docs", "consolidate documentation", "too many doc files", "merge these docs", or when documentation exceeds 500 lines across multiple files covering similar topics.
-- [brand-guidelines](./brand-guidelines/) - Applies Anthropic''s official brand colors and typography to any sort of artifact that may benefit from having Anthropic''s look-and-feel. Use it when brand colors or style guidelines, visual formatting, or company design standards apply.
 
 ## 技能总览
 
@@ -19,8 +19,11 @@
 |------|------|------|------|
 | `brand-guidelines` | Applies Anthropic''s official brand colors and typography to any sort of artifact that may benefit from having Anthropic''s look-and-feel. Use it when brand colors or style guidelines, visual formatting, or company design standards apply. | [目录](./brand-guidelines/) | [SKILL.md](./brand-guidelines/SKILL.md) |
 | `confidence-check` | 用于结构化自我审查，验证假设、识别不确定性和减少幻觉输出。仓库整理版，吸收社区高频最佳实践。 | [目录](./confidence-check/) | [SKILL.md](./confidence-check/SKILL.md) |
+| `crest` | 技术个人品牌、主页资料、文章和公开形象策略。 | [目录](./crest/) | [SKILL.md](./crest/SKILL.md) |
+| `dawn` | 提出适合短周期实现的个人项目创意和最小可行方案。 | [目录](./dawn/) | [SKILL.md](./dawn/SKILL.md) |
 | `docs-cleaner` | Consolidates redundant documentation while preserving all valuable content. This skill should be used when users want to clean up documentation bloat, merge redundant docs, reduce documentation sprawl, or consolidate multiple files covering the same topic. Triggers include "clean up docs", "consolidate documentation", "too many doc files", "merge these docs", or when documentation exceeds 500 lines across multiple files covering similar topics. | [目录](./docs-cleaner/) | [SKILL.md](./docs-cleaner/SKILL.md) |
 | `fact-checker` | Verifies factual claims in documents using web search and official sources, then proposes corrections with user confirmation. Use when the user asks to fact-check, verify information, validate claims, check accuracy, or update outdated information in documents. Supports AI model specs, technical documentation, statistics, and general factual statements. | [目录](./fact-checker/) | [SKILL.md](./fact-checker/SKILL.md) |
+| `hearth` | 终端、编辑器和本地开发环境配置生成与审计。 | [目录](./hearth/) | [SKILL.md](./hearth/SKILL.md) |
 | `internal-comms` | A set of resources to help me write all kinds of internal communications, using the formats that my company likes to use. Claude should use this skill whenever asked to write some sort of internal communications (status reports, leadership updates, 3P updates, company newsletters, FAQs, incident reports, project updates, etc.). | [目录](./internal-comms/) | [SKILL.md](./internal-comms/SKILL.md) |
 | `interview-system-designer` | This skill should be used when the user asks to "design interview processes", "create hiring pipelines", "calibrate interview loops", "generate interview questions", "design competency matrices", "analyze interviewer bias", "create scoring rubrics", "build question banks", or "optimize hiring systems". Use for designing role-specific interview loops, competency assessments, and hiring calibration systems. | [目录](./interview-system-designer/) | [SKILL.md](./interview-system-designer/SKILL.md) |
 | `slack-gif-creator` | Knowledge and utilities for creating animated GIFs optimized for Slack. Provides constraints, validation tools, and animation concepts. Use when users request animated GIFs for Slack like "make me a GIF of X doing Y for Slack." | [目录](./slack-gif-creator/) | [SKILL.md](./slack-gif-creator/SKILL.md) |

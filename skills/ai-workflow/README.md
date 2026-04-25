@@ -4,7 +4,7 @@
 
 聚焦 AI 编程 Agent 的规格、计划、实现、测试、审查、发布与持续同步工作流。
 
-当前分类共 **40** 个技能。
+当前分类共 **43** 个技能。
 
 ## 推荐先看
 
@@ -37,12 +37,15 @@
 | `git-workflow-and-versioning` | Structures git workflow practices. Use when making any code change. Use when committing, branching, resolving conflicts, or when you need to organize work across multiple parallel streams. | [目录](./git-workflow-and-versioning/) | [SKILL.md](./git-workflow-and-versioning/SKILL.md) |
 | `idea-refine` | Refines ideas iteratively. Refine ideas through structured divergent and convergent thinking. Use \"idea-refine\" or \"ideate\" to trigger. | [目录](./idea-refine/) | [SKILL.md](./idea-refine/SKILL.md) |
 | `incremental-implementation` | Delivers changes incrementally. Use when implementing any feature or change that touches more than one file. Use when you''re about to write a large amount of code at once, or when a task feels too big to land in one step. | [目录](./incremental-implementation/) | [SKILL.md](./incremental-implementation/SKILL.md) |
+| `nexus` | 多智能体任务分解、链路编排、执行协调和结果整合。 | [目录](./nexus/) | [SKILL.md](./nexus/SKILL.md) |
 | `performance-optimization` | Optimizes application performance. Use when performance requirements exist, when you suspect performance regressions, or when Core Web Vitals or load times need improvement. Use when profiling reveals bottlenecks that need fixing. | [目录](./performance-optimization/) | [SKILL.md](./performance-optimization/SKILL.md) |
 | `planning-and-task-breakdown` | Breaks work into ordered tasks. Use when you have a spec or clear requirements and need to break work into implementable tasks. Use when a task feels too large to start, when you need to estimate scope, or when parallel work is possible. | [目录](./planning-and-task-breakdown/) | [SKILL.md](./planning-and-task-breakdown/SKILL.md) |
 | `prompt-optimizer` | Transform vague prompts into precise, well-structured specifications using EARS (Easy Approach to Requirements Syntax) methodology. This skill should be used when users provide loose requirements, ambiguous feature descriptions, or need to enhance prompts for AI-generated code, products, or documents. Triggers include requests to "optimize my prompt", "improve this requirement", "make this more specific", or when raw requirements lack detail and structure. | [目录](./prompt-optimizer/) | [SKILL.md](./prompt-optimizer/SKILL.md) |
+| `rally` | 多会话并行执行编排，协调多个智能体共同完成任务。 | [目录](./rally/) | [SKILL.md](./rally/SKILL.md) |
 | `receiving-code-review` | Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable - requires technical rigor and verification, not performative agreement or blind implementation | [目录](./receiving-code-review/) | [SKILL.md](./receiving-code-review/SKILL.md) |
 | `requesting-code-review` | Use when completing tasks, implementing major features, or before merging to verify work meets requirements | [目录](./requesting-code-review/) | [SKILL.md](./requesting-code-review/SKILL.md) |
 | `security-and-hardening` | Hardens code against vulnerabilities. Use when handling user input, authentication, data storage, or external integrations. Use when building any feature that accepts untrusted data, manages user sessions, or interacts with third-party services. | [目录](./security-and-hardening/) | [SKILL.md](./security-and-hardening/SKILL.md) |
+| `sherpa` | 把复杂任务拆成短步骤，控制漂移并推进交付。 | [目录](./sherpa/) | [SKILL.md](./sherpa/SKILL.md) |
 | `shipping-and-launch` | Prepares production launches. Use when preparing to deploy to production. Use when you need a pre-launch checklist, when setting up monitoring, when planning a staged rollout, or when you need a rollback strategy. | [目录](./shipping-and-launch/) | [SKILL.md](./shipping-and-launch/SKILL.md) |
 | `skill-creator` | Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, update or optimize an existing skill, run evals to test a skill, benchmark skill performance with variance analysis, or optimize a skill''s description for better triggering accuracy. | [目录](./skill-creator/) | [SKILL.md](./skill-creator/SKILL.md) |
 | `skill-reviewer` | Reviews and improves Claude Code skills against official best practices. Supports three modes - self-review (validate your own skills), external review (evaluate others'' skills), and auto-PR (fork, improve, submit). Use when checking skill quality, reviewing skill repositories, or contributing improvements to open-source skills. | [目录](./skill-reviewer/) | [SKILL.md](./skill-reviewer/SKILL.md) |

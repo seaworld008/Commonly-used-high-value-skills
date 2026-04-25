@@ -4,7 +4,7 @@
 
 面向发布、CI/CD、可观测性、故障响应和环境治理的技能集合。
 
-当前分类共 **10** 个技能。
+当前分类共 **13** 个技能。
 
 ## 推荐先看
 
@@ -17,16 +17,19 @@
 
 | 技能 | 简介 | 目录 | 详情 |
 |------|------|------|------|
+| `beacon` | 可观测性、服务目标、告警、容量和可靠性设计。 | [目录](./beacon/) | [SKILL.md](./beacon/SKILL.md) |
 | `changelog-generator` | Parse conventional commits, determine semantic version bumps, and generate structured changelogs in Keep a Changelog format. Supports monorepo changelogs, GitHub Releases integration, and separates user-facing from developer changelogs. | [目录](./changelog-generator/) | [SKILL.md](./changelog-generator/SKILL.md) |
 | `ci-cd-pipeline-builder` | Analyzes your project stack and generates production-ready CI/CD pipeline configurations for GitHub Actions, GitLab CI, and Bitbucket Pipelines. Handles matrix testing, caching strategies, deployment stages, environment promotion, and secret management — tailored to your actual tech stack. | [目录](./ci-cd-pipeline-builder/) | [SKILL.md](./ci-cd-pipeline-builder/SKILL.md) |
 | `cloudflare-troubleshooting` | Investigate and resolve Cloudflare configuration issues using API-driven evidence gathering. Use when troubleshooting ERR_TOO_MANY_REDIRECTS, SSL errors, DNS issues, or any Cloudflare-related problems. Focus on systematic investigation using Cloudflare API to examine actual configuration rather than making assumptions. | [目录](./cloudflare-troubleshooting/) | [SKILL.md](./cloudflare-troubleshooting/SKILL.md) |
 | `env-secrets-manager` | Complete environment and secrets management workflow: .env file lifecycle across dev/staging/prod, .env.example auto-generation, required-var validation, secret leak detection in git history, and credential rotation playbook. Integrates with HashiCorp Vault, AWS SSM, 1Password CLI, and Doppler. | [目录](./env-secrets-manager/) | [SKILL.md](./env-secrets-manager/SKILL.md) |
+| `gear` | 依赖、构建、容器、监控和开发环境运维优化。 | [目录](./gear/) | [SKILL.md](./gear/SKILL.md) |
 | `github-ops` | Provides comprehensive GitHub operations using gh CLI and GitHub API. Activates when working with pull requests, issues, repositories, workflows, or GitHub API operations including creating/viewing/merging PRs, managing issues, querying API endpoints, and handling GitHub workflows in enterprise or public GitHub environments. | [目录](./github-ops/) | [SKILL.md](./github-ops/SKILL.md) |
 | `incident-commander` | Author: Claude Skills Team Version: 1.0.0 Last Updated: February 2026. | [目录](./incident-commander/) | [SKILL.md](./incident-commander/SKILL.md) |
 | `observability-designer` | Description: Design comprehensive observability strategies for production systems including SLI/SLO frameworks, alerting optimization, and dashboard generation. | [目录](./observability-designer/) | [SKILL.md](./observability-designer/SKILL.md) |
 | `release-manager` | The Release Manager skill provides comprehensive tools and knowledge for managing software releases end-to-end. From parsing conventional commits to generating changelogs, determining version bumps, and orchestrating release processes, this skill ensures reliable, predictable, and well-documented software releases. | [目录](./release-manager/) | [SKILL.md](./release-manager/SKILL.md) |
 | `senior-architect` | This skill should be used when the user asks to \"design system architecture\", \"evaluate microservices vs monolith\", \"create architecture diagrams\", \"analyze dependencies\", \"choose a database\", \"plan for scalability\", \"make technical decisions\", or \"review system design\". Use for architecture decision records (ADRs), tech stack evaluation, system design reviews, dependency analysis, and generating architecture diagrams in Mermaid, PlantUML, or ASCII format. | [目录](./senior-architect/) | [SKILL.md](./senior-architect/SKILL.md) |
 | `senior-devops` | Comprehensive DevOps skill for CI/CD, infrastructure automation, containerization, and cloud platforms (AWS, GCP, Azure). Includes pipeline setup, infrastructure as code, deployment automation, and monitoring. Use when setting up pipelines, deploying applications, managing infrastructure, implementing monitoring, or optimizing deployment processes. | [目录](./senior-devops/) | [SKILL.md](./senior-devops/SKILL.md) |
+| `triage` | 事故首响、影响范围识别、恢复步骤和复盘整理。 | [目录](./triage/) | [SKILL.md](./triage/SKILL.md) |
 
 ## 维护方式
 

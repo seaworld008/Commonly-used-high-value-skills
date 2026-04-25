@@ -1,0 +1,784 @@
+{
+  "video": {
+    "url": "https://github.com/simota/agent-skills",
+    "checked_at": "2026-04-25",
+    "note": "Curated per-category import from simota/agent-skills; refresh with scripts/sync_simota_agent_skills.py."
+  },
+  "official_references": [
+    {
+      "name": "simota/agent-skills repository",
+      "url": "https://github.com/simota/agent-skills",
+      "purpose": "Canonical upstream repository for the imported per-category specialist skills."
+    }
+  ],
+  "skills": [
+    {
+      "video_name": "builder",
+      "normalized_slug": "builder",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/developer-engineering/builder/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/builder/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "builder/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "gateway",
+      "normalized_slug": "gateway",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/developer-engineering/gateway/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/gateway/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "gateway/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "schema",
+      "normalized_slug": "schema",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/developer-engineering/schema/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/schema/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "schema/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "nexus",
+      "normalized_slug": "nexus",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/ai-workflow/nexus/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/nexus/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "nexus/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "sherpa",
+      "normalized_slug": "sherpa",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/ai-workflow/sherpa/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/sherpa/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "sherpa/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "rally",
+      "normalized_slug": "rally",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/ai-workflow/rally/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/rally/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "rally/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "oracle",
+      "normalized_slug": "oracle",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/ai-agent-platform/oracle/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/oracle/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "oracle/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "arena",
+      "normalized_slug": "arena",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/ai-agent-platform/arena/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/arena/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "arena/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "sigil",
+      "normalized_slug": "sigil",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/ai-agent-platform/sigil/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/sigil/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "sigil/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "guardian",
+      "normalized_slug": "guardian",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/engineering-workflow-automation/guardian/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/guardian/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "guardian/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "harvest",
+      "normalized_slug": "harvest",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/engineering-workflow-automation/harvest/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/harvest/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "harvest/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "latch",
+      "normalized_slug": "latch",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/engineering-workflow-automation/latch/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/latch/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "latch/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "beacon",
+      "normalized_slug": "beacon",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/devops-sre/beacon/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/beacon/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "beacon/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "triage",
+      "normalized_slug": "triage",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/devops-sre/triage/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/triage/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "triage/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "gear",
+      "normalized_slug": "gear",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/devops-sre/gear/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/gear/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "gear/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "ledger",
+      "normalized_slug": "ledger",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/finance-investing/ledger/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/ledger/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "ledger/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "helm",
+      "normalized_slug": "helm",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/finance-investing/helm/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/helm/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "helm/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "levy",
+      "normalized_slug": "levy",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/finance-investing/levy/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/levy/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "levy/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "growth",
+      "normalized_slug": "growth",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/growth-operations-xiaohongshu/growth/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/growth/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "growth/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "compete",
+      "normalized_slug": "compete",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/growth-operations-xiaohongshu/compete/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/compete/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "compete/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "pulse",
+      "normalized_slug": "pulse",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/growth-operations-xiaohongshu/pulse/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/pulse/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "pulse/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "morph",
+      "normalized_slug": "morph",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/office-white-collar/morph/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/morph/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "morph/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "stage",
+      "normalized_slug": "stage",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/office-white-collar/stage/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/stage/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "stage/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "prism",
+      "normalized_slug": "prism",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/office-white-collar/prism/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/prism/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "prism/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "lore",
+      "normalized_slug": "lore",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/knowledge-and-pm-integrations/lore/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/lore/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "lore/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "tome",
+      "normalized_slug": "tome",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/knowledge-and-pm-integrations/tome/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/tome/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "tome/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "grove",
+      "normalized_slug": "grove",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/knowledge-and-pm-integrations/grove/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/grove/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "grove/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "crest",
+      "normalized_slug": "crest",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/operations-general/crest/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/crest/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "crest/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "hearth",
+      "normalized_slug": "hearth",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/operations-general/hearth/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/hearth/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "hearth/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "dawn",
+      "normalized_slug": "dawn",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/operations-general/dawn/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/dawn/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "dawn/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "voice",
+      "normalized_slug": "voice",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/product-design/voice/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/voice/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "voice/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "trace",
+      "normalized_slug": "trace",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/product-design/trace/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/trace/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "trace/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "researcher",
+      "normalized_slug": "researcher",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/product-design/researcher/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/researcher/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "researcher/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "breach",
+      "normalized_slug": "breach",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/security-and-reliability/breach/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/breach/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "breach/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "cloak",
+      "normalized_slug": "cloak",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/security-and-reliability/cloak/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/cloak/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "cloak/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "comply",
+      "normalized_slug": "comply",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/security-and-reliability/comply/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/comply/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "comply/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "sketch",
+      "normalized_slug": "sketch",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/multimodal-media/sketch/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/sketch/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "sketch/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "clay",
+      "normalized_slug": "clay",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/multimodal-media/clay/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/clay/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "clay/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "tone",
+      "normalized_slug": "tone",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/multimodal-media/tone/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/tone/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "tone/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "scaffold",
+      "normalized_slug": "scaffold",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/deployment-platforms/scaffold/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/scaffold/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "scaffold/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "pipe",
+      "normalized_slug": "pipe",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/deployment-platforms/pipe/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/pipe/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "pipe/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "shard",
+      "normalized_slug": "shard",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/deployment-platforms/shard/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/shard/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "shard/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "cast",
+      "normalized_slug": "cast",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/openclaw-memory-and-safety/cast/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/cast/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "cast/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "omen",
+      "normalized_slug": "omen",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/openclaw-memory-and-safety/omen/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/omen/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "omen/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "warden",
+      "normalized_slug": "warden",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/openclaw-memory-and-safety/warden/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/warden/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "warden/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "lens",
+      "normalized_slug": "lens",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/task-understanding-decomposition/lens/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/lens/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "lens/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "scout",
+      "normalized_slug": "scout",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/task-understanding-decomposition/scout/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/scout/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "scout/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    },
+    {
+      "video_name": "ripple",
+      "normalized_slug": "ripple",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/task-understanding-decomposition/ripple/SKILL.md",
+      "source": "https://github.com/simota/agent-skills/blob/main/ripple/SKILL.md",
+      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "upstream": {
+        "repo": "simota/agent-skills",
+        "path": "ripple/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-25",
+        "last_synced_at": "2026-04-25",
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+      }
+    }
+  ]
+}

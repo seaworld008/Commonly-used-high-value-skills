@@ -4,7 +4,7 @@
 
 覆盖开发、测试、性能、架构、数据库和工程效率的核心技能集合。
 
-当前分类共 **42** 个技能。
+当前分类共 **45** 个技能。
 
 ## 推荐先看
 
@@ -21,6 +21,7 @@
 | `api-design-reviewer` | Maintainer: Claude Skills Team. | [目录](./api-design-reviewer/) | [SKILL.md](./api-design-reviewer/SKILL.md) |
 | `api-test-suite-builder` | Scans API route definitions across frameworks (Next.js App Router, Express, FastAPI, Django REST) and auto-generates comprehensive test suites covering auth, input validation, error codes, pagination, file uploads, and rate limiting. Outputs ready-to-run test files for Vitest+Supertest (Node) or Pytest+httpx (Python). | [目录](./api-test-suite-builder/) | [SKILL.md](./api-test-suite-builder/SKILL.md) |
 | `aws-solution-architect` | 用于 AWS 云架构设计、服务选型、成本优化与 Well-Architected Framework 评估。来源：alirezarezvani/claude-skills。 | [目录](./aws-solution-architect/) | [SKILL.md](./aws-solution-architect/SKILL.md) |
+| `builder` | 生产级业务逻辑、接口集成和类型安全实现。 | [目录](./builder/) | [SKILL.md](./builder/SKILL.md) |
 | `cli-demo-generator` | This skill should be used when users want to create animated CLI demos, terminal recordings, or command-line demonstration GIFs. It supports both manual tape file creation and automated demo generation from command descriptions. Use when users mention creating demos, recording terminal sessions, or generating animated GIFs of CLI workflows. | [目录](./cli-demo-generator/) | [SKILL.md](./cli-demo-generator/SKILL.md) |
 | `code-review-excellence` | Master effective code review practices to provide constructive feedback, catch bugs early, and foster knowledge sharing while maintaining team morale. Use when reviewing pull requests, establishing review standards, or mentoring developers. | [目录](./code-review-excellence/) | [SKILL.md](./code-review-excellence/SKILL.md) |
 | `codebase-inspection` | Inspect and analyze codebases using pygount for LOC counting, language breakdown, and code-vs-comment ratios. Use when asked to check lines of code, repo size, language composition, or codebase stats. | [目录](./codebase-inspection/) | [SKILL.md](./codebase-inspection/SKILL.md) |
@@ -31,6 +32,7 @@
 | `dependency-auditor` | > Skill Type: POWERFUL > Category: Engineering > Domain: Dependency Management & Security. | [目录](./dependency-auditor/) | [SKILL.md](./dependency-auditor/SKILL.md) |
 | `docker-expert` | 用于 Docker 容器化最佳实践、多阶段构建优化与 Docker Compose 编排。来源：skills.sh 8.7K installs。 | [目录](./docker-expert/) | [SKILL.md](./docker-expert/SKILL.md) |
 | `frontend-design` | Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, artifacts, posters, or applications (examples include websites, landing pages, dashboards, React components, HTML/CSS layouts, or when styling/beautifying any web UI). Generates creative, polished code and UI design that avoids generic AI aesthetics. | [目录](./frontend-design/) | [SKILL.md](./frontend-design/SKILL.md) |
+| `gateway` | 接口设计、规范生成、版本策略和破坏性变更检查。 | [目录](./gateway/) | [SKILL.md](./gateway/SKILL.md) |
 | `git-worktree-manager` | The Git Worktree Manager skill provides systematic management of Git worktrees for parallel development workflows. It handles worktree creation with automatic port allocation, environment file management, secret copying, and cleanup — enabling developers to run multiple Claude Code instances on separate features simultaneously without conflicts. | [目录](./git-worktree-manager/) | [SKILL.md](./git-worktree-manager/SKILL.md) |
 | `github-contributor` | Strategic guide for becoming an effective GitHub contributor. Covers opportunity discovery, project selection, high-quality PR creation, and reputation building. Use when looking to contribute to open-source projects, building GitHub presence, or learning contribution best practices. | [目录](./github-contributor/) | [SKILL.md](./github-contributor/SKILL.md) |
 | `graphify` | any input (code, docs, papers, images, video/audio) -> knowledge graph -> clustered communities -> HTML + JSON + audit report | [目录](./graphify/) | [SKILL.md](./graphify/SKILL.md) |
@@ -50,6 +52,7 @@
 | `qa-expert` | This skill should be used when establishing comprehensive QA testing processes for any software project. Use when creating test strategies, writing test cases following Google Testing Standards, executing test plans, tracking bugs with P0-P4 classification, calculating quality metrics, or generating progress reports. Includes autonomous execution capability via master prompts and complete documentation templates for third-party QA team handoffs. Implements OWASP security testing and achieves 90% coverage targets. | [目录](./qa-expert/) | [SKILL.md](./qa-expert/SKILL.md) |
 | `repomix-safe-mixer` | Safely package codebases with repomix by automatically detecting and removing hardcoded credentials before packing. Use when packaging code for distribution, creating reference packages, or when the user mentions security concerns about sharing code with repomix. | [目录](./repomix-safe-mixer/) | [SKILL.md](./repomix-safe-mixer/SKILL.md) |
 | `rust-engineer` | 用于 Rust 语言开发最佳实践、异步编程和系统级编程指导。来源：skills.sh 1.5K+ installs。 | [目录](./rust-engineer/) | [SKILL.md](./rust-engineer/SKILL.md) |
+| `schema` | 数据库模式设计、迁移规划、索引策略和关系建模。 | [目录](./schema/) | [SKILL.md](./schema/SKILL.md) |
 | `skill-tester` | Name: skill-tester Tier: POWERFUL Category: Engineering Quality Assurance Dependencies: None (Python Standard Library Only) Author: Claude Skills Engineering Team Version: 1.0.0 Last Updated: 2026-02-16. | [目录](./skill-tester/) | [SKILL.md](./skill-tester/SKILL.md) |
 | `supabase-postgres` | 用于 Supabase 平台开发与 PostgreSQL 最佳实践，包含 RLS、Edge Functions 和实时订阅。来源：supabase 官方 52.5K installs。 | [目录](./supabase-postgres/) | [SKILL.md](./supabase-postgres/SKILL.md) |
 | `systematic-debugging` | Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes | [目录](./systematic-debugging/) | [SKILL.md](./systematic-debugging/SKILL.md) |

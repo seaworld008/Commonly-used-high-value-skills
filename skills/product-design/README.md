@@ -4,7 +4,7 @@
 
 聚焦产品分析、设计系统、UX 研究与 SaaS 产品设计能力。
 
-当前分类共 **10** 个技能。
+当前分类共 **13** 个技能。
 
 ## 推荐先看
 
@@ -24,9 +24,12 @@
 | `product-analysis` | Multi-path parallel product analysis with cross-model test-time compute scaling. Spawns parallel agents (Claude Code agent teams + Codex CLI) to explore product from multiple perspectives, then synthesizes findings into actionable optimization plans. Can invoke competitors-analysis for competitive benchmarking. Use when "product audit", "self-review", "发布前审查", "产品分析", "analyze our product", "UX audit", or "信息架构审计". | [目录](./product-analysis/) | [SKILL.md](./product-analysis/SKILL.md) |
 | `product-manager-toolkit` | Comprehensive toolkit for product managers including RICE prioritization, customer interview analysis, PRD templates, discovery frameworks, and go-to-market strategies. Use for feature prioritization, user research synthesis, requirement documentation, and product strategy development. | [目录](./product-manager-toolkit/) | [SKILL.md](./product-manager-toolkit/SKILL.md) |
 | `product-strategist` | Strategic product leadership toolkit for Head of Product including OKR cascade generation, market analysis, vision setting, and team scaling. Use for strategic planning, goal alignment, competitive analysis, and organizational design. | [目录](./product-strategist/) | [SKILL.md](./product-strategist/SKILL.md) |
+| `researcher` | 用户访谈、可用性测试、画像和旅程地图研究。 | [目录](./researcher/) | [SKILL.md](./researcher/SKILL.md) |
 | `saas-scaffolder` | Generate complete, production-ready SaaS projects from a product brief. Outputs a fully wired Next.js App Router project with authentication, database, payments, and a working dashboard — not a toy starter kit. | [目录](./saas-scaffolder/) | [SKILL.md](./saas-scaffolder/SKILL.md) |
+| `trace` | 会话回放分析、行为模式提取和体验问题叙事。 | [目录](./trace/) | [SKILL.md](./trace/SKILL.md) |
 | `ui-design-system` | UI design system toolkit for Senior UI Designer including design token generation, component documentation, responsive design calculations, and developer handoff tools. Use for creating design systems, maintaining visual consistency, and facilitating design-dev collaboration. | [目录](./ui-design-system/) | [SKILL.md](./ui-design-system/SKILL.md) |
 | `ux-researcher-designer` | UX research and design toolkit for Senior UX Designer/Researcher including data-driven persona generation, journey mapping, usability testing frameworks, and research synthesis. Use for user research, persona creation, journey mapping, and design validation. | [目录](./ux-researcher-designer/) | [SKILL.md](./ux-researcher-designer/SKILL.md) |
+| `voice` | 用户反馈收集、满意度调研、评论分析和洞察提炼。 | [目录](./voice/) | [SKILL.md](./voice/SKILL.md) |
 
 ## 维护方式
 

@@ -6,8 +6,8 @@ author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/idea-refine/SKILL.md"
 tags: '["agent", "ai", "engineering", "idea-refine", "workflow"]'
-created_at: "2026-04-24"
-updated_at: "2026-04-24"
+created_at: "2026-04-25"
+updated_at: "2026-04-25"
 quality: 4
 complexity: advanced
 upstream_slug: idea-refine

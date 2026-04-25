@@ -17,6 +17,7 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 ADDY_SOURCE = "github:addyosmani/agent-skills"
+SIMOTA_SOURCE = "github:simota/agent-skills"
 
 POST_SYNC_PIPELINE = (
     ("python", "scripts/enrich_frontmatter.py"),
@@ -48,6 +49,7 @@ def main() -> int:
 
     if args.apply:
         run(("python", "scripts/sync_addyosmani_agent_skills.py", "--apply"), repo_root=repo_root)
+        run(("python", "scripts/sync_simota_agent_skills.py", "--apply"), repo_root=repo_root)
         run(
             (
                 "python",
@@ -55,11 +57,14 @@ def main() -> int:
                 "--apply",
                 "--exclude-source",
                 ADDY_SOURCE,
+                "--exclude-source",
+                SIMOTA_SOURCE,
             ),
             repo_root=repo_root,
         )
     else:
         run(("python", "scripts/sync_addyosmani_agent_skills.py"), repo_root=repo_root)
+        run(("python", "scripts/sync_simota_agent_skills.py"), repo_root=repo_root)
         run(
             (
                 "python",
@@ -67,6 +72,8 @@ def main() -> int:
                 "--check-only",
                 "--exclude-source",
                 ADDY_SOURCE,
+                "--exclude-source",
+                SIMOTA_SOURCE,
             ),
             repo_root=repo_root,
         )

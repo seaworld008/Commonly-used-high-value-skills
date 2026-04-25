@@ -6,8 +6,8 @@ author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/security-and-hardening/SKILL.md"
 tags: '["agent", "ai", "engineering", "security-and-hardening", "workflow"]'
-created_at: "2026-04-24"
-updated_at: "2026-04-24"
+created_at: "2026-04-25"
+updated_at: "2026-04-25"
 quality: 5
 complexity: advanced
 upstream_slug: security-and-hardening
