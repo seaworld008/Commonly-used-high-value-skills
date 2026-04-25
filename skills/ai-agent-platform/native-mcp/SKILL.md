@@ -5,12 +5,12 @@ version: 1.0.0
 author: Hermes Agent
 source: "in-house"
 source_url: ""
+license: MIT
 tags: '[MCP, Tools, Integrations]'
 created_at: "2026-04-13"
 updated_at: "2026-04-13"
 quality: 4
 complexity: "intermediate"
-license: MIT
 metadata:
 hermes:
 related_skills: '[mcporter]'

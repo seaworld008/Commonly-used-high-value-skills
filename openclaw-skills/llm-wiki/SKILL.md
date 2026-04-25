@@ -5,12 +5,12 @@ version: "2.0.1"
 author: Hermes Agent
 source: "in-house"
 source_url: ""
+license: MIT
 tags: '[wiki, knowledge-base, research, notes, markdown, rag-alternative]'
 created_at: "2026-04-13"
 updated_at: "2026-04-25"
 quality: 4
 complexity: "intermediate"
-license: MIT
 metadata:
 hermes:
 category: research

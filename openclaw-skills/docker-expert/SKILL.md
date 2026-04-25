@@ -5,12 +5,12 @@ version: "1.0.0"
 author: "seaworld008"
 source: "skills.sh"
 source_url: "https://skills.sh/sickn33/antigravity-awesome-skills/docker-expert"
+license: "CC-BY-4.0"
 tags: '["development", "docker", "expert"]'
 created_at: "2026-03-27"
 updated_at: "2026-03-27"
 quality: 4
 complexity: "intermediate"
-license: "CC-BY-4.0"
 ---
 
 # Docker Expert

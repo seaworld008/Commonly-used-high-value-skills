@@ -5,12 +5,12 @@ version: 1.0.0
 author: Alireza Rezvani
 source: "in-house"
 source_url: ""
+license: MIT
 tags: '["analytics", "campaign", "growth", "marketing"]'
 created_at: "2026-03-04"
 updated_at: "2026-03-20"
 quality: 5
 complexity: "intermediate"
-license: MIT
 metadata:
 category: marketing
 domain: campaign-analytics

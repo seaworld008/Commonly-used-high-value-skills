@@ -5,12 +5,12 @@ version: "1.5.0"
 author: Hermes Agent
 source: "in-house"
 source_url: "https://github.com/seaworld008/Commonly-used-high-value-skills"
+license: MIT
 tags: '["ai", "agent", "hermes", "graphify", "gsd", "workflow", "non-intrusive", "upgrade-safe"]'
 created_at: "2026-04-16"
 updated_at: "2026-04-24"
 quality: 5
 complexity: "intermediate"
-license: MIT
 metadata:
   hermes:
     tags: [hermes, graphify, gsd, workflow, non-intrusive, upgrade-safe, wrappers, planning]

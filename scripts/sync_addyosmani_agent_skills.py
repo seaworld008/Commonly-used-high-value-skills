@@ -179,6 +179,7 @@ def render_skill_markdown(skill: UpstreamSkill, body: str, today: str) -> str:
         "author: addyosmani",
         f"source: {yaml_quote('github:' + UPSTREAM_REPO)}",
         f"source_url: {yaml_quote(f'{UPSTREAM_WEB}/blob/main/skills/{skill.slug}/SKILL.md')}",
+        "license: MIT",
         f"tags: {format_tags(tags)}",
         f'created_at: "{today}"',
         f'updated_at: "{today}"',

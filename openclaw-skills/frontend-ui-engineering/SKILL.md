@@ -5,6 +5,7 @@ version: "1.0.0"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/frontend-ui-engineering/SKILL.md"
+license: MIT
 tags: '["agent", "ai", "engineering", "frontend-ui-engineering", "workflow"]'
 created_at: "2026-04-25"
 updated_at: "2026-04-25"

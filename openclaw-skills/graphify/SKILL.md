@@ -5,6 +5,7 @@ version: "1.1.0"
 author: "seaworld008"
 source: "community"
 source_url: "https://pypi.org/project/graphifyy/0.5.0/"
+license: MIT
 tags: '["knowledge-graph", "codebase", "research", "graphify", "codex", "video", "audio"]'
 created_at: "2026-04-13"
 updated_at: "2026-04-24"

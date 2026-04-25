@@ -55,9 +55,19 @@ CATEGORY_TAGS = {
     "media-and-content": ["content", "media"],
 }
 
+SOURCE_LICENSES = {
+    "github:addyosmani/agent-skills": "MIT",
+    "github:simota/agent-skills": "MIT",
+    "github:obra/superpowers": "MIT",
+}
+
+SKILL_LICENSES = {
+    "graphify": "MIT",
+}
+
 FIELD_ORDER = [
     "name", "description", "version", "author", "source", "source_url",
-    "tags", "created_at", "updated_at", "quality", "complexity"
+    "license", "tags", "created_at", "updated_at", "quality", "complexity"
 ]
 
 def get_git_date(filepath: Path, first: bool = False) -> str | None:
@@ -177,6 +187,12 @@ def main() -> int:
             source = NEW_SKILLS_MAP.get(skill_dir_name, "in-house")
             fm_data["source"] = f'"{source}"'
             stats["source_added"] += 1
+
+        source_value = fm_data.get("source", "").strip('"').strip("'")
+        inferred_license = SOURCE_LICENSES.get(source_value) or SKILL_LICENSES.get(skill_dir_name)
+        if "license" not in fm_data and inferred_license:
+            fm_data["license"] = inferred_license
+            stats["license_added"] += 1
             
         # 3. Tags Inference
         if "tags" not in fm_data:

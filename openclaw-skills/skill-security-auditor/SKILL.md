@@ -5,12 +5,12 @@ version: "1.0.1"
 author: "seaworld008"
 source: "github:alirezarezvani/claude-skills"
 source_url: ""
+license: MIT
 tags: '["auditor", "security", "skill"]'
 created_at: "2026-03-27"
 updated_at: "2026-04-24"
 quality: 4
 complexity: "intermediate"
-license: MIT
 ---
 
 # Skill Security Auditor

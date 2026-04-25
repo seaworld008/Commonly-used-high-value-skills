@@ -5,6 +5,7 @@ version: "1.0.1"
 author: seaworld008
 source: "github:obra/superpowers"
 source_url: "https://github.com/obra/superpowers/tree/main/skills/subagent-driven-development"
+license: MIT
 tags: '["development", "driven", "planning", "subagent", "workflow"]'
 created_at: "2026-03-27"
 updated_at: "2026-04-24"

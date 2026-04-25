@@ -5,12 +5,12 @@ version: "1.0.0"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
+license: Complete terms in LICENSE.txt
 tags: '["canvas", "design", "product"]'
 created_at: "2026-03-04"
 updated_at: "2026-03-20"
 quality: 4
 complexity: "intermediate"
-license: Complete terms in LICENSE.txt
 ---
 
 These are instructions for creating design philosophies - aesthetic movements that are then EXPRESSED VISUALLY. Output only .md files, .pdf files, and .png files.

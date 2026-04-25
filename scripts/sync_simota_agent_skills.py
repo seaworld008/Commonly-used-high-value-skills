@@ -177,6 +177,7 @@ def render_frontmatter(category: str, name: str, description: str, today: str) -
         'author: "seaworld008"',
         f'source: "github:{SOURCE_REPO}"',
         f"source_url: {yaml_quote(f'{SOURCE_URL}/tree/main/{name}')}",
+        "license: MIT",
         f"tags: [{tags}]",
         f'created_at: "{today}"',
         f'updated_at: "{today}"',

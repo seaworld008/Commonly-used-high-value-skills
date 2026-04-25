@@ -5,6 +5,7 @@ version: "1.0.0"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/sherpa"
+license: MIT
 tags: '["ai", "sherpa", "workflow"]'
 created_at: "2026-04-25"
 updated_at: "2026-04-25"

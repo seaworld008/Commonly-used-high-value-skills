@@ -5,12 +5,12 @@ version: "1.0.0"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
+license: Complete terms in LICENSE.txt
 tags: '["brand", "guidelines", "productivity"]'
 created_at: "2026-03-04"
 updated_at: "2026-03-20"
 quality: 3
 complexity: "intermediate"
-license: Complete terms in LICENSE.txt
 ---
 
 # Anthropic Brand Styling

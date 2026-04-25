@@ -5,6 +5,7 @@ version: "1.0.0"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/scout"
+license: MIT
 tags: '["analysis", "planning", "scout"]'
 created_at: "2026-04-25"
 updated_at: "2026-04-25"

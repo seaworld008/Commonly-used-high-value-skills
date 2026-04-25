@@ -5,12 +5,12 @@ version: "1.0.2"
 author: "seaworld008"
 source: "github:alirezarezvani/claude-skills"
 source_url: ""
+license: MIT
 tags: '["design", "generator", "landing", "page", "product"]'
 created_at: "2026-03-27"
 updated_at: "2026-04-25"
 quality: 4
 complexity: "intermediate"
-license: MIT
 ---
 
 # Landing Page Generator

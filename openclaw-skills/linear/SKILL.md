@@ -5,12 +5,12 @@ version: "2.0.1"
 author: "seaworld008"
 source: "adapted-from-hermes-agent"
 source_url: "https://github.com/NousResearch/hermes-agent/blob/main/skills/productivity/linear/SKILL.md"
+license: "MIT"
 tags: '["graphql", "issues", "linear", "mcp", "productivity", "project-management"]'
 created_at: "2026-03-04"
 updated_at: "2026-04-24"
 quality: 4
 complexity: "intermediate"
-license: "MIT"
 metadata:
 short-description: 'Manage Linear with GraphQL API first, MCP second'
 ---

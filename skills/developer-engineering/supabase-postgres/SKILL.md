@@ -5,12 +5,12 @@ version: "1.0.0"
 author: "seaworld008"
 source: "skills.sh"
 source_url: "https://skills.sh/supabase/agent-skills/supabase-postgres-best-practices"
+license: "MIT"
 tags: '["development", "postgres", "supabase"]'
 created_at: "2026-03-27"
 updated_at: "2026-03-27"
 quality: 4
 complexity: "intermediate"
-license: "MIT"
 ---
 
 # Supabase & PostgreSQL

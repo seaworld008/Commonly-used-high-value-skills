@@ -5,12 +5,12 @@ version: "1.0.1"
 author: Hermes Agent
 source: "in-house"
 source_url: ""
+license: MIT
 tags: '[Research, Arxiv, Papers, Academic, Science, API]'
 created_at: "2026-04-13"
 updated_at: "2026-04-24"
 quality: 4
 complexity: "intermediate"
-license: MIT
 metadata:
 hermes:
 related_skills: '[ocr-and-documents]'

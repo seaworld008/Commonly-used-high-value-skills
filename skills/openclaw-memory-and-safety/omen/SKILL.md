@@ -5,6 +5,7 @@ version: "1.0.0"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/omen"
+license: MIT
 tags: '["memory", "omen", "safety"]'
 created_at: "2026-04-25"
 updated_at: "2026-04-25"
