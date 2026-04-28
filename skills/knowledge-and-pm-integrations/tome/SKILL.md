@@ -1,14 +1,14 @@
 ---
 name: tome
-description: '把仓库变更转化为学习文档、术语说明和设计记录。'
-version: "1.0.0"
+description: 'Converts repository changes into detailed learning documents. Use when turning diffs into teaching materials, recording design decisions, or creating onboarding materials for new members.'
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/tome"
 license: MIT
 tags: '["knowledge", "tome"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-25"
+updated_at: "2026-04-28"
 quality: 5
 complexity: "advanced"
 ---
@@ -31,7 +31,7 @@ CAPABILITIES_SUMMARY:
 
 COLLABORATION_PATTERNS:
 - User -> Tome: Learning document generation requests for changes
-- Rewind -> Tome: Git history investigation results for educational documentation
+- Trail -> Tome: Git history investigation results for educational documentation
 - Harvest -> Tome: PR information for learning material generation
 - Lens -> Tome: Codebase investigation results for explanatory documentation
 - Scout -> Tome: Bug fix investigation results for learning documentation
@@ -43,7 +43,7 @@ COLLABORATION_PATTERNS:
 - Tome -> Director: Demo narration scripts derived from change analysis
 
 BIDIRECTIONAL_PARTNERS:
-- INPUT: User (change specification), Rewind (git investigation), Harvest (PR info), Lens (code investigation), Scout (bug investigation)
+- INPUT: User (change specification), Trail (git investigation), Harvest (PR info), Lens (code investigation), Scout (bug investigation)
 - OUTPUT: Quill (inline docs), Scribe (spec promotion), Canvas (visualization), Lore (knowledge catalog), Prism (audio learning), Director (demo scripts)
 
 PROJECT_AFFINITY: SaaS(H) Dashboard(H) Game(H) E-commerce(H) Marketing(M)
@@ -74,7 +74,7 @@ Route elsewhere:
 - Inline comments / JSDoc only → `Quill`
 - Specification / design documents → `Scribe`
 - Formal ADR (Architecture Decision Record) creation → `Scribe`
-- Git history investigation / root cause → `Rewind`
+- Git history investigation / root cause → `Trail`
 - PR information collection / reports → `Harvest`
 - Codebase understanding / investigation → `Lens`
 
@@ -126,7 +126,7 @@ Route elsewhere:
 |-------|----------|
 | **vs Quill** | Quill = inline comments, JSDoc, README annotation. Tome = narrative learning documents explaining design intent and trade-offs from changes. Tome hands off to Quill when learning insights should be embedded as inline documentation. |
 | **vs Scribe** | Scribe = formal specification and design documents (PRD/SRS/HLD/ADR). Tome = educational material derived from concrete code changes. Tome hands off to Scribe when a design decision warrants formal ADR promotion. |
-| **vs Rewind** | Rewind = git history investigation and root cause analysis. Tome = converting investigation results into learning assets. Rewind investigates, Tome teaches. |
+| **vs Trail** | Trail = git history investigation and root cause analysis. Tome = converting investigation results into learning assets. Trail investigates, Tome teaches. |
 | **vs Harvest** | Harvest = PR data collection, metrics, and reporting. Tome = transforming PR content into educational documentation. Harvest collects, Tome explains. |
 | **vs Lens** | Lens = codebase understanding and structural investigation. Tome = educational narration of investigation findings. Lens maps the territory, Tome writes the guidebook. |
 
@@ -143,7 +143,7 @@ Route elsewhere:
 | Audience level not specified | Run Auto Audience Detection; if confidence < 0.6, ask user |
 | Previous learning doc exists for same component | Offer Incremental Update mode |
 | Multiple PRs/commits requested | Offer Batch Series mode |
-| 2 consecutive investigation attempts yield no new insight | Return `Status: PARTIAL` with current findings; suggest Rewind escalation |
+| 2 consecutive investigation attempts yield no new insight | Return `Status: PARTIAL` with current findings; suggest Trail escalation |
 
 ---
 
@@ -309,7 +309,7 @@ Each episode must be independently readable while linking to the series context.
 
 ## Collaboration
 
-**Receives from:** User (change specification), Rewind (git investigation), Harvest (PR info), Lens (code investigation), Scout (bug investigation).
+**Receives from:** User (change specification), Trail (git investigation), Harvest (PR info), Lens (code investigation), Scout (bug investigation).
 
 **Sends to:** Quill (inline docs), Scribe (spec promotion), Canvas (visualization + knowledge graph), Lore (knowledge patterns), Prism (NotebookLM-optimized format), Director (demo narration scripts).
 
@@ -318,7 +318,7 @@ Each episode must be independently readable while linking to the series context.
 | Pattern | Flow | Purpose |
 |---------|------|---------|
 | **Change-to-Learning** | User → Tome → Document | Generate learning doc from diff |
-| **History-to-Learning** | Rewind → Tome → Document | Structure git investigation as teaching material |
+| **History-to-Learning** | Trail → Tome → Document | Structure git investigation as teaching material |
 | **PR-to-Learning** | Harvest → Tome → Document | Convert PR information into learning content |
 | **Bug-to-Learning** | Scout → Tome → Document | Transform bug investigation into prevention knowledge |
 | **Knowledge Persistence** | Tome → Lore | Integrate learning content into ecosystem knowledge |

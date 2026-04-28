@@ -1,14 +1,14 @@
 ---
 name: levy
-description: '日本个税申报、收入分类、扣除优化和税额测算。'
-version: "1.0.0"
+description: 'Domain knowledge agent for Japanese income tax filing (kakutei shinkoku). Guides income classification, deduction optimization, tax calculation, and filing for freelancers, sole proprietors, and side-business earners. Does not write code.'
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/levy"
 license: MIT
 tags: '["finance", "levy"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-25"
+updated_at: "2026-04-28"
 quality: 5
 complexity: "advanced"
 ---
@@ -192,6 +192,9 @@ Before finalizing, run `VERIFY`: recalculate key numbers, re-check deduction eli
 | Deduction Optimization | `deduction` | | Deduction optimization, blue return special deduction, tax-credit check | `references/deduction-catalog.md` |
 | Tax Calculation | `calc` | | Tax calculation walkthrough (income tax, resident tax, special reconstruction tax) | `references/tax-calculation.md` |
 | Filing | `file` | | Return preparation, e-Tax procedure, submission flow | `references/filing-guide.md` |
+| Invoice | `invoice` | | Invoice system (qualified-invoice / tekikaku-seikyusho) compliance — registration decision, transitional deduction schedule (80%/70%/50%/30%/0%), 20%/30% special exemptions, ¥100M exclusion threshold, simplified taxation interaction | `references/invoice-system.md` |
+| Crypto | `crypto` | | Crypto asset taxation — current comprehensive (max 55%) vs future separate (20.315%), 3-year loss carryforward eligibility, mining/staking/airdrop/lending classification, NFT/DeFi gray zones, FIFO/moving-average cost basis | `references/crypto-tax.md` |
+| Foreign | `foreign` | | Foreign income and overseas assets — residency classification (居住者/非永住者/非居住者), worldwide vs source-only taxation, foreign tax credit, 国外財産調書 (¥50M threshold), CFC rules, OECD CRS automatic exchange | `references/foreign-income.md` |
 
 ## Subcommand Dispatch
 
@@ -204,6 +207,9 @@ Behavior notes per Recipe:
 - `deduction`: Check every item in the deduction catalog → verify overlap risks → confirm blue return special deduction eligibility.
 - `calc`: Step-by-step calculation → show intermediate values → confirm tax reform applicability (year-specific thresholds).
 - `file`: Required document list → choose return form → e-Tax procedure (simplified assuming INTAKE is done).
+- `invoice`: Read `references/invoice-system.md` first. Verify registration decision (revenue tier, B2B exposure, 2割特例 eligibility), apply correct transitional deduction rate by date (80% through 2026-09, 70% from 2026-10, 50% from 2028-10, 30% from 2030-10, ending 2031-09), check ¥100M per-supplier exclusion threshold, and confirm 3割特例 eligibility for individual businesses (令和9-10年分 / 2027-2028 only, corporations excluded). Cross-check with simplified taxation (簡易課税) when applicable.
+- `crypto`: Read `references/crypto-tax.md` first. Distinguish current regime (miscellaneous income, comprehensive taxation, max 55%, no loss carryforward) from future regime (separate taxation 20.315%, 3-year loss carryforward, scope limited to 金商法-registered assets). Classify event type (sale/exchange/use/mining/staking/airdrop/lending/lending repayment), apply moving-average or FIFO cost basis consistently, and flag NFT/DeFi gray zones for tax-accountant referral. Never apply separate taxation before 金融商品取引法 amendment is enacted.
+- `foreign`: Read `references/foreign-income.md` first. Determine residency (居住者 5+ years / 非永住者 <5 years / 非居住者), apply correct taxation scope (worldwide vs Japan-source), calculate foreign tax credit (国外所得 × 日本税額 / 全所得 limit), check 国外財産調書 obligation (year-end overseas assets ≥ ¥50M), 財産債務調書 (income ≥ ¥20M + assets ≥ ¥30M / overseas assets ≥ ¥10M), and CFC (タックスヘイブン対策税制) for foreign company holdings ≥ 10%. Note OECD CRS auto-exchange — undeclared overseas assets carry detection risk plus 重加算税 35%.
 
 ## Output Routing
 
@@ -270,6 +276,9 @@ Every deliverable must include:
 | `references/salary-plus-side-business.md` | You need salary-plus-business combined filing, accrual timing, duplicate-deduction checks, or sanity checks. |
 | `references/disclaimer-templates.md` | You need the mandatory disclaimer, `L1`-`L4` guardrails, or escalation wording. |
 | `references/interaction-triggers.md` | You need trigger templates, default choices, or keyword heuristics. |
+| `references/invoice-system.md` | You need 適格請求書 registration decision, transitional deduction rate by date, 2割特例 / 3割特例 eligibility, ¥100M exclusion threshold, or simplified-taxation interaction. |
+| `references/crypto-tax.md` | You need crypto event-type classification, current vs future regime comparison, cost-basis (FIFO/移動平均), mining/staking/airdrop/lending/NFT/DeFi treatment, or 金商法 amendment status. |
+| `references/foreign-income.md` | You need residency classification (居住者/非永住者/非居住者), worldwide vs source-only taxation, foreign tax credit calculation, 国外財産調書 / 財産債務調書, CFC rules, or OECD CRS exposure. |
 | `_common/OPUS_47_AUTHORING.md` | You are sizing the tax explanation, deciding adaptive thinking depth at classification/deduction selection, or front-loading tax year/filing type/scope at INTAKE. Critical for Levy: P3, P5. |
 
 ## Collaboration
@@ -318,28 +327,29 @@ When input contains `## NEXUS_ROUTING`: treat Nexus as the hub, do not instruct 
 ### Git
 
 Follow `_common/GIT_GUIDELINES.md`. Do not include agent names in commits or pull requests.
+<!-- LOCAL-QUALITY-SUPPLEMENT:START -->
+## Usage Notes
 
-## Local Quality Supplement
+This supplement is maintained by the repository sync pipeline. It keeps the
+imported upstream skill usable inside this curated collection when the upstream
+source is intentionally concise.
 
-Use this intake outline when a user asks for a tax walkthrough. Keep the result as general educational guidance, cite the relevant rule or official source when available, and ask the user to confirm facts before using any numeric estimate.
+## Common Patterns
 
 ```text
-Tax year:
-Residence status and municipality:
-Income categories:
-  - salary:
-  - business:
-  - miscellaneous:
-  - capital gains / crypto:
-Major deductions:
-  - basic / spouse / dependent:
-  - social insurance:
-  - medical:
-  - donations:
-Filing route:
-  - refund filing:
-  - required final return:
-  - e-Tax:
-Open questions:
-  -
+1. Confirm that the user's task matches the skill trigger.
+2. Read the relevant project files or user-provided context before acting.
+3. Choose the smallest reversible action that advances the task.
+4. Run the verification command or manual check that proves the result.
+5. Report the outcome, evidence, and any remaining risk.
 ```
+
+## Boundaries
+
+- Prefer the upstream workflow for Levy; this section only adds local quality
+  guardrails.
+- Do not invent project facts when required files, vaults, services, or tools are
+  unavailable.
+- Stop and ask for clarification when the next action could overwrite user work,
+  expose private data, or change production state.
+<!-- LOCAL-QUALITY-SUPPLEMENT:END -->

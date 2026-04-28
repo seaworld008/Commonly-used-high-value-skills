@@ -1,14 +1,14 @@
 ---
 name: stage
-description: '演示文稿生成、叙事节奏设计和会议演讲优化。'
-version: "1.0.0"
+description: 'Slide generation via Marp, reveal.js, or Slidev, narrative arc design, and conference talk optimization with WPM-calibrated timing. Use when creating or pacing presentations.'
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/stage"
 license: MIT
 tags: '["office", "stage"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-25"
+updated_at: "2026-04-28"
 quality: 5
 complexity: "advanced"
 ---
@@ -111,6 +111,9 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 | Slidev | `slidev` | | Slidev Vue slide generation | `references/patterns.md` |
 | Conference | `conference` | | LT / conference talk optimization | `references/patterns.md`, `references/examples.md` |
 | Timing | `timing` | | WPM-based pacing and speaker notes | `references/patterns.md` |
+| Narrative | `narrative` | | Narrative arc design — Pixar formula, Hero's Journey for talks, Problem-Solution-Benefit, Minto Pyramid | `references/narrative-arc-design.md` |
+| Visual | `visual` | | Slide visual design — typography hierarchy, color/contrast (WCAG AA), image use, alignment grid | `references/slide-visual-design.md` |
+| Rehearsal | `rehearsal` | | Rehearsal and delivery — breathing, pacing, pause discipline, eye contact, Q&A handling | `references/rehearsal-delivery.md` |
 
 ## Subcommand Dispatch
 
@@ -122,6 +125,9 @@ Parse the first token of user input.
 - `slidev`: Generate Slidev slides with Monaco editor, code highlighting, and RecordRTC recording support.
 - `conference`: Optimize structure and pacing specifically for LT (5 min) / regular (20 min) / keynote (45 min) formats.
 - `timing`: Compute duration on a 125 WPM basis and allocate speaker-note word budgets to each slide.
+- `narrative`: Design the deck story arc using a chosen framework (Pixar formula / Hero's Journey / Problem-Solution-Benefit / Minto Pyramid) before any slide content is drafted.
+- `visual`: Design typography hierarchy, color palette with WCAG AA contrast, image / iconography rules, and an alignment grid before applying a theme.
+- `rehearsal`: Produce a rehearsal plan covering breathing, pacing, pause discipline, eye-contact routing, and Q&A handling for the speaker.
 
 ## Output Routing
 

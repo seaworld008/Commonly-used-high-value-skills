@@ -1,14 +1,14 @@
 ---
 name: lens
-description: '代码库理解、功能发现、数据流追踪和上下文调查。'
-version: "1.0.0"
+description: 'Codebase comprehension and investigation specialist. Systematically performs structure mapping, feature discovery, and data flow tracing for \"does X exist?\", \"how does Y work?\", or \"what is this module''s responsibility?\". Does not write code.'
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/lens"
 license: MIT
 tags: '["analysis", "lens", "planning"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-25"
+updated_at: "2026-04-28"
 quality: 5
 complexity: "advanced"
 ---
@@ -45,12 +45,12 @@ COLLABORATION_PATTERNS:
 - Lens -> Stratum: C4 model input with module boundaries and relationships
 - Lens -> Scribe: Documentation input with codebase understanding
 - Lens -> Ripple: Pre-change impact context with dependency mapping
-- Rewind -> Lens: Historical context for current-state investigation
+- Trail -> Lens: Historical context for current-state investigation
 - Lens -> Scout: Anomaly/potential bug discovery during comprehension (LENS_TO_SCOUT_HANDOFF via _common/INVESTIGATION_ESCALATION.md)
 - Scout -> Lens: Context/flow trace requests for bug investigation (SCOUT_TO_LENS_HANDOFF via _common/INVESTIGATION_ESCALATION.md)
 
 BIDIRECTIONAL_PARTNERS:
-- INPUT: Nexus (investigation routing), User (direct questions), Scout (codebase context for bugs), Builder (implementation context requests), Rewind (historical context)
+- INPUT: Nexus (investigation routing), User (direct questions), Scout (codebase context for bugs), Builder (implementation context requests), Trail (historical context)
 - OUTPUT: Builder (implementation context), Artisan (implementation context), Sherpa (planning context), Atlas (architecture input), Stratum (C4 model input), Scribe (documentation input), Ripple (impact analysis context)
 
 PROJECT_AFFINITY: universal
@@ -95,7 +95,7 @@ Route elsewhere when the task is primarily:
 - documentation writing: `Scribe` or `Quill`
 - code review for correctness: `Judge`
 - bug investigation with reproduction: `Scout`
-- Git history investigation ("when/why did this change?"): `Rewind`
+- Git history investigation ("when/why did this change?"): `Trail`
 - C4 architecture modeling from findings: `Stratum`
 
 ## Core Contract
@@ -175,7 +175,7 @@ When investigation stalls (no new findings after 2 search iterations):
 3. Try cross-referencing: find where key types/functions are used across the codebase, not just where they are defined. Cross-referencing reveals hidden dependencies that keyword search misses. [Source: intuitionlabs.ai]
 4. Apply multi-hop investigation: follow dependency chains across files (A imports B, B calls C, C writes to D) to build a dependency graph. Modern code investigation tools (Greptile, CodeScout) demonstrate that 2-3 hop traces uncover relationships invisible to single-file analysis. [Source: arxiv.org/html/2603.17829 — CodeScout]
 5. Re-decompose the question: if the original SCOPE decomposition was too vague, refine it using findings so far. CodeScout's "contextual problem statement enhancement" shows that converting underspecified questions into precise sub-questions through lightweight pre-exploration significantly improves downstream investigation success. [Source: arxiv.org/html/2603.05744 — CodeScout contextual enhancement]
-6. If still stalled after broadening, REPORT with `Status: PARTIAL`, include "What I didn't find" section, and suggest alternative investigation angles or agents (Scout for bug-related, Rewind for history-based, Stratum for architectural modeling).
+6. If still stalled after broadening, REPORT with `Status: PARTIAL`, include "What I didn't find" section, and suggest alternative investigation angles or agents (Scout for bug-related, Trail for history-based, Stratum for architectural modeling).
 
 ## Output Routing
 
@@ -210,6 +210,9 @@ Routing rules:
 | Feature Discovery | `discover` | | Feature discovery ("does X exist?") | `references/investigation-patterns.md` |
 | Data Flow Trace | `trace` | | Data flow trace (origin → transformation → destination) | `references/investigation-patterns.md` |
 | Module Responsibility | `responsibility` | | Module responsibility analysis (cognitive complexity, comprehension debt evaluation) | `references/complexity-assessment.md` |
+| Dependency | `dependency` | | Deep dependency graph analysis — fan-in/fan-out per module, transitive closure, circular dependencies, dependency direction violations (UI → DB), package-boundary leakage detection | `references/dependency-graph.md` |
+| Hotspot | `hotspot` | | Change-frequency hotspot identification — git log churn × cognitive complexity heatmap, coupling between churn and bug reports, "hot+complex" risk ranking for refactor prioritization | `references/change-hotspot.md` |
+| Evolution | `evolution` | | Code evolution tracing via git history — file lifespan, author concentration (bus factor), abstraction churn, conceptual drift between commits, growth/decay trajectory of modules | `references/code-evolution.md` |
 
 ## Subcommand Dispatch
 
@@ -222,6 +225,9 @@ Behavior notes per Recipe:
 - `discover`: Shortened SCOPE → SURVEY → REPORT workflow allowed. REPORT immediately after existence confirmation.
 - `trace`: Trace data from origin to destination. Explicitly flag dynamic-dispatch boundaries.
 - `responsibility`: Multi-signal cognitive complexity evaluation (SonarSource + nesting + naming). Identify comprehension debt hotspots.
+- `dependency`: Read `references/dependency-graph.md` first. madge / dpdm (TS/JS) / pydeps (Python) / go list -deps (Go) で依存グラフ生成。fan-in/fan-out per module を計測 (高 fan-in = god module 候補)、transitive closure size を測定、circular dependencies を HIGH/MED/LOW 重要度で分類、依存方向違反 (UI → DB 直接 import 等) を flag、package boundary leakage (`internal/` パッケージへの外部参照) を検出。出力は dependency table + Mermaid graph + violation list。
+- `hotspot`: Read `references/change-hotspot.md` first. `git log --since=N.months --name-only` で file change frequency を取得、SonarSource Cognitive Complexity と組み合わせて "churn × complexity" heatmap を生成。`hot+complex` (churn > median + complexity > 15) はリファクタリング最優先候補。bug-correlation: `git log --grep='fix\|bug'` で bug-fix commit に登場する頻度も加算。出力は ranked hotspot table + 推奨 refactor 順序。
+- `evolution`: Read `references/code-evolution.md` first. ファイル単位で lifespan (作成 → 最終変更日) を追跡、author 集中度 (bus factor: 80% 変更を担う著者数) を計算、commit message と diff のキーワード抽出で abstraction churn (リファクタ vs 機能追加比) を測定、conceptual drift (ファイルの責務変化を pre/post diff の class/function 変化から推定) を検出。長期不変ファイル = 安定 vs 死体、頻繁書き換え = 設計未確定 vs 機能成長 を区別。
 
 ## Output Requirements
 
@@ -259,7 +265,7 @@ Every deliverable must include:
 - **vs Scout**: Scout = bug investigation with reproduction; Lens = general codebase understanding. Scout may request Lens for codebase context.
 - **vs Atlas**: Atlas = architecture evaluation and design decisions; Lens = code-level comprehension and mapping.
 - **vs Quill**: Quill = documentation writing; Lens = understanding generation.
-- **vs Rewind**: Rewind = Git history investigation and regression analysis; Lens = current codebase state comprehension. Use Rewind when "when/why did this change?" is the question.
+- **vs Trail**: Trail = Git history investigation and regression analysis; Lens = current codebase state comprehension. Use Trail when "when/why did this change?" is the question.
 - **vs Stratum**: Stratum = C4 architecture modeling; Lens = code-level investigation and discovery. Lens feeds findings into Stratum for formal modeling.
 - **vs Ripple**: Ripple = pre-change impact analysis; Lens = general codebase understanding. Lens provides dependency context that Ripple uses for impact assessment.
 

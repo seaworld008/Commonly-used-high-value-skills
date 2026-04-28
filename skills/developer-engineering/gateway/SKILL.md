@@ -1,14 +1,14 @@
 ---
 name: gateway
-description: '接口设计、规范生成、版本策略和破坏性变更检查。'
-version: "1.0.0"
+description: 'API design and review, OpenAPI spec generation, versioning strategy, breaking change detection, REST/GraphQL best practices. Ensures API quality and consistency. Use when API design or OpenAPI specs are needed.'
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/gateway"
 license: MIT
 tags: '["development", "gateway"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-25"
+updated_at: "2026-04-28"
 quality: 5
 complexity: "advanced"
 ---
@@ -188,6 +188,9 @@ Routing rules:
 | REST Semantics | `rest` | | REST resource/URI design, status taxonomy, conditional requests, pagination, RMM, RFC 7807/9457 | `references/rest-api-design.md` |
 | GraphQL Schema | `graphql` | | GraphQL schema-first/code-first, DataLoader, persisted queries, Federation/Relay, subscriptions | `references/graphql-design.md` |
 | Webhook Provider | `webhook` | | Emit-side webhook contract: HMAC signature, idempotency, retry/DLQ, ordering, Sunset/Deprecation | `references/webhook-design.md` |
+| API Auth | `auth` | | OAuth 2.1 / OIDC / JWT / mTLS / API key contract — token shape, scope design, key rotation, IdP integration | `references/api-auth-patterns.md` |
+| Rate Limiting | `rate-limit` | | Token bucket / leaky bucket / sliding window / fixed window — per-key / per-tenant / per-route, RFC 9331 / RateLimit headers | `references/rate-limit-patterns.md` |
+| Deprecation | `deprecation` | | RFC 8594 Sunset / RFC 9745 Deprecation headers, deprecation policy, client SDK migration timeline, removal cutover | `references/deprecation-policy.md` |
 
 Behavior notes:
 - **design** (default): SURVEY → DESIGN → VALIDATE → PRESENT; load `api-design-principles.md` + `api-decision-tree.md`.
@@ -197,6 +200,9 @@ Behavior notes:
 - **rest**: REST-semantics focus — resource modeling, URI design, HTTP method/status selection (2xx/3xx/4xx/5xx taxonomy, RFC 9110), ETag / If-None-Match conditional requests, cursor vs offset pagination, Richardson Maturity Model, RFC 9457 (obsoletes RFC 7807) Problem Details, HATEOAS when useful. Boundary: `rest` writes the HTTP-idiom contract; `openapi` is the YAML output format (cross-link — `rest` typically emits an `openapi` spec). Boundary vs Builder `api`: Gateway `rest` is the SPEC/CONTRACT layer (what the API should look like); Builder `api` is the IMPLEMENTATION layer (handler code that serves the contract) — hand off via `GATEWAY_TO_BUILDER`. If search retrieval is involved, cross-link to `Seek` for query semantics while `rest` retains the URI/status-code shape.
 - **graphql**: GraphQL schema-design focus — schema-first vs code-first trade-off, N+1 prevention via DataLoader (batching + request-scoped cache), persisted queries for allow-listing and CDN caching, query depth / complexity limits, schema stitching vs Apollo Federation vs Relay spec (Connections/Cursor/Node), subscription transport (graphql-ws over WebSocket or SSE). Boundary: `graphql` is the SCHEMA/CONTRACT layer (SDL, types, resolver boundaries); Builder `api` is the IMPLEMENTATION layer (resolver code, DataLoader wiring, subscription infrastructure) — hand off via `GATEWAY_TO_BUILDER`. If the schema exposes search fields (`search(query: String): Connection`), cross-link to `Seek` — Seek owns retrieval architecture (indexes, ranking, vector search) while `graphql` owns the schema shape exposed to clients.
 - **webhook**: Webhook PROVIDER-side contract — the API EMITS webhooks to subscribers. Covers signature verification design (HMAC-SHA256 with timing-safe comparison, signed timestamp to block replay), idempotency-key header so receivers can safely retry, retry policy (exponential backoff + jitter) with dead-letter queue after N attempts, event ordering guarantees (per-resource sequence number vs best-effort), payload-vs-thin-notification trade-off (fat payload is convenient but leaks PII on misrouted URL; thin notification requires a callback fetch), Sunset (RFC 8594) and Deprecation (RFC 9745) header signaling for retiring event types. Boundary vs Builder `integrate`: Gateway `webhook` is the PROVIDER side (design the emit contract); Builder `integrate` is the CONSUMER side (receive, verify, and process a third-party webhook) — cross-link in both directions.
+- **auth**: Load `references/api-auth-patterns.md`. Auth contract design — choose OAuth 2.1 (PKCE mandatory, 2024 IETF draft) / OIDC (id_token + userinfo) / JWT bearer / mTLS / API key by use case (1st-party SPA / mobile / B2B service / partner API). Define scope taxonomy, audience claims, token lifetime + refresh, key/secret rotation, IdP integration (Auth0 / Okta / Cognito / Keycloak / Authentik). Boundary: Gateway `auth` is the API CONTRACT (what tokens the API accepts and how); Builder implements the verification middleware; Crypt owns key-management depth. If end-to-end encryption is involved, hand off to Crypt.
+- **rate-limit**: Load `references/rate-limit-patterns.md`. Algorithm choice (token bucket / leaky bucket / sliding window log / fixed window counter), scoping (per-API-key / per-tenant / per-route / per-IP), distributed enforcement (Redis INCR + EXPIRE / Envoy ratelimit / cloud-native API Gateway), client signaling per RFC 9331 (`RateLimit-Limit`, `RateLimit-Remaining`, `RateLimit-Reset` + `RateLimit-Policy`), 429 + `Retry-After` semantics, fairness (weighted by plan tier), spike protection vs sustained throughput. Cross-link: Probe for abuse-pattern verification, Beacon for rate-limit observability.
+- **deprecation**: Load `references/deprecation-policy.md`. Versioned sunset playbook — emit `Deprecation` header (RFC 9745) with date and `Sunset` header (RFC 8594) at deprecation announcement, link to `Link: <url>; rel="deprecation"` for migration docs. Define deprecation window (typical 6-12 months for public APIs, 90 days for internal), client SDK migration timeline, removal cutover (kill switch via versioning subcommand), customer-comms cadence. Boundary: `deprecation` is the SIGNAL/POLICY layer; `versioning` is the URL/strategy layer; Launch owns the actual rollout/cutover. Cross-link: Comply for regulated APIs (SLA contract obligations), Voice for customer-facing deprecation announcements.
 
 ## Subcommand Dispatch
 

@@ -1,14 +1,14 @@
 ---
 name: tone
-description: '游戏音效、背景音乐、语音和音频管线生成。'
-version: "1.0.0"
+description: 'Game audio generation agent. Produces code (Python/JS/TS/Shell) for SFX, BGM, Voice, Ambient, and UI sounds using ElevenLabs/Stable Audio/MusicGen/Suno/OpenAI TTS/JSFXR. Handles LUFS normalization and middleware integration.'
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/tone"
 license: MIT
 tags: '["media", "tone"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-25"
+updated_at: "2026-04-28"
 quality: 5
 complexity: "advanced"
 ---
@@ -130,6 +130,9 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 | Voice | `voice` | | Voice (OpenAI TTS) | `references/api-integration.md` |
 | Ambient | `ambient` | | Ambient sounds | `references/api-integration.md` |
 | UI Sound | `ui` | | UI interaction sounds | `references/api-integration.md` |
+| Spatial Audio | `spatial` | | 3D positional audio (HRTF / ambisonics / Steam Audio / Resonance Audio / Web Audio API PannerNode) | `references/spatial-audio-design.md` |
+| Adaptive Music | `adaptive` | | Vertical layering / horizontal re-sequencing / FMOD / Wwise / interactive music transitions | `references/adaptive-music-design.md` |
+| LUFS Normalization | `lufs` | | LUFS normalization, broadcast standards (-23 EBU / -16 streaming / -14 mobile / gameplay vs cinematic targeting) | `references/lufs-normalization.md` |
 
 ## Subcommand Dispatch
 
@@ -143,6 +146,9 @@ Behavior notes per Recipe:
 - `voice`: ElevenLabs TTS または OpenAI TTS でナレーション/ダイアログ生成コード。de-essing + ダイナミクス処理付き。
 - `ambient`: AudioCraft/Bark でシームレスループの環境音生成コード。フェードイン/アウト処理付き。
 - `ui`: JSFXR で UI 操作音セットを生成。<200ms、-9 dB ミックスレベル、一貫したセット設計。
+- `spatial`: 3D positional audio. Steam Audio / Resonance Audio / Wwise Spatial Audio / Web Audio PannerNode 選定。HRTF + occlusion / reverb zone 設計、Ambisonics B-format 対応、Unity / Unreal / Phaser 統合コード。
+- `adaptive`: Interactive music. Vertical (stem layering: drums / bass / harmony / melody) と horizontal (segment re-sequencing) を選定。FMOD Studio / Wwise transition matrix、ゲーム状態 → 音楽状態のマッピング、stinger / one-shot 設計。
+- `lufs`: Loudness normalization. -23 LUFS (EBU R128 broadcast) / -16 (streaming) / -14 (Spotify / mobile) / -18 (gameplay default) / -10 (UI accent) を用途別に適用。pyloudnorm / ffmpeg loudnorm 対応コード、True Peak ≤ -1 dBTP 制約。
 
 ## Output Routing
 

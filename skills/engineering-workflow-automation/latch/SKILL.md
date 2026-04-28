@@ -1,14 +1,14 @@
 ---
 name: latch
-description: '配置和维护生命周期钩子、质量门禁和自动化守卫。'
-version: "1.0.0"
+description: 'Propose, configure, debug, and maintain Claude Code hooks (PreToolUse/PostToolUse/Stop and other lifecycle events). Use when workflow automation, quality gates, or security enforcement via hooks is needed.'
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/latch"
 license: MIT
 tags: '["automation", "latch", "workflow"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-25"
+updated_at: "2026-04-28"
 quality: 5
 complexity: "advanced"
 ---
@@ -308,6 +308,9 @@ Hook sources (merged at runtime): `~/.claude/settings.json` (user), `.claude/set
 | Debug Hook | `debug` | | Debug existing hooks (failure, latency, misfire) | `references/debugging-guide.md` |
 | PreToolUse | `pretool` | | PreToolUse hook specialization (block, approve, input rewrite) | `references/hook-system.md` |
 | PostToolUse | `posttool` | | PostToolUse hook specialization (logging, automation, quality gate) | `references/hook-system.md`, `references/hook-recipes.md` |
+| Notification | `notification` | | Notification event hook — desktop / Slack / Discord push, sound on permission requests, idle/long-running task alerts, mute rules per project, deduplication | `references/notification-hook.md` |
+| SessionStart | `sessionstart` | | SessionStart event hook — context preloading (CLAUDE.md auto-summary, recent PR list, branch/CI status injection), env validation gates, per-project warm-up scripts | `references/sessionstart-hook.md` |
+| Security | `security` | | PreToolUse security guard — PII / secret regex denial, dangerous Bash command interception (`rm -rf /`, `git push --force` to main), env var leakage block, MCP tool ACL | `references/security-guard-hook.md` |
 
 ## Subcommand Dispatch
 
@@ -320,6 +323,9 @@ Behavior notes per Recipe:
 - `debug`: Check `/hooks` → run `claude --debug` → manual stdin test. Validate timeout, exit code, and stdout/stderr mixing in order.
 - `pretool`: Choose permissionDecision (allow/deny/ask/defer). Block with exit 2. updatedInput must always pair with permissionDecision: allow.
 - `posttool`: Exit 0 only (no blocking). Optional context injection via JSON stdout. Can background with async: true.
+- `notification`: Read `references/notification-hook.md` first. Notification イベントは「permission 要求」「idle 警告 (60s+)」「sub-agent 完了」等で発火。matcher に message regex (`waiting for your approval`, `idle for`) を指定して条件分岐、出力先 (terminal-notifier / Slack incoming-webhook / Discord webhook / desktop notification) を選択。dedup logic で同一 message の連続発火を抑制 (例: 5min 同一 dedupe)。`async: true` で非ブロッキング推奨。session 開始時刻を記録して "深夜は mute" 等の時間帯ルールを実装可能。
+- `sessionstart`: Read `references/sessionstart-hook.md` first. SessionStart イベントは Claude セッション開始 / `/clear` / `/compact` 後に発火。stdout に出力した内容は次のターンの context に注入される (max ~10K tokens 推奨)。よくある用途: 直近 N PRs の gh API 取得、CLAUDE.md 自動要約、現在 branch + CI status + uncommitted file count、env validation (Node.js version mismatch なら exit 2 で startup block)。重い処理は事前 cron で `~/.cache/` に書き出し、hook 内では `cat` のみで lazy load。
+- `security`: Read `references/security-guard-hook.md` first. PreToolUse の `permissionDecision: deny` で危険操作を遮断。代表パターン: (a) Bash 内の `rm -rf /`, `chmod -R 777`, `git push --force` to `main/master` → 即 deny、(b) Write/Edit 対象が `.env`, `id_rsa`, `*.pem`, `secrets.json` → deny、(c) tool input 内の secret regex (`AKIA[0-9A-Z]{16}`, `sk-[A-Za-z0-9]{40+}`, JWT pattern) 検出 → updatedInput で redact + 警告、(d) MCP tool ACL: 特定の `mcp__*` tool を環境変数 `LATCH_BLOCKED_MCP_TOOLS` 経由で deny。CI 環境 (`CI=true`) では interactive deny を全て auto-deny に昇格。
 
 ## Output Routing
 
@@ -373,6 +379,9 @@ Every deliverable must include:
 | `references/hook-recipes.md` | You need recipe IDs `S1-S4`, `Q1-Q4`, `C1-C2`, `W1-W3`, or tech-stack-specific combinations. |
 | `references/debugging-guide.md` | You need debug mode, manual stdin tests, boilerplate rules, timeout failures, or troubleshooting steps. |
 | `references/nexus-integration.md` | You need `_AGENT_CONTEXT`, `_STEP_COMPLETE`, `## NEXUS_HANDOFF`, or Nexus routing details. |
+| `references/notification-hook.md` | You need Notification event matchers, output channels (terminal-notifier / Slack / Discord / desktop), dedup logic, or time-based mute rules. |
+| `references/sessionstart-hook.md` | You need SessionStart event scope (`/clear` / `/compact` triggers), context injection patterns, env validation gates, or warm-up script design. |
+| `references/security-guard-hook.md` | You need PreToolUse security deny patterns (dangerous Bash, secret regex, sensitive file write, MCP tool ACL) or CI-environment auto-deny escalation. |
 | `_common/OPUS_47_AUTHORING.md` | You are sizing the hook spec, deciding adaptive thinking depth at event/permission selection, or front-loading scope/tools/intent at PROFILE. Critical for Latch: P3, P5. |
 
 ## Collaboration

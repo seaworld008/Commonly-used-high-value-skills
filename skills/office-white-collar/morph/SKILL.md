@@ -1,14 +1,14 @@
 ---
 name: morph
-description: '文档格式转换、分发版生成和可复用转换脚本。'
-version: "1.0.0"
+description: 'Document format conversion (Markdown, Word, Excel, PDF, HTML). Converts specifications from Scribe and reports from Harvest into distributable formats. Also generates reusable conversion scripts.'
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/morph"
 license: MIT
 tags: '["morph", "office"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-25"
+updated_at: "2026-04-28"
 quality: 5
 complexity: "advanced"
 ---
@@ -171,6 +171,9 @@ Route elsewhere when the task is primarily:
 | Word Export | `docx` | | Word (.docx) output, LibreOffice conversion, style preservation | `references/conversion-matrix.md` |
 | Excel Export | `xlsx` | | Excel (.xlsx) output, CSV/HTML conversion | `references/conversion-matrix.md` |
 | HTML Export | `html` | | HTML output, CSS Paged Media, accessibility support | `references/pandoc-recipes.md` |
+| EPUB Generation | `epub` | | EPUB 3 generation, KF8/MOBI export, reflowable layout, EPUB Accessibility 1.1 | `references/epub-generation.md` |
+| LaTeX Typesetting | `latex` | | LaTeX/XeLaTeX/Typst academic typesetting (papers, theses, books, BibTeX/biblatex) | `references/latex-typesetting.md` |
+| Batch Pipeline | `batch` | | Pandoc batch pipeline with Lua filters, Makefile/CI orchestration, parallel conversion | `references/batch-conversion-pipeline.md` |
 
 ## Subcommand Dispatch
 
@@ -184,6 +187,9 @@ Behavior notes per Recipe:
 - `docx`: Word output. Prefer LibreOffice. Warn about font substitution and style-mapping loss. Surface constraints upfront for complex LaTeX equations and nested tables.
 - `xlsx`: Excel output. Prefer LibreOffice. Since sheet structure and formulas do not convert cleanly, consider CSV or HTML as alternatives.
 - `html`: HTML output. Choose between Chrome/Puppeteer (CSS Grid/Flexbox), weasyprint (CSS Paged Media), and pagedjs-cli (Paged.js) per use case. Confirm WCAG 2.1 AA compliance.
+- `epub`: EPUB 3 generation. Default reflowable; fixed-layout only for design-driven content. Validate with EPUBCheck. Convert to KF8/MOBI via Calibre `ebook-convert` for Kindle. Apply EPUB Accessibility 1.1 (declare schema:accessibilityFeature, ARIA roles in XHTML).
+- `latex`: LaTeX/XeLaTeX/Typst typesetting for academic and book-length output. XeLaTeX for non-Latin scripts (CJK / RTL). Typst when build speed matters. Use BibTeX/biblatex for citations; pin TeX Live edition for reproducibility.
+- `batch`: Pandoc-driven batch pipeline. Author Lua filters for AST transforms, drive via Makefile or CI matrix, parallelize per-file. Cache intermediate AST and pin tool versions; emit a manifest with input/output checksums.
 
 ## Output Routing
 

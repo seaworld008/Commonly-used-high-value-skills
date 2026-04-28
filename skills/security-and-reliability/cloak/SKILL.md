@@ -1,14 +1,14 @@
 ---
 name: cloak
-description: '隐私工程、敏感信息流、同意管理和数据治理。'
-version: "1.0.0"
+description: 'Privacy engineering and data governance agent. PII detection, data flow mapping, consent management patterns, GDPR/CCPA-compliant code implementation, and DPIA facilitation. Use when privacy-by-design implementation is needed.'
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/cloak"
 license: MIT
 tags: '["cloak", "security"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-25"
+updated_at: "2026-04-28"
 quality: 5
 complexity: "advanced"
 ---
@@ -195,7 +195,7 @@ Full regulation details → `references/privacy-regulations.md`
 | DPIA | `dpia` | | DPIA facilitation | `references/privacy-regulations.md` |
 | GDPR/CCPA Code | `gdpr` | | Compliance-ready code implementation | `references/implementation-patterns.md` |
 | CCPA / CPRA | `ccpa` | | California consumer rights, GPC, SPI limit-use, service-provider contracts | `references/ccpa-cpra.md` |
-| APPI (Japan) | `appi` | | Japanese APPI implementation: 三層分類, Art. 24/23, PPC reporting, 要配慮 | `references/appi-japan.md` |
+| APPI (Japan) | `appi` | | Japanese APPI implementation: three-tier data taxonomy, Art. 24/23, PPC reporting, special-care personal info | `references/appi-japan.md` |
 | Pseudonymization | `pseudonymize` | | k-anonymity / l-diversity / DP / tokenization / FPE technique selection | `references/pseudonymization-techniques.md` |
 
 ## Subcommand Dispatch

@@ -1,14 +1,14 @@
 ---
 name: schema
-description: '数据库模式设计、迁移规划、索引策略和关系建模。'
-version: "1.0.0"
+description: 'Database schema design, migration planning, and ER diagram specialist. Handles normalization, index strategies, and relation definitions. Use when DB schema design is needed.'
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/schema"
 license: MIT
 tags: '["development", "schema"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-25"
+updated_at: "2026-04-28"
 quality: 5
 complexity: "advanced"
 ---
@@ -209,6 +209,9 @@ Routing rules:
 | Migration Rollback | `rollback` | | Reverse-operation design for destructive migrations (reverse DDL / dual-write / backfill / alternatives to destructive changes) | `references/migration-rollback.md` |
 | Multi-Tenant Design | `tenant` | | Tenant isolation strategy (shared-DB / schema-per-tenant / DB-per-tenant / shard) with RLS and routing design | `references/multi-tenant-patterns.md` |
 | Partitioning | `partition` | | range / list / hash / time-based partition design (pruning / maintenance / migration) | `references/partition-strategies.md` |
+| Audit Log | `audit-log` | | Append-only audit-log schema — temporal tables, logical replication, before/after image, retention | `references/audit-log-schema.md` |
+| Event Sourcing | `event-sourcing` | | Event store schema — events / projections / snapshots / outbox, aggregate boundaries | `references/event-sourcing-schema.md` |
+| Soft Delete | `soft-delete` | | Logical deletion patterns (deleted_at / status / tombstone) with GDPR right-to-erasure interaction | `references/soft-delete-patterns.md` |
 
 Behavior notes:
 - **design** (default): SURVEY → MODEL → VALIDATE → PRESENT; load `schema-examples.md` + `schema-design-anti-patterns.md`.
@@ -220,6 +223,9 @@ Behavior notes:
 - **tenant**: Compare the 4 strategies (shared-DB / schema-per-tenant / DB-per-tenant / shard-based) against tenant count, isolation requirements, and cost constraints. Includes RLS / connection routing / per-tenant backup strategies. Coordinates with the Shard agent.
 - **index**: Query patterns → covering / partial / expression index design. Existing `index-strategies.md`.
 - **partition**: Select range / list / hash / time-based. Present pruning impact, partition maintenance (auto-creation, old-partition deletion), and staged migration from existing tables.
+- **audit-log**: Load `audit-log-schema.md`. Append-only audit table design — actor / action / target / before-image / after-image / timestamp / correlation-id. Choose Postgres temporal tables vs trigger-based vs CDC (Debezium). Define retention + WORM compliance + tamper-evidence (HMAC chain). Never UPDATE / DELETE on audit rows.
+- **event-sourcing**: Load `event-sourcing-schema.md`. Event store table (event_id / aggregate_id / aggregate_version / event_type / payload / metadata) with optimistic concurrency, projections (read models), snapshots, outbox pattern for transactional event publishing. Map aggregate boundaries; CQRS-friendly.
+- **soft-delete**: Load `soft-delete-patterns.md`. Compare deleted_at timestamp vs status enum vs tombstone row. Design partial unique indexes. Address FK cascade behavior, query default-filter risk (visible vs deleted set), GDPR right-to-erasure pathway (soft → hard delete + audit-log).
 
 ## Subcommand Dispatch
 

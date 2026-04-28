@@ -1,14 +1,14 @@
 ---
 name: ledger
-description: '云成本、预算告警、资源规格和人工智能工作负载成本优化。'
-version: "1.0.0"
+description: 'FinOps and cloud cost optimization agent. Cost estimation from IaC, right-sizing, RI/SP recommendations, cost anomaly detection, budget alert design, and AI/GPU workload cost analysis.'
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/ledger"
 license: MIT
 tags: '["finance", "ledger"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-25"
+updated_at: "2026-04-28"
 quality: 5
 complexity: "advanced"
 ---
@@ -213,6 +213,9 @@ Details → `references/cost-anomaly-detection.md`
 | RI / SP / CUD | `ri-sp` | | Reserved Instances, Savings Plans, GCP CUD, Azure RI commitment strategy with break-even and ladder design | `references/reserved-savings-plans.md` |
 | AI / GPU Cost | `gpu-cost` | | AI/ML and GPU workload cost — H100/H200/A100/L40S/T4 SKU economics, training vs inference split, spot strategy, quantization impact | `references/ai-gpu-cost.md` |
 | Cost-Allocation Tagging | `tagging` | | Mandatory tag taxonomy, AWS/GCP/Azure enforcement (SCP/Org Policy/Azure Policy), showback / chargeback design | `references/cost-tagging-strategy.md` |
+| FinOps Framework | `finops-framework` | | FinOps Foundation Framework — Crawl/Walk/Run maturity across 22 capabilities, persona map, phase-appropriate tooling | `references/finops-framework.md` |
+| Unit Economics | `unit-economics` | | Per-customer / per-transaction / per-feature cost attribution, COGS decomposition, margin + contribution analysis | `references/unit-economics.md` |
+| GreenOps / Sustainability | `greenops` | | Carbon-aware scheduling, embodied+operational CO2e accounting, SCI (ISO/IEC 21031), region-carbon choice, FinOps×GreenOps trade-off | `references/greenops-sustainability.md` |
 
 ## Subcommand Dispatch
 
@@ -227,6 +230,9 @@ Behavior notes per Recipe:
 - `ri-sp`: Commitment strategy across AWS RI (Standard/Convertible), AWS Savings Plans (Compute/EC2 Instance/SageMaker), GCP CUD, Azure Reserved VM. 30+ days of usage required; coverage tier per workload class; staggered expiration ladder; >$10K/mo or 3y term needs executive approval; document Marketplace / exchange rollback path.
 - `gpu-cost`: AI/GPU workload economics. Separate training vs inference; SKU-match (H100/H200/A100/L40S/T4); spot+checkpoint cadence (rule: cadence ≈ MTBI/4); quantization (INT8/INT4/FP8) cost-vs-quality; unit cost in $/1K tokens or $/1K requests, never $/GPU-hour; cap GPU commitments at 1 year and 20-40% baseline.
 - `tagging`: Tag taxonomy + enforcement. Cap mandatory tags at 5-7 with allowed-value enums; lowercase + dash convention across AWS/GCP/Azure; ladder enforcement (soft-warn → alert → deny → auto-remediate) gated on coverage thresholds; define shared-cost split rules; downstream recipes refuse per-team output below 80% coverage.
+- `finops-framework`: Load `references/finops-framework.md`. Assess current Crawl/Walk/Run phase across FinOps Foundation's 22 capabilities (Understanding Usage & Cost, Quantifying Business Value, Optimizing, Managing FinOps Practice). Map to persona (Engineer / Finance / FinOps Practitioner / Procurement / Leadership). Recommend phase-appropriate next capabilities.
+- `unit-economics`: Load `references/unit-economics.md`. Attribute cost per customer / tenant / transaction / feature. Build COGS decomposition (compute / storage / egress / third-party / support). Compute gross margin and contribution margin; separate fixed vs variable. Required for SaaS pricing decisions and enterprise-deal profitability.
+- `greenops`: Load `references/greenops-sustainability.md`. Carbon-aware architecture — embodied + operational CO2e, SCI score (ISO/IEC 21031), region-carbon-intensity routing, carbon-aware scheduling, FinOps × GreenOps trade-off matrix (usually aligned, sometimes conflict). Hand off to scaffold for region choices, beacon for SCI dashboards.
 
 ## Output Routing
 

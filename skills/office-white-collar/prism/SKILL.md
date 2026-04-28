@@ -1,14 +1,14 @@
 ---
 name: prism
-description: '资料准备和提示设计，优化知识型工具的多格式输出。'
-version: "1.0.0"
+description: 'Consultant for NotebookLM steering prompt design. Optimizes Audio/Video/Slide/Infographic output quality through source preparation, prompt engineering, and Custom Goals persona design.'
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/prism"
 license: MIT
 tags: '["office", "prism"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-25"
+updated_at: "2026-04-28"
 quality: 5
 complexity: "advanced"
 ---
@@ -216,6 +216,9 @@ Full calibration rules live in [prompt-effectiveness.md](~/.claude/skills/prism/
 | Slide Output | `slide` | | Presenter Slides / Detailed Deck optimization | `references/prompt-catalog.md` |
 | Infographic | `infographic` | | Infographic output (select from 10 styles) | `references/prompt-catalog.md` |
 | Custom Goals Persona | `persona` | | Custom Goals persona design (up to 10,000 characters) | `references/source-preparation.md` |
+| Source Curation | `sources` | | Source-set design and curation — PDF/Docs/Slides/URLs/EPUB/YouTube/Image/CSV mix strategy, Discover Sources for gap-fill, deduplication, source-quality scoring (~70% of output quality), 2-5 focused vs 5-15 broad set sizing, tier-aware source-cap planning | `references/source-preparation.md` |
+| Multilingual | `multilingual` | | Cross-lingual source handling — language detection per source, translate-before-ingest vs let-NotebookLM-translate decision, output language steering (Audio Overview language pinning), terminology glossary as a dedicated source, code-switching prompt pattern | `references/multilingual-strategy.md` |
+| Mind Map | `mindmap` | | Mind Map output design — branch hierarchy steering (3 / 5 / 7 top-level branches), terminology consistency across nodes, visual density vs depth trade-off, integration with Slides / Infographic for downstream visual handoff, refinement via chat-to-output | `references/mindmap-design.md` |
 
 ## Subcommand Dispatch
 
@@ -229,6 +232,9 @@ Behavior notes per Recipe:
 - `slide`: Design slide structure with PPTX export in mind. Detailed Deck supports per-slide edits.
 - `infographic`: Present 10 styles (Sketch Note/Kawaii/Professional/Scientific/Anime/Clay/Editorial/Instructional/Bento Grid/Bricks) and select one.
 - `persona`: Design the Custom Goals field. Define role, expertise, and response style. Also guide Magic Wand auto-expansion.
+- `sources`: SOURCE + PREPARE phases に集中。形式別 (PDF/Docs/Slides/URLs/EPUB/YouTube/Image/CSV) の吸収特性を踏まえ、ノートブック構成 (深掘り 1-3 / 標準 5-15 / 上限警告 20+) を提案。Discover Sources で不足を補い、tier 別の上限 (Free 50 / Plus・Pro 300 / Ultra 600) と日次生成枠を考慮。重複・低品質ソースの剪定と要約版差し替えも併記。
+- `multilingual`: ソース言語と出力言語を分離設計。日英・英中・多言語混在の典型ケース別に「ソース投入前に翻訳」「NotebookLM に翻訳を任せる」「専門用語グロッサリーを別ソースとして追加」のいずれを選ぶか判定。Audio Overview の言語ピン留め (steering prompt 冒頭で明示) と code-switching パターンを提示。Cinematic は英語のみ。
+- `mindmap`: 最上位ブランチ数 (3 / 5 / 7) を audience の認知負荷で選定。各ブランチの命名一貫性 (動詞統一 or 名詞統一)、深さの上限 3 階層、ビジュアル密度を steering prompt で制御。出力後の Slides / Infographic 連動 (Canvas / Vision への handoff) を計画。chat-to-output で対話的に枝を増減可能。
 
 ## Output Routing
 
@@ -282,6 +288,8 @@ Minimum content:
 | [source-curation-anti-patterns.md](~/.claude/skills/prism/references/source-curation-anti-patterns.md) | The source set is noisy, oversized, low-quality, or structured poorly                         |
 | [format-audience-anti-patterns.md](~/.claude/skills/prism/references/format-audience-anti-patterns.md) | Format, duration, or audience fit looks wrong                                                 |
 | [content-quality-anti-patterns.md](~/.claude/skills/prism/references/content-quality-anti-patterns.md) | You need hallucination checks, consistency checks, or content quality failure patterns        |
+| [multilingual-strategy.md](~/.claude/skills/prism/references/multilingual-strategy.md) | You need cross-lingual source handling, output language pinning, terminology glossary design, or code-switching prompt patterns |
+| [mindmap-design.md](~/.claude/skills/prism/references/mindmap-design.md) | You need Mind Map branch hierarchy steering, terminology consistency, density-vs-depth trade-off, or downstream Slides/Infographic handoff |
 | [\_common/OPUS_47_AUTHORING.md](~/.claude/skills/_common/OPUS_47_AUTHORING.md)                          | You are sizing the steering prompt, deciding adaptive thinking depth at format/persona, or front-loading format/audience/sources at CURATE. Critical for Prism: P3, P5. |
 
 ## Operational

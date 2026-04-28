@@ -1,0 +1,48 @@
+{
+  "video": {
+    "url": "https://github.com/op7418/guizang-ppt-skill",
+    "checked_at": "2026-04-28",
+    "note": "Curated from op7418/guizang-ppt-skill with upstream tracking enabled."
+  },
+  "official_references": [
+    {
+      "name": "op7418/guizang-ppt-skill repository",
+      "url": "https://github.com/op7418/guizang-ppt-skill",
+      "purpose": "Canonical upstream repository for the Guizang magazine-style web PPT skill."
+    }
+  ],
+  "skills": [
+    {
+      "video_name": "guizang-ppt-skill",
+      "normalized_slug": "guizang-ppt-skill",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/office-white-collar/guizang-ppt-skill/SKILL.md",
+      "source": "https://github.com/op7418/guizang-ppt-skill",
+      "notes": "Imported as a high-quality HTML presentation workflow with template assets, layout references, theme presets, and quality checklist.",
+      "upstream": {
+        "repo": "op7418/guizang-ppt-skill",
+        "path": "SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-04-28",
+        "last_synced_at": "2026-04-28",
+        "last_synced_commit": "72837a8513d1145d800095fc3909d6d3057994b8"
+      }
+    }
+  ],
+  "verification_attempts": [
+    {
+      "date": "2026-04-28",
+      "method": "temporary-repo-clone",
+      "target": "https://github.com/op7418/guizang-ppt-skill",
+      "result": "success",
+      "evidence": "Cloned upstream repository and confirmed SKILL.md, assets/template.html, assets/motion.min.js, references, and MIT license."
+    },
+    {
+      "date": "2026-04-28",
+      "method": "git-ls-remote",
+      "target": "op7418/guizang-ppt-skill",
+      "result": "success",
+      "evidence": "Validated upstream HEAD commit 72837a8513d1145d800095fc3909d6d3057994b8."
+    }
+  ]
+}

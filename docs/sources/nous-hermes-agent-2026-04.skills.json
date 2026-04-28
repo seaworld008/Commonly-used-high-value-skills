@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://github.com/NousResearch/hermes-agent",
-    "checked_at": "2026-04-25",
+    "checked_at": "2026-04-28",
     "note": "Curated subset from Hermes Agent focused on persistent knowledge workflows and self-improving agent infrastructure."
   },
   "official_references": [
@@ -44,8 +44,8 @@
         "repo": "NousResearch/hermes-agent",
         "path": "skills/autonomous-ai-agents/hermes-agent/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-24",
-        "last_synced_at": "2026-04-24",
+        "last_checked_at": "2026-04-28",
+        "last_synced_at": "2026-04-28",
         "last_synced_commit": "1780ad24b1279e63027a42c5cdb75f2ea7324fea"
       }
     },

@@ -1,14 +1,14 @@
 ---
 name: nexus
-description: '多智能体任务分解、链路编排、执行协调和结果整合。'
-version: "1.0.0"
+description: 'Meta-orchestrator that coordinates specialist AI agent teams. Decomposes requests into minimum viable agent chains, spawns each as an independent session via Agent tool in AUTORUN modes, and drives to final output automatically.'
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/nexus"
 license: MIT
 tags: '["ai", "nexus", "workflow"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-25"
+updated_at: "2026-04-28"
 quality: 5
 complexity: "advanced"
 ---
@@ -239,7 +239,7 @@ Is spawn tool available? (Agent / spawn_agent)
 
 | Agent Role | model | Rationale |
 |-----------|-------|-----------|
-| Investigation / read-only (Scout, Lens, Rewind) | sonnet | Cost-efficient |
+| Investigation / read-only (Scout, Lens, Trail) | sonnet | Cost-efficient |
 | Standard implementation (Builder, Artisan, Radar) | sonnet | Balanced |
 | High-complexity design (Sentinel, Atlas) | opus | Precision-critical |
 | Lightweight tasks (Quill, Morph) | haiku | Minimal cost |

@@ -1,14 +1,14 @@
 ---
 name: sketch
-description: '图像生成代码、提示优化、批量生成和成本估算。'
-version: "1.0.0"
+description: 'AI image generation code creation using Gemini API. Handles text-to-image generation, image editing, and prompt optimization. Use when image generation code is needed.'
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/sketch"
 license: MIT
 tags: '["media", "sketch"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-25"
+updated_at: "2026-04-28"
 quality: 5
 complexity: "advanced"
 ---
@@ -214,6 +214,9 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 | Batch | `batch` | | Generate many variants with consistent seed and style (cards, hero sets, character sheets) | `references/batch-generation.md`, `references/api-integration.md` |
 | Style | `style` | | Match an existing brand or reference style, or anchor cross-asset cohesion | `references/style-transfer.md`, `references/prompt-patterns.md` |
 | Upscale | `upscale` | | Post-process: upscale, masked inpaint, or outpaint a base render | `references/upscale-postprocess.md` |
+| Cinematic | `cinematic` | | Photographic / cinematographic prompt construction — camera, lens, lighting, depth of field, film stock, composition rules | `references/cinematic-prompting.md` |
+| Provenance | `provenance` | | C2PA + SynthID + EXIF AI-disclosure metadata, watermarking, takedown response, and platform compliance | `references/provenance-disclosure.md` |
+| Policy | `policy` | | Content-policy + brand-safety guardrails, NSFW filter, deepfake / likeness rules, regulatory compliance | `references/content-policy-guardrails.md` |
 
 ## Subcommand Dispatch
 
@@ -228,6 +231,9 @@ Behavior notes per Recipe:
 - `batch`: Read `references/batch-generation.md` first. Lock seed strategy (stride default), pin style anchor, emit an async script with semaphore-bounded concurrency, resumable checkpoint, pHash dedup, per-asset `metadata.json`. Recommend Batch API when N ≥ 50.
 - `style`: Read `references/style-transfer.md` first. Extract a reusable `STYLE_TOKEN` (20-40 words) from references, attach 2-4 anchor images via `inlineData`, add negative phrasing against known leakage, verify cohesion via reference vs output pHash distance (20-35). Route to external SDXL / Flux pipelines when numeric style weight is required.
 - `upscale`: Read `references/upscale-postprocess.md` first. Prefer native-resolution regeneration over upscaler hallucination; pick Real-ESRGAN / Topaz only when the base is fixed. Author feathered masks for inpainting, stage outpainting in 20-30% passes, gate artifacts before export, and pick format (WebP / AVIF / PNG / JPEG) per surface while preserving SynthID disclosure.
+- `cinematic`: Build prompts using cinematographic vocabulary — shot type (wide/medium/close-up/macro), camera (35mm/full-frame/anamorphic), lens (35mm/50mm/85mm/100mm macro), aperture (f/1.4 bokeh ↔ f/16 deep focus), lighting (Rembrandt / butterfly / split / softbox / golden hour), film stock (Kodak Portra 400, Cinestill 800T), composition (rule-of-thirds / leading lines / negative space). Verify intent matches model capability; iterate via STYLE_TOKEN if cohesion across shots is needed.
+- `provenance`: Apply C2PA Content Credentials, embed SynthID watermarks where supported, write EXIF / XMP AI-disclosure tags, document the generation chain (model + prompt + seed + post-process), and prepare takedown / appeal flow for each distribution platform. Critical for commercial / journalism / regulated use.
+- `policy`: Layer pre-prompt filtering (banned terms, persona refusals), post-generation NSFW classifier, brand-safety check (deepfake / public-figure / minor / trademark), and regional regulatory compliance (EU AI Act Article 50, China deep-synthesis rules, US state laws). Reject early; document every refusal.
 
 ## Output Routing
 

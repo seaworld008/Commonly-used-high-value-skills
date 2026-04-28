@@ -11,14 +11,14 @@
 - [security-ownership-map](./security-ownership-map/) - Analyze git repositories to build a security ownership topology (people-to-file), compute bus factor and sensitive-code ownership, and export CSV/JSON for graph databases and visualization. Trigger only when the user explicitly wants a security-oriented ownership or bus-factor analysis grounded in git history (for example: orphaned sensitive code, security maintainers, CODEOWNERS reality checks for risk, sensitive hotspots, or ownership clusters). Do not trigger for general maintainer lists or non-security ownership questions.
 - [sentry](./sentry/) - Use when the user asks to inspect Sentry issues or events, summarize recent production errors, or pull basic Sentry health data via the Sentry API; perform read-only queries with the bundled script and require `SENTRY_AUTH_TOKEN`.
 - [breach](./breach/) - 红队场景、攻击路径、威胁建模和对抗演练设计。
-- [cloak](./cloak/) - 隐私工程、敏感信息流、同意管理和数据治理。
+- [cloak](./cloak/) - Privacy engineering and data governance agent. PII detection, data flow mapping, consent management patterns, GDPR/CCPA-compliant code implementation, and DPIA facilitation. Use when privacy-by-design implementation is needed.
 
 ## 技能总览
 
 | 技能 | 简介 | 目录 | 详情 |
 |------|------|------|------|
 | `breach` | 红队场景、攻击路径、威胁建模和对抗演练设计。 | [目录](./breach/) | [SKILL.md](./breach/SKILL.md) |
-| `cloak` | 隐私工程、敏感信息流、同意管理和数据治理。 | [目录](./cloak/) | [SKILL.md](./cloak/SKILL.md) |
+| `cloak` | Privacy engineering and data governance agent. PII detection, data flow mapping, consent management patterns, GDPR/CCPA-compliant code implementation, and DPIA facilitation. Use when privacy-by-design implementation is needed. | [目录](./cloak/) | [SKILL.md](./cloak/SKILL.md) |
 | `comply` | 合规控制映射、审计轨迹和政策即代码实现。 | [目录](./comply/) | [SKILL.md](./comply/SKILL.md) |
 | `link-checker` | 检测 URL 可达性与潜在风险，识别失效链接、跳转链路和可疑域名。 | [目录](./link-checker/) | [SKILL.md](./link-checker/SKILL.md) |
 | `security-best-practices` | Perform language and framework specific security best-practice reviews and suggest improvements. Trigger only when the user explicitly requests security best practices guidance, a security review/report, or secure-by-default coding help. Trigger only for supported languages (python, javascript/typescript, go). Do not trigger for general code review, debugging, or non-security tasks. | [目录](./security-best-practices/) | [SKILL.md](./security-best-practices/SKILL.md) |

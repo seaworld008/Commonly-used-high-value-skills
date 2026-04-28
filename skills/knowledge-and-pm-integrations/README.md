@@ -27,7 +27,7 @@
 | `notion-research-documentation` | Research across Notion and synthesize into structured documentation; use when gathering info from multiple Notion sources to produce briefs, comparisons, or reports with citations. | [目录](./notion-research-documentation/) | [SKILL.md](./notion-research-documentation/SKILL.md) |
 | `notion-spec-to-implementation` | Turn Notion specs into implementation plans, tasks, and progress tracking; use when implementing PRDs/feature specs and creating Notion plans + tasks from them. | [目录](./notion-spec-to-implementation/) | [SKILL.md](./notion-spec-to-implementation/SKILL.md) |
 | `obsidian` | Read, search, and create notes in the Obsidian vault. | [目录](./obsidian/) | [SKILL.md](./obsidian/SKILL.md) |
-| `tome` | 把仓库变更转化为学习文档、术语说明和设计记录。 | [目录](./tome/) | [SKILL.md](./tome/SKILL.md) |
+| `tome` | Converts repository changes into detailed learning documents. Use when turning diffs into teaching materials, recording design decisions, or creating onboarding materials for new members. | [目录](./tome/) | [SKILL.md](./tome/SKILL.md) |
 
 ## 维护方式
 

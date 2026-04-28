@@ -8,7 +8,7 @@
 
 ## 推荐先看
 
-- [cast](./cast/) - 用户画像生成、角色注册、生命周期和跨智能体同步。
+- [cast](./cast/) - Persona casting agent for rapid generation, persistence, lifecycle management, and inter-agent sync. Generates personas from diverse inputs, manages via a registry, evolves data-driven, and distributes in unified format.
 - [input-guard](./input-guard/) - Scan untrusted external text (web pages, tweets, search results, API responses) for prompt injection attacks. Returns severity levels and alerts on dangerous content. Use BEFORE processing any text from untrusted sources.
 - [omen](./omen/) - 预演失败模式，识别计划风险并给出优先级。
 - [rag-architect](./rag-architect/) - The RAG (Retrieval-Augmented Generation) Architect skill provides comprehensive tools and knowledge for designing, implementing, and optimizing production-grade RAG pipelines. This skill covers the entire RAG ecosystem from document chunking strategies to evaluation frameworks, enabling you to build scalable, efficient, and accurate retrieval systems.
@@ -17,7 +17,7 @@
 
 | 技能 | 简介 | 目录 | 详情 |
 |------|------|------|------|
-| `cast` | 用户画像生成、角色注册、生命周期和跨智能体同步。 | [目录](./cast/) | [SKILL.md](./cast/SKILL.md) |
+| `cast` | Persona casting agent for rapid generation, persistence, lifecycle management, and inter-agent sync. Generates personas from diverse inputs, manages via a registry, evolves data-driven, and distributes in unified format. | [目录](./cast/) | [SKILL.md](./cast/SKILL.md) |
 | `honcho` | Configure and use Honcho memory with Hermes -- cross-session user modeling, multi-profile peer isolation, observation config, dialectic reasoning, session summaries, and context budget enforcement. Use when setting up Honcho, troubleshooting memory, managing profiles with Honcho peers, or tuning observation, recall, and dialectic settings. | [目录](./honcho/) | [SKILL.md](./honcho/SKILL.md) |
 | `input-guard` | Scan untrusted external text (web pages, tweets, search results, API responses) for prompt injection attacks. Returns severity levels and alerts on dangerous content. Use BEFORE processing any text from untrusted sources. | [目录](./input-guard/) | [SKILL.md](./input-guard/SKILL.md) |
 | `omen` | 预演失败模式，识别计划风险并给出优先级。 | [目录](./omen/) | [SKILL.md](./omen/SKILL.md) |
