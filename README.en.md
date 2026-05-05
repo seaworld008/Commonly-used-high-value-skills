@@ -6,6 +6,7 @@
 [![English](https://img.shields.io/badge/README-English-111111)](./README.en.md)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b894)](./openclaw-skills/README.md)
 [![Skills](https://img.shields.io/badge/Skills-258-7c3aed)](./skills/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
 A high-value skills repository for AI developers, organized by real work scenarios such as developer engineering, DevOps, automation, finance, design, knowledge workflows, and reliability.
 
@@ -170,6 +171,10 @@ If you want to help grow this repository:
 - add or improve skills under `skills/`
 - refresh generated views with `python3 scripts/refresh_repo_views.py`
 - include verification steps in your PR
+
+## License
+
+This repository is released under the [MIT License](./LICENSE). Externally imported skills retain their upstream license metadata. New external skills must pass `scripts/audit_licenses.py`; candidates without a clear license are routed to the license review queue instead of being auto-merged.
 
 ## If This Repo Helps You
 

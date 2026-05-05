@@ -18,6 +18,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_PR_BODY = "docs/sources/reports/curation-pr.md"
 DEFAULT_POLICY_PATH = "docs/sources/curation-policy.json"
+DEFAULT_LICENSE_REVIEW_QUEUE = "docs/sources/reports/license-review-queue.json"
 
 TRUSTED_SOURCE_SCORES = {
     "vercel-labs/agent-skills": 28,
@@ -82,6 +83,7 @@ FULL_PIPELINE_COMMANDS = [
     ["scripts/generate_tags_index.py"],
     ["scripts/build_catalog_json.py"],
     ["scripts/lint_skill_quality.py", "--min-lines", "50"],
+    ["scripts/audit_licenses.py"],
     ["-m", "unittest", "discover", "tests", "-v"],
 ]
 
@@ -455,6 +457,7 @@ def write_pr_summary(
     selected = candidate_report.get("selected", [])
     ingested = ingest_result.get("ingested", [])
     skipped = ingest_result.get("skipped", [])
+    review_queue = ingest_result.get("license_review_queue", [])
 
     lines = [
         "# Skills curation automation",
@@ -466,6 +469,7 @@ def write_pr_summary(
         f"- Ranked candidates: `{candidate_report.get('selected_count', len(selected))}`",
         f"- Ingested candidates: `{len(ingested)}`",
         f"- Skipped candidates: `{len(skipped)}`",
+        f"- License review queue: `{len(review_queue)}`",
         "",
         "## Top candidates",
     ]
@@ -491,6 +495,15 @@ def write_pr_summary(
             lines.append(f"- `{item['name']}` skipped: `{item['reason']}`")
     else:
         lines.append("- No candidates were skipped.")
+
+    lines.extend(["", "## License Review Queue"])
+    if review_queue:
+        for item in review_queue:
+            lines.append(
+                f"- `{item['name']}` score={item.get('curation_score', '-')}, source=`{item.get('source_repo', '-')}`"
+            )
+    else:
+        lines.append("- No candidates require license review.")
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
@@ -609,6 +622,32 @@ def fetch_candidate_markdown(candidate: dict, token: str | None = None) -> tuple
     return None, repo
 
 
+def build_license_review_entry(candidate: dict, repo: str | None, reason: str) -> dict:
+    return {
+        "name": candidate.get("name", ""),
+        "slug": candidate.get("slug", slugify(candidate.get("name", ""))),
+        "source_repo": repo or candidate.get("source_repo"),
+        "source": candidate.get("source", ""),
+        "url": candidate.get("url", ""),
+        "recommended_category": candidate.get("recommended_category", ""),
+        "curation_score": candidate.get("curation_score"),
+        "score_reasons": candidate.get("score_reasons", []),
+        "reason": reason,
+    }
+
+
+def write_license_review_queue(repo_root: Path, entries: list[dict], output_path: str = DEFAULT_LICENSE_REVIEW_QUEUE) -> None:
+    payload = {
+        "generated_at": datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "review_count": len(entries),
+        "policy": "External skills without a detectable permissive license are not auto-ingested; review manually.",
+        "candidates": entries,
+    }
+    out = repo_root / output_path
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
 def ingest_candidates(
     *,
     repo_root: Path,
@@ -619,6 +658,7 @@ def ingest_candidates(
     token = None
     ingested = []
     skipped = []
+    license_review_queue = []
 
     for candidate in report.get("selected", [])[:limit]:
         markdown, repo = fetch_candidate_markdown(candidate, token=token)
@@ -630,7 +670,9 @@ def ingest_candidates(
             continue
         license_tag = resolve_candidate_license(markdown, repo, token)
         if not license_tag:
-            skipped.append({"name": candidate["name"], "reason": "missing_or_unapproved_license"})
+            review_entry = build_license_review_entry(candidate, repo, "missing_or_unapproved_license")
+            license_review_queue.append(review_entry)
+            skipped.append(review_entry)
             continue
 
         category = candidate["recommended_category"]
@@ -662,7 +704,8 @@ def ingest_candidates(
         run_command(cmd, cwd=repo_root)
         ingested.append({"name": candidate["name"], "path": str(skill_dir.relative_to(repo_root))})
 
-    return {"ingested": ingested, "skipped": skipped}
+    write_license_review_queue(repo_root, license_review_queue)
+    return {"ingested": ingested, "skipped": skipped, "license_review_queue": license_review_queue}
 
 
 def main() -> int:

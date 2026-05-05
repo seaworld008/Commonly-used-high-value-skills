@@ -212,6 +212,13 @@ class AutoCurateSkillsTests(unittest.TestCase):
                 ingest_result={
                     "ingested": [{"name": "alpha-skill", "path": "skills/developer-engineering/alpha-skill"}],
                     "skipped": [{"name": "beta-skill", "reason": "upstream_markdown_not_found"}],
+                    "license_review_queue": [
+                        {
+                            "name": "gamma-skill",
+                            "source_repo": "owner/repo",
+                            "curation_score": 55,
+                        }
+                    ],
                 },
                 sync_mode="apply",
                 branch_name="codex/skills-curation-20260327-120000",
@@ -222,6 +229,8 @@ class AutoCurateSkillsTests(unittest.TestCase):
             self.assertIn("Skills curation automation", body)
             self.assertIn("alpha-skill", body)
             self.assertIn("upstream_markdown_not_found", body)
+            self.assertIn("License review queue", body)
+            self.assertIn("gamma-skill", body)
             self.assertIn("codex/skills-curation-20260327-120000", body)
 
     def test_assert_clean_worktree_raises_when_repo_is_dirty(self):
@@ -292,7 +301,34 @@ class AutoCurateSkillsTests(unittest.TestCase):
 
             self.assertEqual([], result["ingested"])
             self.assertEqual("missing_or_unapproved_license", result["skipped"][0]["reason"])
+            self.assertEqual("unlicensed-skill", result["license_review_queue"][0]["name"])
             self.assertFalse((repo / "skills" / "developer-engineering" / "unlicensed-skill").exists())
+            queue_path = repo / "docs" / "sources" / "reports" / "license-review-queue.json"
+            self.assertTrue(queue_path.exists())
+            queue = json.loads(queue_path.read_text(encoding="utf-8"))
+            self.assertEqual(1, queue["review_count"])
+
+    def test_write_license_review_queue_records_candidates(self):
+        module = load_module()
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            repo = Path(tmpdir)
+            module.write_license_review_queue(
+                repo,
+                [
+                    {
+                        "name": "review-me",
+                        "source_repo": "owner/repo",
+                        "reason": "missing_or_unapproved_license",
+                    }
+                ],
+            )
+
+            queue = json.loads(
+                (repo / "docs" / "sources" / "reports" / "license-review-queue.json").read_text(encoding="utf-8")
+            )
+            self.assertEqual(1, queue["review_count"])
+            self.assertEqual("review-me", queue["candidates"][0]["name"])
 
 
 if __name__ == "__main__":

@@ -23,7 +23,7 @@ docs/TAGS-INDEX.md                    ← Cross-category tag-based index
 1. **Never manually edit** `openclaw-skills/`, `skills/*/README.md`, `docs/catalog.json`, `docs/TAGS-INDEX.md`, or `.github/assets/repo-banner.svg` — they are auto-generated.
 2. **Always run the full pipeline** after any skill change (see §Pipeline below).
 3. **Every skill must have complete frontmatter** (name, description, version, tags, quality, source).
-4. **Every external skill must have an explicit permissive license** (`license: MIT`, `Apache-2.0`, etc.). If the upstream repository has no detectable license, skip the skill instead of importing it.
+4. **Every external skill must have an explicit permissive license** (`license: MIT`, `Apache-2.0`, etc.). If the upstream repository has no detectable license, do not auto-import it; add it to the license review queue instead.
 5. **Every skill must pass quality lint** (`python scripts/lint_skill_quality.py --min-lines 50`).
 6. **Source provenance must be tracked** — every skill has an entry in `docs/sources/*.skills.json`.
 
@@ -58,13 +58,13 @@ Step 2: EVALUATE — Score and filter candidates
   │   ├── Check upstream repo license via `gh api repos/<owner>/<repo> --jq .license`
   │   ├── Accept only permissive licenses allowed by `scripts/audit_licenses.py`
   │   ├── Record the accepted license in `SKILL.md` frontmatter
-  │   └── Reject candidates with missing, unknown, or non-permissive licenses
+  │   └── Auto-import only candidates with accepted licenses; route missing/unknown license candidates to `docs/sources/reports/license-review-queue.json`
   └── Assign recommended category from the 16 existing categories (see §Categories)
 
 Step 3: INGEST — Download and add to repository
   ├── For each approved skill:
   │   ├── Download SKILL.md from source (GitHub raw URL, skills.sh, etc.)
-  │   ├── Verify license before writing files; never import external skills with missing/unknown license metadata
+  │   ├── Verify license before writing files; never auto-import external skills with missing/unknown license metadata
   │   ├── If content < 80 lines, expand with professional content to ≥ 100 lines
   │   ├── Ensure these sections exist: Trigger/When to Use, Core Capabilities, Common Patterns (with code blocks), Boundaries
   │   ├── Place in: skills/<category>/<skill-name>/SKILL.md

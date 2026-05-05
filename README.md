@@ -6,6 +6,7 @@
 [![English](https://img.shields.io/badge/README-English-111111)](./README.en.md)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b894)](./openclaw-skills/README.md)
 [![Skills](https://img.shields.io/badge/Skills-258-7c3aed)](./skills/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
 面向中文 AI 开发者的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理等高频任务场景。当前共 **16 个分类 / 258 个技能**。
 
@@ -657,6 +658,10 @@ python3 scripts/skill_snapshot_template.py validate --snapshot /tmp/clawhub_skil
 # 4) 再做离线新鲜度比对
 python3 scripts/audit_skill_freshness.py --snapshot /tmp/clawhub_skills_snapshot.json
 ```
+
+## 许可证
+
+本仓库整体采用 [MIT License](./LICENSE)。其中外部导入的技能会保留各自上游许可证信息；新增外源技能必须通过 `scripts/audit_licenses.py` 校验。若候选资源没有明确许可证，它会进入 license review queue，而不会被自动合入主分支。
 
 ---
 
