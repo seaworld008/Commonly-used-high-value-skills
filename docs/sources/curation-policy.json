@@ -36,5 +36,7 @@
     "wshobson/agents": 8
   },
   "min_repo_stars": 200,
-  "min_score_override": 40
+  "min_score_override": 40,
+  "unlicensed_auto_rewrite_min_score": 55,
+  "unlicensed_auto_rewrite_min_lines": 80
 }

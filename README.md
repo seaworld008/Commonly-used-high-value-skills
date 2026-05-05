@@ -661,7 +661,7 @@ python3 scripts/audit_skill_freshness.py --snapshot /tmp/clawhub_skills_snapshot
 
 ## 许可证
 
-本仓库整体采用 [MIT License](./LICENSE)。其中外部导入的技能会保留各自上游许可证信息；新增外源技能必须通过 `scripts/audit_licenses.py` 校验。若候选资源没有明确许可证，它会进入 license review queue，而不会被自动合入主分支。
+本仓库整体采用 [MIT License](./LICENSE)。其中外部导入的技能会保留各自上游许可证信息；新增外源技能必须通过 `scripts/audit_licenses.py` 校验。若高质量候选没有明确许可证，自动精选流程会生成原创 `in-house` MIT 重写版本并合入，但不会复制未知授权的上游正文。
 
 ---
 

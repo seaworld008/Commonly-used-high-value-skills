@@ -212,9 +212,10 @@ class AutoCurateSkillsTests(unittest.TestCase):
                 ingest_result={
                     "ingested": [{"name": "alpha-skill", "path": "skills/developer-engineering/alpha-skill"}],
                     "skipped": [{"name": "beta-skill", "reason": "upstream_markdown_not_found"}],
-                    "license_review_queue": [
+                    "unlicensed_rewrites": [
                         {
                             "name": "gamma-skill",
+                            "path": "skills/developer-engineering/gamma-skill",
                             "source_repo": "owner/repo",
                             "curation_score": 55,
                         }
@@ -229,7 +230,7 @@ class AutoCurateSkillsTests(unittest.TestCase):
             self.assertIn("Skills curation automation", body)
             self.assertIn("alpha-skill", body)
             self.assertIn("upstream_markdown_not_found", body)
-            self.assertIn("License review queue", body)
+            self.assertIn("Auto-Rewritten Unlicensed Candidates", body)
             self.assertIn("gamma-skill", body)
             self.assertIn("codex/skills-curation-20260327-120000", body)
 
@@ -270,7 +271,7 @@ class AutoCurateSkillsTests(unittest.TestCase):
         with mock.patch.object(module, "github_api_get", return_value={"license": None}):
             self.assertIsNone(module.resolve_candidate_license(markdown, "owner/repo"))
 
-    def test_ingest_candidates_skips_unlicensed_external_candidates(self):
+    def test_ingest_candidates_skips_low_signal_unlicensed_external_candidates(self):
         module = load_module()
 
         with tempfile.TemporaryDirectory() as tmpdir:
@@ -285,6 +286,7 @@ class AutoCurateSkillsTests(unittest.TestCase):
                         "recommended_category": "developer-engineering",
                         "url": "https://skills.sh/owner/repo/unlicensed-skill",
                         "source_repo": "owner/repo",
+                        "curation_score": 10,
                     }
                 ]
             }
@@ -301,34 +303,80 @@ class AutoCurateSkillsTests(unittest.TestCase):
 
             self.assertEqual([], result["ingested"])
             self.assertEqual("missing_or_unapproved_license", result["skipped"][0]["reason"])
-            self.assertEqual("unlicensed-skill", result["license_review_queue"][0]["name"])
+            self.assertEqual([], result["unlicensed_rewrites"])
             self.assertFalse((repo / "skills" / "developer-engineering" / "unlicensed-skill").exists())
-            queue_path = repo / "docs" / "sources" / "reports" / "license-review-queue.json"
-            self.assertTrue(queue_path.exists())
-            queue = json.loads(queue_path.read_text(encoding="utf-8"))
-            self.assertEqual(1, queue["review_count"])
+            log_path = repo / "docs" / "sources" / "reports" / "license-rewrite-log.json"
+            self.assertTrue(log_path.exists())
+            log = json.loads(log_path.read_text(encoding="utf-8"))
+            self.assertEqual(0, log["rewrite_count"])
 
-    def test_write_license_review_queue_records_candidates(self):
+    def test_ingest_candidates_auto_rewrites_high_signal_unlicensed_candidates(self):
         module = load_module()
 
         with tempfile.TemporaryDirectory() as tmpdir:
             repo = Path(tmpdir)
-            module.write_license_review_queue(
+            (repo / "scripts").mkdir()
+            (repo / "skills").mkdir()
+            report = {
+                "selected": [
+                    {
+                        "name": "unlicensed-best-practices",
+                        "slug": "unlicensed-best-practices",
+                        "description": "Production-grade workflow guidance for agent automation.",
+                        "recommended_category": "developer-engineering",
+                        "url": "https://skills.sh/owner/repo/unlicensed-best-practices",
+                        "source_repo": "owner/repo",
+                        "curation_score": 70,
+                        "score_reasons": ["trusted_registry:github", "keyword:best-practices"],
+                    }
+                ]
+            }
+            upstream_phrase = "DO NOT COPY THIS UNIQUE UPSTREAM SENTENCE"
+            markdown = "---\nname: unlicensed-best-practices\n---\n" + "\n".join(
+                [upstream_phrase] + [f"line {i}" for i in range(90)]
+            )
+
+            with mock.patch.object(module, "fetch_candidate_markdown", return_value=(markdown, "owner/repo")), \
+                mock.patch.object(module, "resolve_candidate_license", return_value=None), \
+                mock.patch.object(module, "run_command") as run_command:
+                result = module.ingest_candidates(
+                    repo_root=repo,
+                    report=report,
+                    limit=1,
+                    python_cmd=["python"],
+                    policy={"unlicensed_auto_rewrite_min_score": 55, "unlicensed_auto_rewrite_min_lines": 80},
+                )
+
+            skill_path = repo / "skills" / "developer-engineering" / "unlicensed-best-practices" / "SKILL.md"
+            content = skill_path.read_text(encoding="utf-8")
+            self.assertEqual([], result["skipped"])
+            self.assertEqual("unlicensed-best-practices", result["unlicensed_rewrites"][0]["name"])
+            self.assertIn('source: "in-house"', content)
+            self.assertIn("license: MIT", content)
+            self.assertNotIn(upstream_phrase, content)
+            run_command.assert_called()
+
+    def test_write_license_rewrite_log_records_candidates(self):
+        module = load_module()
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            repo = Path(tmpdir)
+            module.write_license_rewrite_log(
                 repo,
                 [
                     {
-                        "name": "review-me",
+                        "name": "rewrite-me",
                         "source_repo": "owner/repo",
-                        "reason": "missing_or_unapproved_license",
+                        "reason": "auto_rewritten_from_unlicensed_high_quality_candidate",
                     }
                 ],
             )
 
-            queue = json.loads(
-                (repo / "docs" / "sources" / "reports" / "license-review-queue.json").read_text(encoding="utf-8")
+            log = json.loads(
+                (repo / "docs" / "sources" / "reports" / "license-rewrite-log.json").read_text(encoding="utf-8")
             )
-            self.assertEqual(1, queue["review_count"])
-            self.assertEqual("review-me", queue["candidates"][0]["name"])
+            self.assertEqual(1, log["rewrite_count"])
+            self.assertEqual("rewrite-me", log["rewrites"][0]["name"])
 
 
 if __name__ == "__main__":

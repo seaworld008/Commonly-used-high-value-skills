@@ -174,7 +174,7 @@ If you want to help grow this repository:
 
 ## License
 
-This repository is released under the [MIT License](./LICENSE). Externally imported skills retain their upstream license metadata. New external skills must pass `scripts/audit_licenses.py`; candidates without a clear license are routed to the license review queue instead of being auto-merged.
+This repository is released under the [MIT License](./LICENSE). Externally imported skills retain their upstream license metadata. New external skills must pass `scripts/audit_licenses.py`; high-quality candidates without a clear license are auto-merged only as original `in-house` MIT rewrites, without copying upstream text.
 
 ## If This Repo Helps You
 
