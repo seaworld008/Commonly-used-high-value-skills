@@ -8,7 +8,7 @@
 [![Skills](https://img.shields.io/badge/Skills-258-7c3aed)](./skills/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
-面向中文 AI 开发者的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理等高频任务场景。当前共 **16 个分类 / 258 个技能**。
+面向全球 AI 开发者与 Agent 工作流构建者的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理等高频任务场景。当前共 **16 个分类 / 258 个技能**。
 
 ## 为什么值得收藏
 
@@ -25,7 +25,7 @@
 
 ## 适合谁
 
-- 中文 AI 开发者和自动化工作流使用者
+- AI 开发者、Agent 工作流构建者和自动化工具使用者
 - 想把常见任务沉淀为 Skills 的个人或团队
 - 正在使用 `Codex`、`Claude Code`、`Hermes Agent`、`OpenClaw` 等工具的工程师
 - 想搭建一个自己的高价值技能库、提示库、Agent 工作流库的人
@@ -665,4 +665,4 @@ python3 scripts/audit_skill_freshness.py --snapshot /tmp/clawhub_skills_snapshot
 
 ---
 
-如果你希望，我可以在下一步继续补一版 `README.zh-CN.md`（面向中文）+ `README.en.md`（面向国际协作），并自动校验两份目录与技能数量一致。
+本仓库维护中文与英文两份 README，面向全球开发者协作。文档更新应保持目录结构、技能数量、安装说明和自动化校验结果一致。

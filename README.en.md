@@ -182,8 +182,11 @@ This repository is released under the [MIT License](./LICENSE). Externally impor
 - share it with AI developers and agent workflow builders
 - contribute skills that are truly reusable
 
-## Chinese Main README
+## Documentation
 
-The full primary documentation is in Chinese:
+This repository maintains both Chinese and English README files for global collaboration:
 
-- [Open Chinese README](./README.md)
+- [Chinese README](./README.md)
+- [English README](./README.en.md)
+
+When updating documentation, keep skill counts, directory references, installation guidance, and validation commands consistent across both files.
