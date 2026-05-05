@@ -4,7 +4,7 @@
 
 覆盖 Sentry、安全最佳实践、威胁建模与安全所有权分析的技能集合。
 
-当前分类共 **11** 个技能。
+当前分类共 **10** 个技能。
 
 ## 推荐先看
 
@@ -17,7 +17,6 @@
 
 | 技能 | 简介 | 目录 | 详情 |
 |------|------|------|------|
-| `better-auth-security-best-practices` | Configure rate limiting, manage auth secrets, set up CSRF protection, define trusted origins, secure sessions and cookies, encrypt OAuth tokens, track IP addresses, and implement audit logging for Better Auth. Use when users need to secure their auth setup, prevent brute force attacks, or harden a Better Auth deployment. | [目录](./better-auth-security-best-practices/) | [SKILL.md](./better-auth-security-best-practices/SKILL.md) |
 | `breach` | Red team engineering agent. Designs attack scenarios, builds threat models, applies MITRE ATT&CK/OWASP frameworks, runs Purple Team exercises, and performs AI/LLM red teaming. Use when adversarial security validation is needed. | [目录](./breach/) | [SKILL.md](./breach/SKILL.md) |
 | `cloak` | Privacy engineering and data governance agent. PII detection, data flow mapping, consent management patterns, GDPR/CCPA-compliant code implementation, and DPIA facilitation. Use when privacy-by-design implementation is needed. | [目录](./cloak/) | [SKILL.md](./cloak/SKILL.md) |
 | `comply` | Regulatory compliance and audit agent. Maps business regulatory requirements (SOC2/PCI-DSS/HIPAA/ISO 27001), checks control implementations, designs audit trails, and implements Policy as Code. Use when compliance auditing is needed. | [目录](./comply/) | [SKILL.md](./comply/SKILL.md) |

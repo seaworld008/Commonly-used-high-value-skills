@@ -146,22 +146,6 @@
       }
     },
     {
-      "video_name": "better-auth-security-best-practices",
-      "normalized_slug": "better-auth-security-best-practices",
-      "status": "in_house",
-      "repo_skill": "skills/security-and-reliability/better-auth-security-best-practices/SKILL.md",
-      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/security-and-reliability/better-auth-security-best-practices",
-        "ref": "main",
-        "last_checked_at": "2026-05-05",
-        "last_synced_at": "2026-05-05",
-        "last_synced_commit": null
-      }
-    },
-    {
       "video_name": "brainstorming",
       "normalized_slug": "brainstorming",
       "status": "in_house",
@@ -2788,6 +2772,13 @@
       "target": "skills/*/*/SKILL.md",
       "result": "success",
       "evidence": "Merged provenance for 153 local skills"
+    },
+    {
+      "date": "2026-05-05",
+      "method": "local-scan",
+      "target": "skills/*/*/SKILL.md",
+      "result": "success",
+      "evidence": "Merged provenance for 152 local skills"
     }
   ]
 }

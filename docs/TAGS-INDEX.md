@@ -1,6 +1,6 @@
 # Tags Index
 
-> Auto-generated from 884 skill-tag mappings across 395 tags.
+> Auto-generated from 881 skill-tag mappings across 393 tags.
 > Last updated: see git log.
 
 ## Quick Navigation
@@ -20,7 +20,7 @@
 - [`product`](#product) (13)
 - [`sre`](#sre) (13)
 - [`automation`](#automation) (12)
-- [`security`](#security) (11)
+- [`security`](#security) (10)
 - [`deployment`](#deployment) (7)
 - [`designer`](#designer) (7)
 - [`builder`](#builder) (6)
@@ -117,13 +117,11 @@
 - [`arxiv`](#arxiv) (1)
 - [`audio`](#audio) (1)
 - [`audit`](#audit) (1)
-- [`auth`](#auth) (1)
 - [`authoring`](#authoring) (1)
 - [`auto-continue`](#auto-continue) (1)
 - [`aws`](#aws) (1)
 - [`backtester`](#backtester) (1)
 - [`beacon`](#beacon) (1)
-- [`better`](#better) (1)
 - [`brainstorming`](#brainstorming) (1)
 - [`brand`](#brand) (1)
 - [`breach`](#breach) (1)
@@ -849,11 +847,10 @@
 
 ## security
 
-**11 skills**
+**10 skills**
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [better-auth-security-best-practices](skills/security-and-reliability/better-auth-security-best-practices) | security-and-reliability | ★★★★★ | Configure rate limiting, manage auth secrets, set up CSRF protection, define tru |
 | [breach](skills/security-and-reliability/breach) | security-and-reliability | ★★★★★ | Red team engineering agent. Designs attack scenarios, builds threat models, appl |
 | [cloak](skills/security-and-reliability/cloak) | security-and-reliability | ★★★★★ | Privacy engineering and data governance agent. PII detection, data flow mapping, |
 | [comply](skills/security-and-reliability/comply) | security-and-reliability | ★★★★★ | Regulatory compliance and audit agent. Maps business regulatory requirements (SO |
@@ -1788,14 +1785,6 @@
 |-------|----------|---------|-------------|
 | [seo-audit](skills/growth-operations-xiaohongshu/seo-audit) | growth-operations-xiaohongshu | ★★★★☆ | 用于网站 SEO 全面审计、On-page 优化建议和技术 SEO 检查清单生成。仓库整理版，吸收社区高频最佳实践。 |
 
-## auth
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [better-auth-security-best-practices](skills/security-and-reliability/better-auth-security-best-practices) | security-and-reliability | ★★★★★ | Configure rate limiting, manage auth secrets, set up CSRF protection, define tru |
-
 ## authoring
 
 **1 skills**
@@ -1835,14 +1824,6 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [beacon](skills/devops-sre/beacon) | devops-sre | ★★★★★ | Observability and reliability engineering specialist. Covers SLO/SLI design, dis |
-
-## better
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [better-auth-security-best-practices](skills/security-and-reliability/better-auth-security-best-practices) | security-and-reliability | ★★★★★ | Configure rate limiting, manage auth secrets, set up CSRF protection, define tru |
 
 ## brainstorming
 

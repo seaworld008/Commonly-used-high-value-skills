@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "generated_at": "2026-05-05",
-  "total_skills": 259,
+  "total_skills": 258,
   "total_categories": 16,
   "categories": [
     {
@@ -50,7 +50,7 @@
     },
     {
       "name": "security-and-reliability",
-      "count": 11
+      "count": 10
     },
     {
       "name": "multimodal-media",
@@ -5038,26 +5038,6 @@
       "updated_at": "2026-05-05",
       "line_count": 308,
       "path": "skills/product-design/voice/SKILL.md"
-    },
-    {
-      "name": "better-auth-security-best-practices",
-      "category": "security-and-reliability",
-      "description": "Configure rate limiting, manage auth secrets, set up CSRF protection, define trusted origins, secure sessions and cookies, encrypt OAuth tokens, track IP addresses, and implement audit logging for Better Auth. Use when users need to secure their auth setup, prevent brute force attacks, or harden a Better Auth deployment.",
-      "version": "1.0.0",
-      "author": "seaworld008",
-      "source": "github:better-auth/skills",
-      "source_url": "https://skills.sh/better-auth/skills/better-auth-security-best-practices",
-      "tags": [
-        "auth",
-        "better",
-        "security"
-      ],
-      "quality": 5,
-      "complexity": "intermediate",
-      "created_at": "2026-05-05",
-      "updated_at": "2026-05-05",
-      "line_count": 441,
-      "path": "skills/security-and-reliability/better-auth-security-best-practices/SKILL.md"
     },
     {
       "name": "breach",
