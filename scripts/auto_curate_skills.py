@@ -28,6 +28,23 @@ TRUSTED_SOURCE_SCORES = {
     "ComposioHQ/awesome-claude-skills": 14,
 }
 
+PERMISSIVE_LICENSES = {
+    "MIT", "Apache-2.0", "Apache 2.0", "BSD-2-Clause", "BSD-3-Clause",
+    "ISC", "CC-BY-4.0", "CC0-1.0", "Unlicense", "0BSD", "MPL-2.0",
+}
+GITHUB_LICENSE_KEYS = {
+    "mit": "MIT",
+    "apache-2.0": "Apache-2.0",
+    "bsd-2-clause": "BSD-2-Clause",
+    "bsd-3-clause": "BSD-3-Clause",
+    "isc": "ISC",
+    "cc-by-4.0": "CC-BY-4.0",
+    "cc0-1.0": "CC0-1.0",
+    "unlicense": "Unlicense",
+    "0bsd": "0BSD",
+    "mpl-2.0": "MPL-2.0",
+}
+
 CATEGORY_KEYWORDS = {
     "developer-engineering": {"react", "nextjs", "typescript", "python", "rust", "debug", "test", "graphql", "api"},
     "devops-sre": {"terraform", "docker", "kubernetes", "aws", "infra", "ci", "cd", "runbook", "sre"},
@@ -135,6 +152,44 @@ def github_api_get(url: str, token: str | None = None) -> dict | list | None:
         return json.loads(raw)
     except json.JSONDecodeError:
         return None
+
+
+def parse_frontmatter(markdown: str) -> dict[str, str]:
+    match = re.match(r"^---\s*\n(.*?)\n---", markdown, re.DOTALL)
+    if not match:
+        return {}
+    fields: dict[str, str] = {}
+    for line in match.group(1).splitlines():
+        if line.startswith((" ", "\t")) or ":" not in line:
+            continue
+        key, _, value = line.partition(":")
+        fields[key.strip()] = value.strip().strip('"').strip("'")
+    return fields
+
+
+def normalize_license_tag(value: str) -> str:
+    raw = value.strip().strip('"').strip("'")
+    return GITHUB_LICENSE_KEYS.get(raw.lower(), raw)
+
+
+def fetch_repo_license(repo: str | None, token: str | None = None) -> str | None:
+    if not repo:
+        return None
+    payload = github_api_get(f"https://api.github.com/repos/{repo}", token)
+    if not isinstance(payload, dict):
+        return None
+    key = ((payload.get("license") or {}).get("key") or "").lower()
+    return GITHUB_LICENSE_KEYS.get(key)
+
+
+def resolve_candidate_license(markdown: str, repo: str | None, token: str | None = None) -> str | None:
+    frontmatter_license = normalize_license_tag(parse_frontmatter(markdown).get("license", ""))
+    if frontmatter_license in PERMISSIVE_LICENSES:
+        return frontmatter_license
+    repo_license = fetch_repo_license(repo, token)
+    if repo_license in PERMISSIVE_LICENSES:
+        return repo_license
+    return None
 
 
 def get_local_skill_names(skills_dir: Path) -> set[str]:
@@ -506,8 +561,10 @@ def discover_upstream_skill_path(repo: str, slug: str, token: str | None) -> str
     return None
 
 
-def synthesize_frontmatter(markdown: str, *, slug: str, description: str, source_id: str, source_url: str) -> str:
+def synthesize_frontmatter(markdown: str, *, slug: str, description: str, source_id: str, source_url: str, license_tag: str | None = None) -> str:
     if markdown.startswith("---\n") and re.search(r"^name:\s*", markdown, re.MULTILINE):
+        if license_tag and not re.search(r"^license:\s*", markdown, re.MULTILINE):
+            return re.sub(r"\n---\s*\n", f"\nlicense: {license_tag}\n---\n", markdown, count=1)
         return markdown
 
     today = datetime.now(UTC).strftime("%Y-%m-%d")
@@ -528,6 +585,8 @@ def synthesize_frontmatter(markdown: str, *, slug: str, description: str, source
         "---",
         "",
     ]
+    if license_tag:
+        frontmatter.insert(6, f"license: {license_tag}")
     return "\n".join(frontmatter) + markdown.lstrip()
 
 
@@ -569,6 +628,10 @@ def ingest_candidates(
         if len(markdown.splitlines()) < 50:
             skipped.append({"name": candidate["name"], "reason": "content_below_quality_floor"})
             continue
+        license_tag = resolve_candidate_license(markdown, repo, token)
+        if not license_tag:
+            skipped.append({"name": candidate["name"], "reason": "missing_or_unapproved_license"})
+            continue
 
         category = candidate["recommended_category"]
         slug = candidate["slug"]
@@ -582,6 +645,7 @@ def ingest_candidates(
             description=candidate.get("description", ""),
             source_id=source_id,
             source_url=candidate.get("url", ""),
+            license_tag=license_tag,
         )
         (skill_dir / "SKILL.md").write_text(prepared, encoding="utf-8")
 

@@ -23,8 +23,9 @@ docs/TAGS-INDEX.md                    ← Cross-category tag-based index
 1. **Never manually edit** `openclaw-skills/`, `skills/*/README.md`, `docs/catalog.json`, `docs/TAGS-INDEX.md`, or `.github/assets/repo-banner.svg` — they are auto-generated.
 2. **Always run the full pipeline** after any skill change (see §Pipeline below).
 3. **Every skill must have complete frontmatter** (name, description, version, tags, quality, source).
-4. **Every skill must pass quality lint** (`python scripts/lint_skill_quality.py --min-lines 50`).
-5. **Source provenance must be tracked** — every skill has an entry in `docs/sources/*.skills.json`.
+4. **Every external skill must have an explicit permissive license** (`license: MIT`, `Apache-2.0`, etc.). If the upstream repository has no detectable license, skip the skill instead of importing it.
+5. **Every skill must pass quality lint** (`python scripts/lint_skill_quality.py --min-lines 50`).
+6. **Source provenance must be tracked** — every skill has an entry in `docs/sources/*.skills.json`.
 
 ---
 
@@ -53,11 +54,17 @@ Step 2: EVALUATE — Score and filter candidates
   │   ├── Practical value: contains actionable guidance, not just descriptions
   │   ├── Non-overlapping: does not duplicate an existing skill's coverage
   │   └── Well-scoped: focused on one domain, not a vague meta-skill
+  ├── License criteria for external skills (must meet ALL):
+  │   ├── Check upstream repo license via `gh api repos/<owner>/<repo> --jq .license`
+  │   ├── Accept only permissive licenses allowed by `scripts/audit_licenses.py`
+  │   ├── Record the accepted license in `SKILL.md` frontmatter
+  │   └── Reject candidates with missing, unknown, or non-permissive licenses
   └── Assign recommended category from the 16 existing categories (see §Categories)
 
 Step 3: INGEST — Download and add to repository
   ├── For each approved skill:
   │   ├── Download SKILL.md from source (GitHub raw URL, skills.sh, etc.)
+  │   ├── Verify license before writing files; never import external skills with missing/unknown license metadata
   │   ├── If content < 80 lines, expand with professional content to ≥ 100 lines
   │   ├── Ensure these sections exist: Trigger/When to Use, Core Capabilities, Common Patterns (with code blocks), Boundaries
   │   ├── Place in: skills/<category>/<skill-name>/SKILL.md
@@ -72,6 +79,7 @@ Step 4: PIPELINE — Run full refresh and validation
   ├── python scripts/generate_tags_index.py
   ├── python scripts/build_catalog_json.py
   ├── python scripts/lint_skill_quality.py --min-lines 50
+  ├── python scripts/audit_licenses.py
   ├── python -m unittest discover tests -v
   └── git diff --exit-code  (verify generated files are committed)
 
@@ -162,6 +170,7 @@ version: "1.0.0"                    # Semver
 author: seaworld008                 # Contributor GitHub ID
 source: in-house                    # in-house | skills.sh | clawhub | github:<owner>/<repo> | community
 source_url: ""                      # Original URL if from external source
+license: MIT                        # Required for every external source; omit only for in-house
 tags: [tag1, tag2, tag3]            # Cross-category searchable tags
 created_at: "2026-03-27"            # YYYY-MM-DD
 updated_at: "2026-03-27"            # YYYY-MM-DD
@@ -198,6 +207,7 @@ complexity: intermediate            # beginner | intermediate | advanced
 | `build_catalog_json.py` | Regenerate docs/catalog.json and README banner | After any change |
 | `generate_repo_banner.py` | Regenerate .github/assets/repo-banner.svg from docs/catalog.json | Usually via build_catalog_json.py |
 | `lint_skill_quality.py` | Quality gate check | Before commit |
+| `audit_licenses.py` | License gate for external skills | Before commit |
 | `generate_changelog.py` | Auto-generate CHANGELOG.md | Before release |
 
 ### One-liner: Full Pipeline
@@ -209,10 +219,11 @@ python scripts/refresh_repo_views.py && \
 python scripts/generate_tags_index.py && \
 python scripts/build_catalog_json.py && \
 python scripts/lint_skill_quality.py --min-lines 50 && \
+python scripts/audit_licenses.py && \
 python -m unittest discover tests -v
 ```
 
 Windows (PowerShell):
 ```powershell
-python scripts/enrich_frontmatter.py; python scripts/bootstrap_in_house_sources.py --write-json docs/sources/in-house.skills.json; python scripts/refresh_repo_views.py; python scripts/generate_tags_index.py; python scripts/build_catalog_json.py; python scripts/lint_skill_quality.py --min-lines 50; python -m unittest discover tests -v
+python scripts/enrich_frontmatter.py; python scripts/bootstrap_in_house_sources.py --write-json docs/sources/in-house.skills.json; python scripts/refresh_repo_views.py; python scripts/generate_tags_index.py; python scripts/build_catalog_json.py; python scripts/lint_skill_quality.py --min-lines 50; python scripts/audit_licenses.py; python -m unittest discover tests -v
 ```

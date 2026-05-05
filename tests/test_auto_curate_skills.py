@@ -3,6 +3,7 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -234,6 +235,64 @@ class AutoCurateSkillsTests(unittest.TestCase):
 
             with self.assertRaisesRegex(RuntimeError, "dirty worktree"):
                 module.assert_clean_worktree(repo, status_output=" M dirty.txt")
+
+    def test_resolve_candidate_license_prefers_frontmatter_license(self):
+        module = load_module()
+
+        markdown = "---\nname: licensed\nlicense: MIT\n---\n# Licensed\n"
+
+        self.assertEqual("MIT", module.resolve_candidate_license(markdown, "missing/repo"))
+
+    def test_resolve_candidate_license_uses_github_repo_license(self):
+        module = load_module()
+
+        markdown = "---\nname: licensed\n---\n# Licensed\n"
+        with mock.patch.object(
+            module,
+            "github_api_get",
+            return_value={"license": {"key": "apache-2.0"}},
+        ):
+            self.assertEqual("Apache-2.0", module.resolve_candidate_license(markdown, "owner/repo"))
+
+    def test_resolve_candidate_license_rejects_missing_license(self):
+        module = load_module()
+
+        markdown = "---\nname: unlicensed\n---\n# Unlicensed\n"
+        with mock.patch.object(module, "github_api_get", return_value={"license": None}):
+            self.assertIsNone(module.resolve_candidate_license(markdown, "owner/repo"))
+
+    def test_ingest_candidates_skips_unlicensed_external_candidates(self):
+        module = load_module()
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            repo = Path(tmpdir)
+            (repo / "scripts").mkdir()
+            (repo / "skills").mkdir()
+            report = {
+                "selected": [
+                    {
+                        "name": "unlicensed-skill",
+                        "slug": "unlicensed-skill",
+                        "recommended_category": "developer-engineering",
+                        "url": "https://skills.sh/owner/repo/unlicensed-skill",
+                        "source_repo": "owner/repo",
+                    }
+                ]
+            }
+            markdown = "---\nname: unlicensed-skill\n---\n" + "\n".join(f"line {i}" for i in range(60))
+
+            with mock.patch.object(module, "fetch_candidate_markdown", return_value=(markdown, "owner/repo")), \
+                mock.patch.object(module, "resolve_candidate_license", return_value=None):
+                result = module.ingest_candidates(
+                    repo_root=repo,
+                    report=report,
+                    limit=1,
+                    python_cmd=["python"],
+                )
+
+            self.assertEqual([], result["ingested"])
+            self.assertEqual("missing_or_unapproved_license", result["skipped"][0]["reason"])
+            self.assertFalse((repo / "skills" / "developer-engineering" / "unlicensed-skill").exists())
 
 
 if __name__ == "__main__":

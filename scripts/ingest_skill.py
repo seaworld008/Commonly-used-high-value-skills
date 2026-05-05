@@ -27,12 +27,31 @@ import json
 import re
 import subprocess
 import sys
+import urllib.error
+import urllib.request
 from datetime import date
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SKILLS_DIR = REPO_ROOT / "skills"
 PROVENANCE_FILE = REPO_ROOT / "docs" / "sources" / "in-house.skills.json"
+INHOUSE_SOURCES = {"in-house", "", "local-repo/in-house"}
+PERMISSIVE_LICENSES = {
+    "MIT", "Apache-2.0", "Apache 2.0", "BSD-2-Clause", "BSD-3-Clause",
+    "ISC", "CC-BY-4.0", "CC0-1.0", "Unlicense", "0BSD", "MPL-2.0",
+}
+GITHUB_LICENSE_KEYS = {
+    "mit": "MIT",
+    "apache-2.0": "Apache-2.0",
+    "bsd-2-clause": "BSD-2-Clause",
+    "bsd-3-clause": "BSD-3-Clause",
+    "isc": "ISC",
+    "cc-by-4.0": "CC-BY-4.0",
+    "cc0-1.0": "CC0-1.0",
+    "unlicense": "Unlicense",
+    "0bsd": "0BSD",
+    "mpl-2.0": "MPL-2.0",
+}
 
 
 def parse_frontmatter(text: str) -> dict[str, str]:
@@ -46,6 +65,61 @@ def parse_frontmatter(text: str) -> dict[str, str]:
             key, _, val = line.partition(":")
             fm[key.strip()] = val.strip().strip('"').strip("'")
     return fm
+
+
+def is_external_source(source: str) -> bool:
+    return source.strip().strip('"').strip("'") not in INHOUSE_SOURCES
+
+
+def normalize_license_tag(value: str) -> str:
+    raw = value.strip().strip('"').strip("'")
+    return GITHUB_LICENSE_KEYS.get(raw.lower(), raw)
+
+
+def github_repo_from_source(source: str, source_url: str = "") -> str | None:
+    source = source.strip().strip('"').strip("'")
+    if source.startswith("github:"):
+        repo = source.removeprefix("github:")
+        if re.match(r"^[^/]+/[^/]+$", repo):
+            return repo
+    match = re.search(r"github\.com/([^/\s]+/[^/\s#?]+)", source_url)
+    if match:
+        return match.group(1).removesuffix(".git")
+    return None
+
+
+def fetch_github_repo_license(repo: str) -> str | None:
+    req = urllib.request.Request(
+        f"https://api.github.com/repos/{repo}",
+        headers={
+            "Accept": "application/vnd.github.v3+json",
+            "User-Agent": "skills-ingest-license-check",
+        },
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            payload = json.loads(resp.read().decode("utf-8", errors="replace"))
+    except (urllib.error.URLError, urllib.error.HTTPError, json.JSONDecodeError):
+        return None
+    key = ((payload.get("license") or {}).get("key") or "").lower()
+    return GITHUB_LICENSE_KEYS.get(key)
+
+
+def resolve_external_license(fm: dict[str, str], source: str, source_url: str) -> tuple[str | None, str | None]:
+    current = normalize_license_tag(fm.get("license", ""))
+    if current:
+        if current in PERMISSIVE_LICENSES:
+            return current, None
+        return None, f"license {current!r} is not in the permissive allowlist"
+
+    repo = github_repo_from_source(source, source_url)
+    if repo:
+        detected = fetch_github_repo_license(repo)
+        if detected in PERMISSIVE_LICENSES:
+            return detected, None
+        return None, f"external GitHub source {repo!r} has no detectable permissive license"
+
+    return None, "external source lacks a license tag"
 
 
 def update_frontmatter_field(content: str, key: str, value: str) -> str:
@@ -119,8 +193,17 @@ def ingest_one(skill_dir: Path, source: str, source_url: str, dry_run: bool) -> 
     skill_name = fm["name"]
     category = skill_dir.parent.name
     today = date.today().isoformat()
+    effective_source = fm.get("source") if fm.get("source") and fm.get("source") != "in-house" else source
+    effective_source_url = fm.get("source_url") or source_url
 
     print(f"  Ingesting: {skill_name} ({category})")
+
+    detected_license: str | None = None
+    if is_external_source(effective_source):
+        detected_license, license_error = resolve_external_license(fm, effective_source, effective_source_url)
+        if license_error:
+            print(f"  ERROR: {skill_name} — {license_error}", file=sys.stderr)
+            return False
 
     if dry_run:
         print(f"    [DRY RUN] Would enrich frontmatter and update provenance")
@@ -133,6 +216,8 @@ def ingest_one(skill_dir: Path, source: str, source_url: str, dry_run: bool) -> 
             updated = update_frontmatter_field(updated, "source", f'"{source}"')
     if not fm.get("source_url") and source_url:
         updated = update_frontmatter_field(updated, "source_url", f'"{source_url}"')
+    if detected_license and not fm.get("license"):
+        updated = update_frontmatter_field(updated, "license", detected_license)
     if not fm.get("created_at"):
         created = get_git_created_date(skill_md)
         updated = update_frontmatter_field(updated, "created_at", f'"{created}"')
