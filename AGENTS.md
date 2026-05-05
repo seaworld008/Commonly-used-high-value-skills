@@ -26,6 +26,7 @@ docs/TAGS-INDEX.md                    ← Cross-category tag-based index
 4. **Every copied external skill must have an explicit permissive license** (`license: MIT`, `Apache-2.0`, etc.). If the upstream repository has no detectable license but the candidate is high quality, auto-create an original `in-house` rewrite instead of copying upstream text.
 5. **Every skill must pass quality lint** (`python scripts/lint_skill_quality.py --min-lines 50`).
 6. **Source provenance must be tracked** — every skill has an entry in `docs/sources/*.skills.json`.
+7. **Keep bilingual READMEs synchronized** — when updating `README.md`, update `README.en.md` in the same change and run `python scripts/check_readme_sync.py`.
 
 ---
 
@@ -78,6 +79,7 @@ Step 4: PIPELINE — Run full refresh and validation
   ├── python scripts/refresh_repo_views.py
   ├── python scripts/generate_tags_index.py
   ├── python scripts/build_catalog_json.py
+  ├── python scripts/check_readme_sync.py
   ├── python scripts/lint_skill_quality.py --min-lines 50
   ├── python scripts/audit_licenses.py
   ├── python -m unittest discover tests -v
@@ -206,6 +208,7 @@ complexity: intermediate            # beginner | intermediate | advanced
 | `generate_tags_index.py` | Regenerate docs/TAGS-INDEX.md | After any change |
 | `build_catalog_json.py` | Regenerate docs/catalog.json and README banner | After any change |
 | `generate_repo_banner.py` | Regenerate .github/assets/repo-banner.svg from docs/catalog.json | Usually via build_catalog_json.py |
+| `check_readme_sync.py` | Verify Chinese and English READMEs match the skill tree | After README or skill list changes |
 | `lint_skill_quality.py` | Quality gate check | Before commit |
 | `audit_licenses.py` | License gate for external skills | Before commit |
 | `generate_changelog.py` | Auto-generate CHANGELOG.md | Before release |
@@ -218,6 +221,7 @@ python scripts/bootstrap_in_house_sources.py --write-json docs/sources/in-house.
 python scripts/refresh_repo_views.py && \
 python scripts/generate_tags_index.py && \
 python scripts/build_catalog_json.py && \
+python scripts/check_readme_sync.py && \
 python scripts/lint_skill_quality.py --min-lines 50 && \
 python scripts/audit_licenses.py && \
 python -m unittest discover tests -v
@@ -225,5 +229,5 @@ python -m unittest discover tests -v
 
 Windows (PowerShell):
 ```powershell
-python scripts/enrich_frontmatter.py; python scripts/bootstrap_in_house_sources.py --write-json docs/sources/in-house.skills.json; python scripts/refresh_repo_views.py; python scripts/generate_tags_index.py; python scripts/build_catalog_json.py; python scripts/lint_skill_quality.py --min-lines 50; python scripts/audit_licenses.py; python -m unittest discover tests -v
+python scripts/enrich_frontmatter.py; python scripts/bootstrap_in_house_sources.py --write-json docs/sources/in-house.skills.json; python scripts/refresh_repo_views.py; python scripts/generate_tags_index.py; python scripts/build_catalog_json.py; python scripts/check_readme_sync.py; python scripts/lint_skill_quality.py --min-lines 50; python scripts/audit_licenses.py; python -m unittest discover tests -v
 ```

@@ -81,6 +81,10 @@ class AutoCurateSkillsTests(unittest.TestCase):
             any("python scripts/enrich_frontmatter.py" in command for command in rendered),
             rendered,
         )
+        self.assertTrue(
+            any("python scripts/check_readme_sync.py" in command for command in rendered),
+            rendered,
+        )
         self.assertIn("python -m unittest discover tests -v", rendered[-1])
 
     def test_curate_dry_run_writes_candidate_report(self):

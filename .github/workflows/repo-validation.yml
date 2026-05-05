@@ -37,6 +37,9 @@ jobs:
       - name: Build catalog JSON
         run: python scripts/build_catalog_json.py
 
+      - name: Check README sync
+        run: python scripts/check_readme_sync.py
+
       - name: Generate repo health report
         run: python scripts/generate_repo_health_report.py
 
@@ -54,6 +57,7 @@ jobs:
           python -m unittest
           tests.test_evaluate_repo_health
           tests.test_dead_links_workflow
+          tests.test_check_readme_sync
           tests.test_generate_repo_health_report
           tests.test_export_openclaw_skills
           tests.test_finance_investing_skills

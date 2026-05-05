@@ -31,6 +31,8 @@ class RepoValidationWorkflowTests(unittest.TestCase):
         self.assertIn("python scripts/generate_repo_health_report.py", commands)
         self.assertIn("python scripts/evaluate_repo_health.py", commands)
         self.assertIn("python scripts/refresh_repo_views.py", commands)
+        self.assertIn("python scripts/check_readme_sync.py", commands)
+        self.assertIn("tests.test_check_readme_sync", commands)
         self.assertIn("GITHUB_STEP_SUMMARY", commands)
         self.assertIn("python -m unittest", commands)
         self.assertIn("git diff --exit-code", commands)
