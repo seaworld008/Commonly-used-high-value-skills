@@ -1,14 +1,14 @@
 ---
 name: voice
-description: '用户反馈收集、满意度调研、评论分析和洞察提炼。'
-version: "1.0.0"
+description: 'User feedback collection, NPS survey design, review analysis, sentiment analysis, feedback classification, and insight extraction reports. Use when establishing feedback loops.'
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/voice"
 license: MIT
 tags: '["design", "product", "voice"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-25"
+updated_at: "2026-05-05"
 quality: 5
 complexity: "advanced"
 ---
@@ -205,6 +205,7 @@ Routing rules:
   - `Churn Analysis Report`
   - `Multi-Channel Feedback Report`
   - `Feedback Analysis Report`
+- Optionally emit `Infographic_Payload` per `_common/INFOGRAPHIC.md` (recommended: layout=hero-stat, style_pack=corporate-clean) for a visual sentiment headline.
 
 ## Collaboration
 

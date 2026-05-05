@@ -4,7 +4,7 @@
 
 覆盖开发、测试、性能、架构、数据库和工程效率的核心技能集合。
 
-当前分类共 **45** 个技能。
+当前分类共 **47** 个技能。
 
 ## 推荐先看
 
@@ -21,7 +21,7 @@
 | `api-design-reviewer` | Maintainer: Claude Skills Team. | [目录](./api-design-reviewer/) | [SKILL.md](./api-design-reviewer/SKILL.md) |
 | `api-test-suite-builder` | Scans API route definitions across frameworks (Next.js App Router, Express, FastAPI, Django REST) and auto-generates comprehensive test suites covering auth, input validation, error codes, pagination, file uploads, and rate limiting. Outputs ready-to-run test files for Vitest+Supertest (Node) or Pytest+httpx (Python). | [目录](./api-test-suite-builder/) | [SKILL.md](./api-test-suite-builder/SKILL.md) |
 | `aws-solution-architect` | 用于 AWS 云架构设计、服务选型、成本优化与 Well-Architected Framework 评估。来源：alirezarezvani/claude-skills。 | [目录](./aws-solution-architect/) | [SKILL.md](./aws-solution-architect/SKILL.md) |
-| `builder` | 生产级业务逻辑、接口集成和类型安全实现。 | [目录](./builder/) | [SKILL.md](./builder/SKILL.md) |
+| `builder` | Disciplined coding craftsman that builds robust business logic, API integrations, and data models with type safety and production readiness. Use when business logic implementation or API integration is needed. | [目录](./builder/) | [SKILL.md](./builder/SKILL.md) |
 | `cli-demo-generator` | This skill should be used when users want to create animated CLI demos, terminal recordings, or command-line demonstration GIFs. It supports both manual tape file creation and automated demo generation from command descriptions. Use when users mention creating demos, recording terminal sessions, or generating animated GIFs of CLI workflows. | [目录](./cli-demo-generator/) | [SKILL.md](./cli-demo-generator/SKILL.md) |
 | `code-review-excellence` | Master effective code review practices to provide constructive feedback, catch bugs early, and foster knowledge sharing while maintaining team morale. Use when reviewing pull requests, establishing review standards, or mentoring developers. | [目录](./code-review-excellence/) | [SKILL.md](./code-review-excellence/SKILL.md) |
 | `codebase-inspection` | Inspect and analyze codebases using pygount for LOC counting, language breakdown, and code-vs-comment ratios. Use when asked to check lines of code, repo size, language composition, or codebase stats. | [目录](./codebase-inspection/) | [SKILL.md](./codebase-inspection/SKILL.md) |
@@ -55,11 +55,13 @@
 | `schema` | Database schema design, migration planning, and ER diagram specialist. Handles normalization, index strategies, and relation definitions. Use when DB schema design is needed. | [目录](./schema/) | [SKILL.md](./schema/SKILL.md) |
 | `skill-tester` | Name: skill-tester Tier: POWERFUL Category: Engineering Quality Assurance Dependencies: None (Python Standard Library Only) Author: Claude Skills Engineering Team Version: 1.0.0 Last Updated: 2026-02-16. | [目录](./skill-tester/) | [SKILL.md](./skill-tester/SKILL.md) |
 | `supabase-postgres` | 用于 Supabase 平台开发与 PostgreSQL 最佳实践，包含 RLS、Edge Functions 和实时订阅。来源：supabase 官方 52.5K installs。 | [目录](./supabase-postgres/) | [SKILL.md](./supabase-postgres/SKILL.md) |
+| `supabase-postgres-best-practices` | Postgres performance optimization and best practices from Supabase. Use this skill when writing, reviewing, or optimizing Postgres queries, schema designs, or database configurations. | [目录](./supabase-postgres-best-practices/) | [SKILL.md](./supabase-postgres-best-practices/SKILL.md) |
 | `systematic-debugging` | Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes | [目录](./systematic-debugging/) | [SKILL.md](./systematic-debugging/SKILL.md) |
 | `tailwind-design-system` | 用于 Tailwind CSS 设计系统搭建、组件库开发与主题定制。来源：skills.sh 24.7K installs。 | [目录](./tailwind-design-system/) | [SKILL.md](./tailwind-design-system/SKILL.md) |
 | `tech-debt-tracker` | Tier: POWERFUL 🔥 Category: Engineering Process Automation Expertise: Code Quality, Technical Debt Management, Software Engineering. | [目录](./tech-debt-tracker/) | [SKILL.md](./tech-debt-tracker/SKILL.md) |
 | `terraform-engineer` | 用于 Terraform 基础设施即代码（IaC）设计、模块化管理和状态管理。来源：HashiCorp 官方 + skills.sh。 | [目录](./terraform-engineer/) | [SKILL.md](./terraform-engineer/SKILL.md) |
 | `typescript-best-practices` | 用于 TypeScript 高级类型编程、类型安全设计和常见反模式避免。仓库整理版，吸收社区高频最佳实践。 | [目录](./typescript-best-practices/) | [SKILL.md](./typescript-best-practices/SKILL.md) |
+| `vercel-react-best-practices` | React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patterns. Triggers on tasks involving React components, Next.js pages, data fetching, bundle optimization, or performance improvements. | [目录](./vercel-react-best-practices/) | [SKILL.md](./vercel-react-best-practices/SKILL.md) |
 | `web-artifacts-builder` | Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts. | [目录](./web-artifacts-builder/) | [SKILL.md](./web-artifacts-builder/SKILL.md) |
 | `webapp-testing` | Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs. | [目录](./webapp-testing/) | [SKILL.md](./webapp-testing/SKILL.md) |
 

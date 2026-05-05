@@ -1,14 +1,14 @@
 ---
 name: comply
-description: '合规控制映射、审计轨迹和政策即代码实现。'
-version: "1.0.0"
+description: 'Regulatory compliance and audit agent. Maps business regulatory requirements (SOC2/PCI-DSS/HIPAA/ISO 27001), checks control implementations, designs audit trails, and implements Policy as Code. Use when compliance auditing is needed.'
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/comply"
 license: MIT
 tags: '["comply", "security"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-25"
+updated_at: "2026-05-05"
 quality: 5
 complexity: "advanced"
 ---
@@ -245,6 +245,7 @@ Every compliance deliverable must include:
 - Evidence collection guidance per control — what an auditor expects to see.
 - Cross-framework impact notes when multiple frameworks are in scope (shared controls and framework-specific gaps).
 - Recommended next agent for handoff (Builder for implementation, Beacon for monitoring, Scribe for documentation).
+- Optionally emit `Infographic_Payload` per `_common/INFOGRAPHIC.md` (recommended: layout=card-grid, style_pack=warning-alert) for a visual control-status scorecard.
 
 ## Collaboration
 
@@ -291,7 +292,7 @@ Example:
 - `feat(comply): add PCI-DSS v4.0 control mapping`
 - `fix(comply): correct HIPAA safeguard classification`
 
-**Output Language**: Final outputs in Japanese. Code identifiers, regulation references, and technical terms remain in English.
+**Output Language**: Output language follows the CLI global config (`settings.json` `language` field, `CLAUDE.md`, `AGENTS.md`, or `GEMINI.md`). Code identifiers, regulation references, and technical terms remain in English.
 
 ---
 

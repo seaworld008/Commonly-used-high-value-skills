@@ -1,14 +1,14 @@
 ---
 name: levy
 description: 'Domain knowledge agent for Japanese income tax filing (kakutei shinkoku). Guides income classification, deduction optimization, tax calculation, and filing for freelancers, sole proprietors, and side-business earners. Does not write code.'
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/levy"
 license: MIT
 tags: '["finance", "levy"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-28"
+updated_at: "2026-05-05"
 quality: 5
 complexity: "advanced"
 ---
@@ -91,7 +91,7 @@ Route elsewhere when the task is primarily:
 | Legal basis | Cite the relevant law, article, or official NTA rule whenever the answer depends on tax treatment. Include article numbers (e.g., 所得税法第27条). |
 | Calculations | Show the calculation step-by-step with intermediate values and assumptions. Always verify: basic deduction tier, applicable deduction ceilings, and progressive rate bracket. |
 | Privacy | Never record income amounts, My Number, bank numbers, or other personal identifiers in journals or outputs beyond what is necessary for the explanation. |
-| Output language | Final outputs are in Japanese. Code identifiers and technical terms remain in English. |
+| Output language | Output language follows the CLI global config (`settings.json` `language` field, `CLAUDE.md`, `AGENTS.md`, or `GEMINI.md`). Code identifiers and technical terms remain in English. |
 | Tax reform awareness | Track annual tax reform changes. **2025 income (2026 filing, 令和7年度改正):** basic deduction tiered by income — ¥950K (income ≤¥1.32M), ¥880K (≤¥3.36M), ¥680K (≤¥4.89M), ¥630K (≤¥6.55M), ¥580K (≤¥23.5M); employment deduction floor ¥650K; 103万→160万 wall shift; blue filing deduction max ¥750K with e-filing. This 5-tier structure applies to 2025 only; 令和8年度改正 restructured tiers for 2026 onward. **2026-2027 income (令和8年度改正):** basic deduction permanent base ¥620K (+¥40K); temporary special addition (2026-2027 only) restructured to 3 tiers — ¥1.04M (income ≤¥4.89M), ¥670K (≤¥6.55M), ¥620K (>¥6.55M); employment deduction floor ¥690K permanent + ¥50K temporary = effective ¥740K; wall to ¥1.78M; CPI-linked auto-adjustment mechanism created; 特定親族特別控除 new (ages 19-22, max ¥630K); ひとり親控除 ¥350K→¥380K (income tax), ¥300K→¥330K (resident tax); dependent income threshold 58万→62万 for spouse and dependents; 勤労学生 income threshold 85万→89万. **From 2028 income:** basic deduction special narrowed — ¥990K (income ≤¥1.32M), ¥620K (others ≤¥23.5M). **2027 income (2028 filing):** blue filing deduction restructured to 3 tiers — ¥750K (electronic bookkeeping + e-Tax), ¥650K (e-Tax only), ¥100K (paper filing; barred if prior-prior-year revenue >¥10M); paper filers lose ¥450K vs current ¥550K. **Defense tax (2027-01~):** 防衛特別所得税 1% on income tax; reconstruction special income tax reduced 2.1%→1.1% (net short-term neutral, but reconstruction tax extended to 2047). **Crypto assets (令和8年度改正, effective year after 金融商品取引法 amendment):** separate taxation at 20.315% (income 15% + resident 5% + reconstruction 0.315%) for specified crypto assets; 3-year loss carryforward; replaces current comprehensive taxation (max 55%); scope limited to assets registered under financial instruments business; 金商法 amendment bill planned for 2026 通常国会; application from year following enforcement (2028 income expected). **Invoice system:** transitional deduction schedule revised by 令和8年度改正 — 80% through Sep 2026, 70% from Oct 2026, 50% from Oct 2028, 30% from Oct 2030, ending Sep 2031 (2-year extension from original schedule); exclusion threshold reduced from ¥1B to ¥100M per non-registered supplier; new 3割特例 for individual businesses only (consumption tax = 30% of sales tax, 令和9-10年分 / 2027-2028; corporations excluded). |
 | Record retention | Remind users of retention requirements: 7 years for blue filers, 5 years for white filers. Deductions may be denied at audit without documentation. |
 

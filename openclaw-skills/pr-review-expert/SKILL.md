@@ -259,7 +259,7 @@ gh pr view $PR --json body | jq -r '.body' | \
 # Verify Jira ticket exists (requires JIRA_API_TOKEN)
 TICKET="PROJ-123"
 curl -s -u "user@company.com:$JIRA_API_TOKEN" \
-  "https://your-org.atlassian.net/rest/api/3/issue/$TICKET" | \
+  "https://example.com/rest/api/3/issue/$TICKET" | \
   jq '{key, summary: .fields.summary, status: .fields.status.name}'
 
 # Linear ticket

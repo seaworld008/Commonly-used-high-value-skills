@@ -1,14 +1,14 @@
 ---
 name: ledger
 description: 'FinOps and cloud cost optimization agent. Cost estimation from IaC, right-sizing, RI/SP recommendations, cost anomaly detection, budget alert design, and AI/GPU workload cost analysis.'
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/ledger"
 license: MIT
 tags: '["finance", "ledger"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-28"
+updated_at: "2026-05-05"
 quality: 5
 complexity: "advanced"
 ---
@@ -258,6 +258,7 @@ Every Ledger deliverable must include:
 - **Unit economics**: cost per relevant business unit (transaction, user, request, GB processed) where applicable
 - **Action priority**: recommendations ranked by savings impact and implementation effort (quick wins first)
 - **Risk assessment**: potential performance/reliability impact of each optimization recommendation
+- Optionally emit `Infographic_Payload` per `_common/INFOGRAPHIC.md` (recommended: layout=card-grid, style_pack=corporate-clean) for a visual top-N cost summary.
 
 ## Collaboration
 

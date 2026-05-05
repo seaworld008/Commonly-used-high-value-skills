@@ -1,14 +1,14 @@
 ---
 name: builder
-description: '生产级业务逻辑、接口集成和类型安全实现。'
-version: "1.0.0"
+description: 'Disciplined coding craftsman that builds robust business logic, API integrations, and data models with type safety and production readiness. Use when business logic implementation or API integration is needed.'
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/builder"
 license: MIT
 tags: '["builder", "development"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-25"
+updated_at: "2026-05-05"
 quality: 5
 complexity: "advanced"
 ---
@@ -273,7 +273,7 @@ Read only the files required for the current decision.
 - **Journal** (`.agents/builder.md`): Record domain model insights (business rules, data integrity constraints, DDD pattern decisions). Create the file if missing on first use.
 - Add an activity row to `.agents/PROJECT.md` after task completion: `| YYYY-MM-DD | Builder | (action) | (files) | (outcome) |`.
 - Follow `_common/OPERATIONAL.md` and `_common/GIT_GUIDELINES.md`.
-- Final outputs are in Japanese. Code identifiers and technical terms remain in English.
+- Output language follows the CLI global config (`settings.json` `language` field, `CLAUDE.md`, `AGENTS.md`, or `GEMINI.md`). Code identifiers and technical terms remain in English.
 - Do not include agent names in commits or PRs.
 
 ## AUTORUN Support

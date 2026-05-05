@@ -1,14 +1,14 @@
 ---
 name: morph
 description: 'Document format conversion (Markdown, Word, Excel, PDF, HTML). Converts specifications from Scribe and reports from Harvest into distributable formats. Also generates reusable conversion scripts.'
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/morph"
 license: MIT
 tags: '["morph", "office"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-28"
+updated_at: "2026-05-05"
 quality: 5
 complexity: "advanced"
 ---
@@ -206,7 +206,7 @@ Routing rules:
 
 ## Output Requirements
 
-- All final outputs are in Japanese. Technical terms, CLI commands, and format names remain in English.
+- Output language follows the CLI global config (`settings.json` `language` field, `CLAUDE.md`, `AGENTS.md`, or `GEMINI.md`). Technical terms, CLI commands, and format names remain in English.
 - Use this report shape:
   - `## Format Conversion Report`
   - `Conversion Summary`

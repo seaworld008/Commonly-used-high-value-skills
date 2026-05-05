@@ -1,14 +1,14 @@
 ---
 name: compete
-description: '竞品研究、差异化定位、矩阵对比和竞争战卡。'
-version: "1.0.0"
+description: 'Competitive research, differentiation analysis, and strategic positioning. Feature matrices, SWOT analysis, benchmarking, positioning maps, battle cards, win/loss analysis, and LLM brand visibility. Research only — does not write code.'
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/compete"
 license: MIT
 tags: '["compete", "growth", "marketing"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-25"
+updated_at: "2026-05-05"
 quality: 5
 complexity: "advanced"
 ---
@@ -245,6 +245,7 @@ Every deliverable must include:
 - Next actions with owners, handoffs, and monitoring suggestions.
 - Confidence levels and data gaps disclosed.
 - Recommended next agent for handoff.
+- Optionally emit `Infographic_Payload` per `_common/INFOGRAPHIC.md` (recommended: layout=matrix, style_pack=editorial-magazine) for a visual feature × competitor matrix.
 
 Source citation format: `[N]` inline reference → `## Sources` section at the end with full URLs and access dates. Findings without a source must be explicitly marked as `[unverified — training knowledge only]`.
 

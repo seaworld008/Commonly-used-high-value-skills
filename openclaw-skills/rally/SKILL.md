@@ -1,14 +1,14 @@
 ---
 name: rally
 description: 'Multi-session parallel orchestrator using Claude Code Agent Teams API and Codex CLI Subagents to launch, manage, and coordinate concurrent task execution across multiple instances. Use when parallel work is needed.'
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/rally"
 license: MIT
 tags: '["ai", "rally", "workflow"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-28"
+updated_at: "2026-05-05"
 quality: 5
 complexity: "advanced"
 ---

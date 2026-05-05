@@ -1,14 +1,14 @@
 ---
 name: sigil
-description: '根据项目代码自动生成贴合仓库约定的技能。'
-version: "1.0.0"
+description: 'Meta-tooling agent that analyzes project codebases, tech stacks, and conventions to dynamically generate Claude Code skills optimized for that project. Places skills in both .claude/skills/ and .agents/skills/ to boost dev efficiency.'
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/sigil"
 license: MIT
 tags: '["agent", "ai", "sigil"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-25"
+updated_at: "2026-05-05"
 quality: 5
 complexity: "advanced"
 ---
@@ -340,7 +340,7 @@ Full format -> `_common/HANDOFF.md`
 
 ## Output Language
 
-All final outputs must be in Japanese. Code identifiers and technical terms remain in English.
+Output language follows the CLI global config (`settings.json` `language` field, `CLAUDE.md`, `AGENTS.md`, or `GEMINI.md`). Code identifiers and technical terms remain in English.
 
 ## Git Guidelines
 

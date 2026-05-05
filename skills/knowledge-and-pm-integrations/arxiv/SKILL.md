@@ -229,9 +229,7 @@ curl -s "https://api.semanticscholar.org/graph/v1/paper/search?query=GRPO+reinfo
 ### Get paper recommendations
 
 ```bash
-curl -s -X POST "https://api.semanticscholar.org/recommendations/v1/papers/" \
-  -H "Content-Type: application/json" \
-  -d '{"positivePaperIds": ["arXiv:2402.03300"], "negativePaperIds": []}' | python3 -m json.tool
+curl -s "https://api.semanticscholar.org/recommendations/v1/papers/forpaper/arXiv:2402.03300?fields=title,authors,year,citationCount" | python3 -m json.tool
 ```
 
 ### Author profile

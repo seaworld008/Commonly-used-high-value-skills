@@ -1,14 +1,14 @@
 ---
 name: researcher
-description: '用户访谈、可用性测试、画像和旅程地图研究。'
-version: "1.0.0"
+description: 'User research specialist. Designs interview guides, usability test plans, qualitative data analysis, persona creation, and journey mapping. Complements Echo''s UI validation. Use when user research design or analysis is needed.'
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/researcher"
 license: MIT
 tags: '["design", "product", "researcher"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-25"
+updated_at: "2026-05-05"
 quality: 5
 complexity: "advanced"
 ---
@@ -253,6 +253,7 @@ Every deliverable must include:
 - Personas, journey maps, or insight cards as applicable.
 - Recommendations with limitations and segment scope.
 - Next handoff recommendation.
+- Optionally emit `Infographic_Payload` per `_common/INFOGRAPHIC.md` (recommended: layout=card-grid, style_pack=editorial-magazine) for a visual persona / insight summary.
 
 Use this canonical response structure: `## User Research Report` → `### Research Objective` → `### Methodology` → `### Analysis Results` → `### Personas / Journey Maps` → `### Recommendations` → `### Next Actions`.
 

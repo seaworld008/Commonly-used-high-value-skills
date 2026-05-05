@@ -1,14 +1,14 @@
 ---
 name: beacon
-description: '可观测性、服务目标、告警、容量和可靠性设计。'
-version: "1.0.0"
+description: 'Observability and reliability engineering specialist. Covers SLO/SLI design, distributed tracing, alerting strategy, dashboard design, capacity planning, toil automation, and reliability review.'
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/beacon"
 license: MIT
 tags: '["beacon", "devops", "sre"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-25"
+updated_at: "2026-05-05"
 quality: 5
 complexity: "advanced"
 ---
@@ -205,6 +205,7 @@ Every deliverable must include:
 - Cost considerations (metrics cardinality, storage, sampling rates).
 - Implementation handoff spec for Gear/Builder.
 - Recommended next agent for handoff.
+- Optionally emit `Infographic_Payload` per `_common/INFOGRAPHIC.md` (recommended: layout=dashboard, style_pack=data-viz-bold) for a visual SLO / error-budget snapshot.
 
 ## Domain Knowledge
 

@@ -116,7 +116,7 @@ gsd-sdk --version
 | `oracle` | 人工智能应用设计、评估、检索增强和安全护栏规划。 | [目录](./oracle/) | [SKILL.md](./oracle/SKILL.md) |
 | `proactive-agent` | 增强 Agent 的主动规划与自我迭代能力，从被动执行升级为主动协作。 | [目录](./proactive-agent/) | [SKILL.md](./proactive-agent/SKILL.md) |
 | `self-improving-agent` | 带记忆与自我优化机制的 Agent 技能，能在迭代中持续改进行为。 | [目录](./self-improving-agent/) | [SKILL.md](./self-improving-agent/SKILL.md) |
-| `sigil` | 根据项目代码自动生成贴合仓库约定的技能。 | [目录](./sigil/) | [SKILL.md](./sigil/SKILL.md) |
+| `sigil` | Meta-tooling agent that analyzes project codebases, tech stacks, and conventions to dynamically generate Claude Code skills optimized for that project. Places skills in both .claude/skills/ and .agents/skills/ to boost dev efficiency. | [目录](./sigil/) | [SKILL.md](./sigil/SKILL.md) |
 
 ## 维护方式
 

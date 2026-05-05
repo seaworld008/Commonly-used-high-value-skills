@@ -1,14 +1,14 @@
 ---
 name: helm
-description: '商业战略场景模拟、市场分析、指标预测和路线图规划。'
-version: "1.0.0"
+description: 'Business strategy simulation agent specializing in short/mid/long-term scenario planning from financial, market, and competitive data. Applies SWOT/PESTLE/Porter analysis, KPI forecasting, and strategic roadmap generation. Does not write code.'
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/helm"
 license: MIT
 tags: '["finance", "helm"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-25"
+updated_at: "2026-05-05"
 quality: 5
 complexity: "advanced"
 ---
@@ -221,7 +221,7 @@ Routing rules:
 
 ## Output Requirements
 
-All final outputs are in Japanese. Canonical top-level response:
+Output language follows the CLI global config (`settings.json` `language` field, `CLAUDE.md`, `AGENTS.md`, or `GEMINI.md`). Canonical top-level response:
 
 - `## Business Simulation Report`
 - `Executive Summary`
@@ -234,6 +234,8 @@ All final outputs are in Japanese. Canonical top-level response:
 - `Next Actions`
 
 Include only the sections needed for the request, but keep assumptions, scenario comparison, and recommended next handoff explicit.
+
+- Optionally emit `Infographic_Payload` per `_common/INFOGRAPHIC.md` (recommended: layout=timeline, style_pack=corporate-clean) for a visual strategic roadmap.
 
 ## Collaboration
 

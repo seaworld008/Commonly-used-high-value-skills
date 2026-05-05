@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://github.com/simota/agent-skills",
-    "checked_at": "2026-04-28",
+    "checked_at": "2026-05-05",
     "note": "Curated per-category import from simota/agent-skills; refresh with scripts/sync_simota_agent_skills.py."
   },
   "official_references": [
@@ -23,8 +23,8 @@
         "repo": "simota/agent-skills",
         "path": "builder/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-25",
-        "last_synced_at": "2026-04-25",
+        "last_checked_at": "2026-05-05",
+        "last_synced_at": "2026-05-05",
         "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
       }
     },
@@ -55,8 +55,8 @@
         "repo": "simota/agent-skills",
         "path": "schema/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-28",
-        "last_synced_at": "2026-04-28",
+        "last_checked_at": "2026-05-05",
+        "last_synced_at": "2026-05-05",
         "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
       }
     },
@@ -71,8 +71,8 @@
         "repo": "simota/agent-skills",
         "path": "nexus/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-28",
-        "last_synced_at": "2026-04-28",
+        "last_checked_at": "2026-05-05",
+        "last_synced_at": "2026-05-05",
         "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
       }
     },
@@ -103,8 +103,8 @@
         "repo": "simota/agent-skills",
         "path": "rally/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-28",
-        "last_synced_at": "2026-04-28",
+        "last_checked_at": "2026-05-05",
+        "last_synced_at": "2026-05-05",
         "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
       }
     },
@@ -151,8 +151,8 @@
         "repo": "simota/agent-skills",
         "path": "sigil/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-25",
-        "last_synced_at": "2026-04-25",
+        "last_checked_at": "2026-05-05",
+        "last_synced_at": "2026-05-05",
         "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
       }
     },
@@ -183,8 +183,8 @@
         "repo": "simota/agent-skills",
         "path": "harvest/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-28",
-        "last_synced_at": "2026-04-28",
+        "last_checked_at": "2026-05-05",
+        "last_synced_at": "2026-05-05",
         "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
       }
     },
@@ -215,8 +215,8 @@
         "repo": "simota/agent-skills",
         "path": "beacon/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-25",
-        "last_synced_at": "2026-04-25",
+        "last_checked_at": "2026-05-05",
+        "last_synced_at": "2026-05-05",
         "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
       }
     },
@@ -231,8 +231,8 @@
         "repo": "simota/agent-skills",
         "path": "triage/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-25",
-        "last_synced_at": "2026-04-25",
+        "last_checked_at": "2026-05-05",
+        "last_synced_at": "2026-05-05",
         "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
       }
     },
@@ -263,8 +263,8 @@
         "repo": "simota/agent-skills",
         "path": "ledger/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-28",
-        "last_synced_at": "2026-04-28",
+        "last_checked_at": "2026-05-05",
+        "last_synced_at": "2026-05-05",
         "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
       }
     },
@@ -279,8 +279,8 @@
         "repo": "simota/agent-skills",
         "path": "helm/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-25",
-        "last_synced_at": "2026-04-25",
+        "last_checked_at": "2026-05-05",
+        "last_synced_at": "2026-05-05",
         "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
       }
     },
@@ -295,8 +295,8 @@
         "repo": "simota/agent-skills",
         "path": "levy/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-28",
-        "last_synced_at": "2026-04-28",
+        "last_checked_at": "2026-05-05",
+        "last_synced_at": "2026-05-05",
         "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
       }
     },
@@ -327,8 +327,8 @@
         "repo": "simota/agent-skills",
         "path": "compete/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-25",
-        "last_synced_at": "2026-04-25",
+        "last_checked_at": "2026-05-05",
+        "last_synced_at": "2026-05-05",
         "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
       }
     },
@@ -343,8 +343,8 @@
         "repo": "simota/agent-skills",
         "path": "pulse/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-25",
-        "last_synced_at": "2026-04-25",
+        "last_checked_at": "2026-05-05",
+        "last_synced_at": "2026-05-05",
         "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
       }
     },
@@ -359,8 +359,8 @@
         "repo": "simota/agent-skills",
         "path": "morph/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-28",
-        "last_synced_at": "2026-04-28",
+        "last_checked_at": "2026-05-05",
+        "last_synced_at": "2026-05-05",
         "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
       }
     },
@@ -391,8 +391,8 @@
         "repo": "simota/agent-skills",
         "path": "prism/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-28",
-        "last_synced_at": "2026-04-28",
+        "last_checked_at": "2026-05-05",
+        "last_synced_at": "2026-05-05",
         "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
       }
     },
@@ -423,8 +423,8 @@
         "repo": "simota/agent-skills",
         "path": "tome/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-28",
-        "last_synced_at": "2026-04-28",
+        "last_checked_at": "2026-05-05",
+        "last_synced_at": "2026-05-05",
         "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
       }
     },
@@ -455,8 +455,8 @@
         "repo": "simota/agent-skills",
         "path": "crest/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-28",
-        "last_synced_at": "2026-04-28",
+        "last_checked_at": "2026-05-05",
+        "last_synced_at": "2026-05-05",
         "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
       }
     },
@@ -487,8 +487,8 @@
         "repo": "simota/agent-skills",
         "path": "dawn/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-28",
-        "last_synced_at": "2026-04-28",
+        "last_checked_at": "2026-05-05",
+        "last_synced_at": "2026-05-05",
         "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
       }
     },
@@ -503,8 +503,8 @@
         "repo": "simota/agent-skills",
         "path": "voice/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-25",
-        "last_synced_at": "2026-04-25",
+        "last_checked_at": "2026-05-05",
+        "last_synced_at": "2026-05-05",
         "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
       }
     },
@@ -535,8 +535,8 @@
         "repo": "simota/agent-skills",
         "path": "researcher/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-25",
-        "last_synced_at": "2026-04-25",
+        "last_checked_at": "2026-05-05",
+        "last_synced_at": "2026-05-05",
         "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
       }
     },
@@ -551,8 +551,8 @@
         "repo": "simota/agent-skills",
         "path": "breach/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-25",
-        "last_synced_at": "2026-04-25",
+        "last_checked_at": "2026-05-05",
+        "last_synced_at": "2026-05-05",
         "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
       }
     },
@@ -583,8 +583,8 @@
         "repo": "simota/agent-skills",
         "path": "comply/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-25",
-        "last_synced_at": "2026-04-25",
+        "last_checked_at": "2026-05-05",
+        "last_synced_at": "2026-05-05",
         "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
       }
     },
@@ -711,8 +711,8 @@
         "repo": "simota/agent-skills",
         "path": "omen/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-25",
-        "last_synced_at": "2026-04-25",
+        "last_checked_at": "2026-05-05",
+        "last_synced_at": "2026-05-05",
         "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
       }
     },
@@ -759,8 +759,8 @@
         "repo": "simota/agent-skills",
         "path": "scout/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-28",
-        "last_synced_at": "2026-04-28",
+        "last_checked_at": "2026-05-05",
+        "last_synced_at": "2026-05-05",
         "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
       }
     },

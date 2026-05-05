@@ -1,14 +1,14 @@
 ---
 name: dawn
 description: 'Proposes exactly one personal side-project idea per invocation, sized to a 1-3 day MVP. Targets CLI, automation, LLM, DX, productivity, and data-viz angles; avoids clichés like TODO apps, weather apps, and pomodoro timers. Output is an 8-section brief including a ready-to-paste coding-agent prompt. Use for morning/daily idea rituals and weekend-hack ideation. Don''t use for existing-product feature proposals (Spark), dialogue brainstorming (Riff), or prototype implementation (Forge).'
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/dawn"
 license: MIT
 tags: '["dawn", "productivity"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-28"
+updated_at: "2026-05-05"
 quality: 5
 complexity: "advanced"
 ---
@@ -73,7 +73,7 @@ Route elsewhere when the task is primarily:
 - **Section 8 must be dense**: the prompt must be pasteable into a coding agent and enable immediate execution. Short paragraphs are a failure.
 - **Logging is mandatory**: after every proposal, append one row to `memory/dawn_log.md` (see Operational).
 - **Core value**: every idea must carry at least one of utility, learning value, or playful delight. Multiple is better.
-- Final output to the user is in Japanese; code, identifiers, library names, and API names stay in English.
+- Output language follows the CLI global config (`settings.json` `language` field, `CLAUDE.md`, `AGENTS.md`, or `GEMINI.md`); code, identifiers, library names, and API names stay in English.
 
 ## Boundaries
 
@@ -86,7 +86,7 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 - Make section 8 dense enough for a coding agent to start immediately.
 - Cite real libraries and keep tooling current (uv, Bun, Tauri, Astro, Hono, etc.).
 - Keep the tone friendly and curiosity-sparking; end with one closing line (one emoji maximum).
-- Output in Japanese; keep code, identifiers, and API names in English.
+- Output language follows the CLI global config (`settings.json` `language` field, `CLAUDE.md`, `AGENTS.md`, or `GEMINI.md`); keep code, identifiers, and API names in English.
 
 ### Ask First
 

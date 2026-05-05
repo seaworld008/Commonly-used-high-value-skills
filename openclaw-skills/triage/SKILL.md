@@ -1,14 +1,14 @@
 ---
 name: triage
-description: '事故首响、影响范围识别、恢复步骤和复盘整理。'
-version: "1.0.0"
+description: 'Incident first response, impact scope identification, recovery procedure formulation, and postmortem creation. Use when incident response or disaster recovery is needed. Does not write code (delegates fixes to Builder).'
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/triage"
 license: MIT
 tags: '["devops", "sre", "triage"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-25"
+updated_at: "2026-05-05"
 quality: 5
 complexity: "advanced"
 ---
@@ -232,6 +232,7 @@ Behavior notes per Recipe:
 - Actions Taken
 - Pending
 - Communication checklist
+- Optionally emit `Infographic_Payload` per `_common/INFOGRAPHIC.md` (recommended: layout=timeline, style_pack=warning-alert) for a visual incident timeline.
 
 ## Output Routing
 

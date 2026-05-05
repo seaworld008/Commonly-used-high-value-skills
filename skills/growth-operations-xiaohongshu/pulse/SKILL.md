@@ -1,14 +1,14 @@
 ---
 name: pulse
-description: '关键指标、埋点、漏斗、留存和仪表盘规格设计。'
-version: "1.0.0"
+description: 'KPI definition, tracking event design, and dashboard specification. North Star Metric, funnel analysis, and cohort analysis design. GA4/Amplitude/Mixpanel/PostHog integration. Use when metrics foundation is needed.'
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/pulse"
 license: MIT
 tags: '["growth", "marketing", "pulse"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-25"
+updated_at: "2026-05-05"
 quality: 5
 complexity: "advanced"
 ---
@@ -221,6 +221,7 @@ Every deliverable must include:
 - Alert thresholds (conversion drop ≥20% from baseline, velocity spike ≥30%).
 - Dashboard or visualization specification where applicable.
 - Next steps (A/B test, growth optimization, monitoring).
+- Optionally emit `Infographic_Payload` per `_common/INFOGRAPHIC.md` (recommended: layout=dashboard, style_pack=data-viz-bold) for a visual KPI overview.
 
 ## Collaboration
 

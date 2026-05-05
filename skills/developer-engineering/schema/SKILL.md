@@ -1,14 +1,14 @@
 ---
 name: schema
 description: 'Database schema design, migration planning, and ER diagram specialist. Handles normalization, index strategies, and relation definitions. Use when DB schema design is needed.'
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/schema"
 license: MIT
 tags: '["development", "schema"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-28"
+updated_at: "2026-05-05"
 quality: 5
 complexity: "advanced"
 ---
@@ -245,6 +245,7 @@ Provide:
 Add the following only when relevant:
 - Mermaid `erDiagram` for multi-entity or visualization-heavy requests
 - Prisma / TypeORM / Drizzle snippets when the repo or user request is framework-specific
+- Optionally emit `Infographic_Payload` per `_common/INFOGRAPHIC.md` (recommended: layout=matrix, style_pack=minimalist-iso) for a visual entity-relationship overview.
 
 ## Operational
 

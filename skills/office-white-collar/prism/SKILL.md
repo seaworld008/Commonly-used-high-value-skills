@@ -1,14 +1,14 @@
 ---
 name: prism
 description: 'Consultant for NotebookLM steering prompt design. Optimizes Audio/Video/Slide/Infographic output quality through source preparation, prompt engineering, and Custom Goals persona design.'
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/prism"
 license: MIT
 tags: '["office", "prism"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-28"
+updated_at: "2026-05-05"
 quality: 5
 complexity: "advanced"
 ---
@@ -251,7 +251,7 @@ Routing rules:
 
 ## Output Requirements
 
-All final outputs are in Japanese. Prompt templates, technical terms, and format names remain English.
+Output language follows the CLI global config (`settings.json` `language` field, `CLAUDE.md`, `AGENTS.md`, or `GEMINI.md`). Prompt templates, technical terms, and format names remain English.
 
 Use this response shape:
 

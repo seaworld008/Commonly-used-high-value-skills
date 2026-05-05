@@ -1,12 +1,12 @@
 # Tags Index
 
-> Auto-generated from 873 skill-tag mappings across 392 tags.
+> Auto-generated from 884 skill-tag mappings across 395 tags.
 > Last updated: see git log.
 
 ## Quick Navigation
 
 - [`workflow`](#workflow) (58)
-- [`development`](#development) (42)
+- [`development`](#development) (44)
 - [`agent`](#agent) (35)
 - [`ai`](#ai) (35)
 - [`engineering`](#engineering) (22)
@@ -20,7 +20,7 @@
 - [`product`](#product) (13)
 - [`sre`](#sre) (13)
 - [`automation`](#automation) (12)
-- [`security`](#security) (10)
+- [`security`](#security) (11)
 - [`deployment`](#deployment) (7)
 - [`designer`](#designer) (7)
 - [`builder`](#builder) (6)
@@ -34,6 +34,7 @@
 - [`skill`](#skill) (5)
 - [`api`](#api) (4)
 - [`architect`](#architect) (4)
+- [`best`](#best) (4)
 - [`deploy`](#deploy) (4)
 - [`generator`](#generator) (4)
 - [`gsd`](#gsd) (4)
@@ -59,7 +60,6 @@
 - [`analyzer`](#analyzer) (2)
 - [`app`](#app) (2)
 - [`auditor`](#auditor) (2)
-- [`best`](#best) (2)
 - [`brownfield`](#brownfield) (2)
 - [`capture`](#capture) (2)
 - [`checker`](#checker) (2)
@@ -84,6 +84,7 @@
 - [`pdf`](#pdf) (2)
 - [`performance`](#performance) (2)
 - [`plans`](#plans) (2)
+- [`postgres`](#postgres) (2)
 - [`ppt`](#ppt) (2)
 - [`practices`](#practices) (2)
 - [`prompt`](#prompt) (2)
@@ -95,8 +96,10 @@
 - [`search`](#search) (2)
 - [`senior`](#senior) (2)
 - [`strategy`](#strategy) (2)
+- [`supabase`](#supabase) (2)
 - [`toolkit`](#toolkit) (2)
 - [`tracker`](#tracker) (2)
+- [`vercel`](#vercel) (2)
 - [`worktree`](#worktree) (2)
 - [`academic`](#academic) (1)
 - [`acquisition`](#acquisition) (1)
@@ -114,11 +117,13 @@
 - [`arxiv`](#arxiv) (1)
 - [`audio`](#audio) (1)
 - [`audit`](#audit) (1)
+- [`auth`](#auth) (1)
 - [`authoring`](#authoring) (1)
 - [`auto-continue`](#auto-continue) (1)
 - [`aws`](#aws) (1)
 - [`backtester`](#backtester) (1)
 - [`beacon`](#beacon) (1)
+- [`better`](#better) (1)
 - [`brainstorming`](#brainstorming) (1)
 - [`brand`](#brand) (1)
 - [`breach`](#breach) (1)
@@ -278,7 +283,6 @@
 - [`pmm`](#pmm) (1)
 - [`portfolio`](#portfolio) (1)
 - [`post`](#post) (1)
-- [`postgres`](#postgres) (1)
 - [`pptx`](#pptx) (1)
 - [`presentation`](#presentation) (1)
 - [`prism`](#prism) (1)
@@ -296,6 +300,7 @@
 - [`rag`](#rag) (1)
 - [`rag-alternative`](#rag-alternative) (1)
 - [`rally`](#rally) (1)
+- [`react`](#react) (1)
 - [`reader`](#reader) (1)
 - [`reflect`](#reflect) (1)
 - [`regime`](#regime) (1)
@@ -352,7 +357,6 @@
 - [`subagent`](#subagent) (1)
 - [`suite`](#suite) (1)
 - [`summarize`](#summarize) (1)
-- [`supabase`](#supabase) (1)
 - [`supermemory`](#supermemory) (1)
 - [`systematic`](#systematic) (1)
 - [`tailwind`](#tailwind) (1)
@@ -381,7 +385,6 @@
 - [`user-modeling`](#user-modeling) (1)
 - [`using-agent-skills`](#using-agent-skills) (1)
 - [`valuation`](#valuation) (1)
-- [`vercel`](#vercel) (1)
 - [`verification`](#verification) (1)
 - [`vetter`](#vetter) (1)
 - [`video`](#video) (1)
@@ -467,14 +470,14 @@
 
 ## development
 
-**42 skills**
+**44 skills**
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [agent-designer](skills/developer-engineering/agent-designer) | developer-engineering | ★★★★★ | Tags: AI agents, architecture, system design, orchestration, multi-agent systems |
 | [api-design-reviewer](skills/developer-engineering/api-design-reviewer) | developer-engineering | ★★★★★ | Maintainer: Claude Skills Team. |
 | [api-test-suite-builder](skills/developer-engineering/api-test-suite-builder) | developer-engineering | ★★★★★ | Scans API route definitions across frameworks (Next.js App Router, Express, Fast |
-| [builder](skills/developer-engineering/builder) | developer-engineering | ★★★★★ | 生产级业务逻辑、接口集成和类型安全实现。 |
+| [builder](skills/developer-engineering/builder) | developer-engineering | ★★★★★ | Disciplined coding craftsman that builds robust business logic, API integrations |
 | [cli-demo-generator](skills/developer-engineering/cli-demo-generator) | developer-engineering | ★★★★★ | This skill should be used when users want to create animated CLI demos, terminal |
 | [codebase-onboarding](skills/developer-engineering/codebase-onboarding) | developer-engineering | ★★★★★ | Analyze a codebase and generate comprehensive onboarding documentation tailored  |
 | [database-designer](skills/developer-engineering/database-designer) | developer-engineering | ★★★★★ | A comprehensive database design skill that provides expert-level analysis, optim |
@@ -509,7 +512,9 @@
 | [tailwind-design-system](skills/developer-engineering/tailwind-design-system) | developer-engineering | ★★★★☆ | 用于 Tailwind CSS 设计系统搭建、组件库开发与主题定制。来源：skills.sh 24.7K installs。 |
 | [terraform-engineer](skills/developer-engineering/terraform-engineer) | developer-engineering | ★★★★☆ | 用于 Terraform 基础设施即代码（IaC）设计、模块化管理和状态管理。来源：HashiCorp 官方 + skills.sh。 |
 | [typescript-best-practices](skills/developer-engineering/typescript-best-practices) | developer-engineering | ★★★★☆ | 用于 TypeScript 高级类型编程、类型安全设计和常见反模式避免。仓库整理版，吸收社区高频最佳实践。 |
+| [vercel-react-best-practices](skills/developer-engineering/vercel-react-best-practices) | developer-engineering | ★★★★☆ | React and Next.js performance optimization guidelines from Vercel Engineering. T |
 | [subagent-driven-development](skills/ai-workflow/subagent-driven-development) | ai-workflow | ★★★☆☆ | Use when executing implementation plans with independent tasks in the current se |
+| [supabase-postgres-best-practices](skills/developer-engineering/supabase-postgres-best-practices) | developer-engineering | ★★★☆☆ | Postgres performance optimization and best practices from Supabase. Use this ski |
 | [web-artifacts-builder](skills/developer-engineering/web-artifacts-builder) | developer-engineering | ★★★☆☆ | Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts  |
 | [webapp-testing](skills/developer-engineering/webapp-testing) | developer-engineering | ★★★☆☆ | Toolkit for interacting with and testing local web applications using Playwright |
 | [frontend-design](skills/developer-engineering/frontend-design) | developer-engineering | ★★☆☆☆ | Create distinctive, production-grade frontend interfaces with high design qualit |
@@ -524,7 +529,7 @@
 | [chatgpt-apps](skills/ai-agent-platform/chatgpt-apps) | ai-agent-platform | ★★★★★ | Build, scaffold, refactor, and troubleshoot ChatGPT Apps SDK applications that c |
 | [figma-implement-design](skills/ai-agent-platform/figma-implement-design) | ai-agent-platform | ★★★★★ | Translate Figma nodes into production-ready code with 1:1 visual fidelity using  |
 | [oracle](skills/ai-agent-platform/oracle) | ai-agent-platform | ★★★★★ | 人工智能应用设计、评估、检索增强和安全护栏规划。 |
-| [sigil](skills/ai-agent-platform/sigil) | ai-agent-platform | ★★★★★ | 根据项目代码自动生成贴合仓库约定的技能。 |
+| [sigil](skills/ai-agent-platform/sigil) | ai-agent-platform | ★★★★★ | Meta-tooling agent that analyzes project codebases, tech stacks, and conventions |
 | [agent-workflow-designer](skills/ai-workflow/agent-workflow-designer) | ai-workflow | ★★★★★ | Design production-grade multi-agent orchestration systems. Covers five core patt |
 | [api-and-interface-design](skills/ai-workflow/api-and-interface-design) | ai-workflow | ★★★★★ | Guides stable API and interface design. Use when designing APIs, module boundari |
 | [browser-testing-with-devtools](skills/ai-workflow/browser-testing-with-devtools) | ai-workflow | ★★★★★ | Tests in real browsers. Use when building or debugging anything that runs in a b |
@@ -566,7 +571,7 @@
 | [chatgpt-apps](skills/ai-agent-platform/chatgpt-apps) | ai-agent-platform | ★★★★★ | Build, scaffold, refactor, and troubleshoot ChatGPT Apps SDK applications that c |
 | [figma-implement-design](skills/ai-agent-platform/figma-implement-design) | ai-agent-platform | ★★★★★ | Translate Figma nodes into production-ready code with 1:1 visual fidelity using  |
 | [oracle](skills/ai-agent-platform/oracle) | ai-agent-platform | ★★★★★ | 人工智能应用设计、评估、检索增强和安全护栏规划。 |
-| [sigil](skills/ai-agent-platform/sigil) | ai-agent-platform | ★★★★★ | 根据项目代码自动生成贴合仓库约定的技能。 |
+| [sigil](skills/ai-agent-platform/sigil) | ai-agent-platform | ★★★★★ | Meta-tooling agent that analyzes project codebases, tech stacks, and conventions |
 | [api-and-interface-design](skills/ai-workflow/api-and-interface-design) | ai-workflow | ★★★★★ | Guides stable API and interface design. Use when designing APIs, module boundari |
 | [browser-testing-with-devtools](skills/ai-workflow/browser-testing-with-devtools) | ai-workflow | ★★★★★ | Tests in real browsers. Use when building or debugging anything that runs in a b |
 | [ci-cd-and-automation](skills/ai-workflow/ci-cd-and-automation) | ai-workflow | ★★★★★ | Automates CI/CD pipeline setup. Use when setting up or modifying build and deplo |
@@ -665,12 +670,12 @@
 | [product-analysis](skills/product-design/product-analysis) | product-design | ★★★★★ | Multi-path parallel product analysis with cross-model test-time compute scaling. |
 | [product-manager-toolkit](skills/product-design/product-manager-toolkit) | product-design | ★★★★★ | Comprehensive toolkit for product managers including RICE prioritization, custom |
 | [product-strategist](skills/product-design/product-strategist) | product-design | ★★★★★ | Strategic product leadership toolkit for Head of Product including OKR cascade g |
-| [researcher](skills/product-design/researcher) | product-design | ★★★★★ | 用户访谈、可用性测试、画像和旅程地图研究。 |
+| [researcher](skills/product-design/researcher) | product-design | ★★★★★ | User research specialist. Designs interview guides, usability test plans, qualit |
 | [saas-scaffolder](skills/product-design/saas-scaffolder) | product-design | ★★★★★ | Generate complete, production-ready SaaS projects from a product brief. Outputs  |
 | [trace](skills/product-design/trace) | product-design | ★★★★★ | 会话回放分析、行为模式提取和体验问题叙事。 |
 | [ui-design-system](skills/product-design/ui-design-system) | product-design | ★★★★★ | UI design system toolkit for Senior UI Designer including design token generatio |
 | [ux-researcher-designer](skills/product-design/ux-researcher-designer) | product-design | ★★★★★ | UX research and design toolkit for Senior UX Designer/Researcher including data- |
-| [voice](skills/product-design/voice) | product-design | ★★★★★ | 用户反馈收集、满意度调研、评论分析和洞察提炼。 |
+| [voice](skills/product-design/voice) | product-design | ★★★★★ | User feedback collection, NPS survey design, review analysis, sentiment analysis |
 | [tailwind-design-system](skills/developer-engineering/tailwind-design-system) | developer-engineering | ★★★★☆ | 用于 Tailwind CSS 设计系统搭建、组件库开发与主题定制。来源：skills.sh 24.7K installs。 |
 | [canvas-design](skills/product-design/canvas-design) | product-design | ★★★★☆ | Create beautiful visual art in .png and .pdf documents using design philosophy.  |
 | [landing-page-generator](skills/product-design/landing-page-generator) | product-design | ★★★★☆ | Generates high-converting landing pages as complete Next.js/React (TSX) componen |
@@ -682,7 +687,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [helm](skills/finance-investing/helm) | finance-investing | ★★★★★ | 商业战略场景模拟、市场分析、指标预测和路线图规划。 |
+| [helm](skills/finance-investing/helm) | finance-investing | ★★★★★ | Business strategy simulation agent specializing in short/mid/long-term scenario  |
 | [ledger](skills/finance-investing/ledger) | finance-investing | ★★★★★ | FinOps and cloud cost optimization agent. Cost estimation from IaC, right-sizing |
 | [levy](skills/finance-investing/levy) | finance-investing | ★★★★★ | Domain knowledge agent for Japanese income tax filing (kakutei shinkoku). Guides |
 | [financial-analyst](skills/finance-investing/financial-analyst) | finance-investing | ★★★★☆ | Performs financial ratio analysis, DCF valuation, budget variance analysis, and  |
@@ -730,14 +735,14 @@
 | [algorithmic-art](skills/growth-operations-xiaohongshu/algorithmic-art) | growth-operations-xiaohongshu | ★★★★★ | Creating algorithmic art using p5.js with seeded randomness and interactive para |
 | [app-store-optimization](skills/growth-operations-xiaohongshu/app-store-optimization) | growth-operations-xiaohongshu | ★★★★★ | App Store Optimization toolkit for researching keywords, optimizing metadata, an |
 | [campaign-analytics](skills/growth-operations-xiaohongshu/campaign-analytics) | growth-operations-xiaohongshu | ★★★★★ | Analyzes campaign performance with multi-touch attribution, funnel conversion, a |
-| [compete](skills/growth-operations-xiaohongshu/compete) | growth-operations-xiaohongshu | ★★★★★ | 竞品研究、差异化定位、矩阵对比和竞争战卡。 |
+| [compete](skills/growth-operations-xiaohongshu/compete) | growth-operations-xiaohongshu | ★★★★★ | Competitive research, differentiation analysis, and strategic positioning. Featu |
 | [competitors-analysis](skills/growth-operations-xiaohongshu/competitors-analysis) | growth-operations-xiaohongshu | ★★★★★ | Analyze competitor repositories with evidence-based approach. Use when tracking  |
 | [content-creator](skills/growth-operations-xiaohongshu/content-creator) | growth-operations-xiaohongshu | ★★★★★ | Create SEO-optimized marketing content with consistent brand voice. Includes bra |
 | [growth](skills/growth-operations-xiaohongshu/growth) | growth-operations-xiaohongshu | ★★★★★ | SEO (meta/OGP/JSON-LD/heading hierarchy), SMO (social sharing), CRO (CTA/form/ex |
 | [marketing-demand-acquisition](skills/growth-operations-xiaohongshu/marketing-demand-acquisition) | growth-operations-xiaohongshu | ★★★★★ | Multi-channel demand generation, paid media optimization, SEO strategy, and part |
 | [marketing-strategy-pmm](skills/growth-operations-xiaohongshu/marketing-strategy-pmm) | growth-operations-xiaohongshu | ★★★★★ | Product marketing skill for positioning, GTM strategy, competitive intelligence, |
 | [prompt-engineer-toolkit](skills/growth-operations-xiaohongshu/prompt-engineer-toolkit) | growth-operations-xiaohongshu | ★★★★★ | Systematic prompt engineering from first principles. Build, test, version, and o |
-| [pulse](skills/growth-operations-xiaohongshu/pulse) | growth-operations-xiaohongshu | ★★★★★ | 关键指标、埋点、漏斗、留存和仪表盘规格设计。 |
+| [pulse](skills/growth-operations-xiaohongshu/pulse) | growth-operations-xiaohongshu | ★★★★★ | KPI definition, tracking event design, and dashboard specification. North Star M |
 | [social-media-analyzer](skills/growth-operations-xiaohongshu/social-media-analyzer) | growth-operations-xiaohongshu | ★★★★★ | Social media campaign analysis and performance tracking. Calculates engagement r |
 | [seo-audit](skills/growth-operations-xiaohongshu/seo-audit) | growth-operations-xiaohongshu | ★★★★☆ | 用于网站 SEO 全面审计、On-page 优化建议和技术 SEO 检查清单生成。仓库整理版，吸收社区高频最佳实践。 |
 | [twitter-reader](skills/growth-operations-xiaohongshu/twitter-reader) | growth-operations-xiaohongshu | ★★★☆☆ | Fetch Twitter/X post content by URL using jina.ai API to bypass JavaScript restr |
@@ -751,14 +756,14 @@
 | [algorithmic-art](skills/growth-operations-xiaohongshu/algorithmic-art) | growth-operations-xiaohongshu | ★★★★★ | Creating algorithmic art using p5.js with seeded randomness and interactive para |
 | [app-store-optimization](skills/growth-operations-xiaohongshu/app-store-optimization) | growth-operations-xiaohongshu | ★★★★★ | App Store Optimization toolkit for researching keywords, optimizing metadata, an |
 | [campaign-analytics](skills/growth-operations-xiaohongshu/campaign-analytics) | growth-operations-xiaohongshu | ★★★★★ | Analyzes campaign performance with multi-touch attribution, funnel conversion, a |
-| [compete](skills/growth-operations-xiaohongshu/compete) | growth-operations-xiaohongshu | ★★★★★ | 竞品研究、差异化定位、矩阵对比和竞争战卡。 |
+| [compete](skills/growth-operations-xiaohongshu/compete) | growth-operations-xiaohongshu | ★★★★★ | Competitive research, differentiation analysis, and strategic positioning. Featu |
 | [competitors-analysis](skills/growth-operations-xiaohongshu/competitors-analysis) | growth-operations-xiaohongshu | ★★★★★ | Analyze competitor repositories with evidence-based approach. Use when tracking  |
 | [content-creator](skills/growth-operations-xiaohongshu/content-creator) | growth-operations-xiaohongshu | ★★★★★ | Create SEO-optimized marketing content with consistent brand voice. Includes bra |
 | [growth](skills/growth-operations-xiaohongshu/growth) | growth-operations-xiaohongshu | ★★★★★ | SEO (meta/OGP/JSON-LD/heading hierarchy), SMO (social sharing), CRO (CTA/form/ex |
 | [marketing-demand-acquisition](skills/growth-operations-xiaohongshu/marketing-demand-acquisition) | growth-operations-xiaohongshu | ★★★★★ | Multi-channel demand generation, paid media optimization, SEO strategy, and part |
 | [marketing-strategy-pmm](skills/growth-operations-xiaohongshu/marketing-strategy-pmm) | growth-operations-xiaohongshu | ★★★★★ | Product marketing skill for positioning, GTM strategy, competitive intelligence, |
 | [prompt-engineer-toolkit](skills/growth-operations-xiaohongshu/prompt-engineer-toolkit) | growth-operations-xiaohongshu | ★★★★★ | Systematic prompt engineering from first principles. Build, test, version, and o |
-| [pulse](skills/growth-operations-xiaohongshu/pulse) | growth-operations-xiaohongshu | ★★★★★ | 关键指标、埋点、漏斗、留存和仪表盘规格设计。 |
+| [pulse](skills/growth-operations-xiaohongshu/pulse) | growth-operations-xiaohongshu | ★★★★★ | KPI definition, tracking event design, and dashboard specification. North Star M |
 | [social-media-analyzer](skills/growth-operations-xiaohongshu/social-media-analyzer) | growth-operations-xiaohongshu | ★★★★★ | Social media campaign analysis and performance tracking. Calculates engagement r |
 | [seo-audit](skills/growth-operations-xiaohongshu/seo-audit) | growth-operations-xiaohongshu | ★★★★☆ | 用于网站 SEO 全面审计、On-page 优化建议和技术 SEO 检查清单生成。仓库整理版，吸收社区高频最佳实践。 |
 | [twitter-reader](skills/growth-operations-xiaohongshu/twitter-reader) | growth-operations-xiaohongshu | ★★★☆☆ | Fetch Twitter/X post content by URL using jina.ai API to bypass JavaScript restr |
@@ -769,7 +774,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [beacon](skills/devops-sre/beacon) | devops-sre | ★★★★★ | 可观测性、服务目标、告警、容量和可靠性设计。 |
+| [beacon](skills/devops-sre/beacon) | devops-sre | ★★★★★ | Observability and reliability engineering specialist. Covers SLO/SLI design, dis |
 | [changelog-generator](skills/devops-sre/changelog-generator) | devops-sre | ★★★★★ | Parse conventional commits, determine semantic version bumps, and generate struc |
 | [ci-cd-pipeline-builder](skills/devops-sre/ci-cd-pipeline-builder) | devops-sre | ★★★★★ | Analyzes your project stack and generates production-ready CI/CD pipeline config |
 | [cloudflare-troubleshooting](skills/devops-sre/cloudflare-troubleshooting) | devops-sre | ★★★★★ | Investigate and resolve Cloudflare configuration issues using API-driven evidenc |
@@ -780,7 +785,7 @@
 | [observability-designer](skills/devops-sre/observability-designer) | devops-sre | ★★★★★ | Description: Design comprehensive observability strategies for production system |
 | [release-manager](skills/devops-sre/release-manager) | devops-sre | ★★★★★ | The Release Manager skill provides comprehensive tools and knowledge for managin |
 | [senior-devops](skills/devops-sre/senior-devops) | devops-sre | ★★★★★ | Comprehensive DevOps skill for CI/CD, infrastructure automation, containerizatio |
-| [triage](skills/devops-sre/triage) | devops-sre | ★★★★★ | 事故首响、影响范围识别、恢复步骤和复盘整理。 |
+| [triage](skills/devops-sre/triage) | devops-sre | ★★★★★ | Incident first response, impact scope identification, recovery procedure formula |
 | [senior-architect](skills/devops-sre/senior-architect) | devops-sre | ★★★★☆ | This skill should be used when the user asks to \"design system architecture\",  |
 
 ## product
@@ -794,12 +799,12 @@
 | [product-analysis](skills/product-design/product-analysis) | product-design | ★★★★★ | Multi-path parallel product analysis with cross-model test-time compute scaling. |
 | [product-manager-toolkit](skills/product-design/product-manager-toolkit) | product-design | ★★★★★ | Comprehensive toolkit for product managers including RICE prioritization, custom |
 | [product-strategist](skills/product-design/product-strategist) | product-design | ★★★★★ | Strategic product leadership toolkit for Head of Product including OKR cascade g |
-| [researcher](skills/product-design/researcher) | product-design | ★★★★★ | 用户访谈、可用性测试、画像和旅程地图研究。 |
+| [researcher](skills/product-design/researcher) | product-design | ★★★★★ | User research specialist. Designs interview guides, usability test plans, qualit |
 | [saas-scaffolder](skills/product-design/saas-scaffolder) | product-design | ★★★★★ | Generate complete, production-ready SaaS projects from a product brief. Outputs  |
 | [trace](skills/product-design/trace) | product-design | ★★★★★ | 会话回放分析、行为模式提取和体验问题叙事。 |
 | [ui-design-system](skills/product-design/ui-design-system) | product-design | ★★★★★ | UI design system toolkit for Senior UI Designer including design token generatio |
 | [ux-researcher-designer](skills/product-design/ux-researcher-designer) | product-design | ★★★★★ | UX research and design toolkit for Senior UX Designer/Researcher including data- |
-| [voice](skills/product-design/voice) | product-design | ★★★★★ | 用户反馈收集、满意度调研、评论分析和洞察提炼。 |
+| [voice](skills/product-design/voice) | product-design | ★★★★★ | User feedback collection, NPS survey design, review analysis, sentiment analysis |
 | [canvas-design](skills/product-design/canvas-design) | product-design | ★★★★☆ | Create beautiful visual art in .png and .pdf documents using design philosophy.  |
 | [landing-page-generator](skills/product-design/landing-page-generator) | product-design | ★★★★☆ | Generates high-converting landing pages as complete Next.js/React (TSX) componen |
 
@@ -809,7 +814,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [beacon](skills/devops-sre/beacon) | devops-sre | ★★★★★ | 可观测性、服务目标、告警、容量和可靠性设计。 |
+| [beacon](skills/devops-sre/beacon) | devops-sre | ★★★★★ | Observability and reliability engineering specialist. Covers SLO/SLI design, dis |
 | [changelog-generator](skills/devops-sre/changelog-generator) | devops-sre | ★★★★★ | Parse conventional commits, determine semantic version bumps, and generate struc |
 | [ci-cd-pipeline-builder](skills/devops-sre/ci-cd-pipeline-builder) | devops-sre | ★★★★★ | Analyzes your project stack and generates production-ready CI/CD pipeline config |
 | [cloudflare-troubleshooting](skills/devops-sre/cloudflare-troubleshooting) | devops-sre | ★★★★★ | Investigate and resolve Cloudflare configuration issues using API-driven evidenc |
@@ -820,7 +825,7 @@
 | [observability-designer](skills/devops-sre/observability-designer) | devops-sre | ★★★★★ | Description: Design comprehensive observability strategies for production system |
 | [release-manager](skills/devops-sre/release-manager) | devops-sre | ★★★★★ | The Release Manager skill provides comprehensive tools and knowledge for managin |
 | [senior-devops](skills/devops-sre/senior-devops) | devops-sre | ★★★★★ | Comprehensive DevOps skill for CI/CD, infrastructure automation, containerizatio |
-| [triage](skills/devops-sre/triage) | devops-sre | ★★★★★ | 事故首响、影响范围识别、恢复步骤和复盘整理。 |
+| [triage](skills/devops-sre/triage) | devops-sre | ★★★★★ | Incident first response, impact scope identification, recovery procedure formula |
 | [senior-architect](skills/devops-sre/senior-architect) | devops-sre | ★★★★☆ | This skill should be used when the user asks to \"design system architecture\",  |
 
 ## automation
@@ -844,13 +849,14 @@
 
 ## security
 
-**10 skills**
+**11 skills**
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [breach](skills/security-and-reliability/breach) | security-and-reliability | ★★★★★ | 红队场景、攻击路径、威胁建模和对抗演练设计。 |
+| [better-auth-security-best-practices](skills/security-and-reliability/better-auth-security-best-practices) | security-and-reliability | ★★★★★ | Configure rate limiting, manage auth secrets, set up CSRF protection, define tru |
+| [breach](skills/security-and-reliability/breach) | security-and-reliability | ★★★★★ | Red team engineering agent. Designs attack scenarios, builds threat models, appl |
 | [cloak](skills/security-and-reliability/cloak) | security-and-reliability | ★★★★★ | Privacy engineering and data governance agent. PII detection, data flow mapping, |
-| [comply](skills/security-and-reliability/comply) | security-and-reliability | ★★★★★ | 合规控制映射、审计轨迹和政策即代码实现。 |
+| [comply](skills/security-and-reliability/comply) | security-and-reliability | ★★★★★ | Regulatory compliance and audit agent. Maps business regulatory requirements (SO |
 | [security-ownership-map](skills/security-and-reliability/security-ownership-map) | security-and-reliability | ★★★★★ | Analyze git repositories to build a security ownership topology (people-to-file) |
 | [sentry](skills/security-and-reliability/sentry) | security-and-reliability | ★★★★☆ | Use when the user asks to inspect Sentry issues or events, summarize recent prod |
 | [skill-security-auditor](skills/security-and-reliability/skill-security-auditor) | security-and-reliability | ★★★★☆ | Audit AI agent skills for security risks before installation, with PASS/WARN/FAI |
@@ -893,7 +899,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [builder](skills/developer-engineering/builder) | developer-engineering | ★★★★★ | 生产级业务逻辑、接口集成和类型安全实现。 |
+| [builder](skills/developer-engineering/builder) | developer-engineering | ★★★★★ | Disciplined coding craftsman that builds robust business logic, API integrations |
 | [mcp-builder](skills/developer-engineering/mcp-builder) | developer-engineering | ★★★★★ | Guide for creating high-quality MCP (Model Context Protocol) servers that enable |
 | [mcp-server-builder](skills/developer-engineering/mcp-server-builder) | developer-engineering | ★★★★★ | Design and implement Model Context Protocol (MCP) servers that expose any REST A |
 | [ci-cd-pipeline-builder](skills/devops-sre/ci-cd-pipeline-builder) | devops-sre | ★★★★★ | Analyzes your project stack and generates production-ready CI/CD pipeline config |
@@ -1018,6 +1024,17 @@
 | [aws-solution-architect](skills/developer-engineering/aws-solution-architect) | developer-engineering | ★★★★☆ | 用于 AWS 云架构设计、服务选型、成本优化与 Well-Architected Framework 评估。来源：alirezarezvani/claude-s |
 | [senior-architect](skills/devops-sre/senior-architect) | devops-sre | ★★★★☆ | This skill should be used when the user asks to \"design system architecture\",  |
 
+## best
+
+**4 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [typescript-best-practices](skills/developer-engineering/typescript-best-practices) | developer-engineering | ★★★★☆ | 用于 TypeScript 高级类型编程、类型安全设计和常见反模式避免。仓库整理版，吸收社区高频最佳实践。 |
+| [vercel-react-best-practices](skills/developer-engineering/vercel-react-best-practices) | developer-engineering | ★★★★☆ | React and Next.js performance optimization guidelines from Vercel Engineering. T |
+| [supabase-postgres-best-practices](skills/developer-engineering/supabase-postgres-best-practices) | developer-engineering | ★★★☆☆ | Postgres performance optimization and best practices from Supabase. Use this ski |
+| [security-best-practices](skills/security-and-reliability/security-best-practices) | security-and-reliability | ★★★☆☆ | Perform language and framework specific security best-practice reviews and sugge |
+
 ## deploy
 
 **4 skills**
@@ -1091,7 +1108,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [cast](skills/openclaw-memory-and-safety/cast) | openclaw-memory-and-safety | ★★★★★ | Persona casting agent for rapid generation, persistence, lifecycle management, a |
-| [omen](skills/openclaw-memory-and-safety/omen) | openclaw-memory-and-safety | ★★★★★ | 预演失败模式，识别计划风险并给出优先级。 |
+| [omen](skills/openclaw-memory-and-safety/omen) | openclaw-memory-and-safety | ★★★★★ | Pre-mortem analysis and failure mode enumeration agent. Systematically identifie |
 | [warden](skills/openclaw-memory-and-safety/warden) | openclaw-memory-and-safety | ★★★★★ | 发布前质量标准评估、评分卡和通过失败判定。 |
 | [honcho](skills/openclaw-memory-and-safety/honcho) | openclaw-memory-and-safety | ★★★★☆ | Configure and use Honcho memory with Hermes -- cross-session user modeling, mult |
 
@@ -1215,7 +1232,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [cast](skills/openclaw-memory-and-safety/cast) | openclaw-memory-and-safety | ★★★★★ | Persona casting agent for rapid generation, persistence, lifecycle management, a |
-| [omen](skills/openclaw-memory-and-safety/omen) | openclaw-memory-and-safety | ★★★★★ | 预演失败模式，识别计划风险并给出优先级。 |
+| [omen](skills/openclaw-memory-and-safety/omen) | openclaw-memory-and-safety | ★★★★★ | Pre-mortem analysis and failure mode enumeration agent. Systematically identifie |
 | [warden](skills/openclaw-memory-and-safety/warden) | openclaw-memory-and-safety | ★★★★★ | 发布前质量标准评估、评分卡和通过失败判定。 |
 
 ## system
@@ -1273,15 +1290,6 @@
 |-------|----------|---------|-------------|
 | [dependency-auditor](skills/developer-engineering/dependency-auditor) | developer-engineering | ★★★★★ | > Skill Type: POWERFUL > Category: Engineering > Domain: Dependency Management & |
 | [skill-security-auditor](skills/security-and-reliability/skill-security-auditor) | security-and-reliability | ★★★★☆ | Audit AI agent skills for security risks before installation, with PASS/WARN/FAI |
-
-## best
-
-**2 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [typescript-best-practices](skills/developer-engineering/typescript-best-practices) | developer-engineering | ★★★★☆ | 用于 TypeScript 高级类型编程、类型安全设计和常见反模式避免。仓库整理版，吸收社区高频最佳实践。 |
-| [security-best-practices](skills/security-and-reliability/security-best-practices) | security-and-reliability | ★★★☆☆ | Perform language and framework specific security best-practice reviews and sugge |
 
 ## brownfield
 
@@ -1499,6 +1507,15 @@
 | [writing-plans](skills/ai-workflow/writing-plans) | ai-workflow | ★★★★☆ | Use when you have a spec or requirements for a multi-step task, before touching  |
 | [executing-plans](skills/ai-workflow/executing-plans) | ai-workflow | ★★★☆☆ | Use when you have a written implementation plan to execute in a separate session |
 
+## postgres
+
+**2 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [supabase-postgres](skills/developer-engineering/supabase-postgres) | developer-engineering | ★★★★☆ | 用于 Supabase 平台开发与 PostgreSQL 最佳实践，包含 RLS、Edge Functions 和实时订阅。来源：supabase 官方 52. |
+| [supabase-postgres-best-practices](skills/developer-engineering/supabase-postgres-best-practices) | developer-engineering | ★★★☆☆ | Postgres performance optimization and best practices from Supabase. Use this ski |
+
 ## ppt
 
 **2 skills**
@@ -1541,7 +1558,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [researcher](skills/product-design/researcher) | product-design | ★★★★★ | 用户访谈、可用性测试、画像和旅程地图研究。 |
+| [researcher](skills/product-design/researcher) | product-design | ★★★★★ | User research specialist. Designs interview guides, usability test plans, qualit |
 | [ux-researcher-designer](skills/product-design/ux-researcher-designer) | product-design | ★★★★★ | UX research and design toolkit for Senior UX Designer/Researcher including data- |
 
 ## root-cause-analysis
@@ -1598,6 +1615,15 @@
 | [marketing-strategy-pmm](skills/growth-operations-xiaohongshu/marketing-strategy-pmm) | growth-operations-xiaohongshu | ★★★★★ | Product marketing skill for positioning, GTM strategy, competitive intelligence, |
 | [options-strategy-evaluator](skills/finance-investing/options-strategy-evaluator) | finance-investing | ★★☆☆☆ | Use when evaluating an options structure, checking expiry payoff checkpoints, co |
 
+## supabase
+
+**2 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [supabase-postgres](skills/developer-engineering/supabase-postgres) | developer-engineering | ★★★★☆ | 用于 Supabase 平台开发与 PostgreSQL 最佳实践，包含 RLS、Edge Functions 和实时订阅。来源：supabase 官方 52. |
+| [supabase-postgres-best-practices](skills/developer-engineering/supabase-postgres-best-practices) | developer-engineering | ★★★☆☆ | Postgres performance optimization and best practices from Supabase. Use this ski |
+
 ## toolkit
 
 **2 skills**
@@ -1615,6 +1641,15 @@
 |-------|----------|---------|-------------|
 | [tech-debt-tracker](skills/developer-engineering/tech-debt-tracker) | developer-engineering | ★★★★★ | Tier: POWERFUL 🔥 Category: Engineering Process Automation Expertise: Code Qualit |
 | [event-driven-tracker](skills/finance-investing/event-driven-tracker) | finance-investing | ★★☆☆☆ | Use when tracking earnings, product launches, M&A, dividends, buybacks, unlocks, |
+
+## vercel
+
+**2 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [vercel-react-best-practices](skills/developer-engineering/vercel-react-best-practices) | developer-engineering | ★★★★☆ | React and Next.js performance optimization guidelines from Vercel Engineering. T |
+| [vercel-deploy](skills/deployment-platforms/vercel-deploy) | deployment-platforms | ★★★☆☆ | Deploy applications and websites to Vercel. Use when the user requests deploymen |
 
 ## worktree
 
@@ -1753,6 +1788,14 @@
 |-------|----------|---------|-------------|
 | [seo-audit](skills/growth-operations-xiaohongshu/seo-audit) | growth-operations-xiaohongshu | ★★★★☆ | 用于网站 SEO 全面审计、On-page 优化建议和技术 SEO 检查清单生成。仓库整理版，吸收社区高频最佳实践。 |
 
+## auth
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [better-auth-security-best-practices](skills/security-and-reliability/better-auth-security-best-practices) | security-and-reliability | ★★★★★ | Configure rate limiting, manage auth secrets, set up CSRF protection, define tru |
+
 ## authoring
 
 **1 skills**
@@ -1791,7 +1834,15 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [beacon](skills/devops-sre/beacon) | devops-sre | ★★★★★ | 可观测性、服务目标、告警、容量和可靠性设计。 |
+| [beacon](skills/devops-sre/beacon) | devops-sre | ★★★★★ | Observability and reliability engineering specialist. Covers SLO/SLI design, dis |
+
+## better
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [better-auth-security-best-practices](skills/security-and-reliability/better-auth-security-best-practices) | security-and-reliability | ★★★★★ | Configure rate limiting, manage auth secrets, set up CSRF protection, define tru |
 
 ## brainstorming
 
@@ -1815,7 +1866,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [breach](skills/security-and-reliability/breach) | security-and-reliability | ★★★★★ | 红队场景、攻击路径、威胁建模和对抗演练设计。 |
+| [breach](skills/security-and-reliability/breach) | security-and-reliability | ★★★★★ | Red team engineering agent. Designs attack scenarios, builds threat models, appl |
 
 ## browser
 
@@ -2007,7 +2058,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [compete](skills/growth-operations-xiaohongshu/compete) | growth-operations-xiaohongshu | ★★★★★ | 竞品研究、差异化定位、矩阵对比和竞争战卡。 |
+| [compete](skills/growth-operations-xiaohongshu/compete) | growth-operations-xiaohongshu | ★★★★★ | Competitive research, differentiation analysis, and strategic positioning. Featu |
 
 ## competitive
 
@@ -2031,7 +2082,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [comply](skills/security-and-reliability/comply) | security-and-reliability | ★★★★★ | 合规控制映射、审计轨迹和政策即代码实现。 |
+| [comply](skills/security-and-reliability/comply) | security-and-reliability | ★★★★★ | Regulatory compliance and audit agent. Maps business regulatory requirements (SO |
 
 ## comps
 
@@ -2463,7 +2514,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [helm](skills/finance-investing/helm) | finance-investing | ★★★★★ | 商业战略场景模拟、市场分析、指标预测和路线图规划。 |
+| [helm](skills/finance-investing/helm) | finance-investing | ★★★★★ | Business strategy simulation agent specializing in short/mid/long-term scenario  |
 
 ## honcho
 
@@ -2903,7 +2954,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [omen](skills/openclaw-memory-and-safety/omen) | openclaw-memory-and-safety | ★★★★★ | 预演失败模式，识别计划风险并给出优先级。 |
+| [omen](skills/openclaw-memory-and-safety/omen) | openclaw-memory-and-safety | ★★★★★ | Pre-mortem analysis and failure mode enumeration agent. Systematically identifie |
 
 ## onboarding
 
@@ -3065,14 +3116,6 @@
 |-------|----------|---------|-------------|
 | [teams-channel-post-writer](skills/operations-general/teams-channel-post-writer) | operations-general | ★★★★☆ | Creates educational Teams channel posts for internal knowledge sharing about Cla |
 
-## postgres
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [supabase-postgres](skills/developer-engineering/supabase-postgres) | developer-engineering | ★★★★☆ | 用于 Supabase 平台开发与 PostgreSQL 最佳实践，包含 RLS、Edge Functions 和实时订阅。来源：supabase 官方 52. |
-
 ## pptx
 
 **1 skills**
@@ -3167,7 +3210,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [pulse](skills/growth-operations-xiaohongshu/pulse) | growth-operations-xiaohongshu | ★★★★★ | 关键指标、埋点、漏斗、留存和仪表盘规格设计。 |
+| [pulse](skills/growth-operations-xiaohongshu/pulse) | growth-operations-xiaohongshu | ★★★★★ | KPI definition, tracking event design, and dashboard specification. North Star M |
 
 ## pygount
 
@@ -3208,6 +3251,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [rally](skills/ai-workflow/rally) | ai-workflow | ★★★★★ | Multi-session parallel orchestrator using Claude Code Agent Teams API and Codex  |
+
+## react
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [vercel-react-best-practices](skills/developer-engineering/vercel-react-best-practices) | developer-engineering | ★★★★☆ | React and Next.js performance optimization guidelines from Vercel Engineering. T |
 
 ## reader
 
@@ -3495,7 +3546,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [sigil](skills/ai-agent-platform/sigil) | ai-agent-platform | ★★★★★ | 根据项目代码自动生成贴合仓库约定的技能。 |
+| [sigil](skills/ai-agent-platform/sigil) | ai-agent-platform | ★★★★★ | Meta-tooling agent that analyzes project codebases, tech stacks, and conventions |
 
 ## sketch
 
@@ -3656,14 +3707,6 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [summarize](skills/multimodal-media/summarize) | multimodal-media | ★★☆☆☆ | 对网页、文档、邮件与长文本进行快速摘要，提炼核心信息。 |
-
-## supabase
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [supabase-postgres](skills/developer-engineering/supabase-postgres) | developer-engineering | ★★★★☆ | 用于 Supabase 平台开发与 PostgreSQL 最佳实践，包含 RLS、Edge Functions 和实时订阅。来源：supabase 官方 52. |
 
 ## supermemory
 
@@ -3831,7 +3874,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [triage](skills/devops-sre/triage) | devops-sre | ★★★★★ | 事故首响、影响范围识别、恢复步骤和复盘整理。 |
+| [triage](skills/devops-sre/triage) | devops-sre | ★★★★★ | Incident first response, impact scope identification, recovery procedure formula |
 
 ## troubleshooting
 
@@ -3889,14 +3932,6 @@
 |-------|----------|---------|-------------|
 | [comps-valuation-analyst](skills/finance-investing/comps-valuation-analyst) | finance-investing | ★★☆☆☆ | Use when valuing a public company with peer multiples, building comparable-compa |
 
-## vercel
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [vercel-deploy](skills/deployment-platforms/vercel-deploy) | deployment-platforms | ★★★☆☆ | Deploy applications and websites to Vercel. Use when the user requests deploymen |
-
 ## verification
 
 **1 skills**
@@ -3927,7 +3962,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [voice](skills/product-design/voice) | product-design | ★★★★★ | 用户反馈收集、满意度调研、评论分析和洞察提炼。 |
+| [voice](skills/product-design/voice) | product-design | ★★★★★ | User feedback collection, NPS survey design, review analysis, sentiment analysis |
 
 ## warden
 

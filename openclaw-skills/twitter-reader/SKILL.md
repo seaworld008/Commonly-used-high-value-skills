@@ -33,7 +33,7 @@ export JINA_API_KEY="your_api_key_here"
 For a single tweet, use curl directly:
 
 ```bash
-curl "https://r.jina.ai/https://x.com/USER/status/TWEET_ID" \
+curl "https://r.jina.ai/https://x.com/USER/status/ID" \
   -H "Authorization: Bearer ${JINA_API_KEY}"
 ```
 

@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-04-28",
-  "total_skills": 256,
+  "generated_at": "2026-05-05",
+  "total_skills": 259,
   "total_categories": 16,
   "categories": [
     {
       "name": "developer-engineering",
-      "count": 45
+      "count": 47
     },
     {
       "name": "ai-workflow",
@@ -50,7 +50,7 @@
     },
     {
       "name": "security-and-reliability",
-      "count": 10
+      "count": 11
     },
     {
       "name": "multimodal-media",
@@ -397,8 +397,8 @@
     {
       "name": "sigil",
       "category": "ai-agent-platform",
-      "description": "根据项目代码自动生成贴合仓库约定的技能。",
-      "version": "1.0.0",
+      "description": "Meta-tooling agent that analyzes project codebases, tech stacks, and conventions to dynamically generate Claude Code skills optimized for that project. Places skills in both .claude/skills/ and .agents/skills/ to boost dev efficiency.",
+      "version": "1.0.1",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/sigil",
@@ -410,7 +410,7 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-04-25",
-      "updated_at": "2026-04-25",
+      "updated_at": "2026-05-05",
       "line_count": 351,
       "path": "skills/ai-agent-platform/sigil/SKILL.md"
     },
@@ -698,7 +698,7 @@
       "name": "executing-plans",
       "category": "ai-workflow",
       "description": "Use when you have a written implementation plan to execute in a separate session with review checkpoints",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -710,8 +710,8 @@
       "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-04-13",
-      "updated_at": "2026-04-24",
-      "line_count": 106,
+      "updated_at": "2026-05-05",
+      "line_count": 105,
       "path": "skills/ai-workflow/executing-plans/SKILL.md"
     },
     {
@@ -739,7 +739,7 @@
       "name": "finishing-a-development-branch",
       "category": "ai-workflow",
       "description": "Use when implementation is complete, all tests pass, and you need to decide how to integrate the work - guides completion of development work by presenting structured options for merge, PR, or cleanup",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -751,8 +751,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-04-13",
-      "updated_at": "2026-04-13",
-      "line_count": 209,
+      "updated_at": "2026-05-05",
+      "line_count": 260,
       "path": "skills/ai-workflow/finishing-a-development-branch/SKILL.md"
     },
     {
@@ -847,7 +847,7 @@
       "name": "nexus",
       "category": "ai-workflow",
       "description": "Meta-orchestrator that coordinates specialist AI agent teams. Decomposes requests into minimum viable agent chains, spawns each as an independent session via Agent tool in AUTORUN modes, and drives to final output automatically.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/nexus",
@@ -859,8 +859,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-04-25",
-      "updated_at": "2026-04-28",
-      "line_count": 491,
+      "updated_at": "2026-05-05",
+      "line_count": 496,
       "path": "skills/ai-workflow/nexus/SKILL.md"
     },
     {
@@ -932,7 +932,7 @@
       "name": "rally",
       "category": "ai-workflow",
       "description": "Multi-session parallel orchestrator using Claude Code Agent Teams API and Codex CLI Subagents to launch, manage, and coordinate concurrent task execution across multiple instances. Use when parallel work is needed.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/rally",
@@ -944,7 +944,7 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-04-25",
-      "updated_at": "2026-04-28",
+      "updated_at": "2026-05-05",
       "line_count": 353,
       "path": "skills/ai-workflow/rally/SKILL.md"
     },
@@ -972,7 +972,7 @@
       "name": "requesting-code-review",
       "category": "ai-workflow",
       "description": "Use when completing tasks, implementing major features, or before merging to verify work meets requirements",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -984,8 +984,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-04-13",
-      "updated_at": "2026-04-13",
-      "line_count": 114,
+      "updated_at": "2026-05-05",
+      "line_count": 112,
       "path": "skills/ai-workflow/requesting-code-review/SKILL.md"
     },
     {
@@ -1163,7 +1163,7 @@
       "name": "subagent-driven-development",
       "category": "ai-workflow",
       "description": "Use when executing implementation plans with independent tasks in the current session",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "github:obra/superpowers",
       "source_url": "https://github.com/obra/superpowers/tree/main/skills/subagent-driven-development",
@@ -1177,8 +1177,8 @@
       "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-03-27",
-      "updated_at": "2026-04-24",
-      "line_count": 287,
+      "updated_at": "2026-05-05",
+      "line_count": 289,
       "path": "skills/ai-workflow/subagent-driven-development/SKILL.md"
     },
     {
@@ -1228,8 +1228,8 @@
     {
       "name": "using-git-worktrees",
       "category": "ai-workflow",
-      "description": "Use when starting feature work that needs isolation from current workspace or before executing implementation plans - creates isolated git worktrees with smart directory selection and safety verification",
-      "version": "1.0.0",
+      "description": "Use when starting feature work that needs isolation from current workspace or before executing implementation plans - ensures an isolated workspace exists via native tools or git worktree fallback",
+      "version": "1.0.1",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -1241,8 +1241,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-04-13",
-      "updated_at": "2026-04-13",
-      "line_count": 227,
+      "updated_at": "2026-05-05",
+      "line_count": 224,
       "path": "skills/ai-workflow/using-git-worktrees/SKILL.md"
     },
     {
@@ -1549,8 +1549,8 @@
     {
       "name": "builder",
       "category": "developer-engineering",
-      "description": "生产级业务逻辑、接口集成和类型安全实现。",
-      "version": "1.0.0",
+      "description": "Disciplined coding craftsman that builds robust business logic, API integrations, and data models with type safety and production readiness. Use when business logic implementation or API integration is needed.",
+      "version": "1.0.1",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/builder",
@@ -1561,7 +1561,7 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-04-25",
-      "updated_at": "2026-04-25",
+      "updated_at": "2026-05-05",
       "line_count": 329,
       "path": "skills/developer-engineering/builder/SKILL.md"
     },
@@ -2180,7 +2180,7 @@
       "name": "schema",
       "category": "developer-engineering",
       "description": "Database schema design, migration planning, and ER diagram specialist. Handles normalization, index strategies, and relation definitions. Use when DB schema design is needed.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/schema",
@@ -2191,8 +2191,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-04-25",
-      "updated_at": "2026-04-28",
-      "line_count": 343,
+      "updated_at": "2026-05-05",
+      "line_count": 344,
       "path": "skills/developer-engineering/schema/SKILL.md"
     },
     {
@@ -2234,6 +2234,27 @@
       "updated_at": "2026-03-27",
       "line_count": 157,
       "path": "skills/developer-engineering/supabase-postgres/SKILL.md"
+    },
+    {
+      "name": "supabase-postgres-best-practices",
+      "category": "developer-engineering",
+      "description": "Postgres performance optimization and best practices from Supabase. Use this skill when writing, reviewing, or optimizing Postgres queries, schema designs, or database configurations.",
+      "version": "1.1.1",
+      "author": "supabase",
+      "source": "github:supabase/agent-skills",
+      "source_url": "https://skills.sh/supabase/agent-skills/supabase-postgres-best-practices",
+      "tags": [
+        "best",
+        "development",
+        "postgres",
+        "supabase"
+      ],
+      "quality": 3,
+      "complexity": "intermediate",
+      "created_at": "2026-05-05",
+      "updated_at": "2026-05-05",
+      "line_count": 112,
+      "path": "skills/developer-engineering/supabase-postgres-best-practices/SKILL.md"
     },
     {
       "name": "systematic-debugging",
@@ -2339,6 +2360,27 @@
       "path": "skills/developer-engineering/typescript-best-practices/SKILL.md"
     },
     {
+      "name": "vercel-react-best-practices",
+      "category": "developer-engineering",
+      "description": "React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patterns. Triggers on tasks involving React components, Next.js pages, data fetching, bundle optimization, or performance improvements.",
+      "version": "1.0.0",
+      "author": "vercel",
+      "source": "github:vercel-labs/agent-skills",
+      "source_url": "https://skills.sh/vercel-labs/agent-skills/vercel-react-best-practices",
+      "tags": [
+        "best",
+        "development",
+        "react",
+        "vercel"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-05-05",
+      "updated_at": "2026-05-05",
+      "line_count": 158,
+      "path": "skills/developer-engineering/vercel-react-best-practices/SKILL.md"
+    },
+    {
       "name": "web-artifacts-builder",
       "category": "developer-engineering",
       "description": "Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts.",
@@ -2382,8 +2424,8 @@
     {
       "name": "beacon",
       "category": "devops-sre",
-      "description": "可观测性、服务目标、告警、容量和可靠性设计。",
-      "version": "1.0.0",
+      "description": "Observability and reliability engineering specialist. Covers SLO/SLI design, distributed tracing, alerting strategy, dashboard design, capacity planning, toil automation, and reliability review.",
+      "version": "1.0.1",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/beacon",
@@ -2395,8 +2437,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-04-25",
-      "updated_at": "2026-04-25",
-      "line_count": 335,
+      "updated_at": "2026-05-05",
+      "line_count": 336,
       "path": "skills/devops-sre/beacon/SKILL.md"
     },
     {
@@ -2632,8 +2674,8 @@
     {
       "name": "triage",
       "category": "devops-sre",
-      "description": "事故首响、影响范围识别、恢复步骤和复盘整理。",
-      "version": "1.0.0",
+      "description": "Incident first response, impact scope identification, recovery procedure formulation, and postmortem creation. Use when incident response or disaster recovery is needed. Does not write code (delegates fixes to Builder).",
+      "version": "1.0.1",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/triage",
@@ -2645,8 +2687,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-04-25",
-      "updated_at": "2026-04-25",
-      "line_count": 337,
+      "updated_at": "2026-05-05",
+      "line_count": 338,
       "path": "skills/devops-sre/triage/SKILL.md"
     },
     {
@@ -2779,7 +2821,7 @@
       "name": "harvest",
       "category": "engineering-workflow-automation",
       "description": "Collect GitHub PR data and generate work reports. Retrieves PR info via gh commands to auto-generate weekly/monthly reports and release notes. Use when work reporting or PR analysis is needed.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/harvest",
@@ -2791,8 +2833,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-04-25",
-      "updated_at": "2026-04-28",
-      "line_count": 309,
+      "updated_at": "2026-05-05",
+      "line_count": 310,
       "path": "skills/engineering-workflow-automation/harvest/SKILL.md"
     },
     {
@@ -3048,8 +3090,8 @@
     {
       "name": "helm",
       "category": "finance-investing",
-      "description": "商业战略场景模拟、市场分析、指标预测和路线图规划。",
-      "version": "1.0.0",
+      "description": "Business strategy simulation agent specializing in short/mid/long-term scenario planning from financial, market, and competitive data. Applies SWOT/PESTLE/Porter analysis, KPI forecasting, and strategic roadmap generation. Does not write code.",
+      "version": "1.0.1",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/helm",
@@ -3060,8 +3102,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-04-25",
-      "updated_at": "2026-04-25",
-      "line_count": 315,
+      "updated_at": "2026-05-05",
+      "line_count": 317,
       "path": "skills/finance-investing/helm/SKILL.md"
     },
     {
@@ -3089,7 +3131,7 @@
       "name": "ledger",
       "category": "finance-investing",
       "description": "FinOps and cloud cost optimization agent. Cost estimation from IaC, right-sizing, RI/SP recommendations, cost anomaly detection, budget alert design, and AI/GPU workload cost analysis.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/ledger",
@@ -3100,15 +3142,15 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-04-25",
-      "updated_at": "2026-04-28",
-      "line_count": 369,
+      "updated_at": "2026-05-05",
+      "line_count": 370,
       "path": "skills/finance-investing/ledger/SKILL.md"
     },
     {
       "name": "levy",
       "category": "finance-investing",
       "description": "Domain knowledge agent for Japanese income tax filing (kakutei shinkoku). Guides income classification, deduction optimization, tax calculation, and filing for freelancers, sole proprietors, and side-business earners. Does not write code.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/levy",
@@ -3119,7 +3161,7 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-04-25",
-      "updated_at": "2026-04-28",
+      "updated_at": "2026-05-05",
       "line_count": 355,
       "path": "skills/finance-investing/levy/SKILL.md"
     },
@@ -3316,8 +3358,8 @@
     {
       "name": "compete",
       "category": "growth-operations-xiaohongshu",
-      "description": "竞品研究、差异化定位、矩阵对比和竞争战卡。",
-      "version": "1.0.0",
+      "description": "Competitive research, differentiation analysis, and strategic positioning. Feature matrices, SWOT analysis, benchmarking, positioning maps, battle cards, win/loss analysis, and LLM brand visibility. Research only — does not write code.",
+      "version": "1.0.1",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/compete",
@@ -3329,8 +3371,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-04-25",
-      "updated_at": "2026-04-25",
-      "line_count": 354,
+      "updated_at": "2026-05-05",
+      "line_count": 355,
       "path": "skills/growth-operations-xiaohongshu/compete/SKILL.md"
     },
     {
@@ -3461,8 +3503,8 @@
     {
       "name": "pulse",
       "category": "growth-operations-xiaohongshu",
-      "description": "关键指标、埋点、漏斗、留存和仪表盘规格设计。",
-      "version": "1.0.0",
+      "description": "KPI definition, tracking event design, and dashboard specification. North Star Metric, funnel analysis, and cohort analysis design. GA4/Amplitude/Mixpanel/PostHog integration. Use when metrics foundation is needed.",
+      "version": "1.0.1",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/pulse",
@@ -3474,8 +3516,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-04-25",
-      "updated_at": "2026-04-25",
-      "line_count": 329,
+      "updated_at": "2026-05-05",
+      "line_count": 330,
       "path": "skills/growth-operations-xiaohongshu/pulse/SKILL.md"
     },
     {
@@ -3562,7 +3604,7 @@
       "complexity": "intermediate",
       "created_at": "2026-04-13",
       "updated_at": "2026-04-24",
-      "line_count": 287,
+      "line_count": 285,
       "path": "skills/knowledge-and-pm-integrations/arxiv/SKILL.md"
     },
     {
@@ -3753,7 +3795,7 @@
       "name": "tome",
       "category": "knowledge-and-pm-integrations",
       "description": "Converts repository changes into detailed learning documents. Use when turning diffs into teaching materials, recording design decisions, or creating onboarding materials for new members.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/tome",
@@ -3764,7 +3806,7 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-04-25",
-      "updated_at": "2026-04-28",
+      "updated_at": "2026-05-05",
       "line_count": 440,
       "path": "skills/knowledge-and-pm-integrations/tome/SKILL.md"
     },
@@ -4130,7 +4172,7 @@
       "name": "morph",
       "category": "office-white-collar",
       "description": "Document format conversion (Markdown, Word, Excel, PDF, HTML). Converts specifications from Scribe and reports from Harvest into distributable formats. Also generates reusable conversion scripts.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/morph",
@@ -4141,7 +4183,7 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-04-25",
-      "updated_at": "2026-04-28",
+      "updated_at": "2026-05-05",
       "line_count": 295,
       "path": "skills/office-white-collar/morph/SKILL.md"
     },
@@ -4223,7 +4265,7 @@
       "name": "prism",
       "category": "office-white-collar",
       "description": "Consultant for NotebookLM steering prompt design. Optimizes Audio/Video/Slide/Infographic output quality through source preparation, prompt engineering, and Custom Goals persona design.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/prism",
@@ -4234,7 +4276,7 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-04-25",
-      "updated_at": "2026-04-28",
+      "updated_at": "2026-05-05",
       "line_count": 349,
       "path": "skills/office-white-collar/prism/SKILL.md"
     },
@@ -4377,8 +4419,8 @@
     {
       "name": "omen",
       "category": "openclaw-memory-and-safety",
-      "description": "预演失败模式，识别计划风险并给出优先级。",
-      "version": "1.0.0",
+      "description": "Pre-mortem analysis and failure mode enumeration agent. Systematically identifies failure scenarios for plans, designs, and features, scoring them with RPN/AP. Does not write code.",
+      "version": "1.0.1",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/omen",
@@ -4390,8 +4432,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-04-25",
-      "updated_at": "2026-04-25",
-      "line_count": 260,
+      "updated_at": "2026-05-05",
+      "line_count": 299,
       "path": "skills/openclaw-memory-and-safety/omen/SKILL.md"
     },
     {
@@ -4496,7 +4538,7 @@
       "name": "crest",
       "category": "operations-general",
       "description": "Engineer self-branding strategist that transforms technical contributions into a professional brand. Use when GitHub/LinkedIn/blog/conference/SNS positioning, profile optimization, or content strategy is needed.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/crest",
@@ -4507,7 +4549,7 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-04-25",
-      "updated_at": "2026-04-28",
+      "updated_at": "2026-05-05",
       "line_count": 320,
       "path": "skills/operations-general/crest/SKILL.md"
     },
@@ -4515,7 +4557,7 @@
       "name": "dawn",
       "category": "operations-general",
       "description": "Proposes exactly one personal side-project idea per invocation, sized to a 1-3 day MVP. Targets CLI, automation, LLM, DX, productivity, and data-viz angles; avoids clichés like TODO apps, weather apps, and pomodoro timers. Output is an 8-section brief including a ready-to-paste coding-agent prompt. Use for morning/daily idea rituals and weekend-hack ideation. Don''t use for existing-product feature proposals (Spark), dialogue brainstorming (Riff), or prototype implementation (Forge).",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/dawn",
@@ -4526,7 +4568,7 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-04-25",
-      "updated_at": "2026-04-28",
+      "updated_at": "2026-05-05",
       "line_count": 398,
       "path": "skills/operations-general/dawn/SKILL.md"
     },
@@ -4878,8 +4920,8 @@
     {
       "name": "researcher",
       "category": "product-design",
-      "description": "用户访谈、可用性测试、画像和旅程地图研究。",
-      "version": "1.0.0",
+      "description": "User research specialist. Designs interview guides, usability test plans, qualitative data analysis, persona creation, and journey mapping. Complements Echo''s UI validation. Use when user research design or analysis is needed.",
+      "version": "1.0.1",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/researcher",
@@ -4891,8 +4933,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-04-25",
-      "updated_at": "2026-04-25",
-      "line_count": 363,
+      "updated_at": "2026-05-05",
+      "line_count": 364,
       "path": "skills/product-design/researcher/SKILL.md"
     },
     {
@@ -4980,8 +5022,8 @@
     {
       "name": "voice",
       "category": "product-design",
-      "description": "用户反馈收集、满意度调研、评论分析和洞察提炼。",
-      "version": "1.0.0",
+      "description": "User feedback collection, NPS survey design, review analysis, sentiment analysis, feedback classification, and insight extraction reports. Use when establishing feedback loops.",
+      "version": "1.0.1",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/voice",
@@ -4993,15 +5035,35 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-04-25",
-      "updated_at": "2026-04-25",
-      "line_count": 307,
+      "updated_at": "2026-05-05",
+      "line_count": 308,
       "path": "skills/product-design/voice/SKILL.md"
+    },
+    {
+      "name": "better-auth-security-best-practices",
+      "category": "security-and-reliability",
+      "description": "Configure rate limiting, manage auth secrets, set up CSRF protection, define trusted origins, secure sessions and cookies, encrypt OAuth tokens, track IP addresses, and implement audit logging for Better Auth. Use when users need to secure their auth setup, prevent brute force attacks, or harden a Better Auth deployment.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "github:better-auth/skills",
+      "source_url": "https://skills.sh/better-auth/skills/better-auth-security-best-practices",
+      "tags": [
+        "auth",
+        "better",
+        "security"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-05-05",
+      "updated_at": "2026-05-05",
+      "line_count": 441,
+      "path": "skills/security-and-reliability/better-auth-security-best-practices/SKILL.md"
     },
     {
       "name": "breach",
       "category": "security-and-reliability",
-      "description": "红队场景、攻击路径、威胁建模和对抗演练设计。",
-      "version": "1.0.0",
+      "description": "Red team engineering agent. Designs attack scenarios, builds threat models, applies MITRE ATT&CK/OWASP frameworks, runs Purple Team exercises, and performs AI/LLM red teaming. Use when adversarial security validation is needed.",
+      "version": "1.0.1",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/breach",
@@ -5012,7 +5074,7 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-04-25",
-      "updated_at": "2026-04-25",
+      "updated_at": "2026-05-05",
       "line_count": 499,
       "path": "skills/security-and-reliability/breach/SKILL.md"
     },
@@ -5038,8 +5100,8 @@
     {
       "name": "comply",
       "category": "security-and-reliability",
-      "description": "合规控制映射、审计轨迹和政策即代码实现。",
-      "version": "1.0.0",
+      "description": "Regulatory compliance and audit agent. Maps business regulatory requirements (SOC2/PCI-DSS/HIPAA/ISO 27001), checks control implementations, designs audit trails, and implements Policy as Code. Use when compliance auditing is needed.",
+      "version": "1.0.1",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/comply",
@@ -5050,8 +5112,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-04-25",
-      "updated_at": "2026-04-25",
-      "line_count": 346,
+      "updated_at": "2026-05-05",
+      "line_count": 347,
       "path": "skills/security-and-reliability/comply/SKILL.md"
     },
     {
@@ -5258,7 +5320,7 @@
       "name": "scout",
       "category": "task-understanding-decomposition",
       "description": "Bug investigation, root cause analysis (RCA), reproduction steps, and impact assessment. Investigation-only agent that identifies why bugs occur and where to fix them without writing code.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/scout",
@@ -5270,8 +5332,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-04-25",
-      "updated_at": "2026-04-28",
-      "line_count": 437,
+      "updated_at": "2026-05-05",
+      "line_count": 475,
       "path": "skills/task-understanding-decomposition/scout/SKILL.md"
     },
     {

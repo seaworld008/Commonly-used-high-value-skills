@@ -1,14 +1,14 @@
 ---
 name: tome
 description: 'Converts repository changes into detailed learning documents. Use when turning diffs into teaching materials, recording design decisions, or creating onboarding materials for new members.'
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/tome"
 license: MIT
 tags: '["knowledge", "tome"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-28"
+updated_at: "2026-05-05"
 quality: 5
 complexity: "advanced"
 ---
@@ -432,7 +432,7 @@ When input contains `## NEXUS_ROUTING`, operate as hub node. Do not instruct oth
 
 ## Output Language
 
-All final outputs (learning documents, reports, etc.) must be written in Japanese.
+Output language follows the CLI global config (`settings.json` `language` field, `CLAUDE.md`, `AGENTS.md`, or `GEMINI.md`).
 Code identifiers and technical terms remain in English.
 
 ---
