@@ -1,14 +1,14 @@
 ---
 name: arena
-description: '多引擎方案竞赛与协作，比较结果并择优采用。'
-version: "1.0.0"
+description: 'Specialist orchestrating codex exec / gemini CLI through dual paradigms — COMPETE (multi-variant comparison, select best) and COLLABORATE (decompose tasks across engines, integrate). Supports Solo/Team/Quick execution modes.'
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/arena"
 license: MIT
 tags: '["agent", "ai", "arena"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-25"
+updated_at: "2026-05-19"
 quality: 5
 complexity: "advanced"
 ---
@@ -21,7 +21,7 @@ CAPABILITIES_SUMMARY:
 - variant_management: Git branch isolation (arena/variant-{engine}) · comparative_evaluation (Correctness 40% / Quality 25% / Perf 15% / Safety 15% / Simplicity 5%)
 - automated_review: codex review for quality/safety · hybrid_selection (combine best elements when no winner)
 - team_orchestration: Agent Teams API parallel execution with subagent proxies
-- engine_optimization: codex (speed/algorithms, 192K context, sandbox-first), gemini (creativity/broad context, 1M context, Deep Think mode, Search grounding)
+- engine_optimization: codex (speed / algorithms, 192K context, sandbox-first; Codex CLI is a Rust-native rewrite delivered 2025-06 leading Terminal-Bench 2.0 at 77.3%), gemini (creativity / broad context, 1M context, Deep Think mode, Search grounding) [Source: Morph LLM — Terminal-Bench 2.0 Leaderboard](https://www.morphllm.com/terminal-bench-2)
 - quality_maximization: Competition-driven (COMPETE, ensemble consensus selection) / integration-driven (COLLABORATE)
 - self_competition: Same engine N-variants via approach hints / model variants / prompt verbosity · multi_variant_matrix (engine × approach)
 - auto_mode_selection: Auto Quick/Solo/Team · task_decomposition (engine-appropriate subtasks) · integration_workflow (merge with conflict resolution)
@@ -287,9 +287,9 @@ Learning from execution outcomes across sessions. Details: `references/execution
 
 ## AUTORUN Support
 
-When invoked in Nexus AUTORUN mode: parse `_AGENT_CONTEXT` (Role/Task/Task_Type/Mode/Chain/Input/Constraints/Expected_Output), auto-select paradigm (COMPETE/COLLABORATE) and mode (Quick/Solo/Team) from task characteristics, execute framework workflow, skip verbose explanations, and append `_STEP_COMPLETE:`.
+See `_common/AUTORUN.md` for the protocol (`_AGENT_CONTEXT` input, mode semantics, error handling).
 
-### `_STEP_COMPLETE`
+Arena-specific `_STEP_COMPLETE.Output` schema:
 
 ```yaml
 _STEP_COMPLETE:
@@ -310,30 +310,6 @@ _STEP_COMPLETE:
   Reason: [Why this next step]
 ```
 
-Lightweight CALIBRATE (AT-01) runs automatically after completion. Full templates: `references/decision-templates.md`
-
 ## Nexus Hub Mode
 
-When input contains `## NEXUS_ROUTING`: treat Nexus as hub, do not instruct other agent calls, return results via `## NEXUS_HANDOFF`.
-
-### `## NEXUS_HANDOFF`
-
-```text
-## NEXUS_HANDOFF
-- Step: [X/Y]
-- Agent: Arena
-- Summary: [1-3 lines]
-- Key findings / decisions:
-  - Paradigm: [COMPETE | COLLABORATE]
-  - Mode: [Solo | Team | Quick]
-  - Engines: [used engines]
-  - Winner: [selected variant or integration summary]
-  - AES: [score]
-- Artifacts: [file paths or inline references]
-- Risks: [engine failures, scope violations, quality concerns]
-- Open questions: [blocking / non-blocking]
-- Pending Confirmations: [Trigger/Question/Options/Recommended]
-- User Confirmations: [received confirmations]
-- Suggested next agent: [Agent] (reason)
-- Next action: CONTINUE | VERIFY | DONE
-```
+When input contains `## NEXUS_ROUTING`, return via `## NEXUS_HANDOFF` (canonical schema in `_common/HANDOFF.md`).

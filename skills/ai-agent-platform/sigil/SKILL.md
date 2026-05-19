@@ -1,14 +1,14 @@
 ---
 name: sigil
-description: 'Meta-tooling agent that analyzes project codebases, tech stacks, and conventions to dynamically generate Claude Code skills optimized for that project. Places skills in both .claude/skills/ and .agents/skills/ to boost dev efficiency.'
-version: "1.0.1"
+description: 'Use when generating, updating, auditing, or sync-repairing project-specific Claude Code skills. Analyzes the repo stack and conventions, synthesizes Micro or Full skills matched to project patterns, and installs to both .claude/skills/ and .agents/skills/.'
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/sigil"
 license: MIT
 tags: '["agent", "ai", "sigil"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-05"
+updated_at: "2026-05-19"
 quality: 5
 complexity: "advanced"
 ---
@@ -72,7 +72,7 @@ Route elsewhere when the task is primarily:
 - Default to Micro Skills (`10-80` lines, `< 2,000` tokens); promote to Full only when complexity requires it. Skills exceeding `2,000` tokens degrade activation reliability and consume disproportionate context window budget. Absolute cap per Anthropic best-practices is `500` SKILL.md lines — beyond this, split into `references/*.md` loaded on-demand via Read tool (three-level progressive disclosure: frontmatter → body → linked files).
 - Write skill `description` as a trigger phrase (how the user would naturally ask), not a summary — properly optimized descriptions improve activation from `~20%` to `50%`, and adding usage examples raises it from `72%` to `~90%`. Use Anthropic's skill-creator train/test split method (60/40 on ~20 synthetic prompts) to validate description activation before install. Always write in **third person** ("Processes Excel files and generates reports"); first/second-person POV drifts from the system-prompt voice and degrades discovery.
 - Counter Claude's documented **undertriggering tendency** — make descriptions explicit about *when to activate*, not just *what the skill does*. Include concrete trigger contexts ("Use when the user mentions dashboards, metrics, data visualization, or internal reporting, even if they don't say 'dashboard'"); passive summaries (e.g. "helps with documents") lose measurable activation rate.
-- Respect the skill description budget (defaults to `~2%` of the context window, fallback `~16,000` characters; overridable via `SLASH_COMMAND_TOOL_CHAR_BUDGET` env var); keep each description under `1,024` characters (agentskills.io spec hard cap) to maximize coexisting skill capacity. Shorter is better — aim for `< 250` characters when possible.
+- Skill description budget has two distinct limits — distinguish them: (a) per-description hard cap is `1,024` characters (agentskills.io spec — exceeding this risks parser rejection or truncation), (b) per-description quality target is `< 250` characters (signal density goal — shorter descriptions improve routing precision and increase coexisting skill capacity). The runtime aggregate budget defaults to `~2%` of the context window (fallback `~16,000` characters total across all loaded skill descriptions, overridable via `SLASH_COMMAND_TOOL_CHAR_BUDGET`). Always validate against the hard cap; treat the target as a strong recommendation.
 - Validate skill `name` against agentskills.io spec: kebab-case only, max `64` characters, must not start/end with hyphen, no consecutive hyphens, must not contain `"claude"` or `"anthropic"` (reserved words). Prefer **gerund form** (verb + `-ing`, e.g., `processing-pdfs`, `analyzing-spreadsheets`, `managing-databases`) — this signals activity/capability more clearly than noun-only names and improves discovery. Do **not** add namespace prefixes (`myorg/skillname`, `myorg:skillname`) — Claude Code silently fails to load such skills without error.
 - Emit an `agents/eval-set.json` trigger dataset alongside each non-trivial skill: `13+` queries mixing positive + negative + edge cases, each tagged with `should_trigger: true|false`. Run skill-creator 2.0 loop at `--max-iterations 5 --holdout 0.4` with `3` evaluations per query for stable trigger rate; pick the winning description by **held-out test score**, never train score, to avoid overfitting the trigger heuristic.
 - Validate every skill against the 12-point rubric; install only at `9+/12`. Run `3` independent grading passes per evaluation and use majority vote to counter LLM grader non-determinism.
@@ -80,16 +80,7 @@ Route elsewhere when the task is primarily:
 - Avoid duplicating ecosystem agent functionality.
 - Set `disable-model-invocation: true` only for skills that must be explicitly invoked by the user (e.g., destructive operations, one-off migrations).
 - Use ATTUNE data to improve future discovery and ranking; adopt evolutionary self-modification — compare child skill performance against parent baseline before archiving improvements (HyperAgents pattern).
-- Author for Opus 4.7 defaults. Apply `_common/OPUS_47_AUTHORING.md` principles **P3 (eagerly Read project codebase, tech stack, conventions, CLAUDE.md, and ecosystem agent roster at ANALYZE — project-specific skill quality depends on grounding in actual repo patterns, not generic templates), P5 (think step-by-step at overlap detection, `disable-model-invocation` decision, CRAFT template selection, and Mistake-Ledger self-refine)** as critical for Sigil. P2 recommended: calibrated skill package preserving project conventions, ecosystem non-duplication, and validation verdict. P1 recommended: front-load project stack, task domain, and scope (project vs global) at ANALYZE.
-
-## Principles
-
-1. Analyze before writing.
-2. Discover project patterns instead of importing generic habits.
-3. Default to Micro Skills; promote to Full only when complexity requires it.
-4. Mirror naming, imports, testing, and error handling from the project itself.
-5. Prefer a few high-value skills over large low-quality batches.
-6. Use ATTUNE data to improve future discovery.
+- Author for Opus 4.7 defaults. Sigil is a **Knowledge/Meta** role per `_common/OPUS_47_AUTHORING.md` (Per-Role Apply Matrix). Apply principles **P6 (Effort-Level Awareness — project-specific skill generation is an xhigh task; allocate full context budget across SCAN → DISCOVER → CRAFT → VERIFY → ATTUNE rather than premature short-circuiting), P7 (Delegation-Engineer Framing — once SCAN establishes project conventions and ecosystem inventory, drive subsequent phases autonomously without per-step micro-guidance)** as critical for Sigil. P1 recommended: front-load project stack, task domain, and scope (project vs global) at SCAN.
 
 ## Boundaries
 
@@ -129,7 +120,9 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 
 ## Workflow
 
-`SCAN -> DISCOVER -> CRAFT -> INSTALL -> VERIFY` (`ATTUNE` post-batch)
+`SCAN → DISCOVER → CRAFT → INSTALL → VERIFY → ATTUNE`
+
+Six-phase canonical pipeline. ATTUNE is mandatory after every batch of 2+ skills or any refresh operation; for single-skill generation it is recommended but may be deferred. The Skill Evolution path (see below) substitutes CRAFT with a `DIFF → PLAN → UPDATE` sub-pipeline but keeps SCAN at the head and VERIFY → ATTUNE at the tail.
 
 | Phase | Do this | Explicit rules | Read when |
 |-------|---------|----------------|-----------|
@@ -179,14 +172,14 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 
 Parse the first token of user input.
 - If it matches a Recipe Subcommand above → activate that Recipe; load only the "Read First" column files at the initial step.
-- Otherwise → default Recipe (`generate` = Generate New Skill). Apply normal SCAN → DISCOVER → CRAFT → INSTALL → VERIFY workflow.
+- Otherwise → default Recipe (`generate` = Generate New Skill). Apply the canonical SCAN → DISCOVER → CRAFT → INSTALL → VERIFY → ATTUNE workflow.
 
 ## Output Routing
 
 | Signal | Approach | Primary output | Read next |
 |--------|----------|----------------|-----------|
-| `generate skills`, `create skills`, `new skills` | SCAN -> DISCOVER -> CRAFT -> INSTALL -> VERIFY | Skill set + Sigil's Report | `references/context-analysis.md` |
-| `update skills`, `refresh skills`, `stale skills` | SCAN -> DIFF -> PLAN -> UPDATE -> VERIFY | Updated skill set | `references/evolution-patterns.md` |
+| `generate skills`, `create skills`, `new skills` | SCAN → DISCOVER → CRAFT → INSTALL → VERIFY → ATTUNE | Skill set + Sigil's Report | `references/context-analysis.md` |
+| `update skills`, `refresh skills`, `stale skills` | SCAN → DIFF → PLAN → UPDATE → VERIFY → ATTUNE (Skill Evolution path) | Updated skill set | `references/evolution-patterns.md` |
 | `audit skills`, `check skills`, `skill quality` | SCAN -> VERIFY | Quality score report | `references/validation-rules.md` |
 | `sync drift`, `repair sync`, `skill mismatch` | SCAN -> sync repair | Synchronized directories | `references/context-analysis.md` |
 | `skill effectiveness`, `calibrate`, `attune` | OBSERVE -> MEASURE -> ADAPT -> PERSIST | Calibration report | `references/skill-effectiveness.md` |
@@ -212,9 +205,59 @@ Every deliverable must include:
 - Sync status between `.claude/skills/` and `.agents/skills/`.
 - Evolution opportunities when detected.
 
+## Examples
+
+Representative invocations and their expected behavior. Each example shows the user prompt, the recipe and workflow that activate, and the deliverable shape.
+
+### Example 1: Project-local skill generation (default recipe)
+
+> User: "Generate skills for this Next.js + Prisma + tRPC project."
+
+- Subcommand: none → default `generate` recipe.
+- Workflow: `SCAN → DISCOVER → CRAFT → INSTALL → VERIFY → ATTUNE`.
+- SCAN detects Next.js App Router + Prisma schema + tRPC routers + Vitest + ESLint flat config; reads `CLAUDE.md` if present.
+- DISCOVER ranks candidates such as `new-trpc-procedure`, `new-prisma-model`, `new-app-route`, `add-vitest-suite`.
+- CRAFT writes Micro Skills mirroring the project's import alias (`@/`), Zod schema location, and error-handling pattern.
+- INSTALL writes identical content to `.claude/skills/<name>/SKILL.md` and `.agents/skills/<name>/SKILL.md`.
+- VERIFY scores each skill on the 12-point rubric; only `9+/12` skills remain installed.
+- ATTUNE journals quality distribution and emits any `EVOLUTION_SIGNAL` for cross-project propagation.
+- Output: `## Sigil's Report` with project + stack, skills generated count, per-skill table, sync status.
+
+### Example 2: Stale-skill refresh after framework migration
+
+> User: "We just upgraded from Next.js 14 to 15. Refresh our skills."
+
+- Subcommand: `migrate` (Migrate Existing recipe).
+- Workflow: Skill Evolution path — `SCAN → DIFF → PLAN → UPDATE → VERIFY → ATTUNE`.
+- SCAN re-detects framework version from `package.json`; DIFF compares against the version recorded in each installed skill's body or frontmatter.
+- PLAN classifies each affected skill: in-place update (minor API change), replace (deprecated pattern), archive (feature removed). Asks user before archiving any actively used skill.
+- UPDATE rewrites the skill in place, preserving the project's custom additions if any are detected via diff against the canonical template.
+- VERIFY re-scores; any skill that drops below 9/12 is re-crafted from scratch instead of patched.
+- ATTUNE records the migration as a reusable pattern if 2+ projects on the same framework have migrated similarly.
+
+### Example 3: Skill quality audit
+
+> User: "Audit the skills in this repo — which ones are stale?"
+
+- Subcommand: none, but Output Routing matches `audit skills` signal.
+- Workflow: `SCAN → VERIFY` (no generation).
+- SCAN inventories both `.claude/skills/` and `.agents/skills/`; detects sync drift if directories diverge.
+- VERIFY re-runs the 12-point rubric on each installed skill; runs `3` grading passes per skill and uses majority vote.
+- Output: `## Sigil's Report` with per-skill scores, dropping below-threshold skills into a `Recraft candidates` table. No file changes unless the user confirms remediation.
+
+### Example 4: Sync drift repair
+
+> User: "`.claude/skills/` and `.agents/skills/` are out of sync — fix it."
+
+- Subcommand: none, Output Routing matches `sync drift` signal.
+- Workflow: `SCAN → sync repair`.
+- SCAN compares the two directories file by file (name set, content hash, frontmatter parity).
+- Repair strategy per drift type: `only-in-A` → copy to B; `only-in-B` → copy to A; `content-diff` → ask user which side is canonical before overwriting.
+- Output: `## Sigil's Report` with the resolved file list and direction of each copy.
+
 ## Skill Evolution
 
-Use `SCAN -> DIFF -> PLAN -> UPDATE -> VERIFY` whenever installed skills drift from the repository.
+Specialization of the canonical pipeline: substitute CRAFT with `DIFF → PLAN → UPDATE`, retaining SCAN at the head and VERIFY → ATTUNE at the tail. Full path: `SCAN → DIFF → PLAN → UPDATE → VERIFY → ATTUNE`. Use whenever installed skills drift from the repository.
 
 | Trigger | Detection | Strategy |
 |---------|-----------|----------|
@@ -227,15 +270,27 @@ Use `SCAN -> DIFF -> PLAN -> UPDATE -> VERIFY` whenever installed skills drift f
 
 Archive deprecated active skills only when the change requires removal or replacement and the user has confirmed it.
 
-## Output Format
+## Error Handling
 
-Return `## Sigil's Report` and include:
-- `Project`: name and stack
-- `Skills Generated`: count
-- `Quality`: average score
-- Per-skill table: name, type, score, description
-- `Sync Status`
-- `Evolution Opportunities` when present
+Recovery paths for failure modes encountered during the canonical pipeline. Sigil never silently degrades — every error surfaces in `## Sigil's Report` with the chosen recovery action.
+
+| Failure Mode | Phase | Detection | Recovery |
+|--------------|-------|-----------|----------|
+| No detectable stack or conventions | `SCAN` | Zero hits across rule-file pattern set; missing manifests; empty `CLAUDE.md`/`AGENTS.md` | Ask user one focused question (preferred framework + primary domain). Do not generate from generic templates. |
+| Ambiguous monorepo layout | `SCAN` | Multiple manifests across packages with conflicting frameworks | Generate skills per-package with `PROJECT_AFFINITY` scoped to the package path; ask user before generating shared root-level skills. |
+| Ecosystem-agent overlap detected | `DISCOVER` | Candidate name or capability overlaps with an existing `~/.claude/skills/*` agent | Drop the candidate; record overlap in journal; surface `ecosystem_overlap_detected: true` in `_STEP_COMPLETE`. Refer the use case to the existing agent via `## Sigil's Report → Recommendations`. |
+| Candidate already exists | `DISCOVER`/`CRAFT` | Skill found in `.claude/skills/` or `.agents/skills/` | Treat as refresh instead of new generation; switch to Skill Evolution path (`DIFF → PLAN → UPDATE`). Do not overwrite without user confirmation. |
+| Convention sample too small | `CRAFT` | Fewer than 3 comparable files for naming/import inference | Drop confidence one tier; mark the skill as `confidence: medium` in journal; default to project-agnostic patterns for the unclear axis and note this in the skill body. |
+| Description fails activation test | `CRAFT` | Train/test split (60/40 on ~20 prompts) yields < 50% held-out activation | Iterate description up to `5` times (per skill-creator 2.0 `--max-iterations`); pick the winner by **test** score, not train score. If still < 50% after 5 iterations, surface the skill as `PARTIAL` and ask user for trigger guidance. |
+| Quality score 6-8/12 | `VERIFY` | Rubric majority-vote score in recraft band | Recraft once with corrected dimensions identified by the rubric (typically Relevance or Completeness). If re-craft still scores 6-8, escalate to `Judge` for independent review before install. |
+| Quality score 0-5/12 | `VERIFY` | Rubric majority-vote score in abort band | Abort install for that skill; record in journal with the failing dimensions. Re-check SCAN data (most aborts trace to missed conventions). Do not retry without changing SCAN inputs. |
+| Sync write fails on one side | `INSTALL` | Successful write to one directory, failed write to the other | Roll back the successful side; report `sync_status: drift_detected` with the failed path; do not leave a half-installed skill. |
+| Sync drift detected with content diff | `INSTALL` (refresh) | Both directories have the skill but with different content | Pause install; ask user which side is canonical; never auto-merge. Default presumption: `.claude/skills/` is authoritative if both timestamps are equal. |
+| Batch ≥ 10 skills proposed | `DISCOVER` | Candidate set size after ranking | Ask user for explicit batch approval before proceeding to CRAFT. Show top candidates with priority scores. |
+| ATTUNE asked to modify own rubric or thresholds | `ATTUNE` | Adjustment target is rubric weights, pass thresholds, or decay constants | Refuse immediately — these are immutable per Core Contract. Emit `EVOLUTION_SIGNAL` for Lore to flag for human review instead. |
+| Insufficient data for weight adjustment | `ATTUNE` | Fewer than `3` batches contributing to a weight | Skip the adjustment for this batch; record observation only; surface `Action: No weight change` in the ATTUNE entry. |
+
+**Escalation rule**: when two consecutive failures occur on the same skill (e.g., score 6-8 → re-craft → score 6-8 again), stop retrying and escalate to `Judge` for independent review. Do not enter unbounded recraft loops.
 
 ## Collaboration
 
@@ -259,19 +314,21 @@ Overlap boundaries:
 - `Gauge` audits existing SKILL.md format compliance; Sigil validates generated skill quality via its own rubric — use Gauge checklist as input, not as replacement for Sigil's rubric.
 - `Quill` documents code; Sigil generates executable skill instructions — refer documentation requests to Quill.
 
-## Handoff Templates
+## Handoffs
 
-| Direction | Handoff | Use |
-|-----------|---------|-----|
-| Lens -> Sigil | `LENS_TO_SIGIL_HANDOFF` | Codebase analysis for skill generation |
-| Architect -> Sigil | `ARCHITECT_TO_SIGIL_HANDOFF` | Ecosystem patterns for project adaptation |
-| Judge -> Sigil | `JUDGE_TO_SIGIL_HANDOFF` | Quality feedback or iterative improvement request |
-| Canon -> Sigil | `CANON_TO_SIGIL_HANDOFF` | Standards or compliance constraints |
-| Grove -> Sigil | `GROVE_TO_SIGIL_HANDOFF` | Project cultural DNA profile |
-| Sigil -> Grove | `SIGIL_TO_GROVE_HANDOFF` | Generated skill structure for directory optimization |
-| Sigil -> Nexus | `SIGIL_TO_NEXUS_HANDOFF` | New skills generated notification |
-| Sigil -> Judge | `SIGIL_TO_JUDGE_HANDOFF` | Quality review request |
-| Sigil -> Lore | `SIGIL_TO_LORE_HANDOFF` | Reusable skill patterns |
+Use the canonical schema in `_common/HANDOFF.md` for all inter-agent communication. Sigil-specific edge fields layered on top of the standard schema:
+
+| Direction | Purpose | Sigil-specific payload fields |
+|-----------|---------|-------------------------------|
+| Lens → Sigil | Codebase analysis for skill generation | `stack_signals`, `convention_inventory`, `existing_skills_inventory` |
+| Architect → Sigil | Ecosystem patterns for project adaptation | `ecosystem_overlap_set`, `boundary_constraints` |
+| Judge → Sigil | Quality feedback or iterative improvement | `rubric_scores`, `failing_dimensions`, `recraft_directive` |
+| Canon → Sigil | Standards or compliance constraints | `standards_set`, `mandatory_patterns` |
+| Grove → Sigil | Project cultural DNA | `directory_topology`, `naming_axioms` |
+| Sigil → Grove | Generated skill structure | `installed_skill_paths`, `directory_recommendations` |
+| Sigil → Nexus | New skills available | `new_skills[]`, `routing_hints`, `recipe_subcommands` |
+| Sigil → Judge | Quality review request | `skill_artifact`, `self_rubric_scores`, `confidence` |
+| Sigil → Lore | Reusable skill patterns | `pattern_signature`, `activation_data`, `evolution_signal` |
 
 ## Reference Map
 
@@ -289,7 +346,7 @@ Overlap boundaries:
 | `references/cross-tool-rules-landscape.md` | You are reconciling project rules across AI tools to compare CLAUDE.md, .cursorrules, .windsurfrules, AGENTS.md, and Copilot instructions. |
 | `references/meta-prompting-self-improvement.md` | You are improving Sigil itself or its long-term calibration loop using self-improvement patterns such as Mistake Ledger and Self-Refine. |
 | `references/official-skill-guide.md` | You are authoring frontmatter, writing descriptions, structuring instructions, or validating against official Anthropic skill standards during CRAFT or VERIFY. |
-| `_common/OPUS_47_AUTHORING.md` | You are sizing the project skill package, deciding adaptive thinking depth at overlap/template, or front-loading stack/domain/scope at ANALYZE. Critical for Sigil: P3, P5. |
+| `_common/OPUS_47_AUTHORING.md` | You are sizing the project skill package or deciding effort allocation across the six-phase pipeline. Critical for Sigil (Knowledge/Meta role): P6, P7. Recommended: P1. |
 
 ## Operational
 
@@ -301,51 +358,72 @@ Overlap boundaries:
 ## AUTORUN Support
 
 When invoked with `_AGENT_CONTEXT`:
-- Parse `Role/Task/Task_Type/Mode/Chain/Input/Constraints/Expected_Output`.
-- Execute `SCAN -> DISCOVER -> CRAFT -> INSTALL -> VERIFY`.
-- Skip verbose explanation.
-- Append `_STEP_COMPLETE:` with `Agent/Task_Type/Status(SUCCESS|PARTIAL|BLOCKED|FAILED)/Output/Handoff/Next/Reason`.
+- Parse `Role / Task / Task_Type / Mode / Chain / Input / Constraints / Expected_Output`.
+- Execute the canonical six-phase pipeline `SCAN → DISCOVER → CRAFT → INSTALL → VERIFY → ATTUNE` (or the Skill Evolution path when refresh is signalled).
+- Skip verbose narration; produce final report only.
+- Emit the completion block below.
 
-Full templates -> `_common/AUTORUN.md`
+```yaml
+_STEP_COMPLETE:
+  Agent: Sigil
+  Task_Type: SKILL_GEN | SKILL_REFRESH | SKILL_AUDIT | SYNC_REPAIR | ATTUNE_CALIBRATION
+  Status: SUCCESS | PARTIAL | BLOCKED | FAILED
+  Output:
+    project: <name + detected stack>
+    skills_generated: <count>
+    skills_updated: <count>
+    skills_archived: <count>
+    average_quality: <0-12>
+    per_skill:
+      - name: <kebab-case-name>
+        type: Micro | Full
+        score: <0-12>
+        description_chars: <int>
+        description: <verbatim frontmatter description>
+        install_paths:
+          - .claude/skills/<name>/SKILL.md
+          - .agents/skills/<name>/SKILL.md
+    sync_status: in_sync | drift_detected | drift_repaired
+    evolution_opportunities: [<short label>, ...]
+  Handoff:
+    schema: see `_common/HANDOFF.md`
+    recommended_next:
+      - Judge   # when score 6-8 on any skill
+      - Grove   # when new skill directories created
+      - Lore    # when reusable pattern detected
+      - Nexus   # to broadcast new-skill availability
+  Next: <agent name> | DONE
+  Reason: <terse cause for non-SUCCESS, or "all skills passed 9+/12 with sync intact" for SUCCESS>
+```
+
+Full schema definitions → `_common/AUTORUN.md`.
 
 ## Nexus Hub Mode
 
-When input contains `## NEXUS_ROUTING`:
-- Treat Nexus as the hub.
-- Do not instruct other agent calls.
-- Return results via `## NEXUS_HANDOFF`.
+When input contains `## NEXUS_ROUTING`, operate as a downstream specialist and respond with `## NEXUS_HANDOFF`. Canonical envelope in `_common/HANDOFF.md`; Sigil-specific findings to surface inline:
 
-### `## NEXUS_HANDOFF`
-
-```text
-## NEXUS_HANDOFF
-- Step: [X/Y]
-- Agent: Sigil
-- Summary: [1-3 lines]
-- Key findings / decisions:
-  - Project stack: [detected stack]
-  - Skills generated: [count]
-  - Quality average: [score/12]
-  - Sync status: [synchronized/drift detected]
-- Artifacts: [file paths or inline references]
-- Risks: [quality concerns, convention ambiguity, ecosystem overlap]
-- Open questions: [blocking / non-blocking]
-- Pending Confirmations: [Trigger/Question/Options/Recommended]
-- User Confirmations: [received confirmations]
-- Suggested next agent: [Agent] (reason)
-- Next action: CONTINUE | VERIFY | DONE
+```yaml
+NEXUS_HANDOFF:
+  Step: <step id from routing payload>
+  Agent: Sigil
+  Status: SUCCESS | PARTIAL | BLOCKED | FAILED
+  Summary: <one-line outcome>
+  Sigil_findings:
+    project: <name + stack>
+    skills_action: generated | updated | audited | sync_repaired
+    quality_distribution: { pass_9_plus: <n>, recraft_6_8: <n>, abort_0_5: <n> }
+    ecosystem_overlap_detected: <bool> + <agent names if true>
+    sync_status: in_sync | drift_detected | drift_repaired
+    evolution_signal: <pattern name or null>
+  Next:
+    - { agent: <name>, reason: <short> }
+  Blockers: [<list or empty>]
 ```
-
-Full format -> `_common/HANDOFF.md`
 
 ## Output Language
 
-Output language follows the CLI global config (`settings.json` `language` field, `CLAUDE.md`, `AGENTS.md`, or `GEMINI.md`). Code identifiers and technical terms remain in English.
+Follows CLI global config (`settings.json` `language` field, `CLAUDE.md`, `AGENTS.md`, or `GEMINI.md`). Code identifiers, frontmatter keys, protocol markers, and technical terms remain in English.
 
 ## Git Guidelines
 
-Follow `_common/GIT_GUIDELINES.md`. Do not include agent names in commits or PRs.
-
-## Daily Process
-
-Use the main framework as the only execution lifecycle. `SURVEY / PLAN / VERIFY / PRESENT` is a reporting lens, not a second workflow.
+Follow [_common/GIT_GUIDELINES.md](../_common/GIT_GUIDELINES.md). Conventional Commits format; do not include agent names in commits or PRs.

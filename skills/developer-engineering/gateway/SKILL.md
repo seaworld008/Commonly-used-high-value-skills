@@ -1,14 +1,14 @@
 ---
 name: gateway
 description: 'API design and review, OpenAPI spec generation, versioning strategy, breaking change detection, REST/GraphQL best practices. Ensures API quality and consistency. Use when API design or OpenAPI specs are needed.'
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/gateway"
 license: MIT
 tags: '["development", "gateway"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-28"
+updated_at: "2026-05-19"
 quality: 5
 complexity: "advanced"
 ---
@@ -274,6 +274,12 @@ Gateway receives data models, implementation needs, and security requirements fr
 | `references/versioning-governance-anti-patterns.md` | You need versioning/governance anti-patterns: breaking change management/spec drift/contract testing. |
 | `references/graphql-spec-anti-patterns.md` | You need GraphQL/OpenAPI spec anti-patterns: schema design/N+1/type safety/Design-First. |
 | `references/ai-api-patterns.md` | You need AI/LLM API design: streaming (SSE), tool use/function calling, structured output, rate limiting, or error handling for AI endpoints. |
+| `references/rest-api-design.md` | You are running the `rest` recipe — resource modeling, URI design, HTTP method/status taxonomy, ETag conditional requests, cursor pagination, RMM, RFC 9457 Problem Details. |
+| `references/graphql-design.md` | You are running the `graphql` recipe — schema-first vs code-first, DataLoader, persisted queries, query depth/complexity limits, Federation/Relay, subscription transport. |
+| `references/webhook-design.md` | You are running the `webhook` recipe — provider-side HMAC signature design, idempotency-key, retry/DLQ, ordering, Sunset/Deprecation signaling. |
+| `references/api-auth-patterns.md` | You are running the `auth` recipe — OAuth 2.1/OIDC/JWT/mTLS/API key contract, scope design, key rotation, IdP integration. |
+| `references/rate-limit-patterns.md` | You are running the `rate-limit` recipe — algorithm choice, scoping, distributed enforcement, RFC 9331 RateLimit headers, 429 + Retry-After semantics. |
+| `references/deprecation-policy.md` | You are running the `deprecation` recipe — RFC 8594 Sunset / RFC 9745 Deprecation headers, deprecation window, client SDK migration timeline, removal cutover. |
 | `_common/OPUS_47_AUTHORING.md` | You are sizing the API spec, deciding adaptive thinking depth at DESIGN, or front-loading consumer profile/version policy at SCAN. Critical for Gateway: P3, P5. |
 
 ## Operational
@@ -288,9 +294,9 @@ Gateway receives data models, implementation needs, and security requirements fr
 
 ## AUTORUN Support
 
-When Gateway receives `_AGENT_CONTEXT`, parse `task_type`, `description`, `api_type`, `endpoints`, and `constraints`, choose the correct output route, run the SURVEY→DESIGN→VALIDATE→PRESENT workflow, produce the deliverable, and return `_STEP_COMPLETE`.
+See `_common/AUTORUN.md` for the protocol (`_AGENT_CONTEXT` input, mode semantics, error handling).
 
-### `_STEP_COMPLETE`
+Gateway-specific `_STEP_COMPLETE.Output` schema:
 
 ```yaml
 _STEP_COMPLETE:
@@ -313,30 +319,4 @@ _STEP_COMPLETE:
 
 ## Nexus Hub Mode
 
-When input contains `## NEXUS_ROUTING`, do not call other agents directly. Return all work via `## NEXUS_HANDOFF`.
-
-### `## NEXUS_HANDOFF`
-
-```text
-## NEXUS_HANDOFF
-- Step: [X/Y]
-- Agent: Gateway
-- Summary: [1-3 lines]
-- Key findings / decisions:
-  - API type: [REST | GraphQL | gRPC]
-  - Endpoints: [designed endpoints]
-  - Versioning: [strategy]
-  - Breaking changes: [none or list]
-  - Security: [configured methods]
-- Artifacts: [file paths or inline references]
-- Risks: [compatibility risks, security concerns]
-- Open questions: [blocking / non-blocking]
-- Pending Confirmations: [Trigger/Question/Options/Recommended]
-- User Confirmations: [received confirmations]
-- Suggested next agent: [Agent] (reason)
-- Next action: CONTINUE | VERIFY | DONE
-```
-
----
-
-> *You are Gateway. Every API contract you define is a promise to every client that depends on it.*
+When input contains `## NEXUS_ROUTING`, return via `## NEXUS_HANDOFF` (canonical schema in `_common/HANDOFF.md`).

@@ -1,14 +1,14 @@
 ---
 name: pipe
-description: '持续集成工作流、触发策略、安全加固和复用设计。'
-version: "1.0.0"
+description: 'Deep GitHub Actions workflow expert. Covers trigger strategy, security hardening, performance optimization, PR automation, and Reusable Workflow design. Use when new GHA workflow design or advanced optimization is needed.'
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/pipe"
 license: MIT
 tags: '["deployment", "pipe"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-25"
+updated_at: "2026-05-19"
 quality: 5
 complexity: "advanced"
 ---
@@ -76,7 +76,7 @@ Route elsewhere when:
 
 - Treat workflows as production code — every change is reviewed, tested, and versioned.
 - Default to least privilege: set org-level `GITHUB_TOKEN` to read-only; grant job-level scopes explicitly.
-- Pin all third-party actions to full commit SHA. Mutable references (tags, branches) are non-deterministic and the #1 supply-chain attack vector (CVE-2025-30066 impacted 23K+ repos; TeamPCP campaign March 2026 compromised trivy-action via 75 force-pushed tags and propagated across 40+ npm packages in a coordinated multi-ecosystem supply-chain attack).
+- Pin all third-party actions to full commit SHA. Mutable references (tags, branches) are non-deterministic and the #1 supply-chain attack vector (CVE-2025-30066 impacted 23K+ repos; TeamPCP campaign March 2026 force-pushed 76 of 77 tags in `aquasecurity/trivy-action` plus all 7 tags in `setup-trivy`, redirecting trusted version refs to credential-stealer payloads and spreading laterally to Checkmarx KICS, LiteLLM, and Telnyx Actions).
 - Adopt `dependencies` section for deterministic locking when available (2026 roadmap — go.mod-style lockfile for workflows).
 - Use artifact attestations for build provenance: sign with Sigstore (public repos → public good instance, private repos → GitHub private store) and verify with `gh attestation verify`.
 - Reuse only after the rule of three: `<3` copies stay inline; `≥3` copies justify extraction to reusable workflow (multi-job) or composite action (multi-step).
@@ -84,6 +84,9 @@ Route elsewhere when:
 - Prefer OIDC over long-lived cloud credentials for all cloud authentication.
 - Enable Actions Data Stream for CI/CD observability — near real-time telemetry to S3 or Azure Event Hub, correlating every request to workflow/job/step. Use Actions Performance Metrics (GA) for workflow queue time and failure rate dashboards in the GitHub UI.
 - Never trust fork code in privileged context: `pull_request_target` must never checkout untrusted code (Shai Hulud attacks Sept-Nov 2025; HackerBot-CLAW AI agent exploit 2026).
+- **OIDC audience pinning**: restrict `id-token` audience to the deployment target's expected value (`audience: <cloud-or-registry-specific>`), and verify the audience server-side. The **Mini Shai-Hulud / SAP CAP attack (2026-04-29, ~2h19m window)** chained a `cloudmtabot` token stolen from CircleCI with GHA OIDC token extraction to publish 4 npm packages (`@cap-js/sqlite@2.2.2`, `@cap-js/postgres@2.2.2`, `@cap-js/db-service@2.10.1`, `mbt@1.2.48`); a preinstall hook then bootstrapped Bun and exfiltrated via a public GitHub repo. **IOC fingerprint**: a new file `.github/workflows/discussion.yaml` appearing in repos, a self-hosted runner named `SHA1HULUD`, and commit messages prefixed `OhNoWhatsGoingOnWithGitHub:[Base64]` — block these at branch-protection and self-hosted-runner provisioning. [Source: stepsecurity.io — A Mini Shai-Hulud Has Appeared; wiz.io — SAP npm supply chain]
+- **Shai-Hulud 3.0 "The Golden Path" (late 2025-2026)** removed the dead-man switch, strengthened obfuscation, and now invokes Bun via `bun_installer.js` during `npm install`. Treat any unexpected `bun` runtime invocation during install as a high-signal IOC; gate self-hosted runners' egress and audit `npm pkg get scripts.preinstall scripts.postinstall` for every direct dep on bootstrap. [Source: kodemsecurity.com — Shai-Hulud 3.0 Golden Path; upwind.io]
+- **Forbid preinstall/postinstall in CI installs** by default: pin `npm config set ignore-scripts true` (or `pnpm install --ignore-scripts` / `yarn install --ignore-scripts`) for the install step; allowlist trusted packages explicitly via pnpm's `pnpm.allowBuilds` or equivalent. PhantomRaven 2nd-4th wave (2025-11 → 2026-02, 88 packages) used **Remote Dynamic Dependencies (RDD)** — an HTTP URL outside the registry declared as a dependency, fetched and executed at install — `--ignore-scripts` combined with rejecting non-registry HTTP URLs in any dependency field is the canonical block. [Source: endorlabs.com — Return of PhantomRaven]
 - For agentic workflows (technical preview): use only for AI-suited tasks (triage, review, maintenance). Default to traditional YAML for build/deploy/release pipelines where determinism and auditability are critical. Agentic workflows run read-only by default; write operations require explicit safe-output declarations.
 - Author for Opus 4.7 defaults. Apply `_common/OPUS_47_AUTHORING.md` principles **P3 (eagerly Read existing workflows, action pins, OIDC trust policies, and repo structure at AUDIT — GHA recommendations depend on grounding in current trigger design and permission surface), P5 (think step-by-step at least-privilege token scoping, SHA pinning vs tag, reusable-vs-composite decomposition, and agentic vs YAML trigger selection)** as critical for Pipe. P2 recommended: calibrated workflow spec preserving permissions, SHA pins, cache strategy, and attestation. P1 recommended: front-load repo visibility, trigger scope, and deploy target at AUDIT.
 
@@ -93,7 +96,7 @@ Shared agent boundaries -> `_common/BOUNDARIES.md`
 
 ### Always
 
-- SHA-pin every third-party action to full commit hash (tags are mutable — trivy-action attack force-pushed 75 tags in one incident).
+- SHA-pin every third-party action to full commit hash (tags are mutable — trivy-action attack force-pushed 76 of 77 tags in one incident).
 - Specify minimal `permissions` per job; top-level `permissions: {}` as baseline.
 - Set `concurrency` groups with `cancel-in-progress: true` for PR workflows to avoid stale runs.
 - Mask non-secret sensitive values (internal URLs, service names, resource IDs) with `::add-mask::VALUE` to prevent accidental exposure in logs.

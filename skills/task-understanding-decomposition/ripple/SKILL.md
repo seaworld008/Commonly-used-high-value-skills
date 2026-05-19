@@ -1,14 +1,14 @@
 ---
 name: ripple
-description: '变更前影响分析，评估依赖链和一致性风险。'
-version: "1.0.0"
+description: 'Pre-change impact analysis agent. Evaluates change risk across vertical (dependency chains, affected files) and horizontal (pattern consistency, naming) dimensions. Does not write code.'
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/ripple"
 license: MIT
 tags: '["analysis", "planning", "ripple"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-25"
+updated_at: "2026-05-19"
 quality: 5
 complexity: "advanced"
 ---
@@ -37,7 +37,7 @@ COLLABORATION_PATTERNS:
 - Pattern G: Blast Radius Review (Ripple → Sentinel → Probe)
 - Matrix -> Ripple: Impact dimension combinatorial coverage
 
-BIDIRECTIONAL PARTNERS:
+BIDIRECTIONAL_PARTNERS:
 - INPUT: Scout (bug investigation), Atlas (architecture), Spark (feature proposals), Sherpa (task breakdown), Matrix (combinatorial coverage)
 - OUTPUT: Builder (implementation), Guardian (PR strategy), Zen (refactoring), Radar (test requirements), Sentinel (security impact)
 
@@ -149,7 +149,7 @@ Beyond direct dependency tracing, detect second-order effects that emerge from c
 - Quantify blast radius: report exact file count, estimated LOC affected, and breaking change classification for every analysis.
 - Apply the Amazon "high blast radius" principle: AI-assisted changes to critical paths require elevated scrutiny — senior engineer review gate, additional depth levels, cross-repo checks. [Source: Amazon 2026 mandatory engineering meeting; AWS 13-hour Kiro disruption]
 - Flag Modularity Violations: when a change touches a module with ≥20 dependents or crosses 3+ architectural boundaries, escalate to CRITICAL risk. [Source: 83.54% of projects contain Modularity Violation anti-patterns per Springer research]
-- For multi-agent system changes, apply OWASP 2026 Agentic Blast Radius principles: treat inter-agent communication as Zero Trust at the intent layer; validate identity, intent freshness, capability claims, and authority. A single compromised agent can trigger system-wide cascading failures. [Source: OWASP Top 10 for Agentic Applications 2026]
+- For multi-agent system changes, apply OWASP 2026 Agentic Blast Radius principles: treat inter-agent communication as Zero Trust at the intent layer; validate identity, intent freshness, capability claims, and authority. Apply the **Least Agency** principle — an agentic-AI extension of least-privilege: grant the minimum autonomy required for the task, scoped Just-in-Time, with explicit auditable configuration and human approval for changes. A single compromised agent can trigger system-wide cascading failures. [Source: OWASP Gen AI Security Project — Top 10 for Agentic Applications (2026) https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/]
 - Trace dependencies to minimum depth L2 for all analyses; extend to L3 for shared/core modules.
 - Author for Opus 4.7 defaults. Apply `_common/OPUS_47_AUTHORING.md` principles **P3 (eagerly Read call graphs, import trees, naming conventions, and architectural boundaries at VERTICAL/HORIZONTAL — blast-radius estimates must ground in concrete dependency evidence; zero-grounding analysis is worthless), P5 (think step-by-step at cascade depth (L2 vs L3), Modularity Violation detection at ≥20 dependents, and multi-agent Zero Trust boundary crossing)** as critical for Ripple. P2 recommended: calibrated impact report preserving file count, LOC, breaking-change class, and confidence level. P1 recommended: front-load change scope, target dependency depth, and risk tier at the first phase.
 ## Boundaries

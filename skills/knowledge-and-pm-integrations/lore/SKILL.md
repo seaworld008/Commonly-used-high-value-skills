@@ -1,14 +1,14 @@
 ---
 name: lore
-description: '跨智能体知识沉淀、模式提炼和最佳实践传播。'
-version: "1.0.0"
+description: 'Cross-agent knowledge curator and institutional memory guardian. Extracts patterns from agent journals into METAPATTERNS.md, detects knowledge decay, propagates best practices, and prevents organizational forgetting.'
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/lore"
 license: MIT
 tags: '["knowledge", "lore"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-25"
+updated_at: "2026-05-19"
 quality: 5
 complexity: "advanced"
 ---
@@ -90,6 +90,7 @@ Route elsewhere when the task is primarily:
 - Prevent organizational forgetting by addressing all four forms: failure to capture, failure to maintain, unintentional loss, and accidental purging.
 - Practice organizational unlearning (strategic forgetting): intentionally archive or remove patterns whose underlying assumptions have been invalidated, to prevent outdated knowledge from blocking absorption of new patterns. Organizational unlearning is not knowledge loss — it is knowledge hygiene (PMC: organizational unlearning research confirms deliberate discarding of obsolete knowledge as a prerequisite for new knowledge absorption).
 - Account for the documentation-reality gap: operational knowledge diverges from documented knowledge over time. Journal mining and behavioral observation (what agents actually do) are more reliable than explicit documentation alone for HARVEST completeness.
+- Lore is the local equivalent of Anthropic's **Managed Agents → Dreaming** feature (off-line analysis of past sessions, memory curation, knowledge propagation across future runs). When a chain on the managed platform would call Dreaming, the Nexus-local equivalent is to route to Lore; preserve the shared vocabulary in handoffs so workloads can migrate without re-conceptualisation. [Source: claude.com — *New in Claude: Managed Agents* (2026)]
 - Author for Opus 4.7 defaults. Apply `_common/OPUS_47_AUTHORING.md` principles **P3 (eagerly Read agent journals, METAPATTERNS, and freshness signals at HARVEST — pattern validity depends on grounding in actual behavioral evidence, not documentation snapshots), P5 (think step-by-step at pattern freshness scoring, organizational unlearning (strategic archival), and four-form forgetting detection)** as critical for Lore. P2 recommended: calibrated knowledge report preserving pattern lineage, freshness scores, and propagation targets. P1 recommended: front-load domain scope, freshness cutoff, and propagation audience at HARVEST.
 
 ---
@@ -299,9 +300,9 @@ When HARVEST scope includes 3+ independent source categories (e.g., agent journa
 
 ## AUTORUN Support
 
-When Lore receives `_AGENT_CONTEXT`, parse `task_type`, `description`, `harvest_scope`, and `Constraints`, choose the correct workflow mode, run the HARVEST→SYNTHESIZE→CATALOG→PROPAGATE→AUDIT workflow, produce the knowledge deliverable, and return `_STEP_COMPLETE`.
+See `_common/AUTORUN.md` for the protocol (`_AGENT_CONTEXT` input, mode semantics, error handling).
 
-### `_STEP_COMPLETE`
+Lore-specific `_STEP_COMPLETE.Output` schema:
 
 ```yaml
 _STEP_COMPLETE:
@@ -322,26 +323,4 @@ _STEP_COMPLETE:
 
 ## Nexus Hub Mode
 
-When input contains `## NEXUS_ROUTING`, do not call other agents directly. Return all work via `## NEXUS_HANDOFF`.
-
-### `## NEXUS_HANDOFF`
-
-```text
-## NEXUS_HANDOFF
-- Step: [X/Y]
-- Agent: Lore
-- Summary: [1-3 lines]
-- Key findings / decisions:
-  - Patterns discovered: [count]
-  - Patterns promoted: [count]
-  - Contradictions: [count or none]
-  - Stale patterns: [count or none]
-  - Consumers notified: [agent list]
-- Artifacts: [file paths or inline references]
-- Risks: [contradictions, stale knowledge, gaps]
-- Open questions: [blocking / non-blocking]
-- Pending Confirmations: [Trigger/Question/Options/Recommended]
-- User Confirmations: [received confirmations]
-- Suggested next agent: [Agent] (reason)
-- Next action: CONTINUE | VERIFY | DONE
-```
+When input contains `## NEXUS_ROUTING`, return via `## NEXUS_HANDOFF` (canonical schema in `_common/HANDOFF.md`).

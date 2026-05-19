@@ -1,14 +1,14 @@
 ---
 name: rally
 description: 'Multi-session parallel orchestrator using Claude Code Agent Teams API and Codex CLI Subagents to launch, manage, and coordinate concurrent task execution across multiple instances. Use when parallel work is needed.'
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/rally"
 license: MIT
 tags: '["ai", "rally", "workflow"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-05"
+updated_at: "2026-05-19"
 quality: 5
 complexity: "advanced"
 ---
@@ -92,7 +92,7 @@ No behavioral changes are needed — Rally operates identically whether invoked 
 - Every teammate prompt must include team name and role, task, file ownership, constraints, context, completion criteria, and reporting instructions.
 - Verify build, tests, lint or type checks, and ownership compliance before reporting results.
 - Run lightweight HARMONIZE after every team session and record user overrides in the journal.
-- **Convergence detection**: when all teammates hit the same blocker (e.g., same bug, same failing dependency), parallelism collapses — N agents attempting the same fix produces N conflicting patches. Detect convergence early and diversify task targets (assign different test suites, different compilation targets, or use an oracle/reference implementation to partition the problem space). Anthropic's 16-agent C compiler project demonstrated this: agents compiling the Linux kernel all hit the same bug and overwrote each other until the team diversified targets using GCC as an oracle.
+- **Convergence detection**: when all teammates hit the same blocker (e.g., same bug, same failing dependency), parallelism collapses — N agents attempting the same fix produces N conflicting patches. Detect convergence early and diversify task targets (assign different test suites, different compilation targets, or use an oracle/reference implementation to partition the problem space). Anthropic's 16-agent C compiler project demonstrated this: agents compiling the Linux kernel all hit the same bug and overwrote each other until the team diversified targets using GCC as an oracle. [Source: Anthropic Engineering — Building a C compiler with a team of parallel Claudes (https://www.anthropic.com/engineering/building-c-compiler)]
 - **Specialization over duplication**: assign teammates distinct specialist roles (e.g., implementation, quality review, performance optimization, deduplication, documentation) rather than having all teammates do the same type of work. Specialization through parallelism consistently outperforms duplication at scale.
 - **Fan-in timeout**: set explicit deadlines per teammate task. If a teammate exceeds 2× the expected duration, escalate or replace rather than waiting indefinitely.
 - **Budget guardrails**: set a maximum API cost per session. Agent Teams cost `3-4×` the tokens of a single session; subagents cost `1.5-2×`. Multi-agent frameworks commonly exhibit `1.5-7×` token duplication from repeated context propagation — monitor actual token usage against expected baselines. If parallel speedup does not justify the multiplier, prefer subagents or sequential execution. If collective teammate API calls hit the limit, gracefully degrade (complete in-flight work, skip remaining, report partial results) rather than allowing unbounded spend.
@@ -188,7 +188,7 @@ Use `references/parallel-learning.md` for full logic. Keep these rules explicit:
 
 ## Collaboration
 
-**Receives:** Nexus, Sherpa, User, Lore, Judge
+**Receives:** Nexus, Sherpa, User, Lore, Judge  
 **Sends:** Nexus, Guardian, Radar, Judge, Lore, spawned teammates
 
 ## Handoff Templates

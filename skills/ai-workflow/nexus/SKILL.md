@@ -1,14 +1,14 @@
 ---
 name: nexus
 description: 'Meta-orchestrator that coordinates specialist AI agent teams. Decomposes requests into minimum viable agent chains, spawns each as an independent session via Agent tool in AUTORUN modes, and drives to final output automatically.'
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/nexus"
 license: MIT
 tags: '["ai", "nexus", "workflow"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-05"
+updated_at: "2026-05-19"
 quality: 5
 complexity: "advanced"
 ---
@@ -75,6 +75,7 @@ Route elsewhere when the task is primarily:
 - Adapt routing from execution evidence with safety constraints; track OE (orchestration efficiency) per chain type.
 - Leverage standardized inter-agent protocols where available: MCP (Anthropic) for tool/resource access, A2A (Google) for peer agent coordination and delegation, ACP (IBM) for enterprise governance and agent lifecycle management. [Source: arxiv.org/html/2601.13671v1]
 - Apply Plan-and-Execute pattern for cost optimization: use capable models (opus) for planning and cheaper models (sonnet/haiku) for execution — can reduce costs by up to 90%. [Source: machinelearningmastery.com]
+- Use Anthropic's **Managed Agents** vocabulary when a request matches one of its features (per the SF 2026 framing: **Multiagent Orchestration** for hub-and-spoke fan-out, **Outcomes** for rubric-scored Evaluator Loops, **Dreaming** for Lore-driven memory curation, **Webhooks** for completion notifications via Mend / Beacon), even when staying on the local hub. Shared vocabulary reduces translation cost if a chain later migrates to the managed platform. Surface an escalation recommendation in `NEXUS_COMPLETE` when the workload pattern (unattended multi-day runs, cross-user knowledge persistence, platform-level audit) actually justifies the managed-platform feature. [Source: claude.com — *New in Claude: Managed Agents*; *Code with Claude SF 2026* (2026)]
 - Output language follows the CLI global config (`settings.json` `language` field, `CLAUDE.md`, `AGENTS.md`, or `GEMINI.md`); identifiers and technical terms remain in English.
 
 ## Core Rules
@@ -161,6 +162,7 @@ Agent disambiguation → `references/agent-disambiguation.md`
 | Optimize | `optimize` | | Performance improvement | Bolt/Tuner → Radar |
 | Proactive | `proactive` | | /Nexus with no arguments, project state scan | Scan project → recommend |
 | Apex | `apex` | | Full-cycle auto-implementation: discovery → spec → parallel design → risk gate → loop → ship. With no-args, also runs Phase 0 to **autonomously discover the goal** before Phase 1. For high-stakes new features with cross-team impact. | (Phase 0: project_scan + spark + rank + voice/pulse/compete/sage/magi as available, when no goal supplied) → Discovery (plea+researcher+echo?) → Ideate (riff) → Verdict (magi) → Spec (accord+void?+scribe?) → Design [Tech (atlas+gateway?+schema?) ‖ UX (vision sub-orchestrates muse+palette+prose+flow?+frame?+forge+echo)] → Risk Gate (omen+ripple+echo) → Loop (orbit drives builder+artisan?+showcase?+judge+radar+voyager?) → Ship (guardian+launch) |
+| Goal Setup | `goal` | | `/goal` autonomous long-running execution setup helper (Claude Code v2.1.139+ / Codex CLI experimental). Detects platform, classifies use case (ci-headless / long-dev / parallel-experiment / safe-bounded), audits current config, designs hooks, drafts context docs, and outputs a tailored launch command. | Hone[audit] → Latch[hooks] → Scribe?[CLAUDE.md or AGENTS.md] → DELIVER(launch recipe) |
 
 ## Subcommand Dispatch
 
@@ -178,6 +180,7 @@ Execution-control Mode (AUTORUN_FULL / AUTORUN / GUIDED / INTERACTIVE) is applie
 - `optimize`: Bolt/Tuner → Radar[edge] chain. +Schema for DB-heavy work.
 - `proactive`: Follow `references/proactive-mode.md` to scan project state and recommend next actions.
 - `apex`: Full-cycle auto-implementation across 6 sequential phases (Discovery → Ideate → Verdict → Spec → Design+Risk Gate → Implement Loop → Ship) with parallel Tech/UX sub-tracks in Phase 5. Vision sub-orchestrates UX (Muse/Palette/Prose/Flow/Frame/Forge/Echo) on Claude Code. **Orbit sub-orchestrates the implementation loop on Codex CLI (fixed engine — `spawn_agent`/`wait_agent`)**, driving Builder/Artisan/Showcase/Judge/Radar/Voyager. Risk Gate is tri-axis (Omen + Ripple + Echo). With no-args, Phase 0 autonomously discovers the goal before Phase 1. Read `references/apex-recipe.md` for phase contracts, conditional inclusion rules, sub-orchestration topology, engine boundary semantics, and AUTORUN chain template. **Prerequisite**: Codex CLI must be reachable with `agents.max_depth ≥ 2` before Phase 6; otherwise Orbit fails the handoff. **Confirm with user before launch — Apex spawns 8-25 agents and is high-cost.**
+- `goal`: `/goal` autonomous long-running execution setup helper. Detects target platform (`~/.claude/` → Claude Code v2.1.139+, `~/.codex/` → Codex CLI experimental `[features] goals = true`, both → ask user). Classifies use case (ci-headless / long-dev / parallel-experiment / safe-bounded — default `safe-bounded` if unspecified). Chain: Hone audits current config and proposes Before/After diff → Latch designs Stop/PostToolUse hooks for completion verification and notifications → Scribe drafts CLAUDE.md or AGENTS.md additions when missing → DELIVER outputs the launch command and verification checklist. Read `references/goal-recipe.md` for phase contracts, use-case templates, hook templates, and launch command recipes. Lightweight: 1-3 agents, 2-4 min wall time. No code execution — produces configuration recommendations the user applies.
 
 ## Workflow
 
@@ -319,6 +322,7 @@ Detailed execution flows: `references/execution-phases.md`, `references/orchestr
 | `design system docs`, `token docs`, `component catalog` | Design system documentation chain | Token + catalog + diagrams + API docs | `references/routing-matrix.md` |
 | `brainstorm`, `bounce ideas`, `riff`, `壁打ち`, `アイデア` | Interactive brainstorming session | Session summary with insights | `references/routing-matrix.md` |
 | `apex`, `auto-impl`, `自動実装`, `フル実装`, `discovery to launch`, `最強`, `end-to-end feature` | Apex full-cycle auto-implementation (discovery → ship) | Working feature + Risk Gate report + Release plan | `references/apex-recipe.md` |
+| `goal`, `/goal setup`, `goal recipe`, `long-running goal`, `autonomous loop setup`, `goal config` | Goal setup helper chain (`/goal` configuration) | Audit diff + hooks + context-md + launch command | `references/goal-recipe.md` |
 | `/Nexus` (no arguments) | Proactive mode scan | Next-work recommendations | `references/proactive-mode.md` |
 | unclear or multi-domain request | Classify and route | Depends on classification | `references/intent-clarification.md` |
 
@@ -434,8 +438,10 @@ Read only the files that match the current decision point.
 | `references/production-reliability-anti-patterns.md` | High-volume, production-like, or failure-sensitive conditions |
 | `references/agent-communication-anti-patterns.md` | Handoffs, schemas, ownership, or state integrity look weak |
 | `references/official-skill-categories.md` | You need official use case categories (Document & Asset / Workflow Automation / MCP Enhancement), the 5 canonical patterns for chain design, or problem-first vs tool-first approach detection during CLASSIFY. |
+| `references/managed-agents-mapping.md` | The user mentions Claude Managed Agents, Outcomes, Dreaming, or Webhooks, or describes one of those features in plain English — covers the four-feature mapping (Multiagent Orchestration ↔ hub-and-spoke, Outcomes ↔ Evaluator Loop, Dreaming ↔ Lore, Webhooks ↔ Mend/Beacon), local-vs-managed escalation rules, and SF 2026 reference deployments (Harvey 6×, Netflix fan-out, Spiral, Wisedocs 50%). |
 | `references/apex-recipe.md` | User invoked `/nexus apex` or asks for full-cycle auto-implementation (discovery → spec → parallel design → risk gate → loop → ship). Read for phase contracts, conditional inclusion rules, sub-orchestration topology (Vision for UX, Orbit for loop), tri-axis Risk Gate criteria, and AUTORUN chain template. |
 | `references/apex-walkthrough.md` | User asks "what does apex do" / "apex で何が起きる" / requests a visual or narrative explanation of the apex pipeline. Read for Mermaid flowcharts, sequence diagrams, per-phase storyboards, parallel topology visualisation, failure-and-rollback paths, Gantt timeline, and concrete example outputs. Use this for human-facing explanation; use `apex-recipe.md` for machine contract. |
+| `references/goal-recipe.md` | User invoked `/nexus goal` or asks to set up `/goal` autonomous long-running execution (Claude Code v2.1.139+ / Codex CLI experimental). Read for platform detection rules, use-case templates (ci-headless / long-dev / parallel-experiment / safe-bounded), chain phase contracts, hook templates (Stop / PostToolUse / notify), and launch command recipes for both CLIs. |
 | `_common/OPUS_47_AUTHORING.md` | You are designing spawn prompts, planning chain-step output envelopes, or selecting per-step model effort. Critical principles for orchestrators: P4 (parallel subagents), P6 (effort), P7 (delegation). |
 
 ## Operational Notes
@@ -465,28 +471,11 @@ _STEP_COMPLETE:
 
 ## Nexus Hub Mode
 
-When input contains `## NEXUS_ROUTING`, operate as the hub. Do not instruct direct agent-to-agent calls. Return results via `## NEXUS_HANDOFF`.
+When input contains `## NEXUS_ROUTING`, operate as the hub. Do not instruct direct agent-to-agent calls. Return via `## NEXUS_HANDOFF` (canonical schema in `_common/HANDOFF.md`).
 
-### `## NEXUS_HANDOFF`
-
-```text
-## NEXUS_HANDOFF
-- Step: [X/Y]
-- Agent: Nexus
-- Summary: [1-3 lines]
-- Key findings / decisions:
-  - Task type: [classification]
-  - Chain: [selected chain]
-  - Mode: [execution mode]
-  - Verification: [result]
-- Artifacts: [file paths or inline references]
-- Risks: [chain complexity, unresolved gaps, safety concerns]
-- Open questions: [blocking / non-blocking]
-- Pending Confirmations: [Trigger/Question/Options/Recommended]
-- User Confirmations: [received confirmations]
-- Suggested next agent: [Agent] (reason)
-- Next action: CONTINUE | VERIFY | DONE
-```
+Nexus-specific findings to surface in handoff:
+- Task type classification + selected chain + execution mode
+- Verification result + chain complexity / unresolved gaps / safety concerns
 
 ## Model Compatibility
 - **Scoring:** If weighted calculation is difficult, use simplified scoring in `context-scoring.md`.

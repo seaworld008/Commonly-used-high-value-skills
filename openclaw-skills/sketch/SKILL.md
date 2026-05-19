@@ -1,14 +1,14 @@
 ---
 name: sketch
 description: 'AI image generation code creation using Gemini API. Handles text-to-image generation, image editing, and prompt optimization. Use when image generation code is needed.'
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/sketch"
 license: MIT
 tags: '["media", "sketch"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-28"
+updated_at: "2026-05-19"
 quality: 5
 complexity: "advanced"
 ---
@@ -287,6 +287,9 @@ Overlap boundaries:
 | `references/batch-generation.md` | you are generating ≥5 consistent variants and need seed strategy, rate-limit-aware concurrency, resumable checkpointing, or pHash dedup |
 | `references/style-transfer.md` | you are matching an existing brand/reference style, extracting reusable STYLE_TOKENs, or deciding between Gemini and SDXL/Flux for style control |
 | `references/upscale-postprocess.md` | you are upscaling for print/retina, authoring inpaint masks, outpainting canvas extensions, or picking final export format |
+| `references/cinematic-prompting.md` | you are constructing photographic/cinematographic prompts (camera, lens, lighting, film stock, composition rules) for the `cinematic` recipe |
+| `references/provenance-disclosure.md` | you need C2PA Content Credentials, SynthID watermarking, EXIF/XMP AI-disclosure tagging, takedown flow, or platform compliance for the `provenance` recipe |
+| `references/content-policy-guardrails.md` | you need pre-prompt filtering, NSFW/deepfake/brand-safety guardrails, regional regulatory compliance (EU AI Act, China deep-synthesis, US state laws) for the `policy` recipe |
 | `_common/OPUS_47_AUTHORING.md` | you are sizing the generation report, deciding adaptive thinking depth at GENERATE, or front-loading model/budget/style at PLAN. Critical for Sketch: P3, P5 |
 
 ## Operational

@@ -1,14 +1,14 @@
 ---
 name: dawn
 description: 'Proposes exactly one personal side-project idea per invocation, sized to a 1-3 day MVP. Targets CLI, automation, LLM, DX, productivity, and data-viz angles; avoids clichés like TODO apps, weather apps, and pomodoro timers. Output is an 8-section brief including a ready-to-paste coding-agent prompt. Use for morning/daily idea rituals and weekend-hack ideation. Don''t use for existing-product feature proposals (Spark), dialogue brainstorming (Riff), or prototype implementation (Forge).'
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/dawn"
 license: MIT
 tags: '["dawn", "productivity"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-05"
+updated_at: "2026-05-19"
 quality: 5
 complexity: "advanced"
 ---
@@ -304,7 +304,7 @@ Read only the files required for the current recipe.
 
 ### Proposal Log (required)
 
-After every proposal, append one row to `/Users/simota/.claude/projects/-Users-simota--claude-skills/memory/dawn_log.md` in this format:
+After every proposal, append one row to `dawn_log.md` in your auto-memory directory (the same directory that contains `MEMORY.md`, revealed in your system context) in this format:
 
 ```
 | YYYY-MM-DD | idea-name | genre | tech-layer | mood |
@@ -343,9 +343,9 @@ On creation, also add one line to `MEMORY.md`:
 
 ## AUTORUN Support
 
-When Dawn receives `_AGENT_CONTEXT`, parse `task_type`, `description`, and optional `genre_hint` / `mood_hint`, run RECALL→DIVERGE→SELECT→SPECIFY→LOG, produce the 8-section deliverable, and return `_STEP_COMPLETE`.
+See `_common/AUTORUN.md` for the protocol (`_AGENT_CONTEXT` input, mode semantics, error handling).
 
-### `_STEP_COMPLETE`
+Dawn-specific `_STEP_COMPLETE.Output` schema:
 
 ```yaml
 _STEP_COMPLETE:
@@ -370,29 +370,4 @@ _STEP_COMPLETE:
 
 ## Nexus Hub Mode
 
-When input contains `## NEXUS_ROUTING`, do not call other agents directly. Return all work via `## NEXUS_HANDOFF`.
-
-### `## NEXUS_HANDOFF`
-
-```text
-## NEXUS_HANDOFF
-- Step: [X/Y]
-- Agent: Dawn
-- Summary: Proposed one daily idea
-- Key findings / decisions:
-  - Idea: [codename]
-  - Genre: [genre]
-  - MVP days: [1-3]
-  - Mood: [mood]
-- Artifacts: inline (8-section proposal)
-- Risks: [cliché adjacency / recent-entry collision, if any]
-- Open questions: [blocking / non-blocking]
-- Pending Confirmations: [only for second-idea-today requests]
-- User Confirmations: [received confirmations]
-- Suggested next agent: [Forge | Builder | Zine | DONE] (reason)
-- Next action: CONTINUE | VERIFY | DONE
-```
-
----
-
-> "Build something today, and you'll want to tell someone about it tomorrow." ☕
+When input contains `## NEXUS_ROUTING`, return via `## NEXUS_HANDOFF` (canonical schema in `_common/HANDOFF.md`).

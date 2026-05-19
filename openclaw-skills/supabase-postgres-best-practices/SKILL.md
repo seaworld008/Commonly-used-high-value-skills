@@ -1,14 +1,14 @@
 ---
 name: supabase-postgres-best-practices
 description: 'Postgres performance optimization and best practices from Supabase. Use this skill when writing, reviewing, or optimizing Postgres queries, schema designs, or database configurations.'
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:supabase/agent-skills"
 source_url: "https://skills.sh/supabase/agent-skills/supabase-postgres-best-practices"
 license: MIT
 tags: '["best", "development", "postgres", "supabase"]'
 created_at: "2026-05-05"
-updated_at: "2026-05-05"
+updated_at: "2026-05-19"
 quality: 3
 complexity: "intermediate"
 metadata:
@@ -64,45 +64,6 @@ Each rule file contains:
 - Additional context and references
 - Supabase-specific notes (when applicable)
 
-## Review Workflow
-
-Use this skill as a focused checklist before shipping database changes:
-
-1. Start with the query shape: identify predicates, joins, sort keys, limits, and
-   whether the query runs in a hot path.
-2. Compare indexes against `references/query-missing-indexes.md`,
-   `references/query-composite-indexes.md`, and
-   `references/query-partial-indexes.md`.
-3. Check RLS policies for both correctness and performance; prefer the
-   `security-*` reference files when auth context appears in predicates.
-4. Inspect connection behavior for serverless or high-concurrency apps using
-   the `conn-*` references before changing pool settings.
-5. For writes, review lock duration, transaction size, upsert behavior, and
-   batch insert patterns before recommending schema or code changes.
-6. Require `EXPLAIN (ANALYZE, BUFFERS)` evidence for risky performance claims
-   whenever a database is available.
-7. Summarize the expected impact, tradeoffs, and rollback plan alongside the SQL
-   diff so reviewers can judge safety quickly.
-
-## Common Patterns
-
-```sql
--- Verify whether a suspected slow query uses the intended index.
-EXPLAIN (ANALYZE, BUFFERS)
-SELECT *
-FROM public.orders
-WHERE customer_id = $1
-ORDER BY created_at DESC
-LIMIT 25;
-```
-
-```sql
--- Prefer partial indexes for common filtered access patterns.
-CREATE INDEX CONCURRENTLY IF NOT EXISTS orders_open_by_customer_created_at
-ON public.orders (customer_id, created_at DESC)
-WHERE status = 'open';
-```
-
 ## References
 
 - https://www.postgresql.org/docs/current/
@@ -110,3 +71,29 @@ WHERE status = 'open';
 - https://wiki.postgresql.org/wiki/Performance_Optimization
 - https://supabase.com/docs/guides/database/overview
 - https://supabase.com/docs/guides/auth/row-level-security
+<!-- LOCAL-QUALITY-SUPPLEMENT:START -->
+## Usage Notes
+
+This supplement is maintained by the repository sync pipeline. It keeps the
+imported upstream skill usable inside this curated collection when the upstream
+source is intentionally concise.
+
+## Common Patterns
+
+```text
+1. Confirm that the user's task matches the skill trigger.
+2. Read the relevant project files or user-provided context before acting.
+3. Choose the smallest reversible action that advances the task.
+4. Run the verification command or manual check that proves the result.
+5. Report the outcome, evidence, and any remaining risk.
+```
+
+## Boundaries
+
+- Prefer the upstream workflow for Supabase Postgres Best Practices; this section only adds local quality
+  guardrails.
+- Do not invent project facts when required files, vaults, services, or tools are
+  unavailable.
+- Stop and ask for clarification when the next action could overwrite user work,
+  expose private data, or change production state.
+<!-- LOCAL-QUALITY-SUPPLEMENT:END -->

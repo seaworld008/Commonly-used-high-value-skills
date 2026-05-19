@@ -1,14 +1,14 @@
 ---
 name: arxiv
-description: 'Search and retrieve academic papers from arXiv using their free REST API. No API key needed. Search by keyword, author, category, or ID. Combine with web_extract or the ocr-and-documents skill to read full paper content.'
-version: "1.0.1"
+description: 'Search arXiv papers by keyword, author, category, or ID.'
+version: "1.0.2"
 author: Hermes Agent
 source: "in-house"
 source_url: ""
 license: MIT
 tags: '[Research, Arxiv, Papers, Academic, Science, API]'
 created_at: "2026-04-13"
-updated_at: "2026-04-24"
+updated_at: "2026-05-19"
 quality: 4
 complexity: "intermediate"
 metadata:
@@ -229,7 +229,9 @@ curl -s "https://api.semanticscholar.org/graph/v1/paper/search?query=GRPO+reinfo
 ### Get paper recommendations
 
 ```bash
-curl -s "https://api.semanticscholar.org/recommendations/v1/papers/forpaper/arXiv:2402.03300?fields=title,authors,year,citationCount" | python3 -m json.tool
+curl -s -X POST "https://api.semanticscholar.org/recommendations/v1/papers/" \
+  -H "Content-Type: application/json" \
+  -d '{"positivePaperIds": ["arXiv:2402.03300"], "negativePaperIds": []}' | python3 -m json.tool
 ```
 
 ### Author profile

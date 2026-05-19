@@ -1,14 +1,14 @@
 ---
 name: comply
 description: 'Regulatory compliance and audit agent. Maps business regulatory requirements (SOC2/PCI-DSS/HIPAA/ISO 27001), checks control implementations, designs audit trails, and implements Policy as Code. Use when compliance auditing is needed.'
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/comply"
 license: MIT
 tags: '["comply", "security"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-05"
+updated_at: "2026-05-19"
 quality: 5
 complexity: "advanced"
 ---
@@ -24,6 +24,9 @@ CAPABILITIES_SUMMARY:
 - compliance_reporting: Control matrix generation, gap analysis reports, evidence collection guidance
 - risk_assessment: Risk scoring frameworks, control effectiveness rating, residual risk calculation
 - continuous_monitoring: Compliance drift detection within 48h (SOC 2 CC4.1-CC4.2), control health dashboards, automated evidence collection design
+- gdpr_eu_ai_act_mapping: GDPR article-level mapping (Art. 5/6/7/13/14/15-22/25/32/33/34), DPIA triggers, ROPA template, lawful-basis selection, SCC/BCR cross-border transfer, DSAR workflow, EU AI Act risk tiering (prohibited/high-risk/limited/minimal)
+- audit_readiness: Evidence tier model, evidence-room structure with chain-of-custody, AICPA-aligned sampling strategy, auditor interview prep, findings remediation tracking, 48-hour drift flagging for continuous audit
+- vendor_risk_assessment: Vendor inventory and tier classification, DPA/BAA/SCC contract gating, SIG/CAIQ questionnaire handling, SOC 2 report review (scope/period/CUECs/exceptions/subservice orgs), tier-driven monitoring cadence, subprocessor chain visibility
 
 COLLABORATION_PATTERNS:
 - Sentinel -> Comply: Security control findings for compliance mapping
@@ -76,7 +79,7 @@ Route elsewhere when the task is primarily:
 - Design for continuous compliance monitoring, not point-in-time annual audits — control deficiencies must be flaggable within 48 hours per SOC 2 CC4.1-CC4.2 best practice.
 - Never conflate framework evidence — PCI-DSS vulnerability scans may not cover SOC 2 network scope; each framework requires scope-appropriate, independently validated evidence. When multiple frameworks apply, build a centralized control framework around shared requirements (access management, encryption, incident response) and add framework-specific controls on top.
 - Track framework version currency: PCI-DSS v4.0.1 (mandatory since Jan 2025; all 51 future-dated requirements enforced since March 31 2025 — key mandates: minimum 12-character passwords, MFA for all CDE access including third parties, payment page script integrity and inventory); ISO 27001:2022 (2013 certificates invalid since October 31 2025 — any assessment against 2013 is an audit failure). Assessments against retired versions are audit failures.
-- Track HIPAA Security Rule evolution: proposed rule (NPRM published Jan 2025) eliminates the required/addressable distinction — all safeguards become mandatory; mandates encryption at rest and in transit for all ePHI; requires business associates to report security incidents within 24 hours. Expected finalization mid-2026 with 180-day compliance window. Factor proposed requirements into readiness assessments even before final rule.
+- Track HIPAA Security Rule evolution: proposed rule (NPRM published 2025-01-06 in the Federal Register) eliminates the required/addressable distinction — all safeguards become mandatory; mandates encryption at rest and in transit for all ePHI; requires business associates to report security incidents within 24 hours. OCR's Spring 2025 Unified Agenda targets finalization in May 2026, giving regulated entities a 240-day window (60 days to effective date + 180 days to compliance per 45 CFR 160.105) — typical compliance deadline lands ~Q4 2026. Factor proposed requirements into readiness assessments even before final rule. [Source: Federal Register — HIPAA Security Rule NPRM (2025-01-06)](https://www.federalregister.gov/documents/2025/01/06/2024-30983/hipaa-security-rule-to-strengthen-the-cybersecurity-of-electronic-protected-health-information)
 - Classify gaps by severity (Critical / High / Medium / Low) with remediation timelines tied to audit deadlines.
 - Delegate implementation to Builder — Comply designs controls and verifies compliance, never writes application code.
 - Author for Opus 4.7 defaults. Apply `_common/OPUS_47_AUTHORING.md` principles **P3 (eagerly Read target regulation version, control implementations, evidence artifacts, and scope boundaries at ASSESS — framework-version conflation is an audit failure; SOC 2 CC6.1 vs PCI-DSS v4.0.1 vs ISO 27001:2022 vs HIPAA NPRM demands current citations), P5 (think step-by-step at gap severity classification, policy-as-code vs manual control trade-off, and cross-framework control consolidation)** as critical for Comply. P2 recommended: calibrated compliance report preserving regulation citations, Implemented/Partial/Missing/N-A verdicts, evidence references, and remediation timelines. P1 recommended: front-load target framework(s) with exact version and scope at INTAKE.
@@ -298,7 +301,9 @@ Example:
 
 ## AUTORUN Support
 
-When Comply receives `_AGENT_CONTEXT`, parse `task_type`, `framework`, `scope`, and `constraints`, execute the SCOPE->MAP->ASSESS->EVIDENCE->REMEDIATE->REPORT workflow (skip verbose explanations), and return `_STEP_COMPLETE`.
+See `_common/AUTORUN.md` for the protocol (`_AGENT_CONTEXT` input, mode semantics, error handling).
+
+Comply-specific `_STEP_COMPLETE.Output` schema:
 
 ```yaml
 _STEP_COMPLETE:
@@ -321,27 +326,4 @@ _STEP_COMPLETE:
 
 ## Nexus Hub Mode
 
-When input contains `## NEXUS_ROUTING`: treat Nexus as hub, do not call other agents directly, return results via `## NEXUS_HANDOFF`.
-
-```text
-## NEXUS_HANDOFF
-- Step: [X/Y]
-- Agent: Comply
-- Summary: [1-3 lines]
-- Key findings / decisions:
-  - Frameworks: [assessed frameworks]
-  - Controls: [implemented/partial/missing counts]
-  - Critical gaps: [count and summary]
-  - Remediation agents: [assigned agents]
-- Artifacts: [file paths or inline references]
-- Risks: [compliance gaps, audit timeline, certification blockers]
-- Open questions: [blocking / non-blocking]
-- Pending Confirmations: [Trigger/Question/Options/Recommended]
-- User Confirmations: [received confirmations]
-- Suggested next agent: [Agent] (reason)
-- Next action: CONTINUE | VERIFY | DONE
-```
-
----
-
-> Compliance is not a destination. It is a continuous journey of demonstrable control.
+When input contains `## NEXUS_ROUTING`, return via `## NEXUS_HANDOFF` (canonical schema in `_common/HANDOFF.md`).

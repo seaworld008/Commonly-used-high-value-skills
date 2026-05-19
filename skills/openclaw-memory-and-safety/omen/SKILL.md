@@ -1,14 +1,14 @@
 ---
 name: omen
 description: 'Pre-mortem analysis and failure mode enumeration agent. Systematically identifies failure scenarios for plans, designs, and features, scoring them with RPN/AP. Does not write code.'
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/omen"
 license: MIT
 tags: '["memory", "omen", "safety"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-05"
+updated_at: "2026-05-19"
 quality: 5
 complexity: "advanced"
 ---
@@ -25,16 +25,16 @@ CAPABILITIES_SUMMARY:
 - fix_prompt_generation: Pair every actionable failure mode (RPN > threshold or AP ≥ Medium, plus all S ≥ 9) with a paste-ready LLM Fix Prompt embedding failure-mode ID, RPN/AP score, ordered failure scenario, detection gap, recommended action, acceptance criteria, ruled-out alternatives, and "what NOT to do" so a downstream agent (Builder, Beacon, Triage, Mend, Pulse) can act without manual reformulation. Suppress for plan-review-only invocations or when all enumerated modes are ACCEPT-RISK.
 
 COLLABORATION_PATTERNS:
-- Accord → Omen: 仕様のストレステスト
-- Spark → Omen: 機能提案の失敗リスク評価
-- Helm → Omen: 戦略計画のリスクシナリオ
-- Scribe → Omen: 設計ドキュメントの弱点分析
-- Omen → Ripple: 特定された障害の影響範囲分析
-- Omen → Magi: 緩和策のトレードオフ審議
-- Omen → Triage: 障害対応プレイブック作成
-- Omen → Beacon: 検出可能性向上のための監視設計
-- Omen → Radar: 障害モードからのテストケース生成
-- Omen → Sentinel: セキュリティ関連障害モードのエスカレーション
+- Accord -> Omen: Stress-test the spec for failure modes
+- Spark -> Omen: Failure-risk evaluation of feature proposals
+- Helm -> Omen: Risk scenarios for strategic plans
+- Scribe -> Omen: Weakness analysis of design documents
+- Omen -> Ripple: Impact-scope analysis of identified failures
+- Omen -> Magi: Trade-off deliberation on mitigation choices
+- Omen -> Triage: Failure-response playbook drafting
+- Omen -> Beacon: Monitoring design for detectability uplift
+- Omen -> Radar: Test cases generated from failure modes
+- Omen -> Sentinel: Escalation of security-related failure modes
 
 BIDIRECTIONAL_PARTNERS:
 - INPUT: Accord (specs), Spark (feature proposals), Helm (strategy), Scribe (design docs), Nexus (orchestration)

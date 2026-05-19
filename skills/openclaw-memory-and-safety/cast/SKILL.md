@@ -1,14 +1,14 @@
 ---
 name: cast
 description: 'Persona casting agent for rapid generation, persistence, lifecycle management, and inter-agent sync. Generates personas from diverse inputs, manages via a registry, evolves data-driven, and distributes in unified format.'
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/cast"
 license: MIT
 tags: '["cast", "memory", "safety"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-28"
+updated_at: "2026-05-19"
 quality: 5
 complexity: "advanced"
 ---
@@ -319,6 +319,9 @@ Do not parallelize EVOLVE or FUSE — these require sequential confidence recalc
 | `references/speak-engine.md` | You are using `SPEAK`, selecting engines, or handling TTS fallback. |
 | `references/persona-validation.md` | You are evaluating evidence quality, triangulation, clustering, validation status, or auditing persona quality (includes anti-patterns). |
 | `references/persona-governance.md` | You are deciding update cadence, retirement, or organizational rollout. |
+| `references/archetype-mapping.md` | Subcommand `archetype` — you are tagging personas with Jung 12 brand archetypes or JTBD-aligned archetypes. |
+| `references/segmentation-methods.md` | Subcommand `segment` — you are computing RFM tiers, behavioral clustering, or psychographic factors for evidence-grounded personas. |
+| `references/persona-bias-audit.md` | Subcommand `bias-audit` — you are running representation-matrix, intersectionality coverage, or inclusive-persona checks. |
 | `_common/AI_PERSONA_RISKS.md` | AI generation, human review, or bias/ethics risk is involved. |
 | `_common/OPUS_47_AUTHORING.md` | You are sizing the persona packet, deciding adaptive thinking depth at SYNTH, or front-loading mode/scope at the first phase. Critical for Cast: P3, P5. |
 
@@ -331,9 +334,9 @@ Do not parallelize EVOLVE or FUSE — these require sequential confidence recalc
 
 ## AUTORUN Support
 
-When Cast receives `_AGENT_CONTEXT`, parse `task_type`, `description`, `mode`, `target_personas`, and `constraints`, choose the correct output route (CONJURE / FUSE / EVOLVE / AUDIT / DISTRIBUTE / SPEAK), run the corresponding workflow pipeline, produce the deliverable, and return `_STEP_COMPLETE`.
+See `_common/AUTORUN.md` for the protocol (`_AGENT_CONTEXT` input, mode semantics, error handling).
 
-### `_STEP_COMPLETE`
+Cast-specific `_STEP_COMPLETE.Output` schema:
 
 ```yaml
 _STEP_COMPLETE:
@@ -353,25 +356,4 @@ _STEP_COMPLETE:
 
 ## Nexus Hub Mode
 
-When input contains `## NEXUS_ROUTING`, treat Nexus as the hub. Do not instruct other agent calls directly. Return results via `## NEXUS_HANDOFF`.
-
-### `## NEXUS_HANDOFF`
-
-```text
-## NEXUS_HANDOFF
-- Step: [X/Y]
-- Agent: Cast
-- Summary: [1-3 lines]
-- Key findings / decisions:
-  - Mode: [CONJURE | FUSE | EVOLVE | AUDIT | DISTRIBUTE | SPEAK]
-  - Personas: [count and names]
-  - Confidence: [range]
-  - Registry: [changes made]
-- Artifacts: [file paths or inline references]
-- Risks: [low confidence, stale data, coverage gaps]
-- Open questions: [blocking / non-blocking]
-- Pending Confirmations: [Trigger/Question/Options/Recommended]
-- User Confirmations: [received confirmations]
-- Suggested next agent: [Agent] (reason)
-- Next action: CONTINUE | VERIFY | DONE
-```
+When input contains `## NEXUS_ROUTING`, return via `## NEXUS_HANDOFF` (canonical schema in `_common/HANDOFF.md`).

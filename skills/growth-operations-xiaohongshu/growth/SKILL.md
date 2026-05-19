@@ -1,14 +1,14 @@
 ---
 name: growth
 description: 'SEO (meta/OGP/JSON-LD/heading hierarchy), SMO (social sharing), CRO (CTA/form/exit-intent), and GEO (AI citation optimization) across four pillars. Use when search ranking, conversion, or AI visibility improvement is needed.'
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/growth"
 license: MIT
 tags: '["growth", "marketing"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-28"
+updated_at: "2026-05-19"
 quality: 5
 complexity: "advanced"
 ---
@@ -98,7 +98,7 @@ Route elsewhere when the task is primarily:
 - Validate structured data with Google Rich Results Test before delivery; verify schema-content consistency (every JSON-LD claim must match visible page content).
 - GEO content requires 3–5 inline citations from authoritative sources per article; AI citation decay occurs within 7–14 days of content staleness — schedule bi-weekly content refreshes for GEO-critical pages. Use `@graph` array to nest related entities in a single JSON-LD block with `@id` cross-references, forming a coherent knowledge graph that AI systems can traverse.
 - GEO optimization targets four signals: **retrievability** (can AI find and fetch your content), **extractability** (can AI parse structured answers from it), **credibility** (does it cite authoritative sources with exact metrics), **entity clarity** (are entities disambiguated via schema and consistent naming). Visibility uplift of up to 40% when all four signals are addressed.
-- Track three GEO-specific KPIs: **Mention Rate** (% of AI answers naming your brand — below 5% = invisible, 15–30% = strong), **Citation Rate** (% including a clickable URL to your domain), **Share of Voice** (brand mentions vs competitors across tracked prompts). These replace traditional rank tracking for AI search.
+- Track three GEO-specific KPIs: **Mention Rate** (% of AI answers naming your brand — below 5% = invisible, 15–30% = strong), **Citation Rate** (% including a clickable URL to your domain — typically 30–60% of Mention Rate since not all mentions include links; Perplexity has the highest citation-to-mention ratio while Google AI Mode has the lowest), **Share of Voice** (brand mentions vs competitors across tracked prompts). These replace traditional rank tracking for AI search [Source: GenOptima — How to Measure GEO ROI: KPI Framework for 2026, https://www.gen-optima.com/geo/how-to-measure-geo-roi-kpi-framework-2026/].
 - GEO requires distinguishing AI **training bots** (GPTBot, ClaudeBot) from **search/retrieval bots** (OAI-SearchBot, Claude-SearchBot, ChatGPT-User, Claude-User) in robots.txt — blocking training bots does not affect AI search citation; blocking search/retrieval bots eliminates citation visibility entirely. 73% of sites have unintentional technical barriers (overly broad robots.txt, CDN blocks, JS rendering) preventing AI crawler access — audit AI crawlability as part of GEO readiness.
 - Use the most specific JSON-LD schema type available (e.g., BlogPosting over Article, LocalBusiness over Organization); specific types yield clearer signals for both search engines and AI systems.
 - CRO changes require a documented hypothesis — never test without one.
@@ -258,7 +258,10 @@ Growth receives data and insights from upstream agents. Growth sends hypotheses,
 | `references/ogp-twitter-card-guide.md` | You need full OGP/Twitter Card implementation (HTML/Next.js/React Helmet/specs). |
 | `references/json-ld-templates.md` | You need JSON-LD templates (Product/Article/FAQ/Breadcrumb/Org/Local/SoftwareApp). |
 | `references/core-web-vitals.md` | You need Core Web Vitals optimization (LCP/INP/CLS strategies + code). |
+| `references/core-web-vitals-deep.md` | You are running the `vitals` recipe — LCP/INP/CLS root-cause analysis at p75 (RUM not lab) with targeted fix patterns (priority hints, long-task breakup, layout reservation). |
 | `references/cro-patterns.md` | You need CRO patterns (CTA/forms/exit-intent/social proof). |
+| `references/keyword-research.md` | You are running the `keyword` recipe — search intent classification, query clustering, SERP overlap, AI prompt mining. |
+| `references/seo-audit.md` | You are running the `audit` recipe — full-site crawlability, indexability, content gap, internal linking topology, log-file analysis. |
 | `references/code-standards.md` | You need good/bad code examples. |
 | `_common/OPUS_47_AUTHORING.md` | You are sizing the SEO/GEO/CRO spec, deciding adaptive thinking depth at AUDIT, or front-loading scope/channel/metric at INTAKE. Critical for Growth: P3, P5. |
 
@@ -271,9 +274,9 @@ Growth receives data and insights from upstream agents. Growth sends hypotheses,
 
 ## AUTORUN Support
 
-When Growth receives `_AGENT_CONTEXT`, parse `task_type`, `description`, `pillar` (SEO/SMO/CRO), `target_page`, and `constraints`, choose the correct output route, run the AUDIT→HACK→LAUNCH→VERIFY workflow, produce the deliverable, and return `_STEP_COMPLETE`.
+See `_common/AUTORUN.md` for the protocol (`_AGENT_CONTEXT` input, mode semantics, error handling).
 
-### `_STEP_COMPLETE`
+Growth-specific `_STEP_COMPLETE.Output` schema:
 
 ```yaml
 _STEP_COMPLETE:
@@ -295,30 +298,4 @@ _STEP_COMPLETE:
 
 ## Nexus Hub Mode
 
-When input contains `## NEXUS_ROUTING`, do not call other agents directly. Return all work via `## NEXUS_HANDOFF`.
-
-### `## NEXUS_HANDOFF`
-
-```text
-## NEXUS_HANDOFF
-- Step: [X/Y]
-- Agent: Growth
-- Summary: [1-3 lines]
-- Key findings / decisions:
-  - Pillar: [SEO | SMO | CRO]
-  - Target metric: [metric]
-  - Change: [what was implemented]
-  - Expected impact: [description]
-  - Verification: [Lighthouse/tool results]
-- Artifacts: [file paths or inline references]
-- Risks: [SEO risks, compliance concerns]
-- Open questions: [blocking / non-blocking]
-- Pending Confirmations: [Trigger/Question/Options/Recommended]
-- User Confirmations: [received confirmations]
-- Suggested next agent: [Agent] (reason)
-- Next action: CONTINUE | VERIFY | DONE
-```
-
----
-
-> *"You are Growth. You don't just build code; you build a business. Make it visible. Make it clickable. Make it convert."*
+When input contains `## NEXUS_ROUTING`, return via `## NEXUS_HANDOFF` (canonical schema in `_common/HANDOFF.md`).

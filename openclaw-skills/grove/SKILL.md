@@ -1,14 +1,14 @@
 ---
 name: grove
-description: '仓库结构、文档布局、测试脚本组织和迁移规划。'
-version: "1.0.0"
+description: 'Repository structure design, optimization, and audit. Directory design, docs/ layout (PRD, specs, ADR), test/script organization, anti-pattern detection, and migration planning for existing repositories.'
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/grove"
 license: MIT
 tags: '["grove", "knowledge"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-25"
+updated_at: "2026-05-19"
 quality: 5
 complexity: "advanced"
 ---
@@ -88,6 +88,8 @@ Route elsewhere when the task is primarily:
 - For GitOps layouts, separate application source code from deployment manifests into distinct repositories (or isolated top-level directories with independent CODEOWNERS). This prevents manifest-only changes (e.g., replica count bumps) from triggering full CI builds, avoids infinite loops between CI commit triggers and manifest updates, enables independent access control for production configs, and maintains a clean audit log for deployment changes. When using a monorepo with path-based separation, enforce that `deploy/` or `k8s/` paths have their own CI pipeline scoped by path filters.
 - Weight health scores by lines of code (LoC) — a 5,000 LoC file with poor structure outweighs a 100 LoC file.
 - Author for Opus 4.7 defaults. Apply _common/OPUS_47_AUTHORING.md principles **P3 (eagerly Read existing layout, monorepo tool config, CODEOWNERS, and package boundaries at AUDIT — anti-pattern detection depends on full structural grounding), P5 (think step-by-step at DESIGN — monorepo tool selection (Turborepo/Nx/Bazel), GitOps separation, and package-boundary rule decisions drive long-term build/CI cost)** as critical for Grove. P2 recommended: calibrated structure audit preserving anti-pattern IDs, severity, and migration steps. P1 recommended: front-load mono/polyrepo target, language stack, and team-boundary count at AUDIT.
+- **Audit `CLAUDE.md` / `AGENTS.md` against the anti-bloat rule.** Anthropic's official guidance: "for each line, ask — would Claude actually do this wrong without it?". Lines that fail that test belong in a hook, a skill on-demand reference, or progressive disclosure (separate small file pulled in only when needed). Flag files > 200 lines as a P1 finding; > 400 lines as P0. Hard-rule content (lint, formatter) should be moved to hooks, not duplicated as English. [Source: code.claude.com/docs/en/best-practices; alexop.dev — Stop Bloating Your CLAUDE.md]
+- **Adopt the `AGENTS.md` open standard** for multi-tool repos. AGENTS.md is the Agentic AI Foundation / Linux Foundation standard (60,000+ projects, 29+ tools) for declaring repository-level agent instructions. Claude Code is `CLAUDE.md`-native but reads `AGENTS.md` as a fallback when no `CLAUDE.md` is present; recommend co-existence (a thin `CLAUDE.md` that imports `AGENTS.md`) rather than duplication. [Source: agents.md; linuxfoundation.org — AAIF announcement]
 
 ## Boundaries
 
@@ -224,9 +226,9 @@ Every Grove deliverable should include:
 
 ## AUTORUN Support
 
-When Grove receives `_AGENT_CONTEXT`, parse `task_type`, `description`, `language`, `framework`, and `constraints`, choose the correct output route, run the SURVEY→PLAN→VERIFY→PRESENT workflow, produce the deliverable, and return `_STEP_COMPLETE`.
+See `_common/AUTORUN.md` for the protocol (`_AGENT_CONTEXT` input, mode semantics, error handling).
 
-### `_STEP_COMPLETE`
+Grove-specific `_STEP_COMPLETE.Output` schema:
 
 ```yaml
 _STEP_COMPLETE:
@@ -250,26 +252,4 @@ _STEP_COMPLETE:
 
 ## Nexus Hub Mode
 
-When input contains `## NEXUS_ROUTING`, do not call other agents directly. Return all work via `## NEXUS_HANDOFF`.
-
-### `## NEXUS_HANDOFF`
-
-```text
-## NEXUS_HANDOFF
-- Step: [X/Y]
-- Agent: Grove
-- Summary: [1-3 lines]
-- Key findings / decisions:
-  - Language/Framework: [detected]
-  - Health score: [score]/100 ([grade])
-  - Anti-patterns: [found or none]
-  - Migration level: [L1-L5 or N/A]
-  - Convention drift: [detected or none]
-- Artifacts: [file paths or inline references]
-- Risks: [migration risks, build breakage concerns]
-- Open questions: [blocking / non-blocking]
-- Pending Confirmations: [Trigger/Question/Options/Recommended]
-- User Confirmations: [received confirmations]
-- Suggested next agent: [Agent] (reason)
-- Next action: CONTINUE | VERIFY | DONE
-```
+When input contains `## NEXUS_ROUTING`, return via `## NEXUS_HANDOFF` (canonical schema in `_common/HANDOFF.md`).

@@ -1,14 +1,14 @@
 ---
 name: researcher
 description: 'User research specialist. Designs interview guides, usability test plans, qualitative data analysis, persona creation, and journey mapping. Complements Echo''s UI validation. Use when user research design or analysis is needed.'
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/researcher"
 license: MIT
 tags: '["design", "product", "researcher"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-05"
+updated_at: "2026-05-19"
 quality: 5
 complexity: "advanced"
 ---
@@ -131,7 +131,7 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 - Ignore contradictory evidence.
 - Treat synthetic user output as equivalent to real-user research. See `_common/AI_PERSONA_RISKS.md` for full guardrails.
 - Deploy AI-moderated interviews without human review — AI achieves 80–85% agreement with expert human coders on theme extraction; the remaining 15–20% gap requires researcher judgment for nuance, context, and cultural sensitivity.
-- Democratize research without guardrails — unstructured self-service research without training, templates, and oversight leads to inconsistent methods, weak data, and poor decisions. PMs (39%), market researchers (35%), and marketers (23%) now run their own studies (Maze 2026), while systems and standards lag behind. Minimum governance: researcher review of study design (adopted by 73% of orgs), standardized templates (65%), access and permission controls for research tooling (56%), data governance/privacy protocols (42%), and regular researcher office hours (34%).
+- Democratize research without guardrails — unstructured self-service research without training, templates, and oversight leads to inconsistent methods, weak data, and poor decisions. PMs (39%), market researchers (35%), and marketers (23%) now run their own studies (Maze 2026), while systems and standards lag behind. Minimum governance: researcher review of study design (adopted by 73% of orgs), standardized templates (65%), access and permission controls for research tooling (56%), data governance/privacy protocols (42%), and regular researcher office hours (34%). [Source: Maze — The Future of User Research Report 2026 https://maze.co/resources/user-research-report/]
 - Use homogeneous participant pools — excluding diverse users embeds bias into products (e.g., real-name policies discriminating against transgender and non-European-name users; voice interfaces failing non-native speakers).
 - Write production implementation code.
 
@@ -311,9 +311,9 @@ Researcher receives research direction and data from upstream agents, conducts s
 
 ## AUTORUN Support
 
-When Researcher receives `_AGENT_CONTEXT`, parse `task_type`, `description`, `study_mode`, `research_questions`, and `constraints`, choose the correct output route, run the DEFINE→DESIGN→ANALYZE→SYNTHESIZE→HANDOFF workflow, produce the deliverable, and return `_STEP_COMPLETE`.
+See `_common/AUTORUN.md` for the protocol (`_AGENT_CONTEXT` input, mode semantics, error handling).
 
-### `_STEP_COMPLETE`
+Researcher-specific `_STEP_COMPLETE.Output` schema:
 
 ```yaml
 _STEP_COMPLETE:
@@ -339,26 +339,4 @@ _STEP_COMPLETE:
 
 ## Nexus Hub Mode
 
-When input contains `## NEXUS_ROUTING`, do not call other agents directly. Return all work via `## NEXUS_HANDOFF`.
-
-### `## NEXUS_HANDOFF`
-
-```text
-## NEXUS_HANDOFF
-- Step: [X/Y]
-- Agent: Researcher
-- Summary: [1-3 lines]
-- Key findings / decisions:
-  - Study mode: [study design | analysis | continuous | AI-assisted | calibration]
-  - Methodology: [interview | usability | survey | diary | mixed]
-  - Sample size: [count]
-  - Confidence: [high | medium | low]
-  - Key insights: [top findings]
-- Artifacts: [file paths or inline references]
-- Risks: [bias risks, sample limitations, generalizability gaps]
-- Open questions: [blocking / non-blocking]
-- Pending Confirmations: [Trigger/Question/Options/Recommended]
-- User Confirmations: [received confirmations]
-- Suggested next agent: [Agent] (reason)
-- Next action: CONTINUE | VERIFY | DONE
-```
+When input contains `## NEXUS_ROUTING`, return via `## NEXUS_HANDOFF` (canonical schema in `_common/HANDOFF.md`).
