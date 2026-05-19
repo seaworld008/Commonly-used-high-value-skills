@@ -1,14 +1,14 @@
 ---
 name: latch
 description: 'Propose, configure, debug, and maintain Claude Code hooks (PreToolUse/PostToolUse/Stop and other lifecycle events). Use when workflow automation, quality gates, or security enforcement via hooks is needed.'
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/latch"
 license: MIT
 tags: '["automation", "latch", "workflow"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-28"
+updated_at: "2026-05-19"
 quality: 5
 complexity: "advanced"
 ---
@@ -311,6 +311,8 @@ Hook sources (merged at runtime): `~/.claude/settings.json` (user), `.claude/set
 | Notification | `notification` | | Notification event hook — desktop / Slack / Discord push, sound on permission requests, idle/long-running task alerts, mute rules per project, deduplication | `references/notification-hook.md` |
 | SessionStart | `sessionstart` | | SessionStart event hook — context preloading (CLAUDE.md auto-summary, recent PR list, branch/CI status injection), env validation gates, per-project warm-up scripts | `references/sessionstart-hook.md` |
 | Security | `security` | | PreToolUse security guard — PII / secret regex denial, dangerous Bash command interception (`rm -rf /`, `git push --force` to main), env var leakage block, MCP tool ACL | `references/security-guard-hook.md` |
+| Skill Quarantine | `quarantine` | | SessionStart drift / unaudited-skill detection + PreToolUse plugin-install gate + MCP tool description rug-pull check (works with `chain` audit) | `references/skill-quarantine-hook.md` |
+| CLAUDE.md Proposer | `claudemd-update` | | Stop hook that drafts non-blocking `CLAUDE.md` update proposals from the just-finished session (extracts "should have known" patterns; never auto-edits) — pairs with Hone for downstream density audit | `references/claude-md-update-proposer.md` |
 
 ## Subcommand Dispatch
 
@@ -323,9 +325,11 @@ Behavior notes per Recipe:
 - `debug`: Check `/hooks` → run `claude --debug` → manual stdin test. Validate timeout, exit code, and stdout/stderr mixing in order.
 - `pretool`: Choose permissionDecision (allow/deny/ask/defer). Block with exit 2. updatedInput must always pair with permissionDecision: allow.
 - `posttool`: Exit 0 only (no blocking). Optional context injection via JSON stdout. Can background with async: true.
-- `notification`: Read `references/notification-hook.md` first. Notification イベントは「permission 要求」「idle 警告 (60s+)」「sub-agent 完了」等で発火。matcher に message regex (`waiting for your approval`, `idle for`) を指定して条件分岐、出力先 (terminal-notifier / Slack incoming-webhook / Discord webhook / desktop notification) を選択。dedup logic で同一 message の連続発火を抑制 (例: 5min 同一 dedupe)。`async: true` で非ブロッキング推奨。session 開始時刻を記録して "深夜は mute" 等の時間帯ルールを実装可能。
-- `sessionstart`: Read `references/sessionstart-hook.md` first. SessionStart イベントは Claude セッション開始 / `/clear` / `/compact` 後に発火。stdout に出力した内容は次のターンの context に注入される (max ~10K tokens 推奨)。よくある用途: 直近 N PRs の gh API 取得、CLAUDE.md 自動要約、現在 branch + CI status + uncommitted file count、env validation (Node.js version mismatch なら exit 2 で startup block)。重い処理は事前 cron で `~/.cache/` に書き出し、hook 内では `cat` のみで lazy load。
-- `security`: Read `references/security-guard-hook.md` first. PreToolUse の `permissionDecision: deny` で危険操作を遮断。代表パターン: (a) Bash 内の `rm -rf /`, `chmod -R 777`, `git push --force` to `main/master` → 即 deny、(b) Write/Edit 対象が `.env`, `id_rsa`, `*.pem`, `secrets.json` → deny、(c) tool input 内の secret regex (`AKIA[0-9A-Z]{16}`, `sk-[A-Za-z0-9]{40+}`, JWT pattern) 検出 → updatedInput で redact + 警告、(d) MCP tool ACL: 特定の `mcp__*` tool を環境変数 `LATCH_BLOCKED_MCP_TOOLS` 経由で deny。CI 環境 (`CI=true`) では interactive deny を全て auto-deny に昇格。
+- `notification`: Read `references/notification-hook.md` first. Notification events fire on permission requests, idle warnings (60s+), sub-agent completion, and similar lifecycle moments. Branch on message regex via the matcher (e.g. `waiting for your approval`, `idle for`) to route to the chosen sink (terminal-notifier / Slack incoming-webhook / Discord webhook / desktop notification). Apply dedup logic to suppress repeated identical messages within a window (e.g. 5 min dedupe per message). Prefer `async: true` to keep notifications non-blocking. Capture session start time to gate time-based rules such as "mute overnight".
+- `sessionstart`: Read `references/sessionstart-hook.md` first. SessionStart fires on Claude session start and after `/clear` / `/compact`. Anything written to stdout is injected into the next turn's context (keep it under ~10K tokens). Typical uses: fetch recent N PRs via the gh API, auto-summarize CLAUDE.md, surface current branch + CI status + uncommitted file count, run env validation (e.g. exit 2 on Node.js version mismatch to block startup). Offload heavy work to a prior cron job that writes to `~/.cache/`, and keep the hook itself a lazy `cat` of the cached output.
+- `security`: Read `references/security-guard-hook.md` first. Use the PreToolUse `permissionDecision: deny` to block dangerous operations. Canonical patterns: (a) Bash containing `rm -rf /`, `chmod -R 777`, or `git push --force` to `main/master` → immediate deny, (b) Write/Edit targeting `.env`, `id_rsa`, `*.pem`, `secrets.json` → deny, (c) tool input matching secret regex (`AKIA[0-9A-Z]{16}`, `sk-[A-Za-z0-9]{40+}`, JWT pattern) → `updatedInput` redact plus warning, (d) MCP tool ACL: deny specific `mcp__*` tools listed in the `LATCH_BLOCKED_MCP_TOOLS` env var. In CI environments (`CI=true`), promote every interactive deny to an auto-deny.
+- `quarantine`: Read `references/skill-quarantine-hook.md` first. Hook design that guards the **distribution side** of skills / plugins / MCP servers (the `security` recipe handles the runtime tool-call side). Three baseline patterns: (a) SessionStart sha256 drift detection against `.chain-manifest.json` plus unaudited-skill warning, (b) PreToolUse (`Bash` matcher) denial of `claudemarketplaces.com`-style plugin installs unless `CLAUDE_PLUGIN_INSTALL_ACK=1` is set, (c) SessionStart sha256 pinning of MCP tool descriptions to detect rug-pulls. Pairs with the `chain` agent (`/chain intake`, `/chain audit`, `/chain mcp`). Last line of defense against install-time SkillJect, Unicode Tag, and Shai-Hulud-class attacks.
+- `claudemd-update`: Read `references/claude-md-update-proposer.md` first. Stop hook that runs at session end, extracts "should have known" candidates from the transcript, and writes a non-blocking proposal file under `.claude/proposals/`. Always `exit 0` (advisory only) and `async: true` (never trap shutdown). Filters out linter-duplicate rules, single-anecdote observations, and rules better expressed as hooks. Pair with Hone when 3+ proposals accumulate to re-audit CLAUDE.md density and progressive-disclosure split.
 
 ## Output Routing
 
@@ -382,6 +386,8 @@ Every deliverable must include:
 | `references/notification-hook.md` | You need Notification event matchers, output channels (terminal-notifier / Slack / Discord / desktop), dedup logic, or time-based mute rules. |
 | `references/sessionstart-hook.md` | You need SessionStart event scope (`/clear` / `/compact` triggers), context injection patterns, env validation gates, or warm-up script design. |
 | `references/security-guard-hook.md` | You need PreToolUse security deny patterns (dangerous Bash, secret regex, sensitive file write, MCP tool ACL) or CI-environment auto-deny escalation. |
+| `references/skill-quarantine-hook.md` | You need SessionStart skill-manifest drift detection, PreToolUse plugin-install gate, or MCP tool description rug-pull verification. Pairs with the `chain` audit agent and `_common/SECURITY.md`. |
+| `references/claude-md-update-proposer.md` | You are designing a Stop hook that drafts non-blocking CLAUDE.md update proposals from the just-finished session — covers event/matcher selection, command and prompt variants, filtering rules for what NOT to propose, anti-patterns, and the Hone density-audit pairing. |
 | `_common/OPUS_47_AUTHORING.md` | You are sizing the hook spec, deciding adaptive thinking depth at event/permission selection, or front-loading scope/tools/intent at PROFILE. Critical for Latch: P3, P5. |
 
 ## Collaboration

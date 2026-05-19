@@ -19,7 +19,7 @@ complexity: "intermediate"
 ## 安装
 
 ```bash
-clawhub install proactive-agent
+npx clawhub@latest install proactive-agent
 ```
 
 ## 价值

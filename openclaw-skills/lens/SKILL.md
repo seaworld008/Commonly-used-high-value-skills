@@ -1,14 +1,14 @@
 ---
 name: lens
 description: 'Codebase comprehension and investigation specialist. Systematically performs structure mapping, feature discovery, and data flow tracing for \"does X exist?\", \"how does Y work?\", or \"what is this module''s responsibility?\". Does not write code.'
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/lens"
 license: MIT
 tags: '["analysis", "lens", "planning"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-28"
+updated_at: "2026-05-19"
 quality: 5
 complexity: "advanced"
 ---
@@ -114,6 +114,12 @@ Route elsewhere when the task is primarily:
 - When semantic code search tools are available (MCP servers, IDE integrations), use them for meaning-based queries ("where is authentication handled?") where keyword search requires guessing exact identifiers. Benchmarks show semantic search achieves 12.5% higher accuracy than grep alone (range 6.5–23.5%), with the hybrid approach (grep + semantic + LSP) performing best. Do not replace grep — combine approaches for each query type. [Source: cursor.com/blog/semsearch — Cursor semantic search benchmarks 2026; augmentcode.com — Augment Context Engine semantic indexing]
 - Assess comprehension debt risk in AI-heavy codebases: ~41% of new code is now AI-generated, and an Anthropic controlled trial (N=52 engineers) found AI-assisted developers scored significantly lower on post-task comprehension. Flag modules with high code churn, low review depth, and no authorship continuity as comprehension debt hotspots. [Source: addyosmani.com/blog/comprehension-debt — Mar 2026; Anthropic engineering study 2026]
 - Author for Opus 4.7 defaults. Apply `_common/OPUS_47_AUTHORING.md` principles **P3 (eagerly use LSP/Grep/Read across cross-references — confabulated relationships are the #1 Lens failure mode), P5 (think step-by-step at SCOPE — investigation type selection determines whether SURVEY/TRACE/CONNECT can be skipped)** as critical for Lens. P2 recommended: keep reports within Quick Answer / Investigation Report templates in `references/output-formats.md`.
+- **Use a PageRank-style repo map** (Aider's reference design) for structure mapping in large codebases: build a symbol graph with tree-sitter, run PageRank with a `50x` multiplier on files referenced in the current task, and emit only the files that fit a configurable token budget (e.g. 1k / 4k / 8k / 16k tiers). Rebuild on every major sub-task rather than caching, since the chat-file weights change. This converts "read everything" into "read the most important things first" and is the de-facto context-engineering pattern for AI agents in repos > 100 files. [Source: aider.chat/docs/repomap.html]
+- **Emit `llms.txt`-formatted repo descriptions** when the deliverable is an agent-facing repo summary. The 2025-09 community standard places a root `llms.txt` (Markdown, single-page) with one-line descriptions per major content area; Cursor, Continue, Cline, and several MCP clients already consume it. SEO benefit is unproven and explicitly not a goal — the format is a clean handoff target for downstream agents. [Source: llmstxt.org]
+- **Replace Stack Graphs with current MCP-graph stacks.** GitHub Stack Graphs was archived 2025-09-09; live alternatives include Codebase-Memory (66 languages, exposes a knowledge graph over MCP) and GitNexus (pre-computed dependency / call-chain graph). Recommend these when a knowledge-graph layer is needed for cross-file data-flow tracing. [Source: github.com/github/stack-graphs (archived); arxiv.org/abs/2603.27277 — Codebase-Memory; paperclipped.de — GitNexus]
+- **Adopt CodeScene's AI-ready Code Health threshold** when reporting hotspots. Industry-average Code Health on hotspots is 5.15/10, but AI-assisted refactoring needs `≥ 9.4/10` to remain bug-stable (humans tolerate `≥ 9.0/10`). Flag hotspots below the AI threshold as "high-risk for agent-driven changes" so downstream Builder/Zen handoffs are aware. [Source: codescene.com/blog — Making Legacy Code AI-Ready]
+- **Use a clone-aware indexing strategy** in large multi-repo orgs. Cursor's production indexing exploits the observation that ~92% of code inside an organisation is cloned/near-clone across repos: embed and de-duplicate at the org level (Turbopuffer or equivalent) and stream only embeddings + metadata, keeping originals local. Recommend this pattern when designing a `lens` index for a monorepo or repo group rather than per-repo full re-indexing. [Source: cursor.com/blog/secure-codebase-indexing]
+- **Prefer `ast-grep` over regex for structural symbol search.** `ast-grep` runs tree-sitter CST patterns across 13+ languages with Rust parallelism, eliminating the regex false-positives that contaminate `grep`-based investigation reports. Treat regex / `grep -E` as the slow path and CST patterns as the first-choice tool for symbol/structure queries. [Source: ast-grep.github.io]
 
 ## Boundaries
 
@@ -225,9 +231,9 @@ Behavior notes per Recipe:
 - `discover`: Shortened SCOPE → SURVEY → REPORT workflow allowed. REPORT immediately after existence confirmation.
 - `trace`: Trace data from origin to destination. Explicitly flag dynamic-dispatch boundaries.
 - `responsibility`: Multi-signal cognitive complexity evaluation (SonarSource + nesting + naming). Identify comprehension debt hotspots.
-- `dependency`: Read `references/dependency-graph.md` first. madge / dpdm (TS/JS) / pydeps (Python) / go list -deps (Go) で依存グラフ生成。fan-in/fan-out per module を計測 (高 fan-in = god module 候補)、transitive closure size を測定、circular dependencies を HIGH/MED/LOW 重要度で分類、依存方向違反 (UI → DB 直接 import 等) を flag、package boundary leakage (`internal/` パッケージへの外部参照) を検出。出力は dependency table + Mermaid graph + violation list。
-- `hotspot`: Read `references/change-hotspot.md` first. `git log --since=N.months --name-only` で file change frequency を取得、SonarSource Cognitive Complexity と組み合わせて "churn × complexity" heatmap を生成。`hot+complex` (churn > median + complexity > 15) はリファクタリング最優先候補。bug-correlation: `git log --grep='fix\|bug'` で bug-fix commit に登場する頻度も加算。出力は ranked hotspot table + 推奨 refactor 順序。
-- `evolution`: Read `references/code-evolution.md` first. ファイル単位で lifespan (作成 → 最終変更日) を追跡、author 集中度 (bus factor: 80% 変更を担う著者数) を計算、commit message と diff のキーワード抽出で abstraction churn (リファクタ vs 機能追加比) を測定、conceptual drift (ファイルの責務変化を pre/post diff の class/function 変化から推定) を検出。長期不変ファイル = 安定 vs 死体、頻繁書き換え = 設計未確定 vs 機能成長 を区別。
+- `dependency`: Read `references/dependency-graph.md` first. Build the dependency graph with madge / dpdm (TS/JS) / pydeps (Python) / `go list -deps` (Go). Measure fan-in / fan-out per module (high fan-in = god-module candidate), measure transitive closure size, classify circular dependencies as HIGH / MED / LOW severity, flag direction violations (e.g. UI → DB direct import), and detect package-boundary leakage (external references into `internal/` packages). Output: dependency table + Mermaid graph + violation list.
+- `hotspot`: Read `references/change-hotspot.md` first. Collect file change frequency with `git log --since=N.months --name-only`, combine with SonarSource Cognitive Complexity to produce a `churn × complexity` heatmap. `hot+complex` (churn > median AND complexity > 15) is the top refactor candidate. Bug correlation: add the frequency of appearance in bug-fix commits via `git log --grep='fix\|bug'`. Output: ranked hotspot table + recommended refactor order.
+- `evolution`: Read `references/code-evolution.md` first. Per file, track lifespan (creation → last-change date), compute author concentration (bus factor: number of authors responsible for 80% of changes), measure abstraction churn (refactor-vs-feature ratio) via keyword extraction across commit messages and diffs, and detect conceptual drift (responsibility shift inferred from pre/post class/function changes). Long-stable files split into "stable" vs "dead code"; high-churn files split into "design unsettled" vs "feature growth".
 
 ## Output Requirements
 
@@ -278,6 +284,10 @@ Every deliverable must include:
 | `references/search-strategies.md` | You need the 4-layer search architecture, keyword dictionaries, or framework-specific queries. |
 | `references/output-formats.md` | You need Quick Answer, Investigation Report, or Onboarding Report templates. |
 | `references/complexity-assessment.md` | Cognitive complexity evaluation workflow, threshold tables, or hotspot ranking is needed. |
+| `references/dependency-graph.md` | `dependency` subcommand: madge/dpdm/pydeps tooling, fan-in/fan-out analysis, transitive closure, circular dependency classification, package boundary leakage detection. |
+| `references/change-hotspot.md` | `hotspot` subcommand: git churn × cognitive complexity heatmap, bug-correlation, ranked refactor prioritization. |
+| `references/code-evolution.md` | `evolution` subcommand: file lifespan, author concentration (bus factor), abstraction churn, conceptual drift detection across commits. |
+| `references/investigation-budget.md` | Size-based budget allocation (Small/Medium/Large/XLarge), phase-specific token limits, and escalation triggers when investigation scope is unclear or large. |
 | `_common/INVESTIGATION_ESCALATION.md` | Cross-cluster escalation to Scout, unified confidence scale, or stall protocol is needed. |
 | `_common/OPUS_47_AUTHORING.md` | You are choosing tool-use eagerness during SURVEY/TRACE, deciding adaptive thinking depth at SCOPE, or sizing the report. Critical for Lens: P3, P5. |
 
@@ -294,9 +304,9 @@ Every deliverable must include:
 
 ## AUTORUN Support
 
-When Lens receives `_AGENT_CONTEXT`, parse `task_type`, `description`, `investigation_type`, `scope`, and `Constraints`, choose the correct investigation pattern, run the SCOPE→SURVEY→TRACE→CONNECT→REPORT workflow, produce the investigation report, and return `_STEP_COMPLETE`.
+See `_common/AUTORUN.md` for the protocol (`_AGENT_CONTEXT` input, mode semantics, error handling).
 
-### `_STEP_COMPLETE`
+Lens-specific `_STEP_COMPLETE.Output` schema:
 
 ```yaml
 _STEP_COMPLETE:
@@ -317,26 +327,4 @@ _STEP_COMPLETE:
 
 ## Nexus Hub Mode
 
-When input contains `## NEXUS_ROUTING`, do not call other agents directly. Return all work via `## NEXUS_HANDOFF`.
-
-### `## NEXUS_HANDOFF`
-
-```text
-## NEXUS_HANDOFF
-- Step: [X/Y]
-- Agent: Lens
-- Summary: [1-3 lines]
-- Key findings / decisions:
-  - Investigation type: [Existence | Flow | Structure | Data | Convention]
-  - Scope: [files/modules investigated]
-  - Confidence: [High | Medium | Low]
-  - Key discoveries: [main findings]
-  - Gaps: [What I didn't find]
-- Artifacts: [file paths or inline references]
-- Risks: [low confidence areas, incomplete investigation]
-- Open questions: [blocking / non-blocking]
-- Pending Confirmations: [Trigger/Question/Options/Recommended]
-- User Confirmations: [received confirmations]
-- Suggested next agent: [Agent] (reason)
-- Next action: CONTINUE | VERIFY | DONE
-```
+When input contains `## NEXUS_ROUTING`, return via `## NEXUS_HANDOFF` (canonical schema in `_common/HANDOFF.md`).

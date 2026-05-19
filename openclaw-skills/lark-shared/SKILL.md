@@ -1,0 +1,195 @@
+---
+name: lark-shared
+description: 'Use when first setting up lark-cli, running auth login, switching user/bot identity (--as), handling permission denied or scope errors, needing to update lark-cli, or seeing _notice in JSON output.'
+version: 1.0.0
+author: larksuite
+source: "github:larksuite/cli"
+source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-shared"
+license: MIT
+tags: '[feishu, lark, lark-cli, auth, configuration]'
+created_at: "2026-05-19"
+updated_at: "2026-05-19"
+quality: 4
+complexity: intermediate
+---
+
+# lark-cli 共享规则
+
+本技能指导你如何通过lark-cli操作飞书资源, 以及有哪些注意事项。
+
+## 配置初始化
+
+首次使用需运行 `lark-cli config init` 完成应用配置。
+
+当你帮用户初始化配置时，使用background方式使用下面的命令发起配置应用流程，启动后读取输出，从中提取授权链接并发给用户。
+
+**URL 转发规则**：当命令输出 `verification_url`、`verification_uri_complete`、`console_url` 等 URL 字段时，必须将 URL exactly as returned by the CLI 转发给用户，并把它视为不可修改的 opaque string；不要做 URL encode/decode，不要补 `%20`、空格或标点，不要重新拼接 query，不要改写成 Markdown link text，建议用只包含原始 URL 的代码块单独输出。
+
+```bash
+# 发起配置（该命令会阻塞直到用户打开链接并完成操作或过期）
+lark-cli config init --new
+```
+
+## 认证
+
+### 身份类型
+
+两种身份类型，通过 `--as` 切换：
+
+| 身份 | 标识 | 获取方式 | 适用场景 |
+|------|------|---------|---------|
+| user 用户身份 | `--as user` | `lark-cli auth login` 等 | 访问用户自己的资源（日历、云空间等） |
+| bot 应用身份 | `--as bot` | 自动，只需 appId + appSecret | 应用级操作,访问bot自己的资源 |
+
+### 身份选择原则
+
+输出的 `[identity: bot/user]` 代表当前身份。bot 与 user 表现差异很大，需确认身份符合目标需求：
+
+- **Bot 看不到用户资源**：无法访问用户的日历、云空间文档、邮箱等个人资源。例如 `--as bot` 查日程返回 bot 自己的（空）日历
+- **Bot 无法代表用户操作**：发消息以应用名义发送，创建文档归属 bot
+- **Bot 权限**：只需在飞书开发者后台开通 scope，无需 `auth login`
+- **User 权限**：后台开通 scope + 用户通过 `auth login` 授权，两层都要满足
+
+
+### 权限不足处理
+
+遇到权限相关错误时，**根据当前身份类型采取不同解决方案**。
+
+错误响应中包含关键信息：
+- `permission_violations`：列出缺失的 scope (N选1)
+- `console_url`：飞书开发者后台的权限配置链接
+- `hint`：建议的修复命令
+
+#### Bot 身份（`--as bot`）
+
+将错误中的 `console_url` 原样提供给用户，引导去后台开通 scope。**禁止**对 bot 执行 `auth login`。
+
+#### User 身份（`--as user`）
+
+```bash
+lark-cli auth login --domain <domain>           # 按业务域授权
+lark-cli auth login --scope "<missing_scope>"   # 按具体 scope 授权（推荐,符合最小权限原则）
+```
+
+**规则**：auth login 必须指定范围（`--domain` 或 `--scope`）。多次 login 的 scope 会累积（增量授权）。
+
+#### Agent 代理发起认证（推荐）
+
+当你作为 AI agent 需要帮用户完成认证时，优先使用 split-flow，避免在同一轮对话中阻塞等待用户授权：
+
+```bash
+# 发起授权（立即返回 device_code 和 verification_url）
+lark-cli auth login --scope "calendar:calendar:readonly" --no-wait --json
+```
+
+拿到 `verification_url` 后，将它原样作为本轮最终消息发给用户，并结束本轮/交还控制权。不要在同一轮中展示 URL 后立刻执行 `--device-code` 阻塞轮询；在不透传中间输出的 agent harness 里，这会导致用户永远看不到 URL。
+
+用户回复已完成授权后，再在后续步骤执行：
+
+```bash
+lark-cli auth login --device-code <device_code>
+```
+
+## 更新检查
+
+lark-cli 命令执行后，如果检测到新版本，JSON 输出中会包含 `_notice.update` 字段（含 `message`、`command` 等）。
+
+**当你在输出中看到 `_notice.update` 时，完成用户当前请求后，主动提议帮用户更新**：
+
+1. 告知用户当前版本和最新版本号
+2. 提议执行更新（同时更新 CLI 和 Skills）：
+   ```bash
+   lark-cli update
+   ```
+3. 更新完成后提醒用户：**退出并重新打开 AI Agent** 以加载最新 Skills
+
+**重要**：始终使用 `lark-cli update` 更新，它会同时更新 CLI 和 AI Skills。
+
+**规则**：不要静默忽略更新提示。即使当前任务与更新无关，也应在完成用户请求后补充告知。
+
+## 安全规则
+
+- **禁止输出密钥**（appSecret、accessToken）到终端明文。
+- **写入/删除操作前必须确认用户意图**。
+- 用 `--dry-run` 预览危险请求。
+
+## 高风险操作的审批协议（exit 10）
+
+lark-cli 对高风险写操作（`risk: "high-risk-write"`）有强制确认门禁。当你不带 `--yes` 调用这类命令时，CLI 会退出码 `10`、并在 stderr 返回如下结构化 envelope：
+
+```json
+{
+  "ok": false,
+  "error": {
+    "type": "confirmation_required",
+    "message": "drive +delete requires confirmation",
+    "hint": "add --yes to confirm",
+    "risk": {
+      "level": "high-risk-write",
+      "action": "drive +delete"
+    }
+  }
+}
+```
+
+**遇到这种情况，不要当普通错误放弃。** 按以下流程处理：
+
+1. **识别**：看到子进程 exit code = `10` 且 stderr JSON 里 `error.type == "confirmation_required"`
+2. **向用户确认**：把 `error.risk.action` 和关键参数展示给用户，明确告知"这是高风险操作"，等待用户显式同意
+3. **用户同意** → 在你**原始 argv 的末尾追加 `--yes`** 后重试
+4. **用户拒绝** → 终止流程，不要擅自改写参数或跳过门禁
+
+**绝对不允许**：
+- 看到 exit 10 就默认加 `--yes` 静默重试（这等于禁用门禁）
+- 把 `confirmation_required` 当网络错误/权限错误处理
+- 在用户没明确同意的前提下追加 `--yes` 重试
+- 用 `sh -c` 等 shell 方式拼接命令重试——用 `exec.Command(argv...)` 参数数组形式，避免 shell 解析把用户参数当作语法
+
+提前预判：想先让用户 review 危险操作的具体请求，调用时加 `--dry-run`——它不触发门禁，会打印完整请求详情（URL / body / params），你可以把这个预览给用户看过再去真正执行。
+
+### 如何识别一条命令是高风险
+
+- shortcut：`lark-cli <service> +<cmd> --help` 顶部会显示 `Risk: high-risk-write`
+- service 命令：`lark-cli schema <service>.<resource>.<method> --format json` 的返回值里 `"risk": "high-risk-write"`
+
+## Repository Curation Notes
+
+### When to Use
+
+- Use this skill when the user explicitly asks for 飞书 CLI 共享认证规则 work in Feishu/Lark.
+- Use it before falling back to raw OpenAPI calls when the requested action matches the supported shortcut or service command.
+- Use `lark-shared` first when credentials, identity, scopes, or tenant visibility are unclear.
+- Prefer bounded, inspectable commands and show the user candidate records before taking side-effecting actions.
+
+### Core Capabilities
+
+- Discover the relevant `lark-cli auth` command surface with `--help` before composing requests.
+- Keep identity explicit with `--as user` or `--as bot` whenever the result depends on user-visible resources.
+- Request the narrowest useful output format; use JSON for automation and table/pretty output only for human inspection.
+- Handle permission errors by checking missing scopes and current identity instead of retrying the same command blindly.
+
+### Common Patterns
+
+```bash
+# Inspect the official command surface before acting
+lark-cli auth --help
+
+# Verify authentication and granted scopes when a command fails
+lark-cli auth status
+lark-cli auth check --help
+
+# Preview side-effecting operations when supported
+lark-cli auth --help | sed -n '1,80p'
+```
+
+- For read flows, first locate the target resource, then fetch details with an ID-based command.
+- For write flows, validate IDs, scopes, and ownership before issuing create/update/delete operations.
+- For ambiguous people, chats, documents, tables, or meetings, list candidates and ask the user to choose.
+- For automation output, keep stable IDs, URLs, timestamps, and the exact command used in the final summary.
+
+### Boundaries
+
+- Do not invent Feishu tokens, open IDs, chat IDs, document tokens, table IDs, or meeting IDs.
+- Do not bypass tenant permission controls; ask the user or administrator to grant the required scope or visibility.
+- Do not use raw `lark-cli api` until the skill-specific shortcuts and registered commands have been checked.
+- Do not perform destructive changes without a clear user request and, when possible, a dry-run or read-back verification.

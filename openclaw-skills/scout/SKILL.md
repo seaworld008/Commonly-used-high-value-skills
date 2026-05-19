@@ -1,14 +1,14 @@
 ---
 name: scout
 description: 'Bug investigation, root cause analysis (RCA), reproduction steps, and impact assessment. Investigation-only agent that identifies why bugs occur and where to fix them without writing code.'
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/scout"
 license: MIT
 tags: '["analysis", "planning", "scout"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-05"
+updated_at: "2026-05-19"
 quality: 5
 complexity: "advanced"
 ---
@@ -31,6 +31,8 @@ CAPABILITIES_SUMMARY:
 - memory_issue_investigation: Heap-snapshot-driven diagnosis of memory leaks, OOM, and GC pressure with retention-path analysis
 - intermittent_bug_investigation: Reproducibility-score-driven triage of flaky tests, race symptoms, and environment-dependent bugs with Specter handoff criteria
 - fix_prompt_generation: Pair every confirmed root cause with a paste-ready LLM Fix Prompt embedding evidence, recommended fix, acceptance criteria, ruled-out hypotheses, and "what NOT to do" so a downstream coding LLM can act without manual reformulation
+- recommended_fix_impact_scope: Quantify the blast radius of the recommended fix across 5 axes (callers, tests, types, configs, docs) before handoff so Builder's VERIFY phase has an explicit checklist; auto-flag Ripple escalation when 3+ axes are non-trivially affected
+- video_bug_report_investigation: Investigate bug reports submitted as screen recordings. Local frame extraction (PySceneDetect AdaptiveDetector + absdiff sampling + pHash dedup) feeds 8-15 key frames to Codex CLI via `codex exec --image`. Schema-validated JSON output (verdict / evidence_frames / reproduction_steps / confidence) flows into the standard Scout investigation report. Model selection is delegated to the user's Codex CLI configuration.
 
 COLLABORATION_PATTERNS:
 - Triage -> Scout: Incident reports requiring RCA
@@ -100,7 +102,11 @@ Route elsewhere when the task is primarily:
 - AI-generated code awareness: AI-generated code contains semantic bugs at elevated rates — boundary condition oversights, error handling gaps, and dependency misunderstanding (Snyk: 36% security vulnerability rate). When investigating AI-coauthored changes (Co-authored-by trailers, large single-commit additions), allocate an additional hypothesis round for AI-specific failure patterns.
 - Use the unified confidence scale from `_common/INVESTIGATION_ESCALATION.md`: HIGH (≥0.8, 3+ evidence), MEDIUM (0.5-0.79, 2 evidence), LOW (<0.5, ≤1 evidence).
 - Hand off fix direction to Builder and regression ideas to Radar; do not write code.
+- **Quantify recommended-fix impact scope across 5 axes before handoff**: (1) callers/importers of the modified symbol/file, (2) related tests (unit/integration/e2e), (3) types/contracts (TypeScript types, OpenAPI, DB schema, GraphQL), (4) configs (env vars, feature flags, config files), (5) docs (README, CHANGELOG, API docs). Document each axis with file paths or "none". When 3+ axes are non-trivially affected, recommend `ripple` as the next agent (not Builder) so the impact analysis is performed before implementation. The impact scope block is mandatory whenever a `## LLM Fix Prompt` is included.
 - Pair every confirmed root cause with a paste-ready `## LLM Fix Prompt` block in the report. The prompt embeds evidence, recommended fix, acceptance criteria, ruled-out hypotheses, and "what NOT to do" so a downstream coding LLM can act without manual reformulation. Suppress only when escalating to Sentinel/Specter, when scope is investigation-only, or when evidence is too weak even for `INVESTIGATE-FURTHER`. See `references/fix-prompt-generation.md`.
+- **Add a slopsquat / hallucinated-import check** when the bug surface involves a recently-added dependency. Research shows 5-21% of AI-suggested package names do not exist on the registry; the typo-squatted equivalents are increasingly registered by attackers (e.g. `huggingface-cli` impostor, 30,000 downloads over 3 months). On any "ImportError / ModuleNotFoundError / unresolved import" symptom, query the registry's existence and download-history endpoints for the suspect package before chasing a code-path hypothesis. [Source: snyk.io — Slopsquatting mitigation strategies; arxiv.org/html/2512.05239v1]
+- **Apply Generator-Evaluator separation when an AI agent authored the suspect change.** If the same model that wrote the change is asked to investigate it, expect optimistic self-assessment ("self-grade inflation"). Insist on a different model (or a different agent role) for the investigation, and document which engine produced which evidence in the report. [Source: docs.aws.amazon.com — Evaluator/Reflect/Refine Loop Patterns; zylos.ai — AI Agent Reflection]
+- **Track Comprehension Debt as an explicit RCA factor.** When the bug's root cause is "the team did not understand what the AI generated", record `comprehension_debt: HIGH` and recommend `judge` review of the source change before the fix lands. Comprehension Debt is the hidden cost of AI-generated code that ships faster than humans can internalise it. [Source: oreilly.com/radar — Comprehension Debt: The Hidden Cost of AI-Generated Code]
 - Author for Opus 4.7 defaults. Apply `_common/OPUS_47_AUTHORING.md` principles **P3 (eagerly use Read/Grep/Bash on candidate files before concluding — grounding cost is low compared to wrong-RCA cost), P5 (think step-by-step at LOCATE — RCA quality dominates downstream fix and regression test design)** as critical for Scout. P2 recommended: keep investigation reports within the canonical envelope in `references/output-format.md`, do not free-form expand.
 
 ## Boundaries
@@ -111,6 +117,7 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 - Reproduce or identify reproduction conditions. Build a minimal repro.
 - Trace execution from symptom to cause. Identify specific file, line, function, or condition when possible.
 - Assess impact and workaround.
+- Quantify recommended-fix impact scope across 5 axes (callers / tests / types / configs / docs) and include the block in every report when a fix is proposed.
 - Document findings in a structured report.
 - Suggest regression tests for Radar.
 - Check `.agents/PROJECT.md` for cross-agent context before starting work.
@@ -210,6 +217,7 @@ Use [advanced-reproduction-triage.md](references/advanced-reproduction-triage.md
 | 5 Whys | `5whys` | | Iterative root-cause chain (Toyota TPS) — drive from symptom to systemic cause with explicit why-chain | `references/5whys-rca.md` |
 | Fishbone / Ishikawa | `fishbone` | | Categorical RCA across 6M (Machine/Method/Material/Measurement/Mother-nature/Manpower) for multi-factor failures | `references/fishbone-6m.md` |
 | Timeline Reconstruction | `timeline` | | Incident timeline reconstruction — second-by-second event sequence, detection/response gap analysis | `references/timeline-reconstruction.md` |
+| Video Bug Report | `video` | | Screen-recording bug report — extract motion-driven key frames locally, analyze via Codex CLI, normalize into Scout report | `references/video-bug-analysis.md` |
 
 ## Subcommand Dispatch
 
@@ -230,6 +238,7 @@ Behavior notes per Recipe:
 - `5whys`: Load `references/5whys-rca.md`. Iterative why-chain from the surface symptom to a systemic cause — each answer becomes the next question. Stop when you reach a process/design issue, not a person. Distinguish from fishbone (categorical) and 5 Whys (linear).
 - `fishbone`: Load `references/fishbone-6m.md`. Ishikawa diagram across the 6M categories (Machine / Method / Material / Measurement / Mother-nature / Manpower). Best when multiple contributing factors are suspected, and root cause is not a single chain.
 - `timeline`: Load `references/timeline-reconstruction.md`. Build a second-by-second event timeline — external user actions, system internal events, alerts, and responder actions interleaved. Used for incident post-mortems; feeds Triage.
+- `video`: Load `references/video-bug-analysis.md`. Run preflight (`codex --version`, `codex auth status`). REPRODUCE phase invokes the local Python frame extractor → `codex exec --image frames/*.jpg --output-schema video-bug-detection.schema.json --sandbox read-only --ephemeral`. Validate schema + confidence (≥ 0.7) before integrating `evidence_frames` into the investigation report. Model selection deferred to Codex CLI default (`~/.codex/config.toml`); do not hard-code a model. On preflight failure, suppress the LLM Fix Prompt and emit a "Codex CLI unavailable" note.
 
 ## Output Routing
 
@@ -241,6 +250,7 @@ Behavior notes per Recipe:
 | ambiguous root cause after initial trace | Multi-Engine Mode | Merged hypothesis report | `references/modern-rca-methodology.md` |
 | cascading downstream errors from single origin | Cascading Failure Mode | Causal graph + root cause isolation | `references/observability-debugging.md`, `references/modern-rca-methodology.md` |
 | vague or incomplete report | TRIAGE phase with vague-report handling | Clarified scope + investigation plan | `references/vague-report-handling.md` |
+| screen recording attached, video bug report, 動画報告 | Video Bug Report Recipe | Investigation Report grounded in `evidence_frames` | `references/video-bug-analysis.md` |
 | complex multi-agent task via Nexus | Nexus-routed execution | Structured NEXUS_HANDOFF | `_common/HANDOFF.md` |
 
 Routing rules:
@@ -259,6 +269,7 @@ Minimum report content:
 - `Reproduction Steps`: expected, actual
 - `Root Cause Analysis`: location, cause
 - `Recommended Fix`: approach, files to modify
+- `Recommended Fix Impact Scope`: 5-axis blast radius (callers / tests / types / configs / docs) with file paths per axis or `none`; flag whether `ripple` is recommended before implementation
 - `Regression Prevention`: suggested tests for Radar
 
 Mandatory when root cause is confirmed:
@@ -267,9 +278,21 @@ Mandatory when root cause is confirmed:
 Add when available:
 - confidence level
 - evidence links
-- impact scope
 - workaround
 - ruled-out hypotheses (what was checked and eliminated, with evidence)
+
+### Recommended Fix Impact Scope Template
+
+```yaml
+RecommendedFixImpactScope:
+  callers:    {affected: [file:line, ...], note: "1-line description or 'none'"}
+  tests:      {affected: [test files], note: "additions/updates needed or 'none'"}
+  types:      {affected: [type/schema files], note: "contract impact or 'none'"}
+  configs:    {affected: [config/env keys], note: "propagation impact or 'none'"}
+  docs:       {affected: [doc paths], note: "update needed or 'none'"}
+  axes_affected: <integer 0-5>
+  recommend_ripple: <true if axes_affected >= 3 OR uncertainty is high>
+```
 
 ## LLM Fix Prompt Generation
 
@@ -315,6 +338,14 @@ SCOUT_TO_BUILDER_HANDOFF:
   regression_tests: "[test ideas for Radar]"
   fix_prompt: "[paste-ready LLM Fix Prompt; see references/fix-prompt-generation.md. Omit only when suppression rule applies.]"
   fix_prompt_verb: "[FIX | FIX-WITH-TEST | MITIGATE | INVESTIGATE-FURTHER | REFACTOR-FIX]"
+  impact_scope:
+    callers: ["file:line", ...]    # references that may break or need verification
+    tests: ["test files"]           # tests to add or update
+    types: ["type/schema files"]    # type/contract dependents
+    configs: ["config/env keys"]    # env var / feature flag / config touch points
+    docs: ["doc paths"]             # README / CHANGELOG / API docs to update
+    axes_affected: <0-5>
+    recommend_ripple: <true | false>  # true → route to Ripple before Builder
 ```
 
 ### SCOUT_TO_RADAR_HANDOFF
@@ -402,10 +433,17 @@ SCOUT_TO_TRAIL_HANDOFF:
 | `references/reproduction-templates.md` | You need a reproducible bug report for UI, API, state, async, or general failures. |
 | `references/git-bisect.md` | The issue is likely a regression and you need commit-level isolation. |
 | `references/modern-rca-methodology.md` | You need evidence-driven RCA, contributing-factor analysis, or incident-review framing. |
+| `references/5whys-rca.md` | You are running the `5whys` recipe and need the iterative why-chain template, stop conditions, or worked examples. |
+| `references/fishbone-6m.md` | You are running the `fishbone` recipe and need the 6M (Machine/Method/Material/Measurement/Mother-nature/Manpower) decomposition guide. |
+| `references/timeline-reconstruction.md` | You are running the `timeline` recipe and need second-by-second incident timeline templates and detection/response gap analysis. |
 | `references/debugging-anti-patterns.md` | The investigation is drifting, biased, or changing too many variables at once. |
 | `references/observability-debugging.md` | Traces, logs, metrics, profiling, or production-safe debugging are central. |
+| `references/perf-investigation.md` | You are running the `perf` recipe and need profiler-led flamegraph analysis, hot-path isolation, or N+1 / algorithmic / I/O / lock / GC classification. |
+| `references/memory-investigation.md` | You are running the `memory` recipe and need heap-snapshot diff, retainer-path analysis, or OOM/GC pressure diagnosis. |
+| `references/flake-investigation.md` | You are running the `flake` recipe and need reproducibility-rate measurement, environment/timing/external classification, and Specter handoff criteria. |
 | `references/advanced-reproduction-triage.md` | You need time-travel debugging, flaky-test strategy, or formal severity/priority scoring with `RICE` or `ICE`. |
 | `references/frontend-debugging.md` | The bug involves browser rendering, React/Vue framework behavior, CSS layout, or frontend state management. |
+| `references/video-bug-analysis.md` | The report includes a screen recording (MP4/MOV/WebM) and the `video` Recipe is active, or `vague-report-handling.md` `P06` was inferred and the input is video. Defines the local frame extractor contract, Codex CLI invocation, JSON output schema, prompt template, confidence scoring, and failure / privacy rules. |
 | `references/fix-prompt-generation.md` | You are authoring the `## LLM Fix Prompt` block, choosing a Scout-specific action verb, or deciding whether to suppress the prompt for a Sentinel/Specter handoff or investigation-only scope. |
 | `_common/LLM_PROMPT_GENERATION.md` | You need universal authoring rules, prompt structure, or the cross-agent verb/suppression principles shared with Trail/Sentinel/Plea. |
 | `_common/INVESTIGATION_ESCALATION.md` | Cross-cluster escalation, handoff formats (LENS_TO_SCOUT, SCOUT_TO_LENS), or unified confidence scale is needed. |
@@ -445,31 +483,20 @@ _STEP_COMPLETE:
       confidence: "[HIGH | MEDIUM | LOW]"
       root_cause_location: "[file:line or 'unconfirmed']"
       reproduction_status: "[reproduced | partially reproduced | not reproduced]"
+      impact_scope_axes_affected: "[0-5 — number of affected axes among callers/tests/types/configs/docs]"
+      recommend_ripple: "[true | false — true when axes_affected ≥ 3 or uncertainty is high]"
   Validations:
     completeness: "[complete | partial | blocked]"
     quality_check: "[passed | flagged | skipped]"
-  Next: [recommended next agent or DONE]
+  Next: [Ripple | Builder | Radar | recommended next agent | DONE]
   Reason: [Why this next step]
 ```
 
 ## Nexus Hub Mode
 
-When input contains `## NEXUS_ROUTING`, do not call other agents directly. Return all work via `## NEXUS_HANDOFF`.
+When input contains `## NEXUS_ROUTING`, return via `## NEXUS_HANDOFF` (canonical schema in `_common/HANDOFF.md`).
 
-### `## NEXUS_HANDOFF`
-
-```text
-## NEXUS_HANDOFF
-- Step: [X/Y]
-- Agent: Scout
-- Summary: [1-3 lines]
-- Key findings / decisions:
-  - [domain-specific items]
-- Artifacts: [file paths or "none"]
-- Risks: [identified risks]
-- Open questions: [blocking / non-blocking]
-- Pending Confirmations: [Trigger/Question/Options/Recommended]
-- User Confirmations: [received confirmations]
-- Suggested next agent: [AgentName] (reason)
-- Next action: CONTINUE
-```
+Scout-specific findings to surface in handoff:
+- Confidence (HIGH | MEDIUM | LOW)
+- Root cause location (file:line or 'unconfirmed')
+- Reproduction status (reproduced | partially reproduced | not reproduced)

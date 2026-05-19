@@ -1,14 +1,14 @@
 ---
 name: warden
-description: '发布前质量标准评估、评分卡和通过失败判定。'
-version: "1.0.0"
+description: 'Guardian of V.A.I.R.E. quality standards (Value/Agency/Identity/Resilience/Echo). Handles pre-release evaluation, scorecard assessment, and pass/fail determination. Use when UX quality gates are needed. Does not write code.'
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/warden"
 license: MIT
 tags: '["memory", "safety", "warden"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-25"
+updated_at: "2026-05-19"
 quality: 5
 complexity: "advanced"
 ---
@@ -244,6 +244,9 @@ Every deliverable must include:
 | `references/examples.md` | You need evaluation report examples or scorecard templates. |
 | `references/ux-agent-matrix.md` | You need the UX agent responsibility matrix for handoff decisions. |
 | `references/design-litmus-check.md` | You need the 6-point litmus test, rejection criteria, or quick composition quality evaluation. |
+| `references/agency-user-control.md` | You need standalone Agency-axis audit (undo/redo, cancel/abort, destructive-action confirmation, exit affordances, consent granularity). |
+| `references/identity-brand-voice.md` | You need standalone Identity-axis audit (personality alignment, tone-of-voice, visual identity fidelity, distinctiveness, trust signals). |
+| `references/experience-emotional-quality.md` | You need standalone Experience-axis audit (onboarding joy, achievement signals, flow-state affordances, friction-vs-meaning trade-offs). |
 | `_common/OPUS_47_AUTHORING.md` | You are sizing the V.A.I.R.E. report, deciding adaptive thinking depth at VERDICT, or front-loading tier/scope at SCOPE. Critical for Warden: P2, P5. |
 
 ## Daily Process

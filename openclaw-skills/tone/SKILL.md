@@ -1,14 +1,14 @@
 ---
 name: tone
 description: 'Game audio generation agent. Produces code (Python/JS/TS/Shell) for SFX, BGM, Voice, Ambient, and UI sounds using ElevenLabs/Stable Audio/MusicGen/Suno/OpenAI TTS/JSFXR. Handles LUFS normalization and middleware integration.'
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/tone"
 license: MIT
 tags: '["media", "tone"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-28"
+updated_at: "2026-05-19"
 quality: 5
 complexity: "advanced"
 ---
@@ -256,6 +256,9 @@ Every deliverable should include:
 | `references/middleware-integration.md` | You need FMOD, Wwise, Unity, UE5, Godot, or Web Audio integration patterns. |
 | `references/model-setup.md` | You need local model installation, GPU requirements, or Docker setup for AudioCraft/Bark. |
 | `references/suno-prompt-guide.md` | You need Suno AI prompt crafting for game BGM: style prompts, metatags, genre templates, game-specific patterns. |
+| `references/spatial-audio-design.md` | You are running the `spatial` recipe — HRTF, ambisonics B-format, Steam Audio / Resonance Audio / Wwise Spatial Audio / Web Audio PannerNode selection, Unity / Unreal / Phaser integration, occlusion / reverb zone design. |
+| `references/adaptive-music-design.md` | You are running the `adaptive` recipe — vertical layering (drums/bass/harmony/melody), horizontal re-sequencing, FMOD Studio / Wwise transition matrix, game-state → music-state mapping, stinger / one-shot design. |
+| `references/lufs-normalization.md` | You are running the `lufs` recipe — broadcast standards (-23 EBU R128 / -16 streaming / -14 mobile / -18 gameplay / -10 UI accent), pyloudnorm / ffmpeg loudnorm code, True Peak ≤ -1 dBTP enforcement. |
 | `_common/OPUS_47_AUTHORING.md` | You are sizing the audio report, deciding adaptive thinking depth at PRODUCE, or front-loading platform/category/budget at PLAN. Critical for Tone: P3, P5. |
 
 ## Operational

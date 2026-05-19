@@ -1,14 +1,14 @@
 ---
 name: harvest
 description: Collect GitHub PR data and generate work reports. Retrieves PR info via gh commands to auto-generate weekly/monthly reports and release notes. Use when work reporting or PR analysis is needed.
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/harvest"
 license: MIT
 tags: '["automation", "harvest", "workflow"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-05"
+updated_at: "2026-05-19"
 quality: 5
 complexity: "advanced"
 ---
@@ -23,7 +23,7 @@ CAPABILITIES_SUMMARY:
 - quality_trends: Merge Judge feedback into PR activity trend reports with DORA+SPACE dimensions
 - retrospective_voice: Add narrative commentary to sprint or release reports
 - pr_size_analysis: Classify PRs by size thresholds (200/400/1000 LOC), flag review efficiency risks, and recommend stacked PRs when >30% exceed 400 LOC
-- dora_metrics: Collect 5 DORA key metrics — throughput (deployment frequency, lead time) and stability (change failure rate, failed deployment recovery time, rework rate) — plus reliability as quasi-metric, from PR/release data per DORA 2024/2025. Support 7-archetype team profiling (replacing deprecated 4-tier clusters per DORA 2025)
+- dora_metrics: Collect 5 DORA key metrics — throughput (deployment frequency, lead time, rework rate) and stability/instability (change failure rate, failed deployment recovery time) — plus reliability as quasi-metric, from PR/release data per DORA 2024/2025. Support 7-archetype team profiling (replacing deprecated 4-tier clusters per DORA 2025)
 - review_cycle_analysis: Track first-response time, review cycle time (from ready-for-review, not PR creation) with 4-phase breakdown (Coding→Pickup→Review→Merge), comment resolution rate, and rubber-stamping detection
 
 COLLABORATION_PATTERNS:
@@ -59,7 +59,7 @@ Use Harvest when you need any of the following:
 - Quality trend reports that merge `Judge` feedback into PR activity
 - Narrative retrospectives or release commentary based on PR history
 - PR size distribution analysis (200 LOC target, 400 LOC ceiling benchmarks) with stacked PR recommendation when large PRs are persistent
-- DORA metric collection: 5 key metrics — throughput (deployment frequency, lead time) and stability (change failure rate, failed deployment recovery time, rework rate) — plus reliability as quasi-metric, per DORA 2024/2025. Team profiling via 7 archetypes (replacing deprecated low/medium/high/elite clusters per DORA 2025)
+- DORA metric collection: 5 key metrics — throughput (deployment frequency, lead time, rework rate) and stability/instability (change failure rate, failed deployment recovery time) — plus reliability as quasi-metric, per DORA 2024/2025. Team profiling via 7 archetypes (replacing deprecated low/medium/high/elite clusters per DORA 2025)
 - Review cycle time reporting — measure from "ready for review" timestamp, not PR creation (draft PRs inflate cycle time otherwise). Break down into 4 phases: Coding (before PR), Pickup (PR created → first reviewer assigned), Review (first review action → approval), Merge (approval → merge). Phase-level breakdown pinpoints bottlenecks that aggregate cycle time hides
 - Rubber-stamping detection: flag when review lead time is low and uncorrelated with PR size
 
@@ -125,7 +125,7 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 | Monthly Report | `monthly` | | Monthly report (includes DORA metrics) | `references/report-templates.md` |
 | Release Notes | `release` | | Release notes generation (PR aggregation between tags) | `references/changelog-best-practices.md` |
 | Sprint Retro | `retro` | | Retrospective aggregation and narrative | `references/retrospective-voice.md` |
-| DORA Deep-Dive | `dora` | | DORA 4-key metric tier classification with SPACE complement | `references/dora-metrics.md` |
+| DORA Deep-Dive | `dora` | | DORA 5-key metric profile (throughput + stability) with 7-archetype team mapping and SPACE complement | `references/dora-metrics.md` |
 | OKR Linkage | `okr` | | PR-to-Objective mapping and KR narrative for quarterly review | `references/okr-linkage.md` |
 | PR Stats Deep-Dive | `prstats` | | Cycle time histogram, P50/P75/P90 latency, Lorenz curve, large-PR risk | `references/pr-stats-analysis.md` |
 
@@ -140,7 +140,7 @@ Behavior notes per Recipe:
 - `monthly`: Monthly report. Includes 7-archetype team profile and 4-phase review cycle breakdown.
 - `release`: Generate release notes from PRs between tags/periods. Uses Keep a Changelog category mapping.
 - `retro`: Narrative aggregation for sprint retrospectives. Combine numbers and human interpretation in the output.
-- `dora`: DORA 4-key metric deep-dive (Deployment Frequency, Lead Time, Change Failure Rate, MTTR) with 2024-2025 Elite/High/Medium/Low tier thresholds and SPACE complement. Pair with 7-archetype profile and AI-period caveat. Emit to `dora-report-YYYY-MM-DD.md`.
+- `dora`: DORA 5-key metric deep-dive — 3 throughput (Deployment Frequency, Lead Time, Rework Rate) and 2 stability (Change Failure Rate, Failed Deployment Recovery Time) per DORA 2025, with reliability as quasi-metric and SPACE complement. Map teams to the 7 archetypes (do NOT use deprecated 4-tier elite/high/medium/low clusters). Apply AI-period caveat. Emit to `dora-report-YYYY-MM-DD.md`.
 - `okr`: PR-to-Objective mapping for a quarterly window. Builds KR progress narrative from PR titles/labels/commit-trailers, computes Objective health 0-100 (coverage/momentum/evidence/risk/confidence-diversity), surfaces orphan PR rate, and refuses output-as-outcome KRs. Emit to `okr-linkage-YYYY-Q.md`.
 - `prstats`: Cycle time decomposition (Coding/Pickup/Review/Merge), P50/P75/P90 percentiles, Lorenz curve + Gini for contributor distribution, bot/human split with explicit allowlist, and large-PR ledger flagging PRs >500 LOC. Emit to `pr-stats-YYYY-MM-DD.md`.
 
@@ -257,7 +257,7 @@ Routing rules:
 | `references/changelog-best-practices.md` | You need changelog/release-note category rules and audience-fit writing. |
 | `references/estimation-anti-patterns.md` | You need caveats around LOC-based effort estimation and range reporting. |
 | `references/reporting-anti-patterns.md` | You need report-design guardrails, actionability checks, or gaming detection. |
-| `references/dora-metrics.md` | You need DORA 4-key tier thresholds (2024-2025), measurement-window selection, gh/Insights integration, or SPACE complement for the `dora` recipe. |
+| `references/dora-metrics.md` | You need DORA 5-key metric thresholds (DORA 2025), 7-archetype team profiling, measurement-window selection, gh/Insights integration, or SPACE complement for the `dora` recipe. |
 | `references/okr-linkage.md` | You need PR-to-Objective tagging conventions, KR progress narrative templates, Objective health scoring, or quarterly aggregation for the `okr` recipe. |
 | `references/pr-stats-analysis.md` | You need cycle-time decomposition, P50/P75/P90 reporting, Lorenz/Gini, bot allowlist, or large-PR risk thresholds for the `prstats` recipe. |
 | `_common/OPUS_47_AUTHORING.md` | You are sizing the work report, deciding adaptive thinking depth at archetype/caveat handling, or front-loading window/scope/audience at COLLECT. Critical for Harvest: P3, P5. |

@@ -1,14 +1,14 @@
 ---
 name: morph
 description: 'Document format conversion (Markdown, Word, Excel, PDF, HTML). Converts specifications from Scribe and reports from Harvest into distributable formats. Also generates reusable conversion scripts.'
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/morph"
 license: MIT
 tags: '["morph", "office"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-05"
+updated_at: "2026-05-19"
 quality: 5
 complexity: "advanced"
 ---
@@ -239,6 +239,9 @@ Routing rules:
 - [advanced-features.md](~/.claude/skills/morph/references/advanced-features.md): Read this when you need PDF/A, signature, watermark, merge, split, metadata, encryption, or compression.
 - [template-library.md](~/.claude/skills/morph/references/template-library.md): Read this when selecting or applying LaTeX, CSS, or Word reference templates.
 - [conversion-calibration.md](~/.claude/skills/morph/references/conversion-calibration.md): Read this when recording output quality or updating tool/template heuristics.
+- [batch-conversion-pipeline.md](~/.claude/skills/morph/references/batch-conversion-pipeline.md): Read this when designing Pandoc batch pipelines, Lua filters, Makefile/CI orchestration, or parallel conversion.
+- [epub-generation.md](~/.claude/skills/morph/references/epub-generation.md): Read this when generating EPUB 3 / KF8 / MOBI outputs, configuring reflowable vs fixed-layout, or applying EPUB Accessibility 1.1.
+- [latex-typesetting.md](~/.claude/skills/morph/references/latex-typesetting.md): Read this when typesetting academic or book-length output via LaTeX / XeLaTeX / Typst with BibTeX/biblatex citations.
 - [format-conversion-anti-patterns.md](~/.claude/skills/morph/references/format-conversion-anti-patterns.md): Read this when tool selection, feature loss, or PDF misconceptions are the main risk.
 - [pdf-accessibility-anti-patterns.md](~/.claude/skills/morph/references/pdf-accessibility-anti-patterns.md): Read this when tagged PDF, alt text, reading order, or assistive-tech safety is the main risk.
 - [css-print-anti-patterns.md](~/.claude/skills/morph/references/css-print-anti-patterns.md): Read this when printed HTML/CSS layout is unstable.

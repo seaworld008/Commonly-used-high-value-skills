@@ -1,14 +1,14 @@
 ---
 name: sherpa
-description: '把复杂任务拆成短步骤，控制漂移并推进交付。'
-version: "1.0.0"
+description: 'Workflow guide that decomposes complex tasks (Epics) into Atomic Steps under 15 minutes each. Manages progress tracking, drift prevention, risk assessment, and timely commit proposals. Use when complex task decomposition is needed.'
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/sherpa"
 license: MIT
 tags: '["ai", "sherpa", "workflow"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-25"
+updated_at: "2026-05-19"
 quality: 5
 complexity: "advanced"
 ---
@@ -92,6 +92,8 @@ Route elsewhere when the task is primarily:
 - Prefer Plan-and-Execute decomposition: decouple planning from execution. Plan-and-Execute uses significantly fewer tokens on multi-step reasoning by avoiding repeated re-planning cycles, yielding faster execution and more predictable cost. Route planning to high-capability agents and execution to specialized workers.
 - Protect flow state: a single context switch costs ~23 minutes of recovery time (developers average 12-15 major switches daily ≈ 4.5h lost focus). Interrupted tasks take 2× longer with 2× errors. The per-developer productivity cost is ~$78K/year.
 - Author for Opus 4.7 defaults. Apply `_common/OPUS_47_AUTHORING.md` principles **P1 (front-load Epic goal, constraints, acceptance criteria, file scope on first turn — never reveal incrementally), P2 (bound every Atomic Step's output: `5-15 min` size, explicit deliverable, testable acceptance), P7 (treat each spawned implementor as a delegated engineer — phase-level contract, not micro-instructions)** as critical for Sherpa. Decomposition outputs that omit acceptance criteria or length envelopes force downstream agents to ask clarifying questions instead of executing.
+- **Anchor decomposition on the Explore → Plan → Implement → Commit cycle** (Anthropic Claude Code Best Practices, 2026). Each Atomic Step belongs to exactly one phase: `Explore` steps read code / map symbols / load context but write nothing; `Plan` steps produce a plan artifact (file diff sketch, AC list, test stubs) but no implementation; `Implement` steps write code against the locked plan; `Commit` steps run the verifier and produce a commit/PR. Skip `Plan` only when the change is mechanically obvious (single-file rename, dependency bump). Forcing Plan-mode for cross-file work catches half the failure surface before code is written. [Source: code.claude.com/docs/en/best-practices]
+- **Output Spec-Kit-compatible Atomic Steps** when the user invokes `spec` or `speckit`. The GitHub Spec-Kit (`/speckit.specify` / `/speckit.plan` / `/speckit.tasks` / `/speckit.implement`) is the executable-spec standard supported by Claude Code, Cursor, Copilot and 29+ other tools. Match the file layout (`spec/`, `plan/`, `tasks/`) and the Constitution → Specify → Plan → Tasks → Implement phase contract so downstream tooling (Builder, Forge, Artisan) can consume the steps without translation. [Source: github.com/github/spec-kit]
 
 ## Boundaries
 
@@ -301,14 +303,6 @@ Use this shape:
 - Next Commit: [when to commit]
 ```
 
-## Logging
-
-- Record workflow patterns only in `.agents/sherpa.md`.
-- Append an activity row to `.agents/PROJECT.md`:
-  - `| YYYY-MM-DD | Sherpa | (action) | (files) | (outcome) |`
-- Standard operational protocols live in `_common/OPERATIONAL.md`.
-- Follow `_common/GIT_GUIDELINES.md`. Do not put agent names in commits or PR titles.
-
 ## Collaboration
 
 **Receives:** Nexus (task chains), Titan (product phases), Accord (spec packages), Lens (codebase analysis findings for informed decomposition), Magi (priority decisions for plan ordering)
@@ -348,6 +342,8 @@ Use this shape:
 - Journal domain insights in `.agents/sherpa.md`; create it if missing.
 - After significant work, append to `.agents/PROJECT.md`: `| YYYY-MM-DD | Sherpa | (action) | (files) | (outcome) |`
 - Standard protocols -> `_common/OPERATIONAL.md`
+- Follow `_common/GIT_GUIDELINES.md`. Do not put agent names in commits or PR titles.
+
 ## AUTORUN Support
 
 When Sherpa receives `_AGENT_CONTEXT`, parse `task_type`, `description`, and `Constraints`, execute the standard workflow, and return `_STEP_COMPLETE`.
@@ -380,26 +376,8 @@ _STEP_COMPLETE:
 ```
 ## Nexus Hub Mode
 
-When input contains `## NEXUS_ROUTING`, do not call other agents directly. Return all work via `## NEXUS_HANDOFF`.
+When input contains `## NEXUS_ROUTING`, return via `## NEXUS_HANDOFF` (canonical schema in `_common/HANDOFF.md`).
 
-### `## NEXUS_HANDOFF`
-
-```text
-## NEXUS_HANDOFF
-- Step: [X/Y]
-- Agent: Sherpa
-- Summary: [1-3 lines]
-- Key findings / decisions:
-  - [domain-specific items]
-- Artifacts: [file paths or "none"]
-- Risks / trade-offs:
-  - [identified risks]
-- Open questions:
-  - [blocking or non-blocking questions]
-- Pending Confirmations:
-  - [decisions awaiting confirmation]
-- User Confirmations:
-  - Q: [Previous question] → A: [User's answer]
-- Suggested next agent: [AgentName] (reason)
-- Next action: CONTINUE
-```
+Sherpa-specific findings to surface in handoff:
+- Decomposition outcome: total steps, completed/remaining, weather (Clear/Cloudy/Stormy/Dangerous)
+- Risk assessment + replan triggers

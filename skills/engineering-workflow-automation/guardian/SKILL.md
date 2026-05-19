@@ -1,14 +1,14 @@
 ---
 name: guardian
-description: '提交、分支、合并请求策略和变更粒度把关。'
-version: "1.0.0"
+description: 'Git/PR gatekeeper that classifies change essence, recommends granularity, naming, and strategy. Use when PR preparation or commit strategy is needed.'
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/guardian"
 license: MIT
 tags: '["automation", "guardian", "workflow"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-25"
+updated_at: "2026-05-19"
 quality: 5
 complexity: "advanced"
 ---
@@ -22,6 +22,7 @@ CAPABILITIES_SUMMARY:
 - branch_strategy: Recommend branching strategy (GitHub Flow/Git Flow/Trunk-Based)
 - reviewer_assignment: Recommend reviewers based on CODEOWNERS and expertise
 - squash_optimization: Group and score squash plans for merge efficiency
+- pr_ship_execution: End-to-end PR delivery — create, watch CI, verify gates, merge, cleanup — with hard gates and Ask First on destructive steps
 - history_reshape: Rebuild commit history from a fresh base branch via squash-then-redistribute workflow
 - history_audit: Read-only audit of commit history quality (WIP/fixup residue, Conventional Commits violations, atomicity, size excess)
 - pr_split_planning: Decompose oversized branches into stacked PRs with dependency order and per-PR review time estimates
@@ -216,6 +217,7 @@ Routing rules:
 | Audit History | `audit` | | Read-only diagnosis of a branch's commit history (WIP/fixup residue, Conventional Commits violations, atomicity, size deviation) | `references/history-audit.md` |
 | Split into Stacked PRs | `split` | | Plan to decompose an M+ branch into stacked PRs (dependency order, file boundaries, estimated review time) | `references/pr-split-strategy.md` |
 | Branch Health | `health` | | Repo-wide branch inventory (stale, diverged, merged-but-undeleted, conflict risk) | `references/branch-health.md` |
+| Ship PR | `ship` | | End-to-end PR delivery: create PR, watch CI, verify gates, merge, cleanup. Consumes `pr` and `strategy` Recipe outputs. Merge step is always Ask First. | `references/pr-ship-flow.md` |
 
 ## Subcommand Dispatch
 
@@ -232,6 +234,7 @@ Behavior notes per Recipe:
 - `audit`: Read-only diagnosis of commit history in the specified range (`origin/main..HEAD` by default). Detect WIP/fixup residue, Conventional Commits violations, atomicity score, size deviation, and missing signatures, then recommend the next Recipe (`commit` / `reshape` / `pr` / proceed as-is). Zero side effects.
 - `split`: Generate a plan to decompose an M+ branch into stacked PRs. Size each PR to 10-15 minutes of review, and present dependency order (bottom-up), file boundaries, estimated review time, and tool selection (Graphite / ghstack / git-town / jj). Execution commands are proposals only; run in stages after user consent.
 - `health`: Inventory the repo's local/remote branches. Classify stale (30+ days without updates), upstream divergence, merged-but-undeleted, and high conflict-probability branches, and recommend delete, rebase, or archive. Branch deletion is Ask First.
+- `ship`: Execute end-to-end PR delivery — `PREFLIGHT → CREATE → WATCH → GATE → MERGE → CLEANUP`. Consume `pr` Recipe output for title/body/reviewers and `strategy` Recipe output for merge mode (default `--squash --delete-branch`). Hard gates: `quality_score >= 65`, `risk_score <= 85`, `security != CRITICAL`, all required CI green, `reviewDecision == APPROVED`, `mergeStateStatus == CLEAN`. Ask First on every MERGE execution; `--admin` bypass and force-merge over `UNSTABLE` are Ask First. Never auto-merge without explicit consent. For XXL/MEGA branches, refuse and route to `split` first.
 
 ## Output Requirements
 
@@ -271,6 +274,10 @@ Additional sections as needed (use canonical headings from `references/output-te
 | `references/pr-quality-scoring.md` | you need the exact PR quality component weights and grade mapping |
 | `references/branching-strategies.md` | you must choose GitHub Flow, Git Flow, or Trunk-Based workflow |
 | `references/branch-health.md` | you are evaluating stale, risky, or conflict-prone branches |
+| `references/history-audit.md` | you are running the `audit` recipe — read-only diagnosis of WIP/fixup residue, Conventional Commits violations, atomicity, and size deviation in a commit-history range |
+| `references/history-reshape.md` | you are running the `reshape` recipe — squash-import a development branch onto a fresh base and re-split into atomic commits with backup-branch protocol |
+| `references/pr-split-strategy.md` | you are running the `split` recipe — decompose an M+ branch into stacked PRs (10–15 min review each) with dependency order, file boundaries, and tool selection (Graphite/ghstack/git-town/jj) |
+| `references/pr-ship-flow.md` | you are running the `ship` recipe — end-to-end PR delivery (create, watch CI, verify gates, merge, cleanup) with hard gates and Ask First on every MERGE execution |
 | `references/code-review-guide.md` | you are assigning reviewers or checking review turnaround and CODEOWNERS fit |
 | `references/git-automation.md` | you need hooks, secret detection, auto-merge, or monorepo CI defaults |
 | `references/git-recipes.md` | you need concrete Git or `gh` command recipes |

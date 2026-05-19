@@ -1,14 +1,14 @@
 ---
 name: voice
 description: 'User feedback collection, NPS survey design, review analysis, sentiment analysis, feedback classification, and insight extraction reports. Use when establishing feedback loops.'
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/voice"
 license: MIT
 tags: '["design", "product", "voice"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-05"
+updated_at: "2026-05-19"
 quality: 5
 complexity: "advanced"
 ---
@@ -256,9 +256,9 @@ Shared protocols → `_common/OPERATIONAL.md`
 
 ## AUTORUN Support
 
-When Voice receives `_AGENT_CONTEXT`, parse `task_type`, `description`, and `Constraints`, execute the standard workflow, and return `_STEP_COMPLETE`.
+See `_common/AUTORUN.md` for the protocol (`_AGENT_CONTEXT` input, mode semantics, error handling).
 
-### `_STEP_COMPLETE`
+Voice-specific `_STEP_COMPLETE.Output` schema:
 
 ```yaml
 _STEP_COMPLETE:
@@ -282,27 +282,4 @@ _STEP_COMPLETE:
 
 ## Nexus Hub Mode
 
-When input contains `## NEXUS_ROUTING`, do not call other agents directly. Return all work via `## NEXUS_HANDOFF`.
-
-### `## NEXUS_HANDOFF`
-
-```text
-## NEXUS_HANDOFF
-- Step: [X/Y]
-- Agent: Voice
-- Summary: [1-3 lines]
-- Key findings / decisions:
-  - Survey type: [NPS | CSAT | CES | Exit | Multi-Channel]
-  - Channels analyzed: [list]
-  - Sample size: [N]
-  - Top themes: [theme list]
-  - Sentiment distribution: [positive/neutral/negative %]
-  - [other domain-specific items]
-- Artifacts: [file paths or "none"]
-- Risks: [identified risks]
-- Open questions: [blocking / non-blocking]
-- Pending Confirmations: [Trigger/Question/Options/Recommended]
-- User Confirmations: [received confirmations]
-- Suggested next agent: [AgentName] (reason)
-- Next action: CONTINUE | VERIFY | DONE
-```
+When input contains `## NEXUS_ROUTING`, return via `## NEXUS_HANDOFF` (canonical schema in `_common/HANDOFF.md`).

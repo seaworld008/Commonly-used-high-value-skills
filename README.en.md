@@ -5,12 +5,12 @@
 [![简体中文](https://img.shields.io/badge/README-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1677ff)](./README.md)
 [![English](https://img.shields.io/badge/README-English-111111)](./README.en.md)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b894)](./openclaw-skills/README.md)
-[![Skills](https://img.shields.io/badge/Skills-258-7c3aed)](./skills/)
+[![Skills](https://img.shields.io/badge/Skills-283-7c3aed)](./skills/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
 A high-value skills repository for AI developers, organized by real work scenarios such as developer engineering, DevOps, automation, finance, design, knowledge workflows, and reliability.
 
-This repository currently contains **16 categories / 258 skills**.
+This repository currently contains **16 categories / 283 skills**.
 
 ## Who This Is For
 
@@ -118,7 +118,7 @@ python3 scripts/sync_codex_skills.py --source-root ./skills --codex-root ~/.code
 | Finance Investing | Financial data, valuation, risk, backtesting, research writing | [Jump](#cat-finance-investing) | [Folder](./skills/finance-investing/) |
 | Growth Operations | Xiaohongshu, social media, content, attribution, competitor work | [Jump](#cat-growth-operations) | [Folder](./skills/growth-operations-xiaohongshu/) |
 | Office and Documents | Word, Excel, PPT, PDF, meeting output | [Jump](#cat-office-white-collar) | [Folder](./skills/office-white-collar/) |
-| Knowledge and PM Integrations | Notion, Linear, Obsidian, spec-to-implementation | [Jump](#cat-knowledge-pm) | [Folder](./skills/knowledge-and-pm-integrations/) |
+| Knowledge and PM Integrations | Notion, Linear, Obsidian, Lark/Feishu, spec-to-implementation | [Jump](#cat-knowledge-pm) | [Folder](./skills/knowledge-and-pm-integrations/) |
 | General Operations | Brand, fact-checking, internal comms, themes, weather | [Jump](#cat-operations-general) | [Folder](./skills/operations-general/) |
 | Product and Design | Product analysis, design systems, UX, SaaS scaffolding | [Jump](#cat-product-design) | [Folder](./skills/product-design/) |
 | Security and Reliability | Sentry, best practices, threat modeling, ownership | [Jump](#cat-security-reliability) | [Folder](./skills/security-and-reliability/) |
@@ -217,7 +217,7 @@ skills/
   finance-investing/                    # Finance and investment research
   growth-operations-xiaohongshu/        # Growth operations and social media
   office-white-collar/                  # Office documents and white-collar workflows
-  knowledge-and-pm-integrations/        # Linear, Notion, Obsidian, knowledge workflows
+  knowledge-and-pm-integrations/        # Linear, Notion, Obsidian, Lark/Feishu, knowledge workflows
   operations-general/                   # General operations
   product-design/                       # Product and design
   security-and-reliability/             # Security governance and reliability
@@ -451,10 +451,35 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`xlsx`](./skills/office-white-collar/xlsx/)
 
 <a id="cat-knowledge-pm"></a>
-### 9. Knowledge and PM Integrations (knowledge-and-pm-integrations, 11)
+### 9. Knowledge and PM Integrations (knowledge-and-pm-integrations, 36)
 
 - [`arxiv`](./skills/knowledge-and-pm-integrations/arxiv/)
 - [`grove`](./skills/knowledge-and-pm-integrations/grove/)
+- [`lark-approval`](./skills/knowledge-and-pm-integrations/lark-approval/)
+- [`lark-attendance`](./skills/knowledge-and-pm-integrations/lark-attendance/)
+- [`lark-base`](./skills/knowledge-and-pm-integrations/lark-base/)
+- [`lark-calendar`](./skills/knowledge-and-pm-integrations/lark-calendar/)
+- [`lark-contact`](./skills/knowledge-and-pm-integrations/lark-contact/)
+- [`lark-doc`](./skills/knowledge-and-pm-integrations/lark-doc/)
+- [`lark-drive`](./skills/knowledge-and-pm-integrations/lark-drive/)
+- [`lark-event`](./skills/knowledge-and-pm-integrations/lark-event/)
+- [`lark-im`](./skills/knowledge-and-pm-integrations/lark-im/)
+- [`lark-mail`](./skills/knowledge-and-pm-integrations/lark-mail/)
+- [`lark-markdown`](./skills/knowledge-and-pm-integrations/lark-markdown/)
+- [`lark-minutes`](./skills/knowledge-and-pm-integrations/lark-minutes/)
+- [`lark-okr`](./skills/knowledge-and-pm-integrations/lark-okr/)
+- [`lark-openapi-explorer`](./skills/knowledge-and-pm-integrations/lark-openapi-explorer/)
+- [`lark-shared`](./skills/knowledge-and-pm-integrations/lark-shared/)
+- [`lark-sheets`](./skills/knowledge-and-pm-integrations/lark-sheets/)
+- [`lark-skill-maker`](./skills/knowledge-and-pm-integrations/lark-skill-maker/)
+- [`lark-slides`](./skills/knowledge-and-pm-integrations/lark-slides/)
+- [`lark-task`](./skills/knowledge-and-pm-integrations/lark-task/)
+- [`lark-vc`](./skills/knowledge-and-pm-integrations/lark-vc/)
+- [`lark-vc-agent`](./skills/knowledge-and-pm-integrations/lark-vc-agent/)
+- [`lark-whiteboard`](./skills/knowledge-and-pm-integrations/lark-whiteboard/)
+- [`lark-wiki`](./skills/knowledge-and-pm-integrations/lark-wiki/)
+- [`lark-workflow-meeting-summary`](./skills/knowledge-and-pm-integrations/lark-workflow-meeting-summary/)
+- [`lark-workflow-standup-report`](./skills/knowledge-and-pm-integrations/lark-workflow-standup-report/)
 - [`linear`](./skills/knowledge-and-pm-integrations/linear/)
 - [`llm-wiki`](./skills/knowledge-and-pm-integrations/llm-wiki/)
 - [`lore`](./skills/knowledge-and-pm-integrations/lore/)

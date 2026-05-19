@@ -1,14 +1,14 @@
 ---
 name: triage
 description: 'Incident first response, impact scope identification, recovery procedure formulation, and postmortem creation. Use when incident response or disaster recovery is needed. Does not write code (delegates fixes to Builder).'
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/triage"
 license: MIT
 tags: '["devops", "sre", "triage"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-05"
+updated_at: "2026-05-19"
 quality: 5
 complexity: "advanced"
 ---
@@ -82,6 +82,11 @@ Route elsewhere when:
 - Diagnostics vs remediation boundary (2026 industry principle): AI may gather context, reconstruct timelines, and draft postmortems, but remediation of novel failures stays with humans (Mend handles only pre-catalogued runbook patterns). On low-confidence AI signals, **escalate and pause safely rather than proceed with uncertainty** — the inverse is how AI-assisted incident systems cause secondary outages.
 - Apply the Swiss cheese model to RCA coordination: incidents result from failures aligning across multiple defensive layers. Direct Scout to map aligned system failures across layers, not chase a single root cause.
 - Author for Opus 4.7 defaults. Apply `_common/OPUS_47_AUTHORING.md` principles **P3 (eagerly check recent deployments, monitoring, and logs at DETECT — 80% of incidents stem from internal changes, so grounding cost is trivial vs misclassification cost), P5 (think step-by-step at CLASSIFY — severity errors compound through escalation and MTTR)** as critical for Triage. P2 recommended: keep status updates and postmortems within the canonical templates in `references/postmortem-templates.md` and `references/runbooks-communication.md`.
+- **Adopt the Howie ("How We Got Here") postmortem method** from PagerDuty (Jeli lineage) as the default for SEV-1/SEV-2 reviews. Howie reframes the postmortem as a *facilitated narrative* rather than a 5-Whys interrogation: a Narrative Builder reconstructs the timeline, a Takeaways round captures what the team learned, and a Learning Review session translates those takeaways into durable changes. Use 5-Whys / fault tree only as supplementary analysis inside this frame, not as the frame itself. [Source: howie-guide.pagerduty.com]
+- **Parallelise hypothesis tracking with a Dynamic Knowledge Graph (Resolve AI pattern).** Live-connect Pods, Grafana, GitHub, and Jenkins evidence into a graph that the triage agent maintains across multiple concurrent hypotheses; each hypothesis carries its own evidence list and disconfirmation criteria. Resolve.ai's production deployments report ~80% incident auto-resolution targeting this design. Replace the single-thread "Scout investigates one hypothesis" handoff with parallel hypothesis evidence requests when severity is SEV-1 / SEV-2. [Source: resolve.ai/product/ai-sre]
+- **Catalogue + Scribe pattern (incident.io)** for incident-comms authoring. Use a service catalogue to determine scope (which downstream services consume the failing component) and a Scribe agent to auto-transcribe the war-room call into the timeline. incident.io reports `5×` faster timeline assembly and `90%` accuracy on the scope determination. Wire this into `incident_comms_authoring` so the human IC drives, not types. [Source: incident.io/blog — What is AI SRE Complete Guide 2026]
+- **Use Causal Inference RCA** when high-cardinality traces are available: build a directed acyclic graph from traces, apply Granger causality between time-series, and reduce to a Minimum Spanning Tree (Kruskal) to separate symptom from cause. IBM Instana RCI deployments in financial production cut MTTR from 47 min to 8 min (−83%). When traces are sparse, fall back to the Swiss-cheese model already in scope. [Source: ijetcsit.org/index.php/ijetcsit/article/view/676]
+- **Apply Autonomy with Guardrails** to AI-assisted triage actions: investigation steps can run autonomously, but every *remediation* action (rollback, restart, scale, flag-flip) passes through an explicit policy layer with named approvers. When agent confidence is below threshold (44% of incident leaders report only moderate AI confidence as of 2026), `pause` is the correct action, not `continue`. Pair this rule with the existing severity-tiered confirmation matrix. [Source: tldrecap.tech/posts/2026/conf42-sre/autonomous-agent-safety/]
 
 ## Incident Response Philosophy — 5 Critical Questions
 

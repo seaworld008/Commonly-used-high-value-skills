@@ -1,0 +1,421 @@
+{
+  "video": {
+    "url": "https://github.com/larksuite/cli",
+    "checked_at": "2026-05-19",
+    "note": "Official Lark/Feishu CLI AI Agent Skills import, including auxiliary references/scripts/assets copied with each skill."
+  },
+  "official_references": [
+    {
+      "name": "larksuite/cli repository",
+      "url": "https://github.com/larksuite/cli",
+      "purpose": "Canonical upstream repository for official Lark/Feishu CLI and AI Agent Skills."
+    },
+    {
+      "name": "larksuite/cli MIT license",
+      "url": "https://github.com/larksuite/cli/blob/main/LICENSE",
+      "purpose": "Permissive license verification for imported official skills."
+    }
+  ],
+  "skills": [
+    {
+      "video_name": "lark-approval",
+      "normalized_slug": "lark-approval",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/knowledge-and-pm-integrations/lark-approval/SKILL.md",
+      "source": "https://github.com/larksuite/cli/tree/main/skills/lark-approval",
+      "notes": "Official Lark/Feishu CLI AI Agent Skill imported from larksuite/cli under MIT license.",
+      "upstream": {
+        "repo": "larksuite/cli",
+        "path": "skills/lark-approval/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-05-19",
+        "last_synced_at": "2026-05-19",
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+      }
+    },
+    {
+      "video_name": "lark-attendance",
+      "normalized_slug": "lark-attendance",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/knowledge-and-pm-integrations/lark-attendance/SKILL.md",
+      "source": "https://github.com/larksuite/cli/tree/main/skills/lark-attendance",
+      "notes": "Official Lark/Feishu CLI AI Agent Skill imported from larksuite/cli under MIT license.",
+      "upstream": {
+        "repo": "larksuite/cli",
+        "path": "skills/lark-attendance/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-05-19",
+        "last_synced_at": "2026-05-19",
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+      }
+    },
+    {
+      "video_name": "lark-base",
+      "normalized_slug": "lark-base",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/knowledge-and-pm-integrations/lark-base/SKILL.md",
+      "source": "https://github.com/larksuite/cli/tree/main/skills/lark-base",
+      "notes": "Official Lark/Feishu CLI AI Agent Skill imported from larksuite/cli under MIT license.",
+      "upstream": {
+        "repo": "larksuite/cli",
+        "path": "skills/lark-base/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-05-19",
+        "last_synced_at": "2026-05-19",
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+      }
+    },
+    {
+      "video_name": "lark-calendar",
+      "normalized_slug": "lark-calendar",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/knowledge-and-pm-integrations/lark-calendar/SKILL.md",
+      "source": "https://github.com/larksuite/cli/tree/main/skills/lark-calendar",
+      "notes": "Official Lark/Feishu CLI AI Agent Skill imported from larksuite/cli under MIT license.",
+      "upstream": {
+        "repo": "larksuite/cli",
+        "path": "skills/lark-calendar/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-05-19",
+        "last_synced_at": "2026-05-19",
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+      }
+    },
+    {
+      "video_name": "lark-contact",
+      "normalized_slug": "lark-contact",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/knowledge-and-pm-integrations/lark-contact/SKILL.md",
+      "source": "https://github.com/larksuite/cli/tree/main/skills/lark-contact",
+      "notes": "Official Lark/Feishu CLI AI Agent Skill imported from larksuite/cli under MIT license.",
+      "upstream": {
+        "repo": "larksuite/cli",
+        "path": "skills/lark-contact/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-05-19",
+        "last_synced_at": "2026-05-19",
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+      }
+    },
+    {
+      "video_name": "lark-doc",
+      "normalized_slug": "lark-doc",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/knowledge-and-pm-integrations/lark-doc/SKILL.md",
+      "source": "https://github.com/larksuite/cli/tree/main/skills/lark-doc",
+      "notes": "Official Lark/Feishu CLI AI Agent Skill imported from larksuite/cli under MIT license.",
+      "upstream": {
+        "repo": "larksuite/cli",
+        "path": "skills/lark-doc/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-05-19",
+        "last_synced_at": "2026-05-19",
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+      }
+    },
+    {
+      "video_name": "lark-drive",
+      "normalized_slug": "lark-drive",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/knowledge-and-pm-integrations/lark-drive/SKILL.md",
+      "source": "https://github.com/larksuite/cli/tree/main/skills/lark-drive",
+      "notes": "Official Lark/Feishu CLI AI Agent Skill imported from larksuite/cli under MIT license.",
+      "upstream": {
+        "repo": "larksuite/cli",
+        "path": "skills/lark-drive/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-05-19",
+        "last_synced_at": "2026-05-19",
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+      }
+    },
+    {
+      "video_name": "lark-event",
+      "normalized_slug": "lark-event",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/knowledge-and-pm-integrations/lark-event/SKILL.md",
+      "source": "https://github.com/larksuite/cli/tree/main/skills/lark-event",
+      "notes": "Official Lark/Feishu CLI AI Agent Skill imported from larksuite/cli under MIT license.",
+      "upstream": {
+        "repo": "larksuite/cli",
+        "path": "skills/lark-event/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-05-19",
+        "last_synced_at": "2026-05-19",
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+      }
+    },
+    {
+      "video_name": "lark-im",
+      "normalized_slug": "lark-im",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/knowledge-and-pm-integrations/lark-im/SKILL.md",
+      "source": "https://github.com/larksuite/cli/tree/main/skills/lark-im",
+      "notes": "Official Lark/Feishu CLI AI Agent Skill imported from larksuite/cli under MIT license.",
+      "upstream": {
+        "repo": "larksuite/cli",
+        "path": "skills/lark-im/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-05-19",
+        "last_synced_at": "2026-05-19",
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+      }
+    },
+    {
+      "video_name": "lark-mail",
+      "normalized_slug": "lark-mail",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/knowledge-and-pm-integrations/lark-mail/SKILL.md",
+      "source": "https://github.com/larksuite/cli/tree/main/skills/lark-mail",
+      "notes": "Official Lark/Feishu CLI AI Agent Skill imported from larksuite/cli under MIT license.",
+      "upstream": {
+        "repo": "larksuite/cli",
+        "path": "skills/lark-mail/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-05-19",
+        "last_synced_at": "2026-05-19",
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+      }
+    },
+    {
+      "video_name": "lark-markdown",
+      "normalized_slug": "lark-markdown",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/knowledge-and-pm-integrations/lark-markdown/SKILL.md",
+      "source": "https://github.com/larksuite/cli/tree/main/skills/lark-markdown",
+      "notes": "Official Lark/Feishu CLI AI Agent Skill imported from larksuite/cli under MIT license.",
+      "upstream": {
+        "repo": "larksuite/cli",
+        "path": "skills/lark-markdown/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-05-19",
+        "last_synced_at": "2026-05-19",
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+      }
+    },
+    {
+      "video_name": "lark-minutes",
+      "normalized_slug": "lark-minutes",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/knowledge-and-pm-integrations/lark-minutes/SKILL.md",
+      "source": "https://github.com/larksuite/cli/tree/main/skills/lark-minutes",
+      "notes": "Official Lark/Feishu CLI AI Agent Skill imported from larksuite/cli under MIT license.",
+      "upstream": {
+        "repo": "larksuite/cli",
+        "path": "skills/lark-minutes/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-05-19",
+        "last_synced_at": "2026-05-19",
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+      }
+    },
+    {
+      "video_name": "lark-okr",
+      "normalized_slug": "lark-okr",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/knowledge-and-pm-integrations/lark-okr/SKILL.md",
+      "source": "https://github.com/larksuite/cli/tree/main/skills/lark-okr",
+      "notes": "Official Lark/Feishu CLI AI Agent Skill imported from larksuite/cli under MIT license.",
+      "upstream": {
+        "repo": "larksuite/cli",
+        "path": "skills/lark-okr/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-05-19",
+        "last_synced_at": "2026-05-19",
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+      }
+    },
+    {
+      "video_name": "lark-openapi-explorer",
+      "normalized_slug": "lark-openapi-explorer",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/knowledge-and-pm-integrations/lark-openapi-explorer/SKILL.md",
+      "source": "https://github.com/larksuite/cli/tree/main/skills/lark-openapi-explorer",
+      "notes": "Official Lark/Feishu CLI AI Agent Skill imported from larksuite/cli under MIT license.",
+      "upstream": {
+        "repo": "larksuite/cli",
+        "path": "skills/lark-openapi-explorer/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-05-19",
+        "last_synced_at": "2026-05-19",
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+      }
+    },
+    {
+      "video_name": "lark-shared",
+      "normalized_slug": "lark-shared",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/knowledge-and-pm-integrations/lark-shared/SKILL.md",
+      "source": "https://github.com/larksuite/cli/tree/main/skills/lark-shared",
+      "notes": "Official Lark/Feishu CLI AI Agent Skill imported from larksuite/cli under MIT license.",
+      "upstream": {
+        "repo": "larksuite/cli",
+        "path": "skills/lark-shared/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-05-19",
+        "last_synced_at": "2026-05-19",
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+      }
+    },
+    {
+      "video_name": "lark-sheets",
+      "normalized_slug": "lark-sheets",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/knowledge-and-pm-integrations/lark-sheets/SKILL.md",
+      "source": "https://github.com/larksuite/cli/tree/main/skills/lark-sheets",
+      "notes": "Official Lark/Feishu CLI AI Agent Skill imported from larksuite/cli under MIT license.",
+      "upstream": {
+        "repo": "larksuite/cli",
+        "path": "skills/lark-sheets/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-05-19",
+        "last_synced_at": "2026-05-19",
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+      }
+    },
+    {
+      "video_name": "lark-skill-maker",
+      "normalized_slug": "lark-skill-maker",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/knowledge-and-pm-integrations/lark-skill-maker/SKILL.md",
+      "source": "https://github.com/larksuite/cli/tree/main/skills/lark-skill-maker",
+      "notes": "Official Lark/Feishu CLI AI Agent Skill imported from larksuite/cli under MIT license.",
+      "upstream": {
+        "repo": "larksuite/cli",
+        "path": "skills/lark-skill-maker/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-05-19",
+        "last_synced_at": "2026-05-19",
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+      }
+    },
+    {
+      "video_name": "lark-slides",
+      "normalized_slug": "lark-slides",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/knowledge-and-pm-integrations/lark-slides/SKILL.md",
+      "source": "https://github.com/larksuite/cli/tree/main/skills/lark-slides",
+      "notes": "Official Lark/Feishu CLI AI Agent Skill imported from larksuite/cli under MIT license.",
+      "upstream": {
+        "repo": "larksuite/cli",
+        "path": "skills/lark-slides/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-05-19",
+        "last_synced_at": "2026-05-19",
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+      }
+    },
+    {
+      "video_name": "lark-task",
+      "normalized_slug": "lark-task",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/knowledge-and-pm-integrations/lark-task/SKILL.md",
+      "source": "https://github.com/larksuite/cli/tree/main/skills/lark-task",
+      "notes": "Official Lark/Feishu CLI AI Agent Skill imported from larksuite/cli under MIT license.",
+      "upstream": {
+        "repo": "larksuite/cli",
+        "path": "skills/lark-task/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-05-19",
+        "last_synced_at": "2026-05-19",
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+      }
+    },
+    {
+      "video_name": "lark-vc",
+      "normalized_slug": "lark-vc",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/knowledge-and-pm-integrations/lark-vc/SKILL.md",
+      "source": "https://github.com/larksuite/cli/tree/main/skills/lark-vc",
+      "notes": "Official Lark/Feishu CLI AI Agent Skill imported from larksuite/cli under MIT license.",
+      "upstream": {
+        "repo": "larksuite/cli",
+        "path": "skills/lark-vc/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-05-19",
+        "last_synced_at": "2026-05-19",
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+      }
+    },
+    {
+      "video_name": "lark-vc-agent",
+      "normalized_slug": "lark-vc-agent",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/knowledge-and-pm-integrations/lark-vc-agent/SKILL.md",
+      "source": "https://github.com/larksuite/cli/tree/main/skills/lark-vc-agent",
+      "notes": "Official Lark/Feishu CLI AI Agent Skill imported from larksuite/cli under MIT license.",
+      "upstream": {
+        "repo": "larksuite/cli",
+        "path": "skills/lark-vc-agent/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-05-19",
+        "last_synced_at": "2026-05-19",
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+      }
+    },
+    {
+      "video_name": "lark-whiteboard",
+      "normalized_slug": "lark-whiteboard",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/knowledge-and-pm-integrations/lark-whiteboard/SKILL.md",
+      "source": "https://github.com/larksuite/cli/tree/main/skills/lark-whiteboard",
+      "notes": "Official Lark/Feishu CLI AI Agent Skill imported from larksuite/cli under MIT license.",
+      "upstream": {
+        "repo": "larksuite/cli",
+        "path": "skills/lark-whiteboard/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-05-19",
+        "last_synced_at": "2026-05-19",
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+      }
+    },
+    {
+      "video_name": "lark-wiki",
+      "normalized_slug": "lark-wiki",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/knowledge-and-pm-integrations/lark-wiki/SKILL.md",
+      "source": "https://github.com/larksuite/cli/tree/main/skills/lark-wiki",
+      "notes": "Official Lark/Feishu CLI AI Agent Skill imported from larksuite/cli under MIT license.",
+      "upstream": {
+        "repo": "larksuite/cli",
+        "path": "skills/lark-wiki/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-05-19",
+        "last_synced_at": "2026-05-19",
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+      }
+    },
+    {
+      "video_name": "lark-workflow-meeting-summary",
+      "normalized_slug": "lark-workflow-meeting-summary",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/knowledge-and-pm-integrations/lark-workflow-meeting-summary/SKILL.md",
+      "source": "https://github.com/larksuite/cli/tree/main/skills/lark-workflow-meeting-summary",
+      "notes": "Official Lark/Feishu CLI AI Agent Skill imported from larksuite/cli under MIT license.",
+      "upstream": {
+        "repo": "larksuite/cli",
+        "path": "skills/lark-workflow-meeting-summary/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-05-19",
+        "last_synced_at": "2026-05-19",
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+      }
+    },
+    {
+      "video_name": "lark-workflow-standup-report",
+      "normalized_slug": "lark-workflow-standup-report",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/knowledge-and-pm-integrations/lark-workflow-standup-report/SKILL.md",
+      "source": "https://github.com/larksuite/cli/tree/main/skills/lark-workflow-standup-report",
+      "notes": "Official Lark/Feishu CLI AI Agent Skill imported from larksuite/cli under MIT license.",
+      "upstream": {
+        "repo": "larksuite/cli",
+        "path": "skills/lark-workflow-standup-report/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-05-19",
+        "last_synced_at": "2026-05-19",
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+      }
+    }
+  ]
+}

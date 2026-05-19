@@ -1,14 +1,14 @@
 ---
 name: stage
 description: 'Slide generation via Marp, reveal.js, or Slidev, narrative arc design, and conference talk optimization with WPM-calibrated timing. Use when creating or pacing presentations.'
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/stage"
 license: MIT
 tags: '["office", "stage"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-28"
+updated_at: "2026-05-19"
 quality: 5
 complexity: "advanced"
 ---
@@ -204,6 +204,9 @@ Pace baseline: 120-150 WPM (125 WPM default). Word budget = duration × WPM. 1 s
 | `references/patterns.md` | You need slide framework syntax, theme templates, or layout patterns. |
 | `references/examples.md` | You need complete slide deck examples for different formats. |
 | `references/handoffs.md` | You need handoff templates for collaboration with other agents. |
+| `references/narrative-arc-design.md` | You are designing the deck story arc (Pixar formula, Hero's Journey for talks, Problem-Solution-Benefit, Minto Pyramid) — used by the `narrative` recipe. |
+| `references/slide-visual-design.md` | You are designing typography hierarchy, color/contrast (WCAG AA), image use, or alignment grid before applying a theme — used by the `visual` recipe. |
+| `references/rehearsal-delivery.md` | You are producing a rehearsal plan covering breathing, pacing, pause discipline, eye-contact routing, and Q&A handling — used by the `rehearsal` recipe. |
 | `_common/OPUS_47_AUTHORING.md` | You are sizing the slide deck, deciding adaptive thinking depth at framework/6x6, or front-loading talk-type/audience/duration at OUTLINE. Critical for Stage: P3, P5. |
 
 ## Operational
@@ -215,9 +218,9 @@ Pace baseline: 120-150 WPM (125 WPM default). Word budget = duration × WPM. 1 s
 
 ## AUTORUN Support
 
-When Stage receives `_AGENT_CONTEXT`, parse `task_type`, `topic`, `duration`, `framework`, `audience`, and `Constraints`, choose the correct narrative pattern, run the OUTLINE→ARC→DRAFT→THEME→NOTES→REVIEW workflow, produce the slide deck, and return `_STEP_COMPLETE`.
+See `_common/AUTORUN.md` for the protocol (`_AGENT_CONTEXT` input, mode semantics, error handling).
 
-### `_STEP_COMPLETE`
+Stage-specific `_STEP_COMPLETE.Output` schema:
 
 ```yaml
 _STEP_COMPLETE:
@@ -238,26 +241,4 @@ _STEP_COMPLETE:
 
 ## Nexus Hub Mode
 
-When input contains `## NEXUS_ROUTING`, do not call other agents directly. Return all work via `## NEXUS_HANDOFF`.
-
-### `## NEXUS_HANDOFF`
-
-```text
-## NEXUS_HANDOFF
-- Step: [X/Y]
-- Agent: Stage
-- Summary: [1-3 lines]
-- Key findings / decisions:
-  - Framework: [Marp | reveal.js | Slidev]
-  - Narrative pattern: [pattern name]
-  - Slide count: [N]
-  - Duration: [estimated time]
-  - Audience: [level]
-- Artifacts: [file paths or inline references]
-- Risks: [content density, timing, audience mismatch]
-- Open questions: [blocking / non-blocking]
-- Pending Confirmations: [Trigger/Question/Options/Recommended]
-- User Confirmations: [received confirmations]
-- Suggested next agent: [Agent] (reason)
-- Next action: CONTINUE | VERIFY | DONE
-```
+When input contains `## NEXUS_ROUTING`, return via `## NEXUS_HANDOFF` (canonical schema in `_common/HANDOFF.md`).

@@ -1,14 +1,14 @@
 ---
 name: clay
 description: 'AI 3D model generation agent. Generates text-to-3D and image-to-3D code (Python/JS/OpenSCAD) using Meshy, Tripo, Hunyuan3D, Rodin, Sloyd, and Stability APIs. Handles game pipeline integration, LOD, retopology, UV, and QC validation.'
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/clay"
 license: MIT
 tags: '["clay", "media"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-28"
+updated_at: "2026-05-19"
 quality: 5
 complexity: "advanced"
 ---
@@ -253,6 +253,9 @@ Every deliverable should include:
 | `references/quality-validation.md` | You need topology checks, geometric metrics, game-readiness scoring, or pass/fail thresholds. |
 | `references/prompt-engineering.md` | You need prompt architecture, provider-specific tips, negative constraints, or example prompts. |
 | `references/anti-patterns.md` | You need to avoid common pitfalls in AI 3D generation workflows. |
+| `references/auto-rigging.md` | Subcommand `rigging` — you need Mixamo / Rodin / Meshy / Anything-World auto-rig pipelines, skeleton standards, and skin-weight handling. |
+| `references/texture-baking.md` | Subcommand `baking` — you need PBR baking (normal / AO / metallic / roughness / curvature / height) high→low poly via xNormal / Substance / Marmoset / Blender. |
+| `references/animation-retargeting.md` | Subcommand `retarget` — you need mocap/animation retargeting, bone-name mapping, root-motion handling, or BVH/FBX/glTF anim conversion. |
 | `_common/OPUS_47_AUTHORING.md` | You are sizing the asset report, deciding adaptive thinking depth at GENERATE, or front-loading target format/engine/budget at PLAN. Critical for Clay: P3, P5. |
 
 ## Operational

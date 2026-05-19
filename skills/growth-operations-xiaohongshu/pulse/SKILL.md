@@ -1,14 +1,14 @@
 ---
 name: pulse
 description: 'KPI definition, tracking event design, and dashboard specification. North Star Metric, funnel analysis, and cohort analysis design. GA4/Amplitude/Mixpanel/PostHog integration. Use when metrics foundation is needed.'
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/pulse"
 license: MIT
 tags: '["growth", "marketing", "pulse"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-05"
+updated_at: "2026-05-19"
 quality: 5
 complexity: "advanced"
 ---
@@ -87,7 +87,7 @@ Route elsewhere when the task is primarily:
 - Document the "why" behind each metric (what decision it informs); if no decision depends on a metric, remove it.
 - Limit leadership dashboards to 8-12 core KPIs; more causes decision paralysis, fewer misses critical signals.
 - Define activation rate for every product: the set of key actions indicating the user reached the "aha moment" (self-serve target: 50-70%).
-- Consider privacy implications for every tracking point — default to server-side first-party tracking with Consent Mode v2; client-side only tracking loses 40-70% of data without consent mode.
+- Consider privacy implications for every tracking point — default to server-side first-party tracking with Consent Mode v2; client-side only tracking loses 40-70% of data without consent mode. After **2026-06-15**, GA4 and Google Ads consent controls split: `ad_storage` becomes the single operational gate for Google Ads data flow, while Google Signals in GA4 is narrowed to behavioral reporting on signed-in users only — audit consent banners, CMPs, and tag setups against this split before the cutover or risk silent ad-data loss. [Source: Merkle — Updates to Google Analytics Data Controls (2026)](https://www.merkle.com/en/merkle-now/articles-blogs/2026/updates-to-google-analytics-data-controls.html)
 - Keep event payloads minimal but complete; always include `value`, `currency`, `transaction_id` for purchase events (missing parameters break ROAS attribution).
 - Provide typed event schemas with validation; monitor for schema drift (e.g., `productID` → `product_id` renames break downstream).
 - Commit to NSM stability: ≥6 months minimum, 12 months preferred; frequent changes prevent momentum and obscure trends.
@@ -278,9 +278,9 @@ Every deliverable must include:
 
 ## AUTORUN Support
 
-When Pulse receives `_AGENT_CONTEXT`, parse `task_type`, `description`, `metric_scope`, `platform`, and `Constraints`, choose the correct output route, run the DEFINE→TRACK→ANALYZE→DELIVER workflow, produce the metrics deliverable, and return `_STEP_COMPLETE`.
+See `_common/AUTORUN.md` for the protocol (`_AGENT_CONTEXT` input, mode semantics, error handling).
 
-### `_STEP_COMPLETE`
+Pulse-specific `_STEP_COMPLETE.Output` schema:
 
 ```yaml
 _STEP_COMPLETE:
@@ -305,26 +305,4 @@ _STEP_COMPLETE:
 
 ## Nexus Hub Mode
 
-When input contains `## NEXUS_ROUTING`, do not call other agents directly. Return all work via `## NEXUS_HANDOFF`.
-
-### `## NEXUS_HANDOFF`
-
-```text
-## NEXUS_HANDOFF
-- Step: [X/Y]
-- Agent: Pulse
-- Summary: [1-3 lines]
-- Key findings / decisions:
-  - Metric scope: [North Star | KPI | Event | Funnel | Cohort | Dashboard | Revenue | Alert]
-  - Platform: [GA4 | Amplitude | Mixpanel | Custom]
-  - Events defined: [count]
-  - Privacy reviewed: [yes | no]
-  - Data quality plan: [yes | no]
-- Artifacts: [file paths or inline references]
-- Risks: [data quality gaps, privacy concerns, missing consent]
-- Open questions: [blocking / non-blocking]
-- Pending Confirmations: [Trigger/Question/Options/Recommended]
-- User Confirmations: [received confirmations]
-- Suggested next agent: [Agent] (reason)
-- Next action: CONTINUE | VERIFY | DONE
-```
+When input contains `## NEXUS_ROUTING`, return via `## NEXUS_HANDOFF` (canonical schema in `_common/HANDOFF.md`).

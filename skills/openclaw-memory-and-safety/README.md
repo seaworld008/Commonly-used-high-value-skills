@@ -23,7 +23,7 @@
 | `omen` | Pre-mortem analysis and failure mode enumeration agent. Systematically identifies failure scenarios for plans, designs, and features, scoring them with RPN/AP. Does not write code. | [目录](./omen/) | [SKILL.md](./omen/SKILL.md) |
 | `rag-architect` | The RAG (Retrieval-Augmented Generation) Architect skill provides comprehensive tools and knowledge for designing, implementing, and optimizing production-grade RAG pipelines. This skill covers the entire RAG ecosystem from document chunking strategies to evaluation frameworks, enabling you to build scalable, efficient, and accurate retrieval systems. | [目录](./rag-architect/) | [SKILL.md](./rag-architect/SKILL.md) |
 | `runbook-generator` | Analyze a codebase and generate production-grade operational runbooks. Detects your stack (CI/CD, database, hosting, containers), then produces step-by-step runbooks with copy-paste commands, verification checks, rollback procedures, escalation paths, and time estimates. Keeps runbooks fresh with staleness detection linked to config file modification dates. | [目录](./runbook-generator/) | [SKILL.md](./runbook-generator/SKILL.md) |
-| `warden` | 发布前质量标准评估、评分卡和通过失败判定。 | [目录](./warden/) | [SKILL.md](./warden/SKILL.md) |
+| `warden` | Guardian of V.A.I.R.E. quality standards (Value/Agency/Identity/Resilience/Echo). Handles pre-release evaluation, scorecard assessment, and pass/fail determination. Use when UX quality gates are needed. Does not write code. | [目录](./warden/) | [SKILL.md](./warden/SKILL.md) |
 
 ## 维护方式
 

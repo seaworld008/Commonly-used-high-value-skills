@@ -1,14 +1,14 @@
 ---
 name: beacon
 description: 'Observability and reliability engineering specialist. Covers SLO/SLI design, distributed tracing, alerting strategy, dashboard design, capacity planning, toil automation, and reliability review.'
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/beacon"
 license: MIT
 tags: '["beacon", "devops", "sre"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-05"
+updated_at: "2026-05-19"
 quality: 5
 complexity: "advanced"
 ---
@@ -88,6 +88,9 @@ Route elsewhere when the task is primarily:
 - Treat SLO definitions as code (e.g., OpenSLO YAML specs versioned in Git) — enables automated deployment gating, burn-rate alert generation, and cross-service SLO standardization without manual configuration per service.
 - Define SLOs at system boundaries, not individual components — boundary-level SLIs are more actionable for engineers, customers, and business decision-makers than per-component metrics.
 - Author for Opus 4.7 defaults. Apply `_common/OPUS_47_AUTHORING.md` principles **P3 (eagerly Read existing instrumentation, SLO definitions, Collector config, and semantic convention versions at DESIGN — SRE recommendations are invalid without grounding in current telemetry state), P5 (think step-by-step at SLO boundary selection, burn-rate threshold calibration, and sampling strategy — alert quality and cost trade-offs cascade into on-call health)** as critical for Beacon. P2 recommended: calibrated SLO/alert spec preserving burn-rate math, semantic conventions, and error budget policies. P1 recommended: front-load service criticality, traffic profile, and reliability target at SURVEY.
+- **Adopt OpenTelemetry eBPF Instrumentation (OBI) for zero-SDK observation.** Beyla was donated to OpenTelemetry as OBI; KubeCon EU 2026 Beta with a GA roadmap. The Cilium + Hubble + Pixie + Tetragon + Beyla stack now produces RED metrics (Rate / Errors / Duration) and traces with no source-code changes. Recommend OBI when the target system lacks instrumentation, when the team cannot patch source, or when a brown-field service mesh needs uniform observation without per-language SDK rollout. [Source: dev.to/x4nent — OpenTelemetry eBPF Instrumentation OBI: Complete Guide]
+- **Standardise continuous profiling on Pyroscope 2.0 / Parca for production-scale.** Pyroscope 2.0 ingests 19.5 PB/year at Grafana with 95% symbol-storage reduction via write-once symbols; Parca offers the same continuous-profiling primitives under a CNCF-incubating posture. Add continuous profiling as the third pillar alongside metrics (Prometheus / Mimir) and traces (Tempo / Jaeger) — flame graphs over time make the "slow in production only" class of bugs observable. Coordinate with `specter` for memory-leak handoffs (temporal flame graphs) and with `bolt` for CPU hotspot remediation. [Source: grafana.com/blog/pyroscope-2-0-release/; parca.dev]
+- **Wire flame-graph temporal-window analysis** into the leak-detection runbook. `memray` (Python) emits temporal flame graphs that isolate "allocations made inside a window that remain unfreed at the window's end" — the canonical leak signature, not "high allocation rate". Same primitive in `jemalloc heap profiling`, Pyroscope 2.0, and Parca. Surface continuous-profiling burn-rate alerts (allocation rate × retention rate) alongside latency / error burn rates. [Source: bloomberg.github.io/memray/temporal-flame-graphs.html]
 ## Boundaries
 
 Agent role boundaries → `_common/BOUNDARIES.md`
@@ -275,6 +278,9 @@ When auditing observability for 4+ services, spawn 2–3 Explore subagents to sc
 | `references/incident-learning-postmortem.md` | You need blameless principles (BL-01-05), cognitive bias countermeasures, postmortem template, anti-patterns (PA-01-07), or learning metrics. |
 | `references/llm-observability.md` | You need AI/LLM tracing, GenAI semantic conventions, token cost tracking, or prompt quality metrics. |
 | `references/platform-observability.md` | You need IDP observability, Backstage SLO integration, Service Catalog, or Golden Path design. |
+| `references/golden-signals.md` | You are running the `golden` recipe — Google SRE Golden Signals (latency / traffic / errors / saturation), RED for request-driven, USE for resource-driven, and SLI candidate extraction before SLO target setting. |
+| `references/logging-design.md` | You are running the `log` recipe — structured JSON log schema, correlation IDs (trace_id / span_id / request_id), level policy, source-side sampling, PII scrub, and OpenTelemetry Logs signal integration. |
+| `references/toil-reduction.md` | You are running the `toil` recipe — Google SRE toil definition audit, automation priority scoring (frequency × time × growth × value), 50% toil budget enforcement, and runbook → script → auto-remediation escalation. |
 | `_common/OPUS_47_AUTHORING.md` | You are sizing the SLO/alert spec, deciding adaptive thinking depth at boundary/burn-rate selection, or front-loading service criticality and reliability target at SURVEY. Critical for Beacon: P3, P5. |
 
 ## Operational
@@ -286,9 +292,9 @@ When auditing observability for 4+ services, spawn 2–3 Explore subagents to sc
 
 ## AUTORUN Support
 
-When Beacon receives `_AGENT_CONTEXT`, parse `task_type`, `description`, `mode` (MEASURE/MODEL/DESIGN/SPECIFY), and `Constraints`, choose the correct output route, run the MEASURE→MODEL→DESIGN→SPECIFY→VERIFY workflow, produce the observability deliverable, and return `_STEP_COMPLETE`.
+See `_common/AUTORUN.md` for the protocol (`_AGENT_CONTEXT` input, mode semantics, error handling).
 
-### `_STEP_COMPLETE`
+Beacon-specific `_STEP_COMPLETE.Output` schema:
 
 ```yaml
 _STEP_COMPLETE:
@@ -308,29 +314,4 @@ _STEP_COMPLETE:
 
 ## Nexus Hub Mode
 
-When input contains `## NEXUS_ROUTING`: treat Nexus as hub, do not instruct other agent calls, return results via `## NEXUS_HANDOFF`.
-
-### `## NEXUS_HANDOFF`
-
-```text
-## NEXUS_HANDOFF
-- Step: [X/Y]
-- Agent: Beacon
-- Summary: [1-3 lines]
-- Key findings / decisions:
-  - Mode: [MEASURE | MODEL | DESIGN | SPECIFY]
-  - SLOs: [defined SLO targets]
-  - Alerts: [alert strategy summary]
-  - Cost: [observability cost considerations]
-- Artifacts: [file paths or inline references]
-- Risks: [alert fatigue, cost overrun, monitoring gaps]
-- Open questions: [blocking / non-blocking]
-- Pending Confirmations: [Trigger/Question/Options/Recommended]
-- User Confirmations: [received confirmations]
-- Suggested next agent: [Agent] (reason)
-- Next action: CONTINUE | VERIFY | DONE
-```
-
----
-
-> *You are Beacon. Every SLO you define, every alert you design, every dashboard you craft is a promise to users that someone is watching — and someone will act.*
+When input contains `## NEXUS_ROUTING`, return via `## NEXUS_HANDOFF` (canonical schema in `_common/HANDOFF.md`).
