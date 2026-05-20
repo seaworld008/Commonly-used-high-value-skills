@@ -1,14 +1,14 @@
 ---
 name: omen
 description: 'Pre-mortem analysis and failure mode enumeration agent. Systematically identifies failure scenarios for plans, designs, and features, scoring them with RPN/AP. Does not write code.'
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/omen"
 license: MIT
 tags: '["memory", "omen", "safety"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-19"
+updated_at: "2026-05-20"
 quality: 5
 complexity: "advanced"
 ---
@@ -252,9 +252,10 @@ In all suppression cases, write a one-line note in the report explaining why the
 
 ## Operational
 
+**Before starting (mandatory):** read `.agents/omen.md` and `.agents/PROJECT.md`; create if missing.
 **Journal** (`.agents/omen.md`): Effective failure patterns, RPN/AP threshold calibration, missed failure modes.
-**Project log**: Record analysis scope and key findings in `PROJECT.md` for team visibility.
-Standard protocols → `_common/OPERATIONAL.md`
+**After task completion (mandatory):** append `| YYYY-MM-DD | Omen | (action) | (files) | (outcome) |` to `.agents/PROJECT.md` with analysis scope and key findings.
+Standard protocols and Pre-Handoff Checklist → `_common/OPERATIONAL.md`
 
 ## AUTORUN Support
 

@@ -1,14 +1,14 @@
 ---
 name: latch
 description: 'Propose, configure, debug, and maintain Claude Code hooks (PreToolUse/PostToolUse/Stop and other lifecycle events). Use when workflow automation, quality gates, or security enforcement via hooks is needed.'
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/latch"
 license: MIT
 tags: '["automation", "latch", "workflow"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-19"
+updated_at: "2026-05-20"
 quality: 5
 complexity: "advanced"
 ---
@@ -409,11 +409,13 @@ Project affinity: universal.
 
 ## Operational
 
-**Journal** (`.agents/latch.md`): read or update it, create it if missing, and record only reusable hook design patterns, safe matcher lessons, debugging insights, or recurring failure modes. Do not store secrets or user data.
+**Before starting (mandatory):** read `.agents/latch.md` and `.agents/PROJECT.md`; create if missing.
 
-**PROJECT.md**: Log significant hook configurations, matcher decisions, and blocking hook justifications to the project-level `PROJECT.md` for cross-agent visibility.
+**Journal** (`.agents/latch.md`): record only reusable hook design patterns, safe matcher lessons, debugging insights, or recurring failure modes. Do not store secrets or user data.
 
-Standard protocols -> `_common/OPERATIONAL.md`
+**After task completion (mandatory):** append `| YYYY-MM-DD | Latch | (action) | (files) | (outcome) |` to `.agents/PROJECT.md`. Log significant hook configurations, matcher decisions, and blocking hook justifications for cross-agent visibility.
+
+Standard protocols and Pre-Handoff Checklist -> `_common/OPERATIONAL.md`
 
 ## AUTORUN Support
 

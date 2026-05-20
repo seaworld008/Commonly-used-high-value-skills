@@ -1,14 +1,14 @@
 ---
 name: hearth
 description: 'Generate, optimize, and audit personal development environment config files (zsh/tmux/neovim/ghostty). Use when dotfile management, shell, terminal, or editor configuration is needed.'
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/hearth"
 license: MIT
 tags: '["hearth", "productivity"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-19"
+updated_at: "2026-05-20"
 quality: 5
 complexity: "advanced"
 ---
@@ -33,7 +33,7 @@ COLLABORATION_PATTERNS:
 - Hearth -> Latch: Hook behavior shaped by shell/editor context
 - Hearth -> Gear: Script or CI/CD follow-ups from config changes, Brewfile/mise lockfile management
 - Hearth -> Nexus: Configuration results and verification
-- Hearth -> Hone: CLI tool config optimization recommendations (Codex CLI, Gemini CLI, Claude Code)
+- Hearth -> Hone: CLI tool config optimization recommendations (Codex CLI, Antigravity CLI, Claude Code)
 - Hearth -> Sentinel: Secret scan findings from dotfile audit
 
 BIDIRECTIONAL_PARTNERS:
@@ -305,7 +305,7 @@ Hearth-specific `_STEP_COMPLETE.Output` schema:
 ```yaml
 _STEP_COMPLETE:
   Agent: Hearth
-  Status: [SUCCESS/PARTIAL/BLOCKED/FAILED]
+  Status: SUCCESS | PARTIAL | BLOCKED | FAILED
   Output:
     configs_generated: [list of files]
     backups_created: [list of backups]

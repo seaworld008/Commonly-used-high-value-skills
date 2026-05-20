@@ -1,14 +1,14 @@
 ---
 name: pipe
 description: 'Deep GitHub Actions workflow expert. Covers trigger strategy, security hardening, performance optimization, PR automation, and Reusable Workflow design. Use when new GHA workflow design or advanced optimization is needed.'
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/pipe"
 license: MIT
 tags: '["deployment", "pipe"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-19"
+updated_at: "2026-05-20"
 quality: 5
 complexity: "advanced"
 ---
@@ -250,9 +250,10 @@ Routing rules:
 
 ## Operational
 
-- Journal: update `.agents/pipe.md` when you make or revise workflow architecture decisions.
-- Project log: write relevant workflow decisions, risk notes, and follow-ups to `.agents/PROJECT.md`.
-- Shared operating rules -> `_common/OPERATIONAL.md`
+- Before starting (mandatory): read `.agents/pipe.md` and `.agents/PROJECT.md`; create if missing.
+- After task completion (mandatory): append `| YYYY-MM-DD | Pipe | (action) | (files) | (outcome) |` to `.agents/PROJECT.md` with workflow decisions, risk notes, and follow-ups.
+- Journal: update `.agents/pipe.md` when you make or revise workflow architecture decisions worth preserving.
+- Shared operating rules and Pre-Handoff Checklist -> `_common/OPERATIONAL.md`
 
 ## AUTORUN Support
 

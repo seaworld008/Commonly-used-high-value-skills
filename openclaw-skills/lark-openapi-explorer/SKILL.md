@@ -1,14 +1,14 @@
 ---
 name: lark-openapi-explorer
 description: '飞书/Lark 原生 OpenAPI 探索：从官方文档库中挖掘未经 CLI 封装的原生 OpenAPI 接口。当用户的需求无法被现有 lark-* skill 或 lark-cli 已注册命令满足，需要查找并调用原生飞书 OpenAPI 时使用。'
-version: 1.0.0
+version: "1.0.1"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-openapi-explorer"
 license: MIT
 tags: '[feishu, lark, lark-cli, openapi, api]'
 created_at: "2026-05-19"
-updated_at: "2026-05-19"
+updated_at: "2026-05-20"
 quality: 4
 complexity: advanced
 metadata:
@@ -160,45 +160,29 @@ lark-cli api PATCH /open-apis/im/v1/chats/oc_xxx/announcement \
 
 - [lark-shared](../lark-shared/SKILL.md) — 认证和全局参数
 - [lark-skill-maker](../lark-skill-maker/SKILL.md) — 如需将挖掘到的 API 固化为新 Skill
+<!-- LOCAL-QUALITY-SUPPLEMENT:START -->
+## Usage Notes
 
-## Repository Curation Notes
+This supplement is maintained by the repository sync pipeline. It keeps the
+imported upstream skill usable inside this curated collection when the upstream
+source is intentionally concise.
 
-### When to Use
+## Common Patterns
 
-- Use this skill when the user explicitly asks for 飞书原生 OpenAPI work in Feishu/Lark.
-- Use it before falling back to raw OpenAPI calls when the requested action matches the supported shortcut or service command.
-- Use `lark-shared` first when credentials, identity, scopes, or tenant visibility are unclear.
-- Prefer bounded, inspectable commands and show the user candidate records before taking side-effecting actions.
-
-### Core Capabilities
-
-- Discover the relevant `lark-cli api` command surface with `--help` before composing requests.
-- Keep identity explicit with `--as user` or `--as bot` whenever the result depends on user-visible resources.
-- Request the narrowest useful output format; use JSON for automation and table/pretty output only for human inspection.
-- Handle permission errors by checking missing scopes and current identity instead of retrying the same command blindly.
-
-### Common Patterns
-
-```bash
-# Inspect the official command surface before acting
-lark-cli api --help
-
-# Verify authentication and granted scopes when a command fails
-lark-cli auth status
-lark-cli auth check --help
-
-# Preview side-effecting operations when supported
-lark-cli api --help | sed -n '1,80p'
+```text
+1. Confirm that the user's task matches the skill trigger.
+2. Read the relevant project files or user-provided context before acting.
+3. Choose the smallest reversible action that advances the task.
+4. Run the verification command or manual check that proves the result.
+5. Report the outcome, evidence, and any remaining risk.
 ```
 
-- For read flows, first locate the target resource, then fetch details with an ID-based command.
-- For write flows, validate IDs, scopes, and ownership before issuing create/update/delete operations.
-- For ambiguous people, chats, documents, tables, or meetings, list candidates and ask the user to choose.
-- For automation output, keep stable IDs, URLs, timestamps, and the exact command used in the final summary.
+## Boundaries
 
-### Boundaries
-
-- Do not invent Feishu tokens, open IDs, chat IDs, document tokens, table IDs, or meeting IDs.
-- Do not bypass tenant permission controls; ask the user or administrator to grant the required scope or visibility.
-- Do not use raw `lark-cli api` until the skill-specific shortcuts and registered commands have been checked.
-- Do not perform destructive changes without a clear user request and, when possible, a dry-run or read-back verification.
+- Prefer the upstream workflow for Lark Openapi Explorer; this section only adds local quality
+  guardrails.
+- Do not invent project facts when required files, vaults, services, or tools are
+  unavailable.
+- Stop and ask for clarification when the next action could overwrite user work,
+  expose private data, or change production state.
+<!-- LOCAL-QUALITY-SUPPLEMENT:END -->

@@ -1,14 +1,14 @@
 ---
 name: scaffold
-description: '云基础设施、环境配置和本地开发部署脚手架。'
-version: "1.0.0"
+description: 'Infrastructure provisioning specialist for cloud IaC (Terraform/OpenTofu/CloudFormation/Pulumi) and local development environments (Docker Compose/dev setup/env vars). Use when IaC design, environment setup, or multi-cloud provisioning is needed.'
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/scaffold"
 license: MIT
 tags: '["deployment", "scaffold"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-25"
+updated_at: "2026-05-20"
 quality: 5
 complexity: "advanced"
 ---
@@ -227,9 +227,10 @@ Add these when relevant:
 
 ## Operational
 
-- Read `.agents/scaffold.md` and `.agents/PROJECT.md`; create `.agents/scaffold.md` if missing.
-- Record durable provider constraints, cost-saving patterns, security decisions, and unresolved infra risks.
-- Follow `_common/OPERATIONAL.md` for shared operational protocol.
+- Before starting (mandatory): read `.agents/scaffold.md` and `.agents/PROJECT.md`; create `.agents/scaffold.md` if missing.
+- After task completion (mandatory): append `| YYYY-MM-DD | Scaffold | (action) | (files) | (outcome) |` to `.agents/PROJECT.md`.
+- Record durable provider constraints, cost-saving patterns, security decisions, and unresolved infra risks in `.agents/scaffold.md`.
+- Follow `_common/OPERATIONAL.md` for shared operational protocol and Pre-Handoff Checklist.
 
 ## Collaboration
 

@@ -5,12 +5,12 @@
 [![简体中文](https://img.shields.io/badge/README-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1677ff)](./README.md)
 [![English](https://img.shields.io/badge/README-English-111111)](./README.en.md)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b894)](./openclaw-skills/README.md)
-[![Skills](https://img.shields.io/badge/Skills-283-7c3aed)](./skills/)
+[![Skills](https://img.shields.io/badge/Skills-289-7c3aed)](./skills/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
 A high-value skills repository for AI developers, organized by real work scenarios such as developer engineering, DevOps, automation, finance, design, knowledge workflows, and reliability.
 
-This repository currently contains **16 categories / 283 skills**.
+This repository currently contains **16 categories / 289 skills**.
 
 ## Who This Is For
 
@@ -121,7 +121,7 @@ python3 scripts/sync_codex_skills.py --source-root ./skills --codex-root ~/.code
 | Knowledge and PM Integrations | Notion, Linear, Obsidian, Lark/Feishu, spec-to-implementation | [Jump](#cat-knowledge-pm) | [Folder](./skills/knowledge-and-pm-integrations/) |
 | General Operations | Brand, fact-checking, internal comms, themes, weather | [Jump](#cat-operations-general) | [Folder](./skills/operations-general/) |
 | Product and Design | Product analysis, design systems, UX, SaaS scaffolding | [Jump](#cat-product-design) | [Folder](./skills/product-design/) |
-| Security and Reliability | Sentry, best practices, threat modeling, ownership | [Jump](#cat-security-reliability) | [Folder](./skills/security-and-reliability/) |
+| Security and Reliability | Sentry, best practices, threat modeling, vulnerability scanning | [Jump](#cat-security-reliability) | [Folder](./skills/security-and-reliability/) |
 | Multimodal Media | Images, speech, video, screenshots, summaries, transcription | [Jump](#cat-multimodal-media) | [Folder](./skills/multimodal-media/) |
 | Deployment Platforms | Cloudflare, Netlify, Render, Vercel | [Jump](#cat-deployment-platforms) | [Folder](./skills/deployment-platforms/) |
 | Memory and Safety | Memory, input guard, RAG, runbooks | [Jump](#cat-memory-safety) | [Folder](./skills/openclaw-memory-and-safety/) |
@@ -526,18 +526,24 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`voice`](./skills/product-design/voice/)
 
 <a id="cat-security-reliability"></a>
-### 12. Security and Reliability (security-and-reliability, 10)
+### 12. Security and Reliability (security-and-reliability, 16)
 
 - [`breach`](./skills/security-and-reliability/breach/)
 - [`cloak`](./skills/security-and-reliability/cloak/)
+- [`codeql-security-scanner`](./skills/security-and-reliability/codeql-security-scanner/)
 - [`comply`](./skills/security-and-reliability/comply/)
+- [`grype-syft-sbom-scanner`](./skills/security-and-reliability/grype-syft-sbom-scanner/)
 - [`link-checker`](./skills/security-and-reliability/link-checker/)
+- [`osv-scanner`](./skills/security-and-reliability/osv-scanner/)
 - [`security-best-practices`](./skills/security-and-reliability/security-best-practices/)
 - [`security-ownership-map`](./skills/security-and-reliability/security-ownership-map/)
 - [`security-threat-model`](./skills/security-and-reliability/security-threat-model/)
+- [`semgrep-appsec-scanner`](./skills/security-and-reliability/semgrep-appsec-scanner/)
 - [`sentry`](./skills/security-and-reliability/sentry/)
 - [`skill-security-auditor`](./skills/security-and-reliability/skill-security-auditor/)
 - [`skill-vetter`](./skills/security-and-reliability/skill-vetter/)
+- [`trivy-vulnerability-scanner`](./skills/security-and-reliability/trivy-vulnerability-scanner/)
+- [`vuls-linux-cve-scanner`](./skills/security-and-reliability/vuls-linux-cve-scanner/)
 
 <a id="cat-multimodal-media"></a>
 ### 13. Multimodal Media (multimodal-media, 9)

@@ -1,14 +1,14 @@
 ---
 name: oracle
 description: 'AI/ML design and evaluation specialist covering prompt engineering, RAG design, LLM application patterns, AI safety, evaluation frameworks, MLOps, and cost optimization.'
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/oracle"
 license: MIT
 tags: '["agent", "ai", "oracle"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-19"
+updated_at: "2026-05-20"
 quality: 5
 complexity: "advanced"
 ---
@@ -233,9 +233,10 @@ Routing rules:
 
 ## Operational
 
-- Journal: `.agents/oracle.md`
-- Log decisions and design rationale to `PROJECT.md` under `## AI/ML Decisions`
-- Standard protocols → `_common/OPERATIONAL.md`
+- Before starting (mandatory): read `.agents/oracle.md` and `.agents/PROJECT.md`; create if missing.
+- After task completion (mandatory): append `| YYYY-MM-DD | Oracle | (action) | (files) | (outcome) |` to `.agents/PROJECT.md`; also record full design rationale under `## AI/ML Decisions`.
+- Journal (`.agents/oracle.md`): durable prompt patterns, eval calibration notes, RAG retrieval lessons, cost-budget tradeoffs.
+- Standard protocols and Pre-Handoff Checklist → `_common/OPERATIONAL.md`
 
 ## AUTORUN Support
 

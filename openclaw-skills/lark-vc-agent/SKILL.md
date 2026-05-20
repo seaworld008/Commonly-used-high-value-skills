@@ -1,14 +1,14 @@
 ---
 name: lark-vc-agent
 description: '飞书视频会议：让机器人代当前用户加入/离开正在进行的会议，并读取会议期间的实时事件（参会人加入与离开、发言、聊天、屏幕共享等）。1. 用户提供 9 位会议号、要求代为入会或离会时使用 +meeting-join / +meeting-leave——会真实产生入会/离会记录。2. 会议进行中用户想知道“谁加入了”“谁离开了”“谁在发言”“有人共享屏幕吗”等会中动态时，机器人入会后用 +meeting-events 读取事件时间线。3. 典型场景：参会机器人、会中助手、代为旁听、代为参会。前提：机器人只能读到它自己参会过且仍在进行中的会议的事件；查询已结束会议的参会名单、纪要或逐字稿请使用 lark-vc 技能。'
-version: 1.0.0
+version: "1.0.1"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-vc-agent"
 license: MIT
 tags: '[feishu, lark, lark-cli, meetings, events]'
 created_at: "2026-05-19"
-updated_at: "2026-05-19"
+updated_at: "2026-05-20"
 quality: 4
 complexity: intermediate
 metadata:
@@ -128,45 +128,29 @@ Shortcut 是对常用操作的高级封装（`lark-cli vc +<verb> [flags]`）。
 - 妙记产物（AI 总结 / 转写 / 章节）→ [`lark-minutes`](../lark-minutes/SKILL.md)
 - 会后把产物发到群 / 私聊 → [`lark-im`](../lark-im/SKILL.md)
 - 认证、身份切换、scope 管理 → [`lark-shared`](../lark-shared/SKILL.md)
+<!-- LOCAL-QUALITY-SUPPLEMENT:START -->
+## Usage Notes
 
-## Repository Curation Notes
+This supplement is maintained by the repository sync pipeline. It keeps the
+imported upstream skill usable inside this curated collection when the upstream
+source is intentionally concise.
 
-### When to Use
+## Common Patterns
 
-- Use this skill when the user explicitly asks for 会中机器人能力 work in Feishu/Lark.
-- Use it before falling back to raw OpenAPI calls when the requested action matches the supported shortcut or service command.
-- Use `lark-shared` first when credentials, identity, scopes, or tenant visibility are unclear.
-- Prefer bounded, inspectable commands and show the user candidate records before taking side-effecting actions.
-
-### Core Capabilities
-
-- Discover the relevant `lark-cli vc` command surface with `--help` before composing requests.
-- Keep identity explicit with `--as user` or `--as bot` whenever the result depends on user-visible resources.
-- Request the narrowest useful output format; use JSON for automation and table/pretty output only for human inspection.
-- Handle permission errors by checking missing scopes and current identity instead of retrying the same command blindly.
-
-### Common Patterns
-
-```bash
-# Inspect the official command surface before acting
-lark-cli vc --help
-
-# Verify authentication and granted scopes when a command fails
-lark-cli auth status
-lark-cli auth check --help
-
-# Preview side-effecting operations when supported
-lark-cli vc --help | sed -n '1,80p'
+```text
+1. Confirm that the user's task matches the skill trigger.
+2. Read the relevant project files or user-provided context before acting.
+3. Choose the smallest reversible action that advances the task.
+4. Run the verification command or manual check that proves the result.
+5. Report the outcome, evidence, and any remaining risk.
 ```
 
-- For read flows, first locate the target resource, then fetch details with an ID-based command.
-- For write flows, validate IDs, scopes, and ownership before issuing create/update/delete operations.
-- For ambiguous people, chats, documents, tables, or meetings, list candidates and ask the user to choose.
-- For automation output, keep stable IDs, URLs, timestamps, and the exact command used in the final summary.
+## Boundaries
 
-### Boundaries
-
-- Do not invent Feishu tokens, open IDs, chat IDs, document tokens, table IDs, or meeting IDs.
-- Do not bypass tenant permission controls; ask the user or administrator to grant the required scope or visibility.
-- Do not use raw `lark-cli api` until the skill-specific shortcuts and registered commands have been checked.
-- Do not perform destructive changes without a clear user request and, when possible, a dry-run or read-back verification.
+- Prefer the upstream workflow for Lark Vc Agent; this section only adds local quality
+  guardrails.
+- Do not invent project facts when required files, vaults, services, or tools are
+  unavailable.
+- Stop and ask for clarification when the next action could overwrite user work,
+  expose private data, or change production state.
+<!-- LOCAL-QUALITY-SUPPLEMENT:END -->

@@ -1,14 +1,14 @@
 ---
 name: rally
 description: 'Multi-session parallel orchestrator using Claude Code Agent Teams API and Codex CLI Subagents to launch, manage, and coordinate concurrent task execution across multiple instances. Use when parallel work is needed.'
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/rally"
 license: MIT
 tags: '["ai", "rally", "workflow"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-19"
+updated_at: "2026-05-20"
 quality: 5
 complexity: "advanced"
 ---
@@ -308,9 +308,11 @@ close_agent(worker_b)
 
 ## Operational
 
+- Before starting (mandatory): read `.agents/rally.md` and `.agents/PROJECT.md`; create if missing.
+- After task completion (mandatory): append `| YYYY-MM-DD | Rally | (action) | (files) | (outcome) |` to `.agents/PROJECT.md`. Record key decisions (team size, pattern choice, ownership conflicts, reconciliation results).
+- As orchestrator (mandatory): verify every spawned worker emits its own activity row before accepting `_STEP_COMPLETE`. Treat missing rows as `PARTIAL` and reroute per `_common/HANDOFF.md` Pre-Handoff Journaling Gate.
 - Journal: record domain insights in `.agents/rally.md`. Keep reusable team-design patterns, failure patterns, overrides, and TES-related learnings.
-- Log key decisions (team size, pattern choice, ownership conflicts, reconciliation results) to `PROJECT.md` for cross-session visibility.
-- Standard protocols: `_common/OPERATIONAL.md`
+- Standard protocols and Pre-Handoff Checklist: `_common/OPERATIONAL.md`
 
 ## AUTORUN Support
 

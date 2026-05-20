@@ -1,14 +1,14 @@
 ---
 name: lark-drive
 description: '飞书云空间：管理云空间中的文件和文件夹。上传和下载文件、创建文件夹、复制/移动/删除文件、查看文件元数据、管理文档评论、管理文档权限、订阅用户评论变更事件、修改文件标题（docx、sheet、bitable、file、folder、wiki）；也负责把本地 Word/Markdown/Excel/CSV 以及 Base 快照（.base）导入为飞书在线云文档（docx、sheet、bitable）。当用户需要上传或下载文件、整理云空间目录、查看文件详情、管理评论、管理文档权限、修改文件标题、订阅用户评论变更事件，或要把本地文件导入成新版文档、电子表格、多维表格/Base 时使用。'
-version: 1.0.0
+version: "1.0.1"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-drive"
 license: MIT
 tags: '[feishu, lark, lark-cli, drive, files]'
 created_at: "2026-05-19"
-updated_at: "2026-05-19"
+updated_at: "2026-05-20"
 quality: 4
 complexity: intermediate
 metadata:
@@ -59,6 +59,16 @@ metadata:
 知识库链接（`/wiki/TOKEN`）背后可能是云文档、电子表格、多维表格等不同类型的文档。**不能直接假设 URL 中的 token 就是 file_token**，必须先查询实际类型和真实 token。
 
 #### 处理流程
+
+**推荐方式：使用 `drive +inspect` 自动解包**
+
+```bash
+lark-cli drive +inspect --url 'https://xxx.feishu.cn/wiki/wikcnXXX'
+```
+
+返回结果包含 `type`（底层文档类型）、`token`（真实 file_token）、`title`、`url` 等字段，直接用于后续操作。
+
+**手动方式：使用 `wiki.spaces.get_node` 查询节点信息**
 
 1. **使用 `wiki.spaces.get_node` 查询节点信息**
    ```bash
@@ -268,6 +278,7 @@ Shortcut 是对常用操作的高级封装（`lark-cli drive +<verb> [flags]`）
 | [`+delete`](references/lark-drive-delete.md) | Delete a Drive file or folder with limited polling for folder deletes |
 | [`+push`](references/lark-drive-push.md) | File-level local → Drive mirror. Duplicate remote `rel_path` conflicts fail by default; `newest` / `oldest` only apply to duplicate files when you explicitly want to target one remote file. `--if-exists` supports `skip` / `smart` / `overwrite` (`smart` skips files whose remote `modified_time` is already up to date, but falls through to the same overwrite path when the remote is older, so it inherits overwrite's rollout caveat). `--delete-remote` requires `--yes`. `--local-dir` must stay inside cwd. |
 | [`+task_result`](references/lark-drive-task-result.md) | Poll async task result for import, export, move, or delete operations |
+| [`+inspect`](references/lark-drive-inspect.md) | Inspect a Lark document URL to get its type, title, and canonical token; auto-unwraps wiki URLs to the underlying document |
 | [`+apply-permission`](references/lark-drive-apply-permission.md) | Apply to the document owner for view/edit access (user-only; 5/day per document) |
 
 ## API Resources
@@ -356,3 +367,29 @@ lark-cli drive <resource> <method> [flags] # 调用 API
 | `file.statistics.get`                          | `drive:drive.metadata:readonly`   |
 | `file.view_records.list`                       | `drive:file:view_record:readonly` |
 | `file.comment.reply.reactions.update_reaction` | `docs:document.comment:create`    |
+<!-- LOCAL-QUALITY-SUPPLEMENT:START -->
+## Usage Notes
+
+This supplement is maintained by the repository sync pipeline. It keeps the
+imported upstream skill usable inside this curated collection when the upstream
+source is intentionally concise.
+
+## Common Patterns
+
+```text
+1. Confirm that the user's task matches the skill trigger.
+2. Read the relevant project files or user-provided context before acting.
+3. Choose the smallest reversible action that advances the task.
+4. Run the verification command or manual check that proves the result.
+5. Report the outcome, evidence, and any remaining risk.
+```
+
+## Boundaries
+
+- Prefer the upstream workflow for Lark Drive; this section only adds local quality
+  guardrails.
+- Do not invent project facts when required files, vaults, services, or tools are
+  unavailable.
+- Stop and ask for clarification when the next action could overwrite user work,
+  expose private data, or change production state.
+<!-- LOCAL-QUALITY-SUPPLEMENT:END -->

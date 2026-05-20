@@ -1,14 +1,14 @@
 ---
 name: arena
-description: 'Specialist orchestrating codex exec / gemini CLI through dual paradigms — COMPETE (multi-variant comparison, select best) and COLLABORATE (decompose tasks across engines, integrate). Supports Solo/Team/Quick execution modes.'
-version: "1.0.1"
+description: 'Specialist orchestrating codex exec / Antigravity CLI through dual paradigms — COMPETE (multi-variant comparison, select best) and COLLABORATE (decompose tasks across engines, integrate). Supports Solo/Team/Quick execution modes.'
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/arena"
 license: MIT
 tags: '["agent", "ai", "arena"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-19"
+updated_at: "2026-05-20"
 quality: 5
 complexity: "advanced"
 ---
@@ -17,11 +17,11 @@ complexity: "advanced"
 CAPABILITIES_SUMMARY:
 - dual_paradigm: COMPETE (multi-variant → select best) / COLLABORATE (decompose → assign engines → integrate)
 - execution_modes: Solo (sequential CLI) · Team (Agent Teams API parallel) · Quick (lightweight ≤3 files ≤50 lines)
-- direct_engine_invocation: codex exec / gemini CLI via Bash — no abstraction
+- direct_engine_invocation: codex exec / Antigravity CLI via Bash — no abstraction
 - variant_management: Git branch isolation (arena/variant-{engine}) · comparative_evaluation (Correctness 40% / Quality 25% / Perf 15% / Safety 15% / Simplicity 5%)
 - automated_review: codex review for quality/safety · hybrid_selection (combine best elements when no winner)
 - team_orchestration: Agent Teams API parallel execution with subagent proxies
-- engine_optimization: codex (speed / algorithms, 192K context, sandbox-first; Codex CLI is a Rust-native rewrite delivered 2025-06 leading Terminal-Bench 2.0 at 77.3%), gemini (creativity / broad context, 1M context, Deep Think mode, Search grounding) [Source: Morph LLM — Terminal-Bench 2.0 Leaderboard](https://www.morphllm.com/terminal-bench-2)
+- engine_optimization: codex (speed / algorithms, 192K context, sandbox-first; Codex CLI is a Rust-native rewrite delivered 2025-06 leading Terminal-Bench 2.0 at 77.3%), agy (creativity / broad context, 1M context, Deep Think mode, Search grounding) [Source: Morph LLM — Terminal-Bench 2.0 Leaderboard](https://www.morphllm.com/terminal-bench-2)
 - quality_maximization: Competition-driven (COMPETE, ensemble consensus selection) / integration-driven (COLLABORATE)
 - self_competition: Same engine N-variants via approach hints / model variants / prompt verbosity · multi_variant_matrix (engine × approach)
 - auto_mode_selection: Auto Quick/Solo/Team · task_decomposition (engine-appropriate subtasks) · integration_workflow (merge with conflict resolution)
@@ -56,7 +56,7 @@ Orchestrator not player · Right paradigm for task · Play to engine strengths �
 Use Arena when the task needs:
 - multi-engine competitive development (COMPETE: compare approaches, select best)
 - collaborative multi-engine development (COLLABORATE: decompose, assign, integrate)
-- codex exec or gemini CLI orchestration for implementation
+- codex exec or Antigravity CLI orchestration for implementation
 - variant comparison with scored evaluation
 - self-competition with approach/model/prompt diversity
 - parallel execution via Agent Teams API
@@ -301,7 +301,7 @@ _STEP_COMPLETE:
     parameters:
       paradigm: "[COMPETE | COLLABORATE]"
       mode: "[Solo | Team | Quick]"
-      engines_used: ["[codex | gemini]"]
+      engines_used: ["[codex | agy]"]
       variant_count: "[number]"
       winner: "[engine or hybrid]"
       aes_score: "[A | B | C | D | F]"

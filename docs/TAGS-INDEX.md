@@ -1,6 +1,6 @@
 # Tags Index
 
-> Auto-generated from 1006 skill-tag mappings across 425 tags.
+> Auto-generated from 1054 skill-tag mappings across 450 tags.
 > Last updated: see git log.
 
 ## Quick Navigation
@@ -16,6 +16,7 @@
 - [`planning`](#planning) (19)
 - [`design`](#design) (17)
 - [`finance`](#finance) (16)
+- [`security`](#security) (16)
 - [`productivity`](#productivity) (15)
 - [`growth`](#growth) (14)
 - [`marketing`](#marketing) (14)
@@ -23,7 +24,6 @@
 - [`devops`](#devops) (13)
 - [`product`](#product) (13)
 - [`sre`](#sre) (13)
-- [`security`](#security) (10)
 - [`deployment`](#deployment) (7)
 - [`designer`](#designer) (7)
 - [`builder`](#builder) (6)
@@ -39,9 +39,11 @@
 - [`skills`](#skills) (5)
 - [`architect`](#architect) (4)
 - [`best`](#best) (4)
+- [`cve`](#cve) (4)
 - [`deploy`](#deploy) (4)
 - [`docs`](#docs) (4)
 - [`generator`](#generator) (4)
+- [`github`](#github) (4)
 - [`gsd`](#gsd) (4)
 - [`hermes`](#hermes) (4)
 - [`knowledge`](#knowledge) (4)
@@ -56,25 +58,31 @@
 - [`debugging`](#debugging) (3)
 - [`engineer`](#engineer) (3)
 - [`git`](#git) (3)
-- [`github`](#github) (3)
 - [`knowledge-base`](#knowledge-base) (3)
 - [`markdown`](#markdown) (3)
 - [`office`](#office) (3)
 - [`reviewer`](#reviewer) (3)
 - [`safety`](#safety) (3)
+- [`sbom`](#sbom) (3)
+- [`secrets`](#secrets) (3)
+- [`supply-chain`](#supply-chain) (3)
 - [`system`](#system) (3)
+- [`vulnerability-scanning`](#vulnerability-scanning) (3)
 - [`web`](#web) (3)
 - [`analyst`](#analyst) (2)
 - [`analyzer`](#analyzer) (2)
 - [`app`](#app) (2)
+- [`appsec`](#appsec) (2)
 - [`auditor`](#auditor) (2)
 - [`brownfield`](#brownfield) (2)
 - [`capture`](#capture) (2)
 - [`checker`](#checker) (2)
 - [`cli`](#cli) (2)
 - [`cloudflare`](#cloudflare) (2)
+- [`code-scanning`](#code-scanning) (2)
 - [`codex`](#codex) (2)
 - [`configuration`](#configuration) (2)
+- [`container-security`](#container-security) (2)
 - [`doc`](#doc) (2)
 - [`driven`](#driven) (2)
 - [`events`](#events) (2)
@@ -83,6 +91,7 @@
 - [`gateway`](#gateway) (2)
 - [`graphql`](#graphql) (2)
 - [`integrations`](#integrations) (2)
+- [`kubernetes`](#kubernetes) (2)
 - [`meeting`](#meeting) (2)
 - [`metrics`](#metrics) (2)
 - [`minutes`](#minutes) (2)
@@ -101,6 +110,7 @@
 - [`researcher`](#researcher) (2)
 - [`root-cause-analysis`](#root-cause-analysis) (2)
 - [`saas`](#saas) (2)
+- [`sast`](#sast) (2)
 - [`schema`](#schema) (2)
 - [`search`](#search) (2)
 - [`senior`](#senior) (2)
@@ -154,6 +164,7 @@
 - [`chat`](#chat) (1)
 - [`chatgpt`](#chatgpt) (1)
 - [`check`](#check) (1)
+- [`ci`](#ci) (1)
 - [`ci-cd-and-automation`](#ci-cd-and-automation) (1)
 - [`clay`](#clay) (1)
 - [`cleaner`](#cleaner) (1)
@@ -163,6 +174,7 @@
 - [`code analysis`](#code-analysis) (1)
 - [`code-review-and-quality`](#code-review-and-quality) (1)
 - [`code-simplification`](#code-simplification) (1)
+- [`codeql`](#codeql) (1)
 - [`collector`](#collector) (1)
 - [`commander`](#commander) (1)
 - [`comments`](#comments) (1)
@@ -178,6 +190,7 @@
 - [`context-engineering`](#context-engineering) (1)
 - [`contributor`](#contributor) (1)
 - [`crest`](#crest) (1)
+- [`custom-queries`](#custom-queries) (1)
 - [`data`](#data) (1)
 - [`dawn`](#dawn) (1)
 - [`debt`](#debt) (1)
@@ -187,6 +200,7 @@
 - [`demand`](#demand) (1)
 - [`demo`](#demo) (1)
 - [`dependency`](#dependency) (1)
+- [`dependency-scanning`](#dependency-scanning) (1)
 - [`deprecation-and-migration`](#deprecation-and-migration) (1)
 - [`develop`](#develop) (1)
 - [`diagnostics`](#diagnostics) (1)
@@ -216,6 +230,7 @@
 - [`find`](#find) (1)
 - [`fix`](#fix) (1)
 - [`fixer`](#fixer) (1)
+- [`freebsd`](#freebsd) (1)
 - [`frontend`](#frontend) (1)
 - [`frontend-ui-engineering`](#frontend-ui-engineering) (1)
 - [`game`](#game) (1)
@@ -224,6 +239,7 @@
 - [`git-workflow-and-versioning`](#git-workflow-and-versioning) (1)
 - [`gog`](#gog) (1)
 - [`grove`](#grove) (1)
+- [`grype`](#grype) (1)
 - [`guard`](#guard) (1)
 - [`guardian`](#guardian) (1)
 - [`guidelines`](#guidelines) (1)
@@ -231,9 +247,11 @@
 - [`hearth`](#hearth) (1)
 - [`helm`](#helm) (1)
 - [`honcho`](#honcho) (1)
+- [`host-security`](#host-security) (1)
 - [`html`](#html) (1)
 - [`hub`](#hub) (1)
 - [`i18n`](#i18n) (1)
+- [`iac`](#iac) (1)
 - [`idea-refine`](#idea-refine) (1)
 - [`identity`](#identity) (1)
 - [`imagegen`](#imagegen) (1)
@@ -251,7 +269,6 @@
 - [`issues`](#issues) (1)
 - [`jupyter`](#jupyter) (1)
 - [`knowledge-graph`](#knowledge-graph) (1)
-- [`kubernetes`](#kubernetes) (1)
 - [`landing`](#landing) (1)
 - [`latch`](#latch) (1)
 - [`learn`](#learn) (1)
@@ -260,7 +277,9 @@
 - [`levy`](#levy) (1)
 - [`linear`](#linear) (1)
 - [`link`](#link) (1)
+- [`linux`](#linux) (1)
 - [`loc`](#loc) (1)
+- [`lockfiles`](#lockfiles) (1)
 - [`lore`](#lore) (1)
 - [`macro`](#macro) (1)
 - [`magazine`](#magazine) (1)
@@ -297,10 +316,12 @@
 - [`optimizer`](#optimizer) (1)
 - [`options`](#options) (1)
 - [`oracle`](#oracle) (1)
+- [`osv`](#osv) (1)
 - [`owner`](#owner) (1)
 - [`ownership`](#ownership) (1)
 - [`page`](#page) (1)
 - [`papers`](#papers) (1)
+- [`patch-management`](#patch-management) (1)
 - [`performance-optimization`](#performance-optimization) (1)
 - [`pipe`](#pipe) (1)
 - [`pipeline`](#pipeline) (1)
@@ -342,6 +363,8 @@
 - [`runtime`](#runtime) (1)
 - [`rust`](#rust) (1)
 - [`safe`](#safe) (1)
+- [`sarif`](#sarif) (1)
+- [`sca`](#sca) (1)
 - [`scaffold`](#scaffold) (1)
 - [`scaffolder`](#scaffolder) (1)
 - [`scheduling`](#scheduling) (1)
@@ -352,9 +375,9 @@
 - [`screener`](#screener) (1)
 - [`screenshot`](#screenshot) (1)
 - [`sec`](#sec) (1)
-- [`secrets`](#secrets) (1)
 - [`security-and-hardening`](#security-and-hardening) (1)
 - [`self`](#self) (1)
+- [`semgrep`](#semgrep) (1)
 - [`sentry`](#sentry) (1)
 - [`seo`](#seo) (1)
 - [`server`](#server) (1)
@@ -385,6 +408,7 @@
 - [`summarize`](#summarize) (1)
 - [`summary`](#summary) (1)
 - [`supermemory`](#supermemory) (1)
+- [`syft`](#syft) (1)
 - [`systematic`](#systematic) (1)
 - [`tailwind`](#tailwind) (1)
 - [`taker`](#taker) (1)
@@ -418,6 +442,7 @@
 - [`video`](#video) (1)
 - [`video-conference`](#video-conference) (1)
 - [`voice`](#voice) (1)
+- [`vuls`](#vuls) (1)
 - [`warden`](#warden) (1)
 - [`weather`](#weather) (1)
 - [`webapp`](#webapp) (1)
@@ -556,7 +581,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [arena](skills/ai-agent-platform/arena) | ai-agent-platform | ★★★★★ | Specialist orchestrating codex exec / gemini CLI through dual paradigms — COMPET |
+| [arena](skills/ai-agent-platform/arena) | ai-agent-platform | ★★★★★ | Specialist orchestrating codex exec / Antigravity CLI through dual paradigms — C |
 | [chatgpt-apps](skills/ai-agent-platform/chatgpt-apps) | ai-agent-platform | ★★★★★ | Build, scaffold, refactor, and troubleshoot ChatGPT Apps SDK applications that c |
 | [figma-implement-design](skills/ai-agent-platform/figma-implement-design) | ai-agent-platform | ★★★★★ | Translate Figma nodes into production-ready code with 1:1 visual fidelity using  |
 | [oracle](skills/ai-agent-platform/oracle) | ai-agent-platform | ★★★★★ | AI/ML design and evaluation specialist covering prompt engineering, RAG design,  |
@@ -598,7 +623,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [arena](skills/ai-agent-platform/arena) | ai-agent-platform | ★★★★★ | Specialist orchestrating codex exec / gemini CLI through dual paradigms — COMPET |
+| [arena](skills/ai-agent-platform/arena) | ai-agent-platform | ★★★★★ | Specialist orchestrating codex exec / Antigravity CLI through dual paradigms — C |
 | [chatgpt-apps](skills/ai-agent-platform/chatgpt-apps) | ai-agent-platform | ★★★★★ | Build, scaffold, refactor, and troubleshoot ChatGPT Apps SDK applications that c |
 | [figma-implement-design](skills/ai-agent-platform/figma-implement-design) | ai-agent-platform | ★★★★★ | Translate Figma nodes into production-ready code with 1:1 visual fidelity using  |
 | [oracle](skills/ai-agent-platform/oracle) | ai-agent-platform | ★★★★★ | AI/ML design and evaluation specialist covering prompt engineering, RAG design,  |
@@ -832,6 +857,29 @@
 | [sec-filing-reviewer](skills/finance-investing/sec-filing-reviewer) | finance-investing | ★★☆☆☆ | Use when reviewing SEC filings, extracting material risk disclosures, scanning 1 |
 | [stock-screener-builder](skills/finance-investing/stock-screener-builder) | finance-investing | ★★☆☆☆ | Use when building a stock screen, filtering a universe by valuation, growth, qua |
 
+## security
+
+**16 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [breach](skills/security-and-reliability/breach) | security-and-reliability | ★★★★★ | Red team engineering agent. Designs attack scenarios, builds threat models, appl |
+| [cloak](skills/security-and-reliability/cloak) | security-and-reliability | ★★★★★ | Privacy engineering and data governance agent. PII detection, data flow mapping, |
+| [comply](skills/security-and-reliability/comply) | security-and-reliability | ★★★★★ | Regulatory compliance and audit agent. Maps business regulatory requirements (SO |
+| [security-ownership-map](skills/security-and-reliability/security-ownership-map) | security-and-reliability | ★★★★★ | Analyze git repositories to build a security ownership topology (people-to-file) |
+| [codeql-security-scanner](skills/security-and-reliability/codeql-security-scanner) | security-and-reliability | ★★★★☆ | Use CodeQL to run deep semantic code scanning, security query suites, custom que |
+| [grype-syft-sbom-scanner](skills/security-and-reliability/grype-syft-sbom-scanner) | security-and-reliability | ★★★★☆ | Use Syft to generate SBOMs and Grype to scan container images, filesystems, pack |
+| [osv-scanner](skills/security-and-reliability/osv-scanner) | security-and-reliability | ★★★★☆ | Use OSV-Scanner to detect known vulnerabilities in open-source dependencies from |
+| [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | Use Semgrep for application security scanning across source code, custom rules,  |
+| [sentry](skills/security-and-reliability/sentry) | security-and-reliability | ★★★★☆ | Use when the user asks to inspect Sentry issues or events, summarize recent prod |
+| [skill-security-auditor](skills/security-and-reliability/skill-security-auditor) | security-and-reliability | ★★★★☆ | Audit AI agent skills for security risks before installation, with PASS/WARN/FAI |
+| [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | Use Trivy to scan repositories, container images, filesystems, root filesystems, |
+| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | Use Vuls for agentless Linux, FreeBSD, container, WordPress, library, and networ |
+| [security-best-practices](skills/security-and-reliability/security-best-practices) | security-and-reliability | ★★★☆☆ | Perform language and framework specific security best-practice reviews and sugge |
+| [security-threat-model](skills/security-and-reliability/security-threat-model) | security-and-reliability | ★★★☆☆ | Repository-grounded threat modeling that enumerates trust boundaries, assets, at |
+| [link-checker](skills/security-and-reliability/link-checker) | security-and-reliability | ★★☆☆☆ | 检测 URL 可达性与潜在风险，识别失效链接、跳转链路和可疑域名。 |
+| [skill-vetter](skills/security-and-reliability/skill-vetter) | security-and-reliability | ★★☆☆☆ | 在安装前审计技能安全性，识别恶意指令、越权行为与高风险配置。 |
+
 ## productivity
 
 **15 skills**
@@ -976,23 +1024,6 @@
 | [triage](skills/devops-sre/triage) | devops-sre | ★★★★★ | Incident first response, impact scope identification, recovery procedure formula |
 | [senior-architect](skills/devops-sre/senior-architect) | devops-sre | ★★★★☆ | This skill should be used when the user asks to \"design system architecture\",  |
 
-## security
-
-**10 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [breach](skills/security-and-reliability/breach) | security-and-reliability | ★★★★★ | Red team engineering agent. Designs attack scenarios, builds threat models, appl |
-| [cloak](skills/security-and-reliability/cloak) | security-and-reliability | ★★★★★ | Privacy engineering and data governance agent. PII detection, data flow mapping, |
-| [comply](skills/security-and-reliability/comply) | security-and-reliability | ★★★★★ | Regulatory compliance and audit agent. Maps business regulatory requirements (SO |
-| [security-ownership-map](skills/security-and-reliability/security-ownership-map) | security-and-reliability | ★★★★★ | Analyze git repositories to build a security ownership topology (people-to-file) |
-| [sentry](skills/security-and-reliability/sentry) | security-and-reliability | ★★★★☆ | Use when the user asks to inspect Sentry issues or events, summarize recent prod |
-| [skill-security-auditor](skills/security-and-reliability/skill-security-auditor) | security-and-reliability | ★★★★☆ | Audit AI agent skills for security risks before installation, with PASS/WARN/FAI |
-| [security-best-practices](skills/security-and-reliability/security-best-practices) | security-and-reliability | ★★★☆☆ | Perform language and framework specific security best-practice reviews and sugge |
-| [security-threat-model](skills/security-and-reliability/security-threat-model) | security-and-reliability | ★★★☆☆ | Repository-grounded threat modeling that enumerates trust boundaries, assets, at |
-| [link-checker](skills/security-and-reliability/link-checker) | security-and-reliability | ★★☆☆☆ | 检测 URL 可达性与潜在风险，识别失效链接、跳转链路和可疑域名。 |
-| [skill-vetter](skills/security-and-reliability/skill-vetter) | security-and-reliability | ★★☆☆☆ | 在安装前审计技能安全性，识别恶意指令、越权行为与高风险配置。 |
-
 ## deployment
 
 **7 skills**
@@ -1003,7 +1034,7 @@
 | [netlify-deploy](skills/deployment-platforms/netlify-deploy) | deployment-platforms | ★★★★★ | Deploy web projects to Netlify using the Netlify CLI (`npx netlify`). Use when t |
 | [pipe](skills/deployment-platforms/pipe) | deployment-platforms | ★★★★★ | Deep GitHub Actions workflow expert. Covers trigger strategy, security hardening |
 | [render-deploy](skills/deployment-platforms/render-deploy) | deployment-platforms | ★★★★★ | Deploy applications to Render by analyzing codebases, generating render.yaml Blu |
-| [scaffold](skills/deployment-platforms/scaffold) | deployment-platforms | ★★★★★ | 云基础设施、环境配置和本地开发部署脚手架。 |
+| [scaffold](skills/deployment-platforms/scaffold) | deployment-platforms | ★★★★★ | Infrastructure provisioning specialist for cloud IaC (Terraform/OpenTofu/CloudFo |
 | [shard](skills/deployment-platforms/shard) | deployment-platforms | ★★★★★ | Multi-tenant architecture design. Tenant isolation strategies, RLS, routing, and |
 | [vercel-deploy](skills/deployment-platforms/vercel-deploy) | deployment-platforms | ★★★☆☆ | Deploy applications and websites to Vercel. Use when the user requests deploymen |
 
@@ -1176,6 +1207,17 @@
 | [supabase-postgres-best-practices](skills/developer-engineering/supabase-postgres-best-practices) | developer-engineering | ★★★☆☆ | Postgres performance optimization and best practices from Supabase. Use this ski |
 | [security-best-practices](skills/security-and-reliability/security-best-practices) | security-and-reliability | ★★★☆☆ | Perform language and framework specific security best-practice reviews and sugge |
 
+## cve
+
+**4 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [grype-syft-sbom-scanner](skills/security-and-reliability/grype-syft-sbom-scanner) | security-and-reliability | ★★★★☆ | Use Syft to generate SBOMs and Grype to scan container images, filesystems, pack |
+| [osv-scanner](skills/security-and-reliability/osv-scanner) | security-and-reliability | ★★★★☆ | Use OSV-Scanner to detect known vulnerabilities in open-source dependencies from |
+| [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | Use Trivy to scan repositories, container images, filesystems, root filesystems, |
+| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | Use Vuls for agentless Linux, FreeBSD, container, WordPress, library, and networ |
+
 ## deploy
 
 **4 skills**
@@ -1208,6 +1250,17 @@
 | [changelog-generator](skills/devops-sre/changelog-generator) | devops-sre | ★★★★★ | Parse conventional commits, determine semantic version bumps, and generate struc |
 | [runbook-generator](skills/openclaw-memory-and-safety/runbook-generator) | openclaw-memory-and-safety | ★★★★★ | Analyze a codebase and generate production-grade operational runbooks. Detects y |
 | [landing-page-generator](skills/product-design/landing-page-generator) | product-design | ★★★★☆ | Generates high-converting landing pages as complete Next.js/React (TSX) componen |
+
+## github
+
+**4 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [github-contributor](skills/developer-engineering/github-contributor) | developer-engineering | ★★★★★ | Strategic guide for becoming an effective GitHub contributor. Covers opportunity |
+| [github-ops](skills/devops-sre/github-ops) | devops-sre | ★★★★★ | Provides comprehensive GitHub operations using gh CLI and GitHub API. Activates  |
+| [codeql-security-scanner](skills/security-and-reliability/codeql-security-scanner) | security-and-reliability | ★★★★☆ | Use CodeQL to run deep semantic code scanning, security query suites, custom que |
+| [github](skills/engineering-workflow-automation/github) | engineering-workflow-automation | ★★☆☆☆ | 通过 GitHub CLI 自动化 Issue、PR、Review 与 CI 检查，适合工程协作闭环。 |
 
 ## gsd
 
@@ -1357,16 +1410,6 @@
 | [using-git-worktrees](skills/ai-workflow/using-git-worktrees) | ai-workflow | ★★★★☆ | Use when starting feature work that needs isolation from current workspace or be |
 | [git-worktree-manager](skills/developer-engineering/git-worktree-manager) | developer-engineering | ★★★★☆ | The Git Worktree Manager skill provides systematic management of Git worktrees f |
 
-## github
-
-**3 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [github-contributor](skills/developer-engineering/github-contributor) | developer-engineering | ★★★★★ | Strategic guide for becoming an effective GitHub contributor. Covers opportunity |
-| [github-ops](skills/devops-sre/github-ops) | devops-sre | ★★★★★ | Provides comprehensive GitHub operations using gh CLI and GitHub API. Activates  |
-| [github](skills/engineering-workflow-automation/github) | engineering-workflow-automation | ★★☆☆☆ | 通过 GitHub CLI 自动化 Issue、PR、Review 与 CI 检查，适合工程协作闭环。 |
-
 ## knowledge-base
 
 **3 skills**
@@ -1417,6 +1460,36 @@
 | [omen](skills/openclaw-memory-and-safety/omen) | openclaw-memory-and-safety | ★★★★★ | Pre-mortem analysis and failure mode enumeration agent. Systematically identifie |
 | [warden](skills/openclaw-memory-and-safety/warden) | openclaw-memory-and-safety | ★★★★★ | Guardian of V.A.I.R.E. quality standards (Value/Agency/Identity/Resilience/Echo) |
 
+## sbom
+
+**3 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [grype-syft-sbom-scanner](skills/security-and-reliability/grype-syft-sbom-scanner) | security-and-reliability | ★★★★☆ | Use Syft to generate SBOMs and Grype to scan container images, filesystems, pack |
+| [osv-scanner](skills/security-and-reliability/osv-scanner) | security-and-reliability | ★★★★☆ | Use OSV-Scanner to detect known vulnerabilities in open-source dependencies from |
+| [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | Use Trivy to scan repositories, container images, filesystems, root filesystems, |
+
+## secrets
+
+**3 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [env-secrets-manager](skills/devops-sre/env-secrets-manager) | devops-sre | ★★★★★ | Complete environment and secrets management workflow: .env file lifecycle across |
+| [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | Use Semgrep for application security scanning across source code, custom rules,  |
+| [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | Use Trivy to scan repositories, container images, filesystems, root filesystems, |
+
+## supply-chain
+
+**3 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [grype-syft-sbom-scanner](skills/security-and-reliability/grype-syft-sbom-scanner) | security-and-reliability | ★★★★☆ | Use Syft to generate SBOMs and Grype to scan container images, filesystems, pack |
+| [osv-scanner](skills/security-and-reliability/osv-scanner) | security-and-reliability | ★★★★☆ | Use OSV-Scanner to detect known vulnerabilities in open-source dependencies from |
+| [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | Use Semgrep for application security scanning across source code, custom rules,  |
+
 ## system
 
 **3 skills**
@@ -1426,6 +1499,16 @@
 | [interview-system-designer](skills/operations-general/interview-system-designer) | operations-general | ★★★★★ | This skill should be used when the user asks to "design interview processes", "c |
 | [ui-design-system](skills/product-design/ui-design-system) | product-design | ★★★★★ | UI design system toolkit for Senior UI Designer including design token generatio |
 | [tailwind-design-system](skills/developer-engineering/tailwind-design-system) | developer-engineering | ★★★★☆ | 用于 Tailwind CSS 设计系统搭建、组件库开发与主题定制。来源：skills.sh 24.7K installs。 |
+
+## vulnerability-scanning
+
+**3 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [grype-syft-sbom-scanner](skills/security-and-reliability/grype-syft-sbom-scanner) | security-and-reliability | ★★★★☆ | Use Syft to generate SBOMs and Grype to scan container images, filesystems, pack |
+| [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | Use Trivy to scan repositories, container images, filesystems, root filesystems, |
+| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | Use Vuls for agentless Linux, FreeBSD, container, WordPress, library, and networ |
 
 ## web
 
@@ -1463,6 +1546,15 @@
 |-------|----------|---------|-------------|
 | [app-store-optimization](skills/growth-operations-xiaohongshu/app-store-optimization) | growth-operations-xiaohongshu | ★★★★★ | App Store Optimization toolkit for researching keywords, optimizing metadata, an |
 | [nextjs-app-router](skills/developer-engineering/nextjs-app-router) | developer-engineering | ★★★★☆ | 用于 Next.js App Router 模式开发，包含 RSC、Server Actions 和路由最佳实践。来源：skills.sh 10.2K inst |
+
+## appsec
+
+**2 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [codeql-security-scanner](skills/security-and-reliability/codeql-security-scanner) | security-and-reliability | ★★★★☆ | Use CodeQL to run deep semantic code scanning, security query suites, custom que |
+| [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | Use Semgrep for application security scanning across source code, custom rules,  |
 
 ## auditor
 
@@ -1518,6 +1610,15 @@
 | [cloudflare-deploy](skills/deployment-platforms/cloudflare-deploy) | deployment-platforms | ★★★★★ | Deploy applications and infrastructure to Cloudflare using Workers, Pages, and r |
 | [cloudflare-troubleshooting](skills/devops-sre/cloudflare-troubleshooting) | devops-sre | ★★★★★ | Investigate and resolve Cloudflare configuration issues using API-driven evidenc |
 
+## code-scanning
+
+**2 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [codeql-security-scanner](skills/security-and-reliability/codeql-security-scanner) | security-and-reliability | ★★★★☆ | Use CodeQL to run deep semantic code scanning, security query suites, custom que |
+| [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | Use Semgrep for application security scanning across source code, custom rules,  |
+
 ## codex
 
 **2 skills**
@@ -1535,6 +1636,15 @@
 |-------|----------|---------|-------------|
 | [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Configure, extend, or contribute to Hermes Agent. |
 | [lark-shared](skills/knowledge-and-pm-integrations/lark-shared) | knowledge-and-pm-integrations | ★★★★☆ | Use when first setting up lark-cli, running auth login, switching user/bot ident |
+
+## container-security
+
+**2 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [grype-syft-sbom-scanner](skills/security-and-reliability/grype-syft-sbom-scanner) | security-and-reliability | ★★★★☆ | Use Syft to generate SBOMs and Grype to scan container images, filesystems, pack |
+| [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | Use Trivy to scan repositories, container images, filesystems, root filesystems, |
 
 ## doc
 
@@ -1607,6 +1717,15 @@
 |-------|----------|---------|-------------|
 | [mcporter](skills/ai-agent-platform/mcporter) | ai-agent-platform | ★★★★☆ | Use the mcporter CLI to list, configure, auth, and call MCP servers/tools direct |
 | [native-mcp](skills/ai-agent-platform/native-mcp) | ai-agent-platform | ★★★★☆ | Built-in MCP (Model Context Protocol) client that connects to external MCP serve |
+
+## kubernetes
+
+**2 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [kubernetes-specialist](skills/developer-engineering/kubernetes-specialist) | developer-engineering | ★★★★☆ | 用于 Kubernetes 集群管理、部署编排、Pod 调试与 Helm Chart 设计。来源：skills.sh 5K+ installs。 |
+| [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | Use Trivy to scan repositories, container images, filesystems, root filesystems, |
 
 ## meeting
 
@@ -1769,6 +1888,15 @@
 |-------|----------|---------|-------------|
 | [saas-scaffolder](skills/product-design/saas-scaffolder) | product-design | ★★★★★ | Generate complete, production-ready SaaS projects from a product brief. Outputs  |
 | [saas-metrics-coach](skills/finance-investing/saas-metrics-coach) | finance-investing | ★★★★☆ | SaaS financial health advisor. Use when a user shares revenue or customer number |
+
+## sast
+
+**2 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [codeql-security-scanner](skills/security-and-reliability/codeql-security-scanner) | security-and-reliability | ★★★★☆ | Use CodeQL to run deep semantic code scanning, security query suites, custom que |
+| [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | Use Semgrep for application security scanning across source code, custom rules,  |
 
 ## schema
 
@@ -1980,7 +2108,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [arena](skills/ai-agent-platform/arena) | ai-agent-platform | ★★★★★ | Specialist orchestrating codex exec / gemini CLI through dual paradigms — COMPET |
+| [arena](skills/ai-agent-platform/arena) | ai-agent-platform | ★★★★★ | Specialist orchestrating codex exec / Antigravity CLI through dual paradigms — C |
 
 ## art
 
@@ -2206,6 +2334,14 @@
 |-------|----------|---------|-------------|
 | [confidence-check](skills/operations-general/confidence-check) | operations-general | ★★★★☆ | 用于结构化自我审查，验证假设、识别不确定性和减少幻觉输出。仓库整理版，吸收社区高频最佳实践。 |
 
+## ci
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | Use Semgrep for application security scanning across source code, custom rules,  |
+
 ## ci-cd-and-automation
 
 **1 skills**
@@ -2277,6 +2413,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [code-simplification](skills/ai-workflow/code-simplification) | ai-workflow | ★★★★★ | Simplifies code for clarity. Use when refactoring code for clarity without chang |
+
+## codeql
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [codeql-security-scanner](skills/security-and-reliability/codeql-security-scanner) | security-and-reliability | ★★★★☆ | Use CodeQL to run deep semantic code scanning, security query suites, custom que |
 
 ## collector
 
@@ -2398,6 +2542,14 @@
 |-------|----------|---------|-------------|
 | [crest](skills/operations-general/crest) | operations-general | ★★★★★ | Engineer self-branding strategist that transforms technical contributions into a |
 
+## custom-queries
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [codeql-security-scanner](skills/security-and-reliability/codeql-security-scanner) | security-and-reliability | ★★★★☆ | Use CodeQL to run deep semantic code scanning, security query suites, custom que |
+
 ## data
 
 **1 skills**
@@ -2469,6 +2621,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [dependency-auditor](skills/developer-engineering/dependency-auditor) | developer-engineering | ★★★★★ | > Skill Type: POWERFUL > Category: Engineering > Domain: Dependency Management & |
+
+## dependency-scanning
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [osv-scanner](skills/security-and-reliability/osv-scanner) | security-and-reliability | ★★★★☆ | Use OSV-Scanner to detect known vulnerabilities in open-source dependencies from |
 
 ## deprecation-and-migration
 
@@ -2702,6 +2862,14 @@
 |-------|----------|---------|-------------|
 | [transcript-fixer](skills/office-white-collar/transcript-fixer) | office-white-collar | ★★★★☆ | Corrects speech-to-text transcription errors in meeting notes, lectures, and int |
 
+## freebsd
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | Use Vuls for agentless Linux, FreeBSD, container, WordPress, library, and networ |
+
 ## frontend
 
 **1 skills**
@@ -2766,6 +2934,14 @@
 |-------|----------|---------|-------------|
 | [grove](skills/knowledge-and-pm-integrations/grove) | knowledge-and-pm-integrations | ★★★★★ | Repository structure design, optimization, and audit. Directory design, docs/ la |
 
+## grype
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [grype-syft-sbom-scanner](skills/security-and-reliability/grype-syft-sbom-scanner) | security-and-reliability | ★★★★☆ | Use Syft to generate SBOMs and Grype to scan container images, filesystems, pack |
+
 ## guard
 
 **1 skills**
@@ -2822,6 +2998,14 @@
 |-------|----------|---------|-------------|
 | [honcho](skills/openclaw-memory-and-safety/honcho) | openclaw-memory-and-safety | ★★★★☆ | Configure and use Honcho memory with Hermes -- cross-session user modeling, mult |
 
+## host-security
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | Use Vuls for agentless Linux, FreeBSD, container, WordPress, library, and networ |
+
 ## html
 
 **1 skills**
@@ -2845,6 +3029,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [i18n-expert](skills/developer-engineering/i18n-expert) | developer-engineering | ★★★★☆ | This skill should be used when setting up, auditing, or enforcing internationali |
+
+## iac
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | Use Trivy to scan repositories, container images, filesystems, root filesystems, |
 
 ## idea-refine
 
@@ -2982,14 +3174,6 @@
 |-------|----------|---------|-------------|
 | [graphify](skills/developer-engineering/graphify) | developer-engineering | ★★★★★ | any input (code, docs, papers, images, video/audio) -> knowledge graph -> cluste |
 
-## kubernetes
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [kubernetes-specialist](skills/developer-engineering/kubernetes-specialist) | developer-engineering | ★★★★☆ | 用于 Kubernetes 集群管理、部署编排、Pod 调试与 Helm Chart 设计。来源：skills.sh 5K+ installs。 |
-
 ## landing
 
 **1 skills**
@@ -3054,6 +3238,14 @@
 |-------|----------|---------|-------------|
 | [link-checker](skills/security-and-reliability/link-checker) | security-and-reliability | ★★☆☆☆ | 检测 URL 可达性与潜在风险，识别失效链接、跳转链路和可疑域名。 |
 
+## linux
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | Use Vuls for agentless Linux, FreeBSD, container, WordPress, library, and networ |
+
 ## loc
 
 **1 skills**
@@ -3061,6 +3253,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [codebase-inspection](skills/developer-engineering/codebase-inspection) | developer-engineering | ★★★★☆ | Inspect and analyze codebases using pygount for LOC counting, language breakdown |
+
+## lockfiles
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [osv-scanner](skills/security-and-reliability/osv-scanner) | security-and-reliability | ★★★★☆ | Use OSV-Scanner to detect known vulnerabilities in open-source dependencies from |
 
 ## lore
 
@@ -3350,6 +3550,14 @@
 |-------|----------|---------|-------------|
 | [oracle](skills/ai-agent-platform/oracle) | ai-agent-platform | ★★★★★ | AI/ML design and evaluation specialist covering prompt engineering, RAG design,  |
 
+## osv
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [osv-scanner](skills/security-and-reliability/osv-scanner) | security-and-reliability | ★★★★☆ | Use OSV-Scanner to detect known vulnerabilities in open-source dependencies from |
+
 ## owner
 
 **1 skills**
@@ -3381,6 +3589,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [arxiv](skills/knowledge-and-pm-integrations/arxiv) | knowledge-and-pm-integrations | ★★★★☆ | Search arXiv papers by keyword, author, category, or ID. |
+
+## patch-management
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | Use Vuls for agentless Linux, FreeBSD, container, WordPress, library, and networ |
 
 ## performance-optimization
 
@@ -3710,13 +3926,29 @@
 |-------|----------|---------|-------------|
 | [repomix-safe-mixer](skills/developer-engineering/repomix-safe-mixer) | developer-engineering | ★★★★★ | Safely package codebases with repomix by automatically detecting and removing ha |
 
+## sarif
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [codeql-security-scanner](skills/security-and-reliability/codeql-security-scanner) | security-and-reliability | ★★★★☆ | Use CodeQL to run deep semantic code scanning, security query suites, custom que |
+
+## sca
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [osv-scanner](skills/security-and-reliability/osv-scanner) | security-and-reliability | ★★★★☆ | Use OSV-Scanner to detect known vulnerabilities in open-source dependencies from |
+
 ## scaffold
 
 **1 skills**
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [scaffold](skills/deployment-platforms/scaffold) | deployment-platforms | ★★★★★ | 云基础设施、环境配置和本地开发部署脚手架。 |
+| [scaffold](skills/deployment-platforms/scaffold) | deployment-platforms | ★★★★★ | Infrastructure provisioning specialist for cloud IaC (Terraform/OpenTofu/CloudFo |
 
 ## scaffolder
 
@@ -3790,14 +4022,6 @@
 |-------|----------|---------|-------------|
 | [sec-filing-reviewer](skills/finance-investing/sec-filing-reviewer) | finance-investing | ★★☆☆☆ | Use when reviewing SEC filings, extracting material risk disclosures, scanning 1 |
 
-## secrets
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [env-secrets-manager](skills/devops-sre/env-secrets-manager) | devops-sre | ★★★★★ | Complete environment and secrets management workflow: .env file lifecycle across |
-
 ## security-and-hardening
 
 **1 skills**
@@ -3813,6 +4037,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [self-improving-agent](skills/ai-agent-platform/self-improving-agent) | ai-agent-platform | ★★☆☆☆ | 带记忆与自我优化机制的 Agent 技能，能在迭代中持续改进行为。 |
+
+## semgrep
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | Use Semgrep for application security scanning across source code, custom rules,  |
 
 ## sentry
 
@@ -4053,6 +4285,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [supermemory](skills/operations-general/supermemory) | operations-general | ★★★☆☆ | 用于长期记忆管理、偏好捕获、矛盾检测和项目状态跟踪。来源：supermemoryai/supermemory。 |
+
+## syft
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [grype-syft-sbom-scanner](skills/security-and-reliability/grype-syft-sbom-scanner) | security-and-reliability | ★★★★☆ | Use Syft to generate SBOMs and Grype to scan container images, filesystems, pack |
 
 ## systematic
 
@@ -4317,6 +4557,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [voice](skills/product-design/voice) | product-design | ★★★★★ | User feedback collection, NPS survey design, review analysis, sentiment analysis |
+
+## vuls
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | Use Vuls for agentless Linux, FreeBSD, container, WordPress, library, and networ |
 
 ## warden
 

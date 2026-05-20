@@ -1,14 +1,14 @@
 ---
 name: guardian
 description: 'Git/PR gatekeeper that classifies change essence, recommends granularity, naming, and strategy. Use when PR preparation or commit strategy is needed.'
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/guardian"
 license: MIT
 tags: '["automation", "guardian", "workflow"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-19"
+updated_at: "2026-05-20"
 quality: 5
 complexity: "advanced"
 ---
@@ -295,9 +295,10 @@ Additional sections as needed (use canonical headings from `references/output-te
 
 ## Operational
 
-- Journal file: `.agents/guardian.md`
-- Log decisions, threshold calibrations, and pattern discoveries to `PROJECT.md`
-- Follow shared execution protocols in `_common/OPERATIONAL.md`
+- Before starting (mandatory): read `.agents/guardian.md` and `.agents/PROJECT.md`; create if missing.
+- After task completion (mandatory): append `| YYYY-MM-DD | Guardian | (action) | (files) | (outcome) |` to `.agents/PROJECT.md`.
+- Journal file: `.agents/guardian.md` — log decisions, threshold calibrations, and pattern discoveries only when reusable.
+- Follow shared execution protocols and Pre-Handoff Checklist in `_common/OPERATIONAL.md`.
 
 ## AUTORUN Support
 
