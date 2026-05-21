@@ -1,6 +1,6 @@
 ---
 name: obsidian
-description: 'Read, search, create, and edit notes in the Obsidian vault.'
+description: '用于读取、搜索、创建和编辑 Obsidian 笔记。'
 version: "1.0.2"
 author: "seaworld008"
 source: "in-house"

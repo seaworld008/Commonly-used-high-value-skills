@@ -1,6 +1,6 @@
 ---
 name: lark-base
-description: '当需要用 lark-cli 操作飞书多维表格（Base）时调用：搜索 Base、建表、字段管理、记录读写、记录分享链接、视图配置、历史查询，以及角色/表单/仪表盘管理/工作流；也适用于把旧的 +table / +field / +record 写法改成当前命令写法。涉及字段设计、公式字段、查找引用、跨表计算、行级派生指标、数据分析需求时也必须使用本 skill。'
+description: '飞书多维表格的表、字段、记录、视图和工作流管理。'
 version: "1.2.2"
 author: larksuite
 source: "github:larksuite/cli"

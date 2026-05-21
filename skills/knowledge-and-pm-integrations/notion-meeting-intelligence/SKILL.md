@@ -1,6 +1,6 @@
 ---
 name: notion-meeting-intelligence
-description: 'Prepare meeting materials with Notion context and Codex research; use when gathering context, drafting agendas/pre-reads, and tailoring materials to attendees.'
+description: '用于基于 Notion 上下文准备会议材料。'
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

@@ -1,6 +1,6 @@
 ---
 name: lark-event
-description: 'Lark/Feishu real-time event listening / subscribing / consuming: stream events as NDJSON via `lark-cli event consume <EventKey>` (covers IM message receive, reactions, chat member changes, etc.). Use for Lark bots, real-time message processing, long-running subscribers, streaming webhook/push handlers. Supports `--max-events` / `--timeout` bounded runs and a stderr ready-marker contract — designed for AI agents running as subprocesses.'
+description: '飞书实时事件监听、订阅和机器人消息处理。'
 version: 1.0.0
 author: larksuite
 source: "github:larksuite/cli"

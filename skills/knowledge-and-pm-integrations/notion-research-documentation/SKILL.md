@@ -1,6 +1,6 @@
 ---
 name: notion-research-documentation
-description: 'Research across Notion and synthesize into structured documentation; use when gathering info from multiple Notion sources to produce briefs, comparisons, or reports with citations.'
+description: '用于整合 Notion 信息并生成研究文档。'
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

@@ -1,6 +1,6 @@
 ---
 name: linear
-description: 'Linear: manage issues, projects, teams via GraphQL + curl.'
+description: '用于管理 Linear issues、项目、团队和协作状态。'
 version: "2.0.2"
 author: "seaworld008"
 source: "adapted-from-hermes-agent"

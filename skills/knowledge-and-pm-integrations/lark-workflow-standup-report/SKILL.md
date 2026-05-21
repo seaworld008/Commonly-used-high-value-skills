@@ -1,6 +1,6 @@
 ---
 name: lark-workflow-standup-report
-description: '日程待办摘要：编排 calendar +agenda 和 task +get-my-tasks，生成指定日期的日程与未完成任务摘要。适用于了解今天/明天/本周的安排。'
+description: '汇总今日日程、未完成待办和阻塞事项，生成每日站会摘要。'
 version: "1.0.1"
 author: larksuite
 source: "github:larksuite/cli"

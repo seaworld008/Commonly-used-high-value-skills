@@ -1,6 +1,6 @@
 ---
 name: lark-openapi-explorer
-description: '飞书/Lark 原生 OpenAPI 探索：从官方文档库中挖掘未经 CLI 封装的原生 OpenAPI 接口。当用户的需求无法被现有 lark-* skill 或 lark-cli 已注册命令满足，需要查找并调用原生飞书 OpenAPI 时使用。'
+description: '飞书原生 OpenAPI 查询、探索和补充调用。'
 version: "1.0.1"
 author: larksuite
 source: "github:larksuite/cli"

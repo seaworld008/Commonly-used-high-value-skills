@@ -1,6 +1,6 @@
 ---
 name: lark-okr
-description: '飞书 OKR：管理目标与关键结果。查看和编辑 OKR 周期、目标（Objective）、关键结果（Key Result）、对齐关系、量化指标和进展记录。当用户需要查看或创建 OKR、管理目标和关键结果、查看对齐关系时使用。'
+description: '飞书 OKR 周期、目标、关键结果和进展管理。'
 version: 1.0.0
 author: larksuite
 source: "github:larksuite/cli"

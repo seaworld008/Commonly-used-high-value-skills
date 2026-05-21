@@ -1,6 +1,6 @@
 ---
 name: lark-attendance
-description: '飞书考勤打卡：查询个人考勤打卡记录，按日期整理上下班打卡、异常、缺失记录和后续核对线索。'
+description: '飞书考勤打卡查询、异常记录整理和缺失核对。'
 version: "1.0.1"
 author: larksuite
 source: "github:larksuite/cli"

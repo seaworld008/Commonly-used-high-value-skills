@@ -1,6 +1,6 @@
 ---
 name: llm-wiki
-description: 'Karpathy''s LLM Wiki — build and maintain a persistent, interlinked markdown knowledge base. Ingest sources, query compiled knowledge, and lint for consistency.'
+description: '用于构建和维护互联的 LLM Markdown 知识库。'
 version: "2.0.1"
 author: Hermes Agent
 source: "in-house"

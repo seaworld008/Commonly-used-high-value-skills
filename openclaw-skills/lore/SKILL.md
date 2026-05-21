@@ -1,6 +1,6 @@
 ---
 name: lore
-description: 'Cross-agent knowledge curator and institutional memory guardian. Extracts patterns from agent journals into METAPATTERNS.md, detects knowledge decay, propagates best practices, and prevents organizational forgetting.'
+description: '用于沉淀跨 Agent 经验、模式和组织记忆。'
 version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"

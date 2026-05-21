@@ -1,6 +1,6 @@
 ---
 name: lark-wiki
-description: '飞书知识库：管理知识空间、空间成员和文档节点。创建和查询知识空间、查看和管理空间成员、管理节点层级结构、在知识库中组织文档和快捷方式。当用户需要在知识库中查找或创建文档、浏览知识空间结构、查看或管理空间成员、移动或复制节点时使用。'
+description: '飞书知识库空间、成员、节点和文档组织管理。'
 version: "1.0.1"
 author: larksuite
 source: "github:larksuite/cli"
