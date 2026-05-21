@@ -1,6 +1,6 @@
 ---
 name: codeql-security-scanner
-description: 'Use CodeQL to run deep semantic code scanning, security query suites, custom queries, SARIF reporting, and GitHub code scanning integration.'
+description: '用于通过 CodeQL 执行语义代码扫描、安全查询、自定义规则、SARIF 报告和 GitHub Code Scanning 集成。'
 version: "1.0.0"
 author: seaworld008
 source: "in-house"

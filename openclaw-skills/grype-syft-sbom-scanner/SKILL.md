@@ -1,6 +1,6 @@
 ---
 name: grype-syft-sbom-scanner
-description: 'Use Syft to generate SBOMs and Grype to scan container images, filesystems, packages, archives, and SBOMs for vulnerabilities.'
+description: '用于通过 Syft 生成 SBOM，并用 Grype 扫描容器镜像、文件系统、软件包、归档和 SBOM 漏洞。'
 version: "1.0.0"
 author: seaworld008
 source: "in-house"

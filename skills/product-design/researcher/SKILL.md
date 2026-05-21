@@ -1,14 +1,14 @@
 ---
 name: researcher
 description: 'User research specialist. Designs interview guides, usability test plans, qualitative data analysis, persona creation, and journey mapping. Complements Echo''s UI validation. Use when user research design or analysis is needed.'
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/researcher"
 license: MIT
 tags: '["design", "product", "researcher"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-19"
+updated_at: "2026-05-21"
 quality: 5
 complexity: "advanced"
 ---
@@ -27,6 +27,7 @@ CAPABILITIES_SUMMARY:
 - synthetic_user_evaluation: Assess synthetic user suitability via BEST framework (Behavioural, Ethical, Social, Technological)
 - inclusive_research: Design inclusive recruitment and bias-aware research protocols
 - research_democratization: Govern self-service research with templates, training, and oversight frameworks
+- tri_engine_research: `multi` Recipe — parallel research-design generation across Codex + Antigravity + Claude subagents with concurrence-divergence scoring on a qual/quant × generative/evaluative coverage matrix; Combined-Plan merge (triangulated multi-method plan) or Portfolio merge (independent research programs); preserves divergent single-engine methodology breakthroughs alongside universal multi-engine concurrence; ethics/IRB/feasibility grounding before synthesis
 
 COLLABORATION_PATTERNS:
 - Vision -> Researcher: Research direction from design strategy
@@ -200,6 +201,7 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 | Survey | `survey` | | Quantitative survey design (Likert / MaxDiff / Conjoint), sample-size math, order-bias control | `references/survey-quantitative-design.md`, `references/participant-screening.md` |
 | Diary | `diary` | | Diary / longitudinal behavioral study design with ESM scheduling and fatigue management | `references/diary-longitudinal-study.md`, `references/participant-screening.md` |
 | Cards | `cards` | | Information architecture validation via card sort, tree test, and first-click testing | `references/cards-ia-validation.md`, `references/participant-screening.md` |
+| Multi-Engine | `multi` | | Tri-engine research-design generation (Codex + Antigravity + Claude in parallel) with methodology-coverage matrix scoring. Default merge = Combined Plan (triangulated multi-method) when triangulation graph is dense; falls back to Portfolio merge (independent research programs) otherwise. Surfaces single-engine methodology breakthroughs alongside universal concurrence. | `references/tri-engine-research.md`, `_common/SUBAGENT.md`, `_common/MULTI_ENGINE_RECIPE.md` |
 
 ## Subcommand Dispatch
 
@@ -216,6 +218,7 @@ Behavior notes per Recipe:
 - `survey`: Quantitative survey design — item authoring, scale selection, sample-size calculation, order-bias control, Cronbach's α validation. For usability cognitive walkthrough use Echo; for production KPI tracking events use Pulse; for operational NPS/CSAT feedback pipelines use Voice.
 - `diary`: Longitudinal behavioral study — study length, ESM prompt frequency, self-report bias mitigation, fatigue management, media capture. For passive in-product telemetry use Pulse; for single-session cognitive walkthrough use Echo; for retrospective feedback mining use Voice.
 - `cards`: IA validation — open / closed / hybrid card sort, tree testing, first-click testing, dendrogram and similarity-matrix analysis. For UI comprehension walkthrough use Echo; for post-launch navigation analytics use Pulse; for post-launch findability complaints use Voice.
+- `multi`: Tri-engine research-design generation. Spawn Codex / Antigravity / Claude subagents in one message; each produces 2-4 research designs independently with loose prompts (Role + Target + Output format only — no methodology templates, sample-size formulas, or SUS/UEQ rubrics passed). Pattern D Concurrence-Divergence scoring: `UNIVERSAL` (3/3) = standard defensible methodology, `LIKELY` (2/3) = strong methodology with one engine proposing a complementary triangulation partner, `VERIFIED-DIVERGENT` (1/3 after ethics/IRB/feasibility grounding) = single-engine methodology insight (e.g., guerrilla testing, diary study, competitive observation) — often the breakthrough. Coverage matrix audit across qual/quant × generative/evaluative axes surfaces methodology gaps. Two merge strategies — default `Combined Plan` (triangulated multi-method plan when surviving clusters cover ≥2 matrix cells with shared research question) or `Portfolio` (independent research programs when stances/questions diverge). Critical difference from Judge: divergent methodologies are NOT auto-low-value; triangulation is the discipline's quality lever. See `references/tri-engine-research.md` for the full SCOPE → PREFLIGHT → FAN-OUT → NORMALIZE → CLUSTER → SCORE → GROUND → SYNTHESIZE → PRESENT flow.
 
 ## Output Routing
 
@@ -234,6 +237,7 @@ Behavior notes per Recipe:
 | `AI moderated`, `automated interviews`, `interview at scale` | AI-moderated interview governance | Interview guide + probing logic + human review protocol | `references/ai-assisted-research.md` |
 | `democratize`, `self-service`, `research ops` | Research democratization | Governance framework + templates | `references/research-ops-democratization.md` |
 | `inclusive`, `diversity`, `accessibility research` | Inclusive research design | Inclusive recruitment plan + bias mitigation | `references/bias-checklist.md` |
+| `multi-engine`, `tri-engine research`, `parallel research design`, `methodology coverage`, `triangulation design`, `multi` | Tri-engine research-design generation | Combined Plan (default, triangulated) or Portfolio document (independent programs) | `references/tri-engine-research.md` |
 | unclear research request | Study scoping | Research plan proposal | `references/interview-guide.md` |
 
 Routing rules:
@@ -284,6 +288,44 @@ Researcher receives research direction and data from upstream agents, conducts s
 - **vs Cast**: Cast = persona lifecycle management and registry; Researcher = persona creation from research data.
 - **vs Trace**: Trace = session replay analysis and behavioral pattern extraction; Researcher = study design incorporating behavioral evidence.
 
+## Multi-Engine Mode
+
+Activated by the `multi` Recipe (or any explicit user request for parallel research design / tri-engine methodology comparison / triangulation planning). Tri-engine research-design generation follows Pattern D (Divergence-primary) from `_common/MULTI_ENGINE_RECIPE.md`, optimized for *methodology coverage breadth* and *triangulation potential* rather than single-best-method selection.
+
+**Why three engines for research design:**
+- Codex (GitHub-heavy training data) skews toward quantitative-heavy, instrument-driven designs (A/B tests, survey scales, log analysis, statistical power calculations).
+- Antigravity (Google-product-heavy training data) skews toward mixed-methods at-scale (large-N usability, HEART metrics, longitudinal panels, ResearchOps).
+- Claude (Anthropic-curated training data) skews toward qualitative-heavy, ethics-aware designs (open-ended interviews, diary studies, JTBD switch interviews, inclusive recruitment).
+
+For the same research question, the three engines propose *non-overlapping methodology sets* — and triangulating across methods is the discipline's core quality lever. A 1/3 divergent methodology (e.g., guerrilla testing, competitive observation, ethnographic field study) is often the breakthrough, not noise.
+
+**Core mechanics:**
+- Spawn three Agent subagents in a single message: `research-codex`, `research-agy`, `research-claude` (per `references/tri-engine-research.md`).
+- Run engine availability PREFLIGHT in Researcher main context — never delegate detection to subagents (subagent PATH is narrower; see `_common/MULTI_ENGINE_RECIPE.md §PREFLIGHT` for the canonical probe).
+- Use loose prompts (Role + Target + Output format only). Do NOT pass methodology templates, sample-size formulas, SUS/UEQ rubrics, screener archetypes, or JTBD switch-interview scaffolds to subagents — apply framework rules in SYNTHESIZE, not at FAN-OUT. Each engine's training-data priors should drive methodological divergence.
+- Subagents return 2-4 research designs each as structured JSON; main context integrates via NORMALIZE → CLUSTER → SCORE → GROUND → SYNTHESIZE.
+
+**CLUSTER rule (Researcher-critical):** designs sharing the same research question but proposing **different methodologies** must remain in **separate clusters**. Same question + interview ≠ same question + survey ≠ same question + diary study. Merging methodologies would destroy the divergence signal.
+
+**Concurrence vs Divergence scoring (key difference from Judge):**
+- `UNIVERSAL` (3/3) — all engines independently chose this methodology; standard, defensible, safe.
+- `LIKELY` (2/3) — two engines concur; the third typically proposed a complementary triangulation partner.
+- `VERIFIED-DIVERGENT` (1/3, grounded) — single-engine methodology insight that survived ethics/IRB/feasibility/inclusion/hallucination grounding. NOT automatically lower-value than UNIVERSAL.
+
+**Coverage matrix audit (Researcher-specific):** every surviving cluster is plotted on a qual/quant × generative/evaluative grid. Heavy skew (e.g., all qualitative-generative, zero quantitative-evaluative) is a finding — the gap is reported in PRESENT and often indicates the research question itself is biased toward one stance.
+
+**Ethics / IRB / feasibility GROUNDING (Researcher-specific):** before any design ships, the main context verifies sample-size feasibility against timeline/budget, ethics coverage for sensitive populations, inclusion-floor compliance (no WEIRD-only samples for global products without justification), hallucinated personas/prior-studies, AI-moderation or synthetic-user disclosure per BEST framework, and statistical power (qual < 5 or quant < 30 → under-powered flag).
+
+**Merge strategies (selected based on triangulation density):**
+- `Combined Plan` (default when triangulation graph is dense — surviving clusters cover ≥2 matrix cells with a shared research question) — single multi-method research plan at `docs/research/PLAN-[topic]-[date].md` sequencing generative → evaluative → confirmatory with explicit triangulation logic.
+- `Portfolio` (when stances or research questions diverge) — independent research programs at `docs/research/PORTFOLIO-[topic]-[date].md` ordered UNIVERSAL → LIKELY → VERIFIED-DIVERGENT, with a "run first" recommendation tied to coverage gaps and decision-stakes.
+
+**Engine-attribution tag (mandatory on every shipped design):** `[codex+agy+claude]` (3/3) / `[codex+agy]` etc. (2/3) / `[codex-verified]` (1/3 verified-divergent). Append `[NEEDS-IRB]` or `[NEEDS-INFO:<dim>]` when grounding passes with caveats.
+
+**Degraded modes:** 1 engine down → continue with 2; 2 down → single-engine fallback with stricter grounding; all down → degrade to standard Recipe (`interview` default, or whichever matched the user input).
+
+Full algorithm, JSON schema, coverage-matrix layout, GROUND checklist, and subagent prompt skeleton: `references/tri-engine-research.md`.
+
 ## Reference Map
 
 | Reference | Read this when |
@@ -300,6 +342,9 @@ Researcher receives research direction and data from upstream agents, conducts s
 | `references/survey-quantitative-design.md` | You need quantitative survey design, scale selection, sample-size math, order-bias control, or reliability checks. |
 | `references/diary-longitudinal-study.md` | You need diary / longitudinal study design, ESM scheduling, fatigue management, or media-capture guidance. |
 | `references/cards-ia-validation.md` | You need card sort, tree testing, first-click testing, or IA validation analysis. |
+| `references/tri-engine-research.md` | You are running the `multi` Recipe — tri-engine research-design fan-out (Codex + Antigravity + Claude subagents), methodology-coverage matrix (qual/quant × generative/evaluative), CLUSTER identity rules that keep different methodologies in separate clusters, ethics/IRB/feasibility GROUND checklist, Combined-Plan vs Portfolio merge strategies, JSON schema, and subagent prompt skeleton. |
+| `_common/SUBAGENT.md` | You need the base MULTI_ENGINE protocol — engine dispatch table, loose prompt rules, Agent tool fan-out mechanics, fallback rules. Read before authoring `multi` Recipe subagent prompts. |
+| `_common/MULTI_ENGINE_RECIPE.md` | You need the cross-skill `multi` Recipe protocol — Pattern D (Divergence-primary) scoring rules, canonical PREFLIGHT probe, degraded modes, engine-attribution tag convention, and the Implementation Checklist that this skill's `multi` Recipe follows. |
 | `_common/OPUS_47_AUTHORING.md` | You are sizing the research report, deciding adaptive thinking depth at method selection, or front-loading research question/scope/participants at INTAKE. Critical for Researcher: P3, P5. |
 
 ## Operational
@@ -321,13 +366,30 @@ _STEP_COMPLETE:
   Status: SUCCESS | PARTIAL | BLOCKED | FAILED
   Output:
     deliverable: [artifact path or inline]
-    artifact_type: "[Interview Guide | Usability Test Plan | Research Report | Persona Set | Journey Map | Calibration Report]"
+    artifact_type: "[Interview Guide | Usability Test Plan | Research Report | Persona Set | Journey Map | Calibration Report | Tri-Engine Combined Plan | Tri-Engine Portfolio]"
     parameters:
       study_mode: "[Study design | Analysis & synthesis | Continuous program | AI-assisted review | Calibration & impact]"
       research_questions: "[primary research questions]"
       methodology: "[interview | usability test | survey | diary study | mixed methods]"
       sample_size: "[participant count]"
       confidence_level: "[high | medium | low]"
+    tri_engine:                                  # present only when `multi` Recipe ran
+      engines_run: [codex, agy, claude]
+      engines_failed: [list or none]
+      merge_strategy: "[Combined Plan | Portfolio]"
+      concurrence_distribution:
+        UNIVERSAL: [count]
+        LIKELY: [count]
+        VERIFIED-DIVERGENT: [count]
+      coverage_matrix:                           # qual/quant × generative/evaluative cell counts
+        qual_generative: [count]
+        qual_evaluative: [count]
+        qual_descriptive: [count]
+        quant_generative: [count]
+        quant_evaluative: [count]
+        quant_descriptive: [count]
+        mixed: [count]
+      rejected: [count + top categories — duplicate / hallucination / ethics-gap / under-powered / WEIRD-bias / synthetic-misuse]
   Validations:
     - "[research questions defined before study design]"
     - "[bias checklist applied]"

@@ -1,6 +1,6 @@
 ---
 name: skill-security-auditor
-description: 'Audit AI agent skills for security risks before installation, with PASS/WARN/FAIL findings and remediation guidance.'
+description: '用于安装前审计 AI Agent 技能安全风险，输出 PASS/WARN/FAIL 结论和修复建议。'
 version: "1.0.1"
 author: "seaworld008"
 source: "github:alirezarezvani/claude-skills"

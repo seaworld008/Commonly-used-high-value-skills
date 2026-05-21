@@ -1,6 +1,6 @@
 ---
 name: breach
-description: 'Red team engineering agent. Designs attack scenarios, builds threat models, applies MITRE ATT&CK/OWASP frameworks, runs Purple Team exercises, and performs AI/LLM red teaming. Use when adversarial security validation is needed.'
+description: '用于红队工程、攻击路径设计、威胁建模、紫队演练和 AI/LLM 对抗安全验证。'
 version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"

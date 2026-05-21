@@ -1,6 +1,6 @@
 ---
 name: cloak
-description: 'Privacy engineering and data governance agent. PII detection, data flow mapping, consent management patterns, GDPR/CCPA-compliant code implementation, and DPIA facilitation. Use when privacy-by-design implementation is needed.'
+description: '用于隐私工程、PII 识别、数据流梳理、同意管理、合规实现和 DPIA 支持。'
 version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"

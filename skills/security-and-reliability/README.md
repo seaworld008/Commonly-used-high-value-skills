@@ -8,31 +8,31 @@
 
 ## 推荐先看
 
-- [security-ownership-map](./security-ownership-map/) - Analyze git repositories to build a security ownership topology (people-to-file), compute bus factor and sensitive-code ownership, and export CSV/JSON for graph databases and visualization. Trigger only when the user explicitly wants a security-oriented ownership or bus-factor analysis grounded in git history (for example: orphaned sensitive code, security maintainers, CODEOWNERS reality checks for risk, sensitive hotspots, or ownership clusters). Do not trigger for general maintainer lists or non-security ownership questions.
-- [sentry](./sentry/) - Use when the user asks to inspect Sentry issues or events, summarize recent production errors, or pull basic Sentry health data via the Sentry API; perform read-only queries with the bundled script and require `SENTRY_AUTH_TOKEN`.
-- [breach](./breach/) - Red team engineering agent. Designs attack scenarios, builds threat models, applies MITRE ATT&CK/OWASP frameworks, runs Purple Team exercises, and performs AI/LLM red teaming. Use when adversarial security validation is needed.
-- [cloak](./cloak/) - Privacy engineering and data governance agent. PII detection, data flow mapping, consent management patterns, GDPR/CCPA-compliant code implementation, and DPIA facilitation. Use when privacy-by-design implementation is needed.
+- [security-ownership-map](./security-ownership-map/) - 用于基于 Git 历史分析安全所有权、敏感代码归属、bus factor、CODEOWNERS 现实差距和风险热点。
+- [sentry](./sentry/) - 用于只读查询 Sentry issues、events 和服务健康数据，汇总线上错误并辅助生产问题排查。
+- [breach](./breach/) - 用于红队工程、攻击路径设计、威胁建模、紫队演练和 AI/LLM 对抗安全验证。
+- [cloak](./cloak/) - 用于隐私工程、PII 识别、数据流梳理、同意管理、合规实现和 DPIA 支持。
 
 ## 技能总览
 
 | 技能 | 简介 | 目录 | 详情 |
 |------|------|------|------|
-| `breach` | Red team engineering agent. Designs attack scenarios, builds threat models, applies MITRE ATT&CK/OWASP frameworks, runs Purple Team exercises, and performs AI/LLM red teaming. Use when adversarial security validation is needed. | [目录](./breach/) | [SKILL.md](./breach/SKILL.md) |
-| `cloak` | Privacy engineering and data governance agent. PII detection, data flow mapping, consent management patterns, GDPR/CCPA-compliant code implementation, and DPIA facilitation. Use when privacy-by-design implementation is needed. | [目录](./cloak/) | [SKILL.md](./cloak/SKILL.md) |
-| `codeql-security-scanner` | Use CodeQL to run deep semantic code scanning, security query suites, custom queries, SARIF reporting, and GitHub code scanning integration. | [目录](./codeql-security-scanner/) | [SKILL.md](./codeql-security-scanner/SKILL.md) |
-| `comply` | Regulatory compliance and audit agent. Maps business regulatory requirements (SOC2/PCI-DSS/HIPAA/ISO 27001), checks control implementations, designs audit trails, and implements Policy as Code. Use when compliance auditing is needed. | [目录](./comply/) | [SKILL.md](./comply/SKILL.md) |
-| `grype-syft-sbom-scanner` | Use Syft to generate SBOMs and Grype to scan container images, filesystems, packages, archives, and SBOMs for vulnerabilities. | [目录](./grype-syft-sbom-scanner/) | [SKILL.md](./grype-syft-sbom-scanner/SKILL.md) |
+| `breach` | 用于红队工程、攻击路径设计、威胁建模、紫队演练和 AI/LLM 对抗安全验证。 | [目录](./breach/) | [SKILL.md](./breach/SKILL.md) |
+| `cloak` | 用于隐私工程、PII 识别、数据流梳理、同意管理、合规实现和 DPIA 支持。 | [目录](./cloak/) | [SKILL.md](./cloak/SKILL.md) |
+| `codeql-security-scanner` | 用于通过 CodeQL 执行语义代码扫描、安全查询、自定义规则、SARIF 报告和 GitHub Code Scanning 集成。 | [目录](./codeql-security-scanner/) | [SKILL.md](./codeql-security-scanner/SKILL.md) |
+| `comply` | 用于合规审计、SOC2/PCI-DSS/HIPAA/ISO 27001 控制映射、审计轨迹和 Policy as Code 设计。 | [目录](./comply/) | [SKILL.md](./comply/SKILL.md) |
+| `grype-syft-sbom-scanner` | 用于通过 Syft 生成 SBOM，并用 Grype 扫描容器镜像、文件系统、软件包、归档和 SBOM 漏洞。 | [目录](./grype-syft-sbom-scanner/) | [SKILL.md](./grype-syft-sbom-scanner/SKILL.md) |
 | `link-checker` | 检测 URL 可达性与潜在风险，识别失效链接、跳转链路和可疑域名。 | [目录](./link-checker/) | [SKILL.md](./link-checker/SKILL.md) |
-| `osv-scanner` | Use OSV-Scanner to detect known vulnerabilities in open-source dependencies from lockfiles, manifests, SBOMs, git history, and source trees. | [目录](./osv-scanner/) | [SKILL.md](./osv-scanner/SKILL.md) |
-| `security-best-practices` | Perform language and framework specific security best-practice reviews and suggest improvements. Trigger only when the user explicitly requests security best practices guidance, a security review/report, or secure-by-default coding help. Trigger only for supported languages (python, javascript/typescript, go). Do not trigger for general code review, debugging, or non-security tasks. | [目录](./security-best-practices/) | [SKILL.md](./security-best-practices/SKILL.md) |
-| `security-ownership-map` | Analyze git repositories to build a security ownership topology (people-to-file), compute bus factor and sensitive-code ownership, and export CSV/JSON for graph databases and visualization. Trigger only when the user explicitly wants a security-oriented ownership or bus-factor analysis grounded in git history (for example: orphaned sensitive code, security maintainers, CODEOWNERS reality checks for risk, sensitive hotspots, or ownership clusters). Do not trigger for general maintainer lists or non-security ownership questions. | [目录](./security-ownership-map/) | [SKILL.md](./security-ownership-map/SKILL.md) |
-| `security-threat-model` | Repository-grounded threat modeling that enumerates trust boundaries, assets, attacker capabilities, abuse paths, and mitigations, and writes a concise Markdown threat model. Trigger only when the user explicitly asks to threat model a codebase or path, enumerate threats/abuse paths, or perform AppSec threat modeling. Do not trigger for general architecture summaries, code review, or non-security design work. | [目录](./security-threat-model/) | [SKILL.md](./security-threat-model/SKILL.md) |
-| `semgrep-appsec-scanner` | Use Semgrep for application security scanning across source code, custom rules, secrets workflows, and Semgrep Supply Chain dependency analysis. | [目录](./semgrep-appsec-scanner/) | [SKILL.md](./semgrep-appsec-scanner/SKILL.md) |
-| `sentry` | Use when the user asks to inspect Sentry issues or events, summarize recent production errors, or pull basic Sentry health data via the Sentry API; perform read-only queries with the bundled script and require `SENTRY_AUTH_TOKEN`. | [目录](./sentry/) | [SKILL.md](./sentry/SKILL.md) |
-| `skill-security-auditor` | Audit AI agent skills for security risks before installation, with PASS/WARN/FAIL findings and remediation guidance. | [目录](./skill-security-auditor/) | [SKILL.md](./skill-security-auditor/SKILL.md) |
+| `osv-scanner` | 用于通过 OSV-Scanner 检查锁文件、清单、SBOM、Git 历史和源码树中的开源依赖漏洞。 | [目录](./osv-scanner/) | [SKILL.md](./osv-scanner/SKILL.md) |
+| `security-best-practices` | 用于按语言和框架执行安全最佳实践检查，生成安全审查报告并提出 secure-by-default 改进建议。 | [目录](./security-best-practices/) | [SKILL.md](./security-best-practices/SKILL.md) |
+| `security-ownership-map` | 用于基于 Git 历史分析安全所有权、敏感代码归属、bus factor、CODEOWNERS 现实差距和风险热点。 | [目录](./security-ownership-map/) | [SKILL.md](./security-ownership-map/SKILL.md) |
+| `security-threat-model` | 用于基于代码库枚举信任边界、资产、攻击者能力、滥用路径和缓解措施，并生成威胁模型。 | [目录](./security-threat-model/) | [SKILL.md](./security-threat-model/SKILL.md) |
+| `semgrep-appsec-scanner` | 用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。 | [目录](./semgrep-appsec-scanner/) | [SKILL.md](./semgrep-appsec-scanner/SKILL.md) |
+| `sentry` | 用于只读查询 Sentry issues、events 和服务健康数据，汇总线上错误并辅助生产问题排查。 | [目录](./sentry/) | [SKILL.md](./sentry/SKILL.md) |
+| `skill-security-auditor` | 用于安装前审计 AI Agent 技能安全风险，输出 PASS/WARN/FAIL 结论和修复建议。 | [目录](./skill-security-auditor/) | [SKILL.md](./skill-security-auditor/SKILL.md) |
 | `skill-vetter` | 在安装前审计技能安全性，识别恶意指令、越权行为与高风险配置。 | [目录](./skill-vetter/) | [SKILL.md](./skill-vetter/SKILL.md) |
-| `trivy-vulnerability-scanner` | Use Trivy to scan repositories, container images, filesystems, root filesystems, SBOMs, Kubernetes resources, IaC, secrets, licenses, and OS package CVEs. | [目录](./trivy-vulnerability-scanner/) | [SKILL.md](./trivy-vulnerability-scanner/SKILL.md) |
-| `vuls-linux-cve-scanner` | Use Vuls for agentless Linux, FreeBSD, container, WordPress, library, and network-device CVE scanning with NVD, OVAL, vendor advisory, and changelog sources. | [目录](./vuls-linux-cve-scanner/) | [SKILL.md](./vuls-linux-cve-scanner/SKILL.md) |
+| `trivy-vulnerability-scanner` | 用于通过 Trivy 扫描仓库、容器镜像、文件系统、rootfs、SBOM、Kubernetes、IaC、密钥、许可证和系统 CVE。 | [目录](./trivy-vulnerability-scanner/) | [SKILL.md](./trivy-vulnerability-scanner/SKILL.md) |
+| `vuls-linux-cve-scanner` | 用于通过 Vuls 对 Linux、FreeBSD、容器、WordPress、库和网络设备执行 Agentless CVE 扫描。 | [目录](./vuls-linux-cve-scanner/) | [SKILL.md](./vuls-linux-cve-scanner/SKILL.md) |
 
 ## 维护方式
 

@@ -1,14 +1,14 @@
 ---
 name: scout
 description: 'Bug investigation, root cause analysis (RCA), reproduction steps, and impact assessment. Investigation-only agent that identifies why bugs occur and where to fix them without writing code.'
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/scout"
 license: MIT
 tags: '["analysis", "planning", "scout"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-19"
+updated_at: "2026-05-21"
 quality: 5
 complexity: "advanced"
 ---
@@ -33,6 +33,7 @@ CAPABILITIES_SUMMARY:
 - fix_prompt_generation: Pair every confirmed root cause with a paste-ready LLM Fix Prompt embedding evidence, recommended fix, acceptance criteria, ruled-out hypotheses, and "what NOT to do" so a downstream coding LLM can act without manual reformulation
 - recommended_fix_impact_scope: Quantify the blast radius of the recommended fix across 5 axes (callers, tests, types, configs, docs) before handoff so Builder's VERIFY phase has an explicit checklist; auto-flag Ripple escalation when 3+ axes are non-trivially affected
 - video_bug_report_investigation: Investigate bug reports submitted as screen recordings. Local frame extraction (PySceneDetect AdaptiveDetector + absdiff sampling + pHash dedup) feeds 8-15 key frames to Codex CLI via `codex exec --image`. Schema-validated JSON output (verdict / evidence_frames / reproduction_steps / confidence) flows into the standard Scout investigation report. Model selection is delegated to the user's Codex CLI configuration.
+- tri_engine_investigate: `multi` Recipe — parallel RCA across Codex + Antigravity + Claude subagents with Pattern H Hybrid scoring (confidence axis CONFIRMED/LIKELY/CANDIDATE × perspective axis CONVERGENT/DIVERGENT); ships Primary RCA backed by consensus AND preserved Alternative Hypotheses for verification; breaks single-engine hypothesis lock-in; Builder handoff carries explicit verification ordering (primary first, alternatives next) so divergent root cause hypotheses are pre-grounded and ready to verify if the primary fix fails
 
 COLLABORATION_PATTERNS:
 - Triage -> Scout: Incident reports requiring RCA
@@ -209,7 +210,7 @@ Use [advanced-reproduction-triage.md](references/advanced-reproduction-triage.md
 | Focused Hunt | `bug` | ✓ | Single-bug investigation with clear symptom | `references/debug-strategies.md`, `references/bug-patterns.md` |
 | History-Led | `regression` | | Regression signal present (recent deploy, version bump) | `references/git-bisect.md`, `references/modern-rca-methodology.md` |
 | Observability-Led | `prod` | | Production traces/logs/metrics dominate the signal | `references/observability-debugging.md` |
-| Multi-Engine | `consensus` | | Root cause ambiguous after 3 hypotheses exhausted | `_common/SUBAGENT.md` |
+| Multi-Engine | `multi` | | Root cause ambiguous after 3 hypotheses exhausted, or hypothesis-lock-in risk on a high-stakes RCA — runs tri-engine parallel investigation (Codex + Antigravity + Claude) with Pattern H Hybrid scoring; ships Primary RCA + Alternative Hypotheses with verification ordering | `references/tri-engine-investigate.md`, `_common/MULTI_ENGINE_RECIPE.md`, `_common/SUBAGENT.md` |
 | Cascading Failure | `cascade` | | Multi-service propagation from a single origin | `references/observability-debugging.md`, `references/modern-rca-methodology.md` |
 | Performance Hunt | `perf` | | Profiler-led investigation when there is a clear latency, throughput drop, or CPU hotspot | `references/perf-investigation.md` |
 | Memory Hunt | `memory` | | Heap-snapshot-led investigation when OOM / heap bloat / GC pressure is suspected | `references/memory-investigation.md` |
@@ -224,13 +225,13 @@ Use [advanced-reproduction-triage.md](references/advanced-reproduction-triage.md
 Parse the first token of user input.
 - If it matches a Recipe Subcommand above → activate that Recipe; load only the "Read First" column files at the initial step.
 - Otherwise → default Recipe (`bug` = Focused Hunt). Apply TRIAGE guardrails (3 hypotheses) and escalate to another Recipe if evidence warrants.
-- Auto-promotion: after 3 stalled hypotheses → promote to `consensus` Recipe (Multi-Engine Mode).
+- Auto-promotion: after 3 stalled hypotheses → promote to `multi` Recipe (Multi-Engine Mode).
 
 Behavior notes per Recipe:
 - `bug`: normal workflow, single evidence chain.
 - `regression`: prioritize `git log` / diff / bisect. Delegate to Trail if history alone is sufficient.
 - `prod`: prioritize traces, logs, metrics, profiling.
-- `consensus`: use independent engines for hypothesis generation, then merge on evidence. See Multi-Engine Mode section.
+- `multi`: tri-engine parallel RCA. Load `references/tri-engine-investigate.md`. Spawn Codex / Antigravity / Claude subagents in one message; each produces 1-3 root cause hypotheses independently with loose prompts (Role + Symptom + Reproduction state + Ruled-out hypotheses + Output format only — no RCA framework templates). Pattern H Hybrid scoring: confidence axis (`CONFIRMED` 3/3 / `LIKELY` 2/3 / `CANDIDATE` 1/3) × perspective axis (`CONVERGENT` — all engines reduce to one root cause class / `DIVERGENT-N` — N distinct root cause hypotheses survive). GROUND every shipping cluster with actual code reading and reproduction attempt; never delegate grounding to subagents. SYNTHESIZE produces a Primary RCA (highest confidence + best grounding) plus Alternative Hypotheses (preserved divergence) with explicit Verification Ordering for Builder. LLM Fix Prompt is emitted for the Primary RCA only. Critical difference from Judge: dissent is NOT dropped — alternative root cause hypotheses ship as pre-grounded verification branches. See `references/tri-engine-investigate.md` for the full SCOPE → PREFLIGHT → FAN-OUT → NORMALIZE → CLUSTER → SCORE → GROUND → SYNTHESIZE → REPORT flow.
 - `cascade`: build causal graph from failure traces; separate root cause from symptomatic failures across services.
 - `perf`: Profiler-led flamegraph → hot path identification → classify into N+1 / algorithmic complexity / I/O / lock contention / GC pause. Delegate to Bolt (optimization implementation).
 - `memory`: Identify leak source using heap snapshot diff / retainer path / allocation timeline. Delegate to Bolt if GC pressure is the primary cause, or to Specter for concurrent leaks.
@@ -248,6 +249,7 @@ Behavior notes per Recipe:
 | regression suspected | History-Led Investigation | Regression analysis + bisect result | `references/git-bisect.md`, `references/bug-patterns.md` |
 | production anomaly or metrics alert | Observability-Led Investigation | Trace analysis + root cause | `references/observability-debugging.md` |
 | ambiguous root cause after initial trace | Multi-Engine Mode | Merged hypothesis report | `references/modern-rca-methodology.md` |
+| `multi-engine`, `tri-engine RCA`, `parallel investigation`, `cross-engine root cause`, `consensus RCA`, `hypothesis lock-in risk` | Multi-Engine Mode (`multi` Recipe) | Primary RCA + Alternative Hypotheses with verification ordering | `references/tri-engine-investigate.md`, `_common/MULTI_ENGINE_RECIPE.md` |
 | cascading downstream errors from single origin | Cascading Failure Mode | Causal graph + root cause isolation | `references/observability-debugging.md`, `references/modern-rca-methodology.md` |
 | vague or incomplete report | TRIAGE phase with vague-report handling | Clarified scope + investigation plan | `references/vague-report-handling.md` |
 | screen recording attached, video bug report, 動画報告 | Video Bug Report Recipe | Investigation Report grounded in `evidence_frames` | `references/video-bug-analysis.md` |
@@ -448,15 +450,52 @@ SCOUT_TO_TRAIL_HANDOFF:
 | `_common/LLM_PROMPT_GENERATION.md` | You need universal authoring rules, prompt structure, or the cross-agent verb/suppression principles shared with Trail/Sentinel/Plea. |
 | `_common/INVESTIGATION_ESCALATION.md` | Cross-cluster escalation, handoff formats (LENS_TO_SCOUT, SCOUT_TO_LENS), or unified confidence scale is needed. |
 | `_common/OPUS_47_AUTHORING.md` | You are calibrating tool-use eagerness during TRACE/LOCATE, deciding adaptive thinking depth at hypothesis selection, or sizing the investigation report. Critical for Scout: P3, P5. |
+| `references/tri-engine-investigate.md` | You are running the `multi` Recipe — tri-engine fan-out (Codex + Antigravity + Claude subagents), Pattern H Hybrid scoring (confidence × perspective), CLUSTER-by-root-cause identity rules, GROUND verdicts (VERIFIED / LIKELY-VERIFIED / REJECTED), Primary RCA + Alternative Hypotheses SYNTHESIZE with verification ordering, JSON schema, subagent prompt skeleton, and degraded-mode behavior. |
+| `_common/SUBAGENT.md` | You need the base MULTI_ENGINE protocol — engine dispatch table, loose-prompt rule, Agent tool fan-out mechanics, fallback rules. Read before authoring `multi` Recipe subagent prompts. |
+| `_common/MULTI_ENGINE_RECIPE.md` | You need the cross-skill `multi` Recipe protocol — canonical SCOPE → PREFLIGHT → FAN-OUT → NORMALIZE → CLUSTER → SCORE → GROUND/CALIBRATE → SYNTHESIZE → DELIVER flow, Pattern D/C/H definitions, engine-attribution tag convention, degraded-mode table, and Implementation Checklist for adding `multi` to new skills. |
 
 ## Multi-Engine Mode
 
-Dispatch and loose-prompt rules live in `_common/SUBAGENT.md`.
+Activated by the `multi` Recipe (or any explicit user request for parallel investigation / cross-engine root cause comparison / consensus RCA), and auto-promoted from the default `bug` Recipe when 3 hypotheses stall without progress. Tri-engine parallel RCA breaks single-engine hypothesis lock-in by fanning out across three engines with non-overlapping training-data priors, then synthesizes a Primary RCA backed by consensus plus Alternative Hypotheses preserved from divergence.
 
-- Use this mode only when root cause remains ambiguous and independent hypotheses materially increase confidence.
-- Pass only role, symptoms, related code, and requested hypothesis output.
-- Do not pass full investigation frameworks.
-- Merge by consolidating same-cause hypotheses, ranking by evidence, and annotating verification steps.
+**Pattern type: H (Hybrid)** — both axes carry value. Concurrence raises confidence on the primary root cause; divergence preserves alternative hypotheses as pre-grounded verification branches for Builder.
+
+**Core mechanics:**
+- Spawn three Agent subagents in a single message: `investigate-codex`, `investigate-agy`, `investigate-claude` (per `references/tri-engine-investigate.md`).
+- Run engine availability PREFLIGHT in Scout main context — never delegate detection to subagents (subagent PATH is narrower; see `_common/MULTI_ENGINE_RECIPE.md §2`).
+- Use loose prompts (Role + Symptom evidence + Reproduction state + Ruled-out hypotheses + Output format only). Do NOT pass 5-Whys templates, Fishbone categories, Causal Graph rules, or Scout's confidence rubric — apply RCA frameworks at SYNTHESIZE, not at FAN-OUT. Each engine's training-data priors should drive root cause hypothesis diversity.
+- Subagents return structured JSON with 1-3 hypotheses each (symptom, root-cause-hypothesis, causal-chain, evidence, reproduction-steps, affected-areas, severity, confidence, rca_method, ruled_out); main context integrates via NORMALIZE → CLUSTER → SCORE → GROUND → SYNTHESIZE.
+
+**CLUSTER rule (Scout-specific):** group by root cause hypothesis identity, NOT by symptom. Engines always agree on the symptom; they may diverge on the root cause — that divergence is exactly what Pattern H preserves. Same root cause class + same primary affected component + same causal-chain shape = same cluster. Different layers (app vs lib vs infra), different mechanisms (logic vs race vs resource), or different ultimate fix locations = different clusters.
+
+**Confidence axis (per-cluster):**
+- `CONFIRMED` (3/3) — high confidence in root cause; spot-check at GROUND.
+- `LIKELY` (2/3) — strong; note what the missing engine surfaced instead — that often becomes an alternative hypothesis.
+- `CANDIDATE` (1/3) — must pass GROUND to ship as Primary or Alternative.
+
+**Perspective axis (cross-cluster):**
+- `CONVERGENT` — all surviving clusters reduce to one root cause class; ship a single high-confidence RCA.
+- `DIVERGENT-N` — N ≥ 2 surviving clusters reflect genuinely different root cause hypotheses. Primary RCA = top-ranked cluster. Remaining N-1 ship as Alternative Hypotheses with verification ordering. **A `DIVERGENT` result is not a failure of multi mode — it is the precise signal multi-engine investigation is designed to produce.**
+
+**GROUND protocol (Scout main context, never delegated):**
+- Read every cited `affected_areas` and `causal_chain` step location with the Read tool.
+- Reject clusters with hallucinated code paths, broken causal chains, or upstream-mitigated failures.
+- Attempt reproduction using each cluster's `reproduction_steps` when tractable; `VERIFIED` = code + repro both pass, `LIKELY-VERIFIED` = code passes + repro inconclusive.
+- Never ship a Primary RCA without at least one `VERIFIED` cluster (use `INVESTIGATE-FURTHER` Fix Prompt verb if only `LIKELY-VERIFIED` clusters survive).
+
+**SYNTHESIZE — Primary + Alternative with verification ordering:**
+- Primary RCA ships with full investigation report shape (per `references/output-format.md`), confidence and perspective tags, and an LLM Fix Prompt block (suppressed if Primary is only `LIKELY-VERIFIED`).
+- Alternative Hypotheses ship as separate blocks, each with root cause hypothesis, causal chain, evidence, suggested verification step, and engine-attribution tag.
+- Explicit `## Verification Order` block instructs Builder: try Primary first; if symptom persists after Primary fix, verify Alternative #1 by [step]; etc. This eliminates the "fix didn't work, re-investigate from scratch" cycle.
+
+**Engine-attribution and perspective tags (mandatory on every shipped cluster):**
+- 3/3: `[codex+agy+claude]` + `[CONVERGENT]` (if also the only surviving cluster)
+- 2/3: `[codex+agy]` etc. + `[CONVERGENT]` or `[DIVERGENT-N → primary/alt-i]`
+- 1/3 grounded: `[codex-verified]` / `[agy-verified]` / `[claude-verified]` + `[DIVERGENT-N → alt-i]`
+
+**Degraded modes:** 1 engine down → continue with 2 (clusters capped at `LIKELY`); 2 down → single-engine RCA, every hypothesis is `CANDIDATE`, Alternative Hypotheses section omitted; all 3 down → degrade to default `bug` Recipe.
+
+Full algorithm, JSON schema, prompt skeleton, CLUSTER identity rules, GROUND verdicts, and SYNTHESIZE merge: `references/tri-engine-investigate.md`. Cross-skill protocol: `_common/MULTI_ENGINE_RECIPE.md`.
 
 ## Operational
 
@@ -473,7 +512,7 @@ When Scout receives `_AGENT_CONTEXT`, parse `task_type`, `description`, and `Con
 ```yaml
 _STEP_COMPLETE:
   Agent: Scout
-  artifact_type: "[Investigation Report | Regression Analysis | Impact Assessment | Reproduction Report]"
+  artifact_type: "[Investigation Report | Regression Analysis | Impact Assessment | Reproduction Report | Tri-Engine Investigation Report]"
   Status: SUCCESS | PARTIAL | BLOCKED | FAILED
   Output:
     deliverable: [primary artifact]
@@ -485,6 +524,21 @@ _STEP_COMPLETE:
       reproduction_status: "[reproduced | partially reproduced | not reproduced]"
       impact_scope_axes_affected: "[0-5 — number of affected axes among callers/tests/types/configs/docs]"
       recommend_ripple: "[true | false — true when axes_affected ≥ 3 or uncertainty is high]"
+    tri_engine:                                  # present only when `multi` Recipe ran
+      engines_run: [codex, agy, claude]
+      engines_failed: [list or none]
+      perspective_verdict: "[CONVERGENT | DIVERGENT-N]"
+      confidence_distribution:
+        CONFIRMED: [count]
+        LIKELY: [count]
+        CANDIDATE-VERIFIED: [count]
+      primary_rca:
+        cluster_id: "[identifier]"
+        engine_attribution: "[codex+agy+claude | codex+agy | codex-verified | ...]"
+        ground_verdict: "[VERIFIED | LIKELY-VERIFIED]"
+      alternative_hypotheses_count: [N — 0 if CONVERGENT]
+      verification_ordering: "[present | absent — absent only if CONVERGENT]"
+      rejected: [count + top categories — hallucination / chain-broken / mitigated / needs-info]
   Validations:
     completeness: "[complete | partial | blocked]"
     quality_check: "[passed | flagged | skipped]"

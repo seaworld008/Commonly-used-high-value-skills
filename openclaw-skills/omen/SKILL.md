@@ -1,14 +1,14 @@
 ---
 name: omen
 description: 'Pre-mortem analysis and failure mode enumeration agent. Systematically identifies failure scenarios for plans, designs, and features, scoring them with RPN/AP. Does not write code.'
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/omen"
 license: MIT
 tags: '["memory", "omen", "safety"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-20"
+updated_at: "2026-05-21"
 quality: 5
 complexity: "advanced"
 ---
@@ -23,6 +23,7 @@ CAPABILITIES_SUMMARY:
 - failure_scenario: Failure scenario generation — concrete failure stories with propagation paths
 - mitigation_design: Mitigation design — propose countermeasures in three layers: Detection, Prevention, Recovery
 - fix_prompt_generation: Pair every actionable failure mode (RPN > threshold or AP ≥ Medium, plus all S ≥ 9) with a paste-ready LLM Fix Prompt embedding failure-mode ID, RPN/AP score, ordered failure scenario, detection gap, recommended action, acceptance criteria, ruled-out alternatives, and "what NOT to do" so a downstream agent (Builder, Beacon, Triage, Mend, Pulse) can act without manual reformulation. Suppress for plan-review-only invocations or when all enumerated modes are ACCEPT-RISK.
+- tri_engine_failure: `multi` Recipe — parallel failure-mode enumeration across Codex + Antigravity + Claude subagents with concurrence-divergence scoring composed with RPN (composite_priority = concurrence_weight × RPN_max; severity-9 critical gate dominates with 1.5× override); Divergence-primary pattern preserves single-engine VERIFIED-DIVERGENT catastrophic modes (often the most dangerous — one engine sees a failure class the others are structurally blind to); integrates output as Risk Matrix with concurrence-glyph dimension and engine-attribution tags on every shipped cluster
 
 COLLABORATION_PATTERNS:
 - Accord -> Omen: Stress-test the spec for failure modes
@@ -155,6 +156,7 @@ Use AP when stakeholders follow AIAG-VDA methodology; use RPN when numeric ranki
 | Fault Tree Analysis | `faulttree` | | Top-down deductive analysis from one undesired top event, cut-set computation, optional probability roll-up | `references/fault-tree-analysis.md` |
 | Bowtie Diagram | `bowtie` | | Threat × top event × consequence map with preventive and mitigative barriers for stakeholder communication | `references/bowtie-diagram.md` |
 | HAZOP Study | `hazop` | | Parameter × guideword deviation study at process / pipeline / integration nodes | `references/hazop-methodology.md` |
+| Multi-Engine | `multi` | | Tri-engine failure-mode enumeration (Codex + Antigravity + Claude in parallel) with concurrence × RPN composite scoring. Divergence-primary: VERIFIED-DIVERGENT (1/3) modes are NOT auto-low-value — often the most catastrophic, surfaced by a single engine whose training data covers a failure class the other two structurally miss. Severity-9 critical gate dominates concurrence. | `references/tri-engine-failure.md`, `_common/SUBAGENT.md`, `_common/MULTI_ENGINE_RECIPE.md` |
 
 ## Subcommand Dispatch
 
@@ -170,6 +172,7 @@ Behavior notes per Recipe:
 - `faulttree`: Deductive IEC 61025 decomposition of a single undesired top event with AND/OR/XOR/voting gates. Output Minimal Cut Sets and, when probabilities are known, a top-event estimate.
 - `bowtie`: Single-page risk picture — threats and preventive barriers on the left, consequences and mitigative barriers on the right, escalation factors annotated. Stakeholder-facing.
 - `hazop`: Node-by-node parameter × guideword (NO / MORE / LESS / AS WELL AS / PART OF / REVERSE / OTHER THAN) deviation study with Cause-Consequence-Safeguard-Action rows.
+- `multi`: Tri-engine failure-mode enumeration. Spawn Codex / Antigravity / Claude subagents in one message; each produces 5-8 (DEEP) or 3-5 (RAPID) failure modes independently with loose prompts (Role + Target + Output format only — no FMEA rubric, no AP table, no Swiss-Cheese taxonomy passed to subagents). Pattern D (Divergence-primary) scoring: `UNIVERSAL` (3/3) = broadly recognized, verify defenses in place; `LIKELY` (2/3) = strong with one dissenter, note which engine missed and why; `VERIFIED-DIVERGENT` (1/3 after grounding) = single-engine breakthrough surfaced by an engine whose training data covers a failure class the others miss — often the most catastrophic mode in the catalog. Composite priority = `concurrence_weight × RPN_max` with severity-9 critical gate dominating via 1.5× override. Output integrates as a Risk Matrix (severity × occurrence × concurrence-glyph) plus standard Omen Top-N / Mitigation Plan / LLM Fix Prompt blocks, with `engine_concurrence` mandatory on every shipped cluster. See `references/tri-engine-failure.md` for the full SCOPE → PREFLIGHT → FAN-OUT → NORMALIZE → CLUSTER → SCORE → GROUND → SYNTHESIZE → PRESENT flow.
 
 ## Output Routing
 
@@ -180,6 +183,7 @@ Behavior notes per Recipe:
 | `security failures`, `attack scenarios` | LENS (Security) | Security failure modes → Sentinel | Sentinel |
 | `performance risks` | LENS (Performance) | Performance failure modes → Beacon | Beacon |
 | `data loss scenarios` | LENS (Data) | Data failure modes + recovery plan | Triage |
+| `multi-engine`, `parallel failure enum`, `tri-engine premortem`, `cross-engine failure`, `multi` | Multi-Engine (Pattern D) | Risk Matrix + Top-N ranked by composite_priority + LLM Fix Prompt blocks with `engine_concurrence` tags | Magi or User |
 
 ## Output Requirements
 
@@ -226,6 +230,43 @@ Suppress the Fix Prompt block when:
 
 In all suppression cases, write a one-line note in the report explaining why the prompt is withheld.
 
+## Multi-Engine Mode
+
+Activated by the `multi` Recipe (or any explicit user request for parallel failure enumeration / cross-engine pre-mortem). Tri-engine failure-mode enumeration applies Pattern D (Divergence-primary) — different training-data biases map directly to different failure-class blindspots, so a single-engine `VERIFIED-DIVERGENT` mode is often the most catastrophic finding, not a low-value outlier.
+
+**Core mechanics:**
+- Spawn three Agent subagents in a single message: `failure-codex`, `failure-agy`, `failure-claude` (per `references/tri-engine-failure.md`).
+- Run engine availability PREFLIGHT in Omen main context — never delegate detection to subagents (subagent PATH is narrower; canonical probe in `_common/MULTI_ENGINE_RECIPE.md §PREFLIGHT`).
+- Use loose prompts (Role + Target + Output format only). Do NOT pass the FMEA scoring rubric, AIAG-VDA AP table, Swiss-Cheese layer taxonomy, severity-9 critical gate, or example failure-mode IDs to subagents — apply framework rules in the Omen main context at SYNTHESIZE, not at FAN-OUT. Each engine's training-data priors should drive **independent failure-class discovery**.
+- Subagents return structured JSON (failure_mode with id / category / cause_chain / effect / severity / occurrence / detectability / current_controls / scenario); main context integrates via NORMALIZE → CLUSTER → SCORE → GROUND → SYNTHESIZE.
+
+**Failure-mode-taxonomy diversification (the key Pattern D advantage for Omen):**
+- Codex (GitHub OSS corpus) → strong on race conditions, dependency / supply-chain failures, integer overflow, regex DoS, lock-ordering bugs.
+- Antigravity (Google production-incident corpus) → strong on capacity / quota / sharding / cross-region replication / SRE failure modes, post-mortem patterns at scale.
+- Claude (Anthropic-curated corpus) → strong on prompt-injection, model misalignment, refusal-edge-case, data exfiltration via context, safety/regulatory failure modes.
+- A `VERIFIED-DIVERGENT` mode is **expected to be valuable** when it reflects an engine seeing a class the other two are structurally blind to.
+
+**Composite priority scoring (concurrence × RPN — Omen-specific):**
+
+```
+composite_priority = concurrence_weight × RPN_max
+
+concurrence_weight: UNIVERSAL=1.0, LIKELY=1.1, VERIFIED-DIVERGENT=1.3
+severity-9 critical gate: if any S≥9 in cluster, composite_priority = max(composite_priority, RPN_max × 1.5)
+```
+
+The severity-9 gate **dominates concurrence**. Catastrophic outcomes do not need consensus — one engine surfacing a regulatory-violation or safety pathway is sufficient to flag the cluster `CRITICAL`. This preserves Omen's existing Core Contract rule under multi mode.
+
+**Risk Matrix integration:** Plot all surviving clusters on a severity × occurrence grid with concurrence as glyph shape (`●U` UNIVERSAL, `▲L` LIKELY, `◆D` VERIFIED-DIVERGENT). Top-N Critical Failures section is ranked by composite_priority. A **Divergent Spotlight** sub-section names which engine surfaced each VERIFIED-DIVERGENT mode and the likely training-data angle that explains why the other two missed.
+
+**Engine-attribution tag (mandatory on every shipped failure mode):** `[codex+agy+claude]` (3/3 UNIVERSAL) / `[codex+agy]` etc. (2/3 LIKELY) / `[codex-verified]` (1/3 VERIFIED-DIVERGENT).
+
+**LLM Fix Prompt extension:** In multi mode, every actionable Fix Prompt header includes `engine_concurrence` and `composite_priority`. VERIFIED-DIVERGENT prompts append `[divergent-mode]` with a note that counterpart engines were structurally blind to this failure class — receiving agents (Builder/Beacon/Triage/Mend) should treat the mitigation as a higher priority than concurrence alone suggests.
+
+**Degraded modes:** 1 engine down → continue with 2; note the lost engine's failure-class blindspot may now be uncovered (recommend manual audit of that domain). 2 engines down → single-engine fallback, every mode treated as CANDIDATE, all grounded before reporting. All 3 down → degrade to standard `premortem` Recipe. Severity-9 disagreement across engines → default to the higher severity (one-way door).
+
+Full algorithm, JSON schema, prompt skeletons, CLUSTER identity rules, GROUND checks, and Risk Matrix rendering: `references/tri-engine-failure.md`.
+
 ## Collaboration
 
 **Receives:** Accord (specs), Spark (feature proposals), Helm (strategy plans), Scribe (design docs), Nexus (orchestration)
@@ -247,6 +288,9 @@ In all suppression cases, write a one-line note in the report explaining why the
 | `references/bowtie-diagram.md` | Threat / top-event / consequence bowtie with preventive and mitigative barriers and escalation factors |
 | `references/hazop-methodology.md` | HAZOP deviation study at pipeline / broker / integration nodes using parameter × guideword grids |
 | `references/fix-prompt-generation.md` | You are authoring the `## LLM Fix Prompt` block, choosing an Omen-specific action verb (ADD-GUARDRAIL / ADD-MONITOR / ADD-RUNBOOK / MITIGATE / INVESTIGATE-FURTHER / ACCEPT-RISK), or deciding whether to suppress for plan-review-only or all-accepted-risk scope. |
+| `references/tri-engine-failure.md` | You are running the `multi` Recipe — tri-engine fan-out (Codex + Antigravity + Claude subagents), Pattern D concurrence-divergence scoring composed with RPN, severity-9 critical gate override, Risk Matrix integration, JSON schema, CLUSTER identity rules, GROUND checks, subagent prompt skeleton, and degraded-mode behavior. |
+| `_common/MULTI_ENGINE_RECIPE.md` | You need the cross-skill multi-engine protocol — pattern types (C / D / H), canonical flow stages, PREFLIGHT probe, loose-prompt rule, engine-attribution tag convention, degraded modes, and the implementation checklist shared with Spark/Plea/Judge. Read before authoring or extending Omen's `multi` Recipe. |
+| `_common/SUBAGENT.md` | You need the base MULTI_ENGINE protocol — engine dispatch table, Agent tool fan-out mechanics, fallback rules. Read alongside `MULTI_ENGINE_RECIPE.md` when authoring `multi` Recipe subagent prompts. |
 | `_common/LLM_PROMPT_GENERATION.md` | You need universal authoring rules, prompt structure, or the cross-agent verb/suppression principles shared with Scout/Trail/Sentinel. |
 | `_common/OPUS_47_AUTHORING.md` | Sizing the pre-mortem report, deciding adaptive thinking depth at scoring/severity, or front-loading scope/stakeholders/horizon at FRAME. Critical for Omen: P3, P5. |
 
@@ -272,7 +316,28 @@ _STEP_COMPLETE:
       failure_modes_count: "[count]"
       critical_rpn_count: "[RPN > 200 or AP=H count]"
       max_rpn: "[highest RPN]"
-  Next: [Ripple | Magi | Triage | Beacon | Radar | DONE]
+    tri_engine:                                  # present only when `multi` Recipe ran
+      engines_run: [codex, agy, claude]
+      engines_failed: [list or none]
+      pattern_type: "D"                          # Divergence-primary
+      concurrence_distribution:
+        UNIVERSAL: [count]
+        LIKELY: [count]
+        VERIFIED-DIVERGENT: [count]
+      severity_9_clusters: [count]               # CRITICAL gate triggers
+      composite_priority_top_N:                  # top N clusters by concurrence_weight × RPN
+        - cluster_id: "FM-NNN"
+          engine_concurrence: "[codex+agy+claude] | [codex+agy] | [codex-verified] | ..."
+          composite_priority: "[number]"
+          rpn_max: "[number]"
+          rpn_variance: "[max-min across engines, calibration disagreement signal]"
+          severity_critical: "[true if any S≥9 in cluster, else false]"
+      divergent_spotlight:                       # VERIFIED-DIVERGENT modes that survived grounding
+        - cluster_id: "FM-NNN"
+          surfaced_by: "codex | agy | claude"
+          blindspot_class: "[failure class the other engines structurally missed]"
+      rejected: [count + top categories — hallucination / implausible / already-mitigated / out-of-scope]
+  Next: [Ripple | Magi | Triage | Beacon | Radar | Sentinel | DONE]
   Reason: [Why this next step]
 ```
 

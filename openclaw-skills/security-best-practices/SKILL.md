@@ -1,6 +1,6 @@
 ---
 name: security-best-practices
-description: 'Perform language and framework specific security best-practice reviews and suggest improvements. Trigger only when the user explicitly requests security best practices guidance, a security review/report, or secure-by-default coding help. Trigger only for supported languages (python, javascript/typescript, go). Do not trigger for general code review, debugging, or non-security tasks.'
+description: '用于按语言和框架执行安全最佳实践检查，生成安全审查报告并提出 secure-by-default 改进建议。'
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

@@ -1,6 +1,6 @@
 ---
 name: osv-scanner
-description: 'Use OSV-Scanner to detect known vulnerabilities in open-source dependencies from lockfiles, manifests, SBOMs, git history, and source trees.'
+description: '用于通过 OSV-Scanner 检查锁文件、清单、SBOM、Git 历史和源码树中的开源依赖漏洞。'
 version: "1.0.0"
 author: seaworld008
 source: "in-house"

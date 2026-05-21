@@ -1,14 +1,14 @@
 ---
 name: compete
 description: 'Competitive research, differentiation analysis, and strategic positioning. Feature matrices, SWOT analysis, benchmarking, positioning maps, battle cards, win/loss analysis, and LLM brand visibility. Research only — does not write code.'
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/compete"
 license: MIT
 tags: '["compete", "growth", "marketing"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-19"
+updated_at: "2026-05-21"
 quality: 5
 complexity: "advanced"
 ---
@@ -27,6 +27,7 @@ CAPABILITIES_SUMMARY:
 - market_sizing: TAM/SAM/SOM/PAM estimation, top-down and bottom-up cross-verification, adjacent market sizing, market share estimation
 - ecosystem_mapping: Platform ecosystem analysis, network effect classification, partnership landscape mapping, cross-market subsidization detection, adjacency threat identification
 - wargaming: Red/blue team competitive simulation, competitor response prediction, pre-mortem analysis, scenario tree construction, multi-move strategy planning
+- tri_engine_compete: `multi` Recipe — parallel competitive analysis across Codex + Antigravity + Claude subagents leveraging non-overlapping training-data priors (GitHub/OSS vs Google-ecosystem vs Anthropic-curated); Pattern D Divergence-primary scoring with UNIVERSAL/LIKELY/VERIFIED-DIVERGENT coverage labels; artifact-driven merge into Battle Card / Feature Matrix / Positioning Map / SWOT with engine_concurrence tags; surfaces VERIFIED-DIVERGENT uncommon competitors that single-engine analysis structurally misses
 
 COLLABORATION_PATTERNS:
 - Voice -> Compete: Customer feedback compared against competitors
@@ -164,6 +165,7 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 | Battle Card | `battle` | | One-pager sales-enablement design, objection handling pairs, freshness governance, GTM distribution | `references/battle-card.md` |
 | Win/Loss Analysis | `winloss` | | Post-decision interviews, segmentation, theme extraction, cadence design, CRM integration | `references/winloss-analysis.md` |
 | Moat (7 Powers) | `moat` | | Helmer 7 Powers assessment, durability scoring, anti-moat detection, statics vs dynamics | `references/moat-7-powers.md` |
+| Multi-Engine | `multi` | | Tri-engine competitive coverage (Codex + Antigravity + Claude in parallel) leveraging non-overlapping training-data priors. Artifact-driven merge (Feature Matrix / Battle Card / Positioning Map / SWOT / Landscape) with `engine_concurrence` tags. Default output surfaces a dedicated "Uncommon Competitors (Verified-Divergent)" callout — competitors only one engine knew, grounded via WebSearch — patching structural blind-spots of single-engine analysis. | `references/tri-engine-compete.md`, `_common/SUBAGENT.md` |
 
 ## Subcommand Dispatch
 
@@ -175,6 +177,7 @@ Behavior notes per Recipe:
 - `battle`: Author one-pager with TL;DR, why-we-win, why-we-lose, 5 objection-handling pairs, landmines, traps, pricing posture, and proof points. Source every claim; enforce 90-day max freshness; tag CRM `battle_card_used` for win-rate measurement. Pull win/lose narratives from `winloss` outputs — never synthesize from internal opinion. Distribute via CRM/Slack/deal-room (not standalone wiki).
 - `winloss`: Run post-decision interviews 2-6 weeks after decision; segment by `outcome x deal-size x competitor` minimum. Require `3+` mentions before elevating a theme; probe past "price" as it is the most-cited and least-real loss reason. Use third-party interviewers for losses. Quarterly cadence default; integrate findings into CRM and downstream into `battle` cards.
 - `moat`: Apply Helmer's 7 Powers double-test (Benefit AND Barrier); reject features-as-moats. Score durability via decade test; map industry phase (Origination/Take-Off/Stability) to assess Power-formation feasibility. Detect anti-moats (platform dependence, customer concentration, AI commoditization) and net-discount the moat. Hand off to Helm for strategic simulation.
+- `multi`: Tri-engine competitive analysis. Spawn `compete-codex` / `compete-agy` / `compete-claude` subagents in one message; each surfaces 5-10 competitors with loose prompts (Role + Target + Output format only — never pass SWOT/positioning/7 Powers frameworks to subagents). Pattern D Divergence-primary scoring: `UNIVERSAL` (3/3) = mainstream, `LIKELY` (2/3) = strong-with-one-blind-spot-engine, `VERIFIED-DIVERGENT` (1/3 after WebSearch grounding) = uncommon competitor patching structural training-data blind-spots. Merge is artifact-driven (Feature Matrix / Battle Card / Positioning Map / SWOT / Landscape / LLM Visibility) — engine_concurrence tags woven into whichever artifact the user requested. The "Uncommon Competitors (Verified-Divergent)" callout is mandatory and load-bearing — it surfaces real competitors a single engine would miss. Full algorithm, JSON schema, CLUSTER identity rules, and subagent prompts: `references/tri-engine-compete.md`.
 
 ## Output Routing
 
@@ -192,7 +195,48 @@ Behavior notes per Recipe:
 | `TAM`, `SAM`, `SOM`, `market size`, `market share`, `addressable market` | Market sizing | TAM/SAM/SOM estimate + competitive market share | `references/market-sizing.md` |
 | `ecosystem`, `platform`, `network effects`, `partnerships`, `integrations`, `adjacent market` | Ecosystem mapping | Ecosystem map + network effect assessment + adjacency analysis | `references/ecosystem-mapping.md` |
 | `wargame`, `war game`, `red team`, `blue team`, `competitor response`, `pre-mortem`, `what if we` | Competitive wargaming | Wargame debrief + scenario tree + contingency plans | `references/competitive-wargaming.md` |
+| `multi-engine`, `tri-engine competitive`, `cross-engine compete`, `parallel competitor research`, `uncommon competitors`, `blind-spot competitors` | Tri-engine competitive coverage with engine_concurrence tagging | Artifact (Matrix / Battle Card / Positioning / SWOT) + Uncommon-Competitors callout | `references/tri-engine-compete.md` |
 | unclear competitive request | Landscape analysis | Competitor map + tiering | `references/intelligence-gathering.md` |
+
+## Multi-Engine Mode
+
+Activated by the `multi` Recipe (or any explicit user request for tri-engine / cross-engine competitive coverage). Pattern D Divergence-primary — Compete optimizes for *competitive coverage breadth*, not concurrence. The load-bearing deliverable is the **VERIFIED-DIVERGENT competitor** that single-engine analysis would have missed.
+
+**Why three engines for Compete specifically:**
+
+- Codex (GitHub-heavy / OSS / dev tools / indie SaaS) under-indexes large-cap enterprise SaaS and consumer brands
+- Antigravity (Google product / large-cap SaaS / APAC enterprise) under-indexes OSS / indie tools and AI-native startups
+- Claude (Anthropic-curated / diverse industries / regulated verticals / AI-native players) under-indexes regional Asia-Pacific players and certain dev-infra niches
+
+Each engine has structural training-data blind-spots that are **knowable** (we can predict which segments it under-indexes) but **invisible to that engine alone** (a single-engine analysis cannot self-report its own gap). Tri-engine fan-out is the only practical way to patch these blind-spots.
+
+**Core mechanics:**
+
+- Spawn three Agent subagents in a single message: `compete-codex`, `compete-agy`, `compete-claude` (per `references/tri-engine-compete.md`).
+- Run engine availability PREFLIGHT in Compete main context — never delegate detection to subagents (subagent PATH is narrower; see `_common/MULTI_ENGINE_RECIPE.md §PREFLIGHT`).
+- Use loose prompts (Role + Target + Output format only). Do NOT pass SWOT templates, 7 Powers rubrics, positioning-map axes, or analysis-template structures to subagents — apply framework rules in SYNTHESIZE, not at FAN-OUT. Each engine's training-data priors should drive divergent competitor discovery.
+- Subagents return structured JSON (competitor schema: name/aliases/category/positioning/segment/geography/features/strengths/weaknesses/pricing_posture/evidence_sources/source_engine_bias_note).
+- Main context integrates via NORMALIZE → CLUSTER (alias-aware) → SCORE (coverage matrix) → GROUND (WebSearch-mandatory) → SYNTHESIZE → DELIVER.
+
+**Coverage matrix scoring (Pattern D, divergence-primary):**
+
+- `UNIVERSAL` (3/3) — mainstream competitor every engine surfaced. Safe assumption that the buying committee also knows them. Check for "already-known" duplication with the user's seed list.
+- `LIKELY` (2/3) — strong competitor with one blind-spot engine. The missing engine's absence is itself a signal about which segment it under-indexes.
+- `VERIFIED-DIVERGENT` (1/3, grounded via WebSearch) — uncommon competitor only one engine surfaced. **Not lower-value than UNIVERSAL** — frequently the breakthrough finding that patches a sales team's "we keep losing deals to someone we cannot name" problem.
+
+**Artifact-driven merge (different from Spark's Portfolio/Compete split):**
+
+The user's requested artifact (Feature Matrix / Battle Card / Positioning Map / SWOT / Landscape / LLM Visibility) determines the output shape. Engine-concurrence tags are **woven into** the artifact, not produced as a separate document. See `references/tri-engine-compete.md §SYNTHESIZE` for per-artifact integration patterns.
+
+**Mandatory deliverable — Uncommon Competitors callout:** every `multi` output must include a dedicated section listing each `VERIFIED-DIVERGENT` competitor with name, surfacing engine, training-data bias hypothesis (why the other engines missed it), the structural blind-spot it patches, evidence URL, and recommended action. **Never omit this section** — it is the single most valuable output of tri-engine Compete.
+
+**Engine-attribution tag (mandatory on every shipped competitor):** `[codex+agy+claude]` (3/3 UNIVERSAL) / `[codex+agy]` etc. (2/3 LIKELY) / `[codex-verified]` / `[agy-verified]` / `[claude-verified]` (1/3 VERIFIED-DIVERGENT).
+
+**WebSearch is mandatory at GROUND step** — never ship a VERIFIED-DIVERGENT competitor based on training knowledge alone. Compete's Core Contract (unsourced claims forbidden) applies with extra force to single-engine competitors.
+
+**Degraded modes:** 1 engine down → continue with 2, note reduced coverage; 2 down → single-engine fallback with stricter grounding, disable Uncommon-Competitors callout (no concurrence signal); all down → degrade to default `matrix` Recipe; WebSearch unavailable → mark CANDIDATE clusters as `NEEDS-INFO`, do not ship as VERIFIED-DIVERGENT.
+
+Full algorithm, JSON schema, CLUSTER identity rules (alias normalization, parent↔product collapse), per-artifact SYNTHESIZE patterns, and subagent prompt skeletons: `references/tri-engine-compete.md`.
 
 ## SHARPEN Post-Analysis
 
@@ -298,6 +342,9 @@ When analyzing `5+` competitors across multiple segments, spawn 2-3 Explore suba
 | `references/battle-card.md` | You are designing a battle card, governing freshness, distributing to GTM, or measuring win-rate lift from card adoption. |
 | `references/winloss-analysis.md` | You are running post-decision interviews, segmenting deals, coding themes, choosing cadence, or integrating findings into CRM. |
 | `references/moat-7-powers.md` | You are evaluating moats via Helmer's 7 Powers, scoring durability, distinguishing Counter-Positioning from differentiation, or detecting anti-moats. |
+| `references/tri-engine-compete.md` | You are running the `multi` Recipe — tri-engine fan-out (Codex + Antigravity + Claude subagents), Pattern D Divergence-primary coverage scoring, competitor-identity CLUSTER rules (alias normalization, parent↔product collapse), WebSearch-mandatory GROUND step, artifact-driven SYNTHESIZE (Matrix / Battle Card / Positioning / SWOT / Landscape / LLM Visibility), Uncommon-Competitors callout schema, JSON schema, and subagent prompt skeletons. |
+| `_common/SUBAGENT.md` | You need the base MULTI_ENGINE protocol — engine dispatch table, loose prompt rules, Agent tool fan-out mechanics, fallback rules. Read before authoring `multi` Recipe subagent prompts. |
+| `_common/MULTI_ENGINE_RECIPE.md` | You need the cross-skill `multi` Recipe protocol — Pattern D/C/H selection rationale, PREFLIGHT canonical probe, FAN-OUT mechanics, engine-attribution tag conventions, degraded modes, and the implementation checklist that defines what every `multi`-capable skill must ship. |
 | `_common/OPUS_47_AUTHORING.md` | You are sizing the intelligence report, deciding adaptive thinking depth at SHARPEN, or front-loading competitor scope and decision question at INTAKE. Critical for Compete: P3, P5. |
 
 ## Operational
@@ -319,12 +366,22 @@ _STEP_COMPLETE:
   Status: SUCCESS | PARTIAL | BLOCKED | FAILED
   Output:
     deliverable: [artifact path or inline]
-    artifact_type: "[Landscape | Benchmark | SWOT | Win/Loss | Battle Card | Strategy | Calibration]"
+    artifact_type: "[Landscape | Benchmark | SWOT | Win/Loss | Battle Card | Strategy | Calibration | Tri-Engine Matrix | Tri-Engine Battle Card | Tri-Engine Positioning | Tri-Engine Landscape]"
     parameters:
-      analysis_shape: "[landscape | benchmark | response | win_loss | strategy | calibration]"
+      analysis_shape: "[landscape | benchmark | response | win_loss | strategy | calibration | multi]"
       competitor_count: "[number]"
       confidence: "[high | medium | low]"
       sources_cited: "[number]"
+    tri_engine:                                  # present only when `multi` Recipe ran
+      engines_run: [codex, agy, claude]
+      engines_failed: [list or none]
+      artifact_merged_into: "[Feature Matrix | Battle Card | Positioning Map | SWOT | Landscape | LLM Visibility | Win/Loss]"
+      coverage_distribution:
+        UNIVERSAL: [count]
+        LIKELY: [count]
+        VERIFIED-DIVERGENT: [count]
+      uncommon_competitors: [count of VERIFIED-DIVERGENT competitors surfaced in callout]
+      rejected: [count + top categories — hallucination / defunct / category-mismatch / out-of-scope / alias-fold]
   Handoff: "[target agent or N/A]"
   Next: Spark | Growth | Canvas | Helm | Lore | Researcher | DONE
   Reason: [Why this next step]

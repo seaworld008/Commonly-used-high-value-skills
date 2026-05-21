@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://github.com/larksuite/cli",
-    "checked_at": "2026-05-20",
+    "checked_at": "2026-05-21",
     "note": "Official Lark/Feishu CLI AI Agent Skills import, including auxiliary references/scripts/assets copied with each skill."
   },
   "official_references": [
@@ -60,8 +60,8 @@
         "repo": "larksuite/cli",
         "path": "skills/lark-base/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-05-20",
-        "last_synced_at": "2026-05-20",
+        "last_checked_at": "2026-05-21",
+        "last_synced_at": "2026-05-21",
         "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
       }
     },
@@ -108,8 +108,8 @@
         "repo": "larksuite/cli",
         "path": "skills/lark-doc/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-05-20",
-        "last_synced_at": "2026-05-20",
+        "last_checked_at": "2026-05-21",
+        "last_synced_at": "2026-05-21",
         "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
       }
     },
@@ -124,8 +124,8 @@
         "repo": "larksuite/cli",
         "path": "skills/lark-drive/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-05-20",
-        "last_synced_at": "2026-05-20",
+        "last_checked_at": "2026-05-21",
+        "last_synced_at": "2026-05-21",
         "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
       }
     },
@@ -188,8 +188,8 @@
         "repo": "larksuite/cli",
         "path": "skills/lark-markdown/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-05-20",
-        "last_synced_at": "2026-05-20",
+        "last_checked_at": "2026-05-21",
+        "last_synced_at": "2026-05-21",
         "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
       }
     },
@@ -268,8 +268,8 @@
         "repo": "larksuite/cli",
         "path": "skills/lark-sheets/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-05-19",
-        "last_synced_at": "2026-05-19",
+        "last_checked_at": "2026-05-21",
+        "last_synced_at": "2026-05-21",
         "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
       }
     },

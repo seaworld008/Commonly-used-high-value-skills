@@ -154,13 +154,13 @@ python scripts/sync_codex_skills.py --source-root "E:\AI-codex\003-Commonly-used
 
 你也可以优先看这些代表性技能：
 
-- `codebase-onboarding`
-- `context-engineering`
-- `agent-workflow-designer`
-- `gh-fix-ci`
-- `financial-data-collector`
-- `notion-spec-to-implementation`
-- `transcribe`
+- `codebase-onboarding`：用于快速理解代码库结构、技术栈、关键模块和上手路径。
+- `context-engineering`：用于设计上下文组织、提示结构和长任务信息管理方式。
+- `agent-workflow-designer`：用于设计多步骤 Agent 工作流、角色分工和执行闭环。
+- `gh-fix-ci`：用于定位 GitHub Actions 失败原因并修复 CI 流水线问题。
+- `financial-data-collector`：用于收集股票、财报、市场和宏观金融数据。
+- `notion-spec-to-implementation`：用于把 Notion 规格说明转化为可执行实现任务。
+- `transcribe`：用于把音频或视频转写为文本，并整理说话人和时间信息。
 
 ## Hermes + graphify + GSD 使用说明
 

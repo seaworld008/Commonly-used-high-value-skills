@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-05-20",
+  "generated_at": "2026-05-21",
   "total_skills": 289,
   "total_categories": 16,
   "categories": [
@@ -199,7 +199,7 @@
       "name": "hermes-agent",
       "category": "ai-agent-platform",
       "description": "Configure, extend, or contribute to Hermes Agent.",
-      "version": "2.0.4",
+      "version": "2.0.5",
       "author": "Hermes Agent + Teknium",
       "source": "in-house",
       "source_url": "",
@@ -216,8 +216,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-04-13",
-      "updated_at": "2026-05-20",
-      "line_count": 1024,
+      "updated_at": "2026-05-21",
+      "line_count": 1025,
       "path": "skills/ai-agent-platform/hermes-agent/SKILL.md"
     },
     {
@@ -3359,7 +3359,7 @@
       "name": "compete",
       "category": "growth-operations-xiaohongshu",
       "description": "Competitive research, differentiation analysis, and strategic positioning. Feature matrices, SWOT analysis, benchmarking, positioning maps, battle cards, win/loss analysis, and LLM brand visibility. Research only — does not write code.",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/compete",
@@ -3371,8 +3371,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-04-25",
-      "updated_at": "2026-05-19",
-      "line_count": 335,
+      "updated_at": "2026-05-21",
+      "line_count": 392,
       "path": "skills/growth-operations-xiaohongshu/compete/SKILL.md"
     },
     {
@@ -3673,7 +3673,7 @@
       "name": "lark-base",
       "category": "knowledge-and-pm-integrations",
       "description": "当需要用 lark-cli 操作飞书多维表格（Base）时调用：搜索 Base、建表、字段管理、记录读写、记录分享链接、视图配置、历史查询，以及角色/表单/仪表盘管理/工作流；也适用于把旧的 +table / +field / +record 写法改成当前命令写法。涉及字段设计、公式字段、查找引用、跨表计算、行级派生指标、数据分析需求时也必须使用本 skill。",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/main/skills/lark-base",
@@ -3688,8 +3688,8 @@
       "quality": 4,
       "complexity": "advanced",
       "created_at": "2026-05-19",
-      "updated_at": "2026-05-20",
-      "line_count": 385,
+      "updated_at": "2026-05-21",
+      "line_count": 394,
       "path": "skills/knowledge-and-pm-integrations/lark-base/SKILL.md"
     },
     {
@@ -3740,7 +3740,7 @@
       "name": "lark-doc",
       "category": "knowledge-and-pm-integrations",
       "description": "飞书云文档 / Docx / 知识库 Wiki 文档（v2）：创建、打开、读取、获取、查看、总结、整理、改写、翻译、审阅和编辑飞书文档内容。当用户给出飞书文档 URL/token，或说查看/读取/打开某个文档、提取文档内容、总结文档、生成/创建文档、追加/替换/删除/移动内容、调整排版、插入或下载文档图片/附件/素材/画板缩略图时使用。文档内容中出现嵌入电子表格、多维表格、需要将重要信息可视化为画板（含 SVG 画板）、引用或同步块时，也先用本 skill 读取和提取 token，再切到对应 skill 下钻。使用本 skill 时，docs +create、docs +fetch、docs +update 必须携带 --api-version v2；默认使用 DocxXML，也支持 Markdown。",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/main/skills/lark-doc",
@@ -3754,15 +3754,15 @@
       "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-05-19",
-      "updated_at": "2026-05-20",
-      "line_count": 105,
+      "updated_at": "2026-05-21",
+      "line_count": 101,
       "path": "skills/knowledge-and-pm-integrations/lark-doc/SKILL.md"
     },
     {
       "name": "lark-drive",
       "category": "knowledge-and-pm-integrations",
       "description": "飞书云空间：管理云空间中的文件和文件夹。上传和下载文件、创建文件夹、复制/移动/删除文件、查看文件元数据、管理文档评论、管理文档权限、订阅用户评论变更事件、修改文件标题（docx、sheet、bitable、file、folder、wiki）；也负责把本地 Word/Markdown/Excel/CSV 以及 Base 快照（.base）导入为飞书在线云文档（docx、sheet、bitable）。当用户需要上传或下载文件、整理云空间目录、查看文件详情、管理评论、管理文档权限、修改文件标题、订阅用户评论变更事件，或要把本地文件导入成新版文档、电子表格、多维表格/Base 时使用。",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/main/skills/lark-drive",
@@ -3776,8 +3776,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-05-19",
-      "updated_at": "2026-05-20",
-      "line_count": 395,
+      "updated_at": "2026-05-21",
+      "line_count": 403,
       "path": "skills/knowledge-and-pm-integrations/lark-drive/SKILL.md"
     },
     {
@@ -3849,8 +3849,8 @@
     {
       "name": "lark-markdown",
       "category": "knowledge-and-pm-integrations",
-      "description": "飞书 Markdown：查看、创建、上传和编辑 Markdown 文件。当用户需要创建或编辑 Markdown 文件、读取或修改时使用。",
-      "version": "1.1.1",
+      "description": "飞书 Markdown：查看、创建、上传、编辑和比较 Markdown 文件。当用户需要创建或编辑 Markdown 文件、读取、修改、局部 patch 或比较差异时使用。",
+      "version": "1.1.2",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/main/skills/lark-markdown",
@@ -3864,8 +3864,8 @@
       "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-05-19",
-      "updated_at": "2026-05-20",
-      "line_count": 87,
+      "updated_at": "2026-05-21",
+      "line_count": 90,
       "path": "skills/knowledge-and-pm-integrations/lark-markdown/SKILL.md"
     },
     {
@@ -3959,8 +3959,8 @@
     {
       "name": "lark-sheets",
       "category": "knowledge-and-pm-integrations",
-      "description": "飞书电子表格：创建和操作电子表格。支持创建表格、创建/复制/删除/更新工作表、读写单元格、追加行数据、查找内容、导出文件。当用户需要创建电子表格、管理工作表、批量读写数据、在已知表格中查找内容、导出或下载表格时使用。若用户是想按名称或关键词搜索云空间里的表格文件，请改用 lark-doc 的 docs +search 先定位资源。",
-      "version": "1.2.0",
+      "description": "飞书电子表格：创建和操作电子表格。支持创建表格、创建/复制/删除/更新工作表、读写单元格、追加行数据、查找内容、导出文件。当用户需要创建电子表格、管理工作表、批量读写数据、在已知表格中查找内容、导出或下载表格时使用。若用户是想按名称或关键词搜索云空间里的表格文件，请改用 lark-drive 的 drive +search 先定位资源。",
+      "version": "1.2.1",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/main/skills/lark-sheets",
@@ -3974,8 +3974,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-05-19",
-      "updated_at": "2026-05-19",
-      "line_count": 354,
+      "updated_at": "2026-05-21",
+      "line_count": 378,
       "path": "skills/knowledge-and-pm-integrations/lark-sheets/SKILL.md"
     },
     {
@@ -4970,7 +4970,7 @@
       "name": "omen",
       "category": "openclaw-memory-and-safety",
       "description": "Pre-mortem analysis and failure mode enumeration agent. Systematically identifies failure scenarios for plans, designs, and features, scoring them with RPN/AP. Does not write code.",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/omen",
@@ -4982,8 +4982,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-04-25",
-      "updated_at": "2026-05-20",
-      "line_count": 300,
+      "updated_at": "2026-05-21",
+      "line_count": 365,
       "path": "skills/openclaw-memory-and-safety/omen/SKILL.md"
     },
     {
@@ -5471,7 +5471,7 @@
       "name": "researcher",
       "category": "product-design",
       "description": "User research specialist. Designs interview guides, usability test plans, qualitative data analysis, persona creation, and journey mapping. Complements Echo''s UI validation. Use when user research design or analysis is needed.",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/researcher",
@@ -5483,8 +5483,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-04-25",
-      "updated_at": "2026-05-19",
-      "line_count": 342,
+      "updated_at": "2026-05-21",
+      "line_count": 404,
       "path": "skills/product-design/researcher/SKILL.md"
     },
     {
@@ -5592,7 +5592,7 @@
     {
       "name": "breach",
       "category": "security-and-reliability",
-      "description": "Red team engineering agent. Designs attack scenarios, builds threat models, applies MITRE ATT&CK/OWASP frameworks, runs Purple Team exercises, and performs AI/LLM red teaming. Use when adversarial security validation is needed.",
+      "description": "用于红队工程、攻击路径设计、威胁建模、紫队演练和 AI/LLM 对抗安全验证。",
       "version": "1.0.2",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
@@ -5611,7 +5611,7 @@
     {
       "name": "cloak",
       "category": "security-and-reliability",
-      "description": "Privacy engineering and data governance agent. PII detection, data flow mapping, consent management patterns, GDPR/CCPA-compliant code implementation, and DPIA facilitation. Use when privacy-by-design implementation is needed.",
+      "description": "用于隐私工程、PII 识别、数据流梳理、同意管理、合规实现和 DPIA 支持。",
       "version": "1.0.2",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
@@ -5630,7 +5630,7 @@
     {
       "name": "codeql-security-scanner",
       "category": "security-and-reliability",
-      "description": "Use CodeQL to run deep semantic code scanning, security query suites, custom queries, SARIF reporting, and GitHub code scanning integration.",
+      "description": "用于通过 CodeQL 执行语义代码扫描、安全查询、自定义规则、SARIF 报告和 GitHub Code Scanning 集成。",
       "version": "1.0.0",
       "author": "seaworld008",
       "source": "in-house",
@@ -5655,7 +5655,7 @@
     {
       "name": "comply",
       "category": "security-and-reliability",
-      "description": "Regulatory compliance and audit agent. Maps business regulatory requirements (SOC2/PCI-DSS/HIPAA/ISO 27001), checks control implementations, designs audit trails, and implements Policy as Code. Use when compliance auditing is needed.",
+      "description": "用于合规审计、SOC2/PCI-DSS/HIPAA/ISO 27001 控制映射、审计轨迹和 Policy as Code 设计。",
       "version": "1.0.2",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
@@ -5674,7 +5674,7 @@
     {
       "name": "grype-syft-sbom-scanner",
       "category": "security-and-reliability",
-      "description": "Use Syft to generate SBOMs and Grype to scan container images, filesystems, packages, archives, and SBOMs for vulnerabilities.",
+      "description": "用于通过 Syft 生成 SBOM，并用 Grype 扫描容器镜像、文件系统、软件包、归档和 SBOM 漏洞。",
       "version": "1.0.0",
       "author": "seaworld008",
       "source": "in-house",
@@ -5719,7 +5719,7 @@
     {
       "name": "osv-scanner",
       "category": "security-and-reliability",
-      "description": "Use OSV-Scanner to detect known vulnerabilities in open-source dependencies from lockfiles, manifests, SBOMs, git history, and source trees.",
+      "description": "用于通过 OSV-Scanner 检查锁文件、清单、SBOM、Git 历史和源码树中的开源依赖漏洞。",
       "version": "1.0.0",
       "author": "seaworld008",
       "source": "in-house",
@@ -5744,7 +5744,7 @@
     {
       "name": "security-best-practices",
       "category": "security-and-reliability",
-      "description": "Perform language and framework specific security best-practice reviews and suggest improvements. Trigger only when the user explicitly requests security best practices guidance, a security review/report, or secure-by-default coding help. Trigger only for supported languages (python, javascript/typescript, go). Do not trigger for general code review, debugging, or non-security tasks.",
+      "description": "用于按语言和框架执行安全最佳实践检查，生成安全审查报告并提出 secure-by-default 改进建议。",
       "version": "1.0.0",
       "author": "seaworld008",
       "source": "in-house",
@@ -5764,7 +5764,7 @@
     {
       "name": "security-ownership-map",
       "category": "security-and-reliability",
-      "description": "Analyze git repositories to build a security ownership topology (people-to-file), compute bus factor and sensitive-code ownership, and export CSV/JSON for graph databases and visualization. Trigger only when the user explicitly wants a security-oriented ownership or bus-factor analysis grounded in git history (for example: orphaned sensitive code, security maintainers, CODEOWNERS reality checks for risk, sensitive hotspots, or ownership clusters). Do not trigger for general maintainer lists or non-security ownership questions.",
+      "description": "用于基于 Git 历史分析安全所有权、敏感代码归属、bus factor、CODEOWNERS 现实差距和风险热点。",
       "version": "1.0.0",
       "author": "seaworld008",
       "source": "in-house",
@@ -5784,7 +5784,7 @@
     {
       "name": "security-threat-model",
       "category": "security-and-reliability",
-      "description": "Repository-grounded threat modeling that enumerates trust boundaries, assets, attacker capabilities, abuse paths, and mitigations, and writes a concise Markdown threat model. Trigger only when the user explicitly asks to threat model a codebase or path, enumerate threats/abuse paths, or perform AppSec threat modeling. Do not trigger for general architecture summaries, code review, or non-security design work.",
+      "description": "用于基于代码库枚举信任边界、资产、攻击者能力、滥用路径和缓解措施，并生成威胁模型。",
       "version": "1.0.0",
       "author": "seaworld008",
       "source": "in-house",
@@ -5804,7 +5804,7 @@
     {
       "name": "semgrep-appsec-scanner",
       "category": "security-and-reliability",
-      "description": "Use Semgrep for application security scanning across source code, custom rules, secrets workflows, and Semgrep Supply Chain dependency analysis.",
+      "description": "用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。",
       "version": "1.0.0",
       "author": "seaworld008",
       "source": "in-house",
@@ -5829,7 +5829,7 @@
     {
       "name": "sentry",
       "category": "security-and-reliability",
-      "description": "Use when the user asks to inspect Sentry issues or events, summarize recent production errors, or pull basic Sentry health data via the Sentry API; perform read-only queries with the bundled script and require `SENTRY_AUTH_TOKEN`.",
+      "description": "用于只读查询 Sentry issues、events 和服务健康数据，汇总线上错误并辅助生产问题排查。",
       "version": "1.0.0",
       "author": "seaworld008",
       "source": "in-house",
@@ -5848,7 +5848,7 @@
     {
       "name": "skill-security-auditor",
       "category": "security-and-reliability",
-      "description": "Audit AI agent skills for security risks before installation, with PASS/WARN/FAIL findings and remediation guidance.",
+      "description": "用于安装前审计 AI Agent 技能安全风险，输出 PASS/WARN/FAIL 结论和修复建议。",
       "version": "1.0.1",
       "author": "seaworld008",
       "source": "github:alirezarezvani/claude-skills",
@@ -5888,7 +5888,7 @@
     {
       "name": "trivy-vulnerability-scanner",
       "category": "security-and-reliability",
-      "description": "Use Trivy to scan repositories, container images, filesystems, root filesystems, SBOMs, Kubernetes resources, IaC, secrets, licenses, and OS package CVEs.",
+      "description": "用于通过 Trivy 扫描仓库、容器镜像、文件系统、rootfs、SBOM、Kubernetes、IaC、密钥、许可证和系统 CVE。",
       "version": "1.0.0",
       "author": "seaworld008",
       "source": "in-house",
@@ -5913,7 +5913,7 @@
     {
       "name": "vuls-linux-cve-scanner",
       "category": "security-and-reliability",
-      "description": "Use Vuls for agentless Linux, FreeBSD, container, WordPress, library, and network-device CVE scanning with NVD, OVAL, vendor advisory, and changelog sources.",
+      "description": "用于通过 Vuls 对 Linux、FreeBSD、容器、WordPress、库和网络设备执行 Agentless CVE 扫描。",
       "version": "1.0.0",
       "author": "seaworld008",
       "source": "in-house",
@@ -6000,7 +6000,7 @@
       "name": "scout",
       "category": "task-understanding-decomposition",
       "description": "Bug investigation, root cause analysis (RCA), reproduction steps, and impact assessment. Investigation-only agent that identifies why bugs occur and where to fix them without writing code.",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/scout",
@@ -6012,8 +6012,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-04-25",
-      "updated_at": "2026-05-19",
-      "line_count": 502,
+      "updated_at": "2026-05-21",
+      "line_count": 556,
       "path": "skills/task-understanding-decomposition/scout/SKILL.md"
     },
     {
