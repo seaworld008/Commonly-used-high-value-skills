@@ -2,37 +2,79 @@
 
 All notable changes to this repository are documented here.
 
-## [2026-03-27]
-
-### Added
-- `agent-hub` (ai-agent-platform) — agent-hub
-- `aws-solution-architect` (developer-engineering) — aws-solution-architect
-- `context-engineering` (developer-engineering) — context-engineering
-- `docker-expert` (developer-engineering) — docker-expert
-- `graphql-expert` (developer-engineering) — graphql-expert
-- `kubernetes-specialist` (developer-engineering) — kubernetes-specialist
-- `nextjs-app-router` (developer-engineering) — nextjs-app-router
-- `python-performance` (developer-engineering) — python-performance
-- `rust-engineer` (developer-engineering) — rust-engineer
-- `supabase-postgres` (developer-engineering) — supabase-postgres
-- `systematic-debugging` (developer-engineering) — systematic-debugging
-- `tailwind-design-system` (developer-engineering) — tailwind-design-system
-- `terraform-engineer` (developer-engineering) — terraform-engineer
-- `test-driven-development` (developer-engineering) — test-driven-development
-- `typescript-best-practices` (developer-engineering) — typescript-best-practices
-- `senior-architect` (devops-sre) — senior-architect
-- `web-scraper` (engineering-workflow-automation) — web-scraper
-- `saas-metrics-coach` (finance-investing) — saas-metrics-coach
-- `seo-audit` (growth-operations-xiaohongshu) — seo-audit
-- `confidence-check` (operations-general) — confidence-check
-- `supermemory` (operations-general) — supermemory
-- `landing-page-generator` (product-design) — landing-page-generator
-- `skill-security-auditor` (security-and-reliability) — skill-security-auditor
-- `subagent-driven-development` (task-understanding-decomposition) — subagent-driven-development
+## [2026-05-21]
 
 ### Changed
-- add optimization roadmap for world-class skills repository
-- add 24 high-value skills from top GitHub repos and skills.sh
+- simplify knowledge integration README descriptions
+- sync upstream skills and localize README descriptions
+
+## [2026-05-20]
+
+### Added
+- `codeql-security-scanner` (security-and-reliability) — codeql-security-scanner
+- `grype-syft-sbom-scanner` (security-and-reliability) — grype-syft-sbom-scanner
+- `osv-scanner` (security-and-reliability) — osv-scanner
+- `semgrep-appsec-scanner` (security-and-reliability) — semgrep-appsec-scanner
+- `trivy-vulnerability-scanner` (security-and-reliability) — trivy-vulnerability-scanner
+- `vuls-linux-cve-scanner` (security-and-reliability) — vuls-linux-cve-scanner
+
+### Changed
+- add vulnerability scanning skills
+
+## [2026-05-19]
+
+### Added
+- `lark-approval` (knowledge-and-pm-integrations) — lark-approval
+- `lark-attendance` (knowledge-and-pm-integrations) — lark-attendance
+- `lark-base` (knowledge-and-pm-integrations) — lark-base
+- `lark-calendar` (knowledge-and-pm-integrations) — lark-calendar
+- `lark-contact` (knowledge-and-pm-integrations) — lark-contact
+- `lark-doc` (knowledge-and-pm-integrations) — lark-doc
+- `lark-drive` (knowledge-and-pm-integrations) — lark-drive
+- `lark-event` (knowledge-and-pm-integrations) — lark-event
+- `lark-im` (knowledge-and-pm-integrations) — lark-im
+- `lark-mail` (knowledge-and-pm-integrations) — lark-mail
+- `lark-markdown` (knowledge-and-pm-integrations) — lark-markdown
+- `lark-minutes` (knowledge-and-pm-integrations) — lark-minutes
+- `lark-okr` (knowledge-and-pm-integrations) — lark-okr
+- `lark-openapi-explorer` (knowledge-and-pm-integrations) — lark-openapi-explorer
+- `lark-shared` (knowledge-and-pm-integrations) — lark-shared
+- `lark-sheets` (knowledge-and-pm-integrations) — lark-sheets
+- `lark-skill-maker` (knowledge-and-pm-integrations) — lark-skill-maker
+- `lark-slides` (knowledge-and-pm-integrations) — lark-slides
+- `lark-task` (knowledge-and-pm-integrations) — lark-task
+- `lark-vc-agent` (knowledge-and-pm-integrations) — lark-vc-agent
+- `lark-vc` (knowledge-and-pm-integrations) — lark-vc
+- `lark-whiteboard` (knowledge-and-pm-integrations) — lark-whiteboard
+- `lark-wiki` (knowledge-and-pm-integrations) — lark-wiki
+- `lark-workflow-meeting-summary` (knowledge-and-pm-integrations) — lark-workflow-meeting-summary
+- `lark-workflow-standup-report` (knowledge-and-pm-integrations) — lark-workflow-standup-report
+
+### Changed
+- sync skills and add official lark cli skills
+
+## [2026-05-05]
+
+### Added
+- `supabase-postgres-best-practices` (developer-engineering) — supabase-postgres-best-practices
+- `vercel-react-best-practices` (developer-engineering) — vercel-react-best-practices
+- `better-auth-security-best-practices` (security-and-reliability) — better-auth-security-best-practices
+
+### Changed
+- sync English README and enforce parity
+- refine global README positioning
+- auto rewrite unlicensed high quality skills
+- add license review queue
+- sync and curate skills
 
 ### Fixed
-- run refresh_repo_views, fix test expectations, normalize YAML frontmatter
+- require licenses before skill ingestion
+- remove unlicensed better auth skill
+
+## [2026-04-28]
+
+### Added
+- `guizang-ppt-skill` (office-white-collar) — guizang-ppt-skill
+
+### Changed
+- add guizang ppt skill and sync updates
