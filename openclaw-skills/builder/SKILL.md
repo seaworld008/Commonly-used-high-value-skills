@@ -1,14 +1,14 @@
 ---
 name: builder
 description: 'Disciplined coding craftsman that builds robust business logic, API integrations, and data models with type safety and production readiness. Use when business logic implementation or API integration is needed.'
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/builder"
 license: MIT
 tags: '["builder", "development"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-19"
+updated_at: "2026-05-28"
 quality: 5
 complexity: "advanced"
 ---
@@ -23,7 +23,7 @@ CAPABILITIES_SUMMARY:
 - event_sourcing: Event Sourcing, Saga pattern, Transactional Outbox
 - cqrs: CQRS (Command/Query Separation) with lightweight handler injection
 - domain_assessment: Domain complexity assessment (DDD vs CRUD decision)
-- multi_language: Multi-language support (TypeScript, Go, Python)
+- multi_language: Multi-language support (TypeScript, Go, Python, Rust)
 - test_skeleton: Test skeleton generation for Radar handoff
 - cross_language_port: Port business logic between languages/frameworks with behavior-equivalence checks and parallel test harness
 - external_integration: Build third-party API integration with sandbox-first workflow, secret handling, retry/backoff per vendor quirks, and webhook verification
@@ -182,7 +182,7 @@ Spawn only when the deliverable touches 4+ files and post-BUILD verification wou
 | **Implementation** | Result/Railway · Zod v4 Validation · API Integration (REST/GraphQL/WS) · Performance | `references/implementation-patterns.md` |
 | **Frontend** | RSC · TanStack Query v5 + Zustand · State Selection Matrix · RHF + Zod · Optimistic | `references/frontend-patterns.md` |
 | **Architecture** | Clean/Hexagonal · SOLID/CUPID · Domain Complexity Assessment · DDD vs CRUD | `references/architecture-patterns.md` |
-| **Language Idioms** | TypeScript 6.0+ / tsgo · Go 1.22+ · Python 3.12+ · Per-language testing | `references/language-idioms.md` |
+| **Language Idioms** | TypeScript 6.0+ / tsgo · Go 1.22+ · Python 3.12+ · Rust Edition 2024 / 1.85+ · Per-language testing | `references/language-idioms.md` |
 
 ## Workflow
 
@@ -244,7 +244,7 @@ Routing rules:
 - If the request involves domain complexity, read `references/domain-modeling.md`.
 - If the request involves API calls or external services, read `references/implementation-patterns.md`.
 - If the request involves frontend state, read `references/frontend-patterns.md`.
-- If the request involves Go or Python, read `references/language-idioms.md`.
+- If the request involves Go, Python, or Rust, read `references/language-idioms.md`.
 - Always generate test skeletons for Radar handoff.
 
 ## Output Requirements
@@ -287,7 +287,7 @@ Read only the files required for the current decision.
 | `references/implementation-patterns.md` | You need Result/Railway (neverthrow), Zod v4 validation, API integration (REST/GraphQL/WS), or performance patterns |
 | `references/frontend-patterns.md` | You need RSC, TanStack Query v5, Zustand, state management selection, or RHF + Zod |
 | `references/architecture-patterns.md` | You need Clean/Hexagonal Architecture, SOLID/CUPID, domain complexity assessment, or DDD vs CRUD decision |
-| `references/language-idioms.md` | You are working with Go 1.22+ or Python 3.12+ (TypeScript is default) |
+| `references/language-idioms.md` | You are working with Go 1.22+, Python 3.12+, or Rust Edition 2024 / 1.85+ (TypeScript is default) |
 | `references/process-and-examples.md` | You need Forge conversion flow, TDD examples, Seven Deadly Sins, or question templates |
 | `references/cross-language-port.md` | You are porting business logic between languages/frameworks with parallel-run black-box comparison and semantic equivalence tests (`port` recipe) |
 | `references/external-integration.md` | You are integrating an external API (Stripe/Slack/GitHub etc.) with sandbox-first verification, secret handling, vendor-specific retry, and webhook signature verification (`integrate` recipe) |

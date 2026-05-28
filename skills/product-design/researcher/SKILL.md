@@ -1,14 +1,14 @@
 ---
 name: researcher
 description: 'User research specialist. Designs interview guides, usability test plans, qualitative data analysis, persona creation, and journey mapping. Complements Echo''s UI validation. Use when user research design or analysis is needed.'
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/researcher"
 license: MIT
 tags: '["design", "product", "researcher"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-21"
+updated_at: "2026-05-28"
 quality: 5
 complexity: "advanced"
 ---
@@ -290,14 +290,16 @@ Researcher receives research direction and data from upstream agents, conducts s
 
 ## Multi-Engine Mode
 
-Activated by the `multi` Recipe (or any explicit user request for parallel research design / tri-engine methodology comparison / triangulation planning). Tri-engine research-design generation follows Pattern D (Divergence-primary) from `_common/MULTI_ENGINE_RECIPE.md`, optimized for *methodology coverage breadth* and *triangulation potential* rather than single-best-method selection.
+Activated by the `multi` Recipe (or any explicit user request for parallel research design / cross-engine methodology comparison / triangulation planning). Multi-engine research-design generation follows Pattern D (Divergence-primary) from `_common/MULTI_ENGINE_RECIPE.md`, optimized for *methodology coverage breadth* and *triangulation potential* rather than single-best-method selection.
 
-**Why three engines for research design:**
+> **Base Engine Policy (2026-05)**: Default baseline = **Claude + Codex (dual-engine, 2 spawns)**. agy adds a third axis (tri-engine, 3 spawns) when AVAILABLE at PREFLIGHT. For Researcher the agy uplift adds mixed-methods at-scale coverage (HEART metrics, longitudinal panels, ResearchOps); dual-engine covers quant (Codex) + qual/ethics (Claude) which is sufficient for most research-design tasks. See `_common/MULTI_ENGINE_RECIPE.md §Base Engine Policy + §Engine Availability Modes`.
+
+**Why multiple engines for research design:**
 - Codex (GitHub-heavy training data) skews toward quantitative-heavy, instrument-driven designs (A/B tests, survey scales, log analysis, statistical power calculations).
-- Antigravity (Google-product-heavy training data) skews toward mixed-methods at-scale (large-N usability, HEART metrics, longitudinal panels, ResearchOps).
 - Claude (Anthropic-curated training data) skews toward qualitative-heavy, ethics-aware designs (open-ended interviews, diary studies, JTBD switch interviews, inclusive recruitment).
+- Antigravity (Google-product-heavy training data, optional when AVAILABLE) skews toward mixed-methods at-scale (large-N usability, HEART metrics, longitudinal panels, ResearchOps).
 
-For the same research question, the three engines propose *non-overlapping methodology sets* — and triangulating across methods is the discipline's core quality lever. A 1/3 divergent methodology (e.g., guerrilla testing, competitive observation, ethnographic field study) is often the breakthrough, not noise.
+For the same research question, the engines propose *non-overlapping methodology sets* — and triangulating across methods is the discipline's core quality lever. A divergent methodology (e.g., guerrilla testing, competitive observation, ethnographic field study) surfaced by only one engine is often the breakthrough, not noise.
 
 **Core mechanics:**
 - Spawn three Agent subagents in a single message: `research-codex`, `research-agy`, `research-claude` (per `references/tri-engine-research.md`).
@@ -346,6 +348,7 @@ Full algorithm, JSON schema, coverage-matrix layout, GROUND checklist, and subag
 | `_common/SUBAGENT.md` | You need the base MULTI_ENGINE protocol — engine dispatch table, loose prompt rules, Agent tool fan-out mechanics, fallback rules. Read before authoring `multi` Recipe subagent prompts. |
 | `_common/MULTI_ENGINE_RECIPE.md` | You need the cross-skill `multi` Recipe protocol — Pattern D (Divergence-primary) scoring rules, canonical PREFLIGHT probe, degraded modes, engine-attribution tag convention, and the Implementation Checklist that this skill's `multi` Recipe follows. |
 | `_common/OPUS_47_AUTHORING.md` | You are sizing the research report, deciding adaptive thinking depth at method selection, or front-loading research question/scope/participants at INTAKE. Critical for Researcher: P3, P5. |
+| `_common/GROWTH_BRAND_PROOF.md` | You are the core Research-axis agent in `nexus growth-acceptance` Phase 0 (pre-design). Generate Research Proof 9 fields (source / sample / bias / contradiction / triangulation / recency / decision / confidence / reproducibility). Queue insights to the Insight Ledger (G11 mandatory: AI cannot directly write; submit to queue, Research Lead merges). Required for Step 2+ adoption. Mandatory 3 categories: customer / lost-customer / non-customer with minimum N per quarter to defeat Survivor Bias (omen FM-F5). |
 
 ## Operational
 

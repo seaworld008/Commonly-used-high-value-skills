@@ -1,11 +1,11 @@
 # Tags Index
 
-> Auto-generated from 1054 skill-tag mappings across 450 tags.
+> Auto-generated from 1060 skill-tag mappings across 451 tags.
 > Last updated: see git log.
 
 ## Quick Navigation
 
-- [`workflow`](#workflow) (59)
+- [`workflow`](#workflow) (61)
 - [`development`](#development) (44)
 - [`agent`](#agent) (35)
 - [`ai`](#ai) (35)
@@ -17,10 +17,10 @@
 - [`design`](#design) (17)
 - [`finance`](#finance) (16)
 - [`security`](#security) (16)
+- [`automation`](#automation) (15)
 - [`productivity`](#productivity) (15)
 - [`growth`](#growth) (14)
 - [`marketing`](#marketing) (14)
-- [`automation`](#automation) (13)
 - [`devops`](#devops) (13)
 - [`product`](#product) (13)
 - [`sre`](#sre) (13)
@@ -76,6 +76,7 @@
 - [`auditor`](#auditor) (2)
 - [`brownfield`](#brownfield) (2)
 - [`capture`](#capture) (2)
+- [`changelog`](#changelog) (2)
 - [`checker`](#checker) (2)
 - [`cli`](#cli) (2)
 - [`cloudflare`](#cloudflare) (2)
@@ -149,6 +150,7 @@
 - [`backtester`](#backtester) (1)
 - [`base`](#base) (1)
 - [`beacon`](#beacon) (1)
+- [`billing`](#billing) (1)
 - [`brainstorming`](#brainstorming) (1)
 - [`brand`](#brand) (1)
 - [`breach`](#breach) (1)
@@ -159,7 +161,6 @@
 - [`campaign`](#campaign) (1)
 - [`canvas`](#canvas) (1)
 - [`cast`](#cast) (1)
-- [`changelog`](#changelog) (1)
 - [`channel`](#channel) (1)
 - [`chat`](#chat) (1)
 - [`chatgpt`](#chatgpt) (1)
@@ -460,7 +461,7 @@
 
 ## workflow
 
-**59 skills**
+**61 skills**
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
@@ -510,12 +511,14 @@
 | [verification-before-completion](skills/ai-workflow/verification-before-completion) | ai-workflow | ★★★★☆ | Use when about to claim work is complete, fixed, or passing, before committing o |
 | [writing-plans](skills/ai-workflow/writing-plans) | ai-workflow | ★★★★☆ | Use when you have a spec or requirements for a multi-step task, before touching  |
 | [writing-skills](skills/ai-workflow/writing-skills) | ai-workflow | ★★★★☆ | Use when creating new skills, editing existing skills, or verifying skills work  |
+| [changelog-automation](skills/engineering-workflow-automation/changelog-automation) | engineering-workflow-automation | ★★★★☆ | Automate changelog generation from commits, PRs, and releases following Keep a C |
 | [jupyter-notebook](skills/engineering-workflow-automation/jupyter-notebook) | engineering-workflow-automation | ★★★★☆ | Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) |
 | [playwright](skills/engineering-workflow-automation/playwright) | engineering-workflow-automation | ★★★★☆ | Use when the task requires automating a real browser from the terminal (navigati |
 | [web-scraper](skills/engineering-workflow-automation/web-scraper) | engineering-workflow-automation | ★★★★☆ | 用于网页数据抓取、结构化提取和反爬策略应对。仓库整理版，吸收社区高频最佳实践。 |
 | [brainstorming](skills/ai-workflow/brainstorming) | ai-workflow | ★★★☆☆ | You MUST use this before any creative work - creating features, building compone |
 | [executing-plans](skills/ai-workflow/executing-plans) | ai-workflow | ★★★☆☆ | Use when you have a written implementation plan to execute in a separate session |
 | [subagent-driven-development](skills/ai-workflow/subagent-driven-development) | ai-workflow | ★★★☆☆ | Use when executing implementation plans with independent tasks in the current se |
+| [billing-automation](skills/engineering-workflow-automation/billing-automation) | engineering-workflow-automation | ★★★☆☆ | Build automated billing systems for recurring payments, invoicing, subscription  |
 | [gh-fix-ci](skills/engineering-workflow-automation/gh-fix-ci) | engineering-workflow-automation | ★★★☆☆ | Use when a user asks to debug or fix failing GitHub PR checks that run in GitHub |
 | [lark-approval](skills/knowledge-and-pm-integrations/lark-approval) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书审批 API：审批实例、审批任务管理。 |
 | [agent-browser](skills/engineering-workflow-automation/agent-browser) | engineering-workflow-automation | ★★☆☆☆ | 为 Agent 提供真实浏览器自动化能力，支持语义定位、表单交互、截图录屏、脚本执行与会话管理。 |
@@ -665,30 +668,30 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lark-base](skills/knowledge-and-pm-integrations/lark-base) | knowledge-and-pm-integrations | ★★★★☆ | 飞书多维表格的表、字段、记录、视图和工作流管理。 |
+| [lark-base](skills/knowledge-and-pm-integrations/lark-base) | knowledge-and-pm-integrations | ★★★★☆ | 当需要用 lark-cli 操作飞书多维表格（Base）时调用：搜索 Base、建表、字段管理、记录读写、记录分享链接、视图配置、历史查询，以及角色/表单/仪表 |
 | [lark-calendar](skills/knowledge-and-pm-integrations/lark-calendar) | knowledge-and-pm-integrations | ★★★★☆ | 飞书日历、日程、参会人、忙闲状态和会议室管理。 |
-| [lark-drive](skills/knowledge-and-pm-integrations/lark-drive) | knowledge-and-pm-integrations | ★★★★☆ | 飞书云空间文件上传、下载、权限、评论和目录管理。 |
-| [lark-event](skills/knowledge-and-pm-integrations/lark-event) | knowledge-and-pm-integrations | ★★★★☆ | 飞书实时事件监听、订阅和机器人消息处理。 |
-| [lark-im](skills/knowledge-and-pm-integrations/lark-im) | knowledge-and-pm-integrations | ★★★★☆ | 飞书消息收发、群聊管理、聊天记录和文件处理。 |
-| [lark-mail](skills/knowledge-and-pm-integrations/lark-mail) | knowledge-and-pm-integrations | ★★★★☆ | 飞书邮箱草稿、发送、回复、搜索、附件和规则管理。 |
-| [lark-minutes](skills/knowledge-and-pm-integrations/lark-minutes) | knowledge-and-pm-integrations | ★★★★☆ | 飞书妙记查询、下载、总结、待办和音视频转写。 |
+| [lark-drive](skills/knowledge-and-pm-integrations/lark-drive) | knowledge-and-pm-integrations | ★★★★☆ | 飞书云空间（云盘/云存储）：管理云空间（云盘/云存储）中的文件和文件夹。上传和下载文件、创建文件夹、复制/移动/删除文件、查看文件元数据、管理文档评论、管理文档 |
+| [lark-event](skills/knowledge-and-pm-integrations/lark-event) | knowledge-and-pm-integrations | ★★★★☆ | Lark/Feishu real-time event listening / subscribing / consuming: stream events a |
+| [lark-im](skills/knowledge-and-pm-integrations/lark-im) | knowledge-and-pm-integrations | ★★★★☆ | 飞书即时通讯：收发消息和管理群聊。发送和回复消息、搜索聊天记录、管理群聊成员、上传下载图片和文件（支持大文件分片下载）、管理表情回复。当用户需要发消息、查看或搜 |
+| [lark-mail](skills/knowledge-and-pm-integrations/lark-mail) | knowledge-and-pm-integrations | ★★★★☆ | 飞书邮箱 — draft, compose, send, reply, forward, read, and search emails; manage dra |
+| [lark-minutes](skills/knowledge-and-pm-integrations/lark-minutes) | knowledge-and-pm-integrations | ★★★★☆ | 飞书妙记：妙记相关基本功能。1.查询妙记列表（按关键词/所有者/参与者/时间范围）；2.获取妙记基础信息（标题、封面、时长 等）；3.下载妙记音视频文件；4.获 |
 | [lark-okr](skills/knowledge-and-pm-integrations/lark-okr) | knowledge-and-pm-integrations | ★★★★☆ | 飞书 OKR 周期、目标、关键结果和进展管理。 |
 | [lark-openapi-explorer](skills/knowledge-and-pm-integrations/lark-openapi-explorer) | knowledge-and-pm-integrations | ★★★★☆ | 飞书原生 OpenAPI 查询、探索和补充调用。 |
-| [lark-shared](skills/knowledge-and-pm-integrations/lark-shared) | knowledge-and-pm-integrations | ★★★★☆ | 飞书 CLI 登录、身份切换、权限排查和版本更新。 |
-| [lark-sheets](skills/knowledge-and-pm-integrations/lark-sheets) | knowledge-and-pm-integrations | ★★★★☆ | 飞书电子表格创建、工作表管理、单元格读写和导出。 |
+| [lark-shared](skills/knowledge-and-pm-integrations/lark-shared) | knowledge-and-pm-integrations | ★★★★☆ | Use when first setting up lark-cli, running auth login, switching user/bot ident |
+| [lark-sheets](skills/knowledge-and-pm-integrations/lark-sheets) | knowledge-and-pm-integrations | ★★★★☆ | 飞书电子表格：创建和操作电子表格。支持创建表格、创建/复制/删除/更新工作表、读写单元格、追加行数据、查找内容、导出文件。当用户需要创建电子表格、管理工作表、批 |
 | [lark-slides](skills/knowledge-and-pm-integrations/lark-slides) | knowledge-and-pm-integrations | ★★★★☆ | 飞书幻灯片创建、页面读取、局部编辑和演示稿管理。 |
-| [lark-task](skills/knowledge-and-pm-integrations/lark-task) | knowledge-and-pm-integrations | ★★★★☆ | 飞书任务、清单、子任务、协作者和附件管理。 |
-| [lark-vc](skills/knowledge-and-pm-integrations/lark-vc) | knowledge-and-pm-integrations | ★★★★☆ | 飞书历史会议、纪要、逐字稿和参会人查询。 |
+| [lark-task](skills/knowledge-and-pm-integrations/lark-task) | knowledge-and-pm-integrations | ★★★★☆ | 飞书任务：管理任务、清单和任务智能体。创建待办任务、查看和更新任务状态、拆分子任务、组织任务清单、分配协作成员、上传任务附件、注册或注销任务智能体、更新任务智能 |
+| [lark-vc](skills/knowledge-and-pm-integrations/lark-vc) | knowledge-and-pm-integrations | ★★★★☆ | 飞书视频会议：搜索历史会议、查询会议纪要产物（总结、待办、章节、逐字稿）、查询会议参会人快照。1. 查询已经结束的会议数量或详情时使用本技能（如历史日期｜昨天｜ |
 | [lark-vc-agent](skills/knowledge-and-pm-integrations/lark-vc-agent) | knowledge-and-pm-integrations | ★★★★☆ | 飞书会议机器人入会、离会和会中事件读取。 |
 | [lark-whiteboard](skills/knowledge-and-pm-integrations/lark-whiteboard) | knowledge-and-pm-integrations | ★★★★☆ | 飞书画板查看、导出、编辑和结构化内容可视化。 |
-| [lark-wiki](skills/knowledge-and-pm-integrations/lark-wiki) | knowledge-and-pm-integrations | ★★★★☆ | 飞书知识库空间、成员、节点和文档组织管理。 |
+| [lark-wiki](skills/knowledge-and-pm-integrations/lark-wiki) | knowledge-and-pm-integrations | ★★★★☆ | 飞书知识库：管理知识空间、空间成员和文档节点。创建和查询知识空间、查看和管理空间成员、管理节点层级结构、在知识库中组织文档和快捷方式。当用户需要在知识库中查找或 |
 | [lark-workflow-meeting-summary](skills/knowledge-and-pm-integrations/lark-workflow-meeting-summary) | knowledge-and-pm-integrations | ★★★★☆ | 汇总会议纪要、提炼结论并生成结构化报告。 |
-| [lark-workflow-standup-report](skills/knowledge-and-pm-integrations/lark-workflow-standup-report) | knowledge-and-pm-integrations | ★★★★☆ | 汇总今日日程、未完成待办和阻塞事项，生成每日站会摘要。 |
+| [lark-workflow-standup-report](skills/knowledge-and-pm-integrations/lark-workflow-standup-report) | knowledge-and-pm-integrations | ★★★★☆ | 日程待办摘要：编排 calendar +agenda 和 task +get-my-tasks，生成指定日期的日程与未完成任务摘要。适用于了解今天/明天/本周的 |
 | [lark-approval](skills/knowledge-and-pm-integrations/lark-approval) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书审批 API：审批实例、审批任务管理。 |
 | [lark-attendance](skills/knowledge-and-pm-integrations/lark-attendance) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书考勤打卡查询、异常记录整理和缺失核对。 |
 | [lark-contact](skills/knowledge-and-pm-integrations/lark-contact) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书通讯录人员查询、身份解析和联系信息检索。 |
-| [lark-doc](skills/knowledge-and-pm-integrations/lark-doc) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书文档读取、创建、编辑、总结和排版处理。 |
-| [lark-markdown](skills/knowledge-and-pm-integrations/lark-markdown) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书 Markdown 文件创建、读取、上传和编辑。 |
+| [lark-doc](skills/knowledge-and-pm-integrations/lark-doc) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书云文档 / Docx / 知识库 Wiki 文档（v2）：创建、打开、读取、获取、查看、总结、整理、改写、翻译、审阅和编辑飞书文档内容。当用户给出飞书文档  |
+| [lark-markdown](skills/knowledge-and-pm-integrations/lark-markdown) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书 Markdown：查看、创建、上传、编辑和比较 Markdown 文件。当用户需要创建或编辑 Markdown 文件、读取、修改、局部 patch 或比较 |
 | [lark-skill-maker](skills/knowledge-and-pm-integrations/lark-skill-maker) | knowledge-and-pm-integrations | ★★★☆☆ | 把飞书 API 操作封装成可复用技能和多步流程。 |
 
 ## lark
@@ -697,30 +700,30 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lark-base](skills/knowledge-and-pm-integrations/lark-base) | knowledge-and-pm-integrations | ★★★★☆ | 飞书多维表格的表、字段、记录、视图和工作流管理。 |
+| [lark-base](skills/knowledge-and-pm-integrations/lark-base) | knowledge-and-pm-integrations | ★★★★☆ | 当需要用 lark-cli 操作飞书多维表格（Base）时调用：搜索 Base、建表、字段管理、记录读写、记录分享链接、视图配置、历史查询，以及角色/表单/仪表 |
 | [lark-calendar](skills/knowledge-and-pm-integrations/lark-calendar) | knowledge-and-pm-integrations | ★★★★☆ | 飞书日历、日程、参会人、忙闲状态和会议室管理。 |
-| [lark-drive](skills/knowledge-and-pm-integrations/lark-drive) | knowledge-and-pm-integrations | ★★★★☆ | 飞书云空间文件上传、下载、权限、评论和目录管理。 |
-| [lark-event](skills/knowledge-and-pm-integrations/lark-event) | knowledge-and-pm-integrations | ★★★★☆ | 飞书实时事件监听、订阅和机器人消息处理。 |
-| [lark-im](skills/knowledge-and-pm-integrations/lark-im) | knowledge-and-pm-integrations | ★★★★☆ | 飞书消息收发、群聊管理、聊天记录和文件处理。 |
-| [lark-mail](skills/knowledge-and-pm-integrations/lark-mail) | knowledge-and-pm-integrations | ★★★★☆ | 飞书邮箱草稿、发送、回复、搜索、附件和规则管理。 |
-| [lark-minutes](skills/knowledge-and-pm-integrations/lark-minutes) | knowledge-and-pm-integrations | ★★★★☆ | 飞书妙记查询、下载、总结、待办和音视频转写。 |
+| [lark-drive](skills/knowledge-and-pm-integrations/lark-drive) | knowledge-and-pm-integrations | ★★★★☆ | 飞书云空间（云盘/云存储）：管理云空间（云盘/云存储）中的文件和文件夹。上传和下载文件、创建文件夹、复制/移动/删除文件、查看文件元数据、管理文档评论、管理文档 |
+| [lark-event](skills/knowledge-and-pm-integrations/lark-event) | knowledge-and-pm-integrations | ★★★★☆ | Lark/Feishu real-time event listening / subscribing / consuming: stream events a |
+| [lark-im](skills/knowledge-and-pm-integrations/lark-im) | knowledge-and-pm-integrations | ★★★★☆ | 飞书即时通讯：收发消息和管理群聊。发送和回复消息、搜索聊天记录、管理群聊成员、上传下载图片和文件（支持大文件分片下载）、管理表情回复。当用户需要发消息、查看或搜 |
+| [lark-mail](skills/knowledge-and-pm-integrations/lark-mail) | knowledge-and-pm-integrations | ★★★★☆ | 飞书邮箱 — draft, compose, send, reply, forward, read, and search emails; manage dra |
+| [lark-minutes](skills/knowledge-and-pm-integrations/lark-minutes) | knowledge-and-pm-integrations | ★★★★☆ | 飞书妙记：妙记相关基本功能。1.查询妙记列表（按关键词/所有者/参与者/时间范围）；2.获取妙记基础信息（标题、封面、时长 等）；3.下载妙记音视频文件；4.获 |
 | [lark-okr](skills/knowledge-and-pm-integrations/lark-okr) | knowledge-and-pm-integrations | ★★★★☆ | 飞书 OKR 周期、目标、关键结果和进展管理。 |
 | [lark-openapi-explorer](skills/knowledge-and-pm-integrations/lark-openapi-explorer) | knowledge-and-pm-integrations | ★★★★☆ | 飞书原生 OpenAPI 查询、探索和补充调用。 |
-| [lark-shared](skills/knowledge-and-pm-integrations/lark-shared) | knowledge-and-pm-integrations | ★★★★☆ | 飞书 CLI 登录、身份切换、权限排查和版本更新。 |
-| [lark-sheets](skills/knowledge-and-pm-integrations/lark-sheets) | knowledge-and-pm-integrations | ★★★★☆ | 飞书电子表格创建、工作表管理、单元格读写和导出。 |
+| [lark-shared](skills/knowledge-and-pm-integrations/lark-shared) | knowledge-and-pm-integrations | ★★★★☆ | Use when first setting up lark-cli, running auth login, switching user/bot ident |
+| [lark-sheets](skills/knowledge-and-pm-integrations/lark-sheets) | knowledge-and-pm-integrations | ★★★★☆ | 飞书电子表格：创建和操作电子表格。支持创建表格、创建/复制/删除/更新工作表、读写单元格、追加行数据、查找内容、导出文件。当用户需要创建电子表格、管理工作表、批 |
 | [lark-slides](skills/knowledge-and-pm-integrations/lark-slides) | knowledge-and-pm-integrations | ★★★★☆ | 飞书幻灯片创建、页面读取、局部编辑和演示稿管理。 |
-| [lark-task](skills/knowledge-and-pm-integrations/lark-task) | knowledge-and-pm-integrations | ★★★★☆ | 飞书任务、清单、子任务、协作者和附件管理。 |
-| [lark-vc](skills/knowledge-and-pm-integrations/lark-vc) | knowledge-and-pm-integrations | ★★★★☆ | 飞书历史会议、纪要、逐字稿和参会人查询。 |
+| [lark-task](skills/knowledge-and-pm-integrations/lark-task) | knowledge-and-pm-integrations | ★★★★☆ | 飞书任务：管理任务、清单和任务智能体。创建待办任务、查看和更新任务状态、拆分子任务、组织任务清单、分配协作成员、上传任务附件、注册或注销任务智能体、更新任务智能 |
+| [lark-vc](skills/knowledge-and-pm-integrations/lark-vc) | knowledge-and-pm-integrations | ★★★★☆ | 飞书视频会议：搜索历史会议、查询会议纪要产物（总结、待办、章节、逐字稿）、查询会议参会人快照。1. 查询已经结束的会议数量或详情时使用本技能（如历史日期｜昨天｜ |
 | [lark-vc-agent](skills/knowledge-and-pm-integrations/lark-vc-agent) | knowledge-and-pm-integrations | ★★★★☆ | 飞书会议机器人入会、离会和会中事件读取。 |
 | [lark-whiteboard](skills/knowledge-and-pm-integrations/lark-whiteboard) | knowledge-and-pm-integrations | ★★★★☆ | 飞书画板查看、导出、编辑和结构化内容可视化。 |
-| [lark-wiki](skills/knowledge-and-pm-integrations/lark-wiki) | knowledge-and-pm-integrations | ★★★★☆ | 飞书知识库空间、成员、节点和文档组织管理。 |
+| [lark-wiki](skills/knowledge-and-pm-integrations/lark-wiki) | knowledge-and-pm-integrations | ★★★★☆ | 飞书知识库：管理知识空间、空间成员和文档节点。创建和查询知识空间、查看和管理空间成员、管理节点层级结构、在知识库中组织文档和快捷方式。当用户需要在知识库中查找或 |
 | [lark-workflow-meeting-summary](skills/knowledge-and-pm-integrations/lark-workflow-meeting-summary) | knowledge-and-pm-integrations | ★★★★☆ | 汇总会议纪要、提炼结论并生成结构化报告。 |
-| [lark-workflow-standup-report](skills/knowledge-and-pm-integrations/lark-workflow-standup-report) | knowledge-and-pm-integrations | ★★★★☆ | 汇总今日日程、未完成待办和阻塞事项，生成每日站会摘要。 |
+| [lark-workflow-standup-report](skills/knowledge-and-pm-integrations/lark-workflow-standup-report) | knowledge-and-pm-integrations | ★★★★☆ | 日程待办摘要：编排 calendar +agenda 和 task +get-my-tasks，生成指定日期的日程与未完成任务摘要。适用于了解今天/明天/本周的 |
 | [lark-approval](skills/knowledge-and-pm-integrations/lark-approval) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书审批 API：审批实例、审批任务管理。 |
 | [lark-attendance](skills/knowledge-and-pm-integrations/lark-attendance) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书考勤打卡查询、异常记录整理和缺失核对。 |
 | [lark-contact](skills/knowledge-and-pm-integrations/lark-contact) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书通讯录人员查询、身份解析和联系信息检索。 |
-| [lark-doc](skills/knowledge-and-pm-integrations/lark-doc) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书文档读取、创建、编辑、总结和排版处理。 |
-| [lark-markdown](skills/knowledge-and-pm-integrations/lark-markdown) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书 Markdown 文件创建、读取、上传和编辑。 |
+| [lark-doc](skills/knowledge-and-pm-integrations/lark-doc) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书云文档 / Docx / 知识库 Wiki 文档（v2）：创建、打开、读取、获取、查看、总结、整理、改写、翻译、审阅和编辑飞书文档内容。当用户给出飞书文档  |
+| [lark-markdown](skills/knowledge-and-pm-integrations/lark-markdown) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书 Markdown：查看、创建、上传、编辑和比较 Markdown 文件。当用户需要创建或编辑 Markdown 文件、读取、修改、局部 patch 或比较 |
 | [lark-skill-maker](skills/knowledge-and-pm-integrations/lark-skill-maker) | knowledge-and-pm-integrations | ★★★☆☆ | 把飞书 API 操作封装成可复用技能和多步流程。 |
 
 ## lark-cli
@@ -729,30 +732,30 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lark-base](skills/knowledge-and-pm-integrations/lark-base) | knowledge-and-pm-integrations | ★★★★☆ | 飞书多维表格的表、字段、记录、视图和工作流管理。 |
+| [lark-base](skills/knowledge-and-pm-integrations/lark-base) | knowledge-and-pm-integrations | ★★★★☆ | 当需要用 lark-cli 操作飞书多维表格（Base）时调用：搜索 Base、建表、字段管理、记录读写、记录分享链接、视图配置、历史查询，以及角色/表单/仪表 |
 | [lark-calendar](skills/knowledge-and-pm-integrations/lark-calendar) | knowledge-and-pm-integrations | ★★★★☆ | 飞书日历、日程、参会人、忙闲状态和会议室管理。 |
-| [lark-drive](skills/knowledge-and-pm-integrations/lark-drive) | knowledge-and-pm-integrations | ★★★★☆ | 飞书云空间文件上传、下载、权限、评论和目录管理。 |
-| [lark-event](skills/knowledge-and-pm-integrations/lark-event) | knowledge-and-pm-integrations | ★★★★☆ | 飞书实时事件监听、订阅和机器人消息处理。 |
-| [lark-im](skills/knowledge-and-pm-integrations/lark-im) | knowledge-and-pm-integrations | ★★★★☆ | 飞书消息收发、群聊管理、聊天记录和文件处理。 |
-| [lark-mail](skills/knowledge-and-pm-integrations/lark-mail) | knowledge-and-pm-integrations | ★★★★☆ | 飞书邮箱草稿、发送、回复、搜索、附件和规则管理。 |
-| [lark-minutes](skills/knowledge-and-pm-integrations/lark-minutes) | knowledge-and-pm-integrations | ★★★★☆ | 飞书妙记查询、下载、总结、待办和音视频转写。 |
+| [lark-drive](skills/knowledge-and-pm-integrations/lark-drive) | knowledge-and-pm-integrations | ★★★★☆ | 飞书云空间（云盘/云存储）：管理云空间（云盘/云存储）中的文件和文件夹。上传和下载文件、创建文件夹、复制/移动/删除文件、查看文件元数据、管理文档评论、管理文档 |
+| [lark-event](skills/knowledge-and-pm-integrations/lark-event) | knowledge-and-pm-integrations | ★★★★☆ | Lark/Feishu real-time event listening / subscribing / consuming: stream events a |
+| [lark-im](skills/knowledge-and-pm-integrations/lark-im) | knowledge-and-pm-integrations | ★★★★☆ | 飞书即时通讯：收发消息和管理群聊。发送和回复消息、搜索聊天记录、管理群聊成员、上传下载图片和文件（支持大文件分片下载）、管理表情回复。当用户需要发消息、查看或搜 |
+| [lark-mail](skills/knowledge-and-pm-integrations/lark-mail) | knowledge-and-pm-integrations | ★★★★☆ | 飞书邮箱 — draft, compose, send, reply, forward, read, and search emails; manage dra |
+| [lark-minutes](skills/knowledge-and-pm-integrations/lark-minutes) | knowledge-and-pm-integrations | ★★★★☆ | 飞书妙记：妙记相关基本功能。1.查询妙记列表（按关键词/所有者/参与者/时间范围）；2.获取妙记基础信息（标题、封面、时长 等）；3.下载妙记音视频文件；4.获 |
 | [lark-okr](skills/knowledge-and-pm-integrations/lark-okr) | knowledge-and-pm-integrations | ★★★★☆ | 飞书 OKR 周期、目标、关键结果和进展管理。 |
 | [lark-openapi-explorer](skills/knowledge-and-pm-integrations/lark-openapi-explorer) | knowledge-and-pm-integrations | ★★★★☆ | 飞书原生 OpenAPI 查询、探索和补充调用。 |
-| [lark-shared](skills/knowledge-and-pm-integrations/lark-shared) | knowledge-and-pm-integrations | ★★★★☆ | 飞书 CLI 登录、身份切换、权限排查和版本更新。 |
-| [lark-sheets](skills/knowledge-and-pm-integrations/lark-sheets) | knowledge-and-pm-integrations | ★★★★☆ | 飞书电子表格创建、工作表管理、单元格读写和导出。 |
+| [lark-shared](skills/knowledge-and-pm-integrations/lark-shared) | knowledge-and-pm-integrations | ★★★★☆ | Use when first setting up lark-cli, running auth login, switching user/bot ident |
+| [lark-sheets](skills/knowledge-and-pm-integrations/lark-sheets) | knowledge-and-pm-integrations | ★★★★☆ | 飞书电子表格：创建和操作电子表格。支持创建表格、创建/复制/删除/更新工作表、读写单元格、追加行数据、查找内容、导出文件。当用户需要创建电子表格、管理工作表、批 |
 | [lark-slides](skills/knowledge-and-pm-integrations/lark-slides) | knowledge-and-pm-integrations | ★★★★☆ | 飞书幻灯片创建、页面读取、局部编辑和演示稿管理。 |
-| [lark-task](skills/knowledge-and-pm-integrations/lark-task) | knowledge-and-pm-integrations | ★★★★☆ | 飞书任务、清单、子任务、协作者和附件管理。 |
-| [lark-vc](skills/knowledge-and-pm-integrations/lark-vc) | knowledge-and-pm-integrations | ★★★★☆ | 飞书历史会议、纪要、逐字稿和参会人查询。 |
+| [lark-task](skills/knowledge-and-pm-integrations/lark-task) | knowledge-and-pm-integrations | ★★★★☆ | 飞书任务：管理任务、清单和任务智能体。创建待办任务、查看和更新任务状态、拆分子任务、组织任务清单、分配协作成员、上传任务附件、注册或注销任务智能体、更新任务智能 |
+| [lark-vc](skills/knowledge-and-pm-integrations/lark-vc) | knowledge-and-pm-integrations | ★★★★☆ | 飞书视频会议：搜索历史会议、查询会议纪要产物（总结、待办、章节、逐字稿）、查询会议参会人快照。1. 查询已经结束的会议数量或详情时使用本技能（如历史日期｜昨天｜ |
 | [lark-vc-agent](skills/knowledge-and-pm-integrations/lark-vc-agent) | knowledge-and-pm-integrations | ★★★★☆ | 飞书会议机器人入会、离会和会中事件读取。 |
 | [lark-whiteboard](skills/knowledge-and-pm-integrations/lark-whiteboard) | knowledge-and-pm-integrations | ★★★★☆ | 飞书画板查看、导出、编辑和结构化内容可视化。 |
-| [lark-wiki](skills/knowledge-and-pm-integrations/lark-wiki) | knowledge-and-pm-integrations | ★★★★☆ | 飞书知识库空间、成员、节点和文档组织管理。 |
+| [lark-wiki](skills/knowledge-and-pm-integrations/lark-wiki) | knowledge-and-pm-integrations | ★★★★☆ | 飞书知识库：管理知识空间、空间成员和文档节点。创建和查询知识空间、查看和管理空间成员、管理节点层级结构、在知识库中组织文档和快捷方式。当用户需要在知识库中查找或 |
 | [lark-workflow-meeting-summary](skills/knowledge-and-pm-integrations/lark-workflow-meeting-summary) | knowledge-and-pm-integrations | ★★★★☆ | 汇总会议纪要、提炼结论并生成结构化报告。 |
-| [lark-workflow-standup-report](skills/knowledge-and-pm-integrations/lark-workflow-standup-report) | knowledge-and-pm-integrations | ★★★★☆ | 汇总今日日程、未完成待办和阻塞事项，生成每日站会摘要。 |
+| [lark-workflow-standup-report](skills/knowledge-and-pm-integrations/lark-workflow-standup-report) | knowledge-and-pm-integrations | ★★★★☆ | 日程待办摘要：编排 calendar +agenda 和 task +get-my-tasks，生成指定日期的日程与未完成任务摘要。适用于了解今天/明天/本周的 |
 | [lark-approval](skills/knowledge-and-pm-integrations/lark-approval) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书审批 API：审批实例、审批任务管理。 |
 | [lark-attendance](skills/knowledge-and-pm-integrations/lark-attendance) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书考勤打卡查询、异常记录整理和缺失核对。 |
 | [lark-contact](skills/knowledge-and-pm-integrations/lark-contact) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书通讯录人员查询、身份解析和联系信息检索。 |
-| [lark-doc](skills/knowledge-and-pm-integrations/lark-doc) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书文档读取、创建、编辑、总结和排版处理。 |
-| [lark-markdown](skills/knowledge-and-pm-integrations/lark-markdown) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书 Markdown 文件创建、读取、上传和编辑。 |
+| [lark-doc](skills/knowledge-and-pm-integrations/lark-doc) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书云文档 / Docx / 知识库 Wiki 文档（v2）：创建、打开、读取、获取、查看、总结、整理、改写、翻译、审阅和编辑飞书文档内容。当用户给出飞书文档  |
+| [lark-markdown](skills/knowledge-and-pm-integrations/lark-markdown) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书 Markdown：查看、创建、上传、编辑和比较 Markdown 文件。当用户需要创建或编辑 Markdown 文件、读取、修改、局部 patch 或比较 |
 | [lark-skill-maker](skills/knowledge-and-pm-integrations/lark-skill-maker) | knowledge-and-pm-integrations | ★★★☆☆ | 把飞书 API 操作封装成可复用技能和多步流程。 |
 
 ## engineering
@@ -863,22 +866,44 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [breach](skills/security-and-reliability/breach) | security-and-reliability | ★★★★★ | 用于红队工程、攻击路径设计、威胁建模、紫队演练和 AI/LLM 对抗安全验证。 |
+| [breach](skills/security-and-reliability/breach) | security-and-reliability | ★★★★★ | Red team engineering agent. Designs attack scenarios, builds threat models, appl |
 | [cloak](skills/security-and-reliability/cloak) | security-and-reliability | ★★★★★ | 用于隐私工程、PII 识别、数据流梳理、同意管理、合规实现和 DPIA 支持。 |
-| [comply](skills/security-and-reliability/comply) | security-and-reliability | ★★★★★ | 用于合规审计、SOC2/PCI-DSS/HIPAA/ISO 27001 控制映射、审计轨迹和 Policy as Code 设计。 |
+| [comply](skills/security-and-reliability/comply) | security-and-reliability | ★★★★★ | Regulatory compliance and audit agent. Maps business regulatory requirements (SO |
 | [security-ownership-map](skills/security-and-reliability/security-ownership-map) | security-and-reliability | ★★★★★ | 用于基于 Git 历史分析安全所有权、敏感代码归属、bus factor、CODEOWNERS 现实差距和风险热点。 |
 | [codeql-security-scanner](skills/security-and-reliability/codeql-security-scanner) | security-and-reliability | ★★★★☆ | 用于通过 CodeQL 执行语义代码扫描、安全查询、自定义规则、SARIF 报告和 GitHub Code Scanning 集成。 |
 | [grype-syft-sbom-scanner](skills/security-and-reliability/grype-syft-sbom-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Syft 生成 SBOM，并用 Grype 扫描容器镜像、文件系统、软件包、归档和 SBOM 漏洞。 |
 | [osv-scanner](skills/security-and-reliability/osv-scanner) | security-and-reliability | ★★★★☆ | 用于通过 OSV-Scanner 检查锁文件、清单、SBOM、Git 历史和源码树中的开源依赖漏洞。 |
 | [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。 |
 | [sentry](skills/security-and-reliability/sentry) | security-and-reliability | ★★★★☆ | 用于只读查询 Sentry issues、events 和服务健康数据，汇总线上错误并辅助生产问题排查。 |
-| [skill-security-auditor](skills/security-and-reliability/skill-security-auditor) | security-and-reliability | ★★★★☆ | 用于安装前审计 AI Agent 技能安全风险，输出 PASS/WARN/FAIL 结论和修复建议。 |
+| [skill-security-auditor](skills/security-and-reliability/skill-security-auditor) | security-and-reliability | ★★★★☆ | Security audit and vulnerability scanner for AI agent skills before installation |
 | [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Trivy 扫描仓库、容器镜像、文件系统、rootfs、SBOM、Kubernetes、IaC、密钥、许可证和系统 CVE。 |
 | [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Vuls 对 Linux、FreeBSD、容器、WordPress、库和网络设备执行 Agentless CVE 扫描。 |
 | [security-best-practices](skills/security-and-reliability/security-best-practices) | security-and-reliability | ★★★☆☆ | 用于按语言和框架执行安全最佳实践检查，生成安全审查报告并提出 secure-by-default 改进建议。 |
 | [security-threat-model](skills/security-and-reliability/security-threat-model) | security-and-reliability | ★★★☆☆ | 用于基于代码库枚举信任边界、资产、攻击者能力、滥用路径和缓解措施，并生成威胁模型。 |
 | [link-checker](skills/security-and-reliability/link-checker) | security-and-reliability | ★★☆☆☆ | 检测 URL 可达性与潜在风险，识别失效链接、跳转链路和可疑域名。 |
 | [skill-vetter](skills/security-and-reliability/skill-vetter) | security-and-reliability | ★★☆☆☆ | 在安装前审计技能安全性，识别恶意指令、越权行为与高风险配置。 |
+
+## automation
+
+**15 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [guardian](skills/engineering-workflow-automation/guardian) | engineering-workflow-automation | ★★★★★ | Git/PR gatekeeper that classifies change essence, recommends granularity, naming |
+| [harvest](skills/engineering-workflow-automation/harvest) | engineering-workflow-automation | ★★★★★ | Collect GitHub PR data and generate work reports. Retrieves PR info via gh comma |
+| [latch](skills/engineering-workflow-automation/latch) | engineering-workflow-automation | ★★★★★ | Propose, configure, debug, and maintain Claude Code hooks (PreToolUse/PostToolUs |
+| [excel-automation](skills/office-white-collar/excel-automation) | office-white-collar | ★★★★★ | Create, parse, and control Excel files on macOS. Professional formatting with op |
+| [changelog-automation](skills/engineering-workflow-automation/changelog-automation) | engineering-workflow-automation | ★★★★☆ | Automate changelog generation from commits, PRs, and releases following Keep a C |
+| [jupyter-notebook](skills/engineering-workflow-automation/jupyter-notebook) | engineering-workflow-automation | ★★★★☆ | Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) |
+| [playwright](skills/engineering-workflow-automation/playwright) | engineering-workflow-automation | ★★★★☆ | Use when the task requires automating a real browser from the terminal (navigati |
+| [web-scraper](skills/engineering-workflow-automation/web-scraper) | engineering-workflow-automation | ★★★★☆ | 用于网页数据抓取、结构化提取和反爬策略应对。仓库整理版，吸收社区高频最佳实践。 |
+| [lark-base](skills/knowledge-and-pm-integrations/lark-base) | knowledge-and-pm-integrations | ★★★★☆ | 当需要用 lark-cli 操作飞书多维表格（Base）时调用：搜索 Base、建表、字段管理、记录读写、记录分享链接、视图配置、历史查询，以及角色/表单/仪表 |
+| [billing-automation](skills/engineering-workflow-automation/billing-automation) | engineering-workflow-automation | ★★★☆☆ | Build automated billing systems for recurring payments, invoicing, subscription  |
+| [gh-fix-ci](skills/engineering-workflow-automation/gh-fix-ci) | engineering-workflow-automation | ★★★☆☆ | Use when a user asks to debug or fix failing GitHub PR checks that run in GitHub |
+| [agent-browser](skills/engineering-workflow-automation/agent-browser) | engineering-workflow-automation | ★★☆☆☆ | 为 Agent 提供真实浏览器自动化能力，支持语义定位、表单交互、截图录屏、脚本执行与会话管理。 |
+| [gh-address-comments](skills/engineering-workflow-automation/gh-address-comments) | engineering-workflow-automation | ★★☆☆☆ | Help address review/issue comments on the open GitHub PR for the current branch  |
+| [github](skills/engineering-workflow-automation/github) | engineering-workflow-automation | ★★☆☆☆ | 通过 GitHub CLI 自动化 Issue、PR、Review 与 CI 检查，适合工程协作闭环。 |
+| [yeet](skills/engineering-workflow-automation/yeet) | engineering-workflow-automation | ★★☆☆☆ | Use only when the user explicitly asks to stage, commit, push, and open a GitHub |
 
 ## productivity
 
@@ -943,26 +968,6 @@
 | [social-media-analyzer](skills/growth-operations-xiaohongshu/social-media-analyzer) | growth-operations-xiaohongshu | ★★★★★ | Social media campaign analysis and performance tracking. Calculates engagement r |
 | [seo-audit](skills/growth-operations-xiaohongshu/seo-audit) | growth-operations-xiaohongshu | ★★★★☆ | 用于网站 SEO 全面审计、On-page 优化建议和技术 SEO 检查清单生成。仓库整理版，吸收社区高频最佳实践。 |
 | [twitter-reader](skills/growth-operations-xiaohongshu/twitter-reader) | growth-operations-xiaohongshu | ★★★☆☆ | Fetch Twitter/X post content by URL using jina.ai API to bypass JavaScript restr |
-
-## automation
-
-**13 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [guardian](skills/engineering-workflow-automation/guardian) | engineering-workflow-automation | ★★★★★ | Git/PR gatekeeper that classifies change essence, recommends granularity, naming |
-| [harvest](skills/engineering-workflow-automation/harvest) | engineering-workflow-automation | ★★★★★ | Collect GitHub PR data and generate work reports. Retrieves PR info via gh comma |
-| [latch](skills/engineering-workflow-automation/latch) | engineering-workflow-automation | ★★★★★ | Propose, configure, debug, and maintain Claude Code hooks (PreToolUse/PostToolUs |
-| [excel-automation](skills/office-white-collar/excel-automation) | office-white-collar | ★★★★★ | Create, parse, and control Excel files on macOS. Professional formatting with op |
-| [jupyter-notebook](skills/engineering-workflow-automation/jupyter-notebook) | engineering-workflow-automation | ★★★★☆ | Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) |
-| [playwright](skills/engineering-workflow-automation/playwright) | engineering-workflow-automation | ★★★★☆ | Use when the task requires automating a real browser from the terminal (navigati |
-| [web-scraper](skills/engineering-workflow-automation/web-scraper) | engineering-workflow-automation | ★★★★☆ | 用于网页数据抓取、结构化提取和反爬策略应对。仓库整理版，吸收社区高频最佳实践。 |
-| [lark-base](skills/knowledge-and-pm-integrations/lark-base) | knowledge-and-pm-integrations | ★★★★☆ | 飞书多维表格的表、字段、记录、视图和工作流管理。 |
-| [gh-fix-ci](skills/engineering-workflow-automation/gh-fix-ci) | engineering-workflow-automation | ★★★☆☆ | Use when a user asks to debug or fix failing GitHub PR checks that run in GitHub |
-| [agent-browser](skills/engineering-workflow-automation/agent-browser) | engineering-workflow-automation | ★★☆☆☆ | 为 Agent 提供真实浏览器自动化能力，支持语义定位、表单交互、截图录屏、脚本执行与会话管理。 |
-| [gh-address-comments](skills/engineering-workflow-automation/gh-address-comments) | engineering-workflow-automation | ★★☆☆☆ | Help address review/issue comments on the open GitHub PR for the current branch  |
-| [github](skills/engineering-workflow-automation/github) | engineering-workflow-automation | ★★☆☆☆ | 通过 GitHub CLI 自动化 Issue、PR、Review 与 CI 检查，适合工程协作闭环。 |
-| [yeet](skills/engineering-workflow-automation/yeet) | engineering-workflow-automation | ★★☆☆☆ | Use only when the user explicitly asks to stage, commit, push, and open a GitHub |
 
 ## devops
 
@@ -1121,7 +1126,7 @@
 |-------|----------|---------|-------------|
 | [hermes-graphify-gsd-nonintrusive-workflow](skills/ai-agent-platform/hermes-graphify-gsd-nonintrusive-workflow) | ai-agent-platform | ★★★★★ | Use when integrating Hermes Agent, graphify, and GSD into a local development wo |
 | [hermes-graphify-gsd-runtime-operator](skills/ai-agent-platform/hermes-graphify-gsd-runtime-operator) | ai-agent-platform | ★★★★★ | Use when operating or debugging a repo-local Hermes + graphify + GSD autonomous  |
-| [graphify](skills/developer-engineering/graphify) | developer-engineering | ★★★★★ | any input (code, docs, papers, images, video/audio) -> knowledge graph -> cluste |
+| [graphify](skills/developer-engineering/graphify) | developer-engineering | ★★★★★ | any input (code, docs, papers, images) → knowledge graph → clustered communities |
 | [gsd-graphify-brownfield-bootstrap](skills/engineering-workflow-automation/gsd-graphify-brownfield-bootstrap) | engineering-workflow-automation | ★★★★★ | Bootstrap GSD + graphify for an existing brownfield repo when the project needs  |
 | [hermes-graphify-gsd-project-integration](skills/engineering-workflow-automation/hermes-graphify-gsd-project-integration) | engineering-workflow-automation | ★★★★★ | Use when integrating Hermes Agent, graphify, and GSD into a specific repository, |
 
@@ -1156,7 +1161,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [deep-research](skills/ai-workflow/deep-research) | ai-workflow | ★★★★★ | Generate format-controlled research reports with evidence tracking, citations, a |
-| [graphify](skills/developer-engineering/graphify) | developer-engineering | ★★★★★ | any input (code, docs, papers, images, video/audio) -> knowledge graph -> cluste |
+| [graphify](skills/developer-engineering/graphify) | developer-engineering | ★★★★★ | any input (code, docs, papers, images) → knowledge graph → clustered communities |
 | [arxiv](skills/knowledge-and-pm-integrations/arxiv) | knowledge-and-pm-integrations | ★★★★☆ | 用于按关键词、作者、分类或编号检索 arXiv 论文。 |
 | [llm-wiki](skills/knowledge-and-pm-integrations/llm-wiki) | knowledge-and-pm-integrations | ★★★★☆ | 用于构建和维护互联的 LLM Markdown 知识库。 |
 | [notion-research-documentation](skills/knowledge-and-pm-integrations/notion-research-documentation) | knowledge-and-pm-integrations | ★★★☆☆ | 用于整合 Notion 信息并生成研究文档。 |
@@ -1170,7 +1175,7 @@
 | [skill-creator](skills/ai-workflow/skill-creator) | ai-workflow | ★★★★★ | Create new skills, modify and improve existing skills, and measure skill perform |
 | [skill-reviewer](skills/ai-workflow/skill-reviewer) | ai-workflow | ★★★★★ | Reviews and improves Claude Code skills against official best practices. Support |
 | [skill-tester](skills/developer-engineering/skill-tester) | developer-engineering | ★★★★★ | Name: skill-tester Tier: POWERFUL Category: Engineering Quality Assurance Depend |
-| [skill-security-auditor](skills/security-and-reliability/skill-security-auditor) | security-and-reliability | ★★★★☆ | 用于安装前审计 AI Agent 技能安全风险，输出 PASS/WARN/FAIL 结论和修复建议。 |
+| [skill-security-auditor](skills/security-and-reliability/skill-security-auditor) | security-and-reliability | ★★★★☆ | Security audit and vulnerability scanner for AI agent skills before installation |
 | [skill-vetter](skills/security-and-reliability/skill-vetter) | security-and-reliability | ★★☆☆☆ | 在安装前审计技能安全性，识别恶意指令、越权行为与高风险配置。 |
 
 ## skills
@@ -1236,8 +1241,8 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [openai-docs](skills/ai-agent-platform/openai-docs) | ai-agent-platform | ★★★☆☆ | Use when the user asks how to build with OpenAI products or APIs and needs up-to |
-| [lark-doc](skills/knowledge-and-pm-integrations/lark-doc) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书文档读取、创建、编辑、总结和排版处理。 |
-| [lark-markdown](skills/knowledge-and-pm-integrations/lark-markdown) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书 Markdown 文件创建、读取、上传和编辑。 |
+| [lark-doc](skills/knowledge-and-pm-integrations/lark-doc) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书云文档 / Docx / 知识库 Wiki 文档（v2）：创建、打开、读取、获取、查看、总结、整理、改写、翻译、审阅和编辑飞书文档内容。当用户给出飞书文档  |
+| [lark-markdown](skills/knowledge-and-pm-integrations/lark-markdown) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书 Markdown：查看、创建、上传、编辑和比较 Markdown 文件。当用户需要创建或编辑 Markdown 文件、读取、修改、局部 patch 或比较 |
 | [docs-cleaner](skills/operations-general/docs-cleaner) | operations-general | ★★★☆☆ | Consolidates redundant documentation while preserving all valuable content. This |
 
 ## generator
@@ -1290,9 +1295,9 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [grove](skills/knowledge-and-pm-integrations/grove) | knowledge-and-pm-integrations | ★★★★★ | 用于规划仓库结构、文档目录、测试脚本组织和迁移方案。 |
-| [lore](skills/knowledge-and-pm-integrations/lore) | knowledge-and-pm-integrations | ★★★★★ | 用于沉淀跨 Agent 经验、模式和组织记忆。 |
-| [tome](skills/knowledge-and-pm-integrations/tome) | knowledge-and-pm-integrations | ★★★★★ | 用于把仓库变更整理成学习文档和知识沉淀。 |
+| [grove](skills/knowledge-and-pm-integrations/grove) | knowledge-and-pm-integrations | ★★★★★ | Repository structure design, optimization, and audit. Directory design, docs/ la |
+| [lore](skills/knowledge-and-pm-integrations/lore) | knowledge-and-pm-integrations | ★★★★★ | Cross-agent knowledge curator and institutional memory guardian. Extracts patter |
+| [tome](skills/knowledge-and-pm-integrations/tome) | knowledge-and-pm-integrations | ★★★★★ | Converts repository changes into detailed learning documents. Use when turning d |
 | [notion-knowledge-capture](skills/knowledge-and-pm-integrations/notion-knowledge-capture) | knowledge-and-pm-integrations | ★★★☆☆ | 用于把对话、决策和笔记沉淀到 Notion。 |
 
 ## media
@@ -1312,8 +1317,8 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lark-minutes](skills/knowledge-and-pm-integrations/lark-minutes) | knowledge-and-pm-integrations | ★★★★☆ | 飞书妙记查询、下载、总结、待办和音视频转写。 |
-| [lark-vc](skills/knowledge-and-pm-integrations/lark-vc) | knowledge-and-pm-integrations | ★★★★☆ | 飞书历史会议、纪要、逐字稿和参会人查询。 |
+| [lark-minutes](skills/knowledge-and-pm-integrations/lark-minutes) | knowledge-and-pm-integrations | ★★★★☆ | 飞书妙记：妙记相关基本功能。1.查询妙记列表（按关键词/所有者/参与者/时间范围）；2.获取妙记基础信息（标题、封面、时长 等）；3.下载妙记音视频文件；4.获 |
+| [lark-vc](skills/knowledge-and-pm-integrations/lark-vc) | knowledge-and-pm-integrations | ★★★★☆ | 飞书视频会议：搜索历史会议、查询会议纪要产物（总结、待办、章节、逐字稿）、查询会议参会人快照。1. 查询已经结束的会议数量或详情时使用本技能（如历史日期｜昨天｜ |
 | [lark-vc-agent](skills/knowledge-and-pm-integrations/lark-vc-agent) | knowledge-and-pm-integrations | ★★★★☆ | 飞书会议机器人入会、离会和会中事件读取。 |
 | [lark-workflow-meeting-summary](skills/knowledge-and-pm-integrations/lark-workflow-meeting-summary) | knowledge-and-pm-integrations | ★★★★☆ | 汇总会议纪要、提炼结论并生成结构化报告。 |
 
@@ -1367,7 +1372,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [codebase-onboarding](skills/developer-engineering/codebase-onboarding) | developer-engineering | ★★★★★ | Analyze a codebase and generate comprehensive onboarding documentation tailored  |
-| [graphify](skills/developer-engineering/graphify) | developer-engineering | ★★★★★ | any input (code, docs, papers, images, video/audio) -> knowledge graph -> cluste |
+| [graphify](skills/developer-engineering/graphify) | developer-engineering | ★★★★★ | any input (code, docs, papers, images) → knowledge graph → clustered communities |
 | [codebase-inspection](skills/developer-engineering/codebase-inspection) | developer-engineering | ★★★★☆ | Inspect and analyze codebases using pygount for LOC counting, language breakdown |
 
 ## database
@@ -1378,7 +1383,7 @@
 |-------|----------|---------|-------------|
 | [database-designer](skills/developer-engineering/database-designer) | developer-engineering | ★★★★★ | A comprehensive database design skill that provides expert-level analysis, optim |
 | [database-schema-designer](skills/developer-engineering/database-schema-designer) | developer-engineering | ★★★★★ | Design relational database schemas from requirements and generate migrations, Ty |
-| [lark-base](skills/knowledge-and-pm-integrations/lark-base) | knowledge-and-pm-integrations | ★★★★☆ | 飞书多维表格的表、字段、记录、视图和工作流管理。 |
+| [lark-base](skills/knowledge-and-pm-integrations/lark-base) | knowledge-and-pm-integrations | ★★★★☆ | 当需要用 lark-cli 操作飞书多维表格（Base）时调用：搜索 Base、建表、字段管理、记录读写、记录分享链接、视图配置、历史查询，以及角色/表单/仪表 |
 
 ## debugging
 
@@ -1416,7 +1421,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lark-wiki](skills/knowledge-and-pm-integrations/lark-wiki) | knowledge-and-pm-integrations | ★★★★☆ | 飞书知识库空间、成员、节点和文档组织管理。 |
+| [lark-wiki](skills/knowledge-and-pm-integrations/lark-wiki) | knowledge-and-pm-integrations | ★★★★☆ | 飞书知识库：管理知识空间、空间成员和文档节点。创建和查询知识空间、查看和管理空间成员、管理节点层级结构、在知识库中组织文档和快捷方式。当用户需要在知识库中查找或 |
 | [llm-wiki](skills/knowledge-and-pm-integrations/llm-wiki) | knowledge-and-pm-integrations | ★★★★☆ | 用于构建和维护互联的 LLM Markdown 知识库。 |
 | [obsidian](skills/knowledge-and-pm-integrations/obsidian) | knowledge-and-pm-integrations | ★★★☆☆ | 用于读取、搜索、创建和编辑 Obsidian 笔记。 |
 
@@ -1428,7 +1433,7 @@
 |-------|----------|---------|-------------|
 | [llm-wiki](skills/knowledge-and-pm-integrations/llm-wiki) | knowledge-and-pm-integrations | ★★★★☆ | 用于构建和维护互联的 LLM Markdown 知识库。 |
 | [markdown-tools](skills/office-white-collar/markdown-tools) | office-white-collar | ★★★★☆ | Converts documents to markdown with multi-tool orchestration for best quality. S |
-| [lark-markdown](skills/knowledge-and-pm-integrations/lark-markdown) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书 Markdown 文件创建、读取、上传和编辑。 |
+| [lark-markdown](skills/knowledge-and-pm-integrations/lark-markdown) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书 Markdown：查看、创建、上传、编辑和比较 Markdown 文件。当用户需要创建或编辑 Markdown 文件、读取、修改、局部 patch 或比较 |
 
 ## office
 
@@ -1563,7 +1568,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [dependency-auditor](skills/developer-engineering/dependency-auditor) | developer-engineering | ★★★★★ | > Skill Type: POWERFUL > Category: Engineering > Domain: Dependency Management & |
-| [skill-security-auditor](skills/security-and-reliability/skill-security-auditor) | security-and-reliability | ★★★★☆ | 用于安装前审计 AI Agent 技能安全风险，输出 PASS/WARN/FAIL 结论和修复建议。 |
+| [skill-security-auditor](skills/security-and-reliability/skill-security-auditor) | security-and-reliability | ★★★★☆ | Security audit and vulnerability scanner for AI agent skills before installation |
 
 ## brownfield
 
@@ -1582,6 +1587,15 @@
 |-------|----------|---------|-------------|
 | [capture-screen](skills/office-white-collar/capture-screen) | office-white-collar | ★★★★★ | Programmatic screenshot capture on macOS. Find window IDs with Swift CGWindowLis |
 | [notion-knowledge-capture](skills/knowledge-and-pm-integrations/notion-knowledge-capture) | knowledge-and-pm-integrations | ★★★☆☆ | 用于把对话、决策和笔记沉淀到 Notion。 |
+
+## changelog
+
+**2 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [changelog-generator](skills/devops-sre/changelog-generator) | devops-sre | ★★★★★ | Parse conventional commits, determine semantic version bumps, and generate struc |
+| [changelog-automation](skills/engineering-workflow-automation/changelog-automation) | engineering-workflow-automation | ★★★★☆ | Automate changelog generation from commits, PRs, and releases following Keep a C |
 
 ## checker
 
@@ -1625,7 +1639,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [graphify](skills/developer-engineering/graphify) | developer-engineering | ★★★★★ | any input (code, docs, papers, images, video/audio) -> knowledge graph -> cluste |
+| [graphify](skills/developer-engineering/graphify) | developer-engineering | ★★★★★ | any input (code, docs, papers, images) → knowledge graph → clustered communities |
 | [gsd-graphify-brownfield-bootstrap](skills/engineering-workflow-automation/gsd-graphify-brownfield-bootstrap) | engineering-workflow-automation | ★★★★★ | Bootstrap GSD + graphify for an existing brownfield repo when the project needs  |
 
 ## configuration
@@ -1635,7 +1649,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Configure, extend, or contribute to Hermes Agent. |
-| [lark-shared](skills/knowledge-and-pm-integrations/lark-shared) | knowledge-and-pm-integrations | ★★★★☆ | 飞书 CLI 登录、身份切换、权限排查和版本更新。 |
+| [lark-shared](skills/knowledge-and-pm-integrations/lark-shared) | knowledge-and-pm-integrations | ★★★★☆ | Use when first setting up lark-cli, running auth login, switching user/bot ident |
 
 ## container-security
 
@@ -1670,7 +1684,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lark-event](skills/knowledge-and-pm-integrations/lark-event) | knowledge-and-pm-integrations | ★★★★☆ | 飞书实时事件监听、订阅和机器人消息处理。 |
+| [lark-event](skills/knowledge-and-pm-integrations/lark-event) | knowledge-and-pm-integrations | ★★★★☆ | Lark/Feishu real-time event listening / subscribing / consuming: stream events a |
 | [lark-vc-agent](skills/knowledge-and-pm-integrations/lark-vc-agent) | knowledge-and-pm-integrations | ★★★★☆ | 飞书会议机器人入会、离会和会中事件读取。 |
 
 ## figma
@@ -1752,7 +1766,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [meeting-minutes-taker](skills/office-white-collar/meeting-minutes-taker) | office-white-collar | ★★★★★ | Transforms raw meeting transcripts into high-fidelity, structured meeting minute |
-| [lark-minutes](skills/knowledge-and-pm-integrations/lark-minutes) | knowledge-and-pm-integrations | ★★★★☆ | 飞书妙记查询、下载、总结、待办和音视频转写。 |
+| [lark-minutes](skills/knowledge-and-pm-integrations/lark-minutes) | knowledge-and-pm-integrations | ★★★★☆ | 飞书妙记：妙记相关基本功能。1.查询妙记列表（按关键词/所有者/参与者/时间范围）；2.获取妙记基础信息（标题、封面、时长 等）；3.下载妙记音视频文件；4.获 |
 
 ## notes
 
@@ -1841,7 +1855,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lark-task](skills/knowledge-and-pm-integrations/lark-task) | knowledge-and-pm-integrations | ★★★★☆ | 飞书任务、清单、子任务、协作者和附件管理。 |
+| [lark-task](skills/knowledge-and-pm-integrations/lark-task) | knowledge-and-pm-integrations | ★★★★☆ | 飞书任务：管理任务、清单和任务智能体。创建待办任务、查看和更新任务状态、拆分子任务、组织任务清单、分配协作成员、上传任务附件、注册或注销任务智能体、更新任务智能 |
 | [linear](skills/knowledge-and-pm-integrations/linear) | knowledge-and-pm-integrations | ★★★★☆ | 用于管理 Linear issues、项目、团队和协作状态。 |
 
 ## prompt
@@ -1940,7 +1954,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lark-sheets](skills/knowledge-and-pm-integrations/lark-sheets) | knowledge-and-pm-integrations | ★★★★☆ | 飞书电子表格创建、工作表管理、单元格读写和导出。 |
+| [lark-sheets](skills/knowledge-and-pm-integrations/lark-sheets) | knowledge-and-pm-integrations | ★★★★☆ | 飞书电子表格：创建和操作电子表格。支持创建表格、创建/复制/删除/更新工作表、读写单元格、追加行数据、查找内容、导出文件。当用户需要创建电子表格、管理工作表、批 |
 | [spreadsheet](skills/office-white-collar/spreadsheet) | office-white-collar | ★★★★☆ | Use when tasks involve creating, editing, analyzing, or formatting spreadsheets  |
 
 ## strategy
@@ -1994,7 +2008,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lark-wiki](skills/knowledge-and-pm-integrations/lark-wiki) | knowledge-and-pm-integrations | ★★★★☆ | 飞书知识库空间、成员、节点和文档组织管理。 |
+| [lark-wiki](skills/knowledge-and-pm-integrations/lark-wiki) | knowledge-and-pm-integrations | ★★★★☆ | 飞书知识库：管理知识空间、空间成员和文档节点。创建和查询知识空间、查看和管理空间成员、管理节点层级结构、在知识库中组织文档和快捷方式。当用户需要在知识库中查找或 |
 | [llm-wiki](skills/knowledge-and-pm-integrations/llm-wiki) | knowledge-and-pm-integrations | ★★★★☆ | 用于构建和维护互联的 LLM Markdown 知识库。 |
 
 ## worktree
@@ -2148,7 +2162,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [graphify](skills/developer-engineering/graphify) | developer-engineering | ★★★★★ | any input (code, docs, papers, images, video/audio) -> knowledge graph -> cluste |
+| [graphify](skills/developer-engineering/graphify) | developer-engineering | ★★★★★ | any input (code, docs, papers, images) → knowledge graph → clustered communities |
 
 ## audit
 
@@ -2164,7 +2178,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lark-shared](skills/knowledge-and-pm-integrations/lark-shared) | knowledge-and-pm-integrations | ★★★★☆ | 飞书 CLI 登录、身份切换、权限排查和版本更新。 |
+| [lark-shared](skills/knowledge-and-pm-integrations/lark-shared) | knowledge-and-pm-integrations | ★★★★☆ | Use when first setting up lark-cli, running auth login, switching user/bot ident |
 
 ## authoring
 
@@ -2204,7 +2218,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lark-base](skills/knowledge-and-pm-integrations/lark-base) | knowledge-and-pm-integrations | ★★★★☆ | 飞书多维表格的表、字段、记录、视图和工作流管理。 |
+| [lark-base](skills/knowledge-and-pm-integrations/lark-base) | knowledge-and-pm-integrations | ★★★★☆ | 当需要用 lark-cli 操作飞书多维表格（Base）时调用：搜索 Base、建表、字段管理、记录读写、记录分享链接、视图配置、历史查询，以及角色/表单/仪表 |
 
 ## beacon
 
@@ -2213,6 +2227,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [beacon](skills/devops-sre/beacon) | devops-sre | ★★★★★ | Observability and reliability engineering specialist. Covers SLO/SLI design, dis |
+
+## billing
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [billing-automation](skills/engineering-workflow-automation/billing-automation) | engineering-workflow-automation | ★★★☆☆ | Build automated billing systems for recurring payments, invoicing, subscription  |
 
 ## brainstorming
 
@@ -2236,7 +2258,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [breach](skills/security-and-reliability/breach) | security-and-reliability | ★★★★★ | 用于红队工程、攻击路径设计、威胁建模、紫队演练和 AI/LLM 对抗安全验证。 |
+| [breach](skills/security-and-reliability/breach) | security-and-reliability | ★★★★★ | Red team engineering agent. Designs attack scenarios, builds threat models, appl |
 
 ## browser
 
@@ -2294,14 +2316,6 @@
 |-------|----------|---------|-------------|
 | [cast](skills/openclaw-memory-and-safety/cast) | openclaw-memory-and-safety | ★★★★★ | Persona casting agent for rapid generation, persistence, lifecycle management, a |
 
-## changelog
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [changelog-generator](skills/devops-sre/changelog-generator) | devops-sre | ★★★★★ | Parse conventional commits, determine semantic version bumps, and generate struc |
-
 ## channel
 
 **1 skills**
@@ -2316,7 +2330,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lark-im](skills/knowledge-and-pm-integrations/lark-im) | knowledge-and-pm-integrations | ★★★★☆ | 飞书消息收发、群聊管理、聊天记录和文件处理。 |
+| [lark-im](skills/knowledge-and-pm-integrations/lark-im) | knowledge-and-pm-integrations | ★★★★☆ | 飞书即时通讯：收发消息和管理群聊。发送和回复消息、搜索聊天记录、管理群聊成员、上传下载图片和文件（支持大文件分片下载）、管理表情回复。当用户需要发消息、查看或搜 |
 
 ## chatgpt
 
@@ -2484,7 +2498,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [comply](skills/security-and-reliability/comply) | security-and-reliability | ★★★★★ | 用于合规审计、SOC2/PCI-DSS/HIPAA/ISO 27001 控制映射、审计轨迹和 Policy as Code 设计。 |
+| [comply](skills/security-and-reliability/comply) | security-and-reliability | ★★★★★ | Regulatory compliance and audit agent. Maps business regulatory requirements (SO |
 
 ## comps
 
@@ -2700,7 +2714,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lark-doc](skills/knowledge-and-pm-integrations/lark-doc) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书文档读取、创建、编辑、总结和排版处理。 |
+| [lark-doc](skills/knowledge-and-pm-integrations/lark-doc) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书云文档 / Docx / 知识库 Wiki 文档（v2）：创建、打开、读取、获取、查看、总结、整理、改写、翻译、审阅和编辑飞书文档内容。当用户给出飞书文档  |
 
 ## docx
 
@@ -2716,7 +2730,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lark-drive](skills/knowledge-and-pm-integrations/lark-drive) | knowledge-and-pm-integrations | ★★★★☆ | 飞书云空间文件上传、下载、权限、评论和目录管理。 |
+| [lark-drive](skills/knowledge-and-pm-integrations/lark-drive) | knowledge-and-pm-integrations | ★★★★☆ | 飞书云空间（云盘/云存储）：管理云空间（云盘/云存储）中的文件和文件夹。上传和下载文件、创建文件夹、复制/移动/删除文件、查看文件元数据、管理文档评论、管理文档 |
 
 ## earnings
 
@@ -2740,7 +2754,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lark-mail](skills/knowledge-and-pm-integrations/lark-mail) | knowledge-and-pm-integrations | ★★★★☆ | 飞书邮箱草稿、发送、回复、搜索、附件和规则管理。 |
+| [lark-mail](skills/knowledge-and-pm-integrations/lark-mail) | knowledge-and-pm-integrations | ★★★★☆ | 飞书邮箱 — draft, compose, send, reply, forward, read, and search emails; manage dra |
 
 ## env
 
@@ -2828,7 +2842,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lark-drive](skills/knowledge-and-pm-integrations/lark-drive) | knowledge-and-pm-integrations | ★★★★☆ | 飞书云空间文件上传、下载、权限、评论和目录管理。 |
+| [lark-drive](skills/knowledge-and-pm-integrations/lark-drive) | knowledge-and-pm-integrations | ★★★★☆ | 飞书云空间（云盘/云存储）：管理云空间（云盘/云存储）中的文件和文件夹。上传和下载文件、创建文件夹、复制/移动/删除文件、查看文件元数据、管理文档评论、管理文档 |
 
 ## filing
 
@@ -2932,7 +2946,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [grove](skills/knowledge-and-pm-integrations/grove) | knowledge-and-pm-integrations | ★★★★★ | 用于规划仓库结构、文档目录、测试脚本组织和迁移方案。 |
+| [grove](skills/knowledge-and-pm-integrations/grove) | knowledge-and-pm-integrations | ★★★★★ | Repository structure design, optimization, and audit. Directory design, docs/ la |
 
 ## grype
 
@@ -3172,7 +3186,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [graphify](skills/developer-engineering/graphify) | developer-engineering | ★★★★★ | any input (code, docs, papers, images, video/audio) -> knowledge graph -> cluste |
+| [graphify](skills/developer-engineering/graphify) | developer-engineering | ★★★★★ | any input (code, docs, papers, images) → knowledge graph → clustered communities |
 
 ## landing
 
@@ -3268,7 +3282,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lore](skills/knowledge-and-pm-integrations/lore) | knowledge-and-pm-integrations | ★★★★★ | 用于沉淀跨 Agent 经验、模式和组织记忆。 |
+| [lore](skills/knowledge-and-pm-integrations/lore) | knowledge-and-pm-integrations | ★★★★★ | Cross-agent knowledge curator and institutional memory guardian. Extracts patter |
 
 ## macro
 
@@ -3292,7 +3306,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lark-mail](skills/knowledge-and-pm-integrations/lark-mail) | knowledge-and-pm-integrations | ★★★★☆ | 飞书邮箱草稿、发送、回复、搜索、附件和规则管理。 |
+| [lark-mail](skills/knowledge-and-pm-integrations/lark-mail) | knowledge-and-pm-integrations | ★★★★☆ | 飞书邮箱 — draft, compose, send, reply, forward, read, and search emails; manage dra |
 
 ## map
 
@@ -3332,7 +3346,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lark-im](skills/knowledge-and-pm-integrations/lark-im) | knowledge-and-pm-integrations | ★★★★☆ | 飞书消息收发、群聊管理、聊天记录和文件处理。 |
+| [lark-im](skills/knowledge-and-pm-integrations/lark-im) | knowledge-and-pm-integrations | ★★★★☆ | 飞书即时通讯：收发消息和管理群聊。发送和回复消息、搜索聊天记录、管理群聊成员、上传下载图片和文件（支持大文件分片下载）、管理表情回复。当用户需要发消息、查看或搜 |
 
 ## migration
 
@@ -3852,7 +3866,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lark-workflow-standup-report](skills/knowledge-and-pm-integrations/lark-workflow-standup-report) | knowledge-and-pm-integrations | ★★★★☆ | 汇总今日日程、未完成待办和阻塞事项，生成每日站会摘要。 |
+| [lark-workflow-standup-report](skills/knowledge-and-pm-integrations/lark-workflow-standup-report) | knowledge-and-pm-integrations | ★★★★☆ | 日程待办摘要：编排 calendar +agenda 和 task +get-my-tasks，生成指定日期的日程与未完成任务摘要。适用于了解今天/明天/本周的 |
 
 ## repository
 
@@ -4092,7 +4106,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lark-sheets](skills/knowledge-and-pm-integrations/lark-sheets) | knowledge-and-pm-integrations | ★★★★☆ | 飞书电子表格创建、工作表管理、单元格读写和导出。 |
+| [lark-sheets](skills/knowledge-and-pm-integrations/lark-sheets) | knowledge-and-pm-integrations | ★★★★☆ | 飞书电子表格：创建和操作电子表格。支持创建表格、创建/复制/删除/更新工作表、读写单元格、追加行数据、查找内容、导出文件。当用户需要创建电子表格、管理工作表、批 |
 
 ## sherpa
 
@@ -4220,7 +4234,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lark-workflow-standup-report](skills/knowledge-and-pm-integrations/lark-workflow-standup-report) | knowledge-and-pm-integrations | ★★★★☆ | 汇总今日日程、未完成待办和阻塞事项，生成每日站会摘要。 |
+| [lark-workflow-standup-report](skills/knowledge-and-pm-integrations/lark-workflow-standup-report) | knowledge-and-pm-integrations | ★★★★☆ | 日程待办摘要：编排 calendar +agenda 和 task +get-my-tasks，生成指定日期的日程与未完成任务摘要。适用于了解今天/明天/本周的 |
 
 ## stock
 
@@ -4324,7 +4338,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lark-task](skills/knowledge-and-pm-integrations/lark-task) | knowledge-and-pm-integrations | ★★★★☆ | 飞书任务、清单、子任务、协作者和附件管理。 |
+| [lark-task](skills/knowledge-and-pm-integrations/lark-task) | knowledge-and-pm-integrations | ★★★★☆ | 飞书任务：管理任务、清单和任务智能体。创建待办任务、查看和更新任务状态、拆分子任务、组织任务清单、分配协作成员、上传任务附件、注册或注销任务智能体、更新任务智能 |
 
 ## tavily
 
@@ -4420,7 +4434,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [tome](skills/knowledge-and-pm-integrations/tome) | knowledge-and-pm-integrations | ★★★★★ | 用于把仓库变更整理成学习文档和知识沉淀。 |
+| [tome](skills/knowledge-and-pm-integrations/tome) | knowledge-and-pm-integrations | ★★★★★ | Converts repository changes into detailed learning documents. Use when turning d |
 
 ## tone
 
@@ -4540,7 +4554,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [graphify](skills/developer-engineering/graphify) | developer-engineering | ★★★★★ | any input (code, docs, papers, images, video/audio) -> knowledge graph -> cluste |
+| [graphify](skills/developer-engineering/graphify) | developer-engineering | ★★★★★ | any input (code, docs, papers, images) → knowledge graph → clustered communities |
 
 ## video-conference
 
@@ -4548,7 +4562,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lark-vc](skills/knowledge-and-pm-integrations/lark-vc) | knowledge-and-pm-integrations | ★★★★☆ | 飞书历史会议、纪要、逐字稿和参会人查询。 |
+| [lark-vc](skills/knowledge-and-pm-integrations/lark-vc) | knowledge-and-pm-integrations | ★★★★☆ | 飞书视频会议：搜索历史会议、查询会议纪要产物（总结、待办、章节、逐字稿）、查询会议参会人快照。1. 查询已经结束的会议数量或详情时使用本技能（如历史日期｜昨天｜ |
 
 ## voice
 
@@ -4604,7 +4618,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lark-event](skills/knowledge-and-pm-integrations/lark-event) | knowledge-and-pm-integrations | ★★★★☆ | 飞书实时事件监听、订阅和机器人消息处理。 |
+| [lark-event](skills/knowledge-and-pm-integrations/lark-event) | knowledge-and-pm-integrations | ★★★★☆ | Lark/Feishu real-time event listening / subscribing / consuming: stream events a |
 
 ## whiteboard
 

@@ -1,14 +1,14 @@
 ---
 name: dawn
 description: 'Proposes exactly one personal side-project idea per invocation, sized to a 1-3 day MVP. Targets CLI, automation, LLM, DX, productivity, and data-viz angles; avoids clichés like TODO apps, weather apps, and pomodoro timers. Output is an 8-section brief including a ready-to-paste coding-agent prompt. Use for morning/daily idea rituals and weekend-hack ideation. Don''t use for existing-product feature proposals (Spark), dialogue brainstorming (Riff), or prototype implementation (Forge).'
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/dawn"
 license: MIT
 tags: '["dawn", "productivity"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-19"
+updated_at: "2026-05-28"
 quality: 5
 complexity: "advanced"
 ---
@@ -84,7 +84,7 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 - Emit one idea per invocation.
 - Before proposing, read `memory/dawn_log.md` and pick a genre / tech layer / mood that does not match the last 7 entries.
 - Make section 8 dense enough for a coding agent to start immediately.
-- Cite real libraries and keep tooling current (uv, Bun, Tauri, Astro, Hono, etc.).
+- Cite real libraries and keep tooling current (uv, Bun 1.2+, Tauri 2.x, Astro, Hono, FastMCP, etc.).
 - Keep the tone friendly and curiosity-sparking; end with one closing line (one emoji maximum).
 - Output language follows the CLI global config (`settings.json` `language` field, `CLAUDE.md`, `AGENTS.md`, or `GEMINI.md`); keep code, identifiers, and API names in English.
 
@@ -167,7 +167,7 @@ Emit exactly these **8 sections**, in this order, with these headings:
 #### 6. 使えそうな技術スタック
 
 - List concrete libraries across: language / framework / library / LLM / storage / packaging-distribution.
-- Real libraries only. Adopt current conventions (uv, Bun, Tauri, Astro, Hono) when apt.
+- Real libraries only. Adopt current conventions (uv, Bun 1.2+, Tauri 2.x, Astro, Hono, FastMCP) when apt.
 
 #### 7. 発展アイデア
 
@@ -204,8 +204,8 @@ Continuous-use assumption. Rotate across three axes:
 
 | Axis | Example values |
 |---|---|
-| Genre | CLI / Web app / browser extension / editor integration / automation / viz / local-first / LLM-powered / game-ish / gadget-ish / static site gen |
-| Tech layer | Frontend / Backend / Infra / AI / Data / OS integration |
+| Genre | CLI / Web app / browser extension / editor integration / automation / viz / local-first / LLM-powered / MCP-server / game-ish / gadget-ish / static site gen |
+| Tech layer | Frontend / Backend / Infra / AI / Data / OS integration / MCP |
 | Mood | Quiet delight / Gadget / Viz / Nerdy-humor / Practical |
 
 Never repeat the previous 7 entries along any axis. When in doubt, prioritize spreading the mood axis (quiet-delight tends to dominate).
@@ -228,7 +228,7 @@ Do not over-fit. The primary axis stays universal engineer appeal.
 | Morning Ritual | `morning` | | Morning routine use — short kickoff phrasing | — |
 | Weekend Hack | `weekend` | | Weekend hacks — prioritize practical/gadget axes | — |
 | Full Brief | `brief` | | Output the 8-section brief at maximum density | — |
-| Stack Rotation | `stack` | | Tech-stack-driven idea — pick an underused language / runtime / paradigm (Rust / Bun / WebGPU / DuckDB / Tauri etc.) and shape an idea that exercises its unique strength | `references/tech-stack-rotation.md` |
+| Stack Rotation | `stack` | | Tech-stack-driven idea — pick an underused language / runtime / paradigm (Rust / Bun 1.2+ / WebGPU / DuckDB / Tauri 2.x / MCP server etc.) and shape an idea that exercises its unique strength | `references/tech-stack-rotation.md` |
 | Constraint Mode | `constraint` | | Constraint-driven idea — single-file / no-deps / offline-only / single-binary / 100-LOC / keyboard-only — the constraint is the headline and shapes the engineering aesthetic | `references/constraint-modes.md` |
 | Viral Artifact | `viral` | | Shareability-first idea — first-run produces a screenshot / GIF / repo README graphic / tweet-line worth posting; the demo asset is part of the spec | `references/shareability-design.md` |
 
@@ -243,7 +243,7 @@ Behavior notes per Recipe:
 - `morning`: Tone tuned for a short morning kickoff. Simple opening → full 8-section proposal.
 - `weekend`: Bias the mood axis toward practical/gadget/nerdy. Keep MVP within a 1-2 day weekend.
 - `brief`: Maximize detail in section 8 (coding agent prompt). Expand concrete examples in other sections too.
-- `stack`: Read `references/tech-stack-rotation.md` first. From the `tech-layer` column of `memory/dawn_log.md`, pick a stack axis (Rust / Zig / Bun / Deno / WebGPU / WASM / DuckDB / Tauri / Elixir, etc.) that does not appear in the last 7 entries. Record the primary stack in `tech-layer` as `Rust+CLI` format. Section 3 must explain why this stack's specific strength (single binary / GPU / actor model, etc.) is what makes the idea work. Section 6 must consist only of that stack's standard libraries — no generic alternatives. The Section 8 prompt must hard-code language version / package manager / entry-point file so the agent does not drift to a generic stack. Forbid stack tourism (chasing trends without reason) and library showcase (existing only to demo a library).
+- `stack`: Read `references/tech-stack-rotation.md` first. From the `tech-layer` column of `memory/dawn_log.md`, pick a stack axis (Rust / Zig / Bun 1.2+ / Deno 2.x / WebGPU / WASM Component Model / DuckDB / Tauri 2.x / FastMCP / Elixir, etc.) that does not appear in the last 7 entries. Record the primary stack in `tech-layer` as `Rust+CLI` format. Section 3 must explain why this stack's specific strength (single binary / GPU / actor model / MCP-native, etc.) is what makes the idea work. Section 6 must consist only of that stack's standard libraries — no generic alternatives. The Section 8 prompt must hard-code language version / package manager / entry-point file so the agent does not drift to a generic stack. Forbid stack tourism (chasing trends without reason) and library showcase (existing only to demo a library).
 - `constraint`: Read `references/constraint-modes.md` first. Pick **one** primary constraint (`single-file` / `no-deps` / `offline-only` / `single-binary` / `100-loc` / `keyboard-only` / `no-config` / `read-only` / `human-readable-storage`, etc.); record the constraint name in the `mood` column to avoid repetition over the last 7 days. Section 1 tagline must declare the constraint (e.g. `tail-rs — single-binary, no-deps`). Section 4 must include constraint verification (`wc -l` / dependency tree / binary size / network packet capture / keyboard shortcut map). Section 5 must include an explicit "constraint check" step. Section 7 extensions must either preserve the constraint or note explicitly when they break it. Forbid constraint theatre (decoration only) and bait-and-switch (relaxing the constraint mid-build).
 - `viral`: Read `references/shareability-design.md` first. Decide the artifact (still image / 6s GIF / terminal cast / single number / README graphic / tweet-line) that grabs a curious engineer in 5 seconds **before** scoping the MVP. Record the artifact type in the `mood` column. Section 1 codename should hint at the artifact (`chord-year`, `git-heat`). Section 4 must include the artifact spec (format / dimension or duration / generation script such as `make share` / textual description of the frame contents). Section 5 must place "demo asset write-out" as an independent step. The Section 8 prompt must include a `demo` / `share` build target so the asset is produced on first run. Forbid wrapped-clones, mocked numbers, endless GIFs, and inside-baseball artifacts.
 
@@ -356,7 +356,7 @@ _STEP_COMPLETE:
     artifact_type: "Dawn Idea"
     parameters:
       idea_name: "[codename]"
-      genre: "[CLI|Web|Extension|Editor|Automation|Viz|LocalFirst|LLM|Game|Gadget|SSG]"
+      genre: "[CLI|Web|Extension|Editor|Automation|Viz|LocalFirst|LLM|MCPServer|Game|Gadget|SSG]"
       tech_layer: "[Frontend|Backend|Infra|AI|Data|OS]"
       mood: "[Quiet|Gadget|Viz|Nerdy|Practical]"
       mvp_days: "[1-3]"

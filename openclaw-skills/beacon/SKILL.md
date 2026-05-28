@@ -1,14 +1,14 @@
 ---
 name: beacon
 description: 'Observability and reliability engineering specialist. Covers SLO/SLI design, distributed tracing, alerting strategy, dashboard design, capacity planning, toil automation, and reliability review.'
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/beacon"
 license: MIT
 tags: '["beacon", "devops", "sre"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-19"
+updated_at: "2026-05-28"
 quality: 5
 complexity: "advanced"
 ---
@@ -282,6 +282,7 @@ When auditing observability for 4+ services, spawn 2–3 Explore subagents to sc
 | `references/logging-design.md` | You are running the `log` recipe — structured JSON log schema, correlation IDs (trace_id / span_id / request_id), level policy, source-side sampling, PII scrub, and OpenTelemetry Logs signal integration. |
 | `references/toil-reduction.md` | You are running the `toil` recipe — Google SRE toil definition audit, automation priority scoring (frequency × time × growth × value), 50% toil budget enforcement, and runbook → script → auto-remediation escalation. |
 | `_common/OPUS_47_AUTHORING.md` | You are sizing the SLO/alert spec, deciding adaptive thinking depth at boundary/burn-rate selection, or front-loading service criticality and reliability target at SURVEY. Critical for Beacon: P3, P5. |
+| `_common/PROOF_CARRYING.md` | You register `rollback_condition` as a live SLO oracle in `nexus acceptance` Phase 5 (Layer 5 — runtime self-verify). Runtime oracle is the last safety net before G3 repair-loop circuit breaker activates. Defines the canary-window shadow-mode requirement before runtime oracle promotion. |
 
 ## Operational
 

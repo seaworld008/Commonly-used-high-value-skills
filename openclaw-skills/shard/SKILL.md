@@ -1,14 +1,14 @@
 ---
 name: shard
 description: 'Multi-tenant architecture design. Tenant isolation strategies, RLS, routing, and scale design for SaaS.'
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/shard"
 license: MIT
 tags: '["deployment", "shard"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-19"
+updated_at: "2026-05-28"
 quality: 5
 complexity: "advanced"
 ---
@@ -68,7 +68,7 @@ Route elsewhere when the task is primarily:
 
 - Analyze requirements before recommending an isolation strategy; never default to one approach.
 - Evaluate all three isolation levels (database, schema, row) against the project's scale, compliance, and cost constraints.
-- Design RLS policies that fail closed (deny by default, explicit allow). Always index columns used in RLS policies to avoid sequential scans. Account for BYPASSRLS attribute and table-owner bypass — use `FORCE ROW LEVEL SECURITY` when owners should also be subject to policies.
+- Design RLS policies that fail closed (deny by default, explicit allow). Always index columns used in RLS policies to avoid sequential scans — missing index causes 100x+ slowdown ([Supabase RLS Performance Docs](https://supabase.com/docs/guides/troubleshooting/rls-performance-and-best-practices-Z5Jjwv)). Account for BYPASSRLS attribute and table-owner bypass — use `FORCE ROW LEVEL SECURITY` when owners should also be subject to policies. Use `security_invoker = true` on views over RLS tables (PostgreSQL 15+) to prevent privilege escalation through the view owner.
 - Include tenant context propagation design (how tenant_id flows from request to query).
 - Assess cross-tenant data leakage vectors for every design.
 - Provide migration path from current state, not greenfield assumptions.
@@ -90,9 +90,10 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 
 ### Ask First
 
-- Compliance requirements (HIPAA, SOC2, PCI-DSS) are unclear.
+- Compliance requirements (HIPAA, SOC2, PCI-DSS, EU AI Act) are unclear.
 - Expected tenant count range is ambiguous (10 vs 10,000 tenants).
 - Existing data model significantly conflicts with multi-tenancy.
+- EU/GDPR data residency requirements are unspecified — the choice of cloud provider region has legal implications under the US CLOUD Act that pure "EU region" selections do not resolve.
 
 ### Never
 
@@ -157,12 +158,16 @@ Parse the first token of user input.
 
 | Strategy | Tenant scale | Data isolation | Cost | Complexity | Compliance |
 |----------|-------------|---------------|------|------------|------------|
-| **Database-per-tenant** | 1-100 | Strongest | High | Medium | HIPAA/PCI-DSS ready |
-| **Schema-per-tenant** | 10-1,000 | Strong | Medium | Medium-High | SOC2 ready |
-| **Row-level (RLS)** | 100-100,000+ | Moderate | Low | Low-Medium | Needs careful design |
-| **Hybrid** | Varies | Configurable | Medium | High | Per-tier compliance |
+| **Database-per-tenant** | 1-100 | Strongest | High | Medium | HIPAA/PCI-DSS/EU-AI-Act ready; use Neon project-per-tenant for serverless scale |
+| **Schema-per-tenant** | 10-1,000 | Strong | Medium | Medium-High | SOC2 ready; Citus 13 schema-based sharding for write scale |
+| **Row-level (RLS)** | 100-100,000+ | Moderate | Low | Low-Medium | Needs careful design; index tenant column; use `security_invoker` views (PG 15+) |
+| **Hybrid** | Varies | Configurable | Medium | High | Per-tier compliance; dominant pattern in mature SaaS 2025+ |
 
 **Hybrid tenancy** is the dominant pattern in mature SaaS (2025+): standard-tier tenants share pooled row-level infrastructure while enterprise tenants with compliance or heavy workload requirements get isolated schemas or dedicated databases. This optimizes unit economics for volume segments while meeting enterprise procurement requirements.
+
+**Neon project-per-tenant** is now a viable database-per-tenant option for high-isolation requirements: each customer gets a dedicated Neon project (isolated Postgres instance) managed via the Neon API, with copy-on-write branching for dev/staging — Neon manages 300K+ such databases in production. Particularly suited for HIPAA-regulated SaaS. Source: [Neon — Multitenancy](https://neon.tech/docs/guides/multitenancy), [How Neon Solves HIPAA Compliance, Multi-Tenancy, and Scaling for B2B SaaS](https://neon.tech/blog/hipaa-multitenancy-b2b-saas)
+
+**Data residency requirement (EU AI Act / GDPR):** As of 2026, Article 16 of the EU AI Act activates for Annex III high-risk systems (August 2026), with penalties up to €15M or 3% of global turnover. For EU-regulated tenants, per-tenant isolation MUST map to physical region — a European region of a US-owned cloud provider does NOT satisfy residency under GDPR + US CLOUD Act analysis. Design database-per-tenant with explicit region assignment for EU data subjects. Source: [EU Data Residency for AI Infrastructure: 2026 Guide](https://lyceum.technology/magazine/eu-data-residency-ai-infrastructure/)
 
 ### Decision Factors
 
@@ -187,6 +192,7 @@ Request → [Auth Middleware] → tenant_id extracted
 Key design points:
 - Extract tenant_id at the edge (auth middleware).
 - Propagate via request-scoped context (not global state). In async runtimes, use language-native async context (e.g., Python `contextvars`, Node.js `AsyncLocalStorage`, Go `context.Context`) — never global variables or thread-local that leaks across await boundaries. [Source: Node.js docs — Asynchronous context tracking (https://nodejs.org/api/async_context.html)]
+- Under **any** transaction-mode connection pooler (PgBouncer or Supavisor), set tenant context with `SELECT set_config('app.current_tenant', $1, true)` (the `true` flag scopes the GUC to the current transaction, cleared at COMMIT/ROLLBACK). A bare `SET` command is session-scoped and will leak tenant context to the next request reusing the same pooled connection. [Source: Supavisor docs](https://github.com/supabase/supavisor)
 - Enforce at the database layer (RLS or query filter) as final guard.
 - Log tenant_id in every audit entry.
 - Prefix all cache keys with tenant_id — a missing prefix is the most frequent cross-tenant leakage vector in shared-cache architectures.

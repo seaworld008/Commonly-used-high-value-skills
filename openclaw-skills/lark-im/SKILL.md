@@ -1,14 +1,14 @@
 ---
 name: lark-im
-description: '飞书消息收发、群聊管理、聊天记录和文件处理。'
-version: 1.0.0
+description: '飞书即时通讯：收发消息和管理群聊。发送和回复消息、搜索聊天记录、管理群聊成员、上传下载图片和文件（支持大文件分片下载）、管理表情回复。当用户需要发消息、查看或搜索聊天记录、下载聊天中的文件、查看群成员、搜索群、创建群聊或话题群、管理标记数据时使用。'
+version: "1.0.1"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-im"
 license: MIT
 tags: '[feishu, lark, lark-cli, messaging, chat]'
 created_at: "2026-05-19"
-updated_at: "2026-05-19"
+updated_at: "2026-05-28"
 quality: 4
 complexity: intermediate
 metadata:
@@ -55,6 +55,10 @@ When using bot identity (`--as bot`) to fetch messages (e.g. `+chat-messages-lis
 **Root cause**: The bot's app visibility settings do not include the message sender, so the contact API returns no name.
 
 **Solution**: Check the app's visibility settings in the Lark Developer Console — ensure the app's visible range covers the users whose names need to be resolved. Alternatively, use `--as user` to fetch messages with user identity, which typically has broader contact access.
+
+### Default message enrichment (reactions / update_time)
+
+The four message-pulling shortcuts (`+messages-mget`, `+chat-messages-list`, `+messages-search`, `+threads-messages-list`) automatically attach a `reactions` block and (for edited messages) `update_time` to each returned message — no separate `im.reactions.batch_query` call is needed. Pass `--no-reactions` to opt out. For the full contract (output shape, the `im:message.reactions:read` scope requirement, and the "missing field ≠ fetch failure" data rules), read [`references/lark-im-message-enrichment.md`](references/lark-im-message-enrichment.md).
 
 ### Card Messages (Interactive)
 
@@ -168,3 +172,29 @@ lark-cli im <resource> <method> [flags] # 调用 API
 | `pins.create` | `im:message.pins:write_only` |
 | `pins.delete` | `im:message.pins:write_only` |
 | `pins.list` | `im:message.pins:read` |
+<!-- LOCAL-QUALITY-SUPPLEMENT:START -->
+## Usage Notes
+
+This supplement is maintained by the repository sync pipeline. It keeps the
+imported upstream skill usable inside this curated collection when the upstream
+source is intentionally concise.
+
+## Common Patterns
+
+```text
+1. Confirm that the user's task matches the skill trigger.
+2. Read the relevant project files or user-provided context before acting.
+3. Choose the smallest reversible action that advances the task.
+4. Run the verification command or manual check that proves the result.
+5. Report the outcome, evidence, and any remaining risk.
+```
+
+## Boundaries
+
+- Prefer the upstream workflow for Lark Im; this section only adds local quality
+  guardrails.
+- Do not invent project facts when required files, vaults, services, or tools are
+  unavailable.
+- Stop and ask for clarification when the next action could overwrite user work,
+  expose private data, or change production state.
+<!-- LOCAL-QUALITY-SUPPLEMENT:END -->

@@ -1,14 +1,14 @@
 ---
 name: scout
 description: 'Bug investigation, root cause analysis (RCA), reproduction steps, and impact assessment. Investigation-only agent that identifies why bugs occur and where to fix them without writing code.'
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/scout"
 license: MIT
 tags: '["analysis", "planning", "scout"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-21"
+updated_at: "2026-05-28"
 quality: 5
 complexity: "advanced"
 ---
@@ -205,61 +205,51 @@ Use [advanced-reproduction-triage.md](references/advanced-reproduction-triage.md
 
 ## Recipes
 
+Single source of truth for Recipe definitions. Full phase contracts live in the "Read First" reference files.
+
 | Recipe | Subcommand | Default? | When to Use | Read First |
 |--------|-----------|---------|-------------|------------|
-| Focused Hunt | `bug` | ✓ | Single-bug investigation with clear symptom | `references/debug-strategies.md`, `references/bug-patterns.md` |
-| History-Led | `regression` | | Regression signal present (recent deploy, version bump) | `references/git-bisect.md`, `references/modern-rca-methodology.md` |
-| Observability-Led | `prod` | | Production traces/logs/metrics dominate the signal | `references/observability-debugging.md` |
-| Multi-Engine | `multi` | | Root cause ambiguous after 3 hypotheses exhausted, or hypothesis-lock-in risk on a high-stakes RCA — runs tri-engine parallel investigation (Codex + Antigravity + Claude) with Pattern H Hybrid scoring; ships Primary RCA + Alternative Hypotheses with verification ordering | `references/tri-engine-investigate.md`, `_common/MULTI_ENGINE_RECIPE.md`, `_common/SUBAGENT.md` |
-| Cascading Failure | `cascade` | | Multi-service propagation from a single origin | `references/observability-debugging.md`, `references/modern-rca-methodology.md` |
-| Performance Hunt | `perf` | | Profiler-led investigation when there is a clear latency, throughput drop, or CPU hotspot | `references/perf-investigation.md` |
-| Memory Hunt | `memory` | | Heap-snapshot-led investigation when OOM / heap bloat / GC pressure is suspected | `references/memory-investigation.md` |
-| Flake Hunt | `flake` | | Reproducibility diagnosis for intermittent bugs, flaky tests, and environment-dependent symptoms | `references/flake-investigation.md` |
-| 5 Whys | `5whys` | | Iterative root-cause chain (Toyota TPS) — drive from symptom to systemic cause with explicit why-chain | `references/5whys-rca.md` |
-| Fishbone / Ishikawa | `fishbone` | | Categorical RCA across 6M (Machine/Method/Material/Measurement/Mother-nature/Manpower) for multi-factor failures | `references/fishbone-6m.md` |
-| Timeline Reconstruction | `timeline` | | Incident timeline reconstruction — second-by-second event sequence, detection/response gap analysis | `references/timeline-reconstruction.md` |
-| Video Bug Report | `video` | | Screen-recording bug report — extract motion-driven key frames locally, analyze via Codex CLI, normalize into Scout report | `references/video-bug-analysis.md` |
+| Focused Hunt | `bug` | ✓ | Single-bug investigation with clear symptom; normal workflow, single evidence chain | `references/debug-strategies.md`, `references/bug-patterns.md` |
+| History-Led | `regression` | | Regression signal present (recent deploy, version bump); prioritize `git log` / diff / bisect; delegate to Trail if history alone is sufficient | `references/git-bisect.md`, `references/modern-rca-methodology.md` |
+| Observability-Led | `prod` | | Production traces/logs/metrics dominate the signal; prioritize traces, logs, metrics, profiling | `references/observability-debugging.md` |
+| Multi-Engine | `multi` | | Root cause ambiguous after 3 hypotheses exhausted, or hypothesis-lock-in risk on a high-stakes RCA — tri-engine parallel investigation (Codex + Antigravity + Claude) with Pattern H Hybrid scoring; ships Primary RCA + Alternative Hypotheses with verification ordering. Critical difference from Judge: dissent is NOT dropped — alternative root cause hypotheses ship as pre-grounded verification branches | `references/tri-engine-investigate.md`, `_common/MULTI_ENGINE_RECIPE.md`, `_common/SUBAGENT.md` |
+| Cascading Failure | `cascade` | | Multi-service propagation from a single origin; build causal graph, separate root cause from symptomatic failures across services | `references/observability-debugging.md`, `references/modern-rca-methodology.md` |
+| Performance Hunt | `perf` | | Profiler-led flamegraph → hot path → classify into N+1 / algorithmic complexity / I/O / lock contention / GC pause; delegate to Bolt for optimization | `references/perf-investigation.md` |
+| Memory Hunt | `memory` | | Heap-snapshot diff / retainer path / allocation timeline; delegate to Bolt if GC pressure is primary cause, or Specter for concurrent leaks | `references/memory-investigation.md` |
+| Flake Hunt | `flake` | | Measure reproducibility rate (N trials / flip rate) → classify as environment-dependent, timing-dependent, or externally-dependent; delegate to Specter if concurrency bug, Radar if test-induced | `references/flake-investigation.md` |
+| 5 Whys | `5whys` | | Iterative why-chain from symptom to systemic cause (Toyota TPS) — each answer becomes the next question; stop at process/design issue, not a person | `references/5whys-rca.md` |
+| Fishbone / Ishikawa | `fishbone` | | Categorical RCA across 6M (Machine/Method/Material/Measurement/Mother-nature/Manpower); use when multiple contributing factors are suspected | `references/fishbone-6m.md` |
+| Timeline Reconstruction | `timeline` | | Second-by-second event timeline — user actions, system events, alerts, responder actions interleaved; feeds Triage for incident post-mortems | `references/timeline-reconstruction.md` |
+| Video Bug Report | `video` | | Screen-recording bug report; preflight (`codex --version`, `codex auth status`) → local frame extractor → `codex exec --image frames/*.jpg --output-schema video-bug-detection.schema.json --sandbox read-only --ephemeral`; validate schema + confidence (≥ 0.7) before integrating `evidence_frames`; on preflight failure, suppress LLM Fix Prompt and emit "Codex CLI unavailable" note | `references/video-bug-analysis.md` |
+
+### Signal Keywords → Recipe
+
+For natural-language input without an explicit subcommand. Subcommand match wins if both apply.
+
+| Keywords | Recipe |
+|----------|--------|
+| `bug`, `error`, error symptom | `bug` |
+| `regression`, recent deploy, version bump | `regression` |
+| `prod`, production anomaly, metrics alert, trace/log dominant | `prod` |
+| `multi-engine`, `tri-engine RCA`, `parallel investigation`, `cross-engine root cause`, `consensus RCA`, `hypothesis lock-in risk`, ambiguous root cause after initial trace | `multi` |
+| `cascade`, cascading downstream errors from single origin | `cascade` |
+| `perf`, latency regression, CPU hotspot, throughput drop | `perf` |
+| `memory`, OOM, heap bloat, GC pressure | `memory` |
+| `flake`, intermittent, flaky tests, environment-dependent | `flake` |
+| `5whys` | `5whys` |
+| `fishbone`, Ishikawa | `fishbone` |
+| `timeline`, incident timeline, post-mortem | `timeline` |
+| `video`, screen recording, video bug report, 動画報告 | `video` |
+| vague or incomplete report | `bug` + TRIAGE vague-report handling (see `references/vague-report-handling.md`) |
+| complex multi-agent task via Nexus | Nexus-routed execution (see `_common/HANDOFF.md`) |
 
 ## Subcommand Dispatch
 
-Parse the first token of user input.
-- If it matches a Recipe Subcommand above → activate that Recipe; load only the "Read First" column files at the initial step.
+Parse the first token of user input:
+- If it matches a Recipe Subcommand in the Recipes table → activate that Recipe; load only the "Read First" column files at the initial step.
 - Otherwise → default Recipe (`bug` = Focused Hunt). Apply TRIAGE guardrails (3 hypotheses) and escalate to another Recipe if evidence warrants.
 - Auto-promotion: after 3 stalled hypotheses → promote to `multi` Recipe (Multi-Engine Mode).
-
-Behavior notes per Recipe:
-- `bug`: normal workflow, single evidence chain.
-- `regression`: prioritize `git log` / diff / bisect. Delegate to Trail if history alone is sufficient.
-- `prod`: prioritize traces, logs, metrics, profiling.
-- `multi`: tri-engine parallel RCA. Load `references/tri-engine-investigate.md`. Spawn Codex / Antigravity / Claude subagents in one message; each produces 1-3 root cause hypotheses independently with loose prompts (Role + Symptom + Reproduction state + Ruled-out hypotheses + Output format only — no RCA framework templates). Pattern H Hybrid scoring: confidence axis (`CONFIRMED` 3/3 / `LIKELY` 2/3 / `CANDIDATE` 1/3) × perspective axis (`CONVERGENT` — all engines reduce to one root cause class / `DIVERGENT-N` — N distinct root cause hypotheses survive). GROUND every shipping cluster with actual code reading and reproduction attempt; never delegate grounding to subagents. SYNTHESIZE produces a Primary RCA (highest confidence + best grounding) plus Alternative Hypotheses (preserved divergence) with explicit Verification Ordering for Builder. LLM Fix Prompt is emitted for the Primary RCA only. Critical difference from Judge: dissent is NOT dropped — alternative root cause hypotheses ship as pre-grounded verification branches. See `references/tri-engine-investigate.md` for the full SCOPE → PREFLIGHT → FAN-OUT → NORMALIZE → CLUSTER → SCORE → GROUND → SYNTHESIZE → REPORT flow.
-- `cascade`: build causal graph from failure traces; separate root cause from symptomatic failures across services.
-- `perf`: Profiler-led flamegraph → hot path identification → classify into N+1 / algorithmic complexity / I/O / lock contention / GC pause. Delegate to Bolt (optimization implementation).
-- `memory`: Identify leak source using heap snapshot diff / retainer path / allocation timeline. Delegate to Bolt if GC pressure is the primary cause, or to Specter for concurrent leaks.
-- `flake`: Measure reproducibility rate (N trials / flip rate) → classify as environment-dependent, timing-dependent, or externally-dependent. If concurrency bug signals are strong, delegate immediately to Specter; if test-induced, to Radar.
-- `5whys`: Load `references/5whys-rca.md`. Iterative why-chain from the surface symptom to a systemic cause — each answer becomes the next question. Stop when you reach a process/design issue, not a person. Distinguish from fishbone (categorical) and 5 Whys (linear).
-- `fishbone`: Load `references/fishbone-6m.md`. Ishikawa diagram across the 6M categories (Machine / Method / Material / Measurement / Mother-nature / Manpower). Best when multiple contributing factors are suspected, and root cause is not a single chain.
-- `timeline`: Load `references/timeline-reconstruction.md`. Build a second-by-second event timeline — external user actions, system internal events, alerts, and responder actions interleaved. Used for incident post-mortems; feeds Triage.
-- `video`: Load `references/video-bug-analysis.md`. Run preflight (`codex --version`, `codex auth status`). REPRODUCE phase invokes the local Python frame extractor → `codex exec --image frames/*.jpg --output-schema video-bug-detection.schema.json --sandbox read-only --ephemeral`. Validate schema + confidence (≥ 0.7) before integrating `evidence_frames` into the investigation report. Model selection deferred to Codex CLI default (`~/.codex/config.toml`); do not hard-code a model. On preflight failure, suppress the LLM Fix Prompt and emit a "Codex CLI unavailable" note.
-
-## Output Routing
-
-| Signal | Approach | Primary output | Read next |
-|--------|----------|----------------|-----------|
-| bug report or error symptom | Focused Hunt | Investigation report + fix brief | `references/debug-strategies.md`, `references/output-format.md` |
-| regression suspected | History-Led Investigation | Regression analysis + bisect result | `references/git-bisect.md`, `references/bug-patterns.md` |
-| production anomaly or metrics alert | Observability-Led Investigation | Trace analysis + root cause | `references/observability-debugging.md` |
-| ambiguous root cause after initial trace | Multi-Engine Mode | Merged hypothesis report | `references/modern-rca-methodology.md` |
-| `multi-engine`, `tri-engine RCA`, `parallel investigation`, `cross-engine root cause`, `consensus RCA`, `hypothesis lock-in risk` | Multi-Engine Mode (`multi` Recipe) | Primary RCA + Alternative Hypotheses with verification ordering | `references/tri-engine-investigate.md`, `_common/MULTI_ENGINE_RECIPE.md` |
-| cascading downstream errors from single origin | Cascading Failure Mode | Causal graph + root cause isolation | `references/observability-debugging.md`, `references/modern-rca-methodology.md` |
-| vague or incomplete report | TRIAGE phase with vague-report handling | Clarified scope + investigation plan | `references/vague-report-handling.md` |
-| screen recording attached, video bug report, 動画報告 | Video Bug Report Recipe | Investigation Report grounded in `evidence_frames` | `references/video-bug-analysis.md` |
-| complex multi-agent task via Nexus | Nexus-routed execution | Structured NEXUS_HANDOFF | `_common/HANDOFF.md` |
-
-Routing rules:
-- If the request matches another agent's primary role, route to that agent per `_common/BOUNDARIES.md`.
-- Always read relevant `references/` files before producing output.
-- If investigation reveals a security concern, escalate to Sentinel via `SCOUT_TO_SENTINEL_HANDOFF`.
-- If investigation reveals race conditions or memory leaks, escalate to Specter via `SCOUT_TO_SPECTER_HANDOFF`.
+- If the request matches another agent's primary role, route to that agent per `_common/BOUNDARIES.md`. If investigation reveals a security concern, escalate to Sentinel via `SCOUT_TO_SENTINEL_HANDOFF`; race conditions or memory leaks → Specter via `SCOUT_TO_SPECTER_HANDOFF`.
 
 ## Output Requirements
 
@@ -456,12 +446,14 @@ SCOUT_TO_TRAIL_HANDOFF:
 
 ## Multi-Engine Mode
 
-Activated by the `multi` Recipe (or any explicit user request for parallel investigation / cross-engine root cause comparison / consensus RCA), and auto-promoted from the default `bug` Recipe when 3 hypotheses stall without progress. Tri-engine parallel RCA breaks single-engine hypothesis lock-in by fanning out across three engines with non-overlapping training-data priors, then synthesizes a Primary RCA backed by consensus plus Alternative Hypotheses preserved from divergence.
+Activated by the `multi` Recipe (or any explicit user request for parallel investigation / cross-engine root cause comparison / consensus RCA), and auto-promoted from the default `bug` Recipe when 3 hypotheses stall without progress. Multi-engine parallel RCA breaks single-engine hypothesis lock-in by fanning out across AVAILABLE engines with non-overlapping training-data priors, then synthesizes a Primary RCA backed by consensus plus Alternative Hypotheses preserved from divergence.
+
+> **Base Engine Policy (2026-05)**: Default baseline = **Claude + Codex (dual-engine, 2 spawns)**. agy adds a third axis (tri-engine, 3 spawns) when AVAILABLE at PREFLIGHT. For Scout the dual-engine baseline (Codex sandbox-execution priors + Claude judgment) breaks the most common hypothesis lock-in cases; agy adds whole-codebase 1M-context investigation when reachable. Pattern H scoring: dual-engine Primary = 2/2 CONFIRMED; Alternative = 1/2 grounded; LIKELY unreachable. See `_common/MULTI_ENGINE_RECIPE.md §Base Engine Policy + §Engine Availability Modes`.
 
 **Pattern type: H (Hybrid)** — both axes carry value. Concurrence raises confidence on the primary root cause; divergence preserves alternative hypotheses as pre-grounded verification branches for Builder.
 
 **Core mechanics:**
-- Spawn three Agent subagents in a single message: `investigate-codex`, `investigate-agy`, `investigate-claude` (per `references/tri-engine-investigate.md`).
+- Spawn one Agent subagent per AVAILABLE engine in a single message: `investigate-codex` + `investigate-claude` (dual-engine baseline); add `investigate-agy` (tri-engine) when AVAILABLE. Per `references/tri-engine-investigate.md`.
 - Run engine availability PREFLIGHT in Scout main context — never delegate detection to subagents (subagent PATH is narrower; see `_common/MULTI_ENGINE_RECIPE.md §2`).
 - Use loose prompts (Role + Symptom evidence + Reproduction state + Ruled-out hypotheses + Output format only). Do NOT pass 5-Whys templates, Fishbone categories, Causal Graph rules, or Scout's confidence rubric — apply RCA frameworks at SYNTHESIZE, not at FAN-OUT. Each engine's training-data priors should drive root cause hypothesis diversity.
 - Subagents return structured JSON with 1-3 hypotheses each (symptom, root-cause-hypothesis, causal-chain, evidence, reproduction-steps, affected-areas, severity, confidence, rca_method, ruled_out); main context integrates via NORMALIZE → CLUSTER → SCORE → GROUND → SYNTHESIZE.

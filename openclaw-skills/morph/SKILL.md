@@ -1,14 +1,14 @@
 ---
 name: morph
 description: 'Document format conversion (Markdown, Word, Excel, PDF, HTML). Converts specifications from Scribe and reports from Harvest into distributable formats. Also generates reusable conversion scripts.'
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/morph"
 license: MIT
 tags: '["morph", "office"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-19"
+updated_at: "2026-05-28"
 quality: 5
 complexity: "advanced"
 ---
@@ -65,9 +65,9 @@ Route elsewhere when the task is primarily:
 - Preserve structure, content, links, and intent first — conversion is lossy by nature (Pandoc's AST is less expressive than most source formats); acknowledge and document loss, never hide it.
 - Treat PDF as output-first for structural conversion. Use PDF input only for PDF operations such as merge, split, watermark, signature, metadata, archival, or encryption. PDF stores text as absolute-positioned character streams — extracting semantic structure from PDF is unreliable.
 - Verify output quality before delivery using the quality score weights: Structure 30%, Visual 25%, Content 30%, Metadata 15%. Minimum passing grade: B (80+).
-- Document unsupported features and expected loss before conversion when fidelity risk exists — especially complex LaTeX equations, custom fonts, and nested tables which are top failure points. Note: Pandoc 3.9+ supports row spans and column spans in its AST and grid tables, so merged cells are no longer a blanket failure point — but verify the target writer supports them (e.g., DOCX and HTML do; pipe tables do not).
+- Document unsupported features and expected loss before conversion when fidelity risk exists — especially complex LaTeX equations, custom fonts, and nested tables which are top failure points. Note: Pandoc 3.9 (released February 4, 2026) adds row spans and column spans to its AST and grid tables via new functions `tableWithSpans`/`toTableComponentsWithSpans`, so merged cells are no longer a blanket failure point — but verify the target writer supports them (e.g., DOCX and HTML do; pipe tables do not). Source: https://github.com/jgm/pandoc/discussions/11439
 - Prefer reusable commands, configs, templates, and scripts over one-off manual work.
-- For accessibility-critical outputs, target both PDF/UA and WCAG 2.1 Level AA compliance. PDF/UA defines PDF-specific technical requirements (tag structure, role maps, DOM order); WCAG defines outcome-based success criteria. Both together achieve the highest accessibility level. Two PDF/UA standards coexist: PDF/UA-1 (ISO 14289-1, based on PDF 1.7) and PDF/UA-2 (ISO 14289-2:2024, based on PDF 2.0) — choose based on the target PDF version. Regulatory deadlines: ADA Title II — April 24, 2026 (populations ≥50K) / April 26, 2027 (<50K); European Accessibility Act (EAA) — in force since June 28, 2025.
+- For accessibility-critical outputs, target both PDF/UA and WCAG compliance; see **Critical Decision Rules → Accessibility minimums** for version-specific targets and regulatory deadlines.
 - Use Pandoc Lua filters over JSON filters for AST manipulation — they run in Pandoc's embedded interpreter with no external dependencies and are significantly faster.
 - Use Pandoc defaults files (YAML or JSON) to centralize conversion options — they capture `--from`, `--to`, filters, metadata, and variables in a single reusable config, reducing command-line drift across environments.
 - Author for Opus 4.7 defaults. Apply `_common/OPUS_47_AUTHORING.md` principles **P3 (eagerly Read source-document structure, target format constraints, and existing conversion pipelines at SCAN — conversion fidelity depends on grounding in actual AST/markup state), P5 (think step-by-step at Pandoc filter selection (Lua vs JSON), PDF/UA vs WCAG compliance scoping, and defaults-file centralization)** as critical for Morph. P2 recommended: calibrated conversion spec preserving Pandoc defaults, accessibility verdict, and filter selection. P1 recommended: front-load source/target formats, accessibility tier, and CI context at SCAN.
@@ -116,6 +116,7 @@ Route elsewhere when the task is primarily:
 | Accessible delivery  | The output must satisfy PDF/UA or WCAG-focused checks                                        | `pandoc + lualatex/xelatex`, `pandoc + typst` (PDF/UA-1 native since Typst 0.14), `weasyprint` (PDF/UA-1/UA-2 output — requires post-validation), PAC 2024, PDFix, `verapdf` |
 | Archive / secure PDF | The task requires PDF/A, watermark, signature, encryption, merge, split, or metadata control | `Ghostscript`, `pdftk`, `qpdf`, `pdfsig`, `verapdf`, `weasyprint` (PDF/A-1a–4f native, PDF/UA-1/UA-2 via `pdf_variant`) |
 | Batch / pipeline     | Multiple files, repeatable pipelines, CI, or artifact automation are required                | `pandoc`, shell scripts, Makefile, CI/CD workflow          |
+| Quarto / scientific  | Source is `.qmd` (Quarto Markdown) or requires executable code cells (Python/R/Julia)       | `quarto render` (Quarto 1.6+ for unified branding; Quarto 1.7+ for dark mode, Typst, Julia engine). Pandoc 3.5+ underpins Quarto 1.7. See: https://quarto.org/docs/blog/ |
 | Diagram export       | Source is Mermaid or draw.io                                                                 | `mermaid-cli`, `draw.io CLI`                               |
 
 ## Workflow
@@ -136,13 +137,13 @@ Route elsewhere when the task is primarily:
 | Area                                        | Rule                                                                                                                                                                                                  |
 | ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Markdown -> PDF (Japanese, highest quality) | Default to `pandoc + xelatex`. Use `lualatex` when advanced font features or complex Unicode shaping is needed.                                                                                       |
-| Markdown -> PDF (speed-first)               | Use `pandoc + weasyprint` (modern CSS support, active maintenance). Avoid `wkhtmltopdf` for new projects — it uses a deprecated QtWebKit engine.                                                      |
-| Markdown -> PDF (modern alternative)        | Consider `pandoc + typst` — Pandoc 3.9+ has native Typst output support; compilation is orders of magnitude faster than XeLaTeX with equivalent quality and cleaner template syntax. Typst 0.14+ emits Tagged PDF by default, supports PDF/UA-1 conformance, and allows choosing PDF versions 1.4–2.0 with PDF/A conformance across all four parts. UA-2 support is expected later in 2026. |
+| Markdown -> PDF (speed-first)               | Use `pandoc + weasyprint` (modern CSS support, active maintenance). Do NOT use `wkhtmltopdf` — it is archived/EOL since 2023, Homebrew cask disabled December 2024, no security updates (https://wkhtmltopdf.org/status.html). |
+| Markdown -> PDF (modern alternative)        | Consider `pandoc + typst` — Pandoc 3.9 (February 2026) has native Typst output support with a WASM browser GUI at https://pandoc.org/app; compilation is orders of magnitude faster than XeLaTeX. Typst 0.14 (October 24, 2025) emits Tagged PDF by default, supports PDF/UA-1 conformance, and allows choosing PDF versions 1.4–2.0 with PDF/A conformance across all four parts (PDF/A-1 through PDF/A-4). UA-2 support is planned (https://typst.app/blog/2025/typst-0.14/). |
 | Word -> PDF                                 | Prefer `LibreOffice` when layout fidelity matters. Watch for font substitution — ensure all document fonts are available on the conversion host.                                                      |
 | HTML -> PDF                                 | Use `Chrome/Puppeteer` for modern CSS Grid/Flexbox, `weasyprint` for CSS Paged Media, `pagedjs-cli` for Paged.js-based rendering.                                                                     |
 | Excel -> PDF / CSV / HTML                   | Prefer `LibreOffice`.                                                                                                                                                                                 |
 | Mermaid / draw.io export                    | Use `mermaid-cli` or `draw.io CLI`.                                                                                                                                                                   |
-| CI/CD pipeline                              | Use the official Pandoc Docker image for reproducible builds. Store outputs as CI artifacts, not committed files. Pin Pandoc version to avoid drift. Pandoc 3.9+ also compiles to Wasm for browser-based conversion pipelines. |
+| CI/CD pipeline                              | Use the official Pandoc Docker image for reproducible builds. Store outputs as CI artifacts, not committed files. Pin Pandoc version to avoid drift. Pandoc 3.9 (February 2026) also compiles to Wasm — a full-featured browser GUI runs at https://pandoc.org/app with Typst-based PDF output; Lua filters work in Wasm, JSON filters do not. |
 | Japanese layout defaults                    | Prefer `A4`, `25mm` margins for reports, `UTF-8`, and body line height `1.7-1.8`.                                                                                                                     |
 | Accessibility minimums                      | Tagged PDF, logical reading order, alt text, language metadata, `4.5:1` text contrast, `12pt` minimum font size. Target WCAG 2.2 Level AA (latest W3C Recommendation) where possible; ADA Title II mandates WCAG 2.1 AA as floor. For PDF 2.0 outputs, target PDF/UA-2 (ISO 14289-2:2024); for PDF 1.7, target PDF/UA-1. |
 | Quality score weights                       | Structure `30%`, Visual `25%`, Content `30%`, Metadata `15%`.                                                                                                                                         |
@@ -164,32 +165,25 @@ Route elsewhere when the task is primarily:
 
 ## Recipes
 
-| Recipe | Subcommand | Default? | When to Use | Read First |
-|--------|-----------|---------|-------------|------------|
-| Markdown Conversion | `md` | ✓ | Markdown → PDF/Word/HTML conversion (Pandoc/XeLaTeX/Typst) | `references/pandoc-recipes.md` |
-| PDF Generation | `pdf` | | High-quality PDF generation, PDF/A archival, PDF/UA accessibility | `references/pandoc-recipes.md` |
-| Word Export | `docx` | | Word (.docx) output, LibreOffice conversion, style preservation | `references/conversion-matrix.md` |
-| Excel Export | `xlsx` | | Excel (.xlsx) output, CSV/HTML conversion | `references/conversion-matrix.md` |
-| HTML Export | `html` | | HTML output, CSS Paged Media, accessibility support | `references/pandoc-recipes.md` |
-| EPUB Generation | `epub` | | EPUB 3 generation, KF8/MOBI export, reflowable layout, EPUB Accessibility 1.1 | `references/epub-generation.md` |
-| LaTeX Typesetting | `latex` | | LaTeX/XeLaTeX/Typst academic typesetting (papers, theses, books, BibTeX/biblatex) | `references/latex-typesetting.md` |
-| Batch Pipeline | `batch` | | Pandoc batch pipeline with Lua filters, Makefile/CI orchestration, parallel conversion | `references/batch-conversion-pipeline.md` |
+Single source of truth for Recipe definitions. Behavior depth lives in the Behavior column; load only the "Read First" column files at the initial step.
+
+| Recipe | Subcommand | Default? | When to Use | Behavior | Read First |
+|--------|-----------|---------|-------------|----------|------------|
+| Markdown Conversion | `md` | ✓ | Markdown → PDF/Word/HTML conversion (Pandoc/XeLaTeX/Typst) | Conversion anchored on Markdown input. Analyze the target format and pick the optimal tool (pandoc + xelatex/typst/weasyprint). For Japanese documents, default to A4, 25mm margins, line height 1.7-1.8. | `references/pandoc-recipes.md` |
+| PDF Generation | `pdf` | | High-quality PDF generation, PDF/A archival, PDF/UA accessibility | Focused on PDF generation. Grade via quality score (Structure 30%, Visual 25%, Content 30%, Metadata 15%) with B-or-better (80+) required. Confirm PDF/A and PDF/UA compliance needs before selecting a tool. | `references/pandoc-recipes.md` |
+| Word Export | `docx` | | Word (.docx) output, LibreOffice conversion, style preservation | Prefer LibreOffice. Warn about font substitution and style-mapping loss. Surface constraints upfront for complex LaTeX equations and nested tables. | `references/conversion-matrix.md` |
+| Excel Export | `xlsx` | | Excel (.xlsx) output, CSV/HTML conversion | Prefer LibreOffice. Since sheet structure and formulas do not convert cleanly, consider CSV or HTML as alternatives. | `references/conversion-matrix.md` |
+| HTML Export | `html` | | HTML output, CSS Paged Media, accessibility support | Choose between Chrome/Puppeteer (CSS Grid/Flexbox), weasyprint (CSS Paged Media), and pagedjs-cli (Paged.js) per use case. Confirm WCAG 2.1 AA compliance. | `references/pandoc-recipes.md` |
+| EPUB Generation | `epub` | | EPUB 3 generation, KF8/MOBI export, reflowable layout, EPUB Accessibility 1.1 | Default reflowable; fixed-layout only for design-driven content. Validate with EPUBCheck. Convert to KF8/MOBI via Calibre `ebook-convert` for Kindle. Apply EPUB Accessibility 1.1 (declare schema:accessibilityFeature, ARIA roles in XHTML). | `references/epub-generation.md` |
+| LaTeX Typesetting | `latex` | | LaTeX/XeLaTeX/Typst academic typesetting (papers, theses, books, BibTeX/biblatex) | XeLaTeX for non-Latin scripts (CJK / RTL). Typst when build speed matters. Use BibTeX/biblatex for citations; pin TeX Live edition for reproducibility. | `references/latex-typesetting.md` |
+| Batch Pipeline | `batch` | | Pandoc batch pipeline with Lua filters, Makefile/CI orchestration, parallel conversion | Author Lua filters for AST transforms, drive via Makefile or CI matrix, parallelize per-file. Cache intermediate AST and pin tool versions; emit a manifest with input/output checksums. | `references/batch-conversion-pipeline.md` |
 
 ## Subcommand Dispatch
 
-Parse the first token of user input.
-- If it matches a Recipe Subcommand above → activate that Recipe; load only the "Read First" column files at the initial step.
-- Otherwise → default Recipe (`md` = Markdown Conversion). Apply normal ANALYZE → CONFIGURE → CONVERT → VERIFY → DELIVER → TRANSMUTE workflow.
-
-Behavior notes per Recipe:
-- `md`: Conversion anchored on Markdown input. Analyze the target format and pick the optimal tool (pandoc + xelatex/typst/weasyprint). For Japanese documents, default to A4, 25mm margins, line height 1.7-1.8.
-- `pdf`: Focused on PDF generation. Grade via quality score (Structure 30%, Visual 25%, Content 30%, Metadata 15%) with B-or-better (80+) required. Confirm PDF/A and PDF/UA compliance needs before selecting a tool.
-- `docx`: Word output. Prefer LibreOffice. Warn about font substitution and style-mapping loss. Surface constraints upfront for complex LaTeX equations and nested tables.
-- `xlsx`: Excel output. Prefer LibreOffice. Since sheet structure and formulas do not convert cleanly, consider CSV or HTML as alternatives.
-- `html`: HTML output. Choose between Chrome/Puppeteer (CSS Grid/Flexbox), weasyprint (CSS Paged Media), and pagedjs-cli (Paged.js) per use case. Confirm WCAG 2.1 AA compliance.
-- `epub`: EPUB 3 generation. Default reflowable; fixed-layout only for design-driven content. Validate with EPUBCheck. Convert to KF8/MOBI via Calibre `ebook-convert` for Kindle. Apply EPUB Accessibility 1.1 (declare schema:accessibilityFeature, ARIA roles in XHTML).
-- `latex`: LaTeX/XeLaTeX/Typst typesetting for academic and book-length output. XeLaTeX for non-Latin scripts (CJK / RTL). Typst when build speed matters. Use BibTeX/biblatex for citations; pin TeX Live edition for reproducibility.
-- `batch`: Pandoc-driven batch pipeline. Author Lua filters for AST transforms, drive via Makefile or CI matrix, parallelize per-file. Cache intermediate AST and pin tool versions; emit a manifest with input/output checksums.
+Parse the first token of user input:
+- If it matches a Recipe Subcommand in the Recipes table → activate that Recipe and load its "Read First" reference.
+- Otherwise → default Recipe (`md` = Markdown Conversion).
+- Apply ANALYZE → CONFIGURE → CONVERT → VERIFY → DELIVER → TRANSMUTE workflow regardless of Recipe.
 
 ## Output Routing
 

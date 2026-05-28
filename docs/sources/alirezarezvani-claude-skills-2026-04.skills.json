@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://github.com/alirezarezvani/claude-skills",
-    "checked_at": "2026-04-28",
+    "checked_at": "2026-05-28",
     "note": "Curated from alirezarezvani/claude-skills with upstream tracking enabled."
   },
   "official_references": [
@@ -21,10 +21,10 @@
       "notes": "Reconciled from SKILL.md source declaration; upstream tracking enabled.",
       "upstream": {
         "repo": "alirezarezvani/claude-skills",
-        "path": "engineering/agenthub/SKILL.md",
+        "path": "engineering/agenthub/skills/agenthub/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-24",
-        "last_synced_at": "2026-04-24",
+        "last_checked_at": "2026-05-28",
+        "last_synced_at": "2026-05-28",
         "last_synced_commit": null
       }
     },
@@ -37,10 +37,10 @@
       "notes": "Reconciled from SKILL.md source declaration; upstream tracking enabled.",
       "upstream": {
         "repo": "alirezarezvani/claude-skills",
-        "path": "product-team/landing-page-generator/SKILL.md",
+        "path": "product-team/skills/landing-page-generator/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-28",
-        "last_synced_at": "2026-04-28",
+        "last_checked_at": "2026-05-28",
+        "last_synced_at": "2026-05-28",
         "last_synced_commit": null
       }
     },
@@ -53,7 +53,7 @@
       "notes": "Reconciled from SKILL.md source declaration; upstream tracking enabled.",
       "upstream": {
         "repo": "alirezarezvani/claude-skills",
-        "path": "finance/saas-metrics-coach/SKILL.md",
+        "path": "finance/skills/saas-metrics-coach/SKILL.md",
         "ref": "main",
         "last_checked_at": "2026-04-24",
         "last_synced_at": "2026-04-24",
@@ -69,7 +69,7 @@
       "notes": "Reconciled from SKILL.md source declaration; upstream tracking enabled.",
       "upstream": {
         "repo": "alirezarezvani/claude-skills",
-        "path": "engineering-team/senior-architect/SKILL.md",
+        "path": "engineering-team/skills/senior-architect/SKILL.md",
         "ref": "main",
         "last_checked_at": "2026-04-24",
         "last_synced_at": "2026-04-24",
@@ -85,10 +85,10 @@
       "notes": "Reconciled from SKILL.md source declaration; upstream tracking enabled.",
       "upstream": {
         "repo": "alirezarezvani/claude-skills",
-        "path": "engineering/skill-security-auditor/SKILL.md",
+        "path": "engineering/skills/skill-security-auditor/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-24",
-        "last_synced_at": "2026-04-24",
+        "last_checked_at": "2026-05-28",
+        "last_synced_at": "2026-05-28",
         "last_synced_commit": null
       }
     }

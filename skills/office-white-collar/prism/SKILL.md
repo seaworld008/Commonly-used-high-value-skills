@@ -1,14 +1,14 @@
 ---
 name: prism
 description: 'Consultant for NotebookLM steering prompt design. Optimizes Audio/Video/Slide/Infographic output quality through source preparation, prompt engineering, and Custom Goals persona design.'
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/prism"
 license: MIT
 tags: '["office", "prism"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-05"
+updated_at: "2026-05-28"
 quality: 5
 complexity: "advanced"
 ---
@@ -17,13 +17,15 @@ complexity: "advanced"
 CAPABILITIES_SUMMARY:
 - steering_prompt_design: Design NotebookLM steering prompts for optimal output quality
 - custom_goals_design: Design Custom Goals personas (up to 10,000 characters) for persistent chat behavior
-- audio_optimization: Optimize NotebookLM audio overview output
-- video_optimization: Optimize NotebookLM video summary output
+- audio_optimization: Optimize NotebookLM audio overview output (80+ languages as of 2026)
+- video_optimization: Optimize NotebookLM video summary output (Explainer/Brief in 80+ languages; Cinematic Ultra-only English-only)
 - slide_optimization: Optimize NotebookLM slide deck output
 - source_preparation: Prepare and structure source materials for NotebookLM ingestion
 - output_evaluation: Evaluate and iterate on NotebookLM output quality
-- tier_aware_guidance: Advise on Free/Plus/Pro/Ultra tier constraints and feature availability
+- tier_aware_guidance: Advise on Free/Plus/Pro/Ultra tier constraints and feature availability (Ultra has two SKUs since May 2026)
 - infographic_style_selection: Guide selection among 10 predefined infographic styles
+- featured_notebooks_guidance: Guide use of Featured Notebooks from partner publishers
+- workspace_studio_integration: Advise on NotebookLM in Google Workspace Studio flows (May 2026)
 
 COLLABORATION_PATTERNS:
 - Scribe -> Prism: Specification documents
@@ -63,8 +65,11 @@ Typical inputs:
 - Designing Custom Goals personas for persistent chat behavior (up to 10,000 characters)
 - Selecting infographic styles (Sketch Note, Kawaii, Professional, Scientific, Anime, Clay, Editorial, Instructional, Bento Grid, Bricks)
 - Planning use of the Join feature for interactive Audio Overviews
-- Using Discover Sources to find and incorporate web/Drive materials into notebooks
+- Using Discover Sources to find and incorporate web/Drive materials into notebooks (presents up to 10 annotated recommendations per query)
 - Leveraging chat-to-output conversion for iterative prompt refinement
+- Curating or exploring Featured Notebooks from partner publishers (The Economist, The Atlantic, etc.) — pre-built notebooks with Audio Overviews and Mind Maps. Source: https://blog.google/innovation-and-ai/models-and-research/google-labs/notebooklm-featured-notebooks/
+- Configuring NotebookLM within Google Workspace Studio flows for enterprise automation (available May 2026). Source: https://workspaceupdates.googleblog.com/2026/05/notebooklm-in-workspace-studio.html
+- Using Literature Insights (Gemini for Science / Google Labs, May 2026): NotebookLM-powered tool for scientific literature search and structured output generation. Source: https://workspaceupdates.googleblog.com/2026/05/notebooklm-in-workspace-studio.html
 
 Route elsewhere when the task is primarily:
 - Writing or editing source content itself -> `Scribe` or `Quill`
@@ -81,7 +86,7 @@ Route elsewhere when the task is primarily:
 - Start with audience, then focus, then tone.
 - Recommend a primary format before drafting the steering prompt.
 - Evaluate outputs with the rubric before recommending another iteration. Use 6 quality dimensions: Relevance, Accuracy, Coherence, Fluency, Diversity, Task completion.
-- Always confirm the user's tier (Free/Plus/Pro/Ultra) before recommending features. Four tiers exist: Free ($0), Plus (Workspace, from $14/user/month), Pro ($19.99/month via Google AI Pro), Ultra ($249.99/month via Google AI Ultra).
+- Always confirm the user's tier (Free/Plus/Pro/Ultra) before recommending features. Four tiers exist: Free ($0), Plus ($7.99/month via Google AI Plus; also bundled with Google Workspace Business Standard at $14/user/month and above), Pro ($19.99/month via Google AI Pro), Ultra (two SKUs since Google I/O May 2026: $99.99/month with 20TB storage / 500 sources per notebook, or $200/month with 30TB storage / 600 sources per notebook). Source: https://notebooklm.google/plans
 - Record reusable outcomes through `SPECTRUM`.
 - Leverage the Three-Panel Workflow (Sources Panel → Chat Panel → Studio Panel) when guiding users through prompt design and output generation.
 - Chat-to-output conversion: users can transform chat conversations directly into Audio/Video Overviews, Reports, and other outputs — design prompts with this workflow in mind.
@@ -90,14 +95,15 @@ Route elsewhere when the task is primarily:
 
 Supported output families:
 
-- Audio Overview: `Deep Dive`, `The Brief`, `The Critique`, `The Debate`, `Lecture Mode` (+ `Join` interactive mode)
-- Video Overview: `Explainer`, `Brief`, `Cinematic` (immersive deep-dive with fluid animations; Ultra only, English only)
-- Slides: `Presenter Slides`, `Detailed Deck` (PPTX export with per-slide revision)
-- Visual formats: `Infographic` (10 styles: Sketch Note, Kawaii, Professional, Scientific, Anime, Clay, Editorial, Instructional, Bento Grid, Bricks), `Mind Map`
+- Audio Overview: `Deep Dive`, `The Brief`, `The Critique`, `The Debate`, `Lecture Mode` (+ `Join` interactive mode). Available in 80+ languages as of 2026 (expanded from 50+ in mid-2025); full-length depth now matches English in all languages. Source: https://blog.google/technology/google-labs/notebooklm-audio-overviews-50-languages/
+- Video Overview: `Explainer`, `Brief`, `Cinematic` (immersive deep-dive with fluid animations powered by Gemini + Imagen + Veo; Ultra only, English only, 18+, max 20/day; launched March 2026). Non-Cinematic Video Overviews available in 80+ languages. Source: https://blog.google/innovation-and-ai/models-and-research/google-labs/notebook-lm-audio-video-overviews-more-languages-longer-content/
+- Slides: `Presenter Slides`, `Detailed Deck` (PPTX export with per-slide revision; image generation powered by Imagen)
+- Visual formats: `Infographic` (10 styles: Sketch Note, Kawaii, Professional, Scientific, Anime, Clay, Editorial, Instructional, Bento Grid, Bricks; image generation powered by Imagen; launched November 2025), `Mind Map`
 - Research format: `Deep Research`
 - Study formats: `Flashcards`, `Quizzes` (progress saved across sessions)
 - Document format: `Reports` (tailored reports generated from sources)
-- Data format: `Data Tables` (structured tables exportable to Google Sheets; Pro/Ultra)
+- Data format: `Data Tables` (structured tables exportable to Google Sheets; launched December 2025; Pro/Ultra)
+- Studio Panel: multiple outputs of the same type can now be stored per notebook (e.g., multiple Audio Overviews), with dedicated tiles for Audio, Video, Mind Maps, and Reports. Source: https://blog.google/innovation-and-ai/models-and-research/google-labs/notebooklm-video-overviews-studio-upgrades/
 - Author for Opus 4.7 defaults. Apply [\_common/OPUS_47_AUTHORING.md](~/.claude/skills/_common/OPUS_47_AUTHORING.md) principles **P3 (eagerly Read source set, format constraints, and audience profile at CURATE — steering prompt quality depends on grounding in actual source structure), P5 (think step-by-step at format selection (Audio/Video/Slide/Infographic), Custom Goals persona design, and hallucination/consistency gates)** as critical for Prism. P2 recommended: calibrated steering prompt preserving source curation, format constraints, and persona voice. P1 recommended: front-load target format, audience, and source scope at CURATE.
 
 ## Boundaries
@@ -129,8 +135,9 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 - Leave the custom prompt field empty — empty prompts bury key insights and let secondary details dominate
 - Exceed 500,000 words or 200MB per source (NotebookLM hard limit)
 - Assume linked Google Docs sources auto-sync to the notebook — sources must be re-imported after the original document is edited, or the notebook will use stale content
-- Assume tier limits without confirmation — Free/Plus/Pro/Ultra have significantly different quotas for sources, notebooks, and daily generations
+- Assume tier limits without confirmation — Free/Plus/Pro/Ultra have significantly different quotas for sources, notebooks, and daily generations; Ultra itself has two SKUs ($99.99 and $200/month) with different limits since Google I/O May 2026
 - Rely on visual content in PDF sources — NotebookLM cannot parse charts, diagrams, or schematics embedded in PDFs; extract key data points into text before uploading. Image sources (JPG/PNG) are processed via OCR, but complex visuals still need textual supplements
+- Recommend Cinematic Video Overviews to non-Ultra or non-English-language users — Cinematic is Ultra-only, English-only, and age-gated (18+) as of March 2026
 
 ## Workflow
 
@@ -171,11 +178,12 @@ Full calibration rules live in [prompt-effectiveness.md](~/.claude/skills/prism/
 | Optimal focused source count     | `2-5`                               | Best for most high-quality focused outputs                       |
 | Source overload                  | `20+`                               | Trim sources before proceeding                                   |
 | Notebook source limit (Free)     | `50` sources                        | Maximum per notebook on Free tier                                |
-| Notebook source limit (Plus)     | `300` sources                       | Maximum per notebook on Plus tier                                |
-| Notebook source limit (Pro)      | `300` sources                       | Maximum per notebook on Pro tier                                 |
-| Notebook source limit (Ultra)    | `600` sources                       | Maximum per notebook on Ultra tier                               |
+| Notebook source limit (Plus)     | `300` sources                       | Maximum per notebook on Plus tier ($7.99/mo via Google AI Plus)  |
+| Notebook source limit (Pro)      | `300` sources                       | Maximum per notebook on Pro tier ($19.99/mo via Google AI Pro)   |
+| Notebook source limit (Ultra $99.99) | `500` sources                   | Maximum per notebook on Ultra $99.99/mo SKU (since May 2026 I/O) |
+| Notebook source limit (Ultra $200) | `600` sources                     | Maximum per notebook on Ultra $200/mo SKU (since May 2026 I/O)   |
 | Notebooks per user (Free)        | `100`                               | Maximum notebooks on Free tier                                   |
-| Notebooks per user (Plus)        | `200`                               | Maximum notebooks on Plus tier                                   |
+| Notebooks per user (Plus)        | `500`                               | Maximum notebooks on Plus tier (updated 2026)                    |
 | Notebooks per user (Pro/Ultra)   | `500`                               | Maximum notebooks on Pro/Ultra tier                              |
 | Per-source hard limit            | `500K words` / `200MB`              | Whichever comes first                                            |
 | Context window                   | `1M tokens` (~1,500 pages)          | Gemini 3 engine; available on all tiers                          |
@@ -291,6 +299,26 @@ Minimum content:
 | [multilingual-strategy.md](~/.claude/skills/prism/references/multilingual-strategy.md) | You need cross-lingual source handling, output language pinning, terminology glossary design, or code-switching prompt patterns |
 | [mindmap-design.md](~/.claude/skills/prism/references/mindmap-design.md) | You need Mind Map branch hierarchy steering, terminology consistency, density-vs-depth trade-off, or downstream Slides/Infographic handoff |
 | [\_common/OPUS_47_AUTHORING.md](~/.claude/skills/_common/OPUS_47_AUTHORING.md)                          | You are sizing the steering prompt, deciding adaptive thinking depth at format/persona, or front-loading format/audience/sources at CURATE. Critical for Prism: P3, P5. |
+
+## External Sources (2025-2026)
+
+Verified sources used to maintain this skill. Consult when checking current limits or feature availability.
+
+| Date | Topic | URL |
+|------|-------|-----|
+| 2025-04-29 | Audio Overviews expanded to 50+ languages (Beta) | https://blog.google/technology/google-labs/notebooklm-audio-overviews-50-languages/ |
+| 2025-04-29 | Workspace update: Audio Overviews language expansion | https://workspaceupdates.googleblog.com/2025/04/language-expansion-audio-overviews-notebooklm.html |
+| 2025-07-14 | Featured Notebooks launch (The Economist, The Atlantic, etc.) | https://blog.google/innovation-and-ai/models-and-research/google-labs/notebooklm-featured-notebooks/ |
+| 2025-08-25 | Video Overviews expanded to 80+ languages; Audio Overviews depth parity | https://blog.google/innovation-and-ai/models-and-research/google-labs/notebook-lm-audio-video-overviews-more-languages-longer-content/ |
+| 2025-11 | Infographics and Slide Deck features launched (Imagen-powered) | https://workspaceupdates.googleblog.com/2025/03/new-features-available-in-notebooklm.html |
+| 2025-12 | Data Tables output launched (Pro/Ultra) | https://workspaceupdates.googleblog.com/2025/12/google-ai-ultra-business-enhanced-notebooklm.html |
+| 2026-02 | NotebookLM Plus becomes Google Workspace core service with enterprise-grade data protection | https://workspaceupdates.googleblog.com/2025/02/notebooklm-and-notebooklm-plus-now-workspace-core-service.html |
+| 2026-03-05 | Cinematic Video Overviews launched (Ultra only, English only, 18+) | https://blog.google/innovation-and-ai/models-and-research/google-labs/notebooklm-video-overviews-studio-upgrades/ |
+| 2026-03 | New ways to customize and interact with content; Studio Panel multi-output tiles | https://workspaceupdates.googleblog.com/2026/03/new-ways-to-customize-and-interact-with-your-content-in-NotebookLM.html |
+| 2026-05-12 | NotebookLM integration in Google Workspace Studio begins full rollout | https://workspaceupdates.googleblog.com/2026/05/notebooklm-in-workspace-studio.html |
+| 2026-05-19 | Google I/O 2026: Ultra tier splits into two SKUs ($99.99/$200); Literature Insights (Gemini for Science) | https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/ |
+| 2026 | Tier pricing and limits reference | https://notebooklm.google/plans |
+| 2026 | Comprehensive tier comparison (third-party) | https://felloai.com/notebooklm-pricing/ |
 
 ## Operational
 

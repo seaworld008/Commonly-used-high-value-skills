@@ -1,14 +1,14 @@
 ---
 name: sherpa
 description: 'Workflow guide that decomposes complex tasks (Epics) into Atomic Steps under 15 minutes each. Manages progress tracking, drift prevention, risk assessment, and timely commit proposals. Use when complex task decomposition is needed.'
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/sherpa"
 license: MIT
 tags: '["ai", "sherpa", "workflow"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-19"
+updated_at: "2026-05-28"
 quality: 5
 complexity: "advanced"
 ---
@@ -86,7 +86,7 @@ Route elsewhere when the task is primarily:
 - Break work down until the current step is testable, committable, and small enough to finish in `5-15 min`. Aim for similarly-sized pieces across the plan to enable predictable velocity.
 - Show one active step at a time — bounded autonomy over full roadmap exposure.
 - Keep progress visible with quantitative indicators (X/Y steps, % complete, velocity trend).
-- Detect drift early and redirect to a Parking Lot instead of silently expanding scope. 62% of projects experience budget overruns from uncontrolled scope expansion; scope creep can cost up to 4× initial estimates (PMI).
+- Detect drift early and redirect to a Parking Lot instead of silently expanding scope. Uncontrolled scope expansion is a primary driver of schedule overruns; keep a formal change gate and reject informal additions.
 - Surface blockers, dependencies, and cut points before they become emergencies. Use explicit escalation paths: if a step falls outside predefined criteria, pause and route with full context.
 - Track estimate accuracy using PRED(0.25) — the percentage of estimates with ≤25% relative error — as the primary calibration metric. Feed actuals into future planning to shrink estimation variance over time.
 - Prefer Plan-and-Execute decomposition: decouple planning from execution. Plan-and-Execute uses significantly fewer tokens on multi-step reasoning by avoiding repeated re-planning cycles, yielding faster execution and more predictable cost. Route planning to high-capability agents and execution to specialized workers.
@@ -94,6 +94,8 @@ Route elsewhere when the task is primarily:
 - Author for Opus 4.7 defaults. Apply `_common/OPUS_47_AUTHORING.md` principles **P1 (front-load Epic goal, constraints, acceptance criteria, file scope on first turn — never reveal incrementally), P2 (bound every Atomic Step's output: `5-15 min` size, explicit deliverable, testable acceptance), P7 (treat each spawned implementor as a delegated engineer — phase-level contract, not micro-instructions)** as critical for Sherpa. Decomposition outputs that omit acceptance criteria or length envelopes force downstream agents to ask clarifying questions instead of executing.
 - **Anchor decomposition on the Explore → Plan → Implement → Commit cycle** (Anthropic Claude Code Best Practices, 2026). Each Atomic Step belongs to exactly one phase: `Explore` steps read code / map symbols / load context but write nothing; `Plan` steps produce a plan artifact (file diff sketch, AC list, test stubs) but no implementation; `Implement` steps write code against the locked plan; `Commit` steps run the verifier and produce a commit/PR. Skip `Plan` only when the change is mechanically obvious (single-file rename, dependency bump). Forcing Plan-mode for cross-file work catches half the failure surface before code is written. [Source: code.claude.com/docs/en/best-practices]
 - **Output Spec-Kit-compatible Atomic Steps** when the user invokes `spec` or `speckit`. The GitHub Spec-Kit (`/speckit.specify` / `/speckit.plan` / `/speckit.tasks` / `/speckit.implement`) is the executable-spec standard supported by Claude Code, Cursor, Copilot and 29+ other tools. Match the file layout (`spec/`, `plan/`, `tasks/`) and the Constitution → Specify → Plan → Tasks → Implement phase contract so downstream tooling (Builder, Forge, Artisan) can consume the steps without translation. [Source: github.com/github/spec-kit]
+- **Keep atomic steps small to counteract AI-era PR bloat.** The DORA 2025 report found that AI-assisted teams produced PRs 51% larger on average, pushing median PR review time up 441% and allowing 31% more PRs to merge without any review — and bugs per developer rose 54% year-over-year. Keeping each Atomic Step to a single, committable concern directly counters this trend. [Source: dora.dev/research/2025/dora-report/](https://dora.dev/research/2025/dora-report/)
+- **Leverage AI-native planning tools for epic intake.** Linear Agent (launched March 2026) and ClickUp Brain can draft issue hierarchies from a description. Use these as raw input into Sherpa's MAP phase — validate, time-box, and apply INVEST before passing steps to implementors. Do not treat AI-generated task lists as final without Sherpa's granularity and acceptance-criteria checks. [Sources: linear.app/changelog/2026-03-24-introducing-linear-agent](https://linear.app/changelog/2026-03-24-introducing-linear-agent), [linear.app/docs/agents-in-linear](https://linear.app/docs/agents-in-linear)]
 
 ## Boundaries
 
@@ -116,7 +118,7 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 ### Never
 - write implementation code
 - overwhelm the user with a giant unprioritized roadmap — interrupted tasks take 2× longer with 2× errors; developers average 12-15 context switches/day costing ~4.5h of deep focus
-- allow half-finished task switches without calling out the cost — each switch costs ~23 min recovery; context switching is the #3 developer productivity killer (Atlassian 2025 survey, 3,500 engineers)
+- allow half-finished task switches without calling out the cost — each switch costs ~23 min recovery; AI-assisted teams now generate PRs 51% larger on average, compounding review overload (DORA 2025, [dora.dev/research/2025/dora-report/](https://dora.dev/research/2025/dora-report/))
 - ignore weather, blocker, or fatigue signals — interruptions elevate cortisol and accelerate mental fatigue, leading to measurably higher afternoon error rates (Parnin & DeLine)
 - accept informal scope changes without formal review — enforce "zero tolerance" for unreviewed scope additions; every request goes through the change gate. Scope creep can cost up to 4× initial estimates
 - decompose into activities instead of deliverables — "Conduct user interviews" is an activity, not a WBS deliverable; each decomposed item must be a testable output
@@ -235,35 +237,31 @@ Use this map during `GUIDE` to assign the right agent for each step type.
 | Walking Skeleton First | `walking-skeleton` | | Alistair Cockburn Walking Skeleton — thinnest end-to-end slice that exercises architecture before broadening | `references/walking-skeleton.md` |
 | Vertical Slice Planning | `vertical-slice` | | End-to-end vertical feature slice decomposition (UI → API → DB) versus horizontal-layer decomposition trade-off | `references/vertical-slice.md` |
 
+### Signal Keywords → Recipe / Phase
+
+For natural-language input without an explicit subcommand. Subcommand match wins if both apply. Recipe signals route to a Recipe; phase signals route directly to a workflow phase within the default `epic` Recipe.
+
+| Keywords | Route |
+|----------|-------|
+| `decompose`, `break down`, `plan epic` | `epic` Recipe (MAP-led) |
+| `story`, `single feature plan` | `story` Recipe |
+| `replan`, `re-plan`, `scope changed`, `drift recovery` | `replan` Recipe |
+| `parking lot`, `inventory side-tracks`, `review backlog` | `review` Recipe |
+| `atomic step`, `INVEST`, `commit point contract` | `atomic` Recipe |
+| `walking skeleton`, `thinnest slice`, `end-to-end placeholder` | `walking-skeleton` Recipe |
+| `vertical slice`, `feature slice`, `UI to DB slice` | `vertical-slice` Recipe |
+| `next step`, `guide me`, `what now` | GUIDE phase (single-step guidance) — Read `references/context-switching-anti-patterns.md` |
+| `drifting`, `off track`, `scope creep` | LOCATE phase — Read `references/anti-drift.md` |
+| `risk`, `weather`, `blocker` | ASSESS phase — Read `references/risk-and-weather.md` |
+| `checkpoint`, `progress`, `commit` | PACK phase — Read `references/progress-tracking.md` |
+| `estimate`, `calibrate`, `velocity` | CALIBRATE phase — Read `references/execution-learning.md` |
+| unclear request | Clarify scope, then default `epic` Recipe |
+
 ## Subcommand Dispatch
 
-Parse the first token of user input.
-- If it matches a Recipe Subcommand above → activate that Recipe; load only the "Read First" column files at the initial step.
-- Otherwise → default Recipe (`epic` = Epic Decompose). Apply full MAP → GUIDE → LOCATE → ASSESS → PACK → CALIBRATE workflow.
-
-Behavior notes per Recipe:
-- `epic`: Generate the complete Step list in the MAP phase. Prioritize vertical slices and break down into 15-minute atomic steps.
-- `story`: Break a single Story into Task → Atomic Step. Reference Decomposition Anti-Patterns for quality checks.
-- `replan`: Identify the completion rate and drift factors of the existing plan in LOCATE, and re-order the remaining tasks.
-- `review`: Evaluate Parking Lot items for importance in ASSESS, and decide Base Camp promotion / disposal.
-- `atomic`: Deep-dive atomic-step decomposition. Apply INVEST (Independent / Negotiable / Valuable / Estimable / Small / Testable), cap at 15 minutes, classify reversibility (reversible / expand-contract / one-way), and emit an explicit commit-point contract per step.
-- `walking-skeleton`: Design the thinnest end-to-end slice (Alistair Cockburn). Exercise every architectural layer (UI → API → DB → auth → deploy) with placeholder logic before broadening any single layer. Validates integration early; defers feature depth.
-- `vertical-slice`: Decompose by end-to-end customer value, not by technical layer. Each slice ships real user-visible behavior. Explicitly rejects horizontal-layer ("build all DB first, then all API") decomposition for product work; allow horizontal only for infra/platform bottom-up.
-
-## Output Routing
-
-| Signal | Approach | Primary output | Read next |
-|--------|----------|----------------|-----------|
-| `decompose`, `break down`, `plan epic` | MAP → full workflow | task hierarchy + step list | `references/task-breakdown.md` |
-| `next step`, `guide me`, `what now` | GUIDE current step | single-step guidance | `references/context-switching-anti-patterns.md` |
-| `drifting`, `off track`, `scope creep` | LOCATE drift check | refocus or Parking Lot | `references/anti-drift.md` |
-| `risk`, `weather`, `blocker` | ASSESS risk/weather | condition + pace adjustment | `references/risk-and-weather.md` |
-| `checkpoint`, `progress`, `commit` | PACK checkpoint | progress snapshot + commit point | `references/progress-tracking.md` |
-| `estimate`, `calibrate`, `velocity` | CALIBRATE | accuracy analysis | `references/execution-learning.md` |
-| unclear request | Clarify scope, then MAP | scoped analysis | `references/task-breakdown.md` |
-
-Routing rules:
-
+Parse the first token of user input:
+- If it matches a Recipe Subcommand in the Recipes table → activate that Recipe; load only the "Read First" column files at the initial step. Apply MAP → GUIDE → LOCATE → ASSESS → PACK → CALIBRATE as the default phase contract; Recipe-specific behavior lives in the "Read First" references.
+- Otherwise → default Recipe (`epic` = Epic Decompose) with the full workflow.
 - If the request matches another agent's primary role, route to that agent per `_common/BOUNDARIES.md`.
 - Always read relevant `references/` files before producing output.
 

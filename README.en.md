@@ -5,12 +5,12 @@
 [![简体中文](https://img.shields.io/badge/README-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1677ff)](./README.md)
 [![English](https://img.shields.io/badge/README-English-111111)](./README.en.md)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b894)](./openclaw-skills/README.md)
-[![Skills](https://img.shields.io/badge/Skills-289-7c3aed)](./skills/)
+[![Skills](https://img.shields.io/badge/Skills-291-7c3aed)](./skills/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
 A high-value skills repository for AI developers, organized by real work scenarios such as developer engineering, DevOps, automation, finance, design, knowledge workflows, and reliability.
 
-This repository currently contains **16 categories / 289 skills**.
+This repository currently contains **16 categories / 291 skills**.
 
 ## Who This Is For
 
@@ -355,9 +355,11 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`sigil`](./skills/ai-agent-platform/sigil/)
 
 <a id="cat-workflow-automation"></a>
-### 4. Engineering Workflow Automation (engineering-workflow-automation, 13)
+### 4. Engineering Workflow Automation (engineering-workflow-automation, 15)
 
 - [`agent-browser`](./skills/engineering-workflow-automation/agent-browser/)
+- [`billing-automation`](./skills/engineering-workflow-automation/billing-automation/)
+- [`changelog-automation`](./skills/engineering-workflow-automation/changelog-automation/)
 - [`gh-address-comments`](./skills/engineering-workflow-automation/gh-address-comments/)
 - [`gh-fix-ci`](./skills/engineering-workflow-automation/gh-fix-ci/)
 - [`github`](./skills/engineering-workflow-automation/github/)

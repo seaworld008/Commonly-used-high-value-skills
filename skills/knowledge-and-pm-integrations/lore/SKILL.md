@@ -1,14 +1,14 @@
 ---
 name: lore
-description: '用于沉淀跨 Agent 经验、模式和组织记忆。'
-version: "1.0.1"
+description: 'Cross-agent knowledge curator and institutional memory guardian. Extracts patterns from agent journals into METAPATTERNS.md, detects knowledge decay, propagates best practices, and prevents organizational forgetting.'
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/lore"
 license: MIT
 tags: '["knowledge", "lore"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-19"
+updated_at: "2026-05-28"
 quality: 5
 complexity: "advanced"
 ---
@@ -24,6 +24,7 @@ CAPABILITIES_SUMMARY:
 - contradiction_detection: Identify and resolve conflicting learnings between agents
 - postmortem_mining: Extract reusable incident patterns from blameless postmortems
 - knowledge_graph_enrichment: Structure extracted patterns as entity-relation triples with bi-temporal validity tracking for graph-based retrieval
+- concept_consistency_audit: Detect concept drift / category error / definition collision across knowledge graph entities (advisory). Operates on the existing Architecture sub-graph's `concept` node sub-type, NOT a new "Concept Graph" SoT. G11 + G15 inherited; reality wins on divergence. v7 fold-in.
 - organizational_forgetting_prevention: Detect and mitigate four forms of knowledge loss (failure to capture, failure to maintain, unintentional/accidental loss)
 - strategic_knowledge_pruning: Intentionally archive invalidated patterns to prevent outdated knowledge from blocking new pattern absorption
 
@@ -91,6 +92,9 @@ Route elsewhere when the task is primarily:
 - Practice organizational unlearning (strategic forgetting): intentionally archive or remove patterns whose underlying assumptions have been invalidated, to prevent outdated knowledge from blocking absorption of new patterns. Organizational unlearning is not knowledge loss — it is knowledge hygiene (PMC: organizational unlearning research confirms deliberate discarding of obsolete knowledge as a prerequisite for new knowledge absorption).
 - Account for the documentation-reality gap: operational knowledge diverges from documented knowledge over time. Journal mining and behavioral observation (what agents actually do) are more reliable than explicit documentation alone for HARVEST completeness.
 - Lore is the local equivalent of Anthropic's **Managed Agents → Dreaming** feature (off-line analysis of past sessions, memory curation, knowledge propagation across future runs). When a chain on the managed platform would call Dreaming, the Nexus-local equivalent is to route to Lore; preserve the shared vocabulary in handoffs so workloads can migrate without re-conceptualisation. [Source: claude.com — *New in Claude: Managed Agents* (2026)]
+- **Architecture node/edge type catalog (v5 fold-in, extended v6)**: `knowledge_graph_enrichment` supports an Architecture sub-graph with the following node types — `service`, `module`, `api`, `event`, `database`, `table`, `queue`, `cloud_resource`, `user_journey`, `persona`, `policy`, `adr`, `runbook`, `dashboard`, `alert`, `owner`, `slo`, **plus ops-extension nodes (v6): `secret`, `config`, `feature_flag`, `environment`, `cluster`, `iam_role`, `vulnerability`, `metric`, `terraform_resource`, `kubernetes_object`, `container_image`** — and edge types — `calls`, `publishes`, `subscribes`, `owns`, `stores`, `reads`, `writes`, `depends_on`, `governed_by`, `documented_by`, `monitored_by`, `decided_by`, **plus ops-extension edges (v6): `reads_secret`, `exposes_data`, `has_vulnerability`, `scaled_by`, `rolled_back_by`, `deployed_to`**. This is the local equivalent of both the "Architecture Knowledge Graph" and the "Ops Knowledge Graph" concepts; both live as a single unified sub-graph within METAPATTERNS.md and the existing knowledge graph, NOT as separate centralized "Living Architecture Twin" or "Ops Twin" Single Source of Truth (the Twin Tyranny anti-pattern — omen v5 FM-V-7 RPN 1080, omen v6 FM-5 RPN 640). The ops-extension nodes/edges are intentionally absorbed into the same Architecture sub-graph to prevent dual-source-of-truth drift between architecture KG and a separate ops KG.
+- **Concept consistency audit (v7 fold-in, advisory only)**: Architecture sub-graph supports a `concept` node sub-type representing key product/domain concepts (e.g. `active_user`, `retention`, `engagement`) with `definition`, `boundary` (included/excluded), `metric_ref`, `aliases`, `category` fields. `concept_consistency_audit` capability detects category errors (concept used inconsistently across journals / docs / METAPATTERNS), naming collisions, and orphan concepts (defined but unreferenced). **Advisory only** — never blocks merge; flags drift for human review per G11 KB Write Authority Separation (AI proposes, Architect/Research Lead merges). Polysemy is preserved: when one concept legitimately has multiple definitions per audience (e.g. Marketing-`active_user` vs Product-`active_user`), the audit records the legitimate variants rather than forcing canonicity (anti-pattern: Concept Graph false canonicity, omen v7 FM-V7-12 RPN 280). Absorbs "Concept Proof / Concept Graph" intent (Reflective Decision OS proposal v7) into existing knowledge graph without creating a parallel SoT.
+- **G11 KB Write Authority Separation applies to Architecture sub-graph**: AI agents are read-only; Architecture node/edge mutations require human Architecture Lead merge (Architect skill). Confidence and freshness fields are deterministic-computed, never hand-set. AI proposed edits go to a queue. The Architecture sub-graph is **advisory** — when divergence with reality codebase is detected, reality wins; the sub-graph is updated to match reality, never the reverse. See `_common/PROOF_CARRYING.md` v3 G11 and the Twin Tyranny anti-pattern.
 - Author for Opus 4.7 defaults. Apply `_common/OPUS_47_AUTHORING.md` principles **P3 (eagerly Read agent journals, METAPATTERNS, and freshness signals at HARVEST — pattern validity depends on grounding in actual behavioral evidence, not documentation snapshots), P5 (think step-by-step at pattern freshness scoring, organizational unlearning (strategic archival), and four-form forgetting detection)** as critical for Lore. P2 recommended: calibrated knowledge report preserving pattern lineage, freshness scores, and propagation targets. P1 recommended: front-load domain scope, freshness cutoff, and propagation audience at HARVEST.
 
 ---

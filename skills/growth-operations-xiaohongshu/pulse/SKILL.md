@@ -1,14 +1,14 @@
 ---
 name: pulse
 description: 'KPI definition, tracking event design, and dashboard specification. North Star Metric, funnel analysis, and cohort analysis design. GA4/Amplitude/Mixpanel/PostHog integration. Use when metrics foundation is needed.'
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/pulse"
 license: MIT
 tags: '["growth", "marketing", "pulse"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-19"
+updated_at: "2026-05-28"
 quality: 5
 complexity: "advanced"
 ---
@@ -20,9 +20,10 @@ CAPABILITIES_SUMMARY:
 - funnel_analysis: Design conversion funnels with step definitions, expected rates (visitor-to-lead 1.5-2.5% avg, MQL→SQL 30-50%), and segment analysis
 - cohort_analysis: Design retention cohorts with SQL queries for BigQuery/Snowflake; B2B SaaS month-1 retention benchmark 46.9%
 - dashboard_specification: Specify dashboard sections, chart types, filters, and refresh rates
-- analytics_platform_integration: GA4 (incl. Analytics Advisor AI, cross-channel budgeting), Amplitude (session replay, heatmaps), Mixpanel (AI replay summaries, experimentation), PostHog implementation with React hooks; server-side tracking and Consent Mode v2; auto-capture vs manual instrumentation tradeoff
+- analytics_platform_integration: GA4 (incl. Analytics Advisor AI, cross-channel budgeting, 2026-06-15 consent split), Amplitude (Ask Amplitude AI, session replay, heatmaps, $49 Plus tier; AMPL on NASDAQ since 2021-09-28), Mixpanel (2025-02 pricing rebuild — 1M events/mo free, Spark AI + MCP Server, re-launched experimentation/feature flags late 2025), PostHog (all-in-one + PostHog AI agent), Heap (now Contentsquare since 2023-12-07), Statsig (under OpenAI since 2025-09-02, $1.1B), Snowplow (SLULA license since 2024-01-08 — not Apache 2.0); server-side GTM v3.2.0+ and Consent Mode v2; auto-capture vs manual instrumentation tradeoff
 - privacy_consent_management: Consent-aware tracking, PII removal, GDPR/Consent Mode v2, server-side first-party tracking
 - data_quality_monitoring: Schema validation, schema drift detection, freshness monitoring, volume tracking, completeness checks
+- semantic_metric_schema: Machine-readable KPI definition contract — every named metric (e.g. `active_user`, `activation_rate`, `retention`, `engagement`) MUST declare `formal_definition`, `event_source` (specific event names + identity source), `exclusion_rules` (internal_user / test_account / bot / deleted_account / preview_session), `bot_filter_method` (UA + behavior heuristic + IP allowlist), `dupe_detection` (idempotency key / dedup window / event-source hash), `polysemy_caveats` (legitimate cross-team variants per `lore.concept_consistency_audit` rule — e.g. Marketing-MAU vs Product-engaged-30d are recorded as parallel definitions, never forced into single canonical form). Anchors the Data Reality / Semantic Metrics Layer (Round 8 proposal intent) to existing pulse capability; consumes Insight Ledger `category: metric_definition` (v8 schema extension). v8 fold-in.
 - revenue_analytics: MRR/ARR/ARPU/LTV/CAC/NRR tracking and movement analysis; CAC:LTV ≥ 1:3 health / ≥ 1:5 top-tier; NRR >100% healthy / >110% strong / >120% top-tier; B2B SaaS avg churn 3.5% (top performers <3%, B2C 6.5-8%); enterprise <1%; CAC payback <12mo good / <80 days elite
 - alerts_anomaly_detection: Z-score anomaly detection, threshold alerts (≥20% conversion drop, ≥30% velocity spike), trend monitoring
 - activation_rate_design: Define activation milestones, measure time-to-value, self-serve target 50-70%; segment by acquisition channel
@@ -60,7 +61,8 @@ Use Pulse when the user needs:
 - dashboard specification (sections, chart types, filters, refresh rates)
 - analytics platform integration (GA4, Amplitude, Mixpanel, PostHog, React hooks)
 - GA4 Analytics Advisor natural language queries and cross-channel budgeting (2026)
-- auto-capture vs manual instrumentation selection (Heap/PostHog auto-capture for speed; Amplitude/Mixpanel manual for cleaner data)
+- auto-capture vs manual instrumentation selection (PostHog and Contentsquare-Heap auto-capture for speed; Amplitude/Mixpanel manual for cleaner data — Amplitude Autocapture available 2024+)
+- platform selection given 2025-2026 landscape (Heap → Contentsquare 2023-12-07; Statsig → OpenAI 2025-09-02 $1.1B; Snowplow OSS license shift to SLULA 2024-01-08; Mixpanel 2025-02 event-based pricing rebuild with 1M free events; dbt Semantic Layer GA 2024-10)
 - server-side tracking setup and Consent Mode v2 configuration
 - privacy and consent management for tracking (GDPR, consent banners)
 - data quality monitoring setup (schema validation, schema drift detection, freshness)
@@ -267,6 +269,7 @@ Every deliverable must include:
 | `references/activation-design.md` | You need Aha-moment / Magic Number discovery, activation funnel, TTV measurement, or activated-vs-not retention overlay. |
 | `references/code-standards.md` | You need good/bad Pulse code examples. |
 | `_common/OPUS_47_AUTHORING.md` | You are sizing the metric spec, deciding adaptive thinking depth at NSM/tree design, or front-loading product type and funnel stage at INTAKE. Critical for Pulse: P3, P5. |
+| `_common/GROWTH_BRAND_PROOF.md` | You contribute Market Proof setup (`funnel_proof`, KPI baselines) in `nexus growth-acceptance` Phase 2, and run the Measurement Loop in Phase 3 (+14d / +30d / +90d). Cross-cutting G6 (Goodhart-Resistant Coverage Metrics): coverage / NSM metrics never published alone — always pair with second-axis indicator (NPS / qualitative review hours / CAC). Step 1 (Measurement Loop) is the minimum Layer C adoption for SMB orgs. |
 
 ## Operational
 

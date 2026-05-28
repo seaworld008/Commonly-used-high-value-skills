@@ -4,7 +4,7 @@
 
 聚焦 GitHub、浏览器自动化、CI 排障、Playwright 与工程协作自动化。
 
-当前分类共 **13** 个技能。
+当前分类共 **15** 个技能。
 
 ## 推荐先看
 
@@ -119,6 +119,8 @@ gsd-sdk --version
 | 技能 | 简介 | 目录 | 详情 |
 |------|------|------|------|
 | `agent-browser` | 为 Agent 提供真实浏览器自动化能力，支持语义定位、表单交互、截图录屏、脚本执行与会话管理。 | [目录](./agent-browser/) | [SKILL.md](./agent-browser/SKILL.md) |
+| `billing-automation` | Build automated billing systems for recurring payments, invoicing, subscription lifecycle, and dunning management. Use when implementing subscription billing, automating invoicing, or managing recurring payment systems. | [目录](./billing-automation/) | [SKILL.md](./billing-automation/SKILL.md) |
+| `changelog-automation` | Automate changelog generation from commits, PRs, and releases following Keep a Changelog format. Use when setting up release workflows, generating release notes, or standardizing commit conventions. | [目录](./changelog-automation/) | [SKILL.md](./changelog-automation/SKILL.md) |
 | `gh-address-comments` | Help address review/issue comments on the open GitHub PR for the current branch using gh CLI; verify gh auth first and prompt the user to authenticate if not logged in. | [目录](./gh-address-comments/) | [SKILL.md](./gh-address-comments/SKILL.md) |
 | `gh-fix-ci` | Use when a user asks to debug or fix failing GitHub PR checks that run in GitHub Actions; use `gh` to inspect checks and logs, summarize failure context, draft a fix plan, and implement only after explicit approval. Treat external providers (for example Buildkite) as out of scope and report only the details URL. | [目录](./gh-fix-ci/) | [SKILL.md](./gh-fix-ci/SKILL.md) |
 | `github` | 通过 GitHub CLI 自动化 Issue、PR、Review 与 CI 检查，适合工程协作闭环。 | [目录](./github/) | [SKILL.md](./github/SKILL.md) |

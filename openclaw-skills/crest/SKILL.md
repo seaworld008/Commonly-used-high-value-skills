@@ -1,14 +1,14 @@
 ---
 name: crest
 description: 'Engineer self-branding strategist that transforms technical contributions into a professional brand. Use when GitHub/LinkedIn/blog/conference/SNS positioning, profile optimization, or content strategy is needed.'
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/crest"
 license: MIT
 tags: '["crest", "productivity"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-19"
+updated_at: "2026-05-28"
 quality: 5
 complexity: "advanced"
 ---
@@ -65,7 +65,7 @@ Use Crest when the user needs:
 - cross-platform content repurpose planning
 - build-in-public strategy or visibility planning
 - AI-era authenticity positioning and trust signal design
-- emerging platform evaluation (Bluesky, Threads) for developer audiences
+- platform strategy for Bluesky (41M+ users, AT Protocol, strong developer community), Threads (400M MAU, Meta ecosystem), or Mastodon (federated, 10M users) in addition to X
 
 Route elsewhere when the task is primarily:
 - product-level narrative or storytelling: `Saga`
@@ -119,7 +119,7 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 - Maintain 2–5× weekly posting cadence on primary channel; sporadic posting signals abandonment to algorithms and audiences alike. LinkedIn's "Golden Hour" (first 60 minutes post-publish) is the algorithmic testing window — the platform shows the post to 2–5% of the creator's network, and strong early engagement determines second- and third-degree amplification.
 - LinkedIn engagement hierarchy (360Brew, 2026): saves drive 5× more reach than likes; comments carry 15× more weight than likes. Late engagement (saves/comments 24–72 hours post-publish) signals lasting value and yields 4–6× boost. 360Brew's NLP detects and penalizes engagement-bait phrasing ("comment below," "tag a friend") — never use formulaic interaction hooks.
 - LinkedIn short-form video (<60 s) achieves 53% more engagement than long-form; vertical format yields 34% higher engagement and dwell time; subtitles add 29% retention lift. Recommend video for quick technical tips, project demos, and opinionated takes.
-- LinkedIn external links penalty: posts containing outbound URLs in the body suffer ~60% reach reduction (algorithm deprioritizes off-platform navigation). Adopt zero-click content strategy — deliver full value natively in the feed via document carousels, text posts, or native video. For link-dependent content, use LinkedIn Articles or Newsletters (native formats, zero penalty) or place URLs in the first comment.
+- LinkedIn external links: posts with outbound URLs in the body still face algorithmic suppression; default to zero-click content (deliver value natively via document carousels, text posts, or native video). For link-dependent content, use LinkedIn Articles or Newsletters (native formats with no off-platform penalty) or place URLs in the first comment. Note: LinkedIn removed the Creator Mode toggle in March 2024 (features now available to all members) and deprecated profile hashtag fields ("Talks about" section) in February 2024 — do not reference these as active features. [Source: LinkedIn Help — Updates to Creator Mode](https://www.linkedin.com/help/linkedin/answer/a5999182)
 - Author for Opus 4.7 defaults. Apply `_common/OPUS_47_AUTHORING.md` principles **P3 (eagerly Read existing GitHub/LinkedIn/blog profiles, prior posts, and Topic DNA indicators at AUDIT — positioning consistency depends on grounding in actual history), P5 (think step-by-step at channel/format selection: document carousel vs short-form video vs article, Topic DNA alignment, and anti-pattern AP-8~AP-11 AI-authenticity checks)** as critical for Crest. P2 recommended: calibrated brand deliverable preserving verifiable contributions, quantified impact, and channel-specific format. P1 recommended: front-load niche, primary platform, and positioning goal at INTAKE.
 
 ---
@@ -238,6 +238,7 @@ Every deliverable must include:
 | `references/anti-patterns.md` | You need detailed anti-pattern detection rules and platform-specific pitfalls |
 | `references/ai-era-strategy.md` | You need AI-era positioning, authenticity strategy, trust signals, or AI-specific anti-patterns (AP-8~AP-11) |
 | `_common/OPUS_47_AUTHORING.md` | You are sizing the brand deliverable, deciding adaptive thinking depth at channel/format selection, or front-loading niche/platform/goal at INTAKE. Critical for Crest: P3, P5. |
+| `_common/GROWTH_BRAND_PROOF.md` | You author Brand Constitution Strategic-layer content (3-5 year positioning, Distinctive Assets, Category Entry Points) per G15 Constitution Lifecycle Discipline. Strategic-layer edits require 2-person sign-off (no single editor authority). Quarterly Distinctive Asset Audit (G12) is owned here — Brand Voice Distinctiveness Index baseline measurement. Brand Proof `distinctiveness_proof` + `memory_proof` evidence generators. |
 
 ---
 

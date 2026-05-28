@@ -1,14 +1,14 @@
 ---
 name: lark-vc
-description: '飞书历史会议、纪要、逐字稿和参会人查询。'
-version: 1.0.0
+description: '飞书视频会议：搜索历史会议、查询会议纪要产物（总结、待办、章节、逐字稿）、查询会议参会人快照。1. 查询已经结束的会议数量或详情时使用本技能（如历史日期｜昨天｜上周｜今天已经开过的会议等场景），查询未开始的会议日程使用 lark-calendar 技能。2. 支持通过关键词、时间范围、组织者、参与者、会议室等筛选条件搜索会议。3. 获取或整理会议纪要、逐字稿、录制产物时使用本技能。4. 查询“谁参加过某会议”“参会人列表”等参会人快照信息用 vc meeting get --with-participants（任意时点可查，含已结束会议）。注意：**Agent 真实入会/离会、感知正在进行中会议的实时事件**请使用 lark-vc-agent 技能，本技能不覆盖写操作和会中事件流。'
+version: "1.0.1"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-vc"
 license: MIT
 tags: '[feishu, lark, lark-cli, meetings, video-conference]'
 created_at: "2026-05-19"
-updated_at: "2026-05-19"
+updated_at: "2026-05-28"
 quality: 4
 complexity: intermediate
 metadata:
@@ -105,7 +105,8 @@ Meeting (视频会议)
     ├── Transcript (文字记录)
     ├── Summary (总结)
     ├── Todos (待办)
-    └── Chapters (章节)
+    ├── Chapters (章节)
+    └── Keywords (推荐关键词)
 ```
 
 > **注意**：`+search` 只能查询已结束的历史会议。查询未来的日程安排请使用 [lark-calendar](../lark-calendar/SKILL.md)。
@@ -175,3 +176,29 @@ lark-cli vc meeting get --params '{"meeting_id": "<meeting_id>", "with_participa
 | `meeting.get` | `vc:meeting.meetingevent:read` |
 
 > Agent 参会相关 scope（`vc:meeting.bot.join:write` / `vc:meeting.meetingevent:read`）见 [`lark-vc-agent`](../lark-vc-agent/SKILL.md)。
+<!-- LOCAL-QUALITY-SUPPLEMENT:START -->
+## Usage Notes
+
+This supplement is maintained by the repository sync pipeline. It keeps the
+imported upstream skill usable inside this curated collection when the upstream
+source is intentionally concise.
+
+## Common Patterns
+
+```text
+1. Confirm that the user's task matches the skill trigger.
+2. Read the relevant project files or user-provided context before acting.
+3. Choose the smallest reversible action that advances the task.
+4. Run the verification command or manual check that proves the result.
+5. Report the outcome, evidence, and any remaining risk.
+```
+
+## Boundaries
+
+- Prefer the upstream workflow for Lark Vc; this section only adds local quality
+  guardrails.
+- Do not invent project facts when required files, vaults, services, or tools are
+  unavailable.
+- Stop and ask for clarification when the next action could overwrite user work,
+  expose private data, or change production state.
+<!-- LOCAL-QUALITY-SUPPLEMENT:END -->
