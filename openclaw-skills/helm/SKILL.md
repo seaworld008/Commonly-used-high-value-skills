@@ -1,14 +1,14 @@
 ---
 name: helm
 description: 'Business strategy simulation agent specializing in short/mid/long-term scenario planning from financial, market, and competitive data. Applies SWOT/PESTLE/Porter analysis, KPI forecasting, and strategic roadmap generation. Does not write code.'
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/helm"
 license: MIT
 tags: '["finance", "helm"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-19"
+updated_at: "2026-05-28"
 quality: 5
 complexity: "advanced"
 ---
@@ -21,7 +21,7 @@ CAPABILITIES_SUMMARY:
 - scenario_planning: Design multi-horizon scenario plans with sensitivity analysis
 - risk_opportunity_mapping: Map risks and opportunities with probability and impact
 - strategy_monitoring: Track strategy execution with FORESIGHT calibration
-- financial_modeling: SaaS metrics, Rule of 40, Burn Multiple, NRR analysis with 2026 benchmarks (NRR median 106%, elite 130%+), SaaS Triangle (Gross Margin 75%+, CAC Payback <15mo, NRR 101%+)
+- financial_modeling: SaaS metrics, Rule of 40, Burn Multiple, NRR analysis with 2026 benchmarks (NRR median 104-106%, elite 130%+), SaaS Triangle (Gross Margin 75%+, CAC Payback <18mo, NRR 101%+)
 - framework_integration: Integrated PESTLE→Porter→SWOT cascade for comprehensive strategic analysis
 - market_sizing: Strategic interpretation of TAM/SAM/SOM, market headroom analysis, market entry scoring, portfolio sizing with BCG integration
 - disruption_detection: Christensen disruption theory application, S-curve positioning, industry lifecycle staging, technology adoption assessment, disruption risk scoring
@@ -80,6 +80,9 @@ Route elsewhere when:
 - Post-engagement learning: `FORESIGHT = TRACK -> VALIDATE -> CALIBRATE -> PROPAGATE`
 - **Always use WebSearch** to collect the latest market data, benchmarks, and industry reports before simulation. Never rely solely on training knowledge — real-time data is mandatory for accurate analysis.
 - Robustness over prediction: prioritize preparedness across scenarios, not point-accuracy forecasting
+- AI-augmented strategy: AI's primary value for strategy is reframing how companies think, not just automating analysis — scenario testing, market scanning, and competitor modeling are the highest-leverage AI applications (BCG 2026: https://www.bcg.com/publications/2026/the-corporate-strategy-function-in-an-ai-first-world); only 4% of companies currently create substantial AI strategy value despite 75% naming it a top-3 priority (BCG AI Radar 2026: https://www.bcg.com/publications/2026/as-ai-investments-surge-ceos-take-the-lead)
+- Geopolitical risk as a first-class PESTLE input: geoeconomic confrontation is the #1 near-term global risk for 2026 (WEF Global Risks Report 2026: https://www.weforum.org/publications/global-risks-report-2026/); tariffs, AI export controls, and US-China tech bifurcation must be surfaced explicitly in PESTLE Political/Economic dimensions
+- Climate scenario integration: IFRS S2 (ISSB) is effective for reporting periods beginning 1 January 2024 and adopted in 21+ jurisdictions; strategies for listed and institutional clients must align LONG-horizon scenarios with IFRS S2 climate-risk and transition-plan disclosure requirements (https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/ifrs-s2-climate-related-disclosures/)
 - Cognitive bias guardrails: apply Devil's Advocate method and diverse-perspective inclusion to counter overconfidence, confirmation bias, and groupthink in every simulation
 - Code is out of scope. Helm analyzes, simulates, prioritizes, and hands off.
 - Author for Opus 4.7 defaults. Apply `_common/OPUS_47_AUTHORING.md` principles **P3 (eagerly WebSearch latest market data, benchmarks, and industry reports at SURVEY/MODEL — strategy quality depends on fresh grounding), P5 (think step-by-step at SIMULATE/ROADMAP for scenario tree construction and cognitive bias guardrails)** as critical for Helm. P2 recommended: calibrated roadmap and executive summary preserving scenario assumptions, KPIs, and risk scores. P1 recommended: front-load horizon (short/mid/long), scope, and decision question at SURVEY.
@@ -149,7 +152,7 @@ Route elsewhere when:
 - Monitoring escalation (deviation-based): `YELLOW` at `5%` deviation (team lead review + corrective plan); `ORANGE` at `10%` deviation (department head + resource reallocation); `RED` at `15%+` deviation (executive review + strategic intervention). Legacy KPI-miss thresholds: `YELLOW` when `1-2` KPIs miss by `<20%` or assumption is `WATCH`; `RED` when major KPI miss `>20%` or assumption is `BREACH`; `BLACK` when multiple `BREACH` states invalidate the strategy.
 - FORESIGHT thresholds: prediction accuracy (measured via MAPE — Mean Absolute Percentage Error) `>0.80 = strong` (industry benchmark for strategic forecast accuracy), `0.60-0.80 = review`, `<0.60 = weak — reassess drivers and assumptions`; scenario bracket rate `>0.85 = well-calibrated`, `0.70-0.85 = good`, `<0.70 = widen range or review drivers`; review forecast cycle time and variance attribution rate alongside accuracy.
 - Calibration guardrails: require `3+` simulations before changing framework weights, cap each adjustment at `±0.15`, and decay adjustments by `10%` per quarter toward defaults.
-- SaaS financial alert rules (2026 benchmarks): churn — B2B annual average `3.5%`, top performers `<3%`, monthly `<1%` signals strong PMF, enterprise `<0.5%`; involuntary churn (failed payments) accounts for `20-40%` of total churn — always decompose voluntary vs involuntary before escalating; churn `>1.5x` upper benchmark = `RED`; Burn Multiple `>2.0x` = `RED`; Rule of 40 `<20%` = `YELLOW`, `>40%` = healthy, `>60%` = elite (`2-3×` higher valuations; only `11-30%` of SaaS companies achieve this); NRR — overall median `106%` in 2026 (segment medians: Enterprise ACV >$100K `118%`, Mid-Market `108%`, SMB `97%`); `<100%` = `RED` for Enterprise/Mid-Market — for SMB, benchmark against segment median since SMB median is below `100%`; top performers `120%+`, elite `130%+` (`2.3×` higher valuations); CAC Payback `>24 months` = `YELLOW` (median `15-18 months`, elite `<12 months`); CLV:CAC ratio `<3:1` = `YELLOW` (target `4:1+`). SaaS Triangle quick health check: Gross Margin `75%+`, CAC Payback `<15 months`, NRR `>101%` — all three green = fundable baseline. Market context: median annual revenue growth `26%` (down from `47%` in 2024); sustainable growth now valued over hypergrowth; `40%+` of new ARR from existing customers, emphasizing retention-led growth.
+- SaaS financial alert rules (2026 benchmarks): churn — B2B annual average `3.5%`, top performers `<3%`, monthly `<1%` signals strong PMF, enterprise `<0.5%`; involuntary churn (failed payments) accounts for `20-40%` of total churn — always decompose voluntary vs involuntary before escalating; churn `>1.5x` upper benchmark = `RED`; Burn Multiple `>2.0x` = `RED`; Rule of 40 `<20%` = `YELLOW`, `>40%` = healthy, `>60%` = elite (`2-3×` higher valuations; only `11-30%` of SaaS companies achieve this); NRR — overall median `104-106%` in 2025-2026 (segment medians: Enterprise ACV >$100K `118%`, Mid-Market `108%`, SMB `97%`); `<100%` = `RED` for Enterprise/Mid-Market — for SMB, benchmark against segment median since SMB median is below `100%`; top performers `120%+`, elite `130%+` (`2.3×` higher valuations); CAC Payback `>24 months` = `YELLOW` (median `18-20 months` per Pavilion B2B 2025 benchmarks, elite `<12 months`); CLV:CAC ratio `<3:1` = `YELLOW` (target `4:1+`). SaaS Triangle quick health check: Gross Margin `75%+`, CAC Payback `<18 months`, NRR `>101%` — all three green = fundable baseline. Market context: median ARR growth `19-21%` for 2025 cohort (High Alpha / Burkland 2025 SaaS Benchmarks — source: https://burklandassociates.com/2025/11/18/2025-saas-benchmarks-what-great-looks-like-and-how-to-reach-it/); sustainable growth valued over hypergrowth; `40%+` of new ARR from existing customers, emphasizing retention-led growth.
 - KPI hygiene: limit to `3-5` strategic KPIs for executive focus, `8-12` core KPIs for leadership dashboard; update operational KPIs daily minimum, strategic KPIs weekly minimum; always pair leading indicators with lagging indicators; set SMART targets (specific, measurable, achievable, relevant, time-bound) drawing on historical performance and industry benchmarks.
 - Review cadence rule: recommend quarterly operational scenario reviews with annual structural-shift reviews; real-time KPI monitoring between reviews; revisit assumptions on a fixed cadence to keep scenarios current without constant churn.
 
@@ -173,51 +176,53 @@ Use Magi for executive choice, Scribe for formal strategy docs, Canvas for maps 
 
 ## Recipes
 
-| Recipe | Subcommand | Default? | When to Use | Read First |
-|--------|-----------|---------|-------------|------------|
-| Scenario Planning | `scenario` | ✓ | Business scenario planning (Baseline/Optimistic/Pessimistic 3 scenarios) | `references/simulation-patterns.md`, `references/data-inputs.md` |
-| SWOT Analysis | `swot` | | SWOT analysis + PESTLE→Porter cascade | `references/frameworks.md` |
-| PESTLE Analysis | `pestle` | | PESTLE macro-environment analysis + TPESTRE variants | `references/frameworks.md`, `references/cognitive-biases.md` |
-| Porter Analysis | `porter` | | Porter 5 Forces industry structure analysis + entry evaluation | `references/frameworks.md`, `references/market-sizing-strategy.md` |
-| Forecast | `forecast` | | KPI forecasting, financial modeling, SaaS metrics | `references/simulation-patterns.md`, `references/financial-modeling-pitfalls.md` |
-| Jobs-to-be-Done | `jtbd` | | Christensen JTBD framework — job statement, forces of progress (push/pull/anxiety/habit), competitive set by job not product | `references/jobs-to-be-done.md` |
-| Blue Ocean Strategy | `blue-ocean` | | Kim & Mauborgne Blue Ocean — Value Curve, ERRC grid (Eliminate/Reduce/Raise/Create), Four Actions, non-customer tiers | `references/blue-ocean-strategy.md` |
-| Wardley Mapping | `wardley` | | Simon Wardley value-chain mapping — user-need anchor, visibility axis, evolution axis (Genesis→Custom→Product→Commodity), doctrine and climatic patterns | `references/wardley-mapping.md` |
+Single source of truth for Recipe definitions. Behavior detail lives in the "Behavior" column; the "Read First" column lists files to load at the initial step.
+
+| Recipe | Subcommand | Default? | When to Use | Behavior | Read First |
+|--------|-----------|---------|-------------|----------|------------|
+| Scenario Planning | `scenario` | ✓ | Business scenario planning (Baseline/Optimistic/Pessimistic 3 scenarios) | Baseline/Optimistic (+20-40%)/Pessimistic (-20-40%) 3 scenarios required. Include sensitivity analysis and FORESIGHT record. | `references/simulation-patterns.md`, `references/data-inputs.md` |
+| SWOT Analysis | `swot` | | SWOT analysis + PESTLE→Porter cascade | Execute PESTLE→Porter→SWOT cascade. Always apply Devil's Advocate challenge. | `references/frameworks.md` |
+| PESTLE Analysis | `pestle` | | PESTLE macro-environment analysis + TPESTRE variants | Also evaluate TPESTRE (Tech/Political/Economic/Social/Trust/Regulatory/Environmental) variant. Prefer when Trust/ethics dimensions matter. | `references/frameworks.md`, `references/cognitive-biases.md` |
+| Porter Analysis | `porter` | | Porter 5 Forces industry structure analysis + entry evaluation | 5 Forces quantitative scoring + BCG portfolio linkage + market-entry scoring. | `references/frameworks.md`, `references/market-sizing-strategy.md` |
+| Forecast | `forecast` | | KPI forecasting, financial modeling, SaaS metrics | SaaS Triangle (Gross Margin 75%+/CAC Payback <18mo/NRR 101%+) check. Rule of 40 and Burn Multiple alerts included. Emit benchmark gap analysis + alert flags for SaaS-metrics reviews. | `references/simulation-patterns.md`, `references/financial-modeling-pitfalls.md` |
+| Jobs-to-be-Done | `jtbd` | | Christensen JTBD framework | Write the job statement in `When [situation], I want [motivation], so I can [outcome]` form. Map the four forces of progress (push of current situation / pull of new solution / anxiety of switching / habit of current). Define the competitive set by *job*, not by product category. Identify functional, emotional, and social dimensions. Hand off to Spark for feature mapping, Researcher for interview validation. | `references/jobs-to-be-done.md` |
+| Blue Ocean Strategy | `blue-ocean` | | Kim & Mauborgne Blue Ocean — Value Curve, ERRC grid, Four Actions, non-customer tiers | Build a Strategy Canvas (Value Curve) mapping the existing industry's competition factors. Apply Four Actions (Eliminate / Reduce / Raise / Create) to produce divergent value curve. Identify the three tiers of non-customers (soon-to-be / refusing / unexplored). Pair with buyer utility map. Hand off to Spark for feature expressions, Compete for incumbent analysis. | `references/blue-ocean-strategy.md` |
+| Wardley Mapping | `wardley` | | Simon Wardley value-chain mapping — user-need anchor, visibility + evolution axes, doctrine | Anchor to a specific user need. Map the value chain with visibility on Y-axis (user-facing → invisible) and evolution on X-axis (Genesis → Custom-built → Product/Rental → Commodity/Utility). Annotate inertia, climatic patterns (evolution direction), and doctrine (universal principles). Use for strategic build-vs-buy, outsourcing, and platform-play decisions. Hand off to Atlas (technical architecture alignment), Magi (build vs buy judgment). | `references/wardley-mapping.md` |
+| Market Sizing | (signal-only) | | TAM/SAM/SOM strategic interpretation | Market headroom + entry scoring. Emit strategic market size analysis + portfolio sizing. | `references/market-sizing-strategy.md` |
+| Disruption Detection | (signal-only) | | S-curve, industry lifecycle, Christensen disruption risk | Emit disruption risk score + lifecycle stage + response options. | `references/disruption-detection.md` |
+| Wargaming Simulation | (signal-only — `WARGAME` Scope Mode) | | Competitor response simulation | Emit response-adjusted scenarios + financial impact + contingency plans. | `references/wargaming-simulation.md` |
+| FORESIGHT Escalation | (signal-only) | | Strategy-execution deviation detected | Emit deviation report + corrective options. | `references/strategy-monitoring.md` |
+| Debiasing Review | (signal-only) | | Cognitive bias risk in input data | Debiasing review before simulation. Emit bias-checked assumptions + Devil's Advocate findings. | `references/cognitive-biases.md` |
+
+### Signal Keywords → Recipe
+
+For natural-language input without an explicit subcommand. Subcommand match wins if both apply.
+
+| Keywords | Recipe |
+|----------|--------|
+| `scenario`, `baseline`, `optimistic`, `pessimistic` | `scenario` |
+| `swot`, `strengths-weaknesses-opportunities-threats` | `swot` |
+| `pestle`, `tpestre`, `macro environment` | `pestle` |
+| `porter`, `5 forces`, `industry structure` | `porter` |
+| `forecast`, `kpi forecast`, `saas metrics`, `rule of 40`, `burn multiple`, `NRR`, `CAC payback` | `forecast` |
+| `jtbd`, `jobs to be done`, `forces of progress` | `jtbd` |
+| `blue ocean`, `value curve`, `ERRC`, `non-customer tiers` | `blue-ocean` |
+| `wardley`, `value chain map`, `evolution axis` | `wardley` |
+| `market sizing`, `TAM`, `SAM`, `SOM`, `market headroom` | Market Sizing (signal-only) |
+| `disruption`, `S-curve`, `industry lifecycle`, `Christensen` | Disruption Detection (signal-only) |
+| `wargame`, `competitor response`, `move-countermove` | Wargaming Simulation (signal-only — `WARGAME` Scope Mode) |
+| `deviation`, `BREACH`, `WATCH`, `RED alert`, `strategy monitoring` | FORESIGHT Escalation (signal-only) |
+| `bias`, `groupthink`, `confirmation bias`, `devil's advocate` | Debiasing Review (signal-only) |
+| complex multi-agent task | Nexus-routed execution (see `_common/BOUNDARIES.md`) |
+| unclear request | Clarify scope and route |
 
 ## Subcommand Dispatch
 
-Parse the first token of user input.
-- If it matches a Recipe Subcommand above → activate that Recipe; load only the "Read First" column files at the initial step.
+Parse the first token of user input:
+- If it matches a Recipe Subcommand in the Recipes table → activate that Recipe; load only the "Read First" column files at the initial step.
+- Otherwise, if natural-language input matches a Signal Keyword row → activate the mapped Recipe.
 - Otherwise → default Recipe (`scenario` = Scenario Planning). Apply normal SURVEY → PLAN → VERIFY → PRESENT workflow.
-
-Behavior notes per Recipe:
-- `scenario`: Baseline/Optimistic (+20-40%)/Pessimistic (-20-40%) 3 scenarios required. Include sensitivity analysis and FORESIGHT record.
-- `swot`: Execute PESTLE→Porter→SWOT cascade. Always apply Devil's Advocate challenge.
-- `pestle`: Also evaluate TPESTRE (Tech/Political/Economic/Social/Trust/Regulatory/Environmental) variant. Prefer when Trust/ethics dimensions matter.
-- `porter`: 5 Forces quantitative scoring + BCG portfolio linkage + market-entry scoring.
-- `forecast`: SaaS Triangle (Gross Margin 75%+/CAC Payback <15mo/NRR 101%+) check. Rule of 40 and Burn Multiple alerts included.
-- `jtbd`: Write the job statement in `When [situation], I want [motivation], so I can [outcome]` form. Map the four forces of progress (push of current situation / pull of new solution / anxiety of switching / habit of current). Define the competitive set by *job*, not by product category. Identify functional, emotional, and social dimensions. Hand off to Spark for feature mapping, Researcher for interview validation.
-- `blue-ocean`: Build a Strategy Canvas (Value Curve) mapping the existing industry's competition factors. Apply Four Actions (Eliminate / Reduce / Raise / Create) to produce divergent value curve. Identify the three tiers of non-customers (soon-to-be / refusing / unexplored). Pair with buyer utility map. Hand off to Spark for feature expressions, Compete for incumbent analysis.
-- `wardley`: Anchor to a specific user need. Map the value chain with visibility on Y-axis (user-facing → invisible) and evolution on X-axis (Genesis → Custom-built → Product/Rental → Commodity/Utility). Annotate inertia, climatic patterns (evolution direction), and doctrine (universal principles). Use for strategic build-vs-buy, outsourcing, and platform-play decisions. Hand off to Atlas (technical architecture alignment), Magi (build vs buy judgment).
-
-## Output Routing
-
-| Signal | Approach | Primary output | Read next |
-|--------|----------|----------------|-----------|
-| default request | Standard Helm workflow | analysis / recommendation | `references/` |
-| complex multi-agent task | Nexus-routed execution | structured handoff | `_common/BOUNDARIES.md` |
-| unclear request | Clarify scope and route | scoped analysis | `references/` |
-| strategy-execution deviation detected | FORESIGHT escalation workflow | deviation report + corrective options | `references/strategy-monitoring.md` |
-| cognitive bias risk in input data | Debiasing review before simulation | bias-checked assumptions + Devil's Advocate findings | `references/cognitive-biases.md` |
-| SaaS metrics review | Financial benchmark comparison | benchmark gap analysis + alert flags | `references/financial-modeling-pitfalls.md` |
-| market sizing, TAM/SAM/SOM interpretation | Market headroom + entry scoring | strategic market size analysis + portfolio sizing | `references/market-sizing-strategy.md` |
-| disruption risk, S-curve, industry lifecycle | Disruption detection | disruption risk score + lifecycle stage + response options | `references/disruption-detection.md` |
-| wargame, competitor response simulation | Wargaming simulation | response-adjusted scenarios + financial impact + contingency | `references/wargaming-simulation.md` |
-
-Routing rules:
-
-- If the request matches another agent's primary role, route to that agent per `_common/BOUNDARIES.md`.
-- Always read relevant `references/` files before producing output.
+- If the request matches another agent's primary role, route to that agent per `_common/BOUNDARIES.md`. Always read relevant `references/` files before producing output.
 
 ## Output Requirements
 

@@ -47,6 +47,10 @@ KNOWN_EXTERNALS: dict[str, dict] = {
     "github:wshobson/agents": {
         "mapping": "wshobson-agents-2026-04.skills.json",
         "repo": "wshobson/agents",
+        "path_overrides": {
+            "billing-automation": "plugins/payment-processing/skills/billing-automation/SKILL.md",
+            "changelog-automation": "plugins/documentation-generation/skills/changelog-automation/SKILL.md",
+        },
         "path_template": "plugins/developer-essentials/skills/{name}/SKILL.md",
         "source_url_template": "https://skills.sh/wshobson/agents/{name}",
         "reference_url": "https://github.com/wshobson/agents",

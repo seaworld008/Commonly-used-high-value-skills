@@ -1,14 +1,14 @@
 ---
 name: grove
-description: '用于规划仓库结构、文档目录、测试脚本组织和迁移方案。'
-version: "1.0.1"
+description: 'Repository structure design, optimization, and audit. Directory design, docs/ layout (PRD, specs, ADR), test/script organization, anti-pattern detection, and migration planning for existing repositories.'
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/grove"
 license: MIT
 tags: '["grove", "knowledge"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-19"
+updated_at: "2026-05-28"
 quality: 5
 complexity: "advanced"
 ---
@@ -132,47 +132,41 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 | `VERIFY` | Check impact, health score, and migration safety | Score must not decrease after migration | `references/audit-commands.md` |
 | `PRESENT` | Deliver report and handoffs | Include health grade and next agent | `references/anti-patterns.md` |
 
-## Output Routing
-
-| Signal | Approach | Primary output | Read next |
-|--------|----------|----------------|-----------|
-| `structure`, `directory`, `layout`, `scaffold` | Directory design | Structure plan + scaffold commands | `references/directory-templates.md` |
-| `audit`, `health`, `score`, `anti-pattern` | Structure audit | Health score + anti-pattern report | `references/anti-patterns.md` |
-| `docs`, `documentation structure` | Docs scaffolding | Scribe-compatible docs/ layout | `references/docs-structure.md` |
-| `migrate`, `restructure`, `reorganize` | Migration planning | Level-based migration plan | `references/migration-strategies.md` |
-| `monorepo`, `workspace`, `packages` | Monorepo audit | Five-axis monorepo health score | `references/monorepo-health.md` |
-| `convention`, `drift`, `DNA` | Convention profiling | Cultural DNA report + drift detection | `references/cultural-dna.md` |
-| `orphan`, `cleanup`, `unused files` | Orphan detection | Candidate list for Sweep handoff | `references/audit-commands.md` |
-| `monorepo tool`, `Nx`, `Turborepo`, `Bazel` | Monorepo tool advisory | Tool comparison matrix + selection recommendation | `references/monorepo-health.md` |
-| `gitops`, `deployment config`, `app vs config separation` | GitOps layout | Repo separation plan + path-scoped CI guidance | `references/directory-templates.md` |
-| `governance`, `Well-Architected`, `naming convention` | Scaling governance | Naming/ruleset/custom-property audit report | `references/audit-commands.md` |
-
 ## Recipes
+
+Single source of truth for Recipe definitions. Full phase contracts live in each Recipe's `Read First` reference.
 
 | Recipe | Subcommand | Default? | When to Use | Read First |
 |--------|-----------|---------|-------------|------------|
-| Structure Audit | `audit` | ✓ | Audit existing repo structure, detect anti-patterns | `references/anti-patterns.md` |
-| New Structure Design | `design` | | Design a new directory structure | `references/directory-templates.md` |
-| Docs Layout | `docs` | | docs/ layout (PRD, specs, ADR) | `references/docs-structure.md` |
-| Migration Plan | `migrate` | | Migration plan for existing repo structure | `references/migration-strategies.md` |
-| Monorepo Structure | `monorepo` | | Monorepo layout, tool selection (Nx/Turborepo/pnpm/Bazel/Lerna), package boundaries, polyrepo→monorepo migration | `references/monorepo-structure.md` |
-| Tests Layout | `tests` | | Tests/ directory layout (unit/integration/e2e split, mirror vs co-locate, fixtures/factories/helpers) | `references/tests-layout.md` |
-| Scripts Organization | `scripts` | | scripts/ directory layout (language-pick rubric, setup/build/release/dev split, naming, shebangs) | `references/scripts-organization.md` |
+| Structure Audit | `audit` | ✓ | Audit existing repo structure, detect anti-patterns (AP-001 to AP-016); emphasize SURVEY phase | `references/anti-patterns.md` |
+| New Structure Design | `design` | | Design a new directory structure following detected language/framework native conventions | `references/directory-templates.md` |
+| Docs Layout | `docs` | | Scribe-compatible docs/ layout (PRD, specs, ADR directories) | `references/docs-structure.md` |
+| Migration Plan | `migrate` | | Incremental L1-L5 migration plan; every step keeps CI green | `references/migration-strategies.md` |
+| Monorepo Structure | `monorepo` | | Workspace tool selection (Turborepo/Nx/pnpm/Bazel; avoid Lerna for new repos), apps/libs/packages split, CODEOWNERS, remote build cache, polyrepo→monorepo migration with `git subtree`/`filter-repo` for blame preservation | `references/monorepo-structure.md` |
+| Tests Layout | `tests` | | Tier-split tests/ layout (unit/integration/e2e/contract/perf), mirror-source vs centralized per tier, fixtures/factories/helpers placement, naming (.test/.spec) aligned with CI tier selectors | `references/tests-layout.md` |
+| Scripts Organization | `scripts` | | Language-pick rubric (shell ≤30 LOC / Node 30–200 / Python >200 / Go for binaries), category split (setup/dev/build/release/ci/maintenance), verb-noun naming, shebang/`+x` hygiene | `references/scripts-organization.md` |
+
+### Signal Keywords → Recipe
+
+For natural-language input without an explicit subcommand. Subcommand match wins if both apply.
+
+| Keywords | Recipe |
+|----------|--------|
+| `audit`, `health`, `score`, `anti-pattern` | `audit` |
+| `structure`, `directory`, `layout`, `scaffold` | `design` |
+| `docs`, `documentation structure` | `docs` |
+| `migrate`, `restructure`, `reorganize` | `migrate` |
+| `monorepo`, `workspace`, `packages`, `monorepo tool`, `Nx`, `Turborepo`, `Bazel` | `monorepo` |
+| `convention`, `drift`, `DNA` | `audit` (with `references/cultural-dna.md`) |
+| `orphan`, `cleanup`, `unused files` | `audit` (handoff to Sweep) |
+| `gitops`, `deployment config`, `app vs config separation` | `design` (with GitOps separation) |
+| `governance`, `Well-Architected`, `naming convention` | `audit` (scaling governance) |
 
 ## Subcommand Dispatch
 
-Parse the first token of user input.
-- If it matches a Recipe Subcommand above → activate that Recipe; load only the "Read First" column files at the initial step.
+Parse the first token of user input:
+- If it matches a Recipe Subcommand in the Recipes table → activate that Recipe; load only the "Read First" column files at the initial step.
 - Otherwise → default Recipe (`audit` = Structure Audit). Apply normal SURVEY → PLAN → VERIFY → PRESENT workflow.
-
-Behavior notes per Recipe:
-- `audit`: Output structural health score and anti-patterns (AP-001 to AP-016) for an existing repo. Emphasize the SURVEY phase.
-- `design`: Detect language/framework, then propose a new directory structure that follows native conventions.
-- `docs`: Scribe-compatible docs/ layout design. Include PRD, specs, and ADR directories.
-- `migrate`: Generate an incremental migration plan by L1-L5 risk level. Every step keeps CI green.
-- `monorepo`: Choose workspace tool (Turborepo/Nx/pnpm/Bazel; avoid Lerna for new repos), define apps/libs/packages split, draft CODEOWNERS, configure remote build cache, and plan polyrepo→monorepo migration with `git subtree`/`filter-repo` for blame preservation.
-- `tests`: Design tier-split tests/ layout (unit/integration/e2e/contract/perf), pick mirror-source vs centralized per tier, place fixtures/factories/helpers, and align naming (.test/.spec) with CI tier selectors.
-- `scripts`: Apply language-pick rubric (shell ≤30 LOC / Node 30–200 / Python >200 / Go for binaries), split scripts/ by category (setup/dev/build/release/ci/maintenance), enforce verb-noun naming, and fix shebang/`+x` hygiene.
 
 ## Output Requirements
 

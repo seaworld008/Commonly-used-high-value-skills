@@ -1,14 +1,14 @@
 ---
 name: mcporter
 description: 'Use the mcporter CLI to list, configure, auth, and call MCP servers/tools directly (HTTP or stdio), including ad-hoc servers, config edits, and CLI/type generation.'
-version: 1.0.0
+version: "1.0.1"
 author: community
 source: "in-house"
 source_url: ""
 license: MIT
 tags: '[MCP, Tools, API, Integrations, Interop]'
 created_at: "2026-04-13"
-updated_at: "2026-04-13"
+updated_at: "2026-05-28"
 quality: 4
 complexity: "intermediate"
 metadata:
@@ -21,31 +21,6 @@ commands: '[npx]'
 # mcporter
 
 Use `mcporter` to discover, call, and manage [MCP (Model Context Protocol)](https://modelcontextprotocol.io/) servers and tools directly from the terminal.
-
-## When to Use
-
-Use this skill when the user wants to:
-
-- inspect MCP servers already configured on the machine
-- call MCP tools directly from the terminal without wiring them into the current agent first
-- test ad-hoc MCP servers over HTTP or stdio
-- generate CLI wrappers or TypeScript types from an MCP server
-
-Use `native-mcp` instead when:
-
-- the goal is persistent MCP integration inside the agent runtime
-- tools should auto-load into every conversation
-
-## Usage
-
-Recommended flow:
-
-```text
-list servers
--> inspect tools and schemas
--> call one tool directly
--> move to config/auth/codegen only if needed
-```
 
 ## Prerequisites
 
@@ -151,10 +126,3 @@ mcporter emit-ts <server> --mode types
 - Use `--output json` for structured output that's easier to parse
 - Ad-hoc servers (HTTP URL or `--stdio` command) work without any config — useful for one-off calls
 - OAuth auth may require interactive browser flow — use `terminal(command="mcporter auth <server>", pty=true)` if needed
-
-## Common Pitfalls
-
-- using `mcporter` for always-on integration when `native-mcp` is the better fit
-- forgetting `--output json` when machine-readable results matter
-- assuming remote auth is already configured
-- testing ad-hoc stdio servers without confirming the underlying command works standalone

@@ -1,14 +1,14 @@
 ---
 name: sigil
 description: 'Use when generating, updating, auditing, or sync-repairing project-specific Claude Code skills. Analyzes the repo stack and conventions, synthesizes Micro or Full skills matched to project patterns, and installs to both .claude/skills/ and .agents/skills/.'
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/sigil"
 license: MIT
 tags: '["agent", "ai", "sigil"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-19"
+updated_at: "2026-05-28"
 quality: 5
 complexity: "advanced"
 ---
@@ -168,30 +168,28 @@ Six-phase canonical pipeline. ATTUNE is mandatory after every batch of 2+ skills
 | Extract Conventions | `convention` | | Convention extraction | `references/context-analysis.md`, `references/claude-md-best-practices.md` |
 | Migrate Existing | `migrate` | | Adapt an existing skill to the project | `references/evolution-patterns.md` |
 
+### Signal Keywords → Workflow
+
+For natural-language input without an explicit subcommand. Subcommand match wins if both apply. Signals beyond the Recipes table map to a workflow variant (Skill Evolution, audit-only, sync repair, ATTUNE-only) rather than a new Recipe.
+
+| Keywords | Workflow | Read next |
+|----------|----------|-----------|
+| `generate skills`, `create skills`, `new skills` | `generate` (SCAN → DISCOVER → CRAFT → INSTALL → VERIFY → ATTUNE) | `references/context-analysis.md` |
+| `update skills`, `refresh skills`, `stale skills` | `migrate` / Skill Evolution path (SCAN → DIFF → PLAN → UPDATE → VERIFY → ATTUNE) | `references/evolution-patterns.md` |
+| `audit skills`, `check skills`, `skill quality` | SCAN → VERIFY (no generation) | `references/validation-rules.md` |
+| `sync drift`, `repair sync`, `skill mismatch` | SCAN → sync repair | `references/context-analysis.md` |
+| `skill effectiveness`, `calibrate`, `attune` | ATTUNE-only (OBSERVE → MEASURE → ADAPT → PERSIST) | `references/skill-effectiveness.md` |
+| `analyze project`, `extract conventions` | `analyze` / `convention` | `references/context-analysis.md` |
+| unclear skill request | SCAN → DISCOVER → report | `references/skill-catalog.md` |
+
 ## Subcommand Dispatch
 
-Parse the first token of user input.
-- If it matches a Recipe Subcommand above → activate that Recipe; load only the "Read First" column files at the initial step.
+Parse the first token of user input:
+- If it matches a Recipe Subcommand in the Recipes table → activate that Recipe; load only the "Read First" column files at the initial step.
 - Otherwise → default Recipe (`generate` = Generate New Skill). Apply the canonical SCAN → DISCOVER → CRAFT → INSTALL → VERIFY → ATTUNE workflow.
+- Always run SCAN before any generation or update operation; if existing skills are found, check for sync drift first.
 
-## Output Routing
-
-| Signal | Approach | Primary output | Read next |
-|--------|----------|----------------|-----------|
-| `generate skills`, `create skills`, `new skills` | SCAN → DISCOVER → CRAFT → INSTALL → VERIFY → ATTUNE | Skill set + Sigil's Report | `references/context-analysis.md` |
-| `update skills`, `refresh skills`, `stale skills` | SCAN → DIFF → PLAN → UPDATE → VERIFY → ATTUNE (Skill Evolution path) | Updated skill set | `references/evolution-patterns.md` |
-| `audit skills`, `check skills`, `skill quality` | SCAN -> VERIFY | Quality score report | `references/validation-rules.md` |
-| `sync drift`, `repair sync`, `skill mismatch` | SCAN -> sync repair | Synchronized directories | `references/context-analysis.md` |
-| `skill effectiveness`, `calibrate`, `attune` | OBSERVE -> MEASURE -> ADAPT -> PERSIST | Calibration report | `references/skill-effectiveness.md` |
-| unclear skill request | SCAN -> DISCOVER -> report | Discovery report with candidates | `references/skill-catalog.md` |
-
-Routing rules:
-
-- Always run SCAN before any generation or update operation.
-- If existing skills are found, check for sync drift before adding new ones.
-- If the user requests batch generation of 10+ skills, ask first.
-- If domain conventions are unclear after SCAN, ask before generating.
-- Default to Micro Skills unless the candidate has 3+ decision points.
+Operational gates: ask first when batch generation exceeds 10 skills or domain conventions remain unclear after SCAN. Default to Micro Skills unless the candidate has 3+ decision points.
 
 ## Output Requirements
 

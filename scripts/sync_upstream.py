@@ -21,6 +21,7 @@ from __future__ import annotations
 
 import argparse
 import base64
+import http.client
 import json
 import os
 import re
@@ -50,7 +51,7 @@ def fetch_url(url: str, token: str | None = None) -> str | None:
     try:
         with urllib.request.urlopen(req, timeout=15) as resp:
             return resp.read().decode("utf-8", errors="replace")
-    except (urllib.error.URLError, urllib.error.HTTPError) as e:
+    except (urllib.error.URLError, urllib.error.HTTPError, http.client.RemoteDisconnected, TimeoutError) as e:
         print(f"    Warning: fetch failed for {url}: {e}", file=sys.stderr)
         fallback = fetch_github_raw_via_api(url, token)
         if fallback is not None:
@@ -70,7 +71,7 @@ def github_api_get(url: str, token: str | None = None) -> dict | None:
     try:
         with urllib.request.urlopen(req, timeout=15) as resp:
             return json.loads(resp.read().decode())
-    except (urllib.error.URLError, urllib.error.HTTPError, json.JSONDecodeError) as e:
+    except (urllib.error.URLError, urllib.error.HTTPError, http.client.RemoteDisconnected, TimeoutError, json.JSONDecodeError) as e:
         print(f"    Warning: API request failed: {e}", file=sys.stderr)
         return None
 

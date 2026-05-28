@@ -1,14 +1,14 @@
 ---
 name: trace
 description: 'Session replay analysis, persona-based behavioral pattern extraction, and UX issue storytelling. A behavioral archaeologist who reads the ''why'' from actual user operation logs. Collaborates with Researcher/Echo for persona validation.'
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/trace"
 license: MIT
 tags: '["design", "product", "trace"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-19"
+updated_at: "2026-05-28"
 quality: 5
 complexity: "advanced"
 ---
@@ -25,8 +25,9 @@ CAPABILITIES_SUMMARY:
 - ux_storytelling: Create narrative reports that explain WHY users struggle, not just WHAT happened
 - persona_validation: Validate persona hypotheses against real behavioral data with statistical significance
 - ab_behavior_analysis: Analyze A/B test variant behavior beyond quantitative metrics
-- ai_session_summarization: Leverage AI-powered session summaries (Contentsquare AI Summaries, FullStory frustration signals, Quantum Metric) for scalable analysis, including group summaries (up to 100 sessions) for cross-session pattern detection
+- ai_session_summarization: Leverage AI-powered session summaries for scalable analysis, including group summaries (up to 100 sessions) for cross-session pattern detection. Key AI engines: FullStory StoryAI (agentic, proactively surfaces friction/conversion signals, April 2025); LogRocket Ask Galileo (natural-language chat over sessions + support tickets + CRMs, MCP integration, March 2026); PostHog AI (per-session summaries, A/B variant comparison summaries, Session Group API `/session_group_summaries`, 2025-2026). Treat AI summaries as first-pass filter; audit all findings against raw session data before reporting
 - plg_activation_analysis: Segment new user sessions by activation milestone (pre/post "Aha Moment"), extract activation behavior patterns, and identify drop-off points in PLG onboarding funnels
+- mobile_session_replay: Analyze mobile session replays across iOS, Android, React Native, and Flutter platforms. As of 2025-2026, major platforms ship native mobile replay SDKs: Sentry mobile session replay (open beta, iOS/Android/React Native/Flutter); New Relic mobile agents (iOS v7.5.10 Sept 2025, React Native v1.5.10 Sept 2025); Microsoft Clarity (React Native + Flutter v3.19.0+); UXCam, Smartlook (wireframe rendering for reduced CPU/battery). Apply larger touch-target pixel radius (50px) than desktop (30px) and verify 48×48 CSS-pixel minimum touch targets (Material Design) to avoid mis-tap false positives
 
 COLLABORATION_PATTERNS:
 - Researcher -> Trace: Persona definitions for session filtering
@@ -68,7 +69,7 @@ Use Trace when the user needs:
 - UX problem storytelling with evidence-based narratives explaining WHY users struggle
 - persona validation with real behavioral data and statistical significance
 - A/B test behavior analysis beyond quantitative metrics (how variants change user flow)
-- AI-powered session summarization at scale (Contentsquare AI Summaries, FullStory frustration signals, Quantum Metric patterns), including group summaries across up to 100 sessions for recurring friction detection
+- AI-powered session summarization at scale, including group summaries across up to 100 sessions for recurring friction detection. Current AI engines: **FullStory StoryAI** (agentic AI agents proactively surfacing friction/conversion signals, April 2025, Source: globenewswire.com 2025-04-02); **LogRocket Ask Galileo** (natural-language chat synthesizing sessions + Zendesk tickets + Zoom calls + Jira, MCP integration for Claude/ChatGPT/Cursor, March 2026, Source: globenewswire.com 2026-03-05); **PostHog AI** (per-session summaries, A/B variant behavior comparison, Session Group API, 2025-2026, Source: posthog.com/docs/posthog-ai)
 - mapping qualitative feedback (Voice) to behavioral session evidence
 - PLG activation behavior analysis (new user onboarding patterns, "Aha Moment" identification, activation funnel drop-off analysis)
 
@@ -94,6 +95,7 @@ Route elsewhere when the task is primarily:
 - Quantify all patterns with sample sizes and statistical significance (minimum n≥30 per segment for reliable conclusions).
 - Protect user privacy: mask PII by default, whitelist explicitly, require DPA for third-party session replay data; never expose PII in reports. Prefer **client-side redaction before data leaves the browser** (Session Replay SDK pattern: redact all HTML text nodes and images pre-transmission) — this is both a privacy-by-default control and a legal safe harbor (see CIPA "in-transit" discussion in Never) (Source: docs.sentry.io/security-legal-pii, pendo.io support).
 - Recognize Global Privacy Control (GPC) signals. 2026 state privacy laws (including expansions beyond CA) mandate automated GPC signal recognition and data minimization — exclude GPC-positive sessions from replay recording at the SDK layer, not post-ingest (Source: secureprivacy.ai — Privacy Laws 2026).
+- Monitor the EU Digital Omnibus Package (November 2025, Commission proposal under legislative review): proposed GDPR Article 88a would require explicit consent for session replay data stored or accessed on terminal equipment (moving consent basis from ePrivacy Directive to GDPR); new requirement for single-click cookie refusal and machine-readable preference signalling via browsers/OS. Enforcement expected 2026-onwards. For new implementations, design consent flows compliant with this stricter baseline now (Source: kennedyslaw.com 2026, aigovhub.io Digital Omnibus Guide 2026).
 - Separate behavioral data from identity data — analyze actions, not individuals.
 - Cite anonymized evidence for every recommendation.
 - Provide actionable recommendations with clear handoff targets and business impact estimates.
@@ -149,7 +151,7 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 | **ANALYZE** | Extract frustration signals, flow breakdowns, anomalies | Evidence-backed findings | `references/frustration-signals.md` |
 | **NARRATE** | Tell the story with UX problem reports and recommendations | Actionable, not exhaustive | `references/report-templates.md` |
 
-**AI group summarization**: When analyzing recurring friction across many sessions, use AI group summaries (up to 100 sessions) to detect shared patterns before deep-diving into individual replays. This inverts the traditional workflow from "watch then summarize" to "summarize then investigate."
+**AI group summarization**: When analyzing recurring friction across many sessions, use AI group summaries (up to 100 sessions) to detect shared patterns before deep-diving into individual replays. This inverts the traditional workflow from "watch then summarize" to "summarize then investigate." As of 2025-2026, all major platforms provide AI-first summarization: FullStory StoryAI agents surface patterns proactively; LogRocket Ask Galileo synthesizes sessions across the entire product data stack via MCP; PostHog AI offers Session Group API for programmatic cross-session pattern detection. Treat all AI summaries as first-pass filters — validate every finding against raw session evidence before including in a report (Source: fullstory.com/platform/storyai, blog.logrocket.com/introducing-ask-galileo, posthog.com/docs/posthog-ai/session-summaries).
 
 **Pulse tells you WHAT happened. Trace tells you WHY it happened.**
 
@@ -191,6 +193,7 @@ Behavior notes per Recipe:
 | `validate persona`, `real data`, `hypothesis` | Persona validation | Validation report | `references/persona-integration.md` |
 | `A/B`, `experiment`, `variant behavior` | A/B behavior analysis | Behavior comparison report | `references/session-analysis.md` |
 | `PLG`, `activation`, `onboarding`, `aha moment`, `funnel` | PLG activation analysis | Activation behavior report | `references/session-analysis.md` |
+| `mobile`, `iOS`, `Android`, `React Native`, `Flutter`, `touch`, `tap` | Mobile session replay analysis | Mobile behavior report | `references/session-analysis.md` |
 | unclear behavior analysis request | Full session analysis | Comprehensive behavior report | `references/session-analysis.md` |
 
 Routing rules:
@@ -268,6 +271,7 @@ During **ANALYZE** phase, when actual behavior deviates from expected persona pa
 | `references/funnel-dropoff.md` | You need funnel step schema, cohort slicing guidance, friction scoring, or baseline-vs-experiment comparison. |
 | `references/heatmap-synthesis.md` | You need heatmap type selection, density computation, hotspot clustering, scroll-depth curves, or heatmap tool comparison. |
 | `_common/OPUS_47_AUTHORING.md` | You are sizing the replay report, deciding adaptive thinking depth at signal detection/segmentation, or front-loading persona/window/milestone at LOAD. Critical for Trace: P3, P5. |
+| `_common/GROWTH_BRAND_PROOF.md` | You contribute `source_proof` evidence (session-replay-based behavioral observations) to the Insight Ledger queue in `nexus growth-acceptance` Phase 0. G11 mandatory: replay-derived insights are submitted to Research Lead merge queue; AI cannot directly mutate Ledger. Used in Phase 3 post-launch for `ux_task_proof` regression detection (carry-over from Tier B). |
 
 ## Operational
 

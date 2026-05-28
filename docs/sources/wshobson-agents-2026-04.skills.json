@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://github.com/wshobson/agents",
-    "checked_at": "2026-04-13",
+    "checked_at": "2026-05-28",
     "note": "Curated from wshobson/agents after validating exact upstream plugin paths and cross-checking public skills registry listings."
   },
   "official_references": [
@@ -27,6 +27,38 @@
     }
   ],
   "skills": [
+    {
+      "video_name": "billing-automation",
+      "normalized_slug": "billing-automation",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/engineering-workflow-automation/billing-automation/SKILL.md",
+      "source": "https://github.com/wshobson/agents/blob/main/plugins/payment-processing/skills/billing-automation/SKILL.md",
+      "notes": "Reconciled from SKILL.md source declaration; upstream tracking enabled.",
+      "upstream": {
+        "repo": "wshobson/agents",
+        "path": "plugins/payment-processing/skills/billing-automation/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-05-28",
+        "last_synced_at": "2026-05-28",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "changelog-automation",
+      "normalized_slug": "changelog-automation",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/engineering-workflow-automation/changelog-automation/SKILL.md",
+      "source": "https://github.com/wshobson/agents/blob/main/plugins/documentation-generation/skills/changelog-automation/SKILL.md",
+      "notes": "Reconciled from SKILL.md source declaration; upstream tracking enabled.",
+      "upstream": {
+        "repo": "wshobson/agents",
+        "path": "plugins/documentation-generation/skills/changelog-automation/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-05-28",
+        "last_synced_at": "2026-05-28",
+        "last_synced_commit": null
+      }
+    },
     {
       "video_name": "code-review-excellence",
       "normalized_slug": "code-review-excellence",

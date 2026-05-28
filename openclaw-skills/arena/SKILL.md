@@ -1,14 +1,14 @@
 ---
 name: arena
 description: 'Specialist orchestrating codex exec / Antigravity CLI through dual paradigms — COMPETE (multi-variant comparison, select best) and COLLABORATE (decompose tasks across engines, integrate). Supports Solo/Team/Quick execution modes.'
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/arena"
 license: MIT
 tags: '["agent", "ai", "arena"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-20"
+updated_at: "2026-05-28"
 quality: 5
 complexity: "advanced"
 ---
@@ -158,7 +158,17 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 
 ## Engine Availability
 
-**2+ engines:** Cross-Engine Competition (default). **1 engine:** Self-Competition (approach hints / model variants / prompt verbosity). **0 engines:** ABORT → notify user.
+> **Base Engine Policy (2026-05)**: Default baseline is **Codex (always) + Claude subagent (host)** for the dual-engine path; **agy** is an optional addon for tri-engine diversity when AVAILABLE at PREFLIGHT. agy v1.0.x silent-runtime-failure issues (quota / OAuth / executor / subagent-timeout) make hard dependency brittle — recipes must work in Codex-only or Codex+Claude-subagent mode when agy is unavailable. See `_common/MULTI_ENGINE_RECIPE.md §Base Engine Policy`.
+
+**Engine count matrix:**
+
+| Engines AVAILABLE | Recommended path |
+|-------------------|------------------|
+| Codex + Claude + agy | Cross-Engine Competition with 3 engines (full diversity) |
+| Codex + Claude (default baseline) | Cross-Engine Competition with 2 engines (codex variant + Claude subagent variant) OR Self-Competition with Codex (2-3 approach variants) — pick per task |
+| Codex only | Self-Competition (approach hints / model variants / prompt verbosity) |
+| 0 engines | ABORT → notify user |
+
 See `references/engine-cli-guide.md` → "Self-Competition Mode" for strategy templates.
 
 ## Workflow
@@ -278,6 +288,7 @@ Learning from execution outcomes across sessions. Details: `references/execution
 | `references/engine-prompt-optimization.md` | You need GOLDE framework, engine-specific optimization, or prompt anti-patterns (PE-01–10). |
 | `references/competitive-development-patterns.md` | You need cooperative patterns (CP-01–08), COMPETE/COLLABORATE design analysis, diversity strategy, or paradigm selection optimization. |
 | `_common/OPUS_47_AUTHORING.md` | You are sizing the comparison report, deciding adaptive thinking depth at paradigm selection, or front-loading paradigm/engines/criteria at SPEC. Critical for Arena: P3, P5. |
+| `_common/PROOF_CARRYING.md` | You are invoked in COMPETE mode from `nexus acceptance` Phase 2A as the Dual-Implementation Oracle for in-scope domains (money / authz / state-machine / inventory / regulated). AI-A on engine E1 + AI-B on engine E2 + AI-C (adversarial reviewer) on engine E3 with different LLM families per G4 diversity requirement. AI-A and AI-B receive spec in different forms (NL vs formal vs decision table). Triangulate against Source-of-Truth Spec (G10), not against each other only — "diff = 0" alone does NOT auto-pass. |
 
 ## Operational
 
@@ -301,7 +312,7 @@ _STEP_COMPLETE:
     parameters:
       paradigm: "[COMPETE | COLLABORATE]"
       mode: "[Solo | Team | Quick]"
-      engines_used: ["[codex | agy]"]
+      engines_used: ["[codex | agy | claude-subagent]"]
       variant_count: "[number]"
       winner: "[engine or hybrid]"
       aes_score: "[A | B | C | D | F]"

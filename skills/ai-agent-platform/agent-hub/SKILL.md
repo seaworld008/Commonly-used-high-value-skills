@@ -1,14 +1,14 @@
 ---
 name: agent-hub
 description: 'Multi-agent collaboration plugin that spawns N parallel subagents competing on the same task via git worktree isolation. Agents work independently, results are evaluated by metric or LLM judge, and the best branch is merged. Use when: user wants multiple approaches tried in parallel — code optimization, content variation, research exploration, or any task that benefits from parallel competition. Requires: a git repo.'
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:alirezarezvani/claude-skills"
 source_url: ""
 license: MIT
 tags: '["agent", "ai", "hub"]'
 created_at: "2026-03-27"
-updated_at: "2026-04-24"
+updated_at: "2026-05-28"
 quality: 4
 complexity: "intermediate"
 ---
@@ -241,7 +241,7 @@ The coordinator should act when:
 cp -r engineering/agenthub ~/.claude/skills/agenthub
 
 # Or install via ClawHub
-npx clawhub@latest install agenthub
+clawhub install agenthub
 ```
 
 ## Scripts
@@ -259,14 +259,12 @@ npx clawhub@latest install agenthub
 - **autoresearch-agent** — Single-agent optimization loop (use AgentHub when you want N agents competing)
 - **self-improving-agent** — Self-modifying agent (use AgentHub when you want external competition)
 - **git-worktree-manager** — Git worktree utilities (AgentHub uses worktrees internally)
-
 <!-- LOCAL-QUALITY-SUPPLEMENT:START -->
 ## Usage Notes
 
 This supplement is maintained by the repository sync pipeline. It keeps the
 imported upstream skill usable inside this curated collection when the upstream
-source is intentionally concise or uses headings that the local quality gate
-cannot classify.
+source is intentionally concise.
 
 ## Common Patterns
 
@@ -282,8 +280,8 @@ cannot classify.
 
 - Prefer the upstream workflow for Agent Hub; this section only adds local quality
   guardrails.
-- Do not invent project facts when required files, services, tools, or agent
-  workspaces are unavailable.
+- Do not invent project facts when required files, vaults, services, or tools are
+  unavailable.
 - Stop and ask for clarification when the next action could overwrite user work,
   expose private data, or change production state.
 <!-- LOCAL-QUALITY-SUPPLEMENT:END -->

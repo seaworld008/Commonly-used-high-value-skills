@@ -1,14 +1,14 @@
 ---
 name: schema
 description: 'Database schema design, migration planning, and ER diagram specialist. Handles normalization, index strategies, and relation definitions. Use when DB schema design is needed.'
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/schema"
 license: MIT
 tags: '["development", "schema"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-19"
+updated_at: "2026-05-28"
 quality: 5
 complexity: "advanced"
 ---
@@ -192,7 +192,7 @@ Routing rules:
 - If the request involves index design or query optimization, read `references/index-strategies.md`.
 - If the request involves migration sequencing or zero-downtime changes, read `references/migration-patterns.md`.
 - If the request involves anti-pattern review, read `references/data-modeling-anti-patterns.md` or `references/schema-design-anti-patterns.md`.
-- If the request involves PostgreSQL 17/18 features (UUIDv7, virtual generated columns, temporal constraints, skip scan), read `references/postgresql17-features.md`.
+- If the request involves PostgreSQL 18 features (UUIDv7, virtual generated columns, temporal constraints, skip scan, async I/O, OAuth, DDL replication), read `references/postgresql18-features.md`. For PG 17-only clusters or SQL/JSON (`JSON_TABLE`, `JSON_VALUE`, `SPLIT`/`MERGE PARTITION`), read `references/postgresql17-features.md`.
 - If the request involves multi-tenant architecture, read `references/multi-tenant-patterns.md`.
 - If the request involves event sourcing, CQRS, pgvector, or bitemporal design, read `references/advanced-patterns.md`.
 - Always read relevant `references/` files before producing output.
@@ -294,7 +294,8 @@ Schema receives data requirements and architectural context from upstream agents
 | `references/data-modeling-anti-patterns.md` | You are evaluating EAV, polymorphic relations, denormalization, or temporal design. |
 | `references/migration-deployment-anti-patterns.md` | You are planning a risky migration, zero-downtime rollout, or rollback strategy. |
 | `references/index-performance-anti-patterns.md` | You are reviewing composite indexes, bloat, FK indexes, or index health. |
-| `references/postgresql17-features.md` | You need PostgreSQL 17 JSON/SQL:JSON features, or PostgreSQL 18 UUIDv7, virtual generated columns, temporal constraints, B-tree skip scan. |
+| `references/postgresql18-features.md` | You are on PostgreSQL 18 (GA 2025-09-25) and need UUIDv7, virtual generated columns (default), temporal `WITHOUT OVERLAPS` / `PERIOD`, `RETURNING OLD.*`/`NEW.*`, B-tree skip scan, async I/O, OAuth, or DDL replication. |
+| `references/postgresql17-features.md` | You are on PostgreSQL 17 and need SQL/JSON (`JSON_TABLE`, `JSON_VALUE`, `JSON_QUERY`, `JSON_EXISTS`), `SPLIT`/`MERGE PARTITION`, logical-replication failover, or `pg_createsubscriber`. Legacy reference — see `postgresql18-features.md` for current release. |
 | `references/multi-tenant-patterns.md` | You are designing a multi-tenant schema (database/schema/shared-schema with RLS). |
 | `references/advanced-patterns.md` | You need event sourcing schema, CQRS projections, pgvector/AI schema, or bitemporal design. |
 | `references/migration-rollback.md` | You are designing reverse-operation DDL, dual-write windows, backfill scripts, or destructive-change alternatives (`rollback` recipe). |

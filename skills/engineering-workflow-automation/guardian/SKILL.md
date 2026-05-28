@@ -1,14 +1,14 @@
 ---
 name: guardian
 description: 'Git/PR gatekeeper that classifies change essence, recommends granularity, naming, and strategy. Use when PR preparation or commit strategy is needed.'
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/guardian"
 license: MIT
 tags: '["automation", "guardian", "workflow"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-20"
+updated_at: "2026-05-28"
 quality: 5
 complexity: "advanced"
 ---
@@ -167,16 +167,9 @@ Core classifications: change = `Essential / Supporting / Incidental / Generated 
 | `XXL` | `100-200` files, `3000-5000` lines | mandatory split or Sherpa |
 | `MEGA` | `200+` files, `5000+` lines | Sherpa handoff |
 
-PR quality bands: `A+ 95-100`, `A 85-94`, `B+ 75-84`, `B 65-74`, `C 50-64`, `D 35-49`, `F 0-34`.
+PR quality bands and Risk bands → see `references/pr-quality-scoring.md` (Grade Mapping) and `references/risk-assessment.md` (Risk Bands).
 
-Risk bands: `Critical 85-100`, `High 65-84`, `Medium 40-64`, `Low 0-39`.
-
-Branch rules: default `<type>/<short-kebab-description>`; types `feat / fix / refactor / docs / test / chore / perf / security`. Strategy selection (DORA-correlated):
-- `GitHub Flow` — web apps with continuous deployment; recommended starting point (per GitFlow creator Driessen, 2020)
-- `Git Flow` — versioned software with multiple supported releases; trade-off: merge conflicts compound with branch lifetime
-- `Trunk-Based` — high-performing teams with strong test automation and merge queues; strongest correlation with DORA "Harmonious High Achiever" archetype (lead time, deployment frequency, change failure rate, failed deployment recovery time, rework rate)
-
-DORA reference (2025 report replaced fixed elite/high/medium/low tiers with 7 named archetypes: Foundational Challenges, Legacy Bottleneck, Constrained by Process, High Impact Low Cadence, Stable and Methodical, Pragmatic Performers, Harmonious High-Achievers; reclassified 5 metrics as 3 throughput — deployment frequency, lead time, rework rate — and 2 instability — change failure rate, failed deployment recovery time): traditional elite benchmarks — lead time <1h, deploy on-demand (multiple/day), change failure rate <5%, failed deployment recovery <1h. Rework Rate benchmarks: only 7.3% of teams below 2%, 26.1% between 8-16%. Use Rework Rate to detect reactive churn in PRs — high rework signals inadequate upfront review or unclear requirements.
+Branch naming: default `<type>/<short-kebab-description>`; types `feat / fix / refactor / docs / test / chore / perf / security`. Branching strategy selection (GitHub Flow / Git Flow / Trunk-Based) and DORA-archetype correlation → `references/branching-strategies.md`. Rework Rate gating (DORA 2025 5th metric) is enforced via the `rework_rate > 0.30` hard gate above.
 
 Review priority SLAs: hotfixes ≤ 2h, features ≤ 24h, refactoring ≤ 48h. Target 80%+ of PRs under team's size threshold.
 
@@ -287,11 +280,11 @@ Additional sections as needed (use canonical headings from `references/output-te
 | `references/predictive-quality-gate.md` | you need Judge/Zen prediction rules and confidence handling |
 | `references/coverage-integration.md` | you need CI coverage correlation and Radar escalation rules |
 | `references/learning-loop.md` | you are calibrating Guardian from Judge, Zen, Harvest, or squash feedback |
-| `references/collaboration-patterns.md` | you need detailed cross-agent flows and token usage |
-| `references/handoff-router.md` | you need exact auto-routing priority and trigger rules |
+| `references/collaboration-routing.md` | you need detailed cross-agent flows, token usage, and auto-routing priority/trigger rules |
 | `references/output-templates.md` | you need canonical report headings and output skeletons |
 | `references/autorun-mode.md` | you are running Guardian in AUTORUN mode |
 | `_common/OPUS_47_AUTHORING.md` | you are sizing the PR plan, deciding adaptive thinking depth at granularity/naming, or front-loading change type/target/urgency at CLASSIFY. Critical for Guardian: P3, P5. |
+| `_common/PROOF_CARRYING.md` | you prepare PRs with embedded evidence packages in `nexus acceptance` Phase 4. Lists the 12 required evidence fields, Hot-Fix Fast-Path rules (P0/P1 triage downgrades Tier-S→A, normal-Gate follow-up within 24h), and Success-PR random-review sampling (G2: 5% Tier-S / 2% Tier-A). |
 
 ## Operational
 

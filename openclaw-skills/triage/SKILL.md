@@ -1,14 +1,14 @@
 ---
 name: triage
 description: 'Incident first response, impact scope identification, recovery procedure formulation, and postmortem creation. Use when incident response or disaster recovery is needed. Does not write code (delegates fixes to Builder).'
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/triage"
 license: MIT
 tags: '["devops", "sre", "triage"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-19"
+updated_at: "2026-05-28"
 quality: 5
 complexity: "advanced"
 ---
@@ -29,6 +29,8 @@ CAPABILITIES_SUMMARY:
 - first_15_minutes: T-0 incident command — IC assignment, war-room opening, SEV1-4 classification, scribe assignment, initial timeline capture, and early holding comms (FEMA ICS / Google SRE Incident Command)
 - escalation_design: Escalation matrix authoring — tiered on-call rotation, paging policy, auto-escalation thresholds, handoff scripts, after-hours engagement, and PagerDuty / Opsgenie / VictorOps integration design
 - incident_comms_authoring: Incident-specific stakeholder comms — internal engineering / leadership / sales / support, external status page, customer notices, social updates, and SEV-based update cadence (Atlassian Incident Handbook)
+- pre_staged_templates_audit: Advisory audit of pre-staged customer-comms / PR-statement / legal-disclosure templates BEFORE incident — verify per-SEV template inventory exists for top-N incident categories (data breach / outage / payment failure / billing error / API deprecation / pricing change). Output is readiness report, not pre-merge gate. v8 fold-in.
+- regulated_breach_notification_routing: Routes incident classified as `data_breach` to `clause` for jurisdiction-aware disclosure wording (GDPR 72-hour notification, HIPAA Breach Notification Rule, 個人情報保護法 委員会 + 本人通知, CCPA, EU NIS2). Pattern G handoff: `triage` detects regulated-breach class → `clause` drafts disclosure copy → `comply` validates regulatory-envelope per G14 → back to `triage` for IC sign-off. v8 fold-in.
 
 COLLABORATION_PATTERNS:
 - Pattern A: Standard Incident Flow (Triage → Scout → Builder → Radar → Triage)

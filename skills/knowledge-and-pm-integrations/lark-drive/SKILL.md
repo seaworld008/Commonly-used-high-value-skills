@@ -1,14 +1,14 @@
 ---
 name: lark-drive
-description: '飞书云空间文件上传、下载、权限、评论和目录管理。'
-version: "1.0.2"
+description: '飞书云空间（云盘/云存储）：管理云空间（云盘/云存储）中的文件和文件夹。上传和下载文件、创建文件夹、复制/移动/删除文件、查看文件元数据、管理文档评论、管理文档权限、订阅用户评论变更事件、修改文件标题（docx、sheet、bitable、file、folder、wiki）；也负责把本地 Word/Markdown/Excel/CSV/PPTX 以及 Base 快照（.base）导入为飞书在线云文档（docx、sheet、bitable、slides）。当用户需要上传或下载文件、整理云空间（云盘/云存储）目录、查看文件详情、管理评论、管理文档权限、修改文件标题、订阅用户评论变更事件，或要把本地文件导入成新版文档、电子表格、多维表格/Base/幻灯片 时使用。\\"云空间\\"、\\"云盘\\"和\\"云存储\\"是同一概念，用户说\\"云盘\\"、\\"云存储\\"、\\"网盘\\"、\\"我的空间\\"时均路由到本 skill。当用户给出 doubao.com 的云空间资源 URL/token，或明确提到豆包里的 file/folder/docx/sheet/bitable/wiki 资源时，也应直接使用本 skill，不要因为域名不是飞书而回退到 WebFetch；路由依据是资源类型、URL 路径模式和 token，而不是域名。'
+version: "1.0.3"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-drive"
 license: MIT
 tags: '[feishu, lark, lark-cli, drive, files]'
 created_at: "2026-05-19"
-updated_at: "2026-05-21"
+updated_at: "2026-05-28"
 quality: 4
 complexity: intermediate
 metadata:
@@ -21,18 +21,21 @@ metadata:
 
 **CRITICAL — 开始前 MUST 先用 Read 工具读取 [`../lark-shared/SKILL.md`](../lark-shared/SKILL.md)，其中包含认证、权限处理**
 
+> **术语说明：** 飞书云空间也常被称为"云盘"或"云存储"，三者指的是同一个产品，是飞书官方的云端文件存储与管理中心。
+
 > **导入分流规则：** 如果用户要把本地 Excel / CSV / `.base` 快照导入成 Base / 多维表格 / bitable，必须优先使用 `lark-cli drive +import --type bitable`。不要先切到 `lark-base`；`lark-base` 只负责导入完成后的表内操作。
 
 ## 快速决策
 
-- 用户要**搜文档 / Wiki / 电子表格 / 多维表格 / 云空间对象**，优先使用 `lark-cli drive +search`。自然语言里"最近我编辑过的"、"我创建的"（→ `--mine`，实为 owner 语义）、"最近一周我打开过的 xxx"、"某人 owner 的 docx" 等直接映射到扁平 flag，避免手写嵌套 JSON。
+- 用户要**搜文档 / Wiki / 电子表格 / 多维表格 / 云空间（云盘/云存储）对象**，优先使用 `lark-cli drive +search`。自然语言里"最近我编辑过的"、"我创建的"（→ `--mine`，实为 owner 语义）、"最近一周我打开过的 xxx"、"某人 owner 的 docx" 等直接映射到扁平 flag，避免手写嵌套 JSON。
 - 用户要把本地 `.xlsx` / `.csv` / `.base` 导入成 Base / 多维表格 / bitable，第一步必须使用 `lark-cli drive +import --type bitable`。
 - 用户要把本地 `.md` / `.docx` / `.doc` / `.txt` / `.html` 导入成在线文档，使用 `lark-cli drive +import --type docx`。
+- 用户要把本地 `.pptx` 导入成飞书幻灯片，使用 `lark-cli drive +import --type slides`；当前 PPTX 导入上限是 500MB。
 - 用户要在 Drive 里上传、创建、读取、局部 patch 或覆盖更新**原生 `.md` 文件**（不是导入成 docx），切到 [`lark-markdown`](../lark-markdown/SKILL.md)。
 - 用户要比较原生 `.md` 文件的**历史版本差异**，或比较远端 Markdown 与本地草稿，切到 [`lark-markdown`](../lark-markdown/SKILL.md) 的 `lark-cli markdown +diff`；需要版本号时先用 `drive +version-history`。
 - 用户要查看、下载、回滚或删除文件的**历史版本**，使用 `drive +version-history`、`drive +version-get`、`drive +version-revert`、`drive +version-delete`；这组命令同时支持 `--as user` 和 `--as bot`，自动化场景优先 `--as bot`。
 - 用户要把本地 `.xlsx` / `.xls` / `.csv` 导入成电子表格，使用 `lark-cli drive +import --type sheet`。
-- 用户要在云空间里新建文件夹，优先使用 `lark-cli drive +create-folder`。
+- 用户要在云空间（云盘/云存储）里新建文件夹，优先使用 `lark-cli drive +create-folder`。
 - 用户要把本地文件上传到知识库 / 文档库里的某个 wiki 节点下时，仍然使用 `lark-cli drive +upload --wiki-token <wiki_token>`；不要误切到 `wiki` 域命令。
 - `lark-base` 只负责导入完成后的 Base 内部操作（表、字段、记录、视图），不要在“本地文件 -> Base”这一步提前切到 `lark-base`。
 
@@ -129,7 +132,7 @@ Wiki Space (知识空间)
     └── obj_type: file/slides/mindnote
         └── obj_token (真实文档 token)
 
-Drive Folder (云空间文件夹)
+Drive Folder (云空间/云盘/云存储文件夹)
 └── File (文件/文档)
     └── file_token (直接使用)
 ```
@@ -139,8 +142,8 @@ Drive Folder (云空间文件夹)
 | 操作 | 需要的 Token | 说明 |
 |------|-------------|------|
 | 读取文档内容 | `file_token` / 通过 `docs +fetch --api-version v2` 自动处理 | `docs +fetch --api-version v2` 支持直接传入 URL |
-| 添加局部评论（划词评论） | `file_token` | 传 `--block-id` 时，`drive +add-comment` 会创建局部评论；`docx` 支持文本定位或 block_id，`sheet` 使用 `<sheetId>!<cell>`，`slides` 使用 `<slide-block-type>!<xml-id>`，且都支持最终解析到对应类型的 wiki URL |
-| 添加全文评论 | `file_token` | 不传 `--block-id` 时，`drive +add-comment` 默认创建全文评论；支持 `docx`、旧版 `doc` URL，以及最终解析为 `doc`/`docx` 的 wiki URL |
+| 添加局部评论（划词评论） | `file_token` | 传 `--block-id` 时，`drive +add-comment` 会创建局部评论；`docx` 支持文本定位或 block_id，`sheet` 使用 `<sheetId>!<cell>`，`slides` 使用 `<slide-block-type>!<xml-id>`，且都支持最终解析到对应类型的 wiki URL；Drive file 不支持局部评论 |
+| 添加全文评论 | `file_token` | 不传 `--block-id` 时，`drive +add-comment` 默认创建全文评论；支持 `docx`、旧版 `doc` URL、白名单扩展名的 Drive file，以及最终解析为 `doc`/`docx`/`file` 的 wiki URL |
 | 下载文件 | `file_token` | 从文件 URL 中直接提取 |
 | 上传文件 | `folder_token` / `wiki_node_token` | 目标位置的 token |
 | 列出文档评论 | `file_token` | 同添加评论 |
@@ -148,15 +151,16 @@ Drive Folder (云空间文件夹)
 ### 评论能力边界（关键！）
 
 - `drive +add-comment` 支持两种模式。
-- 全文评论：未传 `--block-id` 时默认启用，也可显式传 `--full-comment`；支持 `docx`、旧版 `doc` URL，以及最终解析为 `doc`/`docx` 的 wiki URL。
-- 局部评论：传 `--block-id` 时启用；不同文档类型的支持范围与参数格式见 [`drive +add-comment` 行为说明](references/lark-drive-add-comment.md#行为说明)。
+- 全文评论：未传 `--block-id` 时默认启用，也可显式传 `--full-comment`；支持 `docx`、旧版 `doc` URL、白名单扩展名的 Drive file，以及最终解析为 `doc`/`docx`/`file` 的 wiki URL。
+- 局部评论：传 `--block-id` 时启用；`docx` 支持文本定位或 block id，`sheet` 支持 `<sheetId>!<cell>`，`slides` 支持 `<slide-block-type>!<xml-id>`，wiki URL 解析到这些类型时也支持对应局部评论。Drive file 本次只支持全文评论，不支持局部评论。
+- Drive file 评论仅支持白名单扩展名：`.md`、`.txt`、`.json`、`.csv`、`.go`、`.js`、`.py`、`.pptx`、`.png`、`.jpg`、`.jpeg`、`.zip`、`.mp3`、`.mp4`。`.pdf`、`.docx`、`.xlsx` 等未在白名单内的普通文件暂不支持，CLI 会直接报错提示当前还不支持这种类型的评论。
 - Review / 审阅 / 校对 / 逐条指出问题场景优先使用局部评论，不要把多个可定位问题汇总成一条全文评论；具体参数和定位方式见 [`drive +add-comment` 行为说明](references/lark-drive-add-comment.md#行为说明)。
 - `drive +add-comment` 的 `--content` 需要传 `reply_elements` JSON 数组字符串，例如 `--content '[{"type":"text","text":"正文"}]'`。
 - `slides` 评论要求显式传 `--block-id <slide-block-type>!<xml-id>`；CLI 会将其拆分后写入 `anchor.block_id` 和 `anchor.slide_block_type`。其中 `<xml-id>` 是 PPT XML 协议中的元素 `id`；不支持 `--selection-with-ellipsis` 和 `--full-comment`。
 
 - 评论写入内容（添加评论、回复评论、编辑回复）里的文本不能直接出现 `<`、`>`；提交前必须先转义：`<` -> `&lt;`，`>` -> `&gt;`。
 - 使用 `drive +add-comment` 时，shortcut 会对 `type=text` 的文本元素自动做上述转义兜底；如果直接调用 `drive file.comments create_v2`、`drive file.comment.replys create`、`drive file.comment.replys update`，则需要在请求里自行传入已转义的内容。
-- 如果 wiki 解析后不是 `doc`/`docx`/`sheet`/`slides`，不要用 `+add-comment`。
+- 如果 wiki 解析后不是 `doc`/`docx`/`file`/`sheet`/`slides`，不要用 `+add-comment`。
 - 如果需要更底层地直接调用评论 V2 协议，再走原生 API：先执行 `lark-cli schema drive.file.comments.create_v2`，再执行 `lark-cli drive file.comments create_v2 ...`。全文评论省略 `anchor`，局部评论传 `anchor.block_id`。
 
 ### 评论查询与统计口径（关键！）
@@ -264,30 +268,32 @@ lark-cli drive permission.members create \
 
 Shortcut 是对常用操作的高级封装（`lark-cli drive +<verb> [flags]`）。有 Shortcut 的操作优先使用。
 
-| Shortcut | 说明 |
-|----------|------|
-| [`+search`](references/lark-drive-search.md) | Search Lark docs, Wiki, and spreadsheet files with flat filter flags. Natural-language-friendly: `--edited-since`, `--mine`, `--doc-types`, etc. |
-| [`+upload`](references/lark-drive-upload.md) | Upload a local file to a Drive folder or wiki node |
-| [`+create-folder`](references/lark-drive-create-folder.md) | Create a Drive folder, optionally under a parent folder, with bot auto-grant support |
-| [`+download`](references/lark-drive-download.md) | Download a file from Drive to local |
+| Shortcut | 说明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`+search`](references/lark-drive-search.md) | Search Lark docs, Wiki, and spreadsheet files with flat filter flags. Natural-language-friendly: `--edited-since`, `--mine`, `--doc-types`, etc.                                                                                                                                                                                                                                                                                                                                                                                   |
+| [`+upload`](references/lark-drive-upload.md) | Upload a local file to a Drive folder or wiki node                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| [`+create-folder`](references/lark-drive-create-folder.md) | Create a Drive folder, optionally under a parent folder, with bot auto-grant support                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| [`+download`](references/lark-drive-download.md) | Download a file from Drive to local                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | [`+status`](references/lark-drive-status.md) | Compare a local directory with a Drive folder by exact SHA-256 hash by default, or use `--quick` for a best-effort modified-time diff that skips remote downloads; reports `new_local` / `new_remote` / `modified` / `unchanged` plus `detection=exact` or `detection=quick`. Duplicate remote `rel_path` conflicts fail fast with `error.type=duplicate_remote_path` and list every conflicting entry; do not proceed as if one was chosen. `--local-dir` 必须是 cwd 内的相对路径，越界路径 CLI 会直接拒绝；目标在 cwd 外时引导用户切换 agent 工作目录，不要私自 `cd` 绕过。 |
-| [`+pull`](references/lark-drive-pull.md) | File-level Drive → local mirror. Duplicate remote `rel_path` conflicts fail by default; for duplicate files, `rename` downloads all copies with stable hashed suffixes, while `newest` / `oldest` pick one. `--if-exists` supports `overwrite` / `smart` / `skip` (`smart` is a best-effort modified-time incremental mode for repeat syncs). `--delete-local` requires `--yes`, only removes regular files, and is skipped after item failures. `--local-dir` must stay inside cwd. |
+| [`+pull`](references/lark-drive-pull.md) | File-level Drive → local mirror. Duplicate remote `rel_path` conflicts fail by default; for duplicate files, `rename` downloads all copies with stable hashed suffixes, while `newest` / `oldest` pick one. `--if-exists` supports `overwrite` / `smart` / `skip` (`smart` is a best-effort modified-time incremental mode for repeat syncs). `--delete-local` requires `--yes`, only removes regular files, and is skipped after item failures. `--local-dir` must stay inside cwd.                                               |
 | `+sync` | Two-way local ↔ Drive sync. Reuses `+status` diff buckets, pulls `new_remote`, pushes `new_local`, and resolves `modified` via `--on-conflict=remote-wins|local-wins|keep-both|ask`. `--quick` enables best-effort modified-time diffing (timestamp mismatches can still trigger real pull/push actions), `--on-duplicate-remote` supports `fail|newest|oldest`, and the command is intentionally non-destructive (no delete on either side). |
-| [`+create-shortcut`](references/lark-drive-create-shortcut.md) | Create a shortcut to an existing Drive file in another folder |
-| [`+add-comment`](references/lark-drive-add-comment.md) | Add a comment to doc/docx/sheet/slides, also supports wiki URL resolving to doc/docx/sheet/slides |
-| [`+export`](references/lark-drive-export.md) | Export a doc/docx/sheet/bitable to a local file with limited polling; supports `--file-name` for local naming |
-| [`+export-download`](references/lark-drive-export-download.md) | Download an exported file by file_token |
-| [`+import`](references/lark-drive-import.md) | Import a local file to Drive as a cloud document (docx, sheet, bitable) |
-| [`+version-history`](references/lark-drive-version-history.md) | List historical versions of a file with only_tag=true and cursor-based pagination |
-| [`+version-get`](references/lark-drive-version-get.md) | Download a specific historical version of a file |
-| [`+version-revert`](references/lark-drive-version-revert.md) | Revert a file to a specific historical version |
-| [`+version-delete`](references/lark-drive-version-delete.md) | Delete a specific historical version of a file |
-| [`+move`](references/lark-drive-move.md) | Move a file or folder to another location in Drive |
-| [`+delete`](references/lark-drive-delete.md) | Delete a Drive file or folder with limited polling for folder deletes |
-| [`+push`](references/lark-drive-push.md) | File-level local → Drive mirror. Duplicate remote `rel_path` conflicts fail by default; `newest` / `oldest` only apply to duplicate files when you explicitly want to target one remote file. `--if-exists` supports `skip` / `smart` / `overwrite` (`smart` skips files whose remote `modified_time` is already up to date, but falls through to the same overwrite path when the remote is older, so it inherits overwrite's rollout caveat). `--delete-remote` requires `--yes`. `--local-dir` must stay inside cwd. |
-| [`+task_result`](references/lark-drive-task-result.md) | Poll async task result for import, export, move, or delete operations |
-| [`+inspect`](references/lark-drive-inspect.md) | Inspect a Lark document URL to get its type, title, and canonical token; auto-unwraps wiki URLs to the underlying document |
-| [`+apply-permission`](references/lark-drive-apply-permission.md) | Apply to the document owner for view/edit access (user-only; 5/day per document) |
+| [`+create-shortcut`](references/lark-drive-create-shortcut.md) | Create a shortcut to an existing Drive file in another folder                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| [`+add-comment`](references/lark-drive-add-comment.md) | Add a comment to doc/docx/file/sheet/slides, also supports wiki URL resolving to doc/docx/file/sheet/slides; file targets support selected extensions and full comments only                                                                                                                                                                                                                                                                                                                                                       |
+| [`+export`](references/lark-drive-export.md) | Export a doc/docx/sheet/bitable/slides to a local file with limited polling; supports `--file-name` for local naming                                                                                                                                                                                                                                                                                                                                                                                                               |
+| [`+export-download`](references/lark-drive-export-download.md) | Download an exported file by file_token                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| [`+import`](references/lark-drive-import.md) | Import a local file to Drive as a cloud document (docx, sheet, bitable, slides)                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| [`+version-history`](references/lark-drive-version-history.md) | List historical versions of a file with only_tag=true and cursor-based pagination                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| [`+version-get`](references/lark-drive-version-get.md) | Download a specific historical version of a file                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| [`+version-revert`](references/lark-drive-version-revert.md) | Revert a file to a specific historical version                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| [`+version-delete`](references/lark-drive-version-delete.md) | Delete a specific historical version of a file                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| [`+move`](references/lark-drive-move.md) | Move a file or folder to another location in Drive                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| [`+delete`](references/lark-drive-delete.md) | Delete a Drive file or folder with limited polling for folder deletes                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| [`+push`](references/lark-drive-push.md) | File-level local → Drive mirror. Duplicate remote `rel_path` conflicts fail by default; `newest` / `oldest` only apply to duplicate files when you explicitly want to target one remote file. `--if-exists` supports `skip` / `smart` / `overwrite` (`smart` skips files whose remote `modified_time` is already up to date, but falls through to the same overwrite path when the remote is older, so it inherits overwrite's rollout caveat). `--delete-remote` requires `--yes`. `--local-dir` must stay inside cwd.            |
+| [`+task_result`](references/lark-drive-task-result.md) | Poll async task result for import, export, move, or delete operations                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| [`+inspect`](references/lark-drive-inspect.md) | Inspect a Lark document URL to get its type, title, and canonical token; auto-unwraps wiki URLs to the underlying document                                                                                                                                                                                                                                                                                                                                                                                                         |
+| [`+apply-permission`](references/lark-drive-apply-permission.md) | Apply to the document owner for view/edit access (user-only; 5/day per document)                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| [`+secure-label-list`](references/lark-drive-secure-label.md) | List secure labels available to the current user |
+| [`+secure-label-update`](references/lark-drive-secure-label.md) | Update a Drive file/document secure label; downgrade approval errors require opening the document UI |
 
 ## API Resources
 

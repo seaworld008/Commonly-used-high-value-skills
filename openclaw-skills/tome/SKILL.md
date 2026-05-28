@@ -1,14 +1,14 @@
 ---
 name: tome
-description: '用于把仓库变更整理成学习文档和知识沉淀。'
-version: "1.0.3"
+description: 'Converts repository changes into detailed learning documents. Use when turning diffs into teaching materials, recording design decisions, or creating onboarding materials for new members.'
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/tome"
 license: MIT
 tags: '["knowledge", "tome"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-19"
+updated_at: "2026-05-28"
 quality: 5
 complexity: "advanced"
 ---
@@ -69,6 +69,7 @@ Use Tome when:
 - New team members need onboarding material derived from change history
 - A glossary of terms from recent changes is needed
 - Multiple PRs need to be woven into a coherent learning series
+- The human onboarding doc needs a paired `AGENTS.md` / `CLAUDE.md` / `GEMINI.md` for AI coding agents (Codex, Copilot Coding Agent, Cursor, Jules, Claude Code, Gemini CLI — format stewarded by the Agentic AI Foundation since Dec 2025) [Source: agents.md]
 
 Route elsewhere:
 - Inline comments / JSDoc only → `Quill`
@@ -201,43 +202,44 @@ Output format templates → `references/output-templates.md`
 
 ## Recipes
 
+Single source of truth for Recipe definitions. Behavior depth (framework, depth calibration, structural rules) lives in the "When to Use" column.
+
 | Recipe | Subcommand | Default? | When to Use | Read First |
 |--------|-----------|---------|-------------|------------|
-| Learning Doc | `learn` | ✓ | Learning document generation (standard mode) | `references/output-templates.md` |
-| Diff to Teaching | `diff` | | Turn diffs into teaching materials | `references/patterns.md` |
-| Onboarding Material | `onboard` | | Material for new members (beginner depth) | `references/output-templates.md` |
-| Design Decision Record | `record` | | Design decision record (ADR/Decision Record) | `references/output-templates.md` |
-| Worked Example | `worked` | | Step-by-step problem→reasoning→solution document with cognitive scaffolding and faded guidance | `references/worked-example.md` |
-| Coding Kata | `kata` | | Deliberate-practice exercise with constraints, difficulty tiers, and comparison-target solutions | `references/coding-kata.md` |
-| Quickstart Guide | `quickstart` | | ≤15-minute first-success path with prerequisite filtering and "you should see..." anchors | `references/quickstart-guide.md` |
+| Learning Doc | `learn` | ✓ | Standard `learning_doc` generation. Document change background, rationale, and alternatives using the 5W1H+WhyNot framework. Applies normal `SCOPE → EXTRACT → ANALYZE → COMPOSE → REVIEW` workflow. | `references/output-templates.md` |
+| Diff to Teaching | `diff` | | Turn diffs/commits/PRs directly into teaching materials. Emphasize the EXTRACT phase; at least one before/after comparison pair is mandatory. | `references/patterns.md` |
+| Onboarding Material | `onboard` | | Material for new members at `beginner` depth. Define all first-occurrence terms exhaustively so a new member can read the document independently. | `references/output-templates.md` |
+| Design Decision Record | `record` | | `decision_record` generation. Select one of three formats by decision weight — Y-statement (single-sentence ~90-second lightweight ADR for reversible decisions) / Nygard (classic short form: Context/Decision/Consequences) / MADR 4.0.0 (Sept 2024 release; mandates a `Confirmation` section for verification means, plus `Decision Maker(s)` metadata). One decision per record, strictly. [Source: adr.github.io; github.com/adr/madr/releases] | `references/output-templates.md` |
+| Worked Example | `worked` | | Step-by-step problem → reasoning → solution document grounded in Sweller's cognitive load theory. Annotate expert thought process, common errors, and "why it works." For learning sequences, design faded-guidance progression. | `references/worked-example.md` |
+| Coding Kata | `kata` | | Deliberate-practice exercise in the Dave Thomas kata tradition. Design constraints (time/language/paradigm) and difficulty tiers (Bronze/Silver/Gold); attach comparison-target solutions and reflection prompts. | `references/coding-kata.md` |
+| Quickstart Guide | `quickstart` | | ≤15-minute first-success path. Strictly narrow prerequisites; place "you should see..." anchors at success-verification points. Troubleshooting in decision-tree form. | `references/quickstart-guide.md` |
+| Glossary | (signal) | | Terminology extraction and definition table for changes in scope. Triggered by `glossary` / `terms` signal keywords. | `references/output-templates.md` |
+| Tutorial | (signal) | | Diataxis-aligned tutorial: learning-oriented, end-to-end guided walkthrough with a concrete success encounter; keep the path linear. Triggered by `tutorial` / `learning path` / `guided`. | `references/output-templates.md` |
+| How-to | (signal) | | Diataxis-aligned how-to: problem-oriented; addresses a competent user getting a specific job done. Triggered by `how-to` / `recipe` / `solve`. | `references/output-templates.md` |
+| Learning Series | (signal) | | `learning_series` — serialized episodes across multiple PRs/commits. Triggered by `batch` / `sprint` / `series`. Each episode independently readable. | `references/output-templates.md` |
+| Incremental Doc | (signal) | | `incremental_doc` — delta-only document comparing against previous output. Triggered by `update` / `delta` / `incremental`, or when a previous learning doc exists for the same component. | `references/output-templates.md` |
 
-## Subcommand Dispatch
+### Signal Keywords → Recipe
 
-Parse the first token of user input.
-- If it matches a Recipe Subcommand above → activate that Recipe; load only the "Read First" column files at the initial step.
-- Otherwise → default Recipe (`learn` = Learning Doc). Apply normal SCOPE → EXTRACT → ANALYZE → COMPOSE → REVIEW workflow.
+For natural-language input without an explicit subcommand. Subcommand match wins if both apply.
 
-Behavior notes per Recipe:
-- `learn`: 標準 learning_doc。5W1H+WhyNot フレームワークで変更の背景・理由・代替案を文書化。
-- `diff`: diff/commit/PR を直接受け取り教材化。EXTRACT フェーズを重点化し before/after 比較必須。
-- `onboard`: beginner 深度で用語定義を徹底。新規メンバーが独立して読める資料を生成。
-- `record`: Nygard テンプレートで decision_record 生成。一決定一レコードを厳守。
-- `worked`: Sweller の認知負荷理論に基づき、専門家の思考プロセス・よくある誤り・「なぜ機能するか」を併記したステップ解法を生成。学習シーケンス時は faded-guidance 段階を設計。
-- `kata`: Dave Thomas の kata 伝統に基づく熟達練習課題。制約 (時間/言語/パラダイム) と難易度ティア (Bronze/Silver/Gold) を設計し、比較対象解と振り返りプロンプトを添付。
-- `quickstart`: 15 分以内の初回成功パスを設計。前提条件を厳格に絞り込み、「you should see...」アンカーで成功検証ポイントを設置。トラブルシューティングは決定木形式。
+| Keywords | Recipe / Format |
+|----------|-----------------|
+| `diff`, `commit`, `changes` | `learn` / `learning_doc` |
+| `glossary`, `terms` | Glossary |
+| `decision`, `ADR`, `why` | `record` / `decision_record` |
+| `tutorial`, `learning path`, `guided` | Tutorial |
+| `how-to`, `recipe`, `solve` | How-to |
+| `onboarding`, `new member` | `onboard` / `learning_doc` (beginner depth) |
+| `batch`, `sprint`, `series` | Learning Series |
+| `update`, `delta`, `incremental` | Incremental Doc |
 
-## Output Routing
+### Subcommand Dispatch
 
-| Signal | Format | Approach | Read next |
-|--------|--------|----------|-----------|
-| `diff`, `commit`, `changes` | `learning_doc` | Standard learning document with all sections | `references/output-templates.md` |
-| `glossary`, `terms` | `glossary` | Terminology extraction and definition table | `references/output-templates.md` |
-| `decision`, `ADR`, `why` | `decision_record` | Nygard-style record: Context / Decision / Consequences, one decision per record, explicit Status | `references/output-templates.md` |
-| `tutorial`, `learning path`, `guided` | `tutorial` | Diataxis-aligned tutorial: learning-oriented, end-to-end guided walkthrough with a success encounter | `references/output-templates.md` |
-| `how-to`, `recipe`, `solve` | `how_to` | Diataxis-aligned how-to: problem-oriented, addresses a competent user getting a specific job done | `references/output-templates.md` |
-| `onboarding`, `new member` | `learning_doc` | Comprehensive learning document with beginner depth | `references/output-templates.md` |
-| `batch`, `sprint`, `series` | `learning_series` | Serialized episodes across multiple PRs/commits | `references/output-templates.md` |
-| `update`, `delta`, `incremental` | `incremental_doc` | Delta-only document comparing against previous output | `references/output-templates.md` |
+- Parse the first token of user input. If it matches a Recipe Subcommand → activate that Recipe; load only the "Read First" column files at the initial step.
+- Otherwise → match Signal Keywords (above) → activate the mapped Recipe / format.
+- Fall back to default Recipe (`learn` = Learning Doc) when neither matches.
+- If a previous learning doc exists for the same component, offer Incremental Update; for 2+ refs, offer Batch Series (see **Modes** for full mode contracts).
 
 ---
 

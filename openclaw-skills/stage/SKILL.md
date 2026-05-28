@@ -1,14 +1,14 @@
 ---
 name: stage
 description: 'Slide generation via Marp, reveal.js, or Slidev, narrative arc design, and conference talk optimization with WPM-calibrated timing. Use when creating or pacing presentations.'
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/stage"
 license: MIT
 tags: '["office", "stage"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-19"
+updated_at: "2026-05-28"
 quality: 5
 complexity: "advanced"
 ---
@@ -73,7 +73,7 @@ Route elsewhere when the task is primarily:
 - Keep slide text concise: max 6 lines per slide, max 6 words per bullet (6x6 rule). Reading and verbal processing compete for the same cognitive channel — audience either reads or listens, never both well.
 - Include visual cues (diagram placeholders, image suggestions) for non-text content; a single well-designed visual replaces paragraphs.
 - Generate a self-contained slide deck that can be previewed with a single command.
-- Calibrate timing with speaker pace (120-150 WPM; 125 WPM default for conversational tone). Total word budget = duration × WPM; flag decks that exceed the budget at DRAFT.
+- Calibrate timing with speaker pace (120-160 WPM; 140 WPM default for technical conference talks, 125 WPM for keynotes and non-native audiences). Total word budget = duration × WPM; flag decks that exceed the budget at DRAFT. Source: TED2026 cluster 130-150 WPM (https://conferences.ted.com/ted2026); University of Edinburgh study — listeners at 190+ WPM retain 30% less than at 150 WPM.
 - Author for Opus 4.7 defaults. Apply `_common/OPUS_47_AUTHORING.md` principles **P3 (eagerly Read story outline, audience profile, and talk duration at OUTLINE — slide resonance depends on grounding in actual audience and story arc), P5 (think step-by-step at framework selection (Marp/reveal.js/Slidev), 6x6 rule enforcement, and visual-cue placement)** as critical for Stage. P2 recommended: calibrated slide deck preserving 6x6 discipline, visual cues, and single-command preview. P1 recommended: front-load talk type, audience, and duration at OUTLINE.
 
 ## Boundaries
@@ -122,9 +122,9 @@ Parse the first token of user input.
 - Otherwise → default Recipe (`marp` = Marp). Apply normal OUTLINE → ARC → DRAFT → THEME → NOTES → REVIEW workflow.
 - `marp`: Generate Markdown slides convertible to PDF/PPTX/HTML via Marp CLI.
 - `reveal`: Generate reveal.js HTML slides leveraging the plugin ecosystem and advanced customization.
-- `slidev`: Generate Slidev slides with Monaco editor, code highlighting, and RecordRTC recording support.
+- `slidev`: Generate Slidev slides with Monaco editor, code highlighting, and built-in camera/screen recording (RecordRTC-powered, https://sli.dev/features/recording).
 - `conference`: Optimize structure and pacing specifically for LT (5 min) / regular (20 min) / keynote (45 min) formats.
-- `timing`: Compute duration on a 125 WPM basis and allocate speaker-note word budgets to each slide.
+- `timing`: Compute duration on a 140 WPM basis (technical talks) or 125 WPM (keynotes) and allocate speaker-note word budgets to each slide.
 - `narrative`: Design the deck story arc using a chosen framework (Pixar formula / Hero's Journey / Problem-Solution-Benefit / Minto Pyramid) before any slide content is drafted.
 - `visual`: Design typography hierarchy, color palette with WCAG AA contrast, image / iconography rules, and an alignment grid before applying a theme.
 - `rehearsal`: Produce a rehearsal plan covering breathing, pacing, pause discipline, eye-contact routing, and Q&A handling for the speaker.
@@ -133,12 +133,12 @@ Parse the first token of user input.
 
 | Signal | Approach | Primary output | Read next |
 |--------|----------|----------------|-----------|
-| `PPTX`, `corporate`, `.ppt` deliverable | Marp (native PPTX export with speaker notes) | `.md` with Marp directives | `references/patterns.md` |
-| `PDF`, `print`, handout | Marp (PDF export with outlines/notes) | `.md` with Marp directives | `references/patterns.md` |
+| `PPTX`, `corporate`, `.ppt` deliverable | Marp (native PPTX export with speaker notes; add `--pptx-editable` for text-editable output, requires LibreOffice) | `.md` with Marp directives | `references/patterns.md` |
+| `PDF`, `print`, handout | Marp (PDF export with outlines/notes); for accessible PDF/UA, export via PPTX then PowerPoint Save-As-PDF with Document Structure Tags | `.md` with Marp directives | `references/patterns.md` |
 | live code demo, `Monaco`, `Shiki`, animated code walkthrough | Slidev (Monaco editor + Shiki line animations) | `.md` with Slidev syntax | `references/patterns.md` |
-| `Vue`, developer talk, built-in recording/camera | Slidev (RecordRTC integration) | `.md` with Slidev syntax | `references/patterns.md` |
+| `Vue`, developer talk, built-in recording/camera | Slidev (built-in camera/screen recording, https://sli.dev/features/recording) | `.md` with Slidev syntax | `references/patterns.md` |
 | `reveal`, heavy customization, plugin ecosystem, multiplexing | reveal.js HTML | `.html` | `references/patterns.md` |
-| `LT`, `lightning talk`, 5 min | Compact format (8-12 slides; ~600-750 words) | framework-appropriate | `references/patterns.md` |
+| `LT`, `lightning talk`, 5 min | Compact format (8-12 slides; ~700 words @ 140 WPM) | framework-appropriate | `references/patterns.md` |
 | `keynote`, long talk, 30+ min | Extended format (30-60 slides; 1 slide/min pacing) | framework-appropriate | `references/patterns.md` |
 | `code`, technical, programming | Code-focused layout | framework with syntax highlighting | `references/patterns.md` |
 | unclear framework | Marp (lowest barrier, widest export) | `.md` | `references/patterns.md` |
@@ -168,14 +168,14 @@ Parse the first token of user input.
 
 ## Duration Templates
 
-Pace baseline: 120-150 WPM (125 WPM default). Word budget = duration × WPM. 1 slide/min is the common rule of thumb; adjust for slide style (prompt-style vs content-heavy). Dense academic / equation slides: 60-180s/slide.
+Pace baseline: 120-160 WPM; use 140 WPM for technical conference talks, 125 WPM for keynotes / non-native audiences. Word budget = duration × WPM. 1 slide/min is the common rule of thumb; adjust for slide style (prompt-style vs content-heavy). Dense academic / equation slides: 60-180s/slide.
 
-| Format | Duration | Slides | Pace | Word budget (125 WPM) |
+| Format | Duration | Slides | Pace | Word budget (140 WPM) |
 |--------|----------|--------|------|----------------------|
-| Lightning Talk | 5 min | 8-12 | 25-35 sec/slide | ~625 words |
-| Short Talk | 15 min | 15-25 | 35-50 sec/slide | ~1,875 words |
-| Regular Talk | 30 min | 30-45 | 40-60 sec/slide | ~3,750 words |
-| Keynote | 45-60 min | 45-70 | 50-70 sec/slide | ~5,625-7,500 words |
+| Lightning Talk | 5 min | 8-12 | 25-35 sec/slide | ~700 words |
+| Short Talk | 15 min | 15-25 | 35-50 sec/slide | ~2,100 words |
+| Regular Talk | 30 min | 30-45 | 40-60 sec/slide | ~4,200 words |
+| Keynote | 45-60 min | 45-70 | 50-70 sec/slide | ~6,300-8,400 words |
 
 ## Output Requirements
 

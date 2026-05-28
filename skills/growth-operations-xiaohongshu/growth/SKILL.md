@@ -1,14 +1,14 @@
 ---
 name: growth
 description: 'SEO (meta/OGP/JSON-LD/heading hierarchy), SMO (social sharing), CRO (CTA/form/exit-intent), and GEO (AI citation optimization) across four pillars. Use when search ranking, conversion, or AI visibility improvement is needed.'
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/growth"
 license: MIT
 tags: '["growth", "marketing"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-19"
+updated_at: "2026-05-28"
 quality: 5
 complexity: "advanced"
 ---
@@ -160,7 +160,7 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 | SEO | `seo` | ✓ | Meta tags, JSON-LD, heading hierarchy, GEO optimization | `references/seo-checklist.md` |
 | Social Sharing | `smo` | | OGP / Twitter Card social-share setup | `references/ogp-twitter-card-guide.md` |
 | CRO | `cro` | | CTA optimization, form improvements, exit intent | `references/cro-patterns.md` |
-| GEO | `geo` | | AI Overview / ChatGPT / Perplexity citation optimization | `references/json-ld-templates.md` |
+| GEO | `geo` | | AI Overview / AI Mode / ChatGPT / Perplexity / Claude citation optimization | `references/geo-optimization.md` + `references/json-ld-templates.md` |
 | Keyword | `keyword` | | Keyword research methodology — search intent classification, query clustering, SERP feature analysis, AI prompt mining | `references/keyword-research.md` |
 | Audit | `audit` | | Full-site SEO audit — crawlability, indexability, content gap, internal linking, log-file analysis | `references/seo-audit.md` |
 | Vitals | `vitals` | | Core Web Vitals deep optimization — LCP/INP/CLS root-cause and targeted fix patterns at p75 | `references/core-web-vitals-deep.md` |
@@ -196,7 +196,7 @@ Behavior notes per Recipe:
 | `OG`, `Open Graph`, `Twitter Card`, `social` | Social sharing | OGP/Twitter Card meta | `references/ogp-twitter-card-guide.md` |
 | `JSON-LD`, `structured data`, `Schema.org` | Structured data | JSON-LD implementation | `references/json-ld-templates.md` |
 | `LCP`, `INP`, `CLS`, `Core Web Vitals`, `performance` | Core Web Vitals | Performance fix + measurement at p75 (INP <200ms, LCP ≤2.5s, CLS <0.1); VSI for session stability when available | `references/core-web-vitals.md` |
-| `AI Overviews`, `GEO`, `AI search`, `citation` | Generative Engine Optimization | Triple schema stack + E-E-A-T + inline citations + platform-specific optimization (ChatGPT/Perplexity/Gemini/Copilot) | `references/json-ld-templates.md` |
+| `AI Overviews`, `AI Mode`, `GEO`, `AI search`, `citation` | Generative Engine Optimization | Triple schema stack + E-E-A-T + inline citations + platform-specific optimization (ChatGPT/Perplexity/Gemini/Claude/Copilot) | `references/geo-optimization.md` |
 | `E-E-A-T`, `author`, `expertise`, `trust` | E-E-A-T signals | Author markup, credential schema, experience indicators | `references/seo-checklist.md` |
 | `CTA`, `conversion`, `signup`, `checkout` | CRO optimization | CTA/form improvement | `references/cro-patterns.md` |
 | `form`, `validation`, `field`, `submit` | Form optimization | Form UX improvement | `references/cro-patterns.md` |
@@ -208,7 +208,7 @@ Routing rules:
 - If the signal is Core Web Vitals or performance, read `references/core-web-vitals.md`.
 - If the signal is CRO, form, or exit-intent, read `references/cro-patterns.md`.
 - If the signal is OGP or social sharing, read `references/ogp-twitter-card-guide.md`.
-- If the signal is GEO or AI search, read `references/json-ld-templates.md` + `references/seo-checklist.md` (stacked schema strategy).
+- If the signal is GEO or AI search, read `references/geo-optimization.md` first (four-signal framework + AI bot taxonomy + KPIs), then `references/json-ld-templates.md` (stacked schema) + `references/seo-checklist.md`.
 - When tracking or analytics changes are involved, confirm GDPR/CCPA compliance before implementation.
 
 ## Output Requirements
@@ -259,9 +259,10 @@ Growth receives data and insights from upstream agents. Growth sends hypotheses,
 | `references/json-ld-templates.md` | You need JSON-LD templates (Product/Article/FAQ/Breadcrumb/Org/Local/SoftwareApp). |
 | `references/core-web-vitals.md` | You need Core Web Vitals optimization (LCP/INP/CLS strategies + code). |
 | `references/core-web-vitals-deep.md` | You are running the `vitals` recipe — LCP/INP/CLS root-cause analysis at p75 (RUM not lab) with targeted fix patterns (priority hints, long-task breakup, layout reservation). |
-| `references/cro-patterns.md` | You need CRO patterns (CTA/forms/exit-intent/social proof). |
+| `references/cro-patterns.md` | You need CRO patterns (CTA/forms/exit-intent/social proof) + 2026 benchmarks (Baymard cart abandonment, form-field cliffs, Statsig/OpenAI tooling note). |
 | `references/keyword-research.md` | You are running the `keyword` recipe — search intent classification, query clustering, SERP overlap, AI prompt mining. |
 | `references/seo-audit.md` | You are running the `audit` recipe — full-site crawlability, indexability, content gap, internal linking topology, log-file analysis. |
+| `references/geo-optimization.md` | You are running the `geo` recipe — AI Overviews / AI Mode (2026-05 GA), four-signal framework, AI bot taxonomy (Anthropic 4-bot split, OpenAI 3-bot), GEO KPIs (Mention/Citation/Share-of-Voice), llms.txt 2026 status. |
 | `references/code-standards.md` | You need good/bad code examples. |
 | `_common/OPUS_47_AUTHORING.md` | You are sizing the SEO/GEO/CRO spec, deciding adaptive thinking depth at AUDIT, or front-loading scope/channel/metric at INTAKE. Critical for Growth: P3, P5. |
 

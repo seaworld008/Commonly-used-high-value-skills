@@ -1,14 +1,14 @@
 ---
 name: latch
 description: 'Propose, configure, debug, and maintain Claude Code hooks (PreToolUse/PostToolUse/Stop and other lifecycle events). Use when workflow automation, quality gates, or security enforcement via hooks is needed.'
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/latch"
 license: MIT
 tags: '["automation", "latch", "workflow"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-20"
+updated_at: "2026-05-28"
 quality: 5
 complexity: "advanced"
 ---
@@ -314,53 +314,78 @@ Hook sources (merged at runtime): `~/.claude/settings.json` (user), `.claude/set
 | Skill Quarantine | `quarantine` | | SessionStart drift / unaudited-skill detection + PreToolUse plugin-install gate + MCP tool description rug-pull check (works with `chain` audit) | `references/skill-quarantine-hook.md` |
 | CLAUDE.md Proposer | `claudemd-update` | | Stop hook that drafts non-blocking `CLAUDE.md` update proposals from the just-finished session (extracts "should have known" patterns; never auto-edits) — pairs with Hone for downstream density audit | `references/claude-md-update-proposer.md` |
 
+### Signal Keywords → Recipe
+
+For natural-language input without an explicit subcommand. Subcommand match wins if both apply. Signals not in the Recipes table map to a workflow focus or reference rather than a Recipe.
+
+| Keywords | Maps to |
+|----------|---------|
+| `propose`, `design hook`, `what hook` | PROPOSE focus → `references/hook-system.md` |
+| `configure`, `add hook`, `settings.json` | `configure` |
+| `debug`, `hook failing`, `hook slow`, `misfire`, `latency`, `hook performance` | `debug` |
+| `pretool`, `updatedInput`, `modify input`, `rewrite`, `redact` | `pretool` |
+| `posttool`, `async`, `background`, `non-blocking` | `posttool` |
+| `notification`, `slack`, `discord`, `desktop alert` | `notification` |
+| `session start`, `sessionstart`, `context injection`, `warm-up` | `sessionstart` |
+| `security hook`, `block`, `deny`, `secret regex`, `mcp acl` | `security` |
+| `quarantine`, `skill drift`, `plugin install gate`, `mcp rug-pull` | `quarantine` |
+| `claudemd-update`, `claude.md proposer`, `should have known` | `claudemd-update` |
+| `quality gate`, `stop hook`, `completion gate` | Stop/SubagentStop → `references/hook-recipes.md` |
+| `webhook`, `http hook`, `audit log` | HTTP hook → `references/hook-system.md` |
+| `mcp governance`, `mcp audit` | MCP audit hook → `references/hook-system.md` |
+| `task hook`, `task naming` | TaskCreated/TaskCompleted → `references/hook-system.md` |
+| `config change`, `settings guard` | ConfigChange hook → `references/hook-system.md` |
+| `file watch`, `env change`, `reactive` | FileChanged/CwdChanged → `references/hook-system.md` |
+| `elicitation`, `mcp input`, `mcp prompt` | Elicitation/ElicitationResult → `references/hook-system.md` |
+| `worktree`, `git worktree` | WorktreeCreate/WorktreeRemove → `references/hook-system.md` |
+| `plugin hook`, `hooks.json` | Plugin hook → `references/hook-system.md` |
+| `conditional`, `if field`, `filter` | `if` field filtering → `references/hook-system.md` |
+| unclear hook request | PROPOSE focus → `references/hook-system.md` |
+
 ## Subcommand Dispatch
 
-Parse the first token of user input.
-- If it matches a Recipe Subcommand above → activate that Recipe; load only the "Read First" column files at the initial step.
-- Otherwise → default Recipe (`configure` = Configure Hook). Apply normal SCAN → PROPOSE → IMPLEMENT → VERIFY → MAINTAIN workflow.
-
-Behavior notes per Recipe:
-- `configure`: Full SCAN → PROPOSE → IMPLEMENT run. settings.json backup required. Instruct session restart after JSON syntax validation.
-- `debug`: Check `/hooks` → run `claude --debug` → manual stdin test. Validate timeout, exit code, and stdout/stderr mixing in order.
-- `pretool`: Choose permissionDecision (allow/deny/ask/defer). Block with exit 2. updatedInput must always pair with permissionDecision: allow.
-- `posttool`: Exit 0 only (no blocking). Optional context injection via JSON stdout. Can background with async: true.
-- `notification`: Read `references/notification-hook.md` first. Notification events fire on permission requests, idle warnings (60s+), sub-agent completion, and similar lifecycle moments. Branch on message regex via the matcher (e.g. `waiting for your approval`, `idle for`) to route to the chosen sink (terminal-notifier / Slack incoming-webhook / Discord webhook / desktop notification). Apply dedup logic to suppress repeated identical messages within a window (e.g. 5 min dedupe per message). Prefer `async: true` to keep notifications non-blocking. Capture session start time to gate time-based rules such as "mute overnight".
-- `sessionstart`: Read `references/sessionstart-hook.md` first. SessionStart fires on Claude session start and after `/clear` / `/compact`. Anything written to stdout is injected into the next turn's context (keep it under ~10K tokens). Typical uses: fetch recent N PRs via the gh API, auto-summarize CLAUDE.md, surface current branch + CI status + uncommitted file count, run env validation (e.g. exit 2 on Node.js version mismatch to block startup). Offload heavy work to a prior cron job that writes to `~/.cache/`, and keep the hook itself a lazy `cat` of the cached output.
-- `security`: Read `references/security-guard-hook.md` first. Use the PreToolUse `permissionDecision: deny` to block dangerous operations. Canonical patterns: (a) Bash containing `rm -rf /`, `chmod -R 777`, or `git push --force` to `main/master` → immediate deny, (b) Write/Edit targeting `.env`, `id_rsa`, `*.pem`, `secrets.json` → deny, (c) tool input matching secret regex (`AKIA[0-9A-Z]{16}`, `sk-[A-Za-z0-9]{40+}`, JWT pattern) → `updatedInput` redact plus warning, (d) MCP tool ACL: deny specific `mcp__*` tools listed in the `LATCH_BLOCKED_MCP_TOOLS` env var. In CI environments (`CI=true`), promote every interactive deny to an auto-deny.
-- `quarantine`: Read `references/skill-quarantine-hook.md` first. Hook design that guards the **distribution side** of skills / plugins / MCP servers (the `security` recipe handles the runtime tool-call side). Three baseline patterns: (a) SessionStart sha256 drift detection against `.chain-manifest.json` plus unaudited-skill warning, (b) PreToolUse (`Bash` matcher) denial of `claudemarketplaces.com`-style plugin installs unless `CLAUDE_PLUGIN_INSTALL_ACK=1` is set, (c) SessionStart sha256 pinning of MCP tool descriptions to detect rug-pulls. Pairs with the `chain` agent (`/chain intake`, `/chain audit`, `/chain mcp`). Last line of defense against install-time SkillJect, Unicode Tag, and Shai-Hulud-class attacks.
-- `claudemd-update`: Read `references/claude-md-update-proposer.md` first. Stop hook that runs at session end, extracts "should have known" candidates from the transcript, and writes a non-blocking proposal file under `.claude/proposals/`. Always `exit 0` (advisory only) and `async: true` (never trap shutdown). Filters out linter-duplicate rules, single-anecdote observations, and rules better expressed as hooks. Pair with Hone when 3+ proposals accumulate to re-audit CLAUDE.md density and progressive-disclosure split.
-
-## Output Routing
-
-| Signal | Approach | Primary output | Read next |
-|--------|----------|----------------|-----------|
-| `propose`, `design hook`, `what hook` | PROPOSE focus | Hook-set design with justification | `references/hook-system.md` |
-| `configure`, `add hook`, `settings.json` | CONFIGURE focus | settings.json change + scripts | `references/hook-system.md`, `references/hook-recipes.md` |
-| `debug`, `hook failing`, `hook slow`, `misfire` | DEBUG focus | Diagnosis and fix plan | `references/debugging-guide.md` |
-| `security hook`, `block`, `deny` | Security enforcement | Blocking hook with justification | `references/hook-system.md` |
-| `quality gate`, `stop hook` | Completion gate | Stop/SubagentStop hook | `references/hook-recipes.md` |
-| `context injection`, `session start` | Context loading | SessionStart or UserPromptSubmit hook | `references/hook-system.md` |
-| `webhook`, `http hook`, `audit log` | HTTP hook design | HTTP hook with endpoint and payload schema | `references/hook-system.md` |
-| `mcp governance`, `mcp audit` | MCP tool governance | Audit hooks for MCP tool actions | `references/hook-system.md` |
-| `hook performance`, `hook slow`, `latency` | Performance optimization | Matcher consolidation and hook count reduction plan | `references/debugging-guide.md` |
-| `updatedInput`, `modify input`, `rewrite`, `redact` | Input modification | PreToolUse hook with updatedInput + permissionDecision design | `references/hook-system.md` |
-| `task hook`, `task naming`, `completion gate` | Task lifecycle enforcement | TaskCreated/TaskCompleted hooks for Agent Teams | `references/hook-system.md` |
-| `config change`, `settings guard` | Config governance | ConfigChange hook to audit or block runtime config changes | `references/hook-system.md` |
-| `file watch`, `env change`, `reactive` | File-change automation | FileChanged/CwdChanged hooks for reactive workflows | `references/hook-system.md` |
-| `elicitation`, `mcp input`, `mcp prompt` | MCP elicitation governance | Elicitation/ElicitationResult hooks for MCP input control | `references/hook-system.md` |
-| `worktree`, `git worktree` | Worktree management | WorktreeCreate/WorktreeRemove hooks for custom worktree behavior | `references/hook-system.md` |
-| `async`, `background`, `non-blocking` | Async hook design | Background hooks with `async: true` for logging, cleanup, metrics | `references/hook-system.md` |
-| `plugin hook`, `hooks.json` | Plugin hook design | Plugin hooks via `hooks/hooks.json` with persistent data dirs | `references/hook-system.md` |
-| `conditional`, `if field`, `filter` | Conditional filtering | `if` field for fine-grained filtering within matchers | `references/hook-system.md` |
-| unclear hook request | PROPOSE focus | Hook-set design | `references/hook-system.md` |
-
-Routing rules:
-
-- If the request mentions a specific event, read `references/hook-system.md` for event semantics.
-- If the request mentions recipes or patterns, read `references/hook-recipes.md`.
-- If the request mentions a failing or slow hook, read `references/debugging-guide.md`.
+Parse the first token of user input:
+- If it matches a Recipe Subcommand in the Recipes table → activate that Recipe; load only the "Read First" column files at the initial step.
+- Otherwise → default Recipe (`configure` = Configure Hook). Apply SCAN → PROPOSE → IMPLEMENT → VERIFY → MAINTAIN workflow.
 - Always check existing hooks with `/hooks` before adding or replacing.
+
+Per-Recipe behavior depth is documented in the inline sections below. Recipes with a `Read First` reference follow that reference for full contracts.
+
+### `configure` — Default hook configuration flow
+
+Full SCAN → PROPOSE → IMPLEMENT run. `settings.json` backup required. Instruct session restart after JSON syntax validation.
+
+### `debug` — Diagnose existing hook issues
+
+Check `/hooks` → run `claude --debug` → manual stdin test. Validate timeout, exit code, and stdout/stderr mixing in order.
+
+### `pretool` — PreToolUse specialization
+
+Choose `permissionDecision` (`allow` / `deny` / `ask` / `defer`). Block with `exit 2`. `updatedInput` must always pair with `permissionDecision: allow`.
+
+### `posttool` — PostToolUse specialization
+
+`exit 0` only (no blocking). Optional context injection via JSON stdout. Can background with `async: true`.
+
+### `notification` — Notification event hook
+
+Read `references/notification-hook.md` first. Notification events fire on permission requests, idle warnings (60s+), sub-agent completion, and similar lifecycle moments. Branch on message regex via the matcher (e.g. `waiting for your approval`, `idle for`) to route to the chosen sink (terminal-notifier / Slack incoming-webhook / Discord webhook / desktop notification). Apply dedup logic to suppress repeated identical messages within a window (e.g. 5 min dedupe per message). Prefer `async: true` to keep notifications non-blocking. Capture session start time to gate time-based rules such as "mute overnight".
+
+### `sessionstart` — SessionStart event hook
+
+Read `references/sessionstart-hook.md` first. SessionStart fires on Claude session start and after `/clear` / `/compact`. Anything written to stdout is injected into the next turn's context (keep it under ~10K tokens). Typical uses: fetch recent N PRs via the gh API, auto-summarize CLAUDE.md, surface current branch + CI status + uncommitted file count, run env validation (e.g. `exit 2` on Node.js version mismatch to block startup). Offload heavy work to a prior cron job that writes to `~/.cache/`, and keep the hook itself a lazy `cat` of the cached output.
+
+### `security` — PreToolUse security guard
+
+Read `references/security-guard-hook.md` first. Use the PreToolUse `permissionDecision: deny` to block dangerous operations. Canonical patterns: (a) Bash containing `rm -rf /`, `chmod -R 777`, or `git push --force` to `main/master` → immediate deny, (b) Write/Edit targeting `.env`, `id_rsa`, `*.pem`, `secrets.json` → deny, (c) tool input matching secret regex (`AKIA[0-9A-Z]{16}`, `sk-[A-Za-z0-9]{40+}`, JWT pattern) → `updatedInput` redact plus warning, (d) MCP tool ACL: deny specific `mcp__*` tools listed in the `LATCH_BLOCKED_MCP_TOOLS` env var. In CI environments (`CI=true`), promote every interactive deny to an auto-deny.
+
+### `quarantine` — Distribution-side skill/plugin/MCP guard
+
+Read `references/skill-quarantine-hook.md` first. Hook design that guards the **distribution side** of skills / plugins / MCP servers (the `security` recipe handles the runtime tool-call side). Three baseline patterns: (a) SessionStart sha256 drift detection against `.chain-manifest.json` plus unaudited-skill warning, (b) PreToolUse (`Bash` matcher) denial of `claudemarketplaces.com`-style plugin installs unless `CLAUDE_PLUGIN_INSTALL_ACK=1` is set, (c) SessionStart sha256 pinning of MCP tool descriptions to detect rug-pulls. Pairs with the `chain` agent (`/chain intake`, `/chain audit`, `/chain mcp`). Last line of defense against install-time SkillJect, Unicode Tag, and Shai-Hulud-class attacks.
+
+### `claudemd-update` — Stop hook CLAUDE.md proposer
+
+Read `references/claude-md-update-proposer.md` first. Stop hook that runs at session end, extracts "should have known" candidates from the transcript, and writes a non-blocking proposal file under `.claude/proposals/`. Always `exit 0` (advisory only) and `async: true` (never trap shutdown). Filters out linter-duplicate rules, single-anecdote observations, and rules better expressed as hooks. Pair with Hone when 3+ proposals accumulate to re-audit CLAUDE.md density and progressive-disclosure split.
 
 ## Output Requirements
 

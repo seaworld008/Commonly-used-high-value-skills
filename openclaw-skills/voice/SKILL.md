@@ -1,14 +1,14 @@
 ---
 name: voice
 description: 'User feedback collection, NPS survey design, review analysis, sentiment analysis, feedback classification, and insight extraction reports. Use when establishing feedback loops.'
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/voice"
 license: MIT
 tags: '["design", "product", "voice"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-19"
+updated_at: "2026-05-28"
 quality: 5
 complexity: "advanced"
 ---
@@ -101,6 +101,10 @@ Route elsewhere when the task is primarily:
 - For LLM-powered feedback pipelines, implement a contamination gate before downstream routing: if ≥5% of a feedback batch is flagged as synthetic, halt automated classification and alert the responsible owner. This prevents contaminated data from propagating to Compete (via VOICE_TO_COMPETE), Spark, or Retain.
 - For PLG (Product-Led Growth) contexts, design in-product micro-surveys that intercept users at activation milestones rather than arbitrary touchpoints. Trigger micro-surveys (1-2 questions max) when: (1) users complete a key activation step (first value delivery), (2) users reach a usage threshold indicating engagement, (3) users hit a friction point detected by Trace (via TRACE_TO_VOICE). Keep micro-surveys contextual and non-blocking — modal surveys during critical flows cause 15-25% task abandonment. Prefer inline or slide-in formats.
 - Close the loop on negative feedback within 24 hours — detractor follow-up speed is the strongest predictor of recovery and score improvement. Automate alerting for NPS 0-6 and CSAT bottom-box responses to route immediately to the responsible owner.
+- **2025-2026 NPS industry medians**: all-industry average 32, all-industry median 44; B2B SaaS 41, E-commerce 61, Financial Services 68, Healthcare 37 (Retently 2026 — https://www.retently.com/blog/good-net-promoter-score/; CustomerGauge B2B 2025 — https://customergauge.com/blog/b2b-nps-benchmarks-tying-revenue-to-your-experience-program). Always cite the benchmark edition year — scores drift 2-5 points annually.
+- **VoC platform market (2026)**: Gartner Magic Quadrant for VoC Platforms 2026 (https://www.gartner.com/en/documents/6367011) identifies Qualtrics, Medallia, and Sprinklr as Leaders. The VoC platform market grew 22% in 2025 (Gartner), driven by AI-powered analysis, omnichannel listening, and autonomous agents. Forrester retired its separate Customer Feedback Management Solutions Wave and consolidated into a broader "Customer Feedback Management and Analytics Solutions" category.
+- **EU AI Act & GDPR for feedback pipelines**: The EU Digital Omnibus (November 2025) proposed amendments that explicitly recognize AI training on personal data as a legitimate interest under GDPR, subject to data minimisation, transparency, and an unconditional right to object (https://www.whitecase.com/insight-alert/eu-digital-omnibus-what-changes-lie-ahead-data-act-gdpr-and-ai-act). For VoC pipelines: (1) collect only feedback data necessary for the stated analysis purpose (data minimisation), (2) disclose that LLM classification is applied to verbatim responses, (3) honour subject opt-out from automated profiling. Applies whenever survey respondents are EU residents.
+- **Micro-survey tooling (2026)**: Sprig, Qualaroo, and Hotjar Surveys remain the leading in-product micro-survey tools. Sprig supports behavioral targeting (trigger on user actions) and recontact-interval controls to reduce survey fatigue. Qualaroo specialises in contextual Nudge-style surveys (1-2 questions). Hotjar combines inline surveys with heatmap/session-recording context for richer interpretation. Tool choice should follow a 2-week pilot with A/B test before scaling.
 - Author for Opus 4.7 defaults. Apply `_common/OPUS_47_AUTHORING.md` principles **P3 (eagerly Read existing feedback channels, segment definitions, and prior survey instruments at SCAN — survey design depends on audience grounding), P5 (think step-by-step at method selection: NPS vs CSAT vs CES, channel choice, LLM vs fine-tuned classifier, contamination gate)** as critical for Voice. P2 recommended: calibrated feedback report preserving score bands, response rates, and segment breakdowns. P1 recommended: front-load audience/segment, touchpoint, and metric type at INTAKE.
 
 ## Boundaries
@@ -244,6 +248,7 @@ Overlap boundaries:
 | `references/thematic-coding.md` | the task is Braun & Clarke 6-phase inductive coding of open-ended feedback, codebook governance, theme saturation, or inter-coder agreement |
 | `references/csat-ces-measurement.md` | the task is CSAT / CES instrument design, benchmark mapping, touchpoint selection, or combined CSAT × CES × NPS triangulation |
 | `_common/OPUS_47_AUTHORING.md` | the task is sizing the survey deliverable, deciding adaptive thinking depth at method selection, or front-loading audience/segment/touchpoint at INTAKE. Critical for Voice: P3, P5. |
+| `_common/GROWTH_BRAND_PROOF.md` | You contribute `source_proof` (sentiment-source pointers) and feed multi-channel synthesis into the Insight Ledger queue in `nexus growth-acceptance` Phase 0. G11 mandatory: AI cannot directly write to Ledger; submit proposed insights to Research Lead merge queue. Used by Phase 3 post-launch as `brand_lift_proof` qualitative early signal. |
 
 ## Operational
 

@@ -1,14 +1,14 @@
 ---
 name: harvest
 description: Collect GitHub PR data and generate work reports. Retrieves PR info via gh commands to auto-generate weekly/monthly reports and release notes. Use when work reporting or PR analysis is needed.
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/harvest"
 license: MIT
 tags: '["automation", "harvest", "workflow"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-19"
+updated_at: "2026-05-28"
 quality: 5
 complexity: "advanced"
 ---
@@ -23,8 +23,9 @@ CAPABILITIES_SUMMARY:
 - quality_trends: Merge Judge feedback into PR activity trend reports with DORA+SPACE dimensions
 - retrospective_voice: Add narrative commentary to sprint or release reports
 - pr_size_analysis: Classify PRs by size thresholds (200/400/1000 LOC), flag review efficiency risks, and recommend stacked PRs when >30% exceed 400 LOC
-- dora_metrics: Collect 5 DORA key metrics — throughput (deployment frequency, lead time, rework rate) and stability/instability (change failure rate, failed deployment recovery time) — plus reliability as quasi-metric, from PR/release data per DORA 2024/2025. Support 7-archetype team profiling (replacing deprecated 4-tier clusters per DORA 2025)
+- dora_metrics: Collect 5 DORA key metrics per DORA 2025 (Accelerate State of DevOps Report 2025-10) — throughput (Deployment Frequency, Lead Time for Changes, Failed Deployment Recovery Time) and instability (Change Failure Rate, Rework Rate) — plus Reliability as quasi-metric, from PR/release data. Support 7-archetype team profiling and percentile-band reporting (Top 15% / Top 15-30% / Mid / Bottom), replacing deprecated 4-tier Elite/High/Medium/Low clusters
 - review_cycle_analysis: Track first-response time, review cycle time (from ready-for-review, not PR creation) with 4-phase breakdown (Coding→Pickup→Review→Merge), comment resolution rate, and rubber-stamping detection
+- prediction_vs_actual_check: Compare PR `intent` / `target_metric` fields (declared at merge time) against post-launch outcomes (Insight Ledger `decision_refs`, Phase 3 Measurement Loop metrics) at +14d / +30d / +90d. Surface systematic miscalibration (prediction error > 2× across N≥3 decisions) as Insight Ledger proposed-edit candidates per G11. Advisory only — feeds lore decay detection. Uses existing Insight Ledger `decision_refs` field; does NOT introduce a new Reflective Loop construct. v7 fold-in.
 
 COLLABORATION_PATTERNS:
 - Guardian -> Harvest: Release prep
@@ -59,7 +60,7 @@ Use Harvest when you need any of the following:
 - Quality trend reports that merge `Judge` feedback into PR activity
 - Narrative retrospectives or release commentary based on PR history
 - PR size distribution analysis (200 LOC target, 400 LOC ceiling benchmarks) with stacked PR recommendation when large PRs are persistent
-- DORA metric collection: 5 key metrics — throughput (deployment frequency, lead time, rework rate) and stability/instability (change failure rate, failed deployment recovery time) — plus reliability as quasi-metric, per DORA 2024/2025. Team profiling via 7 archetypes (replacing deprecated low/medium/high/elite clusters per DORA 2025)
+- DORA metric collection: 5 key metrics per DORA 2025 — throughput (Deployment Frequency, Lead Time for Changes, Failed Deployment Recovery Time) and instability (Change Failure Rate, Rework Rate) — plus Reliability as quasi-metric. Team profiling via 7 archetypes and per-metric percentile bands (Top 15% / Top 15-30% / Mid / Bottom), replacing the deprecated low/medium/high/elite cluster labels
 - Review cycle time reporting — measure from "ready for review" timestamp, not PR creation (draft PRs inflate cycle time otherwise). Break down into 4 phases: Coding (before PR), Pickup (PR created → first reviewer assigned), Review (first review action → approval), Merge (approval → merge). Phase-level breakdown pinpoints bottlenecks that aggregate cycle time hides
 - Rubber-stamping detection: flag when review lead time is low and uncorrelated with PR size
 
@@ -84,7 +85,7 @@ Route elsewhere when the task is primarily:
 - First-response-time benchmark: flag when median first review response exceeds 1 business day (Google's standard).
 - Cycle time accuracy: measure review cycle time from the "ready for review" timestamp (not PR creation), because draft PRs inflate the metric.
 - Rubber-stamping detection: when median review lead time is low and uncorrelated with PR size, flag potential rubber-stamping — reviewers may not be actually reviewing code.
-- AI-inflated metrics caveat: AI coding assistants can inflate individual PR counts (+98% more PRs merged, +21% more tasks completed per DORA 2025) while organizational delivery metrics stay flat. Quantified impact: AI adoption correlates with 7.2% reduction in delivery stability and 1.5% reduction in delivery throughput (DORA 2025). AI also tempts developers to abandon small-batch principles — generating larger, riskier PRs that take longer to review and have higher failure rates. Reports must note this context when comparing pre/post-AI periods and flag batch-size regression. Key insight: AI amplifies existing team dynamics — strong teams accelerate further, struggling teams see problems intensified. Without robust automated testing, mature version control, and fast feedback loops, AI-driven change volume increases instability ("accelerating into a bottleneck" rather than through it, per DORA 2025).
+- AI-inflated metrics caveat (DORA 2025 update): Unlike DORA 2024 which reported AI negatively correlated with throughput, DORA 2025 reports AI adoption now positively correlates with software delivery throughput and product performance — but continues to correlate negatively with delivery stability (more change failures, increased rework, longer cycle times to resolve issues). AI also tempts developers to abandon small-batch principles, generating larger, riskier PRs that take longer to review and have higher failure rates. Reports must note this context when comparing pre/post-AI periods and flag batch-size regression. Key insight: AI amplifies existing team dynamics — strong teams accelerate further, struggling teams see problems intensified. Without robust automated testing, mature version control, and fast feedback loops, AI-driven change volume increases instability ("accelerating into a bottleneck" rather than through it, per DORA 2025).
 - DORA 2025 team archetypes: when profiling team delivery performance, use the 7-archetype model instead of deprecated 4-tier clusters (low/medium/high/elite). The 7 archetypes: (1) Foundational Challenges — survival mode with process gaps, (2) Legacy Bottleneck — reactive to unstable systems, (3) Constrained by Process — consumed by inefficient workflows, (4) High Impact Low Cadence — quality work delivered slowly, (5) Stable and Methodical — deliberate delivery with high quality, (6) Pragmatic Performers — impressive speed with functional environments, (7) Harmonious High-Achievers — sustainable excellence in a virtuous cycle. Archetypes blend delivery metrics with human factors (burnout, friction, perceived value), yielding more actionable team reports.
 - Author for Opus 4.7 defaults. Apply `_common/OPUS_47_AUTHORING.md` principles **P3 (eagerly Fetch gh PR data, commit history, and prior report baselines at COLLECT — reporting accuracy depends on grounding in actual git/PR state), P5 (think step-by-step at archetype mapping, AI-inflation caveat application, rubber-stamp detection, and estimation-pitfall triage)** as critical for Harvest. P2 recommended: calibrated report preserving PR lists, archetype assignment, and AI-caveat notes. P1 recommended: front-load report window, scope (team/repo/individual), and audience at COLLECT.
 
@@ -114,8 +115,9 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 - Present LOC, commits, or PR count as direct productivity rankings — Goodhart's Law: when a measure becomes a target, it ceases to be a good measure. Teams will game PR count by splitting trivially, inflating lines with formatting, or cherry-picking easy fixes
 - Report individual developer "scores" or stack-rank contributors — causes mass-gaming and attrition (McKinsey developer productivity controversy, 2023)
 - Use DORA metrics in isolation without SPACE context — leads to the "Velocity Trap" where teams optimize delivery speed at the cost of burnout and collaboration quality
-- Compare pre-AI and post-AI period metrics without noting AI tooling adoption — AI inflates individual output metrics while organizational throughput stays flat (DORA 2025): 7.2% stability reduction and 1.5% throughput reduction correlated with AI adoption, making direct comparison misleading. AI also erodes small-batch discipline by enabling larger PRs, compounding the distortion
-- Classify teams into deprecated 4-tier performance clusters (low/medium/high/elite) — DORA 2025 replaced these with 7 team archetypes that incorporate human factors alongside delivery metrics, making tier-based classification misleading
+- Compare pre-AI and post-AI period metrics without noting AI tooling adoption — DORA 2025 reports AI positively correlates with throughput but negatively with delivery stability (more change failures, increased rework, longer recovery cycles); direct comparison without this caveat is misleading. AI also erodes small-batch discipline by enabling larger PRs, compounding the distortion
+- Classify teams into deprecated 4-tier performance clusters (low/medium/high/elite) — DORA 2025 replaced these with **percentile distributions plus 7 team archetypes** that incorporate human factors alongside delivery metrics, making tier-based classification misleading
+- Treat Failed Deployment Recovery Time as a stability/instability metric — DORA 2025 reclassified it into **throughput**; the 2025 instability category contains only Change Failure Rate and Rework Rate
 
 ## Recipes
 
@@ -125,7 +127,7 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 | Monthly Report | `monthly` | | Monthly report (includes DORA metrics) | `references/report-templates.md` |
 | Release Notes | `release` | | Release notes generation (PR aggregation between tags) | `references/changelog-best-practices.md` |
 | Sprint Retro | `retro` | | Retrospective aggregation and narrative | `references/retrospective-voice.md` |
-| DORA Deep-Dive | `dora` | | DORA 5-key metric profile (throughput + stability) with 7-archetype team mapping and SPACE complement | `references/dora-metrics.md` |
+| DORA Deep-Dive | `dora` | | DORA 5-key metric profile (3 throughput + 2 instability per DORA 2025) with 7-archetype team mapping and SPACE complement | `references/dora-metrics.md` |
 | OKR Linkage | `okr` | | PR-to-Objective mapping and KR narrative for quarterly review | `references/okr-linkage.md` |
 | PR Stats Deep-Dive | `prstats` | | Cycle time histogram, P50/P75/P90 latency, Lorenz curve, large-PR risk | `references/pr-stats-analysis.md` |
 
@@ -140,11 +142,13 @@ Behavior notes per Recipe:
 - `monthly`: Monthly report. Includes 7-archetype team profile and 4-phase review cycle breakdown.
 - `release`: Generate release notes from PRs between tags/periods. Uses Keep a Changelog category mapping.
 - `retro`: Narrative aggregation for sprint retrospectives. Combine numbers and human interpretation in the output.
-- `dora`: DORA 5-key metric deep-dive — 3 throughput (Deployment Frequency, Lead Time, Rework Rate) and 2 stability (Change Failure Rate, Failed Deployment Recovery Time) per DORA 2025, with reliability as quasi-metric and SPACE complement. Map teams to the 7 archetypes (do NOT use deprecated 4-tier elite/high/medium/low clusters). Apply AI-period caveat. Emit to `dora-report-YYYY-MM-DD.md`.
+- `dora`: DORA 5-key metric deep-dive — 3 throughput (Deployment Frequency, Lead Time for Changes, Failed Deployment Recovery Time) and 2 instability (Change Failure Rate, Rework Rate) per DORA 2025 (Accelerate State of DevOps Report 2025-10), with Reliability as quasi-metric and SPACE complement. Report per-metric percentile bands (Top 15% / Top 15-30% / Mid / Bottom) and map teams to the 7 archetypes (do NOT use deprecated 4-tier elite/high/medium/low clusters). Apply AI-period caveat. Emit to `dora-report-YYYY-MM-DD.md`.
 - `okr`: PR-to-Objective mapping for a quarterly window. Builds KR progress narrative from PR titles/labels/commit-trailers, computes Objective health 0-100 (coverage/momentum/evidence/risk/confidence-diversity), surfaces orphan PR rate, and refuses output-as-outcome KRs. Emit to `okr-linkage-YYYY-Q.md`.
 - `prstats`: Cycle time decomposition (Coding/Pickup/Review/Merge), P50/P75/P90 percentiles, Lorenz curve + Gini for contributor distribution, bot/human split with explicit allowlist, and large-PR ledger flagging PRs >500 LOC. Emit to `pr-stats-YYYY-MM-DD.md`.
 
 ## Report Modes
+
+Recipes (above) select **what to compute** (invocation pattern triggered by the first-token subcommand). Report Modes select **how to present** the result (output shape and filename). The two axes are orthogonal: e.g., `weekly` Recipe can emit `Summary` or `Client Report` Mode; `monthly` Recipe can emit `Summary` or `Quality Trends`. Two pairs map 1:1 by convention — `release` Recipe → `Release Notes` Mode, `retro` Recipe → `Retrospective Voice` Mode. When the Recipe is unambiguous but the Mode is not, default to `Summary` and confirm audience at SURVEY.
 
 | Mode | Use when | Default output |
 |------|----------|----------------|
@@ -172,7 +176,7 @@ Behavior notes per Recipe:
 
 | Decision | Rule |
 |----------|------|
-| Large queries | `>100` PRs requires ask-first because of performance and rate-limit risk. GitHub REST API allows 5,000 req/hr authenticated; a 500-PR fetch with `per_page=100` and `--paginate` costs only 5 requests |
+| Large queries | Gate defined in **Boundaries → Ask First** (`>100` PRs). Rationale: GitHub REST API allows 5,000 req/hr authenticated; a 500-PR fetch with `per_page=100` and `--paginate` costs only 5 requests — the ask-first gate is about scope confirmation and report shape, not raw rate-limit headroom |
 | Cache freshness | Use `prefer_cache` by default; switch to `force_refresh` only when freshness matters more than API cost. Use ETags/`If-Modified-Since` headers to minimize API consumption |
 | Graceful degradation | If fields are missing, lower report quality explicitly rather than fabricating data. Label degraded sections clearly |
 | Work-hour calculation | Start with the implemented baseline formula, then apply optional refinement layers only when the audience needs them. Always output as ranges (e.g., 2-4h), never as single precise values |
@@ -184,7 +188,7 @@ Behavior notes per Recipe:
 | Stacked PRs recommendation | When >30% of PRs exceed 400 LOC consistently, recommend stacked PRs as mitigation — teams using stacked PRs show ~20% more throughput with ~8% smaller median PR size, reducing review burden and merge queue wait |
 | Rubber-stamping | Flag when median review lead time is low and uncorrelated with PR size — indicates reviewers may not be reading code |
 | Release notes | Use Keep a Changelog categories and highlight breaking or deprecated changes. Automate via conventional commit type mapping (feat→Added, fix→Fixed, etc.). User-focused: explain what users gain, not raw commit messages |
-| Quality metrics | Include context and actions; avoid vanity metrics and rankings. Combine 5 DORA key metrics (throughput + stability) plus reliability quasi-metric with SPACE satisfaction/well-being signals. Use 7 team archetypes (not deprecated 4-tier clusters) for performance profiling |
+| Quality metrics | Include context and actions; avoid vanity metrics and rankings. Combine 5 DORA key metrics (3 throughput + 2 instability per DORA 2025) plus Reliability quasi-metric with SPACE satisfaction/well-being signals. Use per-metric percentile bands and 7 team archetypes (not deprecated 4-tier clusters) for performance profiling |
 | AI-period comparison | When comparing metrics across periods with different AI adoption levels, note that AI inflates individual PR counts while org delivery stays flat (DORA 2025) |
 | PDF export | Prefer repo scripts and ASCII fallback over brittle ad-hoc export commands |
 | Pagination strategy | Always use `per_page=100` with `gh api --paginate` for automatic multi-page fetches. For GraphQL, use cursor-based pagination with `first` ≤100. GraphQL is more point-efficient for complex multi-field queries (2,000 pts/min vs 900 pts/min for REST per GitHub secondary rate limits). Store ETags per page, not per collection |
@@ -257,7 +261,7 @@ Routing rules:
 | `references/changelog-best-practices.md` | You need changelog/release-note category rules and audience-fit writing. |
 | `references/estimation-anti-patterns.md` | You need caveats around LOC-based effort estimation and range reporting. |
 | `references/reporting-anti-patterns.md` | You need report-design guardrails, actionability checks, or gaming detection. |
-| `references/dora-metrics.md` | You need DORA 5-key metric thresholds (DORA 2025), 7-archetype team profiling, measurement-window selection, gh/Insights integration, or SPACE complement for the `dora` recipe. |
+| `references/dora-metrics.md` | You need DORA 5-key metric percentile bands (DORA 2025), 3-throughput / 2-instability categorization, 7-archetype team profiling, measurement-window selection, gh/Insights integration, or SPACE complement for the `dora` recipe. |
 | `references/okr-linkage.md` | You need PR-to-Objective tagging conventions, KR progress narrative templates, Objective health scoring, or quarterly aggregation for the `okr` recipe. |
 | `references/pr-stats-analysis.md` | You need cycle-time decomposition, P50/P75/P90 reporting, Lorenz/Gini, bot allowlist, or large-PR risk thresholds for the `prstats` recipe. |
 | `_common/OPUS_47_AUTHORING.md` | You are sizing the work report, deciding adaptive thinking depth at archetype/caveat handling, or front-loading window/scope/audience at COLLECT. Critical for Harvest: P3, P5. |
