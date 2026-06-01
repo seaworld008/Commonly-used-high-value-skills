@@ -1,14 +1,14 @@
 ---
 name: oracle
 description: 'AI/ML design and evaluation specialist covering prompt engineering, RAG design, LLM application patterns, AI safety, evaluation frameworks, MLOps, and cost optimization.'
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/oracle"
 license: MIT
 tags: '["agent", "ai", "oracle"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-20"
+updated_at: "2026-06-01"
 quality: 5
 complexity: "advanced"
 ---
@@ -81,7 +81,7 @@ AI/ML design and evaluation specialist. Oracle designs prompt systems, RAG pipel
 - Include cost, latency, and validation in every design — budget alert at `> 120%` forecast; semantic cache hit rate target `>= 60%`; p95 latency alert at `> 2× baseline`.
 - Hybrid evaluation is non-negotiable — automated scoring (LLM-as-judge, trace analysis) for scale; human judgment for tone, trust, and contextual appropriateness.
 - Account for compounding failure — a 5-layer pipeline at 95% per layer yields only 77% end-to-end reliability; measure each layer independently.
-- Author for Opus 4.7 defaults. Apply _common/OPUS_47_AUTHORING.md principles **P3 (eagerly Read existing prompts, eval results, traces, and cost/latency baselines at PROFILE — model/RAG architecture decisions depend on grounded performance data), P5 (think step-by-step at DESIGN — model selection, RAG architecture, guardrail layering, and eval design decisions compound across the 5-layer pipeline)** as critical for Oracle. P2 recommended: calibrated AI design preserving eval thresholds, OWASP LLM Top 10 coverage, and cost/latency budgets. P1 recommended: front-load use case, budget, and safety tier at PROFILE.
+- Author for Opus 4.8 defaults. Apply _common/OPUS_48_AUTHORING.md principles **P3 (eagerly Read existing prompts, eval results, traces, and cost/latency baselines at PROFILE — model/RAG architecture decisions depend on grounded performance data), P5 (think step-by-step at DESIGN — model selection, RAG architecture, guardrail layering, and eval design decisions compound across the 5-layer pipeline)** as critical for Oracle. P2 recommended: calibrated AI design preserving eval thresholds, OWASP LLM Top 10 coverage, and cost/latency budgets. P1 recommended: front-load use case, budget, and safety tier at PROFILE.
 
 ## Boundaries
 
@@ -155,7 +155,7 @@ Behavior notes per Recipe:
 
 | Area         | Rule                                                                                                                                  |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------- |
-| Prompt       | use `3-5` few-shot examples only when they measurably help; prefer constrained decoding for structured outputs (reduces iteration rate from `38.5%` to `12.3%`); for Claude, use XML tags (`<instructions>`, `<context>`, `<examples>`) over Markdown for unambiguous parsing — avoid aggressive language ("CRITICAL!", "YOU MUST", "NEVER EVER") which overtriggers newer Claude models and degrades output quality; LLM reasoning performance degrades around `3k` tokens — keep prompt sweet spot at `150-300` words for most tasks; structure prompts for caching: static content first, variable last (`45-80%` cost / `13-31%` TTFT reduction via prompt caching); for Claude 4.6, use adaptive thinking (`thinking: {type: "adaptive"}`) — extended thinking is deprecated; effort parameter provides soft control over thinking depth, agentic multi-step loops benefit most |
+| Prompt       | use `3-5` few-shot examples only when they measurably help; prefer constrained decoding for structured outputs (reduces iteration rate from `38.5%` to `12.3%`); for Claude, use XML tags (`<instructions>`, `<context>`, `<examples>`) over Markdown for unambiguous parsing — avoid aggressive language ("CRITICAL!", "YOU MUST", "NEVER EVER") which overtriggers newer Claude models and degrades output quality; LLM reasoning performance degrades around `3k` tokens — keep prompt sweet spot at `150-300` words for most tasks; structure prompts for caching: static content first, variable last (`45-80%` cost / `13-31%` TTFT reduction via prompt caching); for Claude 4.6+ (incl. Opus 4.8), use adaptive thinking (`thinking: {type: "adaptive"}`) — extended thinking / `budget_tokens` is deprecated; the `effort` parameter controls thinking depth (Opus 4.8 default `xhigh`, respected strictly), agentic multi-step loops benefit most |
 | RAG          | default to Hybrid Search; keep context to top `5-8` chunks; require `Recall@5 >= 0.8`, `Precision@5 >= 0.7`, `Faithfulness >= 0.8`; benchmark chunking strategy (semantic vs fixed-size) before production — naive chunking drops faithfulness to `0.47-0.51`; validate vector store inputs against poisoning attacks (BadRAG, TrojanRAG per OWASP LLM08) |
 | RAG architecture | standard retrieve-then-generate RAG is increasingly obsolete for static corpora `< 1M` tokens — default to Context-Augmented Generation (CAG) unless data changes frequently; for dynamic multi-hop workflows, evaluate Agentic RAG with structured retrieval; hybrid RAG+CAG creates complexity explosion (dual refresh cycles, routing logic, cross-pipeline debugging) — justify before adopting; `40-60%` of RAG implementations fail to reach production — treat retrieval quality, governance, and observability as first-class concerns from day one, not afterthoughts |
 | Evaluation   | fixed test sets only; regressions `>= 5%` block merge or rollout; LLM-as-judge needs a different judge model or human calibration; prefer pairwise comparison over single-score for higher consistency; guard against position bias (`40%` GPT-4 inconsistency), verbosity bias (`~15%` inflation), self-enhancement bias (`5-7%` boost); TNR `< 25%` means judges miss invalid outputs — add adversarial test cases; for high-stakes evals, use multi-agent judge debate (multiple judges deliberate, then vote) for higher human alignment than single-judge scoring; LLM judges are vulnerable to adversarial prompt manipulation — validate judge inputs and monitor for score distribution anomalies; for agentic systems, evaluate goal completion rate and tool usage efficiency across multi-step workflows, not just single-turn accuracy; set `max_turns` based on task complexity (`3-5` for focused tasks, `8-10` for multi-step workflows); ensure traceability — link every eval score to the exact prompt version, model version, and dataset version |
@@ -229,7 +229,7 @@ Routing rules:
 | [llm-production-anti-patterns.md](~/.claude/skills/oracle/references/llm-production-anti-patterns.md) | you need production failure modes, architecture anti-patterns, MCP pitfalls, or reasoning compensations. |
 | [agent-design.md](~/.claude/skills/oracle/references/agent-design.md)                                 | you are designing application-level LLM agents — tool-use loops, tool-call schema, context/memory, subagent delegation, termination conditions, agent failure modes. |
 | [embedding-strategy.md](~/.claude/skills/oracle/references/embedding-strategy.md)                     | you are designing the RAG embedding pipeline — chunking strategy, embedding model selection, vector index, cross-encoder re-ranking, hybrid BM25+vector retrieval. |
-| [OPUS_47_AUTHORING.md](~/.claude/skills/_common/OPUS_47_AUTHORING.md)                                 | you are sizing the AI design, deciding adaptive thinking depth at DESIGN, or front-loading use case/budget/safety tier at PROFILE. Critical for Oracle: P3, P5. |
+| [OPUS_48_AUTHORING.md](~/.claude/skills/_common/OPUS_48_AUTHORING.md)                                 | you are sizing the AI design, deciding adaptive thinking depth at DESIGN, or front-loading use case/budget/safety tier at PROFILE. Critical for Oracle: P3, P5. |
 
 ## Operational
 

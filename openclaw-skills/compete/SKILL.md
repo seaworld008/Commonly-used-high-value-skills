@@ -1,14 +1,14 @@
 ---
 name: compete
 description: 'Competitive research, differentiation analysis, and strategic positioning. Feature matrices, SWOT analysis, benchmarking, positioning maps, battle cards, win/loss analysis, and LLM brand visibility. Research only — does not write code.'
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/compete"
 license: MIT
 tags: '["compete", "growth", "marketing"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-28"
+updated_at: "2026-06-01"
 quality: 5
 complexity: "advanced"
 ---
@@ -93,7 +93,7 @@ Read only the references needed for the current analysis shape.
 - Prefer predictive intelligence over reactive reporting — anticipate competitor moves, do not just document them.
 - Adhere to SCIP Code of Ethics principles: transparency of identity, conflict-free operations, honest recommendations, and responsible use of intelligence.
 - Do not write implementation code.
-- Author for Opus 4.7 defaults. Apply `_common/OPUS_47_AUTHORING.md` principles **P3 (eagerly WebSearch for sources and citations at every phase — unsourced claims are forbidden), P5 (think step-by-step at SHARPEN / analysis phases for forward-looking implications and disconfirming evidence)** as critical for Compete. P2 recommended: calibrated intelligence report preserving source URLs, confidence labels, and actionable implications. P1 recommended: front-load competitor scope, time horizon, and decision question at INTAKE.
+- Author for Opus 4.8 defaults. Apply `_common/OPUS_48_AUTHORING.md` principles **P3 (eagerly WebSearch for sources and citations at every phase — unsourced claims are forbidden), P5 (think step-by-step at SHARPEN / analysis phases for forward-looking implications and disconfirming evidence)** as critical for Compete. P2 recommended: calibrated intelligence report preserving source URLs, confidence labels, and actionable implications. P1 recommended: front-load competitor scope, time horizon, and decision question at INTAKE.
 
 ## Boundaries
 
@@ -347,7 +347,7 @@ When analyzing `5+` competitors across multiple segments, spawn 2-3 Explore suba
 | `references/tri-engine-compete.md` | You are running the `multi` Recipe — tri-engine fan-out (Codex + Antigravity + Claude subagents), Pattern D Divergence-primary coverage scoring, competitor-identity CLUSTER rules (alias normalization, parent↔product collapse), WebSearch-mandatory GROUND step, artifact-driven SYNTHESIZE (Matrix / Battle Card / Positioning / SWOT / Landscape / LLM Visibility), Uncommon-Competitors callout schema, JSON schema, and subagent prompt skeletons. |
 | `_common/SUBAGENT.md` | You need the base MULTI_ENGINE protocol — engine dispatch table, loose prompt rules, Agent tool fan-out mechanics, fallback rules. Read before authoring `multi` Recipe subagent prompts. |
 | `_common/MULTI_ENGINE_RECIPE.md` | You need the cross-skill `multi` Recipe protocol — Pattern D/C/H selection rationale, PREFLIGHT canonical probe, FAN-OUT mechanics, engine-attribution tag conventions, degraded modes, and the implementation checklist that defines what every `multi`-capable skill must ship. |
-| `_common/OPUS_47_AUTHORING.md` | You are sizing the intelligence report, deciding adaptive thinking depth at SHARPEN, or front-loading competitor scope and decision question at INTAKE. Critical for Compete: P3, P5. |
+| `_common/OPUS_48_AUTHORING.md` | You are sizing the intelligence report, deciding adaptive thinking depth at SHARPEN, or front-loading competitor scope and decision question at INTAKE. Critical for Compete: P3, P5. |
 | `_common/GROWTH_BRAND_PROOF.md` | You contribute Market Proof `cannibalization_proof` (Phase 2 + Phase 3) and `distinctiveness_proof` (Phase 1 B.hard layer for G12 Diversity Floor enforcement — competitor recent-creative embedding distance check). Quarterly G12 Distinctive Asset Audit: detect competitor Colour Stealing (omen FM-G3). Quarterly G14 Regulatory Horizon Scan participation. |
 
 ## Operational

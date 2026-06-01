@@ -1,14 +1,14 @@
 ---
 name: stage
 description: 'Slide generation via Marp, reveal.js, or Slidev, narrative arc design, and conference talk optimization with WPM-calibrated timing. Use when creating or pacing presentations.'
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/stage"
 license: MIT
 tags: '["office", "stage"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-28"
+updated_at: "2026-06-01"
 quality: 5
 complexity: "advanced"
 ---
@@ -74,7 +74,7 @@ Route elsewhere when the task is primarily:
 - Include visual cues (diagram placeholders, image suggestions) for non-text content; a single well-designed visual replaces paragraphs.
 - Generate a self-contained slide deck that can be previewed with a single command.
 - Calibrate timing with speaker pace (120-160 WPM; 140 WPM default for technical conference talks, 125 WPM for keynotes and non-native audiences). Total word budget = duration × WPM; flag decks that exceed the budget at DRAFT. Source: TED2026 cluster 130-150 WPM (https://conferences.ted.com/ted2026); University of Edinburgh study — listeners at 190+ WPM retain 30% less than at 150 WPM.
-- Author for Opus 4.7 defaults. Apply `_common/OPUS_47_AUTHORING.md` principles **P3 (eagerly Read story outline, audience profile, and talk duration at OUTLINE — slide resonance depends on grounding in actual audience and story arc), P5 (think step-by-step at framework selection (Marp/reveal.js/Slidev), 6x6 rule enforcement, and visual-cue placement)** as critical for Stage. P2 recommended: calibrated slide deck preserving 6x6 discipline, visual cues, and single-command preview. P1 recommended: front-load talk type, audience, and duration at OUTLINE.
+- Author for Opus 4.8 defaults. Apply `_common/OPUS_48_AUTHORING.md` principles **P3 (eagerly Read story outline, audience profile, and talk duration at OUTLINE — slide resonance depends on grounding in actual audience and story arc), P5 (think step-by-step at framework selection (Marp/reveal.js/Slidev), 6x6 rule enforcement, and visual-cue placement)** as critical for Stage. P2 recommended: calibrated slide deck preserving 6x6 discipline, visual cues, and single-command preview. P1 recommended: front-load talk type, audience, and duration at OUTLINE.
 
 ## Boundaries
 
@@ -207,7 +207,7 @@ Pace baseline: 120-160 WPM; use 140 WPM for technical conference talks, 125 WPM 
 | `references/narrative-arc-design.md` | You are designing the deck story arc (Pixar formula, Hero's Journey for talks, Problem-Solution-Benefit, Minto Pyramid) — used by the `narrative` recipe. |
 | `references/slide-visual-design.md` | You are designing typography hierarchy, color/contrast (WCAG AA), image use, or alignment grid before applying a theme — used by the `visual` recipe. |
 | `references/rehearsal-delivery.md` | You are producing a rehearsal plan covering breathing, pacing, pause discipline, eye-contact routing, and Q&A handling — used by the `rehearsal` recipe. |
-| `_common/OPUS_47_AUTHORING.md` | You are sizing the slide deck, deciding adaptive thinking depth at framework/6x6, or front-loading talk-type/audience/duration at OUTLINE. Critical for Stage: P3, P5. |
+| `_common/OPUS_48_AUTHORING.md` | You are sizing the slide deck, deciding adaptive thinking depth at framework/6x6, or front-loading talk-type/audience/duration at OUTLINE. Critical for Stage: P3, P5. |
 
 ## Operational
 

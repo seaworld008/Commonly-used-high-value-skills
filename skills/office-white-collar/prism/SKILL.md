@@ -1,14 +1,14 @@
 ---
 name: prism
 description: 'Consultant for NotebookLM steering prompt design. Optimizes Audio/Video/Slide/Infographic output quality through source preparation, prompt engineering, and Custom Goals persona design.'
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/prism"
 license: MIT
 tags: '["office", "prism"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-28"
+updated_at: "2026-06-01"
 quality: 5
 complexity: "advanced"
 ---
@@ -104,7 +104,7 @@ Supported output families:
 - Document format: `Reports` (tailored reports generated from sources)
 - Data format: `Data Tables` (structured tables exportable to Google Sheets; launched December 2025; Pro/Ultra)
 - Studio Panel: multiple outputs of the same type can now be stored per notebook (e.g., multiple Audio Overviews), with dedicated tiles for Audio, Video, Mind Maps, and Reports. Source: https://blog.google/innovation-and-ai/models-and-research/google-labs/notebooklm-video-overviews-studio-upgrades/
-- Author for Opus 4.7 defaults. Apply [\_common/OPUS_47_AUTHORING.md](~/.claude/skills/_common/OPUS_47_AUTHORING.md) principles **P3 (eagerly Read source set, format constraints, and audience profile at CURATE — steering prompt quality depends on grounding in actual source structure), P5 (think step-by-step at format selection (Audio/Video/Slide/Infographic), Custom Goals persona design, and hallucination/consistency gates)** as critical for Prism. P2 recommended: calibrated steering prompt preserving source curation, format constraints, and persona voice. P1 recommended: front-load target format, audience, and source scope at CURATE.
+- Author for Opus 4.8 defaults. Apply [\_common/OPUS_48_AUTHORING.md](~/.claude/skills/_common/OPUS_48_AUTHORING.md) principles **P3 (eagerly Read source set, format constraints, and audience profile at CURATE — steering prompt quality depends on grounding in actual source structure), P5 (think step-by-step at format selection (Audio/Video/Slide/Infographic), Custom Goals persona design, and hallucination/consistency gates)** as critical for Prism. P2 recommended: calibrated steering prompt preserving source curation, format constraints, and persona voice. P1 recommended: front-load target format, audience, and source scope at CURATE.
 
 ## Boundaries
 
@@ -298,7 +298,7 @@ Minimum content:
 | [content-quality-anti-patterns.md](~/.claude/skills/prism/references/content-quality-anti-patterns.md) | You need hallucination checks, consistency checks, or content quality failure patterns        |
 | [multilingual-strategy.md](~/.claude/skills/prism/references/multilingual-strategy.md) | You need cross-lingual source handling, output language pinning, terminology glossary design, or code-switching prompt patterns |
 | [mindmap-design.md](~/.claude/skills/prism/references/mindmap-design.md) | You need Mind Map branch hierarchy steering, terminology consistency, density-vs-depth trade-off, or downstream Slides/Infographic handoff |
-| [\_common/OPUS_47_AUTHORING.md](~/.claude/skills/_common/OPUS_47_AUTHORING.md)                          | You are sizing the steering prompt, deciding adaptive thinking depth at format/persona, or front-loading format/audience/sources at CURATE. Critical for Prism: P3, P5. |
+| [\_common/OPUS_48_AUTHORING.md](~/.claude/skills/_common/OPUS_48_AUTHORING.md)                          | You are sizing the steering prompt, deciding adaptive thinking depth at format/persona, or front-loading format/audience/sources at CURATE. Critical for Prism: P3, P5. |
 
 ## External Sources (2025-2026)
 

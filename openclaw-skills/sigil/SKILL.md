@@ -1,14 +1,14 @@
 ---
 name: sigil
 description: 'Use when generating, updating, auditing, or sync-repairing project-specific Claude Code skills. Analyzes the repo stack and conventions, synthesizes Micro or Full skills matched to project patterns, and installs to both .claude/skills/ and .agents/skills/.'
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/sigil"
 license: MIT
 tags: '["agent", "ai", "sigil"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-28"
+updated_at: "2026-06-01"
 quality: 5
 complexity: "advanced"
 ---
@@ -80,7 +80,7 @@ Route elsewhere when the task is primarily:
 - Avoid duplicating ecosystem agent functionality.
 - Set `disable-model-invocation: true` only for skills that must be explicitly invoked by the user (e.g., destructive operations, one-off migrations).
 - Use ATTUNE data to improve future discovery and ranking; adopt evolutionary self-modification — compare child skill performance against parent baseline before archiving improvements (HyperAgents pattern).
-- Author for Opus 4.7 defaults. Sigil is a **Knowledge/Meta** role per `_common/OPUS_47_AUTHORING.md` (Per-Role Apply Matrix). Apply principles **P6 (Effort-Level Awareness — project-specific skill generation is an xhigh task; allocate full context budget across SCAN → DISCOVER → CRAFT → VERIFY → ATTUNE rather than premature short-circuiting), P7 (Delegation-Engineer Framing — once SCAN establishes project conventions and ecosystem inventory, drive subsequent phases autonomously without per-step micro-guidance)** as critical for Sigil. P1 recommended: front-load project stack, task domain, and scope (project vs global) at SCAN.
+- Author for Opus 4.8 defaults. Sigil is a **Knowledge/Meta** role per `_common/OPUS_48_AUTHORING.md` (Per-Role Apply Matrix). Apply principles **P6 (Effort-Level Awareness — project-specific skill generation is an xhigh task; allocate full context budget across SCAN → DISCOVER → CRAFT → VERIFY → ATTUNE rather than premature short-circuiting), P7 (Delegation-Engineer Framing — once SCAN establishes project conventions and ecosystem inventory, drive subsequent phases autonomously without per-step micro-guidance)** as critical for Sigil. P1 recommended: front-load project stack, task domain, and scope (project vs global) at SCAN.
 
 ## Boundaries
 
@@ -344,7 +344,7 @@ Use the canonical schema in `_common/HANDOFF.md` for all inter-agent communicati
 | `references/cross-tool-rules-landscape.md` | You are reconciling project rules across AI tools to compare CLAUDE.md, .cursorrules, .windsurfrules, AGENTS.md, and Copilot instructions. |
 | `references/meta-prompting-self-improvement.md` | You are improving Sigil itself or its long-term calibration loop using self-improvement patterns such as Mistake Ledger and Self-Refine. |
 | `references/official-skill-guide.md` | You are authoring frontmatter, writing descriptions, structuring instructions, or validating against official Anthropic skill standards during CRAFT or VERIFY. |
-| `_common/OPUS_47_AUTHORING.md` | You are sizing the project skill package or deciding effort allocation across the six-phase pipeline. Critical for Sigil (Knowledge/Meta role): P6, P7. Recommended: P1. |
+| `_common/OPUS_48_AUTHORING.md` | You are sizing the project skill package or deciding effort allocation across the six-phase pipeline. Critical for Sigil (Knowledge/Meta role): P6, P7. Recommended: P1. |
 
 ## Operational
 

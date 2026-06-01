@@ -1,14 +1,14 @@
 ---
 name: scout
 description: 'Bug investigation, root cause analysis (RCA), reproduction steps, and impact assessment. Investigation-only agent that identifies why bugs occur and where to fix them without writing code.'
-version: "1.0.5"
+version: "1.0.6"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/scout"
 license: MIT
 tags: '["analysis", "planning", "scout"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-28"
+updated_at: "2026-06-01"
 quality: 5
 complexity: "advanced"
 ---
@@ -108,7 +108,7 @@ Route elsewhere when the task is primarily:
 - **Add a slopsquat / hallucinated-import check** when the bug surface involves a recently-added dependency. Research shows 5-21% of AI-suggested package names do not exist on the registry; the typo-squatted equivalents are increasingly registered by attackers (e.g. `huggingface-cli` impostor, 30,000 downloads over 3 months). On any "ImportError / ModuleNotFoundError / unresolved import" symptom, query the registry's existence and download-history endpoints for the suspect package before chasing a code-path hypothesis. [Source: snyk.io — Slopsquatting mitigation strategies; arxiv.org/html/2512.05239v1]
 - **Apply Generator-Evaluator separation when an AI agent authored the suspect change.** If the same model that wrote the change is asked to investigate it, expect optimistic self-assessment ("self-grade inflation"). Insist on a different model (or a different agent role) for the investigation, and document which engine produced which evidence in the report. [Source: docs.aws.amazon.com — Evaluator/Reflect/Refine Loop Patterns; zylos.ai — AI Agent Reflection]
 - **Track Comprehension Debt as an explicit RCA factor.** When the bug's root cause is "the team did not understand what the AI generated", record `comprehension_debt: HIGH` and recommend `judge` review of the source change before the fix lands. Comprehension Debt is the hidden cost of AI-generated code that ships faster than humans can internalise it. [Source: oreilly.com/radar — Comprehension Debt: The Hidden Cost of AI-Generated Code]
-- Author for Opus 4.7 defaults. Apply `_common/OPUS_47_AUTHORING.md` principles **P3 (eagerly use Read/Grep/Bash on candidate files before concluding — grounding cost is low compared to wrong-RCA cost), P5 (think step-by-step at LOCATE — RCA quality dominates downstream fix and regression test design)** as critical for Scout. P2 recommended: keep investigation reports within the canonical envelope in `references/output-format.md`, do not free-form expand.
+- Author for Opus 4.8 defaults. Apply `_common/OPUS_48_AUTHORING.md` principles **P3 (eagerly use Read/Grep/Bash on candidate files before concluding — grounding cost is low compared to wrong-RCA cost), P5 (think step-by-step at LOCATE — RCA quality dominates downstream fix and regression test design)** as critical for Scout. P2 recommended: keep investigation reports within the canonical envelope in `references/output-format.md`, do not free-form expand.
 
 ## Boundaries
 
@@ -439,7 +439,7 @@ SCOUT_TO_TRAIL_HANDOFF:
 | `references/fix-prompt-generation.md` | You are authoring the `## LLM Fix Prompt` block, choosing a Scout-specific action verb, or deciding whether to suppress the prompt for a Sentinel/Specter handoff or investigation-only scope. |
 | `_common/LLM_PROMPT_GENERATION.md` | You need universal authoring rules, prompt structure, or the cross-agent verb/suppression principles shared with Trail/Sentinel/Plea. |
 | `_common/INVESTIGATION_ESCALATION.md` | Cross-cluster escalation, handoff formats (LENS_TO_SCOUT, SCOUT_TO_LENS), or unified confidence scale is needed. |
-| `_common/OPUS_47_AUTHORING.md` | You are calibrating tool-use eagerness during TRACE/LOCATE, deciding adaptive thinking depth at hypothesis selection, or sizing the investigation report. Critical for Scout: P3, P5. |
+| `_common/OPUS_48_AUTHORING.md` | You are calibrating tool-use eagerness during TRACE/LOCATE, deciding adaptive thinking depth at hypothesis selection, or sizing the investigation report. Critical for Scout: P3, P5. |
 | `references/tri-engine-investigate.md` | You are running the `multi` Recipe — tri-engine fan-out (Codex + Antigravity + Claude subagents), Pattern H Hybrid scoring (confidence × perspective), CLUSTER-by-root-cause identity rules, GROUND verdicts (VERIFIED / LIKELY-VERIFIED / REJECTED), Primary RCA + Alternative Hypotheses SYNTHESIZE with verification ordering, JSON schema, subagent prompt skeleton, and degraded-mode behavior. |
 | `_common/SUBAGENT.md` | You need the base MULTI_ENGINE protocol — engine dispatch table, loose-prompt rule, Agent tool fan-out mechanics, fallback rules. Read before authoring `multi` Recipe subagent prompts. |
 | `_common/MULTI_ENGINE_RECIPE.md` | You need the cross-skill `multi` Recipe protocol — canonical SCOPE → PREFLIGHT → FAN-OUT → NORMALIZE → CLUSTER → SCORE → GROUND/CALIBRATE → SYNTHESIZE → DELIVER flow, Pattern D/C/H definitions, engine-attribution tag convention, degraded-mode table, and Implementation Checklist for adding `multi` to new skills. |

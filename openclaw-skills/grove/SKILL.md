@@ -1,14 +1,14 @@
 ---
 name: grove
 description: 'Repository structure design, optimization, and audit. Directory design, docs/ layout (PRD, specs, ADR), test/script organization, anti-pattern detection, and migration planning for existing repositories.'
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/grove"
 license: MIT
 tags: '["grove", "knowledge"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-28"
+updated_at: "2026-06-01"
 quality: 5
 complexity: "advanced"
 ---
@@ -87,7 +87,7 @@ Route elsewhere when the task is primarily:
 - Enforce cross-project import boundaries in monorepos — without explicit dependency rules (e.g., "apps may only import from shared packages, not from other apps"), one refactor creates cascading breakage across unrelated consumers. For JS/TS monorepos, define `exports` in each package's `package.json` as the first defense layer — Node.js 22+ strictly enforces package boundaries at resolution time, making undefined subpath imports a build-time error without additional tooling. Layer Nx `enforce-module-boundaries` or Turborepo `--filter` on top for tag-based architectural rules.
 - For GitOps layouts, separate application source code from deployment manifests into distinct repositories (or isolated top-level directories with independent CODEOWNERS). This prevents manifest-only changes (e.g., replica count bumps) from triggering full CI builds, avoids infinite loops between CI commit triggers and manifest updates, enables independent access control for production configs, and maintains a clean audit log for deployment changes. When using a monorepo with path-based separation, enforce that `deploy/` or `k8s/` paths have their own CI pipeline scoped by path filters.
 - Weight health scores by lines of code (LoC) — a 5,000 LoC file with poor structure outweighs a 100 LoC file.
-- Author for Opus 4.7 defaults. Apply _common/OPUS_47_AUTHORING.md principles **P3 (eagerly Read existing layout, monorepo tool config, CODEOWNERS, and package boundaries at AUDIT — anti-pattern detection depends on full structural grounding), P5 (think step-by-step at DESIGN — monorepo tool selection (Turborepo/Nx/Bazel), GitOps separation, and package-boundary rule decisions drive long-term build/CI cost)** as critical for Grove. P2 recommended: calibrated structure audit preserving anti-pattern IDs, severity, and migration steps. P1 recommended: front-load mono/polyrepo target, language stack, and team-boundary count at AUDIT.
+- Author for Opus 4.8 defaults. Apply _common/OPUS_48_AUTHORING.md principles **P3 (eagerly Read existing layout, monorepo tool config, CODEOWNERS, and package boundaries at AUDIT — anti-pattern detection depends on full structural grounding), P5 (think step-by-step at DESIGN — monorepo tool selection (Turborepo/Nx/Bazel), GitOps separation, and package-boundary rule decisions drive long-term build/CI cost)** as critical for Grove. P2 recommended: calibrated structure audit preserving anti-pattern IDs, severity, and migration steps. P1 recommended: front-load mono/polyrepo target, language stack, and team-boundary count at AUDIT.
 - **Audit `CLAUDE.md` / `AGENTS.md` against the anti-bloat rule.** Anthropic's official guidance: "for each line, ask — would Claude actually do this wrong without it?". Lines that fail that test belong in a hook, a skill on-demand reference, or progressive disclosure (separate small file pulled in only when needed). Flag files > 200 lines as a P1 finding; > 400 lines as P0. Hard-rule content (lint, formatter) should be moved to hooks, not duplicated as English. [Source: code.claude.com/docs/en/best-practices; alexop.dev — Stop Bloating Your CLAUDE.md]
 - **Adopt the `AGENTS.md` open standard** for multi-tool repos. AGENTS.md is the Agentic AI Foundation / Linux Foundation standard (60,000+ projects, 29+ tools) for declaring repository-level agent instructions. Claude Code is `CLAUDE.md`-native but reads `AGENTS.md` as a fallback when no `CLAUDE.md` is present; recommend co-existence (a thin `CLAUDE.md` that imports `AGENTS.md`) rather than duplication. [Source: agents.md; linuxfoundation.org — AAIF announcement]
 
@@ -210,7 +210,7 @@ Every Grove deliverable should include:
 | `references/monorepo-structure.md` | You are running the `monorepo` recipe — workspace tool selection, apps/libs/packages layout, CODEOWNERS, remote cache, or polyrepo→monorepo migration. |
 | `references/tests-layout.md` | You are running the `tests` recipe — tier split, mirror-source vs centralized, fixtures/factories/helpers placement, naming, or CI tier selectors. |
 | `references/scripts-organization.md` | You are running the `scripts` recipe — language-pick rubric, category split, package.json delegation, naming, or shebang/`+x` hygiene. |
-| `_common/OPUS_47_AUTHORING.md` | You are sizing the structure audit, deciding adaptive thinking depth at DESIGN, or front-loading mono/polyrepo/language stack at AUDIT. Critical for Grove: P3, P5. |
+| `_common/OPUS_48_AUTHORING.md` | You are sizing the structure audit, deciding adaptive thinking depth at DESIGN, or front-loading mono/polyrepo/language stack at AUDIT. Critical for Grove: P3, P5. |
 
 ## Operational
 

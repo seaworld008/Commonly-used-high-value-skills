@@ -1,14 +1,14 @@
 ---
 name: omen
 description: 'Pre-mortem analysis and failure mode enumeration agent. Systematically identifies failure scenarios for plans, designs, and features, scoring them with RPN/AP. Does not write code.'
-version: "1.0.5"
+version: "1.0.6"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/omen"
 license: MIT
 tags: '["memory", "omen", "safety"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-28"
+updated_at: "2026-06-01"
 quality: 5
 complexity: "advanced"
 ---
@@ -79,7 +79,7 @@ Pre-mortem分析エンジン。計画・設計・システムが**どう失敗�
 - Use prospective hindsight framing: "the project has already failed — why?" (30% more failure causes identified vs. forward-looking brainstorming, Mitchell et al. 1989)
 - Treat FMEA as a living artifact, not a one-time checkbox exercise
 - **Pre-merge advisory pre-mortem (v7 fold-in)**: For Tier-S decisions or irreversible architectural changes, omen `premortem` Recipe MAY be invoked as a **pre-merge advisory step** in the `acceptance` pipeline (between Phase 3 adversaries and Phase 4 Gate verdict). Output is recorded as `pre_mortem_summary` advisory field in the evidence package — non-blocking, surfaces critical (S≥9) failure modes for human visibility before Gate. Absorbs "Decision Proof / pre-mortem proof" intent (Reflective Decision OS proposal v7) by surfacing an existing capability, not creating a new pipeline phase. Suppress when scope is reversible / low-stakes.
-- Author for Opus 4.7 defaults. Apply `_common/OPUS_47_AUTHORING.md` principles **P3 (eagerly Read target plan, design, architecture, and stakeholder context at FRAME — failure enumeration depends on grounding in actual system state, not imagined abstractions), P5 (think step-by-step at prospective-hindsight framing, RPN/AP scoring, severity-9 auto-critical gate, and Swiss-Cheese layer identification)** as critical for Omen. P2 recommended: calibrated pre-mortem report preserving RPN/AP scores, severity-critical flags, and mitigation ownership. P1 recommended: front-load target scope, stakeholder set, and time horizon at FRAME.
+- Author for Opus 4.8 defaults. Apply `_common/OPUS_48_AUTHORING.md` principles **P3 (eagerly Read target plan, design, architecture, and stakeholder context at FRAME — failure enumeration depends on grounding in actual system state, not imagined abstractions), P5 (think step-by-step at prospective-hindsight framing, RPN/AP scoring, severity-9 auto-critical gate, and Swiss-Cheese layer identification)** as critical for Omen. P2 recommended: calibrated pre-mortem report preserving RPN/AP scores, severity-critical flags, and mitigation ownership. P1 recommended: front-load target scope, stakeholder set, and time horizon at FRAME.
 - Pair every actionable failure mode (RPN above threshold or AP ≥ Medium, plus all S ≥ 9 critical modes) with a paste-ready `## LLM Fix Prompt` block in the report. The prompt embeds failure-mode ID, RPN/AP score, ordered failure scenario, detection gap, recommended action, acceptance criteria, ruled-out alternatives, and "what NOT to do" so a downstream agent (Builder, Beacon, Triage, Mend, Pulse) can act without manual reformulation. Suppress for plan-review-only invocations, when modes are routed to Triage for incident-response ownership, when ownership falls outside the team, or when all enumerated modes are `ACCEPT-RISK`. See `references/fix-prompt-generation.md` and universal rules in `_common/LLM_PROMPT_GENERATION.md`.
 
 ## Boundaries
@@ -295,7 +295,7 @@ Full algorithm, JSON schema, prompt skeletons, CLUSTER identity rules, GROUND ch
 | `_common/MULTI_ENGINE_RECIPE.md` | You need the cross-skill multi-engine protocol — pattern types (C / D / H), canonical flow stages, PREFLIGHT probe, loose-prompt rule, engine-attribution tag convention, degraded modes, and the implementation checklist shared with Spark/Plea/Judge. Read before authoring or extending Omen's `multi` Recipe. |
 | `_common/SUBAGENT.md` | You need the base MULTI_ENGINE protocol — engine dispatch table, Agent tool fan-out mechanics, fallback rules. Read alongside `MULTI_ENGINE_RECIPE.md` when authoring `multi` Recipe subagent prompts. |
 | `_common/LLM_PROMPT_GENERATION.md` | You need universal authoring rules, prompt structure, or the cross-agent verb/suppression principles shared with Scout/Trail/Sentinel. |
-| `_common/OPUS_47_AUTHORING.md` | Sizing the pre-mortem report, deciding adaptive thinking depth at scoring/severity, or front-loading scope/stakeholders/horizon at FRAME. Critical for Omen: P3, P5. |
+| `_common/OPUS_48_AUTHORING.md` | Sizing the pre-mortem report, deciding adaptive thinking depth at scoring/severity, or front-loading scope/stakeholders/horizon at FRAME. Critical for Omen: P3, P5. |
 
 ## Operational
 

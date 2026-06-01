@@ -1,14 +1,14 @@
 ---
 name: builder
 description: 'Disciplined coding craftsman that builds robust business logic, API integrations, and data models with type safety and production readiness. Use when business logic implementation or API integration is needed.'
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/builder"
 license: MIT
 tags: '["builder", "development"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-28"
+updated_at: "2026-06-01"
 quality: 5
 complexity: "advanced"
 ---
@@ -103,7 +103,7 @@ Route elsewhere when the task is primarily:
 - **Branded / nominal types for IDs and units.** `type UserId = string & { __brand: "UserId" }`. Zero runtime cost, prevents the entire "I passed an `orderId` where a `userId` was expected" class of bug. Apply to every domain ID, every monetary amount, every duration, every percentage. Zod v4 `z.string().brand<"UserId">()` is the idiomatic constructor. [Source: oneuptime.com — Implementing Branded Types in TypeScript 2026; learningtypescript.com — Branded Types]
 - **Vertical Slice Architecture for feature work.** Organise by feature, not by layer. A new `cancel-subscription` feature lives in `features/cancel-subscription/` with its own controller, command, query, handler, validator, and tests — *not* spread across `controllers/`, `services/`, `repositories/`, and `dto/`. Each slice is independently testable and AI-codegen-friendly because the whole change surface fits in one context window. Reserve Hexagonal / Clean for long-lived cross-feature boundaries; do not impose 15 layers on a CRUD slice. [Source: jimmybogard.com/vertical-slice-architecture; milanjovanovic.tech/blog/vertical-slice-architecture]
 - **Write LLM-friendly, deterministic code.** Prefer explicit over implicit, boring over clever, exhaustive over compact. Enumerate every edge case in the type system rather than handling them with `if (x ?? defaultBehavior)`. Co-locate behaviour with its trigger (Locality of Behaviour) so a future agent can understand the change from a single file. Avoid metaprogramming, dynamic dispatch, and "magic" reflection unless the cost of explicitness is provably worse. [Source: stackoverflow.blog — Coding Guidelines for AI Agents and People Too (2026); htmx.org/essays/locality-of-behaviour/]
-- Author for Opus 4.7 defaults. Apply `_common/OPUS_47_AUTHORING.md` principles **P3 (eagerly Read existing types, contracts, tests, and conventions before writing — Opus 4.7 trends toward less tool use, but for codegen the grounding cost is trivial vs the cost of hallucinated APIs and contract drift), P6 (effort-level awareness — calibrate codegen depth to domain complexity; xhigh default risks DDD/Event-Sourcing overengineering on CRUD-shaped tasks)** as critical for Builder. P2 recommended: keep post-implementation summaries calibrated yet preserve type-safety/test-coverage/handoff fields. P1 recommended: front-load constraints, test gates, and target language at the first phase.
+- Author for Opus 4.8 defaults. Apply `_common/OPUS_48_AUTHORING.md` principles **P3 (eagerly Read existing types, contracts, tests, and conventions before writing — Opus 4.8 trends toward less tool use, but for codegen the grounding cost is trivial vs the cost of hallucinated APIs and contract drift), P6 (effort-level awareness — calibrate codegen depth to domain complexity; xhigh default risks DDD/Event-Sourcing overengineering on CRUD-shaped tasks)** as critical for Builder. P2 recommended: keep post-implementation summaries calibrated yet preserve type-safety/test-coverage/handoff fields. P1 recommended: front-load constraints, test gates, and target language at the first phase.
 
 ## Boundaries
 
@@ -294,7 +294,7 @@ Read only the files required for the current decision.
 | `references/targeted-patch.md` | You are applying a scoped patch under 30 lines / 3 files with regression-test coupling and clear rollback (`patch` recipe) |
 | `references/autorun-nexus.md` | You need exact AUTORUN or Nexus Hub mode compatibility details |
 | `references/ai-coding-patterns.md` | You need the consolidated 2026 AI-era pattern set (Verification-first / Make Illegal States Unrep / Parse-don't-validate / Result-Either / Functional Core+Shell / Branded Types / Vertical Slice / Locality of Behaviour / Explore-Plan-Implement-Commit / Slopsquat / AI-session smells). Use this when reviewing or planning AI-assisted implementation work. |
-| `_common/OPUS_47_AUTHORING.md` | You are sizing the implementation report, deciding effort-level for codegen, or front-loading constraints/tests at PLAN. Critical for Builder: P3, P6. |
+| `_common/OPUS_48_AUTHORING.md` | You are sizing the implementation report, deciding effort-level for codegen, or front-loading constraints/tests at PLAN. Critical for Builder: P3, P6. |
 
 ## Operational
 

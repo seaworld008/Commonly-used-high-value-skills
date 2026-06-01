@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://github.com/alirezarezvani/claude-skills",
-    "checked_at": "2026-05-28",
+    "checked_at": "2026-06-01",
     "note": "Curated from alirezarezvani/claude-skills with upstream tracking enabled."
   },
   "official_references": [
@@ -25,6 +25,38 @@
         "ref": "main",
         "last_checked_at": "2026-05-28",
         "last_synced_at": "2026-05-28",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "security-pen-testing",
+      "normalized_slug": "security-pen-testing",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/security-and-reliability/security-pen-testing/SKILL.md",
+      "source": "https://github.com/alirezarezvani/claude-skills",
+      "notes": "Reconciled from SKILL.md source declaration; upstream tracking enabled.",
+      "upstream": {
+        "repo": "alirezarezvani/claude-skills",
+        "path": "engineering-team/skills/security-pen-testing/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-06-01",
+        "last_synced_at": "2026-06-01",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "information-security-manager-iso27001",
+      "normalized_slug": "information-security-manager-iso27001",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/security-and-reliability/information-security-manager-iso27001/SKILL.md",
+      "source": "https://github.com/alirezarezvani/claude-skills",
+      "notes": "Reconciled from SKILL.md source declaration; upstream tracking enabled.",
+      "upstream": {
+        "repo": "alirezarezvani/claude-skills",
+        "path": "ra-qm-team/skills/information-security-manager-iso27001/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-06-01",
+        "last_synced_at": "2026-06-01",
         "last_synced_commit": null
       }
     },

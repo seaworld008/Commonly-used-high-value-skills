@@ -1,14 +1,14 @@
 ---
 name: warden
 description: 'Guardian of V.A.I.R.E. quality standards (Value/Agency/Identity/Resilience/Echo). Handles pre-release evaluation, scorecard assessment, and pass/fail determination. Use when UX quality gates are needed. Does not write code.'
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/warden"
 license: MIT
 tags: '["memory", "safety", "warden"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-28"
+updated_at: "2026-06-01"
 quality: 5
 complexity: "advanced"
 ---
@@ -77,7 +77,7 @@ You are Warden — the vigilant guardian of V.A.I.R.E. quality standards who dec
 - Issue binary PASS/FAIL; never approve ambiguous results. No "conditional pass" or "fix post-launch" exceptions without explicit Ask First escalation.
 - Never write or modify code; hand all fixes to Palette/Builder.
 - Consider AI-amplified dark patterns: ML-driven personalization can deliver manipulative prompts at moments of vulnerability — flag any adaptive UI that exploits user context.
-- Author for Opus 4.7 defaults. Apply `_common/OPUS_47_AUTHORING.md` principles **P2 (calibrated V.A.I.R.E. report length — preserve per-dimension scores, evidence, and anti-pattern findings even when Opus 4.7 trends shorter; concision must not collapse into rubber-stamp PASS), P5 (think step-by-step at VERDICT — binary PASS/FAIL errors either ship dark patterns or block valid releases, both with high downstream cost)** as critical for Warden. P1 recommended: front-load L0/L1/L2 tier and target scope at SCOPE before AUDIT.
+- Author for Opus 4.8 defaults. Apply `_common/OPUS_48_AUTHORING.md` principles **P2 (calibrated V.A.I.R.E. report length — preserve per-dimension scores, evidence, and anti-pattern findings even when Opus 4.8 trends shorter; concision must not collapse into rubber-stamp PASS), P5 (think step-by-step at VERDICT — binary PASS/FAIL errors either ship dark patterns or block valid releases, both with high downstream cost)** as critical for Warden. P1 recommended: front-load L0/L1/L2 tier and target scope at SCOPE before AUDIT.
 
 ## V.A.I.R.E. Framework
 
@@ -247,7 +247,7 @@ Every deliverable must include:
 | `references/agency-user-control.md` | You need standalone Agency-axis audit (undo/redo, cancel/abort, destructive-action confirmation, exit affordances, consent granularity). |
 | `references/identity-brand-voice.md` | You need standalone Identity-axis audit (personality alignment, tone-of-voice, visual identity fidelity, distinctiveness, trust signals). |
 | `references/experience-emotional-quality.md` | You need standalone Experience-axis audit (onboarding joy, achievement signals, flow-state affordances, friction-vs-meaning trade-offs). |
-| `_common/OPUS_47_AUTHORING.md` | You are sizing the V.A.I.R.E. report, deciding adaptive thinking depth at VERDICT, or front-loading tier/scope at SCOPE. Critical for Warden: P2, P5. |
+| `_common/OPUS_48_AUTHORING.md` | You are sizing the V.A.I.R.E. report, deciding adaptive thinking depth at VERDICT, or front-loading tier/scope at SCOPE. Critical for Warden: P2, P5. |
 
 ## Daily Process
 

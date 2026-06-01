@@ -1,14 +1,14 @@
 ---
 name: hearth
 description: 'Generate, optimize, and audit personal development environment config files (zsh/tmux/neovim/ghostty). Use when dotfile management, shell, terminal, or editor configuration is needed.'
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/hearth"
 license: MIT
 tags: '["hearth", "productivity"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-20"
+updated_at: "2026-06-01"
 quality: 5
 complexity: "advanced"
 ---
@@ -84,7 +84,7 @@ Route elsewhere when the task is primarily:
 - Default to `Standard` profile unless the user requests otherwise.
 - Never commit secrets to dotfile repos — GitHub reported 39 million leaked secrets in 2024, and GitGuardian's 2026 report found 29 million new secrets on public GitHub in 2025 (34% YoY increase). AI-assisted commits leak secrets at 3.2% vs 1.6% baseline. Additionally, 24,000+ secrets were found exposed in MCP configuration files, making AI agent configs a new attack surface. Use `.local` file separation, recommend pre-commit secret scanning (Gitleaks or TruffleHog), and audit MCP/AI-agent config files for leaked API keys.
 - Bootstrap scripts must be idempotent — re-running should not duplicate installations or break existing state.
-- Author for Opus 4.7 defaults. Apply `_common/OPUS_47_AUTHORING.md` principles **P3 (eagerly Read OS, shell, installed tools, existing configs, XDG variables, and dotfile manager state at DETECT — config recommendations without environment grounding produce broken systems; profile shell startup before guessing), P5 (think step-by-step at tool-idiomatic pattern selection (zsh vs bash vs fish), XDG migration, profile tier selection, and secret-separation strategy)** as critical for Hearth. P2 recommended: calibrated config spec preserving backup reference, XDG paths, permission notes, and syntax-check verdict. P1 recommended: front-load OS, shell, profile tier (Minimal/Standard/Pro), and scope at DETECT.
+- Author for Opus 4.8 defaults. Apply `_common/OPUS_48_AUTHORING.md` principles **P3 (eagerly Read OS, shell, installed tools, existing configs, XDG variables, and dotfile manager state at DETECT — config recommendations without environment grounding produce broken systems; profile shell startup before guessing), P5 (think step-by-step at tool-idiomatic pattern selection (zsh vs bash vs fish), XDG migration, profile tier selection, and secret-separation strategy)** as critical for Hearth. P2 recommended: calibrated config spec preserving backup reference, XDG paths, permission notes, and syntax-check verdict. P1 recommended: front-load OS, shell, profile tier (Minimal/Standard/Pro), and scope at DETECT.
 
 ## Supported Tools
 
@@ -272,7 +272,7 @@ Every deliverable must include:
 | `references/editor-terminal-anti-patterns.md` | You are auditing Neovim, terminal, tmux, completion, or LSP issues and need `NV-*` / `TM-*` guardrails. |
 | `references/dotfile-security-anti-patterns.md` | You are auditing secrets, repository layout, bootstrap safety, or multi-machine dotfile risk using `DF-*` / `RS-*` rules. |
 | `references/environment-workflow-anti-patterns.md` | You are auditing reproducibility, macOS defaults, tool-selection drift, or workflow integration using `EN-*` / `TS-*` rules. |
-| `_common/OPUS_47_AUTHORING.md` | You are sizing the config spec, deciding adaptive thinking depth at tool-idiomatic selection, or front-loading OS/shell/profile/scope at DETECT. Critical for Hearth: P3, P5. |
+| `_common/OPUS_48_AUTHORING.md` | You are sizing the config spec, deciding adaptive thinking depth at tool-idiomatic selection, or front-loading OS/shell/profile/scope at DETECT. Critical for Hearth: P3, P5. |
 
 ## Collaboration
 

@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://github.com/addyosmani/agent-skills",
-    "checked_at": "2026-05-19",
+    "checked_at": "2026-06-01",
     "note": "Curated full import of addyosmani/agent-skills; refresh with scripts/sync_addyosmani_agent_skills.py."
   },
   "official_references": [
@@ -348,8 +348,8 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/using-agent-skills/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-05-19",
-        "last_synced_at": "2026-05-19",
+        "last_checked_at": "2026-06-01",
+        "last_synced_at": "2026-06-01",
         "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
       }
     }
