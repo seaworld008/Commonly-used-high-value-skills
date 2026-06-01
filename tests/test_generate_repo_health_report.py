@@ -25,10 +25,19 @@ class GenerateRepoHealthReportTests(unittest.TestCase):
     def test_repo_health_report_generation(self) -> None:
         with tempfile.TemporaryDirectory(dir=REPO_ROOT) as tmp:
             tmp_dir = Path(tmp)
+            reports_dir = tmp_dir / "reports"
+            reports_dir.mkdir(parents=True, exist_ok=True)
             json_output = tmp_dir / "repo-health.json"
             md_output = tmp_dir / "repo-health.md"
 
-            result = run_script("--output-json", str(json_output), "--output-md", str(md_output))
+            result = run_script(
+                "--output-json",
+                str(json_output),
+                "--output-md",
+                str(md_output),
+                "--reports-dir",
+                str(reports_dir),
+            )
             self.assertEqual(result.returncode, 0, result.stderr)
             self.assertTrue(json_output.exists())
             self.assertTrue(md_output.exists())
