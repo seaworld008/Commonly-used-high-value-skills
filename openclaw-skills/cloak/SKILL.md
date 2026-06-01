@@ -1,14 +1,14 @@
 ---
 name: cloak
-description: '用于隐私工程、PII 识别、数据流梳理、同意管理、合规实现和 DPIA 支持。'
-version: "1.0.2"
+description: 'Privacy engineering and data governance agent. PII detection, data flow mapping, consent management patterns, GDPR/CCPA-compliant code implementation, and DPIA facilitation. Use when privacy-by-design implementation is needed.'
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/cloak"
 license: MIT
 tags: '["cloak", "security"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-19"
+updated_at: "2026-06-01"
 quality: 5
 complexity: "advanced"
 ---
@@ -129,7 +129,7 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 - Reference NIST Privacy Framework 1.1 (CSWP 40) for risk management structure — includes AI-specific privacy risk guidance (membership inference, algorithmic bias, data reconstruction) — and ISO/IEC 27701 for PIMS requirements alongside regulation-specific guidance.
 - For differential privacy implementations, evaluate guarantees using NIST SP 800-226 criteria — stronger privacy implies greater utility loss; calibrate epsilon to data sensitivity tier.
 - For high-risk AI systems processing personal data, require both an EU AI Act Fundamental Rights Impact Assessment (FRIA, Art. 27) and a GDPR DPIA (Art. 35). EU AI Act penalties reach €35M / 7% of global turnover — exceeding GDPR.
-- Author for Opus 4.7 defaults. Apply `_common/OPUS_47_AUTHORING.md` principles **P3 (eagerly Read data flows, schema, logs, and existing privacy controls at SCAN — PII detection recall ≥95% depends on grounding in actual data surface; missed PII carries far higher risk than false positives), P5 (think step-by-step at classification severity, DPIA vs FRIA scope, and differential-privacy epsilon calibration)** as critical for Cloak. P2 recommended: calibrated privacy report preserving severity ratings, file:line evidence, and regulation citations. P1 recommended: front-load applicable regulations, data sensitivity tier, and jurisdiction at SCAN.
+- Author for Opus 4.8 defaults. Apply `_common/OPUS_48_AUTHORING.md` principles **P3 (eagerly Read data flows, schema, logs, and existing privacy controls at SCAN — PII detection recall ≥95% depends on grounding in actual data surface; missed PII carries far higher risk than false positives), P5 (think step-by-step at classification severity, DPIA vs FRIA scope, and differential-privacy epsilon calibration)** as critical for Cloak. P2 recommended: calibrated privacy report preserving severity ratings, file:line evidence, and regulation citations. P1 recommended: front-load applicable regulations, data sensitivity tier, and jurisdiction at SCAN.
 
 ## Data Classification
 
@@ -289,7 +289,7 @@ Cloak receives security findings, standard requirements, and codebase analysis f
 | `references/ccpa-cpra.md` | You are working on California-targeted features and need consumer-rights endpoints, GPC parsing with visible confirmation, SPI limit-use mechanics, service-provider/contractor/third-party contract distinctions, or 2026 ADMT/risk-assessment readiness. |
 | `references/appi-japan.md` | You are processing data of subjects in Japan and need the 個人情報 / 仮名加工情報 / 匿名加工情報 distinction, Article 24 cross-border transfer paths, Article 23 opt-out filing, 要配慮個人情報 consent surface, or PPC notification thresholds. |
 | `references/pseudonymization-techniques.md` | You are choosing a de-identification technique — k-anonymity / l-diversity / t-closeness / differential privacy parameters, tokenization vs HMAC vs FPE primitives, key custody and destruction to distinguish pseudonymized from anonymized data under GDPR Art. 4(5). |
-| `_common/OPUS_47_AUTHORING.md` | You are sizing the privacy report, deciding adaptive thinking depth at classification/DPIA, or front-loading regulations/sensitivity/jurisdiction at SCAN. Critical for Cloak: P3, P5. |
+| `_common/OPUS_48_AUTHORING.md` | You are sizing the privacy report, deciding adaptive thinking depth at classification/DPIA, or front-loading regulations/sensitivity/jurisdiction at SCAN. Critical for Cloak: P3, P5. |
 
 ## Output Requirements
 

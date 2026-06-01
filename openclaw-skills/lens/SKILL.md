@@ -1,14 +1,14 @@
 ---
 name: lens
 description: 'Codebase comprehension and investigation specialist. Systematically performs structure mapping, feature discovery, and data flow tracing for \"does X exist?\", \"how does Y work?\", or \"what is this module''s responsibility?\". Does not write code.'
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/lens"
 license: MIT
 tags: '["analysis", "lens", "planning"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-19"
+updated_at: "2026-06-01"
 quality: 5
 complexity: "advanced"
 ---
@@ -113,7 +113,7 @@ Route elsewhere when the task is primarily:
 - Flag dynamic dispatch boundaries (event emitters, middleware chains, DI containers, plugin systems) explicitly in reports. These create gaps between static analysis and runtime behavior that keyword/reference search cannot bridge. [Source: arxiv.org/html/2504.04553v3 — Human-AI Collaboration for Code Comprehension 2025]
 - When semantic code search tools are available (MCP servers, IDE integrations), use them for meaning-based queries ("where is authentication handled?") where keyword search requires guessing exact identifiers. Benchmarks show semantic search achieves 12.5% higher accuracy than grep alone (range 6.5–23.5%), with the hybrid approach (grep + semantic + LSP) performing best. Do not replace grep — combine approaches for each query type. [Source: cursor.com/blog/semsearch — Cursor semantic search benchmarks 2026; augmentcode.com — Augment Context Engine semantic indexing]
 - Assess comprehension debt risk in AI-heavy codebases: ~41% of new code is now AI-generated, and an Anthropic controlled trial (N=52 engineers) found AI-assisted developers scored significantly lower on post-task comprehension. Flag modules with high code churn, low review depth, and no authorship continuity as comprehension debt hotspots. [Source: addyosmani.com/blog/comprehension-debt — Mar 2026; Anthropic engineering study 2026]
-- Author for Opus 4.7 defaults. Apply `_common/OPUS_47_AUTHORING.md` principles **P3 (eagerly use LSP/Grep/Read across cross-references — confabulated relationships are the #1 Lens failure mode), P5 (think step-by-step at SCOPE — investigation type selection determines whether SURVEY/TRACE/CONNECT can be skipped)** as critical for Lens. P2 recommended: keep reports within Quick Answer / Investigation Report templates in `references/output-formats.md`.
+- Author for Opus 4.8 defaults. Apply `_common/OPUS_48_AUTHORING.md` principles **P3 (eagerly use LSP/Grep/Read across cross-references — confabulated relationships are the #1 Lens failure mode), P5 (think step-by-step at SCOPE — investigation type selection determines whether SURVEY/TRACE/CONNECT can be skipped)** as critical for Lens. P2 recommended: keep reports within Quick Answer / Investigation Report templates in `references/output-formats.md`.
 - **Use a PageRank-style repo map** (Aider's reference design) for structure mapping in large codebases: build a symbol graph with tree-sitter, run PageRank with a `50x` multiplier on files referenced in the current task, and emit only the files that fit a configurable token budget (e.g. 1k / 4k / 8k / 16k tiers). Rebuild on every major sub-task rather than caching, since the chat-file weights change. This converts "read everything" into "read the most important things first" and is the de-facto context-engineering pattern for AI agents in repos > 100 files. [Source: aider.chat/docs/repomap.html]
 - **Emit `llms.txt`-formatted repo descriptions** when the deliverable is an agent-facing repo summary. The 2025-09 community standard places a root `llms.txt` (Markdown, single-page) with one-line descriptions per major content area; Cursor, Continue, Cline, and several MCP clients already consume it. SEO benefit is unproven and explicitly not a goal — the format is a clean handoff target for downstream agents. [Source: llmstxt.org]
 - **Replace Stack Graphs with current MCP-graph stacks.** GitHub Stack Graphs was archived 2025-09-09; live alternatives include Codebase-Memory (66 languages, exposes a knowledge graph over MCP) and GitNexus (pre-computed dependency / call-chain graph). Recommend these when a knowledge-graph layer is needed for cross-file data-flow tracing. [Source: github.com/github/stack-graphs (archived); arxiv.org/abs/2603.27277 — Codebase-Memory; paperclipped.de — GitNexus]
@@ -289,7 +289,7 @@ Every deliverable must include:
 | `references/code-evolution.md` | `evolution` subcommand: file lifespan, author concentration (bus factor), abstraction churn, conceptual drift detection across commits. |
 | `references/investigation-budget.md` | Size-based budget allocation (Small/Medium/Large/XLarge), phase-specific token limits, and escalation triggers when investigation scope is unclear or large. |
 | `_common/INVESTIGATION_ESCALATION.md` | Cross-cluster escalation to Scout, unified confidence scale, or stall protocol is needed. |
-| `_common/OPUS_47_AUTHORING.md` | You are choosing tool-use eagerness during SURVEY/TRACE, deciding adaptive thinking depth at SCOPE, or sizing the report. Critical for Lens: P3, P5. |
+| `_common/OPUS_48_AUTHORING.md` | You are choosing tool-use eagerness during SURVEY/TRACE, deciding adaptive thinking depth at SCOPE, or sizing the report. Critical for Lens: P3, P5. |
 
 ---
 

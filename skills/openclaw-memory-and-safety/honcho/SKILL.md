@@ -1,14 +1,14 @@
 ---
 name: honcho
 description: 'Configure and use Honcho memory with Hermes -- cross-session user modeling, multi-profile peer isolation, observation config, dialectic reasoning, session summaries, and context budget enforcement. Use when setting up Honcho, troubleshooting memory, managing profiles with Honcho peers, or tuning observation, recall, and dialectic settings.'
-version: "1.0.1"
+version: "1.0.2"
 author: Hermes Agent
 source: "in-house"
 source_url: ""
 license: MIT
 tags: '[Honcho, Memory, Profiles, Observation, Dialectic, User-Modeling]'
 created_at: "2026-04-13"
-updated_at: "2026-04-24"
+updated_at: "2026-06-01"
 quality: 4
 complexity: "intermediate"
 metadata:
@@ -37,14 +37,14 @@ Honcho provides AI-native cross-session user modeling. It learns who the user is
 ### Cloud (app.honcho.dev)
 
 ```bash
-hermes honcho setup
+hermes memory setup honcho
 # select "cloud", paste API key from https://app.honcho.dev
 ```
 
 ### Self-hosted
 
 ```bash
-hermes honcho setup
+hermes memory setup honcho
 # select "local", enter base URL (e.g. http://localhost:8000)
 ```
 

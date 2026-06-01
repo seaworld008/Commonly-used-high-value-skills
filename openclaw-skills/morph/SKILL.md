@@ -1,14 +1,14 @@
 ---
 name: morph
 description: 'Document format conversion (Markdown, Word, Excel, PDF, HTML). Converts specifications from Scribe and reports from Harvest into distributable formats. Also generates reusable conversion scripts.'
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/morph"
 license: MIT
 tags: '["morph", "office"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-28"
+updated_at: "2026-06-01"
 quality: 5
 complexity: "advanced"
 ---
@@ -70,7 +70,7 @@ Route elsewhere when the task is primarily:
 - For accessibility-critical outputs, target both PDF/UA and WCAG compliance; see **Critical Decision Rules → Accessibility minimums** for version-specific targets and regulatory deadlines.
 - Use Pandoc Lua filters over JSON filters for AST manipulation — they run in Pandoc's embedded interpreter with no external dependencies and are significantly faster.
 - Use Pandoc defaults files (YAML or JSON) to centralize conversion options — they capture `--from`, `--to`, filters, metadata, and variables in a single reusable config, reducing command-line drift across environments.
-- Author for Opus 4.7 defaults. Apply `_common/OPUS_47_AUTHORING.md` principles **P3 (eagerly Read source-document structure, target format constraints, and existing conversion pipelines at SCAN — conversion fidelity depends on grounding in actual AST/markup state), P5 (think step-by-step at Pandoc filter selection (Lua vs JSON), PDF/UA vs WCAG compliance scoping, and defaults-file centralization)** as critical for Morph. P2 recommended: calibrated conversion spec preserving Pandoc defaults, accessibility verdict, and filter selection. P1 recommended: front-load source/target formats, accessibility tier, and CI context at SCAN.
+- Author for Opus 4.8 defaults. Apply `_common/OPUS_48_AUTHORING.md` principles **P3 (eagerly Read source-document structure, target format constraints, and existing conversion pipelines at SCAN — conversion fidelity depends on grounding in actual AST/markup state), P5 (think step-by-step at Pandoc filter selection (Lua vs JSON), PDF/UA vs WCAG compliance scoping, and defaults-file centralization)** as critical for Morph. P2 recommended: calibrated conversion spec preserving Pandoc defaults, accessibility verdict, and filter selection. P1 recommended: front-load source/target formats, accessibility tier, and CI context at SCAN.
 
 ## Boundaries
 
@@ -240,7 +240,7 @@ Routing rules:
 - [pdf-accessibility-anti-patterns.md](~/.claude/skills/morph/references/pdf-accessibility-anti-patterns.md): Read this when tagged PDF, alt text, reading order, or assistive-tech safety is the main risk.
 - [css-print-anti-patterns.md](~/.claude/skills/morph/references/css-print-anti-patterns.md): Read this when printed HTML/CSS layout is unstable.
 - [conversion-pipeline-anti-patterns.md](~/.claude/skills/morph/references/conversion-pipeline-anti-patterns.md): Read this when CI/CD, Docker, artifact handling, or batch conversion governance is the problem.
-- [\_common/OPUS_47_AUTHORING.md](~/.claude/skills/_common/OPUS_47_AUTHORING.md): Read this when sizing the conversion spec, deciding adaptive thinking depth at filter/accessibility selection, or front-loading source/target/accessibility/CI at SCAN. Critical for Morph: P3, P5.
+- [\_common/OPUS_48_AUTHORING.md](~/.claude/skills/_common/OPUS_48_AUTHORING.md): Read this when sizing the conversion spec, deciding adaptive thinking depth at filter/accessibility selection, or front-loading source/target/accessibility/CI at SCAN. Critical for Morph: P3, P5.
 
 ## Operational
 

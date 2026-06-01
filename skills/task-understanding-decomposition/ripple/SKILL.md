@@ -1,14 +1,14 @@
 ---
 name: ripple
 description: 'Pre-change impact analysis agent. Evaluates change risk across vertical (dependency chains, affected files) and horizontal (pattern consistency, naming) dimensions. Does not write code.'
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/ripple"
 license: MIT
 tags: '["analysis", "planning", "ripple"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-20"
+updated_at: "2026-06-01"
 quality: 5
 complexity: "advanced"
 ---
@@ -151,7 +151,7 @@ Beyond direct dependency tracing, detect second-order effects that emerge from c
 - Flag Modularity Violations: when a change touches a module with ≥20 dependents or crosses 3+ architectural boundaries, escalate to CRITICAL risk. [Source: 83.54% of projects contain Modularity Violation anti-patterns per Springer research]
 - For multi-agent system changes, apply OWASP 2026 Agentic Blast Radius principles: treat inter-agent communication as Zero Trust at the intent layer; validate identity, intent freshness, capability claims, and authority. Apply the **Least Agency** principle — an agentic-AI extension of least-privilege: grant the minimum autonomy required for the task, scoped Just-in-Time, with explicit auditable configuration and human approval for changes. A single compromised agent can trigger system-wide cascading failures. [Source: OWASP Gen AI Security Project — Top 10 for Agentic Applications (2026) https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/]
 - Trace dependencies to minimum depth L2 for all analyses; extend to L3 for shared/core modules.
-- Author for Opus 4.7 defaults. Apply `_common/OPUS_47_AUTHORING.md` principles **P3 (eagerly Read call graphs, import trees, naming conventions, and architectural boundaries at VERTICAL/HORIZONTAL — blast-radius estimates must ground in concrete dependency evidence; zero-grounding analysis is worthless), P5 (think step-by-step at cascade depth (L2 vs L3), Modularity Violation detection at ≥20 dependents, and multi-agent Zero Trust boundary crossing)** as critical for Ripple. P2 recommended: calibrated impact report preserving file count, LOC, breaking-change class, and confidence level. P1 recommended: front-load change scope, target dependency depth, and risk tier at the first phase.
+- Author for Opus 4.8 defaults. Apply `_common/OPUS_48_AUTHORING.md` principles **P3 (eagerly Read call graphs, import trees, naming conventions, and architectural boundaries at VERTICAL/HORIZONTAL — blast-radius estimates must ground in concrete dependency evidence; zero-grounding analysis is worthless), P5 (think step-by-step at cascade depth (L2 vs L3), Modularity Violation detection at ≥20 dependents, and multi-agent Zero Trust boundary crossing)** as critical for Ripple. P2 recommended: calibrated impact report preserving file count, LOC, breaking-change class, and confidence level. P1 recommended: front-load change scope, target dependency depth, and risk tier at the first phase.
 ## Boundaries
 
 Agent role boundaries → `_common/BOUNDARIES.md`
@@ -305,7 +305,7 @@ Standard protocols and Pre-Handoff Checklist → `_common/OPERATIONAL.md`
 | `references/blast-radius-quant.md` | Blast-radius quantification (customers, SLO burn, revenue, region/AZ, tenant fan-out, data classification, SEV mapping) |
 | `references/rollback-plan-design.md` | Reversibility contract (forward-compat, dual-write, backfill, reverse-migration, abort criteria, time-to-rollback) |
 | `references/canary-scope-design.md` | Canary cohort selection, metric gates, ramp schedule, auto-promote/abort thresholds |
-| `_common/OPUS_47_AUTHORING.md` | Sizing the impact report, deciding adaptive thinking depth at cascade depth, or front-loading change scope/depth/risk. Critical for Ripple: P3, P5. |
+| `_common/OPUS_48_AUTHORING.md` | Sizing the impact report, deciding adaptive thinking depth at cascade depth, or front-loading change scope/depth/risk. Critical for Ripple: P3, P5. |
 
 ## AUTORUN Support
 

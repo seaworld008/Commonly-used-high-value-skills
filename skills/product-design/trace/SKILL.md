@@ -1,14 +1,14 @@
 ---
 name: trace
 description: 'Session replay analysis, persona-based behavioral pattern extraction, and UX issue storytelling. A behavioral archaeologist who reads the ''why'' from actual user operation logs. Collaborates with Researcher/Echo for persona validation.'
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/trace"
 license: MIT
 tags: '["design", "product", "trace"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-28"
+updated_at: "2026-06-01"
 quality: 5
 complexity: "advanced"
 ---
@@ -100,7 +100,7 @@ Route elsewhere when the task is primarily:
 - Cite anonymized evidence for every recommendation.
 - Provide actionable recommendations with clear handoff targets and business impact estimates.
 - For PLG (Product-Led Growth) activation analysis, segment new user sessions into pre-activation and post-activation cohorts based on defined activation milestones (e.g., first value delivery, key feature usage). Extract the behavioral patterns that differentiate users who reach the "Aha Moment" from those who drop off. Key analysis dimensions: (1) Time-to-activation (median and distribution), (2) Navigation paths of activated vs. churned users, (3) Feature discovery sequence leading to activation, (4) Friction points in the activation funnel (frustration signals concentrated in specific steps). When activation milestones are not pre-defined, propose candidate milestones based on behavioral clustering (usage frequency inflection points, session depth increases). Coordinate with Pulse (via TRACE_TO_PULSE) for activation rate metrics and with Voice (via TRACE_TO_VOICE) for targeted micro-survey placement at detected friction points.
-- Author for Opus 4.7 defaults. Apply `_common/OPUS_47_AUTHORING.md` principles **P3 (eagerly Read session replay data, persona definitions, and activation milestones at LOAD — behavioral-pattern accuracy depends on grounding in actual session events, not inferred narratives), P5 (think step-by-step at frustration-signal detection, pre-activation vs post-activation cohort segmentation, and micro-survey placement at friction points)** as critical for Trace. P2 recommended: calibrated replay report preserving anonymized evidence, pattern IDs, and business-impact estimate. P1 recommended: front-load persona set, session window, and activation milestone at LOAD.
+- Author for Opus 4.8 defaults. Apply `_common/OPUS_48_AUTHORING.md` principles **P3 (eagerly Read session replay data, persona definitions, and activation milestones at LOAD — behavioral-pattern accuracy depends on grounding in actual session events, not inferred narratives), P5 (think step-by-step at frustration-signal detection, pre-activation vs post-activation cohort segmentation, and micro-survey placement at friction points)** as critical for Trace. P2 recommended: calibrated replay report preserving anonymized evidence, pattern IDs, and business-impact estimate. P1 recommended: front-load persona set, session window, and activation milestone at LOAD.
 
 ## Boundaries
 
@@ -270,7 +270,7 @@ During **ANALYZE** phase, when actual behavior deviates from expected persona pa
 | `references/rageclick-detection.md` | You need rage/dead/shake/thrash thresholds, false-positive filters, rage-vs-dead distinction, or session-replay tool comparison. |
 | `references/funnel-dropoff.md` | You need funnel step schema, cohort slicing guidance, friction scoring, or baseline-vs-experiment comparison. |
 | `references/heatmap-synthesis.md` | You need heatmap type selection, density computation, hotspot clustering, scroll-depth curves, or heatmap tool comparison. |
-| `_common/OPUS_47_AUTHORING.md` | You are sizing the replay report, deciding adaptive thinking depth at signal detection/segmentation, or front-loading persona/window/milestone at LOAD. Critical for Trace: P3, P5. |
+| `_common/OPUS_48_AUTHORING.md` | You are sizing the replay report, deciding adaptive thinking depth at signal detection/segmentation, or front-loading persona/window/milestone at LOAD. Critical for Trace: P3, P5. |
 | `_common/GROWTH_BRAND_PROOF.md` | You contribute `source_proof` evidence (session-replay-based behavioral observations) to the Insight Ledger queue in `nexus growth-acceptance` Phase 0. G11 mandatory: replay-derived insights are submitted to Research Lead merge queue; AI cannot directly mutate Ledger. Used in Phase 3 post-launch for `ux_task_proof` regression detection (carry-over from Tier B). |
 
 ## Operational

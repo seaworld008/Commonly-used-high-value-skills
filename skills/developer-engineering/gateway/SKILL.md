@@ -1,14 +1,14 @@
 ---
 name: gateway
 description: 'API design and review, OpenAPI spec generation, versioning strategy, breaking change detection, REST/GraphQL best practices. Ensures API quality and consistency. Use when API design or OpenAPI specs are needed.'
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/gateway"
 license: MIT
 tags: '["development", "gateway"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-28"
+updated_at: "2026-06-01"
 quality: 5
 complexity: "advanced"
 ---
@@ -100,7 +100,7 @@ Route elsewhere when the task is primarily:
 - For AI/agent-consumed APIs: provide consistent JSON schemas, machine-readable operation descriptions, and predictable response structures to enable autonomous agent discovery and invocation. Serve llms.txt and llms-full.txt at the site root for AI discoverability — markdown is ~6x more token-efficient than HTML documentation, reducing agent context consumption by over 90%; AI agents visit llms-full.txt over 2x more than llms.txt, so provide both the summary index and full documentation content. For larger APIs, structure llms.txt hierarchically (root index → section-level files) so agents fetch only relevant sections. Expose /openapi.json for programmatic spec access. Apply OWASP Top 10 for Agentic Applications 2026 — treat agents as principals with goals, tools, and memory; guard against Agent Goal Hijacking (ASI01) via input validation on agent-facing endpoints. Enforce the principle of least agency: grant AI agents the minimum autonomy, tool access, and credential scope required for their intended task.
 - Prefer cursor-based pagination over offset-based for list endpoints — cursor pagination scales to large datasets without performance degradation and prevents skipped/duplicated items during concurrent writes.
 - Log all API design decisions to `.agents/PROJECT.md`.
-- Author for Opus 4.7 defaults. Apply _common/OPUS_47_AUTHORING.md principles **P3 (eagerly Read existing OpenAPI spec, error catalog, rate-limit policy, and consumer contracts at SCAN — breaking-change detection depends on full contract visibility), P5 (think step-by-step at DESIGN — REST vs GraphQL vs gRPC selection, versioning strategy, and idempotency decisions drive long-term consumer stability)** as critical for Gateway. P2 recommended: calibrated API spec preserving Problem Details, RateLimit headers, and OWASP API Top 10 rationale. P1 recommended: front-load consumer profile, version policy, and security tier at SCAN.
+- Author for Opus 4.8 defaults. Apply _common/OPUS_48_AUTHORING.md principles **P3 (eagerly Read existing OpenAPI spec, error catalog, rate-limit policy, and consumer contracts at SCAN — breaking-change detection depends on full contract visibility), P5 (think step-by-step at DESIGN — REST vs GraphQL vs gRPC selection, versioning strategy, and idempotency decisions drive long-term consumer stability)** as critical for Gateway. P2 recommended: calibrated API spec preserving Problem Details, RateLimit headers, and OWASP API Top 10 rationale. P1 recommended: front-load consumer profile, version policy, and security tier at SCAN.
 
 ## Boundaries
 
@@ -265,7 +265,7 @@ Gateway receives data models, implementation needs, and security requirements fr
 | `references/api-auth-patterns.md` | You are running the `auth` recipe — OAuth 2.1/OIDC/JWT/mTLS/API key contract, scope design, key rotation, IdP integration. |
 | `references/rate-limit-patterns.md` | You are running the `rate-limit` recipe — algorithm choice, scoping, distributed enforcement, RFC 9331 RateLimit headers, 429 + Retry-After semantics. |
 | `references/deprecation-policy.md` | You are running the `deprecation` recipe — RFC 8594 Sunset / RFC 9745 Deprecation headers, deprecation window, client SDK migration timeline, removal cutover. |
-| `_common/OPUS_47_AUTHORING.md` | You are sizing the API spec, deciding adaptive thinking depth at DESIGN, or front-loading consumer profile/version policy at SCAN. Critical for Gateway: P3, P5. |
+| `_common/OPUS_48_AUTHORING.md` | You are sizing the API spec, deciding adaptive thinking depth at DESIGN, or front-loading consumer profile/version policy at SCAN. Critical for Gateway: P3, P5. |
 
 ## Operational
 

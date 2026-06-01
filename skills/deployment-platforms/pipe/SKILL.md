@@ -1,14 +1,14 @@
 ---
 name: pipe
 description: 'Deep GitHub Actions workflow expert. Covers trigger strategy, security hardening, performance optimization, PR automation, and Reusable Workflow design. Use when new GHA workflow design or advanced optimization is needed.'
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/pipe"
 license: MIT
 tags: '["deployment", "pipe"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-20"
+updated_at: "2026-06-01"
 quality: 5
 complexity: "advanced"
 ---
@@ -88,7 +88,7 @@ Route elsewhere when:
 - **Shai-Hulud 3.0 "The Golden Path" (late 2025-2026)** removed the dead-man switch, strengthened obfuscation, and now invokes Bun via `bun_installer.js` during `npm install`. Treat any unexpected `bun` runtime invocation during install as a high-signal IOC; gate self-hosted runners' egress and audit `npm pkg get scripts.preinstall scripts.postinstall` for every direct dep on bootstrap. [Source: kodemsecurity.com — Shai-Hulud 3.0 Golden Path; upwind.io]
 - **Forbid preinstall/postinstall in CI installs** by default: pin `npm config set ignore-scripts true` (or `pnpm install --ignore-scripts` / `yarn install --ignore-scripts`) for the install step; allowlist trusted packages explicitly via pnpm's `pnpm.allowBuilds` or equivalent. PhantomRaven 2nd-4th wave (2025-11 → 2026-02, 88 packages) used **Remote Dynamic Dependencies (RDD)** — an HTTP URL outside the registry declared as a dependency, fetched and executed at install — `--ignore-scripts` combined with rejecting non-registry HTTP URLs in any dependency field is the canonical block. [Source: endorlabs.com — Return of PhantomRaven]
 - For agentic workflows (technical preview): use only for AI-suited tasks (triage, review, maintenance). Default to traditional YAML for build/deploy/release pipelines where determinism and auditability are critical. Agentic workflows run read-only by default; write operations require explicit safe-output declarations.
-- Author for Opus 4.7 defaults. Apply `_common/OPUS_47_AUTHORING.md` principles **P3 (eagerly Read existing workflows, action pins, OIDC trust policies, and repo structure at AUDIT — GHA recommendations depend on grounding in current trigger design and permission surface), P5 (think step-by-step at least-privilege token scoping, SHA pinning vs tag, reusable-vs-composite decomposition, and agentic vs YAML trigger selection)** as critical for Pipe. P2 recommended: calibrated workflow spec preserving permissions, SHA pins, cache strategy, and attestation. P1 recommended: front-load repo visibility, trigger scope, and deploy target at AUDIT.
+- Author for Opus 4.8 defaults. Apply `_common/OPUS_48_AUTHORING.md` principles **P3 (eagerly Read existing workflows, action pins, OIDC trust policies, and repo structure at AUDIT — GHA recommendations depend on grounding in current trigger design and permission surface), P5 (think step-by-step at least-privilege token scoping, SHA pinning vs tag, reusable-vs-composite decomposition, and agentic vs YAML trigger selection)** as critical for Pipe. P2 recommended: calibrated workflow spec preserving permissions, SHA pins, cache strategy, and attestation. P1 recommended: front-load repo visibility, trigger scope, and deploy target at AUDIT.
 
 ## Boundaries
 
@@ -246,7 +246,7 @@ Routing rules:
 | `references/matrix-strategy.md` | you are designing a multi-axis matrix build (OS x runtime x arch), using `include` / `exclude`, sparse coverage, `fail-fast` / `max-parallel` tuning, or dynamic `fromJSON` matrices. |
 | `references/cache-strategy.md` | you are designing `actions/cache` keys, `restore-keys` fallback, cross-OS compatibility, monorepo multi-cache layout, cache-hit telemetry, or 10 GB eviction management. |
 | `references/gha-secrets.md` | you are designing the GHA secret surface — OIDC federation to AWS/GCP/Azure, env vs repo secrets, `vars` vs `secrets`, masking, or fork-PR secret isolation. |
-| `_common/OPUS_47_AUTHORING.md` | you are sizing the workflow spec, deciding adaptive thinking depth at security hardening, or front-loading visibility/trigger/target at AUDIT. Critical for Pipe: P3, P5. |
+| `_common/OPUS_48_AUTHORING.md` | you are sizing the workflow spec, deciding adaptive thinking depth at security hardening, or front-loading visibility/trigger/target at AUDIT. Critical for Pipe: P3, P5. |
 
 ## Operational
 

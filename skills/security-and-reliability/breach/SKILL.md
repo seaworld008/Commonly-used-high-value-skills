@@ -1,14 +1,14 @@
 ---
 name: breach
 description: 'Red team engineering agent. Designs attack scenarios, builds threat models, applies MITRE ATT&CK/OWASP frameworks, runs Purple Team exercises, and performs AI/LLM red teaming. Use when adversarial security validation is needed.'
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/breach"
 license: MIT
 tags: '["breach", "security"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-28"
+updated_at: "2026-06-01"
 quality: 5
 complexity: "advanced"
 ---
@@ -105,7 +105,7 @@ Route elsewhere when the task is primarily:
 - For vendor and tooling selection, apply OWASP Vendor Evaluation Criteria for AI Red Teaming Providers & Tooling v1.0 — distinguishes meaningful adversarial testing from "jailbreak-only" offerings; covers simple GenAI (chatbots, RAG) and advanced systems (tool-calling agents, MCP architectures, multi-agent workflows). [Source: OWASP Vendor Evaluation Criteria for AI Red Teaming Providers & Tooling v1.0 (2025)](https://genai.owasp.org/resource/owasp-vendor-evaluation-criteria-for-ai-red-teaming-providers-tooling-v1-0/)
 - Use MITRE ATT&CK v19 (released 2026-04-28) for technique mapping — Enterprise contains 15 Tactics, 222 Techniques, 475 Sub-Techniques. [Source: MITRE ATT&CK April 2026 Updates](https://attack.mitre.org/resources/updates/updates-april-2026/)
 - Output language follows the CLI global config (`settings.json` `language` field, `CLAUDE.md`, `AGENTS.md`, or `GEMINI.md`).
-- Author for Opus 4.7 defaults. Apply `_common/OPUS_47_AUTHORING.md` principles **P3 (eagerly Read target system architecture, AI/LLM deployment (RAG, tools, MCP, plugins), trust boundaries, and prior threat models at FRAME — attack scenarios must ground in as-deployed surface, not abstract models), P5 (think step-by-step at framework selection (ATT&CK vs ATLAS vs STRIDE vs MAESTRO), multi-turn attack chain construction, and CVSS 4.0 scoring with exploitability evidence)** as critical for Breach. P2 recommended: calibrated red-team report preserving framework IDs, CVSS vectors, attack chains, and blue-team detection recommendations. P1 recommended: front-load target type (app/AI/supply-chain), framework, and cadence tier at FRAME.
+- Author for Opus 4.8 defaults. Apply `_common/OPUS_48_AUTHORING.md` principles **P3 (eagerly Read target system architecture, AI/LLM deployment (RAG, tools, MCP, plugins), trust boundaries, and prior threat models at FRAME — attack scenarios must ground in as-deployed surface, not abstract models), P5 (think step-by-step at framework selection (ATT&CK vs ATLAS vs STRIDE vs MAESTRO), multi-turn attack chain construction, and CVSS 4.0 scoring with exploitability evidence)** as critical for Breach. P2 recommended: calibrated red-team report preserving framework IDs, CVSS vectors, attack chains, and blue-team detection recommendations. P1 recommended: front-load target type (app/AI/supply-chain), framework, and cadence tier at FRAME.
 
 ---
 
@@ -336,7 +336,7 @@ All subagents share the threat model (read-only) produced in the MODEL phase. Th
 | `references/supply-chain-attack-design.md` | You are modeling supply chain attacks (dependency confusion, typosquatting, build-tool compromise, postinstall scripts) with SBOM/SLSA/in-toto verification guidance. |
 | `references/social-engineering-design.md` | You are planning social engineering scenarios (vishing, smishing, tailgating, OSINT pretexting, BEC, deepfakes) coordinated with an awareness program. |
 | `references/handoffs.md` | You need handoff templates for passing findings to Builder, Sentinel, Radar, Scribe, or Mend. |
-| `_common/OPUS_47_AUTHORING.md` | You are sizing the red-team report, deciding adaptive thinking depth at framework selection, or front-loading target type/framework/cadence at FRAME. Critical for Breach: P3, P5. |
+| `_common/OPUS_48_AUTHORING.md` | You are sizing the red-team report, deciding adaptive thinking depth at framework selection, or front-loading target type/framework/cadence at FRAME. Critical for Breach: P3, P5. |
 
 ---
 

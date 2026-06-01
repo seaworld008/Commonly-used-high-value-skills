@@ -1,14 +1,14 @@
 ---
 name: tone
 description: 'Game audio generation agent. Produces code (Python/JS/TS/Shell) for SFX, BGM, Voice, Ambient, and UI sounds using ElevenLabs/Stable Audio/MusicGen/Suno/OpenAI TTS/JSFXR. Handles LUFS normalization and middleware integration.'
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/tone"
 license: MIT
 tags: '["media", "tone"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-28"
+updated_at: "2026-06-01"
 quality: 5
 complexity: "advanced"
 ---
@@ -91,7 +91,7 @@ Route elsewhere when the task is primarily:
 - Stable Audio Open Small (released Nov 2025, Stability AI + Arm) enables on-device/mobile audio generation without cloud API. Permissive Stability AI Community License for commercial and non-commercial use. Source: https://stability.ai/news/stability-ai-and-arm-release-stable-audio-open-small-enabling-real-world-deployment-for-on-device-audio-control
 - Wwise 2025.1.x is the current production release cycle (versioning: 2025.1.3+ is production-ready). FMOD Studio 2.03 is the current release (multiband dynamics, wet/dry per effect, seek speed modulator). Docs: https://www.audiokinetic.com/en/library/edge/ and https://www.fmod.com/docs/2.03/studio/
 - For EU distribution, emit EU AI Act Article 50 compliance metadata alongside AI-generated audio (machine-readable AI-origin marker; audible disclaimer for deepfake voice/dialogue). Article 50 transparency obligations become legally binding 2026-08-02.
-- Author for Opus 4.7 defaults. Apply _common/OPUS_47_AUTHORING.md principles **P3 (eagerly Read audio system, LUFS targets, platform budgets, and middleware target at PLAN — codec/format choices depend on grounded constraints), P5 (think step-by-step at PRODUCE — format/codec/loudness decisions cascade into runtime memory and licensing risk)** as critical for Tone. P2 recommended: calibrated audio reports preserving LUFS/peak/license metadata. P1 recommended: front-load platform, category (SFX/BGM/VO), and budget at PLAN.
+- Author for Opus 4.8 defaults. Apply _common/OPUS_48_AUTHORING.md principles **P3 (eagerly Read audio system, LUFS targets, platform budgets, and middleware target at PLAN — codec/format choices depend on grounded constraints), P5 (think step-by-step at PRODUCE — format/codec/loudness decisions cascade into runtime memory and licensing risk)** as critical for Tone. P2 recommended: calibrated audio reports preserving LUFS/peak/license metadata. P1 recommended: front-load platform, category (SFX/BGM/VO), and budget at PLAN.
 
 ## Boundaries
 
@@ -261,7 +261,7 @@ Every deliverable should include:
 | `references/spatial-audio-design.md` | You are running the `spatial` recipe — HRTF, ambisonics B-format, Steam Audio / Resonance Audio / Wwise Spatial Audio / Web Audio PannerNode selection, Unity / Unreal / Phaser integration, occlusion / reverb zone design. |
 | `references/adaptive-music-design.md` | You are running the `adaptive` recipe — vertical layering (drums/bass/harmony/melody), horizontal re-sequencing, FMOD Studio / Wwise transition matrix, game-state → music-state mapping, stinger / one-shot design. |
 | `references/lufs-normalization.md` | You are running the `lufs` recipe — broadcast standards (-23 EBU R128 / -16 streaming / -14 mobile / -18 gameplay / -10 UI accent), pyloudnorm / ffmpeg loudnorm code, True Peak ≤ -1 dBTP enforcement. |
-| `_common/OPUS_47_AUTHORING.md` | You are sizing the audio report, deciding adaptive thinking depth at PRODUCE, or front-loading platform/category/budget at PLAN. Critical for Tone: P3, P5. |
+| `_common/OPUS_48_AUTHORING.md` | You are sizing the audio report, deciding adaptive thinking depth at PRODUCE, or front-loading platform/category/budget at PLAN. Critical for Tone: P3, P5. |
 
 ## Operational
 

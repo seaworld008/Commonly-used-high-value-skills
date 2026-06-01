@@ -1,14 +1,14 @@
 ---
 name: nexus
 description: 'Meta-orchestrator that coordinates specialist AI agent teams. Decomposes requests into minimum viable agent chains, spawns each as an independent session via Agent tool in AUTORUN modes, and drives to final output automatically.'
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/nexus"
 license: MIT
 tags: '["ai", "nexus", "workflow"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-28"
+updated_at: "2026-06-01"
 quality: 5
 complexity: "advanced"
 ---
@@ -46,7 +46,7 @@ PROJECT_AFFINITY: Game(H) SaaS(H) E-commerce(H) Dashboard(H) Marketing(H)
 
 > **"The right agent at the right time changes everything."**
 
-Coordinate specialist agents, design the minimum viable chain, and execute safely. `AUTORUN` and `AUTORUN_FULL` spawn each agent as an independent Claude session via the Agent tool. `Guided` and `Interactive` stop for confirmation at the configured points.
+Coordinate specialist agents, design the minimum viable chain, and execute safely. `AUTORUN` and `AUTORUN_FULL` spawn each agent as an independent session via the active hub engine's spawn tool (Claude Code `Agent`, Codex CLI `spawn_agent`; see **Execution Model → Orchestrator Detection**). `Guided` and `Interactive` stop for confirmation at the configured points.
 
 ## Trigger Guidance
 
@@ -74,8 +74,9 @@ Route elsewhere when the task is primarily:
 - Verify acceptance criteria before delivery; pair quantitative metrics with human evaluation for high-stakes tasks. [Source: aws.amazon.com — Evaluating AI agents at Amazon]
 - Adapt routing from execution evidence with safety constraints; track OE (orchestration efficiency) per chain type.
 - Leverage standardized inter-agent protocols where available: MCP (Anthropic), A2A (Google), ACP (IBM). [Source: arxiv.org/html/2601.13671v1]
-- Apply Plan-and-Execute pattern: capable models (opus) for planning, cheaper models (sonnet/haiku) for execution — up to 90% cost reduction. [Source: machinelearningmastery.com]
+- Apply Plan-and-Execute pattern: capable models for planning, cheaper models for execution — up to 90% cost reduction. Per hub engine: Claude Code = opus plan / sonnet-haiku execute; Codex CLI = `gpt-5.1-codex-max` plan / `gpt-5.1` execute (`CODEX_ORCHESTRATION.md` C3). [Source: machinelearningmastery.com]
 - Use Anthropic's **Managed Agents** vocabulary (SF 2026): **Multiagent Orchestration** for hub-and-spoke fan-out, **Outcomes** for rubric-scored Evaluator Loops, **Dreaming** for Lore-driven memory curation, **Webhooks** for completion notifications via Mend / Beacon. Surface escalation recommendation in `NEXUS_COMPLETE` when the workload pattern (unattended multi-day runs, cross-user knowledge persistence, platform-level audit) justifies the managed platform. [Source: claude.com — *New in Claude: Managed Agents*; *Code with Claude SF 2026*]
+- Prefer **Dynamic Workflows** (Claude Code-native, research preview) as the *execution substrate* for large homogeneous parallel sweeps — codebase-wide audits, thousand-file migrations, verification-critical runs — and keep Nexus as the routing/recipe layer (which specialists, what shape). A Recipe step that is a large parallel sweep may delegate execution to a native dynamic workflow (or the `ultracode` setting: `xhigh` + auto-deploy) when available; fall back to L2/L3 spawn + hierarchical decomposition otherwise. See `references/managed-agents-mapping.md` §5. [Source: claude.com — *Introducing Dynamic Workflows in Claude Code*]
 - Output language follows the CLI global config (`settings.json` `language` field, `CLAUDE.md`, `AGENTS.md`, or `GEMINI.md`); identifiers and technical terms remain in English.
 
 ## Core Rules
@@ -89,7 +90,10 @@ Route elsewhere when the task is primarily:
 7. **Learn only from evidence.** Routing adaptation requires execution data, verification, and journaled results.
 8. **Prevent circular handoffs.** Enforce max-hop limits (default: 2 round-trips per agent pair) to prevent A→B→A handoff loops. [Source: codebridge.tech]
 9. **Hierarchical decomposition for scale.** For chains with 6+ agents, spawn feature-lead agents that each coordinate 2-3 specialists. [Source: addyosmani.com]
-10. **Author for Opus 4.7 defaults.** Apply `_common/OPUS_47_AUTHORING.md` principles **P4 (parallel subagent triggers), P6 (effort-level awareness), P7 (delegation framing)**. Opus 4.7 spawns fewer subagents and reasons more by default — explicit fan-out triggers and per-step model selection are mandatory. Spawn prompts must state thinking nudges (P5) and length envelopes (P2).
+10. **Author for the active orchestrator engine.** Detect which CLI drives the hub (see **Execution Model → Orchestrator Detection**) and apply the matching authoring protocol:
+    - **Claude Code hub** → `_common/OPUS_48_AUTHORING.md` principles **P4 (parallel subagent triggers), P6 (effort-level awareness), P7 (delegation framing), P9 (effort-calibrated tool use)**. Opus 4.8 spawns fewer subagents and reasons more by default, respects `effort` strictly, and follows instructions literally — explicit fan-out triggers, per-step model/effort selection, and explicit step scope are mandatory. Spawn prompts must state thinking nudges (P5) and length envelopes (P2).
+    - **Codex CLI hub** → `_common/CODEX_ORCHESTRATION.md` principles **C1 (spawn-depth budget), C2 (synchronous fan-out/join), C6 (checkpoint-resume)**, plus C3/C7 for model and approval posture. Codex has no background-spawn primitive (parallel = N `spawn_agent` → `wait_agent` all), gates fan-out via `agents.max_depth`, and routes effort by model choice (`gpt-5.1-codex-max` plan / `gpt-5.1` execute) — not by an Opus `effort` enum.
+    - **agy hub** → best-effort; apply the C-principles by analogy under `_common/CLI_COMPATIBILITY.md §3, §9` constraints.
 
 ## Boundaries
 
@@ -173,10 +177,13 @@ Single source of truth for Recipe definitions. Full phase contracts for Recipes 
 | Growth-Acceptance | `growth-acceptance` | **Layer C lifecycle gate** for Enterprise org-tier orgs (Market + Research + Brand axes). Extends `acceptance` (Phase 1 delegates there) with pre-design (Research Proof + Insight Ledger + Contract draft), ship-time (Market Proof + Brand B.tone + G14 Regulatory Pre-Flight), post-launch (+14d/+30d/+90d Measurement Loop with G13 auto-halt). **Org Tier gate**: Solo aborts; SMB Step 1 only; Enterprise full Step 1-4. G11 (KB Write Authority — AI read-only on Ledger), G12 (Diversity Floor), G13 (Stop Authority), G14 (Regulatory Envelope), G15 (Constitution Lifecycle) mandatory. Brand Compiler 3-layer (B.hard / B.pattern blocking + B.tone advisory + G7). Cost: Step 1 only 1.1-1.3× / Step 1+2 2-3× / Step 1+2+3 3-5× / Step 1+2+3+4 5-8× (in addition to acceptance). **Confirm before Step 3 or Step 4.** | Phase 0 classify(org_tier+step+regulatory) → insight[Ledger query R/O] → researcher?[fresh] → accord+spark[Contract Tier 0/1/2] → 1 delegate to `acceptance` (full v2 Code+Design + B.hard/B.pattern) → 2 pulse+experiment[Market Proof+Incrementality Decision Tree] ‖ ledger[CAC/LTV] ‖ compete[cannibalization] ‖ funnel+lure[channel-fit] ‖ vision+prose[B.tone advisory] ‖ clause+comply+cloak+vigil[G14 Pre-Flight] → 3 (+14d/+30d/+90d) pulse+experiment+beacon+compete+ledger[Measurement] → G13 Stop_Condition → mend[24h auto-halt] → harvest+tome[Ledger queue per G11] → 4 quarterly G15/G6/G14/G12 + monthly G11/Override + weekly B.tone sampling | `_common/GROWTH_BRAND_PROOF.md`, `references/growth-acceptance-recipe.md` |
 | Summit | `summit` | Multi-engine **five-team** quality-maximization (Analysis / Design / Execution / Verification / Improvement). Default baseline: **Claude + Codex (dual-engine)** — Codex ~65-70% (code-gen/sandbox/test) / Claude ~30-35% (judgment/orchestration/ethics). agy is an **optional third axis** (~15-25% slice, long-context/multimodal/Deep Think/Search) added when AVAILABLE at PREFLIGHT; dual-engine mode runs normally when agy is unavailable or RUNTIME-BROKEN. Design Team conditional on `ui_dimension`. 32-119 agents (tri-engine), 28-111 agents (dual-engine — agy-only specialists absorbed by Claude/Codex), 49-193 min, 5-25× cost. **Always confirm.** | Phase 0 Framing (Claude) → 1 Analysis (Claude judgment ‖ Codex code-analysis ‖ [agy long-context+multimodal if AVAILABLE] ‖ Echo/Frame/Palette[design]) → 2 Planning (Claude opus) → 3 Design Track (Vision orchestrates) ‖ Execution Track (arena[COLLABORATE]; tri-engine 60/25/15 codex/agy/claude OR dual-engine 70/30 codex/claude) → 4 Verification (judge ‖ Codex dynamic ‖ [agy compliance if AVAILABLE] ‖ Echo/Palette UX) → 5 Improvement (orbit, max 3 loops, magi-arbitrated) → 6 Delivery (Guardian + Launch + Engine Distribution Audit) | `references/summit-recipe.md` |
 | Podium | `podium` | **Content-quality maximization** for documentation + high-quality slide creation. Five teams (Research / Narrative / Production / Verification / Improvement) produce a unified doc+slide package from one source-of-truth outline. Default baseline: **Claude + Codex (dual-engine)** — Claude ~45-50% (prose / narrative / audience judgment) / Codex ~30-35% (slide compilation / diagrams-as-code / format conversion). agy optional third axis (~15-25%, AI imagery code / long-ctx synthesis / multimodal extraction). 16-53 agents, 35-130 min, 3-8× cost. **Confirm only for release-critical.** | Phase 0 Framing (Claude — output_format, audience, brand, mode: greenfield\|refresh) → 1 Research (Researcher audience ‖ Lens/Harvest/Quill sources ‖ [agy Tome/Frame] ‖ external grounding) → 2 Narrative (Stage/Zine/Scribe/Tome story arc + Magi convergence) → 3 Production (Content[Cue+Prose for slides] ‖ Visual[Sketch=code, Ink=svg] ‖ Layout[Stage/Morph/Prism/figma:figma-use-slides] tracks) → 4 Verification (Nexus internal claim-grounding ‖ Canon style ‖ Echo persona ‖ Palette visual a11y ‖ Voyager render ‖ judge) → 5 Improvement (orbit, max 2 loops, magi-arbitrated) → 6 Publish (image materialization → Morph → Guardian? → Launch?) | `references/podium-recipe.md` |
+| Transmute | `transmute` | **Cross-language rewrite** preserving behavior (TS→Rust, Go→Rust, Python→Go, JS→TS, …). Idiomatic re-expression — NOT transliteration — verified by **differential parity** against a golden oracle extracted from the source. Distinct from `PORTING` (Web→native platform shift), `shift` (same-language framework migration), `horizon` (dependency modernization), `refactor`/`kaizen` (same-language). Strategy chosen at a risk gate: big-bang \| strangler-fig \| FFI-incremental. 8-20 agents, mid-high cost. **Confirm before big-bang.** | Phase 0 Framing (lang-pair + scope + strategy + parity feasibility) → 1 Archaeology (Fossil[business rules] ‖ Lens[structure/dataflow] ‖ Atlas?[arch boundaries] ‖ Trail?[why-history]) → 2 Contract (Accord[lang-neutral behavior spec] → Mint[golden I/O oracle]) → 3 Strategy (Magi[strategy + risk gate] → Transmutation Map: type/error/concurrency/memory) → 4 Transmute (Builder/Artisan[idiomatic impl] +grok?[parser/DSL] +gateway/schema?[boundaries]; arena[COMPETE] for high-risk modules) → 5 Parity Verify (Radar[differential/property vs oracle] ‖ Attest[Accord conformance] ‖ judge[idiom review] ‖ Voyager?[E2E parity]) → 6 Ship (Guardian[PR + Before/After parity report + strangler increment]) | `references/transmute-recipe.md` |
 
 ### Signal Keywords → Recipe
 
 For natural-language input without an explicit subcommand. Subcommand match wins if both apply.
+
+Keywords below are **English canonical anchors**, not a literal allowlist. Nexus absorbs language and phrasing at CLASSIFY: input in any language (Japanese, etc.) or paraphrased wording is semantically mapped to the matching Recipe by intent, not string match. Translate the user's request to its English intent first, then match. The output-language config still governs the user-facing response.
 
 | Keywords | Recipe |
 |----------|--------|
@@ -185,7 +192,7 @@ For natural-language input without an explicit subcommand. Subcommand match wins
 | `security`, `vulnerability`, `CVE` | `security` |
 | `refactor`, `clean up`, `code smell` | `refactor` |
 | `optimize`, `slow`, `performance` | `optimize` |
-| `kaizen`, `improve`, `polish`, `enhance existing`, `incremental improvement`, `磨き上げ`, `継続改善` | `kaizen` |
+| `kaizen`, `improve`, `polish`, `enhance existing`, `incremental improvement`, `refine`, `continuous improvement` | `kaizen` |
 | `review`, `check`, `audit` | (legacy quality review via `routing-matrix.md`) |
 | `design system docs`, `token docs`, `component catalog` | `DESIGN_SYSTEM_DOCS` (see Routing Quick Start) |
 | `brainstorm`, `bounce ideas`, `riff`, `ideate`, `sounding board` | (Riff direct — single-agent) |
@@ -199,20 +206,21 @@ For natural-language input without an explicit subcommand. Subcommand match wins
 | `podium`, `slide deck`, `keynote`, `conference talk`, `presentation`, `talk deck`, `speaker deck`, `onboarding kit (doc + deck)`, `learning material with companion deck`, `doc + slide`, `unified content package`, `article + slides`, `retrospective (doc + exec deck)`, `launch package (announcement + sales deck)` | `podium` |
 | `/Nexus` (no arguments) | `proactive` |
 | `skill audit`, `MCP supply chain`, `plugin intake`, `.claude config audit`, `Unicode Tag injection`, `curl-pipe scan`, `third-party intake` | `SUPPLY_CHAIN_AUDIT` (Chain) |
-| `Shai-Hulud`, `npm worm`, `PyPI worm`, `lottie-player`, `S1ngularity`, `infected lockfile`, `C2 traffic`, `credential rotation order`, `感染` | `MALWARE_RESPONSE` (Husk → Triage → Crypt) |
-| `auto-tune`, `continuous tuning`, `GC tuning`, `threadpool`, `connection pool`, `worker count`, `cache size 自動調整` | `AUTO_TUNING` (Dial) |
-| `技術的負債 可視化`, `debt mascot`, `debt character`, `gamified retro`, `quarterly debt review` | `DEBT_VISUALIZATION` (Hex → Sketch) |
+| `Shai-Hulud`, `npm worm`, `PyPI worm`, `lottie-player`, `S1ngularity`, `infected lockfile`, `C2 traffic`, `credential rotation order`, `infected` | `MALWARE_RESPONSE` (Husk → Triage → Crypt) |
+| `auto-tune`, `continuous tuning`, `GC tuning`, `threadpool`, `connection pool`, `worker count`, `cache size auto-adjust` | `AUTO_TUNING` (Dial) |
+| `tech debt visualization`, `debt mascot`, `debt character`, `gamified retro`, `quarterly debt review` | `DEBT_VISUALIZATION` (Hex → Sketch) |
 | `audio analysis`, `LUFS`, `True Peak`, `BPM detect`, `key detect`, `mastering QC`, `EBU R128`, `librosa`, `pyloudnorm` | `AUDIO_ANALYSIS` (Sonar) |
-| `ToS`, `Terms of Service`, `Privacy Policy`, `特商法`, `プライバシーポリシー`, `利用規約レビュー`, `規約ギャップ` | `LEGAL_REVIEW` (Clause → Scribe) |
-| `ICE`, `RICE`, `WSJF`, `MoSCoW`, `Kano`, `Cost of Delay`, `優先度`, `prioritize`, `順位付け`, `ranking` | `PRIORITIZE` (Rank → Magi) |
-| `pre-mortem`, `premortem`, `プレモーテム`, `FMEA`, `failure modes`, `RPN`, `AP`, `失敗シナリオ列挙`, `what could go wrong` | `PREMORTEM` (Omen → Ripple) |
-| `manual QA`, `TestRail`, `Xray`, `Zephyr`, `Qase`, `BVA`, `equivalence class`, `decision table`, `exploratory charter`, `手動テスト手順書` | `MANUAL_QA` (Drill) |
+| `ToS`, `Terms of Service`, `Privacy Policy`, `Tokushoho`, `Specified Commercial Transactions Act`, `terms review`, `policy gap` | `LEGAL_REVIEW` (Clause → Scribe) |
+| `ICE`, `RICE`, `WSJF`, `MoSCoW`, `Kano`, `Cost of Delay`, `priority`, `prioritize`, `ranking` | `PRIORITIZE` (Rank → Magi) |
+| `pre-mortem`, `premortem`, `FMEA`, `failure modes`, `RPN`, `AP`, `failure scenario enumeration`, `what could go wrong` | `PREMORTEM` (Omen → Ripple) |
+| `manual QA`, `TestRail`, `Xray`, `Zephyr`, `Qase`, `BVA`, `equivalence class`, `decision table`, `exploratory charter`, `manual test procedure` | `MANUAL_QA` (Drill) |
 | `test pyramid`, `trophy`, `honeycomb`, `coverage heatmap`, `flake dashboard`, `Wilson lower-bound`, `mutation overlay`, `test shape` | `TEST_INTELLIGENCE` (Vista) |
-| `iOS`, `iOS 実装`, `iPhone`, `iPad`, `Swift`, `SwiftUI`, `Swift 6.2`, `Liquid Glass`, `iOS 26`, `@Observable`, `SwiftData`, `Xcode`, `App Store`, `TestFlight`, `xcrun`, `simctl`, `devicectl`, `xctrace`, `WidgetKit`, `Live Activities`, `App Intents`, `ASAuthorizationController`, `Apple Intelligence`, `Foundation Models` | `MOBILE_NATIVE` (Native) — iOS path |
-| `Android`, `Android 実装`, `Kotlin`, `Jetpack Compose`, `Material 3 Expressive`, `M3 Expressive`, `Compose Multiplatform`, `Strong Skipping`, `Type-safe Navigation`, `Gradle`, `KSP`, `Android Gradle Plugin`, `AGP`, `Play Store`, `Play Console`, `adb`, `logcat`, `dumpsys`, `WorkManager`, `Credential Manager`, `Jetpack Glance`, `Gemini Nano`, `AICore` | `MOBILE_NATIVE` (Native) — Android path |
-| `ネイティブアプリ`, `ネイティブ実装`, `モバイルアプリ実装`, `iOS Android 両方`, `mobile native`, `native app`, `pure native`, `Passkey mobile`, `Privacy Manifest`, `Data Safety form`, `Universal Links`, `App Links`, `App Bundle`, `staged rollout`, `phased release` | `MOBILE_NATIVE` (Native) — cross-platform / shared mobile |
+| `iOS`, `iOS implementation`, `iPhone`, `iPad`, `Swift`, `SwiftUI`, `Swift 6.2`, `Liquid Glass`, `iOS 26`, `@Observable`, `SwiftData`, `Xcode`, `App Store`, `TestFlight`, `xcrun`, `simctl`, `devicectl`, `xctrace`, `WidgetKit`, `Live Activities`, `App Intents`, `ASAuthorizationController`, `Apple Intelligence`, `Foundation Models` | `MOBILE_NATIVE` (Native) — iOS path |
+| `Android`, `Android implementation`, `Kotlin`, `Jetpack Compose`, `Material 3 Expressive`, `M3 Expressive`, `Compose Multiplatform`, `Strong Skipping`, `Type-safe Navigation`, `Gradle`, `KSP`, `Android Gradle Plugin`, `AGP`, `Play Store`, `Play Console`, `adb`, `logcat`, `dumpsys`, `WorkManager`, `Credential Manager`, `Jetpack Glance`, `Gemini Nano`, `AICore` | `MOBILE_NATIVE` (Native) — Android path |
+| `native app`, `native implementation`, `mobile app implementation`, `both iOS and Android`, `mobile native`, `pure native`, `Passkey mobile`, `Privacy Manifest`, `Data Safety form`, `Universal Links`, `App Links`, `App Bundle`, `staged rollout`, `phased release` | `MOBILE_NATIVE` (Native) — cross-platform / shared mobile |
 | `XCUITest`, `XCUIApplication`, `XCUIElement`, `XCUIElementQuery`, `accessibilityIdentifier`, `fastlane snapshot`, `Snapfile`, `SnapshotHelper`, `App Store screenshot`, `frameit`, `xcresulttool`, `xcodebuild test`, `.xctestrun`, `iOS UI test`, `swift ui test`, `status bar override`, `simctl status_bar` | `IOS_UI_TEST` (Snap) |
-| `Web から iOS`, `Web から Android`, `Web → ネイティブ`, `Web to native`, `port to iOS`, `port to Android`, `feature parity matrix`, `ネイティブ化`, `porting design`, `Strangler Fig mobile` | `PORTING` (Port → Native) |
+| `Web to iOS`, `Web to Android`, `Web to native`, `port to iOS`, `port to Android`, `feature parity matrix`, `nativize`, `porting design`, `Strangler Fig mobile` | `PORTING` (Port → Native) |
+| `transmute`, `rewrite in`, `port to Rust`, `TS to Rust`, `Go to Rust`, `Python to Go`, `JS to TS`, `language rewrite`, `cross-language`, `rewrite in another language`, `idiomatic rewrite`, `differential parity` | `transmute` |
 | unclear or multi-domain request | `classify` → `references/intent-clarification.md` |
 
 ## Subcommand Dispatch
@@ -277,6 +285,18 @@ Recipes with `Read` references in the Recipes table follow those references for 
 
 **Default: spawn.** Every EXECUTE step spawns a real agent session unless an explicit exception applies (Core Rule #3).
 
+### Orchestrator Detection
+
+Before the first spawn, determine which CLI drives **this hub session**, then bind the spawn API, authoring protocol, and model map accordingly. The hub engine is implicit in the available tooling — detect it once and reuse:
+
+| Signal | Hub engine | Spawn API | Authoring protocol | Model map |
+|--------|-----------|-----------|--------------------|-----------|
+| `Agent` tool present | **Claude Code** | `Agent(...)` (L1 fg / L2 `run_in_background`) | `_common/OPUS_48_AUTHORING.md` (P-principles) | sonnet / opus / haiku (see Model Selection) |
+| `spawn_agent` callable (C1 prereqs hold) | **Codex CLI** | `spawn_agent` → `wait_agent` (parallel = N spawn → join all) | `_common/CODEX_ORCHESTRATION.md` (C-principles) | `gpt-5.1` / `gpt-5.1-codex-max` (see `CLI_COMPATIBILITY.md §4`) |
+| `/agent` in TUI main session | **agy** | `/agent` or `agy -p` headless | C-principles by analogy | per `/model` (see `CLI_COMPATIBILITY.md §4`) |
+
+Codex-hub prereqs (C1): `codex features list \| grep multi_agent` → `true`, and `~/.codex/config.toml` `[agents] max_depth >= 2`. If unmet → internal execution with a concrete reason (`agents.max_depth=1, nested hub cannot recurse`), never a generic "spawn tool not found". `spawn_agent` may be lazily hidden from the tool inventory — attempt the call when prereqs hold (C5). Full per-CLI prereqs and fall-back log forms: **Execution Layers** below + `_common/CLI_COMPATIBILITY.md`.
+
 ### Spawn Decision Flow
 
 ```
@@ -335,8 +355,8 @@ max_depth = 3
 | **L2: Parallel Spawn** | Multiple `/agent` invocations (async, each own context) | 2-3 independent branches | Aggregate via `/tasks`; no explicit `wait` primitive |
 | **L3: Role-Driven Team** | Plugin-installed team pack (`oh-my-antigravity` etc. via `agy plugin install <url>`) | 4+ workers, complex ownership | Community pattern — `/oma:taskboard` priority queue + approval gates (no Rally equivalent documented) |
 
-**Subagent Tools:** `/agent`, `/tasks`, `/resume`, `/rewind`, `/btw` (read-only side question), `/schedule`, `/goal` (experimental flag status 未確認)
-**Config:** Subagent depth-cap key name **未確認** — community guidance says "cap subagent depth" but no JSON/TOML key was found in official docs. Treat as runtime/budget concern via `/usage` polling, not as a config switch.
+**Subagent Tools:** `/agent`, `/tasks`, `/resume`, `/rewind`, `/btw` (read-only side question), `/schedule`, `/goal` (experimental flag status unverified)
+**Config:** Subagent depth-cap key name **unverified** — community guidance says "cap subagent depth" but no JSON/TOML key was found in official docs. Treat as runtime/budget concern via `/usage` polling, not as a config switch.
 **Skill root:** `~/.gemini/antigravity-cli/skills/` (global) or `<repo>/.agents/skills/` (workspace, preferred).
 **Permission model:** `request-review` (default — pause for review) / `proceed-in-sandbox` (containerized auto) / `always-proceed` (host auto, production-forbidden) / `strict` (read-only).
 
@@ -378,12 +398,16 @@ EOF
 
 ### Model Selection
 
-| Agent Role | model | Rationale |
-|-----------|-------|-----------|
-| Investigation / read-only (Scout, Lens, Trail) | sonnet | Cost-efficient |
-| Standard implementation (Builder, Artisan, Radar) | sonnet | Balanced |
-| High-complexity design (Sentinel, Atlas) | opus | Precision-critical |
-| Lightweight tasks (Quill, Morph) | haiku | Minimal cost |
+Model names are hub-engine-specific. The role → tier mapping is stable; the concrete model per tier depends on the orchestrator engine (see **Orchestrator Detection** and `_common/CLI_COMPATIBILITY.md §4`).
+
+| Agent Role | Tier | Claude Code hub | Codex CLI hub | Rationale |
+|-----------|------|-----------------|---------------|-----------|
+| Investigation / read-only (Scout, Lens, Trail) | balanced | sonnet | `gpt-5.1` | Cost-efficient |
+| Standard implementation (Builder, Artisan, Radar) | balanced | sonnet | `gpt-5.1` | Balanced |
+| High-complexity design (Sentinel, Atlas) | high-reasoning | opus | `gpt-5.1-codex-max` | Precision-critical |
+| Lightweight tasks (Quill, Morph) | fast | haiku | lighter variant per docs | Minimal cost |
+
+> Codex hub: route planning / high-complexity steps to `gpt-5.1-codex-max` and execution steps to `gpt-5.1` (Plan-and-Execute, `CODEX_ORCHESTRATION.md` C3). The exact Codex reasoning-effort config key/levels are **未確認** — select effort via model choice, not an invented enum. agy hub: switch via `/model` in TUI (per-session, not per-agent).
 
 ### Agent Spawn Template
 
@@ -416,9 +440,26 @@ Agent(
 )
 ```
 
-> **Opus 4.7 note**: The four directive fields above (acceptance criteria / output length / tool-use / thinking) are not optional. Opus 4.7 calibrates output length to context and restrains tool calls by default, so both under- and over-shoot occur when these are implicit. For parallel spawns, see **Core Rule #10** and **`_common/SUBAGENT.md`**, and issue multiple `Agent(... run_in_background: true)` calls in the same turn. Shared protocol: `_common/OPUS_47_AUTHORING.md`.
+> **Opus 4.8 note**: The four directive fields above (acceptance criteria / output length / tool-use / thinking) are not optional. Opus 4.8 calibrates output length to context, restrains tool calls by default (raise `effort` to increase tool use), and interprets each field literally, so both under- and over-shoot occur when these are implicit. For parallel spawns, see **Core Rule #10** and **`_common/SUBAGENT.md`**, and issue multiple `Agent(... run_in_background: true)` calls in the same turn. Shared protocol: `_common/OPUS_48_AUTHORING.md`.
 
-**Codex CLI variant**: same prompt body; invoke via `spawn_agent(prompt=<body>)` then `wait_agent(id)`.
+**Codex CLI variant**: same prompt body; resolve the skill path to `~/.codex/skills/[agent]/SKILL.md` or `<repo>/.agents/skills/[agent]/SKILL.md`. The four directive fields stay required (they are CLI-agnostic), but Codex authoring follows `_common/CODEX_ORCHESTRATION.md` (C-principles), not the Opus note above — Codex routes effort by **model choice** (`gpt-5.1-codex-max` plan / `gpt-5.1` execute, C3), not an `effort` enum, and gates fan-out via `agents.max_depth` (C1), not a soft "max 3".
+
+```
+# L1 sequential
+id = spawn_agent(prompt=<body>)         # omitted fields inherit from parent session
+result = wait_agent(id)
+
+# L2 parallel — N spawn in one turn, then JOIN ALL (no background primitive; C2)
+ids = [spawn_agent(prompt=<body_i>) for i in branches]   # branches ≤ max_depth/budget
+results = [wait_agent(i) for i in ids]                    # hard barrier; aggregate after join
+
+# 4+ step chain — continue a live subagent instead of re-spawning (C6)
+send_input(id, <next_step_delta>)       # feed next step into the same session
+resume_agent(id)                        # revive a checkpointed subagent
+close_agent(id)                         # release context when the branch is done
+```
+
+Prereqs (C1): `[features] multi_agent = true` + `[agents] max_depth >= 2`. `spawn_agent` may be lazily hidden — attempt the call when prereqs hold (C5).
 
 **agy variant**: same prompt body; invoke via `/agent [agent]-[task-slug] "<body>"` (TUI) or `agy -p "<body>" --dangerously-skip-permissions --output-format json` (headless). The `--dangerously-skip-permissions` flag is mandatory in headless mode — without it, `request-review` will block the spawn. `--output-format json` is a hidden flag (absent from `--help` v1.0.2 but confirmed in official DEV.to examples). **Reference files in the prompt body with `@<path>`** (e.g. `@docs/spec.md`) to inject context into the main agent — bare path strings trigger silent subagent timeouts (60s cap, see Antigravity CLI section above). Replace skill path with `~/.gemini/antigravity-cli/skills/[agent]/SKILL.md` or `<repo>/.agents/skills/[agent]/SKILL.md`.
 
@@ -555,7 +596,7 @@ Read only the files that match the current decision point.
 | `references/production-reliability-anti-patterns.md` | High-volume, production-like, or failure-sensitive conditions |
 | `references/agent-communication-anti-patterns.md` | Handoffs, schemas, ownership, or state integrity look weak |
 | `references/official-skill-categories.md` | Official use case categories (Document & Asset / Workflow Automation / MCP Enhancement), 5 canonical patterns, problem-first vs tool-first detection during CLASSIFY |
-| `references/managed-agents-mapping.md` | Claude Managed Agents / Outcomes / Dreaming / Webhooks — four-feature mapping (Multiagent Orchestration ↔ hub-and-spoke, Outcomes ↔ Evaluator Loop, Dreaming ↔ Lore, Webhooks ↔ Mend/Beacon), local-vs-managed escalation, SF 2026 reference deployments (Harvey 6×, Netflix fan-out, Spiral, Wisedocs 50%) |
+| `references/managed-agents-mapping.md` | Claude Managed Agents / Outcomes / Dreaming / Webhooks — four-feature mapping (Multiagent Orchestration ↔ hub-and-spoke, Outcomes ↔ Evaluator Loop, Dreaming ↔ Lore, Webhooks ↔ Mend/Beacon), local-vs-managed escalation, SF 2026 reference deployments (Harvey 6×, Netflix fan-out, Spiral, Wisedocs 50%). §5: **Dynamic Workflows** (Claude Code-native parallel sweeps, `ultracode`, native-vs-Nexus selection) |
 | `references/apex-recipe.md` | `/nexus apex` — phase contracts, conditional inclusion, sub-orchestration topology (Vision for UX, Orbit for loop), tri-axis Risk Gate criteria, AUTORUN chain template |
 | `references/apex-walkthrough.md` | Human-facing apex explanation — Mermaid flowcharts, sequence diagrams, per-phase storyboards, parallel topology, failure-and-rollback paths, Gantt timeline, example outputs |
 | `references/goal-recipe.md` | `/nexus goal` — platform detection, use-case templates (ci-headless / long-dev / parallel-experiment / safe-bounded), chain phase contracts, hook templates, launch command recipes |
@@ -565,12 +606,14 @@ Read only the files that match the current decision point.
 | `references/growth-acceptance-recipe.md` | `/nexus growth-acceptance` — Phase 0-3 lifecycle chain template, Phase 4 cross-cutting audits, failure escalation, cost profile per Step adoption |
 | `references/feature-impact-simulate.md` | Feature impact prediction before implementation begins (Persona+Journey+Product v4 fold-in). Reference recipe (NOT a top-level Nexus subcommand) — chain: omen ‖ ripple ‖ echo[council mode] → experiment → magi. Org Tier: Solo skip-echo / SMB max-3 personas / Enterprise max-9 + arena multi for Tier-S |
 | `references/summit-recipe.md` | `/nexus summit` — prereqs (agy OPTIONAL — dual-engine fallback when unavailable), engine × team matrix, phase contracts, arena sub-orchestration, Vision sub-orchestration of design specialists, multi-engine quorum rules, AUTORUN chain template, failure escalation, cost/latency profile, decision tree vs apex/judge |
+| `references/transmute-recipe.md` | `/nexus transmute` — cross-language rewrite (TS→Rust, Go→Rust, …). Migration strategy table (strangler-fig / FFI-incremental / big-bang), Phase 0-6 contract, the Transmutation Map (per-pair type/error/concurrency/memory idiom mappings), failure modes, add-ons, decision tree vs PORTING/shift/horizon |
 | `references/podium-recipe.md` | `/nexus podium` — five-team content workflow (Research / Narrative / Production / Verification / Improvement) for doc + high-quality slide creation. Engine × team matrix (Claude prose / Codex compile / agy imagery), phase contracts with output_format variants (doc / slide / both / notebooklm / figma-slides), claim-grounding via Attest, 6×6 + WCAG-AA + persona walkthrough gates, max-2 improvement loop, decision tree vs single-skill / atelier / summit |
-| `_common/OPUS_47_AUTHORING.md` | Designing spawn prompts, planning output envelopes, or selecting per-step model effort. Critical for orchestrators: P4 (parallel subagents), P6 (effort), P7 (delegation) |
+| `_common/OPUS_48_AUTHORING.md` | **Claude Code hub** — designing spawn prompts, planning output envelopes, or selecting per-step model effort. Critical for orchestrators: P4 (parallel subagents), P6 (effort), P7 (delegation) |
+| `_common/CODEX_ORCHESTRATION.md` | **Codex CLI hub** — spawn-depth budget (C1), synchronous fan-out/join via `spawn_agent`/`wait_agent` (C2), reasoning-effort-by-model routing (C3), checkpoint-resume via `send_input`/`resume_agent`/`close_agent` (C6). The Codex-hub counterpart to OPUS_48_AUTHORING |
 
 ## Operational Notes
 
-Follow `_common/OPERATIONAL.md`, `_common/AUTORUN.md`, `_common/HANDOFF.md`, `_common/GIT_GUIDELINES.md`, `_common/HARNESS_EVOLUTION.md`. Journal in `.agents/nexus.md`; log to `.agents/PROJECT.md`. No agent names in commits/PRs. Decompose, route, execute, verify, deliver. Keep chains small, handoffs structured, recovery explicit.
+Follow `_common/OPERATIONAL.md`, `_common/AUTORUN.md`, `_common/HANDOFF.md`, `_common/GIT_GUIDELINES.md`, `_common/HARNESS_EVOLUTION.md`. For the active orchestrator engine apply `_common/OPUS_48_AUTHORING.md` (Claude Code hub) or `_common/CODEX_ORCHESTRATION.md` (Codex CLI hub). Journal in `.agents/nexus.md`; log to `.agents/PROJECT.md`. No agent names in commits/PRs. Decompose, route, execute, verify, deliver. Keep chains small, handoffs structured, recovery explicit.
 
 ## AUTORUN Support
 

@@ -1,14 +1,14 @@
 ---
 name: lark-minutes
 description: '飞书妙记：妙记相关基本功能。1.查询妙记列表（按关键词/所有者/参与者/时间范围）；2.获取妙记基础信息（标题、封面、时长 等）；3.下载妙记音视频文件；4.获取妙记相关 AI 产物（总结、待办、章节）；5.上传音视频生成妙记，也支持将本地音视频文件转成纪要、逐字稿、文字稿、撰写文字等产物；6.更新妙记标题（重命名妙记）；7.替换妙记逐字稿中的说话人。遇到这类请求时，应优先使用本 skill。飞书妙记 URL 格式: http(s)://<host>/minutes/<minute-token>'
-version: "1.0.1"
+version: "1.0.2"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-minutes"
 license: MIT
 tags: '[feishu, lark, lark-cli, minutes, meetings]'
 created_at: "2026-05-19"
-updated_at: "2026-05-28"
+updated_at: "2026-06-01"
 quality: 4
 complexity: intermediate
 metadata:
@@ -20,6 +20,12 @@ metadata:
 # minutes (v1)
 
 **CRITICAL — 开始前 MUST 先用 Read 工具读取 [`../lark-shared/SKILL.md`](../lark-shared/SKILL.md)，其中包含认证、权限处理**
+
+**CRITICAL — 开始前 MUST 先用 Read 工具读取 [`../lark-vc/references/vc-domain-boundaries.md`](../lark-vc/references/vc-domain-boundaries.md)**，不读将导致命令使用、会议产物决策、领域边界职责判断错误：
+> 1. 了解日历 & VC、会议产物 & 文档的关联关系和职责划分
+> 2. 了解会议产物（妙记和纪要）之间的关联关系，例如：**妙记和纪要产生条件相互独立**
+> 3. 了解不同会议产物的组成部分，以便根据需求决策使用哪种产物的数据
+> 4. 了解会议总结、分析和信息提取的标准流程
 
 ## 核心概念
 
@@ -142,6 +148,8 @@ lark-cli minutes <resource> <method> [flags] # 调用 API
 ### minutes
 
 - `get` — 获取妙记信息
+
+> **权限错误**：如果返回 `[2091005] permission deny`，表示用户没有对应妙记文件的阅读权限，需提示用户联系妙记 owner 申请权限。
 
 ## 权限表
 

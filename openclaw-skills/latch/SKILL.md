@@ -1,14 +1,14 @@
 ---
 name: latch
 description: 'Propose, configure, debug, and maintain Claude Code hooks (PreToolUse/PostToolUse/Stop and other lifecycle events). Use when workflow automation, quality gates, or security enforcement via hooks is needed.'
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/latch"
 license: MIT
 tags: '["automation", "latch", "workflow"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-28"
+updated_at: "2026-06-01"
 quality: 5
 complexity: "advanced"
 ---
@@ -112,7 +112,7 @@ Route elsewhere when the task is primarily:
 - Every command hook must explicitly handle missing dependencies (jq, grep, etc.) — design as fail-closed (`exit 2`) for security hooks or fail-open (`exit 0`) for monitoring hooks, and document the choice.
 - PreToolUse hooks on `Edit|Write` alone do not prevent file modification — Claude can switch to `Bash` with `sed`, `python -c`, or `echo` redirection to bypass. Always pair file-protection hooks with a matching `Bash` hook that pattern-matches file-writing commands.
 - `PermissionRequest` hooks fire only when a permission dialog is about to show the user — they do not fire when permissions are auto-resolved. In Agent Teams, prefer `PreToolUse` hooks for universal enforcement across all agents and permission modes.
-- Author for Opus 4.7 defaults. Apply `_common/OPUS_47_AUTHORING.md` principles **P3 (eagerly Read existing `settings.json`, `hooks.json`, matchers, and tool-allowlist state at PROFILE — hook correctness depends on grounding in current configuration and permission flow), P5 (think step-by-step at event selection: PreToolUse vs PostToolUse vs PermissionRequest, permissionDecision choice, exit-code semantics, fail-closed vs fail-open — hook design errors produce silent security failures)** as critical for Latch. P2 recommended: calibrated hook spec preserving event type, matcher, exit-code contract, and stderr/stdout discipline. P1 recommended: front-load scope (user/project/local), tools affected, and enforcement intent at PROFILE.
+- Author for Opus 4.8 defaults. Apply `_common/OPUS_48_AUTHORING.md` principles **P3 (eagerly Read existing `settings.json`, `hooks.json`, matchers, and tool-allowlist state at PROFILE — hook correctness depends on grounding in current configuration and permission flow), P5 (think step-by-step at event selection: PreToolUse vs PostToolUse vs PermissionRequest, permissionDecision choice, exit-code semantics, fail-closed vs fail-open — hook design errors produce silent security failures)** as critical for Latch. P2 recommended: calibrated hook spec preserving event type, matcher, exit-code contract, and stderr/stdout discipline. P1 recommended: front-load scope (user/project/local), tools affected, and enforcement intent at PROFILE.
 
 ## Boundaries
 
@@ -413,7 +413,7 @@ Every deliverable must include:
 | `references/security-guard-hook.md` | You need PreToolUse security deny patterns (dangerous Bash, secret regex, sensitive file write, MCP tool ACL) or CI-environment auto-deny escalation. |
 | `references/skill-quarantine-hook.md` | You need SessionStart skill-manifest drift detection, PreToolUse plugin-install gate, or MCP tool description rug-pull verification. Pairs with the `chain` audit agent and `_common/SECURITY.md`. |
 | `references/claude-md-update-proposer.md` | You are designing a Stop hook that drafts non-blocking CLAUDE.md update proposals from the just-finished session — covers event/matcher selection, command and prompt variants, filtering rules for what NOT to propose, anti-patterns, and the Hone density-audit pairing. |
-| `_common/OPUS_47_AUTHORING.md` | You are sizing the hook spec, deciding adaptive thinking depth at event/permission selection, or front-loading scope/tools/intent at PROFILE. Critical for Latch: P3, P5. |
+| `_common/OPUS_48_AUTHORING.md` | You are sizing the hook spec, deciding adaptive thinking depth at event/permission selection, or front-loading scope/tools/intent at PROFILE. Critical for Latch: P3, P5. |
 
 ## Collaboration
 

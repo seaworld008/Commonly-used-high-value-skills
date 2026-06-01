@@ -1,14 +1,14 @@
 ---
 name: researcher
 description: 'User research specialist. Designs interview guides, usability test plans, qualitative data analysis, persona creation, and journey mapping. Complements Echo''s UI validation. Use when user research design or analysis is needed.'
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/researcher"
 license: MIT
 tags: '["design", "product", "researcher"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-28"
+updated_at: "2026-06-01"
 quality: 5
 complexity: "advanced"
 ---
@@ -96,7 +96,7 @@ Route elsewhere when the task is primarily:
 - For JTBD analysis, use the Switch Interview framework (Moesta/Christensen): map the four forces driving switching behavior (Push of current situation, Pull of new solution, Anxiety of new solution, Habit of current situation). Structure Job Maps as: Define → Locate → Prepare → Confirm → Execute → Monitor → Modify → Conclude. Separate functional jobs (what), emotional jobs (how they feel), and social jobs (how they're perceived). When competitive job analysis is needed, coordinate with Compete (via COMPETE_TO_RESEARCHER) for market-level job landscape.
 - For quantitative survey design, ensure statistical rigor: calculate required sample size based on expected effect size and desired confidence level (minimum 95% CI for published research, 90% CI acceptable for internal studies). Select appropriate scales (Likert for agreement, semantic differential for perception, MaxDiff for preference ranking). Validate instrument reliability (Cronbach's α ≥ 0.70) and construct validity before deployment. This is an exploratory capability — if demand for advanced statistical analysis (factor analysis, conjoint, structural equation modeling) is frequent, recommend escalation to a dedicated survey skill.
 - Research only. Do not write implementation code.
-- Author for Opus 4.7 defaults. Apply `_common/OPUS_47_AUTHORING.md` principles **P3 (eagerly Read prior studies, journey maps, JTBD artifacts, and participant segments at PLAN — research design depends on grounding in existing evidence), P5 (think step-by-step at method selection: AI-moderated vs human, synthetic vs real, JTBD Switch vs qualitative coding, sample-size calibration)** as critical for Researcher. P2 recommended: calibrated research report preserving evidence strength, confidence intervals, and separation of observation from interpretation. P1 recommended: front-load research question, scope, and participant profile at INTAKE.
+- Author for Opus 4.8 defaults. Apply `_common/OPUS_48_AUTHORING.md` principles **P3 (eagerly Read prior studies, journey maps, JTBD artifacts, and participant segments at PLAN — research design depends on grounding in existing evidence), P5 (think step-by-step at method selection: AI-moderated vs human, synthetic vs real, JTBD Switch vs qualitative coding, sample-size calibration)** as critical for Researcher. P2 recommended: calibrated research report preserving evidence strength, confidence intervals, and separation of observation from interpretation. P1 recommended: front-load research question, scope, and participant profile at INTAKE.
 
 ## Boundaries
 
@@ -347,7 +347,7 @@ Full algorithm, JSON schema, coverage-matrix layout, GROUND checklist, and subag
 | `references/tri-engine-research.md` | You are running the `multi` Recipe — tri-engine research-design fan-out (Codex + Antigravity + Claude subagents), methodology-coverage matrix (qual/quant × generative/evaluative), CLUSTER identity rules that keep different methodologies in separate clusters, ethics/IRB/feasibility GROUND checklist, Combined-Plan vs Portfolio merge strategies, JSON schema, and subagent prompt skeleton. |
 | `_common/SUBAGENT.md` | You need the base MULTI_ENGINE protocol — engine dispatch table, loose prompt rules, Agent tool fan-out mechanics, fallback rules. Read before authoring `multi` Recipe subagent prompts. |
 | `_common/MULTI_ENGINE_RECIPE.md` | You need the cross-skill `multi` Recipe protocol — Pattern D (Divergence-primary) scoring rules, canonical PREFLIGHT probe, degraded modes, engine-attribution tag convention, and the Implementation Checklist that this skill's `multi` Recipe follows. |
-| `_common/OPUS_47_AUTHORING.md` | You are sizing the research report, deciding adaptive thinking depth at method selection, or front-loading research question/scope/participants at INTAKE. Critical for Researcher: P3, P5. |
+| `_common/OPUS_48_AUTHORING.md` | You are sizing the research report, deciding adaptive thinking depth at method selection, or front-loading research question/scope/participants at INTAKE. Critical for Researcher: P3, P5. |
 | `_common/GROWTH_BRAND_PROOF.md` | You are the core Research-axis agent in `nexus growth-acceptance` Phase 0 (pre-design). Generate Research Proof 9 fields (source / sample / bias / contradiction / triangulation / recency / decision / confidence / reproducibility). Queue insights to the Insight Ledger (G11 mandatory: AI cannot directly write; submit to queue, Research Lead merges). Required for Step 2+ adoption. Mandatory 3 categories: customer / lost-customer / non-customer with minimum N per quarter to defeat Survivor Bias (omen FM-F5). |
 
 ## Operational

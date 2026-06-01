@@ -1,14 +1,20 @@
 #!/usr/bin/env python3
-"""Generate a unified repository health report from existing maintenance artifacts."""
+"""Generate a unified repository health report from existing maintenance artifacts.
+
+Note: The default maintenance artifacts directory is `docs/sources/reports/`, but
+this script also supports pointing to an alternate directory (e.g. a temporary
+directory) so tests and callers can run in an isolated, hermetic environment.
+"""
 from __future__ import annotations
 
 import argparse
 import json
 from pathlib import Path
+from typing import Final
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-REPORTS_DIR = REPO_ROOT / "docs" / "sources" / "reports"
+DEFAULT_REPORTS_DIR: Final[Path] = REPO_ROOT / "docs" / "sources" / "reports"
 VALID_TRACKED = {"verified_in_repo", "in_house"}
 
 
@@ -31,12 +37,12 @@ def compute_source_coverage(root: Path) -> dict[str, float | int]:
     return {"covered": covered, "total": total_skills, "percent": round(pct, 2)}
 
 
-def build_payload(root: Path) -> dict:
+def build_payload(root: Path, reports_dir: Path) -> dict:
     catalog = load_json(root / "docs" / "catalog.json") or {}
-    license_audit = load_json(REPORTS_DIR / "license-audit.json") or {}
-    dead_links = load_json(REPORTS_DIR / "dead-links.json") or {}
-    refresh_queue = load_json(REPORTS_DIR / "refresh-queue.json") or []
-    source_catalog = load_json(REPORTS_DIR / "catalog.json") or {}
+    license_audit = load_json(reports_dir / "license-audit.json") or {}
+    dead_links = load_json(reports_dir / "dead-links.json") or {}
+    refresh_queue = load_json(reports_dir / "refresh-queue.json") or []
+    source_catalog = load_json(reports_dir / "catalog.json") or {}
 
     source_coverage = compute_source_coverage(root)
     skills_total = len(catalog.get("skills", [])) if isinstance(catalog, dict) else 0
@@ -124,17 +130,31 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--output-json", default="docs/sources/reports/repo-health.json")
     parser.add_argument("--output-md", default="docs/sources/reports/repo-health.md")
+    parser.add_argument(
+        "--reports-dir",
+        default=str(DEFAULT_REPORTS_DIR.relative_to(REPO_ROOT)),
+        help="Directory containing maintenance artifacts (license-audit.json, refresh-queue.json, etc).",
+    )
     args = parser.parse_args()
 
-    payload = build_payload(REPO_ROOT)
+    reports_dir = (REPO_ROOT / args.reports_dir).resolve()
+    payload = build_payload(REPO_ROOT, reports_dir)
     json_path = REPO_ROOT / args.output_json
     md_path = REPO_ROOT / args.output_md
     json_path.parent.mkdir(parents=True, exist_ok=True)
     json_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     write_markdown(payload, md_path)
 
-    print(f"Wrote {json_path.relative_to(REPO_ROOT)}")
-    print(f"Wrote {md_path.relative_to(REPO_ROOT)}")
+    try:
+        json_rel = json_path.relative_to(REPO_ROOT)
+    except ValueError:
+        json_rel = json_path
+    try:
+        md_rel = md_path.relative_to(REPO_ROOT)
+    except ValueError:
+        md_rel = md_path
+    print(f"Wrote {json_rel}")
+    print(f"Wrote {md_rel}")
     return 0
 
 

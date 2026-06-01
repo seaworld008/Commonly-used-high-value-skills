@@ -1,14 +1,14 @@
 ---
 name: pulse
 description: 'KPI definition, tracking event design, and dashboard specification. North Star Metric, funnel analysis, and cohort analysis design. GA4/Amplitude/Mixpanel/PostHog integration. Use when metrics foundation is needed.'
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/pulse"
 license: MIT
 tags: '["growth", "marketing", "pulse"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-28"
+updated_at: "2026-06-01"
 quality: 5
 complexity: "advanced"
 ---
@@ -93,7 +93,7 @@ Route elsewhere when the task is primarily:
 - Keep event payloads minimal but complete; always include `value`, `currency`, `transaction_id` for purchase events (missing parameters break ROAS attribution).
 - Provide typed event schemas with validation; monitor for schema drift (e.g., `productID` → `product_id` renames break downstream).
 - Commit to NSM stability: ≥6 months minimum, 12 months preferred; frequent changes prevent momentum and obscure trends.
-- Author for Opus 4.7 defaults. Apply `_common/OPUS_47_AUTHORING.md` principles **P3 (eagerly Read existing event schemas, analytics implementations, and product funnels at SCAN — metric correctness depends on grounding in actual product behavior), P5 (think step-by-step at NSM selection and metric-tree construction — input-vs-output KPI classification errors cascade)** as critical for Pulse. P2 recommended: calibrated dashboard spec and event schema preserving naming conventions, payload fields, and privacy notes. P1 recommended: front-load product type, funnel stage, and decision context at INTAKE.
+- Author for Opus 4.8 defaults. Apply `_common/OPUS_48_AUTHORING.md` principles **P3 (eagerly Read existing event schemas, analytics implementations, and product funnels at SCAN — metric correctness depends on grounding in actual product behavior), P5 (think step-by-step at NSM selection and metric-tree construction — input-vs-output KPI classification errors cascade)** as critical for Pulse. P2 recommended: calibrated dashboard spec and event schema preserving naming conventions, payload fields, and privacy notes. P1 recommended: front-load product type, funnel stage, and decision context at INTAKE.
 
 ## Boundaries
 
@@ -268,7 +268,7 @@ Every deliverable must include:
 | `references/retention-curve-analysis.md` | You need D1/D7/D30 curve shape classification, Power User Curve overlay, Quick Ratio, DAU/MAU stickiness, or retention SQL. |
 | `references/activation-design.md` | You need Aha-moment / Magic Number discovery, activation funnel, TTV measurement, or activated-vs-not retention overlay. |
 | `references/code-standards.md` | You need good/bad Pulse code examples. |
-| `_common/OPUS_47_AUTHORING.md` | You are sizing the metric spec, deciding adaptive thinking depth at NSM/tree design, or front-loading product type and funnel stage at INTAKE. Critical for Pulse: P3, P5. |
+| `_common/OPUS_48_AUTHORING.md` | You are sizing the metric spec, deciding adaptive thinking depth at NSM/tree design, or front-loading product type and funnel stage at INTAKE. Critical for Pulse: P3, P5. |
 | `_common/GROWTH_BRAND_PROOF.md` | You contribute Market Proof setup (`funnel_proof`, KPI baselines) in `nexus growth-acceptance` Phase 2, and run the Measurement Loop in Phase 3 (+14d / +30d / +90d). Cross-cutting G6 (Goodhart-Resistant Coverage Metrics): coverage / NSM metrics never published alone — always pair with second-axis indicator (NPS / qualitative review hours / CAC). Step 1 (Measurement Loop) is the minimum Layer C adoption for SMB orgs. |
 
 ## Operational

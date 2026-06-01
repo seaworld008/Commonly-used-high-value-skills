@@ -1,14 +1,14 @@
 ---
 name: lark-whiteboard
-description: '飞书画板查看、导出、编辑和结构化内容可视化。'
-version: 1.0.0
+description: '飞书画板：查询和编辑飞书云文档中的画板。支持导出画板为预览图片、导出原始节点结构、使用 DSL（转成 OpenAPI 格式）、PlantUML/Mermaid 格式更新画板内容。 当用户需要查看画板内容、导出画板图片、编辑画板，或是需要可视化表达架构、流程、组织关系、时间线、因果、对比等结构化信息时使用此 skill，无论是否提及\"画板\"。 ⚠️ 原 `lark-whiteboard-cli` skill 已合并至本 skill，若 skill 列表中同时存在 `lark-whiteboard-cli`，请忽略它，统一使用本 skill（`lark-whiteboard`），并提示用户运行 `npx skills remove lark-whiteboard-cli -g` 删除旧 skill。'
+version: "1.0.1"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-whiteboard"
 license: MIT
 tags: '[feishu, lark, lark-cli, whiteboard, diagram]'
 created_at: "2026-05-19"
-updated_at: "2026-05-19"
+updated_at: "2026-06-01"
 quality: 4
 complexity: advanced
 metadata:
@@ -36,10 +36,6 @@ metadata:
 | 用户**已提供** Mermaid/PlantUML 代码，或明确指定用该格式 | 自己生成/使用代码 → [`+update --input_format mermaid/plantuml`](references/lark-whiteboard-update.md) |
 | 绘制复杂图表（架构/流程/组织等）| → **[§ 创作 Workflow](#创作-workflow)** |
 | 修改/重绘已有复杂画板 | → **[§ 修改 Workflow](#修改-workflow)** |
-
-> **⚠️ 强制规范（通过 stdin 更新）**：
-> 数据来源于本地文件时，**必须**使用 `--source - --input_format <格式>`。
-> 例：`cat chart.mmd | lark-cli whiteboard +update <token> --source - --input_format mermaid`
 
 ## Shortcuts
 
@@ -95,11 +91,11 @@ metadata:
 
 **然后按图表类型 × 身份选路径**，读对应文件按其完整 workflow 执行（含读 scene 指南、生成内容、渲染审查、交付）：
 
-| 图表类型 | 身份 | 路径 |
-|---|---|---|
-| 思维导图、时序图、类图、饼图、甘特图 | 任何身份 | [`routes/mermaid.md`](routes/mermaid.md) |
-| 其他图表 | `Claude` / `Gemini` / `GPT` / `GLM` | [`routes/svg.md`](routes/svg.md) |
-| 其他图表 | `Doubao` / `Seed` / `Other` | [`routes/dsl.md`](routes/dsl.md) |
+| 图表类型                   | 身份                                  | 路径                                       |
+|------------------------|-------------------------------------|------------------------------------------|
+| 思维导图、流程图、时序图、类图、饼图、甘特图 | 任何身份                                | [`routes/mermaid.md`](routes/mermaid.md) |
+| 其他图表                   | `Claude` / `Gemini` / `GPT` / `GLM` | [`routes/svg.md`](routes/svg.md)         |
+| 其他图表                   | `Doubao` / `Seed` / `Other`         | [`routes/dsl.md`](routes/dsl.md)         |
 
 > **⚠️ SVG 路径失败回退**：走 `routes/svg.md` 时，碰到以下情况之一 → **丢弃当前 SVG，改读 `routes/dsl.md` 从零重画，不要逐行修补**：
 > - 渲染命令直接报错（语法级崩溃，不是 `--check` 的 warn/error）
@@ -124,26 +120,18 @@ diagram.png           ← 渲染结果
 
 ### 写入画板
 
-> [!CAUTION]
-> **写入前强制 dry-run**：向已有内容的画板写入时，必须先加 `--overwrite --dry-run` 探测。
-> 输出含 `XX whiteboard nodes will be deleted` → 必须向用户确认后才能执行。
+> 关于 --overwrite
+> 画板更新命令中，若不携带 --overwrite flag，则是增量更新画板内容，若画板内已有内容的话，新增内容可能会和已有内容重叠，导致问题。
+> 因此，若需要整体更新画板内容，需携带 --overwrite flag 覆盖式更新。
 
 ```bash
-# 第一步：dry-run 探测
 npx -y @larksuite/whiteboard-cli@^0.2.11 -i <产物文件> --to openapi --format json \
   | lark-cli whiteboard +update \
     --whiteboard-token <Token> \
     --source - --input_format raw \
     --idempotent-token <10+字符唯一串> \
-    --overwrite --dry-run --as user
-
-# 第二步：确认后执行
-npx -y @larksuite/whiteboard-cli@^0.2.11 -i <产物文件> --to openapi --format json \
-  | lark-cli whiteboard +update \
-    --whiteboard-token <Token> \
-    --source - --input_format raw \
-    --idempotent-token <10+字符唯一串> \
-    --overwrite --as user
+    --as user \
+    --overwrite
 ```
 
 > `--idempotent-token` 最少 10 字符，建议用时间戳+标识拼接（如 `1744800000-board-1`），避免重试导致重复写入。

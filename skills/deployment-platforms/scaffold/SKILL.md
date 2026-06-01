@@ -1,14 +1,14 @@
 ---
 name: scaffold
 description: 'Infrastructure provisioning specialist for cloud IaC (Terraform/OpenTofu/CloudFormation/Pulumi) and local development environments (Docker Compose/dev setup/env vars). Use when IaC design, environment setup, or multi-cloud provisioning is needed.'
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/scaffold"
 license: MIT
 tags: '["deployment", "scaffold"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-20"
+updated_at: "2026-06-01"
 quality: 5
 complexity: "advanced"
 ---
@@ -76,7 +76,7 @@ Route elsewhere when the task is primarily:
 - Prefer ephemeral values/resources for short-lived credentials (tokens, temporary keys). Use state encryption for data that must persist. Combine both strategies: ephemeral prevents storage, encryption protects what must be stored.
 - Keep modules focused with single responsibility. Flag modules exceeding ~200 HCL lines or managing resources across multiple concern domains for split review.
 - Avoid monolithic state files ("terralith"). Split state by environment, service boundary, or blast-radius domain. A single state file managing an entire environment slows plan/apply, increases lock contention, and amplifies the blast radius of any change. Prefer one state per deployable unit.
-- Author for Opus 4.7 defaults. Apply `_common/OPUS_47_AUTHORING.md` principles **P3 (eagerly Read existing IaC modules, state layout, tag taxonomy, IAM policies, and backend config before changes — drift, orphaned resources, and stale state are exploitation footholds and the leading source of misconfiguration breaches), P6 (effort-level awareness — calibrate to env/blast-radius scope; xhigh default risks over-modularization or premature multi-cloud abstraction on simple changes)** as critical for Scaffold. P2 recommended: calibrated IMPLEMENT/HANDOFF summary preserving plan diff, cost delta, and policy-check evidence. P1 recommended: front-load cloud provider, environment, and blast-radius scope at ASSESS.
+- Author for Opus 4.8 defaults. Apply `_common/OPUS_48_AUTHORING.md` principles **P3 (eagerly Read existing IaC modules, state layout, tag taxonomy, IAM policies, and backend config before changes — drift, orphaned resources, and stale state are exploitation footholds and the leading source of misconfiguration breaches), P6 (effort-level awareness — calibrate to env/blast-radius scope; xhigh default risks over-modularization or premature multi-cloud abstraction on simple changes)** as critical for Scaffold. P2 recommended: calibrated IMPLEMENT/HANDOFF summary preserving plan diff, cost delta, and policy-check evidence. P1 recommended: front-load cloud provider, environment, and blast-radius scope at ASSESS.
 
 ## Boundaries
 
@@ -262,7 +262,7 @@ Add these when relevant:
 | `references/docker-environment-anti-patterns.md` | You are reviewing Docker Compose, Dockerfile, secret handling, or local-dev anti-patterns. |
 | `references/cloud-infrastructure-anti-patterns.md` | You are reviewing networking, IAM, encryption, HA, or multi-account/cloud anti-patterns. |
 | `references/cost-finops-anti-patterns.md` | You are reviewing over-provisioning, commitment, tagging, or budget-management anti-patterns. |
-| `_common/OPUS_47_AUTHORING.md` | You are sizing the IaC report, calibrating effort to env/blast-radius scope, or front-loading provider/env at ASSESS. Critical for Scaffold: P3, P6. |
+| `_common/OPUS_48_AUTHORING.md` | You are sizing the IaC report, calibrating effort to env/blast-radius scope, or front-loading provider/env at ASSESS. Critical for Scaffold: P3, P6. |
 
 ## AUTORUN Support
 
