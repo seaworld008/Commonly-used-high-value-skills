@@ -201,6 +201,10 @@ def update_root_readmes(repo_root: Path, category_count: int, skill_count: int) 
                     re.compile(r"This repository currently contains \*\*\d+ categories / \d+ skills\*\*\."),
                     f"This repository currently contains **{category_count} categories / {skill_count} skills**.",
                 ),
+                (
+                    re.compile(r"## Skill Overview \(by category, \d+ categories / \d+ skills\)"),
+                    f"## Skill Overview (by category, {category_count} categories / {skill_count} skills)",
+                ),
             ],
         ),
     ]

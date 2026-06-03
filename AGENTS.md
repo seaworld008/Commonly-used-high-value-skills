@@ -27,6 +27,7 @@ docs/TAGS-INDEX.md                    ← Cross-category tag-based index
 5. **Every skill must pass quality lint** (`python scripts/lint_skill_quality.py --min-lines 50`).
 6. **Source provenance must be tracked** — every skill has an entry in `docs/sources/*.skills.json`.
 7. **Keep bilingual READMEs synchronized** — when updating `README.md`, update `README.en.md` in the same change and run `python scripts/check_readme_sync.py`.
+8. **Keep all public counts generated from one source of truth** — skill totals in README badges/text, `docs/catalog.json`, and `.github/assets/repo-banner.svg` must match the actual `skills/*/*/SKILL.md` tree. Run `python scripts/refresh_repo_views.py`, `python scripts/build_catalog_json.py`, and `python scripts/check_readme_sync.py`; never hand-edit counts or banner numbers.
 
 ---
 
