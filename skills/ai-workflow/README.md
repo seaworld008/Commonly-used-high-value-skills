@@ -4,7 +4,7 @@
 
 聚焦 AI 编程 Agent 的规格、计划、实现、测试、审查、发布与持续同步工作流。
 
-当前分类共 **43** 个技能。
+当前分类共 **44** 个技能。
 
 ## 推荐先看
 
@@ -18,6 +18,7 @@
 | 技能 | 简介 | 目录 | 详情 |
 |------|------|------|------|
 | `agent-workflow-designer` | Design production-grade multi-agent orchestration systems. Covers five core patterns (sequential pipeline, parallel fan-out/fan-in, hierarchical delegation, event-driven, consensus), platform-specific implementations, handoff protocols, state management, error recovery, context window budgeting, and cost optimization. | [目录](./agent-workflow-designer/) | [SKILL.md](./agent-workflow-designer/SKILL.md) |
+| `andrej-karpathy-skills` | Karpathy-inspired coding discipline for AI agents: think before coding, keep changes simple, edit surgically, and define verifiable success criteria before implementation. | [目录](./andrej-karpathy-skills/) | [SKILL.md](./andrej-karpathy-skills/SKILL.md) |
 | `api-and-interface-design` | Guides stable API and interface design. Use when designing APIs, module boundaries, or any public interface. Use when creating REST or GraphQL endpoints, defining type contracts between modules, or establishing boundaries between frontend and backend. | [目录](./api-and-interface-design/) | [SKILL.md](./api-and-interface-design/SKILL.md) |
 | `brainstorming` | You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation. | [目录](./brainstorming/) | [SKILL.md](./brainstorming/SKILL.md) |
 | `browser-testing-with-devtools` | Tests in real browsers. Use when building or debugging anything that runs in a browser. Use when you need to inspect the DOM, capture console errors, analyze network requests, profile performance, or verify visual output with real runtime data via Chrome DevTools MCP. | [目录](./browser-testing-with-devtools/) | [SKILL.md](./browser-testing-with-devtools/SKILL.md) |

@@ -8,6 +8,125 @@ import re
 from pathlib import Path
 
 
+CN_CATEGORY_RE = re.compile(r"^###\s+\d+\.\s+(?P<title>.+?)（(?P<category>[a-z0-9-]+)，\d+）\s*$")
+EN_CATEGORY_RE = re.compile(r"^###\s+\d+\.\s+(?P<title>.+?)\s+\((?P<category>[a-z0-9-]+),\s*\d+\)\s*$")
+SKILL_BULLET_RE = re.compile(r"^-\s+(?:\[)?`(?P<name>[^`]+)`")
+
+
+def parse_frontmatter(content: str) -> dict[str, str]:
+    match = re.match(r"^---\s*\n(.*?)\n---", content, re.DOTALL)
+    if not match:
+        return {}
+    data: dict[str, str] = {}
+    for line in match.group(1).splitlines():
+        if ":" not in line or line.startswith((" ", "\t")):
+            continue
+        key, _, value = line.partition(":")
+        data[key.strip()] = value.strip().strip('"').strip("'")
+    return data
+
+
+def skill_tree_with_descriptions(skills_root: Path) -> dict[str, dict[str, str]]:
+    tree: dict[str, dict[str, str]] = {}
+    for skill_md in sorted(skills_root.glob("*/*/SKILL.md")):
+        category = skill_md.parent.parent.name
+        name = skill_md.parent.name
+        frontmatter = parse_frontmatter(skill_md.read_text(encoding="utf-8", errors="replace"))
+        description = frontmatter.get("description", "").strip()
+        tree.setdefault(category, {})[name] = description
+    return {category: dict(sorted(skills.items())) for category, skills in sorted(tree.items())}
+
+
+def parse_existing_overview(
+    content: str,
+    *,
+    category_re: re.Pattern[str],
+) -> tuple[list[str], dict[str, str], dict[str, str], dict[str, dict[str, str]]]:
+    order: list[str] = []
+    anchors: dict[str, str] = {}
+    titles: dict[str, str] = {}
+    bullets: dict[str, dict[str, str]] = {}
+    current: str | None = None
+    pending_anchor = ""
+
+    for line in content.splitlines():
+        if line.startswith("<a id="):
+            pending_anchor = line
+            continue
+        heading = category_re.match(line)
+        if heading:
+            current = heading.group("category")
+            order.append(current)
+            anchors[current] = pending_anchor
+            titles[current] = heading.group("title").strip()
+            bullets[current] = {}
+            pending_anchor = ""
+            continue
+        if line.startswith("## "):
+            current = None
+        if current:
+            skill = SKILL_BULLET_RE.match(line)
+            if skill:
+                bullets[current][skill.group("name")] = line
+
+    return order, anchors, titles, bullets
+
+
+def replace_section(content: str, start_heading: str, end_heading: str, replacement: str) -> str:
+    start = content.find(start_heading)
+    if start == -1:
+        return content
+    end = content.find(end_heading, start + len(start_heading))
+    if end == -1:
+        return content
+    return content[:start] + replacement.rstrip() + "\n\n" + content[end:]
+
+
+def build_cn_overview(content: str, skills_root: Path, category_count: int, skill_count: int) -> str:
+    tree = skill_tree_with_descriptions(skills_root)
+    order, anchors, titles, bullets = parse_existing_overview(content, category_re=CN_CATEGORY_RE)
+    ordered_categories = [category for category in order if category in tree]
+    ordered_categories.extend(category for category in tree if category not in ordered_categories)
+
+    lines = [f"## 技能总览（按分类，{category_count} 类 / {skill_count} 技能）", ""]
+    for index, category in enumerate(ordered_categories, start=1):
+        anchor = anchors.get(category) or f'<a id="cat-{category}"></a>'
+        title = titles.get(category, category)
+        skills = tree[category]
+        lines.extend([anchor, f"### {index}. {title}（{category}，{len(skills)}）", ""])
+        for skill_name, description in skills.items():
+            existing = bullets.get(category, {}).get(skill_name)
+            if existing:
+                lines.append(existing)
+            else:
+                suffix = description.rstrip(".。") if description else "新增技能"
+                lines.append(f"- `{skill_name}`：{suffix}。")
+        lines.append("")
+    return "\n".join(lines).rstrip()
+
+
+def build_en_overview(content: str, skills_root: Path, category_count: int, skill_count: int) -> str:
+    tree = skill_tree_with_descriptions(skills_root)
+    order, anchors, titles, bullets = parse_existing_overview(content, category_re=EN_CATEGORY_RE)
+    ordered_categories = [category for category in order if category in tree]
+    ordered_categories.extend(category for category in tree if category not in ordered_categories)
+
+    lines = [f"## Skill Overview (by category, {category_count} categories / {skill_count} skills)", ""]
+    for index, category in enumerate(ordered_categories, start=1):
+        anchor = anchors.get(category) or f'<a id="cat-{category}"></a>'
+        title = titles.get(category, category)
+        skills = tree[category]
+        lines.extend([anchor, f"### {index}. {title} ({category}, {len(skills)})", ""])
+        for skill_name in skills:
+            existing = bullets.get(category, {}).get(skill_name)
+            if existing:
+                lines.append(existing)
+            else:
+                lines.append(f"- [`{skill_name}`](./skills/{category}/{skill_name}/)")
+        lines.append("")
+    return "\n".join(lines).rstrip()
+
+
 def load_module(module_name: str, script_path: Path):
     spec = importlib.util.spec_from_file_location(module_name, script_path)
     if spec is None or spec.loader is None:
@@ -48,6 +167,7 @@ def count_exported_skills(output_root: Path) -> int:
 
 def update_root_readmes(repo_root: Path, category_count: int, skill_count: int) -> None:
     """Update top-level README counters (CN + EN) and badge numbers."""
+    skills_root = repo_root / "skills"
     replacements = [
         (
             repo_root / "README.md",
@@ -96,6 +216,20 @@ def update_root_readmes(repo_root: Path, category_count: int, skill_count: int) 
         updated = content
         for pattern, repl in rules:
             updated = pattern.sub(repl, updated)
+        if readme_path.name == "README.md":
+            updated = replace_section(
+                updated,
+                "## 技能总览",
+                "## 下一轮建议补充方向",
+                build_cn_overview(updated, skills_root, category_count, skill_count),
+            )
+        elif readme_path.name == "README.en.md":
+            updated = replace_section(
+                updated,
+                "## Skill Overview",
+                "## Next Curation Directions",
+                build_en_overview(updated, skills_root, category_count, skill_count),
+            )
         if updated != content:
             readme_path.write_text(updated, encoding="utf-8")
 

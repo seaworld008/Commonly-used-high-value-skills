@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "generated_at": "2026-06-03",
-  "total_skills": 296,
+  "total_skills": 301,
   "total_categories": 16,
   "categories": [
     {
@@ -10,7 +10,7 @@
     },
     {
       "name": "ai-workflow",
-      "count": 43
+      "count": 44
     },
     {
       "name": "knowledge-and-pm-integrations",
@@ -22,10 +22,14 @@
     },
     {
       "name": "security-and-reliability",
-      "count": 18
+      "count": 19
     },
     {
       "name": "ai-agent-platform",
+      "count": 16
+    },
+    {
+      "name": "engineering-workflow-automation",
       "count": 16
     },
     {
@@ -33,12 +37,8 @@
       "count": 16
     },
     {
-      "name": "engineering-workflow-automation",
-      "count": 15
-    },
-    {
       "name": "devops-sre",
-      "count": 14
+      "count": 15
     },
     {
       "name": "growth-operations-xiaohongshu",
@@ -50,7 +50,7 @@
     },
     {
       "name": "product-design",
-      "count": 13
+      "count": 14
     },
     {
       "name": "multimodal-media",
@@ -434,6 +434,30 @@
       "updated_at": "2026-03-20",
       "line_count": 452,
       "path": "skills/ai-workflow/agent-workflow-designer/SKILL.md"
+    },
+    {
+      "name": "andrej-karpathy-skills",
+      "category": "ai-workflow",
+      "description": "Karpathy-inspired coding discipline for AI agents: think before coding, keep changes simple, edit surgically, and define verifiable success criteria before implementation.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "github:swarmclawai/andrej-karpathy-skills",
+      "source_url": "https://github.com/swarmclawai/andrej-karpathy-skills/blob/main/skills/karpathy-guidelines/SKILL.md",
+      "tags": [
+        "coding-discipline",
+        "architecture",
+        "backend",
+        "refactoring",
+        "code-review",
+        "ai-workflow",
+        "verification"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-06-03",
+      "updated_at": "2026-06-03",
+      "line_count": 212,
+      "path": "skills/ai-workflow/andrej-karpathy-skills/SKILL.md"
     },
     {
       "name": "api-and-interface-design",
@@ -2497,6 +2521,32 @@
       "path": "skills/devops-sre/beacon/SKILL.md"
     },
     {
+      "name": "cc-devops-skills",
+      "category": "devops-sre",
+      "description": "SRE, DevOps, Kubernetes, CI/CD, PromQL, Terraform, Docker, and incident operations playbook for building reliable delivery and operations workflows.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "github:akin-ozer/cc-devops-skills",
+      "source_url": "https://github.com/akin-ozer/cc-devops-skills",
+      "tags": [
+        "sre",
+        "devops",
+        "kubernetes",
+        "cicd",
+        "promql",
+        "terraform",
+        "docker",
+        "observability",
+        "incident-response"
+      ],
+      "quality": 4,
+      "complexity": "advanced",
+      "created_at": "2026-06-03",
+      "updated_at": "2026-06-03",
+      "line_count": 242,
+      "path": "skills/devops-sre/cc-devops-skills/SKILL.md"
+    },
+    {
       "name": "changelog-generator",
       "category": "devops-sre",
       "description": "Parse conventional commits, determine semantic version bumps, and generate structured changelogs in Keep a Changelog format. Supports monorepo changelogs, GitHub Releases integration, and separates user-facing from developer changelogs.",
@@ -3016,6 +3066,31 @@
       "updated_at": "2026-03-20",
       "line_count": 155,
       "path": "skills/engineering-workflow-automation/playwright/SKILL.md"
+    },
+    {
+      "name": "playwright-pro",
+      "category": "engineering-workflow-automation",
+      "description": "Production-grade Playwright testing skill for E2E suites, flaky test diagnosis, browser automation, migration from Cypress/Selenium, CI integration, visual checks, and regression validation.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "github:alirezarezvani/claude-skills",
+      "source_url": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/playwright-pro",
+      "tags": [
+        "playwright",
+        "e2e-testing",
+        "regression-testing",
+        "browser-automation",
+        "ci",
+        "flaky-tests",
+        "visual-regression",
+        "qa"
+      ],
+      "quality": 4,
+      "complexity": "advanced",
+      "created_at": "2026-06-03",
+      "updated_at": "2026-06-03",
+      "line_count": 246,
+      "path": "skills/engineering-workflow-automation/playwright-pro/SKILL.md"
     },
     {
       "name": "web-scraper",
@@ -5644,6 +5719,31 @@
       "path": "skills/product-design/ui-design-system/SKILL.md"
     },
     {
+      "name": "ui-ux-pro-max",
+      "category": "product-design",
+      "description": "Front-end UI/UX design intelligence for creating, reviewing, and hardening polished product interfaces across web, mobile, dashboards, SaaS, ecommerce, and content-heavy apps.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "github:nextlevelbuilder/ui-ux-pro-max-skill",
+      "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/main/.claude/skills/ui-ux-pro-max/SKILL.md",
+      "tags": [
+        "ui",
+        "ux",
+        "design-system",
+        "frontend",
+        "accessibility",
+        "typography",
+        "color",
+        "responsive-design"
+      ],
+      "quality": 4,
+      "complexity": "advanced",
+      "created_at": "2026-06-03",
+      "updated_at": "2026-06-03",
+      "line_count": 187,
+      "path": "skills/product-design/ui-ux-pro-max/SKILL.md"
+    },
+    {
       "name": "ux-researcher-designer",
       "category": "product-design",
       "description": "UX research and design toolkit for Senior UX Designer/Researcher including data-driven persona generation, journey mapping, usability testing frameworks, and research synthesis. Use for user research, persona creation, journey mapping, and design validation.",
@@ -5859,6 +5959,31 @@
       "updated_at": "2026-05-20",
       "line_count": 185,
       "path": "skills/security-and-reliability/osv-scanner/SKILL.md"
+    },
+    {
+      "name": "security-auditor",
+      "category": "security-and-reliability",
+      "description": "Security audit workflow for AI-generated application code, APIs, infrastructure changes, dependencies, secrets, auth flows, and pull requests before they ship.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "security",
+        "appsec",
+        "ai-generated-code",
+        "code-review",
+        "owasp",
+        "secrets",
+        "dependency-audit",
+        "threat-modeling"
+      ],
+      "quality": 4,
+      "complexity": "advanced",
+      "created_at": "2026-06-03",
+      "updated_at": "2026-06-03",
+      "line_count": 217,
+      "path": "skills/security-and-reliability/security-auditor/SKILL.md"
     },
     {
       "name": "security-best-practices",

@@ -5,12 +5,12 @@
 [![简体中文](https://img.shields.io/badge/README-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1677ff)](./README.md)
 [![English](https://img.shields.io/badge/README-English-111111)](./README.en.md)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b894)](./openclaw-skills/README.md)
-[![Skills](https://img.shields.io/badge/Skills-296-7c3aed)](./skills/)
+[![Skills](https://img.shields.io/badge/Skills-301-7c3aed)](./skills/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
 A high-value skills repository for AI developers, organized by real work scenarios such as developer engineering, DevOps, automation, finance, design, knowledge workflows, and reliability.
 
-This repository currently contains **16 categories / 296 skills**.
+This repository currently contains **16 categories / 301 skills**.
 
 ## Who This Is For
 
@@ -234,7 +234,7 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 2. Open the relevant `SKILL.md` and read its triggers, workflow, boundaries, and scripts.
 3. If a skill includes `scripts/`, `references/`, or `assets/`, reuse those files before recreating similar content.
 
-## Skill Overview (by category, 16 categories / 296 skills)
+## Skill Overview (by category, 16 categories / 301 skills)
 
 <a id="cat-developer-engineering"></a>
 ### 1. Developer Engineering (developer-engineering, 49)
@@ -290,9 +290,10 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`webapp-testing`](./skills/developer-engineering/webapp-testing/)
 
 <a id="cat-ai-workflow"></a>
-### 2. AI Workflow (ai-workflow, 43)
+### 2. AI Workflow (ai-workflow, 44)
 
 - [`agent-workflow-designer`](./skills/ai-workflow/agent-workflow-designer/)
+- [`andrej-karpathy-skills`](./skills/ai-workflow/andrej-karpathy-skills/)
 - [`api-and-interface-design`](./skills/ai-workflow/api-and-interface-design/)
 - [`brainstorming`](./skills/ai-workflow/brainstorming/)
 - [`browser-testing-with-devtools`](./skills/ai-workflow/browser-testing-with-devtools/)
@@ -357,7 +358,7 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`sigil`](./skills/ai-agent-platform/sigil/)
 
 <a id="cat-workflow-automation"></a>
-### 4. Engineering Workflow Automation (engineering-workflow-automation, 15)
+### 4. Engineering Workflow Automation (engineering-workflow-automation, 16)
 
 - [`agent-browser`](./skills/engineering-workflow-automation/agent-browser/)
 - [`billing-automation`](./skills/engineering-workflow-automation/billing-automation/)
@@ -372,14 +373,16 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`jupyter-notebook`](./skills/engineering-workflow-automation/jupyter-notebook/)
 - [`latch`](./skills/engineering-workflow-automation/latch/)
 - [`playwright`](./skills/engineering-workflow-automation/playwright/)
+- [`playwright-pro`](./skills/engineering-workflow-automation/playwright-pro/)
 - [`web-scraper`](./skills/engineering-workflow-automation/web-scraper/)
 - [`yeet`](./skills/engineering-workflow-automation/yeet/)
 
 <a id="cat-devops-sre"></a>
-### 5. DevOps / SRE (devops-sre, 14)
+### 5. DevOps / SRE (devops-sre, 15)
 
 - [`azure-kubernetes`](./skills/devops-sre/azure-kubernetes/)
 - [`beacon`](./skills/devops-sre/beacon/)
+- [`cc-devops-skills`](./skills/devops-sre/cc-devops-skills/)
 - [`changelog-generator`](./skills/devops-sre/changelog-generator/)
 - [`ci-cd-pipeline-builder`](./skills/devops-sre/ci-cd-pipeline-builder/)
 - [`cloudflare-troubleshooting`](./skills/devops-sre/cloudflare-troubleshooting/)
@@ -514,7 +517,7 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`weather`](./skills/operations-general/weather/)
 
 <a id="cat-product-design"></a>
-### 11. Product and Design (product-design, 13)
+### 11. Product and Design (product-design, 14)
 
 - [`agile-product-owner`](./skills/product-design/agile-product-owner/)
 - [`canvas-design`](./skills/product-design/canvas-design/)
@@ -527,11 +530,12 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`saas-scaffolder`](./skills/product-design/saas-scaffolder/)
 - [`trace`](./skills/product-design/trace/)
 - [`ui-design-system`](./skills/product-design/ui-design-system/)
+- [`ui-ux-pro-max`](./skills/product-design/ui-ux-pro-max/)
 - [`ux-researcher-designer`](./skills/product-design/ux-researcher-designer/)
 - [`voice`](./skills/product-design/voice/)
 
 <a id="cat-security-reliability"></a>
-### 12. Security and Reliability (security-and-reliability, 18)
+### 12. Security and Reliability (security-and-reliability, 19)
 
 - [`breach`](./skills/security-and-reliability/breach/)
 - [`cloak`](./skills/security-and-reliability/cloak/)
@@ -541,6 +545,7 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`information-security-manager-iso27001`](./skills/security-and-reliability/information-security-manager-iso27001/)
 - [`link-checker`](./skills/security-and-reliability/link-checker/)
 - [`osv-scanner`](./skills/security-and-reliability/osv-scanner/)
+- [`security-auditor`](./skills/security-and-reliability/security-auditor/)
 - [`security-best-practices`](./skills/security-and-reliability/security-best-practices/)
 - [`security-ownership-map`](./skills/security-and-reliability/security-ownership-map/)
 - [`security-pen-testing`](./skills/security-and-reliability/security-pen-testing/)

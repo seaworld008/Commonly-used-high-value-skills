@@ -24,6 +24,21 @@ class RefreshRepoViewsTests(unittest.TestCase):
 
         with tempfile.TemporaryDirectory() as tmpdir:
             repo = Path(tmpdir)
+            skill_dir = repo / "skills" / "ai-workflow" / "demo-skill"
+            skill_dir.mkdir(parents=True)
+            (skill_dir / "SKILL.md").write_text(
+                textwrap.dedent(
+                    """\
+                    ---
+                    name: demo-skill
+                    description: Demo skill for generated README overview entries.
+                    ---
+
+                    # Demo Skill
+                    """
+                ),
+                encoding="utf-8",
+            )
             readme = repo / "README.md"
             readme_en = repo / "README.en.md"
 
@@ -33,6 +48,11 @@ class RefreshRepoViewsTests(unittest.TestCase):
                     [![Skills](https://img.shields.io/badge/Skills-1-7c3aed)](./skills/)
                     当前共 **1 个分类 / 1 个技能**。
                     ## 技能总览（按分类，1 类 / 1 技能）
+
+                    <a id="cat-ai-workflow"></a>
+                    ### 1. AI 工作流（ai-workflow，0）
+
+                    ## 下一轮建议补充方向
                     以下 **不计入** 上方的 `1 类 / 1 技能` 统计。
                     """
                 ),
@@ -44,29 +64,35 @@ class RefreshRepoViewsTests(unittest.TestCase):
                     [![Skills](https://img.shields.io/badge/Skills-1-7c3aed)](./skills/)
                     This repository currently contains **1 categories / 1 skills**.
                     ## Skill Overview (by category, 1 categories / 1 skills)
+
+                    <a id="cat-ai-workflow"></a>
+                    ### 1. AI Workflow (ai-workflow, 0)
+
+                    ## Next Curation Directions
                     """
                 ),
                 encoding="utf-8",
             )
 
-            module.update_root_readmes(repo, category_count=15, skill_count=139)
+            module.update_root_readmes(repo, category_count=1, skill_count=1)
 
             cn_updated = readme.read_text(encoding="utf-8")
             en_updated = readme_en.read_text(encoding="utf-8")
 
-            self.assertIn("Skills-139-7c3aed", cn_updated)
-            self.assertIn("当前共 **15 个分类 / 139 个技能**。", cn_updated)
-            self.assertIn("## 技能总览（按分类，15 类 / 139 技能）", cn_updated)
-            self.assertIn("`15 类 / 139 技能`", cn_updated)
-            self.assertIn("Skills-139-7c3aed", en_updated)
+            self.assertIn("Skills-1-7c3aed", cn_updated)
+            self.assertIn("当前共 **1 个分类 / 1 个技能**。", cn_updated)
+            self.assertIn("## 技能总览（按分类，1 类 / 1 技能）", cn_updated)
+            self.assertIn("### 1. AI 工作流（ai-workflow，1）", cn_updated)
+            self.assertIn("`demo-skill`", cn_updated)
+            self.assertIn("`1 类 / 1 技能`", cn_updated)
+            self.assertIn("Skills-1-7c3aed", en_updated)
             self.assertIn(
-                "This repository currently contains **15 categories / 139 skills**.",
+                "This repository currently contains **1 categories / 1 skills**.",
                 en_updated,
             )
-            self.assertIn(
-                "## Skill Overview (by category, 15 categories / 139 skills)",
-                en_updated,
-            )
+            self.assertIn("## Skill Overview (by category, 1 categories / 1 skills)", en_updated)
+            self.assertIn("### 1. AI Workflow (ai-workflow, 1)", en_updated)
+            self.assertIn("[`demo-skill`](./skills/ai-workflow/demo-skill/)", en_updated)
 
     def test_refresh_repo_views_generates_category_readmes_and_openclaw_export(self):
         module = load_module()

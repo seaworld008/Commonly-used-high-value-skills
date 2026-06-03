@@ -4,7 +4,7 @@
 
 覆盖 Sentry、安全最佳实践、威胁建模与安全所有权分析的技能集合。
 
-当前分类共 **18** 个技能。
+当前分类共 **19** 个技能。
 
 ## 推荐先看
 
@@ -25,6 +25,7 @@
 | `information-security-manager-iso27001` | ISO 27001 ISMS implementation and cybersecurity governance for HealthTech and MedTech companies. Use for ISMS design, security risk assessment, control implementation, ISO 27001 certification, security audits, incident response, and compliance verification. Covers ISO 27001, ISO 27002, healthcare security, and medical device cybersecurity. | [目录](./information-security-manager-iso27001/) | [SKILL.md](./information-security-manager-iso27001/SKILL.md) |
 | `link-checker` | 检测 URL 可达性与潜在风险，识别失效链接、跳转链路和可疑域名。 | [目录](./link-checker/) | [SKILL.md](./link-checker/SKILL.md) |
 | `osv-scanner` | 用于通过 OSV-Scanner 检查锁文件、清单、SBOM、Git 历史和源码树中的开源依赖漏洞。 | [目录](./osv-scanner/) | [SKILL.md](./osv-scanner/SKILL.md) |
+| `security-auditor` | Security audit workflow for AI-generated application code, APIs, infrastructure changes, dependencies, secrets, auth flows, and pull requests before they ship. | [目录](./security-auditor/) | [SKILL.md](./security-auditor/SKILL.md) |
 | `security-best-practices` | 用于按语言和框架执行安全最佳实践检查，生成安全审查报告并提出 secure-by-default 改进建议。 | [目录](./security-best-practices/) | [SKILL.md](./security-best-practices/SKILL.md) |
 | `security-ownership-map` | 用于基于 Git 历史分析安全所有权、敏感代码归属、bus factor、CODEOWNERS 现实差距和风险热点。 | [目录](./security-ownership-map/) | [SKILL.md](./security-ownership-map/SKILL.md) |
 | `security-pen-testing` | Use when the user asks to perform security audits, penetration testing, vulnerability scanning, OWASP Top 10 checks, or offensive security assessments. Covers static analysis, dependency scanning, secret detection, API security testing, and pen test report generation. | [目录](./security-pen-testing/) | [SKILL.md](./security-pen-testing/SKILL.md) |

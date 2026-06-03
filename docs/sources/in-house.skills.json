@@ -82,6 +82,22 @@
       }
     },
     {
+      "video_name": "andrej-karpathy-skills",
+      "normalized_slug": "andrej-karpathy-skills",
+      "status": "in_house",
+      "repo_skill": "skills/ai-workflow/andrej-karpathy-skills/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/ai-workflow/andrej-karpathy-skills",
+        "ref": "main",
+        "last_checked_at": "2026-06-03",
+        "last_synced_at": "2026-06-03",
+        "last_synced_commit": null
+      }
+    },
+    {
       "video_name": "api-design-reviewer",
       "normalized_slug": "api-design-reviewer",
       "status": "in_house",
@@ -238,6 +254,22 @@
         "ref": "main",
         "last_checked_at": "2026-06-03",
         "last_synced_at": "2026-04-13",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "cc-devops-skills",
+      "normalized_slug": "cc-devops-skills",
+      "status": "in_house",
+      "repo_skill": "skills/devops-sre/cc-devops-skills/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/devops-sre/cc-devops-skills",
+        "ref": "main",
+        "last_checked_at": "2026-06-03",
+        "last_synced_at": "2026-06-03",
         "last_synced_commit": null
       }
     },
@@ -1554,6 +1586,22 @@
       }
     },
     {
+      "video_name": "playwright-pro",
+      "normalized_slug": "playwright-pro",
+      "status": "in_house",
+      "repo_skill": "skills/engineering-workflow-automation/playwright-pro/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/engineering-workflow-automation/playwright-pro",
+        "ref": "main",
+        "last_checked_at": "2026-06-03",
+        "last_synced_at": "2026-06-03",
+        "last_synced_commit": null
+      }
+    },
+    {
       "video_name": "portfolio-risk-manager",
       "normalized_slug": "portfolio-risk-manager",
       "status": "in_house",
@@ -1902,6 +1950,22 @@
         "ref": "main",
         "last_checked_at": "2026-06-03",
         "last_synced_at": "2026-04-13",
+        "last_synced_commit": null
+      }
+    },
+    {
+      "video_name": "security-auditor",
+      "normalized_slug": "security-auditor",
+      "status": "in_house",
+      "repo_skill": "skills/security-and-reliability/security-auditor/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/security-and-reliability/security-auditor",
+        "ref": "main",
+        "last_checked_at": "2026-06-03",
+        "last_synced_at": "2026-06-03",
         "last_synced_commit": null
       }
     },
@@ -2418,6 +2482,22 @@
       }
     },
     {
+      "video_name": "ui-ux-pro-max",
+      "normalized_slug": "ui-ux-pro-max",
+      "status": "in_house",
+      "repo_skill": "skills/product-design/ui-ux-pro-max/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/product-design/ui-ux-pro-max",
+        "ref": "main",
+        "last_checked_at": "2026-06-03",
+        "last_synced_at": "2026-06-03",
+        "last_synced_commit": null
+      }
+    },
+    {
       "video_name": "ux-researcher-designer",
       "normalized_slug": "ux-researcher-designer",
       "status": "in_house",
@@ -2713,6 +2793,13 @@
       "target": "skills/*/*/SKILL.md",
       "result": "success",
       "evidence": "Merged provenance for 161 local skills"
+    },
+    {
+      "date": "2026-06-03",
+      "method": "local-scan",
+      "target": "skills/*/*/SKILL.md",
+      "result": "success",
+      "evidence": "Merged provenance for 166 local skills"
     }
   ]
 }

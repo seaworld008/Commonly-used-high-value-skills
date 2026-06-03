@@ -1,6 +1,6 @@
 # Tags Index
 
-> Auto-generated from 1077 skill-tag mappings across 459 tags.
+> Auto-generated from 1117 skill-tag mappings across 482 tags.
 > Last updated: see git log.
 
 ## Quick Navigation
@@ -14,21 +14,22 @@
 - [`lark-cli`](#lark-cli) (25)
 - [`engineering`](#engineering) (22)
 - [`planning`](#planning) (19)
-- [`security`](#security) (18)
+- [`security`](#security) (19)
 - [`design`](#design) (17)
 - [`finance`](#finance) (16)
 - [`automation`](#automation) (15)
+- [`devops`](#devops) (15)
 - [`productivity`](#productivity) (15)
-- [`devops`](#devops) (14)
+- [`sre`](#sre) (15)
 - [`growth`](#growth) (14)
 - [`marketing`](#marketing) (14)
-- [`sre`](#sre) (14)
 - [`product`](#product) (13)
 - [`deployment`](#deployment) (7)
 - [`designer`](#designer) (7)
 - [`builder`](#builder) (6)
 - [`analysis`](#analysis) (5)
 - [`api`](#api) (5)
+- [`code-review`](#code-review) (5)
 - [`creator`](#creator) (5)
 - [`expert`](#expert) (5)
 - [`graphify`](#graphify) (5)
@@ -46,27 +47,27 @@
 - [`gsd`](#gsd) (4)
 - [`hermes`](#hermes) (4)
 - [`knowledge`](#knowledge) (4)
+- [`kubernetes`](#kubernetes) (4)
 - [`media`](#media) (4)
 - [`meetings`](#meetings) (4)
 - [`memory`](#memory) (4)
 - [`notion`](#notion) (4)
 - [`research`](#research) (4)
+- [`secrets`](#secrets) (4)
 - [`tools`](#tools) (4)
 - [`vulnerability-scanning`](#vulnerability-scanning) (4)
-- [`code-review`](#code-review) (3)
+- [`appsec`](#appsec) (3)
 - [`database`](#database) (3)
 - [`debugging`](#debugging) (3)
 - [`engineer`](#engineer) (3)
 - [`git`](#git) (3)
 - [`knowledge-base`](#knowledge-base) (3)
-- [`kubernetes`](#kubernetes) (3)
 - [`markdown`](#markdown) (3)
 - [`office`](#office) (3)
 - [`postgres`](#postgres) (3)
 - [`reviewer`](#reviewer) (3)
 - [`safety`](#safety) (3)
 - [`sbom`](#sbom) (3)
-- [`secrets`](#secrets) (3)
 - [`supabase`](#supabase) (3)
 - [`supply-chain`](#supply-chain) (3)
 - [`system`](#system) (3)
@@ -75,12 +76,13 @@
 - [`analyst`](#analyst) (2)
 - [`analyzer`](#analyzer) (2)
 - [`app`](#app) (2)
-- [`appsec`](#appsec) (2)
+- [`architecture`](#architecture) (2)
 - [`auditor`](#auditor) (2)
 - [`brownfield`](#brownfield) (2)
 - [`capture`](#capture) (2)
 - [`changelog`](#changelog) (2)
 - [`checker`](#checker) (2)
+- [`ci`](#ci) (2)
 - [`cli`](#cli) (2)
 - [`cloudflare`](#cloudflare) (2)
 - [`code-scanning`](#code-scanning) (2)
@@ -88,10 +90,12 @@
 - [`configuration`](#configuration) (2)
 - [`container-security`](#container-security) (2)
 - [`doc`](#doc) (2)
+- [`docker`](#docker) (2)
 - [`driven`](#driven) (2)
 - [`events`](#events) (2)
 - [`figma`](#figma) (2)
 - [`financial`](#financial) (2)
+- [`frontend`](#frontend) (2)
 - [`gateway`](#gateway) (2)
 - [`graphql`](#graphql) (2)
 - [`integrations`](#integrations) (2)
@@ -99,10 +103,13 @@
 - [`metrics`](#metrics) (2)
 - [`minutes`](#minutes) (2)
 - [`notes`](#notes) (2)
+- [`observability`](#observability) (2)
+- [`owasp`](#owasp) (2)
 - [`parallel`](#parallel) (2)
 - [`pdf`](#pdf) (2)
 - [`performance`](#performance) (2)
 - [`plans`](#plans) (2)
+- [`playwright`](#playwright) (2)
 - [`ppt`](#ppt) (2)
 - [`practices`](#practices) (2)
 - [`presentation`](#presentation) (2)
@@ -119,23 +126,27 @@
 - [`slides`](#slides) (2)
 - [`spreadsheet`](#spreadsheet) (2)
 - [`strategy`](#strategy) (2)
+- [`terraform`](#terraform) (2)
 - [`toolkit`](#toolkit) (2)
 - [`tracker`](#tracker) (2)
 - [`vercel`](#vercel) (2)
+- [`verification`](#verification) (2)
 - [`wiki`](#wiki) (2)
 - [`worktree`](#worktree) (2)
 - [`academic`](#academic) (1)
+- [`accessibility`](#accessibility) (1)
 - [`acquisition`](#acquisition) (1)
 - [`address`](#address) (1)
 - [`agent-workflow`](#agent-workflow) (1)
 - [`agents`](#agents) (1)
 - [`agile`](#agile) (1)
+- [`ai-generated-code`](#ai-generated-code) (1)
+- [`ai-workflow`](#ai-workflow) (1)
 - [`algorithmic`](#algorithmic) (1)
 - [`analytics`](#analytics) (1)
 - [`api-and-interface-design`](#api-and-interface-design) (1)
 - [`approval`](#approval) (1)
 - [`apps`](#apps) (1)
-- [`architecture`](#architecture) (1)
 - [`arena`](#arena) (1)
 - [`art`](#art) (1)
 - [`artifacts`](#artifacts) (1)
@@ -147,6 +158,7 @@
 - [`auto-continue`](#auto-continue) (1)
 - [`aws`](#aws) (1)
 - [`azure`](#azure) (1)
+- [`backend`](#backend) (1)
 - [`backtester`](#backtester) (1)
 - [`base`](#base) (1)
 - [`beacon`](#beacon) (1)
@@ -155,6 +167,7 @@
 - [`brand`](#brand) (1)
 - [`breach`](#breach) (1)
 - [`browser`](#browser) (1)
+- [`browser-automation`](#browser-automation) (1)
 - [`browser-testing-with-devtools`](#browser-testing-with-devtools) (1)
 - [`calendar`](#calendar) (1)
 - [`call`](#call) (1)
@@ -165,8 +178,8 @@
 - [`chat`](#chat) (1)
 - [`chatgpt`](#chatgpt) (1)
 - [`check`](#check) (1)
-- [`ci`](#ci) (1)
 - [`ci-cd-and-automation`](#ci-cd-and-automation) (1)
+- [`cicd`](#cicd) (1)
 - [`clay`](#clay) (1)
 - [`cleaner`](#cleaner) (1)
 - [`cloak`](#cloak) (1)
@@ -177,7 +190,9 @@
 - [`code-simplification`](#code-simplification) (1)
 - [`codeql`](#codeql) (1)
 - [`codex`](#codex) (1)
+- [`coding-discipline`](#coding-discipline) (1)
 - [`collector`](#collector) (1)
+- [`color`](#color) (1)
 - [`commander`](#commander) (1)
 - [`comments`](#comments) (1)
 - [`comms`](#comms) (1)
@@ -203,18 +218,20 @@
 - [`demand`](#demand) (1)
 - [`demo`](#demo) (1)
 - [`dependency`](#dependency) (1)
+- [`dependency-audit`](#dependency-audit) (1)
 - [`dependency-scanning`](#dependency-scanning) (1)
 - [`deprecation-and-migration`](#deprecation-and-migration) (1)
+- [`design-system`](#design-system) (1)
 - [`develop`](#develop) (1)
 - [`diagnostics`](#diagnostics) (1)
 - [`diagram`](#diagram) (1)
 - [`dialectic`](#dialectic) (1)
-- [`docker`](#docker) (1)
 - [`documentation`](#documentation) (1)
 - [`documentation-and-adrs`](#documentation-and-adrs) (1)
 - [`documents`](#documents) (1)
 - [`docx`](#docx) (1)
 - [`drive`](#drive) (1)
+- [`e2e-testing`](#e2e-testing) (1)
 - [`earnings`](#earnings) (1)
 - [`editorial`](#editorial) (1)
 - [`email`](#email) (1)
@@ -233,8 +250,8 @@
 - [`find`](#find) (1)
 - [`fix`](#fix) (1)
 - [`fixer`](#fixer) (1)
+- [`flaky-tests`](#flaky-tests) (1)
 - [`freebsd`](#freebsd) (1)
-- [`frontend`](#frontend) (1)
 - [`frontend-ui-engineering`](#frontend-ui-engineering) (1)
 - [`game`](#game) (1)
 - [`gear`](#gear) (1)
@@ -263,6 +280,7 @@
 - [`implementation`](#implementation) (1)
 - [`improving`](#improving) (1)
 - [`incident`](#incident) (1)
+- [`incident-response`](#incident-response) (1)
 - [`incremental-implementation`](#incremental-implementation) (1)
 - [`input`](#input) (1)
 - [`intelligence`](#intelligence) (1)
@@ -308,7 +326,6 @@
 - [`nexus`](#nexus) (1)
 - [`non-intrusive`](#non-intrusive) (1)
 - [`notebook`](#notebook) (1)
-- [`observability`](#observability) (1)
 - [`observation`](#observation) (1)
 - [`obsidian`](#obsidian) (1)
 - [`offensive-security`](#offensive-security) (1)
@@ -324,7 +341,6 @@
 - [`options`](#options) (1)
 - [`oracle`](#oracle) (1)
 - [`osv`](#osv) (1)
-- [`owasp`](#owasp) (1)
 - [`owner`](#owner) (1)
 - [`ownership`](#ownership) (1)
 - [`page`](#page) (1)
@@ -335,7 +351,6 @@
 - [`pipe`](#pipe) (1)
 - [`pipeline`](#pipeline) (1)
 - [`planning-and-task-breakdown`](#planning-and-task-breakdown) (1)
-- [`playwright`](#playwright) (1)
 - [`pmm`](#pmm) (1)
 - [`portfolio`](#portfolio) (1)
 - [`post`](#post) (1)
@@ -348,22 +363,27 @@
 - [`profiling`](#profiling) (1)
 - [`project-workflow`](#project-workflow) (1)
 - [`promptfoo`](#promptfoo) (1)
+- [`promql`](#promql) (1)
 - [`pulse`](#pulse) (1)
 - [`pygount`](#pygount) (1)
 - [`python`](#python) (1)
+- [`qa`](#qa) (1)
 - [`rag`](#rag) (1)
 - [`rag-alternative`](#rag-alternative) (1)
 - [`rally`](#rally) (1)
 - [`react`](#react) (1)
 - [`reader`](#reader) (1)
+- [`refactoring`](#refactoring) (1)
 - [`reflect`](#reflect) (1)
 - [`regime`](#regime) (1)
+- [`regression-testing`](#regression-testing) (1)
 - [`release`](#release) (1)
 - [`render`](#render) (1)
 - [`repo-integration`](#repo-integration) (1)
 - [`repomix`](#repomix) (1)
 - [`reporting`](#reporting) (1)
 - [`repository`](#repository) (1)
+- [`responsive-design`](#responsive-design) (1)
 - [`review`](#review) (1)
 - [`ripple`](#ripple) (1)
 - [`risk`](#risk) (1)
@@ -427,13 +447,13 @@
 - [`teams`](#teams) (1)
 - [`teardown`](#teardown) (1)
 - [`tech`](#tech) (1)
-- [`terraform`](#terraform) (1)
 - [`test`](#test) (1)
 - [`test-driven-development`](#test-driven-development) (1)
 - [`tester`](#tester) (1)
 - [`testing`](#testing) (1)
 - [`theme`](#theme) (1)
 - [`threat`](#threat) (1)
+- [`threat-modeling`](#threat-modeling) (1)
 - [`tome`](#tome) (1)
 - [`tone`](#tone) (1)
 - [`trace`](#trace) (1)
@@ -443,13 +463,16 @@
 - [`troubleshooting`](#troubleshooting) (1)
 - [`twitter`](#twitter) (1)
 - [`typescript`](#typescript) (1)
+- [`typography`](#typography) (1)
+- [`ui`](#ui) (1)
 - [`upgrade-safe`](#upgrade-safe) (1)
 - [`user-modeling`](#user-modeling) (1)
 - [`using-agent-skills`](#using-agent-skills) (1)
+- [`ux`](#ux) (1)
 - [`valuation`](#valuation) (1)
-- [`verification`](#verification) (1)
 - [`vetter`](#vetter) (1)
 - [`video-conference`](#video-conference) (1)
+- [`visual-regression`](#visual-regression) (1)
 - [`voice`](#voice) (1)
 - [`vuls`](#vuls) (1)
 - [`warden`](#warden) (1)
@@ -826,7 +849,7 @@
 
 ## security
 
-**18 skills**
+**19 skills**
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
@@ -838,6 +861,7 @@
 | [grype-syft-sbom-scanner](skills/security-and-reliability/grype-syft-sbom-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Syft 生成 SBOM，并用 Grype 扫描容器镜像、文件系统、软件包、归档和 SBOM 漏洞。 |
 | [information-security-manager-iso27001](skills/security-and-reliability/information-security-manager-iso27001) | security-and-reliability | ★★★★☆ | ISO 27001 ISMS implementation and cybersecurity governance for HealthTech and Me |
 | [osv-scanner](skills/security-and-reliability/osv-scanner) | security-and-reliability | ★★★★☆ | 用于通过 OSV-Scanner 检查锁文件、清单、SBOM、Git 历史和源码树中的开源依赖漏洞。 |
+| [security-auditor](skills/security-and-reliability/security-auditor) | security-and-reliability | ★★★★☆ | Security audit workflow for AI-generated application code, APIs, infrastructure  |
 | [security-pen-testing](skills/security-and-reliability/security-pen-testing) | security-and-reliability | ★★★★☆ | Use when the user asks to perform security audits, penetration testing, vulnerab |
 | [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。 |
 | [sentry](skills/security-and-reliability/sentry) | security-and-reliability | ★★★★☆ | 用于只读查询 Sentry issues、events 和服务健康数据，汇总线上错误并辅助生产问题排查。 |
@@ -918,6 +942,28 @@
 | [github](skills/engineering-workflow-automation/github) | engineering-workflow-automation | ★★☆☆☆ | 通过 GitHub CLI 自动化 Issue、PR、Review 与 CI 检查，适合工程协作闭环。 |
 | [yeet](skills/engineering-workflow-automation/yeet) | engineering-workflow-automation | ★★☆☆☆ | Use only when the user explicitly asks to stage, commit, push, and open a GitHub |
 
+## devops
+
+**15 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [beacon](skills/devops-sre/beacon) | devops-sre | ★★★★★ | Observability and reliability engineering specialist. Covers SLO/SLI design, dis |
+| [changelog-generator](skills/devops-sre/changelog-generator) | devops-sre | ★★★★★ | Parse conventional commits, determine semantic version bumps, and generate struc |
+| [ci-cd-pipeline-builder](skills/devops-sre/ci-cd-pipeline-builder) | devops-sre | ★★★★★ | Analyzes your project stack and generates production-ready CI/CD pipeline config |
+| [cloudflare-troubleshooting](skills/devops-sre/cloudflare-troubleshooting) | devops-sre | ★★★★★ | Investigate and resolve Cloudflare configuration issues using API-driven evidenc |
+| [env-secrets-manager](skills/devops-sre/env-secrets-manager) | devops-sre | ★★★★★ | Complete environment and secrets management workflow: .env file lifecycle across |
+| [gear](skills/devops-sre/gear) | devops-sre | ★★★★★ | Dependency management, CI/CD optimization, Docker configuration, and operational |
+| [github-ops](skills/devops-sre/github-ops) | devops-sre | ★★★★★ | Provides comprehensive GitHub operations using gh CLI and GitHub API. Activates  |
+| [incident-commander](skills/devops-sre/incident-commander) | devops-sre | ★★★★★ | Author: Claude Skills Team Version: 1.0.0 Last Updated: February 2026. |
+| [observability-designer](skills/devops-sre/observability-designer) | devops-sre | ★★★★★ | Description: Design comprehensive observability strategies for production system |
+| [release-manager](skills/devops-sre/release-manager) | devops-sre | ★★★★★ | The Release Manager skill provides comprehensive tools and knowledge for managin |
+| [senior-devops](skills/devops-sre/senior-devops) | devops-sre | ★★★★★ | Comprehensive DevOps skill for CI/CD, infrastructure automation, containerizatio |
+| [triage](skills/devops-sre/triage) | devops-sre | ★★★★★ | Incident first response, impact scope identification, recovery procedure formula |
+| [azure-kubernetes](skills/devops-sre/azure-kubernetes) | devops-sre | ★★★★☆ | Plan, create, and configure production-ready Azure Kubernetes Service (AKS) clus |
+| [cc-devops-skills](skills/devops-sre/cc-devops-skills) | devops-sre | ★★★★☆ | SRE, DevOps, Kubernetes, CI/CD, PromQL, Terraform, Docker, and incident operatio |
+| [senior-architect](skills/devops-sre/senior-architect) | devops-sre | ★★★★☆ | This skill should be used when the user asks to \"design system architecture\",  |
+
 ## productivity
 
 **15 skills**
@@ -940,9 +986,9 @@
 | [internal-comms](skills/operations-general/internal-comms) | operations-general | ★★☆☆☆ | A set of resources to help me write all kinds of internal communications, using  |
 | [weather](skills/operations-general/weather) | operations-general | ★★☆☆☆ | 免 API Key 的天气查询技能，支持多数据源与自然语言请求。 |
 
-## devops
+## sre
 
-**14 skills**
+**15 skills**
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
@@ -959,6 +1005,7 @@
 | [senior-devops](skills/devops-sre/senior-devops) | devops-sre | ★★★★★ | Comprehensive DevOps skill for CI/CD, infrastructure automation, containerizatio |
 | [triage](skills/devops-sre/triage) | devops-sre | ★★★★★ | Incident first response, impact scope identification, recovery procedure formula |
 | [azure-kubernetes](skills/devops-sre/azure-kubernetes) | devops-sre | ★★★★☆ | Plan, create, and configure production-ready Azure Kubernetes Service (AKS) clus |
+| [cc-devops-skills](skills/devops-sre/cc-devops-skills) | devops-sre | ★★★★☆ | SRE, DevOps, Kubernetes, CI/CD, PromQL, Terraform, Docker, and incident operatio |
 | [senior-architect](skills/devops-sre/senior-architect) | devops-sre | ★★★★☆ | This skill should be used when the user asks to \"design system architecture\",  |
 
 ## growth
@@ -1002,27 +1049,6 @@
 | [social-media-analyzer](skills/growth-operations-xiaohongshu/social-media-analyzer) | growth-operations-xiaohongshu | ★★★★★ | Social media campaign analysis and performance tracking. Calculates engagement r |
 | [seo-audit](skills/growth-operations-xiaohongshu/seo-audit) | growth-operations-xiaohongshu | ★★★★☆ | 用于网站 SEO 全面审计、On-page 优化建议和技术 SEO 检查清单生成。仓库整理版，吸收社区高频最佳实践。 |
 | [twitter-reader](skills/growth-operations-xiaohongshu/twitter-reader) | growth-operations-xiaohongshu | ★★★☆☆ | Fetch Twitter/X post content by URL using jina.ai API to bypass JavaScript restr |
-
-## sre
-
-**14 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [beacon](skills/devops-sre/beacon) | devops-sre | ★★★★★ | Observability and reliability engineering specialist. Covers SLO/SLI design, dis |
-| [changelog-generator](skills/devops-sre/changelog-generator) | devops-sre | ★★★★★ | Parse conventional commits, determine semantic version bumps, and generate struc |
-| [ci-cd-pipeline-builder](skills/devops-sre/ci-cd-pipeline-builder) | devops-sre | ★★★★★ | Analyzes your project stack and generates production-ready CI/CD pipeline config |
-| [cloudflare-troubleshooting](skills/devops-sre/cloudflare-troubleshooting) | devops-sre | ★★★★★ | Investigate and resolve Cloudflare configuration issues using API-driven evidenc |
-| [env-secrets-manager](skills/devops-sre/env-secrets-manager) | devops-sre | ★★★★★ | Complete environment and secrets management workflow: .env file lifecycle across |
-| [gear](skills/devops-sre/gear) | devops-sre | ★★★★★ | Dependency management, CI/CD optimization, Docker configuration, and operational |
-| [github-ops](skills/devops-sre/github-ops) | devops-sre | ★★★★★ | Provides comprehensive GitHub operations using gh CLI and GitHub API. Activates  |
-| [incident-commander](skills/devops-sre/incident-commander) | devops-sre | ★★★★★ | Author: Claude Skills Team Version: 1.0.0 Last Updated: February 2026. |
-| [observability-designer](skills/devops-sre/observability-designer) | devops-sre | ★★★★★ | Description: Design comprehensive observability strategies for production system |
-| [release-manager](skills/devops-sre/release-manager) | devops-sre | ★★★★★ | The Release Manager skill provides comprehensive tools and knowledge for managin |
-| [senior-devops](skills/devops-sre/senior-devops) | devops-sre | ★★★★★ | Comprehensive DevOps skill for CI/CD, infrastructure automation, containerizatio |
-| [triage](skills/devops-sre/triage) | devops-sre | ★★★★★ | Incident first response, impact scope identification, recovery procedure formula |
-| [azure-kubernetes](skills/devops-sre/azure-kubernetes) | devops-sre | ★★★★☆ | Plan, create, and configure production-ready Azure Kubernetes Service (AKS) clus |
-| [senior-architect](skills/devops-sre/senior-architect) | devops-sre | ★★★★☆ | This skill should be used when the user asks to \"design system architecture\",  |
 
 ## product
 
@@ -1108,6 +1134,18 @@
 | [mcporter](skills/ai-agent-platform/mcporter) | ai-agent-platform | ★★★★☆ | Use the mcporter CLI to list, configure, auth, and call MCP servers/tools direct |
 | [arxiv](skills/knowledge-and-pm-integrations/arxiv) | knowledge-and-pm-integrations | ★★★★☆ | 用于按关键词、作者、分类或编号检索 arXiv 论文。 |
 | [lark-openapi-explorer](skills/knowledge-and-pm-integrations/lark-openapi-explorer) | knowledge-and-pm-integrations | ★★★★☆ | 飞书原生 OpenAPI 查询、探索和补充调用。 |
+
+## code-review
+
+**5 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [andrej-karpathy-skills](skills/ai-workflow/andrej-karpathy-skills) | ai-workflow | ★★★★☆ | Karpathy-inspired coding discipline for AI agents: think before coding, keep cha |
+| [receiving-code-review](skills/ai-workflow/receiving-code-review) | ai-workflow | ★★★★☆ | Use when receiving code review feedback, before implementing suggestions, especi |
+| [requesting-code-review](skills/ai-workflow/requesting-code-review) | ai-workflow | ★★★★☆ | Use when completing tasks, implementing major features, or before merging to ver |
+| [code-review-excellence](skills/developer-engineering/code-review-excellence) | developer-engineering | ★★★★☆ | Master effective code review practices to provide constructive feedback, catch b |
+| [security-auditor](skills/security-and-reliability/security-auditor) | security-and-reliability | ★★★★☆ | Security audit workflow for AI-generated application code, APIs, infrastructure  |
 
 ## creator
 
@@ -1303,6 +1341,17 @@
 | [tome](skills/knowledge-and-pm-integrations/tome) | knowledge-and-pm-integrations | ★★★★★ | Converts repository changes into detailed learning documents. Use when turning d |
 | [notion-knowledge-capture](skills/knowledge-and-pm-integrations/notion-knowledge-capture) | knowledge-and-pm-integrations | ★★★☆☆ | 用于把对话、决策和笔记沉淀到 Notion。 |
 
+## kubernetes
+
+**4 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [kubernetes-specialist](skills/developer-engineering/kubernetes-specialist) | developer-engineering | ★★★★☆ | 用于 Kubernetes 集群管理、部署编排、Pod 调试与 Helm Chart 设计。来源：skills.sh 5K+ installs。 |
+| [azure-kubernetes](skills/devops-sre/azure-kubernetes) | devops-sre | ★★★★☆ | Plan, create, and configure production-ready Azure Kubernetes Service (AKS) clus |
+| [cc-devops-skills](skills/devops-sre/cc-devops-skills) | devops-sre | ★★★★☆ | SRE, DevOps, Kubernetes, CI/CD, PromQL, Terraform, Docker, and incident operatio |
+| [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Trivy 扫描仓库、容器镜像、文件系统、rootfs、SBOM、Kubernetes、IaC、密钥、许可证和系统 CVE。 |
+
 ## media
 
 **4 skills**
@@ -1358,6 +1407,17 @@
 | [llm-wiki](skills/knowledge-and-pm-integrations/llm-wiki) | knowledge-and-pm-integrations | ★★★★☆ | 用于构建和维护互联的 LLM Markdown 知识库。 |
 | [notion-research-documentation](skills/knowledge-and-pm-integrations/notion-research-documentation) | knowledge-and-pm-integrations | ★★★☆☆ | 用于整合 Notion 信息并生成研究文档。 |
 
+## secrets
+
+**4 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [env-secrets-manager](skills/devops-sre/env-secrets-manager) | devops-sre | ★★★★★ | Complete environment and secrets management workflow: .env file lifecycle across |
+| [security-auditor](skills/security-and-reliability/security-auditor) | security-and-reliability | ★★★★☆ | Security audit workflow for AI-generated application code, APIs, infrastructure  |
+| [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。 |
+| [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Trivy 扫描仓库、容器镜像、文件系统、rootfs、SBOM、Kubernetes、IaC、密钥、许可证和系统 CVE。 |
+
 ## tools
 
 **4 skills**
@@ -1380,15 +1440,15 @@
 | [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Trivy 扫描仓库、容器镜像、文件系统、rootfs、SBOM、Kubernetes、IaC、密钥、许可证和系统 CVE。 |
 | [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Vuls 对 Linux、FreeBSD、容器、WordPress、库和网络设备执行 Agentless CVE 扫描。 |
 
-## code-review
+## appsec
 
 **3 skills**
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [receiving-code-review](skills/ai-workflow/receiving-code-review) | ai-workflow | ★★★★☆ | Use when receiving code review feedback, before implementing suggestions, especi |
-| [requesting-code-review](skills/ai-workflow/requesting-code-review) | ai-workflow | ★★★★☆ | Use when completing tasks, implementing major features, or before merging to ver |
-| [code-review-excellence](skills/developer-engineering/code-review-excellence) | developer-engineering | ★★★★☆ | Master effective code review practices to provide constructive feedback, catch b |
+| [codeql-security-scanner](skills/security-and-reliability/codeql-security-scanner) | security-and-reliability | ★★★★☆ | 用于通过 CodeQL 执行语义代码扫描、安全查询、自定义规则、SARIF 报告和 GitHub Code Scanning 集成。 |
+| [security-auditor](skills/security-and-reliability/security-auditor) | security-and-reliability | ★★★★☆ | Security audit workflow for AI-generated application code, APIs, infrastructure  |
+| [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。 |
 
 ## database
 
@@ -1439,16 +1499,6 @@
 | [lark-wiki](skills/knowledge-and-pm-integrations/lark-wiki) | knowledge-and-pm-integrations | ★★★★☆ | 飞书知识库：管理知识空间、空间成员和文档节点。创建和查询知识空间、查看和管理空间成员、管理节点层级结构、在知识库中组织文档和快捷方式。当用户需要在知识库中查找或 |
 | [llm-wiki](skills/knowledge-and-pm-integrations/llm-wiki) | knowledge-and-pm-integrations | ★★★★☆ | 用于构建和维护互联的 LLM Markdown 知识库。 |
 | [obsidian](skills/knowledge-and-pm-integrations/obsidian) | knowledge-and-pm-integrations | ★★★☆☆ | 用于读取、搜索、创建和编辑 Obsidian 笔记。 |
-
-## kubernetes
-
-**3 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [kubernetes-specialist](skills/developer-engineering/kubernetes-specialist) | developer-engineering | ★★★★☆ | 用于 Kubernetes 集群管理、部署编排、Pod 调试与 Helm Chart 设计。来源：skills.sh 5K+ installs。 |
-| [azure-kubernetes](skills/devops-sre/azure-kubernetes) | devops-sre | ★★★★☆ | Plan, create, and configure production-ready Azure Kubernetes Service (AKS) clus |
-| [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Trivy 扫描仓库、容器镜像、文件系统、rootfs、SBOM、Kubernetes、IaC、密钥、许可证和系统 CVE。 |
 
 ## markdown
 
@@ -1508,16 +1558,6 @@
 |-------|----------|---------|-------------|
 | [grype-syft-sbom-scanner](skills/security-and-reliability/grype-syft-sbom-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Syft 生成 SBOM，并用 Grype 扫描容器镜像、文件系统、软件包、归档和 SBOM 漏洞。 |
 | [osv-scanner](skills/security-and-reliability/osv-scanner) | security-and-reliability | ★★★★☆ | 用于通过 OSV-Scanner 检查锁文件、清单、SBOM、Git 历史和源码树中的开源依赖漏洞。 |
-| [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Trivy 扫描仓库、容器镜像、文件系统、rootfs、SBOM、Kubernetes、IaC、密钥、许可证和系统 CVE。 |
-
-## secrets
-
-**3 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [env-secrets-manager](skills/devops-sre/env-secrets-manager) | devops-sre | ★★★★★ | Complete environment and secrets management workflow: .env file lifecycle across |
-| [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。 |
 | [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Trivy 扫描仓库、容器镜像、文件系统、rootfs、SBOM、Kubernetes、IaC、密钥、许可证和系统 CVE。 |
 
 ## supabase
@@ -1596,14 +1636,14 @@
 | [app-store-optimization](skills/growth-operations-xiaohongshu/app-store-optimization) | growth-operations-xiaohongshu | ★★★★★ | App Store Optimization toolkit for researching keywords, optimizing metadata, an |
 | [nextjs-app-router](skills/developer-engineering/nextjs-app-router) | developer-engineering | ★★★★☆ | 用于 Next.js App Router 模式开发，包含 RSC、Server Actions 和路由最佳实践。来源：skills.sh 10.2K inst |
 
-## appsec
+## architecture
 
 **2 skills**
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [codeql-security-scanner](skills/security-and-reliability/codeql-security-scanner) | security-and-reliability | ★★★★☆ | 用于通过 CodeQL 执行语义代码扫描、安全查询、自定义规则、SARIF 报告和 GitHub Code Scanning 集成。 |
-| [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。 |
+| [gsd-graphify-brownfield-bootstrap](skills/engineering-workflow-automation/gsd-graphify-brownfield-bootstrap) | engineering-workflow-automation | ★★★★★ | Bootstrap GSD + graphify for an existing brownfield repo when the project needs  |
+| [andrej-karpathy-skills](skills/ai-workflow/andrej-karpathy-skills) | ai-workflow | ★★★★☆ | Karpathy-inspired coding discipline for AI agents: think before coding, keep cha |
 
 ## auditor
 
@@ -1649,6 +1689,15 @@
 |-------|----------|---------|-------------|
 | [fact-checker](skills/operations-general/fact-checker) | operations-general | ★★★★★ | Verifies factual claims in documents using web search and official sources, then |
 | [link-checker](skills/security-and-reliability/link-checker) | security-and-reliability | ★★☆☆☆ | 检测 URL 可达性与潜在风险，识别失效链接、跳转链路和可疑域名。 |
+
+## ci
+
+**2 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [playwright-pro](skills/engineering-workflow-automation/playwright-pro) | engineering-workflow-automation | ★★★★☆ | Production-grade Playwright testing skill for E2E suites, flaky test diagnosis,  |
+| [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。 |
 
 ## cli
 
@@ -1713,6 +1762,15 @@
 | [doc-coauthoring](skills/office-white-collar/doc-coauthoring) | office-white-collar | ★★★★★ | Guide users through a structured workflow for co-authoring documentation. Use wh |
 | [doc](skills/office-white-collar/doc) | office-white-collar | ★★★☆☆ | Use when the task involves reading, creating, or editing `.docx` documents, espe |
 
+## docker
+
+**2 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [docker-expert](skills/developer-engineering/docker-expert) | developer-engineering | ★★★★☆ | 用于 Docker 容器化最佳实践、多阶段构建优化与 Docker Compose 编排。来源：skills.sh 8.7K installs。 |
+| [cc-devops-skills](skills/devops-sre/cc-devops-skills) | devops-sre | ★★★★☆ | SRE, DevOps, Kubernetes, CI/CD, PromQL, Terraform, Docker, and incident operatio |
+
 ## driven
 
 **2 skills**
@@ -1748,6 +1806,15 @@
 |-------|----------|---------|-------------|
 | [financial-analyst](skills/finance-investing/financial-analyst) | finance-investing | ★★★★☆ | Performs financial ratio analysis, DCF valuation, budget variance analysis, and  |
 | [financial-data-collector](skills/finance-investing/financial-data-collector) | finance-investing | ★★★★☆ | Use when collecting financial data for a US public company, assembling DCF input |
+
+## frontend
+
+**2 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [ui-ux-pro-max](skills/product-design/ui-ux-pro-max) | product-design | ★★★★☆ | Front-end UI/UX design intelligence for creating, reviewing, and hardening polis |
+| [frontend-design](skills/developer-engineering/frontend-design) | developer-engineering | ★★☆☆☆ | Create distinctive, production-grade frontend interfaces with high design qualit |
 
 ## gateway
 
@@ -1812,6 +1879,24 @@
 | [llm-wiki](skills/knowledge-and-pm-integrations/llm-wiki) | knowledge-and-pm-integrations | ★★★★☆ | 用于构建和维护互联的 LLM Markdown 知识库。 |
 | [obsidian](skills/knowledge-and-pm-integrations/obsidian) | knowledge-and-pm-integrations | ★★★☆☆ | 用于读取、搜索、创建和编辑 Obsidian 笔记。 |
 
+## observability
+
+**2 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [observability-designer](skills/devops-sre/observability-designer) | devops-sre | ★★★★★ | Description: Design comprehensive observability strategies for production system |
+| [cc-devops-skills](skills/devops-sre/cc-devops-skills) | devops-sre | ★★★★☆ | SRE, DevOps, Kubernetes, CI/CD, PromQL, Terraform, Docker, and incident operatio |
+
+## owasp
+
+**2 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [security-auditor](skills/security-and-reliability/security-auditor) | security-and-reliability | ★★★★☆ | Security audit workflow for AI-generated application code, APIs, infrastructure  |
+| [security-pen-testing](skills/security-and-reliability/security-pen-testing) | security-and-reliability | ★★★★☆ | Use when the user asks to perform security audits, penetration testing, vulnerab |
+
 ## parallel
 
 **2 skills**
@@ -1847,6 +1932,15 @@
 |-------|----------|---------|-------------|
 | [writing-plans](skills/ai-workflow/writing-plans) | ai-workflow | ★★★★☆ | Use when you have a spec or requirements for a multi-step task, before touching  |
 | [executing-plans](skills/ai-workflow/executing-plans) | ai-workflow | ★★★☆☆ | Use when you have a written implementation plan to execute in a separate session |
+
+## playwright
+
+**2 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [playwright](skills/engineering-workflow-automation/playwright) | engineering-workflow-automation | ★★★★☆ | Use when the task requires automating a real browser from the terminal (navigati |
+| [playwright-pro](skills/engineering-workflow-automation/playwright-pro) | engineering-workflow-automation | ★★★★☆ | Production-grade Playwright testing skill for E2E suites, flaky test diagnosis,  |
 
 ## ppt
 
@@ -1992,6 +2086,15 @@
 | [marketing-strategy-pmm](skills/growth-operations-xiaohongshu/marketing-strategy-pmm) | growth-operations-xiaohongshu | ★★★★★ | Product marketing skill for positioning, GTM strategy, competitive intelligence, |
 | [options-strategy-evaluator](skills/finance-investing/options-strategy-evaluator) | finance-investing | ★★☆☆☆ | Use when evaluating an options structure, checking expiry payoff checkpoints, co |
 
+## terraform
+
+**2 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [terraform-engineer](skills/developer-engineering/terraform-engineer) | developer-engineering | ★★★★☆ | 用于 Terraform 基础设施即代码（IaC）设计、模块化管理和状态管理。来源：HashiCorp 官方 + skills.sh。 |
+| [cc-devops-skills](skills/devops-sre/cc-devops-skills) | devops-sre | ★★★★☆ | SRE, DevOps, Kubernetes, CI/CD, PromQL, Terraform, Docker, and incident operatio |
+
 ## toolkit
 
 **2 skills**
@@ -2019,6 +2122,15 @@
 | [vercel-react-best-practices](skills/developer-engineering/vercel-react-best-practices) | developer-engineering | ★★★★☆ | React and Next.js performance optimization guidelines from Vercel Engineering. T |
 | [vercel-deploy](skills/deployment-platforms/vercel-deploy) | deployment-platforms | ★★★☆☆ | Deploy applications and websites to Vercel. Use when the user requests deploymen |
 
+## verification
+
+**2 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [andrej-karpathy-skills](skills/ai-workflow/andrej-karpathy-skills) | ai-workflow | ★★★★☆ | Karpathy-inspired coding discipline for AI agents: think before coding, keep cha |
+| [verification-before-completion](skills/ai-workflow/verification-before-completion) | ai-workflow | ★★★★☆ | Use when about to claim work is complete, fixed, or passing, before committing o |
+
 ## wiki
 
 **2 skills**
@@ -2044,6 +2156,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [arxiv](skills/knowledge-and-pm-integrations/arxiv) | knowledge-and-pm-integrations | ★★★★☆ | 用于按关键词、作者、分类或编号检索 arXiv 论文。 |
+
+## accessibility
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [ui-ux-pro-max](skills/product-design/ui-ux-pro-max) | product-design | ★★★★☆ | Front-end UI/UX design intelligence for creating, reviewing, and hardening polis |
 
 ## acquisition
 
@@ -2085,6 +2205,22 @@
 |-------|----------|---------|-------------|
 | [agile-product-owner](skills/product-design/agile-product-owner) | product-design | ★★★★★ | Agile product ownership for backlog management and sprint execution. Covers user |
 
+## ai-generated-code
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [security-auditor](skills/security-and-reliability/security-auditor) | security-and-reliability | ★★★★☆ | Security audit workflow for AI-generated application code, APIs, infrastructure  |
+
+## ai-workflow
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [andrej-karpathy-skills](skills/ai-workflow/andrej-karpathy-skills) | ai-workflow | ★★★★☆ | Karpathy-inspired coding discipline for AI agents: think before coding, keep cha |
+
 ## algorithmic
 
 **1 skills**
@@ -2124,14 +2260,6 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [chatgpt-apps](skills/ai-agent-platform/chatgpt-apps) | ai-agent-platform | ★★★★★ | Build, scaffold, refactor, and troubleshoot ChatGPT Apps SDK applications that c |
-
-## architecture
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [gsd-graphify-brownfield-bootstrap](skills/engineering-workflow-automation/gsd-graphify-brownfield-bootstrap) | engineering-workflow-automation | ★★★★★ | Bootstrap GSD + graphify for an existing brownfield repo when the project needs  |
 
 ## arena
 
@@ -2221,6 +2349,14 @@
 |-------|----------|---------|-------------|
 | [azure-kubernetes](skills/devops-sre/azure-kubernetes) | devops-sre | ★★★★☆ | Plan, create, and configure production-ready Azure Kubernetes Service (AKS) clus |
 
+## backend
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [andrej-karpathy-skills](skills/ai-workflow/andrej-karpathy-skills) | ai-workflow | ★★★★☆ | Karpathy-inspired coding discipline for AI agents: think before coding, keep cha |
+
 ## backtester
 
 **1 skills**
@@ -2284,6 +2420,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [agent-browser](skills/engineering-workflow-automation/agent-browser) | engineering-workflow-automation | ★★☆☆☆ | 为 Agent 提供真实浏览器自动化能力，支持语义定位、表单交互、截图录屏、脚本执行与会话管理。 |
+
+## browser-automation
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [playwright-pro](skills/engineering-workflow-automation/playwright-pro) | engineering-workflow-automation | ★★★★☆ | Production-grade Playwright testing skill for E2E suites, flaky test diagnosis,  |
 
 ## browser-testing-with-devtools
 
@@ -2365,14 +2509,6 @@
 |-------|----------|---------|-------------|
 | [confidence-check](skills/operations-general/confidence-check) | operations-general | ★★★★☆ | 用于结构化自我审查，验证假设、识别不确定性和减少幻觉输出。仓库整理版，吸收社区高频最佳实践。 |
 
-## ci
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。 |
-
 ## ci-cd-and-automation
 
 **1 skills**
@@ -2380,6 +2516,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [ci-cd-and-automation](skills/ai-workflow/ci-cd-and-automation) | ai-workflow | ★★★★★ | Automates CI/CD pipeline setup. Use when setting up or modifying build and deplo |
+
+## cicd
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [cc-devops-skills](skills/devops-sre/cc-devops-skills) | devops-sre | ★★★★☆ | SRE, DevOps, Kubernetes, CI/CD, PromQL, Terraform, Docker, and incident operatio |
 
 ## clay
 
@@ -2461,6 +2605,14 @@
 |-------|----------|---------|-------------|
 | [gsd-graphify-brownfield-bootstrap](skills/engineering-workflow-automation/gsd-graphify-brownfield-bootstrap) | engineering-workflow-automation | ★★★★★ | Bootstrap GSD + graphify for an existing brownfield repo when the project needs  |
 
+## coding-discipline
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [andrej-karpathy-skills](skills/ai-workflow/andrej-karpathy-skills) | ai-workflow | ★★★★☆ | Karpathy-inspired coding discipline for AI agents: think before coding, keep cha |
+
 ## collector
 
 **1 skills**
@@ -2468,6 +2620,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [financial-data-collector](skills/finance-investing/financial-data-collector) | finance-investing | ★★★★☆ | Use when collecting financial data for a US public company, assembling DCF input |
+
+## color
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [ui-ux-pro-max](skills/product-design/ui-ux-pro-max) | product-design | ★★★★☆ | Front-end UI/UX design intelligence for creating, reviewing, and hardening polis |
 
 ## commander
 
@@ -2669,6 +2829,14 @@
 |-------|----------|---------|-------------|
 | [dependency-auditor](skills/developer-engineering/dependency-auditor) | developer-engineering | ★★★★★ | > Skill Type: POWERFUL > Category: Engineering > Domain: Dependency Management & |
 
+## dependency-audit
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [security-auditor](skills/security-and-reliability/security-auditor) | security-and-reliability | ★★★★☆ | Security audit workflow for AI-generated application code, APIs, infrastructure  |
+
 ## dependency-scanning
 
 **1 skills**
@@ -2684,6 +2852,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [deprecation-and-migration](skills/ai-workflow/deprecation-and-migration) | ai-workflow | ★★★★★ | Manages deprecation and migration. Use when removing old systems, APIs, or featu |
+
+## design-system
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [ui-ux-pro-max](skills/product-design/ui-ux-pro-max) | product-design | ★★★★☆ | Front-end UI/UX design intelligence for creating, reviewing, and hardening polis |
 
 ## develop
 
@@ -2716,14 +2892,6 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [honcho](skills/openclaw-memory-and-safety/honcho) | openclaw-memory-and-safety | ★★★★☆ | Configure and use Honcho memory with Hermes -- cross-session user modeling, mult |
-
-## docker
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [docker-expert](skills/developer-engineering/docker-expert) | developer-engineering | ★★★★☆ | 用于 Docker 容器化最佳实践、多阶段构建优化与 Docker Compose 编排。来源：skills.sh 8.7K installs。 |
 
 ## documentation
 
@@ -2764,6 +2932,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [lark-drive](skills/knowledge-and-pm-integrations/lark-drive) | knowledge-and-pm-integrations | ★★★★☆ | 飞书云空间（云盘/云存储）：管理云空间（云盘/云存储）中的文件和文件夹。上传和下载文件、创建文件夹、复制/移动/删除文件、查看文件元数据、管理文档评论、管理文档 |
+
+## e2e-testing
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [playwright-pro](skills/engineering-workflow-automation/playwright-pro) | engineering-workflow-automation | ★★★★☆ | Production-grade Playwright testing skill for E2E suites, flaky test diagnosis,  |
 
 ## earnings
 
@@ -2909,6 +3085,14 @@
 |-------|----------|---------|-------------|
 | [transcript-fixer](skills/office-white-collar/transcript-fixer) | office-white-collar | ★★★★☆ | Corrects speech-to-text transcription errors in meeting notes, lectures, and int |
 
+## flaky-tests
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [playwright-pro](skills/engineering-workflow-automation/playwright-pro) | engineering-workflow-automation | ★★★★☆ | Production-grade Playwright testing skill for E2E suites, flaky test diagnosis,  |
+
 ## freebsd
 
 **1 skills**
@@ -2916,14 +3100,6 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Vuls 对 Linux、FreeBSD、容器、WordPress、库和网络设备执行 Agentless CVE 扫描。 |
-
-## frontend
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [frontend-design](skills/developer-engineering/frontend-design) | developer-engineering | ★★☆☆☆ | Create distinctive, production-grade frontend interfaces with high design qualit |
 
 ## frontend-ui-engineering
 
@@ -3148,6 +3324,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [incident-commander](skills/devops-sre/incident-commander) | devops-sre | ★★★★★ | Author: Claude Skills Team Version: 1.0.0 Last Updated: February 2026. |
+
+## incident-response
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [cc-devops-skills](skills/devops-sre/cc-devops-skills) | devops-sre | ★★★★☆ | SRE, DevOps, Kubernetes, CI/CD, PromQL, Terraform, Docker, and incident operatio |
 
 ## incremental-implementation
 
@@ -3509,14 +3693,6 @@
 |-------|----------|---------|-------------|
 | [jupyter-notebook](skills/engineering-workflow-automation/jupyter-notebook) | engineering-workflow-automation | ★★★★☆ | Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) |
 
-## observability
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [observability-designer](skills/devops-sre/observability-designer) | devops-sre | ★★★★★ | Description: Design comprehensive observability strategies for production system |
-
 ## observation
 
 **1 skills**
@@ -3637,14 +3813,6 @@
 |-------|----------|---------|-------------|
 | [osv-scanner](skills/security-and-reliability/osv-scanner) | security-and-reliability | ★★★★☆ | 用于通过 OSV-Scanner 检查锁文件、清单、SBOM、Git 历史和源码树中的开源依赖漏洞。 |
 
-## owasp
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [security-pen-testing](skills/security-and-reliability/security-pen-testing) | security-and-reliability | ★★★★☆ | Use when the user asks to perform security audits, penetration testing, vulnerab |
-
 ## owner
 
 **1 skills**
@@ -3724,14 +3892,6 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [planning-and-task-breakdown](skills/ai-workflow/planning-and-task-breakdown) | ai-workflow | ★★★★★ | Breaks work into ordered tasks. Use when you have a spec or clear requirements a |
-
-## playwright
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [playwright](skills/engineering-workflow-automation/playwright) | engineering-workflow-automation | ★★★★☆ | Use when the task requires automating a real browser from the terminal (navigati |
 
 ## pmm
 
@@ -3829,6 +3989,14 @@
 |-------|----------|---------|-------------|
 | [promptfoo-evaluation](skills/developer-engineering/promptfoo-evaluation) | developer-engineering | ★★★★★ | Configures and runs LLM evaluation using Promptfoo framework. Use when setting u |
 
+## promql
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [cc-devops-skills](skills/devops-sre/cc-devops-skills) | devops-sre | ★★★★☆ | SRE, DevOps, Kubernetes, CI/CD, PromQL, Terraform, Docker, and incident operatio |
+
 ## pulse
 
 **1 skills**
@@ -3852,6 +4020,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [python-performance](skills/developer-engineering/python-performance) | developer-engineering | ★★★★☆ | 用于 Python 性能优化、内存分析和并发编程最佳实践。来源：skills.sh 12.8K installs。 |
+
+## qa
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [playwright-pro](skills/engineering-workflow-automation/playwright-pro) | engineering-workflow-automation | ★★★★☆ | Production-grade Playwright testing skill for E2E suites, flaky test diagnosis,  |
 
 ## rag
 
@@ -3893,6 +4069,14 @@
 |-------|----------|---------|-------------|
 | [twitter-reader](skills/growth-operations-xiaohongshu/twitter-reader) | growth-operations-xiaohongshu | ★★★☆☆ | Fetch Twitter/X post content by URL using jina.ai API to bypass JavaScript restr |
 
+## refactoring
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [andrej-karpathy-skills](skills/ai-workflow/andrej-karpathy-skills) | ai-workflow | ★★★★☆ | Karpathy-inspired coding discipline for AI agents: think before coding, keep cha |
+
 ## reflect
 
 **1 skills**
@@ -3908,6 +4092,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [macro-regime-monitor](skills/finance-investing/macro-regime-monitor) | finance-investing | ★★☆☆☆ | Use when tracking macro regime shifts, summarizing inflation, growth, spreads, a |
+
+## regression-testing
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [playwright-pro](skills/engineering-workflow-automation/playwright-pro) | engineering-workflow-automation | ★★★★☆ | Production-grade Playwright testing skill for E2E suites, flaky test diagnosis,  |
 
 ## release
 
@@ -3956,6 +4148,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [codebase-inspection](skills/developer-engineering/codebase-inspection) | developer-engineering | ★★★★☆ | Inspect and analyze codebases using pygount for LOC counting, language breakdown |
+
+## responsive-design
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [ui-ux-pro-max](skills/product-design/ui-ux-pro-max) | product-design | ★★★★☆ | Front-end UI/UX design intelligence for creating, reviewing, and hardening polis |
 
 ## review
 
@@ -4461,14 +4661,6 @@
 |-------|----------|---------|-------------|
 | [tech-debt-tracker](skills/developer-engineering/tech-debt-tracker) | developer-engineering | ★★★★★ | Tier: POWERFUL 🔥 Category: Engineering Process Automation Expertise: Code Qualit |
 
-## terraform
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [terraform-engineer](skills/developer-engineering/terraform-engineer) | developer-engineering | ★★★★☆ | 用于 Terraform 基础设施即代码（IaC）设计、模块化管理和状态管理。来源：HashiCorp 官方 + skills.sh。 |
-
 ## test
 
 **1 skills**
@@ -4516,6 +4708,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [security-threat-model](skills/security-and-reliability/security-threat-model) | security-and-reliability | ★★★☆☆ | 用于基于代码库枚举信任边界、资产、攻击者能力、滥用路径和缓解措施，并生成威胁模型。 |
+
+## threat-modeling
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [security-auditor](skills/security-and-reliability/security-auditor) | security-and-reliability | ★★★★☆ | Security audit workflow for AI-generated application code, APIs, infrastructure  |
 
 ## tome
 
@@ -4589,6 +4789,22 @@
 |-------|----------|---------|-------------|
 | [typescript-best-practices](skills/developer-engineering/typescript-best-practices) | developer-engineering | ★★★★☆ | 用于 TypeScript 高级类型编程、类型安全设计和常见反模式避免。仓库整理版，吸收社区高频最佳实践。 |
 
+## typography
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [ui-ux-pro-max](skills/product-design/ui-ux-pro-max) | product-design | ★★★★☆ | Front-end UI/UX design intelligence for creating, reviewing, and hardening polis |
+
+## ui
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [ui-ux-pro-max](skills/product-design/ui-ux-pro-max) | product-design | ★★★★☆ | Front-end UI/UX design intelligence for creating, reviewing, and hardening polis |
+
 ## upgrade-safe
 
 **1 skills**
@@ -4613,6 +4829,14 @@
 |-------|----------|---------|-------------|
 | [using-agent-skills](skills/ai-workflow/using-agent-skills) | ai-workflow | ★★★★☆ | Discovers and invokes agent skills. Use when starting a session or when you need |
 
+## ux
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [ui-ux-pro-max](skills/product-design/ui-ux-pro-max) | product-design | ★★★★☆ | Front-end UI/UX design intelligence for creating, reviewing, and hardening polis |
+
 ## valuation
 
 **1 skills**
@@ -4620,14 +4844,6 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [comps-valuation-analyst](skills/finance-investing/comps-valuation-analyst) | finance-investing | ★★☆☆☆ | Use when valuing a public company with peer multiples, building comparable-compa |
-
-## verification
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [verification-before-completion](skills/ai-workflow/verification-before-completion) | ai-workflow | ★★★★☆ | Use when about to claim work is complete, fixed, or passing, before committing o |
 
 ## vetter
 
@@ -4644,6 +4860,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [lark-vc](skills/knowledge-and-pm-integrations/lark-vc) | knowledge-and-pm-integrations | ★★★★☆ | 飞书视频会议：搜索历史会议、查询会议纪要产物（总结、待办、章节、逐字稿）、查询会议参会人快照。1. 查询已经结束的会议数量或详情时使用本技能（如历史日期｜昨天｜ |
+
+## visual-regression
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [playwright-pro](skills/engineering-workflow-automation/playwright-pro) | engineering-workflow-automation | ★★★★☆ | Production-grade Playwright testing skill for E2E suites, flaky test diagnosis,  |
 
 ## voice
 
