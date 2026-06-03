@@ -72,7 +72,7 @@ WebFetch https://open.feishu.cn/llms.txt
 用 WebFetch 获取模块文档，找到具体 API 的文档链接：
 
 ```
-WebFetch https://open.feishu.cn/llms-docs/zh-CN/llms-<module>.txt
+WebFetch https://open.feishu.cn/llms-docs/zh-CN/llms-{module}.txt
   → 提取问题："找出与 <用户需求> 相关的 API 说明和文档链接"
 ```
 

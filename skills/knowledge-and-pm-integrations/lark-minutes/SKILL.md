@@ -30,7 +30,7 @@ metadata:
 ## 核心概念
 
 - **妙记（Minutes）**：来源于飞书视频会议的录制产物或用户上传的音视频文件，通过 `minute_token` 标识。
-- **妙记 Token（minute\_token）**：妙记的唯一标识符，可从妙记 URL 末尾提取（例如 `https://*.feishu.cn/minutes/obcnxxxxxxxxxxxxxxxxxxxx` 中的 `obcnxxxxxxxxxxxxxxxxxxxx`）。如果 URL 中包含额外参数（如 `?xxx`），应截取路径最后一段。
+- **妙记 Token（minute\_token）**：妙记的唯一标识符，可从妙记 URL 末尾提取（例如 `https://{tenant}.feishu.cn/minutes/{minute_token}` 中的 `{minute_token}`）。如果 URL 中包含额外参数（如 `?xxx`），应截取路径最后一段。
 
 ## 核心场景
 

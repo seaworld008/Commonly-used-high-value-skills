@@ -4,7 +4,7 @@
 
 面向发布、CI/CD、可观测性、故障响应和环境治理的技能集合。
 
-当前分类共 **13** 个技能。
+当前分类共 **14** 个技能。
 
 ## 推荐先看
 
@@ -17,6 +17,7 @@
 
 | 技能 | 简介 | 目录 | 详情 |
 |------|------|------|------|
+| `azure-kubernetes` | Plan, create, and configure production-ready Azure Kubernetes Service (AKS) clusters. Covers Day-0 checklist, SKU selection (Automatic vs Standard), networking options (private API server, Azure CNI Overlay, egress configuration), security, and operations (autoscaling, upgrade strategy, cost analysis). WHEN: create AKS environment, provision AKS, enable AKS observability, design AKS networking, choose AKS SKU, secure AKS, optimize AKS, AKS spot nodes, AKS cluster-autoscaler, rightsize AKS pod, pod rightsizing, over-provisioned AKS pod, pod resource requests and limits, Vertical Pod Autoscaler, VPA recommendations. | [目录](./azure-kubernetes/) | [SKILL.md](./azure-kubernetes/SKILL.md) |
 | `beacon` | Observability and reliability engineering specialist. Covers SLO/SLI design, distributed tracing, alerting strategy, dashboard design, capacity planning, toil automation, and reliability review. | [目录](./beacon/) | [SKILL.md](./beacon/SKILL.md) |
 | `changelog-generator` | Parse conventional commits, determine semantic version bumps, and generate structured changelogs in Keep a Changelog format. Supports monorepo changelogs, GitHub Releases integration, and separates user-facing from developer changelogs. | [目录](./changelog-generator/) | [SKILL.md](./changelog-generator/SKILL.md) |
 | `ci-cd-pipeline-builder` | Analyzes your project stack and generates production-ready CI/CD pipeline configurations for GitHub Actions, GitLab CI, and Bitbucket Pipelines. Handles matrix testing, caching strategies, deployment stages, environment promotion, and secret management — tailored to your actual tech stack. | [目录](./ci-cd-pipeline-builder/) | [SKILL.md](./ci-cd-pipeline-builder/SKILL.md) |

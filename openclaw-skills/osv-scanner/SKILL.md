@@ -182,4 +182,4 @@ jobs:
 ## Reference Sources
 
 - OSV-Scanner docs: https://google.github.io/osv-scanner/
-- Source scanning: https://google.github.io/osv-scanner/usage/scan-source/
+- Source scanning: https://google.github.io/osv-scanner/usage/scan-source

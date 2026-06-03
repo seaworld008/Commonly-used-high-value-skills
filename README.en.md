@@ -5,12 +5,12 @@
 [![简体中文](https://img.shields.io/badge/README-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1677ff)](./README.md)
 [![English](https://img.shields.io/badge/README-English-111111)](./README.en.md)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b894)](./openclaw-skills/README.md)
-[![Skills](https://img.shields.io/badge/Skills-293-7c3aed)](./skills/)
+[![Skills](https://img.shields.io/badge/Skills-296-7c3aed)](./skills/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
 A high-value skills repository for AI developers, organized by real work scenarios such as developer engineering, DevOps, automation, finance, design, knowledge workflows, and reliability.
 
-This repository currently contains **16 categories / 293 skills**.
+This repository currently contains **16 categories / 296 skills**.
 
 ## Who This Is For
 
@@ -237,7 +237,7 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 ## Skill Overview (by category, 16 categories / 258 skills)
 
 <a id="cat-developer-engineering"></a>
-### 1. Developer Engineering (developer-engineering, 47)
+### 1. Developer Engineering (developer-engineering, 49)
 
 - [`agent-designer`](./skills/developer-engineering/agent-designer/)
 - [`api-design-reviewer`](./skills/developer-engineering/api-design-reviewer/)
@@ -265,6 +265,7 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`mcp-server-builder`](./skills/developer-engineering/mcp-server-builder/)
 - [`migration-architect`](./skills/developer-engineering/migration-architect/)
 - [`monorepo-navigator`](./skills/developer-engineering/monorepo-navigator/)
+- [`neon-postgres`](./skills/developer-engineering/neon-postgres/)
 - [`nextjs-app-router`](./skills/developer-engineering/nextjs-app-router/)
 - [`parallel-debugging`](./skills/developer-engineering/parallel-debugging/)
 - [`performance-profiler`](./skills/developer-engineering/performance-profiler/)
@@ -276,6 +277,7 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`rust-engineer`](./skills/developer-engineering/rust-engineer/)
 - [`schema`](./skills/developer-engineering/schema/)
 - [`skill-tester`](./skills/developer-engineering/skill-tester/)
+- [`supabase`](./skills/developer-engineering/supabase/)
 - [`supabase-postgres`](./skills/developer-engineering/supabase-postgres/)
 - [`supabase-postgres-best-practices`](./skills/developer-engineering/supabase-postgres-best-practices/)
 - [`systematic-debugging`](./skills/developer-engineering/systematic-debugging/)
@@ -374,8 +376,9 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`yeet`](./skills/engineering-workflow-automation/yeet/)
 
 <a id="cat-devops-sre"></a>
-### 5. DevOps / SRE (devops-sre, 13)
+### 5. DevOps / SRE (devops-sre, 14)
 
+- [`azure-kubernetes`](./skills/devops-sre/azure-kubernetes/)
 - [`beacon`](./skills/devops-sre/beacon/)
 - [`changelog-generator`](./skills/devops-sre/changelog-generator/)
 - [`ci-cd-pipeline-builder`](./skills/devops-sre/ci-cd-pipeline-builder/)

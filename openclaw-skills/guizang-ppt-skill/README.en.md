@@ -7,6 +7,7 @@
 ![Claude Code](https://img.shields.io/badge/Claude%20Code-Supported-6B5B95?style=flat-square)
 ![Codex](https://img.shields.io/badge/Codex-Supported-222222?style=flat-square)
 [![Supported by ZhenFund Token Grant](https://img.shields.io/static/v1?label=ZhenFund%20Token%20Grant&message=Supported&color=FF4D00&style=flat-square)](https://zhenfund.feishu.cn/share/base/form/shrcn1lAANF659o7EpWnxlR1VOh?sessionid=)
+![360 Security Lobster Gold Sponsor](https://img.shields.io/static/v1?label=360%20Security%20Lobster&message=Gold%20Sponsor&color=1677FF&style=flat-square)
 
 An agent skill for Claude Code, Codex, and similar coding-agent environments. It generates **single-file HTML horizontal-swipe decks**, deck visuals, and social cover pages.
 
@@ -16,6 +17,7 @@ It ships with two visual systems:
 - **Style B: Swiss International Typographic Style**. Grid-first, one high-saturation anchor color, sharp rectangles, hairline rules, and extreme type contrast. Best for facts, products, analysis, and frameworks.
 
 > Distilled by [Guizang](https://x.com/op7418) from offline talks like "One-Person Company: Organizations Folded by AI" and "A New Way of Working." Every pitfall hit during those decks is logged in `checklist.md`.
+> Sponsor and supporter details are listed in [SPONSORS.md](./SPONSORS.md).
 
 **Old Theme · Style A Editorial Magazine**
 
@@ -56,6 +58,14 @@ Turn this Markdown file into an editorial magazine-style presentation.
 Create a 21:9 social cover from the core idea of this deck.
 Redesign this product screenshot as a 16:10 slide visual.
 ```
+
+## Sponsors and Supporters
+
+<a href="./SPONSORS.md">
+  <img src="https://github.com/user-attachments/assets/5b0c22c8-aff4-4219-900d-6af8604c57a8" alt="360 Security Lobster Gold Sponsor" width="100%">
+</a>
+
+Guizang PPT Skill is supported by **360 Security Lobster** as Gold Sponsor and by [ZhenFund Token Grant](https://zhenfund.feishu.cn/share/base/form/shrcn1lAANF659o7EpWnxlR1VOh?sessionid=). See [SPONSORS.md](./SPONSORS.md) for details.
 
 ## What you get
 
@@ -334,4 +344,4 @@ Bugs, layout issues, new layout requests — Issues and PRs welcome. Prioritize:
 
 ## License
 
-MIT © 2026 [op7418](https://github.com/op7418)
+AGPL-3.0 © 2026 [op7418](https://github.com/op7418)
