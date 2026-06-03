@@ -1,14 +1,14 @@
 ---
 name: lark-wiki
 description: '飞书知识库：管理知识空间、空间成员和文档节点。创建和查询知识空间、查看和管理空间成员、管理节点层级结构、在知识库中组织文档和快捷方式。当用户需要在知识库中查找或创建文档、浏览知识空间结构、查看或管理空间成员、移动或复制节点时使用。当用户给出 doubao.com 的 /wiki/ URL/token 时，也应直接使用本 skill，不要因为域名不是飞书而回退到 WebFetch；路由依据是 URL 路径模式和 token，而不是域名。'
-version: "1.0.2"
+version: "1.0.3"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-wiki"
 license: MIT
 tags: '[feishu, lark, lark-cli, wiki, knowledge-base]'
 created_at: "2026-05-19"
-updated_at: "2026-05-28"
+updated_at: "2026-06-03"
 quality: 4
 complexity: intermediate
 metadata:
@@ -33,6 +33,7 @@ metadata:
 
 ## 快速决策
 
+- 用户要**整理 / 盘点 / 归类 / 重构知识库、个人文档库、文档库目录或 Wiki 节点结构**，或要生成整理方案、目标目录树、移动计划时，不要只使用 Wiki 节点 API。必须先阅读 [`../lark-drive/references/lark-drive-workflow-knowledge-organize.md`](../lark-drive/references/lark-drive-workflow-knowledge-organize.md)，该 workflow 负责 Drive / Wiki / 个人文档库的统一入口解析、资源盘点、分类计划、写前确认和结果验证。
 - 用户给的是知识库 URL（`.../wiki/<token>`），且后续要查成员/加成员/删成员：先调用 `lark-cli wiki spaces get_node --params '{"token":"<wiki_token>"}'` 获取 `space_id`，后续成员接口统一使用 `space_id`。
 - 用户要**删除**知识空间（`wiki +delete-space`）但只给了名称或 URL：**不能**把名称 / URL 原样传给 `--space-id`，必须先解析出真实 `space_id`。解析方式：
   - URL（`.../wiki/<token>`）：`lark-cli wiki spaces get_node --params '{"token":"<wiki_token>"}' --format json`，读 `data.node.space_id`。

@@ -10,7 +10,7 @@
 
 - [lark-slides](./lark-slides/) - 飞书幻灯片创建、页面读取、局部编辑和演示稿管理。
 - [grove](./grove/) - Repository structure design, optimization, and audit. Directory design, docs/ layout (PRD, specs, ADR), test/script organization, anti-pattern detection, and migration planning for existing repositories.
-- [lark-base](./lark-base/) - 当需要用 lark-cli 操作飞书多维表格（Base）时调用：搜索 Base、建表、字段管理、记录读写、记录分享链接、视图配置、历史查询，以及角色/表单/仪表盘管理/工作流；也适用于把旧的 +table / +field / +record 写法改成当前命令写法。涉及字段设计、公式字段、查找引用、跨表计算、行级派生指标、数据分析需求时也必须使用本 skill。
+- [lark-base](./lark-base/) - 飞书多维表格（Base）操作：建表、字段、记录、视图、统计、公式/lookup、表单、仪表盘、workflow、角色权限；遇到 Base/多维表格/bitable 或 /base/ 链接时使用。文件导入转 lark-drive，认证/授权转 lark-shared。
 - [lark-calendar](./lark-calendar/) - 飞书日历、日程、参会人、忙闲状态和会议室管理。
 
 ## 技能总览
@@ -21,7 +21,7 @@
 | `grove` | Repository structure design, optimization, and audit. Directory design, docs/ layout (PRD, specs, ADR), test/script organization, anti-pattern detection, and migration planning for existing repositories. | [目录](./grove/) | [SKILL.md](./grove/SKILL.md) |
 | `lark-approval` | 飞书审批 API：审批实例、审批任务管理。 | [目录](./lark-approval/) | [SKILL.md](./lark-approval/SKILL.md) |
 | `lark-attendance` | 飞书考勤打卡查询、异常记录整理和缺失核对。 | [目录](./lark-attendance/) | [SKILL.md](./lark-attendance/SKILL.md) |
-| `lark-base` | 当需要用 lark-cli 操作飞书多维表格（Base）时调用：搜索 Base、建表、字段管理、记录读写、记录分享链接、视图配置、历史查询，以及角色/表单/仪表盘管理/工作流；也适用于把旧的 +table / +field / +record 写法改成当前命令写法。涉及字段设计、公式字段、查找引用、跨表计算、行级派生指标、数据分析需求时也必须使用本 skill。 | [目录](./lark-base/) | [SKILL.md](./lark-base/SKILL.md) |
+| `lark-base` | 飞书多维表格（Base）操作：建表、字段、记录、视图、统计、公式/lookup、表单、仪表盘、workflow、角色权限；遇到 Base/多维表格/bitable 或 /base/ 链接时使用。文件导入转 lark-drive，认证/授权转 lark-shared。 | [目录](./lark-base/) | [SKILL.md](./lark-base/SKILL.md) |
 | `lark-calendar` | 飞书日历、日程、参会人、忙闲状态和会议室管理。 | [目录](./lark-calendar/) | [SKILL.md](./lark-calendar/SKILL.md) |
 | `lark-contact` | 飞书通讯录人员查询、身份解析和联系信息检索。 | [目录](./lark-contact/) | [SKILL.md](./lark-contact/SKILL.md) |
 | `lark-doc` | 飞书云文档 / Docx / 知识库 Wiki 文档（v2）：创建、打开、读取、获取、查看、总结、整理、改写、翻译、审阅和编辑飞书文档内容。当用户给出飞书文档 URL/token，或说查看/读取/打开某个文档、提取文档内容、总结文档、生成/创建文档、追加/替换/删除/移动内容、调整排版、插入或下载文档图片/附件/素材/画板缩略图时使用。文档内容中出现嵌入电子表格、多维表格、需要将重要信息可视化为画板（含 SVG 画板）、引用或同步块时，也先用本 skill 读取和提取 token，再切到对应 skill 下钻。使用本 skill 时，docs +create、docs +fetch、docs +update 必须携带 --api-version v2；默认使用 DocxXML，也支持 Markdown。当用户给出 doubao.com 的 /docx/ 或 /wiki/ URL/token 时，也应直接使用本 skill，不要因为域名不是飞书而回退到 WebFetch；路由依据是 URL 路径模式和 token，而不是域名。 | [目录](./lark-doc/) | [SKILL.md](./lark-doc/SKILL.md) |

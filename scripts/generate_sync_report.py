@@ -6,10 +6,50 @@ import argparse
 import json
 import os
 import sys
-from datetime import datetime
+import re
+from datetime import UTC, datetime
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
+
+
+def escape_table_cell(value: object) -> str:
+    return str(value or "").replace("|", "\\|").replace("\n", " ").strip()
+
+
+def source_label(discovery: dict) -> str:
+    source = discovery.get("source") or discovery.get("source_repo") or "source"
+    url = discovery.get("url") or ""
+    repo = discovery.get("source_repo") or ""
+    if not repo:
+        match = re.search(r"\(([^)]+/[^)]+)\)", str(source))
+        if match:
+            repo = match.group(1)
+    label = repo or source
+    if url:
+        return f"[{escape_table_cell(label)}]({url})"
+    if repo:
+        return f"[{escape_table_cell(repo)}](https://github.com/{repo})"
+    return escape_table_cell(label)
+
+
+def upstream_skill_name(row: dict) -> str:
+    return (
+        row.get("skill_name")
+        or row.get("video_name")
+        or row.get("slug")
+        or Path(row.get("repo_skill", "")).parent.name
+        or "unknown-skill"
+    )
+
+
+def upstream_update_reason(row: dict) -> str:
+    if row.get("update_reason"):
+        return row["update_reason"]
+    latest = row.get("latest_commit")
+    if latest:
+        return f"new upstream commit `{latest[:12]}` available"
+    return "new commits available"
 
 
 def main() -> None:
@@ -47,7 +87,7 @@ def main() -> None:
     lines = [
         f"# Weekly Skill Sync Report",
         f"",
-        f"**Generated**: {datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')}",
+        f"**Generated**: {datetime.now(UTC).strftime('%Y-%m-%d %H:%M UTC')}",
         f"**Local skills**: {discovery.get('local_skill_count', 'N/A')}",
         f"",
     ]
@@ -55,21 +95,21 @@ def main() -> None:
     if new_skills:
         lines.append(f"## New Skills Discovered ({len(new_skills)})")
         lines.append("")
-        lines.append("| Skill | Source Repo | Stars | Description |")
+        lines.append("| Skill | Source | Stars/Installs | Description |")
         lines.append("|-------|-----------|-------|-------------|")
         for s in new_skills[:30]:  # Cap at 30
-            name = s.get("name", "")
-            repo = s.get("source_repo", "")
+            name = escape_table_cell(s.get("name", ""))
+            source = source_label(s)
             stars = s.get("repo_stars", 0)
-            desc = s.get("repo_description", "")[:80]
-            lines.append(f"| `{name}` | [{repo}](https://github.com/{repo}) | {stars} | {desc} |")
+            desc = escape_table_cell(s.get("description") or s.get("repo_description") or "")[:120]
+            lines.append(f"| `{name}` | {source} | {stars} | {desc} |")
         lines.append("")
     
     if upstream_updates:
         lines.append(f"## Upstream Updates ({len(upstream_updates)})")
         lines.append("")
         for u in upstream_updates:
-            lines.append(f"- **{u.get('skill_name', '')}**: {u.get('update_reason', 'new commits available')}")
+            lines.append(f"- **{upstream_skill_name(u)}**: {upstream_update_reason(u)}")
         lines.append("")
     
     if not has_updates:

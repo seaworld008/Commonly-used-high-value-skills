@@ -1,12 +1,12 @@
 # Tags Index
 
-> Auto-generated from 1068 skill-tag mappings across 457 tags.
+> Auto-generated from 1077 skill-tag mappings across 459 tags.
 > Last updated: see git log.
 
 ## Quick Navigation
 
 - [`workflow`](#workflow) (61)
-- [`development`](#development) (45)
+- [`development`](#development) (47)
 - [`agent`](#agent) (35)
 - [`ai`](#ai) (35)
 - [`feishu`](#feishu) (25)
@@ -19,11 +19,11 @@
 - [`finance`](#finance) (16)
 - [`automation`](#automation) (15)
 - [`productivity`](#productivity) (15)
+- [`devops`](#devops) (14)
 - [`growth`](#growth) (14)
 - [`marketing`](#marketing) (14)
-- [`devops`](#devops) (13)
+- [`sre`](#sre) (14)
 - [`product`](#product) (13)
-- [`sre`](#sre) (13)
 - [`deployment`](#deployment) (7)
 - [`designer`](#designer) (7)
 - [`builder`](#builder) (6)
@@ -59,12 +59,15 @@
 - [`engineer`](#engineer) (3)
 - [`git`](#git) (3)
 - [`knowledge-base`](#knowledge-base) (3)
+- [`kubernetes`](#kubernetes) (3)
 - [`markdown`](#markdown) (3)
 - [`office`](#office) (3)
+- [`postgres`](#postgres) (3)
 - [`reviewer`](#reviewer) (3)
 - [`safety`](#safety) (3)
 - [`sbom`](#sbom) (3)
 - [`secrets`](#secrets) (3)
+- [`supabase`](#supabase) (3)
 - [`supply-chain`](#supply-chain) (3)
 - [`system`](#system) (3)
 - [`web`](#web) (3)
@@ -92,7 +95,6 @@
 - [`gateway`](#gateway) (2)
 - [`graphql`](#graphql) (2)
 - [`integrations`](#integrations) (2)
-- [`kubernetes`](#kubernetes) (2)
 - [`meeting`](#meeting) (2)
 - [`metrics`](#metrics) (2)
 - [`minutes`](#minutes) (2)
@@ -101,7 +103,6 @@
 - [`pdf`](#pdf) (2)
 - [`performance`](#performance) (2)
 - [`plans`](#plans) (2)
-- [`postgres`](#postgres) (2)
 - [`ppt`](#ppt) (2)
 - [`practices`](#practices) (2)
 - [`presentation`](#presentation) (2)
@@ -118,7 +119,6 @@
 - [`slides`](#slides) (2)
 - [`spreadsheet`](#spreadsheet) (2)
 - [`strategy`](#strategy) (2)
-- [`supabase`](#supabase) (2)
 - [`toolkit`](#toolkit) (2)
 - [`tracker`](#tracker) (2)
 - [`vercel`](#vercel) (2)
@@ -146,6 +146,7 @@
 - [`authoring`](#authoring) (1)
 - [`auto-continue`](#auto-continue) (1)
 - [`aws`](#aws) (1)
+- [`azure`](#azure) (1)
 - [`backtester`](#backtester) (1)
 - [`base`](#base) (1)
 - [`beacon`](#beacon) (1)
@@ -301,6 +302,7 @@
 - [`morph`](#morph) (1)
 - [`multi-agent`](#multi-agent) (1)
 - [`navigator`](#navigator) (1)
+- [`neon`](#neon) (1)
 - [`netlify`](#netlify) (1)
 - [`nextjs`](#nextjs) (1)
 - [`nexus`](#nexus) (1)
@@ -535,7 +537,7 @@
 
 ## development
 
-**45 skills**
+**47 skills**
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
@@ -550,11 +552,12 @@
 | [dependency-auditor](skills/developer-engineering/dependency-auditor) | developer-engineering | ★★★★★ | > Skill Type: POWERFUL > Category: Engineering > Domain: Dependency Management & |
 | [gateway](skills/developer-engineering/gateway) | developer-engineering | ★★★★★ | API design and review, OpenAPI spec generation, versioning strategy, breaking ch |
 | [github-contributor](skills/developer-engineering/github-contributor) | developer-engineering | ★★★★★ | Strategic guide for becoming an effective GitHub contributor. Covers opportunity |
-| [graphify](skills/developer-engineering/graphify) | developer-engineering | ★★★★★ | any input (code, docs, papers, images, videos) to knowledge graph. Use when user |
+| [graphify](skills/developer-engineering/graphify) | developer-engineering | ★★★★★ | Use for any question about a codebase, its architecture, file relationships, or  |
 | [mcp-builder](skills/developer-engineering/mcp-builder) | developer-engineering | ★★★★★ | Guide for creating high-quality MCP (Model Context Protocol) servers that enable |
 | [mcp-server-builder](skills/developer-engineering/mcp-server-builder) | developer-engineering | ★★★★★ | Design and implement Model Context Protocol (MCP) servers that expose any REST A |
 | [migration-architect](skills/developer-engineering/migration-architect) | developer-engineering | ★★★★★ | Purpose: Zero-downtime migration planning, compatibility validation, and rollbac |
 | [monorepo-navigator](skills/developer-engineering/monorepo-navigator) | developer-engineering | ★★★★★ | Navigate, manage, and optimize monorepos. Covers Turborepo, Nx, pnpm workspaces, |
+| [neon-postgres](skills/developer-engineering/neon-postgres) | developer-engineering | ★★★★★ | Guides and best practices for working with Neon Serverless Postgres. Covers setu |
 | [performance-profiler](skills/developer-engineering/performance-profiler) | developer-engineering | ★★★★★ | Systematic performance profiling for Node.js, Python, and Go applications. Ident |
 | [pr-review-expert](skills/developer-engineering/pr-review-expert) | developer-engineering | ★★★★★ | Structured, systematic code review for GitHub PRs and GitLab MRs. Goes beyond st |
 | [promptfoo-evaluation](skills/developer-engineering/promptfoo-evaluation) | developer-engineering | ★★★★★ | Configures and runs LLM evaluation using Promptfoo framework. Use when setting u |
@@ -573,6 +576,7 @@
 | [nextjs-app-router](skills/developer-engineering/nextjs-app-router) | developer-engineering | ★★★★☆ | 用于 Next.js App Router 模式开发，包含 RSC、Server Actions 和路由最佳实践。来源：skills.sh 10.2K inst |
 | [python-performance](skills/developer-engineering/python-performance) | developer-engineering | ★★★★☆ | 用于 Python 性能优化、内存分析和并发编程最佳实践。来源：skills.sh 12.8K installs。 |
 | [rust-engineer](skills/developer-engineering/rust-engineer) | developer-engineering | ★★★★☆ | 用于 Rust 语言开发最佳实践、异步编程和系统级编程指导。来源：skills.sh 1.5K+ installs。 |
+| [supabase](skills/developer-engineering/supabase) | developer-engineering | ★★★★☆ | Use when doing ANY task involving Supabase. Triggers: Supabase products (Databas |
 | [supabase-postgres](skills/developer-engineering/supabase-postgres) | developer-engineering | ★★★★☆ | 用于 Supabase 平台开发与 PostgreSQL 最佳实践，包含 RLS、Edge Functions 和实时订阅。来源：supabase 官方 52. |
 | [systematic-debugging](skills/developer-engineering/systematic-debugging) | developer-engineering | ★★★★☆ | Use when encountering any bug, test failure, or unexpected behavior, before prop |
 | [tailwind-design-system](skills/developer-engineering/tailwind-design-system) | developer-engineering | ★★★★☆ | 用于 Tailwind CSS 设计系统搭建、组件库开发与主题定制。来源：skills.sh 24.7K installs。 |
@@ -675,7 +679,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lark-base](skills/knowledge-and-pm-integrations/lark-base) | knowledge-and-pm-integrations | ★★★★☆ | 当需要用 lark-cli 操作飞书多维表格（Base）时调用：搜索 Base、建表、字段管理、记录读写、记录分享链接、视图配置、历史查询，以及角色/表单/仪表 |
+| [lark-base](skills/knowledge-and-pm-integrations/lark-base) | knowledge-and-pm-integrations | ★★★★☆ | 飞书多维表格（Base）操作：建表、字段、记录、视图、统计、公式/lookup、表单、仪表盘、workflow、角色权限；遇到 Base/多维表格/bitabl |
 | [lark-calendar](skills/knowledge-and-pm-integrations/lark-calendar) | knowledge-and-pm-integrations | ★★★★☆ | 飞书日历、日程、参会人、忙闲状态和会议室管理。 |
 | [lark-drive](skills/knowledge-and-pm-integrations/lark-drive) | knowledge-and-pm-integrations | ★★★★☆ | 飞书云空间（云盘/云存储）：管理云空间（云盘/云存储）中的文件和文件夹。上传和下载文件、创建文件夹、复制/移动/删除文件、查看文件元数据、管理文档评论、管理文档 |
 | [lark-event](skills/knowledge-and-pm-integrations/lark-event) | knowledge-and-pm-integrations | ★★★★☆ | Lark/Feishu real-time event listening / subscribing / consuming: stream events a |
@@ -707,7 +711,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lark-base](skills/knowledge-and-pm-integrations/lark-base) | knowledge-and-pm-integrations | ★★★★☆ | 当需要用 lark-cli 操作飞书多维表格（Base）时调用：搜索 Base、建表、字段管理、记录读写、记录分享链接、视图配置、历史查询，以及角色/表单/仪表 |
+| [lark-base](skills/knowledge-and-pm-integrations/lark-base) | knowledge-and-pm-integrations | ★★★★☆ | 飞书多维表格（Base）操作：建表、字段、记录、视图、统计、公式/lookup、表单、仪表盘、workflow、角色权限；遇到 Base/多维表格/bitabl |
 | [lark-calendar](skills/knowledge-and-pm-integrations/lark-calendar) | knowledge-and-pm-integrations | ★★★★☆ | 飞书日历、日程、参会人、忙闲状态和会议室管理。 |
 | [lark-drive](skills/knowledge-and-pm-integrations/lark-drive) | knowledge-and-pm-integrations | ★★★★☆ | 飞书云空间（云盘/云存储）：管理云空间（云盘/云存储）中的文件和文件夹。上传和下载文件、创建文件夹、复制/移动/删除文件、查看文件元数据、管理文档评论、管理文档 |
 | [lark-event](skills/knowledge-and-pm-integrations/lark-event) | knowledge-and-pm-integrations | ★★★★☆ | Lark/Feishu real-time event listening / subscribing / consuming: stream events a |
@@ -739,7 +743,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lark-base](skills/knowledge-and-pm-integrations/lark-base) | knowledge-and-pm-integrations | ★★★★☆ | 当需要用 lark-cli 操作飞书多维表格（Base）时调用：搜索 Base、建表、字段管理、记录读写、记录分享链接、视图配置、历史查询，以及角色/表单/仪表 |
+| [lark-base](skills/knowledge-and-pm-integrations/lark-base) | knowledge-and-pm-integrations | ★★★★☆ | 飞书多维表格（Base）操作：建表、字段、记录、视图、统计、公式/lookup、表单、仪表盘、workflow、角色权限；遇到 Base/多维表格/bitabl |
 | [lark-calendar](skills/knowledge-and-pm-integrations/lark-calendar) | knowledge-and-pm-integrations | ★★★★☆ | 飞书日历、日程、参会人、忙闲状态和会议室管理。 |
 | [lark-drive](skills/knowledge-and-pm-integrations/lark-drive) | knowledge-and-pm-integrations | ★★★★☆ | 飞书云空间（云盘/云存储）：管理云空间（云盘/云存储）中的文件和文件夹。上传和下载文件、创建文件夹、复制/移动/删除文件、查看文件元数据、管理文档评论、管理文档 |
 | [lark-event](skills/knowledge-and-pm-integrations/lark-event) | knowledge-and-pm-integrations | ★★★★☆ | Lark/Feishu real-time event listening / subscribing / consuming: stream events a |
@@ -906,7 +910,7 @@
 | [jupyter-notebook](skills/engineering-workflow-automation/jupyter-notebook) | engineering-workflow-automation | ★★★★☆ | Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) |
 | [playwright](skills/engineering-workflow-automation/playwright) | engineering-workflow-automation | ★★★★☆ | Use when the task requires automating a real browser from the terminal (navigati |
 | [web-scraper](skills/engineering-workflow-automation/web-scraper) | engineering-workflow-automation | ★★★★☆ | 用于网页数据抓取、结构化提取和反爬策略应对。仓库整理版，吸收社区高频最佳实践。 |
-| [lark-base](skills/knowledge-and-pm-integrations/lark-base) | knowledge-and-pm-integrations | ★★★★☆ | 当需要用 lark-cli 操作飞书多维表格（Base）时调用：搜索 Base、建表、字段管理、记录读写、记录分享链接、视图配置、历史查询，以及角色/表单/仪表 |
+| [lark-base](skills/knowledge-and-pm-integrations/lark-base) | knowledge-and-pm-integrations | ★★★★☆ | 飞书多维表格（Base）操作：建表、字段、记录、视图、统计、公式/lookup、表单、仪表盘、workflow、角色权限；遇到 Base/多维表格/bitabl |
 | [billing-automation](skills/engineering-workflow-automation/billing-automation) | engineering-workflow-automation | ★★★☆☆ | Build automated billing systems for recurring payments, invoicing, subscription  |
 | [gh-fix-ci](skills/engineering-workflow-automation/gh-fix-ci) | engineering-workflow-automation | ★★★☆☆ | Use when a user asks to debug or fix failing GitHub PR checks that run in GitHub |
 | [agent-browser](skills/engineering-workflow-automation/agent-browser) | engineering-workflow-automation | ★★☆☆☆ | 为 Agent 提供真实浏览器自动化能力，支持语义定位、表单交互、截图录屏、脚本执行与会话管理。 |
@@ -935,6 +939,27 @@
 | [theme-factory](skills/operations-general/theme-factory) | operations-general | ★★★☆☆ | Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, |
 | [internal-comms](skills/operations-general/internal-comms) | operations-general | ★★☆☆☆ | A set of resources to help me write all kinds of internal communications, using  |
 | [weather](skills/operations-general/weather) | operations-general | ★★☆☆☆ | 免 API Key 的天气查询技能，支持多数据源与自然语言请求。 |
+
+## devops
+
+**14 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [beacon](skills/devops-sre/beacon) | devops-sre | ★★★★★ | Observability and reliability engineering specialist. Covers SLO/SLI design, dis |
+| [changelog-generator](skills/devops-sre/changelog-generator) | devops-sre | ★★★★★ | Parse conventional commits, determine semantic version bumps, and generate struc |
+| [ci-cd-pipeline-builder](skills/devops-sre/ci-cd-pipeline-builder) | devops-sre | ★★★★★ | Analyzes your project stack and generates production-ready CI/CD pipeline config |
+| [cloudflare-troubleshooting](skills/devops-sre/cloudflare-troubleshooting) | devops-sre | ★★★★★ | Investigate and resolve Cloudflare configuration issues using API-driven evidenc |
+| [env-secrets-manager](skills/devops-sre/env-secrets-manager) | devops-sre | ★★★★★ | Complete environment and secrets management workflow: .env file lifecycle across |
+| [gear](skills/devops-sre/gear) | devops-sre | ★★★★★ | Dependency management, CI/CD optimization, Docker configuration, and operational |
+| [github-ops](skills/devops-sre/github-ops) | devops-sre | ★★★★★ | Provides comprehensive GitHub operations using gh CLI and GitHub API. Activates  |
+| [incident-commander](skills/devops-sre/incident-commander) | devops-sre | ★★★★★ | Author: Claude Skills Team Version: 1.0.0 Last Updated: February 2026. |
+| [observability-designer](skills/devops-sre/observability-designer) | devops-sre | ★★★★★ | Description: Design comprehensive observability strategies for production system |
+| [release-manager](skills/devops-sre/release-manager) | devops-sre | ★★★★★ | The Release Manager skill provides comprehensive tools and knowledge for managin |
+| [senior-devops](skills/devops-sre/senior-devops) | devops-sre | ★★★★★ | Comprehensive DevOps skill for CI/CD, infrastructure automation, containerizatio |
+| [triage](skills/devops-sre/triage) | devops-sre | ★★★★★ | Incident first response, impact scope identification, recovery procedure formula |
+| [azure-kubernetes](skills/devops-sre/azure-kubernetes) | devops-sre | ★★★★☆ | Plan, create, and configure production-ready Azure Kubernetes Service (AKS) clus |
+| [senior-architect](skills/devops-sre/senior-architect) | devops-sre | ★★★★☆ | This skill should be used when the user asks to \"design system architecture\",  |
 
 ## growth
 
@@ -978,9 +1003,9 @@
 | [seo-audit](skills/growth-operations-xiaohongshu/seo-audit) | growth-operations-xiaohongshu | ★★★★☆ | 用于网站 SEO 全面审计、On-page 优化建议和技术 SEO 检查清单生成。仓库整理版，吸收社区高频最佳实践。 |
 | [twitter-reader](skills/growth-operations-xiaohongshu/twitter-reader) | growth-operations-xiaohongshu | ★★★☆☆ | Fetch Twitter/X post content by URL using jina.ai API to bypass JavaScript restr |
 
-## devops
+## sre
 
-**13 skills**
+**14 skills**
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
@@ -996,6 +1021,7 @@
 | [release-manager](skills/devops-sre/release-manager) | devops-sre | ★★★★★ | The Release Manager skill provides comprehensive tools and knowledge for managin |
 | [senior-devops](skills/devops-sre/senior-devops) | devops-sre | ★★★★★ | Comprehensive DevOps skill for CI/CD, infrastructure automation, containerizatio |
 | [triage](skills/devops-sre/triage) | devops-sre | ★★★★★ | Incident first response, impact scope identification, recovery procedure formula |
+| [azure-kubernetes](skills/devops-sre/azure-kubernetes) | devops-sre | ★★★★☆ | Plan, create, and configure production-ready Azure Kubernetes Service (AKS) clus |
 | [senior-architect](skills/devops-sre/senior-architect) | devops-sre | ★★★★☆ | This skill should be used when the user asks to \"design system architecture\",  |
 
 ## product
@@ -1017,26 +1043,6 @@
 | [voice](skills/product-design/voice) | product-design | ★★★★★ | User feedback collection, NPS survey design, review analysis, sentiment analysis |
 | [canvas-design](skills/product-design/canvas-design) | product-design | ★★★★☆ | Create beautiful visual art in .png and .pdf documents using design philosophy.  |
 | [landing-page-generator](skills/product-design/landing-page-generator) | product-design | ★★★★☆ | Generates high-converting landing pages as complete Next.js/React (TSX) componen |
-
-## sre
-
-**13 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [beacon](skills/devops-sre/beacon) | devops-sre | ★★★★★ | Observability and reliability engineering specialist. Covers SLO/SLI design, dis |
-| [changelog-generator](skills/devops-sre/changelog-generator) | devops-sre | ★★★★★ | Parse conventional commits, determine semantic version bumps, and generate struc |
-| [ci-cd-pipeline-builder](skills/devops-sre/ci-cd-pipeline-builder) | devops-sre | ★★★★★ | Analyzes your project stack and generates production-ready CI/CD pipeline config |
-| [cloudflare-troubleshooting](skills/devops-sre/cloudflare-troubleshooting) | devops-sre | ★★★★★ | Investigate and resolve Cloudflare configuration issues using API-driven evidenc |
-| [env-secrets-manager](skills/devops-sre/env-secrets-manager) | devops-sre | ★★★★★ | Complete environment and secrets management workflow: .env file lifecycle across |
-| [gear](skills/devops-sre/gear) | devops-sre | ★★★★★ | Dependency management, CI/CD optimization, Docker configuration, and operational |
-| [github-ops](skills/devops-sre/github-ops) | devops-sre | ★★★★★ | Provides comprehensive GitHub operations using gh CLI and GitHub API. Activates  |
-| [incident-commander](skills/devops-sre/incident-commander) | devops-sre | ★★★★★ | Author: Claude Skills Team Version: 1.0.0 Last Updated: February 2026. |
-| [observability-designer](skills/devops-sre/observability-designer) | devops-sre | ★★★★★ | Description: Design comprehensive observability strategies for production system |
-| [release-manager](skills/devops-sre/release-manager) | devops-sre | ★★★★★ | The Release Manager skill provides comprehensive tools and knowledge for managin |
-| [senior-devops](skills/devops-sre/senior-devops) | devops-sre | ★★★★★ | Comprehensive DevOps skill for CI/CD, infrastructure automation, containerizatio |
-| [triage](skills/devops-sre/triage) | devops-sre | ★★★★★ | Incident first response, impact scope identification, recovery procedure formula |
-| [senior-architect](skills/devops-sre/senior-architect) | devops-sre | ★★★★☆ | This skill should be used when the user asks to \"design system architecture\",  |
 
 ## deployment
 
@@ -1135,7 +1141,7 @@
 |-------|----------|---------|-------------|
 | [hermes-graphify-gsd-nonintrusive-workflow](skills/ai-agent-platform/hermes-graphify-gsd-nonintrusive-workflow) | ai-agent-platform | ★★★★★ | Use when integrating Hermes Agent, graphify, and GSD into a local development wo |
 | [hermes-graphify-gsd-runtime-operator](skills/ai-agent-platform/hermes-graphify-gsd-runtime-operator) | ai-agent-platform | ★★★★★ | Use when operating or debugging a repo-local Hermes + graphify + GSD autonomous  |
-| [graphify](skills/developer-engineering/graphify) | developer-engineering | ★★★★★ | any input (code, docs, papers, images, videos) to knowledge graph. Use when user |
+| [graphify](skills/developer-engineering/graphify) | developer-engineering | ★★★★★ | Use for any question about a codebase, its architecture, file relationships, or  |
 | [gsd-graphify-brownfield-bootstrap](skills/engineering-workflow-automation/gsd-graphify-brownfield-bootstrap) | engineering-workflow-automation | ★★★★★ | Bootstrap GSD + graphify for an existing brownfield repo when the project needs  |
 | [hermes-graphify-gsd-project-integration](skills/engineering-workflow-automation/hermes-graphify-gsd-project-integration) | engineering-workflow-automation | ★★★★★ | Use when integrating Hermes Agent, graphify, and GSD into a specific repository, |
 
@@ -1392,7 +1398,7 @@
 |-------|----------|---------|-------------|
 | [database-designer](skills/developer-engineering/database-designer) | developer-engineering | ★★★★★ | A comprehensive database design skill that provides expert-level analysis, optim |
 | [database-schema-designer](skills/developer-engineering/database-schema-designer) | developer-engineering | ★★★★★ | Design relational database schemas from requirements and generate migrations, Ty |
-| [lark-base](skills/knowledge-and-pm-integrations/lark-base) | knowledge-and-pm-integrations | ★★★★☆ | 当需要用 lark-cli 操作飞书多维表格（Base）时调用：搜索 Base、建表、字段管理、记录读写、记录分享链接、视图配置、历史查询，以及角色/表单/仪表 |
+| [lark-base](skills/knowledge-and-pm-integrations/lark-base) | knowledge-and-pm-integrations | ★★★★☆ | 飞书多维表格（Base）操作：建表、字段、记录、视图、统计、公式/lookup、表单、仪表盘、workflow、角色权限；遇到 Base/多维表格/bitabl |
 
 ## debugging
 
@@ -1434,6 +1440,16 @@
 | [llm-wiki](skills/knowledge-and-pm-integrations/llm-wiki) | knowledge-and-pm-integrations | ★★★★☆ | 用于构建和维护互联的 LLM Markdown 知识库。 |
 | [obsidian](skills/knowledge-and-pm-integrations/obsidian) | knowledge-and-pm-integrations | ★★★☆☆ | 用于读取、搜索、创建和编辑 Obsidian 笔记。 |
 
+## kubernetes
+
+**3 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [kubernetes-specialist](skills/developer-engineering/kubernetes-specialist) | developer-engineering | ★★★★☆ | 用于 Kubernetes 集群管理、部署编排、Pod 调试与 Helm Chart 设计。来源：skills.sh 5K+ installs。 |
+| [azure-kubernetes](skills/devops-sre/azure-kubernetes) | devops-sre | ★★★★☆ | Plan, create, and configure production-ready Azure Kubernetes Service (AKS) clus |
+| [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Trivy 扫描仓库、容器镜像、文件系统、rootfs、SBOM、Kubernetes、IaC、密钥、许可证和系统 CVE。 |
+
 ## markdown
 
 **3 skills**
@@ -1453,6 +1469,16 @@
 | [morph](skills/office-white-collar/morph) | office-white-collar | ★★★★★ | Document format conversion (Markdown, Word, Excel, PDF, HTML). Converts specific |
 | [prism](skills/office-white-collar/prism) | office-white-collar | ★★★★★ | Consultant for NotebookLM steering prompt design. Optimizes Audio/Video/Slide/In |
 | [stage](skills/office-white-collar/stage) | office-white-collar | ★★★★★ | Slide generation via Marp, reveal.js, or Slidev, narrative arc design, and confe |
+
+## postgres
+
+**3 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [neon-postgres](skills/developer-engineering/neon-postgres) | developer-engineering | ★★★★★ | Guides and best practices for working with Neon Serverless Postgres. Covers setu |
+| [supabase-postgres](skills/developer-engineering/supabase-postgres) | developer-engineering | ★★★★☆ | 用于 Supabase 平台开发与 PostgreSQL 最佳实践，包含 RLS、Edge Functions 和实时订阅。来源：supabase 官方 52. |
+| [supabase-postgres-best-practices](skills/developer-engineering/supabase-postgres-best-practices) | developer-engineering | ★★★☆☆ | Postgres performance optimization and best practices from Supabase. Use this ski |
 
 ## reviewer
 
@@ -1493,6 +1519,16 @@
 | [env-secrets-manager](skills/devops-sre/env-secrets-manager) | devops-sre | ★★★★★ | Complete environment and secrets management workflow: .env file lifecycle across |
 | [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。 |
 | [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Trivy 扫描仓库、容器镜像、文件系统、rootfs、SBOM、Kubernetes、IaC、密钥、许可证和系统 CVE。 |
+
+## supabase
+
+**3 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [supabase](skills/developer-engineering/supabase) | developer-engineering | ★★★★☆ | Use when doing ANY task involving Supabase. Triggers: Supabase products (Databas |
+| [supabase-postgres](skills/developer-engineering/supabase-postgres) | developer-engineering | ★★★★☆ | 用于 Supabase 平台开发与 PostgreSQL 最佳实践，包含 RLS、Edge Functions 和实时订阅。来源：supabase 官方 52. |
+| [supabase-postgres-best-practices](skills/developer-engineering/supabase-postgres-best-practices) | developer-engineering | ★★★☆☆ | Postgres performance optimization and best practices from Supabase. Use this ski |
 
 ## supply-chain
 
@@ -1740,15 +1776,6 @@
 | [mcporter](skills/ai-agent-platform/mcporter) | ai-agent-platform | ★★★★☆ | Use the mcporter CLI to list, configure, auth, and call MCP servers/tools direct |
 | [native-mcp](skills/ai-agent-platform/native-mcp) | ai-agent-platform | ★★★★☆ | Built-in MCP (Model Context Protocol) client that connects to external MCP serve |
 
-## kubernetes
-
-**2 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [kubernetes-specialist](skills/developer-engineering/kubernetes-specialist) | developer-engineering | ★★★★☆ | 用于 Kubernetes 集群管理、部署编排、Pod 调试与 Helm Chart 设计。来源：skills.sh 5K+ installs。 |
-| [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Trivy 扫描仓库、容器镜像、文件系统、rootfs、SBOM、Kubernetes、IaC、密钥、许可证和系统 CVE。 |
-
 ## meeting
 
 **2 skills**
@@ -1820,15 +1847,6 @@
 |-------|----------|---------|-------------|
 | [writing-plans](skills/ai-workflow/writing-plans) | ai-workflow | ★★★★☆ | Use when you have a spec or requirements for a multi-step task, before touching  |
 | [executing-plans](skills/ai-workflow/executing-plans) | ai-workflow | ★★★☆☆ | Use when you have a written implementation plan to execute in a separate session |
-
-## postgres
-
-**2 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [supabase-postgres](skills/developer-engineering/supabase-postgres) | developer-engineering | ★★★★☆ | 用于 Supabase 平台开发与 PostgreSQL 最佳实践，包含 RLS、Edge Functions 和实时订阅。来源：supabase 官方 52. |
-| [supabase-postgres-best-practices](skills/developer-engineering/supabase-postgres-best-practices) | developer-engineering | ★★★☆☆ | Postgres performance optimization and best practices from Supabase. Use this ski |
 
 ## ppt
 
@@ -1973,15 +1991,6 @@
 |-------|----------|---------|-------------|
 | [marketing-strategy-pmm](skills/growth-operations-xiaohongshu/marketing-strategy-pmm) | growth-operations-xiaohongshu | ★★★★★ | Product marketing skill for positioning, GTM strategy, competitive intelligence, |
 | [options-strategy-evaluator](skills/finance-investing/options-strategy-evaluator) | finance-investing | ★★☆☆☆ | Use when evaluating an options structure, checking expiry payoff checkpoints, co |
-
-## supabase
-
-**2 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [supabase-postgres](skills/developer-engineering/supabase-postgres) | developer-engineering | ★★★★☆ | 用于 Supabase 平台开发与 PostgreSQL 最佳实践，包含 RLS、Edge Functions 和实时订阅。来源：supabase 官方 52. |
-| [supabase-postgres-best-practices](skills/developer-engineering/supabase-postgres-best-practices) | developer-engineering | ★★★☆☆ | Postgres performance optimization and best practices from Supabase. Use this ski |
 
 ## toolkit
 
@@ -2204,6 +2213,14 @@
 |-------|----------|---------|-------------|
 | [aws-solution-architect](skills/developer-engineering/aws-solution-architect) | developer-engineering | ★★★★☆ | 用于 AWS 云架构设计、服务选型、成本优化与 Well-Architected Framework 评估。来源：alirezarezvani/claude-s |
 
+## azure
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [azure-kubernetes](skills/devops-sre/azure-kubernetes) | devops-sre | ★★★★☆ | Plan, create, and configure production-ready Azure Kubernetes Service (AKS) clus |
+
 ## backtester
 
 **1 skills**
@@ -2218,7 +2235,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lark-base](skills/knowledge-and-pm-integrations/lark-base) | knowledge-and-pm-integrations | ★★★★☆ | 当需要用 lark-cli 操作飞书多维表格（Base）时调用：搜索 Base、建表、字段管理、记录读写、记录分享链接、视图配置、历史查询，以及角色/表单/仪表 |
+| [lark-base](skills/knowledge-and-pm-integrations/lark-base) | knowledge-and-pm-integrations | ★★★★☆ | 飞书多维表格（Base）操作：建表、字段、记录、视图、统计、公式/lookup、表单、仪表盘、workflow、角色权限；遇到 Base/多维表格/bitabl |
 
 ## beacon
 
@@ -3443,6 +3460,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [monorepo-navigator](skills/developer-engineering/monorepo-navigator) | developer-engineering | ★★★★★ | Navigate, manage, and optimize monorepos. Covers Turborepo, Nx, pnpm workspaces, |
+
+## neon
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [neon-postgres](skills/developer-engineering/neon-postgres) | developer-engineering | ★★★★★ | Guides and best practices for working with Neon Serverless Postgres. Covers setu |
 
 ## netlify
 

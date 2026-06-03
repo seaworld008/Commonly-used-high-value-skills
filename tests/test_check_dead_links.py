@@ -26,6 +26,12 @@ class CheckDeadLinksTests(unittest.TestCase):
             "https://arxiv.org/abs/{id",
             "https://hooks\\.slack\\.com/services/[A-Z0-9",
             "https://staging.myapp.com",
+            "https://*.feishu.cn/minutes/obcnxxxxxxxxxxxxxxxxxxxx",
+            "https://…/SKILL.md",
+            "https://open.feishu.cn/llms-docs/zh-CN/llms-",
+            "http://www.larkoffice.com/sml/2.0",
+            "https://api.semanticscholar.org/recommendations/v1/papers/",
+            "https://x.com/user/status/456",
         ]
         for url in urls:
             self.assertTrue(self.module.should_ignore_url(url), url)

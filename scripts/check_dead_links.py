@@ -69,6 +69,12 @@ IGNORE_URL_SNIPPETS = (
     "bit.ly/3xyz",
     ":fileKey",
     ":fileName",
+    "evil.com/",
+    "github.com/user/",
+    "api.semanticscholar.org/recommendations/v1/papers",
+    "open.feishu.cn/llms-docs/zh-CN/llms-",
+    "www.larkoffice.com/sml/",
+    "x.com/user/status/",
 )
 # Treat these codes as ok; some servers block HEAD or require cookies.
 ACCEPTED_CODES = {200, 201, 202, 203, 204, 301, 302, 303, 307, 308, 400, 401, 403, 405, 429}
@@ -117,6 +123,8 @@ def iter_markdown_files() -> list[Path]:
 def should_ignore_url(url: str) -> bool:
     parsed = urlparse(url)
     host = parsed.hostname or ""
+    if "*" in host or "…" in url:
+        return True
     if host in IGNORE_HOSTS or any(host.endswith(suffix) for suffix in IGNORE_HOST_SUFFIXES):
         return True
     if any(snippet in url for snippet in IGNORE_URL_SNIPPETS):
@@ -176,6 +184,8 @@ def probe(url: str, timeout: int = 10) -> tuple[str, int | None, str]:
         for method in ("HEAD", "GET"):
             status, err = curl_probe(url, method, timeout)
             if status is not None:
+                if method == "HEAD" and status not in ACCEPTED_CODES:
+                    continue
                 return url, status, ""
             if method == "GET":
                 return url, None, err
@@ -237,7 +247,11 @@ def main() -> int:
     out = REPO_ROOT / args.output
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(f"Wrote {out.relative_to(REPO_ROOT)}  (dead: {len(dead)}/{len(results)})")
+    try:
+        display_path = out.relative_to(REPO_ROOT)
+    except ValueError:
+        display_path = out
+    print(f"Wrote {display_path}  (dead: {len(dead)}/{len(results)})")
 
     if args.fail_on_dead and dead:
         return 1
