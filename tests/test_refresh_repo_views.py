@@ -43,6 +43,7 @@ class RefreshRepoViewsTests(unittest.TestCase):
                     """\
                     [![Skills](https://img.shields.io/badge/Skills-1-7c3aed)](./skills/)
                     This repository currently contains **1 categories / 1 skills**.
+                    ## Skill Overview (by category, 1 categories / 1 skills)
                     """
                 ),
                 encoding="utf-8",
@@ -60,6 +61,10 @@ class RefreshRepoViewsTests(unittest.TestCase):
             self.assertIn("Skills-139-7c3aed", en_updated)
             self.assertIn(
                 "This repository currently contains **15 categories / 139 skills**.",
+                en_updated,
+            )
+            self.assertIn(
+                "## Skill Overview (by category, 15 categories / 139 skills)",
                 en_updated,
             )
 

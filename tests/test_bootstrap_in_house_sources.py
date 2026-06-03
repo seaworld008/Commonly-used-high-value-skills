@@ -100,6 +100,29 @@ class BootstrapInHouseSourcesTests(unittest.TestCase):
             payload = module.load_existing_payload(Path(tmpdir) / "missing.json")
             self.assertIsNone(payload)
 
+    def test_verification_attempts_are_idempotent_for_same_scan(self):
+        module = load_module()
+
+        existing_payload = {
+            "verification_attempts": [
+                {
+                    "date": "2026-03-27",
+                    "method": "local-scan",
+                    "target": "skills/*/*/SKILL.md",
+                    "result": "success",
+                    "evidence": "Merged provenance for 2 local skills",
+                }
+            ]
+        }
+
+        attempts = module.build_verification_attempts(
+            existing_payload=existing_payload,
+            today="2026-03-27",
+            skill_count=2,
+        )
+
+        self.assertEqual(1, len(attempts))
+
 
 if __name__ == "__main__":
     unittest.main()
