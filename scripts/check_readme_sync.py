@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import sys
 from pathlib import Path
@@ -14,6 +15,9 @@ SKILL_BULLET_RE = re.compile(r"^-\s+(?:\[)?`(?P<name>[^`]+)`")
 BADGE_RE = re.compile(r"Skills-(?P<count>\d+)-7c3aed")
 CN_TOTAL_RE = re.compile(r"当前共 \*\*(?P<categories>\d+) 个分类 / (?P<skills>\d+) 个技能\*\*。")
 EN_TOTAL_RE = re.compile(r"This repository currently contains \*\*(?P<categories>\d+) categories / (?P<skills>\d+) skills\*\*\.")
+CN_OVERVIEW_RE = re.compile(r"## 技能总览（按分类，(?P<categories>\d+) 类 / (?P<skills>\d+) 技能）")
+EN_OVERVIEW_RE = re.compile(r"## Skill Overview \(by category, (?P<categories>\d+) categories / (?P<skills>\d+) skills\)")
+BANNER_BADGE_RE = re.compile(r"(?P<skills>\d+) skills · (?P<categories>\d+) categories · upstream sync")
 
 
 def actual_skill_tree(repo_root: Path) -> dict[str, list[str]]:
@@ -46,13 +50,70 @@ def parse_readme_categories(readme_path: Path, category_re: re.Pattern[str]) -> 
     return categories
 
 
-def parse_counts(readme_path: Path, total_re: re.Pattern[str]) -> tuple[int, int, int]:
+def parse_counts(
+    readme_path: Path,
+    total_re: re.Pattern[str],
+    overview_re: re.Pattern[str],
+) -> tuple[int, int, int, int, int]:
     text = readme_path.read_text(encoding="utf-8")
     badge = BADGE_RE.search(text)
     total = total_re.search(text)
-    if not badge or not total:
-        raise AssertionError(f"{readme_path.name} is missing badge or total count text")
-    return int(total.group("categories")), int(total.group("skills")), int(badge.group("count"))
+    overview = overview_re.search(text)
+    if not badge or not total or not overview:
+        raise AssertionError(f"{readme_path.name} is missing badge, total count text, or overview count text")
+    return (
+        int(total.group("categories")),
+        int(total.group("skills")),
+        int(badge.group("count")),
+        int(overview.group("categories")),
+        int(overview.group("skills")),
+    )
+
+
+def parse_catalog_counts(catalog_path: Path) -> tuple[int, int]:
+    data = json.loads(catalog_path.read_text(encoding="utf-8"))
+    return int(data.get("total_categories", 0)), int(data.get("total_skills", 0))
+
+
+def validate_catalog(
+    *,
+    catalog_path: Path,
+    expected_category_count: int,
+    expected_skill_count: int,
+) -> list[str]:
+    if not catalog_path.exists():
+        return [f"{catalog_path.relative_to(catalog_path.parents[1])}: missing catalog"]
+    category_count, skill_count = parse_catalog_counts(catalog_path)
+    errors: list[str] = []
+    if category_count != expected_category_count:
+        errors.append(f"{catalog_path.name}: total category count {category_count} != {expected_category_count}")
+    if skill_count != expected_skill_count:
+        errors.append(f"{catalog_path.name}: total skill count {skill_count} != {expected_skill_count}")
+    return errors
+
+
+def validate_banner(
+    *,
+    banner_path: Path,
+    expected_category_count: int,
+    expected_skill_count: int,
+) -> list[str]:
+    if not banner_path.exists():
+        return [f"{banner_path.name}: missing banner"]
+    text = banner_path.read_text(encoding="utf-8")
+    badge = BANNER_BADGE_RE.search(text)
+    if not badge:
+        return [f"{banner_path.name}: missing banner skill/category badge text"]
+    errors: list[str] = []
+    banner_skills = int(badge.group("skills"))
+    banner_categories = int(badge.group("categories"))
+    if banner_skills != expected_skill_count:
+        errors.append(f"{banner_path.name}: banner skill count {banner_skills} != {expected_skill_count}")
+    if banner_categories != expected_category_count:
+        errors.append(f"{banner_path.name}: banner category count {banner_categories} != {expected_category_count}")
+    if f">\n      {expected_skill_count}\n    </text>" not in text:
+        errors.append(f"{banner_path.name}: large skill metric does not show {expected_skill_count}")
+    return errors
 
 
 def validate_readme(
@@ -60,6 +121,7 @@ def validate_readme(
     readme_path: Path,
     category_re: re.Pattern[str],
     total_re: re.Pattern[str],
+    overview_re: re.Pattern[str],
     expected_tree: dict[str, list[str]],
 ) -> list[str]:
     errors: list[str] = []
@@ -67,7 +129,9 @@ def validate_readme(
     expected_skill_count = sum(len(skills) for skills in expected_tree.values())
 
     try:
-        category_count, skill_count, badge_count = parse_counts(readme_path, total_re)
+        category_count, skill_count, badge_count, overview_category_count, overview_skill_count = parse_counts(
+            readme_path, total_re, overview_re
+        )
     except AssertionError as exc:
         return [str(exc)]
 
@@ -77,6 +141,12 @@ def validate_readme(
         errors.append(f"{readme_path.name}: total skill count {skill_count} != {expected_skill_count}")
     if badge_count != expected_skill_count:
         errors.append(f"{readme_path.name}: badge skill count {badge_count} != {expected_skill_count}")
+    if overview_category_count != expected_category_count:
+        errors.append(
+            f"{readme_path.name}: overview category count {overview_category_count} != {expected_category_count}"
+        )
+    if overview_skill_count != expected_skill_count:
+        errors.append(f"{readme_path.name}: overview skill count {overview_skill_count} != {expected_skill_count}")
 
     parsed = parse_readme_categories(readme_path, category_re)
     if set(parsed) != set(expected_tree):
@@ -114,6 +184,7 @@ def main() -> int:
             readme_path=repo_root / "README.md",
             category_re=CN_CATEGORY_RE,
             total_re=CN_TOTAL_RE,
+            overview_re=CN_OVERVIEW_RE,
             expected_tree=expected_tree,
         )
     )
@@ -122,7 +193,24 @@ def main() -> int:
             readme_path=repo_root / "README.en.md",
             category_re=EN_CATEGORY_RE,
             total_re=EN_TOTAL_RE,
+            overview_re=EN_OVERVIEW_RE,
             expected_tree=expected_tree,
+        )
+    )
+    expected_category_count = len(expected_tree)
+    expected_skill_count = sum(len(skills) for skills in expected_tree.values())
+    errors.extend(
+        validate_catalog(
+            catalog_path=repo_root / "docs" / "catalog.json",
+            expected_category_count=expected_category_count,
+            expected_skill_count=expected_skill_count,
+        )
+    )
+    errors.extend(
+        validate_banner(
+            banner_path=repo_root / ".github" / "assets" / "repo-banner.svg",
+            expected_category_count=expected_category_count,
+            expected_skill_count=expected_skill_count,
         )
     )
 

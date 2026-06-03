@@ -127,19 +127,24 @@ def build_verification_attempts(
     skill_count: int,
 ) -> list[dict]:
     attempts = []
+    seen_attempts: set[str] = set()
     if existing_payload:
         for item in existing_payload.get("verification_attempts", []):
             if isinstance(item, dict):
-                attempts.append(item)
-    attempts.append(
-        {
-            "date": today,
-            "method": "local-scan",
-            "target": "skills/*/*/SKILL.md",
-            "result": "success",
-            "evidence": f"Merged provenance for {skill_count} local skills",
-        }
-    )
+                key = json.dumps(item, sort_keys=True, ensure_ascii=False)
+                if key not in seen_attempts:
+                    attempts.append(item)
+                    seen_attempts.add(key)
+    current_attempt = {
+        "date": today,
+        "method": "local-scan",
+        "target": "skills/*/*/SKILL.md",
+        "result": "success",
+        "evidence": f"Merged provenance for {skill_count} local skills",
+    }
+    current_key = json.dumps(current_attempt, sort_keys=True, ensure_ascii=False)
+    if current_key not in seen_attempts:
+        attempts.append(current_attempt)
     return attempts
 
 
