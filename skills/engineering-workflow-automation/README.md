@@ -4,7 +4,7 @@
 
 聚焦 GitHub、浏览器自动化、CI 排障、Playwright 与工程协作自动化。
 
-当前分类共 **15** 个技能。
+当前分类共 **16** 个技能。
 
 ## 推荐先看
 
@@ -131,6 +131,7 @@ gsd-sdk --version
 | `jupyter-notebook` | Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) for experiments, explorations, or tutorials; prefer the bundled templates and run the helper script `new_notebook.py` to generate a clean starting notebook. | [目录](./jupyter-notebook/) | [SKILL.md](./jupyter-notebook/SKILL.md) |
 | `latch` | Propose, configure, debug, and maintain Claude Code hooks (PreToolUse/PostToolUse/Stop and other lifecycle events). Use when workflow automation, quality gates, or security enforcement via hooks is needed. | [目录](./latch/) | [SKILL.md](./latch/SKILL.md) |
 | `playwright` | Use when the task requires automating a real browser from the terminal (navigation, form filling, snapshots, screenshots, data extraction, UI-flow debugging) via `playwright-cli` or the bundled wrapper script. | [目录](./playwright/) | [SKILL.md](./playwright/SKILL.md) |
+| `playwright-pro` | Production-grade Playwright testing skill for E2E suites, flaky test diagnosis, browser automation, migration from Cypress/Selenium, CI integration, visual checks, and regression validation. | [目录](./playwright-pro/) | [SKILL.md](./playwright-pro/SKILL.md) |
 | `web-scraper` | 用于网页数据抓取、结构化提取和反爬策略应对。仓库整理版，吸收社区高频最佳实践。 | [目录](./web-scraper/) | [SKILL.md](./web-scraper/SKILL.md) |
 | `yeet` | Use only when the user explicitly asks to stage, commit, push, and open a GitHub pull request in one flow using the GitHub CLI (`gh`). | [目录](./yeet/) | [SKILL.md](./yeet/SKILL.md) |
 
