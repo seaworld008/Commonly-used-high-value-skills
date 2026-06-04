@@ -5,17 +5,18 @@
 ## 总原则
 
 - `skills/` 是分类源码目录，适用于：
-  - `Codex`
-  - `Claude Code`
+  - 直接浏览仓库源码的 `Codex`
+  - 直接浏览仓库源码的 `Claude Code`
   - `Hermes Agent`
   - 其他按源码浏览技能目录的 AI coding assistants
+- `~/.codex/skills`、`~/.claude/skills` 和项目内 `.claude/skills` 是本机安装目录，适合让客户端自动发现技能。
 - `openclaw-skills/` 是扁平导出目录，适用于：
   - `OpenClaw`
 
 如果你不确定，默认先看目标工具是否支持多级目录：
 
 - 支持多级目录：优先 `skills/`
-- 只支持一层平铺目录：优先 `openclaw-skills/`
+- 只支持一层平铺目录：优先同步到对应客户端的本机 skills 目录；`OpenClaw` 使用 `openclaw-skills/`
 
 ---
 
@@ -59,8 +60,22 @@ python3 scripts/normalize_codex_skills.py ~/.codex/skills
 
 ### 常见接入方式
 
-把本仓库中的 `skills/` 目录纳入 Claude Code 可发现的技能路径即可。  
-如果你是通过项目级技能目录管理，可以把所需技能复制或链接到项目技能目录；如果你使用全局技能目录，也可以直接同步过去。
+如果你想让 Claude Code 自动发现这些技能，推荐同步到个人或项目级 skills 目录：
+
+```bash
+# 个人级，所有项目可用
+python3 scripts/sync_codex_skills.py \
+  --source-root ./skills \
+  --codex-root ~/.claude/skills
+
+# 项目级，只在当前项目可用
+python3 scripts/sync_codex_skills.py \
+  --source-root ./skills \
+  --codex-root ./.claude/skills
+```
+
+这里的 `--codex-root` 是同步脚本沿用的目标目录参数名，也可以指向 Claude Code 的 skills 目录。
+如果你只是让 Claude Code 浏览当前仓库源码，也可以直接阅读 `skills/` 分类目录。
 
 ### 建议先试的技能
 
