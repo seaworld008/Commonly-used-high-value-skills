@@ -27,16 +27,18 @@ This repository currently contains **16 categories / 301 skills**.
 - It is suitable both for daily usage and long-term team knowledge accumulation
 - The repo now supports automated discovery, upstream sync, candidate ranking, quality checks, and generated view refreshes, so it can be maintained as a living skill system rather than a static dump
 - Curation is policy-driven: trusted sources can be preferred, noisy sources can be denied, and minimum quality thresholds can be enforced in one place
-- `scripts/sync_codex_skills.py` lets you sync the latest repository skills into a local Codex skill directory without manual copying
+- `scripts/sync_codex_skills.py` lets you sync the latest repository skills into local Codex, Claude Code, or similar skills directories without manual copying
 - The repository also emphasizes trust and safety through provenance tracking, curated source controls, and built-in security-review skills such as `skill-vetter`, `skill-security-auditor`, `input-guard`, and `link-checker`
 - The repository now also includes license auditing and scheduled dead-link checks: `repo-validation` blocks external skills that are missing license metadata, while the monthly `dead-links` workflow produces a link health report instead of silently drifting.
 - `Hermes Agent` is also treated as a first-class supported client: it uses the same categorized `skills/` tree and already has dedicated Hermes runtime, MCP, and Hermes + graphify + GSD workflow skills in the repository.
 
 ## Which Directory Should You Use
 
-| Client | Directory |
-|--------|-----------|
-| `Codex` / `Claude Code` / `Hermes Agent` / source-browsing AI coding assistants | `skills/` |
+| Usage | Directory |
+|-------|-----------|
+| Let `Codex` / `Claude Code` / `Hermes Agent` / `Cursor` browse this repository directly | `skills/` |
+| Install into a local `Codex` skills directory | Sync `skills/` into `~/.codex/skills` |
+| Install into a local `Claude Code` skills directory | Sync `skills/` into `~/.claude/skills` or project `.claude/skills` |
 | `OpenClaw` | `openclaw-skills/` |
 
 ## Quick Start
@@ -59,18 +61,54 @@ This works because the repository already includes AI-readable installation rule
 
 ### Option 2: Manual Setup
 
-1. Clone the repository.
-2. Choose the correct directory for your client:
-   - `Codex` / `Claude Code` / `Hermes Agent` / `Cursor` / other source-browsing assistants: use `skills/`
-   - `OpenClaw`: use `openclaw-skills/`
-3. If you use OpenClaw, generate the flat export first:
+1. Clone the repository and enter it:
+
+```bash
+git clone https://github.com/seaworld008/Commonly-used-high-value-skills.git
+cd Commonly-used-high-value-skills
+```
+
+2. If you use `Codex`, sync the skills into your local Codex skills directory:
+
+```bash
+python3 scripts/sync_codex_skills.py --source-root ./skills --codex-root ~/.codex/skills
+```
+
+Windows PowerShell example:
+
+```powershell
+python scripts/sync_codex_skills.py --source-root ".\skills" --codex-root "$env:USERPROFILE\.codex\skills"
+```
+
+3. If you use `Claude Code`, sync the skills into your personal or project skills directory:
+
+```bash
+# Personal: available across projects
+python3 scripts/sync_codex_skills.py --source-root ./skills --codex-root ~/.claude/skills
+
+# Project: available only in the current project
+python3 scripts/sync_codex_skills.py --source-root ./skills --codex-root ./.claude/skills
+```
+
+Windows PowerShell example:
+
+```powershell
+python scripts/sync_codex_skills.py --source-root ".\skills" --codex-root "$env:USERPROFILE\.claude\skills"
+```
+
+The `--codex-root` option is the existing sync script's destination parameter. It can point to a Claude Code skills directory too.
+
+4. If you use `Hermes Agent`, `Cursor`, or another source-browsing AI coding assistant, point the tool at this repository's `skills/` directory. If the tool requires a flat one-level skill directory, reuse the sync command above and set `--codex-root` to that tool's skills directory.
+
+5. If you use `OpenClaw`, generate the flat export first:
 
 ```bash
 python3 scripts/export_openclaw_skills.py
 ```
 
-4. Point your AI tool to the correct directory.
-5. Verify by opening a few known skills, for example:
+Then point OpenClaw at `openclaw-skills/`. Do not point OpenClaw at the repository root or `skills/`.
+
+6. Verify by opening a few known skills, for example:
    - `skills/developer-engineering/codebase-onboarding`
    - `skills/security-and-reliability/skill-vetter`
    - `openclaw-skills/codebase-onboarding`
@@ -142,7 +180,7 @@ python3 scripts/sync_codex_skills.py --source-root ./skills --codex-root ~/.code
 
 This repository does not just happen to include a few Hermes-related skills. It explicitly supports `Hermes Agent` as one of the maintained consumption targets:
 
-- installation layout matches `Codex` / `Claude Code`, using the categorized `skills/` tree
+- source-browsing usage reads the categorized `skills/` tree; local `Codex` / `Claude Code` installs sync into their own skills directories
 - it includes the dedicated [`hermes-agent`](./skills/ai-agent-platform/hermes-agent/) skill covering CLI usage, gateway setup, profiles, memory, skills, MCP, and contributor guidance
 - it includes [`native-mcp`](./skills/ai-agent-platform/native-mcp/) for Hermes MCP usage
 - it includes the `hermes-graphify-gsd-*` workflow skills for graph-aware and autonomous development loops
@@ -175,7 +213,8 @@ This repository exposes two consumption surfaces for different AI clients:
 
 | Client | Directory | Why |
 |--------|-----------|-----|
-| `Codex` / `Claude Code` / `Hermes Agent` / source-browsing coding assistants | `skills/` | Keeps category structure for browsing, maintenance, and editing |
+| `Codex` / `Claude Code` local skills directories | `~/.codex/skills` / `~/.claude/skills` / `.claude/skills` | Installed as a flat skill directory so clients can discover skills |
+| `Hermes Agent` / `Cursor` / source-browsing coding assistants | `skills/` | Keeps category structure for browsing, maintenance, and editing |
 | `OpenClaw` | `openclaw-skills/` | OpenClaw expects a flat one-level skill directory |
 
 ### AI-Readable Rules
@@ -183,7 +222,7 @@ This repository exposes two consumption surfaces for different AI clients:
 The repository-level [AGENTS.md](./AGENTS.md) defines these rules for future agents:
 
 - `OpenClaw` installations must use `openclaw-skills/`.
-- `Codex`, `Claude Code`, `Hermes Agent`, and similar clients should use `skills/`.
+- `Codex` and `Claude Code` local installs should sync into their own skills directories; source-browsing clients can use `skills/` directly.
 - Do not point OpenClaw at the repository root or the categorized `skills/` tree.
 - Do not manually edit `openclaw-skills/`; regenerate it from source scripts.
 - When updating `README.md`, update `README.en.md` in the same change.
