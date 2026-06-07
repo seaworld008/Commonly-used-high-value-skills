@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "generated_at": "2026-06-08",
-  "total_skills": 302,
+  "total_skills": 303,
   "total_categories": 16,
   "categories": [
     {
@@ -42,7 +42,7 @@
     },
     {
       "name": "growth-operations-xiaohongshu",
-      "count": 14
+      "count": 15
     },
     {
       "name": "operations-general",
@@ -3755,6 +3755,30 @@
       "updated_at": "2026-03-20",
       "line_count": 279,
       "path": "skills/growth-operations-xiaohongshu/social-media-analyzer/SKILL.md"
+    },
+    {
+      "name": "tweetclaw-source-research",
+      "category": "growth-operations-xiaohongshu",
+      "description": "Use TweetClaw through OpenClaw to collect X/Twitter source context before drafting, monitoring, or campaign analysis.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "https://github.com/Xquik-dev/tweetclaw",
+      "tags": [
+        "growth",
+        "marketing",
+        "openclaw",
+        "twitter",
+        "x",
+        "social-media",
+        "source-research"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-06-07",
+      "updated_at": "2026-06-07",
+      "line_count": 220,
+      "path": "skills/growth-operations-xiaohongshu/tweetclaw-source-research/SKILL.md"
     },
     {
       "name": "twitter-reader",
