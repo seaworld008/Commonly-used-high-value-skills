@@ -10,6 +10,7 @@ import argparse
 import json
 import os
 import re
+import subprocess
 import sys
 import urllib.error
 import urllib.parse
@@ -77,6 +78,26 @@ def utc_day() -> str:
 
 def utc_timestamp() -> str:
     return utc_now().strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def resolve_github_token() -> str | None:
+    token = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
+    if token:
+        return token
+    try:
+        result = subprocess.run(
+            ["gh", "auth", "token"],
+            capture_output=True,
+            text=True,
+            timeout=10,
+            check=False,
+        )
+    except (FileNotFoundError, subprocess.SubprocessError, TimeoutError):
+        return None
+    candidate = result.stdout.strip()
+    if result.returncode == 0 and candidate:
+        return candidate
+    return None
 
 
 def get_local_skill_names(skills_dir: Path) -> set[str]:
@@ -511,7 +532,7 @@ def main() -> None:
     output_path = REPO_ROOT / args.output
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
-    token = os.environ.get("GITHUB_TOKEN")
+    token = resolve_github_token()
     local_names = get_local_skill_names(skills_dir)
     rejected_names, rejected_urls = load_rejected_keys(REPO_ROOT / args.rejected_file)
     print(f"Local skills indexed: {len(local_names)}")

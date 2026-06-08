@@ -25,6 +25,7 @@ import http.client
 import json
 import os
 import re
+import subprocess
 import sys
 import urllib.error
 import urllib.request
@@ -42,7 +43,27 @@ def github_raw_url(repo: str, path: str, ref: str = "main") -> str:
     return f"https://raw.githubusercontent.com/{repo}/{ref}/{path}"
 
 
-def fetch_url(url: str, token: str | None = None) -> str | None:
+def resolve_github_token() -> str | None:
+    token = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
+    if token:
+        return token
+    try:
+        result = subprocess.run(
+            ["gh", "auth", "token"],
+            capture_output=True,
+            text=True,
+            timeout=10,
+            check=False,
+        )
+    except (FileNotFoundError, subprocess.SubprocessError, TimeoutError):
+        return None
+    candidate = result.stdout.strip()
+    if result.returncode == 0 and candidate:
+        return candidate
+    return None
+
+
+def fetch_url(url: str, token: str | None = None, *, quiet_404: bool = False) -> str | None:
     """Fetch content from a URL."""
     headers = {"User-Agent": "skills-sync-bot"}
     if token:
@@ -52,7 +73,12 @@ def fetch_url(url: str, token: str | None = None) -> str | None:
         with urllib.request.urlopen(req, timeout=15) as resp:
             return resp.read().decode("utf-8", errors="replace")
     except (urllib.error.URLError, urllib.error.HTTPError, http.client.RemoteDisconnected, TimeoutError) as e:
-        print(f"    Warning: fetch failed for {url}: {e}", file=sys.stderr)
+        if not (
+            quiet_404
+            and isinstance(e, urllib.error.HTTPError)
+            and e.code == 404
+        ):
+            print(f"    Warning: fetch failed for {url}: {e}", file=sys.stderr)
         fallback = fetch_github_raw_via_api(url, token)
         if fallback is not None:
             return fallback
@@ -360,7 +386,14 @@ def check_upstream_changes(skill: dict, token: str | None) -> dict | None:
     
     for path in candidate_paths:
         url = github_raw_url(repo, path, skill.get("ref", "main"))
-        upstream_content = fetch_url(url, token)
+        try:
+            upstream_content = fetch_url(
+                url,
+                token,
+                quiet_404=len(candidate_paths) > 1 and path != candidate_paths[-1],
+            )
+        except TypeError:
+            upstream_content = fetch_url(url, token)
         if upstream_content:
             # Compare content (ignore frontmatter for diff)
             local_body = comparable_body(skill["local_content"])
@@ -440,7 +473,7 @@ def main() -> None:
                         help="Exclude a source/repo (can be passed multiple times; accepts github:owner/repo or owner/repo)")
     args = parser.parse_args()
 
-    token = os.environ.get("GITHUB_TOKEN")
+    token = resolve_github_token()
     skills = load_skills_with_upstream()
     
     if args.source:

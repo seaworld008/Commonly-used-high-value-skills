@@ -65,6 +65,25 @@ If the user is unsure, use safe defaults.
 - **AKS Automatic** (default): Best for most production workloads, provides a curated experience with pre-configured best practices for security, reliability, and performance. Use unless you have specific custom requirements for networking, autoscaling, or node pool configurations not supported by Node Auto-Provisioning (NAP).
 - **AKS Standard**: Use if you need full control over environment configuration, which requires additional overhead to set up and manage.
 
+### Example Starter Commands
+
+Use these only after the Day-0 decisions are explicit:
+
+```bash
+az aks create \
+  --resource-group <rg> \
+  --name <cluster-name> \
+  --tier standard \
+  --network-plugin azure \
+  --network-plugin-mode overlay \
+  --enable-oidc-issuer \
+  --enable-workload-identity \
+  --zones 1 2 3
+
+az aks show --resource-group <rg> --name <cluster-name>
+kubectl get nodes -o wide
+```
+
 ### 2. Networking (Pod IP, Egress, Ingress, Dataplane)
 
 **Pod IP Model** (Key Day-0 decision):

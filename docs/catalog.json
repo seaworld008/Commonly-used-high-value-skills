@@ -2031,7 +2031,7 @@
       "complexity": "intermediate",
       "created_at": "2026-06-03",
       "updated_at": "2026-06-03",
-      "line_count": 277,
+      "line_count": 311,
       "path": "skills/developer-engineering/neon-postgres/SKILL.md"
     },
     {
@@ -2520,7 +2520,7 @@
       "complexity": "intermediate",
       "created_at": "2026-06-03",
       "updated_at": "2026-06-03",
-      "line_count": 162,
+      "line_count": 181,
       "path": "skills/devops-sre/azure-kubernetes/SKILL.md"
     },
     {
