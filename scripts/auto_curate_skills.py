@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import os
 import re
 import subprocess
 import sys
@@ -103,6 +104,26 @@ DEFAULT_POLICY = {
 
 def resolve_python_cmd() -> list[str]:
     return [sys.executable] if sys.executable else ["python"]
+
+
+def resolve_github_token() -> str | None:
+    token = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
+    if token:
+        return token
+    try:
+        result = subprocess.run(
+            ["gh", "auth", "token"],
+            capture_output=True,
+            text=True,
+            timeout=10,
+            check=False,
+        )
+    except (FileNotFoundError, subprocess.SubprocessError, TimeoutError):
+        return None
+    candidate = result.stdout.strip()
+    if result.returncode == 0 and candidate:
+        return candidate
+    return None
 
 
 def load_curation_policy(path: Path | None = None) -> dict:
@@ -395,6 +416,7 @@ def build_execution_plan(
     policy_path: str,
 ) -> list[dict]:
     steps: list[dict] = []
+    steps.append({"name": "github-auth-status", "cmd": ["gh", "auth", "status"]})
     if sync_mode == "check":
         steps.append({"name": "sync-upstream-check", "cmd": python_cmd + ["scripts/sync_upstream.py", "--check-only"]})
     elif sync_mode == "apply":
@@ -552,6 +574,10 @@ def create_pull_request(
             "create",
             "--base",
             base_branch,
+            "--label",
+            "codex",
+            "--label",
+            "codex-automation",
             "--title",
             title,
             "--body-file",
@@ -862,7 +888,7 @@ def ingest_candidates(
     python_cmd: list[str],
     policy: dict | None = None,
 ) -> dict:
-    token = None
+    token = resolve_github_token()
     ingested = []
     skipped = []
     unlicensed_rewrites = []
