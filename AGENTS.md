@@ -28,10 +28,29 @@ docs/TAGS-INDEX.md                    ← Cross-category tag-based index
 6. **Source provenance must be tracked** — every skill has an entry in `docs/sources/*.skills.json`.
 7. **Keep bilingual READMEs synchronized** — when updating `README.md`, update `README.en.md` in the same change and run `python scripts/check_readme_sync.py`.
 8. **Keep all public counts generated from one source of truth** — skill totals in README badges/text, `docs/catalog.json`, and `.github/assets/repo-banner.svg` must match the actual `skills/*/*/SKILL.md` tree. Run `python scripts/refresh_repo_views.py`, `python scripts/build_catalog_json.py`, and `python scripts/check_readme_sync.py`; never hand-edit counts or banner numbers.
+9. **Prefer authenticated GitHub access for automation** — before running discovery or upstream sync, verify `gh auth status`. If `GITHUB_TOKEN` / `GH_TOKEN` are unset, repository automation should fall back to the locally authenticated `gh` token instead of running unauthenticated searches that cause `401` or premature rate limiting.
+10. **Treat warning sources differently** — distinguish between actionable repository regressions (quality lint, missing frontmatter, generated diff drift) and external-state noise (GitHub API rate limits, exploratory `404` upstream paths, temporary DNS failures). Fix the former in the same run; report the latter with enough detail to retry or repair provenance later.
+11. **Prefer staged pull requests for recurring maintenance** — if the run includes both a focused additive change (for example a new skill) and a broad upstream sync, split them into separate `codex/` branches and PRs so review and rollback stay manageable.
 
 ---
 
 ## Automated Operations (SOP for AI Agents)
+
+### Recurring Run Preflight (每周例行前置检查)
+
+Run this before Operation 1/2/3:
+
+```bash
+git fetch origin --prune
+gh auth status
+git status --short --branch
+```
+
+Interpretation:
+
+- If `gh auth status` fails, fix GitHub authentication before discovery/sync work.
+- If the worktree is dirty, either stop or isolate the maintenance work on a fresh `codex/` branch after understanding the existing changes.
+- If network or DNS is down, do not trust `0 updates found` as a complete freshness result; record it as a partial check and retry once connectivity is restored.
 
 ### Operation 1: Discover & Add New Skills (全网搜集优秀技能)
 
@@ -42,6 +61,7 @@ docs/TAGS-INDEX.md                    ← Cross-category tag-based index
 ```
 Step 1: DISCOVER — Search all platforms for candidate skills
   ├── Run: python scripts/discover_new_skills.py --output docs/sources/reports/discovery.json
+  │   (Uses `GITHUB_TOKEN` / `GH_TOKEN` when present, otherwise should reuse local `gh` authentication)
   ├── Additionally search manually via:
   │   ├── npx skills find "<keyword>"          (skills.sh)
   │   ├── clawhub search "<keyword>"           (ClawHub)
@@ -89,7 +109,8 @@ Step 4: PIPELINE — Run full refresh and validation
 Step 5: COMMIT & PUSH
   ├── git add -A
   ├── git commit -m "feat: add N new skills from <sources>"
-  └── git push
+  ├── git push
+  └── Prefer a focused PR if the run also includes bulk upstream sync changes
 ```
 
 ### Operation 2: Check & Update Existing Skills (检查并更新现有技能)
@@ -101,7 +122,7 @@ Step 5: COMMIT & PUSH
 ```
 Step 1: CHECK UPSTREAM — Scan for updated skills
   ├── Run: python scripts/sync_upstream.py --check-only
-  │   (Reads docs/sources/in-house.skills.json, checks upstream repos for new commits)
+  │   (Reads docs/sources/in-house.skills.json, checks upstream repos for new commits, and should reuse local `gh` auth if env tokens are absent)
   └── Output: list of skills with available updates and their diffs
 
 Step 2: APPLY UPDATES
@@ -110,12 +131,14 @@ Step 2: APPLY UPDATES
   ├── For each updated skill:
   │   ├── Preserve local frontmatter enrichments (tags, quality, etc.)
   │   ├── Update: updated_at, version (bump patch)
-  │   └── Verify content quality after merge
+  │   ├── Verify content quality after merge
+  │   └── If upstream becomes too thin for repository standards, add a local quality supplement instead of reverting the upstream body wholesale
   └── If conflicts exist, prefer upstream content but keep local frontmatter
 
 Step 3: QUALITY CHECK
   ├── python scripts/lint_skill_quality.py --min-lines 50
-  └── Manually review any WARN/FAIL results
+  ├── Fix WARN/FAIL items caused by repository quality policy in the same branch
+  └── Record external-state blockers separately (e.g. raw-path `404`, GitHub API `403 rate limit exceeded`)
 
 Step 4: PIPELINE — Same as Operation 1, Step 4
 
@@ -130,6 +153,12 @@ Step 5: COMMIT & PUSH
 **Trigger**: User says "add new and update existing", "全面更新", "搜集新的并更新旧的" or similar.
 
 **Procedure**: Execute Operation 2 first (update existing), then Operation 1 (add new). This ensures the baseline is current before adding new skills.
+
+**Preferred PR strategy**:
+
+- PR 1: small, focused additions or warning fixes
+- PR 2: bulk upstream sync
+- Merge only after each PR has passed the local full pipeline cleanly
 
 ---
 

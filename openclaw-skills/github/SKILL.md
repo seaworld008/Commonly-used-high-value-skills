@@ -7,7 +7,7 @@ source: "in-house"
 source_url: ""
 tags: '["automation", "github", "workflow"]'
 created_at: "2026-03-15"
-updated_at: "2026-03-20"
+updated_at: "2026-06-08"
 quality: 2
 complexity: "intermediate"
 ---
@@ -38,6 +38,20 @@ npx clawhub@latest install github
 3. **策略生成 (Planning)**：执行动作前先生成“变更预览”（Preview），描述将要修改的标签、关闭的 Issue 或触发的 Action，避免大规模误操作。
 4. **动作执行 (Execution)**：调用 `gh` 指令执行具体动作。
 5. **状态同步 (Sync)**：执行后回写结果（如回复评论、添加标签、同步状态到 `MEMORY.md`）。
+
+### 本机 `gh` 认证优先
+
+在任何 GitHub 自动化前，先执行：
+
+```bash
+gh auth status
+```
+
+如果仓库脚本需要 GitHub API，但环境里没有显式的 `GITHUB_TOKEN` / `GH_TOKEN`，优先复用本机 `gh auth token`，而不是直接走未认证请求。这样可以显著减少：
+
+- `401 Unauthorized`
+- 过早触发的 API rate limit
+- 因匿名搜索受限导致的“误以为没有更新”
 
 ## 触发条件 / When to Use
 
@@ -75,6 +89,13 @@ npx clawhub@latest install github
   1. 使用 `gh api` 调用更底层的 GraphQL 或 REST API 获取历史统计数据。
   2. 统计 PR 合并周期（Lead Time）、Issue 关闭率等指标。
 
+### 5. 周期性仓库维护 (Recurring Maintenance)
+
+- 先 `git fetch origin --prune`，再做 discovery / upstream sync。
+- 如果同时存在“小而确定的修复”和“大批量同步”，拆成两个 `codex/` 分支与两个 PR。
+- 先合并聚焦 PR，再合并批量同步 PR，避免回滚时把不相关内容绑在一起。
+- 对 warning 做分类：仓库质量回归要当场修，外部 API `403` / 上游路径 `404` 要单独记录并在 PR 里说明。
+
 ## 常用命令/模板 / Common Patterns
 
 ### 自动 Issue 转换模板 (Issue from Discussion)
@@ -109,6 +130,7 @@ gh run view $RUN_ID --log > /tmp/ci-failure.log
 - **认证安全 (Auth Scopes)**：默认使用最小权限 Token。严禁在非受信任环境中显式导出 `GITHUB_TOKEN` 环境变量。
 - **破坏性操作红线**：删除分支、强制推送 (`--force`)、删除 Release 或批量关闭 Issue 必须经过人类二次确认。
 - **API 速率限制 (Rate Limiting)**：短时间内大规模调用 `gh api` 或 `gh search` 可能触发 GitHub 的 Secondary Rate Limit。
+- **告警解释**：不要把匿名 API 的 `401`、上游 fallback 探测时的中间 `404`、或短时网络故障误报成“仓库本身异常”；这类告警要和真实仓库回归分开汇报。
 - **合并冲突 (Conflicts)**：GitHub CLI 无法直接处理复杂的代码行冲突，此时必须回退到本地 `git` 环境进行人工 rebase。
 - **Workflow 自定义权限**：部分 Repo 限制了通过 CLI 触发 Actions 的权限。
 
@@ -120,3 +142,4 @@ gh run view $RUN_ID --log > /tmp/ci-failure.log
 4. **自动化与人工的边界**：代码审查（Review）建议主要由 LLM 提供参考，但最终的 `Approve` 动作应由人类执行。
 5. **日志可追溯**：记录每一次 `gh` 操作的输出，方便事后审计。
 6. **模板化管理**：充分利用 GitHub 仓库自带的 `.github/ISSUE_TEMPLATE` 提高规范度。
+7. **分阶段合并**：周期性维护优先拆成“聚焦修复 PR”和“批量同步 PR”，降低审查与回滚成本。

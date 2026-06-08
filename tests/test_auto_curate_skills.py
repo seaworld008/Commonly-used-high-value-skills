@@ -75,8 +75,9 @@ class AutoCurateSkillsTests(unittest.TestCase):
         )
 
         rendered = [" ".join(step["cmd"]) for step in plan]
-        self.assertIn("python scripts/sync_upstream.py --apply", rendered[0])
-        self.assertIn("python scripts/discover_new_skills.py --output docs/sources/reports/discovery.json", rendered[1])
+        self.assertEqual("gh auth status", rendered[0])
+        self.assertIn("python scripts/sync_upstream.py --apply", rendered[1])
+        self.assertIn("python scripts/discover_new_skills.py --output docs/sources/reports/discovery.json", rendered[2])
         self.assertTrue(
             any("python scripts/enrich_frontmatter.py" in command for command in rendered),
             rendered,
@@ -86,6 +87,17 @@ class AutoCurateSkillsTests(unittest.TestCase):
             rendered,
         )
         self.assertIn("python -m unittest discover tests -v", rendered[-1])
+
+    def test_resolve_github_token_falls_back_to_gh_cli(self):
+        module = load_module()
+
+        with mock.patch.dict(module.os.environ, {}, clear=True):
+            completed = mock.Mock(returncode=0, stdout="gho_example_token\n")
+            with mock.patch.object(module.subprocess, "run", return_value=completed) as run:
+                token = module.resolve_github_token()
+
+        self.assertEqual("gho_example_token", token)
+        run.assert_called_once()
 
     def test_curate_dry_run_writes_candidate_report(self):
         module = load_module()
