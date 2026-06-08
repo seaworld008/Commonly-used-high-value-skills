@@ -5,12 +5,12 @@
 [![简体中文](https://img.shields.io/badge/README-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1677ff)](./README.md)
 [![English](https://img.shields.io/badge/README-English-111111)](./README.en.md)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b894)](./openclaw-skills/README.md)
-[![Skills](https://img.shields.io/badge/Skills-301-7c3aed)](./skills/)
+[![Skills](https://img.shields.io/badge/Skills-302-7c3aed)](./skills/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
 A high-value skills repository for AI developers, organized by real work scenarios such as developer engineering, DevOps, automation, finance, design, knowledge workflows, and reliability.
 
-This repository currently contains **16 categories / 301 skills**.
+This repository currently contains **16 categories / 302 skills**.
 
 ## Who This Is For
 
@@ -273,10 +273,10 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 2. Open the relevant `SKILL.md` and read its triggers, workflow, boundaries, and scripts.
 3. If a skill includes `scripts/`, `references/`, or `assets/`, reuse those files before recreating similar content.
 
-## Skill Overview (by category, 16 categories / 301 skills)
+## Skill Overview (by category, 16 categories / 302 skills)
 
 <a id="cat-developer-engineering"></a>
-### 1. Developer Engineering (developer-engineering, 49)
+### 1. Developer Engineering (developer-engineering, 50)
 
 - [`agent-designer`](./skills/developer-engineering/agent-designer/)
 - [`api-design-reviewer`](./skills/developer-engineering/api-design-reviewer/)
@@ -325,6 +325,7 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`terraform-engineer`](./skills/developer-engineering/terraform-engineer/)
 - [`typescript-best-practices`](./skills/developer-engineering/typescript-best-practices/)
 - [`vercel-react-best-practices`](./skills/developer-engineering/vercel-react-best-practices/)
+- [`vercel-react-view-transitions`](./skills/developer-engineering/vercel-react-view-transitions/)
 - [`web-artifacts-builder`](./skills/developer-engineering/web-artifacts-builder/)
 - [`webapp-testing`](./skills/developer-engineering/webapp-testing/)
 

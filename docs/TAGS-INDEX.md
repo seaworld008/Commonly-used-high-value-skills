@@ -1,6 +1,6 @@
 # Tags Index
 
-> Auto-generated from 1117 skill-tag mappings across 482 tags.
+> Auto-generated from 1123 skill-tag mappings across 484 tags.
 > Last updated: see git log.
 
 ## Quick Navigation
@@ -60,6 +60,7 @@
 - [`database`](#database) (3)
 - [`debugging`](#debugging) (3)
 - [`engineer`](#engineer) (3)
+- [`frontend`](#frontend) (3)
 - [`git`](#git) (3)
 - [`knowledge-base`](#knowledge-base) (3)
 - [`markdown`](#markdown) (3)
@@ -71,6 +72,7 @@
 - [`supabase`](#supabase) (3)
 - [`supply-chain`](#supply-chain) (3)
 - [`system`](#system) (3)
+- [`vercel`](#vercel) (3)
 - [`web`](#web) (3)
 - [`agent-skill`](#agent-skill) (2)
 - [`analyst`](#analyst) (2)
@@ -95,13 +97,13 @@
 - [`events`](#events) (2)
 - [`figma`](#figma) (2)
 - [`financial`](#financial) (2)
-- [`frontend`](#frontend) (2)
 - [`gateway`](#gateway) (2)
 - [`graphql`](#graphql) (2)
 - [`integrations`](#integrations) (2)
 - [`meeting`](#meeting) (2)
 - [`metrics`](#metrics) (2)
 - [`minutes`](#minutes) (2)
+- [`nextjs`](#nextjs) (2)
 - [`notes`](#notes) (2)
 - [`observability`](#observability) (2)
 - [`owasp`](#owasp) (2)
@@ -116,6 +118,7 @@
 - [`project-management`](#project-management) (2)
 - [`prompt`](#prompt) (2)
 - [`quality-gate`](#quality-gate) (2)
+- [`react`](#react) (2)
 - [`researcher`](#researcher) (2)
 - [`root-cause-analysis`](#root-cause-analysis) (2)
 - [`saas`](#saas) (2)
@@ -129,7 +132,6 @@
 - [`terraform`](#terraform) (2)
 - [`toolkit`](#toolkit) (2)
 - [`tracker`](#tracker) (2)
-- [`vercel`](#vercel) (2)
 - [`verification`](#verification) (2)
 - [`wiki`](#wiki) (2)
 - [`worktree`](#worktree) (2)
@@ -144,6 +146,7 @@
 - [`ai-workflow`](#ai-workflow) (1)
 - [`algorithmic`](#algorithmic) (1)
 - [`analytics`](#analytics) (1)
+- [`animation`](#animation) (1)
 - [`api-and-interface-design`](#api-and-interface-design) (1)
 - [`approval`](#approval) (1)
 - [`apps`](#apps) (1)
@@ -322,7 +325,6 @@
 - [`navigator`](#navigator) (1)
 - [`neon`](#neon) (1)
 - [`netlify`](#netlify) (1)
-- [`nextjs`](#nextjs) (1)
 - [`nexus`](#nexus) (1)
 - [`non-intrusive`](#non-intrusive) (1)
 - [`notebook`](#notebook) (1)
@@ -371,7 +373,6 @@
 - [`rag`](#rag) (1)
 - [`rag-alternative`](#rag-alternative) (1)
 - [`rally`](#rally) (1)
-- [`react`](#react) (1)
 - [`reader`](#reader) (1)
 - [`refactoring`](#refactoring) (1)
 - [`reflect`](#reflect) (1)
@@ -459,6 +460,7 @@
 - [`trace`](#trace) (1)
 - [`transcribe`](#transcribe) (1)
 - [`transcript`](#transcript) (1)
+- [`transitions`](#transitions) (1)
 - [`triage`](#triage) (1)
 - [`troubleshooting`](#troubleshooting) (1)
 - [`twitter`](#twitter) (1)
@@ -1480,6 +1482,16 @@
 | [rust-engineer](skills/developer-engineering/rust-engineer) | developer-engineering | ★★★★☆ | 用于 Rust 语言开发最佳实践、异步编程和系统级编程指导。来源：skills.sh 1.5K+ installs。 |
 | [terraform-engineer](skills/developer-engineering/terraform-engineer) | developer-engineering | ★★★★☆ | 用于 Terraform 基础设施即代码（IaC）设计、模块化管理和状态管理。来源：HashiCorp 官方 + skills.sh。 |
 
+## frontend
+
+**3 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [vercel-react-view-transitions](skills/developer-engineering/vercel-react-view-transitions) | developer-engineering | ★★★★☆ | Guide for adding native-feeling page, route, shared-element, and list transition |
+| [ui-ux-pro-max](skills/product-design/ui-ux-pro-max) | product-design | ★★★★☆ | Front-end UI/UX design intelligence for creating, reviewing, and hardening polis |
+| [frontend-design](skills/developer-engineering/frontend-design) | developer-engineering | ★★☆☆☆ | Create distinctive, production-grade frontend interfaces with high design qualit |
+
 ## git
 
 **3 skills**
@@ -1589,6 +1601,16 @@
 | [interview-system-designer](skills/operations-general/interview-system-designer) | operations-general | ★★★★★ | This skill should be used when the user asks to "design interview processes", "c |
 | [ui-design-system](skills/product-design/ui-design-system) | product-design | ★★★★★ | UI design system toolkit for Senior UI Designer including design token generatio |
 | [tailwind-design-system](skills/developer-engineering/tailwind-design-system) | developer-engineering | ★★★★☆ | 用于 Tailwind CSS 设计系统搭建、组件库开发与主题定制。来源：skills.sh 24.7K installs。 |
+
+## vercel
+
+**3 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [vercel-react-best-practices](skills/developer-engineering/vercel-react-best-practices) | developer-engineering | ★★★★☆ | React and Next.js performance optimization guidelines from Vercel Engineering. T |
+| [vercel-react-view-transitions](skills/developer-engineering/vercel-react-view-transitions) | developer-engineering | ★★★★☆ | Guide for adding native-feeling page, route, shared-element, and list transition |
+| [vercel-deploy](skills/deployment-platforms/vercel-deploy) | deployment-platforms | ★★★☆☆ | Deploy applications and websites to Vercel. Use when the user requests deploymen |
 
 ## web
 
@@ -1807,15 +1829,6 @@
 | [financial-analyst](skills/finance-investing/financial-analyst) | finance-investing | ★★★★☆ | Performs financial ratio analysis, DCF valuation, budget variance analysis, and  |
 | [financial-data-collector](skills/finance-investing/financial-data-collector) | finance-investing | ★★★★☆ | Use when collecting financial data for a US public company, assembling DCF input |
 
-## frontend
-
-**2 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [ui-ux-pro-max](skills/product-design/ui-ux-pro-max) | product-design | ★★★★☆ | Front-end UI/UX design intelligence for creating, reviewing, and hardening polis |
-| [frontend-design](skills/developer-engineering/frontend-design) | developer-engineering | ★★☆☆☆ | Create distinctive, production-grade frontend interfaces with high design qualit |
-
 ## gateway
 
 **2 skills**
@@ -1869,6 +1882,15 @@
 |-------|----------|---------|-------------|
 | [meeting-minutes-taker](skills/office-white-collar/meeting-minutes-taker) | office-white-collar | ★★★★★ | Transforms raw meeting transcripts into high-fidelity, structured meeting minute |
 | [lark-minutes](skills/knowledge-and-pm-integrations/lark-minutes) | knowledge-and-pm-integrations | ★★★★☆ | 飞书妙记：妙记相关基本功能。1.查询妙记列表（按关键词/所有者/参与者/时间范围）；2.获取妙记基础信息（标题、封面、时长 等）；3.下载妙记音视频文件；4.获 |
+
+## nextjs
+
+**2 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [nextjs-app-router](skills/developer-engineering/nextjs-app-router) | developer-engineering | ★★★★☆ | 用于 Next.js App Router 模式开发，包含 RSC、Server Actions 和路由最佳实践。来源：skills.sh 10.2K inst |
+| [vercel-react-view-transitions](skills/developer-engineering/vercel-react-view-transitions) | developer-engineering | ★★★★☆ | Guide for adding native-feeling page, route, shared-element, and list transition |
 
 ## notes
 
@@ -1996,6 +2018,15 @@
 | [requesting-code-review](skills/ai-workflow/requesting-code-review) | ai-workflow | ★★★★☆ | Use when completing tasks, implementing major features, or before merging to ver |
 | [verification-before-completion](skills/ai-workflow/verification-before-completion) | ai-workflow | ★★★★☆ | Use when about to claim work is complete, fixed, or passing, before committing o |
 
+## react
+
+**2 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [vercel-react-best-practices](skills/developer-engineering/vercel-react-best-practices) | developer-engineering | ★★★★☆ | React and Next.js performance optimization guidelines from Vercel Engineering. T |
+| [vercel-react-view-transitions](skills/developer-engineering/vercel-react-view-transitions) | developer-engineering | ★★★★☆ | Guide for adding native-feeling page, route, shared-element, and list transition |
+
 ## researcher
 
 **2 skills**
@@ -2113,15 +2144,6 @@
 | [tech-debt-tracker](skills/developer-engineering/tech-debt-tracker) | developer-engineering | ★★★★★ | Tier: POWERFUL 🔥 Category: Engineering Process Automation Expertise: Code Qualit |
 | [event-driven-tracker](skills/finance-investing/event-driven-tracker) | finance-investing | ★★☆☆☆ | Use when tracking earnings, product launches, M&A, dividends, buybacks, unlocks, |
 
-## vercel
-
-**2 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [vercel-react-best-practices](skills/developer-engineering/vercel-react-best-practices) | developer-engineering | ★★★★☆ | React and Next.js performance optimization guidelines from Vercel Engineering. T |
-| [vercel-deploy](skills/deployment-platforms/vercel-deploy) | deployment-platforms | ★★★☆☆ | Deploy applications and websites to Vercel. Use when the user requests deploymen |
-
 ## verification
 
 **2 skills**
@@ -2236,6 +2258,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [campaign-analytics](skills/growth-operations-xiaohongshu/campaign-analytics) | growth-operations-xiaohongshu | ★★★★★ | Analyzes campaign performance with multi-touch attribution, funnel conversion, a |
+
+## animation
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [vercel-react-view-transitions](skills/developer-engineering/vercel-react-view-transitions) | developer-engineering | ★★★★☆ | Guide for adding native-feeling page, route, shared-element, and list transition |
 
 ## api-and-interface-design
 
@@ -3661,14 +3691,6 @@
 |-------|----------|---------|-------------|
 | [netlify-deploy](skills/deployment-platforms/netlify-deploy) | deployment-platforms | ★★★★★ | Deploy web projects to Netlify using the Netlify CLI (`npx netlify`). Use when t |
 
-## nextjs
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [nextjs-app-router](skills/developer-engineering/nextjs-app-router) | developer-engineering | ★★★★☆ | 用于 Next.js App Router 模式开发，包含 RSC、Server Actions 和路由最佳实践。来源：skills.sh 10.2K inst |
-
 ## nexus
 
 **1 skills**
@@ -4052,14 +4074,6 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [rally](skills/ai-workflow/rally) | ai-workflow | ★★★★★ | Multi-session parallel orchestrator using Claude Code Agent Teams API and Codex  |
-
-## react
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [vercel-react-best-practices](skills/developer-engineering/vercel-react-best-practices) | developer-engineering | ★★★★☆ | React and Next.js performance optimization guidelines from Vercel Engineering. T |
 
 ## reader
 
@@ -4756,6 +4770,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [transcript-fixer](skills/office-white-collar/transcript-fixer) | office-white-collar | ★★★★☆ | Corrects speech-to-text transcription errors in meeting notes, lectures, and int |
+
+## transitions
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [vercel-react-view-transitions](skills/developer-engineering/vercel-react-view-transitions) | developer-engineering | ★★★★☆ | Guide for adding native-feeling page, route, shared-element, and list transition |
 
 ## triage
 
