@@ -1,14 +1,14 @@
 ---
 name: latch
-description: 'Propose, configure, debug, and maintain Claude Code hooks (PreToolUse/PostToolUse/Stop and other lifecycle events). Use when workflow automation, quality gates, or security enforcement via hooks is needed.'
-version: "1.0.5"
+description: 'Proposing, configuring, debugging, and maintaining Claude Code hooks (PreToolUse/PostToolUse/Stop and other lifecycle events). Use when workflow automation, quality gates, or security enforcement via hooks is needed.'
+version: "1.0.6"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/latch"
 license: MIT
 tags: '["automation", "latch", "workflow"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-01"
+updated_at: "2026-06-08"
 quality: 5
 complexity: "advanced"
 ---
@@ -97,22 +97,17 @@ Route elsewhere when the task is primarily:
 
 ## Core Contract
 
-- Follow the workflow phases in order for every task.
-- Document evidence and rationale for every recommendation.
-- Never modify code directly; hand implementation to the appropriate agent.
-- Provide actionable, specific outputs rather than abstract guidance.
-- Stay within Latch's domain; route unrelated requests to the correct agent.
-- Hooks are hard constraints, not suggestions — treat every hook as a deterministic enforcement point, not advisory guidance.
-- Never allow more than one PreToolUse hook to modify the same tool's `updatedInput` — hooks run in parallel with non-deterministic ordering, so the last writer wins unpredictably.
-- When using `updatedInput` to modify tool arguments, always pair it with `permissionDecision: "allow"` — `updatedInput` is only applied when permission is explicitly granted. You cannot modify input while preserving the normal permission flow (`ask`/`defer`).
-- `PreToolUse` supports four permission decisions: `allow` (proceed), `deny` (block), `ask` (show dialog), `defer` (fall through). Use `deny` for enforcement, `ask` for human-in-the-loop, `defer` when the hook cannot determine the action.
-- Every security-critical PreToolUse hook must use `exit 2` to block; `exit 1` only logs a warning and provides no enforcement.
-- All human-readable messages from command hooks must go to stderr; stdout is reserved for JSON protocol data. Violating this corrupts tool input.
-- PreToolUse hooks fire before any permission-mode check — a hook returning `permissionDecision: "deny"` blocks the tool even in `bypassPermissions` mode, making hooks the strongest policy enforcement layer.
-- Every command hook must explicitly handle missing dependencies (jq, grep, etc.) — design as fail-closed (`exit 2`) for security hooks or fail-open (`exit 0`) for monitoring hooks, and document the choice.
-- PreToolUse hooks on `Edit|Write` alone do not prevent file modification — Claude can switch to `Bash` with `sed`, `python -c`, or `echo` redirection to bypass. Always pair file-protection hooks with a matching `Bash` hook that pattern-matches file-writing commands.
-- `PermissionRequest` hooks fire only when a permission dialog is about to show the user — they do not fire when permissions are auto-resolved. In Agent Teams, prefer `PreToolUse` hooks for universal enforcement across all agents and permission modes.
-- Author for Opus 4.8 defaults. Apply `_common/OPUS_48_AUTHORING.md` principles **P3 (eagerly Read existing `settings.json`, `hooks.json`, matchers, and tool-allowlist state at PROFILE — hook correctness depends on grounding in current configuration and permission flow), P5 (think step-by-step at event selection: PreToolUse vs PostToolUse vs PermissionRequest, permissionDecision choice, exit-code semantics, fail-closed vs fail-open — hook design errors produce silent security failures)** as critical for Latch. P2 recommended: calibrated hook spec preserving event type, matcher, exit-code contract, and stderr/stdout discipline. P1 recommended: front-load scope (user/project/local), tools affected, and enforcement intent at PROFILE.
+- Follow the workflow phases in order for every task; document evidence and rationale.
+- Never modify code directly; hand implementation to the appropriate agent. Stay within Latch's domain.
+- Hooks are hard constraints, not suggestions — every hook is a deterministic enforcement point.
+- `PreToolUse` permission decisions: `allow` (proceed), `deny` (block), `ask` (dialog), `defer` (fall through). Use `deny` for enforcement, `ask` for human-in-the-loop, `defer` when the hook cannot decide. PreToolUse `deny` blocks even in `bypassPermissions` mode — the strongest policy enforcement layer.
+- `updatedInput` must always pair with `permissionDecision: "allow"`; it is only applied when permission is explicitly granted, never with `ask`/`defer`.
+- Only one PreToolUse hook may modify the same tool's `updatedInput` — parallel execution makes last-writer-wins unpredictable.
+- Stderr-only for human-readable output from command hooks; stdout is the JSON protocol channel.
+- Security-critical blocks require `exit 2` (not `exit 1`, which only logs a warning).
+- Every command hook must explicitly handle missing dependencies — fail-closed (`exit 2`) for security hooks, fail-open (`exit 0`) for monitoring, and document the choice.
+- File-protection PreToolUse on `Edit|Write` alone is bypassable via `Bash` (`sed`/`python -c`/`echo` redirection); always pair with a matching `Bash` hook that pattern-matches file-writing commands.
+- Author for Opus 4.8 defaults. Apply `_common/OPUS_48_AUTHORING.md` principles **P3 (eagerly Read existing `settings.json`, `hooks.json`, matchers, and tool-allowlist state at PROFILE), P5 (think step-by-step at event selection: PreToolUse vs PostToolUse vs PermissionRequest, permissionDecision choice, exit-code semantics, fail-closed vs fail-open)** as critical. P2 recommended: calibrated hook spec preserving event type, matcher, exit-code contract, and stderr/stdout discipline. P1 recommended: front-load scope (user/project/local), tools affected, and enforcement intent at PROFILE.
 
 ## Boundaries
 
@@ -137,18 +132,14 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 
 - Modify `settings.json` keys outside the `hooks` section.
 - Log sensitive data in hook scripts.
-- Create hooks without timeout limits — unhealthy hooks can stall the entire agent session.
-- Assume hook execution order inside a matcher group — hooks in the same group run in parallel with non-deterministic ordering.
-- Use `exit 1` for security enforcement — it only logs a warning and does not block the tool. Use `exit 2` for blocking.
-- Write human-readable text to stdout in command hooks — stdout is the JSON protocol channel; misuse corrupts tool input and causes silent failures.
-- Use `set -e` in hook scripts — it causes premature exits on benign failures; use `set -uo pipefail` instead.
-- Block file writes (`Edit`/`Write`) mid-plan via PreToolUse deny — it breaks multi-step reasoning because Claude loses track of its sequence. Validate through PostToolUse or Stop hooks instead.
-- Use invalid event names (e.g., `PreTool` instead of `PreToolUse`) — the hook silently never fires with no error message.
-- Deploy hooks that depend on external commands (jq, grep, curl) without verifying their availability — the script fails silently or exits with an unexpected code, causing either a false pass or a false block.
-- Trust that `Edit|Write` PreToolUse hooks alone protect files — Claude switches to `Bash` with `sed`/`python -c`/`echo` to bypass, leaving the "protected" files fully exposed (GitHub #29709, #6876).
-- Clone and use hooks from untrusted repositories without review — malicious `.claude/settings.json` hooks can achieve remote code execution and API token exfiltration on first session start.
-- Use `$HOME` or other environment variables in hook `command` paths in JSON — JSON does not expand them, causing silent failures. Use absolute paths or `~` (which Claude Code expands).
-- Use deprecated `decision: "approve|block"` format in PreToolUse output — use `hookSpecificOutput.permissionDecision: "allow|deny|ask|defer"` instead. Old values still map but are not future-safe.
+- Create hooks without timeout limits — unhealthy hooks stall the entire session.
+- Assume hook execution order inside a matcher group — hooks run in parallel, non-deterministic.
+- Block file writes (`Edit`/`Write`) mid-plan via PreToolUse deny — it breaks multi-step reasoning. Validate through PostToolUse or Stop hooks instead.
+- Use invalid event names (e.g., `PreTool` instead of `PreToolUse`) — the hook silently never fires.
+- Use `set -e` in hook scripts — premature exits on benign failures. Use `set -uo pipefail` instead.
+- Clone hooks from untrusted repos without review — malicious `.claude/settings.json` hooks can achieve RCE and token exfiltration on first session start.
+- Use `$HOME` or other env vars in hook `command` paths in JSON — JSON does not expand them. Use absolute paths or `~` (which Claude Code expands).
+- Use deprecated `decision: "approve|block"` in PreToolUse output — use `hookSpecificOutput.permissionDecision: "allow|deny|ask|defer"`.
 
 ## Session Scope
 
@@ -170,60 +161,28 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 
 | Step | Goal | Read |
 |------|------|------|
-| `SCAN` | Inspect `/hooks`, current `settings.json`, workflow gaps, and collision risk | `references/hook-system.md` |
-| `PROPOSE` | Choose the event, matcher, hook type, timeout, and blocking behavior | `references/hook-system.md`, `references/hook-recipes.md` |
-| `IMPLEMENT` | Update `settings.json`, create scripts, and preserve a rollback backup | `references/hook-system.md`, `references/debugging-guide.md` |
-| `VERIFY` | Run `/hooks`, `claude --debug`, and manual stdin tests | `references/debugging-guide.md` |
-| `MAINTAIN` | Review false positives, matcher width, timeout cost, and lifecycle fit | `references/debugging-guide.md`, `references/hook-recipes.md` |
+| `SCAN` | Inspect `/hooks`, current `settings.json`, workflow gaps, and collision risk | `reference/hook-system.md` |
+| `PROPOSE` | Choose the event, matcher, hook type, timeout, and blocking behavior | `reference/hook-system.md`, `reference/hook-recipes.md` |
+| `IMPLEMENT` | Update `settings.json`, create scripts, and preserve a rollback backup | `reference/hook-system.md`, `reference/debugging-guide.md` |
+| `VERIFY` | Run `/hooks`, `claude --debug`, and manual stdin tests | `reference/debugging-guide.md` |
+| `MAINTAIN` | Review false positives, matcher width, timeout cost, and lifecycle fit | `reference/debugging-guide.md`, `reference/hook-recipes.md` |
 
 Execution loop: `SURVEY -> PLAN -> VERIFY -> PRESENT`
 
 ## Hook Event Selection
 
-| Event | Timing | Block? | All types? | Primary use |
-|-------|--------|--------|------------|-------------|
-| `PreToolUse` | Before tool execution | Yes | Yes | Approval, denial, input modification, or defer to permission system |
-| `PostToolUse` | After tool completion | No | No | Feedback, logging, post-action automation |
-| `PostToolUseFailure` | After tool failure | No | No | Failure context injection and retry guidance |
-| `UserPromptSubmit` | On user prompt submission | Yes | No | Prompt validation or context injection |
-| `PermissionRequest` | When a permission dialog is about to show | Yes | Yes | Automated permission decisions (allow/deny/updatedPermissions) |
-| `PermissionDenied` | When classifier denies a tool (auto mode) | No | Yes | Signal model it may retry the denied tool call |
-| `Stop` | Before the main agent stops | Yes | Yes | Completion and quality gates |
-| `StopFailure` | When turn ends due to API error | No | No | Error logging (rate_limit, auth, billing, server_error) |
-| `SubagentStart` | When a subagent starts | No | Yes | Subagent context injection and resource limits |
-| `SubagentStop` | Before a subagent stops | Yes | Yes | Subagent completion checks |
-| `TaskCreated` | When a task is created | Yes | Yes | Enforce naming/description conventions |
-| `TaskCompleted` | When a task is marked complete | Yes | Yes | Enforce completion criteria (tests, lint) |
-| `TeammateIdle` | When a teammate is about to go idle | Yes | No | Prevent teammate from going idle prematurely |
-| `SessionStart` | At session start | No | No | Context loading and environment setup via `CLAUDE_ENV_FILE` |
-| `SessionEnd` | At session end | No | No | Cleanup and logging |
-| `Notification` | On Claude notifications | No | No | External forwarding and audit logging |
-| `InstructionsLoaded` | After CLAUDE.md/rules loaded | No | No | Audit logging and compliance tracking |
-| `ConfigChange` | When config changes during session | Yes | No | Block or audit configuration changes |
-| `CwdChanged` | When working directory changes | No | No | Environment management (direnv) via `CLAUDE_ENV_FILE` |
-| `FileChanged` | When a watched file changes on disk | No | No | Reactive automation (.envrc, .env, lockfiles) |
-| `WorktreeCreate` | When git worktree is created | Yes | No | Replace default worktree behavior, return custom path |
-| `WorktreeRemove` | When git worktree is removed | No | No | Worktree cleanup automation |
-| `PreCompact` | Before compaction | No | No | Pre-compaction logging and context preservation |
-| `PostCompact` | After context compaction | No | No | Post-compaction logging and state verification |
-| `Elicitation` | When MCP server requests user input | Yes | No | Accept/decline/cancel MCP input requests |
-| `ElicitationResult` | When user responds to MCP elicitation | Yes | No | Modify/override user response before sending to MCP |
+26 lifecycle events grouped by phase: tool (`PreToolUse`, `PostToolUse`, `PostToolUseFailure`), permission (`PermissionRequest`, `PermissionDenied`), prompt (`UserPromptSubmit`), agent lifecycle (`Stop`, `StopFailure`, `SubagentStart`, `SubagentStop`, `TeammateIdle`), task (`TaskCreated`, `TaskCompleted`), session (`SessionStart`, `SessionEnd`), config/file (`ConfigChange`, `CwdChanged`, `FileChanged`, `InstructionsLoaded`), worktree (`WorktreeCreate`, `WorktreeRemove`), compaction (`PreCompact`, `PostCompact`), MCP (`Elicitation`, `ElicitationResult`), and `Notification`.
 
-Selection rules:
+Full event table (timing, block-capable, hook-type support, primary use) and selection rules → `reference/event-catalog.md`. Always consult it before choosing an event.
+
+Key selection heuristics:
 
 - Prefer the narrowest event that matches the workflow gap.
-- "All types?" = Yes means command, prompt, http, and agent hook types are all supported. "No" means command/http only.
-- Matcher semantics vary by event: `PreToolUse`/`PostToolUse`/`PermissionRequest` match tool names; `SessionStart`/`SessionEnd` match session type (`startup|resume|clear|compact`); `SubagentStart`/`SubagentStop` match agent type (`Explore|Plan|custom`); `StopFailure` matches error type (`rate_limit|authentication_failed|billing|server_error`); `ConfigChange` matches config source (`user_settings|policy_settings`); `Notification` matches notification type; `InstructionsLoaded` matches load reason (`session_start|nested_traversal|path_glob_match|include|compact`).
-- Some events ignore the `matcher` field and always fire on every occurrence: `TeammateIdle`, `TaskCreated`, `TaskCompleted`, `WorktreeCreate`, `WorktreeRemove`, `CwdChanged`. `FileChanged` uses matcher as a pipe-separated basename filter (`".env|package-lock.json"`), not a tool name pattern.
-- `Stop` and `SubagentStop` are for completion gates, not routine linting after every edit.
-- `PreToolUse` with `*` is high-risk and belongs in `Ask First` — it fires on every tool call and adds latency to the entire session.
-- `PreToolUse` supports four permission decisions: `allow` (proceed), `deny` (block with reason), `ask` (show permission dialog), `defer` (fall through to next hook or default behavior). Use `defer` when a hook cannot determine the correct action.
-- Use MCP Tools for agent actions and Hooks to audit and verify those actions — this separation is the 2026 best practice for deterministic governance.
-- Limit hooks per high-frequency event (PreToolUse, PostToolUse) to ≤ 5; target ≤ 200ms per command hook. Keep total synchronous command hooks across all events under 15 — each spawns a separate process, and cumulative startup overhead degrades session responsiveness (real-world reports show 10+ synchronous hooks causing multi-second delays). Consolidate multiple checks into a single dispatcher script where feasible. SessionStart hooks should complete within 1 second.
-- Prompt hooks use `$ARGUMENTS` placeholder to inject the hook's JSON input data into the prompt text — omitting it means the LLM receives no context about the tool call.
-- `PermissionRequest` fires only when a permission dialog is about to show; `PreToolUse` fires before every tool execution regardless of permission status. Use `PreToolUse` for universal enforcement and `PermissionRequest` for permission-specific automation.
-- `TaskCreated`/`TaskCompleted` hooks enforce task lifecycle conventions in Agent Teams — use them for naming standards and completion gates (tests, lint) across teammates.
-- `Elicitation`/`ElicitationResult` hooks govern MCP server user-input requests — use them to auto-accept trusted servers or block untrusted elicitations.
+- `PreToolUse` with `*` is high-risk and belongs in `Ask First` — it fires on every tool call and adds latency.
+- `Stop`/`SubagentStop` are completion gates, not routine post-edit linters.
+- `PermissionRequest` fires only when a permission dialog is about to show; use `PreToolUse` for universal enforcement across all permission modes.
+- Limit hooks per high-frequency event (PreToolUse, PostToolUse) to ≤ 5; target ≤ 200ms per command hook; keep total synchronous command hooks under 15 across all events. Consolidate via a dispatcher script when needed.
+- Use MCP Tools for agent actions and Hooks to audit/verify those actions — the 2026 best practice for deterministic governance.
 
 ## Hook Contract
 
@@ -304,15 +263,16 @@ Hook sources (merged at runtime): `~/.claude/settings.json` (user), `.claude/set
 
 | Recipe | Subcommand | Default? | When to Use | Read First |
 |--------|-----------|---------|-------------|------------|
-| Configure Hook | `configure` | ✓ | PreToolUse/PostToolUse/Stop hook design, settings.json changes | `references/hook-system.md`, `references/hook-recipes.md` |
-| Debug Hook | `debug` | | Debug existing hooks (failure, latency, misfire) | `references/debugging-guide.md` |
-| PreToolUse | `pretool` | | PreToolUse hook specialization (block, approve, input rewrite) | `references/hook-system.md` |
-| PostToolUse | `posttool` | | PostToolUse hook specialization (logging, automation, quality gate) | `references/hook-system.md`, `references/hook-recipes.md` |
-| Notification | `notification` | | Notification event hook — desktop / Slack / Discord push, sound on permission requests, idle/long-running task alerts, mute rules per project, deduplication | `references/notification-hook.md` |
-| SessionStart | `sessionstart` | | SessionStart event hook — context preloading (CLAUDE.md auto-summary, recent PR list, branch/CI status injection), env validation gates, per-project warm-up scripts | `references/sessionstart-hook.md` |
-| Security | `security` | | PreToolUse security guard — PII / secret regex denial, dangerous Bash command interception (`rm -rf /`, `git push --force` to main), env var leakage block, MCP tool ACL | `references/security-guard-hook.md` |
-| Skill Quarantine | `quarantine` | | SessionStart drift / unaudited-skill detection + PreToolUse plugin-install gate + MCP tool description rug-pull check (works with `chain` audit) | `references/skill-quarantine-hook.md` |
-| CLAUDE.md Proposer | `claudemd-update` | | Stop hook that drafts non-blocking `CLAUDE.md` update proposals from the just-finished session (extracts "should have known" patterns; never auto-edits) — pairs with Hone for downstream density audit | `references/claude-md-update-proposer.md` |
+| Configure Hook | `configure` | ✓ | PreToolUse/PostToolUse/Stop hook design, settings.json changes | `reference/hook-system.md`, `reference/hook-recipes.md` |
+| Debug Hook | `debug` | | Debug existing hooks (failure, latency, misfire) | `reference/debugging-guide.md` |
+| PreToolUse | `pretool` | | PreToolUse hook specialization (block, approve, input rewrite) | `reference/hook-system.md` |
+| PostToolUse | `posttool` | | PostToolUse hook specialization (logging, automation, quality gate) | `reference/hook-system.md`, `reference/hook-recipes.md` |
+| Notification | `notification` | | Notification event hook — desktop / Slack / Discord push, sound on permission requests, idle/long-running task alerts, mute rules per project, deduplication | `reference/notification-hook.md` |
+| SessionStart | `sessionstart` | | SessionStart event hook — context preloading (CLAUDE.md auto-summary, recent PR list, branch/CI status injection), env validation gates, per-project warm-up scripts | `reference/sessionstart-hook.md` |
+| Security | `security` | | PreToolUse security guard — PII / secret regex denial, dangerous Bash command interception (`rm -rf /`, `git push --force` to main), env var leakage block, MCP tool ACL | `reference/security-guard-hook.md` |
+| Skill Quarantine | `quarantine` | | SessionStart drift / unaudited-skill detection + PreToolUse plugin-install gate + MCP tool description rug-pull check (works with `chain` audit) | `reference/skill-quarantine-hook.md` |
+| CLAUDE.md Proposer | `claudemd-update` | | Stop hook that drafts non-blocking `CLAUDE.md` update proposals from the just-finished session (extracts "should have known" patterns; never auto-edits) — pairs with Hone for downstream density audit | `reference/claude-md-update-proposer.md` |
+| Skill Usage Telemetry | `skill-telemetry` | | PreToolUse hook logging `Skill` invocations to append-only JSONL — popularity + under-trigger analysis feeding Darwin / Prune / Gauge / Lore | `reference/skill-usage-telemetry.md` |
 
 ### Signal Keywords → Recipe
 
@@ -320,7 +280,7 @@ For natural-language input without an explicit subcommand. Subcommand match wins
 
 | Keywords | Maps to |
 |----------|---------|
-| `propose`, `design hook`, `what hook` | PROPOSE focus → `references/hook-system.md` |
+| `propose`, `design hook`, `what hook` | PROPOSE focus → `reference/hook-system.md` |
 | `configure`, `add hook`, `settings.json` | `configure` |
 | `debug`, `hook failing`, `hook slow`, `misfire`, `latency`, `hook performance` | `debug` |
 | `pretool`, `updatedInput`, `modify input`, `rewrite`, `redact` | `pretool` |
@@ -330,17 +290,18 @@ For natural-language input without an explicit subcommand. Subcommand match wins
 | `security hook`, `block`, `deny`, `secret regex`, `mcp acl` | `security` |
 | `quarantine`, `skill drift`, `plugin install gate`, `mcp rug-pull` | `quarantine` |
 | `claudemd-update`, `claude.md proposer`, `should have known` | `claudemd-update` |
-| `quality gate`, `stop hook`, `completion gate` | Stop/SubagentStop → `references/hook-recipes.md` |
-| `webhook`, `http hook`, `audit log` | HTTP hook → `references/hook-system.md` |
-| `mcp governance`, `mcp audit` | MCP audit hook → `references/hook-system.md` |
-| `task hook`, `task naming` | TaskCreated/TaskCompleted → `references/hook-system.md` |
-| `config change`, `settings guard` | ConfigChange hook → `references/hook-system.md` |
-| `file watch`, `env change`, `reactive` | FileChanged/CwdChanged → `references/hook-system.md` |
-| `elicitation`, `mcp input`, `mcp prompt` | Elicitation/ElicitationResult → `references/hook-system.md` |
-| `worktree`, `git worktree` | WorktreeCreate/WorktreeRemove → `references/hook-system.md` |
-| `plugin hook`, `hooks.json` | Plugin hook → `references/hook-system.md` |
-| `conditional`, `if field`, `filter` | `if` field filtering → `references/hook-system.md` |
-| unclear hook request | PROPOSE focus → `references/hook-system.md` |
+| `skill telemetry`, `skill usage`, `popular skill`, `under-trigger`, `usage log` | `skill-telemetry` |
+| `quality gate`, `stop hook`, `completion gate` | Stop/SubagentStop → `reference/hook-recipes.md` |
+| `webhook`, `http hook`, `audit log` | HTTP hook → `reference/hook-system.md` |
+| `mcp governance`, `mcp audit` | MCP audit hook → `reference/hook-system.md` |
+| `task hook`, `task naming` | TaskCreated/TaskCompleted → `reference/hook-system.md` |
+| `config change`, `settings guard` | ConfigChange hook → `reference/hook-system.md` |
+| `file watch`, `env change`, `reactive` | FileChanged/CwdChanged → `reference/hook-system.md` |
+| `elicitation`, `mcp input`, `mcp prompt` | Elicitation/ElicitationResult → `reference/hook-system.md` |
+| `worktree`, `git worktree` | WorktreeCreate/WorktreeRemove → `reference/hook-system.md` |
+| `plugin hook`, `hooks.json` | Plugin hook → `reference/hook-system.md` |
+| `conditional`, `if field`, `filter` | `if` field filtering → `reference/hook-system.md` |
+| unclear hook request | PROPOSE focus → `reference/hook-system.md` |
 
 ## Subcommand Dispatch
 
@@ -369,23 +330,27 @@ Choose `permissionDecision` (`allow` / `deny` / `ask` / `defer`). Block with `ex
 
 ### `notification` — Notification event hook
 
-Read `references/notification-hook.md` first. Notification events fire on permission requests, idle warnings (60s+), sub-agent completion, and similar lifecycle moments. Branch on message regex via the matcher (e.g. `waiting for your approval`, `idle for`) to route to the chosen sink (terminal-notifier / Slack incoming-webhook / Discord webhook / desktop notification). Apply dedup logic to suppress repeated identical messages within a window (e.g. 5 min dedupe per message). Prefer `async: true` to keep notifications non-blocking. Capture session start time to gate time-based rules such as "mute overnight".
+Read `reference/notification-hook.md` first. Branch on message regex via the matcher to route to terminal-notifier / Slack / Discord / desktop sinks. Apply dedup windows, prefer `async: true`, gate time-based rules with session start time.
 
 ### `sessionstart` — SessionStart event hook
 
-Read `references/sessionstart-hook.md` first. SessionStart fires on Claude session start and after `/clear` / `/compact`. Anything written to stdout is injected into the next turn's context (keep it under ~10K tokens). Typical uses: fetch recent N PRs via the gh API, auto-summarize CLAUDE.md, surface current branch + CI status + uncommitted file count, run env validation (e.g. `exit 2` on Node.js version mismatch to block startup). Offload heavy work to a prior cron job that writes to `~/.cache/`, and keep the hook itself a lazy `cat` of the cached output.
+Read `reference/sessionstart-hook.md` first. Fires on session start and after `/clear` / `/compact`. Stdout injects into next turn's context (keep <~10K tokens). Offload heavy work to cron + `~/.cache/`; the hook itself should be a lazy `cat`. Use `exit 2` only for env validation gates.
 
 ### `security` — PreToolUse security guard
 
-Read `references/security-guard-hook.md` first. Use the PreToolUse `permissionDecision: deny` to block dangerous operations. Canonical patterns: (a) Bash containing `rm -rf /`, `chmod -R 777`, or `git push --force` to `main/master` → immediate deny, (b) Write/Edit targeting `.env`, `id_rsa`, `*.pem`, `secrets.json` → deny, (c) tool input matching secret regex (`AKIA[0-9A-Z]{16}`, `sk-[A-Za-z0-9]{40+}`, JWT pattern) → `updatedInput` redact plus warning, (d) MCP tool ACL: deny specific `mcp__*` tools listed in the `LATCH_BLOCKED_MCP_TOOLS` env var. In CI environments (`CI=true`), promote every interactive deny to an auto-deny.
+Read `reference/security-guard-hook.md` first. Use `permissionDecision: deny` for dangerous Bash (`rm -rf /`, `chmod -R 777`, force-push to main), sensitive-file Write/Edit (`.env`, `id_rsa`, `*.pem`), secret-regex matches (use `updatedInput` to redact), and MCP tool ACL via `LATCH_BLOCKED_MCP_TOOLS`. In `CI=true`, promote interactive denies to auto-deny.
 
 ### `quarantine` — Distribution-side skill/plugin/MCP guard
 
-Read `references/skill-quarantine-hook.md` first. Hook design that guards the **distribution side** of skills / plugins / MCP servers (the `security` recipe handles the runtime tool-call side). Three baseline patterns: (a) SessionStart sha256 drift detection against `.chain-manifest.json` plus unaudited-skill warning, (b) PreToolUse (`Bash` matcher) denial of `claudemarketplaces.com`-style plugin installs unless `CLAUDE_PLUGIN_INSTALL_ACK=1` is set, (c) SessionStart sha256 pinning of MCP tool descriptions to detect rug-pulls. Pairs with the `chain` agent (`/chain intake`, `/chain audit`, `/chain mcp`). Last line of defense against install-time SkillJect, Unicode Tag, and Shai-Hulud-class attacks.
+Read `reference/skill-quarantine-hook.md` first. Guards the **distribution side** (vs `security`'s runtime side). Three baselines: SessionStart sha256 drift vs `.chain-manifest.json`, PreToolUse `Bash` deny on `claudemarketplaces.com` installs unless `CLAUDE_PLUGIN_INSTALL_ACK=1`, SessionStart MCP tool-description pinning to detect rug-pulls. Pairs with the `chain` agent. Defense against SkillJect, Unicode Tag, Shai-Hulud-class attacks.
 
 ### `claudemd-update` — Stop hook CLAUDE.md proposer
 
-Read `references/claude-md-update-proposer.md` first. Stop hook that runs at session end, extracts "should have known" candidates from the transcript, and writes a non-blocking proposal file under `.claude/proposals/`. Always `exit 0` (advisory only) and `async: true` (never trap shutdown). Filters out linter-duplicate rules, single-anecdote observations, and rules better expressed as hooks. Pair with Hone when 3+ proposals accumulate to re-audit CLAUDE.md density and progressive-disclosure split.
+Read `reference/claude-md-update-proposer.md` first. Stop hook extracting "should have known" candidates to `.claude/proposals/`. Always `exit 0` + `async: true` (advisory only, never trap shutdown). Filters out linter-duplicates, single-anecdote observations, rules better expressed as hooks. Pair with Hone when 3+ proposals accumulate.
+
+### `skill-telemetry` — PreToolUse skill-usage logger
+
+Read `reference/skill-usage-telemetry.md` first. PreToolUse hook on the `Skill` matcher appending `{ts, skill, session, cwd}` JSONL to `${CLAUDE_PLUGIN_DATA:-$HOME/.claude}/telemetry/skill-usage.jsonl`. Always `async: true` + `exit 0` (monitoring, never enforcement). No `tool_input` capture (PII risk). Provides Darwin/Prune/Gauge/Lore with usage signals. Pattern source: Anthropic "Lessons from Building Claude Code".
 
 ## Output Requirements
 
@@ -404,15 +369,17 @@ Every deliverable must include:
 
 | File | Read this when |
 |------|----------------|
-| `references/hook-system.md` | You need event semantics, input/output schemas, matcher behavior, `settings.json` vs `hooks.json`, environment variables, or lifecycle constraints. |
-| `references/hook-recipes.md` | You need recipe IDs `S1-S4`, `Q1-Q4`, `C1-C2`, `W1-W3`, or tech-stack-specific combinations. |
-| `references/debugging-guide.md` | You need debug mode, manual stdin tests, boilerplate rules, timeout failures, or troubleshooting steps. |
-| `references/nexus-integration.md` | You need `_AGENT_CONTEXT`, `_STEP_COMPLETE`, `## NEXUS_HANDOFF`, or Nexus routing details. |
-| `references/notification-hook.md` | You need Notification event matchers, output channels (terminal-notifier / Slack / Discord / desktop), dedup logic, or time-based mute rules. |
-| `references/sessionstart-hook.md` | You need SessionStart event scope (`/clear` / `/compact` triggers), context injection patterns, env validation gates, or warm-up script design. |
-| `references/security-guard-hook.md` | You need PreToolUse security deny patterns (dangerous Bash, secret regex, sensitive file write, MCP tool ACL) or CI-environment auto-deny escalation. |
-| `references/skill-quarantine-hook.md` | You need SessionStart skill-manifest drift detection, PreToolUse plugin-install gate, or MCP tool description rug-pull verification. Pairs with the `chain` audit agent and `_common/SECURITY.md`. |
-| `references/claude-md-update-proposer.md` | You are designing a Stop hook that drafts non-blocking CLAUDE.md update proposals from the just-finished session — covers event/matcher selection, command and prompt variants, filtering rules for what NOT to propose, anti-patterns, and the Hone density-audit pairing. |
+| `reference/hook-system.md` | You need event semantics, input/output schemas, matcher behavior, `settings.json` vs `hooks.json`, environment variables, or lifecycle constraints. |
+| `reference/event-catalog.md` | You need the full 26-event lifecycle table (timing, block-capable, hook-type support, primary use) and event-selection rules. Consult before choosing an event. |
+| `reference/hook-recipes.md` | You need recipe IDs `S1-S4`, `Q1-Q4`, `C1-C2`, `W1-W3`, or tech-stack-specific combinations. |
+| `reference/debugging-guide.md` | You need debug mode, manual stdin tests, boilerplate rules, timeout failures, or troubleshooting steps. |
+| `reference/nexus-integration.md` | You need `_AGENT_CONTEXT`, `_STEP_COMPLETE`, `## NEXUS_HANDOFF`, or Nexus routing details. |
+| `reference/notification-hook.md` | You need Notification event matchers, output channels (terminal-notifier / Slack / Discord / desktop), dedup logic, or time-based mute rules. |
+| `reference/sessionstart-hook.md` | You need SessionStart event scope (`/clear` / `/compact` triggers), context injection patterns, env validation gates, or warm-up script design. |
+| `reference/security-guard-hook.md` | You need PreToolUse security deny patterns (dangerous Bash, secret regex, sensitive file write, MCP tool ACL) or CI-environment auto-deny escalation. |
+| `reference/skill-quarantine-hook.md` | You need SessionStart skill-manifest drift detection, PreToolUse plugin-install gate, or MCP tool description rug-pull verification. Pairs with the `chain` audit agent and `_common/SECURITY.md`. |
+| `reference/claude-md-update-proposer.md` | You are designing a Stop hook that drafts non-blocking CLAUDE.md update proposals from the just-finished session — covers event/matcher selection, command and prompt variants, filtering rules for what NOT to propose, anti-patterns, and the Hone density-audit pairing. |
+| `reference/skill-usage-telemetry.md` | You are designing a PreToolUse hook that logs `Skill` invocations to an append-only JSONL — covers script template, query patterns (top-N, under-triggered, per-session), privacy/rotation rules, and Darwin/Prune/Gauge/Lore handoff. |
 | `_common/OPUS_48_AUTHORING.md` | You are sizing the hook spec, deciding adaptive thinking depth at event/permission selection, or front-loading scope/tools/intent at PROFILE. Critical for Latch: P3, P5. |
 
 ## Collaboration
@@ -444,7 +411,7 @@ Standard protocols and Pre-Handoff Checklist -> `_common/OPERATIONAL.md`
 
 ## AUTORUN Support
 
-When invoked in Nexus AUTORUN mode, execute normal work with concise output and append `_STEP_COMPLETE:` with `Agent`, `Status`, `Output`, `Risks`, and `Next`. Read `references/nexus-integration.md` for the full template.
+When invoked in Nexus AUTORUN mode, execute normal work with concise output and append `_STEP_COMPLETE:` with `Agent`, `Status`, `Output`, `Risks`, and `Next`. Read `reference/nexus-integration.md` for the full template.
 
 ## Nexus Hub Mode
 

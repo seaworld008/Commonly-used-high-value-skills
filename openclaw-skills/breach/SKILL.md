@@ -1,14 +1,14 @@
 ---
 name: breach
-description: 'Red team engineering agent. Designs attack scenarios, builds threat models, applies MITRE ATT&CK/OWASP frameworks, runs Purple Team exercises, and performs AI/LLM red teaming. Use when adversarial security validation is needed.'
-version: "1.0.4"
+description: 'Designing red team attack scenarios, building threat models, applying MITRE ATT&CK/OWASP frameworks, running Purple Team exercises, and performing AI/LLM red teaming. Use when adversarial security validation is needed.'
+version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/breach"
 license: MIT
 tags: '["breach", "security"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-01"
+updated_at: "2026-06-08"
 quality: 5
 complexity: "advanced"
 ---
@@ -96,7 +96,7 @@ Route elsewhere when the task is primarily:
 - Use CSA MAESTRO (Multi-Agent Environment, Security, Threat Risk, and Outcome) for agentic AI threat modeling — its 7-layer architecture (Foundation Models → Data Operations → Agent Frameworks → Deployment → Evaluation → Security → Ecosystem) captures attack surfaces that STRIDE/PASTA alone miss in multi-agent systems. Prioritize cross-layer attack path analysis — the most dangerous threats chain from lower layers (e.g., Foundation Model poisoning) through Agent Frameworks to Ecosystem Integration; single-layer assessments miss cascading impact.
 - Enforce security controls (tool-call approvals, file-type firewalls, kill switches) outside the LLM — prompt-level guardrails are unreliable. A joint study by OpenAI, Anthropic, and Google DeepMind (October 2025) showed adaptive attacks bypass 12 published prompt-injection defenses with >90% success rate.
 - For systems subject to EU AI Act: adversarial testing and documentation are mandatory for high-risk and general-purpose AI models with systemic risk. Full compliance required by August 2, 2026; penalties up to €35M or 7% of global annual turnover.
-- For AI red teaming, do not rely solely on binary Attack Success Rate (ASR) — use multi-dimensional scoring (violation severity × attack naturalness × semantic preservation). Binary ASR comparisons across different success criteria or threat models are often invalid and misleading. Use NIST AI 100-2 E2025 as the canonical taxonomy for evasion, poisoning, and privacy attack classification. [Source: NIST AI 100-2 E2025 — Adversarial Machine Learning: A Taxonomy and Terminology of Attacks and Mitigations](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-2e2025.pdf)
+- For AI red teaming, do not rely solely on binary Attack Success Rate (ASR) — use multi-dimensional scoring (violation severity × attack naturalness × semantic preservation). Binary ASR comparisons across different success criteria or threat models are often invalid and misleading. Use NIST AI 100-2 E2025 as the canonical taxonomy for evasion, poisoning, and privacy attack classification. [Source: NIST AI 100-2 E2025 — Adversarial Machine Learning: A Taxonomy and Terminology of Attacks and Mitigations](https://csrc.nist.gov/pubs/ai/100/2/e2025/final)
 - For agentic AI systems, validate the principle of least agency (OWASP Agentic Top 10 2026 [ASI01–ASI10]) — agents must be granted only the minimum autonomy required for safe, bounded tasks. Test for excessive tool access, credential scope, and unchecked autonomous decision chains. [Source: OWASP Gen AI Security Project — OWASP Top 10 for Agentic Applications for 2026 (2025-12-09)](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/)
 - For supply chain assessments, specifically test third-party OAuth token access — enumerate which integrations have OAuth access to sensitive systems (CRM, email, HRIS) and attempt access via simulated compromised tokens.
 - For agent skill/tool ecosystems, test supply chain integrity per OWASP Agentic Skills Top 10 (AST01-AST10) — skill registry poisoning, manifest signing verification (ed25519), permission scope minimization. Treat agent skill registries as untrusted by default; verify manifest signatures and audit permission scopes before deployment. MITRE ATLAS OpenClaw Investigation (2026-02) documents how agentic AI-first ecosystems introduce new exploit execution paths including tool invocation abuse and agentic configuration modification. [Source: MITRE ATLAS OpenClaw Investigation — CTID (2026-02)](https://ctid.mitre.org/blog/2026/02/09/mitre-atlas-openclaw-investigation/)
@@ -205,10 +205,10 @@ questions:
 
 | Domain | Scope | Frameworks | Detail |
 |--------|-------|------------|--------|
-| **Application Security** | Web, API, business logic, auth | OWASP Top 10, OWASP API Top 10, CWE | `references/attack-playbooks.md` |
-| **AI/LLM Red Teaming** | Prompt injection, jailbreak, agentic risks, data poisoning, system prompt leakage, RAG poisoning, MCP server compromise, agent skill supply chain | OWASP LLM Top 10 (2025), OWASP Top 10 for Agentic Applications (2026), OWASP Agentic Skills Top 10, MITRE ATLAS (monthly release cadence 2025+), CSA MAESTRO, NIST AI 100-2 E2025 | `references/ai-red-teaming.md` |
-| **Infrastructure** | Network, cloud, containers, CI/CD | MITRE ATT&CK, CIS Benchmarks | `references/attack-playbooks.md` |
-| **Supply Chain** | Dependencies, build pipeline, third-party integrations | SLSA, SSDF | `references/attack-playbooks.md` |
+| **Application Security** | Web, API, business logic, auth | OWASP Top 10, OWASP API Top 10, CWE | `reference/attack-playbooks.md` |
+| **AI/LLM Red Teaming** | Prompt injection, jailbreak, agentic risks, data poisoning, system prompt leakage, RAG poisoning, MCP server compromise, agent skill supply chain | OWASP LLM Top 10 (2025), OWASP Top 10 for Agentic Applications (2026), OWASP Agentic Skills Top 10, MITRE ATLAS (monthly release cadence 2025+), CSA MAESTRO, NIST AI 100-2 E2025 | `reference/ai-red-teaming.md` |
+| **Infrastructure** | Network, cloud, containers, CI/CD | MITRE ATT&CK, CIS Benchmarks | `reference/attack-playbooks.md` |
+| **Supply Chain** | Dependencies, build pipeline, third-party integrations | SLSA, SSDF | `reference/attack-playbooks.md` |
 
 ### Domain Auto-Selection
 
@@ -231,11 +231,11 @@ INPUT
 
 | Phase | Required action | Key rule | Read |
 |-------|-----------------|----------|------|
-| `SCOPE` | Define target scope, authorization, rules of engagement | No scope = no attack; confirm boundaries before proceeding | `references/attack-playbooks.md` |
-| `MODEL` | Build threat model using STRIDE/PASTA/ATT&CK/ATLAS | Framework grounding required; map all threats to identifiers | `references/threat-modeling.md` |
-| `PLAN` | Design attack scenarios with kill chains mapped to techniques | Include multi-turn chains for AI systems; estimate complexity | `references/ai-red-teaming.md` |
+| `SCOPE` | Define target scope, authorization, rules of engagement | No scope = no attack; confirm boundaries before proceeding | `reference/attack-playbooks.md` |
+| `MODEL` | Build threat model using STRIDE/PASTA/ATT&CK/ATLAS | Framework grounding required; map all threats to identifiers | `reference/threat-modeling.md` |
+| `PLAN` | Design attack scenarios with kill chains mapped to techniques | Include multi-turn chains for AI systems; estimate complexity | `reference/ai-red-teaming.md` |
 | `EXECUTE` | Produce test case specs, bypass documentation, evidence guidance | Design tests, do not run code; document detection gaps | Domain-specific reference |
-| `REPORT` | Generate findings with severity, evidence, remediation, detection | Every finding needs a fix + detection recommendation | `references/attack-playbooks.md` |
+| `REPORT` | Generate findings with severity, evidence, remediation, detection | Every finding needs a fix + detection recommendation | `reference/attack-playbooks.md` |
 
 ---
 
@@ -245,13 +245,13 @@ Single source of truth for Recipe definitions, subcommand dispatch, and signal r
 
 | Recipe | Subcommand | Default? | When to Use | Read First |
 |--------|-----------|---------|-------------|------------|
-| Attack Scenario | `scenario` | ✓ | Attack scenario design, kill chain planning, `attack scenario` / `kill chain` / `pentest plan` / `WAF bypass` / `guardrail` / `control validation` signals | `references/attack-playbooks.md` |
-| Threat Model | `threat-model` | | Threat modeling (STRIDE/PASTA/Attack Trees), `threat model` / `STRIDE` / `PASTA` / `attack surface` / `entry point` / `exposure` signals; per-engagement models — never reuse templates | `references/threat-modeling.md` |
-| Purple Team | `purple` | | Purple Team exercise, Red/Blue coordination, `purple team` / `detection validation` / `blue team` signals; outputs exercise plan + detection rules | `references/attack-playbooks.md` |
-| AI/LLM Red Team | `ai-red` | | AI/LLM-focused red team (prompt injection, agentic risks), `prompt injection` / `jailbreak` / `LLM red team` / `agentic risk` / `RAG poisoning` / `system prompt leakage` / `data poisoning` / `automated red teaming` / `AI-on-AI testing` / `MAESTRO` / `multi-agent security` / `agent skill` / `tool registry` / `skill supply chain` signals; multi-turn attack chains against deployed pipeline (RAG, tools, MCP, plugins); OWASP LLM Top 10 2025, Agentic Top 10 2026, MITRE ATLAS monthly, CSA MAESTRO, NIST AI 100-2 E2025; Garak v0.15.0+ / PyRIT for automation | `references/ai-red-teaming.md` |
-| Phishing Campaign | `phishing` | | Authorized phishing campaign design — pretexting, landing-page clones, MFA-fatigue, quishing, OAuth consent-phishing, SPF/DKIM/DMARC evasion, awareness-training integration | `references/phishing-campaign-design.md` |
-| Supply Chain Attack | `supply` | | Supply chain attack scenarios — dependency confusion, typosquatting, build-tool compromise, SBOM (CycloneDX/SPDX) analysis, SLSA provenance, in-toto attestation, registry pinning | `references/supply-chain-attack-design.md` |
-| Social Engineering | `social` | | Social engineering scenarios — vishing, smishing, tailgating, OSINT pretexting, insider-threat, BEC, deepfake voice/video; behavioral, not code-centric | `references/social-engineering-design.md` |
+| Attack Scenario | `scenario` | ✓ | Attack scenario design, kill chain planning, `attack scenario` / `kill chain` / `pentest plan` / `WAF bypass` / `guardrail` / `control validation` signals | `reference/attack-playbooks.md` |
+| Threat Model | `threat-model` | | Threat modeling (STRIDE/PASTA/Attack Trees), `threat model` / `STRIDE` / `PASTA` / `attack surface` / `entry point` / `exposure` signals; per-engagement models — never reuse templates | `reference/threat-modeling.md` |
+| Purple Team | `purple` | | Purple Team exercise, Red/Blue coordination, `purple team` / `detection validation` / `blue team` signals; outputs exercise plan + detection rules | `reference/attack-playbooks.md` |
+| AI/LLM Red Team | `ai-red` | | AI/LLM-focused red team (prompt injection, agentic risks), `prompt injection` / `jailbreak` / `LLM red team` / `agentic risk` / `RAG poisoning` / `system prompt leakage` / `data poisoning` / `automated red teaming` / `AI-on-AI testing` / `MAESTRO` / `multi-agent security` / `agent skill` / `tool registry` / `skill supply chain` signals; multi-turn attack chains against deployed pipeline (RAG, tools, MCP, plugins); OWASP LLM Top 10 2025, Agentic Top 10 2026, MITRE ATLAS monthly, CSA MAESTRO, NIST AI 100-2 E2025; Garak v0.15.0+ / PyRIT for automation | `reference/ai-red-teaming.md` |
+| Phishing Campaign | `phishing` | | Authorized phishing campaign design — pretexting, landing-page clones, MFA-fatigue, quishing, OAuth consent-phishing, SPF/DKIM/DMARC evasion, awareness-training integration | `reference/phishing-campaign-design.md` |
+| Supply Chain Attack | `supply` | | Supply chain attack scenarios — dependency confusion, typosquatting, build-tool compromise, SBOM (CycloneDX/SPDX) analysis, SLSA provenance, in-toto attestation, registry pinning | `reference/supply-chain-attack-design.md` |
+| Social Engineering | `social` | | Social engineering scenarios — vishing, smishing, tailgating, OSINT pretexting, insider-threat, BEC, deepfake voice/video; behavioral, not code-centric | `reference/social-engineering-design.md` |
 
 ### Subcommand Dispatch
 
@@ -259,7 +259,7 @@ Parse the first token of user input. If it matches a Recipe Subcommand above →
 - Signal keywords in the "When to Use" column match → activate the corresponding Recipe.
 - `security assessment` / `red team report` / unclear request → default to `scenario` with threat-model preface.
 - Always start with SCOPE phase regardless of signal.
-- For static code scanning use Sentinel; for DAST/runtime exploitation use Probe; for Sigma/YARA authoring use Vigil; for AI architecture or eval frameworks use Oracle; for compliance mapping (GDPR/PCI/SLSA/SSDF/SOC 2/HIPAA) use Comply.
+- For static code scanning use Sentinel; for DAST/runtime exploitation use Probe; for Sigma/YARA authoring use Vigil; for AI architecture or eval frameworks use Oracle; for compliance mapping (GDPR/PCI/SLSA/SSDF/SOC 2/HIPAA) use Oath.
 
 ---
 
@@ -311,8 +311,8 @@ Every deliverable must include:
 
 **Agent Teams pattern (multi-domain assessments):**
 When the assessment spans 3+ attack domains (e.g., application + AI/LLM + infrastructure), use Pattern D (Specialist Team) with 2-3 subagents:
-- `app-security`: Application/API attack scenarios (OWASP Top 10, API Top 10) — owns `references/attack-playbooks.md`
-- `ai-red-team`: AI/LLM adversarial testing (OWASP LLM Top 10, Agentic Top 10, ATLAS) — owns `references/ai-red-teaming.md`
+- `app-security`: Application/API attack scenarios (OWASP Top 10, API Top 10) — owns `reference/attack-playbooks.md`
+- `ai-red-team`: AI/LLM adversarial testing (OWASP LLM Top 10, Agentic Top 10, ATLAS) — owns `reference/ai-red-teaming.md`
 - `infra-supply-chain`: Infrastructure and supply chain attack paths (ATT&CK, SLSA) — owns infrastructure-specific outputs
 All subagents share the threat model (read-only) produced in the MODEL phase. The parent Breach agent handles SCOPE, MODEL, and final REPORT consolidation.
 
@@ -329,13 +329,13 @@ All subagents share the threat model (read-only) produced in the MODEL phase. Th
 
 | Reference | Read this when |
 |-----------|----------------|
-| `references/threat-modeling.md` | You need STRIDE tables, PASTA process, Attack Tree decomposition, or MITRE ATT&CK/ATLAS mapping methodology. |
-| `references/attack-playbooks.md` | You need application/infrastructure/supply-chain attack scenarios, kill chain templates, or OWASP Top 10 attack patterns. |
-| `references/ai-red-teaming.md` | You need AI/LLM red teaming techniques, prompt injection patterns, jailbreak methods, agentic risk assessment, or OWASP LLM/Agentic Top 10. |
-| `references/phishing-campaign-design.md` | You are designing an authorized phishing campaign (pretexting, landing-page clones, MFA-fatigue, quishing, OAuth consent-phishing, SPF/DKIM/DMARC evasion) with awareness-training integration. |
-| `references/supply-chain-attack-design.md` | You are modeling supply chain attacks (dependency confusion, typosquatting, build-tool compromise, postinstall scripts) with SBOM/SLSA/in-toto verification guidance. |
-| `references/social-engineering-design.md` | You are planning social engineering scenarios (vishing, smishing, tailgating, OSINT pretexting, BEC, deepfakes) coordinated with an awareness program. |
-| `references/handoffs.md` | You need handoff templates for passing findings to Builder, Sentinel, Radar, Scribe, or Mend. |
+| `reference/threat-modeling.md` | You need STRIDE tables, PASTA process, Attack Tree decomposition, or MITRE ATT&CK/ATLAS mapping methodology. |
+| `reference/attack-playbooks.md` | You need application/infrastructure/supply-chain attack scenarios, kill chain templates, or OWASP Top 10 attack patterns. |
+| `reference/ai-red-teaming.md` | You need AI/LLM red teaming techniques, prompt injection patterns, jailbreak methods, agentic risk assessment, or OWASP LLM/Agentic Top 10. |
+| `reference/phishing-campaign-design.md` | You are designing an authorized phishing campaign (pretexting, landing-page clones, MFA-fatigue, quishing, OAuth consent-phishing, SPF/DKIM/DMARC evasion) with awareness-training integration. |
+| `reference/supply-chain-attack-design.md` | You are modeling supply chain attacks (dependency confusion, typosquatting, build-tool compromise, postinstall scripts) with SBOM/SLSA/in-toto verification guidance. |
+| `reference/social-engineering-design.md` | You are planning social engineering scenarios (vishing, smishing, tailgating, OSINT pretexting, BEC, deepfakes) coordinated with an awareness program. |
+| `reference/handoffs.md` | You need handoff templates for passing findings to Builder, Sentinel, Radar, Scribe, or Mend. |
 | `_common/OPUS_48_AUTHORING.md` | You are sizing the red-team report, deciding adaptive thinking depth at framework selection, or front-loading target type/framework/cadence at FRAME. Critical for Breach: P3, P5. |
 
 ---

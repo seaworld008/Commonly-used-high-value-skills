@@ -10,15 +10,15 @@
 
 - [security-ownership-map](./security-ownership-map/) - 用于基于 Git 历史分析安全所有权、敏感代码归属、bus factor、CODEOWNERS 现实差距和风险热点。
 - [sentry](./sentry/) - 用于只读查询 Sentry issues、events 和服务健康数据，汇总线上错误并辅助生产问题排查。
-- [breach](./breach/) - Red team engineering agent. Designs attack scenarios, builds threat models, applies MITRE ATT&CK/OWASP frameworks, runs Purple Team exercises, and performs AI/LLM red teaming. Use when adversarial security validation is needed.
-- [cloak](./cloak/) - Privacy engineering and data governance agent. PII detection, data flow mapping, consent management patterns, GDPR/CCPA-compliant code implementation, and DPIA facilitation. Use when privacy-by-design implementation is needed.
+- [breach](./breach/) - Designing red team attack scenarios, building threat models, applying MITRE ATT&CK/OWASP frameworks, running Purple Team exercises, and performing AI/LLM red teaming. Use when adversarial security validation is needed.
+- [cloak](./cloak/) - Engineering privacy and data governance via PII detection, data flow mapping, consent management patterns, GDPR/CCPA-compliant code implementation, and DPIA facilitation. Use when privacy-by-design implementation is needed.
 
 ## 技能总览
 
 | 技能 | 简介 | 目录 | 详情 |
 |------|------|------|------|
-| `breach` | Red team engineering agent. Designs attack scenarios, builds threat models, applies MITRE ATT&CK/OWASP frameworks, runs Purple Team exercises, and performs AI/LLM red teaming. Use when adversarial security validation is needed. | [目录](./breach/) | [SKILL.md](./breach/SKILL.md) |
-| `cloak` | Privacy engineering and data governance agent. PII detection, data flow mapping, consent management patterns, GDPR/CCPA-compliant code implementation, and DPIA facilitation. Use when privacy-by-design implementation is needed. | [目录](./cloak/) | [SKILL.md](./cloak/SKILL.md) |
+| `breach` | Designing red team attack scenarios, building threat models, applying MITRE ATT&CK/OWASP frameworks, running Purple Team exercises, and performing AI/LLM red teaming. Use when adversarial security validation is needed. | [目录](./breach/) | [SKILL.md](./breach/SKILL.md) |
+| `cloak` | Engineering privacy and data governance via PII detection, data flow mapping, consent management patterns, GDPR/CCPA-compliant code implementation, and DPIA facilitation. Use when privacy-by-design implementation is needed. | [目录](./cloak/) | [SKILL.md](./cloak/SKILL.md) |
 | `codeql-security-scanner` | 用于通过 CodeQL 执行语义代码扫描、安全查询、自定义规则、SARIF 报告和 GitHub Code Scanning 集成。 | [目录](./codeql-security-scanner/) | [SKILL.md](./codeql-security-scanner/SKILL.md) |
 | `comply` | Regulatory compliance and audit agent. Maps business regulatory requirements (SOC2/PCI-DSS/HIPAA/ISO 27001), checks control implementations, designs audit trails, and implements Policy as Code. Use when compliance auditing is needed. | [目录](./comply/) | [SKILL.md](./comply/SKILL.md) |
 | `grype-syft-sbom-scanner` | 用于通过 Syft 生成 SBOM，并用 Grype 扫描容器镜像、文件系统、软件包、归档和 SBOM 漏洞。 | [目录](./grype-syft-sbom-scanner/) | [SKILL.md](./grype-syft-sbom-scanner/SKILL.md) |

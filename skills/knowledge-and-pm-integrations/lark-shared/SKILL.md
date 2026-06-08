@@ -1,14 +1,14 @@
 ---
 name: lark-shared
 description: 'Use when first setting up lark-cli, running auth login, switching user/bot identity (--as), handling permission denied or scope errors, needing to update lark-cli, or seeing _notice in JSON output.'
-version: "1.0.3"
+version: "1.0.4"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-shared"
 license: MIT
 tags: '[feishu, lark, lark-cli, auth, configuration]'
 created_at: "2026-05-19"
-updated_at: "2026-06-01"
+updated_at: "2026-06-08"
 quality: 4
 complexity: intermediate
 ---
@@ -135,6 +135,7 @@ lark-cli 命令执行后，如果检测到新版本，JSON 输出中会包含 `_
 - **禁止输出密钥**（appSecret、accessToken）到终端明文。
 - **写入/删除操作前必须确认用户意图**。
 - 用 `--dry-run` 预览危险请求。
+- **文件路径只接受相对路径**：`--file`、`--output`、`--output-dir`、`@file` 等路径参数只接受 cwd 下的相对路径，传绝对路径会报 `unsafe file path`。数据输入（`@file`、大 JSON）优先用 stdin 传入，避免路径和转义问题。
 
 ## 高风险操作的审批协议（exit 10）
 

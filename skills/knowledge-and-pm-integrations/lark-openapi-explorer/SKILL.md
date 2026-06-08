@@ -1,14 +1,14 @@
 ---
 name: lark-openapi-explorer
-description: '飞书原生 OpenAPI 查询、探索和补充调用。'
-version: "1.0.1"
+description: '飞书/Lark 原生 OpenAPI 探索：从官方文档库中挖掘未经 CLI 封装的原生 OpenAPI 接口。当用户的需求无法被现有 lark-* skill 或 lark-cli 已注册命令满足，需要查找并调用原生飞书 OpenAPI 时使用。'
+version: "1.0.2"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-openapi-explorer"
 license: MIT
 tags: '[feishu, lark, lark-cli, openapi, api]'
 created_at: "2026-05-19"
-updated_at: "2026-05-20"
+updated_at: "2026-06-08"
 quality: 4
 complexity: advanced
 metadata:
@@ -72,7 +72,7 @@ WebFetch https://open.feishu.cn/llms.txt
 用 WebFetch 获取模块文档，找到具体 API 的文档链接：
 
 ```
-WebFetch https://open.feishu.cn/llms-docs/zh-CN/llms-{module}.txt
+WebFetch https://open.feishu.cn/llms-docs/zh-CN/llms-<module>.txt
   → 提取问题："找出与 <用户需求> 相关的 API 说明和文档链接"
 ```
 

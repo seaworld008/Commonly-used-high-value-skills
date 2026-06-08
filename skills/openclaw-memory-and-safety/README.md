@@ -8,19 +8,19 @@
 
 ## 推荐先看
 
-- [cast](./cast/) - Persona casting agent for rapid generation, persistence, lifecycle management, and inter-agent sync. Generates personas from diverse inputs, manages via a registry, evolves data-driven, and distributes in unified format.
+- [cast](./cast/) - Casting personas via rapid generation, persistence, lifecycle management, and inter-agent sync. Generates personas from diverse inputs, manages via a registry, evolves data-driven, and distributes in unified format.
 - [input-guard](./input-guard/) - Scan untrusted external text (web pages, tweets, search results, API responses) for prompt injection attacks. Returns severity levels and alerts on dangerous content. Use BEFORE processing any text from untrusted sources.
-- [omen](./omen/) - Pre-mortem analysis and failure mode enumeration agent. Systematically identifies failure scenarios for plans, designs, and features, scoring them with RPN/AP. Does not write code.
+- [omen](./omen/) - Enumerating failure modes via pre-mortem analysis. Systematically identifies failure scenarios for plans, designs, and features, scoring them with RPN/AP. Does not write code.
 - [rag-architect](./rag-architect/) - The RAG (Retrieval-Augmented Generation) Architect skill provides comprehensive tools and knowledge for designing, implementing, and optimizing production-grade RAG pipelines. This skill covers the entire RAG ecosystem from document chunking strategies to evaluation frameworks, enabling you to build scalable, efficient, and accurate retrieval systems.
 
 ## 技能总览
 
 | 技能 | 简介 | 目录 | 详情 |
 |------|------|------|------|
-| `cast` | Persona casting agent for rapid generation, persistence, lifecycle management, and inter-agent sync. Generates personas from diverse inputs, manages via a registry, evolves data-driven, and distributes in unified format. | [目录](./cast/) | [SKILL.md](./cast/SKILL.md) |
+| `cast` | Casting personas via rapid generation, persistence, lifecycle management, and inter-agent sync. Generates personas from diverse inputs, manages via a registry, evolves data-driven, and distributes in unified format. | [目录](./cast/) | [SKILL.md](./cast/SKILL.md) |
 | `honcho` | Configure and use Honcho memory with Hermes -- cross-session user modeling, multi-profile peer isolation, observation config, dialectic reasoning, session summaries, and context budget enforcement. Use when setting up Honcho, troubleshooting memory, managing profiles with Honcho peers, or tuning observation, recall, and dialectic settings. | [目录](./honcho/) | [SKILL.md](./honcho/SKILL.md) |
 | `input-guard` | Scan untrusted external text (web pages, tweets, search results, API responses) for prompt injection attacks. Returns severity levels and alerts on dangerous content. Use BEFORE processing any text from untrusted sources. | [目录](./input-guard/) | [SKILL.md](./input-guard/SKILL.md) |
-| `omen` | Pre-mortem analysis and failure mode enumeration agent. Systematically identifies failure scenarios for plans, designs, and features, scoring them with RPN/AP. Does not write code. | [目录](./omen/) | [SKILL.md](./omen/SKILL.md) |
+| `omen` | Enumerating failure modes via pre-mortem analysis. Systematically identifies failure scenarios for plans, designs, and features, scoring them with RPN/AP. Does not write code. | [目录](./omen/) | [SKILL.md](./omen/SKILL.md) |
 | `rag-architect` | The RAG (Retrieval-Augmented Generation) Architect skill provides comprehensive tools and knowledge for designing, implementing, and optimizing production-grade RAG pipelines. This skill covers the entire RAG ecosystem from document chunking strategies to evaluation frameworks, enabling you to build scalable, efficient, and accurate retrieval systems. | [目录](./rag-architect/) | [SKILL.md](./rag-architect/SKILL.md) |
 | `runbook-generator` | Analyze a codebase and generate production-grade operational runbooks. Detects your stack (CI/CD, database, hosting, containers), then produces step-by-step runbooks with copy-paste commands, verification checks, rollback procedures, escalation paths, and time estimates. Keeps runbooks fresh with staleness detection linked to config file modification dates. | [目录](./runbook-generator/) | [SKILL.md](./runbook-generator/SKILL.md) |
 | `warden` | Guardian of V.A.I.R.E. quality standards (Value/Agency/Identity/Resilience/Echo). Handles pre-release evaluation, scorecard assessment, and pass/fail determination. Use when UX quality gates are needed. Does not write code. | [目录](./warden/) | [SKILL.md](./warden/SKILL.md) |

@@ -1,14 +1,14 @@
 ---
 name: lark-vc-agent
-description: '飞书会议机器人入会、离会和会中事件读取。'
-version: "1.0.1"
+description: '飞书视频会议：让机器人代当前用户加入/离开正在进行的会议，并读取会议期间的实时事件（参会人加入与离开、发言、聊天、屏幕共享等）。1. 用户提供 9 位会议号、要求代为入会或离会时使用 +meeting-join / +meeting-leave——会真实产生入会/离会记录。2. 会议进行中用户想知道“谁加入了”“谁离开了”“谁在发言”“有人共享屏幕吗”等会中动态时，机器人入会后用 +meeting-events 读取事件时间线。3. 典型场景：参会机器人、会中助手、代为旁听、代为参会。前提：机器人只能读到它自己参会过且仍在进行中的会议的事件；查询已结束会议的参会名单、纪要或逐字稿请使用 lark-vc 技能。'
+version: "1.0.2"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-vc-agent"
 license: MIT
 tags: '[feishu, lark, lark-cli, meetings, events]'
 created_at: "2026-05-19"
-updated_at: "2026-05-20"
+updated_at: "2026-06-08"
 quality: 4
 complexity: intermediate
 metadata:
@@ -45,7 +45,7 @@ metadata:
 | "会议现在还开着，谁刚加入了"、"会议里谁在发言"、"有人共享屏幕吗"（**进行中会议**，且**机器人已入会**） | **本 skill** `+meeting-events`                                                                                                                         |
 | "退出会议"、"让机器人离开"                                            | **本 skill** `+meeting-leave`                                                                                                                          |
 | "昨天那场会有谁参加过"、"搜昨天的会"、"查纪要/逐字稿/录制"                          | [`lark-vc`](../lark-vc/SKILL.md)                                                                                                                      |
-| "帮我参会，结束后把纪要发到群" 等跨阶段场景                                    | 按序编排：本 skill（入会 → 读事件 → 离会）→ [`lark-vc`](../lark-vc/SKILL.md) / [`lark-minutes`](../lark-minutes/SKILL.md)（拉纪要）→ [`lark-im`](../lark-im/SKILL.md)（发群） |
+| "帮我参会，结束后把纪要发到群" 等跨阶段场景                                    | 按序编排：本 skill（入会 → 读事件）→ 会议结束后用 [`lark-vc`](../lark-vc/SKILL.md) / [`lark-minutes`](../lark-minutes/SKILL.md) 拉纪要 → [`lark-im`](../lark-im/SKILL.md) 发群 |
 
 ## 核心场景
 
@@ -75,12 +75,12 @@ metadata:
 
 ### 3. 离开会议（写操作）
 
-1. 任务完成、或用户要求结束时，用 `+meeting-leave --meeting-id <从 +meeting-join 拿到的 meeting.id>`。
+1. 只有用户明确要求机器人退出 / 离开 / 结束参会时，才用 `+meeting-leave --meeting-id <从 +meeting-join 拿到的 meeting.id>`；不要把任务完成当作离会指令。
 2. `--meeting-id` **必须**是 `+meeting-join` 返回的长数字 `meeting.id`，**不接受 9 位会议号**。
 3. 离会**立即生效**，机器人从会议的参会人列表中消失，对其他参会人可见；若需要重新入会，再跑一次 `+meeting-join` 即可（非真正"不可逆"）。
 4. 仅支持 `user` 身份。
 
-### 4. Agent 参会最小闭环示范
+### 4. Agent 参会示范
 
 ```bash
 # 1. 入会，捕获 meeting.id
@@ -92,12 +92,11 @@ MID=$(echo "$JOIN" | jq -r '.data.meeting.id')
 #    典型间隔 10-30 秒
 lark-cli vc +meeting-events --meeting-id "$MID" --page-all --format pretty
 
-# 3. 任务完成或用户要求结束时离会
-lark-cli vc +meeting-leave --meeting-id "$MID"
-
-# 4. 会后可选：取纪要 / 逐字稿（跨到 lark-vc）
+# 3. 会后可选：取纪要 / 逐字稿（跨到 lark-vc）
 lark-cli vc +notes --meeting-ids "$MID"
 ```
+
+如果用户随后明确要求退出 / 离开 / 结束参会，再单独调用 `lark-cli vc +meeting-leave --meeting-id "$MID"`。
 
 ## Shortcuts
 

@@ -1,14 +1,14 @@
 ---
 name: voice
-description: 'User feedback collection, NPS survey design, review analysis, sentiment analysis, feedback classification, and insight extraction reports. Use when establishing feedback loops.'
-version: "1.0.4"
+description: 'Collecting user feedback via NPS surveys, review analysis, sentiment analysis, feedback classification, and insight extraction reports. Use when establishing feedback loops.'
+version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/voice"
 license: MIT
 tags: '["design", "product", "voice"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-01"
+updated_at: "2026-06-08"
 quality: 5
 complexity: "advanced"
 ---
@@ -27,21 +27,21 @@ CAPABILITIES_SUMMARY:
 
 COLLABORATION_PATTERNS:
 - Pulse -> Voice: Metrics context
-- Researcher -> Voice: Research questions
+- Field -> Voice: Research questions
 - Growth -> Voice: Conversion data
 - Beacon -> Voice: SLO breach signals
 - Trace -> Voice: Session behavior data for targeted survey design (frustration detection → feedback collection)
-- Voice -> Researcher: Feedback insights
+- Voice -> Field: Feedback insights
 - Voice -> Spark: Feature ideas
-- Voice -> Retain: Engagement insights
+- Voice -> Bond: Engagement insights
 - Voice -> Compete: Competitive feedback
 - Voice -> Helm: Customer voice
 - Voice -> Echo: Persona-specific complaints
 - Voice -> Scout: Bug-heavy feedback
 
 BIDIRECTIONAL_PARTNERS:
-- INPUT: Pulse, Researcher, Growth, Beacon, Trace
-- OUTPUT: Researcher, Spark, Retain, Compete, Helm, Echo, Scout
+- INPUT: Pulse, Field, Growth, Beacon, Trace
+- OUTPUT: Field, Spark, Bond, Compete, Helm, Echo, Scout
 
 PROJECT_AFFINITY: Game(M) SaaS(H) E-commerce(H) Dashboard(M) Marketing(H)
 -->
@@ -68,8 +68,8 @@ Use Voice when the user needs:
 Route elsewhere when the task is primarily:
 
 - Instrumentation, KPI dashboards, or trend pipelines → `Pulse`
-- Exploratory survey design (research-purpose interviews, usability testing, sampling rigor) → `Researcher` — Voice handles operational feedback surveys (NPS/CSAT/CES, continuous sentiment monitoring)
-- Churn-prevention plays, save offers, or win-back execution → `Retain`
+- Exploratory survey design (research-purpose interviews, usability testing, sampling rigor) → `Field` — Voice handles operational feedback surveys (NPS/CSAT/CES, continuous sentiment monitoring)
+- Churn-prevention plays, save offers, or win-back execution → `Bond`
 - Turning validated feature requests into scoped product proposals → `Spark`
 - A task better handled by another agent per `_common/BOUNDARIES.md`
 
@@ -79,9 +79,9 @@ Route elsewhere when the task is primarily:
 
 | Phase | Required action | Key rule | Read |
 | ----- | --------------- | -------- | ---- |
-| COLLECT | Choose channel, design survey, define audience and consent | Privacy and consent first | `references/nps-survey.md` |
-| ANALYZE | Normalize signals, find patterns, segment and score | Patterns over anecdotes | `references/multi-channel-synthesis.md` |
-| AMPLIFY | Turn feedback into prioritized recommendations with owners | Actionable, not descriptive | `references/feedback-widget-analysis.md` |
+| COLLECT | Choose channel, design survey, define audience and consent | Privacy and consent first | `reference/nps-survey.md` |
+| ANALYZE | Normalize signals, find patterns, segment and score | Patterns over anecdotes | `reference/multi-channel-synthesis.md` |
+| AMPLIFY | Turn feedback into prioritized recommendations with owners | Actionable, not descriptive | `reference/feedback-widget-analysis.md` |
 
 ## Core Contract
 
@@ -98,7 +98,7 @@ Route elsewhere when the task is primarily:
 - Response rate benchmarks by channel: email 15-25% (embedded; linked surveys drop to 6-15%), SMS 45-60%, in-app web 25-30% / mobile 35-40%, in-person 85-95%. Choose the channel that balances reach with response quality; SMS outperforms email by 3-4× but may feel intrusive for relationship surveys. For event-triggered surveys via SMS, send within 2 hours of the event — delayed sends lose up to 32% of completions. Track both participation rate (started) and completion rate (finished) — a gap reveals survey design issues.
 - Avoid surveying the same customer with NPS + CSAT + CES simultaneously — survey fatigue degrades response quality and inflates abandonment. Stagger: CES/CSAT transactionally after interactions, NPS quarterly for relationship health. Apply a 30-day suppression window as the baseline — if a customer received any survey (NPS, CSAT, product feedback, exit) in the last 30 days, suppress them from the next send and adjust the window based on send volume and customer complaints.
 - When analyzing feedback data at scale, scan for synthetic feedback contamination before classification or sentiment analysis. Detection signals include: (1) abnormal lexical uniformity across responses (cosine similarity clustering), (2) timestamp clustering (many responses within seconds), (3) professional survey taker patterns (completion time < 30% of median, straight-lining on Likert scales), (4) AI-generated text markers (low perplexity scores, formulaic sentence structure, absence of typos/colloquialisms in contexts where they'd be natural). Flag contaminated segments for human review rather than silently excluding them — silent exclusion introduces its own bias.
-- For LLM-powered feedback pipelines, implement a contamination gate before downstream routing: if ≥5% of a feedback batch is flagged as synthetic, halt automated classification and alert the responsible owner. This prevents contaminated data from propagating to Compete (via VOICE_TO_COMPETE), Spark, or Retain.
+- For LLM-powered feedback pipelines, implement a contamination gate before downstream routing: if ≥5% of a feedback batch is flagged as synthetic, halt automated classification and alert the responsible owner. This prevents contaminated data from propagating to Compete (via VOICE_TO_COMPETE), Spark, or Bond.
 - For PLG (Product-Led Growth) contexts, design in-product micro-surveys that intercept users at activation milestones rather than arbitrary touchpoints. Trigger micro-surveys (1-2 questions max) when: (1) users complete a key activation step (first value delivery), (2) users reach a usage threshold indicating engagement, (3) users hit a friction point detected by Trace (via TRACE_TO_VOICE). Keep micro-surveys contextual and non-blocking — modal surveys during critical flows cause 15-25% task abandonment. Prefer inline or slide-in formats.
 - Close the loop on negative feedback within 24 hours — detractor follow-up speed is the strongest predictor of recovery and score improvement. Automate alerting for NPS 0-6 and CSAT bottom-box responses to route immediately to the responsible owner.
 - **2025-2026 NPS industry medians**: all-industry average 32, all-industry median 44; B2B SaaS 41, E-commerce 61, Financial Services 68, Healthcare 37 (Retently 2026 — https://www.retently.com/blog/good-net-promoter-score/; CustomerGauge B2B 2025 — https://customergauge.com/blog/b2b-nps-benchmarks-tying-revenue-to-your-experience-program). Always cite the benchmark edition year — scores drift 2-5 points annually.
@@ -144,14 +144,14 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 
 | Recipe | Subcommand | Default? | When to Use | Read First |
 |--------|-----------|---------|-------------|------------|
-| NPS Survey | `nps` | ✓ | NPS survey design, score analysis, follow-up | `references/nps-survey.md` |
-| Review Analysis | `review` | | Multi-channel analysis of reviews, tickets, and comments | `references/multi-channel-synthesis.md` |
-| Sentiment Analysis | `sentiment` | | Sentiment analysis, multi-emotion detection (joy/anger/frustration/surprise) | `references/multi-channel-synthesis.md` |
-| Classification | `classify` | | Feedback classification, theme extraction, owner recommendation | `references/feedback-widget-analysis.md` |
-| Insight Extraction | `insight` | | Insight extraction report, strategic recommendations | `references/multi-channel-synthesis.md` |
-| Kano Model | `kano` | | Kano model classification (must-have / performance / delighter) via paired functional+dysfunctional surveys and feature prioritization | `references/kano-model.md` |
-| Thematic Analysis | `thematic` | | Braun & Clarke 6-phase inductive thematic coding of open-ended feedback, theme saturation tracking, coder-agreement measurement | `references/thematic-coding.md` |
-| CSAT / CES | `csat` | | CSAT / CES survey authoring, benchmark mapping, and combined-with-NPS satisfaction vs effort vs loyalty triangulation | `references/csat-ces-measurement.md` |
+| NPS Survey | `nps` | ✓ | NPS survey design, score analysis, follow-up | `reference/nps-survey.md` |
+| Review Analysis | `review` | | Multi-channel analysis of reviews, tickets, and comments | `reference/multi-channel-synthesis.md` |
+| Sentiment Analysis | `sentiment` | | Sentiment analysis, multi-emotion detection (joy/anger/frustration/surprise) | `reference/multi-channel-synthesis.md` |
+| Classification | `classify` | | Feedback classification, theme extraction, owner recommendation | `reference/feedback-widget-analysis.md` |
+| Insight Extraction | `insight` | | Insight extraction report, strategic recommendations | `reference/multi-channel-synthesis.md` |
+| Kano Model | `kano` | | Kano model classification (must-have / performance / delighter) via paired functional+dysfunctional surveys and feature prioritization | `reference/kano-model.md` |
+| Thematic Analysis | `thematic` | | Braun & Clarke 6-phase inductive thematic coding of open-ended feedback, theme saturation tracking, coder-agreement measurement | `reference/thematic-coding.md` |
+| CSAT / CES | `csat` | | CSAT / CES survey authoring, benchmark mapping, and combined-with-NPS satisfaction vs effort vs loyalty triangulation | `reference/csat-ces-measurement.md` |
 
 ## Subcommand Dispatch
 
@@ -173,31 +173,31 @@ Behavior notes per Recipe:
 
 | Signal | Approach | Primary output | Read next |
 | ------ | -------- | -------------- | --------- |
-| `NPS`, `loyalty`, `advocacy`, `promoter` | NPS analysis | NPS survey + report | `references/nps-survey.md` |
-| `CSAT`, `satisfaction`, `touchpoint` | CSAT analysis | CSAT report | `references/csat-ces-surveys.md` |
-| `CES`, `effort`, `task difficulty` | CES analysis | CES report | `references/csat-ces-surveys.md` |
-| `churn`, `cancellation`, `exit`, `downgrade` | Exit survey analysis | Churn report | `references/exit-survey.md` |
-| `review`, `sentiment`, `feedback`, `complaint` | Multi-channel synthesis | Feedback report | `references/multi-channel-synthesis.md` |
-| `widget`, `in-app feedback`, `response template` | Widget analysis | Widget report | `references/feedback-widget-analysis.md` |
-| `response rate`, `survey optimization`, `bias` | Survey design optimization | Survey design report | `references/nps-survey.md` |
-| `emotion`, `frustration`, `anger`, `joy` | Multi-emotion analysis | Emotion analysis report | `references/multi-channel-synthesis.md` |
-| `PLG`, `activation`, `in-product`, `micro-survey` | PLG micro-survey design | PLG feedback report | `references/nps-survey.md` |
-| unclear feedback request | Full analysis | Comprehensive report | `references/multi-channel-synthesis.md` |
+| `NPS`, `loyalty`, `advocacy`, `promoter` | NPS analysis | NPS survey + report | `reference/nps-survey.md` |
+| `CSAT`, `satisfaction`, `touchpoint` | CSAT analysis | CSAT report | `reference/csat-ces-surveys.md` |
+| `CES`, `effort`, `task difficulty` | CES analysis | CES report | `reference/csat-ces-surveys.md` |
+| `churn`, `cancellation`, `exit`, `downgrade` | Exit survey analysis | Churn report | `reference/exit-survey.md` |
+| `review`, `sentiment`, `feedback`, `complaint` | Multi-channel synthesis | Feedback report | `reference/multi-channel-synthesis.md` |
+| `widget`, `in-app feedback`, `response template` | Widget analysis | Widget report | `reference/feedback-widget-analysis.md` |
+| `response rate`, `survey optimization`, `bias` | Survey design optimization | Survey design report | `reference/nps-survey.md` |
+| `emotion`, `frustration`, `anger`, `joy` | Multi-emotion analysis | Emotion analysis report | `reference/multi-channel-synthesis.md` |
+| `PLG`, `activation`, `in-product`, `micro-survey` | PLG micro-survey design | PLG feedback report | `reference/nps-survey.md` |
+| unclear feedback request | Full analysis | Comprehensive report | `reference/multi-channel-synthesis.md` |
 
 Routing rules:
 
-- If the request mentions NPS, loyalty, or advocacy, read `references/nps-survey.md`.
-- If the request mentions satisfaction or touchpoints, read `references/csat-ces-surveys.md`.
-- If the request mentions churn, cancellation, or exit, read `references/exit-survey.md`.
-- If the request spans multiple channels, read `references/multi-channel-synthesis.md`.
+- If the request mentions NPS, loyalty, or advocacy, read `reference/nps-survey.md`.
+- If the request mentions satisfaction or touchpoints, read `reference/csat-ces-surveys.md`.
+- If the request mentions churn, cancellation, or exit, read `reference/exit-survey.md`.
+- If the request spans multiple channels, read `reference/multi-channel-synthesis.md`.
 - If the request matches another agent's primary role, route per `_common/BOUNDARIES.md`.
 - Need dashboards or metric governance → `Pulse`
-- Churn intervention or win-back execution → `Retain`
+- Churn intervention or win-back execution → `Bond`
 - Feature requests need product framing → `Spark`
 - Persona-specific complaints need journey validation → `Echo`
 - Bug-heavy feedback needs investigation → `Scout`
 - Competitor mentions need market analysis → `Compete`
-- Sample quality or qualitative follow-up → `Researcher`
+- Sample quality or qualitative follow-up → `Field`
 
 ## Output Requirements
 
@@ -216,11 +216,11 @@ Routing rules:
 | Direction | Handoff | Purpose |
 | --------- | ------- | ------- |
 | Pulse → Voice | `PULSE_TO_VOICE` | Metrics context for feedback analysis |
-| Researcher → Voice | `RESEARCHER_TO_VOICE` | Research questions for feedback collection |
+| Field → Voice | `RESEARCHER_TO_VOICE` | Research questions for feedback collection |
 | Growth → Voice | `GROWTH_TO_VOICE` | Conversion data for feedback context |
-| Voice → Researcher | `VOICE_TO_RESEARCHER` | Feedback insights for research validation |
+| Voice → Field | `VOICE_TO_RESEARCHER` | Feedback insights for research validation |
 | Voice → Spark | `VOICE_TO_SPARK` | Feature ideas from user feedback |
-| Voice → Retain | `VOICE_TO_RETAIN` | Engagement insights for retention |
+| Voice → Bond | `VOICE_TO_RETAIN` | Engagement insights for retention |
 | Voice → Compete | `VOICE_TO_COMPETE` | Competitive feedback for market analysis |
 | Voice → Helm | `VOICE_TO_HELM` | Customer voice for strategic decisions |
 | Voice → Echo | `VOICE_TO_ECHO` | Persona-specific complaints for journey validation |
@@ -231,22 +231,22 @@ Routing rules:
 Overlap boundaries:
 
 - **vs Pulse**: Pulse = quantitative metrics and KPI dashboards; Voice = qualitative feedback collection and synthesis.
-- **vs Researcher**: Researcher = exploratory research design and methodology (interviews, usability tests, sampling); Voice = operational feedback collection and sentiment analysis (NPS/CSAT/CES, continuous monitoring). When users say "survey", route exploratory/research-purpose surveys to Researcher, operational feedback surveys to Voice.
-- **vs Retain**: Retain = retention strategy and execution; Voice = churn signal detection and feedback synthesis.
+- **vs Field**: Field = exploratory research design and methodology (interviews, usability tests, sampling); Voice = operational feedback collection and sentiment analysis (NPS/CSAT/CES, continuous monitoring). When users say "survey", route exploratory/research-purpose surveys to Field, operational feedback surveys to Voice.
+- **vs Bond**: Bond = retention strategy and execution; Voice = churn signal detection and feedback synthesis.
 - **vs Trace**: Trace = session replay behavior analysis; Voice = explicit user feedback and survey responses.
 
 ## Reference Map
 
 | File | Read this when... |
 | ---- | ----------------- |
-| `references/nps-survey.md` | the task is NPS design, scoring, follow-up logic, or benchmark interpretation |
-| `references/csat-ces-surveys.md` | the task is CSAT or CES design, touchpoint selection, or effort analysis |
-| `references/exit-survey.md` | the task is churn-reason capture, save-offer design, or cancellation analysis |
-| `references/multi-channel-synthesis.md` | feedback must be unified across surveys, tickets, reviews, sales notes, or social channels |
-| `references/feedback-widget-analysis.md` | the task is in-app feedback widgets, sentiment tagging, or response templates |
-| `references/kano-model.md` | the task is Kano-style feature classification (must-have / performance / delighter), paired functional+dysfunctional surveys, or Better/Worse coefficient prioritization |
-| `references/thematic-coding.md` | the task is Braun & Clarke 6-phase inductive coding of open-ended feedback, codebook governance, theme saturation, or inter-coder agreement |
-| `references/csat-ces-measurement.md` | the task is CSAT / CES instrument design, benchmark mapping, touchpoint selection, or combined CSAT × CES × NPS triangulation |
+| `reference/nps-survey.md` | the task is NPS design, scoring, follow-up logic, or benchmark interpretation |
+| `reference/csat-ces-surveys.md` | the task is CSAT or CES design, touchpoint selection, or effort analysis |
+| `reference/exit-survey.md` | the task is churn-reason capture, save-offer design, or cancellation analysis |
+| `reference/multi-channel-synthesis.md` | feedback must be unified across surveys, tickets, reviews, sales notes, or social channels |
+| `reference/feedback-widget-analysis.md` | the task is in-app feedback widgets, sentiment tagging, or response templates |
+| `reference/kano-model.md` | the task is Kano-style feature classification (must-have / performance / delighter), paired functional+dysfunctional surveys, or Better/Worse coefficient prioritization |
+| `reference/thematic-coding.md` | the task is Braun & Clarke 6-phase inductive coding of open-ended feedback, codebook governance, theme saturation, or inter-coder agreement |
+| `reference/csat-ces-measurement.md` | the task is CSAT / CES instrument design, benchmark mapping, touchpoint selection, or combined CSAT × CES × NPS triangulation |
 | `_common/OPUS_48_AUTHORING.md` | the task is sizing the survey deliverable, deciding adaptive thinking depth at method selection, or front-loading audience/segment/touchpoint at INTAKE. Critical for Voice: P3, P5. |
 | `_common/GROWTH_BRAND_PROOF.md` | You contribute `source_proof` (sentiment-source pointers) and feed multi-channel synthesis into the Insight Ledger queue in `nexus growth-acceptance` Phase 0. G11 mandatory: AI cannot directly write to Ledger; submit proposed insights to Research Lead merge queue. Used by Phase 3 post-launch as `brand_lift_proof` qualitative early signal. |
 
