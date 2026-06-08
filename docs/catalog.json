@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-06-04",
-  "total_skills": 301,
+  "generated_at": "2026-06-08",
+  "total_skills": 302,
   "total_categories": 16,
   "categories": [
     {
       "name": "developer-engineering",
-      "count": 49
+      "count": 50
     },
     {
       "name": "ai-workflow",
@@ -2437,6 +2437,29 @@
       "updated_at": "2026-05-05",
       "line_count": 158,
       "path": "skills/developer-engineering/vercel-react-best-practices/SKILL.md"
+    },
+    {
+      "name": "vercel-react-view-transitions",
+      "category": "developer-engineering",
+      "description": "Guide for adding native-feeling page, route, shared-element, and list transitions in React and Next.js with the View Transition API.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "github:vercel-labs/agent-skills",
+      "source_url": "https://skills.sh/vercel-labs/agent-skills/vercel-react-view-transitions",
+      "tags": [
+        "react",
+        "nextjs",
+        "animation",
+        "transitions",
+        "frontend",
+        "vercel"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-06-08",
+      "updated_at": "2026-06-08",
+      "line_count": 238,
+      "path": "skills/developer-engineering/vercel-react-view-transitions/SKILL.md"
     },
     {
       "name": "web-artifacts-builder",

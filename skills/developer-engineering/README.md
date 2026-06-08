@@ -4,7 +4,7 @@
 
 覆盖开发、测试、性能、架构、数据库和工程效率的核心技能集合。
 
-当前分类共 **49** 个技能。
+当前分类共 **50** 个技能。
 
 ## 推荐先看
 
@@ -64,6 +64,7 @@
 | `terraform-engineer` | 用于 Terraform 基础设施即代码（IaC）设计、模块化管理和状态管理。来源：HashiCorp 官方 + skills.sh。 | [目录](./terraform-engineer/) | [SKILL.md](./terraform-engineer/SKILL.md) |
 | `typescript-best-practices` | 用于 TypeScript 高级类型编程、类型安全设计和常见反模式避免。仓库整理版，吸收社区高频最佳实践。 | [目录](./typescript-best-practices/) | [SKILL.md](./typescript-best-practices/SKILL.md) |
 | `vercel-react-best-practices` | React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patterns. Triggers on tasks involving React components, Next.js pages, data fetching, bundle optimization, or performance improvements. | [目录](./vercel-react-best-practices/) | [SKILL.md](./vercel-react-best-practices/SKILL.md) |
+| `vercel-react-view-transitions` | Guide for adding native-feeling page, route, shared-element, and list transitions in React and Next.js with the View Transition API. | [目录](./vercel-react-view-transitions/) | [SKILL.md](./vercel-react-view-transitions/SKILL.md) |
 | `web-artifacts-builder` | Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts. | [目录](./web-artifacts-builder/) | [SKILL.md](./web-artifacts-builder/SKILL.md) |
 | `webapp-testing` | Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs. | [目录](./webapp-testing/) | [SKILL.md](./webapp-testing/SKILL.md) |
 
