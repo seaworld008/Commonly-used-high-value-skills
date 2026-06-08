@@ -19,6 +19,14 @@ Guide the user through any Neon-related task: setup, connections, branching, and
 
 Neon is a serverless Postgres platform that separates compute and storage to offer autoscaling, branching, instant restore, and scale-to-zero. It's fully compatible with Postgres and works with any language, framework, or ORM that supports Postgres.
 
+## Usage
+
+Use this skill when the user needs a current, practical Neon answer that ends in one of three outcomes:
+
+- a working Neon connection string and environment setup
+- a concrete Neon feature configuration such as branching, pooling, autoscaling, or auth
+- an official-docs-grounded explanation of how a Neon capability behaves
+
 ## Neon Documentation
 
 The Neon documentation is the source of truth for all Neon-related information. Always verify claims against the official docs before responding. Neon features and APIs evolve, so prefer fetching current docs over relying on training data.
@@ -275,3 +283,29 @@ Key points:
 - Useful for replicating to/from external Postgres systems.
 
 Link: https://neon.com/docs/guides/logical-replication-guide.md
+
+## Common Patterns
+
+### Pattern: existing app already has Postgres
+
+- inspect current ORM, driver, and `.env` usage first
+- swap only the connection string and driver-specific config needed for Neon
+- validate migrations and pooling behavior before changing any runtime code
+
+### Pattern: new project needs fastest Neon bootstrap
+
+- initialize Neon tooling with `neonctl` or the MCP server first
+- store `DATABASE_URL` in environment variables before adding ORM glue
+- choose the simplest driver compatible with the target runtime
+
+### Pattern: preview or branch-based workflows
+
+- create isolated branches for migrations and preview deployments
+- verify each branch has the correct compute endpoint before testing
+- document branch cleanup rules so temporary environments do not linger
+
+## Boundaries
+
+- Do not invent Neon product behavior when a current docs page can answer it directly.
+- Do not overwrite existing database credentials or `.env` values without first reading the file and preserving unrelated entries.
+- Do not recommend a single driver or auth path blindly; choose based on runtime constraints, auth needs, and deployment model.

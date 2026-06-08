@@ -1,7 +1,16 @@
 ---
 name: azure-kubernetes-automatic-readiness
 description: 'Assess Kubernetes workloads and cluster configuration for AKS Automatic compatibility. Identifies incompatibilities, generates fixes, and guides migration from AKS Standard to AKS Automatic. WHEN: migrate to AKS Automatic, check AKS Automatic readiness, validate manifests for Automatic, assess cluster for Automatic compatibility, fix deployment for Automatic compatibility, identify AKS Automatic migration blockers, is my cluster ready for AKS Automatic.'
+version: "1.0.0"
+author: "seaworld008"
+source: "github:microsoft/azure-skills"
+source_url: "https://skills.sh/microsoft/azure-skills/azure-kubernetes-automatic-readiness"
 license: MIT
+tags: '["azure", "aks", "kubernetes", "readiness", "migration"]'
+created_at: "2026-06-03"
+updated_at: "2026-06-08"
+quality: 4
+complexity: "intermediate"
 metadata:
   author: Microsoft
   version: "1.0.1"
