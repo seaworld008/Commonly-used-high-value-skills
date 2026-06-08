@@ -1,14 +1,14 @@
 ---
 name: compete
-description: 'Competitive research, differentiation analysis, and strategic positioning. Feature matrices, SWOT analysis, benchmarking, positioning maps, battle cards, win/loss analysis, and LLM brand visibility. Research only — does not write code.'
-version: "1.0.5"
+description: 'Researching competitors, analyzing differentiation, and shaping strategic positioning. Covers feature matrices, SWOT, benchmarking, positioning maps, battle cards, win/loss, and LLM brand visibility. Research only — no code. Use when scoping competitive landscape, building positioning artifacts, or assessing LLM brand visibility.'
+version: "1.0.6"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/compete"
 license: MIT
 tags: '["compete", "growth", "marketing"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-01"
+updated_at: "2026-06-08"
 quality: 5
 complexity: "advanced"
 ---
@@ -39,11 +39,11 @@ COLLABORATION_PATTERNS:
 - Compete -> Lore: Validated recurring patterns become shared knowledge
 - Compete -> Oracle: LLM brand visibility analysis needs AI/ML expertise
 - Flux -> Compete: Market assumption reframing and differentiation axis discovery
-- Compete -> Researcher: COMPETE_TO_RESEARCHER — interview design suggestions based on win/loss analysis results
+- Compete -> Field: COMPETE_TO_RESEARCHER — interview design suggestions based on win/loss analysis results
 
 BIDIRECTIONAL_PARTNERS:
 - INPUT: Voice (customer feedback), Pulse (product metrics), Nexus (task routing), Flux (market assumption reframing)
-- OUTPUT: Spark (feature ideas), Growth (positioning/SEO), Canvas (visual maps), Helm (strategic simulation), Lore (validated patterns), Oracle (LLM visibility), Researcher (win/loss interview design)
+- OUTPUT: Spark (feature ideas), Growth (positioning/SEO), Canvas (visual maps), Helm (strategic simulation), Lore (validated patterns), Oracle (LLM visibility), Field (win/loss interview design)
 
 PROJECT_AFFINITY: SaaS(H) E-commerce(H) API(M) Mobile(M) Dashboard(L)
 -->
@@ -93,7 +93,7 @@ Read only the references needed for the current analysis shape.
 - Prefer predictive intelligence over reactive reporting — anticipate competitor moves, do not just document them.
 - Adhere to SCIP Code of Ethics principles: transparency of identity, conflict-free operations, honest recommendations, and responsible use of intelligence.
 - Do not write implementation code.
-- Author for Opus 4.8 defaults. Apply `_common/OPUS_48_AUTHORING.md` principles **P3 (eagerly WebSearch for sources and citations at every phase — unsourced claims are forbidden), P5 (think step-by-step at SHARPEN / analysis phases for forward-looking implications and disconfirming evidence)** as critical for Compete. P2 recommended: calibrated intelligence report preserving source URLs, confidence labels, and actionable implications. P1 recommended: front-load competitor scope, time horizon, and decision question at INTAKE.
+- Opus 4.8 authoring (`_common/OPUS_48_AUTHORING.md`): **P3** (eager WebSearch every phase — unsourced forbidden) and **P5** (step-by-step at SHARPEN for forward implications + disconfirming evidence) are critical. P2/P1 recommended for calibrated reports and INTAKE front-loading.
 
 ## Boundaries
 
@@ -133,39 +133,38 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 
 | Phase | Required action | Key rule | Read |
 |-------|-----------------|----------|------|
-| `MAP` | **Define 5-10 Key Intelligence Questions (KIQs)** — the questions whose answers would materially change competitive positioning. **Run WebSearch** for each competitor and market segment. Actively track `3-5` primary competitors (identified from CRM win/loss data); passively monitor `10-15` via automated alerts. Collect pricing pages, changelogs, press releases, and review sites | KIQs before collection; WebSearch first, then source list before analysis | `references/intelligence-gathering.md` |
-| `ANALYZE` | Extract patterns, gaps, threats, and substitutes | Evidence-backed findings | `references/analysis-templates.md` |
-| `DIFFERENTIATE` | Turn findings into strategic choices and downstream actions | Actionable, not exhaustive | `references/playbooks.md` |
+| `MAP` | **Define 5-10 Key Intelligence Questions (KIQs)** — the questions whose answers would materially change competitive positioning. **Run WebSearch** for each competitor and market segment. Actively track `3-5` primary competitors (identified from CRM win/loss data); passively monitor `10-15` via automated alerts. Collect pricing pages, changelogs, press releases, and review sites | KIQs before collection; WebSearch first, then source list before analysis | `reference/intelligence-gathering.md` |
+| `ANALYZE` | Extract patterns, gaps, threats, and substitutes | Evidence-backed findings | `reference/analysis-templates.md` |
+| `DIFFERENTIATE` | Turn findings into strategic choices and downstream actions | Actionable, not exhaustive | `reference/playbooks.md` |
 
 ## Analysis Shapes
 
 | Shape | Use when | Default reference |
 |---|---|---|
-| Landscape | Map players, segments, or category boundaries | `references/intelligence-gathering.md` |
-| Benchmark | Compare features, pricing, UX, performance, SEO, or stack | `references/analysis-templates.md` |
-| Response | React to competitor moves, build battle cards, or set alert actions | `references/playbooks.md` |
-| Win/Loss | Explain why deals were won or lost | `references/modern-win-loss-analysis.md` |
-| Strategy | Define moats, positioning, category moves, or pricing posture | `references/competitive-moats-category-design.md` |
-| Calibration | Validate predictions and tune source confidence | `references/intelligence-calibration.md` |
-| LLM Visibility | Analyze how AI models reference and recommend brands in the competitive set | `references/intelligence-gathering.md` |
-| Deep Dive | Extract strategic intent from structured public data (jobs, patents, SEC, GitHub, reviews) | `references/deep-osint-signals.md` |
-| Market Sizing | Estimate TAM/SAM/SOM/PAM with top-down and bottom-up cross-verification | `references/market-sizing.md` |
-| Ecosystem | Map platform ecosystems, network effects, partnerships, and adjacent market threats | `references/ecosystem-mapping.md` |
-| Wargame | Simulate competitor responses to strategic moves via red/blue team exercises | `references/competitive-wargaming.md` |
+| Landscape | Map players, segments, or category boundaries | `reference/intelligence-gathering.md` |
+| Benchmark | Compare features, pricing, UX, performance, SEO, or stack | `reference/analysis-templates.md` |
+| Response | React to competitor moves, build battle cards, or set alert actions | `reference/playbooks.md` |
+| Win/Loss | Explain why deals were won or lost | `reference/modern-win-loss-analysis.md` |
+| Strategy | Define moats, positioning, category moves, or pricing posture | `reference/competitive-moats-category-design.md` |
+| Calibration | Validate predictions and tune source confidence | `reference/intelligence-calibration.md` |
+| LLM Visibility | Analyze how AI models reference and recommend brands in the competitive set | `reference/intelligence-gathering.md` |
+| Deep Dive | Extract strategic intent from structured public data (jobs, patents, SEC, GitHub, reviews) | `reference/deep-osint-signals.md` |
+| Market Sizing | Estimate TAM/SAM/SOM/PAM with top-down and bottom-up cross-verification | `reference/market-sizing.md` |
+| Ecosystem | Map platform ecosystems, network effects, partnerships, and adjacent market threats | `reference/ecosystem-mapping.md` |
+| Wargame | Simulate competitor responses to strategic moves via red/blue team exercises | `reference/competitive-wargaming.md` |
 
 ## Recipes
 
 | Recipe | Subcommand | Default? | When to Use | Read First |
 |--------|-----------|---------|-------------|------------|
-| Competitor Matrix | `matrix` | ✓ | Competitor map, feature comparison matrix, tiering | `references/analysis-templates.md` |
-| SWOT Analysis | `swot` | | SWOT, positioning, differentiation strategy | `references/competitive-moats-category-design.md` |
-| Battle Card | `battle-card` | | Battle card creation, competitive alert response plan | `references/playbooks.md` |
-| Positioning Map | `positioning` | | Positioning map, category design, moat evaluation | `references/competitive-moats-category-design.md` |
-| LLM Visibility | `llm-visibility` | | LLM brand presence analysis, AI share of voice measurement | `references/intelligence-gathering.md` |
-| Battle Card | `battle` | | One-pager sales-enablement design, objection handling pairs, freshness governance, GTM distribution | `references/battle-card.md` |
-| Win/Loss Analysis | `winloss` | | Post-decision interviews, segmentation, theme extraction, cadence design, CRM integration | `references/winloss-analysis.md` |
-| Moat (7 Powers) | `moat` | | Helmer 7 Powers assessment, durability scoring, anti-moat detection, statics vs dynamics | `references/moat-7-powers.md` |
-| Multi-Engine | `multi` | | Tri-engine competitive coverage (Codex + Antigravity + Claude in parallel) leveraging non-overlapping training-data priors. Artifact-driven merge (Feature Matrix / Battle Card / Positioning Map / SWOT / Landscape) with `engine_concurrence` tags. Default output surfaces a dedicated "Uncommon Competitors (Verified-Divergent)" callout — competitors only one engine knew, grounded via WebSearch — patching structural blind-spots of single-engine analysis. | `references/tri-engine-compete.md`, `_common/SUBAGENT.md` |
+| Competitor Matrix | `matrix` | ✓ | Competitor map, feature comparison matrix, tiering | `reference/analysis-templates.md` |
+| SWOT Analysis | `swot` | | SWOT, positioning, differentiation strategy | `reference/competitive-moats-category-design.md` |
+| Positioning Map | `positioning` | | Positioning map, category design, moat evaluation | `reference/competitive-moats-category-design.md` |
+| LLM Visibility | `llm-visibility` | | LLM brand presence, AI share of voice measurement | `reference/intelligence-gathering.md` |
+| Battle Card | `battle` | | One-pager sales enablement, objection-handling pairs, freshness governance, GTM distribution | `reference/battle-card.md` |
+| Win/Loss Analysis | `winloss` | | Post-decision interviews, segmentation, theme extraction, cadence design, CRM integration | `reference/winloss-analysis.md` |
+| Moat (7 Powers) | `moat` | | Helmer 7 Powers assessment, durability scoring, anti-moat detection | `reference/moat-7-powers.md` |
+| Multi-Engine | `multi` | | Tri-engine coverage (Codex + agy + Claude parallel) leveraging non-overlapping priors. Artifact-driven merge with `engine_concurrence` tags + mandatory "Uncommon Competitors (Verified-Divergent)" callout patching single-engine blind-spots. | `reference/tri-engine-compete.md`, `reference/multi-engine-mode.md` |
 
 ## Subcommand Dispatch
 
@@ -174,71 +173,42 @@ Parse the first token of user input.
 - Otherwise → default Recipe (`matrix` = Competitor Matrix). Apply normal MAP → ANALYZE → DIFFERENTIATE workflow.
 
 Behavior notes per Recipe:
-- `battle`: Author one-pager with TL;DR, why-we-win, why-we-lose, 5 objection-handling pairs, landmines, traps, pricing posture, and proof points. Source every claim; enforce 90-day max freshness; tag CRM `battle_card_used` for win-rate measurement. Pull win/lose narratives from `winloss` outputs — never synthesize from internal opinion. Distribute via CRM/Slack/deal-room (not standalone wiki).
-- `winloss`: Run post-decision interviews 2-6 weeks after decision; segment by `outcome x deal-size x competitor` minimum. Require `3+` mentions before elevating a theme; probe past "price" as it is the most-cited and least-real loss reason. Use third-party interviewers for losses. Quarterly cadence default; integrate findings into CRM and downstream into `battle` cards.
-- `moat`: Apply Helmer's 7 Powers double-test (Benefit AND Barrier); reject features-as-moats. Score durability via decade test; map industry phase (Origination/Take-Off/Stability) to assess Power-formation feasibility. Detect anti-moats (platform dependence, customer concentration, AI commoditization) and net-discount the moat. Hand off to Helm for strategic simulation.
-- `multi`: Tri-engine competitive analysis. Spawn `compete-codex` / `compete-agy` / `compete-claude` subagents in one message; each surfaces 5-10 competitors with loose prompts (Role + Target + Output format only — never pass SWOT/positioning/7 Powers frameworks to subagents). Pattern D Divergence-primary scoring: `UNIVERSAL` (3/3) = mainstream, `LIKELY` (2/3) = strong-with-one-blind-spot-engine, `VERIFIED-DIVERGENT` (1/3 after WebSearch grounding) = uncommon competitor patching structural training-data blind-spots. Merge is artifact-driven (Feature Matrix / Battle Card / Positioning Map / SWOT / Landscape / LLM Visibility) — engine_concurrence tags woven into whichever artifact the user requested. The "Uncommon Competitors (Verified-Divergent)" callout is mandatory and load-bearing — it surfaces real competitors a single engine would miss. Full algorithm, JSON schema, CLUSTER identity rules, and subagent prompts: `references/tri-engine-compete.md`.
+- `battle`: One-pager — TL;DR, why-we-win, why-we-lose, 5 objection-handling pairs, landmines, traps, pricing posture, proof points. Source every claim; enforce 90-day max freshness; tag CRM `battle_card_used`. Pull win/lose narratives from `winloss` outputs — never from internal opinion. Distribute via CRM/Slack/deal-room.
+- `winloss`: Post-decision interviews 2-6 weeks after decision; segment by `outcome x deal-size x competitor` min. Require `3+` mentions to elevate a theme; probe past "price". Third-party interviewers for losses. Quarterly cadence; feed CRM and `battle` cards.
+- `moat`: Helmer 7 Powers double-test (Benefit AND Barrier); reject features-as-moats. Score durability via decade test; map industry phase (Origination/Take-Off/Stability). Detect anti-moats (platform dependence, customer concentration, AI commoditization) and net-discount. Hand off to Helm.
+- `multi`: Tri-engine. See **Multi-Engine Mode** section below + `reference/multi-engine-mode.md` for operational detail.
 
 ## Output Routing
 
-| Signal | Approach | Primary output | Read next |
-|--------|----------|----------------|-----------|
-| `competitor`, `landscape`, `market map`, `players` | Landscape analysis | Competitor map + tiering | `references/intelligence-gathering.md` |
-| `feature comparison`, `pricing`, `benchmark`, `UX compare` | Benchmark analysis | Comparison matrix | `references/analysis-templates.md` |
-| `SWOT`, `positioning`, `differentiation` | Strategy analysis | Strategy recommendation | `references/competitive-moats-category-design.md` |
-| `battle card`, `alert`, `competitor move`, `response` | Response planning | Battle card or response plan | `references/playbooks.md` |
-| `win/loss`, `deal analysis`, `lost deal` | Win/Loss analysis | Win/loss report | `references/modern-win-loss-analysis.md` |
-| `moat`, `category`, `PLG`, `DX advantage` | Market interpretation | Strategic assessment | `references/competitive-moats-category-design.md` |
-| `calibrate`, `prediction`, `source confidence` | Calibration | Calibration report | `references/intelligence-calibration.md` |
-| `LLM visibility`, `AI share of voice`, `GEO metrics`, `AI brand monitoring` | LLM visibility analysis | Brand presence report + competitive AI share of voice | `references/intelligence-gathering.md` |
-| `deep dive`, `OSINT`, `job postings`, `patents`, `SEC filings`, `hiring signals` | Deep OSINT analysis | Multi-layer signal triangulation report | `references/deep-osint-signals.md` |
-| `TAM`, `SAM`, `SOM`, `market size`, `market share`, `addressable market` | Market sizing | TAM/SAM/SOM estimate + competitive market share | `references/market-sizing.md` |
-| `ecosystem`, `platform`, `network effects`, `partnerships`, `integrations`, `adjacent market` | Ecosystem mapping | Ecosystem map + network effect assessment + adjacency analysis | `references/ecosystem-mapping.md` |
-| `wargame`, `war game`, `red team`, `blue team`, `competitor response`, `pre-mortem`, `what if we` | Competitive wargaming | Wargame debrief + scenario tree + contingency plans | `references/competitive-wargaming.md` |
-| `multi-engine`, `tri-engine competitive`, `cross-engine compete`, `parallel competitor research`, `uncommon competitors`, `blind-spot competitors` | Tri-engine competitive coverage with engine_concurrence tagging | Artifact (Matrix / Battle Card / Positioning / SWOT) + Uncommon-Competitors callout | `references/tri-engine-compete.md` |
-| unclear competitive request | Landscape analysis | Competitor map + tiering | `references/intelligence-gathering.md` |
+Match user keywords to the analysis shape; default to Landscape when unclear. Primary outputs and reference files are defined in the Analysis Shapes table above.
+
+| Keyword cues | Shape |
+|---|---|
+| `competitor`, `landscape`, `market map`, `players`, unclear | Landscape |
+| `feature comparison`, `pricing`, `benchmark`, `UX compare` | Benchmark |
+| `SWOT`, `positioning`, `differentiation`, `moat`, `category`, `PLG`, `DX advantage` | Strategy |
+| `battle card`, `alert`, `competitor move`, `response` | Response |
+| `win/loss`, `deal analysis`, `lost deal` | Win/Loss |
+| `calibrate`, `prediction`, `source confidence` | Calibration |
+| `LLM visibility`, `AI share of voice`, `GEO metrics`, `AI brand monitoring` | LLM Visibility |
+| `deep dive`, `OSINT`, `job postings`, `patents`, `SEC filings`, `hiring signals` | Deep Dive |
+| `TAM`, `SAM`, `SOM`, `market size`, `addressable market` | Market Sizing |
+| `ecosystem`, `platform`, `network effects`, `partnerships`, `integrations`, `adjacent market` | Ecosystem |
+| `wargame`, `red team`, `blue team`, `competitor response`, `pre-mortem`, `what if we` | Wargame |
+| `multi-engine`, `tri-engine`, `cross-engine compete`, `parallel competitor research`, `uncommon competitors`, `blind-spot competitors` | `multi` Recipe |
 
 ## Multi-Engine Mode
 
-Activated by the `multi` Recipe (or any explicit user request for multi-engine / cross-engine competitive coverage). Pattern D Divergence-primary — Compete optimizes for *competitive coverage breadth*, not concurrence. The load-bearing deliverable is the **VERIFIED-DIVERGENT competitor** that single-engine analysis would have missed.
+Activated by the `multi` Recipe or explicit request for multi-engine / cross-engine competitive coverage. Pattern D Divergence-primary — Compete optimizes for *coverage breadth*, not concurrence. The load-bearing deliverable is the **VERIFIED-DIVERGENT competitor** single-engine analysis would have missed.
 
-> **Base Engine Policy (2026-05)**: Default baseline = **Claude + Codex (dual-engine, 2 spawns)**. agy adds a third axis (tri-engine, 3 spawns) when AVAILABLE at PREFLIGHT. dual-engine is NOT degraded — but for Compete specifically, the third engine's coverage uplift is **larger than for other Pattern D skills** because agy's Google-product / APAC bias patches a structural blind-spot that Claude + Codex share (both under-index large-cap APAC enterprise SaaS). When agy is UNAVAILABLE, surface this coverage gap explicitly in the Uncommon-Competitors callout and recommend a manual WebSearch sweep for APAC + enterprise segments. See `_common/MULTI_ENGINE_RECIPE.md §Base Engine Policy + §Engine Availability Modes`.
+- **Base engine policy (2026-05)**: Default baseline = Claude + Codex (dual). agy adds a third axis (tri) when AVAILABLE at PREFLIGHT. Coverage uplift from agy is larger for Compete than other Pattern D skills (APAC enterprise blind-spot).
+- **Pipeline**: PREFLIGHT (main context) → spawn `compete-codex` / `compete-claude` (+ `compete-agy` if AVAILABLE) in one message with loose prompts (Role + Target + Output format only — never pass SWOT/positioning/7 Powers frameworks) → NORMALIZE → CLUSTER (alias-aware) → SCORE → GROUND (WebSearch mandatory) → SYNTHESIZE → DELIVER.
+- **Coverage scoring**: `UNIVERSAL` (3/3 mainstream), `LIKELY` (2/3, missing-engine absence is itself a signal), `VERIFIED-DIVERGENT` (1/3 after WebSearch ground — frequently the breakthrough finding).
+- **Artifact-driven merge**: User's requested artifact (Matrix / Battle Card / Positioning / SWOT / Landscape / LLM Visibility) determines shape; engine-concurrence tags woven in.
+- **Mandatory callout**: "Uncommon Competitors (Verified-Divergent)" section listing name, surfacing engine, bias hypothesis, blind-spot patched, evidence URL, recommended action. Never omit.
+- **Engine-attribution tag**: `[codex+agy+claude]` / `[codex+agy]` / `[codex-verified]` / `[agy-verified]` / `[claude-verified]`.
 
-**Why multiple engines for Compete specifically:**
-
-- Codex (GitHub-heavy / OSS / dev tools / indie SaaS) under-indexes large-cap enterprise SaaS and consumer brands
-- Antigravity (Google product / large-cap SaaS / APAC enterprise) under-indexes OSS / indie tools and AI-native startups
-- Claude (Anthropic-curated / diverse industries / regulated verticals / AI-native players) under-indexes regional Asia-Pacific players and certain dev-infra niches
-
-Each engine has structural training-data blind-spots that are **knowable** (we can predict which segments it under-indexes) but **invisible to that engine alone** (a single-engine analysis cannot self-report its own gap). Multi-engine fan-out is the only practical way to patch these blind-spots — dual-engine covers two of the three blind-spot axes (codex/claude), tri-engine adds the third (agy).
-
-**Core mechanics:**
-
-- Spawn one Agent subagent per AVAILABLE engine in a single message: `compete-codex` + `compete-claude` (dual-engine baseline); add `compete-agy` (tri-engine) when AVAILABLE. Per `references/tri-engine-compete.md`.
-- Run engine availability PREFLIGHT in Compete main context — never delegate detection to subagents (subagent PATH is narrower; see `_common/MULTI_ENGINE_RECIPE.md §PREFLIGHT`).
-- Use loose prompts (Role + Target + Output format only). Do NOT pass SWOT templates, 7 Powers rubrics, positioning-map axes, or analysis-template structures to subagents — apply framework rules in SYNTHESIZE, not at FAN-OUT. Each engine's training-data priors should drive divergent competitor discovery.
-- Subagents return structured JSON (competitor schema: name/aliases/category/positioning/segment/geography/features/strengths/weaknesses/pricing_posture/evidence_sources/source_engine_bias_note).
-- Main context integrates via NORMALIZE → CLUSTER (alias-aware) → SCORE (coverage matrix) → GROUND (WebSearch-mandatory) → SYNTHESIZE → DELIVER.
-
-**Coverage matrix scoring (Pattern D, divergence-primary):**
-
-- `UNIVERSAL` (3/3) — mainstream competitor every engine surfaced. Safe assumption that the buying committee also knows them. Check for "already-known" duplication with the user's seed list.
-- `LIKELY` (2/3) — strong competitor with one blind-spot engine. The missing engine's absence is itself a signal about which segment it under-indexes.
-- `VERIFIED-DIVERGENT` (1/3, grounded via WebSearch) — uncommon competitor only one engine surfaced. **Not lower-value than UNIVERSAL** — frequently the breakthrough finding that patches a sales team's "we keep losing deals to someone we cannot name" problem.
-
-**Artifact-driven merge (different from Spark's Portfolio/Compete split):**
-
-The user's requested artifact (Feature Matrix / Battle Card / Positioning Map / SWOT / Landscape / LLM Visibility) determines the output shape. Engine-concurrence tags are **woven into** the artifact, not produced as a separate document. See `references/tri-engine-compete.md §SYNTHESIZE` for per-artifact integration patterns.
-
-**Mandatory deliverable — Uncommon Competitors callout:** every `multi` output must include a dedicated section listing each `VERIFIED-DIVERGENT` competitor with name, surfacing engine, training-data bias hypothesis (why the other engines missed it), the structural blind-spot it patches, evidence URL, and recommended action. **Never omit this section** — it is the single most valuable output of tri-engine Compete.
-
-**Engine-attribution tag (mandatory on every shipped competitor):** `[codex+agy+claude]` (3/3 UNIVERSAL) / `[codex+agy]` etc. (2/3 LIKELY) / `[codex-verified]` / `[agy-verified]` / `[claude-verified]` (1/3 VERIFIED-DIVERGENT).
-
-**WebSearch is mandatory at GROUND step** — never ship a VERIFIED-DIVERGENT competitor based on training knowledge alone. Compete's Core Contract (unsourced claims forbidden) applies with extra force to single-engine competitors.
-
-**Degraded modes:** 1 engine down → continue with 2, note reduced coverage; 2 down → single-engine fallback with stricter grounding, disable Uncommon-Competitors callout (no concurrence signal); all down → degrade to default `matrix` Recipe; WebSearch unavailable → mark CANDIDATE clusters as `NEEDS-INFO`, do not ship as VERIFIED-DIVERGENT.
-
-Full algorithm, JSON schema, CLUSTER identity rules (alias normalization, parent↔product collapse), per-artifact SYNTHESIZE patterns, and subagent prompt skeletons: `references/tri-engine-compete.md`.
+Full rationale (engine bias map), degraded-mode matrix, and detailed mechanics: `reference/multi-engine-mode.md`. Algorithm, JSON schema, CLUSTER rules, per-artifact SYNTHESIZE patterns, and subagent prompts: `reference/tri-engine-compete.md`.
 
 ## SHARPEN Post-Analysis
 
@@ -249,35 +219,27 @@ Full algorithm, JSON schema, CLUSTER identity rules (alias normalization, parent
 - Recalibrate source weights only with enough evidence.
 - Propagate reusable patterns to Lore and strategic signals to Helm.
 
-Read `references/intelligence-calibration.md` when updating confidence or source weights.
+Read `reference/intelligence-calibration.md` when updating confidence or source weights.
 
 ## Critical Decision Rules
 
+Core rules below. Full numeric thresholds, CI maturity baselines, win-rate benchmarks, and GEO/seller-adoption metrics: `reference/benchmarks-thresholds.md`.
+
 | Topic | Rule |
 |---|---|
-| Limited data | State gaps, lower confidence, and avoid decisive strategic claims |
-| Alert urgency | `High = immediate`, `Medium = weekly review`, `Low = monthly review` |
-| Pricing alerts | `10%+` price reduction is a `High` alert |
-| Prediction accuracy | `> 0.80 = maintain`, `0.60-0.80 = improve`, `< 0.60 = review method` |
-| Calibration minimum | Require `3+` data points before changing source weights |
-| Calibration cap | Maximum source-weight adjustment per cycle is `+/-0.15` |
-| Calibration decay | Learned adjustments decay `10%` per quarter toward defaults |
+| Limited data | State gaps, lower confidence, avoid decisive strategic claims |
+| Alert urgency | `High = immediate`, `Medium = weekly`, `Low = monthly`. `10%+` price cut = `High` |
+| Prediction accuracy | `> 0.80 maintain`, `0.60-0.80 improve`, `< 0.60 review method` |
+| Calibration | `3+` data points before reweighting; max `+/-0.15` per cycle; `10%` quarterly decay |
 | Indirect competition | Include substitutes when the customer job can be solved without direct competitors |
-| Response default | Prefer differentiation and value framing over feature-copy recommendations |
-| LLM visibility | Include AI share of voice analysis when evaluating digital competitive positioning |
-| Battle card freshness | Dynamic and continuously updated; stale battle cards destroy sales team trust. Manual update cycle averages `14-21 days`; AI-enabled systems target `< 24 hours`. Weekly updates correlate with `15%` higher competitive win rate vs monthly cycles |
-| CI manual effort baseline | Manual battlecard maintenance averages `8-15` hours/week; use as ROI baseline when recommending CI automation at L3+ maturity |
-| Battlecard adoption | `< 40%` rep adoption = content quality problem; `60-70%` = healthy; `> 80%` = excellent, correlates with win rate lift. Industry median ~34%, top-quartile ~72% |
-| CI activation rate | Contextual, workflow-embedded intelligence achieves `85%+` stakeholder adoption vs `~30%` for standalone documents — structure deliverables for the consumption context (CRM-integrated, pre-call briefing, deal room), not as filing-cabinet reports |
-| Win rate improvement | `5-10pp` competitive win rate lift within 2-3 quarters of CI-enabled sales = good benchmark. Battle card users report up to `30%` win rate increase; CI-equipped teams close deals `28%` faster |
-| Win/loss program ROI | Systematic win/loss analysis yields `15-30%` win rate improvement — recommend establishing a formal program when competitive deal volume exceeds `20` deals/quarter |
-| CI tool adoption threshold | ~`40%` of technology providers now use commercial CI tools (Gartner 2026 estimate realized, up from ~`10%` in 2023). Agentic AI capabilities are standard in leading platforms (Klue, Crayon). Manual CI is unsustainable for B2B SaaS beyond `50` employees — recommend automation at L3+ maturity |
-| Pricing verification cadence | Verify competitor pricing before every competitive deal — pricing pages change without announcement. Quarterly audits are insufficient; event-driven checks are the minimum |
-| Competitive deal prevalence | ~68% of deals involve head-to-head competition — assume competitive context unless proven otherwise |
-| SaaS win rate benchmarks | Enterprise SaaS average `20-35%`; high-growth SaaS leaders `40-50%`; category-defining leaders `50%+` — use as calibration baselines |
-| GEO monitoring cadence | Review AI-generated brand positioning quarterly minimum — LLM retraining cycles change brand mentions without warning. Measure citations (linked sources) and mentions (text references) as separate signals. Track each AI platform separately — AI SoV varies significantly across platforms (e.g., `40%` on ChatGPT vs `15%` on Perplexity for the same brand). Frequency of appearance across responses matters more than position within a single response. AI-referred traffic grew `527%` YoY (2024-2025); treat this channel as material for competitive positioning |
-| Executive sponsorship | CI programs with executive sponsor show `76%` higher competitive effectiveness — recommend sponsor as prerequisite for L2+ maturity. Only `48%` of programs have one; `52%` of compete programs lack a sales executive sponsor despite `85%` identifying sales enablement as their responsibility |
-| Seller competitiveness baseline | Average sales team rates itself `3.8/10` on competitive selling — use as adoption gap baseline when recommending CI enablement or battle card programs |
+| Response default | Prefer differentiation/value framing over feature-copy recommendations |
+| Battle card freshness | Manual cycle `14-21 days`; AI-enabled `< 24h`. Weekly updates `→ +15%` win-rate vs monthly |
+| Battlecard adoption | `< 40%` = quality problem; `60-70%` healthy; `> 80%` excellent |
+| Win/loss program ROI | `15-30%` win-rate lift — establish formal program above `20` competitive deals/quarter |
+| Pricing verification | Verify before every competitive deal — pages change without announcement |
+| Competitive deal prevalence | ~`68%` of deals are head-to-head — assume competitive context unless proven otherwise |
+| GEO monitoring | Quarterly minimum per AI platform; citations vs mentions tracked separately; AI-referred traffic `+527%` YoY 2024-2025 |
+| Executive sponsorship | CI programs with sponsor show `76%` higher effectiveness — prerequisite for L2+ maturity |
 
 ## Output Requirements
 
@@ -298,7 +260,7 @@ Source citation format: `[N]` inline reference → `## Sources` section at the e
 ## Collaboration
 
 **Receives:** Voice (customer feedback for competitive context), Pulse (product/market metrics for benchmarking), Nexus (task context)
-**Sends:** Spark (competitive gaps as feature ideas), Growth (positioning/SEO gaps), Canvas (visual maps/matrices), Helm (strategic simulation input), Lore (validated competitive patterns), Oracle (LLM visibility analysis), Researcher (win/loss interview design), Nexus (results)
+**Sends:** Spark (competitive gaps as feature ideas), Growth (positioning/SEO gaps), Canvas (visual maps/matrices), Helm (strategic simulation input), Lore (validated competitive patterns), Oracle (LLM visibility analysis), Field (win/loss interview design), Nexus (results)
 
 **Overlap boundaries:**
 - **vs Helm**: Helm = business strategy simulation; Compete = competitive intelligence and analysis.
@@ -323,32 +285,34 @@ When analyzing `5+` competitors across multiple segments, spawn 2-3 Explore suba
 | `Compete -> Helm` | `COMPETE_TO_HELM` | Strategic simulation or scenario planning is required |
 | `Compete -> Lore` | `COMPETE_TO_LORE` | Validated recurring patterns should become shared knowledge |
 | `Compete -> Oracle` | `COMPETE_TO_ORACLE` | LLM brand visibility analysis requires AI/ML domain expertise |
-| `Compete -> Researcher` | `COMPETE_TO_RESEARCHER` | Interview design suggestions from win/loss analysis |
+| `Compete -> Field` | `COMPETE_TO_RESEARCHER` | Interview design suggestions from win/loss analysis |
 
 ## Reference Map
 
-| Reference | Read this when |
-|-----------|----------------|
-| `references/intelligence-gathering.md` | You need to collect public sources, price intelligence, reviews, stack data, or SEO signals. |
-| `references/analysis-templates.md` | You need to build competitor profiles, matrices, SWOTs, positioning maps, or benchmarks. |
-| `references/playbooks.md` | You need to produce battle cards, alert responses, or structured competitive response plans. |
-| `references/intelligence-calibration.md` | You need to validate predictions, adjust source reliability, or emit `EVOLUTION_SIGNAL`. |
-| `references/ci-anti-patterns-biases.md` | Analysis quality is threatened by bias, copycat thinking, or weak framing. |
-| `references/ai-powered-ci-platforms.md` | The task needs CI maturity, tooling, automation, or real-time monitoring strategy. |
-| `references/modern-win-loss-analysis.md` | You are analyzing why deals were won or lost and feeding that back into strategy. |
-| `references/competitive-moats-category-design.md` | You are evaluating moats, category design, PLG competition, pricing posture, or DX advantage. |
-| `references/deep-osint-signals.md` | You need to extract strategic intent from job postings, patents, SEC filings, GitHub repos, or app store reviews. |
-| `references/market-sizing.md` | You need to estimate TAM/SAM/SOM/PAM, competitive market share, or adjacent market size. |
-| `references/ecosystem-mapping.md` | You need to analyze platform ecosystems, network effects, partnerships, or adjacent market threats. |
-| `references/competitive-wargaming.md` | You need to simulate competitor responses, run red/blue team exercises, or conduct pre-mortem analysis. |
-| `references/battle-card.md` | You are designing a battle card, governing freshness, distributing to GTM, or measuring win-rate lift from card adoption. |
-| `references/winloss-analysis.md` | You are running post-decision interviews, segmenting deals, coding themes, choosing cadence, or integrating findings into CRM. |
-| `references/moat-7-powers.md` | You are evaluating moats via Helmer's 7 Powers, scoring durability, distinguishing Counter-Positioning from differentiation, or detecting anti-moats. |
-| `references/tri-engine-compete.md` | You are running the `multi` Recipe — tri-engine fan-out (Codex + Antigravity + Claude subagents), Pattern D Divergence-primary coverage scoring, competitor-identity CLUSTER rules (alias normalization, parent↔product collapse), WebSearch-mandatory GROUND step, artifact-driven SYNTHESIZE (Matrix / Battle Card / Positioning / SWOT / Landscape / LLM Visibility), Uncommon-Competitors callout schema, JSON schema, and subagent prompt skeletons. |
-| `_common/SUBAGENT.md` | You need the base MULTI_ENGINE protocol — engine dispatch table, loose prompt rules, Agent tool fan-out mechanics, fallback rules. Read before authoring `multi` Recipe subagent prompts. |
-| `_common/MULTI_ENGINE_RECIPE.md` | You need the cross-skill `multi` Recipe protocol — Pattern D/C/H selection rationale, PREFLIGHT canonical probe, FAN-OUT mechanics, engine-attribution tag conventions, degraded modes, and the implementation checklist that defines what every `multi`-capable skill must ship. |
-| `_common/OPUS_48_AUTHORING.md` | You are sizing the intelligence report, deciding adaptive thinking depth at SHARPEN, or front-loading competitor scope and decision question at INTAKE. Critical for Compete: P3, P5. |
-| `_common/GROWTH_BRAND_PROOF.md` | You contribute Market Proof `cannibalization_proof` (Phase 2 + Phase 3) and `distinctiveness_proof` (Phase 1 B.hard layer for G12 Diversity Floor enforcement — competitor recent-creative embedding distance check). Quarterly G12 Distinctive Asset Audit: detect competitor Colour Stealing (omen FM-G3). Quarterly G14 Regulatory Horizon Scan participation. |
+| Reference | Read when |
+|-----------|-----------|
+| `reference/intelligence-gathering.md` | Collecting public sources, price intel, reviews, stack data, SEO signals |
+| `reference/analysis-templates.md` | Building competitor profiles, matrices, SWOTs, positioning maps, benchmarks |
+| `reference/playbooks.md` | Producing battle cards, alert responses, structured competitive response plans |
+| `reference/intelligence-calibration.md` | Validating predictions, adjusting source reliability, emitting `EVOLUTION_SIGNAL` |
+| `reference/ci-anti-patterns-biases.md` | Analysis quality threatened by bias, copycat thinking, weak framing |
+| `reference/ai-powered-ci-platforms.md` | CI maturity, tooling, automation, real-time monitoring strategy |
+| `reference/modern-win-loss-analysis.md` | Analyzing why deals were won/lost, feeding back into strategy |
+| `reference/competitive-moats-category-design.md` | Evaluating moats, category design, PLG, pricing posture, DX advantage |
+| `reference/deep-osint-signals.md` | Extracting strategic intent from jobs, patents, SEC, GitHub, app reviews |
+| `reference/market-sizing.md` | Estimating TAM/SAM/SOM/PAM, market share, adjacent market size |
+| `reference/ecosystem-mapping.md` | Platform ecosystems, network effects, partnerships, adjacency threats |
+| `reference/competitive-wargaming.md` | Simulating competitor responses, red/blue team, pre-mortem |
+| `reference/battle-card.md` | Designing battle card, freshness governance, GTM distribution, win-rate lift |
+| `reference/winloss-analysis.md` | Post-decision interviews, segmentation, theme coding, cadence, CRM integration |
+| `reference/moat-7-powers.md` | Helmer 7 Powers scoring, durability, Counter-Positioning vs differentiation, anti-moats |
+| `reference/multi-engine-mode.md` | `multi` Recipe operational detail — engine-bias rationale, scoring semantics, degraded-mode matrix |
+| `reference/tri-engine-compete.md` | `multi` algorithm, JSON schema, CLUSTER identity rules, per-artifact SYNTHESIZE patterns, subagent prompts |
+| `reference/benchmarks-thresholds.md` | Full numeric thresholds — calibration, battlecard adoption, win-rate, GEO, seller-adoption baselines |
+| `_common/SUBAGENT.md` | Base MULTI_ENGINE protocol — engine dispatch, loose prompts, Agent fan-out, fallbacks |
+| `_common/MULTI_ENGINE_RECIPE.md` | Cross-skill `multi` protocol — Pattern D/C/H rationale, PREFLIGHT, FAN-OUT, attribution tags, degraded modes |
+| `_common/OPUS_48_AUTHORING.md` | Report sizing, adaptive thinking depth at SHARPEN, INTAKE front-loading. Critical: P3, P5 |
+| `_common/GROWTH_BRAND_PROOF.md` | Market Proof `cannibalization_proof` (Phase 2-3) + `distinctiveness_proof` (Phase 1 B.hard, G12 Diversity Floor, competitor embedding distance). Quarterly G12 Distinctive Asset Audit; G14 Regulatory Horizon Scan |
 
 ## Operational
 
@@ -386,7 +350,7 @@ _STEP_COMPLETE:
       uncommon_competitors: [count of VERIFIED-DIVERGENT competitors surfaced in callout]
       rejected: [count + top categories — hallucination / defunct / category-mismatch / out-of-scope / alias-fold]
   Handoff: "[target agent or N/A]"
-  Next: Spark | Growth | Canvas | Helm | Lore | Researcher | DONE
+  Next: Spark | Growth | Canvas | Helm | Lore | Field | DONE
   Reason: [Why this next step]
 ```
 
