@@ -4,7 +4,7 @@
 
 聚焦小红书、社媒、内容、归因、竞品和增长分析的技能集合。
 
-当前分类共 **14** 个技能。
+当前分类共 **15** 个技能。
 
 ## 推荐先看
 
@@ -30,6 +30,7 @@
 | `pulse` | Defining KPIs, designing tracking events, and specifying dashboards. Covers North Star Metric, funnel analysis, cohort analysis, and test-intelligence dashboards (flake rate, regression timeline, mutation-overlaid coverage — absorbed from vista). GA4/Amplitude/Mixpanel/PostHog integration. Use when metrics or test-telemetry dashboards are needed. | [目录](./pulse/) | [SKILL.md](./pulse/SKILL.md) |
 | `seo-audit` | 用于网站 SEO 全面审计、On-page 优化建议和技术 SEO 检查清单生成。仓库整理版，吸收社区高频最佳实践。 | [目录](./seo-audit/) | [SKILL.md](./seo-audit/SKILL.md) |
 | `social-media-analyzer` | Social media campaign analysis and performance tracking. Calculates engagement rates, ROI, and benchmarks across platforms. Use for analyzing social media performance, calculating engagement rate, measuring campaign ROI, comparing platform metrics, or benchmarking against industry standards. | [目录](./social-media-analyzer/) | [SKILL.md](./social-media-analyzer/SKILL.md) |
+| `tweetclaw-source-research` | Use TweetClaw through OpenClaw to collect X/Twitter source context before drafting, monitoring, or campaign analysis. | [目录](./tweetclaw-source-research/) | [SKILL.md](./tweetclaw-source-research/SKILL.md) |
 | `twitter-reader` | Fetch Twitter/X post content by URL using jina.ai API to bypass JavaScript restrictions. Use when Claude needs to retrieve tweet content including author, timestamp, post text, images, and thread replies. Supports individual posts or batch fetching from x.com or twitter.com URLs. | [目录](./twitter-reader/) | [SKILL.md](./twitter-reader/SKILL.md) |
 
 ## 维护方式

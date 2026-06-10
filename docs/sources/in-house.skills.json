@@ -2434,6 +2434,22 @@
       }
     },
     {
+      "video_name": "tweetclaw-source-research",
+      "normalized_slug": "tweetclaw-source-research",
+      "status": "in_house",
+      "repo_skill": "skills/growth-operations-xiaohongshu/tweetclaw-source-research/SKILL.md",
+      "source": "https://github.com/your-org/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/growth-operations-xiaohongshu/tweetclaw-source-research",
+        "ref": "main",
+        "last_checked_at": "2026-06-08",
+        "last_synced_at": "2026-06-08",
+        "last_synced_commit": null
+      }
+    },
+    {
       "video_name": "twitter-reader",
       "normalized_slug": "twitter-reader",
       "status": "in_house",
@@ -2823,6 +2839,13 @@
       "target": "skills/*/*/SKILL.md",
       "result": "success",
       "evidence": "Merged provenance for 167 local skills"
+    },
+    {
+      "date": "2026-06-08",
+      "method": "local-scan",
+      "target": "skills/*/*/SKILL.md",
+      "result": "success",
+      "evidence": "Merged provenance for 168 local skills"
     }
   ]
 }
