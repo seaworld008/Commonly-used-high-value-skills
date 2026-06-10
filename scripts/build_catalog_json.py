@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+from datetime import date
 import json
 import re
 from collections import defaultdict
@@ -30,6 +31,19 @@ def parse_frontmatter(text: str) -> dict:
 def parse_tags(val: str) -> list[str]:
     val = val.strip("[]")
     return [t.strip().strip('"').strip("'") for t in val.split(",") if t.strip()]
+
+
+def resolve_generated_at(output_path: Path) -> str:
+    """Keep regenerated catalog output stable when only the clock changed."""
+    if output_path.exists():
+        try:
+            existing = json.loads(output_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            existing = {}
+        generated_at = existing.get("generated_at")
+        if isinstance(generated_at, str) and generated_at:
+            return generated_at
+    return date.today().isoformat()
 
 
 def main() -> None:
@@ -72,7 +86,7 @@ def main() -> None:
 
     catalog = {
         "version": "1.0.0",
-        "generated_at": __import__("datetime").date.today().isoformat(),
+        "generated_at": resolve_generated_at(output_path),
         "total_skills": len(skills),
         "total_categories": len(categories),
         "categories": [

@@ -57,6 +57,7 @@ jobs:
           python -m unittest
           tests.test_evaluate_repo_health
           tests.test_dead_links_workflow
+          tests.test_build_catalog_json
           tests.test_check_readme_sync
           tests.test_generate_repo_health_report
           tests.test_export_openclaw_skills
