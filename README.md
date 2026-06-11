@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/seaworld008-commonly-used-high-value-skills-badge.png)](https://mseep.ai/app/seaworld008-commonly-used-high-value-skills)
+
 # Commonly Used High-Value Skills
 
 ![Repository Banner](./.github/assets/repo-banner.svg)
