@@ -274,16 +274,24 @@ def split_frontmatter(text: str) -> tuple[str | None, str]:
     return match.group(1), text[match.end() :]
 
 
-def extract_description(frontmatter: str | None) -> str | None:
+def extract_frontmatter_scalar(frontmatter: str | None, key: str) -> str | None:
     if not frontmatter:
         return None
-    match = re.search(r"^description:\s*(.+)$", frontmatter, re.MULTILINE)
+    match = re.search(rf"^{re.escape(key)}:\s*(.+)$", frontmatter, re.MULTILINE)
     if not match:
         return None
     value = match.group(1).strip()
     if (value.startswith('"') and value.endswith('"')) or (value.startswith("'") and value.endswith("'")):
         value = value[1:-1]
     return re.sub(r"\s+", " ", value).strip()
+
+
+def extract_description(frontmatter: str | None) -> str | None:
+    return extract_frontmatter_scalar(frontmatter, "description")
+
+
+def extract_zh_description(frontmatter: str | None) -> str | None:
+    return extract_frontmatter_scalar(frontmatter, "zh_description")
 
 
 def derive_description_from_body(body: str) -> str:
@@ -335,8 +343,14 @@ def load_skill_summary(skill_dir: Path) -> dict:
     raw_text = (skill_dir / SKILL_FILENAME).read_text(encoding="utf-8")
     frontmatter, body = split_frontmatter(raw_text)
     description = extract_description(frontmatter) or derive_description_from_body(body)
+    zh_description = extract_zh_description(frontmatter) or description
     richness = sum(1 for name in ("scripts", "references", "assets") if (skill_dir / name).exists())
-    return {"name": skill_dir.name, "description": description, "richness": richness}
+    return {
+        "name": skill_dir.name,
+        "description": description,
+        "zh_description": zh_description,
+        "richness": richness,
+    }
 
 
 def title_case_slug(slug: str) -> str:
@@ -368,7 +382,7 @@ def render_category_readme(category_name: str, skills: list[dict]) -> str:
     ]
 
     for item in featured:
-        lines.append(f"- [{item['name']}](./{item['name']}/) - {item['description']}")
+        lines.append(f"- [{item['name']}](./{item['name']}/) - {item['zh_description']}")
 
     usage_guide = CATEGORY_USAGE_GUIDES.get(category_name)
     if usage_guide:
@@ -386,7 +400,7 @@ def render_category_readme(category_name: str, skills: list[dict]) -> str:
 
     for item in sorted_skills:
         lines.append(
-            f"| `{item['name']}` | {item['description']} | [目录](./{item['name']}/) | [SKILL.md](./{item['name']}/SKILL.md) |"
+            f"| `{item['name']}` | {item['zh_description']} | [目录](./{item['name']}/) | [SKILL.md](./{item['name']}/SKILL.md) |"
         )
 
     lines.extend(

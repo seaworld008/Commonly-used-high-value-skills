@@ -11,6 +11,7 @@ created_at: "2026-06-12"
 updated_at: "2026-06-12"
 quality: 4
 complexity: advanced
+zh_description: "审计 SKILL.md、AGENTS.md、CLAUDE.md、插件清单、hooks、commands 和提示词，检查安装一致性、质量评分、安全风险与版本漂移。"
 ---
 
 # NLPM Audit

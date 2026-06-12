@@ -41,6 +41,7 @@ class GenerateCategoryReadmesTests(unittest.TestCase):
                     ---
                     name: financial-data-collector
                     description: Use when collecting structured public-market and filing data.
+                    zh_description: 采集公开市场和财报数据，生成结构化投研数据集。
                     ---
 
                     # Financial Data Collector
@@ -65,7 +66,8 @@ class GenerateCategoryReadmesTests(unittest.TestCase):
             readme_text = (category_dir / "README.md").read_text(encoding="utf-8")
             self.assertIn("# 金融投资 / Finance Investing", readme_text)
             self.assertIn("[financial-data-collector](./financial-data-collector/)", readme_text)
-            self.assertIn("Use when collecting structured public-market and filing data.", readme_text)
+            self.assertIn("采集公开市场和财报数据，生成结构化投研数据集。", readme_text)
+            self.assertNotIn("Use when collecting structured public-market and filing data.", readme_text)
             self.assertIn("[comps-valuation-analyst](./comps-valuation-analyst/)", readme_text)
             self.assertIn("Build a comparable-company valuation quickly", readme_text)
 

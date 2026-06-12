@@ -22,7 +22,7 @@ docs/TAGS-INDEX.md                    ← Cross-category tag-based index
 
 1. **Never manually edit** `openclaw-skills/`, `skills/*/README.md`, `docs/catalog.json`, `docs/TAGS-INDEX.md`, or `.github/assets/repo-banner.svg` — they are auto-generated.
 2. **Always run the full pipeline** after any skill change (see §Pipeline below).
-3. **Every skill must have complete frontmatter** (name, description, version, tags, quality, source).
+3. **Every skill must have complete frontmatter** (name, description, zh_description, version, tags, quality, source).
 4. **Every copied external skill must have an explicit permissive license** (`license: MIT`, `Apache-2.0`, etc.). If the upstream repository has no detectable license but the candidate is high quality, auto-create an original `in-house` rewrite instead of copying upstream text.
 5. **Every skill must pass quality lint** (`python scripts/lint_skill_quality.py --min-lines 50`).
 6. **Source provenance must be tracked** — every skill has an entry in `docs/sources/*.skills.json`.
@@ -30,7 +30,8 @@ docs/TAGS-INDEX.md                    ← Cross-category tag-based index
 8. **Keep all public counts generated from one source of truth** — skill totals in README badges/text, `docs/catalog.json`, and `.github/assets/repo-banner.svg` must match the actual `skills/*/*/SKILL.md` tree. Run `python scripts/refresh_repo_views.py`, `python scripts/build_catalog_json.py`, and `python scripts/check_readme_sync.py`; never hand-edit counts or banner numbers.
 9. **Prefer authenticated GitHub access for automation** — before running discovery or upstream sync, verify `gh auth status`. If `GITHUB_TOKEN` / `GH_TOKEN` are unset, repository automation should fall back to the locally authenticated `gh` token instead of running unauthenticated searches that cause `401` or premature rate limiting.
 10. **Treat warning sources differently** — distinguish between actionable repository regressions (quality lint, missing frontmatter, generated diff drift) and external-state noise (GitHub API rate limits, exploratory `404` upstream paths, temporary DNS failures). Fix the former in the same run; report the latter with enough detail to retry or repair provenance later.
-11. **Prefer staged pull requests for recurring maintenance** — if the run includes both a focused additive change (for example a new skill) and a broad upstream sync, split them into separate `codex/` branches and PRs so review and rollback stay manageable.
+11. **Chinese public docs must stay Chinese** — every newly added or materially updated skill must include a short, plain `zh_description` frontmatter field. `description` may stay English for Codex/Claude trigger quality, but generated Chinese surfaces (`README.md` and `skills/*/README.md`) must use concise Chinese text, not copied English descriptions.
+12. **Prefer staged pull requests for recurring maintenance** — if the run includes both a focused additive change (for example a new skill) and a broad upstream sync, split them into separate `codex/` branches and PRs so review and rollback stay manageable.
 
 ---
 
@@ -198,6 +199,7 @@ Every `SKILL.md` must have this frontmatter:
 ---
 name: skill-name                    # Must match directory name
 description: "One-line description" # Quoted if contains special chars
+zh_description: "简洁中文说明"      # Required for Chinese README/category README display
 version: "1.0.0"                    # Semver
 author: seaworld008                 # Contributor GitHub ID
 source: in-house                    # in-house | skills.sh | clawhub | github:<owner>/<repo> | community
