@@ -52,13 +52,14 @@ class SyncUpstreamTests(unittest.TestCase):
                             {
                                 "video_name": "demo-skill",
                                 "repo_skill": "skills/ai-workflow/demo-skill/SKILL.md",
-                                "upstream": {
-                                    "repo": "owner/repo",
-                                    "path": "custom/path/SKILL.md",
-                                    "ref": "main",
-                                },
-                            }
-                        ],
+                            "upstream": {
+                                "repo": "owner/repo",
+                                "path": "custom/path/SKILL.md",
+                                "ref": "main",
+                                "sync_mode": "monitor",
+                            },
+                        }
+                    ],
                     }
                 ),
                 encoding="utf-8",
@@ -74,6 +75,7 @@ class SyncUpstreamTests(unittest.TestCase):
             self.assertEqual(1, len(loaded))
             self.assertEqual("owner/repo", loaded[0]["repo"])
             self.assertEqual("custom/path/SKILL.md", loaded[0]["upstream_path"])
+            self.assertEqual("monitor", loaded[0]["sync_mode"])
             self.assertEqual(skill / "SKILL.md", loaded[0]["local_path"])
 
     def test_merge_frontmatter_preserves_local_metadata_and_replaces_body(self):

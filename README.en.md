@@ -5,12 +5,12 @@
 [![简体中文](https://img.shields.io/badge/README-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1677ff)](./README.md)
 [![English](https://img.shields.io/badge/README-English-111111)](./README.en.md)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b894)](./openclaw-skills/README.md)
-[![Skills](https://img.shields.io/badge/Skills-303-7c3aed)](./skills/)
+[![Skills](https://img.shields.io/badge/Skills-304-7c3aed)](./skills/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
 A high-value skills repository for AI developers, organized by real work scenarios such as developer engineering, DevOps, automation, finance, design, knowledge workflows, and reliability.
 
-This repository currently contains **16 categories / 303 skills**.
+This repository currently contains **16 categories / 304 skills**.
 
 ## Who This Is For
 
@@ -116,6 +116,7 @@ Then point OpenClaw at `openclaw-skills/`. Do not point OpenClaw at the reposito
 If you want client-specific examples instead of the generic setup above, continue with:
 
 - [Client Install Guides](./docs/client-install-guides.md)
+- [nlpm-audit Usage Guide](./docs/nlpm-audit-usage.md): explains auto-triggering, explicit invocation, Markdown audit reports, and upstream monitor-only upgrades after installing into `Codex`, `Claude Code`, or `OpenClaw`.
 
 ### Common Maintenance Commands
 
@@ -273,7 +274,7 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 2. Open the relevant `SKILL.md` and read its triggers, workflow, boundaries, and scripts.
 3. If a skill includes `scripts/`, `references/`, or `assets/`, reuse those files before recreating similar content.
 
-## Skill Overview (by category, 16 categories / 303 skills)
+## Skill Overview (by category, 16 categories / 304 skills)
 
 <a id="cat-developer-engineering"></a>
 ### 1. Developer Engineering (developer-engineering, 50)
@@ -330,7 +331,7 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`webapp-testing`](./skills/developer-engineering/webapp-testing/)
 
 <a id="cat-ai-workflow"></a>
-### 2. AI Workflow (ai-workflow, 44)
+### 2. AI Workflow (ai-workflow, 45)
 
 - [`agent-workflow-designer`](./skills/ai-workflow/agent-workflow-designer/)
 - [`andrej-karpathy-skills`](./skills/ai-workflow/andrej-karpathy-skills/)
@@ -354,6 +355,7 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`idea-refine`](./skills/ai-workflow/idea-refine/)
 - [`incremental-implementation`](./skills/ai-workflow/incremental-implementation/)
 - [`nexus`](./skills/ai-workflow/nexus/)
+- [`nlpm-audit`](./skills/ai-workflow/nlpm-audit/)
 - [`performance-optimization`](./skills/ai-workflow/performance-optimization/)
 - [`planning-and-task-breakdown`](./skills/ai-workflow/planning-and-task-breakdown/)
 - [`prompt-optimizer`](./skills/ai-workflow/prompt-optimizer/)

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -13,7 +14,7 @@ SCRIPT = REPO_ROOT / "scripts" / "generate_repo_health_report.py"
 
 def run_script(*args: str) -> subprocess.CompletedProcess[str]:
     return subprocess.run(
-        ["python3", str(SCRIPT), *args],
+        [sys.executable, str(SCRIPT), *args],
         cwd=REPO_ROOT,
         check=False,
         text=True,

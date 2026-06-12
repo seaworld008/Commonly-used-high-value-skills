@@ -1,6 +1,6 @@
 # Tags Index
 
-> Auto-generated from 1130 skill-tag mappings across 488 tags.
+> Auto-generated from 1136 skill-tag mappings across 493 tags.
 > Last updated: see git log.
 
 ## Quick Navigation
@@ -57,6 +57,7 @@
 - [`tools`](#tools) (4)
 - [`vulnerability-scanning`](#vulnerability-scanning) (4)
 - [`appsec`](#appsec) (3)
+- [`ci`](#ci) (3)
 - [`database`](#database) (3)
 - [`debugging`](#debugging) (3)
 - [`engineer`](#engineer) (3)
@@ -84,7 +85,6 @@
 - [`capture`](#capture) (2)
 - [`changelog`](#changelog) (2)
 - [`checker`](#checker) (2)
-- [`ci`](#ci) (2)
 - [`cli`](#cli) (2)
 - [`cloudflare`](#cloudflare) (2)
 - [`code-scanning`](#code-scanning) (2)
@@ -140,6 +140,7 @@
 - [`accessibility`](#accessibility) (1)
 - [`acquisition`](#acquisition) (1)
 - [`address`](#address) (1)
+- [`agent-audit`](#agent-audit) (1)
 - [`agent-workflow`](#agent-workflow) (1)
 - [`agents`](#agents) (1)
 - [`agile`](#agile) (1)
@@ -323,10 +324,12 @@
 - [`monorepo`](#monorepo) (1)
 - [`morph`](#morph) (1)
 - [`multi-agent`](#multi-agent) (1)
+- [`natural-language-programming`](#natural-language-programming) (1)
 - [`navigator`](#navigator) (1)
 - [`neon`](#neon) (1)
 - [`netlify`](#netlify) (1)
 - [`nexus`](#nexus) (1)
+- [`nlpm`](#nlpm) (1)
 - [`non-intrusive`](#non-intrusive) (1)
 - [`notebook`](#notebook) (1)
 - [`observation`](#observation) (1)
@@ -366,6 +369,7 @@
 - [`profiles`](#profiles) (1)
 - [`profiling`](#profiling) (1)
 - [`project-workflow`](#project-workflow) (1)
+- [`prompt-engineering`](#prompt-engineering) (1)
 - [`promptfoo`](#promptfoo) (1)
 - [`promql`](#promql) (1)
 - [`pulse`](#pulse) (1)
@@ -421,6 +425,7 @@
 - [`shipping-and-launch`](#shipping-and-launch) (1)
 - [`sigil`](#sigil) (1)
 - [`sketch`](#sketch) (1)
+- [`skill-quality`](#skill-quality) (1)
 - [`slack`](#slack) (1)
 - [`social`](#social) (1)
 - [`social-media`](#social-media) (1)
@@ -1458,6 +1463,16 @@
 | [security-auditor](skills/security-and-reliability/security-auditor) | security-and-reliability | ★★★★☆ | Security audit workflow for AI-generated application code, APIs, infrastructure  |
 | [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。 |
 
+## ci
+
+**3 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [nlpm-audit](skills/ai-workflow/nlpm-audit) | ai-workflow | ★★★★☆ | Audits natural-language programming artifacts such as SKILL.md, AGENTS.md, CLAUD |
+| [playwright-pro](skills/engineering-workflow-automation/playwright-pro) | engineering-workflow-automation | ★★★★☆ | Production-grade Playwright testing skill for E2E suites, flaky test diagnosis,  |
+| [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。 |
+
 ## database
 
 **3 skills**
@@ -1717,15 +1732,6 @@
 |-------|----------|---------|-------------|
 | [fact-checker](skills/operations-general/fact-checker) | operations-general | ★★★★★ | Verifies factual claims in documents using web search and official sources, then |
 | [link-checker](skills/security-and-reliability/link-checker) | security-and-reliability | ★★☆☆☆ | 检测 URL 可达性与潜在风险，识别失效链接、跳转链路和可疑域名。 |
-
-## ci
-
-**2 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [playwright-pro](skills/engineering-workflow-automation/playwright-pro) | engineering-workflow-automation | ★★★★☆ | Production-grade Playwright testing skill for E2E suites, flaky test diagnosis,  |
-| [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。 |
 
 ## cli
 
@@ -2217,6 +2223,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [gh-address-comments](skills/engineering-workflow-automation/gh-address-comments) | engineering-workflow-automation | ★★☆☆☆ | Help address review/issue comments on the open GitHub PR for the current branch  |
+
+## agent-audit
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [nlpm-audit](skills/ai-workflow/nlpm-audit) | ai-workflow | ★★★★☆ | Audits natural-language programming artifacts such as SKILL.md, AGENTS.md, CLAUD |
 
 ## agent-workflow
 
@@ -3682,6 +3696,14 @@
 |-------|----------|---------|-------------|
 | [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Configure, extend, or contribute to Hermes Agent. |
 
+## natural-language-programming
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [nlpm-audit](skills/ai-workflow/nlpm-audit) | ai-workflow | ★★★★☆ | Audits natural-language programming artifacts such as SKILL.md, AGENTS.md, CLAUD |
+
 ## navigator
 
 **1 skills**
@@ -3713,6 +3735,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [nexus](skills/ai-workflow/nexus) | ai-workflow | ★★★★★ | Orchestrating specialist AI agent teams as a meta-coordinator. Decomposes reques |
+
+## nlpm
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [nlpm-audit](skills/ai-workflow/nlpm-audit) | ai-workflow | ★★★★☆ | Audits natural-language programming artifacts such as SKILL.md, AGENTS.md, CLAUD |
 
 ## non-intrusive
 
@@ -4025,6 +4055,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [hermes-graphify-gsd-project-integration](skills/engineering-workflow-automation/hermes-graphify-gsd-project-integration) | engineering-workflow-automation | ★★★★★ | Use when integrating Hermes Agent, graphify, and GSD into a specific repository, |
+
+## prompt-engineering
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [nlpm-audit](skills/ai-workflow/nlpm-audit) | ai-workflow | ★★★★☆ | Audits natural-language programming artifacts such as SKILL.md, AGENTS.md, CLAUD |
 
 ## promptfoo
 
@@ -4465,6 +4503,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [sketch](skills/multimodal-media/sketch) | multimodal-media | ★★★★★ | Generating AI image-generation code using the Gemini API. Handles text-to-image  |
+
+## skill-quality
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [nlpm-audit](skills/ai-workflow/nlpm-audit) | ai-workflow | ★★★★☆ | Audits natural-language programming artifacts such as SKILL.md, AGENTS.md, CLAUD |
 
 ## slack
 

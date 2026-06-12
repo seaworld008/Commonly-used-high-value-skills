@@ -329,6 +329,7 @@ def load_skills_from_source_mappings() -> list[dict]:
                     "local_content": content,
                     "upstream_path": upstream_path,
                     "ref": upstream.get("ref", "main"),
+                    "sync_mode": upstream.get("sync_mode", "replace"),
                     "mapping_path": mapping_path,
                     "mapping_entry_index": entry_index,
                 }
@@ -503,10 +504,17 @@ def main() -> None:
     print("\nSkills with available updates:")
     for u in updates:
         s = u["skill"]
-        print(f"  - {s['name']} ({s['category']}) ← {s['source']}")
+        mode = s.get("sync_mode", "replace")
+        mode_note = " [monitor-only]" if mode == "monitor" else ""
+        print(f"  - {s['name']} ({s['category']}) ← {s['source']}{mode_note}")
     
+    auto_updates = [u for u in updates if u["skill"].get("sync_mode") != "monitor"]
+
     if args.check_only:
-        print("\nRun with --apply to download and apply these updates.")
+        if auto_updates:
+            print("\nRun with --apply to download and apply auto-syncable updates.")
+        else:
+            print("\nAll reported updates are monitor-only; review upstream manually before editing curated skills.")
         return
     
     if args.apply:
@@ -514,6 +522,10 @@ def main() -> None:
         for u in updates:
             s = u["skill"]
             print(f"\n  Applying update: {s['name']}")
+
+            if s.get("sync_mode") == "monitor":
+                print("    Skipped: upstream is monitored for manual curation; automatic body replacement is disabled.")
+                continue
             
             if args.dry_run:
                 print(f"    [DRY RUN] Would merge upstream content into {s['local_path']}")

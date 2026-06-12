@@ -49,6 +49,7 @@ python3 scripts/normalize_codex_skills.py ~/.codex/skills
 - `skills/ai-agent-platform/hermes-agent`
 - `skills/developer-engineering/codebase-onboarding`
 - `skills/security-and-reliability/skill-vetter`
+- `skills/ai-workflow/nlpm-audit`（审计 `SKILL.md`、`AGENTS.md`、`CLAUDE.md`、插件 manifests、hooks、commands；用法见 [`nlpm-audit Usage Guide`](./nlpm-audit-usage.md)）
 
 ---
 
@@ -82,6 +83,7 @@ python3 scripts/sync_codex_skills.py \
 - `skills/task-understanding-decomposition/brainstorming`
 - `skills/developer-engineering/test-driven-development`
 - `skills/engineering-workflow-automation/gh-fix-ci`
+- `skills/ai-workflow/nlpm-audit`（可显式用 `/nlpm-audit` 请求审计 AI-facing markdown、skills、commands、hooks 与插件发布面；用法见 [`nlpm-audit Usage Guide`](./nlpm-audit-usage.md)）
 
 ---
 
@@ -161,6 +163,7 @@ openclaw skills check
 - `openclaw-skills/codebase-onboarding`
 - `openclaw-skills/skill-vetter`
 - `openclaw-skills/hermes-graphify-gsd-runtime-operator`
+- `openclaw-skills/nlpm-audit`
 
 ---
 

@@ -1,0 +1,74 @@
+{
+  "video": {
+    "url": "https://nlpm.com/",
+    "checked_at": "2026-06-12",
+    "note": "Curated from xiaolai/nlpm after reviewing the website, why page, README, LICENSE, author docs, rules, scoring, and testing materials. Imported as an original repository skill that captures the durable audit method rather than mirroring the full upstream command/plugin product."
+  },
+  "official_references": [
+    {
+      "name": "NLPM website",
+      "url": "https://nlpm.com/",
+      "purpose": "Product overview and positioning for Natural-Language Programming Manager."
+    },
+    {
+      "name": "NLPM why page",
+      "url": "https://nlpm.com/why",
+      "purpose": "Rationale for treating natural-language artifacts as auditable programming assets."
+    },
+    {
+      "name": "xiaolai/nlpm repository",
+      "url": "https://github.com/xiaolai/nlpm",
+      "purpose": "Canonical upstream repository used for maintenance, license, and feature review."
+    },
+    {
+      "name": "NLPM README",
+      "url": "https://github.com/xiaolai/nlpm/blob/main/README.md",
+      "purpose": "Feature list, supported artifact types, install paths, scoring overview, and auditor pipeline description."
+    },
+    {
+      "name": "NLPM license",
+      "url": "https://github.com/xiaolai/nlpm/blob/main/LICENSE",
+      "purpose": "ISC permissive license verification."
+    },
+    {
+      "name": "NLPM for authors",
+      "url": "https://github.com/xiaolai/nlpm/blob/main/docs/for-authors.md",
+      "purpose": "Standalone validator, CI, manifest-vs-disk, vocabulary drift, and author workflow details."
+    }
+  ],
+  "skills": [
+    {
+      "video_name": "nlpm-audit",
+      "normalized_slug": "nlpm-audit",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/ai-workflow/nlpm-audit/SKILL.md",
+      "source": "https://github.com/xiaolai/nlpm",
+      "notes": "Curated as a durable NL artifact audit workflow. The local skill preserves source attribution and ISC license, but intentionally abstracts the method so future maintenance is not coupled to every upstream slash command or product-specific file.",
+      "upstream": {
+        "repo": "xiaolai/nlpm",
+        "path": "README.md",
+        "ref": "main",
+        "sync_mode": "monitor",
+        "last_checked_at": "2026-06-12",
+        "last_synced_at": "2026-06-12",
+        "last_synced_commit": "543613b0f040a52acebc5c86a409424b870a75a1"
+      }
+    }
+  ],
+  "verification_attempts": [
+    {
+      "date": "2026-06-12",
+      "method": "website-and-github-review",
+      "target": "https://nlpm.com/ and https://github.com/xiaolai/nlpm",
+      "result": "success",
+      "evidence": "Reviewed NLPM website, why page, README, RULES, EXAMPLES, docs/for-authors, LICENSE, repo metadata, commit activity, and adjacent local skills before adding nlpm-audit."
+    },
+    {
+      "date": "2026-06-12",
+      "method": "github-api-license-and-maintenance-check",
+      "target": "repos/xiaolai/nlpm",
+      "result": "success",
+      "evidence": "GitHub API reported ISC license, active pushes on 2026-06-12, and repository structure containing skills, commands, rules, tests, auditor pipeline, templates, and case studies."
+    }
+  ]
+}
