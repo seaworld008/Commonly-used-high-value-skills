@@ -32,6 +32,7 @@ class RefreshRepoViewsTests(unittest.TestCase):
                     ---
                     name: demo-skill
                     description: Demo skill for generated README overview entries.
+                    zh_description: 用于验证中文 README 技能简介生成。
                     ---
 
                     # Demo Skill
@@ -51,6 +52,7 @@ class RefreshRepoViewsTests(unittest.TestCase):
 
                     <a id="cat-ai-workflow"></a>
                     ### 1. AI 工作流（ai-workflow，0）
+                    - `demo-skill`：Old English generated sentence.
 
                     ## 下一轮建议补充方向
                     以下 **不计入** 上方的 `1 类 / 1 技能` 统计。
@@ -84,6 +86,9 @@ class RefreshRepoViewsTests(unittest.TestCase):
             self.assertIn("## 技能总览（按分类，1 类 / 1 技能）", cn_updated)
             self.assertIn("### 1. AI 工作流（ai-workflow，1）", cn_updated)
             self.assertIn("`demo-skill`", cn_updated)
+            self.assertIn("用于验证中文 README 技能简介生成。", cn_updated)
+            self.assertNotIn("Demo skill for generated README overview entries.", cn_updated)
+            self.assertNotIn("Old English generated sentence.", cn_updated)
             self.assertIn("`1 类 / 1 技能`", cn_updated)
             self.assertIn("Skills-1-7c3aed", en_updated)
             self.assertIn(

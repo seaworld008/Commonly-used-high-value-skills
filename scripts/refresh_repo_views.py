@@ -26,14 +26,18 @@ def parse_frontmatter(content: str) -> dict[str, str]:
     return data
 
 
-def skill_tree_with_descriptions(skills_root: Path) -> dict[str, dict[str, str]]:
-    tree: dict[str, dict[str, str]] = {}
+def skill_tree_with_descriptions(skills_root: Path) -> dict[str, dict[str, dict[str, str]]]:
+    tree: dict[str, dict[str, dict[str, str]]] = {}
     for skill_md in sorted(skills_root.glob("*/*/SKILL.md")):
         category = skill_md.parent.parent.name
         name = skill_md.parent.name
         frontmatter = parse_frontmatter(skill_md.read_text(encoding="utf-8", errors="replace"))
         description = frontmatter.get("description", "").strip()
-        tree.setdefault(category, {})[name] = description
+        zh_description = frontmatter.get("zh_description", "").strip()
+        tree.setdefault(category, {})[name] = {
+            "description": description,
+            "zh_description": zh_description or description,
+        }
     return {category: dict(sorted(skills.items())) for category, skills in sorted(tree.items())}
 
 
@@ -94,9 +98,11 @@ def build_cn_overview(content: str, skills_root: Path, category_count: int, skil
         title = titles.get(category, category)
         skills = tree[category]
         lines.extend([anchor, f"### {index}. {title}（{category}，{len(skills)}）", ""])
-        for skill_name, description in skills.items():
+        for skill_name, metadata in skills.items():
             existing = bullets.get(category, {}).get(skill_name)
-            if existing:
+            description = metadata["zh_description"]
+            has_explicit_zh = bool(description and description != metadata["description"])
+            if existing and not has_explicit_zh:
                 lines.append(existing)
             else:
                 suffix = description.rstrip(".。") if description else "新增技能"
