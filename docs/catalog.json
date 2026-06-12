@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "generated_at": "2026-06-08",
-  "total_skills": 303,
+  "total_skills": 304,
   "total_categories": 16,
   "categories": [
     {
@@ -10,7 +10,7 @@
     },
     {
       "name": "ai-workflow",
-      "count": 44
+      "count": 45
     },
     {
       "name": "knowledge-and-pm-integrations",
@@ -886,6 +886,29 @@
       "updated_at": "2026-06-08",
       "line_count": 459,
       "path": "skills/ai-workflow/nexus/SKILL.md"
+    },
+    {
+      "name": "nlpm-audit",
+      "category": "ai-workflow",
+      "description": "Audits natural-language programming artifacts such as SKILL.md, AGENTS.md, CLAUDE.md, slash commands, plugin manifests, hooks, rules, and prompt files. Use when reviewing AI-agent repositories, checking manifest-vs-disk consistency, scoring skill or agent quality, adding NL artifact CI gates, or diagnosing vocabulary and version drift across Claude Code, Codex, Cursor, Gemini, and Antigravity-style projects.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "github:xiaolai/nlpm",
+      "source_url": "https://github.com/xiaolai/nlpm",
+      "tags": [
+        "nlpm",
+        "natural-language-programming",
+        "skill-quality",
+        "agent-audit",
+        "ci",
+        "prompt-engineering"
+      ],
+      "quality": 4,
+      "complexity": "advanced",
+      "created_at": "2026-06-12",
+      "updated_at": "2026-06-12",
+      "line_count": 481,
+      "path": "skills/ai-workflow/nlpm-audit/SKILL.md"
     },
     {
       "name": "performance-optimization",
