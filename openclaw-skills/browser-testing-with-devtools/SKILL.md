@@ -1,14 +1,14 @@
 ---
 name: browser-testing-with-devtools
-description: 'Tests in real browsers. Use when building or debugging anything that runs in a browser. Use when you need to inspect the DOM, capture console errors, analyze network requests, profile performance, or verify visual output with real runtime data via Chrome DevTools MCP.'
-version: "1.0.0"
+description: 'Tests in real browsers via Chrome DevTools MCP. Use when building or debugging anything that runs in a browser. Use when you need to inspect the DOM, capture console errors, analyze network requests, profile performance, or verify visual output with real runtime data. Requires the chrome-devtools MCP server to be configured.'
+version: "1.0.1"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/browser-testing-with-devtools/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "browser-testing-with-devtools", "engineering", "workflow"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-25"
+updated_at: "2026-06-16"
 quality: 5
 complexity: advanced
 upstream_slug: browser-testing-with-devtools
@@ -36,18 +36,20 @@ Use Chrome DevTools MCP to give your agent eyes into the browser. This bridges t
 
 ### Installation
 
-```bash
-# Add Chrome DevTools MCP server to your Claude Code config
-# In your project's .mcp.json or Claude Code settings:
+Add the following to your project's `.mcp.json` or Claude Code settings:
+
+```json
 {
   "mcpServers": {
     "chrome-devtools": {
       "command": "npx",
-      "args": ["@anthropic/chrome-devtools-mcp@latest"]
+      "args": ["-y", "chrome-devtools-mcp@latest", "--autoConnect"]
     }
   }
 }
 ```
+
+`-y` skips the npx install confirmation. `--autoConnect` connects automatically to a running Chrome instance (or launches one) — recommended for most users.
 
 ### Available Tools
 

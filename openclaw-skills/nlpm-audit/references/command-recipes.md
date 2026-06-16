@@ -15,6 +15,9 @@ without requiring slash commands, subagents, or upstream binaries.
 | `/nlpm:security-scan` | Run local check, then read `security-patterns.md` for judgment review | Gate-oriented security findings |
 | `/nlpm:vocab-drift` | Use the vocabulary drift recipe below | Advisory synonym and naming review |
 | `/nlpm:fix` | Use findings as a repair plan; make scoped edits; rerun the check | Verified remediation loop |
+| `/nlpm:init` | Create or update a local NLPM config/checklist manually | Project-specific threshold and gate decisions |
+| `/nlpm:test` | Write `.nlpm-test/*.spec.md` expectations, then compare artifacts manually or with upstream NLPM | NL artifact TDD loop |
+| `/nlpm:trend` | Save repeated score reports and compare before/after tables | Release-readiness trend |
 
 ## Quick CLI Recipes
 
@@ -35,6 +38,14 @@ Strict local gate:
 
 ```bash
 python skills/ai-workflow/nlpm-audit/scripts/nl_artifact_check.py . --strict
+```
+
+Upstream deterministic gate:
+
+```bash
+curl -fsSL -o ./nlpm-check \
+  https://raw.githubusercontent.com/xiaolai/nlpm/main/bin/nlpm-check
+python3 ./nlpm-check .
 ```
 
 PowerShell report:
@@ -101,7 +112,8 @@ No critical/high executable risks found by the lightweight check.
 
 ## Vocabulary Drift Recipe
 
-Use this for repositories with at least five NL artifacts.
+Use this for repositories with at least ten NL artifacts, multiple authors, or
+visible naming drift.
 
 1. Inventory artifact names, headings, command names, and repeated verbs.
 2. Cluster likely synonyms by role:
@@ -122,6 +134,42 @@ Use this for repositories with at least five NL artifacts.
 
 Vocabulary drift is advisory until the repository creates a registry and opts
 into enforcement.
+
+For the upstream R51-style flow:
+
+1. Bootstrap a candidate registry from artifact names, headings, repeated verbs,
+   and role nouns.
+2. Keep one canonical term per distinct concept and record deprecated synonyms.
+3. Declare the scope for each term so homonyms do not create false positives.
+4. Enforce only after maintainers review the registry.
+
+Do not penalize early-stage projects for vocabulary exploration.
+
+## Badge Recipe
+
+Use upstream NLPM when the user asks for a "Validated by NLPM" badge.
+
+```bash
+curl -fsSL -o ./nlpm-check \
+  https://raw.githubusercontent.com/xiaolai/nlpm/main/bin/nlpm-check
+curl -fsSL -o ./nlpm-badge \
+  https://raw.githubusercontent.com/xiaolai/nlpm/main/bin/nlpm-badge
+python3 ./nlpm-check --json . | python3 ./nlpm-badge > nlpm-badge.json
+```
+
+Then add a README badge that points at the committed `nlpm-badge.json` endpoint.
+The upstream payload includes issue counts, validator version, and a checked-at
+timestamp for downstream verification.
+
+## Multi-Plugin Monorepo Recipe
+
+Use upstream `nlpm-check` for repositories with multiple
+`.claude-plugin/plugin.json` or tool-specific plugin roots. It isolates nested
+plugins so a child plugin is not double-counted by the parent, and the JSON
+output includes per-plugin findings under `plugins[]` plus an aggregate summary.
+
+Use this local checker only as a lightweight fallback when upstream execution is
+not available.
 
 ## Fix Loop Recipe
 
@@ -144,7 +192,7 @@ The local recipe layer intentionally does not reproduce:
 - Claude Code slash command registration;
 - upstream subagent dispatch;
 - HTML report rendering;
-- badge generation;
+- badge generation and `nlpm-badge` JSON shaping;
 - the full NLPM auditor corpus.
 
 When a user asks for those exact product behaviors, install or invoke upstream

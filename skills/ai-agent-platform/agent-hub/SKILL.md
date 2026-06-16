@@ -241,7 +241,7 @@ The coordinator should act when:
 cp -r engineering/agenthub ~/.claude/skills/agenthub
 
 # Or install via ClawHub
-clawhub install agenthub
+npx clawhub@latest install agenthub
 ```
 
 ## Scripts

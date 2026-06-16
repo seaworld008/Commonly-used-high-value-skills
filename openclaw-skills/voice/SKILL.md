@@ -1,14 +1,14 @@
 ---
 name: voice
 description: 'Collecting user feedback via NPS surveys, review analysis, sentiment analysis, feedback classification, and insight extraction reports. Use when establishing feedback loops.'
-version: "1.0.5"
+version: "1.0.6"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/voice"
 license: MIT
 tags: '["design", "product", "voice"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-08"
+updated_at: "2026-06-16"
 quality: 5
 complexity: "advanced"
 ---
@@ -93,7 +93,7 @@ Route elsewhere when the task is primarily:
 - No single metric captures the full customer experience — use NPS (long-term loyalty), CSAT (touchpoint satisfaction), and CES (process friction) together for a well-rounded picture. Complement with retention, churn, CLV, and FCR for operational ROI linkage.
 - Survey design: keep surveys ≤ 10 questions (3-5 min completion). Longer surveys (> 12 min) severely degrade response rates. Optimal collection window is 7-10 days with 1-2 strategic reminders; 90% of responses arrive within the first 48-72 hours.
 - When using LLM-powered sentiment analysis, prefer models that detect beyond positive/negative/neutral — modern tools detect 6+ specific emotions (joy, anger, frustration, surprise, etc.) for more actionable insights. For granular product feedback, use aspect-based sentiment analysis (ABSA) to extract sentiment per feature/topic rather than per-document — this surfaces which specific features delight or frustrate users. Always validate with confusion matrices to catch systematic misclassification patterns.
-- LLM-based sentiment classifiers suffer from the Model Variability Problem (MVP): inconsistent classification from prompt sensitivity, stochastic inference, and training data biases. Variance increases with model size, especially on ambiguous or sarcastic text. Mitigate with: (1) temperature=0 and structured output schemas for deterministic runs, (2) multi-run ensemble consensus for critical classifications, (3) entropy-based uncertainty quantification to flag low-confidence predictions for human review, (4) semantic consistency checks across paraphrased inputs. Require explainability (token attribution or chain-of-thought rationale) before acting on LLM classifications in production.
+- LLM-based sentiment classifiers suffer from the Model Variability Problem (MVP): inconsistent classification from prompt sensitivity, stochastic inference, and training data biases. Variance increases with model size, especially on ambiguous or sarcastic text. Mitigate with: (1) temperature=0 and structured output schemas for deterministic runs, (2) multi-run ensemble consensus for critical classifications, (3) entropy-based uncertainty quantification to flag low-confidence predictions for human review, (4) semantic consistency checks across paraphrased inputs. Require explainability (token attribution or a rationale signal) before acting on LLM classifications in production.
 - Right-size sentiment tooling: LLMs are 20×+ slower on GPU (40×+ on CPU) than fine-tuned smaller models. For high-volume, low-ambiguity classification (e.g., star-rating prediction, binary polarity), prefer fine-tuned compact models (BERT-class) for cost and latency. Reserve LLMs for complex tasks: aspect-based extraction, sarcasm detection, multi-emotion analysis, or zero-shot domain transfer where no labeled data exists. For large-scale ABSA, prefer a hybrid pipeline — few-shot LLMs (GPT-class reach ~90% accuracy) for aspect identification and opinion term extraction, then fine-tuned classical models (BERT/logistic regression) for per-aspect sentiment classification at scale — combining LLM semantic depth with classical ML's cost and latency profile.
 - Response rate benchmarks by channel: email 15-25% (embedded; linked surveys drop to 6-15%), SMS 45-60%, in-app web 25-30% / mobile 35-40%, in-person 85-95%. Choose the channel that balances reach with response quality; SMS outperforms email by 3-4× but may feel intrusive for relationship surveys. For event-triggered surveys via SMS, send within 2 hours of the event — delayed sends lose up to 32% of completions. Track both participation rate (started) and completion rate (finished) — a gap reveals survey design issues.
 - Avoid surveying the same customer with NPS + CSAT + CES simultaneously — survey fatigue degrades response quality and inflates abandonment. Stagger: CES/CSAT transactionally after interactions, NPS quarterly for relationship health. Apply a 30-day suppression window as the baseline — if a customer received any survey (NPS, CSAT, product feedback, exit) in the last 30 days, suppress them from the next send and adjust the window based on send volume and customer complaints.

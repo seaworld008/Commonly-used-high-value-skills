@@ -1,13 +1,13 @@
 ---
 name: obsidian
-description: '用于读取、搜索、创建和编辑 Obsidian 笔记。'
-version: "1.0.2"
+description: 'Read, search, create, and edit notes in the Obsidian vault.'
+version: "1.0.3"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["obsidian", "notes", "knowledge-base"]'
 created_at: "2026-04-13"
-updated_at: "2026-05-19"
+updated_at: "2026-06-16"
 quality: 3
 complexity: "intermediate"
 ---
@@ -20,7 +20,7 @@ Use this skill for filesystem-first Obsidian vault work: reading notes, listing 
 
 Use a known or resolved vault path before calling file tools.
 
-The documented vault-path convention is the `OBSIDIAN_VAULT_PATH` environment variable, for example from `~/.hermes/.env`. If it is unset, use `~/Documents/Obsidian Vault`.
+The documented vault-path convention is the `OBSIDIAN_VAULT_PATH` environment variable, for example from `${HERMES_HOME:-~/.hermes}/.env`. If it is unset, use `~/Documents/Obsidian Vault`.
 
 File tools do not expand shell variables. Do not pass paths containing `$OBSIDIAN_VAULT_PATH` to `read_file`, `write_file`, `patch`, or `search_files`; resolve the vault path first and pass a concrete absolute path. Vault paths may contain spaces, which is another reason to prefer file tools over shell commands.
 

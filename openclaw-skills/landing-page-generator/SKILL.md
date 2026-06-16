@@ -1,14 +1,14 @@
 ---
 name: landing-page-generator
 description: 'Generates high-converting landing pages as complete Next.js/React (TSX) components with Tailwind CSS. Creates hero sections, feature grids, pricing tables, FAQ accordions, testimonial blocks, and CTA sections using proven copy frameworks (PAS, AIDA, BAB). Outputs SEO meta tags, structured data, and performance-optimised code targeting Core Web Vitals (LCP < 1s, CLS < 0.1). Use when the user asks to create a landing page, marketing page, homepage, single-page site, lead capture page, campaign page, promo page, or conversion-optimised web page — or when they want to A/B test landing page variants or replace a static page with one designed to convert.'
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:alirezarezvani/claude-skills"
 source_url: ""
 license: MIT
 tags: '["design", "generator", "landing", "page", "product"]'
 created_at: "2026-03-27"
-updated_at: "2026-05-28"
+updated_at: "2026-06-16"
 quality: 4
 complexity: "intermediate"
 ---
@@ -40,7 +40,7 @@ Generate high-converting landing pages from a product description. Output comple
 Follow these steps in order for every landing page request:
 
 1. **Gather inputs** — collect product name, tagline, audience, pain point, key benefit, pricing tiers, design style, and copy framework using the trigger format below. Ask only for missing fields.
-2. **Analyze brand voice** (recommended) — if the user has existing brand content (website copy, blog posts, marketing materials), run it through `marketing-skill/content-production/scripts/brand_voice_analyzer.py` to get a voice profile (formality, tone, perspective). Use the profile to inform design style and copy framework selection:
+2. **Analyze brand voice** (recommended) — if the user has existing brand content (website copy, blog posts, marketing materials), run it through `marketing-skill/skills/content-production/scripts/brand_voice_analyzer.py` to get a voice profile (formality, tone, perspective). Use the profile to inform design style and copy framework selection:
    - formal + professional → **enterprise** style, **AIDA** framework
    - casual + friendly → **bold-startup** style, **BAB** framework
    - professional + authoritative → **dark-saas** style, **PAS** framework
@@ -203,6 +203,6 @@ Inject `FAQPage` JSON-LD via `<script type="application/ld+json" dangerouslySetI
 
 ## Related Skills
 
-- **Brand Voice Analyzer** (`marketing-skill/content-production/scripts/brand_voice_analyzer.py`) — Run before generation to establish voice profile and ensure copy consistency
+- **Brand Voice Analyzer** (`marketing-skill/skills/content-production/scripts/brand_voice_analyzer.py`) — Run before generation to establish voice profile and ensure copy consistency
 - **UI Design System** (`product-team/ui-design-system/`) — Generate design tokens from brand color before building the page
 - **Competitive Teardown** (`product-team/competitive-teardown/`) — Competitive positioning informs landing page messaging and differentiation

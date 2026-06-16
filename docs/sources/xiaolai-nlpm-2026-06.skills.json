@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://nlpm.com/",
-    "checked_at": "2026-06-12",
+    "checked_at": "2026-06-16",
     "note": "Curated from xiaolai/nlpm after reviewing the website, why page, README, LICENSE, author docs, rules, scoring, and testing materials. Imported as an original repository skill that captures the durable audit method rather than mirroring the full upstream command/plugin product."
   },
   "official_references": [
@@ -49,9 +49,9 @@
         "path": "README.md",
         "ref": "main",
         "sync_mode": "monitor",
-        "last_checked_at": "2026-06-12",
-        "last_synced_at": "2026-06-12",
-        "last_synced_commit": "543613b0f040a52acebc5c86a409424b870a75a1"
+        "last_checked_at": "2026-06-16",
+        "last_synced_at": "2026-06-16",
+        "last_synced_commit": "3bee76dc34cf"
       }
     }
   ],

@@ -1,14 +1,14 @@
 ---
 name: azure-kubernetes
 description: 'Plan, create, and configure production-ready Azure Kubernetes Service (AKS) clusters. Covers Day-0 checklist, SKU selection (Automatic vs Standard), networking options (private API server, Azure CNI Overlay, egress configuration), security, and operations (autoscaling, upgrade strategy, cost analysis). WHEN: create AKS environment, provision AKS, enable AKS observability, design AKS networking, choose AKS SKU, secure AKS, optimize AKS, AKS spot nodes, AKS cluster-autoscaler, rightsize AKS pod, pod rightsizing, over-provisioned AKS pod, pod resource requests and limits, Vertical Pod Autoscaler, VPA recommendations.'
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:microsoft/azure-skills"
 source_url: "https://skills.sh/microsoft/azure-skills/azure-kubernetes"
 license: MIT
 tags: '["azure", "devops", "kubernetes", "sre"]'
 created_at: "2026-06-03"
-updated_at: "2026-06-03"
+updated_at: "2026-06-16"
 quality: 4
 complexity: "intermediate"
 metadata:
@@ -64,25 +64,6 @@ If the user is unsure, use safe defaults.
 ### 1. Cluster Type
 - **AKS Automatic** (default): Best for most production workloads, provides a curated experience with pre-configured best practices for security, reliability, and performance. Use unless you have specific custom requirements for networking, autoscaling, or node pool configurations not supported by Node Auto-Provisioning (NAP).
 - **AKS Standard**: Use if you need full control over environment configuration, which requires additional overhead to set up and manage.
-
-### Example Starter Commands
-
-Use these only after the Day-0 decisions are explicit:
-
-```bash
-az aks create \
-  --resource-group <rg> \
-  --name <cluster-name> \
-  --tier standard \
-  --network-plugin azure \
-  --network-plugin-mode overlay \
-  --enable-oidc-issuer \
-  --enable-workload-identity \
-  --zones 1 2 3
-
-az aks show --resource-group <rg> --name <cluster-name>
-kubectl get nodes -o wide
-```
 
 ### 2. Networking (Pod IP, Egress, Ingress, Dataplane)
 
@@ -179,3 +160,29 @@ kubectl get nodes -o wide
 | Quota exceeded | Regional vCPU or resource limits | Request quota increase or select different region/VM SKU |
 | Networking conflict (IP exhaustion) | Pod subnet too small for overlay/CNI | Re-plan IP ranges; may require cluster recreation (Day-0) |
 | Workload Identity not working | Missing OIDC issuer or federated credential | Enable `--enable-oidc-issuer --enable-workload-identity`, configure federated identity |
+<!-- LOCAL-QUALITY-SUPPLEMENT:START -->
+## Usage Notes
+
+This supplement is maintained by the repository sync pipeline. It keeps the
+imported upstream skill usable inside this curated collection when the upstream
+source is intentionally concise.
+
+## Common Patterns
+
+```text
+1. Confirm that the user's task matches the skill trigger.
+2. Read the relevant project files or user-provided context before acting.
+3. Choose the smallest reversible action that advances the task.
+4. Run the verification command or manual check that proves the result.
+5. Report the outcome, evidence, and any remaining risk.
+```
+
+## Boundaries
+
+- Prefer the upstream workflow for Azure Kubernetes; this section only adds local quality
+  guardrails.
+- Do not invent project facts when required files, vaults, services, or tools are
+  unavailable.
+- Stop and ask for clarification when the next action could overwrite user work,
+  expose private data, or change production state.
+<!-- LOCAL-QUALITY-SUPPLEMENT:END -->

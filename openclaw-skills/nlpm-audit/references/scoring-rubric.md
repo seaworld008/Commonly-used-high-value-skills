@@ -43,10 +43,32 @@ measurement.
 | Rule duplicates linter behavior | -10 |
 | Hook script path is missing | -20 |
 | Hook event name has wrong case | -10 |
+| Codex hook event is not in the Codex event list | -15 |
+| Deprecated Codex `[features].codex_hooks` key | -5 advisory |
+| Antigravity/Gemini hook event is unknown | -10 advisory |
 | Memory file lacks build/run command | -10 |
 | Memory file lacks test command | -5 |
 | Broken `@path` import or stale file reference | -10 |
 | Vague quantifier without criteria | -2 each, cap -20 |
+| R51 vocabulary drift after explicit opt-in | -2 each, cap -10 |
+
+## Multi-Tool Overlays
+
+Use one universal floor plus tool-specific overlays:
+
+| Tier | Artifacts |
+|---|---|
+| Universal | `SKILL.md`, root `AGENTS.md`, open Agent Skills spec artifacts |
+| Claude Code | `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`, `commands/`, `agents/`, `hooks/hooks.json`, `.mcp.json`, `CLAUDE.md`, `.claude/rules/`, `.claude/settings.json`, `.lsp.json`, `monitors/monitors.json` |
+| Codex CLI | `.agents/skills/*/SKILL.md`, `.codex-plugin/plugin.json`, `.agents/plugins/marketplace.json`, `.codex/config.toml`, `.codex/hooks.json`, `agents/openai.yaml`, hierarchical `AGENTS.md` |
+| Antigravity/Gemini | `.gemini/skills/`, `.agent/skills/`, `.gemini/commands/*.toml`, `.gemini/settings.json`, `gemini-extension.json`, `GEMINI.md` |
+
+Claude, Codex, and Antigravity hook event vocabularies are not interchangeable.
+Score each file under its own host tool rules; do not translate event names
+across tools.
+
+Treat Antigravity/Gemini findings as advisory until the host specification
+stabilizes.
 
 ## Deterministic vs Judgment Findings
 
@@ -66,6 +88,9 @@ Advisory judgment findings:
 - overlong theory sections;
 - output format lacks detail;
 - vocabulary drift candidates.
+
+R51 vocabulary drift stays advisory unless the repository opts in with a
+reviewed registry that names canonical terms and deprecated synonyms.
 
 ## Calibration Examples
 
