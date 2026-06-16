@@ -14,6 +14,7 @@ Use this reference when turning the audit into a repeatable maintenance process.
 | Version drift | yes before release | published metadata lies |
 | Score below target | advisory by default | scoring contains judgment |
 | Vocabulary drift | advisory unless opted in | premature enforcement hurts early projects |
+| Plugin monorepo aggregate has high findings | yes | one nested plugin can be broken while the root looks clean |
 
 ## Pre-Commit Shape
 
@@ -68,6 +69,15 @@ curl -fsSL -o ./nlpm-check \
 python3 ./nlpm-check .
 ```
 
+For README badges, use upstream `nlpm-badge`:
+
+```bash
+curl -fsSL -o ./nlpm-badge https://raw.githubusercontent.com/xiaolai/nlpm/main/bin/nlpm-badge
+python3 ./nlpm-check --json . | python3 ./nlpm-badge > nlpm-badge.json
+```
+
+Commit `nlpm-badge.json` only when the repository wants a public badge endpoint.
+
 ## Refresh Cadence
 
 Monthly or before major release:
@@ -89,6 +99,9 @@ If upstream changed, review these files first:
 - `skills/nlpm/security/SKILL.md`
 - `bin/nlpm-check`
 - `templates/`
+- `bin/nlpm-badge`
+- `analysis/multi-tool-design-2026-05.md`
+- `analysis/vocabulary-design-principles.md`
 
 Promote changes into this skill when they are durable:
 
@@ -97,6 +110,8 @@ Promote changes into this skill when they are durable:
 - better CI patterns;
 - clarified security false-positive filters;
 - vocabulary-drift process changes;
+- multi-plugin monorepo behavior;
+- badge output or JSON contract changes;
 - license or install changes.
 
 Skip upstream details that are product-specific and likely to churn:
@@ -105,6 +120,16 @@ Skip upstream details that are product-specific and likely to churn:
 - daily case-study automation state;
 - command implementation internals;
 - temporary Antigravity advisory rules before the spec stabilizes.
+
+## Last Curated Upstream Review
+
+- Date: 2026-06-16
+- Upstream: `xiaolai/nlpm`
+- Commit reviewed: `3bee76dc34cf`
+- License: ISC
+- Durable changes absorbed: multi-tool overlays, standalone validator guidance,
+  multi-plugin monorepo handling, `nlpm-badge`, R51 vocabulary drift, and
+  auditor exemplar/rule-health loop notes.
 
 ## Monitor-Only Sync
 

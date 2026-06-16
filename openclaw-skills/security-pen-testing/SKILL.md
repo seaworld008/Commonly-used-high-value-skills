@@ -1,14 +1,14 @@
 ---
 name: security-pen-testing
 description: 'Use when the user asks to perform security audits, penetration testing, vulnerability scanning, OWASP Top 10 checks, or offensive security assessments. Covers static analysis, dependency scanning, secret detection, API security testing, and pen test report generation.'
-version: "1.0.0"
+version: "1.0.1"
 author: alirezarezvani
 source: "github:alirezarezvani/claude-skills"
 source_url: "https://github.com/alirezarezvani/claude-skills/blob/main/engineering-team/skills/security-pen-testing/SKILL.md"
 license: MIT
 tags: '["security", "penetration-testing", "owasp", "vulnerability-scanning", "offensive-security", "agent-skill"]'
 created_at: "2026-06-01"
-updated_at: "2026-06-01"
+updated_at: "2026-06-16"
 quality: 4
 complexity: intermediate
 ---
@@ -312,5 +312,5 @@ Automated security checks on every PR: secret scanning (TruffleHog), dependency 
 |-------|-------------|
 | [senior-secops](../senior-secops/SKILL.md) | Defensive security operations — monitoring, incident response, SIEM configuration |
 | [senior-security](../senior-security/SKILL.md) | Security policy and governance — frameworks, risk registers, compliance |
-| [dependency-auditor](../../engineering/dependency-auditor/SKILL.md) | Deep supply chain security — SBOMs, license compliance, transitive risk |
+| [dependency-auditor](engineering/skills/dependency-auditor/SKILL.md) | Deep supply chain security — SBOMs, license compliance, transitive risk |
 | [code-reviewer](../code-reviewer/SKILL.md) | Code review practices — includes security review checklist |

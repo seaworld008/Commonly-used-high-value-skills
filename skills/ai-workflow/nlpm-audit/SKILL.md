@@ -1,14 +1,14 @@
 ---
 name: nlpm-audit
 description: 'Audits natural-language programming artifacts such as SKILL.md, AGENTS.md, CLAUDE.md, slash commands, plugin manifests, hooks, rules, and prompt files. Use when reviewing AI-agent repositories, checking manifest-vs-disk consistency, scoring skill or agent quality, adding NL artifact CI gates, or diagnosing vocabulary and version drift across Claude Code, Codex, Cursor, Gemini, and Antigravity-style projects.'
-version: "1.0.0"
+version: "1.0.1"
 author: seaworld008
 source: github:xiaolai/nlpm
 source_url: "https://github.com/xiaolai/nlpm"
 license: ISC
 tags: '[nlpm, natural-language-programming, skill-quality, agent-audit, ci, prompt-engineering]'
 created_at: "2026-06-12"
-updated_at: "2026-06-12"
+updated_at: "2026-06-16"
 quality: 4
 complexity: advanced
 zh_description: "审计 SKILL.md、AGENTS.md、CLAUDE.md、插件清单、hooks、commands 和提示词，检查安装一致性、质量评分、安全风险与版本漂移。"
@@ -24,6 +24,24 @@ cross-file consistency checks, or CI enforcement.
 This skill is inspired by the NLPM project, but it is a portable audit workflow:
 you can apply the method manually, with repository scripts, or with the upstream
 `nlpm-check` validator when the project wants a standalone CI gate.
+
+## 2026-06-16 Upstream Sync Notes
+
+The latest upstream NLPM repository now emphasizes these stable capabilities:
+
+- multi-tool scoring across Claude Code, Codex CLI, and Antigravity/Gemini-lineage
+  artifacts;
+- standalone `bin/nlpm-check` for pre-commit, CI, and pre-publish gates;
+- multi-plugin monorepo detection, where each nested plugin is checked exactly
+  once and summarized in aggregate JSON;
+- `nlpm-badge` output for a "Validated by NLPM" README badge;
+- R51 vocabulary drift as an opt-in rule backed by a canonical registry;
+- an auditor pipeline that harvests clean exemplars, cites rules, validates rule
+  id drift, and reports rule health from real repository audits.
+
+Use those ideas when they improve this portable skill. Do not mirror the whole
+upstream product surface unless the user explicitly asks to install or run NLPM
+itself.
 
 ## Quick Start
 
@@ -66,12 +84,12 @@ There are two useful operating modes:
 | Mode | What you get | When to choose it |
 |---|---|---|
 | This repository skill | A portable review workflow that any Codex/Claude/Cursor-style agent can follow after installation | You want durable guidance, review reports, and integration with this curated skills repository |
-| Upstream NLPM | Claude Code slash commands, multiple NLPM agents, rule skills, `bin/nlpm-check`, templates, tests, and the auditor pipeline | You want behavior closest to the original product, especially `/nlpm:*` commands or CI with the upstream validator |
+| Upstream NLPM | Claude Code slash commands, multiple NLPM agents, rule skills, `bin/nlpm-check`, badge generation, templates, tests, and the auditor pipeline | You want behavior closest to the original product, especially `/nlpm:*` commands, multi-plugin CI, or badge output |
 
 The skill mode is installable and useful on its own, but it is not a byte-for-byte
 replacement for upstream NLPM. Use upstream NLPM when a user explicitly asks for
-the original slash commands, badge generator, auditor workflows, or exact
-upstream scoring behavior.
+the original slash commands, `nlpm-badge`, auditor workflows, or exact upstream
+scoring behavior.
 
 ## Local Command Equivalents
 
@@ -86,15 +104,20 @@ Use these local equivalents before reaching for the upstream plugin:
 | "security scan" | Run the checker, filter `security/*` findings, then read `references/security-patterns.md` |
 | "find vocabulary drift" | Read `references/command-recipes.md` and perform the vocabulary drift recipe |
 | "fix NLPM issues" | Apply the fix loop in `references/command-recipes.md`, then rerun the same check |
+| "add a Validated by NLPM badge" | Use upstream `nlpm-check --json` piped to `nlpm-badge`; see `references/ci-and-maintenance.md` |
+| "check a plugin monorepo" | Prefer upstream `nlpm-check` because it isolates nested plugin roots and aggregates `plugins[]` output |
 
 ## Upstream NLPM Usage
 
 When the user wants the original tool experience, point them to the upstream
 installation path instead of pretending this skill contains every command.
 
-Claude Code plugin path:
+Claude Code plugin paths:
 
 ```bash
+claude plugin marketplace add anthropics/claude-plugins-community
+claude plugin install nlpm@claude-community --scope project
+
 claude plugin marketplace add xiaolai/claude-plugin-marketplace
 claude plugin install nlpm@xiaolai --scope project
 ```
@@ -235,6 +258,13 @@ python3 ./nlpm-check .
 Pin the downloaded script to a reviewed commit in CI if supply-chain stability is
 more important than receiving upstream fixes immediately.
 
+For badge output, use upstream `nlpm-badge` with the JSON stream from
+`nlpm-check`:
+
+```bash
+nlpm-check --json . | nlpm-badge > nlpm-badge.json
+```
+
 ### 3. Score Artifact Quality
 
 Use a 100-point score as a communication tool, not as an absolute truth. Start
@@ -249,6 +279,7 @@ at 100 and subtract penalties for concrete defects.
 | Tool permissions exceed body needs | -5 to -10 | unnecessary security and review risk |
 | Broken manifest/reference path | -10 to -20 | installed artifact silently disappears |
 | Vague terms without criteria | -2 each, cap at -20 | "appropriate" and "as needed" hide decisions |
+| Vocabulary drift after R51 opt-in | -2 each, cap at -10 | the same concept has competing names across artifacts |
 | Overgrown body with repeated theory | -5 to -10 | context budget is wasted |
 | Missing test/build commands in memory file | -5 | agent cannot verify work |
 
@@ -350,6 +381,16 @@ canonical:
 Do not enforce vocabulary too early. Use it once a project has at least ten NL
 artifacts or multiple authors.
 
+When the project has enough warrant, model the upstream R51 flow:
+
+1. Bootstrap candidate terms from the corpus.
+2. Prune false positives and define canonical terms plus deprecated synonyms.
+3. Run an advisory drift check to find hidden synonym clusters.
+4. Opt in to enforcement only after the registry is reviewed.
+
+Keep vocabulary findings advisory unless maintainers explicitly choose a
+registry-backed gate.
+
 ### 7. Add CI or Pre-Commit Gates
 
 Use different gates for different confidence levels.
@@ -400,6 +441,9 @@ For repositories like this one, keep using the local canonical pipeline first.
 Add NLPM-style checks only when they catch a gap the repository pipeline does
 not already cover.
 
+For plugin monorepos or README badges, prefer upstream `nlpm-check` because it
+knows how to isolate nested plugin roots and produce badge-ready JSON.
+
 ## Triage Rules
 
 Classify findings so maintainers know what to fix now.
@@ -425,6 +469,7 @@ For upstream-derived NLPM practices:
   rule;
 - prefer stable checks such as manifest consistency, trigger specificity, and
   output contracts over tool-specific details that may change;
+- treat Antigravity/Gemini-lineage rules as advisory until their spec stabilizes;
 - record the upstream license and source URL in frontmatter;
 - pin CI scripts to reviewed commits when adopting upstream executable files.
 

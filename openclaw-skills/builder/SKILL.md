@@ -1,14 +1,14 @@
 ---
 name: builder
 description: 'Implementing robust business logic, API integrations, and data models with type safety and production readiness. Use when business logic implementation or API integration is needed.'
-version: "1.0.5"
+version: "1.0.6"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/builder"
 license: MIT
 tags: '["builder", "development"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-08"
+updated_at: "2026-06-16"
 quality: 5
 complexity: "advanced"
 ---
@@ -215,15 +215,15 @@ Parse the first token of user input.
 - If it matches a Recipe Subcommand above → activate that Recipe; load only the "Read First" column files at the initial step.
 - Otherwise → default Recipe (`fix` = Bug Fix). Apply normal SURVEY → PLAN → BUILD → VERIFY → PRESENT workflow.
 
-Behavior notes per Recipe:
-- `fix`: Scout handoff or standalone bug fix. Target <50 lines. Always include a regression test skeleton at VERIFY.
-- `crud`: Decide DDD vs CRUD at SURVEY and confirm CRUD. Entity + Repository + simple service layer.
-- `api`: Always include error categorization (4xx/429/5xx), retry limits, idempotency keys, and circuit breakers.
-- `ddd`: Design Aggregate / Value Object / Domain Event after confirming the Bounded Context. Focus on PLAN.
-- `harden`: Read the Forge L0-L3 level and raise it to production quality (type safety, validation, test skeletons).
-- `port`: Language/framework port. Re-implement all source-language tests in the target language → parallel-run compare against source code as a black box → investigate any diff. Delineate from Shift (Shift handles large-scale migration planning; port handles implementation execution).
-- `integrate`: External API integration (Stripe / Slack / GitHub etc.). Build in order: sandbox verification → secret handling (env / Vault) → vendor-specific retry / rate limit / idempotency → webhook signature verification.
-- `patch`: Strict scope (≤30 lines / ≤3 files). Regression tests mandatory. Ensure size XS on handoff to Guardian `pr`.
+Behavior notes per Recipe. Each `**VERIFY**:` is the recipe-specific acceptance gate **in addition to** the universal 5-axis Impact Scope Check (callers/tests/types/configs/docs).
+- `fix`: Scout handoff or standalone bug fix. Target <50 lines. Always include a regression test skeleton at VERIFY. **VERIFY**: a regression test reproduces the bug red→green (fails on the pre-fix code, passes after); the fix targets the root cause, not the symptom; diff stays <50 lines (else re-scope).
+- `crud`: Decide DDD vs CRUD at SURVEY and confirm CRUD. Entity + Repository + simple service layer. **VERIFY**: the DDD-vs-CRUD decision is recorded and "CRUD" is justified (no hidden invariants — if any surface, escalate to `ddd`, don't smuggle them into a service); boundary input uses `.safeParse()`; each CRUD op carries a test.
+- `api`: Always include error categorization (4xx/429/5xx), retry limits, idempotency keys, and circuit breakers. **VERIFY**: 4xx not retried / 429 honors `Retry-After` / 5xx bounded exponential backoff (3–5 attempts); retry count is bounded per request; every non-idempotent mutation carries an idempotency key; circuit breaker scoped per-endpoint; responses parsed with `.safeParse()`.
+- `ddd`: Design Aggregate / Value Object / Domain Event after confirming the Bounded Context. Focus on PLAN. **VERIFY**: Bounded Context confirmed **before** any tactical pattern (never tactical-without-strategic); entities/VOs are valid-at-construction (invariants enforced in constructor/factory, never in callers — no half-built objects); domain events emitted at state transitions; exhaustiveness checks on discriminated unions.
+- `harden`: Read the Forge L0-L3 level and raise it to production quality (type safety, validation, test skeletons). **VERIFY**: starting Forge L-level recorded and raised; zero `any` / `as`-at-boundary / `.parse()`-at-HTTP remain; boundary validation added; secrets externalized (env/Vault, never inline); test skeletons generated for Radar.
+- `port`: Language/framework port. Re-implement all source-language tests in the target language → parallel-run compare against source code as a black box → investigate any diff. Delineate from Shift (Shift handles large-scale migration planning; port handles implementation execution). **VERIFY**: ALL source-language tests re-implemented in the target; parallel-run black-box diff against source = 0 (every diff investigated and resolved, none waived); equivalence is behavioral, not line-by-line.
+- `integrate`: External API integration (Stripe / Slack / GitHub etc.). Build in order: sandbox verification → secret handling (env / Vault) → vendor-specific retry / rate limit / idempotency → webhook signature verification. **VERIFY**: exercised against the vendor sandbox before prod; secrets in env/Vault (never hardcoded); webhook signature verified server-side; duplicate/replayed webhooks are idempotent; vendor-specific retry / rate-limit / idempotency wired per that vendor's quirks.
+- `patch`: Strict scope (≤30 lines / ≤3 files). Regression tests mandatory. Ensure size XS on handoff to Guardian `pr`. **VERIFY**: scope held to ≤30 lines / ≤3 files (exceed → escalate to `fix`/`harden`, do not stretch `patch`); regression test present; a clear one-step rollback exists; Guardian-handoff size is XS.
 
 ## Output Routing
 

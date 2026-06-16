@@ -1,14 +1,14 @@
 ---
 name: lens
 description: 'Comprehending and investigating codebases. Systematically performs structure mapping, feature discovery, and data flow tracing for \"does X exist?\", \"how does Y work?\", or \"what is this module''s responsibility?\". Does not write code.'
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/lens"
 license: MIT
 tags: '["analysis", "lens", "planning"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-08"
+updated_at: "2026-06-16"
 quality: 5
 complexity: "advanced"
 ---
@@ -226,14 +226,14 @@ Parse the first token of user input.
 - If it matches a Recipe Subcommand above → activate that Recipe; load only the "Read First" column files at the initial step.
 - Otherwise → default Recipe (`map` = Structure Map). Apply normal SCOPE → SURVEY → TRACE → CONNECT → REPORT workflow.
 
-Behavior notes per Recipe:
-- `map`: Classify investigation type as Structure in SCOPE. Establish module boundaries top-down before drilling into detail.
-- `discover`: Shortened SCOPE → SURVEY → REPORT workflow allowed. REPORT immediately after existence confirmation.
-- `trace`: Trace data from origin to destination. Explicitly flag dynamic-dispatch boundaries.
-- `responsibility`: Multi-signal cognitive complexity evaluation (SonarSource + nesting + naming). Identify comprehension debt hotspots.
-- `dependency`: Read `reference/dependency-graph.md` first. Build the dependency graph with madge / dpdm (TS/JS) / pydeps (Python) / `go list -deps` (Go). Measure fan-in / fan-out per module (high fan-in = god-module candidate), measure transitive closure size, classify circular dependencies as HIGH / MED / LOW severity, flag direction violations (e.g. UI → DB direct import), and detect package-boundary leakage (external references into `internal/` packages). Output: dependency table + Mermaid graph + violation list.
-- `hotspot`: Read `reference/change-hotspot.md` first. Collect file change frequency with `git log --since=N.months --name-only`, combine with SonarSource Cognitive Complexity to produce a `churn × complexity` heatmap. `hot+complex` (churn > median AND complexity > 15) is the top refactor candidate. Bug correlation: add the frequency of appearance in bug-fix commits via `git log --grep='fix\|bug'`. Output: ranked hotspot table + recommended refactor order.
-- `evolution`: Read `reference/code-evolution.md` first. Per file, track lifespan (creation → last-change date), compute author concentration (bus factor: number of authors responsible for 80% of changes), measure abstraction churn (refactor-vs-feature ratio) via keyword extraction across commit messages and diffs, and detect conceptual drift (responsibility shift inferred from pre/post class/function changes). Long-stable files split into "stable" vs "dead code"; high-churn files split into "design unsettled" vs "feature growth".
+Behavior notes per Recipe. Each `**VERIFY**:` is the recipe-specific gate **in addition to** Lens's universal output discipline (file:line for every claim, confidence High/Med/Low per finding, "What I didn't find" section, zero confabulated relationships).
+- `map`: Classify investigation type as Structure in SCOPE. Establish module boundaries top-down before drilling into detail. **VERIFY**: boundaries grounded in actual files/dirs (not an idealized architecture); top-down precedes bottom-up; dynamic-dispatch boundaries (event bus / middleware / DI / plugins) flagged where static structure diverges from runtime; every module claim carries file:line.
+- `discover`: Shortened SCOPE → SURVEY → REPORT workflow allowed. REPORT immediately after existence confirmation. **VERIFY**: a definite yes/no with evidence — "exists" cites file:line, "doesn't exist" states exactly what was searched (search coverage), since absence-of-evidence ≠ evidence-of-absence; confidence level stated; broaden/escalate before declaring absent if <3 search iterations.
+- `trace`: Trace data from origin to destination. Explicitly flag dynamic-dispatch boundaries. **VERIFY**: each hop origin→transform→destination carries file:line; dynamic-dispatch boundaries flagged with an explicit confidence **downgrade** (static call graph ≠ runtime there); no runtime behavior inferred from static structure without that flag.
+- `responsibility`: Multi-signal cognitive complexity evaluation (SonarSource + nesting + naming). Identify comprehension debt hotspots. **VERIFY**: assessment is multi-signal (never a single SonarSource number); the asymmetry is honored (low value ⇒ understandable, but high value does NOT prove un-understandable); comprehension-debt hotspots (high churn + low review depth + no authorship continuity) flagged; every cross-reference verified against real code (no confabulation).
+- `dependency`: Read `reference/dependency-graph.md` first. Build the dependency graph with madge / dpdm (TS/JS) / pydeps (Python) / `go list -deps` (Go). Measure fan-in / fan-out per module (high fan-in = god-module candidate), measure transitive closure size, classify circular dependencies as HIGH / MED / LOW severity, flag direction violations (e.g. UI → DB direct import), and detect package-boundary leakage (external references into `internal/` packages). Output: dependency table + Mermaid graph + violation list. **VERIFY**: graph built from real tooling output (madge/dpdm/pydeps/`go list`), not inferred from reading imports by eye; fan-in/out measured per module; circular deps severity-classified; direction violations + boundary leakage each cited with the offending edge.
+- `hotspot`: Read `reference/change-hotspot.md` first. Collect file change frequency with `git log --since=N.months --name-only`, combine with SonarSource Cognitive Complexity to produce a `churn × complexity` heatmap. `hot+complex` (churn > median AND complexity > 15) is the top refactor candidate. Bug correlation: add the frequency of appearance in bug-fix commits via `git log --grep='fix\|bug'`. Output: ranked hotspot table + recommended refactor order. **VERIFY**: churn from actual `git log` and complexity from a real metric (neither estimated); `hot+complex` = churn>median AND complexity>15 applied as the rank key; bug-correlation computed via `git log --grep`; hotspots below CodeScene's AI-ready threshold (≥9.4/10) flagged "high-risk for agent-driven changes".
+- `evolution`: Read `reference/code-evolution.md` first. Per file, track lifespan (creation → last-change date), compute author concentration (bus factor: number of authors responsible for 80% of changes), measure abstraction churn (refactor-vs-feature ratio) via keyword extraction across commit messages and diffs, and detect conceptual drift (responsibility shift inferred from pre/post class/function changes). Long-stable files split into "stable" vs "dead code"; high-churn files split into "design unsettled" vs "feature growth". **VERIFY**: lifespan/author/churn all sourced from real git history; bus factor = authors covering 80% of changes (computed, not guessed); stable-vs-dead-code and unsettled-vs-growth distinctions each backed by commit evidence; conceptual-drift claims cite the pre/post change.
 
 ## Output Requirements
 

@@ -1,14 +1,14 @@
 ---
 name: lark-event
 description: 'Lark/Feishu real-time event listening / subscribing / consuming: stream events as NDJSON via `lark-cli event consume <EventKey>` (covers IM messages/reactions/chat changes, VC meeting ended, Minutes generated, Whiteboard updated, etc.). Use for Lark bots, real-time message processing, long-running subscribers, streaming webhook/push handlers. Supports `--max-events` / `--timeout` bounded runs and a stderr ready-marker contract — designed for AI agents running as subprocesses.'
-version: "1.0.3"
+version: "1.0.4"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-event"
 license: MIT
 tags: '[feishu, lark, lark-cli, events, websocket]'
 created_at: "2026-05-19"
-updated_at: "2026-06-08"
+updated_at: "2026-06-16"
 quality: 4
 complexity: advanced
 metadata:
@@ -92,7 +92,12 @@ On exit, the last stderr line is `[event] exited — received N event(s) in Xs (
 | 0 | `reason: limit` | `--max-events` reached |
 | 0 | `reason: timeout` | `--timeout` reached |
 | 0 | `reason: signal` | Ctrl+C / SIGTERM / stdin EOF (stdin EOF applies to unbounded runs only) |
-| non-0 | `Error: ...` (no `exited` line) | Startup / runtime failure (permissions, network, params, config) |
+| 1 | JSON error envelope on stderr | Lark API business failure during pre-consume setup (for example subscription create/delete) |
+| 2 | JSON error envelope on stderr (no `exited` line) | Validation failure (unknown EventKey, bad `--param` / `--jq`, another bus already connected) |
+| 3 | JSON error envelope on stderr | Auth failure (missing token, missing scopes) |
+| 4 / 5 | JSON error envelope on stderr | Network / internal failure (bus startup, handshake, file I/O) |
+
+Startup and runtime failures emit a structured JSON envelope on stderr: `{"ok":false,"error":{"type","subtype","param","message","hint",...}}` (the envelope may also carry top-level `identity` / `_notice` siblings). Parse `error.type` / `error.subtype` to branch (e.g. `missing_scope` carries a `missing_scopes` list), `error.param` to find the offending flag, and `error.hint` for the recovery action — do not regex-match message text.
 
 Orchestrators should treat `reason: limit/timeout/signal` (all exit 0) as "business completion" and non-zero as "failure".
 

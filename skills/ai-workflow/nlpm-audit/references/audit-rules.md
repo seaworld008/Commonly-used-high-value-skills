@@ -78,6 +78,17 @@ by `eslint-plugin-import/no-default-export`.
 | R31 | Hooks fail open unless explicitly security-critical |
 | R32 | Blocking belongs in pre-action hooks, not post-action hooks |
 
+Host event lists differ:
+
+| Host | Examples |
+|---|---|
+| Claude Code | `SessionStart`, `SessionEnd`, `UserPromptSubmit`, `PreToolUse`, `PostToolUse`, `PermissionRequest`, `Stop`, `StopFailure`, `FileChanged` |
+| Codex CLI | `SessionStart`, `UserPromptSubmit`, `PreToolUse`, `PostToolUse`, `PermissionRequest`, `PreCompact`, `PostCompact`, `SubagentStart`, `SubagentStop`, `Stop` |
+| Antigravity/Gemini lineage | `SessionStart`, `BeforeAgent`, `BeforeModel`, `BeforeToolSelection`, `BeforeTool`, `AfterTool`, `AfterModel`, `AfterAgent`, `SessionEnd`, `Notification`, `PreCompress` |
+
+Do not translate hook event names across hosts. Score each config under its own
+host vocabulary.
+
 ## Memory Files
 
 Apply to `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `.cursorrules`, and similar
@@ -114,6 +125,10 @@ agent memory files.
 | R49 | Human README and agent memory file serve different audiences |
 | R50 | Version is bumped consistently across every release surface |
 | R51 | Vocabulary drift is opt-in and requires a canonical registry |
+
+For plugin monorepos, check each nested plugin root once and aggregate the
+result. A child plugin's files should not be reported as unregistered files in
+the parent plugin.
 
 ## Warrant Review
 

@@ -1,14 +1,14 @@
 ---
 name: lark-approval
 description: '飞书审批：当前用户审批的查询与全部处理操作，覆盖待本人审批的任务与本人发起的实例。审批待办不是飞书任务（任务类待办走 lark-task）；不负责创建审批定义和发起新审批。'
-version: "1.0.2"
+version: "1.0.3"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-approval"
 license: MIT
 tags: '[feishu, lark, lark-cli, approval, workflow]'
 created_at: "2026-05-19"
-updated_at: "2026-06-08"
+updated_at: "2026-06-16"
 quality: 3
 complexity: intermediate
 metadata:
@@ -43,19 +43,25 @@ lark-cli approval tasks approve --data '{"instance_code":"<ic>","task_id":"<tid>
 
 创建审批定义/发起新审批（走飞书客户端或审批管理后台）；非审批类待办 → [`lark-task`](../lark-task/SKILL.md)
 
-## 处理建议
+## 操作前检查
 
-- 审批动作前先复述实例标题、当前节点、申请人和你要执行的操作，避免误批。
-- 涉及拒绝、退回、转交、加签时，优先附带明确评论，便于审计追踪。
-- 若用户只给了截图或口头描述，先 `tasks query` / `instances get` 校验真实状态，再执行写操作。
-- 审批链跨部门或涉及财务、人事、采购时，不要省略 `instance_code` 与 `task_id` 的双重确认。
+审批动作通常不可随意撤销。执行 `approve`、`reject`、`transfer`、
+`add_sign`、`rollback`、`cancel` 前先确认：
 
-## 常见核对点
+1. `instance_code` 和 `task_id` 来自同一次 `tasks query` 或可信上下文。
+2. 当前登录身份确实是审批人、发起人或有权限的代办人。
+3. 用户给出的意见文本已经明确，不要替用户编写实质性审批理由。
+4. 批量处理时先展示待处理清单和数量，再执行单条或小批量操作。
 
-- 这是“待我审批”的任务，还是“我已发起”的实例。
-- 当前节点是否允许加签、退回或转交。
-- 用户要求的动作是否与审批单当前状态一致。
-- 评论、抄送人与被转交人是否已经确认准确。
+## 常见错误处理
+
+| 现象 | 处理 |
+|---|---|
+| 查不到待办 | 确认 `topic`、租户、登录身份和审批范围，不要改走任务 API |
+| `task_id` 失效 | 重新 `tasks query`，审批流可能已被别人处理或节点已流转 |
+| 无权限 | 读取 `lark-shared` 的认证说明，确认是否需要切换用户身份 |
+| 表单字段不清楚 | 先 `instances get`，只总结字段，不猜测业务含义 |
+
 <!-- LOCAL-QUALITY-SUPPLEMENT:START -->
 ## Usage Notes
 
