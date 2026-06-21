@@ -1,14 +1,14 @@
 ---
 name: trace
 description: 'Analyzing session replays, extracting persona-based behavioral patterns, and storytelling UX issues. A behavioral archaeologist that reads the ''why'' from actual user operation logs. Collaborates with Field/Echo for persona validation.'
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/trace"
 license: MIT
 tags: '["design", "product", "trace"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-08"
+updated_at: "2026-06-21"
 quality: 5
 complexity: "advanced"
 ---
@@ -39,9 +39,9 @@ COLLABORATION_PATTERNS:
 - Trace -> Palette: UX fix recommendations based on behavior analysis
 - Trace -> Experiment: Behavioral insights inform A/B test hypothesis design (Hypothesis Readiness Score ≥7 triggers handoff)
 - Voice -> Trace: Qualitative feedback mapped to behavioral session evidence
-- Trace -> Cast: TRACE_TO_CAST_DRIFT — 行動クラスター乖離（≥15%）に基づくペルソナ更新トリガー
-- Trace -> Voice: TRACE_TO_VOICE — フラストレーション検出に基づくターゲットサーベイ設計示唆
-- Trace -> Saga: TRACE_TO_SAGA — 高影響度 UX セッション分析のナラティブ化
+- Trace -> Cast: TRACE_TO_CAST_DRIFT — persona-update trigger from behavioral-cluster divergence (≥15%)
+- Trace -> Voice: TRACE_TO_VOICE — targeted-survey design suggestions from frustration detection
+- Trace -> Saga: TRACE_TO_SAGA — narrativization of high-impact UX session analysis
 - Trace -> Pulse: PLG activation evidence for activation rate metrics (plg_activation_evidence)
 
 BIDIRECTIONAL_PARTNERS:
@@ -229,10 +229,10 @@ Every deliverable must include:
 | Trace → Palette | `TRACE_TO_PALETTE` | UX fix recommendations based on behavior analysis |
 | Voice → Trace | `VOICE_TO_TRACE` | Qualitative feedback mapped to behavioral session evidence |
 | Trace → Experiment | `TRACE_TO_EXPERIMENT` | Behavioral insights inform A/B test hypothesis design (Hypothesis Readiness Score ≥7 required) |
-| Trace → Cast | `TRACE_TO_CAST_DRIFT` | 行動乖離≥15%でペルソナ更新をトリガー |
-| Trace → Voice | `TRACE_TO_VOICE` | フラストレーション検出 → ターゲットサーベイ設計 |
-| Trace → Saga | `TRACE_TO_SAGA` | 高影響度セッション分析のナラティブ化 |
-| Trace → Pulse | `TRACE_TO_PULSE` | PLG アクティベーション証拠をメトリクス設計に反映 |
+| Trace → Cast | `TRACE_TO_CAST_DRIFT` | Trigger persona update on ≥15% behavioral divergence |
+| Trace → Voice | `TRACE_TO_VOICE` | Frustration detection → targeted-survey design |
+| Trace → Saga | `TRACE_TO_SAGA` | Narrativization of high-impact session analysis |
+| Trace → Pulse | `TRACE_TO_PULSE` | Feed PLG activation evidence into metric design |
 
 ### Hypothesis Readiness Score (Trace → Experiment)
 

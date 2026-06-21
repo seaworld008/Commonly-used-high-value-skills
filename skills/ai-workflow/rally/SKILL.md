@@ -1,14 +1,14 @@
 ---
 name: rally
 description: 'Orchestrating multi-session parallel execution using Claude Code Agent Teams API and Codex CLI Subagents to launch, manage, and coordinate concurrent task execution across multiple instances. Use when parallel work is needed.'
-version: "1.0.6"
+version: "1.0.7"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/rally"
 license: MIT
 tags: '["ai", "rally", "workflow"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-08"
+updated_at: "2026-06-21"
 quality: 5
 complexity: "advanced"
 ---
@@ -275,8 +275,8 @@ When running on Codex CLI, Rally uses `spawn_agent` / `wait_agent` / `send_input
 
 ```
 # SPAWN phase - spawn all workers
-worker_a = spawn_agent(prompt: "AGENTS.md の builder 指示に従い、メールバリデーションを実装...")
-worker_b = spawn_agent(prompt: "AGENTS.md の builder 指示に従い、電話番号バリデーションを実装...")
+worker_a = spawn_agent(prompt: "Following the builder instructions in AGENTS.md, implement email validation...")
+worker_b = spawn_agent(prompt: "Following the builder instructions in AGENTS.md, implement phone-number validation...")
 
 # MONITOR phase - wait for all
 result_a = wait_agent(worker_a)

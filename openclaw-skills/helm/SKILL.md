@@ -1,14 +1,14 @@
 ---
 name: helm
 description: 'Simulating business strategy via short/mid/long-term scenario planning from financial, market, and competitive data. Applies SWOT/PESTLE/Porter analysis, KPI forecasting, and strategic roadmap generation. Does not write code.'
-version: "1.0.5"
+version: "1.0.6"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/helm"
 license: MIT
 tags: '["finance", "helm"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-08"
+updated_at: "2026-06-21"
 quality: 5
 complexity: "advanced"
 ---
@@ -189,6 +189,7 @@ Single source of truth for Recipe definitions. Behavior detail lives in the "Beh
 | Blue Ocean Strategy | `blue-ocean` | | Kim & Mauborgne Blue Ocean — Value Curve, ERRC grid, Four Actions, non-customer tiers | Build a Strategy Canvas (Value Curve) mapping the existing industry's competition factors. Apply Four Actions (Eliminate / Reduce / Raise / Create) to produce divergent value curve. Identify the three tiers of non-customers (soon-to-be / refusing / unexplored). Pair with buyer utility map. Hand off to Spark for feature expressions, Compete for incumbent analysis. | `reference/blue-ocean-strategy.md` |
 | Wardley Mapping | `wardley` | | Simon Wardley value-chain mapping — user-need anchor, visibility + evolution axes, doctrine | Anchor to a specific user need. Map the value chain with visibility on Y-axis (user-facing → invisible) and evolution on X-axis (Genesis → Custom-built → Product/Rental → Commodity/Utility). Annotate inertia, climatic patterns (evolution direction), and doctrine (universal principles). Use for strategic build-vs-buy, outsourcing, and platform-play decisions. Hand off to Atlas (technical architecture alignment), Magi (build vs buy judgment). | `reference/wardley-mapping.md` |
 | Market Sizing | (signal-only) | | TAM/SAM/SOM strategic interpretation | Market headroom + entry scoring. Emit strategic market size analysis + portfolio sizing. | `reference/market-sizing-strategy.md` |
+| Business Model Canvas | (signal-only) | | Lay out / stress-test a whole business model (BMC 9 blocks or Lean Canvas startup variant) | Fill value/market side first, then infrastructure/cost; confirm Revenue Streams plausibly exceed Cost Structure. Distinct from Blue Ocean Strategy Canvas. Hand off VPC zoom-in to Spark, moat to Compete, KPIs to Pulse. | `reference/business-model-canvas.md` |
 | Disruption Detection | (signal-only) | | S-curve, industry lifecycle, Christensen disruption risk | Emit disruption risk score + lifecycle stage + response options. | `reference/disruption-detection.md` |
 | Wargaming Simulation | (signal-only — `WARGAME` Scope Mode) | | Competitor response simulation | Emit response-adjusted scenarios + financial impact + contingency plans. | `reference/wargaming-simulation.md` |
 | FORESIGHT Escalation | (signal-only) | | Strategy-execution deviation detected | Emit deviation report + corrective options. | `reference/strategy-monitoring.md` |
@@ -207,6 +208,7 @@ For natural-language input without an explicit subcommand. Subcommand match wins
 | `forecast`, `kpi forecast`, `saas metrics`, `rule of 40`, `burn multiple`, `NRR`, `CAC payback` | `forecast` |
 | `jtbd`, `jobs to be done`, `forces of progress` | `jtbd` |
 | `blue ocean`, `value curve`, `ERRC`, `non-customer tiers` | `blue-ocean` |
+| `business model canvas`, `BMC`, `lean canvas`, `business model design` | Business Model Canvas (signal-only) |
 | `wardley`, `value chain map`, `evolution axis` | `wardley` |
 | `market sizing`, `TAM`, `SAM`, `SOM`, `market headroom` | Market Sizing (signal-only) |
 | `disruption`, `S-curve`, `industry lifecycle`, `Christensen` | Disruption Detection (signal-only) |
@@ -271,6 +273,7 @@ Include only the sections needed for the request, but keep assumptions, scenario
 | `reference/wargaming-simulation.md` | you need to financially model competitor responses, build scenario trees from wargame data, or stress-test strategies |
 | `reference/jobs-to-be-done.md` | you need Christensen JTBD — job statement syntax, forces of progress, functional/emotional/social dimensions, and competitive-set-by-job |
 | `reference/blue-ocean-strategy.md` | you need Kim & Mauborgne Blue Ocean — Value Curve, ERRC grid, Four Actions, three tiers of non-customers, buyer utility map |
+| `reference/business-model-canvas.md` | you need the Business Model Canvas (9 blocks) or Lean Canvas (startup variant) to lay out / stress-test a whole business model — distinct from the Blue Ocean Strategy Canvas |
 | `reference/wardley-mapping.md` | you need Wardley mapping — user-need anchor, visibility + evolution axes, doctrine, climatic patterns, build-vs-buy decisions |
 | `_common/OPUS_48_AUTHORING.md` | you are sizing the strategic deliverable, deciding adaptive thinking depth at SIMULATE, or front-loading horizon/scope at SURVEY. Critical for Helm: P3, P5. |
 

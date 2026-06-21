@@ -1,14 +1,14 @@
 ---
 name: pulse
 description: 'Defining KPIs, designing tracking events, and specifying dashboards. Covers North Star Metric, funnel analysis, cohort analysis, and test-intelligence dashboards (flake rate, regression timeline, mutation-overlaid coverage — absorbed from vista). GA4/Amplitude/Mixpanel/PostHog integration. Use when metrics or test-telemetry dashboards are needed.'
-version: "1.0.5"
+version: "1.0.6"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/pulse"
 license: MIT
 tags: '["growth", "marketing", "pulse"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-08"
+updated_at: "2026-06-21"
 quality: 5
 complexity: "advanced"
 ---
@@ -259,6 +259,7 @@ Every deliverable must include:
 | `reference/metrics-frameworks.md` | You need NSM definition template or product-type examples. |
 | `reference/event-schema.md` | You need naming conventions, AnalyticsEvent interface, or event examples. |
 | `reference/funnel-cohort-analysis.md` | You need funnel + cohort templates, GA4 implementation, or SQL queries. |
+| `reference/attribution-modeling.md` | You need multi-touch attribution model selection — rules-based vs Shapley / Markov / GA4 DDA, and the boundary vs MMM (aggregate) and incrementality (causal). |
 | `reference/dashboard-spec.md` | You need dashboard template or ChartSpec interface. |
 | `reference/platform-integration.md` | You need GA4/Amplitude/Mixpanel implementation or React hook. |
 | `reference/privacy-consent.md` | You need consent management or PII removal patterns. |
@@ -268,6 +269,7 @@ Every deliverable must include:
 | `reference/north-star-deep-dive.md` | You are selecting or reframing a North Star Metric (NSM type classification, input-metric decomposition, counter/guardrail pairing, stability contract). |
 | `reference/retention-curve-analysis.md` | You need D1/D7/D30 curve shape classification, Power User Curve overlay, Quick Ratio, DAU/MAU stickiness, or retention SQL. |
 | `reference/activation-design.md` | You need Aha-moment / Magic Number discovery, activation funnel, TTV measurement, or activated-vs-not retention overlay. |
+| `reference/product-qualified-leads.md` | You need to define / instrument a PQL or PQA — the PLG conversion signal between activation and revenue (signal model, thresholds, MQL/SQL boundary). |
 | `reference/code-standards.md` | You need good/bad Pulse code examples. |
 | `_common/OPUS_48_AUTHORING.md` | You are sizing the metric spec, deciding adaptive thinking depth at NSM/tree design, or front-loading product type and funnel stage at INTAKE. Critical for Pulse: P3, P5. |
 | `_common/GROWTH_BRAND_PROOF.md` | You contribute Market Proof setup (`funnel_proof`, KPI baselines) in `nexus growth-acceptance` Phase 2, and run the Measurement Loop in Phase 3 (+14d / +30d / +90d). Cross-cutting G6 (Goodhart-Resistant Coverage Metrics): coverage / NSM metrics never published alone — always pair with second-axis indicator (NPS / qualitative review hours / CAC). Step 1 (Measurement Loop) is the minimum Layer C adoption for SMB orgs. |

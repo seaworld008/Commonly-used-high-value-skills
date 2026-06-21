@@ -1,14 +1,14 @@
 ---
 name: lark-approval
 description: '飞书审批：当前用户审批的查询与全部处理操作，覆盖待本人审批的任务与本人发起的实例。审批待办不是飞书任务（任务类待办走 lark-task）；不负责创建审批定义和发起新审批。'
-version: "1.0.3"
+version: "1.0.4"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-approval"
 license: MIT
 tags: '[feishu, lark, lark-cli, approval, workflow]'
 created_at: "2026-05-19"
-updated_at: "2026-06-16"
+updated_at: "2026-06-21"
 quality: 3
 complexity: intermediate
 metadata:
@@ -42,26 +42,6 @@ lark-cli approval tasks approve --data '{"instance_code":"<ic>","task_id":"<tid>
 ## 不在本 skill 范围
 
 创建审批定义/发起新审批（走飞书客户端或审批管理后台）；非审批类待办 → [`lark-task`](../lark-task/SKILL.md)
-
-## 操作前检查
-
-审批动作通常不可随意撤销。执行 `approve`、`reject`、`transfer`、
-`add_sign`、`rollback`、`cancel` 前先确认：
-
-1. `instance_code` 和 `task_id` 来自同一次 `tasks query` 或可信上下文。
-2. 当前登录身份确实是审批人、发起人或有权限的代办人。
-3. 用户给出的意见文本已经明确，不要替用户编写实质性审批理由。
-4. 批量处理时先展示待处理清单和数量，再执行单条或小批量操作。
-
-## 常见错误处理
-
-| 现象 | 处理 |
-|---|---|
-| 查不到待办 | 确认 `topic`、租户、登录身份和审批范围，不要改走任务 API |
-| `task_id` 失效 | 重新 `tasks query`，审批流可能已被别人处理或节点已流转 |
-| 无权限 | 读取 `lark-shared` 的认证说明，确认是否需要切换用户身份 |
-| 表单字段不清楚 | 先 `instances get`，只总结字段，不猜测业务含义 |
-
 <!-- LOCAL-QUALITY-SUPPLEMENT:START -->
 ## Usage Notes
 
@@ -77,6 +57,24 @@ source is intentionally concise.
 3. Choose the smallest reversible action that advances the task.
 4. Run the verification command or manual check that proves the result.
 5. Report the outcome, evidence, and any remaining risk.
+```
+
+## Approval Handling Checklist
+
+- Always separate lookup from mutation: first list tasks, then fetch the
+  instance, then apply exactly one approval action.
+- Keep `instance_code` and `task_id` together in notes and command payloads;
+  approval APIs often require both and a mismatched pair can operate on the
+  wrong workflow node.
+- Before rejecting, rolling back, transferring, or adding signers, confirm the
+  user's intended comment text because it is usually visible in the approval
+  audit trail.
+- After a mutation, re-query the task or instance and report the resulting
+  status instead of assuming success from the command exit code alone.
+
+```bash
+lark-cli approval instances get --params '{"instance_code":"<ic>"}' --as user
+lark-cli approval tasks reject --data '{"instance_code":"<ic>","task_id":"<tid>","comment":"<reason>"}' --as user
 ```
 
 ## Boundaries

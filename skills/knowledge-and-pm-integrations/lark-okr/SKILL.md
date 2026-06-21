@@ -1,14 +1,14 @@
 ---
 name: lark-okr
 description: '飞书 OKR：管理目标与关键结果。查看和编辑 OKR 周期、目标、关键结果、对齐关系、量化指标和进展记录。当用户需要查看或创建 OKR、管理目标和关键结果、查看对齐关系时使用。不负责：待办任务管理（lark-task）、日程/会议安排（lark-calendar）、绩效评估'
-version: "1.0.1"
+version: "1.0.2"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-okr"
 license: MIT
 tags: '[feishu, lark, lark-cli, okr, planning]'
 created_at: "2026-05-19"
-updated_at: "2026-06-16"
+updated_at: "2026-06-21"
 quality: 4
 complexity: intermediate
 metadata:
@@ -27,16 +27,20 @@ metadata:
 
 Shortcut 是对常用操作的高级封装（`lark-cli okr +<verb> [flags]`）。有 Shortcut 的操作优先使用。
 
-| Shortcut                                                     | 说明                       |
-|--------------------------------------------------------------|--------------------------|
-| [`+cycle-list`](references/lark-okr-cycle-list.md)           | 获取特定用户的 OKR 周期列表，可以按时间筛选 |
-| [`+cycle-detail`](references/lark-okr-cycle-detail.md)       | 获取特定 OKR 中所有目标和关键结果的内容   |
-| [`+progress-list`](references/lark-okr-progress-list.md)     | 获取目标或关键结果的所有进展记录列表       |
-| [`+progress-get`](references/lark-okr-progress-get.md)       | 根据 ID 获取单条 OKR 进展记录      |
-| [`+progress-create`](references/lark-okr-progress-create.md) | 为目标或关键结果创建进展记录           |
-| [`+progress-update`](references/lark-okr-progress-update.md) | 更新指定 ID 的进展记录内容          |
-| [`+progress-delete`](references/lark-okr-progress-delete.md) | 删除指定 ID 的进展记录（不可恢复）      |
-| [`+upload-image`](references/lark-okr-image-upload.md)       | 上传图片用于 OKR 进展记录的富文本内容    |
+| Shortcut                                                       | 说明                       |
+|----------------------------------------------------------------|--------------------------|
+| [`+cycle-list`](references/lark-okr-cycle-list.md)             | 获取特定用户的 OKR 周期列表，可以按时间筛选 |
+| [`+cycle-detail`](references/lark-okr-cycle-detail.md)         | 获取特定 OKR 中所有目标和关键结果的内容   |
+| [`+progress-list`](references/lark-okr-progress-list.md)       | 获取目标或关键结果的所有进展记录列表       |
+| [`+progress-get`](references/lark-okr-progress-get.md)         | 根据 ID 获取单条 OKR 进展记录      |
+| [`+progress-create`](references/lark-okr-progress-create.md)   | 为目标或关键结果创建进展记录           |
+| [`+progress-update`](references/lark-okr-progress-update.md)   | 更新指定 ID 的进展记录内容          |
+| [`+progress-delete`](references/lark-okr-progress-delete.md)   | 删除指定 ID 的进展记录（不可恢复）      |
+| [`+upload-image`](references/lark-okr-image-upload.md)         | 上传图片用于 OKR 进展记录的富文本内容    |
+| [`+batch-create`](references/lark-okr-batch-create.md)         | 批量创建 Objective 和 KR      |
+| [`+reorder`](references/lark-okr-reorder.md)                   | 调整 Objective 或 KR 的顺位    |
+| [`+weight`](references/lark-okr-weight.md)                     | 调整 Objective 或 KR 的权重    |
+| [`+indicator-update`](references/lark-okr-indicator-update.md) | 更新 Objective 或 KR 的指标当前值 |
 
 ## 格式说明
 
