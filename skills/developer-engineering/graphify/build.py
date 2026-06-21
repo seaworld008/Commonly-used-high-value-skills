@@ -28,6 +28,7 @@ import sys
 import unicodedata
 from pathlib import Path
 import networkx as nx
+from .ids import normalize_id as _normalize_id
 from .validate import validate_extraction
 
 
@@ -49,20 +50,6 @@ _FILE_TYPE_SYNONYMS = {
     "gotcha": "concept",
     "framework": "concept",
 }
-
-
-def _normalize_id(s: str) -> str:
-    r"""Normalize an ID string the same way extract._make_id does.
-
-    Used to reconcile edge endpoints when the LLM generates IDs with slightly
-    different punctuation or casing than the AST extractor. Must stay in sync
-    with extract._make_id — NFKC normalization, \w with re.UNICODE, underscore
-    collapse, and casefold must all match (#811).
-    """
-    s = unicodedata.normalize("NFKC", s)
-    cleaned = re.sub(r"[^\w]+", "_", s, flags=re.UNICODE)
-    cleaned = re.sub(r"_+", "_", cleaned)
-    return cleaned.strip("_").casefold()
 
 
 def _norm_source_file(p: str | None, root: str | None = None) -> str | None:
@@ -102,6 +89,25 @@ def edge_datas(G: nx.Graph, u: str, v: str) -> list[dict]:
     if isinstance(G, (nx.MultiGraph, nx.MultiDiGraph)):
         return list(raw.values())
     return [raw]
+
+
+def dedupe_nodes(nodes: list[dict]) -> list[dict]:
+    """Collapse nodes sharing an ``id``, last-writer-wins on attributes.
+
+    Mirrors what ``build_from_json``'s ``G.add_node`` does implicitly (idempotent;
+    a later node overwrites an earlier one's attributes). The ``--no-cluster``
+    write path dumps the raw node list without building a graph, so same-id nodes
+    — e.g. a Swift ``type=module`` anchor emitted once per importing file (#1327)
+    — would otherwise appear as duplicates. Insertion order follows each id's
+    first appearance; the retained dict is the last one seen.
+    """
+    by_id: dict = {}
+    for n in nodes:
+        nid = n.get("id")
+        if nid is None:
+            continue
+        by_id[nid] = n
+    return list(by_id.values())
 
 
 def dedupe_edges(edges: list[dict]) -> list[dict]:
@@ -277,6 +283,15 @@ def build_from_json(extraction: dict, *, directed: bool = False, root: str | Pat
         if src not in node_set or tgt not in node_set:
             continue  # skip edges to external/stdlib nodes - expected, not an error
         attrs = {k: v for k, v in edge.items() if k not in ("source", "target")}
+        # Backfill source_file from the endpoint nodes (every node carries one).
+        # Semantic/LLM edges occasionally omit it, which downstream validation
+        # flags and leaves query results with no file reference (#1279).
+        if not attrs.get("source_file"):
+            attrs["source_file"] = (
+                G.nodes[src].get("source_file")
+                or G.nodes[tgt].get("source_file")
+                or ""
+            )
         if "source_file" in attrs:
             attrs["source_file"] = _norm_source_file(attrs["source_file"], _root)
         # Drop cross-language INFERRED `calls` edges — same short names (render,
@@ -424,8 +439,11 @@ def build_merge(
 ) -> nx.Graph:
     """Load existing graph.json, merge new chunks into it, and save back.
 
-    Never replaces - only grows (or prunes deleted-file nodes via prune_sources).
-    Safe to call repeatedly: existing nodes and edges are preserved.
+    Re-extracted files REPLACE their prior contribution: any source_file present
+    in new_chunks is dropped from the loaded graph before merging, so a changed
+    file's stale nodes/edges don't accumulate. Files absent from new_chunks are
+    preserved unchanged; deleted files are removed via prune_sources.
+    Safe to call repeatedly.
     root: if given, absolute source_file paths in new_chunks are made relative (#932).
     """
     graph_path = Path(graph_path)
@@ -443,10 +461,40 @@ def build_merge(
         links_key = "links" if "links" in data else "edges"
         existing_nodes = list(data.get("nodes", []))
         existing_edges = list(data.get(links_key, []))
-        base = [{"nodes": existing_nodes, "edges": existing_edges}]
+        had_graph = True
     else:
         existing_nodes = []
-        base = []
+        existing_edges = []
+        had_graph = False
+
+    # Re-extracted files REPLACE their prior contribution. Every source_file
+    # present in new_chunks is dropped from the loaded base before merging, so a
+    # CHANGED file's stale nodes/edges don't accumulate across incremental
+    # updates. Without this, build() merges old+new for the same file and only
+    # exact-duplicate edges collapse — edges/nodes that disappeared from the new
+    # version survive forever. Brand-new files aren't in base, so this is a no-op
+    # for them; genuinely deleted files are still handled via prune_sources.
+    # Matched in both raw and _norm_source_file form because new_chunks may carry
+    # absolute win32 paths while the stored graph keeps relative posix (#1007).
+    _replace_root = str(Path(root).resolve()) if root is not None else None
+    new_sources: set[str] = set()
+    for ch in new_chunks:
+        for n in ch.get("nodes", []):
+            sf = n.get("source_file")
+            if not sf:
+                continue
+            new_sources.add(sf)
+            norm = _norm_source_file(sf, _replace_root)
+            if norm:
+                new_sources.add(norm)
+    if new_sources:
+        def _kept(item: dict) -> bool:
+            sf = item.get("source_file")
+            return sf not in new_sources and _norm_source_file(sf, _replace_root) not in new_sources
+        existing_nodes = [n for n in existing_nodes if _kept(n)]
+        existing_edges = [e for e in existing_edges if _kept(e)]
+
+    base = [{"nodes": existing_nodes, "edges": existing_edges}] if had_graph else []
 
     all_chunks = base + list(new_chunks)
     G = build(all_chunks, directed=directed, dedup=dedup, dedup_llm_backend=dedup_llm_backend, root=root)

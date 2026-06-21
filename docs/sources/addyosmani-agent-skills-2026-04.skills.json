@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://github.com/addyosmani/agent-skills",
-    "checked_at": "2026-06-16",
+    "checked_at": "2026-06-21",
     "note": "Curated full import of addyosmani/agent-skills; refresh with scripts/sync_addyosmani_agent_skills.py."
   },
   "official_references": [
@@ -44,8 +44,8 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/browser-testing-with-devtools/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-16",
-        "last_synced_at": "2026-06-16",
+        "last_checked_at": "2026-06-21",
+        "last_synced_at": "2026-06-21",
         "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
       }
     },
@@ -76,8 +76,8 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/code-review-and-quality/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-25",
-        "last_synced_at": "2026-04-25",
+        "last_checked_at": "2026-06-21",
+        "last_synced_at": "2026-06-21",
         "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
       }
     },
@@ -124,8 +124,8 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/debugging-and-error-recovery/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-25",
-        "last_synced_at": "2026-04-25",
+        "last_checked_at": "2026-06-21",
+        "last_synced_at": "2026-06-21",
         "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
       }
     },

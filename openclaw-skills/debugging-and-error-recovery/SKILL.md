@@ -1,14 +1,14 @@
 ---
 name: debugging-and-error-recovery
 description: 'Guides systematic root-cause debugging. Use when tests fail, builds break, behavior doesn''t match expectations, or you encounter any unexpected error. Use when you need a systematic approach to finding and fixing the root cause rather than guessing.'
-version: "1.0.0"
+version: "1.0.1"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/debugging-and-error-recovery/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "debugging-and-error-recovery", "engineering", "workflow"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-25"
+updated_at: "2026-06-21"
 quality: 5
 complexity: advanced
 upstream_slug: debugging-and-error-recovery
@@ -42,7 +42,7 @@ When anything unexpected happens:
 6. RESUME only after verification passes
 ```
 
-**Don't push past a failing test or broken build to work on the next feature.** Errors compound. A bug in Step 3 that goes unfixed makes Steps 4-10 wrong.
+**Don't push past a failing test or broken build to work on the next feature.** Errors compound. A bug in Step 3 that goes unfixed makes Steps 4-6 wrong.
 
 ## The Triage Checklist
 

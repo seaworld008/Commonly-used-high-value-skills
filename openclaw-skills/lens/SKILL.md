@@ -1,14 +1,14 @@
 ---
 name: lens
-description: 'Comprehending and investigating codebases. Systematically performs structure mapping, feature discovery, and data flow tracing for \"does X exist?\", \"how does Y work?\", or \"what is this module''s responsibility?\". Does not write code.'
-version: "1.0.5"
+description: 'Comprehending and investigating codebases. Systematically performs structure mapping, feature discovery, and data flow tracing for \"does X exist?\", \"how does Y work?\", or \"what is this module''s responsibility?\". Includes a conversational Q&A mode (\"ask\") for navigator-style, multi-turn questions about a project. Does not write code.'
+version: "1.0.6"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/lens"
 license: MIT
 tags: '["analysis", "lens", "planning"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-16"
+updated_at: "2026-06-21"
 quality: 5
 complexity: "advanced"
 ---
@@ -23,6 +23,7 @@ CAPABILITIES_SUMMARY:
 - dependency_comprehension: Understand what depends on what and why
 - pattern_recognition: Identify design patterns, conventions, and idioms used in the codebase
 - onboarding_report: Generate structured understanding reports for codebase newcomers
+- interactive_qa: Navigator-style conversational Q&A mode — auto-classify free-form project questions, answer progressively (one-liner → quick → report), reuse session memory across follow-ups, and route out-of-scope questions to the right agent
 - cognitive_complexity_assessment: Evaluate mental effort to understand code modules using multi-signal assessment (nesting depth, data flow complexity, naming clarity); SonarSource thresholds (>15 moderate, >25 high) as starting heuristic, not sole predictor; NRevisit behavioral metric as gold standard when available; CCTR (test-aware cognitive complexity) for unit test readability assessment
 - comprehension_debt_assessment: Detect and report comprehension debt — the gap between code volume and human understanding — especially in AI-heavy codebases where syntactically clean code masks low comprehension
 - lsp_aware_navigation: Prefer LSP go-to-definition and find-references over grep when available for type-aware, false-positive-free navigation
@@ -44,6 +45,7 @@ COLLABORATION_PATTERNS:
 - Lens -> Atlas: Architecture input with module mapping
 - Lens -> Stratum: C4 model input with module boundaries and relationships
 - Lens -> Scribe: Documentation input with codebase understanding
+- Lens -> PDM: Implemented-feature evidence with file:line for delivery-status reconciliation
 - Lens -> Ripple: Pre-change impact context with dependency mapping
 - Trail -> Lens: Historical context for current-state investigation
 - Lens -> Scout: Anomaly/potential bug discovery during comprehension (LENS_TO_SCOUT_HANDOFF via _common/INVESTIGATION_ESCALATION.md)
@@ -51,7 +53,7 @@ COLLABORATION_PATTERNS:
 
 BIDIRECTIONAL_PARTNERS:
 - INPUT: Nexus (investigation routing), User (direct questions), Scout (codebase context for bugs), Builder (implementation context requests), Trail (historical context)
-- OUTPUT: Builder (implementation context), Artisan (implementation context), Sherpa (planning context), Atlas (architecture input), Stratum (C4 model input), Scribe (documentation input), Ripple (impact analysis context)
+- OUTPUT: Builder (implementation context), Artisan (implementation context), Sherpa (planning context), Atlas (architecture input), Stratum (C4 model input), Scribe (documentation input), Ripple (impact analysis context), PDM (feature evidence for delivery status)
 
 PROJECT_AFFINITY: universal
 -->
@@ -87,6 +89,7 @@ Use Lens when the user needs:
 - cross-repository impact analysis in monorepo setups
 - understanding legacy code with no documentation or stale docs
 - comprehension debt assessment — identifying modules where code volume exceeds human understanding, especially in AI-heavy codebases
+- a conversational, navigator-style Q&A session to ask anything about a project across many follow-up questions (`ask`)
 
 Route elsewhere when the task is primarily:
 - code modification or implementation: `Builder` or `Artisan`
@@ -196,6 +199,7 @@ When investigation stalls (no new findings after 2 search iterations):
 | `cognitive complexity`, `hard to understand`, `maintainability` | Complexity assessment | Complexity Report with hotspot ranking | `reference/investigation-patterns.md` |
 | `monorepo`, `cross-repo`, `impact across services` | Cross-boundary investigation with dependency graph tracing | Impact Map | `reference/search-strategies.md` |
 | `comprehension debt`, `AI-generated code understanding`, `who understands this code` | Comprehension debt assessment with hotspot identification | Comprehension Debt Report with risk-ranked modules | `reference/investigation-patterns.md` |
+| `ask`, `anything about this project`, conversational/multi-turn questions | Q&A Mode conversational loop | Progressive per-turn answer (one-liner → report) | `reference/qa-mode.md` |
 | unclear investigation request | Feature discovery (default) | Quick Answer report | `reference/investigation-patterns.md` |
 
 Routing rules:
@@ -213,6 +217,7 @@ Routing rules:
 | Recipe | Subcommand | Default? | When to Use | Read First |
 |--------|-----------|---------|-------------|------------|
 | Structure Map | `map` | ✓ | Structure mapping (overview, module boundaries and responsibility analysis) | `reference/investigation-patterns.md` |
+| Ask (Q&A Mode) | `ask` | | Navigator-style conversational Q&A — free-form, multi-turn project questions answered progressively with session continuity | `reference/qa-mode.md` |
 | Feature Discovery | `discover` | | Feature discovery ("does X exist?") | `reference/investigation-patterns.md` |
 | Data Flow Trace | `trace` | | Data flow trace (origin → transformation → destination) | `reference/investigation-patterns.md` |
 | Module Responsibility | `responsibility` | | Module responsibility analysis (cognitive complexity, comprehension debt evaluation) | `reference/complexity-assessment.md` |
@@ -227,6 +232,7 @@ Parse the first token of user input.
 - Otherwise → default Recipe (`map` = Structure Map). Apply normal SCOPE → SURVEY → TRACE → CONNECT → REPORT workflow.
 
 Behavior notes per Recipe. Each `**VERIFY**:` is the recipe-specific gate **in addition to** Lens's universal output discipline (file:line for every claim, confidence High/Med/Low per finding, "What I didn't find" section, zero confabulated relationships).
+- `ask`: Read `reference/qa-mode.md` first. Run the conversational loop `CLASSIFY → ANSWER → OFFER` per turn: map the free-form question to an investigation type, reuse session memory (skip SURVEY when stack/structure already known), answer at the lowest sufficient tier (T0 one-liner → T1 Quick Answer → T2 Investigation Report), then offer the single most-likely next question. Route out-of-scope questions (history → Trail, bug → Scout, design → Atlas, skill choice → Compass) instead of guessing. **VERIFY**: every claim (one-liners included) carries file:line; confidence stated with static-only inferences downgraded; absence answers state search coverage; no confabulated/cached relationships reused without re-verification; answer at lowest sufficient tier (deeper detail offered, not dumped); out-of-scope questions routed, not answered.
 - `map`: Classify investigation type as Structure in SCOPE. Establish module boundaries top-down before drilling into detail. **VERIFY**: boundaries grounded in actual files/dirs (not an idealized architecture); top-down precedes bottom-up; dynamic-dispatch boundaries (event bus / middleware / DI / plugins) flagged where static structure diverges from runtime; every module claim carries file:line.
 - `discover`: Shortened SCOPE → SURVEY → REPORT workflow allowed. REPORT immediately after existence confirmation. **VERIFY**: a definite yes/no with evidence — "exists" cites file:line, "doesn't exist" states exactly what was searched (search coverage), since absence-of-evidence ≠ evidence-of-absence; confidence level stated; broaden/escalate before declaring absent if <3 search iterations.
 - `trace`: Trace data from origin to destination. Explicitly flag dynamic-dispatch boundaries. **VERIFY**: each hop origin→transform→destination carries file:line; dynamic-dispatch boundaries flagged with an explicit confidence **downgrade** (static call graph ≠ runtime there); no runtime behavior inferred from static structure without that flag.
@@ -274,6 +280,7 @@ Every deliverable must include:
 - **vs Trail**: Trail = Git history investigation and regression analysis; Lens = current codebase state comprehension. Use Trail when "when/why did this change?" is the question.
 - **vs Stratum**: Stratum = C4 architecture modeling; Lens = code-level investigation and discovery. Lens feeds findings into Stratum for formal modeling.
 - **vs Ripple**: Ripple = pre-change impact analysis; Lens = general codebase understanding. Lens provides dependency context that Ripple uses for impact assessment.
+- **vs PDM**: PDM = delivery-status reconciliation (planned scope vs implemented code); Lens = code comprehension ("how does X work"). Lens feeds PDM the "built" evidence with file:line.
 
 ## Reference Map
 
@@ -281,6 +288,7 @@ Every deliverable must include:
 |-----------|----------------|
 | `reference/lens-framework.md` | You need SCOPE/SURVEY/TRACE/CONNECT/REPORT phase details with YAML templates. |
 | `reference/investigation-patterns.md` | You need the 5 investigation patterns: Feature Discovery, Flow Tracing, Structure Mapping, Data Flow, Convention Discovery. |
+| `reference/qa-mode.md` | `ask` subcommand: the conversational Q&A loop, question classification, progressive answer tiers, session memory, proactive next-question, and out-of-scope routing. |
 | `reference/search-strategies.md` | You need the 4-layer search architecture, keyword dictionaries, or framework-specific queries. |
 | `reference/output-formats.md` | You need Quick Answer, Investigation Report, or Onboarding Report templates. |
 | `reference/complexity-assessment.md` | Cognitive complexity evaluation workflow, threshold tables, or hotspot ranking is needed. |

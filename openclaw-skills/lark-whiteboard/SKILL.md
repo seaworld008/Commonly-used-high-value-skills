@@ -1,14 +1,14 @@
 ---
 name: lark-whiteboard
 description: '飞书画板：查询和编辑飞书云文档中的画板。支持导出画板为预览图片、导出原始节点结构、使用多种格式更新画板内容。 当用户需要查看画板内容、导出画板图片、编辑画板时使用此 skill。不负责：飞书云文档内容编辑（lark-doc）、文档内嵌电子表格/Base（lark-sheets / lark-base）。'
-version: "1.0.2"
+version: "1.0.3"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-whiteboard"
 license: MIT
 tags: '[feishu, lark, lark-cli, whiteboard, diagram]'
 created_at: "2026-05-19"
-updated_at: "2026-06-16"
+updated_at: "2026-06-21"
 quality: 4
 complexity: advanced
 metadata:
@@ -48,32 +48,6 @@ metadata:
 
 ---
 
-## 更新前检查
-
-画板更新会覆盖节点结构，先做可回退的上下文捕获：
-
-1. `+query --output_as image` 保存当前视觉状态，方便用户确认差异。
-2. `+query --output_as raw` 获取原始节点结构；复杂修改先基于 raw 做最小改动。
-3. 如果用户给的是 Mermaid/PlantUML，先检查语法和图形语义，再调用
-   `+update`。
-4. 更新后再次 `+query --output_as image`，对比关键节点、连线方向、文本和颜色。
-
-## 格式选择
-
-| 场景 | 推荐格式 | 原因 |
-|---|---|---|
-| 小幅文字或颜色调整 | raw | 保留现有布局和节点 id |
-| 新建流程图、时序图、架构图 | Mermaid | 可读性强，便于用户审阅 |
-| UML 类图、组件图、部署图 | PlantUML | 结构表达更稳定 |
-| 需要完全保真编辑 | raw | 避免代码格式转换丢失画板特有属性 |
-
-## 风险边界
-
-- 不要在未导出现状的情况下重绘已有画板。
-- 不要把文档编辑、表格编辑或 Base 记录编辑混入画板更新。
-- 如果导出的代码无法表达原画板元素，改走 raw 更新或说明不可无损转换。
-- 对多人协作画板，先确认用户希望覆盖当前版本，避免覆盖他人刚写入的内容。
-
 ## 不在本 skill 范围
 - 文档内容编辑 → lark-doc [lark-doc](../lark-doc/SKILL.md)
 - 在文档中创建画板 → [lark-doc-whiteboard.md](../lark-doc/references/lark-doc-whiteboard.md)
@@ -94,6 +68,36 @@ source is intentionally concise.
 4. Run the verification command or manual check that proves the result.
 5. Report the outcome, evidence, and any remaining risk.
 ```
+
+## Whiteboard Update Checklist
+
+- Query first in the format that best fits the task: image for visual review,
+  code for Mermaid/PlantUML inspection, and raw JSON only when node-level edits
+  are required.
+- Preserve the original board structure when making small edits. Do not redraw a
+  complex board from scratch unless the user explicitly asks for a redesign.
+- For generated Mermaid or PlantUML, validate the text locally before updating
+  the cloud board so syntax errors do not replace a usable diagram.
+- After `+update`, run `+query --output_as image` and inspect the preview path or
+  rendered image before reporting completion.
+- When the source board contains sensitive org charts, roadmaps, or incident
+  diagrams, summarize only the needed change and avoid pasting full raw node JSON
+  into chat.
+
+```bash
+npx -y @larksuite/whiteboard-cli@^0.2.11 +query --help
+npx -y @larksuite/whiteboard-cli@^0.2.11 +query --output_as raw --token "<doc_or_board_token>"
+npx -y @larksuite/whiteboard-cli@^0.2.11 +update --input_format mermaid --token "<doc_or_board_token>" --file diagram.mmd
+```
+
+## Review Before Reporting
+
+- Confirm whether the board was updated as user or bot identity.
+- Note the input format used for the update.
+- Include the verification action, such as a fresh image export or code query.
+- Mention any nodes intentionally left unchanged.
+- If the update failed because of permission, token, or unsupported node types,
+  report the exact command class and the next recoverable action.
 
 ## Boundaries
 

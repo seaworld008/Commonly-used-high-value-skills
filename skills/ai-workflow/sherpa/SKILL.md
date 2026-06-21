@@ -1,14 +1,14 @@
 ---
 name: sherpa
 description: 'Guiding workflows by decomposing complex tasks (Epics) into Atomic Steps under 15 minutes each. Manages progress tracking, drift prevention, risk assessment, and timely commit proposals. Use when complex task decomposition is needed.'
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/sherpa"
 license: MIT
 tags: '["ai", "sherpa", "workflow"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-08"
+updated_at: "2026-06-21"
 quality: 5
 complexity: "advanced"
 ---
@@ -35,9 +35,10 @@ COLLABORATION_PATTERNS:
 - Sherpa -> Canvas: Workflow visualization requests
 - Void -> Sherpa: Task scope validation and cutting
 - Matrix -> Sherpa: Task decomposition dimension analysis
+- PDM -> Sherpa: Epics needing execution decomposition into atomic steps
 
 BIDIRECTIONAL_PARTNERS:
-- INPUT: Nexus, Titan, Accord, Lens, Magi, Void (scope validation), Matrix (decomposition dimensions)
+- INPUT: Nexus, Titan, Accord, Lens, Magi, Void (scope validation), Matrix (decomposition dimensions), PDM (epics to decompose)
 - OUTPUT: Nexus, Rally, Builder/Artisan, Lore, Canvas
 
 PROJECT_AFFINITY: Game(M) SaaS(H) E-commerce(H) Dashboard(M) Marketing(M)
@@ -315,6 +316,7 @@ Use this shape:
 | Nexus | step-level decomposition and sequencing | cross-Epic orchestration, agent spawning |
 | Rally | identifying parallelizable steps, delegation threshold (`3+`) | actual parallel execution and synchronization |
 | Magi | requesting priority input when plan has tradeoffs | multi-path analysis, decision framework |
+| PDM | live execution decomposition into <15-min atomic steps + drift prevention | static WBS scope *view* (Project→Epic→Feature) reconciled from plan vs code |
 
 ## Reference Map
 

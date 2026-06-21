@@ -5,12 +5,12 @@
 [![简体中文](https://img.shields.io/badge/README-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1677ff)](./README.md)
 [![English](https://img.shields.io/badge/README-English-111111)](./README.en.md)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b894)](./openclaw-skills/README.md)
-[![Skills](https://img.shields.io/badge/Skills-304-7c3aed)](./skills/)
+[![Skills](https://img.shields.io/badge/Skills-306-7c3aed)](./skills/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
 A high-value skills repository for AI developers, organized by real work scenarios such as developer engineering, DevOps, automation, finance, design, knowledge workflows, and reliability.
 
-This repository currently contains **16 categories / 304 skills**.
+This repository currently contains **16 categories / 306 skills**.
 
 ## Who This Is For
 
@@ -274,7 +274,7 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 2. Open the relevant `SKILL.md` and read its triggers, workflow, boundaries, and scripts.
 3. If a skill includes `scripts/`, `references/`, or `assets/`, reuse those files before recreating similar content.
 
-## Skill Overview (by category, 16 categories / 304 skills)
+## Skill Overview (by category, 16 categories / 306 skills)
 
 <a id="cat-developer-engineering"></a>
 ### 1. Developer Engineering (developer-engineering, 50)
@@ -578,12 +578,13 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`voice`](./skills/product-design/voice/)
 
 <a id="cat-security-reliability"></a>
-### 12. Security and Reliability (security-and-reliability, 19)
+### 12. Security and Reliability (security-and-reliability, 21)
 
 - [`breach`](./skills/security-and-reliability/breach/)
 - [`cloak`](./skills/security-and-reliability/cloak/)
 - [`codeql-security-scanner`](./skills/security-and-reliability/codeql-security-scanner/)
 - [`comply`](./skills/security-and-reliability/comply/)
+- [`gha-security-review`](./skills/security-and-reliability/gha-security-review/)
 - [`grype-syft-sbom-scanner`](./skills/security-and-reliability/grype-syft-sbom-scanner/)
 - [`information-security-manager-iso27001`](./skills/security-and-reliability/information-security-manager-iso27001/)
 - [`link-checker`](./skills/security-and-reliability/link-checker/)
@@ -592,6 +593,7 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`security-best-practices`](./skills/security-and-reliability/security-best-practices/)
 - [`security-ownership-map`](./skills/security-and-reliability/security-ownership-map/)
 - [`security-pen-testing`](./skills/security-and-reliability/security-pen-testing/)
+- [`security-review`](./skills/security-and-reliability/security-review/)
 - [`security-threat-model`](./skills/security-and-reliability/security-threat-model/)
 - [`semgrep-appsec-scanner`](./skills/security-and-reliability/semgrep-appsec-scanner/)
 - [`sentry`](./skills/security-and-reliability/sentry/)

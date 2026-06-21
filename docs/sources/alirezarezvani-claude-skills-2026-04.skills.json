@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://github.com/alirezarezvani/claude-skills",
-    "checked_at": "2026-06-16",
+    "checked_at": "2026-06-21",
     "note": "Curated from alirezarezvani/claude-skills with upstream tracking enabled."
   },
   "official_references": [
@@ -23,8 +23,8 @@
         "repo": "alirezarezvani/claude-skills",
         "path": "engineering/agenthub/skills/agenthub/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-05-28",
-        "last_synced_at": "2026-05-28",
+        "last_checked_at": "2026-06-21",
+        "last_synced_at": "2026-06-21",
         "last_synced_commit": null
       }
     },

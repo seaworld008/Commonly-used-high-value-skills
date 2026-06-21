@@ -1,14 +1,14 @@
 ---
 name: systematic-debugging
 description: 'Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes'
-version: "1.0.1"
+version: "1.0.2"
 author: seaworld008
 source: "github:obra/superpowers"
 source_url: "https://github.com/obra/superpowers/tree/main/skills/systematic-debugging"
 license: MIT
 tags: '["debugging", "development", "systematic"]'
 created_at: "2026-03-27"
-updated_at: "2026-04-24"
+updated_at: "2026-06-21"
 quality: 4
 complexity: intermediate
 ---
@@ -247,7 +247,7 @@ If you catch yourself thinking:
 - "Is that not happening?" - You assumed without verifying
 - "Will it show us...?" - You should have added evidence gathering
 - "Stop guessing" - You're proposing fixes without understanding
-- "Ultrathink this" - Question fundamentals, not just symptoms
+- "Ultra-think this" - Question fundamentals, not just symptoms
 - "We're stuck?" (frustrated) - Your approach isn't working
 
 **When you see these:** STOP. Return to Phase 1.

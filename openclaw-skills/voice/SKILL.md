@@ -1,14 +1,14 @@
 ---
 name: voice
 description: 'Collecting user feedback via NPS surveys, review analysis, sentiment analysis, feedback classification, and insight extraction reports. Use when establishing feedback loops.'
-version: "1.0.6"
+version: "1.0.7"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/voice"
 license: MIT
 tags: '["design", "product", "voice"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-16"
+updated_at: "2026-06-21"
 quality: 5
 complexity: "advanced"
 ---
@@ -160,14 +160,14 @@ Parse the first token of user input.
 - Otherwise → default Recipe (`nps` = NPS Survey). Apply normal COLLECT → ANALYZE → AMPLIFY workflow.
 
 Behavior notes per Recipe:
-- `nps`: スコアバンド (0-6/7-8/9-10) を厳守。関係 NPS は四半期、トランザクション NPS はマイルストーン直後に実施。
-- `review`: 2 チャネル以上の入力を Multi-Channel Synthesis で統合。コンタミネーションゲート必須。
-- `sentiment`: LLM ベース分析時は MVP (Model Variability Problem) 対策としてアンサンブルと不確実性定量化を適用。
-- `classify`: フィードバック分類後にオーナー推薦と優先度マトリクスを添付。
-- `insight`: パターン優先・個別事例非優先。セグメント・ジャーニーステージ・ビジネスインパクトと連携。
-- `kano`: ペア質問 (functional + dysfunctional) を Berger 行列で分類。Better/Worse 係数で優先度を提示。Delighter は時間で減衰するため 12-18 ヶ月で再測定。
-- `thematic`: Braun & Clarke 6 フェーズを順守。飽和曲線で停止判断、複数コーダー時は κ または α でエージェント間一致を測定。
-- `csat`: CSAT は 1-5 / Top-Two-Box、CES は 1-7 / 平均で報告。NPS と 3 軸トライアンギュレーションし「高 CSAT × 低 CES」の沈黙離反コホートを必ず可視化。
+- `nps`: Strictly enforce score bands (0-6/7-8/9-10). Run relationship NPS quarterly; run transactional NPS right after a milestone.
+- `review`: Integrate input from 2+ channels via Multi-Channel Synthesis. Contamination gate required.
+- `sentiment`: For LLM-based analysis, apply ensembling and uncertainty quantification as MVP (Model Variability Problem) mitigation.
+- `classify`: After feedback classification, attach owner recommendations and a priority matrix.
+- `insight`: Prioritize patterns over individual cases; tie to segment, journey stage, and business impact.
+- `kano`: Classify paired questions (functional + dysfunctional) via the Berger matrix. Present priority via Better/Worse coefficients. Delighters decay over time — re-measure every 12-18 months.
+- `thematic`: Follow Braun & Clarke's 6 phases. Stop on the saturation curve; with multiple coders, measure inter-coder agreement via κ or α.
+- `csat`: Report CSAT as 1-5 / Top-Two-Box and CES as 1-7 / mean. Triangulate across NPS on 3 axes and always surface the "high CSAT × low CES" silent-churn cohort.
 
 ## Output Routing
 
@@ -226,7 +226,7 @@ Routing rules:
 | Voice → Echo | `VOICE_TO_ECHO` | Persona-specific complaints for journey validation |
 | Voice → Scout | `VOICE_TO_SCOUT` | Bug-heavy feedback for root cause investigation |
 | Beacon → Voice | `BEACON_TO_VOICE` | Customer-facing SLO breach signals for feedback correlation |
-| Trace → Voice | `TRACE_TO_VOICE` | 行動フラストレーション検出に基づくターゲットサーベイ設計 |
+| Trace → Voice | `TRACE_TO_VOICE` | Targeted-survey design from behavioral frustration detection |
 
 Overlap boundaries:
 

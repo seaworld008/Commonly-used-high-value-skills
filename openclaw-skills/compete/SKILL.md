@@ -1,14 +1,14 @@
 ---
 name: compete
 description: 'Researching competitors, analyzing differentiation, and shaping strategic positioning. Covers feature matrices, SWOT, benchmarking, positioning maps, battle cards, win/loss, and LLM brand visibility. Research only — no code. Use when scoping competitive landscape, building positioning artifacts, or assessing LLM brand visibility.'
-version: "1.0.6"
+version: "1.0.7"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/compete"
 license: MIT
 tags: '["compete", "growth", "marketing"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-08"
+updated_at: "2026-06-21"
 quality: 5
 complexity: "advanced"
 ---
@@ -38,12 +38,13 @@ COLLABORATION_PATTERNS:
 - Compete -> Helm: Strategic simulation or scenario planning
 - Compete -> Lore: Validated recurring patterns become shared knowledge
 - Compete -> Oracle: LLM brand visibility analysis needs AI/ML expertise
+- Compete -> PMM: Competitive frame and differentiation input for positioning
 - Flux -> Compete: Market assumption reframing and differentiation axis discovery
 - Compete -> Field: COMPETE_TO_RESEARCHER — interview design suggestions based on win/loss analysis results
 
 BIDIRECTIONAL_PARTNERS:
 - INPUT: Voice (customer feedback), Pulse (product metrics), Nexus (task routing), Flux (market assumption reframing)
-- OUTPUT: Spark (feature ideas), Growth (positioning/SEO), Canvas (visual maps), Helm (strategic simulation), Lore (validated patterns), Oracle (LLM visibility), Field (win/loss interview design)
+- OUTPUT: Spark (feature ideas), Growth (positioning/SEO), Canvas (visual maps), Helm (strategic simulation), Lore (validated patterns), Oracle (LLM visibility), Field (win/loss interview design), PMM (competitive frame for positioning)
 
 PROJECT_AFFINITY: SaaS(H) E-commerce(H) API(M) Mobile(M) Dashboard(L)
 -->
@@ -306,6 +307,7 @@ When analyzing `5+` competitors across multiple segments, spawn 2-3 Explore suba
 | `reference/battle-card.md` | Designing battle card, freshness governance, GTM distribution, win-rate lift |
 | `reference/winloss-analysis.md` | Post-decision interviews, segmentation, theme coding, cadence, CRM integration |
 | `reference/moat-7-powers.md` | Helmer 7 Powers scoring, durability, Counter-Positioning vs differentiation, anti-moats |
+| `reference/brand-equity.md` | Measuring brand strength via Keller's CBBE pyramid (salience→resonance), brand-equity metrics, brand-as-moat diagnosis vs competitors |
 | `reference/multi-engine-mode.md` | `multi` Recipe operational detail — engine-bias rationale, scoring semantics, degraded-mode matrix |
 | `reference/tri-engine-compete.md` | `multi` algorithm, JSON schema, CLUSTER identity rules, per-artifact SYNTHESIZE patterns, subagent prompts |
 | `reference/benchmarks-thresholds.md` | Full numeric thresholds — calibration, battlecard adoption, win-rate, GEO, seller-adoption baselines |

@@ -1,14 +1,14 @@
 ---
 name: agent-hub
 description: 'Multi-agent collaboration plugin that spawns N parallel subagents competing on the same task via git worktree isolation. Agents work independently, results are evaluated by metric or LLM judge, and the best branch is merged. Use when: user wants multiple approaches tried in parallel — code optimization, content variation, research exploration, or any task that benefits from parallel competition. Requires: a git repo.'
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:alirezarezvani/claude-skills"
 source_url: ""
 license: MIT
 tags: '["agent", "ai", "hub"]'
 created_at: "2026-03-27"
-updated_at: "2026-05-28"
+updated_at: "2026-06-21"
 quality: 4
 complexity: "intermediate"
 ---
@@ -241,7 +241,7 @@ The coordinator should act when:
 cp -r engineering/agenthub ~/.claude/skills/agenthub
 
 # Or install via ClawHub
-npx clawhub@latest install agenthub
+clawhub install agenthub
 ```
 
 ## Scripts
