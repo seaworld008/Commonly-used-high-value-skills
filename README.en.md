@@ -5,12 +5,12 @@
 [![简体中文](https://img.shields.io/badge/README-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1677ff)](./README.md)
 [![English](https://img.shields.io/badge/README-English-111111)](./README.en.md)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b894)](./openclaw-skills/README.md)
-[![Skills](https://img.shields.io/badge/Skills-306-7c3aed)](./skills/)
+[![Skills](https://img.shields.io/badge/Skills-307-7c3aed)](./skills/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
 A high-value skills repository for AI developers, organized by real work scenarios such as developer engineering, DevOps, automation, finance, design, knowledge workflows, and reliability.
 
-This repository currently contains **16 categories / 306 skills**.
+This repository currently contains **16 categories / 307 skills**.
 
 ## Who This Is For
 
@@ -274,7 +274,7 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 2. Open the relevant `SKILL.md` and read its triggers, workflow, boundaries, and scripts.
 3. If a skill includes `scripts/`, `references/`, or `assets/`, reuse those files before recreating similar content.
 
-## Skill Overview (by category, 16 categories / 306 skills)
+## Skill Overview (by category, 16 categories / 307 skills)
 
 <a id="cat-developer-engineering"></a>
 ### 1. Developer Engineering (developer-engineering, 50)
@@ -459,7 +459,7 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`stock-screener-builder`](./skills/finance-investing/stock-screener-builder/)
 
 <a id="cat-growth-operations"></a>
-### 7. Growth Operations (growth-operations-xiaohongshu, 15)
+### 7. Growth Operations (growth-operations-xiaohongshu, 16)
 
 - [`algorithmic-art`](./skills/growth-operations-xiaohongshu/algorithmic-art/)
 - [`app-store-optimization`](./skills/growth-operations-xiaohongshu/app-store-optimization/)
@@ -476,6 +476,7 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`social-media-analyzer`](./skills/growth-operations-xiaohongshu/social-media-analyzer/)
 - [`tweetclaw-source-research`](./skills/growth-operations-xiaohongshu/tweetclaw-source-research/)
 - [`twitter-reader`](./skills/growth-operations-xiaohongshu/twitter-reader/)
+- [`x-twitter-scraper`](./skills/growth-operations-xiaohongshu/x-twitter-scraper/)
 
 <a id="cat-office-white-collar"></a>
 ### 8. Office and Documents (office-white-collar, 20)

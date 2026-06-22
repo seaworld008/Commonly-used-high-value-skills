@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "generated_at": "2026-06-08",
-  "total_skills": 306,
+  "total_skills": 307,
   "total_categories": 16,
   "categories": [
     {
@@ -37,11 +37,11 @@
       "count": 16
     },
     {
-      "name": "devops-sre",
-      "count": 15
+      "name": "growth-operations-xiaohongshu",
+      "count": 16
     },
     {
-      "name": "growth-operations-xiaohongshu",
+      "name": "devops-sre",
       "count": 15
     },
     {
@@ -3823,6 +3823,29 @@
       "updated_at": "2026-03-20",
       "line_count": 81,
       "path": "skills/growth-operations-xiaohongshu/twitter-reader/SKILL.md"
+    },
+    {
+      "name": "x-twitter-scraper",
+      "category": "growth-operations-xiaohongshu",
+      "description": "Use Xquik for authorized X/Twitter data workflows, including tweet search, profile reads, follower exports, media lookup, monitoring, webhooks, REST API calls, SDK usage, and MCP setup.",
+      "version": "1.0.0",
+      "author": "Xquik-dev",
+      "source": "github:Xquik-dev/x-twitter-scraper",
+      "source_url": "https://github.com/Xquik-dev/x-twitter-scraper",
+      "tags": [
+        "growth",
+        "social-media",
+        "twitter",
+        "x",
+        "api",
+        "mcp"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-06-22",
+      "updated_at": "2026-06-22",
+      "line_count": 126,
+      "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/SKILL.md"
     },
     {
       "name": "arxiv",
