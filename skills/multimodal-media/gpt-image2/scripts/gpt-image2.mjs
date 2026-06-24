@@ -7,7 +7,7 @@ import { fileURLToPath } from "node:url";
 
 const DEFAULT_PROMPT = "";
 const DEFAULT_MODEL = "gpt-image-2";
-const DEFAULT_BASE_URL = "";
+const DEFAULT_BASE_URL = "https://api.openai.com/v1";
 const DEFAULT_TIMEOUT_MS = 240_000;
 const DEFAULT_N = 1;
 const DEFAULT_RESOLUTION = "1k";
@@ -61,6 +61,19 @@ const SUPPORTED_REFERENCE_IMAGE_MIME_TYPES = new Set(IMAGE_MIME_BY_EXT.values())
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const DOTENV_PATH = path.join(__dirname, ".env");
+const API_KEY_ENV_KEYS = [
+  "GPT_IMAGE2_API_KEY",
+  "OPENAI_API_KEY",
+  "CODEX_OPENAI_API_KEY",
+];
+const BASE_URL_ENV_KEYS = [
+  "GPT_IMAGE2_BASE_URL",
+  "OPENAI_BASE_URL",
+  "OPENAI_API_BASE_URL",
+  "OPENAI_API_BASE",
+  "CODEX_OPENAI_BASE_URL",
+  "CODEX_OPENAI_API_BASE_URL",
+];
 
 function nowText() {
   return new Date().toTimeString().slice(0, 8);
@@ -98,8 +111,8 @@ function printHelp() {
   --aspect-ratio <ratio>   宽高比，例如 1:1、16:9、9:16；未指定时默认读取 .env 的 GPT_IMAGE2_ASPECT_RATIO，未设置则 ${DEFAULT_ASPECT_RATIO}
   --quality <auto|low|medium|high>
                             默认画图通道未指定时使用 low；官方兼容模式未指定则不传
-  --base-url <url>         接口地址，默认读取 .env 的 GPT_IMAGE2_BASE_URL
-  --api-key <key>          API Key，默认读取 .env 的 GPT_IMAGE2_API_KEY
+  --base-url <url>         接口地址；默认读取 GPT_IMAGE2_BASE_URL，再回退到 OPENAI_BASE_URL / CODEX_OPENAI_BASE_URL
+  --api-key <key>          API Key；默认读取 GPT_IMAGE2_API_KEY，再回退到 OPENAI_API_KEY / CODEX_OPENAI_API_KEY
   --out-dir <path>         输出目录，默认读取 .env 的 GPT_IMAGE2_OUT_DIR，未设置则 ./image2_output
   --timeout-ms <number>    请求超时毫秒数，默认读取 .env 的 GPT_IMAGE2_TIMEOUT_MS，未设置则 ${DEFAULT_TIMEOUT_MS}
   --dry-run                只打印将要请求的 URL 和请求形态，不调用接口、不扣费
@@ -143,6 +156,22 @@ function loadDotEnv(filePath) {
   }
 
   return env;
+}
+
+function pickConfigValue(dotenvConfig, keys, fallback = "") {
+  for (const key of keys) {
+    const processValue = process.env[key];
+    if (processValue && String(processValue).trim()) {
+      return String(processValue).trim();
+    }
+  }
+  for (const key of keys) {
+    const dotenvValue = dotenvConfig[key];
+    if (dotenvValue && String(dotenvValue).trim()) {
+      return String(dotenvValue).trim();
+    }
+  }
+  return fallback;
 }
 
 function parsePositiveInt(value, name) {
@@ -308,9 +337,8 @@ function parseArgs(argv, dotenvConfig) {
       process.env.GPT_IMAGE2_QUALITY || dotenvConfig.GPT_IMAGE2_QUALITY || "",
       "GPT_IMAGE2_QUALITY",
     ),
-    baseUrl:
-      process.env.GPT_IMAGE2_BASE_URL || dotenvConfig.GPT_IMAGE2_BASE_URL || DEFAULT_BASE_URL,
-    apiKey: process.env.GPT_IMAGE2_API_KEY || dotenvConfig.GPT_IMAGE2_API_KEY || "",
+    baseUrl: pickConfigValue(dotenvConfig, BASE_URL_ENV_KEYS, DEFAULT_BASE_URL),
+    apiKey: pickConfigValue(dotenvConfig, API_KEY_ENV_KEYS, ""),
     outDir: resolveOutputDir(
       process.env.GPT_IMAGE2_OUT_DIR || dotenvConfig.GPT_IMAGE2_OUT_DIR || "./image2_output",
     ),
@@ -674,7 +702,7 @@ async function main() {
   const dotenvConfig = loadDotEnv(DOTENV_PATH);
   const options = parseArgs(process.argv.slice(2), dotenvConfig);
   if (!options.apiKey) {
-    throw new Error("缺少接口配置，请提供 URL 和 sk，或在脚本同目录的 .env / 命令行中传入");
+    throw new Error("缺少接口配置，请设置 GPT_IMAGE2_API_KEY、OPENAI_API_KEY 或 CODEX_OPENAI_API_KEY");
   }
   if (!options.baseUrl) {
     throw new Error("缺少接口配置，请提供 URL，或在脚本同目录的 .env / 命令行中传入");

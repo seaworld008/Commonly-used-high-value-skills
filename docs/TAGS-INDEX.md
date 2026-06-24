@@ -1805,7 +1805,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [gsd-graphify-brownfield-bootstrap](skills/engineering-workflow-automation/gsd-graphify-brownfield-bootstrap) | engineering-workflow-automation | ★★★★★ | Bootstrap GSD + graphify for an existing brownfield repo when the project needs  |
-| [gpt-image2](skills/multimodal-media/gpt-image2) | multimodal-media | ★★★★☆ | Use when the user asks Codex to directly generate images with a locally configur |
+| [gpt-image2](skills/multimodal-media/gpt-image2) | multimodal-media | ★★★★☆ | Use when the user asks Codex to directly generate images with gpt-image-2 using  |
 
 ## configuration
 
@@ -3269,7 +3269,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [gpt-image2](skills/multimodal-media/gpt-image2) | multimodal-media | ★★★★☆ | Use when the user asks Codex to directly generate images with a locally configur |
+| [gpt-image2](skills/multimodal-media/gpt-image2) | multimodal-media | ★★★★☆ | Use when the user asks Codex to directly generate images with gpt-image-2 using  |
 
 ## grove
 
@@ -3405,7 +3405,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [gpt-image2](skills/multimodal-media/gpt-image2) | multimodal-media | ★★★★☆ | Use when the user asks Codex to directly generate images with a locally configur |
+| [gpt-image2](skills/multimodal-media/gpt-image2) | multimodal-media | ★★★★☆ | Use when the user asks Codex to directly generate images with gpt-image-2 using  |
 
 ## imagegen
 
@@ -3765,7 +3765,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [gpt-image2](skills/multimodal-media/gpt-image2) | multimodal-media | ★★★★☆ | Use when the user asks Codex to directly generate images with a locally configur |
+| [gpt-image2](skills/multimodal-media/gpt-image2) | multimodal-media | ★★★★☆ | Use when the user asks Codex to directly generate images with gpt-image-2 using  |
 
 ## natural-language-programming
 
