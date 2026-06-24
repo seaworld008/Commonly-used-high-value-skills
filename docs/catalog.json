@@ -4645,7 +4645,7 @@
     {
       "name": "gpt-image2",
       "category": "multimodal-media",
-      "description": "Use when the user asks Codex to directly generate images with a locally configured gpt-image-2 compatible drawing service, including text-to-image, reference-image guided generation, ratios, resolution, quality, variants, and saved local image files; run the bundled Node CLI and keep URL/sk configuration private.",
+      "description": "Use when the user asks Codex to directly generate images with gpt-image-2 using inherited OpenAI/Codex-compatible environment credentials or local GPT_IMAGE2_* overrides, including text-to-image, reference-image guided generation, ratios, resolution, quality, variants, and saved local image files; run the bundled Node CLI and keep URL/sk configuration private.",
       "version": "1.0.0",
       "author": "seaworld008",
       "source": "in-house",
@@ -4660,7 +4660,7 @@
       "complexity": "intermediate",
       "created_at": "2026-06-24",
       "updated_at": "2026-06-24",
-      "line_count": 252,
+      "line_count": 270,
       "path": "skills/multimodal-media/gpt-image2/SKILL.md"
     },
     {
