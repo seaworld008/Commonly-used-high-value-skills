@@ -1,14 +1,14 @@
 ---
 name: incremental-implementation
 description: 'Delivers changes incrementally. Use when implementing any feature or change that touches more than one file. Use when you''re about to write a large amount of code at once, or when a task feels too big to land in one step.'
-version: "1.0.1"
+version: "1.0.2"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/incremental-implementation/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "incremental-implementation", "workflow"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-19"
+updated_at: "2026-06-24"
 quality: 5
 complexity: advanced
 upstream_slug: incremental-implementation
@@ -254,3 +254,7 @@ After completing all increments for a task:
 - [ ] The build is clean
 - [ ] The feature works end-to-end as specified
 - [ ] No uncommitted changes remain
+
+## See Also
+
+Per-increment verification is the local check. Before declaring a task done, apply the project-wide Definition of Done as the final gate, the standing bar every increment clears regardless of the task. See `references/definition-of-done.md`.

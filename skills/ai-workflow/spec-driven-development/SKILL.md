@@ -1,14 +1,14 @@
 ---
 name: spec-driven-development
 description: 'Creates specs before coding. Use when starting a new project, feature, or significant change and no specification exists yet. Use when requirements are unclear, ambiguous, or only exist as a vague idea.'
-version: "1.0.1"
+version: "1.0.2"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/spec-driven-development/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "spec-driven-development", "workflow"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-19"
+updated_at: "2026-06-24"
 quality: 5
 complexity: advanced
 upstream_slug: spec-driven-development
@@ -149,6 +149,8 @@ With the validated spec, generate a technical implementation plan:
 4. Identify what can be built in parallel vs. what must be sequential
 5. Define verification checkpoints between phases
 
+> Follow `planning-and-task-breakdown` for the dependency-graph mapping and vertical-slicing mechanics behind these steps; it is the canonical source. The bullets above are a lightweight summary; if they ever diverge, `planning-and-task-breakdown` takes precedence.
+
 The plan should be reviewable: the human should be able to read it and say "yes, that's the right approach" or "no, change X."
 
 ### Phase 3: Tasks
@@ -160,6 +162,8 @@ Break the plan into discrete, implementable tasks:
 - Each task includes a verification step (test, build, manual check)
 - Tasks are ordered by dependency, not by perceived importance
 - No task should require changing more than ~5 files
+
+> Follow `planning-and-task-breakdown` for the full task-sizing and dependency-ordering mechanics; it is the canonical source. The template below is a lightweight inline form; if they ever diverge, `planning-and-task-breakdown` takes precedence.
 
 **Task template:**
 ```markdown

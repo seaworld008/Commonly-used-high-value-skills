@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://github.com/larksuite/cli",
-    "checked_at": "2026-06-21",
+    "checked_at": "2026-06-24",
     "note": "Official Lark/Feishu CLI AI Agent Skills import, including auxiliary references/scripts/assets copied with each skill."
   },
   "official_references": [
@@ -108,8 +108,8 @@
         "repo": "larksuite/cli",
         "path": "skills/lark-doc/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-21",
-        "last_synced_at": "2026-06-21",
+        "last_checked_at": "2026-06-24",
+        "last_synced_at": "2026-06-24",
         "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
       }
     },
@@ -124,8 +124,8 @@
         "repo": "larksuite/cli",
         "path": "skills/lark-drive/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-16",
-        "last_synced_at": "2026-06-16",
+        "last_checked_at": "2026-06-24",
+        "last_synced_at": "2026-06-24",
         "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
       }
     },
@@ -172,8 +172,8 @@
         "repo": "larksuite/cli",
         "path": "skills/lark-mail/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-16",
-        "last_synced_at": "2026-06-16",
+        "last_checked_at": "2026-06-24",
+        "last_synced_at": "2026-06-24",
         "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
       }
     },
@@ -300,8 +300,8 @@
         "repo": "larksuite/cli",
         "path": "skills/lark-slides/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-08",
-        "last_synced_at": "2026-06-08",
+        "last_checked_at": "2026-06-24",
+        "last_synced_at": "2026-06-24",
         "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
       }
     },

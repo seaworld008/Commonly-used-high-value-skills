@@ -8,7 +8,8 @@ import sys
 import time
 from pathlib import Path
 
-_GRAPHIFY_OUT = os.environ.get("GRAPHIFY_OUT", "graphify-out")
+# Single source of truth in graphify.paths (#1423); re-exported as _GRAPHIFY_OUT.
+from graphify.paths import GRAPHIFY_OUT as _GRAPHIFY_OUT
 _PENDING_FILENAME = ".pending_changes"
 _PENDING_DRAIN_MAX_PASSES = 20
 

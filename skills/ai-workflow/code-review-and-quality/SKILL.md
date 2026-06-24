@@ -1,14 +1,14 @@
 ---
 name: code-review-and-quality
 description: 'Conducts multi-axis code review. Use before merging any change. Use when reviewing code written by yourself, another agent, or a human. Use when you need to assess code quality across multiple dimensions before it enters the main branch.'
-version: "1.0.1"
+version: "1.0.2"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/code-review-and-quality/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "code-review-and-quality", "engineering", "workflow"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-21"
+updated_at: "2026-06-24"
 quality: 5
 complexity: advanced
 upstream_slug: code-review-and-quality
@@ -56,6 +56,8 @@ Can another engineer (or agent) understand this code without the author explaini
 - **Are abstractions earning their complexity?** (Don't generalize until the third use case)
 - Would comments help clarify non-obvious intent? (But don't comment obvious code.)
 - Are there dead code artifacts: no-op variables (`_unused`), backwards-compat shims, or `// removed` comments?
+- **Is a new conditional bolted onto an unrelated flow?** That's a design smell, not a nit — push the logic into its own helper, state, or policy instead of tangling an existing path.
+- **Do repeated conditionals on the same shape appear?** They signal a missing model or dispatcher. A "temporary" branch is usually permanent debt.
 
 ### 3. Architecture
 
@@ -66,6 +68,9 @@ Does the change fit the system's design?
 - Is there code duplication that should be shared?
 - Are dependencies flowing in the right direction (no circular dependencies)?
 - Is the abstraction level appropriate (not over-engineered, not too coupled)?
+- **Does this refactor reduce complexity or just relocate it?** Count the concepts a reader must hold to follow the change. If a "cleaner" version leaves that count unchanged, it isn't cleaner — prefer the restructuring that makes whole branches, modes, or layers disappear over one that re-centralizes the same logic. Prefer deleting an abstraction to polishing it.
+- **Is feature-specific logic leaking into a shared or general-purpose module?** Keep logic in its owning layer, reuse the existing canonical helper instead of a near-duplicate, and don't normalize architectural drift.
+- **Are type boundaries explicit?** Question gratuitous `any`/`unknown`/optional/casts and silent fallbacks that paper over an unclear invariant — making the boundary explicit often makes the surrounding control flow simpler.
 
 ### 4. Security
 
@@ -91,6 +96,21 @@ For detailed profiling and optimization, see `performance-optimization`. Does th
 - Any missing pagination on list endpoints?
 - Any large objects created in hot paths?
 
+## Structural Remedies
+
+When you flag a structural problem, propose the move — not just the problem. A review that only says "this is complex" leaves the author guessing. Reach for a named restructuring:
+
+- **Replace a chain of conditionals** with a typed model or an explicit dispatcher.
+- **Collapse duplicate branches** into a single clearer flow.
+- **Separate orchestration from business logic** so each reads on its own.
+- **Move feature-specific logic** out of a shared module into the package that owns the concept.
+- **Reuse the canonical helper** instead of a bespoke near-duplicate.
+- **Make a type boundary explicit** so downstream branching disappears.
+- **Delete a pass-through wrapper** that adds indirection without clarifying the API.
+- **Extract a helper, or split a large file** into focused modules.
+
+Prefer the remedy that removes moving pieces over one that spreads the same complexity around.
+
 ## Change Sizing
 
 Small, focused changes are easier to review, faster to merge, and safer to deploy. Target these sizes:
@@ -100,6 +120,8 @@ Small, focused changes are easier to review, faster to merge, and safer to deplo
 ~300 lines changed   → Acceptable if it's a single logical change.
 ~1000 lines changed  → Too large. Split it.
 ```
+
+**Watch file size, not just diff size.** A small diff can still push a file past a healthy boundary — around 1000 *total* lines in a single file (distinct from the ~1000 *changed*-lines threshold above) is a common inspection signal, not a hard cap. When a change materially grows an already-large file, ask whether to extract helpers, subcomponents, or modules *first*, before piling more on. Decompose, then add.
 
 **What counts as "one change":** A single self-contained modification that addresses one thing, includes related tests, and keeps the system functional after submission. One part of a feature — not the whole feature.
 
@@ -176,6 +198,8 @@ Label every comment with its severity so the author knows what's required vs opt
 | **FYI** | Informational only | No action needed — context for future reference |
 
 This prevents authors from treating all feedback as mandatory and wasting time on optional suggestions.
+
+**Lead with what matters.** Order findings by leverage: correctness and security first, then structural regressions and missed simplifications, then everything else. Don't bury a real issue under cosmetic nits — a few high-conviction comments beat a long list. If you have one structural problem and ten nits, the structural problem *is* the review.
 
 ### Step 5: Verify the Verification
 
@@ -299,6 +323,8 @@ Part of code review is dependency review:
 - [ ] Follows existing patterns
 - [ ] No unnecessary coupling or dependencies
 - [ ] Appropriate abstraction level
+- [ ] Refactors reduce complexity rather than relocate it
+- [ ] No feature logic in shared modules; file stays within a healthy size
 
 ### Security
 - [ ] No secrets in code
@@ -335,6 +361,8 @@ Part of code review is dependency review:
 | "We'll clean it up later" | Later never comes. The review is the quality gate — use it. Require cleanup before merge, not after. |
 | "AI-generated code is probably fine" | AI code needs more scrutiny, not less. It's confident and plausible, even when wrong. |
 | "The tests pass, so it's good" | Tests are necessary but not sufficient. They don't catch architecture problems, security issues, or readability concerns. |
+| "The refactor makes it cleaner" | Relocating complexity isn't reducing it. If the reader still holds the same number of concepts, the structure didn't improve — look for the version where branches disappear. |
+| "It's only a small addition to this file" | Small diffs still push files past a healthy size and bolt branches onto unrelated flows. Judge the resulting structure, not the diff size. |
 
 ## Red Flags
 
@@ -346,6 +374,10 @@ Part of code review is dependency review:
 - No regression tests with bug fix PRs
 - Review comments without severity labels — makes it unclear what's required vs optional
 - Accepting "I'll fix it later" — it never happens
+- A refactor that moves code around without reducing the number of concepts a reader must hold
+- A change that grows an already-large file instead of decomposing it
+- New conditionals scattered into unrelated code paths (a missing abstraction)
+- A bespoke helper that duplicates an existing canonical one, or feature logic placed in a shared module
 
 ## Verification
 
@@ -356,3 +388,5 @@ After review is complete:
 - [ ] Tests pass
 - [ ] Build succeeds
 - [ ] The verification story is documented (what changed, how it was verified)
+
+**Presumptive blockers:** surface and propose the simpler design for each of these; escalate to Required only when the change actively makes structure worse: a refactor that relocates complexity instead of reducing it; a change that pushes a file past the size boundary with no decomposition; feature logic added to a shared module; a near-duplicate of an existing canonical helper; a silent fallback that hides an unclear invariant.

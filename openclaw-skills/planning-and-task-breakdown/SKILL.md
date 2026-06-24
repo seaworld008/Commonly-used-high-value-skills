@@ -1,14 +1,14 @@
 ---
 name: planning-and-task-breakdown
 description: 'Breaks work into ordered tasks. Use when you have a spec or clear requirements and need to break work into implementable tasks. Use when a task feels too large to start, when you need to estimate scope, or when parallel work is possible.'
-version: "1.0.0"
+version: "1.0.1"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/planning-and-task-breakdown/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "planning-and-task-breakdown", "workflow"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-25"
+updated_at: "2026-06-24"
 quality: 5
 complexity: advanced
 upstream_slug: planning-and-task-breakdown
@@ -232,3 +232,7 @@ Before starting implementation, confirm:
 - [ ] No task touches more than ~5 files
 - [ ] Checkpoints exist between major phases
 - [ ] The human has reviewed and approved the plan
+
+## See Also
+
+Acceptance criteria are per-task and answer "did we build the right thing?". They sit on top of the project-wide Definition of Done, the standing bar every task clears before it counts as done. See `references/definition-of-done.md`.

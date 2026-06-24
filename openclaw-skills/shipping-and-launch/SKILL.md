@@ -1,14 +1,14 @@
 ---
 name: shipping-and-launch
 description: 'Prepares production launches. Use when preparing to deploy to production. Use when you need a pre-launch checklist, when setting up monitoring, when planning a staged rollout, or when you need a rollback strategy.'
-version: "1.0.0"
+version: "1.0.1"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/shipping-and-launch/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "shipping-and-launch", "workflow"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-25"
+updated_at: "2026-06-24"
 quality: 5
 complexity: advanced
 upstream_slug: shipping-and-launch
@@ -276,6 +276,7 @@ Every deployment needs a rollback plan before it happens:
 ```
 ## See Also
 
+- For the project-wide Definition of Done that every change must clear before this checklist, see `references/definition-of-done.md`
 - For security pre-launch checks, see `references/security-checklist.md`
 - For performance pre-launch checklist, see `references/performance-checklist.md`
 - For accessibility verification before launch, see `references/accessibility-checklist.md`
