@@ -7,7 +7,7 @@ import { fileURLToPath } from "node:url";
 
 const DEFAULT_PROMPT = "";
 const DEFAULT_MODEL = "gpt-image-2";
-const DEFAULT_BASE_URL = "https://api.openai.com/v1";
+const DEFAULT_BASE_URL = "";
 const DEFAULT_TIMEOUT_MS = 240_000;
 const DEFAULT_N = 1;
 const DEFAULT_RESOLUTION = "1k";
@@ -61,6 +61,8 @@ const SUPPORTED_REFERENCE_IMAGE_MIME_TYPES = new Set(IMAGE_MIME_BY_EXT.values())
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const DOTENV_PATH = path.join(__dirname, ".env");
+const CODEX_CONFIG_PATH = path.join(process.env.USERPROFILE || process.env.HOME || "", ".codex", "config.toml");
+const CODEX_AUTH_PATH = path.join(process.env.USERPROFILE || process.env.HOME || "", ".codex", "auth.json");
 const API_KEY_ENV_KEYS = [
   "GPT_IMAGE2_API_KEY",
   "OPENAI_API_KEY",
@@ -111,8 +113,8 @@ function printHelp() {
   --aspect-ratio <ratio>   宽高比，例如 1:1、16:9、9:16；未指定时默认读取 .env 的 GPT_IMAGE2_ASPECT_RATIO，未设置则 ${DEFAULT_ASPECT_RATIO}
   --quality <auto|low|medium|high>
                             默认画图通道未指定时使用 low；官方兼容模式未指定则不传
-  --base-url <url>         接口地址；默认读取 GPT_IMAGE2_BASE_URL，再回退到 OPENAI_BASE_URL / CODEX_OPENAI_BASE_URL
-  --api-key <key>          API Key；默认读取 GPT_IMAGE2_API_KEY，再回退到 OPENAI_API_KEY / CODEX_OPENAI_API_KEY
+  --base-url <url>         接口地址；默认读取 GPT_IMAGE2_BASE_URL，再回退到 OpenAI/Codex 环境变量和 Codex 配置
+  --api-key <key>          API Key；默认读取 GPT_IMAGE2_API_KEY，再回退到 OpenAI/Codex 环境变量和 Codex auth.json
   --out-dir <path>         输出目录，默认读取 .env 的 GPT_IMAGE2_OUT_DIR，未设置则 ./image2_output
   --timeout-ms <number>    请求超时毫秒数，默认读取 .env 的 GPT_IMAGE2_TIMEOUT_MS，未设置则 ${DEFAULT_TIMEOUT_MS}
   --dry-run                只打印将要请求的 URL 和请求形态，不调用接口、不扣费
@@ -172,6 +174,88 @@ function pickConfigValue(dotenvConfig, keys, fallback = "") {
     }
   }
   return fallback;
+}
+
+function parseTomlStringValue(rawValue) {
+  const value = String(rawValue || "").trim();
+  if (!value) {
+    return "";
+  }
+  const hashIndex = value.indexOf("#");
+  const uncommented = hashIndex >= 0 ? value.slice(0, hashIndex).trim() : value;
+  const hasDoubleQuotes = uncommented.startsWith('"') && uncommented.endsWith('"');
+  const hasSingleQuotes = uncommented.startsWith("'") && uncommented.endsWith("'");
+  if (hasDoubleQuotes || hasSingleQuotes) {
+    return uncommented.slice(1, -1);
+  }
+  return uncommented;
+}
+
+function readCodexProviderBaseUrl(configPath = CODEX_CONFIG_PATH) {
+  if (!configPath || !fsSync.existsSync(configPath)) {
+    return "";
+  }
+
+  const content = fsSync.readFileSync(configPath, "utf8");
+  let activeProvider = "";
+  let currentSection = "";
+  const providerBaseUrls = new Map();
+
+  for (const rawLine of content.split(/\r?\n/)) {
+    const line = rawLine.trim();
+    if (!line || line.startsWith("#")) {
+      continue;
+    }
+
+    const sectionMatch = line.match(/^\[(.+)]$/);
+    if (sectionMatch) {
+      currentSection = sectionMatch[1].trim();
+      continue;
+    }
+
+    const splitIndex = line.indexOf("=");
+    if (splitIndex === -1) {
+      continue;
+    }
+    const key = line.slice(0, splitIndex).trim();
+    const value = parseTomlStringValue(line.slice(splitIndex + 1));
+    if (!value) {
+      continue;
+    }
+
+    if (!currentSection && key === "model_provider") {
+      activeProvider = value;
+      continue;
+    }
+
+    const providerMatch = currentSection.match(/^model_providers\.(.+)$/);
+    if (providerMatch && key === "base_url") {
+      const providerName = providerMatch[1].replace(/^["']|["']$/g, "");
+      providerBaseUrls.set(providerName, value);
+    }
+  }
+
+  if (activeProvider && providerBaseUrls.has(activeProvider)) {
+    return providerBaseUrls.get(activeProvider);
+  }
+  if (providerBaseUrls.size === 1) {
+    return Array.from(providerBaseUrls.values())[0];
+  }
+  return "";
+}
+
+function readCodexAuthApiKey(authPath = CODEX_AUTH_PATH) {
+  if (!authPath || !fsSync.existsSync(authPath)) {
+    return "";
+  }
+
+  try {
+    const payload = JSON.parse(fsSync.readFileSync(authPath, "utf8"));
+    const apiKey = payload?.OPENAI_API_KEY;
+    return apiKey && String(apiKey).trim() ? String(apiKey).trim() : "";
+  } catch {
+    return "";
+  }
 }
 
 function parsePositiveInt(value, name) {
@@ -337,8 +421,8 @@ function parseArgs(argv, dotenvConfig) {
       process.env.GPT_IMAGE2_QUALITY || dotenvConfig.GPT_IMAGE2_QUALITY || "",
       "GPT_IMAGE2_QUALITY",
     ),
-    baseUrl: pickConfigValue(dotenvConfig, BASE_URL_ENV_KEYS, DEFAULT_BASE_URL),
-    apiKey: pickConfigValue(dotenvConfig, API_KEY_ENV_KEYS, ""),
+    baseUrl: pickConfigValue(dotenvConfig, BASE_URL_ENV_KEYS, readCodexProviderBaseUrl() || DEFAULT_BASE_URL),
+    apiKey: pickConfigValue(dotenvConfig, API_KEY_ENV_KEYS, readCodexAuthApiKey()),
     outDir: resolveOutputDir(
       process.env.GPT_IMAGE2_OUT_DIR || dotenvConfig.GPT_IMAGE2_OUT_DIR || "./image2_output",
     ),
@@ -702,10 +786,10 @@ async function main() {
   const dotenvConfig = loadDotEnv(DOTENV_PATH);
   const options = parseArgs(process.argv.slice(2), dotenvConfig);
   if (!options.apiKey) {
-    throw new Error("缺少接口配置，请设置 GPT_IMAGE2_API_KEY、OPENAI_API_KEY 或 CODEX_OPENAI_API_KEY");
+    throw new Error("缺少接口配置，请设置 GPT_IMAGE2_API_KEY、OPENAI_API_KEY、CODEX_OPENAI_API_KEY，或在 Codex auth.json 中配置 OPENAI_API_KEY");
   }
   if (!options.baseUrl) {
-    throw new Error("缺少接口配置，请提供 URL，或在脚本同目录的 .env / 命令行中传入");
+    throw new Error("缺少接口配置，请设置 GPT_IMAGE2_BASE_URL、OPENAI_BASE_URL、CODEX_OPENAI_BASE_URL，或在 Codex config.toml 的当前 model_provider 中配置 base_url");
   }
 
   console.log(`[${nowText()}] prompt: ${options.prompt}`);
