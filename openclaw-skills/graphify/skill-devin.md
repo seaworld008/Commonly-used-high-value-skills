@@ -792,7 +792,7 @@ from graphify.detect import save_manifest
 
 # Save manifest for --update
 detect = json.loads(Path('graphify-out/.graphify_detect.json').read_text())
-save_manifest(detect['files'])
+save_manifest(detect['files'], root='INPUT_PATH')
 
 # Update cumulative cost tracker
 extract = json.loads(Path('graphify-out/.graphify_extract.json').read_text())

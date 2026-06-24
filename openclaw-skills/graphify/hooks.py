@@ -99,7 +99,8 @@ try:
         signal.alarm(_timeout)
     _force = os.environ.get('GRAPHIFY_FORCE', '').lower() in ('1', 'true', 'yes')
     _root = Path('.')
-    _saved = Path('graphify-out/.graphify_root')
+    _out = os.environ.get('GRAPHIFY_OUT', 'graphify-out')
+    _saved = Path(_out) / '.graphify_root'
     if _saved.exists():
         _txt = _saved.read_text(encoding='utf-8').strip()
         if _txt:
@@ -128,7 +129,8 @@ try:
     # (no changed_paths) is correct here. The flock inside _rebuild_code still
     # prevents pile-ups when commit + checkout fire back-to-back.
     _root = Path('.')
-    _saved = Path('graphify-out/.graphify_root')
+    _out = os.environ.get('GRAPHIFY_OUT', 'graphify-out')
+    _saved = Path(_out) / '.graphify_root'
     if _saved.exists():
         _txt = _saved.read_text(encoding='utf-8').strip()
         if _txt:

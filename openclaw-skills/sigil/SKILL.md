@@ -1,14 +1,14 @@
 ---
 name: sigil
 description: 'Generating, updating, auditing, and sync-repairing project-specific Claude Code skills. Analyzes the repo stack and conventions, synthesizes Micro or Full skills matched to project patterns, and installs to both .claude/skills/ and .agents/skills/. Use when authoring project-local skills.'
-version: "1.0.5"
+version: "1.0.6"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/sigil"
 license: MIT
 tags: '["agent", "ai", "sigil"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-08"
+updated_at: "2026-06-24"
 quality: 5
 complexity: "advanced"
 ---
@@ -126,7 +126,7 @@ Six-phase canonical pipeline. ATTUNE is mandatory after every batch of 2+ skills
 
 | Phase | Do this | Explicit rules | Read when |
 |-------|---------|----------------|-----------|
-| `SCAN` | Detect stack, structure, rule files, existing skills, and drift | Mandatory. Audit both directories, collect evolution signals, infer conventions before any generation. | `reference/context-analysis.md`, `reference/cross-tool-rules-landscape.md`, `reference/claude-md-best-practices.md` |
+| `SCAN` | Detect stack, structure, rule files, existing skills, and drift | Mandatory. Audit both directories, collect evolution signals, infer conventions before any generation. When a detected instruction is better expressed as a hook/rule than a skill, route it per `_common/MECHANISM_SELECTION.md` instead of authoring a skill. | `reference/context-analysis.md`, `reference/cross-tool-rules-landscape.md`, `reference/claude-md-best-practices.md`, `_common/MECHANISM_SELECTION.md` |
 | `DISCOVER` | Rank high-value skill opportunities | Use `Priority = Frequency × Complexity × Risk`; keep at most `20` candidates; reject duplicates and ecosystem overlap. | `reference/skill-catalog.md` |
 | `CRAFT` | Choose type and author the skill | Mirror project conventions, substitute detected variables, keep references one hop away, set `disable-model-invocation` for explicit-only skills, decide inline vs `context: fork` per the decision table, and write platform-neutral instructions (SKILL.md is a universal format across `30+` agent platforms). | `reference/skill-templates.md`, `reference/advanced-patterns.md`, `reference/claude-code-skills-api.md`, `reference/official-skill-guide.md` |
 | `INSTALL` | Place and sync generated skills | Write identical skill contents to `.claude/skills/` and `.agents/skills/`; add `reference/` only for Full Skills. | `reference/claude-code-skills-api.md` |

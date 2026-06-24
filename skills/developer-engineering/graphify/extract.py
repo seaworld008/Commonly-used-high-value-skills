@@ -2467,7 +2467,21 @@ def _extract_generic(path: Path, config: LanguageConfig) -> dict:
             return nid
         nid = _make_id(name)
         if nid not in seen_ids:
-            add_node(nid, name, line)
+            # The name isn't defined in this file, so this is a cross-file reference
+            # (e.g. a `Thing` type annotation imported from another module). Emit a
+            # SOURCELESS stub — like the inheritance-base path below — so the
+            # corpus-level rewire can collapse it onto the real definition. A sourced
+            # stub here makes _disambiguate_colliding_node_ids bake the referencing
+            # file's path (with extension) into the id and blocks the rewire, which is
+            # the phantom-duplicate-node bug (#1402).
+            seen_ids.add(nid)
+            nodes.append({
+                "id": nid,
+                "label": name,
+                "file_type": "code",
+                "source_file": "",
+                "source_location": "",
+            })
         return nid
 
     file_nid = _make_id(str(path))
@@ -5821,7 +5835,21 @@ def extract_julia(path: Path) -> dict:
             return nid
         nid = _make_id(name)
         if nid not in seen_ids:
-            add_node(nid, name, line)
+            # The name isn't defined in this file, so this is a cross-file reference
+            # (e.g. a `Thing` type annotation imported from another module). Emit a
+            # SOURCELESS stub — like the inheritance-base path below — so the
+            # corpus-level rewire can collapse it onto the real definition. A sourced
+            # stub here makes _disambiguate_colliding_node_ids bake the referencing
+            # file's path (with extension) into the id and blocks the rewire, which is
+            # the phantom-duplicate-node bug (#1402).
+            seen_ids.add(nid)
+            nodes.append({
+                "id": nid,
+                "label": name,
+                "file_type": "code",
+                "source_file": "",
+                "source_location": "",
+            })
         return nid
 
     def _func_name_from_signature(sig_node) -> str | None:
@@ -6103,7 +6131,21 @@ def extract_fortran(path: Path) -> dict:
             return nid
         nid = _make_id(name)
         if nid not in seen_ids:
-            add_node(nid, name, line)
+            # The name isn't defined in this file, so this is a cross-file reference
+            # (e.g. a `Thing` type annotation imported from another module). Emit a
+            # SOURCELESS stub — like the inheritance-base path below — so the
+            # corpus-level rewire can collapse it onto the real definition. A sourced
+            # stub here makes _disambiguate_colliding_node_ids bake the referencing
+            # file's path (with extension) into the id and blocks the rewire, which is
+            # the phantom-duplicate-node bug (#1402).
+            seen_ids.add(nid)
+            nodes.append({
+                "id": nid,
+                "label": name,
+                "file_type": "code",
+                "source_file": "",
+                "source_location": "",
+            })
         return nid
 
     def emit_signature_refs(scope_node, fn_nid: str, is_function: bool) -> None:
@@ -6678,7 +6720,21 @@ def extract_rust(path: Path) -> dict:
             return nid
         nid = _make_id(name)
         if nid not in seen_ids:
-            add_node(nid, name, line)
+            # The name isn't defined in this file, so this is a cross-file reference
+            # (e.g. a `Thing` type annotation imported from another module). Emit a
+            # SOURCELESS stub — like the inheritance-base path below — so the
+            # corpus-level rewire can collapse it onto the real definition. A sourced
+            # stub here makes _disambiguate_colliding_node_ids bake the referencing
+            # file's path (with extension) into the id and blocks the rewire, which is
+            # the phantom-duplicate-node bug (#1402).
+            seen_ids.add(nid)
+            nodes.append({
+                "id": nid,
+                "label": name,
+                "file_type": "code",
+                "source_file": "",
+                "source_location": "",
+            })
         return nid
 
     def emit_param_return_refs(func_node, func_nid: str, line: int) -> None:
@@ -7133,7 +7189,21 @@ def extract_powershell(path: Path) -> dict:
             return nid
         nid = _make_id(name)
         if nid not in seen_ids:
-            add_node(nid, name, line)
+            # The name isn't defined in this file, so this is a cross-file reference
+            # (e.g. a `Thing` type annotation imported from another module). Emit a
+            # SOURCELESS stub — like the inheritance-base path below — so the
+            # corpus-level rewire can collapse it onto the real definition. A sourced
+            # stub here makes _disambiguate_colliding_node_ids bake the referencing
+            # file's path (with extension) into the id and blocks the rewire, which is
+            # the phantom-duplicate-node bug (#1402).
+            seen_ids.add(nid)
+            nodes.append({
+                "id": nid,
+                "label": name,
+                "file_type": "code",
+                "source_file": "",
+                "source_location": "",
+            })
         return nid
 
     def _ps_type_name(type_literal_node) -> str | None:
@@ -9311,7 +9381,21 @@ def extract_objc(path: Path) -> dict:
             return nid
         nid = _make_id(name)
         if nid not in seen_ids:
-            add_node(nid, name, line)
+            # The name isn't defined in this file, so this is a cross-file reference
+            # (e.g. a `Thing` type annotation imported from another module). Emit a
+            # SOURCELESS stub — like the inheritance-base path below — so the
+            # corpus-level rewire can collapse it onto the real definition. A sourced
+            # stub here makes _disambiguate_colliding_node_ids bake the referencing
+            # file's path (with extension) into the id and blocks the rewire, which is
+            # the phantom-duplicate-node bug (#1402).
+            seen_ids.add(nid)
+            nodes.append({
+                "id": nid,
+                "label": name,
+                "file_type": "code",
+                "source_file": "",
+                "source_location": "",
+            })
         return nid
 
     def walk(node, parent_nid: str | None = None) -> None:
@@ -12299,6 +12383,8 @@ _DISPATCH: dict[str, Any] = {
     ".cc": extract_cpp,
     ".cxx": extract_cpp,
     ".hpp": extract_cpp,
+    ".cu": extract_cpp,
+    ".cuh": extract_cpp,
     ".rb": extract_ruby,
     ".cs": extract_csharp,
     ".kt": extract_kotlin,

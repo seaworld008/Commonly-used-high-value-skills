@@ -1,6 +1,6 @@
 # Tags Index
 
-> Auto-generated from 1147 skill-tag mappings across 494 tags.
+> Auto-generated from 1151 skill-tag mappings across 497 tags.
 > Last updated: see git log.
 
 ## Quick Navigation
@@ -91,6 +91,7 @@
 - [`cloudflare`](#cloudflare) (2)
 - [`code-scanning`](#code-scanning) (2)
 - [`codebase`](#codebase) (2)
+- [`codex`](#codex) (2)
 - [`configuration`](#configuration) (2)
 - [`container-security`](#container-security) (2)
 - [`doc`](#doc) (2)
@@ -197,7 +198,6 @@
 - [`code-review-and-quality`](#code-review-and-quality) (1)
 - [`code-simplification`](#code-simplification) (1)
 - [`codeql`](#codeql) (1)
-- [`codex`](#codex) (1)
 - [`coding-discipline`](#coding-discipline) (1)
 - [`collector`](#collector) (1)
 - [`color`](#color) (1)
@@ -268,6 +268,7 @@
 - [`git-workflow-and-versioning`](#git-workflow-and-versioning) (1)
 - [`gog`](#gog) (1)
 - [`governance`](#governance) (1)
+- [`gpt-image-2`](#gpt-image-2) (1)
 - [`grove`](#grove) (1)
 - [`grype`](#grype) (1)
 - [`guard`](#guard) (1)
@@ -284,6 +285,7 @@
 - [`iac`](#iac) (1)
 - [`idea-refine`](#idea-refine) (1)
 - [`identity`](#identity) (1)
+- [`image-generation`](#image-generation) (1)
 - [`imagegen`](#imagegen) (1)
 - [`implement`](#implement) (1)
 - [`implementation`](#implementation) (1)
@@ -328,6 +330,7 @@
 - [`monorepo`](#monorepo) (1)
 - [`morph`](#morph) (1)
 - [`multi-agent`](#multi-agent) (1)
+- [`multimodal`](#multimodal) (1)
 - [`natural-language-programming`](#natural-language-programming) (1)
 - [`navigator`](#navigator) (1)
 - [`neon`](#neon) (1)
@@ -719,7 +722,7 @@
 | [lark-drive](skills/knowledge-and-pm-integrations/lark-drive) | knowledge-and-pm-integrations | ★★★★☆ | 飞书云空间（云盘/云存储）：管理 Drive 文件和文件夹，包含上传/下载、创建文件夹、复制/移动/删除、查看元数据、评论/权限/订阅、标题、版本和本地文件导入 |
 | [lark-event](skills/knowledge-and-pm-integrations/lark-event) | knowledge-and-pm-integrations | ★★★★☆ | Lark/Feishu real-time event listening / subscribing / consuming: stream events a |
 | [lark-im](skills/knowledge-and-pm-integrations/lark-im) | knowledge-and-pm-integrations | ★★★★☆ | 飞书即时通讯：收发消息和管理群聊。发送和回复消息、搜索聊天记录、管理群聊成员、上传下载图片和文件（支持大文件分片下载）、管理表情回复、发送应用内/短信/电话加急 |
-| [lark-mail](skills/knowledge-and-pm-integrations/lark-mail) | knowledge-and-pm-integrations | ★★★★☆ | 飞书邮箱 — draft, compose, send, reply, forward, read, and search emails; manage dra |
+| [lark-mail](skills/knowledge-and-pm-integrations/lark-mail) | knowledge-and-pm-integrations | ★★★★☆ | 飞书邮箱：Use when user mentions 起草邮件、写邮件、草稿、发送/回复/转发邮件、查阅邮件、看邮件、搜索邮件、邮件文件夹、邮件标签、邮件联系 |
 | [lark-minutes](skills/knowledge-and-pm-integrations/lark-minutes) | knowledge-and-pm-integrations | ★★★★☆ | 飞书妙记：搜索妙记列表、查看妙记基础信息、下载妙记音视频文件、上传音视频生成妙记、更新妙记标题、替换说话人。当需要获取、操作或者生成妙记时使用。也支持将本地音视 |
 | [lark-okr](skills/knowledge-and-pm-integrations/lark-okr) | knowledge-and-pm-integrations | ★★★★☆ | 飞书 OKR：管理目标与关键结果。查看和编辑 OKR 周期、目标、关键结果、对齐关系、量化指标和进展记录。当用户需要查看或创建 OKR、管理目标和关键结果、查看 |
 | [lark-openapi-explorer](skills/knowledge-and-pm-integrations/lark-openapi-explorer) | knowledge-and-pm-integrations | ★★★★☆ | 飞书/Lark 原生 OpenAPI 探索：从官方文档库中挖掘未经 CLI 封装的原生 OpenAPI 接口。当用户的需求无法被现有 lark-* skill  |
@@ -751,7 +754,7 @@
 | [lark-drive](skills/knowledge-and-pm-integrations/lark-drive) | knowledge-and-pm-integrations | ★★★★☆ | 飞书云空间（云盘/云存储）：管理 Drive 文件和文件夹，包含上传/下载、创建文件夹、复制/移动/删除、查看元数据、评论/权限/订阅、标题、版本和本地文件导入 |
 | [lark-event](skills/knowledge-and-pm-integrations/lark-event) | knowledge-and-pm-integrations | ★★★★☆ | Lark/Feishu real-time event listening / subscribing / consuming: stream events a |
 | [lark-im](skills/knowledge-and-pm-integrations/lark-im) | knowledge-and-pm-integrations | ★★★★☆ | 飞书即时通讯：收发消息和管理群聊。发送和回复消息、搜索聊天记录、管理群聊成员、上传下载图片和文件（支持大文件分片下载）、管理表情回复、发送应用内/短信/电话加急 |
-| [lark-mail](skills/knowledge-and-pm-integrations/lark-mail) | knowledge-and-pm-integrations | ★★★★☆ | 飞书邮箱 — draft, compose, send, reply, forward, read, and search emails; manage dra |
+| [lark-mail](skills/knowledge-and-pm-integrations/lark-mail) | knowledge-and-pm-integrations | ★★★★☆ | 飞书邮箱：Use when user mentions 起草邮件、写邮件、草稿、发送/回复/转发邮件、查阅邮件、看邮件、搜索邮件、邮件文件夹、邮件标签、邮件联系 |
 | [lark-minutes](skills/knowledge-and-pm-integrations/lark-minutes) | knowledge-and-pm-integrations | ★★★★☆ | 飞书妙记：搜索妙记列表、查看妙记基础信息、下载妙记音视频文件、上传音视频生成妙记、更新妙记标题、替换说话人。当需要获取、操作或者生成妙记时使用。也支持将本地音视 |
 | [lark-okr](skills/knowledge-and-pm-integrations/lark-okr) | knowledge-and-pm-integrations | ★★★★☆ | 飞书 OKR：管理目标与关键结果。查看和编辑 OKR 周期、目标、关键结果、对齐关系、量化指标和进展记录。当用户需要查看或创建 OKR、管理目标和关键结果、查看 |
 | [lark-openapi-explorer](skills/knowledge-and-pm-integrations/lark-openapi-explorer) | knowledge-and-pm-integrations | ★★★★☆ | 飞书/Lark 原生 OpenAPI 探索：从官方文档库中挖掘未经 CLI 封装的原生 OpenAPI 接口。当用户的需求无法被现有 lark-* skill  |
@@ -783,7 +786,7 @@
 | [lark-drive](skills/knowledge-and-pm-integrations/lark-drive) | knowledge-and-pm-integrations | ★★★★☆ | 飞书云空间（云盘/云存储）：管理 Drive 文件和文件夹，包含上传/下载、创建文件夹、复制/移动/删除、查看元数据、评论/权限/订阅、标题、版本和本地文件导入 |
 | [lark-event](skills/knowledge-and-pm-integrations/lark-event) | knowledge-and-pm-integrations | ★★★★☆ | Lark/Feishu real-time event listening / subscribing / consuming: stream events a |
 | [lark-im](skills/knowledge-and-pm-integrations/lark-im) | knowledge-and-pm-integrations | ★★★★☆ | 飞书即时通讯：收发消息和管理群聊。发送和回复消息、搜索聊天记录、管理群聊成员、上传下载图片和文件（支持大文件分片下载）、管理表情回复、发送应用内/短信/电话加急 |
-| [lark-mail](skills/knowledge-and-pm-integrations/lark-mail) | knowledge-and-pm-integrations | ★★★★☆ | 飞书邮箱 — draft, compose, send, reply, forward, read, and search emails; manage dra |
+| [lark-mail](skills/knowledge-and-pm-integrations/lark-mail) | knowledge-and-pm-integrations | ★★★★☆ | 飞书邮箱：Use when user mentions 起草邮件、写邮件、草稿、发送/回复/转发邮件、查阅邮件、看邮件、搜索邮件、邮件文件夹、邮件标签、邮件联系 |
 | [lark-minutes](skills/knowledge-and-pm-integrations/lark-minutes) | knowledge-and-pm-integrations | ★★★★☆ | 飞书妙记：搜索妙记列表、查看妙记基础信息、下载妙记音视频文件、上传音视频生成妙记、更新妙记标题、替换说话人。当需要获取、操作或者生成妙记时使用。也支持将本地音视 |
 | [lark-okr](skills/knowledge-and-pm-integrations/lark-okr) | knowledge-and-pm-integrations | ★★★★☆ | 飞书 OKR：管理目标与关键结果。查看和编辑 OKR 周期、目标、关键结果、对齐关系、量化指标和进展记录。当用户需要查看或创建 OKR、管理目标和关键结果、查看 |
 | [lark-openapi-explorer](skills/knowledge-and-pm-integrations/lark-openapi-explorer) | knowledge-and-pm-integrations | ★★★★☆ | 飞书/Lark 原生 OpenAPI 探索：从官方文档库中挖掘未经 CLI 封装的原生 OpenAPI 接口。当用户的需求无法被现有 lark-* skill  |
@@ -1795,6 +1798,15 @@
 | [codebase-onboarding](skills/developer-engineering/codebase-onboarding) | developer-engineering | ★★★★★ | Analyze a codebase and generate comprehensive onboarding documentation tailored  |
 | [codebase-inspection](skills/developer-engineering/codebase-inspection) | developer-engineering | ★★★★☆ | Inspect and analyze codebases using pygount for LOC counting, language breakdown |
 
+## codex
+
+**2 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [gsd-graphify-brownfield-bootstrap](skills/engineering-workflow-automation/gsd-graphify-brownfield-bootstrap) | engineering-workflow-automation | ★★★★★ | Bootstrap GSD + graphify for an existing brownfield repo when the project needs  |
+| [gpt-image2](skills/multimodal-media/gpt-image2) | multimodal-media | ★★★★☆ | Use when the user asks Codex to directly generate images with a locally configur |
+
 ## configuration
 
 **2 skills**
@@ -2691,14 +2703,6 @@
 |-------|----------|---------|-------------|
 | [codeql-security-scanner](skills/security-and-reliability/codeql-security-scanner) | security-and-reliability | ★★★★☆ | 用于通过 CodeQL 执行语义代码扫描、安全查询、自定义规则、SARIF 报告和 GitHub Code Scanning 集成。 |
 
-## codex
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [gsd-graphify-brownfield-bootstrap](skills/engineering-workflow-automation/gsd-graphify-brownfield-bootstrap) | engineering-workflow-automation | ★★★★★ | Bootstrap GSD + graphify for an existing brownfield repo when the project needs  |
-
 ## coding-discipline
 
 **1 skills**
@@ -3057,7 +3061,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lark-mail](skills/knowledge-and-pm-integrations/lark-mail) | knowledge-and-pm-integrations | ★★★★☆ | 飞书邮箱 — draft, compose, send, reply, forward, read, and search emails; manage dra |
+| [lark-mail](skills/knowledge-and-pm-integrations/lark-mail) | knowledge-and-pm-integrations | ★★★★☆ | 飞书邮箱：Use when user mentions 起草邮件、写邮件、草稿、发送/回复/转发邮件、查阅邮件、看邮件、搜索邮件、邮件文件夹、邮件标签、邮件联系 |
 
 ## env
 
@@ -3259,6 +3263,14 @@
 |-------|----------|---------|-------------|
 | [information-security-manager-iso27001](skills/security-and-reliability/information-security-manager-iso27001) | security-and-reliability | ★★★★☆ | ISO 27001 ISMS implementation and cybersecurity governance for HealthTech and Me |
 
+## gpt-image-2
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [gpt-image2](skills/multimodal-media/gpt-image2) | multimodal-media | ★★★★☆ | Use when the user asks Codex to directly generate images with a locally configur |
+
 ## grove
 
 **1 skills**
@@ -3386,6 +3398,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [lark-contact](skills/knowledge-and-pm-integrations/lark-contact) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书 / Lark 通讯录:按姓名 / 邮箱解析成 open_id,或按 open_id 反查姓名 / 部门 / 邮箱 / 联系方式 / 个人状态 / 签名。当 |
+
+## image-generation
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [gpt-image2](skills/multimodal-media/gpt-image2) | multimodal-media | ★★★★☆ | Use when the user asks Codex to directly generate images with a locally configur |
 
 ## imagegen
 
@@ -3641,7 +3661,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lark-mail](skills/knowledge-and-pm-integrations/lark-mail) | knowledge-and-pm-integrations | ★★★★☆ | 飞书邮箱 — draft, compose, send, reply, forward, read, and search emails; manage dra |
+| [lark-mail](skills/knowledge-and-pm-integrations/lark-mail) | knowledge-and-pm-integrations | ★★★★☆ | 飞书邮箱：Use when user mentions 起草邮件、写邮件、草稿、发送/回复/转发邮件、查阅邮件、看邮件、搜索邮件、邮件文件夹、邮件标签、邮件联系 |
 
 ## map
 
@@ -3738,6 +3758,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Configure, extend, or contribute to Hermes Agent. |
+
+## multimodal
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [gpt-image2](skills/multimodal-media/gpt-image2) | multimodal-media | ★★★★☆ | Use when the user asks Codex to directly generate images with a locally configur |
 
 ## natural-language-programming
 

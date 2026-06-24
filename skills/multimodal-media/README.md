@@ -4,7 +4,7 @@
 
 聚焦图像、音频、视频、截图、摘要与转写的多模态生产力技能集合。
 
-当前分类共 **9** 个技能。
+当前分类共 **10** 个技能。
 
 ## 推荐先看
 
@@ -18,6 +18,7 @@
 | 技能 | 简介 | 目录 | 详情 |
 |------|------|------|------|
 | `clay` | AI 3D model generation agent. Generates text-to-3D and image-to-3D code (Python/JS/OpenSCAD) using Meshy, Tripo, Hunyuan3D, Rodin, Sloyd, and Stability APIs. Handles game pipeline integration, LOD, retopology, UV, and QC validation. | [目录](./clay/) | [SKILL.md](./clay/SKILL.md) |
+| `gpt-image2` | 让 Codex 通过本地配置的 gpt-image-2 兼容画图服务生成图片，支持提示词、参考图、比例、清晰度和本地保存。 | [目录](./gpt-image2/) | [SKILL.md](./gpt-image2/SKILL.md) |
 | `imagegen` | Use when the user asks to generate or edit images via the OpenAI Image API (for example: generate image, edit/inpaint/mask, background removal or replacement, transparent background, product shots, concept art, covers, or batch variants); run the bundled CLI (`scripts/image_gen.py`) and require `OPENAI_API_KEY` for live calls. | [目录](./imagegen/) | [SKILL.md](./imagegen/SKILL.md) |
 | `screenshot` | Use when the user explicitly asks for a desktop or system screenshot (full screen, specific app or window, or a pixel region), or when tool-specific capture capabilities are unavailable and an OS-level capture is needed. | [目录](./screenshot/) | [SKILL.md](./screenshot/SKILL.md) |
 | `sketch` | Generating AI image-generation code using the Gemini API. Handles text-to-image generation, image editing, and prompt optimization. Use when image generation code is needed. | [目录](./sketch/) | [SKILL.md](./sketch/SKILL.md) |

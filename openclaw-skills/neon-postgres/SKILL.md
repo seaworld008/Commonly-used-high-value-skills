@@ -1,14 +1,14 @@
 ---
 name: neon-postgres
 description: 'Guides and best practices for working with Neon Serverless Postgres. Covers setup, connection methods, branching, autoscaling, scale-to-zero, read replicas, connection pooling, Neon Auth, and the Neon CLI, MCP server, REST API, TypeScript SDK, and Python SDK. Use when users ask about "Neon setup", "connect to Neon", "Neon project", "DATABASE_URL", "serverless Postgres", "Neon CLI", "neonctl", "Neon MCP", "Neon Auth", "@neondatabase/serverless", "@neondatabase/neon-js", "scale to zero", "Neon autoscaling", "Neon read replica", or "Neon connection pooling".'
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:neondatabase/agent-skills"
 source_url: "https://skills.sh/neondatabase/agent-skills/neon-postgres"
 license: Apache-2.0
 tags: '["development", "neon", "postgres"]'
 created_at: "2026-06-03"
-updated_at: "2026-06-16"
+updated_at: "2026-06-24"
 quality: 5
 complexity: "intermediate"
 ---
@@ -274,7 +274,7 @@ Since `neon.ts` is TypeScript, invalid combinations fail to compile with an acti
 Read the resulting env back, typed and validated against the policy, with `parseEnv` from `@neondatabase/env`:
 
 ```typescript
-import { parseEnv } from "@neondatabase/env/v1";
+import { parseEnv } from "@neondatabase/env";
 import config from "./neon";
 
 const env = parseEnv(config);

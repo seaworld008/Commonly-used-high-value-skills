@@ -1,14 +1,14 @@
 ---
 name: hermes-agent
 description: 'Configure, extend, or contribute to Hermes Agent.'
-version: "2.0.10"
+version: "2.0.11"
 author: Hermes Agent + Teknium
 source: "in-house"
 source_url: ""
 license: MIT
 tags: '[hermes, setup, configuration, multi-agent, spawning, cli, gateway, development]'
 created_at: "2026-04-13"
-updated_at: "2026-06-21"
+updated_at: "2026-06-24"
 quality: 4
 complexity: "intermediate"
 metadata:
@@ -341,7 +341,6 @@ The registry of record is `hermes_cli/commands.py` — every consumer
 /commands [page]     Browse all commands (gateway)
 /usage               Token usage
 /insights [days]     Usage analytics
-/gquota              Show Google Gemini Code Assist quota usage (CLI)
 /status              Session info (gateway)
 /profile             Active profile info
 /debug               Upload debug report (system info + logs) and get shareable links
