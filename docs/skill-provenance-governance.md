@@ -2,6 +2,8 @@
 
 > 目标：让仓库长期可持续“收藏 + 同步 + 优化”全网优质 skills，同时可追溯来源、可自动检查、可定期更新。
 
+每周精选、替换/剔除判断、外部阻塞源分类和自动化模型要求见 [Skill Curation and Automation Runbook](./skill-curation-and-automation-runbook.md)。
+
 ## 1) 基本原则
 
 1. **每个外部来源都要有机器可读记录**（JSON 映射）。
