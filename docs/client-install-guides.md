@@ -20,7 +20,55 @@
 
 ---
 
-## 1. Codex
+## 1. npx 一键安装
+
+本仓库提供 npm package 入口，可以通过 GitHub 源直接运行，不需要先手动 clone：
+
+```bash
+npx github:seaworld008/Commonly-used-high-value-skills install
+```
+
+默认目标是当前项目的 `.agents/skills`，适合需要项目级安装、又希望多种 Agent 工具都能读取的场景。
+
+常用目标：
+
+```bash
+# 安装到 Codex 用户级目录
+npx github:seaworld008/Commonly-used-high-value-skills install --target codex
+
+# 安装到 Claude Code 用户级目录
+npx github:seaworld008/Commonly-used-high-value-skills install --target claude
+
+# 安装到 Claude Code 项目级目录
+npx github:seaworld008/Commonly-used-high-value-skills install --target claude-project
+
+# 安装到 OpenClaw 默认目录；本地仓库优先使用 openclaw-skills/，npx 包会从 skills/ 平铺
+npx github:seaworld008/Commonly-used-high-value-skills install --target openclaw
+
+# 一次安装到多个默认目标
+npx github:seaworld008/Commonly-used-high-value-skills install --target agents-project,codex,claude
+
+# 自定义目录，适配其他客户端
+npx github:seaworld008/Commonly-used-high-value-skills install --target custom --dir ./vendor/agent-skills
+```
+
+查看所有目标：
+
+```bash
+npx github:seaworld008/Commonly-used-high-value-skills list-targets
+```
+
+如果你已经使用 `skills.sh`，也可以用它的通用入口安装：
+
+```bash
+npx skills add seaworld008/Commonly-used-high-value-skills --all -a codex -a claude-code --copy
+```
+
+仓库自带的安装器更明确地处理本仓库的双目录结构：本地 clone 里 `openclaw` 目标会优先使用 `openclaw-skills/`；通过 npx 安装时，为避免重复打包生成文件，会从 `skills/` 平铺安装。
+
+---
+
+## 2. Codex
 
 ### 推荐目录
 
@@ -53,7 +101,7 @@ python3 scripts/normalize_codex_skills.py ~/.codex/skills
 
 ---
 
-## 2. Claude Code
+## 3. Claude Code
 
 ### 推荐目录
 
@@ -87,7 +135,7 @@ python3 scripts/sync_codex_skills.py \
 
 ---
 
-## 3. Hermes Agent
+## 4. Hermes Agent
 
 ### 推荐目录
 
@@ -124,7 +172,7 @@ python3 scripts/sync_codex_skills.py \
 
 ---
 
-## 4. OpenClaw
+## 5. OpenClaw
 
 ### 推荐目录
 
@@ -167,7 +215,7 @@ openclaw skills check
 
 ---
 
-## 5. 给 AI 工具的最短安装提示词
+## 6. 给 AI 工具的最短安装提示词
 
 如果你希望让 AI 工具自己完成安装，可以先发这一段：
 
@@ -183,7 +231,7 @@ openclaw skills check
 
 ---
 
-## 6. 维护时推荐顺序
+## 7. 维护时推荐顺序
 
 如果你对仓库做了修改，建议按这个顺序刷新：
 
@@ -202,7 +250,7 @@ python3 scripts/export_openclaw_skills.py
 
 ---
 
-## 7. 什么时候该看哪份文档
+## 8. 什么时候该看哪份文档
 
 - 想快速开始：看根目录 `README.md` / `README.en.md`
 - 想按客户端接入：看本文件

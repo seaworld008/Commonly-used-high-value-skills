@@ -1,0 +1,37 @@
+{
+  "name": "common-high-value-skills",
+  "version": "0.1.0",
+  "description": "Cross-agent installer for the Commonly Used High-Value Skills repository.",
+  "license": "MIT",
+  "type": "commonjs",
+  "bin": {
+    "high-value-skills": "bin/install-skills.js",
+    "common-high-value-skills": "bin/install-skills.js"
+  },
+  "files": [
+    "bin/",
+    "skills/",
+    "docs/client-install-guides.md",
+    "README.md",
+    "README.en.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --check bin/install-skills.js && node bin/install-skills.js --help && npm pack --dry-run --silent"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "ai",
+    "agent",
+    "skills",
+    "codex",
+    "claude",
+    "openclaw"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seaworld008/Commonly-used-high-value-skills.git"
+  }
+}

@@ -41,7 +41,47 @@
 | 安装到 `Claude Code` 本机技能目录 | 将 `skills/` 同步到 `~/.claude/skills` 或项目内 `.claude/skills` |
 | `OpenClaw` | `openclaw-skills/` |
 
-### 方式一：直接发给 AI 工具的安装提示词（推荐）
+### 方式一：npx 一键安装（推荐给命令行用户）
+
+不想手动 clone 和复制目录时，可以直接用 GitHub 源运行安装器：
+
+```bash
+npx github:seaworld008/Commonly-used-high-value-skills install
+```
+
+默认会把技能安装到当前项目的 `.agents/skills`，适合多种支持 Agent Skills 约定的工具读取。你也可以一次安装到多个客户端目录：
+
+```bash
+# 安装到 Codex 和 Claude Code 的用户级 skills 目录
+npx github:seaworld008/Commonly-used-high-value-skills install --target codex,claude
+
+# 安装到项目 .agents、Codex、Claude Code、Claude 项目级和 OpenClaw 默认目录
+npx github:seaworld008/Commonly-used-high-value-skills install --all
+
+# 安装到自定义目录，适配其他 AI Agent 客户端
+npx github:seaworld008/Commonly-used-high-value-skills install --target custom --dir ./vendor/agent-skills
+```
+
+可用目标：
+
+| 目标 | 安装目录 |
+|------|----------|
+| `agents-project` | `./.agents/skills` |
+| `codex` | `~/.codex/skills` |
+| `claude` | `~/.claude/skills` |
+| `claude-project` | `./.claude/skills` |
+| `openclaw` | `~/.openclaw/skills`，本地仓库优先使用 `openclaw-skills/`，npx 包会从 `skills/` 平铺安装 |
+| `custom` | 通过 `--dir` 指定 |
+
+如果你已经在使用 `skills.sh` 生态，也可以尝试标准安装入口：
+
+```bash
+npx skills add seaworld008/Commonly-used-high-value-skills --all -a codex -a claude-code --copy
+```
+
+本仓库自带的 `high-value-skills` 安装器更适合需要明确选择 Codex / Claude / OpenClaw / 自定义目录的场景。
+
+### 方式二：直接发给 AI 工具的安装提示词
 
 如果你希望让 AI 工具直接帮你安装，优先发这段短提示词：
 
@@ -57,7 +97,7 @@
 
 之所以可以这样简化，是因为仓库里已经包含给 AI 工具读取的安装规则与目录约定文档，通常不需要你手动把安装逻辑全部写进提示词里。
 
-### 方式二：手动安装步骤
+### 方式三：手动安装步骤
 
 1. 克隆本仓库到本地并进入目录：
 

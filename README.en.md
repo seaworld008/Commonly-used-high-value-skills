@@ -43,7 +43,47 @@ This repository currently contains **16 categories / 309 skills**.
 
 ## Quick Start
 
-### Option 1: Give This Prompt to Your AI Tool (Recommended)
+### Option 1: Install With npx
+
+If you do not want to clone and copy directories manually, run the installer directly from GitHub:
+
+```bash
+npx github:seaworld008/Commonly-used-high-value-skills install
+```
+
+By default, this installs skills into the current project's `.agents/skills` directory, which is a safe project-local target for agent skill consumers. You can also install into multiple client directories in one command:
+
+```bash
+# Install into Codex and Claude Code user-level skills directories
+npx github:seaworld008/Commonly-used-high-value-skills install --target codex,claude
+
+# Install into project .agents, Codex, Claude Code, Claude project, and OpenClaw default directories
+npx github:seaworld008/Commonly-used-high-value-skills install --all
+
+# Install into a custom directory for another AI agent client
+npx github:seaworld008/Commonly-used-high-value-skills install --target custom --dir ./vendor/agent-skills
+```
+
+Available targets:
+
+| Target | Install Directory |
+|--------|-------------------|
+| `agents-project` | `./.agents/skills` |
+| `codex` | `~/.codex/skills` |
+| `claude` | `~/.claude/skills` |
+| `claude-project` | `./.claude/skills` |
+| `openclaw` | `~/.openclaw/skills`; local clones prefer `openclaw-skills/`, while npx packages flatten `skills/` |
+| `custom` | selected with `--dir` |
+
+If you already use the `skills.sh` ecosystem, you can also try the standard installer:
+
+```bash
+npx skills add seaworld008/Commonly-used-high-value-skills --all -a codex -a claude-code --copy
+```
+
+This repository's own `high-value-skills` installer is the more explicit option when you need to choose Codex, Claude, OpenClaw, or a custom target directory.
+
+### Option 2: Give This Prompt to Your AI Tool
 
 If you want your AI tool to install the skills for you, start with this short prompt:
 
@@ -59,7 +99,7 @@ The current tool is `<Codex / Claude Code / Hermes Agent / Cursor / OpenClaw>`, 
 
 This works because the repository already includes AI-readable installation rules and directory conventions, so users usually do not need to spell out the full install workflow in the prompt.
 
-### Option 2: Manual Setup
+### Option 3: Manual Setup
 
 1. Clone the repository and enter it:
 

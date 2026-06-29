@@ -16,6 +16,11 @@ __pycache__/
 .vscode/
 .idea/
 
+# Local AI client skill installs
+.agents/
+.claude/
+.cursor/
+
 # Generated provenance artifacts (reproducible via scripts/provenance_pipeline.py)
 docs/sources/index.json
 docs/sources/reports/*.json

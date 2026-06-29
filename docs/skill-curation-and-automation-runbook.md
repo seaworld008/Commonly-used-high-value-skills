@@ -189,6 +189,7 @@ python scripts/backfill_zh_descriptions.py --refresh-generated
 - 完整 pipeline 通过。
 - `python scripts/audit_skill_portfolio.py` 没有 `improve` 或 `replace_or_archive`；如果仍有 `review`，PR 摘要必须解释原因和后续计划。
 - license audit 中 `MISSING = 0`，`UNKNOWN = 0`，除非有明确的暂存说明且不涉及复制外部文本。
+- 如果改动影响安装体验，必须验证 `node --check bin/install-skills.js`、`node bin/install-skills.js --help` 和 `npm pack --dry-run`。
 
 ## 9. 自动化配置要求
 
@@ -220,6 +221,8 @@ reasoning_effort = "high"
 - `lint_skill_quality.py --min-lines 50`: 0 FAIL / 0 WARN
 - `audit_licenses.py`: missing 0 / unknown 0
 - `check_readme_sync.py`: OK
+- `node bin/install-skills.js --help`: OK
+- `npm pack --dry-run`: OK
 - `python -m unittest discover tests -v`: OK
 - `git status --short --branch`: 干净并同步 `origin/main`
 
