@@ -1,13 +1,14 @@
 ---
 name: incident-commander
-description: 'Author: Claude Skills Team Version: 1.0.0 Last Updated: February 2026.'
+description: 'Use during incidents to coordinate triage, assign roles, manage communications, track mitigations, run post-incident review, and keep responders aligned under pressure.'
+zh_description: "用于事故响应中的分诊、角色分配、沟通协调、缓解跟踪和复盘。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["commander", "devops", "incident", "sre"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-06-29"
 quality: 5
 complexity: "intermediate"
 ---

@@ -1,13 +1,14 @@
 ---
 name: security-threat-model
-description: '用于基于代码库枚举信任边界、资产、攻击者能力、滥用路径和缓解措施，并生成威胁模型。'
+description: 'Use when creating threat models from codebases, architectures, assets, trust boundaries, attacker capabilities, abuse paths, and mitigation plans.'
+zh_description: "用于基于代码库或架构梳理资产、信任边界、攻击者能力、滥用路径和缓解措施。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["model", "security", "threat"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-06-29"
 quality: 3
 complexity: "intermediate"
 ---

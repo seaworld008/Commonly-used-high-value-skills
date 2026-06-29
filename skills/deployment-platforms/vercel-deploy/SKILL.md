@@ -1,13 +1,14 @@
 ---
 name: vercel-deploy
 description: 'Deploy applications and websites to Vercel. Use when the user requests deployment actions like "deploy my app", "deploy and give me the link", "push this live", or "create a preview deployment".'
+zh_description: "用于将应用或网站部署到 Vercel，创建预览部署或生产发布链接。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["deploy", "deployment", "vercel"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-06-29"
 quality: 3
 complexity: "intermediate"
 ---
@@ -84,3 +85,18 @@ Example guidance to the user:
 ```
 The deploy needs escalated network access to deploy to Vercel. I can rerun the command with escalated permissions—want me to proceed?
 ```
+
+## Pre-deploy Checklist
+
+Before deploying:
+
+- Confirm the project root and framework detection are correct.
+- Check for uncommitted changes if the deployment should represent a specific git state.
+- Identify required environment variables and whether they are already configured in Vercel.
+- Prefer preview deployments unless the user explicitly asks for production.
+- Use a long timeout for builds and report build logs if deployment fails.
+- Do not expose secrets in terminal output, PR comments, or final messages.
+
+## Post-deploy Response
+
+Return the deployment URL, whether it is preview or production, and any claim/manage URL produced by the fallback script. If the deploy command succeeds but runtime verification was not performed, say so directly. If verification is requested, use a normal browser or HTTP check only after the deployment URL is available.

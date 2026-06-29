@@ -9,7 +9,7 @@
 ## 推荐先看
 
 - [comps-valuation-analyst](./comps-valuation-analyst/) - Use when valuing a public company with peer multiples, building comparable-company tables, or pressure-testing a valuation range with EV/EBITDA, P/E, and EV/Sales.
-- [earnings-call-analyzer](./earnings-call-analyzer/) - Use when summarizing earnings calls, extracting management tone changes, surfacing guidance language, or turning transcript snippets into an actionable investor update.
+- [earnings-call-analyzer](./earnings-call-analyzer/) - 用于摘要财报电话会、提取管理层语气变化、业绩指引措辞和投资者更新。
 - [event-driven-tracker](./event-driven-tracker/) - Use when tracking earnings, product launches, M&A, dividends, buybacks, unlocks, or other market-moving dates that need a prioritized event calendar.
 - [factor-backtester](./factor-backtester/) - Use when testing factor signals, running long-short spread backtests, checking hit rate and turnover, or sanity-checking whether a ranking signal survives basic transaction cost assumptions.
 
@@ -18,7 +18,7 @@
 | 技能 | 简介 | 目录 | 详情 |
 |------|------|------|------|
 | `comps-valuation-analyst` | Use when valuing a public company with peer multiples, building comparable-company tables, or pressure-testing a valuation range with EV/EBITDA, P/E, and EV/Sales. | [目录](./comps-valuation-analyst/) | [SKILL.md](./comps-valuation-analyst/SKILL.md) |
-| `earnings-call-analyzer` | Use when summarizing earnings calls, extracting management tone changes, surfacing guidance language, or turning transcript snippets into an actionable investor update. | [目录](./earnings-call-analyzer/) | [SKILL.md](./earnings-call-analyzer/SKILL.md) |
+| `earnings-call-analyzer` | 用于摘要财报电话会、提取管理层语气变化、业绩指引措辞和投资者更新。 | [目录](./earnings-call-analyzer/) | [SKILL.md](./earnings-call-analyzer/SKILL.md) |
 | `event-driven-tracker` | Use when tracking earnings, product launches, M&A, dividends, buybacks, unlocks, or other market-moving dates that need a prioritized event calendar. | [目录](./event-driven-tracker/) | [SKILL.md](./event-driven-tracker/SKILL.md) |
 | `factor-backtester` | Use when testing factor signals, running long-short spread backtests, checking hit rate and turnover, or sanity-checking whether a ranking signal survives basic transaction cost assumptions. | [目录](./factor-backtester/) | [SKILL.md](./factor-backtester/SKILL.md) |
 | `financial-analyst` | Performs financial ratio analysis, DCF valuation, budget variance analysis, and rolling forecast construction for strategic decision-making | [目录](./financial-analyst/) | [SKILL.md](./financial-analyst/SKILL.md) |

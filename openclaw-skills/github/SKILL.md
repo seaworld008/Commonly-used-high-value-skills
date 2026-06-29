@@ -1,13 +1,14 @@
 ---
 name: github
-description: '通过 GitHub CLI 自动化 Issue、PR、Review 与 CI 检查，适合工程协作闭环。'
+description: 'Use when automating GitHub issues, pull requests, reviews, CI checks, labels, releases, or engineering collaboration loops through the GitHub CLI.'
+zh_description: "用于通过 GitHub CLI 自动化 Issue、PR、Review、CI 检查、标签和发布协作。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["automation", "github", "workflow"]'
 created_at: "2026-03-15"
-updated_at: "2026-06-08"
+updated_at: "2026-06-29"
 quality: 2
 complexity: "intermediate"
 ---

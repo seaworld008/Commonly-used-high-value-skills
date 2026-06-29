@@ -1,6 +1,7 @@
 ---
 name: changelog-automation
 description: 'Automate changelog generation from commits, PRs, and releases following Keep a Changelog format. Use when setting up release workflows, generating release notes, or standardizing commit conventions.'
+zh_description: "用于基于提交、PR 和发布记录自动生成 Keep a Changelog 风格的变更日志。"
 version: "1.0.0"
 author: "seaworld008"
 source: "github:wshobson/agents"
@@ -8,7 +9,7 @@ source_url: "https://github.com/wshobson/agents/blob/main/plugins/documentation-
 license: MIT
 tags: '["automation", "changelog", "workflow"]'
 created_at: "2026-05-28"
-updated_at: "2026-05-28"
+updated_at: "2026-06-29"
 quality: 4
 complexity: "intermediate"
 ---

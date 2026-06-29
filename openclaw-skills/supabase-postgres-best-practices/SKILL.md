@@ -98,3 +98,25 @@ source is intentionally concise.
 - Stop and ask for clarification when the next action could overwrite user work,
   expose private data, or change production state.
 <!-- LOCAL-QUALITY-SUPPLEMENT:END -->
+
+## Review Checklist
+
+Use this checklist when applying the Supabase/Postgres rules:
+
+- Identify the workload first: OLTP, analytics, background jobs, auth/RLS-heavy access, or mixed traffic.
+- Inspect query plans before proposing indexes; avoid adding indexes only because a column appears in a `WHERE` clause.
+- Check row-level security policies for both correctness and performance.
+- Consider write amplification, storage growth, and vacuum pressure before adding multiple indexes.
+- Prefer partial indexes when predicates are stable and selectivity is high.
+- Verify that migration SQL is reversible or has a documented rollback path.
+
+## Evidence to Return
+
+For meaningful database changes, include:
+
+- The slow query or schema object being addressed.
+- The before/after plan or the reason a plan could not be captured.
+- The index, policy, or schema change proposed.
+- Expected tradeoffs for writes, storage, lock time, and operational rollout.
+
+Do not claim a performance improvement without plan evidence, representative data, or a clearly labeled hypothesis.

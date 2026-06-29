@@ -49,7 +49,11 @@ def normalize_quality(raw: str | None) -> int | None:
 
 
 def word_count(text: str) -> int:
-    return len(re.findall(r"[A-Za-z0-9_\u4e00-\u9fff]+", text))
+    latin_tokens = len(re.findall(r"[A-Za-z0-9_]+", text))
+    cjk_chars = len(re.findall(r"[\u4e00-\u9fff]", text))
+    # Chinese text is not whitespace-delimited; two CJK chars is a practical
+    # approximation for one instructional word in this portfolio audit.
+    return latin_tokens + (cjk_chars // 2)
 
 
 @dataclass

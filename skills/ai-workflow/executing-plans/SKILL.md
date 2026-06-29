@@ -1,13 +1,14 @@
 ---
 name: executing-plans
-description: Use when you have a written implementation plan to execute in a separate session with review checkpoints
+description: Use when users have a written implementation plan that should be executed step by step in a separate session with review checkpoints and completion verification.
+zh_description: "用于按既定实现计划逐步执行任务，并在关键节点进行审查和完成验证。"
 version: "1.0.3"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["plans", "execution", "workflow"]'
 created_at: "2026-04-13"
-updated_at: "2026-06-21"
+updated_at: "2026-06-29"
 quality: 3
 complexity: "intermediate"
 ---

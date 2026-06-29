@@ -1,13 +1,14 @@
 ---
 name: security-best-practices
-description: '用于按语言和框架执行安全最佳实践检查，生成安全审查报告并提出 secure-by-default 改进建议。'
+description: 'Use when checking language or framework security best practices, producing security review reports, identifying insecure defaults, and recommending secure-by-default improvements.'
+zh_description: "用于按语言或框架检查安全最佳实践，生成安全审查报告和 secure-by-default 建议。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["best", "practices", "security"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-06-29"
 quality: 3
 complexity: "intermediate"
 ---

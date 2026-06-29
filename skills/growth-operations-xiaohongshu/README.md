@@ -31,7 +31,7 @@
 | `seo-audit` | 用于执行网站 SEO 审计、页面优化、技术检查和搜索增长建议。 | [目录](./seo-audit/) | [SKILL.md](./seo-audit/SKILL.md) |
 | `social-media-analyzer` | Social media campaign analysis and performance tracking. Calculates engagement rates, ROI, and benchmarks across platforms. Use for analyzing social media performance, calculating engagement rate, measuring campaign ROI, comparing platform metrics, or benchmarking against industry standards. | [目录](./social-media-analyzer/) | [SKILL.md](./social-media-analyzer/SKILL.md) |
 | `tweetclaw-source-research` | Use TweetClaw through OpenClaw to collect X/Twitter source context before drafting, monitoring, or campaign analysis. | [目录](./tweetclaw-source-research/) | [SKILL.md](./tweetclaw-source-research/SKILL.md) |
-| `twitter-reader` | Fetch Twitter/X post content by URL using jina.ai API to bypass JavaScript restrictions. Use when Claude needs to retrieve tweet content including author, timestamp, post text, images, and thread replies. Supports individual posts or batch fetching from x.com or twitter.com URLs. | [目录](./twitter-reader/) | [SKILL.md](./twitter-reader/SKILL.md) |
+| `twitter-reader` | 用于通过 URL 抓取 Twitter/X 帖子内容、作者、时间、图片和线程回复。 | [目录](./twitter-reader/) | [SKILL.md](./twitter-reader/SKILL.md) |
 | `x-twitter-scraper` | Use Xquik for authorized X/Twitter data workflows, including tweet search, profile reads, follower exports, media lookup, monitoring, webhooks, REST API calls, SDK usage, and MCP setup. | [目录](./x-twitter-scraper/) | [SKILL.md](./x-twitter-scraper/SKILL.md) |
 
 ## 维护方式

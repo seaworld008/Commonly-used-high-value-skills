@@ -1,13 +1,14 @@
 ---
 name: docs-cleaner
 description: 'Consolidates redundant documentation while preserving all valuable content. This skill should be used when users want to clean up documentation bloat, merge redundant docs, reduce documentation sprawl, or consolidate multiple files covering the same topic. Triggers include "clean up docs", "consolidate documentation", "too many doc files", "merge these docs", or when documentation exceeds 500 lines across multiple files covering similar topics.'
+zh_description: "用于合并冗余文档、减少文档膨胀，并在保留有效内容的前提下整理知识库。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["cleaner", "docs", "productivity"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-06-29"
 quality: 3
 complexity: "intermediate"
 ---
@@ -91,3 +92,31 @@ A successful cleanup produces:
 2. **Value analysis** - Section-by-section justification
 3. **Before/after metrics** - Lines reduced, value preserved
 4. **Updated references** - CLAUDE.md or README with pointer to new location
+
+## Decision Rules
+
+Use deletion only when all of these are true:
+
+- The content is duplicated elsewhere or no longer accurate.
+- The replacement location is clear and linked.
+- No active workflow, script, or contributor guide depends on the old path.
+- The user can review the before/after structure.
+
+Prefer consolidation when documents contain overlapping but non-identical procedures. Prefer archival when the content is historically useful but no longer operational. Prefer leaving content in place when ownership, accuracy, or downstream references are uncertain.
+
+## Verification Commands
+
+After cleanup, run project-appropriate checks:
+
+```bash
+rg "old-document-name|old/path" .
+rg "TODO|TBD|placeholder" docs README.md
+```
+
+For documentation sites, also run the site build or link checker when available. Report both the reduction achieved and the content that was intentionally preserved.
+
+## Review Notes
+
+Documentation cleanup should be reversible until the user accepts the new structure. Prefer a small staged change when removing high-traffic docs: first add redirects or pointers, then remove duplicates after references are updated. If docs are generated, update the source template or generator instead of editing generated pages directly.
+
+When the cleanup affects onboarding, run a quick reader test: can a new contributor still find setup, architecture, commands, troubleshooting, and ownership information within two clicks from the main README?

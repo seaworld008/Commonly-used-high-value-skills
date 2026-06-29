@@ -1,6 +1,7 @@
 ---
 name: theme-factory
-description: 'Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML landing pages, etc. There are 10 pre-set themes with colors/fonts that you can apply to any artifact that has been creating, or can generate a new theme on-the-fly.'
+description: 'Use when styling artifacts with reusable themes, applying preset color/font systems, or generating new visual themes for slides, documents, reports, HTML pages, and landing pages.'
+zh_description: "用于为幻灯片、文档、报告和网页应用预设主题或生成新的颜色字体系统。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"
@@ -8,7 +9,7 @@ source_url: ""
 license: Complete terms in LICENSE.txt
 tags: '["factory", "productivity", "theme"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-06-29"
 quality: 3
 complexity: "intermediate"
 ---

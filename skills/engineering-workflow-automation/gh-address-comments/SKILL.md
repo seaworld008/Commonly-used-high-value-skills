@@ -1,13 +1,14 @@
 ---
 name: gh-address-comments
-description: 'Help address review/issue comments on the open GitHub PR for the current branch using gh CLI; verify gh auth first and prompt the user to authenticate if not logged in.'
+description: 'Use when addressing GitHub PR review comments or issue comments on the current branch with gh CLI, including auth checks, comment triage, edits, verification, and replies.'
+zh_description: "用于通过 gh CLI 处理当前分支的 GitHub PR Review 评论或 Issue 评论。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["address", "automation", "comments", "workflow"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-06-29"
 quality: 2
 complexity: "intermediate"
 metadata:

@@ -1,13 +1,14 @@
 ---
 name: link-checker
-description: '检测 URL 可达性与潜在风险，识别失效链接、跳转链路和可疑域名。'
+description: 'Use when checking URL availability, dead links, redirect chains, suspicious domains, documentation link health, or link-risk evidence before publishing.'
+zh_description: "用于检测 URL 可达性、失效链接、跳转链路、可疑域名和文档链接健康度。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["checker", "link", "security"]'
 created_at: "2026-03-15"
-updated_at: "2026-03-20"
+updated_at: "2026-06-29"
 quality: 2
 complexity: "intermediate"
 ---
