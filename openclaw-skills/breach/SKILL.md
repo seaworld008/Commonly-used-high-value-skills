@@ -1,14 +1,14 @@
 ---
 name: breach
 description: 'Designing red team attack scenarios, building threat models, applying MITRE ATT&CK/OWASP frameworks, running Purple Team exercises, and performing AI/LLM red teaming. Use when adversarial security validation is needed.'
-version: "1.0.5"
+version: "1.0.6"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/breach"
 license: MIT
 tags: '["breach", "security"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-08"
+updated_at: "2026-06-29"
 quality: 5
 complexity: "advanced"
 ---
@@ -29,7 +29,6 @@ COLLABORATION_PATTERNS:
 - Probe → Breach: DAST vulnerabilities feed into exploitation chain design
 - Canon → Breach: Standards gaps become attack entry points
 - Oracle → Breach: AI/ML architecture provides attack surface for AI red teaming
-- Stratum → Breach: System architecture (C4 models) reveals structural attack paths
 - Matrix → Breach: Attack surface combinations for combinatorial security testing
 - Breach → Builder: Remediation specs from confirmed exploits
 - Breach → Sentinel: New detection rules from discovered attack patterns
@@ -306,7 +305,7 @@ Every deliverable must include:
 
 ## Collaboration
 
-**Receives:** Sentinel (static analysis findings), Probe (DAST/runtime vulnerabilities), Canon (standards compliance gaps), Oracle (AI/ML architecture for attack surface), Stratum (system architecture via C4 models), Matrix (attack surface combinations for combinatorial security testing)
+**Receives:** Sentinel (static analysis findings), Probe (DAST/runtime vulnerabilities), Canon (standards compliance gaps), Oracle (AI/ML architecture for attack surface), Matrix (attack surface combinations for combinatorial security testing)
 **Sends:** Builder (remediation specifications), Sentinel (new detection rules and signatures), Radar (security regression test cases), Scribe (assessment reports and threat models), Mend (runbook updates for incident response)
 
 **Agent Teams pattern (multi-domain assessments):**

@@ -1,14 +1,14 @@
 ---
 name: stage
 description: 'Generating slides via Marp, reveal.js, or Slidev, designing narrative arcs, and optimizing conference talks with WPM-calibrated timing. Use when creating or pacing presentations.'
-version: "1.0.5"
+version: "1.0.6"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/stage"
 license: MIT
 tags: '["office", "stage"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-08"
+updated_at: "2026-06-29"
 quality: 5
 complexity: "advanced"
 ---
@@ -29,12 +29,11 @@ COLLABORATION_PATTERNS:
 - Canvas -> Stage: Diagrams and charts for slide embedding
 - Tome -> Stage: Learning materials to presentation format
 - Stage -> Director: Presentation recording with Playwright
-- Stage -> Reel: CLI demo slides to terminal recording
 - Muse -> Stage: Design tokens for theme consistency
 
 BIDIRECTIONAL_PARTNERS:
 - INPUT: Scribe (specs), Canvas (diagrams), Tome (learning materials), Muse (design tokens), User (requirements)
-- OUTPUT: Director (recording), Reel (CLI demos), User (slides)
+- OUTPUT: Director (recording), User (slides)
 
 PROJECT_AFFINITY: Game(L) SaaS(M) E-commerce(L) Dashboard(M) Marketing(H)
 -->
@@ -188,14 +187,13 @@ Pace baseline: 120-160 WPM; use 140 WPM for technical conference talks, 125 WPM 
 ## Collaboration
 
 **Receives:** Scribe (specs to present), Canvas (diagrams to embed), Tome (learning materials), Muse (design tokens for theming), User (outlines, topics)
-**Sends:** Director (slides for recording), Reel (CLI demo integration), User (slide deck)
+**Sends:** Director (slides for recording), User (slide deck)
 
 | Direction | Handoff | Purpose |
 |-----------|---------|---------|
 | Scribe → Stage | `SCRIBE_TO_STAGE_HANDOFF` | Specification → slide conversion |
 | Canvas → Stage | `CANVAS_TO_STAGE_HANDOFF` | Diagram embedding |
 | Stage → Director | `STAGE_TO_DIRECTOR_HANDOFF` | Presentation recording |
-| Stage → Reel | `STAGE_TO_REEL_HANDOFF` | CLI demo segment |
 
 ## Reference Map
 
@@ -235,7 +233,7 @@ _STEP_COMPLETE:
       narrative_pattern: "[Problem-Solution | AIDA | Before-After | Hero's Journey | Tutorial]"
       audience: "[beginner | intermediate | expert]"
     preview_command: "[command to preview]"
-  Next: Director | Reel | DONE
+  Next: Director | DONE
   Reason: [Why this next step]
 ```
 

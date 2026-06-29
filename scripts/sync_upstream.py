@@ -71,8 +71,18 @@ def fetch_url(url: str, token: str | None = None, *, quiet_404: bool = False) ->
     req = urllib.request.Request(url, headers=headers)
     try:
         with urllib.request.urlopen(req, timeout=15) as resp:
-            return resp.read().decode("utf-8", errors="replace")
-    except (urllib.error.URLError, urllib.error.HTTPError, http.client.RemoteDisconnected, TimeoutError) as e:
+            try:
+                return resp.read().decode("utf-8", errors="replace")
+            except http.client.IncompleteRead as e:
+                print(f"    Warning: incomplete read for {url}; using partial content", file=sys.stderr)
+                return e.partial.decode("utf-8", errors="replace")
+    except (
+        urllib.error.URLError,
+        urllib.error.HTTPError,
+        http.client.RemoteDisconnected,
+        http.client.IncompleteRead,
+        TimeoutError,
+    ) as e:
         if not (
             quiet_404
             and isinstance(e, urllib.error.HTTPError)
