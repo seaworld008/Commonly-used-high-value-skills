@@ -8,6 +8,8 @@
 - 外源技能必须带可解释的 `source` / `source_url` / `license`
 - 生成物不手改，统一通过脚本刷新
 - 仓库健康度以 `repo-health` 报告为总览入口
+- 技能组合质量以 `audit_skill_portfolio.py` 为长期精选入口
+- 每周自动化维护细则见 [Skill Curation and Automation Runbook](./skill-curation-and-automation-runbook.md)
 
 ## 2. 关键报告与它们回答的问题
 
@@ -55,6 +57,19 @@
 - 用途：
   - 判断哪些来源映射已经变陈旧，需要下一轮巡检
 
+### Skill Portfolio Audit
+
+- 文件：
+  - `docs/sources/reports/skill-quality-audit.json`
+  - `docs/sources/reports/skill-quality-audit.md`
+- 用途：
+  - 判断技能是否仍然适合留在高价值精选组合中
+  - 重点关注：
+    - `replace_or_archive`：优先人工复核，必要时替换或剔除
+    - `improve`：同轮补强正文、示例、触发描述或边界
+    - `review`：解释保留理由或列入下一轮队列
+    - `keep`：可保留，但仍需满足 frontmatter 和 license 规则
+
 ## 3. 本地推荐维护流程
 
 ### 快速检查
@@ -69,6 +84,7 @@ python3 scripts/check_dead_links.py \
 
 python3 scripts/generate_repo_health_report.py
 python3 scripts/evaluate_repo_health.py
+python3 scripts/audit_skill_portfolio.py
 ```
 
 ### 完整刷新
@@ -121,6 +137,26 @@ python3 -m unittest \
 2. 优先更新 `docs/sources/*.skills.json`
 3. 再跑 `bootstrap_in_house_sources.py` / `validate_skill_sources.py`
 
+### 情况 D：组合审计出现 `improve` 或 `replace_or_archive`
+
+处理顺序：
+
+1. 先人工复核，不要只按分数删除
+2. 能补强的优先补 `description`、`zh_description`、结构、示例和边界
+3. 与现有技能高度重复且价值低的，寻找更优 permissive 替代
+4. 上游消失但本地仍有价值的，标记 `sync_mode: archived` 或改为 `source: in-house`
+5. 删除或替换后跑完整 pipeline，确认生成视图、catalog、README 同步
+
+### 情况 E：缺失 `zh_description`
+
+处理顺序：
+
+1. 新增或更新技能时手写简洁中文说明
+2. 历史批量缺口使用 `python scripts/backfill_zh_descriptions.py --dry-run` 先预览
+3. 确认后运行 `python scripts/backfill_zh_descriptions.py`
+4. 如果描述过于泛化，再使用 `--refresh-generated` 刷新脚本识别到的生成描述
+5. 跑完整 pipeline，确保中文 README 和分类 README 从源文件再生成
+
 ## 5. CI 中当前已经自动做的事
 
 `repo-validation.yml` 现在会自动执行：
@@ -145,6 +181,8 @@ python3 -m unittest \
 - 证据不足时，不要为了“看起来干净”乱填元数据
 - 如果技能已经经过明显的中文化、扩写和结构重写，且无法唯一对应上游，应考虑改为 `in-house`
 - 统一健康报告优先于零散脚本输出，先看总览，再钻细节
+- 外部 SSL、TLS、rate limit、旧 raw path `404` 要和仓库质量回归分开记录
+- 没有更优替代时，不要为了清空 warning 删除仍有独特价值的技能
 
 ## 7. 目标状态
 
