@@ -2,7 +2,7 @@
 name: billing-automation
 description: 'Build automated billing systems for recurring payments, invoicing, subscription lifecycle, and dunning management. Use when implementing subscription billing, automating invoicing, or managing recurring payment systems.'
 zh_description: "用于构建订阅计费、自动开票、续费生命周期和催收管理流程。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:wshobson/agents"
 source_url: "https://github.com/wshobson/agents/blob/main/plugins/payment-processing/skills/billing-automation/SKILL.md"
@@ -88,6 +88,7 @@ billing.process_billing_cycle(subscription.id)
 
 Detailed pattern documentation lives in `references/details.md`. Read that file when the navigation tier above is insufficient.
 
+<!-- LOCAL-CURATION-SUPPLEMENT:START -->
 ## Implementation Checklist
 
 Before building or changing billing logic, capture:
@@ -137,3 +138,4 @@ Open rollout concern:
 ```
 
 This helps reviewers evaluate both code correctness and revenue operations risk.
+<!-- LOCAL-CURATION-SUPPLEMENT:END -->

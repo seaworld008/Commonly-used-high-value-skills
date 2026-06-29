@@ -44,8 +44,8 @@
         "repo": "larksuite/cli",
         "path": "skills/lark-attendance/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-05-20",
-        "last_synced_at": "2026-05-20",
+        "last_checked_at": "2026-06-29",
+        "last_synced_at": "2026-06-29",
         "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
       }
     },
@@ -284,8 +284,8 @@
         "repo": "larksuite/cli",
         "path": "skills/lark-skill-maker/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-05-20",
-        "last_synced_at": "2026-05-20",
+        "last_checked_at": "2026-06-29",
+        "last_synced_at": "2026-06-29",
         "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
       }
     },

@@ -25,6 +25,8 @@ import http.client
 import json
 import os
 import re
+import socket
+import ssl
 import subprocess
 import sys
 import urllib.error
@@ -37,6 +39,14 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 SKILLS_DIR = REPO_ROOT / "skills"
 PROVENANCE_FILE = REPO_ROOT / "docs" / "sources" / "in-house.skills.json"
 SOURCE_MAPPINGS_DIR = REPO_ROOT / "docs" / "sources"
+NETWORK_ERRORS = (
+    urllib.error.URLError,
+    http.client.RemoteDisconnected,
+    http.client.IncompleteRead,
+    TimeoutError,
+    socket.timeout,
+    ssl.SSLError,
+)
 
 
 def github_raw_url(repo: str, path: str, ref: str = "main") -> str:
@@ -102,12 +112,7 @@ def fetch_url(
         except urllib.error.HTTPError as e:
             last_error = e
             break
-        except (
-            urllib.error.URLError,
-            http.client.RemoteDisconnected,
-            http.client.IncompleteRead,
-            TimeoutError,
-        ) as e:
+        except NETWORK_ERRORS as e:
             last_error = e
             if attempt < retries:
                 sleep(0.5 * (attempt + 1))
@@ -139,7 +144,7 @@ def github_api_get(url: str, token: str | None = None) -> dict | None:
     try:
         with urllib.request.urlopen(req, timeout=15) as resp:
             return json.loads(resp.read().decode())
-    except (urllib.error.URLError, urllib.error.HTTPError, http.client.RemoteDisconnected, TimeoutError, json.JSONDecodeError) as e:
+    except (urllib.error.HTTPError, *NETWORK_ERRORS, json.JSONDecodeError) as e:
         print(f"    Warning: API request failed: {e}", file=sys.stderr)
         return None
 
@@ -225,17 +230,19 @@ def bump_patch_version(version: str) -> str:
     return yaml_quote(".".join(parts))
 
 
-def remove_local_quality_supplement(content: str) -> str:
-    return re.sub(
-        r"\n+<!-- LOCAL-QUALITY-SUPPLEMENT:START -->.*?<!-- LOCAL-QUALITY-SUPPLEMENT:END -->\s*",
-        "\n\n",
-        content,
-        flags=re.DOTALL,
-    ).rstrip() + "\n"
+def remove_local_supplements(content: str) -> str:
+    for marker in ("LOCAL-QUALITY-SUPPLEMENT", "LOCAL-CURATION-SUPPLEMENT"):
+        content = re.sub(
+            rf"\n+<!-- {marker}:START -->.*?<!-- {marker}:END -->\s*",
+            "\n\n",
+            content,
+            flags=re.DOTALL,
+        )
+    return content.rstrip() + "\n"
 
 
 def comparable_body(text: str) -> str:
-    return strip_frontmatter(remove_local_quality_supplement(text))
+    return strip_frontmatter(remove_local_supplements(text))
 
 
 def needs_quality_supplement(content: str) -> bool:
@@ -285,7 +292,7 @@ source is intentionally concise.
 
 
 def ensure_quality_floor(content: str, skill_name: str) -> str:
-    cleaned = remove_local_quality_supplement(content)
+    cleaned = remove_local_supplements(content)
     if not needs_quality_supplement(cleaned):
         return cleaned
     return cleaned.rstrip() + "\n" + build_quality_supplement(skill_name).lstrip()
@@ -558,68 +565,68 @@ def main() -> None:
         excluded = {item.replace("github:", "") for item in args.exclude_source}
         skills = [s for s in skills if s["repo"] not in excluded and s["source"] not in args.exclude_source]
     
-    print(f"Checking {len(skills)} skills with external upstream sources...")
+    print(f"Checking {len(skills)} skills with external upstream sources...", flush=True)
     
     updates = []
     for skill in skills:
-        print(f"  Checking: {skill['name']} ({skill['source']})")
+        print(f"  Checking: {skill['name']} ({skill['source']})", flush=True)
         update = check_upstream_changes(skill, token)
         if update:
             updates.append(update)
-            print(f"    → Update available!")
+            print(f"    → Update available!", flush=True)
     
-    print(f"\n{'='*60}")
-    print(f"Results: {len(updates)} updates available out of {len(skills)} checked")
+    print(f"\n{'='*60}", flush=True)
+    print(f"Results: {len(updates)} updates available out of {len(skills)} checked", flush=True)
     
     if not updates:
-        print("All skills are up to date.")
+        print("All skills are up to date.", flush=True)
         return
     
-    print("\nSkills with available updates:")
+    print("\nSkills with available updates:", flush=True)
     for u in updates:
         s = u["skill"]
         mode = s.get("sync_mode", "replace")
         mode_note = " [monitor-only]" if mode == "monitor" else ""
-        print(f"  - {s['name']} ({s['category']}) ← {s['source']}{mode_note}")
+        print(f"  - {s['name']} ({s['category']}) ← {s['source']}{mode_note}", flush=True)
     
     auto_updates = [u for u in updates if u["skill"].get("sync_mode") != "monitor"]
 
     if args.check_only:
         if auto_updates:
-            print("\nRun with --apply to download and apply auto-syncable updates.")
+            print("\nRun with --apply to download and apply auto-syncable updates.", flush=True)
         else:
-            print("\nAll reported updates are monitor-only; review upstream manually before editing curated skills.")
+            print("\nAll reported updates are monitor-only; review upstream manually before editing curated skills.", flush=True)
         return
     
     if args.apply:
         applied = 0
         for u in updates:
             s = u["skill"]
-            print(f"\n  Applying update: {s['name']}")
+            print(f"\n  Applying update: {s['name']}", flush=True)
 
             if s.get("sync_mode") == "monitor":
-                print("    Skipped: upstream is monitored for manual curation; automatic body replacement is disabled.")
+                print("    Skipped: upstream is monitored for manual curation; automatic body replacement is disabled.", flush=True)
                 continue
             
             if args.dry_run:
-                print(f"    [DRY RUN] Would merge upstream content into {s['local_path']}")
+                print(f"    [DRY RUN] Would merge upstream content into {s['local_path']}", flush=True)
                 applied += 1
                 continue
             
             merged = merge_frontmatter(s["local_content"], u["upstream_content"])
             s["local_path"].write_text(merged, encoding="utf-8")
-            print(f"    Updated: {s['local_path']}")
+            print(f"    Updated: {s['local_path']}", flush=True)
             if s["source"].startswith("github:"):
                 aux_count = sync_github_auxiliary_files(s, u["upstream_path"], token)
                 if aux_count:
-                    print(f"    Synced auxiliary files: {aux_count}")
+                    print(f"    Synced auxiliary files: {aux_count}", flush=True)
             update_mapping_after_sync(u)
             applied += 1
         
-        print(f"\nApplied {applied} updates.")
+        print(f"\nApplied {applied} updates.", flush=True)
         if not args.dry_run:
-            print("Run the full pipeline to regenerate views:")
-            print("  python scripts/refresh_repo_views.py")
+            print("Run the full pipeline to regenerate views:", flush=True)
+            print("  python scripts/refresh_repo_views.py", flush=True)
 
 
 if __name__ == "__main__":

@@ -2,7 +2,7 @@
 name: requesting-code-review
 description: 'Use when completing tasks, implementing major features, or before merging to verify work meets requirements'
 zh_description: "用于在完成任务、实现重要功能或合并前请求代码审查并验证需求满足情况。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
@@ -112,6 +112,7 @@ You: [Fix progress indicators]
 
 See template at: [code-reviewer.md](code-reviewer.md)
 
+<!-- LOCAL-CURATION-SUPPLEMENT:START -->
 ## Review Request Checklist
 
 A strong review request includes:
@@ -145,3 +146,4 @@ I ran the unit suite and one manual Stripe test; migration rollback is not cover
 - If a finding is rejected, document the technical reason and supporting evidence.
 - Re-run the relevant tests after changes, not only the full suite.
 - Keep review conversations tied to code and requirements, not preferences.
+<!-- LOCAL-CURATION-SUPPLEMENT:END -->
