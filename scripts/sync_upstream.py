@@ -31,6 +31,7 @@ import urllib.error
 import urllib.request
 from datetime import date
 from pathlib import Path
+from time import sleep
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SKILLS_DIR = REPO_ROOT / "skills"
@@ -41,6 +42,20 @@ SOURCE_MAPPINGS_DIR = REPO_ROOT / "docs" / "sources"
 def github_raw_url(repo: str, path: str, ref: str = "main") -> str:
     """Construct a GitHub raw content URL."""
     return f"https://raw.githubusercontent.com/{repo}/{ref}/{path}"
+
+
+def github_path_from_source_url(source_url: str, repo: str) -> str | None:
+    """Extract an upstream SKILL.md path from a GitHub blob/tree source URL."""
+    pattern = rf"https://github\.com/{re.escape(repo)}/(blob|tree)/([^/]+)/(.*)"
+    match = re.match(pattern, source_url.rstrip("/"))
+    if not match:
+        return None
+    kind, _ref, path = match.groups()
+    if kind == "blob":
+        return path if path.endswith("SKILL.md") else None
+    if kind == "tree":
+        return f"{path.rstrip('/')}/SKILL.md"
+    return None
 
 
 def resolve_github_token() -> str | None:
@@ -63,36 +78,53 @@ def resolve_github_token() -> str | None:
     return None
 
 
-def fetch_url(url: str, token: str | None = None, *, quiet_404: bool = False) -> str | None:
+def fetch_url(
+    url: str,
+    token: str | None = None,
+    *,
+    quiet_404: bool = False,
+    retries: int = 1,
+) -> str | None:
     """Fetch content from a URL."""
     headers = {"User-Agent": "skills-sync-bot"}
     if token:
         headers["Authorization"] = f"token {token}"
     req = urllib.request.Request(url, headers=headers)
-    try:
-        with urllib.request.urlopen(req, timeout=15) as resp:
-            try:
-                return resp.read().decode("utf-8", errors="replace")
-            except http.client.IncompleteRead as e:
-                print(f"    Warning: incomplete read for {url}; using partial content", file=sys.stderr)
-                return e.partial.decode("utf-8", errors="replace")
-    except (
-        urllib.error.URLError,
-        urllib.error.HTTPError,
-        http.client.RemoteDisconnected,
-        http.client.IncompleteRead,
-        TimeoutError,
-    ) as e:
+    last_error: Exception | None = None
+    for attempt in range(retries + 1):
+        try:
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                try:
+                    return resp.read().decode("utf-8", errors="replace")
+                except http.client.IncompleteRead as e:
+                    print(f"    Warning: incomplete read for {url}; using partial content", file=sys.stderr)
+                    return e.partial.decode("utf-8", errors="replace")
+        except urllib.error.HTTPError as e:
+            last_error = e
+            break
+        except (
+            urllib.error.URLError,
+            http.client.RemoteDisconnected,
+            http.client.IncompleteRead,
+            TimeoutError,
+        ) as e:
+            last_error = e
+            if attempt < retries:
+                sleep(0.5 * (attempt + 1))
+                continue
+            break
+
+    if last_error is not None:
         if not (
             quiet_404
-            and isinstance(e, urllib.error.HTTPError)
-            and e.code == 404
+            and isinstance(last_error, urllib.error.HTTPError)
+            and last_error.code == 404
         ):
-            print(f"    Warning: fetch failed for {url}: {e}", file=sys.stderr)
+            print(f"    Warning: fetch failed for {url}: {last_error}", file=sys.stderr)
         fallback = fetch_github_raw_via_api(url, token)
         if fallback is not None:
             return fallback
-        return None
+    return None
 
 
 def github_api_get(url: str, token: str | None = None) -> dict | None:
@@ -196,7 +228,7 @@ def bump_patch_version(version: str) -> str:
 def remove_local_quality_supplement(content: str) -> str:
     return re.sub(
         r"\n+<!-- LOCAL-QUALITY-SUPPLEMENT:START -->.*?<!-- LOCAL-QUALITY-SUPPLEMENT:END -->\s*",
-        "\n",
+        "\n\n",
         content,
         flags=re.DOTALL,
     ).rstrip() + "\n"
@@ -319,6 +351,8 @@ def load_skills_from_source_mappings() -> list[dict]:
             repo = upstream.get("repo")
             repo_skill = entry.get("repo_skill")
             upstream_path = upstream.get("path")
+            if upstream.get("sync_mode") in {"archived", "local-only"}:
+                continue
             if not repo or repo.startswith("local-repo/") or not repo_skill or not upstream_path:
                 continue
             local_path = REPO_ROOT / repo_skill
@@ -347,6 +381,23 @@ def load_skills_from_source_mappings() -> list[dict]:
     return results
 
 
+def load_non_syncable_mapped_paths() -> set[Path]:
+    """Return local skill paths explicitly excluded from automatic upstream sync."""
+    paths: set[Path] = set()
+    for mapping_path in sorted(SOURCE_MAPPINGS_DIR.glob("*.skills.json")):
+        if mapping_path.name == PROVENANCE_FILE.name:
+            continue
+        data = json.loads(mapping_path.read_text(encoding="utf-8"))
+        for entry in data.get("skills", []):
+            upstream = entry.get("upstream") or {}
+            if upstream.get("sync_mode") not in {"archived", "local-only"}:
+                continue
+            repo_skill = entry.get("repo_skill")
+            if repo_skill:
+                paths.add((REPO_ROOT / repo_skill).resolve())
+    return paths
+
+
 def load_skills_with_upstream() -> list[dict]:
     """Load skills that have external upstream sources.
 
@@ -355,6 +406,7 @@ def load_skills_with_upstream() -> list[dict]:
     """
     mapped = load_skills_from_source_mappings()
     mapped_paths = {item["local_path"].resolve() for item in mapped}
+    mapped_paths.update(load_non_syncable_mapped_paths())
     results = []
     for skill_md in sorted(SKILLS_DIR.glob("*/*/SKILL.md")):
         if skill_md.resolve() in mapped_paths:
@@ -367,14 +419,21 @@ def load_skills_with_upstream() -> list[dict]:
         if source.startswith("github:"):
             repo = source.replace("github:", "")
             skill_name = fm.get("name", skill_md.parent.name)
+            source_url = fm.get("source_url", "")
+            source_url_path = github_path_from_source_url(source_url, repo)
+            if not source_url_path and source_url.startswith("https://skills.sh/"):
+                continue
+            if not source_url_path and source_url.rstrip("/") == f"https://github.com/{repo}":
+                continue
             results.append({
                 "name": skill_name,
                 "category": skill_md.parent.parent.name,
                 "source": source,
                 "repo": repo,
                 "local_path": skill_md,
-                "source_url": fm.get("source_url", ""),
+                "source_url": source_url,
                 "local_content": content,
+                "source_url_path": source_url_path,
                 "ref": "main",
             })
         elif source in ("skills.sh", "clawhub", "community"):
@@ -389,11 +448,16 @@ def check_upstream_changes(skill: dict, token: str | None) -> dict | None:
     skill_name = skill["name"]
     
     # Prefer exact provenance paths. Fallbacks support older frontmatter-only entries.
-    candidate_paths = [skill["upstream_path"]] if skill.get("upstream_path") else [
-        f"skills/{skill_name}/SKILL.md",
-        f"skills/{skill['category']}/{skill_name}/SKILL.md",
-        f"{skill_name}/SKILL.md",
-    ]
+    if skill.get("upstream_path"):
+        candidate_paths = [skill["upstream_path"]]
+    elif skill.get("source_url_path"):
+        candidate_paths = [skill["source_url_path"]]
+    else:
+        candidate_paths = [
+            f"skills/{skill_name}/SKILL.md",
+            f"skills/{skill['category']}/{skill_name}/SKILL.md",
+            f"{skill_name}/SKILL.md",
+        ]
     
     for path in candidate_paths:
         url = github_raw_url(repo, path, skill.get("ref", "main"))

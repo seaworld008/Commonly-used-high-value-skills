@@ -71,14 +71,17 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-agent-platform/native-mcp/SKILL.md",
       "source": "https://github.com/NousResearch/hermes-agent/blob/main/skills/mcp/native-mcp/SKILL.md",
-      "notes": "Selected as a practical MCP runtime integration skill that complements builder-oriented MCP skills already in the repository.",
+      "notes": "Upstream no longer ships a standalone native-mcp SKILL.md; keep the curated local MCP runtime guide as a local maintained snapshot.",
       "upstream": {
         "repo": "NousResearch/hermes-agent",
         "path": "skills/mcp/native-mcp/SKILL.md",
         "ref": "main",
         "last_checked_at": "2026-04-13",
         "last_synced_at": "2026-04-13",
-        "last_synced_commit": "3636f64540a3d80c8425f195f46e53e940956cba"
+        "last_synced_commit": "3636f64540a3d80c8425f195f46e53e940956cba",
+        "sync_mode": "archived",
+        "archived_at": "2026-06-29",
+        "archive_reason": "Upstream path removed; no one-to-one replacement SKILL.md exists."
       }
     },
     {
@@ -151,14 +154,17 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/knowledge-and-pm-integrations/linear/SKILL.md",
       "source": "https://github.com/NousResearch/hermes-agent/blob/main/skills/productivity/linear/SKILL.md",
-      "notes": "Repository version is upgraded to an API-first Linear workflow adapted from Hermes so it works even without an MCP connection.",
+      "notes": "Repository version is an API-first Linear workflow adapted from Hermes; upstream no longer ships the original standalone Linear skill.",
       "upstream": {
         "repo": "NousResearch/hermes-agent",
         "path": "skills/productivity/linear/SKILL.md",
         "ref": "main",
         "last_checked_at": "2026-05-19",
         "last_synced_at": "2026-05-19",
-        "last_synced_commit": "3636f64540a3d80c8425f195f46e53e940956cba"
+        "last_synced_commit": "3636f64540a3d80c8425f195f46e53e940956cba",
+        "sync_mode": "archived",
+        "archived_at": "2026-06-29",
+        "archive_reason": "Upstream path removed; local version remains higher utility than removing the skill."
       }
     }
   ],

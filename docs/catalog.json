@@ -441,7 +441,7 @@
       "description": "Karpathy-inspired coding discipline for AI agents: think before coding, keep changes simple, edit surgically, and define verifiable success criteria before implementation.",
       "version": "1.0.0",
       "author": "seaworld008",
-      "source": "github:swarmclawai/andrej-karpathy-skills",
+      "source": "in-house",
       "source_url": "https://github.com/swarmclawai/andrej-karpathy-skills/blob/main/skills/karpathy-guidelines/SKILL.md",
       "tags": [
         "coding-discipline",
@@ -2075,7 +2075,7 @@
       "complexity": "intermediate",
       "created_at": "2026-06-29",
       "updated_at": "2026-06-29",
-      "line_count": 261,
+      "line_count": 263,
       "path": "skills/developer-engineering/neon-postgres-egress-optimizer/SKILL.md"
     },
     {
@@ -3140,7 +3140,7 @@
       "description": "Production-grade Playwright testing skill for E2E suites, flaky test diagnosis, browser automation, migration from Cypress/Selenium, CI integration, visual checks, and regression validation.",
       "version": "1.0.0",
       "author": "seaworld008",
-      "source": "github:alirezarezvani/claude-skills",
+      "source": "in-house",
       "source_url": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/playwright-pro",
       "tags": [
         "playwright",
@@ -5859,7 +5859,7 @@
       "description": "Front-end UI/UX design intelligence for creating, reviewing, and hardening polished product interfaces across web, mobile, dashboards, SaaS, ecommerce, and content-heavy apps.",
       "version": "1.0.0",
       "author": "seaworld008",
-      "source": "github:nextlevelbuilder/ui-ux-pro-max-skill",
+      "source": "in-house",
       "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/main/.claude/skills/ui-ux-pro-max/SKILL.md",
       "tags": [
         "ui",

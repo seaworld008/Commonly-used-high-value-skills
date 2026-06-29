@@ -19,6 +19,7 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import UTC, datetime
 from pathlib import Path
 from threading import Lock
+from time import sleep
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 
@@ -223,6 +224,7 @@ def fetch_url(
     source_key: str,
     source_health: dict[str, dict],
     headers: dict | None = None,
+    retries: int = 1,
 ) -> str | None:
     request_headers = {"User-Agent": "skills-discovery-bot"}
     if headers:
@@ -230,21 +232,27 @@ def fetch_url(
 
     record_query(source_health, source_key)
     req = urllib.request.Request(url, headers=request_headers)
-    try:
-        with urllib.request.urlopen(req, timeout=15) as resp:
-            return resp.read().decode("utf-8", errors="replace")
-    except urllib.error.HTTPError as exc:
-        record_error(source_health, source_key, status_code=exc.code, message=str(exc))
-        print(f"  Warning: Request failed for {url}: {exc}", file=sys.stderr)
-        return None
-    except urllib.error.URLError as exc:
-        record_error(source_health, source_key, status_code=None, message=str(exc))
-        print(f"  Warning: Request failed for {url}: {exc}", file=sys.stderr)
-        return None
-    except Exception as exc:  # pragma: no cover
-        record_error(source_health, source_key, status_code=None, message=str(exc))
-        print(f"  Warning: Request failed for {url}: {exc}", file=sys.stderr)
-        return None
+    last_exc: Exception | None = None
+    for attempt in range(retries + 1):
+        try:
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                return resp.read().decode("utf-8", errors="replace")
+        except urllib.error.HTTPError as exc:
+            record_error(source_health, source_key, status_code=exc.code, message=str(exc))
+            print(f"  Warning: Request failed for {url}: {exc}", file=sys.stderr)
+            return None
+        except urllib.error.URLError as exc:
+            last_exc = exc
+        except Exception as exc:  # pragma: no cover
+            last_exc = exc
+
+        if attempt < retries:
+            sleep(0.5 * (attempt + 1))
+
+    message = str(last_exc) if last_exc else "unknown error"
+    record_error(source_health, source_key, status_code=None, message=message)
+    print(f"  Warning: Request failed for {url}: {message}", file=sys.stderr)
+    return None
 
 
 def github_api_get(url: str, token: str | None, source_health: dict[str, dict]) -> dict | list | None:
