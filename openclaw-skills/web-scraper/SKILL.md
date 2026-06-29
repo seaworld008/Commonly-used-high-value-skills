@@ -1,13 +1,14 @@
 ---
 name: web-scraper
-description: '用于网页数据抓取、结构化提取和反爬策略应对。仓库整理版，吸收社区高频最佳实践。'
+description: 'Use when users need webpage scraping, structured data extraction, crawling strategy, anti-bot handling, selector design, or repeatable web data collection workflows.'
+zh_description: "用于网页抓取、结构化数据提取、爬取策略、选择器设计和反爬应对。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["automation", "scraper", "web", "workflow"]'
 created_at: "2026-03-27"
-updated_at: "2026-03-27"
+updated_at: "2026-06-29"
 quality: 4
 complexity: "intermediate"
 ---

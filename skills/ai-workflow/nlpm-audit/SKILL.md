@@ -1,6 +1,7 @@
 ---
 name: nlpm-audit
 description: 'Audits natural-language programming artifacts such as SKILL.md, AGENTS.md, CLAUDE.md, slash commands, plugin manifests, hooks, rules, and prompt files. Use when reviewing AI-agent repositories, checking manifest-vs-disk consistency, scoring skill or agent quality, adding NL artifact CI gates, or diagnosing vocabulary and version drift across Claude Code, Codex, Cursor, Gemini, and Antigravity-style projects.'
+zh_description: "审计 SKILL.md、AGENTS.md、CLAUDE.md、插件清单、hooks、commands 和提示词，检查安装一致性、质量评分、安全风险与版本漂移。"
 version: "1.0.1"
 author: seaworld008
 source: github:xiaolai/nlpm
@@ -11,7 +12,6 @@ created_at: "2026-06-12"
 updated_at: "2026-06-16"
 quality: 4
 complexity: advanced
-zh_description: "审计 SKILL.md、AGENTS.md、CLAUDE.md、插件清单、hooks、commands 和提示词，检查安装一致性、质量评分、安全风险与版本漂移。"
 ---
 
 # NLPM Audit

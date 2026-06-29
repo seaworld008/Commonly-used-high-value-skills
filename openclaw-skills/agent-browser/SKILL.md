@@ -1,13 +1,14 @@
 ---
 name: agent-browser
-description: '为 Agent 提供真实浏览器自动化能力，支持语义定位、表单交互、截图录屏、脚本执行与会话管理。'
+description: 'Use when an agent needs real browser automation for semantic element targeting, form interaction, screenshots, recordings, script execution, session reuse, or end-to-end web workflow verification.'
+zh_description: "用于让 Agent 操作真实浏览器，完成页面交互、截图录屏、脚本执行和端到端验证。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["agent", "automation", "browser", "workflow"]'
 created_at: "2026-03-15"
-updated_at: "2026-03-20"
+updated_at: "2026-06-29"
 quality: 2
 complexity: "intermediate"
 ---

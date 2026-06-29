@@ -1,13 +1,14 @@
 ---
 name: summarize
-description: '对网页、文档、邮件与长文本进行快速摘要，提炼核心信息。'
+description: 'Use when users need concise, faithful summaries of webpages, documents, emails, transcripts, or long text, including key points, decisions, risks, and follow-up actions.'
+zh_description: "用于忠实摘要网页、文档、邮件、转录稿或长文本，并提炼重点和后续行动。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["summarize"]'
 created_at: "2026-03-15"
-updated_at: "2026-03-20"
+updated_at: "2026-06-29"
 quality: 2
 complexity: "intermediate"
 ---

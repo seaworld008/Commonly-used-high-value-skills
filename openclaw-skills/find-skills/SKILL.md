@@ -1,13 +1,14 @@
 ---
 name: find-skills
-description: '让 Agent 自动搜索并安装合适技能，解决不知道该用哪个技能的问题。'
+description: 'Use when users do not know which skill fits a task, need to search available skill catalogs, compare candidates, install a matching skill, or route work to the best existing capability.'
+zh_description: "用于搜索、比较并安装适合当前任务的技能，帮助 Agent 正确路由能力。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["find", "planning", "skills", "workflow"]'
 created_at: "2026-03-15"
-updated_at: "2026-03-20"
+updated_at: "2026-06-29"
 quality: 4
 complexity: "intermediate"
 ---

@@ -1,6 +1,7 @@
 ---
 name: gpt-image2
 description: 'Use when the user asks Codex to directly generate images with gpt-image-2 using inherited OpenAI/Codex-compatible environment credentials or local GPT_IMAGE2_* overrides, including text-to-image, reference-image guided generation, ratios, resolution, quality, variants, and saved local image files; run the bundled Node CLI and keep URL/sk configuration private.'
+zh_description: "让 Codex 通过本地配置的 gpt-image-2 兼容画图服务生成图片，支持提示词、参考图、比例、清晰度和本地保存。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"
@@ -11,7 +12,6 @@ created_at: "2026-06-24"
 updated_at: "2026-06-24"
 quality: 4
 complexity: "intermediate"
-zh_description: "让 Codex 通过本地配置的 gpt-image-2 兼容画图服务生成图片，支持提示词、参考图、比例、清晰度和本地保存。"
 ---
 
 # GPT Image 2

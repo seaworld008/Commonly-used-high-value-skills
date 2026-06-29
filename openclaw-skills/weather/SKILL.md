@@ -1,13 +1,14 @@
 ---
 name: weather
-description: '免 API Key 的天气查询技能，支持多数据源与自然语言请求。'
+description: 'Use when users ask for current weather, forecasts, severe-weather context, travel weather checks, or natural-language weather lookup without requiring an API key.'
+zh_description: "用于免 API Key 查询当前天气、预报、恶劣天气和旅行天气信息。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["productivity", "weather"]'
 created_at: "2026-03-15"
-updated_at: "2026-03-20"
+updated_at: "2026-06-29"
 quality: 2
 complexity: "intermediate"
 ---

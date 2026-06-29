@@ -66,7 +66,7 @@ SKILL_LICENSES = {
 }
 
 FIELD_ORDER = [
-    "name", "description", "version", "author", "source", "source_url",
+    "name", "description", "zh_description", "version", "author", "source", "source_url",
     "license", "tags", "created_at", "updated_at", "quality", "complexity"
 ]
 

@@ -1,6 +1,7 @@
 ---
 name: lark-attendance
-description: '飞书考勤打卡查询、异常记录整理和缺失核对。'
+description: 'Use when users need to query Feishu/Lark attendance records, audit punch-in gaps, summarize abnormal attendance, or reconcile missing check-ins with HR-facing evidence.'
+zh_description: "用于查询飞书考勤记录、核对打卡缺失、整理异常考勤并生成可追溯说明。"
 version: "1.0.1"
 author: larksuite
 source: "github:larksuite/cli"
@@ -8,7 +9,7 @@ source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-attendance"
 license: MIT
 tags: '[feishu, lark, lark-cli, attendance]'
 created_at: "2026-05-19"
-updated_at: "2026-05-20"
+updated_at: "2026-06-29"
 quality: 3
 complexity: intermediate
 metadata:

@@ -1,13 +1,14 @@
 ---
 name: tavily-search
-description: '提供实时联网检索能力，帮助 Agent 获取最新资讯、数据与来源证据。'
+description: 'Use when users need real-time web search, fresh facts, source-backed evidence, market/news context, or Tavily-powered retrieval before answering time-sensitive questions.'
+zh_description: "用于实时联网检索最新事实、来源证据、新闻市场信息和 Tavily 检索结果。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["planning", "search", "tavily", "workflow"]'
 created_at: "2026-03-15"
-updated_at: "2026-03-20"
+updated_at: "2026-06-29"
 quality: 2
 complexity: "intermediate"
 ---
