@@ -1,13 +1,14 @@
 ---
 name: confidence-check
-description: '用于结构化自我审查，验证假设、识别不确定性和减少幻觉输出。仓库整理版，吸收社区高频最佳实践。'
+description: 'Use when users need structured self-review before final answers: validate assumptions, expose uncertainty, check evidence quality, reduce hallucinations, and decide whether browsing or extra verification is required.'
+zh_description: "用于结构化自检答案、验证假设、识别不确定性并降低幻觉风险。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["check", "confidence", "productivity"]'
 created_at: "2026-03-27"
-updated_at: "2026-03-27"
+updated_at: "2026-06-29"
 quality: 4
 complexity: "intermediate"
 ---

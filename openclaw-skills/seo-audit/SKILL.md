@@ -1,13 +1,14 @@
 ---
 name: seo-audit
-description: '用于网站 SEO 全面审计、On-page 优化建议和技术 SEO 检查清单生成。仓库整理版，吸收社区高频最佳实践。'
+description: 'Use when users need a comprehensive SEO audit, on-page optimization review, technical SEO checklist, search visibility diagnosis, or prioritized recommendations for growth content and site structure.'
+zh_description: "用于执行网站 SEO 审计、页面优化、技术检查和搜索增长建议。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["audit", "growth", "marketing", "seo"]'
 created_at: "2026-03-27"
-updated_at: "2026-03-27"
+updated_at: "2026-06-29"
 quality: 4
 complexity: "intermediate"
 ---

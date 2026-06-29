@@ -1,13 +1,14 @@
 ---
 name: skill-vetter
-description: '在安装前审计技能安全性，识别恶意指令、越权行为与高风险配置。'
+description: 'Use before installing or trusting an external skill to inspect instructions, scripts, permissions, dependencies, provenance, and suspicious behavior for security and reliability risks.'
+zh_description: "用于安装外部技能前审计指令、脚本、权限、依赖和来源风险。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["security", "skill", "vetter"]'
 created_at: "2026-03-15"
-updated_at: "2026-03-20"
+updated_at: "2026-06-29"
 quality: 2
 complexity: "intermediate"
 ---

@@ -114,8 +114,8 @@ gsd-sdk --version
 | `native-mcp` | Built-in MCP (Model Context Protocol) client that connects to external MCP servers, discovers their tools, and registers them as native Hermes Agent tools. Supports stdio and HTTP transports with automatic reconnection, security filtering, and zero-config tool injection. | [目录](./native-mcp/) | [SKILL.md](./native-mcp/SKILL.md) |
 | `openai-docs` | Use when the user asks how to build with OpenAI products or APIs and needs up-to-date official documentation with citations (for example: Codex, Responses API, Chat Completions, Apps SDK, Agents SDK, Realtime, model capabilities or limits); prioritize OpenAI docs MCP tools and restrict any fallback browsing to official OpenAI domains. | [目录](./openai-docs/) | [SKILL.md](./openai-docs/SKILL.md) |
 | `oracle` | Designing and evaluating AI/ML systems across prompt engineering, RAG design, LLM application patterns, AI safety, evaluation frameworks, MLOps, and cost optimization. Use when designing AI/ML pipelines, RAG architectures, prompt strategies, evaluation harnesses, or LLM cost models. | [目录](./oracle/) | [SKILL.md](./oracle/SKILL.md) |
-| `proactive-agent` | 增强 Agent 的主动规划与自我迭代能力，从被动执行升级为主动协作。 | [目录](./proactive-agent/) | [SKILL.md](./proactive-agent/SKILL.md) |
-| `self-improving-agent` | 带记忆与自我优化机制的 Agent 技能，能在迭代中持续改进行为。 | [目录](./self-improving-agent/) | [SKILL.md](./self-improving-agent/SKILL.md) |
+| `proactive-agent` | 用于让 Agent 主动规划、跟踪进展、暴露风险并提出下一步行动。 | [目录](./proactive-agent/) | [SKILL.md](./proactive-agent/SKILL.md) |
+| `self-improving-agent` | 用于构建具备记忆、反馈吸收和安全自我优化机制的持续改进型 Agent。 | [目录](./self-improving-agent/) | [SKILL.md](./self-improving-agent/SKILL.md) |
 | `sigil` | Generating, updating, auditing, and sync-repairing project-specific Claude Code skills. Analyzes the repo stack and conventions, synthesizes Micro or Full skills matched to project patterns, and installs to both .claude/skills/ and .agents/skills/. Use when authoring project-local skills. | [目录](./sigil/) | [SKILL.md](./sigil/SKILL.md) |
 
 ## 维护方式

@@ -1,6 +1,7 @@
 ---
 name: web-artifacts-builder
 description: 'Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts.'
+zh_description: "用于构建复杂多组件 HTML/React 网页 artifacts，尤其适合需要状态、路由或 shadcn/ui 的场景。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"
@@ -8,7 +9,7 @@ source_url: ""
 license: Complete terms in LICENSE.txt
 tags: '["artifacts", "builder", "development", "web"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-06-29"
 quality: 3
 complexity: "intermediate"
 ---

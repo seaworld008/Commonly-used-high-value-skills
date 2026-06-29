@@ -19,8 +19,8 @@
 |------|------|------|------|
 | `arxiv` | 用于按关键词、作者、分类或编号检索 arXiv 论文。 | [目录](./arxiv/) | [SKILL.md](./arxiv/SKILL.md) |
 | `grove` | Designing, optimizing, and auditing repository structure. Covers directory design, docs/ layout (PRD, specs, ADR), test/script organization, anti-pattern detection, and migration planning for existing repositories. | [目录](./grove/) | [SKILL.md](./grove/SKILL.md) |
-| `lark-approval` | 飞书审批：查询和处理审批待办/已办/实例，搜索可发起审批定义、查看定义详情并发起原生审批实例。当用户要处理审批任务、查看审批实例、搜索或发起审批时使用。审批待办不是飞书任务；非审批类待办走 lark-task。不负责创建审批定义；三方审批定义不走原生提单。 | [目录](./lark-approval/) | [SKILL.md](./lark-approval/SKILL.md) |
-| `lark-attendance` | 飞书考勤打卡查询、异常记录整理和缺失核对。 | [目录](./lark-attendance/) | [SKILL.md](./lark-attendance/SKILL.md) |
+| `lark-approval` | 用于查询、处理和发起飞书原生审批，区分审批待办与普通飞书任务。 | [目录](./lark-approval/) | [SKILL.md](./lark-approval/SKILL.md) |
+| `lark-attendance` | 用于查询飞书考勤记录、核对打卡缺失、整理异常考勤并生成可追溯说明。 | [目录](./lark-attendance/) | [SKILL.md](./lark-attendance/SKILL.md) |
 | `lark-base` | 飞书多维表格（Base）操作：建表、字段、记录、视图、统计、公式/lookup、表单、仪表盘、workflow、角色权限；遇到 Base/多维表格/bitable 或 /base/ 链接时使用。文件导入转 lark-drive，认证/授权转 lark-shared。 | [目录](./lark-base/) | [SKILL.md](./lark-base/SKILL.md) |
 | `lark-calendar` | 飞书日历：管理日历日程和会议室。查看/搜索日程、创建/更新日程、管理参会人、查询忙闲和推荐时段、预定会议室。当用户需要查看日程安排、创建/修改会议、查询/预定会议室时使用。不负责：查询过去的视频会议记录（走 lark-vc）、待办任务（走 lark-task）。 | [目录](./lark-calendar/) | [SKILL.md](./lark-calendar/SKILL.md) |
 | `lark-contact` | 飞书 / Lark 通讯录:按姓名 / 邮箱解析成 open_id,或按 open_id 反查姓名 / 部门 / 邮箱 / 联系方式 / 个人状态 / 签名。当用户提到某人姓名要下一步发消息 / 排日程,或拿到 open_id 想查具体信息时使用。不负责部门树遍历、按部门列员工、组织架构图,这类需求走原生 OpenAPI。 | [目录](./lark-contact/) | [SKILL.md](./lark-contact/SKILL.md) |
@@ -35,7 +35,7 @@
 | `lark-openapi-explorer` | 飞书/Lark 原生 OpenAPI 探索：从官方文档库中挖掘未经 CLI 封装的原生 OpenAPI 接口。当用户的需求无法被现有 lark-* skill 或 lark-cli 已注册命令满足，需要查找并调用原生飞书 OpenAPI 时使用。 | [目录](./lark-openapi-explorer/) | [SKILL.md](./lark-openapi-explorer/SKILL.md) |
 | `lark-shared` | Use when first setting up lark-cli, running auth login, switching user/bot identity (--as), handling permission denied or scope errors, needing to update lark-cli, or seeing _notice in JSON output. | [目录](./lark-shared/) | [SKILL.md](./lark-shared/SKILL.md) |
 | `lark-sheets` | 飞书电子表格：创建和操作电子表格。支持创建表格、管理工作表与行列结构（增删/合并/调整尺寸/隐藏/冻结）、读写单元格（值/公式/样式/批注/单元格图片）、查找替换、多操作原子批量更新，以及图表、透视表、条件格式、筛选器、迷你图、浮动图片等对象的创建与维护。当用户需要创建电子表格、管理工作表、批量读写或编辑数据、统计汇总与可视化、表格美化、公式计算（含 Excel 公式迁移）、金融/财务建模（DCF、三张表、预算、Sensitivity 等）等任务时使用。若用户是想按名称或关键词搜索云空间（云盘/云存储）里的表格文件，请改用 lark-drive 的 drive +search 先定位资源。当用户给出 doubao.com 的 /sheets/ URL/token 时，也应直接使用本 skill，不要因为域名不是飞书而回退到 WebFetch；路由依据是 URL 路径模式和 token，而不是域名。 | [目录](./lark-sheets/) | [SKILL.md](./lark-sheets/SKILL.md) |
-| `lark-skill-maker` | 把飞书 API 操作封装成可复用技能和多步流程。 | [目录](./lark-skill-maker/) | [SKILL.md](./lark-skill-maker/SKILL.md) |
+| `lark-skill-maker` | 用于把飞书 API 操作封装为可复用技能、流程模板和多步自动化。 | [目录](./lark-skill-maker/) | [SKILL.md](./lark-skill-maker/SKILL.md) |
 | `lark-slides` | 飞书幻灯片：创建和编辑幻灯片。创建演示文稿、读取幻灯片内容、管理幻灯片页面（创建、删除、读取、局部替换）。当用户需要创建或编辑幻灯片、读取或修改单个页面时使用。当用户给出 doubao.com 的 /slides/ URL/token 时，也应直接使用本 skill，不要因为域名不是飞书而回退到 WebFetch；路由依据是 URL 路径模式和 token，而不是域名。不负责：云文档内容编辑（走 lark-doc）、云文档里的独立画板对象（走 lark-whiteboard，注意 slide 内嵌的流程图/架构图仍属本 skill）、上传或下载普通文件（走 lark-drive）。 | [目录](./lark-slides/) | [SKILL.md](./lark-slides/SKILL.md) |
 | `lark-task` | 飞书任务：管理任务、清单和任务智能体。创建待办任务、查看和更新任务状态、拆分子任务、组织任务清单、分配协作成员、上传任务附件、注册或注销任务智能体、更新任务智能体的主页数据、写入智能体任务记录。当用户需要创建待办事项、查看任务列表、跟踪任务进度、管理项目清单或给他人分配任务、为任务上传附件文件、注册注销任务智能体、更新智能体主页数据、写入任务记录时使用。 | [目录](./lark-task/) | [SKILL.md](./lark-task/SKILL.md) |
 | `lark-vc` | 飞书视频会议：搜索历史会议记录、查询会议纪要（总结/待办/章节/逐字稿）、查询参会人快照。当用户查询已结束的会议、获取会议产物（纪要/妙记）、查看参会人时使用；查询未来日程走 lark-calendar。不负责：Agent 真实入会/离会、会中实时事件（走 lark-vc-agent）。 | [目录](./lark-vc/) | [SKILL.md](./lark-vc/SKILL.md) |
@@ -51,7 +51,7 @@
 | `notion-meeting-intelligence` | 用于基于 Notion 上下文准备会议材料。 | [目录](./notion-meeting-intelligence/) | [SKILL.md](./notion-meeting-intelligence/SKILL.md) |
 | `notion-research-documentation` | 用于整合 Notion 信息并生成研究文档。 | [目录](./notion-research-documentation/) | [SKILL.md](./notion-research-documentation/SKILL.md) |
 | `notion-spec-to-implementation` | 用于把 Notion 规格转成计划、任务和进度跟踪。 | [目录](./notion-spec-to-implementation/) | [SKILL.md](./notion-spec-to-implementation/SKILL.md) |
-| `obsidian` | Read, search, create, and edit notes in the Obsidian vault. | [目录](./obsidian/) | [SKILL.md](./obsidian/SKILL.md) |
+| `obsidian` | 用于读取、搜索、创建和编辑 Obsidian 知识库笔记，并维护 Markdown 结构和链接关系。 | [目录](./obsidian/) | [SKILL.md](./obsidian/SKILL.md) |
 | `tome` | Converting repository changes into detailed learning documents. Use when turning diffs into teaching materials, recording design decisions, or creating onboarding materials for new members. | [目录](./tome/) | [SKILL.md](./tome/SKILL.md) |
 
 ## 维护方式

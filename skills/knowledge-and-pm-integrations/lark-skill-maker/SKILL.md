@@ -1,6 +1,7 @@
 ---
 name: lark-skill-maker
-description: '把飞书 API 操作封装成可复用技能和多步流程。'
+description: 'Use when users need to turn Feishu/Lark API operations into reusable agent skills, compose multi-step Lark workflows, or package verified Lark automation patterns for repeatable execution.'
+zh_description: "用于把飞书 API 操作封装为可复用技能、流程模板和多步自动化。"
 version: "1.0.1"
 author: larksuite
 source: "github:larksuite/cli"
@@ -8,7 +9,7 @@ source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-skill-maker"
 license: MIT
 tags: '[feishu, lark, lark-cli, skills, agent-workflow]'
 created_at: "2026-05-19"
-updated_at: "2026-05-20"
+updated_at: "2026-06-29"
 quality: 3
 complexity: intermediate
 metadata:

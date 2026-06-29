@@ -118,7 +118,7 @@ gsd-sdk --version
 
 | 技能 | 简介 | 目录 | 详情 |
 |------|------|------|------|
-| `agent-browser` | 为 Agent 提供真实浏览器自动化能力，支持语义定位、表单交互、截图录屏、脚本执行与会话管理。 | [目录](./agent-browser/) | [SKILL.md](./agent-browser/SKILL.md) |
+| `agent-browser` | 用于让 Agent 操作真实浏览器，完成页面交互、截图录屏、脚本执行和端到端验证。 | [目录](./agent-browser/) | [SKILL.md](./agent-browser/SKILL.md) |
 | `billing-automation` | Build automated billing systems for recurring payments, invoicing, subscription lifecycle, and dunning management. Use when implementing subscription billing, automating invoicing, or managing recurring payment systems. | [目录](./billing-automation/) | [SKILL.md](./billing-automation/SKILL.md) |
 | `changelog-automation` | Automate changelog generation from commits, PRs, and releases following Keep a Changelog format. Use when setting up release workflows, generating release notes, or standardizing commit conventions. | [目录](./changelog-automation/) | [SKILL.md](./changelog-automation/SKILL.md) |
 | `gh-address-comments` | Help address review/issue comments on the open GitHub PR for the current branch using gh CLI; verify gh auth first and prompt the user to authenticate if not logged in. | [目录](./gh-address-comments/) | [SKILL.md](./gh-address-comments/SKILL.md) |
@@ -132,7 +132,7 @@ gsd-sdk --version
 | `latch` | Proposing, configuring, debugging, and maintaining Claude Code hooks (PreToolUse/PostToolUse/Stop and other lifecycle events). Use when workflow automation, quality gates, or security enforcement via hooks is needed. | [目录](./latch/) | [SKILL.md](./latch/SKILL.md) |
 | `playwright` | Use when the task requires automating a real browser from the terminal (navigation, form filling, snapshots, screenshots, data extraction, UI-flow debugging) via `playwright-cli` or the bundled wrapper script. | [目录](./playwright/) | [SKILL.md](./playwright/SKILL.md) |
 | `playwright-pro` | Production-grade Playwright testing skill for E2E suites, flaky test diagnosis, browser automation, migration from Cypress/Selenium, CI integration, visual checks, and regression validation. | [目录](./playwright-pro/) | [SKILL.md](./playwright-pro/SKILL.md) |
-| `web-scraper` | 用于网页数据抓取、结构化提取和反爬策略应对。仓库整理版，吸收社区高频最佳实践。 | [目录](./web-scraper/) | [SKILL.md](./web-scraper/SKILL.md) |
+| `web-scraper` | 用于网页抓取、结构化数据提取、爬取策略、选择器设计和反爬应对。 | [目录](./web-scraper/) | [SKILL.md](./web-scraper/SKILL.md) |
 | `yeet` | Use only when the user explicitly asks to stage, commit, push, and open a GitHub pull request in one flow using the GitHub CLI (`gh`). | [目录](./yeet/) | [SKILL.md](./yeet/SKILL.md) |
 
 ## 维护方式

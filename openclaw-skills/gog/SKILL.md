@@ -1,13 +1,14 @@
 ---
 name: gog
-description: 'Google Workspace 自动化技能，统一处理 Gmail、Calendar、Drive 与 Docs 等办公流程。'
+description: 'Use when users need Google Workspace automation across Gmail, Calendar, Drive, Docs, Sheets, or Slides, especially for multi-step office workflows that require coordinated search, drafting, scheduling, and document updates.'
+zh_description: "用于跨 Gmail、Calendar、Drive、Docs 等 Google Workspace 工具执行办公自动化流程。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["gog"]'
 created_at: "2026-03-15"
-updated_at: "2026-03-20"
+updated_at: "2026-06-29"
 quality: 4
 complexity: "intermediate"
 ---

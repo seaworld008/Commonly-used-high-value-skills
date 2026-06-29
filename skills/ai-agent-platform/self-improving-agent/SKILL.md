@@ -1,13 +1,14 @@
 ---
 name: self-improving-agent
-description: '带记忆与自我优化机制的 Agent 技能，能在迭代中持续改进行为。'
+description: 'Use when building or operating agents that should learn from prior runs, capture durable feedback, update behavior safely, and improve task performance across iterations.'
+zh_description: "用于构建具备记忆、反馈吸收和安全自我优化机制的持续改进型 Agent。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["agent", "ai", "improving", "self"]'
 created_at: "2026-03-15"
-updated_at: "2026-03-20"
+updated_at: "2026-06-29"
 quality: 2
 complexity: "intermediate"
 ---

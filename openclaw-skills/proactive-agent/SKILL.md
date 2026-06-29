@@ -1,13 +1,14 @@
 ---
 name: proactive-agent
-description: '增强 Agent 的主动规划与自我迭代能力，从被动执行升级为主动协作。'
+description: 'Use when an agent should proactively plan, monitor progress, surface risks, suggest next actions, and improve collaboration instead of only responding passively to explicit user commands.'
+zh_description: "用于让 Agent 主动规划、跟踪进展、暴露风险并提出下一步行动。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["agent", "ai", "proactive"]'
 created_at: "2026-03-15"
-updated_at: "2026-03-20"
+updated_at: "2026-06-29"
 quality: 4
 complexity: "intermediate"
 ---

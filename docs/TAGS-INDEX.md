@@ -544,7 +544,7 @@
 | [latch](skills/engineering-workflow-automation/latch) | engineering-workflow-automation | ★★★★★ | Proposing, configuring, debugging, and maintaining Claude Code hooks (PreToolUse |
 | [reflect-learn](skills/task-understanding-decomposition/reflect-learn) | task-understanding-decomposition | ★★★★★ | Self-improvement through conversation analysis. Extracts learnings from correcti |
 | [dispatching-parallel-agents](skills/ai-workflow/dispatching-parallel-agents) | ai-workflow | ★★★★☆ | Use when facing 2+ independent tasks that can be worked on without shared state  |
-| [find-skills](skills/ai-workflow/find-skills) | ai-workflow | ★★★★☆ | 让 Agent 自动搜索并安装合适技能，解决不知道该用哪个技能的问题。 |
+| [find-skills](skills/ai-workflow/find-skills) | ai-workflow | ★★★★☆ | Use when users do not know which skill fits a task, need to search available ski |
 | [finishing-a-development-branch](skills/ai-workflow/finishing-a-development-branch) | ai-workflow | ★★★★☆ | Use when implementation is complete, all tests pass, and you need to decide how  |
 | [idea-refine](skills/ai-workflow/idea-refine) | ai-workflow | ★★★★☆ | Refines raw ideas into sharp, actionable concepts through structured divergent a |
 | [prompt-optimizer](skills/ai-workflow/prompt-optimizer) | ai-workflow | ★★★★☆ | Transform vague prompts into precise, well-structured specifications using EARS  |
@@ -561,18 +561,18 @@
 | [changelog-automation](skills/engineering-workflow-automation/changelog-automation) | engineering-workflow-automation | ★★★★☆ | Automate changelog generation from commits, PRs, and releases following Keep a C |
 | [jupyter-notebook](skills/engineering-workflow-automation/jupyter-notebook) | engineering-workflow-automation | ★★★★☆ | Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) |
 | [playwright](skills/engineering-workflow-automation/playwright) | engineering-workflow-automation | ★★★★☆ | Use when the task requires automating a real browser from the terminal (navigati |
-| [web-scraper](skills/engineering-workflow-automation/web-scraper) | engineering-workflow-automation | ★★★★☆ | 用于网页数据抓取、结构化提取和反爬策略应对。仓库整理版，吸收社区高频最佳实践。 |
+| [web-scraper](skills/engineering-workflow-automation/web-scraper) | engineering-workflow-automation | ★★★★☆ | Use when users need webpage scraping, structured data extraction, crawling strat |
 | [brainstorming](skills/ai-workflow/brainstorming) | ai-workflow | ★★★☆☆ | You MUST use this before any creative work - creating features, building compone |
 | [executing-plans](skills/ai-workflow/executing-plans) | ai-workflow | ★★★☆☆ | Use when you have a written implementation plan to execute in a separate session |
 | [subagent-driven-development](skills/ai-workflow/subagent-driven-development) | ai-workflow | ★★★☆☆ | Use when executing implementation plans with independent tasks in the current se |
 | [billing-automation](skills/engineering-workflow-automation/billing-automation) | engineering-workflow-automation | ★★★☆☆ | Build automated billing systems for recurring payments, invoicing, subscription  |
 | [gh-fix-ci](skills/engineering-workflow-automation/gh-fix-ci) | engineering-workflow-automation | ★★★☆☆ | Use when a user asks to debug or fix failing GitHub PR checks that run in GitHub |
 | [lark-approval](skills/knowledge-and-pm-integrations/lark-approval) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书审批：查询和处理审批待办/已办/实例，搜索可发起审批定义、查看定义详情并发起原生审批实例。当用户要处理审批任务、查看审批实例、搜索或发起审批时使用。审批待办 |
-| [agent-browser](skills/engineering-workflow-automation/agent-browser) | engineering-workflow-automation | ★★☆☆☆ | 为 Agent 提供真实浏览器自动化能力，支持语义定位、表单交互、截图录屏、脚本执行与会话管理。 |
+| [agent-browser](skills/engineering-workflow-automation/agent-browser) | engineering-workflow-automation | ★★☆☆☆ | Use when an agent needs real browser automation for semantic element targeting,  |
 | [gh-address-comments](skills/engineering-workflow-automation/gh-address-comments) | engineering-workflow-automation | ★★☆☆☆ | Help address review/issue comments on the open GitHub PR for the current branch  |
 | [github](skills/engineering-workflow-automation/github) | engineering-workflow-automation | ★★☆☆☆ | 通过 GitHub CLI 自动化 Issue、PR、Review 与 CI 检查，适合工程协作闭环。 |
 | [yeet](skills/engineering-workflow-automation/yeet) | engineering-workflow-automation | ★★☆☆☆ | Use only when the user explicitly asks to stage, commit, push, and open a GitHub |
-| [tavily-search](skills/task-understanding-decomposition/tavily-search) | task-understanding-decomposition | ★★☆☆☆ | 提供实时联网检索能力，帮助 Agent 获取最新资讯、数据与来源证据。 |
+| [tavily-search](skills/task-understanding-decomposition/tavily-search) | task-understanding-decomposition | ★★☆☆☆ | Use when users need real-time web search, fresh facts, source-backed evidence, m |
 
 ## development
 
@@ -661,14 +661,14 @@
 | [agent-designer](skills/developer-engineering/agent-designer) | developer-engineering | ★★★★★ | Tags: AI agents, architecture, system design, orchestration, multi-agent systems |
 | [agent-hub](skills/ai-agent-platform/agent-hub) | ai-agent-platform | ★★★★☆ | Multi-agent collaboration plugin that spawns N parallel subagents competing on t |
 | [develop-web-game](skills/ai-agent-platform/develop-web-game) | ai-agent-platform | ★★★★☆ | Use when Codex is building or iterating on a web game (HTML/JS) and needs a reli |
-| [proactive-agent](skills/ai-agent-platform/proactive-agent) | ai-agent-platform | ★★★★☆ | 增强 Agent 的主动规划与自我迭代能力，从被动执行升级为主动协作。 |
+| [proactive-agent](skills/ai-agent-platform/proactive-agent) | ai-agent-platform | ★★★★☆ | Use when an agent should proactively plan, monitor progress, surface risks, sugg |
 | [idea-refine](skills/ai-workflow/idea-refine) | ai-workflow | ★★★★☆ | Refines raw ideas into sharp, actionable concepts through structured divergent a |
 | [source-driven-development](skills/ai-workflow/source-driven-development) | ai-workflow | ★★★★☆ | Grounds every implementation decision in official documentation. Use when you wa |
 | [using-agent-skills](skills/ai-workflow/using-agent-skills) | ai-workflow | ★★★★☆ | Discovers and invokes agent skills. Use when starting a session or when you need |
 | [openai-docs](skills/ai-agent-platform/openai-docs) | ai-agent-platform | ★★★☆☆ | Use when the user asks how to build with OpenAI products or APIs and needs up-to |
 | [figma](skills/ai-agent-platform/figma) | ai-agent-platform | ★★☆☆☆ | Use the Figma MCP server to fetch design context, screenshots, variables, and as |
-| [self-improving-agent](skills/ai-agent-platform/self-improving-agent) | ai-agent-platform | ★★☆☆☆ | 带记忆与自我优化机制的 Agent 技能，能在迭代中持续改进行为。 |
-| [agent-browser](skills/engineering-workflow-automation/agent-browser) | engineering-workflow-automation | ★★☆☆☆ | 为 Agent 提供真实浏览器自动化能力，支持语义定位、表单交互、截图录屏、脚本执行与会话管理。 |
+| [self-improving-agent](skills/ai-agent-platform/self-improving-agent) | ai-agent-platform | ★★☆☆☆ | Use when building or operating agents that should learn from prior runs, capture |
+| [agent-browser](skills/engineering-workflow-automation/agent-browser) | engineering-workflow-automation | ★★☆☆☆ | Use when an agent needs real browser automation for semantic element targeting,  |
 
 ## ai
 
@@ -704,13 +704,13 @@
 | [test-driven-development](skills/ai-workflow/test-driven-development) | ai-workflow | ★★★★★ | Drives development with tests. Use when implementing any logic, fixing any bug,  |
 | [agent-hub](skills/ai-agent-platform/agent-hub) | ai-agent-platform | ★★★★☆ | Multi-agent collaboration plugin that spawns N parallel subagents competing on t |
 | [develop-web-game](skills/ai-agent-platform/develop-web-game) | ai-agent-platform | ★★★★☆ | Use when Codex is building or iterating on a web game (HTML/JS) and needs a reli |
-| [proactive-agent](skills/ai-agent-platform/proactive-agent) | ai-agent-platform | ★★★★☆ | 增强 Agent 的主动规划与自我迭代能力，从被动执行升级为主动协作。 |
+| [proactive-agent](skills/ai-agent-platform/proactive-agent) | ai-agent-platform | ★★★★☆ | Use when an agent should proactively plan, monitor progress, surface risks, sugg |
 | [idea-refine](skills/ai-workflow/idea-refine) | ai-workflow | ★★★★☆ | Refines raw ideas into sharp, actionable concepts through structured divergent a |
 | [source-driven-development](skills/ai-workflow/source-driven-development) | ai-workflow | ★★★★☆ | Grounds every implementation decision in official documentation. Use when you wa |
 | [using-agent-skills](skills/ai-workflow/using-agent-skills) | ai-workflow | ★★★★☆ | Discovers and invokes agent skills. Use when starting a session or when you need |
 | [openai-docs](skills/ai-agent-platform/openai-docs) | ai-agent-platform | ★★★☆☆ | Use when the user asks how to build with OpenAI products or APIs and needs up-to |
 | [figma](skills/ai-agent-platform/figma) | ai-agent-platform | ★★☆☆☆ | Use the Figma MCP server to fetch design context, screenshots, variables, and as |
-| [self-improving-agent](skills/ai-agent-platform/self-improving-agent) | ai-agent-platform | ★★☆☆☆ | 带记忆与自我优化机制的 Agent 技能，能在迭代中持续改进行为。 |
+| [self-improving-agent](skills/ai-agent-platform/self-improving-agent) | ai-agent-platform | ★★☆☆☆ | Use when building or operating agents that should learn from prior runs, capture |
 
 ## feishu
 
@@ -737,11 +737,11 @@
 | [lark-workflow-meeting-summary](skills/knowledge-and-pm-integrations/lark-workflow-meeting-summary) | knowledge-and-pm-integrations | ★★★★☆ | 会议纪要整理工作流：汇总指定时间范围内的会议纪要并生成结构化报告。当用户需要整理会议纪要、生成会议周报、回顾一段时间内的会议内容时使用。 |
 | [lark-workflow-standup-report](skills/knowledge-and-pm-integrations/lark-workflow-standup-report) | knowledge-and-pm-integrations | ★★★★☆ | 日程待办摘要：编排 calendar +agenda 和 task +get-my-tasks，生成指定日期的日程与未完成任务摘要。适用于了解今天/明天/本周的 |
 | [lark-approval](skills/knowledge-and-pm-integrations/lark-approval) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书审批：查询和处理审批待办/已办/实例，搜索可发起审批定义、查看定义详情并发起原生审批实例。当用户要处理审批任务、查看审批实例、搜索或发起审批时使用。审批待办 |
-| [lark-attendance](skills/knowledge-and-pm-integrations/lark-attendance) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书考勤打卡查询、异常记录整理和缺失核对。 |
+| [lark-attendance](skills/knowledge-and-pm-integrations/lark-attendance) | knowledge-and-pm-integrations | ★★★☆☆ | Use when users need to query Feishu/Lark attendance records, audit punch-in gaps |
 | [lark-contact](skills/knowledge-and-pm-integrations/lark-contact) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书 / Lark 通讯录:按姓名 / 邮箱解析成 open_id,或按 open_id 反查姓名 / 部门 / 邮箱 / 联系方式 / 个人状态 / 签名。当 |
 | [lark-doc](skills/knowledge-and-pm-integrations/lark-doc) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书云文档（Docx / Wiki 文档）：读取和编辑飞书文档内容。当用户给出文档 URL 或 token，或需要查看、创建、编辑文档、插入或下载文档图片附件时 |
 | [lark-markdown](skills/knowledge-and-pm-integrations/lark-markdown) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书 Markdown：查看、创建、上传、编辑和比较 Markdown 文件。当用户需要创建或编辑 Markdown 文件、读取、修改、局部 patch 或比较 |
-| [lark-skill-maker](skills/knowledge-and-pm-integrations/lark-skill-maker) | knowledge-and-pm-integrations | ★★★☆☆ | 把飞书 API 操作封装成可复用技能和多步流程。 |
+| [lark-skill-maker](skills/knowledge-and-pm-integrations/lark-skill-maker) | knowledge-and-pm-integrations | ★★★☆☆ | Use when users need to turn Feishu/Lark API operations into reusable agent skill |
 | [lark-whiteboard](skills/knowledge-and-pm-integrations/lark-whiteboard) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书画板：查询和编辑飞书云文档中的画板。支持导出画板为预览图片、导出原始节点结构、使用多种格式更新画板内容。 当用户需要查看画板内容、导出画板图片、编辑画板时使 |
 
 ## lark
@@ -769,11 +769,11 @@
 | [lark-workflow-meeting-summary](skills/knowledge-and-pm-integrations/lark-workflow-meeting-summary) | knowledge-and-pm-integrations | ★★★★☆ | 会议纪要整理工作流：汇总指定时间范围内的会议纪要并生成结构化报告。当用户需要整理会议纪要、生成会议周报、回顾一段时间内的会议内容时使用。 |
 | [lark-workflow-standup-report](skills/knowledge-and-pm-integrations/lark-workflow-standup-report) | knowledge-and-pm-integrations | ★★★★☆ | 日程待办摘要：编排 calendar +agenda 和 task +get-my-tasks，生成指定日期的日程与未完成任务摘要。适用于了解今天/明天/本周的 |
 | [lark-approval](skills/knowledge-and-pm-integrations/lark-approval) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书审批：查询和处理审批待办/已办/实例，搜索可发起审批定义、查看定义详情并发起原生审批实例。当用户要处理审批任务、查看审批实例、搜索或发起审批时使用。审批待办 |
-| [lark-attendance](skills/knowledge-and-pm-integrations/lark-attendance) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书考勤打卡查询、异常记录整理和缺失核对。 |
+| [lark-attendance](skills/knowledge-and-pm-integrations/lark-attendance) | knowledge-and-pm-integrations | ★★★☆☆ | Use when users need to query Feishu/Lark attendance records, audit punch-in gaps |
 | [lark-contact](skills/knowledge-and-pm-integrations/lark-contact) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书 / Lark 通讯录:按姓名 / 邮箱解析成 open_id,或按 open_id 反查姓名 / 部门 / 邮箱 / 联系方式 / 个人状态 / 签名。当 |
 | [lark-doc](skills/knowledge-and-pm-integrations/lark-doc) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书云文档（Docx / Wiki 文档）：读取和编辑飞书文档内容。当用户给出文档 URL 或 token，或需要查看、创建、编辑文档、插入或下载文档图片附件时 |
 | [lark-markdown](skills/knowledge-and-pm-integrations/lark-markdown) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书 Markdown：查看、创建、上传、编辑和比较 Markdown 文件。当用户需要创建或编辑 Markdown 文件、读取、修改、局部 patch 或比较 |
-| [lark-skill-maker](skills/knowledge-and-pm-integrations/lark-skill-maker) | knowledge-and-pm-integrations | ★★★☆☆ | 把飞书 API 操作封装成可复用技能和多步流程。 |
+| [lark-skill-maker](skills/knowledge-and-pm-integrations/lark-skill-maker) | knowledge-and-pm-integrations | ★★★☆☆ | Use when users need to turn Feishu/Lark API operations into reusable agent skill |
 | [lark-whiteboard](skills/knowledge-and-pm-integrations/lark-whiteboard) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书画板：查询和编辑飞书云文档中的画板。支持导出画板为预览图片、导出原始节点结构、使用多种格式更新画板内容。 当用户需要查看画板内容、导出画板图片、编辑画板时使 |
 
 ## lark-cli
@@ -801,11 +801,11 @@
 | [lark-workflow-meeting-summary](skills/knowledge-and-pm-integrations/lark-workflow-meeting-summary) | knowledge-and-pm-integrations | ★★★★☆ | 会议纪要整理工作流：汇总指定时间范围内的会议纪要并生成结构化报告。当用户需要整理会议纪要、生成会议周报、回顾一段时间内的会议内容时使用。 |
 | [lark-workflow-standup-report](skills/knowledge-and-pm-integrations/lark-workflow-standup-report) | knowledge-and-pm-integrations | ★★★★☆ | 日程待办摘要：编排 calendar +agenda 和 task +get-my-tasks，生成指定日期的日程与未完成任务摘要。适用于了解今天/明天/本周的 |
 | [lark-approval](skills/knowledge-and-pm-integrations/lark-approval) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书审批：查询和处理审批待办/已办/实例，搜索可发起审批定义、查看定义详情并发起原生审批实例。当用户要处理审批任务、查看审批实例、搜索或发起审批时使用。审批待办 |
-| [lark-attendance](skills/knowledge-and-pm-integrations/lark-attendance) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书考勤打卡查询、异常记录整理和缺失核对。 |
+| [lark-attendance](skills/knowledge-and-pm-integrations/lark-attendance) | knowledge-and-pm-integrations | ★★★☆☆ | Use when users need to query Feishu/Lark attendance records, audit punch-in gaps |
 | [lark-contact](skills/knowledge-and-pm-integrations/lark-contact) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书 / Lark 通讯录:按姓名 / 邮箱解析成 open_id,或按 open_id 反查姓名 / 部门 / 邮箱 / 联系方式 / 个人状态 / 签名。当 |
 | [lark-doc](skills/knowledge-and-pm-integrations/lark-doc) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书云文档（Docx / Wiki 文档）：读取和编辑飞书文档内容。当用户给出文档 URL 或 token，或需要查看、创建、编辑文档、插入或下载文档图片附件时 |
 | [lark-markdown](skills/knowledge-and-pm-integrations/lark-markdown) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书 Markdown：查看、创建、上传、编辑和比较 Markdown 文件。当用户需要创建或编辑 Markdown 文件、读取、修改、局部 patch 或比较 |
-| [lark-skill-maker](skills/knowledge-and-pm-integrations/lark-skill-maker) | knowledge-and-pm-integrations | ★★★☆☆ | 把飞书 API 操作封装成可复用技能和多步流程。 |
+| [lark-skill-maker](skills/knowledge-and-pm-integrations/lark-skill-maker) | knowledge-and-pm-integrations | ★★★☆☆ | Use when users need to turn Feishu/Lark API operations into reusable agent skill |
 | [lark-whiteboard](skills/knowledge-and-pm-integrations/lark-whiteboard) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书画板：查询和编辑飞书云文档中的画板。支持导出画板为预览图片、导出原始节点结构、使用多种格式更新画板内容。 当用户需要查看画板内容、导出画板图片、编辑画板时使 |
 
 ## engineering
@@ -863,7 +863,7 @@
 | [security-best-practices](skills/security-and-reliability/security-best-practices) | security-and-reliability | ★★★☆☆ | 用于按语言和框架执行安全最佳实践检查，生成安全审查报告并提出 secure-by-default 改进建议。 |
 | [security-threat-model](skills/security-and-reliability/security-threat-model) | security-and-reliability | ★★★☆☆ | 用于基于代码库枚举信任边界、资产、攻击者能力、滥用路径和缓解措施，并生成威胁模型。 |
 | [link-checker](skills/security-and-reliability/link-checker) | security-and-reliability | ★★☆☆☆ | 检测 URL 可达性与潜在风险，识别失效链接、跳转链路和可疑域名。 |
-| [skill-vetter](skills/security-and-reliability/skill-vetter) | security-and-reliability | ★★☆☆☆ | 在安装前审计技能安全性，识别恶意指令、越权行为与高风险配置。 |
+| [skill-vetter](skills/security-and-reliability/skill-vetter) | security-and-reliability | ★★☆☆☆ | Use before installing or trusting an external skill to inspect instructions, scr |
 
 ## planning
 
@@ -882,14 +882,14 @@
 | [reflect-learn](skills/task-understanding-decomposition/reflect-learn) | task-understanding-decomposition | ★★★★★ | Self-improvement through conversation analysis. Extracts learnings from correcti |
 | [ripple](skills/task-understanding-decomposition/ripple) | task-understanding-decomposition | ★★★★★ | Analyzing pre-change impact by evaluating risk across vertical (dependency chain |
 | [scout](skills/task-understanding-decomposition/scout) | task-understanding-decomposition | ★★★★★ | Investigating bugs via root cause analysis (RCA), reproduction steps, and impact |
-| [find-skills](skills/ai-workflow/find-skills) | ai-workflow | ★★★★☆ | 让 Agent 自动搜索并安装合适技能，解决不知道该用哪个技能的问题。 |
+| [find-skills](skills/ai-workflow/find-skills) | ai-workflow | ★★★★☆ | Use when users do not know which skill fits a task, need to search available ski |
 | [prompt-optimizer](skills/ai-workflow/prompt-optimizer) | ai-workflow | ★★★★☆ | Transform vague prompts into precise, well-structured specifications using EARS  |
 | [skills-search](skills/ai-workflow/skills-search) | ai-workflow | ★★★★☆ | This skill should be used when users want to search, discover, install, or manag |
 | [writing-plans](skills/ai-workflow/writing-plans) | ai-workflow | ★★★★☆ | Use when you have a spec or requirements for a multi-step task, before touching  |
 | [lark-okr](skills/knowledge-and-pm-integrations/lark-okr) | knowledge-and-pm-integrations | ★★★★☆ | 飞书 OKR：管理目标与关键结果。查看和编辑 OKR 周期、目标、关键结果、对齐关系、量化指标和进展记录。当用户需要查看或创建 OKR、管理目标和关键结果、查看 |
 | [brainstorming](skills/ai-workflow/brainstorming) | ai-workflow | ★★★☆☆ | You MUST use this before any creative work - creating features, building compone |
 | [subagent-driven-development](skills/ai-workflow/subagent-driven-development) | ai-workflow | ★★★☆☆ | Use when executing implementation plans with independent tasks in the current se |
-| [tavily-search](skills/task-understanding-decomposition/tavily-search) | task-understanding-decomposition | ★★☆☆☆ | 提供实时联网检索能力，帮助 Agent 获取最新资讯、数据与来源证据。 |
+| [tavily-search](skills/task-understanding-decomposition/tavily-search) | task-understanding-decomposition | ★★☆☆☆ | Use when users need real-time web search, fresh facts, source-backed evidence, m |
 
 ## design
 
@@ -956,7 +956,7 @@
 | [prompt-engineer-toolkit](skills/growth-operations-xiaohongshu/prompt-engineer-toolkit) | growth-operations-xiaohongshu | ★★★★★ | Systematic prompt engineering from first principles. Build, test, version, and o |
 | [pulse](skills/growth-operations-xiaohongshu/pulse) | growth-operations-xiaohongshu | ★★★★★ | Defining KPIs, designing tracking events, and specifying dashboards. Covers Nort |
 | [social-media-analyzer](skills/growth-operations-xiaohongshu/social-media-analyzer) | growth-operations-xiaohongshu | ★★★★★ | Social media campaign analysis and performance tracking. Calculates engagement r |
-| [seo-audit](skills/growth-operations-xiaohongshu/seo-audit) | growth-operations-xiaohongshu | ★★★★☆ | 用于网站 SEO 全面审计、On-page 优化建议和技术 SEO 检查清单生成。仓库整理版，吸收社区高频最佳实践。 |
+| [seo-audit](skills/growth-operations-xiaohongshu/seo-audit) | growth-operations-xiaohongshu | ★★★★☆ | Use when users need a comprehensive SEO audit, on-page optimization review, tech |
 | [tweetclaw-source-research](skills/growth-operations-xiaohongshu/tweetclaw-source-research) | growth-operations-xiaohongshu | ★★★★☆ | Use TweetClaw through OpenClaw to collect X/Twitter source context before drafti |
 | [x-twitter-scraper](skills/growth-operations-xiaohongshu/x-twitter-scraper) | growth-operations-xiaohongshu | ★★★★☆ | Use Xquik for authorized X/Twitter data workflows, including tweet search, profi |
 | [twitter-reader](skills/growth-operations-xiaohongshu/twitter-reader) | growth-operations-xiaohongshu | ★★★☆☆ | Fetch Twitter/X post content by URL using jina.ai API to bypass JavaScript restr |
@@ -974,11 +974,11 @@
 | [changelog-automation](skills/engineering-workflow-automation/changelog-automation) | engineering-workflow-automation | ★★★★☆ | Automate changelog generation from commits, PRs, and releases following Keep a C |
 | [jupyter-notebook](skills/engineering-workflow-automation/jupyter-notebook) | engineering-workflow-automation | ★★★★☆ | Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) |
 | [playwright](skills/engineering-workflow-automation/playwright) | engineering-workflow-automation | ★★★★☆ | Use when the task requires automating a real browser from the terminal (navigati |
-| [web-scraper](skills/engineering-workflow-automation/web-scraper) | engineering-workflow-automation | ★★★★☆ | 用于网页数据抓取、结构化提取和反爬策略应对。仓库整理版，吸收社区高频最佳实践。 |
+| [web-scraper](skills/engineering-workflow-automation/web-scraper) | engineering-workflow-automation | ★★★★☆ | Use when users need webpage scraping, structured data extraction, crawling strat |
 | [lark-base](skills/knowledge-and-pm-integrations/lark-base) | knowledge-and-pm-integrations | ★★★★☆ | 飞书多维表格（Base）操作：建表、字段、记录、视图、统计、公式/lookup、表单、仪表盘、workflow、角色权限；遇到 Base/多维表格/bitabl |
 | [billing-automation](skills/engineering-workflow-automation/billing-automation) | engineering-workflow-automation | ★★★☆☆ | Build automated billing systems for recurring payments, invoicing, subscription  |
 | [gh-fix-ci](skills/engineering-workflow-automation/gh-fix-ci) | engineering-workflow-automation | ★★★☆☆ | Use when a user asks to debug or fix failing GitHub PR checks that run in GitHub |
-| [agent-browser](skills/engineering-workflow-automation/agent-browser) | engineering-workflow-automation | ★★☆☆☆ | 为 Agent 提供真实浏览器自动化能力，支持语义定位、表单交互、截图录屏、脚本执行与会话管理。 |
+| [agent-browser](skills/engineering-workflow-automation/agent-browser) | engineering-workflow-automation | ★★☆☆☆ | Use when an agent needs real browser automation for semantic element targeting,  |
 | [gh-address-comments](skills/engineering-workflow-automation/gh-address-comments) | engineering-workflow-automation | ★★☆☆☆ | Help address review/issue comments on the open GitHub PR for the current branch  |
 | [github](skills/engineering-workflow-automation/github) | engineering-workflow-automation | ★★☆☆☆ | 通过 GitHub CLI 自动化 Issue、PR、Review 与 CI 检查，适合工程协作闭环。 |
 | [yeet](skills/engineering-workflow-automation/yeet) | engineering-workflow-automation | ★★☆☆☆ | Use only when the user explicitly asks to stage, commit, push, and open a GitHub |
@@ -1023,7 +1023,7 @@
 | [prompt-engineer-toolkit](skills/growth-operations-xiaohongshu/prompt-engineer-toolkit) | growth-operations-xiaohongshu | ★★★★★ | Systematic prompt engineering from first principles. Build, test, version, and o |
 | [pulse](skills/growth-operations-xiaohongshu/pulse) | growth-operations-xiaohongshu | ★★★★★ | Defining KPIs, designing tracking events, and specifying dashboards. Covers Nort |
 | [social-media-analyzer](skills/growth-operations-xiaohongshu/social-media-analyzer) | growth-operations-xiaohongshu | ★★★★★ | Social media campaign analysis and performance tracking. Calculates engagement r |
-| [seo-audit](skills/growth-operations-xiaohongshu/seo-audit) | growth-operations-xiaohongshu | ★★★★☆ | 用于网站 SEO 全面审计、On-page 优化建议和技术 SEO 检查清单生成。仓库整理版，吸收社区高频最佳实践。 |
+| [seo-audit](skills/growth-operations-xiaohongshu/seo-audit) | growth-operations-xiaohongshu | ★★★★☆ | Use when users need a comprehensive SEO audit, on-page optimization review, tech |
 | [tweetclaw-source-research](skills/growth-operations-xiaohongshu/tweetclaw-source-research) | growth-operations-xiaohongshu | ★★★★☆ | Use TweetClaw through OpenClaw to collect X/Twitter source context before drafti |
 | [twitter-reader](skills/growth-operations-xiaohongshu/twitter-reader) | growth-operations-xiaohongshu | ★★★☆☆ | Fetch Twitter/X post content by URL using jina.ai API to bypass JavaScript restr |
 
@@ -1040,14 +1040,14 @@
 | [interview-system-designer](skills/operations-general/interview-system-designer) | operations-general | ★★★★★ | This skill should be used when the user asks to "design interview processes", "c |
 | [slack-gif-creator](skills/operations-general/slack-gif-creator) | operations-general | ★★★★★ | Knowledge and utilities for creating animated GIFs optimized for Slack. Provides |
 | [linear](skills/knowledge-and-pm-integrations/linear) | knowledge-and-pm-integrations | ★★★★☆ | 用于管理 Linear issues、项目、团队和协作状态。 |
-| [confidence-check](skills/operations-general/confidence-check) | operations-general | ★★★★☆ | 用于结构化自我审查，验证假设、识别不确定性和减少幻觉输出。仓库整理版，吸收社区高频最佳实践。 |
+| [confidence-check](skills/operations-general/confidence-check) | operations-general | ★★★★☆ | Use when users need structured self-review before final answers: validate assump |
 | [teams-channel-post-writer](skills/operations-general/teams-channel-post-writer) | operations-general | ★★★★☆ | Creates educational Teams channel posts for internal knowledge sharing about Cla |
 | [brand-guidelines](skills/operations-general/brand-guidelines) | operations-general | ★★★☆☆ | Applies Anthropic''s official brand colors and typography to any sort of artifac |
 | [docs-cleaner](skills/operations-general/docs-cleaner) | operations-general | ★★★☆☆ | Consolidates redundant documentation while preserving all valuable content. This |
-| [supermemory](skills/operations-general/supermemory) | operations-general | ★★★☆☆ | 用于长期记忆管理、偏好捕获、矛盾检测和项目状态跟踪。来源：supermemoryai/supermemory。 |
+| [supermemory](skills/operations-general/supermemory) | operations-general | ★★★☆☆ | Use when users need durable memory management, preference capture, contradiction |
 | [theme-factory](skills/operations-general/theme-factory) | operations-general | ★★★☆☆ | Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, |
 | [internal-comms](skills/operations-general/internal-comms) | operations-general | ★★☆☆☆ | A set of resources to help me write all kinds of internal communications, using  |
-| [weather](skills/operations-general/weather) | operations-general | ★★☆☆☆ | 免 API Key 的天气查询技能，支持多数据源与自然语言请求。 |
+| [weather](skills/operations-general/weather) | operations-general | ★★☆☆☆ | Use when users ask for current weather, forecasts, severe-weather context, trave |
 
 ## sre
 
@@ -1240,7 +1240,7 @@
 | [skill-reviewer](skills/ai-workflow/skill-reviewer) | ai-workflow | ★★★★★ | Reviews and improves Claude Code skills against official best practices. Support |
 | [skill-tester](skills/developer-engineering/skill-tester) | developer-engineering | ★★★★★ | Name: skill-tester Tier: POWERFUL Category: Engineering Quality Assurance Depend |
 | [skill-security-auditor](skills/security-and-reliability/skill-security-auditor) | security-and-reliability | ★★★★☆ | Security audit and vulnerability scanner for AI agent skills before installation |
-| [skill-vetter](skills/security-and-reliability/skill-vetter) | security-and-reliability | ★★☆☆☆ | 在安装前审计技能安全性，识别恶意指令、越权行为与高风险配置。 |
+| [skill-vetter](skills/security-and-reliability/skill-vetter) | security-and-reliability | ★★☆☆☆ | Use before installing or trusting an external skill to inspect instructions, scr |
 
 ## skills
 
@@ -1248,11 +1248,11 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [find-skills](skills/ai-workflow/find-skills) | ai-workflow | ★★★★☆ | 让 Agent 自动搜索并安装合适技能，解决不知道该用哪个技能的问题。 |
+| [find-skills](skills/ai-workflow/find-skills) | ai-workflow | ★★★★☆ | Use when users do not know which skill fits a task, need to search available ski |
 | [skills-search](skills/ai-workflow/skills-search) | ai-workflow | ★★★★☆ | This skill should be used when users want to search, discover, install, or manag |
 | [using-superpowers](skills/ai-workflow/using-superpowers) | ai-workflow | ★★★★☆ | Use when starting any conversation - establishes how to find and use skills, req |
 | [writing-skills](skills/ai-workflow/writing-skills) | ai-workflow | ★★★★☆ | Use when creating new skills, editing existing skills, or verifying skills work  |
-| [lark-skill-maker](skills/knowledge-and-pm-integrations/lark-skill-maker) | knowledge-and-pm-integrations | ★★★☆☆ | 把飞书 API 操作封装成可复用技能和多步流程。 |
+| [lark-skill-maker](skills/knowledge-and-pm-integrations/lark-skill-maker) | knowledge-and-pm-integrations | ★★★☆☆ | Use when users need to turn Feishu/Lark API operations into reusable agent skill |
 
 ## architect
 
@@ -1552,7 +1552,7 @@
 |-------|----------|---------|-------------|
 | [lark-wiki](skills/knowledge-and-pm-integrations/lark-wiki) | knowledge-and-pm-integrations | ★★★★☆ | 飞书知识库：管理知识空间、空间成员和文档节点。创建和查询知识空间、查看和管理空间成员、管理节点层级结构、在知识库中组织文档和快捷方式。当用户需要在知识库中查找或 |
 | [llm-wiki](skills/knowledge-and-pm-integrations/llm-wiki) | knowledge-and-pm-integrations | ★★★★☆ | Karpathy''s LLM Wiki: build/query interlinked markdown KB. |
-| [obsidian](skills/knowledge-and-pm-integrations/obsidian) | knowledge-and-pm-integrations | ★★★☆☆ | Read, search, create, and edit notes in the Obsidian vault. |
+| [obsidian](skills/knowledge-and-pm-integrations/obsidian) | knowledge-and-pm-integrations | ★★★☆☆ | Use when users need to read, search, create, edit, organize, or cross-link notes |
 
 ## markdown
 
@@ -1681,7 +1681,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [develop-web-game](skills/ai-agent-platform/develop-web-game) | ai-agent-platform | ★★★★☆ | Use when Codex is building or iterating on a web game (HTML/JS) and needs a reli |
-| [web-scraper](skills/engineering-workflow-automation/web-scraper) | engineering-workflow-automation | ★★★★☆ | 用于网页数据抓取、结构化提取和反爬策略应对。仓库整理版，吸收社区高频最佳实践。 |
+| [web-scraper](skills/engineering-workflow-automation/web-scraper) | engineering-workflow-automation | ★★★★☆ | Use when users need webpage scraping, structured data extraction, crawling strat |
 | [web-artifacts-builder](skills/developer-engineering/web-artifacts-builder) | developer-engineering | ★★★☆☆ | Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts  |
 
 ## agent-skill
@@ -1970,7 +1970,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [llm-wiki](skills/knowledge-and-pm-integrations/llm-wiki) | knowledge-and-pm-integrations | ★★★★☆ | Karpathy''s LLM Wiki: build/query interlinked markdown KB. |
-| [obsidian](skills/knowledge-and-pm-integrations/obsidian) | knowledge-and-pm-integrations | ★★★☆☆ | Read, search, create, and edit notes in the Obsidian vault. |
+| [obsidian](skills/knowledge-and-pm-integrations/obsidian) | knowledge-and-pm-integrations | ★★★☆☆ | Use when users need to read, search, create, edit, organize, or cross-link notes |
 
 ## observability
 
@@ -2141,7 +2141,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [skills-search](skills/ai-workflow/skills-search) | ai-workflow | ★★★★☆ | This skill should be used when users want to search, discover, install, or manag |
-| [tavily-search](skills/task-understanding-decomposition/tavily-search) | task-understanding-decomposition | ★★☆☆☆ | 提供实时联网检索能力，帮助 Agent 获取最新资讯、数据与来源证据。 |
+| [tavily-search](skills/task-understanding-decomposition/tavily-search) | task-understanding-decomposition | ★★☆☆☆ | Use when users need real-time web search, fresh facts, source-backed evidence, m |
 
 ## senior
 
@@ -2297,7 +2297,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lark-skill-maker](skills/knowledge-and-pm-integrations/lark-skill-maker) | knowledge-and-pm-integrations | ★★★☆☆ | 把飞书 API 操作封装成可复用技能和多步流程。 |
+| [lark-skill-maker](skills/knowledge-and-pm-integrations/lark-skill-maker) | knowledge-and-pm-integrations | ★★★☆☆ | Use when users need to turn Feishu/Lark API operations into reusable agent skill |
 
 ## agents
 
@@ -2417,7 +2417,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lark-attendance](skills/knowledge-and-pm-integrations/lark-attendance) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书考勤打卡查询、异常记录整理和缺失核对。 |
+| [lark-attendance](skills/knowledge-and-pm-integrations/lark-attendance) | knowledge-and-pm-integrations | ★★★☆☆ | Use when users need to query Feishu/Lark attendance records, audit punch-in gaps |
 
 ## audit
 
@@ -2425,7 +2425,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [seo-audit](skills/growth-operations-xiaohongshu/seo-audit) | growth-operations-xiaohongshu | ★★★★☆ | 用于网站 SEO 全面审计、On-page 优化建议和技术 SEO 检查清单生成。仓库整理版，吸收社区高频最佳实践。 |
+| [seo-audit](skills/growth-operations-xiaohongshu/seo-audit) | growth-operations-xiaohongshu | ★★★★☆ | Use when users need a comprehensive SEO audit, on-page optimization review, tech |
 
 ## auth
 
@@ -2537,7 +2537,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [agent-browser](skills/engineering-workflow-automation/agent-browser) | engineering-workflow-automation | ★★☆☆☆ | 为 Agent 提供真实浏览器自动化能力，支持语义定位、表单交互、截图录屏、脚本执行与会话管理。 |
+| [agent-browser](skills/engineering-workflow-automation/agent-browser) | engineering-workflow-automation | ★★☆☆☆ | Use when an agent needs real browser automation for semantic element targeting,  |
 
 ## browser-automation
 
@@ -2625,7 +2625,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [confidence-check](skills/operations-general/confidence-check) | operations-general | ★★★★☆ | 用于结构化自我审查，验证假设、识别不确定性和减少幻觉输出。仓库整理版，吸收社区高频最佳实践。 |
+| [confidence-check](skills/operations-general/confidence-check) | operations-general | ★★★★☆ | Use when users need structured self-review before final answers: validate assump |
 
 ## ci-cd-and-automation
 
@@ -2817,7 +2817,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [confidence-check](skills/operations-general/confidence-check) | operations-general | ★★★★☆ | 用于结构化自我审查，验证假设、识别不确定性和减少幻觉输出。仓库整理版，吸收社区高频最佳实践。 |
+| [confidence-check](skills/operations-general/confidence-check) | operations-general | ★★★★☆ | Use when users need structured self-review before final answers: validate assump |
 
 ## contacts
 
@@ -3185,7 +3185,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [find-skills](skills/ai-workflow/find-skills) | ai-workflow | ★★★★☆ | 让 Agent 自动搜索并安装合适技能，解决不知道该用哪个技能的问题。 |
+| [find-skills](skills/ai-workflow/find-skills) | ai-workflow | ★★★★☆ | Use when users do not know which skill fits a task, need to search available ski |
 
 ## fix
 
@@ -3273,7 +3273,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [gog](skills/office-white-collar/gog) | office-white-collar | ★★★★☆ | Google Workspace 自动化技能，统一处理 Gmail、Calendar、Drive 与 Docs 等办公流程。 |
+| [gog](skills/office-white-collar/gog) | office-white-collar | ★★★★☆ | Use when users need Google Workspace automation across Gmail, Calendar, Drive, D |
 
 ## governance
 
@@ -3457,7 +3457,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [self-improving-agent](skills/ai-agent-platform/self-improving-agent) | ai-agent-platform | ★★☆☆☆ | 带记忆与自我优化机制的 Agent 技能，能在迭代中持续改进行为。 |
+| [self-improving-agent](skills/ai-agent-platform/self-improving-agent) | ai-agent-platform | ★★☆☆☆ | Use when building or operating agents that should learn from prior runs, capture |
 
 ## incident
 
@@ -3857,7 +3857,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [obsidian](skills/knowledge-and-pm-integrations/obsidian) | knowledge-and-pm-integrations | ★★★☆☆ | Read, search, create, and edit notes in the Obsidian vault. |
+| [obsidian](skills/knowledge-and-pm-integrations/obsidian) | knowledge-and-pm-integrations | ★★★☆☆ | Use when users need to read, search, create, edit, organize, or cross-link notes |
 
 ## offensive-security
 
@@ -4097,7 +4097,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [proactive-agent](skills/ai-agent-platform/proactive-agent) | ai-agent-platform | ★★★★☆ | 增强 Agent 的主动规划与自我迭代能力，从被动执行升级为主动协作。 |
+| [proactive-agent](skills/ai-agent-platform/proactive-agent) | ai-agent-platform | ★★★★☆ | Use when an agent should proactively plan, monitor progress, surface risks, sugg |
 
 ## process
 
@@ -4441,7 +4441,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [web-scraper](skills/engineering-workflow-automation/web-scraper) | engineering-workflow-automation | ★★★★☆ | 用于网页数据抓取、结构化提取和反爬策略应对。仓库整理版，吸收社区高频最佳实践。 |
+| [web-scraper](skills/engineering-workflow-automation/web-scraper) | engineering-workflow-automation | ★★★★☆ | Use when users need webpage scraping, structured data extraction, crawling strat |
 
 ## screen
 
@@ -4489,7 +4489,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [self-improving-agent](skills/ai-agent-platform/self-improving-agent) | ai-agent-platform | ★★☆☆☆ | 带记忆与自我优化机制的 Agent 技能，能在迭代中持续改进行为。 |
+| [self-improving-agent](skills/ai-agent-platform/self-improving-agent) | ai-agent-platform | ★★☆☆☆ | Use when building or operating agents that should learn from prior runs, capture |
 
 ## semgrep
 
@@ -4513,7 +4513,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [seo-audit](skills/growth-operations-xiaohongshu/seo-audit) | growth-operations-xiaohongshu | ★★★★☆ | 用于网站 SEO 全面审计、On-page 优化建议和技术 SEO 检查清单生成。仓库整理版，吸收社区高频最佳实践。 |
+| [seo-audit](skills/growth-operations-xiaohongshu/seo-audit) | growth-operations-xiaohongshu | ★★★★☆ | Use when users need a comprehensive SEO audit, on-page optimization review, tech |
 
 ## server
 
@@ -4737,7 +4737,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [summarize](skills/multimodal-media/summarize) | multimodal-media | ★★☆☆☆ | 对网页、文档、邮件与长文本进行快速摘要，提炼核心信息。 |
+| [summarize](skills/multimodal-media/summarize) | multimodal-media | ★★☆☆☆ | Use when users need concise, faithful summaries of webpages, documents, emails,  |
 
 ## summary
 
@@ -4753,7 +4753,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [supermemory](skills/operations-general/supermemory) | operations-general | ★★★☆☆ | 用于长期记忆管理、偏好捕获、矛盾检测和项目状态跟踪。来源：supermemoryai/supermemory。 |
+| [supermemory](skills/operations-general/supermemory) | operations-general | ★★★☆☆ | Use when users need durable memory management, preference capture, contradiction |
 
 ## syft
 
@@ -4801,7 +4801,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [tavily-search](skills/task-understanding-decomposition/tavily-search) | task-understanding-decomposition | ★★☆☆☆ | 提供实时联网检索能力，帮助 Agent 获取最新资讯、数据与来源证据。 |
+| [tavily-search](skills/task-understanding-decomposition/tavily-search) | task-understanding-decomposition | ★★☆☆☆ | Use when users need real-time web search, fresh facts, source-backed evidence, m |
 
 ## teams
 
@@ -5017,7 +5017,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [skill-vetter](skills/security-and-reliability/skill-vetter) | security-and-reliability | ★★☆☆☆ | 在安装前审计技能安全性，识别恶意指令、越权行为与高风险配置。 |
+| [skill-vetter](skills/security-and-reliability/skill-vetter) | security-and-reliability | ★★☆☆☆ | Use before installing or trusting an external skill to inspect instructions, scr |
 
 ## video-conference
 
@@ -5065,7 +5065,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [weather](skills/operations-general/weather) | operations-general | ★★☆☆☆ | 免 API Key 的天气查询技能，支持多数据源与自然语言请求。 |
+| [weather](skills/operations-general/weather) | operations-general | ★★☆☆☆ | Use when users ask for current weather, forecasts, severe-weather context, trave |
 
 ## webapp
 

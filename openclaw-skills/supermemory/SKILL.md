@@ -1,6 +1,7 @@
 ---
 name: supermemory
-description: '用于长期记忆管理、偏好捕获、矛盾检测和项目状态跟踪。来源：supermemoryai/supermemory。'
+description: 'Use when users need durable memory management, preference capture, contradiction detection, project-state tracking, or retrieval of prior context using Supermemory-style workflows.'
+zh_description: "用于长期记忆管理、偏好捕获、矛盾检测和项目状态跟踪。"
 version: "1.0.0"
 author: "seaworld008"
 source: "community"
@@ -8,7 +9,7 @@ source_url: "https://github.com/supermemoryai/supermemory"
 license: "MIT"
 tags: '["productivity", "supermemory"]'
 created_at: "2026-03-27"
-updated_at: "2026-03-27"
+updated_at: "2026-06-29"
 quality: 3
 complexity: "intermediate"
 ---
