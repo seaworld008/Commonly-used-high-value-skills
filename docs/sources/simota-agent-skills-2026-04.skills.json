@@ -130,14 +130,17 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-agent-platform/arena/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/main/arena/SKILL.md",
-      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "notes": "Upstream simota/agent-skills no longer exposes this legacy slug. Keep the curated local skill as a maintained snapshot until a clearly superior replacement is selected.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "arena/SKILL.md",
         "ref": "main",
         "last_checked_at": "2026-06-01",
         "last_synced_at": "2026-06-01",
-        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+        "sync_mode": "archived",
+        "archived_at": "2026-06-29",
+        "archive_reason": "Legacy upstream slug removed after simota repository reorganization."
       }
     },
     {
@@ -290,14 +293,17 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/finance-investing/levy/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/main/levy/SKILL.md",
-      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "notes": "Upstream simota/agent-skills no longer exposes this legacy slug. Keep the curated local skill as a maintained snapshot until a clearly superior replacement is selected.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "levy/SKILL.md",
         "ref": "main",
         "last_checked_at": "2026-06-01",
         "last_synced_at": "2026-06-01",
-        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+        "sync_mode": "archived",
+        "archived_at": "2026-06-29",
+        "archive_reason": "Legacy upstream slug removed after simota repository reorganization."
       }
     },
     {
@@ -386,14 +392,17 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/office-white-collar/prism/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/main/prism/SKILL.md",
-      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "notes": "Upstream simota/agent-skills no longer exposes this legacy slug. Keep the curated local skill as a maintained snapshot until a clearly superior replacement is selected.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "prism/SKILL.md",
         "ref": "main",
         "last_checked_at": "2026-06-01",
         "last_synced_at": "2026-06-01",
-        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+        "sync_mode": "archived",
+        "archived_at": "2026-06-29",
+        "archive_reason": "Legacy upstream slug removed after simota repository reorganization."
       }
     },
     {
@@ -482,14 +491,17 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/operations-general/dawn/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/main/dawn/SKILL.md",
-      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "notes": "Upstream simota/agent-skills no longer exposes this legacy slug. Keep the curated local skill as a maintained snapshot until a clearly superior replacement is selected.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "dawn/SKILL.md",
         "ref": "main",
         "last_checked_at": "2026-05-28",
         "last_synced_at": "2026-05-28",
-        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+        "sync_mode": "archived",
+        "archived_at": "2026-06-29",
+        "archive_reason": "Legacy upstream slug removed after simota repository reorganization."
       }
     },
     {
@@ -530,14 +542,17 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/product-design/researcher/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/main/researcher/SKILL.md",
-      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "notes": "Upstream simota/agent-skills no longer exposes this legacy slug. Keep the curated local skill as a maintained snapshot until a clearly superior replacement is selected.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "researcher/SKILL.md",
         "ref": "main",
         "last_checked_at": "2026-06-01",
         "last_synced_at": "2026-06-01",
-        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+        "sync_mode": "archived",
+        "archived_at": "2026-06-29",
+        "archive_reason": "Legacy upstream slug removed after simota repository reorganization."
       }
     },
     {
@@ -578,14 +593,17 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/security-and-reliability/comply/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/main/comply/SKILL.md",
-      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "notes": "Upstream simota/agent-skills no longer exposes this legacy slug. Keep the curated local skill as a maintained snapshot until a clearly superior replacement is selected.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "comply/SKILL.md",
         "ref": "main",
         "last_checked_at": "2026-06-01",
         "last_synced_at": "2026-06-01",
-        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+        "sync_mode": "archived",
+        "archived_at": "2026-06-29",
+        "archive_reason": "Legacy upstream slug removed after simota repository reorganization."
       }
     },
     {
@@ -610,14 +628,17 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/multimodal-media/clay/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/main/clay/SKILL.md",
-      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "notes": "Upstream simota/agent-skills no longer exposes this legacy slug. Keep the curated local skill as a maintained snapshot until a clearly superior replacement is selected.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "clay/SKILL.md",
         "ref": "main",
         "last_checked_at": "2026-06-01",
         "last_synced_at": "2026-06-01",
-        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+        "sync_mode": "archived",
+        "archived_at": "2026-06-29",
+        "archive_reason": "Legacy upstream slug removed after simota repository reorganization."
       }
     },
     {
@@ -626,14 +647,17 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/multimodal-media/tone/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/main/tone/SKILL.md",
-      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "notes": "Upstream simota/agent-skills no longer exposes this legacy slug. Keep the curated local skill as a maintained snapshot until a clearly superior replacement is selected.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "tone/SKILL.md",
         "ref": "main",
         "last_checked_at": "2026-06-01",
         "last_synced_at": "2026-06-01",
-        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+        "sync_mode": "archived",
+        "archived_at": "2026-06-29",
+        "archive_reason": "Legacy upstream slug removed after simota repository reorganization."
       }
     },
     {
@@ -722,14 +746,17 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/openclaw-memory-and-safety/warden/SKILL.md",
       "source": "https://github.com/simota/agent-skills/blob/main/warden/SKILL.md",
-      "notes": "Curated from simota/agent-skills; selected to fill category capability gaps with upstream tracking.",
+      "notes": "Upstream simota/agent-skills no longer exposes this legacy slug. Keep the curated local skill as a maintained snapshot until a clearly superior replacement is selected.",
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "warden/SKILL.md",
         "ref": "main",
         "last_checked_at": "2026-06-01",
         "last_synced_at": "2026-06-01",
-        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+        "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+        "sync_mode": "archived",
+        "archived_at": "2026-06-29",
+        "archive_reason": "Legacy upstream slug removed after simota repository reorganization."
       }
     },
     {
