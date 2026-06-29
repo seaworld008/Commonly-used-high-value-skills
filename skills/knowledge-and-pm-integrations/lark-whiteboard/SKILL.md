@@ -2,7 +2,7 @@
 name: lark-whiteboard
 description: '飞书画板：查询和编辑飞书云文档中的画板。支持导出画板为预览图片、导出原始节点结构、使用多种格式更新画板内容。 当用户需要查看画板内容、导出画板图片、编辑画板时使用此 skill。不负责：飞书云文档内容编辑（lark-doc）、文档内嵌电子表格/Base（lark-sheets / lark-base）。'
 zh_description: "用于查询、导出和编辑飞书云文档中的画板内容和节点结构。"
-version: "1.0.4"
+version: "1.0.5"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-whiteboard"
@@ -80,6 +80,7 @@ source is intentionally concise.
   expose private data, or change production state.
 <!-- LOCAL-QUALITY-SUPPLEMENT:END -->
 
+<!-- LOCAL-CURATION-SUPPLEMENT:START -->
 ## Whiteboard Safety Checklist
 
 Before updating a whiteboard:
@@ -99,3 +100,4 @@ For edits, report:
 2. Which input format was used.
 3. Whether a preview/export was generated.
 4. Any assumptions about layout, node grouping, or diagram semantics.
+<!-- LOCAL-CURATION-SUPPLEMENT:END -->

@@ -2,7 +2,7 @@
 name: lark-skill-maker
 description: 'Use when users need to turn Feishu/Lark API operations into reusable agent skills, compose multi-step Lark workflows, or package verified Lark automation patterns for repeatable execution.'
 zh_description: "用于把飞书 API 操作封装为可复用技能、流程模板和多步自动化。"
-version: "1.0.1"
+version: "1.0.2"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-skill-maker"
@@ -120,6 +120,7 @@ source is intentionally concise.
   expose private data, or change production state.
 <!-- LOCAL-QUALITY-SUPPLEMENT:END -->
 
+<!-- LOCAL-CURATION-SUPPLEMENT:START -->
 ## Skill Packaging Checklist
 
 When converting a Lark API workflow into a reusable skill, include:
@@ -135,3 +136,4 @@ When converting a Lark API workflow into a reusable skill, include:
 ## Quality Bar
 
 Do not package a Lark workflow as a skill if it is only a single undocumented API call. A useful skill should explain intent, parameters, scopes, boundaries, and repeatable troubleshooting steps so another agent can run it without rediscovering the API from scratch.
+<!-- LOCAL-CURATION-SUPPLEMENT:END -->

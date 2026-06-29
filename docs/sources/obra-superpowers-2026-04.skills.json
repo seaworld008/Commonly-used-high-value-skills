@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://github.com/obra/superpowers",
-    "checked_at": "2026-06-21",
+    "checked_at": "2026-06-29",
     "note": "Curated from obra/superpowers after validating current upstream paths and recent popularity/discovery signals."
   },
   "official_references": [
@@ -112,8 +112,8 @@
         "repo": "obra/superpowers",
         "path": "skills/requesting-code-review/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-21",
-        "last_synced_at": "2026-06-21",
+        "last_checked_at": "2026-06-29",
+        "last_synced_at": "2026-06-29",
         "last_synced_commit": "9ccce3bf07a40e45259004a330409ba00970eff7"
       }
     },

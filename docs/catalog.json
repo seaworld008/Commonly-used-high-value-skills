@@ -1019,7 +1019,7 @@
       "name": "requesting-code-review",
       "category": "ai-workflow",
       "description": "Use when completing tasks, implementing major features, or before merging to verify work meets requirements",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -1032,7 +1032,7 @@
       "complexity": "intermediate",
       "created_at": "2026-04-13",
       "updated_at": "2026-06-29",
-      "line_count": 147,
+      "line_count": 149,
       "path": "skills/ai-workflow/requesting-code-review/SKILL.md"
     },
     {
@@ -2888,7 +2888,7 @@
       "name": "billing-automation",
       "category": "engineering-workflow-automation",
       "description": "Build automated billing systems for recurring payments, invoicing, subscription lifecycle, and dunning management. Use when implementing subscription billing, automating invoicing, or managing recurring payment systems.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": "seaworld008",
       "source": "github:wshobson/agents",
       "source_url": "https://github.com/wshobson/agents/blob/main/plugins/payment-processing/skills/billing-automation/SKILL.md",
@@ -2901,7 +2901,7 @@
       "complexity": "intermediate",
       "created_at": "2026-05-28",
       "updated_at": "2026-06-29",
-      "line_count": 139,
+      "line_count": 141,
       "path": "skills/engineering-workflow-automation/billing-automation/SKILL.md"
     },
     {
@@ -3936,7 +3936,7 @@
       "name": "lark-attendance",
       "category": "knowledge-and-pm-integrations",
       "description": "Use when users need to query Feishu/Lark attendance records, audit punch-in gaps, summarize abnormal attendance, or reconcile missing check-ins with HR-facing evidence.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/main/skills/lark-attendance",
@@ -3950,7 +3950,7 @@
       "complexity": "intermediate",
       "created_at": "2026-05-19",
       "updated_at": "2026-06-29",
-      "line_count": 113,
+      "line_count": 115,
       "path": "skills/knowledge-and-pm-integrations/lark-attendance/SKILL.md"
     },
     {
@@ -4067,8 +4067,8 @@
     {
       "name": "lark-event",
       "category": "knowledge-and-pm-integrations",
-      "description": "Lark/Feishu real-time event listening / subscribing / consuming: stream events as NDJSON via `lark-cli event consume <EventKey>` (covers IM messages/reactions/chat changes, Task updates, VC meeting ended, Minutes generated, Whiteboard updated, etc.). Use for Lark bots, real-time message processing, long-running subscribers, streaming webhook/push handlers. Supports `--max-events` / `--timeout` bounded runs and a stderr ready-marker contract — designed for AI agents running as subprocesses.",
-      "version": "1.0.5",
+      "description": "Lark/Feishu real-time event listening / subscribing / consuming: stream events as NDJSON via `lark-cli event consume <EventKey>` (covers IM messages/reactions/chat changes, Task updates, VC meeting started/joined/ended, Minutes generated, Whiteboard updated, etc.). Use for Lark bots, real-time message processing, long-running subscribers, streaming webhook/push handlers. Supports `--max-events` / `--timeout` bounded runs and a stderr ready-marker contract — designed for AI agents running as subprocesses.",
+      "version": "1.0.6",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/main/skills/lark-event",
@@ -4266,7 +4266,7 @@
       "name": "lark-skill-maker",
       "category": "knowledge-and-pm-integrations",
       "description": "Use when users need to turn Feishu/Lark API operations into reusable agent skills, compose multi-step Lark workflows, or package verified Lark automation patterns for repeatable execution.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/main/skills/lark-skill-maker",
@@ -4281,7 +4281,7 @@
       "complexity": "intermediate",
       "created_at": "2026-05-19",
       "updated_at": "2026-06-29",
-      "line_count": 137,
+      "line_count": 139,
       "path": "skills/knowledge-and-pm-integrations/lark-skill-maker/SKILL.md"
     },
     {
@@ -4376,7 +4376,7 @@
       "name": "lark-whiteboard",
       "category": "knowledge-and-pm-integrations",
       "description": "飞书画板：查询和编辑飞书云文档中的画板。支持导出画板为预览图片、导出原始节点结构、使用多种格式更新画板内容。 当用户需要查看画板内容、导出画板图片、编辑画板时使用此 skill。不负责：飞书云文档内容编辑（lark-doc）、文档内嵌电子表格/Base（lark-sheets / lark-base）。",
-      "version": "1.0.4",
+      "version": "1.0.5",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/main/skills/lark-whiteboard",
@@ -4391,7 +4391,7 @@
       "complexity": "advanced",
       "created_at": "2026-05-19",
       "updated_at": "2026-06-29",
-      "line_count": 101,
+      "line_count": 103,
       "path": "skills/knowledge-and-pm-integrations/lark-whiteboard/SKILL.md"
     },
     {

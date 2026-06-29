@@ -26,7 +26,7 @@
 | `lark-contact` | 用于按姓名或邮箱解析飞书 open_id，并反查成员姓名、部门、邮箱和个人状态。 | [目录](./lark-contact/) | [SKILL.md](./lark-contact/SKILL.md) |
 | `lark-doc` | 用于读取、编辑和生成飞书云文档内容。 | [目录](./lark-doc/) | [SKILL.md](./lark-doc/SKILL.md) |
 | `lark-drive` | 用于搜索、读取和管理飞书云空间文件与权限。 | [目录](./lark-drive/) | [SKILL.md](./lark-drive/SKILL.md) |
-| `lark-event` | 用于lark、event，支持知识管理、项目同步和平台集成。 | [目录](./lark-event/) | [SKILL.md](./lark-event/SKILL.md) |
+| `lark-event` | 用于订阅、消费和处理飞书实时事件流，支持消息、任务、会议纪要和画板更新。 | [目录](./lark-event/) | [SKILL.md](./lark-event/SKILL.md) |
 | `lark-im` | 用于发送、读取和处理飞书即时消息与群聊交互。 | [目录](./lark-im/) | [SKILL.md](./lark-im/SKILL.md) |
 | `lark-mail` | 飞书邮箱：Use when user mentions 起草邮件、写邮件、草稿、发送/回复/转发邮件、查阅邮件、看邮。 | [目录](./lark-mail/) | [SKILL.md](./lark-mail/SKILL.md) |
 | `lark-markdown` | 飞书 Markdown：查看、创建、上传、编辑和比较 Markdown 文件。 | [目录](./lark-markdown/) | [SKILL.md](./lark-markdown/SKILL.md) |

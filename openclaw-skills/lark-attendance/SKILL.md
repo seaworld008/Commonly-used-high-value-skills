@@ -2,7 +2,7 @@
 name: lark-attendance
 description: 'Use when users need to query Feishu/Lark attendance records, audit punch-in gaps, summarize abnormal attendance, or reconcile missing check-ins with HR-facing evidence.'
 zh_description: "用于查询飞书考勤记录、核对打卡缺失、整理异常考勤并生成可追溯说明。"
-version: "1.0.1"
+version: "1.0.2"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-attendance"
@@ -91,6 +91,7 @@ source is intentionally concise.
   expose private data, or change production state.
 <!-- LOCAL-QUALITY-SUPPLEMENT:END -->
 
+<!-- LOCAL-CURATION-SUPPLEMENT:START -->
 ## Attendance Review Checklist
 
 Use this checklist before returning attendance findings:
@@ -111,3 +112,4 @@ Prefer a compact table for user-facing summaries:
 | 2026-06-29 | Example | Missing PM punch | `user_tasks.query` returned no end record | Ask employee to confirm |
 
 When uncertainty remains, state exactly which API response, scope, or identifier prevented a definitive conclusion.
+<!-- LOCAL-CURATION-SUPPLEMENT:END -->

@@ -191,6 +191,27 @@ class SyncUpstreamTests(unittest.TestCase):
 
         self.assertEqual(upstream.strip(), module.comparable_body(local))
 
+    def test_comparable_body_ignores_local_curation_supplement(self):
+        module = load_module()
+
+        local = textwrap.dedent(
+            """\
+            ---
+            name: curated
+            description: Curated.
+            ---
+            # Compact
+
+            <!-- LOCAL-CURATION-SUPPLEMENT:START -->
+            ## Local Review Checklist
+
+            - Keep this repository-specific checklist without treating it as upstream drift.
+            <!-- LOCAL-CURATION-SUPPLEMENT:END -->
+            """
+        )
+
+        self.assertEqual("# Compact", module.comparable_body(local))
+
     def test_parse_frontmatter_collapses_folded_scalars(self):
         module = load_module()
 
@@ -212,6 +233,24 @@ class SyncUpstreamTests(unittest.TestCase):
             "Audit skills for risky behavior before installing them.",
             parsed["description"],
         )
+
+    def test_fetch_url_treats_ssl_errors_as_recoverable_fetch_failures(self):
+        module = load_module()
+
+        def fake_urlopen(_req, timeout):
+            raise module.ssl.SSLError("handshake timed out")
+
+        original_urlopen = module.urllib.request.urlopen
+        original_fallback = module.fetch_github_raw_via_api
+        module.urllib.request.urlopen = fake_urlopen
+        module.fetch_github_raw_via_api = lambda _url, _token: None
+        try:
+            result = module.fetch_url("https://raw.githubusercontent.com/owner/repo/main/SKILL.md")
+        finally:
+            module.urllib.request.urlopen = original_urlopen
+            module.fetch_github_raw_via_api = original_fallback
+
+        self.assertIsNone(result)
 
 
 if __name__ == "__main__":

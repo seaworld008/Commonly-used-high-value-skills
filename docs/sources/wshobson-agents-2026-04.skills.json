@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://github.com/wshobson/agents",
-    "checked_at": "2026-05-28",
+    "checked_at": "2026-06-29",
     "note": "Curated from wshobson/agents after validating exact upstream plugin paths and cross-checking public skills registry listings."
   },
   "official_references": [
@@ -38,8 +38,8 @@
         "repo": "wshobson/agents",
         "path": "plugins/payment-processing/skills/billing-automation/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-05-28",
-        "last_synced_at": "2026-05-28",
+        "last_checked_at": "2026-06-29",
+        "last_synced_at": "2026-06-29",
         "last_synced_commit": null
       }
     },
