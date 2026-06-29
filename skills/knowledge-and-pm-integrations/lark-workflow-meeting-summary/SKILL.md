@@ -1,6 +1,7 @@
 ---
 name: lark-workflow-meeting-summary
-description: '会议纪要整理工作流：汇总指定时间范围内的会议纪要并生成结构化报告。当用户需要整理会议纪要、生成会议周报、回顾一段时间内的会议内容时使用。'
+description: 'Use when users need to collect Feishu/Lark meeting minutes across a time range, generate structured meeting reports, produce weekly meeting summaries, or review recent meeting content.'
+zh_description: "用于汇总指定时间范围内的飞书会议纪要，并生成结构化会议报告或周报。"
 version: "1.0.4"
 author: larksuite
 source: "github:larksuite/cli"

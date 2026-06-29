@@ -1,6 +1,7 @@
 ---
 name: internal-comms
-description: 'A set of resources to help me write all kinds of internal communications, using the formats that my company likes to use. Claude should use this skill whenever asked to write some sort of internal communications (status reports, leadership updates, 3P updates, company newsletters, FAQs, incident reports, project updates, etc.).'
+description: 'Use when users need internal communications such as status reports, leadership updates, 3P updates, newsletters, FAQs, incident reports, project updates, or executive-ready internal narratives.'
+zh_description: "用于撰写状态报告、领导层更新、FAQ、事故通报和项目进展等内部沟通材料。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"
@@ -8,7 +9,7 @@ source_url: ""
 license: Complete terms in LICENSE.txt
 tags: '["comms", "internal", "productivity"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-06-29"
 quality: 2
 complexity: "intermediate"
 ---

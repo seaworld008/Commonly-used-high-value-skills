@@ -119,3 +119,19 @@ source is intentionally concise.
 - Stop and ask for clarification when the next action could overwrite user work,
   expose private data, or change production state.
 <!-- LOCAL-QUALITY-SUPPLEMENT:END -->
+
+## Skill Packaging Checklist
+
+When converting a Lark API workflow into a reusable skill, include:
+
+- A trigger-focused `description` that says when the skill should activate and what it must not handle.
+- Required scopes and authentication steps before any command examples.
+- A minimal read-only example before write operations.
+- A dry-run or confirmation pattern for destructive or externally visible writes.
+- Data handoff notes between steps, including which response fields become inputs for later calls.
+- Failure handling for missing permissions, rate limits, partial writes, and invalid identifiers.
+- A final verification command or UI check that proves the workflow completed.
+
+## Quality Bar
+
+Do not package a Lark workflow as a skill if it is only a single undocumented API call. A useful skill should explain intent, parameters, scopes, boundaries, and repeatable troubleshooting steps so another agent can run it without rediscovering the API from scratch.

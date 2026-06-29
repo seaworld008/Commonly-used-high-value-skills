@@ -1,6 +1,7 @@
 ---
 name: lark-contact
 description: '飞书 / Lark 通讯录:按姓名 / 邮箱解析成 open_id,或按 open_id 反查姓名 / 部门 / 邮箱 / 联系方式 / 个人状态 / 签名。当用户提到某人姓名要下一步发消息 / 排日程,或拿到 open_id 想查具体信息时使用。不负责部门树遍历、按部门列员工、组织架构图,这类需求走原生 OpenAPI。'
+zh_description: "用于按姓名或邮箱解析飞书 open_id，并反查成员姓名、部门、邮箱和个人状态。"
 version: "1.0.2"
 author: larksuite
 source: "github:larksuite/cli"
@@ -8,7 +9,7 @@ source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-contact"
 license: MIT
 tags: '[feishu, lark, lark-cli, contacts, identity]'
 created_at: "2026-05-19"
-updated_at: "2026-06-08"
+updated_at: "2026-06-29"
 quality: 3
 complexity: intermediate
 metadata:

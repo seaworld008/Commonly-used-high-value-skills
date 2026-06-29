@@ -1,6 +1,7 @@
 ---
 name: python-performance
-description: '用于 Python 性能优化、内存分析和并发编程最佳实践。来源：skills.sh 12.8K installs。'
+description: 'Use when profiling Python code, reducing memory usage, optimizing hot paths, choosing concurrency patterns, or reviewing performance regressions in Python services and scripts.'
+zh_description: "用于 Python 性能分析、内存优化、热点路径调优和并发模式评审。"
 version: "1.0.0"
 author: "seaworld008"
 source: "skills.sh"
@@ -8,7 +9,7 @@ source_url: "https://skills.sh/wshobson/agents/python-performance-optimization"
 license: "MIT"
 tags: '["development", "performance", "python"]'
 created_at: "2026-03-27"
-updated_at: "2026-03-27"
+updated_at: "2026-06-29"
 quality: 4
 complexity: "intermediate"
 ---

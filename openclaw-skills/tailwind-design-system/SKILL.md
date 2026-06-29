@@ -1,6 +1,7 @@
 ---
 name: tailwind-design-system
-description: '用于 Tailwind CSS 设计系统搭建、组件库开发与主题定制。来源：skills.sh 24.7K installs。'
+description: 'Use when building Tailwind CSS design systems, theme tokens, reusable component styles, responsive layouts, or UI consistency rules for product frontends.'
+zh_description: "用于 Tailwind CSS 设计系统、主题 token、组件样式和响应式布局规范。"
 version: "1.0.0"
 author: "seaworld008"
 source: "skills.sh"
@@ -8,7 +9,7 @@ source_url: "https://skills.sh/wshobson/agents/tailwind-design-system"
 license: "MIT"
 tags: '["design", "development", "system", "tailwind"]'
 created_at: "2026-03-27"
-updated_at: "2026-03-27"
+updated_at: "2026-06-29"
 quality: 4
 complexity: "intermediate"
 ---

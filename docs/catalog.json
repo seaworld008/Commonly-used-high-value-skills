@@ -198,7 +198,7 @@
     {
       "name": "hermes-agent",
       "category": "ai-agent-platform",
-      "description": "Configure, extend, or contribute to Hermes Agent.",
+      "description": "Use when configuring, extending, debugging, or contributing to Hermes Agent, including multi-agent setup, CLI workflows, gateway configuration, and development tasks.",
       "version": "2.0.12",
       "author": "Hermes Agent + Teknium",
       "source": "in-house",
@@ -217,7 +217,7 @@
       "complexity": "intermediate",
       "created_at": "2026-04-13",
       "updated_at": "2026-06-29",
-      "line_count": 1116,
+      "line_count": 1117,
       "path": "skills/ai-agent-platform/hermes-agent/SKILL.md"
     },
     {
@@ -273,7 +273,7 @@
     {
       "name": "mcporter",
       "category": "ai-agent-platform",
-      "description": "Use the mcporter CLI to list, configure, auth, and call MCP servers/tools directly (HTTP or stdio), including ad-hoc servers, config edits, and CLI/type generation.",
+      "description": "Use when users need to operate MCP servers or tools with the mcporter CLI: list servers, configure auth, call HTTP/stdio tools, edit config, or generate CLI/type bindings.",
       "version": "1.0.1",
       "author": "community",
       "source": "in-house",
@@ -288,8 +288,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-04-13",
-      "updated_at": "2026-05-28",
-      "line_count": 128,
+      "updated_at": "2026-06-29",
+      "line_count": 129,
       "path": "skills/ai-agent-platform/mcporter/SKILL.md"
     },
     {
@@ -721,7 +721,7 @@
     {
       "name": "executing-plans",
       "category": "ai-workflow",
-      "description": "Use when you have a written implementation plan to execute in a separate session with review checkpoints",
+      "description": "Use when users have a written implementation plan that should be executed step by step in a separate session with review checkpoints and completion verification.",
       "version": "1.0.3",
       "author": "seaworld008",
       "source": "in-house",
@@ -734,8 +734,8 @@
       "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-04-13",
-      "updated_at": "2026-06-21",
-      "line_count": 105,
+      "updated_at": "2026-06-29",
+      "line_count": 106,
       "path": "skills/ai-workflow/executing-plans/SKILL.md"
     },
     {
@@ -1031,8 +1031,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-04-13",
-      "updated_at": "2026-06-21",
-      "line_count": 112,
+      "updated_at": "2026-06-29",
+      "line_count": 147,
       "path": "skills/ai-workflow/requesting-code-review/SKILL.md"
     },
     {
@@ -1506,8 +1506,8 @@
       "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-03-04",
-      "updated_at": "2026-03-20",
-      "line_count": 86,
+      "updated_at": "2026-06-29",
+      "line_count": 102,
       "path": "skills/deployment-platforms/vercel-deploy/SKILL.md"
     },
     {
@@ -1533,7 +1533,7 @@
     {
       "name": "api-design-reviewer",
       "category": "developer-engineering",
-      "description": "Maintainer: Claude Skills Team.",
+      "description": "Use when reviewing API designs for consistency, usability, versioning, error semantics, security, backward compatibility, and developer experience before implementation or release.",
       "version": "1.0.0",
       "author": "seaworld008",
       "source": "in-house",
@@ -1547,8 +1547,8 @@
       "quality": 5,
       "complexity": "intermediate",
       "created_at": "2026-03-04",
-      "updated_at": "2026-03-20",
-      "line_count": 430,
+      "updated_at": "2026-06-29",
+      "line_count": 431,
       "path": "skills/developer-engineering/api-design-reviewer/SKILL.md"
     },
     {
@@ -1672,8 +1672,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-04-13",
-      "updated_at": "2026-04-13",
-      "line_count": 121,
+      "updated_at": "2026-06-29",
+      "line_count": 122,
       "path": "skills/developer-engineering/codebase-inspection/SKILL.md"
     },
     {
@@ -1813,8 +1813,8 @@
       "quality": 2,
       "complexity": "intermediate",
       "created_at": "2026-03-04",
-      "updated_at": "2026-03-20",
-      "line_count": 125,
+      "updated_at": "2026-06-29",
+      "line_count": 126,
       "path": "skills/developer-engineering/frontend-design/SKILL.md"
     },
     {
@@ -1899,7 +1899,7 @@
     {
       "name": "graphql-expert",
       "category": "developer-engineering",
-      "description": "用于 GraphQL API 设计、查询优化、Schema 管理和安全最佳实践。仓库整理版，吸收社区高频最佳实践。",
+      "description": "Use when designing GraphQL APIs, reviewing schemas and resolvers, optimizing queries, managing federation, or checking GraphQL security and performance best practices.",
       "version": "1.0.0",
       "author": "seaworld008",
       "source": "in-house",
@@ -1912,8 +1912,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-27",
-      "updated_at": "2026-03-27",
-      "line_count": 121,
+      "updated_at": "2026-06-29",
+      "line_count": 122,
       "path": "skills/developer-engineering/graphql-expert/SKILL.md"
     },
     {
@@ -1939,7 +1939,7 @@
     {
       "name": "kubernetes-specialist",
       "category": "developer-engineering",
-      "description": "用于 Kubernetes 集群管理、部署编排、Pod 调试与 Helm Chart 设计。来源：skills.sh 5K+ installs。",
+      "description": "Use when managing Kubernetes clusters, debugging Pods and workloads, designing Helm charts, reviewing manifests, or improving deployment, scaling, and observability practices.",
       "version": "1.0.0",
       "author": "seaworld008",
       "source": "skills.sh",
@@ -1952,8 +1952,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-27",
-      "updated_at": "2026-03-27",
-      "line_count": 140,
+      "updated_at": "2026-06-29",
+      "line_count": 141,
       "path": "skills/developer-engineering/kubernetes-specialist/SKILL.md"
     },
     {
@@ -2182,7 +2182,7 @@
     {
       "name": "python-performance",
       "category": "developer-engineering",
-      "description": "用于 Python 性能优化、内存分析和并发编程最佳实践。来源：skills.sh 12.8K installs。",
+      "description": "Use when profiling Python code, reducing memory usage, optimizing hot paths, choosing concurrency patterns, or reviewing performance regressions in Python services and scripts.",
       "version": "1.0.0",
       "author": "seaworld008",
       "source": "skills.sh",
@@ -2195,8 +2195,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-27",
-      "updated_at": "2026-03-27",
-      "line_count": 125,
+      "updated_at": "2026-06-29",
+      "line_count": 126,
       "path": "skills/developer-engineering/python-performance/SKILL.md"
     },
     {
@@ -2242,7 +2242,7 @@
     {
       "name": "rust-engineer",
       "category": "developer-engineering",
-      "description": "用于 Rust 语言开发最佳实践、异步编程和系统级编程指导。来源：skills.sh 1.5K+ installs。",
+      "description": "Use when writing or reviewing Rust code, designing safe APIs, debugging ownership and lifetimes, choosing async patterns, or improving systems-level performance.",
       "version": "1.0.0",
       "author": "seaworld008",
       "source": "skills.sh",
@@ -2255,8 +2255,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-27",
-      "updated_at": "2026-03-27",
-      "line_count": 140,
+      "updated_at": "2026-06-29",
+      "line_count": 141,
       "path": "skills/developer-engineering/rust-engineer/SKILL.md"
     },
     {
@@ -2355,7 +2355,7 @@
       "complexity": "intermediate",
       "created_at": "2026-05-05",
       "updated_at": "2026-06-29",
-      "line_count": 100,
+      "line_count": 122,
       "path": "skills/developer-engineering/supabase-postgres-best-practices/SKILL.md"
     },
     {
@@ -2381,7 +2381,7 @@
     {
       "name": "tailwind-design-system",
       "category": "developer-engineering",
-      "description": "用于 Tailwind CSS 设计系统搭建、组件库开发与主题定制。来源：skills.sh 24.7K installs。",
+      "description": "Use when building Tailwind CSS design systems, theme tokens, reusable component styles, responsive layouts, or UI consistency rules for product frontends.",
       "version": "1.0.0",
       "author": "seaworld008",
       "source": "skills.sh",
@@ -2395,8 +2395,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-27",
-      "updated_at": "2026-03-27",
-      "line_count": 136,
+      "updated_at": "2026-06-29",
+      "line_count": 137,
       "path": "skills/developer-engineering/tailwind-design-system/SKILL.md"
     },
     {
@@ -2423,7 +2423,7 @@
     {
       "name": "terraform-engineer",
       "category": "developer-engineering",
-      "description": "用于 Terraform 基础设施即代码（IaC）设计、模块化管理和状态管理。来源：HashiCorp 官方 + skills.sh。",
+      "description": "Use when designing Terraform IaC, reviewing modules, managing state, planning provider upgrades, or improving repeatable infrastructure deployment workflows.",
       "version": "1.0.0",
       "author": "seaworld008",
       "source": "skills.sh",
@@ -2436,14 +2436,14 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-27",
-      "updated_at": "2026-03-27",
-      "line_count": 140,
+      "updated_at": "2026-06-29",
+      "line_count": 141,
       "path": "skills/developer-engineering/terraform-engineer/SKILL.md"
     },
     {
       "name": "typescript-best-practices",
       "category": "developer-engineering",
-      "description": "用于 TypeScript 高级类型编程、类型安全设计和常见反模式避免。仓库整理版，吸收社区高频最佳实践。",
+      "description": "Use when writing or reviewing TypeScript for type safety, advanced types, API boundaries, strict-mode migrations, and common anti-pattern avoidance.",
       "version": "1.0.0",
       "author": "seaworld008",
       "source": "in-house",
@@ -2457,8 +2457,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-27",
-      "updated_at": "2026-03-27",
-      "line_count": 144,
+      "updated_at": "2026-06-29",
+      "line_count": 145,
       "path": "skills/developer-engineering/typescript-best-practices/SKILL.md"
     },
     {
@@ -2523,13 +2523,13 @@
       "complexity": "intermediate",
       "created_at": "2026-03-04",
       "updated_at": "2026-06-29",
-      "line_count": 84,
+      "line_count": 106,
       "path": "skills/developer-engineering/web-artifacts-builder/SKILL.md"
     },
     {
       "name": "webapp-testing",
       "category": "developer-engineering",
-      "description": "Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs.",
+      "description": "Use when testing local web applications with Playwright, verifying frontend behavior, debugging UI issues, capturing screenshots, inspecting browser logs, or validating user flows.",
       "version": "1.0.0",
       "author": "seaworld008",
       "source": "in-house",
@@ -2542,8 +2542,8 @@
       "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-03-04",
-      "updated_at": "2026-03-20",
-      "line_count": 105,
+      "updated_at": "2026-06-29",
+      "line_count": 106,
       "path": "skills/developer-engineering/webapp-testing/SKILL.md"
     },
     {
@@ -2742,7 +2742,7 @@
     {
       "name": "incident-commander",
       "category": "devops-sre",
-      "description": "Author: Claude Skills Team Version: 1.0.0 Last Updated: February 2026.",
+      "description": "Use during incidents to coordinate triage, assign roles, manage communications, track mitigations, run post-incident review, and keep responders aligned under pressure.",
       "version": "1.0.0",
       "author": "seaworld008",
       "source": "in-house",
@@ -2756,8 +2756,8 @@
       "quality": 5,
       "complexity": "intermediate",
       "created_at": "2026-03-04",
-      "updated_at": "2026-03-20",
-      "line_count": 682,
+      "updated_at": "2026-06-29",
+      "line_count": 683,
       "path": "skills/devops-sre/incident-commander/SKILL.md"
     },
     {
@@ -2900,8 +2900,8 @@
       "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-05-28",
-      "updated_at": "2026-05-28",
-      "line_count": 88,
+      "updated_at": "2026-06-29",
+      "line_count": 139,
       "path": "skills/engineering-workflow-automation/billing-automation/SKILL.md"
     },
     {
@@ -2920,14 +2920,14 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-05-28",
-      "updated_at": "2026-05-28",
-      "line_count": 129,
+      "updated_at": "2026-06-29",
+      "line_count": 130,
       "path": "skills/engineering-workflow-automation/changelog-automation/SKILL.md"
     },
     {
       "name": "gh-address-comments",
       "category": "engineering-workflow-automation",
-      "description": "Help address review/issue comments on the open GitHub PR for the current branch using gh CLI; verify gh auth first and prompt the user to authenticate if not logged in.",
+      "description": "Use when addressing GitHub PR review comments or issue comments on the current branch with gh CLI, including auth checks, comment triage, edits, verification, and replies.",
       "version": "1.0.0",
       "author": "seaworld008",
       "source": "in-house",
@@ -2941,8 +2941,8 @@
       "quality": 2,
       "complexity": "intermediate",
       "created_at": "2026-03-04",
-      "updated_at": "2026-03-20",
-      "line_count": 120,
+      "updated_at": "2026-06-29",
+      "line_count": 121,
       "path": "skills/engineering-workflow-automation/gh-address-comments/SKILL.md"
     },
     {
@@ -2968,7 +2968,7 @@
     {
       "name": "github",
       "category": "engineering-workflow-automation",
-      "description": "通过 GitHub CLI 自动化 Issue、PR、Review 与 CI 检查，适合工程协作闭环。",
+      "description": "Use when automating GitHub issues, pull requests, reviews, CI checks, labels, releases, or engineering collaboration loops through the GitHub CLI.",
       "version": "1.0.0",
       "author": "seaworld008",
       "source": "in-house",
@@ -2981,8 +2981,8 @@
       "quality": 2,
       "complexity": "intermediate",
       "created_at": "2026-03-15",
-      "updated_at": "2026-06-08",
-      "line_count": 145,
+      "updated_at": "2026-06-29",
+      "line_count": 146,
       "path": "skills/engineering-workflow-automation/github/SKILL.md"
     },
     {
@@ -3238,8 +3238,8 @@
       "quality": 2,
       "complexity": "intermediate",
       "created_at": "2026-03-18",
-      "updated_at": "2026-03-20",
-      "line_count": 119,
+      "updated_at": "2026-06-29",
+      "line_count": 120,
       "path": "skills/finance-investing/earnings-call-analyzer/SKILL.md"
     },
     {
@@ -3841,8 +3841,8 @@
       "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-03-04",
-      "updated_at": "2026-03-20",
-      "line_count": 81,
+      "updated_at": "2026-06-29",
+      "line_count": 124,
       "path": "skills/growth-operations-xiaohongshu/twitter-reader/SKILL.md"
     },
     {
@@ -3950,7 +3950,7 @@
       "complexity": "intermediate",
       "created_at": "2026-05-19",
       "updated_at": "2026-06-29",
-      "line_count": 92,
+      "line_count": 113,
       "path": "skills/knowledge-and-pm-integrations/lark-attendance/SKILL.md"
     },
     {
@@ -4016,8 +4016,8 @@
       "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-05-19",
-      "updated_at": "2026-06-08",
-      "line_count": 94,
+      "updated_at": "2026-06-29",
+      "line_count": 95,
       "path": "skills/knowledge-and-pm-integrations/lark-contact/SKILL.md"
     },
     {
@@ -4281,7 +4281,7 @@
       "complexity": "intermediate",
       "created_at": "2026-05-19",
       "updated_at": "2026-06-29",
-      "line_count": 121,
+      "line_count": 137,
       "path": "skills/knowledge-and-pm-integrations/lark-skill-maker/SKILL.md"
     },
     {
@@ -4391,7 +4391,7 @@
       "complexity": "advanced",
       "created_at": "2026-05-19",
       "updated_at": "2026-06-29",
-      "line_count": 80,
+      "line_count": 101,
       "path": "skills/knowledge-and-pm-integrations/lark-whiteboard/SKILL.md"
     },
     {
@@ -4419,7 +4419,7 @@
     {
       "name": "lark-workflow-meeting-summary",
       "category": "knowledge-and-pm-integrations",
-      "description": "会议纪要整理工作流：汇总指定时间范围内的会议纪要并生成结构化报告。当用户需要整理会议纪要、生成会议周报、回顾一段时间内的会议内容时使用。",
+      "description": "Use when users need to collect Feishu/Lark meeting minutes across a time range, generate structured meeting reports, produce weekly meeting summaries, or review recent meeting content.",
       "version": "1.0.4",
       "author": "larksuite",
       "source": "github:larksuite/cli",
@@ -4435,7 +4435,7 @@
       "complexity": "intermediate",
       "created_at": "2026-05-19",
       "updated_at": "2026-06-29",
-      "line_count": 157,
+      "line_count": 158,
       "path": "skills/knowledge-and-pm-integrations/lark-workflow-meeting-summary/SKILL.md"
     },
     {
@@ -4486,7 +4486,7 @@
     {
       "name": "llm-wiki",
       "category": "knowledge-and-pm-integrations",
-      "description": "Karpathy''s LLM Wiki: build/query interlinked markdown KB.",
+      "description": "Use when building, querying, or maintaining a Karpathy-style interlinked markdown knowledge base for LLM notes, research synthesis, and lightweight RAG alternatives.",
       "version": "2.0.2",
       "author": "Hermes Agent",
       "source": "in-house",
@@ -4502,8 +4502,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-04-13",
-      "updated_at": "2026-06-16",
-      "line_count": 542,
+      "updated_at": "2026-06-29",
+      "line_count": 543,
       "path": "skills/knowledge-and-pm-integrations/llm-wiki/SKILL.md"
     },
     {
@@ -4826,8 +4826,8 @@
       "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-03-04",
-      "updated_at": "2026-03-20",
-      "line_count": 89,
+      "updated_at": "2026-06-29",
+      "line_count": 111,
       "path": "skills/multimodal-media/transcribe/SKILL.md"
     },
     {
@@ -4863,8 +4863,8 @@
       "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-03-04",
-      "updated_at": "2026-03-20",
-      "line_count": 88,
+      "updated_at": "2026-06-29",
+      "line_count": 110,
       "path": "skills/office-white-collar/doc/SKILL.md"
     },
     {
@@ -5366,7 +5366,7 @@
       "complexity": "intermediate",
       "created_at": "2026-03-04",
       "updated_at": "2026-06-29",
-      "line_count": 112,
+      "line_count": 135,
       "path": "skills/operations-general/brand-guidelines/SKILL.md"
     },
     {
@@ -5443,8 +5443,8 @@
       "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-03-04",
-      "updated_at": "2026-03-20",
-      "line_count": 93,
+      "updated_at": "2026-06-29",
+      "line_count": 122,
       "path": "skills/operations-general/docs-cleaner/SKILL.md"
     },
     {
@@ -5489,7 +5489,7 @@
     {
       "name": "internal-comms",
       "category": "operations-general",
-      "description": "A set of resources to help me write all kinds of internal communications, using the formats that my company likes to use. Claude should use this skill whenever asked to write some sort of internal communications (status reports, leadership updates, 3P updates, company newsletters, FAQs, incident reports, project updates, etc.).",
+      "description": "Use when users need internal communications such as status reports, leadership updates, 3P updates, newsletters, FAQs, incident reports, project updates, or executive-ready internal narratives.",
       "version": "1.0.0",
       "author": "seaworld008",
       "source": "in-house",
@@ -5502,8 +5502,8 @@
       "quality": 2,
       "complexity": "intermediate",
       "created_at": "2026-03-04",
-      "updated_at": "2026-03-20",
-      "line_count": 131,
+      "updated_at": "2026-06-29",
+      "line_count": 132,
       "path": "skills/operations-general/internal-comms/SKILL.md"
     },
     {
@@ -5591,7 +5591,7 @@
     {
       "name": "theme-factory",
       "category": "operations-general",
-      "description": "Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML landing pages, etc. There are 10 pre-set themes with colors/fonts that you can apply to any artifact that has been creating, or can generate a new theme on-the-fly.",
+      "description": "Use when styling artifacts with reusable themes, applying preset color/font systems, or generating new visual themes for slides, documents, reports, HTML pages, and landing pages.",
       "version": "1.0.0",
       "author": "seaworld008",
       "source": "in-house",
@@ -5604,8 +5604,8 @@
       "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-03-04",
-      "updated_at": "2026-03-20",
-      "line_count": 83,
+      "updated_at": "2026-06-29",
+      "line_count": 84,
       "path": "skills/operations-general/theme-factory/SKILL.md"
     },
     {
@@ -6073,7 +6073,7 @@
     {
       "name": "link-checker",
       "category": "security-and-reliability",
-      "description": "检测 URL 可达性与潜在风险，识别失效链接、跳转链路和可疑域名。",
+      "description": "Use when checking URL availability, dead links, redirect chains, suspicious domains, documentation link health, or link-risk evidence before publishing.",
       "version": "1.0.0",
       "author": "seaworld008",
       "source": "in-house",
@@ -6086,8 +6086,8 @@
       "quality": 2,
       "complexity": "intermediate",
       "created_at": "2026-03-15",
-      "updated_at": "2026-03-20",
-      "line_count": 140,
+      "updated_at": "2026-06-29",
+      "line_count": 141,
       "path": "skills/security-and-reliability/link-checker/SKILL.md"
     },
     {
@@ -6143,7 +6143,7 @@
     {
       "name": "security-best-practices",
       "category": "security-and-reliability",
-      "description": "用于按语言和框架执行安全最佳实践检查，生成安全审查报告并提出 secure-by-default 改进建议。",
+      "description": "Use when checking language or framework security best practices, producing security review reports, identifying insecure defaults, and recommending secure-by-default improvements.",
       "version": "1.0.0",
       "author": "seaworld008",
       "source": "in-house",
@@ -6156,8 +6156,8 @@
       "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-03-04",
-      "updated_at": "2026-03-20",
-      "line_count": 105,
+      "updated_at": "2026-06-29",
+      "line_count": 106,
       "path": "skills/security-and-reliability/security-best-practices/SKILL.md"
     },
     {
@@ -6225,7 +6225,7 @@
     {
       "name": "security-threat-model",
       "category": "security-and-reliability",
-      "description": "用于基于代码库枚举信任边界、资产、攻击者能力、滥用路径和缓解措施，并生成威胁模型。",
+      "description": "Use when creating threat models from codebases, architectures, assets, trust boundaries, attacker capabilities, abuse paths, and mitigation plans.",
       "version": "1.0.0",
       "author": "seaworld008",
       "source": "in-house",
@@ -6238,8 +6238,8 @@
       "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-03-04",
-      "updated_at": "2026-03-20",
-      "line_count": 103,
+      "updated_at": "2026-06-29",
+      "line_count": 104,
       "path": "skills/security-and-reliability/security-threat-model/SKILL.md"
     },
     {

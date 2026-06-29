@@ -11,7 +11,7 @@
 - [imagegen](./imagegen/) - Use when the user asks to generate or edit images via the OpenAI Image API (for example: generate image, edit/inpaint/mask, background removal or replacement, transparent background, product shots, concept art, covers, or batch variants); run the bundled CLI (`scripts/image_gen.py`) and require `OPENAI_API_KEY` for live calls.
 - [sora](./sora/) - Use when the user asks to generate, remix, poll, list, download, or delete Sora videos via OpenAI\u2019s video API using the bundled CLI (`scripts/sora.py`), including requests like \u201cgenerate AI video,\u201d \u201cSora,\u201d \u201cvideo remix,\u201d \u201cdownload video/thumbnail/spritesheet,\u201d and batch video generation; requires `OPENAI_API_KEY` and Sora API access.
 - [speech](./speech/) - Use when the user asks for text-to-speech narration or voiceover, accessibility reads, audio prompts, or batch speech generation via the OpenAI Audio API; run the bundled CLI (`scripts/text_to_speech.py`) with built-in voices and require `OPENAI_API_KEY` for live calls. Custom voice creation is out of scope.
-- [transcribe](./transcribe/) - Transcribe audio files to text with optional diarization and known-speaker hints. Use when a user asks to transcribe speech from audio/video, extract text from recordings, or label speakers in interviews or meetings.
+- [transcribe](./transcribe/) - 用于将音频或视频中的语音转写为文本，并可结合说话人分离和已知说话人提示。
 
 ## 技能总览
 
@@ -26,7 +26,7 @@
 | `speech` | Use when the user asks for text-to-speech narration or voiceover, accessibility reads, audio prompts, or batch speech generation via the OpenAI Audio API; run the bundled CLI (`scripts/text_to_speech.py`) with built-in voices and require `OPENAI_API_KEY` for live calls. Custom voice creation is out of scope. | [目录](./speech/) | [SKILL.md](./speech/SKILL.md) |
 | `summarize` | 用于忠实摘要网页、文档、邮件、转录稿或长文本，并提炼重点和后续行动。 | [目录](./summarize/) | [SKILL.md](./summarize/SKILL.md) |
 | `tone` | Game audio generation agent. Produces code (Python/JS/TS/Shell) for SFX, BGM, Voice, Ambient, and UI sounds using ElevenLabs/Stable Audio/MusicGen/Suno/OpenAI TTS/JSFXR. Handles LUFS normalization and middleware integration. | [目录](./tone/) | [SKILL.md](./tone/SKILL.md) |
-| `transcribe` | Transcribe audio files to text with optional diarization and known-speaker hints. Use when a user asks to transcribe speech from audio/video, extract text from recordings, or label speakers in interviews or meetings. | [目录](./transcribe/) | [SKILL.md](./transcribe/SKILL.md) |
+| `transcribe` | 用于将音频或视频中的语音转写为文本，并可结合说话人分离和已知说话人提示。 | [目录](./transcribe/) | [SKILL.md](./transcribe/SKILL.md) |
 
 ## 维护方式
 

@@ -1,6 +1,7 @@
 ---
 name: hermes-agent
-description: 'Configure, extend, or contribute to Hermes Agent.'
+description: 'Use when configuring, extending, debugging, or contributing to Hermes Agent, including multi-agent setup, CLI workflows, gateway configuration, and development tasks.'
+zh_description: "用于配置、扩展、调试和贡献 Hermes Agent，包括多 Agent、CLI 和网关工作流。"
 version: "2.0.12"
 author: Hermes Agent + Teknium
 source: "in-house"

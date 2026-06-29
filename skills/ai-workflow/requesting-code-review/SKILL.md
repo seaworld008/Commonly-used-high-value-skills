@@ -1,13 +1,14 @@
 ---
 name: requesting-code-review
 description: 'Use when completing tasks, implementing major features, or before merging to verify work meets requirements'
+zh_description: "用于在完成任务、实现重要功能或合并前请求代码审查并验证需求满足情况。"
 version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["code-review", "workflow", "quality-gate"]'
 created_at: "2026-04-13"
-updated_at: "2026-06-21"
+updated_at: "2026-06-29"
 quality: 4
 complexity: "intermediate"
 ---
@@ -110,3 +111,37 @@ You: [Fix progress indicators]
 - Request clarification
 
 See template at: [code-reviewer.md](code-reviewer.md)
+
+## Review Request Checklist
+
+A strong review request includes:
+
+- The user-facing requirement or plan being validated.
+- The exact diff range, branch, or commit pair under review.
+- The areas where risk is highest: data loss, auth, concurrency, migrations, billing, security, or UX regressions.
+- The tests already run and any tests intentionally skipped.
+- The expected behavior in edge cases, not just the happy path.
+- Any files or generated artifacts reviewers should ignore.
+
+## Good vs Weak Requests
+
+Weak:
+
+```text
+Please review my changes.
+```
+
+Better:
+
+```text
+Review the checkout retry changes from BASE..HEAD. Focus on idempotency,
+double-charge prevention, webhook replay behavior, and missing tests.
+I ran the unit suite and one manual Stripe test; migration rollback is not covered.
+```
+
+## Follow-up Rules
+
+- Fix critical and important findings before moving to the next task.
+- If a finding is rejected, document the technical reason and supporting evidence.
+- Re-run the relevant tests after changes, not only the full suite.
+- Keep review conversations tied to code and requirements, not preferences.

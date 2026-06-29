@@ -1,6 +1,7 @@
 ---
 name: lark-whiteboard
 description: '飞书画板：查询和编辑飞书云文档中的画板。支持导出画板为预览图片、导出原始节点结构、使用多种格式更新画板内容。 当用户需要查看画板内容、导出画板图片、编辑画板时使用此 skill。不负责：飞书云文档内容编辑（lark-doc）、文档内嵌电子表格/Base（lark-sheets / lark-base）。'
+zh_description: "用于查询、导出和编辑飞书云文档中的画板内容和节点结构。"
 version: "1.0.4"
 author: larksuite
 source: "github:larksuite/cli"
@@ -78,3 +79,23 @@ source is intentionally concise.
 - Stop and ask for clarification when the next action could overwrite user work,
   expose private data, or change production state.
 <!-- LOCAL-QUALITY-SUPPLEMENT:END -->
+
+## Whiteboard Safety Checklist
+
+Before updating a whiteboard:
+
+- Query the current board first unless the user explicitly wants to replace it from scratch.
+- Preserve existing node ids when making small edits so comments, references, and layout anchors remain stable.
+- Prefer Mermaid or PlantUML for structured architecture and flow diagrams; use raw JSON only when exact node manipulation is required.
+- Confirm whether the user wants a visual preview, source code, or both.
+- Avoid destructive rewrites when the request is only to rename labels, adjust colors, or add a small branch.
+- Keep exported previews with the task output when the user needs review evidence.
+
+## Review Output
+
+For edits, report:
+
+1. What changed in the board.
+2. Which input format was used.
+3. Whether a preview/export was generated.
+4. Any assumptions about layout, node grouping, or diagram semantics.

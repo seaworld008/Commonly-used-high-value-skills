@@ -1,13 +1,14 @@
 ---
 name: api-design-reviewer
-description: 'Maintainer: Claude Skills Team.'
+description: 'Use when reviewing API designs for consistency, usability, versioning, error semantics, security, backward compatibility, and developer experience before implementation or release.'
+zh_description: "用于评审 API 设计的一致性、可用性、版本策略、错误语义、安全性和开发者体验。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["api", "design", "development", "reviewer"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-06-29"
 quality: 5
 complexity: "intermediate"
 ---

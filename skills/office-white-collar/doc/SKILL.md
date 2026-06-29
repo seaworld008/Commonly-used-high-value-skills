@@ -1,13 +1,14 @@
 ---
 name: doc
 description: 'Use when the task involves reading, creating, or editing `.docx` documents, especially when formatting or layout fidelity matters; prefer `python-docx` plus the bundled `scripts/render_docx.py` for visual checks.'
+zh_description: "用于读取、创建和编辑 `.docx` 文档，尤其适合需要格式和版面保真时。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["doc"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-06-29"
 quality: 3
 complexity: "intermediate"
 ---
@@ -86,3 +87,24 @@ python3 scripts/render_docx.py /path/to/file.docx --output_dir /tmp/docx_pages
 - Re-render and inspect every page at 100% zoom before final delivery.
 - Fix any spacing, alignment, or pagination issues and repeat the render loop.
 - Confirm there are no leftovers (temp files, duplicate renders) unless the user asks to keep them.
+
+## Editing Checklist
+
+When modifying an existing `.docx`:
+
+- Preserve section breaks, headers, footers, page numbers, and table structure unless the user asks for layout changes.
+- Make a clear distinction between content edits and formatting edits.
+- Avoid rebuilding the whole document when a targeted `python-docx` edit can preserve layout.
+- For tables, check merged cells, repeated header rows, and column widths after rendering.
+- For legal, finance, or policy documents, avoid automatic paraphrasing unless explicitly requested.
+- Keep source data and generated render previews in predictable temporary paths.
+
+## Acceptance Criteria
+
+A document task is not complete until:
+
+- The file opens without repair prompts.
+- Rendered pages match the intended visual layout.
+- Chinese, symbols, bullets, and numbering display correctly.
+- The final filename is clear and does not overwrite the user's original unless requested.
+- Any limitations, such as unavailable fonts or missing LibreOffice, are reported plainly.

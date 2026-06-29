@@ -10,7 +10,7 @@
 
 - [jupyter-notebook](./jupyter-notebook/) - Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) for experiments, explorations, or tutorials; prefer the bundled templates and run the helper script `new_notebook.py` to generate a clean starting notebook.
 - [playwright](./playwright/) - Use when the task requires automating a real browser from the terminal (navigation, form filling, snapshots, screenshots, data extraction, UI-flow debugging) via `playwright-cli` or the bundled wrapper script.
-- [gh-address-comments](./gh-address-comments/) - Help address review/issue comments on the open GitHub PR for the current branch using gh CLI; verify gh auth first and prompt the user to authenticate if not logged in.
+- [gh-address-comments](./gh-address-comments/) - 用于通过 gh CLI 处理当前分支的 GitHub PR Review 评论或 Issue 评论。
 - [gh-fix-ci](./gh-fix-ci/) - Use when a user asks to debug or fix failing GitHub PR checks that run in GitHub Actions; use `gh` to inspect checks and logs, summarize failure context, draft a fix plan, and implement only after explicit approval. Treat external providers (for example Buildkite) as out of scope and report only the details URL.
 
 <a id="hermes-graphify-gsd-project-workflow"></a>
@@ -119,11 +119,11 @@ gsd-sdk --version
 | 技能 | 简介 | 目录 | 详情 |
 |------|------|------|------|
 | `agent-browser` | 用于让 Agent 操作真实浏览器，完成页面交互、截图录屏、脚本执行和端到端验证。 | [目录](./agent-browser/) | [SKILL.md](./agent-browser/SKILL.md) |
-| `billing-automation` | Build automated billing systems for recurring payments, invoicing, subscription lifecycle, and dunning management. Use when implementing subscription billing, automating invoicing, or managing recurring payment systems. | [目录](./billing-automation/) | [SKILL.md](./billing-automation/SKILL.md) |
-| `changelog-automation` | Automate changelog generation from commits, PRs, and releases following Keep a Changelog format. Use when setting up release workflows, generating release notes, or standardizing commit conventions. | [目录](./changelog-automation/) | [SKILL.md](./changelog-automation/SKILL.md) |
-| `gh-address-comments` | Help address review/issue comments on the open GitHub PR for the current branch using gh CLI; verify gh auth first and prompt the user to authenticate if not logged in. | [目录](./gh-address-comments/) | [SKILL.md](./gh-address-comments/SKILL.md) |
+| `billing-automation` | 用于构建订阅计费、自动开票、续费生命周期和催收管理流程。 | [目录](./billing-automation/) | [SKILL.md](./billing-automation/SKILL.md) |
+| `changelog-automation` | 用于基于提交、PR 和发布记录自动生成 Keep a Changelog 风格的变更日志。 | [目录](./changelog-automation/) | [SKILL.md](./changelog-automation/SKILL.md) |
+| `gh-address-comments` | 用于通过 gh CLI 处理当前分支的 GitHub PR Review 评论或 Issue 评论。 | [目录](./gh-address-comments/) | [SKILL.md](./gh-address-comments/SKILL.md) |
 | `gh-fix-ci` | Use when a user asks to debug or fix failing GitHub PR checks that run in GitHub Actions; use `gh` to inspect checks and logs, summarize failure context, draft a fix plan, and implement only after explicit approval. Treat external providers (for example Buildkite) as out of scope and report only the details URL. | [目录](./gh-fix-ci/) | [SKILL.md](./gh-fix-ci/SKILL.md) |
-| `github` | 通过 GitHub CLI 自动化 Issue、PR、Review 与 CI 检查，适合工程协作闭环。 | [目录](./github/) | [SKILL.md](./github/SKILL.md) |
+| `github` | 用于通过 GitHub CLI 自动化 Issue、PR、Review、CI 检查、标签和发布协作。 | [目录](./github/) | [SKILL.md](./github/SKILL.md) |
 | `gsd-graphify-brownfield-bootstrap` | Bootstrap GSD + graphify for an existing brownfield repo when the project needs a single canonical workflow for local runtime setup, graph refresh, and manually seeded .planning/ context without depending on interactive GSD init. | [目录](./gsd-graphify-brownfield-bootstrap/) | [SKILL.md](./gsd-graphify-brownfield-bootstrap/SKILL.md) |
 | `guardian` | Gatekeeping Git/PR by classifying change essence and recommending granularity, naming, and strategy. Use when PR preparation or commit strategy is needed. | [目录](./guardian/) | [SKILL.md](./guardian/SKILL.md) |
 | `harvest` | Collecting GitHub PR data and generating work reports. Retrieves PR info via gh commands to auto-generate weekly/monthly reports and release notes. Use when work reporting or PR analysis is needed. | [目录](./harvest/) | [SKILL.md](./harvest/SKILL.md) |

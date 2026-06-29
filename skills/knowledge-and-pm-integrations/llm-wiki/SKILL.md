@@ -1,6 +1,7 @@
 ---
 name: llm-wiki
-description: 'Karpathy''s LLM Wiki: build/query interlinked markdown KB.'
+description: 'Use when building, querying, or maintaining a Karpathy-style interlinked markdown knowledge base for LLM notes, research synthesis, and lightweight RAG alternatives.'
+zh_description: "用于构建、查询和维护 Karpathy 风格的互联 Markdown LLM 知识库。"
 version: "2.0.2"
 author: Hermes Agent
 source: "in-house"
@@ -8,7 +9,7 @@ source_url: ""
 license: MIT
 tags: '[wiki, knowledge-base, research, notes, markdown, rag-alternative]'
 created_at: "2026-04-13"
-updated_at: "2026-06-16"
+updated_at: "2026-06-29"
 quality: 4
 complexity: "intermediate"
 metadata:

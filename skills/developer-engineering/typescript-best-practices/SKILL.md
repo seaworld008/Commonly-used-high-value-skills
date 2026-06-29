@@ -1,13 +1,14 @@
 ---
 name: typescript-best-practices
-description: '用于 TypeScript 高级类型编程、类型安全设计和常见反模式避免。仓库整理版，吸收社区高频最佳实践。'
+description: 'Use when writing or reviewing TypeScript for type safety, advanced types, API boundaries, strict-mode migrations, and common anti-pattern avoidance.'
+zh_description: "用于 TypeScript 类型安全设计、高级类型、API 边界、strict 迁移和反模式规避。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["best", "development", "practices", "typescript"]'
 created_at: "2026-03-27"
-updated_at: "2026-03-27"
+updated_at: "2026-06-29"
 quality: 4
 complexity: "intermediate"
 ---

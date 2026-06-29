@@ -11,7 +11,7 @@
 - [cloudflare-deploy](./cloudflare-deploy/) - Deploy applications and infrastructure to Cloudflare using Workers, Pages, and related platform services. Use when the user asks to deploy, host, publish, or set up a project on Cloudflare.
 - [netlify-deploy](./netlify-deploy/) - Deploy web projects to Netlify using the Netlify CLI (`npx netlify`). Use when the user asks to deploy, host, publish, or link a site/repo on Netlify, including preview and production deploys.
 - [render-deploy](./render-deploy/) - Deploy applications to Render by analyzing codebases, generating render.yaml Blueprints, and providing Dashboard deeplinks. Use when the user wants to deploy, host, publish, or set up their application on Render''s cloud platform.
-- [vercel-deploy](./vercel-deploy/) - Deploy applications and websites to Vercel. Use when the user requests deployment actions like "deploy my app", "deploy and give me the link", "push this live", or "create a preview deployment".
+- [vercel-deploy](./vercel-deploy/) - 用于将应用或网站部署到 Vercel，创建预览部署或生产发布链接。
 
 ## 技能总览
 
@@ -23,7 +23,7 @@
 | `render-deploy` | Deploy applications to Render by analyzing codebases, generating render.yaml Blueprints, and providing Dashboard deeplinks. Use when the user wants to deploy, host, publish, or set up their application on Render''s cloud platform. | [目录](./render-deploy/) | [SKILL.md](./render-deploy/SKILL.md) |
 | `scaffold` | Provisioning infrastructure via cloud IaC (Terraform/OpenTofu/CloudFormation/Pulumi) and local development environments (Docker Compose/dev setup/env vars). Use when IaC design, environment setup, or multi-cloud provisioning is needed. | [目录](./scaffold/) | [SKILL.md](./scaffold/SKILL.md) |
 | `shard` | Designing multi-tenant architectures with tenant isolation strategies, RLS, routing, and scale design for SaaS. Use when designing multi-tenant SaaS systems or tenant isolation. | [目录](./shard/) | [SKILL.md](./shard/SKILL.md) |
-| `vercel-deploy` | Deploy applications and websites to Vercel. Use when the user requests deployment actions like "deploy my app", "deploy and give me the link", "push this live", or "create a preview deployment". | [目录](./vercel-deploy/) | [SKILL.md](./vercel-deploy/SKILL.md) |
+| `vercel-deploy` | 用于将应用或网站部署到 Vercel，创建预览部署或生产发布链接。 | [目录](./vercel-deploy/) | [SKILL.md](./vercel-deploy/SKILL.md) |
 
 ## 维护方式
 

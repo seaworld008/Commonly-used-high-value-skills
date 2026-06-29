@@ -1,6 +1,7 @@
 ---
 name: kubernetes-specialist
-description: '用于 Kubernetes 集群管理、部署编排、Pod 调试与 Helm Chart 设计。来源：skills.sh 5K+ installs。'
+description: 'Use when managing Kubernetes clusters, debugging Pods and workloads, designing Helm charts, reviewing manifests, or improving deployment, scaling, and observability practices.'
+zh_description: "用于 Kubernetes 集群管理、Pod 调试、Helm Chart 设计、清单评审和部署优化。"
 version: "1.0.0"
 author: "seaworld008"
 source: "skills.sh"
@@ -8,7 +9,7 @@ source_url: "https://skills.sh/jeffallan/claude-skills/kubernetes-specialist"
 license: "MIT"
 tags: '["development", "kubernetes", "specialist"]'
 created_at: "2026-03-27"
-updated_at: "2026-03-27"
+updated_at: "2026-06-29"
 quality: 4
 complexity: "intermediate"
 ---

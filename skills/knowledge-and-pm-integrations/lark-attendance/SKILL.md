@@ -90,3 +90,24 @@ source is intentionally concise.
 - Stop and ask for clarification when the next action could overwrite user work,
   expose private data, or change production state.
 <!-- LOCAL-QUALITY-SUPPLEMENT:END -->
+
+## Attendance Review Checklist
+
+Use this checklist before returning attendance findings:
+
+- Confirm the target date range, timezone, and whether the user wants raw records, exception summaries, or reconciliation evidence.
+- Resolve the person identifier first; do not mix `open_id`, employee number, and user display name in the same API call.
+- Keep `employee_type` consistent with the identifier type required by the endpoint.
+- Treat empty results as ambiguous until the date range, permission scope, and user identity are verified.
+- Separate late arrival, early leave, missing punch, leave approval, business trip, and holiday explanations when the API data supports it.
+- If multiple employees are queried, preserve one row per employee per day so downstream HR review can audit the result.
+
+## Output Format
+
+Prefer a compact table for user-facing summaries:
+
+| Date | Person | Status | Evidence | Follow-up |
+|---|---|---|---|---|
+| 2026-06-29 | Example | Missing PM punch | `user_tasks.query` returned no end record | Ask employee to confirm |
+
+When uncertainty remains, state exactly which API response, scope, or identifier prevented a definitive conclusion.

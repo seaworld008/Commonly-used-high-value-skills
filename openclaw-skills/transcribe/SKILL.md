@@ -1,13 +1,14 @@
 ---
 name: transcribe
 description: 'Transcribe audio files to text with optional diarization and known-speaker hints. Use when a user asks to transcribe speech from audio/video, extract text from recordings, or label speakers in interviews or meetings.'
+zh_description: "用于将音频或视频中的语音转写为文本，并可结合说话人分离和已知说话人提示。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["transcribe"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-06-29"
 quality: 3
 complexity: "intermediate"
 ---
@@ -87,3 +88,24 @@ python3 "$TRANSCRIBE_CLI" \
 
 ## Reference map
 - `references/api.md`: supported formats, limits, response formats, and known-speaker notes.
+
+## Quality Checklist
+
+Before returning a transcript:
+
+- Confirm whether the user needs verbatim text, cleaned notes, speaker labels, timestamps, or action items.
+- Preserve uncertainty markers for unclear words instead of silently guessing.
+- Use diarization only when speaker separation matters; otherwise prefer the simpler text path.
+- Keep private audio local except for the transcription API call required by the task.
+- For long recordings, segment outputs by time or topic so the transcript remains navigable.
+- If known-speaker samples are used, label them by role or name exactly as provided by the user.
+
+## Output Options
+
+Choose the output format based on the task:
+
+- `text`: fastest path for simple transcripts.
+- `diarized_json`: structured speaker turns for meetings and interviews.
+- `markdown`: readable transcript with headings, timestamps, and notes.
+
+Always state the model used, whether diarization was enabled, and any audio-quality limitations that affect confidence.
