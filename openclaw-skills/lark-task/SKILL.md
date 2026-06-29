@@ -1,14 +1,14 @@
 ---
 name: lark-task
 description: '飞书任务：管理任务、清单和任务智能体。创建待办任务、查看和更新任务状态、拆分子任务、组织任务清单、分配协作成员、上传任务附件、注册或注销任务智能体、更新任务智能体的主页数据、写入智能体任务记录。当用户需要创建待办事项、查看任务列表、跟踪任务进度、管理项目清单或给他人分配任务、为任务上传附件文件、注册注销任务智能体、更新智能体主页数据、写入任务记录时使用。'
-version: "1.0.2"
+version: "1.0.3"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-task"
 license: MIT
 tags: '[feishu, lark, lark-cli, tasks, project-management]'
 created_at: "2026-05-19"
-updated_at: "2026-06-16"
+updated_at: "2026-06-29"
 quality: 4
 complexity: intermediate
 metadata:
@@ -60,7 +60,6 @@ metadata:
 | [`+get-my-tasks`](references/lark-task-get-my-tasks.md) | List tasks assigned to me |
 | [`+get-related-tasks`](references/lark-task-get-related-tasks.md) | list tasks related to me |
 | [`+search`](references/lark-task-search.md) | search tasks |
-| [`+subscribe-event`](references/lark-task-subscribe-event.md) | subscribe to task events |
 | [`+upload-attachment`](references/lark-task-upload-attachment.md) | upload a local file as an attachment to a task |
 | [`+tasklist-create`](references/lark-task-tasklist-create.md) | create a tasklist and optionally add tasks |
 | [`+tasklist-search`](references/lark-task-tasklist-search.md) | search tasklists |

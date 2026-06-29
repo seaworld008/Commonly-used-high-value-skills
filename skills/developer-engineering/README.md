@@ -4,7 +4,7 @@
 
 覆盖开发、测试、性能、架构、数据库和工程效率的核心技能集合。
 
-当前分类共 **50** 个技能。
+当前分类共 **51** 个技能。
 
 ## 推荐先看
 
@@ -44,6 +44,7 @@
 | `migration-architect` | Purpose: Zero-downtime migration planning, compatibility validation, and rollback strategy generation. | [目录](./migration-architect/) | [SKILL.md](./migration-architect/SKILL.md) |
 | `monorepo-navigator` | Navigate, manage, and optimize monorepos. Covers Turborepo, Nx, pnpm workspaces, and Lerna. Enables cross-package impact analysis, selective builds/tests on affected packages only, remote caching, dependency graph visualization, and structured migrations from multi-repo to monorepo. Includes Claude Code configuration for workspace-aware development. | [目录](./monorepo-navigator/) | [SKILL.md](./monorepo-navigator/SKILL.md) |
 | `neon-postgres` | Guides and best practices for working with Neon Serverless Postgres. Covers setup, connection methods, branching, autoscaling, scale-to-zero, read replicas, connection pooling, Neon Auth, and the Neon CLI, MCP server, REST API, TypeScript SDK, and Python SDK. Use when users ask about "Neon setup", "connect to Neon", "Neon project", "DATABASE_URL", "serverless Postgres", "Neon CLI", "neonctl", "Neon MCP", "Neon Auth", "@neondatabase/serverless", "@neondatabase/neon-js", "scale to zero", "Neon autoscaling", "Neon read replica", or "Neon connection pooling". | [目录](./neon-postgres/) | [SKILL.md](./neon-postgres/SKILL.md) |
+| `neon-postgres-egress-optimizer` | 诊断并降低 Neon / Postgres 数据出口流量与相关成本。 | [目录](./neon-postgres-egress-optimizer/) | [SKILL.md](./neon-postgres-egress-optimizer/SKILL.md) |
 | `nextjs-app-router` | 用于 Next.js App Router 模式开发，包含 RSC、Server Actions 和路由最佳实践。来源：skills.sh 10.2K installs。 | [目录](./nextjs-app-router/) | [SKILL.md](./nextjs-app-router/SKILL.md) |
 | `parallel-debugging` | Debug complex issues using competing hypotheses with parallel investigation, evidence collection, and root cause arbitration. Use this skill when debugging bugs with multiple potential causes, performing root cause analysis, or organizing parallel investigation workflows. | [目录](./parallel-debugging/) | [SKILL.md](./parallel-debugging/SKILL.md) |
 | `performance-profiler` | Systematic performance profiling for Node.js, Python, and Go applications. Identifies CPU, memory, and I/O bottlenecks; generates flamegraphs; analyzes bundle sizes; optimizes database queries; detects memory leaks; and runs load tests with k6 and Artillery. Always measures before and after. | [目录](./performance-profiler/) | [SKILL.md](./performance-profiler/SKILL.md) |

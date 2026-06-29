@@ -1,6 +1,6 @@
 # Tags Index
 
-> Auto-generated from 1151 skill-tag mappings across 497 tags.
+> Auto-generated from 1155 skill-tag mappings across 498 tags.
 > Last updated: see git log.
 
 ## Quick Navigation
@@ -52,6 +52,7 @@
 - [`meetings`](#meetings) (4)
 - [`memory`](#memory) (4)
 - [`notion`](#notion) (4)
+- [`postgres`](#postgres) (4)
 - [`research`](#research) (4)
 - [`secrets`](#secrets) (4)
 - [`tools`](#tools) (4)
@@ -66,7 +67,7 @@
 - [`knowledge-base`](#knowledge-base) (3)
 - [`markdown`](#markdown) (3)
 - [`office`](#office) (3)
-- [`postgres`](#postgres) (3)
+- [`performance`](#performance) (3)
 - [`review`](#review) (3)
 - [`reviewer`](#reviewer) (3)
 - [`safety`](#safety) (3)
@@ -106,13 +107,13 @@
 - [`meeting`](#meeting) (2)
 - [`metrics`](#metrics) (2)
 - [`minutes`](#minutes) (2)
+- [`neon`](#neon) (2)
 - [`nextjs`](#nextjs) (2)
 - [`notes`](#notes) (2)
 - [`observability`](#observability) (2)
 - [`owasp`](#owasp) (2)
 - [`parallel`](#parallel) (2)
 - [`pdf`](#pdf) (2)
-- [`performance`](#performance) (2)
 - [`plans`](#plans) (2)
 - [`playwright`](#playwright) (2)
 - [`ppt`](#ppt) (2)
@@ -215,6 +216,7 @@
 - [`content`](#content) (1)
 - [`context-engineering`](#context-engineering) (1)
 - [`contributor`](#contributor) (1)
+- [`cost-optimization`](#cost-optimization) (1)
 - [`crest`](#crest) (1)
 - [`custom-queries`](#custom-queries) (1)
 - [`data`](#data) (1)
@@ -333,7 +335,6 @@
 - [`multimodal`](#multimodal) (1)
 - [`natural-language-programming`](#natural-language-programming) (1)
 - [`navigator`](#navigator) (1)
-- [`neon`](#neon) (1)
 - [`netlify`](#netlify) (1)
 - [`nexus`](#nexus) (1)
 - [`nlpm`](#nlpm) (1)
@@ -545,7 +546,7 @@
 | [dispatching-parallel-agents](skills/ai-workflow/dispatching-parallel-agents) | ai-workflow | ★★★★☆ | Use when facing 2+ independent tasks that can be worked on without shared state  |
 | [find-skills](skills/ai-workflow/find-skills) | ai-workflow | ★★★★☆ | 让 Agent 自动搜索并安装合适技能，解决不知道该用哪个技能的问题。 |
 | [finishing-a-development-branch](skills/ai-workflow/finishing-a-development-branch) | ai-workflow | ★★★★☆ | Use when implementation is complete, all tests pass, and you need to decide how  |
-| [idea-refine](skills/ai-workflow/idea-refine) | ai-workflow | ★★★★☆ | Refines ideas iteratively. Refine ideas through structured divergent and converg |
+| [idea-refine](skills/ai-workflow/idea-refine) | ai-workflow | ★★★★☆ | Refines raw ideas into sharp, actionable concepts through structured divergent a |
 | [prompt-optimizer](skills/ai-workflow/prompt-optimizer) | ai-workflow | ★★★★☆ | Transform vague prompts into precise, well-structured specifications using EARS  |
 | [receiving-code-review](skills/ai-workflow/receiving-code-review) | ai-workflow | ★★★★☆ | Use when receiving code review feedback, before implementing suggestions, especi |
 | [requesting-code-review](skills/ai-workflow/requesting-code-review) | ai-workflow | ★★★★☆ | Use when completing tasks, implementing major features, or before merging to ver |
@@ -566,7 +567,7 @@
 | [subagent-driven-development](skills/ai-workflow/subagent-driven-development) | ai-workflow | ★★★☆☆ | Use when executing implementation plans with independent tasks in the current se |
 | [billing-automation](skills/engineering-workflow-automation/billing-automation) | engineering-workflow-automation | ★★★☆☆ | Build automated billing systems for recurring payments, invoicing, subscription  |
 | [gh-fix-ci](skills/engineering-workflow-automation/gh-fix-ci) | engineering-workflow-automation | ★★★☆☆ | Use when a user asks to debug or fix failing GitHub PR checks that run in GitHub |
-| [lark-approval](skills/knowledge-and-pm-integrations/lark-approval) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书审批：当前用户审批的查询与全部处理操作，覆盖待本人审批的任务与本人发起的实例。审批待办不是飞书任务（任务类待办走 lark-task）；不负责创建审批定义和 |
+| [lark-approval](skills/knowledge-and-pm-integrations/lark-approval) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书审批：查询和处理审批待办/已办/实例，搜索可发起审批定义、查看定义详情并发起原生审批实例。当用户要处理审批任务、查看审批实例、搜索或发起审批时使用。审批待办 |
 | [agent-browser](skills/engineering-workflow-automation/agent-browser) | engineering-workflow-automation | ★★☆☆☆ | 为 Agent 提供真实浏览器自动化能力，支持语义定位、表单交互、截图录屏、脚本执行与会话管理。 |
 | [gh-address-comments](skills/engineering-workflow-automation/gh-address-comments) | engineering-workflow-automation | ★★☆☆☆ | Help address review/issue comments on the open GitHub PR for the current branch  |
 | [github](skills/engineering-workflow-automation/github) | engineering-workflow-automation | ★★☆☆☆ | 通过 GitHub CLI 自动化 Issue、PR、Review 与 CI 检查，适合工程协作闭环。 |
@@ -661,7 +662,7 @@
 | [agent-hub](skills/ai-agent-platform/agent-hub) | ai-agent-platform | ★★★★☆ | Multi-agent collaboration plugin that spawns N parallel subagents competing on t |
 | [develop-web-game](skills/ai-agent-platform/develop-web-game) | ai-agent-platform | ★★★★☆ | Use when Codex is building or iterating on a web game (HTML/JS) and needs a reli |
 | [proactive-agent](skills/ai-agent-platform/proactive-agent) | ai-agent-platform | ★★★★☆ | 增强 Agent 的主动规划与自我迭代能力，从被动执行升级为主动协作。 |
-| [idea-refine](skills/ai-workflow/idea-refine) | ai-workflow | ★★★★☆ | Refines ideas iteratively. Refine ideas through structured divergent and converg |
+| [idea-refine](skills/ai-workflow/idea-refine) | ai-workflow | ★★★★☆ | Refines raw ideas into sharp, actionable concepts through structured divergent a |
 | [source-driven-development](skills/ai-workflow/source-driven-development) | ai-workflow | ★★★★☆ | Grounds every implementation decision in official documentation. Use when you wa |
 | [using-agent-skills](skills/ai-workflow/using-agent-skills) | ai-workflow | ★★★★☆ | Discovers and invokes agent skills. Use when starting a session or when you need |
 | [openai-docs](skills/ai-agent-platform/openai-docs) | ai-agent-platform | ★★★☆☆ | Use when the user asks how to build with OpenAI products or APIs and needs up-to |
@@ -704,7 +705,7 @@
 | [agent-hub](skills/ai-agent-platform/agent-hub) | ai-agent-platform | ★★★★☆ | Multi-agent collaboration plugin that spawns N parallel subagents competing on t |
 | [develop-web-game](skills/ai-agent-platform/develop-web-game) | ai-agent-platform | ★★★★☆ | Use when Codex is building or iterating on a web game (HTML/JS) and needs a reli |
 | [proactive-agent](skills/ai-agent-platform/proactive-agent) | ai-agent-platform | ★★★★☆ | 增强 Agent 的主动规划与自我迭代能力，从被动执行升级为主动协作。 |
-| [idea-refine](skills/ai-workflow/idea-refine) | ai-workflow | ★★★★☆ | Refines ideas iteratively. Refine ideas through structured divergent and converg |
+| [idea-refine](skills/ai-workflow/idea-refine) | ai-workflow | ★★★★☆ | Refines raw ideas into sharp, actionable concepts through structured divergent a |
 | [source-driven-development](skills/ai-workflow/source-driven-development) | ai-workflow | ★★★★☆ | Grounds every implementation decision in official documentation. Use when you wa |
 | [using-agent-skills](skills/ai-workflow/using-agent-skills) | ai-workflow | ★★★★☆ | Discovers and invokes agent skills. Use when starting a session or when you need |
 | [openai-docs](skills/ai-agent-platform/openai-docs) | ai-agent-platform | ★★★☆☆ | Use when the user asks how to build with OpenAI products or APIs and needs up-to |
@@ -723,7 +724,7 @@
 | [lark-event](skills/knowledge-and-pm-integrations/lark-event) | knowledge-and-pm-integrations | ★★★★☆ | Lark/Feishu real-time event listening / subscribing / consuming: stream events a |
 | [lark-im](skills/knowledge-and-pm-integrations/lark-im) | knowledge-and-pm-integrations | ★★★★☆ | 飞书即时通讯：收发消息和管理群聊。发送和回复消息、搜索聊天记录、管理群聊成员、上传下载图片和文件（支持大文件分片下载）、管理表情回复、发送应用内/短信/电话加急 |
 | [lark-mail](skills/knowledge-and-pm-integrations/lark-mail) | knowledge-and-pm-integrations | ★★★★☆ | 飞书邮箱：Use when user mentions 起草邮件、写邮件、草稿、发送/回复/转发邮件、查阅邮件、看邮件、搜索邮件、邮件文件夹、邮件标签、邮件联系 |
-| [lark-minutes](skills/knowledge-and-pm-integrations/lark-minutes) | knowledge-and-pm-integrations | ★★★★☆ | 飞书妙记：搜索妙记列表、查看妙记基础信息、下载妙记音视频文件、上传音视频生成妙记、更新妙记标题、替换说话人。当需要获取、操作或者生成妙记时使用。也支持将本地音视 |
+| [lark-minutes](skills/knowledge-and-pm-integrations/lark-minutes) | knowledge-and-pm-integrations | ★★★★☆ | 飞书妙记：搜索妙记、查看妙记基础信息、下载/上传音视频、读取或编辑妙记的产物内容、改标题、替换说话人/关键词。当给出minute_token、本地音视频文件，要 |
 | [lark-okr](skills/knowledge-and-pm-integrations/lark-okr) | knowledge-and-pm-integrations | ★★★★☆ | 飞书 OKR：管理目标与关键结果。查看和编辑 OKR 周期、目标、关键结果、对齐关系、量化指标和进展记录。当用户需要查看或创建 OKR、管理目标和关键结果、查看 |
 | [lark-openapi-explorer](skills/knowledge-and-pm-integrations/lark-openapi-explorer) | knowledge-and-pm-integrations | ★★★★☆ | 飞书/Lark 原生 OpenAPI 探索：从官方文档库中挖掘未经 CLI 封装的原生 OpenAPI 接口。当用户的需求无法被现有 lark-* skill  |
 | [lark-shared](skills/knowledge-and-pm-integrations/lark-shared) | knowledge-and-pm-integrations | ★★★★☆ | Use when first setting up lark-cli, running auth login, switching user/bot ident |
@@ -732,16 +733,16 @@
 | [lark-task](skills/knowledge-and-pm-integrations/lark-task) | knowledge-and-pm-integrations | ★★★★☆ | 飞书任务：管理任务、清单和任务智能体。创建待办任务、查看和更新任务状态、拆分子任务、组织任务清单、分配协作成员、上传任务附件、注册或注销任务智能体、更新任务智能 |
 | [lark-vc](skills/knowledge-and-pm-integrations/lark-vc) | knowledge-and-pm-integrations | ★★★★☆ | 飞书视频会议：搜索历史会议记录、查询会议纪要（总结/待办/章节/逐字稿）、查询参会人快照。当用户查询已结束的会议、获取会议产物（纪要/妙记）、查看参会人时使用； |
 | [lark-vc-agent](skills/knowledge-and-pm-integrations/lark-vc-agent) | knowledge-and-pm-integrations | ★★★★☆ | 飞书视频会议会中能力：用于让应用机器人真实加入或离开正在进行的会议，并读取当前身份可见的会中事件，如参会人加入/离开、发言、聊天、屏幕共享。适用于用户询问正在开 |
-| [lark-whiteboard](skills/knowledge-and-pm-integrations/lark-whiteboard) | knowledge-and-pm-integrations | ★★★★☆ | 飞书画板：查询和编辑飞书云文档中的画板。支持导出画板为预览图片、导出原始节点结构、使用多种格式更新画板内容。 当用户需要查看画板内容、导出画板图片、编辑画板时使 |
 | [lark-wiki](skills/knowledge-and-pm-integrations/lark-wiki) | knowledge-and-pm-integrations | ★★★★☆ | 飞书知识库：管理知识空间、空间成员和文档节点。创建和查询知识空间、查看和管理空间成员、管理节点层级结构、在知识库中组织文档和快捷方式。当用户需要在知识库中查找或 |
 | [lark-workflow-meeting-summary](skills/knowledge-and-pm-integrations/lark-workflow-meeting-summary) | knowledge-and-pm-integrations | ★★★★☆ | 会议纪要整理工作流：汇总指定时间范围内的会议纪要并生成结构化报告。当用户需要整理会议纪要、生成会议周报、回顾一段时间内的会议内容时使用。 |
 | [lark-workflow-standup-report](skills/knowledge-and-pm-integrations/lark-workflow-standup-report) | knowledge-and-pm-integrations | ★★★★☆ | 日程待办摘要：编排 calendar +agenda 和 task +get-my-tasks，生成指定日期的日程与未完成任务摘要。适用于了解今天/明天/本周的 |
-| [lark-approval](skills/knowledge-and-pm-integrations/lark-approval) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书审批：当前用户审批的查询与全部处理操作，覆盖待本人审批的任务与本人发起的实例。审批待办不是飞书任务（任务类待办走 lark-task）；不负责创建审批定义和 |
+| [lark-approval](skills/knowledge-and-pm-integrations/lark-approval) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书审批：查询和处理审批待办/已办/实例，搜索可发起审批定义、查看定义详情并发起原生审批实例。当用户要处理审批任务、查看审批实例、搜索或发起审批时使用。审批待办 |
 | [lark-attendance](skills/knowledge-and-pm-integrations/lark-attendance) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书考勤打卡查询、异常记录整理和缺失核对。 |
 | [lark-contact](skills/knowledge-and-pm-integrations/lark-contact) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书 / Lark 通讯录:按姓名 / 邮箱解析成 open_id,或按 open_id 反查姓名 / 部门 / 邮箱 / 联系方式 / 个人状态 / 签名。当 |
-| [lark-doc](skills/knowledge-and-pm-integrations/lark-doc) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书云文档（Docx / Wiki 文档，v2 API）：读取和编辑飞书文档内容。当用户给出文档 URL 或 token，或需要查看、创建、编辑文档、插入或下载 |
+| [lark-doc](skills/knowledge-and-pm-integrations/lark-doc) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书云文档（Docx / Wiki 文档）：读取和编辑飞书文档内容。当用户给出文档 URL 或 token，或需要查看、创建、编辑文档、插入或下载文档图片附件时 |
 | [lark-markdown](skills/knowledge-and-pm-integrations/lark-markdown) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书 Markdown：查看、创建、上传、编辑和比较 Markdown 文件。当用户需要创建或编辑 Markdown 文件、读取、修改、局部 patch 或比较 |
 | [lark-skill-maker](skills/knowledge-and-pm-integrations/lark-skill-maker) | knowledge-and-pm-integrations | ★★★☆☆ | 把飞书 API 操作封装成可复用技能和多步流程。 |
+| [lark-whiteboard](skills/knowledge-and-pm-integrations/lark-whiteboard) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书画板：查询和编辑飞书云文档中的画板。支持导出画板为预览图片、导出原始节点结构、使用多种格式更新画板内容。 当用户需要查看画板内容、导出画板图片、编辑画板时使 |
 
 ## lark
 
@@ -755,7 +756,7 @@
 | [lark-event](skills/knowledge-and-pm-integrations/lark-event) | knowledge-and-pm-integrations | ★★★★☆ | Lark/Feishu real-time event listening / subscribing / consuming: stream events a |
 | [lark-im](skills/knowledge-and-pm-integrations/lark-im) | knowledge-and-pm-integrations | ★★★★☆ | 飞书即时通讯：收发消息和管理群聊。发送和回复消息、搜索聊天记录、管理群聊成员、上传下载图片和文件（支持大文件分片下载）、管理表情回复、发送应用内/短信/电话加急 |
 | [lark-mail](skills/knowledge-and-pm-integrations/lark-mail) | knowledge-and-pm-integrations | ★★★★☆ | 飞书邮箱：Use when user mentions 起草邮件、写邮件、草稿、发送/回复/转发邮件、查阅邮件、看邮件、搜索邮件、邮件文件夹、邮件标签、邮件联系 |
-| [lark-minutes](skills/knowledge-and-pm-integrations/lark-minutes) | knowledge-and-pm-integrations | ★★★★☆ | 飞书妙记：搜索妙记列表、查看妙记基础信息、下载妙记音视频文件、上传音视频生成妙记、更新妙记标题、替换说话人。当需要获取、操作或者生成妙记时使用。也支持将本地音视 |
+| [lark-minutes](skills/knowledge-and-pm-integrations/lark-minutes) | knowledge-and-pm-integrations | ★★★★☆ | 飞书妙记：搜索妙记、查看妙记基础信息、下载/上传音视频、读取或编辑妙记的产物内容、改标题、替换说话人/关键词。当给出minute_token、本地音视频文件，要 |
 | [lark-okr](skills/knowledge-and-pm-integrations/lark-okr) | knowledge-and-pm-integrations | ★★★★☆ | 飞书 OKR：管理目标与关键结果。查看和编辑 OKR 周期、目标、关键结果、对齐关系、量化指标和进展记录。当用户需要查看或创建 OKR、管理目标和关键结果、查看 |
 | [lark-openapi-explorer](skills/knowledge-and-pm-integrations/lark-openapi-explorer) | knowledge-and-pm-integrations | ★★★★☆ | 飞书/Lark 原生 OpenAPI 探索：从官方文档库中挖掘未经 CLI 封装的原生 OpenAPI 接口。当用户的需求无法被现有 lark-* skill  |
 | [lark-shared](skills/knowledge-and-pm-integrations/lark-shared) | knowledge-and-pm-integrations | ★★★★☆ | Use when first setting up lark-cli, running auth login, switching user/bot ident |
@@ -764,16 +765,16 @@
 | [lark-task](skills/knowledge-and-pm-integrations/lark-task) | knowledge-and-pm-integrations | ★★★★☆ | 飞书任务：管理任务、清单和任务智能体。创建待办任务、查看和更新任务状态、拆分子任务、组织任务清单、分配协作成员、上传任务附件、注册或注销任务智能体、更新任务智能 |
 | [lark-vc](skills/knowledge-and-pm-integrations/lark-vc) | knowledge-and-pm-integrations | ★★★★☆ | 飞书视频会议：搜索历史会议记录、查询会议纪要（总结/待办/章节/逐字稿）、查询参会人快照。当用户查询已结束的会议、获取会议产物（纪要/妙记）、查看参会人时使用； |
 | [lark-vc-agent](skills/knowledge-and-pm-integrations/lark-vc-agent) | knowledge-and-pm-integrations | ★★★★☆ | 飞书视频会议会中能力：用于让应用机器人真实加入或离开正在进行的会议，并读取当前身份可见的会中事件，如参会人加入/离开、发言、聊天、屏幕共享。适用于用户询问正在开 |
-| [lark-whiteboard](skills/knowledge-and-pm-integrations/lark-whiteboard) | knowledge-and-pm-integrations | ★★★★☆ | 飞书画板：查询和编辑飞书云文档中的画板。支持导出画板为预览图片、导出原始节点结构、使用多种格式更新画板内容。 当用户需要查看画板内容、导出画板图片、编辑画板时使 |
 | [lark-wiki](skills/knowledge-and-pm-integrations/lark-wiki) | knowledge-and-pm-integrations | ★★★★☆ | 飞书知识库：管理知识空间、空间成员和文档节点。创建和查询知识空间、查看和管理空间成员、管理节点层级结构、在知识库中组织文档和快捷方式。当用户需要在知识库中查找或 |
 | [lark-workflow-meeting-summary](skills/knowledge-and-pm-integrations/lark-workflow-meeting-summary) | knowledge-and-pm-integrations | ★★★★☆ | 会议纪要整理工作流：汇总指定时间范围内的会议纪要并生成结构化报告。当用户需要整理会议纪要、生成会议周报、回顾一段时间内的会议内容时使用。 |
 | [lark-workflow-standup-report](skills/knowledge-and-pm-integrations/lark-workflow-standup-report) | knowledge-and-pm-integrations | ★★★★☆ | 日程待办摘要：编排 calendar +agenda 和 task +get-my-tasks，生成指定日期的日程与未完成任务摘要。适用于了解今天/明天/本周的 |
-| [lark-approval](skills/knowledge-and-pm-integrations/lark-approval) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书审批：当前用户审批的查询与全部处理操作，覆盖待本人审批的任务与本人发起的实例。审批待办不是飞书任务（任务类待办走 lark-task）；不负责创建审批定义和 |
+| [lark-approval](skills/knowledge-and-pm-integrations/lark-approval) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书审批：查询和处理审批待办/已办/实例，搜索可发起审批定义、查看定义详情并发起原生审批实例。当用户要处理审批任务、查看审批实例、搜索或发起审批时使用。审批待办 |
 | [lark-attendance](skills/knowledge-and-pm-integrations/lark-attendance) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书考勤打卡查询、异常记录整理和缺失核对。 |
 | [lark-contact](skills/knowledge-and-pm-integrations/lark-contact) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书 / Lark 通讯录:按姓名 / 邮箱解析成 open_id,或按 open_id 反查姓名 / 部门 / 邮箱 / 联系方式 / 个人状态 / 签名。当 |
-| [lark-doc](skills/knowledge-and-pm-integrations/lark-doc) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书云文档（Docx / Wiki 文档，v2 API）：读取和编辑飞书文档内容。当用户给出文档 URL 或 token，或需要查看、创建、编辑文档、插入或下载 |
+| [lark-doc](skills/knowledge-and-pm-integrations/lark-doc) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书云文档（Docx / Wiki 文档）：读取和编辑飞书文档内容。当用户给出文档 URL 或 token，或需要查看、创建、编辑文档、插入或下载文档图片附件时 |
 | [lark-markdown](skills/knowledge-and-pm-integrations/lark-markdown) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书 Markdown：查看、创建、上传、编辑和比较 Markdown 文件。当用户需要创建或编辑 Markdown 文件、读取、修改、局部 patch 或比较 |
 | [lark-skill-maker](skills/knowledge-and-pm-integrations/lark-skill-maker) | knowledge-and-pm-integrations | ★★★☆☆ | 把飞书 API 操作封装成可复用技能和多步流程。 |
+| [lark-whiteboard](skills/knowledge-and-pm-integrations/lark-whiteboard) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书画板：查询和编辑飞书云文档中的画板。支持导出画板为预览图片、导出原始节点结构、使用多种格式更新画板内容。 当用户需要查看画板内容、导出画板图片、编辑画板时使 |
 
 ## lark-cli
 
@@ -787,7 +788,7 @@
 | [lark-event](skills/knowledge-and-pm-integrations/lark-event) | knowledge-and-pm-integrations | ★★★★☆ | Lark/Feishu real-time event listening / subscribing / consuming: stream events a |
 | [lark-im](skills/knowledge-and-pm-integrations/lark-im) | knowledge-and-pm-integrations | ★★★★☆ | 飞书即时通讯：收发消息和管理群聊。发送和回复消息、搜索聊天记录、管理群聊成员、上传下载图片和文件（支持大文件分片下载）、管理表情回复、发送应用内/短信/电话加急 |
 | [lark-mail](skills/knowledge-and-pm-integrations/lark-mail) | knowledge-and-pm-integrations | ★★★★☆ | 飞书邮箱：Use when user mentions 起草邮件、写邮件、草稿、发送/回复/转发邮件、查阅邮件、看邮件、搜索邮件、邮件文件夹、邮件标签、邮件联系 |
-| [lark-minutes](skills/knowledge-and-pm-integrations/lark-minutes) | knowledge-and-pm-integrations | ★★★★☆ | 飞书妙记：搜索妙记列表、查看妙记基础信息、下载妙记音视频文件、上传音视频生成妙记、更新妙记标题、替换说话人。当需要获取、操作或者生成妙记时使用。也支持将本地音视 |
+| [lark-minutes](skills/knowledge-and-pm-integrations/lark-minutes) | knowledge-and-pm-integrations | ★★★★☆ | 飞书妙记：搜索妙记、查看妙记基础信息、下载/上传音视频、读取或编辑妙记的产物内容、改标题、替换说话人/关键词。当给出minute_token、本地音视频文件，要 |
 | [lark-okr](skills/knowledge-and-pm-integrations/lark-okr) | knowledge-and-pm-integrations | ★★★★☆ | 飞书 OKR：管理目标与关键结果。查看和编辑 OKR 周期、目标、关键结果、对齐关系、量化指标和进展记录。当用户需要查看或创建 OKR、管理目标和关键结果、查看 |
 | [lark-openapi-explorer](skills/knowledge-and-pm-integrations/lark-openapi-explorer) | knowledge-and-pm-integrations | ★★★★☆ | 飞书/Lark 原生 OpenAPI 探索：从官方文档库中挖掘未经 CLI 封装的原生 OpenAPI 接口。当用户的需求无法被现有 lark-* skill  |
 | [lark-shared](skills/knowledge-and-pm-integrations/lark-shared) | knowledge-and-pm-integrations | ★★★★☆ | Use when first setting up lark-cli, running auth login, switching user/bot ident |
@@ -796,16 +797,16 @@
 | [lark-task](skills/knowledge-and-pm-integrations/lark-task) | knowledge-and-pm-integrations | ★★★★☆ | 飞书任务：管理任务、清单和任务智能体。创建待办任务、查看和更新任务状态、拆分子任务、组织任务清单、分配协作成员、上传任务附件、注册或注销任务智能体、更新任务智能 |
 | [lark-vc](skills/knowledge-and-pm-integrations/lark-vc) | knowledge-and-pm-integrations | ★★★★☆ | 飞书视频会议：搜索历史会议记录、查询会议纪要（总结/待办/章节/逐字稿）、查询参会人快照。当用户查询已结束的会议、获取会议产物（纪要/妙记）、查看参会人时使用； |
 | [lark-vc-agent](skills/knowledge-and-pm-integrations/lark-vc-agent) | knowledge-and-pm-integrations | ★★★★☆ | 飞书视频会议会中能力：用于让应用机器人真实加入或离开正在进行的会议，并读取当前身份可见的会中事件，如参会人加入/离开、发言、聊天、屏幕共享。适用于用户询问正在开 |
-| [lark-whiteboard](skills/knowledge-and-pm-integrations/lark-whiteboard) | knowledge-and-pm-integrations | ★★★★☆ | 飞书画板：查询和编辑飞书云文档中的画板。支持导出画板为预览图片、导出原始节点结构、使用多种格式更新画板内容。 当用户需要查看画板内容、导出画板图片、编辑画板时使 |
 | [lark-wiki](skills/knowledge-and-pm-integrations/lark-wiki) | knowledge-and-pm-integrations | ★★★★☆ | 飞书知识库：管理知识空间、空间成员和文档节点。创建和查询知识空间、查看和管理空间成员、管理节点层级结构、在知识库中组织文档和快捷方式。当用户需要在知识库中查找或 |
 | [lark-workflow-meeting-summary](skills/knowledge-and-pm-integrations/lark-workflow-meeting-summary) | knowledge-and-pm-integrations | ★★★★☆ | 会议纪要整理工作流：汇总指定时间范围内的会议纪要并生成结构化报告。当用户需要整理会议纪要、生成会议周报、回顾一段时间内的会议内容时使用。 |
 | [lark-workflow-standup-report](skills/knowledge-and-pm-integrations/lark-workflow-standup-report) | knowledge-and-pm-integrations | ★★★★☆ | 日程待办摘要：编排 calendar +agenda 和 task +get-my-tasks，生成指定日期的日程与未完成任务摘要。适用于了解今天/明天/本周的 |
-| [lark-approval](skills/knowledge-and-pm-integrations/lark-approval) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书审批：当前用户审批的查询与全部处理操作，覆盖待本人审批的任务与本人发起的实例。审批待办不是飞书任务（任务类待办走 lark-task）；不负责创建审批定义和 |
+| [lark-approval](skills/knowledge-and-pm-integrations/lark-approval) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书审批：查询和处理审批待办/已办/实例，搜索可发起审批定义、查看定义详情并发起原生审批实例。当用户要处理审批任务、查看审批实例、搜索或发起审批时使用。审批待办 |
 | [lark-attendance](skills/knowledge-and-pm-integrations/lark-attendance) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书考勤打卡查询、异常记录整理和缺失核对。 |
 | [lark-contact](skills/knowledge-and-pm-integrations/lark-contact) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书 / Lark 通讯录:按姓名 / 邮箱解析成 open_id,或按 open_id 反查姓名 / 部门 / 邮箱 / 联系方式 / 个人状态 / 签名。当 |
-| [lark-doc](skills/knowledge-and-pm-integrations/lark-doc) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书云文档（Docx / Wiki 文档，v2 API）：读取和编辑飞书文档内容。当用户给出文档 URL 或 token，或需要查看、创建、编辑文档、插入或下载 |
+| [lark-doc](skills/knowledge-and-pm-integrations/lark-doc) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书云文档（Docx / Wiki 文档）：读取和编辑飞书文档内容。当用户给出文档 URL 或 token，或需要查看、创建、编辑文档、插入或下载文档图片附件时 |
 | [lark-markdown](skills/knowledge-and-pm-integrations/lark-markdown) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书 Markdown：查看、创建、上传、编辑和比较 Markdown 文件。当用户需要创建或编辑 Markdown 文件、读取、修改、局部 patch 或比较 |
 | [lark-skill-maker](skills/knowledge-and-pm-integrations/lark-skill-maker) | knowledge-and-pm-integrations | ★★★☆☆ | 把飞书 API 操作封装成可复用技能和多步流程。 |
+| [lark-whiteboard](skills/knowledge-and-pm-integrations/lark-whiteboard) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书画板：查询和编辑飞书云文档中的画板。支持导出画板为预览图片、导出原始节点结构、使用多种格式更新画板内容。 当用户需要查看画板内容、导出画板图片、编辑画板时使 |
 
 ## engineering
 
@@ -831,7 +832,7 @@
 | [shipping-and-launch](skills/ai-workflow/shipping-and-launch) | ai-workflow | ★★★★★ | Prepares production launches. Use when preparing to deploy to production. Use wh |
 | [spec-driven-development](skills/ai-workflow/spec-driven-development) | ai-workflow | ★★★★★ | Creates specs before coding. Use when starting a new project, feature, or signif |
 | [test-driven-development](skills/ai-workflow/test-driven-development) | ai-workflow | ★★★★★ | Drives development with tests. Use when implementing any logic, fixing any bug,  |
-| [idea-refine](skills/ai-workflow/idea-refine) | ai-workflow | ★★★★☆ | Refines ideas iteratively. Refine ideas through structured divergent and converg |
+| [idea-refine](skills/ai-workflow/idea-refine) | ai-workflow | ★★★★☆ | Refines raw ideas into sharp, actionable concepts through structured divergent a |
 | [source-driven-development](skills/ai-workflow/source-driven-development) | ai-workflow | ★★★★☆ | Grounds every implementation decision in official documentation. Use when you wa |
 | [using-agent-skills](skills/ai-workflow/using-agent-skills) | ai-workflow | ★★★★☆ | Discovers and invokes agent skills. Use when starting a session or when you need |
 | [code-review-excellence](skills/developer-engineering/code-review-excellence) | developer-engineering | ★★★★☆ | Master effective code review practices to provide constructive feedback, catch b |
@@ -1304,7 +1305,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [openai-docs](skills/ai-agent-platform/openai-docs) | ai-agent-platform | ★★★☆☆ | Use when the user asks how to build with OpenAI products or APIs and needs up-to |
-| [lark-doc](skills/knowledge-and-pm-integrations/lark-doc) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书云文档（Docx / Wiki 文档，v2 API）：读取和编辑飞书文档内容。当用户给出文档 URL 或 token，或需要查看、创建、编辑文档、插入或下载 |
+| [lark-doc](skills/knowledge-and-pm-integrations/lark-doc) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书云文档（Docx / Wiki 文档）：读取和编辑飞书文档内容。当用户给出文档 URL 或 token，或需要查看、创建、编辑文档、插入或下载文档图片附件时 |
 | [lark-markdown](skills/knowledge-and-pm-integrations/lark-markdown) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书 Markdown：查看、创建、上传、编辑和比较 Markdown 文件。当用户需要创建或编辑 Markdown 文件、读取、修改、局部 patch 或比较 |
 | [docs-cleaner](skills/operations-general/docs-cleaner) | operations-general | ★★★☆☆ | Consolidates redundant documentation while preserving all valuable content. This |
 
@@ -1391,7 +1392,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lark-minutes](skills/knowledge-and-pm-integrations/lark-minutes) | knowledge-and-pm-integrations | ★★★★☆ | 飞书妙记：搜索妙记列表、查看妙记基础信息、下载妙记音视频文件、上传音视频生成妙记、更新妙记标题、替换说话人。当需要获取、操作或者生成妙记时使用。也支持将本地音视 |
+| [lark-minutes](skills/knowledge-and-pm-integrations/lark-minutes) | knowledge-and-pm-integrations | ★★★★☆ | 飞书妙记：搜索妙记、查看妙记基础信息、下载/上传音视频、读取或编辑妙记的产物内容、改标题、替换说话人/关键词。当给出minute_token、本地音视频文件，要 |
 | [lark-vc](skills/knowledge-and-pm-integrations/lark-vc) | knowledge-and-pm-integrations | ★★★★☆ | 飞书视频会议：搜索历史会议记录、查询会议纪要（总结/待办/章节/逐字稿）、查询参会人快照。当用户查询已结束的会议、获取会议产物（纪要/妙记）、查看参会人时使用； |
 | [lark-vc-agent](skills/knowledge-and-pm-integrations/lark-vc-agent) | knowledge-and-pm-integrations | ★★★★☆ | 飞书视频会议会中能力：用于让应用机器人真实加入或离开正在进行的会议，并读取当前身份可见的会中事件，如参会人加入/离开、发言、聊天、屏幕共享。适用于用户询问正在开 |
 | [lark-workflow-meeting-summary](skills/knowledge-and-pm-integrations/lark-workflow-meeting-summary) | knowledge-and-pm-integrations | ★★★★☆ | 会议纪要整理工作流：汇总指定时间范围内的会议纪要并生成结构化报告。当用户需要整理会议纪要、生成会议周报、回顾一段时间内的会议内容时使用。 |
@@ -1417,6 +1418,17 @@
 | [notion-meeting-intelligence](skills/knowledge-and-pm-integrations/notion-meeting-intelligence) | knowledge-and-pm-integrations | ★★★☆☆ | 用于基于 Notion 上下文准备会议材料。 |
 | [notion-research-documentation](skills/knowledge-and-pm-integrations/notion-research-documentation) | knowledge-and-pm-integrations | ★★★☆☆ | 用于整合 Notion 信息并生成研究文档。 |
 | [notion-spec-to-implementation](skills/knowledge-and-pm-integrations/notion-spec-to-implementation) | knowledge-and-pm-integrations | ★★★☆☆ | 用于把 Notion 规格转成计划、任务和进度跟踪。 |
+
+## postgres
+
+**4 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [neon-postgres](skills/developer-engineering/neon-postgres) | developer-engineering | ★★★★★ | Guides and best practices for working with Neon Serverless Postgres. Covers setu |
+| [neon-postgres-egress-optimizer](skills/developer-engineering/neon-postgres-egress-optimizer) | developer-engineering | ★★★★☆ | Diagnose and fix excessive Postgres egress (network data transfer) in a codebase |
+| [supabase-postgres](skills/developer-engineering/supabase-postgres) | developer-engineering | ★★★★☆ | 用于 Supabase 平台开发与 PostgreSQL 最佳实践，包含 RLS、Edge Functions 和实时订阅。来源：supabase 官方 52. |
+| [supabase-postgres-best-practices](skills/developer-engineering/supabase-postgres-best-practices) | developer-engineering | ★★★☆☆ | Postgres performance optimization and best practices from Supabase. Use this ski |
 
 ## research
 
@@ -1562,15 +1574,15 @@
 | [prism](skills/office-white-collar/prism) | office-white-collar | ★★★★★ | Consultant for NotebookLM steering prompt design. Optimizes Audio/Video/Slide/In |
 | [stage](skills/office-white-collar/stage) | office-white-collar | ★★★★★ | Generating slides via Marp, reveal.js, or Slidev, designing narrative arcs, and  |
 
-## postgres
+## performance
 
 **3 skills**
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [neon-postgres](skills/developer-engineering/neon-postgres) | developer-engineering | ★★★★★ | Guides and best practices for working with Neon Serverless Postgres. Covers setu |
-| [supabase-postgres](skills/developer-engineering/supabase-postgres) | developer-engineering | ★★★★☆ | 用于 Supabase 平台开发与 PostgreSQL 最佳实践，包含 RLS、Edge Functions 和实时订阅。来源：supabase 官方 52. |
-| [supabase-postgres-best-practices](skills/developer-engineering/supabase-postgres-best-practices) | developer-engineering | ★★★☆☆ | Postgres performance optimization and best practices from Supabase. Use this ski |
+| [performance-profiler](skills/developer-engineering/performance-profiler) | developer-engineering | ★★★★★ | Systematic performance profiling for Node.js, Python, and Go applications. Ident |
+| [neon-postgres-egress-optimizer](skills/developer-engineering/neon-postgres-egress-optimizer) | developer-engineering | ★★★★☆ | Diagnose and fix excessive Postgres egress (network data transfer) in a codebase |
+| [python-performance](skills/developer-engineering/python-performance) | developer-engineering | ★★★★☆ | 用于 Python 性能优化、内存分析和并发编程最佳实践。来源：skills.sh 12.8K installs。 |
 
 ## review
 
@@ -1931,7 +1943,16 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [meeting-minutes-taker](skills/office-white-collar/meeting-minutes-taker) | office-white-collar | ★★★★★ | Transforms raw meeting transcripts into high-fidelity, structured meeting minute |
-| [lark-minutes](skills/knowledge-and-pm-integrations/lark-minutes) | knowledge-and-pm-integrations | ★★★★☆ | 飞书妙记：搜索妙记列表、查看妙记基础信息、下载妙记音视频文件、上传音视频生成妙记、更新妙记标题、替换说话人。当需要获取、操作或者生成妙记时使用。也支持将本地音视 |
+| [lark-minutes](skills/knowledge-and-pm-integrations/lark-minutes) | knowledge-and-pm-integrations | ★★★★☆ | 飞书妙记：搜索妙记、查看妙记基础信息、下载/上传音视频、读取或编辑妙记的产物内容、改标题、替换说话人/关键词。当给出minute_token、本地音视频文件，要 |
+
+## neon
+
+**2 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [neon-postgres](skills/developer-engineering/neon-postgres) | developer-engineering | ★★★★★ | Guides and best practices for working with Neon Serverless Postgres. Covers setu |
+| [neon-postgres-egress-optimizer](skills/developer-engineering/neon-postgres-egress-optimizer) | developer-engineering | ★★★★☆ | Diagnose and fix excessive Postgres egress (network data transfer) in a codebase |
 
 ## nextjs
 
@@ -1986,15 +2007,6 @@
 |-------|----------|---------|-------------|
 | [pdf](skills/office-white-collar/pdf) | office-white-collar | ★★★★★ | Use this skill whenever the user wants to do anything with PDF files. This inclu |
 | [pdf-creator](skills/office-white-collar/pdf-creator) | office-white-collar | ★★☆☆☆ | Create PDF documents from markdown with proper Chinese font support using weasyp |
-
-## performance
-
-**2 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [performance-profiler](skills/developer-engineering/performance-profiler) | developer-engineering | ★★★★★ | Systematic performance profiling for Node.js, Python, and Go applications. Ident |
-| [python-performance](skills/developer-engineering/python-performance) | developer-engineering | ★★★★☆ | 用于 Python 性能优化、内存分析和并发编程最佳实践。来源：skills.sh 12.8K installs。 |
 
 ## plans
 
@@ -2357,7 +2369,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lark-approval](skills/knowledge-and-pm-integrations/lark-approval) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书审批：当前用户审批的查询与全部处理操作，覆盖待本人审批的任务与本人发起的实例。审批待办不是飞书任务（任务类待办走 lark-task）；不负责创建审批定义和 |
+| [lark-approval](skills/knowledge-and-pm-integrations/lark-approval) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书审批：查询和处理审批待办/已办/实例，搜索可发起审批定义、查看定义详情并发起原生审批实例。当用户要处理审批任务、查看审批实例、搜索或发起审批时使用。审批待办 |
 
 ## apps
 
@@ -2839,6 +2851,14 @@
 |-------|----------|---------|-------------|
 | [github-contributor](skills/developer-engineering/github-contributor) | developer-engineering | ★★★★★ | Strategic guide for becoming an effective GitHub contributor. Covers opportunity |
 
+## cost-optimization
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [neon-postgres-egress-optimizer](skills/developer-engineering/neon-postgres-egress-optimizer) | developer-engineering | ★★★★☆ | Diagnose and fix excessive Postgres egress (network data transfer) in a codebase |
+
 ## crest
 
 **1 skills**
@@ -2981,7 +3001,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lark-whiteboard](skills/knowledge-and-pm-integrations/lark-whiteboard) | knowledge-and-pm-integrations | ★★★★☆ | 飞书画板：查询和编辑飞书云文档中的画板。支持导出画板为预览图片、导出原始节点结构、使用多种格式更新画板内容。 当用户需要查看画板内容、导出画板图片、编辑画板时使 |
+| [lark-whiteboard](skills/knowledge-and-pm-integrations/lark-whiteboard) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书画板：查询和编辑飞书云文档中的画板。支持导出画板为预览图片、导出原始节点结构、使用多种格式更新画板内容。 当用户需要查看画板内容、导出画板图片、编辑画板时使 |
 
 ## dialectic
 
@@ -3013,7 +3033,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lark-doc](skills/knowledge-and-pm-integrations/lark-doc) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书云文档（Docx / Wiki 文档，v2 API）：读取和编辑飞书文档内容。当用户给出文档 URL 或 token，或需要查看、创建、编辑文档、插入或下载 |
+| [lark-doc](skills/knowledge-and-pm-integrations/lark-doc) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书云文档（Docx / Wiki 文档）：读取和编辑飞书文档内容。当用户给出文档 URL 或 token，或需要查看、创建、编辑文档、插入或下载文档图片附件时 |
 
 ## docx
 
@@ -3389,7 +3409,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [idea-refine](skills/ai-workflow/idea-refine) | ai-workflow | ★★★★☆ | Refines ideas iteratively. Refine ideas through structured divergent and converg |
+| [idea-refine](skills/ai-workflow/idea-refine) | ai-workflow | ★★★★☆ | Refines raw ideas into sharp, actionable concepts through structured divergent a |
 
 ## identity
 
@@ -3782,14 +3802,6 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [monorepo-navigator](skills/developer-engineering/monorepo-navigator) | developer-engineering | ★★★★★ | Navigate, manage, and optimize monorepos. Covers Turborepo, Nx, pnpm workspaces, |
-
-## neon
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [neon-postgres](skills/developer-engineering/neon-postgres) | developer-engineering | ★★★★★ | Guides and best practices for working with Neon Serverless Postgres. Covers setu |
 
 ## netlify
 
@@ -5085,7 +5097,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lark-whiteboard](skills/knowledge-and-pm-integrations/lark-whiteboard) | knowledge-and-pm-integrations | ★★★★☆ | 飞书画板：查询和编辑飞书云文档中的画板。支持导出画板为预览图片、导出原始节点结构、使用多种格式更新画板内容。 当用户需要查看画板内容、导出画板图片、编辑画板时使 |
+| [lark-whiteboard](skills/knowledge-and-pm-integrations/lark-whiteboard) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书画板：查询和编辑飞书云文档中的画板。支持导出画板为预览图片、导出原始节点结构、使用多种格式更新画板内容。 当用户需要查看画板内容、导出画板图片、编辑画板时使 |
 
 ## wrappers
 

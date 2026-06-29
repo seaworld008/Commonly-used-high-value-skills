@@ -1,14 +1,14 @@
 ---
 name: idea-refine
-description: 'Refines ideas iteratively. Refine ideas through structured divergent and convergent thinking. Use \"idea-refine\" or \"ideate\" to trigger.'
-version: "1.0.0"
+description: 'Refines raw ideas into sharp, actionable concepts through structured divergent and convergent thinking. Use when an idea is still vague, when you need to stress-test assumptions before committing to a plan, or when you want to expand options before converging on one. Triggers on \"ideate\", \"refine this idea\", or \"stress-test my plan\".'
+version: "1.0.1"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/idea-refine/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "idea-refine", "workflow"]'
 created_at: "2026-04-25"
-updated_at: "2026-04-25"
+updated_at: "2026-06-29"
 quality: 4
 complexity: advanced
 upstream_slug: idea-refine
@@ -30,7 +30,7 @@ This skill is primarily an interactive dialogue. Invoke it with an idea, and the
 
 ```bash
 # Optional: Initialize the ideas directory
-bash /mnt/skills/user/idea-refine/scripts/idea-refine.sh
+bash skills/idea-refine/scripts/idea-refine.sh
 ```
 
 **Trigger Phrases:**
