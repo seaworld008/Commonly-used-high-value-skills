@@ -1,6 +1,7 @@
 ---
 name: cli-demo-generator
 description: 'This skill should be used when users want to create animated CLI demos, terminal recordings, or command-line demonstration GIFs. It supports both manual tape file creation and automated demo generation from command descriptions. Use when users mention creating demos, recording terminal sessions, or generating animated GIFs of CLI workflows.'
+zh_description: "用于CLI、演示、生成，支持开发、调试、评审和交付。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

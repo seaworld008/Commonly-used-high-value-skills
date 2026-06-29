@@ -1,6 +1,7 @@
 ---
 name: mcp-server-builder
 description: 'Design and implement Model Context Protocol (MCP) servers that expose any REST API, database, or service as structured tools for Claude and other LLMs. Covers both FastMCP (Python) and the TypeScript MCP SDK, with patterns for reading OpenAPI/Swagger specs, generating tool definitions, handling auth, errors, and testing.'
+zh_description: "用于MCP、服务器、构建，支持开发、调试、评审和交付。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

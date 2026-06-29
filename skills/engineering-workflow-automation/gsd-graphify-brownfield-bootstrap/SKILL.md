@@ -1,6 +1,7 @@
 ---
 name: gsd-graphify-brownfield-bootstrap
 description: 'Bootstrap GSD + graphify for an existing brownfield repo when the project needs a single canonical workflow for local runtime setup, graph refresh, and manually seeded .planning/ context without depending on interactive GSD init.'
+zh_description: "用于gsd、Graphify、brownfield、启动，支持工程协作、自动化验证和交付闭环。"
 version: "2.1.0"
 author: Hermes Agent
 source: "in-house"

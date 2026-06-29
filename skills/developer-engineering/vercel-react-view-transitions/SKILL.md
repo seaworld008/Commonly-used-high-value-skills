@@ -1,6 +1,7 @@
 ---
 name: vercel-react-view-transitions
 description: 'Guide for adding native-feeling page, route, shared-element, and list transitions in React and Next.js with the View Transition API.'
+zh_description: "用于在 React/Vercel 项目中实现和优化 View Transitions。"
 version: "1.0.0"
 author: seaworld008
 source: github:vercel-labs/agent-skills

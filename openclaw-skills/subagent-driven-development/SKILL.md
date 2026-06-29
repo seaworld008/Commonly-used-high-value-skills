@@ -1,6 +1,7 @@
 ---
 name: subagent-driven-development
 description: Use when executing implementation plans with independent tasks in the current session
+zh_description: "用于subagent、驱动、development，支持任务规划、执行、评审和验证。"
 version: "1.0.3"
 author: seaworld008
 source: "github:obra/superpowers"

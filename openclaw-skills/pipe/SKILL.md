@@ -1,6 +1,7 @@
 ---
 name: pipe
 description: 'Designing GitHub Actions workflows in depth — covering trigger strategy, security hardening, performance optimization, PR automation, and Reusable Workflow design. Use when new GHA workflow design or advanced optimization is needed.'
+zh_description: "用于pipe，支持部署发布、配置、预览和故障处理。"
 version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"

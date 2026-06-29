@@ -1,6 +1,7 @@
 ---
 name: brainstorming
 description: 'You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation.'
+zh_description: "用于brainstorming，支持任务规划、执行、评审和验证。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

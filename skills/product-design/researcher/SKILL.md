@@ -1,6 +1,7 @@
 ---
 name: researcher
 description: 'User research specialist. Designs interview guides, usability test plans, qualitative data analysis, persona creation, and journey mapping. Complements Echo''s UI validation. Use when user research design or analysis is needed.'
+zh_description: "用于研究，支持产品研究、策略、界面和交付协作。"
 version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"

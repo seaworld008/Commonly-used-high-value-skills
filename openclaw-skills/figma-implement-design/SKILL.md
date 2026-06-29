@@ -1,6 +1,7 @@
 ---
 name: figma-implement-design
 description: 'Translate Figma nodes into production-ready code with 1:1 visual fidelity using the Figma MCP workflow (design context, screenshots, assets, and project-convention translation). Trigger when the user provides Figma URLs or node IDs, or asks to implement designs or components that must match Figma specs. Requires a working Figma MCP server connection.'
+zh_description: "用于将 Figma 设计转化为可实现的前端界面和组件。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

@@ -1,6 +1,7 @@
 ---
 name: code-simplification
 description: 'Simplifies code for clarity. Use when refactoring code for clarity without changing behavior. Use when code works but is harder to read, maintain, or extend than it should be. Use when reviewing code that has accumulated unnecessary complexity.'
+zh_description: "用于代码、simplification，支持任务规划、执行、评审和验证。"
 version: "1.0.0"
 author: addyosmani
 source: "github:addyosmani/agent-skills"

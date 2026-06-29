@@ -1,6 +1,7 @@
 ---
 name: source-driven-development
 description: 'Grounds every implementation decision in official documentation. Use when you want authoritative, source-cited code free from outdated patterns. Use when building with any framework or library where correctness matters.'
+zh_description: "用于来源、驱动、development，支持任务规划、执行、评审和验证。"
 version: "1.0.0"
 author: addyosmani
 source: "github:addyosmani/agent-skills"

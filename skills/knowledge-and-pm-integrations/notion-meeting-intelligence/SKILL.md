@@ -1,6 +1,7 @@
 ---
 name: notion-meeting-intelligence
 description: '用于基于 Notion 上下文准备会议材料。'
+zh_description: "用于基于 Notion 上下文准备会议材料。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

@@ -1,6 +1,7 @@
 ---
 name: fact-checker
 description: 'Verifies factual claims in documents using web search and official sources, then proposes corrections with user confirmation. Use when the user asks to fact-check, verify information, validate claims, check accuracy, or update outdated information in documents. Supports AI model specs, technical documentation, statistics, and general factual statements.'
+zh_description: "用于事实、checker，支持信息整理、沟通和执行管理。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

@@ -1,6 +1,7 @@
 ---
 name: shipping-and-launch
 description: 'Prepares production launches. Use when preparing to deploy to production. Use when you need a pre-launch checklist, when setting up monitoring, when planning a staged rollout, or when you need a rollback strategy.'
+zh_description: "用于shipping、launch，支持任务规划、执行、评审和验证。"
 version: "1.0.1"
 author: addyosmani
 source: "github:addyosmani/agent-skills"

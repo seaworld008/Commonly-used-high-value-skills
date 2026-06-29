@@ -1,6 +1,7 @@
 ---
 name: cloudflare-troubleshooting
 description: 'Investigate and resolve Cloudflare configuration issues using API-driven evidence gathering. Use when troubleshooting ERR_TOO_MANY_REDIRECTS, SSL errors, DNS issues, or any Cloudflare-related problems. Focus on systematic investigation using Cloudflare API to examine actual configuration rather than making assumptions.'
+zh_description: "用于Cloudflare、排障，支持部署、监控、排障和发布管理。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

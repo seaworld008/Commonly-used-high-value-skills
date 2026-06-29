@@ -1,6 +1,7 @@
 ---
 name: algorithmic-art
 description: 'Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. Use this when users request creating art using code, generative art, algorithmic art, flow fields, or particle systems. Create original algorithmic art rather than copying existing artists'' work to avoid copyright violations.'
+zh_description: "用于algorithmic、art，支持内容、营销、渠道和数据分析。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

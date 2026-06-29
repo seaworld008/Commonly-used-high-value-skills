@@ -1,6 +1,7 @@
 ---
 name: graphify
 description: 'Use for any question about a codebase, its architecture, file relationships, or project content — especially when graphify-out/ exists, where the question should be treated as a graphify query first. Turns any input (code, docs, papers, images, videos) into a persistent knowledge graph with god nodes, community detection, and query/path/explain tools.'
+zh_description: "用于Graphify，支持开发、调试、评审和交付。"
 version: "1.0.1"
 author: "seaworld008"
 source: "in-house"

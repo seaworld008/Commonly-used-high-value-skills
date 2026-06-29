@@ -1,6 +1,7 @@
 ---
 name: parallel-debugging
 description: 'Debug complex issues using competing hypotheses with parallel investigation, evidence collection, and root cause arbitration. Use this skill when debugging bugs with multiple potential causes, performing root cause analysis, or organizing parallel investigation workflows.'
+zh_description: "用于并行、调试，支持开发、调试、评审和交付。"
 version: 1.0.2
 author: "seaworld008"
 source: "in-house"

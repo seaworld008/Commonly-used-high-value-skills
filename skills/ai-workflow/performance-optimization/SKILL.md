@@ -1,6 +1,7 @@
 ---
 name: performance-optimization
 description: 'Optimizes application performance. Use when performance requirements exist, when you suspect performance regressions, or when Core Web Vitals or load times need improvement. Use when profiling reveals bottlenecks that need fixing.'
+zh_description: "用于性能、优化，支持任务规划、执行、评审和验证。"
 version: "1.0.0"
 author: addyosmani
 source: "github:addyosmani/agent-skills"

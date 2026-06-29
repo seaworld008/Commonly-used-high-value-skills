@@ -8,21 +8,21 @@
 
 ## 推荐先看
 
-- [cloudflare-deploy](./cloudflare-deploy/) - Deploy applications and infrastructure to Cloudflare using Workers, Pages, and related platform services. Use when the user asks to deploy, host, publish, or set up a project on Cloudflare.
-- [netlify-deploy](./netlify-deploy/) - Deploy web projects to Netlify using the Netlify CLI (`npx netlify`). Use when the user asks to deploy, host, publish, or link a site/repo on Netlify, including preview and production deploys.
-- [render-deploy](./render-deploy/) - Deploy applications to Render by analyzing codebases, generating render.yaml Blueprints, and providing Dashboard deeplinks. Use when the user wants to deploy, host, publish, or set up their application on Render''s cloud platform.
+- [cloudflare-deploy](./cloudflare-deploy/) - 用于将应用部署到 Cloudflare 并处理相关发布流程。
+- [netlify-deploy](./netlify-deploy/) - 用于将网站或应用部署到 Netlify 并获取预览或生产链接。
+- [render-deploy](./render-deploy/) - 用于将服务或应用部署到 Render 并处理运行配置。
 - [vercel-deploy](./vercel-deploy/) - 用于将应用或网站部署到 Vercel，创建预览部署或生产发布链接。
 
 ## 技能总览
 
 | 技能 | 简介 | 目录 | 详情 |
 |------|------|------|------|
-| `cloudflare-deploy` | Deploy applications and infrastructure to Cloudflare using Workers, Pages, and related platform services. Use when the user asks to deploy, host, publish, or set up a project on Cloudflare. | [目录](./cloudflare-deploy/) | [SKILL.md](./cloudflare-deploy/SKILL.md) |
-| `netlify-deploy` | Deploy web projects to Netlify using the Netlify CLI (`npx netlify`). Use when the user asks to deploy, host, publish, or link a site/repo on Netlify, including preview and production deploys. | [目录](./netlify-deploy/) | [SKILL.md](./netlify-deploy/SKILL.md) |
-| `pipe` | Designing GitHub Actions workflows in depth — covering trigger strategy, security hardening, performance optimization, PR automation, and Reusable Workflow design. Use when new GHA workflow design or advanced optimization is needed. | [目录](./pipe/) | [SKILL.md](./pipe/SKILL.md) |
-| `render-deploy` | Deploy applications to Render by analyzing codebases, generating render.yaml Blueprints, and providing Dashboard deeplinks. Use when the user wants to deploy, host, publish, or set up their application on Render''s cloud platform. | [目录](./render-deploy/) | [SKILL.md](./render-deploy/SKILL.md) |
-| `scaffold` | Provisioning infrastructure via cloud IaC (Terraform/OpenTofu/CloudFormation/Pulumi) and local development environments (Docker Compose/dev setup/env vars). Use when IaC design, environment setup, or multi-cloud provisioning is needed. | [目录](./scaffold/) | [SKILL.md](./scaffold/SKILL.md) |
-| `shard` | Designing multi-tenant architectures with tenant isolation strategies, RLS, routing, and scale design for SaaS. Use when designing multi-tenant SaaS systems or tenant isolation. | [目录](./shard/) | [SKILL.md](./shard/SKILL.md) |
+| `cloudflare-deploy` | 用于将应用部署到 Cloudflare 并处理相关发布流程。 | [目录](./cloudflare-deploy/) | [SKILL.md](./cloudflare-deploy/SKILL.md) |
+| `netlify-deploy` | 用于将网站或应用部署到 Netlify 并获取预览或生产链接。 | [目录](./netlify-deploy/) | [SKILL.md](./netlify-deploy/SKILL.md) |
+| `pipe` | 用于pipe，支持部署发布、配置、预览和故障处理。 | [目录](./pipe/) | [SKILL.md](./pipe/SKILL.md) |
+| `render-deploy` | 用于将服务或应用部署到 Render 并处理运行配置。 | [目录](./render-deploy/) | [SKILL.md](./render-deploy/SKILL.md) |
+| `scaffold` | 用于scaffold，支持部署发布、配置、预览和故障处理。 | [目录](./scaffold/) | [SKILL.md](./scaffold/SKILL.md) |
+| `shard` | 用于shard，支持部署发布、配置、预览和故障处理。 | [目录](./shard/) | [SKILL.md](./shard/SKILL.md) |
 | `vercel-deploy` | 用于将应用或网站部署到 Vercel，创建预览部署或生产发布链接。 | [目录](./vercel-deploy/) | [SKILL.md](./vercel-deploy/SKILL.md) |
 
 ## 维护方式

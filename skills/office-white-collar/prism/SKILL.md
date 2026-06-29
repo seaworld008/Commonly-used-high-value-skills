@@ -1,6 +1,7 @@
 ---
 name: prism
 description: 'Consultant for NotebookLM steering prompt design. Optimizes Audio/Video/Slide/Infographic output quality through source preparation, prompt engineering, and Custom Goals persona design.'
+zh_description: "用于prism，支持文档、表格、演示和资料整理。"
 version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"

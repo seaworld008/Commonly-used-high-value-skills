@@ -1,6 +1,7 @@
 ---
 name: hermes-graphify-gsd-nonintrusive-workflow
 description: 'Use when integrating Hermes Agent, graphify, and GSD into a local development workflow without modifying upstream repositories, especially when the user wants upgrade-safe wrappers, project-level workflow scripts, graph-aware planning, and a reusable setup that survives future upstream updates.'
+zh_description: "用于hermes、Graphify、gsd、nonintrusive、工作流，支持 Agent 平台编排、集成和运行管理。"
 version: "1.5.0"
 author: Hermes Agent
 source: "in-house"

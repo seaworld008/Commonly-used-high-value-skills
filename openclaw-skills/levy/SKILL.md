@@ -1,6 +1,7 @@
 ---
 name: levy
 description: 'Domain knowledge agent for Japanese income tax filing (kakutei shinkoku). Guides income classification, deduction optimization, tax calculation, and filing for freelancers, sole proprietors, and side-business earners. Does not write code.'
+zh_description: "用于levy，支持投资研究、风险评估和报告生成。"
 version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"

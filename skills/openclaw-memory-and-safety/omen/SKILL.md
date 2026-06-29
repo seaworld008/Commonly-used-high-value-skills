@@ -1,6 +1,7 @@
 ---
 name: omen
 description: 'Enumerating failure modes via pre-mortem analysis. Systematically identifies failure scenarios for plans, designs, and features, scoring them with RPN/AP. Does not write code.'
+zh_description: "用于omen，支持记忆管理、安全防护和运行治理。"
 version: "1.0.8"
 author: "seaworld008"
 source: "github:simota/agent-skills"

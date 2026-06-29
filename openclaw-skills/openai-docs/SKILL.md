@@ -1,6 +1,7 @@
 ---
 name: openai-docs
 description: 'Use when the user asks how to build with OpenAI products or APIs and needs up-to-date official documentation with citations (for example: Codex, Responses API, Chat Completions, Apps SDK, Agents SDK, Realtime, model capabilities or limits); prioritize OpenAI docs MCP tools and restrict any fallback browsing to official OpenAI domains.'
+zh_description: "用于查阅和应用 OpenAI 官方文档、API 行为和集成指南。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

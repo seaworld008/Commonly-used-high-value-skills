@@ -1,6 +1,7 @@
 ---
 name: i18n-expert
 description: 'This skill should be used when setting up, auditing, or enforcing internationalization/localization in UI codebases (React/TS, i18next or similar, JSON locales), including installing/configuring the i18n framework, replacing hard-coded strings, ensuring en-US/zh-CN coverage, mapping error codes to localized messages, and validating key parity, pluralization, and formatting.'
+zh_description: "用于i18n、expert，支持开发、调试、评审和交付。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

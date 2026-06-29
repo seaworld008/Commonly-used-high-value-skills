@@ -1,6 +1,7 @@
 ---
 name: hermes-graphify-gsd-runtime-operator
 description: 'Use when operating or debugging a repo-local Hermes + graphify + GSD autonomous runtime, especially when checking writer ownership, execution-surface eligibility, handoff/blocked state, stale cron or lease metadata, and whether the main project repo is still the only recommended writer surface.'
+zh_description: "用于hermes、Graphify、gsd、runtime、operator，支持 Agent 平台编排、集成和运行管理。"
 version: "1.2.0"
 author: Hermes Agent
 source: "in-house"

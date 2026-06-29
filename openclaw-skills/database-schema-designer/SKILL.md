@@ -1,6 +1,7 @@
 ---
 name: database-schema-designer
 description: 'Design relational database schemas from requirements and generate migrations, TypeScript/Python types, seed data, RLS policies, and indexes. Handles multi-tenancy, soft deletes, audit trails, versioning, and polymorphic associations.'
+zh_description: "用于数据库、Schema、设计，支持开发、调试、评审和交付。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

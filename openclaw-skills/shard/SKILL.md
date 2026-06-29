@@ -1,6 +1,7 @@
 ---
 name: shard
 description: 'Designing multi-tenant architectures with tenant isolation strategies, RLS, routing, and scale design for SaaS. Use when designing multi-tenant SaaS systems or tenant isolation.'
+zh_description: "用于shard，支持部署发布、配置、预览和故障处理。"
 version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"

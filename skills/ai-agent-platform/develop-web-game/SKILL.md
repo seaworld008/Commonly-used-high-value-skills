@@ -1,6 +1,7 @@
 ---
 name: develop-web-game
 description: 'Use when Codex is building or iterating on a web game (HTML/JS) and needs a reliable development + testing loop: implement small changes, run a Playwright-based test script with short input bursts and intentional pauses, inspect screenshots/text, and review console errors with render_game_to_text.'
+zh_description: "用于开发网页游戏原型、玩法循环、交互逻辑和前端实现。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

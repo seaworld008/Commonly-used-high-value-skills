@@ -1,6 +1,7 @@
 ---
 name: debugging-and-error-recovery
 description: 'Guides systematic root-cause debugging. Use when tests fail, builds break, behavior doesn''t match expectations, or you encounter any unexpected error. Use when you need a systematic approach to finding and fixing the root cause rather than guessing.'
+zh_description: "用于调试、错误、recovery，支持任务规划、执行、评审和验证。"
 version: "1.0.1"
 author: addyosmani
 source: "github:addyosmani/agent-skills"

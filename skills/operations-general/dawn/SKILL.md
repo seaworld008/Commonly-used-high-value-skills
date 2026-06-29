@@ -1,6 +1,7 @@
 ---
 name: dawn
 description: 'Proposes exactly one personal side-project idea per invocation, sized to a 1-3 day MVP. Targets CLI, automation, LLM, DX, productivity, and data-viz angles; avoids clichés like TODO apps, weather apps, and pomodoro timers. Output is an 8-section brief including a ready-to-paste coding-agent prompt. Use for morning/daily idea rituals and weekend-hack ideation. Don''t use for existing-product feature proposals (Spark), dialogue brainstorming (Riff), or prototype implementation (Forge).'
+zh_description: "用于dawn，支持信息整理、沟通和执行管理。"
 version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"

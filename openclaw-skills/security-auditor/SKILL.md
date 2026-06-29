@@ -1,6 +1,7 @@
 ---
 name: security-auditor
 description: 'Security audit workflow for AI-generated application code, APIs, infrastructure changes, dependencies, secrets, auth flows, and pull requests before they ship.'
+zh_description: "用于安全、审计，支持安全扫描、审计、加固和风险治理。"
 version: "1.0.0"
 author: seaworld008
 source: in-house

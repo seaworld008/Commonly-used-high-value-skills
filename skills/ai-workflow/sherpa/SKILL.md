@@ -1,6 +1,7 @@
 ---
 name: sherpa
 description: 'Guiding workflows by decomposing complex tasks (Epics) into Atomic Steps under 15 minutes each. Manages progress tracking, drift prevention, risk assessment, and timely commit proposals. Use when complex task decomposition is needed.'
+zh_description: "用于sherpa，支持任务规划、执行、评审和验证。"
 version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"

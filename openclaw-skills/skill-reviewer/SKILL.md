@@ -1,6 +1,7 @@
 ---
 name: skill-reviewer
 description: 'Reviews and improves Claude Code skills against official best practices. Supports three modes - self-review (validate your own skills), external review (evaluate others'' skills), and auto-PR (fork, improve, submit). Use when checking skill quality, reviewing skill repositories, or contributing improvements to open-source skills.'
+zh_description: "用于技能、评审，支持任务规划、执行、评审和验证。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

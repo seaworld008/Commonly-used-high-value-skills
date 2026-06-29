@@ -1,6 +1,7 @@
 ---
 name: sigil
 description: 'Generating, updating, auditing, and sync-repairing project-specific Claude Code skills. Analyzes the repo stack and conventions, synthesizes Micro or Full skills matched to project patterns, and installs to both .claude/skills/ and .agents/skills/. Use when authoring project-local skills.'
+zh_description: "用于sigil，支持 Agent 平台编排、集成和运行管理。"
 version: "1.0.6"
 author: "seaworld008"
 source: "github:simota/agent-skills"

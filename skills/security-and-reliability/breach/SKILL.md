@@ -1,6 +1,7 @@
 ---
 name: breach
 description: 'Designing red team attack scenarios, building threat models, applying MITRE ATT&CK/OWASP frameworks, running Purple Team exercises, and performing AI/LLM red teaming. Use when adversarial security validation is needed.'
+zh_description: "用于breach，支持安全扫描、审计、加固和风险治理。"
 version: "1.0.6"
 author: "seaworld008"
 source: "github:simota/agent-skills"

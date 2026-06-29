@@ -1,6 +1,7 @@
 ---
 name: playwright-pro
 description: 'Production-grade Playwright testing skill for E2E suites, flaky test diagnosis, browser automation, migration from Cypress/Selenium, CI integration, visual checks, and regression validation.'
+zh_description: "用于高级 Playwright 测试、诊断、稳定性和浏览器自动化。"
 version: "1.0.0"
 author: seaworld008
 source: in-house

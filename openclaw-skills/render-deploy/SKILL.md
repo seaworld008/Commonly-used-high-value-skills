@@ -1,6 +1,7 @@
 ---
 name: render-deploy
 description: 'Deploy applications to Render by analyzing codebases, generating render.yaml Blueprints, and providing Dashboard deeplinks. Use when the user wants to deploy, host, publish, or set up their application on Render''s cloud platform.'
+zh_description: "用于将服务或应用部署到 Render 并处理运行配置。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

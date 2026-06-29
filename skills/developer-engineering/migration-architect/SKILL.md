@@ -1,6 +1,7 @@
 ---
 name: migration-architect
 description: 'Purpose: Zero-downtime migration planning, compatibility validation, and rollback strategy generation.'
+zh_description: "用于migration、架构，支持开发、调试、评审和交付。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

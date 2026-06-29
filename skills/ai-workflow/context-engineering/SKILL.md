@@ -1,6 +1,7 @@
 ---
 name: context-engineering
 description: 'Optimizes agent context setup. Use when starting a new session, when agent output quality degrades, when switching between tasks, or when you need to configure rules files and context for a project.'
+zh_description: "用于设计上下文工程策略、提示输入结构和长任务信息流。"
 version: "1.0.0"
 author: addyosmani
 source: "github:addyosmani/agent-skills"

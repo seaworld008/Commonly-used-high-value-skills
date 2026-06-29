@@ -1,6 +1,7 @@
 ---
 name: ui-ux-pro-max
 description: 'Front-end UI/UX design intelligence for creating, reviewing, and hardening polished product interfaces across web, mobile, dashboards, SaaS, ecommerce, and content-heavy apps.'
+zh_description: "用于UI、UX、pro、max，支持产品研究、策略、界面和交付协作。"
 version: "1.0.0"
 author: seaworld008
 source: in-house

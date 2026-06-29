@@ -1,6 +1,7 @@
 ---
 name: marketing-strategy-pmm
 description: 'Product marketing skill for positioning, GTM strategy, competitive intelligence, and product launches. Covers April Dunford positioning, ICP definition, competitive battlecards, launch playbooks, and international market entry.'
+zh_description: "用于营销、策略、PMM，支持内容、营销、渠道和数据分析。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

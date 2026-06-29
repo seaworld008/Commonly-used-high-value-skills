@@ -1,6 +1,7 @@
 ---
 name: dispatching-parallel-agents
 description: Use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies
+zh_description: "用于拆分任务并调度多个 Agent 并行协作。"
 version: "1.0.1"
 author: "seaworld008"
 source: "in-house"

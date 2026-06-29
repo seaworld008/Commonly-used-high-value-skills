@@ -1,6 +1,7 @@
 ---
 name: stage
 description: 'Generating slides via Marp, reveal.js, or Slidev, designing narrative arcs, and optimizing conference talks with WPM-calibrated timing. Use when creating or pacing presentations.'
+zh_description: "用于stage，支持文档、表格、演示和资料整理。"
 version: "1.0.6"
 author: "seaworld008"
 source: "github:simota/agent-skills"

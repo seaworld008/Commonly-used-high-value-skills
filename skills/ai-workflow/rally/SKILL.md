@@ -1,6 +1,7 @@
 ---
 name: rally
 description: 'Orchestrating multi-session parallel execution using Claude Code Agent Teams API and Codex CLI Subagents to launch, manage, and coordinate concurrent task execution across multiple instances. Use when parallel work is needed.'
+zh_description: "用于rally，支持任务规划、执行、评审和验证。"
 version: "1.0.7"
 author: "seaworld008"
 source: "github:simota/agent-skills"

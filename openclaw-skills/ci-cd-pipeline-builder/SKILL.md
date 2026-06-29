@@ -1,6 +1,7 @@
 ---
 name: ci-cd-pipeline-builder
 description: 'Analyzes your project stack and generates production-ready CI/CD pipeline configurations for GitHub Actions, GitLab CI, and Bitbucket Pipelines. Handles matrix testing, caching strategies, deployment stages, environment promotion, and secret management — tailored to your actual tech stack.'
+zh_description: "用于CI、CD、流水线、构建，支持部署、监控、排障和发布管理。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

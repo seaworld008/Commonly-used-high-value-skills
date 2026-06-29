@@ -1,6 +1,7 @@
 ---
 name: macro-regime-monitor
 description: 'Use when tracking macro regime shifts, summarizing inflation, growth, spreads, and liquidity signals, or creating a house view before updating sector or asset-allocation calls.'
+zh_description: "用于macro、regime、monitor，支持投资研究、风险评估和报告生成。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

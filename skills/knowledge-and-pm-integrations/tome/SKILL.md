@@ -1,6 +1,7 @@
 ---
 name: tome
 description: 'Converting repository changes into detailed learning documents. Use when turning diffs into teaching materials, recording design decisions, or creating onboarding materials for new members.'
+zh_description: "用于tome，支持知识管理、项目同步和平台集成。"
 version: "1.0.7"
 author: "seaworld008"
 source: "github:simota/agent-skills"

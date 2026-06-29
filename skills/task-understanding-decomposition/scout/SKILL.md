@@ -1,6 +1,7 @@
 ---
 name: scout
 description: 'Investigating bugs via root cause analysis (RCA), reproduction steps, and impact assessment. Investigation-only — identifies why bugs occur and where to fix them, no code. Use when a bug needs RCA, reproduction must be established before fix, or impact radius needs assessment.'
+zh_description: "用于scout，支持检索、拆解、反思和决策。"
 version: "1.0.8"
 author: "seaworld008"
 source: "github:simota/agent-skills"

@@ -1,6 +1,7 @@
 ---
 name: codebase-onboarding
 description: 'Analyze a codebase and generate comprehensive onboarding documentation tailored to your audience. Produces architecture overviews, key file maps, local setup guides, common task runbooks, debugging guides, and contribution guidelines. Outputs to Markdown, Notion, or Confluence.'
+zh_description: "用于代码库、onboarding，支持开发、调试、评审和交付。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

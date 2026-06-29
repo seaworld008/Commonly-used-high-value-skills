@@ -8,10 +8,10 @@
 
 ## 推荐先看
 
-- [jupyter-notebook](./jupyter-notebook/) - Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) for experiments, explorations, or tutorials; prefer the bundled templates and run the helper script `new_notebook.py` to generate a clean starting notebook.
-- [playwright](./playwright/) - Use when the task requires automating a real browser from the terminal (navigation, form filling, snapshots, screenshots, data extraction, UI-flow debugging) via `playwright-cli` or the bundled wrapper script.
+- [jupyter-notebook](./jupyter-notebook/) - 用于Jupyter、Notebook，支持工程协作、自动化验证和交付闭环。
+- [playwright](./playwright/) - 用于使用 Playwright 编写、运行和调试端到端测试。
 - [gh-address-comments](./gh-address-comments/) - 用于通过 gh CLI 处理当前分支的 GitHub PR Review 评论或 Issue 评论。
-- [gh-fix-ci](./gh-fix-ci/) - Use when a user asks to debug or fix failing GitHub PR checks that run in GitHub Actions; use `gh` to inspect checks and logs, summarize failure context, draft a fix plan, and implement only after explicit approval. Treat external providers (for example Buildkite) as out of scope and report only the details URL.
+- [gh-fix-ci](./gh-fix-ci/) - 用于gh、修复、CI，支持工程协作、自动化验证和交付闭环。
 
 <a id="hermes-graphify-gsd-project-workflow"></a>
 ## Hermes + graphify + GSD 项目接入工作流
@@ -122,18 +122,18 @@ gsd-sdk --version
 | `billing-automation` | 用于构建订阅计费、自动开票、续费生命周期和催收管理流程。 | [目录](./billing-automation/) | [SKILL.md](./billing-automation/SKILL.md) |
 | `changelog-automation` | 用于基于提交、PR 和发布记录自动生成 Keep a Changelog 风格的变更日志。 | [目录](./changelog-automation/) | [SKILL.md](./changelog-automation/SKILL.md) |
 | `gh-address-comments` | 用于通过 gh CLI 处理当前分支的 GitHub PR Review 评论或 Issue 评论。 | [目录](./gh-address-comments/) | [SKILL.md](./gh-address-comments/SKILL.md) |
-| `gh-fix-ci` | Use when a user asks to debug or fix failing GitHub PR checks that run in GitHub Actions; use `gh` to inspect checks and logs, summarize failure context, draft a fix plan, and implement only after explicit approval. Treat external providers (for example Buildkite) as out of scope and report only the details URL. | [目录](./gh-fix-ci/) | [SKILL.md](./gh-fix-ci/SKILL.md) |
+| `gh-fix-ci` | 用于gh、修复、CI，支持工程协作、自动化验证和交付闭环。 | [目录](./gh-fix-ci/) | [SKILL.md](./gh-fix-ci/SKILL.md) |
 | `github` | 用于通过 GitHub CLI 自动化 Issue、PR、Review、CI 检查、标签和发布协作。 | [目录](./github/) | [SKILL.md](./github/SKILL.md) |
-| `gsd-graphify-brownfield-bootstrap` | Bootstrap GSD + graphify for an existing brownfield repo when the project needs a single canonical workflow for local runtime setup, graph refresh, and manually seeded .planning/ context without depending on interactive GSD init. | [目录](./gsd-graphify-brownfield-bootstrap/) | [SKILL.md](./gsd-graphify-brownfield-bootstrap/SKILL.md) |
-| `guardian` | Gatekeeping Git/PR by classifying change essence and recommending granularity, naming, and strategy. Use when PR preparation or commit strategy is needed. | [目录](./guardian/) | [SKILL.md](./guardian/SKILL.md) |
-| `harvest` | Collecting GitHub PR data and generating work reports. Retrieves PR info via gh commands to auto-generate weekly/monthly reports and release notes. Use when work reporting or PR analysis is needed. | [目录](./harvest/) | [SKILL.md](./harvest/SKILL.md) |
-| `hermes-graphify-gsd-project-integration` | Use when integrating Hermes Agent, graphify, and GSD into a specific repository, especially for adding project-local graph refresh scripts, AGENTS.md guidance, README workflow docs, gitignore entries, and a brownfield-friendly planning loop without modifying upstream tool repositories. | [目录](./hermes-graphify-gsd-project-integration/) | [SKILL.md](./hermes-graphify-gsd-project-integration/SKILL.md) |
-| `jupyter-notebook` | Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) for experiments, explorations, or tutorials; prefer the bundled templates and run the helper script `new_notebook.py` to generate a clean starting notebook. | [目录](./jupyter-notebook/) | [SKILL.md](./jupyter-notebook/SKILL.md) |
-| `latch` | Proposing, configuring, debugging, and maintaining Claude Code hooks (PreToolUse/PostToolUse/Stop and other lifecycle events). Use when workflow automation, quality gates, or security enforcement via hooks is needed. | [目录](./latch/) | [SKILL.md](./latch/SKILL.md) |
-| `playwright` | Use when the task requires automating a real browser from the terminal (navigation, form filling, snapshots, screenshots, data extraction, UI-flow debugging) via `playwright-cli` or the bundled wrapper script. | [目录](./playwright/) | [SKILL.md](./playwright/SKILL.md) |
-| `playwright-pro` | Production-grade Playwright testing skill for E2E suites, flaky test diagnosis, browser automation, migration from Cypress/Selenium, CI integration, visual checks, and regression validation. | [目录](./playwright-pro/) | [SKILL.md](./playwright-pro/SKILL.md) |
+| `gsd-graphify-brownfield-bootstrap` | 用于gsd、Graphify、brownfield、启动，支持工程协作、自动化验证和交付闭环。 | [目录](./gsd-graphify-brownfield-bootstrap/) | [SKILL.md](./gsd-graphify-brownfield-bootstrap/SKILL.md) |
+| `guardian` | 用于guardian，支持工程协作、自动化验证和交付闭环。 | [目录](./guardian/) | [SKILL.md](./guardian/SKILL.md) |
+| `harvest` | 用于harvest，支持工程协作、自动化验证和交付闭环。 | [目录](./harvest/) | [SKILL.md](./harvest/SKILL.md) |
+| `hermes-graphify-gsd-project-integration` | 用于hermes、Graphify、gsd、project、集成，支持工程协作、自动化验证和交付闭环。 | [目录](./hermes-graphify-gsd-project-integration/) | [SKILL.md](./hermes-graphify-gsd-project-integration/SKILL.md) |
+| `jupyter-notebook` | 用于Jupyter、Notebook，支持工程协作、自动化验证和交付闭环。 | [目录](./jupyter-notebook/) | [SKILL.md](./jupyter-notebook/SKILL.md) |
+| `latch` | 用于latch，支持工程协作、自动化验证和交付闭环。 | [目录](./latch/) | [SKILL.md](./latch/SKILL.md) |
+| `playwright` | 用于使用 Playwright 编写、运行和调试端到端测试。 | [目录](./playwright/) | [SKILL.md](./playwright/SKILL.md) |
+| `playwright-pro` | 用于高级 Playwright 测试、诊断、稳定性和浏览器自动化。 | [目录](./playwright-pro/) | [SKILL.md](./playwright-pro/SKILL.md) |
 | `web-scraper` | 用于网页抓取、结构化数据提取、爬取策略、选择器设计和反爬应对。 | [目录](./web-scraper/) | [SKILL.md](./web-scraper/SKILL.md) |
-| `yeet` | Use only when the user explicitly asks to stage, commit, push, and open a GitHub pull request in one flow using the GitHub CLI (`gh`). | [目录](./yeet/) | [SKILL.md](./yeet/SKILL.md) |
+| `yeet` | 用于yeet，支持工程协作、自动化验证和交付闭环。 | [目录](./yeet/) | [SKILL.md](./yeet/SKILL.md) |
 
 ## 维护方式
 

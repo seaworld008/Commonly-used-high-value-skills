@@ -1,6 +1,7 @@
 ---
 name: using-superpowers
 description: 'Use when starting any conversation - establishes how to find and use skills, requiring skill invocation before ANY response including clarifying questions'
+zh_description: "用于使用 Superpowers 工作流提升计划、执行和验证质量。"
 version: "1.0.2"
 author: "seaworld008"
 source: "in-house"

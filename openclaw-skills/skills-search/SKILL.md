@@ -1,6 +1,7 @@
 ---
 name: skills-search
 description: 'This skill should be used when users want to search, discover, install, or manage Claude Code skills from the CCPM registry. Triggers include requests like "find skills for PDF", "search for code review skills", "install cloudflare-troubleshooting", "list my installed skills", "what does skill-creator do", or any mention of finding/installing/managing Claude Code skills or plugins.'
+zh_description: "用于技能、搜索，支持任务规划、执行、评审和验证。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

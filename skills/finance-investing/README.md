@@ -8,31 +8,31 @@
 
 ## 推荐先看
 
-- [comps-valuation-analyst](./comps-valuation-analyst/) - Use when valuing a public company with peer multiples, building comparable-company tables, or pressure-testing a valuation range with EV/EBITDA, P/E, and EV/Sales.
+- [comps-valuation-analyst](./comps-valuation-analyst/) - 用于可比公司、估值、分析，支持投资研究、风险评估和报告生成。
 - [earnings-call-analyzer](./earnings-call-analyzer/) - 用于摘要财报电话会、提取管理层语气变化、业绩指引措辞和投资者更新。
-- [event-driven-tracker](./event-driven-tracker/) - Use when tracking earnings, product launches, M&A, dividends, buybacks, unlocks, or other market-moving dates that need a prioritized event calendar.
-- [factor-backtester](./factor-backtester/) - Use when testing factor signals, running long-short spread backtests, checking hit rate and turnover, or sanity-checking whether a ranking signal survives basic transaction cost assumptions.
+- [event-driven-tracker](./event-driven-tracker/) - 用于event、驱动、跟踪，支持投资研究、风险评估和报告生成。
+- [factor-backtester](./factor-backtester/) - 用于factor、回测，支持投资研究、风险评估和报告生成。
 
 ## 技能总览
 
 | 技能 | 简介 | 目录 | 详情 |
 |------|------|------|------|
-| `comps-valuation-analyst` | Use when valuing a public company with peer multiples, building comparable-company tables, or pressure-testing a valuation range with EV/EBITDA, P/E, and EV/Sales. | [目录](./comps-valuation-analyst/) | [SKILL.md](./comps-valuation-analyst/SKILL.md) |
+| `comps-valuation-analyst` | 用于可比公司、估值、分析，支持投资研究、风险评估和报告生成。 | [目录](./comps-valuation-analyst/) | [SKILL.md](./comps-valuation-analyst/SKILL.md) |
 | `earnings-call-analyzer` | 用于摘要财报电话会、提取管理层语气变化、业绩指引措辞和投资者更新。 | [目录](./earnings-call-analyzer/) | [SKILL.md](./earnings-call-analyzer/SKILL.md) |
-| `event-driven-tracker` | Use when tracking earnings, product launches, M&A, dividends, buybacks, unlocks, or other market-moving dates that need a prioritized event calendar. | [目录](./event-driven-tracker/) | [SKILL.md](./event-driven-tracker/SKILL.md) |
-| `factor-backtester` | Use when testing factor signals, running long-short spread backtests, checking hit rate and turnover, or sanity-checking whether a ranking signal survives basic transaction cost assumptions. | [目录](./factor-backtester/) | [SKILL.md](./factor-backtester/SKILL.md) |
-| `financial-analyst` | Performs financial ratio analysis, DCF valuation, budget variance analysis, and rolling forecast construction for strategic decision-making | [目录](./financial-analyst/) | [SKILL.md](./financial-analyst/SKILL.md) |
-| `financial-data-collector` | Use when collecting financial data for a US public company, assembling DCF inputs, pulling market and filing facts, or grounding downstream analysis in structured yfinance and SEC data. | [目录](./financial-data-collector/) | [SKILL.md](./financial-data-collector/SKILL.md) |
-| `helm` | Simulating business strategy via short/mid/long-term scenario planning from financial, market, and competitive data. Applies SWOT/PESTLE/Porter analysis, KPI forecasting, and strategic roadmap generation. Does not write code. | [目录](./helm/) | [SKILL.md](./helm/SKILL.md) |
-| `investment-memo-writer` | Use when turning research notes into an investment memo, writing a buy or sell thesis, or structuring catalysts, risks, and monitoring items for an IC-style document. | [目录](./investment-memo-writer/) | [SKILL.md](./investment-memo-writer/SKILL.md) |
-| `ledger` | Optimizing FinOps and cloud costs. Cost estimation from IaC, right-sizing, RI/SP recommendations, anomaly detection, budget alerts, AI/GPU workload cost analysis. Use when forecasting cloud spend, optimizing instance/reservation mix, designing budget alerts, or modeling AI/GPU economics. | [目录](./ledger/) | [SKILL.md](./ledger/SKILL.md) |
-| `levy` | Domain knowledge agent for Japanese income tax filing (kakutei shinkoku). Guides income classification, deduction optimization, tax calculation, and filing for freelancers, sole proprietors, and side-business earners. Does not write code. | [目录](./levy/) | [SKILL.md](./levy/SKILL.md) |
-| `macro-regime-monitor` | Use when tracking macro regime shifts, summarizing inflation, growth, spreads, and liquidity signals, or creating a house view before updating sector or asset-allocation calls. | [目录](./macro-regime-monitor/) | [SKILL.md](./macro-regime-monitor/SKILL.md) |
-| `options-strategy-evaluator` | Use when evaluating an options structure, checking expiry payoff checkpoints, comparing premium outlay versus downside protection, or preparing a short strategy note for a trade review. | [目录](./options-strategy-evaluator/) | [SKILL.md](./options-strategy-evaluator/SKILL.md) |
-| `portfolio-risk-manager` | Use when reviewing portfolio exposures, checking concentration and beta risk, summarizing sector or region tilts, or preparing a risk note before reallocating capital. | [目录](./portfolio-risk-manager/) | [SKILL.md](./portfolio-risk-manager/SKILL.md) |
-| `saas-metrics-coach` | SaaS financial health advisor. Use when a user shares revenue or customer numbers, or mentions ARR, MRR, churn, LTV, CAC, NRR, or asks how their SaaS business is doing. | [目录](./saas-metrics-coach/) | [SKILL.md](./saas-metrics-coach/SKILL.md) |
-| `sec-filing-reviewer` | Use when reviewing SEC filings, extracting material risk disclosures, scanning 10-K or 10-Q sections, or building a follow-up checklist from filing language. | [目录](./sec-filing-reviewer/) | [SKILL.md](./sec-filing-reviewer/SKILL.md) |
-| `stock-screener-builder` | Use when building a stock screen, filtering a universe by valuation, growth, quality, or momentum rules, or creating a repeatable shortlist for deeper research. | [目录](./stock-screener-builder/) | [SKILL.md](./stock-screener-builder/SKILL.md) |
+| `event-driven-tracker` | 用于event、驱动、跟踪，支持投资研究、风险评估和报告生成。 | [目录](./event-driven-tracker/) | [SKILL.md](./event-driven-tracker/SKILL.md) |
+| `factor-backtester` | 用于factor、回测，支持投资研究、风险评估和报告生成。 | [目录](./factor-backtester/) | [SKILL.md](./factor-backtester/SKILL.md) |
+| `financial-analyst` | 用于金融、分析，支持投资研究、风险评估和报告生成。 | [目录](./financial-analyst/) | [SKILL.md](./financial-analyst/SKILL.md) |
+| `financial-data-collector` | 用于收集股票、财报、宏观和市场数据并生成分析输入。 | [目录](./financial-data-collector/) | [SKILL.md](./financial-data-collector/SKILL.md) |
+| `helm` | 用于helm，支持投资研究、风险评估和报告生成。 | [目录](./helm/) | [SKILL.md](./helm/SKILL.md) |
+| `investment-memo-writer` | 用于投资、memo、writer，支持投资研究、风险评估和报告生成。 | [目录](./investment-memo-writer/) | [SKILL.md](./investment-memo-writer/SKILL.md) |
+| `ledger` | 用于ledger，支持投资研究、风险评估和报告生成。 | [目录](./ledger/) | [SKILL.md](./ledger/SKILL.md) |
+| `levy` | 用于levy，支持投资研究、风险评估和报告生成。 | [目录](./levy/) | [SKILL.md](./levy/SKILL.md) |
+| `macro-regime-monitor` | 用于macro、regime、monitor，支持投资研究、风险评估和报告生成。 | [目录](./macro-regime-monitor/) | [SKILL.md](./macro-regime-monitor/SKILL.md) |
+| `options-strategy-evaluator` | 用于options、策略、评估，支持投资研究、风险评估和报告生成。 | [目录](./options-strategy-evaluator/) | [SKILL.md](./options-strategy-evaluator/SKILL.md) |
+| `portfolio-risk-manager` | 用于投资组合风险分析、仓位约束和风险报告生成。 | [目录](./portfolio-risk-manager/) | [SKILL.md](./portfolio-risk-manager/SKILL.md) |
+| `saas-metrics-coach` | 用于saas、metrics、教练，支持投资研究、风险评估和报告生成。 | [目录](./saas-metrics-coach/) | [SKILL.md](./saas-metrics-coach/SKILL.md) |
+| `sec-filing-reviewer` | 用于sec、申报文件、评审，支持投资研究、风险评估和报告生成。 | [目录](./sec-filing-reviewer/) | [SKILL.md](./sec-filing-reviewer/SKILL.md) |
+| `stock-screener-builder` | 用于stock、screener、构建，支持投资研究、风险评估和报告生成。 | [目录](./stock-screener-builder/) | [SKILL.md](./stock-screener-builder/SKILL.md) |
 
 ## 维护方式
 

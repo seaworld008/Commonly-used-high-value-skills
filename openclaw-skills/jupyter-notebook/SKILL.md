@@ -1,6 +1,7 @@
 ---
 name: jupyter-notebook
 description: 'Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) for experiments, explorations, or tutorials; prefer the bundled templates and run the helper script `new_notebook.py` to generate a clean starting notebook.'
+zh_description: "用于Jupyter、Notebook，支持工程协作、自动化验证和交付闭环。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

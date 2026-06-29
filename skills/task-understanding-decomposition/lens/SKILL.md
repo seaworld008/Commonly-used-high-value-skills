@@ -1,6 +1,7 @@
 ---
 name: lens
 description: 'Comprehending and investigating codebases. Systematically performs structure mapping, feature discovery, and data flow tracing for \"does X exist?\", \"how does Y work?\", or \"what is this module''s responsibility?\". Includes a conversational Q&A mode (\"ask\") for navigator-style, multi-turn questions about a project. Does not write code.'
+zh_description: "用于lens，支持检索、拆解、反思和决策。"
 version: "1.0.7"
 author: "seaworld008"
 source: "github:simota/agent-skills"

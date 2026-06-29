@@ -1,6 +1,7 @@
 ---
 name: grove
 description: 'Designing, optimizing, and auditing repository structure. Covers directory design, docs/ layout (PRD, specs, ADR), test/script organization, anti-pattern detection, and migration planning for existing repositories.'
+zh_description: "用于grove，支持知识管理、项目同步和平台集成。"
 version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"

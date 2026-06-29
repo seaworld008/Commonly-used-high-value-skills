@@ -1,6 +1,7 @@
 ---
 name: comps-valuation-analyst
 description: 'Use when valuing a public company with peer multiples, building comparable-company tables, or pressure-testing a valuation range with EV/EBITDA, P/E, and EV/Sales.'
+zh_description: "用于可比公司、估值、分析，支持投资研究、风险评估和报告生成。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

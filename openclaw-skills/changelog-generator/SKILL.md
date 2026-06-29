@@ -1,6 +1,7 @@
 ---
 name: changelog-generator
 description: 'Parse conventional commits, determine semantic version bumps, and generate structured changelogs in Keep a Changelog format. Supports monorepo changelogs, GitHub Releases integration, and separates user-facing from developer changelogs.'
+zh_description: "用于changelog、生成，支持部署、监控、排障和发布管理。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

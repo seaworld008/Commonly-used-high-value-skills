@@ -1,6 +1,7 @@
 ---
 name: lark-shared
 description: 'Use when first setting up lark-cli, running auth login, switching user/bot identity (--as), handling permission denied or scope errors, needing to update lark-cli, or seeing _notice in JSON output.'
+zh_description: "用于lark、shared，支持知识管理、项目同步和平台集成。"
 version: "1.0.4"
 author: larksuite
 source: "github:larksuite/cli"

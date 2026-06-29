@@ -1,6 +1,7 @@
 ---
 name: hermes-graphify-gsd-project-integration
 description: 'Use when integrating Hermes Agent, graphify, and GSD into a specific repository, especially for adding project-local graph refresh scripts, AGENTS.md guidance, README workflow docs, gitignore entries, and a brownfield-friendly planning loop without modifying upstream tool repositories.'
+zh_description: "用于hermes、Graphify、gsd、project、集成，支持工程协作、自动化验证和交付闭环。"
 version: "1.4.0"
 author: Hermes Agent
 source: "in-house"

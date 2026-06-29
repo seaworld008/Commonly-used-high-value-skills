@@ -1,6 +1,7 @@
 ---
 name: voice
 description: 'Collecting user feedback via NPS surveys, review analysis, sentiment analysis, feedback classification, and insight extraction reports. Use when establishing feedback loops.'
+zh_description: "用于voice，支持产品研究、策略、界面和交付协作。"
 version: "1.0.7"
 author: "seaworld008"
 source: "github:simota/agent-skills"

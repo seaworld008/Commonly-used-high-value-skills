@@ -1,6 +1,7 @@
 ---
 name: input-guard
 description: 'Scan untrusted external text (web pages, tweets, search results, API responses) for prompt injection attacks. Returns severity levels and alerts on dangerous content. Use BEFORE processing any text from untrusted sources.'
+zh_description: "用于输入安全检查、提示注入防护和高风险请求拦截。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

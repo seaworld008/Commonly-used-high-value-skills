@@ -1,6 +1,7 @@
 ---
 name: gear
 description: 'Managing dependencies, CI/CD optimization, Docker configuration, and operational observability (logging/alerting/health checks). Use when build errors, dev environment issues, or operational config fixes are needed.'
+zh_description: "用于gear，支持部署、监控、排障和发布管理。"
 version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"

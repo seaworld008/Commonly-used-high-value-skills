@@ -1,6 +1,7 @@
 ---
 name: code-review-and-quality
 description: 'Conducts multi-axis code review. Use before merging any change. Use when reviewing code written by yourself, another agent, or a human. Use when you need to assess code quality across multiple dimensions before it enters the main branch.'
+zh_description: "用于代码、评审、质量，支持任务规划、执行、评审和验证。"
 version: "1.0.2"
 author: addyosmani
 source: "github:addyosmani/agent-skills"

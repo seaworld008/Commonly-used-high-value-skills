@@ -1,6 +1,7 @@
 ---
 name: crest
 description: 'Building engineer self-branding by transforming technical contributions into a professional brand. Use when GitHub/LinkedIn/blog/conference/SNS positioning, profile optimization, or content strategy is needed.'
+zh_description: "用于crest，支持信息整理、沟通和执行管理。"
 version: "1.0.6"
 author: "seaworld008"
 source: "github:simota/agent-skills"

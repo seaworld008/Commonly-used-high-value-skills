@@ -1,6 +1,7 @@
 ---
 name: osv-scanner
 description: '用于通过 OSV-Scanner 检查锁文件、清单、SBOM、Git 历史和源码树中的开源依赖漏洞。'
+zh_description: "用于通过 OSV-Scanner 检查锁文件、清单、SBOM、Git 历史和源码树中的开源依赖漏洞。"
 version: "1.0.0"
 author: seaworld008
 source: "in-house"

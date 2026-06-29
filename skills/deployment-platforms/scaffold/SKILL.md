@@ -1,6 +1,7 @@
 ---
 name: scaffold
 description: 'Provisioning infrastructure via cloud IaC (Terraform/OpenTofu/CloudFormation/Pulumi) and local development environments (Docker Compose/dev setup/env vars). Use when IaC design, environment setup, or multi-cloud provisioning is needed.'
+zh_description: "用于scaffold，支持部署发布、配置、预览和故障处理。"
 version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"

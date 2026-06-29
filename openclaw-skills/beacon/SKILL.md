@@ -1,6 +1,7 @@
 ---
 name: beacon
 description: 'Engineering observability and reliability through SLO/SLI design, distributed tracing, alerting, dashboards, capacity planning, toil automation, and reliability review. Use when designing observability instrumentation, defining SLOs/SLIs, building dashboards/alerts, or reviewing reliability posture.'
+zh_description: "用于beacon，支持部署、监控、排障和发布管理。"
 version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"

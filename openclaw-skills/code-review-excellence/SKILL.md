@@ -1,6 +1,7 @@
 ---
 name: code-review-excellence
 description: 'Master effective code review practices to provide constructive feedback, catch bugs early, and foster knowledge sharing while maintaining team morale. Use when reviewing pull requests, establishing review standards, or mentoring developers.'
+zh_description: "用于代码、评审、excellence，支持开发、调试、评审和交付。"
 version: 1.0.0
 author: "seaworld008"
 source: "in-house"

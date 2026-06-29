@@ -1,6 +1,7 @@
 ---
 name: nexus
 description: 'Orchestrating specialist AI agent teams as a meta-coordinator. Decomposes requests into minimum viable chains, spawns each as an independent session in AUTORUN modes, and drives to final output. Use when a task spans multiple specialist domains, requires parallel agent execution, or needs hub-and-spoke routing across the skill ecosystem.'
+zh_description: "用于nexus，支持任务规划、执行、评审和验证。"
 version: "1.0.11"
 author: "seaworld008"
 source: "github:simota/agent-skills"

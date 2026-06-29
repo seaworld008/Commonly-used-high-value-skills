@@ -1,6 +1,7 @@
 ---
 name: repomix-safe-mixer
 description: 'Safely package codebases with repomix by automatically detecting and removing hardcoded credentials before packing. Use when packaging code for distribution, creating reference packages, or when the user mentions security concerns about sharing code with repomix.'
+zh_description: "用于repomix、safe、mixer，支持开发、调试、评审和交付。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

@@ -1,6 +1,7 @@
 ---
 name: test-driven-development
 description: 'Drives development with tests. Use when implementing any logic, fixing any bug, or changing any behavior. Use when you need to prove that code works, when a bug report arrives, or when you''re about to modify existing functionality.'
+zh_description: "用于测试、驱动、development，支持任务规划、执行、评审和验证。"
 version: "1.0.1"
 author: addyosmani
 source: "github:addyosmani/agent-skills"

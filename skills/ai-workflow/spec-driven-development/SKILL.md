@@ -1,6 +1,7 @@
 ---
 name: spec-driven-development
 description: 'Creates specs before coding. Use when starting a new project, feature, or significant change and no specification exists yet. Use when requirements are unclear, ambiguous, or only exist as a vague idea.'
+zh_description: "用于spec、驱动、development，支持任务规划、执行、评审和验证。"
 version: "1.0.2"
 author: addyosmani
 source: "github:addyosmani/agent-skills"

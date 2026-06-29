@@ -1,6 +1,7 @@
 ---
 name: latch
 description: 'Proposing, configuring, debugging, and maintaining Claude Code hooks (PreToolUse/PostToolUse/Stop and other lifecycle events). Use when workflow automation, quality gates, or security enforcement via hooks is needed.'
+zh_description: "用于latch，支持工程协作、自动化验证和交付闭环。"
 version: "1.0.8"
 author: "seaworld008"
 source: "github:simota/agent-skills"

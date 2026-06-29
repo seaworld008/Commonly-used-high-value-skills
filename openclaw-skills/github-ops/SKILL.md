@@ -1,6 +1,7 @@
 ---
 name: github-ops
 description: 'Provides comprehensive GitHub operations using gh CLI and GitHub API. Activates when working with pull requests, issues, repositories, workflows, or GitHub API operations including creating/viewing/merging PRs, managing issues, querying API endpoints, and handling GitHub workflows in enterprise or public GitHub environments.'
+zh_description: "用于 GitHub 运维、仓库管理、PR/Issue 流程和自动化协作。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

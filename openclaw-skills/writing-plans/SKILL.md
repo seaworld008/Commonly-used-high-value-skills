@@ -1,6 +1,7 @@
 ---
 name: writing-plans
 description: 'Use when you have a spec or requirements for a multi-step task, before touching code'
+zh_description: "用于writing、plans，支持任务规划、执行、评审和验证。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

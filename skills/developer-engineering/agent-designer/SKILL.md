@@ -1,6 +1,7 @@
 ---
 name: agent-designer
 description: 'Tags: AI agents, architecture, system design, orchestration, multi-agent systems.'
+zh_description: "用于Agent、设计，支持开发、调试、评审和交付。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

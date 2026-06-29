@@ -1,6 +1,7 @@
 ---
 name: growth
 description: 'Optimizing SEO (meta/OGP/JSON-LD/heading hierarchy), SMO (social sharing), CRO (CTA/form/exit-intent), and GEO (AI citation optimization) across four pillars. Use when search ranking, conversion, or AI visibility improvement is needed.'
+zh_description: "用于增长，支持内容、营销、渠道和数据分析。"
 version: "1.0.6"
 author: "seaworld008"
 source: "github:simota/agent-skills"

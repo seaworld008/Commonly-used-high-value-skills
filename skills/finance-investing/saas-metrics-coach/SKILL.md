@@ -1,6 +1,7 @@
 ---
 name: saas-metrics-coach
 description: 'SaaS financial health advisor. Use when a user shares revenue or customer numbers, or mentions ARR, MRR, churn, LTV, CAC, NRR, or asks how their SaaS business is doing.'
+zh_description: "用于saas、metrics、教练，支持投资研究、风险评估和报告生成。"
 version: "1.0.1"
 author: "seaworld008"
 source: "github:alirezarezvani/claude-skills"

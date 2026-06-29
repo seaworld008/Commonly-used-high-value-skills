@@ -1,6 +1,7 @@
 ---
 name: reflect-learn
 description: 'Self-improvement through conversation analysis. Extracts learnings from corrections and success patterns, proposes updates to agent files or creates new skills. Philosophy: "Correct once, never again." Use when: (1) User explicitly corrects behavior ("never do X", "always Y"), (2) Session ending or context compaction, (3) User requests /reflect, (4) Successful pattern worth preserving.'
+zh_description: "用于reflect、learn，支持检索、拆解、反思和决策。"
 version: 2.0.0
 author: Claude Code Toolkit
 source: "in-house"

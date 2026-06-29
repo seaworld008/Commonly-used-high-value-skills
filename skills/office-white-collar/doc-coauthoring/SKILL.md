@@ -1,6 +1,7 @@
 ---
 name: doc-coauthoring
 description: 'Guide users through a structured workflow for co-authoring documentation. Use when user wants to write documentation, proposals, technical specs, decision docs, or similar structured content. This workflow helps users efficiently transfer context, refine content through iteration, and verify the doc works for readers. Trigger when user mentions writing docs, creating proposals, drafting specs, or similar documentation tasks.'
+zh_description: "用于文档、coauthoring，支持文档、表格、演示和资料整理。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

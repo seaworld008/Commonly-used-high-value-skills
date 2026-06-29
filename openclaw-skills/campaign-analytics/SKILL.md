@@ -1,6 +1,7 @@
 ---
 name: campaign-analytics
 description: 'Analyzes campaign performance with multi-touch attribution, funnel conversion, and ROI calculation for marketing optimization'
+zh_description: "用于活动、分析，支持内容、营销、渠道和数据分析。"
 version: 1.0.0
 author: Alireza Rezvani
 source: "in-house"

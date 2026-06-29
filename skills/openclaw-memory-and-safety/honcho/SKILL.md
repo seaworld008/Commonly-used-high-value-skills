@@ -1,6 +1,7 @@
 ---
 name: honcho
 description: 'Configure and use Honcho memory with Hermes -- cross-session user modeling, multi-profile peer isolation, observation config, dialectic reasoning, session summaries, and context budget enforcement. Use when setting up Honcho, troubleshooting memory, managing profiles with Honcho peers, or tuning observation, recall, and dialectic settings.'
+zh_description: "用于管理 Agent 记忆、运行状态、协作上下文和安全边界。"
 version: "1.0.2"
 author: Hermes Agent
 source: "in-house"
