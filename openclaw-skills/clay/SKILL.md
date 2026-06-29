@@ -1,6 +1,7 @@
 ---
 name: clay
 description: 'AI 3D model generation agent. Generates text-to-3D and image-to-3D code (Python/JS/OpenSCAD) using Meshy, Tripo, Hunyuan3D, Rodin, Sloyd, and Stability APIs. Handles game pipeline integration, LOD, retopology, UV, and QC validation.'
+zh_description: "用于clay，支持内容生成、编辑、分析和交付。"
 version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"

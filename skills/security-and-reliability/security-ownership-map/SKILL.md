@@ -1,6 +1,7 @@
 ---
 name: security-ownership-map
 description: '用于基于 Git 历史分析安全所有权、敏感代码归属、bus factor、CODEOWNERS 现实差距和风险热点。'
+zh_description: "用于基于 Git 历史分析安全所有权、敏感代码归属、bus factor、CODEOWNERS 现实差距和风险热点。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

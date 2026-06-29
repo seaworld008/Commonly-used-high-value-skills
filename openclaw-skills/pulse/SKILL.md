@@ -1,6 +1,7 @@
 ---
 name: pulse
 description: 'Defining KPIs, designing tracking events, and specifying dashboards. Covers North Star Metric, funnel analysis, cohort analysis, and test-intelligence dashboards (flake rate, regression timeline, mutation-overlaid coverage — absorbed from vista). GA4/Amplitude/Mixpanel/PostHog integration. Use when metrics or test-telemetry dashboards are needed.'
+zh_description: "用于pulse，支持内容、营销、渠道和数据分析。"
 version: "1.0.6"
 author: "seaworld008"
 source: "github:simota/agent-skills"

@@ -1,6 +1,7 @@
 ---
 name: incremental-implementation
 description: 'Delivers changes incrementally. Use when implementing any feature or change that touches more than one file. Use when you''re about to write a large amount of code at once, or when a task feels too big to land in one step.'
+zh_description: "用于incremental、实现，支持任务规划、执行、评审和验证。"
 version: "1.0.2"
 author: addyosmani
 source: "github:addyosmani/agent-skills"

@@ -1,6 +1,7 @@
 ---
 name: cloudflare-deploy
 description: 'Deploy applications and infrastructure to Cloudflare using Workers, Pages, and related platform services. Use when the user asks to deploy, host, publish, or set up a project on Cloudflare.'
+zh_description: "用于将应用部署到 Cloudflare 并处理相关发布流程。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

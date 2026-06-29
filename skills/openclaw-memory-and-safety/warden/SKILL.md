@@ -1,6 +1,7 @@
 ---
 name: warden
 description: 'Guardian of V.A.I.R.E. quality standards (Value/Agency/Identity/Resilience/Echo). Handles pre-release evaluation, scorecard assessment, and pass/fail determination. Use when UX quality gates are needed. Does not write code.'
+zh_description: "用于warden，支持记忆管理、安全防护和运行治理。"
 version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"

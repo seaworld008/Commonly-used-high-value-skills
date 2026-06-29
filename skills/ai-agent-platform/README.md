@@ -8,10 +8,10 @@
 
 ## 推荐先看
 
-- [develop-web-game](./develop-web-game/) - Use when Codex is building or iterating on a web game (HTML/JS) and needs a reliable development + testing loop: implement small changes, run a Playwright-based test script with short input bursts and intentional pauses, inspect screenshots/text, and review console errors with render_game_to_text.
-- [chatgpt-apps](./chatgpt-apps/) - Build, scaffold, refactor, and troubleshoot ChatGPT Apps SDK applications that combine an MCP server and widget UI. Use when Codex needs to design tools, register UI resources, wire the MCP Apps bridge or ChatGPT compatibility APIs, apply Apps SDK metadata or CSP or domain settings, or produce a docs-aligned project scaffold. Prefer a docs-first workflow by invoking the openai-docs skill or OpenAI developer docs MCP tools before generating code.
-- [figma](./figma/) - Use the Figma MCP server to fetch design context, screenshots, variables, and assets from Figma, and to translate Figma nodes into production code. Trigger when a task involves Figma URLs, node IDs, design-to-code implementation, or Figma MCP setup and troubleshooting.
-- [arena](./arena/) - Specialist orchestrating codex exec / Antigravity CLI through dual paradigms — COMPETE (multi-variant comparison, select best) and COLLABORATE (decompose tasks across engines, integrate). Supports Solo/Team/Quick execution modes.
+- [develop-web-game](./develop-web-game/) - 用于开发网页游戏原型、玩法循环、交互逻辑和前端实现。
+- [chatgpt-apps](./chatgpt-apps/) - 用于设计、构建和调试 ChatGPT Apps 与相关集成能力。
+- [figma](./figma/) - 用于处理 Figma 设计读取、解析、交付和实现协作。
+- [arena](./arena/) - 用于构建和运行 Agent 竞技场、评测对战和能力比较流程。
 
 <a id="hermes-graphify-gsd-global-workflow"></a>
 ## Hermes + graphify + GSD 全局非侵入式工作流
@@ -101,22 +101,22 @@ gsd-sdk --version
 
 | 技能 | 简介 | 目录 | 详情 |
 |------|------|------|------|
-| `agent-hub` | Multi-agent collaboration plugin that spawns N parallel subagents competing on the same task via git worktree isolation. Agents work independently, results are evaluated by metric or LLM judge, and the best branch is merged. Use when: user wants multiple approaches tried in parallel — code optimization, content variation, research exploration, or any task that benefits from parallel competition. Requires: a git repo. | [目录](./agent-hub/) | [SKILL.md](./agent-hub/SKILL.md) |
-| `arena` | Specialist orchestrating codex exec / Antigravity CLI through dual paradigms — COMPETE (multi-variant comparison, select best) and COLLABORATE (decompose tasks across engines, integrate). Supports Solo/Team/Quick execution modes. | [目录](./arena/) | [SKILL.md](./arena/SKILL.md) |
-| `chatgpt-apps` | Build, scaffold, refactor, and troubleshoot ChatGPT Apps SDK applications that combine an MCP server and widget UI. Use when Codex needs to design tools, register UI resources, wire the MCP Apps bridge or ChatGPT compatibility APIs, apply Apps SDK metadata or CSP or domain settings, or produce a docs-aligned project scaffold. Prefer a docs-first workflow by invoking the openai-docs skill or OpenAI developer docs MCP tools before generating code. | [目录](./chatgpt-apps/) | [SKILL.md](./chatgpt-apps/SKILL.md) |
-| `develop-web-game` | Use when Codex is building or iterating on a web game (HTML/JS) and needs a reliable development + testing loop: implement small changes, run a Playwright-based test script with short input bursts and intentional pauses, inspect screenshots/text, and review console errors with render_game_to_text. | [目录](./develop-web-game/) | [SKILL.md](./develop-web-game/SKILL.md) |
-| `figma` | Use the Figma MCP server to fetch design context, screenshots, variables, and assets from Figma, and to translate Figma nodes into production code. Trigger when a task involves Figma URLs, node IDs, design-to-code implementation, or Figma MCP setup and troubleshooting. | [目录](./figma/) | [SKILL.md](./figma/SKILL.md) |
-| `figma-implement-design` | Translate Figma nodes into production-ready code with 1:1 visual fidelity using the Figma MCP workflow (design context, screenshots, assets, and project-convention translation). Trigger when the user provides Figma URLs or node IDs, or asks to implement designs or components that must match Figma specs. Requires a working Figma MCP server connection. | [目录](./figma-implement-design/) | [SKILL.md](./figma-implement-design/SKILL.md) |
+| `agent-hub` | 用于管理 Agent 能力中心、技能发现、路由和协作工作流。 | [目录](./agent-hub/) | [SKILL.md](./agent-hub/SKILL.md) |
+| `arena` | 用于构建和运行 Agent 竞技场、评测对战和能力比较流程。 | [目录](./arena/) | [SKILL.md](./arena/SKILL.md) |
+| `chatgpt-apps` | 用于设计、构建和调试 ChatGPT Apps 与相关集成能力。 | [目录](./chatgpt-apps/) | [SKILL.md](./chatgpt-apps/SKILL.md) |
+| `develop-web-game` | 用于开发网页游戏原型、玩法循环、交互逻辑和前端实现。 | [目录](./develop-web-game/) | [SKILL.md](./develop-web-game/SKILL.md) |
+| `figma` | 用于处理 Figma 设计读取、解析、交付和实现协作。 | [目录](./figma/) | [SKILL.md](./figma/SKILL.md) |
+| `figma-implement-design` | 用于将 Figma 设计转化为可实现的前端界面和组件。 | [目录](./figma-implement-design/) | [SKILL.md](./figma-implement-design/SKILL.md) |
 | `hermes-agent` | 用于配置、扩展、调试和贡献 Hermes Agent，包括多 Agent、CLI 和网关工作流。 | [目录](./hermes-agent/) | [SKILL.md](./hermes-agent/SKILL.md) |
-| `hermes-graphify-gsd-nonintrusive-workflow` | Use when integrating Hermes Agent, graphify, and GSD into a local development workflow without modifying upstream repositories, especially when the user wants upgrade-safe wrappers, project-level workflow scripts, graph-aware planning, and a reusable setup that survives future upstream updates. | [目录](./hermes-graphify-gsd-nonintrusive-workflow/) | [SKILL.md](./hermes-graphify-gsd-nonintrusive-workflow/SKILL.md) |
-| `hermes-graphify-gsd-runtime-operator` | Use when operating or debugging a repo-local Hermes + graphify + GSD autonomous runtime, especially when checking writer ownership, execution-surface eligibility, handoff/blocked state, stale cron or lease metadata, and whether the main project repo is still the only recommended writer surface. | [目录](./hermes-graphify-gsd-runtime-operator/) | [SKILL.md](./hermes-graphify-gsd-runtime-operator/SKILL.md) |
+| `hermes-graphify-gsd-nonintrusive-workflow` | 用于hermes、Graphify、gsd、nonintrusive、工作流，支持 Agent 平台编排、集成和运行管理。 | [目录](./hermes-graphify-gsd-nonintrusive-workflow/) | [SKILL.md](./hermes-graphify-gsd-nonintrusive-workflow/SKILL.md) |
+| `hermes-graphify-gsd-runtime-operator` | 用于hermes、Graphify、gsd、runtime、operator，支持 Agent 平台编排、集成和运行管理。 | [目录](./hermes-graphify-gsd-runtime-operator/) | [SKILL.md](./hermes-graphify-gsd-runtime-operator/SKILL.md) |
 | `mcporter` | 用于通过 mcporter CLI 列出、配置、鉴权和调用 MCP 服务器或工具。 | [目录](./mcporter/) | [SKILL.md](./mcporter/SKILL.md) |
-| `native-mcp` | Built-in MCP (Model Context Protocol) client that connects to external MCP servers, discovers their tools, and registers them as native Hermes Agent tools. Supports stdio and HTTP transports with automatic reconnection, security filtering, and zero-config tool injection. | [目录](./native-mcp/) | [SKILL.md](./native-mcp/SKILL.md) |
-| `openai-docs` | Use when the user asks how to build with OpenAI products or APIs and needs up-to-date official documentation with citations (for example: Codex, Responses API, Chat Completions, Apps SDK, Agents SDK, Realtime, model capabilities or limits); prioritize OpenAI docs MCP tools and restrict any fallback browsing to official OpenAI domains. | [目录](./openai-docs/) | [SKILL.md](./openai-docs/SKILL.md) |
-| `oracle` | Designing and evaluating AI/ML systems across prompt engineering, RAG design, LLM application patterns, AI safety, evaluation frameworks, MLOps, and cost optimization. Use when designing AI/ML pipelines, RAG architectures, prompt strategies, evaluation harnesses, or LLM cost models. | [目录](./oracle/) | [SKILL.md](./oracle/SKILL.md) |
+| `native-mcp` | 用于构建和调试原生 MCP 集成、服务器和工具调用流程。 | [目录](./native-mcp/) | [SKILL.md](./native-mcp/SKILL.md) |
+| `openai-docs` | 用于查阅和应用 OpenAI 官方文档、API 行为和集成指南。 | [目录](./openai-docs/) | [SKILL.md](./openai-docs/SKILL.md) |
+| `oracle` | 用于oracle，支持 Agent 平台编排、集成和运行管理。 | [目录](./oracle/) | [SKILL.md](./oracle/SKILL.md) |
 | `proactive-agent` | 用于让 Agent 主动规划、跟踪进展、暴露风险并提出下一步行动。 | [目录](./proactive-agent/) | [SKILL.md](./proactive-agent/SKILL.md) |
 | `self-improving-agent` | 用于构建具备记忆、反馈吸收和安全自我优化机制的持续改进型 Agent。 | [目录](./self-improving-agent/) | [SKILL.md](./self-improving-agent/SKILL.md) |
-| `sigil` | Generating, updating, auditing, and sync-repairing project-specific Claude Code skills. Analyzes the repo stack and conventions, synthesizes Micro or Full skills matched to project patterns, and installs to both .claude/skills/ and .agents/skills/. Use when authoring project-local skills. | [目录](./sigil/) | [SKILL.md](./sigil/SKILL.md) |
+| `sigil` | 用于sigil，支持 Agent 平台编排、集成和运行管理。 | [目录](./sigil/) | [SKILL.md](./sigil/SKILL.md) |
 
 ## 维护方式
 

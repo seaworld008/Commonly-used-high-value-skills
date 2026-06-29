@@ -1,6 +1,7 @@
 ---
 name: screenshot
 description: 'Use when the user explicitly asks for a desktop or system screenshot (full screen, specific app or window, or a pixel region), or when tool-specific capture capabilities are unavailable and an OS-level capture is needed.'
+zh_description: "用于截图、屏幕捕获、视觉核查和界面证据收集。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

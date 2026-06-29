@@ -1,6 +1,7 @@
 ---
 name: sketch
 description: 'Generating AI image-generation code using the Gemini API. Handles text-to-image generation, image editing, and prompt optimization. Use when image generation code is needed.'
+zh_description: "用于sketch，支持内容生成、编辑、分析和交付。"
 version: "1.0.6"
 author: "seaworld008"
 source: "github:simota/agent-skills"

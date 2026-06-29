@@ -1,6 +1,7 @@
 ---
 name: runbook-generator
 description: 'Analyze a codebase and generate production-grade operational runbooks. Detects your stack (CI/CD, database, hosting, containers), then produces step-by-step runbooks with copy-paste commands, verification checks, rollback procedures, escalation paths, and time estimates. Keeps runbooks fresh with staleness detection linked to config file modification dates.'
+zh_description: "用于runbook、生成，支持记忆管理、安全防护和运行治理。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

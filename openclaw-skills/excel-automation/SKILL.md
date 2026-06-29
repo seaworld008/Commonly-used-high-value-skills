@@ -1,6 +1,7 @@
 ---
 name: excel-automation
 description: 'Create, parse, and control Excel files on macOS. Professional formatting with openpyxl, complex xlsm parsing with stdlib zipfile+xml for investment bank financial models, and Excel window control via AppleScript. Use when creating formatted Excel reports, parsing financial models that openpyxl cannot handle, or automating Excel on macOS.'
+zh_description: "用于自动化 Excel 工作簿、公式、图表和数据处理。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

@@ -1,6 +1,7 @@
 ---
 name: options-strategy-evaluator
 description: 'Use when evaluating an options structure, checking expiry payoff checkpoints, comparing premium outlay versus downside protection, or preparing a short strategy note for a trade review.'
+zh_description: "用于options、策略、评估，支持投资研究、风险评估和报告生成。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

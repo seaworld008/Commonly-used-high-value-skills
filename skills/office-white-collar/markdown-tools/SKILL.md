@@ -1,6 +1,7 @@
 ---
 name: markdown-tools
 description: 'Converts documents to markdown with multi-tool orchestration for best quality. Supports Quick Mode (fast, single tool) and Heavy Mode (best quality, multi-tool merge). Use when converting PDF/DOCX/PPTX files to markdown, extracting images from documents, validating conversion quality, or needing LLM-optimized document output.'
+zh_description: "用于Markdown、tools，支持文档、表格、演示和资料整理。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

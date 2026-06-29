@@ -8,24 +8,24 @@
 
 ## 推荐先看
 
-- [imagegen](./imagegen/) - Use when the user asks to generate or edit images via the OpenAI Image API (for example: generate image, edit/inpaint/mask, background removal or replacement, transparent background, product shots, concept art, covers, or batch variants); run the bundled CLI (`scripts/image_gen.py`) and require `OPENAI_API_KEY` for live calls.
-- [sora](./sora/) - Use when the user asks to generate, remix, poll, list, download, or delete Sora videos via OpenAI\u2019s video API using the bundled CLI (`scripts/sora.py`), including requests like \u201cgenerate AI video,\u201d \u201cSora,\u201d \u201cvideo remix,\u201d \u201cdownload video/thumbnail/spritesheet,\u201d and batch video generation; requires `OPENAI_API_KEY` and Sora API access.
-- [speech](./speech/) - Use when the user asks for text-to-speech narration or voiceover, accessibility reads, audio prompts, or batch speech generation via the OpenAI Audio API; run the bundled CLI (`scripts/text_to_speech.py`) with built-in voices and require `OPENAI_API_KEY` for live calls. Custom voice creation is out of scope.
+- [imagegen](./imagegen/) - 用于生成、编辑和迭代图像内容与视觉素材。
+- [sora](./sora/) - 用于构思、生成和评审 Sora 视频或视频提示词。
+- [speech](./speech/) - 用于语音，支持内容生成、编辑、分析和交付。
 - [transcribe](./transcribe/) - 用于将音频或视频中的语音转写为文本，并可结合说话人分离和已知说话人提示。
 
 ## 技能总览
 
 | 技能 | 简介 | 目录 | 详情 |
 |------|------|------|------|
-| `clay` | AI 3D model generation agent. Generates text-to-3D and image-to-3D code (Python/JS/OpenSCAD) using Meshy, Tripo, Hunyuan3D, Rodin, Sloyd, and Stability APIs. Handles game pipeline integration, LOD, retopology, UV, and QC validation. | [目录](./clay/) | [SKILL.md](./clay/SKILL.md) |
+| `clay` | 用于clay，支持内容生成、编辑、分析和交付。 | [目录](./clay/) | [SKILL.md](./clay/SKILL.md) |
 | `gpt-image2` | 让 Codex 通过本地配置的 gpt-image-2 兼容画图服务生成图片，支持提示词、参考图、比例、清晰度和本地保存。 | [目录](./gpt-image2/) | [SKILL.md](./gpt-image2/SKILL.md) |
-| `imagegen` | Use when the user asks to generate or edit images via the OpenAI Image API (for example: generate image, edit/inpaint/mask, background removal or replacement, transparent background, product shots, concept art, covers, or batch variants); run the bundled CLI (`scripts/image_gen.py`) and require `OPENAI_API_KEY` for live calls. | [目录](./imagegen/) | [SKILL.md](./imagegen/SKILL.md) |
-| `screenshot` | Use when the user explicitly asks for a desktop or system screenshot (full screen, specific app or window, or a pixel region), or when tool-specific capture capabilities are unavailable and an OS-level capture is needed. | [目录](./screenshot/) | [SKILL.md](./screenshot/SKILL.md) |
-| `sketch` | Generating AI image-generation code using the Gemini API. Handles text-to-image generation, image editing, and prompt optimization. Use when image generation code is needed. | [目录](./sketch/) | [SKILL.md](./sketch/SKILL.md) |
-| `sora` | Use when the user asks to generate, remix, poll, list, download, or delete Sora videos via OpenAI\u2019s video API using the bundled CLI (`scripts/sora.py`), including requests like \u201cgenerate AI video,\u201d \u201cSora,\u201d \u201cvideo remix,\u201d \u201cdownload video/thumbnail/spritesheet,\u201d and batch video generation; requires `OPENAI_API_KEY` and Sora API access. | [目录](./sora/) | [SKILL.md](./sora/SKILL.md) |
-| `speech` | Use when the user asks for text-to-speech narration or voiceover, accessibility reads, audio prompts, or batch speech generation via the OpenAI Audio API; run the bundled CLI (`scripts/text_to_speech.py`) with built-in voices and require `OPENAI_API_KEY` for live calls. Custom voice creation is out of scope. | [目录](./speech/) | [SKILL.md](./speech/SKILL.md) |
+| `imagegen` | 用于生成、编辑和迭代图像内容与视觉素材。 | [目录](./imagegen/) | [SKILL.md](./imagegen/SKILL.md) |
+| `screenshot` | 用于截图、屏幕捕获、视觉核查和界面证据收集。 | [目录](./screenshot/) | [SKILL.md](./screenshot/SKILL.md) |
+| `sketch` | 用于sketch，支持内容生成、编辑、分析和交付。 | [目录](./sketch/) | [SKILL.md](./sketch/SKILL.md) |
+| `sora` | 用于构思、生成和评审 Sora 视频或视频提示词。 | [目录](./sora/) | [SKILL.md](./sora/SKILL.md) |
+| `speech` | 用于语音，支持内容生成、编辑、分析和交付。 | [目录](./speech/) | [SKILL.md](./speech/SKILL.md) |
 | `summarize` | 用于忠实摘要网页、文档、邮件、转录稿或长文本，并提炼重点和后续行动。 | [目录](./summarize/) | [SKILL.md](./summarize/SKILL.md) |
-| `tone` | Game audio generation agent. Produces code (Python/JS/TS/Shell) for SFX, BGM, Voice, Ambient, and UI sounds using ElevenLabs/Stable Audio/MusicGen/Suno/OpenAI TTS/JSFXR. Handles LUFS normalization and middleware integration. | [目录](./tone/) | [SKILL.md](./tone/SKILL.md) |
+| `tone` | 用于tone，支持内容生成、编辑、分析和交付。 | [目录](./tone/) | [SKILL.md](./tone/SKILL.md) |
 | `transcribe` | 用于将音频或视频中的语音转写为文本，并可结合说话人分离和已知说话人提示。 | [目录](./transcribe/) | [SKILL.md](./transcribe/SKILL.md) |
 
 ## 维护方式

@@ -1,6 +1,7 @@
 ---
 name: canvas-design
 description: 'Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this skill when the user asks to create a poster, piece of art, design, or other static piece. Create original visual designs, never copying existing artists'' work to avoid copyright violations.'
+zh_description: "用于画布、设计，支持产品研究、策略、界面和交付协作。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

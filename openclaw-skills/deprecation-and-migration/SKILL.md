@@ -1,6 +1,7 @@
 ---
 name: deprecation-and-migration
 description: 'Manages deprecation and migration. Use when removing old systems, APIs, or features. Use when migrating users from one implementation to another. Use when deciding whether to maintain or sunset existing code.'
+zh_description: "用于deprecation、migration，支持任务规划、执行、评审和验证。"
 version: "1.0.0"
 author: addyosmani
 source: "github:addyosmani/agent-skills"

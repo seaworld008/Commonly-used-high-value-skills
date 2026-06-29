@@ -1,6 +1,7 @@
 ---
 name: content-creator
 description: 'Create SEO-optimized marketing content with consistent brand voice. Includes brand voice analyzer, SEO optimizer, content frameworks, and social media templates. Use when writing blog posts, creating social media content, analyzing brand voice, optimizing SEO, planning content calendars, or when user mentions content creation, brand voice, SEO optimization, social media marketing, or content strategy.'
+zh_description: "用于内容、创建，支持内容、营销、渠道和数据分析。"
 version: 1.0.0
 author: Alireza Rezvani
 source: "in-house"

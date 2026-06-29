@@ -1,6 +1,7 @@
 ---
 name: oracle
 description: 'Designing and evaluating AI/ML systems across prompt engineering, RAG design, LLM application patterns, AI safety, evaluation frameworks, MLOps, and cost optimization. Use when designing AI/ML pipelines, RAG architectures, prompt strategies, evaluation harnesses, or LLM cost models.'
+zh_description: "用于oracle，支持 Agent 平台编排、集成和运行管理。"
 version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"

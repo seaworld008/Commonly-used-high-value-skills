@@ -1,6 +1,7 @@
 ---
 name: social-media-analyzer
 description: 'Social media campaign analysis and performance tracking. Calculates engagement rates, ROI, and benchmarks across platforms. Use for analyzing social media performance, calculating engagement rate, measuring campaign ROI, comparing platform metrics, or benchmarking against industry standards.'
+zh_description: "用于社交、媒体、分析，支持内容、营销、渠道和数据分析。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

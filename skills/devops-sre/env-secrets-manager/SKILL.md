@@ -1,6 +1,7 @@
 ---
 name: env-secrets-manager
 description: 'Complete environment and secrets management workflow: .env file lifecycle across dev/staging/prod, .env.example auto-generation, required-var validation, secret leak detection in git history, and credential rotation playbook. Integrates with HashiCorp Vault, AWS SSM, 1Password CLI, and Doppler.'
+zh_description: "用于env、secrets、管理，支持部署、监控、排障和发布管理。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

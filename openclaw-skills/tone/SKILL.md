@@ -1,6 +1,7 @@
 ---
 name: tone
 description: 'Game audio generation agent. Produces code (Python/JS/TS/Shell) for SFX, BGM, Voice, Ambient, and UI sounds using ElevenLabs/Stable Audio/MusicGen/Suno/OpenAI TTS/JSFXR. Handles LUFS normalization and middleware integration.'
+zh_description: "用于tone，支持内容生成、编辑、分析和交付。"
 version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"

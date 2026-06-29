@@ -1,6 +1,7 @@
 ---
 name: triage
 description: 'Responding to incidents, identifying impact scope, formulating recovery procedures, and creating postmortems. Use when incident response or disaster recovery is needed. Does not write code (delegates fixes to Builder).'
+zh_description: "用于triage，支持部署、监控、排障和发布管理。"
 version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"

@@ -1,6 +1,7 @@
 ---
 name: security-pen-testing
 description: 'Use when the user asks to perform security audits, penetration testing, vulnerability scanning, OWASP Top 10 checks, or offensive security assessments. Covers static analysis, dependency scanning, secret detection, API security testing, and pen test report generation.'
+zh_description: "用于安全、pen、测试，支持安全扫描、审计、加固和风险治理。"
 version: "1.0.1"
 author: alirezarezvani
 source: "github:alirezarezvani/claude-skills"

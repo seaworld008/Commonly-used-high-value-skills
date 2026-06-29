@@ -1,6 +1,7 @@
 ---
 name: builder
 description: 'Implementing robust business logic, API integrations, and data models with type safety and production readiness. Use when business logic implementation or API integration is needed.'
+zh_description: "用于构建，支持开发、调试、评审和交付。"
 version: "1.0.6"
 author: "seaworld008"
 source: "github:simota/agent-skills"

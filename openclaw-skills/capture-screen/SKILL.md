@@ -1,6 +1,7 @@
 ---
 name: capture-screen
 description: 'Programmatic screenshot capture on macOS. Find window IDs with Swift CGWindowListCopyWindowInfo, control application windows via AppleScript (zoom, scroll, select), and capture with screencapture. Use when automating screenshots, capturing application windows for documentation, or building multi-shot visual workflows.'
+zh_description: "用于捕获、screen，支持文档、表格、演示和资料整理。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

@@ -8,29 +8,29 @@
 
 ## 推荐先看
 
-- [agile-product-owner](./agile-product-owner/) - Agile product ownership for backlog management and sprint execution. Covers user story writing, acceptance criteria, sprint planning, and velocity tracking. Use for writing user stories, creating acceptance criteria, planning sprints, estimating story points, breaking down epics, or prioritizing backlog.
-- [product-manager-toolkit](./product-manager-toolkit/) - Comprehensive toolkit for product managers including RICE prioritization, customer interview analysis, PRD templates, discovery frameworks, and go-to-market strategies. Use for feature prioritization, user research synthesis, requirement documentation, and product strategy development.
-- [product-strategist](./product-strategist/) - Strategic product leadership toolkit for Head of Product including OKR cascade generation, market analysis, vision setting, and team scaling. Use for strategic planning, goal alignment, competitive analysis, and organizational design.
-- [ui-design-system](./ui-design-system/) - UI design system toolkit for Senior UI Designer including design token generation, component documentation, responsive design calculations, and developer handoff tools. Use for creating design systems, maintaining visual consistency, and facilitating design-dev collaboration.
+- [agile-product-owner](./agile-product-owner/) - 用于agile、产品、负责人，支持产品研究、策略、界面和交付协作。
+- [product-manager-toolkit](./product-manager-toolkit/) - 用于产品、管理、工具包，支持产品研究、策略、界面和交付协作。
+- [product-strategist](./product-strategist/) - 用于产品、strategist，支持产品研究、策略、界面和交付协作。
+- [ui-design-system](./ui-design-system/) - 用于UI、设计、系统，支持产品研究、策略、界面和交付协作。
 
 ## 技能总览
 
 | 技能 | 简介 | 目录 | 详情 |
 |------|------|------|------|
-| `agile-product-owner` | Agile product ownership for backlog management and sprint execution. Covers user story writing, acceptance criteria, sprint planning, and velocity tracking. Use for writing user stories, creating acceptance criteria, planning sprints, estimating story points, breaking down epics, or prioritizing backlog. | [目录](./agile-product-owner/) | [SKILL.md](./agile-product-owner/SKILL.md) |
-| `canvas-design` | Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this skill when the user asks to create a poster, piece of art, design, or other static piece. Create original visual designs, never copying existing artists'' work to avoid copyright violations. | [目录](./canvas-design/) | [SKILL.md](./canvas-design/SKILL.md) |
-| `competitive-teardown` | Run a structured competitive analysis on any product or company. Synthesizes data from pricing pages, app store reviews, job postings, SEO signals, and social media into actionable insights: feature matrices, SWOT, positioning maps, UX audits, and a stakeholder presentation template. | [目录](./competitive-teardown/) | [SKILL.md](./competitive-teardown/SKILL.md) |
-| `landing-page-generator` | Generates high-converting landing pages as complete Next.js/React (TSX) components with Tailwind CSS. Creates hero sections, feature grids, pricing tables, FAQ accordions, testimonial blocks, and CTA sections using proven copy frameworks (PAS, AIDA, BAB). Outputs SEO meta tags, structured data, and performance-optimised code targeting Core Web Vitals (LCP < 1s, CLS < 0.1). Use when the user asks to create a landing page, marketing page, homepage, single-page site, lead capture page, campaign page, promo page, or conversion-optimised web page — or when they want to A/B test landing page variants or replace a static page with one designed to convert. | [目录](./landing-page-generator/) | [SKILL.md](./landing-page-generator/SKILL.md) |
-| `product-analysis` | Multi-path parallel product analysis with cross-model test-time compute scaling. Spawns parallel agents (Claude Code agent teams + Codex CLI) to explore product from multiple perspectives, then synthesizes findings into actionable optimization plans. Can invoke competitors-analysis for competitive benchmarking. Use when "product audit", "self-review", "发布前审查", "产品分析", "analyze our product", "UX audit", or "信息架构审计". | [目录](./product-analysis/) | [SKILL.md](./product-analysis/SKILL.md) |
-| `product-manager-toolkit` | Comprehensive toolkit for product managers including RICE prioritization, customer interview analysis, PRD templates, discovery frameworks, and go-to-market strategies. Use for feature prioritization, user research synthesis, requirement documentation, and product strategy development. | [目录](./product-manager-toolkit/) | [SKILL.md](./product-manager-toolkit/SKILL.md) |
-| `product-strategist` | Strategic product leadership toolkit for Head of Product including OKR cascade generation, market analysis, vision setting, and team scaling. Use for strategic planning, goal alignment, competitive analysis, and organizational design. | [目录](./product-strategist/) | [SKILL.md](./product-strategist/SKILL.md) |
-| `researcher` | User research specialist. Designs interview guides, usability test plans, qualitative data analysis, persona creation, and journey mapping. Complements Echo''s UI validation. Use when user research design or analysis is needed. | [目录](./researcher/) | [SKILL.md](./researcher/SKILL.md) |
-| `saas-scaffolder` | Generate complete, production-ready SaaS projects from a product brief. Outputs a fully wired Next.js App Router project with authentication, database, payments, and a working dashboard — not a toy starter kit. | [目录](./saas-scaffolder/) | [SKILL.md](./saas-scaffolder/SKILL.md) |
-| `trace` | Analyzing session replays, extracting persona-based behavioral patterns, and storytelling UX issues. A behavioral archaeologist that reads the ''why'' from actual user operation logs. Collaborates with Field/Echo for persona validation. | [目录](./trace/) | [SKILL.md](./trace/SKILL.md) |
-| `ui-design-system` | UI design system toolkit for Senior UI Designer including design token generation, component documentation, responsive design calculations, and developer handoff tools. Use for creating design systems, maintaining visual consistency, and facilitating design-dev collaboration. | [目录](./ui-design-system/) | [SKILL.md](./ui-design-system/SKILL.md) |
-| `ui-ux-pro-max` | Front-end UI/UX design intelligence for creating, reviewing, and hardening polished product interfaces across web, mobile, dashboards, SaaS, ecommerce, and content-heavy apps. | [目录](./ui-ux-pro-max/) | [SKILL.md](./ui-ux-pro-max/SKILL.md) |
-| `ux-researcher-designer` | UX research and design toolkit for Senior UX Designer/Researcher including data-driven persona generation, journey mapping, usability testing frameworks, and research synthesis. Use for user research, persona creation, journey mapping, and design validation. | [目录](./ux-researcher-designer/) | [SKILL.md](./ux-researcher-designer/SKILL.md) |
-| `voice` | Collecting user feedback via NPS surveys, review analysis, sentiment analysis, feedback classification, and insight extraction reports. Use when establishing feedback loops. | [目录](./voice/) | [SKILL.md](./voice/SKILL.md) |
+| `agile-product-owner` | 用于agile、产品、负责人，支持产品研究、策略、界面和交付协作。 | [目录](./agile-product-owner/) | [SKILL.md](./agile-product-owner/SKILL.md) |
+| `canvas-design` | 用于画布、设计，支持产品研究、策略、界面和交付协作。 | [目录](./canvas-design/) | [SKILL.md](./canvas-design/SKILL.md) |
+| `competitive-teardown` | 用于竞品、teardown，支持产品研究、策略、界面和交付协作。 | [目录](./competitive-teardown/) | [SKILL.md](./competitive-teardown/SKILL.md) |
+| `landing-page-generator` | 用于落地页、page、生成，支持产品研究、策略、界面和交付协作。 | [目录](./landing-page-generator/) | [SKILL.md](./landing-page-generator/SKILL.md) |
+| `product-analysis` | Multi-path parallel product analysis with cross-model test。 | [目录](./product-analysis/) | [SKILL.md](./product-analysis/SKILL.md) |
+| `product-manager-toolkit` | 用于产品、管理、工具包，支持产品研究、策略、界面和交付协作。 | [目录](./product-manager-toolkit/) | [SKILL.md](./product-manager-toolkit/SKILL.md) |
+| `product-strategist` | 用于产品、strategist，支持产品研究、策略、界面和交付协作。 | [目录](./product-strategist/) | [SKILL.md](./product-strategist/SKILL.md) |
+| `researcher` | 用于研究，支持产品研究、策略、界面和交付协作。 | [目录](./researcher/) | [SKILL.md](./researcher/SKILL.md) |
+| `saas-scaffolder` | 用于saas、scaffolder，支持产品研究、策略、界面和交付协作。 | [目录](./saas-scaffolder/) | [SKILL.md](./saas-scaffolder/SKILL.md) |
+| `trace` | 用于trace，支持产品研究、策略、界面和交付协作。 | [目录](./trace/) | [SKILL.md](./trace/SKILL.md) |
+| `ui-design-system` | 用于UI、设计、系统，支持产品研究、策略、界面和交付协作。 | [目录](./ui-design-system/) | [SKILL.md](./ui-design-system/SKILL.md) |
+| `ui-ux-pro-max` | 用于UI、UX、pro、max，支持产品研究、策略、界面和交付协作。 | [目录](./ui-ux-pro-max/) | [SKILL.md](./ui-ux-pro-max/SKILL.md) |
+| `ux-researcher-designer` | 用于UX、研究、设计，支持产品研究、策略、界面和交付协作。 | [目录](./ux-researcher-designer/) | [SKILL.md](./ux-researcher-designer/SKILL.md) |
+| `voice` | 用于voice，支持产品研究、策略、界面和交付协作。 | [目录](./voice/) | [SKILL.md](./voice/SKILL.md) |
 
 ## 维护方式
 

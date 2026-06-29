@@ -1,6 +1,7 @@
 ---
 name: linear
 description: '用于管理 Linear issues、项目、团队和协作状态。'
+zh_description: "用于管理 Linear issue、项目、状态流转和工程协作。"
 version: "2.0.2"
 author: "seaworld008"
 source: "adapted-from-hermes-agent"

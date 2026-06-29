@@ -1,6 +1,7 @@
 ---
 name: ppt-creator
 description: 'Create professional slide decks from topics or documents. Generates structured content with data-driven charts, speaker notes, and complete PPTX files. Applies persuasive storytelling principles (Pyramid Principle, assertion-evidence). Supports multiple formats (Marp, PowerPoint). Use for presentations, pitches, slide decks, or keynotes.'
+zh_description: "用于PPT、创建，支持文档、表格、演示和资料整理。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

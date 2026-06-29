@@ -1,6 +1,7 @@
 ---
 name: competitors-analysis
 description: 'Analyze competitor repositories with evidence-based approach. Use when tracking competitors, creating competitor profiles, or generating competitive analysis. CRITICAL - all analysis must be based on actual cloned code, never assumptions. Triggers include "analyze competitor", "add competitor", "competitive analysis", or "竞品分析".'
+zh_description: "Analyze competitor repositories with evidence-based approa。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

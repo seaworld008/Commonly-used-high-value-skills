@@ -1,6 +1,7 @@
 ---
 name: notion-spec-to-implementation
 description: '用于把 Notion 规格转成计划、任务和进度跟踪。'
+zh_description: "用于将 Notion 规格文档转化为可执行实现计划。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

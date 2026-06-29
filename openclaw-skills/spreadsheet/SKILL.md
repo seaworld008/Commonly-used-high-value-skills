@@ -1,6 +1,7 @@
 ---
 name: spreadsheet
 description: 'Use when tasks involve creating, editing, analyzing, or formatting spreadsheets (`.xlsx`, `.csv`, `.tsv`) using Python (`openpyxl`, `pandas`), especially when formulas, references, and formatting need to be preserved and verified.'
+zh_description: "用于处理电子表格数据、公式、清洗和分析。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

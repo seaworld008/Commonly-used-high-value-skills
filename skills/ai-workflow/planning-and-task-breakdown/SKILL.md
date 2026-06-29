@@ -1,6 +1,7 @@
 ---
 name: planning-and-task-breakdown
 description: 'Breaks work into ordered tasks. Use when you have a spec or clear requirements and need to break work into implementable tasks. Use when a task feels too large to start, when you need to estimate scope, or when parallel work is possible.'
+zh_description: "用于planning、任务、breakdown，支持任务规划、执行、评审和验证。"
 version: "1.0.1"
 author: addyosmani
 source: "github:addyosmani/agent-skills"

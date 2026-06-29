@@ -1,6 +1,7 @@
 ---
 name: aws-solution-architect
 description: '用于 AWS 云架构设计、服务选型、成本优化与 Well-Architected Framework 评估。来源：alirezarezvani/claude-skills。'
+zh_description: "用于 AWS 云架构设计、服务选型、成本优化与 Well-Architected Framework 评估。"
 version: "1.0.0"
 author: "seaworld008"
 source: "skills.sh"

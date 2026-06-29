@@ -1,6 +1,7 @@
 ---
 name: transcript-fixer
 description: 'Corrects speech-to-text transcription errors in meeting notes, lectures, and interviews using dictionary rules and AI. Learns patterns to build personalized correction databases. Use when working with transcripts containing ASR/STT errors, homophones, or Chinese/English mixed content requiring cleanup.'
+zh_description: "用于转录稿、fixer，支持文档、表格、演示和资料整理。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

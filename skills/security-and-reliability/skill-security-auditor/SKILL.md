@@ -1,6 +1,7 @@
 ---
 name: skill-security-auditor
 description: 'Security audit and vulnerability scanner for AI agent skills before installation. Use when: (1) evaluating a skill from an untrusted source, (2) auditing a skill directory or git repo URL for malicious code, (3) pre-install security gate for Claude Code plugins, OpenClaw skills, or Codex skills, (4) scanning Python scripts for dangerous patterns like os.system, eval, subprocess, network exfiltration, (5) detecting prompt injection in SKILL.md files, (6) checking dependency supply chain risks, (7) verifying file system access stays within skill boundaries. Triggers: \"audit this skill\", \"is this skill safe\", \"scan skill for security\", \"check skill before install\", \"skill security check\", \"skill vulnerability scan\".'
+zh_description: "用于技能、安全、审计，支持安全扫描、审计、加固和风险治理。"
 version: "1.0.4"
 author: "seaworld008"
 source: "github:alirezarezvani/claude-skills"

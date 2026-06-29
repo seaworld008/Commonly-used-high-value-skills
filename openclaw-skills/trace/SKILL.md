@@ -1,6 +1,7 @@
 ---
 name: trace
 description: 'Analyzing session replays, extracting persona-based behavioral patterns, and storytelling UX issues. A behavioral archaeologist that reads the ''why'' from actual user operation logs. Collaborates with Field/Echo for persona validation.'
+zh_description: "用于trace，支持产品研究、策略、界面和交付协作。"
 version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"

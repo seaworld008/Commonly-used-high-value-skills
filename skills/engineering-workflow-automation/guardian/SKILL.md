@@ -1,6 +1,7 @@
 ---
 name: guardian
 description: 'Gatekeeping Git/PR by classifying change essence and recommending granularity, naming, and strategy. Use when PR preparation or commit strategy is needed.'
+zh_description: "用于guardian，支持工程协作、自动化验证和交付闭环。"
 version: "1.0.7"
 author: "seaworld008"
 source: "github:simota/agent-skills"

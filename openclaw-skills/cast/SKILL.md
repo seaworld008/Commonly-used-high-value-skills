@@ -1,6 +1,7 @@
 ---
 name: cast
 description: 'Casting personas via rapid generation, persistence, lifecycle management, and inter-agent sync. Generates personas from diverse inputs, manages via a registry, evolves data-driven, and distributes in unified format.'
+zh_description: "用于cast，支持记忆管理、安全防护和运行治理。"
 version: "1.0.7"
 author: "seaworld008"
 source: "github:simota/agent-skills"

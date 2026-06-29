@@ -1,6 +1,7 @@
 ---
 name: lore
 description: 'Curating cross-agent knowledge and guarding institutional memory. Extracts patterns from agent journals into METAPATTERNS.md, detects knowledge decay, propagates best practices, prevents organizational forgetting. Use when consolidating cross-agent insights, curating memory, or auditing knowledge decay.'
+zh_description: "用于lore，支持知识管理、项目同步和平台集成。"
 version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"

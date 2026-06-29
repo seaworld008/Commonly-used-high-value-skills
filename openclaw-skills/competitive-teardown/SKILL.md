@@ -1,6 +1,7 @@
 ---
 name: competitive-teardown
 description: 'Run a structured competitive analysis on any product or company. Synthesizes data from pricing pages, app store reviews, job postings, SEO signals, and social media into actionable insights: feature matrices, SWOT, positioning maps, UX audits, and a stakeholder presentation template.'
+zh_description: "用于竞品、teardown，支持产品研究、策略、界面和交付协作。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

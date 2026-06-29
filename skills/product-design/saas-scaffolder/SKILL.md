@@ -1,6 +1,7 @@
 ---
 name: saas-scaffolder
 description: 'Generate complete, production-ready SaaS projects from a product brief. Outputs a fully wired Next.js App Router project with authentication, database, payments, and a working dashboard — not a toy starter kit.'
+zh_description: "用于saas、scaffolder，支持产品研究、策略、界面和交付协作。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

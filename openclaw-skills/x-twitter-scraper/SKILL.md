@@ -1,6 +1,7 @@
 ---
 name: x-twitter-scraper
 description: 'Use Xquik for authorized X/Twitter data workflows, including tweet search, profile reads, follower exports, media lookup, monitoring, webhooks, REST API calls, SDK usage, and MCP setup.'
+zh_description: "用于抓取和分析 X/Twitter 公开内容、线程和增长信号。"
 version: "1.0.0"
 author: "Xquik-dev"
 source: "github:Xquik-dev/x-twitter-scraper"

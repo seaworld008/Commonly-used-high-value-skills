@@ -1,6 +1,7 @@
 ---
 name: gateway
 description: 'Designing and reviewing APIs via OpenAPI spec generation, versioning strategy, breaking change detection, and REST/GraphQL best practices. Ensures API quality and consistency. Use when API design or OpenAPI specs are needed.'
+zh_description: "用于gateway，支持开发、调试、评审和交付。"
 version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"

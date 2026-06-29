@@ -1,6 +1,7 @@
 ---
 name: schema
 description: 'Designing database schemas, planning migrations, and authoring ER diagrams. Handles normalization, index strategies, and relation definitions. Use when DB schema design is needed.'
+zh_description: "用于Schema，支持开发、调试、评审和交付。"
 version: "1.0.6"
 author: "seaworld008"
 source: "github:simota/agent-skills"

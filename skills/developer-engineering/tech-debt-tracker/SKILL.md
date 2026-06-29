@@ -1,6 +1,7 @@
 ---
 name: tech-debt-tracker
 description: 'Tier: POWERFUL 🔥 Category: Engineering Process Automation Expertise: Code Quality, Technical Debt Management, Software Engineering.'
+zh_description: "用于tech、技术债、跟踪，支持开发、调试、评审和交付。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

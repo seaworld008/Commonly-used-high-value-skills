@@ -1,6 +1,7 @@
 ---
 name: receiving-code-review
 description: 'Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable - requires technical rigor and verification, not performative agreement or blind implementation'
+zh_description: "用于receiving、代码、评审，支持任务规划、执行、评审和验证。"
 version: "1.0.1"
 author: "seaworld008"
 source: "in-house"

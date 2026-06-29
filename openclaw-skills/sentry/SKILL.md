@@ -1,6 +1,7 @@
 ---
 name: sentry
 description: '用于只读查询 Sentry issues、events 和服务健康数据，汇总线上错误并辅助生产问题排查。'
+zh_description: "用于只读查询 Sentry issues、events 和服务健康数据，汇总线上错误并辅助生产问题排查。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

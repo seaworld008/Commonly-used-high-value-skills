@@ -1,6 +1,7 @@
 ---
 name: pr-review-expert
 description: 'Structured, systematic code review for GitHub PRs and GitLab MRs. Goes beyond style nits — this skill performs blast radius analysis, security scanning, breaking change detection, and test coverage delta calculation. Produces a reviewer-ready report with a 30+ item checklist and prioritized findings.'
+zh_description: "用于PR、评审、expert，支持开发、调试、评审和交付。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

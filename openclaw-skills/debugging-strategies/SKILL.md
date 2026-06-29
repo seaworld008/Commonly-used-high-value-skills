@@ -1,6 +1,7 @@
 ---
 name: debugging-strategies
 description: 'Master systematic debugging techniques, profiling tools, and root cause analysis to efficiently track down bugs across any codebase or technology stack. Use when investigating bugs, performance issues, or unexpected behavior.'
+zh_description: "用于调试、策略，支持开发、调试、评审和交付。"
 version: 1.0.0
 author: "seaworld008"
 source: "in-house"

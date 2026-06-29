@@ -1,6 +1,7 @@
 ---
 name: investment-memo-writer
 description: 'Use when turning research notes into an investment memo, writing a buy or sell thesis, or structuring catalysts, risks, and monitoring items for an IC-style document.'
+zh_description: "用于投资、memo、writer，支持投资研究、风险评估和报告生成。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

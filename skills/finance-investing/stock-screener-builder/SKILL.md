@@ -1,6 +1,7 @@
 ---
 name: stock-screener-builder
 description: 'Use when building a stock screen, filtering a universe by valuation, growth, quality, or momentum rules, or creating a repeatable shortlist for deeper research.'
+zh_description: "用于stock、screener、构建，支持投资研究、风险评估和报告生成。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

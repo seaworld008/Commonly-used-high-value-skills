@@ -1,6 +1,7 @@
 ---
 name: portfolio-risk-manager
 description: 'Use when reviewing portfolio exposures, checking concentration and beta risk, summarizing sector or region tilts, or preparing a risk note before reallocating capital.'
+zh_description: "用于投资组合风险分析、仓位约束和风险报告生成。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

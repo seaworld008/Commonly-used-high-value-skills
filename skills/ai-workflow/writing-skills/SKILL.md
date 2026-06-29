@@ -1,6 +1,7 @@
 ---
 name: writing-skills
 description: 'Use when creating new skills, editing existing skills, or verifying skills work before deployment'
+zh_description: "用于writing、技能，支持任务规划、执行、评审和验证。"
 version: "1.0.1"
 author: "seaworld008"
 source: "in-house"

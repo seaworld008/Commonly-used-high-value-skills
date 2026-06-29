@@ -1,6 +1,7 @@
 ---
 name: prompt-engineer-toolkit
 description: 'Systematic prompt engineering from first principles. Build, test, version, and optimize prompts for any LLM task. Covers technique selection, a testing framework with scored A/B comparison, version control, quality metrics, and optimization strategies. Includes a 10-template library ready to adapt.'
+zh_description: "用于提示词、工程、工具包，支持内容、营销、渠道和数据分析。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

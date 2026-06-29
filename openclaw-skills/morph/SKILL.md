@@ -1,6 +1,7 @@
 ---
 name: morph
 description: 'Converting document formats (Markdown/Word/Excel/PDF/HTML). Converts specs from Scribe and reports from Harvest into distributable formats; generates reusable conversion scripts. Use when converting documents, building accessibility-compliant PDFs, or creating Pandoc/LibreOffice pipelines.'
+zh_description: "用于morph，支持文档、表格、演示和资料整理。"
 version: "1.0.6"
 author: "seaworld008"
 source: "github:simota/agent-skills"

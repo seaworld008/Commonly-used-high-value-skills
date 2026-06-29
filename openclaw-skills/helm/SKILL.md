@@ -1,6 +1,7 @@
 ---
 name: helm
 description: 'Simulating business strategy via short/mid/long-term scenario planning from financial, market, and competitive data. Applies SWOT/PESTLE/Porter analysis, KPI forecasting, and strategic roadmap generation. Does not write code.'
+zh_description: "用于helm，支持投资研究、风险评估和报告生成。"
 version: "1.0.6"
 author: "seaworld008"
 source: "github:simota/agent-skills"

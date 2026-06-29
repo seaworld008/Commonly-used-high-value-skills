@@ -1,6 +1,7 @@
 ---
 name: systematic-debugging
 description: 'Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes'
+zh_description: "用于systematic、调试，支持开发、调试、评审和交付。"
 version: "1.0.2"
 author: seaworld008
 source: "github:obra/superpowers"

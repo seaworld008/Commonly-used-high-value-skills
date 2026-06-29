@@ -1,6 +1,7 @@
 ---
 name: arena
 description: 'Specialist orchestrating codex exec / Antigravity CLI through dual paradigms — COMPETE (multi-variant comparison, select best) and COLLABORATE (decompose tasks across engines, integrate). Supports Solo/Team/Quick execution modes.'
+zh_description: "用于构建和运行 Agent 竞技场、评测对战和能力比较流程。"
 version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"

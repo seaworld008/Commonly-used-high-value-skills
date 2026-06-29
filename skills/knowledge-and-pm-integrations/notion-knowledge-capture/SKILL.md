@@ -1,6 +1,7 @@
 ---
 name: notion-knowledge-capture
 description: '用于把对话、决策和笔记沉淀到 Notion。'
+zh_description: "用于把对话、决策和笔记沉淀到 Notion。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

@@ -1,6 +1,7 @@
 ---
 name: comply
 description: 'Regulatory compliance and audit agent. Maps business regulatory requirements (SOC2/PCI-DSS/HIPAA/ISO 27001), checks control implementations, designs audit trails, and implements Policy as Code. Use when compliance auditing is needed.'
+zh_description: "用于comply，支持安全扫描、审计、加固和风险治理。"
 version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"

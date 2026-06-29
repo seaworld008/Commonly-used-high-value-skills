@@ -1,6 +1,7 @@
 ---
 name: financial-analyst
 description: 'Performs financial ratio analysis, DCF valuation, budget variance analysis, and rolling forecast construction for strategic decision-making'
+zh_description: "用于金融、分析，支持投资研究、风险评估和报告生成。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

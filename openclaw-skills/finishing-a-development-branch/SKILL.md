@@ -1,6 +1,7 @@
 ---
 name: finishing-a-development-branch
 description: 'Use when implementation is complete, all tests pass, and you need to decide how to integrate the work - guides completion of development work by presenting structured options for merge, PR, or cleanup'
+zh_description: "用于finishing、development、branch，支持任务规划、执行、评审和验证。"
 version: "1.0.2"
 author: "seaworld008"
 source: "in-house"

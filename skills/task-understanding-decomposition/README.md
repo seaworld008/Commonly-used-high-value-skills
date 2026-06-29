@@ -8,19 +8,19 @@
 
 ## 推荐先看
 
-- [reflect-learn](./reflect-learn/) - Self-improvement through conversation analysis. Extracts learnings from corrections and success patterns, proposes updates to agent files or creates new skills. Philosophy: "Correct once, never again." Use when: (1) User explicitly corrects behavior ("never do X", "always Y"), (2) Session ending or context compaction, (3) User requests /reflect, (4) Successful pattern worth preserving.
-- [lens](./lens/) - Comprehending and investigating codebases. Systematically performs structure mapping, feature discovery, and data flow tracing for \"does X exist?\", \"how does Y work?\", or \"what is this module''s responsibility?\". Includes a conversational Q&A mode (\"ask\") for navigator-style, multi-turn questions about a project. Does not write code.
-- [ripple](./ripple/) - Analyzing pre-change impact by evaluating risk across vertical (dependency chains, affected files) and horizontal (pattern consistency, naming) dimensions. Does not write code. Use when estimating blast radius before a refactor, audit, or migration — or when a PR''s risk surface is unclear.
-- [scout](./scout/) - Investigating bugs via root cause analysis (RCA), reproduction steps, and impact assessment. Investigation-only — identifies why bugs occur and where to fix them, no code. Use when a bug needs RCA, reproduction must be established before fix, or impact radius needs assessment.
+- [reflect-learn](./reflect-learn/) - 用于reflect、learn，支持检索、拆解、反思和决策。
+- [lens](./lens/) - 用于lens，支持检索、拆解、反思和决策。
+- [ripple](./ripple/) - 用于ripple，支持检索、拆解、反思和决策。
+- [scout](./scout/) - 用于scout，支持检索、拆解、反思和决策。
 
 ## 技能总览
 
 | 技能 | 简介 | 目录 | 详情 |
 |------|------|------|------|
-| `lens` | Comprehending and investigating codebases. Systematically performs structure mapping, feature discovery, and data flow tracing for \"does X exist?\", \"how does Y work?\", or \"what is this module''s responsibility?\". Includes a conversational Q&A mode (\"ask\") for navigator-style, multi-turn questions about a project. Does not write code. | [目录](./lens/) | [SKILL.md](./lens/SKILL.md) |
-| `reflect-learn` | Self-improvement through conversation analysis. Extracts learnings from corrections and success patterns, proposes updates to agent files or creates new skills. Philosophy: "Correct once, never again." Use when: (1) User explicitly corrects behavior ("never do X", "always Y"), (2) Session ending or context compaction, (3) User requests /reflect, (4) Successful pattern worth preserving. | [目录](./reflect-learn/) | [SKILL.md](./reflect-learn/SKILL.md) |
-| `ripple` | Analyzing pre-change impact by evaluating risk across vertical (dependency chains, affected files) and horizontal (pattern consistency, naming) dimensions. Does not write code. Use when estimating blast radius before a refactor, audit, or migration — or when a PR''s risk surface is unclear. | [目录](./ripple/) | [SKILL.md](./ripple/SKILL.md) |
-| `scout` | Investigating bugs via root cause analysis (RCA), reproduction steps, and impact assessment. Investigation-only — identifies why bugs occur and where to fix them, no code. Use when a bug needs RCA, reproduction must be established before fix, or impact radius needs assessment. | [目录](./scout/) | [SKILL.md](./scout/SKILL.md) |
+| `lens` | 用于lens，支持检索、拆解、反思和决策。 | [目录](./lens/) | [SKILL.md](./lens/SKILL.md) |
+| `reflect-learn` | 用于reflect、learn，支持检索、拆解、反思和决策。 | [目录](./reflect-learn/) | [SKILL.md](./reflect-learn/SKILL.md) |
+| `ripple` | 用于ripple，支持检索、拆解、反思和决策。 | [目录](./ripple/) | [SKILL.md](./ripple/SKILL.md) |
+| `scout` | 用于scout，支持检索、拆解、反思和决策。 | [目录](./scout/) | [SKILL.md](./scout/SKILL.md) |
 | `tavily-search` | 用于实时联网检索最新事实、来源证据、新闻市场信息和 Tavily 检索结果。 | [目录](./tavily-search/) | [SKILL.md](./tavily-search/SKILL.md) |
 
 ## 维护方式

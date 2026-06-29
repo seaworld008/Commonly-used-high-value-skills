@@ -8,31 +8,31 @@
 
 ## 推荐先看
 
-- [app-store-optimization](./app-store-optimization/) - App Store Optimization toolkit for researching keywords, optimizing metadata, and tracking mobile app performance on Apple App Store and Google Play Store.
-- [campaign-analytics](./campaign-analytics/) - Analyzes campaign performance with multi-touch attribution, funnel conversion, and ROI calculation for marketing optimization
-- [content-creator](./content-creator/) - Create SEO-optimized marketing content with consistent brand voice. Includes brand voice analyzer, SEO optimizer, content frameworks, and social media templates. Use when writing blog posts, creating social media content, analyzing brand voice, optimizing SEO, planning content calendars, or when user mentions content creation, brand voice, SEO optimization, social media marketing, or content strategy.
-- [social-media-analyzer](./social-media-analyzer/) - Social media campaign analysis and performance tracking. Calculates engagement rates, ROI, and benchmarks across platforms. Use for analyzing social media performance, calculating engagement rate, measuring campaign ROI, comparing platform metrics, or benchmarking against industry standards.
+- [app-store-optimization](./app-store-optimization/) - 用于应用、store、优化，支持内容、营销、渠道和数据分析。
+- [campaign-analytics](./campaign-analytics/) - 用于活动、分析，支持内容、营销、渠道和数据分析。
+- [content-creator](./content-creator/) - 用于内容、创建，支持内容、营销、渠道和数据分析。
+- [social-media-analyzer](./social-media-analyzer/) - 用于社交、媒体、分析，支持内容、营销、渠道和数据分析。
 
 ## 技能总览
 
 | 技能 | 简介 | 目录 | 详情 |
 |------|------|------|------|
-| `algorithmic-art` | Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. Use this when users request creating art using code, generative art, algorithmic art, flow fields, or particle systems. Create original algorithmic art rather than copying existing artists'' work to avoid copyright violations. | [目录](./algorithmic-art/) | [SKILL.md](./algorithmic-art/SKILL.md) |
-| `app-store-optimization` | App Store Optimization toolkit for researching keywords, optimizing metadata, and tracking mobile app performance on Apple App Store and Google Play Store. | [目录](./app-store-optimization/) | [SKILL.md](./app-store-optimization/SKILL.md) |
-| `campaign-analytics` | Analyzes campaign performance with multi-touch attribution, funnel conversion, and ROI calculation for marketing optimization | [目录](./campaign-analytics/) | [SKILL.md](./campaign-analytics/SKILL.md) |
-| `compete` | Researching competitors, analyzing differentiation, and shaping strategic positioning. Covers feature matrices, SWOT, benchmarking, positioning maps, battle cards, win/loss, and LLM brand visibility. Research only — no code. Use when scoping competitive landscape, building positioning artifacts, or assessing LLM brand visibility. | [目录](./compete/) | [SKILL.md](./compete/SKILL.md) |
-| `competitors-analysis` | Analyze competitor repositories with evidence-based approach. Use when tracking competitors, creating competitor profiles, or generating competitive analysis. CRITICAL - all analysis must be based on actual cloned code, never assumptions. Triggers include "analyze competitor", "add competitor", "competitive analysis", or "竞品分析". | [目录](./competitors-analysis/) | [SKILL.md](./competitors-analysis/SKILL.md) |
-| `content-creator` | Create SEO-optimized marketing content with consistent brand voice. Includes brand voice analyzer, SEO optimizer, content frameworks, and social media templates. Use when writing blog posts, creating social media content, analyzing brand voice, optimizing SEO, planning content calendars, or when user mentions content creation, brand voice, SEO optimization, social media marketing, or content strategy. | [目录](./content-creator/) | [SKILL.md](./content-creator/SKILL.md) |
-| `growth` | Optimizing SEO (meta/OGP/JSON-LD/heading hierarchy), SMO (social sharing), CRO (CTA/form/exit-intent), and GEO (AI citation optimization) across four pillars. Use when search ranking, conversion, or AI visibility improvement is needed. | [目录](./growth/) | [SKILL.md](./growth/SKILL.md) |
-| `marketing-demand-acquisition` | Multi-channel demand generation, paid media optimization, SEO strategy, and partnership programs for Series A+ startups | [目录](./marketing-demand-acquisition/) | [SKILL.md](./marketing-demand-acquisition/SKILL.md) |
-| `marketing-strategy-pmm` | Product marketing skill for positioning, GTM strategy, competitive intelligence, and product launches. Covers April Dunford positioning, ICP definition, competitive battlecards, launch playbooks, and international market entry. | [目录](./marketing-strategy-pmm/) | [SKILL.md](./marketing-strategy-pmm/SKILL.md) |
-| `prompt-engineer-toolkit` | Systematic prompt engineering from first principles. Build, test, version, and optimize prompts for any LLM task. Covers technique selection, a testing framework with scored A/B comparison, version control, quality metrics, and optimization strategies. Includes a 10-template library ready to adapt. | [目录](./prompt-engineer-toolkit/) | [SKILL.md](./prompt-engineer-toolkit/SKILL.md) |
-| `pulse` | Defining KPIs, designing tracking events, and specifying dashboards. Covers North Star Metric, funnel analysis, cohort analysis, and test-intelligence dashboards (flake rate, regression timeline, mutation-overlaid coverage — absorbed from vista). GA4/Amplitude/Mixpanel/PostHog integration. Use when metrics or test-telemetry dashboards are needed. | [目录](./pulse/) | [SKILL.md](./pulse/SKILL.md) |
+| `algorithmic-art` | 用于algorithmic、art，支持内容、营销、渠道和数据分析。 | [目录](./algorithmic-art/) | [SKILL.md](./algorithmic-art/SKILL.md) |
+| `app-store-optimization` | 用于应用、store、优化，支持内容、营销、渠道和数据分析。 | [目录](./app-store-optimization/) | [SKILL.md](./app-store-optimization/SKILL.md) |
+| `campaign-analytics` | 用于活动、分析，支持内容、营销、渠道和数据分析。 | [目录](./campaign-analytics/) | [SKILL.md](./campaign-analytics/SKILL.md) |
+| `compete` | 用于compete，支持内容、营销、渠道和数据分析。 | [目录](./compete/) | [SKILL.md](./compete/SKILL.md) |
+| `competitors-analysis` | Analyze competitor repositories with evidence-based approa。 | [目录](./competitors-analysis/) | [SKILL.md](./competitors-analysis/SKILL.md) |
+| `content-creator` | 用于内容、创建，支持内容、营销、渠道和数据分析。 | [目录](./content-creator/) | [SKILL.md](./content-creator/SKILL.md) |
+| `growth` | 用于增长，支持内容、营销、渠道和数据分析。 | [目录](./growth/) | [SKILL.md](./growth/SKILL.md) |
+| `marketing-demand-acquisition` | 用于营销、需求、acquisition，支持内容、营销、渠道和数据分析。 | [目录](./marketing-demand-acquisition/) | [SKILL.md](./marketing-demand-acquisition/SKILL.md) |
+| `marketing-strategy-pmm` | 用于营销、策略、PMM，支持内容、营销、渠道和数据分析。 | [目录](./marketing-strategy-pmm/) | [SKILL.md](./marketing-strategy-pmm/SKILL.md) |
+| `prompt-engineer-toolkit` | 用于提示词、工程、工具包，支持内容、营销、渠道和数据分析。 | [目录](./prompt-engineer-toolkit/) | [SKILL.md](./prompt-engineer-toolkit/SKILL.md) |
+| `pulse` | 用于pulse，支持内容、营销、渠道和数据分析。 | [目录](./pulse/) | [SKILL.md](./pulse/SKILL.md) |
 | `seo-audit` | 用于执行网站 SEO 审计、页面优化、技术检查和搜索增长建议。 | [目录](./seo-audit/) | [SKILL.md](./seo-audit/SKILL.md) |
-| `social-media-analyzer` | Social media campaign analysis and performance tracking. Calculates engagement rates, ROI, and benchmarks across platforms. Use for analyzing social media performance, calculating engagement rate, measuring campaign ROI, comparing platform metrics, or benchmarking against industry standards. | [目录](./social-media-analyzer/) | [SKILL.md](./social-media-analyzer/SKILL.md) |
-| `tweetclaw-source-research` | Use TweetClaw through OpenClaw to collect X/Twitter source context before drafting, monitoring, or campaign analysis. | [目录](./tweetclaw-source-research/) | [SKILL.md](./tweetclaw-source-research/SKILL.md) |
+| `social-media-analyzer` | 用于社交、媒体、分析，支持内容、营销、渠道和数据分析。 | [目录](./social-media-analyzer/) | [SKILL.md](./social-media-analyzer/SKILL.md) |
+| `tweetclaw-source-research` | 用于tweetclaw、来源、研究，支持内容、营销、渠道和数据分析。 | [目录](./tweetclaw-source-research/) | [SKILL.md](./tweetclaw-source-research/SKILL.md) |
 | `twitter-reader` | 用于通过 URL 抓取 Twitter/X 帖子内容、作者、时间、图片和线程回复。 | [目录](./twitter-reader/) | [SKILL.md](./twitter-reader/SKILL.md) |
-| `x-twitter-scraper` | Use Xquik for authorized X/Twitter data workflows, including tweet search, profile reads, follower exports, media lookup, monitoring, webhooks, REST API calls, SDK usage, and MCP setup. | [目录](./x-twitter-scraper/) | [SKILL.md](./x-twitter-scraper/SKILL.md) |
+| `x-twitter-scraper` | 用于抓取和分析 X/Twitter 公开内容、线程和增长信号。 | [目录](./x-twitter-scraper/) | [SKILL.md](./x-twitter-scraper/SKILL.md) |
 
 ## 维护方式
 

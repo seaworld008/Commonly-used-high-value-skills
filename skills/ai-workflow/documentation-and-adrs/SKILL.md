@@ -1,6 +1,7 @@
 ---
 name: documentation-and-adrs
 description: 'Records decisions and documentation. Use when making architectural decisions, changing public APIs, shipping features, or when you need to record context that future engineers and agents will need to understand the codebase.'
+zh_description: "用于documentation、adrs，支持任务规划、执行、评审和验证。"
 version: "1.0.0"
 author: addyosmani
 source: "github:addyosmani/agent-skills"

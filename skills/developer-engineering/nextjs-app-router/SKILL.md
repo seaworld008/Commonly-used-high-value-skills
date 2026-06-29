@@ -1,6 +1,7 @@
 ---
 name: nextjs-app-router
 description: '用于 Next.js App Router 模式开发，包含 RSC、Server Actions 和路由最佳实践。来源：skills.sh 10.2K installs。'
+zh_description: "用于 Next.js App Router 项目开发、路由设计和服务端渲染实践。"
 version: "1.0.0"
 author: "seaworld008"
 source: "skills.sh"

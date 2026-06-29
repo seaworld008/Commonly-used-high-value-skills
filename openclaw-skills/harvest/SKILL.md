@@ -1,6 +1,7 @@
 ---
 name: harvest
 description: Collecting GitHub PR data and generating work reports. Retrieves PR info via gh commands to auto-generate weekly/monthly reports and release notes. Use when work reporting or PR analysis is needed.
+zh_description: "用于harvest，支持工程协作、自动化验证和交付闭环。"
 version: "1.0.6"
 author: "seaworld008"
 source: "github:simota/agent-skills"

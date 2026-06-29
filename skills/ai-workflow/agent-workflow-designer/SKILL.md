@@ -1,6 +1,7 @@
 ---
 name: agent-workflow-designer
 description: 'Design production-grade multi-agent orchestration systems. Covers five core patterns (sequential pipeline, parallel fan-out/fan-in, hierarchical delegation, event-driven, consensus), platform-specific implementations, handoff protocols, state management, error recovery, context window budgeting, and cost optimization.'
+zh_description: "用于Agent、工作流、设计，支持任务规划、执行、评审和验证。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

@@ -1,6 +1,7 @@
 ---
 name: hearth
 description: 'Generating, optimizing, and auditing personal development environment config files (zsh/tmux/neovim/ghostty). Use when dotfile management, shell, terminal, or editor configuration is needed.'
+zh_description: "用于hearth，支持信息整理、沟通和执行管理。"
 version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"

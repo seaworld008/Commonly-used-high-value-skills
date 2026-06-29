@@ -1,6 +1,7 @@
 ---
 name: netlify-deploy
 description: 'Deploy web projects to Netlify using the Netlify CLI (`npx netlify`). Use when the user asks to deploy, host, publish, or link a site/repo on Netlify, including preview and production deploys.'
+zh_description: "用于将网站或应用部署到 Netlify 并获取预览或生产链接。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"

@@ -1,6 +1,7 @@
 ---
 name: codeql-security-scanner
 description: '用于通过 CodeQL 执行语义代码扫描、安全查询、自定义规则、SARIF 报告和 GitHub Code Scanning 集成。'
+zh_description: "用于通过 CodeQL 执行语义代码扫描、安全查询、自定义规则、SARIF 报告和 GitHub Code Scan。"
 version: "1.0.0"
 author: seaworld008
 source: "in-house"

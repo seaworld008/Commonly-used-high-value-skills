@@ -1,6 +1,7 @@
 ---
 name: semgrep-appsec-scanner
 description: '用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。'
+zh_description: "用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。"
 version: "1.0.0"
 author: seaworld008
 source: "in-house"

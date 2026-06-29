@@ -1,6 +1,7 @@
 ---
 name: landing-page-generator
 description: 'Generates high-converting landing pages as complete Next.js/React (TSX) components with Tailwind CSS. Creates hero sections, feature grids, pricing tables, FAQ accordions, testimonial blocks, and CTA sections using proven copy frameworks (PAS, AIDA, BAB). Outputs SEO meta tags, structured data, and performance-optimised code targeting Core Web Vitals (LCP < 1s, CLS < 0.1). Use when the user asks to create a landing page, marketing page, homepage, single-page site, lead capture page, campaign page, promo page, or conversion-optimised web page — or when they want to A/B test landing page variants or replace a static page with one designed to convert.'
+zh_description: "用于落地页、page、生成，支持产品研究、策略、界面和交付协作。"
 version: "1.0.5"
 author: "seaworld008"
 source: "github:alirezarezvani/claude-skills"

@@ -1,6 +1,7 @@
 ---
 name: compete
 description: 'Researching competitors, analyzing differentiation, and shaping strategic positioning. Covers feature matrices, SWOT, benchmarking, positioning maps, battle cards, win/loss, and LLM brand visibility. Research only — no code. Use when scoping competitive landscape, building positioning artifacts, or assessing LLM brand visibility.'
+zh_description: "用于compete，支持内容、营销、渠道和数据分析。"
 version: "1.0.7"
 author: "seaworld008"
 source: "github:simota/agent-skills"

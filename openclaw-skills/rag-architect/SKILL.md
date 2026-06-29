@@ -1,6 +1,7 @@
 ---
 name: rag-architect
 description: 'The RAG (Retrieval-Augmented Generation) Architect skill provides comprehensive tools and knowledge for designing, implementing, and optimizing production-grade RAG pipelines. This skill covers the entire RAG ecosystem from document chunking strategies to evaluation frameworks, enabling you to build scalable, efficient, and accurate retrieval systems.'
+zh_description: "用于设计 RAG 架构、检索策略、索引和评估流程。"
 version: "1.0.0"
 author: "seaworld008"
 source: "in-house"
