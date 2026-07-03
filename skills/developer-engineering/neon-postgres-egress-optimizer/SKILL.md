@@ -2,14 +2,14 @@
 name: neon-postgres-egress-optimizer
 description: 'Diagnose and fix excessive Postgres egress (network data transfer) in a codebase. Use when a user mentions high database bills, unexpected data transfer costs, network transfer charges, egress spikes, "why is my Neon bill so high", "database costs jumped", SELECT * optimization, query overfetching, reduce Neon costs, optimize database usage, or wants to reduce data sent from their database to their application. Also use when reviewing query patterns for cost efficiency, even if the user doesn''t explicitly mention egress or data transfer.'
 zh_description: "诊断并降低 Neon / Postgres 数据出口流量与相关成本。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:neondatabase/agent-skills"
 source_url: "https://github.com/neondatabase/agent-skills/tree/main/skills/neon-postgres-egress-optimizer"
 license: Apache-2.0
 tags: '["postgres", "neon", "cost-optimization", "performance"]'
 created_at: "2026-06-29"
-updated_at: "2026-06-29"
+updated_at: "2026-07-03"
 quality: 4
 complexity: "intermediate"
 ---
@@ -17,19 +17,6 @@ complexity: "intermediate"
 # Postgres Egress Optimizer
 
 Guide the user through diagnosing and fixing application-side query patterns that cause excessive data transfer (egress) from their Postgres database. Most high egress bills come from the application fetching more data than it uses.
-
-<!-- LOCAL-QUALITY-SUPPLEMENT:START -->
-## When to Use
-
-Use this skill when a user reports unexpectedly high Neon or Postgres network-transfer costs, egress spikes, overfetching, or wants help reducing database-to-application payload size.
-
-## Core Capabilities
-
-- Diagnose high-egress queries with `pg_stat_statements`
-- Trace code paths that overfetch rows or wide columns
-- Recommend targeted fixes such as column pruning, pagination, caching, and aggregation pushdown
-- Estimate impact in terms of transferred rows, payload width, and repeated query frequency
-<!-- LOCAL-QUALITY-SUPPLEMENT:END -->
 
 ## Step 1: Diagnose
 
@@ -227,12 +214,12 @@ After applying fixes:
 The fixes above cut **egress** (data transferred out of Postgres). The other big non-prod cost lever is **compute**, and you can codify it durably in `neon.ts` — Neon's infrastructure-as-code file (see the `neon` skill for the full reference) — so dev, preview, and CI branches stay cheap by default instead of relying on per-branch flags:
 
 ```bash
-npm i @neondatabase/config
+npm i @neon/config
 ```
 
 ```typescript
 // neon.ts
-import { defineConfig } from "@neondatabase/config/v1";
+import { defineConfig } from "@neon/config/v1";
 
 export default defineConfig({
   branch: (branch) => {
@@ -252,12 +239,38 @@ export default defineConfig({
 ```
 
 ```bash
-neonctl config apply   # apply to the current branch (neonctl deploy is an alias)
+neon config apply   # apply to the current branch (neon deploy is an alias)
 ```
 
-This is complementary, not a substitute: query-pattern fixes are what actually reduce egress charges, while these settings keep non-production compute and storage from quietly inflating the same bill. Because `neonctl checkout` applies the policy when it creates a branch, new dev/preview branches inherit the cheap profile automatically.
+This is complementary, not a substitute: query-pattern fixes are what actually reduce egress charges, while these settings keep non-production compute and storage from quietly inflating the same bill. Because `neon checkout` applies the policy when it creates a branch, new dev/preview branches inherit the cheap profile automatically.
 
 ## Further reading
 
 - https://neon.com/docs/introduction/network-transfer.md
 - https://neon.com/docs/introduction/cost-optimization.md
+<!-- LOCAL-QUALITY-SUPPLEMENT:START -->
+## Usage Notes
+
+This supplement is maintained by the repository sync pipeline. It keeps the
+imported upstream skill usable inside this curated collection when the upstream
+source is intentionally concise.
+
+## Common Patterns
+
+```text
+1. Confirm that the user's task matches the skill trigger.
+2. Read the relevant project files or user-provided context before acting.
+3. Choose the smallest reversible action that advances the task.
+4. Run the verification command or manual check that proves the result.
+5. Report the outcome, evidence, and any remaining risk.
+```
+
+## Boundaries
+
+- Prefer the upstream workflow for Neon Postgres Egress Optimizer; this section only adds local quality
+  guardrails.
+- Do not invent project facts when required files, vaults, services, or tools are
+  unavailable.
+- Stop and ask for clarification when the next action could overwrite user work,
+  expose private data, or change production state.
+<!-- LOCAL-QUALITY-SUPPLEMENT:END -->

@@ -5,7 +5,7 @@ zh_description: "用于warden，支持记忆管理、安全防护和运行治理
 version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/main/warden"
+source_url: "https://github.com/simota/agent-skills/blob/5f1bd9e50ee7b13fbd143b1a4a30e6643b458097/warden/SKILL.md"
 license: MIT
 tags: '["memory", "safety", "warden"]'
 created_at: "2026-04-25"

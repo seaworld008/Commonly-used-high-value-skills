@@ -563,7 +563,7 @@
 | [playwright](skills/engineering-workflow-automation/playwright) | engineering-workflow-automation | ★★★★☆ | Use when the task requires automating a real browser from the terminal (navigati |
 | [web-scraper](skills/engineering-workflow-automation/web-scraper) | engineering-workflow-automation | ★★★★☆ | Use when users need webpage scraping, structured data extraction, crawling strat |
 | [brainstorming](skills/ai-workflow/brainstorming) | ai-workflow | ★★★☆☆ | You MUST use this before any creative work - creating features, building compone |
-| [executing-plans](skills/ai-workflow/executing-plans) | ai-workflow | ★★★☆☆ | Use when users have a written implementation plan that should be executed step b |
+| [executing-plans](skills/ai-workflow/executing-plans) | ai-workflow | ★★★☆☆ | Use when you have a written implementation plan to execute in a separate session |
 | [subagent-driven-development](skills/ai-workflow/subagent-driven-development) | ai-workflow | ★★★☆☆ | Use when executing implementation plans with independent tasks in the current se |
 | [billing-automation](skills/engineering-workflow-automation/billing-automation) | engineering-workflow-automation | ★★★☆☆ | Build automated billing systems for recurring payments, invoicing, subscription  |
 | [gh-fix-ci](skills/engineering-workflow-automation/gh-fix-ci) | engineering-workflow-automation | ★★★☆☆ | Use when a user asks to debug or fix failing GitHub PR checks that run in GitHub |
@@ -605,7 +605,7 @@
 | [schema](skills/developer-engineering/schema) | developer-engineering | ★★★★★ | Designing database schemas, planning migrations, and authoring ER diagrams. Hand |
 | [skill-tester](skills/developer-engineering/skill-tester) | developer-engineering | ★★★★★ | Name: skill-tester Tier: POWERFUL Category: Engineering Quality Assurance Depend |
 | [tech-debt-tracker](skills/developer-engineering/tech-debt-tracker) | developer-engineering | ★★★★★ | Tier: POWERFUL 🔥 Category: Engineering Process Automation Expertise: Code Qualit |
-| [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Use when configuring, extending, debugging, or contributing to Hermes Agent, inc |
+| [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Configure, extend, or contribute to Hermes Agent. |
 | [aws-solution-architect](skills/developer-engineering/aws-solution-architect) | developer-engineering | ★★★★☆ | 用于 AWS 云架构设计、服务选型、成本优化与 Well-Architected Framework 评估。来源：alirezarezvani/claude-s |
 | [docker-expert](skills/developer-engineering/docker-expert) | developer-engineering | ★★★★☆ | 用于 Docker 容器化最佳实践、多阶段构建优化与 Docker Compose 编排。来源：skills.sh 8.7K installs。 |
 | [git-worktree-manager](skills/developer-engineering/git-worktree-manager) | developer-engineering | ★★★★☆ | The Git Worktree Manager skill provides systematic management of Git worktrees f |
@@ -727,12 +727,12 @@
 | [lark-minutes](skills/knowledge-and-pm-integrations/lark-minutes) | knowledge-and-pm-integrations | ★★★★☆ | 飞书妙记：搜索妙记、查看妙记基础信息、下载/上传音视频、读取或编辑妙记的产物内容、改标题、替换说话人/关键词。当给出minute_token、本地音视频文件，要 |
 | [lark-okr](skills/knowledge-and-pm-integrations/lark-okr) | knowledge-and-pm-integrations | ★★★★☆ | 飞书 OKR：管理目标与关键结果。查看和编辑 OKR 周期、目标、关键结果、对齐关系、量化指标和进展记录。当用户需要查看或创建 OKR、管理目标和关键结果、查看 |
 | [lark-openapi-explorer](skills/knowledge-and-pm-integrations/lark-openapi-explorer) | knowledge-and-pm-integrations | ★★★★☆ | 飞书/Lark 原生 OpenAPI 探索：从官方文档库中挖掘未经 CLI 封装的原生 OpenAPI 接口。当用户的需求无法被现有 lark-* skill  |
-| [lark-shared](skills/knowledge-and-pm-integrations/lark-shared) | knowledge-and-pm-integrations | ★★★★☆ | Use when first setting up lark-cli, running auth login, switching user/bot ident |
+| [lark-shared](skills/knowledge-and-pm-integrations/lark-shared) | knowledge-and-pm-integrations | ★★★★☆ | Use for lark-cli setup/auth tasks: auth login/status/logout, user vs bot identit |
 | [lark-sheets](skills/knowledge-and-pm-integrations/lark-sheets) | knowledge-and-pm-integrations | ★★★★☆ | 飞书电子表格：创建和操作电子表格。支持创建表格、管理工作表与行列结构（增删/合并/调整尺寸/隐藏/冻结）、读写单元格（值/公式/样式/批注/单元格图片）、查找替 |
 | [lark-slides](skills/knowledge-and-pm-integrations/lark-slides) | knowledge-and-pm-integrations | ★★★★☆ | 飞书幻灯片：创建和编辑幻灯片。创建演示文稿、读取幻灯片内容、管理幻灯片页面（创建、删除、读取、局部替换）。当用户需要创建或编辑幻灯片、读取或修改单个页面时使用。 |
 | [lark-task](skills/knowledge-and-pm-integrations/lark-task) | knowledge-and-pm-integrations | ★★★★☆ | 飞书任务：管理任务、清单和任务智能体。创建待办任务、查看和更新任务状态、拆分子任务、组织任务清单、分配协作成员、上传任务附件、注册或注销任务智能体、更新任务智能 |
 | [lark-vc](skills/knowledge-and-pm-integrations/lark-vc) | knowledge-and-pm-integrations | ★★★★☆ | 飞书视频会议：搜索历史会议记录、查询会议纪要（总结/待办/章节/逐字稿）、查询参会人快照。当用户查询已结束的会议、获取会议产物（纪要/妙记）、查看参会人时使用； |
-| [lark-vc-agent](skills/knowledge-and-pm-integrations/lark-vc-agent) | knowledge-and-pm-integrations | ★★★★☆ | 飞书视频会议会中能力：用于让应用机器人真实加入或离开正在进行的会议，并读取当前身份可见的会中事件，如参会人加入/离开、发言、聊天、屏幕共享。适用于用户询问正在开 |
+| [lark-vc-agent](skills/knowledge-and-pm-integrations/lark-vc-agent) | knowledge-and-pm-integrations | ★★★★☆ | 飞书视频会议会中能力：用于让应用机器人真实加入或离开正在进行的会议，并读取当前身份可见的会中事件、发送会中文本消息或会中表情。适用于用户询问正在开的会议发生了什 |
 | [lark-wiki](skills/knowledge-and-pm-integrations/lark-wiki) | knowledge-and-pm-integrations | ★★★★☆ | 飞书知识库：管理知识空间、空间成员和文档节点。创建和查询知识空间、查看和管理空间成员、管理节点层级结构、在知识库中组织文档和快捷方式。当用户需要在知识库中查找或 |
 | [lark-workflow-meeting-summary](skills/knowledge-and-pm-integrations/lark-workflow-meeting-summary) | knowledge-and-pm-integrations | ★★★★☆ | Use when users need to collect Feishu/Lark meeting minutes across a time range,  |
 | [lark-workflow-standup-report](skills/knowledge-and-pm-integrations/lark-workflow-standup-report) | knowledge-and-pm-integrations | ★★★★☆ | 日程待办摘要：编排 calendar +agenda 和 task +get-my-tasks，生成指定日期的日程与未完成任务摘要。适用于了解今天/明天/本周的 |
@@ -759,12 +759,12 @@
 | [lark-minutes](skills/knowledge-and-pm-integrations/lark-minutes) | knowledge-and-pm-integrations | ★★★★☆ | 飞书妙记：搜索妙记、查看妙记基础信息、下载/上传音视频、读取或编辑妙记的产物内容、改标题、替换说话人/关键词。当给出minute_token、本地音视频文件，要 |
 | [lark-okr](skills/knowledge-and-pm-integrations/lark-okr) | knowledge-and-pm-integrations | ★★★★☆ | 飞书 OKR：管理目标与关键结果。查看和编辑 OKR 周期、目标、关键结果、对齐关系、量化指标和进展记录。当用户需要查看或创建 OKR、管理目标和关键结果、查看 |
 | [lark-openapi-explorer](skills/knowledge-and-pm-integrations/lark-openapi-explorer) | knowledge-and-pm-integrations | ★★★★☆ | 飞书/Lark 原生 OpenAPI 探索：从官方文档库中挖掘未经 CLI 封装的原生 OpenAPI 接口。当用户的需求无法被现有 lark-* skill  |
-| [lark-shared](skills/knowledge-and-pm-integrations/lark-shared) | knowledge-and-pm-integrations | ★★★★☆ | Use when first setting up lark-cli, running auth login, switching user/bot ident |
+| [lark-shared](skills/knowledge-and-pm-integrations/lark-shared) | knowledge-and-pm-integrations | ★★★★☆ | Use for lark-cli setup/auth tasks: auth login/status/logout, user vs bot identit |
 | [lark-sheets](skills/knowledge-and-pm-integrations/lark-sheets) | knowledge-and-pm-integrations | ★★★★☆ | 飞书电子表格：创建和操作电子表格。支持创建表格、管理工作表与行列结构（增删/合并/调整尺寸/隐藏/冻结）、读写单元格（值/公式/样式/批注/单元格图片）、查找替 |
 | [lark-slides](skills/knowledge-and-pm-integrations/lark-slides) | knowledge-and-pm-integrations | ★★★★☆ | 飞书幻灯片：创建和编辑幻灯片。创建演示文稿、读取幻灯片内容、管理幻灯片页面（创建、删除、读取、局部替换）。当用户需要创建或编辑幻灯片、读取或修改单个页面时使用。 |
 | [lark-task](skills/knowledge-and-pm-integrations/lark-task) | knowledge-and-pm-integrations | ★★★★☆ | 飞书任务：管理任务、清单和任务智能体。创建待办任务、查看和更新任务状态、拆分子任务、组织任务清单、分配协作成员、上传任务附件、注册或注销任务智能体、更新任务智能 |
 | [lark-vc](skills/knowledge-and-pm-integrations/lark-vc) | knowledge-and-pm-integrations | ★★★★☆ | 飞书视频会议：搜索历史会议记录、查询会议纪要（总结/待办/章节/逐字稿）、查询参会人快照。当用户查询已结束的会议、获取会议产物（纪要/妙记）、查看参会人时使用； |
-| [lark-vc-agent](skills/knowledge-and-pm-integrations/lark-vc-agent) | knowledge-and-pm-integrations | ★★★★☆ | 飞书视频会议会中能力：用于让应用机器人真实加入或离开正在进行的会议，并读取当前身份可见的会中事件，如参会人加入/离开、发言、聊天、屏幕共享。适用于用户询问正在开 |
+| [lark-vc-agent](skills/knowledge-and-pm-integrations/lark-vc-agent) | knowledge-and-pm-integrations | ★★★★☆ | 飞书视频会议会中能力：用于让应用机器人真实加入或离开正在进行的会议，并读取当前身份可见的会中事件、发送会中文本消息或会中表情。适用于用户询问正在开的会议发生了什 |
 | [lark-wiki](skills/knowledge-and-pm-integrations/lark-wiki) | knowledge-and-pm-integrations | ★★★★☆ | 飞书知识库：管理知识空间、空间成员和文档节点。创建和查询知识空间、查看和管理空间成员、管理节点层级结构、在知识库中组织文档和快捷方式。当用户需要在知识库中查找或 |
 | [lark-workflow-meeting-summary](skills/knowledge-and-pm-integrations/lark-workflow-meeting-summary) | knowledge-and-pm-integrations | ★★★★☆ | Use when users need to collect Feishu/Lark meeting minutes across a time range,  |
 | [lark-workflow-standup-report](skills/knowledge-and-pm-integrations/lark-workflow-standup-report) | knowledge-and-pm-integrations | ★★★★☆ | 日程待办摘要：编排 calendar +agenda 和 task +get-my-tasks，生成指定日期的日程与未完成任务摘要。适用于了解今天/明天/本周的 |
@@ -791,12 +791,12 @@
 | [lark-minutes](skills/knowledge-and-pm-integrations/lark-minutes) | knowledge-and-pm-integrations | ★★★★☆ | 飞书妙记：搜索妙记、查看妙记基础信息、下载/上传音视频、读取或编辑妙记的产物内容、改标题、替换说话人/关键词。当给出minute_token、本地音视频文件，要 |
 | [lark-okr](skills/knowledge-and-pm-integrations/lark-okr) | knowledge-and-pm-integrations | ★★★★☆ | 飞书 OKR：管理目标与关键结果。查看和编辑 OKR 周期、目标、关键结果、对齐关系、量化指标和进展记录。当用户需要查看或创建 OKR、管理目标和关键结果、查看 |
 | [lark-openapi-explorer](skills/knowledge-and-pm-integrations/lark-openapi-explorer) | knowledge-and-pm-integrations | ★★★★☆ | 飞书/Lark 原生 OpenAPI 探索：从官方文档库中挖掘未经 CLI 封装的原生 OpenAPI 接口。当用户的需求无法被现有 lark-* skill  |
-| [lark-shared](skills/knowledge-and-pm-integrations/lark-shared) | knowledge-and-pm-integrations | ★★★★☆ | Use when first setting up lark-cli, running auth login, switching user/bot ident |
+| [lark-shared](skills/knowledge-and-pm-integrations/lark-shared) | knowledge-and-pm-integrations | ★★★★☆ | Use for lark-cli setup/auth tasks: auth login/status/logout, user vs bot identit |
 | [lark-sheets](skills/knowledge-and-pm-integrations/lark-sheets) | knowledge-and-pm-integrations | ★★★★☆ | 飞书电子表格：创建和操作电子表格。支持创建表格、管理工作表与行列结构（增删/合并/调整尺寸/隐藏/冻结）、读写单元格（值/公式/样式/批注/单元格图片）、查找替 |
 | [lark-slides](skills/knowledge-and-pm-integrations/lark-slides) | knowledge-and-pm-integrations | ★★★★☆ | 飞书幻灯片：创建和编辑幻灯片。创建演示文稿、读取幻灯片内容、管理幻灯片页面（创建、删除、读取、局部替换）。当用户需要创建或编辑幻灯片、读取或修改单个页面时使用。 |
 | [lark-task](skills/knowledge-and-pm-integrations/lark-task) | knowledge-and-pm-integrations | ★★★★☆ | 飞书任务：管理任务、清单和任务智能体。创建待办任务、查看和更新任务状态、拆分子任务、组织任务清单、分配协作成员、上传任务附件、注册或注销任务智能体、更新任务智能 |
 | [lark-vc](skills/knowledge-and-pm-integrations/lark-vc) | knowledge-and-pm-integrations | ★★★★☆ | 飞书视频会议：搜索历史会议记录、查询会议纪要（总结/待办/章节/逐字稿）、查询参会人快照。当用户查询已结束的会议、获取会议产物（纪要/妙记）、查看参会人时使用； |
-| [lark-vc-agent](skills/knowledge-and-pm-integrations/lark-vc-agent) | knowledge-and-pm-integrations | ★★★★☆ | 飞书视频会议会中能力：用于让应用机器人真实加入或离开正在进行的会议，并读取当前身份可见的会中事件，如参会人加入/离开、发言、聊天、屏幕共享。适用于用户询问正在开 |
+| [lark-vc-agent](skills/knowledge-and-pm-integrations/lark-vc-agent) | knowledge-and-pm-integrations | ★★★★☆ | 飞书视频会议会中能力：用于让应用机器人真实加入或离开正在进行的会议，并读取当前身份可见的会中事件、发送会中文本消息或会中表情。适用于用户询问正在开的会议发生了什 |
 | [lark-wiki](skills/knowledge-and-pm-integrations/lark-wiki) | knowledge-and-pm-integrations | ★★★★☆ | 飞书知识库：管理知识空间、空间成员和文档节点。创建和查询知识空间、查看和管理空间成员、管理节点层级结构、在知识库中组织文档和快捷方式。当用户需要在知识库中查找或 |
 | [lark-workflow-meeting-summary](skills/knowledge-and-pm-integrations/lark-workflow-meeting-summary) | knowledge-and-pm-integrations | ★★★★☆ | Use when users need to collect Feishu/Lark meeting minutes across a time range,  |
 | [lark-workflow-standup-report](skills/knowledge-and-pm-integrations/lark-workflow-standup-report) | knowledge-and-pm-integrations | ★★★★☆ | 日程待办摘要：编排 calendar +agenda 和 task +get-my-tasks，生成指定日期的日程与未完成任务摘要。适用于了解今天/明天/本周的 |
@@ -1351,7 +1351,7 @@
 | [hermes-graphify-gsd-nonintrusive-workflow](skills/ai-agent-platform/hermes-graphify-gsd-nonintrusive-workflow) | ai-agent-platform | ★★★★★ | Use when integrating Hermes Agent, graphify, and GSD into a local development wo |
 | [hermes-graphify-gsd-runtime-operator](skills/ai-agent-platform/hermes-graphify-gsd-runtime-operator) | ai-agent-platform | ★★★★★ | Use when operating or debugging a repo-local Hermes + graphify + GSD autonomous  |
 | [hermes-graphify-gsd-project-integration](skills/engineering-workflow-automation/hermes-graphify-gsd-project-integration) | engineering-workflow-automation | ★★★★★ | Use when integrating Hermes Agent, graphify, and GSD into a specific repository, |
-| [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Use when configuring, extending, debugging, or contributing to Hermes Agent, inc |
+| [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Configure, extend, or contribute to Hermes Agent. |
 
 ## knowledge
 
@@ -1394,7 +1394,7 @@
 |-------|----------|---------|-------------|
 | [lark-minutes](skills/knowledge-and-pm-integrations/lark-minutes) | knowledge-and-pm-integrations | ★★★★☆ | 飞书妙记：搜索妙记、查看妙记基础信息、下载/上传音视频、读取或编辑妙记的产物内容、改标题、替换说话人/关键词。当给出minute_token、本地音视频文件，要 |
 | [lark-vc](skills/knowledge-and-pm-integrations/lark-vc) | knowledge-and-pm-integrations | ★★★★☆ | 飞书视频会议：搜索历史会议记录、查询会议纪要（总结/待办/章节/逐字稿）、查询参会人快照。当用户查询已结束的会议、获取会议产物（纪要/妙记）、查看参会人时使用； |
-| [lark-vc-agent](skills/knowledge-and-pm-integrations/lark-vc-agent) | knowledge-and-pm-integrations | ★★★★☆ | 飞书视频会议会中能力：用于让应用机器人真实加入或离开正在进行的会议，并读取当前身份可见的会中事件，如参会人加入/离开、发言、聊天、屏幕共享。适用于用户询问正在开 |
+| [lark-vc-agent](skills/knowledge-and-pm-integrations/lark-vc-agent) | knowledge-and-pm-integrations | ★★★★☆ | 飞书视频会议会中能力：用于让应用机器人真实加入或离开正在进行的会议，并读取当前身份可见的会中事件、发送会中文本消息或会中表情。适用于用户询问正在开的会议发生了什 |
 | [lark-workflow-meeting-summary](skills/knowledge-and-pm-integrations/lark-workflow-meeting-summary) | knowledge-and-pm-integrations | ★★★★☆ | Use when users need to collect Feishu/Lark meeting minutes across a time range,  |
 
 ## memory
@@ -1781,7 +1781,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [cli-demo-generator](skills/developer-engineering/cli-demo-generator) | developer-engineering | ★★★★★ | This skill should be used when users want to create animated CLI demos, terminal |
-| [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Use when configuring, extending, debugging, or contributing to Hermes Agent, inc |
+| [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Configure, extend, or contribute to Hermes Agent. |
 
 ## cloudflare
 
@@ -1825,8 +1825,8 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Use when configuring, extending, debugging, or contributing to Hermes Agent, inc |
-| [lark-shared](skills/knowledge-and-pm-integrations/lark-shared) | knowledge-and-pm-integrations | ★★★★☆ | Use when first setting up lark-cli, running auth login, switching user/bot ident |
+| [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Configure, extend, or contribute to Hermes Agent. |
+| [lark-shared](skills/knowledge-and-pm-integrations/lark-shared) | knowledge-and-pm-integrations | ★★★★☆ | Use for lark-cli setup/auth tasks: auth login/status/logout, user vs bot identit |
 
 ## container-security
 
@@ -1871,7 +1871,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [lark-event](skills/knowledge-and-pm-integrations/lark-event) | knowledge-and-pm-integrations | ★★★★☆ | Lark/Feishu real-time event listening / subscribing / consuming: stream events a |
-| [lark-vc-agent](skills/knowledge-and-pm-integrations/lark-vc-agent) | knowledge-and-pm-integrations | ★★★★☆ | 飞书视频会议会中能力：用于让应用机器人真实加入或离开正在进行的会议，并读取当前身份可见的会中事件，如参会人加入/离开、发言、聊天、屏幕共享。适用于用户询问正在开 |
+| [lark-vc-agent](skills/knowledge-and-pm-integrations/lark-vc-agent) | knowledge-and-pm-integrations | ★★★★☆ | 飞书视频会议会中能力：用于让应用机器人真实加入或离开正在进行的会议，并读取当前身份可见的会中事件、发送会中文本消息或会中表情。适用于用户询问正在开的会议发生了什 |
 
 ## figma
 
@@ -1898,7 +1898,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [gateway](skills/developer-engineering/gateway) | developer-engineering | ★★★★★ | Designing and reviewing APIs via OpenAPI spec generation, versioning strategy, b |
-| [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Use when configuring, extending, debugging, or contributing to Hermes Agent, inc |
+| [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Configure, extend, or contribute to Hermes Agent. |
 
 ## graphql
 
@@ -2015,7 +2015,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [writing-plans](skills/ai-workflow/writing-plans) | ai-workflow | ★★★★☆ | Use when you have a spec or requirements for a multi-step task, before touching  |
-| [executing-plans](skills/ai-workflow/executing-plans) | ai-workflow | ★★★☆☆ | Use when users have a written implementation plan that should be executed step b |
+| [executing-plans](skills/ai-workflow/executing-plans) | ai-workflow | ★★★☆☆ | Use when you have a written implementation plan to execute in a separate session |
 
 ## playwright
 
@@ -2433,7 +2433,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lark-shared](skills/knowledge-and-pm-integrations/lark-shared) | knowledge-and-pm-integrations | ★★★★☆ | Use when first setting up lark-cli, running auth login, switching user/bot ident |
+| [lark-shared](skills/knowledge-and-pm-integrations/lark-shared) | knowledge-and-pm-integrations | ★★★★☆ | Use for lark-cli setup/auth tasks: auth login/status/logout, user vs bot identit |
 
 ## authoring
 
@@ -3129,7 +3129,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [executing-plans](skills/ai-workflow/executing-plans) | ai-workflow | ★★★☆☆ | Use when users have a written implementation plan that should be executed step b |
+| [executing-plans](skills/ai-workflow/executing-plans) | ai-workflow | ★★★☆☆ | Use when you have a written implementation plan to execute in a separate session |
 
 ## fact
 
@@ -3777,7 +3777,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Use when configuring, extending, debugging, or contributing to Hermes Agent, inc |
+| [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Configure, extend, or contribute to Hermes Agent. |
 
 ## multimodal
 
@@ -4529,7 +4529,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Use when configuring, extending, debugging, or contributing to Hermes Agent, inc |
+| [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Configure, extend, or contribute to Hermes Agent. |
 
 ## shard
 
@@ -4641,7 +4641,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Use when configuring, extending, debugging, or contributing to Hermes Agent, inc |
+| [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Configure, extend, or contribute to Hermes Agent. |
 
 ## spec
 

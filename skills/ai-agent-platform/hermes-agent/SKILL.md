@@ -1,15 +1,15 @@
 ---
 name: hermes-agent
-description: 'Use when configuring, extending, debugging, or contributing to Hermes Agent, including multi-agent setup, CLI workflows, gateway configuration, and development tasks.'
+description: 'Configure, extend, or contribute to Hermes Agent.'
 zh_description: "用于配置、扩展、调试和贡献 Hermes Agent，包括多 Agent、CLI 和网关工作流。"
-version: "2.0.12"
+version: "2.0.13"
 author: Hermes Agent + Teknium
 source: "in-house"
 source_url: ""
 license: MIT
 tags: '[hermes, setup, configuration, multi-agent, spawning, cli, gateway, development]'
 created_at: "2026-04-13"
-updated_at: "2026-06-29"
+updated_at: "2026-07-03"
 quality: 4
 complexity: "intermediate"
 metadata:
@@ -712,7 +712,7 @@ here; full developer notes live in `AGENTS.md`, user-facing docs under
 
 Spawn a subagent with an isolated context + terminal session.
 
-- **Single:** `delegate_task(goal, context, toolsets)`.
+- **Single:** `delegate_task(goal, context)`.
 - **Batch:** `delegate_task(tasks=[{goal, ...}, ...])` runs children in
   parallel, capped by `delegation.max_concurrent_children` (default 3).
 - **Background:** `delegate_task(background=true)` returns a handle

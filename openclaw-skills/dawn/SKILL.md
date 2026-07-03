@@ -5,7 +5,7 @@ zh_description: "用于dawn，支持信息整理、沟通和执行管理。"
 version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/main/dawn"
+source_url: "https://github.com/simota/agent-skills/blob/5f1bd9e50ee7b13fbd143b1a4a30e6643b458097/dawn/SKILL.md"
 license: MIT
 tags: '["dawn", "productivity"]'
 created_at: "2026-04-25"

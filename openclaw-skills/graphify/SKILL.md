@@ -1,7 +1,6 @@
 ---
 name: graphify
 description: 'Use for any question about a codebase, its architecture, file relationships, or project content — especially when graphify-out/ exists, where the question should be treated as a graphify query first. Turns any input (code, docs, papers, images, videos) into a persistent knowledge graph with god nodes, community detection, and query/path/explain tools.'
-zh_description: "用于Graphify，支持开发、调试、评审和交付。"
 version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
@@ -9,7 +8,7 @@ source_url: ""
 license: MIT
 tags: '["development", "graphify"]'
 created_at: "2026-04-13"
-updated_at: "2026-06-29"
+updated_at: "2026-07-03"
 quality: 5
 complexity: "intermediate"
 ---
@@ -88,7 +87,7 @@ fi
 if [ -z "$PYTHON" ] && [ -n "$GRAPHIFY_BIN" ]; then
     _SHEBANG=$(head -1 "$GRAPHIFY_BIN" | tr -d '#!')
     case "$_SHEBANG" in
-        *[!a-zA-Z0-9/_.-]*) ;;
+        *[!a-zA-Z0-9/_.@-]*) ;;
         *) "$_SHEBANG" -c "import graphify" 2>/dev/null && PYTHON="$_SHEBANG" ;;
     esac
 fi
@@ -637,7 +636,7 @@ if [ ! -f graphify-out/.graphify_python ]; then
     GRAPHIFY_BIN=$(which graphify 2>/dev/null)
     if [ -n "$GRAPHIFY_BIN" ]; then
         PYTHON=$(head -1 "$GRAPHIFY_BIN" | tr -d '#!')
-        case "$PYTHON" in *[!a-zA-Z0-9/_.-]*) PYTHON="python3" ;; esac
+        case "$PYTHON" in *[!a-zA-Z0-9/_.@-]*) PYTHON="python3" ;; esac
     else
         PYTHON="python3"
     fi

@@ -2,13 +2,13 @@
 name: writing-skills
 description: 'Use when creating new skills, editing existing skills, or verifying skills work before deployment'
 zh_description: "用于writing、技能，支持任务规划、执行、评审和验证。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["skills", "authoring", "workflow"]'
 created_at: "2026-04-13"
-updated_at: "2026-06-21"
+updated_at: "2026-07-03"
 quality: 4
 complexity: "intermediate"
 ---
@@ -19,7 +19,7 @@ complexity: "intermediate"
 
 **Writing skills IS Test-Driven Development applied to process documentation.**
 
-**Personal skills live in your runtime's skills directory** — see [claude-code-tools.md](../using-superpowers/references/claude-code-tools.md), [codex-tools.md](../using-superpowers/references/codex-tools.md), [copilot-tools.md](../using-superpowers/references/copilot-tools.md), or [gemini-tools.md](../using-superpowers/references/gemini-tools.md) for the path on your runtime. Codex, Copilot CLI, and Gemini CLI all also recognize `~/.agents/skills/` as a cross-runtime alias.
+**Personal skills live in your runtime's skills directory**
 
 You write test cases (pressure scenarios with subagents), watch them fail (baseline behavior), write the skill (documentation), watch tests pass (agents comply), and refactor (close loopholes).
 

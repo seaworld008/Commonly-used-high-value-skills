@@ -133,7 +133,7 @@ For CI, pin to a reviewed commit instead of `main` when reproducibility matters:
 
 ```bash
 curl -fsSL -o ./nlpm-check \
-  https://raw.githubusercontent.com/xiaolai/nlpm/<reviewed-commit>/bin/nlpm-check
+  https://raw.githubusercontent.com/xiaolai/nlpm/{reviewed-commit}/bin/nlpm-check
 python3 ./nlpm-check .
 ```
 

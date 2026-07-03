@@ -2,14 +2,14 @@
 name: planning-and-task-breakdown
 description: 'Breaks work into ordered tasks. Use when you have a spec or clear requirements and need to break work into implementable tasks. Use when a task feels too large to start, when you need to estimate scope, or when parallel work is possible.'
 zh_description: "用于planning、任务、breakdown，支持任务规划、执行、评审和验证。"
-version: "1.0.1"
+version: "1.0.2"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/planning-and-task-breakdown/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "planning-and-task-breakdown", "workflow"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-24"
+updated_at: "2026-07-03"
 quality: 5
 complexity: advanced
 upstream_slug: planning-and-task-breakdown
@@ -42,7 +42,7 @@ Before writing any code, operate in read-only mode:
 - Map dependencies between components
 - Note risks and unknowns
 
-**Do NOT write code during planning.** The output is a plan document, not implementation.
+**Do NOT write code during planning.** The output is a plan document saved to `tasks/plan.md` and a task list saved to `tasks/todo.md`, not implementation.
 
 ### Step 2: Identify the Dependency Graph
 
@@ -151,6 +151,13 @@ If a task is L or larger, it should be broken into smaller tasks. An agent perfo
 - You cannot describe the acceptance criteria in 3 or fewer bullet points
 - It touches two or more independent subsystems (e.g., auth and billing)
 - You find yourself writing "and" in the task title (a sign it is two tasks)
+
+## Output Files
+
+- **Plan document:** Save the implementation plan to `tasks/plan.md`.
+- **Task list:** Save the checklist-style task list to `tasks/todo.md`.
+
+Create the `tasks/` directory if it does not exist. These paths are the convention expected by the `/build` command and other downstream tooling.
 
 ## Plan Document Template
 

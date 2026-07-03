@@ -5,7 +5,7 @@ zh_description: "用于comply，支持安全扫描、审计、加固和风险治
 version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/main/comply"
+source_url: "https://github.com/simota/agent-skills/blob/5f1bd9e50ee7b13fbd143b1a4a30e6643b458097/comply/SKILL.md"
 license: MIT
 tags: '["comply", "security"]'
 created_at: "2026-04-25"

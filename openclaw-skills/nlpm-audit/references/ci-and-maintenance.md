@@ -65,7 +65,7 @@ For reproducible CI, pin to a reviewed commit:
 
 ```bash
 curl -fsSL -o ./nlpm-check \
-  https://raw.githubusercontent.com/xiaolai/nlpm/<reviewed-commit>/bin/nlpm-check
+  https://raw.githubusercontent.com/xiaolai/nlpm/{reviewed-commit}/bin/nlpm-check
 python3 ./nlpm-check .
 ```
 
