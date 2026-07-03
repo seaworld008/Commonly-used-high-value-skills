@@ -5,7 +5,7 @@ zh_description: "用于prism，支持文档、表格、演示和资料整理。"
 version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/main/prism"
+source_url: "https://github.com/simota/agent-skills/blob/5f1bd9e50ee7b13fbd143b1a4a30e6643b458097/prism/SKILL.md"
 license: MIT
 tags: '["office", "prism"]'
 created_at: "2026-04-25"
@@ -96,7 +96,7 @@ Route elsewhere when the task is primarily:
 
 Supported output families:
 
-- Audio Overview: `Deep Dive`, `The Brief`, `The Critique`, `The Debate`, `Lecture Mode` (+ `Join` interactive mode). Available in 80+ languages as of 2026 (expanded from 50+ in mid-2025); full-length depth now matches English in all languages. Source: https://blog.google/technology/google-labs/notebooklm-audio-overviews-50-languages/
+- Audio Overview: `Deep Dive`, `The Brief`, `The Critique`, `The Debate`, `Lecture Mode` (+ `Join` interactive mode). Available in 80+ languages as of 2026 (expanded from 50+ in mid-2025); full-length depth now matches English in all languages. Source: https://blog.google/innovation-and-ai/models-and-research/google-labs/notebooklm-audio-overviews-50-languages/
 - Video Overview: `Explainer`, `Brief`, `Cinematic` (immersive deep-dive with fluid animations powered by Gemini + Imagen + Veo; Ultra only, English only, 18+, max 20/day; launched March 2026). Non-Cinematic Video Overviews available in 80+ languages. Source: https://blog.google/innovation-and-ai/models-and-research/google-labs/notebook-lm-audio-video-overviews-more-languages-longer-content/
 - Slides: `Presenter Slides`, `Detailed Deck` (PPTX export with per-slide revision; image generation powered by Imagen)
 - Visual formats: `Infographic` (10 styles: Sketch Note, Kawaii, Professional, Scientific, Anime, Clay, Editorial, Instructional, Bento Grid, Bricks; image generation powered by Imagen; launched November 2025), `Mind Map`
@@ -307,7 +307,7 @@ Verified sources used to maintain this skill. Consult when checking current limi
 
 | Date | Topic | URL |
 |------|-------|-----|
-| 2025-04-29 | Audio Overviews expanded to 50+ languages (Beta) | https://blog.google/technology/google-labs/notebooklm-audio-overviews-50-languages/ |
+| 2025-04-29 | Audio Overviews expanded to 50+ languages (Beta) | https://blog.google/innovation-and-ai/models-and-research/google-labs/notebooklm-audio-overviews-50-languages/ |
 | 2025-04-29 | Workspace update: Audio Overviews language expansion | https://workspaceupdates.googleblog.com/2025/04/language-expansion-audio-overviews-notebooklm.html |
 | 2025-07-14 | Featured Notebooks launch (The Economist, The Atlantic, etc.) | https://blog.google/innovation-and-ai/models-and-research/google-labs/notebooklm-featured-notebooks/ |
 | 2025-08-25 | Video Overviews expanded to 80+ languages; Audio Overviews depth parity | https://blog.google/innovation-and-ai/models-and-research/google-labs/notebook-lm-audio-video-overviews-more-languages-longer-content/ |

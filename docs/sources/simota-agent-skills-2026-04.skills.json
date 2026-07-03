@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://github.com/simota/agent-skills",
-    "checked_at": "2026-06-29",
+    "checked_at": "2026-07-03",
     "note": "Curated per-category import from simota/agent-skills; refresh with scripts/sync_simota_agent_skills.py."
   },
   "official_references": [
@@ -23,8 +23,8 @@
         "repo": "simota/agent-skills",
         "path": "builder/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-16",
-        "last_synced_at": "2026-06-16",
+        "last_checked_at": "2026-07-03",
+        "last_synced_at": "2026-07-03",
         "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
       }
     },
@@ -71,8 +71,8 @@
         "repo": "simota/agent-skills",
         "path": "nexus/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-29",
-        "last_synced_at": "2026-06-29",
+        "last_checked_at": "2026-07-03",
+        "last_synced_at": "2026-07-03",
         "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
       }
     },
@@ -170,8 +170,8 @@
         "repo": "simota/agent-skills",
         "path": "guardian/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-21",
-        "last_synced_at": "2026-06-21",
+        "last_checked_at": "2026-07-03",
+        "last_synced_at": "2026-07-03",
         "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
       }
     },

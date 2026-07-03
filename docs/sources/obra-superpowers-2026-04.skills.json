@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://github.com/obra/superpowers",
-    "checked_at": "2026-06-29",
+    "checked_at": "2026-07-03",
     "note": "Curated from obra/superpowers after validating current upstream paths and recent popularity/discovery signals."
   },
   "official_references": [
@@ -64,8 +64,8 @@
         "repo": "obra/superpowers",
         "path": "skills/executing-plans/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-21",
-        "last_synced_at": "2026-06-21",
+        "last_checked_at": "2026-07-03",
+        "last_synced_at": "2026-07-03",
         "last_synced_commit": "3bdd66eaa5d74faee2d11c933b7a4bbe604c222e"
       }
     },
@@ -176,8 +176,8 @@
         "repo": "obra/superpowers",
         "path": "skills/using-superpowers/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-21",
-        "last_synced_at": "2026-06-21",
+        "last_checked_at": "2026-07-03",
+        "last_synced_at": "2026-07-03",
         "last_synced_commit": "8b1669269c51835168c98fd435a7af1e5f15ec12"
       }
     },
@@ -208,8 +208,8 @@
         "repo": "obra/superpowers",
         "path": "skills/writing-skills/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-21",
-        "last_synced_at": "2026-06-21",
+        "last_checked_at": "2026-07-03",
+        "last_synced_at": "2026-07-03",
         "last_synced_commit": "4fd9aa2dd5b602a102a1ff4743849642b73655c1"
       }
     }

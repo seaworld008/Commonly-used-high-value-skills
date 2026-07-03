@@ -212,6 +212,14 @@ class SyncUpstreamTests(unittest.TestCase):
 
         self.assertEqual("# Compact", module.comparable_body(local))
 
+    def test_comparable_body_ignores_trailing_whitespace(self):
+        module = load_module()
+
+        self.assertEqual(
+            "# Body\n\nA line",
+            module.comparable_body("# Body   \n\nA line  \n"),
+        )
+
     def test_parse_frontmatter_collapses_folded_scalars(self):
         module = load_module()
 
@@ -251,6 +259,59 @@ class SyncUpstreamTests(unittest.TestCase):
             module.fetch_github_raw_via_api = original_fallback
 
         self.assertIsNone(result)
+
+    def test_auxiliary_sync_skips_case_variant_skill_markdown(self):
+        module = load_module()
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            local_dir = Path(tmpdir) / "skills" / "developer-engineering" / "graphify"
+            local_dir.mkdir(parents=True)
+            canonical = local_dir / "SKILL.md"
+            canonical.write_text("# Canonical\n", encoding="utf-8")
+
+            def fake_api_get(_url, _token):
+                return [
+                    {
+                        "type": "file",
+                        "name": "skill.md",
+                        "download_url": "https://example.test/skill.md",
+                    },
+                    {
+                        "type": "file",
+                        "name": "helper.py",
+                        "download_url": "https://example.test/helper.py",
+                    },
+                ]
+
+            def fake_fetch_url(url, _token):
+                if url.endswith("helper.py"):
+                    return "print('helper')\n"
+                return "# Lowercase upstream skill\n"
+
+            original_api_get = module.github_api_get
+            original_fetch_url = module.fetch_url
+            module.github_api_get = fake_api_get
+            module.fetch_url = fake_fetch_url
+            try:
+                synced = module.sync_github_auxiliary_files(
+                    {
+                        "repo": "owner/repo",
+                        "ref": "main",
+                        "local_path": canonical,
+                    },
+                    "graphify/skill-codex.md",
+                    token=None,
+                )
+            finally:
+                module.github_api_get = original_api_get
+                module.fetch_url = original_fetch_url
+
+            self.assertEqual(1, synced)
+            self.assertEqual("# Canonical\n", canonical.read_text(encoding="utf-8"))
+            lowercase_skill = local_dir / "skill.md"
+            if lowercase_skill.exists():
+                self.assertTrue(lowercase_skill.samefile(canonical))
+            self.assertEqual("print('helper')\n", (local_dir / "helper.py").read_text(encoding="utf-8"))
 
 
 if __name__ == "__main__":

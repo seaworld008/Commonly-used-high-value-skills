@@ -242,7 +242,8 @@ def remove_local_supplements(content: str) -> str:
 
 
 def comparable_body(text: str) -> str:
-    return strip_frontmatter(remove_local_supplements(text))
+    body = strip_frontmatter(remove_local_supplements(text))
+    return "\n".join(line.rstrip() for line in body.splitlines())
 
 
 def needs_quality_supplement(content: str) -> bool:
@@ -509,7 +510,7 @@ def sync_github_auxiliary_files(skill: dict, upstream_path: str, token: str | No
         if item.get("type") != "file":
             continue
         name = item.get("name", "")
-        if name == "SKILL.md" or not name:
+        if not name or name.lower() == "skill.md":
             continue
         download_url = item.get("download_url")
         if not download_url:

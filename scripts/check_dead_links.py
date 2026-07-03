@@ -36,6 +36,8 @@ IGNORE_HOSTS = {
     "example.org",
     "export.arxiv.org",
     "claude.ai",
+    "...",
+    "unsafe.net",
     "your-org.com",
     "schemas.openxmlformats.org",
 }
@@ -74,6 +76,10 @@ IGNORE_URL_SNIPPETS = (
     "api.semanticscholar.org/recommendations/v1/papers",
     "open.feishu.cn/llms-docs/zh-CN/llms-",
     "www.larkoffice.com/sml/",
+    "example.larkoffice.com",
+    "xxx.feishu.cn",
+    "hermes-agent.nousresearch.com/docs/developer-guide/",
+    "ifrs-sustainability-standards-vector/ifrs-s2-climate-related-disclosures/",
     "x.com/user/status/",
 )
 # Treat these codes as ok; some servers block HEAD or require cookies.

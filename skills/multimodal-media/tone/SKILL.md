@@ -5,7 +5,7 @@ zh_description: "用于tone，支持内容生成、编辑、分析和交付。"
 version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/main/tone"
+source_url: "https://github.com/simota/agent-skills/blob/5f1bd9e50ee7b13fbd143b1a4a30e6643b458097/tone/SKILL.md"
 license: MIT
 tags: '["media", "tone"]'
 created_at: "2026-04-25"

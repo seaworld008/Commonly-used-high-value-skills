@@ -5,7 +5,7 @@ zh_description: "用于研究，支持产品研究、策略、界面和交付协
 version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/main/researcher"
+source_url: "https://github.com/simota/agent-skills/blob/5f1bd9e50ee7b13fbd143b1a4a30e6643b458097/researcher/SKILL.md"
 license: MIT
 tags: '["design", "product", "researcher"]'
 created_at: "2026-04-25"

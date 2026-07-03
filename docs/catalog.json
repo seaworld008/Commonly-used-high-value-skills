@@ -97,7 +97,7 @@
       "version": "1.0.4",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
-      "source_url": "https://github.com/simota/agent-skills/tree/main/arena",
+      "source_url": "https://github.com/simota/agent-skills/blob/5f1bd9e50ee7b13fbd143b1a4a30e6643b458097/arena/SKILL.md",
       "tags": [
         "agent",
         "ai",
@@ -198,8 +198,8 @@
     {
       "name": "hermes-agent",
       "category": "ai-agent-platform",
-      "description": "Use when configuring, extending, debugging, or contributing to Hermes Agent, including multi-agent setup, CLI workflows, gateway configuration, and development tasks.",
-      "version": "2.0.12",
+      "description": "Configure, extend, or contribute to Hermes Agent.",
+      "version": "2.0.13",
       "author": "Hermes Agent + Teknium",
       "source": "in-house",
       "source_url": "",
@@ -216,7 +216,7 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-04-13",
-      "updated_at": "2026-06-29",
+      "updated_at": "2026-07-03",
       "line_count": 1117,
       "path": "skills/ai-agent-platform/hermes-agent/SKILL.md"
     },
@@ -721,8 +721,8 @@
     {
       "name": "executing-plans",
       "category": "ai-workflow",
-      "description": "Use when users have a written implementation plan that should be executed step by step in a separate session with review checkpoints and completion verification.",
-      "version": "1.0.3",
+      "description": "Use when you have a written implementation plan to execute in a separate session with review checkpoints",
+      "version": "1.0.4",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -734,7 +734,7 @@
       "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-04-13",
-      "updated_at": "2026-06-29",
+      "updated_at": "2026-07-03",
       "line_count": 106,
       "path": "skills/ai-workflow/executing-plans/SKILL.md"
     },
@@ -804,8 +804,8 @@
     {
       "name": "git-workflow-and-versioning",
       "category": "ai-workflow",
-      "description": "Structures git workflow practices. Use when making any code change. Use when committing, branching, resolving conflicts, or when you need to organize work across multiple parallel streams.",
-      "version": "1.0.0",
+      "description": "Structures git workflow practices. Use when making any code change. Use when committing, branching, resolving conflicts, or when you need to organize work across multiple parallel streams. Use when cutting a release, choosing a semantic version bump, tagging, or writing a changelog.",
+      "version": "1.0.1",
       "author": "addyosmani",
       "source": "github:addyosmani/agent-skills",
       "source_url": "https://github.com/addyosmani/agent-skills/blob/main/skills/git-workflow-and-versioning/SKILL.md",
@@ -819,8 +819,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-04-25",
-      "updated_at": "2026-04-25",
-      "line_count": 312,
+      "updated_at": "2026-07-03",
+      "line_count": 367,
       "path": "skills/ai-workflow/git-workflow-and-versioning/SKILL.md"
     },
     {
@@ -871,7 +871,7 @@
       "name": "nexus",
       "category": "ai-workflow",
       "description": "Orchestrating specialist AI agent teams as a meta-coordinator. Decomposes requests into minimum viable chains, spawns each as an independent session in AUTORUN modes, and drives to final output. Use when a task spans multiple specialist domains, requires parallel agent execution, or needs hub-and-spoke routing across the skill ecosystem.",
-      "version": "1.0.11",
+      "version": "1.0.12",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/nexus",
@@ -883,8 +883,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-04-25",
-      "updated_at": "2026-06-29",
-      "line_count": 531,
+      "updated_at": "2026-07-03",
+      "line_count": 539,
       "path": "skills/ai-workflow/nexus/SKILL.md"
     },
     {
@@ -936,7 +936,7 @@
       "name": "planning-and-task-breakdown",
       "category": "ai-workflow",
       "description": "Breaks work into ordered tasks. Use when you have a spec or clear requirements and need to break work into implementable tasks. Use when a task feels too large to start, when you need to estimate scope, or when parallel work is possible.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "addyosmani",
       "source": "github:addyosmani/agent-skills",
       "source_url": "https://github.com/addyosmani/agent-skills/blob/main/skills/planning-and-task-breakdown/SKILL.md",
@@ -950,8 +950,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-04-25",
-      "updated_at": "2026-06-24",
-      "line_count": 239,
+      "updated_at": "2026-07-03",
+      "line_count": 246,
       "path": "skills/ai-workflow/planning-and-task-breakdown/SKILL.md"
     },
     {
@@ -1188,7 +1188,7 @@
       "name": "spec-driven-development",
       "category": "ai-workflow",
       "description": "Creates specs before coding. Use when starting a new project, feature, or significant change and no specification exists yet. Use when requirements are unclear, ambiguous, or only exist as a vague idea.",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "author": "addyosmani",
       "source": "github:addyosmani/agent-skills",
       "source_url": "https://github.com/addyosmani/agent-skills/blob/main/skills/spec-driven-development/SKILL.md",
@@ -1202,8 +1202,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-04-25",
-      "updated_at": "2026-06-24",
-      "line_count": 216,
+      "updated_at": "2026-07-03",
+      "line_count": 218,
       "path": "skills/ai-workflow/spec-driven-development/SKILL.md"
     },
     {
@@ -1296,7 +1296,7 @@
       "name": "using-superpowers",
       "category": "ai-workflow",
       "description": "Use when starting any conversation - establishes how to find and use skills, requiring skill invocation before ANY response including clarifying questions",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -1308,8 +1308,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-04-13",
-      "updated_at": "2026-06-21",
-      "line_count": 157,
+      "updated_at": "2026-07-03",
+      "line_count": 104,
       "path": "skills/ai-workflow/using-superpowers/SKILL.md"
     },
     {
@@ -1357,7 +1357,7 @@
       "name": "writing-skills",
       "category": "ai-workflow",
       "description": "Use when creating new skills, editing existing skills, or verifying skills work before deployment",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -1369,7 +1369,7 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-04-13",
-      "updated_at": "2026-06-21",
+      "updated_at": "2026-07-03",
       "line_count": 699,
       "path": "skills/ai-workflow/writing-skills/SKILL.md"
     },
@@ -1596,8 +1596,8 @@
     {
       "name": "builder",
       "category": "developer-engineering",
-      "description": "Implementing robust business logic, API integrations, and data models with type safety and production readiness. Use when business logic implementation or API integration is needed.",
-      "version": "1.0.6",
+      "description": "Implementing robust business logic, API integrations, and data models with type safety and production readiness. Use when business logic implementation or API integration is needed. Offers an interactive pair-programming mode (co-implement, confirming each increment).",
+      "version": "1.0.7",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/builder",
@@ -1608,8 +1608,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-04-25",
-      "updated_at": "2026-06-16",
-      "line_count": 335,
+      "updated_at": "2026-07-03",
+      "line_count": 346,
       "path": "skills/developer-engineering/builder/SKILL.md"
     },
     {
@@ -1892,8 +1892,8 @@
       "quality": 5,
       "complexity": "intermediate",
       "created_at": "2026-04-13",
-      "updated_at": "2026-06-29",
-      "line_count": 685,
+      "updated_at": "2026-07-03",
+      "line_count": 684,
       "path": "skills/developer-engineering/graphify/SKILL.md"
     },
     {
@@ -2061,7 +2061,7 @@
       "name": "neon-postgres-egress-optimizer",
       "category": "developer-engineering",
       "description": "Diagnose and fix excessive Postgres egress (network data transfer) in a codebase. Use when a user mentions high database bills, unexpected data transfer costs, network transfer charges, egress spikes, \"why is my Neon bill so high\", \"database costs jumped\", SELECT * optimization, query overfetching, reduce Neon costs, optimize database usage, or wants to reduce data sent from their database to their application. Also use when reviewing query patterns for cost efficiency, even if the user doesn''t explicitly mention egress or data transfer.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": "seaworld008",
       "source": "github:neondatabase/agent-skills",
       "source_url": "https://github.com/neondatabase/agent-skills/tree/main/skills/neon-postgres-egress-optimizer",
@@ -2074,8 +2074,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-06-29",
-      "updated_at": "2026-06-29",
-      "line_count": 263,
+      "updated_at": "2026-07-03",
+      "line_count": 276,
       "path": "skills/developer-engineering/neon-postgres-egress-optimizer/SKILL.md"
     },
     {
@@ -3013,7 +3013,7 @@
       "name": "guardian",
       "category": "engineering-workflow-automation",
       "description": "Gatekeeping Git/PR by classifying change essence and recommending granularity, naming, and strategy. Use when PR preparation or commit strategy is needed.",
-      "version": "1.0.7",
+      "version": "1.0.8",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/guardian",
@@ -3025,8 +3025,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-04-25",
-      "updated_at": "2026-06-21",
-      "line_count": 336,
+      "updated_at": "2026-07-03",
+      "line_count": 339,
       "path": "skills/engineering-workflow-automation/guardian/SKILL.md"
     },
     {
@@ -3390,7 +3390,7 @@
       "version": "1.0.4",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
-      "source_url": "https://github.com/simota/agent-skills/tree/main/levy",
+      "source_url": "https://github.com/simota/agent-skills/blob/5f1bd9e50ee7b13fbd143b1a4a30e6643b458097/levy/SKILL.md",
       "tags": [
         "finance",
         "levy"
@@ -3914,7 +3914,7 @@
       "name": "lark-approval",
       "category": "knowledge-and-pm-integrations",
       "description": "飞书审批：查询和处理审批待办/已办/实例，搜索可发起审批定义、查看定义详情并发起原生审批实例。当用户要处理审批任务、查看审批实例、搜索或发起审批时使用。审批待办不是飞书任务；非审批类待办走 lark-task。不负责创建审批定义；三方审批定义不走原生提单。",
-      "version": "1.0.5",
+      "version": "1.0.6",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/main/skills/lark-approval",
@@ -3928,8 +3928,8 @@
       "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-05-19",
-      "updated_at": "2026-06-29",
-      "line_count": 92,
+      "updated_at": "2026-07-03",
+      "line_count": 134,
       "path": "skills/knowledge-and-pm-integrations/lark-approval/SKILL.md"
     },
     {
@@ -4002,7 +4002,7 @@
       "name": "lark-contact",
       "category": "knowledge-and-pm-integrations",
       "description": "飞书 / Lark 通讯录:按姓名 / 邮箱解析成 open_id,或按 open_id 反查姓名 / 部门 / 邮箱 / 联系方式 / 个人状态 / 签名。当用户提到某人姓名要下一步发消息 / 排日程,或拿到 open_id 想查具体信息时使用。不负责部门树遍历、按部门列员工、组织架构图,这类需求走原生 OpenAPI。",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/main/skills/lark-contact",
@@ -4016,15 +4016,15 @@
       "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-05-19",
-      "updated_at": "2026-06-29",
-      "line_count": 95,
+      "updated_at": "2026-07-03",
+      "line_count": 91,
       "path": "skills/knowledge-and-pm-integrations/lark-contact/SKILL.md"
     },
     {
       "name": "lark-doc",
       "category": "knowledge-and-pm-integrations",
-      "description": "飞书云文档（Docx / Wiki 文档）：读取和编辑飞书文档内容。当用户给出文档 URL 或 token，或需要查看、创建、编辑文档、插入或下载文档图片附件时使用。文档中嵌入的电子表格、多维表格、画板，先用本 skill 提取 token 再切到对应 skill。当用户给出 doubao.com 的 /docx/ 或 /wiki/ URL/token 时，也应直接使用本 skill；路由依据是 URL 路径模式和 token，而不是域名。不负责文档评论管理，也不负责表格或 Base 的数据操作。",
-      "version": "1.0.8",
+      "description": "飞书云文档（Docx / Wiki 文档）：读取和编辑飞书文档内容。当用户给出文档 URL 或 token，或需要查看、创建、编辑文档、插入或下载文档图片附件时使用。文档中嵌入的电子表格、多维表格、画板，先用本 skill 提取 token 再切到对应 skill。当用户给出 doubao.com 的 /docx/ 或 /wiki/ URL/token 时，也应直接使用本 skill；路由依据是 URL 路径模式和 token，而不是域名。不负责文档评论管理，也不负责表格或 Base 的数据操作。当用户明确要操作飞书思维笔记时，也使用本 skill。",
+      "version": "1.0.9",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/main/skills/lark-doc",
@@ -4038,15 +4038,15 @@
       "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-05-19",
-      "updated_at": "2026-06-29",
-      "line_count": 115,
+      "updated_at": "2026-07-03",
+      "line_count": 118,
       "path": "skills/knowledge-and-pm-integrations/lark-doc/SKILL.md"
     },
     {
       "name": "lark-drive",
       "category": "knowledge-and-pm-integrations",
       "description": "飞书云空间（云盘/云存储）：管理 Drive 文件和文件夹，包含上传/下载、创建文件夹、复制/移动/删除、查看元数据、评论/权限/订阅、标题、版本和本地文件导入。用户需要整理云盘目录、处理云空间资源 URL/token，或导入 Word/Markdown/Excel/CSV/PPTX/.base 为 docx/sheet/bitable/slides 时使用；doubao.com 云空间 URL/token 也按资源路径和 token 路由，不回退 WebFetch。不负责：文档内容编辑（走 lark-doc）、表格/Base 表内数据操作（走 lark-sheets/lark-base）、知识空间节点/成员管理（走 lark-wiki）、原生 Markdown 文件读写/patch/diff（走 lark-markdown）。",
-      "version": "1.0.8",
+      "version": "1.0.9",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/main/skills/lark-drive",
@@ -4060,8 +4060,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-05-19",
-      "updated_at": "2026-06-29",
-      "line_count": 251,
+      "updated_at": "2026-07-03",
+      "line_count": 254,
       "path": "skills/knowledge-and-pm-integrations/lark-drive/SKILL.md"
     },
     {
@@ -4090,7 +4090,7 @@
       "name": "lark-im",
       "category": "knowledge-and-pm-integrations",
       "description": "飞书即时通讯：收发消息和管理群聊。发送和回复消息、搜索聊天记录、管理群聊成员、上传下载图片和文件（支持大文件分片下载）、管理表情回复、发送应用内/短信/电话加急、发送和处理交互卡片（Interactive Card）、监听卡片按钮回调（card.action.trigger）。当用户需要发消息、查看或搜索聊天记录、下载聊天中的文件、查看群成员、搜索群、创建群聊或话题群、管理标记数据、管理 Feed 置顶（添加/移除/查询置顶会话）、管理标签数据、处理卡片回调时使用。",
-      "version": "1.0.5",
+      "version": "1.0.6",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/main/skills/lark-im",
@@ -4104,8 +4104,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-05-19",
-      "updated_at": "2026-06-29",
-      "line_count": 283,
+      "updated_at": "2026-07-03",
+      "line_count": 284,
       "path": "skills/knowledge-and-pm-integrations/lark-im/SKILL.md"
     },
     {
@@ -4178,7 +4178,7 @@
       "name": "lark-okr",
       "category": "knowledge-and-pm-integrations",
       "description": "飞书 OKR：管理目标与关键结果。查看和编辑 OKR 周期、目标、关键结果、对齐关系、量化指标和进展记录。当用户需要查看或创建 OKR、管理目标和关键结果、查看对齐关系时使用。不负责：待办任务管理（lark-task）、日程/会议安排（lark-calendar）、绩效评估",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/main/skills/lark-okr",
@@ -4192,8 +4192,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-05-19",
-      "updated_at": "2026-06-21",
-      "line_count": 149,
+      "updated_at": "2026-07-03",
+      "line_count": 156,
       "path": "skills/knowledge-and-pm-integrations/lark-okr/SKILL.md"
     },
     {
@@ -4221,8 +4221,8 @@
     {
       "name": "lark-shared",
       "category": "knowledge-and-pm-integrations",
-      "description": "Use when first setting up lark-cli, running auth login, switching user/bot identity (--as), handling permission denied or scope errors, needing to update lark-cli, or seeing _notice in JSON output.",
-      "version": "1.0.4",
+      "description": "Use for lark-cli setup/auth tasks: auth login/status/logout, user vs bot identity, business-domain permissions (--domain, including all/docs/drive), missing scopes, revoking authorization, or handling _notice JSON.",
+      "version": "1.0.5",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/main/skills/lark-shared",
@@ -4236,8 +4236,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-05-19",
-      "updated_at": "2026-06-08",
-      "line_count": 204,
+      "updated_at": "2026-07-03",
+      "line_count": 229,
       "path": "skills/knowledge-and-pm-integrations/lark-shared/SKILL.md"
     },
     {
@@ -4288,7 +4288,7 @@
       "name": "lark-slides",
       "category": "knowledge-and-pm-integrations",
       "description": "飞书幻灯片：创建和编辑幻灯片。创建演示文稿、读取幻灯片内容、管理幻灯片页面（创建、删除、读取、局部替换）。当用户需要创建或编辑幻灯片、读取或修改单个页面时使用。当用户给出 doubao.com 的 /slides/ URL/token 时，也应直接使用本 skill，不要因为域名不是飞书而回退到 WebFetch；路由依据是 URL 路径模式和 token，而不是域名。不负责：云文档内容编辑（走 lark-doc）、云文档里的独立画板对象（走 lark-whiteboard，注意 slide 内嵌的流程图/架构图仍属本 skill）、上传或下载普通文件（走 lark-drive）。",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/main/skills/lark-slides",
@@ -4302,8 +4302,8 @@
       "quality": 4,
       "complexity": "advanced",
       "created_at": "2026-05-19",
-      "updated_at": "2026-06-29",
-      "line_count": 303,
+      "updated_at": "2026-07-03",
+      "line_count": 284,
       "path": "skills/knowledge-and-pm-integrations/lark-slides/SKILL.md"
     },
     {
@@ -4353,8 +4353,8 @@
     {
       "name": "lark-vc-agent",
       "category": "knowledge-and-pm-integrations",
-      "description": "飞书视频会议会中能力：用于让应用机器人真实加入或离开正在进行的会议，并读取当前身份可见的会中事件，如参会人加入/离开、发言、聊天、屏幕共享。适用于用户询问正在开的会议发生了什么、谁在发言、是否共享内容，或需要发现当前可读的进行中会议 ID。不负责已结束会议搜索、参会人快照、纪要、逐字稿或录制查询，这些使用 lark-vc 技能。",
-      "version": "1.0.4",
+      "description": "飞书视频会议会中能力：用于让应用机器人真实加入或离开正在进行的会议，并读取当前身份可见的会中事件、发送会中文本消息或会中表情。适用于用户询问正在开的会议发生了什么、谁在发言、是否共享内容，或需要发现当前可读的进行中会议 ID。不负责已结束会议搜索、参会人快照、纪要、逐字稿或录制查询，这些使用 lark-vc 技能。",
+      "version": "1.0.5",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/main/skills/lark-vc-agent",
@@ -4368,8 +4368,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-05-19",
-      "updated_at": "2026-06-29",
-      "line_count": 205,
+      "updated_at": "2026-07-03",
+      "line_count": 227,
       "path": "skills/knowledge-and-pm-integrations/lark-vc-agent/SKILL.md"
     },
     {
@@ -4467,7 +4467,7 @@
       "version": "2.0.2",
       "author": "seaworld008",
       "source": "adapted-from-hermes-agent",
-      "source_url": "https://github.com/NousResearch/hermes-agent/blob/main/skills/productivity/linear/SKILL.md",
+      "source_url": "https://github.com/NousResearch/hermes-agent/blob/3636f64540a3d80c8425f195f46e53e940956cba/skills/productivity/linear/SKILL.md",
       "tags": [
         "graphql",
         "issues",
@@ -4651,7 +4651,7 @@
       "version": "1.0.4",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
-      "source_url": "https://github.com/simota/agent-skills/tree/main/clay",
+      "source_url": "https://github.com/simota/agent-skills/blob/5f1bd9e50ee7b13fbd143b1a4a30e6643b458097/clay/SKILL.md",
       "tags": [
         "clay",
         "media"
@@ -4800,7 +4800,7 @@
       "version": "1.0.4",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
-      "source_url": "https://github.com/simota/agent-skills/tree/main/tone",
+      "source_url": "https://github.com/simota/agent-skills/blob/5f1bd9e50ee7b13fbd143b1a4a30e6643b458097/tone/SKILL.md",
       "tags": [
         "media",
         "tone"
@@ -5123,7 +5123,7 @@
       "version": "1.0.4",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
-      "source_url": "https://github.com/simota/agent-skills/tree/main/prism",
+      "source_url": "https://github.com/simota/agent-skills/blob/5f1bd9e50ee7b13fbd143b1a4a30e6643b458097/prism/SKILL.md",
       "tags": [
         "office",
         "prism"
@@ -5336,7 +5336,7 @@
       "version": "1.0.3",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
-      "source_url": "https://github.com/simota/agent-skills/tree/main/warden",
+      "source_url": "https://github.com/simota/agent-skills/blob/5f1bd9e50ee7b13fbd143b1a4a30e6643b458097/warden/SKILL.md",
       "tags": [
         "memory",
         "safety",
@@ -5415,7 +5415,7 @@
       "version": "1.0.4",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
-      "source_url": "https://github.com/simota/agent-skills/tree/main/dawn",
+      "source_url": "https://github.com/simota/agent-skills/blob/5f1bd9e50ee7b13fbd143b1a4a30e6643b458097/dawn/SKILL.md",
       "tags": [
         "dawn",
         "productivity"
@@ -5779,7 +5779,7 @@
       "version": "1.0.5",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
-      "source_url": "https://github.com/simota/agent-skills/tree/main/researcher",
+      "source_url": "https://github.com/simota/agent-skills/blob/5f1bd9e50ee7b13fbd143b1a4a30e6643b458097/researcher/SKILL.md",
       "tags": [
         "design",
         "product",
@@ -5989,7 +5989,7 @@
       "version": "1.0.4",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
-      "source_url": "https://github.com/simota/agent-skills/tree/main/comply",
+      "source_url": "https://github.com/simota/agent-skills/blob/5f1bd9e50ee7b13fbd143b1a4a30e6643b458097/comply/SKILL.md",
       "tags": [
         "comply",
         "security"
