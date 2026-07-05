@@ -2,14 +2,14 @@
 name: tome
 description: 'Converting repository changes into detailed learning documents. Use when turning diffs into teaching materials, recording design decisions, or creating onboarding materials for new members.'
 zh_description: "用于tome，支持知识管理、项目同步和平台集成。"
-version: "1.0.7"
+version: "1.0.8"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/tome"
 license: MIT
 tags: '["knowledge", "tome"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-29"
+updated_at: "2026-07-05"
 quality: 5
 complexity: "advanced"
 ---
@@ -234,7 +234,7 @@ For natural-language input without an explicit subcommand. Subcommand match wins
 | `batch`, `sprint`, `series` | Learning Series |
 | `update`, `delta`, `incremental` | Incremental Doc |
 
-### Subcommand Dispatch
+## Subcommand Dispatch
 
 - Parse the first token of user input. If it matches a Recipe Subcommand → activate that Recipe; load only the "Read First" column files at the initial step.
 - Otherwise → match Signal Keywords (above) → activate the mapped Recipe / format.

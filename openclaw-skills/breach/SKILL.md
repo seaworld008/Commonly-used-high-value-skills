@@ -2,14 +2,14 @@
 name: breach
 description: 'Designing red team attack scenarios, building threat models, applying MITRE ATT&CK/OWASP frameworks, running Purple Team exercises, and performing AI/LLM red teaming. Use when adversarial security validation is needed.'
 zh_description: "用于breach，支持安全扫描、审计、加固和风险治理。"
-version: "1.0.6"
+version: "1.0.7"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/breach"
 license: MIT
 tags: '["breach", "security"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-29"
+updated_at: "2026-07-05"
 quality: 5
 complexity: "advanced"
 ---
@@ -253,7 +253,7 @@ Single source of truth for Recipe definitions, subcommand dispatch, and signal r
 | Supply Chain Attack | `supply` | | Supply chain attack scenarios — dependency confusion, typosquatting, build-tool compromise, SBOM (CycloneDX/SPDX) analysis, SLSA provenance, in-toto attestation, registry pinning | `reference/supply-chain-attack-design.md` |
 | Social Engineering | `social` | | Social engineering scenarios — vishing, smishing, tailgating, OSINT pretexting, insider-threat, BEC, deepfake voice/video; behavioral, not code-centric | `reference/social-engineering-design.md` |
 
-### Subcommand Dispatch
+## Subcommand Dispatch
 
 Parse the first token of user input. If it matches a Recipe Subcommand above → activate that Recipe. Otherwise:
 - Signal keywords in the "When to Use" column match → activate the corresponding Recipe.
