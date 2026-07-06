@@ -1,6 +1,6 @@
 # Tags Index
 
-> Auto-generated from 1155 skill-tag mappings across 498 tags.
+> Auto-generated from 1161 skill-tag mappings across 503 tags.
 > Last updated: see git log.
 
 ## Quick Navigation
@@ -37,6 +37,7 @@
 - [`manager`](#manager) (5)
 - [`skill`](#skill) (5)
 - [`skills`](#skills) (5)
+- [`appsec`](#appsec) (4)
 - [`architect`](#architect) (4)
 - [`best`](#best) (4)
 - [`cve`](#cve) (4)
@@ -57,7 +58,6 @@
 - [`secrets`](#secrets) (4)
 - [`tools`](#tools) (4)
 - [`vulnerability-scanning`](#vulnerability-scanning) (4)
-- [`appsec`](#appsec) (3)
 - [`ci`](#ci) (3)
 - [`database`](#database) (3)
 - [`debugging`](#debugging) (3)
@@ -165,6 +165,7 @@
 - [`audit`](#audit) (1)
 - [`auth`](#auth) (1)
 - [`authoring`](#authoring) (1)
+- [`authorization`](#authorization) (1)
 - [`auto-continue`](#auto-continue) (1)
 - [`aws`](#aws) (1)
 - [`azure`](#azure) (1)
@@ -193,6 +194,7 @@
 - [`clay`](#clay) (1)
 - [`cleaner`](#cleaner) (1)
 - [`cloak`](#cloak) (1)
+- [`cloud-storage`](#cloud-storage) (1)
 - [`coach`](#coach) (1)
 - [`coauthoring`](#coauthoring) (1)
 - [`code analysis`](#code-analysis) (1)
@@ -258,6 +260,8 @@
 - [`files`](#files) (1)
 - [`filing`](#filing) (1)
 - [`find`](#find) (1)
+- [`firebase`](#firebase) (1)
+- [`firestore`](#firestore) (1)
 - [`fix`](#fix) (1)
 - [`fixer`](#fixer) (1)
 - [`flaky-tests`](#flaky-tests) (1)
@@ -420,6 +424,7 @@
 - [`screenshot`](#screenshot) (1)
 - [`sec`](#sec) (1)
 - [`security-and-hardening`](#security-and-hardening) (1)
+- [`security-rules`](#security-rules) (1)
 - [`self`](#self) (1)
 - [`semgrep`](#semgrep) (1)
 - [`sentry`](#sentry) (1)
@@ -1254,6 +1259,17 @@
 | [writing-skills](skills/ai-workflow/writing-skills) | ai-workflow | ★★★★☆ | Use when creating new skills, editing existing skills, or verifying skills work  |
 | [lark-skill-maker](skills/knowledge-and-pm-integrations/lark-skill-maker) | knowledge-and-pm-integrations | ★★★☆☆ | Use when users need to turn Feishu/Lark API operations into reusable agent skill |
 
+## appsec
+
+**4 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [codeql-security-scanner](skills/security-and-reliability/codeql-security-scanner) | security-and-reliability | ★★★★☆ | 用于通过 CodeQL 执行语义代码扫描、安全查询、自定义规则、SARIF 报告和 GitHub Code Scanning 集成。 |
+| [firebase-security-rules-auditor](skills/security-and-reliability/firebase-security-rules-auditor) | security-and-reliability | ★★★★☆ | Audit Firebase Security Rules for Firestore and Cloud Storage. Use when reviewin |
+| [security-auditor](skills/security-and-reliability/security-auditor) | security-and-reliability | ★★★★☆ | Security audit workflow for AI-generated application code, APIs, infrastructure  |
+| [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。 |
+
 ## architect
 
 **4 skills**
@@ -1473,16 +1489,6 @@
 | [security-pen-testing](skills/security-and-reliability/security-pen-testing) | security-and-reliability | ★★★★☆ | Use when the user asks to perform security audits, penetration testing, vulnerab |
 | [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Trivy 扫描仓库、容器镜像、文件系统、rootfs、SBOM、Kubernetes、IaC、密钥、许可证和系统 CVE。 |
 | [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Vuls 对 Linux、FreeBSD、容器、WordPress、库和网络设备执行 Agentless CVE 扫描。 |
-
-## appsec
-
-**3 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [codeql-security-scanner](skills/security-and-reliability/codeql-security-scanner) | security-and-reliability | ★★★★☆ | 用于通过 CodeQL 执行语义代码扫描、安全查询、自定义规则、SARIF 报告和 GitHub Code Scanning 集成。 |
-| [security-auditor](skills/security-and-reliability/security-auditor) | security-and-reliability | ★★★★☆ | Security audit workflow for AI-generated application code, APIs, infrastructure  |
-| [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。 |
 
 ## ci
 
@@ -2443,6 +2449,14 @@
 |-------|----------|---------|-------------|
 | [writing-skills](skills/ai-workflow/writing-skills) | ai-workflow | ★★★★☆ | Use when creating new skills, editing existing skills, or verifying skills work  |
 
+## authorization
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [firebase-security-rules-auditor](skills/security-and-reliability/firebase-security-rules-auditor) | security-and-reliability | ★★★★☆ | Audit Firebase Security Rules for Firestore and Cloud Storage. Use when reviewin |
+
 ## auto-continue
 
 **1 skills**
@@ -2666,6 +2680,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [cloak](skills/security-and-reliability/cloak) | security-and-reliability | ★★★★★ | Engineering privacy and data governance via PII detection, data flow mapping, co |
+
+## cloud-storage
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [firebase-security-rules-auditor](skills/security-and-reliability/firebase-security-rules-auditor) | security-and-reliability | ★★★★☆ | Audit Firebase Security Rules for Firestore and Cloud Storage. Use when reviewin |
 
 ## coach
 
@@ -3186,6 +3208,22 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [find-skills](skills/ai-workflow/find-skills) | ai-workflow | ★★★★☆ | Use when users do not know which skill fits a task, need to search available ski |
+
+## firebase
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [firebase-security-rules-auditor](skills/security-and-reliability/firebase-security-rules-auditor) | security-and-reliability | ★★★★☆ | Audit Firebase Security Rules for Firestore and Cloud Storage. Use when reviewin |
+
+## firestore
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [firebase-security-rules-auditor](skills/security-and-reliability/firebase-security-rules-auditor) | security-and-reliability | ★★★★☆ | Audit Firebase Security Rules for Firestore and Cloud Storage. Use when reviewin |
 
 ## fix
 
@@ -4482,6 +4520,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [security-and-hardening](skills/ai-workflow/security-and-hardening) | ai-workflow | ★★★★★ | Hardens code against vulnerabilities. Use when handling user input, authenticati |
+
+## security-rules
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [firebase-security-rules-auditor](skills/security-and-reliability/firebase-security-rules-auditor) | security-and-reliability | ★★★★☆ | Audit Firebase Security Rules for Firestore and Cloud Storage. Use when reviewin |
 
 ## self
 

@@ -1,0 +1,58 @@
+{
+  "video": {
+    "url": "https://github.com/firebase/agent-skills",
+    "checked_at": "2026-07-06",
+    "note": "Firebase official Agent Skills repository review. Imported firebase-security-rules-auditor as an expanded curated skill under Apache-2.0."
+  },
+  "official_references": [
+    {
+      "name": "firebase/agent-skills repository",
+      "url": "https://github.com/firebase/agent-skills",
+      "purpose": "Canonical upstream repository for Firebase Agent Skills."
+    },
+    {
+      "name": "firebase/agent-skills license",
+      "url": "https://github.com/firebase/agent-skills/blob/main/LICENSE",
+      "purpose": "Apache-2.0 permissive license verification."
+    },
+    {
+      "name": "firebase-security-rules-auditor upstream skill",
+      "url": "https://github.com/firebase/agent-skills/tree/main/skills/firebase-security-rules-auditor",
+      "purpose": "Source skill reviewed and expanded for the curated repository."
+    }
+  ],
+  "skills": [
+    {
+      "video_name": "firebase-security-rules-auditor",
+      "normalized_slug": "firebase-security-rules-auditor",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/security-and-reliability/firebase-security-rules-auditor/SKILL.md",
+      "source": "https://github.com/firebase/agent-skills/tree/main/skills/firebase-security-rules-auditor",
+      "notes": "Imported from the official Firebase Agent Skills repository under Apache-2.0 and expanded with repository-standard audit workflow, examples, emulator tests, and severity guidance.",
+      "upstream": {
+        "repo": "firebase/agent-skills",
+        "path": "skills/firebase-security-rules-auditor/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-07-06",
+        "last_synced_at": "2026-07-06",
+        "last_synced_commit": "538130c39402a40d9c2586ede87def5914641a33"
+      }
+    }
+  ],
+  "verification_attempts": [
+    {
+      "date": "2026-07-06",
+      "method": "github-api-license-and-path-check",
+      "target": "repos/firebase/agent-skills",
+      "result": "success",
+      "evidence": "GitHub API reported Apache-2.0 license, active repository pushes on 2026-07-01, and the upstream skill path at skills/firebase-security-rules-auditor/SKILL.md."
+    },
+    {
+      "date": "2026-07-06",
+      "method": "manual-quality-review",
+      "target": "skills/firebase-security-rules-auditor/SKILL.md",
+      "result": "success",
+      "evidence": "Reviewed upstream 70-line skill and expanded the curated version to cover Firestore and Cloud Storage authorization, validation, emulator tests, anti-patterns, and report structure."
+    }
+  ]
+}
