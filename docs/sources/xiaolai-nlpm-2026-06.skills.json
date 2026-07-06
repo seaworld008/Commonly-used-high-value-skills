@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://nlpm.com/",
-    "checked_at": "2026-06-16",
+    "checked_at": "2026-07-06",
     "note": "Curated from xiaolai/nlpm after reviewing the website, why page, README, LICENSE, author docs, rules, scoring, and testing materials. Imported as an original repository skill that captures the durable audit method rather than mirroring the full upstream command/plugin product."
   },
   "official_references": [
@@ -49,9 +49,9 @@
         "path": "README.md",
         "ref": "main",
         "sync_mode": "monitor",
-        "last_checked_at": "2026-06-16",
-        "last_synced_at": "2026-06-16",
-        "last_synced_commit": "3bee76dc34cf"
+        "last_checked_at": "2026-07-06",
+        "last_synced_at": "2026-07-06",
+        "last_synced_commit": "ad3722a695146b90aea9e1e5ff9bc1490a5f38a2"
       }
     }
   ],
@@ -69,6 +69,13 @@
       "target": "repos/xiaolai/nlpm",
       "result": "success",
       "evidence": "GitHub API reported ISC license, active pushes on 2026-06-12, and repository structure containing skills, commands, rules, tests, auditor pipeline, templates, and case studies."
+    },
+    {
+      "date": "2026-07-06",
+      "method": "manual-monitor-review",
+      "target": "https://github.com/xiaolai/nlpm/compare/3bee76dc34cf...ad3722a695146b90aea9e1e5ff9bc1490a5f38a2",
+      "result": "success",
+      "evidence": "Reviewed 487 upstream commits since the previous sync point. Most changes were auditor reports, dashboards, exemplars, and product automation; updated local nlpm-audit only for durable method changes visible in README: multi-tool overlays, manifest-vs-disk emphasis, eight commands, NL-TDD, 50-rule rubric, exemplar citations, and marketplace install caveat."
     }
   ]
 }

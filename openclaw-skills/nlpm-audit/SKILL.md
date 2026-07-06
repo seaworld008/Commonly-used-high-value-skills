@@ -2,14 +2,14 @@
 name: nlpm-audit
 description: 'Audits natural-language programming artifacts such as SKILL.md, AGENTS.md, CLAUDE.md, slash commands, plugin manifests, hooks, rules, and prompt files. Use when reviewing AI-agent repositories, checking manifest-vs-disk consistency, scoring skill or agent quality, adding NL artifact CI gates, or diagnosing vocabulary and version drift across Claude Code, Codex, Cursor, Gemini, and Antigravity-style projects.'
 zh_description: "审计 SKILL.md、AGENTS.md、CLAUDE.md、插件清单、hooks、commands 和提示词，检查安装一致性、质量评分、安全风险与版本漂移。"
-version: "1.0.1"
+version: "1.0.2"
 author: seaworld008
 source: github:xiaolai/nlpm
 source_url: "https://github.com/xiaolai/nlpm"
 license: ISC
 tags: '[nlpm, natural-language-programming, skill-quality, agent-audit, ci, prompt-engineering]'
 created_at: "2026-06-12"
-updated_at: "2026-06-16"
+updated_at: "2026-07-06"
 quality: 4
 complexity: advanced
 ---
@@ -25,19 +25,28 @@ This skill is inspired by the NLPM project, but it is a portable audit workflow:
 you can apply the method manually, with repository scripts, or with the upstream
 `nlpm-check` validator when the project wants a standalone CI gate.
 
-## 2026-06-16 Upstream Sync Notes
+## 2026-07-06 Upstream Sync Notes
 
-The latest upstream NLPM repository now emphasizes these stable capabilities:
+The latest upstream NLPM repository is still a fast-moving product, so this
+skill remains a curated portable workflow instead of a mirror. The current
+stable ideas to preserve locally are:
 
 - multi-tool scoring across Claude Code, Codex CLI, and Antigravity/Gemini-lineage
-  artifacts;
-- standalone `bin/nlpm-check` for pre-commit, CI, and pre-publish gates;
+  artifacts with a universal floor plus tool-specific overlays;
+- standalone `bin/nlpm-check` for pre-commit, CI, and pre-publish gates, with
+  manifest-vs-disk consistency as the highest-value deterministic check;
 - multi-plugin monorepo detection, where each nested plugin is checked exactly
   once and summarized in aggregate JSON;
+- eight user-facing `/nlpm:*` commands: `ls`, `score`, `check`, `fix`, `trend`,
+  `test`, `init`, and `security-scan`;
 - `nlpm-badge` output for a "Validated by NLPM" README badge;
-- R51 vocabulary drift as an opt-in rule backed by a canonical registry;
-- an auditor pipeline that harvests clean exemplars, cites rules, validates rule
-  id drift, and reports rule health from real repository audits.
+- a published 50-rule rubric for Natural Language Programming, with vocabulary
+  drift handled as an opt-in project policy rather than a default blocker;
+- an auditor pipeline that audits real plugin/skill repositories, harvests clean
+  exemplars, cites rules, validates rule-id drift, and reports rule health from
+  real repository audits;
+- NL-TDD test specs for writing artifacts against expected trigger behavior and
+  output contracts before publishing them.
 
 Use those ideas when they improve this portable skill. Do not mirror the whole
 upstream product surface unless the user explicitly asks to install or run NLPM
@@ -84,7 +93,7 @@ There are two useful operating modes:
 | Mode | What you get | When to choose it |
 |---|---|---|
 | This repository skill | A portable review workflow that any Codex/Claude/Cursor-style agent can follow after installation | You want durable guidance, review reports, and integration with this curated skills repository |
-| Upstream NLPM | Claude Code slash commands, multiple NLPM agents, rule skills, `bin/nlpm-check`, badge generation, templates, tests, and the auditor pipeline | You want behavior closest to the original product, especially `/nlpm:*` commands, multi-plugin CI, or badge output |
+| Upstream NLPM | Claude Code slash commands, multiple NLPM agents, rule skills, `bin/nlpm-check`, badge generation, templates, NL-TDD specs, and the auditor pipeline | You want behavior closest to the original product, especially `/nlpm:*` commands, multi-plugin CI, NL-TDD, or badge output |
 
 The skill mode is installable and useful on its own, but it is not a byte-for-byte
 replacement for upstream NLPM. Use upstream NLPM when a user explicitly asks for
@@ -104,6 +113,7 @@ Use these local equivalents before reaching for the upstream plugin:
 | "security scan" | Run the checker, filter `security/*` findings, then read `references/security-patterns.md` |
 | "find vocabulary drift" | Read `references/command-recipes.md` and perform the vocabulary drift recipe |
 | "fix NLPM issues" | Apply the fix loop in `references/command-recipes.md`, then rerun the same check |
+| "test NL artifacts" | Write or inspect `.nlpm-test/*.spec.md`, then use upstream `/nlpm:test` when exact behavior matters |
 | "add a Validated by NLPM badge" | Use upstream `nlpm-check --json` piped to `nlpm-badge`; see `references/ci-and-maintenance.md` |
 | "check a plugin monorepo" | Prefer upstream `nlpm-check` because it isolates nested plugin roots and aggregates `plugins[]` output |
 
@@ -119,8 +129,13 @@ claude plugin marketplace add anthropics/claude-plugins-community
 claude plugin install nlpm@claude-community --scope project
 
 claude plugin marketplace add xiaolai/claude-plugin-marketplace
+claude plugin marketplace update xiaolai
 claude plugin install nlpm@xiaolai --scope project
 ```
+
+The upstream README notes that the Anthropic community marketplace can lag the
+maintainer marketplace, and that the xiaolai marketplace may need an explicit
+`marketplace update` before install.
 
 Standalone validator path:
 
@@ -279,7 +294,7 @@ at 100 and subtract penalties for concrete defects.
 | Tool permissions exceed body needs | -5 to -10 | unnecessary security and review risk |
 | Broken manifest/reference path | -10 to -20 | installed artifact silently disappears |
 | Vague terms without criteria | -2 each, cap at -20 | "appropriate" and "as needed" hide decisions |
-| Vocabulary drift after R51 opt-in | -2 each, cap at -10 | the same concept has competing names across artifacts |
+| Vocabulary drift after project opt-in | -2 each, cap at -10 | the same concept has competing names across artifacts |
 | Overgrown body with repeated theory | -5 to -10 | context budget is wasted |
 | Missing test/build commands in memory file | -5 | agent cannot verify work |
 
