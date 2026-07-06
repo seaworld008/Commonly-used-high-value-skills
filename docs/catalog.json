@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "generated_at": "2026-06-08",
-  "total_skills": 309,
+  "total_skills": 310,
   "total_categories": 16,
   "categories": [
     {
@@ -18,7 +18,7 @@
     },
     {
       "name": "security-and-reliability",
-      "count": 21
+      "count": 22
     },
     {
       "name": "office-white-collar",
@@ -6000,6 +6000,29 @@
       "updated_at": "2026-06-01",
       "line_count": 331,
       "path": "skills/security-and-reliability/comply/SKILL.md"
+    },
+    {
+      "name": "firebase-security-rules-auditor",
+      "category": "security-and-reliability",
+      "description": "Audit Firebase Security Rules for Firestore and Cloud Storage. Use when reviewing rules diffs, hardening Firebase apps, validating generated rules, checking emulator tests, or investigating authorization, data validation, privilege escalation, and resource abuse risks in Firebase projects.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "github:firebase/agent-skills",
+      "source_url": "https://github.com/firebase/agent-skills/tree/main/skills/firebase-security-rules-auditor",
+      "tags": [
+        "firebase",
+        "firestore",
+        "cloud-storage",
+        "security-rules",
+        "authorization",
+        "appsec"
+      ],
+      "quality": 4,
+      "complexity": "advanced",
+      "created_at": "2026-07-06",
+      "updated_at": "2026-07-06",
+      "line_count": 350,
+      "path": "skills/security-and-reliability/firebase-security-rules-auditor/SKILL.md"
     },
     {
       "name": "gha-security-review",

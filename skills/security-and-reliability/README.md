@@ -4,7 +4,7 @@
 
 覆盖 Sentry、安全最佳实践、威胁建模与安全所有权分析的技能集合。
 
-当前分类共 **21** 个技能。
+当前分类共 **22** 个技能。
 
 ## 推荐先看
 
@@ -21,6 +21,7 @@
 | `cloak` | 用于cloak，支持安全扫描、审计、加固和风险治理。 | [目录](./cloak/) | [SKILL.md](./cloak/SKILL.md) |
 | `codeql-security-scanner` | 用于通过 CodeQL 执行语义代码扫描、安全查询、自定义规则、SARIF 报告和 GitHub Code Scan。 | [目录](./codeql-security-scanner/) | [SKILL.md](./codeql-security-scanner/SKILL.md) |
 | `comply` | 用于comply，支持安全扫描、审计、加固和风险治理。 | [目录](./comply/) | [SKILL.md](./comply/SKILL.md) |
+| `firebase-security-rules-auditor` | 审计 Firestore 与 Cloud Storage 安全规则，检查授权、字段校验、权限提升、资源滥用和模拟器测试覆盖。 | [目录](./firebase-security-rules-auditor/) | [SKILL.md](./firebase-security-rules-auditor/SKILL.md) |
 | `gha-security-review` | 用于gha、安全、评审，支持安全扫描、审计、加固和风险治理。 | [目录](./gha-security-review/) | [SKILL.md](./gha-security-review/SKILL.md) |
 | `grype-syft-sbom-scanner` | 用于通过 Syft 生成 SBOM，并用 Grype 扫描容器镜像、文件系统、软件包、归档和 SBOM 漏洞。 | [目录](./grype-syft-sbom-scanner/) | [SKILL.md](./grype-syft-sbom-scanner/SKILL.md) |
 | `information-security-manager-iso27001` | 用于information、安全、管理、iso27001，支持安全扫描、审计、加固和风险治理。 | [目录](./information-security-manager-iso27001/) | [SKILL.md](./information-security-manager-iso27001/SKILL.md) |
