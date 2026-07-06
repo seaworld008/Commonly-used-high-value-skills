@@ -382,6 +382,7 @@ def load_skills_from_source_mappings() -> list[dict]:
                     "upstream_path": upstream_path,
                     "ref": upstream.get("ref", "main"),
                     "sync_mode": upstream.get("sync_mode", "replace"),
+                    "last_synced_commit": upstream.get("last_synced_commit"),
                     "mapping_path": mapping_path,
                     "mapping_entry_index": entry_index,
                 }
@@ -495,6 +496,57 @@ def check_upstream_changes(skill: dict, token: str | None) -> dict | None:
     return None  # Could not find upstream file
 
 
+def monitor_review_guidance(update: dict) -> list[str]:
+    """Return human-review guidance for monitor-only upstream changes.
+
+    Monitor-only mappings are intentionally not auto-replaced because the local
+    skill is curated from upstream rather than mirrored. Still, a changed
+    upstream file is a maintenance task: reviewers must decide whether durable
+    method, install, scoring, CI, or safety changes should be absorbed locally.
+    """
+    skill = update["skill"]
+    repo = skill["repo"]
+    ref = skill.get("ref", "main")
+    last_synced_commit = skill.get("last_synced_commit")
+    upstream_path = update.get("upstream_path") or skill.get("upstream_path")
+    local_path = skill.get("local_path")
+    compare_url = None
+    if last_synced_commit:
+        compare_url = f"https://github.com/{repo}/compare/{last_synced_commit}...{ref}"
+
+    lines = [
+        f"  - {skill['name']} requires manual monitor review.",
+        f"    Local: {local_path}",
+        f"    Upstream: https://github.com/{repo}/blob/{ref}/{upstream_path}",
+    ]
+    if compare_url:
+        lines.append(f"    Compare: {compare_url}")
+    lines.extend(
+        [
+            "    Review checklist:",
+            "      * Identify durable method, install, scoring, CI, security, or compatibility changes.",
+            "      * Ignore product telemetry, generated reports, dashboards, and bulk audit artifacts unless they change the reusable workflow.",
+            "      * If local guidance changes, update the curated SKILL.md, bump version/updated_at, update provenance last_synced_commit, then run the full pipeline.",
+            "      * If no local change is needed, record why in provenance verification_attempts or the automation memory.",
+        ]
+    )
+    return lines
+
+
+def print_monitor_review_guidance(updates: list[dict]) -> None:
+    monitor_updates = [u for u in updates if u["skill"].get("sync_mode") == "monitor"]
+    if not monitor_updates:
+        return
+    print("\nMONITOR-ONLY REVIEW REQUIRED:", flush=True)
+    print(
+        "These upstream changes are intentionally not auto-applied; they still need manual curation before the run is considered complete.",
+        flush=True,
+    )
+    for update in monitor_updates:
+        for line in monitor_review_guidance(update):
+            print(line, flush=True)
+
+
 def sync_github_auxiliary_files(skill: dict, upstream_path: str, token: str | None) -> int:
     """Sync non-SKILL.md files that live beside the upstream SKILL.md."""
     repo = skill["repo"]
@@ -589,14 +641,18 @@ def main() -> None:
         mode = s.get("sync_mode", "replace")
         mode_note = " [monitor-only]" if mode == "monitor" else ""
         print(f"  - {s['name']} ({s['category']}) ← {s['source']}{mode_note}", flush=True)
+    print_monitor_review_guidance(updates)
     
     auto_updates = [u for u in updates if u["skill"].get("sync_mode") != "monitor"]
 
     if args.check_only:
         if auto_updates:
-            print("\nRun with --apply to download and apply auto-syncable updates.", flush=True)
+            print(
+                "\nRun with --apply to download and apply auto-syncable updates; complete the monitor-only review separately.",
+                flush=True,
+            )
         else:
-            print("\nAll reported updates are monitor-only; review upstream manually before editing curated skills.", flush=True)
+            print("\nAll reported updates are monitor-only; do the review above before closing the maintenance run.", flush=True)
         return
     
     if args.apply:
@@ -607,6 +663,8 @@ def main() -> None:
 
             if s.get("sync_mode") == "monitor":
                 print("    Skipped: upstream is monitored for manual curation; automatic body replacement is disabled.", flush=True)
+                for line in monitor_review_guidance(u):
+                    print(f"    {line}", flush=True)
                 continue
             
             if args.dry_run:

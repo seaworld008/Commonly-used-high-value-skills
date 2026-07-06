@@ -152,6 +152,30 @@ class SyncUpstreamTests(unittest.TestCase):
             seen_urls,
         )
 
+    def test_monitor_review_guidance_includes_compare_and_curation_checklist(self):
+        module = load_module()
+
+        update = {
+            "upstream_path": "README.md",
+            "skill": {
+                "name": "nlpm-audit",
+                "repo": "xiaolai/nlpm",
+                "ref": "main",
+                "sync_mode": "monitor",
+                "last_synced_commit": "abc123",
+                "local_path": Path("skills/ai-workflow/nlpm-audit/SKILL.md"),
+            },
+        }
+
+        guidance = "\n".join(module.monitor_review_guidance(update))
+
+        self.assertIn("nlpm-audit requires manual monitor review", guidance)
+        self.assertIn("https://github.com/xiaolai/nlpm/blob/main/README.md", guidance)
+        self.assertIn("https://github.com/xiaolai/nlpm/compare/abc123...main", guidance)
+        self.assertIn("durable method, install, scoring, CI, security, or compatibility", guidance)
+        self.assertIn("update the curated SKILL.md, bump version/updated_at", guidance)
+        self.assertIn("record why in provenance verification_attempts or the automation memory", guidance)
+
     def test_quality_supplement_is_not_duplicated(self):
         module = load_module()
 
