@@ -2,14 +2,14 @@
 name: lark-doc
 description: '飞书云文档（Docx / Wiki 文档）：读取和编辑飞书文档内容。当用户给出文档 URL 或 token，或需要查看、创建、编辑文档、插入或下载文档图片附件时使用。文档中嵌入的电子表格、多维表格、画板，先用本 skill 提取 token 再切到对应 skill。当用户给出 doubao.com 的 /docx/ 或 /wiki/ URL/token 时，也应直接使用本 skill；路由依据是 URL 路径模式和 token，而不是域名。不负责文档评论管理，也不负责表格或 Base 的数据操作。当用户明确要操作飞书思维笔记时，也使用本 skill。'
 zh_description: "用于读取、编辑和生成飞书云文档内容。"
-version: "1.0.10"
+version: "1.0.11"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-doc"
 license: MIT
 tags: '[feishu, lark, lark-cli, docs, documents]'
 created_at: "2026-05-19"
-updated_at: "2026-07-05"
+updated_at: "2026-07-10"
 quality: 3
 complexity: intermediate
 metadata:
@@ -24,7 +24,7 @@ metadata:
 
 ```bash
 # 常用示例
-lark-cli docs +fetch --doc "文档URL或token"
+lark-cli docs +fetch --doc "文档URL或token；若 URL 存在 #share-... 锚点，优先使用锚点方式读取，不要全文拉取"
 lark-cli docs +create --content '<title>标题</title><p>内容</p>'
 lark-cli docs +update --doc "文档URL或token" --command append --content '<p>内容</p>'
 ```

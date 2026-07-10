@@ -9,9 +9,9 @@
 ## 推荐先看
 
 - [skill-creator](./skill-creator/) - 用于技能、创建，支持任务规划、执行、评审和验证。
-- [idea-refine](./idea-refine/) - 用于idea、refine，支持任务规划、执行、评审和验证。
 - [nlpm-audit](./nlpm-audit/) - 审计 SKILL.md、AGENTS.md、CLAUDE.md、插件清单、hooks、commands 和提示词，检查安装一致性、质量评分、安全风险与版本漂移。
-- [api-and-interface-design](./api-and-interface-design/) - 用于API、interface、设计，支持任务规划、执行、评审和验证。
+- [deep-research](./deep-research/) - 用于执行深度研究、资料收集、来源核验和综合分析。
+- [idea-refine](./idea-refine/) - 用于idea、refine，支持任务规划、执行、评审和验证。
 
 ## 技能总览
 

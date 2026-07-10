@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://github.com/alirezarezvani/claude-skills",
-    "checked_at": "2026-06-24",
+    "checked_at": "2026-07-10",
     "note": "Curated from alirezarezvani/claude-skills with upstream tracking enabled."
   },
   "official_references": [
@@ -39,9 +39,9 @@
         "repo": "alirezarezvani/claude-skills",
         "path": "engineering-team/skills/security-pen-testing/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-16",
-        "last_synced_at": "2026-06-16",
-        "last_synced_commit": null
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "0241f43765572f15146fcef692defbf96d473f37"
       }
     },
     {
@@ -55,9 +55,9 @@
         "repo": "alirezarezvani/claude-skills",
         "path": "ra-qm-team/skills/information-security-manager-iso27001/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-01",
-        "last_synced_at": "2026-06-01",
-        "last_synced_commit": null
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "0241f43765572f15146fcef692defbf96d473f37"
       }
     },
     {
@@ -71,9 +71,9 @@
         "repo": "alirezarezvani/claude-skills",
         "path": "product-team/skills/landing-page-generator/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-16",
-        "last_synced_at": "2026-06-16",
-        "last_synced_commit": null
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "0241f43765572f15146fcef692defbf96d473f37"
       }
     },
     {
@@ -87,9 +87,9 @@
         "repo": "alirezarezvani/claude-skills",
         "path": "finance/skills/saas-metrics-coach/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-24",
-        "last_synced_at": "2026-04-24",
-        "last_synced_commit": null
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "0241f43765572f15146fcef692defbf96d473f37"
       }
     },
     {
@@ -103,9 +103,9 @@
         "repo": "alirezarezvani/claude-skills",
         "path": "engineering-team/skills/senior-architect/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-24",
-        "last_synced_at": "2026-04-24",
-        "last_synced_commit": null
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "0241f43765572f15146fcef692defbf96d473f37"
       }
     },
     {
@@ -119,9 +119,9 @@
         "repo": "alirezarezvani/claude-skills",
         "path": "engineering/skills/skill-security-auditor/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-16",
-        "last_synced_at": "2026-06-16",
-        "last_synced_commit": null
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "0241f43765572f15146fcef692defbf96d473f37"
       }
     }
   ],

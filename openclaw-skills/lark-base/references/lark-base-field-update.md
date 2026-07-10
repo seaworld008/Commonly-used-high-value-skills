@@ -101,7 +101,7 @@ PUT /open-apis/base/v3/bases/:base_token/tables/:table_id/fields/:field_id
 
 | 目标类型 | 允许的源类型 | 说明 |
 |------|------|------|
-| `text` | `number`、`select`、`datetime`、`created_at`、`updated_at`、`location`、`auto_number`、`checkbox` | 保留字符串表示；丢失原类型语义和结构化能力 |
+| `text` | `number`、`select`、`datetime`、`created_at`、`updated_at`、`location`（只保留 `full_address`）、`auto_number`、`checkbox` | 保留字符串表示；丢失原类型语义和结构化能力 |
 | `number` | `text`、`number`、`datetime`、`created_at`、`updated_at`、`checkbox` | 保留可解析的数字值；无法解析的值会变空，原文本格式会丢失 |
 | `datetime` | `text`、`number`、`datetime`、`created_at`、`updated_at` | 保留可解析的时间字符串和时间戳；无法解析的值会变空，原文本格式会丢失 |
 | `select` | `text -> select`、`number -> select`、`single select -> multi select` | 只有完全匹配目标选项名的值会转成对应选项；没匹配上的值会被丢弃 |
@@ -165,8 +165,7 @@ PUT /open-apis/base/v3/bases/:base_token/tables/:table_id/fields/:field_id
 
 ## 参考
 
-- [lark-base-field.md](lark-base-field.md) — field 索引页
-- [lark-base-field-get.md](lark-base-field-get.md) — 查字段
-- [lark-base-shortcut-field-properties.md](lark-base-shortcut-field-properties.md) — shortcut 字段 JSON 规范（推荐）
+- 更新前读取当前字段，确认现有 `type` 和具体配置细节，再决定是原地更新还是新建字段迁移。
+- [lark-base-field-json.md](lark-base-field-json.md) — 字段 JSON 规范（推荐）
 - [formula-field-guide.md](formula-field-guide.md) — formula 指南（更新公式前必读）
 - [lookup-field-guide.md](lookup-field-guide.md) — lookup 指南（更新查找引用前必读）

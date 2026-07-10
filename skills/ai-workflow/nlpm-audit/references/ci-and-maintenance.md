@@ -78,6 +78,29 @@ python3 ./nlpm-check --json . | python3 ./nlpm-badge > nlpm-badge.json
 
 Commit `nlpm-badge.json` only when the repository wants a public badge endpoint.
 
+## Resilient Batch GitHub API Probes
+
+Batch discovery and audit jobs should not stop because one candidate repository
+is empty or returns a transient, non-numeric response. Under `set -e`, a failed
+`gh api` inside command substitution can terminate the script before the caller
+has a chance to classify the failure. Add both a fallback and numeric validation:
+
+```bash
+count="$(gh api "repos/${repo}/commits" --jq 'length' 2>/dev/null || echo 0)"
+case "$count" in
+  ''|*[!0-9]*) count=0 ;;
+esac
+
+if [ "$count" -lt 1 ]; then
+  printf '%s\n' "WARN: ${repo}: no usable commit count; continuing"
+  continue
+fi
+```
+
+Record an empty repository, HTTP 409, or malformed candidate response as
+external-state noise for that candidate and continue the batch. Authentication
+or configuration failures that affect every request should still fail the job.
+
 ## Refresh Cadence
 
 Monthly or before major release:
@@ -123,13 +146,12 @@ Skip upstream details that are product-specific and likely to churn:
 
 ## Last Curated Upstream Review
 
-- Date: 2026-06-16
+- Date: 2026-07-10
 - Upstream: `xiaolai/nlpm`
-- Commit reviewed: `3bee76dc34cf`
+- Commit reviewed: `29ad0253f1cf25fc6191cbb7d5256d0c0bfae4b5`
 - License: ISC
-- Durable changes absorbed: multi-tool overlays, standalone validator guidance,
-  multi-plugin monorepo handling, `nlpm-badge`, R51 vocabulary drift, and
-  auditor exemplar/rule-health loop notes.
+- Durable changes absorbed: resilient batch GitHub API probing for empty or
+  malformed candidate responses and generic MCP timeout compatibility guidance.
 
 ## Monitor-Only Sync
 

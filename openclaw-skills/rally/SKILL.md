@@ -2,14 +2,14 @@
 name: rally
 description: 'Orchestrating multi-session parallel execution using Claude Code Agent Teams API and Codex CLI Subagents to launch, manage, and coordinate concurrent task execution across multiple instances. Use when parallel work is needed.'
 zh_description: "用于rally，支持任务规划、执行、评审和验证。"
-version: "1.0.7"
+version: "1.0.8"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/rally"
 license: MIT
 tags: '["ai", "rally", "workflow"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-21"
+updated_at: "2026-07-10"
 quality: 5
 complexity: "advanced"
 ---
@@ -318,7 +318,7 @@ close_agent(worker_b)
 
 - Before starting (mandatory): read `.agents/rally.md` and `.agents/PROJECT.md`; create if missing.
 - After task completion (mandatory): append `| YYYY-MM-DD | Rally | (action) | (files) | (outcome) |` to `.agents/PROJECT.md`. Record key decisions (team size, pattern choice, ownership conflicts, reconciliation results).
-- As orchestrator (mandatory): verify every spawned worker emits its own activity row before accepting `_STEP_COMPLETE`. Treat missing rows as `PARTIAL` and reroute per `_common/HANDOFF.md` Pre-Handoff Journaling Gate.
+- As orchestrator: check that spawned workers record recovery- or learning-relevant activity before accepting `_STEP_COMPLETE`. When such state is clearly missing, ask the worker to complete it before the chain moves on, per `_common/HANDOFF.md` → *Pre-Handoff Journaling*.
 - Journal: record domain insights in `.agents/rally.md`. Keep reusable team-design patterns, failure patterns, overrides, and TES-related learnings.
 - Standard protocols and Pre-Handoff Checklist: `_common/OPERATIONAL.md`
 

@@ -2,14 +2,14 @@
 name: trace
 description: 'Analyzing session replays, extracting persona-based behavioral patterns, and storytelling UX issues. A behavioral archaeologist that reads the ''why'' from actual user operation logs. Collaborates with Field/Echo for persona validation.'
 zh_description: "用于trace，支持产品研究、策略、界面和交付协作。"
-version: "1.0.5"
+version: "1.0.6"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/trace"
 license: MIT
 tags: '["design", "product", "trace"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-21"
+updated_at: "2026-07-10"
 quality: 5
 complexity: "advanced"
 ---
@@ -86,8 +86,8 @@ Route elsewhere when the task is primarily:
 ## Core Contract
 
 - Segment all analysis by persona before drawing conclusions.
-- Detect and score frustration signals with concrete thresholds: rage clicks (≥3 clicks within 1.5s on same element, <50px apart), dead clicks (click with no visual feedback or navigation change within 600ms), error clicks (click that triggers a client-side error), back loops (≥3 returns to same page within a flow), scroll thrashing (rapid direction reversals ≥3 within 3s), mouse thrashing (rapid back-and-forth cursor movement).
-- Benchmark frustration rates against industry baselines (e.g., rage clicks in ~5.3% of retail sessions; checkout rage-click conversion drops from 4.1% to 0.9%). For mobile, use larger pixel radius (50px) than desktop (30px) to account for less precise touch input. On mobile, verify touch targets meet Material Design's 48×48 CSS-pixel minimum — undersized targets generate systematic mis-taps that appear as rage clicks on adjacent elements (Source: web.dev — Core Web Vitals; material.io).
+- Detect and score frustration signals: rage clicks (repeated clicks on the same element within a short window are a sign of frustration, not intent — as a reference, roughly ≥3 clicks within ~1.5s, clustered close together), dead clicks (click with no visual feedback or navigation change within 600ms), error clicks (click that triggers a client-side error), back loops (≥3 returns to same page within a flow), scroll thrashing (rapid direction reversals ≥3 within 3s), mouse thrashing (rapid back-and-forth cursor movement).
+- Benchmark frustration rates against industry baselines (e.g., rage clicks in ~5.3% of retail sessions; checkout rage-click conversion drops from 4.1% to 0.9%). Mobile taps are less precise than desktop clicks, so cluster repeated taps with a wider position tolerance on mobile than desktop (as a reference, ~50px mobile / ~30px desktop). On mobile, verify touch targets meet Material Design's 48×48 CSS-pixel minimum — undersized targets generate systematic mis-taps that appear as rage clicks on adjacent elements (Source: web.dev — Core Web Vitals; material.io).
 - Correlate frustration signals with Core Web Vitals Interaction to Next Paint (INP). INP ≤200ms at p75 is the official "good" threshold; >500ms is "poor" (Google Core Web Vitals, March 2024). Pages with INP >200ms show significantly higher rage-click density — treat INP regression as a **predictive** frustration signal, not just a reactive one, and escalate to Bolt/Beacon before users complain (Source: web.dev/articles/inp; inspectlet.com 2026 rage-click guide).
 - Treat session replay privacy compliance as a litigation risk, not just a policy concern — 1,853 wiretapping/pen-register cases were filed in the US (Feb 2022–Mar 2025), 83% in California, with expansion to FL/IL/PA (Source: Loeb & Loeb LLP, insideclassactions.com).
 - Require a legitimate legal basis (GDPR Articles 5–6) before processing session data — consent is the standard basis; data controllers must present cookie notices, privacy notices, and obtain explicit consent before recording (Source: countly.com).

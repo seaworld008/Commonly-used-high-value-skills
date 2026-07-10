@@ -36,6 +36,7 @@
   canvas#bg-dark{opacity:1}
   body.light-bg canvas#bg-light{opacity:1}
   body.light-bg canvas#bg-dark{opacity:0}
+  body.low-power canvas.bg{display:none!important}
 
   /* ============ Deck 容器 + 翻页 ============ */
   /* width: NSLIDES * 100vw，会在 JS 里动态矫正 */
@@ -194,6 +195,8 @@
   body.light-bg #nav .dot{background:rgba(var(--ink-rgb),.25)}
   body.light-bg #nav .dot.active{background:rgba(var(--ink-rgb),.9)}
   #hint{position:fixed;bottom:3vh;right:3vw;z-index:30;font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;opacity:.4;mix-blend-mode:difference;color:#aaa}
+  body.low-power #hint{opacity:.72;color:var(--paper);mix-blend-mode:normal}
+  body.light-bg.low-power #hint{color:var(--ink)}
 
   /* ============================================================
      ============ LAYOUTS API · 面向 agent 的类（v2）============
@@ -423,6 +426,12 @@
   body.motion-ready [data-anim="right"]{transform:translateX(24px)}
   body.motion-ready [data-anim="line"]{opacity:0;transform:translateY(10px)}
   body.motion-ready [data-animate="pipeline"] [data-anim]{opacity:.15}
+  body.low-power #deck{transition:none!important}
+  body.low-power *,
+  body.low-power *::before,
+  body.low-power *::after{animation:none!important;transition:none!important}
+  body.low-power.motion-ready [data-anim],
+  body.low-power [data-anim]{opacity:1!important;transform:none!important}
 
   /* ---------- 响应式降级 ---------- */
   @media (max-width:900px){
@@ -437,10 +446,35 @@
 </style>
 </head>
 <body>
+<script>
+  (function(){
+    const KEY = 'guizang-ppt-low-power';
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const stored = localStorage.getItem(KEY);
+    window.__lowPowerMode = stored === '1' || (stored === null && reduced);
+    function updateHint(){
+      const hint = document.getElementById('hint');
+      if(hint) hint.textContent = `← → 翻页 · B ${window.__lowPowerMode ? '动态' : '静态'} · ESC 索引`;
+    }
+    window.__setLowPowerMode = function(on, opts={}){
+      window.__lowPowerMode = !!on;
+      document.body.classList.toggle('low-power', window.__lowPowerMode);
+      if(opts.persist !== false) localStorage.setItem(KEY, window.__lowPowerMode ? '1' : '0');
+      if(window.__lowPowerMode && document.getAnimations){
+        document.getAnimations().forEach(a=>a.cancel());
+      }
+      updateHint();
+      dispatchEvent(new CustomEvent('ppt-low-power-change', {detail:{on:window.__lowPowerMode}}));
+      if(window.__playSlide) window.__playSlide(window.__currentSlideIndex || 0);
+    };
+    document.body.classList.toggle('low-power', window.__lowPowerMode);
+    addEventListener('DOMContentLoaded', updateHint, {once:true});
+  })();
+</script>
 
 <canvas id="bg-dark" class="bg"></canvas>
 <canvas id="bg-light" class="bg"></canvas>
-<div id="hint">← → 翻页 · ESC 索引</div>
+<div id="hint">← → 翻页 · B 静态 · ESC 索引</div>
 
 <div id="deck">
 
@@ -564,14 +598,26 @@ function bootGL(canvasId, fsSrc){
     return true;
   };
 }
-const drawDark=bootGL('bg-dark',FS_DARK);
-const drawLight=bootGL('bg-light',FS_LIGHT);
-const t0=Date.now();
-(function loop(){
-  const t=(Date.now()-t0)/1000;
-  drawDark(t);drawLight(t);
-  requestAnimationFrame(loop);
-})();
+let drawDark=null, drawLight=null, glRAF=0, glT0=Date.now();
+function startGL(){
+  if(window.__lowPowerMode || glRAF) return;
+  if(!drawDark) drawDark=bootGL('bg-dark',FS_DARK);
+  if(!drawLight) drawLight=bootGL('bg-light',FS_LIGHT);
+  glT0=Date.now();
+  function loop(){
+    if(window.__lowPowerMode){glRAF=0;return;}
+    const t=(Date.now()-glT0)/1000;
+    drawDark(t);drawLight(t);
+    glRAF=requestAnimationFrame(loop);
+  }
+  glRAF=requestAnimationFrame(loop);
+}
+function stopGL(){
+  if(glRAF) cancelAnimationFrame(glRAF);
+  glRAF=0;
+}
+startGL();
+addEventListener('ppt-low-power-change', e=>{e.detail.on ? stopGL() : startGL();});
 
 // =============== 导航（翻页 / 圆点 / 键盘 / 滚轮 / 触屏） ===============
 const deck=document.getElementById('deck');
@@ -592,6 +638,7 @@ slides.forEach((s,i)=>{
 function go(n){
   if(lock)return;
   idx=Math.max(0,Math.min(total-1,n));
+  window.__currentSlideIndex = idx;
   deck.style.transform=`translateX(${-idx*100}vw)`;
   nav.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===idx));
   /* 主题切换：优先读 data-theme，其次从 class（light/dark）推断 */
@@ -643,6 +690,11 @@ function toggleOverview(){
 
 addEventListener('keydown',e=>{
   if(e.key==='Escape'){e.preventDefault();toggleOverview();return;}
+  if(e.key && e.key.toLowerCase()==='b' && !e.metaKey && !e.ctrlKey && !e.altKey){
+    e.preventDefault();
+    window.__setLowPowerMode(!window.__lowPowerMode);
+    return;
+  }
   if(overviewOn)return;
   if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '||e.key==='ArrowDown'){
     if(window.__pipeAdvance && window.__pipeAdvance()) return;
@@ -718,11 +770,25 @@ if(motion){
     });
   }
 
+  function revealStatic(slide){
+    resetAnims(slide);
+    document.getAnimations?.().forEach(a=>a.cancel());
+    slide.querySelectorAll('[data-anim]').forEach(el=>{
+      el.style.opacity='1';
+      el.style.transform='none';
+    });
+  }
+
   function playSlide(i){
     const slide = slides[i];
     if(!slide) return;
     lastIdx = i;
     const recipe = slide.dataset.animate || (slide.classList.contains('hero') ? 'hero' : 'cascade');
+
+    if(window.__lowPowerMode){
+      revealStatic(slide);
+      return;
+    }
 
     if(recipe === 'pipeline'){
       pipeStep = -1;
@@ -767,6 +833,7 @@ if(motion){
   }
 
   function pipeAdvance(){
+    if(window.__lowPowerMode) return false;
     const slide = slides[lastIdx];
     if(!slide || slide.dataset.animate !== 'pipeline') return false;
     const steps  = [...slide.querySelectorAll('[data-anim="step"]')];

@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://github.com/obra/superpowers",
-    "checked_at": "2026-07-03",
+    "checked_at": "2026-07-10",
     "note": "Curated from obra/superpowers after validating current upstream paths and recent popularity/discovery signals."
   },
   "official_references": [
@@ -48,9 +48,9 @@
         "repo": "obra/superpowers",
         "path": "skills/dispatching-parallel-agents/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-21",
-        "last_synced_at": "2026-06-21",
-        "last_synced_commit": "9ccce3bf07a40e45259004a330409ba00970eff7"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "d884ae04edebef577e82ff7c4e143debd0bbec99"
       }
     },
     {
@@ -64,9 +64,9 @@
         "repo": "obra/superpowers",
         "path": "skills/executing-plans/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-07-03",
-        "last_synced_at": "2026-07-03",
-        "last_synced_commit": "3bdd66eaa5d74faee2d11c933b7a4bbe604c222e"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "d884ae04edebef577e82ff7c4e143debd0bbec99"
       }
     },
     {
@@ -80,9 +80,9 @@
         "repo": "obra/superpowers",
         "path": "skills/finishing-a-development-branch/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-21",
-        "last_synced_at": "2026-06-21",
-        "last_synced_commit": "141953a4bedbb539551c5eebcfe2024771876bb7"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "d884ae04edebef577e82ff7c4e143debd0bbec99"
       }
     },
     {
@@ -96,9 +96,9 @@
         "repo": "obra/superpowers",
         "path": "skills/receiving-code-review/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-21",
-        "last_synced_at": "2026-06-21",
-        "last_synced_commit": "1455ac0631e2f3824229f6a31a1877dc6b96952f"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "d884ae04edebef577e82ff7c4e143debd0bbec99"
       }
     },
     {
@@ -112,9 +112,9 @@
         "repo": "obra/superpowers",
         "path": "skills/requesting-code-review/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-29",
-        "last_synced_at": "2026-06-29",
-        "last_synced_commit": "9ccce3bf07a40e45259004a330409ba00970eff7"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "d884ae04edebef577e82ff7c4e143debd0bbec99"
       }
     },
     {
@@ -128,9 +128,9 @@
         "repo": "obra/superpowers",
         "path": "skills/subagent-driven-development/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-21",
-        "last_synced_at": "2026-06-21",
-        "last_synced_commit": null
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "d884ae04edebef577e82ff7c4e143debd0bbec99"
       }
     },
     {
@@ -144,9 +144,9 @@
         "repo": "obra/superpowers",
         "path": "skills/systematic-debugging/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-21",
-        "last_synced_at": "2026-06-21",
-        "last_synced_commit": null
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "d884ae04edebef577e82ff7c4e143debd0bbec99"
       }
     },
     {
@@ -160,9 +160,9 @@
         "repo": "obra/superpowers",
         "path": "skills/using-git-worktrees/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-21",
-        "last_synced_at": "2026-06-21",
-        "last_synced_commit": "bb2ff5d309e5da6e021eb517c5012eb53c50a969"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "d884ae04edebef577e82ff7c4e143debd0bbec99"
       }
     },
     {
@@ -176,9 +176,9 @@
         "repo": "obra/superpowers",
         "path": "skills/using-superpowers/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-07-03",
-        "last_synced_at": "2026-07-03",
-        "last_synced_commit": "8b1669269c51835168c98fd435a7af1e5f15ec12"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "d884ae04edebef577e82ff7c4e143debd0bbec99"
       }
     },
     {
@@ -192,9 +192,9 @@
         "repo": "obra/superpowers",
         "path": "skills/verification-before-completion/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-13",
-        "last_synced_at": "2026-04-13",
-        "last_synced_commit": "48410c7f1973bd66569a627ef27ef6619e0ba923"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "d884ae04edebef577e82ff7c4e143debd0bbec99"
       }
     },
     {
@@ -208,9 +208,9 @@
         "repo": "obra/superpowers",
         "path": "skills/writing-skills/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-07-03",
-        "last_synced_at": "2026-07-03",
-        "last_synced_commit": "4fd9aa2dd5b602a102a1ff4743849642b73655c1"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "d884ae04edebef577e82ff7c4e143debd0bbec99"
       }
     }
   ],

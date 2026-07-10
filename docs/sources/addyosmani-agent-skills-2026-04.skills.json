@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://github.com/addyosmani/agent-skills",
-    "checked_at": "2026-07-03",
+    "checked_at": "2026-07-10",
     "note": "Curated full import of addyosmani/agent-skills; refresh with scripts/sync_addyosmani_agent_skills.py."
   },
   "official_references": [
@@ -28,9 +28,9 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/api-and-interface-design/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-25",
-        "last_synced_at": "2026-04-25",
-        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "6bcfeb9dae52b11eaad23511acc165109746dbc3"
       }
     },
     {
@@ -44,9 +44,9 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/browser-testing-with-devtools/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-21",
-        "last_synced_at": "2026-06-21",
-        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "6bcfeb9dae52b11eaad23511acc165109746dbc3"
       }
     },
     {
@@ -60,9 +60,9 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/ci-cd-and-automation/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-25",
-        "last_synced_at": "2026-04-25",
-        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "6bcfeb9dae52b11eaad23511acc165109746dbc3"
       }
     },
     {
@@ -76,9 +76,9 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/code-review-and-quality/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-24",
-        "last_synced_at": "2026-06-24",
-        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "6bcfeb9dae52b11eaad23511acc165109746dbc3"
       }
     },
     {
@@ -92,9 +92,9 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/code-simplification/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-25",
-        "last_synced_at": "2026-04-25",
-        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "6bcfeb9dae52b11eaad23511acc165109746dbc3"
       }
     },
     {
@@ -108,9 +108,9 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/context-engineering/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-25",
-        "last_synced_at": "2026-04-25",
-        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "6bcfeb9dae52b11eaad23511acc165109746dbc3"
       }
     },
     {
@@ -124,9 +124,9 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/debugging-and-error-recovery/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-21",
-        "last_synced_at": "2026-06-21",
-        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "6bcfeb9dae52b11eaad23511acc165109746dbc3"
       }
     },
     {
@@ -140,9 +140,9 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/deprecation-and-migration/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-25",
-        "last_synced_at": "2026-04-25",
-        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "6bcfeb9dae52b11eaad23511acc165109746dbc3"
       }
     },
     {
@@ -156,9 +156,9 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/documentation-and-adrs/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-25",
-        "last_synced_at": "2026-04-25",
-        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "6bcfeb9dae52b11eaad23511acc165109746dbc3"
       }
     },
     {
@@ -172,9 +172,9 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/frontend-ui-engineering/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-25",
-        "last_synced_at": "2026-04-25",
-        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "6bcfeb9dae52b11eaad23511acc165109746dbc3"
       }
     },
     {
@@ -188,9 +188,9 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/git-workflow-and-versioning/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-07-03",
-        "last_synced_at": "2026-07-03",
-        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "6bcfeb9dae52b11eaad23511acc165109746dbc3"
       }
     },
     {
@@ -204,9 +204,9 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/idea-refine/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-29",
-        "last_synced_at": "2026-06-29",
-        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "6bcfeb9dae52b11eaad23511acc165109746dbc3"
       }
     },
     {
@@ -220,9 +220,9 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/incremental-implementation/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-24",
-        "last_synced_at": "2026-06-24",
-        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "6bcfeb9dae52b11eaad23511acc165109746dbc3"
       }
     },
     {
@@ -236,9 +236,9 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/performance-optimization/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-25",
-        "last_synced_at": "2026-04-25",
-        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "6bcfeb9dae52b11eaad23511acc165109746dbc3"
       }
     },
     {
@@ -252,9 +252,9 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/planning-and-task-breakdown/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-07-03",
-        "last_synced_at": "2026-07-03",
-        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "6bcfeb9dae52b11eaad23511acc165109746dbc3"
       }
     },
     {
@@ -268,9 +268,9 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/security-and-hardening/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-08",
-        "last_synced_at": "2026-06-08",
-        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "6bcfeb9dae52b11eaad23511acc165109746dbc3"
       }
     },
     {
@@ -284,9 +284,9 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/shipping-and-launch/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-24",
-        "last_synced_at": "2026-06-24",
-        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "6bcfeb9dae52b11eaad23511acc165109746dbc3"
       }
     },
     {
@@ -300,9 +300,9 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/source-driven-development/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-25",
-        "last_synced_at": "2026-04-25",
-        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "6bcfeb9dae52b11eaad23511acc165109746dbc3"
       }
     },
     {
@@ -316,9 +316,9 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/spec-driven-development/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-07-03",
-        "last_synced_at": "2026-07-03",
-        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "6bcfeb9dae52b11eaad23511acc165109746dbc3"
       }
     },
     {
@@ -332,9 +332,9 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/test-driven-development/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-05-19",
-        "last_synced_at": "2026-05-19",
-        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "6bcfeb9dae52b11eaad23511acc165109746dbc3"
       }
     },
     {
@@ -348,9 +348,9 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/using-agent-skills/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-24",
-        "last_synced_at": "2026-06-24",
-        "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "6bcfeb9dae52b11eaad23511acc165109746dbc3"
       }
     }
   ],

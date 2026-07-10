@@ -1,11 +1,10 @@
 
 # vc +recording
 
-> **前置条件：** 先阅读 [`../lark-shared/SKILL.md`](../../lark-shared/SKILL.md) 了解认证、全局参数和安全规则。
 
 通过 meeting_id 或 calendar_event_id 查询对应的 minute_token。这是 VC 域和 Minutes 域之间的桥梁命令。只读操作。
 
-> **边界提醒：** 如果用户明确要的是"妙记信息""妙记详情""妙记链接""minute_token""标题""时长""owner"这类妙记元信息，先用本命令拿到 `minute_token`，再调用 `minutes minutes get`。不要直接切到 `vc +notes`；`vc +notes` 只用于纪要内容和逐字稿。
+> **边界提醒：** 如果用户明确要的是"妙记信息""妙记详情""妙记链接""minute_token""标题""时长""owner"这类妙记元信息，先用本命令拿到 `minute_token`，再调用 `minutes minutes get`。不要直接切到 `minutes +detail`；`minutes +detail` 只用于纪要内容和逐字稿。
 
 本 skill 对应 shortcut：`lark-cli vc +recording`。
 
@@ -82,7 +81,7 @@ lark-cli vc +recording --meeting-ids 69xxxxxxxxxxxxx28 --dry-run
 lark-cli vc +recording --meeting-ids xxx
 
 # 第 2 步：使用上一步返回的 minute_token 下载妙记文件
-lark-cli minutes +download --minute-token <minute_token>
+lark-cli minutes +download --minute-tokens <minute_token>
 ```
 
 ### 场景 2：知道 meeting_id，想查询妙记基础信息
@@ -102,7 +101,8 @@ lark-cli minutes minutes get --params '{"minute_token":"<minute_token>"}'
 lark-cli vc +recording --meeting-ids xxx
 
 # 第 2 步：使用上一步返回的 minute_token 获取完整纪要
-lark-cli vc +notes --minute-tokens <minute_token>
+# ⚠️ 必须显式指定要获取的产物 flag（--summary, --keyword, --todo, --chapter, --transcript）
+lark-cli minutes +detail --minute-tokens <minute_token> --summary --todo --chapter --transcript
 ```
 
 ### 场景 4：先搜索会议，再获取录制并下载
@@ -115,7 +115,7 @@ lark-cli vc +search --query "周会" --start 2026-03-10
 lark-cli vc +recording --meeting-ids <ids>
 
 # 第 3 步：使用其中一个 minute_token 下载妙记文件
-lark-cli minutes +download --minute-token <token>
+lark-cli minutes +download --minute-tokens <token>
 ```
 
 ### 场景 5：从日历事件获取录制
@@ -125,7 +125,7 @@ lark-cli minutes +download --minute-token <token>
 lark-cli vc +recording --calendar-event-ids <event_id>
 
 # 第 2 步：使用上一步返回的 minute_token 下载妙记文件
-lark-cli minutes +download --minute-token <minute_token>
+lark-cli minutes +download --minute-tokens <minute_token>
 ```
 
 ## 常见错误与排查
@@ -143,11 +143,10 @@ lark-cli minutes +download --minute-token <minute_token>
 - 默认使用 `--format json` 输出，Agent 更擅长解析 JSON 数据。
 - 排查参数与请求结构时优先使用 `--dry-run`。
 - `minute_token` 从录制 URL 尾段解析（`https://meetings.feishu.cn/minutes/{minute_token}`）。
-- 拿到 `minute_token` 后，如果要妙记基础信息，优先传给 `minutes minutes get`；如果要下载媒体文件，传给 `minutes +download`；如果要逐字稿、总结、待办、章节，再传给 `vc +notes --minute-tokens`。
+- 拿到 `minute_token` 后，如果要妙记基础信息，优先传给 `minutes minutes get`；如果要下载媒体文件，传给 `minutes +download`；如果要逐字稿、总结、待办、章节，再传给 `minutes +detail --minute-tokens`。
 
 ## 参考
 
 - [lark-vc](../SKILL.md) — 视频会议全部命令
 - [lark-vc-search](lark-vc-search.md) — 搜索历史会议（获取 meeting_id）
-- [lark-vc-notes](lark-vc-notes.md) — 获取会议纪要
-- [lark-shared](../../lark-shared/SKILL.md) — 认证和全局参数
+- [lark-minutes-detail](../../lark-minutes/references/lark-minutes-detail.md) — 获取会议纪要

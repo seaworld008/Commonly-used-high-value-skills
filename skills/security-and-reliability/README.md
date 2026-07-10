@@ -8,10 +8,10 @@
 
 ## 推荐先看
 
+- [information-security-manager-iso27001](./information-security-manager-iso27001/) - 用于information、安全、管理、iso27001，支持安全扫描、审计、加固和风险治理。
 - [security-ownership-map](./security-ownership-map/) - 用于基于 Git 历史分析安全所有权、敏感代码归属、bus factor、CODEOWNERS 现实差距和风险热点。
+- [security-pen-testing](./security-pen-testing/) - 用于安全、pen、测试，支持安全扫描、审计、加固和风险治理。
 - [sentry](./sentry/) - 用于只读查询 Sentry issues、events 和服务健康数据，汇总线上错误并辅助生产问题排查。
-- [breach](./breach/) - 用于breach，支持安全扫描、审计、加固和风险治理。
-- [cloak](./cloak/) - 用于cloak，支持安全扫描、审计、加固和风险治理。
 
 ## 技能总览
 

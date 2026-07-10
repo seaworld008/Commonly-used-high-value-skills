@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://github.com/larksuite/cli",
-    "checked_at": "2026-07-05",
+    "checked_at": "2026-07-10",
     "note": "Official Lark/Feishu CLI AI Agent Skills import, including auxiliary references/scripts/assets copied with each skill."
   },
   "official_references": [
@@ -28,9 +28,9 @@
         "repo": "larksuite/cli",
         "path": "skills/lark-approval/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-07-03",
-        "last_synced_at": "2026-07-03",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "0dd844c2c5c2df703d03b0d9c2eb558e468fbbda"
       }
     },
     {
@@ -44,9 +44,9 @@
         "repo": "larksuite/cli",
         "path": "skills/lark-attendance/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-29",
-        "last_synced_at": "2026-06-29",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "0dd844c2c5c2df703d03b0d9c2eb558e468fbbda"
       }
     },
     {
@@ -60,9 +60,9 @@
         "repo": "larksuite/cli",
         "path": "skills/lark-base/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-29",
-        "last_synced_at": "2026-06-29",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "0dd844c2c5c2df703d03b0d9c2eb558e468fbbda"
       }
     },
     {
@@ -76,9 +76,9 @@
         "repo": "larksuite/cli",
         "path": "skills/lark-calendar/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-29",
-        "last_synced_at": "2026-06-29",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "0dd844c2c5c2df703d03b0d9c2eb558e468fbbda"
       }
     },
     {
@@ -92,9 +92,9 @@
         "repo": "larksuite/cli",
         "path": "skills/lark-contact/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-07-03",
-        "last_synced_at": "2026-07-03",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "0dd844c2c5c2df703d03b0d9c2eb558e468fbbda"
       }
     },
     {
@@ -108,9 +108,9 @@
         "repo": "larksuite/cli",
         "path": "skills/lark-doc/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-07-05",
-        "last_synced_at": "2026-07-05",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "0dd844c2c5c2df703d03b0d9c2eb558e468fbbda"
       }
     },
     {
@@ -124,9 +124,9 @@
         "repo": "larksuite/cli",
         "path": "skills/lark-drive/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-07-03",
-        "last_synced_at": "2026-07-03",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "0dd844c2c5c2df703d03b0d9c2eb558e468fbbda"
       }
     },
     {
@@ -140,9 +140,9 @@
         "repo": "larksuite/cli",
         "path": "skills/lark-event/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-29",
-        "last_synced_at": "2026-06-29",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "0dd844c2c5c2df703d03b0d9c2eb558e468fbbda"
       }
     },
     {
@@ -156,9 +156,9 @@
         "repo": "larksuite/cli",
         "path": "skills/lark-im/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-07-03",
-        "last_synced_at": "2026-07-03",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "0dd844c2c5c2df703d03b0d9c2eb558e468fbbda"
       }
     },
     {
@@ -172,9 +172,9 @@
         "repo": "larksuite/cli",
         "path": "skills/lark-mail/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-24",
-        "last_synced_at": "2026-06-24",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "0dd844c2c5c2df703d03b0d9c2eb558e468fbbda"
       }
     },
     {
@@ -188,9 +188,9 @@
         "repo": "larksuite/cli",
         "path": "skills/lark-markdown/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-08",
-        "last_synced_at": "2026-06-08",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "0dd844c2c5c2df703d03b0d9c2eb558e468fbbda"
       }
     },
     {
@@ -204,9 +204,9 @@
         "repo": "larksuite/cli",
         "path": "skills/lark-minutes/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-29",
-        "last_synced_at": "2026-06-29",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "0dd844c2c5c2df703d03b0d9c2eb558e468fbbda"
       }
     },
     {
@@ -220,9 +220,9 @@
         "repo": "larksuite/cli",
         "path": "skills/lark-okr/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-07-03",
-        "last_synced_at": "2026-07-03",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "0dd844c2c5c2df703d03b0d9c2eb558e468fbbda"
       }
     },
     {
@@ -236,9 +236,9 @@
         "repo": "larksuite/cli",
         "path": "skills/lark-openapi-explorer/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-08",
-        "last_synced_at": "2026-06-08",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "0dd844c2c5c2df703d03b0d9c2eb558e468fbbda"
       }
     },
     {
@@ -252,9 +252,9 @@
         "repo": "larksuite/cli",
         "path": "skills/lark-shared/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-07-03",
-        "last_synced_at": "2026-07-03",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "0dd844c2c5c2df703d03b0d9c2eb558e468fbbda"
       }
     },
     {
@@ -268,9 +268,9 @@
         "repo": "larksuite/cli",
         "path": "skills/lark-sheets/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-29",
-        "last_synced_at": "2026-06-29",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "0dd844c2c5c2df703d03b0d9c2eb558e468fbbda"
       }
     },
     {
@@ -284,9 +284,9 @@
         "repo": "larksuite/cli",
         "path": "skills/lark-skill-maker/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-29",
-        "last_synced_at": "2026-06-29",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "0dd844c2c5c2df703d03b0d9c2eb558e468fbbda"
       }
     },
     {
@@ -300,9 +300,9 @@
         "repo": "larksuite/cli",
         "path": "skills/lark-slides/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-07-03",
-        "last_synced_at": "2026-07-03",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "0dd844c2c5c2df703d03b0d9c2eb558e468fbbda"
       }
     },
     {
@@ -316,9 +316,9 @@
         "repo": "larksuite/cli",
         "path": "skills/lark-task/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-29",
-        "last_synced_at": "2026-06-29",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "0dd844c2c5c2df703d03b0d9c2eb558e468fbbda"
       }
     },
     {
@@ -332,9 +332,9 @@
         "repo": "larksuite/cli",
         "path": "skills/lark-vc/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-29",
-        "last_synced_at": "2026-06-29",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "0dd844c2c5c2df703d03b0d9c2eb558e468fbbda"
       }
     },
     {
@@ -348,9 +348,9 @@
         "repo": "larksuite/cli",
         "path": "skills/lark-vc-agent/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-07-03",
-        "last_synced_at": "2026-07-03",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "0dd844c2c5c2df703d03b0d9c2eb558e468fbbda"
       }
     },
     {
@@ -364,9 +364,9 @@
         "repo": "larksuite/cli",
         "path": "skills/lark-whiteboard/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-29",
-        "last_synced_at": "2026-06-29",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "0dd844c2c5c2df703d03b0d9c2eb558e468fbbda"
       }
     },
     {
@@ -380,9 +380,9 @@
         "repo": "larksuite/cli",
         "path": "skills/lark-wiki/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-08",
-        "last_synced_at": "2026-06-08",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "0dd844c2c5c2df703d03b0d9c2eb558e468fbbda"
       }
     },
     {
@@ -396,9 +396,9 @@
         "repo": "larksuite/cli",
         "path": "skills/lark-workflow-meeting-summary/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-29",
-        "last_synced_at": "2026-06-29",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "0dd844c2c5c2df703d03b0d9c2eb558e468fbbda"
       }
     },
     {
@@ -412,9 +412,9 @@
         "repo": "larksuite/cli",
         "path": "skills/lark-workflow-standup-report/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-05-28",
-        "last_synced_at": "2026-05-28",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "0dd844c2c5c2df703d03b0d9c2eb558e468fbbda"
       }
     }
   ]

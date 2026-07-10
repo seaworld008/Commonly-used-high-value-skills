@@ -9,9 +9,9 @@
 ## 推荐先看
 
 - [agile-product-owner](./agile-product-owner/) - 用于agile、产品、负责人，支持产品研究、策略、界面和交付协作。
+- [landing-page-generator](./landing-page-generator/) - 用于落地页、page、生成，支持产品研究、策略、界面和交付协作。
 - [product-manager-toolkit](./product-manager-toolkit/) - 用于产品、管理、工具包，支持产品研究、策略、界面和交付协作。
 - [product-strategist](./product-strategist/) - 用于产品、strategist，支持产品研究、策略、界面和交付协作。
-- [ui-design-system](./ui-design-system/) - 用于UI、设计、系统，支持产品研究、策略、界面和交付协作。
 
 ## 技能总览
 

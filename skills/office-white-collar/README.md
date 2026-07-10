@@ -8,9 +8,9 @@
 
 ## 推荐先看
 
+- [guizang-ppt-skill](./guizang-ppt-skill/) - 生成横向翻页网页 PPT（单 HTML 文件），含 WebGL 背景、章节幕封、数据大字报、图片网格等模板。
 - [doc](./doc/) - 用于读取、创建和编辑 `.docx` 文档，尤其适合需要格式和版面保真时。
 - [excel-automation](./excel-automation/) - 用于自动化 Excel 工作簿、公式、图表和数据处理。
-- [guizang-ppt-skill](./guizang-ppt-skill/) - 生成横向翻页网页 PPT（单 HTML 文件），含 WebGL 背景、章节幕封、数据大字报、图片网格等模板。
 - [markdown-tools](./markdown-tools/) - 用于Markdown、tools，支持文档、表格、演示和资料整理。
 
 ## 技能总览

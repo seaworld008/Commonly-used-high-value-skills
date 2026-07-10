@@ -1,13 +1,13 @@
 # Asset Planning
 
-新建演示文稿或大幅改写页面时，在写入 `slide_plan.json` 前后都可以参考本文件。目标是让 agent 主动识别有价值的图、图标、图表、截图或示意图需求，同时保持 deck 在没有真实素材时也能完整执行。
+新建演示文稿或大幅改写页面时，在写入 `slide_plan.json` 前后都可以参考本文件。目标是让 agent 主动识别有价值的图、图标、图表、流程图、时序图、架构图、装饰图案、截图或示意图需求，同时保持 deck 在没有真实素材时也能完整执行。
 
 本文件只定义轻量资产规划。不要把它理解成素材采集流程。
 
 ## Core Rules
 
 - `asset_need` is metadata only. It can guide page design, but it must not require web search, local download, media upload, or external tools.
-- Every planned asset must include a fallback visual plan so the slide can be generated with XML shapes, text, arrows, tables, simple charts, or placeholder regions.
+- Every planned asset must include a fallback visual plan. The fallback can use native charts, tables, whiteboard diagrams, placeholder regions, or XML shapes, text, and arrows as appropriate.
 - Asset needs must serve the page's `key_message` and `visual_focus`. Do not add decorative assets that do not clarify the page.
 - Prefer a few high-value asset plans over one asset on every page. For a 6-page technical or business deck, plan assets on at least 3 pages when the content allows.
 - If a real local asset already exists or the user provides one, it can be used through the normal media-upload workflow. Still keep `fallback_if_missing` in the plan.
@@ -22,7 +22,7 @@ Use an object for one planned asset, or an array when a page genuinely needs mul
   "asset_type": "architecture_diagram",
   "purpose": "Show how API gateway, planner, XML generator, and Slides API interact.",
   "suggested_query": "agent native slides runtime architecture diagram",
-  "fallback_if_missing": "Draw grouped boxes and arrows with XML shapes; use labels instead of an image."
+  "fallback_if_missing": "Draw grouped boxes connected by arrows with short labels."
 }
 ```
 
@@ -43,7 +43,7 @@ For a page without a meaningful asset need, use:
 - `architecture_diagram`: system components, data flow, dependency map, or model structure.
 - `icon`: small semantic symbol for a concept, step, role, or status.
 - `logo`: brand, product, team, or customer mark.
-- `chart`: line, bar, pie, funnel, scatter, or chart-like data visual.
+- `chart`: column, bar, line, area, radar, pie, doughnut/ring, or combo data visual. Note: `<chart>` does not support funnel or scatter — map those to `<whiteboard>` SVG at generation time.
 - `infographic`: composed visual explanation, usually combining labels, numbers, and simple shapes.
 - `screenshot`: product UI, terminal output, workflow state, or page capture.
 - `flow_diagram`: process, sequence, decision tree, or mechanism diagram.
@@ -64,11 +64,23 @@ Match asset type to slide role:
 
 `suggested_query` is only a future lookup hint. Write it as a short phrase a human or later workflow could search, but do not execute the search unless the user separately requests real assets.
 
+For `asset_type: "chart"`:
+
+- If the visual is a supported standard data chart — column, bar, line, area, radar, pie, doughnut/ring, or combo — `fallback_if_missing` must still render as a native `<chart>`.
+- Do not imitate supported standard data visuals with manual drawing primitives or `<whiteboard>`.
+- Choose the data source explicitly:
+  - `user_provided`: when the user provides concrete values, tables, CSV, or metric lists, use those values and do not replace them with mock data.
+  - `mock_placeholder`: when the user asks for a placeholder, template, example, or chart position to replace later, use mock data in a native `<chart>`.
+  - `mock_required_by_intent`: when the user does not provide concrete values but asks for data expression, charts, trends, comparisons, or distributions, use mock data in a native `<chart>`.
+- Mock data must be labeled as `模拟数据，仅占位，待替换真实数据` or equivalent. Do not present mock values as facts.
+- Manual drawing fallbacks are allowed only for unsupported chart types such as scatter, funnel, waterfall-like custom visuals, or decorative non-data visuals.
+
 `fallback_if_missing` must be concrete enough to turn into XML, for example:
 
 - "Draw a simplified attention matrix with 5 token labels, semi-transparent cells, and arrows to output token."
 - "Use three grouped boxes with arrows from client to gateway to service; add small protocol labels."
-- "Render a mini bar chart with 4 bars using shapes and value labels."
+- "Render a native `<chart>` using the user-provided series."
+- "Render a native `<chart>` with mock placeholder values and label it as `模拟数据，仅占位，待替换真实数据`."
 - "Use a bordered placeholder panel with product area labels, not an empty image."
 
 Weak fallbacks to avoid:
@@ -118,7 +130,7 @@ Business comparison page:
 When generating XML:
 
 1. If an asset exists and the workflow supports it, place it in the planned visual region.
-2. If no asset exists, immediately render `fallback_if_missing` with XML-native shapes, text, lines, arrows, tables, or chart-like elements.
+2. If no asset exists, immediately render `fallback_if_missing` with the planned XML-native element type. Supported standard data visuals still use native `<chart>`; other fallbacks may use shapes, text, lines, arrows, tables, whiteboard diagrams, or placeholder panels.
 3. Size the fallback to satisfy `visual_focus`; it should be a real page element, not a tiny decoration.
 4. Keep text-density limits. Do not compensate for missing assets by adding long bullet text.
 5. After creation, fetch the presentation and verify asset pages are not blank and that each planned fallback is visible when no real asset was used.

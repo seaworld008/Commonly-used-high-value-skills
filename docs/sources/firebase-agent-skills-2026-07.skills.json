@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://github.com/firebase/agent-skills",
-    "checked_at": "2026-07-06",
+    "checked_at": "2026-07-10",
     "note": "Firebase official Agent Skills repository review. Imported firebase-security-rules-auditor as an expanded curated skill under Apache-2.0."
   },
   "official_references": [
@@ -33,8 +33,8 @@
         "repo": "firebase/agent-skills",
         "path": "skills/firebase-security-rules-auditor/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-07-06",
-        "last_synced_at": "2026-07-06",
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
         "last_synced_commit": "538130c39402a40d9c2586ede87def5914641a33"
       }
     }
@@ -53,6 +53,20 @@
       "target": "skills/firebase-security-rules-auditor/SKILL.md",
       "result": "success",
       "evidence": "Reviewed upstream 70-line skill and expanded the curated version to cover Firestore and Cloud Storage authorization, validation, emulator tests, anti-patterns, and report structure."
+    },
+    {
+      "date": "2026-07-10",
+      "method": "upstream-thinning-review",
+      "target": "firebase/agent-skills@538130c39402a40d9c2586ede87def5914641a33:skills/firebase-security-rules-auditor/SKILL.md",
+      "result": "success",
+      "evidence": "Confirmed that the current concise upstream body focuses on Firestore scoring and omits the curated repository's Cloud Storage and emulator-test coverage; preserved that upstream body unchanged before the local supplement."
+    },
+    {
+      "date": "2026-07-10",
+      "method": "local-curation-supplement-review",
+      "target": "skills/security-and-reliability/firebase-security-rules-auditor/SKILL.md",
+      "result": "success",
+      "evidence": "Replaced the generic sync-generated quality filler with a focused local curation supplement covering triggers, access and operation matrices, create/update/field/query checks, Cloud Storage controls, emulator negative tests, severity reporting, and audit boundaries."
     }
   ]
 }

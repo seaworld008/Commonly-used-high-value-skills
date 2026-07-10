@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://nlpm.com/",
-    "checked_at": "2026-07-06",
+    "checked_at": "2026-07-10",
     "note": "Curated from xiaolai/nlpm after reviewing the website, why page, README, LICENSE, author docs, rules, scoring, and testing materials. Imported as an original repository skill that captures the durable audit method rather than mirroring the full upstream command/plugin product."
   },
   "official_references": [
@@ -49,9 +49,9 @@
         "path": "README.md",
         "ref": "main",
         "sync_mode": "monitor",
-        "last_checked_at": "2026-07-06",
-        "last_synced_at": "2026-07-06",
-        "last_synced_commit": "ad3722a695146b90aea9e1e5ff9bc1490a5f38a2"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "370c64c78659b8396cbc3e89a84bfd709dcce306"
       }
     }
   ],
@@ -76,6 +76,20 @@
       "target": "https://github.com/xiaolai/nlpm/compare/3bee76dc34cf...ad3722a695146b90aea9e1e5ff9bc1490a5f38a2",
       "result": "success",
       "evidence": "Reviewed 487 upstream commits since the previous sync point. Most changes were auditor reports, dashboards, exemplars, and product automation; updated local nlpm-audit only for durable method changes visible in README: multi-tool overlays, manifest-vs-disk emphasis, eight commands, NL-TDD, 50-rule rubric, exemplar citations, and marketplace install caveat."
+    },
+    {
+      "date": "2026-07-10",
+      "method": "manual-monitor-review",
+      "target": "https://github.com/xiaolai/nlpm/compare/ad3722a695146b90aea9e1e5ff9bc1490a5f38a2...29ad0253f1cf25fc6191cbb7d5256d0c0bfae4b5",
+      "result": "success",
+      "evidence": "Reviewed 104 upstream commits and 61 changed files. Ignored generated audits, telemetry, dashboards, registries, and case-study refreshes; absorbed only durable CI guidance for resilient batch GitHub API probes plus a generic MCP startup-versus-tool timeout compatibility note."
+    },
+    {
+      "date": "2026-07-10",
+      "method": "manual-monitor-review",
+      "target": "https://github.com/xiaolai/nlpm/compare/29ad0253f1cf25fc6191cbb7d5256d0c0bfae4b5...370c64c78659b8396cbc3e89a84bfd709dcce306",
+      "result": "success",
+      "evidence": "Reviewed 2 upstream commits and the only changed file, auditor/logs/events.jsonl. The change adds one telemetry event and contains no durable audit method, CI, security, scoring, or compatibility guidance, so the curated local skill requires no content change."
     }
   ]
 }

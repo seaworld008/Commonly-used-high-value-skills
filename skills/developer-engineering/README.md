@@ -35,7 +35,7 @@
 | `gateway` | 用于gateway，支持开发、调试、评审和交付。 | [目录](./gateway/) | [SKILL.md](./gateway/SKILL.md) |
 | `git-worktree-manager` | 用于Git、worktree、管理，支持开发、调试、评审和交付。 | [目录](./git-worktree-manager/) | [SKILL.md](./git-worktree-manager/SKILL.md) |
 | `github-contributor` | 用于GitHub、贡献，支持开发、调试、评审和交付。 | [目录](./github-contributor/) | [SKILL.md](./github-contributor/SKILL.md) |
-| `graphify` | Use for any question about a codebase, its architecture, file relationships, or project content — especially when graphify-out/ exists, where the question should be treated as a graphify query first. Turns any input (code, docs, papers, images, videos) into a persistent knowledge graph with god nodes, community detection, and query/path/explain tools. | [目录](./graphify/) | [SKILL.md](./graphify/SKILL.md) |
+| `graphify` | 将代码、文档与多媒体资料构建为可查询的持久知识图谱，用于分析架构、依赖关系与项目内容。 | [目录](./graphify/) | [SKILL.md](./graphify/SKILL.md) |
 | `graphql-expert` | 用于 GraphQL API 设计、Schema/Resolver 评审、查询优化和安全最佳实践。 | [目录](./graphql-expert/) | [SKILL.md](./graphql-expert/SKILL.md) |
 | `i18n-expert` | 用于i18n、expert，支持开发、调试、评审和交付。 | [目录](./i18n-expert/) | [SKILL.md](./i18n-expert/SKILL.md) |
 | `kubernetes-specialist` | 用于 Kubernetes 集群管理、Pod 调试、Helm Chart 设计、清单评审和部署优化。 | [目录](./kubernetes-specialist/) | [SKILL.md](./kubernetes-specialist/SKILL.md) |

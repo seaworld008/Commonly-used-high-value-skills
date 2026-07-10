@@ -1266,7 +1266,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [codeql-security-scanner](skills/security-and-reliability/codeql-security-scanner) | security-and-reliability | ★★★★☆ | 用于通过 CodeQL 执行语义代码扫描、安全查询、自定义规则、SARIF 报告和 GitHub Code Scanning 集成。 |
-| [firebase-security-rules-auditor](skills/security-and-reliability/firebase-security-rules-auditor) | security-and-reliability | ★★★★☆ | Audit Firebase Security Rules for Firestore and Cloud Storage. Use when reviewin |
+| [firebase-security-rules-auditor](skills/security-and-reliability/firebase-security-rules-auditor) | security-and-reliability | ★★★★☆ | A skill to evaluate how secure Firestore security rules are. Use this when Fires |
 | [security-auditor](skills/security-and-reliability/security-auditor) | security-and-reliability | ★★★★☆ | Security audit workflow for AI-generated application code, APIs, infrastructure  |
 | [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。 |
 
@@ -2455,7 +2455,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [firebase-security-rules-auditor](skills/security-and-reliability/firebase-security-rules-auditor) | security-and-reliability | ★★★★☆ | Audit Firebase Security Rules for Firestore and Cloud Storage. Use when reviewin |
+| [firebase-security-rules-auditor](skills/security-and-reliability/firebase-security-rules-auditor) | security-and-reliability | ★★★★☆ | A skill to evaluate how secure Firestore security rules are. Use this when Fires |
 
 ## auto-continue
 
@@ -2687,7 +2687,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [firebase-security-rules-auditor](skills/security-and-reliability/firebase-security-rules-auditor) | security-and-reliability | ★★★★☆ | Audit Firebase Security Rules for Firestore and Cloud Storage. Use when reviewin |
+| [firebase-security-rules-auditor](skills/security-and-reliability/firebase-security-rules-auditor) | security-and-reliability | ★★★★☆ | A skill to evaluate how secure Firestore security rules are. Use this when Fires |
 
 ## coach
 
@@ -3215,7 +3215,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [firebase-security-rules-auditor](skills/security-and-reliability/firebase-security-rules-auditor) | security-and-reliability | ★★★★☆ | Audit Firebase Security Rules for Firestore and Cloud Storage. Use when reviewin |
+| [firebase-security-rules-auditor](skills/security-and-reliability/firebase-security-rules-auditor) | security-and-reliability | ★★★★☆ | A skill to evaluate how secure Firestore security rules are. Use this when Fires |
 
 ## firestore
 
@@ -3223,7 +3223,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [firebase-security-rules-auditor](skills/security-and-reliability/firebase-security-rules-auditor) | security-and-reliability | ★★★★☆ | Audit Firebase Security Rules for Firestore and Cloud Storage. Use when reviewin |
+| [firebase-security-rules-auditor](skills/security-and-reliability/firebase-security-rules-auditor) | security-and-reliability | ★★★★☆ | A skill to evaluate how secure Firestore security rules are. Use this when Fires |
 
 ## fix
 
@@ -4527,7 +4527,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [firebase-security-rules-auditor](skills/security-and-reliability/firebase-security-rules-auditor) | security-and-reliability | ★★★★☆ | Audit Firebase Security Rules for Firestore and Cloud Storage. Use when reviewin |
+| [firebase-security-rules-auditor](skills/security-and-reliability/firebase-security-rules-auditor) | security-and-reliability | ★★★★☆ | A skill to evaluate how secure Firestore security rules are. Use this when Fires |
 
 ## self
 

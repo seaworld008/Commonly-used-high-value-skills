@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://github.com/op7418/guizang-ppt-skill",
-    "checked_at": "2026-06-03",
+    "checked_at": "2026-07-10",
     "note": "Curated from op7418/guizang-ppt-skill with upstream tracking enabled."
   },
   "official_references": [
@@ -23,9 +23,9 @@
         "repo": "op7418/guizang-ppt-skill",
         "path": "SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-03",
-        "last_synced_at": "2026-06-03",
-        "last_synced_commit": "72837a8513d1145d800095fc3909d6d3057994b8"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "82fe5ae129e8c2a12e1155fcabed6703342749d6"
       }
     }
   ],

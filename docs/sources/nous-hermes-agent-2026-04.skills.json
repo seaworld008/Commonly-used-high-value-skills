@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://github.com/NousResearch/hermes-agent",
-    "checked_at": "2026-07-03",
+    "checked_at": "2026-07-10",
     "note": "Curated subset from Hermes Agent focused on persistent knowledge workflows and self-improving agent infrastructure."
   },
   "official_references": [
@@ -28,9 +28,9 @@
         "repo": "NousResearch/hermes-agent",
         "path": "skills/research/llm-wiki/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-16",
-        "last_synced_at": "2026-06-16",
-        "last_synced_commit": "539629923c05e98fee06258a3341af94f2dcccba"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "f8361d29c8e2a2be6ba9ada32f1d694bf47a4b6a"
       }
     },
     {
@@ -44,9 +44,9 @@
         "repo": "NousResearch/hermes-agent",
         "path": "skills/autonomous-ai-agents/hermes-agent/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-07-03",
-        "last_synced_at": "2026-07-03",
-        "last_synced_commit": "1780ad24b1279e63027a42c5cdb75f2ea7324fea"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "f8361d29c8e2a2be6ba9ada32f1d694bf47a4b6a"
       }
     },
     {
@@ -60,9 +60,9 @@
         "repo": "NousResearch/hermes-agent",
         "path": "optional-skills/autonomous-ai-agents/honcho/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-01",
-        "last_synced_at": "2026-06-01",
-        "last_synced_commit": "c02c3dc723aea2b62d5a8052e7b4e7d81c367a67"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "f8361d29c8e2a2be6ba9ada32f1d694bf47a4b6a"
       }
     },
     {
@@ -95,9 +95,9 @@
         "repo": "NousResearch/hermes-agent",
         "path": "skills/github/codebase-inspection/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-13",
-        "last_synced_at": "2026-04-13",
-        "last_synced_commit": "3636f64540a3d80c8425f195f46e53e940956cba"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "f8361d29c8e2a2be6ba9ada32f1d694bf47a4b6a"
       }
     },
     {
@@ -111,9 +111,9 @@
         "repo": "NousResearch/hermes-agent",
         "path": "skills/research/arxiv/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-05-19",
-        "last_synced_at": "2026-05-19",
-        "last_synced_commit": "3636f64540a3d80c8425f195f46e53e940956cba"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "f8361d29c8e2a2be6ba9ada32f1d694bf47a4b6a"
       }
     },
     {
@@ -127,9 +127,9 @@
         "repo": "NousResearch/hermes-agent",
         "path": "skills/note-taking/obsidian/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-16",
-        "last_synced_at": "2026-06-16",
-        "last_synced_commit": "3636f64540a3d80c8425f195f46e53e940956cba"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "f8361d29c8e2a2be6ba9ada32f1d694bf47a4b6a"
       }
     },
     {
@@ -143,9 +143,9 @@
         "repo": "NousResearch/hermes-agent",
         "path": "optional-skills/mcp/mcporter/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-05-28",
-        "last_synced_at": "2026-05-28",
-        "last_synced_commit": "3636f64540a3d80c8425f195f46e53e940956cba"
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "f8361d29c8e2a2be6ba9ada32f1d694bf47a4b6a"
       }
     },
     {

@@ -2,14 +2,14 @@
 name: lark-shared
 description: 'Use for lark-cli setup/auth tasks: auth login/status/logout, user vs bot identity, business-domain permissions (--domain, including all/docs/drive), missing scopes, revoking authorization, or handling _notice JSON.'
 zh_description: "用于lark、shared，支持知识管理、项目同步和平台集成。"
-version: "1.0.5"
+version: "1.0.6"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-shared"
 license: MIT
 tags: '[feishu, lark, lark-cli, auth, configuration]'
 created_at: "2026-05-19"
-updated_at: "2026-07-03"
+updated_at: "2026-07-10"
 quality: 4
 complexity: intermediate
 ---
@@ -155,6 +155,24 @@ lark-cli update
 ```
 
 **重要**：始终使用 `lark-cli update` 更新，它会同时更新 CLI 和 AI Skills。
+
+## JSON 输出契约
+
+`--format json`（默认）下，成功与错误的信封结构不同：
+
+成功信封写入 **stdout**（退出码 0）：
+
+```json
+{ "ok": true, "identity": "user", "data": { "guid": "..." }, "meta": { "count": 1 } }
+```
+
+错误信封写入 **stderr**（退出码非 0）：
+
+```json
+{ "ok": false, "identity": "user", "error": { "type": "api", "subtype": "...", "code": 99991679, "message": "...", "hint": "..." } }
+```
+
+**判断成功必须用 `ok == true`（或进程退出码 0），不要用 `code == 0`**：成功信封没有顶层 `code` / `msg` 字段，`code` 只出现在错误信封的 `error` 内，含义是上游 OpenAPI 的 numeric code。按 OpenAPI 老格式 `{"code": 0, "msg": "ok"}` 判断会把所有成功调用误判为失败；封装写入类命令（如 `task +create`）时尤其危险，误判会绕过幂等逻辑导致重复创建。
 
 ## 安全规则
 

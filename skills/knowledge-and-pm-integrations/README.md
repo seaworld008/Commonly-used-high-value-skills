@@ -8,10 +8,10 @@
 
 ## 推荐先看
 
+- [lark-doc](./lark-doc/) - 用于读取、编辑和生成飞书云文档内容。
+- [lark-mail](./lark-mail/) - 管理飞书邮箱中的邮件起草、发送、回复、转发、搜索、文件夹、标签、联系人、监听与收信规则。
+- [lark-sheets](./lark-sheets/) - 用于读取、编辑和分析飞书电子表格数据。
 - [lark-slides](./lark-slides/) - 飞书幻灯片：创建和编辑幻灯片。
-- [grove](./grove/) - 用于grove，支持知识管理、项目同步和平台集成。
-- [lark-base](./lark-base/) - 用于操作飞书 Base 数据表、记录、字段和自动化数据流程。
-- [lark-calendar](./lark-calendar/) - 用于查询、创建和管理飞书日历事件与日程安排。
 
 ## 技能总览
 
@@ -28,7 +28,7 @@
 | `lark-drive` | 用于搜索、读取和管理飞书云空间文件与权限。 | [目录](./lark-drive/) | [SKILL.md](./lark-drive/SKILL.md) |
 | `lark-event` | 用于订阅、消费和处理飞书实时事件流，支持消息、任务、会议纪要和画板更新。 | [目录](./lark-event/) | [SKILL.md](./lark-event/SKILL.md) |
 | `lark-im` | 用于发送、读取和处理飞书即时消息与群聊交互。 | [目录](./lark-im/) | [SKILL.md](./lark-im/SKILL.md) |
-| `lark-mail` | 飞书邮箱：Use when user mentions 起草邮件、写邮件、草稿、发送/回复/转发邮件、查阅邮件、看邮。 | [目录](./lark-mail/) | [SKILL.md](./lark-mail/SKILL.md) |
+| `lark-mail` | 管理飞书邮箱中的邮件起草、发送、回复、转发、搜索、文件夹、标签、联系人、监听与收信规则。 | [目录](./lark-mail/) | [SKILL.md](./lark-mail/SKILL.md) |
 | `lark-markdown` | 飞书 Markdown：查看、创建、上传、编辑和比较 Markdown 文件。 | [目录](./lark-markdown/) | [SKILL.md](./lark-markdown/SKILL.md) |
 | `lark-minutes` | 飞书妙记：搜索妙记、查看妙记基础信息、下载/上传音视频、读取或编辑妙记的产物内容、改标题、替换说话人/关键词。 | [目录](./lark-minutes/) | [SKILL.md](./lark-minutes/SKILL.md) |
 | `lark-okr` | 飞书 OKR：管理目标与关键结果。 | [目录](./lark-okr/) | [SKILL.md](./lark-okr/SKILL.md) |

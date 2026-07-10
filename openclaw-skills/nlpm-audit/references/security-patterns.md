@@ -52,6 +52,12 @@ Check MCP configs for:
 - broad filesystem or shell capability;
 - wildcard permissions.
 
+For MCP servers launched through package runners such as `npx`, evaluate startup
+and tool-call timeouts separately. A cold package download can make startup slow,
+while a valid long-running tool can exceed a short call timeout after startup.
+Pin the package version and choose limits from the server's documented behavior;
+do not copy project-local vendor values as universal defaults.
+
 Check hooks for:
 
 - scripts that do not exist;
