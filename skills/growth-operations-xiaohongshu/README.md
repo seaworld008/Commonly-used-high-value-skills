@@ -4,7 +4,7 @@
 
 聚焦小红书、社媒、内容、归因、竞品和增长分析的技能集合。
 
-当前分类共 **16** 个技能。
+当前分类共 **17** 个技能。
 
 ## 推荐先看
 
@@ -24,6 +24,7 @@
 | `competitors-analysis` | Analyze competitor repositories with evidence-based approa。 | [目录](./competitors-analysis/) | [SKILL.md](./competitors-analysis/SKILL.md) |
 | `content-creator` | 用于内容、创建，支持内容、营销、渠道和数据分析。 | [目录](./content-creator/) | [SKILL.md](./content-creator/SKILL.md) |
 | `growth` | 用于增长，支持内容、营销、渠道和数据分析。 | [目录](./growth/) | [SKILL.md](./growth/SKILL.md) |
+| `linkedin-growth` | 构建领英线索导入、筛选、分配、邀请与待处理请求维护流水线。 | [目录](./linkedin-growth/) | [SKILL.md](./linkedin-growth/SKILL.md) |
 | `marketing-demand-acquisition` | 用于营销、需求、acquisition，支持内容、营销、渠道和数据分析。 | [目录](./marketing-demand-acquisition/) | [SKILL.md](./marketing-demand-acquisition/SKILL.md) |
 | `marketing-strategy-pmm` | 用于营销、策略、PMM，支持内容、营销、渠道和数据分析。 | [目录](./marketing-strategy-pmm/) | [SKILL.md](./marketing-strategy-pmm/SKILL.md) |
 | `prompt-engineer-toolkit` | 用于提示词、工程、工具包，支持内容、营销、渠道和数据分析。 | [目录](./prompt-engineer-toolkit/) | [SKILL.md](./prompt-engineer-toolkit/SKILL.md) |

@@ -4,7 +4,7 @@
 
 覆盖品牌、事实核查、内部沟通、主题与常用运营辅助技能。
 
-当前分类共 **14** 个技能。
+当前分类共 **15** 个技能。
 
 ## 推荐先看
 
@@ -26,6 +26,7 @@
 | `hearth` | 用于hearth，支持信息整理、沟通和执行管理。 | [目录](./hearth/) | [SKILL.md](./hearth/SKILL.md) |
 | `internal-comms` | 用于撰写状态报告、领导层更新、FAQ、事故通报和项目进展等内部沟通材料。 | [目录](./internal-comms/) | [SKILL.md](./internal-comms/SKILL.md) |
 | `interview-system-designer` | 用于interview、系统、设计，支持信息整理、沟通和执行管理。 | [目录](./interview-system-designer/) | [SKILL.md](./interview-system-designer/SKILL.md) |
+| `linkedin` | 通过 Linked API 搜索领英资料、管理连接、消息与内容发布。 | [目录](./linkedin/) | [SKILL.md](./linkedin/SKILL.md) |
 | `slack-gif-creator` | 用于Slack、gif、创建，支持信息整理、沟通和执行管理。 | [目录](./slack-gif-creator/) | [SKILL.md](./slack-gif-creator/SKILL.md) |
 | `supermemory` | 用于长期记忆管理、偏好捕获、矛盾检测和项目状态跟踪。 | [目录](./supermemory/) | [SKILL.md](./supermemory/SKILL.md) |
 | `teams-channel-post-writer` | 用于teams、channel、post、writer，支持信息整理、沟通和执行管理。 | [目录](./teams-channel-post-writer/) | [SKILL.md](./teams-channel-post-writer/SKILL.md) |

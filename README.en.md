@@ -5,12 +5,12 @@
 [![简体中文](https://img.shields.io/badge/README-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1677ff)](./README.md)
 [![English](https://img.shields.io/badge/README-English-111111)](./README.en.md)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b894)](./openclaw-skills/README.md)
-[![Skills](https://img.shields.io/badge/Skills-310-7c3aed)](./skills/)
+[![Skills](https://img.shields.io/badge/Skills-312-7c3aed)](./skills/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
 A high-value skills repository for AI developers, organized by real work scenarios such as developer engineering, DevOps, automation, finance, design, knowledge workflows, and reliability.
 
-This repository currently contains **16 categories / 310 skills**.
+This repository currently contains **16 categories / 312 skills**.
 
 ## Who This Is For
 
@@ -314,7 +314,7 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 2. Open the relevant `SKILL.md` and read its triggers, workflow, boundaries, and scripts.
 3. If a skill includes `scripts/`, `references/`, or `assets/`, reuse those files before recreating similar content.
 
-## Skill Overview (by category, 16 categories / 310 skills)
+## Skill Overview (by category, 16 categories / 312 skills)
 
 <a id="cat-developer-engineering"></a>
 ### 1. Developer Engineering (developer-engineering, 51)
@@ -500,7 +500,7 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`stock-screener-builder`](./skills/finance-investing/stock-screener-builder/)
 
 <a id="cat-growth-operations"></a>
-### 7. Growth Operations (growth-operations-xiaohongshu, 16)
+### 7. Growth Operations (growth-operations-xiaohongshu, 17)
 
 - [`algorithmic-art`](./skills/growth-operations-xiaohongshu/algorithmic-art/)
 - [`app-store-optimization`](./skills/growth-operations-xiaohongshu/app-store-optimization/)
@@ -509,6 +509,7 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`competitors-analysis`](./skills/growth-operations-xiaohongshu/competitors-analysis/)
 - [`content-creator`](./skills/growth-operations-xiaohongshu/content-creator/)
 - [`growth`](./skills/growth-operations-xiaohongshu/growth/)
+- [`linkedin-growth`](./skills/growth-operations-xiaohongshu/linkedin-growth/)
 - [`marketing-demand-acquisition`](./skills/growth-operations-xiaohongshu/marketing-demand-acquisition/)
 - [`marketing-strategy-pmm`](./skills/growth-operations-xiaohongshu/marketing-strategy-pmm/)
 - [`prompt-engineer-toolkit`](./skills/growth-operations-xiaohongshu/prompt-engineer-toolkit/)
@@ -584,7 +585,7 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`tome`](./skills/knowledge-and-pm-integrations/tome/)
 
 <a id="cat-operations-general"></a>
-### 10. General Operations (operations-general, 14)
+### 10. General Operations (operations-general, 15)
 
 - [`brand-guidelines`](./skills/operations-general/brand-guidelines/)
 - [`confidence-check`](./skills/operations-general/confidence-check/)
@@ -595,6 +596,7 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`hearth`](./skills/operations-general/hearth/)
 - [`internal-comms`](./skills/operations-general/internal-comms/)
 - [`interview-system-designer`](./skills/operations-general/interview-system-designer/)
+- [`linkedin`](./skills/operations-general/linkedin/)
 - [`slack-gif-creator`](./skills/operations-general/slack-gif-creator/)
 - [`supermemory`](./skills/operations-general/supermemory/)
 - [`teams-channel-post-writer`](./skills/operations-general/teams-channel-post-writer/)

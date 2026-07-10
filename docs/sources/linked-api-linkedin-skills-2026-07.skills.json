@@ -1,0 +1,79 @@
+{
+  "video": {
+    "url": "https://github.com/Linked-API/linkedin-skills",
+    "checked_at": "2026-07-10",
+    "note": "Curated from Linked-API/linkedin-skills with exact-path upstream tracking enabled."
+  },
+  "official_references": [
+    {
+      "name": "Linked API skills repository",
+      "url": "https://github.com/Linked-API/linkedin-skills",
+      "purpose": "Canonical upstream repository for the LinkedIn skills."
+    },
+    {
+      "name": "Linked API skills MIT license",
+      "url": "https://github.com/Linked-API/linkedin-skills/blob/edd0bdbbb25776e9288186b88969b29175531995/LICENSE",
+      "purpose": "MIT license and copyright notice verified at the imported commit."
+    },
+    {
+      "name": "linkedin upstream skill",
+      "url": "https://github.com/Linked-API/linkedin-skills/tree/edd0bdbbb25776e9288186b88969b29175531995/linkedin",
+      "purpose": "Exact source directory for the imported linkedin skill."
+    },
+    {
+      "name": "linkedin-growth upstream skill",
+      "url": "https://github.com/Linked-API/linkedin-skills/tree/edd0bdbbb25776e9288186b88969b29175531995/linkedin-growth",
+      "purpose": "Exact source directory for the imported linkedin-growth skill."
+    }
+  ],
+  "skills": [
+    {
+      "video_name": "linkedin",
+      "normalized_slug": "linkedin",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/operations-general/linkedin/SKILL.md",
+      "source": "https://github.com/Linked-API/linkedin-skills/tree/edd0bdbbb25776e9288186b88969b29175531995/linkedin",
+      "notes": "Imported under MIT at the recorded commit; repository-local authorization boundaries are preserved as a curation supplement.",
+      "upstream": {
+        "repo": "Linked-API/linkedin-skills",
+        "path": "linkedin/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "edd0bdbbb25776e9288186b88969b29175531995"
+      }
+    },
+    {
+      "video_name": "linkedin-growth",
+      "normalized_slug": "linkedin-growth",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/growth-operations-xiaohongshu/linkedin-growth/SKILL.md",
+      "source": "https://github.com/Linked-API/linkedin-skills/tree/edd0bdbbb25776e9288186b88969b29175531995/linkedin-growth",
+      "notes": "Imported under MIT at the recorded commit; repository-local quality and authorization guidance is preserved in marked supplements.",
+      "upstream": {
+        "repo": "Linked-API/linkedin-skills",
+        "path": "linkedin-growth/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-07-10",
+        "last_synced_at": "2026-07-10",
+        "last_synced_commit": "edd0bdbbb25776e9288186b88969b29175531995"
+      }
+    }
+  ],
+  "verification_attempts": [
+    {
+      "date": "2026-07-10",
+      "method": "github-api-license-commit-and-path-check",
+      "target": "repos/Linked-API/linkedin-skills",
+      "result": "success",
+      "evidence": "GitHub API resolved edd0bdbbb25776e9288186b88969b29175531995, reported MIT, and confirmed linkedin/SKILL.md, linkedin-growth/SKILL.md, and the root LICENSE."
+    },
+    {
+      "date": "2026-07-10",
+      "method": "repository-quality-review",
+      "target": "skills/*/linkedin*/SKILL.md",
+      "result": "success",
+      "evidence": "Verified complete frontmatter, exact source URLs, local MIT notices, category placement, quality sections, and explicit safe-authorization boundaries."
+    }
+  ]
+}

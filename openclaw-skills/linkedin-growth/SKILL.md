@@ -1,6 +1,17 @@
 ---
 name: linkedin-growth
-description: Two-phase LinkedIn lead pipeline driven by linkedin-cli. Phase A imports leads from a search URL or filters, qualifies them against a configurable ICP via sub-agent, and stores them in a local SQLite database with round-robin assignment across one or more LinkedIn accounts. Phase B runs on a schedule per account — sends connection invites up to a daily limit and withdraws stale pending requests. Use when the user wants to grow their network from LinkedIn searches, manage outgoing invites at scale, ask status questions (counts, conversion, pending older than N days, last imports), pause/resume an account, change ICP, or install the recurring scheduler.
+description: 'Two-phase LinkedIn lead pipeline driven by linkedin-cli. Phase A imports leads from a search URL or filters, qualifies them against a configurable ICP via sub-agent, and stores them in a local SQLite database with round-robin assignment across one or more LinkedIn accounts. Phase B runs on a schedule per account — sends connection invites up to a daily limit and withdraws stale pending requests. Use when the user wants to grow their network from LinkedIn searches, manage outgoing invites at scale, ask status questions (counts, conversion, pending older than N days, last imports), pause/resume an account, change ICP, or install the recurring scheduler.'
+zh_description: "构建领英线索导入、筛选、分配、邀请与待处理请求维护流水线。"
+version: "1.0.0"
+author: vprudnikoff
+source: github:Linked-API/linkedin-skills
+source_url: "https://github.com/Linked-API/linkedin-skills/tree/edd0bdbbb25776e9288186b88969b29175531995/linkedin-growth"
+license: MIT
+tags: '[linkedin, lead-generation, growth, outreach, automation]'
+created_at: "2026-07-10"
+updated_at: "2026-07-10"
+quality: 5
+complexity: advanced
 ---
 
 # LinkedIn Growth Skill
@@ -11,6 +22,51 @@ This skill turns a Sales Navigator (or regular) search into a managed pipeline:
 All state lives in a local SQLite database. Every LinkedIn action goes through
 `linkedin-cli` (the `linkedin` binary). You orchestrate via the Node scripts
 under `scripts/`.
+
+<!-- LOCAL-CURATION-SUPPLEMENT:START -->
+## Trigger / When to Use
+
+Use this skill when the user explicitly asks to:
+
+- import and qualify leads from a LinkedIn or Sales Navigator search;
+- maintain an approved, account-specific connection pipeline;
+- inspect lead, invite, conversion, batch, or account status;
+- configure the ICP, invite pace, active hours, retry policy, or stale-request policy; or
+- install, pause, resume, inspect, or remove the recurring scheduler.
+
+Do not activate the pipeline merely because a conversation mentions growth, recruiting,
+sales, or LinkedIn. A user must deliberately request the pipeline or one of its operations.
+
+## Core Capabilities
+
+- Prepare candidate batches, qualify them against a user-provided ICP, deduplicate them,
+  and commit the approved set to a local SQLite database.
+- Assign leads across authorized accounts while tracking invite attempts, connection state,
+  retries, and terminal outcomes.
+- Pace invitations within per-account hours, intervals, and daily limits, and inspect or
+  withdraw stale pending requests according to the approved policy.
+- Answer status questions from the local database and export the user's pipeline data.
+- Manage account mappings, pipeline settings, scheduler installation, and diagnostics.
+
+## Common Patterns
+
+**Import after explicit scoping:** collect the search URL or filters, list name, ICP, target
+count, and authorized account set; run `prepare`; present qualification results; then commit
+only the intended batch.
+
+**Inspect before changing:** run the relevant status or settings command first, explain the
+current value and proposed effect, then apply only the requested configuration change.
+
+**Start small:** validate a new account and campaign with a small batch and conservative
+limits before enabling recurring operation. Pause the affected account if LinkedIn reports
+an account warning, authentication problem, or rate limit.
+
+```bash
+node scripts/status.mjs --json
+node scripts/settings.mjs get icp_definition
+node scripts/account.mjs list
+```
+<!-- LOCAL-CURATION-SUPPLEMENT:END -->
 
 ## Vocabulary
 
@@ -478,3 +534,28 @@ To inspect what the background runs are doing, read `<data_dir>/logs/<account>-<
 - `import.mjs prepare` creates a new batch every time — call once per intended import.
 - `import.mjs commit` refuses to run twice on the same batch.
 - `schedule.mjs install` overwrites any existing installation of the same service id.
+
+<!-- LOCAL-CURATION-SUPPLEMENT:START -->
+## Boundaries and Safe Authorization
+
+- Operate only accounts the user owns or is explicitly authorized to manage. Never use
+  borrowed credentials, impersonate another person, or conceal which account performs an
+  action.
+- Searching and local qualification do not authorize contact. Installing or enabling the
+  scheduler, sending invitations, withdrawing requests, changing account mappings, and
+  altering campaign limits are external-impact actions; perform them only after the user
+  has requested or approved their concrete scope.
+- Before the first live run, confirm the account set, lead source, ICP, approximate volume,
+  active hours, invite interval, daily cap, retry count, and stale-withdrawal policy. Reconfirm
+  when a later change materially expands the audience, volume, accounts, or schedule.
+- Keep outreach targeted and proportionate. Do not support spam, harassment, deceptive
+  identities, discriminatory targeting, or attempts to evade LinkedIn enforcement.
+- Never bypass rate limits, CAPTCHAs, access controls, or account warnings. On exit code 4
+  or 6, or any platform warning, pause the affected automation and report the condition.
+- Treat profile and lead data as personal data: collect only what the approved use requires,
+  protect database files and exports, never commit credentials or lead data, and delete
+  temporary exports when they are no longer needed.
+- The user remains responsible for complying with LinkedIn terms, privacy and anti-spam law,
+  and their organization's policies. If authorization or legal scope is unclear, stop before
+  any write or scheduled action and ask for clarification.
+<!-- LOCAL-CURATION-SUPPLEMENT:END -->

@@ -1,6 +1,6 @@
 # Tags Index
 
-> Auto-generated from 1161 skill-tag mappings across 503 tags.
+> Auto-generated from 1171 skill-tag mappings across 506 tags.
 > Last updated: see git log.
 
 ## Quick Navigation
@@ -15,10 +15,10 @@
 - [`engineering`](#engineering) (22)
 - [`security`](#security) (21)
 - [`planning`](#planning) (19)
+- [`automation`](#automation) (17)
 - [`design`](#design) (17)
+- [`growth`](#growth) (17)
 - [`finance`](#finance) (16)
-- [`growth`](#growth) (16)
-- [`automation`](#automation) (15)
 - [`devops`](#devops) (15)
 - [`marketing`](#marketing) (15)
 - [`productivity`](#productivity) (15)
@@ -59,6 +59,7 @@
 - [`tools`](#tools) (4)
 - [`vulnerability-scanning`](#vulnerability-scanning) (4)
 - [`ci`](#ci) (3)
+- [`cli`](#cli) (3)
 - [`database`](#database) (3)
 - [`debugging`](#debugging) (3)
 - [`engineer`](#engineer) (3)
@@ -72,6 +73,7 @@
 - [`reviewer`](#reviewer) (3)
 - [`safety`](#safety) (3)
 - [`sbom`](#sbom) (3)
+- [`social-media`](#social-media) (3)
 - [`supabase`](#supabase) (3)
 - [`supply-chain`](#supply-chain) (3)
 - [`system`](#system) (3)
@@ -88,7 +90,6 @@
 - [`capture`](#capture) (2)
 - [`changelog`](#changelog) (2)
 - [`checker`](#checker) (2)
-- [`cli`](#cli) (2)
 - [`cloudflare`](#cloudflare) (2)
 - [`code-scanning`](#code-scanning) (2)
 - [`codebase`](#codebase) (2)
@@ -104,6 +105,7 @@
 - [`gateway`](#gateway) (2)
 - [`graphql`](#graphql) (2)
 - [`integrations`](#integrations) (2)
+- [`linkedin`](#linkedin) (2)
 - [`meeting`](#meeting) (2)
 - [`metrics`](#metrics) (2)
 - [`minutes`](#minutes) (2)
@@ -111,6 +113,7 @@
 - [`nextjs`](#nextjs) (2)
 - [`notes`](#notes) (2)
 - [`observability`](#observability) (2)
+- [`outreach`](#outreach) (2)
 - [`owasp`](#owasp) (2)
 - [`parallel`](#parallel) (2)
 - [`pdf`](#pdf) (2)
@@ -131,7 +134,6 @@
 - [`search`](#search) (2)
 - [`senior`](#senior) (2)
 - [`slides`](#slides) (2)
-- [`social-media`](#social-media) (2)
 - [`spreadsheet`](#spreadsheet) (2)
 - [`strategy`](#strategy) (2)
 - [`terraform`](#terraform) (2)
@@ -311,6 +313,7 @@
 - [`jupyter`](#jupyter) (1)
 - [`landing`](#landing) (1)
 - [`latch`](#latch) (1)
+- [`lead-generation`](#lead-generation) (1)
 - [`learn`](#learn) (1)
 - [`ledger`](#ledger) (1)
 - [`lens`](#lens) (1)
@@ -896,6 +899,30 @@
 | [subagent-driven-development](skills/ai-workflow/subagent-driven-development) | ai-workflow | ★★★☆☆ | Use when executing implementation plans with independent tasks in the current se |
 | [tavily-search](skills/task-understanding-decomposition/tavily-search) | task-understanding-decomposition | ★★☆☆☆ | Use when users need real-time web search, fresh facts, source-backed evidence, m |
 
+## automation
+
+**17 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [guardian](skills/engineering-workflow-automation/guardian) | engineering-workflow-automation | ★★★★★ | Gatekeeping Git/PR by classifying change essence and recommending granularity, n |
+| [harvest](skills/engineering-workflow-automation/harvest) | engineering-workflow-automation | ★★★★★ | Collecting GitHub PR data and generating work reports. Retrieves PR info via gh  |
+| [latch](skills/engineering-workflow-automation/latch) | engineering-workflow-automation | ★★★★★ | Proposing, configuring, debugging, and maintaining Claude Code hooks (PreToolUse |
+| [linkedin-growth](skills/growth-operations-xiaohongshu/linkedin-growth) | growth-operations-xiaohongshu | ★★★★★ | Two-phase LinkedIn lead pipeline driven by linkedin-cli. Phase A imports leads f |
+| [excel-automation](skills/office-white-collar/excel-automation) | office-white-collar | ★★★★★ | Create, parse, and control Excel files on macOS. Professional formatting with op |
+| [linkedin](skills/operations-general/linkedin) | operations-general | ★★★★★ | General-purpose LinkedIn automation – fetch profiles, search people and companie |
+| [changelog-automation](skills/engineering-workflow-automation/changelog-automation) | engineering-workflow-automation | ★★★★☆ | Automate changelog generation from commits, PRs, and releases following Keep a C |
+| [jupyter-notebook](skills/engineering-workflow-automation/jupyter-notebook) | engineering-workflow-automation | ★★★★☆ | Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) |
+| [playwright](skills/engineering-workflow-automation/playwright) | engineering-workflow-automation | ★★★★☆ | Use when the task requires automating a real browser from the terminal (navigati |
+| [web-scraper](skills/engineering-workflow-automation/web-scraper) | engineering-workflow-automation | ★★★★☆ | Use when users need webpage scraping, structured data extraction, crawling strat |
+| [lark-base](skills/knowledge-and-pm-integrations/lark-base) | knowledge-and-pm-integrations | ★★★★☆ | 飞书多维表格（Base）操作：建表、字段、记录、视图、统计、公式/lookup、表单、仪表盘、workflow、角色权限；遇到 Base/多维表格/bitabl |
+| [billing-automation](skills/engineering-workflow-automation/billing-automation) | engineering-workflow-automation | ★★★☆☆ | Build automated billing systems for recurring payments, invoicing, subscription  |
+| [gh-fix-ci](skills/engineering-workflow-automation/gh-fix-ci) | engineering-workflow-automation | ★★★☆☆ | Use when a user asks to debug or fix failing GitHub PR checks that run in GitHub |
+| [agent-browser](skills/engineering-workflow-automation/agent-browser) | engineering-workflow-automation | ★★☆☆☆ | Use when an agent needs real browser automation for semantic element targeting,  |
+| [gh-address-comments](skills/engineering-workflow-automation/gh-address-comments) | engineering-workflow-automation | ★★☆☆☆ | Use when addressing GitHub PR review comments or issue comments on the current b |
+| [github](skills/engineering-workflow-automation/github) | engineering-workflow-automation | ★★☆☆☆ | Use when automating GitHub issues, pull requests, reviews, CI checks, labels, re |
+| [yeet](skills/engineering-workflow-automation/yeet) | engineering-workflow-automation | ★★☆☆☆ | Use only when the user explicitly asks to stage, commit, push, and open a GitHub |
+
 ## design
 
 **17 skills**
@@ -920,6 +947,30 @@
 | [landing-page-generator](skills/product-design/landing-page-generator) | product-design | ★★★★☆ | Generates high-converting landing pages as complete Next.js/React (TSX) componen |
 | [frontend-design](skills/developer-engineering/frontend-design) | developer-engineering | ★★☆☆☆ | Create distinctive, production-grade frontend interfaces with high design qualit |
 
+## growth
+
+**17 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [algorithmic-art](skills/growth-operations-xiaohongshu/algorithmic-art) | growth-operations-xiaohongshu | ★★★★★ | Creating algorithmic art using p5.js with seeded randomness and interactive para |
+| [app-store-optimization](skills/growth-operations-xiaohongshu/app-store-optimization) | growth-operations-xiaohongshu | ★★★★★ | App Store Optimization toolkit for researching keywords, optimizing metadata, an |
+| [campaign-analytics](skills/growth-operations-xiaohongshu/campaign-analytics) | growth-operations-xiaohongshu | ★★★★★ | Analyzes campaign performance with multi-touch attribution, funnel conversion, a |
+| [compete](skills/growth-operations-xiaohongshu/compete) | growth-operations-xiaohongshu | ★★★★★ | Researching competitors, analyzing differentiation, and shaping strategic positi |
+| [competitors-analysis](skills/growth-operations-xiaohongshu/competitors-analysis) | growth-operations-xiaohongshu | ★★★★★ | Analyze competitor repositories with evidence-based approach. Use when tracking  |
+| [content-creator](skills/growth-operations-xiaohongshu/content-creator) | growth-operations-xiaohongshu | ★★★★★ | Create SEO-optimized marketing content with consistent brand voice. Includes bra |
+| [growth](skills/growth-operations-xiaohongshu/growth) | growth-operations-xiaohongshu | ★★★★★ | Optimizing SEO (meta/OGP/JSON-LD/heading hierarchy), SMO (social sharing), CRO ( |
+| [linkedin-growth](skills/growth-operations-xiaohongshu/linkedin-growth) | growth-operations-xiaohongshu | ★★★★★ | Two-phase LinkedIn lead pipeline driven by linkedin-cli. Phase A imports leads f |
+| [marketing-demand-acquisition](skills/growth-operations-xiaohongshu/marketing-demand-acquisition) | growth-operations-xiaohongshu | ★★★★★ | Multi-channel demand generation, paid media optimization, SEO strategy, and part |
+| [marketing-strategy-pmm](skills/growth-operations-xiaohongshu/marketing-strategy-pmm) | growth-operations-xiaohongshu | ★★★★★ | Product marketing skill for positioning, GTM strategy, competitive intelligence, |
+| [prompt-engineer-toolkit](skills/growth-operations-xiaohongshu/prompt-engineer-toolkit) | growth-operations-xiaohongshu | ★★★★★ | Systematic prompt engineering from first principles. Build, test, version, and o |
+| [pulse](skills/growth-operations-xiaohongshu/pulse) | growth-operations-xiaohongshu | ★★★★★ | Defining KPIs, designing tracking events, and specifying dashboards. Covers Nort |
+| [social-media-analyzer](skills/growth-operations-xiaohongshu/social-media-analyzer) | growth-operations-xiaohongshu | ★★★★★ | Social media campaign analysis and performance tracking. Calculates engagement r |
+| [seo-audit](skills/growth-operations-xiaohongshu/seo-audit) | growth-operations-xiaohongshu | ★★★★☆ | Use when users need a comprehensive SEO audit, on-page optimization review, tech |
+| [tweetclaw-source-research](skills/growth-operations-xiaohongshu/tweetclaw-source-research) | growth-operations-xiaohongshu | ★★★★☆ | Use TweetClaw through OpenClaw to collect X/Twitter source context before drafti |
+| [x-twitter-scraper](skills/growth-operations-xiaohongshu/x-twitter-scraper) | growth-operations-xiaohongshu | ★★★★☆ | Use Xquik for authorized X/Twitter data workflows, including tweet search, profi |
+| [twitter-reader](skills/growth-operations-xiaohongshu/twitter-reader) | growth-operations-xiaohongshu | ★★★☆☆ | Fetch Twitter/X post content by URL using jina.ai API to bypass JavaScript restr |
+
 ## finance
 
 **16 skills**
@@ -942,51 +993,6 @@
 | [portfolio-risk-manager](skills/finance-investing/portfolio-risk-manager) | finance-investing | ★★☆☆☆ | Use when reviewing portfolio exposures, checking concentration and beta risk, su |
 | [sec-filing-reviewer](skills/finance-investing/sec-filing-reviewer) | finance-investing | ★★☆☆☆ | Use when reviewing SEC filings, extracting material risk disclosures, scanning 1 |
 | [stock-screener-builder](skills/finance-investing/stock-screener-builder) | finance-investing | ★★☆☆☆ | Use when building a stock screen, filtering a universe by valuation, growth, qua |
-
-## growth
-
-**16 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [algorithmic-art](skills/growth-operations-xiaohongshu/algorithmic-art) | growth-operations-xiaohongshu | ★★★★★ | Creating algorithmic art using p5.js with seeded randomness and interactive para |
-| [app-store-optimization](skills/growth-operations-xiaohongshu/app-store-optimization) | growth-operations-xiaohongshu | ★★★★★ | App Store Optimization toolkit for researching keywords, optimizing metadata, an |
-| [campaign-analytics](skills/growth-operations-xiaohongshu/campaign-analytics) | growth-operations-xiaohongshu | ★★★★★ | Analyzes campaign performance with multi-touch attribution, funnel conversion, a |
-| [compete](skills/growth-operations-xiaohongshu/compete) | growth-operations-xiaohongshu | ★★★★★ | Researching competitors, analyzing differentiation, and shaping strategic positi |
-| [competitors-analysis](skills/growth-operations-xiaohongshu/competitors-analysis) | growth-operations-xiaohongshu | ★★★★★ | Analyze competitor repositories with evidence-based approach. Use when tracking  |
-| [content-creator](skills/growth-operations-xiaohongshu/content-creator) | growth-operations-xiaohongshu | ★★★★★ | Create SEO-optimized marketing content with consistent brand voice. Includes bra |
-| [growth](skills/growth-operations-xiaohongshu/growth) | growth-operations-xiaohongshu | ★★★★★ | Optimizing SEO (meta/OGP/JSON-LD/heading hierarchy), SMO (social sharing), CRO ( |
-| [marketing-demand-acquisition](skills/growth-operations-xiaohongshu/marketing-demand-acquisition) | growth-operations-xiaohongshu | ★★★★★ | Multi-channel demand generation, paid media optimization, SEO strategy, and part |
-| [marketing-strategy-pmm](skills/growth-operations-xiaohongshu/marketing-strategy-pmm) | growth-operations-xiaohongshu | ★★★★★ | Product marketing skill for positioning, GTM strategy, competitive intelligence, |
-| [prompt-engineer-toolkit](skills/growth-operations-xiaohongshu/prompt-engineer-toolkit) | growth-operations-xiaohongshu | ★★★★★ | Systematic prompt engineering from first principles. Build, test, version, and o |
-| [pulse](skills/growth-operations-xiaohongshu/pulse) | growth-operations-xiaohongshu | ★★★★★ | Defining KPIs, designing tracking events, and specifying dashboards. Covers Nort |
-| [social-media-analyzer](skills/growth-operations-xiaohongshu/social-media-analyzer) | growth-operations-xiaohongshu | ★★★★★ | Social media campaign analysis and performance tracking. Calculates engagement r |
-| [seo-audit](skills/growth-operations-xiaohongshu/seo-audit) | growth-operations-xiaohongshu | ★★★★☆ | Use when users need a comprehensive SEO audit, on-page optimization review, tech |
-| [tweetclaw-source-research](skills/growth-operations-xiaohongshu/tweetclaw-source-research) | growth-operations-xiaohongshu | ★★★★☆ | Use TweetClaw through OpenClaw to collect X/Twitter source context before drafti |
-| [x-twitter-scraper](skills/growth-operations-xiaohongshu/x-twitter-scraper) | growth-operations-xiaohongshu | ★★★★☆ | Use Xquik for authorized X/Twitter data workflows, including tweet search, profi |
-| [twitter-reader](skills/growth-operations-xiaohongshu/twitter-reader) | growth-operations-xiaohongshu | ★★★☆☆ | Fetch Twitter/X post content by URL using jina.ai API to bypass JavaScript restr |
-
-## automation
-
-**15 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [guardian](skills/engineering-workflow-automation/guardian) | engineering-workflow-automation | ★★★★★ | Gatekeeping Git/PR by classifying change essence and recommending granularity, n |
-| [harvest](skills/engineering-workflow-automation/harvest) | engineering-workflow-automation | ★★★★★ | Collecting GitHub PR data and generating work reports. Retrieves PR info via gh  |
-| [latch](skills/engineering-workflow-automation/latch) | engineering-workflow-automation | ★★★★★ | Proposing, configuring, debugging, and maintaining Claude Code hooks (PreToolUse |
-| [excel-automation](skills/office-white-collar/excel-automation) | office-white-collar | ★★★★★ | Create, parse, and control Excel files on macOS. Professional formatting with op |
-| [changelog-automation](skills/engineering-workflow-automation/changelog-automation) | engineering-workflow-automation | ★★★★☆ | Automate changelog generation from commits, PRs, and releases following Keep a C |
-| [jupyter-notebook](skills/engineering-workflow-automation/jupyter-notebook) | engineering-workflow-automation | ★★★★☆ | Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) |
-| [playwright](skills/engineering-workflow-automation/playwright) | engineering-workflow-automation | ★★★★☆ | Use when the task requires automating a real browser from the terminal (navigati |
-| [web-scraper](skills/engineering-workflow-automation/web-scraper) | engineering-workflow-automation | ★★★★☆ | Use when users need webpage scraping, structured data extraction, crawling strat |
-| [lark-base](skills/knowledge-and-pm-integrations/lark-base) | knowledge-and-pm-integrations | ★★★★☆ | 飞书多维表格（Base）操作：建表、字段、记录、视图、统计、公式/lookup、表单、仪表盘、workflow、角色权限；遇到 Base/多维表格/bitabl |
-| [billing-automation](skills/engineering-workflow-automation/billing-automation) | engineering-workflow-automation | ★★★☆☆ | Build automated billing systems for recurring payments, invoicing, subscription  |
-| [gh-fix-ci](skills/engineering-workflow-automation/gh-fix-ci) | engineering-workflow-automation | ★★★☆☆ | Use when a user asks to debug or fix failing GitHub PR checks that run in GitHub |
-| [agent-browser](skills/engineering-workflow-automation/agent-browser) | engineering-workflow-automation | ★★☆☆☆ | Use when an agent needs real browser automation for semantic element targeting,  |
-| [gh-address-comments](skills/engineering-workflow-automation/gh-address-comments) | engineering-workflow-automation | ★★☆☆☆ | Use when addressing GitHub PR review comments or issue comments on the current b |
-| [github](skills/engineering-workflow-automation/github) | engineering-workflow-automation | ★★☆☆☆ | Use when automating GitHub issues, pull requests, reviews, CI checks, labels, re |
-| [yeet](skills/engineering-workflow-automation/yeet) | engineering-workflow-automation | ★★☆☆☆ | Use only when the user explicitly asks to stage, commit, push, and open a GitHub |
 
 ## devops
 
@@ -1500,6 +1506,16 @@
 | [playwright-pro](skills/engineering-workflow-automation/playwright-pro) | engineering-workflow-automation | ★★★★☆ | Production-grade Playwright testing skill for E2E suites, flaky test diagnosis,  |
 | [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。 |
 
+## cli
+
+**3 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [cli-demo-generator](skills/developer-engineering/cli-demo-generator) | developer-engineering | ★★★★★ | This skill should be used when users want to create animated CLI demos, terminal |
+| [linkedin](skills/operations-general/linkedin) | operations-general | ★★★★★ | General-purpose LinkedIn automation – fetch profiles, search people and companie |
+| [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Configure, extend, or contribute to Hermes Agent. |
+
 ## database
 
 **3 skills**
@@ -1629,6 +1645,16 @@
 | [grype-syft-sbom-scanner](skills/security-and-reliability/grype-syft-sbom-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Syft 生成 SBOM，并用 Grype 扫描容器镜像、文件系统、软件包、归档和 SBOM 漏洞。 |
 | [osv-scanner](skills/security-and-reliability/osv-scanner) | security-and-reliability | ★★★★☆ | 用于通过 OSV-Scanner 检查锁文件、清单、SBOM、Git 历史和源码树中的开源依赖漏洞。 |
 | [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Trivy 扫描仓库、容器镜像、文件系统、rootfs、SBOM、Kubernetes、IaC、密钥、许可证和系统 CVE。 |
+
+## social-media
+
+**3 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [linkedin](skills/operations-general/linkedin) | operations-general | ★★★★★ | General-purpose LinkedIn automation – fetch profiles, search people and companie |
+| [tweetclaw-source-research](skills/growth-operations-xiaohongshu/tweetclaw-source-research) | growth-operations-xiaohongshu | ★★★★☆ | Use TweetClaw through OpenClaw to collect X/Twitter source context before drafti |
+| [x-twitter-scraper](skills/growth-operations-xiaohongshu/x-twitter-scraper) | growth-operations-xiaohongshu | ★★★★☆ | Use Xquik for authorized X/Twitter data workflows, including tweet search, profi |
 
 ## supabase
 
@@ -1780,15 +1806,6 @@
 | [fact-checker](skills/operations-general/fact-checker) | operations-general | ★★★★★ | Verifies factual claims in documents using web search and official sources, then |
 | [link-checker](skills/security-and-reliability/link-checker) | security-and-reliability | ★★☆☆☆ | Use when checking URL availability, dead links, redirect chains, suspicious doma |
 
-## cli
-
-**2 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [cli-demo-generator](skills/developer-engineering/cli-demo-generator) | developer-engineering | ★★★★★ | This skill should be used when users want to create animated CLI demos, terminal |
-| [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Configure, extend, or contribute to Hermes Agent. |
-
 ## cloudflare
 
 **2 skills**
@@ -1924,6 +1941,15 @@
 | [mcporter](skills/ai-agent-platform/mcporter) | ai-agent-platform | ★★★★☆ | Use when users need to operate MCP servers or tools with the mcporter CLI: list  |
 | [native-mcp](skills/ai-agent-platform/native-mcp) | ai-agent-platform | ★★★★☆ | Built-in MCP (Model Context Protocol) client that connects to external MCP serve |
 
+## linkedin
+
+**2 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [linkedin-growth](skills/growth-operations-xiaohongshu/linkedin-growth) | growth-operations-xiaohongshu | ★★★★★ | Two-phase LinkedIn lead pipeline driven by linkedin-cli. Phase A imports leads f |
+| [linkedin](skills/operations-general/linkedin) | operations-general | ★★★★★ | General-purpose LinkedIn automation – fetch profiles, search people and companie |
+
 ## meeting
 
 **2 skills**
@@ -1986,6 +2012,15 @@
 |-------|----------|---------|-------------|
 | [observability-designer](skills/devops-sre/observability-designer) | devops-sre | ★★★★★ | Description: Design comprehensive observability strategies for production system |
 | [cc-devops-skills](skills/devops-sre/cc-devops-skills) | devops-sre | ★★★★☆ | SRE, DevOps, Kubernetes, CI/CD, PromQL, Terraform, Docker, and incident operatio |
+
+## outreach
+
+**2 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [linkedin-growth](skills/growth-operations-xiaohongshu/linkedin-growth) | growth-operations-xiaohongshu | ★★★★★ | Two-phase LinkedIn lead pipeline driven by linkedin-cli. Phase A imports leads f |
+| [linkedin](skills/operations-general/linkedin) | operations-general | ★★★★★ | General-purpose LinkedIn automation – fetch profiles, search people and companie |
 
 ## owasp
 
@@ -2166,15 +2201,6 @@
 |-------|----------|---------|-------------|
 | [guizang-ppt-skill](skills/office-white-collar/guizang-ppt-skill) | office-white-collar | ★★★★★ | 生成横向翻页网页 PPT（单 HTML 文件），含 WebGL 背景、章节幕封、数据大字报、图片网格等模板。提供两种风格：① \"电子杂志 × 电子墨水\"（衬 |
 | [lark-slides](skills/knowledge-and-pm-integrations/lark-slides) | knowledge-and-pm-integrations | ★★★★☆ | 飞书幻灯片：创建和编辑幻灯片。创建演示文稿、读取幻灯片内容、管理幻灯片页面（创建、删除、读取、局部替换）。当用户需要创建或编辑幻灯片、读取或修改单个页面时使用。 |
-
-## social-media
-
-**2 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [tweetclaw-source-research](skills/growth-operations-xiaohongshu/tweetclaw-source-research) | growth-operations-xiaohongshu | ★★★★☆ | Use TweetClaw through OpenClaw to collect X/Twitter source context before drafti |
-| [x-twitter-scraper](skills/growth-operations-xiaohongshu/x-twitter-scraper) | growth-operations-xiaohongshu | ★★★★☆ | Use Xquik for authorized X/Twitter data workflows, including tweet search, profi |
 
 ## spreadsheet
 
@@ -3616,6 +3642,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [latch](skills/engineering-workflow-automation/latch) | engineering-workflow-automation | ★★★★★ | Proposing, configuring, debugging, and maintaining Claude Code hooks (PreToolUse |
+
+## lead-generation
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [linkedin-growth](skills/growth-operations-xiaohongshu/linkedin-growth) | growth-operations-xiaohongshu | ★★★★★ | Two-phase LinkedIn lead pipeline driven by linkedin-cli. Phase A imports leads f |
 
 ## learn
 
