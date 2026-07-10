@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "generated_at": "2026-06-08",
-  "total_skills": 310,
+  "total_skills": 312,
   "total_categories": 16,
   "categories": [
     {
@@ -25,6 +25,10 @@
       "count": 20
     },
     {
+      "name": "growth-operations-xiaohongshu",
+      "count": 17
+    },
+    {
       "name": "ai-agent-platform",
       "count": 16
     },
@@ -37,16 +41,12 @@
       "count": 16
     },
     {
-      "name": "growth-operations-xiaohongshu",
-      "count": 16
-    },
-    {
       "name": "devops-sre",
       "count": 15
     },
     {
       "name": "operations-general",
-      "count": 14
+      "count": 15
     },
     {
       "name": "product-design",
@@ -3674,6 +3674,28 @@
       "path": "skills/growth-operations-xiaohongshu/growth/SKILL.md"
     },
     {
+      "name": "linkedin-growth",
+      "category": "growth-operations-xiaohongshu",
+      "description": "Two-phase LinkedIn lead pipeline driven by linkedin-cli. Phase A imports leads from a search URL or filters, qualifies them against a configurable ICP via sub-agent, and stores them in a local SQLite database with round-robin assignment across one or more LinkedIn accounts. Phase B runs on a schedule per account — sends connection invites up to a daily limit and withdraws stale pending requests. Use when the user wants to grow their network from LinkedIn searches, manage outgoing invites at scale, ask status questions (counts, conversion, pending older than N days, last imports), pause/resume an account, change ICP, or install the recurring scheduler.",
+      "version": "1.0.0",
+      "author": "vprudnikoff",
+      "source": "github:Linked-API/linkedin-skills",
+      "source_url": "https://github.com/Linked-API/linkedin-skills/tree/edd0bdbbb25776e9288186b88969b29175531995/linkedin-growth",
+      "tags": [
+        "linkedin",
+        "lead-generation",
+        "growth",
+        "outreach",
+        "automation"
+      ],
+      "quality": 5,
+      "complexity": "advanced",
+      "created_at": "2026-07-10",
+      "updated_at": "2026-07-10",
+      "line_count": 561,
+      "path": "skills/growth-operations-xiaohongshu/linkedin-growth/SKILL.md"
+    },
+    {
       "name": "marketing-demand-acquisition",
       "category": "growth-operations-xiaohongshu",
       "description": "Multi-channel demand generation, paid media optimization, SEO strategy, and partnership programs for Series A+ startups",
@@ -5526,6 +5548,28 @@
       "updated_at": "2026-03-20",
       "line_count": 468,
       "path": "skills/operations-general/interview-system-designer/SKILL.md"
+    },
+    {
+      "name": "linkedin",
+      "category": "operations-general",
+      "description": "General-purpose LinkedIn automation – fetch profiles, search people and companies, send messages, manage connections, create posts, and more. Use when the user wants to interact with LinkedIn.",
+      "version": "1.0.0",
+      "author": "vprudnikoff",
+      "source": "github:Linked-API/linkedin-skills",
+      "source_url": "https://github.com/Linked-API/linkedin-skills/tree/edd0bdbbb25776e9288186b88969b29175531995/linkedin",
+      "tags": [
+        "linkedin",
+        "automation",
+        "social-media",
+        "outreach",
+        "cli"
+      ],
+      "quality": 5,
+      "complexity": "intermediate",
+      "created_at": "2026-07-10",
+      "updated_at": "2026-07-10",
+      "line_count": 566,
+      "path": "skills/operations-general/linkedin/SKILL.md"
     },
     {
       "name": "slack-gif-creator",
