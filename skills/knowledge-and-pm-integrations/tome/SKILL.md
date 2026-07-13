@@ -2,14 +2,14 @@
 name: tome
 description: 'Converting repository changes into detailed learning documents. Use when turning diffs into teaching materials, recording design decisions, or creating onboarding materials for new members.'
 zh_description: "用于tome，支持知识管理、项目同步和平台集成。"
-version: "1.0.8"
+version: "1.0.9"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/tome"
 license: MIT
 tags: '["knowledge", "tome"]'
 created_at: "2026-04-25"
-updated_at: "2026-07-05"
+updated_at: "2026-07-13"
 quality: 5
 complexity: "advanced"
 ---
@@ -273,7 +273,7 @@ Attach at the end of every deliverable. Each axis scores `A` (excellent) / `B` (
 | **Why Not Depth** | Alternatives section presence and quality | 2+ alternatives with rejection reasons | 1 alternative | Missing or superficial |
 | **Audience Fit** | Vocabulary level matches declared audience | Consistent throughout | Minor mismatches | Significant mismatch |
 
-**Minimum threshold:** No `C` scores for `SUCCESS` status. Any `C` triggers self-revision before delivery.
+**Minimum threshold:** Revise before delivery when a `C` reflects a substantive gap (e.g., missing Why-Not section, unlabeled inferences). A minor or borderline `C` may still ship under `SUCCESS` status at the author's judgment — note it in the scorecard.
 
 ---
 
