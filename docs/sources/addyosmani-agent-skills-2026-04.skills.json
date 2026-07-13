@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://github.com/addyosmani/agent-skills",
-    "checked_at": "2026-07-03",
+    "checked_at": "2026-07-13",
     "note": "Curated full import of addyosmani/agent-skills; refresh with scripts/sync_addyosmani_agent_skills.py."
   },
   "official_references": [
@@ -76,8 +76,8 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/code-review-and-quality/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-24",
-        "last_synced_at": "2026-06-24",
+        "last_checked_at": "2026-07-13",
+        "last_synced_at": "2026-07-13",
         "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
       }
     },
@@ -140,8 +140,8 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/deprecation-and-migration/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-04-25",
-        "last_synced_at": "2026-04-25",
+        "last_checked_at": "2026-07-13",
+        "last_synced_at": "2026-07-13",
         "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
       }
     },
@@ -268,8 +268,8 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/security-and-hardening/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-06-08",
-        "last_synced_at": "2026-06-08",
+        "last_checked_at": "2026-07-13",
+        "last_synced_at": "2026-07-13",
         "last_synced_commit": "1f66d57a5e1b041b11e49a8cdca275aa472f0131"
       }
     },

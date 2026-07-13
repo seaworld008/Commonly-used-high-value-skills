@@ -2,14 +2,14 @@
 name: breach
 description: 'Designing red team attack scenarios, building threat models, applying MITRE ATT&CK/OWASP frameworks, running Purple Team exercises, and performing AI/LLM red teaming. Use when adversarial security validation is needed.'
 zh_description: "用于breach，支持安全扫描、审计、加固和风险治理。"
-version: "1.0.7"
+version: "1.0.8"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/breach"
 license: MIT
 tags: '["breach", "security"]'
 created_at: "2026-04-25"
-updated_at: "2026-07-05"
+updated_at: "2026-07-13"
 quality: 5
 complexity: "advanced"
 ---
@@ -370,6 +370,7 @@ _STEP_COMPLETE:
     Content: [Handoff content for next agent]
   Risks: [Untested attack surfaces, scope limitations]
   Next: [NextAgent] | VERIFY | DONE
+  Reason: [Why this Status/Next; if BLOCKED/FAILED, what is needed to unblock]
 ```
 
 ---
