@@ -2,14 +2,14 @@
 name: scaffold
 description: 'Provisioning infrastructure via cloud IaC (Terraform/OpenTofu/CloudFormation/Pulumi) and local development environments (Docker Compose/dev setup/env vars). Use when IaC design, environment setup, or multi-cloud provisioning is needed.'
 zh_description: "用于scaffold，支持部署发布、配置、预览和故障处理。"
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/scaffold"
 license: MIT
 tags: '["deployment", "scaffold"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-08"
+updated_at: "2026-07-20"
 quality: 5
 complexity: "advanced"
 ---
@@ -77,7 +77,7 @@ Route elsewhere when the task is primarily:
 - Prefer ephemeral values/resources for short-lived credentials (tokens, temporary keys). Use state encryption for data that must persist. Combine both strategies: ephemeral prevents storage, encryption protects what must be stored.
 - Keep modules focused with single responsibility. Flag modules exceeding ~200 HCL lines or managing resources across multiple concern domains for split review.
 - Avoid monolithic state files ("terralith"). Split state by environment, service boundary, or blast-radius domain. A single state file managing an entire environment slows plan/apply, increases lock contention, and amplifies the blast radius of any change. Prefer one state per deployable unit.
-- Author for Opus 4.8 defaults. Apply `_common/OPUS_48_AUTHORING.md` principles **P3 (eagerly Read existing IaC modules, state layout, tag taxonomy, IAM policies, and backend config before changes — drift, orphaned resources, and stale state are exploitation footholds and the leading source of misconfiguration breaches), P6 (effort-level awareness — calibrate to env/blast-radius scope; xhigh default risks over-modularization or premature multi-cloud abstraction on simple changes)** as critical for Scaffold. P2 recommended: calibrated IMPLEMENT/HANDOFF summary preserving plan diff, cost delta, and policy-check evidence. P1 recommended: front-load cloud provider, environment, and blast-radius scope at ASSESS.
+- Author for Opus 4.8 defaults. See `_common/OPUS_48_AUTHORING.md` (P3, P6 critical for Scaffold; P2, P1 recommended).
 
 ## Boundaries
 

@@ -2,14 +2,14 @@
 name: pipe
 description: 'Designing GitHub Actions workflows in depth — covering trigger strategy, security hardening, performance optimization, PR automation, and Reusable Workflow design. Use when new GHA workflow design or advanced optimization is needed.'
 zh_description: "用于pipe，支持部署发布、配置、预览和故障处理。"
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/pipe"
 license: MIT
 tags: '["deployment", "pipe"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-08"
+updated_at: "2026-07-20"
 quality: 5
 complexity: "advanced"
 ---
@@ -89,7 +89,7 @@ Route elsewhere when:
 - **Shai-Hulud 3.0 "The Golden Path" (late 2025-2026)** removed the dead-man switch, strengthened obfuscation, and now invokes Bun via `bun_installer.js` during `npm install`. Treat any unexpected `bun` runtime invocation during install as a high-signal IOC; gate self-hosted runners' egress and audit `npm pkg get scripts.preinstall scripts.postinstall` for every direct dep on bootstrap. [Source: kodemsecurity.com — Shai-Hulud 3.0 Golden Path; upwind.io]
 - **Forbid preinstall/postinstall in CI installs** by default: pin `npm config set ignore-scripts true` (or `pnpm install --ignore-scripts` / `yarn install --ignore-scripts`) for the install step; allowlist trusted packages explicitly via pnpm's `pnpm.allowBuilds` or equivalent. PhantomRaven 2nd-4th wave (2025-11 → 2026-02, 88 packages) used **Remote Dynamic Dependencies (RDD)** — an HTTP URL outside the registry declared as a dependency, fetched and executed at install — `--ignore-scripts` combined with rejecting non-registry HTTP URLs in any dependency field is the canonical block. [Source: endorlabs.com — Return of PhantomRaven]
 - For agentic workflows (technical preview): use only for AI-suited tasks (triage, review, maintenance). Default to traditional YAML for build/deploy/release pipelines where determinism and auditability are critical. Agentic workflows run read-only by default; write operations require explicit safe-output declarations.
-- Author for Opus 4.8 defaults. Apply `_common/OPUS_48_AUTHORING.md` principles **P3 (eagerly Read existing workflows, action pins, OIDC trust policies, and repo structure at AUDIT — GHA recommendations depend on grounding in current trigger design and permission surface), P5 (think step-by-step at least-privilege token scoping, SHA pinning vs tag, reusable-vs-composite decomposition, and agentic vs YAML trigger selection)** as critical for Pipe. P2 recommended: calibrated workflow spec preserving permissions, SHA pins, cache strategy, and attestation. P1 recommended: front-load repo visibility, trigger scope, and deploy target at AUDIT.
+- Author for Opus 4.8 defaults. See `_common/OPUS_48_AUTHORING.md` (P3, P5 critical for Pipe; P2, P1 recommended).
 
 ## Boundaries
 

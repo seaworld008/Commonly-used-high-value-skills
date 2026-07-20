@@ -2,14 +2,14 @@
 name: rally
 description: 'Orchestrating multi-session parallel execution using Claude Code Agent Teams API and Codex CLI Subagents to launch, manage, and coordinate concurrent task execution across multiple instances. Use when parallel work is needed.'
 zh_description: "用于rally，支持任务规划、执行、评审和验证。"
-version: "1.0.8"
+version: "1.0.9"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/rally"
 license: MIT
 tags: '["ai", "rally", "workflow"]'
 created_at: "2026-04-25"
-updated_at: "2026-07-13"
+updated_at: "2026-07-20"
 quality: 5
 complexity: "advanced"
 ---
@@ -101,7 +101,7 @@ No behavioral changes are needed — Rally operates identically whether invoked 
 - **Fan-in timeout**: set explicit deadlines per teammate task. If a teammate exceeds 2× the expected duration, escalate or replace rather than waiting indefinitely.
 - **Budget guardrails**: set a maximum API cost per session. Agent Teams cost `3-4×` the tokens of a single session; subagents cost `1.5-2×`. Multi-agent frameworks commonly exhibit `1.5-7×` token duplication from repeated context propagation — monitor actual token usage against expected baselines. If parallel speedup does not justify the multiplier, prefer subagents or sequential execution. If collective teammate API calls hit the limit, gracefully degrade (complete in-flight work, skip remaining, report partial results) rather than allowing unbounded spend.
 - **Model mixing**: assign Sonnet to teammate roles that do not require Opus-level reasoning (boilerplate implementation, test writing, formatting) to reduce per-session cost while keeping Opus for complex architectural decisions.
-- Author for Opus 4.8 defaults. Apply `_common/OPUS_48_AUTHORING.md` principles **P3 (eagerly Read task graph, teammate capabilities, and prior session telemetry at PLAN — parallel topology must ground in actual task independence and cost profile; 1.5–7× token duplication is real), P5 (think step-by-step at fan-out decomposition, budget guardrails, fan-in timeout, and Opus-vs-Sonnet model mixing — over-parallelization destroys cost efficiency)** as critical for Rally. P2 recommended: calibrated parallel plan preserving task graph, per-teammate budget, and fan-in deadline. P1 recommended: front-load team size, task independence, and budget ceiling at PLAN.
+- Author for Opus 4.8 defaults. See `_common/OPUS_48_AUTHORING.md` (P3, P5 critical for Rally; P2, P1 recommended).
 
 ## Boundaries
 

@@ -2,14 +2,14 @@
 name: lens
 description: 'Comprehending and investigating codebases. Systematically performs structure mapping, feature discovery, and data flow tracing for \"does X exist?\", \"how does Y work?\", or \"what is this module''s responsibility?\". Includes a conversational Q&A mode (\"ask\") for navigator-style, multi-turn questions about a project. Does not write code.'
 zh_description: "用于lens，支持检索、拆解、反思和决策。"
-version: "1.0.8"
+version: "1.0.9"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/lens"
 license: MIT
 tags: '["analysis", "lens", "planning"]'
 created_at: "2026-04-25"
-updated_at: "2026-07-05"
+updated_at: "2026-07-20"
 quality: 5
 complexity: "advanced"
 ---
@@ -117,7 +117,7 @@ Route elsewhere when the task is primarily:
 - Flag dynamic dispatch boundaries (event emitters, middleware chains, DI containers, plugin systems) explicitly — they create gaps between static analysis and runtime behavior that keyword/reference search cannot bridge.
 - When semantic code search tools are available (MCP servers, IDE integrations), use them for meaning-based queries where keyword search requires guessing exact identifiers. Combine grep + semantic + LSP rather than replacing grep.
 - Assess comprehension debt risk in AI-heavy codebases (~41% of new code is AI-generated): flag modules with high churn, low review depth, and no authorship continuity as comprehension debt hotspots.
-- Author for Opus 4.8 defaults. Apply `_common/OPUS_48_AUTHORING.md` principles **P3 (eagerly use LSP/Grep/Read across cross-references — confabulated relationships are the #1 Lens failure mode), P5 (think step-by-step at SCOPE — investigation type selection determines whether SURVEY/TRACE/CONNECT can be skipped)** as critical for Lens. P2 recommended: keep reports within Quick Answer / Investigation Report templates in `reference/output-formats.md`.
+- Author for Opus 4.8 defaults. See `_common/OPUS_48_AUTHORING.md` (P3, P5 critical for Lens; P2 recommended).
 - Advanced context-engineering techniques — PageRank-style repo map (Aider), `llms.txt` agent-facing summaries, MCP knowledge-graph stacks (Codebase-Memory / GitNexus, replacing archived Stack Graphs), CodeScene AI-ready Code Health threshold (≥9.4/10), clone-aware org-level indexing, and `ast-grep` structural search over regex — with full detail and citations: `reference/comprehension-research.md`.
 
 ## Boundaries

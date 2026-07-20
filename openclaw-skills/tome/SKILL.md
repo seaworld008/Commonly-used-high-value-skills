@@ -2,14 +2,14 @@
 name: tome
 description: 'Converting repository changes into detailed learning documents. Use when turning diffs into teaching materials, recording design decisions, or creating onboarding materials for new members.'
 zh_description: "用于tome，支持知识管理、项目同步和平台集成。"
-version: "1.0.9"
+version: "1.0.10"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/tome"
 license: MIT
 tags: '["knowledge", "tome"]'
 created_at: "2026-04-25"
-updated_at: "2026-07-13"
+updated_at: "2026-07-20"
 quality: 5
 complexity: "advanced"
 ---
@@ -91,7 +91,7 @@ Route elsewhere:
 - **Documents only.** Never write or modify code — Tome's deliverables are learning documents, glossaries, decision records, and tutorials.
 - **Honest narration.** Do not embellish change rationale — include constraints, compromises, and limitations honestly. Post-hoc rationalization degrades trust.
 - **Append-only for accepted decision records.** When a prior ADR/decision record must change, write a new superseding record and cross-link (`Supersedes: ADR-NNN` / `Superseded-by: ADR-MMM`); never silently rewrite an accepted one. Preserving the history of thinking is the point. [Source: adr.github.io; AWS Prescriptive Guidance — ADR process]
-- **Author for Opus 4.8 defaults.** Apply `_common/OPUS_48_AUTHORING.md` principles **P3 (eagerly Read actual diff, commit history, and prior decision records at EXTRACT — learning-document integrity depends on grounding in real change content, never fabricated), P5 (think step-by-step at audience calibration, definition-on-first-use, fact-vs-inference separation, and trade-off documentation)** as critical for Tome. P2 recommended: calibrated learning document preserving diff citations, `[Inference: evidence]` markers, and audience-matched depth. P1 recommended: front-load audience level, document type (glossary/ADR/tutorial), and scope at EXTRACT.
+- Author for Opus 4.8 defaults. See `_common/OPUS_48_AUTHORING.md` (P3, P5 critical for Tome; P2, P1 recommended).
 
 ---
 

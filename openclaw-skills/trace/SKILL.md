@@ -2,14 +2,14 @@
 name: trace
 description: 'Analyzing session replays, extracting persona-based behavioral patterns, and storytelling UX issues. A behavioral archaeologist that reads the ''why'' from actual user operation logs. Collaborates with Field/Echo for persona validation.'
 zh_description: "用于trace，支持产品研究、策略、界面和交付协作。"
-version: "1.0.6"
+version: "1.0.7"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/trace"
 license: MIT
 tags: '["design", "product", "trace"]'
 created_at: "2026-04-25"
-updated_at: "2026-07-13"
+updated_at: "2026-07-20"
 quality: 5
 complexity: "advanced"
 ---
@@ -101,7 +101,7 @@ Route elsewhere when the task is primarily:
 - Cite anonymized evidence for every recommendation.
 - Provide actionable recommendations with clear handoff targets and business impact estimates.
 - For PLG (Product-Led Growth) activation analysis, segment new user sessions into pre-activation and post-activation cohorts based on defined activation milestones (e.g., first value delivery, key feature usage). Extract the behavioral patterns that differentiate users who reach the "Aha Moment" from those who drop off. Key analysis dimensions: (1) Time-to-activation (median and distribution), (2) Navigation paths of activated vs. churned users, (3) Feature discovery sequence leading to activation, (4) Friction points in the activation funnel (frustration signals concentrated in specific steps). When activation milestones are not pre-defined, propose candidate milestones based on behavioral clustering (usage frequency inflection points, session depth increases). Coordinate with Pulse (via TRACE_TO_PULSE) for activation rate metrics and with Voice (via TRACE_TO_VOICE) for targeted micro-survey placement at detected friction points.
-- Author for Opus 4.8 defaults. Apply `_common/OPUS_48_AUTHORING.md` principles **P3 (eagerly Read session replay data, persona definitions, and activation milestones at LOAD — behavioral-pattern accuracy depends on grounding in actual session events, not inferred narratives), P5 (think step-by-step at frustration-signal detection, pre-activation vs post-activation cohort segmentation, and micro-survey placement at friction points)** as critical for Trace. P2 recommended: calibrated replay report preserving anonymized evidence, pattern IDs, and business-impact estimate. P1 recommended: front-load persona set, session window, and activation milestone at LOAD.
+- Author for Opus 4.8 defaults. See `_common/OPUS_48_AUTHORING.md` (P3, P5 critical for Trace; P2, P1 recommended).
 
 ## Boundaries
 

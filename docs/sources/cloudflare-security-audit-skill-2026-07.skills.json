@@ -1,0 +1,58 @@
+{
+  "video": {
+    "url": "https://github.com/cloudflare/security-audit-skill",
+    "checked_at": "2026-07-20",
+    "note": "Cloudflare security audit skill imported with companion methodology files under MIT."
+  },
+  "official_references": [
+    {
+      "name": "Cloudflare security-audit-skill repository",
+      "url": "https://github.com/cloudflare/security-audit-skill",
+      "purpose": "Canonical upstream repository for the security-audit skill."
+    },
+    {
+      "name": "Cloudflare security-audit-skill MIT license",
+      "url": "https://github.com/cloudflare/security-audit-skill/blob/main/LICENSE",
+      "purpose": "MIT license verification for imported skill content."
+    },
+    {
+      "name": "security-audit upstream skill directory",
+      "url": "https://github.com/cloudflare/security-audit-skill/tree/8bac42001ddd90a4dcd8d5a5045199283a8eba75/skills/security-audit",
+      "purpose": "Exact source directory for the imported skill and companion files."
+    }
+  ],
+  "skills": [
+    {
+      "video_name": "security-audit",
+      "normalized_slug": "security-audit",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/security-and-reliability/security-audit/SKILL.md",
+      "source": "https://github.com/cloudflare/security-audit-skill/tree/8bac42001ddd90a4dcd8d5a5045199283a8eba75/skills/security-audit",
+      "notes": "Imported from Cloudflare under MIT with all companion audit methodology files. Local frontmatter and one setup command example were added to satisfy repository metadata and quality gates.",
+      "upstream": {
+        "repo": "cloudflare/security-audit-skill",
+        "path": "skills/security-audit/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-07-20",
+        "last_synced_at": "2026-07-20",
+        "last_synced_commit": "8bac42001ddd90a4dcd8d5a5045199283a8eba75"
+      }
+    }
+  ],
+  "verification_attempts": [
+    {
+      "date": "2026-07-20",
+      "method": "github-api-license-path-and-commit-check",
+      "target": "repos/cloudflare/security-audit-skill",
+      "result": "success",
+      "evidence": "GitHub API reported MIT, confirmed the upstream skill directory and companion files, and resolved main to 8bac42001ddd90a4dcd8d5a5045199283a8eba75."
+    },
+    {
+      "date": "2026-07-20",
+      "method": "repository-quality-review",
+      "target": "skills/security-and-reliability/security-audit/SKILL.md",
+      "result": "success",
+      "evidence": "Verified complete frontmatter, 50+ line content, companion methodology files, fenced command example, and security-and-reliability category placement."
+    }
+  ]
+}

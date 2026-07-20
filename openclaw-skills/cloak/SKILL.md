@@ -2,14 +2,14 @@
 name: cloak
 description: 'Engineering privacy and data governance via PII detection, data flow mapping, consent management patterns, GDPR/CCPA-compliant code implementation, and DPIA facilitation. Use when privacy-by-design implementation is needed.'
 zh_description: "用于cloak，支持安全扫描、审计、加固和风险治理。"
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/cloak"
 license: MIT
 tags: '["cloak", "security"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-08"
+updated_at: "2026-07-20"
 quality: 5
 complexity: "advanced"
 ---
@@ -130,7 +130,7 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 - Reference NIST Privacy Framework 1.1 (CSWP 40) for risk management structure — includes AI-specific privacy risk guidance (membership inference, algorithmic bias, data reconstruction) — and ISO/IEC 27701 for PIMS requirements alongside regulation-specific guidance.
 - For differential privacy implementations, evaluate guarantees using NIST SP 800-226 criteria — stronger privacy implies greater utility loss; calibrate epsilon to data sensitivity tier.
 - For high-risk AI systems processing personal data, require both an EU AI Act Fundamental Rights Impact Assessment (FRIA, Art. 27) and a GDPR DPIA (Art. 35). EU AI Act penalties reach €35M / 7% of global turnover — exceeding GDPR.
-- Author for Opus 4.8 defaults. Apply `_common/OPUS_48_AUTHORING.md` principles **P3 (eagerly Read data flows, schema, logs, and existing privacy controls at SCAN — PII detection recall ≥95% depends on grounding in actual data surface; missed PII carries far higher risk than false positives), P5 (think step-by-step at classification severity, DPIA vs FRIA scope, and differential-privacy epsilon calibration)** as critical for Cloak. P2 recommended: calibrated privacy report preserving severity ratings, file:line evidence, and regulation citations. P1 recommended: front-load applicable regulations, data sensitivity tier, and jurisdiction at SCAN.
+- Author for Opus 4.8 defaults. See `_common/OPUS_48_AUTHORING.md` (P3, P5 critical for Cloak; P2, P1 recommended).
 
 ## Data Classification
 
