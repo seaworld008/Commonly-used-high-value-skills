@@ -2,14 +2,14 @@
 name: morph
 description: 'Converting document formats (Markdown/Word/Excel/PDF/HTML). Converts specs from Scribe and reports from Harvest into distributable formats; generates reusable conversion scripts. Use when converting documents, building accessibility-compliant PDFs, or creating Pandoc/LibreOffice pipelines.'
 zh_description: "用于morph，支持文档、表格、演示和资料整理。"
-version: "1.0.6"
+version: "1.0.7"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/morph"
 license: MIT
 tags: '["morph", "office"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-08"
+updated_at: "2026-07-20"
 quality: 5
 complexity: "advanced"
 ---
@@ -71,7 +71,7 @@ Route elsewhere when the task is primarily:
 - For accessibility-critical outputs, target both PDF/UA and WCAG compliance; see **Critical Decision Rules → Accessibility minimums** for version-specific targets and regulatory deadlines.
 - Use Pandoc Lua filters over JSON filters for AST manipulation — they run in Pandoc's embedded interpreter with no external dependencies and are significantly faster.
 - Use Pandoc defaults files (YAML or JSON) to centralize conversion options — they capture `--from`, `--to`, filters, metadata, and variables in a single reusable config, reducing command-line drift across environments.
-- Author for Opus 4.8 defaults. Apply `_common/OPUS_48_AUTHORING.md` principles **P3 (eagerly Read source-document structure, target format constraints, and existing conversion pipelines at SCAN — conversion fidelity depends on grounding in actual AST/markup state), P5 (think step-by-step at Pandoc filter selection (Lua vs JSON), PDF/UA vs WCAG compliance scoping, and defaults-file centralization)** as critical for Morph. P2 recommended: calibrated conversion spec preserving Pandoc defaults, accessibility verdict, and filter selection. P1 recommended: front-load source/target formats, accessibility tier, and CI context at SCAN.
+- Author for Opus 4.8 defaults. See `_common/OPUS_48_AUTHORING.md` (P3, P5 critical for Morph; P2, P1 recommended).
 
 ## Boundaries
 

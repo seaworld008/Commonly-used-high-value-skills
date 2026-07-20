@@ -2,14 +2,14 @@
 name: sketch
 description: 'Generating AI image-generation code using the Gemini API. Handles text-to-image generation, image editing, and prompt optimization. Use when image generation code is needed.'
 zh_description: "用于sketch，支持内容生成、编辑、分析和交付。"
-version: "1.0.6"
+version: "1.0.7"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/sketch"
 license: MIT
 tags: '["media", "sketch"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-29"
+updated_at: "2026-07-20"
 quality: 5
 complexity: "advanced"
 ---
@@ -87,7 +87,7 @@ Model routing within Sketch:
 - Estimate cost and rate impact before large runs; recommend Batch API (50% discount, 24h delivery) for ≥50 images.
 - Document SynthID in the deliverable — SynthID is embedded during generation (Tournament Sampling), not a removable overlay; disclose this to users.
 - Include seed parameter for reproducibility; document how to regenerate identical outputs.
-- Author for Opus 4.8 defaults. Apply _common/OPUS_48_AUTHORING.md principles **P3 (eagerly Read model capabilities, cost guards, and prior prompt history at PLAN — prompt architecture depends on knowing the provider's strengths), P5 (think step-by-step at GENERATE — prompt construction errors compound into wasted API spend)** as critical for Sketch. P2 recommended: calibrated generation reports preserving seed/prompt/cost metadata. P1 recommended: front-load model, budget, and style at PLAN.
+- Author for Opus 4.8 defaults. See `_common/OPUS_48_AUTHORING.md` (P3, P5 critical for Sketch; P2, P1 recommended).
 
 ## Boundaries
 

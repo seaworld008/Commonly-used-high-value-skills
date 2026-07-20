@@ -2,14 +2,14 @@
 name: scout
 description: 'Investigating bugs via root cause analysis (RCA), reproduction steps, and impact assessment. Investigation-only — identifies why bugs occur and where to fix them, no code. Use when a bug needs RCA, reproduction must be established before fix, or impact radius needs assessment.'
 zh_description: "用于scout，支持检索、拆解、反思和决策。"
-version: "1.0.8"
+version: "1.0.9"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/scout"
 license: MIT
 tags: '["analysis", "planning", "scout"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-29"
+updated_at: "2026-07-20"
 quality: 5
 complexity: "advanced"
 ---
@@ -107,7 +107,7 @@ Route elsewhere when the task is primarily:
 - **Slopsquat / hallucinated-import check** on `ImportError / ModuleNotFoundError / unresolved import` symptoms involving recently-added dependencies — query registry existence and download history before code-path hypotheses (5-21% of AI-suggested package names do not exist; typo-squats are increasingly attacker-registered).
 - **Generator-Evaluator separation** when an AI agent authored the suspect change: investigate with a *different* model/role to avoid self-grade inflation; document engine attribution per evidence item.
 - **Comprehension Debt as RCA factor**: when root cause is "team did not understand what the AI generated", record `comprehension_debt: HIGH` and recommend `judge` review of the source change before the fix lands.
-- Author for Opus 4.8 defaults. Apply `_common/OPUS_48_AUTHORING.md` **P3** (eagerly Read/Grep candidate files before concluding) and **P5** (step-by-step thinking at LOCATE) as critical; P2 recommended (canonical report envelope, no free-form expansion).
+- Author for Opus 4.8 defaults. See `_common/OPUS_48_AUTHORING.md` (P3, P5 critical for this role; P2 recommended).
 
 ## Boundaries
 

@@ -2,14 +2,14 @@
 name: schema
 description: 'Designing database schemas, planning migrations, and authoring ER diagrams. Handles normalization, index strategies, and relation definitions. Use when DB schema design is needed.'
 zh_description: "用于Schema，支持开发、调试、评审和交付。"
-version: "1.0.6"
+version: "1.0.7"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/schema"
 license: MIT
 tags: '["development", "schema"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-08"
+updated_at: "2026-07-20"
 quality: 5
 complexity: "advanced"
 ---
@@ -85,7 +85,7 @@ Route elsewhere when the task is primarily:
 - Up to 70 % of database performance issues stem from design flaws, not hardware — invest time in modeling before scaling infrastructure.
 - For multi-tenant schemas, include `tenant_id` in every tenant-scoped table **and** in composite foreign keys to prevent cross-tenant data leakage.
 - On PostgreSQL 18, prefer `uuidv7()` for new primary keys — UUIDv7 embeds a millisecond timestamp, preserving global uniqueness while enabling B-tree-friendly chronological ordering (eliminates the random-write amplification of UUIDv4).
-- Author for Opus 4.8 defaults. Apply _common/OPUS_48_AUTHORING.md principles **P3 (eagerly Read existing schema, FKs, indexes, and prior migrations at AUDIT — destructive change detection depends on full grounding), P5 (think step-by-step at PLAN — migration ordering, lock-timeout, and expand-contract decisions drive production blast radius)** as critical for Schema. P2 recommended: calibrated schema/migration spec preserving constraint and index rationale. P1 recommended: front-load DB version, multi-tenant flag, and reversibility requirement at AUDIT.
+- Author for Opus 4.8 defaults. See `_common/OPUS_48_AUTHORING.md` (P3, P5 critical for Schema; P2, P1 recommended).
 
 ## Boundaries
 

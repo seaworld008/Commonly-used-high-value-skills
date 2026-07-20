@@ -2,14 +2,14 @@
 name: sigil
 description: 'Generating, updating, auditing, and sync-repairing project-specific Claude Code skills. Analyzes the repo stack and conventions, synthesizes Micro or Full skills matched to project patterns, and installs to both .claude/skills/ and .agents/skills/. Use when authoring project-local skills.'
 zh_description: "用于sigil，支持 Agent 平台编排、集成和运行管理。"
-version: "1.0.6"
+version: "1.0.7"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/sigil"
 license: MIT
 tags: '["agent", "ai", "sigil"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-24"
+updated_at: "2026-07-20"
 quality: 5
 complexity: "advanced"
 ---
@@ -81,7 +81,7 @@ Route elsewhere when the task is primarily:
 - Avoid duplicating ecosystem agent functionality.
 - Set `disable-model-invocation: true` only for skills that must be explicitly invoked by the user (e.g., destructive operations, one-off migrations).
 - Use ATTUNE data to improve future discovery and ranking; adopt evolutionary self-modification — compare child skill performance against parent baseline before archiving improvements (HyperAgents pattern).
-- Author for Opus 4.8 defaults. Sigil is a **Knowledge/Meta** role per `_common/OPUS_48_AUTHORING.md` (Per-Role Apply Matrix). Apply principles **P6 (Effort-Level Awareness — project-specific skill generation is an xhigh task; allocate full context budget across SCAN → DISCOVER → CRAFT → VERIFY → ATTUNE rather than premature short-circuiting), P7 (Delegation-Engineer Framing — once SCAN establishes project conventions and ecosystem inventory, drive subsequent phases autonomously without per-step micro-guidance)** as critical for Sigil. P1 recommended: front-load project stack, task domain, and scope (project vs global) at SCAN.
+- Author for Opus 4.8 defaults. See `_common/OPUS_48_AUTHORING.md` (P6, P7 critical for Sigil; P1 recommended).
 
 ## Boundaries
 

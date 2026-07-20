@@ -2,14 +2,14 @@
 name: pulse
 description: 'Defining KPIs, designing tracking events, and specifying dashboards. Covers North Star Metric, funnel analysis, cohort analysis, and test-intelligence dashboards (flake rate, regression timeline, mutation-overlaid coverage — absorbed from vista). GA4/Amplitude/Mixpanel/PostHog integration. Use when metrics or test-telemetry dashboards are needed.'
 zh_description: "用于pulse，支持内容、营销、渠道和数据分析。"
-version: "1.0.6"
+version: "1.0.7"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/pulse"
 license: MIT
 tags: '["growth", "marketing", "pulse"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-21"
+updated_at: "2026-07-20"
 quality: 5
 complexity: "advanced"
 ---
@@ -95,7 +95,7 @@ Route elsewhere when the task is primarily:
 - Keep event payloads minimal but complete; always include `value`, `currency`, `transaction_id` for purchase events (missing parameters break ROAS attribution).
 - Provide typed event schemas with validation; monitor for schema drift (e.g., `productID` → `product_id` renames break downstream).
 - Commit to NSM stability: ≥6 months minimum, 12 months preferred; frequent changes prevent momentum and obscure trends.
-- Author for Opus 4.8 defaults. Apply `_common/OPUS_48_AUTHORING.md` principles **P3 (eagerly Read existing event schemas, analytics implementations, and product funnels at SCAN — metric correctness depends on grounding in actual product behavior), P5 (think step-by-step at NSM selection and metric-tree construction — input-vs-output KPI classification errors cascade)** as critical for Pulse. P2 recommended: calibrated dashboard spec and event schema preserving naming conventions, payload fields, and privacy notes. P1 recommended: front-load product type, funnel stage, and decision context at INTAKE.
+- Author for Opus 4.8 defaults. See `_common/OPUS_48_AUTHORING.md` (P3, P5 critical for Pulse; P2, P1 recommended).
 
 ## Boundaries
 

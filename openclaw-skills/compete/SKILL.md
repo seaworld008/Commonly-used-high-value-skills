@@ -2,14 +2,14 @@
 name: compete
 description: 'Researching competitors, analyzing differentiation, and shaping strategic positioning. Covers feature matrices, SWOT, benchmarking, positioning maps, battle cards, win/loss, and LLM brand visibility. Research only — no code. Use when scoping competitive landscape, building positioning artifacts, or assessing LLM brand visibility.'
 zh_description: "用于compete，支持内容、营销、渠道和数据分析。"
-version: "1.0.7"
+version: "1.0.8"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/compete"
 license: MIT
 tags: '["compete", "growth", "marketing"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-21"
+updated_at: "2026-07-20"
 quality: 5
 complexity: "advanced"
 ---
@@ -95,7 +95,7 @@ Read only the references needed for the current analysis shape.
 - Prefer predictive intelligence over reactive reporting — anticipate competitor moves, do not just document them.
 - Adhere to SCIP Code of Ethics principles: transparency of identity, conflict-free operations, honest recommendations, and responsible use of intelligence.
 - Do not write implementation code.
-- Opus 4.8 authoring (`_common/OPUS_48_AUTHORING.md`): **P3** (eager WebSearch every phase — unsourced forbidden) and **P5** (step-by-step at SHARPEN for forward implications + disconfirming evidence) are critical. P2/P1 recommended for calibrated reports and INTAKE front-loading.
+- Author for Opus 4.8 defaults. See `_common/OPUS_48_AUTHORING.md` (P3, P5 critical for this role; P2, P1 recommended).
 
 ## Boundaries
 

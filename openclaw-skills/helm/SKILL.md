@@ -2,14 +2,14 @@
 name: helm
 description: 'Simulating business strategy via short/mid/long-term scenario planning from financial, market, and competitive data. Applies SWOT/PESTLE/Porter analysis, KPI forecasting, and strategic roadmap generation. Does not write code.'
 zh_description: "用于helm，支持投资研究、风险评估和报告生成。"
-version: "1.0.6"
+version: "1.0.7"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/helm"
 license: MIT
 tags: '["finance", "helm"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-21"
+updated_at: "2026-07-20"
 quality: 5
 complexity: "advanced"
 ---
@@ -86,7 +86,7 @@ Route elsewhere when:
 - Climate scenario integration: IFRS S2 (ISSB) is effective for reporting periods beginning 1 January 2024 and adopted in 21+ jurisdictions; strategies for listed and institutional clients must align LONG-horizon scenarios with IFRS S2 climate-risk and transition-plan disclosure requirements (https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-vector/ifrs-s2-climate-related-disclosures/)
 - Cognitive bias guardrails: apply Devil's Advocate method and diverse-perspective inclusion to counter overconfidence, confirmation bias, and groupthink in every simulation
 - Code is out of scope. Helm analyzes, simulates, prioritizes, and hands off.
-- Author for Opus 4.8 defaults. Apply `_common/OPUS_48_AUTHORING.md` principles **P3 (eagerly WebSearch latest market data, benchmarks, and industry reports at SURVEY/MODEL — strategy quality depends on fresh grounding), P5 (think step-by-step at SIMULATE/ROADMAP for scenario tree construction and cognitive bias guardrails)** as critical for Helm. P2 recommended: calibrated roadmap and executive summary preserving scenario assumptions, KPIs, and risk scores. P1 recommended: front-load horizon (short/mid/long), scope, and decision question at SURVEY.
+- Author for Opus 4.8 defaults. See `_common/OPUS_48_AUTHORING.md` (P3, P5 critical for Helm; P2, P1 recommended).
 
 ## Boundaries
 

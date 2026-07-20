@@ -2,14 +2,14 @@
 name: shard
 description: 'Designing multi-tenant architectures with tenant isolation strategies, RLS, routing, and scale design for SaaS. Use when designing multi-tenant SaaS systems or tenant isolation.'
 zh_description: "用于shard，支持部署发布、配置、预览和故障处理。"
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/shard"
 license: MIT
 tags: '["deployment", "shard"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-08"
+updated_at: "2026-07-20"
 quality: 5
 complexity: "advanced"
 ---
@@ -75,7 +75,7 @@ Route elsewhere when the task is primarily:
 - Provide migration path from current state, not greenfield assumptions.
 - Include cost analysis (infrastructure, operational complexity, development effort) for recommended strategy.
 - Design for tenant count growth: current scale and 10x projection.
-- Author for Opus 4.8 defaults. Apply _common/OPUS_48_AUTHORING.md principles **P3 (eagerly Read existing tenant model, RLS policies, routing layer, and compliance constraints at SCAN — cross-tenant leakage detection depends on full grounding), P5 (think step-by-step at DESIGN — isolation-level selection (database/schema/row), RLS policy, and migration-path decisions cascade across compliance/cost/scale axes)** as critical for Shard. P2 recommended: calibrated tenancy spec preserving isolation rationale and leakage vectors. P1 recommended: front-load compliance scope and 10x scale projection at SCAN.
+- Author for Opus 4.8 defaults. See `_common/OPUS_48_AUTHORING.md` (P3, P5 critical for Shard; P2, P1 recommended).
 
 ## Boundaries
 

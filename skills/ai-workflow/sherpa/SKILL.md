@@ -2,14 +2,14 @@
 name: sherpa
 description: 'Guiding workflows by decomposing complex tasks (Epics) into Atomic Steps under 15 minutes each. Manages progress tracking, drift prevention, risk assessment, and timely commit proposals. Use when complex task decomposition is needed.'
 zh_description: "用于sherpa，支持任务规划、执行、评审和验证。"
-version: "1.0.5"
+version: "1.0.6"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/sherpa"
 license: MIT
 tags: '["ai", "sherpa", "workflow"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-21"
+updated_at: "2026-07-20"
 quality: 5
 complexity: "advanced"
 ---
@@ -93,7 +93,7 @@ Route elsewhere when the task is primarily:
 - Track estimate accuracy using PRED(0.25) — the percentage of estimates with ≤25% relative error — as the primary calibration metric. Feed actuals into future planning to shrink estimation variance over time.
 - Prefer Plan-and-Execute decomposition: decouple planning from execution. Plan-and-Execute uses significantly fewer tokens on multi-step reasoning by avoiding repeated re-planning cycles, yielding faster execution and more predictable cost. Route planning to high-capability agents and execution to specialized workers.
 - Protect flow state: a single context switch costs ~23 minutes of recovery time (developers average 12-15 major switches daily ≈ 4.5h lost focus). Interrupted tasks take 2× longer with 2× errors. The per-developer productivity cost is ~$78K/year.
-- Author for Opus 4.8 defaults. Apply `_common/OPUS_48_AUTHORING.md` principles **P1 (front-load Epic goal, constraints, acceptance criteria, file scope on first turn — never reveal incrementally), P2 (bound every Atomic Step's output: `5-15 min` size, explicit deliverable, testable acceptance), P7 (treat each spawned implementor as a delegated engineer — phase-level contract, not micro-instructions)** as critical for Sherpa. Decomposition outputs that omit acceptance criteria or length envelopes force downstream agents to ask clarifying questions instead of executing.
+- Author for Opus 4.8 defaults. See `_common/OPUS_48_AUTHORING.md` (P1, P2, P7 critical for Sherpa). Decomposition outputs that omit acceptance criteria or length envelopes force downstream agents to ask clarifying questions instead of executing.
 - **Anchor decomposition on the Explore → Plan → Implement → Commit cycle** (Anthropic Claude Code Best Practices, 2026). Each Atomic Step belongs to exactly one phase: `Explore` steps read code / map symbols / load context but write nothing; `Plan` steps produce a plan artifact (file diff sketch, AC list, test stubs) but no implementation; `Implement` steps write code against the locked plan; `Commit` steps run the verifier and produce a commit/PR. Skip `Plan` only when the change is mechanically obvious (single-file rename, dependency bump). Forcing Plan-mode for cross-file work catches half the failure surface before code is written. [Source: code.claude.com/docs/en/best-practices]
 - **Output Spec-Kit-compatible Atomic Steps** when the user invokes `spec` or `speckit`. The GitHub Spec-Kit (`/speckit.specify` / `/speckit.plan` / `/speckit.tasks` / `/speckit.implement`) is the executable-spec standard supported by Claude Code, Cursor, Copilot and 29+ other tools. Match the file layout (`spec/`, `plan/`, `tasks/`) and the Constitution → Specify → Plan → Tasks → Implement phase contract so downstream tooling (Builder, Forge, Artisan) can consume the steps without translation. [Source: github.com/github/spec-kit]
 - **Keep atomic steps small to counteract AI-era PR bloat.** The DORA 2025 report found that AI-assisted teams produced PRs 51% larger on average, pushing median PR review time up 441% and allowing 31% more PRs to merge without any review — and bugs per developer rose 54% year-over-year. Keeping each Atomic Step to a single, committable concern directly counters this trend. [Source: dora.dev/research/2025/dora-report/](https://dora.dev/research/2025/dora-report/)

@@ -2,14 +2,14 @@
 name: harvest
 description: Collecting GitHub PR data and generating work reports. Retrieves PR info via gh commands to auto-generate weekly/monthly reports and release notes. Use when work reporting or PR analysis is needed.
 zh_description: "用于harvest，支持工程协作、自动化验证和交付闭环。"
-version: "1.0.6"
+version: "1.0.7"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/harvest"
 license: MIT
 tags: '["automation", "harvest", "workflow"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-08"
+updated_at: "2026-07-20"
 quality: 5
 complexity: "advanced"
 ---
@@ -88,7 +88,7 @@ Route elsewhere when the task is primarily:
 - Rubber-stamping detection: when median review lead time is low and uncorrelated with PR size, flag potential rubber-stamping — reviewers may not be actually reviewing code.
 - AI-inflated metrics caveat (DORA 2025 update): Unlike DORA 2024 which reported AI negatively correlated with throughput, DORA 2025 reports AI adoption now positively correlates with software delivery throughput and product performance — but continues to correlate negatively with delivery stability (more change failures, increased rework, longer cycle times to resolve issues). AI also tempts developers to abandon small-batch principles, generating larger, riskier PRs that take longer to review and have higher failure rates. Reports must note this context when comparing pre/post-AI periods and flag batch-size regression. Key insight: AI amplifies existing team dynamics — strong teams accelerate further, struggling teams see problems intensified. Without robust automated testing, mature version control, and fast feedback loops, AI-driven change volume increases instability ("accelerating into a bottleneck" rather than through it, per DORA 2025).
 - DORA 2025 team archetypes: when profiling team delivery performance, use the 7-archetype model instead of deprecated 4-tier clusters (low/medium/high/elite). The 7 archetypes: (1) Foundational Challenges — survival mode with process gaps, (2) Legacy Bottleneck — reactive to unstable systems, (3) Constrained by Process — consumed by inefficient workflows, (4) High Impact Low Cadence — quality work delivered slowly, (5) Stable and Methodical — deliberate delivery with high quality, (6) Pragmatic Performers — impressive speed with functional environments, (7) Harmonious High-Achievers — sustainable excellence in a virtuous cycle. Archetypes blend delivery metrics with human factors (burnout, friction, perceived value), yielding more actionable team reports.
-- Author for Opus 4.8 defaults. Apply `_common/OPUS_48_AUTHORING.md` principles **P3 (eagerly Fetch gh PR data, commit history, and prior report baselines at COLLECT — reporting accuracy depends on grounding in actual git/PR state), P5 (think step-by-step at archetype mapping, AI-inflation caveat application, rubber-stamp detection, and estimation-pitfall triage)** as critical for Harvest. P2 recommended: calibrated report preserving PR lists, archetype assignment, and AI-caveat notes. P1 recommended: front-load report window, scope (team/repo/individual), and audience at COLLECT.
+- Author for Opus 4.8 defaults. See `_common/OPUS_48_AUTHORING.md` (P3, P5 critical for Harvest; P2, P1 recommended).
 
 ## Boundaries
 
