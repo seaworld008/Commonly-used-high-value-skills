@@ -2,37 +2,93 @@
 
 All notable changes to this repository are documented here.
 
-## [2026-03-27]
+## [2026-07-20]
 
 ### Added
-- `agent-hub` (ai-agent-platform) — agent-hub
-- `aws-solution-architect` (developer-engineering) — aws-solution-architect
-- `context-engineering` (developer-engineering) — context-engineering
-- `docker-expert` (developer-engineering) — docker-expert
-- `graphql-expert` (developer-engineering) — graphql-expert
-- `kubernetes-specialist` (developer-engineering) — kubernetes-specialist
-- `nextjs-app-router` (developer-engineering) — nextjs-app-router
-- `python-performance` (developer-engineering) — python-performance
-- `rust-engineer` (developer-engineering) — rust-engineer
-- `supabase-postgres` (developer-engineering) — supabase-postgres
-- `systematic-debugging` (developer-engineering) — systematic-debugging
-- `tailwind-design-system` (developer-engineering) — tailwind-design-system
-- `terraform-engineer` (developer-engineering) — terraform-engineer
-- `test-driven-development` (developer-engineering) — test-driven-development
-- `typescript-best-practices` (developer-engineering) — typescript-best-practices
-- `senior-architect` (devops-sre) — senior-architect
-- `web-scraper` (engineering-workflow-automation) — web-scraper
-- `saas-metrics-coach` (finance-investing) — saas-metrics-coach
-- `seo-audit` (growth-operations-xiaohongshu) — seo-audit
-- `confidence-check` (operations-general) — confidence-check
-- `supermemory` (operations-general) — supermemory
-- `landing-page-generator` (product-design) — landing-page-generator
-- `skill-security-auditor` (security-and-reliability) — skill-security-auditor
-- `subagent-driven-development` (task-understanding-decomposition) — subagent-driven-development
+- `security-audit` (security-and-reliability) — security-audit
 
 ### Changed
-- add optimization roadmap for world-class skills repository
-- add 24 high-value skills from top GitHub repos and skills.sh
+- sync weekly skills updates (#73)
+
+## [2026-07-13]
+
+### Changed
+- sync weekly upstream skill updates
+
+## [2026-07-10]
+
+### Added
+- `linkedin-growth` (growth-operations-xiaohongshu) — linkedin-growth
 
 ### Fixed
-- run refresh_repo_views, fix test expectations, normalize YAML frontmatter
+- complete Linked API skill integration
+
+## [2026-07-09]
+
+### Added
+- `linkedin-growth` (operations-general) — linkedin-growth
+- `linkedin` (operations-general) — linkedin
+
+## [2026-07-06]
+
+### Added
+- `firebase-security-rules-auditor` (security-and-reliability) — firebase-security-rules-auditor
+
+### Changed
+- require monitor upstream review guidance (#68)
+- refresh nlpm audit monitor notes (#67)
+- add firebase security rules auditor skill (#66)
+
+## [2026-07-05]
+
+### Changed
+- sync upstream skill updates
+
+## [2026-07-03]
+
+### Changed
+- sync upstream skills and fix maintenance issues
+
+## [2026-06-29]
+
+### Added
+- `neon-postgres-egress-optimizer` (developer-engineering) — neon-postgres-egress-optimizer
+
+### Changed
+- sync current upstream skill updates
+- add npx multi-client skill installer
+- capture skill curation automation runbook
+- backfill zh descriptions for skills
+- clear skill portfolio review queue
+- add skill portfolio audit baseline
+- reduce upstream sync noise (#55)
+- sync upstream skills and add neon optimizer (#54)
+
+## [2026-06-24]
+
+### Added
+- `gpt-image2` (multimodal-media) — gpt-image2
+
+### Changed
+- sync skills and add gpt-image2 (#51)
+
+### Fixed
+- inherit gpt-image2 Codex auth and base URL (#53)
+- let gpt-image2 inherit OpenAI env credentials (#52)
+
+## [2026-06-22]
+
+### Added
+- `x-twitter-scraper` (growth-operations-xiaohongshu) — x-twitter-scraper
+
+### Changed
+- sync weekly skill updates (#48)
+
+## [2026-06-21]
+
+### Added
+- `gha-security-review` (security-and-reliability) — gha-security-review
+- `security-review` (security-and-reliability) — security-review
+
+### Changed
+- refresh curated skills (#47)
