@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://github.com/Linked-API/linkedin-skills",
-    "checked_at": "2026-07-27",
+    "checked_at": "2026-08-10",
     "note": "Curated from Linked-API/linkedin-skills with exact-path upstream tracking enabled."
   },
   "official_references": [
@@ -38,8 +38,8 @@
         "repo": "Linked-API/linkedin-skills",
         "path": "linkedin/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-07-27",
-        "last_synced_at": "2026-07-27",
+        "last_checked_at": "2026-08-10",
+        "last_synced_at": "2026-08-10",
         "last_synced_commit": "edd0bdbbb25776e9288186b88969b29175531995"
       }
     },
@@ -54,8 +54,8 @@
         "repo": "Linked-API/linkedin-skills",
         "path": "linkedin-growth/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-07-27",
-        "last_synced_at": "2026-07-27",
+        "last_checked_at": "2026-08-10",
+        "last_synced_at": "2026-08-10",
         "last_synced_commit": "edd0bdbbb25776e9288186b88969b29175531995"
       }
     }

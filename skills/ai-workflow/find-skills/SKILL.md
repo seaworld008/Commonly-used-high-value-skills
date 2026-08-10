@@ -2,13 +2,13 @@
 name: find-skills
 description: 'Use when users do not know which skill fits a task, need to search available skill catalogs, compare candidates, install a matching skill, or route work to the best existing capability.'
 zh_description: "用于搜索、比较并安装适合当前任务的技能，帮助 Agent 正确路由能力。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["find", "planning", "skills", "workflow"]'
 created_at: "2026-03-15"
-updated_at: "2026-06-29"
+updated_at: "2026-08-10"
 quality: 4
 complexity: "intermediate"
 ---
@@ -29,7 +29,7 @@ npx clawhub@latest install find-skills
 2. **多源检索 (Multi-Source Search)**：在 ClawHub 官方仓库、本地已安装列表及相关开源索引中搜索候选技能。
 3. **优先级排序 (Prioritization)**：根据技能的评分、下载量、更新频率以及与当前任务的匹配度进行综合排序。
 4. **决策与理由 (Reasoning)**：为前 3 名技能给出详细的推荐安装理由。
-5. **按需执行 (On-Demand Execution)**：按用户确认结果或自主决策执行 `clawhub install`。
+5. **按需执行 (On-Demand Execution)**：按用户确认结果或自主决策执行 `npx clawhub@latest install <skill-name>`。
 
 ## 触发条件 / When to Use
 
@@ -57,9 +57,9 @@ npx clawhub@latest install find-skills
 
 ### 3. 一键环境就绪 (Zero-Config Readiness)
 - **操作步骤**：
-  1. 确认目标技能后，自动执行 `clawhub install <skill-name>`。
+  1. 确认目标技能后，自动执行 `npx clawhub@latest install <skill-name>`。
   2. 检查安装后的 `README.md`，识别是否需要环境变量（ENV）或 OAuth 授权。
-  3. 如果需要，主动提示用户配置或通过 `composio_connect_app` 完成连接。
+  3. 如果需要，主动提示用户配置，并使用当前客户端已连接的原生授权流程；不要假设存在特定第三方连接命令。
 - **最佳实践**：安装完成后，自动运行一个 `hello world` 级别的测试指令，确保技能真实可用。
 
 ### 4. 依赖项解析与递归安装

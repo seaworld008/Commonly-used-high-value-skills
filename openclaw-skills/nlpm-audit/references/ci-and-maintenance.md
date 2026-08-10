@@ -16,6 +16,15 @@ Use this reference when turning the audit into a repeatable maintenance process.
 | Vocabulary drift | advisory unless opted in | premature enforcement hurts early projects |
 | Plugin monorepo aggregate has high findings | yes | one nested plugin can be broken while the root looks clean |
 
+For pull requests, limit subjective scoring to changed natural-language
+artifacts. Repository-wide deterministic checks such as manifest reachability,
+syntax, and version consistency should still run globally.
+
+If a project opts into vocabulary enforcement, hard-fail only on deterministic
+terms declared by its reviewed registry. Keep open-ended LLM clustering as an
+advisory discovery signal because its output is not stable enough for a
+required check.
+
 ## Pre-Commit Shape
 
 ```bash
@@ -123,13 +132,14 @@ Skip upstream details that are product-specific and likely to churn:
 
 ## Last Curated Upstream Review
 
-- Date: 2026-06-16
+- Date: 2026-08-10
 - Upstream: `xiaolai/nlpm`
-- Commit reviewed: `3bee76dc34cf`
+- Commit reviewed: `06e14047e59a8446275dc1b2f082127fc3bc29de`
 - License: ISC
-- Durable changes absorbed: multi-tool overlays, standalone validator guidance,
-  multi-plugin monorepo handling, `nlpm-badge`, R51 vocabulary drift, and
-  auditor exemplar/rule-health loop notes.
+- Durable changes absorbed: mention-versus-use and registry-declaration scoring
+  exclusions, fenced-template example counting, deterministic vocabulary
+  enforcement with advisory LLM clustering, changed-artifact PR scoring, and
+  current Codex convention compatibility.
 
 ## Monitor-Only Sync
 

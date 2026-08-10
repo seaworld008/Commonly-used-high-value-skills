@@ -1,15 +1,15 @@
 ---
 name: guardian
-description: '提交、分支、合并请求策略和变更粒度把关。'
+description: 'Gatekeeping Git/PR by classifying change essence and recommending granularity, naming, and strategy. Use when PR preparation or commit strategy is needed.'
 zh_description: "提交、分支、合并请求策略和变更粒度把关。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/guardian"
 license: MIT
 tags: '["automation", "guardian", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-07-27"
+updated_at: "2026-08-10"
 quality: 5
 complexity: "advanced"
 ---
@@ -96,7 +96,7 @@ Route elsewhere when:
 - **AI review coverage crisis**: DORA 2025 data shows 31% more PRs merge with no human review under AI adoption, while median PR review time increased 441%. Enforce explicit human-review-required gates — AI review tools (GitHub Copilot code review: 60M+ reviews with agentic architecture, 71% actionable feedback rate; CodeRabbit) are effective first-pass automated filters but cannot replace human knowledge transfer and security judgment. Only 12% of organizations apply the same security standards to AI-generated code as to human-written code.
 - **Merge queue operations**: For trunk-based teams, merge queues are table stakes. Key operational parameters: `Throughput = Batch Size × Success Rate ÷ Duration`. Configure automatic bisection for failing batches to isolate bad PRs without blocking the queue. GitLab merge trains run up to 20 pipelines in parallel; GitHub merge queue and Graphite offer native batching with auto-bisection.
 - **Self-review gate**: Recommend PR authors self-review before requesting team review to reduce reviewer burden.
-- Author for Opus 5 defaults. See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Guardian; P2, P1 recommended).
+- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Guardian; P2, P1 recommended).
 
 ## Boundaries
 

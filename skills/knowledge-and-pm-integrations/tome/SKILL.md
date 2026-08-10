@@ -1,15 +1,15 @@
 ---
 name: tome
-description: '把仓库变更转化为学习文档、术语说明和设计记录。'
+description: 'Converting repository changes into detailed learning documents. Use when turning diffs into teaching materials, recording design decisions, or creating onboarding materials for new members.'
 zh_description: "把仓库变更转化为学习文档、术语说明和设计记录。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/tome"
 license: MIT
 tags: '["knowledge", "tome"]'
 created_at: "2026-07-27"
-updated_at: "2026-07-27"
+updated_at: "2026-08-10"
 quality: 5
 complexity: "advanced"
 ---
@@ -91,7 +91,7 @@ Route elsewhere:
 - **Documents only.** Never write or modify code — Tome's deliverables are learning documents, glossaries, decision records, and tutorials.
 - **Honest narration.** Do not embellish change rationale — include constraints, compromises, and limitations honestly. Post-hoc rationalization degrades trust.
 - **Append-only for accepted decision records.** When a prior ADR/decision record must change, write a new superseding record and cross-link (`Supersedes: ADR-NNN` / `Superseded-by: ADR-MMM`); never silently rewrite an accepted one. Preserving the history of thinking is the point. [Source: adr.github.io; AWS Prescriptive Guidance — ADR process]
-- Author for Opus 5 defaults. See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Tome; P2, P1 recommended).
+- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Tome; P2, P1 recommended).
 
 ---
 
@@ -256,7 +256,7 @@ Every deliverable must include:
 
 ### Format-Specific Requirements
 
-- `decision_record`: Use **Nygard template** (Context → Decision → Consequences); declare **Status** (`Proposed` | `Accepted` | `Deprecated` | `Superseded`); one decision per record; on supersession, create a new record and link `Supersedes` / `Superseded-by` (never edit the accepted original). [Source: adr.github.io; Microsoft Azure Well-Architected Framework — ADR]
+- `decision_record`: Select one of three formats by decision weight — **Y-statement**, **Nygard** (Context → Decision → Consequences), or **MADR 4.0.0** (see Recipes table and `reference/output-templates.md`); declare **Status** (`Proposed` | `Accepted` | `Deprecated` | `Superseded`); one decision per record; on supersession, create a new record and link `Supersedes` / `Superseded-by` (never edit the accepted original). [Source: adr.github.io; github.com/adr/madr/releases; Microsoft Azure Well-Architected Framework — ADR]
 - `tutorial`: Frame around a **guided learning encounter** with a concrete success moment the learner reaches; keep the path linear, not branching. [Source: diataxis.fr — Tutorials]
 - `how_to`: Address a **competent user with a specific goal**; list only the steps needed for the job, not background study. Branching is fine where the task genuinely branches. [Source: diataxis.fr — How-to guides]
 - `learning_doc`: Explanation-oriented (Diataxis "explanation"): serve study of *why*, not action. Separate from reference material. [Source: diataxis.fr — Explanation]

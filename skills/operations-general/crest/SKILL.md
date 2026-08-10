@@ -1,15 +1,15 @@
 ---
 name: crest
-description: '技术个人品牌、主页资料、文章和公开形象策略。'
+description: 'Building engineer self-branding by transforming technical contributions into a professional brand. Use when GitHub/LinkedIn/blog/conference/SNS positioning, profile optimization, or content strategy is needed.'
 zh_description: "技术个人品牌、主页资料、文章和公开形象策略。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/crest"
 license: MIT
 tags: '["crest", "productivity"]'
 created_at: "2026-07-27"
-updated_at: "2026-07-27"
+updated_at: "2026-08-10"
 quality: 5
 complexity: "advanced"
 ---
@@ -121,7 +121,7 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 - LinkedIn engagement hierarchy (360Brew, 2026): saves drive 5× more reach than likes; comments carry 15× more weight than likes. Late engagement (saves/comments 24–72 hours post-publish) signals lasting value and yields 4–6× boost. 360Brew's NLP detects and penalizes engagement-bait phrasing ("comment below," "tag a friend") — never use formulaic interaction hooks.
 - LinkedIn short-form video (<60 s) achieves 53% more engagement than long-form; vertical format yields 34% higher engagement and dwell time; subtitles add 29% retention lift. Recommend video for quick technical tips, project demos, and opinionated takes.
 - LinkedIn external links: posts with outbound URLs in the body still face algorithmic suppression; default to zero-click content (deliver value natively via document carousels, text posts, or native video). For link-dependent content, use LinkedIn Articles or Newsletters (native formats with no off-platform penalty) or place URLs in the first comment. Note: LinkedIn removed the Creator Mode toggle in March 2024 (features now available to all members) and deprecated profile hashtag fields ("Talks about" section) in February 2024 — do not reference these as active features. [Source: LinkedIn Help — Updates to Creator Mode](https://www.linkedin.com/help/linkedin/answer/a5999182)
-- Author for Opus 5 defaults. See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Crest; P2, P1 recommended).
+- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Crest; P2, P1 recommended).
 
 ---
 

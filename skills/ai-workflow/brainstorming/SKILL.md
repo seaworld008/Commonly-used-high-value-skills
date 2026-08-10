@@ -1,14 +1,14 @@
 ---
 name: brainstorming
-description: 'You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation.'
-zh_description: "用于brainstorming，支持任务规划、执行、评审和验证。"
-version: "1.0.0"
+description: 'Use before creative product or engineering work when the user wants to design a feature, component, workflow, behavior change, or other solution whose goals, constraints, and tradeoffs need exploration before implementation.'
+zh_description: "用于在实现前澄清创意型产品或工程需求，探索目标、约束、方案与取舍。"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["brainstorming", "planning", "workflow"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-08-10"
 quality: 3
 complexity: "intermediate"
 ---

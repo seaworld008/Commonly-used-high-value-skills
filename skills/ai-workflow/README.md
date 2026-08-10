@@ -20,7 +20,7 @@
 | `agent-workflow-designer` | 用于Agent、工作流、设计，支持任务规划、执行、评审和验证。 | [目录](./agent-workflow-designer/) | [SKILL.md](./agent-workflow-designer/SKILL.md) |
 | `andrej-karpathy-skills` | 用于应用 Andrej Karpathy 风格的 AI 学习、构建和研究实践。 | [目录](./andrej-karpathy-skills/) | [SKILL.md](./andrej-karpathy-skills/SKILL.md) |
 | `api-and-interface-design` | 用于API、interface、设计，支持任务规划、执行、评审和验证。 | [目录](./api-and-interface-design/) | [SKILL.md](./api-and-interface-design/SKILL.md) |
-| `brainstorming` | 用于brainstorming，支持任务规划、执行、评审和验证。 | [目录](./brainstorming/) | [SKILL.md](./brainstorming/SKILL.md) |
+| `brainstorming` | 用于在实现前澄清创意型产品或工程需求，探索目标、约束、方案与取舍。 | [目录](./brainstorming/) | [SKILL.md](./brainstorming/SKILL.md) |
 | `browser-testing-with-devtools` | 用于通过浏览器 DevTools 测试、调试和验证前端行为。 | [目录](./browser-testing-with-devtools/) | [SKILL.md](./browser-testing-with-devtools/SKILL.md) |
 | `ci-cd-and-automation` | 用于CI、CD、自动化，支持任务规划、执行、评审和验证。 | [目录](./ci-cd-and-automation/) | [SKILL.md](./ci-cd-and-automation/SKILL.md) |
 | `code-review-and-quality` | 用于代码、评审、质量，支持任务规划、执行、评审和验证。 | [目录](./code-review-and-quality/) | [SKILL.md](./code-review-and-quality/SKILL.md) |

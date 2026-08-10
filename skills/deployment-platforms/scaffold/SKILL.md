@@ -1,15 +1,15 @@
 ---
 name: scaffold
-description: '云基础设施、环境配置和本地开发部署脚手架。'
+description: 'Provisioning infrastructure via cloud IaC (Terraform/OpenTofu/CloudFormation/Pulumi) and local development environments (Docker Compose/dev setup/env vars). Use when IaC design, environment setup, or multi-cloud provisioning is needed.'
 zh_description: "云基础设施、环境配置和本地开发部署脚手架。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/scaffold"
 license: MIT
 tags: '["deployment", "scaffold"]'
 created_at: "2026-07-27"
-updated_at: "2026-07-27"
+updated_at: "2026-08-10"
 quality: 5
 complexity: "advanced"
 ---
@@ -77,7 +77,8 @@ Route elsewhere when the task is primarily:
 - Prefer ephemeral values/resources for short-lived credentials (tokens, temporary keys). Use state encryption for data that must persist. Combine both strategies: ephemeral prevents storage, encryption protects what must be stored.
 - Keep modules focused with single responsibility. Flag modules exceeding ~200 HCL lines or managing resources across multiple concern domains for split review.
 - Avoid monolithic state files ("terralith"). Split state by environment, service boundary, or blast-radius domain. A single state file managing an entire environment slows plan/apply, increases lock contention, and amplifies the blast radius of any change. Prefer one state per deployable unit.
-- Author for Opus 5 defaults. See `_common/OPUS_5_AUTHORING.md` (P3, P6 critical for Scaffold; P2, P1 recommended).
+- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P6 critical for Scaffold; P2, P1 recommended).
+- Apply `_common/CODE_QUALITY.md` to every code change — the seven axes (SLD solid / SEC secure / RDB readable / MNT maintainable / TST testable / PRF performant / SCL scalable), proportional to the change surface — and emit `CODE_QUALITY_GATE` before declaring done. `SEC: risk` blocks completion.
 
 ## Boundaries
 
@@ -265,6 +266,7 @@ Add these when relevant:
 | `reference/cost-finops-anti-patterns.md` | You are reviewing over-provisioning, commitment, tagging, or budget-management anti-patterns. |
 | `_common/OPUS_5_AUTHORING.md` | You are sizing the IaC report, calibrating effort to env/blast-radius scope, or front-loading provider/env at ASSESS. Critical for Scaffold: P3, P6. |
 | `reference/autorun-schema.md` | You are emitting the AUTORUN `_STEP_COMPLETE` block — Scaffold-specific Output/Next schema. |
+| `_common/CODE_QUALITY.md` | You are about to write or modify code — the 7-axis quality bar (SLD/SEC/RDB/MNT/TST/PRF/SCL), its sourced anti-patterns, and the `CODE_QUALITY_GATE` emitted before done. |
 
 ## AUTORUN Support
 

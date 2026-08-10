@@ -1,14 +1,14 @@
 ---
 name: chatgpt-apps
-description: 'Build, scaffold, refactor, and troubleshoot ChatGPT Apps SDK applications that combine an MCP server and widget UI. Use when Codex needs to design tools, register UI resources, wire the MCP Apps bridge or ChatGPT compatibility APIs, apply Apps SDK metadata or CSP or domain settings, or produce a docs-aligned project scaffold. Prefer a docs-first workflow by invoking the openai-docs skill or OpenAI developer docs MCP tools before generating code.'
+description: 'Build, scaffold, refactor, and troubleshoot ChatGPT Apps SDK applications that combine an MCP server and widget UI. Use when Codex needs to design tools, register UI resources, wire the MCP Apps bridge or ChatGPT compatibility APIs, apply Apps SDK metadata or CSP or domain settings, or produce a docs-aligned project scaffold. Prefer a docs-first workflow through the openai-docs skill or an official OpenAI documentation connector before generating code.'
 zh_description: "用于设计、构建和调试 ChatGPT Apps 与相关集成能力。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["agent", "ai", "apps", "chatgpt"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-08-10"
 quality: 5
 complexity: "intermediate"
 ---
@@ -73,10 +73,9 @@ Use `$openai-docs` first whenever building or changing a ChatGPT Apps SDK app.
 6. Prefer current docs guidance over older repo patterns when they differ, and call out compatibility aliases explicitly.
 7. If doc search times out or returns poor matches, fetch the canonical Apps SDK pages directly by URL and continue; do not let search failure block scaffolding.
 
-If `$openai-docs` is unavailable, use:
-
-- `mcp__openaiDeveloperDocs__search_openai_docs`
-- `mcp__openaiDeveloperDocs__fetch_openai_doc`
+If `$openai-docs` is unavailable, use the current client's official OpenAI
+documentation connector. Discover its search and fetch operations instead of
+assuming host-specific MCP operation names.
 
 Read `references/apps-sdk-docs-workflow.md` for suggested doc queries and a compact checklist.
 Read `references/app-archetypes.md` to classify the request into a small number of supported app shapes before choosing examples or scaffolds.

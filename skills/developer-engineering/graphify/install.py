@@ -671,6 +671,9 @@ def install(platform: str = "claude", *, project: bool = False, project_dir: Pat
     print()
     print("  /graphify .")
     print()
+    print("Prefer a hosted version? Early access to the graphify platform is")
+    print("open free before the public v1 launch: https://app.graphify.com")
+    print()
 def _print_install_usage() -> None:
     platforms = ", ".join([*_PLATFORM_CONFIG, "gemini", "cursor"])
     print("Usage: graphify install [--project] [--strict] [--platform P|P]")
@@ -792,10 +795,22 @@ def _uninstall_gemini_hook(project_dir: Path) -> None:
     settings["hooks"]["BeforeTool"] = filtered
     settings_path.write_text(json.dumps(settings, indent=2), encoding="utf-8")
     print("  .gemini/settings.json  ->  BeforeTool hook removed")
-def gemini_uninstall(project_dir: Path | None = None, *, project: bool = False) -> None:
-    """Remove the graphify section from GEMINI.md, uninstall hook, and remove skill file."""
+def gemini_uninstall(project_dir: Path | None = None, *, project: bool = False, remove_user_skill: bool | None = None) -> None:
+    """Remove the graphify section from GEMINI.md, uninstall hook, and remove skill file.
+
+    Scope rules (#2215): a bare call removes the user-global skill; passing
+    ``project_dir`` (or ``project=True``) scopes skill removal to that project
+    and leaves the global tree untouched, unless ``remove_user_skill=True``
+    explicitly opts back into the global delete (as ``uninstall_all`` does).
+    """
+    explicit_dir = project_dir is not None
     project_dir = project_dir or Path(".")
-    _remove_skill_file("gemini", project=project, project_dir=project_dir)
+    if remove_user_skill is None:
+        remove_user_skill = not project and not explicit_dir
+    if project or (explicit_dir and not remove_user_skill):
+        _remove_skill_file("gemini", project=True, project_dir=project_dir)
+    if remove_user_skill:
+        _remove_skill_file("gemini", project=False)
 
     target = project_dir / "GEMINI.md"
     if not target.exists():
@@ -903,6 +918,9 @@ def vscode_uninstall(project_dir: Path | None = None) -> None:
         print(f"  {instructions}  ->  deleted (was empty after removal)")
 _ANTIGRAVITY_RULES_PATH = Path(".agents") / "rules" / "graphify.md"
 _ANTIGRAVITY_WORKFLOW_PATH = Path(".agents") / "workflows" / "graphify.md"
+# Names no SKILL.md location on purpose: this constant is shared by the global and
+# project-scoped installs, which put the skill in different places, so any hardcoded
+# path dangles for the other scope. Antigravity resolves the skill by frontmatter name.
 _ANTIGRAVITY_WORKFLOW = """\
 ---
 name: graphify
@@ -911,7 +929,7 @@ description: Turn any folder of files into a navigable knowledge graph
 
 # Workflow: graphify
 
-Follow the graphify skill installed at ~/.gemini/config/skills/graphify/SKILL.md to run the full pipeline.
+Follow the graphify skill to run the full pipeline.
 
 If no path argument is given, use `.` (current directory).
 """
@@ -1600,7 +1618,9 @@ def _project_uninstall(platform_name: str, project_dir: Path | None = None) -> N
         if not removed:
             print("nothing to remove")
     elif platform_name == "codebuddy":
-        codebuddy_uninstall(project_dir)
+        # project=True keeps `uninstall --project` project-scoped; previously
+        # this deleted the user-global codebuddy skill (#2215).
+        codebuddy_uninstall(project_dir, project=True)
     else:
         _remove_skill_file(platform_name, project=True, project_dir=project_dir)
 def _project_uninstall_all(project_dir: Path | None = None) -> None:
@@ -1760,10 +1780,12 @@ def uninstall_all(project_dir: Path | None = None, purge: bool = False) -> None:
     pd = project_dir or Path(".")
     print("Uninstalling graphify from all detected platforms...\n")
 
-    # Skill-file / config-section uninstallers
-    claude_uninstall(pd)
-    codebuddy_uninstall(pd)
-    gemini_uninstall(pd)
+    # Skill-file / config-section uninstallers. remove_user_skill=True keeps the
+    # historical `graphify uninstall` behavior: global skill delete plus md/hook
+    # cleanup at the project dir (#2215).
+    claude_uninstall(pd, remove_user_skill=True)
+    codebuddy_uninstall(pd, remove_user_skill=True)
+    gemini_uninstall(pd, remove_user_skill=True)
     vscode_uninstall(pd)
     _cursor_uninstall(pd)
     _kiro_uninstall(pd)
@@ -1798,7 +1820,7 @@ def uninstall_all(project_dir: Path | None = None, purge: bool = False) -> None:
             print(f"\n  {_GRAPHIFY_OUT}/  ->  not found (nothing to purge)")
 
     print("\nDone. Run 'pip uninstall graphifyy' to remove the package itself.")
-def claude_uninstall(project_dir: Path | None = None, *, project: bool = False) -> None:
+def claude_uninstall(project_dir: Path | None = None, *, project: bool = False, remove_user_skill: bool | None = None) -> None:
     """Remove the graphify skill tree (SKILL.md + references/) and the graphify
     section from CLAUDE.md and its local-only variants, plus the PreToolUse hook.
 
@@ -1809,9 +1831,20 @@ def claude_uninstall(project_dir: Path | None = None, *, project: bool = False) 
     A user may relocate the section/hook into the local-only files Claude Code
     supports so they are not committed to a shared repo, so uninstall also cleans
     CLAUDE.local.md, .claude/CLAUDE.local.md and .claude/settings.local.json (#1731).
+
+    Scope rules (#2215): a bare call removes the user-global skill; passing
+    ``project_dir`` (or ``project=True``) scopes skill removal to that project
+    and leaves the global tree untouched, unless ``remove_user_skill=True``
+    explicitly opts back into the global delete (as ``uninstall_all`` does).
     """
+    explicit_dir = project_dir is not None
     project_dir = project_dir or Path(".")
-    _remove_skill_file("claude", project=project, project_dir=project_dir)
+    if remove_user_skill is None:
+        remove_user_skill = not project and not explicit_dir
+    if project or (explicit_dir and not remove_user_skill):
+        _remove_skill_file("claude", project=True, project_dir=project_dir)
+    if remove_user_skill:
+        _remove_skill_file("claude", project=False)
 
     md_targets = [
         project_dir / "CLAUDE.md",
@@ -1914,10 +1947,22 @@ def _uninstall_codebuddy_hook(project_dir: Path) -> None:
     settings["hooks"]["PreToolUse"] = filtered
     settings_path.write_text(json.dumps(settings, indent=2), encoding="utf-8")
     print(f"  .codebuddy/settings.json  ->  PreToolUse hook removed")
-def codebuddy_uninstall(project_dir: Path | None = None, *, project: bool = False) -> None:
-    """Remove the graphify skill tree (SKILL.md + references/) and the CODEBUDDY.md section."""
+def codebuddy_uninstall(project_dir: Path | None = None, *, project: bool = False, remove_user_skill: bool | None = None) -> None:
+    """Remove the graphify skill tree (SKILL.md + references/) and the CODEBUDDY.md section.
+
+    Scope rules (#2215): a bare call removes the user-global skill; passing
+    ``project_dir`` (or ``project=True``) scopes skill removal to that project
+    and leaves the global tree untouched, unless ``remove_user_skill=True``
+    explicitly opts back into the global delete (as ``uninstall_all`` does).
+    """
+    explicit_dir = project_dir is not None
     project_dir = project_dir or Path(".")
-    _remove_skill_file("codebuddy", project=project, project_dir=project_dir)
+    if remove_user_skill is None:
+        remove_user_skill = not project and not explicit_dir
+    if project or (explicit_dir and not remove_user_skill):
+        _remove_skill_file("codebuddy", project=True, project_dir=project_dir)
+    if remove_user_skill:
+        _remove_skill_file("codebuddy", project=False)
     target = project_dir / "CODEBUDDY.md"
 
     if not target.exists():

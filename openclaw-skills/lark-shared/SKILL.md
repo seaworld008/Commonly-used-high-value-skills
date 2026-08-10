@@ -2,14 +2,14 @@
 name: lark-shared
 description: 'Use for lark-cli setup/auth tasks: auth login/status/logout, user vs bot identity, business-domain permissions (--domain, including all/docs/drive), missing scopes, revoking authorization, or handling _notice JSON.'
 zh_description: "用于lark、shared，支持知识管理、项目同步和平台集成。"
-version: "1.0.7"
+version: "1.0.8"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-shared"
 license: MIT
 tags: '[feishu, lark, lark-cli, auth, configuration]'
 created_at: "2026-05-19"
-updated_at: "2026-07-20"
+updated_at: "2026-08-10"
 quality: 4
 complexity: intermediate
 ---
@@ -90,8 +90,8 @@ LARKSUITE_CLI_NO_UPDATE_NOTIFIER=1 LARKSUITE_CLI_NO_SKILLS_NOTIFIER=1 lark-cli a
 #### User 身份（`--as user`）
 
 ```bash
-lark-cli auth login --domain <domain>           # 按业务域授权
-lark-cli auth login --scope "<missing_scope>"   # 按具体 scope 授权（推荐,符合最小权限原则）
+lark-cli auth login --domain <domain> --no-wait --json          # 按业务域发起授权
+lark-cli auth login --scope "<missing_scope>" --no-wait --json  # 按具体 scope 发起授权（推荐，符合最小权限原则）
 ```
 
 **规则**：auth login 必须指定范围（`--domain` 或 `--scope`）。多次 login 的 scope 会累积（增量授权）。
@@ -134,7 +134,7 @@ lark-cli auth login --device-code <device_code>
 
 - **你必须亲自执行 `--device-code` 命令**，不要指示用户自行执行
 - **不要在同一轮中展示 URL 后立刻执行 `--device-code`**，这会导致用户看不到 URL
-- **禁止缓存 `verification_url` 或 `device_code`**：每次需要授权时，必须重新执行 `lark-cli auth login --no-wait --json` 生成新的链接。不要将授权链接和 device code 存入上下文供后续复用
+- **禁止缓存 `verification_url` 或 `device_code`**：每次需要重新发起授权时，必须沿用所需的 `--scope`、`--domain` 或 `--recommend` 选择以及任何 `--exclude` 值，并附加 `--no-wait --json` 生成新的链接。不要复用已过期的授权链接或 device code
 
 ## 更新检查
 

@@ -2,14 +2,14 @@
 name: stage
 description: 'Generating slides via Marp, reveal.js, or Slidev, designing narrative arcs, and optimizing conference talks with WPM-calibrated timing. Use when creating or pacing presentations.'
 zh_description: "演示文稿生成、叙事节奏设计和会议演讲优化。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/stage"
 license: MIT
 tags: '["office", "stage"]'
 created_at: "2026-07-27"
-updated_at: "2026-07-27"
+updated_at: "2026-08-10"
 quality: 5
 complexity: "advanced"
 ---
@@ -74,7 +74,7 @@ Route elsewhere when the task is primarily:
 - Include visual cues (diagram placeholders, image suggestions) for non-text content; a single well-designed visual replaces paragraphs.
 - Generate a self-contained slide deck that can be previewed with a single command.
 - Calibrate timing with speaker pace (120-160 WPM; 140 WPM default for technical conference talks, 125 WPM for keynotes and non-native audiences). Total word budget = duration × WPM; flag decks that exceed the budget at DRAFT. Source: TED2026 cluster 130-150 WPM (https://conferences.ted.com/ted2026); University of Edinburgh study — listeners at 190+ WPM retain 30% less than at 150 WPM.
-- Author for Opus 5 defaults. See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Stage; P2, P1 recommended).
+- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Stage; P2, P1 recommended).
 
 ## Boundaries
 

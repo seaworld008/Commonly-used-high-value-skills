@@ -2,14 +2,14 @@
 name: nlpm-audit
 description: 'Audits natural-language programming artifacts such as SKILL.md, AGENTS.md, CLAUDE.md, slash commands, plugin manifests, hooks, rules, and prompt files. Use when reviewing AI-agent repositories, checking manifest-vs-disk consistency, scoring skill or agent quality, adding NL artifact CI gates, or diagnosing vocabulary and version drift across Claude Code, Codex, Cursor, Gemini, and Antigravity-style projects.'
 zh_description: "审计 SKILL.md、AGENTS.md、CLAUDE.md、插件清单、hooks、commands 和提示词，检查安装一致性、质量评分、安全风险与版本漂移。"
-version: "1.0.2"
+version: "1.0.3"
 author: seaworld008
 source: github:xiaolai/nlpm
 source_url: "https://github.com/xiaolai/nlpm"
 license: ISC
 tags: '[nlpm, natural-language-programming, skill-quality, agent-audit, ci, prompt-engineering]'
 created_at: "2026-06-12"
-updated_at: "2026-07-06"
+updated_at: "2026-08-10"
 quality: 4
 complexity: advanced
 ---
@@ -25,7 +25,7 @@ This skill is inspired by the NLPM project, but it is a portable audit workflow:
 you can apply the method manually, with repository scripts, or with the upstream
 `nlpm-check` validator when the project wants a standalone CI gate.
 
-## 2026-07-06 Upstream Sync Notes
+## 2026-08-10 Upstream Sync Notes
 
 The latest upstream NLPM repository is still a fast-moving product, so this
 skill remains a curated portable workflow instead of a mirror. The current
@@ -47,6 +47,13 @@ stable ideas to preserve locally are:
   real repository audits;
 - NL-TDD test specs for writing artifacts against expected trigger behavior and
   output contracts before publishing them.
+- scoring exclusions that distinguish an instruction using vague or deprecated
+  language from a rule that names that language as data to detect or reject;
+- example counting that ignores examples shown only inside fenced templates;
+- deterministic vocabulary enforcement based on a reviewed registry, with
+  open-ended LLM synonym clustering kept advisory;
+- pull-request gates that score changed natural-language artifacts instead of
+  re-judging an unrelated repository-wide corpus.
 
 Use those ideas when they improve this portable skill. Do not mirror the whole
 upstream product surface unless the user explicitly asks to install or run NLPM

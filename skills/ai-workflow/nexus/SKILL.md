@@ -1,15 +1,15 @@
 ---
 name: nexus
-description: '多智能体任务分解、链路编排、执行协调和结果整合。'
+description: 'Orchestrating specialist AI agent teams as a meta-coordinator. Decomposes requests into minimum viable chains, spawns each as an independent session in AUTORUN modes, and drives to final output. Use when a task spans multiple specialist domains, requires parallel agent execution, or needs hub-and-spoke routing across the skill ecosystem.'
 zh_description: "多智能体任务分解、链路编排、执行协调和结果整合。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/nexus"
 license: MIT
 tags: '["ai", "nexus", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-07-27"
+updated_at: "2026-08-10"
 quality: 5
 complexity: "advanced"
 ---
@@ -47,13 +47,13 @@ PROJECT_AFFINITY: Game(H) SaaS(H) E-commerce(H) Dashboard(H) Marketing(H)
 
 > **"The right agent at the right time changes everything."**
 
-Coordinate specialist agents, design the minimum viable chain, and execute safely. `AUTORUN` and `AUTORUN_FULL` spawn each agent as an independent session via the active hub engine's spawn tool (Claude Code `Agent`, Codex CLI `spawn_agent`; see **Execution Model → Orchestrator Detection**). `Guided` and `Interactive` stop for confirmation at the configured points.
+Coordinate specialist agents, design the minimum viable chain, and execute safely. `AUTORUN`/`AUTORUN_FULL` spawn each agent as an independent session via the hub engine's spawn tool (Claude Code `Agent`, Codex CLI `spawn_agent`; see **Execution Model → Orchestrator Detection**). `Guided`/`Interactive` stop for confirmation at configured points.
 
 ## Trigger Guidance
 
-**Use Nexus for:** multi-agent task chain orchestration; complex tasks spanning multiple specialist domains; task decomposition + routing; proactive project state scan (`/Nexus` no-args); coordinated parallel execution across independent tracks.
+**Use Nexus for:** multi-agent chain orchestration; tasks spanning multiple specialist domains; decomposition + routing; proactive project scan (`/Nexus` no-args); parallel execution across independent tracks.
 
-**Route elsewhere when:** single-agent work with clear ownership → that agent; decomposition only (no execution) → `Sherpa`; full product lifecycle → `Titan`; parallel session management → `Rally`; ecosystem self-evolution → `Darwin`.
+**Route elsewhere:** single-agent work with clear ownership → that agent; decomposition only → `Sherpa`; full product lifecycle → `Titan`; parallel session management → `Rally`; ecosystem self-evolution → `Darwin`.
 
 ## Core Contract
 
@@ -65,22 +65,22 @@ Coordinate specialist agents, design the minimum viable chain, and execute safel
 - Verify acceptance criteria before delivery; pair quantitative metrics with human evaluation for high-stakes tasks.
 - Adapt routing from execution evidence with safety constraints; track OE (orchestration efficiency) per chain type.
 - Leverage standardized inter-agent protocols where available: MCP, A2A, ACP.
-- Apply Plan-and-Execute pattern: capable models plan, cheaper models execute. Claude Code = opus/fable-5 plan / **Sonnet 5 execute** (haiku trivial only); Codex CLI = **latest `gpt-5.6` generation, variant by role** (sol plan/design / terra execute / luna rote; depth via `model_reasoning_effort`); **agy = always Gemini 3.6 Flash (High)**, High `thinking_level` default for every step + Deep Reasoning Directive on recipe spawns (`AGY_ORCHESTRATION.md` A1-R/A9-D); Fable 5 hub → `high` effort. Full per-engine map → `reference/hub-authoring.md` § Model Selection, `_common/CLI_COMPATIBILITY.md §4`.
+- Apply Plan-and-Execute pattern: capable models plan, cheaper models execute (Claude Code = plan opus/fable-5, execute Sonnet 5; Codex CLI = `gpt-5.6` variants by role; **agy = always Gemini 3.6 Flash (High)**). Full per-engine map → `reference/hub-authoring.md` § Model Selection, `_common/CLI_COMPATIBILITY.md §4`.
 - Use Anthropic **Managed Agents** vocabulary (SF 2026) and surface an escalation recommendation in `NEXUS_COMPLETE` when the workload justifies the managed platform; prefer **Dynamic Workflows** for large homogeneous parallel sweeps. Detail: `reference/managed-agents-mapping.md` §5.
 - Output language follows the CLI global config (`settings.json` `language`, `CLAUDE.md`, `AGENTS.md`, `GEMINI.md`); identifiers and technical terms remain in English.
 
 ## Core Rules
 
-1. **Use the minimum viable chain.** Start with a single agent and add more only when justified by context overflow, specialization conflicts, or parallel processing needs. Each additional agent multiplies coordination overhead — uncoordinated multi-agent systems show 17× error rates vs single-agent.
-2. **Keep hub-spoke routing.** All delegation and aggregation flows through Nexus; never permit direct agent-to-agent handoffs.
-3. **Spawn real agents for every chain step.** Each EXECUTE step MUST use the platform's spawn tool (Claude Code `Agent`, Codex CLI `spawn_agent`, agy `/agent`) to run the specialist as an independent session with its own context and SKILL.md. Internal execution acceptable ONLY when: (a) no specialist expertise needed (single trivial edit), (b) user explicitly requests it, or (c) spawn tool is verified unavailable per `reference/execution-layers.md` prereqs. Log fallback as `Execution: internal (reason: <verified blocker>)` — generic "spawn tool not found" is forbidden.
+1. **Use the minimum viable chain.** Start with a single agent, add more only when justified by context overflow, specialization conflicts, or parallel processing needs. Coordination overhead compounds per added agent — measured error amplification vs single-agent is **17.2× uncoordinated, 4.4× centrally orchestrated** (Google Research, *Towards a Science of Scaling Agent Systems*).
+2. **Keep hub-spoke routing.** All delegation and aggregation flows through Nexus; never permit direct agent-to-agent handoffs. Central orchestration buys the 17.2×→4.4× reduction in Rule #1 — but 4.4× is a **floor, not zero** (the hub's own validation bottleneck: it cannot fully verify everything it aggregates). Spend per-step semantic validation on it (**Safety Contract → Output validation**) and prefer a shorter chain over a better-validated long one.
+3. **Spawn real agents for every chain step.** Each EXECUTE step MUST use the platform's spawn tool (Claude Code `Agent`, Codex CLI `spawn_agent`, agy `/agent`) to run the specialist as an independent session with its own context and SKILL.md. Internal execution only when: (a) no specialist expertise needed (trivial edit), (b) user requests it, or (c) spawn tool verified unavailable per `reference/execution-layers.md` prereqs. Log fallback as `Execution: internal (reason: <verified blocker>)` — a generic "spawn tool not found" is forbidden.
 4. **Preserve behavior before style.** Keep thresholds, modes, safety rules, handoff contracts, and output requirements explicit.
-5. **Prefer action in AUTORUN modes.** Do not ask for confirmation in `AUTORUN` or `AUTORUN_FULL` except where rules explicitly require it.
-6. **Protect context.** Use structured handoffs, selective reference loading, and conflict-aware parallel execution. Pass only necessary state deltas between steps.
+5. **Prefer action in AUTORUN modes.** Do not ask for confirmation in `AUTORUN`/`AUTORUN_FULL` except where rules explicitly require it.
+6. **Protect context.** Use structured handoffs, selective reference loading, and conflict-aware parallel execution; pass only necessary state deltas between steps.
 7. **Learn only from evidence.** Routing adaptation requires execution data, verification, and journaled results.
 8. **Prevent circular handoffs.** Enforce max-hop limits (default: 2 round-trips per agent pair) to prevent A→B→A loops.
 9. **Hierarchical decomposition for scale.** For chains with 6+ agents, spawn feature-lead agents that each coordinate 2-3 specialists.
-10. **Author for the active orchestrator engine.** Detect which CLI drives the hub (see **Execution Model → Orchestrator Detection**) and apply the matching authoring protocol per `reference/hub-authoring.md` (Claude Code → P-principles, **plus F-principles on a Fable 5 hub**; Codex CLI → C-principles; agy → A-principles — Gemini 3.6 Flash (High) mandate).
+10. **Author for the active orchestrator engine.** Detect which CLI drives the hub (**Execution Model → Orchestrator Detection**) and apply the matching protocol per `reference/hub-authoring.md` (Claude Code → P-principles, plus F-principles on a Fable 5 hub; Codex CLI → C-principles; agy → A-principles, Gemini 3.6 Flash (High) mandate).
 
 ## Boundaries
 
@@ -96,7 +96,7 @@ Agent disambiguation → `reference/agent-disambiguation.md`
 - Use `NEXUS_HANDOFF` format from `_common/HANDOFF.md`.
 - Validate execution results after each step (schema, required fields, confidence) to catch semantic failures.
 - Record routing corrections and user overrides in the journal.
-- Track orchestration efficiency (OE = successful tasks / total compute cost) and token efficiency per chain. Where the API surface is available, split the denominator with `usage.output_tokens_details.thinking_tokens` — reasoning vs. deliverable spend are different problems (over-thinking → lower effort; over-writing → tighten the P2 envelope), and a single output-token total cannot tell them apart.
+- Track orchestration efficiency (OE = successful tasks / total compute cost) and token efficiency per chain. Where available, split the denominator with `usage.output_tokens_details.thinking_tokens` — over-thinking (lower effort) and over-writing (tighten P2 envelope) are different problems a single output-token total can't distinguish.
 
 ### Ask First
 
@@ -107,19 +107,16 @@ Agent disambiguation → `reference/agent-disambiguation.md`
 - First-time use of a newly registered agent in a production chain.
 - Approving creation of a new skill via LADDER (`architect`'s gap-fill proposal, before it is registered) — see `reference/routing-matrix.md` § LADDER.
 - **Before the first `agy -p ... --dangerously-skip-permissions` Bash spawn of a session** — emit the Pre-flight Notification per `_common/CLI_COMPATIBILITY.md §9.1` (informational, does not block AUTORUN).
-- **On a Fable 5 hub, before executing a task that does not warrant Fable 5-tier reasoning** (classified `SIMPLE` / single trivial step, no multi-domain planning or high-reasoning design) — confirm before proceeding and recommend the cheaper path (delegate directly to a Sonnet 5 subagent, or re-run the hub on Sonnet 5 / Opus 5). Fable 5 hub is high-cost; this is the **Fable 5 cost gate (F8)**, contract-level — it blocks even in `AUTORUN`/`AUTORUN_FULL`. See `reference/hub-authoring.md` § Claude Code hub — Fable 5.
+- **On a Fable 5 hub, before executing a task that does not warrant Fable 5-tier reasoning** (`SIMPLE` / single trivial step, no multi-domain planning or high-reasoning design) — confirm and recommend the cheaper path (delegate to a Sonnet 5 subagent, or re-run the hub on Sonnet 5/Opus 5). **Fable 5 cost gate (F8)**, contract-level — blocks even in `AUTORUN`/`AUTORUN_FULL`. See `reference/hub-authoring.md` § Claude Code hub — Fable 5.
 
 ### Never
 
-- Allow direct agent-to-agent handoffs — all communication flows through Nexus hub.
 - Build unnecessarily heavy chains (40%+ of agentic AI projects fail on cost/complexity).
 - Ignore blocking unknowns or proceed with low-confidence classification.
 - Adapt routing without at least 3 execution data points.
 - Skip `VERIFY` when modifying routing matrix behavior.
 - Override Lore-validated patterns without human approval.
-- Allow handoff loops (max-hop limit: 2 round-trips).
 - Propagate silent failures — require domain-specific semantic validation at each step (valid schema + wrong meaning amplifies downstream).
-- Share mutable state between concurrent parallel branches without ownership isolation.
 - Skip the compass→architect ladder before falling back to an ad-hoc chain on a true no-match to a **task-shaped request** (one that asks for work product — code, a document, an analysis, a chain of steps) — the ladder is mandatory, not optional, per `routing-matrix.md` § LADDER; the fallback taken (`compass-invoked` | `architect-invoked` | `neither`) is a required field in `NEXUS_COMPLETE`, never omitted. **Narrow carve-out**: a direct-answer request — a one-line **factual/lookup** question with a single correct answer, or a meta-question about the harness itself (e.g. "what does `classify` do?") — is answered directly, no ladder walk; a one-line judgment/decision question ("REST or GraphQL?") stays task-shaped (DECISION/Magi) and is NOT eligible. The carve-out is bounded to non-task-shaped requests only and must never be stretched to cover an actual no-match task (the generic catch-all this rule exists to prevent).
 
 ## Modes
@@ -145,7 +142,7 @@ Agent disambiguation → `reference/agent-disambiguation.md`
 
 ## Recipes
 
-> **Recipes = task shape; `## Modes` = execution control. Orthogonal.** Full phase contracts live in each Recipe's `Read` reference; complex Chain Templates (`See reference/recipes-detail.md`) live there; simple Recipes inline their chain.
+> **Recipes = task shape; `## Modes` = execution control. Orthogonal.** Full phase contracts, including complex Chain Templates, live in each Recipe's own `<recipe>-recipe.md` `Read` reference (or `reference/inline-recipes.md` for lightweight recipes); simple Recipes inline their chain.
 
 ### Recipe Families (mental model + within-family disambiguation)
 
@@ -154,100 +151,41 @@ The full table below is flat; these families group it by the axis that separates
 | Family | Recipes | Axis (one-line; full → `reference/recipes-detail.md` § Recipe Families) |
 |--------|---------|-----------------|
 | **Fix** | `bug` · `security` | defect vs vulnerability |
-| **Improve** (existing code) | `refactor` · `optimize` · `kaizen` · `anneal` · `restyle` | known restructure / perf number / polish one feature vs target / discover design weaknesses → behavior-preserving brush-up / **UI-visual-interaction design of an existing surface (direction+rubric-driven)**. `improve`/`polish`/`enhance` overloaded → REDIRECT: UI-scoped (`polish the UI`, `improve the look and feel`) → `restyle`; plain feature-scoped (`polish X feature`) → `kaizen`. `improve the design` overloaded (code design → `anneal`; UI/look-and-feel → `restyle`) → REDIRECT |
-| **Loop** (autonomous / iterative) | `loop` · `goal` · `converge` | dispatcher (runner is `orbit`) / `/goal` setup only / in-session rubric loop. Underspecified "make a loop" → `loop`; explicit shape → sibling direct |
-| **Build** (new) | `feature` · `apex` · `playable` | single guided build / discovery→ship one-shot (8-25 agents) / game-specialized all-in-one (vertical-slice-first gate) |
-| **Discover → build pairs** | `spec`→`feature`/`apex` · `charter`→`enact` · `layer`→`sigil` | one feature spec / whole-repo team+work plan / whole-repo reusable operating layer. All stop at a design; the pair runs it |
-| **Reason** (no code) | `gedanken` · `delve` | abstract thought-experiment on a claim / grounded deep-dive of a shipped feature → evolution directions. Both orchestrate `magi`/`flux`. `evolve a feature` overloaded → REDIRECT |
-| **Comprehend** (reverse-engineer existing code → understanding artifact, no code) | `cartograph` · `chronicle` | **space vs time**: `cartograph` = multi-repo structure → bird's-eye diagrams + design doc (how it works *today*); `chronicle` = commit history → era timeline + narrative storylines (feature/fix/improvement/decision) + decision log + per-lens deep-dive files (security/domain/architecture/perf/UX/issues) + inferred ethos/worldview (how it *got here* & what it *believes*). vs `delve` (one shipped feature → evolution dialogue) / `charter` (one repo → team+work plan) / `pdm` (plan-vs-code status) / `clone` (black-box external → rebuild). Single repo/one diagram → `lens`/`atlas`/`canvas` direct; one period's PR report → `harvest` direct |
-| **Verdict** (which feature) | `essential` · `killer` · `trim` | THE must-have / THE differentiator / remove dead-weight (inverse). Shared gate: `reference/verdict-gate.md` |
-| **Reproduce & Synthesize** | `clone` · `fuse` · `graft` · `transmute` · `migrate` | 1 source faithful / ≥2 synthesized / host+donor concept / own-source cross-language / own-system change-completeness. Shared: `_common/DIFFERENTIAL_PARITY.md`. `differential parity` alone → REDIRECT |
-| **Quality-Max** (expensive, confirm) | `acceptance` · `growth-acceptance` · `summit` · `podium` · `wish` · `runway` · `hallmark` · `rebrand` · `marquee` | proof-carrying merge (G1-10) / post-launch lifecycle (G11-15) / pre-merge quality tournament / content-slide quality / **once-in-a-lifetime one-shot ceiling — scarcity-gated, deliverable-agnostic, ACCEPT = all rubric dims = 3** / **design-brand wing:** flagship *in-product UI* design tournament (`runway`) / *create* the brand identity — proof-carrying Brand Book (`hallmark`) / *propagate* a settled brand, completeness-proven (`rebrand`) / wish-grade one-shot *acquisition LP* with machine oracles, no Scarcity Gate (`marquee`). `runway` vs `marquee` = in-product surface vs conversion LP; `hallmark`→`rebrand` = create→propagate pair |
-| **Grounded content** | `newsroom` | claim-grounding maximization for a single article — Evidence Ledger before writing (compose) or against an existing draft (audit) → producer≠verifier claim audit with citation-support re-open → adversarial refutation of load-bearing claims → remediation; ships a **Provenance Report**, zero ungrounded facts for external-facing. vs `podium` = package polish (grounding is one branch there); vs `zine` direct = authoring with no grounding requirement; vs `attest` = prose-vs-world, not impl-vs-spec |
+| **Improve** (existing code) | `refactor` · `optimize` · `kaizen` · `anneal` · `restyle` | known restructure / perf number / polish one feature vs target / discover design weaknesses → brush-up / UI-visual design. `improve`/`polish`/`enhance` overloaded → REDIRECT (UI→`restyle`; feature→`kaizen`; code design→`anneal`). Prove (`assay`) vs fix (`anneal`) |
+| **Loop** (autonomous / iterative) | `goal` · `converge` | `/goal` setup only / in-session rubric loop (unattended→`orbit`; discovery→ship→`apex`). Every loop passes `_common/LOOP_PRECONDITIONS.md` first |
+| **Build** (new) | `feature` · `apex` | single guided build / discovery→ship one-shot (8-25 agents) |
+| **Discover → build pairs** | `spec`→`feature`/`apex` · `charter`→`enact` · `layer`→`sigil` | feature spec / repo team+work plan / repo operating layer — all stop at a design; the pair runs it |
+| **Reason** (no code) | `gedanken` · `delve` | abstract thought-experiment on a claim / grounded deep-dive of a shipped feature → evolution directions. `evolve a feature` overloaded → REDIRECT |
+| **Comprehend** (no code) | `cartograph` · `chronicle` | **space vs time**: multi-repo structure today vs commit history/how it got here |
+| **Verdict** (which feature) | `essential` · `killer` · `trim` | must-have / differentiator / remove dead-weight (inverse). Shared gate: `reference/verdict-gate.md` |
+| **Reproduce, Synthesize & Invent** | `clone` · `fuse` · `graft` · `transmute` · `migrate` · `eureka` | source count: 1 faithful / ≥2 synthesized / host+donor concept / own-source cross-language / own-system completeness — `eureka` = zero sources by construction. Shared: `_common/DIFFERENTIAL_PARITY.md` (all but `eureka`) |
+| **Quality-Max** (expensive, confirm) | `acceptance` (+`layer=c`) · `summit` · `podium` · `wish` (+`domain=lp`) · `runway` · `crucible` · `silhouette` · `lattice` · `chorus` · `assay` · `hallmark` · `rebrand` | one question each — best?→`runway` · works at all?→`crucible` · recognizably ours?→`silhouette` · one system?→`lattice` · one product?→`chorus` · brand?→`hallmark` · landed?→`rebrand` · claims true?→`assay` |
+| **Grounded content** | `newsroom` | claim-grounding maximization for a single article — Evidence Ledger → claim audit → refutation → **Provenance Report** (zero ungrounded facts) |
 | **Document package** | `package` (incl. `venture`) | 12-domain preset registry |
 | **Meta / control** | `classify` · `proactive` · `pack` | routing · project scan · skill-profile |
 
-| Recipe | Subcommand | Default? | When to Use | Chain Template | Read |
-|--------|-----------|---------|-------------|----------------|------|
-| Auto Classify | `classify` | ✓ | No Recipe specified — auto-classification. **Redirects to a curated Recipe when the resolved intent matches one; ad-hoc chain only for no-Recipe task types.** | `RESOLVE → GATE → MULTI? → REDIRECT? → SELECT → LADDER? → CHAIN_SELECT` | `reference/routing-matrix.md` (Classify Flow contract) |
-| Bug Fix | `bug` | | Bug reports and fix requests | `Scout[RCA] → Sherpa? → Radar[failing repro] → Builder[root-cause] → Radar[verify] → Guardian`| `reference/routing-matrix.md` |
-| Feature | `feature` | | New web/backend/generic feature. **iOS/Android native → `MOBILE_NATIVE` (Native) instead.** | `Lens?[reuse] → Sherpa[spec+AC] → Forge? → Builder → Radar[+verify gate] → Guardian`| `reference/routing-matrix.md` |
-| Security | `security` | | Security response | `Sentinel[triage] → Probe?[confirm-exploit] → Builder[root-cause] → Probe/Radar[verify-closed] → Vigil? → Guardian`| `reference/routing-matrix.md` |
-| Refactor | `refactor` | | Internal-only refactor, no external behavior change | `Radar?[safety-net] → Zen → Radar[verify-equivalence] → Guardian`| `reference/routing-matrix.md` |
-| Optimize | `optimize` | | Performance-only improvement on *correct* code — measure-first, prove-with-a-number. Defect-caused slowdown → `bug` | `Bolt/Tuner[measure→target→optimize] → Radar[verify-speedup] → Guardian`| `reference/routing-matrix.md` |
-| Kaizen | `kaizen` |  | Existing-feature continuous improvement covering perf / UX / code-quality / feature-extension. | See `reference/recipes-detail.md` | `reference/inline-recipes.md` |
-| Anneal | `anneal` |  | Codebase design audit → prioritized behavior-preserving brush-up. | See `reference/recipes-detail.md` | `reference/anneal-recipe.md` |
-| Restyle | `restyle` |  | UI/visual design improvement of an existing surface — audit → direction → rubric-looped implementation → walkthrough+a11y+no-regression verify. | See `reference/recipes-detail.md` | `reference/restyle-recipe.md` |
-| Converge | `converge` |  | **Quality-convergence loop** — the invocable entry point for the Generator-Evaluator pattern (`reference/evaluator-loop-protocol.md`). | See `reference/recipes-detail.md` | `reference/converge-recipe.md`, `reference/evaluator-loop-protocol.md` |
-| Loop | `loop` |  | Loop-engineering dispatcher & discipline gate. | See `reference/recipes-detail.md` | `reference/loop-recipe.md` |
-| Proactive | `proactive` | | `/Nexus` with no arguments — project state scan | `Scan project → recommend` | `reference/proactive-mode.md` |
-| Apex | `apex` |  | Full-cycle auto-implementation: discovery → spec → parallel design → risk gate → loop → ship. | See `reference/recipes-detail.md` | `reference/apex-recipe.md`, `reference/apex-walkthrough.md` |
-| Playable | `playable` |  | All-in-one game production. | See `reference/recipes-detail.md` | `reference/playable-recipe.md` |
-| Charter | `charter` |  | Repo-wide analysis → self-driving Charter, team design included — stops at the document. | See `reference/recipes-detail.md` | `reference/charter-recipe.md` |
-| Enact | `enact` |  | Execute a Charter end-to-end. | See `reference/recipes-detail.md` | `reference/enact-recipe.md` |
-| Operating Layer | `layer` |  | Design + stand up a repo's operating layer — Loom designs, Sigil authors, Nexus registers. | See `reference/recipes-detail.md` | `reference/layer-recipe.md` |
-| Goal Setup | `goal` | | `/goal` autonomous long-running execution setup. **Gates on a machine-checkable completion oracle + mandatory hard-stop bound** (rejects unverifiable goals). 1-3 agents, no code execution | `Hone → Latch → Scribe? → DELIVER` | `reference/goal-recipe.md` |
-| Gedanken | `gedanken` |  | Structured thought-experiment reasoning. | → `reference/recipes-detail.md` §gedanken | `reference/gedanken-recipe.md` |
-| Delve | `delve` | | Existing-feature deep-dive → evolution-direction dialogue; no code — stops at a named Evolution Map. | See `reference/recipes-detail.md` | `reference/delve-recipe.md` |
-| Cartograph | `cartograph` | | Multi-repo reverse-engineering → bird's-eye architecture diagrams + design document; no code — stops at a named Cartography Map. | See `reference/recipes-detail.md` | `reference/cartograph-recipe.md` |
-| Chronicle | `chronicle` | | Commit-history reverse-engineering → era timeline + narrative storylines (feature/fix/improvement/decision) + reconstructed decision log + per-lens deep-dive files (security/domain-design/architecture/performance/design-ux/issues, split per file) + inferred ethos/worldview + repository history document set; no code — stops at a named Chronicle. | See `reference/recipes-detail.md` | `reference/chronicle-recipe.md` |
-| Spec | `spec` |  | Interactive feature-proposal → locked specification through deep human-in-the-loop dialogue. | → `reference/recipes-detail.md` §spec | `reference/spec-recipe.md` |
-| Essential | `essential` |  | Must-have feature **verdict + conditional implementation**. | See `reference/recipes-detail.md` | `reference/inline-recipes.md` |
-| Killer | `killer` |  | Killer-feature **verdict + conditional implementation with feature flag**. | See `reference/recipes-detail.md` | `reference/inline-recipes.md` |
-| Trim | `trim` |  | Dead-weight feature **removal verdict + conditional excision** — the inverse of `essential`/`killer`. | See `reference/recipes-detail.md` | `reference/inline-recipes.md` |
-| Acceptance | `acceptance` |  | Proof-Carrying PR pipeline v2 — Two-Axis (Code + Design). | See `reference/recipes-detail.md` | `_common/PROOF_CARRYING.md`, `reference/acceptance-recipe.md` |
-| Growth-Acceptance | `growth-acceptance` |  | **Layer C lifecycle gate** (Market + Research + Brand axes) for Enterprise org-tier. | See `reference/recipes-detail.md` | `_common/GROWTH_BRAND_PROOF.md`, `reference/growth-acceptance-recipe.md` |
-| Summit | `summit` |  | Multi-engine **five-team** quality-maximization. | See `reference/recipes-detail.md` | `reference/summit-recipe.md` |
-| Podium | `podium` |  | Content-quality maximization. | See `reference/recipes-detail.md` | `reference/podium-recipe.md` |
-| Newsroom | `newsroom` |  | **Grounded article production / audit** — every factual claim source-cited and adversarially verified; no speculation ships unlabeled. Confirm release-critical. | See `reference/recipes-detail.md` | `reference/newsroom-recipe.md`, `reference/research-grounding.md` |
-| Wish | `wish` |  | **Once-in-a-lifetime request** — scarcity-gated one-shot quality-ceiling delivery: crystallize the true wish → tournament → adversarial gauntlet + ceiling convergence (all dims = 3) → One-Shot Gate. **Always confirm.** | See `reference/recipes-detail.md` | `reference/wish-recipe.md` |
-| Runway | `runway` |  | **Flagship UI design tournament** — 3 parallel design directions → persona-panel judging → ceiling convergence (all dims = 3) for product-defining surfaces. **Always confirm.** | See `reference/recipes-detail.md` | `reference/runway-recipe.md` |
-| Hallmark | `hallmark` |  | Brand identity package quality-max — brand-core dialogue → identity tournament → persona-resonance + adversarial gauntlet → proof-carrying Brand Book + tokens. | See `reference/recipes-detail.md` | `reference/hallmark-recipe.md` |
-| Rebrand | `rebrand` |  | All-surface brand propagation with a proven-complete guarantee — RESIDUE-GATE × brand rubric; old-brand decommission gated on the completeness proof. | See `reference/recipes-detail.md` | `reference/rebrand-recipe.md` |
-| Marquee | `marquee` |  | **Wish-grade one-shot LP production** — crystallization → 3-direction tournament → gauntlet + ceiling convergence with machine oracles (Lighthouse/CWV/WCAG) → One-Shot Gate. **Always confirm.** | See `reference/recipes-detail.md` | `reference/marquee-recipe.md` |
-| Migrate | `migrate` |  | Change-completeness migration. | See `reference/recipes-detail.md` | `reference/migrate-recipe.md` |
-| Transmute | `transmute` |  | **Cross-language rewrite** preserving behavior (TS→Rust, Go→Rust, Python→Go, JS→TS, …). | See `reference/recipes-detail.md` | `reference/transmute-recipe.md` |
-| Clone | `clone` | | Faithful product reproduction — reverse-engineer an existing product's observable surface, rebuild it, and verify the copy by differential parity against a stamped captured baseline. | See `reference/recipes-detail.md` | `reference/clone-recipe.md`, `reference/research-grounding.md` |
-| Fuse | `fuse` |  | Multi-source product synthesis. | See `reference/recipes-detail.md` | `reference/fuse-recipe.md`, `reference/research-grounding.md` |
-| Graft | `graft` |  | Concept transplant for innovation. | See `reference/recipes-detail.md` | `reference/graft-recipe.md`, `reference/research-grounding.md` |
-| Package | `package` |  | Generalized document-package generator. | See `reference/recipes-detail.md` | `reference/package-recipe.md`, `reference/venture-recipe.md` (startup blueprint) |
-| Pack | `pack` | | **Skill ecosystem control** (meta) — switch active Claude Code skill profile per workstream. Forms: `list` / `current` / `<name>` / `reset`. **Confirms diff before writing `settings.json`.** | Inline edit (no spawn) | `reference/pack-subcommand.md`, `_common/SKILL_PACKS.md` |
+### Recipe Registry
 
-### Signal Keywords → Recipe
+**Full table** (Recipe · Subcommand · When to Use · Chain Template · Read) → **`reference/recipes-index.md`**. Read it once a subcommand matches, or when scanning to pick a Recipe. The registry below is the dispatch allowlist only — a token not on it is not a subcommand.
 
-For natural-language input without an explicit subcommand. **Subcommand match always wins.** Keywords are **English canonical anchors**, not a literal allowlist — Nexus translates input (any language/paraphrase) to English intent first, then matches semantically. Output language still follows config.
+```
+classify*           bug                 feature             security            refactor            optimize            kaizen              anneal
+restyle             converge            proactive           apex                charter             enact               layer               goal
+gedanken            delve               cartograph          chronicle           spec                essential           killer              trim
+acceptance          summit              podium              newsroom            wish                eureka              runway              hallmark
+rebrand             crucible            silhouette          lattice             chorus              assay               migrate             transmute
+clone               fuse                graft               package             pack
+```
 
-**Full canonical table** (Core / Specialist / Mobile / Package / Fallback) → `reference/signal-keywords.md`. Most-used Core anchors inlined below:
-
-| Keywords | Recipe |
-|----------|--------|
-| `bug`, `error`, `broken` | `bug` |
-| `feature`, `implement`, `build` | `feature` |
-| `security`, `vulnerability`, `CVE` | `security` |
-| `refactor`, `clean up`, `code smell` | `refactor` |
-| `optimize`, `slow`, `performance`, `speed up`, `latency`, `slow query`, `bottleneck` | `optimize` (`memory leak` → `bug`; post-deploy slowdown, output still correct → `optimize +Trail`; full REDIRECT notes → `reference/signal-keywords.md`) |
-| `kaizen`, `improve`, `polish`, `enhance existing`, `refine` | `kaizen` |
-| `anneal`, `design audit`, `brush up the codebase`, `harden the architecture`, `design weaknesses` | `anneal` |
-| `restyle`, `redesign`, `UI refresh`, `visual polish`, `modernize the UI`, `improve the look and feel` | `restyle` (UI/visual — code-design improvement → `anneal`) |
-| `loop`, `make a loop`, `run until done`, `autonomous loop`, `ralph loop` | `loop` (dispatcher → gate + route to goal/converge/orbit/apex) |
-| `cartograph`, `reverse-engineer across repos`, `bird's-eye diagram`, `overview diagram`, `architecture map`, `design doc from code`, `understand the system across repos` | `cartograph` |
-| `chronicle`, `repository history`, `commit history summary`, `how did we get here`, `evolution of the codebase`, `project timeline`, `git history narrative`, `history of the repo`, `feature/bug/decision history`, `decision log from history`, `design philosophy from history`, `project ethos/worldview` | `chronicle` (era timeline + storylines: feature/fix/improvement/decision + decision log + per-lens deep-dive files: security/domain/architecture/perf/UX/issues + inferred ethos/worldview, from commit history) |
-| `wish`, `once-in-a-lifetime request`, `favor of a lifetime`, `your absolute best`, `spare nothing`, `no second chance`, `one shot to get this right` | `wish` (scarcity-gated one-shot ceiling; strategic code quality-max → `summit`, standard bar iteration → `converge`) |
-| `runway`, `design tournament`, `flagship screen design`, `best possible design` | `runway` (in-product flagship surface — single-direction improvement → `restyle`; acquisition LP → `marquee`) |
-| `hallmark`, `brand identity`, `brand book`, `brand voice`, `visual identity` | `hallmark` (creates the brand — propagation → `rebrand`; personal branding → `crest`) |
-| `rebrand`, `brand refresh`, `apply new brand everywhere`, `brand migration` | `rebrand` (completeness-proven propagation; no settled Brand Book → `hallmark` first) |
-| `marquee`, `best possible landing page`, `flagship LP`, `one-shot LP` | `marquee` (wish-grade one-shot LP; routine LP → `bazaar`/`funnel`; bare `landing page` overloaded → REDIRECT) |
-| `newsroom`, `fact-check`, `verify sources`, `every claim cited`, `no speculation`, `source-grounded article`, `check the article is correct` | `newsroom` (grounding-first article compose/audit — package polish + slides → `podium`; plain article → `zine` direct) |
-| `/Nexus` (no arguments) | `proactive` |
-| unclear or multi-domain request | `classify` → `reference/intent-clarification.md` |
-
-Specialist anchors (Chain / Cull-Triage-Crypt / Sonar / Clause-Scribe / Rank-Magi / Omen-Ripple / Matrix / Sketch), native-app / cross-platform anchors (`MOBILE_NATIVE`, `MACOS_NATIVE`, `IOS_UI_TEST`, `PORTING`), and package/domain-preset anchors (research / ai-adoption / legal / saas / media / growth / career / learning / hiring / local-gov) — see `reference/signal-keywords.md`.
+`*` = default when no subcommand is given. Named preset aliases (`venture` / `marquee` / `growth-acceptance`) → **Subcommand Dispatch** below.
 
 ## Subcommand Dispatch
 
 Parse the first token of user input:
-- Matches a Recipe Subcommand → skip CLASSIFY, pass Chain Template directly to CHAIN_SELECT. Read the Recipe's `Read` reference for full phase contracts before executing.
+- Matches a Recipe Subcommand → skip CLASSIFY, pass Chain Template directly to CHAIN_SELECT. Read the Recipe's `Read` reference for full phase contracts before executing. **Subject to the bare-subcommand exception below.**
+- **Bare-subcommand exception.** A subcommand supplied with **no remaining input** — no object, target, scope, or metric (`/nexus optimize`, `/nexus kaizen`, `/nexus anneal`) — does **not** skip CLASSIFY. It enters `classify` at `GATE`, which asks one focused clarifying question before any chain is selected. A subcommand answers *which Recipe*; it does not answer *on what*, and many Recipe names are also ordinary verbs with several valid readings (`optimize` → perf? DB query? cost? process?). Dispatching a bare one silently picks a reading the user never gave. **Exempt** (a bare invocation is itself meaningful): `proactive`, `pack`, `classify`. Regression fixtures: `reference/task-battery.md` items 31-32; guard: `routing-oracle.py` RO-6.
 - `/Nexus` with no arguments → `proactive` Recipe (`reference/proactive-mode.md`).
+- **Named preset aliases** — kept for discoverability, dispatched to their engine + preset; the alias and the explicit form are identical in behavior. Read **both** the engine reference and the preset blueprint: `venture` → `package domain=startup` · `marquee` → `wish domain=lp` · `growth-acceptance` → `acceptance layer=c`.
 - Otherwise → `classify` (default) = `RESOLVE → GATE → MULTI? → REDIRECT? → SELECT → LADDER? → CHAIN_SELECT`. **REDIRECT step**: if the resolved intent semantically matches a Recipe, redirect to that Recipe instead of hand-rolling a chain. Full contract → `reference/routing-matrix.md` § Classify Flow.
 
 Execution-control Mode (AUTORUN_FULL / AUTORUN / GUIDED / INTERACTIVE) is applied after Recipe selection (orthogonal). Inline Recipes (`kaizen`, `essential`, `killer`, `trim`) have no top-level reference — full phase contracts in `reference/inline-recipes.md`.
@@ -259,7 +197,7 @@ Execution-control Mode (AUTORUN_FULL / AUTORUN / GUIDED / INTERACTIVE) is applie
 | Phase | Purpose | Read When |
 |------|---------|-----------|
 | `CLASSIFY` | Detect task type, complexity, context confidence, official category, guardrail needs; crystallize the intent contract (goal + ACs + non-goals) | `reference/confidence-scoring.md`, `reference/intent-clarification.md`, `reference/official-skill-categories.md`, `reference/autonomy-quality-protocol.md` (Q1-Q3) |
-| `CHAIN` | Select minimum viable chain; plan parallel branches; Plan-and-Execute pattern (capable model plans, cheaper models execute — up to 90% cost reduction) | `reference/routing-matrix.md`, `reference/agent-chains.md`, `reference/agent-disambiguation.md`, `reference/task-routing-anti-patterns.md` |
+| `CHAIN` | Select minimum viable chain; plan parallel branches; apply the Core Contract's Plan-and-Execute pattern (up to 90% cost reduction) | `reference/routing-matrix.md`, `reference/agent-chains.md`, `reference/agent-disambiguation.md`, `reference/task-routing-anti-patterns.md` |
 | `EXECUTE` | Spawn agents (L1/L2/L3) with checkpoints; pass only state deltas | `reference/execution-phases.md`, `reference/guardrails.md`, `reference/error-handling.md`, `reference/orchestration-patterns.md` |
 | `AGGREGATE` | Merge branch outputs; validate schema/required fields per step; goal-alignment check vs the intent contract | `reference/conflict-resolution.md`, `reference/handoff-validation.md`, `reference/agent-communication-anti-patterns.md`, `reference/autonomy-quality-protocol.md` (Q7-Q8) |
 | `VERIFY` | Validate acceptance criteria; tests, build, security checks mandatory; producer ≠ sole verifier, evidence-bound claims | `reference/guardrails.md`, `reference/output-formats.md`, `reference/quality-iteration.md`, `reference/autonomy-quality-protocol.md` (Q9-Q15) |
@@ -268,122 +206,61 @@ Execution-control Mode (AUTORUN_FULL / AUTORUN / GUIDED / INTERACTIVE) is applie
 
 ## Execution Model
 
-**Default: spawn.** Every EXECUTE step spawns a real agent session unless an explicit exception applies (Core Rule #3).
-
 ### Orchestrator Detection
 
-Before the first spawn, determine which CLI drives **this hub session**, then bind the spawn API, authoring protocol, and model map accordingly. The hub engine is implicit in the available tooling — detect it once and reuse:
-
-| Signal | Hub engine | Spawn API | Authoring protocol | Model map |
-|--------|-----------|-----------|--------------------|-----------|
-| `Agent` tool present | **Claude Code** | `Agent(...)` (L1 fg / L2 `run_in_background`) | `_common/OPUS_5_AUTHORING.md` (P-principles); **Fable 5 hub → also `reference/hub-authoring.md` § Claude Code hub — Fable 5 (F-principles)** | **Sonnet 5** (subagent default) / opus / haiku / **fable-5** (see Model Selection ¶) |
-| `spawn_agent` callable (C1 prereqs hold) | **Codex CLI** | `spawn_agent` → `wait_agent` (parallel = N spawn → join all) | `_common/CODEX_ORCHESTRATION.md` (C-principles) | `gpt-5.6` family — sol/terra/luna by role (see `CLI_COMPATIBILITY.md §4`) |
-| `/agent` in TUI main session | **agy** | `/agent` or `agy -p` headless | `_common/AGY_ORCHESTRATION.md` (A1–A9) | Gemini 3.6 Flash (High) mandated (‡), effort tier per step via `/model` (see `CLI_COMPATIBILITY.md §4`) |
-
-Codex-hub prereqs (C1): `multi_agent = true` + `[agents] max_depth >= 2`. If unmet → internal execution with a concrete reason, never a generic "spawn tool not found"; `spawn_agent` may be lazily hidden — attempt when prereqs hold (C5). Details → `_common/CLI_COMPATIBILITY.md`, `reference/execution-layers.md`.
-
-**Claude Code hub model detection.** The hub runs on Opus 5 or Claude Fable 5; on Fable 5, apply the F-principles in `reference/hub-authoring.md` § Claude Code hub — Fable 5 on top of the P-principles. When unknown, author for Opus 5 defaults — safe on both.
+Detect which CLI drives **this hub session** once, before the first spawn (`Agent` tool present → Claude Code; `spawn_agent` callable → Codex CLI; `/agent` in TUI main session → agy), then bind the spawn API, authoring protocol, and model map accordingly. Full detection table + Codex-hub prereqs (C1) → `reference/hub-authoring.md` § Orchestrator Detection.
 
 ### Spawn Decision Flow
 
-Core Rule #3 decides it: no spawn tool → internal (log the blocker); specialist expertise → spawn (mandatory); trivial edit → spawn only if overhead is justified. Opus 5 delegates readily (P4) — bound the *upper* count, and never spawn an agent to re-check another's output (that is a sequential Q9 step, not a sibling).
+Core Rule #3 decides it: no spawn tool → internal (log the blocker); specialist expertise → spawn (mandatory); trivial edit → spawn only if overhead is justified. Bound the *upper* count; never spawn an agent to re-check another's output (that is a sequential VERIFY step, not a sibling).
 
 ### Execution Layers
 
-Full per-CLI prereqs, runtime notes, silent-failure mitigations, and the verified headless template → `reference/execution-layers.md`. Cross-CLI mapping → `_common/CLI_COMPATIBILITY.md`. Summary:
+Per-CLI spawn API at a glance — Claude Code `Agent` (L1 fg / L2 background / L3 Rally); Codex `spawn_agent`→`wait_agent` (prereq `multi_agent=true` + `max_depth>=2`); agy `/agent` TUI or `agy -p --dangerously-skip-permissions` headless (prereq TUI main session or OS-level isolation). Full per-CLI prereqs, runtime notes, silent-failure mitigations, and the verified headless template → `reference/execution-layers.md`. Cross-CLI mapping → `_common/CLI_COMPATIBILITY.md`.
 
-| CLI | L1 | L2 | L3 | Key prereq |
-|-----|----|----|----|-----------|
-| **Claude Code** | `Agent(... mode: bypassPermissions)` | `Agent(... run_in_background: true)` | `Agent("You are Rally...")` | `Agent` tool present |
-| **Codex CLI** | `spawn_agent` → `wait_agent` | N × `spawn_agent` → `wait_agent` × N | `spawn_agent("You are Rally...")` | `multi_agent = true` + `[agents] max_depth >= 2` |
-| **agy** | `/agent <name>` (TUI) or `agy -p --dangerously-skip-permissions` (headless) | Multiple `/agent` (async, `/tasks`) | Plugin team pack | TUI main session or OS-level isolation; **headless from a socket-stdin shell MUST allocate a real pty (`python3 pty.spawn`) — bare `agy -p` and `script -q /dev/null` both fail silently**; artifact file capture (NOT stdout) |
-
-**MANDATORY before spawning agy/codex as an agent** — read `_common/CLI_COMPATIBILITY.md §9.2` (agy real-pty + artifact/sentinel capture, never stdout) and §9.3 (codex `-o <abs path>` artifact is the source of truth). These are silent-output regressions, not edge cases.
+**MANDATORY before spawning agy/codex as an agent** — read `_common/CLI_COMPATIBILITY.md §9.2` (agy headless MUST allocate a real pty (`python3 pty.spawn`) — bare `agy -p` and `script -q /dev/null` fail silently; artifact/sentinel capture, never stdout) and §9.3 (codex `-o <abs path>` artifact is authoritative). Silent-output regressions, not edge cases.
 
 Key rules (Codex lazy-hidden tools, agy headless `@<path>` + sentinel + `--print-timeout`, agy Pre-flight, permission model) → `reference/hub-authoring.md` § Execution-Layer Key Rules.
 
 ### Model Selection
 
-Model names are hub-engine-specific; role → tier mapping is stable. Full table (Claude Code sonnet/opus/haiku per tier ↔ Codex CLI gpt-5.6 sol/terra/luna per tier, depth via `model_reasoning_effort`) → `reference/hub-authoring.md` § Model Selection. Cross-CLI cross-reference → `_common/CLI_COMPATIBILITY.md §4`.
+Model names are hub-engine-specific; role → tier mapping is stable. Full table → `reference/hub-authoring.md` § Model Selection; cross-CLI → `_common/CLI_COMPATIBILITY.md §4`.
 
 ### Adaptive Prompt Policy
 
-Before each spawn, tailor the spawn prompt to the current **project + session** context — ephemeral, reversible, no confirmation gate. Skip for single-spawn/trivial runs; apply at ≥ 3 spawns / loop recipes / repeated agent. Compose `spawn_prompt = base template ⊕ Project Profile ⊕ Session Ledger`. Full policy (layers, directive library, outcome ledger, promotion path) → `reference/adaptive-prompt-policy.md`.
+Before each spawn, tailor the prompt to the current **project + session** context — ephemeral, reversible, no confirmation gate. Skip for single-spawn/trivial runs; apply at ≥ 3 spawns / loop recipes / repeated agent. Compose `spawn_prompt = base template ⊕ Project Profile ⊕ Session Ledger`. Full policy → `reference/adaptive-prompt-policy.md`.
 
 ### Agent Spawn Template
 
-```
-Agent(
-  name: "[agent]-[task-slug]"
-  description: "[Short task description]"
-  subagent_type: general-purpose
-  mode: bypassPermissions
-  model: [claude-sonnet-5 (task-appropriate default) | opus | haiku]
-  prompt: |
-    You are the [AgentName] agent.
-    First, read ~/.claude/skills/[agent]/SKILL.md and follow its instructions.
-
-    Recipe: [recipe-name or auto]               # P-REC
-    Task: [task_description]
-    Context from previous step: [handoff_context]
-    Constraints: [constraints]
-    Acceptance criteria: [acceptance_criteria]  # P1: front-loaded (always)
-    Output length envelope: [length_envelope]   # P2: always — default output runs long
-    Scope bound: [in_scope / out_of_scope]      # P8: always — Opus 5 widens tasks on its own
-    Tool-use directive: [tool_use_directive]    # P3: optional — add when tool use matters
-    Thinking directive: [thinking_directive]    # P5: optional — depth nudge, never a self-check
-
-    On completion, emit:
-    _STEP_COMPLETE:
-      Agent: [AgentName]
-      Status: SUCCESS | PARTIAL | BLOCKED | FAILED
-      Output: [deliverable — strictly within the envelope above]
-      Next: [recommended next agent or DONE]
-)
-```
-
-Front-load acceptance criteria (P1), a length envelope (P2), and a scope bound (P8) on **every** spawn — Opus 5's default output runs long in both channels and it can widen a task unprompted. Tool-use (P3) and thinking (P5) directives are optional, added by task scale. **Never include self-verification wording** ("verify your work", "double-check", "re-verify before responding", "spawn a subagent to check this") — Opus 5 self-verifies and these cause over-verification (P9). Independent verification is unaffected: it lives in the *chain* as a separate agent (Radar after Builder, Judge after implementation), not in a producer's own prompt. For orchestrator spawns the Critical directives per `_common/OPUS_5_AUTHORING.md` are P4/P6/P7/P9 (delegation caps, effort, delegation framing, no redundant verification), carried by the `model`/`mode` fields and the spawn-ceiling rules rather than by per-field template text. **On a Fable 5 hub directives are lighter, not heavier** — a brief outcome+brevity instruction steers best, and any "echo / show / transcribe your reasoning" wording is forbidden (`reasoning_extraction` refusal). Engine variants, Opus 5 / Fable 5 notes, parallel-spawn rules → `reference/hub-authoring.md` § Spawn Template Variants; detailed flows → `reference/execution-phases.md`, `reference/orchestration-patterns.md`.
+Every spawn prompt MUST front-load acceptance criteria (P1), an output length envelope (P2), and a scope bound (P8) — Opus 5's default output runs long in both channels and can widen a task on its own. **Never include self-verification wording** ("verify your work", "double-check", "re-verify before responding") — independent verification is a separate chain agent, never the producer's own prompt; on a Fable 5 hub, directives are lighter still and must never request reasoning reproduction (`reasoning_extraction` refusal). Canonical prompt structure, `_STEP_COMPLETE` schema, and per-engine variants → `reference/hub-authoring.md` § Agent Spawn Template.
 
 ## Safety Contract
 
 - **Guardrails:** `L1` monitor/log → `L2` auto-verify/checkpoint → `L3` pause + auto-recovery → `L4` abort + rollback.
-- **Error handling:** `L1` retry (max 3) → `L2` auto-adjust or inject Builder → `L3` rollback + recovery chain → `L4` ask user (max 5) → `L5` abort.
-- **Circuit breaker:** Agent failing 3 consecutive tasks → mark DEGRADED, route to alternatives until probe success. Detect "Agent Tennis" (two agents disagreeing on the same point 3+ turns without progress) → trip breaker and escalate.
-- **Checkpoint-resume:** Chains with 4+ steps persist step outputs at each boundary so interrupted runs resume from the last successful checkpoint.
-- **Auto-decision:** proceed only when confidence is sufficient and action reversibility is acceptable; confirm risky or irreversible work before execution. Routine confirmation depth follows the per-task-type Autonomy Ledger (`reference/routing-learning.md`); it never relaxes an Ask First gate.
+- **Error handling:** `L1` retry (max 3) → `L2` auto-adjust or inject Builder → `L3` rollback + recovery chain → `L4` ask user (max 5) → `L5` abort. **agy hub headless failures classify `L0` CAPTURE_FAILURE first** — `exit 0/124 + empty stdout` is also what a *successful* `agy -p` run looks like, so the artifact (not exit code) decides; one typed repair retry, not an L1-L3 escalation (`reference/error-handling.md` § Level 0).
+- **Circuit breaker:** Agent failing 3 consecutive tasks → mark DEGRADED, route to alternatives until probe success. "Agent Tennis" (two agents disagreeing 3+ turns without progress) → trip breaker and escalate.
+- **Checkpoint-resume:** Chains with 4+ steps persist step outputs at each boundary so interrupted runs resume from the last checkpoint.
+- **Auto-decision:** proceed only when confidence is sufficient and reversibility acceptable; confirm risky/irreversible work first. Confirmation depth follows the per-task-type Autonomy Ledger (`reference/routing-learning.md`); never relaxes an Ask First gate.
 - **Output validation:** every step output passes schema validation (required fields, status enum, confidence ≥ 0.6) before flowing onward. Semantic failures (correct schema, wrong meaning) require domain checks.
-- **Always confirm:** `L4` security, destructive actions, external system modifications, and 10+ file edits.
+- **Always confirm:** the triggers enumerated in **Boundaries → Ask First**.
 
 ### LEARN Triggers and Safety
 
-| Trigger | Condition | Scope |
-|---------|-----------|-------|
-| `LT-01` | Chain execution complete | Lightweight |
-| `LT-02` | Same task type fails 3+ times | Full |
-| `LT-03` | User manually overrides chain | Full |
-| `LT-04` | Quality feedback from Judge | Medium |
-| `LT-05` | New agent notification from Architect | Medium |
-| `LT-06` | 30+ days since last routing review | Full |
-
-`CES = Success_Rate(0.35) + Recovery_Efficiency(0.20) + Step_Economy(0.20) + User_Satisfaction(0.25)`
-
-**LEARN safety rules:** max 5 routing updates per session; snapshot before adapting; Lore sync is mandatory before recording a routing change.
+Six triggers (`LT-01` routine completion → `LT-06` 30-day review) and the Chain Effectiveness Score formula are defined in `reference/routing-learning.md`. **LEARN safety rules:** max 5 routing updates per session; snapshot before adapting; Lore sync is mandatory before recording a routing change.
 
 ## Routing Quick Start
 
-Canonical matrix: `reference/routing-matrix.md` defines **99 task types** (ground-truthed by row count, `grep -c` the Task Type table); the Recipes table exposes the most-used 20 as subcommands — the rest are reachable via the `classify` (default) flow. Phase contracts (BUG/FEATURE/SECURITY/REFACTOR/OPTIMIZE), Sherpa skip conditions, chain adjustment and clarification rules all live in `reference/routing-matrix.md` (merged from the retired `routing-quick-start.md` — see § Sherpa Skip & Chain Adjustment there).
-
 **Chain reference hierarchy (Source of Truth):**
-- `routing-matrix.md` — owns task type → default chain (98 types), the classify/LADDER flow, and the per-task-type phase contracts + Sherpa-skip/chain-adjustment rules. **Primary SoT for "which agents fire for task X"**.
-- `agent-chains.md` — owns chain *modifications*: parallel variants, Rally escalation, addition/skip triggers. **Primary SoT for "how to adjust a chain"**.
-- `recipes-detail.md` — owns Recipe-level phase contracts (apex/summit/etc.). **Primary SoT for "what phases a Recipe runs"**.
+- `routing-matrix.md` — task type → default chain (**93 types**), classify/LADDER flow, per-task-type phase contracts + Sherpa-skip/chain-adjustment rules. SoT for "which agents fire for task X"; the Recipe Registry exposes the most-used types as subcommands, the rest reach via `classify`.
+- `agent-chains.md` — chain *modifications*: parallel variants, Rally escalation, addition/skip triggers. SoT for "how to adjust a chain".
+- `recipes-detail.md` — Recipe Families axis prose + extended descriptions. Phase contracts live in each recipe's own `<recipe>-recipe.md` (or `inline-recipes.md`), not here.
 
-Always confirm `L4` security, destructive actions, external system changes, and 10+ file edits before execution. If context is unclear, inspect git state and `.agents/PROJECT.md`; if confidence remains low, ask one focused question.
+If context is unclear, inspect git state and `.agents/PROJECT.md`; if confidence remains low, ask one focused question.
 
 ## Output Requirements & Handoffs
 
 Every deliverable must include:
-- `## Nexus Execution Report` header
+- `## NEXUS_COMPLETE` header (canonical template: `reference/output-formats.md`)
 - Task description and acceptance criteria
 - Chain selected and mode used
 - Per-step results with agent, status, and output summary
@@ -397,7 +274,7 @@ Every deliverable must include:
 **Required contracts:**
 - `DELIVER` returns `NEXUS_COMPLETE` semantics. Canonical formats: `reference/output-formats.md`.
 - `AUTORUN` appends `_STEP_COMPLETE:` with `Agent`, `Status`, `Output`, `Next` after normal work.
-- Hub mode uses `## NEXUS_ROUTING` as input and returns `## NEXUS_HANDOFF` (canonical schema: `_common/HANDOFF.md`).
+- Hub mode uses `## NEXUS_ROUTING` as input and returns `## NEXUS_HANDOFF` (canonical schema: `_common/HANDOFF.md`); no direct agent-to-agent calls. Surface in the handoff: task type classification + selected chain + execution mode; verification result + chain complexity / unresolved gaps / safety concerns.
 - Output language follows the CLI global config; identifiers, protocol markers, schema keys, and technical terms stay in English.
 
 | Direction | Handoff | Purpose |
@@ -417,79 +294,53 @@ External feedback sources: Titan (epic-chain results), Judge (quality), Architec
 
 Read only the files that match the current decision point.
 
+Files already indexed by the Workflow table's Read-When column (routing-matrix, agent-chains, confidence-scoring, execution-phases, guardrails, error-handling, output-formats, the anti-pattern catalogs, etc.) are not repeated here — the Workflow row is their index.
+
 | File | Read When |
 |------|-----------|
-| `reference/routing-matrix.md` | Canonical task-type → chain mapping, classify/LADDER flow, per-task-type phase contracts, Sherpa skip / chain adjustment / clarification rules |
-| `reference/agent-chains.md` | Full chain templates or add/skip rules |
-| `reference/agent-disambiguation.md` | Two or more agents plausibly fit the same request |
-| `reference/confidence-scoring.md` | Confidence scoring + autonomous decision thresholds |
-| `reference/intent-clarification.md` | Ambiguous request needs interpretation before routing; overloaded-anchor REDIRECT |
 | `reference/proactive-mode.md` | `/Nexus` no-task → next-action recommendations |
-| `reference/execution-phases.md` | Phase-by-phase AUTORUN flow |
-| `reference/guardrails.md` | Task-specific checkpoints or guardrail state rules |
-| `reference/error-handling.md` | Failure needs retry, rollback, recovery injection, escalation, abort |
 | `reference/routing-explanation.md` | Explaining why a chain was chosen |
-| `reference/conflict-resolution.md` | Parallel branches touch overlapping files |
 | `_common/PARALLEL.md` | Parallel branch definitions, file ownership, merge, rollback |
-| `reference/handoff-validation.md` | Handoff missing structure, confidence, integrity |
-| `reference/output-formats.md` | Canonical final output or handoff templates |
-| `reference/orchestration-patterns.md` | Concrete execution patterns (sequential, parallel, evaluator-loop, verification-gated) |
 | `reference/evaluator-loop-protocol.md` | Generator-Evaluator separation — the spec `converge` executes |
-| `reference/loop-engineering-primitives.md` | Map the loop-engineering pattern onto Claude Code / Codex primitives — when designing a `goal`/apex/summit loop |
+| `_common/LOOP_PRECONDITIONS.md` | Before any agent loop — five-point gate (completion oracle · hard-stop bound · maker ≠ checker · persistent memory · drift awareness) + shape resolution for an unnamed loop |
+| `reference/loop-engineering-primitives.md` | Map the loop pattern onto Claude Code / Codex / **agy** primitives for a `goal`/apex/summit loop (agy has no `/loop`/confirmed `/goal` — hub-driven) |
 | `reference/context-strategy.md` | Decide how context flows between agents |
 | `reference/adaptive-prompt-policy.md` | Tailor each spawn prompt to project + session context; ephemeral, reversible |
-| `reference/routing-learning.md` | Adapting routing from evidence; per-task-type Autonomy Ledger |
-| `reference/quality-iteration.md` | Output needs post-delivery PDCA improvement |
-| `reference/{orchestration,task-routing,production-reliability,agent-communication}-anti-patterns.md` | Anti-pattern catalogs (load when chain ≥ 4 agents) |
 | `reference/execution-layers.md` | Per-CLI prereqs, runtime notes, agy headless mitigations + template |
-| `reference/hub-authoring.md` | Per-engine authoring (Claude/Codex/agy), spawn-template variants, model selection, execution-layer key rules, Fable 5 F-principles |
-| `reference/recipes-detail.md` | Recipe Families full axis prose + extended Recipe descriptions + full chain templates |
-| `reference/{anneal,restyle,apex,playable,charter,enact,layer,gedanken,delve,cartograph,chronicle,spec,migrate,clone,fuse,graft,converge,loop,goal,acceptance,growth-acceptance,summit,transmute,venture,package,podium,newsroom,wish,runway,hallmark,rebrand,marquee}-recipe.md`, `reference/apex-walkthrough.md` | Per-Recipe phase contracts, chain templates, cost profiles (+ apex Mermaid walkthroughs). Indexed per subcommand in the Recipes table Read column; open the matching `<recipe>-recipe.md` for full detail |
+| `reference/hub-authoring.md` | Per-engine authoring, spawn-template variants, model selection, execution-layer key rules, Fable 5 F-principles |
+| `reference/recipes-index.md` | Subcommand matched at Dispatch and you need its chain template + `Read` reference, or scanning the full registry — **the complete Recipes table** |
+| `reference/recipes-detail.md` | Recipe Families axis prose + extended descriptions (phase contracts live in each `<recipe>-recipe.md`) |
+| `reference/<recipe>-recipe.md`, `reference/apex-walkthrough.md` | Per-Recipe phase contracts, chain templates, cost profiles (+ apex Mermaid walkthroughs); filename = `Read` column of `recipes-index.md` |
 | `reference/inline-recipes.md` | Full phase contracts for `kaizen` / `essential` / `killer` / `trim` |
-| `reference/recipe-contract.md` | Authoring standard for nexus recipes — 8 required elements + canonical phrasing. Read when authoring/normalizing a recipe |
+| `reference/recipe-contract.md` | Authoring/normalizing a recipe — 8 required elements + canonical phrasing |
 | `reference/verdict-gate.md` | Shared contract for verdict recipes (`essential`/`killer`/`trim` + graft flag clause) |
-| `reference/dialogue-protocol.md` | Conducting contract-level dialogue (`spec`/`delve` mandatory; `gedanken` INTERACTIVE, `clone` Stack Dialogue, verdict cards) — question craft, Assumption Ledger, Provenance Gate |
-| `reference/autonomy-quality-protocol.md` | Any `AUTORUN`/`AUTORUN_FULL` chain — intent contract (Q1-Q3), Decision Ledger (Q4-Q6), drift control (Q7-Q8), independent verification + evidence-bound claims (Q9-Q11), quality budget + Acceptance Provenance (Q12-Q15) |
-| `reference/doc-quality-protocol.md` | Deliverable includes documents (`package`/`charter`/`layer`/`spec`/`delve`/`gedanken`/`podium`, any Scribe/Accord/Quill/Tome-authored step) — reader contract (W1-W3), grounding (W4-W6), coherence (W7-W9), readability (W10-W11), Doc Quality Gate (W12) |
+| `reference/dialogue-protocol.md` | Contract-level dialogue (`spec`/`delve` mandatory; `gedanken` INTERACTIVE, `clone` Stack Dialogue, verdict cards) — question craft, Assumption Ledger, Provenance Gate |
+| `reference/doc-quality-protocol.md` | Deliverable includes documents (`package`/`charter`/`layer`/`spec`/`delve`/`gedanken`/`podium`, any Scribe/Accord/Quill/Tome step) — reader contract, grounding, coherence, readability, Doc Quality Gate |
 | `reference/signal-keywords.md` | Canonical full Signal Keywords → Recipe table (Core / Specialist / Mobile / Package / Fallback) |
-| `reference/task-battery.md` | Verifying a routing-machinery change (LADDER wiring, Recipe additions, Signal Keyword edits) before merge — standing regression battery |
+| `reference/task-battery.md` | Verifying a routing-machinery change (LADDER wiring, Recipe additions, Signal Keyword edits) before merge |
 | `reference/official-skill-categories.md` | Official use case categories + 5 canonical patterns |
 | `reference/managed-agents-mapping.md` | Managed Agents / Outcomes / Dreaming / Webhooks mapping + Dynamic Workflows |
-| `_common/DIFFERENTIAL_PARITY.md` | Shared parity discipline for `transmute`/`clone`/`fuse`/`graft`/`migrate` — read when a recipe claims "verified by differential parity" |
-| `_common/ADVERSARIAL_REFUTATION.md` | Shared skeptic-panel discipline for `killer`/`trim`/`graft`/`newsroom` — read when a recipe gates a verdict on "refute ×2-3" |
-| `_common/PROPORTION_AND_SPACING.md` | Shared sourced proportion/spacing reference for design recipes (`restyle`/`runway`/`marquee`/`hallmark`/`rebrand`) — read when a rubric axis needs a defensible number (spacing scale, measure, grid, touch target) or when a design rationale is about to invoke the golden ratio (§1 evidence tiers, §10 contradictions) |
-| `reference/research-grounding.md` | Phase 0.5 web-research sweep shared by `clone`/`fuse`/`graft` (Evidence Ledger); `newsroom` reuses the ledger schema + trust tiers (primary-source-authoritative variant) |
+| `_common/DIFFERENTIAL_PARITY.md` | Parity discipline for `transmute`/`clone`/`fuse`/`graft`/`migrate`/`lattice`/`chorus`/`assay` when a recipe claims "verified by differential parity" (per-recipe oracle specializations noted in the file) |
+| `_common/ADVERSARIAL_REFUTATION.md` | Skeptic-panel discipline for `killer`/`trim`/`graft`/`newsroom`/`silhouette`/`assay` when a recipe gates a verdict on "refute ×2-3" |
+| `_common/PROPORTION_AND_SPACING.md` | A design-recipe rubric axis needs a defensible sourced number (spacing scale, measure, grid, touch target, golden-ratio) |
+| `reference/research-grounding.md` | Web-research sweep + Evidence Ledger shared by `clone`/`fuse`/`graft`, `eureka` (inverted polarity), `silhouette` (visual prior art), `wish`/`marquee`, `newsroom` |
 | `_common/PROOF_CARRYING.md` | `/nexus acceptance` Tier policy + G1-G10. **Mandatory before `acceptance`.** |
-| `_common/GROWTH_BRAND_PROOF.md` | `/nexus growth-acceptance` Layer C + Insight Ledger + Brand Compiler + G11-G15 |
-| `reference/feature-impact-simulate.md` | Feature impact prediction (Persona+Journey+Product v4) |
+| `_common/GROWTH_BRAND_PROOF.md` | `/nexus acceptance layer=c` (alias `growth-acceptance`) Layer C + Insight Ledger + Brand Compiler + G11-G15 |
 | `reference/pack-subcommand.md` | `/nexus pack` — skill profile switch, settings.json edit, backup, diff, confirm |
 | `_common/SKILL_PACKS.md` | Pack membership matrix (10 packs × 130 skills), profile catalog, routing protocol |
-| `_common/OPUS_5_AUTHORING.md` | **Claude Code hub** — P1–P12 (delegation caps, effort against a `high` default, length envelopes, scope bounds, no self-verification scaffolding, context minimalism) + Opus 5 platform facts |
-| `reference/hub-authoring.md` § Claude Code hub — Fable 5 | **Hub runs on `claude-fable-5`** — F-principles (F1-F8): lighter spawn prompts, `high` default effort, async harness, no-reasoning-reproduction, cost gate |
+| `_common/OPUS_5_AUTHORING.md` | **Claude Code hub** — P1–P12 (delegation caps, effort, length envelopes, scope bounds, no self-verification scaffolding, context minimalism) + Opus 5 platform facts |
 | `_common/CODEX_ORCHESTRATION.md` | **Codex CLI hub** — C1 spawn-depth, C2 sync fan-out, C3 effort-by-model, C6 checkpoint-resume |
-| `_common/AGY_ORCHESTRATION.md` | **agy hub** — A1 Flash-mandate effort-tier routing, A2 file-handoff+pty capture, A3 session-scoped tier, A4 flattened fan-out / `-c` resume, A6 sandbox posture (#36) |
-| `_common/IMAGE_INPUT.md` | Routing request carries an image — five-stage pipeline at CLASSIFY |
-| `reference/autorun-schema.md` | You are emitting the AUTORUN `_STEP_COMPLETE` block — Nexus-specific Output/Next schema. |
+| `_common/AGY_ORCHESTRATION.md` | **agy hub** — A1 Flash-mandate routing, A2 file-handoff+pty capture, A3 session-scoped tier, A4 flattened fan-out, A6 sandbox posture (#36) |
+| `_common/IMAGE_INPUT.md` | Routing request carries an image — five-stage pipeline at CLASSIFY; screenshot-driven fix/improvement chains add the Visual Fix Loop (re-capture + per-problem-point compare) at VERIFY |
+| `reference/autorun-schema.md` | Emitting the AUTORUN `_STEP_COMPLETE` block — Nexus-specific Output/Next schema |
 
 ## Operational Notes
 
-Follow `_common/OPERATIONAL.md`, `_common/AUTORUN.md`, `_common/HANDOFF.md`, `_common/GIT_GUIDELINES.md`, `_common/HARNESS_EVOLUTION.md`. For the active orchestrator engine apply `_common/OPUS_5_AUTHORING.md` (Claude Code hub; add the F-principles in `reference/hub-authoring.md` when the hub runs on Fable 5), `_common/CODEX_ORCHESTRATION.md` (Codex CLI hub), or `_common/AGY_ORCHESTRATION.md` (agy hub — A1–A9). Journal in `.agents/nexus.md`; log to `.agents/PROJECT.md`. No agent names in commits/PRs. Decompose, route, execute, verify, deliver. Keep chains small, handoffs structured, recovery explicit.
-
-## AUTORUN Support
-
-See `_common/AUTORUN.md` for the protocol (`_AGENT_CONTEXT` input, mode semantics, error handling). Nexus-specific `_STEP_COMPLETE.Output` schema lives in `reference/autorun-schema.md`.
-
-## Nexus Hub Mode
-
-When input contains `## NEXUS_ROUTING`, operate as the hub. Do not instruct direct agent-to-agent calls. Return via `## NEXUS_HANDOFF` (canonical schema in `_common/HANDOFF.md`).
-
-Nexus-specific findings to surface in handoff:
-- Task type classification + selected chain + execution mode
-- Verification result + chain complexity / unresolved gaps / safety concerns
+Follow `_common/OPERATIONAL.md`, `_common/AUTORUN.md`, `_common/HANDOFF.md`, `_common/GIT_GUIDELINES.md`, `_common/HARNESS_EVOLUTION.md`. Apply `_common/OPUS_5_AUTHORING.md` (Claude Code hub; add F-principles in `reference/hub-authoring.md` on a Fable 5 hub), `_common/CODEX_ORCHESTRATION.md` (Codex CLI), or `_common/AGY_ORCHESTRATION.md` (agy — A1–A9). Journal in `.agents/nexus.md`; log to `.agents/PROJECT.md`. No agent names in commits/PRs. Decompose, route, execute, verify, deliver. Keep chains small, handoffs structured, recovery explicit.
 
 ## Operational Notes for Spawns
-- **Scoring:** Compute confidence with the weighted formula in `confidence-scoring.md`. The qualitative 3/2/1/0 table there is a human-readable audit summary that runs alongside it — reach for it as the sole score only to cap per-model compute cost under heavy parallel fan-out, not as a general fallback.
+- **Scoring:** Compute confidence with the weighted formula in `confidence-scoring.md`. The qualitative 3/2/1/0 table there is a human-readable summary alongside it — use as sole score only to cap compute cost under heavy parallel fan-out, not as a general fallback.
 - **References:** Load only files in the current phase row of the Workflow table. Skip anti-pattern refs unless chain has 4+ agents.
-- **Output:** `_STEP_COMPLETE` and `NEXUS_HANDOFF` minimum: Summary + Status + Next. Add the Recommended/Optional fields by task complexity per `_common/HANDOFF.md` (detail proportional to complexity).
-- **State:** Track Phase + Step at minimum; keep the full `_NEXUS_STATE` for complex or long (4+ step) chains — driven by task complexity, not model capability.
+- **Output:** `_STEP_COMPLETE`/`NEXUS_HANDOFF` minimum: Summary + Status + Next. Add Recommended/Optional fields by task complexity per `_common/HANDOFF.md`.
+- **State:** Track Phase + Step at minimum; keep full `_NEXUS_STATE` for complex/long (4+ step) chains.
 - **Agent roles:** Focus on the agent's concrete task and output format, not personality adoption.

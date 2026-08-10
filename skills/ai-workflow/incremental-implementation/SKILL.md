@@ -2,14 +2,14 @@
 name: incremental-implementation
 description: 'Delivers changes incrementally. Use when implementing any feature or change that touches more than one file. Use when you''re about to write a large amount of code at once, or when a task feels too big to land in one step.'
 zh_description: "用于incremental、实现，支持任务规划、执行、评审和验证。"
-version: "1.0.0"
+version: "1.0.1"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/incremental-implementation/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "incremental-implementation", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-07-27"
+updated_at: "2026-08-10"
 quality: 5
 complexity: advanced
 upstream_slug: incremental-implementation
@@ -258,4 +258,4 @@ After completing all increments for a task:
 
 ## See Also
 
-Per-increment verification is the local check. Before declaring a task done, apply the project-wide Definition of Done as the final gate, the standing bar every increment clears regardless of the task. See `references/definition-of-done.md`.
+Per-increment verification is the local check. Before declaring a task done, apply the project-wide Definition of Done as the final gate, the standing bar every increment clears regardless of the task. See `../../references/definition-of-done.md`.

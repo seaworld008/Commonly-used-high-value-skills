@@ -1,0 +1,41 @@
+{
+  "skill_name": "react-native-engineering",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Our Expo app builds in development but the Android preview build fails after adding a native camera package. Give me a diagnosis and release-safe fix plan.",
+      "expected_output": "A version-aware diagnosis that separates JavaScript, native dependency, New Architecture, and Android build causes and requires Expo diagnostics plus a real preview build.",
+      "files": [],
+      "expectations": [
+        "The response asks for or inspects React Native, Expo SDK, workflow, and package versions before prescribing upgrades.",
+        "The response includes expo-doctor and dependency compatibility checks.",
+        "The response requires an Android preview or local native build and device validation for the camera path.",
+        "The response avoids treating cache deletion as the primary fix."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "We changed a React Native app's notification permission and upgraded a native SDK. Can we ship this tonight through EAS Update without a new store build?",
+      "expected_output": "A clear blocked OTA decision explaining the binary/runtime boundary and a safe build, channel, device-test, and rollback plan.",
+      "files": [],
+      "expectations": [
+        "The response states that native dependency and permission changes require a new binary.",
+        "The response distinguishes JavaScript/assets suitable for OTA from native configuration.",
+        "The response requires runtime/channel verification on the target binary.",
+        "The response includes staged validation and rollback or republish planning."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Review our React Native testing strategy: we have snapshots for every component and no device tests. Propose a measurable release gate for iOS and Android.",
+      "expected_output": "A user-centered testing pyramid with types, lint, unit/component, integration, and critical device E2E gates across both platforms.",
+      "files": [],
+      "expectations": [
+        "The response replaces snapshot-only confidence with user-observable component assertions.",
+        "The response includes static type and lint gates.",
+        "The response selects critical journeys for device E2E tests on iOS and Android.",
+        "The response provides a validation matrix or similarly measurable PASS/BLOCKED criteria."
+      ]
+    }
+  ]
+}

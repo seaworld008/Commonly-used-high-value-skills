@@ -2,19 +2,19 @@
 name: neon-postgres-egress-optimizer
 description: 'Diagnose and fix excessive Postgres egress (network data transfer) in a codebase. Use when a user mentions high database bills, unexpected data transfer costs, network transfer charges, egress spikes, "why is my Neon bill so high", "database costs jumped", SELECT * optimization, query overfetching, reduce Neon costs, optimize database usage, or wants to reduce data sent from their database to their application. Also use when reviewing query patterns for cost efficiency, even if the user doesn''t explicitly mention egress or data transfer.'
 zh_description: "诊断并降低 Neon / Postgres 数据出口流量与相关成本。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:neondatabase/agent-skills"
 source_url: "https://github.com/neondatabase/agent-skills/tree/main/skills/neon-postgres-egress-optimizer"
 license: Apache-2.0
 tags: '["postgres", "neon", "cost-optimization", "performance"]'
 created_at: "2026-06-29"
-updated_at: "2026-07-27"
+updated_at: "2026-08-10"
 quality: 4
 complexity: "intermediate"
 ---
 
-**FIRST**: Use the parent `neon` skill for a Neon platform overview, getting started with Neon, Neon development best practices, and more.
+**FIRST**: Use the parent `neon` skill for a Neon overview, getting started with Neon, Neon development best practices, and more.
 
 If the `neon` skill is not installed, fetch it from https://neon.com/docs/ai/skills/neon/SKILL.md or install it with:
 

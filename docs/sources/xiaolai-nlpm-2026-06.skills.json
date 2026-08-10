@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://nlpm.com/",
-    "checked_at": "2026-07-27",
+    "checked_at": "2026-08-10",
     "note": "Curated from xiaolai/nlpm after reviewing the website, why page, README, LICENSE, author docs, rules, scoring, and testing materials. Imported as an original repository skill that captures the durable audit method rather than mirroring the full upstream command/plugin product."
   },
   "official_references": [
@@ -49,9 +49,9 @@
         "path": "README.md",
         "ref": "main",
         "sync_mode": "monitor",
-        "last_checked_at": "2026-07-27",
-        "last_synced_at": "2026-07-27",
-        "last_synced_commit": "41ce701962986f23ca79b45e64a1005a0bd3b3f4"
+        "last_checked_at": "2026-08-10",
+        "last_synced_at": "2026-08-10",
+        "last_synced_commit": "06e14047e59a8446275dc1b2f082127fc3bc29de"
       }
     }
   ],
@@ -90,6 +90,13 @@
       "target": "https://github.com/xiaolai/nlpm/compare/c23a2735266a59c1c648c24ebeb6d964d2539826...41ce701962986f23ca79b45e64a1005a0bd3b3f4",
       "result": "no-local-change-needed",
       "evidence": "Reviewed the only upstream commit and changed file. It added one generated auditor event-log row and did not change README, install behavior, rules, scoring, CI, security, compatibility, or reusable audit method."
+    },
+    {
+      "date": "2026-08-10",
+      "method": "manual-monitor-review",
+      "target": "https://github.com/xiaolai/nlpm/compare/41ce701962986f23ca79b45e64a1005a0bd3b3f4...06e14047e59a8446275dc1b2f082127fc3bc29de",
+      "result": "success",
+      "evidence": "Reviewed 262 upstream commits. Ignored generated tracking, dashboard, case-study, and product-automation churn; absorbed durable scoring calibration for mention-versus-use and fenced examples, deterministic registry-based vocabulary gates with advisory LLM clustering, changed-artifact PR scoring, and current Codex convention compatibility."
     }
   ]
 }

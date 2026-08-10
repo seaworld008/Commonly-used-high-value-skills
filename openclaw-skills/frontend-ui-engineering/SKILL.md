@@ -2,14 +2,14 @@
 name: frontend-ui-engineering
 description: 'Builds production-quality, accessible, responsive user-facing UIs. Use when building or modifying interfaces and pages, creating components, implementing layouts, meeting WCAG accessibility requirements, managing state, or when the output needs to look and feel production-quality rather than AI-generated.'
 zh_description: "用于前端、UI、工程，支持任务规划、执行、评审和验证。"
-version: "1.0.0"
+version: "1.0.1"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/frontend-ui-engineering/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "frontend-ui-engineering", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-07-27"
+updated_at: "2026-08-10"
 quality: 5
 complexity: advanced
 upstream_slug: frontend-ui-engineering
@@ -306,7 +306,7 @@ function useToggleTask() {
 
 ## See Also
 
-For detailed accessibility requirements and testing tools, see `references/accessibility-checklist.md`.
+For detailed accessibility requirements and testing tools, see `../../references/accessibility-checklist.md`.
 
 ## Common Rationalizations
 

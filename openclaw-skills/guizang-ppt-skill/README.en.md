@@ -11,7 +11,7 @@
 ![Kimi work Gold Sponsor](https://img.shields.io/static/v1?label=Kimi%20work&message=Gold%20Sponsor&color=111111&style=flat-square)
 ![Cola Skill Gold Sponsor](https://img.shields.io/static/v1?label=Cola%20Skill&message=Gold%20Sponsor&color=E4353F&style=flat-square)
 
-An agent skill for Claude Code, Codex, and similar coding-agent environments. It generates **single-file HTML horizontal-swipe decks**, deck visuals, and social cover pages.
+An agent skill for Claude Code, Codex, and similar coding-agent environments. It generates **single-file HTML horizontal-swipe decks**, deck visuals, and social cover pages, with a complete rehearsal and presenter mode built in.
 
 It ships with two visual systems:
 
@@ -59,6 +59,7 @@ Other useful prompts:
 Turn this Markdown file into an editorial magazine-style presentation.
 Create a 21:9 social cover from the core idea of this deck.
 Redesign this product screenshot as a 16:10 slide visual.
+Add speaker notes and planned timing to this deck, then help me rehearse it in presenter mode.
 ```
 
 ## Sponsors and Supporters
@@ -88,6 +89,7 @@ Beyond Claude Code / Codex, you can also use Guizang PPT Skill on these platform
 - 🎨 **Curated theme presets**: 5 electronic-ink themes for Style A, 4 Swiss anchor-color themes for Style B
 - 🖼 **Optional Codex image flow**: generate documentary photos, infographics, flow diagrams, system maps, and UI scenes with GPT-Image 2.0 / GPT-M 2.0, then insert them at template-safe ratios
 - 📰 **Social covers**: generate 21:9 WeChat cover images, 1:1 share cards, 3:4 Xiaohongshu covers, video thumbnails, and related variants
+- 🎤 **Presenter mode**: dual-window audience output, 16:9 current/next previews, speaker notes, timing and rehearsal, auto advance, laser pointer, circles, and live recovery controls
 - 📴 **Low-power static mode**: press `B` to turn WebGL / canvas animation into static visuals
 - 📄 **Single HTML file** — no build, no server, open directly in the browser
 
@@ -107,12 +109,13 @@ Beyond Claude Code / Codex, you can also use Guizang PPT Skill on these platform
 | Deck visuals | In Codex, generate photos, infographics, flow diagrams, system maps, or UI scenes |
 | Social covers | Generate 21:9 main covers, 1:1 share cards, 3:4 vertical covers, and video thumbnails from the same idea |
 | Screenshot normalization | Redesign raw screenshots into template-safe ratios before inserting them into slides |
+| Live talk / rehearsal | Ask the agent to generate notes and timing, then press the bottom-right `P` to enter presenter mode |
 
 ## Why HTML decks
 
 - **Agent-native editing**: HTML / CSS is plain text, so agents can read, edit, and validate it directly.
 - **Higher visual density than Markdown**: precise layout, positioning, motion, interactivity, and cover formats.
-- **Lightweight delivery**: one HTML file can be opened, presented, sent, screenshotted, or recorded.
+- **Lightweight delivery**: one HTML file can be opened, presented, sent, screenshotted, or recorded, with presenter tools included.
 - **Better quality gates**: the Swiss validator can catch layout drift, unsafe image placement, centered body titles, and SVG text traps.
 - **One visual system across outputs**: decks, generated visuals, covers, and screenshot redesigns can share the same style rules.
 
@@ -162,6 +165,7 @@ Once installed, Claude Code auto-detects the skill. Trigger phrases:
 - "Electronic ink slides for my talk"
 - "Create a 21:9 WeChat cover from this article"
 - "Create a 1:1 share card from this deck"
+- "Add speaker notes to this deck and help me rehearse it in presenter mode"
 
 ## Workflow
 
@@ -172,11 +176,58 @@ The skill is a structured workflow; the agent walks you through each step:
 3. **Copy template** — Style A uses `assets/template.html`; Style B uses `assets/template-swiss.html`
 4. **Fill content** — create a rhythm plan, then choose and adapt the matching layout skeletons
 5. **Optional image generation** — in Codex, ask whether to use GPT-Image 2.0 / GPT-M 2.0 images, then insert them at page-appropriate ratios
-6. **Self-check** — match against `references/checklist.md`; P0 issues must all pass; Swiss decks must also pass the layout validator
-7. **Preview** — open the HTML in a browser
-8. **Iterate** — use inline styles to tune font size, height, spacing
+6. **Generate speaker notes** — derive each slide's purpose, talking points, transition, and planned duration from the outline; do not invent missing live details
+7. **Self-check** — match against `references/checklist.md`; P0 issues must all pass; run the Swiss and presenter validators when applicable
+8. **Preview** — open the HTML in a browser
+9. **Rehearse / present** — press the bottom-right `P`, verify audience sync, and record actual timing
+10. **Iterate** — adjust content, font size, height, and spacing from rehearsal results
 
 Full spec in [`SKILL.md`](./SKILL.md).
+
+## Presenter mode
+
+Both templates ship with the same presenter runtime. Open a deck and press the bottom-right `P` to enter presenter view; the browser opens a clean audience window at the same time. Core features run entirely inside the local HTML and browser—no live-caption service, cloud relay, phone remote, or AI coaching service is required.
+
+**Presenter view example**
+
+![Presenter view with current and next slides, speaker notes, timing controls, and audience status](https://github.com/user-attachments/assets/95db62b5-65bb-40af-ac0b-1d415682af88)
+
+### What the speaker sees
+
+- **Current and next slides**: stacked vertically and always kept at `16:9`; small windows scale the whole slide without cropping or reflowing its text
+- **Grid navigation**: replace the preview area with an inline overview, choose a slide, then return immediately to the two previews while the audience follows
+- **Structured notes**: title, purpose, talking points, and transition are required; interaction, delivery, advance cue, fallback, and pronunciation appear only when supplied by the outline
+- **Progress and health**: current / total slide count, completion percentage, plus audience states for connecting, synced, unsynced, frozen, disconnected, or popup blocked
+
+### Timing, rehearsal, and auto advance
+
+- The footer separates elapsed, current-slide, and remaining / overtime values, with explicit “Start timer / Resume timer / Reset timer” controls
+- Rehearsal mode records actual time per slide and a local session summary; it does not grade the speaker with AI
+- Auto advance is off by default and only runs when the outline provides per-slide seconds or the user enables a global interval
+- Auto advance pauses while the grid, settings, or annotation tool is open, when the page is hidden, or when the audience is paused or out of sync
+
+### Live tools and recovery
+
+- Laser pointer, circle annotation, and clear actions sync to the audience window
+- Black screen, white screen, or freeze the audience; unfreezing catches it up to the presenter's current slide
+- Closing the audience window or losing its heartbeat produces a visible “Disconnected” state; “Reopen audience” is always available
+- Exiting presenter mode closes the audience window when allowed, or leaves a clear “Presentation ended” fallback
+- Preflight checks cover popups, fullscreen, fonts, images / video, and `16:9` previews, while reminding the speaker to verify HDMI adapters and projectors manually
+
+Common shortcuts: `← / →` navigate, `Home / End` jump to first or last, `G` opens the grid, `L` laser, `C` circle, `B / W` black or white screen, `F` freezes the audience, and `?` opens the full shortcut list.
+
+Ask an agent to prepare presenter mode with:
+
+```text
+Use this outline to add a purpose, talking points, transition, and planned duration to every slide. Do not invent interaction or live details that were not provided, then run the presenter-mode validator.
+```
+
+See [`references/presenter-mode.md`](./references/presenter-mode.md) for the full notes contract and runtime behavior. Validate with:
+
+```bash
+node scripts/validate-presenter-mode.mjs path/to/index.html
+node scripts/validate-presenter-mode.mjs path/to/index.html --target-minutes 30
+```
 
 ## Style B Swiss
 
@@ -258,7 +309,9 @@ guizang-ppt-skill/
 │   ├── template-swiss.html   ← Style B Swiss template
 │   └── screenshot-backgrounds/ ← bundled WebP screenshot backgrounds: 5 style-a / 4 style-b
 ├── scripts/
-│   └── validate-swiss-deck.mjs ← Swiss layout validator
+│   ├── validate-swiss-deck.mjs ← Swiss layout validator
+│   ├── validate-presenter-mode.mjs ← speaker notes, timing, and runtime validator
+│   └── check-presenter-runtime-sync.mjs ← cross-template presenter runtime drift check
 └── references/
     ├── components.md     ← component catalog (type, color, grid, icons, callout, stat, pipeline)
     ├── layouts.md        ← 10 layout skeletons (paste-ready)
@@ -268,6 +321,7 @@ guizang-ppt-skill/
     ├── themes-swiss.md   ← 4 Swiss anchor-color themes
     ├── image-prompts.md  ← GPT-Image 2.0 / GPT-M 2.0 image types, ratios, and base prompts
     ├── screenshot-framing.md ← CleanShot X-style screenshot framing semantics
+    ├── presenter-mode.md ← notes contract, rehearsal, audience output, and live tools
     └── checklist.md      ← quality checklist (P0 / P1 / P2 / P3 tiers)
 ```
 
@@ -341,6 +395,12 @@ Yes. Style A layouts can be extended in `references/layouts.md`. Style B is stri
 **Is Codex image generation required?**
 No. Decks work without generated images. The image flow is only used when you need photos, infographics, UI scenes, or covers.
 
+**Does presenter mode require internet access or another service?**
+No. Dual-window sync, notes, timing, rehearsal, auto advance, and annotations run locally in the browser. It does not provide live captions, phone control, or AI rehearsal scoring.
+
+**Why does closing the audience window show “Disconnected”?**
+The presenter uses acknowledgements and heartbeats to verify the software link. Closing the window or losing its heartbeat produces “Disconnected”; use “Reopen audience” to recover. The browser cannot verify a physical HDMI or projector cable, so the speaker still needs a visual check.
+
 **How do I update the skill?**
 Run the install command again, or run `git pull` inside your local skill directory.
 
@@ -351,6 +411,8 @@ Bugs, layout issues, new layout requests — Issues and PRs welcome. Prioritize:
 - Add new classes to `template.html` first; don't let `layouts.md` reference undefined classes
 - When changing `template-swiss.html`, update `layouts-swiss.md` and `swiss-layout-lock.md` together
 - When adding Swiss rules, update `scripts/validate-swiss-deck.mjs`
+- Presenter runtime changes must land in both templates and pass `scripts/check-presenter-runtime-sync.mjs`; CI rejects CSS / JavaScript drift
+- Presenter-note or live-behavior changes must also update `references/presenter-mode.md`, `references/checklist.md`, and `scripts/validate-presenter-mode.mjs`
 - Log pitfalls into `checklist.md` at the matching P0 / P1 / P2 / P3 tier
 - New theme colors go into `themes.md` with a recommended use case
 

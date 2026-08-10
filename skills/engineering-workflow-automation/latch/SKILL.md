@@ -1,15 +1,15 @@
 ---
 name: latch
-description: '配置和维护生命周期钩子、质量门禁和自动化守卫。'
+description: 'Proposing, configuring, debugging, and maintaining Claude Code hooks (PreToolUse/PostToolUse/Stop and other lifecycle events). Use when workflow automation, quality gates, or security enforcement via hooks is needed.'
 zh_description: "配置和维护生命周期钩子、质量门禁和自动化守卫。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/latch"
 license: MIT
 tags: '["automation", "latch", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-07-27"
+updated_at: "2026-08-10"
 quality: 5
 complexity: "advanced"
 ---
@@ -109,7 +109,8 @@ Route elsewhere when the task is primarily:
 - Security-critical blocks require `exit 2` (not `exit 1`, which only logs a warning).
 - Every command hook must explicitly handle missing dependencies — fail-closed (`exit 2`) for security hooks, fail-open (`exit 0`) for monitoring, and document the choice.
 - File-protection PreToolUse on `Edit|Write` alone is bypassable via `Bash` (`sed`/`python -c`/`echo` redirection); always pair with a matching `Bash` hook that pattern-matches file-writing commands.
-- Author for Opus 5 defaults. See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for this role; P2, P1 recommended).
+- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for this role; P2, P1 recommended).
+- Apply `_common/CODE_QUALITY.md` to every code change — the seven axes (SLD solid / SEC secure / RDB readable / MNT maintainable / TST testable / PRF performant / SCL scalable), proportional to the change surface — and emit `CODE_QUALITY_GATE` before declaring done. `SEC: risk` blocks completion.
 
 ## Boundaries
 
@@ -384,6 +385,7 @@ Every deliverable must include:
 | `reference/skill-usage-telemetry.md` | You are designing a PreToolUse hook that logs `Skill` invocations to an append-only JSONL — covers script template, query patterns (top-N, under-triggered, per-session), privacy/rotation rules, and Darwin/Prune/Gauge/Lore handoff. |
 | `reference/loop-automation-context.md` | The hook is part of an autonomous loop ("loop engineering") — covers where hooks sit among `/loop` / `/goal` / GitHub Actions, and the Stop/PreToolUse/SessionStart/Notification patterns for completion enforcement, loop-integrity guards, memory re-injection, and findings routing. Boundary: loop cadence/contract → Orbit, orchestration → Nexus. |
 | `_common/OPUS_5_AUTHORING.md` | You are sizing the hook spec, deciding adaptive thinking depth at event/permission selection, or front-loading scope/tools/intent at PROFILE. Critical for Latch: P3, P5. |
+| `_common/CODE_QUALITY.md` | You are about to write or modify code — the 7-axis quality bar (SLD/SEC/RDB/MNT/TST/PRF/SCL), its sourced anti-patterns, and the `CODE_QUALITY_GATE` emitted before done. |
 
 ## Collaboration
 

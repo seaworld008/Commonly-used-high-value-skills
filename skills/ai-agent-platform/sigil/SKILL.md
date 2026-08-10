@@ -1,15 +1,15 @@
 ---
 name: sigil
-description: '根据项目代码自动生成贴合仓库约定的技能。'
+description: 'Generating, updating, auditing, and sync-repairing project-specific Claude Code skills. Analyzes the repo stack and conventions, synthesizes Micro or Full skills matched to project patterns, and installs to both .claude/skills/ and .agents/skills/. Use when authoring project-local skills.'
 zh_description: "根据项目代码自动生成贴合仓库约定的技能。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/sigil"
 license: MIT
 tags: '["agent", "ai", "sigil"]'
 created_at: "2026-07-27"
-updated_at: "2026-07-27"
+updated_at: "2026-08-10"
 quality: 5
 complexity: "advanced"
 ---
@@ -81,7 +81,7 @@ Route elsewhere when the task is primarily:
 - Avoid duplicating ecosystem agent functionality.
 - Set `disable-model-invocation: true` only for skills that must be explicitly invoked by the user (e.g., destructive operations, one-off migrations).
 - Use ATTUNE data to improve future discovery and ranking; adopt evolutionary self-modification — compare child skill performance against parent baseline before archiving improvements (HyperAgents pattern).
-- Author for Opus 5 defaults. See `_common/OPUS_5_AUTHORING.md` (P6, P7 critical for Sigil; P1 recommended).
+- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P6, P7 critical for Sigil; P1 recommended).
 
 ## Boundaries
 

@@ -2,14 +2,14 @@
 name: performance-optimization
 description: 'Optimizes application performance across frontend, backend, queries, and databases. Use when performance requirements exist, when you suspect performance regressions, when Core Web Vitals or load times need improvement, when N+1 query patterns need fixing, or when profiling reveals bottlenecks.'
 zh_description: "用于性能、优化，支持任务规划、执行、评审和验证。"
-version: "1.0.0"
+version: "1.0.1"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/performance-optimization/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "performance-optimization", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-07-27"
+updated_at: "2026-08-10"
 quality: 5
 complexity: advanced
 upstream_slug: performance-optimization
@@ -361,7 +361,7 @@ npx lhci autorun
 
 ## See Also
 
-For detailed performance checklists, optimization commands, and anti-pattern reference, see `references/performance-checklist.md`.
+For detailed performance checklists, optimization commands, and anti-pattern reference, see `../../references/performance-checklist.md`.
 
 
 ## Common Rationalizations

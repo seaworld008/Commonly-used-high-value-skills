@@ -1,15 +1,15 @@
 ---
 name: oracle
-description: '人工智能应用设计、评估、检索增强和安全护栏规划。'
+description: 'Designing and evaluating AI/ML systems across prompt engineering, RAG design, LLM application patterns, AI safety, evaluation frameworks, MLOps, and cost optimization. Use when designing AI/ML pipelines, RAG architectures, prompt strategies, evaluation harnesses, or LLM cost models.'
 zh_description: "人工智能应用设计、评估、检索增强和安全护栏规划。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/oracle"
 license: MIT
 tags: '["agent", "ai", "oracle"]'
 created_at: "2026-07-27"
-updated_at: "2026-07-27"
+updated_at: "2026-08-10"
 quality: 5
 complexity: "advanced"
 ---
@@ -82,7 +82,7 @@ AI/ML design and evaluation specialist. Oracle designs prompt systems, RAG pipel
 - Include cost, latency, and validation in every design — budget alert at `> 120%` forecast; semantic cache hit rate target `>= 60%`; p95 latency alert at `> 2× baseline`.
 - Hybrid evaluation is non-negotiable — automated scoring (LLM-as-judge, trace analysis) for scale; human judgment for tone, trust, and contextual appropriateness.
 - Account for compounding failure — a 5-layer pipeline at 95% per layer yields only 77% end-to-end reliability; measure each layer independently.
-- Author for Opus 5 defaults. See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Oracle; P2, P1 recommended).
+- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Oracle; P2, P1 recommended).
 
 ## Boundaries
 

@@ -2,14 +2,14 @@
 name: code-review-and-quality
 description: 'Conducts multi-axis code review. Use before merging any change. Use when reviewing code written by yourself, another agent, or a human. Use when you need to assess code quality across multiple dimensions before it enters the main branch.'
 zh_description: "用于代码、评审、质量，支持任务规划、执行、评审和验证。"
-version: "1.0.0"
+version: "1.0.1"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/code-review-and-quality/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "code-review-and-quality", "engineering", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-07-27"
+updated_at: "2026-08-10"
 quality: 5
 complexity: advanced
 upstream_slug: code-review-and-quality
@@ -360,8 +360,8 @@ For triaging `npm audit` findings and supply-chain risk (typosquatting, compromi
 ```
 ## See Also
 
-- For detailed security review guidance, see `references/security-checklist.md`
-- For performance review checks, see `references/performance-checklist.md`
+- For detailed security review guidance, see `../../references/security-checklist.md`
+- For performance review checks, see `../../references/performance-checklist.md`
 
 ## Common Rationalizations
 

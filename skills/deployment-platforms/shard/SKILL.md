@@ -1,15 +1,15 @@
 ---
 name: shard
-description: '多租户架构、租户隔离、路由和规模化设计。'
+description: 'Designing multi-tenant architectures with tenant isolation strategies, RLS, routing, and scale design for SaaS. Use when designing multi-tenant SaaS systems or tenant isolation.'
 zh_description: "多租户架构、租户隔离、路由和规模化设计。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/shard"
 license: MIT
 tags: '["deployment", "shard"]'
 created_at: "2026-07-27"
-updated_at: "2026-07-27"
+updated_at: "2026-08-10"
 quality: 5
 complexity: "advanced"
 ---
@@ -75,7 +75,7 @@ Route elsewhere when the task is primarily:
 - Provide migration path from current state, not greenfield assumptions.
 - Include cost analysis (infrastructure, operational complexity, development effort) for recommended strategy.
 - Design for tenant count growth: current scale and 10x projection.
-- Author for Opus 5 defaults. See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Shard; P2, P1 recommended).
+- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Shard; P2, P1 recommended).
 
 ## Boundaries
 

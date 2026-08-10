@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://github.com/Graphify-Labs/graphify",
-    "checked_at": "2026-07-27",
+    "checked_at": "2026-08-10",
     "note": "Curated from graphify as a codebase-and-corpus knowledge graph workflow aligned with the Karpathy-style wiki pattern. Updated from the graphifyy 0.5.0 PyPI wheel Codex skill variant."
   },
   "official_references": [
@@ -28,8 +28,8 @@
         "repo": "Graphify-Labs/graphify",
         "path": "graphify/skill-codex.md",
         "ref": "v8",
-        "last_checked_at": "2026-07-27",
-        "last_synced_at": "2026-07-27",
+        "last_checked_at": "2026-08-10",
+        "last_synced_at": "2026-08-10",
         "last_synced_commit": "62b1d4370b8f8d61dea9a1d952393ae63ad53fa4"
       }
     }

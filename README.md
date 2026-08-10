@@ -5,10 +5,10 @@
 [![简体中文](https://img.shields.io/badge/README-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1677ff)](./README.md)
 [![English](https://img.shields.io/badge/README-English-111111)](./README.en.md)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b894)](./openclaw-skills/README.md)
-[![Skills](https://img.shields.io/badge/Skills-288-7c3aed)](./skills/)
+[![Skills](https://img.shields.io/badge/Skills-289-7c3aed)](./skills/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
-面向全球 AI 开发者与 Agent 工作流构建者的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理等高频任务场景。当前共 **16 个分类 / 288 个技能**。
+面向全球 AI 开发者与 Agent 工作流构建者的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理等高频任务场景。当前共 **16 个分类 / 289 个技能**。
 
 ## 为什么值得收藏
 
@@ -381,16 +381,16 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 2. 打开对应技能的 `SKILL.md` 查看触发条件、操作流程和脚本说明。
 3. 若技能下含 `scripts/`、`references/`、`assets/`，优先复用现成内容。
 
-## 技能总览（按分类，16 类 / 288 技能）
+## 技能总览（按分类，16 类 / 289 技能）
 
 <a id="cat-developer-engineering"></a>
-### 1. 开发工程（developer-engineering，46）
+### 1. 开发工程（developer-engineering，47）
 
 - `agent-designer`：用于Agent、设计，支持开发、调试、评审和交付。
 - `api-design-reviewer`：用于评审 API 设计的一致性、可用性、版本策略、错误语义、安全性和开发者体验。
 - `api-test-suite-builder`：用于API、测试、套件、构建，支持开发、调试、评审和交付。
 - `aws-solution-architect`：用于 AWS 云架构设计、服务选型、成本优化与 Well-Architected Framework 评估。
-- `builder`：用于构建，支持开发、调试、评审和交付。
+- `builder`：生产级业务逻辑、接口集成和类型安全实现。
 - `cli-demo-generator`：用于CLI、演示、生成，支持开发、调试、评审和交付。
 - `codebase-inspection`：用于用 pygount 检查代码行数、语言构成、仓库规模和代码/注释比例。
 - `codebase-onboarding`：用于代码库、onboarding，支持开发、调试、评审和交付。
@@ -417,9 +417,10 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `promptfoo-evaluation`：用于promptfoo、评估，支持开发、调试、评审和交付。
 - `python-performance`：用于 Python 性能分析、内存优化、热点路径调优和并发模式评审。
 - `qa-expert`：用于质量保障、expert，支持开发、调试、评审和交付。
+- `react-native-engineering`：用于构建、审查、调试、测试、升级和发布 React Native 与 Expo 应用，覆盖新架构、原生模块、性能、EAS 和双平台验证。
 - `repomix-safe-mixer`：用于repomix、safe、mixer，支持开发、调试、评审和交付。
 - `rust-engineer`：用于 Rust 代码开发、所有权和生命周期调试、异步模式选择和系统性能优化。
-- `schema`：用于Schema，支持开发、调试、评审和交付。
+- `schema`：数据库模式设计、迁移规划、索引策略和关系建模。
 - `skill-tester`：用于技能、tester，支持开发、调试、评审和交付。
 - `supabase`：用于Supabase，支持开发、调试、评审和交付。
 - `supabase-postgres-best-practices`：用于编写、评审和优化 Supabase/Postgres 查询、Schema、索引和数据库配置。
@@ -439,7 +440,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `agent-workflow-designer`：用于Agent、工作流、设计，支持任务规划、执行、评审和验证。
 - `andrej-karpathy-skills`：用于应用 Andrej Karpathy 风格的 AI 学习、构建和研究实践。
 - `api-and-interface-design`：用于API、interface、设计，支持任务规划、执行、评审和验证。
-- `brainstorming`：用于brainstorming，支持任务规划、执行、评审和验证。
+- `brainstorming`：用于在实现前澄清创意型产品或工程需求，探索目标、约束、方案与取舍。
 - `browser-testing-with-devtools`：用于通过浏览器 DevTools 测试、调试和验证前端行为。
 - `ci-cd-and-automation`：用于CI、CD、自动化，支持任务规划、执行、评审和验证。
 - `code-review-and-quality`：用于代码、评审、质量，支持任务规划、执行、评审和验证。
@@ -459,17 +460,17 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `idea-refine`：用于idea、refine，支持任务规划、执行、评审和验证。
 - `incremental-implementation`：用于incremental、实现，支持任务规划、执行、评审和验证。
 - `interview-me`：通过逐问访谈澄清真实需求、目标用户与成功标准，避免在含糊请求上过早实施。
-- `nexus`：用于nexus，支持任务规划、执行、评审和验证。
+- `nexus`：多智能体任务分解、链路编排、执行协调和结果整合。
 - `nlpm-audit`：审计 SKILL.md、AGENTS.md、CLAUDE.md、插件清单、hooks、commands 和提示词，检查安装一致性、质量评分、安全风险与版本漂移。
 - `observability-and-instrumentation`：为生产代码设计日志、指标、追踪和告警，使行为可观测、问题可诊断。
 - `performance-optimization`：用于性能、优化，支持任务规划、执行、评审和验证。
 - `planning-and-task-breakdown`：用于planning、任务、breakdown，支持任务规划、执行、评审和验证。
 - `prompt-optimizer`：用于提示词、optimizer，支持任务规划、执行、评审和验证。
-- `rally`：用于rally，支持任务规划、执行、评审和验证。
+- `rally`：多会话并行执行编排，协调多个智能体共同完成任务。
 - `receiving-code-review`：用于receiving、代码、评审，支持任务规划、执行、评审和验证。
 - `requesting-code-review`：用于在完成任务、实现重要功能或合并前请求代码审查并验证需求满足情况。
 - `security-and-hardening`：用于安全、加固，支持任务规划、执行、评审和验证。
-- `sherpa`：用于sherpa，支持任务规划、执行、评审和验证。
+- `sherpa`：把复杂任务拆成短步骤，控制漂移并推进交付。
 - `shipping-and-launch`：用于shipping、launch，支持任务规划、执行、评审和验证。
 - `skill-creator`：用于技能、创建，支持任务规划、执行、评审和验证。
 - `skill-reviewer`：用于技能、评审，支持任务规划、执行、评审和验证。
@@ -499,9 +500,9 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `mcporter`：用于通过 mcporter CLI 列出、配置、鉴权和调用 MCP 服务器或工具。
 - `native-mcp`：用于构建和调试原生 MCP 集成、服务器和工具调用流程。
 - `openai-docs`：用于查阅和应用 OpenAI 官方文档、API 行为和集成指南。
-- `oracle`：用于oracle，支持 Agent 平台编排、集成和运行管理。
+- `oracle`：人工智能应用设计、评估、检索增强和安全护栏规划。
 - `self-improving-agent`：用于构建具备记忆、反馈吸收和安全自我优化机制的持续改进型 Agent。
-- `sigil`：用于sigil，支持 Agent 平台编排、集成和运行管理。
+- `sigil`：根据项目代码自动生成贴合仓库约定的技能。
 
 <a id="cat-workflow-automation"></a>
 ### 4. 工程工作流自动化（engineering-workflow-automation，15）
@@ -512,11 +513,11 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `gh-fix-ci`：用于gh、修复、CI，支持工程协作、自动化验证和交付闭环。
 - `github`：用于通过 GitHub CLI 自动化 Issue、PR、Review、CI 检查、标签和发布协作。
 - `gsd-graphify-brownfield-bootstrap`：用于gsd、Graphify、brownfield、启动，支持工程协作、自动化验证和交付闭环。
-- `guardian`：用于guardian，支持工程协作、自动化验证和交付闭环。
-- `harvest`：用于harvest，支持工程协作、自动化验证和交付闭环。
+- `guardian`：提交、分支、合并请求策略和变更粒度把关。
+- `harvest`：采集合并请求信息并生成工作报告和发布材料。
 - `hermes-graphify-gsd-project-integration`：用于hermes、Graphify、gsd、project、集成，支持工程协作、自动化验证和交付闭环。
 - `jupyter-notebook`：用于Jupyter、Notebook，支持工程协作、自动化验证和交付闭环。
-- `latch`：用于latch，支持工程协作、自动化验证和交付闭环。
+- `latch`：配置和维护生命周期钩子、质量门禁和自动化守卫。
 - `playwright`：用于使用 Playwright 编写、运行和调试端到端测试。
 - `playwright-pro`：用于高级 Playwright 测试、诊断、稳定性和浏览器自动化。
 - `web-scraper`：用于网页抓取、结构化数据提取、爬取策略、选择器设计和反爬应对。
@@ -537,7 +538,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `release-manager`：用于发布、管理，支持部署、监控、排障和发布管理。
 - `senior-architect`：用于高级、架构，支持部署、监控、排障和发布管理。
 - `senior-devops`：用于高级、DevOps，支持部署、监控、排障和发布管理。
-- `triage`：用于triage，支持部署、监控、排障和发布管理。
+- `triage`：事故首响、影响范围识别、恢复步骤和复盘整理。
 
 <a id="cat-finance-investing"></a>
 ### 6. 金融投资（finance-investing，16）
@@ -548,9 +549,9 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `factor-backtester`：用于factor、回测，支持投资研究、风险评估和报告生成。
 - `financial-analyst`：用于金融、分析，支持投资研究、风险评估和报告生成。
 - `financial-data-collector`：用于收集股票、财报、宏观和市场数据并生成分析输入。
-- `helm`：用于helm，支持投资研究、风险评估和报告生成。
+- `helm`：商业战略场景模拟、市场分析、指标预测和路线图规划。
 - `investment-memo-writer`：用于投资、memo、writer，支持投资研究、风险评估和报告生成。
-- `ledger`：用于ledger，支持投资研究、风险评估和报告生成。
+- `ledger`：云成本、预算告警、资源规格和人工智能工作负载成本优化。
 - `levy`：用于levy，支持投资研究、风险评估和报告生成。
 - `macro-regime-monitor`：用于macro、regime、monitor，支持投资研究、风险评估和报告生成。
 - `options-strategy-evaluator`：用于options、策略、评估，支持投资研究、风险评估和报告生成。
@@ -586,7 +587,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `markdown-tools`：用于Markdown、tools，支持文档、表格、演示和资料整理。
 - `meeting-minutes-taker`：用于会议、纪要、taker，支持文档、表格、演示和资料整理。
 - `mermaid-tools`：用于mermaid、tools，支持文档、表格、演示和资料整理。
-- `morph`：用于morph，支持文档、表格、演示和资料整理。
+- `morph`：文档格式转换、分发版生成和可复用转换脚本。
 - `pdf`：用于pdf，支持文档、表格、演示和资料整理。
 - `pptx`：用于创建、编辑和美化 PowerPoint 演示文稿。
 - `prism`：用于prism，支持文档、表格、演示和资料整理。
@@ -632,17 +633,17 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `notion-research-documentation`：用于整合 Notion 信息并生成研究文档。
 - `notion-spec-to-implementation`：用于将 Notion 规格文档转化为可执行实现计划。
 - `obsidian`：用于读取、搜索、创建和编辑 Obsidian 知识库笔记，并维护 Markdown 结构和链接关系。
-- `tome`：用于tome，支持知识管理、项目同步和平台集成。
+- `tome`：把仓库变更转化为学习文档、术语说明和设计记录。
 
 <a id="cat-operations-general"></a>
 ### 10. 通用运营（operations-general，10）
 
 - `brand-guidelines`：用于在文档、页面或视觉产物中应用 Anthropic 风格的品牌色、字体和视觉规范。
-- `crest`：用于crest，支持信息整理、沟通和执行管理。
+- `crest`：技术个人品牌、主页资料、文章和公开形象策略。
 - `dawn`：用于dawn，支持信息整理、沟通和执行管理。
 - `docs-cleaner`：用于合并冗余文档、减少文档膨胀，并在保留有效内容的前提下整理知识库。
 - `fact-checker`：用于事实、checker，支持信息整理、沟通和执行管理。
-- `hearth`：用于hearth，支持信息整理、沟通和执行管理。
+- `hearth`：终端、编辑器和本地开发环境配置生成与审计。
 - `interview-system-designer`：用于interview、系统、设计，支持信息整理、沟通和执行管理。
 - `linkedin`：通过 Linked API 搜索领英资料、管理连接、消息与内容发布。
 - `slack-gif-creator`：用于Slack、gif、创建，支持信息整理、沟通和执行管理。
@@ -668,7 +669,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 <a id="cat-security-reliability"></a>
 ### 12. 安全治理与稳定性（security-and-reliability，23）
 
-- `breach`：用于breach，支持安全扫描、审计、加固和风险治理。
+- `breach`：红队场景、攻击路径、威胁建模和对抗演练设计。
 - `cloak`：隐私工程、敏感信息流、同意管理和数据治理。
 - `codeql-security-scanner`：用于通过 CodeQL 执行语义代码扫描、安全查询、自定义规则、SARIF 报告和 GitHub Code Scan。
 - `comply`：用于comply，支持安全扫描、审计、加固和风险治理。
@@ -699,7 +700,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `gpt-image2`：让 Codex 通过本地配置的 gpt-image-2 兼容画图服务生成图片，支持提示词、参考图、比例、清晰度和本地保存。
 - `imagegen`：用于生成、编辑和迭代图像内容与视觉素材。
 - `screenshot`：用于截图、屏幕捕获、视觉核查和界面证据收集。
-- `sketch`：用于sketch，支持内容生成、编辑、分析和交付。
+- `sketch`：图像生成代码、提示优化、批量生成和成本估算。
 - `sora`：用于构思、生成和评审 Sora 视频或视频提示词。
 - `speech`：用于语音，支持内容生成、编辑、分析和交付。
 - `tone`：用于tone，支持内容生成、编辑、分析和交付。
@@ -710,10 +711,10 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 
 - `cloudflare-deploy`：用于将应用部署到 Cloudflare 并处理相关发布流程。
 - `netlify-deploy`：用于将网站或应用部署到 Netlify 并获取预览或生产链接。
-- `pipe`：用于pipe，支持部署发布、配置、预览和故障处理。
+- `pipe`：持续集成工作流、触发策略、安全加固和复用设计。
 - `render-deploy`：用于将服务或应用部署到 Render 并处理运行配置。
-- `scaffold`：用于scaffold，支持部署发布、配置、预览和故障处理。
-- `shard`：用于shard，支持部署发布、配置、预览和故障处理。
+- `scaffold`：云基础设施、环境配置和本地开发部署脚手架。
+- `shard`：多租户架构、租户隔离、路由和规模化设计。
 - `vercel-deploy`：用于将应用或网站部署到 Vercel，创建预览部署或生产发布链接。
 
 <a id="cat-memory-safety"></a>
@@ -722,7 +723,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `cast`：用户画像生成、角色注册、生命周期和跨智能体同步。
 - `honcho`：用于管理 Agent 记忆、运行状态、协作上下文和安全边界。
 - `input-guard`：用于输入安全检查、提示注入防护和高风险请求拦截。
-- `omen`：用于omen，支持记忆管理、安全防护和运行治理。
+- `omen`：预演失败模式，识别计划风险并给出优先级。
 - `rag-architect`：用于以评测为先设计和诊断生产级 RAG，包括权限、混合检索、重排、引用和监控。
 - `runbook-generator`：用于基于仓库和平台证据编写安全、可演练、可验证的生产运维 Runbook。
 - `warden`：用于warden，支持记忆管理、安全防护和运行治理。
@@ -732,8 +733,8 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 
 - `lens`：代码库理解、功能发现、数据流追踪和上下文调查。
 - `reflect-learn`：用于reflect、learn，支持检索、拆解、反思和决策。
-- `ripple`：用于ripple，支持检索、拆解、反思和决策。
-- `scout`：用于scout，支持检索、拆解、反思和决策。
+- `ripple`：变更前影响分析，评估依赖链和一致性风险。
+- `scout`：缺陷调查、复现步骤、根因分析和影响评估。
 
 ## 下一轮建议补充方向
 

@@ -1,15 +1,15 @@
 ---
 name: morph
-description: '文档格式转换、分发版生成和可复用转换脚本。'
+description: 'Converting document formats (Markdown/Word/Excel/PDF/HTML). Converts specs from Scribe and reports from Harvest into distributable formats; generates reusable conversion scripts. Use when converting documents, building accessibility-compliant PDFs, or creating Pandoc/LibreOffice pipelines.'
 zh_description: "文档格式转换、分发版生成和可复用转换脚本。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/morph"
 license: MIT
 tags: '["morph", "office"]'
 created_at: "2026-07-27"
-updated_at: "2026-07-27"
+updated_at: "2026-08-10"
 quality: 5
 complexity: "advanced"
 ---
@@ -64,14 +64,14 @@ Route elsewhere when the task is primarily:
 ## Core Contract
 
 - Preserve structure, content, links, and intent first — conversion is lossy by nature (Pandoc's AST is less expressive than most source formats); acknowledge and document loss, never hide it.
-- Treat PDF as output-first for structural conversion. Use PDF input only for PDF operations such as merge, split, watermark, signature, metadata, archival, or encryption. PDF stores text as absolute-positioned character streams — extracting semantic structure from PDF is unreliable.
-- Verify output quality before delivery using the quality score weights: Structure 30%, Visual 25%, Content 30%, Metadata 15%. Minimum passing grade: B (80+).
+- Treat PDF as output-first for structural conversion. Use PDF input only for PDF operations such as merge, split, watermark, signature, metadata, archival, or encryption — see Boundaries → Never for why PDF is unreliable as a structural source.
+- Verify output quality before delivery — see Critical Decision Rules → Quality score weights. Minimum passing grade: B (80+).
 - Document unsupported features and expected loss before conversion when fidelity risk exists — especially complex LaTeX equations, custom fonts, and nested tables which are top failure points. Note: Pandoc 3.9 (released February 4, 2026) adds row spans and column spans to its AST and grid tables via new functions `tableWithSpans`/`toTableComponentsWithSpans`, so merged cells are no longer a blanket failure point — but verify the target writer supports them (e.g., DOCX and HTML do; pipe tables do not). Source: https://github.com/jgm/pandoc/discussions/11439
 - Prefer reusable commands, configs, templates, and scripts over one-off manual work.
 - For accessibility-critical outputs, target both PDF/UA and WCAG compliance; see **Critical Decision Rules → Accessibility minimums** for version-specific targets and regulatory deadlines.
 - Use Pandoc Lua filters over JSON filters for AST manipulation — they run in Pandoc's embedded interpreter with no external dependencies and are significantly faster.
 - Use Pandoc defaults files (YAML or JSON) to centralize conversion options — they capture `--from`, `--to`, filters, metadata, and variables in a single reusable config, reducing command-line drift across environments.
-- Author for Opus 5 defaults. See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Morph; P2, P1 recommended).
+- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Morph; P2, P1 recommended).
 
 ## Boundaries
 

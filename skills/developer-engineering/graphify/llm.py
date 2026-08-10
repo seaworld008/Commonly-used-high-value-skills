@@ -151,12 +151,13 @@ BACKENDS: dict[str, dict] = {
         # model. GRAPHIFY_OPENAI_MODEL still wins over OPENAI_MODEL when both
         # are set (via model_env_key).
         "base_url": os.environ.get("OPENAI_BASE_URL", "https://api.openai.com/v1"),
-        "default_model": os.environ.get("OPENAI_MODEL", "gpt-5-mini"),
+        "default_model": os.environ.get("OPENAI_MODEL", "gpt-4.1-mini"),
         "env_key": "OPENAI_API_KEY",
         "model_env_key": "GRAPHIFY_OPENAI_MODEL",
         "max_tokens": 16384,
         "pricing": {"input": 0.40, "output": 1.60},  # USD per 1M tokens
-        # Reasoning models can reject an explicit temperature; it is omitted
+        # Default (gpt-4.1-mini) accepts temperature=0. Reasoning models
+        # (o1/o3/o4/gpt-5) reject any explicit temperature and have it omitted
         # automatically by _resolve_temperature; GRAPHIFY_LLM_TEMPERATURE
         # overrides either way (#1191).
         "temperature": 0,
@@ -186,15 +187,15 @@ BACKENDS: dict[str, dict] = {
         #           AZURE_OPENAI_DEPLOYMENT or GRAPHIFY_AZURE_MODEL (deployment name).
         # base_url is intentionally absent — prevents accidental routing through
         # _call_openai_compat, which requires it and uses the wrong SDK client class.
-        "default_model": os.environ.get("AZURE_OPENAI_DEPLOYMENT", os.environ.get("GRAPHIFY_AZURE_MODEL", "")),
+        "default_model": os.environ.get("AZURE_OPENAI_DEPLOYMENT", os.environ.get("GRAPHIFY_AZURE_MODEL", "gpt-4o")),
         "env_key": "AZURE_OPENAI_API_KEY",
         "model_env_key": "GRAPHIFY_AZURE_MODEL",
-        "pricing": {"input": 0.0, "output": 0.0},  # deployment-specific; avoid false cost precision
+        "pricing": {"input": 2.50, "output": 10.00},  # USD per 1M tokens (gpt-4o; may mis-estimate other deployments)
         "temperature": 0,
         "max_tokens": 16384,
     },
     "bedrock": {
-        "default_model": os.environ.get("BEDROCK_MODEL_ID", ""),
+        "default_model": "anthropic.claude-3-5-sonnet-20241022-v2:0",
         "model_env_key": "GRAPHIFY_BEDROCK_MODEL",
         "pricing": {"input": 3.0, "output": 15.0},  # USD per 1M tokens
         "temperature": 0,
@@ -960,6 +961,18 @@ def _sanitize_fragment(parsed: dict) -> dict:
             parsed[key] = []
             continue
         parsed[key] = [entry for entry in value if isinstance(entry, dict)]
+    # Coerce hyperedge member refs to hashable scalar ids (#2486): a model can
+    # emit a member as an object ({"id": "a_ts"}) instead of a bare id. The
+    # per-entry filter above only checks the hyperedge dicts themselves, so the
+    # bad member shape used to persist into the semantic cache and crash
+    # build_from_json's rekey pass much later (a dict is unhashable). Applying
+    # the shared coercion at this parse chokepoint keeps the cache clean.
+    hyperedges = parsed.get("hyperedges")
+    if hyperedges:
+        from graphify.build import _coerce_hyperedge_member_refs
+        for he in hyperedges:
+            if isinstance(he.get("nodes"), list):
+                he["nodes"] = _coerce_hyperedge_member_refs(he, he["nodes"])
     return parsed
 
 
@@ -1043,6 +1056,30 @@ def _parse_llm_json(raw: str) -> dict:
     return {"nodes": [], "edges": [], "hyperedges": []}
 
 
+def _bedrock_response_text(resp: dict, default: str = "") -> str:
+    """Return the first Converse content block that carries text.
+
+    Converse returns ``output.message.content`` as a list of blocks, and the
+    API does not promise a text block is first: reasoning-capable models emit a
+    ``reasoningContent`` block ahead of the answer, and ``toolUse`` or future
+    block types can precede it too. Indexing position 0 therefore yields no text
+    at all for those models, which reads downstream as a hollow response, gets
+    reclassified as truncation, and sends the chunk into bisection that cannot
+    converge. Select on the block's shape instead of its position so this holds
+    for any model; a response whose first block is already text is unaffected.
+    """
+    content = resp.get("output", {}).get("message", {}).get("content", [])
+    if not isinstance(content, list):
+        return default
+    for block in content:
+        if not isinstance(block, dict):
+            continue
+        text = block.get("text")
+        if isinstance(text, str) and text.strip():
+            return text
+    return default
+
+
 def _response_is_hollow(raw_content: str | None, parsed: dict) -> bool:
     """Detect a successful HTTP response that yielded no usable extraction.
 
@@ -1098,14 +1135,7 @@ def _default_model_for_backend(backend: str) -> str:
         model = os.environ.get(model_env_key)
         if model:
             return model
-    model = cfg["default_model"]
-    if not model:
-        raise RuntimeError(
-            f"No model configured for backend '{backend}'. Set "
-            f"{model_env_key or 'the provider model environment variable'} "
-            "to a current provider-supported model or deployment ID."
-        )
-    return model
+    return cfg["default_model"]
 
 
 def _backend_pkg_hint(pkg: str, extra: str) -> str:
@@ -1343,6 +1373,30 @@ def _claude_cli_envelope(stdout: str) -> dict:
     return envelope
 
 
+def _claude_cli_error(stdout: str) -> str:
+    """Return the CLI's own error text when the envelope flags `is_error`.
+
+    `claude -p` reports API failures (rate limits, auth) in the stdout JSON
+    envelope with `is_error: true` and leaves stderr EMPTY — and on a rate limit
+    it still exits 0. So the two obvious checks both miss it: a non-zero exit
+    printed a bare "exited 1: " with no cause, and a zero exit fed the error
+    string to the JSON parser, producing an empty graph that `_response_is_hollow`
+    misread as truncation and adaptive retry then bisected, re-issuing requests
+    that were still being refused (#2554). Best-effort: unparseable stdout is not
+    this function's problem, the caller's `_claude_cli_envelope` reports that.
+    """
+    try:
+        envelope = _claude_cli_envelope(stdout)
+    except RuntimeError:
+        return ""
+    if not envelope.get("is_error"):
+        return ""
+    detail = envelope.get("result")
+    if isinstance(detail, str) and detail.strip():
+        return detail.strip()
+    return "unspecified error"
+
+
 # A JSON Schema pinning the top-level shape graphify consumes. Passed to
 # `claude -p --json-schema` (structured output) so the CLI CONSTRAINS the model
 # to emit the object directly instead of relying on it CHOOSING to honour a
@@ -1508,10 +1562,12 @@ def _call_claude_cli(user_message: str, max_tokens: int = 8192, *, deep_mode: bo
         check=False,
         **_no_window_kwargs(),
     )
+    cli_error = _claude_cli_error(proc.stdout)
     if proc.returncode != 0:
-        raise RuntimeError(
-            f"claude -p exited {proc.returncode}: {proc.stderr.strip()[:500]}"
-        )
+        detail = proc.stderr.strip() or cli_error or "(no stderr, no error envelope)"
+        raise RuntimeError(f"claude -p exited {proc.returncode}: {detail[:500]}")
+    if cli_error:
+        raise RuntimeError(f"claude -p reported an error: {cli_error[:500]}")
 
     envelope = _claude_cli_envelope(proc.stdout)
 
@@ -1615,6 +1671,7 @@ def _call_bedrock(model: str, user_message: str, max_tokens: int = 8192, *, deep
     """Call AWS Bedrock via boto3 Converse API using the standard AWS credential chain."""
     try:
         import boto3
+        import botocore.config
         import botocore.exceptions
     except ImportError as exc:
         raise ImportError(
@@ -1624,7 +1681,19 @@ def _call_bedrock(model: str, user_message: str, max_tokens: int = 8192, *, deep
     region = os.environ.get("AWS_REGION") or os.environ.get("AWS_DEFAULT_REGION") or "us-east-1"
     profile = os.environ.get("AWS_PROFILE")
     session = boto3.Session(profile_name=profile, region_name=region)
-    client = session.client("bedrock-runtime")
+    # Wire GRAPHIFY_API_TIMEOUT into the botocore read timeout. Without an
+    # explicit config, Converse uses botocore's 60s default and a long
+    # generation dies with "Read timeout on endpoint URL" no matter what the
+    # env var / --api-timeout is set to — the same gap #1112/#1442 closed for
+    # the claude-cli and secondary-dispatch paths, on the last cloud backend.
+    client = session.client(
+        "bedrock-runtime",
+        config=botocore.config.Config(
+            read_timeout=_resolve_api_timeout(),
+            connect_timeout=10,
+            retries={"max_attempts": _resolve_max_retries() + 1, "mode": "adaptive"},
+        ),
+    )
 
     try:
         resp = client.converse(
@@ -1638,7 +1707,7 @@ def _call_bedrock(model: str, user_message: str, max_tokens: int = 8192, *, deep
         msg = exc.response["Error"]["Message"]
         raise RuntimeError(f"Bedrock API error ({code}): {msg}") from exc
 
-    text = resp.get("output", {}).get("message", {}).get("content", [{}])[0].get("text", "{}")
+    text = _bedrock_response_text(resp, default="{}")
     result = _parse_llm_json(text)
     usage = resp.get("usage", {})
     result["input_tokens"] = usage.get("inputTokens", 0)
@@ -2554,8 +2623,14 @@ def _call_llm(
             check=False,
             **_no_window_kwargs(),
         )
+        cli_error = _claude_cli_error(proc.stdout)
         if proc.returncode != 0:
-            raise RuntimeError(f"claude -p exited {proc.returncode}: {proc.stderr.strip()[:500]}")
+            detail = proc.stderr.strip() or cli_error or "(no stderr, no error envelope)"
+            raise RuntimeError(f"claude -p exited {proc.returncode}: {detail[:500]}")
+        if cli_error:
+            # Without this the error text is returned as the model's reply and
+            # the caller writes it into the graph as a community label (#2554).
+            raise RuntimeError(f"claude -p reported an error: {cli_error[:500]}")
         envelope = _claude_cli_envelope(proc.stdout)
         cli_usage = envelope.get("usage") or {}
         if cli_usage:
@@ -2571,12 +2646,20 @@ def _call_llm(
     if backend == "bedrock":
         try:
             import boto3
+            import botocore.config
         except ImportError as exc:
             raise ImportError(_backend_pkg_hint("boto3", "bedrock")) from exc
         region = os.environ.get("AWS_REGION") or os.environ.get("AWS_DEFAULT_REGION") or "us-east-1"
         profile = os.environ.get("AWS_PROFILE")
         session = boto3.Session(profile_name=profile, region_name=region)
-        client = session.client("bedrock-runtime")
+        client = session.client(
+            "bedrock-runtime",
+            config=botocore.config.Config(
+                read_timeout=_resolve_api_timeout(),
+                connect_timeout=10,
+                retries={"max_attempts": _resolve_max_retries() + 1, "mode": "adaptive"},
+            ),
+        )
         resp = client.converse(
             modelId=mdl,
             messages=[{"role": "user", "content": [{"text": prompt}]}],
@@ -2585,7 +2668,7 @@ def _call_llm(
         bu = resp.get("usage") or {}
         if bu:
             _rec(bu.get("inputTokens", 0), bu.get("outputTokens", 0))
-        return resp.get("output", {}).get("message", {}).get("content", [{}])[0].get("text", "")
+        return _bedrock_response_text(resp, default="")
 
     if backend == "azure":
         endpoint = os.environ.get("AZURE_OPENAI_ENDPOINT", "").strip()
@@ -2805,7 +2888,11 @@ def _community_label_lines(G, communities, gods, max_communities, top_k):
             if len(names) >= top_k:
                 break
         if names:
-            lines.append(f"Community {cid}: {', '.join(names)}")
+            # Bare id key, NOT "Community {cid}: ..." — that string doubles as the
+            # placeholder sentinel (_placeholder_community_labels), so a model that
+            # echoed the key back produced a "name" indistinguishable from the
+            # no-backend fallback and the caller's sentinel filter dropped it (#2534).
+            lines.append(f"{cid}: {', '.join(names)}")
             labeled_cids.append(int(cid))
     return lines, labeled_cids
 
@@ -2876,6 +2963,7 @@ def _label_batch_with_retry(
         "You are naming clusters in a knowledge graph. For each community below, "
         "return a concise 2-5 word plain-language name describing what it is about "
         "(e.g. \"Order Management\", \"Payment Flow\", \"Auth Middleware\"). "
+        "Each input line is '<community id>: <representative member names>'. "
         "Respond ONLY with a JSON object mapping the community id (as a string) to "
         "its name - no prose, no markdown fences.\n\n" + "\n".join(batch_lines)
     )

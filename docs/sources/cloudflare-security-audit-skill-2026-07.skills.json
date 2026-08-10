@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://github.com/cloudflare/security-audit-skill",
-    "checked_at": "2026-07-27",
+    "checked_at": "2026-08-10",
     "note": "Cloudflare security audit skill imported with companion methodology files under MIT."
   },
   "official_references": [
@@ -33,8 +33,8 @@
         "repo": "cloudflare/security-audit-skill",
         "path": "skills/security-audit/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-07-27",
-        "last_synced_at": "2026-07-27",
+        "last_checked_at": "2026-08-10",
+        "last_synced_at": "2026-08-10",
         "last_synced_commit": "8bac42001ddd90a4dcd8d5a5045199283a8eba75"
       }
     }

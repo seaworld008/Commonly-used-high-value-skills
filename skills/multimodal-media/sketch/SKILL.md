@@ -1,15 +1,15 @@
 ---
 name: sketch
-description: '图像生成代码、提示优化、批量生成和成本估算。'
+description: 'Generating AI image-generation code using the Gemini API. Handles text-to-image generation, image editing, and prompt optimization. Use when image generation code is needed.'
 zh_description: "图像生成代码、提示优化、批量生成和成本估算。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/sketch"
 license: MIT
 tags: '["media", "sketch"]'
 created_at: "2026-07-27"
-updated_at: "2026-07-27"
+updated_at: "2026-08-10"
 quality: 5
 complexity: "advanced"
 ---
@@ -26,12 +26,9 @@ CAPABILITIES_SUMMARY:
 
 COLLABORATION_PATTERNS:
 - Vision -> Sketch: Art direction and mood boards
-- Quest -> Sketch: Asset briefs and style guides
-- Dot -> Sketch: Pixel art escalation to raster AI
 - Forge -> Sketch: Prototype visual requests
 - Quill -> Sketch: Documentation illustration needs
 - Growth -> Sketch: Marketing asset requests
-- Sketch -> Dot: Reference images for pixel conversion
 - Sketch -> Artisan: UI assets for frontend integration
 - Sketch -> Growth: Marketing assets
 - Sketch -> Muse: Design-system integration of generated images
@@ -39,8 +36,8 @@ COLLABORATION_PATTERNS:
 - Sketch -> Vitrine: Catalog and story assets
 
 BIDIRECTIONAL_PARTNERS:
-- INPUT: Vision, Quest, Dot, Forge, Quill, Growth
-- OUTPUT: Dot, Artisan, Growth, Muse, Canvas, Vitrine
+- INPUT: Vision, Forge, Quill, Growth
+- OUTPUT: Artisan, Growth, Muse, Canvas, Vitrine
 
 PROJECT_AFFINITY: Game(H) SaaS(M) E-commerce(M) Dashboard(L) Marketing(H)
 -->
@@ -70,6 +67,7 @@ Model routing within Sketch:
 - Image editing or style transfer: use Gemini-native models (Nano Banana / Nano Banana 2) — Imagen 4 is text-to-image only
 - 4K output: use Nano Banana 2 (`gemini-3.1-flash-image`) — Imagen 4 caps at 2K
 - Best text rendering at lowest cost: Imagen 4 Fast ($0.02/image)
+- No API billing wanted and user has a ChatGPT Plus/Pro subscription: Codex built-in `image_gen` (gpt-image-2) — operating guidance, not Python code; see `reference/codex-image-gen.md`
 
 ## Core Contract
 
@@ -87,7 +85,8 @@ Model routing within Sketch:
 - Estimate cost and rate impact before large runs; recommend Batch API (50% discount, 24h delivery) for ≥50 images.
 - Document SynthID in the deliverable — SynthID is embedded during generation (Tournament Sampling), not a removable overlay; disclose this to users.
 - Include seed parameter for reproducibility; document how to regenerate identical outputs.
-- Author for Opus 5 defaults. See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Sketch; P2, P1 recommended).
+- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Sketch; P2, P1 recommended).
+- Apply `_common/CODE_QUALITY.md` to every code change — the seven axes (SLD solid / SEC secure / RDB readable / MNT maintainable / TST testable / PRF performant / SCL scalable), proportional to the change surface — and emit `CODE_QUALITY_GATE` before declaring done. `SEC: risk` blocks completion.
 
 ## Boundaries
 
@@ -243,6 +242,7 @@ Behavior notes per Recipe:
 | style transfer / reference-based edit | REFERENCE_BASED mode | reference-aware script (up to 14 images) | `reference/prompt-patterns.md` |
 | text-heavy or complex scene | SINGLE_SHOT + thinking_level: high | script with extended thinking config | `reference/prompt-patterns.md` |
 | model selection / cost comparison | Cost analysis | model comparison table + recommendation | `reference/api-integration.md` |
+| subscription-based generation, no API billing (ChatGPT Plus/Pro) | Codex `image_gen` guidance | commands + config.toml setup, not Python code | `reference/codex-image-gen.md` |
 | complex multi-agent task | Nexus-routed execution | structured handoff | `_common/BOUNDARIES.md` |
 | unclear request | Clarify scope and route | scoped analysis | `reference/` |
 
@@ -267,13 +267,12 @@ Every deliverable should include:
 
 ## Collaboration
 
-**Receives:** Vision (art direction, mood boards), Quest (asset briefs, style guides), Dot (pixel art escalation), Forge (prototype visual requests), Quill (documentation illustration needs), Growth (marketing asset requests)
-**Sends:** Dot (reference images), Artisan (UI assets), Growth (marketing assets), Muse (design-system integration), Canvas (images for diagrams), Vitrine (catalog/story assets)
+**Receives:** Vision (art direction, mood boards), Forge (prototype visual requests), Quill (documentation illustration needs), Growth (marketing asset requests)
+**Sends:** Artisan (UI assets), Growth (marketing assets), Muse (design-system integration), Canvas (images for diagrams), Vitrine (catalog/story assets)
 
 Overlap boundaries:
 - Vision owns creative direction; Sketch owns code generation. If the user needs "what style?" → Vision. If "code to generate that style" → Sketch.
 - Growth owns marketing strategy; Sketch delivers the generation code for requested assets.
-- Dot owns pixel art generation; Sketch escalates when raster AI generation with style transfer is needed.
 
 ## Reference Map
 
@@ -288,8 +287,10 @@ Overlap boundaries:
 | `reference/cinematic-prompting.md` | you are constructing photographic/cinematographic prompts (camera, lens, lighting, film stock, composition rules) for the `cinematic` recipe |
 | `reference/provenance-disclosure.md` | you need C2PA Content Credentials, SynthID watermarking, EXIF/XMP AI-disclosure tagging, takedown flow, or platform compliance for the `provenance` recipe |
 | `reference/content-policy-guardrails.md` | you need pre-prompt filtering, NSFW/deepfake/brand-safety guardrails, regional regulatory compliance (EU AI Act, China deep-synthesis, US state laws) for the `policy` recipe |
+| `reference/codex-image-gen.md` | the user wants image generation within a ChatGPT Plus/Pro subscription (no API billing) via Codex built-in `image_gen` — engine comparison, config.toml enablement, quota caveats, UNVERIFIED items |
 | `_common/OPUS_5_AUTHORING.md` | you are sizing the generation report, deciding adaptive thinking depth at GENERATE, or front-loading model/budget/style at PLAN. Critical for Sketch: P3, P5 |
 | `reference/autorun-schema.md` | You are emitting the AUTORUN `_STEP_COMPLETE` block — Sketch-specific Output/Next schema. |
+| `_common/CODE_QUALITY.md` | You are about to write or modify code — the 7-axis quality bar (SLD/SEC/RDB/MNT/TST/PRF/SCL), its sourced anti-patterns, and the `CODE_QUALITY_GATE` emitted before done. |
 
 ## Operational
 

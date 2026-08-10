@@ -2,14 +2,14 @@
 name: compete
 description: 'Researching competitors, analyzing differentiation, and shaping strategic positioning. Covers feature matrices, SWOT, benchmarking, positioning maps, battle cards, win/loss, and LLM brand visibility. Research only — no code. Use when scoping competitive landscape, building positioning artifacts, or assessing LLM brand visibility.'
 zh_description: "竞品研究、差异化定位、矩阵对比和竞争战卡。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/compete"
 license: MIT
 tags: '["compete", "growth", "marketing"]'
 created_at: "2026-07-27"
-updated_at: "2026-07-27"
+updated_at: "2026-08-10"
 quality: 5
 complexity: "advanced"
 ---
@@ -39,13 +39,12 @@ COLLABORATION_PATTERNS:
 - Compete -> Helm: Strategic simulation or scenario planning
 - Compete -> Lore: Validated recurring patterns become shared knowledge
 - Compete -> Oracle: LLM brand visibility analysis needs AI/ML expertise
-- Compete -> PMM: Competitive frame and differentiation input for positioning
 - Flux -> Compete: Market assumption reframing and differentiation axis discovery
 - Compete -> Field: COMPETE_TO_RESEARCHER — interview design suggestions based on win/loss analysis results
 
 BIDIRECTIONAL_PARTNERS:
 - INPUT: Voice (customer feedback), Pulse (product metrics), Nexus (task routing), Flux (market assumption reframing)
-- OUTPUT: Spark (feature ideas), Growth (positioning/SEO), Canvas (visual maps), Helm (strategic simulation), Lore (validated patterns), Oracle (LLM visibility), Field (win/loss interview design), PMM (competitive frame for positioning)
+- OUTPUT: Spark (feature ideas), Growth (positioning/SEO), Canvas (visual maps), Helm (strategic simulation), Lore (validated patterns), Oracle (LLM visibility), Field (win/loss interview design)
 
 PROJECT_AFFINITY: SaaS(H) E-commerce(H) API(M) Mobile(M) Dashboard(L)
 -->
@@ -95,7 +94,7 @@ Read only the references needed for the current analysis shape.
 - Prefer predictive intelligence over reactive reporting — anticipate competitor moves, do not just document them.
 - Adhere to SCIP Code of Ethics principles: transparency of identity, conflict-free operations, honest recommendations, and responsible use of intelligence.
 - Do not write implementation code.
-- Author for Opus 5 defaults. See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for this role; P2, P1 recommended).
+- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for this role; P2, P1 recommended).
 
 ## Boundaries
 

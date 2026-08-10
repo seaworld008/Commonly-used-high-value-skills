@@ -1,21 +1,24 @@
 ---
 name: openai-docs
-description: 'Use when the user asks how to build with OpenAI products or APIs and needs up-to-date official documentation with citations (for example: Codex, Responses API, Chat Completions, Apps SDK, Agents SDK, Realtime, model capabilities or limits); prioritize OpenAI docs MCP tools and restrict any fallback browsing to official OpenAI domains.'
+description: 'Use when the user asks how to build with OpenAI products or APIs and needs current official documentation with citations, including Codex, Responses API, Chat Completions, Apps SDK, Agents SDK, Realtime, model capabilities, limits, or migrations; prioritize an available official OpenAI documentation connector and restrict fallback browsing to official OpenAI domains.'
 zh_description: "用于查阅和应用 OpenAI 官方文档、API 行为和集成指南。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["agent", "ai", "docs", "openai"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-08-10"
 quality: 3
 complexity: "intermediate"
 ---
 
 # OpenAI Docs
 
-Provide authoritative, current guidance from OpenAI developer docs using the developers.openai.com MCP server. Always prioritize the developer docs MCP tools over web.run for OpenAI-related questions. Only if the MCP server is installed and returns no meaningful results should you fall back to web search.
+Provide authoritative, current guidance from OpenAI developer docs. Prefer the
+official documentation connector exposed by the current client. If no such
+connector is available or it returns no meaningful results, fall back to web
+search restricted to official OpenAI domains.
 
 ## When to Use
 
@@ -44,9 +47,10 @@ search official docs
 
 ## Quick start
 
-- Use `mcp__openaiDeveloperDocs__search_openai_docs` to find the most relevant doc pages.
-- Use `mcp__openaiDeveloperDocs__fetch_openai_doc` to pull exact sections and quote/paraphrase accurately.
-- Use `mcp__openaiDeveloperDocs__list_openai_docs` only when you need to browse or discover pages without a clear query.
+- Use the connector's documentation search operation to find relevant pages.
+- Use its page-fetch operation to retrieve exact sections for accurate
+  paraphrases and citations.
+- Use its browse/list operation only when no precise query is available.
 
 Example:
 
@@ -67,15 +71,11 @@ Example:
 6. Realtime API: Build low-latency, multimodal experiences including natural speech-to-speech conversations.
 7. Agents SDK: A toolkit for building agentic apps where a model can use tools and context, hand off to other agents, stream partial results, and keep a full trace.
 
-## If MCP server is missing
+## If the documentation connector is missing
 
-If MCP tools fail or no OpenAI docs resources are available:
-
-1. Run the install command yourself: `codex mcp add openaiDeveloperDocs --url https://developers.openai.com/mcp`
-2. If it fails due to permissions/sandboxing, immediately retry the same command with escalated permissions and include a 1-sentence justification for approval. Do not ask the user to run it yet.
-3. Only if the escalated attempt fails, ask the user to run the install command.
-4. Ask the user to restart Codex.
-5. Re-run the doc search/fetch after restart.
+Continue with official-domain web search unless the user explicitly asks to
+install or configure a connector. Do not invent connector-specific operation
+names or pause an otherwise answerable documentation task for installation.
 
 ## Workflow
 
@@ -94,8 +94,9 @@ If MCP tools fail or no OpenAI docs resources are available:
 
 ## Tooling notes
 
-- Always use MCP doc tools before any web search for OpenAI-related questions.
-- If the MCP server is installed but returns no meaningful results, then use web search as a fallback.
+- Always use the available official docs connector before web search for
+  OpenAI-related questions.
+- If the connector returns no meaningful results, use web search as a fallback.
 - When falling back to web search, restrict to official OpenAI domains (developers.openai.com, platform.openai.com) and cite sources.
 
 ## Common Pitfalls

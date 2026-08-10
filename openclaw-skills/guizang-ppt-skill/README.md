@@ -13,7 +13,7 @@
 
 > 🌏 **English version: [README.en.md](./README.en.md)**
 
-一个适配 Claude Code / Codex 等 Agent 环境的网页 PPT 技能,用于生成**单文件 HTML 横向翻页 PPT**、PPT 配图和多平台封面。
+一个适配 Claude Code / Codex 等 Agent 环境的网页 PPT 技能,用于生成**单文件 HTML 横向翻页 PPT**、PPT 配图和多平台封面,并内置完整的排练与演讲者模式。
 
 内置两套视觉系统:
 
@@ -61,6 +61,7 @@ npx skills add https://github.com/op7418/guizang-ppt-skill --skill guizang-ppt-s
 帮我把这份 Markdown 做成杂志风演讲 PPT。
 基于这份 PPT 的核心观点,生成一张公众号 21:9 头图。
 把这张产品截图重新设计成适合 PPT 的 16:10 配图。
+给这份 PPT 补齐演讲备注和每页计划时长,然后用演讲者模式帮我排练。
 ```
 
 ## 赞助与支持
@@ -90,6 +91,7 @@ Guizang PPT Skill 的持续迭代获得 **360 安全龙虾**、**Kimi work**、*
 - 🎨 **主题色预设**:Style A 5 套电子墨水主题,Style B 4 套瑞士高饱和锚点色
 - 🖼 **Codex 可选配图流程**:可用 GPT-Image 2.0 / GPT-M 2.0 生成纪实照片、信息图、流程图、系统关系图、UI 情景图,并按模板比例插入
 - 📰 **多平台封面**:可用同一套视觉规则生成公众号 21:9、公众号分享卡 1:1、小红书 3:4、视频号横版等封面
+- 🎤 **演讲者模式**:双窗口观众屏、当前页/下一页 16:9 预览、演讲备注、计时排练、自动翻页、激光笔、圈选和现场故障恢复
 - 📴 **低性能静态模式**:按 `B` 可关闭 WebGL / canvas 动画,让动态内容退回静态背景
 - 📄 **单文件 HTML**:不需要构建、不需要服务器,浏览器直接打开
 
@@ -109,12 +111,13 @@ Guizang PPT Skill 的持续迭代获得 **360 安全龙虾**、**Kimi work**、*
 | PPT 配图 | 在 Codex 中用 GPT-Image 2.0 / GPT-M 2.0 生成照片、信息图、流程图、UI 情景图 |
 | 多平台封面 | 从同一份内容生成公众号 21:9、1:1 分享卡、小红书 3:4、视频号横版封面 |
 | 截图统一风格 | 把原始截图重新生成到模板需要的比例,再插入 PPT |
+| 现场演讲 / 排练 | 让 Agent 从大纲生成备注和时长,按右下角 `P` 进入演讲者模式 |
 
 ## 为什么是 HTML PPT
 
 - **更适合 Agent 生成和修改**:HTML / CSS 是文本,Agent 能直接读、改、验证。
 - **表现力比 Markdown 更高**:可以做精细排版、空间定位、动画、交互和响应式封面。
-- **交付更轻**:单文件 HTML 可以直接打开、演示、发送、截图。
+- **交付更轻**:单文件 HTML 可以直接打开、演示、发送、截图,演讲者工具也随文件一起交付。
 - **更容易做质量控制**:瑞士风可以用脚本校验版式、图片槽位、标题对齐、危险 SVG,并在可用时用 Playwright 后验测量超出、底部空白、nav 安全线和标题间距。
 - **更适合视觉内容链路**:同一套主题能覆盖 PPT、配图、封面和截图再设计。
 
@@ -164,6 +167,7 @@ git clone https://github.com/op7418/guizang-ppt-skill.git ~/.claude/skills/guiza
 - "electronic ink 风格演讲 slides"
 - "基于这篇文章做一张公众号 21:9 封面"
 - "基于这份 PPT 生成一张 1:1 分享卡"
+- "给这份 PPT 补齐演讲备注,并用演讲者模式帮我排练"
 
 ## 使用流程
 
@@ -174,11 +178,58 @@ Skill 本身是结构化工作流,Agent 会逐步引导:
 3. **拷贝模板** — Style A 用 `assets/template.html`,Style B 用 `assets/template-swiss.html`
 4. **填充内容** — 先做主题节奏表,再从对应 layout 骨架里挑、粘、改文案
 5. **可选配图** — 在 Codex 中询问是否用 GPT-Image 2.0 / GPT-M 2.0 生成配图,再按页面比例插入
-6. **自检** — 对照 `references/checklist.md`,P0 级问题必须全过；瑞士风还要运行版式校验器
-7. **预览** — 浏览器直接打开
-8. **迭代** — inline style 改字号/高度/间距
+6. **生成演讲备注** — 从大纲提取每页目的、讲述要点、转场和计划时长；用户没提供的信息不猜测
+7. **自检** — 对照 `references/checklist.md`,P0 级问题必须全过；瑞士风和演讲模式分别运行对应校验器
+8. **预览** — 浏览器直接打开
+9. **排练 / 演讲** — 按右下角 `P` 进入演讲者模式,检查观众屏同步并记录实际时长
+10. **迭代** — 根据排练结果调整内容、字号、高度和间距
 
 详细说明见 [`SKILL.md`](./SKILL.md)。
+
+## 演讲者模式
+
+两套模板都内置同一套演讲者运行时。打开 deck 后,点击右下角 `P` 即可进入演讲者视图；浏览器会同时打开一个干净的观众屏。所有核心能力都在本地 HTML 和浏览器里完成,不依赖实时字幕、云端中继、手机遥控或 AI 教练服务。
+
+**演讲者视图示例**
+
+![演讲者视图示例：当前页、下一页、演讲备注、计时控制与观众屏状态](https://github.com/user-attachments/assets/95db62b5-65bb-40af-ac0b-1d415682af88)
+
+### 演讲时能看到什么
+
+- **当前页与下一页**:上下排列并始终保持 `16:9`,小屏时整页等比缩放,不裁切、不挤压文字
+- **宫格选页**:在预览区原位切换总览,点选页面后立即回到双预览,观众屏同步跟随
+- **结构化备注**:标题、本页目的、讲述要点和转场必填；互动、语气、翻页时机、备用方案和读音等信息只在大纲提供时显示
+- **进度与状态**:显示当前页 / 总页数、完成百分比,以及观众屏的连接中、已同步、未同步、已冻结、未连接或弹窗被拦截状态
+
+### 时间、排练与自动翻页
+
+- 底栏分别显示已进行、本页和剩余 / 超时时间,按钮明确区分“开始计时 / 继续计时 / 重置计时”
+- 排练模式记录每页实际时长和整场汇总,数据保存在本地浏览器,不会做 AI 评分
+- 自动翻页默认关闭；只有大纲明确给出页面停留秒数,或用户在设置中开启全局间隔时才启用
+- 打开宫格、设置、圈选工具,页面隐藏,或观众屏暂停 / 失去同步时,自动翻页会暂停
+
+### 现场工具与故障恢复
+
+- 激光笔、圈选和清除会同步到观众屏
+- 一键黑屏、白屏,或冻结观众屏；恢复后自动追平演讲者当前页
+- 观众窗口关闭或心跳超时后明确显示“未连接”,可随时点击“重新打开观众屏”
+- 退出演讲时自动关闭观众窗口；浏览器不允许自关时,观众端显示“演示已结束”
+- 演前检查覆盖弹窗、全屏、字体、图片 / 视频和 `16:9` 预览,并提醒人工确认 HDMI、转接器和投影仪
+
+常用快捷键：`← / →` 翻页,`Home / End` 跳首页或尾页,`G` 宫格,`L` 激光笔,`C` 圈选,`B / W` 黑屏或白屏,`F` 冻结观众屏,`?` 查看完整快捷键。
+
+让 Agent 生成或补齐演讲模式时,可以直接说：
+
+```text
+根据这份大纲给每一页补齐演讲目的、讲述要点、转场和计划时长。没有提供的互动或现场信息不要猜,然后运行演讲模式校验器。
+```
+
+演讲备注契约和完整行为说明见 [`references/presenter-mode.md`](./references/presenter-mode.md)。校验命令：
+
+```bash
+node scripts/validate-presenter-mode.mjs path/to/index.html
+node scripts/validate-presenter-mode.mjs path/to/index.html --target-minutes 30
+```
 
 ## Style B 瑞士风
 
@@ -259,7 +310,9 @@ guizang-ppt-skill/
 │   ├── template-swiss.html   ← Style B 瑞士国际主义模板
 │   └── screenshot-backgrounds/ ← 截图美化内置背景(WebP):style-a 5 套 / style-b 4 套
 ├── scripts/
-│   └── validate-swiss-deck.mjs ← 瑞士风版式校验器
+│   ├── validate-swiss-deck.mjs ← 瑞士风版式校验器
+│   ├── validate-presenter-mode.mjs ← 演讲备注、时长和运行时校验器
+│   └── check-presenter-runtime-sync.mjs ← 两套模板演讲者运行时防漂移检查
 └── references/
     ├── components.md     ← 组件手册(字体、色、网格、图标、callout、stat、pipeline)
     ├── layouts.md        ← 10 种页面布局骨架(可直接粘贴)
@@ -269,6 +322,7 @@ guizang-ppt-skill/
     ├── themes-swiss.md   ← 4 套瑞士风锚点色
     ├── image-prompts.md  ← GPT-Image 2.0 / GPT-M 2.0 配图类型、比例和基础提示词
     ├── screenshot-framing.md ← CleanShot X 式截图适配语义
+    ├── presenter-mode.md ← 演讲备注契约、排练、观众屏与现场工具说明
     └── checklist.md      ← 质量检查清单(P0 / P1 / P2 / P3 分级)
 ```
 
@@ -342,6 +396,12 @@ guizang-ppt-skill/
 **Codex 配图是必须的吗?**
 不是。没有配图也能生成 PPT。配图流程只在需要照片、信息图、UI 情景图或封面时使用。
 
+**演讲者模式需要联网或额外服务吗?**
+不需要。双窗口同步、备注、计时、排练、自动翻页和标注都在本地浏览器完成。它不会提供实时字幕、手机遥控或 AI 排练评分。
+
+**为什么关掉观众窗口后显示“未连接”?**
+演讲者端会通过观众屏确认和心跳判断软件链路。窗口关闭或心跳超时会显示“未连接”,点击“重新打开观众屏”即可恢复。浏览器无法判断 HDMI 或投影仪线缆是否真的接通,现场仍需目视确认。
+
 **怎么更新到最新版?**
 重新运行安装命令,或在本地 skill 目录执行 `git pull`。
 
@@ -352,6 +412,8 @@ Bug、排版问题、新布局需求——欢迎开 Issue 或 PR。改动请优�
 - 在 `template.html` 里补类,不要让 layouts.md 使用未定义的类
 - 在 `template-swiss.html` 里补类时,同步更新 `layouts-swiss.md` 和 `swiss-layout-lock.md`
 - 瑞士风新增规则后,同步更新 `scripts/validate-swiss-deck.mjs`
+- 演讲者运行时必须同时更新两套模板,并运行 `scripts/check-presenter-runtime-sync.mjs`；CI 会拦截两份模板的 CSS / JavaScript 漂移
+- 演讲备注或现场行为变化时,同步更新 `references/presenter-mode.md`、`references/checklist.md` 和 `scripts/validate-presenter-mode.mjs`
 - 把踩过的坑写到 `checklist.md` 对应的 P0 / P1 / P2 / P3 级别
 - 新主题色进 `themes.md` 并给出适合的场景
 

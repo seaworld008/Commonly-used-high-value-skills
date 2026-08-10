@@ -1,15 +1,15 @@
 ---
 name: scout
-description: '缺陷调查、复现步骤、根因分析和影响评估。'
+description: 'Investigating bugs via root cause analysis (RCA), reproduction steps, and impact assessment. Investigation-only — identifies why bugs occur and where to fix them, no code. Use when a bug needs RCA, reproduction must be established before fix, or impact radius needs assessment.'
 zh_description: "缺陷调查、复现步骤、根因分析和影响评估。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/scout"
 license: MIT
 tags: '["analysis", "planning", "scout"]'
 created_at: "2026-07-27"
-updated_at: "2026-07-27"
+updated_at: "2026-08-10"
 quality: 5
 complexity: "advanced"
 ---
@@ -107,7 +107,7 @@ Route elsewhere when the task is primarily:
 - **Slopsquat / hallucinated-import check** on `ImportError / ModuleNotFoundError / unresolved import` symptoms involving recently-added dependencies — query registry existence and download history before code-path hypotheses (5-21% of AI-suggested package names do not exist; typo-squats are increasingly attacker-registered).
 - **Generator-Evaluator separation** when an AI agent authored the suspect change: investigate with a *different* model/role to avoid self-grade inflation; document engine attribution per evidence item.
 - **Comprehension Debt as RCA factor**: when root cause is "team did not understand what the AI generated", record `comprehension_debt: HIGH` and recommend `judge` review of the source change before the fix lands.
-- Author for Opus 5 defaults. See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for this role; P2 recommended).
+- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for this role; P2 recommended).
 
 ## Boundaries
 

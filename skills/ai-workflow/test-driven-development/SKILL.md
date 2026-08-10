@@ -2,14 +2,14 @@
 name: test-driven-development
 description: 'Drives development with tests. Use when implementing any logic, fixing any bug, or changing any behavior. Use when you need to prove that code works, when a bug report arrives, or when you''re about to modify existing functionality.'
 zh_description: "用于测试、驱动、development，支持任务规划、执行、评审和验证。"
-version: "1.0.0"
+version: "1.0.1"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/test-driven-development/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "test-driven-development", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-07-27"
+updated_at: "2026-08-10"
 quality: 5
 complexity: advanced
 upstream_slug: test-driven-development
@@ -370,7 +370,7 @@ This separation ensures the test is written without knowledge of the fix, making
 
 ## See Also
 
-For JavaScript/TypeScript testing patterns illustrating these principles — Jest, React Testing Library, Supertest, Playwright — see `references/testing-patterns.md`. The principles transfer to any ecosystem; the syntax and tools there are JS/TS-specific.
+For JavaScript/TypeScript testing patterns illustrating these principles — Jest, React Testing Library, Supertest, Playwright — see `../../references/testing-patterns.md`. The principles transfer to any ecosystem; the syntax and tools there are JS/TS-specific.
 
 ## Common Rationalizations
 

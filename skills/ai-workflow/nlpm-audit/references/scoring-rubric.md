@@ -92,6 +92,16 @@ Advisory judgment findings:
 R51 vocabulary drift stays advisory unless the repository opts in with a
 reviewed registry that names canonical terms and deprecated synonyms.
 
+Apply three calibration rules before deducting points:
+
+- Treat a vague or deprecated token as data, not an instruction, when the
+  clause explicitly asks the reader or tool to detect, reject, replace, avoid,
+  or report it.
+- Do not deduct for a deprecated term in the registry field that declares it;
+  do review prose and uses outside that declaration.
+- Count `<example>` blocks only outside fenced code, so a template showing how
+  to write examples does not satisfy an example requirement.
+
 ## Calibration Examples
 
 ### Excellent Skill, 92

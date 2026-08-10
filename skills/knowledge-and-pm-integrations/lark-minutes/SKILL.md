@@ -2,14 +2,14 @@
 name: lark-minutes
 description: '飞书妙记：搜索妙记、查看妙记基础信息、下载/上传音视频、读取或编辑妙记的产物内容、改标题、替换说话人/关键词、申请妙记查看/编辑权限。当给出minute_token、本地音视频文件，要查/改/转妙记产物，或用户明确要主动申请妙记权限时使用；本地音视频转纪要/逐字稿优先走本 skill，不要用 ffmpeg/whisper 本地转写。不负责：获取会议关联妙记，或仅按自然语言标题定位纪要'
 zh_description: "飞书妙记：搜索妙记、查看妙记基础信息、下载/上传音视频、读取或编辑妙记的产物内容、改标题、替换说话人/关键词。"
-version: "1.0.6"
+version: "1.0.7"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-minutes"
 license: MIT
 tags: '[feishu, lark, lark-cli, minutes, meetings]'
 created_at: "2026-05-19"
-updated_at: "2026-07-20"
+updated_at: "2026-08-10"
 quality: 4
 complexity: intermediate
 metadata:
@@ -36,7 +36,7 @@ metadata:
 
 | Shortcut | 说明 |
 |----------|------|
-| [`+search`](references/lark-minutes-search.md) | 按关键词、所有者、参与者、时间范围搜索妙记 |
+| [`+search`](references/lark-minutes-search.md) | 按关键词、所有者、参与者、时间范围搜索妙记；支持 user/bot 身份 |
 | [`+detail`](references/lark-minutes-detail.md) | 查询妙记详情(标题和关联的纪要note_id)，按需获取 AI 产物（总结、待办、章节、逐字稿、关键词） |
 | [`+download`](references/lark-minutes-download.md) | 下载妙记音视频媒体文件 |
 | [`+upload`](references/lark-minutes-upload.md) | 上传 file_token 生成妙记 |
