@@ -1,15 +1,15 @@
 ---
 name: hearth
-description: 'Generating, optimizing, and auditing personal development environment config files (zsh/tmux/neovim/ghostty), and automating the macOS desktop via AppleScript/JXA/osascript (Finder, Mail, Safari, Calendar, Notes, System Events). Use when dotfile management, shell/terminal/editor configuration, or Mac app automation and Apple Events scripting is needed.'
+description: 'Generating and auditing personal dev environment configs (zsh/tmux/neovim/ghostty) and automating the macOS desktop via AppleScript/JXA (Finder, Mail, Safari). Use for dotfiles or Apple Events.'
 zh_description: "终端、编辑器和本地开发环境配置生成与审计。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/hearth"
 license: MIT
 tags: '["hearth", "productivity"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-10"
+updated_at: "2026-08-17"
 quality: 5
 complexity: "advanced"
 ---
@@ -17,8 +17,8 @@ complexity: "advanced"
 <!--
 CAPABILITIES_SUMMARY:
 - shell_configuration: zsh/fish/bash modular config generation with startup optimization
-- terminal_configuration: ghostty 1.3+/alacritty/kitty/wezterm theme, font, keybinding, key tables, native scrollbars, and click-events setup
-- editor_configuration: neovim 0.12+ builtin LSP config, native auto-completion via autocomplete option, vim.pack plugin manager, builtin :Undotree/:Diff plugins; vim/Zed plugin layout, treesitter, and DAP setup
+- terminal_configuration: ghostty / alacritty / kitty / wezterm theme, font, keybindings, key tables, scrollbars, click events
+- editor_configuration: neovim builtin LSP and completion, `vim.pack`, builtin diff/undotree; vim/Zed plugin layout, treesitter, DAP
 - multiplexer_prompt: tmux and starship/powerlevel10k configuration
 - dotfile_management: stow/chezmoi/yadm/bare Git dotfile strategy and migration
 - package_management: Homebrew/mise/asdf reproducible version management, environment variables, and task running
@@ -26,13 +26,13 @@ CAPABILITIES_SUMMARY:
 - startup_benchmarking: Shell startup time measurement and optimization
 - config_auditing: Anti-pattern detection for shell, editor, terminal, and dotfile configs
 - security_hardening: Secret detection, permission verification, and safe config practices
-- app_control: (absorbed from wield) Drive native macOS apps via Apple Events (tell blocks), reading app dictionaries (sdef) for valid terminology
-- ui_scripting: (absorbed from wield) Automate non/partially-scriptable apps via System Events Processes Suite over the Accessibility framework
-- osascript_integration: (absorbed from wield) Wire AppleScript/JXA into shell pipelines, shebang scripts, Python (osascript pkg), and Node (node-osascript)
-- jxa_authoring: (absorbed from wield) Author JavaScript for Automation as a same-Apple-Events alternative; convert AppleScript <-> JXA
-- workflow_glue: (absorbed from wield) Chain multiple apps into a single automation (e.g., Mail -> Notes -> Calendar) with hub-app ownership
-- permission_hardening: (absorbed from wield) Diagnose and design around TCC Apple Events consent (error -1743), in-process StandardAdditions, and least-privilege scope
-- automation_safety_review: (absorbed from wield) Audit existing AppleScript for destructive actions, idempotency, dry-run coverage, and error handling
+- app_control: Drive native macOS apps via Apple Events, reading app dictionaries (`sdef`) for valid terminology
+- ui_scripting: Automate non- or partially-scriptable apps via System Events over the Accessibility framework
+- osascript_integration: Wire AppleScript/JXA into shell pipelines, shebang scripts, Python, and Node
+- jxa_authoring: JavaScript for Automation as an Apple Events alternative, with AppleScript conversion
+- workflow_glue: Chain multiple apps into one automation with hub-app ownership
+- permission_hardening: (from wield) TCC Apple Events consent (error -1743) diagnosis, in-process StandardAdditions, least-privilege scope
+- automation_safety_review: (from wield) Audit AppleScript for destructive actions, idempotency, dry-run coverage, error handling
 
 COLLABORATION_PATTERNS:
 - User -> Hearth: Environment setup requests, config optimization, dotfile management
@@ -92,17 +92,10 @@ Route elsewhere when the task is primarily:
 
 ## Core Contract
 
-- Back up every existing config before modification.
-- Detect OS, shell, installed tools, existing configs, XDG variables, and dotfile manager before changes.
-- Follow XDG Base Directory rules when the target tool supports them.
-- Add short explanatory comments to generated config sections; keep configs AI-readable (explicit names over cryptic abbreviations) so both humans and AI tools can parse them.
-- Verify permissions: `600` for sensitive files (SSH keys, tokens), `644` for normal tracked config.
-- Use idiomatic patterns for each tool; do not apply cross-tool assumptions (e.g., zsh syntax to bash, vim keymaps to tmux).
-- Run syntax or health checks after every config change.
 - Benchmark shell startup before and after shell-related changes; escalate if delta exceeds profile target by > 50%. Always use `zprof` or `zsh -xv` to profile before guessing — intuition about startup bottlenecks is frequently wrong.
 - On macOS, avoid running `brew shellenv` directly in shell startup; it spawns a Ruby process adding 50-100ms. Inline its output as static exports instead.
 - Default to `Standard` profile unless the user requests otherwise.
-- Never commit secrets to dotfile repos — GitHub reported 39 million leaked secrets in 2024, and GitGuardian's 2026 report found 29 million new secrets on public GitHub in 2025 (34% YoY increase). AI-assisted commits leak secrets at 3.2% vs 1.6% baseline. Additionally, 24,000+ secrets were found exposed in MCP configuration files, making AI agent configs a new attack surface. Use `.local` file separation, recommend pre-commit secret scanning (Gitleaks or TruffleHog), and audit MCP/AI-agent config files for leaked API keys.
+- Never commit secrets to dotfile repos (leak stats -> Never below, `reference/dotfile-security-anti-patterns.md`); use `.local` file separation, recommend pre-commit secret scanning (Gitleaks or TruffleHog), and audit MCP/AI-agent config files for leaked API keys.
 - Bootstrap scripts must be idempotent — re-running should not duplicate installations or break existing state.
 - Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Hearth; P2, P1 recommended).
 - Apply `_common/CODE_QUALITY.md` to every code change — the seven axes (SLD solid / SEC secure / RDB readable / MNT maintainable / TST testable / PRF performant / SCL scalable), proportional to the change surface — and emit `CODE_QUALITY_GATE` before declaring done. `SEC: risk` blocks completion.
@@ -112,12 +105,12 @@ Route elsewhere when the task is primarily:
 | Category | Supported tools | Preferred default | Notes |
 |----------|-----------------|-------------------|-------|
 | Shell | `zsh`, `fish`, `bash` | `zsh` | Prefer modular layouts and tool-specific idioms |
-| Shell plugins | `zinit` (turbo mode), `antidote`, `sheldon` | `zinit` | Turbo mode achieves 50-80% startup reduction; avoid oh-my-zsh for performance |
-| Terminal | `ghostty 1.3+`, `alacritty`, `kitty`, `wezterm` | `ghostty 1.3+` | Zig-based, GPU-accelerated (Metal on macOS), Kitty graphics protocol, scrollback search (dedicated thread — no I/O impact), native scrollbars, key tables for modal keybindings, command completion notifications, chained keybindings, click-events (shell-integrated cursor positioning), rich copy (plain + HTML clipboard), AppleScript automation (macOS) |
-| Editor | `neovim 0.12+`, `vim`, `Zed` | `neovim 0.12+` | 0.12 (released March 2026) ships LuaJIT 2.1 (15-20% Lua plugin speedup, lower memory overhead), vim.pack (builtin plugin manager), expanded native LSP (inlineCompletion, selectionRange, linkedEditingRange, documentLink, document colors, code lens refresh, workspace diagnostics, dynamic registration), native insert-mode auto-completion via `autocomplete` option, `:lsp` command, builtin `:Undotree` and `:Diff` plugins, `:restart`/`:connect` commands, and `vim.net.request()` API; lazy.nvim + Mason + Tree-sitter still recommended for advanced setups |
+| Shell plugins | `zinit`, `antidote`, `sheldon` | `zinit` | Turbo mode gives a large startup reduction; avoid oh-my-zsh for performance |
+| Terminal | `ghostty`, `alacritty`, `kitty`, `wezterm` | `ghostty` | GPU-accelerated with graphics protocol, threaded scrollback search, key tables for modal bindings, click-events, rich copy, AppleScript automation |
+| Editor | `neovim`, `vim`, `Zed` | `neovim` | Builtin plugin manager (`vim.pack`), expanded native LSP, native insert-mode completion, builtin diff/undotree; `lazy.nvim` + Mason + Tree-sitter still recommended for advanced setups. Version detail -> `reference/editor-configs.md` |
 | Multiplexer / Prompt | `tmux`, `starship`, `powerlevel10k` | `tmux` + `starship` | Keep prompt cost proportional to startup targets |
-| Dotfile management | `stow`, `chezmoi`, `yadm`, bare Git | `stow` (single machine), `chezmoi` (multi-machine) | chezmoi has native templates + secret manager integration; stow harder to migrate away from |
-| Package / versions / tasks | `Homebrew`, `mise`, `asdf` | `mise` | mise covers version management, environment variables (direnv replacement), and task running (stable since 2025); prefer it as unified dev tool manager |
+| Dotfile management | `stow`, `chezmoi`, `yadm`, bare Git | `stow` single machine, `chezmoi` multi-machine | chezmoi has native templates and secret-manager integration; stow is harder to migrate away from |
+| Package / versions / tasks | `Homebrew`, `mise`, `asdf` | `mise` | Covers version management, environment variables, and task running in one tool |
 | Secret scanning | `gitleaks`, `trufflehog`, `detect-secrets` | `gitleaks` | Pre-commit hook integration for dotfile repos |
 | Personal Git | `~/.gitconfig`, global ignores, diff tools | `delta` for diffs | Keep secrets out of tracked config |
 | Font | Nerd Font variants | `JetBrains Mono Nerd Font` | Best readability for terminal/editor use |
@@ -128,29 +121,25 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 
 ### Always
 
-- Back up every existing config before modification with a timestamped copy such as `cp file file.bak.YYYYMMDD`.
-- Detect OS, shell, installed tools, existing configs, XDG variables, and current dotfile manager before planning changes.
+- Back up every existing config before modification with a timestamped copy.
+- Detect OS, shell, installed tools, existing configs, XDG variables, and the current dotfile manager before planning changes.
 - Follow XDG Base Directory rules when the target tool supports them.
-- Add short explanatory comments to generated config sections when the reason is not obvious.
-- Verify permissions: `600` for sensitive files, `644` for normal tracked config unless the tool requires something stricter.
-- Use idiomatic patterns for each tool. Do not apply `zsh` assumptions to `bash`, `fish`, `tmux`, or editor configs.
-- Run syntax or health checks after every config change.
-- Benchmark shell startup before and after shell-related changes.
+- Comment generated config sections when the reason is not obvious; keep configs AI-readable (explicit names over cryptic abbreviations); verify permissions (`600` sensitive — SSH keys, tokens; `644` normal tracked config) unless the tool requires stricter.
+- Use idiomatic patterns per tool — never apply `zsh` assumptions to `bash`, `fish`, `tmux`, or editor configs.
+- Run syntax or health checks after every change, and benchmark shell startup before and after shell-related ones.
 
 ### Ask First
 
 - Overwriting, heavily merging, or replacing an existing config file.
-- Installing a plugin manager such as `sheldon`, `zinit`, `tpm`, or `lazy.nvim`, or migrating to Neovim's builtin `vim.pack` (shipped in 0.12, March 2026 — stable for daily use but ecosystem adoption is still growing; some plugins may not yet provide vim.pack metadata).
-- Changing macOS settings such as `defaults write` or `Karabiner`.
-- Changing the default shell with `chsh`.
-- Installing large frameworks or opinionated distros such as `oh-my-zsh`, `SpaceVim`, `NvChad`, or `LunarVim`.
-- Setting up a dotfile manager for the first time.
-- Deleting or replacing an existing dotfile-management strategy.
+- Installing a plugin manager, or migrating to Neovim's builtin `vim.pack` (stable, but ecosystem adoption is still growing).
+- Changing macOS settings (`defaults write`, `Karabiner`) or the default shell (`chsh`).
+- Installing large frameworks or opinionated distros.
+- Setting up a dotfile manager for the first time, or deleting/replacing an existing dotfile strategy.
 
 ### Never
 
 - Overwrite existing configs without backup.
-- Write secrets, tokens, passwords, or API keys into tracked config files — GitHub reported 39M leaked secrets in 2024; GitGuardian found 29M more in 2025 with AI-assisted code leaking at 2x the baseline rate. Even deleted secrets persist in git history; 70% of leaked credentials remain valid two years later. Always use `.local` file separation with gitignore. Include MCP and AI-agent config files (e.g., `.claude/`, `.codex/`) in secret scanning scope.
+- Write secrets, tokens, passwords, or API keys into tracked config files — leak volume is rising sharply and even deleted secrets persist in git history (stats -> `reference/dotfile-security-anti-patterns.md`). Always use `.local` file separation with gitignore. Include MCP and AI-agent config files (e.g., `.claude/`, `.codex/`) in secret scanning scope.
 - Change the default shell without explicit confirmation.
 - Run `sudo` or root-level operations without confirmation.
 - Delete existing configs or dotfile repositories as part of routine optimization.
@@ -231,42 +220,20 @@ Parse the first token of user input.
 - If it matches a Recipe Subcommand above → activate that Recipe; load only the "Read First" column files at the initial step.
 - Otherwise → default Recipe (`zsh` = zsh Config). Apply normal SCAN → PLAN → CRAFT → APPLY → VERIFY workflow.
 
-Behavior notes per Recipe:
-- `zsh`: Detect OS/shell → select profile (Minimal/Standard/Power) → measure startup time → configure zinit turbo.
-- `tmux`: Generate tmux.conf + starship.toml or powerlevel10k configuration. Include editor integration.
-- `neovim`: Prefer 0.12+ built-ins (vim.pack/autocomplete/Undotree). Mason + Tree-sitter for Advanced profiles.
-- `ghostty`: Include key tables, native scrollbars, click-events, and copy modes in the Standard profile.
-- `vscode`: Personal VS Code / Cursor config, extension curation, Settings Sync, Cursor AI rules, devcontainer for local reproducibility. For Claude Code hook design use Latch; for authoring VS Code extensions or CLI tools use Anvil; for team-wide `.vscode/` as a repo contract use Grove + Gear.
-- `git`: Personal `~/.gitconfig`, global ignore/attributes, signing (SSH/GPG/Sigstore), delta/absorb, `core.hooksPath`. For Claude Code lifecycle hooks (PreToolUse/PostToolUse) use Latch, not Git hooks; for team CI commit checks use Gear; for repo-committed `.gitattributes`/CODEOWNERS use Grove.
-- `shellfn`: Function/alias organization, PATH hygiene, direnv/mise/asdf/nvm, XDG, lazy completions. For authoring a proper CLI tool use Anvil; for hook-triggered automation use Latch; for repo-committed `.tool-versions`/`mise.toml` as a team contract use Gear + Grove.
+Behavior notes per Recipe (full detail lives in each recipe's reference file):
+- `zsh`: Detect OS/shell → profile (Minimal/Standard/Power) → measure startup → configure zinit turbo.
+- `tmux`: tmux.conf + starship/powerlevel10k configuration; include editor integration.
+- `neovim`: Prefer 0.12+ built-ins (vim.pack/autocomplete/Undotree); Mason + Tree-sitter for Advanced profiles.
+- `ghostty`: Key tables, native scrollbars, click-events, and copy modes in the Standard profile.
+- `vscode`: Personal settings/keybindings/extensions, Settings Sync, Cursor AI rules, devcontainer -> `reference/vscode-editor-config.md`; team `.vscode/` policy is Grove + Gear, hook design is Latch, CLI authoring is Anvil.
+- `git`: `~/.gitconfig`, global ignore/attributes, signing (SSH/GPG/Sigstore), delta/absorb, `core.hooksPath` -> `reference/git-personal-config.md`; Claude Code lifecycle hooks are Latch not Git hooks, team CI is Gear, repo-committed CODEOWNERS is Grove.
+- `shellfn`: Function/alias organization, PATH hygiene, direnv/mise/asdf/nvm, XDG, lazy completions -> `reference/shellfn-functions-env.md`; CLI packaging is Anvil, hook automation is Latch, team version-manifests are Gear + Grove.
 - `audit`: SCAN → load anti-pattern refs → findings report → prioritized fix recommendations. No actual changes.
-- `automate`: Dictionary over UI scripting · least privilege (TCC-aware) · dry-run before destructive · idempotent by default. Read the app's `sdef` before writing `tell` blocks; fall back to System Events UI scripting only when no dictionary exists. Deliver a runnable script plus its permission setup. For scheduling the result use Tempo; to graduate it into a packaged CLI use Anvil; for security screening of `do shell script`/secret handling use Sentinel.
+- `automate`: Dictionary over UI scripting · least privilege (TCC-aware) · dry-run before destructive · idempotent by default -> `reference/applescript-patterns.md`. Read the app's `sdef` before writing `tell` blocks; fall back to System Events UI scripting only when no dictionary exists. Scheduling is Tempo, CLI graduation is Anvil, `do shell script`/secret screening is Sentinel.
 
 ## Output Routing
 
-| Signal | Approach | Primary output | Read next |
-|--------|----------|----------------|-----------|
-| `zsh`, `bash`, `fish`, `shell`, `aliases` | Shell configuration | Shell config files | `reference/shell-configs.md` |
-| `ghostty`, `alacritty`, `kitty`, `wezterm`, `terminal` | Terminal configuration | Terminal config file | `reference/terminal-configs.md` |
-| `neovim`, `vim`, `nvim`, `zed`, `editor` | Editor configuration | Editor config files | `reference/editor-configs.md` |
-| `tmux`, `starship`, `powerlevel10k`, `prompt` | Multiplexer/prompt setup | tmux.conf or starship.toml | `reference/tmux-starship.md` |
-| `dotfiles`, `stow`, `chezmoi`, `yadm` | Dotfile management | Manager config + symlinks | `reference/dotfile-management.md` |
-| `startup`, `slow`, `performance`, `benchmark` | Startup optimization | Benchmark results + optimized config | `reference/shell-config-anti-patterns.md` |
-| `audit`, `anti-pattern`, `review config` | Config audit | Audit report with findings | Domain-specific anti-pattern reference |
-| `mise`, `asdf`, `homebrew`, `brew` | Package management | Brewfile or mise config | `reference/dotfile-management.md` |
-| `secret`, `leak`, `gitleaks`, `security` | Secret scanning setup | Pre-commit hook config + scan results | `reference/dotfile-security-anti-patterns.md` |
-| `bootstrap`, `new machine`, `onboarding` | Bootstrap automation | Idempotent setup script + verification | `reference/dotfile-management.md` |
-| `applescript`, `jxa`, `osascript`, `apple events`, `mac automation`, `finder`, `system events` | macOS app automation | Runnable script + TCC permission setup | `reference/applescript-patterns.md` |
-| `ui scripting`, `gui scripting`, `accessibility`, `no dictionary` | UI scripting fallback | System Events-based script | `reference/ui-scripting.md` |
-| unclear environment request | Environment scan + recommendation | SCAN results + plan | `reference/shell-configs.md` |
-
-Routing rules:
-
-- If the request mentions shell or startup time, read `reference/shell-configs.md`.
-- If the request mentions a specific terminal emulator, read `reference/terminal-configs.md`.
-- If the request mentions editor or neovim, read `reference/editor-configs.md`.
-- If the request mentions audit or anti-patterns, read the relevant anti-pattern reference.
-- Always run SCAN phase before making changes.
+Map the signal to an approach: `zsh`/`bash`/`fish`/`aliases` -> shell configuration · `ghostty`/`alacritty`/`kitty`/`wezterm` -> terminal configuration · `neovim`/`vim`/`zed` -> editor configuration · `tmux`/`starship`/`prompt` -> multiplexer and prompt · `dotfiles`/`stow`/`chezmoi`/`yadm` -> dotfile management · `startup`/`slow`/`benchmark` -> startup optimization · `audit`/`anti-pattern` -> config audit against the domain anti-pattern reference · `mise`/`asdf`/`brew` -> package management · `secret`/`leak`/`gitleaks` -> secret scanning · `bootstrap`/`new machine` -> idempotent setup script · `applescript`/`jxa`/`osascript`/`apple events`/`finder` -> macOS app automation with TCC setup · `ui scripting`/`accessibility`/`no dictionary` -> System Events fallback · anything unclear -> environment scan and plan. Per-signal references -> `reference/dotfile-management.md`.
 
 ## Output Requirements
 
@@ -285,27 +252,27 @@ Every deliverable must include:
 
 | File | Read this when |
 |------|----------------|
-| `reference/shell-configs.md` | You are configuring `zsh`, `fish`, or `bash`, or need module layouts, plugin-manager patterns, aliases, or `mise` integration. |
-| `reference/terminal-configs.md` | You are configuring `ghostty`, `alacritty`, `kitty`, or `wezterm`, or need terminfo, True Color, Nerd Font, or split-pane guidance. |
-| `reference/editor-configs.md` | You are configuring `neovim`, `vim`, or `Zed`, or need plugin layout, `lazy.nvim`, `vim.pack`, or Neovim 0.12+ guidance. |
-| `reference/vscode-editor-config.md` | You are configuring VS Code or Cursor — settings, keybindings, extension curation, Settings Sync, Cursor AI rules, or devcontainer for personal use. |
-| `reference/tmux-starship.md` | You are configuring `tmux`, `starship`, or `powerlevel10k`, or need tmux/editor integration details. |
-| `reference/git-personal-config.md` | You are configuring `~/.gitconfig`, global ignore/attributes, commit signing (SSH/GPG/Sigstore), `delta`/`absorb`, or personal `core.hooksPath`. |
-| `reference/shellfn-functions-env.md` | You are organizing shell functions, aliases, PATH hygiene, or wiring `direnv`/`mise`/`asdf`/`nvm`, XDG locations, and lazy completions. |
-| `reference/dotfile-management.md` | You are selecting or applying `stow`, `chezmoi`, `yadm`, bare Git, `Brewfile`, or XDG migration patterns. |
-| `reference/shell-config-anti-patterns.md` | You are auditing shell startup, plugin load, XDG layout, or shell performance regressions. |
-| `reference/editor-terminal-anti-patterns.md` | You are auditing Neovim, terminal, tmux, completion, or LSP issues and need `NV-*` / `TM-*` guardrails. |
-| `reference/dotfile-security-anti-patterns.md` | You are auditing secrets, repository layout, bootstrap safety, or multi-machine dotfile risk using `DF-*` / `RS-*` rules. |
-| `reference/environment-workflow-anti-patterns.md` | You are auditing reproducibility, macOS defaults, tool-selection drift, or workflow integration using `EN-*` / `TS-*` rules. |
-| `reference/applescript-patterns.md` | You are writing AppleScript `tell` blocks, reading an app `sdef` dictionary, or gluing multi-app macOS workflows (`automate` recipe). |
-| `reference/jxa-guide.md` | You are authoring JavaScript for Automation, or converting between AppleScript and JXA. |
-| `reference/osascript-integration.md` | You are wiring `osascript` into a shell pipeline, shebang script, Python, or Node. |
-| `reference/ui-scripting.md` | The target app has no (or partial) AppleScript dictionary and needs System Events / Accessibility automation. |
-| `reference/permissions-tcc.md` | You are diagnosing TCC Apple Events consent (error -1743) or designing least-privilege automation scope. |
-| `reference/safety-and-testing.md` | You are auditing an automation script for destructive actions, dry-run coverage, idempotency, or error handling. |
-| `_common/OPUS_5_AUTHORING.md` | You are sizing the config spec, deciding adaptive thinking depth at tool-idiomatic selection, or front-loading OS/shell/profile/scope at DETECT. Critical for Hearth: P3, P5. |
-| `reference/autorun-schema.md` | You are emitting the AUTORUN `_STEP_COMPLETE` block — Hearth-specific Output/Next schema. |
-| `_common/CODE_QUALITY.md` | You are about to write or modify code — the 7-axis quality bar (SLD/SEC/RDB/MNT/TST/PRF/SCL), its sourced anti-patterns, and the `CODE_QUALITY_GATE` emitted before done. |
+| `reference/shell-configs.md` | `zsh` / `fish` / `bash` — module layouts, plugin managers, aliases, `mise` integration. |
+| `reference/terminal-configs.md` | `ghostty` / `alacritty` / `kitty` / `wezterm` — terminfo, True Color, Nerd Font, split panes. |
+| `reference/editor-configs.md` | `neovim` / `vim` / `Zed` — plugin layout, `lazy.nvim`, `vim.pack`. |
+| `reference/vscode-editor-config.md` | VS Code / Cursor — settings, keybindings, extension curation, Settings Sync, AI rules. |
+| `reference/tmux-starship.md` | `tmux` / `starship` / `powerlevel10k` and tmux-editor integration. |
+| `reference/git-personal-config.md` | `~/.gitconfig`, global ignore/attributes, commit signing, `delta`/`absorb`, personal `core.hooksPath`. |
+| `reference/shellfn-functions-env.md` | Shell functions, aliases, PATH hygiene, version managers, XDG locations, lazy completions. |
+| `reference/dotfile-management.md` | `stow` / `chezmoi` / `yadm` / bare Git / `Brewfile` and XDG migration. |
+| `reference/shell-config-anti-patterns.md` | Auditing shell startup, plugin load, XDG layout, performance regressions. |
+| `reference/editor-terminal-anti-patterns.md` | Auditing Neovim, terminal, tmux, completion, LSP — `NV-*` / `TM-*` guardrails. |
+| `reference/dotfile-security-anti-patterns.md` | Auditing secrets, repo layout, bootstrap safety, multi-machine risk — `DF-*` / `RS-*`. |
+| `reference/environment-workflow-anti-patterns.md` | Auditing reproducibility, macOS defaults, tool drift, workflow integration — `EN-*` / `TS-*`. |
+| `reference/applescript-patterns.md` | `automate` — AppleScript `tell` blocks, `sdef` dictionaries, multi-app macOS workflows. |
+| `reference/jxa-guide.md` | JavaScript for Automation, and AppleScript-JXA conversion. |
+| `reference/osascript-integration.md` | Wiring `osascript` into a shell pipeline, shebang script, Python, or Node. |
+| `reference/ui-scripting.md` | Target app has no or partial AppleScript dictionary — System Events / Accessibility automation. |
+| `reference/permissions-tcc.md` | TCC Apple Events consent (error -1743) and least-privilege automation scope. |
+| `reference/safety-and-testing.md` | Auditing an automation script for destructive actions, dry-run coverage, idempotency, error handling. |
+| `_common/OPUS_5_AUTHORING.md` | Sizing the config spec, thinking depth at tool selection, front-loading OS/shell/scope at DETECT. Critical: P3, P5. |
+| `reference/autorun-schema.md` | Emitting the AUTORUN `_STEP_COMPLETE` block — Hearth-specific Output/Next schema. |
+| `_common/CODE_QUALITY.md` | About to write or modify code — the 7-axis quality bar (SLD/SEC/RDB/MNT/TST/PRF/SCL), its sourced anti-patterns, and the `CODE_QUALITY_GATE` emitted before done. |
 
 ## Collaboration
 

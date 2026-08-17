@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://nlpm.com/",
-    "checked_at": "2026-08-10",
+    "checked_at": "2026-08-17",
     "note": "Curated from xiaolai/nlpm after reviewing the website, why page, README, LICENSE, author docs, rules, scoring, and testing materials. Imported as an original repository skill that captures the durable audit method rather than mirroring the full upstream command/plugin product."
   },
   "official_references": [
@@ -49,9 +49,9 @@
         "path": "README.md",
         "ref": "main",
         "sync_mode": "monitor",
-        "last_checked_at": "2026-08-10",
-        "last_synced_at": "2026-08-10",
-        "last_synced_commit": "06e14047e59a8446275dc1b2f082127fc3bc29de"
+        "last_checked_at": "2026-08-17",
+        "last_synced_at": "2026-08-17",
+        "last_synced_commit": "da65a5d19a08868ff86ae9c47c49e33e7742c302"
       }
     }
   ],
@@ -97,6 +97,20 @@
       "target": "https://github.com/xiaolai/nlpm/compare/41ce701962986f23ca79b45e64a1005a0bd3b3f4...06e14047e59a8446275dc1b2f082127fc3bc29de",
       "result": "success",
       "evidence": "Reviewed 262 upstream commits. Ignored generated tracking, dashboard, case-study, and product-automation churn; absorbed durable scoring calibration for mention-versus-use and fenced examples, deterministic registry-based vocabulary gates with advisory LLM clustering, changed-artifact PR scoring, and current Codex convention compatibility."
+    },
+    {
+      "date": "2026-08-17",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "https://github.com/xiaolai/nlpm/compare/a9f24093c69c42a607e6a3d1948240b89b6b63d9...06e14047e59a8446275dc1b2f082127fc3bc29de",
+      "result": "upstream-rollback-no-local-change",
+      "evidence": "GitHub reported current main a9f24093c69c42a607e6a3d1948240b89b6b63d9 as an ancestor 1379 commits behind the reviewed checkpoint. Preserved the newer local curated guidance and checkpoint instead of treating the older README body as an update."
+    },
+    {
+      "date": "2026-08-17",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "https://github.com/xiaolai/nlpm/compare/06e14047e59a8446275dc1b2f082127fc3bc29de...da65a5d19a08868ff86ae9c47c49e33e7742c302",
+      "result": "success",
+      "evidence": "Reviewed 144 commits after upstream main recovered and advanced during this maintenance run. Absorbed contract-aware manifest-vs-disk classification, definition-backed vague-term calibration, and release-gate coverage plus client-mirror parity checks; skipped issue-lane accounting, dashboards, telemetry, and generated audit artifacts."
     }
   ]
 }

@@ -1,15 +1,15 @@
 ---
 name: pipe
-description: 'Designing GitHub Actions workflows in depth — covering trigger strategy, security hardening, performance optimization, PR automation, and Reusable Workflow design. Use when new GHA workflow design or advanced optimization is needed.'
+description: 'Designing GitHub Actions workflows in depth: trigger strategy, security hardening, performance optimization, PR automation, and Reusable Workflow design.'
 zh_description: "持续集成工作流、触发策略、安全加固和复用设计。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/pipe"
 license: MIT
 tags: '["deployment", "pipe"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-10"
+updated_at: "2026-08-17"
 quality: 5
 complexity: "advanced"
 ---
@@ -77,20 +77,20 @@ Route elsewhere when:
 
 - Treat workflows as production code — every change is reviewed, tested, and versioned.
 - Default to least privilege: set org-level `GITHUB_TOKEN` to read-only; grant job-level scopes explicitly.
-- Pin all third-party actions to full commit SHA. Mutable references (tags, branches) are non-deterministic and the #1 supply-chain attack vector (CVE-2025-30066; TeamPCP trivy-action campaign, March 2026 — full incident detail in `reference/security-hardening.md`).
+- Pin all third-party actions to a full commit SHA — mutable tags and branches are non-deterministic and the top supply-chain attack vector.
 - Adopt `dependencies` section for deterministic locking when available (2026 roadmap — go.mod-style lockfile for workflows).
 - Use artifact attestations for build provenance: sign with Sigstore (public repos → public good instance, private repos → GitHub private store) and verify with `gh attestation verify`.
 - Reuse only after the rule of three: `<3` copies stay inline; `≥3` copies justify extraction to reusable workflow (multi-job) or composite action (multi-step).
 - Optimize for fast feedback: target `≤10 min` PR CI, `≤30 min` full pipeline. Caching alone can reduce build times up to 80%.
 - Prefer OIDC over long-lived cloud credentials for all cloud authentication.
-- Enable Actions Data Stream for CI/CD observability — near real-time telemetry to S3 or Azure Event Hub, correlating every request to workflow/job/step. Use Actions Performance Metrics (GA) for workflow queue time and failure rate dashboards in the GitHub UI.
-- Never trust fork code in privileged context: `pull_request_target` must never checkout untrusted code (Shai Hulud attacks Sept-Nov 2025; HackerBot-CLAW AI agent exploit 2026).
-- **OIDC audience pinning**: restrict `id-token` audience to the deployment target's expected value (`audience: <cloud-or-registry-specific>`), and verify the audience server-side. Generic audiences are the foothold repeatedly exploited by Mini Shai-Hulud-class attacks (e.g. the SAP CAP npm compromise, April 2026) — full incident/IOC detail in `reference/security-hardening.md`.
-- **Shai-Hulud 3.0 "The Golden Path"** now invokes Bun via `bun_installer.js` during `npm install`. Treat any unexpected `bun` runtime invocation during install as a high-signal IOC; gate self-hosted runners' egress and audit `npm pkg get scripts.preinstall scripts.postinstall` for every direct dep on bootstrap — full incident detail in `reference/security-hardening.md`.
-- **Forbid preinstall/postinstall in CI installs** by default: pin `npm config set ignore-scripts true` (or `pnpm install --ignore-scripts` / `yarn install --ignore-scripts`) for the install step; allowlist trusted packages explicitly via pnpm's `pnpm.allowBuilds` or equivalent. This blocks Remote Dynamic Dependencies (RDD) attacks (PhantomRaven waves — see `reference/security-hardening.md`), where an HTTP URL outside the registry is declared as a dependency and fetched/executed at install.
-- For agentic workflows (technical preview): use only for AI-suited tasks (triage, review, maintenance). Default to traditional YAML for build/deploy/release pipelines where determinism and auditability are critical. Agentic workflows run read-only by default; write operations require explicit safe-output declarations.
+- Enable Actions Data Stream for CI/CD observability (near real-time telemetry correlated to workflow/job/step) and Actions Performance Metrics for queue-time and failure-rate dashboards.
+- Never trust fork code in a privileged context — `pull_request_target` must never check out untrusted code.
+- Treat any unexpected **`bun` runtime invocation during `npm install`** as a high-signal IOC; gate self-hosted runner egress and audit `npm pkg get scripts.preinstall scripts.postinstall` for every direct dependency on bootstrap.
+- **Forbid preinstall/postinstall in CI installs** by default (`ignore-scripts` on the install step), allowlisting trusted packages explicitly. This blocks Remote Dynamic Dependency attacks where a non-registry HTTP URL is declared as a dependency and executed at install. Incident detail and IOCs -> `reference/security-hardening.md`.
+- **OIDC audience pinning**: restrict the `id-token` audience to the deployment target's expected value and verify it server-side. Generic audiences are the repeatedly-exploited foothold.
+- Agentic workflows suit triage, review, and maintenance only — build/deploy/release pipelines stay traditional YAML where determinism and auditability matter. They run read-only by default; writes require explicit safe-output declarations.
 - Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Pipe; P2, P1 recommended).
-- Apply `_common/CODE_QUALITY.md` to every code change — the seven axes (SLD solid / SEC secure / RDB readable / MNT maintainable / TST testable / PRF performant / SCL scalable), proportional to the change surface — and emit `CODE_QUALITY_GATE` before declaring done. `SEC: risk` blocks completion.
+- Apply `_common/CODE_QUALITY.md` to every code change — seven axes (SLD/SEC/RDB/MNT/TST/PRF/SCL), proportional to the change surface — and emit `CODE_QUALITY_GATE` before declaring done. `SEC: risk` blocks completion.
 
 ## Boundaries
 
@@ -144,20 +144,20 @@ Shared agent boundaries -> `_common/BOUNDARIES.md`
 
 | Decision | Rule |
 |----------|------|
-| Trigger selection | Use `push` and `pull_request` by default. Use `workflow_dispatch` for manual runs or safe replay. Use `repository_dispatch` for cross-repo or external systems. Use `workflow_run` only for post-success chaining; keep preferred chain depth `<=2`, never exceed `3`, and ask first before adding a new chain. Add `merge_group` whenever merge queue is enabled. |
-| Fork PR safety | `pull_request_target` may inspect metadata, labels, comments, or trusted automation, but must never checkout untrusted fork code. Use label or maintainer approval gates. |
-| Filtering | Use branch and tag filters at workflow level. Use workflow-level `paths` only for whole-workflow skipping. Use `dorny/paths-filter` for job-level routing. If required checks must always report, add an always-run `ci-gate` job. |
-| Permissions | Start with top-level `permissions: {}`. Grant job-level scopes only where required. `contents: read` is the normal default. |
-| Third-party actions | Pin every third-party action to a full SHA. Use Dependabot or Renovate to refresh pins. Prefer org allow-lists with SHA pinning enforcement policy (GA Aug 2025). When available, use `dependencies` section for deterministic transitive locking. GitHub pivoted from immutable actions (OCI/GHCR) to org-level SHA pinning enforcement + immutable releases with stricter publishing requirements. |
-| Cloud auth | Prefer OIDC over long-lived cloud credentials. Add `id-token: write` only to jobs that mint cloud tokens. Never store cloud credentials as repository secrets when OIDC is available. Use OIDC custom property claims (repo custom properties embedded in tokens) for granular trust policies — scope cloud roles to specific teams, environments, or project classifications without per-repo configuration. |
-| Egress controls | When available, enable egress firewall in monitor mode first. Build allowlists from observed traffic before switching to enforcement. Define allowed domains, IP ranges, and TLS requirements. Egress firewall operates at L7 outside the runner VM — immutable even with root access inside. |
+| Trigger selection | `push` and `pull_request` by default; `workflow_dispatch` for manual runs or safe replay; `repository_dispatch` for cross-repo; `workflow_run` only for post-success chaining with depth `<=2` (never above `3`, ask first before adding a chain). Add `merge_group` when a merge queue is enabled. |
+| Fork PR safety | `pull_request_target` may inspect metadata, labels, comments, and trusted automation but **never checks out untrusted fork code**. Gate on labels or maintainer approval. |
+| Filtering | Branch and tag filters at workflow level; workflow-level `paths` only for whole-workflow skipping; a paths-filter action for job-level routing. Add an always-run `ci-gate` job when required checks must always report. |
+| Permissions | Start at top-level `permissions: {}`; grant job-level scopes only where required. `contents: read` is the normal default. |
+| Third-party actions | Pin every third-party action to a full SHA and refresh pins with a dependency bot. Prefer org allow-lists with SHA-pinning enforcement, and deterministic transitive locking when available. |
+| Cloud auth | Prefer OIDC over long-lived credentials; add `id-token: write` only to jobs that mint tokens. Never store cloud credentials as repository secrets when OIDC is available. Scope roles with custom property claims rather than per-repo configuration. |
+| Egress controls | Enable the egress firewall in monitor mode first, build the allowlist from observed traffic, then enforce. It operates at L7 outside the runner VM — immutable even with root inside. |
 | Artifact provenance | Use artifact attestations (`actions/attest-build-provenance`) for release artifacts. Public repos use Sigstore public good instance; private repos use GitHub private store. Verify with `gh attestation verify`. |
-| CI/CD observability | Enable Actions Data Stream for security-critical pipelines. Telemetry correlates to workflow/job/step/command. Route to S3 or Azure Event Hub. Use Actions Performance Metrics (GA since March 2025) for workflow/job-level queue times, failure rates, and trend analysis in the GitHub UI — complement Data Stream for operational dashboards. Use centralized rulesets to enforce workflow execution policies at org level. |
-| Cache strategy | Use built-in `setup-*` caches first. Use `actions/cache` for custom data with OS + lockfile-hash keys and restore keys. Avoid duplicate caches. |
-| Job graph | Minimize `needs:`. Prefer a diamond graph over full serialization. Use `fail-fast: false` for useful matrix independence. Avoid `100+` job matrices unless the value is proven. |
-| Runner cost | Default to Ubuntu (4 vCPU/16 GB since Jan 2026 restructure, up to 39% price reduction across all types). Consider ARM when compatible (37% cheaper than x64, free for public repos). Use Windows or macOS only for platform-specific validation. Self-hosted runner platform charge shelved indefinitely. |
-| Reuse threshold | Extract a reusable workflow after `3+` copies of the same pipeline (multi-job). Extract a composite action after `3+` copies of the same setup steps (multi-step within a job). Keep `1-2` copies inline. Don't put job orchestration logic into composite actions. Start with local `./.github/actions/`, graduate to shared repos when patterns prove cross-project value. |
-| Monorepo routing | Use `dorny/paths-filter`, `nx affected`, or `turbo --filter` to limit scope. Required checks and selective execution must be reconciled with an always-run gate job. |
+| CI/CD observability | Enable Actions Data Stream for security-critical pipelines (telemetry correlated to workflow/job/step, routed to object storage or an event hub) and Actions Performance Metrics for queue times and failure trends. Enforce execution policy with centralized rulesets. |
+| Cache strategy | Built-in `setup-*` caches first; `actions/cache` for custom data keyed on OS + lockfile hash with restore keys. Avoid duplicate caches. |
+| Job graph | Minimize `needs:`; prefer a diamond over full serialization; `fail-fast: false` where matrix independence is useful; avoid `100+` job matrices without proven value. |
+| Runner cost | Default to Ubuntu; consider ARM where compatible (cheaper, free for public repos). Use Windows or macOS only for platform-specific validation. |
+| Reuse threshold | Extract a reusable workflow after `3+` copies of a pipeline, a composite action after `3+` copies of the same setup steps; keep `1-2` copies inline. Never put job orchestration into a composite action. Start local, graduate to shared repos once the pattern proves cross-project value. |
+| Monorepo routing | Limit scope with a paths filter or an affected-project tool; reconcile required checks with selective execution via an always-run gate job. |
 | Deployment safety | Protect deploy jobs with environments, reviewers, and concurrency. Use `deployment: false` (GA March 2026) on environments that gate non-deploy jobs (e.g., approval-only, secret-scoping) to avoid polluting deployment history. Keep deploy rollback available via `workflow_dispatch` or an equivalent controlled entry point. |
 | Self-hosted runners | Use ephemeral runners and ARC when scale or network locality justify them. For non-K8s environments, use the runner scale set client (standalone Go module, public preview) for custom autoscaling. Never use self-hosted runners for public repositories. Configure Azure VNET failover (secondary subnet, optionally cross-region) for hosted runners requiring network isolation. |
 | Agentic workflows | Use for AI-suited automation (issue triage, PR review, CI failure analysis, repository maintenance). Markdown definitions compiled to YAML via `gh aw` CLI. Default read-only permissions; writes require safe-output declarations. Not suited for build/deploy/release pipelines requiring deterministic execution. Technical preview — evaluate on non-critical workflows first. |
@@ -180,14 +180,18 @@ Parse the first token of user input.
 - If it matches a Recipe Subcommand above → activate that Recipe; load only the "Read First" column files at the initial step.
 - Otherwise → default Recipe (`workflow` = New Workflow). Apply normal R → O → U → T → E workflow.
 
-Behavior notes per Recipe:
-- `workflow`: New workflow skeleton. Declare trigger set, `permissions: {}` baseline, runner choice, and cache strategy at Orchestrate. SHA-pin every third-party action. Validate with `actionlint` before handoff.
-- `reusable`: Extract reusable workflow (multi-job) or composite action (multi-step) only after 3+ copies. Version interface via `@vX` tag plus commit SHA. Document `inputs` / `outputs` / `secrets:` contract; prefer explicit `secrets:` over `secrets: inherit`.
-- `security`: Harden an existing workflow. Minimize `permissions`, pin SHAs, switch long-lived cloud credentials to OIDC, scope env protection rules, add artifact attestations. Never checkout fork code in `pull_request_target`.
-- `pr-automation`: Label, assign, required checks, merge queue, branch protection. Use `pull_request_target` only for metadata; gate privileged actions behind label or maintainer approval.
-- `matrix`: Design a matrix build. Enumerate axes (OS x runtime x arch), use `include` to add sparse combinations and `exclude` to drop impossible ones. Set `fail-fast: false` when axes give independent signal. Cap `max-parallel` to bound concurrency. Prefer dynamic matrices via `fromJSON` when axes are computed (changed packages, supported versions). Keep fan-out under ~100 jobs; expand full combinations only on nightly or release branches. Pair with `cache` for per-axis key strategy. For provider-agnostic CI topology, route to Gear `ci`.
-- `cache`: Design `actions/cache` layout. Key by `runner.os` + lockfile hash (`hashFiles('**/pnpm-lock.yaml')`); add `restore-keys` for graceful fallback. Cross-OS compatibility: include `runner.arch` for native binaries. Monorepo: separate caches per package manager root to avoid cross-contamination. Track cache-hit telemetry via step output or Data Stream. Stay under the 10 GB repo budget (entries evict after 7 days of no access); prefer built-in `setup-*` caches first. For provider-agnostic CI caching posture, route to Gear `ci`.
-- `secret`: Design the GHA secret surface. Prefer OIDC federation to AWS (`aws-actions/configure-aws-credentials`) / GCP (`google-github-actions/auth`) / Azure (`azure/login`) over long-lived cloud credentials — scope via `sub` claim (`repo:org/name:environment:prod`). Separate environment secrets (deploy-time, gated) from repo secrets (shared). Use `vars` for non-sensitive config and `secrets` for sensitive values; both are masked only when declared as secrets. Add `::add-mask::` for runtime-derived sensitive values. Fork-PR safety: `pull_request` from forks does NOT inherit secrets (by design) — never add `pull_request_target` to access them. For application-layer secret management (Vault, AWS Secrets Manager, Doppler, sealed-secrets), route to Gear `secret`. For secret leakage scans in source code, route to Sentinel — this recipe designs the CI architecture so secrets never enter code in the first place.
+Per-Recipe behavior — full commands and routing detail -> `reference/advanced-patterns.md`.
+
+| Subcommand | Behavior |
+|-----------|----------|
+| `workflow` | New skeleton — declare trigger set, `permissions: {}` baseline, runner choice, cache strategy at Orchestrate. SHA-pin every third-party action; validate with `actionlint` before handoff |
+| `reusable` | Extract a reusable workflow (multi-job) or composite action (multi-step) only after `3+` copies. Version the interface by tag plus SHA; document the `inputs`/`outputs`/`secrets` contract and prefer explicit `secrets:` over `secrets: inherit` |
+| `security` | Harden an existing workflow — minimize `permissions`, pin SHAs, move cloud credentials to OIDC, scope environment protection rules, add artifact attestations. **Never check out fork code in `pull_request_target`** |
+| `pr-automation` | Labels, assignment, required checks, merge queue, branch protection. `pull_request_target` for metadata only, with privileged actions gated behind a label or maintainer approval |
+| `matrix` | Enumerate axes, `include` for sparse combinations and `exclude` for impossible ones, `fail-fast: false` where axes give independent signal, `max-parallel` to bound concurrency. Prefer dynamic matrices via `fromJSON` for computed axes; keep fan-out under ~100 jobs and expand full combinations only on nightly or release branches |
+| `cache` | Key on `runner.os` + lockfile hash with `restore-keys` fallback; include `runner.arch` for native binaries; separate caches per package-manager root in a monorepo. Stay under the repo cache budget and prefer built-in `setup-*` caches first |
+| `secret` | Prefer OIDC federation over long-lived cloud credentials, scoped via the `sub` claim. Separate gated environment secrets from shared repo secrets; `vars` for non-sensitive config, `secrets` for sensitive values, `::add-mask::` for runtime-derived ones. Fork `pull_request` runs do **not** inherit secrets by design — never add `pull_request_target` to reach them |
+
 
 ## Routing And Handoffs
 
@@ -235,22 +239,22 @@ Routing rules:
 
 | File | Read this when... |
 |------|-------------------|
-| `reference/triggers-and-events.md` | you need the right event, filter, dispatch, or merge-queue trigger. |
-| `reference/security-hardening.md` | you are defining permissions, OIDC, SHA pinning, supply-chain defenses, or security governance. |
-| `reference/performance-and-caching.md` | you are optimizing cache hits, job graphs, matrix cost, artifacts, or concurrency. |
-| `reference/reusable-and-composite.md` | you are deciding between inline YAML, reusable workflows, composite actions, or org templates. |
-| `reference/automation-recipes.md` | you are designing PR automation, merge queue, branch protection, environments, or release automation. |
-| `reference/advanced-patterns.md` | you are handling monorepos, self-hosted runners, multi-platform builds, deployments, service containers, or deep debugging. |
-| `reference/workflow-design-anti-patterns.md` | you need a fast structural audit for trigger design, YAML quality, or workflow graph mistakes. |
-| `reference/security-anti-patterns.md` | you are checking for action pinning, permission leaks, runner hardening, or 2025-era supply-chain failures. |
-| `reference/performance-cost-anti-patterns.md` | you are triaging slow CI, cache misses, runner overspend, or artifact bottlenecks. |
-| `reference/reusable-maintenance-anti-patterns.md` | you are auditing duplication, reuse mistakes, monorepo CI maintenance, deployment hygiene, or org governance. |
-| `reference/matrix-strategy.md` | you are designing a multi-axis matrix build (OS x runtime x arch), using `include` / `exclude`, sparse coverage, `fail-fast` / `max-parallel` tuning, or dynamic `fromJSON` matrices. |
-| `reference/cache-strategy.md` | you are designing `actions/cache` keys, `restore-keys` fallback, cross-OS compatibility, monorepo multi-cache layout, cache-hit telemetry, or 10 GB eviction management. |
-| `reference/gha-secrets.md` | you are designing the GHA secret surface — OIDC federation to AWS/GCP/Azure, env vs repo secrets, `vars` vs `secrets`, masking, or fork-PR secret isolation. |
-| `_common/OPUS_5_AUTHORING.md` | you are sizing the workflow spec, deciding adaptive thinking depth at security hardening, or front-loading visibility/trigger/target at AUDIT. Critical for Pipe: P3, P5. |
-| `reference/autorun-schema.md` | You are emitting the AUTORUN `_STEP_COMPLETE` block — Pipe-specific Output/Next schema. |
-| `_common/CODE_QUALITY.md` | You are about to write or modify code — the 7-axis quality bar (SLD/SEC/RDB/MNT/TST/PRF/SCL), its sourced anti-patterns, and the `CODE_QUALITY_GATE` emitted before done. |
+| `reference/triggers-and-events.md` | The right event, filter, dispatch, or merge-queue trigger. |
+| `reference/security-hardening.md` | Defining permissions, OIDC, SHA pinning, supply-chain defenses, or security governance. |
+| `reference/performance-and-caching.md` | Optimizing cache hits, job graphs, matrix cost, artifacts, or concurrency. |
+| `reference/reusable-and-composite.md` | Deciding between inline YAML, reusable workflows, composite actions, or org templates. |
+| `reference/automation-recipes.md` | Designing PR automation, merge queue, branch protection, environments, or release automation. |
+| `reference/advanced-patterns.md` | Handling monorepos, self-hosted runners, multi-platform builds, deployments, service containers, or deep debugging. |
+| `reference/workflow-design-anti-patterns.md` | A fast structural audit for trigger design, YAML quality, or workflow graph mistakes. |
+| `reference/security-anti-patterns.md` | Checking for action pinning, permission leaks, runner hardening, or 2025-era supply-chain failures. |
+| `reference/performance-cost-anti-patterns.md` | Triaging slow CI, cache misses, runner overspend, or artifact bottlenecks. |
+| `reference/reusable-maintenance-anti-patterns.md` | Auditing duplication, reuse mistakes, monorepo CI maintenance, deployment hygiene, or org governance. |
+| `reference/matrix-strategy.md` | Designing a multi-axis matrix build (OS x runtime x arch), using `include` / `exclude`, sparse coverage, `fail-fast` / `max-parallel` tuning, or dynamic `fromJSON` matrices. |
+| `reference/cache-strategy.md` | Designing `actions/cache` keys, `restore-keys` fallback, cross-OS compatibility, monorepo multi-cache layout, cache-hit telemetry, or 10 GB eviction management. |
+| `reference/gha-secrets.md` | Designing the GHA secret surface — OIDC federation to AWS/GCP/Azure, env vs repo secrets, `vars` vs `secrets`, masking, or fork-PR secret isolation. |
+| `_common/OPUS_5_AUTHORING.md` | Sizing the workflow spec, deciding adaptive thinking depth at security hardening, or front-loading visibility/trigger/target at AUDIT. Critical for Pipe: P3, P5. |
+| `reference/autorun-schema.md` | Emitting the AUTORUN `_STEP_COMPLETE` block — Pipe-specific Output/Next schema. |
+| `_common/CODE_QUALITY.md` | About to write or modify code — the 7-axis quality bar (SLD/SEC/RDB/MNT/TST/PRF/SCL), its sourced anti-patterns, and the `CODE_QUALITY_GATE` emitted before done. |
 
 ## Operational
 

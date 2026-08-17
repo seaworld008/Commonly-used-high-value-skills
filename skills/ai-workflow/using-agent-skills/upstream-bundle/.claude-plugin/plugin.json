@@ -7,8 +7,9 @@
   "homepage": "https://github.com/addyosmani/agent-skills",
   "repository": "https://github.com/addyosmani/agent-skills",
   "license": "MIT",
-  "commands": ["./.claude/commands", "./commands"],
-  "skills": "./skills",
+  "commands": [
+    "./.claude/commands"
+  ],
   "agents": [
     "./agents/code-reviewer.md",
     "./agents/security-auditor.md",

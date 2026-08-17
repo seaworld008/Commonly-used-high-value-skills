@@ -20,6 +20,62 @@ def load_module():
 
 
 class SyncAddyOsmaniAgentSkillsTests(unittest.TestCase):
+    def test_render_skill_markdown_rewrites_shared_reference_links(self):
+        module = load_module()
+        skill = module.UpstreamSkill(
+            slug="demo",
+            source_dir=Path("skills/demo"),
+            skill_file=Path("skills/demo/SKILL.md"),
+            description="Demo workflow.",
+            line_count=120,
+        )
+
+        rendered = module.render_skill_markdown(
+            skill,
+            "See `../../references/definition-of-done.md`.\n",
+            "2026-08-17",
+        )
+
+        self.assertIn("`references/definition-of-done.md`", rendered)
+        self.assertNotIn("`../../references/definition-of-done.md`", rendered)
+
+    def test_copy_upstream_bundle_prunes_missing_manifest_paths(self):
+        module = load_module()
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            root = Path(tmpdir)
+            upstream = root / "upstream"
+            destination = root / "destination"
+            (upstream / ".claude-plugin").mkdir(parents=True)
+            (upstream / ".claude" / "commands").mkdir(parents=True)
+            (upstream / ".claude" / "commands" / "build.md").write_text(
+                "build",
+                encoding="utf-8",
+            )
+            (upstream / ".claude-plugin" / "plugin.json").write_text(
+                json.dumps(
+                    {
+                        "name": "agent-skills",
+                        "commands": ["./.claude/commands", "./commands"],
+                        "skills": "./skills",
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            module.copy_upstream_bundle(upstream, destination)
+
+            manifest = json.loads(
+                (
+                    destination
+                    / "upstream-bundle"
+                    / ".claude-plugin"
+                    / "plugin.json"
+                ).read_text(encoding="utf-8")
+            )
+            self.assertEqual(["./.claude/commands"], manifest["commands"])
+            self.assertNotIn("skills", manifest)
+
     def test_sync_imports_upstream_skills_moves_existing_and_writes_mapping(self):
         module = load_module()
 

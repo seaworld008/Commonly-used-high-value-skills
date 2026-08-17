@@ -2,7 +2,7 @@
 name: nlpm-audit
 description: 'Audits natural-language programming artifacts such as SKILL.md, AGENTS.md, CLAUDE.md, slash commands, plugin manifests, hooks, rules, and prompt files. Use when reviewing AI-agent repositories, checking manifest-vs-disk consistency, scoring skill or agent quality, adding NL artifact CI gates, or diagnosing vocabulary and version drift across Claude Code, Codex, Cursor, Gemini, and Antigravity-style projects.'
 zh_description: "审计 SKILL.md、AGENTS.md、CLAUDE.md、插件清单、hooks、commands 和提示词，检查安装一致性、质量评分、安全风险与版本漂移。"
-version: "1.0.3"
+version: "1.0.4"
 author: seaworld008
 source: github:xiaolai/nlpm
 source_url: "https://github.com/xiaolai/nlpm"
@@ -54,6 +54,12 @@ stable ideas to preserve locally are:
   open-ended LLM synonym clustering kept advisory;
 - pull-request gates that score changed natural-language artifacts instead of
   re-judging an unrelated repository-wide corpus.
+- manifest-vs-disk differences that remain observations until a repository's
+  own publish contract proves the omitted artifact should be shipped;
+- vague-term calibration that accepts a later reference to measurable
+  selection criteria already defined earlier in the same artifact;
+- release-gate coverage tests that enumerate every shipped client layout and
+  assert mirrored skill bodies stay semantically synchronized.
 
 Use those ideas when they improve this portable skill. Do not mirror the whole
 upstream product surface unless the user explicitly asks to install or run NLPM
@@ -250,6 +256,14 @@ This is the highest-value deterministic check. Look for both directions:
   disk but is absent from the manifest, marketplace file, README index, catalog,
   or install surface users rely on.
 
+The first case is a deterministic defect: a declared path cannot resolve. The
+second case is initially an observation, because a repository may intentionally
+ship only a curated subset. Escalate it to a blocking defect only when the
+repository's own instructions, generated catalog contract, or package boundary
+says that every artifact in that scope must be published. Quote that contract
+with the diff. Otherwise report the omission as advisory and let the maintainer
+choose whether to register the artifact or narrow the stated publish scope.
+
 Example report:
 
 ```text
@@ -420,7 +434,8 @@ Use different gates for different confidence levels.
 Blocking gates:
 
 - manifest references missing files;
-- disk artifacts missing from install manifest or generated catalog;
+- disk artifacts omitted from a required install manifest or generated catalog
+  when the repository's publish contract says they belong there;
 - invalid YAML/TOML/JSON frontmatter;
 - hook scripts referenced but absent;
 - version metadata inconsistent across release surfaces;
@@ -433,6 +448,12 @@ Advisory gates:
 - missing examples;
 - description has weak trigger phrases;
 - vocabulary drift candidates.
+
+For changed-artifact scoring, test the selector itself. Enumerate all shipped NL
+artifact layouts, including generated Codex or other client mirrors, and fail
+when any publishable artifact cannot match the selector. When one source skill
+is mirrored into multiple client layouts, compare normalized bodies so the
+release gate cannot silently ship different rules to different clients.
 
 Example GitHub Actions shape:
 

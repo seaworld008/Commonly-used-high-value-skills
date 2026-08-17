@@ -198,9 +198,12 @@ python scripts/backfill_zh_descriptions.py --refresh-generated
 推荐配置：
 
 ```toml
-model = "gpt-5.5"
+model = "gpt-5.6-sol"
 reasoning_effort = "high"
 ```
+
+模型标识会随运行平台演进；每次调整自动化时都应核对当前可用的高能力
+agentic coding 模型，不要从旧周报或历史配置中照抄已过时的 ID。
 
 自动化运行结束必须更新 memory，至少记录：
 

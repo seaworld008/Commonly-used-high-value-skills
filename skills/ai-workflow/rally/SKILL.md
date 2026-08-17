@@ -1,15 +1,15 @@
 ---
 name: rally
-description: 'Orchestrating multi-session parallel execution using Claude Code Agent Teams API and Codex CLI Subagents to launch, manage, and coordinate concurrent task execution across multiple instances. Use when parallel work is needed.'
+description: 'Orchestrating multi-session parallel execution via Claude Code Agent Teams API and Codex CLI Subagents — launch, manage, coordinate concurrent tasks. Use when parallel work is needed.'
 zh_description: "多会话并行执行编排，协调多个智能体共同完成任务。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/rally"
 license: MIT
 tags: '["ai", "rally", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-10"
+updated_at: "2026-08-17"
 quality: 5
 complexity: "advanced"
 ---
@@ -72,45 +72,37 @@ Route elsewhere when:
 
 ### Nexus Agent Spawn Mode
 
-Rally may be spawned by Nexus as an Agent (L3 delegation) when 4+ workers are needed or complex ownership management is required. In this mode:
-
-1. Rally receives the full task context in the Agent prompt
-2. Rally reads its own SKILL.md and operates autonomously
-3. Rally creates and manages teams using Agent Teams API as normal
-4. Rally returns results via `_STEP_COMPLETE` in its response
-
-No behavioral changes are needed — Rally operates identically whether invoked directly by the user, via Nexus hub mode, or spawned as an Agent.
+Rally may be spawned by Nexus as an Agent (L3 delegation) when 4+ workers are needed or ownership management is complex. It then receives full task context in the Agent prompt, reads its own SKILL.md, creates and manages teams via Agent Teams API as normal, and returns results via `_STEP_COMPLETE`. No behavioral changes needed — identical whether invoked directly, via Nexus hub mode, or spawned as an Agent.
 
 ## Core Contract
 
-- Start with the smallest viable team. Preferred size is `3-5` teammates — research shows accuracy gains saturate beyond the 4-agent threshold without structured topology, and unstructured coordination amplifies errors up to 17× while centralized hub-spoke contains this to ~4×. Never exceed `8` without explicit justification.
-- Target `5-6` tasks per teammate to keep each productive without excessive context switching.
-- Use Rally only for true multi-session parallel work. Investigation-only, single-agent, or purely sequential work should stay with Nexus, Sherpa, or a direct specialist.
-- Complete `ownership_map` before spawning. Every writable file needs one owner and `exclusive_write` must never overlap. The file-ownership invariant is the single most critical safety guarantee — violations cause silent merge corruption.
-- **Worktree isolation**: Agent Teams assign each teammate its own git worktree — a separate working directory and branch sharing the same repository history. This provides physical file safety: teammates can edit overlapping files without interference. The `ownership_map` remains the logical constraint (who is responsible for what); worktree isolation is the execution mechanism (how conflicts are prevented). TaskCreate, SendMessage, and worktree isolation are the three core coordination primitives.
-- **Reconciliation before merge**: after fan-in, validate each teammate's output against the original task specification — not just whether it compiled, but whether it answered what was asked. Silent drift (agent output subtly diverging from intent without errors) is the #1 production failure mode in multi-agent pipelines. Use closed-loop validation (check outputs independently against source requirements, not just against each other) — iterative closed-loop designs neutralize 40%+ of faults versus linear pass-through workflows.
-- Keep the hub-spoke model as the recommended pattern. Rally is the primary communication hub. The API allows peer DM between teammates (summaries appear in idle notifications), but teammates should not initiate peer DMs unless explicitly instructed.
-- **Delegate mode**: for teams of `3+`, activate delegate mode (Shift+Tab) so the lead focuses on coordination only and does not compete with teammates for file access. This consistently produces better results than a lead that both coordinates and implements.
-- Create the team before teammates. Send `shutdown_request` before `TeamDelete`.
-- Treat `idle` as waiting, not completion. Confirm status through `TaskList` and `TaskUpdate`.
-- Every teammate prompt must include team name and role, task, file ownership, constraints, context, completion criteria, and reporting instructions.
-- Verify build, tests, lint or type checks, and ownership compliance before reporting results.
-- Run lightweight HARMONIZE after every team session and record user overrides in the journal.
-- **Convergence detection**: when all teammates hit the same blocker (e.g., same bug, same failing dependency), parallelism collapses — N agents attempting the same fix produces N conflicting patches. Detect convergence early and diversify task targets (assign different test suites, different compilation targets, or use an oracle/reference implementation to partition the problem space). Anthropic's 16-agent C compiler project demonstrated this: agents compiling the Linux kernel all hit the same bug and overwrote each other until the team diversified targets using GCC as an oracle. [Source: Anthropic Engineering — Building a C compiler with a team of parallel Claudes (https://www.anthropic.com/engineering/building-c-compiler)]
-- **Specialization over duplication**: assign teammates distinct specialist roles (e.g., implementation, quality review, performance optimization, deduplication, documentation) rather than having all teammates do the same type of work. Specialization through parallelism consistently outperforms duplication at scale.
-- **Fan-in timeout**: set explicit deadlines per teammate task. If a teammate exceeds 2× the expected duration, escalate or replace rather than waiting indefinitely.
-- **Budget guardrails**: set a maximum API cost per session. Agent Teams cost `3-4×` the tokens of a single session; subagents cost `1.5-2×`. Multi-agent frameworks commonly exhibit `1.5-7×` token duplication from repeated context propagation — monitor actual token usage against expected baselines. If parallel speedup does not justify the multiplier, prefer subagents or sequential execution. If collective teammate API calls hit the limit, gracefully degrade (complete in-flight work, skip remaining, report partial results) rather than allowing unbounded spend.
-- **Model mixing**: assign Sonnet to teammate roles that do not require Opus-level reasoning (boilerplate implementation, test writing, formatting) to reduce per-session cost while keeping Opus for complex architectural decisions.
+- Start with the smallest viable team — preferred size `3-5` teammates. Accuracy gains saturate past ~4 agents without structured topology, and unstructured coordination amplifies errors up to 17x versus ~4x under centralized hub-spoke. Never exceed `8` without explicit justification.
+- Target `5-6` tasks per teammate — productive without excessive context switching.
+- Use Rally only for true multi-session parallel work — investigation-only, single-agent, or sequential work stays with Nexus, Sherpa, or a direct specialist.
+- Complete the `ownership_map` before spawning: every writable file has one owner and `exclusive_write` never overlaps. This is the single most critical safety guarantee — violations cause silent merge corruption.
+- **Convergence detection**: when all teammates hit the same blocker, parallelism collapses — N agents attempting one fix produce N conflicting patches. Detect early and diversify task targets (different test suites, different compilation targets, or an oracle implementation to partition the space).
+- **Reconciliation before merge**: after fan-in, validate each teammate's output against the *original task specification*, not just whether it compiled. Silent drift is the top production failure mode in multi-agent pipelines — use closed-loop validation against source requirements, never agent-against-agent.
+- Keep hub-spoke as the recommended pattern with Rally as the communication hub. Peer DMs are possible but teammates never initiate them unless explicitly instructed.
+- **Delegate mode**: at `3+` teammates, activate delegate mode so the lead coordinates only and never competes for file access — consistently better than a lead that also implements.
+- Create the team before teammates; send `shutdown_request` before `TeamDelete`.
+- Treat `idle` as waiting, not completion — confirm via `TaskList` and `TaskUpdate`.
+- Every teammate prompt includes team name and role, task, file ownership, constraints, context, completion criteria, and reporting instructions.
+- Verify build, tests, lint/type checks, and ownership compliance before reporting.
+- Run lightweight HARMONIZE after every session and journal user overrides.
+- **Budget guardrails**: set a maximum API cost per session. Agent Teams cost `3-4x` the tokens of a single session and subagents `1.5-2x`, with `1.5-7x` duplication from repeated context propagation. If parallel speedup does not justify the multiplier, prefer subagents or sequential execution; on hitting the limit, degrade gracefully (finish in-flight work, report partial results) rather than allowing unbounded spend.
+- **Specialization over duplication**: assign distinct specialist roles rather than having every teammate do the same work — specialization outperforms duplication at scale.
+- **Fan-in timeout**: explicit deadlines per task; a teammate exceeding 2x expected duration is escalated or replaced, never waited on indefinitely.
+- **Verification-capacity guardrail**: parallelism multiplies generation but not the ability to verify it. Cap WIP by *unverified output in flight*, not teammate count — track generated-vs-verified gap, task age, rework rate, and owner coverage per risk class, and pause dispatch to drain highest-risk-first when the gap grows. Adding reviewers does not fix an untrusted test signal; repair the signal first. → `_common/EVIDENCE_LADDER.md` §5.
+- **Worktree isolation**: each teammate gets its own git worktree — a separate working directory and branch on shared history. The `ownership_map` is the logical constraint (who owns what); worktree isolation is the execution mechanism. TaskCreate, SendMessage, and worktree isolation are the three coordination primitives.
+- **Model mixing**: assign the cheaper tier to roles that do not need top-tier reasoning (boilerplate, test writing, formatting) and reserve the strong model for architectural decisions.
 - Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Rally; P2, P1 recommended).
 
 ## Boundaries
 
 ### Always
-- Map ownership before spawn — every writable file must have exactly one owner
-- Create the team before teammates; provide sufficient prompt context per teammate
+- Map ownership before spawn — every writable file has exactly one owner. Create the team before teammates, with sufficient prompt context each
 - Monitor `TaskList` actively; resolve ownership conflicts immediately
-- Keep the team minimal (prefer 3-5); collect execution outcomes after every session
-- Record user team-size or composition overrides in the journal
+- Keep the team minimal (prefer 3-5), collect execution outcomes after every session, and journal user team-size or composition overrides
 - Validate teammate outputs against the original task spec during SYNTHESIZE (reconciliation layer)
 - Set explicit per-task timeouts to prevent unbounded waits during fan-in
 
@@ -119,12 +111,12 @@ No behavioral changes are needed — Rally operates identically whether invoked 
 - Delegating high-risk tasks (security-sensitive code, DB migrations, infra changes)
 - Allowing multiple teammates to approach the same writable area
 - Sending `broadcast` messages (can cause context pollution across teammates)
-- Adapting defaults for configurations with `TES >= B`
+- Adapting defaults where `TES >= B`
 
 ### Never
-- Spawn without declared ownership — causes silent merge corruption and undetectable conflicts
-- Call `TeamDelete` before all shutdown confirmations — risks data loss from in-flight work
-- Spawn `10+` teammates — coordination collapse: with N agents, N(N-1)/2 potential interactions grow quadratically; research shows unstructured groups amplify errors 17× vs 4× with centralized control
+- Spawn without declared ownership — causes silent merge corruption
+- Call `TeamDelete` before all shutdown confirmations — risks losing in-flight work
+- Spawn `10+` teammates — coordination collapses as N(N-1)/2 interactions grow quadratically, and unstructured groups amplify errors 17x versus 4x under centralized control
 - Write implementation code directly — Rally is an orchestrator, not a builder
 - Adapt defaults with fewer than `3` data points — insufficient signal for pattern changes
 - Skip `SAFEGUARD` when modifying learning defaults
@@ -257,45 +249,7 @@ Routing rules:
 
 ## Codex CLI Subagent Orchestration
 
-When running on Codex CLI, Rally uses `spawn_agent` / `wait_agent` / `send_input` / `close_agent` instead of Agent Teams API.
-
-### API Mapping
-
-| Claude Code Agent Teams | Codex CLI Subagents | Notes |
-|------------------------|---------------------|-------|
-| `TeamCreate` | N/A | No explicit team concept |
-| `TeamDelete` | `close_agent` × N | Close all subagents |
-| Teammate spawn | `spawn_agent(prompt)` | Returns agent ID |
-| `TaskCreate` / `TaskUpdate` | `send_input(id, msg)` | Send task via prompt or input |
-| `TaskList` / `TaskGet` | `wait_agent(id)` | Wait for completion |
-| `SendMessage` (DM) | `send_input(id, msg)` | Direct message to subagent |
-| `SendMessage` (broadcast) | `send_input` × N | Loop over all agents |
-| Plan approval | N/A | No plan mode in Codex subagents |
-
-### Codex Subagent Parallel Pattern
-
-```
-# SPAWN phase - spawn all workers
-worker_a = spawn_agent(prompt: "Following the builder instructions in AGENTS.md, implement email validation...")
-worker_b = spawn_agent(prompt: "Following the builder instructions in AGENTS.md, implement phone-number validation...")
-
-# MONITOR phase - wait for all
-result_a = wait_agent(worker_a)
-result_b = wait_agent(worker_b)
-
-# SYNTHESIZE phase - collect results, detect conflicts
-# (Rally handles this internally)
-
-# CLEANUP phase
-close_agent(worker_a)
-close_agent(worker_b)
-```
-
-### Configuration
-
-- `agents.max_depth` (default: 1) — controls subagent nesting depth
-- Omitted `spawn_agent` fields inherit from parent session (model, sandbox_mode, etc.)
-- `nickname_candidates` — set descriptive names for each worker
+When running on Codex CLI, Rally uses `spawn_agent` / `wait_agent` / `send_input` / `close_agent` instead of Agent Teams API — same 7-phase lifecycle, different primitives. Full API mapping, the parallel-spawn pattern, and `agents.max_depth` configuration → `reference/orchestration-patterns.md`.
 
 ## Reference Map
 
@@ -313,6 +267,7 @@ close_agent(worker_b)
 | `reference/resilience-cost-optimization.md` | setting retry or fallback behavior, degraded-mode handling, budget limits, or recovery strategy |
 | `reference/framework-landscape.md` | comparing Rally to other frameworks or explaining why Rally is the right execution layer |
 | `_common/OPUS_5_AUTHORING.md` | sizing the parallel plan, deciding adaptive thinking depth at fan-out/budget, or front-loading team size/independence/budget at PLAN. Critical for Rally: P3, P5. |
+| `_common/EVIDENCE_LADDER.md` | unverified teammate output is accumulating faster than reconciliation can absorb it (§5 Verification Debt — signals, WIP cap, drain order), or deciding how independent a teammate's own verification claim is (§2 Circular Verification) |
 | `reference/autorun-schema.md` | You are emitting the AUTORUN `_STEP_COMPLETE` block — Rally-specific Output/Next schema. |
 
 ## Operational

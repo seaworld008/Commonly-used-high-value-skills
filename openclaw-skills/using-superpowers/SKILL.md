@@ -2,13 +2,13 @@
 name: using-superpowers
 description: 'Use when starting any conversation - establishes how to find and use skills, requiring skill invocation before ANY response including clarifying questions'
 zh_description: "用于使用 Superpowers 工作流提升计划、执行和验证质量。"
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["skills", "workflow", "process"]'
 created_at: "2026-04-13"
-updated_at: "2026-07-03"
+updated_at: "2026-08-17"
 quality: 4
 complexity: "intermediate"
 ---
@@ -66,6 +66,7 @@ If your harness appears here, read its reference file for special instructions:
 - Codex: `references/codex-tools.md`
 - Pi: `references/pi-tools.md`
 - Antigravity: `references/antigravity-tools.md`
+- Hermes Agent: `references/hermes-tools.md`
 
 ## User Instructions
 
@@ -95,10 +96,6 @@ source is intentionally concise.
   unavailable.
 - Stop and ask for clarification when the next action could overwrite user work,
   expose private data, or change production state.
-
-## Verification Checklist
-
-- Confirm the selected skill was read from the current repository copy, not memory.
-- Note any skipped skill step explicitly when a higher-priority user or project instruction
-  requires the skip.
+- Treat skill selection as routing, not ceremony: invoke only the narrowest
+  applicable workflow and keep user or repository instructions authoritative.
 <!-- LOCAL-QUALITY-SUPPLEMENT:END -->

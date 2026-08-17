@@ -7,7 +7,7 @@ Use this reference when turning the audit into a repeatable maintenance process.
 | Gate | Blocking? | Why |
 |---|---|---|
 | Manifest references missing files | yes | installed artifacts can silently disappear |
-| Disk artifact not reachable from manifest/catalog | yes for publishable packages | users cannot invoke it |
+| Disk artifact omitted despite an explicit publish contract | yes | promised artifacts cannot be invoked |
 | Invalid frontmatter or config syntax | yes | loaders may ignore the file |
 | Hook references absent script | yes | hook does not run |
 | Hook uses suspicious executable pattern | yes for Critical/High | supply-chain risk |
@@ -19,6 +19,12 @@ Use this reference when turning the audit into a repeatable maintenance process.
 For pull requests, limit subjective scoring to changed natural-language
 artifacts. Repository-wide deterministic checks such as manifest reachability,
 syntax, and version consistency should still run globally.
+
+Treat the changed-file selector as release-critical code. Add a deterministic
+test that enumerates every shipped NL artifact path, including client-specific
+mirrors such as `codex/skills/*/SKILL.md`, and proves each path can be selected.
+If a build publishes mirrored copies, also compare normalized bodies so a
+source-side rule update cannot leave one client layout stale.
 
 If a project opts into vocabulary enforcement, hard-fail only on deterministic
 terms declared by its reviewed registry. Keep open-ended LLM clustering as an
@@ -132,14 +138,14 @@ Skip upstream details that are product-specific and likely to churn:
 
 ## Last Curated Upstream Review
 
-- Date: 2026-08-10
+- Date: 2026-08-17
 - Upstream: `xiaolai/nlpm`
-- Commit reviewed: `06e14047e59a8446275dc1b2f082127fc3bc29de`
+- Commit reviewed: `da65a5d19a08868ff86ae9c47c49e33e7742c302`
 - License: ISC
-- Durable changes absorbed: mention-versus-use and registry-declaration scoring
-  exclusions, fenced-template example counting, deterministic vocabulary
-  enforcement with advisory LLM clustering, changed-artifact PR scoring, and
-  current Codex convention compatibility.
+- Durable changes absorbed: contract-aware manifest-vs-disk classification,
+  definition-backed vague-term calibration, and release-gate coverage plus
+  client-mirror parity checks. Product telemetry, auditor issue-lane
+  accounting, dashboards, and generated audit data were intentionally skipped.
 
 ## Monitor-Only Sync
 

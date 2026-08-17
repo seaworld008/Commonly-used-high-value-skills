@@ -120,6 +120,27 @@ class SyncUpstreamTests(unittest.TestCase):
         self.assertIn("LOCAL-QUALITY-SUPPLEMENT:START", merged)
         self.assertIn("Preserve this reviewed local rule.", merged)
 
+    def test_repository_adaptation_rewrites_addyosmani_shared_references(self):
+        module = load_module()
+
+        adapted = module.apply_repository_adaptations(
+            "See `../../references/definition-of-done.md`.\n",
+            {"repo": "addyosmani/agent-skills"},
+        )
+        untouched = module.apply_repository_adaptations(
+            "See `../../references/definition-of-done.md`.\n",
+            {"repo": "owner/repo"},
+        )
+
+        self.assertEqual(
+            "See `references/definition-of-done.md`.\n",
+            adapted,
+        )
+        self.assertEqual(
+            "See `../../references/definition-of-done.md`.\n",
+            untouched,
+        )
+
     def test_check_upstream_changes_uses_exact_provenance_path(self):
         module = load_module()
         seen_urls = []
@@ -182,6 +203,30 @@ class SyncUpstreamTests(unittest.TestCase):
         self.assertIsNotNone(result)
         self.assertEqual("none", result["changes"])
 
+    def test_check_upstream_changes_compares_repository_adapted_body(self):
+        module = load_module()
+        local = "# Demo\n\nSee `references/definition-of-done.md`.\n"
+        upstream = "# Demo\n\nSee `../../references/definition-of-done.md`.\n"
+        original_fetch = module.fetch_url
+        module.fetch_url = lambda _url, _token, **_kwargs: upstream
+        try:
+            result = module.check_upstream_changes(
+                {
+                    "name": "demo",
+                    "category": "ai-workflow",
+                    "repo": "addyosmani/agent-skills",
+                    "ref": "main",
+                    "upstream_path": "skills/demo/SKILL.md",
+                    "local_content": local,
+                },
+                token=None,
+            )
+        finally:
+            module.fetch_url = original_fetch
+
+        self.assertIsNotNone(result)
+        self.assertEqual("none", result["changes"])
+
     def test_monitor_checkpoint_skips_false_positive_for_curated_body(self):
         module = load_module()
         original_commit_sha = module.github_commit_sha
@@ -210,6 +255,67 @@ class SyncUpstreamTests(unittest.TestCase):
 
         self.assertIsNotNone(result)
         self.assertEqual("none", result["changes"])
+
+    def test_monitor_checkpoint_reports_upstream_rollback_without_body_diff(self):
+        module = load_module()
+        original_commit_sha = module.github_commit_sha
+        original_compare = module.github_compare_relation
+        original_fetch = module.fetch_url
+        module.github_commit_sha = lambda _repo, _ref, _token: "older-head"
+        module.github_compare_relation = lambda *_args, **_kwargs: {
+            "status": "behind",
+            "ahead_by": 0,
+            "behind_by": 42,
+        }
+        module.fetch_url = lambda *_args, **_kwargs: self.fail(
+            "an upstream rollback should not be compared as a body update"
+        )
+        try:
+            result = module.check_upstream_changes(
+                {
+                    "name": "curated-skill",
+                    "category": "ai-workflow",
+                    "repo": "owner/repo",
+                    "ref": "main",
+                    "upstream_path": "README.md",
+                    "sync_mode": "monitor",
+                    "last_synced_commit": "reviewed-sha",
+                    "local_content": "# Original in-house rewrite\n",
+                },
+                token=None,
+            )
+        finally:
+            module.github_commit_sha = original_commit_sha
+            module.github_compare_relation = original_compare
+            module.fetch_url = original_fetch
+
+        self.assertIsNotNone(result)
+        self.assertEqual("upstream_rollback", result["changes"])
+        self.assertEqual("older-head", result["current_commit"])
+        self.assertEqual(42, result["behind_by"])
+
+    def test_github_compare_relation_returns_commit_relationship(self):
+        module = load_module()
+        original_api_get = module.github_api_get
+        module.github_api_get = lambda _url, _token: {
+            "status": "behind",
+            "ahead_by": 0,
+            "behind_by": 7,
+        }
+        try:
+            relation = module.github_compare_relation(
+                "owner/repo",
+                "reviewed-sha",
+                "older-head",
+                token=None,
+            )
+        finally:
+            module.github_api_get = original_api_get
+
+        self.assertEqual(
+            {"status": "behind", "ahead_by": 0, "behind_by": 7},
+            relation,
+        )
 
     def test_update_mapping_after_check_only_syncs_equal_body(self):
         module = load_module()
@@ -265,6 +371,27 @@ class SyncUpstreamTests(unittest.TestCase):
         self.assertIn("durable method, install, scoring, CI, security, or compatibility", guidance)
         self.assertIn("update the curated SKILL.md, bump version/updated_at", guidance)
         self.assertIn("record why in provenance verification_attempts or the automation memory", guidance)
+
+    def test_monitor_rollback_guidance_preserves_reviewed_checkpoint(self):
+        module = load_module()
+        result = {
+            "changes": "upstream_rollback",
+            "current_commit": "older-head",
+            "behind_by": 42,
+            "skill": {
+                "name": "nlpm-audit",
+                "repo": "xiaolai/nlpm",
+                "ref": "main",
+                "last_synced_commit": "reviewed-sha",
+            },
+        }
+
+        guidance = "\n".join(module.monitor_rollback_guidance(result))
+
+        self.assertIn("upstream ref moved backward by 42 commits", guidance)
+        self.assertIn("Current head: older-head", guidance)
+        self.assertIn("Reviewed checkpoint: reviewed-sha", guidance)
+        self.assertIn("Do not move the checkpoint backward", guidance)
 
     def test_quality_supplement_is_not_duplicated(self):
         module = load_module()

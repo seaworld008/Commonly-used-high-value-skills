@@ -197,6 +197,7 @@ def discover_upstream_skills(upstream_root: Path) -> list[UpstreamSkill]:
 
 
 def render_skill_markdown(skill: UpstreamSkill, body: str, today: str) -> str:
+    body = body.replace("../../references/", "references/")
     tags = ["ai", "agent", "workflow", "engineering", skill.slug]
     zh_description = ZH_DESCRIPTIONS.get(
         skill.slug,
@@ -252,6 +253,36 @@ def copy_upstream_bundle(upstream_root: Path, destination: Path) -> None:
             shutil.copytree(source, target)
         else:
             shutil.copy2(source, target)
+    adapt_bundle_plugin_manifest(bundle_root)
+
+
+def adapt_bundle_plugin_manifest(bundle_root: Path) -> None:
+    """Prune manifest paths omitted from the intentionally compact local bundle."""
+    manifest_path = bundle_root / ".claude-plugin" / "plugin.json"
+    if not manifest_path.exists():
+        return
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+
+    commands = manifest.get("commands")
+    if isinstance(commands, list):
+        manifest["commands"] = [
+            command
+            for command in commands
+            if isinstance(command, str)
+            and (bundle_root / command.removeprefix("./")).exists()
+        ]
+
+    skills_path = manifest.get("skills")
+    if (
+        isinstance(skills_path, str)
+        and not (bundle_root / skills_path.removeprefix("./")).exists()
+    ):
+        manifest.pop("skills")
+
+    manifest_path.write_text(
+        json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
 
 
 def move_existing_ai_workflow_skills(repo_root: Path, category: str, dry_run: bool) -> dict[str, str]:

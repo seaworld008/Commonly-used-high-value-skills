@@ -336,8 +336,8 @@
     {
       "name": "oracle",
       "category": "ai-agent-platform",
-      "description": "Designing and evaluating AI/ML systems across prompt engineering, RAG design, LLM application patterns, AI safety, evaluation frameworks, MLOps, and cost optimization. Use when designing AI/ML pipelines, RAG architectures, prompt strategies, evaluation harnesses, or LLM cost models.",
-      "version": "1.0.1",
+      "description": "Designing and evaluating AI/ML systems: prompt engineering, RAG design, LLM application patterns, AI safety, evaluation frameworks, MLOps, cost optimization. Use for AI pipelines or eval harnesses.",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/oracle",
@@ -349,8 +349,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-08-10",
-      "line_count": 266,
+      "updated_at": "2026-08-17",
+      "line_count": 272,
       "path": "skills/ai-agent-platform/oracle/SKILL.md"
     },
     {
@@ -377,8 +377,8 @@
     {
       "name": "sigil",
       "category": "ai-agent-platform",
-      "description": "Generating, updating, auditing, and sync-repairing project-specific Claude Code skills. Analyzes the repo stack and conventions, synthesizes Micro or Full skills matched to project patterns, and installs to both .claude/skills/ and .agents/skills/. Use when authoring project-local skills.",
-      "version": "1.0.1",
+      "description": "Generating, updating, auditing, and sync-repairing project-specific Claude Code skills from the repo stack and conventions. Use when authoring project-local skills (Micro or Full).",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/sigil",
@@ -390,8 +390,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-08-10",
-      "line_count": 390,
+      "updated_at": "2026-08-17",
+      "line_count": 309,
       "path": "skills/ai-agent-platform/sigil/SKILL.md"
     },
     {
@@ -443,7 +443,7 @@
       "name": "api-and-interface-design",
       "category": "ai-workflow",
       "description": "Guides stable API and interface design. Use when designing APIs, module boundaries, or any public interface. Use when creating REST or GraphQL endpoints, defining type contracts between modules, or establishing boundaries between frontend and backend.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": "addyosmani",
       "source": "github:addyosmani/agent-skills",
       "source_url": "https://github.com/addyosmani/agent-skills/blob/main/skills/api-and-interface-design/SKILL.md",
@@ -457,8 +457,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-07-27",
-      "line_count": 306,
+      "updated_at": "2026-08-17",
+      "line_count": 379,
       "path": "skills/ai-workflow/api-and-interface-design/SKILL.md"
     },
     {
@@ -765,7 +765,7 @@
       "name": "finishing-a-development-branch",
       "category": "ai-workflow",
       "description": "Use when implementation is complete, all tests pass, and you need to decide how to integrate the work",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -777,8 +777,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-04-13",
-      "updated_at": "2026-07-27",
-      "line_count": 211,
+      "updated_at": "2026-08-17",
+      "line_count": 235,
       "path": "skills/ai-workflow/finishing-a-development-branch/SKILL.md"
     },
     {
@@ -894,8 +894,8 @@
     {
       "name": "nexus",
       "category": "ai-workflow",
-      "description": "Orchestrating specialist AI agent teams as a meta-coordinator. Decomposes requests into minimum viable chains, spawns each as an independent session in AUTORUN modes, and drives to final output. Use when a task spans multiple specialist domains, requires parallel agent execution, or needs hub-and-spoke routing across the skill ecosystem.",
-      "version": "1.0.1",
+      "description": "Orchestrating specialist AI agent teams as a meta-coordinator: decomposes requests into minimum viable chains, spawns each as an independent session, drives to final output. For multi-domain tasks.",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/nexus",
@@ -907,15 +907,15 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-08-10",
-      "line_count": 346,
+      "updated_at": "2026-08-17",
+      "line_count": 255,
       "path": "skills/ai-workflow/nexus/SKILL.md"
     },
     {
       "name": "nlpm-audit",
       "category": "ai-workflow",
       "description": "Audits natural-language programming artifacts such as SKILL.md, AGENTS.md, CLAUDE.md, slash commands, plugin manifests, hooks, rules, and prompt files. Use when reviewing AI-agent repositories, checking manifest-vs-disk consistency, scoring skill or agent quality, adding NL artifact CI gates, or diagnosing vocabulary and version drift across Claude Code, Codex, Cursor, Gemini, and Antigravity-style projects.",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "author": "seaworld008",
       "source": "github:xiaolai/nlpm",
       "source_url": "https://github.com/xiaolai/nlpm",
@@ -931,7 +931,7 @@
       "complexity": "advanced",
       "created_at": "2026-06-12",
       "updated_at": "2026-08-10",
-      "line_count": 549,
+      "line_count": 570,
       "path": "skills/ai-workflow/nlpm-audit/SKILL.md"
     },
     {
@@ -982,7 +982,7 @@
       "name": "planning-and-task-breakdown",
       "category": "ai-workflow",
       "description": "Breaks work into ordered tasks. Use when you have a spec or clear requirements and need to break work into implementable tasks. Use when a task feels too large to start, when you need to estimate scope, or when parallel work is possible.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "addyosmani",
       "source": "github:addyosmani/agent-skills",
       "source_url": "https://github.com/addyosmani/agent-skills/blob/main/skills/planning-and-task-breakdown/SKILL.md",
@@ -996,8 +996,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-08-10",
-      "line_count": 246,
+      "updated_at": "2026-08-17",
+      "line_count": 259,
       "path": "skills/ai-workflow/planning-and-task-breakdown/SKILL.md"
     },
     {
@@ -1024,8 +1024,8 @@
     {
       "name": "rally",
       "category": "ai-workflow",
-      "description": "Orchestrating multi-session parallel execution using Claude Code Agent Teams API and Codex CLI Subagents to launch, manage, and coordinate concurrent task execution across multiple instances. Use when parallel work is needed.",
-      "version": "1.0.1",
+      "description": "Orchestrating multi-session parallel execution via Claude Code Agent Teams API and Codex CLI Subagents — launch, manage, coordinate concurrent tasks. Use when parallel work is needed.",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/rally",
@@ -1037,8 +1037,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-08-10",
-      "line_count": 347,
+      "updated_at": "2026-08-17",
+      "line_count": 302,
       "path": "skills/ai-workflow/rally/SKILL.md"
     },
     {
@@ -1084,8 +1084,8 @@
     {
       "name": "security-and-hardening",
       "category": "ai-workflow",
-      "description": "Hardens code against vulnerabilities. Use when handling user input, authentication, data storage, or external integrations. Use when building any feature that accepts untrusted data, manages user sessions, or interacts with third-party services.",
-      "version": "1.0.1",
+      "description": "Hardens code against vulnerabilities. Use when handling user input, authentication, data storage, or external integrations. Use when building any feature that accepts untrusted data, manages user sessions, or interacts with third-party services. Use when personal data or privacy compliance (GDPR, CCPA) is involved.",
+      "version": "1.0.2",
       "author": "addyosmani",
       "source": "github:addyosmani/agent-skills",
       "source_url": "https://github.com/addyosmani/agent-skills/blob/main/skills/security-and-hardening/SKILL.md",
@@ -1099,15 +1099,15 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-08-10",
-      "line_count": 479,
+      "updated_at": "2026-08-17",
+      "line_count": 511,
       "path": "skills/ai-workflow/security-and-hardening/SKILL.md"
     },
     {
       "name": "sherpa",
       "category": "ai-workflow",
-      "description": "Guiding workflows by decomposing complex tasks (Epics) into Atomic Steps under 15 minutes each. Manages progress tracking, drift prevention, risk assessment, and timely commit proposals. Use when complex task decomposition is needed.",
-      "version": "1.0.1",
+      "description": "Guiding workflows by decomposing complex tasks (Epics) into Atomic Steps under 15 minutes each, with progress tracking and drift prevention. Use when complex decomposition is needed.",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/sherpa",
@@ -1119,8 +1119,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-08-10",
-      "line_count": 360,
+      "updated_at": "2026-08-17",
+      "line_count": 361,
       "path": "skills/ai-workflow/sherpa/SKILL.md"
     },
     {
@@ -1212,8 +1212,8 @@
     {
       "name": "spec-driven-development",
       "category": "ai-workflow",
-      "description": "Creates specs before coding. Use when starting a new project, feature, or significant change and no specification exists yet. Use when requirements are unclear, ambiguous, or only exist as a vague idea.",
-      "version": "1.0.0",
+      "description": "Creates specs before coding. Use when starting a new project, feature, or significant change and no specification exists yet. Use when requirements are unclear, ambiguous, or only exist as a vague idea. Use when a single requirement spans several independently testable capabilities and needs decomposing into a capability map of modules before specifying.",
+      "version": "1.0.1",
       "author": "addyosmani",
       "source": "github:addyosmani/agent-skills",
       "source_url": "https://github.com/addyosmani/agent-skills/blob/main/skills/spec-driven-development/SKILL.md",
@@ -1227,15 +1227,15 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-07-27",
-      "line_count": 218,
+      "updated_at": "2026-08-17",
+      "line_count": 257,
       "path": "skills/ai-workflow/spec-driven-development/SKILL.md"
     },
     {
       "name": "subagent-driven-development",
       "category": "ai-workflow",
       "description": "Use when executing implementation plans with independent tasks in the current session",
-      "version": "1.0.4",
+      "version": "1.0.5",
       "author": "seaworld008",
       "source": "github:obra/superpowers",
       "source_url": "https://github.com/obra/superpowers/tree/main/skills/subagent-driven-development",
@@ -1249,8 +1249,8 @@
       "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-03-27",
-      "updated_at": "2026-07-27",
-      "line_count": 514,
+      "updated_at": "2026-08-17",
+      "line_count": 579,
       "path": "skills/ai-workflow/subagent-driven-development/SKILL.md"
     },
     {
@@ -1321,7 +1321,7 @@
       "name": "using-superpowers",
       "category": "ai-workflow",
       "description": "Use when starting any conversation - establishes how to find and use skills, requiring skill invocation before ANY response including clarifying questions",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -1333,8 +1333,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-04-13",
-      "updated_at": "2026-07-03",
-      "line_count": 104,
+      "updated_at": "2026-08-17",
+      "line_count": 101,
       "path": "skills/ai-workflow/using-superpowers/SKILL.md"
     },
     {
@@ -1441,8 +1441,8 @@
     {
       "name": "pipe",
       "category": "deployment-platforms",
-      "description": "Designing GitHub Actions workflows in depth — covering trigger strategy, security hardening, performance optimization, PR automation, and Reusable Workflow design. Use when new GHA workflow design or advanced optimization is needed.",
-      "version": "1.0.1",
+      "description": "Designing GitHub Actions workflows in depth: trigger strategy, security hardening, performance optimization, PR automation, and Reusable Workflow design.",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/pipe",
@@ -1453,8 +1453,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-08-10",
-      "line_count": 283,
+      "updated_at": "2026-08-17",
+      "line_count": 287,
       "path": "skills/deployment-platforms/pipe/SKILL.md"
     },
     {
@@ -1480,8 +1480,8 @@
     {
       "name": "scaffold",
       "category": "deployment-platforms",
-      "description": "Provisioning infrastructure via cloud IaC (Terraform/OpenTofu/CloudFormation/Pulumi) and local development environments (Docker Compose/dev setup/env vars). Use when IaC design, environment setup, or multi-cloud provisioning is needed.",
-      "version": "1.0.1",
+      "description": "Provisioning infrastructure via cloud IaC (Terraform/OpenTofu/CloudFormation/Pulumi) and local dev environments (Docker Compose, env vars). Use for IaC design or multi-cloud provisioning.",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/scaffold",
@@ -1492,7 +1492,7 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-08-10",
+      "updated_at": "2026-08-17",
       "line_count": 292,
       "path": "skills/deployment-platforms/scaffold/SKILL.md"
     },
@@ -1621,8 +1621,8 @@
     {
       "name": "builder",
       "category": "developer-engineering",
-      "description": "Implementing robust business logic, API integrations, and data models with type safety and production readiness. Use when business logic implementation or API integration is needed. Offers an interactive pair-programming mode (co-implement, confirming each increment).",
-      "version": "1.0.1",
+      "description": "Implementing robust business logic, API integrations, and data models with type safety. Use when business logic or API integration is needed. Offers an interactive pair-programming mode.",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/builder",
@@ -1633,8 +1633,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-08-10",
-      "line_count": 326,
+      "updated_at": "2026-08-17",
+      "line_count": 328,
       "path": "skills/developer-engineering/builder/SKILL.md"
     },
     {
@@ -1805,8 +1805,8 @@
     {
       "name": "gateway",
       "category": "developer-engineering",
-      "description": "Designing and reviewing APIs via OpenAPI spec generation, versioning strategy, breaking change detection, and REST/GraphQL best practices. Ensures API quality and consistency. Use when API design or OpenAPI specs are needed.",
-      "version": "1.0.2",
+      "description": "Designing and reviewing APIs: OpenAPI spec generation, versioning strategy, breaking change detection, REST/GraphQL best practices. Use for API design or OpenAPI specs.",
+      "version": "1.0.3",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/gateway",
@@ -1817,8 +1817,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-08-10",
-      "line_count": 314,
+      "updated_at": "2026-08-17",
+      "line_count": 306,
       "path": "skills/developer-engineering/gateway/SKILL.md"
     },
     {
@@ -2232,7 +2232,7 @@
       "name": "schema",
       "category": "developer-engineering",
       "description": "Designing database schemas, planning migrations, and authoring ER diagrams. Handles normalization, index strategies, and relation definitions. Use when DB schema design is needed.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/schema",
@@ -2243,8 +2243,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-08-10",
-      "line_count": 337,
+      "updated_at": "2026-08-17",
+      "line_count": 321,
       "path": "skills/developer-engineering/schema/SKILL.md"
     },
     {
@@ -2519,8 +2519,8 @@
     {
       "name": "beacon",
       "category": "devops-sre",
-      "description": "Engineering observability and reliability through SLO/SLI design, distributed tracing, alerting, dashboards, capacity planning, toil automation, and reliability review. Use when designing observability instrumentation, defining SLOs/SLIs, building dashboards/alerts, or reviewing reliability posture.",
-      "version": "1.0.2",
+      "description": "Engineering observability and reliability: SLO/SLI design, distributed tracing, alerting, dashboards, capacity planning, toil automation, reliability review. Use for instrumentation or SLO definition.",
+      "version": "1.0.3",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/beacon",
@@ -2532,8 +2532,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-08-10",
-      "line_count": 329,
+      "updated_at": "2026-08-17",
+      "line_count": 323,
       "path": "skills/devops-sre/beacon/SKILL.md"
     },
     {
@@ -2608,8 +2608,8 @@
     {
       "name": "gear",
       "category": "devops-sre",
-      "description": "Managing dependencies, CI/CD optimization, Docker configuration, and operational observability (logging/alerting/health checks). Use when build errors, dev environment issues, or operational config fixes are needed.",
-      "version": "1.0.2",
+      "description": "Managing dependencies, CI/CD optimization, Docker configuration, and operational observability (logging/alerting/health checks). Use for build errors or dev environment issues.",
+      "version": "1.0.3",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/gear",
@@ -2621,7 +2621,7 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-08-10",
+      "updated_at": "2026-08-17",
       "line_count": 263,
       "path": "skills/devops-sre/gear/SKILL.md"
     },
@@ -2753,8 +2753,8 @@
     {
       "name": "triage",
       "category": "devops-sre",
-      "description": "Responding to incidents, identifying impact scope, formulating recovery procedures, and creating postmortems. Use when incident response or disaster recovery is needed. Does not write code (delegates fixes to Builder).",
-      "version": "1.0.1",
+      "description": "Responding to incidents: identifies impact scope, formulates recovery procedures, creates postmortems. Use when incident response or disaster recovery is needed. Delegates fixes to Builder.",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/triage",
@@ -2766,8 +2766,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-08-10",
-      "line_count": 330,
+      "updated_at": "2026-08-17",
+      "line_count": 338,
       "path": "skills/devops-sre/triage/SKILL.md"
     },
     {
@@ -2900,7 +2900,7 @@
       "name": "guardian",
       "category": "engineering-workflow-automation",
       "description": "Gatekeeping Git/PR by classifying change essence and recommending granularity, naming, and strategy. Use when PR preparation or commit strategy is needed.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/guardian",
@@ -2912,15 +2912,15 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-08-10",
-      "line_count": 329,
+      "updated_at": "2026-08-17",
+      "line_count": 321,
       "path": "skills/engineering-workflow-automation/guardian/SKILL.md"
     },
     {
       "name": "harvest",
       "category": "engineering-workflow-automation",
       "description": "Collecting GitHub PR data and generating work reports. Retrieves PR info via gh commands to auto-generate weekly/monthly reports and release notes. Use when work reporting or PR analysis is needed.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/harvest",
@@ -2932,8 +2932,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-08-10",
-      "line_count": 299,
+      "updated_at": "2026-08-17",
+      "line_count": 298,
       "path": "skills/engineering-workflow-automation/harvest/SKILL.md"
     },
     {
@@ -2984,8 +2984,8 @@
     {
       "name": "latch",
       "category": "engineering-workflow-automation",
-      "description": "Proposing, configuring, debugging, and maintaining Claude Code hooks (PreToolUse/PostToolUse/Stop and other lifecycle events). Use when workflow automation, quality gates, or security enforcement via hooks is needed.",
-      "version": "1.0.1",
+      "description": "Proposing, configuring, debugging, and maintaining Claude Code hooks (PreToolUse/PostToolUse/Stop and other lifecycle events). Use for workflow automation or quality gates via hooks.",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/latch",
@@ -2997,8 +2997,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-08-10",
-      "line_count": 425,
+      "updated_at": "2026-08-17",
+      "line_count": 321,
       "path": "skills/engineering-workflow-automation/latch/SKILL.md"
     },
     {
@@ -3214,8 +3214,8 @@
     {
       "name": "helm",
       "category": "finance-investing",
-      "description": "Simulating business strategy via short/mid/long-term scenario planning from financial, market, and competitive data. Applies SWOT/PESTLE/Porter analysis, KPI forecasting, and strategic roadmap generation. Does not write code.",
-      "version": "1.0.1",
+      "description": "Simulating business strategy via short/mid/long-term scenario planning from financial, market, and competitive data. Applies SWOT/PESTLE/Porter, KPI forecasting, roadmaps. Does not write code.",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/helm",
@@ -3226,8 +3226,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-08-10",
-      "line_count": 311,
+      "updated_at": "2026-08-17",
+      "line_count": 308,
       "path": "skills/finance-investing/helm/SKILL.md"
     },
     {
@@ -3254,8 +3254,8 @@
     {
       "name": "ledger",
       "category": "finance-investing",
-      "description": "Optimizing FinOps and cloud costs. Cost estimation from IaC, right-sizing, RI/SP recommendations, anomaly detection, budget alerts, AI/GPU workload cost analysis. Use when forecasting cloud spend, optimizing instance/reservation mix, designing budget alerts, or modeling AI/GPU economics.",
-      "version": "1.0.1",
+      "description": "Optimizing FinOps and cloud cost: IaC-based estimation, right-sizing, RI/SP recommendations, anomaly detection, budget alerts, AI/GPU workload economics. Use to forecast or cut cloud spend.",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/ledger",
@@ -3266,8 +3266,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-08-10",
-      "line_count": 331,
+      "updated_at": "2026-08-17",
+      "line_count": 329,
       "path": "skills/finance-investing/ledger/SKILL.md"
     },
     {
@@ -3482,8 +3482,8 @@
     {
       "name": "compete",
       "category": "growth-operations-xiaohongshu",
-      "description": "Researching competitors, analyzing differentiation, and shaping strategic positioning. Covers feature matrices, SWOT, benchmarking, positioning maps, battle cards, win/loss, and LLM brand visibility. Research only — no code. Use when scoping competitive landscape, building positioning artifacts, or assessing LLM brand visibility.",
-      "version": "1.0.2",
+      "description": "Researching competitors and shaping positioning: feature matrices, SWOT, benchmarking, positioning maps, battle cards, win/loss, LLM brand visibility. Research only — use for strategy, not code.",
+      "version": "1.0.3",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/compete",
@@ -3495,8 +3495,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-08-10",
-      "line_count": 359,
+      "updated_at": "2026-08-17",
+      "line_count": 333,
       "path": "skills/growth-operations-xiaohongshu/compete/SKILL.md"
     },
     {
@@ -3627,8 +3627,8 @@
     {
       "name": "pulse",
       "category": "growth-operations-xiaohongshu",
-      "description": "Defining KPIs, designing tracking events, and specifying dashboards. Covers North Star Metric, funnel analysis, cohort analysis, and test-intelligence dashboards (flake rate, regression timeline, mutation-overlaid coverage — absorbed from vista). GA4/Amplitude/Mixpanel/PostHog integration. Use when metrics or test-telemetry dashboards are needed.",
-      "version": "1.0.2",
+      "description": "Defining KPIs, tracking events, and dashboards: North Star Metric, funnel and cohort analysis, test-intelligence views. GA4/Amplitude/Mixpanel/PostHog. Use when metrics design is needed.",
+      "version": "1.0.3",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/pulse",
@@ -3640,7 +3640,7 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-08-10",
+      "updated_at": "2026-08-17",
       "line_count": 319,
       "path": "skills/growth-operations-xiaohongshu/pulse/SKILL.md"
     },
@@ -3737,8 +3737,8 @@
     {
       "name": "arxiv",
       "category": "knowledge-and-pm-integrations",
-      "description": "用于按关键词、作者、分类或编号检索 arXiv 论文。",
-      "version": "1.0.2",
+      "description": "Search arXiv papers by keyword, author, category, or ID.",
+      "version": "1.0.3",
       "author": "Hermes Agent",
       "source": "in-house",
       "source_url": "",
@@ -3753,7 +3753,7 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-04-13",
-      "updated_at": "2026-05-19",
+      "updated_at": "2026-08-17",
       "line_count": 288,
       "path": "skills/knowledge-and-pm-integrations/arxiv/SKILL.md"
     },
@@ -3822,8 +3822,8 @@
     {
       "name": "lark-base",
       "category": "knowledge-and-pm-integrations",
-      "description": "飞书多维表格（Base）操作：建表、字段、记录、视图、统计、公式/lookup、表单、仪表盘、workflow、角色权限；遇到 Base/多维表格/bitable 或 /base/ 链接时使用。文件导入/导出转 lark-drive，认证/授权转 lark-shared。",
-      "version": "1.2.11",
+      "description": "飞书多维表格（Base）操作：建表、字段、记录、视图、统计、公式/lookup、表单、仪表盘、应用模式（BaseApp/AppMode 页面与组件）、Workspace 目录、workflow、角色权限；遇到 Base/多维表格/bitable、BaseApp/AppMode、/base/ 或 /app/ 链接时使用。BaseApp 不走 lark-apps；文件导入/导出转 lark-drive，认证/授权转 lark-shared。",
+      "version": "1.2.12",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/main/skills/lark-base",
@@ -3838,15 +3838,15 @@
       "quality": 4,
       "complexity": "advanced",
       "created_at": "2026-05-19",
-      "updated_at": "2026-08-10",
-      "line_count": 212,
+      "updated_at": "2026-08-17",
+      "line_count": 174,
       "path": "skills/knowledge-and-pm-integrations/lark-base/SKILL.md"
     },
     {
       "name": "lark-calendar",
       "category": "knowledge-and-pm-integrations",
       "description": "飞书日历：管理日历日程和会议室。查看/搜索日程、创建/更新日程、管理参会人、查询忙闲和推荐时段、预定会议室。当用户需要查看日程安排、创建/修改会议、查询/预定会议室时使用。不负责：查询过去的视频会议记录（走 lark-vc）、待办任务（走 lark-task）。",
-      "version": "1.0.5",
+      "version": "1.0.6",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/main/skills/lark-calendar",
@@ -3860,8 +3860,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-05-19",
-      "updated_at": "2026-08-10",
-      "line_count": 240,
+      "updated_at": "2026-08-17",
+      "line_count": 242,
       "path": "skills/knowledge-and-pm-integrations/lark-calendar/SKILL.md"
     },
     {
@@ -3889,8 +3889,8 @@
     {
       "name": "lark-doc",
       "category": "knowledge-and-pm-integrations",
-      "description": "飞书云文档（Docx / Wiki）内容操作：读取、创建、编辑文档，插入或下载图片附件，以及操作思维笔记。用户提供文档 URL/token（包括 doubao.com 的 /docx/、/wiki/）时使用；按 URL 路径/token 而非域名路由。文档内嵌资源按读取参考中的统一规则分流。文档评论走 lark-drive；表格或 Base 内部数据操作不在本 skill。",
-      "version": "1.0.12",
+      "description": "飞书云文档（Docx / Wiki）内容操作：读取、创建、编辑文档，插入或下载图片附件，以及操作思维笔记。用户提供文档 URL/token（包括 doubao.com 的 /docx/、/wiki/）时使用；按 URL 路径/token 而非域名路由。文档内嵌资源按读取参考中的统一规则分流。独立评论操作走 lark-drive；随正文读取评论使用 docs +fetch。表格或 Base 内部数据操作不在本 skill。",
+      "version": "1.0.13",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/main/skills/lark-doc",
@@ -3904,7 +3904,7 @@
       "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-05-19",
-      "updated_at": "2026-08-10",
+      "updated_at": "2026-08-17",
       "line_count": 85,
       "path": "skills/knowledge-and-pm-integrations/lark-doc/SKILL.md"
     },
@@ -3912,7 +3912,7 @@
       "name": "lark-drive",
       "category": "knowledge-and-pm-integrations",
       "description": "飞书云空间（云盘/云存储）：管理 Drive 文件和文件夹，包含上传/下载、创建文件夹、复制/移动/删除、查看元数据、查询权限设置、评论/权限/订阅、标题、版本、飞书文档密级标签（secure labels）和本地文件导入。用户需要整理云盘目录、处理云空间资源 URL/token、判断链接类型/真实 token/标题，或导入 Word/Markdown/Excel/CSV/PPTX/.base 为 docx/sheet/bitable/slides 时使用；doubao.com 云空间 URL/token 也按资源路径和 token 路由，不回退 WebFetch。不负责：文档内容编辑（走 lark-doc）、表格/Base 表内数据操作（走 lark-sheets/lark-base）、知识空间节点/成员管理（走 lark-wiki）、原生 Markdown 文件读写/patch/diff（走 lark-markdown）。",
-      "version": "1.0.13",
+      "version": "1.0.14",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/main/skills/lark-drive",
@@ -3926,8 +3926,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-05-19",
-      "updated_at": "2026-08-10",
-      "line_count": 250,
+      "updated_at": "2026-08-17",
+      "line_count": 252,
       "path": "skills/knowledge-and-pm-integrations/lark-drive/SKILL.md"
     },
     {
@@ -3956,7 +3956,7 @@
       "name": "lark-im",
       "category": "knowledge-and-pm-integrations",
       "description": "飞书即时通讯：收发消息和管理群聊。发送和回复消息、搜索聊天记录、管理群聊成员、上传下载图片和文件、管理表情回复、发送应用内/短信/电话加急、发送和处理交互卡片（Interactive Card）、监听卡片按钮回调（card.action.trigger）。当用户需要发消息、查看或搜索聊天记录、下载聊天中的文件、查看群成员、搜索群、创建群聊或话题群、管理标记数据、管理 Feed 置顶（添加/移除/查询置顶会话）、管理标签数据、处理卡片回调时使用。",
-      "version": "1.0.9",
+      "version": "1.0.10",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/main/skills/lark-im",
@@ -3970,8 +3970,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-05-19",
-      "updated_at": "2026-08-10",
-      "line_count": 285,
+      "updated_at": "2026-08-17",
+      "line_count": 290,
       "path": "skills/knowledge-and-pm-integrations/lark-im/SKILL.md"
     },
     {
@@ -4022,7 +4022,7 @@
       "name": "lark-minutes",
       "category": "knowledge-and-pm-integrations",
       "description": "飞书妙记：搜索妙记、查看妙记基础信息、下载/上传音视频、读取或编辑妙记的产物内容、改标题、替换说话人/关键词、申请妙记查看/编辑权限。当给出minute_token、本地音视频文件，要查/改/转妙记产物，或用户明确要主动申请妙记权限时使用；本地音视频转纪要/逐字稿优先走本 skill，不要用 ffmpeg/whisper 本地转写。不负责：获取会议关联妙记，或仅按自然语言标题定位纪要",
-      "version": "1.0.7",
+      "version": "1.0.8",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/main/skills/lark-minutes",
@@ -4036,8 +4036,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-05-19",
-      "updated_at": "2026-08-10",
-      "line_count": 243,
+      "updated_at": "2026-08-17",
+      "line_count": 249,
       "path": "skills/knowledge-and-pm-integrations/lark-minutes/SKILL.md"
     },
     {
@@ -4088,7 +4088,7 @@
       "name": "lark-shared",
       "category": "knowledge-and-pm-integrations",
       "description": "Use for lark-cli setup/auth tasks: auth login/status/logout, user vs bot identity, business-domain permissions (--domain, including all/docs/drive), missing scopes, revoking authorization, or handling _notice JSON.",
-      "version": "1.0.8",
+      "version": "1.0.9",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/main/skills/lark-shared",
@@ -4102,8 +4102,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-05-19",
-      "updated_at": "2026-08-10",
-      "line_count": 247,
+      "updated_at": "2026-08-17",
+      "line_count": 283,
       "path": "skills/knowledge-and-pm-integrations/lark-shared/SKILL.md"
     },
     {
@@ -4154,7 +4154,7 @@
       "name": "lark-slides",
       "category": "knowledge-and-pm-integrations",
       "description": "飞书幻灯片：创建和编辑幻灯片。创建演示文稿、读取幻灯片内容、管理幻灯片页面（创建、删除、读取、局部替换）。当用户需要创建或编辑幻灯片、读取或修改单个页面时使用。当用户给出 doubao.com 的 /slides/ URL/token 时，也应直接使用本 skill，不要因为域名不是飞书而回退到 WebFetch；路由依据是 URL 路径模式和 token，而不是域名。不负责：云文档内容编辑（走 lark-doc）、云文档里的独立画板对象（走 lark-whiteboard）、上传或下载普通文件（走 lark-drive）。",
-      "version": "1.0.7",
+      "version": "1.0.8",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/main/skills/lark-slides",
@@ -4168,7 +4168,7 @@
       "quality": 4,
       "complexity": "advanced",
       "created_at": "2026-05-19",
-      "updated_at": "2026-08-10",
+      "updated_at": "2026-08-17",
       "line_count": 325,
       "path": "skills/knowledge-and-pm-integrations/lark-slides/SKILL.md"
     },
@@ -4176,7 +4176,7 @@
       "name": "lark-task",
       "category": "knowledge-and-pm-integrations",
       "description": "飞书任务：管理任务、清单和任务智能体。创建待办任务、查看和更新任务状态、拆分子任务、组织任务清单、分配协作成员、上传任务附件、注册或注销任务智能体、更新任务智能体的主页数据、写入智能体任务记录。当用户需要创建待办事项、查看任务列表、跟踪任务进度、管理项目清单或给他人分配任务、为任务上传附件文件、注册注销任务智能体、更新智能体主页数据、写入任务记录时使用。",
-      "version": "1.0.5",
+      "version": "1.0.6",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/main/skills/lark-task",
@@ -4190,15 +4190,15 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-05-19",
-      "updated_at": "2026-07-27",
-      "line_count": 211,
+      "updated_at": "2026-08-17",
+      "line_count": 223,
       "path": "skills/knowledge-and-pm-integrations/lark-task/SKILL.md"
     },
     {
       "name": "lark-vc",
       "category": "knowledge-and-pm-integrations",
-      "description": "飞书视频会议：搜索历史会议记录、查询会议纪要（总结/待办/章节/逐字稿）、查询参会人快照。当用户查询已结束的会议、获取会议产物（纪要/妙记）、查看参会人时使用；查询未来日程走 lark-calendar。不负责：Agent 真实入会/离会、会中实时事件（走 lark-vc-agent）。",
-      "version": "1.0.6",
+      "description": "飞书视频会议：查询进行中的会议列表（含会议 ID）、读取会中实时内容（发言、聊天、共享等）、发送会中消息，以及搜索历史会议、查询会议纪要（总结/待办/章节/逐字稿）和参会人快照。Agent 真实入会/离会走 lark-vc-agent；查询未来日程走 lark-calendar。",
+      "version": "1.0.7",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/main/skills/lark-vc",
@@ -4212,15 +4212,15 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-05-19",
-      "updated_at": "2026-07-27",
-      "line_count": 241,
+      "updated_at": "2026-08-17",
+      "line_count": 251,
       "path": "skills/knowledge-and-pm-integrations/lark-vc/SKILL.md"
     },
     {
       "name": "lark-vc-agent",
       "category": "knowledge-and-pm-integrations",
       "description": "飞书视频会议会中能力：用于让应用机器人真实加入或离开正在进行的会议，并读取当前身份可见的会中事件、发送会中文本消息或会中表情。适用于用户询问正在开的会议发生了什么、谁在发言、是否共享内容，或需要发现当前可读的进行中会议 ID。不负责已结束会议搜索、参会人快照、纪要、逐字稿或录制查询，这些使用 lark-vc 技能。",
-      "version": "1.0.7",
+      "version": "1.0.8",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/main/skills/lark-vc-agent",
@@ -4234,8 +4234,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-05-19",
-      "updated_at": "2026-07-20",
-      "line_count": 237,
+      "updated_at": "2026-08-17",
+      "line_count": 252,
       "path": "skills/knowledge-and-pm-integrations/lark-vc-agent/SKILL.md"
     },
     {
@@ -4375,8 +4375,8 @@
     {
       "name": "lore",
       "category": "knowledge-and-pm-integrations",
-      "description": "Curating cross-agent knowledge and guarding institutional memory. Extracts patterns from agent journals into METAPATTERNS.md, detects knowledge decay, propagates best practices, prevents organizational forgetting. Use when consolidating cross-agent insights, curating memory, or auditing knowledge decay.",
-      "version": "1.0.2",
+      "description": "Curating cross-agent knowledge and institutional memory: extracts patterns from agent journals into METAPATTERNS.md, detects knowledge decay, propagates best practices. Use for memory curation.",
+      "version": "1.0.3",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/lore",
@@ -4387,7 +4387,7 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-08-10",
+      "updated_at": "2026-08-17",
       "line_count": 339,
       "path": "skills/knowledge-and-pm-integrations/lore/SKILL.md"
     },
@@ -4590,7 +4590,7 @@
       "name": "sketch",
       "category": "multimodal-media",
       "description": "Generating AI image-generation code using the Gemini API. Handles text-to-image generation, image editing, and prompt optimization. Use when image generation code is needed.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/sketch",
@@ -4601,8 +4601,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-08-10",
-      "line_count": 325,
+      "updated_at": "2026-08-17",
+      "line_count": 308,
       "path": "skills/multimodal-media/sketch/SKILL.md"
     },
     {
@@ -4911,8 +4911,8 @@
     {
       "name": "cast",
       "category": "openclaw-memory-and-safety",
-      "description": "Casting personas via rapid generation, persistence, lifecycle management, and inter-agent sync. Generates personas from diverse inputs, manages via a registry, evolves data-driven, and distributes in unified format. Use when creating, updating, or syncing personas across agents. Not for UI walkthroughs (Echo) or user research design (Field).",
-      "version": "1.0.2",
+      "description": "Casting personas: rapid generation from diverse inputs, registry-based persistence and lifecycle, data-driven evolution, inter-agent sync. Not for UI walkthroughs (Echo) or user research (Field).",
+      "version": "1.0.3",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/cast",
@@ -4924,8 +4924,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-08-10",
-      "line_count": 376,
+      "updated_at": "2026-08-17",
+      "line_count": 353,
       "path": "skills/openclaw-memory-and-safety/cast/SKILL.md"
     },
     {
@@ -4974,7 +4974,7 @@
       "name": "omen",
       "category": "openclaw-memory-and-safety",
       "description": "Enumerating failure modes via pre-mortem analysis. Systematically identifies failure scenarios for plans, designs, and features, scoring them with RPN/AP. Does not write code.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/omen",
@@ -4986,8 +4986,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-08-10",
-      "line_count": 334,
+      "updated_at": "2026-08-17",
+      "line_count": 307,
       "path": "skills/openclaw-memory-and-safety/omen/SKILL.md"
     },
     {
@@ -5155,8 +5155,8 @@
     {
       "name": "hearth",
       "category": "operations-general",
-      "description": "Generating, optimizing, and auditing personal development environment config files (zsh/tmux/neovim/ghostty), and automating the macOS desktop via AppleScript/JXA/osascript (Finder, Mail, Safari, Calendar, Notes, System Events). Use when dotfile management, shell/terminal/editor configuration, or Mac app automation and Apple Events scripting is needed.",
-      "version": "1.0.1",
+      "description": "Generating and auditing personal dev environment configs (zsh/tmux/neovim/ghostty) and automating the macOS desktop via AppleScript/JXA (Finder, Mail, Safari). Use for dotfiles or Apple Events.",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/hearth",
@@ -5167,8 +5167,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-08-10",
-      "line_count": 338,
+      "updated_at": "2026-08-17",
+      "line_count": 305,
       "path": "skills/operations-general/hearth/SKILL.md"
     },
     {
@@ -5196,7 +5196,7 @@
       "name": "linkedin",
       "category": "operations-general",
       "description": "General-purpose LinkedIn automation – fetch profiles, search people and companies, send messages, manage connections, create posts, and more. Use when the user wants to interact with LinkedIn.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": "vprudnikoff",
       "source": "github:Linked-API/linkedin-skills",
       "source_url": "https://github.com/Linked-API/linkedin-skills/tree/edd0bdbbb25776e9288186b88969b29175531995/linkedin",
@@ -5210,8 +5210,8 @@
       "quality": 5,
       "complexity": "intermediate",
       "created_at": "2026-07-10",
-      "updated_at": "2026-07-10",
-      "line_count": 566,
+      "updated_at": "2026-08-17",
+      "line_count": 603,
       "path": "skills/operations-general/linkedin/SKILL.md"
     },
     {
@@ -5425,8 +5425,8 @@
     {
       "name": "trace",
       "category": "product-design",
-      "description": "Analyzing session replays, extracting persona-based behavioral patterns, and storytelling UX issues. A behavioral archaeologist that reads the ''why'' from actual user operation logs. Collaborates with Field/Echo for persona validation.",
-      "version": "1.0.2",
+      "description": "Analyzing session replays, extracting persona-based behavioral patterns, and storytelling UX issues. Reads the ''why'' from real user operation logs. Works with Field/Echo for persona validation.",
+      "version": "1.0.3",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/trace",
@@ -5438,8 +5438,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-08-10",
-      "line_count": 318,
+      "updated_at": "2026-08-17",
+      "line_count": 305,
       "path": "skills/product-design/trace/SKILL.md"
     },
     {
@@ -5512,7 +5512,7 @@
       "name": "voice",
       "category": "product-design",
       "description": "Collecting user feedback via NPS surveys, review analysis, sentiment analysis, feedback classification, and insight extraction reports. Use when establishing feedback loops.",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/voice",
@@ -5524,15 +5524,15 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-08-10",
-      "line_count": 296,
+      "updated_at": "2026-08-17",
+      "line_count": 293,
       "path": "skills/product-design/voice/SKILL.md"
     },
     {
       "name": "breach",
       "category": "security-and-reliability",
-      "description": "Designing red team attack scenarios, building threat models, applying MITRE ATT&CK/OWASP frameworks, running Purple Team exercises, and performing AI/LLM red teaming. Use when adversarial security validation is needed.",
-      "version": "1.0.1",
+      "description": "Designing red team attack scenarios, threat models, MITRE ATT&CK/OWASP application, Purple Team exercises, and AI/LLM red teaming. Use when adversarial security validation is needed.",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/breach",
@@ -5543,15 +5543,15 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-08-10",
-      "line_count": 380,
+      "updated_at": "2026-08-17",
+      "line_count": 323,
       "path": "skills/security-and-reliability/breach/SKILL.md"
     },
     {
       "name": "cloak",
       "category": "security-and-reliability",
-      "description": "Engineering privacy and data governance via PII detection, data flow mapping, consent management patterns, GDPR/CCPA-compliant code implementation, and DPIA facilitation. Use when privacy-by-design implementation is needed.",
-      "version": "1.0.2",
+      "description": "Engineering privacy and data governance: PII detection, data flow mapping, consent patterns, GDPR/CCPA-compliant implementation, DPIA. Use when privacy-by-design is needed.",
+      "version": "1.0.3",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/cloak",
@@ -5562,8 +5562,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-08-10",
-      "line_count": 346,
+      "updated_at": "2026-08-17",
+      "line_count": 329,
       "path": "skills/security-and-reliability/cloak/SKILL.md"
     },
     {
@@ -6034,8 +6034,8 @@
     {
       "name": "lens",
       "category": "task-understanding-decomposition",
-      "description": "Comprehending and investigating codebases. Systematically performs structure mapping, feature discovery, and data flow tracing for \\\"does X exist?\\\", \\\"how does Y work?\\\", or \\\"what is this module''s responsibility?\\\". Includes a conversational Q&A mode (\\\"ask\\\") for navigator-style, multi-turn questions about a project. Does not write code.",
-      "version": "1.0.2",
+      "description": "Comprehending and investigating codebases: structure mapping, feature discovery, data flow tracing for ''does X exist?'' or ''how does Y work?''. Includes a conversational ask mode. Does not write code.",
+      "version": "1.0.3",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/lens",
@@ -6047,8 +6047,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-08-10",
-      "line_count": 348,
+      "updated_at": "2026-08-17",
+      "line_count": 330,
       "path": "skills/task-understanding-decomposition/lens/SKILL.md"
     },
     {
@@ -6095,8 +6095,8 @@
     {
       "name": "scout",
       "category": "task-understanding-decomposition",
-      "description": "Investigating bugs via root cause analysis (RCA), reproduction steps, and impact assessment. Investigation-only — identifies why bugs occur and where to fix them, no code. Use when a bug needs RCA, reproduction must be established before fix, or impact radius needs assessment.",
-      "version": "1.0.1",
+      "description": "Investigating bugs via root cause analysis, reproduction steps, and impact assessment. Investigation-only — finds why bugs occur and where to fix them, no code. Use when a bug needs RCA before a fix.",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/scout",
@@ -6108,8 +6108,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-08-10",
-      "line_count": 389,
+      "updated_at": "2026-08-17",
+      "line_count": 336,
       "path": "skills/task-understanding-decomposition/scout/SKILL.md"
     }
   ]

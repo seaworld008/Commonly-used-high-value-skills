@@ -92,7 +92,7 @@ def main():
         print("\nExamples:")
         print("  safe_pack.py ./my-project")
         print("  safe_pack.py ./my-project --output package.xml")
-        print("  safe_pack.py ./my-project --exclude '.*test.*' '.*\.example'")
+        print(r"  safe_pack.py ./my-project --exclude '.*test.*' '.*\.example'")
         print("  safe_pack.py ./my-project --force  # Dangerous! Skip scan")
         sys.exit(1)
 

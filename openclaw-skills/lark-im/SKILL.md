@@ -2,14 +2,14 @@
 name: lark-im
 description: '飞书即时通讯：收发消息和管理群聊。发送和回复消息、搜索聊天记录、管理群聊成员、上传下载图片和文件、管理表情回复、发送应用内/短信/电话加急、发送和处理交互卡片（Interactive Card）、监听卡片按钮回调（card.action.trigger）。当用户需要发消息、查看或搜索聊天记录、下载聊天中的文件、查看群成员、搜索群、创建群聊或话题群、管理标记数据、管理 Feed 置顶（添加/移除/查询置顶会话）、管理标签数据、处理卡片回调时使用。'
 zh_description: "用于发送、读取和处理飞书即时消息与群聊交互。"
-version: "1.0.9"
+version: "1.0.10"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-im"
 license: MIT
 tags: '[feishu, lark, lark-cli, messaging, chat]'
 created_at: "2026-05-19"
-updated_at: "2026-08-10"
+updated_at: "2026-08-17"
 quality: 4
 complexity: intermediate
 metadata:
@@ -200,7 +200,11 @@ lark-cli im <resource> <method> [flags] # 调用 API
 
 ### images
 
-  - `create` — 上传图片。Identity: `bot` only (`tenant_access_token`).
+  - `create` — 上传图片。Identity: supports `user` and `bot`; user identity requires `im:resource` scope on the UAT.
+
+### files
+
+  - `create` — 上传文件。Identity: supports `user` and `bot`; user identity requires `im:resource` scope on the UAT.
 
 ### pins
 
@@ -248,6 +252,7 @@ lark-cli im <resource> <method> [flags] # 调用 API
 | `reactions.list` | `im:message.reactions:read` |
 | `threads.forward` | `im:message` |
 | `images.create` | `im:resource` |
+| `files.create` | `im:resource` |
 | `pins.create` | `im:message.pins:write_only` |
 | `pins.delete` | `im:message.pins:write_only` |
 | `pins.list` | `im:message.pins:read` |

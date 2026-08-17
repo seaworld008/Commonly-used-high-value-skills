@@ -2,14 +2,14 @@
 name: lark-calendar
 description: '飞书日历：管理日历日程和会议室。查看/搜索日程、创建/更新日程、管理参会人、查询忙闲和推荐时段、预定会议室。当用户需要查看日程安排、创建/修改会议、查询/预定会议室时使用。不负责：查询过去的视频会议记录（走 lark-vc）、待办任务（走 lark-task）。'
 zh_description: "用于查询、创建和管理飞书日历事件与日程安排。"
-version: "1.0.5"
+version: "1.0.6"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-calendar"
 license: MIT
 tags: '[feishu, lark, lark-cli, calendar, scheduling]'
 created_at: "2026-05-19"
-updated_at: "2026-08-10"
+updated_at: "2026-08-17"
 quality: 4
 complexity: intermediate
 metadata:
@@ -30,6 +30,8 @@ metadata:
 
 - 查看/管理登录用户本人的日程 → `--as user`（默认，绝大多数场景）。
 - 查看/管理 bot 自己创建/拥有的日程 → `--as bot`
+
+**对话人称映射**：「我」= 登录用户，「你」= 应用（bot）；作为字段取值的人称（参会人、会议 owner 等）不参与身份判定，如「你创建日程，邀请我、会议 owner 为我」→ `--as bot` 创建，登录用户仅作参会人与会议 owner。
 
 ```bash
 # 用户本人日程 → user

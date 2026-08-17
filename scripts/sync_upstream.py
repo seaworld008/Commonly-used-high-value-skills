@@ -158,6 +158,29 @@ def github_commit_sha(repo: str, ref: str, token: str | None = None) -> str | No
     return str(sha) if sha else None
 
 
+def github_compare_relation(
+    repo: str,
+    base: str,
+    head: str,
+    token: str | None = None,
+) -> dict[str, int | str] | None:
+    """Return the commit relationship between a reviewed checkpoint and a ref."""
+    data = github_api_get(
+        f"https://api.github.com/repos/{repo}/compare/{base}...{head}",
+        token,
+    )
+    if not data:
+        return None
+    status = data.get("status")
+    if status not in {"ahead", "behind", "diverged", "identical"}:
+        return None
+    return {
+        "status": str(status),
+        "ahead_by": int(data.get("ahead_by", 0)),
+        "behind_by": int(data.get("behind_by", 0)),
+    }
+
+
 def fetch_github_raw_via_api(raw_url: str, token: str | None = None) -> str | None:
     """Fallback for raw.githubusercontent.com fetches using GitHub Contents API."""
     m = re.match(r"https://raw\.githubusercontent\.com/([^/]+/[^/]+)/([^/]+)/(.*)", raw_url)
@@ -306,6 +329,8 @@ source is intentionally concise.
   unavailable.
 - Stop and ask for clarification when the next action could overwrite user work,
   expose private data, or change production state.
+- Treat skill selection as routing, not ceremony: invoke only the narrowest
+  applicable workflow and keep user or repository instructions authoritative.
 <!-- LOCAL-QUALITY-SUPPLEMENT:END -->
 """
 
@@ -370,6 +395,13 @@ def merge_frontmatter(local_content: str, upstream_content: str) -> str:
     if local_curation:
         merged = merged.rstrip() + "\n\n" + local_curation + "\n"
     return merged
+
+
+def apply_repository_adaptations(content: str, skill: dict) -> str:
+    """Adapt upstream repository-relative links to this categorized layout."""
+    if skill.get("repo") == "addyosmani/agent-skills":
+        return content.replace("../../references/", "references/")
+    return content
 
 
 def load_skills_from_source_mappings() -> list[dict]:
@@ -489,6 +521,22 @@ def check_upstream_changes(skill: dict, token: str | None) -> dict | None:
                 "upstream_path": skill.get("upstream_path"),
                 "changes": "none",
             }
+        if current_commit:
+            relation = github_compare_relation(
+                repo,
+                skill["last_synced_commit"],
+                current_commit,
+                token,
+            )
+            if relation and relation["status"] == "behind":
+                return {
+                    "skill": skill,
+                    "upstream_path": skill.get("upstream_path"),
+                    "changes": "upstream_rollback",
+                    "current_commit": current_commit,
+                    "ahead_by": relation["ahead_by"],
+                    "behind_by": relation["behind_by"],
+                }
     
     # Prefer exact provenance paths. Fallbacks support older frontmatter-only entries.
     if skill.get("upstream_path"):
@@ -513,6 +561,7 @@ def check_upstream_changes(skill: dict, token: str | None) -> dict | None:
         except TypeError:
             upstream_content = fetch_url(url, token)
         if upstream_content:
+            upstream_content = apply_repository_adaptations(upstream_content, skill)
             # Compare content (ignore frontmatter for diff)
             local_body = comparable_body(skill["local_content"])
             upstream_body = comparable_body(upstream_content)
@@ -583,6 +632,34 @@ def print_monitor_review_guidance(updates: list[dict]) -> None:
     )
     for update in monitor_updates:
         for line in monitor_review_guidance(update):
+            print(line, flush=True)
+
+
+def monitor_rollback_guidance(result: dict) -> list[str]:
+    """Explain a monitor-only ref rollback without treating it as an update."""
+    skill = result["skill"]
+    behind_by = result.get("behind_by", "an unknown number of")
+    return [
+        f"  - {skill['name']} upstream ref moved backward by {behind_by} commits.",
+        f"    Current head: {result.get('current_commit', 'unknown')}",
+        f"    Reviewed checkpoint: {skill.get('last_synced_commit', 'unknown')}",
+        "    Do not move the checkpoint backward or replace curated local guidance.",
+        "    Record the rollback review in provenance and re-check when upstream advances.",
+    ]
+
+
+def print_monitor_rollbacks(results: list[dict]) -> None:
+    """Print commit-aware warnings for monitored refs that moved backward."""
+    rollbacks = [result for result in results if result.get("changes") == "upstream_rollback"]
+    if not rollbacks:
+        return
+    print("\nMONITOR-ONLY UPSTREAM ROLLBACK DETECTED:", flush=True)
+    print(
+        "These refs are behind their reviewed checkpoints and are not update candidates.",
+        flush=True,
+    )
+    for result in rollbacks:
+        for line in monitor_rollback_guidance(result):
             print(line, flush=True)
 
 
@@ -700,6 +777,7 @@ def main() -> None:
     
     print(f"\n{'='*60}", flush=True)
     print(f"Results: {len(updates)} updates available out of {len(skills)} checked", flush=True)
+    print_monitor_rollbacks(checked_results)
     
     if not updates:
         print("All skills are up to date.", flush=True)
@@ -742,7 +820,10 @@ def main() -> None:
                 applied += 1
                 continue
             
-            merged = merge_frontmatter(s["local_content"], u["upstream_content"])
+            merged = apply_repository_adaptations(
+                merge_frontmatter(s["local_content"], u["upstream_content"]),
+                s,
+            )
             s["local_path"].write_text(merged, encoding="utf-8")
             print(f"    Updated: {s['local_path']}", flush=True)
             if s["source"].startswith("github:"):

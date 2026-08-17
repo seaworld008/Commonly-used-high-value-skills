@@ -1,15 +1,15 @@
 ---
 name: oracle
-description: 'Designing and evaluating AI/ML systems across prompt engineering, RAG design, LLM application patterns, AI safety, evaluation frameworks, MLOps, and cost optimization. Use when designing AI/ML pipelines, RAG architectures, prompt strategies, evaluation harnesses, or LLM cost models.'
+description: 'Designing and evaluating AI/ML systems: prompt engineering, RAG design, LLM application patterns, AI safety, evaluation frameworks, MLOps, cost optimization. Use for AI pipelines or eval harnesses.'
 zh_description: "人工智能应用设计、评估、检索增强和安全护栏规划。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/oracle"
 license: MIT
 tags: '["agent", "ai", "oracle"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-10"
+updated_at: "2026-08-17"
 quality: 5
 complexity: "advanced"
 ---
@@ -25,6 +25,7 @@ CAPABILITIES_SUMMARY:
 - cost_optimization: Optimize LLM usage costs (model selection, caching, batching)
 - agent_system_design: Design application-level LLM agents (tool-use loops, tool-call schemas, context/memory, subagent delegation, termination conditions, failure modes)
 - llm_cost_optimization: LLM-API cost tuning (token budget per request, prompt caching TTL, model tier routing haiku/sonnet/opus, batch API vs streaming, context compression, per-feature SLO/cost budget)
+- ai_architecture_review: Design review of AI-embedding systems (12 lenses, risk tiers R0-R3, conditional approval with exit criteria, re-review triggers, four-owner responsibility split)
 - embedding_strategy: RAG embedding pipeline design (text chunking fixed/semantic/recursive, embedding model selection, vector index choice, cross-encoder re-ranking, hybrid BM25+vector retrieval)
 
 COLLABORATION_PATTERNS:
@@ -62,6 +63,7 @@ AI/ML design and evaluation specialist. Oracle designs prompt systems, RAG pipel
 - Planning LLM safety (guardrails, prompt injection defense, OWASP LLM Top 10 compliance, PII handling, bias mitigation)
 - Building evaluation frameworks (LLM-as-judge, Agent-as-a-Judge, regression suites, golden test sets, human-in-the-loop calibration)
 - Optimizing cost/latency (model routing, semantic caching, prompt caching, batching, token budget management)
+- Reviewing an AI-embedding design before build, or before a feature moves from proposal to command (authority envelope, degradation plan, risk tier)
 - The request mentions hallucination, embeddings, vector databases, benchmark design, canary rollout for AI features, or AI observability
 
 **Route elsewhere when:**
@@ -81,6 +83,9 @@ AI/ML design and evaluation specialist. Oracle designs prompt systems, RAG pipel
 - Design safety as architecture, not cleanup — guardrails are layered (input validation → context isolation → output filtering → human review) per OWASP LLM Top 10 2025 (includes System Prompt Leakage, Vector/Embedding Weaknesses).
 - Include cost, latency, and validation in every design — budget alert at `> 120%` forecast; semantic cache hit rate target `>= 60%`; p95 latency alert at `> 2× baseline`.
 - Hybrid evaluation is non-negotiable — automated scoring (LLM-as-judge, trace analysis) for scale; human judgment for tone, trust, and contextual appropriateness.
+- **Keep the deterministic control plane out of Eval.** Schema, authorization, state transitions, tool arguments, and timeout/retry/budget are ordinary software and stay in deterministic tests; only open-ended quality goes to Eval. "We have evals, so we don't need tests" surrenders boundaries that were enforceable. → `reference/evaluation-observability.md`.
+- **Write the Evaluation Contract with the architecture decision, not after it** — one versioned artifact: thresholds, prohibited behavior, latency/cost budget, dataset identity, human-review policy, online signals, rollback condition, owner. Cannot build the dataset, adjudicate a prohibited behavior, or state a rollback condition ⇒ the feature does not get raised production authority; it ships one action tier lower. → `reference/evaluation-observability.md`.
+- **Gate releases on a conjunction, never a composite score** — `deterministic PASS ∧ critical failures = 0 ∧ no-regression slices PASS ∧ latency/cost in budget ∧ human calibration done`. Declare `hard_failures` (unauthorized action, unsupported claim, personal-data exposure) that block regardless of mean score, and stratify the dataset into Representative / Critical / Counterexample / Regression / Adversarial so rare-but-severe failure is never averaged away.
 - Account for compounding failure — a 5-layer pipeline at 95% per layer yields only 77% end-to-end reliability; measure each layer independently.
 - Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Oracle; P2, P1 recommended).
 
@@ -93,7 +98,7 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 - Version every prompt change with a tag and changelog entry
 - Define success metrics and evaluation criteria before implementation begins
 - Include cost implications and token budget estimates in every design
-- Design graceful degradation paths (fallback models, cached responses, human escalation)
+- Design degradation as a leveled ladder — per level: allowed/disallowed actions, user-visible state, exit criterion. A quality drop that does not also drop authority is the failure mode (`reference/llm-production-anti-patterns.md`)
 - Add guardrails to every LLM interaction (input validation, output filtering, context isolation)
 - Document assumptions, limitations, and known failure modes
 - Validate LLM-as-judge outputs against human labels (calibrate for agreeableness bias, length bias, position bias, and self-enhancement bias)
@@ -120,12 +125,12 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 |--------|-----------|---------|-------------|------------|
 | Prompt Engineering | `prompt` | ✓ | Prompt design and optimization | `reference/prompt-engineering.md` |
 | RAG Design | `rag` | | RAG design (retrieval + generation) | `reference/rag-design-anti-patterns.md` |
-| Evaluation Framework | `eval` | | Evaluation framework (LLM output quality) | `reference/evaluation-observability.md` |
 | AI Safety | `safety` | | Guardrails, red-teaming | `reference/ai-safety-guardrails.md` |
 | MLOps Pipeline | `mlops` | | MLOps pipeline design | `reference/llm-application-patterns.md` |
 | Agent System Design | `agent` | | Application-level LLM agent design (tool-use loops, tool schemas, memory, subagent delegation, termination) | `reference/agent-design.md` |
 | LLM Cost Optimization | `cost` | | LLM-API cost tuning (token budget, prompt caching, model tier routing, batch vs streaming, context compression) | `reference/cost-optimization.md` |
 | Embedding Strategy | `embed` | | RAG embedding pipeline deep dive (chunking, embedding model, vector index, re-ranking, hybrid BM25+vector) | `reference/embedding-strategy.md` |
+| AI Architecture Review | `review` | | Reviewing a design that embeds AI before build or before raising its authority: 12 lenses, risk tiers R0–R3, conditional approval, re-review triggers | `reference/architecture-review.md` |
 | Advanced Tool Use | `tooling` | | Scaling an Anthropic-API tool catalog: tool search + `defer_loading`, programmatic tool calling, advisor tool (server-side Plan-and-Execute), per-tool/per-version model support | `reference/advanced-tool-use.md` |
 
 ## Subcommand Dispatch
@@ -140,9 +145,10 @@ Behavior notes per Recipe:
 - `eval`: LLM-as-judge, regression tests, Golden Test Set design. Includes bias detection and TNR thresholds.
 - `safety`: OWASP LLM Top 10 2025 compliance. Prompt Injection defense, PII handling, guardrail layering.
 - `mlops`: MLOps pipeline design. Includes model routing, canary rollout, and cost optimization.
-- `agent`: Application-level LLM agent design — tool-use loops, tool-call schema authoring, context/memory management, subagent delegation, termination conditions, agent failure modes (infinite tool loop, context bloat, tool selection drift). Compounding failure budget (`95%` per layer → `77%` at 5 layers) drives termination and max-turn ceilings. Scope: agents INSIDE the user's product. For designing the SKILL AGENT ecosystem itself (skill files, inter-agent handoffs), route to `Architect`.
-- `cost`: LLM-API cost tuning — per-feature token budget, Anthropic prompt caching with 5-minute TTL (`45-80%` cost, `13-31%` TTFT reduction) or 1-hour TTL for stable prefixes, model tier routing (haiku / sonnet / opus), batch API (50% discount, async) vs streaming tradeoffs, context compression, semantic cache tuning. Scope: LLM-API spend only (tokens, model tier, caching, batch). For cloud infra FinOps (EC2, S3, RDS, GPU nodes), route to `Ledger`.
-- `embed`: RAG embedding pipeline deep dive — text chunking (fixed / semantic / recursive), embedding model selection (OpenAI text-embedding-3, Voyage, Cohere, bge-m3, nomic-embed), vector index choice (HNSW / IVF / flat), cross-encoder re-ranking (Cohere Rerank 3, bge-reranker-v2-m3, Voyage rerank-2), hybrid BM25+vector retrieval with RRF fusion. Zooms into the retrieval layer that `rag` assembles end-to-end; hand off here from `rag` when chunking/indexing/re-rank is the bottleneck. For full-system search architecture (query understanding, multi-index fan-out, faceting, relevance ops), route to `Seek`.
+- `agent`: Application-level LLM agent design — tool-use loops, schemas, memory, delegation, termination, failure modes. Scope: agents INSIDE the user's product, not the skill ecosystem itself (→ `Architect`). Details, compounding-failure math → `reference/agent-design.md`.
+- `cost`: LLM-API spend tuning — token budget, prompt caching TTL choice, model tier routing, batch vs streaming, context compression. Scope ends at the LLM provider bill; cloud infra FinOps → `Ledger`. Details → `reference/cost-optimization.md`.
+- `review`: Design review of an AI-embedding system — 12 lenses, risk tiers R0–R3 setting depth, conditional approval with exit criteria, re-review triggers (notably proposal → command). Reviews the architecture, never the model choice; code review → `Judge`, standards conformance → `Canon`. Details → `reference/architecture-review.md`.
+- `embed`: RAG embedding pipeline deep dive — chunking, embedding model, vector index, re-ranking, hybrid retrieval. Zooms into the layer `rag` assembles end-to-end; full-system search architecture → `Seek`. Details → `reference/embedding-strategy.md`.
 
 ## Operating Modes
 
@@ -157,14 +163,14 @@ Behavior notes per Recipe:
 
 | Area         | Rule                                                                                                                                  |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------- |
-| Prompt       | use `3-5` few-shot examples only when they measurably help; prefer constrained decoding for structured outputs (reduces iteration rate from `38.5%` to `12.3%`); for Claude, use XML tags (`<instructions>`, `<context>`, `<examples>`) over Markdown for unambiguous parsing — avoid aggressive language ("CRITICAL!", "YOU MUST", "NEVER EVER") which overtriggers newer Claude models and degrades output quality; LLM reasoning performance degrades around `3k` tokens — keep prompt sweet spot at `150-300` words for most tasks; structure prompts for caching: static content first, variable last (`45-80%` cost / `13-31%` TTFT reduction via prompt caching); on current Claude models, adaptive thinking is the mechanism (on by default on Opus 5 / Sonnet 5) — extended thinking / `budget_tokens` is deprecated; the `effort` parameter controls thinking depth (Opus 5 defaults to `high`; `xhigh` is the recommended start for coding/agentic work and cannot be combined with disabled thinking), agentic multi-step loops benefit most; do not add "verify your work" instructions — Opus 5 self-verifies and they cause over-verification |
-| RAG          | default to Hybrid Search; keep context to top `5-8` chunks; require `Recall@5 >= 0.8`, `Precision@5 >= 0.7`, `Faithfulness >= 0.8`; benchmark chunking strategy (semantic vs fixed-size) before production — naive chunking drops faithfulness to `0.47-0.51`; validate vector store inputs against poisoning attacks (BadRAG, TrojanRAG per OWASP LLM08) |
-| RAG architecture | standard retrieve-then-generate RAG is increasingly obsolete for static corpora `< 1M` tokens — default to Context-Augmented Generation (CAG) unless data changes frequently; for dynamic multi-hop workflows, evaluate Agentic RAG with structured retrieval; hybrid RAG+CAG creates complexity explosion (dual refresh cycles, routing logic, cross-pipeline debugging) — justify before adopting; `40-60%` of RAG implementations fail to reach production — treat retrieval quality, governance, and observability as first-class concerns from day one, not afterthoughts |
-| Evaluation   | fixed test sets only; regressions `>= 5%` block merge or rollout; LLM-as-judge needs a different judge model or human calibration; prefer pairwise comparison over single-score for higher consistency; guard against position bias (`40%` GPT-4 inconsistency), verbosity bias (`~15%` inflation), self-enhancement bias (`5-7%` boost); TNR `< 25%` means judges miss invalid outputs — add adversarial test cases; for high-stakes evals, use multi-agent judge debate (multiple judges deliberate, then vote) for higher human alignment than single-judge scoring; LLM judges are vulnerable to adversarial prompt manipulation — validate judge inputs and monitor for score distribution anomalies; for agentic systems, evaluate goal completion rate and tool usage efficiency across multi-step workflows, not just single-turn accuracy; set `max_turns` based on task complexity (`3-5` for focused tasks, `8-10` for multi-step workflows); ensure traceability — link every eval score to the exact prompt version, model version, and dataset version |
+| Prompt | `3-5` few-shot examples only when they measurably help; constrained decoding for structured output; XML tags over Markdown for Claude; avoid aggressive language ("CRITICAL!", "YOU MUST") which overtriggers and degrades quality; keep prompts at `150-300` words (reasoning degrades near `3k` tokens); static content first, variable last for caching; on current Claude models adaptive thinking is the mechanism and the `effort` parameter controls depth; **never add "verify your work"** — it causes over-verification |
+| RAG | Default to Hybrid Search; keep context to the top `5-8` chunks; require `Recall@5 >= 0.8`, `Precision@5 >= 0.7`, `Faithfulness >= 0.8`; benchmark chunking before production (naive chunking drops faithfulness below 0.51); validate vector-store inputs against poisoning |
+| RAG architecture | For static corpora under ~1M tokens, prefer Context-Augmented Generation over retrieve-then-generate unless data changes frequently; evaluate Agentic RAG for dynamic multi-hop workflows; hybrid RAG+CAG creates a complexity explosion — justify before adopting. Treat retrieval quality, governance, and observability as first-class from day one |
+| Evaluation | Fixed test sets only; regressions `>=5%` block merge; LLM-as-judge needs a different judge model or human calibration; prefer pairwise over single-score; guard position, verbosity, and self-enhancement bias; `TNR < 25%` means judges miss invalid outputs — add adversarial cases; for agentic systems evaluate goal completion and tool-usage efficiency, with `max_turns` set by task complexity; link every score to exact prompt, model, and dataset versions |
+| Cost | Budget alert `>120%`; wasted-token target `<5%`; route to the cheapest adequate model (`87%` cost reduction; premium models handle only `~10%` of queries) and consider cascade routing (escalate on low confidence, `14%` better cost-quality tradeoff vs fixed routing); semantic cache similarity `>=0.8`, hit-rate target `>=60%` (practical range `60-85%`, up to `73%` cost reduction in high-repetition workloads, `96.9%` latency reduction on cache hits); prompt caching with a static prefix first (`45-80%` cost savings). Combined techniques reach `70-90%` total savings |
+| Agent design | Prefer custom agents under `3k` tokens; `25k+` needs redesign; measure compounding layer failure (`95%` per layer is `77%` at five layers) — `90%` of agentic RAG projects failed in production (2024) from compounding retrieval-rerank-generation errors; design MCP tools as domain-aware actions (e.g., `submit_expense_report`), not generic CRUD — agents reason better with semantic tool names and descriptive metadata (schema, cost, permissions); keep tool descriptions under `2KB` (Claude Code truncates at this limit) with the most important usage context front-loaded |
 | Safety       | no output validation, no prompt-injection defense, or no PII strategy → block at `DESIGN`; bias variance `> 20%` requires mitigation; layer defenses per OWASP LLM Top 10 2025 (input hardening → prompt leakage prevention → context isolation → vector/embedding validation → output filtering → monitoring) |
 | Rollout      | shadow mode `24h` minimum; canary `5% → 25% → 50% → 100%`; p95 latency alert `> 2×` baseline; safety-trigger rate alert `> 5%`     |
-| Cost         | budget alert `> 120%`; wasted-token cost target `< 5%`; model routing dispatches to cheapest adequate model (`87%` cost reduction, premium models handle only `~10%` of queries); consider cascade routing (route → escalate on low confidence) for `14%` better cost-quality tradeoffs vs fixed routing; semantic cache: similarity threshold `>= 0.8`, hit rate target `>= 60%` (practical range `60-85%`, up to `73%` cost reduction in high-repetition workloads, `96.9%` latency reduction on cache hits); prompt caching: static prefix first (`45-80%` cost savings); combined techniques deliver `70-90%` total savings |
-| Agent design | prefer custom agents `< 3k` tokens; `25k+` agents need redesign; measure compounding layer failure (`95%` per layer = `77%` at 5 layers); `90%` of agentic RAG projects failed in production (2024) due to compounding retrieval-rerank-generation errors; design MCP tools as domain-aware actions (e.g., `submit_expense_report`) not generic CRUD — agents reason better with semantic tool names and descriptive metadata (schema, cost, permissions); keep MCP tool descriptions under `2KB` (Claude Code truncates at this limit) — front-load the most important usage context |
 
 ## Workflow
 
@@ -220,20 +226,20 @@ Routing rules:
 
 ## Reference Map
 
-| File                                                                                                  | Read this when...                                                                                        |
-| ----------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| [prompt-engineering.md](~/.claude/skills/oracle/reference/prompt-engineering.md)                     | you are designing prompts, structured outputs, Claude-specific behavior, or prompt tests.                |
-| [rag-design-anti-patterns.md](~/.claude/skills/oracle/reference/rag-design-anti-patterns.md)         | you need retrieval architecture, chunking, Hybrid Search defaults, or RAG anti-pattern checks.           |
-| [llm-application-patterns.md](~/.claude/skills/oracle/reference/llm-application-patterns.md)         | you are choosing agent patterns, MCP design, tool-use contracts, or caching strategy.                    |
-| [ai-safety-guardrails.md](~/.claude/skills/oracle/reference/ai-safety-guardrails.md)                 | you need OWASP LLM coverage, guardrail layers, hallucination controls, or PII handling.                  |
-| [evaluation-observability.md](~/.claude/skills/oracle/reference/evaluation-observability.md)         | you are building eval suites, CI gates, tracing, monitoring, or rollout checks.                          |
-| [cost-optimization.md](~/.claude/skills/oracle/reference/cost-optimization.md)                       | you need model routing, caching, batching, effort tuning, or cost monitoring.                            |
-| [llm-production-anti-patterns.md](~/.claude/skills/oracle/reference/llm-production-anti-patterns.md) | you need production failure modes, architecture anti-patterns, MCP pitfalls, or reasoning compensations. |
-| [agent-design.md](~/.claude/skills/oracle/reference/agent-design.md)                                 | you are designing application-level LLM agents — tool-use loops, tool-call schema, context/memory, subagent delegation, termination conditions, agent failure modes. |
-| [embedding-strategy.md](~/.claude/skills/oracle/reference/embedding-strategy.md)                     | you are designing the RAG embedding pipeline — chunking strategy, embedding model selection, vector index, cross-encoder re-ranking, hybrid BM25+vector retrieval. |
-| [advanced-tool-use.md](~/.claude/skills/oracle/reference/advanced-tool-use.md)                       | the tool catalog is the bottleneck — ≥10 tools or >10k tokens of definitions, dropping tool-selection accuracy, aggregated MCP servers, many sequential calls over one tool, or a cheap executor that plans badly. Covers tool search + `defer_loading`, programmatic tool calling, the advisor tool, and the per-tool/per-version model-support gotchas. |
-| [OPUS_5_AUTHORING.md](~/.claude/skills/_common/OPUS_5_AUTHORING.md)                                 | you are sizing the AI design, deciding adaptive thinking depth at DESIGN, or front-loading use case/budget/safety tier at PROFILE. Critical for Oracle: P3, P5. |
-| `reference/autorun-schema.md` | You are emitting the AUTORUN `_STEP_COMPLETE` block — Oracle-specific Output/Next schema. |
+| File | Read this when |
+|------|----------------|
+| `reference/prompt-engineering.md`                     | Designing prompts, structured outputs, Claude-specific behavior, or prompt tests. |
+| `reference/rag-design-anti-patterns.md`         | Retrieval architecture, chunking, Hybrid Search defaults, or RAG anti-pattern checks. |
+| `reference/llm-application-patterns.md`         | Choosing agent patterns, MCP design, tool-use contracts, or caching strategy. |
+| `reference/ai-safety-guardrails.md`                 | OWASP LLM coverage, guardrail layers, hallucination controls, or PII handling. |
+| `reference/evaluation-observability.md`         | Building eval suites, CI gates, tracing, monitoring, or rollout checks. |
+| `reference/cost-optimization.md`                       | Model routing, caching, batching, effort tuning, or cost monitoring. |
+| `reference/llm-production-anti-patterns.md` | Production failure modes, architecture anti-patterns, MCP pitfalls, reasoning compensations. |
+| `reference/agent-design.md` | Application-level LLM agents — tool-use loops, schemas, context/memory, delegation, termination, failure modes. |
+| `reference/embedding-strategy.md` | RAG embedding pipeline — chunking, model selection, vector index, re-ranking, hybrid retrieval. |
+| `reference/advanced-tool-use.md` | The tool catalog is the bottleneck (`>=10` tools or `>10k` tokens of definitions, falling selection accuracy, aggregated MCP servers). Covers tool search, `defer_loading`, programmatic calling, the advisor tool. |
+| `_common/OPUS_5_AUTHORING.md` | Sizing the design, thinking depth at DESIGN, front-loading use case/budget/tier at PROFILE. Critical: P3, P5. |
+| `reference/autorun-schema.md` | Emitting the AUTORUN `_STEP_COMPLETE` block — Oracle-specific Output/Next schema. |
 
 ## Operational
 

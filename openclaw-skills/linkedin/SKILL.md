@@ -2,14 +2,14 @@
 name: linkedin
 description: 'General-purpose LinkedIn automation – fetch profiles, search people and companies, send messages, manage connections, create posts, and more. Use when the user wants to interact with LinkedIn.'
 zh_description: "通过 Linked API 搜索领英资料、管理连接、消息与内容发布。"
-version: "1.0.0"
+version: "1.0.1"
 author: vprudnikoff
 source: github:Linked-API/linkedin-skills
 source_url: "https://github.com/Linked-API/linkedin-skills/tree/edd0bdbbb25776e9288186b88969b29175531995/linkedin"
 license: MIT
 tags: '[linkedin, automation, social-media, outreach, cli]'
 created_at: "2026-07-10"
-updated_at: "2026-07-10"
+updated_at: "2026-08-17"
 quality: 5
 complexity: intermediate
 ---
@@ -394,7 +394,18 @@ linkedin stats performance --json -q
 
 # API usage for a date range
 linkedin stats usage --start 2024-01-01T00:00:00Z --end 2024-01-31T00:00:00Z --json -q
+
+# Who viewed your profile
+linkedin stats viewers --limit 50 --json -q
+
+# Only views since a moment
+linkedin stats viewers --since 2026-08-01T00:00:00Z --json -q
 ```
+
+Each viewer is either `identified` — carrying `name`, `publicUrl` and `urn` (a member URN, `null`
+when LinkedIn does not expose it) — or `anonymous`, carrying only the `description` LinkedIn showed
+and a `searchUrl` you can pass to `linkedin person search --url` to look for them. Viewers come
+newest first, and `viewedAt` is an estimate derived from the relative age LinkedIn displays.
 
 ### Sales Navigator
 
@@ -535,6 +546,42 @@ linkedin reset                                   # Remove active account
 linkedin reset --all                             # Remove all accounts
 ```
 
+## Important Behavior
+
+- **Sequential execution.** All operations for an account run one at a time. Multiple requests queue up.
+- **Not instant.** A real browser navigates LinkedIn – expect 30 seconds to several minutes per operation.
+- **Timestamps in UTC.** All dates and times are in UTC.
+- **Single quotes for text arguments.** Use single quotes around message text, post text, and comments to avoid shell interpretation issues with special characters.
+- **Action limits.** Per-account limits are configurable on the platform. A `limitExceeded` error means the limit was reached.
+- **URL normalization.** All LinkedIn URLs in responses are normalized to `https://www.linkedin.com/...` format without trailing slashes.
+- **Null fields.** Fields that are unavailable are returned as `null` or `[]`, not omitted.
+<!-- LOCAL-QUALITY-SUPPLEMENT:START -->
+## Usage Notes
+
+This supplement is maintained by the repository sync pipeline. It keeps the
+imported upstream skill usable inside this curated collection when the upstream
+source is intentionally concise.
+
+## Common Patterns
+
+```text
+1. Confirm that the user's task matches the skill trigger.
+2. Read the relevant project files or user-provided context before acting.
+3. Choose the smallest reversible action that advances the task.
+4. Run the verification command or manual check that proves the result.
+5. Report the outcome, evidence, and any remaining risk.
+```
+
+## Boundaries
+
+- Prefer the upstream workflow for Linkedin; this section only adds local quality
+  guardrails.
+- Do not invent project facts when required files, vaults, services, or tools are
+  unavailable.
+- Stop and ask for clarification when the next action could overwrite user work,
+  expose private data, or change production state.
+<!-- LOCAL-QUALITY-SUPPLEMENT:END -->
+
 <!-- LOCAL-CURATION-SUPPLEMENT:START -->
 ## Boundaries and Safe Authorization
 
@@ -554,13 +601,3 @@ linkedin reset --all                             # Remove all accounts
 - If the requested authority, target set, or effect is ambiguous, pause before the first
   write and ask the user to clarify it.
 <!-- LOCAL-CURATION-SUPPLEMENT:END -->
-
-## Important Behavior
-
-- **Sequential execution.** All operations for an account run one at a time. Multiple requests queue up.
-- **Not instant.** A real browser navigates LinkedIn – expect 30 seconds to several minutes per operation.
-- **Timestamps in UTC.** All dates and times are in UTC.
-- **Single quotes for text arguments.** Use single quotes around message text, post text, and comments to avoid shell interpretation issues with special characters.
-- **Action limits.** Per-account limits are configurable on the platform. A `limitExceeded` error means the limit was reached.
-- **URL normalization.** All LinkedIn URLs in responses are normalized to `https://www.linkedin.com/...` format without trailing slashes.
-- **Null fields.** Fields that are unavailable are returned as `null` or `[]`, not omitted.

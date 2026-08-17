@@ -15,7 +15,11 @@ repository skill.
 For R01, distinguish use from mention. A vague token is not a violation when
 the surrounding clause explicitly tells a reviewer or tool to detect, reject,
 replace, avoid, or report that token. Formatting alone is not an exemption:
-backticks around a vague instruction do not make it measurable.
+backticks around a vague instruction do not make it measurable. Also exempt a
+term that refers back to measurable selection criteria already defined above
+in the same artifact, such as a table mapping each change surface to a named
+command. The earlier definition must itself be concrete; a vague table cannot
+justify a vague reference.
 
 ## Skills
 
@@ -134,6 +138,13 @@ agent memory files.
 | R49 | Human README and agent memory file serve different audiences |
 | R50 | Version is bumped consistently across every release surface |
 | R51 | Vocabulary drift is opt-in and requires a canonical registry |
+
+A manifest-vs-disk diff is deterministic evidence of a difference, not
+automatically evidence that the manifest is wrong. A declared path that does
+not exist is a defect. A disk artifact omitted from a manifest becomes a defect
+only when the repository's own publish rule says artifacts in that scope must
+be registered; otherwise keep the finding advisory and present both possible
+resolutions.
 
 When auditing the vocabulary registry itself, do not penalize the declaration
 that records a deprecated term. The exemption applies only to the declaration
