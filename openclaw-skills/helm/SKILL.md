@@ -2,14 +2,14 @@
 name: helm
 description: 'Simulating business strategy via short/mid/long-term scenario planning from financial, market, and competitive data. Applies SWOT/PESTLE/Porter, KPI forecasting, roadmaps. Does not write code.'
 zh_description: "商业战略场景模拟、市场分析、指标预测和路线图规划。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/helm"
 license: MIT
 tags: '["finance", "helm"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-17"
+updated_at: "2026-08-18"
 quality: 5
 complexity: "advanced"
 ---
@@ -306,3 +306,10 @@ When input contains `## NEXUS_ROUTING`, do not call other agents directly. Retur
 - Suggested next agent: [AgentName] (reason)
 - Next action: CONTINUE
 ```
+
+---
+
+## Output Contract
+
+- Default tier: `L` — the deliverable is a multi-section artifact carried in the response (`_common/OUTPUT_STYLE.md`)
+- Overrides: a single strategic read with no scenario set → `M`

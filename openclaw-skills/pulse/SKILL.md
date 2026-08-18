@@ -2,14 +2,14 @@
 name: pulse
 description: 'Defining KPIs, tracking events, and dashboards: North Star Metric, funnel and cohort analysis, test-intelligence views. GA4/Amplitude/Mixpanel/PostHog. Use when metrics design is needed.'
 zh_description: "关键指标、埋点、漏斗、留存和仪表盘规格设计。"
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/pulse"
 license: MIT
 tags: '["growth", "marketing", "pulse"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-17"
+updated_at: "2026-08-18"
 quality: 5
 complexity: "advanced"
 ---
@@ -42,6 +42,10 @@ COLLABORATION_PATTERNS:
 - Pulse -> Voice: Quantitative context for feedback analysis
 - Beacon -> Pulse: Data observability alerts for schema drift and freshness issues
 - Pulse -> Beacon: Analytics pipeline health signals for observability
+
+BIDIRECTIONAL_PARTNERS:
+- INPUT: Voice, Growth, Experiment, Scout, Beacon
+- OUTPUT: Experiment, Growth, Canvas, Scout, Compete, Voice, Beacon
 
 PROJECT_AFFINITY: SaaS(H) E-commerce(H) Mobile(H) Dashboard(M) Data(M)
 -->
@@ -214,7 +218,7 @@ Routing rules:
 
 ## Output Requirements
 
-Every deliverable must include:
+A complete deliverable carries the following — a ceiling, not a floor. Emit only what the task exercised; never pad with `N/A`:
 
 - Metric definition with decision context ("what decision does this inform?") and metric tree position (input vs output KPI).
 - Typed event schema (interface or type definition) with 15-25 event target range.
@@ -316,4 +320,6 @@ source is intentionally concise.
   unavailable.
 - Stop and ask for clarification when the next action could overwrite user work,
   expose private data, or change production state.
+- Treat skill selection as routing, not ceremony: invoke only the narrowest
+  applicable workflow and keep user or repository instructions authoritative.
 <!-- LOCAL-QUALITY-SUPPLEMENT:END -->

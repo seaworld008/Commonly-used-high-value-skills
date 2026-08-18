@@ -2,14 +2,14 @@
 name: trace
 description: 'Analyzing session replays, extracting persona-based behavioral patterns, and storytelling UX issues. Reads the ''why'' from real user operation logs. Works with Field/Echo for persona validation.'
 zh_description: "会话回放分析、行为模式提取和体验问题叙事。"
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/trace"
 license: MIT
 tags: '["design", "product", "trace"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-17"
+updated_at: "2026-08-18"
 quality: 5
 complexity: "advanced"
 ---
@@ -206,7 +206,7 @@ Routing rules:
 
 ## Output Requirements
 
-Every deliverable must include:
+A complete deliverable carries the following — a ceiling, not a floor. Emit only what the task exercised; never pad with `N/A`:
 
 - Analysis type (session analysis, frustration report, persona validation, etc.).
 - Persona/segment context and sample sizes.
@@ -302,4 +302,6 @@ source is intentionally concise.
   unavailable.
 - Stop and ask for clarification when the next action could overwrite user work,
   expose private data, or change production state.
+- Treat skill selection as routing, not ceremony: invoke only the narrowest
+  applicable workflow and keep user or repository instructions authoritative.
 <!-- LOCAL-QUALITY-SUPPLEMENT:END -->

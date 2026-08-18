@@ -554,6 +554,58 @@ class SyncUpstreamTests(unittest.TestCase):
                 self.assertTrue(lowercase_skill.samefile(canonical))
             self.assertEqual("print('helper')\n", (local_dir / "helper.py").read_text(encoding="utf-8"))
 
+    def test_auxiliary_sync_recurses_into_reference_directories(self):
+        module = load_module()
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            local_dir = Path(tmpdir) / "skills" / "knowledge" / "lark-shared"
+            local_dir.mkdir(parents=True)
+            canonical = local_dir / "SKILL.md"
+            canonical.write_text("# Canonical\n", encoding="utf-8")
+
+            def fake_api_get(url, _token):
+                if "/contents/lark-shared?" in url:
+                    return [
+                        {
+                            "type": "dir",
+                            "name": "references",
+                            "url": "https://api.example.test/references",
+                        }
+                    ]
+                if url == "https://api.example.test/references":
+                    return [
+                        {
+                            "type": "file",
+                            "name": "identity.md",
+                            "download_url": "https://example.test/identity.md",
+                        }
+                    ]
+                return []
+
+            original_api_get = module.github_api_get
+            original_fetch_url = module.fetch_url
+            module.github_api_get = fake_api_get
+            module.fetch_url = lambda _url, _token: "# Identity\n"
+            try:
+                synced = module.sync_github_auxiliary_files(
+                    {
+                        "repo": "owner/repo",
+                        "ref": "main",
+                        "local_path": canonical,
+                    },
+                    "lark-shared/SKILL.md",
+                    token=None,
+                )
+            finally:
+                module.github_api_get = original_api_get
+                module.fetch_url = original_fetch_url
+
+            self.assertEqual(1, synced)
+            self.assertEqual(
+                "# Identity\n",
+                (local_dir / "references" / "identity.md").read_text(encoding="utf-8"),
+            )
+
 
 if __name__ == "__main__":
     unittest.main()

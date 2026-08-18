@@ -2,14 +2,14 @@
 name: latch
 description: 'Proposing, configuring, debugging, and maintaining Claude Code hooks (PreToolUse/PostToolUse/Stop and other lifecycle events). Use for workflow automation or quality gates via hooks.'
 zh_description: "配置和维护生命周期钩子、质量门禁和自动化守卫。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/latch"
 license: MIT
 tags: '["automation", "latch", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-17"
+updated_at: "2026-08-18"
 quality: 5
 complexity: "advanced"
 ---
@@ -236,7 +236,7 @@ Per-Recipe behavior depth (`configure` / `debug` / `pretool` / `posttool` / `not
 
 ## Output Requirements
 
-Every deliverable must include: hook event + matcher selection with justification; hook type with timeout; blocking behavior documentation (if applicable); `settings.json` backup confirmation before modification; JSON syntax validation result; session restart reminder; collision risk assessment against existing hooks; recommended next steps or follow-up agent.
+A complete deliverable carries the following — a ceiling, not a floor. Emit only what the task exercised; never pad with `N/A`: hook event + matcher selection with justification; hook type with timeout; blocking behavior documentation (if applicable); `settings.json` backup confirmation before modification; JSON syntax validation result; session restart reminder; collision risk assessment against existing hooks; recommended next steps or follow-up agent.
 
 ## Reference Map
 
@@ -318,4 +318,6 @@ source is intentionally concise.
   unavailable.
 - Stop and ask for clarification when the next action could overwrite user work,
   expose private data, or change production state.
+- Treat skill selection as routing, not ceremony: invoke only the narrowest
+  applicable workflow and keep user or repository instructions authoritative.
 <!-- LOCAL-QUALITY-SUPPLEMENT:END -->

@@ -2,14 +2,14 @@
 name: beacon
 description: 'Engineering observability and reliability: SLO/SLI design, distributed tracing, alerting, dashboards, capacity planning, toil automation, reliability review. Use for instrumentation or SLO definition.'
 zh_description: "可观测性、服务目标、告警、容量和可靠性设计。"
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/beacon"
 license: MIT
 tags: '["beacon", "devops", "sre"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-17"
+updated_at: "2026-08-18"
 quality: 5
 complexity: "advanced"
 ---
@@ -195,7 +195,7 @@ Routing rules:
 
 ## Output Requirements
 
-Every deliverable must include:
+A complete deliverable carries the following — a ceiling, not a floor. Emit only what the task exercised; never pad with `N/A`:
 
 - Observability artifact type (SLO document, alert strategy, dashboard spec, etc.).
 - Current state assessment with evidence.
@@ -263,7 +263,7 @@ When auditing observability for 4+ services, spawn 2–3 Explore subagents to sc
 
 | Reference | Read this when |
 |-----------|----------------|
-| `reference/slo-sli-design.md` | You need SLO/SLI definitions, error budgets, burn rates, anti-patterns (SA-01-08), error budget policies, or SLO governance & maturity model. |
+| `reference/slo-sli-design.md` | You need SLO/SLI definitions, error budgets, burn rates, anti-patterns (SA-01-11), error budget policies, SLO governance & maturity model, AI/LLM good-event definitions and quality/latency/safety budget separation, abstention classification, or the missing-data policy. |
 | `reference/opentelemetry-best-practices.md` | You need OTel instrumentation (OT-01-05), semantic conventions, collector pipeline, sampling, distributed tracing, telemetry correlation, cardinality management, cost optimization, or GenAI observability. |
 | `reference/alerting-strategy.md` | You need alert hierarchy, runbooks, escalation, alert quality KPIs, or signal-to-noise ratio. |
 | `reference/dashboard-design.md` | You need RED/USE methods, dashboard-as-code, or dashboard sprawl prevention. |
@@ -320,4 +320,6 @@ source is intentionally concise.
   unavailable.
 - Stop and ask for clarification when the next action could overwrite user work,
   expose private data, or change production state.
+- Treat skill selection as routing, not ceremony: invoke only the narrowest
+  applicable workflow and keep user or repository instructions authoritative.
 <!-- LOCAL-QUALITY-SUPPLEMENT:END -->

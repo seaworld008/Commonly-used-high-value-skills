@@ -1,15 +1,15 @@
 ---
 name: ripple
-description: 'Analyzing pre-change impact by evaluating risk across vertical (dependency chains, affected files) and horizontal (pattern consistency, naming) dimensions. Does not write code. Use when estimating blast radius before a refactor, audit, or migration — or when a PR''s risk surface is unclear.'
+description: 'Analyzing pre-change impact across vertical (dependency chains, files) and horizontal (pattern consistency, naming) dimensions. Use to estimate blast radius before a refactor. No code.'
 zh_description: "变更前影响分析，评估依赖链和一致性风险。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/ripple"
 license: MIT
 tags: '["analysis", "planning", "ripple"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-10"
+updated_at: "2026-08-18"
 quality: 5
 complexity: "advanced"
 ---
@@ -239,7 +239,7 @@ Routing rules:
 
 ## Output Requirements
 
-Every deliverable should include:
+A complete deliverable carries the following — a ceiling, not a floor. Emit only what the task exercised; never pad with `N/A`:
 
 - Clear scope and context of the analysis or recommendation.
 - Evidence-based findings with specific references.

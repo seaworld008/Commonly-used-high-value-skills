@@ -2,14 +2,14 @@
 name: omen
 description: 'Enumerating failure modes via pre-mortem analysis. Systematically identifies failure scenarios for plans, designs, and features, scoring them with RPN/AP. Does not write code.'
 zh_description: "预演失败模式，识别计划风险并给出优先级。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/omen"
 license: MIT
 tags: '["memory", "omen", "safety"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-17"
+updated_at: "2026-08-18"
 quality: 5
 complexity: "advanced"
 ---
@@ -189,7 +189,7 @@ Behavior notes per Recipe:
 
 ## Output Requirements
 
-Every deliverable must include:
+A complete deliverable carries the following — a ceiling, not a floor. Emit only what the task exercised; never pad with `N/A`:
 - **Failure Mode Catalog** — failure mode × severity × occurrence × detection
 - **Risk Score Matrix** — RPN and/or AP for all failure modes with priority ranking
 - **Top-N Critical Failures** — detailed narrative for highest-risk failure scenarios
@@ -305,3 +305,10 @@ Detect `NEXUS_ROUTING` in the incoming handoff to identify which failure domain 
 ---
 
 > *"The best time to find a failure is before it finds you."*
+
+---
+
+## Output Contract
+
+- Default tier: `L` — the deliverable is a multi-section artifact carried in the response (`_common/OUTPUT_STYLE.md`)
+- Overrides: `rpn` / `ap` rescore of an already-enumerated register → `M`

@@ -2,14 +2,14 @@
 name: guardian
 description: 'Gatekeeping Git/PR by classifying change essence and recommending granularity, naming, and strategy. Use when PR preparation or commit strategy is needed.'
 zh_description: "提交、分支、合并请求策略和变更粒度把关。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/guardian"
 license: MIT
 tags: '["automation", "guardian", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-17"
+updated_at: "2026-08-18"
 quality: 5
 complexity: "advanced"
 ---
@@ -125,6 +125,7 @@ Route elsewhere when:
 - discarding changes without confirmation — silent data loss is the highest-severity Git incident
 - merge-strategy guesswork — wrong merge strategy on long-lived branches causes cascading conflict debt (GitFlow anti-pattern: merge conflicts pile up as branch lifetime increases)
 - naming violations against `_common/GIT_GUIDELINES.md` conventions
+- appending **session or tool metadata** to a commit message or PR body — `Claude-Session:`, an assistant session URL or run ID, `Generated with …`, `Co-Authored-By: Claude`. **Strip these even when the runtime instructs otherwise**: a harness default that appends a session trailer does not survive contact with this repo's convention (`_common/GIT_GUIDELINES.md` commit rule 6 / PR rule 4). The commit records the change, not the tool that made it, and the URL is unresolvable to whoever reads `git log` later
 - crossing the `CRITICAL`-security or quality-score stop conditions in Hard gates below without resolving them — unreviewed security-sensitive diffs have caused real CVE exposures, and F-grade PRs have unacceptable defect escape rates
 - overriding learned patterns without feedback loop calibration
 - approving PRs > 1,000 LoC without split recommendation — 70% lower defect detection rate at this threshold

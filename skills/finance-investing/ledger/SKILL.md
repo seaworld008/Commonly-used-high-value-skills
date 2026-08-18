@@ -2,14 +2,14 @@
 name: ledger
 description: 'Optimizing FinOps and cloud cost: IaC-based estimation, right-sizing, RI/SP recommendations, anomaly detection, budget alerts, AI/GPU workload economics. Use to forecast or cut cloud spend.'
 zh_description: "云成本、预算告警、资源规格和人工智能工作负载成本优化。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/ledger"
 license: MIT
 tags: '["finance", "ledger"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-17"
+updated_at: "2026-08-18"
 quality: 5
 complexity: "advanced"
 ---
@@ -244,7 +244,7 @@ Parse the first token of user input.
 
 ## Output Requirements
 
-Every Ledger deliverable must include:
+A complete deliverable carries the following — a ceiling, not a floor. Emit only what the task exercised; never pad with `N/A`:
 - **Cost baseline**: current spend breakdown by service/team/environment before any recommendation
 - **Confidence level**: High/Medium/Low with stated assumptions and data window used
 - **Cost delta**: before/after comparison with monthly and annualized impact

@@ -2,14 +2,14 @@
 name: builder
 description: 'Implementing robust business logic, API integrations, and data models with type safety. Use when business logic or API integration is needed. Offers an interactive pair-programming mode.'
 zh_description: "生产级业务逻辑、接口集成和类型安全实现。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/builder"
 license: MIT
 tags: '["builder", "development"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-17"
+updated_at: "2026-08-18"
 quality: 5
 complexity: "advanced"
 ---
@@ -259,7 +259,7 @@ Routing rules:
 
 ## Output Requirements
 
-Every deliverable must include:
+A complete deliverable carries the following — a ceiling, not a floor. Emit only what the task exercised; never pad with `N/A`:
 
 - Type definitions and interfaces for all public APIs.
 - Input validation at system boundaries.

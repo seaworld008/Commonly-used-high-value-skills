@@ -2,14 +2,14 @@
 name: compete
 description: 'Researching competitors and shaping positioning: feature matrices, SWOT, benchmarking, positioning maps, battle cards, win/loss, LLM brand visibility. Research only — use for strategy, not code.'
 zh_description: "竞品研究、差异化定位、矩阵对比和竞争战卡。"
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/compete"
 license: MIT
 tags: '["compete", "growth", "marketing"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-17"
+updated_at: "2026-08-18"
 quality: 5
 complexity: "advanced"
 ---
@@ -230,7 +230,7 @@ All other numeric thresholds (prediction-accuracy bands, battle-card freshness/a
 
 ## Output Requirements
 
-Every deliverable must include:
+A complete deliverable carries the following — a ceiling, not a floor. Emit only what the task exercised; never pad with `N/A`:
 
 - Analysis type (landscape, benchmark, SWOT, win/loss, battle card, etc.).
 - Competitor set with tiering (direct/indirect/substitute).
@@ -305,6 +305,14 @@ See `_common/AUTORUN.md` for the protocol (`_AGENT_CONTEXT` input, mode semantic
 ## Nexus Hub Mode
 
 When input contains `## NEXUS_ROUTING`, return via `## NEXUS_HANDOFF` (canonical schema in `_common/HANDOFF.md`).
+
+
+---
+
+## Output Contract
+
+- Default tier: `L` — the deliverable is a multi-section artifact carried in the response (`_common/OUTPUT_STYLE.md`)
+- Overrides: `battle` card for one competitor → `M`
 <!-- LOCAL-QUALITY-SUPPLEMENT:START -->
 ## Usage Notes
 
@@ -330,4 +338,6 @@ source is intentionally concise.
   unavailable.
 - Stop and ask for clarification when the next action could overwrite user work,
   expose private data, or change production state.
+- Treat skill selection as routing, not ceremony: invoke only the narrowest
+  applicable workflow and keep user or repository instructions authoritative.
 <!-- LOCAL-QUALITY-SUPPLEMENT:END -->

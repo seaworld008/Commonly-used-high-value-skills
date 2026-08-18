@@ -2,14 +2,14 @@
 name: triage
 description: 'Responding to incidents: identifies impact scope, formulates recovery procedures, creates postmortems. Use when incident response or disaster recovery is needed. Delegates fixes to Builder.'
 zh_description: "事故首响、影响范围识别、恢复步骤和复盘整理。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/triage"
 license: MIT
 tags: '["devops", "sre", "triage"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-17"
+updated_at: "2026-08-18"
 quality: 5
 complexity: "advanced"
 ---
@@ -162,6 +162,7 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 - Create a blameless postmortem for `SEV1/SEV2` with concrete action items — one with no action items is ineffective
 - Track MTTD/MTTA/MTTR for every incident; log to `.agents/PROJECT.md`
 - Check recent deployments first — 80% of incidents stem from internal changes
+- When the failing component is the agent harness itself, use `reference/response-workflow.md` § Agent-Origin Incidents, not Phase 1 — freeze effects before prompting
 - Include an explicit **Next update by [UTC timestamp]** in every communication, even "still investigating" ones — predictable cadence cuts inbound support volume up to 60%
 - Schedule the SEV1/SEV2 postmortem meeting 24–72 h after resolution (earlier loses distance, later loses fidelity) — separate from the written deadlines (SEV1 24h / SEV2 48h)
 
@@ -335,4 +336,6 @@ source is intentionally concise.
   unavailable.
 - Stop and ask for clarification when the next action could overwrite user work,
   expose private data, or change production state.
+- Treat skill selection as routing, not ceremony: invoke only the narrowest
+  applicable workflow and keep user or repository instructions authoritative.
 <!-- LOCAL-QUALITY-SUPPLEMENT:END -->

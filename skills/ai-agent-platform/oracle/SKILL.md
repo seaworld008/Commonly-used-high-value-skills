@@ -2,14 +2,14 @@
 name: oracle
 description: 'Designing and evaluating AI/ML systems: prompt engineering, RAG design, LLM application patterns, AI safety, evaluation frameworks, MLOps, cost optimization. Use for AI pipelines or eval harnesses.'
 zh_description: "人工智能应用设计、评估、检索增强和安全护栏规划。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/oracle"
 license: MIT
 tags: '["agent", "ai", "oracle"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-17"
+updated_at: "2026-08-18"
 quality: 5
 complexity: "advanced"
 ---
@@ -27,6 +27,7 @@ CAPABILITIES_SUMMARY:
 - llm_cost_optimization: LLM-API cost tuning (token budget per request, prompt caching TTL, model tier routing haiku/sonnet/opus, batch API vs streaming, context compression, per-feature SLO/cost budget)
 - ai_architecture_review: Design review of AI-embedding systems (12 lenses, risk tiers R0-R3, conditional approval with exit criteria, re-review triggers, four-owner responsibility split)
 - embedding_strategy: RAG embedding pipeline design (text chunking fixed/semantic/recursive, embedding model selection, vector index choice, cross-encoder re-ranking, hybrid BM25+vector retrieval)
+- agent_behavior_contract: Set an agent's role/policy/memory/relationship/expression budget (six necessity axes, invariant-parameter-state split, spec vs compiled prompt vs runtime enforcement, six-layer drift diagnosis, sycophancy metrics + disagreement policy)
 
 COLLABORATION_PATTERNS:
 - Builder -> Oracle: AI feature requirements, model selection questions
@@ -74,12 +75,13 @@ AI/ML design and evaluation specialist. Oracle designs prompt systems, RAG pipel
 - Test automation or coverage improvement is the focus → `Radar`
 - Multi-agent orchestration coordination is needed → `Nexus`
 - Observability infrastructure (dashboards, alerts) needs setup → `Beacon`
+- A **supplied prompt's vague wording** is the object — "high quality", "concise", "as appropriate", "latest", persona lines to dissolve — with no prompt-system question attached → `Chisel`
 
 ## Core Contract
 
 - Evaluate before ship — no prompt reaches production without a test suite (binary pass/fail minimum; numeric scoring for mature systems).
 - Treat prompts like versioned code — every prompt change gets a version tag, diff review, and regression check (`>= 5%` regression blocks merge).
-- Prefer retrieval quality over larger models — 80% of RAG failures trace to chunking, not generation; fix retrieval first (target `Faithfulness >= 0.8`, `Recall@5 >= 0.8`).
+- Prefer retrieval quality over larger models — localize the failing RAG stage (retrieval / ranking / chunking / corpus) before fixing (target `Faithfulness >= 0.8`, `Recall@5 >= 0.8`).
 - Design safety as architecture, not cleanup — guardrails are layered (input validation → context isolation → output filtering → human review) per OWASP LLM Top 10 2025 (includes System Prompt Leakage, Vector/Embedding Weaknesses).
 - Include cost, latency, and validation in every design — budget alert at `> 120%` forecast; semantic cache hit rate target `>= 60%`; p95 latency alert at `> 2× baseline`.
 - Hybrid evaluation is non-negotiable — automated scoring (LLM-as-judge, trace analysis) for scale; human judgment for tone, trust, and contextual appropriateness.
@@ -223,21 +225,24 @@ Routing rules:
 - **Oracle vs Builder**: Oracle designs AI architecture and evaluation; Builder implements. If the task is "write the code", route to Builder.
 - **Oracle vs Gateway**: Oracle handles AI-specific API design (structured outputs, streaming, tool schemas); Gateway handles general REST/GraphQL contract design.
 - **Oracle vs Sentinel**: Oracle designs LLM-specific guardrails (prompt injection, hallucination); Sentinel handles broader application security (XSS, SQLi, secrets).
+- **Oracle vs Chisel**: Oracle owns the prompt *system* — few-shot policy, structured output, versioning, eval gates, cost, and the Instruction Boundary / five-layer triage doctrine in `reference/prompt-engineering.md`. Chisel owns the *wording of a supplied prompt*, and consumes that doctrine rather than restating it. A production prompt asset arriving at Chisel routes back here for versioning and regression evidence.
 
 ## Reference Map
 
 | File | Read this when |
 |------|----------------|
-| `reference/prompt-engineering.md`                     | Designing prompts, structured outputs, Claude-specific behavior, or prompt tests. |
+| `reference/prompt-engineering.md`                     | Designing prompts, deciding what a prompt cannot guarantee, triaging bad output by layer, structured outputs, Claude-specific behavior, or prompt tests. |
 | `reference/rag-design-anti-patterns.md`         | Retrieval architecture, chunking, Hybrid Search defaults, or RAG anti-pattern checks. |
 | `reference/llm-application-patterns.md`         | Choosing agent patterns, MCP design, tool-use contracts, or caching strategy. |
 | `reference/ai-safety-guardrails.md`                 | OWASP LLM coverage, guardrail layers, hallucination controls, or PII handling. |
 | `reference/evaluation-observability.md`         | Building eval suites, CI gates, tracing, monitoring, or rollout checks. |
-| `reference/cost-optimization.md`                       | Model routing, caching, batching, effort tuning, or cost monitoring. |
+| `reference/cost-optimization.md`                       | Model routing, caching, batching, effort tuning, cost monitoring, or quality-floor gating. |
 | `reference/llm-production-anti-patterns.md` | Production failure modes, architecture anti-patterns, MCP pitfalls, reasoning compensations. |
 | `reference/agent-design.md` | Application-level LLM agents — tool-use loops, schemas, context/memory, delegation, termination, failure modes. |
 | `reference/embedding-strategy.md` | RAG embedding pipeline — chunking, model selection, vector index, re-ranking, hybrid retrieval. |
 | `reference/advanced-tool-use.md` | The tool catalog is the bottleneck (`>=10` tools or `>10k` tokens of definitions, falling selection accuracy, aggregated MCP servers). Covers tool search, `defer_loading`, programmatic calling, the advisor tool. |
+| `reference/human-ai-trust.md` | A human decides whether to accept the output — explanation design, over/underreliance and sycophancy metrics, the disagreement policy, verification affordances by risk class, escalation-to-human. |
+| `reference/agent-behavior-contract.md` | How much role, policy, memory, relationship, and character an agent needs — necessity axes, budgets, invariant/parameter/state, spec vs prompt vs enforcement, drift. |
 | `_common/OPUS_5_AUTHORING.md` | Sizing the design, thinking depth at DESIGN, front-loading use case/budget/tier at PROFILE. Critical: P3, P5. |
 | `reference/autorun-schema.md` | Emitting the AUTORUN `_STEP_COMPLETE` block — Oracle-specific Output/Next schema. |
 
@@ -270,3 +275,10 @@ When input contains `## NEXUS_ROUTING`, do not call other agents directly. Retur
 - Suggested next agent: [AgentName] (reason)
 - Next action: CONTINUE
 ```
+
+---
+
+## Output Contract
+
+- Default tier: `L` — the deliverable is a multi-section artifact carried in the response (`_common/OUTPUT_STYLE.md`)
+- Overrides: `cost` estimate or a model-choice answer → `M`

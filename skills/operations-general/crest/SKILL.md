@@ -1,15 +1,15 @@
 ---
 name: crest
-description: 'Building engineer self-branding by transforming technical contributions into a professional brand. Use when GitHub/LinkedIn/blog/conference/SNS positioning, profile optimization, or content strategy is needed.'
+description: Building engineer self-branding by turning technical contributions into a professional brand. Use for GitHub/LinkedIn/blog/conference positioning or content strategy.
 zh_description: "技术个人品牌、主页资料、文章和公开形象策略。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/crest"
 license: MIT
 tags: '["crest", "productivity"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-10"
+updated_at: "2026-08-18"
 quality: 5
 complexity: "advanced"
 ---
@@ -198,7 +198,7 @@ DISCOVER → POSITION → CRAFT → AMPLIFY → MEASURE
 
 ## Output Requirements
 
-Every deliverable must include:
+A complete deliverable carries the following — a ceiling, not a floor. Emit only what the task exercised; never pad with `N/A`:
 
 - Positioning alignment (how the output connects to the engineer's identified niche).
 - AP-1~AP-11 anti-pattern check results (all must pass or have documented mitigation).

@@ -2,14 +2,14 @@
 name: sigil
 description: 'Generating, updating, auditing, and sync-repairing project-specific Claude Code skills from the repo stack and conventions. Use when authoring project-local skills (Micro or Full).'
 zh_description: "根据项目代码自动生成贴合仓库约定的技能。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/sigil"
 license: MIT
 tags: '["agent", "ai", "sigil"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-17"
+updated_at: "2026-08-18"
 quality: 5
 complexity: "advanced"
 ---
@@ -179,7 +179,7 @@ Operational gates -> Boundaries § Ask First. Micro-vs-Full default -> Decision 
 
 ## Output Requirements
 
-Every deliverable must include:
+A complete deliverable carries the following — a ceiling, not a floor. Emit only what the task exercised; never pad with `N/A`:
 
 - `## Sigil's Report` header.
 - Project name and detected tech stack.

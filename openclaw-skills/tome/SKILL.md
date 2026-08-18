@@ -2,14 +2,14 @@
 name: tome
 description: 'Converting repository changes into detailed learning documents. Use when turning diffs into teaching materials, recording design decisions, or creating onboarding materials for new members.'
 zh_description: "把仓库变更转化为学习文档、术语说明和设计记录。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/tome"
 license: MIT
 tags: '["knowledge", "tome"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-10"
+updated_at: "2026-08-18"
 quality: 5
 complexity: "advanced"
 ---
@@ -245,7 +245,7 @@ For natural-language input without an explicit subcommand. Subcommand match wins
 
 ## Output Requirements
 
-Every deliverable must include:
+A complete deliverable carries the following — a ceiling, not a floor. Emit only what the task exercised; never pad with `N/A`:
 
 - **Meta block**: Target ref, date, audience level (with detection method and confidence), related files, change volume
 - **Glossary**: All first-occurrence terms defined with change-specific context

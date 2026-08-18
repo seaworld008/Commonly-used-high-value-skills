@@ -2,14 +2,14 @@
 name: cast
 description: 'Casting personas: rapid generation from diverse inputs, registry-based persistence and lifecycle, data-driven evolution, inter-agent sync. Not for UI walkthroughs (Echo) or user research (Field).'
 zh_description: "用户画像生成、角色注册、生命周期和跨智能体同步。"
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/cast"
 license: MIT
 tags: '["cast", "memory", "safety"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-17"
+updated_at: "2026-08-18"
 quality: 5
 complexity: "advanced"
 ---
@@ -240,7 +240,7 @@ Audit AI-generated personas against five dimensions, not just face validity: **p
 
 ## Output Requirements
 
-Every deliverable must include:
+A complete deliverable carries the following — a ceiling, not a floor. Emit only what the task exercised; never pad with `N/A`:
 
 - Mode used (CONJURE/FUSE/EVOLVE/AUDIT/DISTRIBUTE/SPEAK).
 - Persona identifiers and lifecycle states.
@@ -350,4 +350,6 @@ source is intentionally concise.
   unavailable.
 - Stop and ask for clarification when the next action could overwrite user work,
   expose private data, or change production state.
+- Treat skill selection as routing, not ceremony: invoke only the narrowest
+  applicable workflow and keep user or repository instructions authoritative.
 <!-- LOCAL-QUALITY-SUPPLEMENT:END -->

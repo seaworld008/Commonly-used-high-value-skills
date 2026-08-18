@@ -2,14 +2,14 @@
 name: gear
 description: 'Managing dependencies, CI/CD optimization, Docker configuration, and operational observability (logging/alerting/health checks). Use for build errors or dev environment issues.'
 zh_description: "依赖、构建、容器、监控和开发环境运维优化。"
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/gear"
 license: MIT
 tags: '["devops", "gear", "sre"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-17"
+updated_at: "2026-08-18"
 quality: 5
 complexity: "advanced"
 ---
@@ -182,7 +182,7 @@ Behavior notes per Recipe:
 
 ## Output Requirements
 
-Every deliverable must include:
+A complete deliverable carries the following — a ceiling, not a floor. Emit only what the task exercised; never pad with `N/A`:
 
 - Change type (dependency update, CI fix, config change, etc.).
 - Risk level (low/medium/high).
@@ -260,4 +260,6 @@ source is intentionally concise.
   unavailable.
 - Stop and ask for clarification when the next action could overwrite user work,
   expose private data, or change production state.
+- Treat skill selection as routing, not ceremony: invoke only the narrowest
+  applicable workflow and keep user or repository instructions authoritative.
 <!-- LOCAL-QUALITY-SUPPLEMENT:END -->

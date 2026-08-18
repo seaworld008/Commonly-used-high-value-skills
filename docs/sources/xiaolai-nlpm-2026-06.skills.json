@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://nlpm.com/",
-    "checked_at": "2026-08-17",
+    "checked_at": "2026-08-18",
     "note": "Curated from xiaolai/nlpm after reviewing the website, why page, README, LICENSE, author docs, rules, scoring, and testing materials. Imported as an original repository skill that captures the durable audit method rather than mirroring the full upstream command/plugin product."
   },
   "official_references": [
@@ -49,9 +49,9 @@
         "path": "README.md",
         "ref": "main",
         "sync_mode": "monitor",
-        "last_checked_at": "2026-08-17",
-        "last_synced_at": "2026-08-17",
-        "last_synced_commit": "da65a5d19a08868ff86ae9c47c49e33e7742c302"
+        "last_checked_at": "2026-08-18",
+        "last_synced_at": "2026-08-18",
+        "last_synced_commit": "d4ca2d45618334dc86c79a09ab1b2bbe2c47e1d7"
       }
     }
   ],
@@ -111,6 +111,13 @@
       "target": "https://github.com/xiaolai/nlpm/compare/06e14047e59a8446275dc1b2f082127fc3bc29de...da65a5d19a08868ff86ae9c47c49e33e7742c302",
       "result": "success",
       "evidence": "Reviewed 144 commits after upstream main recovered and advanced during this maintenance run. Absorbed contract-aware manifest-vs-disk classification, definition-backed vague-term calibration, and release-gate coverage plus client-mirror parity checks; skipped issue-lane accounting, dashboards, telemetry, and generated audit artifacts."
+    },
+    {
+      "date": "2026-08-18",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "https://github.com/xiaolai/nlpm/compare/da65a5d19a08868ff86ae9c47c49e33e7742c302...d4ca2d45618334dc86c79a09ab1b2bbe2c47e1d7",
+      "result": "no-local-change-needed",
+      "evidence": "Reviewed 24 upstream commits and all eight changed paths. The range contains generated tracking, discovery, dashboard, report, feedback, disagreement, and case-study data only; README, installation, scoring, CI, security, compatibility, and reusable audit-method contracts did not change."
     }
   ]
 }

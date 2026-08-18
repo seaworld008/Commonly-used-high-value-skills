@@ -2,14 +2,14 @@
 name: nexus
 description: 'Orchestrating specialist AI agent teams as a meta-coordinator: decomposes requests into minimum viable chains, spawns each as an independent session, drives to final output. For multi-domain tasks.'
 zh_description: "多智能体任务分解、链路编排、执行协调和结果整合。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/nexus"
 license: MIT
 tags: '["ai", "nexus", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-17"
+updated_at: "2026-08-18"
 quality: 5
 complexity: "advanced"
 ---
@@ -72,7 +72,7 @@ Coordinate specialist agents, design the minimum viable chain, execute safely. `
 6. **Protect context.** Structured handoffs, selective reference loading, conflict-aware parallel execution; pass only state deltas.
 7. **Learn only from evidence.** Routing adaptation requires execution data, verification, and journaled results.
 8. **Prevent circular handoffs.** Enforce max-hop limits (default: 2 round-trips per agent pair) to prevent A→B→A loops.
-9. **Hierarchical decomposition for scale.** At 6+ agents, spawn feature-leads that each coordinate 2-3 specialists.
+9. **Hierarchical decomposition for scale.** At 6+ agents, spawn feature-leads that each coordinate 2-3 specialists. **A tier must change what a branch can see and decide, not only what it is called** — prescribed team roles and a stated hierarchy, applied without any change to context or authority, measured as no better than a flat fan-out. A feature-lead earns its layer by holding context its specialists do not and by owning their merge; a lead that does neither is a renamed peer, and the layer is deleted rather than paid for.
 10. **Author for the active orchestrator engine.** Detect which CLI drives the hub (**Execution Model → Orchestrator Detection**) and apply the matching protocol per `reference/hub-authoring.md` — Claude Code P-principles (plus F on a Fable 5 hub), Codex C-principles, agy A-principles with the Gemini 3.7 Flash (High) mandate.
 
 ## Boundaries
@@ -126,7 +126,7 @@ Agent boundaries → `_common/BOUNDARIES.md` · disambiguation → `reference/ag
 
 **Triggers:** `/Nexus` with no arguments → proactive mode (`reference/proactive-mode.md`); `## NEXUS_ROUTING` → **Nexus Hub Mode**. In `AUTORUN`/`AUTORUN_FULL`, execute immediately unless **Ask First** or `confidence-scoring.md` Part 2 requires confirmation.
 
-**Phase contract:** `AUTORUN_FULL` = `PLAN → PREPARE → CHAIN_SELECT → EXECUTE → AGGREGATE → VERIFY → DELIVER`; `AUTORUN` = `CLASSIFY → CHAIN_SELECT → EXECUTE_LOOP → VERIFY → DELIVER`.
+**Phase contract:** `AUTORUN_FULL` = `PLAN → PREPARE → CHAIN_SELECT → SPECIFY? → EXECUTE → AGGREGATE → VERIFY → DELIVER`; `AUTORUN` = `CLASSIFY → CHAIN_SELECT → SPECIFY? → EXECUTE_LOOP → VERIFY → DELIVER`. `SPECIFY?` is gated — `reference/specify-phase.md`.
 
 ## Recipes
 
@@ -144,7 +144,7 @@ Four families hold confusable siblings, disambiguated by an explicit axis: **Imp
 
 ```
 classify* · bug · feature · security · refactor · optimize · kaizen · anneal · restyle · converge · proactive · apex
-charter · enact · layer · goal · gedanken · delve · cartograph · chronicle · spec · essential · killer · trim
+charter · enact · layer · goal · gedanken · delve · cartograph · chronicle · verity · abide · spec · essential · killer · trim
 acceptance · summit · podium · newsroom · wish · eureka · runway · hallmark · rebrand · crucible · silhouette
 lattice · chorus · assay · migrate · transmute · clone · fuse · graft · package · pack · quell · burnish · whet
 ```
@@ -170,6 +170,7 @@ Inline Recipes (`kaizen`, `essential`, `killer`, `trim`) have no top-level refer
 |------|---------|-----------|
 | `CLASSIFY` | Task type, complexity, confidence, official category, guardrail needs; crystallize the intent contract (goal + ACs + non-goals + prohibited outcomes) | `confidence-scoring.md`, `intent-clarification.md`, `official-skill-categories.md`, `autonomy-quality-protocol.md` (Q1-Q3) |
 | `CHAIN` | Minimum viable chain, parallel branches, Plan-and-Execute (up to 90% cost reduction) | `routing-matrix.md`, `agent-chains.md`, `agent-disambiguation.md`, `task-routing-anti-patterns.md` |
+| `SPECIFY?` | **Gated.** Run `Chisel brief` over the intent contract → a Specified Brief (executable ACs + prohibited outcomes + an explicit `delegated` list) inherited verbatim by every `_AGENT_CONTEXT`. Fires on a load-bearing ambiguity, a ≥3-spawn chain, a loop/quality-max Recipe, or a rework signal; never replaces `GATE`, never runs per-spawn, and **runs only after every applicable `Ask First` gate has resolved** (the answer usually changes scope) | `specify-phase.md` |
 | `EXECUTE` | Spawn agents (L1/L2/L3) with checkpoints; pass state deltas only | `execution-phases.md`, `guardrails.md`, `error-handling.md`, `orchestration-patterns.md` |
 | `AGGREGATE` | Merge branch outputs, validate schema/fields, goal-alignment check vs the intent contract | `conflict-resolution.md`, `handoff-validation.md`, `agent-communication-anti-patterns.md`, `autonomy-quality-protocol.md` (Q7-Q8) |
 | `VERIFY` | Acceptance criteria; tests/build/security mandatory; producer ≠ sole verifier; evidence-bound claims | `guardrails.md`, `output-formats.md`, `quality-iteration.md`, `autonomy-quality-protocol.md` (Q9-Q15) |
@@ -182,7 +183,7 @@ Inline Recipes (`kaizen`, `essential`, `killer`, `trim`) have no top-level refer
 
 **Spawn decision** — Core Rule #3 decides: no spawn tool → internal (log the verified blocker); specialist expertise → spawn (mandatory); trivial edit → spawn only if overhead is justified. Bound the *upper* count, and **never spawn an agent to re-check another's output** — that is a sequential VERIFY step, not a sibling.
 
-**Spawn prompt non-negotiables** — front-load acceptance criteria (P1), an output length envelope (P2), a scope bound (P8), a **completion bound** (Q16-Q17: finish every in-scope item or return `PARTIAL` + a typed residual, never `SUCCESS` over a stub), and **`Prohibited outcomes` + `Authority`** (Q2/Q23 — narrowest grant, `redelegation: false`). **Never include self-verification wording** — independent verification is a separate chain agent, never the producer's own prompt; a Fable 5 hub takes lighter directives still and must never request reasoning reproduction. Before each spawn, tailor the prompt to project + session context (`reference/adaptive-prompt-policy.md`): skip on single-spawn or trivial runs, apply at ≥3 spawns, loop recipes, or a repeated agent.
+**Spawn prompt non-negotiables** — front-load acceptance criteria (P1), an output length envelope (P2), a scope bound (P8), a **completion bound** (Q16-Q17: finish every in-scope item or return `PARTIAL` + a typed residual, never `SUCCESS` over a stub), and **`Prohibited outcomes` + `Authority`** (Q2/Q23 — narrowest grant, `redelegation: false`). **Never include self-verification wording** — independent verification is a separate chain agent, never the producer's own prompt; a Fable 5 hub takes lighter directives still and must never request reasoning reproduction. Before each spawn, tailor the prompt to project + session context (`reference/adaptive-prompt-policy.md`): skip on single-spawn or trivial runs, apply at ≥3 spawns, loop recipes, or a repeated agent. **When `SPECIFY` ran, the Specified Brief's goal/ACs/prohibited-outcomes/constraints are copied *verbatim* into every `_AGENT_CONTEXT` first** — paraphrasing per spawn reintroduces the divergence the phase removes; directive fields are layered on after and never overwrite it.
 
 > **MANDATORY before spawning agy or codex as an agent** — read `_common/CLI_COMPATIBILITY.md §9.2` (agy headless MUST allocate a real pty via `python3 pty.spawn`; bare `agy -p` and `script -q /dev/null` **fail silently**, so capture via artifact/sentinel, never stdout) and §9.3 (codex `-o <abs path>` artifact is authoritative). These are silent-output regressions, not edge cases.
 
@@ -202,7 +203,7 @@ Seven triggers (`LT-01` → `LT-07`, incl. near misses) and the Chain Effectiven
 
 ## Routing Quick Start
 
-**Chain source of truth:** `routing-matrix.md` = which agents fire for task X (**93 task types** → default chain, classify/LADDER flow, per-type phase contracts, Sherpa-skip and chain-adjustment rules); the Registry exposes the most-used types as subcommands, the rest reach via `classify`. `agent-chains.md` = how to adjust a chain (parallel variants, Rally escalation, addition/skip triggers). `recipes-detail.md` holds Recipe Families axis prose; per-recipe phase contracts live in each `<recipe>-recipe.md`.
+**Chain source of truth:** `routing-matrix.md` = which agents fire for task X (**95 task types** → default chain, classify/LADDER flow, per-type phase contracts, Sherpa-skip and chain-adjustment rules); the Registry exposes the most-used types as subcommands, the rest reach via `classify`. `agent-chains.md` = how to adjust a chain (parallel variants, Rally escalation, addition/skip triggers). `recipes-detail.md` holds Recipe Families axis prose; per-recipe phase contracts live in each `<recipe>-recipe.md`.
 
 If context is unclear, inspect git state and `.agents/PROJECT.md`; if confidence stays low, ask one focused question.
 
@@ -213,6 +214,8 @@ Every deliverable carries the `## NEXUS_COMPLETE` header, task description and a
 - **Decision Ledger** — `DEC-n` judgment calls made without the user, interpretation entries first; omit only when empty (Q4-Q6).
 - **Residual Ledger** — each leftover as `RES-n` (class, blocker/owner, marker location, route), bound bidirectionally to any `#TODO(agent):` left behind, plus the completion-sweep line (`scanned, 0 hits` when clean — never omitted).
 - **`## Prompt Tuning`** — delta-only trace when a spawn's directives were adapted; omit entirely when none were.
+
+**Scale the envelope to the run, not to the schema.** A ledger binds in *substance*, never in *scaffolding*: an empty ledger is one line (`Residuals: none`), never a header plus an empty table; a SIMPLE single-agent run uses `output-formats.md` § Compact Form; per-step results are one line each. Only the completion sweep is never dropped.
 
 Verification results are evidence-bound; unexercised paths are labeled `UNVERIFIED` (Q10). Field template → `reference/output-formats.md`.
 
@@ -232,6 +235,7 @@ Read only files matching the current decision point. Anything indexed by the Wor
 | `reference/recipes-index.md` | **The complete Recipes table** — a matched subcommand's chain template + `Read` reference, or scanning the registry |
 | `reference/<recipe>-recipe.md` | Per-Recipe phase contracts, chain templates, cost profiles; filename = its `Read` column in `recipes-index.md` |
 | `reference/recipes-detail.md` · `reference/inline-recipes.md` | Recipe Families axis prose · contracts for `kaizen`/`essential`/`killer`/`trim` |
+| `reference/specify-phase.md` | The gated `SPECIFY` step — gate conditions, Specified Brief schema, verbatim-injection rule, and the `delegated` list that keeps it from over-specifying |
 | `reference/hub-authoring.md` · `reference/execution-layers.md` | Per-engine authoring, orchestrator detection, spawn templates, model selection, Fable 5 F-principles · per-CLI spawn prereqs, runtime notes, agy headless mitigations |
 | `_common/LOOP_PRECONDITIONS.md` | Before **any** agent loop — five-point gate (completion oracle · hard-stop bound · maker ≠ checker · persistent memory · drift awareness) |
 | `_common/FINDING_LEDGER.md` | Before **any external-reviewer-to-zero loop** (`quell`, `burnish`, `whet`, `newsroom`) — the shared ledger machinery: five declaration slots, identity across cycles, disposition vocabulary + integrity, split-oracle rule, and when **not** to build one |

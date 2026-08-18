@@ -2,14 +2,14 @@
 name: breach
 description: 'Designing red team attack scenarios, threat models, MITRE ATT&CK/OWASP application, Purple Team exercises, and AI/LLM red teaming. Use when adversarial security validation is needed.'
 zh_description: "红队场景、攻击路径、威胁建模和对抗演练设计。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/breach"
 license: MIT
 tags: '["breach", "security"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-17"
+updated_at: "2026-08-18"
 quality: 5
 complexity: "advanced"
 ---
@@ -37,6 +37,10 @@ COLLABORATION_PATTERNS:
 - Breach → Scribe: Security assessment reports and threat model documents
 - Breach → Mend: Runbook updates for incident response
 - Flux → Breach: Attacker perspective reframing
+
+BIDIRECTIONAL_PARTNERS:
+- INPUT: Sentinel, Probe, Canon, Oracle, Matrix, Flux
+- OUTPUT: Builder, Sentinel, Radar, Scribe, Mend
 
 PROJECT_AFFINITY: SaaS(H) E-commerce(H) Game(M) Dashboard(M) API(H) Marketing(L)
 -->
@@ -213,7 +217,7 @@ Parse the first token of user input. If it matches a Recipe Subcommand above →
 
 ## Output Requirements
 
-Every deliverable must include:
+A complete deliverable carries the following — a ceiling, not a floor. Emit only what the task exercised; never pad with `N/A`:
 
 - Threat model or framework reference (MITRE ATT&CK, OWASP, STRIDE, ATLAS identifiers).
 - Attack chain documentation (entry point → lateral movement → impact).
@@ -305,6 +309,12 @@ Breach-specific findings to surface in handoff:
 - Threat model framework applied
 - Critical / High findings count + key attack vectors
 - Untested surfaces + authorization questions
+
+---
+
+## Output Contract
+
+- Default tier `L` — multi-section artifact carried in the response (`_common/OUTPUT_STYLE.md`); one attack path against an existing threat model → `M`.
 
 ---
 

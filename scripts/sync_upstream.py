@@ -664,31 +664,45 @@ def print_monitor_rollbacks(results: list[dict]) -> None:
 
 
 def sync_github_auxiliary_files(skill: dict, upstream_path: str, token: str | None) -> int:
-    """Sync non-SKILL.md files that live beside the upstream SKILL.md."""
+    """Sync non-SKILL.md files and directories beside the upstream SKILL.md."""
     repo = skill["repo"]
     upstream_dir = str(Path(upstream_path).parent)
-    api_url = f"https://api.github.com/repos/{repo}/contents/{upstream_dir}?ref={skill.get('ref', 'main')}"
-    data = github_api_get(api_url, token)
-    if not isinstance(data, list):
-        return 0
-
-    synced = 0
     local_dir = skill["local_path"].parent
-    for item in data:
-        if item.get("type") != "file":
-            continue
-        name = item.get("name", "")
-        if not name or name.lower() == "skill.md":
-            continue
-        download_url = item.get("download_url")
-        if not download_url:
-            continue
-        content = fetch_url(download_url, token)
-        if content is None:
-            continue
-        (local_dir / name).write_text(content, encoding="utf-8")
-        synced += 1
-    return synced
+    ref = skill.get("ref", "main")
+
+    def sync_directory(api_url: str, relative_dir: Path) -> int:
+        data = github_api_get(api_url, token)
+        if not isinstance(data, list):
+            return 0
+
+        synced = 0
+        for item in data:
+            name = item.get("name", "")
+            if not name or name in {".", ".."} or "/" in name:
+                continue
+            relative_path = relative_dir / name
+            destination = local_dir / relative_path
+            item_type = item.get("type")
+            if item_type == "dir":
+                child_url = item.get("url")
+                if child_url:
+                    synced += sync_directory(child_url, relative_path)
+                continue
+            if item_type != "file" or name.lower() == "skill.md":
+                continue
+            download_url = item.get("download_url")
+            if not download_url:
+                continue
+            content = fetch_url(download_url, token)
+            if content is None:
+                continue
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            destination.write_text(content, encoding="utf-8")
+            synced += 1
+        return synced
+
+    api_url = f"https://api.github.com/repos/{repo}/contents/{upstream_dir}?ref={ref}"
+    return sync_directory(api_url, Path())
 
 
 def update_mapping_after_sync(update: dict) -> None:

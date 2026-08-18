@@ -2,14 +2,14 @@
 name: lens
 description: 'Comprehending and investigating codebases: structure mapping, feature discovery, data flow tracing for ''does X exist?'' or ''how does Y work?''. Includes a conversational ask mode. Does not write code.'
 zh_description: "代码库理解、功能发现、数据流追踪和上下文调查。"
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/lens"
 license: MIT
 tags: '["analysis", "lens", "planning"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-17"
+updated_at: "2026-08-18"
 quality: 5
 complexity: "advanced"
 ---
@@ -225,7 +225,7 @@ Full per-recipe how-to (verbatim): `reference/recipes-detail.md`.
 
 ## Output Requirements
 
-Every deliverable must include:
+A complete deliverable carries the following — a ceiling, not a floor. Emit only what the task exercised; never pad with `N/A`:
 
 - Investigation type and question decomposition.
 - Findings with file:line references for every claim.
@@ -327,4 +327,6 @@ source is intentionally concise.
   unavailable.
 - Stop and ask for clarification when the next action could overwrite user work,
   expose private data, or change production state.
+- Treat skill selection as routing, not ceremony: invoke only the narrowest
+  applicable workflow and keep user or repository instructions authoritative.
 <!-- LOCAL-QUALITY-SUPPLEMENT:END -->
