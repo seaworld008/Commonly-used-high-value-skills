@@ -22,10 +22,12 @@ jobs:
           python-version: '3.13'
 
       - name: Discover new skills from external sources
+        id: discovery
         run: python scripts/discover_new_skills.py --output docs/sources/reports/discovery.json
         continue-on-error: true
 
       - name: Check upstream GitHub updates
+        id: upstream
         run: python scripts/check_upstream_github_updates.py --online --write-json docs/sources/reports/upstream-check.json
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -35,13 +37,83 @@ jobs:
         id: report
         run: python scripts/generate_sync_report.py --discovery docs/sources/reports/discovery.json --upstream docs/sources/reports/upstream-check.json --output docs/sources/reports/sync-report.md
 
-      - name: Create issue if updates found
-        if: steps.report.outputs.has_updates == 'true'
-        uses: peter-evans/create-issue-from-file@v5
+      - name: Reconcile weekly sync issue
+        if: steps.discovery.outcome == 'success' && steps.upstream.outcome == 'success'
+        uses: actions/github-script@v7
+        env:
+          HAS_UPDATES: ${{ steps.report.outputs.has_updates }}
+          REPORT_PATH: docs/sources/reports/sync-report.md
         with:
-          title: "[Auto Sync] Weekly skill discovery report — ${{ github.event.schedule && 'scheduled' || 'manual' }}"
-          content-filepath: docs/sources/reports/sync-report.md
-          labels: auto-sync,skill-discovery
+          script: |
+            const fs = require('fs');
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const title = '[Auto Sync] Weekly skill discovery report';
+            const labels = ['auto-sync', 'skill-discovery'];
+            const report = fs.readFileSync(process.env.REPORT_PATH, 'utf8');
+            const hasUpdates = process.env.HAS_UPDATES === 'true';
+            const openIssues = await github.paginate(github.rest.issues.listForRepo, {
+              owner,
+              repo,
+              state: 'open',
+              labels: labels.join(','),
+              per_page: 100,
+            });
+            const matching = openIssues
+              .filter(issue => !issue.pull_request && issue.title.startsWith(title))
+              .sort((a, b) => b.number - a.number);
+
+            if (hasUpdates) {
+              let primary = matching.shift();
+              if (primary) {
+                await github.rest.issues.update({
+                  owner,
+                  repo,
+                  issue_number: primary.number,
+                  title,
+                  body: report,
+                });
+              } else {
+                primary = (await github.rest.issues.create({
+                  owner,
+                  repo,
+                  title,
+                  body: report,
+                  labels,
+                })).data;
+              }
+              for (const duplicate of matching) {
+                await github.rest.issues.createComment({
+                  owner,
+                  repo,
+                  issue_number: duplicate.number,
+                  body: `Superseded by #${primary.number}; future runs update one canonical report.`,
+                });
+                await github.rest.issues.update({
+                  owner,
+                  repo,
+                  issue_number: duplicate.number,
+                  state: 'closed',
+                  state_reason: 'completed',
+                });
+              }
+            } else {
+              for (const issue of matching) {
+                await github.rest.issues.createComment({
+                  owner,
+                  repo,
+                  issue_number: issue.number,
+                  body: 'The latest weekly scan found no meaningful discovery or upstream drift. Closing automatically.',
+                });
+                await github.rest.issues.update({
+                  owner,
+                  repo,
+                  issue_number: issue.number,
+                  state: 'closed',
+                  state_reason: 'completed',
+                });
+              }
+            }
 
       - name: Upload reports as artifacts
         uses: actions/upload-artifact@v4

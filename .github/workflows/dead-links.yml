@@ -61,13 +61,84 @@ jobs:
               print("- No dead links detected.")
           PY
 
-      - name: Open issue
-        if: steps.probe.outputs.dead_count != '0'
-        uses: peter-evans/create-issue-from-file@v5
+      - name: Reconcile dead-link issue
+        if: steps.probe.outcome == 'success'
+        uses: actions/github-script@v7
+        env:
+          DEAD_COUNT: ${{ steps.probe.outputs.dead_count }}
+          REPORT_PATH: dead-links-issue.md
         with:
-          title: "[Monthly] Dead link report: ${{ steps.probe.outputs.dead_count }} URLs unreachable"
-          content-filepath: dead-links-issue.md
-          labels: auto-sync,dead-links
+          script: |
+            const fs = require('fs');
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const titlePrefix = '[Monthly] Dead link report';
+            const labels = ['auto-sync', 'dead-links'];
+            const deadCount = Number(process.env.DEAD_COUNT || '0');
+            const openIssues = await github.paginate(github.rest.issues.listForRepo, {
+              owner,
+              repo,
+              state: 'open',
+              labels: labels.join(','),
+              per_page: 100,
+            });
+            const matching = openIssues
+              .filter(issue => !issue.pull_request && issue.title.startsWith(titlePrefix))
+              .sort((a, b) => b.number - a.number);
+
+            if (deadCount > 0) {
+              const title = `${titlePrefix}: ${deadCount} URLs unreachable`;
+              const body = fs.readFileSync(process.env.REPORT_PATH, 'utf8');
+              let primary = matching.shift();
+              if (primary) {
+                await github.rest.issues.update({
+                  owner,
+                  repo,
+                  issue_number: primary.number,
+                  title,
+                  body,
+                });
+              } else {
+                primary = (await github.rest.issues.create({
+                  owner,
+                  repo,
+                  title,
+                  body,
+                  labels,
+                })).data;
+              }
+              for (const duplicate of matching) {
+                await github.rest.issues.createComment({
+                  owner,
+                  repo,
+                  issue_number: duplicate.number,
+                  body: `Superseded by #${primary.number}; future runs update one canonical report.`,
+                });
+                await github.rest.issues.update({
+                  owner,
+                  repo,
+                  issue_number: duplicate.number,
+                  state: 'closed',
+                  state_reason: 'completed',
+                });
+              }
+            } else {
+              for (const issue of matching) {
+                await github.rest.issues.createComment({
+                  owner,
+                  repo,
+                  issue_number: issue.number,
+                  body: 'The latest monthly scan found no unreachable links. Closing automatically.',
+                });
+                await github.rest.issues.update({
+                  owner,
+                  repo,
+                  issue_number: issue.number,
+                  state: 'closed',
+                  state_reason: 'completed',
+                });
+              }
+            }
 
       - uses: actions/upload-artifact@v4
         with:

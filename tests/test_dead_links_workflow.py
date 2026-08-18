@@ -31,6 +31,13 @@ class DeadLinksWorkflowTests(unittest.TestCase):
         ]
         self.assertTrue(upload_steps, "dead-links workflow should upload an artifact")
 
+        workflow_text = WORKFLOW_PATH.read_text(encoding="utf-8")
+        self.assertIn("actions/github-script@v7", workflow_text)
+        self.assertIn("if: steps.probe.outcome == 'success'", workflow_text)
+        self.assertIn("state_reason: 'completed'", workflow_text)
+        self.assertIn("latest monthly scan found no unreachable links", workflow_text)
+        self.assertNotIn("peter-evans/create-issue-from-file", workflow_text)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -81,6 +81,7 @@ IGNORE_URL_SNIPPETS = (
     "hermes-agent.nousresearch.com/docs/developer-guide/",
     "ifrs-sustainability-standards-vector/ifrs-s2-climate-related-disclosures/",
     "x.com/user/status/",
+    "linkedin.com/posts/username_activity-",
 )
 # Treat these codes as ok; some servers block HEAD or require cookies.
 ACCEPTED_CODES = {200, 201, 202, 203, 204, 301, 302, 303, 307, 308, 400, 401, 403, 405, 429}
@@ -172,6 +173,11 @@ def curl_probe(url: str, method: str, timeout: int) -> tuple[int | None, str]:
         "skills-deadlink-bot/1.0",
         "--max-time",
         str(timeout),
+        "--retry",
+        "2",
+        "--retry-all-errors",
+        "--retry-delay",
+        "1",
         "--request",
         method,
         url,
