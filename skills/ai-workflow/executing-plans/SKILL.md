@@ -4,8 +4,9 @@ description: Use when you have a written implementation plan to execute in a sep
 zh_description: "用于按既定实现计划逐步执行任务，并在关键节点进行审查和完成验证。"
 version: "1.0.5"
 author: "seaworld008"
-source: "in-house"
-source_url: ""
+source: "github:obra/superpowers"
+source_url: "https://github.com/obra/superpowers/blob/main/skills/executing-plans/SKILL.md"
+license: MIT
 tags: '["plans", "execution", "workflow"]'
 created_at: "2026-04-13"
 updated_at: "2026-07-27"

@@ -1,8 +1,8 @@
 {
-  "coverage_min_percent": 95,
+  "coverage_min_percent": 100,
   "stale_days": 30,
   "health_thresholds": {
-    "source_coverage_min_percent": 95,
+    "source_coverage_min_percent": 100,
     "license_missing_max": 0,
     "license_unknown_max": 0,
     "dead_links_max": 0,

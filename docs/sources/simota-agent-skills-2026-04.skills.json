@@ -1,4 +1,5 @@
 {
+  "schema_version": 2,
   "video": {
     "url": "https://github.com/simota/agent-skills",
     "checked_at": "2026-08-18",
@@ -25,8 +26,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70"
-      }
+        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "builder/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "builder/SKILL.md",
+              "target": "skills/developer-engineering/builder/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "path_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "content_sha256": "047ff3e7cb23cc197ec8c609b455dbd3eb56860ae27d4d632af4a1024f064d16",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/developer-engineering/builder/SKILL.md",
+          "owner": "builder",
+          "sha256": "047ff3e7cb23cc197ec8c609b455dbd3eb56860ae27d4d632af4a1024f064d16"
+        }
+      ]
     },
     {
       "video_name": "gateway",
@@ -41,8 +75,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70"
-      }
+        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "gateway/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "gateway/SKILL.md",
+              "target": "skills/developer-engineering/gateway/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "path_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "content_sha256": "63f8f6edc7643d0a21f2d8eedf93c38f2234a6f4550060ab586e3bf50a16dc5a",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/developer-engineering/gateway/SKILL.md",
+          "owner": "gateway",
+          "sha256": "63f8f6edc7643d0a21f2d8eedf93c38f2234a6f4550060ab586e3bf50a16dc5a"
+        }
+      ]
     },
     {
       "video_name": "schema",
@@ -57,8 +124,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70"
-      }
+        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "schema/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "schema/SKILL.md",
+              "target": "skills/developer-engineering/schema/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "path_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "content_sha256": "d4a7b682ff78f0207e6af03ad3724c954809a6eb2a5b76cdcfc369691043c337",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/developer-engineering/schema/SKILL.md",
+          "owner": "schema",
+          "sha256": "d4a7b682ff78f0207e6af03ad3724c954809a6eb2a5b76cdcfc369691043c337"
+        }
+      ]
     },
     {
       "video_name": "nexus",
@@ -73,8 +173,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70"
-      }
+        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "nexus/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "nexus/SKILL.md",
+              "target": "skills/ai-workflow/nexus/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "path_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "content_sha256": "28390e8951da7626ff04c0dd2223cc593e789292e657d7b6dea711027b675273",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/nexus/SKILL.md",
+          "owner": "nexus",
+          "sha256": "28390e8951da7626ff04c0dd2223cc593e789292e657d7b6dea711027b675273"
+        }
+      ]
     },
     {
       "video_name": "sherpa",
@@ -89,8 +222,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70"
-      }
+        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "sherpa/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "sherpa/SKILL.md",
+              "target": "skills/ai-workflow/sherpa/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "path_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "content_sha256": "401f7a166a5291c9848f54d566aa65ec2eddc6ca8c491d77d67ad1d1bce5dcf7",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/sherpa/SKILL.md",
+          "owner": "sherpa",
+          "sha256": "401f7a166a5291c9848f54d566aa65ec2eddc6ca8c491d77d67ad1d1bce5dcf7"
+        }
+      ]
     },
     {
       "video_name": "rally",
@@ -105,8 +271,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70"
-      }
+        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "rally/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "rally/SKILL.md",
+              "target": "skills/ai-workflow/rally/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "path_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "content_sha256": "5de2a64b2942f3bf814763fef587ceea61030c99a75bd6f47ba4bfee821d8637",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/rally/SKILL.md",
+          "owner": "rally",
+          "sha256": "5de2a64b2942f3bf814763fef587ceea61030c99a75bd6f47ba4bfee821d8637"
+        }
+      ]
     },
     {
       "video_name": "oracle",
@@ -121,8 +320,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70"
-      }
+        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "oracle/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "oracle/SKILL.md",
+              "target": "skills/ai-agent-platform/oracle/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "path_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "content_sha256": "1d724258fd1fc34d6a193175a21a0b1ed3a78d6ee5ef08f3cc1e310797dcb18e",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-agent-platform/oracle/SKILL.md",
+          "owner": "oracle",
+          "sha256": "1d724258fd1fc34d6a193175a21a0b1ed3a78d6ee5ef08f3cc1e310797dcb18e"
+        }
+      ]
     },
     {
       "video_name": "arena",
@@ -134,7 +366,7 @@
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "arena/SKILL.md",
-        "ref": "main",
+        "ref": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
         "last_checked_at": "2026-07-27",
         "last_synced_at": "2026-06-01",
         "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
@@ -143,7 +375,39 @@
         "archive_reason": "Legacy upstream slug removed after simota repository reorganization.",
         "availability": "missing",
         "missing_since": "2026-07-27"
-      }
+      },
+      "kind": "snapshot",
+      "sync_mode": "local-only",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "arena/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "local-only",
+          "artifacts": [
+            {
+              "source": "arena/SKILL.md",
+              "target": "skills/ai-agent-platform/arena/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "fixed_ref",
+            "ref": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+            "resolved_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+            "path_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+            "content_sha256": "27cc6209f458801f59a5335269e05f034a87407fe3c626d4ba10e1f563995257",
+            "last_checked_at": "2026-07-27",
+            "last_synced_at": "2026-06-01"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-agent-platform/arena/SKILL.md",
+          "owner": "arena",
+          "sha256": "27cc6209f458801f59a5335269e05f034a87407fe3c626d4ba10e1f563995257"
+        }
+      ]
     },
     {
       "video_name": "sigil",
@@ -158,8 +422,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70"
-      }
+        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "sigil/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "sigil/SKILL.md",
+              "target": "skills/ai-agent-platform/sigil/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "path_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "content_sha256": "0a03430c1dd26c57c765ef7eea0f308f4c0da00166576528b72c8f74fd3e5d38",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-agent-platform/sigil/SKILL.md",
+          "owner": "sigil",
+          "sha256": "0a03430c1dd26c57c765ef7eea0f308f4c0da00166576528b72c8f74fd3e5d38"
+        }
+      ]
     },
     {
       "video_name": "guardian",
@@ -174,8 +471,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70"
-      }
+        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "guardian/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "guardian/SKILL.md",
+              "target": "skills/engineering-workflow-automation/guardian/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "path_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "content_sha256": "ffb8f542d6a405c59a17b849b2405c17cb05c9f02d85c3974b818a83f15244d4",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/engineering-workflow-automation/guardian/SKILL.md",
+          "owner": "guardian",
+          "sha256": "ffb8f542d6a405c59a17b849b2405c17cb05c9f02d85c3974b818a83f15244d4"
+        }
+      ]
     },
     {
       "video_name": "harvest",
@@ -190,8 +520,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70"
-      }
+        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "harvest/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "harvest/SKILL.md",
+              "target": "skills/engineering-workflow-automation/harvest/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "path_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "content_sha256": "8d8c7edf2bfcb0cfeb76515cff6a766144d3e60fa43a7b329f8af3814ef4b987",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/engineering-workflow-automation/harvest/SKILL.md",
+          "owner": "harvest",
+          "sha256": "8d8c7edf2bfcb0cfeb76515cff6a766144d3e60fa43a7b329f8af3814ef4b987"
+        }
+      ]
     },
     {
       "video_name": "latch",
@@ -206,8 +569,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70"
-      }
+        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "latch/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "latch/SKILL.md",
+              "target": "skills/engineering-workflow-automation/latch/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "path_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "content_sha256": "4899f718e5440ad4e35e5f958cd6915076700d86a9854bf7b7803c1db1003277",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/engineering-workflow-automation/latch/SKILL.md",
+          "owner": "latch",
+          "sha256": "4899f718e5440ad4e35e5f958cd6915076700d86a9854bf7b7803c1db1003277"
+        }
+      ]
     },
     {
       "video_name": "beacon",
@@ -222,8 +618,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70"
-      }
+        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "beacon/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "beacon/SKILL.md",
+              "target": "skills/devops-sre/beacon/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "path_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "content_sha256": "e1a740d96916fd15117f79c9a105dc0ec5aee6a0a25fec7a43196ba1d3007a76",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/devops-sre/beacon/SKILL.md",
+          "owner": "beacon",
+          "sha256": "e1a740d96916fd15117f79c9a105dc0ec5aee6a0a25fec7a43196ba1d3007a76"
+        }
+      ]
     },
     {
       "video_name": "triage",
@@ -238,8 +667,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70"
-      }
+        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "triage/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "triage/SKILL.md",
+              "target": "skills/devops-sre/triage/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "path_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "content_sha256": "23bdbe807afe7312d536ec40c672d2c74c4647f8a79906eb912eff75c4120116",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/devops-sre/triage/SKILL.md",
+          "owner": "triage",
+          "sha256": "23bdbe807afe7312d536ec40c672d2c74c4647f8a79906eb912eff75c4120116"
+        }
+      ]
     },
     {
       "video_name": "gear",
@@ -254,8 +716,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70"
-      }
+        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "gear/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "gear/SKILL.md",
+              "target": "skills/devops-sre/gear/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "path_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "content_sha256": "ab6419da527e54f335efea4afd0bb40d639186ab2a8c7d5a0c0f022d9ce74ee5",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/devops-sre/gear/SKILL.md",
+          "owner": "gear",
+          "sha256": "ab6419da527e54f335efea4afd0bb40d639186ab2a8c7d5a0c0f022d9ce74ee5"
+        }
+      ]
     },
     {
       "video_name": "ledger",
@@ -270,8 +765,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70"
-      }
+        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "ledger/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "ledger/SKILL.md",
+              "target": "skills/finance-investing/ledger/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "path_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "content_sha256": "341d43ad5014be4f209e455276edd6563a6004a0457e3ca8c54b2b46062b97d2",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/finance-investing/ledger/SKILL.md",
+          "owner": "ledger",
+          "sha256": "341d43ad5014be4f209e455276edd6563a6004a0457e3ca8c54b2b46062b97d2"
+        }
+      ]
     },
     {
       "video_name": "helm",
@@ -286,8 +814,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70"
-      }
+        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "helm/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "helm/SKILL.md",
+              "target": "skills/finance-investing/helm/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "path_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "content_sha256": "ea82fb0d9a4c705cde015814acd99bc9f63655228175ae594d7ab81128e2e1ba",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/finance-investing/helm/SKILL.md",
+          "owner": "helm",
+          "sha256": "ea82fb0d9a4c705cde015814acd99bc9f63655228175ae594d7ab81128e2e1ba"
+        }
+      ]
     },
     {
       "video_name": "levy",
@@ -299,7 +860,7 @@
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "levy/SKILL.md",
-        "ref": "main",
+        "ref": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
         "last_checked_at": "2026-07-27",
         "last_synced_at": "2026-06-01",
         "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
@@ -308,7 +869,39 @@
         "archive_reason": "Legacy upstream slug removed after simota repository reorganization.",
         "availability": "missing",
         "missing_since": "2026-07-27"
-      }
+      },
+      "kind": "snapshot",
+      "sync_mode": "local-only",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "levy/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "local-only",
+          "artifacts": [
+            {
+              "source": "levy/SKILL.md",
+              "target": "skills/finance-investing/levy/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "fixed_ref",
+            "ref": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+            "resolved_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+            "path_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+            "content_sha256": "5c819e57a2d68dd72b12aba1a81a2df57e37753350e500553d71a88a993414ab",
+            "last_checked_at": "2026-07-27",
+            "last_synced_at": "2026-06-01"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/finance-investing/levy/SKILL.md",
+          "owner": "levy",
+          "sha256": "5c819e57a2d68dd72b12aba1a81a2df57e37753350e500553d71a88a993414ab"
+        }
+      ]
     },
     {
       "video_name": "growth",
@@ -323,8 +916,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70"
-      }
+        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "growth/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "growth/SKILL.md",
+              "target": "skills/growth-operations-xiaohongshu/growth/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "path_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "content_sha256": "779e10ed0aa0a71b7d204ce8c413e412900c6ce2fcf890cc1b5f497c037025e1",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/growth-operations-xiaohongshu/growth/SKILL.md",
+          "owner": "growth",
+          "sha256": "779e10ed0aa0a71b7d204ce8c413e412900c6ce2fcf890cc1b5f497c037025e1"
+        }
+      ]
     },
     {
       "video_name": "compete",
@@ -339,8 +965,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70"
-      }
+        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "compete/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "compete/SKILL.md",
+              "target": "skills/growth-operations-xiaohongshu/compete/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "path_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "content_sha256": "11bc68f52ad02f5df7a0a66d5a67217c126e8b04aeb159883727d11390ceccff",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/growth-operations-xiaohongshu/compete/SKILL.md",
+          "owner": "compete",
+          "sha256": "11bc68f52ad02f5df7a0a66d5a67217c126e8b04aeb159883727d11390ceccff"
+        }
+      ]
     },
     {
       "video_name": "pulse",
@@ -355,8 +1014,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70"
-      }
+        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "pulse/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "pulse/SKILL.md",
+              "target": "skills/growth-operations-xiaohongshu/pulse/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "path_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "content_sha256": "ba3a7bc644aaf6058534ab9ee2810cdcc63d136933baa3081ea2d2826c673df5",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/growth-operations-xiaohongshu/pulse/SKILL.md",
+          "owner": "pulse",
+          "sha256": "ba3a7bc644aaf6058534ab9ee2810cdcc63d136933baa3081ea2d2826c673df5"
+        }
+      ]
     },
     {
       "video_name": "morph",
@@ -371,8 +1063,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70"
-      }
+        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "morph/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "morph/SKILL.md",
+              "target": "skills/office-white-collar/morph/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "path_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "content_sha256": "860dcb6731d95b887979e1d4616e63c8eca19cc7f4ca0415c59d5d98ed76ed7c",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/office-white-collar/morph/SKILL.md",
+          "owner": "morph",
+          "sha256": "860dcb6731d95b887979e1d4616e63c8eca19cc7f4ca0415c59d5d98ed76ed7c"
+        }
+      ]
     },
     {
       "video_name": "stage",
@@ -387,8 +1112,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70"
-      }
+        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "stage/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "stage/SKILL.md",
+              "target": "skills/office-white-collar/stage/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "path_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "content_sha256": "b447bd9c82f16482f0bb756805eb57592d36f577d94c61b270470cf306f4746a",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/office-white-collar/stage/SKILL.md",
+          "owner": "stage",
+          "sha256": "b447bd9c82f16482f0bb756805eb57592d36f577d94c61b270470cf306f4746a"
+        }
+      ]
     },
     {
       "video_name": "prism",
@@ -400,7 +1158,7 @@
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "prism/SKILL.md",
-        "ref": "main",
+        "ref": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
         "last_checked_at": "2026-07-27",
         "last_synced_at": "2026-06-01",
         "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
@@ -409,7 +1167,39 @@
         "archive_reason": "Legacy upstream slug removed after simota repository reorganization.",
         "availability": "missing",
         "missing_since": "2026-07-27"
-      }
+      },
+      "kind": "snapshot",
+      "sync_mode": "local-only",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "prism/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "local-only",
+          "artifacts": [
+            {
+              "source": "prism/SKILL.md",
+              "target": "skills/office-white-collar/prism/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "fixed_ref",
+            "ref": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+            "resolved_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+            "path_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+            "content_sha256": "ae3ca9e2b7c62d7975075297fe51e82fc8f4e22d47fb049a5f77a1871e587532",
+            "last_checked_at": "2026-07-27",
+            "last_synced_at": "2026-06-01"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/office-white-collar/prism/SKILL.md",
+          "owner": "prism",
+          "sha256": "ae3ca9e2b7c62d7975075297fe51e82fc8f4e22d47fb049a5f77a1871e587532"
+        }
+      ]
     },
     {
       "video_name": "lore",
@@ -424,8 +1214,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70"
-      }
+        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "lore/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "lore/SKILL.md",
+              "target": "skills/knowledge-and-pm-integrations/lore/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "path_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "content_sha256": "fb7bd941f0c701b497e0bfa34d9699492650763653d2c233d567d71ebd22e571",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/knowledge-and-pm-integrations/lore/SKILL.md",
+          "owner": "lore",
+          "sha256": "fb7bd941f0c701b497e0bfa34d9699492650763653d2c233d567d71ebd22e571"
+        }
+      ]
     },
     {
       "video_name": "tome",
@@ -440,8 +1263,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70"
-      }
+        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "tome/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "tome/SKILL.md",
+              "target": "skills/knowledge-and-pm-integrations/tome/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "path_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "content_sha256": "b08b6824ec78031e81c480135b50ba7520402353b2ff4dd6b38e013ff756af74",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/knowledge-and-pm-integrations/tome/SKILL.md",
+          "owner": "tome",
+          "sha256": "b08b6824ec78031e81c480135b50ba7520402353b2ff4dd6b38e013ff756af74"
+        }
+      ]
     },
     {
       "video_name": "grove",
@@ -456,8 +1312,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70"
-      }
+        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "grove/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "grove/SKILL.md",
+              "target": "skills/knowledge-and-pm-integrations/grove/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "path_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "content_sha256": "47dc3ecced05082f8bfb20e8459b11f426b0edf5d3c26d5c288ce1a85986d310",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/knowledge-and-pm-integrations/grove/SKILL.md",
+          "owner": "grove",
+          "sha256": "47dc3ecced05082f8bfb20e8459b11f426b0edf5d3c26d5c288ce1a85986d310"
+        }
+      ]
     },
     {
       "video_name": "crest",
@@ -472,8 +1361,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70"
-      }
+        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "crest/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "crest/SKILL.md",
+              "target": "skills/operations-general/crest/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "path_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "content_sha256": "2f47a7d387886315e8b842918350daec5bf35392bf3538a81f6dfc7a18ac9acb",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/operations-general/crest/SKILL.md",
+          "owner": "crest",
+          "sha256": "2f47a7d387886315e8b842918350daec5bf35392bf3538a81f6dfc7a18ac9acb"
+        }
+      ]
     },
     {
       "video_name": "hearth",
@@ -488,8 +1410,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70"
-      }
+        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "hearth/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "hearth/SKILL.md",
+              "target": "skills/operations-general/hearth/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "path_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "content_sha256": "e654afdb9b4e522eac6205306269ff6ced61108bcc64ea79cecd5f0abbfda1fc",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/operations-general/hearth/SKILL.md",
+          "owner": "hearth",
+          "sha256": "e654afdb9b4e522eac6205306269ff6ced61108bcc64ea79cecd5f0abbfda1fc"
+        }
+      ]
     },
     {
       "video_name": "dawn",
@@ -501,7 +1456,7 @@
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "dawn/SKILL.md",
-        "ref": "main",
+        "ref": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
         "last_checked_at": "2026-07-27",
         "last_synced_at": "2026-05-28",
         "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
@@ -510,7 +1465,39 @@
         "archive_reason": "Legacy upstream slug removed after simota repository reorganization.",
         "availability": "missing",
         "missing_since": "2026-07-27"
-      }
+      },
+      "kind": "snapshot",
+      "sync_mode": "local-only",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "dawn/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "local-only",
+          "artifacts": [
+            {
+              "source": "dawn/SKILL.md",
+              "target": "skills/operations-general/dawn/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "fixed_ref",
+            "ref": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+            "resolved_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+            "path_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+            "content_sha256": "abc5e009bc5ce9733e3464601a1bd93f3404b87dc7380391dfa9f41fdd30b183",
+            "last_checked_at": "2026-07-27",
+            "last_synced_at": "2026-05-28"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/operations-general/dawn/SKILL.md",
+          "owner": "dawn",
+          "sha256": "abc5e009bc5ce9733e3464601a1bd93f3404b87dc7380391dfa9f41fdd30b183"
+        }
+      ]
     },
     {
       "video_name": "voice",
@@ -525,8 +1512,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70"
-      }
+        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "voice/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "voice/SKILL.md",
+              "target": "skills/product-design/voice/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "path_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "content_sha256": "901dab76e7da3111593d9fca1c6f32102806825a8028fc21819fd4ea52e4f22a",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/product-design/voice/SKILL.md",
+          "owner": "voice",
+          "sha256": "901dab76e7da3111593d9fca1c6f32102806825a8028fc21819fd4ea52e4f22a"
+        }
+      ]
     },
     {
       "video_name": "trace",
@@ -541,8 +1561,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70"
-      }
+        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "trace/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "trace/SKILL.md",
+              "target": "skills/product-design/trace/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "path_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "content_sha256": "a9c94a690a83d85385623d96eed0a74ea52ab20a4313a4f3c89e968f6a4d3a23",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/product-design/trace/SKILL.md",
+          "owner": "trace",
+          "sha256": "a9c94a690a83d85385623d96eed0a74ea52ab20a4313a4f3c89e968f6a4d3a23"
+        }
+      ]
     },
     {
       "video_name": "researcher",
@@ -554,7 +1607,7 @@
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "researcher/SKILL.md",
-        "ref": "main",
+        "ref": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
         "last_checked_at": "2026-07-27",
         "last_synced_at": "2026-06-01",
         "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
@@ -563,7 +1616,39 @@
         "archive_reason": "Legacy upstream slug removed after simota repository reorganization.",
         "availability": "missing",
         "missing_since": "2026-07-27"
-      }
+      },
+      "kind": "snapshot",
+      "sync_mode": "local-only",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "researcher/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "local-only",
+          "artifacts": [
+            {
+              "source": "researcher/SKILL.md",
+              "target": "skills/product-design/researcher/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "fixed_ref",
+            "ref": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+            "resolved_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+            "path_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+            "content_sha256": "d32fb51129858c00d7748d78d77ed6fd53543f98af28b2666ce404d9b6a57565",
+            "last_checked_at": "2026-07-27",
+            "last_synced_at": "2026-06-01"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/product-design/researcher/SKILL.md",
+          "owner": "researcher",
+          "sha256": "d32fb51129858c00d7748d78d77ed6fd53543f98af28b2666ce404d9b6a57565"
+        }
+      ]
     },
     {
       "video_name": "breach",
@@ -578,8 +1663,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70"
-      }
+        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "breach/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "breach/SKILL.md",
+              "target": "skills/security-and-reliability/breach/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "path_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "content_sha256": "01e0081d3f8ff15cf74b884cadfefe581ed2808baca3898600005752565e1975",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/security-and-reliability/breach/SKILL.md",
+          "owner": "breach",
+          "sha256": "01e0081d3f8ff15cf74b884cadfefe581ed2808baca3898600005752565e1975"
+        }
+      ]
     },
     {
       "video_name": "cloak",
@@ -594,8 +1712,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70"
-      }
+        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "cloak/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "cloak/SKILL.md",
+              "target": "skills/security-and-reliability/cloak/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "path_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "content_sha256": "7c3a0e49e6f2d75569ec96e994625040d3dc98f27a654b2776fd5d8e8ebc7e2b",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/security-and-reliability/cloak/SKILL.md",
+          "owner": "cloak",
+          "sha256": "7c3a0e49e6f2d75569ec96e994625040d3dc98f27a654b2776fd5d8e8ebc7e2b"
+        }
+      ]
     },
     {
       "video_name": "comply",
@@ -607,7 +1758,7 @@
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "comply/SKILL.md",
-        "ref": "main",
+        "ref": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
         "last_checked_at": "2026-07-27",
         "last_synced_at": "2026-06-01",
         "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
@@ -616,7 +1767,39 @@
         "archive_reason": "Legacy upstream slug removed after simota repository reorganization.",
         "availability": "missing",
         "missing_since": "2026-07-27"
-      }
+      },
+      "kind": "snapshot",
+      "sync_mode": "local-only",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "comply/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "local-only",
+          "artifacts": [
+            {
+              "source": "comply/SKILL.md",
+              "target": "skills/security-and-reliability/comply/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "fixed_ref",
+            "ref": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+            "resolved_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+            "path_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+            "content_sha256": "3e588304796dac5afc5df08915376e5b91bc80542d42259422b360e2d2e0187c",
+            "last_checked_at": "2026-07-27",
+            "last_synced_at": "2026-06-01"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/security-and-reliability/comply/SKILL.md",
+          "owner": "comply",
+          "sha256": "3e588304796dac5afc5df08915376e5b91bc80542d42259422b360e2d2e0187c"
+        }
+      ]
     },
     {
       "video_name": "sketch",
@@ -631,8 +1814,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70"
-      }
+        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "sketch/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "sketch/SKILL.md",
+              "target": "skills/multimodal-media/sketch/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "path_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "content_sha256": "b59f59e44e4ad6c71413defa13f02d9729a1d8a962e96ff00799718f677c6de1",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/multimodal-media/sketch/SKILL.md",
+          "owner": "sketch",
+          "sha256": "b59f59e44e4ad6c71413defa13f02d9729a1d8a962e96ff00799718f677c6de1"
+        }
+      ]
     },
     {
       "video_name": "clay",
@@ -644,7 +1860,7 @@
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "clay/SKILL.md",
-        "ref": "main",
+        "ref": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
         "last_checked_at": "2026-07-27",
         "last_synced_at": "2026-06-01",
         "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
@@ -653,7 +1869,39 @@
         "archive_reason": "Legacy upstream slug removed after simota repository reorganization.",
         "availability": "missing",
         "missing_since": "2026-07-27"
-      }
+      },
+      "kind": "snapshot",
+      "sync_mode": "local-only",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "clay/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "local-only",
+          "artifacts": [
+            {
+              "source": "clay/SKILL.md",
+              "target": "skills/multimodal-media/clay/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "fixed_ref",
+            "ref": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+            "resolved_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+            "path_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+            "content_sha256": "1bf8f74ab113d8bb812adbb14dd4d91ec2e10664d700a0be576097cc68adc0d3",
+            "last_checked_at": "2026-07-27",
+            "last_synced_at": "2026-06-01"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/multimodal-media/clay/SKILL.md",
+          "owner": "clay",
+          "sha256": "1bf8f74ab113d8bb812adbb14dd4d91ec2e10664d700a0be576097cc68adc0d3"
+        }
+      ]
     },
     {
       "video_name": "tone",
@@ -665,7 +1913,7 @@
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "tone/SKILL.md",
-        "ref": "main",
+        "ref": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
         "last_checked_at": "2026-07-27",
         "last_synced_at": "2026-06-01",
         "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
@@ -674,7 +1922,39 @@
         "archive_reason": "Legacy upstream slug removed after simota repository reorganization.",
         "availability": "missing",
         "missing_since": "2026-07-27"
-      }
+      },
+      "kind": "snapshot",
+      "sync_mode": "local-only",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "tone/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "local-only",
+          "artifacts": [
+            {
+              "source": "tone/SKILL.md",
+              "target": "skills/multimodal-media/tone/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "fixed_ref",
+            "ref": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+            "resolved_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+            "path_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+            "content_sha256": "7606feb663d1be1e32e0718d609940f7648c328eef0a1afb90e57024f110941d",
+            "last_checked_at": "2026-07-27",
+            "last_synced_at": "2026-06-01"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/multimodal-media/tone/SKILL.md",
+          "owner": "tone",
+          "sha256": "7606feb663d1be1e32e0718d609940f7648c328eef0a1afb90e57024f110941d"
+        }
+      ]
     },
     {
       "video_name": "scaffold",
@@ -689,8 +1969,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70"
-      }
+        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "scaffold/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "scaffold/SKILL.md",
+              "target": "skills/deployment-platforms/scaffold/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "path_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "content_sha256": "23d47d528279c7530347c07d87774c4ef6b83d419d06e7751b149eb641a52852",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/deployment-platforms/scaffold/SKILL.md",
+          "owner": "scaffold",
+          "sha256": "23d47d528279c7530347c07d87774c4ef6b83d419d06e7751b149eb641a52852"
+        }
+      ]
     },
     {
       "video_name": "pipe",
@@ -705,8 +2018,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70"
-      }
+        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "pipe/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "pipe/SKILL.md",
+              "target": "skills/deployment-platforms/pipe/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "path_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "content_sha256": "559b95dd83f242f04ef351418563630d7c3f5df7f718cc9b8971e96707fe014b",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/deployment-platforms/pipe/SKILL.md",
+          "owner": "pipe",
+          "sha256": "559b95dd83f242f04ef351418563630d7c3f5df7f718cc9b8971e96707fe014b"
+        }
+      ]
     },
     {
       "video_name": "shard",
@@ -721,8 +2067,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70"
-      }
+        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "shard/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "shard/SKILL.md",
+              "target": "skills/deployment-platforms/shard/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "path_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "content_sha256": "6b913b113ca8562aeafad557959931a92fe32d7871c43c90ec7e64780c0dc626",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/deployment-platforms/shard/SKILL.md",
+          "owner": "shard",
+          "sha256": "6b913b113ca8562aeafad557959931a92fe32d7871c43c90ec7e64780c0dc626"
+        }
+      ]
     },
     {
       "video_name": "cast",
@@ -737,8 +2116,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70"
-      }
+        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "cast/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "cast/SKILL.md",
+              "target": "skills/openclaw-memory-and-safety/cast/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "path_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "content_sha256": "614ffa2160bab1085b7fa7bdb449843a15b74144a9b3fc223808a158ad742f86",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/openclaw-memory-and-safety/cast/SKILL.md",
+          "owner": "cast",
+          "sha256": "614ffa2160bab1085b7fa7bdb449843a15b74144a9b3fc223808a158ad742f86"
+        }
+      ]
     },
     {
       "video_name": "omen",
@@ -753,8 +2165,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70"
-      }
+        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "omen/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "omen/SKILL.md",
+              "target": "skills/openclaw-memory-and-safety/omen/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "path_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "content_sha256": "06b17ff5138e3ff89a07fa56b630e76cf4d72520ec371123b4744eb6b3ddbd8e",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/openclaw-memory-and-safety/omen/SKILL.md",
+          "owner": "omen",
+          "sha256": "06b17ff5138e3ff89a07fa56b630e76cf4d72520ec371123b4744eb6b3ddbd8e"
+        }
+      ]
     },
     {
       "video_name": "warden",
@@ -766,7 +2211,7 @@
       "upstream": {
         "repo": "simota/agent-skills",
         "path": "warden/SKILL.md",
-        "ref": "main",
+        "ref": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
         "last_checked_at": "2026-07-27",
         "last_synced_at": "2026-06-01",
         "last_synced_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
@@ -775,7 +2220,39 @@
         "archive_reason": "Legacy upstream slug removed after simota repository reorganization.",
         "availability": "missing",
         "missing_since": "2026-07-27"
-      }
+      },
+      "kind": "snapshot",
+      "sync_mode": "local-only",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "warden/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "local-only",
+          "artifacts": [
+            {
+              "source": "warden/SKILL.md",
+              "target": "skills/openclaw-memory-and-safety/warden/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "fixed_ref",
+            "ref": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+            "resolved_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+            "path_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+            "content_sha256": "3f09ad867923ccac18df034a7290cf1fb08f198dde7caed3086f8a848abf522d",
+            "last_checked_at": "2026-07-27",
+            "last_synced_at": "2026-06-01"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/openclaw-memory-and-safety/warden/SKILL.md",
+          "owner": "warden",
+          "sha256": "3f09ad867923ccac18df034a7290cf1fb08f198dde7caed3086f8a848abf522d"
+        }
+      ]
     },
     {
       "video_name": "lens",
@@ -790,8 +2267,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70"
-      }
+        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "lens/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "lens/SKILL.md",
+              "target": "skills/task-understanding-decomposition/lens/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "path_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "content_sha256": "8bf3f52555332d54743f8d111484027a2892b7b75fd9b125ba54183f7856f141",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/task-understanding-decomposition/lens/SKILL.md",
+          "owner": "lens",
+          "sha256": "8bf3f52555332d54743f8d111484027a2892b7b75fd9b125ba54183f7856f141"
+        }
+      ]
     },
     {
       "video_name": "scout",
@@ -806,8 +2316,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70"
-      }
+        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "scout/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "scout/SKILL.md",
+              "target": "skills/task-understanding-decomposition/scout/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "path_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "content_sha256": "ab6593544ac8fb1c5c9e910ede6b014910cbe9413afb5f798726ccac41affba5",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/task-understanding-decomposition/scout/SKILL.md",
+          "owner": "scout",
+          "sha256": "ab6593544ac8fb1c5c9e910ede6b014910cbe9413afb5f798726ccac41affba5"
+        }
+      ]
     },
     {
       "video_name": "ripple",
@@ -822,8 +2365,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70"
-      }
+        "last_synced_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "simota/agent-skills",
+          "path": "ripple/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "ripple/SKILL.md",
+              "target": "skills/task-understanding-decomposition/ripple/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "path_commit": "2a3b975720432cd2e6fdaf132261f0e9ef75ed70",
+            "content_sha256": "83f2fe5a02e0bfbe5c8e72e9c99a53098720f6504a4177da787e8b2d8c10d2d4",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/task-understanding-decomposition/ripple/SKILL.md",
+          "owner": "ripple",
+          "sha256": "83f2fe5a02e0bfbe5c8e72e9c99a53098720f6504a4177da787e8b2d8c10d2d4"
+        }
+      ]
     }
   ]
 }

@@ -8,10 +8,10 @@
 
 ## 推荐先看
 
+- [aws-solution-architect](./aws-solution-architect/) - 用于 AWS 云架构设计、服务选型、成本优化与 Well-Architected Framework 评估。
 - [cli-demo-generator](./cli-demo-generator/) - 用于CLI、演示、生成，支持开发、调试、评审和交付。
 - [dependency-auditor](./dependency-auditor/) - 用于dependency、审计，支持开发、调试、评审和交付。
 - [migration-architect](./migration-architect/) - 用于migration、架构，支持开发、调试、评审和交付。
-- [qa-expert](./qa-expert/) - 用于质量保障、expert，支持开发、调试、评审和交付。
 
 ## 技能总览
 

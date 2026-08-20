@@ -4,8 +4,8 @@ description: 'Use when users need to operate MCP servers or tools with the mcpor
 zh_description: "用于通过 mcporter CLI 列出、配置、鉴权和调用 MCP 服务器或工具。"
 version: "1.0.1"
 author: community
-source: "in-house"
-source_url: ""
+source: "github:NousResearch/hermes-agent"
+source_url: "https://github.com/NousResearch/hermes-agent/blob/main/skills/mcp/mcporter/SKILL.md"
 license: MIT
 tags: '[MCP, Tools, API, Integrations, Interop]'
 created_at: "2026-04-13"

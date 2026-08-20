@@ -4,8 +4,9 @@ description: 'Use when implementation is complete, all tests pass, and you need 
 zh_description: "用于finishing、development、branch，支持任务规划、执行、评审和验证。"
 version: "1.0.4"
 author: "seaworld008"
-source: "in-house"
-source_url: ""
+source: "github:obra/superpowers"
+source_url: "https://github.com/obra/superpowers/blob/main/skills/finishing-a-development-branch/SKILL.md"
+license: MIT
 tags: '["git", "workflow", "delivery"]'
 created_at: "2026-04-13"
 updated_at: "2026-08-17"

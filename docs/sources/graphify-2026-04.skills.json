@@ -1,4 +1,5 @@
 {
+  "schema_version": 2,
   "video": {
     "url": "https://github.com/Graphify-Labs/graphify",
     "checked_at": "2026-08-18",
@@ -30,8 +31,41 @@
         "ref": "v8",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "62b1d4370b8f8d61dea9a1d952393ae63ad53fa4"
-      }
+        "last_synced_commit": "62b1d4370b8f8d61dea9a1d952393ae63ad53fa4",
+      "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "Graphify-Labs/graphify",
+          "path": "graphify/skill-codex.md",
+          "license": "Apache-2.0",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "graphify/skill-codex.md",
+              "target": "skills/developer-engineering/graphify/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "fixed_ref",
+            "ref": "v8",
+            "resolved_commit": "62b1d4370b8f8d61dea9a1d952393ae63ad53fa4",
+            "path_commit": "62b1d4370b8f8d61dea9a1d952393ae63ad53fa4",
+            "content_sha256": "9b82b9b92e7144d5bce26f83d2a20ffba20930285f312c2c6851eaa566bd8951",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/developer-engineering/graphify/SKILL.md",
+          "owner": "graphify",
+          "sha256": "9b82b9b92e7144d5bce26f83d2a20ffba20930285f312c2c6851eaa566bd8951"
+        }
+      ]
     }
   ],
   "verification_attempts": [

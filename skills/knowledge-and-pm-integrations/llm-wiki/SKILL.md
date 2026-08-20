@@ -4,8 +4,8 @@ description: 'Karpathy''s LLM Wiki: build/query interlinked markdown KB.'
 zh_description: "用于构建、查询和维护 Karpathy 风格的互联 Markdown LLM 知识库。"
 version: "2.0.3"
 author: Hermes Agent
-source: "in-house"
-source_url: ""
+source: "github:NousResearch/hermes-agent"
+source_url: "https://github.com/NousResearch/hermes-agent/blob/main/skills/research/llm-wiki/SKILL.md"
 license: MIT
 tags: '[wiki, knowledge-base, research, notes, markdown, rag-alternative]'
 created_at: "2026-04-13"

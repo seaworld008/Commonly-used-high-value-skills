@@ -5,7 +5,7 @@ zh_description: "用于管理 Agent 能力中心、技能发现、路由和协�
 version: "1.0.8"
 author: "seaworld008"
 source: "github:alirezarezvani/claude-skills"
-source_url: ""
+source_url: "https://github.com/alirezarezvani/claude-skills/blob/main/engineering/agenthub/skills/agenthub/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "hub"]'
 created_at: "2026-03-27"

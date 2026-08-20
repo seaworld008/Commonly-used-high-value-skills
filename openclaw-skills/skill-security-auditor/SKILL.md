@@ -5,7 +5,7 @@ zh_description: "用于技能、安全、审计，支持安全扫描、审计、
 version: "1.0.4"
 author: "seaworld008"
 source: "github:alirezarezvani/claude-skills"
-source_url: ""
+source_url: "https://github.com/alirezarezvani/claude-skills/blob/main/engineering/skills/skill-security-auditor/SKILL.md"
 license: MIT
 tags: '["auditor", "security", "skill"]'
 created_at: "2026-03-27"

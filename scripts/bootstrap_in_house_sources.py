@@ -13,8 +13,14 @@ from copy import deepcopy
 from datetime import date
 from pathlib import Path
 
+try:
+    from provenance_v2 import atomic_write_json, migrate_payload
+except ModuleNotFoundError:  # pragma: no cover - import path used by unit tests
+    from scripts.provenance_v2 import atomic_write_json, migrate_payload
+
 
 CANONICAL_NOTE = "In-house canonical skill (local repository source of truth)."
+PLACEHOLDER_REPO_URL = "https://github.com/your-org/Commonly-used-high-value-skills"
 
 
 def parse_frontmatter_name(skill_md: Path) -> str:
@@ -41,7 +47,7 @@ def load_externally_mapped_repo_skills(root: Path, target_mapping: Path | None =
         for item in data.get("skills", []):
             repo_skill = item.get("repo_skill")
             status = item.get("status")
-            if repo_skill and status and status != "in_house":
+            if repo_skill and status in {"verified_in_repo", "in_house"}:
                 claimed.add(str(repo_skill))
     return claimed
 
@@ -74,7 +80,9 @@ def merge_existing_entry(existing: dict, *, name: str, rel: str, repo_url: str, 
     if status in {"verified_in_repo", "in_house"} or merged.get("normalized_slug") in (None, ""):
         merged["normalized_slug"] = name
 
-    if not merged.get("source"):
+    if status == "in_house":
+        merged["source"] = repo_url
+    elif not merged.get("source"):
         merged["source"] = repo_url
     if not merged.get("notes"):
         merged["notes"] = CANONICAL_NOTE
@@ -90,7 +98,6 @@ def merge_existing_entry(existing: dict, *, name: str, rel: str, repo_url: str, 
     else:
         upstream.setdefault("path", rel.rsplit("/", 1)[0])
         upstream.setdefault("ref", "main")
-        upstream["last_checked_at"] = today
     if upstream:
         merged["upstream"] = upstream
 
@@ -105,6 +112,8 @@ def build_official_references(existing_payload: dict | None, repo_url: str) -> l
             if not isinstance(item, dict):
                 continue
             url = item.get("url")
+            if url == PLACEHOLDER_REPO_URL:
+                continue
             if url and url not in seen_urls:
                 references.append(item)
                 seen_urls.add(url)
@@ -205,7 +214,7 @@ def build_in_house_mapping(
         video["url"] = repo_url
         video["checked_at"] = today
 
-    return {
+    payload = {
         "video": video,
         "official_references": build_official_references(existing_payload, repo_url),
         "skills": skills,
@@ -215,12 +224,16 @@ def build_in_house_mapping(
             skill_count=len(skills),
         ),
     }
+    return migrate_payload(payload, repo_root, local_tracking_date=today)
 
 
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--write-json", default="docs/sources/in-house.skills.json")
-    parser.add_argument("--repo-url", default="https://github.com/your-org/Commonly-used-high-value-skills")
+    parser.add_argument(
+        "--repo-url",
+        default="https://github.com/seaworld008/Commonly-used-high-value-skills",
+    )
     args = parser.parse_args()
 
     root = Path(__file__).resolve().parents[1]
@@ -233,7 +246,7 @@ def main() -> int:
     )
 
     out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    atomic_write_json(out, payload)
     print(f"Wrote in-house mapping: {out.relative_to(root)}")
     print(f"Skills mapped: {len(payload['skills'])}")
     return 0

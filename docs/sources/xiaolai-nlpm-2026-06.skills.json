@@ -1,4 +1,5 @@
 {
+  "schema_version": 2,
   "video": {
     "url": "https://nlpm.com/",
     "checked_at": "2026-08-18",
@@ -52,7 +53,39 @@
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
         "last_synced_commit": "d4ca2d45618334dc86c79a09ab1b2bbe2c47e1d7"
-      }
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "xiaolai/nlpm",
+          "path": "README.md",
+          "license": "ISC",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "README.md",
+              "target": "skills/ai-workflow/nlpm-audit/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "d4ca2d45618334dc86c79a09ab1b2bbe2c47e1d7",
+            "path_commit": "d4ca2d45618334dc86c79a09ab1b2bbe2c47e1d7",
+            "content_sha256": "a604f3831f0a6821ce47c490f291ccbccf2e07befe9e6b85fcbf55ee55f1d844",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/nlpm-audit/SKILL.md",
+          "owner": "nlpm-audit",
+          "sha256": "a604f3831f0a6821ce47c490f291ccbccf2e07befe9e6b85fcbf55ee55f1d844"
+        }
+      ]
     }
   ],
   "verification_attempts": [

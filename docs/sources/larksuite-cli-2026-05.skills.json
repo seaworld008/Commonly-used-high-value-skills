@@ -1,4 +1,5 @@
 {
+  "schema_version": 2,
   "video": {
     "url": "https://github.com/larksuite/cli",
     "checked_at": "2026-08-18",
@@ -30,8 +31,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
-      }
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "larksuite/cli",
+          "path": "skills/lark-approval/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/lark-approval/SKILL.md",
+              "target": "skills/knowledge-and-pm-integrations/lark-approval/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "path_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "content_sha256": "f75f728e1add4f62a254f2f893d91519634d88f62fe5d756ab368dc2e17f5eb5",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-approval/SKILL.md",
+          "owner": "lark-approval",
+          "sha256": "f75f728e1add4f62a254f2f893d91519634d88f62fe5d756ab368dc2e17f5eb5"
+        }
+      ]
     },
     {
       "video_name": "lark-attendance",
@@ -46,8 +80,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
-      }
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "larksuite/cli",
+          "path": "skills/lark-attendance/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/lark-attendance/SKILL.md",
+              "target": "skills/knowledge-and-pm-integrations/lark-attendance/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "path_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "content_sha256": "6e7d7ca4cf69b6baad0eb39ac27a0279918939aba896a735a8fac00e4b0f1ac0",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-attendance/SKILL.md",
+          "owner": "lark-attendance",
+          "sha256": "6e7d7ca4cf69b6baad0eb39ac27a0279918939aba896a735a8fac00e4b0f1ac0"
+        }
+      ]
     },
     {
       "video_name": "lark-base",
@@ -62,8 +129,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
-      }
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "larksuite/cli",
+          "path": "skills/lark-base/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/lark-base/SKILL.md",
+              "target": "skills/knowledge-and-pm-integrations/lark-base/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "path_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "content_sha256": "c8aeddfb368c543a6ed8465d93db6834ad7d2e583a860024e8a5fcf9076f67ad",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-base/SKILL.md",
+          "owner": "lark-base",
+          "sha256": "c8aeddfb368c543a6ed8465d93db6834ad7d2e583a860024e8a5fcf9076f67ad"
+        }
+      ]
     },
     {
       "video_name": "lark-calendar",
@@ -78,8 +178,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
-      }
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "larksuite/cli",
+          "path": "skills/lark-calendar/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/lark-calendar/SKILL.md",
+              "target": "skills/knowledge-and-pm-integrations/lark-calendar/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "path_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "content_sha256": "5323ed83b9d513561064a6f8a79bc10739af900dee73d6310096d79993dc6a64",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-calendar/SKILL.md",
+          "owner": "lark-calendar",
+          "sha256": "5323ed83b9d513561064a6f8a79bc10739af900dee73d6310096d79993dc6a64"
+        }
+      ]
     },
     {
       "video_name": "lark-contact",
@@ -94,8 +227,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
-      }
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "larksuite/cli",
+          "path": "skills/lark-contact/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/lark-contact/SKILL.md",
+              "target": "skills/knowledge-and-pm-integrations/lark-contact/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "path_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "content_sha256": "efe3010dfb69360c5349d9683b61e9b443d3bf5d06304810f8fe24773e8847bf",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-contact/SKILL.md",
+          "owner": "lark-contact",
+          "sha256": "efe3010dfb69360c5349d9683b61e9b443d3bf5d06304810f8fe24773e8847bf"
+        }
+      ]
     },
     {
       "video_name": "lark-doc",
@@ -110,8 +276,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
-      }
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "larksuite/cli",
+          "path": "skills/lark-doc/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/lark-doc/SKILL.md",
+              "target": "skills/knowledge-and-pm-integrations/lark-doc/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "path_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "content_sha256": "4ea2cc9b96ae253dd89608ed76948d21f5a2821f7238c330f36a2475f1a07ada",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-doc/SKILL.md",
+          "owner": "lark-doc",
+          "sha256": "4ea2cc9b96ae253dd89608ed76948d21f5a2821f7238c330f36a2475f1a07ada"
+        }
+      ]
     },
     {
       "video_name": "lark-drive",
@@ -126,8 +325,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
-      }
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "larksuite/cli",
+          "path": "skills/lark-drive/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/lark-drive/SKILL.md",
+              "target": "skills/knowledge-and-pm-integrations/lark-drive/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "path_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "content_sha256": "69ebc8e2a94b44a7d4c82e454c750a1416a2b8bc8c72a18f5fa26b4ecf12efed",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-drive/SKILL.md",
+          "owner": "lark-drive",
+          "sha256": "69ebc8e2a94b44a7d4c82e454c750a1416a2b8bc8c72a18f5fa26b4ecf12efed"
+        }
+      ]
     },
     {
       "video_name": "lark-event",
@@ -142,8 +374,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
-      }
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "larksuite/cli",
+          "path": "skills/lark-event/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/lark-event/SKILL.md",
+              "target": "skills/knowledge-and-pm-integrations/lark-event/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "path_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "content_sha256": "4129f49bb9091217aa50cc427199f4d5653fc6274313c47f88fdedb34ee9063a",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-event/SKILL.md",
+          "owner": "lark-event",
+          "sha256": "4129f49bb9091217aa50cc427199f4d5653fc6274313c47f88fdedb34ee9063a"
+        }
+      ]
     },
     {
       "video_name": "lark-im",
@@ -158,8 +423,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
-      }
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "larksuite/cli",
+          "path": "skills/lark-im/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/lark-im/SKILL.md",
+              "target": "skills/knowledge-and-pm-integrations/lark-im/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "path_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "content_sha256": "67f7cd8ecf045589d578dfc51aeea9c136ef4c8ea1cdd03b392b5650555ad912",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-im/SKILL.md",
+          "owner": "lark-im",
+          "sha256": "67f7cd8ecf045589d578dfc51aeea9c136ef4c8ea1cdd03b392b5650555ad912"
+        }
+      ]
     },
     {
       "video_name": "lark-mail",
@@ -174,8 +472,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
-      }
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "larksuite/cli",
+          "path": "skills/lark-mail/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/lark-mail/SKILL.md",
+              "target": "skills/knowledge-and-pm-integrations/lark-mail/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "path_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "content_sha256": "72d8afb05a8d6bf89796b3b2231ed63da8354e95caa2be59ddf791e97305d477",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-mail/SKILL.md",
+          "owner": "lark-mail",
+          "sha256": "72d8afb05a8d6bf89796b3b2231ed63da8354e95caa2be59ddf791e97305d477"
+        }
+      ]
     },
     {
       "video_name": "lark-markdown",
@@ -190,8 +521,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
-      }
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "larksuite/cli",
+          "path": "skills/lark-markdown/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/lark-markdown/SKILL.md",
+              "target": "skills/knowledge-and-pm-integrations/lark-markdown/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "path_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "content_sha256": "ec74e6609dd0d409075abfeca8484426af1b58cc217cfd345c8e4672854b3b85",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-markdown/SKILL.md",
+          "owner": "lark-markdown",
+          "sha256": "ec74e6609dd0d409075abfeca8484426af1b58cc217cfd345c8e4672854b3b85"
+        }
+      ]
     },
     {
       "video_name": "lark-minutes",
@@ -206,8 +570,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
-      }
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "larksuite/cli",
+          "path": "skills/lark-minutes/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/lark-minutes/SKILL.md",
+              "target": "skills/knowledge-and-pm-integrations/lark-minutes/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "path_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "content_sha256": "73f533d1d72b6e9e43a8565028d605e173d23f64015352a3dbaa1bd51b4d3348",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-minutes/SKILL.md",
+          "owner": "lark-minutes",
+          "sha256": "73f533d1d72b6e9e43a8565028d605e173d23f64015352a3dbaa1bd51b4d3348"
+        }
+      ]
     },
     {
       "video_name": "lark-okr",
@@ -222,8 +619,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
-      }
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "larksuite/cli",
+          "path": "skills/lark-okr/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/lark-okr/SKILL.md",
+              "target": "skills/knowledge-and-pm-integrations/lark-okr/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "path_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "content_sha256": "5a7328d1d9501839f0a72e2ac523ffd33d4f8eb1fd056c35d373fee913f680ce",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-okr/SKILL.md",
+          "owner": "lark-okr",
+          "sha256": "5a7328d1d9501839f0a72e2ac523ffd33d4f8eb1fd056c35d373fee913f680ce"
+        }
+      ]
     },
     {
       "video_name": "lark-openapi-explorer",
@@ -238,8 +668,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
-      }
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "larksuite/cli",
+          "path": "skills/lark-openapi-explorer/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/lark-openapi-explorer/SKILL.md",
+              "target": "skills/knowledge-and-pm-integrations/lark-openapi-explorer/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "path_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "content_sha256": "bc8ad66b8a108c1792235bb203a22c4cdbbce6f382be155b7233832bc15eda3b",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-openapi-explorer/SKILL.md",
+          "owner": "lark-openapi-explorer",
+          "sha256": "bc8ad66b8a108c1792235bb203a22c4cdbbce6f382be155b7233832bc15eda3b"
+        }
+      ]
     },
     {
       "video_name": "lark-shared",
@@ -254,8 +717,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
-      }
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "larksuite/cli",
+          "path": "skills/lark-shared/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/lark-shared/SKILL.md",
+              "target": "skills/knowledge-and-pm-integrations/lark-shared/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "path_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "content_sha256": "59884e9976548bbb0a2f64986c04b8cd21db0e3713ac9ec84a6bb2f373a4c13a",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-shared/SKILL.md",
+          "owner": "lark-shared",
+          "sha256": "59884e9976548bbb0a2f64986c04b8cd21db0e3713ac9ec84a6bb2f373a4c13a"
+        }
+      ]
     },
     {
       "video_name": "lark-sheets",
@@ -270,8 +766,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
-      }
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "larksuite/cli",
+          "path": "skills/lark-sheets/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/lark-sheets/SKILL.md",
+              "target": "skills/knowledge-and-pm-integrations/lark-sheets/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "path_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "content_sha256": "c6f35ea0701e5a9ec89561d288d96b7e4265dbd0cedca8684638ce497c0ef555",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-sheets/SKILL.md",
+          "owner": "lark-sheets",
+          "sha256": "c6f35ea0701e5a9ec89561d288d96b7e4265dbd0cedca8684638ce497c0ef555"
+        }
+      ]
     },
     {
       "video_name": "lark-skill-maker",
@@ -286,8 +815,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
-      }
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "larksuite/cli",
+          "path": "skills/lark-skill-maker/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/lark-skill-maker/SKILL.md",
+              "target": "skills/knowledge-and-pm-integrations/lark-skill-maker/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "path_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "content_sha256": "19e65217a02c544c0db9e0a728d8ef154d5dfd08b542b3db0690c293df92a120",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-skill-maker/SKILL.md",
+          "owner": "lark-skill-maker",
+          "sha256": "19e65217a02c544c0db9e0a728d8ef154d5dfd08b542b3db0690c293df92a120"
+        }
+      ]
     },
     {
       "video_name": "lark-slides",
@@ -302,8 +864,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
-      }
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "larksuite/cli",
+          "path": "skills/lark-slides/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/lark-slides/SKILL.md",
+              "target": "skills/knowledge-and-pm-integrations/lark-slides/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "path_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "content_sha256": "c7c6ba762535ef5013a4168d7ce241947deed5e43e9982d5c0bfdcf480b3b3f3",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-slides/SKILL.md",
+          "owner": "lark-slides",
+          "sha256": "c7c6ba762535ef5013a4168d7ce241947deed5e43e9982d5c0bfdcf480b3b3f3"
+        }
+      ]
     },
     {
       "video_name": "lark-task",
@@ -318,8 +913,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
-      }
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "larksuite/cli",
+          "path": "skills/lark-task/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/lark-task/SKILL.md",
+              "target": "skills/knowledge-and-pm-integrations/lark-task/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "path_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "content_sha256": "100c05bd9afc6c5a8bca09edbedeee4216544a4d1fbec416edf1c5e7d4455ec6",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-task/SKILL.md",
+          "owner": "lark-task",
+          "sha256": "100c05bd9afc6c5a8bca09edbedeee4216544a4d1fbec416edf1c5e7d4455ec6"
+        }
+      ]
     },
     {
       "video_name": "lark-vc",
@@ -334,8 +962,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
-      }
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "larksuite/cli",
+          "path": "skills/lark-vc/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/lark-vc/SKILL.md",
+              "target": "skills/knowledge-and-pm-integrations/lark-vc/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "path_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "content_sha256": "fb014718287e5d41381d1697f44b88d8067fcf32c791fff9b1a388bda60cbf1f",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-vc/SKILL.md",
+          "owner": "lark-vc",
+          "sha256": "fb014718287e5d41381d1697f44b88d8067fcf32c791fff9b1a388bda60cbf1f"
+        }
+      ]
     },
     {
       "video_name": "lark-vc-agent",
@@ -350,8 +1011,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
-      }
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "larksuite/cli",
+          "path": "skills/lark-vc-agent/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/lark-vc-agent/SKILL.md",
+              "target": "skills/knowledge-and-pm-integrations/lark-vc-agent/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "path_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "content_sha256": "f68571eb87f2b39a73be134d29f8cd51c68ef21fa3df3421546e81ed2a300328",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-vc-agent/SKILL.md",
+          "owner": "lark-vc-agent",
+          "sha256": "f68571eb87f2b39a73be134d29f8cd51c68ef21fa3df3421546e81ed2a300328"
+        }
+      ]
     },
     {
       "video_name": "lark-whiteboard",
@@ -366,8 +1060,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
-      }
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "larksuite/cli",
+          "path": "skills/lark-whiteboard/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/lark-whiteboard/SKILL.md",
+              "target": "skills/knowledge-and-pm-integrations/lark-whiteboard/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "path_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "content_sha256": "48f80c0e89a78ff96ab7437c2e793ed101e81b5a3a233a5733574656088d81c0",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-whiteboard/SKILL.md",
+          "owner": "lark-whiteboard",
+          "sha256": "48f80c0e89a78ff96ab7437c2e793ed101e81b5a3a233a5733574656088d81c0"
+        }
+      ]
     },
     {
       "video_name": "lark-wiki",
@@ -382,8 +1109,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
-      }
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "larksuite/cli",
+          "path": "skills/lark-wiki/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/lark-wiki/SKILL.md",
+              "target": "skills/knowledge-and-pm-integrations/lark-wiki/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "path_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "content_sha256": "607e543c15286064aee6399f491876a3000699dce45f78408813133338091a0f",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-wiki/SKILL.md",
+          "owner": "lark-wiki",
+          "sha256": "607e543c15286064aee6399f491876a3000699dce45f78408813133338091a0f"
+        }
+      ]
     },
     {
       "video_name": "lark-workflow-meeting-summary",
@@ -398,8 +1158,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
-      }
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "larksuite/cli",
+          "path": "skills/lark-workflow-meeting-summary/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/lark-workflow-meeting-summary/SKILL.md",
+              "target": "skills/knowledge-and-pm-integrations/lark-workflow-meeting-summary/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "path_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "content_sha256": "8151085041f3c1fb58195dcc8e0a019cc47b496b1cbce4b2d92bd51d2091360e",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-workflow-meeting-summary/SKILL.md",
+          "owner": "lark-workflow-meeting-summary",
+          "sha256": "8151085041f3c1fb58195dcc8e0a019cc47b496b1cbce4b2d92bd51d2091360e"
+        }
+      ]
     },
     {
       "video_name": "lark-workflow-standup-report",
@@ -414,8 +1207,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78"
-      }
+        "last_synced_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "larksuite/cli",
+          "path": "skills/lark-workflow-standup-report/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/lark-workflow-standup-report/SKILL.md",
+              "target": "skills/knowledge-and-pm-integrations/lark-workflow-standup-report/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "path_commit": "315e0ab50c0e6004bb1b790b78cbf7312ef84a78",
+            "content_sha256": "bf92b4d15d9ac89791233c015216ab92ea37852150e13721be9ed164a16ee2ad",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-workflow-standup-report/SKILL.md",
+          "owner": "lark-workflow-standup-report",
+          "sha256": "bf92b4d15d9ac89791233c015216ab92ea37852150e13721be9ed164a16ee2ad"
+        }
+      ]
     }
   ]
 }

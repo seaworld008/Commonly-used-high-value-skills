@@ -17,11 +17,20 @@ jobs:
         with:
           python-version: "3.13"
 
+      - name: Install test dependencies
+        run: python -m pip install pyyaml pytest
+
       - name: Check merge conflict markers
         run: python3 scripts/check_merge_conflicts.py
 
-      - name: Run provenance tests
-        run: python3 -m unittest tests.test_provenance_pipeline -v
+      - name: Run provenance v2 contract tests
+        run: python -m pytest -q tests/test_provenance_v2.py
+
+      - name: Run complete repository test suite
+        run: python -m pytest -q tests
 
       - name: Run unified provenance pipeline
         run: python3 scripts/provenance_pipeline.py --mode all --config docs/sources/provenance.config.json
+
+      - name: Ensure provenance mappings are up to date
+        run: git diff --exit-code -- docs/sources

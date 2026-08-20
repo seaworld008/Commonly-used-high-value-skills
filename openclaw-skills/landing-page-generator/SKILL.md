@@ -5,7 +5,7 @@ zh_description: "用于落地页、page、生成，支持产品研究、策略�
 version: "1.0.6"
 author: "seaworld008"
 source: "github:alirezarezvani/claude-skills"
-source_url: ""
+source_url: "https://github.com/alirezarezvani/claude-skills/blob/main/product-team/skills/landing-page-generator/SKILL.md"
 license: MIT
 tags: '["design", "generator", "landing", "page", "product"]'
 created_at: "2026-03-27"

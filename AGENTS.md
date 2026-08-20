@@ -32,6 +32,7 @@ docs/TAGS-INDEX.md                    ← Cross-category tag-based index
 10. **Treat warning sources differently** — distinguish between actionable repository regressions (quality lint, missing frontmatter, generated diff drift) and external-state noise (GitHub API rate limits, exploratory `404` upstream paths, temporary DNS failures). Fix the former in the same run; report the latter with enough detail to retry or repair provenance later.
 11. **Chinese public docs must stay Chinese** — every newly added or materially updated skill must include a short, plain `zh_description` frontmatter field. `description` may stay English for Codex/Claude trigger quality, but generated Chinese surfaces (`README.md` and `skills/*/README.md`) must use concise Chinese text, not copied English descriptions.
 12. **Prefer staged pull requests for recurring maintenance** — if the run includes both a focused additive change (for example a new skill) and a broad upstream sync, split them into separate `codex/` branches and PRs so review and rollback stay manageable.
+13. **Provenance v2 is mandatory** — active mappings must use explicit `kind`, `origins[]`, `artifacts[]`, owned `managed_files[]`, and dependency locks for composites. Default branches and canary channels are monitor-only; automatic replacement is limited to reviewed stable releases or immutable fixed refs.
 
 ---
 
@@ -105,7 +106,9 @@ Step 4: PIPELINE — Run full refresh and validation
   ├── python scripts/lint_skill_quality.py --min-lines 50
   ├── python scripts/audit_skill_portfolio.py --check-policy
   ├── python scripts/audit_licenses.py
-  ├── python -m unittest discover tests -v
+  ├── python scripts/validate_skill_sources.py
+  ├── python scripts/check_source_coverage.py --min-percent 100
+  ├── python -m pytest -q tests
   └── git diff --exit-code  (verify generated files are committed)
 
 Step 5: COMMIT & PUSH
@@ -125,11 +128,14 @@ Step 5: COMMIT & PUSH
 Step 1: CHECK UPSTREAM — Scan for updated skills
   ├── Run: python scripts/sync_upstream.py --check-only
   │   (Reads docs/sources/in-house.skills.json, checks upstream repos for new commits, and should reuse local `gh` auth if env tokens are absent)
+  │   (`--check-only` is strictly read-only; add `--record-check` only when timestamps should be persisted)
   └── Output: list of skills with available updates and their diffs
 
 Step 2: APPLY UPDATES
-  ├── Run: python scripts/sync_upstream.py --apply
-  │   (Downloads latest SKILL.md from upstream, replaces local, updates metadata)
+  ├── Stable release / immutable fixed ref: run python scripts/sync_upstream.py --apply
+  │   (Downloads the reviewed artifact set, replaces managed files, updates metadata)
+  ├── Default branch / canary: monitor the commit range and record the curation decision;
+  │   never automatically replace canonical content
   ├── For each updated skill:
   │   ├── Preserve local frontmatter enrichments (tags, quality, etc.)
   │   ├── Update: updated_at, version (bump patch)
@@ -234,7 +240,8 @@ complexity: intermediate            # beginner | intermediate | advanced
 |--------|---------|-------------|
 | `discover_new_skills.py` | Search GitHub/skills.sh/ClawHub for new skills | Operation 1, Step 1 |
 | `ingest_skill.py` | Register a new skill's provenance and enrich metadata | Operation 1, Step 3 |
-| `sync_upstream.py` | Check and apply upstream updates | Operation 2 |
+| `sync_upstream.py` | Read-only checks, explicit check recording, and policy-gated apply | Operation 2 |
+| `migrate_provenance_v2.py` | Migrate source mappings and explicitly refresh managed digests | After provenance changes |
 | `enrich_frontmatter.py` | Auto-fill missing frontmatter fields | After any skill addition |
 | `bootstrap_in_house_sources.py` | Regenerate provenance mapping | After any skill addition |
 | `refresh_repo_views.py` | Regenerate category READMEs + openclaw export | After any change |
@@ -259,10 +266,10 @@ python scripts/check_readme_sync.py && \
 python scripts/lint_skill_quality.py --min-lines 50 && \
 python scripts/audit_skill_portfolio.py --check-policy && \
 python scripts/audit_licenses.py && \
-python -m unittest discover tests -v
+python -m pytest -q tests
 ```
 
 Windows (PowerShell):
 ```powershell
-python scripts/enrich_frontmatter.py; python scripts/bootstrap_in_house_sources.py --write-json docs/sources/in-house.skills.json; python scripts/refresh_repo_views.py; python scripts/generate_tags_index.py; python scripts/build_catalog_json.py; python scripts/check_readme_sync.py; python scripts/lint_skill_quality.py --min-lines 50; python scripts/audit_skill_portfolio.py --check-policy; python scripts/audit_licenses.py; python -m unittest discover tests -v
+python scripts/enrich_frontmatter.py; python scripts/bootstrap_in_house_sources.py --write-json docs/sources/in-house.skills.json; python scripts/refresh_repo_views.py; python scripts/generate_tags_index.py; python scripts/build_catalog_json.py; python scripts/check_readme_sync.py; python scripts/lint_skill_quality.py --min-lines 50; python scripts/audit_skill_portfolio.py --check-policy; python scripts/audit_licenses.py; python -m pytest -q tests
 ```

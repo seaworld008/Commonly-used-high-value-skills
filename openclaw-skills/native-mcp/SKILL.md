@@ -4,8 +4,8 @@ description: 'Built-in MCP (Model Context Protocol) client that connects to exte
 zh_description: "用于构建和调试原生 MCP 集成、服务器和工具调用流程。"
 version: 1.0.0
 author: Hermes Agent
-source: "in-house"
-source_url: ""
+source: "github:NousResearch/hermes-agent"
+source_url: "https://github.com/NousResearch/hermes-agent/blob/main/skills/mcp/native-mcp/SKILL.md"
 license: MIT
 tags: '[MCP, Tools, Integrations]'
 created_at: "2026-04-13"

@@ -1,4 +1,5 @@
 {
+  "schema_version": 2,
   "video": {
     "url": "https://www.youtube.com/watch?v=2nP0YCjM_hk",
     "checked_at": "2026-03-22",
@@ -18,39 +19,281 @@
       "status": "not_a_skill",
       "repo_skill": null,
       "source": "https://docs.openclaw.ai/tools/skills",
-      "notes": "ClawHub is the public skill registry and CLI workflow, not an installable skill package."
+      "notes": "ClawHub is the public skill registry and CLI workflow, not an installable skill package.",
+      "kind": "reference_only",
+      "sync_mode": "local-only",
+      "origins": [],
+      "managed_files": []
     },
     {
       "video_name": "Find skills",
       "normalized_slug": "find-skills",
-      "status": "verified_in_repo",
+      "status": "in_house",
       "repo_skill": "skills/ai-workflow/find-skills/SKILL.md",
       "source": "https://www.clawhub.com",
       "notes": "Skill slug matches repository entry.",
       "upstream": {
         "repo": "local-repo/in-house",
-        "path": "skills/ai-workflow/find-skills/SKILL.md",
+        "path": "skills/ai-workflow/find-skills",
         "ref": "main",
         "last_checked_at": "2026-04-13",
         "last_synced_at": "2026-04-13",
-        "last_synced_commit": null
-      }
+        "last_synced_commit": null,
+        "sync_mode": "local-only"
+      },
+      "kind": "in_house",
+      "sync_mode": "local-only",
+      "origins": [
+        {
+          "repo": "local-repo/in-house",
+          "path": "skills/ai-workflow/find-skills",
+          "license": "MIT",
+          "sync_mode": "local-only",
+          "artifacts": [
+            {
+              "source": "skills/ai-workflow/find-skills/SKILL.md",
+              "target": "skills/ai-workflow/find-skills/SKILL.md",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "local",
+            "ref": "main",
+            "resolved_commit": null,
+            "path_commit": null,
+            "content_sha256": "2b14eec09d81d0c1bed624eabeda7b1642fae5ee33001df3b17c2bc76ded9eb8",
+            "last_checked_at": "2026-04-13",
+            "last_synced_at": "2026-04-13"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/find-skills/SKILL.md",
+          "owner": "find-skills",
+          "sha256": "2b14eec09d81d0c1bed624eabeda7b1642fae5ee33001df3b17c2bc76ded9eb8"
+        }
+      ]
     },
     {
       "video_name": "Skill create",
       "normalized_slug": "skill-creator",
-      "status": "verified_in_repo",
+      "status": "in_house",
       "repo_skill": "skills/ai-workflow/skill-creator/SKILL.md",
       "source": "https://www.clawhub.com",
       "notes": "Repository canonical skill is skill-creator.",
       "upstream": {
         "repo": "local-repo/in-house",
-        "path": "skills/ai-workflow/skill-creator/SKILL.md",
+        "path": "skills/ai-workflow/skill-creator",
         "ref": "main",
         "last_checked_at": "2026-04-13",
         "last_synced_at": "2026-04-13",
-        "last_synced_commit": null
-      }
+        "last_synced_commit": null,
+        "sync_mode": "local-only"
+      },
+      "kind": "in_house",
+      "sync_mode": "local-only",
+      "origins": [
+        {
+          "repo": "local-repo/in-house",
+          "path": "skills/ai-workflow/skill-creator",
+          "license": "MIT",
+          "sync_mode": "local-only",
+          "artifacts": [
+            {
+              "source": "skills/ai-workflow/skill-creator/LICENSE.txt",
+              "target": "skills/ai-workflow/skill-creator/LICENSE.txt",
+              "type": "file"
+            },
+            {
+              "source": "skills/ai-workflow/skill-creator/SKILL.md",
+              "target": "skills/ai-workflow/skill-creator/SKILL.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/ai-workflow/skill-creator/agents/analyzer.md",
+              "target": "skills/ai-workflow/skill-creator/agents/analyzer.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/ai-workflow/skill-creator/agents/comparator.md",
+              "target": "skills/ai-workflow/skill-creator/agents/comparator.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/ai-workflow/skill-creator/agents/grader.md",
+              "target": "skills/ai-workflow/skill-creator/agents/grader.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/ai-workflow/skill-creator/assets/eval_review.html",
+              "target": "skills/ai-workflow/skill-creator/assets/eval_review.html",
+              "type": "file"
+            },
+            {
+              "source": "skills/ai-workflow/skill-creator/eval-viewer/generate_review.py",
+              "target": "skills/ai-workflow/skill-creator/eval-viewer/generate_review.py",
+              "type": "file"
+            },
+            {
+              "source": "skills/ai-workflow/skill-creator/eval-viewer/viewer.html",
+              "target": "skills/ai-workflow/skill-creator/eval-viewer/viewer.html",
+              "type": "file"
+            },
+            {
+              "source": "skills/ai-workflow/skill-creator/references/schemas.md",
+              "target": "skills/ai-workflow/skill-creator/references/schemas.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/ai-workflow/skill-creator/scripts/__init__.py",
+              "target": "skills/ai-workflow/skill-creator/scripts/__init__.py",
+              "type": "file"
+            },
+            {
+              "source": "skills/ai-workflow/skill-creator/scripts/aggregate_benchmark.py",
+              "target": "skills/ai-workflow/skill-creator/scripts/aggregate_benchmark.py",
+              "type": "file"
+            },
+            {
+              "source": "skills/ai-workflow/skill-creator/scripts/generate_report.py",
+              "target": "skills/ai-workflow/skill-creator/scripts/generate_report.py",
+              "type": "file"
+            },
+            {
+              "source": "skills/ai-workflow/skill-creator/scripts/improve_description.py",
+              "target": "skills/ai-workflow/skill-creator/scripts/improve_description.py",
+              "type": "file"
+            },
+            {
+              "source": "skills/ai-workflow/skill-creator/scripts/package_skill.py",
+              "target": "skills/ai-workflow/skill-creator/scripts/package_skill.py",
+              "type": "file"
+            },
+            {
+              "source": "skills/ai-workflow/skill-creator/scripts/quick_validate.py",
+              "target": "skills/ai-workflow/skill-creator/scripts/quick_validate.py",
+              "type": "file"
+            },
+            {
+              "source": "skills/ai-workflow/skill-creator/scripts/run_eval.py",
+              "target": "skills/ai-workflow/skill-creator/scripts/run_eval.py",
+              "type": "file"
+            },
+            {
+              "source": "skills/ai-workflow/skill-creator/scripts/run_loop.py",
+              "target": "skills/ai-workflow/skill-creator/scripts/run_loop.py",
+              "type": "file"
+            },
+            {
+              "source": "skills/ai-workflow/skill-creator/scripts/utils.py",
+              "target": "skills/ai-workflow/skill-creator/scripts/utils.py",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "local",
+            "ref": "main",
+            "resolved_commit": null,
+            "path_commit": null,
+            "content_sha256": "a5a7f96ca64cc391cad89ad0791b5ff96abdd2ea281ed89e75c16a6634955936",
+            "last_checked_at": "2026-04-13",
+            "last_synced_at": "2026-04-13"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/skill-creator/LICENSE.txt",
+          "owner": "skill-creator",
+          "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
+        },
+        {
+          "path": "skills/ai-workflow/skill-creator/SKILL.md",
+          "owner": "skill-creator",
+          "sha256": "a5a7f96ca64cc391cad89ad0791b5ff96abdd2ea281ed89e75c16a6634955936"
+        },
+        {
+          "path": "skills/ai-workflow/skill-creator/agents/analyzer.md",
+          "owner": "skill-creator",
+          "sha256": "bf68f4cac5a56c673a928c2e6d619586c5b93ea364026ab37547772cb45a663a"
+        },
+        {
+          "path": "skills/ai-workflow/skill-creator/agents/comparator.md",
+          "owner": "skill-creator",
+          "sha256": "fe1fc9787c495d864c5d6eada47396478572325fde1b33a96d78bf4b849b7a3e"
+        },
+        {
+          "path": "skills/ai-workflow/skill-creator/agents/grader.md",
+          "owner": "skill-creator",
+          "sha256": "57134da0c1a4eea33fbd74a1c9c44aa814f07d6bc64de303edb586f941e5d21a"
+        },
+        {
+          "path": "skills/ai-workflow/skill-creator/assets/eval_review.html",
+          "owner": "skill-creator",
+          "sha256": "ce477dcc74dc1c0d1d3352646a79167b5a63634e936b1019160025065974e452"
+        },
+        {
+          "path": "skills/ai-workflow/skill-creator/eval-viewer/generate_review.py",
+          "owner": "skill-creator",
+          "sha256": "fc9d1b9243fe5ab6012ebd579bd76d0035de1b79fd3b969de114defab26478fb"
+        },
+        {
+          "path": "skills/ai-workflow/skill-creator/eval-viewer/viewer.html",
+          "owner": "skill-creator",
+          "sha256": "a53213426ee1100441d701a3a0d49cda7a842f992d2c36463f4d3cc0258575fa"
+        },
+        {
+          "path": "skills/ai-workflow/skill-creator/references/schemas.md",
+          "owner": "skill-creator",
+          "sha256": "8e8876180a8989b406a4d3edddf875b04cdfd5805cc8616686d552b11ce4455f"
+        },
+        {
+          "path": "skills/ai-workflow/skill-creator/scripts/__init__.py",
+          "owner": "skill-creator",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "skills/ai-workflow/skill-creator/scripts/aggregate_benchmark.py",
+          "owner": "skill-creator",
+          "sha256": "123ef128ea5ccc01a4b1ac212ef5567f21e9c13d3d240609780beeb3200c49aa"
+        },
+        {
+          "path": "skills/ai-workflow/skill-creator/scripts/generate_report.py",
+          "owner": "skill-creator",
+          "sha256": "13df7118a3c50c83c4c3250a606d5f2b20b25a3d44cbc392b3d669ec75281453"
+        },
+        {
+          "path": "skills/ai-workflow/skill-creator/scripts/improve_description.py",
+          "owner": "skill-creator",
+          "sha256": "0dc43232db7ac6361775c894f4a1dbac958cb510c51a1230ff9e7fb30a74a7e8"
+        },
+        {
+          "path": "skills/ai-workflow/skill-creator/scripts/package_skill.py",
+          "owner": "skill-creator",
+          "sha256": "1a33059b0db1ef73375d46d513e5ea81369d2e8838c970597b0d52ddef8d1c0f"
+        },
+        {
+          "path": "skills/ai-workflow/skill-creator/scripts/quick_validate.py",
+          "owner": "skill-creator",
+          "sha256": "67cf5703402013936c8fb75ad6a1afecd8841d45cc5e606b634eb05825fde365"
+        },
+        {
+          "path": "skills/ai-workflow/skill-creator/scripts/run_eval.py",
+          "owner": "skill-creator",
+          "sha256": "43e3b8f80dbf69c343967ba77e268fae991d9fa3ed68b32a0ff02532cd48657f"
+        },
+        {
+          "path": "skills/ai-workflow/skill-creator/scripts/run_loop.py",
+          "owner": "skill-creator",
+          "sha256": "bafdb8e25c740813c735c54bf0489b9e87146da4cf697265927513c5430112d7"
+        },
+        {
+          "path": "skills/ai-workflow/skill-creator/scripts/utils.py",
+          "owner": "skill-creator",
+          "sha256": "3af8ae62c40c73ab712207436a0d9a981e845f25c5a7040229eb189cc8e45bb1"
+        }
+      ]
     },
     {
       "video_name": "Web Search",
@@ -65,40 +308,130 @@
         "ref": "main",
         "last_checked_at": "2026-04-13",
         "last_synced_at": "2026-04-13",
-        "last_synced_commit": null
-      }
+        "last_synced_commit": null,
+        "sync_mode": "archived"
+      },
+      "kind": "reference_only",
+      "sync_mode": "archived",
+      "origins": [
+        {
+          "repo": "local-repo/in-house",
+          "path": "skills/task-understanding-decomposition/tavily-search/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "archived",
+          "artifacts": [],
+          "tracking": {
+            "channel": "local",
+            "ref": "main",
+            "resolved_commit": null,
+            "path_commit": null,
+            "content_sha256": null,
+            "last_checked_at": "2026-04-13",
+            "last_synced_at": "2026-04-13"
+          }
+        }
+      ],
+      "managed_files": []
     },
     {
       "video_name": "Agent browse",
       "normalized_slug": "agent-browser",
-      "status": "verified_in_repo",
+      "status": "in_house",
       "repo_skill": "skills/engineering-workflow-automation/agent-browser/SKILL.md",
       "source": "https://www.clawhub.com",
       "notes": "Repository canonical skill is agent-browser.",
       "upstream": {
         "repo": "local-repo/in-house",
-        "path": "skills/engineering-workflow-automation/agent-browser/SKILL.md",
+        "path": "skills/engineering-workflow-automation/agent-browser",
         "ref": "main",
         "last_checked_at": "2026-04-13",
         "last_synced_at": "2026-04-13",
-        "last_synced_commit": null
-      }
+        "last_synced_commit": null,
+        "sync_mode": "local-only"
+      },
+      "kind": "in_house",
+      "sync_mode": "local-only",
+      "origins": [
+        {
+          "repo": "local-repo/in-house",
+          "path": "skills/engineering-workflow-automation/agent-browser",
+          "license": "MIT",
+          "sync_mode": "local-only",
+          "artifacts": [
+            {
+              "source": "skills/engineering-workflow-automation/agent-browser/SKILL.md",
+              "target": "skills/engineering-workflow-automation/agent-browser/SKILL.md",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "local",
+            "ref": "main",
+            "resolved_commit": null,
+            "path_commit": null,
+            "content_sha256": "481d9840cd780b9bb966b58ca8b035b02eb9202029be07070a79a520ffd4ad81",
+            "last_checked_at": "2026-04-13",
+            "last_synced_at": "2026-04-13"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/engineering-workflow-automation/agent-browser/SKILL.md",
+          "owner": "agent-browser",
+          "sha256": "481d9840cd780b9bb966b58ca8b035b02eb9202029be07070a79a520ffd4ad81"
+        }
+      ]
     },
     {
       "video_name": "Self-improving agent",
       "normalized_slug": "self-improving-agent",
-      "status": "verified_in_repo",
+      "status": "in_house",
       "repo_skill": "skills/ai-agent-platform/self-improving-agent/SKILL.md",
       "source": "https://www.clawhub.com",
       "notes": "Skill exists in canonical tree.",
       "upstream": {
         "repo": "local-repo/in-house",
-        "path": "skills/ai-agent-platform/self-improving-agent/SKILL.md",
+        "path": "skills/ai-agent-platform/self-improving-agent",
         "ref": "main",
         "last_checked_at": "2026-04-13",
         "last_synced_at": "2026-04-13",
-        "last_synced_commit": null
-      }
+        "last_synced_commit": null,
+        "sync_mode": "local-only"
+      },
+      "kind": "in_house",
+      "sync_mode": "local-only",
+      "origins": [
+        {
+          "repo": "local-repo/in-house",
+          "path": "skills/ai-agent-platform/self-improving-agent",
+          "license": "MIT",
+          "sync_mode": "local-only",
+          "artifacts": [
+            {
+              "source": "skills/ai-agent-platform/self-improving-agent/SKILL.md",
+              "target": "skills/ai-agent-platform/self-improving-agent/SKILL.md",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "local",
+            "ref": "main",
+            "resolved_commit": null,
+            "path_commit": null,
+            "content_sha256": "f72ab46587e8c963916f3bc08779f5b61818b775944c1290121f8db8543dd7e6",
+            "last_checked_at": "2026-04-13",
+            "last_synced_at": "2026-04-13"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-agent-platform/self-improving-agent/SKILL.md",
+          "owner": "self-improving-agent",
+          "sha256": "f72ab46587e8c963916f3bc08779f5b61818b775944c1290121f8db8543dd7e6"
+        }
+      ]
     },
     {
       "video_name": "Proactive agent",
@@ -113,8 +446,30 @@
         "ref": "main",
         "last_checked_at": "2026-04-13",
         "last_synced_at": "2026-04-13",
-        "last_synced_commit": null
-      }
+        "last_synced_commit": null,
+        "sync_mode": "archived"
+      },
+      "kind": "reference_only",
+      "sync_mode": "archived",
+      "origins": [
+        {
+          "repo": "local-repo/in-house",
+          "path": "skills/ai-agent-platform/proactive-agent/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "archived",
+          "artifacts": [],
+          "tracking": {
+            "channel": "local",
+            "ref": "main",
+            "resolved_commit": null,
+            "path_commit": null,
+            "content_sha256": null,
+            "last_checked_at": "2026-04-13",
+            "last_synced_at": "2026-04-13"
+          }
+        }
+      ],
+      "managed_files": []
     },
     {
       "video_name": "Summarize",
@@ -129,8 +484,30 @@
         "ref": "main",
         "last_checked_at": "2026-04-13",
         "last_synced_at": "2026-04-13",
-        "last_synced_commit": null
-      }
+        "last_synced_commit": null,
+        "sync_mode": "archived"
+      },
+      "kind": "reference_only",
+      "sync_mode": "archived",
+      "origins": [
+        {
+          "repo": "local-repo/in-house",
+          "path": "skills/multimodal-media/summarize/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "archived",
+          "artifacts": [],
+          "tracking": {
+            "channel": "local",
+            "ref": "main",
+            "resolved_commit": null,
+            "path_commit": null,
+            "content_sha256": null,
+            "last_checked_at": "2026-04-13",
+            "last_synced_at": "2026-04-13"
+          }
+        }
+      ],
+      "managed_files": []
     }
   ],
   "verification_attempts": [

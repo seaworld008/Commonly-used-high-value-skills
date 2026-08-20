@@ -4,8 +4,9 @@ description: 'Use when users need to read, search, create, edit, organize, or cr
 zh_description: "用于读取、搜索、创建和编辑 Obsidian 知识库笔记，并维护 Markdown 结构和链接关系。"
 version: "1.0.3"
 author: "seaworld008"
-source: "in-house"
-source_url: ""
+source: "github:NousResearch/hermes-agent"
+source_url: "https://github.com/NousResearch/hermes-agent/blob/main/skills/note-taking/obsidian/SKILL.md"
+license: MIT
 tags: '["obsidian", "notes", "knowledge-base"]'
 created_at: "2026-04-13"
 updated_at: "2026-06-29"

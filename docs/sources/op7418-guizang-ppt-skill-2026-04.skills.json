@@ -1,4 +1,5 @@
 {
+  "schema_version": 2,
   "video": {
     "url": "https://github.com/op7418/guizang-ppt-skill",
     "checked_at": "2026-08-18",
@@ -25,8 +26,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "72837a8513d1145d800095fc3909d6d3057994b8"
-      }
+        "last_synced_commit": "72837a8513d1145d800095fc3909d6d3057994b8",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "op7418/guizang-ppt-skill",
+          "path": "SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "SKILL.md",
+              "target": "skills/office-white-collar/guizang-ppt-skill/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "72837a8513d1145d800095fc3909d6d3057994b8",
+            "path_commit": "72837a8513d1145d800095fc3909d6d3057994b8",
+            "content_sha256": "81b5ae2f3477b29f2e4834787859802aa7defcd46227b77bce457d3d7cf1c390",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/office-white-collar/guizang-ppt-skill/SKILL.md",
+          "owner": "guizang-ppt-skill",
+          "sha256": "81b5ae2f3477b29f2e4834787859802aa7defcd46227b77bce457d3d7cf1c390"
+        }
+      ]
     }
   ],
   "verification_attempts": [

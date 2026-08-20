@@ -4,8 +4,9 @@ description: 'Use when about to claim work is complete, fixed, or passing, befor
 zh_description: "用于verification、before、completion，支持任务规划、执行、评审和验证。"
 version: "1.0.1"
 author: "seaworld008"
-source: "in-house"
-source_url: ""
+source: "github:obra/superpowers"
+source_url: "https://skills.sh/obra/superpowers/verification-before-completion"
+license: MIT
 tags: '["verification", "workflow", "quality-gate"]'
 created_at: "2026-04-13"
 updated_at: "2026-07-27"

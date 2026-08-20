@@ -4,8 +4,8 @@ description: 'Configure and use Honcho memory with Hermes -- cross-session user 
 zh_description: "用于管理 Agent 记忆、运行状态、协作上下文和安全边界。"
 version: "1.0.2"
 author: Hermes Agent
-source: "in-house"
-source_url: ""
+source: "github:NousResearch/hermes-agent"
+source_url: "https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/autonomous-ai-agents/honcho/SKILL.md"
 license: MIT
 tags: '[Honcho, Memory, Profiles, Observation, Dialectic, User-Modeling]'
 created_at: "2026-04-13"

@@ -1,4 +1,5 @@
 {
+  "schema_version": 2,
   "video": {
     "url": "https://github.com/alirezarezvani/claude-skills",
     "checked_at": "2026-08-18",
@@ -27,7 +28,39 @@
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
         "last_synced_commit": "aa8d778811a557a2c28ccadda4cf3d0bd028a4cc"
-      }
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "alirezarezvani/claude-skills",
+          "path": "engineering/agenthub/skills/agenthub/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "engineering/agenthub/skills/agenthub/SKILL.md",
+              "target": "skills/ai-agent-platform/agent-hub/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "aa8d778811a557a2c28ccadda4cf3d0bd028a4cc",
+            "path_commit": "aa8d778811a557a2c28ccadda4cf3d0bd028a4cc",
+            "content_sha256": "387d7d7ea145c1779276f316313d89ac62c469f900b5dfb8e4e55aa0a765f7a3",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-agent-platform/agent-hub/SKILL.md",
+          "owner": "agent-hub",
+          "sha256": "387d7d7ea145c1779276f316313d89ac62c469f900b5dfb8e4e55aa0a765f7a3"
+        }
+      ]
     },
     {
       "video_name": "security-pen-testing",
@@ -42,8 +75,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": null
-      }
+        "last_synced_commit": "aa8d778811a557a2c28ccadda4cf3d0bd028a4cc",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "alirezarezvani/claude-skills",
+          "path": "engineering-team/skills/security-pen-testing/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "engineering-team/skills/security-pen-testing/SKILL.md",
+              "target": "skills/security-and-reliability/security-pen-testing/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "aa8d778811a557a2c28ccadda4cf3d0bd028a4cc",
+            "path_commit": "b99505446a787228e776bf51b49d8f4b5939e203",
+            "content_sha256": "3d5f04c0e983706af28bab77938a3b4e0b312d74dccf1c28ff80cc805955eb57",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/security-and-reliability/security-pen-testing/SKILL.md",
+          "owner": "security-pen-testing",
+          "sha256": "3d5f04c0e983706af28bab77938a3b4e0b312d74dccf1c28ff80cc805955eb57"
+        }
+      ]
     },
     {
       "video_name": "information-security-manager-iso27001",
@@ -58,8 +124,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": null
-      }
+        "last_synced_commit": "aa8d778811a557a2c28ccadda4cf3d0bd028a4cc",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "alirezarezvani/claude-skills",
+          "path": "ra-qm-team/skills/information-security-manager-iso27001/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "ra-qm-team/skills/information-security-manager-iso27001/SKILL.md",
+              "target": "skills/security-and-reliability/information-security-manager-iso27001/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "aa8d778811a557a2c28ccadda4cf3d0bd028a4cc",
+            "path_commit": "aecfb8e0bb71dbf1413082f86b33a5c4c9b8f416",
+            "content_sha256": "4c4a0abe72a34ebb8c14fd70ec4e89e0028698555aa73ac4cf11103772cca2b7",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/security-and-reliability/information-security-manager-iso27001/SKILL.md",
+          "owner": "information-security-manager-iso27001",
+          "sha256": "4c4a0abe72a34ebb8c14fd70ec4e89e0028698555aa73ac4cf11103772cca2b7"
+        }
+      ]
     },
     {
       "video_name": "landing-page-generator",
@@ -74,8 +173,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": null
-      }
+        "last_synced_commit": "aa8d778811a557a2c28ccadda4cf3d0bd028a4cc",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "alirezarezvani/claude-skills",
+          "path": "product-team/skills/landing-page-generator/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "product-team/skills/landing-page-generator/SKILL.md",
+              "target": "skills/product-design/landing-page-generator/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "aa8d778811a557a2c28ccadda4cf3d0bd028a4cc",
+            "path_commit": "a088c8ba778319fea026c8a25e9e98b15754f379",
+            "content_sha256": "d39df0b84a8c5124f8d96f48a67cb4dbb282266a46fbacc699c23f0225d95d62",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/product-design/landing-page-generator/SKILL.md",
+          "owner": "landing-page-generator",
+          "sha256": "d39df0b84a8c5124f8d96f48a67cb4dbb282266a46fbacc699c23f0225d95d62"
+        }
+      ]
     },
     {
       "video_name": "saas-metrics-coach",
@@ -90,8 +222,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": null
-      }
+        "last_synced_commit": "aa8d778811a557a2c28ccadda4cf3d0bd028a4cc",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "alirezarezvani/claude-skills",
+          "path": "finance/skills/saas-metrics-coach/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "finance/skills/saas-metrics-coach/SKILL.md",
+              "target": "skills/finance-investing/saas-metrics-coach/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "aa8d778811a557a2c28ccadda4cf3d0bd028a4cc",
+            "path_commit": "1851c8fb09ea8ff0488d48bd7c312abb1bbf5850",
+            "content_sha256": "d96b366ece56d6001694d33d6b959a9d4541230a6d82e3623b54bd88e8e9ab81",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/finance-investing/saas-metrics-coach/SKILL.md",
+          "owner": "saas-metrics-coach",
+          "sha256": "d96b366ece56d6001694d33d6b959a9d4541230a6d82e3623b54bd88e8e9ab81"
+        }
+      ]
     },
     {
       "video_name": "senior-architect",
@@ -106,8 +271,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": null
-      }
+        "last_synced_commit": "aa8d778811a557a2c28ccadda4cf3d0bd028a4cc",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "alirezarezvani/claude-skills",
+          "path": "engineering-team/skills/senior-architect/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "engineering-team/skills/senior-architect/SKILL.md",
+              "target": "skills/devops-sre/senior-architect/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "aa8d778811a557a2c28ccadda4cf3d0bd028a4cc",
+            "path_commit": "1851c8fb09ea8ff0488d48bd7c312abb1bbf5850",
+            "content_sha256": "506b0a94794848e0ac86c5437b2fea177bafa958a60df08c2b35f050a162708d",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/devops-sre/senior-architect/SKILL.md",
+          "owner": "senior-architect",
+          "sha256": "506b0a94794848e0ac86c5437b2fea177bafa958a60df08c2b35f050a162708d"
+        }
+      ]
     },
     {
       "video_name": "skill-security-auditor",
@@ -122,8 +320,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": null
-      }
+        "last_synced_commit": "aa8d778811a557a2c28ccadda4cf3d0bd028a4cc",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "alirezarezvani/claude-skills",
+          "path": "engineering/skills/skill-security-auditor/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "engineering/skills/skill-security-auditor/SKILL.md",
+              "target": "skills/security-and-reliability/skill-security-auditor/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "aa8d778811a557a2c28ccadda4cf3d0bd028a4cc",
+            "path_commit": "a088c8ba778319fea026c8a25e9e98b15754f379",
+            "content_sha256": "2907b6beba027e9e23c6e05395eb01ad4cd5c167b9ebb925712a6195591da3c6",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/security-and-reliability/skill-security-auditor/SKILL.md",
+          "owner": "skill-security-auditor",
+          "sha256": "2907b6beba027e9e23c6e05395eb01ad4cd5c167b9ebb925712a6195591da3c6"
+        }
+      ]
     }
   ],
   "verification_attempts": [

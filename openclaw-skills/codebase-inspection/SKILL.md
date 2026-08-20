@@ -4,8 +4,8 @@ description: 'Inspect and analyze codebases using pygount for LOC counting, lang
 zh_description: "用于用 pygount 检查代码行数、语言构成、仓库规模和代码/注释比例。"
 version: 1.0.0
 author: Hermes Agent
-source: "in-house"
-source_url: ""
+source: "github:NousResearch/hermes-agent"
+source_url: "https://github.com/NousResearch/hermes-agent/blob/main/skills/github/codebase-inspection/SKILL.md"
 license: MIT
 tags: '[LOC, Code Analysis, pygount, Codebase, Metrics, Repository]'
 created_at: "2026-04-13"

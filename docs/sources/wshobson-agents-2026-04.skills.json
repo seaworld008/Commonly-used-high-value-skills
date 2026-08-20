@@ -1,4 +1,5 @@
 {
+  "schema_version": 2,
   "video": {
     "url": "https://github.com/wshobson/agents",
     "checked_at": "2026-08-18",
@@ -40,8 +41,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": null
-      }
+        "last_synced_commit": "367cb6a4a182cf7e9b0a17c9429f7411ddd9cf35",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "wshobson/agents",
+          "path": "plugins/payment-processing/skills/billing-automation/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "plugins/payment-processing/skills/billing-automation/SKILL.md",
+              "target": "skills/engineering-workflow-automation/billing-automation/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "367cb6a4a182cf7e9b0a17c9429f7411ddd9cf35",
+            "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f",
+            "content_sha256": "f197cebea2d295528dbaf5c7c6fb0830c4d72e95f527c325a638a88a49c66188",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/engineering-workflow-automation/billing-automation/SKILL.md",
+          "owner": "billing-automation",
+          "sha256": "f197cebea2d295528dbaf5c7c6fb0830c4d72e95f527c325a638a88a49c66188"
+        }
+      ]
     },
     {
       "video_name": "changelog-automation",
@@ -56,8 +90,30 @@
         "ref": "main",
         "last_checked_at": "2026-05-28",
         "last_synced_at": "2026-05-28",
-        "last_synced_commit": null
-      }
+        "last_synced_commit": null,
+        "sync_mode": "archived"
+      },
+      "kind": "reference_only",
+      "sync_mode": "archived",
+      "origins": [
+        {
+          "repo": "wshobson/agents",
+          "path": "plugins/documentation-generation/skills/changelog-automation/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "archived",
+          "artifacts": [],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": null,
+            "path_commit": null,
+            "content_sha256": null,
+            "last_checked_at": "2026-05-28",
+            "last_synced_at": "2026-05-28"
+          }
+        }
+      ],
+      "managed_files": []
     },
     {
       "video_name": "code-review-excellence",
@@ -69,11 +125,33 @@
       "upstream": {
         "repo": "wshobson/agents",
         "path": "plugins/developer-essentials/skills/code-review-excellence/SKILL.md",
-        "ref": "main",
+        "ref": "47a5dbc3f9c2661c6afb13638f80d4a4d4449040",
         "last_checked_at": "2026-04-13",
         "last_synced_at": "2026-04-13",
-        "last_synced_commit": "47a5dbc3f9c2661c6afb13638f80d4a4d4449040"
-      }
+        "last_synced_commit": "47a5dbc3f9c2661c6afb13638f80d4a4d4449040",
+        "sync_mode": "archived"
+      },
+      "kind": "reference_only",
+      "sync_mode": "archived",
+      "origins": [
+        {
+          "repo": "wshobson/agents",
+          "path": "plugins/developer-essentials/skills/code-review-excellence/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "archived",
+          "artifacts": [],
+          "tracking": {
+            "channel": "fixed_ref",
+            "ref": "47a5dbc3f9c2661c6afb13638f80d4a4d4449040",
+            "resolved_commit": "47a5dbc3f9c2661c6afb13638f80d4a4d4449040",
+            "path_commit": "47a5dbc3f9c2661c6afb13638f80d4a4d4449040",
+            "content_sha256": null,
+            "last_checked_at": "2026-04-13",
+            "last_synced_at": "2026-04-13"
+          }
+        }
+      ],
+      "managed_files": []
     },
     {
       "video_name": "debugging-strategies",
@@ -85,11 +163,33 @@
       "upstream": {
         "repo": "wshobson/agents",
         "path": "plugins/developer-essentials/skills/debugging-strategies/SKILL.md",
-        "ref": "main",
+        "ref": "47a5dbc3f9c2661c6afb13638f80d4a4d4449040",
         "last_checked_at": "2026-04-13",
         "last_synced_at": "2026-04-13",
-        "last_synced_commit": "47a5dbc3f9c2661c6afb13638f80d4a4d4449040"
-      }
+        "last_synced_commit": "47a5dbc3f9c2661c6afb13638f80d4a4d4449040",
+        "sync_mode": "archived"
+      },
+      "kind": "reference_only",
+      "sync_mode": "archived",
+      "origins": [
+        {
+          "repo": "wshobson/agents",
+          "path": "plugins/developer-essentials/skills/debugging-strategies/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "archived",
+          "artifacts": [],
+          "tracking": {
+            "channel": "fixed_ref",
+            "ref": "47a5dbc3f9c2661c6afb13638f80d4a4d4449040",
+            "resolved_commit": "47a5dbc3f9c2661c6afb13638f80d4a4d4449040",
+            "path_commit": "47a5dbc3f9c2661c6afb13638f80d4a4d4449040",
+            "content_sha256": null,
+            "last_checked_at": "2026-04-13",
+            "last_synced_at": "2026-04-13"
+          }
+        }
+      ],
+      "managed_files": []
     },
     {
       "video_name": "parallel-debugging",
@@ -101,11 +201,33 @@
       "upstream": {
         "repo": "wshobson/agents",
         "path": "plugins/agent-teams/skills/parallel-debugging/SKILL.md",
-        "ref": "main",
+        "ref": "a5ab5d8f31256c0c03b0accb228cf238c11b4ed8",
         "last_checked_at": "2026-04-13",
         "last_synced_at": "2026-04-13",
-        "last_synced_commit": "a5ab5d8f31256c0c03b0accb228cf238c11b4ed8"
-      }
+        "last_synced_commit": "a5ab5d8f31256c0c03b0accb228cf238c11b4ed8",
+        "sync_mode": "archived"
+      },
+      "kind": "reference_only",
+      "sync_mode": "archived",
+      "origins": [
+        {
+          "repo": "wshobson/agents",
+          "path": "plugins/agent-teams/skills/parallel-debugging/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "archived",
+          "artifacts": [],
+          "tracking": {
+            "channel": "fixed_ref",
+            "ref": "a5ab5d8f31256c0c03b0accb228cf238c11b4ed8",
+            "resolved_commit": "a5ab5d8f31256c0c03b0accb228cf238c11b4ed8",
+            "path_commit": "a5ab5d8f31256c0c03b0accb228cf238c11b4ed8",
+            "content_sha256": null,
+            "last_checked_at": "2026-04-13",
+            "last_synced_at": "2026-04-13"
+          }
+        }
+      ],
+      "managed_files": []
     }
   ],
   "verification_attempts": [

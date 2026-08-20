@@ -1,0 +1,93 @@
+{
+  "schema_version": 2,
+  "video": {
+    "url": "https://github.com/open-gsd/gsd-core/releases/tag/v1.11.0",
+    "checked_at": "2026-08-20",
+    "note": "Verified stable Open GSD Core release and npm installer bundle."
+  },
+  "official_references": [
+    {
+      "name": "Open GSD Core v1.11.0 release",
+      "url": "https://github.com/open-gsd/gsd-core/releases/tag/v1.11.0",
+      "purpose": "Immutable source release and tag checkpoint."
+    },
+    {
+      "name": "@opengsd/gsd-core 1.11.0",
+      "url": "https://www.npmjs.com/package/@opengsd/gsd-core/v/1.11.0",
+      "purpose": "Official multi-client installer distribution."
+    }
+  ],
+  "verification_attempts": [
+    {
+      "date": "2026-08-20",
+      "method": "release-npm-attestation",
+      "target": "open-gsd/gsd-core@v1.11.0 and @opengsd/gsd-core@1.11.0",
+      "result": "success",
+      "evidence": "Release/tag commit, npm gitHead, tarball digest, registry integrity, and source attestation were recorded."
+    }
+  ],
+  "install_policy": {
+    "mode": "explicit_only",
+    "default_install": false
+  },
+  "bundle_inventory": {
+    "skills": 71,
+    "agents": 34,
+    "runtime_files": 556,
+    "installed_in_repository": false
+  },
+  "installer": {
+    "registry": "npm",
+    "package": "@opengsd/gsd-core",
+    "version": "1.11.0",
+    "spec": "@opengsd/gsd-core@1.11.0",
+    "command": "npx @opengsd/gsd-core@1.11.0",
+    "tarball_url": "https://registry.npmjs.org/@opengsd/gsd-core/-/gsd-core-1.11.0.tgz",
+    "tarball_sha256": "b7ed2186d397b270a52db5e9816a9fd88a240466b356b1f4a28823f93cb8fd9d",
+    "integrity": "sha512-z1RLWsQshYViJIk94SB0x9/AYPykj5LIuLxwjS0s+WgaCBgVtTknCsVR3x4itrBeqmiUEvGiN6cO/bOay0zOiQ==",
+    "git_head": "182f60b4c170785d96f1deb87fea8b108e9b985f",
+    "tag_commit": "182f60b4c170785d96f1deb87fea8b108e9b985f",
+    "git_head_matches_tag": true,
+    "attested_source_commit": "249c586a40e4a39777c62683e58136ec1cc050d3"
+  },
+  "skills": [
+    {
+      "video_name": "Open GSD Core v1.11.0 managed bundle",
+      "normalized_slug": "open-gsd-core-bundle",
+      "status": "verified_not_in_repo",
+      "repo_skill": null,
+      "source": "https://github.com/open-gsd/gsd-core/releases/tag/v1.11.0",
+      "notes": "Official installer-managed bundle. It is excluded from normal canonical skill installation and may only be installed by an explicit bundle request.",
+      "upstream": {
+        "repo": "open-gsd/gsd-core",
+        "path": null,
+        "ref": "v1.11.0",
+        "sync_mode": "replace",
+        "last_checked_at": "2026-08-20",
+        "last_synced_at": "2026-08-20",
+        "last_synced_commit": "182f60b4c170785d96f1deb87fea8b108e9b985f"
+      },
+      "kind": "bundle",
+      "sync_mode": "replace",
+      "origins": [
+        {
+          "repo": "open-gsd/gsd-core",
+          "path": null,
+          "license": "MIT",
+          "sync_mode": "replace",
+          "artifacts": [],
+          "tracking": {
+            "channel": "latest_release",
+            "ref": "v1.11.0",
+            "resolved_commit": "182f60b4c170785d96f1deb87fea8b108e9b985f",
+            "path_commit": "182f60b4c170785d96f1deb87fea8b108e9b985f",
+            "content_sha256": "b7ed2186d397b270a52db5e9816a9fd88a240466b356b1f4a28823f93cb8fd9d",
+            "last_checked_at": "2026-08-20",
+            "last_synced_at": "2026-08-20"
+          }
+        }
+      ],
+      "managed_files": []
+    }
+  ]
+}

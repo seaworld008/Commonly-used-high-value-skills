@@ -1,4 +1,5 @@
 {
+  "schema_version": 2,
   "video": {
     "url": "https://github.com/firebase/agent-skills",
     "checked_at": "2026-08-18",
@@ -35,8 +36,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "538130c39402a40d9c2586ede87def5914641a33"
-      }
+        "last_synced_commit": "538130c39402a40d9c2586ede87def5914641a33",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "firebase/agent-skills",
+          "path": "skills/firebase-security-rules-auditor/SKILL.md",
+          "license": "Apache-2.0",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/firebase-security-rules-auditor/SKILL.md",
+              "target": "skills/security-and-reliability/firebase-security-rules-auditor/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "538130c39402a40d9c2586ede87def5914641a33",
+            "path_commit": "538130c39402a40d9c2586ede87def5914641a33",
+            "content_sha256": "91b3a59f6e981e5eab000eafc1ba17d209eab0d3eab1b213f134f5a4a3b162a7",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/security-and-reliability/firebase-security-rules-auditor/SKILL.md",
+          "owner": "firebase-security-rules-auditor",
+          "sha256": "91b3a59f6e981e5eab000eafc1ba17d209eab0d3eab1b213f134f5a4a3b162a7"
+        }
+      ]
     }
   ],
   "verification_attempts": [

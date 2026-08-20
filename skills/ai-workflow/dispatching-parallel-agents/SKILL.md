@@ -4,8 +4,9 @@ description: Use when facing 2+ independent tasks that can be worked on without 
 zh_description: "用于拆分任务并调度多个 Agent 并行协作。"
 version: "1.0.2"
 author: "seaworld008"
-source: "in-house"
-source_url: ""
+source: "github:obra/superpowers"
+source_url: "https://github.com/obra/superpowers/blob/main/skills/dispatching-parallel-agents/SKILL.md"
+license: MIT
 tags: '["agents", "parallel", "workflow"]'
 created_at: "2026-04-13"
 updated_at: "2026-07-27"

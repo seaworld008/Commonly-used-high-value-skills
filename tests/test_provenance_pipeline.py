@@ -1,7 +1,9 @@
 import json
 import importlib.util
+import shutil
 import subprocess
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -23,6 +25,7 @@ class ProvenancePipelineTests(unittest.TestCase):
     def test_config_has_required_keys(self):
         cfg = json.loads((self.root / "docs/sources/provenance.config.json").read_text(encoding="utf-8"))
         self.assertIn("coverage_min_percent", cfg)
+        self.assertEqual(100, cfg["coverage_min_percent"])
         self.assertIn("stale_days", cfg)
         self.assertIn("paths", cfg)
         for key in [
@@ -36,22 +39,40 @@ class ProvenancePipelineTests(unittest.TestCase):
             self.assertIn(key, cfg["paths"])
 
     def test_quick_pipeline_runs(self):
-        result = subprocess.run(
-            [
-                sys.executable,
-                "scripts/provenance_pipeline.py",
-                "--mode",
-                "quick",
-                "--config",
-                "docs/sources/provenance.config.json",
-            ],
-            cwd=self.root,
-            capture_output=True,
-            text=True,
-            check=False,
+        real_mapping = self.root / "docs/sources/in-house.skills.json"
+        before = real_mapping.read_bytes()
+
+        # The quick pipeline intentionally regenerates provenance reports. Run it
+        # against an isolated repository copy so a unit test can never rewrite
+        # the checkout that invoked the test.
+        with tempfile.TemporaryDirectory() as tmp:
+            isolated_root = Path(tmp) / "repo"
+            isolated_root.mkdir()
+            for directory in ("scripts", "skills", "docs"):
+                shutil.copytree(self.root / directory, isolated_root / directory)
+
+            result = subprocess.run(
+                [
+                    sys.executable,
+                    "scripts/provenance_pipeline.py",
+                    "--mode",
+                    "quick",
+                    "--config",
+                    "docs/sources/provenance.config.json",
+                ],
+                cwd=isolated_root,
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            if result.returncode != 0:
+                self.fail(f"quick pipeline failed:\nSTDOUT:\n{result.stdout}\nSTDERR:\n{result.stderr}")
+
+        self.assertEqual(
+            before,
+            real_mapping.read_bytes(),
+            "quick pipeline test modified the real provenance mapping",
         )
-        if result.returncode != 0:
-            self.fail(f"quick pipeline failed:\nSTDOUT:\n{result.stdout}\nSTDERR:\n{result.stderr}")
 
     def test_resolve_python_cmd_uses_current_interpreter(self):
         module = self.load_module()

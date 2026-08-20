@@ -5,7 +5,7 @@ zh_description: "用于高级、架构，支持部署、监控、排障和发布
 version: "1.0.1"
 author: "seaworld008"
 source: "github:alirezarezvani/claude-skills"
-source_url: ""
+source_url: "https://github.com/alirezarezvani/claude-skills/blob/main/engineering-team/skills/senior-architect/SKILL.md"
 license: MIT
 tags: '["architect", "devops", "senior", "sre"]'
 created_at: "2026-03-27"

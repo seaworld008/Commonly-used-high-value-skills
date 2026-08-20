@@ -25,6 +25,14 @@ python scripts/discover_new_skills.py --output docs/sources/reports/discovery.js
 python scripts/audit_skill_portfolio.py
 ```
 
+`--check-only` 默认严格只读。只有确实需要把成功检查时间写回 provenance 时，才显式使用：
+
+```bash
+python scripts/sync_upstream.py --check-only --record-check
+```
+
+同步通道遵循以下边界：稳定 release 或不可变 fixed ref 可在门禁通过后自动更新；默认分支、canary 和组合依赖只做 monitor，必须按 commit range 人工复核。
+
 如果发现有可应用的上游更新：
 
 ```bash
@@ -47,8 +55,10 @@ python scripts/generate_tags_index.py && \
 python scripts/build_catalog_json.py && \
 python scripts/check_readme_sync.py && \
 python scripts/lint_skill_quality.py --min-lines 50 && \
+python scripts/validate_skill_sources.py && \
+python scripts/check_source_coverage.py --min-percent 100 && \
 python scripts/audit_licenses.py && \
-python -m unittest discover tests -v
+python -m pytest -q tests
 ```
 
 ## 3. 技能组合审计
@@ -69,6 +79,8 @@ python scripts/audit_skill_portfolio.py
 | `replace_or_archive` | 不适合继续作为高价值技能 | 找更优质 permissive 替代；没有替代则归档或删除 |
 
 删除或替换前必须人工复核，不要只按分数机械删除。高质量但 upstream 消失的技能可以保留为本地维护快照，并在 provenance 中标记 `sync_mode: archived` 或改为 `source: in-house`。
+
+退役必须记录 decision ledger：替代项、独有资产、外部契约、许可证和安装端清理动作。只有替代技能完全覆盖意图，并且原技能没有独有脚本、高风险 guardrail、外部契约或验收标准时，才允许删除活动副本。
 
 ## 4. 精选新技能准入标准
 
@@ -226,7 +238,9 @@ agentic coding 模型，不要从旧周报或历史配置中照抄已过时的 I
 - `check_readme_sync.py`: OK
 - `node bin/install-skills.js --help`: OK
 - `npm pack --dry-run`: OK
-- `python -m unittest discover tests -v`: OK
+- `python scripts/validate_skill_sources.py`: OK
+- `python scripts/check_source_coverage.py --min-percent 100`: OK
+- `python -m pytest -q tests`: OK
 - `git status --short --branch`: 干净并同步 `origin/main`
 
 这组指标比单独的“发现了多少新技能”更重要。仓库的核心价值来自长期精选和可维护性，而不是数量增长。

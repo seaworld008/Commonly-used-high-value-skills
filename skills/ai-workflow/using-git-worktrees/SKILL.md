@@ -4,8 +4,9 @@ description: Use when starting feature work that needs isolation from current wo
 zh_description: "用于使用 Git worktree 隔离并行开发和审查工作。"
 version: "1.0.3"
 author: "seaworld008"
-source: "in-house"
-source_url: ""
+source: "github:obra/superpowers"
+source_url: "https://github.com/obra/superpowers/blob/main/skills/using-git-worktrees/SKILL.md"
+license: MIT
 tags: '["git", "worktree", "workflow"]'
 created_at: "2026-04-13"
 updated_at: "2026-07-27"

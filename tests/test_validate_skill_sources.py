@@ -47,7 +47,10 @@ class ValidateSkillSourcesTests(unittest.TestCase):
             mapping = root / "retired.skills.json"
             mapping.write_text(json.dumps(retired_mapping()), encoding="utf-8")
 
-            self.assertEqual([], generic.validate_mapping(mapping, root))
+            self.assertEqual(
+                [],
+                generic.validate_mapping(mapping, root, allow_v1=True),
+            )
             self.assertEqual([], video.validate(mapping, root))
 
     def test_retired_mapping_rejects_live_repo_path(self):
@@ -62,7 +65,11 @@ class ValidateSkillSourcesTests(unittest.TestCase):
                 encoding="utf-8",
             )
 
-            generic_errors = generic.validate_mapping(mapping, root)
+            generic_errors = generic.validate_mapping(
+                mapping,
+                root,
+                allow_v1=True,
+            )
             video_errors = video.validate(mapping, root)
             self.assertTrue(any("must set repo_skill to null" in item for item in generic_errors))
             self.assertTrue(any("must set repo_skill to null" in item for item in video_errors))

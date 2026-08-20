@@ -4,8 +4,9 @@ description: 'Use when starting any conversation - establishes how to find and u
 zh_description: "用于使用 Superpowers 工作流提升计划、执行和验证质量。"
 version: "1.0.4"
 author: "seaworld008"
-source: "in-house"
-source_url: ""
+source: "github:obra/superpowers"
+source_url: "https://github.com/obra/superpowers/blob/main/skills/using-superpowers/SKILL.md"
+license: MIT
 tags: '["skills", "workflow", "process"]'
 created_at: "2026-04-13"
 updated_at: "2026-08-17"

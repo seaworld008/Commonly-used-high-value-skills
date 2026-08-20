@@ -1,4 +1,5 @@
 {
+  "schema_version": 2,
   "video": {
     "url": "https://github.com/addyosmani/agent-skills",
     "checked_at": "2026-08-18",
@@ -30,8 +31,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443"
-      }
+        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "path": "skills/api-and-interface-design/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/api-and-interface-design/SKILL.md",
+              "target": "skills/ai-workflow/api-and-interface-design/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "path_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "content_sha256": "3468e0faecccd949ad7fd68780aac30ac770d51bc0c3258e7dce54d01640bf37",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/api-and-interface-design/SKILL.md",
+          "owner": "api-and-interface-design",
+          "sha256": "3468e0faecccd949ad7fd68780aac30ac770d51bc0c3258e7dce54d01640bf37"
+        }
+      ]
     },
     {
       "video_name": "browser-testing-with-devtools",
@@ -46,8 +80,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443"
-      }
+        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "path": "skills/browser-testing-with-devtools/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/browser-testing-with-devtools/SKILL.md",
+              "target": "skills/ai-workflow/browser-testing-with-devtools/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "path_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "content_sha256": "8cec167f87a7724bdd892494963481a4a6b40bf923ba6186e2d49854e6025c99",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/browser-testing-with-devtools/SKILL.md",
+          "owner": "browser-testing-with-devtools",
+          "sha256": "8cec167f87a7724bdd892494963481a4a6b40bf923ba6186e2d49854e6025c99"
+        }
+      ]
     },
     {
       "video_name": "ci-cd-and-automation",
@@ -62,8 +129,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443"
-      }
+        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "path": "skills/ci-cd-and-automation/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/ci-cd-and-automation/SKILL.md",
+              "target": "skills/ai-workflow/ci-cd-and-automation/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "path_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "content_sha256": "3bad8c5989a0a1b2a2f49ddb6d26009010ef73378f024a6d517c98cfafb267be",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/ci-cd-and-automation/SKILL.md",
+          "owner": "ci-cd-and-automation",
+          "sha256": "3bad8c5989a0a1b2a2f49ddb6d26009010ef73378f024a6d517c98cfafb267be"
+        }
+      ]
     },
     {
       "video_name": "code-review-and-quality",
@@ -78,8 +178,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443"
-      }
+        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "path": "skills/code-review-and-quality/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/code-review-and-quality/SKILL.md",
+              "target": "skills/ai-workflow/code-review-and-quality/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "path_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "content_sha256": "b2d7e0bb79266f0326ec5336e8a6ef8f462a8314cc9dd4c66f9c90f6a66d1c86",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/code-review-and-quality/SKILL.md",
+          "owner": "code-review-and-quality",
+          "sha256": "b2d7e0bb79266f0326ec5336e8a6ef8f462a8314cc9dd4c66f9c90f6a66d1c86"
+        }
+      ]
     },
     {
       "video_name": "code-simplification",
@@ -94,8 +227,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443"
-      }
+        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "path": "skills/code-simplification/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/code-simplification/SKILL.md",
+              "target": "skills/ai-workflow/code-simplification/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "path_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "content_sha256": "a3d0674b7caea304f6047c0dd5f9efac499e821731aa54e0138b2d29adf89ac1",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/code-simplification/SKILL.md",
+          "owner": "code-simplification",
+          "sha256": "a3d0674b7caea304f6047c0dd5f9efac499e821731aa54e0138b2d29adf89ac1"
+        }
+      ]
     },
     {
       "video_name": "context-engineering",
@@ -110,8 +276,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443"
-      }
+        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "path": "skills/context-engineering/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/context-engineering/SKILL.md",
+              "target": "skills/ai-workflow/context-engineering/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "path_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "content_sha256": "4a31be187fc8e58e925c26f76d58db88a0dce2ca0055ae9ccb2ef1a4c5403c9f",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/context-engineering/SKILL.md",
+          "owner": "context-engineering",
+          "sha256": "4a31be187fc8e58e925c26f76d58db88a0dce2ca0055ae9ccb2ef1a4c5403c9f"
+        }
+      ]
     },
     {
       "video_name": "debugging-and-error-recovery",
@@ -126,8 +325,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443"
-      }
+        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "path": "skills/debugging-and-error-recovery/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/debugging-and-error-recovery/SKILL.md",
+              "target": "skills/ai-workflow/debugging-and-error-recovery/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "path_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "content_sha256": "acf148e9bb8893787526d1663c6d9eef66f243328867833a43e1d015d9460b4e",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/debugging-and-error-recovery/SKILL.md",
+          "owner": "debugging-and-error-recovery",
+          "sha256": "acf148e9bb8893787526d1663c6d9eef66f243328867833a43e1d015d9460b4e"
+        }
+      ]
     },
     {
       "video_name": "deprecation-and-migration",
@@ -142,8 +374,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443"
-      }
+        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "path": "skills/deprecation-and-migration/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/deprecation-and-migration/SKILL.md",
+              "target": "skills/ai-workflow/deprecation-and-migration/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "path_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "content_sha256": "c48510a6b6f8fee4aca9d8581342d6212787237daa96fb3bab4eef7071f8e4ee",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/deprecation-and-migration/SKILL.md",
+          "owner": "deprecation-and-migration",
+          "sha256": "c48510a6b6f8fee4aca9d8581342d6212787237daa96fb3bab4eef7071f8e4ee"
+        }
+      ]
     },
     {
       "video_name": "documentation-and-adrs",
@@ -158,8 +423,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443"
-      }
+        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "path": "skills/documentation-and-adrs/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/documentation-and-adrs/SKILL.md",
+              "target": "skills/ai-workflow/documentation-and-adrs/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "path_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "content_sha256": "6a77f1f3153351da13d5b3a8a510c9c988627ad8072fa1c5254448f94d750cca",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/documentation-and-adrs/SKILL.md",
+          "owner": "documentation-and-adrs",
+          "sha256": "6a77f1f3153351da13d5b3a8a510c9c988627ad8072fa1c5254448f94d750cca"
+        }
+      ]
     },
     {
       "video_name": "doubt-driven-development",
@@ -174,8 +472,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443"
-      }
+        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "path": "skills/doubt-driven-development/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/doubt-driven-development/SKILL.md",
+              "target": "skills/ai-workflow/doubt-driven-development/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "path_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "content_sha256": "2e2b245c80c7cb03f475efa1153e257018e6e2e3092806a7acd8c279f5097b2e",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/doubt-driven-development/SKILL.md",
+          "owner": "doubt-driven-development",
+          "sha256": "2e2b245c80c7cb03f475efa1153e257018e6e2e3092806a7acd8c279f5097b2e"
+        }
+      ]
     },
     {
       "video_name": "frontend-ui-engineering",
@@ -190,8 +521,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443"
-      }
+        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "path": "skills/frontend-ui-engineering/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/frontend-ui-engineering/SKILL.md",
+              "target": "skills/ai-workflow/frontend-ui-engineering/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "path_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "content_sha256": "966c423b383c8e6ec08a3d0c8da33b1ed21859f561ef3dc662cdaaf86a08a9a6",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/frontend-ui-engineering/SKILL.md",
+          "owner": "frontend-ui-engineering",
+          "sha256": "966c423b383c8e6ec08a3d0c8da33b1ed21859f561ef3dc662cdaaf86a08a9a6"
+        }
+      ]
     },
     {
       "video_name": "git-workflow-and-versioning",
@@ -206,8 +570,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443"
-      }
+        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "path": "skills/git-workflow-and-versioning/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/git-workflow-and-versioning/SKILL.md",
+              "target": "skills/ai-workflow/git-workflow-and-versioning/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "path_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "content_sha256": "b346d65a6f821f4ce91ac2d9e1494c6e1c0d991c06003d9e3c1138abd0c86199",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/git-workflow-and-versioning/SKILL.md",
+          "owner": "git-workflow-and-versioning",
+          "sha256": "b346d65a6f821f4ce91ac2d9e1494c6e1c0d991c06003d9e3c1138abd0c86199"
+        }
+      ]
     },
     {
       "video_name": "idea-refine",
@@ -222,8 +619,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443"
-      }
+        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "path": "skills/idea-refine/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/idea-refine/SKILL.md",
+              "target": "skills/ai-workflow/idea-refine/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "path_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "content_sha256": "7b702aa564b22144e902e7c58954e9d230da31610649def250662a43fa30e1c2",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/idea-refine/SKILL.md",
+          "owner": "idea-refine",
+          "sha256": "7b702aa564b22144e902e7c58954e9d230da31610649def250662a43fa30e1c2"
+        }
+      ]
     },
     {
       "video_name": "incremental-implementation",
@@ -238,8 +668,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443"
-      }
+        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "path": "skills/incremental-implementation/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/incremental-implementation/SKILL.md",
+              "target": "skills/ai-workflow/incremental-implementation/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "path_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "content_sha256": "d0e039e6d9b50354f77cce5e082aa6e2bb45830d6c6c79f33b90e6a4ec13c4f3",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/incremental-implementation/SKILL.md",
+          "owner": "incremental-implementation",
+          "sha256": "d0e039e6d9b50354f77cce5e082aa6e2bb45830d6c6c79f33b90e6a4ec13c4f3"
+        }
+      ]
     },
     {
       "video_name": "interview-me",
@@ -254,8 +717,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443"
-      }
+        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "path": "skills/interview-me/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/interview-me/SKILL.md",
+              "target": "skills/ai-workflow/interview-me/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "path_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "content_sha256": "53b1f74b1a9a6c3946d0681c3164f03316ccc8c70e07606a9fc6d895fe74f556",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/interview-me/SKILL.md",
+          "owner": "interview-me",
+          "sha256": "53b1f74b1a9a6c3946d0681c3164f03316ccc8c70e07606a9fc6d895fe74f556"
+        }
+      ]
     },
     {
       "video_name": "observability-and-instrumentation",
@@ -270,8 +766,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443"
-      }
+        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "path": "skills/observability-and-instrumentation/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/observability-and-instrumentation/SKILL.md",
+              "target": "skills/ai-workflow/observability-and-instrumentation/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "path_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "content_sha256": "d814e7fb3ef08f46d8695bbd9cd1c16a5f5c7302842db3b4f9331a38f3405bfd",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/observability-and-instrumentation/SKILL.md",
+          "owner": "observability-and-instrumentation",
+          "sha256": "d814e7fb3ef08f46d8695bbd9cd1c16a5f5c7302842db3b4f9331a38f3405bfd"
+        }
+      ]
     },
     {
       "video_name": "performance-optimization",
@@ -286,8 +815,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443"
-      }
+        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "path": "skills/performance-optimization/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/performance-optimization/SKILL.md",
+              "target": "skills/ai-workflow/performance-optimization/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "path_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "content_sha256": "0367fdd12d2f2d0fdabd96a7171cf1559cca39979fc3e4cc09cff186485a0b09",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/performance-optimization/SKILL.md",
+          "owner": "performance-optimization",
+          "sha256": "0367fdd12d2f2d0fdabd96a7171cf1559cca39979fc3e4cc09cff186485a0b09"
+        }
+      ]
     },
     {
       "video_name": "planning-and-task-breakdown",
@@ -302,8 +864,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443"
-      }
+        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "path": "skills/planning-and-task-breakdown/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/planning-and-task-breakdown/SKILL.md",
+              "target": "skills/ai-workflow/planning-and-task-breakdown/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "path_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "content_sha256": "875b99c85ce53a28a1be3e1ec8b537fff814669bb3f4d2d9eb5b431b213519c3",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/planning-and-task-breakdown/SKILL.md",
+          "owner": "planning-and-task-breakdown",
+          "sha256": "875b99c85ce53a28a1be3e1ec8b537fff814669bb3f4d2d9eb5b431b213519c3"
+        }
+      ]
     },
     {
       "video_name": "security-and-hardening",
@@ -318,8 +913,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443"
-      }
+        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "path": "skills/security-and-hardening/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/security-and-hardening/SKILL.md",
+              "target": "skills/ai-workflow/security-and-hardening/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "path_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "content_sha256": "b7f215bb94cbe8e242e0498b32c1f90b25b4fc258c0dbfd6dc9f5b2746f56887",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/security-and-hardening/SKILL.md",
+          "owner": "security-and-hardening",
+          "sha256": "b7f215bb94cbe8e242e0498b32c1f90b25b4fc258c0dbfd6dc9f5b2746f56887"
+        }
+      ]
     },
     {
       "video_name": "shipping-and-launch",
@@ -334,8 +962,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443"
-      }
+        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "path": "skills/shipping-and-launch/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/shipping-and-launch/SKILL.md",
+              "target": "skills/ai-workflow/shipping-and-launch/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "path_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "content_sha256": "ecd93feeb1506e38d7fc94618747e11dde83c0bb05c40d16e8569527188d609f",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/shipping-and-launch/SKILL.md",
+          "owner": "shipping-and-launch",
+          "sha256": "ecd93feeb1506e38d7fc94618747e11dde83c0bb05c40d16e8569527188d609f"
+        }
+      ]
     },
     {
       "video_name": "source-driven-development",
@@ -350,8 +1011,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443"
-      }
+        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "path": "skills/source-driven-development/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/source-driven-development/SKILL.md",
+              "target": "skills/ai-workflow/source-driven-development/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "path_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "content_sha256": "f3493584ceb70bc53cae8a35a4bf83cce778a378ab25846bd6a6e19242fa71aa",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/source-driven-development/SKILL.md",
+          "owner": "source-driven-development",
+          "sha256": "f3493584ceb70bc53cae8a35a4bf83cce778a378ab25846bd6a6e19242fa71aa"
+        }
+      ]
     },
     {
       "video_name": "spec-driven-development",
@@ -366,8 +1060,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443"
-      }
+        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "path": "skills/spec-driven-development/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/spec-driven-development/SKILL.md",
+              "target": "skills/ai-workflow/spec-driven-development/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "path_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "content_sha256": "34abface7e80405844850662245170a58dc80693604913796198d000ee76b3b5",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/spec-driven-development/SKILL.md",
+          "owner": "spec-driven-development",
+          "sha256": "34abface7e80405844850662245170a58dc80693604913796198d000ee76b3b5"
+        }
+      ]
     },
     {
       "video_name": "test-driven-development",
@@ -382,8 +1109,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443"
-      }
+        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "path": "skills/test-driven-development/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/test-driven-development/SKILL.md",
+              "target": "skills/ai-workflow/test-driven-development/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "path_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "content_sha256": "946d6f569f9379fe8125ee7b417d821203599adb1650a17a71dc0e8c4fa118db",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/test-driven-development/SKILL.md",
+          "owner": "test-driven-development",
+          "sha256": "946d6f569f9379fe8125ee7b417d821203599adb1650a17a71dc0e8c4fa118db"
+        }
+      ]
     },
     {
       "video_name": "using-agent-skills",
@@ -398,8 +1158,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443"
-      }
+        "last_synced_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "path": "skills/using-agent-skills/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/using-agent-skills/SKILL.md",
+              "target": "skills/ai-workflow/using-agent-skills/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "path_commit": "7829ffd90d973b6325f5f12f1b1226dcace74443",
+            "content_sha256": "15cce8043d59a97651d5d7c234c311fd295095d81ffe9fee19c3a8a365e482ad",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/using-agent-skills/SKILL.md",
+          "owner": "using-agent-skills",
+          "sha256": "15cce8043d59a97651d5d7c234c311fd295095d81ffe9fee19c3a8a365e482ad"
+        }
+      ]
     }
   ],
   "verification_attempts": [

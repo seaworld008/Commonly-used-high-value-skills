@@ -5,7 +5,7 @@ zh_description: "用于saas、metrics、教练，支持投资研究、风险评�
 version: "1.0.1"
 author: "seaworld008"
 source: "github:alirezarezvani/claude-skills"
-source_url: ""
+source_url: "https://github.com/alirezarezvani/claude-skills/blob/main/finance/skills/saas-metrics-coach/SKILL.md"
 license: MIT
 tags: '["coach", "finance", "metrics", "saas"]'
 created_at: "2026-03-27"

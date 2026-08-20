@@ -1,4 +1,5 @@
 {
+  "schema_version": 2,
   "video": {
     "url": "https://github.com/obra/superpowers",
     "checked_at": "2026-08-18",
@@ -50,8 +51,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "9ccce3bf07a40e45259004a330409ba00970eff7"
-      }
+        "last_synced_commit": "9ccce3bf07a40e45259004a330409ba00970eff7",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "obra/superpowers",
+          "path": "skills/dispatching-parallel-agents/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/dispatching-parallel-agents/SKILL.md",
+              "target": "skills/ai-workflow/dispatching-parallel-agents/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "9ccce3bf07a40e45259004a330409ba00970eff7",
+            "path_commit": "9ccce3bf07a40e45259004a330409ba00970eff7",
+            "content_sha256": "ba747816da03a5359702ae2ea8973446ca97ef24d6b2ba8b1a362953309cf64c",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/dispatching-parallel-agents/SKILL.md",
+          "owner": "dispatching-parallel-agents",
+          "sha256": "ba747816da03a5359702ae2ea8973446ca97ef24d6b2ba8b1a362953309cf64c"
+        }
+      ]
     },
     {
       "video_name": "executing-plans",
@@ -66,8 +100,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "3bdd66eaa5d74faee2d11c933b7a4bbe604c222e"
-      }
+        "last_synced_commit": "3bdd66eaa5d74faee2d11c933b7a4bbe604c222e",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "obra/superpowers",
+          "path": "skills/executing-plans/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/executing-plans/SKILL.md",
+              "target": "skills/ai-workflow/executing-plans/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "3bdd66eaa5d74faee2d11c933b7a4bbe604c222e",
+            "path_commit": "3bdd66eaa5d74faee2d11c933b7a4bbe604c222e",
+            "content_sha256": "d6d75cbfe7f1b1c750681fd38947f51ba32fa313e65cc2c6b142d898c0f5e3f4",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/executing-plans/SKILL.md",
+          "owner": "executing-plans",
+          "sha256": "d6d75cbfe7f1b1c750681fd38947f51ba32fa313e65cc2c6b142d898c0f5e3f4"
+        }
+      ]
     },
     {
       "video_name": "finishing-a-development-branch",
@@ -82,8 +149,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "141953a4bedbb539551c5eebcfe2024771876bb7"
-      }
+        "last_synced_commit": "141953a4bedbb539551c5eebcfe2024771876bb7",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "obra/superpowers",
+          "path": "skills/finishing-a-development-branch/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/finishing-a-development-branch/SKILL.md",
+              "target": "skills/ai-workflow/finishing-a-development-branch/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "141953a4bedbb539551c5eebcfe2024771876bb7",
+            "path_commit": "141953a4bedbb539551c5eebcfe2024771876bb7",
+            "content_sha256": "535c9ada1f4dfcf344c60a81727178b2438061e1c7ccdca8f8fb5566612f6473",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/finishing-a-development-branch/SKILL.md",
+          "owner": "finishing-a-development-branch",
+          "sha256": "535c9ada1f4dfcf344c60a81727178b2438061e1c7ccdca8f8fb5566612f6473"
+        }
+      ]
     },
     {
       "video_name": "receiving-code-review",
@@ -98,8 +198,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "1455ac0631e2f3824229f6a31a1877dc6b96952f"
-      }
+        "last_synced_commit": "1455ac0631e2f3824229f6a31a1877dc6b96952f",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "obra/superpowers",
+          "path": "skills/receiving-code-review/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/receiving-code-review/SKILL.md",
+              "target": "skills/ai-workflow/receiving-code-review/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "1455ac0631e2f3824229f6a31a1877dc6b96952f",
+            "path_commit": "1455ac0631e2f3824229f6a31a1877dc6b96952f",
+            "content_sha256": "d00f1dfa10f0fd71d87589b18d70b1d74d9272f5fb7728e605d9e424ebf9604d",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/receiving-code-review/SKILL.md",
+          "owner": "receiving-code-review",
+          "sha256": "d00f1dfa10f0fd71d87589b18d70b1d74d9272f5fb7728e605d9e424ebf9604d"
+        }
+      ]
     },
     {
       "video_name": "requesting-code-review",
@@ -114,8 +247,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "9ccce3bf07a40e45259004a330409ba00970eff7"
-      }
+        "last_synced_commit": "9ccce3bf07a40e45259004a330409ba00970eff7",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "obra/superpowers",
+          "path": "skills/requesting-code-review/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/requesting-code-review/SKILL.md",
+              "target": "skills/ai-workflow/requesting-code-review/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "9ccce3bf07a40e45259004a330409ba00970eff7",
+            "path_commit": "9ccce3bf07a40e45259004a330409ba00970eff7",
+            "content_sha256": "af7127c0378b04a913864597032121a1d1bdc9780b90a7ba97e176cf6a01e1ee",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/requesting-code-review/SKILL.md",
+          "owner": "requesting-code-review",
+          "sha256": "af7127c0378b04a913864597032121a1d1bdc9780b90a7ba97e176cf6a01e1ee"
+        }
+      ]
     },
     {
       "video_name": "subagent-driven-development",
@@ -130,8 +296,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": null
-      }
+        "last_synced_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "obra/superpowers",
+          "path": "skills/subagent-driven-development/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/subagent-driven-development/SKILL.md",
+              "target": "skills/ai-workflow/subagent-driven-development/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
+            "path_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
+            "content_sha256": "f9a8d5a6d098835c14f65fcd0cda793f552c3c9d7617af9735b4b8dc8674d2f9",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/subagent-driven-development/SKILL.md",
+          "owner": "subagent-driven-development",
+          "sha256": "f9a8d5a6d098835c14f65fcd0cda793f552c3c9d7617af9735b4b8dc8674d2f9"
+        }
+      ]
     },
     {
       "video_name": "systematic-debugging",
@@ -146,8 +345,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": null
-      }
+        "last_synced_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "obra/superpowers",
+          "path": "skills/systematic-debugging/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/systematic-debugging/SKILL.md",
+              "target": "skills/developer-engineering/systematic-debugging/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
+            "path_commit": "c74782ead66b8ded584d9b9cf64dcba95457f320",
+            "content_sha256": "c73517217753ebc7697fe030a025a6050c538554b086cf19b0b77b2047dbd49d",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/developer-engineering/systematic-debugging/SKILL.md",
+          "owner": "systematic-debugging",
+          "sha256": "c73517217753ebc7697fe030a025a6050c538554b086cf19b0b77b2047dbd49d"
+        }
+      ]
     },
     {
       "video_name": "using-git-worktrees",
@@ -162,8 +394,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "bb2ff5d309e5da6e021eb517c5012eb53c50a969"
-      }
+        "last_synced_commit": "bb2ff5d309e5da6e021eb517c5012eb53c50a969",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "obra/superpowers",
+          "path": "skills/using-git-worktrees/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/using-git-worktrees/SKILL.md",
+              "target": "skills/ai-workflow/using-git-worktrees/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "bb2ff5d309e5da6e021eb517c5012eb53c50a969",
+            "path_commit": "bb2ff5d309e5da6e021eb517c5012eb53c50a969",
+            "content_sha256": "43fdcea94699a232d7374215cf1e3a51279cd24b5d1440ccdf1d1c0b353af18e",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/using-git-worktrees/SKILL.md",
+          "owner": "using-git-worktrees",
+          "sha256": "43fdcea94699a232d7374215cf1e3a51279cd24b5d1440ccdf1d1c0b353af18e"
+        }
+      ]
     },
     {
       "video_name": "using-superpowers",
@@ -178,8 +443,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "8b1669269c51835168c98fd435a7af1e5f15ec12"
-      }
+        "last_synced_commit": "8b1669269c51835168c98fd435a7af1e5f15ec12",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "obra/superpowers",
+          "path": "skills/using-superpowers/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/using-superpowers/SKILL.md",
+              "target": "skills/ai-workflow/using-superpowers/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "8b1669269c51835168c98fd435a7af1e5f15ec12",
+            "path_commit": "8b1669269c51835168c98fd435a7af1e5f15ec12",
+            "content_sha256": "fea7fc33e65aea146ba44f295883e4ed2ae78dc7727953f8f4f6612356cf95ec",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/using-superpowers/SKILL.md",
+          "owner": "using-superpowers",
+          "sha256": "fea7fc33e65aea146ba44f295883e4ed2ae78dc7727953f8f4f6612356cf95ec"
+        }
+      ]
     },
     {
       "video_name": "verification-before-completion",
@@ -194,8 +492,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "48410c7f1973bd66569a627ef27ef6619e0ba923"
-      }
+        "last_synced_commit": "48410c7f1973bd66569a627ef27ef6619e0ba923",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "obra/superpowers",
+          "path": "skills/verification-before-completion/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/verification-before-completion/SKILL.md",
+              "target": "skills/ai-workflow/verification-before-completion/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "48410c7f1973bd66569a627ef27ef6619e0ba923",
+            "path_commit": "48410c7f1973bd66569a627ef27ef6619e0ba923",
+            "content_sha256": "7a01a9dec974a1329c87037660e95478d0a9e9237121d31919619d885be9cf12",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/verification-before-completion/SKILL.md",
+          "owner": "verification-before-completion",
+          "sha256": "7a01a9dec974a1329c87037660e95478d0a9e9237121d31919619d885be9cf12"
+        }
+      ]
     },
     {
       "video_name": "writing-skills",
@@ -210,8 +541,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "4fd9aa2dd5b602a102a1ff4743849642b73655c1"
-      }
+        "last_synced_commit": "4fd9aa2dd5b602a102a1ff4743849642b73655c1",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "obra/superpowers",
+          "path": "skills/writing-skills/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/writing-skills/SKILL.md",
+              "target": "skills/ai-workflow/writing-skills/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "4fd9aa2dd5b602a102a1ff4743849642b73655c1",
+            "path_commit": "4fd9aa2dd5b602a102a1ff4743849642b73655c1",
+            "content_sha256": "fbfc6dbe38412b1cf270675f89228930b70f6057e1d482b76497bc04bb33f159",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/writing-skills/SKILL.md",
+          "owner": "writing-skills",
+          "sha256": "fbfc6dbe38412b1cf270675f89228930b70f6057e1d482b76497bc04bb33f159"
+        }
+      ]
     }
   ],
   "verification_attempts": [

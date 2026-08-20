@@ -5,7 +5,7 @@ zh_description: "用于 Docker 容器化最佳实践、多阶段构建优化与 
 version: "1.0.1"
 author: "seaworld008"
 source: "skills.sh"
-source_url: "https://skills.sh/sickn33/antigravity-awesome-skills/docker-expert"
+source_url: "https://github.com/sickn33/agentic-awesome-skills/blob/main/skills/docker-expert/SKILL.md"
 license: "CC-BY-4.0"
 tags: '["development", "docker", "expert"]'
 created_at: "2026-03-27"

@@ -4,8 +4,9 @@ description: 'Use when creating new skills, editing existing skills, or verifyin
 zh_description: "用于writing、技能，支持任务规划、执行、评审和验证。"
 version: "1.0.3"
 author: "seaworld008"
-source: "in-house"
-source_url: ""
+source: "github:obra/superpowers"
+source_url: "https://github.com/obra/superpowers/blob/main/skills/writing-skills/SKILL.md"
+license: MIT
 tags: '["skills", "authoring", "workflow"]'
 created_at: "2026-04-13"
 updated_at: "2026-07-27"

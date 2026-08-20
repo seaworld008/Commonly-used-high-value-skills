@@ -77,7 +77,7 @@
       "version": "1.0.8",
       "author": "seaworld008",
       "source": "github:alirezarezvani/claude-skills",
-      "source_url": "",
+      "source_url": "https://github.com/alirezarezvani/claude-skills/blob/main/engineering/agenthub/skills/agenthub/SKILL.md",
       "tags": [
         "agent",
         "ai",
@@ -201,8 +201,8 @@
       "description": "Use, configure, theme, extend, and orchestrate Hermes Agent.",
       "version": "2.0.15",
       "author": "Hermes Agent + Teknium",
-      "source": "in-house",
-      "source_url": "",
+      "source": "github:NousResearch/hermes-agent",
+      "source_url": "https://github.com/NousResearch/hermes-agent/blob/main/skills/autonomous-ai-agents/hermes-agent/SKILL.md",
       "tags": [
         "hermes",
         "setup",
@@ -276,8 +276,8 @@
       "description": "Use when users need to operate MCP servers or tools with the mcporter CLI: list servers, configure auth, call HTTP/stdio tools, edit config, or generate CLI/type bindings.",
       "version": "1.0.1",
       "author": "community",
-      "source": "in-house",
-      "source_url": "",
+      "source": "github:NousResearch/hermes-agent",
+      "source_url": "https://github.com/NousResearch/hermes-agent/blob/main/skills/mcp/mcporter/SKILL.md",
       "tags": [
         "MCP",
         "Tools",
@@ -298,8 +298,8 @@
       "description": "Built-in MCP (Model Context Protocol) client that connects to external MCP servers, discovers their tools, and registers them as native Hermes Agent tools. Supports stdio and HTTP transports with automatic reconnection, security filtering, and zero-config tool injection.",
       "version": "1.0.0",
       "author": "Hermes Agent",
-      "source": "in-house",
-      "source_url": "",
+      "source": "github:NousResearch/hermes-agent",
+      "source_url": "https://github.com/NousResearch/hermes-agent/blob/main/skills/mcp/native-mcp/SKILL.md",
       "tags": [
         "MCP",
         "Tools",
@@ -662,8 +662,8 @@
       "description": "Use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies",
       "version": "1.0.2",
       "author": "seaworld008",
-      "source": "in-house",
-      "source_url": "",
+      "source": "github:obra/superpowers",
+      "source_url": "https://github.com/obra/superpowers/blob/main/skills/dispatching-parallel-agents/SKILL.md",
       "tags": [
         "agents",
         "parallel",
@@ -673,7 +673,7 @@
       "complexity": "intermediate",
       "created_at": "2026-04-13",
       "updated_at": "2026-07-27",
-      "line_count": 177,
+      "line_count": 178,
       "path": "skills/ai-workflow/dispatching-parallel-agents/SKILL.md"
     },
     {
@@ -726,8 +726,8 @@
       "description": "Use when you have a written implementation plan to execute in a separate session with review checkpoints",
       "version": "1.0.5",
       "author": "seaworld008",
-      "source": "in-house",
-      "source_url": "",
+      "source": "github:obra/superpowers",
+      "source_url": "https://github.com/obra/superpowers/blob/main/skills/executing-plans/SKILL.md",
       "tags": [
         "plans",
         "execution",
@@ -737,7 +737,7 @@
       "complexity": "intermediate",
       "created_at": "2026-04-13",
       "updated_at": "2026-07-27",
-      "line_count": 100,
+      "line_count": 101,
       "path": "skills/ai-workflow/executing-plans/SKILL.md"
     },
     {
@@ -767,8 +767,8 @@
       "description": "Use when implementation is complete, all tests pass, and you need to decide how to integrate the work",
       "version": "1.0.4",
       "author": "seaworld008",
-      "source": "in-house",
-      "source_url": "",
+      "source": "github:obra/superpowers",
+      "source_url": "https://github.com/obra/superpowers/blob/main/skills/finishing-a-development-branch/SKILL.md",
       "tags": [
         "git",
         "workflow",
@@ -778,7 +778,7 @@
       "complexity": "intermediate",
       "created_at": "2026-04-13",
       "updated_at": "2026-08-17",
-      "line_count": 235,
+      "line_count": 236,
       "path": "skills/ai-workflow/finishing-a-development-branch/SKILL.md"
     },
     {
@@ -1047,8 +1047,8 @@
       "description": "Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable - requires technical rigor and verification, not performative agreement or blind implementation",
       "version": "1.0.2",
       "author": "seaworld008",
-      "source": "in-house",
-      "source_url": "",
+      "source": "github:obra/superpowers",
+      "source_url": "https://skills.sh/obra/superpowers/receiving-code-review",
       "tags": [
         "code-review",
         "workflow",
@@ -1058,7 +1058,7 @@
       "complexity": "intermediate",
       "created_at": "2026-04-13",
       "updated_at": "2026-07-27",
-      "line_count": 215,
+      "line_count": 216,
       "path": "skills/ai-workflow/receiving-code-review/SKILL.md"
     },
     {
@@ -1067,8 +1067,8 @@
       "description": "Use when completing tasks, implementing major features, or before merging to verify work meets requirements",
       "version": "1.0.4",
       "author": "seaworld008",
-      "source": "in-house",
-      "source_url": "",
+      "source": "github:obra/superpowers",
+      "source_url": "https://skills.sh/obra/superpowers/requesting-code-review",
       "tags": [
         "code-review",
         "workflow",
@@ -1078,7 +1078,7 @@
       "complexity": "intermediate",
       "created_at": "2026-04-13",
       "updated_at": "2026-07-27",
-      "line_count": 131,
+      "line_count": 132,
       "path": "skills/ai-workflow/requesting-code-review/SKILL.md"
     },
     {
@@ -1303,8 +1303,8 @@
       "description": "Use when starting feature work that needs isolation from current workspace or before executing implementation plans - ensures an isolated workspace exists via native tools or git worktree fallback",
       "version": "1.0.3",
       "author": "seaworld008",
-      "source": "in-house",
-      "source_url": "",
+      "source": "github:obra/superpowers",
+      "source_url": "https://github.com/obra/superpowers/blob/main/skills/using-git-worktrees/SKILL.md",
       "tags": [
         "git",
         "worktree",
@@ -1314,7 +1314,7 @@
       "complexity": "intermediate",
       "created_at": "2026-04-13",
       "updated_at": "2026-07-27",
-      "line_count": 177,
+      "line_count": 178,
       "path": "skills/ai-workflow/using-git-worktrees/SKILL.md"
     },
     {
@@ -1323,8 +1323,8 @@
       "description": "Use when starting any conversation - establishes how to find and use skills, requiring skill invocation before ANY response including clarifying questions",
       "version": "1.0.4",
       "author": "seaworld008",
-      "source": "in-house",
-      "source_url": "",
+      "source": "github:obra/superpowers",
+      "source_url": "https://github.com/obra/superpowers/blob/main/skills/using-superpowers/SKILL.md",
       "tags": [
         "skills",
         "workflow",
@@ -1334,7 +1334,7 @@
       "complexity": "intermediate",
       "created_at": "2026-04-13",
       "updated_at": "2026-08-17",
-      "line_count": 101,
+      "line_count": 102,
       "path": "skills/ai-workflow/using-superpowers/SKILL.md"
     },
     {
@@ -1343,8 +1343,8 @@
       "description": "Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always",
       "version": "1.0.1",
       "author": "seaworld008",
-      "source": "in-house",
-      "source_url": "",
+      "source": "github:obra/superpowers",
+      "source_url": "https://skills.sh/obra/superpowers/verification-before-completion",
       "tags": [
         "verification",
         "workflow",
@@ -1354,7 +1354,7 @@
       "complexity": "intermediate",
       "created_at": "2026-04-13",
       "updated_at": "2026-07-27",
-      "line_count": 130,
+      "line_count": 131,
       "path": "skills/ai-workflow/verification-before-completion/SKILL.md"
     },
     {
@@ -1384,8 +1384,8 @@
       "description": "Use when creating new skills, editing existing skills, or verifying skills work before deployment",
       "version": "1.0.3",
       "author": "seaworld008",
-      "source": "in-house",
-      "source_url": "",
+      "source": "github:obra/superpowers",
+      "source_url": "https://github.com/obra/superpowers/blob/main/skills/writing-skills/SKILL.md",
       "tags": [
         "skills",
         "authoring",
@@ -1395,7 +1395,7 @@
       "complexity": "intermediate",
       "created_at": "2026-04-13",
       "updated_at": "2026-07-27",
-      "line_count": 689,
+      "line_count": 690,
       "path": "skills/ai-workflow/writing-skills/SKILL.md"
     },
     {
@@ -1600,8 +1600,8 @@
     {
       "name": "aws-solution-architect",
       "category": "developer-engineering",
-      "description": "用于 AWS 云架构设计、服务选型、成本优化与 Well-Architected Framework 评估。来源：alirezarezvani/claude-skills。",
-      "version": "1.0.0",
+      "description": "Design AWS architectures for startups using serverless patterns and IaC templates. Use when asked to design serverless architecture, create CloudFormation templates, optimize AWS costs, set up CI/CD pipelines, or migrate to AWS. Covers Lambda, API Gateway, DynamoDB, ECS, Aurora, and cost optimization.",
+      "version": "1.0.1",
       "author": "seaworld008",
       "source": "skills.sh",
       "source_url": "https://skills.sh/alirezarezvani/claude-skills/aws-solution-architect",
@@ -1614,8 +1614,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-27",
-      "updated_at": "2026-03-27",
-      "line_count": 144,
+      "updated_at": "2026-08-20",
+      "line_count": 392,
       "path": "skills/developer-engineering/aws-solution-architect/SKILL.md"
     },
     {
@@ -1664,8 +1664,8 @@
       "description": "Inspect and analyze codebases using pygount for LOC counting, language breakdown, and code-vs-comment ratios. Use when asked to check lines of code, repo size, language composition, or codebase stats.",
       "version": "1.0.0",
       "author": "Hermes Agent",
-      "source": "in-house",
-      "source_url": "",
+      "source": "github:NousResearch/hermes-agent",
+      "source_url": "https://github.com/NousResearch/hermes-agent/blob/main/skills/github/codebase-inspection/SKILL.md",
       "tags": [
         "LOC",
         "Code Analysis",
@@ -1769,7 +1769,7 @@
       "version": "1.0.1",
       "author": "seaworld008",
       "source": "skills.sh",
-      "source_url": "https://skills.sh/sickn33/antigravity-awesome-skills/docker-expert",
+      "source_url": "https://github.com/sickn33/agentic-awesome-skills/blob/main/skills/docker-expert/SKILL.md",
       "tags": [
         "development",
         "docker",
@@ -2045,8 +2045,8 @@
     {
       "name": "nextjs-app-router",
       "category": "developer-engineering",
-      "description": "用于 Next.js App Router 模式开发，包含 RSC、Server Actions 和路由最佳实践。来源：skills.sh 10.2K installs。",
-      "version": "1.0.0",
+      "description": "Master Next.js 14+ App Router with Server Components, streaming, parallel routes, and advanced data fetching. Use when building Next.js applications, implementing SSR/SSG, or optimizing React Server Components.",
+      "version": "1.0.1",
       "author": "seaworld008",
       "source": "skills.sh",
       "source_url": "https://skills.sh/wshobson/agents/nextjs-app-router-patterns",
@@ -2059,8 +2059,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-27",
-      "updated_at": "2026-03-27",
-      "line_count": 147,
+      "updated_at": "2026-08-20",
+      "line_count": 125,
       "path": "skills/developer-engineering/nextjs-app-router/SKILL.md"
     },
     {
@@ -2126,8 +2126,8 @@
     {
       "name": "python-performance",
       "category": "developer-engineering",
-      "description": "Use when profiling Python code, reducing memory usage, optimizing hot paths, choosing concurrency patterns, or reviewing performance regressions in Python services and scripts.",
-      "version": "1.0.0",
+      "description": "Profile and optimize Python code using cProfile, memory profilers, and performance best practices. Use when debugging slow Python code, optimizing bottlenecks, or improving application performance.",
+      "version": "1.0.1",
       "author": "seaworld008",
       "source": "skills.sh",
       "source_url": "https://skills.sh/wshobson/agents/python-performance-optimization",
@@ -2139,8 +2139,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-27",
-      "updated_at": "2026-06-29",
-      "line_count": 126,
+      "updated_at": "2026-08-20",
+      "line_count": 111,
       "path": "skills/developer-engineering/python-performance/SKILL.md"
     },
     {
@@ -2270,7 +2270,7 @@
     {
       "name": "supabase",
       "category": "developer-engineering",
-      "description": "Use when doing ANY task involving Supabase. Triggers: Supabase products (Database, Auth, Edge Functions, Realtime, Storage, Vectors, Cron, Queues); client libraries and SSR integrations (supabase-js, @supabase/ssr) in Next.js, React, SvelteKit, Astro, Remix; auth issues (login, logout, sessions, JWT, cookies, getSession, getUser, getClaims, RLS); Supabase CLI or MCP server; schema changes, migrations, security audits, Postgres extensions (pg_graphql, pg_cron, pg_vector).",
+      "description": "Use when doing ANY task involving Supabase. Triggers: Supabase products (Database, Auth, Edge Functions, Realtime, Storage, Vectors, Cron, Queues); client libraries and SSR integrations (supabase-js, @supabase/ssr) in Next.js, React, SvelteKit, Astro, Remix; auth issues (login, logout, sessions, JWT, cookies, getSession, getUser, getClaims, RLS); Supabase CLI or MCP server; schema changes, migrations, declarative schemas, security audits, Postgres extensions (pg_graphql, pg_cron, pg_vector); debugging and troubleshooting errors or unexpected behavior on Supabase projects (HTTP errors, Postgres errors, RLS surprises, permission denied, schema cache issues, timeouts, Edge Function crashes, Realtime drops, Storage failures) and reading or querying logs (Logs Explorer, ClickHouse).",
       "version": "0.1.2",
       "author": "supabase",
       "source": "github:supabase/agent-skills",
@@ -2282,14 +2282,14 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-06-03",
-      "updated_at": "2026-06-08",
-      "line_count": 172,
+      "updated_at": "2026-08-20",
+      "line_count": 188,
       "path": "skills/developer-engineering/supabase/SKILL.md"
     },
     {
       "name": "supabase-postgres-best-practices",
       "category": "developer-engineering",
-      "description": "Postgres performance optimization and best practices from Supabase. Use this skill when writing, reviewing, or optimizing Postgres queries, schema designs, or database configurations.",
+      "description": "Postgres best practices maintained by Supabase, for Postgres running anywhere. Load this skill BEFORE writing or changing anything that lives in a Postgres database: creating or altering tables and columns (including choosing column types), schema design, migrations and declarative schema files, RLS policies and the tests that verify them, indexes, triggers, database functions, queues and scheduled jobs (pg_cron, pgmq), vector/semantic search (pgvector), and restoring dumps (pg_restore) or importing data. Also load it when diagnosing slow queries, high CPU, timeouts, EXPLAIN plans, connection exhaustion, locking, bloat, or rows visible to the wrong user or tenant. This is not just a performance guide — schema, migration, security, and SQL authoring tasks need these rules too, even for a one-column change or a single query.",
       "version": "1.1.1",
       "author": "supabase",
       "source": "github:supabase/agent-skills",
@@ -2303,8 +2303,8 @@
       "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-05-05",
-      "updated_at": "2026-06-29",
-      "line_count": 122,
+      "updated_at": "2026-08-20",
+      "line_count": 102,
       "path": "skills/developer-engineering/supabase-postgres-best-practices/SKILL.md"
     },
     {
@@ -2330,8 +2330,8 @@
     {
       "name": "tailwind-design-system",
       "category": "developer-engineering",
-      "description": "Use when building Tailwind CSS design systems, theme tokens, reusable component styles, responsive layouts, or UI consistency rules for product frontends.",
-      "version": "1.0.0",
+      "description": "Build scalable design systems with Tailwind CSS v4, design tokens, component libraries, and responsive patterns. Use when creating component libraries, implementing design systems, or standardizing UI patterns.",
+      "version": "1.0.1",
       "author": "seaworld008",
       "source": "skills.sh",
       "source_url": "https://skills.sh/wshobson/agents/tailwind-design-system",
@@ -2344,8 +2344,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-27",
-      "updated_at": "2026-06-29",
-      "line_count": 137,
+      "updated_at": "2026-08-20",
+      "line_count": 196,
       "path": "skills/developer-engineering/tailwind-design-system/SKILL.md"
     },
     {
@@ -2434,8 +2434,8 @@
     {
       "name": "vercel-react-view-transitions",
       "category": "developer-engineering",
-      "description": "Guide for adding native-feeling page, route, shared-element, and list transitions in React and Next.js with the View Transition API.",
-      "version": "1.0.0",
+      "description": "Guide for implementing smooth, native-feeling animations using React''s View Transition API (`<ViewTransition>` component, `addTransitionType`, and CSS view transition pseudo-elements). Use this skill whenever the user wants to add page transitions, animate route changes, create shared element animations, animate enter/exit of components, animate list reorder, implement directional (forward/back) navigation animations, or integrate view transitions in Next.js. Also use when the user mentions view transitions, `startViewTransition`, `ViewTransition`, transition types, or asks about animating between UI states in React without third-party animation libraries.",
+      "version": "1.0.1",
       "author": "seaworld008",
       "source": "github:vercel-labs/agent-skills",
       "source_url": "https://skills.sh/vercel-labs/agent-skills/vercel-react-view-transitions",
@@ -2450,8 +2450,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-06-08",
-      "updated_at": "2026-06-08",
-      "line_count": 239,
+      "updated_at": "2026-08-20",
+      "line_count": 338,
       "path": "skills/developer-engineering/vercel-react-view-transitions/SKILL.md"
     },
     {
@@ -2512,8 +2512,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-06-03",
-      "updated_at": "2026-06-16",
-      "line_count": 189,
+      "updated_at": "2026-08-20",
+      "line_count": 196,
       "path": "skills/devops-sre/azure-kubernetes/SKILL.md"
     },
     {
@@ -2716,7 +2716,7 @@
       "version": "1.0.1",
       "author": "seaworld008",
       "source": "github:alirezarezvani/claude-skills",
-      "source_url": "",
+      "source_url": "https://github.com/alirezarezvani/claude-skills/blob/main/engineering-team/skills/senior-architect/SKILL.md",
       "tags": [
         "architect",
         "devops",
@@ -3359,7 +3359,7 @@
       "version": "1.0.1",
       "author": "seaworld008",
       "source": "github:alirezarezvani/claude-skills",
-      "source_url": "",
+      "source_url": "https://github.com/alirezarezvani/claude-skills/blob/main/finance/skills/saas-metrics-coach/SKILL.md",
       "tags": [
         "coach",
         "finance",
@@ -3740,8 +3740,8 @@
       "description": "Search arXiv papers by keyword, author, category, or ID.",
       "version": "1.0.3",
       "author": "Hermes Agent",
-      "source": "in-house",
-      "source_url": "",
+      "source": "github:NousResearch/hermes-agent",
+      "source_url": "https://github.com/NousResearch/hermes-agent/blob/main/skills/research/arxiv/SKILL.md",
       "tags": [
         "Research",
         "Arxiv",
@@ -4355,8 +4355,8 @@
       "description": "Karpathy''s LLM Wiki: build/query interlinked markdown KB.",
       "version": "2.0.3",
       "author": "Hermes Agent",
-      "source": "in-house",
-      "source_url": "",
+      "source": "github:NousResearch/hermes-agent",
+      "source_url": "https://github.com/NousResearch/hermes-agent/blob/main/skills/research/llm-wiki/SKILL.md",
       "tags": [
         "wiki",
         "knowledge-base",
@@ -4477,8 +4477,8 @@
       "description": "Use when users need to read, search, create, edit, organize, or cross-link notes in an Obsidian vault while preserving markdown structure and knowledge-base context.",
       "version": "1.0.3",
       "author": "seaworld008",
-      "source": "in-house",
-      "source_url": "",
+      "source": "github:NousResearch/hermes-agent",
+      "source_url": "https://github.com/NousResearch/hermes-agent/blob/main/skills/note-taking/obsidian/SKILL.md",
       "tags": [
         "obsidian",
         "notes",
@@ -4488,7 +4488,7 @@
       "complexity": "intermediate",
       "created_at": "2026-04-13",
       "updated_at": "2026-06-29",
-      "line_count": 96,
+      "line_count": 97,
       "path": "skills/knowledge-and-pm-integrations/obsidian/SKILL.md"
     },
     {
@@ -4934,8 +4934,8 @@
       "description": "Configure and use Honcho memory with Hermes -- cross-session user modeling, multi-profile peer isolation, observation config, dialectic reasoning, session summaries, and context budget enforcement. Use when setting up Honcho, troubleshooting memory, managing profiles with Honcho peers, or tuning observation, recall, and dialectic settings.",
       "version": "1.0.2",
       "author": "Hermes Agent",
-      "source": "in-house",
-      "source_url": "",
+      "source": "github:NousResearch/hermes-agent",
+      "source_url": "https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/autonomous-ai-agents/honcho/SKILL.md",
       "tags": [
         "Honcho",
         "Memory",
@@ -5324,7 +5324,7 @@
       "version": "1.0.6",
       "author": "seaworld008",
       "source": "github:alirezarezvani/claude-skills",
-      "source_url": "",
+      "source_url": "https://github.com/alirezarezvani/claude-skills/blob/main/product-team/skills/landing-page-generator/SKILL.md",
       "tags": [
         "design",
         "generator",
@@ -5948,7 +5948,7 @@
       "version": "1.0.4",
       "author": "seaworld008",
       "source": "github:alirezarezvani/claude-skills",
-      "source_url": "",
+      "source_url": "https://github.com/alirezarezvani/claude-skills/blob/main/engineering/skills/skill-security-auditor/SKILL.md",
       "tags": [
         "auditor",
         "security",

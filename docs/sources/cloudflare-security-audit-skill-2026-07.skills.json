@@ -1,4 +1,5 @@
 {
+  "schema_version": 2,
   "video": {
     "url": "https://github.com/cloudflare/security-audit-skill",
     "checked_at": "2026-08-18",
@@ -35,8 +36,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "8bac42001ddd90a4dcd8d5a5045199283a8eba75"
-      }
+        "last_synced_commit": "8bac42001ddd90a4dcd8d5a5045199283a8eba75",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "cloudflare/security-audit-skill",
+          "path": "skills/security-audit/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/security-audit/SKILL.md",
+              "target": "skills/security-and-reliability/security-audit/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "8bac42001ddd90a4dcd8d5a5045199283a8eba75",
+            "path_commit": "8bac42001ddd90a4dcd8d5a5045199283a8eba75",
+            "content_sha256": "f534330a3098552529d9d8a4d3edde15bd7545db42b4af955b469d72592e8710",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/security-and-reliability/security-audit/SKILL.md",
+          "owner": "security-audit",
+          "sha256": "f534330a3098552529d9d8a4d3edde15bd7545db42b4af955b469d72592e8710"
+        }
+      ]
     }
   ],
   "verification_attempts": [

@@ -1,15 +1,15 @@
 ---
 name: supabase-postgres-best-practices
-description: 'Postgres performance optimization and best practices from Supabase. Use this skill when writing, reviewing, or optimizing Postgres queries, schema designs, or database configurations.'
+description: 'Postgres best practices maintained by Supabase, for Postgres running anywhere. Load this skill BEFORE writing or changing anything that lives in a Postgres database: creating or altering tables and columns (including choosing column types), schema design, migrations and declarative schema files, RLS policies and the tests that verify them, indexes, triggers, database functions, queues and scheduled jobs (pg_cron, pgmq), vector/semantic search (pgvector), and restoring dumps (pg_restore) or importing data. Also load it when diagnosing slow queries, high CPU, timeouts, EXPLAIN plans, connection exhaustion, locking, bloat, or rows visible to the wrong user or tenant. This is not just a performance guide — schema, migration, security, and SQL authoring tasks need these rules too, even for a one-column change or a single query.'
 zh_description: "用于编写、评审和优化 Supabase/Postgres 查询、Schema、索引和数据库配置。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:supabase/agent-skills"
 source_url: "https://skills.sh/supabase/agent-skills/supabase-postgres-best-practices"
 license: MIT
 tags: '["best", "development", "postgres", "supabase"]'
 created_at: "2026-05-05"
-updated_at: "2026-06-29"
+updated_at: "2026-08-20"
 quality: 3
 complexity: "intermediate"
 metadata:
@@ -97,26 +97,6 @@ source is intentionally concise.
   unavailable.
 - Stop and ask for clarification when the next action could overwrite user work,
   expose private data, or change production state.
+- Treat skill selection as routing, not ceremony: invoke only the narrowest
+  applicable workflow and keep user or repository instructions authoritative.
 <!-- LOCAL-QUALITY-SUPPLEMENT:END -->
-
-## Review Checklist
-
-Use this checklist when applying the Supabase/Postgres rules:
-
-- Identify the workload first: OLTP, analytics, background jobs, auth/RLS-heavy access, or mixed traffic.
-- Inspect query plans before proposing indexes; avoid adding indexes only because a column appears in a `WHERE` clause.
-- Check row-level security policies for both correctness and performance.
-- Consider write amplification, storage growth, and vacuum pressure before adding multiple indexes.
-- Prefer partial indexes when predicates are stable and selectivity is high.
-- Verify that migration SQL is reversible or has a documented rollback path.
-
-## Evidence to Return
-
-For meaningful database changes, include:
-
-- The slow query or schema object being addressed.
-- The before/after plan or the reason a plan could not be captured.
-- The index, policy, or schema change proposed.
-- Expected tradeoffs for writes, storage, lock time, and operational rollout.
-
-Do not claim a performance improvement without plan evidence, representative data, or a clearly labeled hypothesis.

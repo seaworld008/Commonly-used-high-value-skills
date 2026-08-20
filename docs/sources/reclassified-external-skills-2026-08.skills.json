@@ -1,0 +1,2857 @@
+{
+  "schema_version": 2,
+  "video": {
+    "url": "https://github.com/seaworld008/Commonly-used-high-value-skills",
+    "checked_at": "2026-08-20",
+    "note": "External canonical skills reclassified from the legacy in-house provenance mapping."
+  },
+  "collection": {
+    "name": "Reclassified external canonical skills",
+    "checked_at": "2026-08-20",
+    "note": "Skills formerly misclassified as in-house; each entry carries its own upstream origin."
+  },
+  "official_references": [
+    {
+      "name": "Canonical skill frontmatter",
+      "url": "https://github.com/seaworld008/Commonly-used-high-value-skills/tree/main/skills",
+      "purpose": "Records the external source URL and accepted permissive license for each canonical skill."
+    }
+  ],
+  "verification_attempts": [
+    {
+      "date": "2026-08-20",
+      "method": "github-api-license-and-tree-audit",
+      "target": "reclassified external source repositories",
+      "result": "success",
+      "evidence": "Confirmed current permissive repository licenses and canonical upstream paths for the reachable GitHub sources before reclassification."
+    },
+    {
+      "date": "2026-08-20",
+      "method": "upstream-skill-frontmatter-license",
+      "target": "vercel-labs/agent-skills",
+      "result": "success",
+      "evidence": "The repository API has no licenseInfo, but both tracked upstream SKILL.md files explicitly declare MIT; the skill-level license is the copy authority."
+    },
+    {
+      "date": "2026-08-20",
+      "method": "historical-license-and-availability-review",
+      "target": "404kidwiz/claude-supercode-skills",
+      "result": "partial",
+      "evidence": "The repository is currently unavailable; the previously confirmed MIT skill is retained as a local-only snapshot and is not eligible for automatic replacement."
+    },
+    {
+      "date": "2026-08-20",
+      "method": "monitor-commit-range-review",
+      "target": "akin-ozer/cc-devops-skills README.md 2073d658acec..84f796a092ff",
+      "result": "no-change",
+      "evidence": "The only upstream change adds a CONTRIBUTING.md link and does not alter reusable DevOps operating guidance, install behavior, safety controls, or compatibility; the curated local skill remains unchanged and the reviewed checkpoint advances."
+    },
+    {
+      "date": "2026-08-20",
+      "method": "monitor-commit-range-review-and-curation",
+      "target": "vercel-labs/agent-skills react-view-transitions 1a5a9a0edbb0..3798a7954ee2",
+      "result": "success",
+      "evidence": "Absorbed durable React and Next.js corrections for Chromium support, router back behavior, Suspense shared-element readiness, default-none semantics, silent share failures, nested transitions, and displacement morphs; synchronized the complete upstream reference set."
+    },
+    {
+      "date": "2026-08-20",
+      "method": "exact-body-and-path-history-review",
+      "target": "vercel-labs/agent-skills react-best-practices",
+      "result": "no-change",
+      "evidence": "Canonical body already equals upstream and the tracked SKILL.md path has not changed since commit 805687f34e8c10b420e3d11335a0ca2c3c90d992; advanced the repository and path checkpoints without rewriting content."
+    }
+  ],
+  "skills": [
+    {
+      "video_name": "aws-solution-architect",
+      "normalized_slug": "aws-solution-architect",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/developer-engineering/aws-solution-architect/SKILL.md",
+      "source": "https://skills.sh/alirezarezvani/claude-skills/aws-solution-architect",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.",
+      "upstream": {
+        "repo": "alirezarezvani/claude-skills",
+        "path": "engineering-team/skills/aws-solution-architect/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-08-20",
+        "last_synced_at": "2026-08-20",
+        "last_synced_commit": "aa8d778811a557a2c28ccadda4cf3d0bd028a4cc",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "alirezarezvani/claude-skills",
+          "path": "engineering-team/skills/aws-solution-architect/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "engineering-team/skills/aws-solution-architect/SKILL.md",
+              "target": "skills/developer-engineering/aws-solution-architect/SKILL.md",
+              "type": "file"
+            },
+            {
+              "source": "engineering-team/skills/aws-solution-architect/assets/expected_output.json",
+              "target": "skills/developer-engineering/aws-solution-architect/assets/expected_output.json",
+              "type": "file"
+            },
+            {
+              "source": "engineering-team/skills/aws-solution-architect/assets/sample_input.json",
+              "target": "skills/developer-engineering/aws-solution-architect/assets/sample_input.json",
+              "type": "file"
+            },
+            {
+              "source": "engineering-team/skills/aws-solution-architect/references/architecture_patterns.md",
+              "target": "skills/developer-engineering/aws-solution-architect/references/architecture_patterns.md",
+              "type": "file"
+            },
+            {
+              "source": "engineering-team/skills/aws-solution-architect/references/best_practices.md",
+              "target": "skills/developer-engineering/aws-solution-architect/references/best_practices.md",
+              "type": "file"
+            },
+            {
+              "source": "engineering-team/skills/aws-solution-architect/references/service_selection.md",
+              "target": "skills/developer-engineering/aws-solution-architect/references/service_selection.md",
+              "type": "file"
+            },
+            {
+              "source": "engineering-team/skills/aws-solution-architect/scripts/architecture_designer.py",
+              "target": "skills/developer-engineering/aws-solution-architect/scripts/architecture_designer.py",
+              "type": "file"
+            },
+            {
+              "source": "engineering-team/skills/aws-solution-architect/scripts/cost_optimizer.py",
+              "target": "skills/developer-engineering/aws-solution-architect/scripts/cost_optimizer.py",
+              "type": "file"
+            },
+            {
+              "source": "engineering-team/skills/aws-solution-architect/scripts/serverless_stack.py",
+              "target": "skills/developer-engineering/aws-solution-architect/scripts/serverless_stack.py",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "aa8d778811a557a2c28ccadda4cf3d0bd028a4cc",
+            "path_commit": "1851c8fb09ea8ff0488d48bd7c312abb1bbf5850",
+            "content_sha256": "8f35d3e054260a3ff45bcb6162fac6d47074c6b56a2c6f55191815754a697b92",
+            "last_checked_at": "2026-08-20",
+            "last_synced_at": "2026-08-20"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/developer-engineering/aws-solution-architect/SKILL.md",
+          "sha256": "8f35d3e054260a3ff45bcb6162fac6d47074c6b56a2c6f55191815754a697b92",
+          "owner": "aws-solution-architect"
+        },
+        {
+          "path": "skills/developer-engineering/aws-solution-architect/assets/expected_output.json",
+          "sha256": "0a4dcd8efcea445f6a655fe7e0556030a58971b0f774589a4fc0d7beb5186d84",
+          "owner": "aws-solution-architect"
+        },
+        {
+          "path": "skills/developer-engineering/aws-solution-architect/assets/sample_input.json",
+          "sha256": "bf63a33234a590c2967e89f3aa919472adaa310526862cc386037f085111b37e",
+          "owner": "aws-solution-architect"
+        },
+        {
+          "path": "skills/developer-engineering/aws-solution-architect/references/architecture_patterns.md",
+          "sha256": "fceffe1382e8d2dc57333065402c5b61b1e348638d58b2b83134d6d633dbedd9",
+          "owner": "aws-solution-architect"
+        },
+        {
+          "path": "skills/developer-engineering/aws-solution-architect/references/best_practices.md",
+          "sha256": "075aeadef56f94e2584af32e13021f69043a1e57aba35249a412a9766faccef5",
+          "owner": "aws-solution-architect"
+        },
+        {
+          "path": "skills/developer-engineering/aws-solution-architect/references/service_selection.md",
+          "sha256": "8bd29cde206714831934a944d775553bd1dede2e7e411aedb40aee75e9a6dbcf",
+          "owner": "aws-solution-architect"
+        },
+        {
+          "path": "skills/developer-engineering/aws-solution-architect/scripts/architecture_designer.py",
+          "sha256": "cdb9730d20093114d5ef0a541a9194bb861062d4af65557794a8e0fc608eadf9",
+          "owner": "aws-solution-architect"
+        },
+        {
+          "path": "skills/developer-engineering/aws-solution-architect/scripts/cost_optimizer.py",
+          "sha256": "a129693e7877817e8e8d1167a19637d9c7cfffc19c538a7cbe4e85ccba2a3aba",
+          "owner": "aws-solution-architect"
+        },
+        {
+          "path": "skills/developer-engineering/aws-solution-architect/scripts/serverless_stack.py",
+          "sha256": "4dc6f81f7fca1cbf62c0146e8f19efc3739e71b32f2092d36b8fea3dee9bc45e",
+          "owner": "aws-solution-architect"
+        }
+      ]
+    },
+    {
+      "video_name": "azure-kubernetes",
+      "normalized_slug": "azure-kubernetes",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/devops-sre/azure-kubernetes/SKILL.md",
+      "source": "https://skills.sh/microsoft/azure-skills/azure-kubernetes",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.",
+      "upstream": {
+        "repo": "microsoft/azure-skills",
+        "path": "skills/azure-kubernetes/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-08-20",
+        "last_synced_at": "2026-08-20",
+        "last_synced_commit": "ea76537ef7f2ae4f3a3d02d26347ec5afe19068c",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "microsoft/azure-skills",
+          "path": "skills/azure-kubernetes/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/azure-kubernetes/SKILL.md",
+              "target": "skills/devops-sre/azure-kubernetes/SKILL.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/SKILL.md",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/SKILL.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/knowledge-packs/frameworks/aspnet-core.md",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/knowledge-packs/frameworks/aspnet-core.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/knowledge-packs/frameworks/django.md",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/knowledge-packs/frameworks/django.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/knowledge-packs/frameworks/express.md",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/knowledge-packs/frameworks/express.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/knowledge-packs/frameworks/fastapi.md",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/knowledge-packs/frameworks/fastapi.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/knowledge-packs/frameworks/flask.md",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/knowledge-packs/frameworks/flask.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/knowledge-packs/frameworks/go.md",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/knowledge-packs/frameworks/go.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/knowledge-packs/frameworks/nestjs.md",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/knowledge-packs/frameworks/nestjs.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/knowledge-packs/frameworks/nextjs.md",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/knowledge-packs/frameworks/nextjs.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/knowledge-packs/frameworks/spring-boot.md",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/knowledge-packs/frameworks/spring-boot.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/phases/quick-deploy.md",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/phases/quick-deploy.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/references/base-images.md",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/references/base-images.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/references/detection.md",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/references/detection.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/references/rollback.md",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/references/rollback.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/references/safeguards.md",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/references/safeguards.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/references/workload-identity.md",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/references/workload-identity.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/dotnet.Dockerfile",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/dotnet.Dockerfile",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/dotnet.dockerignore",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/dotnet.dockerignore",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/go.Dockerfile",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/go.Dockerfile",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/go.dockerignore",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/go.dockerignore",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/java.Dockerfile",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/java.Dockerfile",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/java.dockerignore",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/java.dockerignore",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/node.Dockerfile",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/node.Dockerfile",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/node.dockerignore",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/node.dockerignore",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/python.Dockerfile",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/python.Dockerfile",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/python.dockerignore",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/python.dockerignore",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/rust.Dockerfile",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/rust.Dockerfile",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/rust.dockerignore",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/rust.dockerignore",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/templates/github-actions/deploy.yml",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/github-actions/deploy.yml",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/configmap.yaml",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/configmap.yaml",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/deployment.yaml",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/deployment.yaml",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/gateway.yaml",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/gateway.yaml",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/hpa.yaml",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/hpa.yaml",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/httproute.yaml",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/httproute.yaml",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/ingress.yaml",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/ingress.yaml",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/namespace.yaml",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/namespace.yaml",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/networkpolicy.yaml",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/networkpolicy.yaml",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/pdb.yaml",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/pdb.yaml",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/service.yaml",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/service.yaml",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/serviceaccount.yaml",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/serviceaccount.yaml",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/templates/mermaid/architecture-diagram.md",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/mermaid/architecture-diagram.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-app-deploy/templates/mermaid/summary-dashboard.md",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/mermaid/summary-dashboard.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-automatic-readiness/SKILL.md",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-automatic-readiness/SKILL.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-automatic-readiness/references/common-fixes.md",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-automatic-readiness/references/common-fixes.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-automatic-readiness/references/constraint-spec-v1.yaml",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-automatic-readiness/references/constraint-spec-v1.yaml",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-automatic-readiness/references/mcp-integration.md",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-automatic-readiness/references/mcp-integration.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/azure-kubernetes-automatic-readiness/references/migration-guide-summary.md",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-automatic-readiness/references/migration-guide-summary.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/references/azure-aks-autoscaler.md",
+              "target": "skills/devops-sre/azure-kubernetes/references/azure-aks-autoscaler.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/references/azure-aks-rightsizing.md",
+              "target": "skills/devops-sre/azure-kubernetes/references/azure-aks-rightsizing.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/references/azure-aks-spot.md",
+              "target": "skills/devops-sre/azure-kubernetes/references/azure-aks-spot.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/references/azure-aks-vpa.md",
+              "target": "skills/devops-sre/azure-kubernetes/references/azure-aks-vpa.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/references/cli-reference.md",
+              "target": "skills/devops-sre/azure-kubernetes/references/cli-reference.md",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "ea76537ef7f2ae4f3a3d02d26347ec5afe19068c",
+            "path_commit": "3b087be2faf4ff65bedf693986c3446f97645e7f",
+            "content_sha256": "256c28e87a23dbb137c4ed2b17eee46540f760ba51087312aa1a9065bf57f11e",
+            "last_checked_at": "2026-08-20",
+            "last_synced_at": "2026-08-20"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/devops-sre/azure-kubernetes/SKILL.md",
+          "sha256": "256c28e87a23dbb137c4ed2b17eee46540f760ba51087312aa1a9065bf57f11e",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/SKILL.md",
+          "sha256": "a963f7e911101d8d8184c34319e251756a68a2156ff13a25a4da4a83978210e9",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/knowledge-packs/frameworks/aspnet-core.md",
+          "sha256": "e67fdfd98e1544f5473a62c0ac70024d33306f051e2bd7b80f5a4ea0335c8b15",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/knowledge-packs/frameworks/django.md",
+          "sha256": "33826ede3306b4c2d9894968f79fbc2b8c3835c73c28bdf636efda45f5661da3",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/knowledge-packs/frameworks/express.md",
+          "sha256": "7fd50a40bc8abff5e22da41714698b80994f41250e72b8e864bfcf36dd8a9efa",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/knowledge-packs/frameworks/fastapi.md",
+          "sha256": "33ef9f994485797759813d526435e6ccdd02359ceebb043a48aad4f24f883bc3",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/knowledge-packs/frameworks/flask.md",
+          "sha256": "d8403f95736a0215544f472dbb542269ec9769803487c1ff4ce1b724fcf63d9e",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/knowledge-packs/frameworks/go.md",
+          "sha256": "4744f03992e3ed175241f1729824b0bcde2c2c2fc75bd85ab9568cb3d5e63528",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/knowledge-packs/frameworks/nestjs.md",
+          "sha256": "d79dea38ee39735e2f85b71a26a570e476258bd94166fe33aa3f0cfcf7edfa34",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/knowledge-packs/frameworks/nextjs.md",
+          "sha256": "9faf0bb704d0ae9e5bc797606065853d10fbb18ce7cecf3f9ea278e6a64dc466",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/knowledge-packs/frameworks/spring-boot.md",
+          "sha256": "3822a0468c2e22528a26bffc5dcdfe74276bb755a86109dea7c49296e5d86753",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/phases/quick-deploy.md",
+          "sha256": "3203e42fd195104c188e585146994f2d88cb7474250623abbb145360c492d737",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/references/base-images.md",
+          "sha256": "24e31442c3e6ea40810cb10e1e64fc6fb9d0afea9898bee168c683e2b11931be",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/references/detection.md",
+          "sha256": "41804e5e275c0f4e3b1cad11d90a67afd09fb635f699ac89bd6eff81854f0998",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/references/rollback.md",
+          "sha256": "be48bb7ed21568fe4b11cfccda269fc7b0c305647acedcbfb23a7468edfa8162",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/references/safeguards.md",
+          "sha256": "9f7894df0940a5c839cf8c5fb08d1f0d683d9b9b106e36157d6e91e9c1d8a813",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/references/workload-identity.md",
+          "sha256": "342284fd3ad2a24f2c35f3c60a739a76bed44c59341819d55b70849f006977ed",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/dotnet.Dockerfile",
+          "sha256": "f0e13016f78487dd8bfaa36febd2a730cb6728f8ac0dcceb6844d148a8f41757",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/dotnet.dockerignore",
+          "sha256": "5306cbaeaebe80c763c1037fabf727bd8ef4493c1b6dc11d4d587a93587bc95b",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/go.Dockerfile",
+          "sha256": "161d291610c232ec5e2c58c0232174321864fa530107f20663f249f893a2ba33",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/go.dockerignore",
+          "sha256": "76f037bb2393f2368d1211aa84df158fe5849324917b7fe10bb305affaac72c7",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/java.Dockerfile",
+          "sha256": "a8d0772283ed7ea6905d88589923e9c63db378b679dff40612c14915e8d4e66e",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/java.dockerignore",
+          "sha256": "832a7b09580d6e21ad1e9e428650dcdd8555d2dae63d970e461ea2c4003e6927",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/node.Dockerfile",
+          "sha256": "21a5925d7462213629279746415c4088593a79174cc00b24d4a5d04b5ead7041",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/node.dockerignore",
+          "sha256": "a7d7ff4bdbaefaf3a06dc8546b71b3d6e43c8af7be151f5e431ec1978ab3f2a4",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/python.Dockerfile",
+          "sha256": "1df050f85fa1ff0821672ef6ac950974ea52d66c23fc77901d565cb7cd10d8f4",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/python.dockerignore",
+          "sha256": "641836812197f5fea8816595ef13b6dfcdc49a078ee883920f9438d3743f4149",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/rust.Dockerfile",
+          "sha256": "cf84e7246d43c36015bfbdb5d0f3a96d16bc77892a725cc1956186612c35f70c",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/rust.dockerignore",
+          "sha256": "2c0b055944802d7ae80ae3b37891ab31233ae6bc93fcfc2a17988d5889bf2289",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/github-actions/deploy.yml",
+          "sha256": "ed07c82ed48bb296e45d9fe37e44669c2bb0387caf58325eeded5da5eb1bb494",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/configmap.yaml",
+          "sha256": "1a90e403f53b5e9542319cffe1d41cce5101f0b85b3d0c04008c4de1c39b17f4",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/deployment.yaml",
+          "sha256": "95eed829f21c93256dcb45697cd10bd7dc4698237396b92bf77cbd5c43887fca",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/gateway.yaml",
+          "sha256": "a88f09525879b8331bc1dc9f1eb5c5efb898d90ae4e9e468acb8eedbe49819d5",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/hpa.yaml",
+          "sha256": "85a69dca61312621f002b7908b2995412c45b794d6638a1191b080655fb0bfe6",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/httproute.yaml",
+          "sha256": "b7a20e01dbfe38b1d0c60ad92b77b29dcf6ae338fb2837651cf1305dd7a74866",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/ingress.yaml",
+          "sha256": "e6f088b331b0fdf40b2b07f90640354cdb71110ec454a18f88d29c64e6a4b3fa",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/namespace.yaml",
+          "sha256": "e77f6a0f68dec95d48405b43908a2eac68c9de4c0a3633fc5b8fd0ed76819a92",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/networkpolicy.yaml",
+          "sha256": "c0f5ba2f56628e38c87091658cd551c5ff0ef1353e2c389559f162866511192b",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/pdb.yaml",
+          "sha256": "4cbe61ad7e8a8a994bd435253f1218ca8735f08233a7a45968e50873f14ff556",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/service.yaml",
+          "sha256": "4174de229b2b7fb318eab0f57f25c05055bab03849aa7c795f49b039e48f4d57",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/serviceaccount.yaml",
+          "sha256": "c4d222b307b80d19c2d86708121329578cd0d39b0f619680a50fcc1824d70ece",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/mermaid/architecture-diagram.md",
+          "sha256": "4ba00f2d649e771d2011f48f1c0eb7534c05aa5770239fbec80073b15de524a4",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/mermaid/summary-dashboard.md",
+          "sha256": "026641bacf96fdb18ec3c071b9789ab055a610e2c56116fd951bfde7c9b645c2",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-automatic-readiness/SKILL.md",
+          "sha256": "50d594f5b8d3c71d5ff5e0eb983e32cdf7c1f5708562baa270455a0a768afdc3",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-automatic-readiness/references/common-fixes.md",
+          "sha256": "6197c9fdbc3efcc26ef8984803b8a1bcc464443a7b84420c8800e884602befd0",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-automatic-readiness/references/constraint-spec-v1.yaml",
+          "sha256": "51f67a31dab3fcc1bd3b1d82200439451c8f7acf93a4418d423a0c637c874bda",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-automatic-readiness/references/mcp-integration.md",
+          "sha256": "77da9a1a84ba0e48e91c3798772d97791227235b9eeda2fca8cfb9f523eb0737",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-automatic-readiness/references/migration-guide-summary.md",
+          "sha256": "81e555345e5b75c7bb9107e97f8a26206a02510378f05e0c1012d4df828244ce",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/references/azure-aks-autoscaler.md",
+          "sha256": "715444b6f1fd638c57b0275d822ff9117e99e0f52d6d0dc2d6584fa81c08e967",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/references/azure-aks-rightsizing.md",
+          "sha256": "8c9edefed4b07ca3c914732e6fb3b43ff4f43fc93451ad58f169981efd5f4358",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/references/azure-aks-spot.md",
+          "sha256": "3e91bb2bc5cb3b11a05bc9dcc4a33e7cc8f1fc3d61bf8c3712cc26cea5f52c11",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/references/azure-aks-vpa.md",
+          "sha256": "3dae1c706ebe394f4964b581bd9537fdb7625c3784a03e76bcce52cd7bb80cb6",
+          "owner": "azure-kubernetes"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/references/cli-reference.md",
+          "sha256": "b3c5588bd3abf50244c984f6ee79cfa4d6d157a9ac488a1cc6bf20060087d7f3",
+          "owner": "azure-kubernetes"
+        }
+      ]
+    },
+    {
+      "video_name": "cc-devops-skills",
+      "normalized_slug": "cc-devops-skills",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/devops-sre/cc-devops-skills/SKILL.md",
+      "source": "https://github.com/akin-ozer/cc-devops-skills",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.",
+      "upstream": {
+        "repo": "akin-ozer/cc-devops-skills",
+        "path": "README.md",
+        "ref": "main",
+        "last_checked_at": "2026-08-20",
+        "last_synced_at": "2026-08-20",
+        "last_synced_commit": "276af751e659315aaf56d3ad13d7c26f4e72e28a",
+        "sync_mode": "monitor"
+      },
+      "kind": "overlay",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "akin-ozer/cc-devops-skills",
+          "path": "README.md",
+          "license": "Apache-2.0",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "README.md",
+              "target": "skills/devops-sre/cc-devops-skills/SKILL.md",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "276af751e659315aaf56d3ad13d7c26f4e72e28a",
+            "path_commit": "84f796a092ff67d05e56dab16acf48b965b95d56",
+            "content_sha256": "df66dd75c3ccfae6c1e670286db587855f98300937de8eb6c022e47344607cff",
+            "last_checked_at": "2026-08-20",
+            "last_synced_at": "2026-08-20"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/devops-sre/cc-devops-skills/SKILL.md",
+          "sha256": "df66dd75c3ccfae6c1e670286db587855f98300937de8eb6c022e47344607cff",
+          "owner": "cc-devops-skills"
+        }
+      ]
+    },
+    {
+      "video_name": "docker-expert",
+      "normalized_slug": "docker-expert",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/developer-engineering/docker-expert/SKILL.md",
+      "source": "https://skills.sh/sickn33/antigravity-awesome-skills/docker-expert",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.",
+      "upstream": {
+        "repo": "sickn33/agentic-awesome-skills",
+        "path": "skills/docker-expert/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-08-20",
+        "last_synced_at": "2026-08-10",
+        "last_synced_commit": "e2b6ad15c704e47819b0e2393d04b42a9dcf4fc5",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "sickn33/agentic-awesome-skills",
+          "path": "skills/docker-expert/SKILL.md",
+          "license": "CC-BY-4.0",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/docker-expert/SKILL.md",
+              "target": "skills/developer-engineering/docker-expert/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "e2b6ad15c704e47819b0e2393d04b42a9dcf4fc5",
+            "path_commit": "df08c3f9cad7dec3aff91914a3cf6fb1e810a52c",
+            "content_sha256": "17390f0f230cee1a109b5b320cf3f91d02d753c116710e0370a577d082c2f6ff",
+            "last_checked_at": "2026-08-20",
+            "last_synced_at": "2026-08-10"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/developer-engineering/docker-expert/SKILL.md",
+          "owner": "docker-expert",
+          "sha256": "17390f0f230cee1a109b5b320cf3f91d02d753c116710e0370a577d082c2f6ff"
+        }
+      ]
+    },
+    {
+      "video_name": "gha-security-review",
+      "normalized_slug": "gha-security-review",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/security-and-reliability/gha-security-review/SKILL.md",
+      "source": "https://skills.sh/getsentry/skills/gha-security-review",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.",
+      "upstream": {
+        "repo": "getsentry/skills",
+        "path": "skills/gha-security-review/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-08-20",
+        "last_synced_at": "2026-06-21",
+        "last_synced_commit": "6abccd60c704f669423d6a06ff0809fa39513ce8",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "getsentry/skills",
+          "path": "skills/gha-security-review/SKILL.md",
+          "license": "Apache-2.0",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/gha-security-review/SKILL.md",
+              "target": "skills/security-and-reliability/gha-security-review/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "6abccd60c704f669423d6a06ff0809fa39513ce8",
+            "path_commit": "7e127fe8a5d16a6800a80f9cf50f96a7324eac0e",
+            "content_sha256": "ccd7b57e9f2a39509b70081b1b8859f2c3250fd510aafdebd57a0becd66645e8",
+            "last_checked_at": "2026-08-20",
+            "last_synced_at": "2026-06-21"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/security-and-reliability/gha-security-review/SKILL.md",
+          "owner": "gha-security-review",
+          "sha256": "ccd7b57e9f2a39509b70081b1b8859f2c3250fd510aafdebd57a0becd66645e8"
+        }
+      ]
+    },
+    {
+      "video_name": "kubernetes-specialist",
+      "normalized_slug": "kubernetes-specialist",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/developer-engineering/kubernetes-specialist/SKILL.md",
+      "source": "https://skills.sh/jeffallan/claude-skills/kubernetes-specialist",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.",
+      "upstream": {
+        "repo": "Jeffallan/claude-skills",
+        "path": "skills/kubernetes-specialist/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-08-20",
+        "last_synced_at": "2026-06-29",
+        "last_synced_commit": "882ef55e377dbf9a4dbe496bb41ac6ccd0e555cf",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "Jeffallan/claude-skills",
+          "path": "skills/kubernetes-specialist/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/kubernetes-specialist/SKILL.md",
+              "target": "skills/developer-engineering/kubernetes-specialist/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "882ef55e377dbf9a4dbe496bb41ac6ccd0e555cf",
+            "path_commit": "efebc44c90ae6eb3b36ff1c53802a765418481b9",
+            "content_sha256": "e41b625752f3324784b452dd8102b792c2be28b98e73ba6e703d80df3b111f6c",
+            "last_checked_at": "2026-08-20",
+            "last_synced_at": "2026-06-29"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/developer-engineering/kubernetes-specialist/SKILL.md",
+          "owner": "kubernetes-specialist",
+          "sha256": "e41b625752f3324784b452dd8102b792c2be28b98e73ba6e703d80df3b111f6c"
+        }
+      ]
+    },
+    {
+      "video_name": "neon-postgres",
+      "normalized_slug": "neon-postgres",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/developer-engineering/neon-postgres/SKILL.md",
+      "source": "https://skills.sh/neondatabase/agent-skills/neon-postgres",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.",
+      "upstream": {
+        "repo": "neondatabase/agent-skills",
+        "path": "skills/neon-postgres/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-08-20",
+        "last_synced_at": "2026-06-24",
+        "last_synced_commit": "d53156375e64a227c782ebaf0ef8c58f7e0f7114",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "neondatabase/agent-skills",
+          "path": "skills/neon-postgres/SKILL.md",
+          "license": "Apache-2.0",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/neon-postgres/SKILL.md",
+              "target": "skills/developer-engineering/neon-postgres/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "d53156375e64a227c782ebaf0ef8c58f7e0f7114",
+            "path_commit": "e20e68996aa1dbd5cf4d2c981e5357cdefd8f5bd",
+            "content_sha256": "9e1da5b4b14fe187711ae6c1caa688de15dd82cf48e219fdcb208dd12ed8a5f7",
+            "last_checked_at": "2026-08-20",
+            "last_synced_at": "2026-06-24"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/developer-engineering/neon-postgres/SKILL.md",
+          "owner": "neon-postgres",
+          "sha256": "9e1da5b4b14fe187711ae6c1caa688de15dd82cf48e219fdcb208dd12ed8a5f7"
+        }
+      ]
+    },
+    {
+      "video_name": "neon-postgres-egress-optimizer",
+      "normalized_slug": "neon-postgres-egress-optimizer",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/developer-engineering/neon-postgres-egress-optimizer/SKILL.md",
+      "source": "https://github.com/neondatabase/agent-skills/tree/main/skills/neon-postgres-egress-optimizer",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.",
+      "upstream": {
+        "repo": "neondatabase/agent-skills",
+        "path": "skills/neon-postgres-egress-optimizer/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-08-20",
+        "last_synced_at": "2026-08-10",
+        "last_synced_commit": "d53156375e64a227c782ebaf0ef8c58f7e0f7114",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "neondatabase/agent-skills",
+          "path": "skills/neon-postgres-egress-optimizer/SKILL.md",
+          "license": "Apache-2.0",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/neon-postgres-egress-optimizer/SKILL.md",
+              "target": "skills/developer-engineering/neon-postgres-egress-optimizer/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "d53156375e64a227c782ebaf0ef8c58f7e0f7114",
+            "path_commit": "e20e68996aa1dbd5cf4d2c981e5357cdefd8f5bd",
+            "content_sha256": "2cdb79baa4985f0aeaf737744fbe24a41d606f3241fa6800314f50443f0fadba",
+            "last_checked_at": "2026-08-20",
+            "last_synced_at": "2026-08-10"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/developer-engineering/neon-postgres-egress-optimizer/SKILL.md",
+          "owner": "neon-postgres-egress-optimizer",
+          "sha256": "2cdb79baa4985f0aeaf737744fbe24a41d606f3241fa6800314f50443f0fadba"
+        }
+      ]
+    },
+    {
+      "video_name": "nextjs-app-router",
+      "normalized_slug": "nextjs-app-router",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/developer-engineering/nextjs-app-router/SKILL.md",
+      "source": "https://skills.sh/wshobson/agents/nextjs-app-router-patterns",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.",
+      "upstream": {
+        "repo": "wshobson/agents",
+        "path": "plugins/frontend-mobile-development/skills/nextjs-app-router-patterns/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-08-20",
+        "last_synced_at": "2026-08-20",
+        "last_synced_commit": "367cb6a4a182cf7e9b0a17c9429f7411ddd9cf35",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "wshobson/agents",
+          "path": "plugins/frontend-mobile-development/skills/nextjs-app-router-patterns/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "plugins/frontend-mobile-development/skills/nextjs-app-router-patterns/SKILL.md",
+              "target": "skills/developer-engineering/nextjs-app-router/SKILL.md",
+              "type": "file"
+            },
+            {
+              "source": "plugins/frontend-mobile-development/skills/nextjs-app-router-patterns/references/details.md",
+              "target": "skills/developer-engineering/nextjs-app-router/references/details.md",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "367cb6a4a182cf7e9b0a17c9429f7411ddd9cf35",
+            "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f",
+            "content_sha256": "75ea8d7f86c3b80fc096eed53ea5decb4b29e4f1e2cbb61177d15069e7fd2b7e",
+            "last_checked_at": "2026-08-20",
+            "last_synced_at": "2026-08-20"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/developer-engineering/nextjs-app-router/SKILL.md",
+          "sha256": "75ea8d7f86c3b80fc096eed53ea5decb4b29e4f1e2cbb61177d15069e7fd2b7e",
+          "owner": "nextjs-app-router"
+        },
+        {
+          "path": "skills/developer-engineering/nextjs-app-router/references/details.md",
+          "sha256": "ce694daee93b0bba3373ae77bc3dbe66583807fee394088a24b33b8adae1d96e",
+          "owner": "nextjs-app-router"
+        }
+      ]
+    },
+    {
+      "video_name": "python-performance",
+      "normalized_slug": "python-performance",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/developer-engineering/python-performance/SKILL.md",
+      "source": "https://skills.sh/wshobson/agents/python-performance-optimization",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.",
+      "upstream": {
+        "repo": "wshobson/agents",
+        "path": "plugins/python-development/skills/python-performance-optimization/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-08-20",
+        "last_synced_at": "2026-08-20",
+        "last_synced_commit": "367cb6a4a182cf7e9b0a17c9429f7411ddd9cf35",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "wshobson/agents",
+          "path": "plugins/python-development/skills/python-performance-optimization/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "plugins/python-development/skills/python-performance-optimization/SKILL.md",
+              "target": "skills/developer-engineering/python-performance/SKILL.md",
+              "type": "file"
+            },
+            {
+              "source": "plugins/python-development/skills/python-performance-optimization/references/advanced-patterns.md",
+              "target": "skills/developer-engineering/python-performance/references/advanced-patterns.md",
+              "type": "file"
+            },
+            {
+              "source": "plugins/python-development/skills/python-performance-optimization/references/details.md",
+              "target": "skills/developer-engineering/python-performance/references/details.md",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "367cb6a4a182cf7e9b0a17c9429f7411ddd9cf35",
+            "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f",
+            "content_sha256": "f7747318fa39498c0f2d72295acf0055f86528a1b46c056832e2a0044aee4a3d",
+            "last_checked_at": "2026-08-20",
+            "last_synced_at": "2026-08-20"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/developer-engineering/python-performance/SKILL.md",
+          "sha256": "f7747318fa39498c0f2d72295acf0055f86528a1b46c056832e2a0044aee4a3d",
+          "owner": "python-performance"
+        },
+        {
+          "path": "skills/developer-engineering/python-performance/references/advanced-patterns.md",
+          "sha256": "dc1bca8a377572ba1583316b8288af0e5ca2d2be864dc33889b2d3b1ee5c2abf",
+          "owner": "python-performance"
+        },
+        {
+          "path": "skills/developer-engineering/python-performance/references/details.md",
+          "sha256": "3d3960a8fbbddb7a3557ae7452fd962fad2c618843d184a5ce02368b14fdc8dc",
+          "owner": "python-performance"
+        }
+      ]
+    },
+    {
+      "video_name": "rust-engineer",
+      "normalized_slug": "rust-engineer",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/developer-engineering/rust-engineer/SKILL.md",
+      "source": "https://skills.sh/404kidwiz/claude-supercode-skills/rust-engineer",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.",
+      "upstream": {
+        "repo": "404kidwiz/claude-supercode-skills",
+        "path": "rust-engineer-skill/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-08-20",
+        "last_synced_at": "2026-06-29",
+        "last_synced_commit": null,
+        "sync_mode": "local-only"
+      },
+      "kind": "snapshot",
+      "sync_mode": "local-only",
+      "origins": [
+        {
+          "repo": "404kidwiz/claude-supercode-skills",
+          "path": "rust-engineer-skill/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "local-only",
+          "artifacts": [
+            {
+              "source": "rust-engineer-skill/SKILL.md",
+              "target": "skills/developer-engineering/rust-engineer/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": null,
+            "path_commit": null,
+            "content_sha256": "1c1849a369afb7184f46c3fda00f42e2fee1c347e5cad19c3e0e6fcd417c6034",
+            "last_checked_at": "2026-08-20",
+            "last_synced_at": "2026-06-29"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/developer-engineering/rust-engineer/SKILL.md",
+          "owner": "rust-engineer",
+          "sha256": "1c1849a369afb7184f46c3fda00f42e2fee1c347e5cad19c3e0e6fcd417c6034"
+        }
+      ]
+    },
+    {
+      "video_name": "security-review",
+      "normalized_slug": "security-review",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/security-and-reliability/security-review/SKILL.md",
+      "source": "https://skills.sh/getsentry/skills/security-review",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.",
+      "upstream": {
+        "repo": "getsentry/skills",
+        "path": "skills/security-review/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-08-20",
+        "last_synced_at": "2026-06-21",
+        "last_synced_commit": "6abccd60c704f669423d6a06ff0809fa39513ce8",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "getsentry/skills",
+          "path": "skills/security-review/SKILL.md",
+          "license": "Apache-2.0",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/security-review/SKILL.md",
+              "target": "skills/security-and-reliability/security-review/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "6abccd60c704f669423d6a06ff0809fa39513ce8",
+            "path_commit": "24361e7958f9644d11f1de100654e3b04a509192",
+            "content_sha256": "9e323d51993b66d987bcbcd8ccb7e2786c845ab8b2f82766ec8953d21588be45",
+            "last_checked_at": "2026-08-20",
+            "last_synced_at": "2026-06-21"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/security-and-reliability/security-review/SKILL.md",
+          "owner": "security-review",
+          "sha256": "9e323d51993b66d987bcbcd8ccb7e2786c845ab8b2f82766ec8953d21588be45"
+        }
+      ]
+    },
+    {
+      "video_name": "supabase",
+      "normalized_slug": "supabase",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/developer-engineering/supabase/SKILL.md",
+      "source": "https://skills.sh/supabase/agent-skills/supabase",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.",
+      "upstream": {
+        "repo": "supabase/agent-skills",
+        "path": "skills/supabase/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-08-20",
+        "last_synced_at": "2026-08-20",
+        "last_synced_commit": "8331f910845103c08d51f6ca1d86ebb7d1f745e3",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "supabase/agent-skills",
+          "path": "skills/supabase/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/supabase/CHANGELOG.md",
+              "target": "skills/developer-engineering/supabase/CHANGELOG.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/supabase/SKILL.md",
+              "target": "skills/developer-engineering/supabase/SKILL.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/supabase/assets/feedback-issue-template.md",
+              "target": "skills/developer-engineering/supabase/assets/feedback-issue-template.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/supabase/references/skill-feedback.md",
+              "target": "skills/developer-engineering/supabase/references/skill-feedback.md",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "8331f910845103c08d51f6ca1d86ebb7d1f745e3",
+            "path_commit": "3a4f0ce0782e0cbdcf187c362e8d15d9e324462b",
+            "content_sha256": "bf9e3b4c67f1a673bdf3b9bd788e9e2fee823774b4c2ac736a3b0e0352b42183",
+            "last_checked_at": "2026-08-20",
+            "last_synced_at": "2026-08-20"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/developer-engineering/supabase/CHANGELOG.md",
+          "sha256": "f4c9c7750ea2c9212a05c3f38bc04d66cb2fe037f6b9a3fb6279d53bef152f8e",
+          "owner": "supabase"
+        },
+        {
+          "path": "skills/developer-engineering/supabase/SKILL.md",
+          "sha256": "bf9e3b4c67f1a673bdf3b9bd788e9e2fee823774b4c2ac736a3b0e0352b42183",
+          "owner": "supabase"
+        },
+        {
+          "path": "skills/developer-engineering/supabase/assets/feedback-issue-template.md",
+          "sha256": "ea211aa174c5a096fe76461f25143b8bc23f3bde3adc9e727cda38218cc8c282",
+          "owner": "supabase"
+        },
+        {
+          "path": "skills/developer-engineering/supabase/references/skill-feedback.md",
+          "sha256": "09ad94c0291735dfc04c92557c8734fa259ec39e1d56bf2bd5c6a6529d838717",
+          "owner": "supabase"
+        }
+      ]
+    },
+    {
+      "video_name": "supabase-postgres-best-practices",
+      "normalized_slug": "supabase-postgres-best-practices",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/developer-engineering/supabase-postgres-best-practices/SKILL.md",
+      "source": "https://skills.sh/supabase/agent-skills/supabase-postgres-best-practices",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.",
+      "upstream": {
+        "repo": "supabase/agent-skills",
+        "path": "skills/supabase-postgres-best-practices/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-08-20",
+        "last_synced_at": "2026-08-20",
+        "last_synced_commit": "8331f910845103c08d51f6ca1d86ebb7d1f745e3",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "supabase/agent-skills",
+          "path": "skills/supabase-postgres-best-practices/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/supabase-postgres-best-practices/CHANGELOG.md",
+              "target": "skills/developer-engineering/supabase-postgres-best-practices/CHANGELOG.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/supabase-postgres-best-practices/SKILL.md",
+              "target": "skills/developer-engineering/supabase-postgres-best-practices/SKILL.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/supabase-postgres-best-practices/references/_contributing.md",
+              "target": "skills/developer-engineering/supabase-postgres-best-practices/references/_contributing.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/supabase-postgres-best-practices/references/_sections.md",
+              "target": "skills/developer-engineering/supabase-postgres-best-practices/references/_sections.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/supabase-postgres-best-practices/references/_template.md",
+              "target": "skills/developer-engineering/supabase-postgres-best-practices/references/_template.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/supabase-postgres-best-practices/references/advanced-full-text-search.md",
+              "target": "skills/developer-engineering/supabase-postgres-best-practices/references/advanced-full-text-search.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/supabase-postgres-best-practices/references/advanced-jsonb-indexing.md",
+              "target": "skills/developer-engineering/supabase-postgres-best-practices/references/advanced-jsonb-indexing.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/supabase-postgres-best-practices/references/conn-idle-timeout.md",
+              "target": "skills/developer-engineering/supabase-postgres-best-practices/references/conn-idle-timeout.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/supabase-postgres-best-practices/references/conn-limits.md",
+              "target": "skills/developer-engineering/supabase-postgres-best-practices/references/conn-limits.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/supabase-postgres-best-practices/references/conn-pooling.md",
+              "target": "skills/developer-engineering/supabase-postgres-best-practices/references/conn-pooling.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/supabase-postgres-best-practices/references/conn-prepared-statements.md",
+              "target": "skills/developer-engineering/supabase-postgres-best-practices/references/conn-prepared-statements.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/supabase-postgres-best-practices/references/data-batch-inserts.md",
+              "target": "skills/developer-engineering/supabase-postgres-best-practices/references/data-batch-inserts.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/supabase-postgres-best-practices/references/data-n-plus-one.md",
+              "target": "skills/developer-engineering/supabase-postgres-best-practices/references/data-n-plus-one.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/supabase-postgres-best-practices/references/data-pagination.md",
+              "target": "skills/developer-engineering/supabase-postgres-best-practices/references/data-pagination.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/supabase-postgres-best-practices/references/data-upsert.md",
+              "target": "skills/developer-engineering/supabase-postgres-best-practices/references/data-upsert.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/supabase-postgres-best-practices/references/lock-advisory.md",
+              "target": "skills/developer-engineering/supabase-postgres-best-practices/references/lock-advisory.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/supabase-postgres-best-practices/references/lock-deadlock-prevention.md",
+              "target": "skills/developer-engineering/supabase-postgres-best-practices/references/lock-deadlock-prevention.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/supabase-postgres-best-practices/references/lock-short-transactions.md",
+              "target": "skills/developer-engineering/supabase-postgres-best-practices/references/lock-short-transactions.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/supabase-postgres-best-practices/references/lock-skip-locked.md",
+              "target": "skills/developer-engineering/supabase-postgres-best-practices/references/lock-skip-locked.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/supabase-postgres-best-practices/references/monitor-explain-analyze.md",
+              "target": "skills/developer-engineering/supabase-postgres-best-practices/references/monitor-explain-analyze.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/supabase-postgres-best-practices/references/monitor-pg-stat-statements.md",
+              "target": "skills/developer-engineering/supabase-postgres-best-practices/references/monitor-pg-stat-statements.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/supabase-postgres-best-practices/references/monitor-vacuum-analyze.md",
+              "target": "skills/developer-engineering/supabase-postgres-best-practices/references/monitor-vacuum-analyze.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/supabase-postgres-best-practices/references/query-composite-indexes.md",
+              "target": "skills/developer-engineering/supabase-postgres-best-practices/references/query-composite-indexes.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/supabase-postgres-best-practices/references/query-covering-indexes.md",
+              "target": "skills/developer-engineering/supabase-postgres-best-practices/references/query-covering-indexes.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/supabase-postgres-best-practices/references/query-index-types.md",
+              "target": "skills/developer-engineering/supabase-postgres-best-practices/references/query-index-types.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/supabase-postgres-best-practices/references/query-missing-indexes.md",
+              "target": "skills/developer-engineering/supabase-postgres-best-practices/references/query-missing-indexes.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/supabase-postgres-best-practices/references/query-partial-indexes.md",
+              "target": "skills/developer-engineering/supabase-postgres-best-practices/references/query-partial-indexes.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/supabase-postgres-best-practices/references/schema-constraints.md",
+              "target": "skills/developer-engineering/supabase-postgres-best-practices/references/schema-constraints.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/supabase-postgres-best-practices/references/schema-data-types.md",
+              "target": "skills/developer-engineering/supabase-postgres-best-practices/references/schema-data-types.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/supabase-postgres-best-practices/references/schema-foreign-key-indexes.md",
+              "target": "skills/developer-engineering/supabase-postgres-best-practices/references/schema-foreign-key-indexes.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/supabase-postgres-best-practices/references/schema-lowercase-identifiers.md",
+              "target": "skills/developer-engineering/supabase-postgres-best-practices/references/schema-lowercase-identifiers.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/supabase-postgres-best-practices/references/schema-partitioning.md",
+              "target": "skills/developer-engineering/supabase-postgres-best-practices/references/schema-partitioning.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/supabase-postgres-best-practices/references/schema-primary-keys.md",
+              "target": "skills/developer-engineering/supabase-postgres-best-practices/references/schema-primary-keys.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/supabase-postgres-best-practices/references/security-privileges.md",
+              "target": "skills/developer-engineering/supabase-postgres-best-practices/references/security-privileges.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/supabase-postgres-best-practices/references/security-rls-basics.md",
+              "target": "skills/developer-engineering/supabase-postgres-best-practices/references/security-rls-basics.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/supabase-postgres-best-practices/references/security-rls-performance.md",
+              "target": "skills/developer-engineering/supabase-postgres-best-practices/references/security-rls-performance.md",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "8331f910845103c08d51f6ca1d86ebb7d1f745e3",
+            "path_commit": "32912161e2732c3e5001c6811a76c1f8308ed0da",
+            "content_sha256": "e8491c364a74548ce39241d776a0d182f6393e8c0ec29b6e08d805366ecc2c3d",
+            "last_checked_at": "2026-08-20",
+            "last_synced_at": "2026-08-20"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/developer-engineering/supabase-postgres-best-practices/CHANGELOG.md",
+          "sha256": "751ad110037c85d400018c9894716a04fa46357ff55c22b1169b280752e19e88",
+          "owner": "supabase-postgres-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/supabase-postgres-best-practices/SKILL.md",
+          "sha256": "e8491c364a74548ce39241d776a0d182f6393e8c0ec29b6e08d805366ecc2c3d",
+          "owner": "supabase-postgres-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/supabase-postgres-best-practices/references/_contributing.md",
+          "sha256": "191e039e7d94764e6073410b513b559f9a594e0fdf0252a30c2a2986df2ab3bc",
+          "owner": "supabase-postgres-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/supabase-postgres-best-practices/references/_sections.md",
+          "sha256": "c9e992612b422c7122de0b7542ebc2450db283edaab08cfe86c6d657fcccccd5",
+          "owner": "supabase-postgres-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/supabase-postgres-best-practices/references/_template.md",
+          "sha256": "6299954250f212caabe339d752c3e5313a8e07d1a182a4e4b425baee91df1bd2",
+          "owner": "supabase-postgres-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/supabase-postgres-best-practices/references/advanced-full-text-search.md",
+          "sha256": "40c2606bbb4c4dce31308f201b24cc7f58c7df05b1d9c6856fe2b888d3b7cf28",
+          "owner": "supabase-postgres-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/supabase-postgres-best-practices/references/advanced-jsonb-indexing.md",
+          "sha256": "24cacf6a8bc35901dd566d24502ce8e57f810a5c196b897e61d52726e521d106",
+          "owner": "supabase-postgres-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/supabase-postgres-best-practices/references/conn-idle-timeout.md",
+          "sha256": "630588902c00fcec59a5988cc5d042f76dcf2c923a535abfd8c47dca205eaed5",
+          "owner": "supabase-postgres-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/supabase-postgres-best-practices/references/conn-limits.md",
+          "sha256": "11b2a67a7c7679cbbc5d807bbb17e69c98484a581d0c8b929c03408f412b81b2",
+          "owner": "supabase-postgres-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/supabase-postgres-best-practices/references/conn-pooling.md",
+          "sha256": "88cf086bf98ba865d2e9d0579974e1366b14157619d6a93e7da77be91084e4a5",
+          "owner": "supabase-postgres-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/supabase-postgres-best-practices/references/conn-prepared-statements.md",
+          "sha256": "174e9332fe3dda5c99b2b00159fb1915ae36c00bab3a7882c14e73e4344e946e",
+          "owner": "supabase-postgres-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/supabase-postgres-best-practices/references/data-batch-inserts.md",
+          "sha256": "531933b82d6a622d0fae29e0ea80be6fe5d78655adf2804c271ea84a1930de37",
+          "owner": "supabase-postgres-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/supabase-postgres-best-practices/references/data-n-plus-one.md",
+          "sha256": "21a44905e5b16a42741892ec34bb1bfef124d049b140a76934a9acd0f46f5fc2",
+          "owner": "supabase-postgres-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/supabase-postgres-best-practices/references/data-pagination.md",
+          "sha256": "73c9fa10a3d439bedea0e11b640bd25bf30dd50f0d9006cf85baf7c3151543fa",
+          "owner": "supabase-postgres-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/supabase-postgres-best-practices/references/data-upsert.md",
+          "sha256": "2612af83b20a2701dde30ef1f8d7efd26b7e9eef84717226b8f038a2d2150ff7",
+          "owner": "supabase-postgres-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/supabase-postgres-best-practices/references/lock-advisory.md",
+          "sha256": "c88d259dbf81c3771438f59a165f7eab8acd09999dd370bdf807521c73f35aab",
+          "owner": "supabase-postgres-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/supabase-postgres-best-practices/references/lock-deadlock-prevention.md",
+          "sha256": "09aee46f51d7178c8e55fe056cd5a94a64ba2c122fe418e6900cd99f297b2347",
+          "owner": "supabase-postgres-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/supabase-postgres-best-practices/references/lock-short-transactions.md",
+          "sha256": "5aa7f61095916986d39644b446cdbcd2bacca7ef698a3bb50b3f82dd60207602",
+          "owner": "supabase-postgres-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/supabase-postgres-best-practices/references/lock-skip-locked.md",
+          "sha256": "6c45077f430f29cd9cd8f448c94d578e827e7bd023fcdaf717a756acb116fa4b",
+          "owner": "supabase-postgres-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/supabase-postgres-best-practices/references/monitor-explain-analyze.md",
+          "sha256": "4cb67ffbf8e57f2e5b380b0beb4242528b513723ce314a2c2ffcf083bd4203d7",
+          "owner": "supabase-postgres-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/supabase-postgres-best-practices/references/monitor-pg-stat-statements.md",
+          "sha256": "89dca99d4e894fcbdcac136be7ad9fbc03d1342904f065c1b198dc9cf495f098",
+          "owner": "supabase-postgres-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/supabase-postgres-best-practices/references/monitor-vacuum-analyze.md",
+          "sha256": "2892272011710eb49b3f185ec12f15ce9ce4c365792c672f6e2a9c90da426a1a",
+          "owner": "supabase-postgres-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/supabase-postgres-best-practices/references/query-composite-indexes.md",
+          "sha256": "73e42424e671f0266e74fdb220db3196790f69fb43e2b19c7b9483eb4971b554",
+          "owner": "supabase-postgres-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/supabase-postgres-best-practices/references/query-covering-indexes.md",
+          "sha256": "daf2a7f0477fb7357b62b5fb5b185b1995a77a186347e45cb780e25e7a7589b6",
+          "owner": "supabase-postgres-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/supabase-postgres-best-practices/references/query-index-types.md",
+          "sha256": "472a74f22c2df203bd0154999b3a5a0187cca2ab3d9a3978e305bb7c32f1a282",
+          "owner": "supabase-postgres-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/supabase-postgres-best-practices/references/query-missing-indexes.md",
+          "sha256": "91ad8b0ff4365704b4830a7f077c6f140f7140fd5d3ce5cd0b92b160cf9e25f1",
+          "owner": "supabase-postgres-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/supabase-postgres-best-practices/references/query-partial-indexes.md",
+          "sha256": "6448982bc8558c6555284958edc331b29239c6a0130e6b4501dd6d4da607a6dd",
+          "owner": "supabase-postgres-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/supabase-postgres-best-practices/references/schema-constraints.md",
+          "sha256": "90e8efda3e9e81095e642911ad4aae2809d160f29414338fa997253238f510f8",
+          "owner": "supabase-postgres-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/supabase-postgres-best-practices/references/schema-data-types.md",
+          "sha256": "e01b58c14c7f3f65d8ead580b9a4fcf70b83baaab0f9a5f83c569c9fd113e8c8",
+          "owner": "supabase-postgres-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/supabase-postgres-best-practices/references/schema-foreign-key-indexes.md",
+          "sha256": "7587713d12a65a212365459b3d39e4717d8a79e4073b10bd62f1054d8192c0dd",
+          "owner": "supabase-postgres-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/supabase-postgres-best-practices/references/schema-lowercase-identifiers.md",
+          "sha256": "4bc80f70865f2390872591f326c8a6be6456a0aeb5a7e5a2475d7cd9d43059ab",
+          "owner": "supabase-postgres-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/supabase-postgres-best-practices/references/schema-partitioning.md",
+          "sha256": "541e13fbeaf4bb1485c9059d4c9417dbdb766cf16f4237cd63a04ada7ec45b90",
+          "owner": "supabase-postgres-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/supabase-postgres-best-practices/references/schema-primary-keys.md",
+          "sha256": "3c8beabef82066f9a0838b926da0885117fd2d9a263aaf84cb5ca9e5f0d400e9",
+          "owner": "supabase-postgres-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/supabase-postgres-best-practices/references/security-privileges.md",
+          "sha256": "095909274a4fb43df785d7144cf674eeb40284d2d45628f14af4108737b93663",
+          "owner": "supabase-postgres-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/supabase-postgres-best-practices/references/security-rls-basics.md",
+          "sha256": "e04dd1a3a382aafdaaa73fe9f7976352acdde6e90c2a2470d281b94d4f44b096",
+          "owner": "supabase-postgres-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/supabase-postgres-best-practices/references/security-rls-performance.md",
+          "sha256": "2e1faeca7d5746e246b1c78f9492fe2a9cfa41c4d7fa1e23c402d58fa18ea014",
+          "owner": "supabase-postgres-best-practices"
+        }
+      ]
+    },
+    {
+      "video_name": "tailwind-design-system",
+      "normalized_slug": "tailwind-design-system",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/developer-engineering/tailwind-design-system/SKILL.md",
+      "source": "https://skills.sh/wshobson/agents/tailwind-design-system",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.",
+      "upstream": {
+        "repo": "wshobson/agents",
+        "path": "plugins/frontend-mobile-development/skills/tailwind-design-system/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-08-20",
+        "last_synced_at": "2026-08-20",
+        "last_synced_commit": "367cb6a4a182cf7e9b0a17c9429f7411ddd9cf35",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "wshobson/agents",
+          "path": "plugins/frontend-mobile-development/skills/tailwind-design-system/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "plugins/frontend-mobile-development/skills/tailwind-design-system/SKILL.md",
+              "target": "skills/developer-engineering/tailwind-design-system/SKILL.md",
+              "type": "file"
+            },
+            {
+              "source": "plugins/frontend-mobile-development/skills/tailwind-design-system/references/advanced-patterns.md",
+              "target": "skills/developer-engineering/tailwind-design-system/references/advanced-patterns.md",
+              "type": "file"
+            },
+            {
+              "source": "plugins/frontend-mobile-development/skills/tailwind-design-system/references/details.md",
+              "target": "skills/developer-engineering/tailwind-design-system/references/details.md",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "367cb6a4a182cf7e9b0a17c9429f7411ddd9cf35",
+            "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f",
+            "content_sha256": "af6eb5191a0d791a3d20ea177836290d2bbdb2cacf7f8cd08d9701eac4d96dff",
+            "last_checked_at": "2026-08-20",
+            "last_synced_at": "2026-08-20"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/developer-engineering/tailwind-design-system/SKILL.md",
+          "sha256": "af6eb5191a0d791a3d20ea177836290d2bbdb2cacf7f8cd08d9701eac4d96dff",
+          "owner": "tailwind-design-system"
+        },
+        {
+          "path": "skills/developer-engineering/tailwind-design-system/references/advanced-patterns.md",
+          "sha256": "40a4a9fa931f4bc95213870ea1fe7c32ce50aacf3531af07954b660c4f51e1a2",
+          "owner": "tailwind-design-system"
+        },
+        {
+          "path": "skills/developer-engineering/tailwind-design-system/references/details.md",
+          "sha256": "22e5e4500edc1f11c32871d6aad013b10e34724f29d486f080faea46a95bd6e7",
+          "owner": "tailwind-design-system"
+        }
+      ]
+    },
+    {
+      "video_name": "terraform-engineer",
+      "normalized_slug": "terraform-engineer",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/developer-engineering/terraform-engineer/SKILL.md",
+      "source": "https://skills.sh/jeffallan/claude-skills/terraform-engineer",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.",
+      "upstream": {
+        "repo": "Jeffallan/claude-skills",
+        "path": "skills/terraform-engineer/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-08-20",
+        "last_synced_at": "2026-06-29",
+        "last_synced_commit": "882ef55e377dbf9a4dbe496bb41ac6ccd0e555cf",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "Jeffallan/claude-skills",
+          "path": "skills/terraform-engineer/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/terraform-engineer/SKILL.md",
+              "target": "skills/developer-engineering/terraform-engineer/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "882ef55e377dbf9a4dbe496bb41ac6ccd0e555cf",
+            "path_commit": "d0e7f4e890cbb4692ce78c7518c4769546af2549",
+            "content_sha256": "d7898eb9cccf409022f4670e04662c0c831860ee8d5b6b6102344d1c43f1b5ad",
+            "last_checked_at": "2026-08-20",
+            "last_synced_at": "2026-06-29"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/developer-engineering/terraform-engineer/SKILL.md",
+          "owner": "terraform-engineer",
+          "sha256": "d7898eb9cccf409022f4670e04662c0c831860ee8d5b6b6102344d1c43f1b5ad"
+        }
+      ]
+    },
+    {
+      "video_name": "vercel-react-best-practices",
+      "normalized_slug": "vercel-react-best-practices",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/developer-engineering/vercel-react-best-practices/SKILL.md",
+      "source": "https://skills.sh/vercel-labs/agent-skills/vercel-react-best-practices",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.",
+      "upstream": {
+        "repo": "vercel-labs/agent-skills",
+        "path": "skills/react-best-practices/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-08-20",
+        "last_synced_at": "2026-08-20",
+        "last_synced_commit": "b8caa260a420a73042e35521de4b5c8baf6446cc",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "vercel-labs/agent-skills",
+          "path": "skills/react-best-practices/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/react-best-practices/AGENTS.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/AGENTS.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/README.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/README.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/SKILL.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/SKILL.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/metadata.json",
+              "target": "skills/developer-engineering/vercel-react-best-practices/metadata.json",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/_sections.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/_sections.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/_template.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/_template.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/advanced-effect-event-deps.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/advanced-effect-event-deps.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/advanced-event-handler-refs.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/advanced-event-handler-refs.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/advanced-init-once.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/advanced-init-once.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/advanced-use-latest.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/advanced-use-latest.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/async-api-routes.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/async-api-routes.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/async-cheap-condition-before-await.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/async-cheap-condition-before-await.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/async-defer-await.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/async-defer-await.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/async-dependencies.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/async-dependencies.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/async-parallel.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/async-parallel.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/async-suspense-boundaries.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/async-suspense-boundaries.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/bundle-analyzable-paths.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/bundle-analyzable-paths.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/bundle-barrel-imports.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/bundle-barrel-imports.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/bundle-conditional.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/bundle-conditional.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/bundle-defer-third-party.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/bundle-defer-third-party.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/bundle-dynamic-imports.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/bundle-dynamic-imports.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/bundle-preload.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/bundle-preload.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/client-event-listeners.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/client-event-listeners.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/client-localstorage-schema.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/client-localstorage-schema.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/client-passive-event-listeners.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/client-passive-event-listeners.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/client-swr-dedup.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/client-swr-dedup.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/js-batch-dom-css.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/js-batch-dom-css.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/js-cache-function-results.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/js-cache-function-results.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/js-cache-property-access.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/js-cache-property-access.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/js-cache-storage.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/js-cache-storage.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/js-combine-iterations.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/js-combine-iterations.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/js-early-exit.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/js-early-exit.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/js-flatmap-filter.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/js-flatmap-filter.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/js-hoist-regexp.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/js-hoist-regexp.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/js-index-maps.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/js-index-maps.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/js-length-check-first.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/js-length-check-first.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/js-min-max-loop.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/js-min-max-loop.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/js-request-idle-callback.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/js-request-idle-callback.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/js-set-map-lookups.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/js-set-map-lookups.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/js-tosorted-immutable.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/js-tosorted-immutable.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/rendering-activity.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/rendering-activity.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/rendering-animate-svg-wrapper.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/rendering-animate-svg-wrapper.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/rendering-conditional-render.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/rendering-conditional-render.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/rendering-content-visibility.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/rendering-content-visibility.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/rendering-hoist-jsx.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/rendering-hoist-jsx.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/rendering-hydration-no-flicker.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/rendering-hydration-no-flicker.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/rendering-hydration-suppress-warning.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/rendering-hydration-suppress-warning.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/rendering-resource-hints.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/rendering-resource-hints.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/rendering-script-defer-async.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/rendering-script-defer-async.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/rendering-svg-precision.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/rendering-svg-precision.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/rendering-usetransition-loading.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/rendering-usetransition-loading.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/rerender-defer-reads.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/rerender-defer-reads.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/rerender-dependencies.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/rerender-dependencies.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/rerender-derived-state-no-effect.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/rerender-derived-state-no-effect.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/rerender-derived-state.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/rerender-derived-state.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/rerender-functional-setstate.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/rerender-functional-setstate.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/rerender-lazy-state-init.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/rerender-lazy-state-init.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/rerender-memo-with-default-value.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/rerender-memo-with-default-value.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/rerender-memo.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/rerender-memo.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/rerender-move-effect-to-event.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/rerender-move-effect-to-event.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/rerender-no-inline-components.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/rerender-no-inline-components.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/rerender-simple-expression-in-memo.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/rerender-simple-expression-in-memo.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/rerender-split-combined-hooks.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/rerender-split-combined-hooks.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/rerender-transitions.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/rerender-transitions.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/rerender-use-deferred-value.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/rerender-use-deferred-value.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/rerender-use-ref-transient-values.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/rerender-use-ref-transient-values.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/server-after-nonblocking.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/server-after-nonblocking.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/server-auth-actions.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/server-auth-actions.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/server-cache-lru.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/server-cache-lru.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/server-cache-react.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/server-cache-react.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/server-dedup-props.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/server-dedup-props.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/server-hoist-static-io.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/server-hoist-static-io.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/server-no-shared-module-state.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/server-no-shared-module-state.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/server-parallel-fetching.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/server-parallel-fetching.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/server-parallel-nested-fetching.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/server-parallel-nested-fetching.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-best-practices/rules/server-serialization.md",
+              "target": "skills/developer-engineering/vercel-react-best-practices/rules/server-serialization.md",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "b8caa260a420a73042e35521de4b5c8baf6446cc",
+            "path_commit": "805687f34e8c10b420e3d11335a0ca2c3c90d992",
+            "content_sha256": "965356ccf805f0c6af9f4e8c8cc3951ca60558504393944f87d38dd4e0179d9e",
+            "last_checked_at": "2026-08-20",
+            "last_synced_at": "2026-08-20"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/AGENTS.md",
+          "sha256": "fc93e7421177bbf869cce892bc60a6c83a4517d974bc3bf65c4e2c1e58a6ccf6",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/README.md",
+          "sha256": "9eafb2123d3b8b2aef41fba0db2648a3f4f49996f8c7c8bb2c86263befd8b48a",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/SKILL.md",
+          "sha256": "965356ccf805f0c6af9f4e8c8cc3951ca60558504393944f87d38dd4e0179d9e",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/metadata.json",
+          "sha256": "c4e18bac3290fbe1b471a605867d4df68b03144ea26b8befdbe8f9d8fd124354",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/_sections.md",
+          "sha256": "01c59969e4e867f0708c8f8ef9c6d87fab9a07d0586244f429ff84013db8a115",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/_template.md",
+          "sha256": "99df2a3ea088c6c22de2484ddc7e964d0e9923846f44c63380343ecc64455442",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/advanced-effect-event-deps.md",
+          "sha256": "55ed8f9f27a1bff803d6fa55828176207714b02123cbb97ddb8a90d88024a723",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/advanced-event-handler-refs.md",
+          "sha256": "a3097edeecfb2ff6851cd66ed8cdf0617c3c88180504bee824aa6e75a215bbbc",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/advanced-init-once.md",
+          "sha256": "3e4dc22173eb0e2b6dcf583e3babd862b8696328f8f59aee7c4d746c5bc05f6c",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/advanced-use-latest.md",
+          "sha256": "8a3f64dfe5a77d1564248faf17fe662ae75b55d497a243cb30b38eb07ccbbf9a",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/async-api-routes.md",
+          "sha256": "523338540d73427dc14c0cbb19f2741ebccdf8b105a7b2c1b33d2905cf237a42",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/async-cheap-condition-before-await.md",
+          "sha256": "03107c1f70a293cd58a8abc5474c5548e20ea4efdf01b6d45aae7ad0ac1cb32c",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/async-defer-await.md",
+          "sha256": "f3c142d090615abdcc99d31c123be37b31f0f1ed8d9ec9f7789a3bc6883ae0fb",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/async-dependencies.md",
+          "sha256": "16ef469f877e30c6b8e1e1b4bc3e527312fa3c6318cb785a4eca186ea236131a",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/async-parallel.md",
+          "sha256": "6d2f841896279e976dfcdc1ac89e70771ac188baadfd43c096b5706cb838b961",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/async-suspense-boundaries.md",
+          "sha256": "de05fedac2eb7ae563b887b5a424464ec3dfaf84e5b7797467ebe2a796ac8afc",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/bundle-analyzable-paths.md",
+          "sha256": "62090b5c815fd71bf1133dce754f51abc16a9456d0ccd025fd627de27726e92a",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/bundle-barrel-imports.md",
+          "sha256": "e648f6d54525f07a691357040ca5bff6ea3424788a91ff63812adb29622a671b",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/bundle-conditional.md",
+          "sha256": "09c8259c3efb04fc0abb8e412ccbda217c222ae8118516283e571c995fe3a7d4",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/bundle-defer-third-party.md",
+          "sha256": "3719fb47b191e8db4fe22686ec88448ad5af9e6838585425abbe103d0b642e37",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/bundle-dynamic-imports.md",
+          "sha256": "401817a7369f315fc5a68a1095742ff7d53d0461906880dc9d64a41495ee1986",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/bundle-preload.md",
+          "sha256": "d1f7cc28da7cd5ab249acd287edc5b761afcfb194e9cb62cd44c5f3543db2de2",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/client-event-listeners.md",
+          "sha256": "242a873349febc1ce685e85617994784dbab92c2eaa68aed7fed5a83e7680e93",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/client-localstorage-schema.md",
+          "sha256": "0fb7cdf9dc93fdf22f87e3669f953fb9d4ac9b0be42eec4a29fe9a2560610b88",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/client-passive-event-listeners.md",
+          "sha256": "1f35016f9053de69e884ee9be00654e37979c2ca85f5e57764dc2626ff7acb4b",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/client-swr-dedup.md",
+          "sha256": "644652c39c6cc00de8d1c77a7273612e868dc3f7edda30764164c12ec0f764a3",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/js-batch-dom-css.md",
+          "sha256": "480b891b9eaf96e929dc1e964274a4828e3a78009b7d00ccd965a0d425215959",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/js-cache-function-results.md",
+          "sha256": "3daaa11d24f4295cb6be8bc6f407f2ce83cc7b5bd1f0e68891ea8ab835721dc7",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/js-cache-property-access.md",
+          "sha256": "73e47431e74878a927061bf0ddc7cd91a7556cb35d2573f3421e82300d9ae311",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/js-cache-storage.md",
+          "sha256": "11b826b0433898c1ece2d3547010d8e77db9fb240185748c45db91493de9b6cc",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/js-combine-iterations.md",
+          "sha256": "71add08aeeb43091d4ff4c0b2842cce8b4bdef8ad3e732cc034bb5a84827e746",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/js-early-exit.md",
+          "sha256": "925ce5ce87f3347186ca62212f29cc6baa2b8c85a96d2720ad07c3d0abf781c0",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/js-flatmap-filter.md",
+          "sha256": "9e5b166a41914d975bef7635467f8fb32cd98b5c3126c0bc6f163490812fb5f0",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/js-hoist-regexp.md",
+          "sha256": "f9e9aef2f7c2307dd7310f283df85dcada45fc43e9bb941b0c3aa414dec21ec4",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/js-index-maps.md",
+          "sha256": "5df1bdc2cfabb2c98abd55d26762e5c18189535c2e686184f426082e62920391",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/js-length-check-first.md",
+          "sha256": "8b54a311c826b299272f29187fc58bc55772a04c4a72eeb29456ee96dc9fc624",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/js-min-max-loop.md",
+          "sha256": "87dfb67e2f39df6ad8bcfb5b78c5fb364d3c07554ad188a202408d99f3763421",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/js-request-idle-callback.md",
+          "sha256": "ee08f83905b4011abbc33d594033157d77561b5bbd9b36b04f0f409581ffec32",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/js-set-map-lookups.md",
+          "sha256": "a7fd781a6ba9ad49065961b6f9a90ef486bf6b648390e1a08704025f98e1642b",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/js-tosorted-immutable.md",
+          "sha256": "d0a5e1b0fec48a0a81397957e2f068e224329f7c42cb5feeed8aae6fa64025e8",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/rendering-activity.md",
+          "sha256": "1e5e7eaf3555e61d6a2e900089c676527d26259501db5594f59544b6c664f85a",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/rendering-animate-svg-wrapper.md",
+          "sha256": "9c6ae0ca7a51434e803887c64cded760956579a1452ccb80a461a03f9c937c77",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/rendering-conditional-render.md",
+          "sha256": "2ec2fa23c4148285144687050c52369adba3da2fbe3d486f8d3e0aad8f06f2bc",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/rendering-content-visibility.md",
+          "sha256": "64eee6d5b916fe74df33363994b27fc7f71bea3bcedc7ee04bda23107ca3e6e4",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/rendering-hoist-jsx.md",
+          "sha256": "93b229560fae92005ed9a2a829064607b39b2e984e92d221d05b2d41df2b7c0e",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/rendering-hydration-no-flicker.md",
+          "sha256": "dc7ab358c67c177bca6e6f360fbc935ebe4efa928c0ba3ebd3f9f3d9e2000ca3",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/rendering-hydration-suppress-warning.md",
+          "sha256": "915bacb934e2927d84b37a3f3d225a47b309ac8f9e494ed2bcb66ce07c5676a2",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/rendering-resource-hints.md",
+          "sha256": "351b1095d641717b930f1b2253282b7120af3023bc74e06c17675168d4286864",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/rendering-script-defer-async.md",
+          "sha256": "4cea07b7875ba7fc2c7465ff23b63a2bb334f90aaf2d9293d38d67b05fdb32ab",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/rendering-svg-precision.md",
+          "sha256": "ed468533f6e95f622859c884b122cf21f9f593ed6bb3d500a54de4b9f9bcb9fb",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/rendering-usetransition-loading.md",
+          "sha256": "3a1249c3f13026b6f54ab5712c388df219d6af01b12aa542749acd99a46f4bc1",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/rerender-defer-reads.md",
+          "sha256": "234050a77faf50cb306be10a9e15bd4421134ab5907e75f13e6d78e2bd262dc9",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/rerender-dependencies.md",
+          "sha256": "17eb5830956fb56486fd3cfc7431f5849d39751730c05ad9e77dd4f0c27169c5",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/rerender-derived-state-no-effect.md",
+          "sha256": "cb11ec76f50aa7b6847269f02d79b120c889a30d9ecd2c1d578f75144419c77a",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/rerender-derived-state.md",
+          "sha256": "1c326bb67b01fb084eb00c8911b0a7cff54681c2315b629f88e49b64eaa6481d",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/rerender-functional-setstate.md",
+          "sha256": "5e68df6b2ae8058e67f476ff1ac67bde159f5a9d18df439e46eabcdeb7b52e58",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/rerender-lazy-state-init.md",
+          "sha256": "4ae844740f266fc8cbf050701230286624a2440ec5be67b9a63d9edc3c580573",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/rerender-memo-with-default-value.md",
+          "sha256": "81c47476564ad8a79fc68fc442734255ca7d6829424359464503fda0a9f9a0dd",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/rerender-memo.md",
+          "sha256": "1f258990c2f27ff6256b3cc5c43300631bb3f0d81f749aed08d07fcdcc131dd1",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/rerender-move-effect-to-event.md",
+          "sha256": "abc2cbf167bee056743023351e96806a411d3398da8802093620aecf0721f029",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/rerender-no-inline-components.md",
+          "sha256": "1cc32907a770272524ba682eef9e7efdd8ad4533b6f89b718a1fcd7d1d0eb6a3",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/rerender-simple-expression-in-memo.md",
+          "sha256": "5bdcf2d1558ba5204e643c887b7b4060f89630969425651eb68e96427d97f800",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/rerender-split-combined-hooks.md",
+          "sha256": "6f45d703343484ef9acef9388397f3642966ae6a5a258899a0cf1f9977cfbf6c",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/rerender-transitions.md",
+          "sha256": "60f4033909a62df5e5b8c601494f9e50a562e2f8c1c2d81eac24f38142265f1c",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/rerender-use-deferred-value.md",
+          "sha256": "8c3579576a61a949884167745dcfaf1d5426ba305cc61fd0a79602d70fda4909",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/rerender-use-ref-transient-values.md",
+          "sha256": "f1a649af9d1d0b5c762f6c9c4c1c70c90d7df82aa10296ee87aadb78c1b76c54",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/server-after-nonblocking.md",
+          "sha256": "d0b8d24a3db9f0f65f9e2bddbf230b0e03a5f60e1229d93a4a18f5e7a991c7c2",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/server-auth-actions.md",
+          "sha256": "a2ca8aa102839251c7971ec784560fab943c20b36fe6f80365d4110c13260c23",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/server-cache-lru.md",
+          "sha256": "1924b64561841923b88a657085097a0aeba3e0ba2d5470b9f5c15cc10d6ae70f",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/server-cache-react.md",
+          "sha256": "fddeea6c870bb3da4134b61d54b7d09b83d2603f929b7547cd3dc1dc269edd5c",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/server-dedup-props.md",
+          "sha256": "c2747424cdac46be62f835f245a0aa887b0090b416d28e2ac8676702645eeb37",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/server-hoist-static-io.md",
+          "sha256": "5abea4dd882b13661bd5f7dfb93f9e547d5f08176c61c448ade91b210ed5d49f",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/server-no-shared-module-state.md",
+          "sha256": "4d869bf1cd2f1632e5ca4c0e64b1cf0e71c5f5a0f940bc8a22174d205e735ed7",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/server-parallel-fetching.md",
+          "sha256": "569a2e9fc04f9606686cd75c5894ef8781b502786a7fffe241396846c7733472",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/server-parallel-nested-fetching.md",
+          "sha256": "ad5d9656984d4a959997a2367bf59cc6632297b4634a1dd13a087939d83f30b3",
+          "owner": "vercel-react-best-practices"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-best-practices/rules/server-serialization.md",
+          "sha256": "f4c7d68b29c82381baad059c4a7f09e868e71ec9c3115a26ad3ae7d24c0dfe1f",
+          "owner": "vercel-react-best-practices"
+        }
+      ]
+    },
+    {
+      "video_name": "vercel-react-view-transitions",
+      "normalized_slug": "vercel-react-view-transitions",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/developer-engineering/vercel-react-view-transitions/SKILL.md",
+      "source": "https://skills.sh/vercel-labs/agent-skills/vercel-react-view-transitions",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.",
+      "upstream": {
+        "repo": "vercel-labs/agent-skills",
+        "path": "skills/react-view-transitions/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-08-20",
+        "last_synced_at": "2026-08-20",
+        "last_synced_commit": "b8caa260a420a73042e35521de4b5c8baf6446cc",
+        "sync_mode": "monitor"
+      },
+      "kind": "overlay",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "vercel-labs/agent-skills",
+          "path": "skills/react-view-transitions/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/react-view-transitions/AGENTS.md",
+              "target": "skills/developer-engineering/vercel-react-view-transitions/AGENTS.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-view-transitions/README.md",
+              "target": "skills/developer-engineering/vercel-react-view-transitions/README.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-view-transitions/SKILL.md",
+              "target": "skills/developer-engineering/vercel-react-view-transitions/SKILL.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-view-transitions/metadata.json",
+              "target": "skills/developer-engineering/vercel-react-view-transitions/metadata.json",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-view-transitions/references/css-recipes.md",
+              "target": "skills/developer-engineering/vercel-react-view-transitions/references/css-recipes.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-view-transitions/references/implementation.md",
+              "target": "skills/developer-engineering/vercel-react-view-transitions/references/implementation.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-view-transitions/references/nextjs.md",
+              "target": "skills/developer-engineering/vercel-react-view-transitions/references/nextjs.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/react-view-transitions/references/patterns.md",
+              "target": "skills/developer-engineering/vercel-react-view-transitions/references/patterns.md",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "b8caa260a420a73042e35521de4b5c8baf6446cc",
+            "path_commit": "3798a7954ee2d7bc6ff09decf6d96cd7fdd13152",
+            "content_sha256": "fcd9f463400691cd15ea52e705b7d833836c9c87c6e432c0549c08d2ed3b3ffb",
+            "last_checked_at": "2026-08-20",
+            "last_synced_at": "2026-08-20"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/developer-engineering/vercel-react-view-transitions/AGENTS.md",
+          "sha256": "847e68771417af6cffd9d3ecd4c9412dae1b2bda559912681e17d5d9aa8da435",
+          "owner": "vercel-react-view-transitions"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-view-transitions/README.md",
+          "sha256": "8e7fd66dd5747c98ce727174bcccfd0db9b5c34621b8011693d267bd384d0714",
+          "owner": "vercel-react-view-transitions"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-view-transitions/SKILL.md",
+          "sha256": "fcd9f463400691cd15ea52e705b7d833836c9c87c6e432c0549c08d2ed3b3ffb",
+          "owner": "vercel-react-view-transitions"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-view-transitions/metadata.json",
+          "sha256": "b1a5ae09f3904dc83dab79f518d033bd98f1e2f55caabfdb5beeeaaf0ca5e4c2",
+          "owner": "vercel-react-view-transitions"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-view-transitions/references/css-recipes.md",
+          "sha256": "41f880f3a62b53b46f1ccc540401e4bc19522dfbd1ecd65d18d0b72fec44e829",
+          "owner": "vercel-react-view-transitions"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-view-transitions/references/implementation.md",
+          "sha256": "f36958ff58ed3b8b7da008df5a59e99a67f46b3a6f590274fdc44b89f017f05d",
+          "owner": "vercel-react-view-transitions"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-view-transitions/references/nextjs.md",
+          "sha256": "1d595c3a9d5270d958db9f2924013ac0602d024d0473582b68c61363b06f7856",
+          "owner": "vercel-react-view-transitions"
+        },
+        {
+          "path": "skills/developer-engineering/vercel-react-view-transitions/references/patterns.md",
+          "sha256": "970f94c2afb086b8b3ffafd05d223ba71595f20ecd6db671b458db88b247e627",
+          "owner": "vercel-react-view-transitions"
+        }
+      ]
+    },
+    {
+      "video_name": "x-twitter-scraper",
+      "normalized_slug": "x-twitter-scraper",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/growth-operations-xiaohongshu/x-twitter-scraper/SKILL.md",
+      "source": "https://github.com/Xquik-dev/x-twitter-scraper",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.",
+      "upstream": {
+        "repo": "Xquik-dev/x-twitter-scraper",
+        "path": "skills/x-twitter-scraper/SKILL.md",
+        "ref": "master",
+        "last_checked_at": "2026-08-20",
+        "last_synced_at": "2026-08-10",
+        "last_synced_commit": "2b0197a3dd2a97de8f183752812987636e1d987a",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "Xquik-dev/x-twitter-scraper",
+          "path": "skills/x-twitter-scraper/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/x-twitter-scraper/SKILL.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "master",
+            "resolved_commit": "2b0197a3dd2a97de8f183752812987636e1d987a",
+            "path_commit": "6952397c16f34618f8e95687fe2a12e504f52f5d",
+            "content_sha256": "9d69d9983ee3ab07a51a905c053ddc6cec3b70cb8eabe84dced1a043cea534ef",
+            "last_checked_at": "2026-08-20",
+            "last_synced_at": "2026-08-10"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/SKILL.md",
+          "owner": "x-twitter-scraper",
+          "sha256": "9d69d9983ee3ab07a51a905c053ddc6cec3b70cb8eabe84dced1a043cea534ef"
+        }
+      ]
+    }
+  ]
+}

@@ -1,126 +1,111 @@
 ---
 name: python-performance
-description: 'Use when profiling Python code, reducing memory usage, optimizing hot paths, choosing concurrency patterns, or reviewing performance regressions in Python services and scripts.'
+description: 'Profile and optimize Python code using cProfile, memory profilers, and performance best practices. Use when debugging slow Python code, optimizing bottlenecks, or improving application performance.'
 zh_description: "用于 Python 性能分析、内存优化、热点路径调优和并发模式评审。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "skills.sh"
 source_url: "https://skills.sh/wshobson/agents/python-performance-optimization"
 license: "MIT"
 tags: '["development", "performance", "python"]'
 created_at: "2026-03-27"
-updated_at: "2026-06-29"
+updated_at: "2026-08-20"
 quality: 4
 complexity: "intermediate"
 ---
 
 # Python Performance Optimization
 
-Python is an incredibly productive language, but it can be slow if not handled correctly. This skill provides a systematic approach to identifying bottlenecks, optimizing memory usage, and choosing the right concurrency model.
+Comprehensive guide to profiling, analyzing, and optimizing Python code for better performance, including CPU profiling, memory optimization, and implementation best practices.
 
-## 触发条件
+## When to Use This Skill
 
-- 应用程序在生产环境中响应缓慢。
-- 系统处理大量数据流时，CPU 或内存占用极高。
-- 后台任务队列堆积，吞吐量无法满足业务需求。
-- 需要针对特定的核心逻辑进行性能压测与调优。
-- 项目正在从原型向高并发、高性能生产环境迁移。
+- Identifying performance bottlenecks in Python applications
+- Reducing application latency and response times
+- Optimizing CPU-intensive operations
+- Reducing memory consumption and memory leaks
+- Improving database query performance
+- Optimizing I/O operations
+- Speeding up data processing pipelines
+- Implementing high-performance algorithms
+- Profiling production applications
 
-## 核心能力
+## Core Concepts
 
-### 1. 性能分析 (Profiling)
-在优化之前，必须先进行测量。
-- **cProfile**: 使用标准库进行全局函数调用分析，找出耗时最长的函数。
-- **line_profiler**: 对单个函数进行行级别的分析，精确定位热点代码行。
-- **Py-spy**: 生产环境非侵入式采样分析，生成火焰图。
+### 1. Profiling Types
 
-### 2. 内存分析与泄漏排查
-- **Memory Profiler**: 逐行监测脚本的内存增量。
-- **Objgraph**: 可视化内存中的对象引用关系，追踪无法回收的循环引用。
-- **tracemalloc**: 标准库提供的内存分配追踪工具，定位泄露源头。
+- **CPU Profiling**: Identify time-consuming functions
+- **Memory Profiling**: Track memory allocation and leaks
+- **Line Profiling**: Profile at line-by-line granularity
+- **Call Graph**: Visualize function call relationships
 
-### 3. asyncio 异步编程
-针对 I/O 密集型任务（网络请求、数据库操作、文件读写）。
-- **Event Loop 管理**: 理解单线程并发机制，避免在协程中编写阻塞性代码。
-- **Gather/Wait/As_completed**: 并发调度多个协程的模式。
-- **第三方库选择**: 优先选择 aiohttp, httpx, motor 等原生支持异步的客户端库。
+### 2. Performance Metrics
 
-### 4. 多进程与多线程选型
-- **Multi-threading**: 适用于 I/O 密集型，受限于 GIL，无法利用多核 CPU 处理计算任务。
-- **Multi-processing**: 适用于 CPU 密集型，通过派生进程绕过 GIL，利用多核计算资源。
-- **Thread/Process Pool Executor**: 标准库提供的池化管理，简化并发逻辑。
+- **Execution Time**: How long operations take
+- **Memory Usage**: Peak and average memory consumption
+- **CPU Utilization**: Processor usage patterns
+- **I/O Wait**: Time spent on I/O operations
 
-### 5. Cython 与 Numba 加速
-当纯 Python 无法满足性能要求时。
-- **Numba (@jit)**: 即时编译器，特别适合含有大量循环的数值计算（NumPy 场景）。
-- **Cython**: 将 Python 代码编译为 C/C++ 扩展，显式定义类型，性能可提升数十倍。
+### 3. Optimization Strategies
 
-### 6. GIL (Global Interpreter Lock) 理解
-- **原理解析**: 理解 GIL 为什么存在及其对并发的影响。
-- **绕过手段**: 使用 C 扩展释放 GIL、使用多进程、或将计算任务下沉到 Rust/C++ 编写的底层库（如 Pandas/Polars）。
+- **Algorithmic**: Better algorithms and data structures
+- **Implementation**: More efficient code patterns
+- **Parallelization**: Multi-threading/processing
+- **Caching**: Avoid redundant computation
+- **Native Extensions**: C/Rust for critical paths
 
-### 7. 数据结构选择与算法优化
-- **Built-in Collections**: 合理使用 `dict` 的哈希查找、`set` 的去重、`deque` 的高效双端队列。
-- **List Comprehensions**: 优先于传统的 `for` 循环追加。
-- **Generator**: 使用生成器处理海量数据，减少内存占用。
+## Quick Start
 
-## 常用命令/模板
+### Basic Timing
 
-### 使用 cProfile 分析
-```bash
-python -m cProfile -s cumtime script.py
-```
-
-### 使用 Py-spy 生成火焰图
-```bash
-# 采样 30 秒并生成 svg 火焰图
-py-spy record -o profile.svg --duration 30 --pid <PID>
-```
-
-### Asyncio 并发请求模板
 ```python
-import asyncio
-import httpx
+import time
 
-async def fetch_url(client, url):
-    response = await client.get(url)
-    return response.status_code
+def measure_time():
+    """Simple timing measurement."""
+    start = time.time()
 
-async def main(urls):
-    async with httpx.AsyncClient() as client:
-        tasks = [fetch_url(client, url) for url in urls]
-        results = await asyncio.gather(*tasks)
-        print(f"Finished {len(results)} requests")
+    # Your code here
+    result = sum(range(1000000))
 
-if __name__ == "__main__":
-    urls = ["https://example.com" for _ in range(100)]
-    asyncio.run(main(urls))
+    elapsed = time.time() - start
+    print(f"Execution time: {elapsed:.4f} seconds")
+    return result
+
+# Better: use timeit for accurate measurements
+import timeit
+
+execution_time = timeit.timeit(
+    "sum(range(1000000))",
+    number=100
+)
+print(f"Average time: {execution_time/100:.6f} seconds")
 ```
 
-### Numba 加速数值计算
-```python
-from numba import jit
-import numpy as np
+## Detailed patterns and worked examples
 
-@jit(nopython=True)
-def sum_of_squares(arr):
-    res = 0
-    for i in range(len(arr)):
-        res += arr[i] ** 2
-    return res
+Detailed pattern documentation lives in `references/details.md`. Read that file when the navigation tier above is insufficient.
 
-data = np.random.rand(10_000_000)
-# 第一次调用会有编译开销，后续飞快
-print(sum_of_squares(data))
-```
+## Best Practices
 
-## 边界与限制
+1. **Profile before optimizing** - Measure to find real bottlenecks
+2. **Focus on hot paths** - Optimize code that runs most frequently
+3. **Use appropriate data structures** - Dict for lookups, set for membership
+4. **Avoid premature optimization** - Clarity first, then optimize
+5. **Use built-in functions** - They're implemented in C
+6. **Cache expensive computations** - Use lru_cache
+7. **Batch I/O operations** - Reduce system calls
+8. **Use generators** for large datasets
+9. **Consider NumPy** for numerical operations
+10. **Profile production code** - Use py-spy for live systems
 
-- **过度优化**: 不要为了极小的性能提升而牺牲代码的可读性和可维护性（Premature optimization is the root of all evil）。
-- **库的局限性**: 某些 C 扩展库如果不小心在多线程中使用，可能会导致严重的内存错误或死锁。
-- **GIL 限制**: Python 不适合极高频率的锁竞争场景。
-- **冷启动开销**: 像 Numba 这种 JIT 工具在第一次运行或编译时会有显著延迟。
-- **硬件局限**: 性能调优不能替代由于带宽、磁盘 I/O 或数据库性能不足导致的系统瓶颈。
+## Common Pitfalls
 
----
-*Generated by Skill Master - Professional Edition*
+- Optimizing without profiling
+- Using global variables unnecessarily
+- Not using appropriate data structures
+- Creating unnecessary copies of data
+- Not using connection pooling for databases
+- Ignoring algorithmic complexity
+- Over-optimizing rare code paths
+- Not considering memory usage

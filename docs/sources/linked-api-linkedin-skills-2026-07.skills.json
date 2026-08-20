@@ -1,4 +1,5 @@
 {
+  "schema_version": 2,
   "video": {
     "url": "https://github.com/Linked-API/linkedin-skills",
     "checked_at": "2026-08-18",
@@ -40,8 +41,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "edd0bdbbb25776e9288186b88969b29175531995"
-      }
+        "last_synced_commit": "edd0bdbbb25776e9288186b88969b29175531995",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "Linked-API/linkedin-skills",
+          "path": "linkedin/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "linkedin/SKILL.md",
+              "target": "skills/operations-general/linkedin/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "edd0bdbbb25776e9288186b88969b29175531995",
+            "path_commit": "edd0bdbbb25776e9288186b88969b29175531995",
+            "content_sha256": "c4730e0b4874454c95fec4f83245a2fb6c3273526fec8bc8f57e4c9b6969af6d",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/operations-general/linkedin/SKILL.md",
+          "owner": "linkedin",
+          "sha256": "c4730e0b4874454c95fec4f83245a2fb6c3273526fec8bc8f57e4c9b6969af6d"
+        }
+      ]
     },
     {
       "video_name": "linkedin-growth",
@@ -56,8 +90,41 @@
         "ref": "main",
         "last_checked_at": "2026-08-18",
         "last_synced_at": "2026-08-18",
-        "last_synced_commit": "edd0bdbbb25776e9288186b88969b29175531995"
-      }
+        "last_synced_commit": "edd0bdbbb25776e9288186b88969b29175531995",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "Linked-API/linkedin-skills",
+          "path": "linkedin-growth/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "linkedin-growth/SKILL.md",
+              "target": "skills/growth-operations-xiaohongshu/linkedin-growth/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "edd0bdbbb25776e9288186b88969b29175531995",
+            "path_commit": "edd0bdbbb25776e9288186b88969b29175531995",
+            "content_sha256": "d11562f2dd8887d9e5ea336c76f18118a73482e0b08bf2f76046e1f4495aff21",
+            "last_checked_at": "2026-08-18",
+            "last_synced_at": "2026-08-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/growth-operations-xiaohongshu/linkedin-growth/SKILL.md",
+          "owner": "linkedin-growth",
+          "sha256": "d11562f2dd8887d9e5ea336c76f18118a73482e0b08bf2f76046e1f4495aff21"
+        }
+      ]
     }
   ],
   "verification_attempts": [

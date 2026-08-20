@@ -1,137 +1,196 @@
 ---
 name: tailwind-design-system
-description: 'Use when building Tailwind CSS design systems, theme tokens, reusable component styles, responsive layouts, or UI consistency rules for product frontends.'
+description: 'Build scalable design systems with Tailwind CSS v4, design tokens, component libraries, and responsive patterns. Use when creating component libraries, implementing design systems, or standardizing UI patterns.'
 zh_description: "用于 Tailwind CSS 设计系统、主题 token、组件样式和响应式布局规范。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "skills.sh"
 source_url: "https://skills.sh/wshobson/agents/tailwind-design-system"
 license: "MIT"
 tags: '["design", "development", "system", "tailwind"]'
 created_at: "2026-03-27"
-updated_at: "2026-06-29"
+updated_at: "2026-08-20"
 quality: 4
 complexity: "intermediate"
 ---
 
-# Tailwind Design System
+# Tailwind Design System (v4)
 
-Tailwind CSS is more than just a utility-first framework; it is a powerful engine for building consistent, scalable design systems. This skill focuses on leveraging Tailwind v4+ to create professional component libraries and maintainable themes.
+Build production-ready design systems with Tailwind CSS v4, including CSS-first configuration, design tokens, component variants, responsive patterns, and accessibility.
 
-## 触发条件
+> **Note**: This skill targets Tailwind CSS v4 (2024+). For v3 projects, refer to the [upgrade guide](https://tailwindcss.com/docs/upgrade-guide).
 
-- 需要从零开始搭建企业级设计系统。
-- 正在进行现有前端项目的 UI 现代化改造。
-- 需要开发跨项目的共享组件库。
-- 追求极致的 CSS 交付体积与渲染性能。
-- 需要实现高度定制化的主题（Theme）与暗黑模式（Dark Mode）。
+## When to Use This Skill
 
-## 核心能力
+- Creating a component library with Tailwind v4
+- Implementing design tokens and theming with CSS-first configuration
+- Building responsive and accessible components
+- Standardizing UI patterns across a codebase
+- Migrating from Tailwind v3 to v4
+- Setting up dark mode with native CSS features
 
-### 1. Tailwind v4+ 新特性应用
-Tailwind v4 引入了革命性的引擎改进，包括原生级联层支持和更快的编译速度。
-- **CSS-first Configuration**: 逐渐从 `tailwind.config.js` 转向在 CSS 文件中使用 `@theme` 指令定义变量。
-- **高性能引擎**: 利用 Oxc 编译器加速构建，支持零配置启动。
-- **内置容器查询**: 摆脱媒体查询的局限，基于组件容器大小进行响应式设计。
+## Key v4 Changes
 
-### 2. 自定义主题配置 (Theming)
-构建设计系统的基石是标准化的 Tokens。
-- **Color Palette**: 定义语义化的颜色名称（如 `primary`, `secondary`, `success`, `danger`）而非原始颜色值。
-- **Spacing & Typography**: 建立 4px 或 8px 网格系统，统一字体大小阶梯。
-- **CSS Variables**: 使用 CSS 变量作为桥接，使得在运行时切换主题（如动态换肤）成为可能。
+| v3 Pattern                            | v4 Pattern                                                            |
+| ------------------------------------- | --------------------------------------------------------------------- |
+| `tailwind.config.ts`                  | `@theme` in CSS                                                       |
+| `@tailwind base/components/utilities` | `@import "tailwindcss"`                                               |
+| `darkMode: "class"`                   | `@custom-variant dark (&:where(.dark, .dark *))`                      |
+| `theme.extend.colors`                 | `@theme { --color-*: value }`                                         |
+| `require("tailwindcss-animate")`      | CSS `@keyframes` in `@theme` + `@starting-style` for entry animations |
 
-### 3. 组件设计模式
-避免 HTML 中出现过长的类名字符串。
-- **CVA (Class Variance Authority)**: 结合 `tailwind-merge` 和 `clsx` 管理组件变体。
-- **Slots Pattern**: 为复杂组件（如 Modal, Card）定义子插槽的样式类。
-- **Composition over Inheritance**: 通过组合基础类来构建复杂样式。
+## Quick Start
 
-### 4. 响应式布局策略
-- **Mobile First**: 始终从移动端样式开始编写，使用 `md:`, `lg:` 等前缀递增覆盖。
-- **Grid vs Flexbox**: 在系统层面约定布局选型。Grid 用于页面整体架构，Flex 用于组件内部排列。
-- **Container Queries**: 使用 `@container` 实现真正的组件自适应。
+```css
+/* app.css - Tailwind v4 CSS-first configuration */
+@import "tailwindcss";
 
-### 5. Dark Mode 实现
-- **Strategy Selection**: 推荐使用 `class` 策略配合 CSS 变量。
-- **Color Semantic Mapping**: 确保每一对浅色/深色颜色都有良好的对比度和视觉一致性。
-- **System Preference**: 默认同步系统偏好，支持用户手动切换。
+/* Define your theme with @theme */
+@theme {
+  /* Semantic color tokens using OKLCH for better color perception */
+  --color-background: oklch(100% 0 0);
+  --color-foreground: oklch(14.5% 0.025 264);
 
-### 6. 与 shadcn/ui 集成
-shadcn/ui 是目前 Tailwind 生态下最流行的“非组件库”。
-- **Tailwind-animate**: 集成动画插件实现流畅交互。
-- **Registry Customization**: 修改 `components.json` 以匹配项目特定的目录结构。
-- **Accessible Patterns**: 确保所有 Tailwind 组件符合 WAI-ARIA 标准。
+  --color-primary: oklch(14.5% 0.025 264);
+  --color-primary-foreground: oklch(98% 0.01 264);
 
-### 7. 性能优化
-- **JIT Mode**: 确保实时编译仅生成使用的 CSS。
-- **Critical CSS**: 在 SSR 环境下提取首屏关键 CSS。
-- **Minification**: 使用 Lightning CSS 或 cssnano 进行生产环境压缩。
-- **Purge/Content**: 准确配置 `content` 路径，避免误删或残留。
+  --color-secondary: oklch(96% 0.01 264);
+  --color-secondary-foreground: oklch(14.5% 0.025 264);
 
-## 常用命令/模板
+  --color-muted: oklch(96% 0.01 264);
+  --color-muted-foreground: oklch(46% 0.02 264);
 
-### 基础初始化
-```bash
-# 安装最新版 Tailwind
-npm install -D tailwindcss @tailwindcss/postcss postcss
-```
+  --color-accent: oklch(96% 0.01 264);
+  --color-accent-foreground: oklch(14.5% 0.025 264);
 
-### CVA 组件模板 (React 示例)
-```tsx
-import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from '@/lib/utils';
+  --color-destructive: oklch(53% 0.22 27);
+  --color-destructive-foreground: oklch(98% 0.01 264);
 
-const buttonVariants = cva(
-  'inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 disabled:pointer-events-none disabled:opacity-50',
-  {
-    variants: {
-      variant: {
-        default: 'bg-primary text-primary-foreground hover:bg-primary/90',
-        destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/90',
-        outline: 'border border-input bg-background hover:bg-accent hover:text-accent-foreground',
-      },
-      size: {
-        default: 'h-10 px-4 py-2',
-        sm: 'h-9 rounded-md px-3',
-        lg: 'h-11 rounded-md px-8',
-      },
-    },
-    defaultVariants: {
-      variant: 'default',
-      size: 'default',
-    },
+  --color-border: oklch(91% 0.01 264);
+  --color-ring: oklch(14.5% 0.025 264);
+
+  --color-card: oklch(100% 0 0);
+  --color-card-foreground: oklch(14.5% 0.025 264);
+
+  /* Ring offset for focus states */
+  --color-ring-offset: oklch(100% 0 0);
+
+  /* Radius tokens */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+
+  /* Animation tokens - keyframes inside @theme are output when referenced by --animate-* variables */
+  --animate-fade-in: fade-in 0.2s ease-out;
+  --animate-fade-out: fade-out 0.2s ease-in;
+  --animate-slide-in: slide-in 0.3s ease-out;
+  --animate-slide-out: slide-out 0.3s ease-in;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
-);
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {}
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
 
-const Button = ({ className, variant, size, ...props }: ButtonProps) => {
-  return (
-    <button className={cn(buttonVariants({ variant, size, className }))} {...props} />
-  );
-};
-```
+  @keyframes slide-in {
+    from {
+      transform: translateY(-0.5rem);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
 
-### PostCSS 配置
-```javascript
-// postcss.config.js
-module.exports = {
-  plugins: {
-    '@tailwindcss/postcss': {},
-    autoprefixer: {},
-  },
+  @keyframes slide-out {
+    from {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(-0.5rem);
+      opacity: 0;
+    }
+  }
+}
+
+/* Dark mode variant - use @custom-variant for class-based dark mode */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Dark mode theme overrides */
+.dark {
+  --color-background: oklch(14.5% 0.025 264);
+  --color-foreground: oklch(98% 0.01 264);
+
+  --color-primary: oklch(98% 0.01 264);
+  --color-primary-foreground: oklch(14.5% 0.025 264);
+
+  --color-secondary: oklch(22% 0.02 264);
+  --color-secondary-foreground: oklch(98% 0.01 264);
+
+  --color-muted: oklch(22% 0.02 264);
+  --color-muted-foreground: oklch(65% 0.02 264);
+
+  --color-accent: oklch(22% 0.02 264);
+  --color-accent-foreground: oklch(98% 0.01 264);
+
+  --color-destructive: oklch(42% 0.15 27);
+  --color-destructive-foreground: oklch(98% 0.01 264);
+
+  --color-border: oklch(22% 0.02 264);
+  --color-ring: oklch(83% 0.02 264);
+
+  --color-card: oklch(14.5% 0.025 264);
+  --color-card-foreground: oklch(98% 0.01 264);
+
+  --color-ring-offset: oklch(14.5% 0.025 264);
+}
+
+/* Base styles */
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
 }
 ```
 
-## 边界与限制
+## Core Concepts
 
-- **过度原子化**: 对于极其复杂的、不可复用的图形（如复杂 SVG 或动画），原生 CSS 可能更易维护。
-- **类名膨胀**: 如果没有组件化封装，直接在 HTML 中堆砌类名会导致难以阅读。
-- **学习曲线**: 团队需要时间记忆常用的 utility classes，初期开发效率可能略有下降。
-- **运行时动态类**: 不支持动态拼接类名（如 `text-${color}-500`），必须使用完整类名以供编译器识别。
-- **遗留系统**: 在包含大量全局 CSS 污染的老项目中，集成 Tailwind 可能会出现样式冲突。
+### 1. Design Token Hierarchy
 
----
-*Generated by Skill Master - Professional Edition*
+```
+Brand Tokens (abstract)
+    └── Semantic Tokens (purpose)
+        └── Component Tokens (specific)
+
+Example:
+    oklch(45% 0.2 260) → --color-primary → bg-primary
+```
+
+### 2. Component Architecture
+
+```
+Base styles → Variants → Sizes → States → Overrides
+```
+
+## Detailed patterns and worked examples
+
+Detailed pattern documentation lives in `references/details.md`. Read that file when the navigation tier above is insufficient.

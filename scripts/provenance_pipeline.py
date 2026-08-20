@@ -32,11 +32,12 @@ def main() -> int:
     cfg = json.loads((root / args.config).read_text(encoding="utf-8"))
     p = cfg["paths"]
     stale_days = str(cfg.get("stale_days", 30))
-    coverage = str(cfg.get("coverage_min_percent", 95))
+    coverage = str(cfg.get("coverage_min_percent", 100))
     python_cmd = resolve_python_cmd()
 
     run(python_cmd + ["scripts/bootstrap_in_house_sources.py", "--write-json", p["in_house_mapping"]], root)
     run(python_cmd + ["scripts/validate_skill_sources.py"], root)
+    run(python_cmd + ["scripts/audit_licenses.py"], root)
     run(python_cmd + ["scripts/check_source_coverage.py", "--min-percent", coverage], root)
     run(
         python_cmd

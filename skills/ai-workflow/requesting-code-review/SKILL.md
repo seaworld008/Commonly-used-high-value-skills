@@ -4,8 +4,9 @@ description: 'Use when completing tasks, implementing major features, or before 
 zh_description: "用于在完成任务、实现重要功能或合并前请求代码审查并验证需求满足情况。"
 version: "1.0.4"
 author: "seaworld008"
-source: "in-house"
-source_url: ""
+source: "github:obra/superpowers"
+source_url: "https://skills.sh/obra/superpowers/requesting-code-review"
+license: MIT
 tags: '["code-review", "workflow", "quality-gate"]'
 created_at: "2026-04-13"
 updated_at: "2026-07-27"
