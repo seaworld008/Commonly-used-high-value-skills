@@ -5,12 +5,12 @@
 [![简体中文](https://img.shields.io/badge/README-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1677ff)](./README.md)
 [![English](https://img.shields.io/badge/README-English-111111)](./README.en.md)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b894)](./openclaw-skills/README.md)
-[![Skills](https://img.shields.io/badge/Skills-287-7c3aed)](./skills/)
+[![Skills](https://img.shields.io/badge/Skills-286-7c3aed)](./skills/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
 A high-value skills repository for AI developers, organized by real work scenarios such as developer engineering, DevOps, automation, finance, design, knowledge workflows, and reliability.
 
-This repository currently contains **16 categories / 287 skills**.
+This repository currently contains **16 categories / 286 skills**.
 
 ## Who This Is For
 
@@ -237,12 +237,11 @@ This repository does not just happen to include a few Hermes-related skills. It 
 
 ## Hermes, Graphify, and Open GSD
 
-The repository mirrors the official Hermes and Graphify artifact sets and governs Open GSD Core / Pi as managed bundles. The local composition layer has only two entry points and does not duplicate upstream versions, installer commands, or state machines:
+The repository mirrors the official Hermes and Graphify artifact sets and governs Open GSD Core / Pi as managed bundles. The local composition layer has one entry point and does not duplicate upstream versions, installer commands, or state machines:
 
 - capability routing and failure ownership: [`hermes-open-gsd-workflow`](./skills/ai-agent-platform/hermes-open-gsd-workflow/)
-- legacy GSD backup, migration, and safe cleanup: [`open-gsd-core-migration`](./skills/engineering-workflow-automation/open-gsd-core-migration/)
 
-Canonical provenance and bundle metadata under [`docs/sources/`](./docs/sources/) own versions, integrity digests, installers, and inventory. Four legacy Hermes + Graphify + GSD composite skills are permanently retired and protected by portfolio tombstones.
+Canonical provenance and bundle metadata under [`docs/sources/`](./docs/sources/) own versions, integrity digests, installers, and inventory. The legacy Hermes + Graphify + GSD composites and their migration compatibility layer have been deleted directly; a portfolio denylist only prevents those old names from being reintroduced.
 
 Recommended starting points for Hermes users:
 
@@ -332,7 +331,7 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 2. Open the relevant `SKILL.md` and read its triggers, workflow, boundaries, and scripts.
 3. If a skill includes `scripts/`, `references/`, or `assets/`, reuse those files before recreating similar content.
 
-## Skill Overview (by category, 16 categories / 287 skills)
+## Skill Overview (by category, 16 categories / 286 skills)
 
 <a id="cat-developer-engineering"></a>
 ### 1. Developer Engineering (developer-engineering, 47)
@@ -455,7 +454,7 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`sigil`](./skills/ai-agent-platform/sigil/)
 
 <a id="cat-workflow-automation"></a>
-### 4. Engineering Workflow Automation (engineering-workflow-automation, 14)
+### 4. Engineering Workflow Automation (engineering-workflow-automation, 13)
 
 - [`agent-browser`](./skills/engineering-workflow-automation/agent-browser/)
 - [`billing-automation`](./skills/engineering-workflow-automation/billing-automation/)
@@ -466,7 +465,6 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`harvest`](./skills/engineering-workflow-automation/harvest/)
 - [`jupyter-notebook`](./skills/engineering-workflow-automation/jupyter-notebook/)
 - [`latch`](./skills/engineering-workflow-automation/latch/)
-- [`open-gsd-core-migration`](./skills/engineering-workflow-automation/open-gsd-core-migration/)
 - [`playwright`](./skills/engineering-workflow-automation/playwright/)
 - [`playwright-pro`](./skills/engineering-workflow-automation/playwright-pro/)
 - [`web-scraper`](./skills/engineering-workflow-automation/web-scraper/)

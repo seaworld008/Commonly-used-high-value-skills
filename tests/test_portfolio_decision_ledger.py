@@ -28,9 +28,46 @@ class PortfolioDecisionLedgerTests(unittest.TestCase):
             "hermes-graphify-gsd-runtime-operator",
             "hermes-graphify-gsd-project-integration",
             "gsd-graphify-brownfield-bootstrap",
+            "open-gsd-core-migration",
         }
         self.assertTrue(expected.issubset(decisions))
         self.assertTrue(all(decisions[name]["decision"] == "retire" for name in expected))
+        self.assertTrue(all(decisions[name]["replacement"] is None for name in expected))
+        self.assertTrue(all(decisions[name]["unique_assets"] == [] for name in expected))
+        self.assertTrue(
+            all(
+                "retain only a non-routing denylist"
+                in decisions[name]["local_cleanup_action"]
+                for name in expected
+            )
+        )
+
+    def test_validator_allows_hard_retire_but_requires_merge_replacement(self):
+        module = load_module()
+        hard_retire = {
+            "name": "obsolete-skill",
+            "decision": "retire",
+            "replacement": None,
+            "unique_assets": [],
+            "external_contract": None,
+            "license_lineage": "in-house",
+            "local_cleanup_action": "remove",
+            "rationale": "obsolete",
+        }
+        self.assertEqual(
+            [],
+            module.validate({"schema_version": 1, "decisions": [hard_retire]}),
+        )
+
+        invalid_merge = dict(hard_retire)
+        invalid_merge.update(
+            name="merged-skill",
+            decision="merge",
+        )
+        errors = module.validate(
+            {"schema_version": 1, "decisions": [invalid_merge]}
+        )
+        self.assertTrue(any("required for merge" in item for item in errors))
 
     def test_validator_rejects_duplicate_and_unlicensed_snapshot(self):
         module = load_module()

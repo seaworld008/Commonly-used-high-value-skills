@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "generated_at": "2026-06-08",
-  "total_skills": 287,
+  "total_skills": 286,
   "total_categories": 16,
   "categories": [
     {
@@ -33,11 +33,11 @@
       "count": 14
     },
     {
-      "name": "engineering-workflow-automation",
-      "count": 14
+      "name": "devops-sre",
+      "count": 13
     },
     {
-      "name": "devops-sre",
+      "name": "engineering-workflow-automation",
       "count": 13
     },
     {
@@ -228,8 +228,8 @@
     {
       "name": "hermes-open-gsd-workflow",
       "category": "ai-agent-platform",
-      "description": "Route a development task to the official Hermes Agent skill, Graphify Codex artifact set, Open GSD Core bundle, optional GSD Pi bundle, or the legacy-migration workflow without duplicating their installers or state machines.",
-      "version": "1.0.0",
+      "description": "Route a development task to the official Hermes Agent skill, Graphify Codex artifact set, Open GSD Core bundle, or optional GSD Pi bundle without duplicating their installers or state machines.",
+      "version": "1.0.1",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -244,7 +244,7 @@
       "complexity": "intermediate",
       "created_at": "2026-08-20",
       "updated_at": "2026-08-20",
-      "line_count": 155,
+      "line_count": 139,
       "path": "skills/ai-agent-platform/hermes-open-gsd-workflow/SKILL.md"
     },
     {
@@ -2929,28 +2929,6 @@
       "updated_at": "2026-08-20",
       "line_count": 323,
       "path": "skills/engineering-workflow-automation/latch/SKILL.md"
-    },
-    {
-      "name": "open-gsd-core-migration",
-      "category": "engineering-workflow-automation",
-      "description": "Audit, back up, migrate, verify, and safely retire legacy get-shit-done or @gsd-build installations when moving clients to the repository-pinned Open GSD Core managed bundle.",
-      "version": "1.0.0",
-      "author": "seaworld008",
-      "source": "in-house",
-      "source_url": "",
-      "tags": [
-        "open-gsd",
-        "migration",
-        "backup",
-        "rollback",
-        "cleanup"
-      ],
-      "quality": 4,
-      "complexity": "advanced",
-      "created_at": "2026-08-20",
-      "updated_at": "2026-08-20",
-      "line_count": 219,
-      "path": "skills/engineering-workflow-automation/open-gsd-core-migration/SKILL.md"
     },
     {
       "name": "playwright",

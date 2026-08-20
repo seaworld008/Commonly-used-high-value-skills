@@ -1,6 +1,6 @@
 # Tags Index
 
-> Auto-generated from 1115 skill-tag mappings across 500 tags.
+> Auto-generated from 1110 skill-tag mappings across 497 tags.
 > Last updated: see git log.
 
 ## Quick Navigation
@@ -100,13 +100,11 @@
 - [`linkedin`](#linkedin) (2)
 - [`meeting`](#meeting) (2)
 - [`metrics`](#metrics) (2)
-- [`migration`](#migration) (2)
 - [`minutes`](#minutes) (2)
 - [`neon`](#neon) (2)
 - [`nextjs`](#nextjs) (2)
 - [`notes`](#notes) (2)
 - [`observability`](#observability) (2)
-- [`open-gsd`](#open-gsd) (2)
 - [`outreach`](#outreach) (2)
 - [`owasp`](#owasp) (2)
 - [`plans`](#plans) (2)
@@ -164,7 +162,6 @@
 - [`azure`](#azure) (1)
 - [`backend`](#backend) (1)
 - [`backtester`](#backtester) (1)
-- [`backup`](#backup) (1)
 - [`base`](#base) (1)
 - [`beacon`](#beacon) (1)
 - [`billing`](#billing) (1)
@@ -186,7 +183,6 @@
 - [`cicd`](#cicd) (1)
 - [`clay`](#clay) (1)
 - [`cleaner`](#cleaner) (1)
-- [`cleanup`](#cleanup) (1)
 - [`cloak`](#cloak) (1)
 - [`cloud-storage`](#cloud-storage) (1)
 - [`coach`](#coach) (1)
@@ -324,6 +320,7 @@
 - [`memo`](#memo) (1)
 - [`mermaid`](#mermaid) (1)
 - [`messaging`](#messaging) (1)
+- [`migration`](#migration) (1)
 - [`mixer`](#mixer) (1)
 - [`mobile`](#mobile) (1)
 - [`model`](#model) (1)
@@ -345,6 +342,7 @@
 - [`okr`](#okr) (1)
 - [`omen`](#omen) (1)
 - [`onboarding`](#onboarding) (1)
+- [`open-gsd`](#open-gsd) (1)
 - [`openai`](#openai) (1)
 - [`openapi`](#openapi) (1)
 - [`openclaw`](#openclaw) (1)
@@ -403,7 +401,6 @@
 - [`ripple`](#ripple) (1)
 - [`risk`](#risk) (1)
 - [`risk-assessment`](#risk-assessment) (1)
-- [`rollback`](#rollback) (1)
 - [`router`](#router) (1)
 - [`routing`](#routing) (1)
 - [`runbook`](#runbook) (1)
@@ -1851,15 +1848,6 @@
 | [codebase-inspection](skills/developer-engineering/codebase-inspection) | developer-engineering | ★★★★☆ | Inspect codebases w/ pygount: LOC, languages, ratios. |
 | [saas-metrics-coach](skills/finance-investing/saas-metrics-coach) | finance-investing | ★★★★☆ | SaaS financial health advisor. Use when a user shares revenue or customer number |
 
-## migration
-
-**2 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [migration-architect](skills/developer-engineering/migration-architect) | developer-engineering | ★★★★★ | Purpose: Zero-downtime migration planning, compatibility validation, and rollbac |
-| [open-gsd-core-migration](skills/engineering-workflow-automation/open-gsd-core-migration) | engineering-workflow-automation | ★★★★☆ | Audit, back up, migrate, verify, and safely retire legacy get-shit-done or @gsd- |
-
 ## minutes
 
 **2 skills**
@@ -1904,15 +1892,6 @@
 |-------|----------|---------|-------------|
 | [observability-designer](skills/devops-sre/observability-designer) | devops-sre | ★★★★★ | Description: Design comprehensive observability strategies for production system |
 | [cc-devops-skills](skills/devops-sre/cc-devops-skills) | devops-sre | ★★★★☆ | SRE, DevOps, Kubernetes, CI/CD, PromQL, Terraform, Docker, and incident operatio |
-
-## open-gsd
-
-**2 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [hermes-open-gsd-workflow](skills/ai-agent-platform/hermes-open-gsd-workflow) | ai-agent-platform | ★★★★☆ | Route a development task to the official Hermes Agent skill, Graphify Codex arti |
-| [open-gsd-core-migration](skills/engineering-workflow-automation/open-gsd-core-migration) | engineering-workflow-automation | ★★★★☆ | Audit, back up, migrate, verify, and safely retire legacy get-shit-done or @gsd- |
 
 ## outreach
 
@@ -2395,14 +2374,6 @@
 |-------|----------|---------|-------------|
 | [factor-backtester](skills/finance-investing/factor-backtester) | finance-investing | ★★☆☆☆ | Use when testing factor signals, running long-short spread backtests, checking h |
 
-## backup
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [open-gsd-core-migration](skills/engineering-workflow-automation/open-gsd-core-migration) | engineering-workflow-automation | ★★★★☆ | Audit, back up, migrate, verify, and safely retire legacy get-shit-done or @gsd- |
-
 ## base
 
 **1 skills**
@@ -2570,14 +2541,6 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [docs-cleaner](skills/operations-general/docs-cleaner) | operations-general | ★★★☆☆ | Consolidates redundant documentation while preserving all valuable content. This |
-
-## cleanup
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [open-gsd-core-migration](skills/engineering-workflow-automation/open-gsd-core-migration) | engineering-workflow-automation | ★★★★☆ | Audit, back up, migrate, verify, and safely retire legacy get-shit-done or @gsd- |
 
 ## cloak
 
@@ -3675,6 +3638,14 @@
 |-------|----------|---------|-------------|
 | [lark-im](skills/knowledge-and-pm-integrations/lark-im) | knowledge-and-pm-integrations | ★★★★☆ | 飞书即时通讯：收发消息和管理群聊。发送和回复消息、搜索聊天记录、管理群聊成员、上传下载图片和文件、管理表情回复、发送应用内/短信/电话加急、发送和处理交互卡片（ |
 
+## migration
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [migration-architect](skills/developer-engineering/migration-architect) | developer-engineering | ★★★★★ | Purpose: Zero-downtime migration planning, compatibility validation, and rollbac |
+
 ## mixer
 
 **1 skills**
@@ -3842,6 +3813,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [codebase-onboarding](skills/developer-engineering/codebase-onboarding) | developer-engineering | ★★★★★ | Analyze a codebase and generate comprehensive onboarding documentation tailored  |
+
+## open-gsd
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [hermes-open-gsd-workflow](skills/ai-agent-platform/hermes-open-gsd-workflow) | ai-agent-platform | ★★★★☆ | Route a development task to the official Hermes Agent skill, Graphify Codex arti |
 
 ## openai
 
@@ -4306,14 +4285,6 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [information-security-manager-iso27001](skills/security-and-reliability/information-security-manager-iso27001) | security-and-reliability | ★★★★☆ | ISO 27001 ISMS implementation and cybersecurity governance for HealthTech and Me |
-
-## rollback
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [open-gsd-core-migration](skills/engineering-workflow-automation/open-gsd-core-migration) | engineering-workflow-automation | ★★★★☆ | Audit, back up, migrate, verify, and safely retire legacy get-shit-done or @gsd- |
 
 ## router
 

@@ -61,44 +61,52 @@
     {
       "name": "hermes-graphify-gsd-nonintrusive-workflow",
       "decision": "retire",
-      "replacement": "hermes-open-gsd-workflow",
+      "replacement": null,
       "unique_assets": [],
       "external_contract": null,
       "license_lineage": "in-house",
-      "local_cleanup_action": "Delete unchanged installer-owned copies; archive modified or unowned copies and retain a tombstone.",
-      "rationale": "The thin router preserves the intent without duplicating upstream versions or state machines."
+      "local_cleanup_action": "Remove active copies without installing aliases or migration skills; retain only a non-routing denylist.",
+      "rationale": "The copied orchestration is obsolete and has no unique capability worth retaining."
     },
     {
       "name": "hermes-graphify-gsd-runtime-operator",
       "decision": "retire",
-      "replacement": "hermes-open-gsd-workflow",
+      "replacement": null,
       "unique_assets": [],
       "external_contract": null,
       "license_lineage": "in-house",
-      "local_cleanup_action": "Delete unchanged installer-owned copies; archive modified or unowned copies and retain a tombstone.",
-      "rationale": "Runtime ownership belongs to the official Hermes, Graphify, and GSD distributions."
+      "local_cleanup_action": "Remove active copies without installing aliases or migration skills; retain only a non-routing denylist.",
+      "rationale": "The duplicated runtime orchestration is obsolete and has no unique capability worth retaining."
     },
     {
       "name": "hermes-graphify-gsd-project-integration",
       "decision": "retire",
-      "replacement": "hermes-open-gsd-workflow",
+      "replacement": null,
       "unique_assets": [],
       "external_contract": null,
       "license_lineage": "in-house",
-      "local_cleanup_action": "Delete unchanged installer-owned copies; archive modified or unowned copies and retain a tombstone.",
-      "rationale": "The new router covers selection and delegates implementation to complete official artifacts."
+      "local_cleanup_action": "Remove active copies without installing aliases or migration skills; retain only a non-routing denylist.",
+      "rationale": "The duplicated project-integration orchestration is obsolete and has no unique capability worth retaining."
     },
     {
       "name": "gsd-graphify-brownfield-bootstrap",
       "decision": "retire",
-      "replacement": "open-gsd-core-migration",
-      "unique_assets": [
-        "legacy installation migration intent"
-      ],
+      "replacement": null,
+      "unique_assets": [],
       "external_contract": null,
       "license_lineage": "in-house",
-      "local_cleanup_action": "Archive user-modified copies; migrate the unique backup and rollback behavior before removing active copies.",
-      "rationale": "The dedicated migration skill retains the only unique intent without duplicating GSD orchestration."
+      "local_cleanup_action": "Remove active copies without installing aliases or migration skills; retain only a non-routing denylist.",
+      "rationale": "The duplicated bootstrap orchestration and its migration-only behavior are obsolete."
+    },
+    {
+      "name": "open-gsd-core-migration",
+      "decision": "retire",
+      "replacement": null,
+      "unique_assets": [],
+      "external_contract": null,
+      "license_lineage": "in-house",
+      "local_cleanup_action": "Remove active copies without installing aliases or migration skills; retain only a non-routing denylist.",
+      "rationale": "The compatibility-only migration workflow is no longer part of the supported portfolio."
     },
     {
       "name": "lore",

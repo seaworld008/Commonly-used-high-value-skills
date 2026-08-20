@@ -55,8 +55,16 @@ def validate(data: object) -> list[str]:
         if decision not in DECISIONS:
             errors.append(f"{label}.decision must be one of {sorted(DECISIONS)}")
         replacement = entry["replacement"]
-        if decision in {"merge", "retire"} and not isinstance(replacement, str):
-            errors.append(f"{label}.replacement is required for {decision}")
+        if decision == "merge" and (
+            not isinstance(replacement, str) or not replacement.strip()
+        ):
+            errors.append(f"{label}.replacement is required for merge")
+        if decision == "retire" and replacement is not None and (
+            not isinstance(replacement, str) or not replacement.strip()
+        ):
+            errors.append(
+                f"{label}.replacement must be null or a non-empty string for retire"
+            )
         if decision == "keep" and replacement is not None:
             errors.append(f"{label}.replacement must be null for keep")
         assets = entry["unique_assets"]

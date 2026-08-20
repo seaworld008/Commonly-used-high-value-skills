@@ -3,6 +3,13 @@
 All notable changes to this repository are documented here.
 本文件记录仓库的重要变更；版本号遵循 [Semantic Versioning](https://semver.org/)。
 
+## [Unreleased]
+
+### Removed / 移除
+
+- 删除 `open-gsd-core-migration` 兼容技能以及旧 Hermes + Graphify + GSD 组合技能的 alias、tombstone 和 migration 路由；当前 portfolio 仅保留不可路由的名称 denylist，防止这些无用技能被自动重新引入。
+  Removed the `open-gsd-core-migration` compatibility skill and all alias, tombstone, and migration routes for the legacy Hermes + Graphify + GSD composites; only a non-routing name denylist remains to prevent automated reintroduction.
+
 ## [2.0.0] - 2026-08-20
 
 Revision range / 变更范围：`v1.2.0..HEAD`

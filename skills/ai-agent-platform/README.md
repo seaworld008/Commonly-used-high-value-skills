@@ -24,7 +24,7 @@
 | `figma` | 用于处理 Figma 设计读取、解析、交付和实现协作。 | [目录](./figma/) | [SKILL.md](./figma/SKILL.md) |
 | `figma-implement-design` | 用于将 Figma 设计转化为可实现的前端界面和组件。 | [目录](./figma-implement-design/) | [SKILL.md](./figma-implement-design/SKILL.md) |
 | `hermes-agent` | 用于配置、扩展、调试和贡献 Hermes Agent，包括多 Agent、CLI 和网关工作流。 | [目录](./hermes-agent/) | [SKILL.md](./hermes-agent/SKILL.md) |
-| `hermes-open-gsd-workflow` | 在 Hermes Agent、Graphify、Open GSD Core、可选 GSD Pi 与旧版迁移流程之间做薄路由，不复制上游安装器和状态机。 | [目录](./hermes-open-gsd-workflow/) | [SKILL.md](./hermes-open-gsd-workflow/SKILL.md) |
+| `hermes-open-gsd-workflow` | 在 Hermes Agent、Graphify、Open GSD Core 与可选 GSD Pi 之间做薄路由，不复制上游安装器和状态机。 | [目录](./hermes-open-gsd-workflow/) | [SKILL.md](./hermes-open-gsd-workflow/SKILL.md) |
 | `mcporter` | 用于通过 mcporter CLI 列出、配置、鉴权和调用 MCP 服务器或工具。 | [目录](./mcporter/) | [SKILL.md](./mcporter/SKILL.md) |
 | `native-mcp` | 用于构建和调试原生 MCP 集成、服务器和工具调用流程。 | [目录](./native-mcp/) | [SKILL.md](./native-mcp/SKILL.md) |
 | `openai-docs` | 用于查阅和应用 OpenAI 官方文档、API 行为和集成指南。 | [目录](./openai-docs/) | [SKILL.md](./openai-docs/SKILL.md) |

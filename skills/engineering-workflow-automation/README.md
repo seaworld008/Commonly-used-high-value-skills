@@ -4,7 +4,7 @@
 
 聚焦 GitHub、浏览器自动化、CI 排障、Playwright 与工程协作自动化。
 
-当前分类共 **14** 个技能。
+当前分类共 **13** 个技能。
 
 ## 推荐先看
 
@@ -26,7 +26,6 @@
 | `harvest` | 采集合并请求信息并生成工作报告和发布材料。 | [目录](./harvest/) | [SKILL.md](./harvest/SKILL.md) |
 | `jupyter-notebook` | 用于Jupyter、Notebook，支持工程协作、自动化验证和交付闭环。 | [目录](./jupyter-notebook/) | [SKILL.md](./jupyter-notebook/SKILL.md) |
 | `latch` | 配置和维护生命周期钩子、质量门禁和自动化守卫。 | [目录](./latch/) | [SKILL.md](./latch/SKILL.md) |
-| `open-gsd-core-migration` | 迁移旧 get-shit-done 或 @gsd-build 安装：先审计和哈希备份，再安装仓库锁定的 Open GSD Core，验证后按所有权安全清理并支持回滚。 | [目录](./open-gsd-core-migration/) | [SKILL.md](./open-gsd-core-migration/SKILL.md) |
 | `playwright` | 用于使用 Playwright 编写、运行和调试端到端测试。 | [目录](./playwright/) | [SKILL.md](./playwright/SKILL.md) |
 | `playwright-pro` | 用于高级 Playwright 测试、诊断、稳定性和浏览器自动化。 | [目录](./playwright-pro/) | [SKILL.md](./playwright-pro/SKILL.md) |
 | `web-scraper` | 用于网页抓取、结构化数据提取、爬取策略、选择器设计和反爬应对。 | [目录](./web-scraper/) | [SKILL.md](./web-scraper/SKILL.md) |

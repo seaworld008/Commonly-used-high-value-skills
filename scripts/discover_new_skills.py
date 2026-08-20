@@ -143,7 +143,7 @@ def load_rejected_keys(path: Path) -> tuple[set[str], set[str]]:
 
 
 def load_retired_skill_names(path: Path) -> set[str]:
-    """Load permanent retirement tombstones from the portfolio policy."""
+    """Load hard-retirement denylist names from the portfolio policy."""
     if not path.exists():
         return set()
     try:

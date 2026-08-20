@@ -145,31 +145,23 @@
     },
     {
       "name": "hermes-graphify-gsd-nonintrusive-workflow",
-      "replacement": "hermes-open-gsd-workflow",
-      "migration": "open-gsd-core-migration",
-      "tombstone": "permanent",
-      "reason": "The thin router and official artifact sets replace the copied installers, wrappers, leases, cron jobs, task boards, and handoff state machine."
+      "reason": "Obsolete copied installers, wrappers, leases, cron jobs, task boards, and handoff state machines must not return to the active portfolio."
     },
     {
       "name": "hermes-graphify-gsd-runtime-operator",
-      "replacement": "hermes-open-gsd-workflow",
-      "migration": "open-gsd-core-migration",
-      "tombstone": "permanent",
-      "reason": "Runtime diagnosis now belongs to the canonical component owner; legacy installation detection and cleanup belong to the migration skill."
+      "reason": "Obsolete duplicated runtime orchestration must not return to the active portfolio."
     },
     {
       "name": "hermes-graphify-gsd-project-integration",
-      "replacement": "hermes-open-gsd-workflow",
-      "migration": "open-gsd-core-migration",
-      "tombstone": "permanent",
-      "reason": "Official Hermes, Graphify, and Open GSD artifacts own their integrations; the local layer only routes and migrates."
+      "reason": "Obsolete duplicated project-integration orchestration must not return to the active portfolio."
     },
     {
       "name": "gsd-graphify-brownfield-bootstrap",
-      "replacement": "hermes-open-gsd-workflow",
-      "migration": "open-gsd-core-migration",
-      "tombstone": "permanent",
-      "reason": "Open GSD Core owns brownfield onboarding and planning state; Graphify remains an optional evidence source selected by the thin router."
+      "reason": "Obsolete duplicated brownfield bootstrap orchestration must not return to the active portfolio."
+    },
+    {
+      "name": "open-gsd-core-migration",
+      "reason": "The obsolete compatibility workflow must not return as an active skill or migration route."
     }
   ],
   "canonical_groups": [
@@ -235,15 +227,6 @@
       "canonical": "screenshot",
       "retired_aliases": [
         "capture-screen"
-      ]
-    },
-    {
-      "canonical": "hermes-open-gsd-workflow",
-      "retired_aliases": [
-        "hermes-graphify-gsd-nonintrusive-workflow",
-        "hermes-graphify-gsd-runtime-operator",
-        "hermes-graphify-gsd-project-integration",
-        "gsd-graphify-brownfield-bootstrap"
       ]
     }
   ],

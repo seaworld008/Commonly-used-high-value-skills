@@ -14,6 +14,7 @@ RETIRED = {
 }
 ROUTER = "hermes-open-gsd-workflow"
 MIGRATION = "open-gsd-core-migration"
+REMOVED = RETIRED | {MIGRATION}
 
 
 def load_module(name: str, path: Path):
@@ -26,14 +27,13 @@ def load_module(name: str, path: Path):
 
 
 class RetiredHermesOpenGsdCompositeTests(unittest.TestCase):
-    def test_retired_source_directories_are_absent_and_replacements_exist(self):
+    def test_retired_and_migration_source_directories_are_absent(self):
         discovered = {
             path.parent.name for path in REPO_ROOT.glob("skills/*/*/SKILL.md")
         }
 
-        self.assertTrue(RETIRED.isdisjoint(discovered))
+        self.assertTrue(REMOVED.isdisjoint(discovered))
         self.assertIn(ROUTER, discovered)
-        self.assertIn(MIGRATION, discovered)
 
     def test_openclaw_export_cannot_rediscover_retired_aliases(self):
         exporter = load_module(
@@ -48,11 +48,10 @@ class RetiredHermesOpenGsdCompositeTests(unittest.TestCase):
             )
             names = {path.name for path in exported}
 
-        self.assertTrue(RETIRED.isdisjoint(names))
+        self.assertTrue(REMOVED.isdisjoint(names))
         self.assertIn(ROUTER, names)
-        self.assertIn(MIGRATION, names)
 
-    def test_portfolio_policy_has_permanent_tombstones_and_aliases(self):
+    def test_portfolio_policy_keeps_only_a_non_routing_denylist(self):
         policy = json.loads(
             (REPO_ROOT / "docs" / "sources" / "portfolio-policy.json").read_text(
                 encoding="utf-8"
@@ -61,21 +60,23 @@ class RetiredHermesOpenGsdCompositeTests(unittest.TestCase):
         retired = {
             entry["name"]: entry
             for entry in policy["retired_skills"]
-            if entry.get("name") in RETIRED
+            if entry.get("name") in REMOVED
         }
-        self.assertEqual(RETIRED, set(retired))
+        self.assertEqual(REMOVED, set(retired))
         for entry in retired.values():
-            self.assertEqual(ROUTER, entry["replacement"])
-            self.assertEqual("permanent", entry["tombstone"])
+            self.assertTrue(
+                {"replacement", "migration", "tombstone"}.isdisjoint(entry)
+            )
 
-        router_group = next(
-            group
-            for group in policy["canonical_groups"]
-            if group.get("canonical") == ROUTER
+        self.assertNotIn(
+            ROUTER,
+            {
+                group.get("canonical")
+                for group in policy["canonical_groups"]
+            },
         )
-        self.assertEqual(RETIRED, set(router_group["retired_aliases"]))
 
-    def test_provenance_locks_router_and_migration_dependencies(self):
+    def test_provenance_locks_router_and_removes_migration(self):
         payload = json.loads(
             (REPO_ROOT / "docs" / "sources" / "in-house.skills.json").read_text(
                 encoding="utf-8"
@@ -86,7 +87,7 @@ class RetiredHermesOpenGsdCompositeTests(unittest.TestCase):
             for entry in payload["skills"]
             if entry.get("normalized_slug") in {ROUTER, MIGRATION}
         }
-        self.assertEqual({ROUTER, MIGRATION}, set(entries))
+        self.assertEqual({ROUTER}, set(entries))
 
         router = entries[ROUTER]
         self.assertEqual("composite", router["kind"])
@@ -108,16 +109,36 @@ class RetiredHermesOpenGsdCompositeTests(unittest.TestCase):
             set(router["composition"]["dependency_lock"]),
         )
 
-        migration = entries[MIGRATION]
-        self.assertEqual("composite", migration["kind"])
-        self.assertEqual(
-            [{"source_package": "open-gsd/gsd-core", "role": "migration-target"}],
-            migration["composition"]["depends_on"],
-        )
-        self.assertEqual(
-            {"open-gsd/gsd-core"},
-            set(migration["composition"]["dependency_lock"]),
-        )
+        router_text = (
+            REPO_ROOT
+            / "skills"
+            / "ai-agent-platform"
+            / ROUTER
+            / "SKILL.md"
+        ).read_text(encoding="utf-8")
+        for removed in REMOVED:
+            self.assertNotIn(removed, router_text)
+
+    def test_active_docs_and_generated_views_have_no_removed_routes(self):
+        active_surfaces = [
+            REPO_ROOT / "README.md",
+            REPO_ROOT / "README.en.md",
+            REPO_ROOT / "docs" / "client-install-guides.md",
+            REPO_ROOT / "docs" / "catalog.json",
+            REPO_ROOT / "docs" / "TAGS-INDEX.md",
+            REPO_ROOT
+            / "skills"
+            / "engineering-workflow-automation"
+            / "README.md",
+            REPO_ROOT
+            / "openclaw-skills"
+            / ROUTER
+            / "SKILL.md",
+        ]
+        for path in active_surfaces:
+            text = path.read_text(encoding="utf-8")
+            for removed in REMOVED:
+                self.assertNotIn(removed, text, path)
 
     def test_category_readme_generator_has_no_retired_usage_state_machine(self):
         generator = (

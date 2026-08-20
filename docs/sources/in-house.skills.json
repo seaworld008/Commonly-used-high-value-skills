@@ -9744,7 +9744,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "5f93a93b18276cca8c15baf4310669ceb1cb5913f2e02a521c830dbcfe56cb75",
+            "content_sha256": "6e1bbecf1c863b1b9895ac94eb66e57750877363b483805cbba4cb39b880c52d",
             "last_checked_at": "2026-08-20",
             "last_synced_at": "2026-08-20"
           }
@@ -9755,7 +9755,7 @@
         {
           "path": "skills/ai-agent-platform/hermes-open-gsd-workflow/SKILL.md",
           "owner": "hermes-open-gsd-workflow",
-          "sha256": "5f93a93b18276cca8c15baf4310669ceb1cb5913f2e02a521c830dbcfe56cb75",
+          "sha256": "6e1bbecf1c863b1b9895ac94eb66e57750877363b483805cbba4cb39b880c52d",
           "mode": "100644"
         }
       ],
@@ -13444,68 +13444,6 @@
           "mode": "100644"
         }
       ]
-    },
-    {
-      "video_name": "open-gsd-core-migration",
-      "normalized_slug": "open-gsd-core-migration",
-      "status": "in_house",
-      "repo_skill": "skills/engineering-workflow-automation/open-gsd-core-migration/SKILL.md",
-      "source": "https://github.com/seaworld008/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/engineering-workflow-automation/open-gsd-core-migration",
-        "ref": "main",
-        "last_checked_at": "2026-08-20",
-        "last_synced_at": "2026-08-20",
-        "last_synced_commit": null,
-        "sync_mode": "local-only"
-      },
-      "kind": "composite",
-      "origins": [
-        {
-          "repo": "local-repo/in-house",
-          "path": "skills/engineering-workflow-automation/open-gsd-core-migration",
-          "license": null,
-          "sync_mode": "local-only",
-          "artifacts": [
-            {
-              "source": "skills/engineering-workflow-automation/open-gsd-core-migration/SKILL.md",
-              "target": "skills/engineering-workflow-automation/open-gsd-core-migration/SKILL.md",
-              "type": "file"
-            }
-          ],
-          "tracking": {
-            "channel": "local",
-            "ref": "main",
-            "resolved_commit": null,
-            "path_commit": null,
-            "content_sha256": "5f990c3880c7f201b7be338c91443c157c34c4295f2bbf6f5184e4ab9ae97bfa",
-            "last_checked_at": "2026-08-20",
-            "last_synced_at": "2026-08-20"
-          }
-        }
-      ],
-      "sync_mode": "local-only",
-      "managed_files": [
-        {
-          "path": "skills/engineering-workflow-automation/open-gsd-core-migration/SKILL.md",
-          "owner": "open-gsd-core-migration",
-          "sha256": "5f990c3880c7f201b7be338c91443c157c34c4295f2bbf6f5184e4ab9ae97bfa",
-          "mode": "100644"
-        }
-      ],
-      "composition": {
-        "depends_on": [
-          {
-            "source_package": "open-gsd/gsd-core",
-            "role": "migration-target"
-          }
-        ],
-        "dependency_lock": {
-          "open-gsd/gsd-core": "b7ed2186d397b270a52db5e9816a9fd88a240466b356b1f4a28823f93cb8fd9d"
-        }
-      }
     },
     {
       "video_name": "openai-docs",
@@ -22303,6 +22241,13 @@
       "target": "skills/*/*/SKILL.md",
       "result": "success",
       "evidence": "Merged provenance for 132 local skills"
+    },
+    {
+      "date": "2026-08-20",
+      "method": "local-scan",
+      "target": "skills/*/*/SKILL.md",
+      "result": "success",
+      "evidence": "Merged provenance for 131 local skills"
     }
   ],
   "schema_version": 2

@@ -1,8 +1,8 @@
 ---
 name: hermes-open-gsd-workflow
-description: 'Route a development task to the official Hermes Agent skill, Graphify Codex artifact set, Open GSD Core bundle, optional GSD Pi bundle, or the legacy-migration workflow without duplicating their installers or state machines.'
-zh_description: "在 Hermes Agent、Graphify、Open GSD Core、可选 GSD Pi 与旧版迁移流程之间做薄路由，不复制上游安装器和状态机。"
-version: "1.0.0"
+description: 'Route a development task to the official Hermes Agent skill, Graphify Codex artifact set, Open GSD Core bundle, or optional GSD Pi bundle without duplicating their installers or state machines.'
+zh_description: "在 Hermes Agent、Graphify、Open GSD Core 与可选 GSD Pi 之间做薄路由，不复制上游安装器和状态机。"
+version: "1.0.1"
 author: seaworld008
 source: in-house
 source_url: ""
@@ -38,7 +38,6 @@ Use this router when a request mentions two or more of these concerns:
 - building or querying a repository graph;
 - onboarding or planning work in an existing repository;
 - choosing between Open GSD Core and GSD Pi;
-- migrating an older `get-shit-done` or `@gsd-build` installation;
 - deciding which component owns a failure.
 
 For a task that clearly belongs to one component, invoke that component's
@@ -52,7 +51,6 @@ canonical skill directly.
 | Repository graph build, watch, query, hooks, export | `graphify` | Graphify's own database and config |
 | Standard planning, brownfield onboarding, phase execution | Open GSD Core managed bundle | `.planning/` |
 | Pi-native runtime explicitly requested by the user | Optional Open GSD Pi bundle | `.gsd/` |
-| Detection and safe removal of legacy GSD installs | `open-gsd-core-migration` | Timestamped backup plus ownership manifest |
 
 ## Decision Procedure
 
@@ -62,8 +60,6 @@ canonical skill directly.
 4. Choose one planning runtime for the current operation.
 5. Add Graphify only when graph evidence materially improves the task.
 6. Add Hermes only when a Hermes execution surface is actually requested.
-7. If legacy installation evidence exists, route through migration before
-   pruning or reinstalling anything.
 
 ## Common Routes
 
@@ -74,7 +70,6 @@ planning_owner: open-gsd-core
 state_root: .planning
 evidence_provider: graphify
 execution_surface: hermes
-migration_required: false
 ```
 
 ### Brownfield repository
@@ -111,16 +106,6 @@ Before proceeding:
 - do not copy Core planning state into Pi or vice versa;
 - do not add Pi to the default canonical skill installation.
 
-### Legacy GSD installation
-
-Route to `open-gsd-core-migration` when any of these are present:
-
-- `get-shit-done/` directories;
-- old GSD commands or hooks;
-- global `@gsd-build/sdk`;
-- duplicate `gsd-*` skills outside the official managed manifest;
-- one of the retired Hermes + Graphify + GSD composite skills.
-
 ## Failure Ownership
 
 Use the smallest owner that can explain the failure:
@@ -129,7 +114,6 @@ Use the smallest owner that can explain the failure:
 - stale graph, missing symbol, watcher, export, or query failure: Graphify;
 - planning phase, onboarding, health, or resume failure: GSD Core;
 - Pi plugin or `.gsd/` runtime failure: GSD Pi;
-- unknown legacy file ownership or unsafe cleanup: migration workflow.
 
 Do not diagnose a component by editing another component's state.
 
@@ -150,6 +134,6 @@ A routed workflow is complete only when:
 - This skill never installs Hermes runtime.
 - It never installs the optional GSD Pi bundle by default.
 - It never upgrades a system Graphify CLI.
-- It never deletes legacy files without an ownership and hash decision.
+- It does not support retired composite skills or legacy installation layouts.
 - It never rewrites upstream repositories to integrate the tools.
 - It never claims that CI success proves a local runtime installation.

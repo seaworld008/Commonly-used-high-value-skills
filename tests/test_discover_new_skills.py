@@ -19,7 +19,7 @@ def load_module():
 
 
 class DiscoverNewSkillsTests(unittest.TestCase):
-    def test_load_retired_skill_names_reads_portfolio_tombstones(self):
+    def test_load_retired_skill_names_reads_hard_retirement_denylist(self):
         module = load_module()
         with tempfile.TemporaryDirectory() as tmpdir:
             policy = Path(tmpdir) / "portfolio-policy.json"
