@@ -3723,6 +3723,96 @@ def record_v2_checks(results: list[dict]) -> None:
             )
 
 
+def record_v2_monitor_reviews(results: list[dict]) -> None:
+    """Advance explicitly reviewed monitor checkpoints without replacing bodies."""
+    reviewed = [
+        result
+        for result in results
+        if result["skill"].get("schema_version") == 2
+        and _is_monitor_skill(result["skill"])
+        and result.get("changes")
+        not in {"unavailable", "expected_skipped", "upstream_rollback"}
+    ]
+    if not reviewed:
+        raise RuntimeError("no successful monitor results were available to record")
+
+    grouped: dict[Path, list[dict]] = {}
+    skill_roots: set[str] = set()
+    for result in reviewed:
+        skill = result["skill"]
+        mapping_path = skill.get("mapping_path")
+        repo_skill = skill.get("repo_skill")
+        if mapping_path is None or not _safe_mapping_path(repo_skill):
+            raise RuntimeError("reviewed monitor result has invalid mapping coordinates")
+        grouped.setdefault(Path(mapping_path), []).append(result)
+        skill_roots.add(PurePosixPath(str(repo_skill)).parent.as_posix())
+
+    with durable_batch_lock_and_recover(REPO_ROOT) as durable_guard:
+        with ExitStack() as locks:
+            for path in sorted(grouped):
+                locks.enter_context(mapping_advisory_lock(path))
+            engine = _load_artifact_engine()
+            for skill_root in sorted(skill_roots):
+                locks.enter_context(
+                    engine.skill_advisory_lock(
+                        REPO_ROOT,
+                        skill_root,
+                        timeout=0.0,
+                    )
+                )
+
+            prepared: dict[Path, dict] = {}
+            snapshots: dict[Path, MappingSnapshot] = {}
+            today = date.today().isoformat()
+            for path in sorted(grouped):
+                snapshot = capture_mapping_snapshot(path)
+                snapshots[path] = snapshot
+                data = json.loads(snapshot.content.decode("utf-8"))
+                review_targets: set[str] = set()
+                for result in grouped[path]:
+                    entry, origin = _v2_entry_and_origin(
+                        data,
+                        result["skill"],
+                    )
+                    _record_v2_result(
+                        data,
+                        result,
+                        synced=True,
+                        entry_origin=(entry, origin),
+                    )
+                    repo_skill = result["skill"]["repo_skill"]
+                    canonical_path = REPO_ROOT / repo_skill
+                    origin["tracking"]["content_sha256"] = hashlib.sha256(
+                        canonical_path.read_bytes()
+                    ).hexdigest()
+                    review_targets.add(
+                        f"{origin['repo']}@{result['current_commit']}"
+                    )
+                attempts = data.setdefault("verification_attempts", [])
+                for target in sorted(review_targets):
+                    attempts.append(
+                        {
+                            "date": today,
+                            "method": "commit-aware-manual-monitor-review",
+                            "target": target,
+                            "result": "success",
+                            "evidence": (
+                                "Explicit reviewer checkpoint recorded after "
+                                "curating durable method, compatibility, "
+                                "security, CI, and validation changes."
+                            ),
+                        }
+                    )
+                prepared[path] = data
+
+            _validate_candidate_mappings(prepared)
+            atomic_write_json_batch(
+                prepared,
+                expected_snapshots=snapshots,
+                durable_guard=durable_guard,
+            )
+
+
 def _artifact_payloads_for_engine(update: dict) -> list[dict]:
     skill = update["skill"]
     upstream_files = update.get("upstream_files")
@@ -4172,6 +4262,14 @@ def main(argv: list[str] | None = None) -> int:
         action="store_true",
         help="With --check-only, explicitly record successful comparison timestamps",
     )
+    parser.add_argument(
+        "--record-review",
+        action="store_true",
+        help=(
+            "With --check-only, explicitly advance successful monitor-only "
+            "checkpoints after manual curation"
+        ),
+    )
     parser.add_argument("--dry-run", action="store_true", help="Show what would be done without writing")
     parser.add_argument(
         "--allow-v1",
@@ -4192,6 +4290,10 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
     if args.record_check and not args.check_only:
         parser.error("--record-check requires --check-only")
+    if args.record_review and not args.check_only:
+        parser.error("--record-review requires --check-only")
+    if args.record_check and args.record_review:
+        parser.error("--record-check and --record-review are mutually exclusive")
     if args.report_json == "-":
         parser.error("--report-json requires a file path, not stdout")
 
@@ -4450,9 +4552,12 @@ def main(argv: list[str] | None = None) -> int:
         emit_report("failed")
         return 1
 
-    if not args.dry_run and args.record_check:
+    if not args.dry_run and (args.record_check or args.record_review):
         try:
-            record_v2_checks(checked_results)
+            if args.record_review:
+                record_v2_monitor_reviews(checked_results)
+            else:
+                record_v2_checks(checked_results)
             for result in checked_results:
                 if result["skill"].get("schema_version", 1) == 1:
                     update_mapping_after_check(result)

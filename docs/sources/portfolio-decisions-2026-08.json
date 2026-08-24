@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-08-20",
+  "updated_at": "2026-08-24",
   "decision_rule": "Retire only after replacement coverage is proven and unique executable assets, external contracts, high-risk guardrails, and acceptance criteria have been preserved.",
   "decisions": [
     {
@@ -119,6 +119,56 @@
       "license_lineage": "permissive upstream license at reviewed checkpoint",
       "local_cleanup_action": "Follow the moved upstream path and preserve the canonical install.",
       "rationale": "The path moved, but the skill retains distinct value."
+    },
+    {
+      "name": "lark-minutes",
+      "decision": "merge",
+      "replacement": "lark-meeting",
+      "unique_assets": [
+        "Minutes command references and permission guardrails"
+      ],
+      "external_contract": "larksuite/cli lark-meeting unified CLI skill",
+      "license_lineage": "MIT at reviewed commit 56ad837c3d8f4c49d6b9725a3530c37408533ead",
+      "local_cleanup_action": "Move all Minutes references into lark-meeting and remove the duplicate active route.",
+      "rationale": "The upstream unified skill fully covers Minutes intent and adds cross-domain meeting scenes."
+    },
+    {
+      "name": "lark-vc",
+      "decision": "merge",
+      "replacement": "lark-meeting",
+      "unique_assets": [
+        "vc-domain-boundaries.md"
+      ],
+      "external_contract": "larksuite/cli lark-meeting unified CLI skill",
+      "license_lineage": "MIT at reviewed commit 56ad837c3d8f4c49d6b9725a3530c37408533ead",
+      "local_cleanup_action": "Preserve vc-domain-boundaries.md under lark-meeting and remove the duplicate active route.",
+      "rationale": "The unified skill covers VC search, artifacts, identity continuity, and live meeting operations."
+    },
+    {
+      "name": "lark-vc-agent",
+      "decision": "merge",
+      "replacement": "lark-meeting",
+      "unique_assets": [
+        "Bot join and leave command references"
+      ],
+      "external_contract": "larksuite/cli lark-meeting unified CLI skill",
+      "license_lineage": "MIT at reviewed commit 56ad837c3d8f4c49d6b9725a3530c37408533ead",
+      "local_cleanup_action": "Move join and leave references into lark-meeting and remove the duplicate active route.",
+      "rationale": "The official unified skill now owns the full authorized bot attendance workflow."
+    },
+    {
+      "name": "lark-meeting",
+      "decision": "keep",
+      "replacement": null,
+      "unique_assets": [
+        "26 official files",
+        "6 end-to-end meeting scenes",
+        "preserved cross-domain boundary guardrail"
+      ],
+      "external_contract": "larksuite/cli lark-meeting unified CLI skill",
+      "license_lineage": "MIT at reviewed commit 56ad837c3d8f4c49d6b9725a3530c37408533ead",
+      "local_cleanup_action": "Keep as the only canonical Lark meeting entry point.",
+      "rationale": "It is the complete official workflow and canonical replacement for three overlapping skills."
     }
   ]
 }

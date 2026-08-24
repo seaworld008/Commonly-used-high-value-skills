@@ -5,10 +5,10 @@
 [![简体中文](https://img.shields.io/badge/README-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1677ff)](./README.md)
 [![English](https://img.shields.io/badge/README-English-111111)](./README.en.md)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b894)](./openclaw-skills/README.md)
-[![Skills](https://img.shields.io/badge/Skills-286-7c3aed)](./skills/)
+[![Skills](https://img.shields.io/badge/Skills-284-7c3aed)](./skills/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
-面向全球 AI 开发者与 Agent 工作流构建者的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理等高频任务场景。当前共 **16 个分类 / 286 个技能**。
+面向全球 AI 开发者与 Agent 工作流构建者的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理等高频任务场景。当前共 **16 个分类 / 284 个技能**。
 
 ## 为什么值得收藏
 
@@ -380,7 +380,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 2. 打开对应技能的 `SKILL.md` 查看触发条件、操作流程和脚本说明。
 3. 若技能下含 `scripts/`、`references/`、`assets/`，优先复用现成内容。
 
-## 技能总览（按分类，16 类 / 286 技能）
+## 技能总览（按分类，16 类 / 284 技能）
 
 <a id="cat-developer-engineering"></a>
 ### 1. 开发工程（developer-engineering，47）
@@ -573,7 +573,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `social-media-analyzer`：用于社交、媒体、分析，支持内容、营销、渠道和数据分析。
 - `tweetclaw-source-research`：用于tweetclaw、来源、研究，支持内容、营销、渠道和数据分析。
 - `twitter-reader`：用于通过 URL 抓取 Twitter/X 帖子内容、作者、时间、图片和线程回复。
-- `x-twitter-scraper`：用于抓取和分析 X/Twitter 公开内容、线程和增长信号。
+- `x-twitter-scraper`：用于规划和执行 Xquik 的 X/Twitter 数据读取、导出、监控及经确认的账户操作。
 
 <a id="cat-office-white-collar"></a>
 ### 8. 办公与文档（office-white-collar，12）
@@ -592,7 +592,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `xlsx`：用于XLSX，支持文档、表格、演示和资料整理。
 
 <a id="cat-knowledge-pm"></a>
-### 9. 项目管理与知识库集成（knowledge-and-pm-integrations，36）
+### 9. 项目管理与知识库集成（knowledge-and-pm-integrations，34）
 
 - `arxiv`：用于按关键词、作者、分类或编号检索 arXiv 论文。
 - `grove`：仓库结构、文档布局、测试脚本组织和迁移规划。
@@ -607,7 +607,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `lark-im`：用于发送、读取和处理飞书即时消息与群聊交互。
 - `lark-mail`：飞书邮箱：Use when user mentions 起草邮件、写邮件、草稿、发送/回复/转发邮件、查阅邮件、看邮。
 - `lark-markdown`：飞书 Markdown：查看、创建、上传、编辑和比较 Markdown 文件。
-- `lark-minutes`：飞书妙记：搜索妙记、查看妙记基础信息、下载/上传音视频、读取或编辑妙记的产物内容、改标题、替换说话人/关键词。
+- `lark-meeting`：统一处理飞书会议、妙记、智能纪要、逐字稿和经授权的会中互动。
 - `lark-okr`：飞书 OKR：管理目标与关键结果。
 - `lark-openapi-explorer`：飞书/Lark 原生 OpenAPI 探索：从官方文档库中挖掘未经 CLI 封装的原生 OpenAPI 接口。
 - `lark-shared`：用于lark、shared，支持知识管理、项目同步和平台集成。
@@ -615,8 +615,6 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `lark-skill-maker`：用于把飞书 API 操作封装为可复用技能、流程模板和多步自动化。
 - `lark-slides`：飞书幻灯片：创建和编辑幻灯片。
 - `lark-task`：用于创建、查询和更新飞书任务及待办事项。
-- `lark-vc`：飞书视频会议：搜索历史会议记录、查询会议纪要（总结/待办/章节/逐字稿）、查询参会人快照。
-- `lark-vc-agent`：飞书视频会议会中能力：用于让应用机器人真实加入或离开正在进行的会议，并读取当前身份可见的会中事件，如参会人加入/离开。
 - `lark-whiteboard`：用于查询、导出和编辑飞书云文档中的画板内容和节点结构。
 - `lark-wiki`：飞书知识库：管理知识空间、空间成员和文档节点。
 - `lark-workflow-meeting-summary`：用于汇总指定时间范围内的飞书会议纪要，并生成结构化会议报告或周报。

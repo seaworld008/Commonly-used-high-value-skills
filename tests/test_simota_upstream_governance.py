@@ -12,7 +12,8 @@ MAPPING = (
     / "sources"
     / "simota-agent-skills-2026-04.skills.json"
 )
-COMMIT = "6502f44cfcd8f456951a7bfdce14d0ed76d724ef"
+CURRENT_COMMIT = "6257e7398c65f24859710bfad8f8b96feab6cab6"
+ARCHIVE_COMMIT = "6502f44cfcd8f456951a7bfdce14d0ed76d724ef"
 MONITOR_REVIEWED = {
     "gateway",
     "sherpa",
@@ -93,9 +94,9 @@ class SimotaUpstreamGovernanceTests(unittest.TestCase):
                 origin = entry["origins"][0]
                 tracking = origin["tracking"]
                 self.assertEqual("monitor", entry["sync_mode"])
-                self.assertEqual(COMMIT, tracking["resolved_commit"])
+                self.assertEqual(CURRENT_COMMIT, tracking["resolved_commit"])
                 self.assertEqual(
-                    COMMIT,
+                    CURRENT_COMMIT,
                     tracking["license_checkpoint"]["resolved_commit"],
                 )
                 self.assertEqual("MIT", tracking["license_checkpoint"]["spdx"])
@@ -110,8 +111,8 @@ class SimotaUpstreamGovernanceTests(unittest.TestCase):
                 self.assertEqual("snapshot", entry["kind"])
                 self.assertEqual("local-only", entry["sync_mode"])
                 self.assertEqual("fixed_ref", tracking["channel"])
-                self.assertEqual(COMMIT, tracking["ref"])
-                self.assertEqual(COMMIT, tracking["resolved_commit"])
+                self.assertEqual(ARCHIVE_COMMIT, tracking["ref"])
+                self.assertEqual(ARCHIVE_COMMIT, tracking["resolved_commit"])
                 self.assertEqual("MIT", origin["license"])
                 self.assertEqual(
                     f".archive/{slug}/SKILL.md",

@@ -249,7 +249,7 @@ def strip_trailing_whitespace(text: str) -> str:
 
 def normalize_text_tree(root: Path) -> None:
     for path in root.rglob("*"):
-        if not path.is_file():
+        if path.is_symlink() or not path.is_file():
             continue
         try:
             text = path.read_text(encoding="utf-8")
@@ -258,6 +258,12 @@ def normalize_text_tree(root: Path) -> None:
         normalized = strip_trailing_whitespace(text)
         if normalized != text:
             path.write_text(normalized, encoding="utf-8")
+
+
+def ignore_upstream_symlinks(directory: str, names: list[str]) -> list[str]:
+    """Keep imported skill trees self-contained and never follow upstream links."""
+    root = Path(directory)
+    return [name for name in names if (root / name).is_symlink()]
 
 
 def load_existing_entries(repo_root: Path) -> dict[str, dict]:
@@ -317,7 +323,12 @@ def import_selected(source_dir: Path, repo_root: Path, apply: bool) -> tuple[lis
 
             if apply:
                 destination.mkdir(parents=True, exist_ok=True)
-                shutil.copytree(source_skill_dir, destination, dirs_exist_ok=True)
+                shutil.copytree(
+                    source_skill_dir,
+                    destination,
+                    dirs_exist_ok=True,
+                    ignore=ignore_upstream_symlinks,
+                )
                 normalize_text_tree(destination)
                 (destination / "SKILL.md").write_text(skill_text.rstrip() + "\n", encoding="utf-8")
 
@@ -365,6 +376,19 @@ def write_source_mapping(entries: list[dict], repo_root: Path) -> None:
     source_file.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
+def require_legacy_mapping_for_apply(repo_root: Path) -> None:
+    """Fail closed instead of replacing a governed provenance v2 mapping."""
+    mapping = repo_root / SOURCE_MAPPING_REL
+    if not mapping.exists():
+        return
+    payload = json.loads(mapping.read_text(encoding="utf-8"))
+    if payload.get("schema_version") == 2:
+        raise RuntimeError(
+            "refusing to downgrade provenance v2; use sync_upstream.py "
+            "--record-review plus reconcile_artifact_inventory.py"
+        )
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Sync curated simota/agent-skills into this repository.")
     parser.add_argument("--apply", action="store_true", help="Write imported skills and source mapping.")
@@ -373,6 +397,8 @@ def main() -> int:
     args = parser.parse_args()
 
     repo_root = Path(args.repo_root).resolve()
+    if args.apply:
+        require_legacy_mapping_for_apply(repo_root)
     source_dir, tempdir = resolve_source_dir(args.source_dir)
     try:
         entries, missing_upstream = import_selected(source_dir, repo_root, args.apply)

@@ -37,7 +37,47 @@ def retired_mapping(repo_skill=None):
     }
 
 
+def in_house_mapping(repo_skill):
+    return {
+        "video": {"url": "https://example.com", "checked_at": "2026-08-24"},
+        "official_references": [],
+        "skills": [
+            {
+                "video_name": "Local helper",
+                "normalized_slug": "local-helper",
+                "status": "in_house",
+                "repo_skill": repo_skill,
+                "source": "in-house",
+                "notes": "Repository-owned implementation.",
+            }
+        ],
+    }
+
+
 class ValidateSkillSourcesTests(unittest.TestCase):
+    def test_in_house_mapping_validates_like_an_active_repo_skill(self):
+        video = load_script("validate_openclaw_video_sources")
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            root = Path(tmpdir)
+            skill = root / "skills/category/local-helper/SKILL.md"
+            skill.parent.mkdir(parents=True)
+            skill.write_text(
+                "---\nname: local-helper\n---\n# Local helper\n",
+                encoding="utf-8",
+            )
+            mapping = root / "in-house.skills.json"
+            mapping.write_text(
+                json.dumps(
+                    in_house_mapping(
+                        "skills/category/local-helper/SKILL.md"
+                    )
+                ),
+                encoding="utf-8",
+            )
+
+            self.assertEqual([], video.validate(mapping, root))
+
     def test_retired_mapping_is_valid_without_live_repo_path(self):
         generic = load_script("validate_skill_sources")
         video = load_script("validate_openclaw_video_sources")

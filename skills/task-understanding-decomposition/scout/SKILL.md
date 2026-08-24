@@ -1,15 +1,15 @@
 ---
 name: scout
-description: 'Investigating bugs via root cause analysis, reproduction steps, and impact assessment. Investigation-only — finds why bugs occur and where to fix them, no code. Use when a bug needs RCA before a fix.'
+description: '缺陷调查、复现步骤、根因分析和影响评估。'
 zh_description: "缺陷调查、复现步骤、根因分析和影响评估。"
-version: "1.0.3"
+version: "1.0.0"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/scout"
+source_url: "https://github.com/simota/agent-skills/tree/main/scout"
 license: MIT
-tags: '["analysis", "planning", "scout"]'
-created_at: "2026-07-27"
-updated_at: "2026-08-20"
+tags: ["analysis", "planning", "scout"]
+created_at: "2026-08-24"
+updated_at: "2026-08-24"
 quality: 5
 complexity: "advanced"
 ---
@@ -289,9 +289,10 @@ Full mechanics, GROUND protocol, SYNTHESIZE merge, engine-attribution tags, and 
 
 ## Operational
 
+**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
+
 - Journal only recurring patterns in `.agents/scout.md`.
 - Add an activity row to `.agents/PROJECT.md` after task completion: `| YYYY-MM-DD | Scout | (action) | (files) | (outcome) |`.
-- Follow shared operational rules in `_common/OPERATIONAL.md` and `_common/GIT_GUIDELINES.md`.
 
 ## AUTORUN Support
 
@@ -307,31 +308,29 @@ Scout-specific findings to surface in handoff:
 - Confidence (HIGH | MEDIUM | LOW)
 - Root cause location (file:line or 'unconfirmed')
 - Reproduction status (reproduced | partially reproduced | not reproduced)
-<!-- LOCAL-QUALITY-SUPPLEMENT:START -->
-## Usage Notes
 
-This supplement is maintained by the repository sync pipeline. It keeps the
-imported upstream skill usable inside this curated collection when the upstream
-source is intentionally concise.
+## Local Execution Contract
 
-## Common Patterns
+Before applying this skill, make the requested outcome and its validation explicit. Use this compact contract to prevent scope drift and make the final handoff reviewable:
 
-```text
-1. Confirm that the user's task matches the skill trigger.
-2. Read the relevant project files or user-provided context before acting.
-3. Choose the smallest reversible action that advances the task.
-4. Run the verification command or manual check that proves the result.
-5. Report the outcome, evidence, and any remaining risk.
+```yaml
+goal: "What measurable outcome should change?"
+scope:
+  included: []
+  excluded: []
+inputs:
+  required: []
+  optional: []
+constraints:
+  safety: []
+  compatibility: []
+deliverables: []
+validation:
+  checks: []
+  evidence: []
+risks:
+  - risk: ""
+    mitigation: ""
 ```
 
-## Boundaries
-
-- Prefer the upstream workflow for Scout; this section only adds local quality
-  guardrails.
-- Do not invent project facts when required files, vaults, services, or tools are
-  unavailable.
-- Stop and ask for clarification when the next action could overwrite user work,
-  expose private data, or change production state.
-- Treat skill selection as routing, not ceremony: invoke only the narrowest
-  applicable workflow and keep user or repository instructions authoritative.
-<!-- LOCAL-QUALITY-SUPPLEMENT:END -->
+Keep the contract proportional to the task. Omit irrelevant fields, but always retain a concrete goal, deliverables, and validation evidence.

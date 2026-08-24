@@ -5,12 +5,12 @@
 [![简体中文](https://img.shields.io/badge/README-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1677ff)](./README.md)
 [![English](https://img.shields.io/badge/README-English-111111)](./README.en.md)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b894)](./openclaw-skills/README.md)
-[![Skills](https://img.shields.io/badge/Skills-286-7c3aed)](./skills/)
+[![Skills](https://img.shields.io/badge/Skills-284-7c3aed)](./skills/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
 A high-value skills repository for AI developers, organized by real work scenarios such as developer engineering, DevOps, automation, finance, design, knowledge workflows, and reliability.
 
-This repository currently contains **16 categories / 286 skills**.
+This repository currently contains **16 categories / 284 skills**.
 
 ## Who This Is For
 
@@ -331,7 +331,7 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 2. Open the relevant `SKILL.md` and read its triggers, workflow, boundaries, and scripts.
 3. If a skill includes `scripts/`, `references/`, or `assets/`, reuse those files before recreating similar content.
 
-## Skill Overview (by category, 16 categories / 286 skills)
+## Skill Overview (by category, 16 categories / 284 skills)
 
 <a id="cat-developer-engineering"></a>
 ### 1. Developer Engineering (developer-engineering, 47)
@@ -543,7 +543,7 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`xlsx`](./skills/office-white-collar/xlsx/)
 
 <a id="cat-knowledge-pm"></a>
-### 9. Knowledge and PM Integrations (knowledge-and-pm-integrations, 36)
+### 9. Knowledge and PM Integrations (knowledge-and-pm-integrations, 34)
 
 - [`arxiv`](./skills/knowledge-and-pm-integrations/arxiv/)
 - [`grove`](./skills/knowledge-and-pm-integrations/grove/)
@@ -558,7 +558,7 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`lark-im`](./skills/knowledge-and-pm-integrations/lark-im/)
 - [`lark-mail`](./skills/knowledge-and-pm-integrations/lark-mail/)
 - [`lark-markdown`](./skills/knowledge-and-pm-integrations/lark-markdown/)
-- [`lark-minutes`](./skills/knowledge-and-pm-integrations/lark-minutes/)
+- [`lark-meeting`](./skills/knowledge-and-pm-integrations/lark-meeting/)
 - [`lark-okr`](./skills/knowledge-and-pm-integrations/lark-okr/)
 - [`lark-openapi-explorer`](./skills/knowledge-and-pm-integrations/lark-openapi-explorer/)
 - [`lark-shared`](./skills/knowledge-and-pm-integrations/lark-shared/)
@@ -566,8 +566,6 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`lark-skill-maker`](./skills/knowledge-and-pm-integrations/lark-skill-maker/)
 - [`lark-slides`](./skills/knowledge-and-pm-integrations/lark-slides/)
 - [`lark-task`](./skills/knowledge-and-pm-integrations/lark-task/)
-- [`lark-vc`](./skills/knowledge-and-pm-integrations/lark-vc/)
-- [`lark-vc-agent`](./skills/knowledge-and-pm-integrations/lark-vc-agent/)
 - [`lark-whiteboard`](./skills/knowledge-and-pm-integrations/lark-whiteboard/)
 - [`lark-wiki`](./skills/knowledge-and-pm-integrations/lark-wiki/)
 - [`lark-workflow-meeting-summary`](./skills/knowledge-and-pm-integrations/lark-workflow-meeting-summary/)

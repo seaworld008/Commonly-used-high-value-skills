@@ -2,7 +2,7 @@
   "schema_version": 2,
   "video": {
     "url": "https://github.com/NousResearch/hermes-agent",
-    "checked_at": "2026-08-20",
+    "checked_at": "2026-08-24",
     "note": "Curated subset from Hermes Agent focused on persistent knowledge workflows and self-improving agent infrastructure."
   },
   "official_references": [
@@ -29,9 +29,9 @@
         "repo": "NousResearch/hermes-agent",
         "path": "skills/research/llm-wiki/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-20",
-        "last_synced_at": "2026-08-20",
-        "last_synced_commit": "1647d030cf1002dd3728c2d6c7fd402c8cb12470",
+        "last_checked_at": "2026-08-24",
+        "last_synced_at": "2026-08-24",
+        "last_synced_commit": "608a56ed7f50926ecfae1db39447b280a0bc4d1e",
         "sync_mode": "monitor",
         "path_commit": "1c9433897c7b8a3b2754a84875e8f86d0a42991a"
       },
@@ -52,17 +52,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "1647d030cf1002dd3728c2d6c7fd402c8cb12470",
+            "resolved_commit": "608a56ed7f50926ecfae1db39447b280a0bc4d1e",
             "path_commit": "1c9433897c7b8a3b2754a84875e8f86d0a42991a",
             "content_sha256": "67cf6265c59eb1bb31b778c85a9735afa4c1a7a3f4e7d6c894a5c84580b5a4e4",
-            "last_checked_at": "2026-08-20",
-            "last_synced_at": "2026-08-20",
+            "last_checked_at": "2026-08-24",
+            "last_synced_at": "2026-08-24",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "75410e73319c72cd3e991a501c5455eb78f38375",
               "content_sha256": "821556e6336796450ab852d375117b48a4887e71d255794fd6318d99982a5ab6",
               "spdx": "MIT",
-              "resolved_commit": "1647d030cf1002dd3728c2d6c7fd402c8cb12470",
+              "resolved_commit": "608a56ed7f50926ecfae1db39447b280a0bc4d1e",
               "api_spdx": "MIT"
             }
           }
@@ -87,12 +87,12 @@
       "upstream": {
         "repo": "NousResearch/hermes-agent",
         "path": "skills/autonomous-ai-agents/hermes-agent/SKILL.md",
-        "ref": "v2026.8.18",
-        "last_checked_at": "2026-08-20",
-        "last_synced_at": "2026-08-20",
-        "last_synced_commit": "e624e9fde561e1add9388384012b295fde669ade",
+        "ref": "v2026.8.19",
+        "last_checked_at": "2026-08-24",
+        "last_synced_at": "2026-08-24",
+        "last_synced_commit": "fcbd1076a93841fa88855acce810e342a5b78101",
         "sync_mode": "replace",
-        "path_commit": "59b1c40cdfb5f62c863df4e7667c91f008c70cd2"
+        "path_commit": "89ecaf03d56a27ed8f9259701f359f3878339a2a"
       },
       "kind": "mirror",
       "sync_mode": "replace",
@@ -121,18 +121,18 @@
           ],
           "tracking": {
             "channel": "latest_release",
-            "ref": "v2026.8.18",
-            "resolved_commit": "e624e9fde561e1add9388384012b295fde669ade",
-            "path_commit": "59b1c40cdfb5f62c863df4e7667c91f008c70cd2",
-            "content_sha256": "25980723b3411619873f4afc1a016297c46fa7c72e5a00186eb18c641a07f3d1",
-            "last_checked_at": "2026-08-20",
-            "last_synced_at": "2026-08-20",
+            "ref": "v2026.8.19",
+            "resolved_commit": "fcbd1076a93841fa88855acce810e342a5b78101",
+            "path_commit": "89ecaf03d56a27ed8f9259701f359f3878339a2a",
+            "content_sha256": "f23020e7308ad257bd1740e5f71932aba86bc803155dba530485a243bdcae990",
+            "last_checked_at": "2026-08-24",
+            "last_synced_at": "2026-08-24",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "75410e73319c72cd3e991a501c5455eb78f38375",
               "content_sha256": "821556e6336796450ab852d375117b48a4887e71d255794fd6318d99982a5ab6",
               "spdx": "MIT",
-              "resolved_commit": "e624e9fde561e1add9388384012b295fde669ade",
+              "resolved_commit": "fcbd1076a93841fa88855acce810e342a5b78101",
               "api_spdx": "MIT"
             }
           }
@@ -141,7 +141,7 @@
       "managed_files": [
         {
           "path": "skills/ai-agent-platform/hermes-agent/SKILL.md",
-          "sha256": "25980723b3411619873f4afc1a016297c46fa7c72e5a00186eb18c641a07f3d1",
+          "sha256": "f23020e7308ad257bd1740e5f71932aba86bc803155dba530485a243bdcae990",
           "owner": "hermes-agent",
           "mode": "100644"
         },
@@ -177,7 +177,7 @@
         },
         {
           "path": "skills/ai-agent-platform/hermes-agent/references/desktop-plugins.md",
-          "sha256": "4b28426e68163caac50c9313fab5e65dcb991b539603c6968674474b4509f879",
+          "sha256": "102963f51005b17e724e208baf50fd61d82139ddd13afdc18532960fb782b3f3",
           "owner": "hermes-agent",
           "mode": "100644"
         },
@@ -284,9 +284,9 @@
         "repo": "NousResearch/hermes-agent",
         "path": "optional-skills/autonomous-ai-agents/honcho/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-20",
-        "last_synced_at": "2026-08-20",
-        "last_synced_commit": "1647d030cf1002dd3728c2d6c7fd402c8cb12470",
+        "last_checked_at": "2026-08-24",
+        "last_synced_at": "2026-08-24",
+        "last_synced_commit": "608a56ed7f50926ecfae1db39447b280a0bc4d1e",
         "sync_mode": "monitor",
         "path_commit": "b0ef72a8a0a20fb9dd85d1e74b85edabc0c80813"
       },
@@ -307,17 +307,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "1647d030cf1002dd3728c2d6c7fd402c8cb12470",
+            "resolved_commit": "608a56ed7f50926ecfae1db39447b280a0bc4d1e",
             "path_commit": "b0ef72a8a0a20fb9dd85d1e74b85edabc0c80813",
             "content_sha256": "43e95dc0e4c847ade2bbddf4c934cecbe24777e439cdb2099c62914c1e0c9571",
-            "last_checked_at": "2026-08-20",
-            "last_synced_at": "2026-08-20",
+            "last_checked_at": "2026-08-24",
+            "last_synced_at": "2026-08-24",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "75410e73319c72cd3e991a501c5455eb78f38375",
               "content_sha256": "821556e6336796450ab852d375117b48a4887e71d255794fd6318d99982a5ab6",
               "spdx": "MIT",
-              "resolved_commit": "1647d030cf1002dd3728c2d6c7fd402c8cb12470",
+              "resolved_commit": "608a56ed7f50926ecfae1db39447b280a0bc4d1e",
               "api_spdx": "MIT"
             }
           }
@@ -337,7 +337,7 @@
       "normalized_slug": "native-mcp",
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-agent-platform/native-mcp/SKILL.md",
-      "source": "https://github.com/NousResearch/hermes-agent/blob/main/skills/mcp/native-mcp/SKILL.md",
+      "source": "https://github.com/NousResearch/hermes-agent/blob/3636f64540a3d80c8425f195f46e53e940956cba/skills/mcp/native-mcp/SKILL.md",
       "notes": "Upstream no longer ships a standalone native-mcp SKILL.md; keep the curated local MCP runtime guide as a local maintained snapshot.",
       "upstream": {
         "repo": "NousResearch/hermes-agent",
@@ -369,7 +369,7 @@
             "ref": "3636f64540a3d80c8425f195f46e53e940956cba",
             "resolved_commit": "3636f64540a3d80c8425f195f46e53e940956cba",
             "path_commit": "3636f64540a3d80c8425f195f46e53e940956cba",
-            "content_sha256": "618687b72690c0143835b6f33d7f72c5215c6f69bae4153ad0fe90c615df6f25",
+            "content_sha256": "7cd77cee3f2f149f4aa8f8aa4b869622955f6681c3d0f2ba5b23aef182291578",
             "last_checked_at": "2026-04-13",
             "last_synced_at": "2026-04-13"
           }
@@ -379,7 +379,7 @@
         {
           "path": "skills/ai-agent-platform/native-mcp/SKILL.md",
           "owner": "native-mcp",
-          "sha256": "618687b72690c0143835b6f33d7f72c5215c6f69bae4153ad0fe90c615df6f25",
+          "sha256": "7cd77cee3f2f149f4aa8f8aa4b869622955f6681c3d0f2ba5b23aef182291578",
           "mode": "100644"
         }
       ]
@@ -395,9 +395,9 @@
         "repo": "NousResearch/hermes-agent",
         "path": "skills/github/codebase-inspection/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-20",
-        "last_synced_at": "2026-08-20",
-        "last_synced_commit": "1647d030cf1002dd3728c2d6c7fd402c8cb12470",
+        "last_checked_at": "2026-08-24",
+        "last_synced_at": "2026-08-24",
+        "last_synced_commit": "608a56ed7f50926ecfae1db39447b280a0bc4d1e",
         "sync_mode": "monitor",
         "path_commit": "98db898c0bd4df0b09a5830b6a18a069c771e67c"
       },
@@ -418,17 +418,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "1647d030cf1002dd3728c2d6c7fd402c8cb12470",
+            "resolved_commit": "608a56ed7f50926ecfae1db39447b280a0bc4d1e",
             "path_commit": "98db898c0bd4df0b09a5830b6a18a069c771e67c",
             "content_sha256": "5b2db9c2192ec9a2564e80ebc14a31e5d83ab7210ca4aacf16f451d075ac6bb2",
-            "last_checked_at": "2026-08-20",
-            "last_synced_at": "2026-08-20",
+            "last_checked_at": "2026-08-24",
+            "last_synced_at": "2026-08-24",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "75410e73319c72cd3e991a501c5455eb78f38375",
               "content_sha256": "821556e6336796450ab852d375117b48a4887e71d255794fd6318d99982a5ab6",
               "spdx": "MIT",
-              "resolved_commit": "1647d030cf1002dd3728c2d6c7fd402c8cb12470",
+              "resolved_commit": "608a56ed7f50926ecfae1db39447b280a0bc4d1e",
               "api_spdx": "MIT"
             }
           }
@@ -454,9 +454,9 @@
         "repo": "NousResearch/hermes-agent",
         "path": "skills/research/arxiv/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-20",
-        "last_synced_at": "2026-08-20",
-        "last_synced_commit": "1647d030cf1002dd3728c2d6c7fd402c8cb12470",
+        "last_checked_at": "2026-08-24",
+        "last_synced_at": "2026-08-24",
+        "last_synced_commit": "608a56ed7f50926ecfae1db39447b280a0bc4d1e",
         "sync_mode": "monitor",
         "path_commit": "4a2198bf5124f0c4d915cb958f141116ae8607f0"
       },
@@ -477,17 +477,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "1647d030cf1002dd3728c2d6c7fd402c8cb12470",
+            "resolved_commit": "608a56ed7f50926ecfae1db39447b280a0bc4d1e",
             "path_commit": "4a2198bf5124f0c4d915cb958f141116ae8607f0",
             "content_sha256": "da745088560e7f3fe41b1bfc29d0670113db2bc87b393492f42d5ff904c8e024",
-            "last_checked_at": "2026-08-20",
-            "last_synced_at": "2026-08-20",
+            "last_checked_at": "2026-08-24",
+            "last_synced_at": "2026-08-24",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "75410e73319c72cd3e991a501c5455eb78f38375",
               "content_sha256": "821556e6336796450ab852d375117b48a4887e71d255794fd6318d99982a5ab6",
               "spdx": "MIT",
-              "resolved_commit": "1647d030cf1002dd3728c2d6c7fd402c8cb12470",
+              "resolved_commit": "608a56ed7f50926ecfae1db39447b280a0bc4d1e",
               "api_spdx": "MIT"
             }
           }
@@ -513,9 +513,9 @@
         "repo": "NousResearch/hermes-agent",
         "path": "skills/note-taking/obsidian/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-20",
-        "last_synced_at": "2026-08-20",
-        "last_synced_commit": "1647d030cf1002dd3728c2d6c7fd402c8cb12470",
+        "last_checked_at": "2026-08-24",
+        "last_synced_at": "2026-08-24",
+        "last_synced_commit": "608a56ed7f50926ecfae1db39447b280a0bc4d1e",
         "sync_mode": "monitor",
         "path_commit": "1c9433897c7b8a3b2754a84875e8f86d0a42991a"
       },
@@ -536,17 +536,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "1647d030cf1002dd3728c2d6c7fd402c8cb12470",
+            "resolved_commit": "608a56ed7f50926ecfae1db39447b280a0bc4d1e",
             "path_commit": "1c9433897c7b8a3b2754a84875e8f86d0a42991a",
             "content_sha256": "8f2a4772140658e7fc5c07012e1fc82dff064315783e206ba7faac55c3447582",
-            "last_checked_at": "2026-08-20",
-            "last_synced_at": "2026-08-20",
+            "last_checked_at": "2026-08-24",
+            "last_synced_at": "2026-08-24",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "75410e73319c72cd3e991a501c5455eb78f38375",
               "content_sha256": "821556e6336796450ab852d375117b48a4887e71d255794fd6318d99982a5ab6",
               "spdx": "MIT",
-              "resolved_commit": "1647d030cf1002dd3728c2d6c7fd402c8cb12470",
+              "resolved_commit": "608a56ed7f50926ecfae1db39447b280a0bc4d1e",
               "api_spdx": "MIT"
             }
           }
@@ -566,15 +566,15 @@
       "normalized_slug": "mcporter",
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-agent-platform/mcporter/SKILL.md",
-      "source": "https://github.com/NousResearch/hermes-agent/blob/main/skills/mcp/mcporter/SKILL.md",
+      "source": "https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/mcp/mcporter/SKILL.md",
       "notes": "Selected as a practical ad-hoc MCP exploration and invocation skill that complements native-mcp's persistent configuration model.",
       "upstream": {
         "repo": "NousResearch/hermes-agent",
         "path": "optional-skills/mcp/mcporter/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-20",
-        "last_synced_at": "2026-08-20",
-        "last_synced_commit": "1647d030cf1002dd3728c2d6c7fd402c8cb12470",
+        "last_checked_at": "2026-08-24",
+        "last_synced_at": "2026-08-24",
+        "last_synced_commit": "608a56ed7f50926ecfae1db39447b280a0bc4d1e",
         "sync_mode": "monitor",
         "path_commit": "b0ef72a8a0a20fb9dd85d1e74b85edabc0c80813"
       },
@@ -595,17 +595,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "1647d030cf1002dd3728c2d6c7fd402c8cb12470",
+            "resolved_commit": "608a56ed7f50926ecfae1db39447b280a0bc4d1e",
             "path_commit": "b0ef72a8a0a20fb9dd85d1e74b85edabc0c80813",
-            "content_sha256": "c7d1697f01c6da2a464020a263fe5b13b7cc64436db1eba490a7319bcd5e1cc3",
-            "last_checked_at": "2026-08-20",
-            "last_synced_at": "2026-08-20",
+            "content_sha256": "2bbbc4edfbae73a86197749f1b136ba72ab50f2d948c212560783d5a7fb3a815",
+            "last_checked_at": "2026-08-24",
+            "last_synced_at": "2026-08-24",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "75410e73319c72cd3e991a501c5455eb78f38375",
               "content_sha256": "821556e6336796450ab852d375117b48a4887e71d255794fd6318d99982a5ab6",
               "spdx": "MIT",
-              "resolved_commit": "1647d030cf1002dd3728c2d6c7fd402c8cb12470",
+              "resolved_commit": "608a56ed7f50926ecfae1db39447b280a0bc4d1e",
               "api_spdx": "MIT"
             }
           }
@@ -615,7 +615,7 @@
         {
           "path": "skills/ai-agent-platform/mcporter/SKILL.md",
           "owner": "mcporter",
-          "sha256": "c7d1697f01c6da2a464020a263fe5b13b7cc64436db1eba490a7319bcd5e1cc3",
+          "sha256": "2bbbc4edfbae73a86197749f1b136ba72ab50f2d948c212560783d5a7fb3a815",
           "mode": "100644"
         }
       ]
@@ -762,6 +762,13 @@
       "target": "https://github.com/NousResearch/hermes-agent/compare/fa2601c2f5df58dc33bde47ce1c9cb2f92a75011...1647d030cf1002dd3728c2d6c7fd402c8cb12470",
       "result": "success",
       "evidence": "The six monitored skill paths had no commits in this range. Restored their authoritative structured metadata after a prior local enrichment pass had flattened YAML indentation, then advanced the reviewed repository checkpoint. Hermes remains pinned to v2026.8.18."
+    },
+    {
+      "date": "2026-08-24",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "NousResearch/hermes-agent@608a56ed7f50926ecfae1db39447b280a0bc4d1e",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
     }
   ]
 }

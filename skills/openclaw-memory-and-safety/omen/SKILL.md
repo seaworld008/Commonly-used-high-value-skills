@@ -1,15 +1,15 @@
 ---
 name: omen
-description: 'Enumerating failure modes via pre-mortem analysis. Systematically identifies failure scenarios for plans, designs, and features, scoring them with RPN/AP. Does not write code.'
+description: '预演失败模式，识别计划风险并给出优先级。'
 zh_description: "预演失败模式，识别计划风险并给出优先级。"
-version: "1.0.4"
+version: "1.0.0"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/omen"
+source_url: "https://github.com/simota/agent-skills/tree/main/omen"
 license: MIT
-tags: '["memory", "omen", "safety"]'
-created_at: "2026-07-27"
-updated_at: "2026-08-20"
+tags: ["memory", "omen", "safety"]
+created_at: "2026-08-24"
+updated_at: "2026-08-24"
 quality: 5
 complexity: "advanced"
 ---
@@ -272,6 +272,8 @@ Full mechanics, scoring, JSON schema, prompt skeletons, and degraded modes -> `r
 | `reference/ai-production-failure-atlas.md` | Pre-mortem scope includes an AI-generation or agentic-write step — 22-mode catalog (F-01–F-22) pre-tagged by Context/Workflow/Evaluation/System/Governance layer, cross-referenced to `_common/CANDIDATE_SELECTION.md` §9 and `_common/ASSET_PROVENANCE.md` §8 for mitigation detail. |
 
 ## Operational
+
+**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
 
 **Before starting (mandatory):** read `.agents/omen.md` and `.agents/PROJECT.md`; create if missing.
 **Journal** (`.agents/omen.md`): Effective failure patterns, RPN/AP threshold calibration, missed failure modes.

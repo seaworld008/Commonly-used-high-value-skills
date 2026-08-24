@@ -1,15 +1,15 @@
 ---
 name: oracle
-description: 'Designing and evaluating AI/ML systems: prompt engineering, RAG design, LLM application patterns, AI safety, evaluation frameworks, MLOps, cost optimization. Use for AI pipelines or eval harnesses.'
+description: '人工智能应用设计、评估、检索增强和安全护栏规划。'
 zh_description: "人工智能应用设计、评估、检索增强和安全护栏规划。"
-version: "1.0.4"
+version: "1.0.0"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/oracle"
+source_url: "https://github.com/simota/agent-skills/tree/main/oracle"
 license: MIT
-tags: '["agent", "ai", "oracle"]'
-created_at: "2026-07-27"
-updated_at: "2026-08-20"
+tags: ["agent", "ai", "oracle"]
+created_at: "2026-08-24"
+updated_at: "2026-08-24"
 quality: 5
 complexity: "advanced"
 ---
@@ -123,17 +123,13 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 
 ## Recipes
 
-| Recipe | Subcommand | Default? | When to Use | Read First |
-|--------|-----------|---------|-------------|------------|
-| Prompt Engineering | `prompt` | ✓ | Prompt design and optimization | `reference/prompt-engineering.md` |
-| RAG Design | `rag` | | RAG design (retrieval + generation) | `reference/rag-design-anti-patterns.md` |
-| AI Safety | `safety` | | Guardrails, red-teaming | `reference/ai-safety-guardrails.md` |
-| MLOps Pipeline | `mlops` | | MLOps pipeline design | `reference/llm-application-patterns.md` |
-| Agent System Design | `agent` | | Application-level LLM agent design (tool-use loops, tool schemas, memory, subagent delegation, termination) | `reference/agent-design.md` |
-| LLM Cost Optimization | `cost` | | LLM-API cost tuning (token budget, prompt caching, model tier routing, batch vs streaming, context compression) | `reference/cost-optimization.md` |
-| Embedding Strategy | `embed` | | RAG embedding pipeline deep dive (chunking, embedding model, vector index, re-ranking, hybrid BM25+vector) | `reference/embedding-strategy.md` |
-| AI Architecture Review | `review` | | Reviewing a design that embeds AI before build or before raising its authority: 12 lenses, risk tiers R0–R3, conditional approval, re-review triggers | `reference/architecture-review.md` |
-| Advanced Tool Use | `tooling` | | Scaling an Anthropic-API tool catalog: tool search + `defer_loading`, programmatic tool calling, advisor tool (server-side Plan-and-Execute), per-tool/per-version model support | `reference/advanced-tool-use.md` |
+**Full table** → **`reference/recipes-index.md`** (read on subcommand match, or when scanning). The list below is the dispatch allowlist only — a token not on it is not a subcommand.
+
+```
+prompt · rag · safety · mlops · agent · cost · embed · review · tooling
+```
+
+Default Recipe: `prompt`.
 
 ## Subcommand Dispatch
 
@@ -229,24 +225,16 @@ Routing rules:
 
 ## Reference Map
 
+**Full index** → **`reference/reference-index.md`** — every `reference/` file and its read-trigger. The rows below are the shared contracts, which no Recipe registry indexes.
+
 | File | Read this when |
 |------|----------------|
-| `reference/prompt-engineering.md`                     | Designing prompts, deciding what a prompt cannot guarantee, triaging bad output by layer, structured outputs, Claude-specific behavior, or prompt tests. |
-| `reference/rag-design-anti-patterns.md`         | Retrieval architecture, chunking, Hybrid Search defaults, or RAG anti-pattern checks. |
-| `reference/llm-application-patterns.md`         | Choosing agent patterns, MCP design, tool-use contracts, or caching strategy. |
-| `reference/ai-safety-guardrails.md`                 | OWASP LLM coverage, guardrail layers, hallucination controls, or PII handling. |
-| `reference/evaluation-observability.md`         | Building eval suites, CI gates, tracing, monitoring, or rollout checks. |
-| `reference/cost-optimization.md`                       | Model routing, caching, batching, effort tuning, cost monitoring, or quality-floor gating. |
-| `reference/llm-production-anti-patterns.md` | Production failure modes, architecture anti-patterns, MCP pitfalls, reasoning compensations. |
-| `reference/agent-design.md` | Application-level LLM agents — tool-use loops, schemas, context/memory, delegation, termination, failure modes. |
-| `reference/embedding-strategy.md` | RAG embedding pipeline — chunking, model selection, vector index, re-ranking, hybrid retrieval. |
-| `reference/advanced-tool-use.md` | The tool catalog is the bottleneck (`>=10` tools or `>10k` tokens of definitions, falling selection accuracy, aggregated MCP servers). Covers tool search, `defer_loading`, programmatic calling, the advisor tool. |
-| `reference/human-ai-trust.md` | A human decides whether to accept the output — explanation design, over/underreliance and sycophancy metrics, the disagreement policy, verification affordances by risk class, escalation-to-human. |
-| `reference/agent-behavior-contract.md` | How much role, policy, memory, relationship, and character an agent needs — necessity axes, budgets, invariant/parameter/state, spec vs prompt vs enforcement, drift. |
-| `_common/OPUS_5_AUTHORING.md` | Sizing the design, thinking depth at DESIGN, front-loading use case/budget/tier at PROFILE. Critical: P3, P5. |
-| `reference/autorun-schema.md` | Emitting the AUTORUN `_STEP_COMPLETE` block — Oracle-specific Output/Next schema. |
+
+---
 
 ## Operational
+
+**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
 
 - Before starting (mandatory): read `.agents/oracle.md` and `.agents/PROJECT.md`; create if missing.
 - After task completion (mandatory): append `| YYYY-MM-DD | Oracle | (action) | (files) | (outcome) |` to `.agents/PROJECT.md`; also record full design rationale under `## AI/ML Decisions`.

@@ -1,15 +1,15 @@
 ---
 name: rally
-description: 'Orchestrating multi-session parallel execution via Claude Code Agent Teams API and Codex CLI Subagents — launch, manage, coordinate concurrent tasks. Use when parallel work is needed.'
+description: '多会话并行执行编排，协调多个智能体共同完成任务。'
 zh_description: "多会话并行执行编排，协调多个智能体共同完成任务。"
-version: "1.0.3"
+version: "1.0.0"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/rally"
+source_url: "https://github.com/simota/agent-skills/tree/main/rally"
 license: MIT
-tags: '["ai", "rally", "workflow"]'
-created_at: "2026-07-27"
-updated_at: "2026-08-20"
+tags: ["ai", "rally", "workflow"]
+created_at: "2026-08-24"
+updated_at: "2026-08-24"
 quality: 5
 complexity: "advanced"
 ---
@@ -271,6 +271,8 @@ When running on Codex CLI, Rally uses `spawn_agent` / `wait_agent` / `send_input
 | `reference/autorun-schema.md` | You are emitting the AUTORUN `_STEP_COMPLETE` block — Rally-specific Output/Next schema. |
 
 ## Operational
+
+**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
 
 - Before starting (mandatory): read `.agents/rally.md` and `.agents/PROJECT.md`; create if missing.
 - After task completion (mandatory): append `| YYYY-MM-DD | Rally | (action) | (files) | (outcome) |` to `.agents/PROJECT.md`. Record key decisions (team size, pattern choice, ownership conflicts, reconciliation results).

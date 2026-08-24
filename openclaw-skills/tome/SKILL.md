@@ -1,15 +1,15 @@
 ---
 name: tome
-description: 'Converting technical knowledge into durable learning documents and publishable articles. Use for diff-based teaching, decision records, onboarding, note/Zenn/Qiita/dev.to posts, article series, retrospectives, and cross-platform repurposing.'
+description: '把仓库变更转化为学习文档、术语说明和设计记录。'
 zh_description: "把仓库变更转化为学习文档、术语说明和设计记录。"
-version: "1.0.3"
+version: "1.0.0"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/tome"
+source_url: "https://github.com/simota/agent-skills/tree/main/tome"
 license: MIT
-tags: '["knowledge", "tome"]'
-created_at: "2026-07-27"
-updated_at: "2026-08-20"
+tags: ["knowledge", "tome"]
+created_at: "2026-08-24"
+updated_at: "2026-08-24"
 quality: 5
 complexity: "advanced"
 ---
@@ -235,31 +235,17 @@ Output format templates → `reference/output-templates.md`
 
 ## Recipes
 
-Single source of truth for Recipe definitions. Behavior depth (framework, depth calibration, structural rules) lives in the "When to Use" column.
+Behavior depth (framework, depth calibration, structural rules) lives in the registry's "When to Use" column, not here.
 
-| Recipe | Subcommand | Default? | When to Use | Read First |
-|--------|-----------|---------|-------------|------------|
-| Learning Doc | `learn` | ✓ | Standard `learning_doc` generation. Document change background, rationale, and alternatives using the 5W1H+WhyNot framework. Applies normal `SCOPE → EXTRACT → ANALYZE → COMPOSE → REVIEW` workflow. | `reference/output-templates.md` |
-| Diff to Teaching | `diff` | | Turn diffs/commits/PRs directly into teaching materials. Emphasize the EXTRACT phase; at least one before/after comparison pair is mandatory. | `reference/patterns.md` |
-| Onboarding Material | `onboard` | | Material for new members at `beginner` depth. Define all first-occurrence terms exhaustively so a new member can read the document independently. | `reference/output-templates.md` |
-| Design Decision Record | `record` | | `decision_record` generation. Select one of three formats by decision weight — Y-statement (single-sentence ~90-second lightweight ADR for reversible decisions) / Nygard (classic short form: Context/Decision/Consequences) / MADR 4.0.0 (Sept 2024 release; mandates a `Confirmation` section for verification means, plus `Decision Maker(s)` metadata). One decision per record, strictly. [Source: adr.github.io; github.com/adr/madr/releases] | `reference/output-templates.md` |
-| Worked Example | `worked` | | Step-by-step problem → reasoning → solution document grounded in Sweller's cognitive load theory. Annotate expert thought process, common errors, and "why it works." For learning sequences, design faded-guidance progression. | `reference/worked-example.md` |
-| Coding Kata | `kata` | | Deliberate-practice exercise in the Dave Thomas kata tradition. Design constraints (time/language/paradigm) and difficulty tiers (Bronze/Silver/Gold); attach comparison-target solutions and reflection prompts. | `reference/coding-kata.md` |
-| Quickstart Guide | `quickstart` | | ≤15-minute first-success path. Strictly narrow prerequisites; place "you should see..." anchors at success-verification points. Troubleshooting in decision-tree form. | `reference/quickstart-guide.md` |
-| Glossary | (signal) | | Terminology extraction and definition table for changes in scope. Triggered by `glossary` / `terms` signal keywords. | `reference/output-templates.md` |
-| Tutorial | (signal) | | Diataxis-aligned tutorial: learning-oriented, end-to-end guided walkthrough with a concrete success encounter; keep the path linear. Triggered by `tutorial` / `learning path` / `guided`. | `reference/output-templates.md` |
-| How-to | (signal) | | Diataxis-aligned how-to: problem-oriented; addresses a competent user getting a specific job done. Triggered by `how-to` / `recipe` / `solve`. | `reference/output-templates.md` |
-| Learning Series | (signal) | | `learning_series` — serialized episodes across multiple PRs/commits. Triggered by `batch` / `sprint` / `series`. Each episode independently readable. | `reference/output-templates.md` |
-| Incremental Doc | (signal) | | `incremental_doc` — delta-only document comparing against previous output. Triggered by `update` / `delta` / `incremental`, or when a previous learning doc exists for the same component. | `reference/output-templates.md` |
-| Article | `article` | | External technical article from a concept, draft, learning doc, or retrospective; select platform during FRAME. | `reference/article-patterns.md`, `reference/article-hook-design.md` |
-| note Article | `note` | | Japanese long-form article with 目次, 3-5 tags, magazine context, hook, and CTA. | `reference/article-platform-optimization.md` |
-| Zenn Article | `zenn` | | Engineer-focused article with emoji, Tech/Idea type, and up to 5 topics. | `reference/article-platform-optimization.md` |
-| Qiita Article | `qiita` | | Code-heavy technical tip with TL;DR and up to 5 tags. | `reference/article-platform-optimization.md` |
-| dev.to Article | `devto` | | English article with cover spec, up to 4 tags, and canonical URL when cross-posted. | `reference/article-platform-optimization.md` |
-| Article Series | `article-series` | | External article-series design, index maintenance, cross-links, cadence, and tonal continuity. | `reference/article-series-management.md` |
-| Headline | `headline` | | Generate and score platform-calibrated title variants without clickbait. | `reference/article-headline-patterns.md` |
-| Repurpose | `repurpose` | | Adapt one canonical article into platform variants and atomic content assets. | `reference/article-content-repurposing.md`, `reference/article-handoffs.md` |
-| Interview | `interview` | | Reshape a transcript, podcast, talk, or AMA into a voice-preserving Q&A article. | `reference/article-interview-format.md` |
+**Full table** → **`reference/recipes-index.md`** (read on subcommand match, or when scanning). The list below is the dispatch allowlist only — a token not on it is not a subcommand.
+
+```
+learn · diff · onboard · record · worked · kata · quickstart · article · article-series · headline · repurpose · interview
+```
+
+Default Recipe: `learn`.
+
+`article` takes the platform as its second token — `note` · `zenn` · `qiita` · `devto`. Those four are also accepted as first-token aliases for `article <platform>`.
 
 ### Signal Keywords → Recipe
 
@@ -310,24 +296,15 @@ A complete deliverable carries the following — a ceiling, not a floor. Emit on
 
 ### Format-Specific Requirements
 
-- `decision_record`: Select one of three formats by decision weight — **Y-statement**, **Nygard** (Context → Decision → Consequences), or **MADR 4.0.0** (see Recipes table and `reference/output-templates.md`); declare **Status** (`Proposed` | `Accepted` | `Deprecated` | `Superseded`); one decision per record; on supersession, create a new record and link `Supersedes` / `Superseded-by` (never edit the accepted original). [Source: adr.github.io; github.com/adr/madr/releases; Microsoft Azure Well-Architected Framework — ADR]
-- `tutorial`: Frame around a **guided learning encounter** with a concrete success moment the learner reaches; keep the path linear, not branching. [Source: diataxis.fr — Tutorials]
-- `how_to`: Address a **competent user with a specific goal**; list only the steps needed for the job, not background study. Branching is fine where the task genuinely branches. [Source: diataxis.fr — How-to guides]
-- `learning_doc`: Explanation-oriented (Diataxis "explanation"): serve study of *why*, not action. Separate from reference material. [Source: diataxis.fr — Explanation]
+Per-format rules for `decision_record`, `tutorial`, `how_to`, and `learning_doc`
+-> `reference/output-templates.md`.
 
 ### Quality Scorecard
 
-Attach at the end of every learning-document deliverable. Each axis scores `A` (excellent) / `B` (adequate) / `C` (needs improvement). Publication recipes use the Article package requirements instead.
-
-| Axis | Criteria | A | B | C |
-|------|----------|---|---|---|
-| **Fact/Inference Ratio** | Labeled inferences ÷ total claims | All inferences labeled | Most labeled | Unlabeled inferences present |
-| **Term Coverage** | Defined terms ÷ first-occurrence technical terms | 100% | >= 80% | < 80% |
-| **Before/After Pairs** | Number of code comparison pairs | >= 2 pairs | 1 pair | 0 pairs |
-| **Why Not Depth** | Alternatives section presence and quality | 2+ alternatives with rejection reasons | 1 alternative | Missing or superficial |
-| **Audience Fit** | Vocabulary level matches declared audience | Consistent throughout | Minor mismatches | Significant mismatch |
-
-**Minimum threshold:** Revise before delivery when a `C` reflects a substantive gap (e.g., missing Why-Not section, unlabeled inferences). A minor or borderline `C` may still ship under `SUCCESS` status at the author's judgment — note it in the scorecard.
+Attach at the end of every learning-document deliverable: five axes (Fact/Inference
+Ratio, Term Coverage, Before/After Pairs, Why Not Depth, Audience Fit), each scored
+`A` / `B` / `C`. Revise before delivery when a `C` reflects a substantive gap. Axis
+criteria and grade bands -> `reference/output-templates.md`.
 
 ---
 
@@ -401,32 +378,19 @@ All handoff templates → `reference/handoffs.md`
 
 ## Reference Map
 
+**Full index** → **`reference/reference-index.md`** — every `reference/` file and its read-trigger. The rows below are the shared contracts, which no Recipe registry indexes.
+
 | File | Read When |
 |------|-----------|
-| `reference/output-templates.md` | You need detailed templates for output formats |
-| `reference/patterns.md` | You need analysis frameworks for specific change types (refactoring, bug fix, feature, etc.) |
-| `reference/handoffs.md` | You need handoff templates for inter-agent collaboration |
-| `reference/worked-example.md` | You are running the `worked` recipe — Sweller cognitive load theory, expert-reasoning annotation, faded-guidance progression |
-| `reference/coding-kata.md` | You are running the `kata` recipe — constraint design, difficulty tiers (Bronze/Silver/Gold), pair vs solo facilitation, common katas |
-| `reference/quickstart-guide.md` | You are running the `quickstart` recipe — 15-minute time budget, prerequisite filtering, success anchors, troubleshooting decision tree |
-| `reference/article-patterns.md` | You are choosing a publication structure: PTISC, tutorial, listicle, retrospective, deep-dive, or announcement. |
-| `reference/article-hook-design.md` | You are drafting or testing the opening 100-300 characters. |
-| `reference/article-headline-patterns.md` | You are generating and scoring platform-specific title variants. |
-| `reference/article-platform-optimization.md` | You are packaging note, Zenn, Qiita, or dev.to metadata, length, canonical URL, and CTA. |
-| `reference/article-series-management.md` | You are designing or updating an article series, index, cross-links, cadence, or series bible. |
-| `reference/article-content-repurposing.md` | You are adapting a canonical article into platform variants or atomic assets. |
-| `reference/article-interview-format.md` | You are reshaping a transcript, podcast, talk, or AMA into a Q&A article. |
-| `reference/article-handoffs.md` | You need publication handoffs to Growth, Prose, Stage, Canvas, Saga, or Scribe. |
-| `_common/OPUS_5_AUTHORING.md` | You are sizing the learning document, deciding adaptive thinking depth at audience/evidence separation, or front-loading audience/doc-type/scope at EXTRACT. Critical for Tome: P3, P5. |
-| `reference/autorun-schema.md` | You are emitting the AUTORUN `_STEP_COMPLETE` block — Tome-specific Output/Next schema. |
 
 ---
 
 ## Operational
 
+**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
+
 Before starting, read `.agents/tome.md` (create if missing).
 Also check `.agents/PROJECT.md` for shared project knowledge.
-Standard protocols → `_common/OPERATIONAL.md`
 
 ### Journal Guidelines
 
@@ -461,14 +425,3 @@ Tome-specific findings to surface in handoff:
 - Design decisions discovered + terms/concepts extracted
 - Quality Scorecard summary
 - Accuracy risk from inference-based descriptions
-
----
-
-## Output Language
-
-Output language follows the CLI global config (`settings.json` `language` field, `CLAUDE.md`, `AGENTS.md`, or `GEMINI.md`).
-Code identifiers and technical terms remain in English.
-
----
-
-> **"Changes are forgotten. Knowledge endures."** — Tome turns the evolution of code into a history of learning for the team.

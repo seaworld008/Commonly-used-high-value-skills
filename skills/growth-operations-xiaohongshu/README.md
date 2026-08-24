@@ -31,7 +31,7 @@
 | `social-media-analyzer` | 用于社交、媒体、分析，支持内容、营销、渠道和数据分析。 | [目录](./social-media-analyzer/) | [SKILL.md](./social-media-analyzer/SKILL.md) |
 | `tweetclaw-source-research` | 用于tweetclaw、来源、研究，支持内容、营销、渠道和数据分析。 | [目录](./tweetclaw-source-research/) | [SKILL.md](./tweetclaw-source-research/SKILL.md) |
 | `twitter-reader` | 用于通过 URL 抓取 Twitter/X 帖子内容、作者、时间、图片和线程回复。 | [目录](./twitter-reader/) | [SKILL.md](./twitter-reader/SKILL.md) |
-| `x-twitter-scraper` | 用于抓取和分析 X/Twitter 公开内容、线程和增长信号。 | [目录](./x-twitter-scraper/) | [SKILL.md](./x-twitter-scraper/SKILL.md) |
+| `x-twitter-scraper` | 用于规划和执行 Xquik 的 X/Twitter 数据读取、导出、监控及经确认的账户操作。 | [目录](./x-twitter-scraper/) | [SKILL.md](./x-twitter-scraper/SKILL.md) |
 
 ## 维护方式
 

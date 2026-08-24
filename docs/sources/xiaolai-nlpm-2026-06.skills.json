@@ -2,7 +2,7 @@
   "schema_version": 2,
   "video": {
     "url": "https://nlpm.com/",
-    "checked_at": "2026-08-20",
+    "checked_at": "2026-08-24",
     "note": "Curated from xiaolai/nlpm after reviewing the website, why page, README, LICENSE, author docs, rules, scoring, and testing materials. Imported as an original repository skill that captures the durable audit method rather than mirroring the full upstream command/plugin product."
   },
   "official_references": [
@@ -50,9 +50,9 @@
         "path": "README.md",
         "ref": "main",
         "sync_mode": "monitor",
-        "last_checked_at": "2026-08-20",
-        "last_synced_at": "2026-08-20",
-        "last_synced_commit": "12bfa770adafab0669705ab00f444a7dcd19cf1b",
+        "last_checked_at": "2026-08-24",
+        "last_synced_at": "2026-08-24",
+        "last_synced_commit": "38defa93f1a7ac85cbf971a62f9fbf1b372aaa61",
         "path_commit": "5959cde46b0c79129dd791e3e0639adb0bdf7222"
       },
       "kind": "overlay",
@@ -72,17 +72,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "12bfa770adafab0669705ab00f444a7dcd19cf1b",
+            "resolved_commit": "38defa93f1a7ac85cbf971a62f9fbf1b372aaa61",
             "path_commit": "5959cde46b0c79129dd791e3e0639adb0bdf7222",
             "content_sha256": "a604f3831f0a6821ce47c490f291ccbccf2e07befe9e6b85fcbf55ee55f1d844",
-            "last_checked_at": "2026-08-20",
-            "last_synced_at": "2026-08-20",
+            "last_checked_at": "2026-08-24",
+            "last_synced_at": "2026-08-24",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "554937c222c6dd2db191634da77b5486a4a0410b",
               "content_sha256": "87b3f4064cb76d1c7cc8c39546d7d62790b76372f37cfb9de1bb828a5f652b51",
               "spdx": "ISC",
-              "resolved_commit": "12bfa770adafab0669705ab00f444a7dcd19cf1b",
+              "resolved_commit": "38defa93f1a7ac85cbf971a62f9fbf1b372aaa61",
               "api_spdx": "ISC"
             }
           }
@@ -251,6 +251,13 @@
       "target": "https://github.com/xiaolai/nlpm/compare/d4ca2d45618334dc86c79a09ab1b2bbe2c47e1d7...12bfa770adafab0669705ab00f444a7dcd19cf1b",
       "result": "no-local-change-needed",
       "evidence": "The monitored upstream README is byte-identical across this range. Retained the intentionally independent portable nlpm-audit overlay and advanced the reviewed ISC checkpoint."
+    },
+    {
+      "date": "2026-08-24",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "xiaolai/nlpm@38defa93f1a7ac85cbf971a62f9fbf1b372aaa61",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
     }
   ]
 }

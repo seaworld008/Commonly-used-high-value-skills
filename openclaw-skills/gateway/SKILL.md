@@ -1,15 +1,15 @@
 ---
 name: gateway
-description: 'Designing and reviewing APIs: OpenAPI spec generation, versioning strategy, breaking change detection, REST/GraphQL best practices. Use for API design or OpenAPI specs.'
+description: '接口设计、规范生成、版本策略和破坏性变更检查。'
 zh_description: "接口设计、规范生成、版本策略和破坏性变更检查。"
-version: "1.0.5"
+version: "1.0.0"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/gateway"
+source_url: "https://github.com/simota/agent-skills/tree/main/gateway"
 license: MIT
-tags: '["development", "gateway"]'
-created_at: "2026-07-27"
-updated_at: "2026-08-20"
+tags: ["development", "gateway"]
+created_at: "2026-08-24"
+updated_at: "2026-08-24"
 quality: 5
 complexity: "advanced"
 ---
@@ -267,13 +267,12 @@ Receives data models, implementation needs, and security requirements upstream; 
 
 ## Operational
 
+**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
+
 - Journal API design insights in `.agents/gateway.md`; create it if missing. Record patterns and learnings worth preserving.
 - After significant Gateway work, append to `.agents/PROJECT.md`:
 
   | YYYY-MM-DD | Gateway | (action) | (files) | (outcome) |
-
-- Standard protocols → `_common/OPERATIONAL.md`
-- Git commit conventions → `_common/GIT_GUIDELINES.md`
 
 ## AUTORUN Support
 
@@ -282,31 +281,29 @@ See `_common/AUTORUN.md` for the protocol (`_AGENT_CONTEXT` input, mode semantic
 ## Nexus Hub Mode
 
 When input contains `## NEXUS_ROUTING`, return via `## NEXUS_HANDOFF` (canonical schema in `_common/HANDOFF.md`).
-<!-- LOCAL-QUALITY-SUPPLEMENT:START -->
-## Usage Notes
 
-This supplement is maintained by the repository sync pipeline. It keeps the
-imported upstream skill usable inside this curated collection when the upstream
-source is intentionally concise.
+## Local Execution Contract
 
-## Common Patterns
+Before applying this skill, make the requested outcome and its validation explicit. Use this compact contract to prevent scope drift and make the final handoff reviewable:
 
-```text
-1. Confirm that the user's task matches the skill trigger.
-2. Read the relevant project files or user-provided context before acting.
-3. Choose the smallest reversible action that advances the task.
-4. Run the verification command or manual check that proves the result.
-5. Report the outcome, evidence, and any remaining risk.
+```yaml
+goal: "What measurable outcome should change?"
+scope:
+  included: []
+  excluded: []
+inputs:
+  required: []
+  optional: []
+constraints:
+  safety: []
+  compatibility: []
+deliverables: []
+validation:
+  checks: []
+  evidence: []
+risks:
+  - risk: ""
+    mitigation: ""
 ```
 
-## Boundaries
-
-- Prefer the upstream workflow for Gateway; this section only adds local quality
-  guardrails.
-- Do not invent project facts when required files, vaults, services, or tools are
-  unavailable.
-- Stop and ask for clarification when the next action could overwrite user work,
-  expose private data, or change production state.
-- Treat skill selection as routing, not ceremony: invoke only the narrowest
-  applicable workflow and keep user or repository instructions authoritative.
-<!-- LOCAL-QUALITY-SUPPLEMENT:END -->
+Keep the contract proportional to the task. Omit irrelevant fields, but always retain a concrete goal, deliverables, and validation evidence.

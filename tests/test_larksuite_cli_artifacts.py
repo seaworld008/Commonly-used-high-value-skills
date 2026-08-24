@@ -6,21 +6,22 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 MAPPING_PATH = REPO_ROOT / "docs/sources/larksuite-cli-2026-05.skills.json"
-REVIEWED_COMMIT = "ca35f6061616d4f47681368bbbef03be28193dc9"
-PREVIOUS_REVIEWED_COMMIT = "755daa4de3ea12785c43a15244ffb8f012122c13"
+REVIEWED_COMMIT = "56ad837c3d8f4c49d6b9725a3530c37408533ead"
+PREVIOUS_REVIEWED_COMMIT = "ca35f6061616d4f47681368bbbef03be28193dc9"
+INITIAL_REVIEWED_COMMIT = "755daa4de3ea12785c43a15244ffb8f012122c13"
 EXPECTED_COUNTS = {
     "lark-approval": 17,
     "lark-attendance": 1,
-    "lark-base": 30,
-    "lark-calendar": 11,
+    "lark-base": 31,
+    "lark-calendar": 12,
     "lark-contact": 4,
     "lark-doc": 44,
     "lark-drive": 61,
     "lark-event": 8,
-    "lark-im": 59,
+    "lark-im": 60,
     "lark-mail": 34,
     "lark-markdown": 6,
-    "lark-minutes": 10,
+    "lark-meeting": 27,
     "lark-okr": 19,
     "lark-openapi-explorer": 1,
     "lark-shared": 7,
@@ -28,8 +29,6 @@ EXPECTED_COUNTS = {
     "lark-skill-maker": 1,
     "lark-slides": 50,
     "lark-task": 18,
-    "lark-vc": 8,
-    "lark-vc-agent": 3,
     "lark-whiteboard": 31,
     "lark-wiki": 14,
     "lark-workflow-meeting-summary": 1,
@@ -38,28 +37,28 @@ EXPECTED_COUNTS = {
 EXPECTED_PATH_COMMITS = {
     "lark-approval": "1efe2dfb3304a7cac2a70e4adecfb1dc888ebe06",
     "lark-attendance": "69ae326d01a9163ca22408c746e052003cf0af2c",
-    "lark-base": "9b231d98253710219e26b902f5683d3e7f32bc92",
-    "lark-calendar": "b75632e78a78e0b32b762bba659efaf72c797d4e",
+    "lark-base": "79b8647196832986bfe8528cb115ff5c6bf27a56",
+    "lark-calendar": REVIEWED_COMMIT,
     "lark-contact": "87be09ef5f227c7b63d5eba40649544b5bec0133",
-    "lark-doc": "525a98270f80693bdaf3c0a6006e9f3f94820851",
-    "lark-drive": "5028c2e6ffb9e2ed8e56fed688f1a1dd74e6b11a",
+    "lark-doc": "e525beb8d6ddecbde68ea3b2df292f1d70a66fa5",
+    "lark-drive": "52f970f23e6ee01451a3084460bba0512aa38533",
     "lark-event": "fcdef499bb23739b720c665d49875a9957c97d48",
-    "lark-im": "f98db395d8520e4a431ed714261ab899e562aa45",
+    "lark-im": "fbd1aa49cd42d02f40e88b2bb4df06a6a9c2e19c",
     "lark-mail": "2a1613484ad6cbf4057b044f5ee2138f34314bbb",
     "lark-markdown": "f98dbfe247c6ec172715ce578b67ac6fa22655db",
-    "lark-minutes": "327874c8f4af85586af97ddda6f1ac4bd168e79a",
+    "lark-meeting": "e525beb8d6ddecbde68ea3b2df292f1d70a66fa5",
     "lark-okr": "409a3172da5d43c98bbb637557f3d10403febaf0",
     "lark-openapi-explorer": "83dfb068ad8bb4052787d80ca415118a20849b85",
     "lark-shared": "327874c8f4af85586af97ddda6f1ac4bd168e79a",
     "lark-sheets": "be2a96f490b5356a004bafffcaa39daab6179d76",
     "lark-skill-maker": "83dfb068ad8bb4052787d80ca415118a20849b85",
-    "lark-slides": "0c5530dc63b65b3fda86f667f5725b1a08f0c4dc",
-    "lark-task": "b9cced677a89fd42317b386daff41a9f62b473c3",
-    "lark-vc": "327874c8f4af85586af97ddda6f1ac4bd168e79a",
-    "lark-vc-agent": "841953496b41a06bb670396f3d9f8fba943766ed",
+    "lark-slides": "cc015bac28f48938f80f4d44b35036bebcecdac1",
+    "lark-task": "e525beb8d6ddecbde68ea3b2df292f1d70a66fa5",
     "lark-whiteboard": "27ab8fbea3e6f2b07e93a26bc635e0e52023d7a0",
     "lark-wiki": "6e2cad7221755d3668b350f186b862d64e0cba97",
-    "lark-workflow-meeting-summary": PREVIOUS_REVIEWED_COMMIT,
+    "lark-workflow-meeting-summary": (
+        "e525beb8d6ddecbde68ea3b2df292f1d70a66fa5"
+    ),
     "lark-workflow-standup-report": "049ddf771b435e86a4f5a71e616336ec44341160",
 }
 LOCAL_OVERLAYS = {
@@ -71,9 +70,9 @@ LOCAL_OVERLAYS = {
         "skills/knowledge-and-pm-integrations/lark-mail/"
         "references/lark-mail-html.md",
     },
-    "lark-minutes": {
-        "skills/knowledge-and-pm-integrations/lark-minutes/"
-        "references/lark-minutes-todo.md",
+    "lark-meeting": {
+        "skills/knowledge-and-pm-integrations/lark-meeting/"
+        "references/vc-domain-boundaries.md",
     },
     "lark-okr": {
         "skills/knowledge-and-pm-integrations/lark-okr/"
@@ -87,13 +86,8 @@ LOCAL_OVERLAYS = {
         "skills/knowledge-and-pm-integrations/lark-slides/"
         "references/visual-planning.md",
     },
-    "lark-vc": {
-        "skills/knowledge-and-pm-integrations/lark-vc/"
-        "references/lark-vc-meeting-events.md",
-        "skills/knowledge-and-pm-integrations/lark-vc/"
-        "references/lark-vc-search.md",
-    },
 }
+LOCAL_OVERLAY_DATES = {"lark-meeting": "2026-08-24"}
 
 
 def _mode(path: Path) -> str:
@@ -148,8 +142,12 @@ def test_lark_complete_directory_mirrors_are_exact_and_owned() -> None:
                     "resolved_commit": None,
                     "path_commit": None,
                     "content_sha256": None,
-                    "last_checked_at": "2026-08-20",
-                    "last_synced_at": "2026-08-20",
+                    "last_checked_at": LOCAL_OVERLAY_DATES.get(
+                        slug, "2026-08-20"
+                    ),
+                    "last_synced_at": LOCAL_OVERLAY_DATES.get(
+                        slug, "2026-08-20"
+                    ),
                 },
             }
         else:
@@ -213,13 +211,22 @@ def test_lark_whitespace_adaptations_are_scoped_and_clean() -> None:
 
     mapping = json.loads(MAPPING_PATH.read_text(encoding="utf-8"))
     attempts = mapping["verification_attempts"]
-    assert len(attempts) == 2
+    assert len(attempts) == 4
     assert attempts[0]["target"] == (
-        f"larksuite/cli@{PREVIOUS_REVIEWED_COMMIT}"
+        f"larksuite/cli@{INITIAL_REVIEWED_COMMIT}"
     )
     assert "whitespace-only" in attempts[0]["evidence"]
     assert attempts[1]["target"] == (
         "larksuite/cli@"
-        f"{PREVIOUS_REVIEWED_COMMIT}..{REVIEWED_COMMIT}"
+        f"{INITIAL_REVIEWED_COMMIT}.."
+        f"{PREVIOUS_REVIEWED_COMMIT}"
     )
     assert "outside the 25 declared artifact sets" in attempts[1]["evidence"]
+    assert attempts[2]["target"] == (
+        f"larksuite/cli@{PREVIOUS_REVIEWED_COMMIT}..{REVIEWED_COMMIT}"
+    )
+    assert "Merged lark-minutes, lark-vc, and lark-vc-agent" in (
+        attempts[2]["evidence"]
+    )
+    assert attempts[3]["target"] == f"larksuite/cli@{REVIEWED_COMMIT}"
+    assert "Explicit reviewer checkpoint" in attempts[3]["evidence"]

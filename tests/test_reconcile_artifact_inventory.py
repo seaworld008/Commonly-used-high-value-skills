@@ -379,7 +379,7 @@ class ArtifactInventoryTests(unittest.TestCase):
                 proposal["checked_sources"][0]["result"],
             )
 
-    def test_tree_rejects_symlink_git_mode_120000(self):
+    def test_tree_ignores_symlink_git_mode_120000(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             root = Path(tmpdir)
             content = b"references/outside.md"
@@ -398,11 +398,10 @@ class ArtifactInventoryTests(unittest.TestCase):
                 ],
             )
 
-            with self.assertRaisesRegex(
-                inventory.SourceUnavailable,
-                "non-regular.*120000",
-            ):
-                cache.get_tree("owner/upstream", COMMIT)
+            self.assertEqual(
+                {},
+                cache.get_tree("owner/upstream", COMMIT),
+            )
 
     def test_online_tree_ignores_forged_disk_cache_and_binds_commit_root(self):
         with tempfile.TemporaryDirectory() as tmpdir:

@@ -1,15 +1,15 @@
 ---
 name: gear
-description: 'Managing dependencies, CI/CD, advanced GitHub Actions workflows, containers, secrets, and operational config. Use for build, workflow, or environment work.'
+description: '依赖、构建、容器、监控和开发环境运维优化。'
 zh_description: "依赖、构建、容器、监控和开发环境运维优化。"
-version: "1.0.5"
+version: "1.0.0"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/gear"
+source_url: "https://github.com/simota/agent-skills/tree/main/gear"
 license: MIT
-tags: '["devops", "gear", "sre"]'
-created_at: "2026-07-27"
-updated_at: "2026-08-20"
+tags: ["devops", "gear", "sre"]
+created_at: "2026-08-24"
+updated_at: "2026-08-24"
 quality: 5
 complexity: "advanced"
 ---
@@ -143,17 +143,13 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 
 ## Recipes
 
-| Recipe | Subcommand | Default? | When to Use | Read First |
-|--------|-----------|---------|-------------|------------|
-| Dependency Management | `deps` | ✓ | Dependency management and upgrades | `reference/dependency-management.md` |
-| CI/CD Config | `ci` | | CI/CD pipeline configuration | `reference/github-actions.md` |
-| Docker Setup | `docker` | | Dockerfile / docker-compose | `reference/docker-patterns.md` |
-| Logging Setup | `logs` | | Logging configuration (structured logs, etc.) | `reference/observability.md` |
-| Health Checks | `health` | | Health check design | `reference/observability.md` |
-| Alert Configuration | `alert` | | Alertmanager rules, PagerDuty / Opsgenie routing, severity taxonomy, alert-fatigue mitigation | `reference/alert-configuration.md` |
-| Secrets Management | `secret` | | Vault / AWS Secrets Manager / Doppler, .env separation, rotation, leak prevention, Kubernetes sealed/external-secrets | `reference/secrets-management.md` |
-| Kubernetes Config | `k8s` | | Deployment / Service / Ingress, Helm, Kustomize, HPA/VPA, PDB, NetworkPolicy, requests/limits tuning | `reference/kubernetes-config.md` |
-| GitHub Actions Architecture | `gha` | | New or advanced GHA workflows; select `workflow|reusable|security|pr-automation|matrix|cache|secret` mode | `reference/gha-triggers-and-events.md`, matching `reference/gha-*.md` |
+**Full table** → **`reference/recipes-index.md`** (read on subcommand match, or when scanning). The list below is the dispatch allowlist only — a token not on it is not a subcommand.
+
+```
+deps · ci · docker · logs · health · alert · secret · k8s · gha
+```
+
+Default Recipe: `deps`.
 
 ## Subcommand Dispatch
 
@@ -237,9 +233,10 @@ A complete deliverable carries the following — a ceiling, not a floor. Emit on
 
 ## Operational
 
+**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
+
 - Journal configuration insights in `.agents/gear.md`; create it if missing. Record only configuration patterns and learnings worth preserving.
 - After significant Gear work, append to `.agents/PROJECT.md`: `| YYYY-MM-DD | Gear | (action) | (files) | (outcome) |`
-- Standard protocols → `_common/OPERATIONAL.md`
 
 ## AUTORUN Support
 
@@ -248,31 +245,3 @@ See `_common/AUTORUN.md` for the protocol (`_AGENT_CONTEXT` input, mode semantic
 ## Nexus Hub Mode
 
 When input contains `## NEXUS_ROUTING`, return via `## NEXUS_HANDOFF` (canonical schema in `_common/HANDOFF.md`).
-<!-- LOCAL-QUALITY-SUPPLEMENT:START -->
-## Usage Notes
-
-This supplement is maintained by the repository sync pipeline. It keeps the
-imported upstream skill usable inside this curated collection when the upstream
-source is intentionally concise.
-
-## Common Patterns
-
-```text
-1. Confirm that the user's task matches the skill trigger.
-2. Read the relevant project files or user-provided context before acting.
-3. Choose the smallest reversible action that advances the task.
-4. Run the verification command or manual check that proves the result.
-5. Report the outcome, evidence, and any remaining risk.
-```
-
-## Boundaries
-
-- Prefer the upstream workflow for Gear; this section only adds local quality
-  guardrails.
-- Do not invent project facts when required files, vaults, services, or tools are
-  unavailable.
-- Stop and ask for clarification when the next action could overwrite user work,
-  expose private data, or change production state.
-- Treat skill selection as routing, not ceremony: invoke only the narrowest
-  applicable workflow and keep user or repository instructions authoritative.
-<!-- LOCAL-QUALITY-SUPPLEMENT:END -->

@@ -2,7 +2,7 @@
   "schema_version": 2,
   "video": {
     "url": "https://github.com/seaworld008/Commonly-used-high-value-skills",
-    "checked_at": "2026-08-20",
+    "checked_at": "2026-08-24",
     "note": "External canonical skills reclassified from the legacy in-house provenance mapping."
   },
   "collection": {
@@ -94,6 +94,48 @@
       "target": "https://github.com/vercel-labs/agent-skills/tree/b8caa260a420a73042e35521de4b5c8baf6446cc/skills/react-view-transitions",
       "result": "licensed-snapshot",
       "evidence": "GitHub license API returns 404 because no root LICENSE file exists; the immutable README.md blob daecfea1e60f8f045a3d711c605d70edcdf9d92a explicitly states License: MIT."
+    },
+    {
+      "date": "2026-08-24",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "Xquik-dev/x-twitter-scraper@3b12bf550dd2804056c09dc3925c7dae5369665c",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-08-24",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "alirezarezvani/claude-skills@98180dafc4f0bc9d629bd479fc6107674cfb3cf8",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-08-24",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "microsoft/azure-skills@1a03acfb9ac1a1a05518bf7420d4618cc41847be",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-08-24",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "neondatabase/agent-skills@b7f87949583782238aef20414a29b1f5ca2773ea",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-08-24",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "wshobson/agents@d82998e7df393c671ede2387a8435075f0b633f5",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-08-24",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "getsentry/skills@6abccd60c704f669423d6a06ff0809fa39513ce8",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
     }
   ],
   "skills": [
@@ -108,9 +150,9 @@
         "repo": "alirezarezvani/claude-skills",
         "path": "engineering-team/skills/aws-solution-architect/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-20",
-        "last_synced_at": "2026-08-20",
-        "last_synced_commit": "aa8d778811a557a2c28ccadda4cf3d0bd028a4cc",
+        "last_checked_at": "2026-08-24",
+        "last_synced_at": "2026-08-24",
+        "last_synced_commit": "98180dafc4f0bc9d629bd479fc6107674cfb3cf8",
         "sync_mode": "monitor",
         "path_commit": "1851c8fb09ea8ff0488d48bd7c312abb1bbf5850"
       },
@@ -172,17 +214,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "aa8d778811a557a2c28ccadda4cf3d0bd028a4cc",
+            "resolved_commit": "98180dafc4f0bc9d629bd479fc6107674cfb3cf8",
             "path_commit": "1851c8fb09ea8ff0488d48bd7c312abb1bbf5850",
             "content_sha256": "8f35d3e054260a3ff45bcb6162fac6d47074c6b56a2c6f55191815754a697b92",
-            "last_checked_at": "2026-08-20",
-            "last_synced_at": "2026-08-20",
+            "last_checked_at": "2026-08-24",
+            "last_synced_at": "2026-08-24",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "c3e30bcc287d6a1ebdb4ab29c10d344fd1053639",
               "content_sha256": "a20126646f93d32a8989c3cf4772d59194f405034f7babe7daebeac22b8ab151",
               "spdx": "MIT",
-              "resolved_commit": "aa8d778811a557a2c28ccadda4cf3d0bd028a4cc",
+              "resolved_commit": "98180dafc4f0bc9d629bd479fc6107674cfb3cf8",
               "api_spdx": "MIT"
             }
           }
@@ -256,10 +298,11 @@
         "repo": "microsoft/azure-skills",
         "path": "skills/azure-kubernetes/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-20",
-        "last_synced_at": "2026-08-20",
-        "last_synced_commit": "ea76537ef7f2ae4f3a3d02d26347ec5afe19068c",
-        "sync_mode": "monitor"
+        "last_checked_at": "2026-08-24",
+        "last_synced_at": "2026-08-24",
+        "last_synced_commit": "1a03acfb9ac1a1a05518bf7420d4618cc41847be",
+        "sync_mode": "monitor",
+        "path_commit": "3b087be2faf4ff65bedf693986c3446f97645e7f"
       },
       "kind": "mirror",
       "sync_mode": "monitor",
@@ -539,11 +582,19 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "ea76537ef7f2ae4f3a3d02d26347ec5afe19068c",
+            "resolved_commit": "1a03acfb9ac1a1a05518bf7420d4618cc41847be",
             "path_commit": "3b087be2faf4ff65bedf693986c3446f97645e7f",
             "content_sha256": "256c28e87a23dbb137c4ed2b17eee46540f760ba51087312aa1a9065bf57f11e",
-            "last_checked_at": "2026-08-20",
-            "last_synced_at": "2026-08-20"
+            "last_checked_at": "2026-08-24",
+            "last_synced_at": "2026-08-24",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "356b112bcc4f07e03b6e57569eedf9d79978d2d5",
+              "content_sha256": "8a5d8efb70942e65032f930c761d097feeb41a7517ebd04c9d2e4ec3764071c5",
+              "spdx": "MIT",
+              "resolved_commit": "1a03acfb9ac1a1a05518bf7420d4618cc41847be",
+              "api_spdx": "MIT"
+            }
           }
         }
       ],
@@ -989,10 +1040,11 @@
         "repo": "getsentry/skills",
         "path": "skills/gha-security-review/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-20",
-        "last_synced_at": "2026-06-21",
+        "last_checked_at": "2026-08-24",
+        "last_synced_at": "2026-08-24",
         "last_synced_commit": "6abccd60c704f669423d6a06ff0809fa39513ce8",
-        "sync_mode": "monitor"
+        "sync_mode": "monitor",
+        "path_commit": "7e127fe8a5d16a6800a80f9cf50f96a7324eac0e"
       },
       "kind": "mirror",
       "sync_mode": "monitor",
@@ -1014,8 +1066,16 @@
             "resolved_commit": "6abccd60c704f669423d6a06ff0809fa39513ce8",
             "path_commit": "7e127fe8a5d16a6800a80f9cf50f96a7324eac0e",
             "content_sha256": "ccd7b57e9f2a39509b70081b1b8859f2c3250fd510aafdebd57a0becd66645e8",
-            "last_checked_at": "2026-08-20",
-            "last_synced_at": "2026-06-21"
+            "last_checked_at": "2026-08-24",
+            "last_synced_at": "2026-08-24",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "753a6c03c60a9232405d05170bd3ad3cab49a1ef",
+              "content_sha256": "96e78a9ce85795b117c8929887bdb78f88bf23f7b85a31f0872cde4dff7e92cd",
+              "spdx": "Apache-2.0",
+              "resolved_commit": "6abccd60c704f669423d6a06ff0809fa39513ce8",
+              "api_spdx": "Apache-2.0"
+            }
           }
         }
       ],
@@ -1089,10 +1149,11 @@
         "repo": "neondatabase/agent-skills",
         "path": "skills/neon-postgres/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-20",
-        "last_synced_at": "2026-06-24",
-        "last_synced_commit": "d53156375e64a227c782ebaf0ef8c58f7e0f7114",
-        "sync_mode": "monitor"
+        "last_checked_at": "2026-08-24",
+        "last_synced_at": "2026-08-24",
+        "last_synced_commit": "b7f87949583782238aef20414a29b1f5ca2773ea",
+        "sync_mode": "monitor",
+        "path_commit": "e20e68996aa1dbd5cf4d2c981e5357cdefd8f5bd"
       },
       "kind": "mirror",
       "sync_mode": "monitor",
@@ -1111,11 +1172,19 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "d53156375e64a227c782ebaf0ef8c58f7e0f7114",
+            "resolved_commit": "b7f87949583782238aef20414a29b1f5ca2773ea",
             "path_commit": "e20e68996aa1dbd5cf4d2c981e5357cdefd8f5bd",
             "content_sha256": "9e1da5b4b14fe187711ae6c1caa688de15dd82cf48e219fdcb208dd12ed8a5f7",
-            "last_checked_at": "2026-08-20",
-            "last_synced_at": "2026-06-24"
+            "last_checked_at": "2026-08-24",
+            "last_synced_at": "2026-08-24",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+              "content_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+              "spdx": "Apache-2.0",
+              "resolved_commit": "b7f87949583782238aef20414a29b1f5ca2773ea",
+              "api_spdx": "Apache-2.0"
+            }
           }
         }
       ],
@@ -1139,10 +1208,11 @@
         "repo": "neondatabase/agent-skills",
         "path": "skills/neon-postgres-egress-optimizer/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-20",
-        "last_synced_at": "2026-08-10",
-        "last_synced_commit": "d53156375e64a227c782ebaf0ef8c58f7e0f7114",
-        "sync_mode": "monitor"
+        "last_checked_at": "2026-08-24",
+        "last_synced_at": "2026-08-24",
+        "last_synced_commit": "b7f87949583782238aef20414a29b1f5ca2773ea",
+        "sync_mode": "monitor",
+        "path_commit": "e20e68996aa1dbd5cf4d2c981e5357cdefd8f5bd"
       },
       "kind": "mirror",
       "sync_mode": "monitor",
@@ -1161,11 +1231,19 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "d53156375e64a227c782ebaf0ef8c58f7e0f7114",
+            "resolved_commit": "b7f87949583782238aef20414a29b1f5ca2773ea",
             "path_commit": "e20e68996aa1dbd5cf4d2c981e5357cdefd8f5bd",
             "content_sha256": "2cdb79baa4985f0aeaf737744fbe24a41d606f3241fa6800314f50443f0fadba",
-            "last_checked_at": "2026-08-20",
-            "last_synced_at": "2026-08-10"
+            "last_checked_at": "2026-08-24",
+            "last_synced_at": "2026-08-24",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+              "content_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+              "spdx": "Apache-2.0",
+              "resolved_commit": "b7f87949583782238aef20414a29b1f5ca2773ea",
+              "api_spdx": "Apache-2.0"
+            }
           }
         }
       ],
@@ -1189,10 +1267,11 @@
         "repo": "wshobson/agents",
         "path": "plugins/frontend-mobile-development/skills/nextjs-app-router-patterns/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-20",
-        "last_synced_at": "2026-08-20",
-        "last_synced_commit": "367cb6a4a182cf7e9b0a17c9429f7411ddd9cf35",
-        "sync_mode": "monitor"
+        "last_checked_at": "2026-08-24",
+        "last_synced_at": "2026-08-24",
+        "last_synced_commit": "d82998e7df393c671ede2387a8435075f0b633f5",
+        "sync_mode": "monitor",
+        "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f"
       },
       "kind": "mirror",
       "sync_mode": "monitor",
@@ -1217,11 +1296,19 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "367cb6a4a182cf7e9b0a17c9429f7411ddd9cf35",
+            "resolved_commit": "d82998e7df393c671ede2387a8435075f0b633f5",
             "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f",
             "content_sha256": "75ea8d7f86c3b80fc096eed53ea5decb4b29e4f1e2cbb61177d15069e7fd2b7e",
-            "last_checked_at": "2026-08-20",
-            "last_synced_at": "2026-08-20"
+            "last_checked_at": "2026-08-24",
+            "last_synced_at": "2026-08-24",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "326f0a55c96e672fedf9d807ca043c00df05ba0e",
+              "content_sha256": "f89abb55d9f073f38f1703e4518f0613c788c6174be7f13b8dfe48a1c076c746",
+              "spdx": "MIT",
+              "resolved_commit": "d82998e7df393c671ede2387a8435075f0b633f5",
+              "api_spdx": "MIT"
+            }
           }
         }
       ],
@@ -1251,10 +1338,11 @@
         "repo": "wshobson/agents",
         "path": "plugins/python-development/skills/python-performance-optimization/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-20",
-        "last_synced_at": "2026-08-20",
-        "last_synced_commit": "367cb6a4a182cf7e9b0a17c9429f7411ddd9cf35",
-        "sync_mode": "monitor"
+        "last_checked_at": "2026-08-24",
+        "last_synced_at": "2026-08-24",
+        "last_synced_commit": "d82998e7df393c671ede2387a8435075f0b633f5",
+        "sync_mode": "monitor",
+        "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f"
       },
       "kind": "mirror",
       "sync_mode": "monitor",
@@ -1284,11 +1372,19 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "367cb6a4a182cf7e9b0a17c9429f7411ddd9cf35",
+            "resolved_commit": "d82998e7df393c671ede2387a8435075f0b633f5",
             "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f",
             "content_sha256": "f7747318fa39498c0f2d72295acf0055f86528a1b46c056832e2a0044aee4a3d",
-            "last_checked_at": "2026-08-20",
-            "last_synced_at": "2026-08-20"
+            "last_checked_at": "2026-08-24",
+            "last_synced_at": "2026-08-24",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "326f0a55c96e672fedf9d807ca043c00df05ba0e",
+              "content_sha256": "f89abb55d9f073f38f1703e4518f0613c788c6174be7f13b8dfe48a1c076c746",
+              "spdx": "MIT",
+              "resolved_commit": "d82998e7df393c671ede2387a8435075f0b633f5",
+              "api_spdx": "MIT"
+            }
           }
         }
       ],
@@ -1374,10 +1470,11 @@
         "repo": "getsentry/skills",
         "path": "skills/security-review/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-20",
-        "last_synced_at": "2026-06-21",
+        "last_checked_at": "2026-08-24",
+        "last_synced_at": "2026-08-24",
         "last_synced_commit": "6abccd60c704f669423d6a06ff0809fa39513ce8",
-        "sync_mode": "monitor"
+        "sync_mode": "monitor",
+        "path_commit": "24361e7958f9644d11f1de100654e3b04a509192"
       },
       "kind": "mirror",
       "sync_mode": "monitor",
@@ -1399,8 +1496,16 @@
             "resolved_commit": "6abccd60c704f669423d6a06ff0809fa39513ce8",
             "path_commit": "24361e7958f9644d11f1de100654e3b04a509192",
             "content_sha256": "9e323d51993b66d987bcbcd8ccb7e2786c845ab8b2f82766ec8953d21588be45",
-            "last_checked_at": "2026-08-20",
-            "last_synced_at": "2026-06-21"
+            "last_checked_at": "2026-08-24",
+            "last_synced_at": "2026-08-24",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "753a6c03c60a9232405d05170bd3ad3cab49a1ef",
+              "content_sha256": "96e78a9ce85795b117c8929887bdb78f88bf23f7b85a31f0872cde4dff7e92cd",
+              "spdx": "Apache-2.0",
+              "resolved_commit": "6abccd60c704f669423d6a06ff0809fa39513ce8",
+              "api_spdx": "Apache-2.0"
+            }
           }
         }
       ],
@@ -1464,7 +1569,7 @@
             "ref": "main",
             "resolved_commit": "8331f910845103c08d51f6ca1d86ebb7d1f745e3",
             "path_commit": "3a4f0ce0782e0cbdcf187c362e8d15d9e324462b",
-            "content_sha256": "bf9e3b4c67f1a673bdf3b9bd788e9e2fee823774b4c2ac736a3b0e0352b42183",
+            "content_sha256": "bb8012845b7603af5fddca4333a2f1b03cbc4c9dde839ff7865690ef27a64175",
             "last_checked_at": "2026-08-20",
             "last_synced_at": "2026-08-20"
           }
@@ -1501,7 +1606,7 @@
         },
         {
           "path": "skills/developer-engineering/supabase/SKILL.md",
-          "sha256": "bf9e3b4c67f1a673bdf3b9bd788e9e2fee823774b4c2ac736a3b0e0352b42183",
+          "sha256": "bb8012845b7603af5fddca4333a2f1b03cbc4c9dde839ff7865690ef27a64175",
           "owner": "supabase",
           "mode": "100644"
         },
@@ -1972,10 +2077,11 @@
         "repo": "wshobson/agents",
         "path": "plugins/frontend-mobile-development/skills/tailwind-design-system/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-20",
-        "last_synced_at": "2026-08-20",
-        "last_synced_commit": "367cb6a4a182cf7e9b0a17c9429f7411ddd9cf35",
-        "sync_mode": "monitor"
+        "last_checked_at": "2026-08-24",
+        "last_synced_at": "2026-08-24",
+        "last_synced_commit": "d82998e7df393c671ede2387a8435075f0b633f5",
+        "sync_mode": "monitor",
+        "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f"
       },
       "kind": "mirror",
       "sync_mode": "monitor",
@@ -2005,11 +2111,19 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "367cb6a4a182cf7e9b0a17c9429f7411ddd9cf35",
+            "resolved_commit": "d82998e7df393c671ede2387a8435075f0b633f5",
             "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f",
             "content_sha256": "af6eb5191a0d791a3d20ea177836290d2bbdb2cacf7f8cd08d9701eac4d96dff",
-            "last_checked_at": "2026-08-20",
-            "last_synced_at": "2026-08-20"
+            "last_checked_at": "2026-08-24",
+            "last_synced_at": "2026-08-24",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "326f0a55c96e672fedf9d807ca043c00df05ba0e",
+              "content_sha256": "f89abb55d9f073f38f1703e4518f0613c788c6174be7f13b8dfe48a1c076c746",
+              "spdx": "MIT",
+              "resolved_commit": "d82998e7df393c671ede2387a8435075f0b633f5",
+              "api_spdx": "MIT"
+            }
           }
         }
       ],
@@ -3113,11 +3227,11 @@
         "repo": "Xquik-dev/x-twitter-scraper",
         "path": "skills/x-twitter-scraper/SKILL.md",
         "ref": "master",
-        "last_checked_at": "2026-08-20",
-        "last_synced_at": "2026-08-20",
-        "last_synced_commit": "0aa909b40f341b28d8b58766e251e44e080df998",
+        "last_checked_at": "2026-08-24",
+        "last_synced_at": "2026-08-24",
+        "last_synced_commit": "3b12bf550dd2804056c09dc3925c7dae5369665c",
         "sync_mode": "monitor",
-        "path_commit": "0aa909b40f341b28d8b58766e251e44e080df998"
+        "path_commit": "3b12bf550dd2804056c09dc3925c7dae5369665c"
       },
       "kind": "mirror",
       "sync_mode": "monitor",
@@ -3129,24 +3243,364 @@
           "sync_mode": "monitor",
           "artifacts": [
             {
+              "source": "skills/x-twitter-scraper/LICENSE",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/LICENSE",
+              "type": "file"
+            },
+            {
               "source": "skills/x-twitter-scraper/SKILL.md",
               "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/SKILL.md"
+            },
+            {
+              "source": "skills/x-twitter-scraper/metadata.json",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/metadata.json",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/api-endpoints-api-keys.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-api-keys.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/api-endpoints-compose.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-compose.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/api-endpoints-credits.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-credits.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/api-endpoints-drafts.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-drafts.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/api-endpoints-draws.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-draws.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/api-endpoints-error-codes.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-error-codes.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/api-endpoints-events.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-events.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/api-endpoints-extractions.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-extractions.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/api-endpoints-monitors.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-monitors.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/api-endpoints-radar.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-radar.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/api-endpoints-support.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-support.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/api-endpoints-trends.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-trends.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/api-endpoints-tweet-style-cache.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-tweet-style-cache.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/api-endpoints-webhooks.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-webhooks.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/api-endpoints-x-accounts.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-x-accounts.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/api-endpoints-x-api.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-x-api.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/api-endpoints-x-media.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-x-media.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/api-endpoints-x-write.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-x-write.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/api-endpoints.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/automate-twitter-giveaways.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/automate-twitter-giveaways.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/best-x-api-alternative.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/best-x-api-alternative.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/compare-twitter-apis.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/compare-twitter-apis.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/draws.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/draws.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/export-twitter-followers.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/export-twitter-followers.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/extract-x-community-data.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/extract-x-community-data.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/extractions.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/extractions.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/mcp-setup.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/mcp-setup.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/mcp-tools.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/mcp-tools.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/monitor-twitter-webhooks.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/monitor-twitter-webhooks.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/python-examples.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/python-examples.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/reliable-twitter-data-api-2026.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/reliable-twitter-data-api-2026.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/scrape-export-twitter-data.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/scrape-export-twitter-data.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/security.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/security.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/track-twitter-keywords-mentions.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/track-twitter-keywords-mentions.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/twitter-api-alternative-faq.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/twitter-api-alternative-faq.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/twitter-api-without-x-account.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/twitter-api-without-x-account.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/twitter-data-pipeline.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/twitter-data-pipeline.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/twitter-scraper-api-guide.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/twitter-scraper-api-guide.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/types-account-identity.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-account-identity.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/types-account.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-account.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/types-bookmarks-and-timeline.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-bookmarks-and-timeline.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/types-credits.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-credits.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/types-download-media.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-download-media.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/types-draws.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-draws.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/types-error.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-error.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/types-events.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-events.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/types-extractions.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-extractions.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/types-mcp-output-schemas.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-mcp-output-schemas.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/types-monitors.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-monitors.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/types-radar.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-radar.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/types-request-bodies.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-request-bodies.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/types-rest-api-vs-mcp-field-naming.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-rest-api-vs-mcp-field-naming.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/types-support.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-support.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/types-trends.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-trends.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/types-tweet-drafts.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-tweet-drafts.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/types-tweet-style-cache.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-tweet-style-cache.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/types-user-activity.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-user-activity.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/types-webhooks.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-webhooks.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/types-x-accounts.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-x-accounts.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/types-x-api.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-x-api.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/types-x-articles.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-x-articles.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/types-x-write.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-x-write.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/types.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/usage.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/usage.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/webhooks.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/webhooks.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/workflows.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/workflows.md",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "master",
-            "resolved_commit": "0aa909b40f341b28d8b58766e251e44e080df998",
-            "path_commit": "0aa909b40f341b28d8b58766e251e44e080df998",
-            "content_sha256": "1f905b2c0bca9ab80e0fffdfc8b36fe4f335e9ffcc1586d06fe03759bdc8699a",
-            "last_checked_at": "2026-08-20",
-            "last_synced_at": "2026-08-20",
+            "resolved_commit": "3b12bf550dd2804056c09dc3925c7dae5369665c",
+            "path_commit": "3b12bf550dd2804056c09dc3925c7dae5369665c",
+            "content_sha256": "5c0edf8062f9cdb73831c2f9e494f40aceb74801100920582c34d78f1f16c589",
+            "last_checked_at": "2026-08-24",
+            "last_synced_at": "2026-08-24",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "3a5f93c8e882f8f115758ad4e7fa4e91d1c787b2",
               "content_sha256": "591a93ca295f08caf49f4417eef0a085bb64d4b208ba8f186e0f0f027aebd4b5",
               "spdx": "MIT",
-              "resolved_commit": "0aa909b40f341b28d8b58766e251e44e080df998",
+              "resolved_commit": "3b12bf550dd2804056c09dc3925c7dae5369665c",
               "api_spdx": "MIT"
             }
           }
@@ -3154,8 +3608,416 @@
       ],
       "managed_files": [
         {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/LICENSE",
+          "sha256": "591a93ca295f08caf49f4417eef0a085bb64d4b208ba8f186e0f0f027aebd4b5",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/SKILL.md",
-          "sha256": "1f905b2c0bca9ab80e0fffdfc8b36fe4f335e9ffcc1586d06fe03759bdc8699a",
+          "sha256": "5c0edf8062f9cdb73831c2f9e494f40aceb74801100920582c34d78f1f16c589",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/metadata.json",
+          "sha256": "77ab75e516a69d4fd16edce1c060b5ebbaf4cb37bac617f1c6553c84ac22a9a8",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-api-keys.md",
+          "sha256": "43e0b6506874a1878f19776134ccc2847b2e39d71aa99c6658d345b5133ccc26",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-compose.md",
+          "sha256": "780441b1c30fcc923ee02081f6aeb750626ae7c68acc5826775ca14ebf69c683",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-credits.md",
+          "sha256": "cb15fe883cff7fc69fa6348fb462d1ed31d12a3bbed4249879e373e1be6fffdc",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-drafts.md",
+          "sha256": "a339a71bd690994e49c26bd8bfb35e4eae0291688e8fcb8c24127934654ee3f1",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-draws.md",
+          "sha256": "8def5da268b3c6b022dd9a96056d4b0c5a0a84e914e29932b275798253dadc86",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-error-codes.md",
+          "sha256": "28125b495b0daa3316ea38923921f98060527a9dbd07b1b035b7b35930617ed7",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-events.md",
+          "sha256": "7b1193106495ff211d2c0978ed4d8711f7777d2cd96db447a07d6a81bf1de33c",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-extractions.md",
+          "sha256": "2156227ccff0972500c38e1d27d0d6935abced733814c99a1144abf44153fc79",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-monitors.md",
+          "sha256": "600f9dd6abed13a00a9f8c9be1b343168441a9b32693175d02940887259b334b",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-radar.md",
+          "sha256": "dd9e33e69dac7a0f9cb13b3006fdfea51b91398fe7b4a2d03bf4756684bc6f7e",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-support.md",
+          "sha256": "ac7bc4007521231f700b3d813e75844d4634bbe0ca2628f6bf9f8920461413e7",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-trends.md",
+          "sha256": "1a42301f6bc79c186dd53c327915852468d922a73649e1bcdc85096b8e273226",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-tweet-style-cache.md",
+          "sha256": "3e769b4d22cf61d501a88700e278fd422724d59a626781055107f1d2b2de9e6c",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-webhooks.md",
+          "sha256": "7dc045cb85428dded43be45015a36fe9a5076063b27a663100b92f4228aac67e",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-x-accounts.md",
+          "sha256": "85675badea2be7433e0fc886ee8d58146f87abfa5b88c75c3c004c35038f5aa4",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-x-api.md",
+          "sha256": "b4e957c758dbe006464ef82152b7419ff0837184c741f660109dea5da886c0bb",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-x-media.md",
+          "sha256": "83971fb690bc4c7226ec5a7e023f5ab5002502c2ada7f16e9e83865684ce9fae",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-x-write.md",
+          "sha256": "e106bbd7b36c548ff95e5a1b74ff69190dcf55eff1f0c125ec78f45716c0dd91",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints.md",
+          "sha256": "8acf75fb9bbc31a413de9f2f92832b5fd1b9ab7cbf3436aa814a61e0deb92c03",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/automate-twitter-giveaways.md",
+          "sha256": "e8020c7b77fdf08cb99346a6afb169cf06e34fdb156ab273cfa51b5b2cf5bc51",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/best-x-api-alternative.md",
+          "sha256": "d67ea42478111e4adeece7576c684036b688c8aa2d8dd477187c7bb7ee5ebc65",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/compare-twitter-apis.md",
+          "sha256": "878e1009981b812dbaa3eb5f010015baac8ce6edb34d4410bd1012245a23977d",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/draws.md",
+          "sha256": "51c63af81f8e3bb405e4fe86166cb2773d4606b2639a19f10d6f22d35b94b8cf",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/export-twitter-followers.md",
+          "sha256": "4a2b2dbc55ba6256a3fdbb5fe95e0d8a3cfb567b536be949f593cb13b1de165c",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/extract-x-community-data.md",
+          "sha256": "5d9d9e7ab3ae79a338cd404c8c03bbfb8e7cfcd701d2ef523e0f8ba88006fb24",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/extractions.md",
+          "sha256": "3a7d3774187ca2285af844d774f3fc08909d82e5b7f1ae5339d17e4dd05aa70b",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/mcp-setup.md",
+          "sha256": "2c5335f180ef917e6bc37985e89a7b5cb96c6b0038d3b7a72ac1d75e7a0e1f94",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/mcp-tools.md",
+          "sha256": "e8d9537ecd9ac93d574ac5731b1151791ac47926fa4b97431deab6a341cc809e",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/monitor-twitter-webhooks.md",
+          "sha256": "8af7554be9318a887d42184df27850a1795c307af7cad377fcc8f84084788f38",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/python-examples.md",
+          "sha256": "f37167918f58ef6df896057bbb9569d1dc17c68c030191922e4669d269b5b5aa",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/reliable-twitter-data-api-2026.md",
+          "sha256": "71b29e0bf0a5d16119305f8ca6f875f886df5c6200288d33b2e833c6d9b32c00",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/scrape-export-twitter-data.md",
+          "sha256": "660f1a574c93b937a47752cb723a2557118e2ddb2ec9cd1de26dec56df00ec60",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/security.md",
+          "sha256": "38905d7b13096605e3c73e672d0fc75304ba49d940fd6091e1acdff4a10d8821",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/track-twitter-keywords-mentions.md",
+          "sha256": "45dad483176e7608ddf05404a894fa81a7e5069d21a08d1fc966223d39313d81",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/twitter-api-alternative-faq.md",
+          "sha256": "e4d652951cc3a135e49efd7cbcb7ec7e1ec68d874e4ef927c2c024a9f4fbbd65",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/twitter-api-without-x-account.md",
+          "sha256": "d82ea8917369d81679e9abb12d3f3a20d488a3c8a375ca7b19818dbd2276cd6f",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/twitter-data-pipeline.md",
+          "sha256": "fd343e059854e60927557892930540c3862d89ecd66ab53696c5ecad85698312",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/twitter-scraper-api-guide.md",
+          "sha256": "51f76271a61220c9c7d7e7bffe192b0432ad963379a99eac084a7e953263e757",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-account-identity.md",
+          "sha256": "41e5871674a97a9beecd50ef91d2649daa09b354b04d8ccd89acdbc90173327f",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-account.md",
+          "sha256": "a1fb88434775c8bad700e741760691c6b1eb7f2f3cdd2d588f95cdf695418d65",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-bookmarks-and-timeline.md",
+          "sha256": "f1d1b41d977be7b6385a375133988f59fafd830672be1e64eeac189e0aac2607",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-credits.md",
+          "sha256": "6eedcbd90d54231b6e53672e64e46c0e54366c422b53f414445b2232ddbf7f88",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-download-media.md",
+          "sha256": "2038a89149625bdc39d62e9edab5f5220bba9df358abbe0bbaabbd08bfb6b0a8",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-draws.md",
+          "sha256": "3c5badcf682c0a222ff32a08deae49f740a3aed63178f09b9fdad50526d93a4f",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-error.md",
+          "sha256": "b7d4f810b368f8a71d8b896395a3cc78b30b33734e6e2bfcfd4d85c6ebd422c3",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-events.md",
+          "sha256": "86e136e9617559b45fb89ccb7e3a6267b63e43cd610c25891afee0ec4aea5ffd",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-extractions.md",
+          "sha256": "de57b9ab450f0b0cce3ceacc2000b670a33a14d979a220b37aeee3cb7566f496",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-mcp-output-schemas.md",
+          "sha256": "b8d06bc219f624dedc70bc8d2e02a5b1f25153a5dc77f875e8b303bd1ba21046",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-monitors.md",
+          "sha256": "5b6eaac7913078a1e2742409c715b04cf5c5ec4bbc1d05814e3f08de9b96ed5d",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-radar.md",
+          "sha256": "ddbeda03a9cdb1ba2ae57a73d7725c0632e6dc15c6bac2a6d4309b0709f99380",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-request-bodies.md",
+          "sha256": "eaf7d3b9c929526a556b1584a92487e040672da0c270dbda08a9f45fffb0aef5",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-rest-api-vs-mcp-field-naming.md",
+          "sha256": "59a1d85e287580abdb1f8fdab51f2e307d888a14a98bd8e55186eb1b09c2dc0a",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-support.md",
+          "sha256": "9fae376b3e94e821a4777bf96f355818ac281712a79b2b13645d05215cedfe9f",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-trends.md",
+          "sha256": "021238add20431b393c8a67f0393e3df2d19d1062f0f91e665421b7820e5e13d",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-tweet-drafts.md",
+          "sha256": "80e767956f781dcd1eb0508daf550350586151a47865eb6b971d124e74c96992",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-tweet-style-cache.md",
+          "sha256": "6dd962724d54082ec013534c9bfea379c9e00c1c497a8326b0baaa0924cfa08b",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-user-activity.md",
+          "sha256": "6fe17c567c8868d59cff72b884e1739648c92e9d18a6d24874a82a94749af1a5",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-webhooks.md",
+          "sha256": "905e7a8b0a553742b3a854fe31481409f0307d01df8724a91f4e7d858ce4707d",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-x-accounts.md",
+          "sha256": "bcd56bd07daf1940cbdfaac219f67ac358948a2169a5c23323f78fa85a65c3ef",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-x-api.md",
+          "sha256": "cb76ea032cc2a7245848193e74379b7e24b5dcb01cbeec22ac6fdbc3114697a6",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-x-articles.md",
+          "sha256": "491b599704840f6bd2b18fe1f1f5cd2f54edc35d78cf59b052bfbd299655a5d3",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-x-write.md",
+          "sha256": "e30954aadee393f7896a9d2ac9fcaf9f1c8ad74ebca56c997d6994a8f10fca5c",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types.md",
+          "sha256": "8de147ac05b91f035fc0af6ef998cf68a1a35fbe5b7bc75a533f14c13cfc05eb",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/usage.md",
+          "sha256": "df0fa93848f0ff188a88fd2e6079a34c17b91692ce40c9dc3afca8062d8dd632",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/webhooks.md",
+          "sha256": "3aec98b4f69026c748194eaf2f118fa288d325870bacf5e0abfb4fb951d50535",
+          "owner": "x-twitter-scraper",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/workflows.md",
+          "sha256": "13b7fdbe8b5e070d8bb36cee770284cdf1e0ae1510fa539d8f6b662f6c989cb5",
           "owner": "x-twitter-scraper",
           "mode": "100644"
         }

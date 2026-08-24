@@ -5,7 +5,7 @@ zh_description: "用于构建和调试原生 MCP 集成、服务器和工具调�
 version: 1.0.0
 author: Hermes Agent
 source: "github:NousResearch/hermes-agent"
-source_url: "https://github.com/NousResearch/hermes-agent/blob/main/skills/mcp/native-mcp/SKILL.md"
+source_url: "https://github.com/NousResearch/hermes-agent/blob/3636f64540a3d80c8425f195f46e53e940956cba/skills/mcp/native-mcp/SKILL.md"
 license: MIT
 tags: '[MCP, Tools, Integrations]'
 created_at: "2026-04-13"

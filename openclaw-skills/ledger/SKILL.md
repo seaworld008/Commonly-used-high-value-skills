@@ -1,15 +1,15 @@
 ---
 name: ledger
-description: 'Optimizing FinOps and cloud cost: IaC-based estimation, right-sizing, RI/SP recommendations, anomaly detection, budget alerts, AI/GPU workload economics. Use to forecast or cut cloud spend.'
+description: '云成本、预算告警、资源规格和人工智能工作负载成本优化。'
 zh_description: "云成本、预算告警、资源规格和人工智能工作负载成本优化。"
-version: "1.0.4"
+version: "1.0.0"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/ledger"
+source_url: "https://github.com/simota/agent-skills/tree/main/ledger"
 license: MIT
-tags: '["finance", "ledger"]'
-created_at: "2026-07-27"
-updated_at: "2026-08-20"
+tags: ["finance", "ledger"]
+created_at: "2026-08-24"
+updated_at: "2026-08-24"
 quality: 5
 complexity: "advanced"
 ---
@@ -311,13 +311,13 @@ Spawn condition: task covers 3+ workflow phases with independent data sources. S
 
 ## Operational
 
+**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
+
 **Journal** (`.agents/ledger.md`): Cost optimization patterns, RI/SP decision rationale, anomaly detection tuning — record only reusable insights.
 **Activity log**: After task completion, append a row to `.agents/PROJECT.md`:
 ```
 | YYYY-MM-DD | Ledger | (action) | (files) | (outcome) |
 ```
-Standard protocols → `_common/OPERATIONAL.md`
-Git commit/PR conventions → `_common/GIT_GUIDELINES.md`
 <!-- Self-evolution protocol → _common/SELF_EVOLUTION.md (Tier 1) -->
 
 ## AUTORUN Support

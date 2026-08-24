@@ -1,15 +1,15 @@
 ---
 name: sherpa
-description: 'Guiding workflows by decomposing complex tasks (Epics) into Atomic Steps under 15 minutes each, with progress tracking and drift prevention. Use when complex decomposition is needed.'
+description: '把复杂任务拆成短步骤，控制漂移并推进交付。'
 zh_description: "把复杂任务拆成短步骤，控制漂移并推进交付。"
-version: "1.0.4"
+version: "1.0.0"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/sherpa"
+source_url: "https://github.com/simota/agent-skills/tree/main/sherpa"
 license: MIT
-tags: '["ai", "sherpa", "workflow"]'
-created_at: "2026-07-27"
-updated_at: "2026-08-20"
+tags: ["ai", "sherpa", "workflow"]
+created_at: "2026-08-24"
+updated_at: "2026-08-24"
 quality: 5
 complexity: "advanced"
 ---
@@ -343,9 +343,10 @@ Use this shape:
 
 ## Operational
 
+**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
+
 - Journal domain insights in `.agents/sherpa.md`; create it if missing.
 - After significant work, append to `.agents/PROJECT.md`: `| YYYY-MM-DD | Sherpa | (action) | (files) | (outcome) |`
-- Standard protocols -> `_common/OPERATIONAL.md`
 - Follow `_common/GIT_GUIDELINES.md`. Do not put agent names in commits or PR titles.
 
 ## AUTORUN Support

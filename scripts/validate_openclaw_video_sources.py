@@ -9,7 +9,14 @@ from pathlib import Path
 
 REQUIRED_TOP = {"video", "official_references", "skills"}
 REQUIRED_SKILL_KEYS = {"video_name", "normalized_slug", "status", "repo_skill", "source", "notes"}
-VALID_STATUS = {"verified_in_repo", "not_a_skill", "unverified_slug", "retired"}
+VALID_STATUS = {
+    "verified_in_repo",
+    "in_house",
+    "not_a_skill",
+    "unverified_slug",
+    "retired",
+}
+ACTIVE_REPO_STATUS = {"verified_in_repo", "in_house"}
 
 
 def parse_name_from_skill_md(path: Path) -> str | None:
@@ -48,11 +55,15 @@ def validate(mapping_path: Path, repo_root: Path) -> list[str]:
         if status not in VALID_STATUS:
             errors.append(f"skills[{idx}] invalid status: {status}")
 
-        if status == "verified_in_repo":
+        if status in ACTIVE_REPO_STATUS:
             if not slug:
-                errors.append(f"skills[{idx}] verified_in_repo must have normalized_slug")
+                errors.append(
+                    f"skills[{idx}] status {status} must have normalized_slug"
+                )
             if not repo_skill:
-                errors.append(f"skills[{idx}] verified_in_repo must have repo_skill")
+                errors.append(
+                    f"skills[{idx}] status {status} must have repo_skill"
+                )
                 continue
             path = repo_root / repo_skill
             if not path.exists():
@@ -93,7 +104,10 @@ def main() -> int:
 
     print("Validation passed:")
     print(f"- mapping: {args.mapping}")
-    print("- all verified_in_repo entries exist and match SKILL.md frontmatter name")
+    print(
+        "- all verified_in_repo and in_house entries exist and match "
+        "SKILL.md frontmatter name"
+    )
     return 0
 
 

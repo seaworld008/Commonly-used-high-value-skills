@@ -111,6 +111,11 @@ PLACEHOLDER_PATH_PATTERNS = (
 )
 
 
+def normalize_url(candidate: str) -> str:
+    """Remove prose and Markdown emphasis punctuation after a bare URL."""
+    return candidate.rstrip(".,;:!?*_~")
+
+
 def iter_markdown_files() -> list[Path]:
     seen: set[Path] = set()
     files: list[Path] = []
@@ -149,7 +154,7 @@ def collect_urls() -> dict[str, set[str]]:
     for md_file in iter_markdown_files():
         text = md_file.read_text(encoding="utf-8", errors="replace")
         for m in URL_RE.finditer(text):
-            url = m.group(0).rstrip(".,;:)")
+            url = normalize_url(m.group(0))
             if should_ignore_url(url):
                 continue
             urls.setdefault(url, set()).add(str(md_file.relative_to(REPO_ROOT)))

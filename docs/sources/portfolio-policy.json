@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-08-20",
+  "updated_at": "2026-08-24",
   "decision_rule": "Retire a skill only when it has no unique executable asset, current external-system contract, high-risk domain guardrail, or measurable acceptance standard, and a canonical replacement covers the same user intent.",
   "retired_skills": [
     {
@@ -162,6 +162,21 @@
     {
       "name": "open-gsd-core-migration",
       "reason": "The obsolete compatibility workflow must not return as an active skill or migration route."
+    },
+    {
+      "name": "lark-minutes",
+      "replacement": "lark-meeting",
+      "reason": "The official unified Lark meeting skill now covers Minutes commands, references, meeting artifacts, and permission workflows."
+    },
+    {
+      "name": "lark-vc",
+      "replacement": "lark-meeting",
+      "reason": "The official unified Lark meeting skill now owns meeting search, artifacts, transcripts, domain routing, and live interaction."
+    },
+    {
+      "name": "lark-vc-agent",
+      "replacement": "lark-meeting",
+      "reason": "The official unified Lark meeting skill now covers authorized bot join, leave, and in-meeting interaction."
     }
   ],
   "canonical_groups": [
@@ -227,6 +242,14 @@
       "canonical": "screenshot",
       "retired_aliases": [
         "capture-screen"
+      ]
+    },
+    {
+      "canonical": "lark-meeting",
+      "retired_aliases": [
+        "lark-minutes",
+        "lark-vc",
+        "lark-vc-agent"
       ]
     }
   ],

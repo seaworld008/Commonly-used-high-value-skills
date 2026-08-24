@@ -52,6 +52,18 @@ class CheckDeadLinksTests(unittest.TestCase):
         for url in urls:
             self.assertFalse(self.module.should_ignore_url(url), url)
 
+    def test_normalize_url_strips_markdown_emphasis_boundaries(self) -> None:
+        self.assertEqual(
+            "https://hermes-agent.nousresearch.com/docs/llms.txt",
+            self.module.normalize_url(
+                "https://hermes-agent.nousresearch.com/docs/llms.txt.**"
+            ),
+        )
+        self.assertEqual(
+            "https://example.test/path/",
+            self.module.normalize_url("https://example.test/path/"),
+        )
+
     def test_curl_probe_retries_transient_failures(self) -> None:
         command = {}
 

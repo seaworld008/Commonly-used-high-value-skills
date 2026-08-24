@@ -1,15 +1,15 @@
 ---
 name: nexus
-description: 'Orchestrating multi-specialist task chains and scope-adaptive product delivery: classifies intent, selects and executes the minimum viable chain, aggregates results, and verifies acceptance criteria. For multi-domain tasks, build-first delivery, and product lifecycle execution.'
+description: '多智能体任务分解、链路编排、执行协调和结果整合。'
 zh_description: "多智能体任务分解、链路编排、执行协调和结果整合。"
-version: "1.0.4"
+version: "1.0.0"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/nexus"
+source_url: "https://github.com/simota/agent-skills/tree/main/nexus"
 license: MIT
-tags: '["ai", "nexus", "workflow"]'
-created_at: "2026-07-27"
-updated_at: "2026-08-20"
+tags: ["ai", "nexus", "workflow"]
+created_at: "2026-08-24"
+updated_at: "2026-08-24"
 quality: 5
 complexity: "advanced"
 ---
@@ -72,8 +72,6 @@ Coordinate specialist agents, design the minimum viable chain, execute safely. `
 7. **Learn only from evidence.** Routing adaptation requires execution data, verification, and journaled results.
 8. **Prevent circular handoffs.** Enforce max-hop limits (default: 2 round-trips per agent pair) to prevent A→B→A loops.
 9. **Hierarchical decomposition for scale.** At 6+ agents, use feature-leads for 2-3 specialists each only when a lead holds distinct context/authority and owns the merge; otherwise keep a flat fan-out.
-10. **Author for the active orchestrator engine.** Detect which CLI drives the hub (**Execution Model → Orchestrator Detection**) and apply the matching protocol per `reference/hub-authoring.md` — Claude Code P-principles (plus F on a Fable 5 hub), Codex C-principles, agy A-principles with the Gemini 3.7 Flash (High) mandate.
-
 ## Boundaries
 
 Agent boundaries → `_common/BOUNDARIES.md` · disambiguation → `reference/agent-disambiguation.md`
@@ -206,7 +204,7 @@ Seven triggers (`LT-01` → `LT-07`, incl. near misses) and the Chain Effectiven
 
 ## Routing Quick Start
 
-**Chain source of truth:** `routing-matrix.md` maps 95 task types to default chains and CLASSIFY/LADDER rules; `agent-chains.md` owns chain adjustment. The Registry exposes common types; the rest enter through the CLASSIFY phase. Family axes live in `recipes-detail.md`; phase contracts live in each `<recipe>-recipe.md`.
+**Chain source of truth:** `routing-matrix.md` maps task types to default chains and CLASSIFY/LADDER rules; `agent-chains.md` owns chain adjustment. The Registry exposes common types; the rest enter through CLASSIFY. Family axes live in `recipes-detail.md`; phase contracts live in each `<recipe>-recipe.md`.
 
 If context is unclear, inspect git state and `.agents/PROJECT.md`; if confidence stays low, ask one focused question.
 
@@ -230,18 +228,13 @@ Handoff directions: agent → Nexus `NEXUS_ROUTING` · Nexus → agent `_AGENT_C
 
 ## Reference Map
 
-Read only files matching the current decision point. Anything indexed by the Workflow table's Read-When column is not repeated here — that row is its index.
+Read only files matching the current decision point. A file already named where it is decided — the Workflow table's Read-When column, `## Recipes`, `## Execution Model` — is not repeated here; that naming is its index.
 
 | File | Read When |
 |------|-----------|
 | **`reference/reference-index.md`** | Full Read-When index for references not listed below |
-| `reference/recipes-index.md` | Complete Recipe table; matched subcommand chain template + `Read` reference |
 | `reference/deliver-recipe.md` | Scope-adaptive product/MVP delivery, chain sizing, anti-stall recovery, and Delivery Report |
-| `reference/recipe-contract.md` | Recipe ownership, admission gate, authoring contract, and cross-index wiring |
 | `reference/<recipe>-recipe.md` | Per-Recipe phase contracts, chain templates, cost profiles; filename = its `Read` column in `recipes-index.md` |
-| `reference/recipes-detail.md` · `reference/inline-recipes.md` | Recipe Families axis prose · contracts for `kaizen`/`essential`/`killer`/`trim` |
-| `reference/specify-phase.md` | `SPECIFY` gates, brief schema, verbatim injection, `delegated` list |
-| `reference/hub-authoring.md` · `reference/execution-layers.md` | Per-engine authoring/detection/models · per-CLI spawn prerequisites/runtime |
 | `_common/LOOP_PRECONDITIONS.md` | Before **any** agent loop — five-point gate (completion oracle · hard-stop bound · maker ≠ checker · persistent memory · drift awareness) |
 | `_common/PROJECT_LOCAL_SKILLS.md` | Before selecting `orbit`, `lore`, or `darwin`; workspace availability check and global fallback |
 | `_common/FINDING_LEDGER.md` | Before **any external-reviewer-to-zero loop** (`quell`, `burnish`, `whet`, `newsroom`) — the shared ledger machinery: five declaration slots, identity across cycles, disposition vocabulary + integrity, split-oracle rule, and when **not** to build one |
@@ -250,7 +243,9 @@ Read only files matching the current decision point. Anything indexed by the Wor
 
 ## Operational
 
-Follow `_common/OPERATIONAL.md`, `AUTORUN.md`, `HANDOFF.md`, `GIT_GUIDELINES.md`, `HARNESS_EVOLUTION.md`. Apply the hub-engine protocol: `_common/OPUS_5_AUTHORING.md` (Claude Code; add F-principles on a Fable 5 hub), `CODEX_ORCHESTRATION.md`, or `AGY_ORCHESTRATION.md` (A1-A9). Journal in `.agents/nexus.md`, log to `.agents/PROJECT.md`, no agent names in commits/PRs. Keep chains small, handoffs structured, recovery explicit.
+**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
+
+Beyond the spine, follow `_common/HARNESS_EVOLUTION.md`. Apply the hub-engine protocol: `_common/OPUS_5_AUTHORING.md` (Claude Code; add F-principles on a Fable 5 hub), `CODEX_ORCHESTRATION.md`, or `AGY_ORCHESTRATION.md` (A1-A9). Journal in `.agents/nexus.md`, log to `.agents/PROJECT.md`, no agent names in commits/PRs. Keep chains small, handoffs structured, recovery explicit.
 
 ## Operational Notes for Spawns
 

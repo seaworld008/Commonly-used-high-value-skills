@@ -1,15 +1,15 @@
 ---
 name: builder
-description: 'Implementing robust business logic, API integrations, data models, and reproducible AI image-generation code with type safety. Use for production implementation, Gemini image API pipelines, or interactive pair programming.'
+description: '生产级业务逻辑、接口集成和类型安全实现。'
 zh_description: "生产级业务逻辑、接口集成和类型安全实现。"
-version: "1.0.4"
+version: "1.0.0"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/builder"
+source_url: "https://github.com/simota/agent-skills/tree/main/builder"
 license: MIT
-tags: '["builder", "development"]'
-created_at: "2026-07-27"
-updated_at: "2026-08-20"
+tags: ["builder", "development"]
+created_at: "2026-08-24"
+updated_at: "2026-08-24"
 quality: 5
 complexity: "advanced"
 ---
@@ -168,24 +168,9 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 
 Builder receives prototypes, investigation results, and optimization plans from upstream agents. Builder sends implementation artifacts, test skeletons, and review requests to downstream agents.
 
-| Direction | Handoff | Purpose |
-|-----------|---------|---------|
-| Forge → Builder | `FORGE_TO_BUILDER` | Prototype conversion to production code |
-| Scout → Builder | `SCOUT_TO_BUILDER` | Bug fix based on investigation results |
-| Guardian → Builder | `GUARDIAN_TO_BUILDER` | Commit structure guidance |
-| Tuner → Builder | `TUNER_TO_BUILDER` | Apply optimization recommendations |
-| Sentinel → Builder | `SENTINEL_TO_BUILDER` | Security fix implementation |
-| Builder → Radar | `BUILDER_TO_RADAR` | Test skeleton handoff |
-| Builder → Guardian | `BUILDER_TO_GUARDIAN` | PR preparation |
-| Builder → Judge | `BUILDER_TO_JUDGE` | Code review request |
-| Builder → Tuner | `BUILDER_TO_TUNER` | Performance analysis request |
-| Builder → Sentinel | `BUILDER_TO_SENTINEL` | Security review request |
-| Builder → Canvas | `BUILDER_TO_CANVAS` | Domain diagram request |
-| Vision → Builder | `VISION_TO_BUILDER` | Art direction for image-generation code |
-| Growth → Builder | `GROWTH_TO_BUILDER` | Marketing asset-generation requirements |
-| Quill → Builder | `QUILL_TO_BUILDER` | Documentation illustration requirements |
-| Builder → Muse | `BUILDER_TO_MUSE` | Generated-asset design-system integration |
-| Builder → Vitrine | `BUILDER_TO_VITRINE` | Generated assets for catalogs or stories |
+Handoff tokens follow `<SOURCE>_TO_<TARGET>` for every direction above (e.g.
+`FORGE_TO_BUILDER`, `BUILDER_TO_RADAR`). Per-direction purposes ->
+`reference/handoffs.md`.
 
 ### Overlap Boundaries
 
@@ -227,28 +212,13 @@ Use `reference/implementation-policy.md` for repository-first architecture selec
 
 ## Recipes
 
-| Recipe | Subcommand | Default? | When to Use | Read First |
-|--------|-----------|---------|-------------|------------|
-| Bug Fix | `fix` | ✓ | Scoped fix after Scout handoff, target <50 lines | — |
-| CRUD | `crud` | | Single-aggregate CRUD, no invariants, 30-60 lines | `reference/implementation-policy.md` |
-| API Integration | `api` | | REST/GraphQL/WS client/server, idempotency critical | `reference/implementation-policy.md` |
-| Domain Model | `ddd` | | Aggregate root, invariants, domain events, multi-file | `reference/implementation-policy.md` |
-| Prototype Harden | `harden` | | Productionize Forge output, raise quality L0-L3 | `reference/implementation-policy.md` |
-| Cross-Language Port | `port` | | Port between languages / frameworks (semantic equivalence tests, Parallel Run) | `reference/cross-language-port.md` |
-| External API Integrate | `integrate` | | External service integration (auth, webhook, sandbox verification, vendor-specific retry) | `reference/external-integration.md` |
-| Targeted Patch | `patch` | | Scoped fix under 30 lines / 3 files (smaller than fix, lighter than harden) | `reference/targeted-patch.md` |
-| Pair Programming | `pair` | | Interactive co-implementation — write production code together, confirming each increment (INTERACTIVE) | `reference/pair-programming.md` |
-| Image Generate | `image` | | Gemini text-to-image or grounded-generation Python implementation | `reference/image-generation-prompts.md`, `reference/image-generation-api.md` |
-| Image Edit | `image-edit` | | Reference-based or iterative image-editing code | `reference/image-generation-api.md` |
-| Image Prompt | `image-prompt` | | JP-to-EN prompt optimization and parameter design | `reference/image-generation-prompts.md` |
-| Image Batch | `image-batch` | | Seeded, resumable, rate-limit-aware asset generation | `reference/image-generation-batch.md`, `reference/image-generation-api.md` |
-| Image Style | `image-style` | | Reference-style anchoring and reusable style-token extraction | `reference/image-generation-style-transfer.md` |
-| Image Postprocess | `image-postprocess` | | Upscale, inpaint, outpaint, artifact checks, and export formats | `reference/image-generation-postprocess.md` |
-| Image Cinematic | `image-cinematic` | | Camera, lens, lighting, film-stock, and composition prompt design | `reference/image-generation-cinematic-prompts.md` |
-| Image Provenance | `image-provenance` | | C2PA, SynthID, EXIF/XMP disclosure, and takedown flow | `reference/image-generation-provenance.md` |
-| Image Policy | `image-policy` | | Content-policy, likeness, brand-safety, and regional compliance gates | `reference/image-generation-content-safety.md` |
-| Grammar & Parser | `grammar` |  | Author a regex, parser, or DSL and its AST | `reference/grammar/regex-safety.md`, `reference/grammar/parser-generators.md`, `reference/grammar/dsl-design.md` |
-| CLI & TUI | `cli` |  | Implement a command-line or terminal-UI tool | `reference/cli-tui/tui-components.md`, `reference/cli-tui/cli-design-anti-patterns.md`, `reference/cli-tui/cross-platform.md` |
+**Full table** → **`reference/recipes-index.md`** (read on subcommand match, or when scanning). The list below is the dispatch allowlist only — a token not on it is not a subcommand.
+
+```
+fix · crud · api · ddd · harden · port · integrate · patch · pair · image · image-edit · image-prompt · image-batch · image-style · image-postprocess · image-cinematic · image-provenance · image-policy · grammar · cli
+```
+
+Default Recipe: `fix`.
 
 ## Subcommand Dispatch
 
@@ -258,21 +228,7 @@ Parse the first token of user input.
 
 Each Recipe carries its own acceptance gate **in addition to** the universal 5-axis Impact Scope Check. Full per-recipe gates: `reference/recipe-verify-gates.md`.
 
-| Subcommand | Behavior | Scope bound |
-|-----------|----------|-------------|
-| `fix` | Scout handoff or standalone bug fix; regression test skeleton always | <50 lines |
-| `crud` | DDD-vs-CRUD decided at SURVEY and recorded; Entity + Repository + simple service | — |
-| `api` | Error categorization, retry limits, idempotency keys, circuit breakers mandatory | — |
-| `ddd` | Bounded Context confirmed *before* any tactical pattern; Aggregate / VO / Domain Event | PLAN-heavy |
-| `harden` | Raise a Forge L0-L3 prototype to production quality | — |
-| `port` | Re-implement all source tests in the target, parallel-run black-box compare, diff = 0 | impl only (planning -> Shift) |
-| `integrate` | Sandbox -> secrets (env/Vault) -> vendor retry/rate-limit/idempotency -> webhook signature | — |
-| `patch` | Regression test mandatory; one-step rollback; Guardian handoff size XS | <=30 lines / <=3 files |
-| `pair` | INTERACTIVE co-implementation, one increment at a time, user gate per increment | max 12 increments |
-| `image` / `image-edit` / `image-prompt` | Build code only; English prompt, safe response parsing, metadata, policy notes, and SynthID disclosure required | no API execution |
-| `image-batch` | Preview 1-3, estimate cost, require confirmation above 10, bound concurrency, checkpoint, and deduplicate | Batch API review at N >= 50 |
-| `image-style` / `image-postprocess` / `image-cinematic` | Preserve reference rights and intent; verify cohesion/artifacts and document format tradeoffs | code/guidance only |
-| `image-provenance` / `image-policy` | Reject prohibited flows early and emit auditable disclosure/refusal behavior | safety gate blocks completion |
+Scope bounds worth knowing before dispatch: `fix` `<50` lines · `patch` `<=30` lines / `<=3` files · `pair` max `12` increments · `port` is implementation execution only — large-scale migration planning is `Shift` · image recipes deliver code, never generated images.
 
 ## Output Routing
 
@@ -331,36 +287,20 @@ ImpactScopeReport:
 
 Read only the files required for the current decision.
 
+**Full index** → **`reference/reference-index.md`** — every `reference/` file and its read-trigger. The rows below are the shared contracts, which no Recipe registry indexes.
+
 | Reference | Read this when |
 |-----------|----------------|
-| `reference/core-contract-rationale.md` | A Core Contract rule needs its reasoning, tuning number, or source. |
-| `reference/implementation-policy.md` | Repository-first architecture selection, language/toolchain grounding, implementation boundaries, and frontend state ownership. |
-| `reference/cross-language-port.md` | `port` recipe — parallel-run black-box comparison, semantic equivalence tests. |
-| `reference/external-integration.md` | `integrate` recipe — sandbox-first, secret handling, vendor retry, webhook signatures. |
-| `reference/targeted-patch.md` | `patch` recipe — scoped patch with regression coupling and clear rollback. |
-| `reference/pair-programming.md` | `pair` recipe — driver/navigator roles, SETUP -> LOOP -> CLOSE, gates, termination bounds. |
-| `reference/recipe-verify-gates.md` | The per-recipe acceptance gate for the active subcommand. |
-| `reference/autorun-nexus.md` | Exact AUTORUN or Nexus Hub mode compatibility details. |
-| `reference/autorun-schema.md` | Emitting the AUTORUN `_STEP_COMPLETE` block — Builder-specific Output/Next schema. |
-| `reference/image-generation-api.md` | Gemini SDK/auth/model/request/response/error/rate/cost rules and grounded or reference-based generation. |
-| `reference/image-generation-prompts.md` | Prompt architecture, JP-to-EN mapping, presets, templates, policy-safe phrasing, and quality checks. |
-| `reference/image-generation-batch.md` | Seed strategy, style anchors, bounded concurrency, checkpoints, naming, and pHash deduplication. |
-| `reference/image-generation-style-transfer.md` | Reference-image prompting, style-token extraction, leakage controls, and model-choice boundaries. |
-| `reference/image-generation-postprocess.md` | Native-resolution regeneration, upscale, masks, inpaint/outpaint, artifact checks, and export formats. |
-| `reference/image-generation-cinematic-prompts.md` | Shot, camera, lens, aperture, lighting, color science, film stock, and composition vocabulary. |
-| `reference/image-generation-provenance.md` | C2PA, SynthID, EXIF/XMP disclosure, distribution records, and takedown/appeal response. |
-| `reference/image-generation-content-safety.md` | Layered policy filtering, likeness/minor/brand safety, regional compliance, refusal UX, and red-team tests. |
-| `reference/image-generation-codex.md` | Codex built-in image-generation guidance when subscription-based operation is preferred over API billing. |
-| `_common/OPUS_5_AUTHORING.md` | Sizing the report, effort-level for codegen, front-loading constraints at PLAN. Critical: P3, P6. |
 | `_common/CODE_QUALITY.md` | About to write or modify code — 7-axis bar (SLD/SEC/RDB/MNT/TST/PRF/SCL) + `CODE_QUALITY_GATE`. |
-| `reference/grammar/` | Authoring a regex, parser, DSL, or AST transform (absorbed from `grok`) |
-| `reference/cli-tui/` | Implementing a CLI or terminal UI (absorbed from `anvil`) |
+
+---
 
 ## Operational
 
+**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
+
 - **Journal** (`.agents/builder.md`): Record domain model insights (business rules, data integrity constraints, DDD pattern decisions). Create the file if missing on first use.
 - Add an activity row to `.agents/PROJECT.md` after task completion: `| YYYY-MM-DD | Builder | (action) | (files) | (outcome) |`.
-- Follow `_common/OPERATIONAL.md` and `_common/GIT_GUIDELINES.md`.
 - Output language follows the CLI global config (`settings.json` `language` field, `CLAUDE.md`, `AGENTS.md`, or `GEMINI.md`). Code identifiers and technical terms remain in English.
 - Do not include agent names in commits or PRs.
 

@@ -487,6 +487,12 @@ class GitHubObjectCache:
             object_sha = entry.get("sha")
             size = entry.get("size")
             git_mode = entry.get("mode")
+            if git_mode == "120000":
+                # A repository may contain unrelated convenience symlinks.
+                # They are never eligible as provenance artifacts, but they
+                # must not make every regular blob in the immutable tree
+                # unavailable.
+                continue
             if git_mode not in VALID_GIT_FILE_MODES:
                 raise SourceUnavailable(
                     "tree response contains a non-regular or unknown blob mode "

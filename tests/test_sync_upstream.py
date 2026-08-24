@@ -991,7 +991,7 @@ class SyncUpstreamTests(unittest.TestCase):
             skill for skill in loaded if skill.get("kind") == "snapshot"
         ]
 
-        self.assertEqual(151, len(loaded))
+        self.assertEqual(149, len(loaded))
         self.assertEqual(25, len(snapshots))
         self.assertTrue(
             all(skill.get("expected_skip_reason") for skill in snapshots)
@@ -3940,6 +3940,94 @@ class SyncUpstreamTests(unittest.TestCase):
             self.assertEqual("a" * 40, entry["upstream"]["last_synced_commit"])
             self.assertEqual(old_content, tracking["content_sha256"])
             self.assertEqual(old_managed, entry["managed_files"])
+
+    def test_record_v2_monitor_review_advances_checkpoint_and_records_evidence(self):
+        module = load_module()
+        with tempfile.TemporaryDirectory() as tmpdir:
+            root = Path(tmpdir)
+            mapping = root / "docs" / "sources" / "source.skills.json"
+            mapping.parent.mkdir(parents=True)
+            module.REPO_ROOT = root
+            module.SKILLS_DIR = root / "skills"
+            module.SOURCE_MAPPINGS_DIR = mapping.parent
+            repo_skill = "skills/ai-workflow/demo/SKILL.md"
+            local = root / repo_skill
+            local.parent.mkdir(parents=True)
+            content = external_skill_content("demo", "owner/repo")
+            local.write_bytes(content)
+            entry = complete_v2_entry(
+                {
+                    "normalized_slug": "demo",
+                    "kind": "overlay",
+                    "sync_mode": "monitor",
+                    "repo_skill": repo_skill,
+                    "origins": [
+                        {
+                            "repo": "owner/repo",
+                            "path": "upstream/SKILL.md",
+                            "license": "MIT",
+                            "sync_mode": "monitor",
+                            "artifacts": [
+                                {
+                                    "source": "upstream/SKILL.md",
+                                    "target": repo_skill,
+                                    "type": "file",
+                                }
+                            ],
+                        }
+                    ],
+                },
+                content,
+            )
+            mapping.write_text(
+                json.dumps(
+                    {
+                        "schema_version": 2,
+                        "video": {"checked_at": "2026-01-01"},
+                        "official_references": [],
+                        "skills": [entry],
+                    }
+                ),
+                encoding="utf-8",
+            )
+            skill = {
+                "schema_version": 2,
+                "name": "demo",
+                "repo": "owner/repo",
+                "repo_skill": repo_skill,
+                "mapping_path": mapping,
+                "mapping_entry_index": 0,
+                "origin_index": 0,
+                "sync_mode": "monitor",
+                "tracking": {"channel": "default_branch"},
+                "mapping_fingerprint": module._entry_origin_fingerprint(entry, 0),
+            }
+
+            module.record_v2_monitor_reviews(
+                [
+                    {
+                        "skill": skill,
+                        "changes": "monitor_review",
+                        "resolved_ref": "main",
+                        "current_commit": "b" * 40,
+                        "path_commit": "b" * 40,
+                        "license_evidence": mock_license_checkpoint(),
+                    }
+                ]
+            )
+
+            recorded = json.loads(mapping.read_text(encoding="utf-8"))
+            tracking = recorded["skills"][0]["origins"][0]["tracking"]
+            self.assertEqual("b" * 40, tracking["resolved_commit"])
+            self.assertEqual("b" * 40, tracking["path_commit"])
+            self.assertEqual(
+                hashlib.sha256(content).hexdigest(),
+                tracking["content_sha256"],
+            )
+            self.assertEqual(
+                "commit-aware-manual-monitor-review",
+                recorded["verification_attempts"][-1]["method"],
+            )
 
     def test_record_batch_locks_mapping_and_preserves_other_skill_updates(self):
         module = load_module()

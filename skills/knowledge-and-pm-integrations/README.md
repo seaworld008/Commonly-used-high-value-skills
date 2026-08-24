@@ -4,7 +4,7 @@
 
 连接 Notion、Linear 和规格到实施流程的知识与项目管理技能集合。
 
-当前分类共 **36** 个技能。
+当前分类共 **34** 个技能。
 
 ## 推荐先看
 
@@ -30,7 +30,7 @@
 | `lark-im` | 用于发送、读取和处理飞书即时消息与群聊交互。 | [目录](./lark-im/) | [SKILL.md](./lark-im/SKILL.md) |
 | `lark-mail` | 飞书邮箱：Use when user mentions 起草邮件、写邮件、草稿、发送/回复/转发邮件、查阅邮件、看邮。 | [目录](./lark-mail/) | [SKILL.md](./lark-mail/SKILL.md) |
 | `lark-markdown` | 飞书 Markdown：查看、创建、上传、编辑和比较 Markdown 文件。 | [目录](./lark-markdown/) | [SKILL.md](./lark-markdown/SKILL.md) |
-| `lark-minutes` | 飞书妙记：搜索妙记、查看妙记基础信息、下载/上传音视频、读取或编辑妙记的产物内容、改标题、替换说话人/关键词。 | [目录](./lark-minutes/) | [SKILL.md](./lark-minutes/SKILL.md) |
+| `lark-meeting` | 统一处理飞书会议、妙记、智能纪要、逐字稿和经授权的会中互动。 | [目录](./lark-meeting/) | [SKILL.md](./lark-meeting/SKILL.md) |
 | `lark-okr` | 飞书 OKR：管理目标与关键结果。 | [目录](./lark-okr/) | [SKILL.md](./lark-okr/SKILL.md) |
 | `lark-openapi-explorer` | 飞书/Lark 原生 OpenAPI 探索：从官方文档库中挖掘未经 CLI 封装的原生 OpenAPI 接口。 | [目录](./lark-openapi-explorer/) | [SKILL.md](./lark-openapi-explorer/SKILL.md) |
 | `lark-shared` | 用于lark、shared，支持知识管理、项目同步和平台集成。 | [目录](./lark-shared/) | [SKILL.md](./lark-shared/SKILL.md) |
@@ -38,8 +38,6 @@
 | `lark-skill-maker` | 用于把飞书 API 操作封装为可复用技能、流程模板和多步自动化。 | [目录](./lark-skill-maker/) | [SKILL.md](./lark-skill-maker/SKILL.md) |
 | `lark-slides` | 飞书幻灯片：创建和编辑幻灯片。 | [目录](./lark-slides/) | [SKILL.md](./lark-slides/SKILL.md) |
 | `lark-task` | 用于创建、查询和更新飞书任务及待办事项。 | [目录](./lark-task/) | [SKILL.md](./lark-task/SKILL.md) |
-| `lark-vc` | 飞书视频会议：搜索历史会议记录、查询会议纪要（总结/待办/章节/逐字稿）、查询参会人快照。 | [目录](./lark-vc/) | [SKILL.md](./lark-vc/SKILL.md) |
-| `lark-vc-agent` | 飞书视频会议会中能力：用于让应用机器人真实加入或离开正在进行的会议，并读取当前身份可见的会中事件，如参会人加入/离开。 | [目录](./lark-vc-agent/) | [SKILL.md](./lark-vc-agent/SKILL.md) |
 | `lark-whiteboard` | 用于查询、导出和编辑飞书云文档中的画板内容和节点结构。 | [目录](./lark-whiteboard/) | [SKILL.md](./lark-whiteboard/SKILL.md) |
 | `lark-wiki` | 飞书知识库：管理知识空间、空间成员和文档节点。 | [目录](./lark-wiki/) | [SKILL.md](./lark-wiki/SKILL.md) |
 | `lark-workflow-meeting-summary` | 用于汇总指定时间范围内的飞书会议纪要，并生成结构化会议报告或周报。 | [目录](./lark-workflow-meeting-summary/) | [SKILL.md](./lark-workflow-meeting-summary/SKILL.md) |

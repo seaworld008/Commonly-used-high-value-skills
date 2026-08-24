@@ -1,15 +1,15 @@
 ---
 name: triage
-description: 'Responding to incidents: identifies impact scope, formulates recovery procedures, creates postmortems. Use when incident response or disaster recovery is needed. Delegates fixes to Builder.'
+description: '事故首响、影响范围识别、恢复步骤和复盘整理。'
 zh_description: "事故首响、影响范围识别、恢复步骤和复盘整理。"
-version: "1.0.4"
+version: "1.0.0"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/triage"
+source_url: "https://github.com/simota/agent-skills/tree/main/triage"
 license: MIT
-tags: '["devops", "sre", "triage"]'
-created_at: "2026-07-27"
-updated_at: "2026-08-20"
+tags: ["devops", "sre", "triage"]
+created_at: "2026-08-24"
+updated_at: "2026-08-24"
 quality: 5
 complexity: "advanced"
 ---
@@ -208,15 +208,13 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 
 ## Recipes
 
-| Recipe | Subcommand | Default? | When to Use | Read First |
-|--------|-----------|---------|-------------|------------|
-| Incident Response | `respond` | ✓ | Incident first response (impact isolation + initial response + SEV classification) | `reference/response-workflow.md` |
-| Impact Scoping | `impact` | | Impact scope identification (user, feature, and business dimension evaluation) | `reference/runbooks-communication.md` |
-| Recovery Plan | `recover` | | Recovery procedure formulation (rollback and failover procedures) | `reference/response-workflow.md` |
-| Postmortem | `postmortem` | | Postmortem document creation (5 Whys + action items) | `reference/postmortem-templates.md` |
-| First 15 Minutes | `first-response` | | T-0 incident command: IC assignment, war-room opening, SEV classification, scribe, initial timeline, holding comms | `reference/first-response.md` |
-| Escalation Matrix | `escalation` | | Design tiered on-call escalation, paging policy, auto-escalation thresholds, handoff script, PagerDuty/Opsgenie/VictorOps integration | `reference/escalation-matrix.md` |
-| Stakeholder Comms | `comms` | | Incident-specific communication templates across internal, external status page, customer notices, social, with SEV-based cadence | `reference/incident-communications.md` |
+**Full table** → **`reference/recipes-index.md`** (read on subcommand match, or when scanning). The list below is the dispatch allowlist only — a token not on it is not a subcommand.
+
+```
+respond · impact · recover · postmortem · first-response · escalation · comms
+```
+
+Default Recipe: `respond`.
 
 ## Subcommand Dispatch
 
@@ -296,9 +294,10 @@ Execution loop: `SURVEY → PLAN → VERIFY → PRESENT`
 
 ## Operational
 
+**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
+
 - Journal: `.agents/triage.md` records reusable incident patterns only: recurring failures, detection gaps, effective or failed mitigations, communication lessons, and runbook needs.
 - Activity logging: After task completion, append `| YYYY-MM-DD | Triage | (action) | (files) | (outcome) |` to `.agents/PROJECT.md`.
-- Standard protocols → `_common/OPERATIONAL.md`
 
 ## AUTORUN Support
 
@@ -307,35 +306,3 @@ See `_common/AUTORUN.md` for the protocol (`_AGENT_CONTEXT` input, mode semantic
 ## Nexus Hub Mode
 
 When input contains `## NEXUS_ROUTING`, do not call other agents directly — return all work via `## NEXUS_HANDOFF` (canonical schema in `_common/HANDOFF.md`).
-
-## Git Guidelines
-
-Follow `_common/GIT_GUIDELINES.md`: Conventional Commits, no agent names, under `50` characters, and imperative mood.
-<!-- LOCAL-QUALITY-SUPPLEMENT:START -->
-## Usage Notes
-
-This supplement is maintained by the repository sync pipeline. It keeps the
-imported upstream skill usable inside this curated collection when the upstream
-source is intentionally concise.
-
-## Common Patterns
-
-```text
-1. Confirm that the user's task matches the skill trigger.
-2. Read the relevant project files or user-provided context before acting.
-3. Choose the smallest reversible action that advances the task.
-4. Run the verification command or manual check that proves the result.
-5. Report the outcome, evidence, and any remaining risk.
-```
-
-## Boundaries
-
-- Prefer the upstream workflow for Triage; this section only adds local quality
-  guardrails.
-- Do not invent project facts when required files, vaults, services, or tools are
-  unavailable.
-- Stop and ask for clarification when the next action could overwrite user work,
-  expose private data, or change production state.
-- Treat skill selection as routing, not ceremony: invoke only the narrowest
-  applicable workflow and keep user or repository instructions authoritative.
-<!-- LOCAL-QUALITY-SUPPLEMENT:END -->

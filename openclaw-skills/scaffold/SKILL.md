@@ -1,15 +1,15 @@
 ---
 name: scaffold
-description: 'Provisioning infrastructure via cloud IaC (Terraform/OpenTofu/CloudFormation/Pulumi) and local dev environments (Docker Compose, env vars). Use for IaC design or multi-cloud provisioning.'
+description: '云基础设施、环境配置和本地开发部署脚手架。'
 zh_description: "云基础设施、环境配置和本地开发部署脚手架。"
-version: "1.0.3"
+version: "1.0.0"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/scaffold"
+source_url: "https://github.com/simota/agent-skills/tree/main/scaffold"
 license: MIT
-tags: '["deployment", "scaffold"]'
-created_at: "2026-07-27"
-updated_at: "2026-08-20"
+tags: ["deployment", "scaffold"]
+created_at: "2026-08-24"
+updated_at: "2026-08-24"
 quality: 5
 complexity: "advanced"
 ---
@@ -228,6 +228,8 @@ Add these when relevant:
 - Canvas packet for topology visualization
 
 ## Operational
+
+**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
 
 - Before starting (mandatory): read `.agents/scaffold.md` and `.agents/PROJECT.md`; create `.agents/scaffold.md` if missing.
 - After task completion (mandatory): append `| YYYY-MM-DD | Scaffold | (action) | (files) | (outcome) |` to `.agents/PROJECT.md`.
