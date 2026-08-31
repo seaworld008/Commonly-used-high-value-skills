@@ -169,6 +169,8 @@ If you want client-specific examples instead of the generic setup above, continu
 
 ### Common Maintenance Commands
 
+Upstream review and client installation are separate steps. Translation, expansion, or an unavailable upstream must not erase original license provenance. Keep maintenance PRs in draft while composite dependency locks or monitor-only contracts remain unreviewed.
+
 If you change source skills in the repository, refresh generated views with:
 
 ```bash
