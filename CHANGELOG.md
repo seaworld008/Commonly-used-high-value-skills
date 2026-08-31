@@ -5,6 +5,31 @@ All notable changes to this repository are documented here.
 
 ## [Unreleased]
 
+<!-- AUTO-CHANGELOG:START -->
+### 自动更新 / Automated updates
+
+变更范围 / Revision range: `v2.0.0..HEAD`.
+
+#### [2026-08-31]
+
+##### Fixed
+- preserve curated history during changelog refresh (#97)
+- complete quality-first skills maintenance (#95)
+
+#### [2026-08-24]
+
+##### Added
+- `lark-meeting` (knowledge-and-pm-integrations) — lark-meeting
+
+##### Changed
+- curate weekly skill updates (#94)
+
+#### [2026-08-20]
+
+##### Changed
+- remove retired migration compatibility (#92)
+<!-- AUTO-CHANGELOG:END -->
+
 ### Removed / 移除
 
 - 删除 `open-gsd-core-migration` 兼容技能以及旧 Hermes + Graphify + GSD 组合技能的 alias、tombstone 和 migration 路由；当前 portfolio 仅保留不可路由的名称 denylist，防止这些无用技能被自动重新引入。
