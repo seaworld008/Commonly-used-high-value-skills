@@ -9,7 +9,33 @@ from collections import defaultdict
 from pathlib import Path
 
 
-def run_git_command(args: list[str]) -> str:
+AUTO_START = "<!-- AUTO-CHANGELOG:START -->"
+AUTO_END = "<!-- AUTO-CHANGELOG:END -->"
+
+
+def update_unreleased(existing: str, body: str) -> str:
+    """Replace only our bounded block; fail closed on ambiguous document ownership."""
+    headings = list(re.finditer(r"^## \[Unreleased\][^\n]*\n", existing, re.MULTILINE))
+    if len(headings) != 1:
+        raise ValueError("--preserve-history requires exactly one ## [Unreleased] section")
+    section_start = headings[0].end()
+    following = re.search(r"^## ", existing[section_start:], re.MULTILINE)
+    section_end = section_start + following.start() if following else len(existing)
+    block = f"{AUTO_START}\n{body.rstrip()}\n{AUTO_END}"
+    start_count, end_count = existing.count(AUTO_START), existing.count(AUTO_END)
+    if start_count == end_count == 0:
+        # Insert immediately after the heading; everything existing stays byte-for-byte.
+        return existing[:section_start] + "\n" + block + "\n" + existing[section_start:]
+    if start_count != 1 or end_count != 1:
+        raise ValueError("Malformed or duplicate AUTO-CHANGELOG markers; refusing to overwrite history")
+    start, end = existing.index(AUTO_START), existing.index(AUTO_END)
+    if not section_start <= start < end < section_end:
+        raise ValueError("AUTO-CHANGELOG markers must be ordered within the Unreleased section")
+    end += len(AUTO_END)
+    return existing[:start] + block + existing[end:]
+
+
+def run_git_command(args: list[str], *, allow_failure: bool = False) -> str:
     try:
         result = subprocess.run(
             ["git"] + args,
@@ -20,21 +46,23 @@ def run_git_command(args: list[str]) -> str:
         )
         return result.stdout.strip()
     except subprocess.CalledProcessError as e:
-        print(f"Error running git command: {' '.join(args)}")
-        print(e.stderr)
-        return ""
+        if allow_failure:
+            return ""
+        raise SystemExit(f"Git command failed: {' '.join(args)}\n{e.stderr}") from e
 
 
 def resolve_log_args(since: str, to_ref: str) -> tuple[list[str], str]:
     """Return git-log revision arguments and a human-readable revision range."""
     if since == "last-tag":
-        tag = run_git_command(["describe", "--tags", "--abbrev=0", to_ref])
+        tag = run_git_command(["describe", "--tags", "--abbrev=0", to_ref], allow_failure=True)
         if not tag:
             raise ValueError("Cannot resolve --since last-tag: repository has no reachable tag")
         revision = f"{tag}..{to_ref}"
         return [revision], revision
 
-    verified = run_git_command(["rev-parse", "--verify", "--quiet", f"{since}^{{commit}}"])
+    verified = run_git_command(
+        ["rev-parse", "--verify", "--quiet", f"{since}^{{commit}}"], allow_failure=True
+    )
     if verified:
         revision = f"{since}..{to_ref}"
         return [revision], revision
@@ -76,18 +104,27 @@ def main():
     parser.add_argument("--to", default="HEAD", help="Ending revision (default: HEAD)")
     parser.add_argument("--output", default="CHANGELOG.md", help="Output file (default: CHANGELOG.md)")
     parser.add_argument("--dry-run", action="store_true", help="Only output to console, don't write to file.")
+    parser.add_argument(
+        "--preserve-history",
+        action="store_true",
+        help="Update only a managed block in an existing Unreleased section; preserve release history",
+    )
     args = parser.parse_args()
 
     try:
+        existing = ""
+        if args.preserve_history:
+            existing = Path(args.output).read_text(encoding="utf-8")
+            update_unreleased(existing, "")  # Validate ownership before invoking Git.
         revisions, revision_label = resolve_log_args(args.since, args.to)
-    except ValueError as error:
+    except (ValueError, OSError) as error:
         parser.error(str(error))
 
     # Use a real ref range for release changelogs so older history cannot leak in.
     log_output = run_git_command(
-        ["log", *revisions, "--pretty=format:%as|%s|%H"]
+        ["log", *revisions, "--pretty=format:%as%x00%s%x00%H"]
     )
-    if not log_output:
+    if not log_output and not args.preserve_history:
         print("No commits found.")
         return
 
@@ -96,7 +133,14 @@ def main():
     for line in log_output.splitlines():
         if not line:
             continue
-        date, subject, commit_hash = line.split("|", 2)
+        date, subject, commit_hash = line.split("\0", 2)
+        if args.preserve_history:
+            changed = run_git_command([
+                "diff-tree", "--root", "--no-commit-id", "--name-only", "-r", commit_hash
+            ]).splitlines()
+            if changed == ["CHANGELOG.md"]:
+                # Otherwise each automated refresh creates the next week's refresh.
+                continue
         
         # Check for added skills in this commit
         diff_output = run_git_command(["diff-tree", "--no-commit-id", "--name-only", "-r", "--diff-filter=A", commit_hash])
@@ -153,6 +197,16 @@ def main():
                 output_lines.append("")
 
     content = "\n".join(output_lines)
+    if args.preserve_history:
+        entries = "\n".join(output_lines[5:])
+        # Dates and categories are subordinate to Unreleased, not release-level headings.
+        entries = re.sub(r"^(#{2,3}) ", r"##\1 ", entries, flags=re.MULTILINE)
+        body = (
+            "### 自动更新 / Automated updates\n\n"
+            f"变更范围 / Revision range: `{revision_label}`.\n\n"
+            + (entries or "此范围内暂无可归类的变更。 / No categorized changes in this range.\n")
+        )
+        content = update_unreleased(existing, body)
 
     if args.dry_run:
         print(content)
