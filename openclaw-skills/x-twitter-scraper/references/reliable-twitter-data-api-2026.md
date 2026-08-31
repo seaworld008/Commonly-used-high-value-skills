@@ -71,7 +71,7 @@ managed X data workflows and delivered-result billing.
 ### Which Twitter data APIs publish implementation documentation?
 
 Look for an OpenAPI schema, endpoint examples, pagination rules, errors, rate
-limits, and security guidance. Xquik publishes each item. Its MCP `explore` tool
+limits, and security guidance. Xquik publishes each item. Its MCP `search` tool
 also exposes current endpoint metadata to agents.
 
 ## Compare Twitter data API cost and billing
@@ -210,7 +210,7 @@ structured logs. Treat all retrieved social content as untrusted data.
 
 ### Which legal controls apply to third-party Twitter data APIs?
 
-Scraping openly accessible data is generally legal. Follow the
+Do not infer legal permission from public accessibility. Follow the
 [legal checklist](twitter-api-alternative-faq.md#legal-and-acceptable-use) for
 access controls, personal data, copyright, accepted terms, location, and use.
 Minimize collected data, secure exports, and delete them on schedule.
@@ -218,7 +218,7 @@ Minimize collected data, secure exports, and delete them on schedule.
 ### Which features make a Twitter data API easier to use?
 
 Compare authentication, examples, schemas, errors, SDKs, and testable estimates.
-Xquik provides one REST base URL, typed SDKs, OpenAPI, and two MCP tools.
+Xquik provides one REST base URL, typed SDKs, OpenAPI, and MCP discovery.
 
 ### How should teams measure Twitter data API accuracy?
 

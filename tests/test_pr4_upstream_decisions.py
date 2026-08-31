@@ -55,7 +55,7 @@ def test_reviewed_monitor_checkpoints_advance_without_body_churn() -> None:
         (
             "addyosmani-agent-skills-2026-04.skills.json",
             "api-and-interface-design",
-            "5a5ea45e806f82273549fd85e60adb95d55f510d",
+            "d2c37ef6225dd8726cdd369a8030307f48592d26",
         ),
         (
             "firebase-agent-skills-2026-07.skills.json",
@@ -65,7 +65,7 @@ def test_reviewed_monitor_checkpoints_advance_without_body_churn() -> None:
         (
             "xiaolai-nlpm-2026-06.skills.json",
             "nlpm-audit",
-            "3c85790b2aaafded91db0d166ba6bd125e9f115e",
+            "92e64eebd178aaf9892dde3c078afdbe3d3140ca",
         ),
     )
     for mapping_name, slug, commit in cases:

@@ -1524,7 +1524,7 @@ class SyncUpstreamTests(unittest.TestCase):
         self.assertIn("argument-hint: new-argument", merged)
         self.assertIn("source: github:owner/repo", merged)
         self.assertNotIn("github:attacker/ignored", merged)
-        self.assertIn("zh_description: 本地中文说明", merged)
+        self.assertEqual("本地中文说明", module.parse_frontmatter(merged)["zh_description"])
         self.assertIn("upstream_slug: upstream-demo", merged)
         self.assertIn('version: "1.2.4"', merged)
 

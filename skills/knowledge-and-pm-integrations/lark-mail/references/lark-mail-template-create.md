@@ -50,10 +50,10 @@ lark-cli mail +template-create --as user \
 | `--template-content <html>` | 否* | 模板正文。HTML 首选；支持 `<img src="./local.png" />` 相对路径自动上传到 Drive 并改写为 `cid:` |
 | `--template-content-file <path>` | 否* | 从文件加载正文内容；与 `--template-content` 互斥 |
 | `--plain-text` | 否 | 标记为纯文本模式（`is_plain_text_mode=true`）。仍可带内嵌图片，但 `+send --template-id` 套用时会走 plain-text 正文拼接 |
-| `--to <emails>` | 否 | 默认收件人列表，逗号分隔，支持 `Name <email>` 格式 |
+| `--to <emails>` | 否 | 默认收件人列表，多项重复传 `--to`，每次一个值，支持 `Name <email>` 格式 |
 | `--cc <emails>` | 否 | 默认抄送 |
 | `--bcc <emails>` | 否 | 默认密送 |
-| `--attach <paths>` | 否 | 非 inline 附件路径，逗号分隔。每个文件按 `--attach` 书写顺序上传到 Drive |
+| `--attach <paths>` | 否 | 非 inline 附件路径，多项重复传 `--attach`，每次一个值。每个文件按 `--attach` 书写顺序上传到 Drive |
 | `--mailbox <email>` | 否 | 所属邮箱，默认 `me`（当前用户主邮箱） |
 | `--dry-run` | 否 | 仅打印计划中的 API 调用链，不真实执行 |
 

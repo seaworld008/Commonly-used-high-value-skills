@@ -379,6 +379,34 @@ def _requested_sync_mode(item: dict[str, Any], kind: str) -> str:
     return infer_sync_mode(item, kind)
 
 
+def is_archived_sidecar(origin: object, repo_skill: object, kind: str) -> bool:
+    """A narrowly scoped licensed historical file set, never sync authority."""
+    if not isinstance(origin, dict) or kind not in {"mirror", "overlay"}:
+        return False
+    tracking = origin.get("tracking")
+    artifacts = origin.get("artifacts")
+    return bool(
+        safe_relative_path(repo_skill)
+        and not is_local_repo(origin.get("repo"))
+        and origin.get("sync_mode") == "archived"
+        and isinstance(tracking, dict)
+        and tracking.get("channel") == "fixed_ref"
+        and isinstance(tracking.get("ref"), str)
+        and COMMIT_RE.fullmatch(tracking["ref"])
+        and tracking["ref"] == tracking.get("resolved_commit")
+        and isinstance(artifacts, list)
+        and artifacts
+        and all(
+            isinstance(artifact, dict)
+            and artifact.get("type", "file") == "file"
+            and safe_relative_path(artifact.get("source"))
+            and safe_relative_path(artifact.get("target"))
+            and artifact["target"] != repo_skill
+            for artifact in artifacts
+        )
+    )
+
+
 def _normalize_entry_sync_modes(item: dict[str, Any], kind: str) -> None:
     """Normalize entry modes while preserving mixed local-overlay semantics."""
     requested = _requested_sync_mode(item, kind)
@@ -399,6 +427,11 @@ def _normalize_entry_sync_modes(item: dict[str, Any], kind: str) -> None:
             )
             if origin.get("repo") == LOCAL_CURATION_REPO:
                 proposal = "local-only"
+            elif is_archived_sidecar(origin, item.get("repo_skill"), kind):
+                # Preserve licensed, immutable auxiliary history separately
+                # from the active canonical origin. Digest refresh must not
+                # resurrect archived sidecars as a second monitor authority.
+                proposal = "archived"
             proposals.append(proposal)
             origin_proposals.append((origin, proposal))
 

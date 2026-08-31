@@ -106,9 +106,20 @@ await env.AI.run('@cf/baai/bge-base-en-v1.5', { text: 'Hello' });  // ✅
 ## Vercel AI SDK Integration
 
 ```typescript
-import { openai } from '@ai-sdk/openai';
-const model = openai('gpt-3.5-turbo', {
-  baseURL: 'https://api.cloudflare.com/client/v4/accounts/<ACCOUNT_ID>/ai/v1',
-  headers: { Authorization: 'Bearer <API_TOKEN>' }
+import { createOpenAI } from '@ai-sdk/openai';
+// Server-side only. Select an available Workers AI model from the live catalog.
+const { CLOUDFLARE_ACCOUNT_ID, CLOUDFLARE_API_TOKEN, WORKERS_AI_MODEL } = process.env;
+if (!CLOUDFLARE_ACCOUNT_ID || !CLOUDFLARE_API_TOKEN || !WORKERS_AI_MODEL) {
+  throw new Error('Configure the account, secret token, and supported model');
+}
+const workersAI = createOpenAI({
+  baseURL: `https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}/ai/v1`,
+  apiKey: CLOUDFLARE_API_TOKEN,
 });
+// Explicitly use Chat Completions; the SDK's default may target Responses.
+const model = workersAI.chat(WORKERS_AI_MODEL);
 ```
+
+Provider options belong to `createOpenAI`, not the model factory. See the
+[provider configuration](https://ai-sdk.dev/providers/ai-sdk-providers/openai)
+and verify the chosen model in the current Workers AI catalog.

@@ -430,6 +430,12 @@ def skill_advisory_lock(
     closed without mutating repository state when a journal is present.
     """
     resolved_root = Path(repo_root).resolve(strict=True)
+    pending_batch = resolved_root / ".hvs-transactions" / "pending"
+    if recover_pending and os.path.lexists(pending_batch):
+        raise ArtifactRecoveryError(
+            "recover the repository durable mapping batch before artifact sync",
+            recovery_paths=(pending_batch,),
+        )
     lock = _SkillLock(skill_lock_path(resolved_root, skill_root))
     lock.acquire(timeout)
     try:
@@ -2683,6 +2689,15 @@ class ArtifactTransaction:
 def _validate_plan_for_apply(plan: SyncPlan) -> None:
     if not isinstance(plan, SyncPlan):
         raise ArtifactValidationError("plan must be a SyncPlan")
+    # A coordinated mapping batch may still be mixed after a hard exit.
+    # Its recovery must finish before the artifact authority is consulted.
+    # Fail closed for direct engine callers; sync_upstream recovers this first.
+    pending_batch = plan.repo_root / ".hvs-transactions" / "pending"
+    if pending_batch.exists() or pending_batch.is_symlink():
+        raise ArtifactRecoveryError(
+            "recover the repository durable mapping batch before artifact sync",
+            recovery_paths=(pending_batch,),
+        )
     if plan.blocked:
         raise OwnershipConflictError(
             user_modified=plan.user_modified,
@@ -2715,6 +2730,7 @@ def prepare_artifact_set_sync(
     *,
     fault_injector: FaultInjector | None = None,
     lock_timeout: float = 0.0,
+    _held_lock: _SkillLock | None = None,
 ) -> ArtifactTransaction:
     """Install the new tree while retaining rollback state for mapping commit.
 
@@ -2723,8 +2739,18 @@ def prepare_artifact_set_sync(
     """
     if not isinstance(plan, SyncPlan):
         raise ArtifactValidationError("plan must be a SyncPlan")
-    lock = _SkillLock(skill_lock_path(plan.repo_root, plan.skill_root))
-    lock.acquire(lock_timeout)
+    expected_lock_path = skill_lock_path(plan.repo_root, plan.skill_root)
+    if _held_lock is not None:
+        if (
+            not isinstance(_held_lock, _SkillLock)
+            or _held_lock.path != expected_lock_path
+            or _held_lock._fd is None
+        ):
+            raise ArtifactValidationError("invalid coordinator-held skill lock")
+        lock = _held_lock
+    else:
+        lock = _SkillLock(expected_lock_path)
+        lock.acquire(lock_timeout)
     stage_container: Path | None = None
     backup_container: Path | None = None
     stage_skill: Path | None = None

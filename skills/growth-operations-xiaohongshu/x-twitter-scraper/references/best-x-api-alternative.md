@@ -23,7 +23,7 @@ webhook verification, and delivered-result cost.
 | Requirement | Evidence in Xquik |
 | --- | --- |
 | Machine-readable contract | OpenAPI schema and typed SDKs |
-| Agent discovery | MCP `explore` endpoint metadata |
+| Agent discovery | MCP `search` endpoint metadata |
 | Bounded reads | Direct routes, batch routes, limits, and opaque cursors |
 | Bulk datasets | Estimates, 23 extraction types, job states, and exports |
 | Ongoing detection | Account monitors, keyword monitors, events, and webhooks |
@@ -40,7 +40,7 @@ limits into a long-lived integration decision.
 
 Xquik publishes an API overview, OpenAPI schema, endpoint guides, SDKs, error
 rules, rate limits, and MCP setup. Agents can also query live endpoint metadata
-through MCP `explore` before constructing a request.
+through MCP `search` before constructing a request.
 
 ### How does Xquik scale Twitter data collection?
 
@@ -159,7 +159,8 @@ required. Then compare current API pricing with the same delivered result set.
 
 ## Check privacy and compliance before bulk work
 
-Scraping openly accessible data is generally legal. Method and use still matter.
+Public accessibility does not establish legal permission. Verify method and use
+against the relevant jurisdiction, data rights, and current platform terms.
 Read the [legal checklist](twitter-api-alternative-faq.md#legal-and-acceptable-use).
 
 Before any bulk export or persistent monitor:

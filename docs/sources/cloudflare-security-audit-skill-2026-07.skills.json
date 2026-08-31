@@ -2,7 +2,7 @@
   "schema_version": 2,
   "video": {
     "url": "https://github.com/cloudflare/security-audit-skill",
-    "checked_at": "2026-08-20",
+    "checked_at": "2026-08-31",
     "note": "Cloudflare security audit skill imported with companion methodology files under MIT."
   },
   "official_references": [
@@ -34,8 +34,8 @@
         "repo": "cloudflare/security-audit-skill",
         "path": "skills/security-audit/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-20",
-        "last_synced_at": "2026-08-20",
+        "last_checked_at": "2026-08-31",
+        "last_synced_at": "2026-08-31",
         "last_synced_commit": "8bac42001ddd90a4dcd8d5a5045199283a8eba75",
         "sync_mode": "monitor",
         "path_commit": "c1239b903704f5ea063b6dc0de3ba905f4cca3e4"
@@ -110,8 +110,8 @@
             "resolved_commit": "8bac42001ddd90a4dcd8d5a5045199283a8eba75",
             "path_commit": "c1239b903704f5ea063b6dc0de3ba905f4cca3e4",
             "content_sha256": "f534330a3098552529d9d8a4d3edde15bd7545db42b4af955b469d72592e8710",
-            "last_checked_at": "2026-08-20",
-            "last_synced_at": "2026-08-20",
+            "last_checked_at": "2026-08-31",
+            "last_synced_at": "2026-08-31",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "6dbc9ecb3a5b9080e95b962869e8c7ab16cfdc20",
@@ -207,6 +207,13 @@
       "target": "skills/security-and-reliability/security-audit/SKILL.md",
       "result": "success",
       "evidence": "Verified complete frontmatter, 50+ line content, companion methodology files, fenced command example, and security-and-reliability category placement."
+    },
+    {
+      "date": "2026-08-31",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "cloudflare/security-audit-skill@8bac42001ddd90a4dcd8d5a5045199283a8eba75",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
     }
   ]
 }

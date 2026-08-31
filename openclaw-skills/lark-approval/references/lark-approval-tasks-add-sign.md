@@ -8,6 +8,17 @@
 
 需要的 scopes: ["approval:task:write"]
 
+## 加签与转交的顺序约束
+
+- 前加签 `1`、后加签 `2` 可能使当前任务流转；不要假设旧 `task_id`
+  仍可用于后续转交。
+- 同一请求明确要求“共同审核后转交当前环节”时，使用并加签 `3`，
+  不传 `approval_method`；仅在加签成功、当前任务仍可操作时执行转交。
+- 授权必须覆盖准确的 `instance_code`、`task_id`、加签人、受让人和方式。
+  一次明确授权可以覆盖已列明的两个动作，但“立即执行”不能扩大目标范围。
+- 多人前/后加签必须明确或签、会签或依次审批；依次审批保留用户给定顺序。
+- 任一步结果不确定时先查询任务状态，不重放已经成功的动作。
+
 ## 命令
 
 ```bash
@@ -32,7 +43,7 @@ lark-cli approval tasks add_sign \
   --as user \
   --yes
 
-# 并加签（常见场景可不传 approval_method）
+# 并加签（不传 approval_method）
 lark-cli approval tasks add_sign \
   --data '{"instance_code":"<INSTANCE_CODE>","task_id":"<TASK_ID>","add_sign_type":3,"add_sign_user_ids":["123456789"],"comment":"并加签给项目 owner"}' \
   --params '{"user_id_type":"user_id"}' \

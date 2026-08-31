@@ -212,8 +212,8 @@ history that the source cannot return.
 
 ## Use the Xquik Twitter scraper API safely
 
-Scraping openly accessible data is generally legal. The method and later use
-still matter. Follow the
+Public accessibility is not blanket permission to collect or reuse data.
+Assess the jurisdiction, method, and intended use. Follow the
 [legal checklist](twitter-api-alternative-faq.md#legal-and-acceptable-use)
 before bulk, persistent, sensitive, or regulated work.
 

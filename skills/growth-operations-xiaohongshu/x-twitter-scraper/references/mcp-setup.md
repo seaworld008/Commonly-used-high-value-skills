@@ -15,11 +15,12 @@ An API key grants its documented access until revoked.
 | Protocol | Streamable HTTP |
 | Endpoint | `https://xquik.com/mcp` |
 | Authentication | OAuth 2.1 discovery; API key fallback |
-| Hosted MCP version | `2.6.0` |
-| Skill bundle version | `2.6.7` |
+| Default tools | `docs`, `search`, `execute` |
+| Optional native mode | `https://xquik.com/mcp?codemode=false` |
 
-Hosted MCP v2.6.0 catalogs 120 operations. It exposes 120 catalog routes
-through 2 structured API tools. Of these, 119 support JSON or text.
+Read the deployed catalog under the current credential. Versions, route
+counts, protocol negotiation, and per-client UI may change; use the linked
+official compatibility matrix before modifying client configuration.
 
 Current clients negotiate MCP `2026-07-28` through `server/discover`.
 Use a current MCP SDK. It adds request `_meta` and protocol headers.
@@ -262,27 +263,28 @@ above.
 Client schemas and environment syntax differ, so do not copy one header
 object between clients or place a literal key in a configuration file.
 
-Full account keys expose 120 catalog routes. Of these, 119 support JSON or text.
-Active guest `paid_reads` keys expose 33 eligible GET routes.
+Full account and guest keys have different scopes. Discover the catalog for
+the actual credential; never assume that discovery authorizes a write.
 
 ## MCP server architecture
 
-Hosted MCP v2.6.0 exposes 120 catalog routes through 2 structured API tools.
-Of these, 119 support JSON or text. Binary support downloads use REST.
+Code Mode exposes documentation, schema discovery, and request execution.
+Native mode exposes operation-named tools for clients that cannot use Code Mode.
+Binary support downloads use the documented REST path.
 
 | Tool | Description | Usage |
 |------|-------------|------|
-| `explore` | Search the API endpoint catalog (read-only, no network calls) | Included |
-| `xquik` | Send confirmed Xquik API requests | Varies by endpoint |
+| `docs` | Read provider documentation | Read-only |
+| `search` | Inspect `spec.paths` | No endpoint call |
+| `execute` | Send confirmed requests through `xquik.request()` | Varies by endpoint |
 
-`explore` searches the credential-scoped catalog. `xquik` sends authenticated
-operations and returns the selected REST response object. Original field names
-remain unchanged, including `safeToRetry`, `allowed`, `monitorId`, and
-`nextCursor`. Authentication is injected, so tool code must never include
-credentials.
+MCP returns normalized v1 responses, with snake_case fields and Unix seconds.
+Use `safe_to_retry`, `has_more`, and `next_cursor`; default REST `createdAt`
+becomes `created`. Read [field naming](types-rest-api-vs-mcp-field-naming.md).
+Authentication is injected, so tool code must never include credentials.
 
-Hosted MCP v2.6.0 catalogs 120 of 128 documented REST operations. These 8 credential,
-checkout, or guest-wallet operations remain direct REST or dashboard workflows:
+Credential, checkout, and guest-wallet management are separate dashboard
+workflows and are outside this skill:
 
 - API key creation, listing, and revocation
 - Saved-payment top-up
@@ -298,16 +300,16 @@ dashboard-only.
 
 ## After setup
 
-This Skill stops at setup and request planning. It never invokes `explore` or
-`xquik`. The user runs calls through their chosen MCP client.
+This skill stops at setup and request planning. The user runs confirmed calls
+through their chosen MCP client, subject to that client's tool permissions.
 
-For an unfamiliar operation, plan an `explore` lookup first. Then show the
-narrowest `xquik` request. Require confirmation when the request is private,
+For an unfamiliar operation, plan a `search` lookup first. Then show the
+narrowest `execute` request. Require confirmation when the request is private,
 metered, persistent, or state-changing.
 
 | Workflow plan | User-run steps |
 |---------------|----------------|
-| Search X posts | Run `explore` for the route. Then run a bounded `xquik` read. |
+| Search X posts | Run `search` for the route. Then run a bounded `execute` read. |
 | Set up alerts | Confirm target and usage. Then create the monitor and webhook. |
 | Run a giveaway | Confirm the source, rules, and winner count. Then create the draw. |
 | Bulk extraction | Run the estimate. Confirm the bound. Then create and poll the job. |

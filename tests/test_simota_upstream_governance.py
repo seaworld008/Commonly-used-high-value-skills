@@ -12,10 +12,10 @@ MAPPING = (
     / "sources"
     / "simota-agent-skills-2026-04.skills.json"
 )
-CURRENT_COMMIT = "6257e7398c65f24859710bfad8f8b96feab6cab6"
+CURRENT_COMMIT = "0b594f3ff4bf53639f60832a943d90a5109ddf85"
 WEEKLY_REVIEW_COMMIT = "0b594f3ff4bf53639f60832a943d90a5109ddf85"
-# Only successful exact-commit reviews advance. Network-failed entries retain
-# their prior checkpoint rather than inheriting another skill's freshness.
+# The complete retry succeeded for every active monitor entry; archived
+# snapshots below retain their immutable historical checkpoints.
 WEEKLY_REVIEWED = {
     "pulse", "stage", "lore", "tome", "grove", "voice", "trace", "breach",
     "cloak", "scaffold", "cast", "omen", "lens", "scout", "ripple",

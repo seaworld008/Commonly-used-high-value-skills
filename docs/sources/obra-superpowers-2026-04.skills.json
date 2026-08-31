@@ -2,7 +2,7 @@
   "schema_version": 2,
   "video": {
     "url": "https://github.com/obra/superpowers",
-    "checked_at": "2026-08-20",
+    "checked_at": "2026-08-31",
     "note": "Curated from obra/superpowers after validating current upstream paths and recent popularity/discovery signals."
   },
   "official_references": [
@@ -49,8 +49,8 @@
         "repo": "obra/superpowers",
         "path": "skills/dispatching-parallel-agents/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-20",
-        "last_synced_at": "2026-08-20",
+        "last_checked_at": "2026-08-31",
+        "last_synced_at": "2026-08-31",
         "last_synced_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
         "sync_mode": "monitor",
         "path_commit": "6dbbbda3baeff8407f3dddb0cc9e8a9495a273bc"
@@ -75,8 +75,8 @@
             "resolved_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
             "path_commit": "6dbbbda3baeff8407f3dddb0cc9e8a9495a273bc",
             "content_sha256": "ba747816da03a5359702ae2ea8973446ca97ef24d6b2ba8b1a362953309cf64c",
-            "last_checked_at": "2026-08-20",
-            "last_synced_at": "2026-08-20",
+            "last_checked_at": "2026-08-31",
+            "last_synced_at": "2026-08-31",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "abf0390320aa14406af7a520b9b0739fdda9bf08",
@@ -108,8 +108,8 @@
         "repo": "obra/superpowers",
         "path": "skills/executing-plans/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-20",
-        "last_synced_at": "2026-08-20",
+        "last_checked_at": "2026-08-31",
+        "last_synced_at": "2026-08-31",
         "last_synced_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
         "sync_mode": "monitor",
         "path_commit": "09fc6e0f3be2a3d74e95c6058408a76972e4571b"
@@ -134,8 +134,8 @@
             "resolved_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
             "path_commit": "09fc6e0f3be2a3d74e95c6058408a76972e4571b",
             "content_sha256": "d6d75cbfe7f1b1c750681fd38947f51ba32fa313e65cc2c6b142d898c0f5e3f4",
-            "last_checked_at": "2026-08-20",
-            "last_synced_at": "2026-08-20",
+            "last_checked_at": "2026-08-31",
+            "last_synced_at": "2026-08-31",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "abf0390320aa14406af7a520b9b0739fdda9bf08",
@@ -167,8 +167,8 @@
         "repo": "obra/superpowers",
         "path": "skills/finishing-a-development-branch/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-20",
-        "last_synced_at": "2026-08-20",
+        "last_checked_at": "2026-08-31",
+        "last_synced_at": "2026-08-31",
         "last_synced_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
         "sync_mode": "monitor",
         "path_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797"
@@ -193,8 +193,8 @@
             "resolved_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
             "path_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
             "content_sha256": "535c9ada1f4dfcf344c60a81727178b2438061e1c7ccdca8f8fb5566612f6473",
-            "last_checked_at": "2026-08-20",
-            "last_synced_at": "2026-08-20",
+            "last_checked_at": "2026-08-31",
+            "last_synced_at": "2026-08-31",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "abf0390320aa14406af7a520b9b0739fdda9bf08",
@@ -226,8 +226,8 @@
         "repo": "obra/superpowers",
         "path": "skills/receiving-code-review/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-20",
-        "last_synced_at": "2026-08-20",
+        "last_checked_at": "2026-08-31",
+        "last_synced_at": "2026-08-31",
         "last_synced_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
         "sync_mode": "monitor",
         "path_commit": "3fb75974186ea7fada621d8ab77b3b02169baf57"
@@ -252,8 +252,8 @@
             "resolved_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
             "path_commit": "3fb75974186ea7fada621d8ab77b3b02169baf57",
             "content_sha256": "d00f1dfa10f0fd71d87589b18d70b1d74d9272f5fb7728e605d9e424ebf9604d",
-            "last_checked_at": "2026-08-20",
-            "last_synced_at": "2026-08-20",
+            "last_checked_at": "2026-08-31",
+            "last_synced_at": "2026-08-31",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "abf0390320aa14406af7a520b9b0739fdda9bf08",
@@ -285,8 +285,8 @@
         "repo": "obra/superpowers",
         "path": "skills/requesting-code-review/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-20",
-        "last_synced_at": "2026-08-20",
+        "last_checked_at": "2026-08-31",
+        "last_synced_at": "2026-08-31",
         "last_synced_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
         "sync_mode": "monitor",
         "path_commit": "cfb6281371ef2d2b7937b22eb475a11a9644ff87"
@@ -311,8 +311,8 @@
             "resolved_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
             "path_commit": "cfb6281371ef2d2b7937b22eb475a11a9644ff87",
             "content_sha256": "af7127c0378b04a913864597032121a1d1bdc9780b90a7ba97e176cf6a01e1ee",
-            "last_checked_at": "2026-08-20",
-            "last_synced_at": "2026-08-20",
+            "last_checked_at": "2026-08-31",
+            "last_synced_at": "2026-08-31",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "abf0390320aa14406af7a520b9b0739fdda9bf08",
@@ -372,10 +372,11 @@
         "repo": "obra/superpowers",
         "path": "skills/subagent-driven-development/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-18",
-        "last_synced_at": "2026-08-18",
+        "last_checked_at": "2026-08-31",
+        "last_synced_at": "2026-08-31",
         "last_synced_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
-        "sync_mode": "monitor"
+        "sync_mode": "monitor",
+        "path_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -412,8 +413,16 @@
             "resolved_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
             "path_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
             "content_sha256": "f9a8d5a6d098835c14f65fcd0cda793f552c3c9d7617af9735b4b8dc8674d2f9",
-            "last_checked_at": "2026-08-18",
-            "last_synced_at": "2026-08-18"
+            "last_checked_at": "2026-08-31",
+            "last_synced_at": "2026-08-31",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "abf0390320aa14406af7a520b9b0739fdda9bf08",
+              "content_sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
+              "spdx": "MIT",
+              "resolved_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
+              "api_spdx": "MIT"
+            }
           }
         },
         {
@@ -494,10 +503,11 @@
         "repo": "obra/superpowers",
         "path": "skills/systematic-debugging/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-18",
-        "last_synced_at": "2026-08-18",
+        "last_checked_at": "2026-08-31",
+        "last_synced_at": "2026-08-31",
         "last_synced_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
-        "sync_mode": "monitor"
+        "sync_mode": "monitor",
+        "path_commit": "c74782ead66b8ded584d9b9cf64dcba95457f320"
       },
       "kind": "mirror",
       "sync_mode": "monitor",
@@ -569,8 +579,16 @@
             "resolved_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
             "path_commit": "c74782ead66b8ded584d9b9cf64dcba95457f320",
             "content_sha256": "c73517217753ebc7697fe030a025a6050c538554b086cf19b0b77b2047dbd49d",
-            "last_checked_at": "2026-08-18",
-            "last_synced_at": "2026-08-18"
+            "last_checked_at": "2026-08-31",
+            "last_synced_at": "2026-08-31",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "abf0390320aa14406af7a520b9b0739fdda9bf08",
+              "content_sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
+              "spdx": "MIT",
+              "resolved_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
+              "api_spdx": "MIT"
+            }
           }
         }
       ],
@@ -654,8 +672,8 @@
         "repo": "obra/superpowers",
         "path": "skills/using-git-worktrees/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-20",
-        "last_synced_at": "2026-08-20",
+        "last_checked_at": "2026-08-31",
+        "last_synced_at": "2026-08-31",
         "last_synced_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
         "sync_mode": "monitor",
         "path_commit": "bc868020bbcec32bbaf9d6b51fa0538dba0b487f"
@@ -680,8 +698,8 @@
             "resolved_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
             "path_commit": "bc868020bbcec32bbaf9d6b51fa0538dba0b487f",
             "content_sha256": "43fdcea94699a232d7374215cf1e3a51279cd24b5d1440ccdf1d1c0b353af18e",
-            "last_checked_at": "2026-08-20",
-            "last_synced_at": "2026-08-20",
+            "last_checked_at": "2026-08-31",
+            "last_synced_at": "2026-08-31",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "abf0390320aa14406af7a520b9b0739fdda9bf08",
@@ -713,8 +731,8 @@
         "repo": "obra/superpowers",
         "path": "skills/using-superpowers/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-20",
-        "last_synced_at": "2026-08-20",
+        "last_checked_at": "2026-08-31",
+        "last_synced_at": "2026-08-31",
         "last_synced_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
         "sync_mode": "monitor",
         "path_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797"
@@ -745,8 +763,8 @@
             "resolved_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
             "path_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
             "content_sha256": "646434d7069e36d6dec72d93a52ff3295d14c98fae8dfc2133758a8500af13ef",
-            "last_checked_at": "2026-08-20",
-            "last_synced_at": "2026-08-20",
+            "last_checked_at": "2026-08-31",
+            "last_synced_at": "2026-08-31",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "abf0390320aa14406af7a520b9b0739fdda9bf08",
@@ -808,8 +826,8 @@
         "repo": "obra/superpowers",
         "path": "skills/verification-before-completion/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-20",
-        "last_synced_at": "2026-08-20",
+        "last_checked_at": "2026-08-31",
+        "last_synced_at": "2026-08-31",
         "last_synced_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
         "sync_mode": "monitor",
         "path_commit": "3be5aad3dd2400ef23b15680969f4bcd3b6d7b8b"
@@ -834,8 +852,8 @@
             "resolved_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
             "path_commit": "3be5aad3dd2400ef23b15680969f4bcd3b6d7b8b",
             "content_sha256": "7a01a9dec974a1329c87037660e95478d0a9e9237121d31919619d885be9cf12",
-            "last_checked_at": "2026-08-20",
-            "last_synced_at": "2026-08-20",
+            "last_checked_at": "2026-08-31",
+            "last_synced_at": "2026-08-31",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "abf0390320aa14406af7a520b9b0739fdda9bf08",
@@ -867,8 +885,8 @@
         "repo": "obra/superpowers",
         "path": "skills/writing-skills/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-20",
-        "last_synced_at": "2026-08-20",
+        "last_checked_at": "2026-08-31",
+        "last_synced_at": "2026-08-31",
         "last_synced_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
         "sync_mode": "monitor",
         "path_commit": "d238a48f5d6b8f51f822fea17d646cfe177747ee"
@@ -913,8 +931,8 @@
             "resolved_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
             "path_commit": "d238a48f5d6b8f51f822fea17d646cfe177747ee",
             "content_sha256": "fbfc6dbe38412b1cf270675f89228930b70f6057e1d482b76497bc04bb33f159",
-            "last_checked_at": "2026-08-20",
-            "last_synced_at": "2026-08-20",
+            "last_checked_at": "2026-08-31",
+            "last_synced_at": "2026-08-31",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "abf0390320aa14406af7a520b9b0739fdda9bf08",
@@ -1020,6 +1038,13 @@
       "target": "https://github.com/obra/superpowers/compare/8b1669269c51835168c98fd435a7af1e5f15ec12...b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
       "result": "partial-artifact-absorb",
       "evidence": "Reviewed the mapped Superpowers set. Canonical bodies were already semantically equal; absorbed the current writing-skills renderer and the complete using-superpowers reference set, including removal of retired copilot-tools.md."
+    },
+    {
+      "date": "2026-08-31",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "obra/superpowers@b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
     }
   ]
 }

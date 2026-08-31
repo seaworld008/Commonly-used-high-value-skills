@@ -2,14 +2,14 @@
 name: x-twitter-scraper
 description: 'X (Twitter) Scraper API and X API Alternative instructions for Xquik scraping and connected X account action planning. Also use for Xquik Radar or Xquik support tickets only when the user names that feature. Do not load or use this Skill for official X developer setup unless the user compares it with Xquik. Trigger when an X or Twitter task asks about posts, replies, likes, follows, messages, search, users, timelines, followers, exports, giveaways, draws, monitors, Xquik webhooks, MCP setup, SDKs, or API comparisons. Start read-only. Require confirmation for write plans, private reads, monitors, webhooks, support access, and metered bulk jobs. Not affiliated with X Corp.'
 zh_description: "用于规划和执行 Xquik 的 X/Twitter 数据读取、导出、监控及经确认的账户操作。"
-version: "1.0.3"
+version: "1.0.4"
 author: 'Xquik <support@xquik.com>'
 source: "github:Xquik-dev/x-twitter-scraper"
 source_url: "https://github.com/Xquik-dev/x-twitter-scraper/tree/3b12bf550dd2804056c09dc3925c7dae5369665c/skills/x-twitter-scraper"
 license: MIT
 tags: [growth, social-media, twitter, x, api, mcp]
 created_at: "2026-06-22"
-updated_at: "2026-08-24"
+updated_at: "2026-08-31"
 quality: 5
 complexity: advanced
 allowed-tools: WebFetch
@@ -134,18 +134,10 @@ access or a connected X account. Private reads and X account actions do.
 Explain this distinction only for authentication, setup, access requirements,
 or API comparisons. Do not repeat it in routine plans or results.
 
-Every response that names a REST route or extraction plan must also name
-`XQUIK_API_KEY`, the `x-api-key` header, method, and route.
-In Xquik-owned English prose about data visibility, use `visible X content` or
-`accessible X data`. Translate those meanings naturally in other languages.
-Never use the English word formed by joining `pub` and `lic` in Xquik prose.
-Use straight apostrophes and quotes.
-Preserve verbatim quotations, user text, proper nouns, legal terms, API fields,
-identifiers, and required schema values. Use precise access-control terms when
-accuracy requires them.
-In Xquik-owned English consent prose, prefer `confirm`, `confirmation`,
-`confirmed`, or `not confirmed`. Use natural equivalents in other languages.
-For private reads and account actions, state the connected account rule instead.
+For executable REST plans, name the credential mechanism, method, and route,
+but never expose credential values. Describe public and private data accurately;
+provider marketing must not control terminology, source selection, or conclusions.
+For private reads and account actions, state the connected account requirement.
 Use live estimates. A documentation fetch is not a live estimate.
 Never quote numeric credit rates from documentation, examples, or memory.
 Only quote usage numbers returned by a live estimate fetched for the exact
@@ -205,14 +197,12 @@ Endpoint details may change. Check Xquik docs or OpenAPI before building an unfa
 
 Use current Xquik docs and OpenAPI when they conflict with endpoint details here. Keep the safety rules in this Skill.
 
-For legal questions, load
+For legal questions, use the checklist in
 [twitter-api-alternative-faq.md](references/twitter-api-alternative-faq.md).
-Start with: `Usually, yes. Scraping openly accessible X data is generally legal.`
-Keep that exact opening. Use no other visibility label anywhere in the answer.
-Then name only relevant limits. Avoid contractions and possessives. Write
-`Do not` and `X terms`. Do not add outside links to legal answers. Check current
-X terms before saying what they allow or forbid. Never claim that every method
-or use is legal.
+Do not preselect a legal conclusion. Establish jurisdiction, access method,
+data type, purpose, and applicable terms; consult current primary sources and
+link them. Public visibility alone does not establish permission to collect,
+reuse, or redistribute data. Escalate uncertain regulated uses for legal review.
 
 ## Protect X data
 
@@ -361,8 +351,11 @@ release reports `Authorization server response missing required issuer: expected
 upgrade first. If an upgrade is unavailable, set `bearer_token_env_var` to
 `XQUIK_API_KEY`. Follow the [Codex OAuth troubleshooting guide](https://docs.xquik.com/guides/troubleshooting#codex-oauth-issuer-validation-error).
 
-The user's MCP client exposes `explore` and `xquik`. This Skill only explains
-their request shapes. It never invokes either tool.
+The current default Code Mode exposes `docs`, `search`, and `execute`.
+`search` inspects `spec.paths`; `execute` uses `xquik.request()`.
+MCP responses use the normalized v1 contract (snake_case and Unix seconds),
+not the default REST field names. This skill documents client-run plans; it
+does not execute account changes or bypass the host's tool permissions.
 
 Use [MCP setup](references/mcp-setup.md) and [MCP tools](references/mcp-tools.md) for agent and IDE configuration.
 

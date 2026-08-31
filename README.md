@@ -607,7 +607,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `lark-drive`：用于搜索、读取和管理飞书云空间文件与权限。
 - `lark-event`：用于订阅、消费和处理飞书实时事件流，支持消息、任务、会议纪要和画板更新。
 - `lark-im`：用于发送、读取和处理飞书即时消息与群聊交互。
-- `lark-mail`：飞书邮箱：Use when user mentions 起草邮件、写邮件、草稿、发送/回复/转发邮件、查阅邮件、看邮。
+- `lark-mail`：用于飞书邮件起草、查询、回复、转发及经授权的发送与邮箱管理。
 - `lark-markdown`：飞书 Markdown：查看、创建、上传、编辑和比较 Markdown 文件。
 - `lark-meeting`：统一处理飞书会议、妙记、智能纪要、逐字稿和经授权的会中互动。
 - `lark-okr`：飞书 OKR：管理目标与关键结果。
@@ -754,6 +754,8 @@ rg -n "prompt|security|pdf|deploy" skills/**/SKILL.md
 ```
 
 ## 维护建议
+
+本次维护的接入、保留与拒绝理由见 [2026-08-31 精选维护决策](./docs/maintenance-2026-08-31.md)。
 
 - 新增技能时保持 `skills/<分类>/<skill-name>/SKILL.md` 结构。
 - OpenClaw 兼容目录通过 `python3 scripts/export_openclaw_skills.py` 生成，不直接手工维护 `openclaw-skills/`。

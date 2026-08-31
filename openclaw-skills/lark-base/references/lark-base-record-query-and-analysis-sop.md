@@ -4,9 +4,17 @@
 
 ## 分流决策
 
+当前 CLI 支持分块读取时，不再把 2000 行当作整个数据集的上限。先检查
+`+record-list --help` 的 `--offset` 契约；需要全部原始记录时固定
+table、View、filter、sort 和投影，每块写到单独 NDJSON 文件，只用响应的
+`next_offset` 继续，直到 `has_more=false`。各块 `rev` 和 `query_context`
+必须一致；否则重新读取，或明确标为非快照一致，不能作全局完整性结论。
+旧 CLI 不支持该契约时保留下面的 Cloud 路径，不猜测分页参数。
+只需单表聚合时优先云端聚合，不为统计结果下载所有原始行。
+
 1. 明确所有需要参与分析的表；上下文已有整表 `records_count` 时用于提前分流，否则直接按下文导出或探测，不为获取规模单独枚举表。
 2. 如果结论必须依赖 LLM 理解原始内容，例如开放文本打标、情绪或意图识别、主题归纳、语义分类、相似性判断或实体消歧，进入下文“LLM 语义分析”路径。
-3. 对于其余确定性查询，任一分析表已知超过 2000 行或 NDJSON 探测返回 `has_more=true` 时，先从任务意图中提取可在单表内独立执行的日期、状态、关键词等谓词，逐表下推后用 `--field-id '<一个简单标量字段>' --limit 2000 --format ndjson --output <probe>.ndjson --minimal-stdout` 复查。目标是每张表都达到 `has_more=false`；任一表无法压缩到 2000 行以内时，转 [Cloud SOP](lark-base-record-query-and-analysis-cloud-sop.md) 用云端的数据分析能力。
+3. 对于其余确定性查询，优先按上面的当前 CLI 分块契约取得完整原始记录。只有旧 CLI 不支持该契约时，任一分析表超过 2000 行或 NDJSON 探测返回 `has_more=true`，才先下推任务允许的单表谓词，复查 `has_more`；仍无法完整读取时，转 [Cloud SOP](lark-base-record-query-and-analysis-cloud-sop.md)。不能为凑行数改变用户要求的总体。
 4. 所有分析表都不超过 2000 行后：若只有一张表且短 jq 可清晰完成筛选、计数、简单分组/聚合/排序、TopN 可以使用 jq。
 5. 其余确定性任务比如多表、日历计算和复杂数据分析，在 Python 可用时使用 Python，否则进入 [Cloud SOP](lark-base-record-query-and-analysis-cloud-sop.md)。
 

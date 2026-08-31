@@ -375,9 +375,13 @@ with open('my_tools_anthropic.json') as f:
     schemas = json.load(f)
 
 # Use with Anthropic tool use
+import os
+
+# Choose a current tool-capable model available to the authenticated account.
 client = anthropic.Anthropic()
 response = client.messages.create(
-    model="claude-3-opus-20240229",
+    model=os.environ["ANTHROPIC_MODEL"],
+    max_tokens=1024,
     messages=[{"role": "user", "content": "Search for AI news"}],
     tools=schemas['tools']
 )

@@ -2,7 +2,7 @@
   "schema_version": 2,
   "video": {
     "url": "https://github.com/Linked-API/linkedin-skills",
-    "checked_at": "2026-08-20",
+    "checked_at": "2026-08-31",
     "note": "Curated from Linked-API/linkedin-skills with exact-path upstream tracking enabled."
   },
   "official_references": [
@@ -39,8 +39,8 @@
         "repo": "Linked-API/linkedin-skills",
         "path": "linkedin/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-20",
-        "last_synced_at": "2026-08-20",
+        "last_checked_at": "2026-08-31",
+        "last_synced_at": "2026-08-31",
         "last_synced_commit": "e5e642e2bbbd839501c59a7742cdc04a9d9c66a0",
         "sync_mode": "monitor",
         "path_commit": "e5e642e2bbbd839501c59a7742cdc04a9d9c66a0"
@@ -65,8 +65,8 @@
             "resolved_commit": "e5e642e2bbbd839501c59a7742cdc04a9d9c66a0",
             "path_commit": "e5e642e2bbbd839501c59a7742cdc04a9d9c66a0",
             "content_sha256": "c4730e0b4874454c95fec4f83245a2fb6c3273526fec8bc8f57e4c9b6969af6d",
-            "last_checked_at": "2026-08-20",
-            "last_synced_at": "2026-08-20",
+            "last_checked_at": "2026-08-31",
+            "last_synced_at": "2026-08-31",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "ceb4397c28b15dd5388ebc9537defbc527f702ff",
@@ -126,8 +126,8 @@
         "repo": "Linked-API/linkedin-skills",
         "path": "linkedin-growth/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-20",
-        "last_synced_at": "2026-08-20",
+        "last_checked_at": "2026-08-31",
+        "last_synced_at": "2026-08-31",
         "last_synced_commit": "e5e642e2bbbd839501c59a7742cdc04a9d9c66a0",
         "sync_mode": "monitor",
         "path_commit": "945636d8b3b4f7cc6e98e5bfa397473e2557147f"
@@ -322,8 +322,8 @@
             "resolved_commit": "e5e642e2bbbd839501c59a7742cdc04a9d9c66a0",
             "path_commit": "945636d8b3b4f7cc6e98e5bfa397473e2557147f",
             "content_sha256": "d11562f2dd8887d9e5ea336c76f18118a73482e0b08bf2f76046e1f4495aff21",
-            "last_checked_at": "2026-08-20",
-            "last_synced_at": "2026-08-20",
+            "last_checked_at": "2026-08-31",
+            "last_synced_at": "2026-08-31",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "ceb4397c28b15dd5388ebc9537defbc527f702ff",
@@ -620,6 +620,13 @@
       "target": "https://github.com/Linked-API/linkedin-skills/compare/edd0bdbbb25776e9288186b88969b29175531995...e5e642e2bbbd839501c59a7742cdc04a9d9c66a0",
       "result": "partial-artifact-absorb",
       "evidence": "LinkedIn skill bodies already equal current upstream. Absorbed the one durable linkedin-growth account helper change and preserved the local authorization and quality overlays."
+    },
+    {
+      "date": "2026-08-31",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "Linked-API/linkedin-skills@e5e642e2bbbd839501c59a7742cdc04a9d9c66a0",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
     }
   ]
 }

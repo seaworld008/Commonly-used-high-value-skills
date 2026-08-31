@@ -24,9 +24,9 @@
         "repo": "simota/agent-skills",
         "path": "builder/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-24",
-        "last_synced_at": "2026-08-24",
-        "last_synced_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+        "last_checked_at": "2026-08-31",
+        "last_synced_at": "2026-08-31",
+        "last_synced_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
         "sync_mode": "monitor",
         "path_commit": "4d4eeea81a874a3a90d46596fc1a9dcbf9d0fb45"
       },
@@ -173,17 +173,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+            "resolved_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
             "path_commit": "4d4eeea81a874a3a90d46596fc1a9dcbf9d0fb45",
             "content_sha256": "6224f68782ba3127e4ec7f0fd88f55380d25bda6e4a5ad8c9beb7d3aafec27e9",
-            "last_checked_at": "2026-08-24",
-            "last_synced_at": "2026-08-24",
+            "last_checked_at": "2026-08-31",
+            "last_synced_at": "2026-08-31",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+              "resolved_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
               "api_spdx": "MIT"
             }
           }
@@ -651,9 +651,9 @@
         "repo": "simota/agent-skills",
         "path": "gateway/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-24",
-        "last_synced_at": "2026-08-24",
-        "last_synced_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+        "last_checked_at": "2026-08-31",
+        "last_synced_at": "2026-08-31",
+        "last_synced_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
         "sync_mode": "monitor",
         "path_commit": "4d4eeea81a874a3a90d46596fc1a9dcbf9d0fb45"
       },
@@ -790,17 +790,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+            "resolved_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
             "path_commit": "4d4eeea81a874a3a90d46596fc1a9dcbf9d0fb45",
             "content_sha256": "02bf8f7739db019727c1013b064d2718ff7a857db924c5dfd36eda428327b5c8",
-            "last_checked_at": "2026-08-24",
-            "last_synced_at": "2026-08-24",
+            "last_checked_at": "2026-08-31",
+            "last_synced_at": "2026-08-31",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+              "resolved_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
               "api_spdx": "MIT"
             }
           }
@@ -1135,9 +1135,9 @@
         "repo": "simota/agent-skills",
         "path": "schema/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-24",
-        "last_synced_at": "2026-08-24",
-        "last_synced_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+        "last_checked_at": "2026-08-31",
+        "last_synced_at": "2026-08-31",
+        "last_synced_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
         "sync_mode": "monitor",
         "path_commit": "4d4eeea81a874a3a90d46596fc1a9dcbf9d0fb45"
       },
@@ -1284,17 +1284,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+            "resolved_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
             "path_commit": "4d4eeea81a874a3a90d46596fc1a9dcbf9d0fb45",
             "content_sha256": "a73b55c9bde81d209e686fd950847eafea66a5064d59658aac2aa32a410fe739",
-            "last_checked_at": "2026-08-24",
-            "last_synced_at": "2026-08-24",
+            "last_checked_at": "2026-08-31",
+            "last_synced_at": "2026-08-31",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+              "resolved_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
               "api_spdx": "MIT"
             }
           }
@@ -1619,9 +1619,9 @@
         "repo": "simota/agent-skills",
         "path": "nexus/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-24",
-        "last_synced_at": "2026-08-24",
-        "last_synced_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+        "last_checked_at": "2026-08-31",
+        "last_synced_at": "2026-08-31",
+        "last_synced_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
         "sync_mode": "monitor",
         "path_commit": "4d4eeea81a874a3a90d46596fc1a9dcbf9d0fb45"
       },
@@ -2068,17 +2068,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+            "resolved_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
             "path_commit": "4d4eeea81a874a3a90d46596fc1a9dcbf9d0fb45",
             "content_sha256": "a853c54299423d531486ffaacd267373aa9ba1a6e584cbe9177b16ac5c5f7d2e",
-            "last_checked_at": "2026-08-24",
-            "last_synced_at": "2026-08-24",
+            "last_checked_at": "2026-08-31",
+            "last_synced_at": "2026-08-31",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+              "resolved_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
               "api_spdx": "MIT"
             }
           }
@@ -3115,9 +3115,9 @@
         "repo": "simota/agent-skills",
         "path": "sherpa/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-24",
-        "last_synced_at": "2026-08-24",
-        "last_synced_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+        "last_checked_at": "2026-08-31",
+        "last_synced_at": "2026-08-31",
+        "last_synced_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
         "sync_mode": "monitor",
         "path_commit": "4d4eeea81a874a3a90d46596fc1a9dcbf9d0fb45"
       },
@@ -3209,17 +3209,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+            "resolved_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
             "path_commit": "4d4eeea81a874a3a90d46596fc1a9dcbf9d0fb45",
             "content_sha256": "fc9e1736a4734a59742dfdd40d39200fda5e1d08a2d9c63ff31bd85b7e8f01c7",
-            "last_checked_at": "2026-08-24",
-            "last_synced_at": "2026-08-24",
+            "last_checked_at": "2026-08-31",
+            "last_synced_at": "2026-08-31",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+              "resolved_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
               "api_spdx": "MIT"
             }
           }
@@ -3434,9 +3434,9 @@
         "repo": "simota/agent-skills",
         "path": "rally/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-24",
-        "last_synced_at": "2026-08-24",
-        "last_synced_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+        "last_checked_at": "2026-08-31",
+        "last_synced_at": "2026-08-31",
+        "last_synced_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
         "sync_mode": "monitor",
         "path_commit": "4d4eeea81a874a3a90d46596fc1a9dcbf9d0fb45"
       },
@@ -3518,17 +3518,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+            "resolved_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
             "path_commit": "4d4eeea81a874a3a90d46596fc1a9dcbf9d0fb45",
             "content_sha256": "84c1125331021622fd3a623d35ec5ce95c0fa79541a5b6d2352aefbf2e8c9f82",
-            "last_checked_at": "2026-08-24",
-            "last_synced_at": "2026-08-24",
+            "last_checked_at": "2026-08-31",
+            "last_synced_at": "2026-08-31",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+              "resolved_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
               "api_spdx": "MIT"
             }
           }
@@ -3731,9 +3731,9 @@
         "repo": "simota/agent-skills",
         "path": "oracle/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-24",
-        "last_synced_at": "2026-08-24",
-        "last_synced_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+        "last_checked_at": "2026-08-31",
+        "last_synced_at": "2026-08-31",
+        "last_synced_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
         "sync_mode": "monitor",
         "path_commit": "4d4eeea81a874a3a90d46596fc1a9dcbf9d0fb45"
       },
@@ -3835,17 +3835,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+            "resolved_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
             "path_commit": "4d4eeea81a874a3a90d46596fc1a9dcbf9d0fb45",
             "content_sha256": "25e496e2d5746da7310cb312fb2562733375e08ae9a8476bc53deb7dde1fbf9f",
-            "last_checked_at": "2026-08-24",
-            "last_synced_at": "2026-08-24",
+            "last_checked_at": "2026-08-31",
+            "last_synced_at": "2026-08-31",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+              "resolved_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
               "api_spdx": "MIT"
             }
           }
@@ -4247,9 +4247,9 @@
         "repo": "simota/agent-skills",
         "path": "sigil/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-24",
-        "last_synced_at": "2026-08-24",
-        "last_synced_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+        "last_checked_at": "2026-08-31",
+        "last_synced_at": "2026-08-31",
+        "last_synced_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
         "sync_mode": "monitor",
         "path_commit": "4d4eeea81a874a3a90d46596fc1a9dcbf9d0fb45"
       },
@@ -4351,17 +4351,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+            "resolved_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
             "path_commit": "4d4eeea81a874a3a90d46596fc1a9dcbf9d0fb45",
             "content_sha256": "9bb302c808dd91a0457908ed88762e47c4d39a0acef11ff79b325db5ab66fd82",
-            "last_checked_at": "2026-08-24",
-            "last_synced_at": "2026-08-24",
+            "last_checked_at": "2026-08-31",
+            "last_synced_at": "2026-08-31",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+              "resolved_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
               "api_spdx": "MIT"
             }
           }
@@ -4632,9 +4632,9 @@
         "repo": "simota/agent-skills",
         "path": "guardian/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-24",
-        "last_synced_at": "2026-08-24",
-        "last_synced_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+        "last_checked_at": "2026-08-31",
+        "last_synced_at": "2026-08-31",
+        "last_synced_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
         "sync_mode": "monitor",
         "path_commit": "4d4eeea81a874a3a90d46596fc1a9dcbf9d0fb45"
       },
@@ -4766,17 +4766,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+            "resolved_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
             "path_commit": "4d4eeea81a874a3a90d46596fc1a9dcbf9d0fb45",
             "content_sha256": "7c4a35a1e69cbb31b2d80358c131741272119edc0d75b4a2220cbf24e7b28a94",
-            "last_checked_at": "2026-08-24",
-            "last_synced_at": "2026-08-24",
+            "last_checked_at": "2026-08-31",
+            "last_synced_at": "2026-08-31",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+              "resolved_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
               "api_spdx": "MIT"
             }
           }
@@ -5901,9 +5901,9 @@
         "repo": "simota/agent-skills",
         "path": "beacon/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-24",
-        "last_synced_at": "2026-08-24",
-        "last_synced_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+        "last_checked_at": "2026-08-31",
+        "last_synced_at": "2026-08-31",
+        "last_synced_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
         "sync_mode": "monitor",
         "path_commit": "4d4eeea81a874a3a90d46596fc1a9dcbf9d0fb45"
       },
@@ -5995,17 +5995,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+            "resolved_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
             "path_commit": "4d4eeea81a874a3a90d46596fc1a9dcbf9d0fb45",
             "content_sha256": "ebe11d78ec8069a84801e51c2ba7b58a88bb65aab6339b36b2df606e76e19305",
-            "last_checked_at": "2026-08-24",
-            "last_synced_at": "2026-08-24",
+            "last_checked_at": "2026-08-31",
+            "last_synced_at": "2026-08-31",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+              "resolved_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
               "api_spdx": "MIT"
             }
           }
@@ -6220,9 +6220,9 @@
         "repo": "simota/agent-skills",
         "path": "triage/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-24",
-        "last_synced_at": "2026-08-24",
-        "last_synced_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+        "last_checked_at": "2026-08-31",
+        "last_synced_at": "2026-08-31",
+        "last_synced_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
         "sync_mode": "monitor",
         "path_commit": "4d4eeea81a874a3a90d46596fc1a9dcbf9d0fb45"
       },
@@ -6284,17 +6284,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+            "resolved_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
             "path_commit": "4d4eeea81a874a3a90d46596fc1a9dcbf9d0fb45",
             "content_sha256": "87c7010b70c179fc5881d58098779115ecfc80eb57dbd863caac32b94b02d6e2",
-            "last_checked_at": "2026-08-24",
-            "last_synced_at": "2026-08-24",
+            "last_checked_at": "2026-08-31",
+            "last_synced_at": "2026-08-31",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+              "resolved_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
               "api_spdx": "MIT"
             }
           }
@@ -6462,9 +6462,9 @@
         "repo": "simota/agent-skills",
         "path": "gear/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-24",
-        "last_synced_at": "2026-08-24",
-        "last_synced_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+        "last_checked_at": "2026-08-31",
+        "last_synced_at": "2026-08-31",
+        "last_synced_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
         "sync_mode": "monitor",
         "path_commit": "4d4eeea81a874a3a90d46596fc1a9dcbf9d0fb45"
       },
@@ -6606,17 +6606,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+            "resolved_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
             "path_commit": "4d4eeea81a874a3a90d46596fc1a9dcbf9d0fb45",
             "content_sha256": "8bf9563784afac3ddbfa592b6b140e04e3c21a0a49d46b798051e620e74302db",
-            "last_checked_at": "2026-08-24",
-            "last_synced_at": "2026-08-24",
+            "last_checked_at": "2026-08-31",
+            "last_synced_at": "2026-08-31",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+              "resolved_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
               "api_spdx": "MIT"
             }
           }
@@ -6869,9 +6869,9 @@
         "repo": "simota/agent-skills",
         "path": "ledger/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-24",
-        "last_synced_at": "2026-08-24",
-        "last_synced_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+        "last_checked_at": "2026-08-31",
+        "last_synced_at": "2026-08-31",
+        "last_synced_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
         "sync_mode": "monitor",
         "path_commit": "4d4eeea81a874a3a90d46596fc1a9dcbf9d0fb45"
       },
@@ -6963,17 +6963,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+            "resolved_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
             "path_commit": "4d4eeea81a874a3a90d46596fc1a9dcbf9d0fb45",
             "content_sha256": "9dbadfe89a946a382c5856b65d331decad5a3930b5b8b61f0b0875571d1777d5",
-            "last_checked_at": "2026-08-24",
-            "last_synced_at": "2026-08-24",
+            "last_checked_at": "2026-08-31",
+            "last_synced_at": "2026-08-31",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+              "resolved_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
               "api_spdx": "MIT"
             }
           }
@@ -7816,9 +7816,9 @@
         "repo": "simota/agent-skills",
         "path": "growth/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-24",
-        "last_synced_at": "2026-08-24",
-        "last_synced_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+        "last_checked_at": "2026-08-31",
+        "last_synced_at": "2026-08-31",
+        "last_synced_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
         "sync_mode": "monitor",
         "path_commit": "4d4eeea81a874a3a90d46596fc1a9dcbf9d0fb45"
       },
@@ -7925,17 +7925,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+            "resolved_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
             "path_commit": "4d4eeea81a874a3a90d46596fc1a9dcbf9d0fb45",
             "content_sha256": "d0f40c504d3780e087bc6d12cb14448b7c033abef779755a60489a9fc2d87e3f",
-            "last_checked_at": "2026-08-24",
-            "last_synced_at": "2026-08-24",
+            "last_checked_at": "2026-08-31",
+            "last_synced_at": "2026-08-31",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+              "resolved_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
               "api_spdx": "MIT"
             }
           }
@@ -8168,9 +8168,9 @@
         "repo": "simota/agent-skills",
         "path": "compete/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-24",
-        "last_synced_at": "2026-08-24",
-        "last_synced_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+        "last_checked_at": "2026-08-31",
+        "last_synced_at": "2026-08-31",
+        "last_synced_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
         "sync_mode": "monitor",
         "path_commit": "4d4eeea81a874a3a90d46596fc1a9dcbf9d0fb45"
       },
@@ -8342,17 +8342,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+            "resolved_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
             "path_commit": "4d4eeea81a874a3a90d46596fc1a9dcbf9d0fb45",
             "content_sha256": "f3c721901df2b8bfd330b3cc7ad22379c312e0407bb3b17f92f14d3bd811441b",
-            "last_checked_at": "2026-08-24",
-            "last_synced_at": "2026-08-24",
+            "last_checked_at": "2026-08-31",
+            "last_synced_at": "2026-08-31",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "6257e7398c65f24859710bfad8f8b96feab6cab6",
+              "resolved_commit": "0b594f3ff4bf53639f60832a943d90a5109ddf85",
               "api_spdx": "MIT"
             }
           }
@@ -15358,6 +15358,13 @@
       "date": "2026-08-24",
       "method": "commit-aware-manual-monitor-review",
       "target": "simota/agent-skills@6257e7398c65f24859710bfad8f8b96feab6cab6",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-08-31",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "simota/agent-skills@0b594f3ff4bf53639f60832a943d90a5109ddf85",
       "result": "success",
       "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
     },

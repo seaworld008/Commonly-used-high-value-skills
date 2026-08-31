@@ -8,7 +8,7 @@
 
 ## 推荐先看
 
-- [lark-mail](./lark-mail/) - 飞书邮箱：Use when user mentions 起草邮件、写邮件、草稿、发送/回复/转发邮件、查阅邮件、看邮。
+- [lark-mail](./lark-mail/) - 用于飞书邮件起草、查询、回复、转发及经授权的发送与邮箱管理。
 - [lark-sheets](./lark-sheets/) - 用于读取、编辑和分析飞书电子表格数据。
 - [lark-slides](./lark-slides/) - 飞书幻灯片：创建和编辑幻灯片。
 - [grove](./grove/) - 仓库结构、文档布局、测试脚本组织和迁移规划。
@@ -28,7 +28,7 @@
 | `lark-drive` | 用于搜索、读取和管理飞书云空间文件与权限。 | [目录](./lark-drive/) | [SKILL.md](./lark-drive/SKILL.md) |
 | `lark-event` | 用于订阅、消费和处理飞书实时事件流，支持消息、任务、会议纪要和画板更新。 | [目录](./lark-event/) | [SKILL.md](./lark-event/SKILL.md) |
 | `lark-im` | 用于发送、读取和处理飞书即时消息与群聊交互。 | [目录](./lark-im/) | [SKILL.md](./lark-im/SKILL.md) |
-| `lark-mail` | 飞书邮箱：Use when user mentions 起草邮件、写邮件、草稿、发送/回复/转发邮件、查阅邮件、看邮。 | [目录](./lark-mail/) | [SKILL.md](./lark-mail/SKILL.md) |
+| `lark-mail` | 用于飞书邮件起草、查询、回复、转发及经授权的发送与邮箱管理。 | [目录](./lark-mail/) | [SKILL.md](./lark-mail/SKILL.md) |
 | `lark-markdown` | 飞书 Markdown：查看、创建、上传、编辑和比较 Markdown 文件。 | [目录](./lark-markdown/) | [SKILL.md](./lark-markdown/SKILL.md) |
 | `lark-meeting` | 统一处理飞书会议、妙记、智能纪要、逐字稿和经授权的会中互动。 | [目录](./lark-meeting/) | [SKILL.md](./lark-meeting/SKILL.md) |
 | `lark-okr` | 飞书 OKR：管理目标与关键结果。 | [目录](./lark-okr/) | [SKILL.md](./lark-okr/SKILL.md) |

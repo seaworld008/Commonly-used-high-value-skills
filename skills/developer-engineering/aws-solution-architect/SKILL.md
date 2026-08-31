@@ -2,14 +2,14 @@
 name: aws-solution-architect
 description: 'Design AWS architectures for startups using serverless patterns and IaC templates. Use when asked to design serverless architecture, create CloudFormation templates, optimize AWS costs, set up CI/CD pipelines, or migrate to AWS. Covers Lambda, API Gateway, DynamoDB, ECS, Aurora, and cost optimization.'
 zh_description: "用于 AWS 云架构设计、服务选型、成本优化与 Well-Architected Framework 评估。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "skills.sh"
 source_url: "https://skills.sh/alirezarezvani/claude-skills/aws-solution-architect"
 license: "MIT"
 tags: '["architect", "aws", "development", "solution"]'
 created_at: "2026-03-27"
-updated_at: "2026-08-20"
+updated_at: "2026-08-31"
 quality: 4
 complexity: "intermediate"
 ---

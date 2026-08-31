@@ -113,7 +113,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "8563d0a91d425107bfdf2cfb3c870366ae5eef5ee0aad9985a07d53b5f3d7bee",
+            "content_sha256": "34a40ae872b0929dbf94bd67db43fc24bb2f1ae85a6235edc8b6d21077e73496",
             "last_checked_at": "2026-08-31",
             "last_synced_at": "2026-04-13"
           }
@@ -123,13 +123,13 @@
         {
           "path": "skills/developer-engineering/agent-designer/README.md",
           "owner": "agent-designer",
-          "sha256": "c825124b0a6ae2649c335933657fef765b9911b79fa838b4969683588c175bfa",
+          "sha256": "291dc496d61945f06f5b5237a90b816ee4afd7b23a6cc2d7e3883ca660016659",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/agent-designer/SKILL.md",
           "owner": "agent-designer",
-          "sha256": "8563d0a91d425107bfdf2cfb3c870366ae5eef5ee0aad9985a07d53b5f3d7bee",
+          "sha256": "34a40ae872b0929dbf94bd67db43fc24bb2f1ae85a6235edc8b6d21077e73496",
           "mode": "100644"
         },
         {
@@ -3989,7 +3989,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "79918ba4ded2da748b1b0268bef82d459ddefde3c0a703391c582a67febb0d5e",
+            "content_sha256": "3943705d4ddb29a0ab5318e9314ac54f67f42524af98144b5983a3810c4b8f54",
             "last_checked_at": "2026-08-31",
             "last_synced_at": "2026-04-13"
           }
@@ -4005,7 +4005,7 @@
         {
           "path": "skills/deployment-platforms/cloudflare-deploy/SKILL.md",
           "owner": "cloudflare-deploy",
-          "sha256": "79918ba4ded2da748b1b0268bef82d459ddefde3c0a703391c582a67febb0d5e",
+          "sha256": "3943705d4ddb29a0ab5318e9314ac54f67f42524af98144b5983a3810c4b8f54",
           "mode": "100644"
         },
         {
@@ -5667,7 +5667,7 @@
         {
           "path": "skills/deployment-platforms/cloudflare-deploy/references/workers-ai/gotchas.md",
           "owner": "cloudflare-deploy",
-          "sha256": "10fe3b26750c2fc92ff6ccdefc1200352cdae88c573071cd7735d0a84ff925da",
+          "sha256": "025d6ce5177a041082c3d9e4020efacced5b1fd1ceb79f3bc2c6df391a85ef61",
           "mode": "100644"
         },
         {
@@ -9779,7 +9779,7 @@
           }
         ],
         "dependency_lock": {
-          "hermes-agent": "f23020e7308ad257bd1740e5f71932aba86bc803155dba530485a243bdcae990",
+          "hermes-agent": "ab39ff855cb3d437d4760f57d176c45c688a9dd5ee72a8d89112bdadc701d00a",
           "graphify": "565a103f9c5848004139c51ecfc5676f36629bd828d1f9f610136c5a46fdcd36",
           "open-gsd/gsd-core": "b7ed2186d397b270a52db5e9816a9fd88a240466b356b1f4a28823f93cb8fd9d",
           "open-gsd/gsd-pi": "16165f4b80211b9e3aa3801e68e04de2f5599ab9a0c247307b1712aa5a9b5df5"

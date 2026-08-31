@@ -244,6 +244,28 @@ warning”删除仍有独有价值的能力。
 
 ## 8. PR 和分支策略
 
+### 组合依赖的稳定版升级
+
+当 `sync_upstream.py --apply` 报告需要 dependent review 时，先阅读组合
+技能及新依赖的变更，确认状态根、权限、安装与验收边界仍兼容。然后将
+当前组合 SKILL.md 的 SHA-256 作为显式审批传入：
+
+```bash
+python3 scripts/sync_upstream.py --apply --source github:OWNER/REPO \
+  --reviewed-dependent COMPOSITE-SLUG=REVIEWED_CANONICAL_SHA256
+```
+
+占位值必须替换为本次审查的真实 slug 与摘要。脚本按全局事务锁、排序后的
+mapping 锁、技能锁顺序操作；先恢复 mapping journal，再判断 artifact
+authority。所有依赖锁与来源映射一起提交，失败恢复旧状态。不要手工预先
+改锁、伪造摘要或关闭完整来源校验。
+
+上游删除的有用许可资产可以保留为非 canonical 的 archived sidecar，
+但必须记录真实外部来源、许可和与 resolved_commit 相同的不可变 fixed_ref；
+不能变成第二个活动同步来源。后续 digest 刷新不得复活该 archived origin。
+
+### 分支与合并
+
 每周维护尽量拆成可审查 PR：
 
 - 上游同步 PR：只包含 upstream sync 和必要质量修复。

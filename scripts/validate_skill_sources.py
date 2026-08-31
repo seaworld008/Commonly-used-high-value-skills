@@ -32,6 +32,7 @@ try:
         git_file_mode,
         infer_channel,
         is_local_repo,
+        is_archived_sidecar,
         is_local_source,
         normalize_sync_mode,
         parse_frontmatter,
@@ -58,6 +59,7 @@ except ModuleNotFoundError:  # pragma: no cover - import path used by unit tests
         git_file_mode,
         infer_channel,
         is_local_repo,
+        is_archived_sidecar,
         is_local_source,
         normalize_sync_mode,
         parse_frontmatter,
@@ -818,6 +820,7 @@ def _validate_origin(
     entry_sync_mode: object,
     legacy_sync_mode: object,
     errors: list[str],
+    repo_skill: object = None,
 ) -> None:
     label = f"{mapping}: skills[{idx}].origins[{origin_idx}]"
     if not isinstance(origin, dict):
@@ -869,18 +872,20 @@ def _validate_origin(
         errors.append(f"{label}.license must be null for local curation")
 
     sync_mode = origin.get("sync_mode")
+    archived_sidecar = is_archived_sidecar(origin, repo_skill, kind)
     if sync_mode not in VALID_SYNC_MODES:
         errors.append(f"{label}.sync_mode invalid: {sync_mode!r}")
     else:
         if curated_local and sync_mode != "local-only":
             errors.append(f"{label}.sync_mode must be 'local-only'")
-        elif not curated_local and sync_mode != entry_sync_mode:
+        elif not curated_local and not archived_sidecar and sync_mode != entry_sync_mode:
             errors.append(
                 f"{label}.sync_mode must match entry sync_mode "
                 f"{entry_sync_mode!r}"
             )
         if (
             not curated_local
+            and not archived_sidecar
             and legacy_sync_mode is not None
             and sync_mode != legacy_sync_mode
         ):
@@ -929,7 +934,7 @@ def _validate_origin(
             requested_mode=sync_mode,
             status=status,
         )
-        if sync_mode != expected_mode:
+        if sync_mode != expected_mode and not archived_sidecar:
             errors.append(
                 f"{label}.sync_mode {sync_mode!r} violates release-channel "
                 f"policy; expected {expected_mode!r}"
@@ -1266,6 +1271,7 @@ def _validate_v2_entry(
             entry_sync_mode=entry_sync_mode,
             legacy_sync_mode=legacy_sync_mode,
             errors=errors,
+            repo_skill=item.get("repo_skill"),
         )
         if isinstance(origin, dict) and isinstance(origin.get("artifacts"), list):
             for artifact in origin["artifacts"]:

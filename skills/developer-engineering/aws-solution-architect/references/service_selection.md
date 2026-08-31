@@ -119,7 +119,9 @@ Limits:
 - GSI: 20 per table
 
 Pricing:
-- On-demand: $1.25 per million writes, $0.25 per million reads
+- On-demand: obtain current regional write/read request-unit rates from AWS;
+  record region, table class, consistency, item size, date, and currency.
+  Do not reuse a global fixed price from an older example.
 - Provisioned: Per RCU/WCU
 ```
 

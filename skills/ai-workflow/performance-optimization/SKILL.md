@@ -276,6 +276,20 @@ function App() {
 
 #### Missing Caching (Backend)
 
+Before introducing a cache, measure its expected benefit and include tenant,
+viewer permissions, locale, and other response-changing inputs in the key.
+Specify acceptable staleness, invalidation, and eviction behavior. Coalesce
+concurrent misses where safe; never serve stale permissions or checkout balances
+just to improve latency.
+
+For slow database queries, compare plans and actual timings before and after an
+index change, using an authorized read-only workload. `EXPLAIN ANALYZE` executes
+the statement; do not run writes or costly scans against production by default.
+A sequential scan is not proof of a missing index: selectivity, statistics,
+table size, and expression mismatch all matter. Measure added write cost too.
+For connection exhaustion, measure pool wait separately from query execution;
+budget connections across all instances before raising per-process limits.
+
 ```typescript
 // Cache frequently-read, rarely-changed data
 const CACHE_TTL = 5 * 60 * 1000; // 5 minutes

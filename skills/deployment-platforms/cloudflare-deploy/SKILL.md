@@ -2,13 +2,13 @@
 name: cloudflare-deploy
 description: 'Deploy applications and infrastructure to Cloudflare using Workers, Pages, and related platform services. Use when the user asks to deploy, host, publish, or set up a project on Cloudflare.'
 zh_description: "用于将应用部署到 Cloudflare 并处理相关发布流程。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["cloudflare", "deploy", "deployment"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-08-31"
 quality: 5
 complexity: "intermediate"
 ---

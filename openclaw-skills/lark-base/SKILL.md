@@ -2,14 +2,14 @@
 name: lark-base
 description: '飞书多维表格（Base）操作：建表、字段、记录、视图、统计、公式/lookup、表单、仪表盘、应用模式（BaseApp/AppMode 页面与组件）、Workspace 目录、workflow、角色权限、模板中心（多维表格模板分类/列表/搜索）；遇到 Base/多维表格/bitable、BaseApp/AppMode、/base/ 或 /app/ 链接时使用。BaseApp 不走 lark-apps；文件导入/导出转 lark-drive，认证/授权转 lark-shared。'
 zh_description: "用于操作飞书 Base 数据表、记录、字段和自动化数据流程。"
-version: "1.2.15"
+version: "1.2.16"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-base"
 license: MIT
 tags: '[feishu, lark, lark-cli, base, database, automation]'
 created_at: "2026-05-19"
-updated_at: "2026-08-24"
+updated_at: "2026-08-31"
 quality: 4
 complexity: advanced
 metadata:

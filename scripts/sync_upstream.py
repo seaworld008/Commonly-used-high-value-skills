@@ -52,6 +52,11 @@ from pathlib import Path, PurePosixPath
 from time import sleep
 
 try:
+    from provenance_v2 import is_archived_sidecar
+except ModuleNotFoundError:
+    from scripts.provenance_v2 import is_archived_sidecar
+
+try:
     import fcntl
 except ImportError:  # pragma: no cover - repository CI is POSIX
     fcntl = None  # type: ignore[assignment]
@@ -588,7 +593,16 @@ def merge_frontmatter(local_content: str, upstream_content: str) -> str:
     )
     if local_curation:
         merged = merged.rstrip() + "\n\n" + local_curation + "\n"
-    return merged
+    # Hash exactly the canonical bytes that refresh_repo_views will retain.
+    # Otherwise its quote/blank-line normalization invalidates both the
+    # managed digest and any composite lock immediately after a safe apply.
+    try:
+        from export_openclaw_skills import normalize_skill_markdown
+    except ModuleNotFoundError:
+        from scripts.export_openclaw_skills import normalize_skill_markdown
+    return normalize_skill_markdown(
+        local_fm.get("name", upstream_fm.get("name", "synced-skill")), merged
+    )
 
 
 def apply_repository_adaptations(content: str, skill: dict) -> str:
@@ -801,8 +815,6 @@ def _v2_sync_entry_errors(entry: dict) -> list[str]:
         mode = origin.get("sync_mode")
         if mode not in VALID_SYNC_MODES:
             errors.append(f"origins[{origin_index}] has invalid sync_mode")
-        elif not is_local:
-            external_modes.append(str(mode))
 
         artifacts = origin.get("artifacts")
         if not isinstance(artifacts, list) or (not artifacts and not is_local):
@@ -865,6 +877,27 @@ def _v2_sync_entry_errors(entry: dict) -> list[str]:
             continue
         channel = tracking.get("channel")
         ref = tracking.get("ref")
+        owns_canonical = any(
+            isinstance(artifact, dict)
+            and _artifact_owns_target(artifact, str(repo_skill))
+            for artifact in artifacts
+        )
+        archived_sidecar = is_archived_sidecar(
+            origin, repo_skill, entry.get("kind")
+        )
+        if (
+            not is_local
+            and entry.get("kind") in {"mirror", "overlay"}
+            and mode == "archived"
+            and not owns_canonical
+            and not archived_sidecar
+        ):
+            errors.append(
+                f"origins[{origin_index}] archived sidecar requires safe "
+                "non-canonical files and a fixed ref matching resolved_commit"
+            )
+        if not is_local and not archived_sidecar:
+            external_modes.append(str(mode))
         if channel not in VALID_CHANNELS:
             errors.append(f"origins[{origin_index}] has invalid channel")
         if (
@@ -3908,14 +3941,21 @@ def apply_v2_update(
     update: dict,
     *,
     dry_run: bool = False,
+    reviewed_dependents: dict[str, str] | None = None,
     _durable_guard: DurableBatchGuard | None = None,
 ):
-    """Apply one v2 artifact set transaction, then atomically advance mapping."""
+    """Apply artifacts and reviewed dependency locks with coordinated journals.
+
+    A dependent approval is its canonical SKILL.md SHA-256, not permission to
+    silently accept arbitrary future composite changes. Mapping batch recovery
+    always precedes artifact recovery under the repository-wide durable guard.
+    """
     if _durable_guard is None and not dry_run:
         with durable_batch_lock_and_recover(REPO_ROOT) as durable_guard:
             return apply_v2_update(
                 update,
                 dry_run=dry_run,
+                reviewed_dependents=reviewed_dependents,
                 _durable_guard=durable_guard,
             )
     skill = update["skill"]
@@ -3926,7 +3966,21 @@ def apply_v2_update(
             f"sync_mode={skill.get('sync_mode')!r}"
         )
     mapping_path = Path(skill["mapping_path"])
-    with mapping_advisory_lock(mapping_path):
+    with ExitStack() as locks:
+        # Freeze the reverse-dependency graph as well as the owning mapping.
+        # All cooperating writers use global -> sorted mappings -> skills.
+        mapping_paths = sorted(
+            set(mapping_path.parent.glob("*.skills.json")) | {mapping_path}
+        )
+        for path in mapping_paths:
+            locks.enter_context(mapping_advisory_lock(path))
+        snapshots = {
+            path: capture_mapping_snapshot(path) for path in mapping_paths
+        }
+        documents = {
+            path: json.loads(snapshot.content.decode("utf-8"))
+            for path, snapshot in snapshots.items()
+        }
         mapping_snapshot = capture_mapping_snapshot(mapping_path)
         mapping_before = mapping_snapshot.content
         mapping_data = json.loads(mapping_before.decode("utf-8"))
@@ -3973,7 +4027,70 @@ def apply_v2_update(
         if dry_run:
             return engine.apply_artifact_set_sync(plan, dry_run=True)
 
-        with engine.prepare_artifact_set_sync(plan) as transaction:
+        prepared = {mapping_path: mapping_data}
+        approved_files: dict[Path, str] = {}
+        old_content_hash = hashlib.sha256(
+            Path(skill["local_path"]).read_bytes()
+        ).hexdigest()
+        if plan.content_sha256 != old_content_hash:
+            slug = entry["normalized_slug"]
+            for path, document in documents.items():
+                if path == mapping_path:
+                    document = mapping_data
+                for dependent in document.get("skills", []):
+                    composition = dependent.get("composition") or {}
+                    if not any(
+                        dependency.get("skill") == slug
+                        for dependency in composition.get("depends_on", [])
+                        if isinstance(dependency, dict)
+                    ):
+                        continue
+                    dependent_slug = dependent["normalized_slug"]
+                    canonical = REPO_ROOT / dependent["repo_skill"]
+                    canonical.resolve(strict=True).relative_to(REPO_ROOT.resolve())
+                    if canonical.is_symlink():
+                        raise RuntimeError("dependent canonical file is a symlink")
+                    digest = hashlib.sha256(canonical.read_bytes()).hexdigest()
+                    if (reviewed_dependents or {}).get(dependent_slug) != digest:
+                        raise RuntimeError(
+                            f"dependency upgrade requires explicit review: "
+                            f"--reviewed-dependent {dependent_slug}={digest}"
+                        )
+                    dependency_lock = composition.get("dependency_lock") or {}
+                    if dependency_lock.get(slug) != old_content_hash:
+                        raise RuntimeError(
+                            f"dependent {dependent_slug} has a stale baseline lock"
+                        )
+                    dependency_lock[slug] = plan.content_sha256
+                    prepared[path] = document
+                    approved_files[canonical] = digest
+
+        held_owner_lock = None
+        reviewed_snapshots = {}
+        if approved_files:
+            roots = {
+                path.parent.relative_to(REPO_ROOT).as_posix()
+                for path in approved_files
+            } | {plan.skill_root}
+            for root in sorted(roots):
+                held = locks.enter_context(
+                    engine.skill_advisory_lock(REPO_ROOT, root)
+                )
+                if root == plan.skill_root:
+                    held_owner_lock = held
+            for path, digest in approved_files.items():
+                snapshot = capture_mapping_snapshot(path)
+                if snapshot.sha256 != digest:
+                    raise RuntimeError("reviewed dependent changed before locking")
+                reviewed_snapshots[path] = snapshot
+
+        def validate_reviewed_files(*_args):
+            for path, snapshot in reviewed_snapshots.items():
+                _validate_mapping_snapshot(path, snapshot)
+
+        with engine.prepare_artifact_set_sync(
+            plan, **({"_held_lock": held_owner_lock} if held_owner_lock else {})
+        ) as transaction:
             sync_result = transaction.result
             # Keep the reviewed source→target declarations (including
             # directory mappings). Expansion updates managed_files only.
@@ -4000,8 +4117,10 @@ def apply_v2_update(
                 synced=True,
                 entry_origin=(entry, origin),
             )
-            _validate_candidate_mappings({mapping_path: mapping_data})
-            _validate_mapping_snapshot(mapping_path, mapping_snapshot)
+            _validate_candidate_mappings(prepared)
+            for path, snapshot in snapshots.items():
+                _validate_mapping_snapshot(path, snapshot)
+            validate_reviewed_files()
             mapping_after = serialize_mapping_json(mapping_data)
             mapping_after_sha256 = hashlib.sha256(mapping_after).hexdigest()
             if mapping_after_sha256 == mapping_snapshot.sha256:
@@ -4033,11 +4152,24 @@ def apply_v2_update(
                 mapping_after_sha256,
             )
             try:
-                atomic_write_json(
-                    mapping_path,
-                    mapping_data,
-                    expected_snapshot=mapping_snapshot,
-                )
+                if approved_files:
+                    # The artifact journal owns the tree. This journal owns all
+                    # mappings; recovery restores them before the artifact
+                    # authority digest is consulted. Do not nest batch journals.
+                    atomic_write_json_batch(
+                        prepared,
+                        expected_snapshots={
+                            path: snapshots[path] for path in prepared
+                        },
+                        durable_guard=_durable_guard,
+                        fault_injector=validate_reviewed_files,
+                    )
+                else:
+                    atomic_write_json(
+                        mapping_path,
+                        mapping_data,
+                        expected_snapshot=mapping_snapshot,
+                    )
             except AtomicMappingWriteError as write_error:
                 if write_error.replaced:
                     # A post-replace durability error commits the live tree
@@ -4281,6 +4413,13 @@ def main(argv: list[str] | None = None) -> int:
     )
     parser.add_argument("--source", help="Filter to a specific source (e.g. 'github:obra/superpowers')")
     parser.add_argument(
+        "--reviewed-dependent",
+        action="append",
+        default=[],
+        metavar="SLUG=SHA256",
+        help="With --apply, approve compatibility of this exact composite body",
+    )
+    parser.add_argument(
         "--report-json",
         metavar="PATH",
         help="Write a machine-readable report atomically",
@@ -4296,6 +4435,16 @@ def main(argv: list[str] | None = None) -> int:
         parser.error("--record-check and --record-review are mutually exclusive")
     if args.report_json == "-":
         parser.error("--report-json requires a file path, not stdout")
+    reviewed_dependents = {}
+    for approval in args.reviewed_dependent:
+        slug, separator, digest = approval.partition("=")
+        if not separator or not re.fullmatch(r"[a-z0-9-]+", slug) or not re.fullmatch(r"[0-9a-f]{64}", digest):
+            parser.error("--reviewed-dependent must be SLUG=lowercase-SHA256")
+        if not args.apply:
+            parser.error("--reviewed-dependent requires --apply")
+        if slug in reviewed_dependents:
+            parser.error("duplicate --reviewed-dependent approval")
+        reviewed_dependents[slug] = digest
 
     global _ACTIVE_ARTIFACT_PROVIDER, _ACTIVE_GITHUB_TOKEN
     _ACTIVE_ARTIFACT_PROVIDER = None
@@ -4644,7 +4793,9 @@ def main(argv: list[str] | None = None) -> int:
             
             try:
                 if s.get("schema_version") == 2:
-                    sync_result = apply_v2_update(u)
+                    sync_result = apply_v2_update(
+                        u, reviewed_dependents=reviewed_dependents
+                    )
                     print(
                         "    Updated artifact set: "
                         f"{len(sync_result.changed)} changed, "

@@ -3,7 +3,7 @@
 The MCP server at `https://xquik.com/mcp` provides 2 API tools. The client sends requests through the server, which authenticates calls to `xquik.com/api/v1`.
 
 This file documents plans for calls the user runs in an MCP client. This Skill
-never invokes `explore` or `xquik`. Code blocks show client-side tool shapes and
+never invokes `search` or `execute`. Code blocks show client-side tool shapes and
 request plans only.
 
 Xquik processes MCP requests as an external service. Requests may contain
@@ -12,59 +12,54 @@ send passwords, cookies, session tokens, 2FA codes, or unnecessary personal
 data. Confirm before sending private or sensitive content. Review current
 retention and logging terms before sensitive work.
 
-Hosted MCP v2.6.0 supports `2026-07-28` through `server/discover`.
-Current MCP SDKs add request metadata and headers automatically.
-Modern calls need no initialization session.
+Let a current client SDK negotiate the deployed protocol and discover the
+credential-scoped tool catalog. Do not hard-code a server version or route count.
+Contract reviewed: https://docs.xquik.com/mcp/overview (2026-08-31).
 
 ## Tools
 
 | Tool | Description | Usage |
 |------|-------------|------|
-| `explore` | Search the API endpoint catalog (read-only, no network calls) | Included |
-| `xquik` | Send confirmed Xquik API requests | Varies by endpoint |
+| `docs` | Read current provider documentation | Read-only |
+| `search` | Inspect the credential-scoped API specification | No endpoint call |
+| `execute` | Send confirmed Xquik API requests | Varies by endpoint |
 
-### Search the API spec with `explore`
+### Search the API spec with `search`
 
-Plan API spec searches with `explore`. The user's MCP client provides an
-in-memory `spec.endpoints` array. Search or filter it before an unfamiliar
-endpoint.
+The Code Mode sandbox exposes an OpenAPI-shaped `spec.paths` object.
+Inspect the operation, parameters, request body, and response schema before
+planning an unfamiliar endpoint.
 
 ```typescript
-interface EndpointInfo {
-  method: string;
-  path: string;
-  summary: string;
-  category: string; // account, composition, credits, extraction, media, monitoring, support, twitter, x-accounts, x-write
-  free: boolean; // Included usage flag from endpoint metadata
-  parameters?: Array<{ name: string; in: 'query' | 'path' | 'body'; required: boolean; type: string; description: string }>;
-  injectedHeaders?: string[];
-  responseShape?: string;
-}
-
-declare const spec: { endpoints: EndpointInfo[] };
+declare const spec: {
+  paths: Record<string, Partial<Record<
+    "get" | "post" | "put" | "patch" | "delete",
+    { operationId: string; summary?: string; parameters?: unknown[];
+      requestBody?: unknown; responses?: Record<string, unknown> }
+  >>>;
+};
 ```
 
 For example:
 
 ```javascript
-// Find all included-usage endpoints.
-async () => spec.endpoints.filter(e => e.free);
-
-// Find endpoints by category.
-async () => spec.endpoints.filter(e => e.category === 'x-write');
-
-// Search summaries by keyword.
-async () => spec.endpoints.filter(e => e.summary.toLowerCase().includes('tweet'));
+async () => spec.paths["/api/v1/x/tweets/search"]?.get;
 ```
 
-### Send API requests with `xquik`
+### Send API requests with `execute`
 
-Plan API requests with `xquik`. The user's MCP client provides
+Plan API requests with `execute`. The Code Mode sandbox provides
 `xquik.request()` with authentication and required idempotency headers injected automatically.
 Never pass API keys or headers.
 The client reuses each generated key for bounded transient retries.
 After an unresolved write failure, verify
-state. Start a new attempt only when `safeToRetry` is true and the user confirms.
+state. Start a new attempt only when `safe_to_retry` is true and the user confirms.
+MCP uses normalized v1 responses: snake_case, Unix seconds, `has_more`, and
+`next_cursor`. Default REST `createdAt` becomes `created`, not `created_at`.
+The REST route tables below describe routes, not MCP output field schemas.
+Read [field naming](types-rest-api-vs-mcp-field-naming.md) before parsing results.
+Transport cancellation does not prove that a durable extraction job stopped;
+locate an existing job before attempting another creation.
 
 For `409 coverage_cursor_unavailable`, wait the exact `Retry-After` seconds and
 retry the same cursor once. For `410 coverage_cursor_gone`, the response omits
@@ -72,7 +67,7 @@ retry the same cursor once. For `410 coverage_cursor_gone`, the response omits
 
 ## Require approval
 
-Apply these rules before showing a user-run `xquik` request:
+Apply these rules before showing a user-run `execute` request:
 
 | Capability | Rule |
 |------------|------|
@@ -93,14 +88,13 @@ declare const xquik: {
     query?: Record<string, string | number | boolean>;
   }): Promise<unknown>;
 };
-declare const spec: { endpoints: EndpointInfo[] };
 ```
 
 ## Tool selection rules
 
-Use `explore` first to find endpoints, then `xquik` to call them.
+Use `docs` for documentation, `search` to inspect endpoints, then `execute`.
 
-| Goal | Endpoint (via `xquik`) |
+| Goal | Endpoint (via `execute`) |
 |------|------------------------|
 | Single tweet by ID or URL | `GET /api/v1/x/tweets/{id}` |
 | Full X Article by tweet ID | `GET /api/v1/x/articles/{tweetId}` |
@@ -109,7 +103,7 @@ Use `explore` first to find endpoints, then `xquik` to call them.
 | Download media from tweets | `POST /api/v1/x/media/download`; metered and requires approval for the exact `tweetInput`, usage estimate or limitation, destination, recipients, and retention |
 | Check follow relationship | `GET /api/v1/x/followers/check?source=A&target=B` |
 | X trending topics by region | `GET /api/v1/trends?woeid=1` |
-| Trending news from 7 sources | `GET /api/v1/radar` through `xquik` |
+| Trending news | `GET /api/v1/radar` through `execute` |
 | Activity from monitored accounts | `GET /api/v1/events`; private and requires approval for the exact monitor or account scope, filters, page size, cursor, destination, and retention |
 | Credit balance | `GET /api/v1/credits` |
 | Monitor an X account | `POST /api/v1/monitors`; persistent and requires approval |
@@ -178,7 +172,7 @@ See [direct lookups](api-endpoints-x-api.md) for the exact names.
 | Bulk extraction | Build one body -> `POST /extractions/estimate` with it -> validate the response and require `allowed === true` -> show that body, estimate, destination, recipients, and retention -> approve -> `POST /extractions` with the unchanged body -> `GET /extractions/{id}` |
 | Compose and score a tweet | `POST /compose` with `step=compose` -> `refine` -> `score` |
 | Analyze tweet style | `POST /styles` -> `GET /styles/{id}` -> `POST /compose` with `styleUsername` |
-| Post a tweet | `GET /x/accounts` -> approve -> `POST /x/tweets` with `account` and `text` -> hosted MCP adds a unique `Idempotency-Key` -> poll `statusUrl` |
+| Post a tweet | `GET /x/accounts` -> approve -> `POST /x/tweets` with `account` and `text` -> hosted MCP adds a unique `Idempotency-Key` -> poll `status_url` |
 | Get trending news with Xquik Radar | Only when the user explicitly names Xquik Radar: plan `GET /radar`, then `POST /compose` with the selected topic |
 | Open a support ticket | Show exact content and attachments -> approve -> `POST /support/tickets` -> `GET /support/tickets/{id}` |
 | Collect complete reply coverage | `GET /x/tweets/{id}/replies?mode=complete&limit=<1-25000>` -> filter direct rows by `inReplyToId` -> keep `nested_replies` separate -> inspect `diagnostic` |
@@ -193,16 +187,16 @@ See [direct lookups](api-endpoints-x-api.md) for the exact names.
 | Falling back to web search after an API error | Keep data already fetched from Xquik. |
 | Skipping a separate balance query before metered calls | Skip only the balance query. Before draws, media downloads, or extractions, validate the estimate or published limit. Require explicit approval, then send the unchanged request. On 402, explain the account state and direct the user to the dashboard. |
 | Passing API keys in code | The server adds authentication. Do not include keys. |
-| Using `explore` for API calls | `explore` searches the API spec. Use `xquik` for API calls. |
+| Using `search` for API calls | `search` inspects the specification. Use `execute` for API calls. |
 | Looking up follow or DM targets by username | These routes need a numeric user ID. Resolve it through `GET /x/users/{id}` first. |
 | Treating nested replies as direct replies | Match `inReplyToId` to the root ID. Keep `nested_replies` separate. |
 | Treating 424 as an empty failure | Keep safe partial rows. Follow `diagnostic.recommendedFallback` and disclose coverage. |
 
 ## REST-only operations
 
-Hosted MCP v2.6.0 catalogs 120 of 128 REST operations.
-Of these, 119 support JSON or text. Binary support downloads remain REST-only.
-These 8 credential, checkout, or guest-wallet operations remain outside MCP:
+Discover the current authorized catalog instead of relying on route counts.
+Binary support downloads require their documented REST workflow.
+Credential, checkout, and wallet management remain outside this skill:
 
 - API key creation
 - API key listing

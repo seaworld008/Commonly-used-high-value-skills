@@ -5,6 +5,7 @@ import base64
 import hashlib
 import json
 import re
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -141,15 +142,40 @@ class GitHubArtifactProvider:
         if self.token:
             headers["Authorization"] = f"Bearer {self.token}"
         request = urllib.request.Request(url, headers=headers)
-        try:
-            with urllib.request.urlopen(request, timeout=30) as response:
-                value = json.loads(response.read().decode("utf-8"))
-        except urllib.error.HTTPError as exc:
-            raise GitHubUnavailable(
-                f"GitHub API HTTP {exc.code} for {url}"
-            ) from exc
-        except (OSError, ValueError) as exc:
-            raise GitHubUnavailable(f"GitHub API failed for {url}: {exc}") from exc
+        # These requests are read-only. Retry only transient transport/server
+        # failures, never reinterpret denied or missing resources as success.
+        # A long/HTTP-date Retry-After is left to the next maintenance run.
+        for attempt in range(3):
+            delay = 0.5 * (2 ** attempt)
+            try:
+                with urllib.request.urlopen(request, timeout=30) as response:
+                    value = json.loads(response.read().decode("utf-8"))
+                break
+            except urllib.error.HTTPError as exc:
+                retry_after = exc.headers.get("Retry-After") if exc.headers else None
+                if retry_after is not None:
+                    try:
+                        delay = max(delay, float(retry_after))
+                    except ValueError:
+                        delay = float("inf")
+                if (
+                    attempt == 2
+                    or exc.code not in {429, 500, 502, 503, 504}
+                    or not 0 <= delay <= 5
+                ):
+                    raise GitHubUnavailable(
+                        f"GitHub API HTTP {exc.code} for {url}"
+                    ) from exc
+            except OSError as exc:
+                if attempt == 2:
+                    raise GitHubUnavailable(
+                        f"GitHub API failed for {url}: {exc}"
+                    ) from exc
+            except ValueError as exc:
+                raise GitHubUnavailable(
+                    f"GitHub API failed for {url}: {exc}"
+                ) from exc
+            time.sleep(delay)
         self._json_cache[url] = value
         return value
 

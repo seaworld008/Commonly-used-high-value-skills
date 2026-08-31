@@ -268,6 +268,13 @@
       "target": "wshobson/agents@38e19c20d2b154510b0e624a2e3e186b19b5c527",
       "result": "success",
       "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-08-31",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "wshobson/agents@38e19c20d2b154510b0e624a2e3e186b19b5c527",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
     }
   ]
 }

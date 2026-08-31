@@ -111,6 +111,13 @@
       "target": "firebase/agent-skills@a0b4e143f40c1ebe05fe5f9a4787fecd4da8f478",
       "result": "success",
       "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-08-31",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "firebase/agent-skills@a0b4e143f40c1ebe05fe5f9a4787fecd4da8f478",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
     }
   ]
 }

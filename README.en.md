@@ -694,6 +694,9 @@ These areas are good candidates for future expansion and replacement decisions:
 
 Detailed curation context: [Skill Curation and Upgrade Report](./docs/sources/reports/skill-curation-2026-04-25.md).
 
+Accepted updates, preserved assets, and rejected candidates for this run:
+[2026-08-31 maintenance decisions](./docs/maintenance-2026-08-31.md).
+
 ## Quick Search Commands
 
 ```bash

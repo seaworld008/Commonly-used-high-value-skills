@@ -20,7 +20,7 @@ lark-cli drive +member-remove \
 | `--token` | 是 | 裸 token 或完整 URL。路径支持 `/drive/folder/`、`/docx/`、`/doc/`、`/sheets/`、`/base/`、`/bitable/`、`/wiki/`、`/file/`、`/mindnotes/`、`/slides/`、`/minutes/`、`/page/`；URL 可从路径推断类型，裸 token 必须同时传 `--type`。 |
 | `--type` | 条件必填 | 资源类型：`docx` / `doc` / `sheet` / `bitable` / `file` / `folder` / `wiki` / `mindnote` / `slides` / `minutes` / `apps`。完整 URL 可省略。 |
 | `--member-id` | 是 | 要移除的单个协作者 ID。逗号分隔的多成员输入会被拒绝；批量场景应逐个调用。 |
-| `--member-type` | 是 | ID 类型：`email` / `openid` / `openchat` / `opendepartmentid` / `userid` / `unionid` / `groupid` / `wikispaceid`。 |
+| `--member-type` | 是 | ID 类型：`email` / `openid` / `openchat` / `opendepartmentid` / `userid` / `unionid` / `groupid` / `appid` / `wikispaceid`。执行前以已安装版本 `--help` 和 `--dry-run` 确认支持。 |
 | `--member-kind` | 条件必填 | 仅 `--member-type=wikispaceid` 使用：未启用知识库成员分组时传 `wiki_space_member`，启用后根据权限传 `wiki_space_viewer` 或 `wiki_space_editor`。 |
 | `--perm-type` | 否 | 仅 wiki 协作者使用：`container`（默认，当前页面及子页面）或 `single_page`（仅当前页面）。 |
 | `--dry-run` | 否 | 只预览 DELETE URL、query 和 body，不调用接口。 |
