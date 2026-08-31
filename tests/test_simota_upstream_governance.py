@@ -13,6 +13,13 @@ MAPPING = (
     / "simota-agent-skills-2026-04.skills.json"
 )
 CURRENT_COMMIT = "6257e7398c65f24859710bfad8f8b96feab6cab6"
+WEEKLY_REVIEW_COMMIT = "0b594f3ff4bf53639f60832a943d90a5109ddf85"
+# Only successful exact-commit reviews advance. Network-failed entries retain
+# their prior checkpoint rather than inheriting another skill's freshness.
+WEEKLY_REVIEWED = {
+    "pulse", "stage", "lore", "tome", "grove", "voice", "trace", "breach",
+    "cloak", "scaffold", "cast", "omen", "lens", "scout", "ripple",
+}
 ARCHIVE_COMMIT = "6502f44cfcd8f456951a7bfdce14d0ed76d724ef"
 MONITOR_REVIEWED = {
     "gateway",
@@ -88,19 +95,32 @@ class SimotaUpstreamGovernanceTests(unittest.TestCase):
         )
 
     def test_reviewed_monitor_entries_advance_to_current_commit(self):
-        for slug in MONITOR_REVIEWED:
+        for slug in MONITOR_REVIEWED | WEEKLY_REVIEWED:
             with self.subTest(slug=slug):
                 entry = self.entries[slug]
                 origin = entry["origins"][0]
                 tracking = origin["tracking"]
                 self.assertEqual("monitor", entry["sync_mode"])
-                self.assertEqual(CURRENT_COMMIT, tracking["resolved_commit"])
+                expected_commit = (
+                    WEEKLY_REVIEW_COMMIT if slug in WEEKLY_REVIEWED else CURRENT_COMMIT
+                )
+                self.assertEqual(expected_commit, tracking["resolved_commit"])
                 self.assertEqual(
-                    CURRENT_COMMIT,
+                    expected_commit,
                     tracking["license_checkpoint"]["resolved_commit"],
                 )
                 self.assertEqual("MIT", tracking["license_checkpoint"]["spdx"])
                 self.assertRegex(tracking["path_commit"], r"^[0-9a-f]{40}$")
+                if slug in WEEKLY_REVIEWED:
+                    self.assertEqual("2026-08-31", tracking["last_checked_at"])
+                    self.assertTrue(any(
+                        attempt.get("method") == "commit-aware-manual-monitor-review"
+                        and attempt.get("target") == (
+                            f"simota/agent-skills@{WEEKLY_REVIEW_COMMIT}"
+                        )
+                        and attempt.get("result") == "success"
+                        for attempt in self.payload["verification_attempts"]
+                    ))
 
     def test_archived_skills_are_licensed_immutable_snapshots(self):
         for slug in ARCHIVED_SNAPSHOTS:

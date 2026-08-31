@@ -60,12 +60,12 @@ def test_reviewed_monitor_checkpoints_advance_without_body_churn() -> None:
         (
             "firebase-agent-skills-2026-07.skills.json",
             "firebase-security-rules-auditor",
-            "073edf7bb747c27b9c911a9126adaa5bc4648fdc",
+            "a0b4e143f40c1ebe05fe5f9a4787fecd4da8f478",
         ),
         (
             "xiaolai-nlpm-2026-06.skills.json",
             "nlpm-audit",
-            "38defa93f1a7ac85cbf971a62f9fbf1b372aaa61",
+            "3c85790b2aaafded91db0d166ba6bd125e9f115e",
         ),
     )
     for mapping_name, slug, commit in cases:

@@ -1,15 +1,15 @@
 ---
 name: planning-and-task-breakdown
-description: 'Breaks work into ordered tasks. Use when you have a spec or clear requirements and need to break work into implementable tasks. Use when a task feels too large to start, when you need to estimate scope, or when parallel work is possible.'
-zh_description: "用于planning、任务、breakdown，支持任务规划、执行、评审和验证。"
-version: "1.0.2"
+description: 'Breaks work into ordered tasks with dependencies and acceptance checks. Use when you have a spec or clear requirements and need implementable tasks, scope estimates, or parallel work. Preserve existing incomplete plans when revising or starting a different task.'
+zh_description: "将需求拆成有依赖与验收标准的任务，并保护已有未完成计划。"
+version: "1.0.3"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/planning-and-task-breakdown/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "planning-and-task-breakdown", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-17"
+updated_at: "2026-08-31"
 quality: 5
 complexity: advanced
 upstream_slug: planning-and-task-breakdown
@@ -158,6 +158,13 @@ If a task is L or larger, it should be broken into smaller tasks. An agent perfo
 - **Task list:** Record each task in the **task list target** (defined below).
 
 Create the `tasks/` directory if it does not exist.
+
+**Preserve incomplete plans.** Before writing `tasks/plan.md` or `tasks/todo.md`,
+check for existing unchecked tasks. If this is the same work and the user asked
+to revise it, update the existing plan. For different work, stop and ask which
+plan should own the target; do not overwrite, rename, or delete the earlier plan.
+The same boundary applies to external trackers: never bulk-close another plan's
+open items to make room for a new task.
 
 ### Task List Target
 

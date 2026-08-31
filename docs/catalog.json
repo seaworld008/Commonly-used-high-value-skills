@@ -74,7 +74,7 @@
       "name": "agent-hub",
       "category": "ai-agent-platform",
       "description": "Multi-agent collaboration plugin that spawns N parallel subagents competing on the same task via git worktree isolation. Agents work independently, results are evaluated by metric or LLM judge, and the best branch is merged. Use when: user wants multiple approaches tried in parallel — code optimization, content variation, research exploration, or any task that benefits from parallel competition. Requires: a git repo.",
-      "version": "1.0.8",
+      "version": "1.0.9",
       "author": "seaworld008",
       "source": "github:alirezarezvani/claude-skills",
       "source_url": "https://github.com/alirezarezvani/claude-skills/blob/main/engineering/agenthub/skills/agenthub/SKILL.md",
@@ -86,7 +86,7 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-27",
-      "updated_at": "2026-08-10",
+      "updated_at": "2026-08-31",
       "line_count": 288,
       "path": "skills/ai-agent-platform/agent-hub/SKILL.md"
     },
@@ -253,8 +253,8 @@
     {
       "name": "mcporter",
       "category": "ai-agent-platform",
-      "description": "List, auth, and call MCP servers/tools from the terminal.",
-      "version": "1.0.1",
+      "description": "Use when a user explicitly needs terminal-based MCP discovery, schema inspection, authentication diagnostics, or scripted tool calls through mcporter; verify server trust, argument schemas, and mutation authority before execution.",
+      "version": "1.0.2",
       "author": "community",
       "source": "github:NousResearch/hermes-agent",
       "source_url": "https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/mcp/mcporter/SKILL.md",
@@ -268,8 +268,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-04-13",
-      "updated_at": "2026-06-29",
-      "line_count": 131,
+      "updated_at": "2026-08-31",
+      "line_count": 184,
       "path": "skills/ai-agent-platform/mcporter/SKILL.md"
     },
     {
@@ -939,8 +939,8 @@
     {
       "name": "performance-optimization",
       "category": "ai-workflow",
-      "description": "Optimizes application performance across frontend, backend, queries, and databases. Use when performance requirements exist, when you suspect performance regressions, when Core Web Vitals or load times need improvement, when N+1 query patterns need fixing, or when profiling reveals bottlenecks.",
-      "version": "1.0.1",
+      "description": "Optimizes application performance across frontend, backend, queries, and databases. Use when performance requirements exist, when you suspect performance regressions, when Core Web Vitals or load times need improvement, when N+1 query patterns need fixing, or when profiling reveals bottlenecks. Protect measured gains with CI budgets and field monitoring.",
+      "version": "1.0.2",
       "author": "addyosmani",
       "source": "github:addyosmani/agent-skills",
       "source_url": "https://github.com/addyosmani/agent-skills/blob/main/skills/performance-optimization/SKILL.md",
@@ -954,15 +954,15 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-08-10",
-      "line_count": 408,
+      "updated_at": "2026-08-31",
+      "line_count": 414,
       "path": "skills/ai-workflow/performance-optimization/SKILL.md"
     },
     {
       "name": "planning-and-task-breakdown",
       "category": "ai-workflow",
-      "description": "Breaks work into ordered tasks. Use when you have a spec or clear requirements and need to break work into implementable tasks. Use when a task feels too large to start, when you need to estimate scope, or when parallel work is possible.",
-      "version": "1.0.2",
+      "description": "Breaks work into ordered tasks with dependencies and acceptance checks. Use when you have a spec or clear requirements and need implementable tasks, scope estimates, or parallel work. Preserve existing incomplete plans when revising or starting a different task.",
+      "version": "1.0.3",
       "author": "addyosmani",
       "source": "github:addyosmani/agent-skills",
       "source_url": "https://github.com/addyosmani/agent-skills/blob/main/skills/planning-and-task-breakdown/SKILL.md",
@@ -976,8 +976,8 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-08-17",
-      "line_count": 259,
+      "updated_at": "2026-08-31",
+      "line_count": 266,
       "path": "skills/ai-workflow/planning-and-task-breakdown/SKILL.md"
     },
     {
@@ -1641,11 +1641,11 @@
     {
       "name": "codebase-inspection",
       "category": "developer-engineering",
-      "description": "Inspect codebases w/ pygount: LOC, languages, ratios.",
-      "version": "1.0.0",
+      "description": "Use when a user needs reproducible repository sizing, language composition, file counts, or code-versus-comment ratios with pygount; record exclusions and verify measurement scope before interpreting results.",
+      "version": "1.0.1",
       "author": "Hermes Agent",
       "source": "github:NousResearch/hermes-agent",
-      "source_url": "https://github.com/NousResearch/hermes-agent/blob/main/skills/github/codebase-inspection/SKILL.md",
+      "source_url": "https://github.com/NousResearch/hermes-agent/blob/main/skills/software-development/codebase-inspection/SKILL.md",
       "tags": [
         "LOC",
         "Code Analysis",
@@ -1657,8 +1657,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-04-13",
-      "updated_at": "2026-06-29",
-      "line_count": 124,
+      "updated_at": "2026-08-31",
+      "line_count": 173,
       "path": "skills/developer-engineering/codebase-inspection/SKILL.md"
     },
     {
@@ -3669,7 +3669,7 @@
       "name": "arxiv",
       "category": "knowledge-and-pm-integrations",
       "description": "Search arXiv papers by keyword, author, category, or ID.",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "author": "Hermes Agent",
       "source": "github:NousResearch/hermes-agent",
       "source_url": "https://github.com/NousResearch/hermes-agent/blob/main/skills/research/arxiv/SKILL.md",
@@ -3684,7 +3684,7 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-04-13",
-      "updated_at": "2026-08-17",
+      "updated_at": "2026-08-31",
       "line_count": 290,
       "path": "skills/knowledge-and-pm-integrations/arxiv/SKILL.md"
     },
@@ -4361,8 +4361,8 @@
     {
       "name": "obsidian",
       "category": "knowledge-and-pm-integrations",
-      "description": "Read, search, create, and edit notes in the Obsidian vault.",
-      "version": "1.0.3",
+      "description": "Use when a user asks to read, search, create, or edit Obsidian vault notes through filesystem tools; resolve the authorized vault, preserve frontmatter and wikilinks, and verify narrowly scoped edits without touching plugins or unrelated notes.",
+      "version": "1.0.4",
       "author": "seaworld008",
       "source": "github:NousResearch/hermes-agent",
       "source_url": "https://github.com/NousResearch/hermes-agent/blob/main/skills/note-taking/obsidian/SKILL.md",
@@ -4375,8 +4375,8 @@
       "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-04-13",
-      "updated_at": "2026-06-29",
-      "line_count": 102,
+      "updated_at": "2026-08-31",
+      "line_count": 153,
       "path": "skills/knowledge-and-pm-integrations/obsidian/SKILL.md"
     },
     {

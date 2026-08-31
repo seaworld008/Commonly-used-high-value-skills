@@ -1,15 +1,15 @@
 ---
 name: performance-optimization
-description: 'Optimizes application performance across frontend, backend, queries, and databases. Use when performance requirements exist, when you suspect performance regressions, when Core Web Vitals or load times need improvement, when N+1 query patterns need fixing, or when profiling reveals bottlenecks.'
-zh_description: "用于性能、优化，支持任务规划、执行、评审和验证。"
-version: "1.0.1"
+description: 'Optimizes application performance across frontend, backend, queries, and databases. Use when performance requirements exist, when you suspect performance regressions, when Core Web Vitals or load times need improvement, when N+1 query patterns need fixing, or when profiling reveals bottlenecks. Protect measured gains with CI budgets and field monitoring.'
+zh_description: "基于测量优化前后端与数据库性能，并用 CI 预算和真实用户监测防止回退。"
+version: "1.0.2"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/performance-optimization/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "performance-optimization", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-10"
+updated_at: "2026-08-31"
 quality: 5
 complexity: advanced
 upstream_slug: performance-optimization
@@ -337,6 +337,12 @@ Reverted work leaves no trace in git history, which is exactly why the same dead
 A section in the PR description or a `PERF.md` in the repo both work. What matters is that the next person (or the next agent) reads it before proposing an experiment, and doesn't re-run one that already failed.
 
 ## Performance Budget
+
+Guard the same user-facing metric that justified the change. Use reproducible
+synthetic CI measurements and field monitoring as separate evidence layers;
+repeat noisy samples or compare medians before failing a budget. Field data can
+confirm user impact but rolling aggregates are not immediate release signals.
+When either guard regresses, establish a fresh baseline before another change.
 
 Set budgets and enforce them:
 

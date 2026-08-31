@@ -49,7 +49,7 @@
             "ref": "main",
             "resolved_commit": "98180dafc4f0bc9d629bd479fc6107674cfb3cf8",
             "path_commit": "1851c8fb09ea8ff0488d48bd7c312abb1bbf5850",
-            "content_sha256": "387d7d7ea145c1779276f316313d89ac62c469f900b5dfb8e4e55aa0a765f7a3",
+            "content_sha256": "e25e7279775d667498b1e10d6d21df4973e881d052559f4724c46f859181ba71",
             "last_checked_at": "2026-08-24",
             "last_synced_at": "2026-08-24",
             "license_checkpoint": {
@@ -110,7 +110,7 @@
         },
         {
           "path": "skills/ai-agent-platform/agent-hub/SKILL.md",
-          "sha256": "387d7d7ea145c1779276f316313d89ac62c469f900b5dfb8e4e55aa0a765f7a3",
+          "sha256": "e25e7279775d667498b1e10d6d21df4973e881d052559f4724c46f859181ba71",
           "owner": "agent-hub",
           "mode": "100644"
         },

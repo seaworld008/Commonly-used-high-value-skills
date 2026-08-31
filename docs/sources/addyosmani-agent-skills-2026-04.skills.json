@@ -2546,7 +2546,7 @@
             "ref": "main",
             "resolved_commit": "5a5ea45e806f82273549fd85e60adb95d55f510d",
             "path_commit": "91d4d07522de9577caf5d213e5bf1acc38fa3df2",
-            "content_sha256": "0367fdd12d2f2d0fdabd96a7171cf1559cca39979fc3e4cc09cff186485a0b09",
+            "content_sha256": "903af0b43756ca7d3b1014943c8a0db4e4ed4d56cd6431f7000356e23fc17591",
             "last_checked_at": "2026-08-24",
             "last_synced_at": "2026-08-24",
             "license_checkpoint": {
@@ -2615,7 +2615,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/performance-optimization/SKILL.md",
-          "sha256": "0367fdd12d2f2d0fdabd96a7171cf1559cca39979fc3e4cc09cff186485a0b09",
+          "sha256": "903af0b43756ca7d3b1014943c8a0db4e4ed4d56cd6431f7000356e23fc17591",
           "owner": "performance-optimization",
           "mode": "100644"
         },
@@ -2699,7 +2699,7 @@
             "ref": "main",
             "resolved_commit": "5a5ea45e806f82273549fd85e60adb95d55f510d",
             "path_commit": "f18d2c343eb3a1849ff5aaedf73d0f06e9c25421",
-            "content_sha256": "875b99c85ce53a28a1be3e1ec8b537fff814669bb3f4d2d9eb5b431b213519c3",
+            "content_sha256": "e109664603207c2b7c79740c2ea8d4bdc9a0afd6c39e3884a358cabf116b4b31",
             "last_checked_at": "2026-08-24",
             "last_synced_at": "2026-08-24",
             "license_checkpoint": {
@@ -2768,7 +2768,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/planning-and-task-breakdown/SKILL.md",
-          "sha256": "875b99c85ce53a28a1be3e1ec8b537fff814669bb3f4d2d9eb5b431b213519c3",
+          "sha256": "e109664603207c2b7c79740c2ea8d4bdc9a0afd6c39e3884a358cabf116b4b31",
           "owner": "planning-and-task-breakdown",
           "mode": "100644"
         },

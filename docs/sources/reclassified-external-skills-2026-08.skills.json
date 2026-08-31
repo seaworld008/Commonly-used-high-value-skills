@@ -2,7 +2,7 @@
   "schema_version": 2,
   "video": {
     "url": "https://github.com/seaworld008/Commonly-used-high-value-skills",
-    "checked_at": "2026-08-24",
+    "checked_at": "2026-08-31",
     "note": "External canonical skills reclassified from the legacy in-house provenance mapping."
   },
   "collection": {
@@ -134,6 +134,41 @@
       "date": "2026-08-24",
       "method": "commit-aware-manual-monitor-review",
       "target": "getsentry/skills@6abccd60c704f669423d6a06ff0809fa39513ce8",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-08-31",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "getsentry/skills@c2f99a5b04b4cd992ec3022d7c2c3e23e938d241",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-08-31",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "microsoft/azure-skills@8bcae3112896668ae0a4d02b44dddc0424d88c8c",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-08-31",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "neondatabase/agent-skills@8370e740b4705a79d104b24dd29b3e33c8688378",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-08-31",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "wshobson/agents@38e19c20d2b154510b0e624a2e3e186b19b5c527",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-08-31",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "Jeffallan/claude-skills@882ef55e377dbf9a4dbe496bb41ac6ccd0e555cf",
       "result": "success",
       "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
     }
@@ -298,9 +333,9 @@
         "repo": "microsoft/azure-skills",
         "path": "skills/azure-kubernetes/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-24",
-        "last_synced_at": "2026-08-24",
-        "last_synced_commit": "1a03acfb9ac1a1a05518bf7420d4618cc41847be",
+        "last_checked_at": "2026-08-31",
+        "last_synced_at": "2026-08-31",
+        "last_synced_commit": "8bcae3112896668ae0a4d02b44dddc0424d88c8c",
         "sync_mode": "monitor",
         "path_commit": "3b087be2faf4ff65bedf693986c3446f97645e7f"
       },
@@ -582,17 +617,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "1a03acfb9ac1a1a05518bf7420d4618cc41847be",
+            "resolved_commit": "8bcae3112896668ae0a4d02b44dddc0424d88c8c",
             "path_commit": "3b087be2faf4ff65bedf693986c3446f97645e7f",
             "content_sha256": "256c28e87a23dbb137c4ed2b17eee46540f760ba51087312aa1a9065bf57f11e",
-            "last_checked_at": "2026-08-24",
-            "last_synced_at": "2026-08-24",
+            "last_checked_at": "2026-08-31",
+            "last_synced_at": "2026-08-31",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "356b112bcc4f07e03b6e57569eedf9d79978d2d5",
               "content_sha256": "8a5d8efb70942e65032f930c761d097feeb41a7517ebd04c9d2e4ec3764071c5",
               "spdx": "MIT",
-              "resolved_commit": "1a03acfb9ac1a1a05518bf7420d4618cc41847be",
+              "resolved_commit": "8bcae3112896668ae0a4d02b44dddc0424d88c8c",
               "api_spdx": "MIT"
             }
           }
@@ -1040,9 +1075,9 @@
         "repo": "getsentry/skills",
         "path": "skills/gha-security-review/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-24",
-        "last_synced_at": "2026-08-24",
-        "last_synced_commit": "6abccd60c704f669423d6a06ff0809fa39513ce8",
+        "last_checked_at": "2026-08-31",
+        "last_synced_at": "2026-08-31",
+        "last_synced_commit": "c2f99a5b04b4cd992ec3022d7c2c3e23e938d241",
         "sync_mode": "monitor",
         "path_commit": "7e127fe8a5d16a6800a80f9cf50f96a7324eac0e"
       },
@@ -1063,17 +1098,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "6abccd60c704f669423d6a06ff0809fa39513ce8",
+            "resolved_commit": "c2f99a5b04b4cd992ec3022d7c2c3e23e938d241",
             "path_commit": "7e127fe8a5d16a6800a80f9cf50f96a7324eac0e",
             "content_sha256": "ccd7b57e9f2a39509b70081b1b8859f2c3250fd510aafdebd57a0becd66645e8",
-            "last_checked_at": "2026-08-24",
-            "last_synced_at": "2026-08-24",
+            "last_checked_at": "2026-08-31",
+            "last_synced_at": "2026-08-31",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "753a6c03c60a9232405d05170bd3ad3cab49a1ef",
               "content_sha256": "96e78a9ce85795b117c8929887bdb78f88bf23f7b85a31f0872cde4dff7e92cd",
               "spdx": "Apache-2.0",
-              "resolved_commit": "6abccd60c704f669423d6a06ff0809fa39513ce8",
+              "resolved_commit": "c2f99a5b04b4cd992ec3022d7c2c3e23e938d241",
               "api_spdx": "Apache-2.0"
             }
           }
@@ -1099,10 +1134,11 @@
         "repo": "Jeffallan/claude-skills",
         "path": "skills/kubernetes-specialist/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-20",
-        "last_synced_at": "2026-06-29",
+        "last_checked_at": "2026-08-31",
+        "last_synced_at": "2026-08-31",
         "last_synced_commit": "882ef55e377dbf9a4dbe496bb41ac6ccd0e555cf",
-        "sync_mode": "monitor"
+        "sync_mode": "monitor",
+        "path_commit": "efebc44c90ae6eb3b36ff1c53802a765418481b9"
       },
       "kind": "mirror",
       "sync_mode": "monitor",
@@ -1124,8 +1160,16 @@
             "resolved_commit": "882ef55e377dbf9a4dbe496bb41ac6ccd0e555cf",
             "path_commit": "efebc44c90ae6eb3b36ff1c53802a765418481b9",
             "content_sha256": "e41b625752f3324784b452dd8102b792c2be28b98e73ba6e703d80df3b111f6c",
-            "last_checked_at": "2026-08-20",
-            "last_synced_at": "2026-06-29"
+            "last_checked_at": "2026-08-31",
+            "last_synced_at": "2026-08-31",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
+              "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+              "spdx": "MIT",
+              "resolved_commit": "882ef55e377dbf9a4dbe496bb41ac6ccd0e555cf",
+              "api_spdx": "MIT"
+            }
           }
         }
       ],
@@ -1149,9 +1193,9 @@
         "repo": "neondatabase/agent-skills",
         "path": "skills/neon-postgres/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-24",
-        "last_synced_at": "2026-08-24",
-        "last_synced_commit": "b7f87949583782238aef20414a29b1f5ca2773ea",
+        "last_checked_at": "2026-08-31",
+        "last_synced_at": "2026-08-31",
+        "last_synced_commit": "8370e740b4705a79d104b24dd29b3e33c8688378",
         "sync_mode": "monitor",
         "path_commit": "e20e68996aa1dbd5cf4d2c981e5357cdefd8f5bd"
       },
@@ -1172,17 +1216,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "b7f87949583782238aef20414a29b1f5ca2773ea",
+            "resolved_commit": "8370e740b4705a79d104b24dd29b3e33c8688378",
             "path_commit": "e20e68996aa1dbd5cf4d2c981e5357cdefd8f5bd",
             "content_sha256": "9e1da5b4b14fe187711ae6c1caa688de15dd82cf48e219fdcb208dd12ed8a5f7",
-            "last_checked_at": "2026-08-24",
-            "last_synced_at": "2026-08-24",
+            "last_checked_at": "2026-08-31",
+            "last_synced_at": "2026-08-31",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
               "content_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
               "spdx": "Apache-2.0",
-              "resolved_commit": "b7f87949583782238aef20414a29b1f5ca2773ea",
+              "resolved_commit": "8370e740b4705a79d104b24dd29b3e33c8688378",
               "api_spdx": "Apache-2.0"
             }
           }
@@ -1208,9 +1252,9 @@
         "repo": "neondatabase/agent-skills",
         "path": "skills/neon-postgres-egress-optimizer/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-24",
-        "last_synced_at": "2026-08-24",
-        "last_synced_commit": "b7f87949583782238aef20414a29b1f5ca2773ea",
+        "last_checked_at": "2026-08-31",
+        "last_synced_at": "2026-08-31",
+        "last_synced_commit": "8370e740b4705a79d104b24dd29b3e33c8688378",
         "sync_mode": "monitor",
         "path_commit": "e20e68996aa1dbd5cf4d2c981e5357cdefd8f5bd"
       },
@@ -1231,17 +1275,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "b7f87949583782238aef20414a29b1f5ca2773ea",
+            "resolved_commit": "8370e740b4705a79d104b24dd29b3e33c8688378",
             "path_commit": "e20e68996aa1dbd5cf4d2c981e5357cdefd8f5bd",
             "content_sha256": "2cdb79baa4985f0aeaf737744fbe24a41d606f3241fa6800314f50443f0fadba",
-            "last_checked_at": "2026-08-24",
-            "last_synced_at": "2026-08-24",
+            "last_checked_at": "2026-08-31",
+            "last_synced_at": "2026-08-31",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
               "content_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
               "spdx": "Apache-2.0",
-              "resolved_commit": "b7f87949583782238aef20414a29b1f5ca2773ea",
+              "resolved_commit": "8370e740b4705a79d104b24dd29b3e33c8688378",
               "api_spdx": "Apache-2.0"
             }
           }
@@ -1267,9 +1311,9 @@
         "repo": "wshobson/agents",
         "path": "plugins/frontend-mobile-development/skills/nextjs-app-router-patterns/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-24",
-        "last_synced_at": "2026-08-24",
-        "last_synced_commit": "d82998e7df393c671ede2387a8435075f0b633f5",
+        "last_checked_at": "2026-08-31",
+        "last_synced_at": "2026-08-31",
+        "last_synced_commit": "38e19c20d2b154510b0e624a2e3e186b19b5c527",
         "sync_mode": "monitor",
         "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f"
       },
@@ -1296,17 +1340,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "d82998e7df393c671ede2387a8435075f0b633f5",
+            "resolved_commit": "38e19c20d2b154510b0e624a2e3e186b19b5c527",
             "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f",
             "content_sha256": "75ea8d7f86c3b80fc096eed53ea5decb4b29e4f1e2cbb61177d15069e7fd2b7e",
-            "last_checked_at": "2026-08-24",
-            "last_synced_at": "2026-08-24",
+            "last_checked_at": "2026-08-31",
+            "last_synced_at": "2026-08-31",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "326f0a55c96e672fedf9d807ca043c00df05ba0e",
               "content_sha256": "f89abb55d9f073f38f1703e4518f0613c788c6174be7f13b8dfe48a1c076c746",
               "spdx": "MIT",
-              "resolved_commit": "d82998e7df393c671ede2387a8435075f0b633f5",
+              "resolved_commit": "38e19c20d2b154510b0e624a2e3e186b19b5c527",
               "api_spdx": "MIT"
             }
           }
@@ -1338,9 +1382,9 @@
         "repo": "wshobson/agents",
         "path": "plugins/python-development/skills/python-performance-optimization/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-24",
-        "last_synced_at": "2026-08-24",
-        "last_synced_commit": "d82998e7df393c671ede2387a8435075f0b633f5",
+        "last_checked_at": "2026-08-31",
+        "last_synced_at": "2026-08-31",
+        "last_synced_commit": "38e19c20d2b154510b0e624a2e3e186b19b5c527",
         "sync_mode": "monitor",
         "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f"
       },
@@ -1372,17 +1416,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "d82998e7df393c671ede2387a8435075f0b633f5",
+            "resolved_commit": "38e19c20d2b154510b0e624a2e3e186b19b5c527",
             "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f",
             "content_sha256": "f7747318fa39498c0f2d72295acf0055f86528a1b46c056832e2a0044aee4a3d",
-            "last_checked_at": "2026-08-24",
-            "last_synced_at": "2026-08-24",
+            "last_checked_at": "2026-08-31",
+            "last_synced_at": "2026-08-31",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "326f0a55c96e672fedf9d807ca043c00df05ba0e",
               "content_sha256": "f89abb55d9f073f38f1703e4518f0613c788c6174be7f13b8dfe48a1c076c746",
               "spdx": "MIT",
-              "resolved_commit": "d82998e7df393c671ede2387a8435075f0b633f5",
+              "resolved_commit": "38e19c20d2b154510b0e624a2e3e186b19b5c527",
               "api_spdx": "MIT"
             }
           }
@@ -1470,9 +1514,9 @@
         "repo": "getsentry/skills",
         "path": "skills/security-review/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-24",
-        "last_synced_at": "2026-08-24",
-        "last_synced_commit": "6abccd60c704f669423d6a06ff0809fa39513ce8",
+        "last_checked_at": "2026-08-31",
+        "last_synced_at": "2026-08-31",
+        "last_synced_commit": "c2f99a5b04b4cd992ec3022d7c2c3e23e938d241",
         "sync_mode": "monitor",
         "path_commit": "24361e7958f9644d11f1de100654e3b04a509192"
       },
@@ -1493,17 +1537,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "6abccd60c704f669423d6a06ff0809fa39513ce8",
+            "resolved_commit": "c2f99a5b04b4cd992ec3022d7c2c3e23e938d241",
             "path_commit": "24361e7958f9644d11f1de100654e3b04a509192",
             "content_sha256": "9e323d51993b66d987bcbcd8ccb7e2786c845ab8b2f82766ec8953d21588be45",
-            "last_checked_at": "2026-08-24",
-            "last_synced_at": "2026-08-24",
+            "last_checked_at": "2026-08-31",
+            "last_synced_at": "2026-08-31",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "753a6c03c60a9232405d05170bd3ad3cab49a1ef",
               "content_sha256": "96e78a9ce85795b117c8929887bdb78f88bf23f7b85a31f0872cde4dff7e92cd",
               "spdx": "Apache-2.0",
-              "resolved_commit": "6abccd60c704f669423d6a06ff0809fa39513ce8",
+              "resolved_commit": "c2f99a5b04b4cd992ec3022d7c2c3e23e938d241",
               "api_spdx": "Apache-2.0"
             }
           }
@@ -2159,10 +2203,11 @@
         "repo": "Jeffallan/claude-skills",
         "path": "skills/terraform-engineer/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-20",
-        "last_synced_at": "2026-06-29",
+        "last_checked_at": "2026-08-31",
+        "last_synced_at": "2026-08-31",
         "last_synced_commit": "882ef55e377dbf9a4dbe496bb41ac6ccd0e555cf",
-        "sync_mode": "monitor"
+        "sync_mode": "monitor",
+        "path_commit": "d0e7f4e890cbb4692ce78c7518c4769546af2549"
       },
       "kind": "mirror",
       "sync_mode": "monitor",
@@ -2184,8 +2229,16 @@
             "resolved_commit": "882ef55e377dbf9a4dbe496bb41ac6ccd0e555cf",
             "path_commit": "d0e7f4e890cbb4692ce78c7518c4769546af2549",
             "content_sha256": "d7898eb9cccf409022f4670e04662c0c831860ee8d5b6b6102344d1c43f1b5ad",
-            "last_checked_at": "2026-08-20",
-            "last_synced_at": "2026-06-29"
+            "last_checked_at": "2026-08-31",
+            "last_synced_at": "2026-08-31",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
+              "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+              "spdx": "MIT",
+              "resolved_commit": "882ef55e377dbf9a4dbe496bb41ac6ccd0e555cf",
+              "api_spdx": "MIT"
+            }
           }
         }
       ],

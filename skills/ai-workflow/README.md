@@ -43,8 +43,8 @@
 | `nexus` | 多智能体任务分解、链路编排、执行协调和结果整合。 | [目录](./nexus/) | [SKILL.md](./nexus/SKILL.md) |
 | `nlpm-audit` | 审计 SKILL.md、AGENTS.md、CLAUDE.md、插件清单、hooks、commands 和提示词，检查安装一致性、质量评分、安全风险与版本漂移。 | [目录](./nlpm-audit/) | [SKILL.md](./nlpm-audit/SKILL.md) |
 | `observability-and-instrumentation` | 为生产代码设计日志、指标、追踪和告警，使行为可观测、问题可诊断。 | [目录](./observability-and-instrumentation/) | [SKILL.md](./observability-and-instrumentation/SKILL.md) |
-| `performance-optimization` | 用于性能、优化，支持任务规划、执行、评审和验证。 | [目录](./performance-optimization/) | [SKILL.md](./performance-optimization/SKILL.md) |
-| `planning-and-task-breakdown` | 用于planning、任务、breakdown，支持任务规划、执行、评审和验证。 | [目录](./planning-and-task-breakdown/) | [SKILL.md](./planning-and-task-breakdown/SKILL.md) |
+| `performance-optimization` | 基于测量优化前后端与数据库性能，并用 CI 预算和真实用户监测防止回退。 | [目录](./performance-optimization/) | [SKILL.md](./performance-optimization/SKILL.md) |
+| `planning-and-task-breakdown` | 将需求拆成有依赖与验收标准的任务，并保护已有未完成计划。 | [目录](./planning-and-task-breakdown/) | [SKILL.md](./planning-and-task-breakdown/SKILL.md) |
 | `prompt-optimizer` | 用于提示词、optimizer，支持任务规划、执行、评审和验证。 | [目录](./prompt-optimizer/) | [SKILL.md](./prompt-optimizer/SKILL.md) |
 | `rally` | 多会话并行执行编排，协调多个智能体共同完成任务。 | [目录](./rally/) | [SKILL.md](./rally/SKILL.md) |
 | `receiving-code-review` | 用于receiving、代码、评审，支持任务规划、执行、评审和验证。 | [目录](./receiving-code-review/) | [SKILL.md](./receiving-code-review/SKILL.md) |

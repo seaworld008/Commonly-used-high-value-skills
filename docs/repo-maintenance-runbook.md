@@ -118,7 +118,7 @@ python3 -m unittest \
 
 1. 先补 `license:` 字段
 2. 如果能确认具体上游，再补 `source_url`
-3. 如果该技能已经明显是仓库整理版，而不是单一转载件，评估是否应改为 `source: in-house`
+3. 保留已复制内容的原始许可证 lineage；整理、翻译或扩写不构成改为 `in-house` 的依据。只有独立原创、未复制上游表达的重写版才可登记为自研。
 
 ### 情况 B：dead links 增加
 
@@ -144,7 +144,7 @@ python3 -m unittest \
 1. 先人工复核，不要只按分数删除
 2. 能补强的优先补 `description`、`zh_description`、结构、示例和边界
 3. 与现有技能高度重复且价值低的，寻找更优 permissive 替代
-4. 上游消失但本地仍有价值的，标记 `sync_mode: archived` 或改为 `source: in-house`
+4. 上游消失但本地仍有价值的，保留许可证与来源检查点，登记为 `snapshot`，并在 v2 entry、origin 和兼容字段中一致标记 `archived` 或 `local-only`；不能因此改成 `in-house`。
 5. 删除或替换后跑完整 pipeline，确认生成视图、catalog、README 同步
 
 ### 情况 E：缺失 `zh_description`
@@ -179,7 +179,7 @@ python3 -m unittest \
 
 - 能严肃确认来源和许可证，就精确回填
 - 证据不足时，不要为了“看起来干净”乱填元数据
-- 如果技能已经经过明显的中文化、扩写和结构重写，且无法唯一对应上游，应考虑改为 `in-house`
+- 中文化、扩写和结构重写仍须保留原许可证与来源；来源无法确认时记录阻塞，不能通过改为 `in-house` 清除追溯欠账
 - 统一健康报告优先于零散脚本输出，先看总览，再钻细节
 - 外部 SSL、TLS、rate limit、旧 raw path `404` 要和仓库质量回归分开记录
 - 没有更优替代时，不要为了清空 warning 删除仍有独特价值的技能

@@ -462,8 +462,8 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `nexus`：多智能体任务分解、链路编排、执行协调和结果整合。
 - `nlpm-audit`：审计 SKILL.md、AGENTS.md、CLAUDE.md、插件清单、hooks、commands 和提示词，检查安装一致性、质量评分、安全风险与版本漂移。
 - `observability-and-instrumentation`：为生产代码设计日志、指标、追踪和告警，使行为可观测、问题可诊断。
-- `performance-optimization`：用于性能、优化，支持任务规划、执行、评审和验证。
-- `planning-and-task-breakdown`：用于planning、任务、breakdown，支持任务规划、执行、评审和验证。
+- `performance-optimization`：基于测量优化前后端与数据库性能，并用 CI 预算和真实用户监测防止回退。
+- `planning-and-task-breakdown`：将需求拆成有依赖与验收标准的任务，并保护已有未完成计划。
 - `prompt-optimizer`：用于提示词、optimizer，支持任务规划、执行、评审和验证。
 - `rally`：多会话并行执行编排，协调多个智能体共同完成任务。
 - `receiving-code-review`：用于receiving、代码、评审，支持任务规划、执行、评审和验证。

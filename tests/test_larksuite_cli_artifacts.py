@@ -5,6 +5,29 @@ from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
+
+
+def canonical_files(root: Path) -> list[Path]:
+    """Match source inventory semantics after local Python compilation."""
+    return [
+        path
+        for path in root.rglob("*")
+        if path.is_file()
+        and "__pycache__" not in path.relative_to(root).parts
+        and path.suffix not in {".pyc", ".pyo"}
+    ]
+
+
+def test_canonical_files_ignore_bytecode_but_not_unmanaged_source(tmp_path):
+    (tmp_path / "SKILL.md").write_text("# Skill\n")
+    (tmp_path / "extra.txt").write_text("Must remain visible to inventory checks.\n")
+    (tmp_path / "module.pyc").write_bytes(b"bytecode-fixture")
+    cache = tmp_path / "__pycache__"
+    cache.mkdir()
+    (cache / "module.cpython-313.pyc").write_bytes(b"bytecode-fixture")
+    assert {path.name for path in canonical_files(tmp_path)} == {"SKILL.md", "extra.txt"}
+
+
 MAPPING_PATH = REPO_ROOT / "docs/sources/larksuite-cli-2026-05.skills.json"
 REVIEWED_COMMIT = "56ad837c3d8f4c49d6b9725a3530c37408533ead"
 PREVIOUS_REVIEWED_COMMIT = "ca35f6061616d4f47681368bbbef03be28193dc9"
@@ -167,8 +190,7 @@ def test_lark_complete_directory_mirrors_are_exact_and_owned() -> None:
 
         actual = {
             path.relative_to(REPO_ROOT).as_posix(): path
-            for path in canonical_root.rglob("*")
-            if path.is_file()
+            for path in canonical_files(canonical_root)
         }
         managed = {item["path"]: item for item in entry["managed_files"]}
         assert len(actual) == expected_count

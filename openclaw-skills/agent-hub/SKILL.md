@@ -2,14 +2,14 @@
 name: agent-hub
 description: 'Multi-agent collaboration plugin that spawns N parallel subagents competing on the same task via git worktree isolation. Agents work independently, results are evaluated by metric or LLM judge, and the best branch is merged. Use when: user wants multiple approaches tried in parallel — code optimization, content variation, research exploration, or any task that benefits from parallel competition. Requires: a git repo.'
 zh_description: "用于管理 Agent 能力中心、技能发现、路由和协作工作流。"
-version: "1.0.8"
+version: "1.0.9"
 author: "seaworld008"
 source: "github:alirezarezvani/claude-skills"
 source_url: "https://github.com/alirezarezvani/claude-skills/blob/main/engineering/agenthub/skills/agenthub/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "hub"]'
 created_at: "2026-03-27"
-updated_at: "2026-08-10"
+updated_at: "2026-08-31"
 quality: 4
 complexity: "intermediate"
 ---
@@ -22,9 +22,9 @@ Spawn N parallel AI agents that compete on the same task. Each agent works in an
 
 | Command | Description |
 |---------|-------------|
-| `/hub:init` | Create a new collaboration session — task, agent count, eval criteria |
+| `/hub:hub-init` | Create a new collaboration session — task, agent count, eval criteria |
 | `/hub:spawn` | Launch N parallel subagents in isolated worktrees |
-| `/hub:status` | Show DAG state, agent progress, branch status |
+| `/hub:hub-status` | Show DAG state, agent progress, branch status |
 | `/hub:eval` | Rank agent results by metric or LLM judge |
 | `/hub:merge` | Merge winning branch, archive losers |
 | `/hub:board` | Read/write the agent message board |
@@ -67,7 +67,7 @@ INIT → DISPATCH → MONITOR → EVALUATE → MERGE
 
 ### 1. Init
 
-Run `/hub:init` to create a session. This generates:
+Run `/hub:hub-init` to create a session. This generates:
 - `.agenthub/sessions/{session-id}/config.yaml` — task config
 - `.agenthub/sessions/{session-id}/state.json` — state machine
 - `.agenthub/board/` — message board channels
@@ -81,7 +81,7 @@ Run `/hub:spawn` to launch agents. For each agent 1..N:
 
 ### 3. Monitor
 
-Run `/hub:status` to check progress:
+Run `/hub:hub-status` to check progress:
 - `dag_analyzer.py --status --session {id}` shows branch state
 - Board `progress/` channel has agent updates
 

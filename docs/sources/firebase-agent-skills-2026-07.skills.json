@@ -2,7 +2,7 @@
   "schema_version": 2,
   "video": {
     "url": "https://github.com/firebase/agent-skills",
-    "checked_at": "2026-08-20",
+    "checked_at": "2026-08-31",
     "note": "Firebase official Agent Skills repository review. Imported firebase-security-rules-auditor as an expanded curated skill under Apache-2.0."
   },
   "official_references": [
@@ -34,9 +34,9 @@
         "repo": "firebase/agent-skills",
         "path": "skills/firebase-security-rules-auditor/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-20",
-        "last_synced_at": "2026-08-20",
-        "last_synced_commit": "073edf7bb747c27b9c911a9126adaa5bc4648fdc",
+        "last_checked_at": "2026-08-31",
+        "last_synced_at": "2026-08-31",
+        "last_synced_commit": "a0b4e143f40c1ebe05fe5f9a4787fecd4da8f478",
         "sync_mode": "monitor",
         "path_commit": "073edf7bb747c27b9c911a9126adaa5bc4648fdc"
       },
@@ -57,17 +57,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "073edf7bb747c27b9c911a9126adaa5bc4648fdc",
+            "resolved_commit": "a0b4e143f40c1ebe05fe5f9a4787fecd4da8f478",
             "path_commit": "073edf7bb747c27b9c911a9126adaa5bc4648fdc",
             "content_sha256": "91b3a59f6e981e5eab000eafc1ba17d209eab0d3eab1b213f134f5a4a3b162a7",
-            "last_checked_at": "2026-08-20",
-            "last_synced_at": "2026-08-20",
+            "last_checked_at": "2026-08-31",
+            "last_synced_at": "2026-08-31",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
               "content_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
               "spdx": "Apache-2.0",
-              "resolved_commit": "073edf7bb747c27b9c911a9126adaa5bc4648fdc",
+              "resolved_commit": "a0b4e143f40c1ebe05fe5f9a4787fecd4da8f478",
               "api_spdx": "Apache-2.0"
             }
           }
@@ -104,6 +104,13 @@
       "target": "https://github.com/firebase/agent-skills/compare/538130c39402a40d9c2586ede87def5914641a33...073edf7bb747c27b9c911a9126adaa5bc4648fdc",
       "result": "no-local-change-needed",
       "evidence": "The current firebase-security-rules-auditor body is already semantically equal to the curated canonical body; advanced the reviewed commit and Apache-2.0 license checkpoint only."
+    },
+    {
+      "date": "2026-08-31",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "firebase/agent-skills@a0b4e143f40c1ebe05fe5f9a4787fecd4da8f478",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
     }
   ]
 }
