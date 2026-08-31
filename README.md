@@ -419,7 +419,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `python-performance`：用于 Python 性能分析、内存优化、热点路径调优和并发模式评审。
 - `qa-expert`：用于质量保障、expert，支持开发、调试、评审和交付。
 - `react-native-engineering`：用于构建、审查、调试、测试、升级和发布 React Native 与 Expo 应用，覆盖新架构、原生模块、性能、EAS 和双平台验证。
-- `repomix-safe-mixer`：用于repomix、safe、mixer，支持开发、调试、评审和交付。
+- `repomix-safe-mixer`：打包代码前扫描凭据、输出脱敏报告，并在发现风险时阻止打包。
 - `rust-engineer`：用于 Rust 代码开发、所有权和生命周期调试、异步模式选择和系统性能优化。
 - `schema`：数据库模式设计、迁移规划、索引策略和关系建模。
 - `skill-tester`：用于技能、tester，支持开发、调试、评审和交付。

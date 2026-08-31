@@ -49,7 +49,7 @@
 | `python-performance` | 用于 Python 性能分析、内存优化、热点路径调优和并发模式评审。 | [目录](./python-performance/) | [SKILL.md](./python-performance/SKILL.md) |
 | `qa-expert` | 用于质量保障、expert，支持开发、调试、评审和交付。 | [目录](./qa-expert/) | [SKILL.md](./qa-expert/SKILL.md) |
 | `react-native-engineering` | 用于构建、审查、调试、测试、升级和发布 React Native 与 Expo 应用，覆盖新架构、原生模块、性能、EAS 和双平台验证。 | [目录](./react-native-engineering/) | [SKILL.md](./react-native-engineering/SKILL.md) |
-| `repomix-safe-mixer` | 用于repomix、safe、mixer，支持开发、调试、评审和交付。 | [目录](./repomix-safe-mixer/) | [SKILL.md](./repomix-safe-mixer/SKILL.md) |
+| `repomix-safe-mixer` | 打包代码前扫描凭据、输出脱敏报告，并在发现风险时阻止打包。 | [目录](./repomix-safe-mixer/) | [SKILL.md](./repomix-safe-mixer/SKILL.md) |
 | `rust-engineer` | 用于 Rust 代码开发、所有权和生命周期调试、异步模式选择和系统性能优化。 | [目录](./rust-engineer/) | [SKILL.md](./rust-engineer/SKILL.md) |
 | `schema` | 数据库模式设计、迁移规划、索引策略和关系建模。 | [目录](./schema/) | [SKILL.md](./schema/SKILL.md) |
 | `skill-tester` | 用于技能、tester，支持开发、调试、评审和交付。 | [目录](./skill-tester/) | [SKILL.md](./skill-tester/SKILL.md) |

@@ -1,14 +1,14 @@
 ---
 name: repomix-safe-mixer
-description: 'Safely package codebases with repomix by automatically detecting and removing hardcoded credentials before packing. Use when packaging code for distribution, creating reference packages, or when the user mentions security concerns about sharing code with repomix.'
-zh_description: "用于repomix、safe、mixer，支持开发、调试、评审和交付。"
-version: "1.0.0"
+description: 'Scan for hardcoded credentials, report redacted findings, and block repomix packaging when risks are found. Use when packaging code for distribution, creating reference packages, or checking credentials before sharing a codebase.'
+zh_description: "打包代码前扫描凭据、输出脱敏报告，并在发现风险时阻止打包。"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["development", "mixer", "repomix", "safe"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-08-31"
 quality: 5
 complexity: "intermediate"
 ---
@@ -17,7 +17,8 @@ complexity: "intermediate"
 
 ## Overview
 
-Safely package codebases with repomix by automatically detecting and removing hardcoded credentials.
+Scan for hardcoded credentials before packaging codebases with repomix, report
+redacted findings, and block packaging until the user resolves them.
 
 This skill prevents accidental credential exposure when packaging code with repomix. It scans for hardcoded secrets (API keys, database credentials, tokens), reports findings, and ensures safe packaging.
 
@@ -60,7 +61,7 @@ python3 scripts/safe_pack.py ./my-project
 
 🔴 supabase_url: 1 instance(s)
    - src/client.ts:5
-     Match: https://your-project-ref.supabase.co
+     Match: [REDACTED]
 
 ❌ Cannot pack: Secrets detected!
 ```
@@ -98,6 +99,11 @@ python3 scripts/safe_pack.py \
 ## Standalone Secret Scanning
 
 Use `scan_secrets.py` from this skill's `scripts/` directory for scanning only (without packing).
+
+Text reports show file/line locations, a fixed `potential credential` label, and
+`[REDACTED]` instead of match content. They never echo rule metadata. Use `--json`
+when rule types are needed; its `type` field remains available while `match` and
+`context` stay redacted. Findings still return exit code 1; a clean scan returns 0.
 
 ```bash
 python3 scripts/scan_secrets.py <directory>

@@ -16600,7 +16600,7 @@
         "path": "skills/developer-engineering/repomix-safe-mixer",
         "ref": "main",
         "last_checked_at": "2026-08-31",
-        "last_synced_at": "2026-04-13",
+        "last_synced_at": "2026-08-31",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -16639,9 +16639,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "ad2013350af8c0a8fd300077e5df9cd341d03ec32a3b838030483b2db5468978",
+            "content_sha256": "c38e786b95d843f7fa7993ebffee2da85b63efe0e83419ad42e7def25451bda5",
             "last_checked_at": "2026-08-31",
-            "last_synced_at": "2026-04-13"
+            "last_synced_at": "2026-08-31"
           }
         }
       ],
@@ -16649,7 +16649,7 @@
         {
           "path": "skills/developer-engineering/repomix-safe-mixer/SKILL.md",
           "owner": "repomix-safe-mixer",
-          "sha256": "ad2013350af8c0a8fd300077e5df9cd341d03ec32a3b838030483b2db5468978",
+          "sha256": "c38e786b95d843f7fa7993ebffee2da85b63efe0e83419ad42e7def25451bda5",
           "mode": "100644"
         },
         {
@@ -16667,7 +16667,7 @@
         {
           "path": "skills/developer-engineering/repomix-safe-mixer/scripts/scan_secrets.py",
           "owner": "repomix-safe-mixer",
-          "sha256": "cdd18c62cb9d2b741e9e8898d01b1fbdaf3cd87da66ffa2e5a053fcb8a0a8c60",
+          "sha256": "5f2e0f618ffb2d15a5552e426e1be4fe613264c3db97ebde03806ade2113d5ea",
           "mode": "100644"
         }
       ]

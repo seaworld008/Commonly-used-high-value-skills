@@ -599,7 +599,7 @@
 | [pr-review-expert](skills/developer-engineering/pr-review-expert) | developer-engineering | ★★★★★ | Structured, systematic code review for GitHub PRs and GitLab MRs. Goes beyond st |
 | [promptfoo-evaluation](skills/developer-engineering/promptfoo-evaluation) | developer-engineering | ★★★★★ | Configures and runs LLM evaluation using Promptfoo framework. Use when setting u |
 | [qa-expert](skills/developer-engineering/qa-expert) | developer-engineering | ★★★★★ | This skill should be used when establishing comprehensive QA testing processes f |
-| [repomix-safe-mixer](skills/developer-engineering/repomix-safe-mixer) | developer-engineering | ★★★★★ | Safely package codebases with repomix by automatically detecting and removing ha |
+| [repomix-safe-mixer](skills/developer-engineering/repomix-safe-mixer) | developer-engineering | ★★★★★ | Scan for hardcoded credentials, report redacted findings, and block repomix pack |
 | [schema](skills/developer-engineering/schema) | developer-engineering | ★★★★★ | 数据库模式设计、迁移规划、索引策略和关系建模。 |
 | [skill-tester](skills/developer-engineering/skill-tester) | developer-engineering | ★★★★★ | Name: skill-tester Tier: POWERFUL Category: Engineering Quality Assurance Depend |
 | [tech-debt-tracker](skills/developer-engineering/tech-debt-tracker) | developer-engineering | ★★★★★ | Tier: POWERFUL 🔥 Category: Engineering Process Automation Expertise: Code Qualit |
@@ -3677,7 +3677,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [repomix-safe-mixer](skills/developer-engineering/repomix-safe-mixer) | developer-engineering | ★★★★★ | Safely package codebases with repomix by automatically detecting and removing ha |
+| [repomix-safe-mixer](skills/developer-engineering/repomix-safe-mixer) | developer-engineering | ★★★★★ | Scan for hardcoded credentials, report redacted findings, and block repomix pack |
 
 ## mobile
 
@@ -4253,7 +4253,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [repomix-safe-mixer](skills/developer-engineering/repomix-safe-mixer) | developer-engineering | ★★★★★ | Safely package codebases with repomix by automatically detecting and removing ha |
+| [repomix-safe-mixer](skills/developer-engineering/repomix-safe-mixer) | developer-engineering | ★★★★★ | Scan for hardcoded credentials, report redacted findings, and block repomix pack |
 
 ## reporting
 
@@ -4349,7 +4349,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [repomix-safe-mixer](skills/developer-engineering/repomix-safe-mixer) | developer-engineering | ★★★★★ | Safely package codebases with repomix by automatically detecting and removing ha |
+| [repomix-safe-mixer](skills/developer-engineering/repomix-safe-mixer) | developer-engineering | ★★★★★ | Scan for hardcoded credentials, report redacted findings, and block repomix pack |
 
 ## sarif
 

@@ -2170,8 +2170,8 @@
     {
       "name": "repomix-safe-mixer",
       "category": "developer-engineering",
-      "description": "Safely package codebases with repomix by automatically detecting and removing hardcoded credentials before packing. Use when packaging code for distribution, creating reference packages, or when the user mentions security concerns about sharing code with repomix.",
-      "version": "1.0.0",
+      "description": "Scan for hardcoded credentials, report redacted findings, and block repomix packaging when risks are found. Use when packaging code for distribution, creating reference packages, or checking credentials before sharing a codebase.",
+      "version": "1.0.1",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -2184,8 +2184,8 @@
       "quality": 5,
       "complexity": "intermediate",
       "created_at": "2026-03-04",
-      "updated_at": "2026-03-20",
-      "line_count": 325,
+      "updated_at": "2026-08-31",
+      "line_count": 331,
       "path": "skills/developer-engineering/repomix-safe-mixer/SKILL.md"
     },
     {

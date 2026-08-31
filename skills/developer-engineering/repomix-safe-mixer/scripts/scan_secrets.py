@@ -153,7 +153,8 @@ def print_report(findings: List[SecretFinding], directory: Path):
     for file_path in sorted(by_file.keys()):
         print(f"📄 {file_path}")
         for finding in by_file[file_path]:
-            print(f"   Line {finding.line_num}: {finding.pattern_name}")
+            # Keep rule metadata out of text logs; structured JSON retains the type.
+            print(f"   Line {finding.line_num}: potential credential")
             print(f"      Match: {REDACTED}")
         print()
 
