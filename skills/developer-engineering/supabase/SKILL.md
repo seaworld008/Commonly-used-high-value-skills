@@ -1,15 +1,15 @@
 ---
 name: supabase
-description: 'Use when doing ANY task involving Supabase. Triggers: Supabase products (Database, Auth, Edge Functions, Realtime, Storage, Vectors, Cron, Queues); client libraries and SSR integrations (supabase-js, @supabase/ssr) in Next.js, React, SvelteKit, Astro, Remix; auth issues (login, logout, sessions, JWT, cookies, getSession, getUser, getClaims, RLS); Supabase CLI or MCP server; schema changes, migrations, declarative schemas, security audits, Postgres extensions (pg_graphql, pg_cron, pg_vector); debugging and troubleshooting errors or unexpected behavior on Supabase projects (HTTP errors, Postgres errors, RLS surprises, permission denied, schema cache issues, timeouts, Edge Function crashes, Realtime drops, Storage failures) and reading or querying logs (Logs Explorer, ClickHouse).'
-zh_description: "用于Supabase，支持开发、调试、评审和交付。"
-version: "1.0.2"
+description: 'Build or troubleshoot Supabase Database, Auth, Storage, Realtime, Edge Functions, and client/SSR integrations; use current platform documentation.'
+zh_description: "开发和排查 Supabase 数据库、认证、存储及应用集成。"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:supabase/agent-skills"
 source_url: "https://skills.sh/supabase/agent-skills/supabase"
 license: MIT
 tags: '["development", "supabase"]'
 created_at: "2026-06-03"
-updated_at: "2026-08-20"
+updated_at: "2026-09-06"
 quality: 4
 complexity: "intermediate"
 metadata:

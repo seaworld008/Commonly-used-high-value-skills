@@ -1,15 +1,15 @@
 ---
 name: finishing-a-development-branch
 description: 'Use when implementation is complete, all tests pass, and you need to decide how to integrate the work'
-zh_description: "用于finishing、development、branch，支持任务规划、执行、评审和验证。"
-version: "1.0.4"
+zh_description: "完成开发分支的验证、PR、合并和工作区收尾。"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:obra/superpowers"
 source_url: "https://github.com/obra/superpowers/blob/main/skills/finishing-a-development-branch/SKILL.md"
 license: MIT
 tags: '["git", "workflow", "delivery"]'
 created_at: "2026-04-13"
-updated_at: "2026-08-17"
+updated_at: "2026-09-06"
 quality: 4
 complexity: "intermediate"
 ---
@@ -24,9 +24,9 @@ complexity: "intermediate"
 
 ## Step 1: Verify Tests
 
-Run the project's full test suite (`npm test` / `cargo test` / `pytest` / `go test ./...`).
+Use the repository-required checks and tests appropriate to the changed behavior. Reuse passing results for unchanged code; run the full suite when the repository requires it or the change has broad impact.
 
-**If tests fail**, report the failures and stop — the menu comes after a green suite:
+**If tests fail**, investigate and fix within the authorized scope; integration waits for the required checks:
 
 ```
 Tests failing (<N> failures). Must fix before completing:
@@ -61,7 +61,9 @@ plan, the conversation, or the branch's upstream. If it is not already
 known, ask: "This branch split from <your best guess> - is that correct?"
 Confirm before merging: merging into the wrong base is expensive to undo.
 
-## Step 4: Present Options
+## Step 4: Resolve Delivery
+
+If the user already requested a PR, merge, or another delivery path, execute it without presenting this menu. The options below apply only when the integration decision is still open.
 
 **Normal repo and named-branch worktree — present exactly these 3 options:**
 
@@ -103,7 +105,7 @@ cd "$MAIN_ROOT"
 
 # Merge first — verify success before removing anything
 git checkout <base-branch>
-git pull
+git pull --ff-only
 git merge <feature-branch>
 
 # Verify tests on merged result
@@ -134,7 +136,7 @@ tooling — its CLI if one is available, or the creation URL most forges
 print when you push — following the repo's PR template and conventions if
 present, and report the URL to your human partner.
 
-Keep the worktree — your human partner iterates on PR feedback there.
+If merging was requested, address actionable review feedback, wait for checks on the latest head, merge, and verify the resulting base-branch SHA. Preserve the workspace until that delivery is complete.
 
 ### Option 3: Keep As-Is
 

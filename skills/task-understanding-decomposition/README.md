@@ -8,7 +8,7 @@
 
 ## 推荐先看
 
-- [reflect-learn](./reflect-learn/) - 用于reflect、learn，支持检索、拆解、反思和决策。
+- [reflect-learn](./reflect-learn/) - 分析用户纠正和任务结果，提出可复用的改进建议。
 - [lens](./lens/) - 代码库理解、功能发现、数据流追踪和上下文调查。
 - [ripple](./ripple/) - 变更前影响分析，评估依赖链和一致性风险。
 - [scout](./scout/) - 缺陷调查、复现步骤、根因分析和影响评估。
@@ -18,7 +18,7 @@
 | 技能 | 简介 | 目录 | 详情 |
 |------|------|------|------|
 | `lens` | 代码库理解、功能发现、数据流追踪和上下文调查。 | [目录](./lens/) | [SKILL.md](./lens/SKILL.md) |
-| `reflect-learn` | 用于reflect、learn，支持检索、拆解、反思和决策。 | [目录](./reflect-learn/) | [SKILL.md](./reflect-learn/SKILL.md) |
+| `reflect-learn` | 分析用户纠正和任务结果，提出可复用的改进建议。 | [目录](./reflect-learn/) | [SKILL.md](./reflect-learn/SKILL.md) |
 | `ripple` | 变更前影响分析，评估依赖链和一致性风险。 | [目录](./ripple/) | [SKILL.md](./ripple/SKILL.md) |
 | `scout` | 缺陷调查、复现步骤、根因分析和影响评估。 | [目录](./scout/) | [SKILL.md](./scout/SKILL.md) |
 

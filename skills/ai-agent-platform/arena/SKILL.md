@@ -2,14 +2,14 @@
 name: arena
 description: 'Specialist orchestrating codex exec / Antigravity CLI through dual paradigms — COMPETE (multi-variant comparison, select best) and COLLABORATE (decompose tasks across engines, integrate). Supports Solo/Team/Quick execution modes.'
 zh_description: "用于构建和运行 Agent 竞技场、评测对战和能力比较流程。"
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/5f1bd9e50ee7b13fbd143b1a4a30e6643b458097/arena/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "arena"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-01"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -108,9 +108,12 @@ See `references/engine-cli-guide.md` (Solo) · `references/team-mode-guide.md` (
 - **Evaluate against dominant AI code failure patterns**: LLM code generation failures cluster into four categories: (1) wrong problem mapping (misunderstood requirements), (2) flawed/incomplete algorithm design, (3) edge case mishandling, and (4) output formatting errors. Prioritize (1) and (2) in COMPETE scoring as they have the highest cost of undetected escape.
 - **Specification defects dominate multi-engine failure**: ~79% of multi-agent system production failures trace to specification and coordination defects, not implementation bugs. Arena's SPEC phase is the highest-leverage failure prevention point — when time pressure pushes to abbreviate specification validation, expected failure rates rise disproportionately. Budget SPEC time proportional to task complexity; never skip SPEC to accelerate EXECUTE.
 - **Exploit behavioral divergence between COMPETE variants**: When variants produce different outputs for shared edge-case inputs, those divergence points are the highest-value test targets. Run identical boundary-value inputs through all variants and diff outputs — similarity-based behavioral comparison achieves ~7pp higher functional correctness than independent variant scoring (EnsLLM, LiveCodeBench). Divergent outputs demand spec cross-check before scoring, as AI-generated code that passes standard tests still shows 30% higher change failure rates in production.
-- Author for Opus 4.8 defaults. Apply `_common/OPUS_48_AUTHORING.md` principles **P3 (eagerly Read target engine capabilities, context limits, and prior variant history at SPEC — engine selection must ground in actual strengths/cost profile), P5 (think step-by-step at COMPETE vs COLLABORATE paradigm choice, variant scoring on behavioral divergence, and specification validation before EXECUTE — SPEC phase is the highest-leverage failure prevention point)** as critical for Arena. P2 recommended: calibrated comparison report preserving variant scores, divergence points, and spec-compliance verdict. P1 recommended: front-load paradigm, engine roster, and decision criteria at SPEC.
+- Ground engine selection in available capabilities and constraints; report variant scores, behavioral differences, and specification compliance.
 
 ## Boundaries
+
+`_common/` references require the separately installed upstream ecosystem. Use them only when available and selected for this task; otherwise follow host instructions and the domain workflow. Persist journals only when requested by the user or project.
+
 
 Agent role boundaries → `_common/BOUNDARIES.md`
 
@@ -132,7 +135,7 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 - Collect session results after every execution (lightweight learning — AT-01).
 - Record user paradigm/engine overrides in journal.
 
-### Ask First
+### Ask First When Not Already Authorized
 
 - 3+ variants/subtasks (cost implications).
 - Team Mode activation.
@@ -288,7 +291,6 @@ Learning from execution outcomes across sessions. Details: `references/execution
 | `references/ai-code-quality-assurance.md` | You need AI-generated code quality statistics (2025-2026), problem categories (QA-01–08), defense-in-depth model, or review strategy. |
 | `references/engine-prompt-optimization.md` | You need GOLDE framework, engine-specific optimization, or prompt anti-patterns (PE-01–10). |
 | `references/competitive-development-patterns.md` | You need cooperative patterns (CP-01–08), COMPETE/COLLABORATE design analysis, diversity strategy, or paradigm selection optimization. |
-| `_common/OPUS_48_AUTHORING.md` | You are sizing the comparison report, deciding adaptive thinking depth at paradigm selection, or front-loading paradigm/engines/criteria at SPEC. Critical for Arena: P3, P5. |
 | `_common/PROOF_CARRYING.md` | You are invoked in COMPETE mode from `nexus acceptance` Phase 2A as the Dual-Implementation Oracle for in-scope domains (money / authz / state-machine / inventory / regulated). AI-A on engine E1 + AI-B on engine E2 + AI-C (adversarial reviewer) on engine E3 with different LLM families per G4 diversity requirement. AI-A and AI-B receive spec in different forms (NL vs formal vs decision table). Triangulate against Source-of-Truth Spec (G10), not against each other only — "diff = 0" alone does NOT auto-pass. |
 
 ## Operational

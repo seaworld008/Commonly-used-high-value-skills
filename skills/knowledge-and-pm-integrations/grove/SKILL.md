@@ -2,14 +2,14 @@
 name: grove
 description: '仓库结构、文档布局、测试脚本组织和迁移规划。'
 zh_description: "仓库结构、文档布局、测试脚本组织和迁移规划。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/grove"
 license: MIT
 tags: ["grove", "knowledge"]
 created_at: "2026-08-24"
-updated_at: "2026-08-24"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -94,7 +94,6 @@ Route elsewhere when the task is primarily:
 - Enforce cross-project import boundaries in monorepos — without explicit dependency rules (e.g., "apps may only import from shared packages, not from other apps"), one refactor creates cascading breakage across unrelated consumers. For JS/TS monorepos, define `exports` in each package's `package.json` as the first defense layer — Node.js 22+ strictly enforces package boundaries at resolution time, making undefined subpath imports a build-time error without additional tooling. Layer Nx `enforce-module-boundaries` or Turborepo `--filter` on top for tag-based architectural rules.
 - For GitOps layouts, separate application source code from deployment manifests into distinct repositories (or isolated top-level directories with independent CODEOWNERS). This prevents manifest-only changes (e.g., replica count bumps) from triggering full CI builds, avoids infinite loops between CI commit triggers and manifest updates, enables independent access control for production configs, and maintains a clean audit log for deployment changes. When using a monorepo with path-based separation, enforce that `deploy/` or `k8s/` paths have their own CI pipeline scoped by path filters.
 - Weight health scores by lines of code (LoC) — a 5,000 LoC file with poor structure outweighs a 100 LoC file.
-- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Grove; P2, P1 recommended).
 - **Audit `CLAUDE.md` / `AGENTS.md` against the anti-bloat rule.** Anthropic's official guidance: "for each line, ask — would Claude actually do this wrong without it?". Lines that fail that test belong in a hook, a skill's on-demand reference, or a `paths:`-scoped rule — **not** a `@path` import, which resolves at CLAUDE.md load time and does not reduce startup context. Flag files > 200 lines as a P1 finding; > 400 lines as P0. Hard-rule content (lint, formatter) should be moved to hooks, not duplicated as English. [Source: code.claude.com/docs/en/best-practices; alexop.dev — Stop Bloating Your CLAUDE.md]
 - **Adopt the `AGENTS.md` open standard** for multi-tool repos. AGENTS.md is the Agentic AI Foundation / Linux Foundation standard (60,000+ projects, 29+ tools) for declaring repository-level agent instructions. Claude Code is `CLAUDE.md`-native but reads `AGENTS.md` as a fallback when no `CLAUDE.md` is present; recommend co-existence (a thin `CLAUDE.md` that imports `AGENTS.md`) rather than duplication. [Source: agents.md; linuxfoundation.org — AAIF announcement]
 
@@ -111,7 +110,7 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 - Produce audit reports with health scores.
 - Plan migrations incrementally.
 
-### Ask First
+### Ask First When Not Already Authorized
 
 - Full restructure (Level 5).
 - Changing established project conventions.
@@ -226,12 +225,11 @@ A complete deliverable carries the following — a ceiling, not a floor. Emit on
 | `reference/llm-monorepo-topology.md` | You are aligning package boundaries and per-workspace instructions for agent traversal. |
 | `reference/llm-naming-guide.md` | You are improving file/folder discoverability for grep, glob, and semantic routing. |
 | `reference/llm-sharding-strategy.md` | You are splitting large CLAUDE.md/reference files with cycle-free imports and stable cache prefixes. |
-| `_common/OPUS_5_AUTHORING.md` | You are sizing the structure audit, deciding adaptive thinking depth at DESIGN, or front-loading mono/polyrepo/language stack at AUDIT. Critical for Grove: P3, P5. |
 | `reference/autorun-schema.md` | You are emitting the AUTORUN `_STEP_COMPLETE` block — Grove-specific Output/Next schema. |
 
 ## Operational
 
-**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
+**Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
 - Journal structural patterns in `.agents/grove.md`; create it if missing. Record `STRUCTURAL PATTERNS`, `AUDIT_BASELINE`, convention drift, and structure-specific observations.
 - After significant Grove work, append to `.agents/PROJECT.md`: `| YYYY-MM-DD | Grove | (action) | (files) | (outcome) |`

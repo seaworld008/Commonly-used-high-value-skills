@@ -27,12 +27,12 @@ class DeadLinksWorkflowTests(unittest.TestCase):
         self.assertIn("GITHUB_STEP_SUMMARY", commands)
 
         upload_steps = [
-            step for step in job["steps"] if isinstance(step, dict) and step.get("uses") == "actions/upload-artifact@v4"
+            step for step in job["steps"] if isinstance(step, dict) and step.get("uses") == "actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a"
         ]
         self.assertTrue(upload_steps, "dead-links workflow should upload an artifact")
 
         workflow_text = WORKFLOW_PATH.read_text(encoding="utf-8")
-        self.assertIn("actions/github-script@v7", workflow_text)
+        self.assertIn("actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3", workflow_text)
         self.assertIn("if: steps.probe.outcome == 'success'", workflow_text)
         self.assertIn("state_reason: 'completed'", workflow_text)
         self.assertIn("latest monthly scan found no unreachable links", workflow_text)

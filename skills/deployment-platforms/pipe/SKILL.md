@@ -2,14 +2,14 @@
 name: pipe
 description: 'Designing GitHub Actions workflows in depth: trigger strategy, security hardening, performance optimization, PR automation, and Reusable Workflow design.'
 zh_description: "持续集成工作流、触发策略、安全加固和复用设计。"
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/.archive/pipe"
 license: MIT
 tags: '["deployment", "pipe"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-20"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -89,10 +89,12 @@ Route elsewhere when:
 - **Forbid preinstall/postinstall in CI installs** by default (`ignore-scripts` on the install step), allowlisting trusted packages explicitly. This blocks Remote Dynamic Dependency attacks where a non-registry HTTP URL is declared as a dependency and executed at install. Incident detail and IOCs -> `reference/security-hardening.md`.
 - **OIDC audience pinning**: restrict the `id-token` audience to the deployment target's expected value and verify it server-side. Generic audiences are the repeatedly-exploited foothold.
 - Agentic workflows suit triage, review, and maintenance only — build/deploy/release pipelines stay traditional YAML where determinism and auditability matter. They run read-only by default; writes require explicit safe-output declarations.
-- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Pipe; P2, P1 recommended).
 - Apply `_common/CODE_QUALITY.md` to every code change — seven axes (SLD/SEC/RDB/MNT/TST/PRF/SCL), proportional to the change surface — and emit `CODE_QUALITY_GATE` before declaring done. `SEC: risk` blocks completion.
 
 ## Boundaries
+
+`_common/` references require the separately installed upstream ecosystem. Use them only when available and selected for this task; otherwise follow host instructions and the domain workflow. Persist journals only when requested by the user or project.
+
 
 Shared agent boundaries -> `_common/BOUNDARIES.md`
 
@@ -107,7 +109,7 @@ Shared agent boundaries -> `_common/BOUNDARIES.md`
 - Use lock file-based cache keys (`hashFiles('**/package-lock.json')`) — never timestamp-based.
 - Log architecture decisions to `.agents/PROJECT.md`.
 
-### Ask First
+### Ask First When Not Already Authorized
 
 - Self-hosted runner changes (security implications for public repos — never use self-hosted on public repos).
 - Organization-level workflow changes or centralized ruleset policy modifications.
@@ -252,7 +254,6 @@ Routing rules:
 | `reference/matrix-strategy.md` | Designing a multi-axis matrix build (OS x runtime x arch), using `include` / `exclude`, sparse coverage, `fail-fast` / `max-parallel` tuning, or dynamic `fromJSON` matrices. |
 | `reference/cache-strategy.md` | Designing `actions/cache` keys, `restore-keys` fallback, cross-OS compatibility, monorepo multi-cache layout, cache-hit telemetry, or 10 GB eviction management. |
 | `reference/gha-secrets.md` | Designing the GHA secret surface — OIDC federation to AWS/GCP/Azure, env vs repo secrets, `vars` vs `secrets`, masking, or fork-PR secret isolation. |
-| `_common/OPUS_5_AUTHORING.md` | Sizing the workflow spec, deciding adaptive thinking depth at security hardening, or front-loading visibility/trigger/target at AUDIT. Critical for Pipe: P3, P5. |
 | `reference/autorun-schema.md` | Emitting the AUTORUN `_STEP_COMPLETE` block — Pipe-specific Output/Next schema. |
 | `_common/CODE_QUALITY.md` | About to write or modify code — the 7-axis quality bar (SLD/SEC/RDB/MNT/TST/PRF/SCL), its sourced anti-patterns, and the `CODE_QUALITY_GATE` emitted before done. |
 

@@ -1,14 +1,14 @@
 ---
 name: monorepo-navigator
-description: 'Navigate, manage, and optimize monorepos. Covers Turborepo, Nx, pnpm workspaces, and Lerna. Enables cross-package impact analysis, selective builds/tests on affected packages only, remote caching, dependency graph visualization, and structured migrations from multi-repo to monorepo. Includes Claude Code configuration for workspace-aware development.'
-zh_description: "用于Monorepo、导航，支持开发、调试、评审和交付。"
-version: "1.0.0"
+description: 'Inspect or improve Turborepo, Nx, pnpm, or Lerna monorepos: package boundaries, dependency graphs, selective tests, caching, and migrations.'
+zh_description: "分析多包仓库的依赖、构建、缓存和变更影响。"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["development", "monorepo", "navigator"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "intermediate"
 ---
@@ -282,106 +282,11 @@ done
 
 ## Dependency Graph Visualization
 
-Generate a Mermaid diagram from your workspace:
-
-```bash
-# Generate dependency graph as Mermaid
-cat > scripts/gen-dep-graph.js << 'EOF'
-const { execSync } = require('child_process');
-const fs = require('fs');
-
-// Parse pnpm workspace packages
-const packages = JSON.parse(
-  execSync('pnpm ls --depth -1 -r --json').toString()
-);
-
-let mermaid = 'graph TD\n';
-packages.forEach(pkg => {
-  const deps = Object.keys(pkg.dependencies || {})
-    .filter(d => d.startsWith('@myorg/'));
-  deps.forEach(dep => {
-    const from = pkg.name.replace('@myorg/', '');
-    const to = dep.replace('@myorg/', '');
-    mermaid += `  ${from} --> ${to}\n`;
-  });
-});
-
-fs.writeFileSync('docs/dep-graph.md', '```mermaid\n' + mermaid + '```\n');
-console.log('Written to docs/dep-graph.md');
-EOF
-node scripts/gen-dep-graph.js
-```
-
-**Example output:**
-
-```mermaid
-graph TD
-  web --> ui
-  web --> utils
-  web --> types
-  mobile --> ui
-  mobile --> utils
-  mobile --> types
-  admin --> ui
-  admin --> utils
-  api --> types
-  ui --> utils
-```
-
----
+Read [the detailed procedure and examples](EXTENDED.md#section-3) when working on this part of the task.
 
 ## Claude Code Configuration (Workspace-Aware CLAUDE.md)
 
-Place a root CLAUDE.md + per-package CLAUDE.md files:
-
-```markdown
-# /CLAUDE.md — Root (applies to all packages)
-
-## Monorepo Structure
-- apps/web       — Next.js customer-facing app
-- apps/admin     — Next.js internal admin
-- apps/api       — Express REST API
-- packages/ui    — Shared React component library
-- packages/utils — Shared utilities (pure functions only)
-- packages/types — Shared TypeScript types (no runtime code)
-
-## Build System
-- pnpm workspaces + Turborepo
-- Always use `pnpm --filter <package>` to scope commands
-- Never run `npm install` or `yarn` — pnpm only
-- Run `turbo run build --filter=...[HEAD^1]` before committing
-
-## Task Scoping Rules
-- When modifying packages/ui: also run tests for apps/web and apps/admin (they depend on it)
-- When modifying packages/types: run type-check across ALL packages
-- When modifying apps/api: only need to test apps/api
-
-## Package Manager
-pnpm — version pinned in packageManager field of root package.json
-```
-
-```markdown
-# /packages/ui/CLAUDE.md — Package-specific
-
-## This Package
-Shared React component library. Zero business logic. Pure UI only.
-
-## Rules
-- All components must be exported from src/index.ts
-- No direct API calls in components — accept data via props
-- Every component needs a Storybook story in src/stories/
-- Use Tailwind for styling — no CSS modules or styled-components
-
-## Testing
-- Component tests: `pnpm --filter @myorg/ui test`
-- Visual regression: `pnpm --filter @myorg/ui test:storybook`
-
-## Publishing
-- Version bumps via changesets only — never edit package.json version manually
-- Run `pnpm changeset` from repo root after changes
-```
-
----
+Read [the detailed procedure and examples](EXTENDED.md#section-1) when working on this part of the task.
 
 ## Migration: Multi-Repo → Monorepo
 
@@ -429,54 +334,7 @@ turbo run build test lint
 
 ### GitHub Actions — Affected Only
 
-```yaml
-# .github/workflows/ci.yml
-name: CI
-
-on:
-  push:
-    branches: [main]
-  pull_request:
-
-jobs:
-  affected:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0          # full history needed for affected detection
-
-      - uses: pnpm/action-setup@v3
-        with:
-          version: 9
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: pnpm
-
-      - run: pnpm install --frozen-lockfile
-
-      # Turborepo remote cache
-      - uses: actions/cache@v4
-        with:
-          path: .turbo
-          key: ${{ runner.os }}-turbo-${{ github.sha }}
-          restore-keys: ${{ runner.os }}-turbo-
-
-      # Only test/build affected packages
-      - name: Build affected
-        run: turbo run build --filter=...[origin/main]
-        env:
-          TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-          TURBO_TEAM: ${{ vars.TURBO_TEAM }}
-
-      - name: Test affected
-        run: turbo run test --filter=...[origin/main]
-
-      - name: Lint affected
-        run: turbo run lint --filter=...[origin/main]
-```
+Read [the detailed procedure and examples](EXTENDED.md#section-2) when working on this part of the task.
 
 ### GitLab CI — Parallel Stages
 

@@ -1,14 +1,14 @@
 ---
 name: factor-backtester
 description: 'Use when testing factor signals, running long-short spread backtests, checking hit rate and turnover, or sanity-checking whether a ranking signal survives basic transaction cost assumptions.'
-zh_description: "用于factor、回测，支持投资研究、风险评估和报告生成。"
-version: "1.0.0"
+zh_description: "设计和回测投资因子，检查偏差、成本和稳健性。"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["backtester", "factor", "finance"]'
 created_at: "2026-03-18"
-updated_at: "2026-03-20"
+updated_at: "2026-09-06"
 quality: 2
 complexity: "intermediate"
 ---

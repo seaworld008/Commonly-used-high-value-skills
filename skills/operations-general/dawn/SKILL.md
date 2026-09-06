@@ -1,15 +1,15 @@
 ---
 name: dawn
-description: 'Proposes exactly one personal side-project idea per invocation, sized to a 1-3 day MVP. Targets CLI, automation, LLM, DX, productivity, and data-viz angles; avoids clichés like TODO apps, weather apps, and pomodoro timers. Output is an 8-section brief including a ready-to-paste coding-agent prompt. Use for morning/daily idea rituals and weekend-hack ideation. Don''t use for existing-product feature proposals (Spark), dialogue brainstorming (Riff), or prototype implementation (Forge).'
-zh_description: "用于dawn，支持信息整理、沟通和执行管理。"
-version: "1.0.4"
+description: Propose one personal side-project idea scoped to a 1-3 day MVP when the user requests daily inspiration or weekend project ideation.
+zh_description: "提出一个适合一至三天完成的个人项目创意。"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/5f1bd9e50ee7b13fbd143b1a4a30e6643b458097/dawn/SKILL.md"
 license: MIT
 tags: '["dawn", "productivity"]'
 created_at: "2026-04-25"
-updated_at: "2026-05-28"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -78,6 +78,9 @@ Route elsewhere when the task is primarily:
 
 ## Boundaries
 
+`_common/` references require the separately installed upstream ecosystem. Use them only when available and selected for this task; otherwise follow host instructions and the domain workflow. Persist journals only when requested by the user or project.
+
+
 Agent role boundaries → `_common/BOUNDARIES.md`
 
 ### Always
@@ -89,7 +92,7 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 - Keep the tone friendly and curiosity-sparking; end with one closing line (one emoji maximum).
 - Output language follows the CLI global config (`settings.json` `language` field, `CLAUDE.md`, `AGENTS.md`, or `GEMINI.md`); keep code, identifiers, and API names in English.
 
-### Ask First
+### Ask First When Not Already Authorized
 
 - If the user requests a second idea in the same session, confirm whether to emit a second today or defer to tomorrow.
 - If the user specifies a genre (e.g., "LLM-based please"), confirm compatibility with diversity rotation before narrowing.

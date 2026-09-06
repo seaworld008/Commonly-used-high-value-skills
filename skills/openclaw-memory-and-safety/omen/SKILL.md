@@ -2,14 +2,14 @@
 name: omen
 description: '预演失败模式，识别计划风险并给出优先级。'
 zh_description: "预演失败模式，识别计划风险并给出优先级。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/omen"
 license: MIT
 tags: ["memory", "omen", "safety"]
 created_at: "2026-08-24"
-updated_at: "2026-08-24"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -80,7 +80,6 @@ A pre-mortem analysis engine. It exhaustively enumerates **how** a plan, design,
 - Use prospective hindsight framing: "the project has already failed — why?" (30% more failure causes identified vs. forward-looking brainstorming, Mitchell et al. 1989)
 - Treat FMEA as a living artifact, not a one-time checkbox exercise
 - **Pre-merge advisory pre-mortem (v7 fold-in)**: For Tier-S decisions or irreversible architectural changes, omen `premortem` Recipe MAY be invoked as a **pre-merge advisory step** in the `acceptance` pipeline (between Phase 3 adversaries and Phase 4 Gate verdict). Output is recorded as `pre_mortem_summary` advisory field in the evidence package — non-blocking, surfaces critical (S≥9) failure modes for human visibility before Gate. Absorbs "Decision Proof / pre-mortem proof" intent (Reflective Decision OS proposal v7) by surfacing an existing capability, not creating a new pipeline phase. Suppress when scope is reversible / low-stakes.
-- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Omen; P2, P1 recommended).
 - Pair every actionable failure mode (RPN above threshold or AP ≥ Medium, plus all S ≥ 9 critical modes) with a paste-ready `## LLM Fix Prompt` block in the report. The prompt embeds failure-mode ID, RPN/AP score, ordered failure scenario, detection gap, recommended action, acceptance criteria, ruled-out alternatives, and "what NOT to do" so a downstream agent (Builder, Beacon, Triage, Mend, Pulse) can act without manual reformulation. Suppress for plan-review-only invocations, when modes are routed to Triage for incident-response ownership, when ownership falls outside the team, or when all enumerated modes are `ACCEPT-RISK`. See `reference/fix-prompt-generation.md` and universal rules in `_common/LLM_PROMPT_GENERATION.md`.
 
 ## Boundaries
@@ -92,7 +91,7 @@ A pre-mortem analysis engine. It exhaustively enumerates **how** a plan, design,
 - Include residual risk assessment after mitigation
 - Trace failure propagation paths explicitly
 
-### Ask First
+### Ask First When Not Already Authorized
 
 - When analysis scope touches fundamental business assumptions
 - When 3+ failure modes score RPN > 200 or AP = High — escalate before proceeding
@@ -267,13 +266,12 @@ Full mechanics, scoring, JSON schema, prompt skeletons, and degraded modes -> `r
 | `_common/MULTI_ENGINE_RECIPE.md` | The cross-skill multi-engine protocol — pattern types (C / D / H), canonical flow stages, PREFLIGHT probe, loose-prompt rule, engine-attribution tag convention, degraded modes, and the implementation checklist shared with Spark/Echo[demand]/Judge. Read before authoring or extending Omen's `multi` Recipe. |
 | `_common/SUBAGENT.md` | The base MULTI_ENGINE protocol — engine dispatch table, Agent tool fan-out mechanics, fallback rules. Read alongside `MULTI_ENGINE_RECIPE.md` when authoring `multi` Recipe subagent prompts. |
 | `_common/LLM_PROMPT_GENERATION.md` | Universal authoring rules, prompt structure, or the cross-agent verb/suppression principles shared with Scout/Trail/Sentinel. |
-| `_common/OPUS_5_AUTHORING.md` | Sizing the pre-mortem report, deciding adaptive thinking depth at scoring/severity, or front-loading scope/stakeholders/horizon at FRAME. Critical for Omen: P3, P5. |
 | `reference/autorun-schema.md` | Emitting the AUTORUN `_STEP_COMPLETE` block — Omen-specific Output/Next schema. |
 | `reference/ai-production-failure-atlas.md` | Pre-mortem scope includes an AI-generation or agentic-write step — 22-mode catalog (F-01–F-22) pre-tagged by Context/Workflow/Evaluation/System/Governance layer, cross-referenced to `_common/CANDIDATE_SELECTION.md` §9 and `_common/ASSET_PROVENANCE.md` §8 for mitigation detail. |
 
 ## Operational
 
-**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
+**Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
 **Before starting (mandatory):** read `.agents/omen.md` and `.agents/PROJECT.md`; create if missing.
 **Journal** (`.agents/omen.md`): Effective failure patterns, RPN/AP threshold calibration, missed failure modes.

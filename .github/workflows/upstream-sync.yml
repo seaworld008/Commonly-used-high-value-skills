@@ -9,15 +9,20 @@ permissions:
   contents: read
   issues: write
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   discover-and-sync:
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: '3.13'
 
@@ -41,7 +46,7 @@ jobs:
 
       - name: Reconcile weekly sync issue
         if: always()
-        uses: actions/github-script@v7
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         env:
           NEEDS_ATTENTION: ${{ steps.report.outputs.needs_attention }}
           SYNC_STATE: ${{ steps.report.outputs.sync_state }}
@@ -151,7 +156,7 @@ jobs:
 
       - name: Upload reports as artifacts
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: sync-reports
           path: docs/sources/reports/

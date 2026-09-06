@@ -1,14 +1,14 @@
 ---
 name: senior-devops
-description: 'Comprehensive DevOps skill for CI/CD, infrastructure automation, containerization, and cloud platforms (AWS, GCP, Azure). Includes pipeline setup, infrastructure as code, deployment automation, and monitoring. Use when setting up pipelines, deploying applications, managing infrastructure, implementing monitoring, or optimizing deployment processes.'
-zh_description: "用于高级、DevOps，支持部署、监控、排障和发布管理。"
-version: "1.0.0"
+description: 'Design and operate CI/CD, infrastructure as code, containers, and cloud deployments with observable, reversible release procedures.'
+zh_description: "建设可观测、可回滚的基础设施与持续交付流程。"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["devops", "senior", "sre"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "intermediate"
 ---

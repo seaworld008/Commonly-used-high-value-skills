@@ -84,7 +84,7 @@
             "ref": "72837a8513d1145d800095fc3909d6d3057994b8",
             "resolved_commit": "72837a8513d1145d800095fc3909d6d3057994b8",
             "path_commit": "72837a8513d1145d800095fc3909d6d3057994b8",
-            "content_sha256": "c8329981348ccf3df68ff7e3b6565e98c2dec4ed38148ffa0a097e3de7962d97",
+            "content_sha256": "904754b9e87523c901d6a2a4329fd55ddcef5630ce73ae0f7e2be246fcfcf6bf",
             "last_checked_at": "2026-08-20",
             "last_synced_at": "2026-08-20",
             "license_checkpoint": {
@@ -132,6 +132,11 @@
               "source": "skills/office-white-collar/guizang-ppt-skill/SPONSORS.md",
               "target": "skills/office-white-collar/guizang-ppt-skill/SPONSORS.md",
               "type": "file"
+            },
+            {
+              "source": "skills/office-white-collar/guizang-ppt-skill/EXTENDED.md",
+              "target": "skills/office-white-collar/guizang-ppt-skill/EXTENDED.md",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -178,7 +183,7 @@
         },
         {
           "path": "skills/office-white-collar/guizang-ppt-skill/SKILL.md",
-          "sha256": "c8329981348ccf3df68ff7e3b6565e98c2dec4ed38148ffa0a097e3de7962d97",
+          "sha256": "904754b9e87523c901d6a2a4329fd55ddcef5630ce73ae0f7e2be246fcfcf6bf",
           "owner": "guizang-ppt-skill",
           "mode": "100644"
         },
@@ -228,6 +233,12 @@
           "path": "skills/office-white-collar/guizang-ppt-skill/references/themes.md",
           "sha256": "a4bee3ef7b22d56fb904b0643a117368d85f0265ceccdf5111ad497fe22cc656",
           "owner": "guizang-ppt-skill",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/office-white-collar/guizang-ppt-skill/EXTENDED.md",
+          "owner": "guizang-ppt-skill",
+          "sha256": "ed9854cef5c117265a07375403076340e90422d652eac635e2aae8bbc8e02774",
           "mode": "100644"
         }
       ]

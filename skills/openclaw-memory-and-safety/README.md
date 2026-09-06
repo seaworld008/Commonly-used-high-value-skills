@@ -23,7 +23,7 @@
 | `omen` | 预演失败模式，识别计划风险并给出优先级。 | [目录](./omen/) | [SKILL.md](./omen/SKILL.md) |
 | `rag-architect` | 用于以评测为先设计和诊断生产级 RAG，包括权限、混合检索、重排、引用和监控。 | [目录](./rag-architect/) | [SKILL.md](./rag-architect/SKILL.md) |
 | `runbook-generator` | 用于基于仓库和平台证据编写安全、可演练、可验证的生产运维 Runbook。 | [目录](./runbook-generator/) | [SKILL.md](./runbook-generator/SKILL.md) |
-| `warden` | 用于warden，支持记忆管理、安全防护和运行治理。 | [目录](./warden/) | [SKILL.md](./warden/SKILL.md) |
+| `warden` | 按价值、用户自主性和体验韧性评估产品质量。 | [目录](./warden/) | [SKILL.md](./warden/SKILL.md) |
 
 ## 维护方式
 

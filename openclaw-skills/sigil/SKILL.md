@@ -2,14 +2,14 @@
 name: sigil
 description: '根据项目代码自动生成贴合仓库约定的技能。'
 zh_description: "根据项目代码自动生成贴合仓库约定的技能。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/sigil"
 license: MIT
 tags: ["agent", "ai", "sigil"]
 created_at: "2026-08-24"
-updated_at: "2026-08-24"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -84,7 +84,6 @@ Measured activation rates, spec citations, and full rationale -> `reference/offi
 - Sync-write to both `.claude/skills/` and `.agents/skills/`; avoid duplicating ecosystem agent functionality.
 - Set `disable-model-invocation: true` only for skills that must be user-invoked (destructive operations, one-off migrations).
 - Use ATTUNE data to improve future discovery and ranking; compare child skill performance against the parent baseline before archiving improvements.
-- Author for the executing engine (P1-P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P6, P7 critical for Sigil; P1 recommended).
 
 ## Boundaries
 
@@ -99,7 +98,7 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 - Sync-write `SKILL.md` and `reference/` to both directories.
 - Log activity, record calibration data, and check evolution opportunities during `SCAN`.
 
-### Ask First
+### Ask First When Not Already Authorized
 - A batch would generate `10+` skills.
 - The task would overwrite an existing skill.
 - The task requires a Full Skill with extensive `reference/`.
@@ -271,7 +270,7 @@ Use the canonical schema in `_common/HANDOFF.md` for all inter-agent communicati
 
 ## Operational
 
-**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
+**Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
 - Journal: `.agents/sigil.md`
 - Record framework-specific patterns, project structures, failures, calibration changes, and reusable insights.

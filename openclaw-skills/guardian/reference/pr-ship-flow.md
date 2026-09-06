@@ -53,7 +53,7 @@ PREFLIGHT → CREATE → WATCH → GATE → MERGE → CLEANUP
 | `CREATE` | Create the PR (or attach to existing) | Creates remote PR |
 | `WATCH` | Monitor CI status until terminal | Read-only |
 | `GATE` | Verify approvals, conflicts, branch protection | Read-only |
-| `MERGE` | Execute merge per `strategy` Recipe choice | **Ask First** — destructive on shared history |
+| `MERGE` | Execute merge per `strategy` Recipe choice | Use existing authority for the target; ask if absent |
 | `CLEANUP` | Delete local/remote branch, sync base | Local + remote branch deletion |
 
 ## Command Recipes
@@ -149,7 +149,11 @@ Decision table:
 | `UNSTABLE` | Non-required check failing; warn + Ask First |
 | `HAS_HOOKS` | Pre-merge hook present; verify it will pass |
 
-### 5. MERGE — Ask First, then execute
+### 5. MERGE — Verify Existing Authority, Then Execute
+
+A request to merge this PR after checks pass is already authorization. Ask only
+when the target, scope, or authority is unresolved. Honor branch protections and
+required reviews; do not infer permission to bypass them.
 
 ```bash
 # Strategy from `strategy` Recipe output (default: squash for feature branches)
@@ -172,7 +176,8 @@ gh pr merge "$PR_NUMBER" --auto --squash
 ```bash
 git checkout "$BASE"
 git pull --ff-only origin "$BASE"
-git branch -D "$SRC" 2>/dev/null || true
+# Delete only a verified merged, task-owned branch
+git branch -d "$SRC"
 git remote prune origin
 ```
 
@@ -192,7 +197,7 @@ gh pr view "$PR_NUMBER" --json state -q .state   # MERGED
 | Security | `security_classification == CRITICAL` | Blocking Sentinel handoff required |
 | Intent alignment | `intent_alignment == FAIL` (Judge verdict) | Stop; reconcile code with stated PR/commit intent or obtain explicit waiver. `NOT_CHECKED` permitted only with a note that intent was not verified |
 | CI | Any required check failed | Stop; surface failures |
-| Approvals | `reviewDecision != APPROVED` | Stop; request reviewers |
+| Approvals | A repository-required review is missing or changes were requested | Wait for the required review; preserve branch protection |
 | Conflicts | `mergeStateStatus == DIRTY` | Stop; route to `reshape` or manual rebase |
 | Branch protection | Bypass attempt | Refuse; never bypass protection rules |
 
@@ -200,7 +205,7 @@ gh pr view "$PR_NUMBER" --json state -q .state   # MERGED
 
 | Action | Why |
 |--------|-----|
-| Actual `gh pr merge` execution | Irreversible on shared branches |
+| Merge without existing authority for this PR and target | Resolve the missing scope or authorization |
 | `--admin` flag (bypass protection) | Compliance and audit risk |
 | Force-merge over `UNSTABLE` state | Non-required checks may signal real issues |
 | Merge to default branch outside business hours | Reduced rollback bandwidth |

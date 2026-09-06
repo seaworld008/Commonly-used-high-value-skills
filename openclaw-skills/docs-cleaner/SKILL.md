@@ -1,14 +1,14 @@
 ---
 name: docs-cleaner
-description: 'Consolidates redundant documentation while preserving all valuable content. This skill should be used when users want to clean up documentation bloat, merge redundant docs, reduce documentation sprawl, or consolidate multiple files covering the same topic. Triggers include "clean up docs", "consolidate documentation", "too many doc files", "merge these docs", or when documentation exceeds 500 lines across multiple files covering similar topics.'
+description: 'Consolidate overlapping documentation and remove repetition while preserving useful content, references, and ownership.'
 zh_description: "用于合并冗余文档、减少文档膨胀，并在保留有效内容的前提下整理知识库。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["cleaner", "docs", "productivity"]'
 created_at: "2026-03-04"
-updated_at: "2026-06-29"
+updated_at: "2026-09-06"
 quality: 3
 complexity: "intermediate"
 ---

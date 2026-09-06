@@ -2,14 +2,14 @@
 name: hearth
 description: 'Generating and auditing personal dev environment configs (zsh/tmux/neovim/ghostty) and automating the macOS desktop via AppleScript/JXA (Finder, Mail, Safari). Use for dotfiles or Apple Events.'
 zh_description: "终端、编辑器和本地开发环境配置生成与审计。"
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/.archive/hearth"
 license: MIT
 tags: '["hearth", "productivity"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-20"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -97,7 +97,6 @@ Route elsewhere when the task is primarily:
 - Default to `Standard` profile unless the user requests otherwise.
 - Never commit secrets to dotfile repos (leak stats -> Never below, `reference/dotfile-security-anti-patterns.md`); use `.local` file separation, recommend pre-commit secret scanning (Gitleaks or TruffleHog), and audit MCP/AI-agent config files for leaked API keys.
 - Bootstrap scripts must be idempotent — re-running should not duplicate installations or break existing state.
-- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Hearth; P2, P1 recommended).
 - Apply `_common/CODE_QUALITY.md` to every code change — the seven axes (SLD solid / SEC secure / RDB readable / MNT maintainable / TST testable / PRF performant / SCL scalable), proportional to the change surface — and emit `CODE_QUALITY_GATE` before declaring done. `SEC: risk` blocks completion.
 
 ## Supported Tools
@@ -117,6 +116,9 @@ Route elsewhere when the task is primarily:
 
 ## Boundaries
 
+`_common/` references require the separately installed upstream ecosystem. Use them only when available and selected for this task; otherwise follow host instructions and the domain workflow. Persist journals only when requested by the user or project.
+
+
 Agent role boundaries -> `_common/BOUNDARIES.md`
 
 ### Always
@@ -128,7 +130,7 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 - Use idiomatic patterns per tool — never apply `zsh` assumptions to `bash`, `fish`, `tmux`, or editor configs.
 - Run syntax or health checks after every change, and benchmark shell startup before and after shell-related ones.
 
-### Ask First
+### Ask First When Not Already Authorized
 
 - Overwriting, heavily merging, or replacing an existing config file.
 - Installing a plugin manager, or migrating to Neovim's builtin `vim.pack` (stable, but ecosystem adoption is still growing).
@@ -270,7 +272,6 @@ A complete deliverable carries the following — a ceiling, not a floor. Emit on
 | `reference/ui-scripting.md` | Target app has no or partial AppleScript dictionary — System Events / Accessibility automation. |
 | `reference/permissions-tcc.md` | TCC Apple Events consent (error -1743) and least-privilege automation scope. |
 | `reference/safety-and-testing.md` | Auditing an automation script for destructive actions, dry-run coverage, idempotency, error handling. |
-| `_common/OPUS_5_AUTHORING.md` | Sizing the config spec, thinking depth at tool selection, front-loading OS/shell/scope at DETECT. Critical: P3, P5. |
 | `reference/autorun-schema.md` | Emitting the AUTORUN `_STEP_COMPLETE` block — Hearth-specific Output/Next schema. |
 | `_common/CODE_QUALITY.md` | About to write or modify code — the 7-axis quality bar (SLD/SEC/RDB/MNT/TST/PRF/SCL), its sourced anti-patterns, and the `CODE_QUALITY_GATE` emitted before done. |
 

@@ -2,14 +2,14 @@
 name: tome
 description: '把仓库变更转化为学习文档、术语说明和设计记录。'
 zh_description: "把仓库变更转化为学习文档、术语说明和设计记录。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/tome"
 license: MIT
 tags: ["knowledge", "tome"]
 created_at: "2026-08-24"
-updated_at: "2026-08-24"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -115,7 +115,6 @@ Route elsewhere:
 - **Protect internal context.** Public retrospectives mask client names, non-public infrastructure, credentials, and unreleased features unless explicitly cleared.
 - **Honest narration.** Do not embellish change rationale — include constraints, compromises, and limitations honestly. Post-hoc rationalization degrades trust.
 - **Append-only for accepted decision records.** When a prior ADR/decision record must change, write a new superseding record and cross-link (`Supersedes: ADR-NNN` / `Superseded-by: ADR-MMM`); never silently rewrite an accepted one. Preserving the history of thinking is the point. [Source: adr.github.io; AWS Prescriptive Guidance — ADR process]
-- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Tome; P2, P1 recommended).
 
 ---
 
@@ -130,7 +129,7 @@ Route elsewhere:
 - Attach a Quality Scorecard (see Output Requirements) to every learning-document deliverable
 - For external articles, provide platform metadata, hook, CTA, and series integration when applicable
 
-### Ask First
+### Ask First When Not Already Authorized
 
 - When the change scope is unclear (single commit vs full PR vs entire branch)
 - When audience level cannot be determined from context AND auto-detection confidence is LOW
@@ -387,7 +386,7 @@ All handoff templates → `reference/handoffs.md`
 
 ## Operational
 
-**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
+**Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
 Before starting, read `.agents/tome.md` (create if missing).
 Also check `.agents/PROJECT.md` for shared project knowledge.

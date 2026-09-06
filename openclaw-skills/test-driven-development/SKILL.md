@@ -1,15 +1,15 @@
 ---
 name: test-driven-development
-description: 'Drives development with tests. Use when implementing any logic, fixing any bug, or changing any behavior. Use when you need to prove that code works, when a bug report arrives, or when you''re about to modify existing functionality.'
-zh_description: "用于测试、驱动、development，支持任务规划、执行、评审和验证。"
-version: "1.0.1"
+description: Develop testable logic or fix behavioral bugs with focused regression tests and a red-green-refactor loop where it provides useful evidence.
+zh_description: "通过聚焦的回归测试验证业务逻辑和缺陷修复。"
+version: "1.0.2"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/test-driven-development/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "test-driven-development", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-10"
+updated_at: "2026-09-06"
 quality: 5
 complexity: advanced
 upstream_slug: test-driven-development
@@ -43,7 +43,7 @@ The TDD cycle is universal; the commands are not. Before writing the first test,
 - **Existing conventions** — where tests live, how files are named, what patterns neighboring tests follow
 - **Documented commands** — README, CONTRIBUTING, and CI workflows show the commands that actually gate merges
 
-Run the repository's focused-test command during the loop and its full-suite command before completion. Never assume a default like `npm test` — a Gradle, Cargo, or pytest project has its own equivalent.
+Run focused tests during the loop and the repository-required checks before completion. Expand testing for broad impact or unresolved risk; do not repeat unchanged successful checks. Never assume a default like `npm test` — a Gradle, Cargo, or pytest project has its own equivalent.
 
 The examples below use TypeScript for illustration; the workflow is identical in any language once you've discovered the project's own tooling.
 

@@ -39,6 +39,8 @@ class RepoValidationWorkflowTests(unittest.TestCase):
             job_commands,
         )
         self.assertIn("python scripts/audit_skill_portfolio.py --check-policy", commands)
+        self.assertIn("python scripts/audit_skill_instructions.py", commands)
+        self.assertIn("python scripts/lint_skill_quality.py --min-lines 50 --strict", commands)
         self.assertIn("python scripts/audit_licenses.py", commands)
         self.assertIn("python scripts/validate_skill_sources.py", commands)
         self.assertIn(
@@ -62,7 +64,7 @@ class RepoValidationWorkflowTests(unittest.TestCase):
         self.assertIn("git diff --exit-code", commands)
 
         upload_steps = [
-            step for step in job["steps"] if isinstance(step, dict) and step.get("uses") == "actions/upload-artifact@v4"
+            step for step in job["steps"] if isinstance(step, dict) and step.get("uses") == "actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a"
         ]
         self.assertTrue(upload_steps, "repo-validation should upload a repo health artifact")
 
@@ -132,17 +134,17 @@ class RepoValidationWorkflowTests(unittest.TestCase):
             for step in job["steps"]
             if isinstance(step, dict) and "uses" in step
         }
-        self.assertIn("actions/checkout@v4", uses_steps)
-        self.assertIn("github/codeql-action/init@v4", uses_steps)
-        self.assertIn("github/codeql-action/analyze@v4", uses_steps)
+        self.assertIn("actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1", uses_steps)
+        self.assertIn("github/codeql-action/init@cdf488f595d80d6e07e03d4674febd5ab45fa938", uses_steps)
+        self.assertIn("github/codeql-action/analyze@cdf488f595d80d6e07e03d4674febd5ab45fa938", uses_steps)
 
-        init_inputs = uses_steps["github/codeql-action/init@v4"]["with"]
+        init_inputs = uses_steps["github/codeql-action/init@cdf488f595d80d6e07e03d4674febd5ab45fa938"]["with"]
         self.assertEqual("${{ matrix.language }}", init_inputs["languages"])
         self.assertEqual("none", init_inputs["build-mode"])
         self.assertEqual("security-extended", init_inputs["queries"])
         self.assertIn('paths-ignore:\n  - "openclaw-skills/**"', init_inputs["config"])
 
-        analyze_inputs = uses_steps["github/codeql-action/analyze@v4"]["with"]
+        analyze_inputs = uses_steps["github/codeql-action/analyze@cdf488f595d80d6e07e03d4674febd5ab45fa938"]["with"]
         self.assertEqual(
             "/language:${{ matrix.language }}",
             analyze_inputs["category"],

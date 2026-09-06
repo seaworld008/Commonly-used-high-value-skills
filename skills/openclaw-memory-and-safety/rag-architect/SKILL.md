@@ -1,14 +1,14 @@
 ---
 name: rag-architect
-description: 'Design, evaluate, and evolve production retrieval-augmented generation systems. Use when a task requires evidence-grounded search over private or specialized corpora, retrieval architecture selection, ingestion and permission design, hybrid search, reranking, citation integrity, offline evaluation, online monitoring, or diagnosis of retrieval failures.'
+description: 'Design or diagnose RAG ingestion, retrieval, permissions, reranking, citations, and evaluation when answers must be grounded in a specialized corpus.'
 zh_description: "用于以评测为先设计和诊断生产级 RAG，包括权限、混合检索、重排、引用和监控。"
-version: "2.0.0"
+version: "2.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["architect", "rag", "retrieval", "evaluation", "search"]'
 created_at: "2026-03-04"
-updated_at: "2026-07-27"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---

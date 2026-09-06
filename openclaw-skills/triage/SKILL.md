@@ -2,14 +2,14 @@
 name: triage
 description: '事故首响、影响范围识别、恢复步骤和复盘整理。'
 zh_description: "事故首响、影响范围识别、恢复步骤和复盘整理。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/triage"
 license: MIT
 tags: ["devops", "sre", "triage"]
 created_at: "2026-08-24"
-updated_at: "2026-08-24"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -84,7 +84,6 @@ Route elsewhere when:
 - MTTR targets: SEV1 < 1 hour, SEV2 < 4 hours, SEV3 < 24 hours (high-performing team benchmarks).
 - AI-assisted context gathering (runbooks, past incidents, affected services, timeline reconstruction, postmortem drafting) accelerates triage but never replaces human diagnosis or remediation of novel failures — Mend covers only pre-catalogued runbooks; Triage keeps classification and escalation authority. Industry deltas: MTTD −30-40%, MTTR −30-50%, alert-correlation noise −60-80% — plan capacity around these but never depend on automation for novel failure modes. On low-confidence signals **escalate and pause** — proceeding under uncertainty is how AI-assisted incident systems cause secondary outages.
 - Apply the Swiss cheese model to RCA coordination — direct Scout to map failures aligned across defensive layers, not chase a single root cause.
-- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Triage; P2 recommended).
 - **Howie postmortem method is the default for SEV-1/SEV-2** — a facilitated narrative (Narrative Builder → Takeaways round → Learning Review), not a 5-Whys interrogation; 5-Whys and fault tree are supplementary analysis inside that frame, never the frame.
 - **Track hypotheses in parallel at SEV-1/SEV-2** via a dynamic knowledge graph over live evidence (Pods, Grafana, GitHub, Jenkins); each hypothesis carries its own evidence list and disconfirmation criteria. Replaces the single-thread "Scout investigates one hypothesis" handoff.
 - **Catalogue + Scribe for incident comms** — a service catalogue determines downstream scope, a Scribe transcribes the war-room call into the timeline. The human IC drives; they do not type.
@@ -166,7 +165,7 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 - Include an explicit **Next update by [UTC timestamp]** in every communication, even "still investigating" ones — predictable cadence cuts inbound support volume up to 60%
 - Schedule the SEV1/SEV2 postmortem meeting 24–72 h after resolution (earlier loses distance, later loses fidelity) — separate from the written deadlines (SEV1 24h / SEV2 48h)
 
-### Ask First
+### Ask First When Not Already Authorized
 
 - Rollback or failover decisions (coordinate with Gear; verify the rollback does not cascade)
 - External stakeholder notification (legal, customers, partners)
@@ -278,7 +277,6 @@ Routing rules:
 | `reference/first-response.md` | Inside the first 15 minutes of an incident: assigning IC, opening the war-room, classifying SEV, assigning a scribe, capturing the initial timeline, or drafting a holding comm. |
 | `reference/escalation-matrix.md` | Designing the tiered escalation policy: on-call rotation, paging thresholds, auto-escalation timers, handoff scripts, after-hours rules, or PagerDuty / Opsgenie / VictorOps integration. |
 | `reference/incident-communications.md` | Authoring stakeholder-specific incident templates: internal engineering / leadership / sales / support, external status page, customer notices, social updates, with SEV-based cadence and legal-review hooks. |
-| `_common/OPUS_5_AUTHORING.md` | Calibrating tool-use eagerness at DETECT, deciding adaptive thinking depth at CLASSIFY, or sizing the postmortem. Critical for Triage: P3, P5. |
 | `reference/autorun-schema.md` | Emitting the AUTORUN `_STEP_COMPLETE` block — Triage-specific Output/Next schema. |
 
 ## Daily Process
@@ -294,7 +292,7 @@ Execution loop: `SURVEY → PLAN → VERIFY → PRESENT`
 
 ## Operational
 
-**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
+**Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
 - Journal: `.agents/triage.md` records reusable incident patterns only: recurring failures, detection gaps, effective or failed mitigations, communication lessons, and runbook needs.
 - Activity logging: After task completion, append `| YYYY-MM-DD | Triage | (action) | (files) | (outcome) |` to `.agents/PROJECT.md`.

@@ -197,7 +197,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "a5a7f96ca64cc391cad89ad0791b5ff96abdd2ea281ed89e75c16a6634955936",
+            "content_sha256": "ba8925d274dee64c9882aacff9ac0bc2057540602bba5156117318b387455b32",
             "last_checked_at": "2026-04-13",
             "last_synced_at": "2026-04-13"
           }
@@ -213,7 +213,7 @@
         {
           "path": "skills/ai-workflow/skill-creator/SKILL.md",
           "owner": "skill-creator",
-          "sha256": "a5a7f96ca64cc391cad89ad0791b5ff96abdd2ea281ed89e75c16a6634955936",
+          "sha256": "ba8925d274dee64c9882aacff9ac0bc2057540602bba5156117318b387455b32",
           "mode": "100644"
         },
         {

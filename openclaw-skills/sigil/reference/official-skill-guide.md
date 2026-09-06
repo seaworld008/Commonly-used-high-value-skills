@@ -336,4 +336,4 @@ Canonical home for the numbers and citations behind the Core Contract in `SKILL.
 - Avoid duplicating ecosystem agent functionality.
 - Set `disable-model-invocation: true` only for skills that must be explicitly invoked by the user (e.g., destructive operations, one-off migrations).
 - Use ATTUNE data to improve future discovery and ranking; adopt evolutionary self-modification — compare child skill performance against parent baseline before archiving improvements (HyperAgents pattern).
-- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P6, P7 critical for Sigil; P1 recommended).
+- Use current official guidance for the model selected by the user. Preserve its task and permission contract; evaluate trigger changes against representative positive and negative cases.

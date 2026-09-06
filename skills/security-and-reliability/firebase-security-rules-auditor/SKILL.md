@@ -1,15 +1,15 @@
 ---
 name: firebase-security-rules-auditor
-description: 'Audit Firestore and Cloud Storage Security Rules for authorization bypass, cross-tenant access, privilege escalation, unsafe field mutation, query/rule mismatch, type and size validation, and emulator test coverage. Use before deploying new or changed Firebase rules, after a data-model change, or when investigating unauthorized access.'
+description: 'Audit Firestore and Cloud Storage rules for authorization, tenant isolation, field validation, and emulator coverage when data models or rules change.'
 zh_description: "审计 Firestore 与 Cloud Storage 安全规则，检查授权、字段校验、权限提升、资源滥用和模拟器测试覆盖。"
-version: "1.1.1"
+version: "1.1.2"
 author: seaworld008
 source: github:firebase/agent-skills
 source_url: "https://github.com/firebase/agent-skills/tree/main/skills/firebase-security-rules-auditor"
 license: Apache-2.0
 tags: '[firebase, firestore, cloud-storage, security-rules, authorization, appsec]'
 created_at: "2026-07-06"
-updated_at: "2026-07-27"
+updated_at: "2026-09-06"
 quality: 4
 complexity: advanced
 ---

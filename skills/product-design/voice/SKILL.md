@@ -2,14 +2,14 @@
 name: voice
 description: '用户反馈收集、满意度调研、评论分析和洞察提炼。'
 zh_description: "用户反馈收集、满意度调研、评论分析和洞察提炼。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/voice"
 license: MIT
 tags: ["design", "product", "voice"]
 created_at: "2026-08-24"
-updated_at: "2026-08-24"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -103,7 +103,6 @@ Route elsewhere when the task is primarily:
 - For PLG (Product-Led Growth) contexts, design in-product micro-surveys that intercept users at activation milestones rather than arbitrary touchpoints. Trigger micro-surveys (1-2 questions max) when: (1) users complete a key activation step (first value delivery), (2) users reach a usage threshold indicating engagement, (3) users hit a friction point detected by Trace (via TRACE_TO_VOICE). Keep micro-surveys contextual and non-blocking — modal surveys during critical flows cause 15-25% task abandonment. Prefer inline or slide-in formats.
 - Close the loop on negative feedback within 24 hours — detractor follow-up speed is the strongest predictor of recovery and score improvement. Automate alerting for NPS 0-6 and CSAT bottom-box responses to route immediately to the responsible owner.
 - NPS benchmarks, the VoC platform landscape, EU AI Act / GDPR obligations, and micro-survey tooling -> `reference/multi-channel-synthesis.md` § Market and Regulatory Context.
-- Author for the executing engine (P1-P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical; P2, P1 recommended).
 
 ## Boundaries
 
@@ -117,7 +116,7 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 - Balance qualitative feedback with quantitative context.
 - Close the loop when the task includes user-facing follow-up.
 
-### Ask First
+### Ask First When Not Already Authorized
 
 - Adding a new collection mechanism or survey channel.
 - Sharing raw feedback outside the intended audience.
@@ -245,13 +244,12 @@ Overlap boundaries:
 | `reference/kano-model.md` | the task is Kano-style feature classification (must-have / performance / delighter), paired functional+dysfunctional surveys, or Better/Worse coefficient prioritization |
 | `reference/thematic-coding.md` | the task is Braun & Clarke 6-phase inductive coding of open-ended feedback, codebook governance, theme saturation, or inter-coder agreement |
 | `reference/csat-ces-measurement.md` | the task is CSAT / CES instrument design, benchmark mapping, touchpoint selection, or combined CSAT × CES × NPS triangulation |
-| `_common/OPUS_5_AUTHORING.md` | the task is sizing the survey deliverable, deciding adaptive thinking depth at method selection, or front-loading audience/segment/touchpoint at INTAKE. Critical for Voice: P3, P5. |
 | `_common/GROWTH_BRAND_PROOF.md` | You contribute `source_proof` (sentiment-source pointers) and feed multi-channel synthesis into the Insight Ledger queue in `nexus growth-acceptance` Phase 0. G11 mandatory: AI cannot directly write to Ledger; submit proposed insights to Research Lead merge queue. Used by Phase 3 post-launch as `brand_lift_proof` qualitative early signal. |
 | `reference/autorun-schema.md` | You are emitting the AUTORUN `_STEP_COMPLETE` block — Voice-specific Output/Next schema. |
 
 ## Operational
 
-**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
+**Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
 **Journal** (`.agents/voice.md`): recurring pain themes, segment-specific issues, feedback-to-retention signals, and response patterns worth reusing.
 

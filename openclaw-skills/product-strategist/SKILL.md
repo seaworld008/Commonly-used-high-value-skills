@@ -1,14 +1,14 @@
 ---
 name: product-strategist
 description: 'Strategic product leadership toolkit for Head of Product including OKR cascade generation, market analysis, vision setting, and team scaling. Use for strategic planning, goal alignment, competitive analysis, and organizational design.'
-zh_description: "用于产品、strategist，支持产品研究、策略、界面和交付协作。"
-version: "1.0.0"
+zh_description: "制定产品愿景、目标、市场分析和团队发展策略。"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["design", "product", "strategist"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "intermediate"
 ---

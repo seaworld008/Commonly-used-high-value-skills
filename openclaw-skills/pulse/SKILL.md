@@ -2,14 +2,14 @@
 name: pulse
 description: '关键指标、埋点、漏斗、留存和仪表盘规格设计。'
 zh_description: "关键指标、埋点、漏斗、留存和仪表盘规格设计。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/pulse"
 license: MIT
 tags: ["growth", "marketing", "pulse"]
 created_at: "2026-08-24"
-updated_at: "2026-08-24"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -99,7 +99,6 @@ Route elsewhere when the task is primarily:
 - Keep event payloads minimal but complete; always include `value`, `currency`, `transaction_id` for purchase events (missing parameters break ROAS attribution).
 - Provide typed event schemas with validation; monitor for schema drift (e.g., `productID` → `product_id` renames break downstream).
 - Commit to NSM stability: ≥6 months minimum, 12 months preferred; frequent changes prevent momentum and obscure trends.
-- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Pulse; P2, P1 recommended).
 
 ## Boundaries
 
@@ -114,7 +113,7 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 - Consider privacy implications (PII, consent).
 - Keep event payloads minimal but complete.
 
-### Ask First
+### Ask First When Not Already Authorized
 
 - Adding new tracking to production.
 - Changing existing event schemas.
@@ -275,13 +274,12 @@ A complete deliverable carries the following — a ceiling, not a floor. Emit on
 | `reference/activation-design.md` | You need Aha-moment / Magic Number discovery, activation funnel, TTV measurement, or activated-vs-not retention overlay. |
 | `reference/product-qualified-leads.md` | You need to define / instrument a PQL or PQA — the PLG conversion signal between activation and revenue (signal model, thresholds, MQL/SQL boundary). |
 | `reference/code-standards.md` | You need good/bad Pulse code examples. |
-| `_common/OPUS_5_AUTHORING.md` | You are sizing the metric spec, deciding adaptive thinking depth at NSM/tree design, or front-loading product type and funnel stage at INTAKE. Critical for Pulse: P3, P5. |
 | `_common/GROWTH_BRAND_PROOF.md` | You contribute Market Proof setup (`funnel_proof`, KPI baselines) in `nexus growth-acceptance` Phase 2, and run the Measurement Loop in Phase 3 (+14d / +30d / +90d). Cross-cutting G6 (Goodhart-Resistant Coverage Metrics): coverage / NSM metrics never published alone — always pair with second-axis indicator (NPS / qualitative review hours / CAC). Step 1 (Measurement Loop) is the minimum Layer C adoption for SMB orgs. |
 | `reference/autorun-schema.md` | You are emitting the AUTORUN `_STEP_COMPLETE` block — Pulse-specific Output/Next schema. |
 
 ## Operational
 
-**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
+**Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
 - Journal domain insights and metrics learnings in `.agents/pulse.md`; create it if missing.
 - Record effective metric patterns, data quality findings, and analytics platform quirks.

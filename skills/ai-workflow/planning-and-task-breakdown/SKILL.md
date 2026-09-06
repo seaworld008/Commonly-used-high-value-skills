@@ -1,15 +1,15 @@
 ---
 name: planning-and-task-breakdown
-description: 'Breaks work into ordered tasks with dependencies and acceptance checks. Use when you have a spec or clear requirements and need implementable tasks, scope estimates, or parallel work. Preserve existing incomplete plans when revising or starting a different task.'
+description: 'Turn clear requirements into ordered tasks, dependencies, and acceptance checks; preserve unfinished work when revising an existing plan.'
 zh_description: "将需求拆成有依赖与验收标准的任务，并保护已有未完成计划。"
-version: "1.0.3"
+version: "1.0.4"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/planning-and-task-breakdown/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "planning-and-task-breakdown", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-31"
+updated_at: "2026-09-06"
 quality: 5
 complexity: advanced
 upstream_slug: planning-and-task-breakdown

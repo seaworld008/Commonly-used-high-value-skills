@@ -10,21 +10,21 @@
 
 - [imagegen](./imagegen/) - 用于生成、编辑和迭代图像内容与视觉素材。
 - [sora](./sora/) - 用于构思、生成和评审 Sora 视频或视频提示词。
-- [speech](./speech/) - 用于语音，支持内容生成、编辑、分析和交付。
+- [speech](./speech/) - 将文本转换为旁白、配音和批量语音文件。
 - [transcribe](./transcribe/) - 用于将音频或视频中的语音转写为文本，并可结合说话人分离和已知说话人提示。
 
 ## 技能总览
 
 | 技能 | 简介 | 目录 | 详情 |
 |------|------|------|------|
-| `clay` | 用于clay，支持内容生成、编辑、分析和交付。 | [目录](./clay/) | [SKILL.md](./clay/SKILL.md) |
+| `clay` | 生成和优化面向目标引擎的三维模型及纹理资产。 | [目录](./clay/) | [SKILL.md](./clay/SKILL.md) |
 | `gpt-image2` | 让 Codex 通过本地配置的 gpt-image-2 兼容画图服务生成图片，支持提示词、参考图、比例、清晰度和本地保存。 | [目录](./gpt-image2/) | [SKILL.md](./gpt-image2/SKILL.md) |
 | `imagegen` | 用于生成、编辑和迭代图像内容与视觉素材。 | [目录](./imagegen/) | [SKILL.md](./imagegen/SKILL.md) |
 | `screenshot` | 用于截图、屏幕捕获、视觉核查和界面证据收集。 | [目录](./screenshot/) | [SKILL.md](./screenshot/SKILL.md) |
 | `sketch` | 图像生成代码、提示优化、批量生成和成本估算。 | [目录](./sketch/) | [SKILL.md](./sketch/SKILL.md) |
 | `sora` | 用于构思、生成和评审 Sora 视频或视频提示词。 | [目录](./sora/) | [SKILL.md](./sora/SKILL.md) |
-| `speech` | 用于语音，支持内容生成、编辑、分析和交付。 | [目录](./speech/) | [SKILL.md](./speech/SKILL.md) |
-| `tone` | 用于tone，支持内容生成、编辑、分析和交付。 | [目录](./tone/) | [SKILL.md](./tone/SKILL.md) |
+| `speech` | 将文本转换为旁白、配音和批量语音文件。 | [目录](./speech/) | [SKILL.md](./speech/SKILL.md) |
+| `tone` | 生成和处理游戏音效、音乐及语音资产。 | [目录](./tone/) | [SKILL.md](./tone/SKILL.md) |
 | `transcribe` | 用于将音频或视频中的语音转写为文本，并可结合说话人分离和已知说话人提示。 | [目录](./transcribe/) | [SKILL.md](./transcribe/SKILL.md) |
 
 ## 维护方式

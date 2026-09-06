@@ -1,15 +1,15 @@
 ---
 name: idea-refine
-description: 'Refines raw ideas into sharp, actionable concepts through structured divergent and convergent thinking. Use when an idea is still vague, when you need to stress-test assumptions before committing to a plan, or when you want to expand options before converging on one. Triggers on \"ideate\", \"refine this idea\", or \"stress-test my plan\".'
-zh_description: "用于idea、refine，支持任务规划、执行、评审和验证。"
-version: "1.0.0"
+description: Explore alternatives and stress-test assumptions when refining a vague idea into a concrete concept or evaluating an early plan.
+zh_description: "澄清初步想法，比较方案并检验关键假设。"
+version: "1.0.1"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/idea-refine/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "idea-refine", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-07-27"
+updated_at: "2026-09-06"
 quality: 4
 complexity: advanced
 upstream_slug: idea-refine

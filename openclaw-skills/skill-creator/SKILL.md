@@ -1,14 +1,14 @@
 ---
 name: skill-creator
-description: 'Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, update or optimize an existing skill, run evals to test a skill, benchmark skill performance with variance analysis, or optimize a skill''s description for better triggering accuracy.'
-zh_description: "用于技能、创建，支持任务规划、执行、评审和验证。"
-version: "1.0.0"
+description: 'Create or improve agent skills, trigger descriptions, and evaluation cases; use when packaging a workflow or measuring skill behavior.'
+zh_description: "创建和改进技能内容、触发描述及行为评测。"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["creator", "planning", "skill", "workflow"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "intermediate"
 ---
@@ -56,7 +56,7 @@ It's OK to briefly explain terms if you're in doubt, and feel free to clarify te
 
 ### Capture Intent
 
-Start by understanding the user's intent. The current conversation might already contain a workflow the user wants to capture (e.g., they say "turn this into a skill"). If so, extract answers from the conversation history first — the tools used, the sequence of steps, corrections the user made, input/output formats observed. The user may need to fill the gaps, and should confirm before proceeding to the next step.
+Start by understanding the user's intent. The current conversation might already contain a workflow the user wants to capture (e.g., they say "turn this into a skill"). If so, extract answers from the conversation history first — the tools used, the sequence of steps, corrections the user made, input/output formats observed. Ask only for missing information that materially changes the skill; otherwise proceed from the current request.
 
 1. What should this skill enable Claude to do?
 2. When should this skill trigger? (what user phrases/contexts)

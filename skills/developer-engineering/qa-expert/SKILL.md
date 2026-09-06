@@ -1,14 +1,14 @@
 ---
 name: qa-expert
-description: 'This skill should be used when establishing comprehensive QA testing processes for any software project. Use when creating test strategies, writing test cases following Google Testing Standards, executing test plans, tracking bugs with P0-P4 classification, calculating quality metrics, or generating progress reports. Includes autonomous execution capability via master prompts and complete documentation templates for third-party QA team handoffs. Implements OWASP security testing and achieves 90% coverage targets.'
-zh_description: "用于质量保障、expert，支持开发、调试、评审和交付。"
-version: "1.0.0"
+description: 'Design QA strategies, risk-based test cases, execution plans, and defect reports when establishing or improving software quality assurance.'
+zh_description: "制定测试策略、风险用例、执行计划和缺陷跟踪流程。"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["development", "expert"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "intermediate"
 keywords: '[qa, testing, test-cases, bug-tracking, google-standards, owasp, security, automation, quality-gates, metrics]'

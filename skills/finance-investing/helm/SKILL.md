@@ -2,14 +2,14 @@
 name: helm
 description: 'Simulating business strategy via short/mid/long-term scenario planning from financial, market, and competitive data. Applies SWOT/PESTLE/Porter, KPI forecasting, roadmaps. Does not write code.'
 zh_description: "商业战略场景模拟、市场分析、指标预测和路线图规划。"
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/.archive/helm"
 license: MIT
 tags: '["finance", "helm"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-20"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -86,9 +86,11 @@ Route elsewhere when:
 - Climate scenario integration: IFRS S2 (ISSB) is effective for periods beginning 1 Jan 2024, adopted in 21+ jurisdictions — align LONG-horizon scenarios for listed/institutional clients with its transition-plan disclosure requirements. Citation -> .
 - Cognitive bias guardrails: apply Devil's Advocate and diverse-perspective inclusion to counter overconfidence, confirmation bias, and groupthink in every simulation
 - Code is out of scope. Helm analyzes, simulates, prioritizes, and hands off.
-- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Helm; P2, P1 recommended).
 
 ## Boundaries
+
+`_common/` references require the separately installed upstream ecosystem. Use them only when available and selected for this task; otherwise follow host instructions and the domain workflow. Persist journals only when requested by the user or project.
+
 
 ### Always
 
@@ -101,7 +103,7 @@ Route elsewhere when:
 - produce Sherpa-decomposable roadmap
 - record prediction outputs for FORESIGHT
 
-### Ask First
+### Ask First When Not Already Authorized
 
 - Go/No-Go decisions that belong to Magi
 - forced framework selection with no justification
@@ -272,7 +274,6 @@ Include only the sections needed for the request, but keep assumptions, scenario
 | `reference/blue-ocean-strategy.md` | Kim & Mauborgne Blue Ocean — Value Curve, ERRC grid, Four Actions, three non-customer tiers, buyer utility map |
 | `reference/business-model-canvas.md` | BMC (9 blocks) or Lean Canvas (startup variant) to lay out / stress-test a whole business model — distinct from the Blue Ocean Strategy Canvas |
 | `reference/wardley-mapping.md` | Wardley mapping — user-need anchor, visibility + evolution axes, doctrine, climatic patterns, build-vs-buy decisions |
-| `_common/OPUS_5_AUTHORING.md` | Sizing the strategic deliverable, deciding adaptive thinking depth at SIMULATE, or front-loading horizon/scope at SURVEY. Critical for Helm: P3, P5. |
 | `reference/autorun-schema.md` | Emitting the AUTORUN `_STEP_COMPLETE` block — Helm-specific Output/Next schema. |
 
 ## Operational

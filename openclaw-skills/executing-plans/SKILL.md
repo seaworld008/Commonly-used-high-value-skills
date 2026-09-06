@@ -2,14 +2,14 @@
 name: executing-plans
 description: Use when you have a written implementation plan to execute in a separate session with review checkpoints
 zh_description: "用于按既定实现计划逐步执行任务，并在关键节点进行审查和完成验证。"
-version: "1.0.5"
+version: "1.0.6"
 author: "seaworld008"
 source: "github:obra/superpowers"
 source_url: "https://github.com/obra/superpowers/blob/main/skills/executing-plans/SKILL.md"
 license: MIT
 tags: '["plans", "execution", "workflow"]'
 created_at: "2026-04-13"
-updated_at: "2026-07-27"
+updated_at: "2026-09-06"
 quality: 3
 complexity: "intermediate"
 ---
@@ -22,22 +22,22 @@ Load plan, review critically, execute all tasks, report when complete.
 
 **Announce at start:** "I'm using the executing-plans skill to implement this plan."
 
-**Note:** Tell your human partner that Superpowers works much better with access to subagents (Claude Code, Codex CLI, Codex App, Copilot CLI, and Gemini CLI all qualify; see the per-platform tool refs in `../using-superpowers/references/`). If subagents are available, use superpowers:subagent-driven-development instead of this skill.
+Use subagents only when supported, permitted, and useful for independent tasks. Otherwise execute the plan directly; no extra runtime setup is needed.
 
 ## The Process
 
 ### Step 1: Load and Review Plan
-1. Ensure an isolated workspace: use superpowers:using-git-worktrees to create one or verify the existing one
+1. Inspect workspace ownership; reuse a clean task branch or isolate work if necessary
 2. Read plan file
 3. Review critically - identify any questions or concerns about the plan
-4. If concerns: Raise them with your human partner before starting
+4. Resolve routine concerns from repository evidence; ask about material unresolved decisions
 5. If no concerns: Create todos for the plan items and proceed
 
 ### Step 2: Execute Tasks
 
 For each task:
 1. Mark as in_progress
-2. Follow each step exactly (plan has bite-sized steps)
+2. Preserve the intended outcome; adapt obsolete implementation details from current evidence
 3. Run verifications as specified
 4. Mark as completed
 
@@ -46,17 +46,17 @@ For each task:
 After all tasks complete and verified:
 - Announce: "I'm using the finishing-a-development-branch skill to complete this work."
 - **REQUIRED SUB-SKILL:** Use superpowers:finishing-a-development-branch
-- Follow that skill to verify tests, present options, execute choice
+- Verify required checks and execute the delivery path already requested; ask only if it is unresolved
 
 ## When to Stop and Ask for Help
 
 **STOP executing immediately when:**
-- Hit a blocker (missing dependency, test fails, instruction unclear)
+- Required access or a consequential user decision is unavailable after investigation
 - Plan has critical gaps preventing starting
-- You don't understand an instruction
-- Verification fails repeatedly
+- A material scope conflict cannot be resolved from current instructions or evidence
+- Verification reveals an external blocker that cannot be repaired within the authorized scope
 
-**Ask for clarification rather than guessing.**
+Investigate test failures and missing local dependencies first; repair routine blockers within scope. Ask for the specific missing input only when it is necessary.
 
 ## When to Revisit Earlier Steps
 
@@ -68,7 +68,7 @@ After all tasks complete and verified:
 
 ## Remember
 - Review plan critically first
-- Follow plan steps exactly
+- Follow acceptance criteria and update the plan when current evidence requires a change
 - Don't skip verifications
 - Reference skills when plan says to
 - Stop when blocked, don't guess

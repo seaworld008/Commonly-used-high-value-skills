@@ -1,14 +1,14 @@
 ---
 name: interview-system-designer
-description: 'This skill should be used when the user asks to "design interview processes", "create hiring pipelines", "calibrate interview loops", "generate interview questions", "design competency matrices", "analyze interviewer bias", "create scoring rubrics", "build question banks", or "optimize hiring systems". Use for designing role-specific interview loops, competency assessments, and hiring calibration systems.'
-zh_description: "用于interview、系统、设计，支持信息整理、沟通和执行管理。"
-version: "1.0.0"
+description: 'Design hiring interviews, competency matrices, question banks, scoring rubrics, and interviewer calibration for a specified role.'
+zh_description: "设计招聘面试、能力矩阵、题库和评分标准。"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["designer", "interview", "productivity", "system"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "intermediate"
 ---

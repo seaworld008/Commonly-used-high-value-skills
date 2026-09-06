@@ -1,15 +1,15 @@
 ---
 name: senior-architect
-description: 'This skill should be used when the user asks to \"design system architecture\", \"evaluate microservices vs monolith\", \"create architecture diagrams\", \"analyze dependencies\", \"choose a database\", \"plan for scalability\", \"make technical decisions\", or \"review system design\". Use for architecture decision records (ADRs), tech stack evaluation, system design reviews, dependency analysis, and generating architecture diagrams in Mermaid, PlantUML, or ASCII format.'
-zh_description: "用于高级、架构，支持部署、监控、排障和发布管理。"
-version: "1.0.1"
+description: 'Design or review system architecture, technical tradeoffs, dependencies, and scalability; produce diagrams and decision records grounded in requirements.'
+zh_description: "分析系统架构、依赖、扩展性和关键技术取舍。"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:alirezarezvani/claude-skills"
 source_url: "https://github.com/alirezarezvani/claude-skills/blob/main/engineering-team/skills/senior-architect/SKILL.md"
 license: MIT
 tags: '["architect", "devops", "senior", "sre"]'
 created_at: "2026-03-27"
-updated_at: "2026-04-24"
+updated_at: "2026-09-06"
 quality: 4
 complexity: "intermediate"
 ---

@@ -2,14 +2,14 @@
 name: sherpa
 description: '把复杂任务拆成短步骤，控制漂移并推进交付。'
 zh_description: "把复杂任务拆成短步骤，控制漂移并推进交付。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/sherpa"
 license: MIT
 tags: ["ai", "sherpa", "workflow"]
 created_at: "2026-08-24"
-updated_at: "2026-08-24"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -93,7 +93,6 @@ Route elsewhere when the task is primarily:
 - Track estimate accuracy with **PRED(0.25)** (share of estimates within 25% relative error) and feed actuals back into planning.
 - Prefer Plan-and-Execute decomposition — decoupling planning from execution avoids repeated re-planning cycles. Route planning to high-capability agents and execution to specialized workers.
 - Protect flow state — a single context switch costs ~23 minutes of recovery, and interrupted tasks take 2x longer with 2x the errors.
-- Author for the executing engine (P1-P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P1, P2, P7 critical). Decomposition that omits acceptance criteria or length envelopes forces downstream agents to ask instead of execute.
 - **Anchor decomposition on the Explore -> Plan -> Implement -> Commit cycle.** Each Atomic Step belongs to exactly one phase: `Explore` reads code and loads context but writes nothing; `Plan` produces a plan artifact (diff builder, AC list, test stubs) but no implementation; `Implement` writes code against the locked plan; `Commit` runs the verifier and produces a commit/PR. Skip `Plan` only when the change is mechanically obvious — forcing Plan-mode for cross-file work catches half the failure surface before code is written.
 - **Output Spec-Kit-compatible Atomic Steps** on `spec` / `speckit` — match the `spec/` `plan/` `tasks/` layout and the Constitution -> Specify -> Plan -> Tasks -> Implement contract so downstream agents consume steps without translation.
 - **Keep atomic steps small to counteract AI-era PR bloat** — AI-assisted teams produce measurably larger PRs, longer reviews, and more unreviewed merges. One committable concern per step directly counters this.
@@ -114,7 +113,7 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 - suggest specialist agents when the step belongs elsewhere
 - record estimate vs actual data for calibration
 
-### Ask First
+### Ask First When Not Already Authorized
 - marking the task done without explicit confirmation
 - skipping the current step before it has a clean stop point
 - re-planning more than `30%` of the remaining plan
@@ -337,13 +336,12 @@ Use this shape:
 | `reference/atomic-step-decomposition.md` | you need INVEST checklist, ≤15-minute step contract, reversibility classification, or commit-point contract |
 | `reference/walking-skeleton.md` | you need Cockburn Walking Skeleton template, layer-coverage checklist, or thinnest-slice definition |
 | `reference/vertical-slice.md` | you need vertical vs horizontal decomposition trade-off, slice-quality checklist, or slice sizing rubric |
-| `_common/OPUS_5_AUTHORING.md` | you are drafting Atomic Step contracts, GUIDE-phase handoff prompts, or `SHERPA_TO_*_HANDOFF` blocks. Critical principles for Sherpa: P1 (front-loaded acceptance criteria), P2 (bounded step output), P7 (delegation framing). |
 | `reference/autorun-schema.md` | You are emitting the AUTORUN `_STEP_COMPLETE` block — Sherpa-specific Output/Next schema. |
 
 
 ## Operational
 
-**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
+**Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
 - Journal domain insights in `.agents/sherpa.md`; create it if missing.
 - After significant work, append to `.agents/PROJECT.md`: `| YYYY-MM-DD | Sherpa | (action) | (files) | (outcome) |`

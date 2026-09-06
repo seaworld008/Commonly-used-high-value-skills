@@ -12,8 +12,8 @@ MAPPING = (
     / "sources"
     / "simota-agent-skills-2026-04.skills.json"
 )
-CURRENT_COMMIT = "0b594f3ff4bf53639f60832a943d90a5109ddf85"
-WEEKLY_REVIEW_COMMIT = "0b594f3ff4bf53639f60832a943d90a5109ddf85"
+CURRENT_COMMIT = "9f7d77adc30fd39f039871081d26aaf7bf60f54d"
+WEEKLY_REVIEW_COMMIT = "9f7d77adc30fd39f039871081d26aaf7bf60f54d"
 # The complete retry succeeded for every active monitor entry; archived
 # snapshots below retain their immutable historical checkpoints.
 WEEKLY_REVIEWED = {
@@ -112,7 +112,7 @@ class SimotaUpstreamGovernanceTests(unittest.TestCase):
                 self.assertEqual("MIT", tracking["license_checkpoint"]["spdx"])
                 self.assertRegex(tracking["path_commit"], r"^[0-9a-f]{40}$")
                 if slug in WEEKLY_REVIEWED:
-                    self.assertEqual("2026-08-31", tracking["last_checked_at"])
+                    self.assertEqual("2026-09-06", tracking["last_checked_at"])
                     self.assertTrue(any(
                         attempt.get("method") == "commit-aware-manual-monitor-review"
                         and attempt.get("target") == (

@@ -2,14 +2,14 @@
 name: harvest
 description: Collecting GitHub PR data and generating work reports. Retrieves PR info via gh commands to auto-generate weekly/monthly reports and release notes. Use when work reporting or PR analysis is needed.
 zh_description: "采集合并请求信息并生成工作报告和发布材料。"
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/.archive/harvest"
 license: MIT
 tags: '["automation", "harvest", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-20"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -88,9 +88,11 @@ Route elsewhere when the task is primarily:
 - Rubber-stamping detection: low median review lead time uncorrelated with PR size flags potential rubber-stamping.
 - **AI-inflated metrics caveat**: AI adoption correlates positively with delivery throughput but negatively with stability (more change failures, more rework, longer resolution). It also tempts teams away from small batches, producing larger, riskier PRs. Reports comparing pre/post-AI periods must note this and flag batch-size regression — AI amplifies existing dynamics rather than fixing them.
 - **Team archetypes over tiers**: profile delivery performance with the 7-archetype model (Foundational Challenges, Legacy Bottleneck, Constrained by Process, High Impact Low Cadence, Stable and Methodical, Pragmatic Performers, Harmonious High-Achievers) rather than the deprecated 4-tier clusters — archetypes blend delivery metrics with human factors. Detail -> `reference/dora-metrics.md`.
-- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Harvest; P2, P1 recommended).
 
 ## Boundaries
+
+`_common/` references require the separately installed upstream ecosystem. Use them only when available and selected for this task; otherwise follow host instructions and the domain workflow. Persist journals only when requested by the user or project.
+
 
 Agent role boundaries -> `_common/BOUNDARIES.md`
 
@@ -101,7 +103,7 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 - Exclude personal data and sensitive payloads from reports.
 - Verify data completeness before publishing.
 
-### Ask First
+### Ask First When Not Already Authorized
 - Collecting more than `100` PRs in one request
 - Accessing an external repository
 - Pulling the full PR history of a repository
@@ -264,7 +266,6 @@ Receives/Sends partners and contracts -> Routing And Handoffs table above.
 | `reference/dora-metrics.md` | DORA 5-key metric percentile bands, 7-archetype profiling, measurement-window selection, or SPACE complement for the `dora` recipe. |
 | `reference/okr-linkage.md` | PR-to-Objective tagging, KR narrative templates, Objective health scoring, or quarterly aggregation for the `okr` recipe. |
 | `reference/pr-stats-analysis.md` | Cycle-time decomposition, P50/P75/P90, Lorenz/Gini, bot allowlist, or large-PR risk thresholds for the `prstats` recipe. |
-| `_common/OPUS_5_AUTHORING.md` | Sizing the work report, deciding adaptive thinking depth at archetype/caveat handling, or front-loading window/scope/audience at COLLECT. Critical for Harvest: P3, P5. |
 | `reference/autorun-schema.md` | Emitting the AUTORUN `_STEP_COMPLETE` block — Harvest-specific Output/Next schema. |
 
 ## Operational

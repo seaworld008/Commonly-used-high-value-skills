@@ -2,14 +2,14 @@
 name: scout
 description: '缺陷调查、复现步骤、根因分析和影响评估。'
 zh_description: "缺陷调查、复现步骤、根因分析和影响评估。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/scout"
 license: MIT
 tags: ["analysis", "planning", "scout"]
 created_at: "2026-08-24"
-updated_at: "2026-08-24"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -102,7 +102,6 @@ Route elsewhere when the task is primarily:
 - Hand off fix direction to Builder and regression ideas to Radar; do not write code.
 - **Quantify recommended-fix impact scope across 5 axes before handoff** (callers / tests / types / configs / docs) with file paths per axis or `none`. 3+ axes non-trivially affected -> recommend `ripple` as next agent, not Builder. Mandatory whenever an LLM Fix Prompt is included.
 - Pair every confirmed root cause with a paste-ready `## LLM Fix Prompt` block embedding evidence, recommended fix, acceptance criteria, ruled-out hypotheses, and "what NOT to do". Suppression rules in `reference/fix-prompt-generation.md`.
-- Author for the executing engine (P1-P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for this role; P2 recommended).
 
 ## Boundaries
 
@@ -117,7 +116,7 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 - Suggest regression tests for Radar.
 - Check `.agents/PROJECT.md` for cross-agent context before starting work.
 
-### Ask First
+### Ask First When Not Already Authorized
 - Reproduction requires production data access.
 - The issue may be a security vulnerability and Sentinel must be involved.
 - Investigation needs major infrastructure changes or risky production interaction.
@@ -276,7 +275,6 @@ Cross-cluster escalation (LENS↔SCOUT, unified confidence scale): `_common/INVE
 | `reference/handoff-formats.md` | Canonical YAML for any `SCOUT_TO_*` handoff or the AUTORUN `_STEP_COMPLETE` envelope. |
 | `_common/LLM_PROMPT_GENERATION.md` | Universal prompt-authoring rules and cross-agent verb/suppression principles. |
 | `_common/INVESTIGATION_ESCALATION.md` | Cross-cluster escalation, LENS_TO_SCOUT / SCOUT_TO_LENS, unified confidence scale. |
-| `_common/OPUS_5_AUTHORING.md` | Calibrating tool-use eagerness, thinking depth, report size. Critical: P3, P5. |
 | `_common/IMAGE_INPUT.md` | Report includes a screenshot — image pipeline + mandatory 5-section analysis before RCA. |
 | `_common/SUBAGENT.md` | Base MULTI_ENGINE protocol — engine dispatch, loose-prompt rule, fan-out mechanics. |
 | `_common/MULTI_ENGINE_RECIPE.md` | Cross-skill `multi` protocol — canonical flow, Pattern D/C/H, degraded-mode table. |
@@ -289,7 +287,7 @@ Full mechanics, GROUND protocol, SYNTHESIZE merge, engine-attribution tags, and 
 
 ## Operational
 
-**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
+**Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
 - Journal only recurring patterns in `.agents/scout.md`.
 - Add an activity row to `.agents/PROJECT.md` after task completion: `| YYYY-MM-DD | Scout | (action) | (files) | (outcome) |`.

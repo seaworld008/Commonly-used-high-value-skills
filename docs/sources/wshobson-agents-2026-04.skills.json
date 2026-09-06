@@ -2,7 +2,7 @@
   "schema_version": 2,
   "video": {
     "url": "https://github.com/wshobson/agents",
-    "checked_at": "2026-08-31",
+    "checked_at": "2026-09-06",
     "note": "Curated from wshobson/agents after validating exact upstream plugin paths and cross-checking public skills registry listings."
   },
   "official_references": [
@@ -39,9 +39,9 @@
         "repo": "wshobson/agents",
         "path": "plugins/payment-processing/skills/billing-automation/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-31",
-        "last_synced_at": "2026-08-31",
-        "last_synced_commit": "38e19c20d2b154510b0e624a2e3e186b19b5c527",
+        "last_checked_at": "2026-09-06",
+        "last_synced_at": "2026-09-06",
+        "last_synced_commit": "a30778f8c4e6b0a87567941b7cca4f534bf642b6",
         "sync_mode": "monitor",
         "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f"
       },
@@ -62,17 +62,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "38e19c20d2b154510b0e624a2e3e186b19b5c527",
+            "resolved_commit": "a30778f8c4e6b0a87567941b7cca4f534bf642b6",
             "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f",
             "content_sha256": "f197cebea2d295528dbaf5c7c6fb0830c4d72e95f527c325a638a88a49c66188",
-            "last_checked_at": "2026-08-31",
-            "last_synced_at": "2026-08-31",
+            "last_checked_at": "2026-09-06",
+            "last_synced_at": "2026-09-06",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "326f0a55c96e672fedf9d807ca043c00df05ba0e",
               "content_sha256": "f89abb55d9f073f38f1703e4518f0613c788c6174be7f13b8dfe48a1c076c746",
               "spdx": "MIT",
-              "resolved_commit": "38e19c20d2b154510b0e624a2e3e186b19b5c527",
+              "resolved_commit": "a30778f8c4e6b0a87567941b7cca4f534bf642b6",
               "api_spdx": "MIT"
             }
           }
@@ -273,6 +273,13 @@
       "date": "2026-08-31",
       "method": "commit-aware-manual-monitor-review",
       "target": "wshobson/agents@38e19c20d2b154510b0e624a2e3e186b19b5c527",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-09-06",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "wshobson/agents@a30778f8c4e6b0a87567941b7cca4f534bf642b6",
       "result": "success",
       "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
     }

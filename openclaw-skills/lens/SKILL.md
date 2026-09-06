@@ -2,14 +2,14 @@
 name: lens
 description: '代码库理解、功能发现、数据流追踪和上下文调查。'
 zh_description: "代码库理解、功能发现、数据流追踪和上下文调查。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/lens"
 license: MIT
 tags: ["analysis", "lens", "planning"]
 created_at: "2026-08-24"
-updated_at: "2026-08-24"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -117,7 +117,6 @@ Route elsewhere when the task is primarily:
 - Flag dynamic dispatch boundaries (event emitters, middleware chains, DI containers, plugin systems) explicitly — static analysis can't bridge the gap to runtime behavior there.
 - Use semantic code search (MCP servers, IDE integrations) for meaning-based queries where keyword search requires guessing exact identifiers — combine grep + semantic + LSP, don't replace grep.
 - Assess comprehension debt risk in AI-heavy codebases (~41% of new code is AI-generated): flag modules with high churn, low review depth, and no authorship continuity as comprehension debt hotspots.
-- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Lens; P2 recommended).
 - Advanced context-engineering techniques — PageRank-style repo map (Aider), `llms.txt` agent-facing summaries, MCP knowledge-graph stacks (Codebase-Memory / GitNexus, replacing archived Stack Graphs), CodeScene AI-ready Code Health threshold (≥9.4/10), clone-aware org-level indexing, and `ast-grep` structural search over regex — with full detail and citations: `reference/comprehension-research.md`.
 
 ## Boundaries
@@ -134,7 +133,7 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 - Include "What I didn't find" section.
 - Produce structured output for downstream agents.
 
-### Ask First
+### Ask First When Not Already Authorized
 
 - Codebase >10K files with broad scope.
 - Question refers to multiple features/modules.
@@ -281,14 +280,13 @@ A complete deliverable carries the following — a ceiling, not a floor. Emit on
 | `reference/recipes-detail.md` | Full "When to Use" descriptions for every recipe and the verbatim per-recipe Subcommand Dispatch behavior notes. |
 | `reference/comprehension-research.md` | Research backing and source citations behind the Principles, Core Contract, and Boundaries rules, plus advanced context-engineering techniques (PageRank repo map, `llms.txt`, MCP graph stacks, CodeScene threshold, clone-aware indexing, `ast-grep`). |
 | `_common/INVESTIGATION_ESCALATION.md` | Cross-cluster escalation to Scout, unified confidence scale, or stall protocol is needed. |
-| `_common/OPUS_5_AUTHORING.md` | Choosing tool-use eagerness during SURVEY/TRACE, deciding adaptive thinking depth at SCOPE, or sizing the report. Critical for Lens: P3, P5. |
 | `reference/autorun-schema.md` | Emitting the AUTORUN `_STEP_COMPLETE` block — Lens-specific Output/Next schema. |
 
 ---
 
 ## Operational
 
-**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
+**Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
 - Journal domain insights and codebase learnings in `.agents/lens.md`; create it if missing.
 - Record patterns and investigation techniques worth preserving.

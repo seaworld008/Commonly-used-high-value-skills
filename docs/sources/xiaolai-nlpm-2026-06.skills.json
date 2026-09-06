@@ -2,7 +2,7 @@
   "schema_version": 2,
   "video": {
     "url": "https://nlpm.com/",
-    "checked_at": "2026-08-31",
+    "checked_at": "2026-09-06",
     "note": "Curated from xiaolai/nlpm after reviewing the website, why page, README, LICENSE, author docs, rules, scoring, and testing materials. Imported as an original repository skill that captures the durable audit method rather than mirroring the full upstream command/plugin product."
   },
   "official_references": [
@@ -50,9 +50,9 @@
         "path": "README.md",
         "ref": "main",
         "sync_mode": "monitor",
-        "last_checked_at": "2026-08-31",
-        "last_synced_at": "2026-08-31",
-        "last_synced_commit": "92e64eebd178aaf9892dde3c078afdbe3d3140ca",
+        "last_checked_at": "2026-09-06",
+        "last_synced_at": "2026-09-06",
+        "last_synced_commit": "dffbb03c449fa70bf0cfd2c16ff13055130d794c",
         "path_commit": "5959cde46b0c79129dd791e3e0639adb0bdf7222"
       },
       "kind": "overlay",
@@ -72,17 +72,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "92e64eebd178aaf9892dde3c078afdbe3d3140ca",
+            "resolved_commit": "dffbb03c449fa70bf0cfd2c16ff13055130d794c",
             "path_commit": "5959cde46b0c79129dd791e3e0639adb0bdf7222",
-            "content_sha256": "a604f3831f0a6821ce47c490f291ccbccf2e07befe9e6b85fcbf55ee55f1d844",
-            "last_checked_at": "2026-08-31",
-            "last_synced_at": "2026-08-31",
+            "content_sha256": "0f4df860e8ab1b47d45b439b49b1fb595cf258bf3b5216a5e1a6d78426cb23a8",
+            "last_checked_at": "2026-09-06",
+            "last_synced_at": "2026-09-06",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "554937c222c6dd2db191634da77b5486a4a0410b",
               "content_sha256": "87b3f4064cb76d1c7cc8c39546d7d62790b76372f37cfb9de1bb828a5f652b51",
               "spdx": "ISC",
-              "resolved_commit": "92e64eebd178aaf9892dde3c078afdbe3d3140ca",
+              "resolved_commit": "dffbb03c449fa70bf0cfd2c16ff13055130d794c",
               "api_spdx": "ISC"
             }
           }
@@ -122,6 +122,11 @@
               "source": "skills/ai-workflow/nlpm-audit/scripts/nl_artifact_check.py",
               "target": "skills/ai-workflow/nlpm-audit/scripts/nl_artifact_check.py",
               "type": "file"
+            },
+            {
+              "source": "skills/ai-workflow/nlpm-audit/EXTENDED.md",
+              "target": "skills/ai-workflow/nlpm-audit/EXTENDED.md",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -138,7 +143,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/nlpm-audit/SKILL.md",
-          "sha256": "a604f3831f0a6821ce47c490f291ccbccf2e07befe9e6b85fcbf55ee55f1d844",
+          "sha256": "0f4df860e8ab1b47d45b439b49b1fb595cf258bf3b5216a5e1a6d78426cb23a8",
           "owner": "nlpm-audit",
           "mode": "100644"
         },
@@ -176,6 +181,12 @@
           "path": "skills/ai-workflow/nlpm-audit/scripts/nl_artifact_check.py",
           "sha256": "0600d88a50b1430008894961f7833f2cc6332b14fbf5180c4a83bf8f3d54ec92",
           "owner": "nlpm-audit",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/nlpm-audit/EXTENDED.md",
+          "owner": "nlpm-audit",
+          "sha256": "ea780027b05dd4784312b872daa8dfc8579095b6d23720800c808daa5159f5ff",
           "mode": "100644"
         }
       ]
@@ -270,6 +281,13 @@
       "date": "2026-08-31",
       "method": "commit-aware-manual-monitor-review",
       "target": "xiaolai/nlpm@92e64eebd178aaf9892dde3c078afdbe3d3140ca",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-09-06",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "xiaolai/nlpm@dffbb03c449fa70bf0cfd2c16ff13055130d794c",
       "result": "success",
       "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
     }

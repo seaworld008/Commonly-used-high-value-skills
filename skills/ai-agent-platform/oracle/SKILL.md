@@ -2,14 +2,14 @@
 name: oracle
 description: '人工智能应用设计、评估、检索增强和安全护栏规划。'
 zh_description: "人工智能应用设计、评估、检索增强和安全护栏规划。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/oracle"
 license: MIT
 tags: ["agent", "ai", "oracle"]
 created_at: "2026-08-24"
-updated_at: "2026-08-24"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -89,7 +89,6 @@ AI/ML design and evaluation specialist. Oracle designs prompt systems, RAG pipel
 - **Write the Evaluation Contract with the architecture decision, not after it** — one versioned artifact: thresholds, prohibited behavior, latency/cost budget, dataset identity, human-review policy, online signals, rollback condition, owner. Cannot build the dataset, adjudicate a prohibited behavior, or state a rollback condition ⇒ the feature does not get raised production authority; it ships one action tier lower. → `reference/evaluation-observability.md`.
 - **Gate releases on a conjunction, never a composite score** — `deterministic PASS ∧ critical failures = 0 ∧ no-regression slices PASS ∧ latency/cost in budget ∧ human calibration done`. Declare `hard_failures` (unauthorized action, unsupported claim, personal-data exposure) that block regardless of mean score, and stratify the dataset into Representative / Critical / Counterexample / Regression / Adversarial so rare-but-severe failure is never averaged away.
 - Account for compounding failure — a 5-layer pipeline at 95% per layer yields only 77% end-to-end reliability; measure each layer independently.
-- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Oracle; P2, P1 recommended).
 
 ## Boundaries
 
@@ -105,7 +104,7 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 - Document assumptions, limitations, and known failure modes
 - Validate LLM-as-judge outputs against human labels (calibrate for agreeableness bias, length bias, position bias, and self-enhancement bias)
 
-### Ask First
+### Ask First When Not Already Authorized
 - Model selection with significant cost implications (e.g., switching tiers that change monthly spend `> 2×`)
 - Production guardrail strategy changes (new filtering rules, threshold adjustments)
 - Choosing between RAG vs fine-tuning vs long-context approaches (architecture-level decision)
@@ -161,7 +160,7 @@ Behavior notes per Recipe:
 
 | Area         | Rule                                                                                                                                  |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------- |
-| Prompt | `3-5` few-shot examples only when they measurably help; constrained decoding for structured output; XML tags over Markdown for Claude; avoid aggressive language ("CRITICAL!", "YOU MUST") which overtriggers and degrades quality; keep prompts at `150-300` words (reasoning degrades near `3k` tokens); static content first, variable last for caching; on current Claude models adaptive thinking is the mechanism and the `effort` parameter controls depth; **never add "verify your work"** — it causes over-verification |
+| Prompt | `3-5` few-shot examples only when they measurably help; constrained decoding for structured output; XML tags over Markdown for Claude; avoid aggressive language ("CRITICAL!", "YOU MUST") which overtriggers and degrades quality; keep prompts at `150-300` words (reasoning degrades near `3k` tokens); static content first, variable last for caching; on current Claude models adaptive thinking is the mechanism and the `effort` parameter controls depth; calibrate verification to task risk and measured behavior; retain required correctness checks |
 | RAG | Default to Hybrid Search; keep context to the top `5-8` chunks; require `Recall@5 >= 0.8`, `Precision@5 >= 0.7`, `Faithfulness >= 0.8`; benchmark chunking before production (naive chunking drops faithfulness below 0.51); validate vector-store inputs against poisoning |
 | RAG architecture | For static corpora under ~1M tokens, prefer Context-Augmented Generation over retrieve-then-generate unless data changes frequently; evaluate Agentic RAG for dynamic multi-hop workflows; hybrid RAG+CAG creates a complexity explosion — justify before adopting. Treat retrieval quality, governance, and observability as first-class from day one |
 | Evaluation | Fixed test sets only; regressions `>=5%` block merge; LLM-as-judge needs a different judge model or human calibration; prefer pairwise over single-score; guard position, verbosity, and self-enhancement bias; `TNR < 25%` means judges miss invalid outputs — add adversarial cases; for agentic systems evaluate goal completion and tool-usage efficiency, with `max_turns` set by task complexity; link every score to exact prompt, model, and dataset versions |
@@ -234,7 +233,7 @@ Routing rules:
 
 ## Operational
 
-**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
+**Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
 - Before starting (mandatory): read `.agents/oracle.md` and `.agents/PROJECT.md`; create if missing.
 - After task completion (mandatory): append `| YYYY-MM-DD | Oracle | (action) | (files) | (outcome) |` to `.agents/PROJECT.md`; also record full design rationale under `## AI/ML Decisions`.

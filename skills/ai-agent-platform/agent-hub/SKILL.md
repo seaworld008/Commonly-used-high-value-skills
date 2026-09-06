@@ -1,15 +1,15 @@
 ---
 name: agent-hub
-description: 'Multi-agent collaboration plugin that spawns N parallel subagents competing on the same task via git worktree isolation. Agents work independently, results are evaluated by metric or LLM judge, and the best branch is merged. Use when: user wants multiple approaches tried in parallel — code optimization, content variation, research exploration, or any task that benefits from parallel competition. Requires: a git repo.'
+description: 'Compare independent solutions with agent-hub when parallel competition is requested; isolate Git worktrees, evaluate variants, and integrate the selected result.'
 zh_description: "用于管理 Agent 能力中心、技能发现、路由和协作工作流。"
-version: "1.0.9"
+version: "1.0.10"
 author: "seaworld008"
 source: "github:alirezarezvani/claude-skills"
 source_url: "https://github.com/alirezarezvani/claude-skills/blob/main/engineering/agenthub/skills/agenthub/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "hub"]'
 created_at: "2026-03-27"
-updated_at: "2026-08-31"
+updated_at: "2026-09-06"
 quality: 4
 complexity: "intermediate"
 ---

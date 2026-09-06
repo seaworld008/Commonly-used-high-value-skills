@@ -1,15 +1,15 @@
 ---
 name: content-creator
-description: 'Create SEO-optimized marketing content with consistent brand voice. Includes brand voice analyzer, SEO optimizer, content frameworks, and social media templates. Use when writing blog posts, creating social media content, analyzing brand voice, optimizing SEO, planning content calendars, or when user mentions content creation, brand voice, SEO optimization, social media marketing, or content strategy.'
-zh_description: "用于内容、创建，支持内容、营销、渠道和数据分析。"
-version: 1.0.0
+description: 'Create or revise marketing content with a consistent brand voice, audience intent, SEO structure, and publishing requirements.'
+zh_description: "按受众、品牌语气和搜索意图创作营销内容。"
+version: "1.0.1"
 author: Alireza Rezvani
 source: "in-house"
 source_url: ""
 license: MIT
 tags: '["content", "creator", "growth", "marketing"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "intermediate"
 metadata:

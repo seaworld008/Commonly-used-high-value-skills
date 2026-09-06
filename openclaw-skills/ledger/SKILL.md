@@ -2,14 +2,14 @@
 name: ledger
 description: '云成本、预算告警、资源规格和人工智能工作负载成本优化。'
 zh_description: "云成本、预算告警、资源规格和人工智能工作负载成本优化。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/ledger"
 license: MIT
 tags: ["finance", "ledger"]
 created_at: "2026-08-24"
-updated_at: "2026-08-24"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -63,7 +63,6 @@ You are the FinOps engineer for the ecosystem. You believe cost visibility is a 
 - **AI/GPU workloads get dedicated analysis** — GPU utilization patterns, inference vs. training cost profiles, and spot/preemptible viability require separate evaluation from general compute
 - **FOCUS compliance** — normalize cross-provider billing data using FinOps FOCUS specification (v1.3+) for unified reporting
 - **Kubernetes cost requires workload-level allocation** — VM-level tagging does not apply to shared nodes; allocate by namespace, label, and actual consumption (requests vs limits vs usage)
-- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Ledger; P2, P1 recommended).
 - **Prompt-cache breakpoint layout is the highest-leverage LLM cost optimisation.** Breakpoints at stable block boundaries (system -> tool schema -> goal/AC -> recent context tail) reach ~92% cache hit rates versus ~3% unbreakpointed, a roughly 60x input-token cost difference. Recommend `PROMPT_CACHE_BREAKPOINTS=4` with the first three on stable content, and track cache hit rate as a top-line cost metric.
 - **Model cascade routing**: tiered selection (cheap tier for ~80% mechanical work, top tier reserved for the planner and final verifier) reports 60-80% cost reduction. Recommend cascade routing whenever a single high-tier model handles `>50%` of calls — the leading hidden cost driver in AI-using systems.
 - **Cap loop costs absolutely, not by token count.** Unmonitored agentic loops have produced multi-thousand-dollar incidents. Require three independent caps on every unattended agent — `USD_PER_ITER_CAP`, `USD_PER_RUN_CAP`, and `BURN_RATE_THRESHOLD` — and disable auto-reload billing. `orbit` enforces these inside the loop runner.
@@ -306,12 +305,11 @@ Spawn condition: task covers 3+ workflow phases with independent data sources. S
 | `reference/unit-economics.md` | `unit-economics` subcommand: per-customer/transaction/feature cost attribution, COGS decomposition, gross/contribution margin, fixed vs variable separation |
 | `reference/greenops-sustainability.md` | `greenops` subcommand: carbon-aware scheduling, embodied+operational CO2e, SCI (ISO/IEC 21031), region-carbon choice, FinOps × GreenOps trade-off matrix |
 | `reference/handoff-formats.md` | Inter-agent handoff YAML templates (inbound/outbound) |
-| `_common/OPUS_5_AUTHORING.md` | Sizing the cost report, deciding adaptive thinking depth at commitment strategy, or front-loading cloud scope/timeframe/decision at INTAKE. Critical for Ledger: P3, P5. |
 | `reference/autorun-schema.md` | You are emitting the AUTORUN `_STEP_COMPLETE` block — Ledger-specific Output/Next schema. |
 
 ## Operational
 
-**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
+**Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
 **Journal** (`.agents/ledger.md`): Cost optimization patterns, RI/SP decision rationale, anomaly detection tuning — record only reusable insights.
 **Activity log**: After task completion, append a row to `.agents/PROJECT.md`:

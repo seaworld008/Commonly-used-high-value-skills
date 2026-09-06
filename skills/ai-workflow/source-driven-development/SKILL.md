@@ -1,15 +1,15 @@
 ---
 name: source-driven-development
 description: 'Grounds every implementation decision in official documentation. Use when you want authoritative, source-cited code free from outdated patterns. Use when building with any framework or library where correctness matters.'
-zh_description: "用于来源、驱动、development，支持任务规划、执行、评审和验证。"
-version: "1.0.1"
+zh_description: "依据官方文档和当前仓库证据实现功能。"
+version: "1.0.2"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/source-driven-development/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "source-driven-development", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-10"
+updated_at: "2026-09-06"
 quality: 4
 complexity: advanced
 upstream_slug: source-driven-development

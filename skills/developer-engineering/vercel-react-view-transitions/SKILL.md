@@ -1,15 +1,15 @@
 ---
 name: vercel-react-view-transitions
-description: 'Guide for implementing smooth, native-feeling animations using React''s View Transition API (`<ViewTransition>` component, `addTransitionType`, and CSS view transition pseudo-elements). Use this skill whenever the user wants to add page transitions, animate route changes, create shared element animations, animate enter/exit of components, animate list reorder, implement directional (forward/back) navigation animations, or integrate view transitions in Next.js. Also use when the user mentions view transitions, `startViewTransition`, `ViewTransition`, transition types, or asks about animating between UI states in React without third-party animation libraries.'
+description: 'Implement React ViewTransition animations, navigation transitions, transition types, and CSS pseudo-elements using the target React version''s API.'
 zh_description: "用于在 React/Vercel 项目中实现和优化 View Transitions。"
-version: "1.0.2"
+version: "1.0.3"
 author: seaworld008
 source: github:vercel-labs/agent-skills
 source_url: "https://github.com/vercel-labs/agent-skills/blob/b8caa260a420a73042e35521de4b5c8baf6446cc/skills/react-view-transitions/SKILL.md"
 license: MIT
 tags: '[react, nextjs, animation, transitions, frontend, vercel]'
 created_at: "2026-06-08"
-updated_at: "2026-08-20"
+updated_at: "2026-09-06"
 quality: 4
 complexity: intermediate
 ---

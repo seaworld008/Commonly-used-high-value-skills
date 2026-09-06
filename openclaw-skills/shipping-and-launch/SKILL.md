@@ -1,15 +1,15 @@
 ---
 name: shipping-and-launch
 description: 'Prepares production launches. Use when preparing to deploy to production. Use when you need a pre-launch checklist, when setting up monitoring, when planning a staged rollout, or when you need a rollback strategy.'
-zh_description: "用于shipping、launch，支持任务规划、执行、评审和验证。"
-version: "1.0.1"
+zh_description: "准备生产发布、分批上线、监控和回滚方案。"
+version: "1.0.2"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/shipping-and-launch/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "shipping-and-launch", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-10"
+updated_at: "2026-09-06"
 quality: 5
 complexity: advanced
 upstream_slug: shipping-and-launch
@@ -320,3 +320,10 @@ After deploying:
 - [ ] Critical user flow works
 - [ ] Logs are flowing
 - [ ] Rollback tested or verified ready
+
+## Error-Budget Decisions
+
+Use the service's agreed SLO and error-budget policy to choose rollout pace.
+An exhausted budget or excessive canary burn should hold nonessential rollout
+until reliability recovers. Treat example percentages as starting points that need
+service-specific thresholds; do not invent a new production freeze policy.

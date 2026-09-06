@@ -2,14 +2,14 @@
 name: shard
 description: 'Designing multi-tenant architectures with tenant isolation strategies, RLS, routing, and scale design for SaaS. Use when designing multi-tenant SaaS systems or tenant isolation.'
 zh_description: "多租户架构、租户隔离、路由和规模化设计。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/.archive/shard"
 license: MIT
 tags: '["deployment", "shard"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-20"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -75,9 +75,11 @@ Route elsewhere when the task is primarily:
 - Provide migration path from current state, not greenfield assumptions.
 - Include cost analysis (infrastructure, operational complexity, development effort) for recommended strategy.
 - Design for tenant count growth: current scale and 10x projection.
-- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Shard; P2, P1 recommended).
 
 ## Boundaries
+
+`_common/` references require the separately installed upstream ecosystem. Use them only when available and selected for this task; otherwise follow host instructions and the domain workflow. Persist journals only when requested by the user or project.
+
 
 Agent role boundaries -> `_common/BOUNDARIES.md`
 
@@ -89,7 +91,7 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 - Assess cross-tenant data leakage vectors.
 - Include cost analysis for recommended strategy.
 
-### Ask First
+### Ask First When Not Already Authorized
 
 - Compliance requirements (HIPAA, SOC2, PCI-DSS, EU AI Act) are unclear.
 - Expected tenant count range is ambiguous (10 vs 10,000 tenants).
@@ -231,7 +233,6 @@ Key design points:
 | `reference/tenant-migration.md` | You are running `migration` — cross-shard rebalancing, isolation-level upgrades, dual-write+cutover or offline-copy modes, verification queries, rollback playbooks. |
 | `reference/tenant-provisioning.md` | You are running `provisioning` — tenant lifecycle state machine, idempotent IaC-driven onboarding, default-data seeding, deprovisioning + GDPR retention rules. |
 | `reference/tenant-quota-throttling.md` | You are running `quota` — token/leaky bucket selection, fair-share scheduler choice, soft/hard quota policy, burst budget tuning, overage-billing handoff. |
-| `_common/OPUS_5_AUTHORING.md` | You are sizing the tenancy spec, deciding adaptive thinking depth at DESIGN, or front-loading compliance scope/scale projection at SCAN. Critical for Shard: P3, P5. |
 | `reference/autorun-schema.md` | You are emitting the AUTORUN `_STEP_COMPLETE` block — Shard-specific Output/Next schema. |
 
 ## Operational

@@ -1,14 +1,14 @@
 ---
 name: fact-checker
-description: 'Verifies factual claims in documents using web search and official sources, then proposes corrections with user confirmation. Use when the user asks to fact-check, verify information, validate claims, check accuracy, or update outdated information in documents. Supports AI model specs, technical documentation, statistics, and general factual statements.'
-zh_description: "用于事实、checker，支持信息整理、沟通和执行管理。"
-version: "1.1.0"
+description: 'Verify factual claims against current authoritative sources and apply requested corrections with citations; use for accuracy checks or outdated documentation.'
+zh_description: "核实事实与时效性，并按请求修正文档及补充来源。"
+version: "1.1.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["checker", "fact", "productivity"]'
 created_at: "2026-03-04"
-updated_at: "2026-07-27"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "intermediate"
 ---
@@ -124,13 +124,12 @@ Present findings in structured format:
 **Rationale:** <explain whether the error was version, unit, geography, plan, or date>
 ```
 
-### Step 5: Apply corrections with user approval
+### Step 5: Apply Requested Corrections
 
-**Before making changes:**
-
-1. Show the correction report to the user
-2. Wait for explicit approval: "Should I apply these corrections?"
-3. Only proceed after confirmation
+If the user requested corrections, apply supported edits and report their sources.
+If the task is review-only, present the report without changing the document.
+Ask about unresolved meaning or consequential scope changes, not routine edits
+already authorized by the request.
 
 **When applying corrections:**
 
@@ -237,7 +236,7 @@ Link to sources when possible.
 2. Search each provider's current official model catalog and documentation
 3. Record the exact source page and verification date
 4. Generate report showing discrepancies
-5. Apply corrections after approval
+5. Apply corrections within the requested scope; keep review-only tasks read-only
 
 ### Example 2: Statistical data verification
 

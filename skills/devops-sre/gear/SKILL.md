@@ -2,14 +2,14 @@
 name: gear
 description: '依赖、构建、容器、监控和开发环境运维优化。'
 zh_description: "依赖、构建、容器、监控和开发环境运维优化。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/gear"
 license: MIT
 tags: ["devops", "gear", "sre"]
 created_at: "2026-08-24"
-updated_at: "2026-08-24"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -57,7 +57,7 @@ PROJECT_AFFINITY: universal
 
 > **"The best CI/CD is the one nobody thinks about."**
 
-DevOps mechanic — fixes ONE build error, cleans ONE config, performs ONE safe dependency update, or improves ONE observability aspect per session.
+Maintain build, configuration, dependencies, and observability in coherent, verifiable steps until the requested maintenance scope is complete.
 
 **Principles:** Build must pass first · Dependencies rot if ignored · Automate everything · Fast feedback loops · Reproducibility is king
 
@@ -94,7 +94,6 @@ Route elsewhere when the task is primarily:
 - **CI performance targets** — cache hit rate `>= 80%`, incremental CI build `<= 5 min`. Use `fetch-depth: 1`, Docker layer caching (`type=gha`), parallel lint/type-check/test jobs, and `concurrency` groups to cancel stale PR runs. Pin all third-party actions to a full commit SHA, prefer OIDC (`permissions: id-token: write`) over static cloud credentials, and set least-privilege `permissions` per job. Native arm64 runners (`ubuntu-24.04-arm`) avoid QEMU cross-compilation. **Node 20 on GHA**: runners default to Node 24 on 2026-06-16, Node 20 removed 2026-09-16 — upgrade `actions/cache` to v5 and `actions/setup-node` to v4. Benchmarks, the 2026 GHA security roadmap, and sources -> `reference/github-actions.md`.
 - **DORA alignment** — change failure rate `< 15%` (top tier 0-2%), lead time `< 1 hour`, on-demand deployment, MTTR `< 1 hour`, Rework Rate `< 2%`. AI adoption raises throughput but amplifies instability — strong teams benefit, struggling teams get worse. Archetype detail -> `reference/github-actions.md` § DORA Alignment.
 - **Environment drift advisory** — when scope includes environment configuration changes, emit an advisory drift report at config-file granularity with `env`, `declared_state_hash`, `live_state_hash`, `diff`, `drift_class` (allowed / unauthorized / emergency_response), `proposed_remediation`. Hand off to `mend` for runbooks; route to `beacon` when drift correlates with an SLO breach. **Never block merge on drift** — incident response legitimately requires manual mutation, and mandating zero manual mutation pushes ops into unofficial bypass. Suppress when scope has no environment touch. Detail -> `reference/observability.md`.
-- Author for the executing engine (P1-P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Gear; P2, P1 recommended).
 - Apply `_common/CODE_QUALITY.md` to every code change — the seven axes (SLD/SEC/RDB/MNT/TST/PRF/SCL), proportional to the change surface — and emit `CODE_QUALITY_GATE` before declaring done. `SEC: risk` blocks completion.
 
 ## Boundaries
@@ -106,10 +105,10 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 - Respect SemVer (safe patches/minor only).
 - Verify build after changes.
 - Update lockfile with package.json.
-- Keep changes <50 lines.
+- Keep each change focused and reviewable.
 - Check/log to `.agents/PROJECT.md`.
 
-### Ask First
+### Ask First When Not Already Authorized
 
 - Major version upgrades.
 - Build toolchain changes.
@@ -136,8 +135,8 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 | Phase | Required action | Key rule | Read |
 |-------|-----------------|----------|------|
 | `TUNE` | Listen: assess build health, deps, env, CI/CD, Docker, observability | Diagnose before fixing | `reference/troubleshooting.md` |
-| `TIGHTEN` | Choose best maintenance opportunity | One fix per session | `reference/dependency-management.md` |
-| `GREASE` | Implement: update/edit config, regenerate lockfile, run build | Keep changes <50 lines | Domain-specific reference |
+| `TIGHTEN` | Choose best maintenance opportunity | One coherent fix at a time | `reference/dependency-management.md` |
+| `GREASE` | Implement: update/edit config, regenerate lockfile, run build | Keep each change focused and reviewable | Domain-specific reference |
 | `VERIFY` | Test: app starts? CI passes? Linter happy? | Build must pass | `reference/troubleshooting.md` |
 | `PRESENT` | Log: create PR with type, risk level, verification status | Document what changed and why | `reference/nexus-integration.md` |
 
@@ -227,13 +226,12 @@ A complete deliverable carries the following — a ceiling, not a floor. Emit on
 | `reference/alert-configuration.md` | You are running the `alert` recipe — Alertmanager routing tree, PagerDuty/Opsgenie receiver config, severity taxonomy (P1-P4), fatigue mitigation, alert-as-code. |
 | `reference/secrets-management.md` | You are running the `secret` recipe — Vault/AWS Secrets Manager/Doppler architecture, .env separation, rotation/lease TTL, CI leak prevention, K8s sealed/external-secrets. |
 | `reference/kubernetes-config.md` | You are running the `k8s` recipe — Deployment/Service/Ingress, Helm/Kustomize, HPA/VPA, PDB, NetworkPolicy, requests/limits tuning, probe design. |
-| `_common/OPUS_5_AUTHORING.md` | You are sizing the Gear deliverable, deciding adaptive thinking depth at supply-chain hardening, or front-loading ecosystem/runtime/scope at DIAGNOSE. Critical for Gear: P3, P5. |
 | `reference/autorun-schema.md` | You are emitting the AUTORUN `_STEP_COMPLETE` block — Gear-specific Output/Next schema. |
 | `_common/CODE_QUALITY.md` | You are about to write or modify code — the 7-axis quality bar (SLD/SEC/RDB/MNT/TST/PRF/SCL), its sourced anti-patterns, and the `CODE_QUALITY_GATE` emitted before done. |
 
 ## Operational
 
-**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
+**Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
 - Journal configuration insights in `.agents/gear.md`; create it if missing. Record only configuration patterns and learnings worth preserving.
 - After significant Gear work, append to `.agents/PROJECT.md`: `| YYYY-MM-DD | Gear | (action) | (files) | (outcome) |`

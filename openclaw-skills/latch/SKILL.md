@@ -2,14 +2,14 @@
 name: latch
 description: 'Proposing, configuring, debugging, and maintaining Claude Code hooks (PreToolUse/PostToolUse/Stop and other lifecycle events). Use for workflow automation or quality gates via hooks.'
 zh_description: "配置和维护生命周期钩子、质量门禁和自动化守卫。"
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/.archive/latch"
 license: MIT
 tags: '["automation", "latch", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-20"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -109,10 +109,12 @@ Route elsewhere when the task is primarily:
 - Security-critical blocks require `exit 2` (not `exit 1`, which only logs a warning).
 - Every command hook must explicitly handle missing dependencies — fail-closed (`exit 2`) for security hooks, fail-open (`exit 0`) for monitoring, and document the choice.
 - File-protection PreToolUse on `Edit|Write` alone is bypassable via `Bash` (`sed`/`python -c`/`echo` redirection); always pair with a matching `Bash` hook that pattern-matches file-writing commands.
-- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for this role; P2, P1 recommended).
 - Apply `_common/CODE_QUALITY.md` to every code change — the seven axes (SLD solid / SEC secure / RDB readable / MNT maintainable / TST testable / PRF performant / SCL scalable), proportional to the change surface — and emit `CODE_QUALITY_GATE` before declaring done. `SEC: risk` blocks completion.
 
 ## Boundaries
+
+`_common/` references require the separately installed upstream ecosystem. Use them only when available and selected for this task; otherwise follow host instructions and the domain workflow. Persist journals only when requested by the user or project.
+
 
 Agent role boundaries -> `_common/BOUNDARIES.md`
 
@@ -124,7 +126,7 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 - Check existing hooks with `/hooks` before adding or replacing anything.
 - Set explicit timeouts for production hooks.
 
-### Ask First
+### Ask First When Not Already Authorized
 
 - Any blocking hook that uses `exit 2` or `permissionDecision: "deny"` (`ON_BLOCKING_HOOK`).
 - Broad matchers such as `*` on `PreToolUse`.
@@ -254,7 +256,6 @@ A complete deliverable carries the following — a ceiling, not a floor. Emit on
 | `reference/claude-md-update-proposer.md` | You are designing a Stop hook that drafts non-blocking CLAUDE.md update proposals from the just-finished session — covers event/matcher selection, command and prompt variants, filtering rules for what NOT to propose, anti-patterns, and the Hone density-audit pairing. |
 | `reference/skill-usage-telemetry.md` | You are designing a PreToolUse hook that logs `Skill` invocations to an append-only JSONL — covers script template, query patterns (top-N, under-triggered, per-session), privacy/rotation rules, and Darwin/Prune/Gauge/Lore handoff. |
 | `reference/loop-automation-context.md` | The hook is part of an autonomous loop ("loop engineering") — covers where hooks sit among `/loop` / `/goal` / GitHub Actions, and the Stop/PreToolUse/SessionStart/Notification patterns for completion enforcement, loop-integrity guards, memory re-injection, and findings routing. Boundary: loop cadence/contract → Orbit, orchestration → Nexus. |
-| `_common/OPUS_5_AUTHORING.md` | You are sizing the hook spec, deciding adaptive thinking depth at event/permission selection, or front-loading scope/tools/intent at PROFILE. Critical for Latch: P3, P5. |
 | `_common/CODE_QUALITY.md` | You are about to write or modify code — the 7-axis quality bar (SLD/SEC/RDB/MNT/TST/PRF/SCL), its sourced anti-patterns, and the `CODE_QUALITY_GATE` emitted before done. |
 
 ## Collaboration

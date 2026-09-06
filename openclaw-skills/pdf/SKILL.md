@@ -1,15 +1,15 @@
 ---
 name: pdf
-description: 'Use this skill whenever the user wants to do anything with PDF files. This includes reading or extracting text/tables from PDFs, combining or merging multiple PDFs into one, splitting PDFs apart, rotating pages, adding watermarks, creating new PDFs, filling PDF forms, encrypting/decrypting PDFs, extracting images, and OCR on scanned PDFs to make them searchable. If the user mentions a .pdf file or asks to produce one, use this skill.'
-zh_description: "用于pdf，支持文档、表格、演示和资料整理。"
-version: "1.1.0"
+description: 'Read, create, edit, merge, split, OCR, or fill PDF documents when PDF content or a PDF deliverable is the task.'
+zh_description: "读取、生成、编辑、合并、拆分和识别 PDF 文档。"
+version: "1.1.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 license: Proprietary. LICENSE.txt has complete terms
 tags: '["pdf"]'
 created_at: "2026-03-04"
-updated_at: "2026-07-27"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "intermediate"
 ---

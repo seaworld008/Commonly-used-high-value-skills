@@ -2,14 +2,14 @@
 name: context-engineering
 description: 'Optimizes agent context setup. Use when starting a new session, when agent output quality degrades, when switching between tasks, or when you need to configure rules files and context for a project.'
 zh_description: "用于设计上下文工程策略、提示输入结构和长任务信息流。"
-version: "1.0.0"
+version: "1.0.1"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/context-engineering/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "context-engineering", "engineering", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-07-27"
+updated_at: "2026-09-06"
 quality: 5
 complexity: advanced
 upstream_slug: context-engineering
@@ -299,3 +299,12 @@ After setting up context, confirm:
 - [ ] Agent output follows the patterns shown in the rules file
 - [ ] Agent references actual project files and APIs (not hallucinated ones)
 - [ ] Context is refreshed when switching between major tasks
+
+## Long-Task Context Budget
+
+Protect the original outcome, user constraints, current failing evidence, and active
+files when summarizing a long task. Compress resolved investigations into their
+conclusion and evidence path; drop superseded drafts and verbose tool listings.
+Use the host's supported compaction mechanism before context pressure blocks work.
+A fixed percentage is a heuristic, not a universal model threshold.
+Keep stable instructions separate from the current task and pending decisions.

@@ -1,15 +1,15 @@
 ---
 name: cc-devops-skills
 description: 'SRE, DevOps, Kubernetes, CI/CD, PromQL, Terraform, Docker, and incident operations playbook for building reliable delivery and operations workflows.'
-zh_description: "用于cc、DevOps、技能，支持部署、监控、排障和发布管理。"
-version: "1.0.0"
+zh_description: "提供基础设施、持续交付、容器和运行维护的实践指导。"
+version: "1.0.1"
 author: seaworld008
 source: github:akin-ozer/cc-devops-skills
 source_url: "https://github.com/akin-ozer/cc-devops-skills"
 license: Apache-2.0
 tags: '[sre, devops, kubernetes, cicd, promql, terraform, docker, observability, incident-response]'
 created_at: "2026-06-03"
-updated_at: "2026-06-03"
+updated_at: "2026-09-06"
 quality: 4
 complexity: advanced
 ---

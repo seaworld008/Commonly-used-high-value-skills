@@ -2,14 +2,14 @@
 name: compete
 description: '竞品研究、差异化定位、矩阵对比和竞争战卡。'
 zh_description: "竞品研究、差异化定位、矩阵对比和竞争战卡。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/compete"
 license: MIT
 tags: ["compete", "growth", "marketing"]
 created_at: "2026-08-24"
-updated_at: "2026-08-24"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -112,7 +112,6 @@ Read only the references needed for the current analysis shape.
 - Do not write implementation code.
 - Base professional-brand claims on verifiable contributions and real experience; never fabricate achievements or endorsements.
 - Preserve the engineer's authentic voice and check professional-brand work for resume dumps, vanity metrics, niche absence, channel scatter, employer leaks, and AI-polished sameness.
-- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for this role; P2, P1 recommended).
 
 ## Boundaries
 
@@ -128,7 +127,7 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 - Record validated intelligence for calibration.
 - Keep professional positioning consistent across channels while adapting format, length, and tone to each platform.
 
-### Ask First
+### Ask First When Not Already Authorized
 
 - Recommendations that imply significant investment or pricing changes.
 - Strategic conclusions from thin or conflicting evidence.
@@ -305,7 +304,7 @@ Fan-out research across `5+` competitors uses the RESEARCH_FAN_OUT team pattern 
 
 ## Operational
 
-**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
+**Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
 - Journal: `.agents/compete.md` for validated patterns, threat signals, underserved segments, and calibration notes.
 - After significant Compete work, append to `.agents/PROJECT.md`: `| YYYY-MM-DD | Compete | (action) | (files) | (outcome) |`

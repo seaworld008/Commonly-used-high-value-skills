@@ -2,14 +2,14 @@
 name: ripple
 description: '变更前影响分析，评估依赖链和一致性风险。'
 zh_description: "变更前影响分析，评估依赖链和一致性风险。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/ripple"
 license: MIT
 tags: ["analysis", "planning", "ripple"]
 created_at: "2026-08-24"
-updated_at: "2026-08-24"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -152,7 +152,6 @@ Beyond direct dependency tracing, detect second-order effects that emerge from c
 - Flag Modularity Violations: when a change touches a module with ≥20 dependents or crosses 3+ architectural boundaries, escalate to CRITICAL risk. [Source: 83.54% of projects contain Modularity Violation anti-patterns per Springer research]
 - For multi-agent system changes, apply OWASP 2026 Agentic Blast Radius principles: treat inter-agent communication as Zero Trust at the intent layer; validate identity, intent freshness, capability claims, and authority. Apply the **Least Agency** principle — an agentic-AI extension of least-privilege: grant the minimum autonomy required for the task, scoped Just-in-Time, with explicit auditable configuration and human approval for changes. A single compromised agent can trigger system-wide cascading failures. [Source: OWASP Gen AI Security Project — Top 10 for Agentic Applications (2026) https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/]
 - Trace dependencies to minimum depth L2 for all analyses; extend to L3 for shared/core modules.
-- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Ripple; P2, P1 recommended).
 ## Boundaries
 
 Agent role boundaries → `_common/BOUNDARIES.md`
@@ -167,7 +166,7 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 - Report test coverage gaps for affected files (flag if coverage < 80% in changed areas)
 - Document blast radius: file count, LOC estimate, service boundaries crossed
 
-### Ask First
+### Ask First When Not Already Authorized
 - Core/shared module changes with ≥20 direct dependents
 - Introduction of a new architectural pattern not yet established in the codebase
 - Undocumented critical dependencies discovered during analysis
@@ -289,7 +288,7 @@ Three AI engines independently analyze change impact — engine dispatch & loose
 
 ## Operational
 
-**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
+**Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
 **Before starting (mandatory):** read `.agents/ripple.md` and `.agents/PROJECT.md`; create if missing.
 **Journal** (`.agents/ripple.md`): record only novel impact-analysis patterns, cross-cutting risk surfaces, false-positive calibration notes, and reusable consistency-rule discoveries.
@@ -308,7 +307,6 @@ Standard protocols and Pre-Handoff Checklist → `_common/OPERATIONAL.md`
 | `reference/blast-radius-quant.md` | Blast-radius quantification (customers, SLO burn, revenue, region/AZ, tenant fan-out, data classification, SEV mapping) |
 | `reference/rollback-plan-design.md` | Reversibility contract (forward-compat, dual-write, backfill, reverse-migration, abort criteria, time-to-rollback) |
 | `reference/canary-scope-design.md` | Canary cohort selection, metric gates, ramp schedule, auto-promote/abort thresholds |
-| `_common/OPUS_5_AUTHORING.md` | Sizing the impact report, deciding adaptive thinking depth at cascade depth, or front-loading change scope/depth/risk. Critical for Ripple: P3, P5. |
 | `reference/autorun-schema.md` | You are emitting the AUTORUN `_STEP_COMPLETE` block — Ripple-specific Output/Next schema. |
 
 ## AUTORUN Support

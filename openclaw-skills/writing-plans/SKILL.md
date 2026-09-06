@@ -1,14 +1,14 @@
 ---
 name: writing-plans
-description: 'Use when you have a spec or requirements for a multi-step task, before touching code'
-zh_description: "用于writing、plans，支持任务规划、执行、评审和验证。"
-version: "1.0.0"
+description: 'Write a practical implementation plan when multi-step work needs task boundaries, dependencies, and acceptance checks.'
+zh_description: "编写包含任务依赖、修改范围和验收方法的实现计划。"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["planning", "plans", "workflow", "writing"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-09-06"
 quality: 4
 complexity: "intermediate"
 ---
@@ -17,19 +17,19 @@ complexity: "intermediate"
 
 ## Overview
 
-Write comprehensive implementation plans assuming the engineer has zero context for our codebase and questionable taste. Document everything they need to know: which files to touch for each task, code, testing, docs they might need to check, how to test it. Give them the whole plan as bite-sized tasks. DRY. YAGNI. TDD. Frequent commits.
+Write comprehensive implementation plans for an engineer who needs the relevant repository context. Document everything they need to know: which files to touch for each task, code, testing, docs they might need to check, how to test it. Give them the whole plan as bite-sized tasks. DRY. YAGNI. TDD. Frequent commits.
 
-Assume they are a skilled developer, but know almost nothing about our toolset or problem domain. Assume they don't know good test design very well.
+Describe the constraints and interfaces that matter; rely on the implementer's judgment for routine coding details.
 
 **Announce at start:** "I'm using the writing-plans skill to create the implementation plan."
 
-**Context:** This should be run in a dedicated worktree (created by brainstorming skill).
+**Context:** Reuse the current task workspace; isolate it when existing changes or parallel work require that.
 
 **Save plans to:** `docs/plans/YYYY-MM-DD-<feature-name>.md`
 
 ## Bite-Sized Task Granularity
 
-**Each step is one action (2-5 minutes):**
+**Use coherent, independently verifiable tasks; the following test cycle is useful for behavior changes:**
 - "Write the failing test" - step
 - "Run it to make sure it fails" - step
 - "Implement the minimal code to make the test pass" - step
@@ -99,14 +99,14 @@ git commit -m "feat: add specific feature"
 
 ## Remember
 - Exact file paths always
-- Complete code in plan (not "add validation")
+- Describe interfaces, behavior, and acceptance criteria; include code only to resolve ambiguity
 - Exact commands with expected output
 - Reference relevant skills with @ syntax
 - DRY, YAGNI, TDD, frequent commits
 
 ## Execution Handoff
 
-After saving the plan, offer execution choice:
+After saving the plan, continue implementation if already requested. Offer the following choices only when the user has not selected an execution path:
 
 **"Plan complete and saved to `docs/plans/<filename>.md`. Two execution options:**
 

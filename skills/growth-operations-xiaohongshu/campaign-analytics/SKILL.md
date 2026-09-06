@@ -1,15 +1,15 @@
 ---
 name: campaign-analytics
 description: 'Analyzes campaign performance with multi-touch attribution, funnel conversion, and ROI calculation for marketing optimization'
-zh_description: "用于活动、分析，支持内容、营销、渠道和数据分析。"
-version: 1.0.0
+zh_description: "分析营销活动的渠道表现、转化、归因和投入产出。"
+version: "1.0.1"
 author: Alireza Rezvani
 source: "in-house"
 source_url: ""
 license: MIT
 tags: '["analytics", "campaign", "growth", "marketing"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "intermediate"
 metadata:

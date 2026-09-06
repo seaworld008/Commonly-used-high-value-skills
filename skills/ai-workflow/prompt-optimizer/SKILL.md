@@ -1,14 +1,14 @@
 ---
 name: prompt-optimizer
-description: 'Transform vague prompts into precise, well-structured specifications using EARS (Easy Approach to Requirements Syntax) methodology. This skill should be used when users provide loose requirements, ambiguous feature descriptions, or need to enhance prompts for AI-generated code, products, or documents. Triggers include requests to "optimize my prompt", "improve this requirement", "make this more specific", or when raw requirements lack detail and structure.'
-zh_description: "用于提示词、optimizer，支持任务规划、执行、评审和验证。"
-version: "1.0.0"
+description: 'Refine prompts or ambiguous requirements into testable specifications when the user asks to improve wording, scope, constraints, or acceptance criteria.'
+zh_description: "优化提示词的任务范围、约束和验收条件。"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["optimizer", "planning", "prompt", "workflow"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-09-06"
 quality: 4
 complexity: "intermediate"
 ---

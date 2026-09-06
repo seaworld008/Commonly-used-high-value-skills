@@ -1,14 +1,14 @@
 ---
 name: saas-scaffolder
-description: 'Scaffold a production-oriented SaaS application from a validated product brief while preserving the repository stack and current official framework guidance. Use when building a new SaaS codebase or vertical slice with authentication, tenancy, persistence, billing, background work, observability, deployment, and acceptance tests.'
+description: 'Build a SaaS application or vertical slice from a validated brief, covering authentication, tenancy, persistence, billing, deployment, and acceptance checks.'
 zh_description: "用于依据已验证产品需求搭建可演进的 SaaS 垂直切片，并覆盖鉴权、租户、计费、监控和验收。"
-version: "2.0.0"
+version: "2.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["design", "product", "saas", "scaffolder", "full-stack"]'
 created_at: "2026-03-04"
-updated_at: "2026-07-27"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---

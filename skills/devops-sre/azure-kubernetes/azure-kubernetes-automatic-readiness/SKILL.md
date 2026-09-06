@@ -1,14 +1,14 @@
 ---
 name: azure-kubernetes-automatic-readiness
 description: 'Assess Kubernetes workloads and cluster configuration for AKS Automatic compatibility. Identifies incompatibilities, generates fixes, and guides migration from AKS Standard to AKS Automatic. WHEN: migrate to AKS Automatic, check AKS Automatic readiness, validate manifests for Automatic, assess cluster for Automatic compatibility, fix deployment for Automatic compatibility, identify AKS Automatic migration blockers, is my cluster ready for AKS Automatic.'
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:microsoft/azure-skills"
 source_url: "https://skills.sh/microsoft/azure-skills/azure-kubernetes-automatic-readiness"
 license: MIT
 tags: '["azure", "aks", "kubernetes", "readiness", "migration"]'
 created_at: "2026-06-03"
-updated_at: "2026-06-08"
+updated_at: "2026-09-06"
 quality: 4
 complexity: "intermediate"
 metadata:
@@ -214,11 +214,11 @@ For incompatible findings (e.g., hostPath volumes), explain the issue and propos
 **Fix application flow:**
 1. Generate the fix as a YAML diff
 2. Show the diff with explanation
-3. Wait for explicit approval: "apply", "edit", or "skip"
-4. On approval, apply the change to the file
+3. Reuse existing authorization to fix the local manifests; ask only for unresolved material choices
+4. Apply the scoped change to the file when authorized
 5. Move to the next finding
 
-If the user says "fix all" or "apply all deterministic fixes", first generate a single combined diff containing all eligible `suggestedPatch`-based fixes, show that combined diff with an explanation, and wait for one explicit approval before applying any writes. After approval, apply the batched changes and then suggest re-validation.
+If the user says "fix all" or "apply all deterministic fixes", prepare a combined diff of eligible local manifest fixes, apply that authorized batch, and rerun relevant validation. Ask only when a fix changes unresolved architecture or would affect a live cluster; local-file authorization does not authorize deployment.
 
 ### Step 5: Recommend Next Steps
 

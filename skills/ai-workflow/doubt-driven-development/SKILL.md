@@ -1,15 +1,15 @@
 ---
 name: doubt-driven-development
-description: 'Subjects every non-trivial decision to a fresh-context adversarial review before it stands. Use when correctness matters more than speed, when working in unfamiliar code, when stakes are high (production, security-sensitive logic, irreversible operations), or any time a confident output would be cheaper to verify now than to debug later.'
+description: Review high-risk or uncertain engineering decisions adversarially when independent verification can expose costly assumptions before implementation.
 zh_description: "用新上下文的对抗性审查质疑关键决策，适用于高风险或正确性优先的开发任务。"
-version: "1.0.1"
+version: "1.0.2"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/doubt-driven-development/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "doubt-driven-development", "engineering", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-10"
+updated_at: "2026-09-06"
 quality: 5
 complexity: advanced
 upstream_slug: doubt-driven-development

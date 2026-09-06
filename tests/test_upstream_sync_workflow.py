@@ -30,7 +30,7 @@ class UpstreamSyncWorkflowTests(unittest.TestCase):
             for step in steps
             if isinstance(step, dict) and step.get("name") == "Reconcile weekly sync issue"
         )
-        self.assertEqual("actions/github-script@v7", reconcile["uses"])
+        self.assertEqual("actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3", reconcile["uses"])
         self.assertEqual(
             "always()",
             reconcile["if"],

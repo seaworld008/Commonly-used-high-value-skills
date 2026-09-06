@@ -1,14 +1,14 @@
 ---
 name: cloudflare-troubleshooting
-description: 'Investigate and resolve Cloudflare configuration issues using API-driven evidence gathering. Use when troubleshooting ERR_TOO_MANY_REDIRECTS, SSL errors, DNS issues, or any Cloudflare-related problems. Focus on systematic investigation using Cloudflare API to examine actual configuration rather than making assumptions.'
-zh_description: "用于Cloudflare、排障，支持部署、监控、排障和发布管理。"
-version: "1.0.0"
+description: 'Diagnose Cloudflare DNS, TLS, redirects, and configuration issues using live API settings and request evidence.'
+zh_description: "依据实际配置排查 Cloudflare DNS、TLS 和重定向问题。"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["cloudflare", "devops", "sre", "troubleshooting"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "intermediate"
 ---

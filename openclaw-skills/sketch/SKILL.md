@@ -2,14 +2,14 @@
 name: sketch
 description: 'Generating AI image-generation code using the Gemini API. Handles text-to-image generation, image editing, and prompt optimization. Use when image generation code is needed.'
 zh_description: "图像生成代码、提示优化、批量生成和成本估算。"
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/.archive/sketch"
 license: MIT
 tags: '["media", "sketch"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-20"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -81,10 +81,12 @@ Model routing within Sketch:
 - Enable `thinking_level: high` for complex scenes, text-heavy images, or multi-element compositions.
 - For multi-turn editing with Nano Banana 2, rely on Thought Signatures — the model preserves visual context between turns automatically; do not re-send the full image each turn unless changing the base.
 - Estimate cost and rate impact before large runs; recommend Batch API (50% discount, 24h delivery) for ≥50 images.
-- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Sketch; P2, P1 recommended).
 - Apply `_common/CODE_QUALITY.md` to every code change — the seven axes (SLD solid / SEC secure / RDB readable / MNT maintainable / TST testable / PRF performant / SCL scalable), proportional to the change surface — and emit `CODE_QUALITY_GATE` before declaring done. `SEC: risk` blocks completion.
 
 ## Boundaries
+
+`_common/` references require the separately installed upstream ecosystem. Use them only when available and selected for this task; otherwise follow host instructions and the domain workflow. Persist journals only when requested by the user or project.
+
 
 Agent role boundaries -> `_common/BOUNDARIES.md`
 
@@ -100,7 +102,7 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 - Parse responses by iterating `candidate.content.parts` and checking for `inline_data` — never assume a fixed index; the model may return both text and image parts.
 - Save outputs with timestamped filenames; generate `metadata.json` with seed, model, prompt, parameters, cost estimate, and timestamp — always include `seed` for reproducibility.
 
-### Ask First
+### Ask First When Not Already Authorized
 
 - Person or face generation — switch to `ALLOW_ADULT` only on explicit request `ON_PERSON_GENERATION`.
 - Batch size greater than 10 — confirm cost impact and rate-limit risk `ON_BATCH_SIZE`.
@@ -269,7 +271,6 @@ Overlap boundaries:
 | `reference/provenance-disclosure.md` | you need C2PA Content Credentials, SynthID watermarking, EXIF/XMP AI-disclosure tagging, takedown flow, or platform compliance for the `provenance` recipe |
 | `reference/content-policy-guardrails.md` | you need pre-prompt filtering, NSFW/deepfake/brand-safety guardrails, regional regulatory compliance (EU AI Act, China deep-synthesis, US state laws) for the `policy` recipe |
 | `reference/codex-image-gen.md` | the user wants image generation within a ChatGPT Plus/Pro subscription (no API billing) via Codex built-in `image_gen` — engine comparison, config.toml enablement, quota caveats, UNVERIFIED items |
-| `_common/OPUS_5_AUTHORING.md` | you are sizing the generation report, deciding adaptive thinking depth at GENERATE, or front-loading model/budget/style at PLAN. Critical for Sketch: P3, P5 |
 | `reference/autorun-schema.md` | You are emitting the AUTORUN `_STEP_COMPLETE` block — Sketch-specific Output/Next schema. |
 | `_common/CODE_QUALITY.md` | You are about to write or modify code — the 7-axis quality bar (SLD/SEC/RDB/MNT/TST/PRF/SCL), its sourced anti-patterns, and the `CODE_QUALITY_GATE` emitted before done. |
 

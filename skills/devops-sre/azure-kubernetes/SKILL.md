@@ -1,15 +1,15 @@
 ---
 name: azure-kubernetes
-description: 'Plan, create, and configure production-ready Azure Kubernetes Service (AKS) clusters. Covers Day-0 checklist, SKU selection (Automatic vs Standard), networking options (private API server, Azure CNI Overlay, egress configuration), security, and operations (autoscaling, upgrade strategy, cost analysis). WHEN: create AKS environment, provision AKS, enable AKS observability, design AKS networking, choose AKS SKU, secure AKS, optimize AKS, AKS spot nodes, AKS cluster-autoscaler, rightsize AKS pod, pod rightsizing, over-provisioned AKS pod, pod resource requests and limits, Vertical Pod Autoscaler, VPA recommendations.'
+description: 'Plan and configure Azure Kubernetes Service clusters, including SKU, networking, identity, deployment readiness, and operational constraints.'
 zh_description: "用于 Azure Kubernetes 集群管理、部署、排障和运维。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:microsoft/azure-skills"
 source_url: "https://skills.sh/microsoft/azure-skills/azure-kubernetes"
 license: MIT
 tags: '["azure", "devops", "kubernetes", "sre"]'
 created_at: "2026-06-03"
-updated_at: "2026-08-20"
+updated_at: "2026-09-06"
 quality: 4
 complexity: "intermediate"
 metadata:

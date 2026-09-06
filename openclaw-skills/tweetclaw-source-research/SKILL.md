@@ -1,14 +1,14 @@
 ---
 name: tweetclaw-source-research
 description: 'Use TweetClaw through OpenClaw to collect X/Twitter source context before drafting, monitoring, or campaign analysis.'
-zh_description: "用于tweetclaw、来源、研究，支持内容、营销、渠道和数据分析。"
-version: "1.0.0"
+zh_description: "通过 TweetClaw 收集和核实 X 平台研究资料。"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: "https://github.com/Xquik-dev/tweetclaw"
 tags: '["growth", "marketing", "openclaw", "twitter", "x", "social-media", "source-research"]'
 created_at: "2026-06-07"
-updated_at: "2026-06-07"
+updated_at: "2026-09-06"
 quality: 4
 complexity: "intermediate"
 ---

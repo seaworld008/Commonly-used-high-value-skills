@@ -1,14 +1,14 @@
 ---
 name: mermaid-tools
-description: 'Extracts Mermaid diagrams from markdown files and generates high-quality PNG images using bundled scripts. Activates when working with Mermaid diagrams, converting diagrams to PNG, extracting diagrams from markdown, or processing markdown files with embedded Mermaid code.'
-zh_description: "用于mermaid、tools，支持文档、表格、演示和资料整理。"
-version: "1.0.0"
+description: Extract Mermaid diagrams from Markdown and render PNG images with the bundled tools when a diagram image or batch conversion is needed.
+zh_description: "提取 Markdown 中的 Mermaid 图并渲染为图片。"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["mermaid", "tools"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-09-06"
 quality: 4
 complexity: "intermediate"
 ---

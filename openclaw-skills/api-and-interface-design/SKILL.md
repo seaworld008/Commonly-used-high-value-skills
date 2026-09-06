@@ -1,15 +1,15 @@
 ---
 name: api-and-interface-design
-description: 'Guides stable API and interface design. Use when designing APIs, module boundaries, or any public interface. Use when creating REST or GraphQL endpoints, defining type contracts between modules, or establishing boundaries between frontend and backend.'
-zh_description: "用于API、interface、设计，支持任务规划、执行、评审和验证。"
-version: "1.0.1"
+description: 'Design REST/GraphQL APIs, module interfaces, and type contracts when creating endpoints or changing public boundaries.'
+zh_description: "设计稳定的 API、模块接口和类型契约。"
+version: "1.0.2"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/api-and-interface-design/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "api-and-interface-design", "engineering", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-17"
+updated_at: "2026-09-06"
 quality: 5
 complexity: advanced
 upstream_slug: api-and-interface-design

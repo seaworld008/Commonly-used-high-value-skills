@@ -2,14 +2,14 @@
 name: trace
 description: '会话回放分析、行为模式提取和体验问题叙事。'
 zh_description: "会话回放分析、行为模式提取和体验问题叙事。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/trace"
 license: MIT
 tags: ["design", "product", "trace"]
 created_at: "2026-08-24"
-updated_at: "2026-08-24"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -101,7 +101,6 @@ Route elsewhere when the task is primarily:
 - Cite anonymized evidence for every recommendation.
 - Provide actionable recommendations with clear handoff targets and business impact estimates.
 - Protect user privacy: mask PII by default, whitelist explicitly, require a DPA for third-party replay data, never expose PII in reports. Prefer **client-side redaction before data leaves the browser** — both a privacy-by-default control and a legal safe harbor.
-- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Trace; P2, P1 recommended).
 
 ## Boundaries
 
@@ -118,7 +117,7 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 - Cite anonymized evidence
 - Provide actionable recommendations
 
-### Ask First
+### Ask First When Not Already Authorized
 
 - Session replay access (privacy)
 - New persona segments
@@ -258,13 +257,12 @@ During **ANALYZE** phase, when actual behavior deviates from expected persona pa
 | `reference/rageclick-detection.md` | Rage/dead/shake/thrash thresholds, false-positive filters, rage-vs-dead distinction, or session-replay tool comparison. |
 | `reference/funnel-dropoff.md` | Funnel step schema, cohort slicing guidance, friction scoring, or baseline-vs-experiment comparison. |
 | `reference/heatmap-synthesis.md` | Heatmap type selection, density computation, hotspot clustering, scroll-depth curves, or heatmap tool comparison. |
-| `_common/OPUS_5_AUTHORING.md` | Sizing the replay report, deciding adaptive thinking depth at signal detection/segmentation, or front-loading persona/window/milestone at LOAD. Critical for Trace: P3, P5. |
 | `_common/GROWTH_BRAND_PROOF.md` | You contribute `source_proof` evidence (session-replay-based behavioral observations) to the Insight Ledger queue in `nexus growth-acceptance` Phase 0. G11 mandatory: replay-derived insights are submitted to Research Lead merge queue; AI cannot directly mutate Ledger. Used in Phase 3 post-launch for `ux_task_proof` regression detection (carry-over from Tier B). |
 | `reference/autorun-schema.md` | Emitting the AUTORUN `_STEP_COMPLETE` block — Trace-specific Output/Next schema. |
 
 ## Operational
 
-**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
+**Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
 **Journal** (`.agents/trace.md`): Domain insights only — patterns and learnings worth preserving.
 

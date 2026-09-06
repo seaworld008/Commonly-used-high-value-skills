@@ -1,14 +1,14 @@
 ---
 name: chatgpt-apps
-description: 'Build, scaffold, refactor, and troubleshoot ChatGPT Apps SDK applications that combine an MCP server and widget UI. Use when Codex needs to design tools, register UI resources, wire the MCP Apps bridge or ChatGPT compatibility APIs, apply Apps SDK metadata or CSP or domain settings, or produce a docs-aligned project scaffold. Prefer a docs-first workflow through the openai-docs skill or an official OpenAI documentation connector before generating code.'
+description: 'Build or debug ChatGPT Apps SDK projects with MCP tools and widget UIs, using current official guidance for resources, bridges, metadata, and CSP.'
 zh_description: "用于设计、构建和调试 ChatGPT Apps 与相关集成能力。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["agent", "ai", "apps", "chatgpt"]'
 created_at: "2026-03-04"
-updated_at: "2026-08-10"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "intermediate"
 ---

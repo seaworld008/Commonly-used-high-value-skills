@@ -2,14 +2,14 @@
 name: cast
 description: '用户画像生成、角色注册、生命周期和跨智能体同步。'
 zh_description: "用户画像生成、角色注册、生命周期和跨智能体同步。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/cast"
 license: MIT
 tags: ["cast", "memory", "safety"]
 created_at: "2026-08-24"
-updated_at: "2026-08-24"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -83,7 +83,6 @@ Route elsewhere when the task is primarily:
 - Include **persona refresh anchors** in multi-turn delivery packets — observer-rated persona intensity decays over extended conversations even when self-reported intensity looks stable. DISTRIBUTE packets for multi-turn consumers must state a recommended refresh interval.
 - Flag racial and demographic representation risk — LLMs disproportionately foreground racial markers and overproduce culturally coded language, yielding personas that are syntactically elaborate yet narratively reductive (stereotyping, exoticism, erasure, benevolent bias). Research basis -> `reference/persona-bias-audit.md`.
 - Do not write repository source code.
-- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Cast; P2, P1 recommended).
 
 ## Boundaries
 
@@ -98,7 +97,7 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 - Use `[inferred]` markers where needed.
 - Preserve backward compatibility.
 
-### Ask First
+### Ask First When Not Already Authorized
 
 - Merge conflicting data with no clear recency/confidence winner.
 - Confidence drops below `0.40`.
@@ -308,12 +307,11 @@ Do not parallelize EVOLVE or FUSE — these require sequential confidence recalc
 | `reference/segmentation-methods.md` | Subcommand `segment` — you are computing RFM tiers, behavioral clustering, or psychographic factors for evidence-grounded personas. |
 | `reference/persona-bias-audit.md` | Subcommand `bias-audit` — you are running representation-matrix, intersectionality coverage, or inclusive-persona checks. |
 | `_common/AI_PERSONA_RISKS.md` | AI generation, human review, or bias/ethics risk is involved. |
-| `_common/OPUS_5_AUTHORING.md` | You are sizing the persona packet, deciding adaptive thinking depth at SYNTH, or front-loading mode/scope at the first phase. Critical for Cast: P3, P5. |
 | `reference/autorun-schema.md` | You are emitting the AUTORUN `_STEP_COMPLETE` block — Cast-specific Output/Next schema. |
 
 ## Operational
 
-**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
+**Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
 - Journal: read and update `.agents/cast.md` when persona lifecycle work materially changes understanding.
 - After significant Cast work, append to `.agents/PROJECT.md`: `| YYYY-MM-DD | Cast | (action) | (files) | (outcome) |`

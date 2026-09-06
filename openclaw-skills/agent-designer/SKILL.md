@@ -1,14 +1,14 @@
 ---
 name: agent-designer
-description: 'Tags: AI agents, architecture, system design, orchestration, multi-agent systems.'
-zh_description: "用于Agent、设计，支持开发、调试、评审和交付。"
-version: "1.0.1"
+description: 'Design AI agent responsibilities, tools, memory, orchestration, and evaluation when defining an agent architecture or system contract.'
+zh_description: "设计智能体的职责、工具、记忆、协作架构和评测方法。"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["agent", "designer", "development"]'
 created_at: "2026-03-04"
-updated_at: "2026-08-31"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "intermediate"
 ---

@@ -2,14 +2,14 @@
 name: crest
 description: Building engineer self-branding by turning technical contributions into a professional brand. Use for GitHub/LinkedIn/blog/conference positioning or content strategy.
 zh_description: "技术个人品牌、主页资料、文章和公开形象策略。"
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/.archive/crest"
 license: MIT
 tags: '["crest", "productivity"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-20"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -80,6 +80,9 @@ Route elsewhere when the task is primarily:
 
 ## Boundaries
 
+`_common/` references require the separately installed upstream ecosystem. Use them only when available and selected for this task; otherwise follow host instructions and the domain workflow. Persist journals only when requested by the user or project.
+
+
 Agent role boundaries → `_common/BOUNDARIES.md`
 
 ### Always
@@ -90,7 +93,7 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 - Preserve the engineer's authentic voice (AI-assisted, not AI-replaced)
 - Recommend build-in-public as default content strategy over polished-then-publish
 
-### Ask First
+### Ask First When Not Already Authorized
 - Disclosure scope is unclear (internal-only vs public achievements)
 - Potential conflict with employment agreement or NDA
 - Major niche pivot that changes established positioning
@@ -121,7 +124,6 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 - LinkedIn engagement hierarchy (360Brew, 2026): saves drive 5× more reach than likes; comments carry 15× more weight than likes. Late engagement (saves/comments 24–72 hours post-publish) signals lasting value and yields 4–6× boost. 360Brew's NLP detects and penalizes engagement-bait phrasing ("comment below," "tag a friend") — never use formulaic interaction hooks.
 - LinkedIn short-form video (<60 s) achieves 53% more engagement than long-form; vertical format yields 34% higher engagement and dwell time; subtitles add 29% retention lift. Recommend video for quick technical tips, project demos, and opinionated takes.
 - LinkedIn external links: posts with outbound URLs in the body still face algorithmic suppression; default to zero-click content (deliver value natively via document carousels, text posts, or native video). For link-dependent content, use LinkedIn Articles or Newsletters (native formats with no off-platform penalty) or place URLs in the first comment. Note: LinkedIn removed the Creator Mode toggle in March 2024 (features now available to all members) and deprecated profile hashtag fields ("Talks about" section) in February 2024 — do not reference these as active features. [Source: LinkedIn Help — Updates to Creator Mode](https://www.linkedin.com/help/linkedin/answer/a5999182)
-- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Crest; P2, P1 recommended).
 
 ---
 
@@ -238,7 +240,6 @@ A complete deliverable carries the following — a ceiling, not a floor. Emit on
 | `reference/amplification-playbook.md` | You need content repurpose flows, cross-posting strategy, or monetization models |
 | `reference/anti-patterns.md` | You need detailed anti-pattern detection rules and platform-specific pitfalls |
 | `reference/ai-era-strategy.md` | You need AI-era positioning, authenticity strategy, trust signals, or AI-specific anti-patterns (AP-8~AP-11) |
-| `_common/OPUS_5_AUTHORING.md` | You are sizing the brand deliverable, deciding adaptive thinking depth at channel/format selection, or front-loading niche/platform/goal at INTAKE. Critical for Crest: P3, P5. |
 | `_common/GROWTH_BRAND_PROOF.md` | You author Brand Constitution Strategic-layer content (3-5 year positioning, Distinctive Assets, Category Entry Points) per G15 Constitution Lifecycle Discipline. Strategic-layer edits require 2-person sign-off (no single editor authority). Quarterly Distinctive Asset Audit (G12) is owned here — Brand Voice Distinctiveness Index baseline measurement. Brand Proof `distinctiveness_proof` + `memory_proof` evidence generators. |
 | `reference/autorun-schema.md` | You are emitting the AUTORUN `_STEP_COMPLETE` block — Crest-specific Output/Next schema. |
 

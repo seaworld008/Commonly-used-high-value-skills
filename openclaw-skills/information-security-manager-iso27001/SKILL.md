@@ -1,15 +1,15 @@
 ---
 name: information-security-manager-iso27001
-description: 'ISO 27001 ISMS implementation and cybersecurity governance for HealthTech and MedTech companies. Use for ISMS design, security risk assessment, control implementation, ISO 27001 certification, security audits, incident response, and compliance verification. Covers ISO 27001, ISO 27002, healthcare security, and medical device cybersecurity.'
-zh_description: "用于information、安全、管理、iso27001，支持安全扫描、审计、加固和风险治理。"
-version: "1.0.0"
+description: 'Design or audit ISO 27001 ISMS controls, security risk treatment, and compliance evidence, including healthcare and medical-device contexts.'
+zh_description: "建立和审计 ISO 27001 信息安全管理体系及风险控制。"
+version: "1.0.1"
 author: alirezarezvani
 source: "github:alirezarezvani/claude-skills"
 source_url: "https://github.com/alirezarezvani/claude-skills/blob/main/ra-qm-team/skills/information-security-manager-iso27001/SKILL.md"
 license: MIT
 tags: '["security", "iso27001", "isms", "compliance", "risk-assessment", "governance", "agent-skill"]'
 created_at: "2026-06-01"
-updated_at: "2026-06-01"
+updated_at: "2026-09-06"
 quality: 4
 complexity: intermediate
 ---

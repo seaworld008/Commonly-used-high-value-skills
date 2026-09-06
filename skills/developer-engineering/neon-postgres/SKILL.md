@@ -1,15 +1,15 @@
 ---
 name: neon-postgres
-description: 'Guides and best practices for working with Neon Serverless Postgres. Covers setup, connection methods, branching, autoscaling, scale-to-zero, read replicas, connection pooling, Neon Auth, and the Neon CLI, MCP server, REST API, TypeScript SDK, and Python SDK. Use when users ask about "Neon setup", "connect to Neon", "Neon project", "DATABASE_URL", "serverless Postgres", "Neon CLI", "neonctl", "Neon MCP", "Neon Auth", "@neondatabase/serverless", "@neondatabase/neon-js", "scale to zero", "Neon autoscaling", "Neon read replica", or "Neon connection pooling".'
+description: 'Build or troubleshoot Neon Postgres connections, branching, pooling, scaling, Auth, and platform integrations using current Neon documentation.'
 zh_description: "用于 Neon Postgres 数据库连接、分支、迁移和运行维护。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:neondatabase/agent-skills"
 source_url: "https://skills.sh/neondatabase/agent-skills/neon-postgres"
 license: Apache-2.0
 tags: '["development", "neon", "postgres"]'
 created_at: "2026-06-03"
-updated_at: "2026-06-24"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "intermediate"
 ---
@@ -402,3 +402,17 @@ source is intentionally concise.
 - Stop and ask for clarification when the next action could overwrite user work,
   expose private data, or change production state.
 <!-- LOCAL-QUALITY-SUPPLEMENT:END -->
+
+## Diagnostics and Search
+
+Use the available Neon CLI `neon inspect db` or MCP `inspect_database` checks for
+storage, locks, query calls, outliers, vacuum, and cache behavior. Scope the project,
+branch, and database from the task. Distinguish currently long-running queries
+from cumulative execution time and average latency; statistics can reset on restart.
+Unused-index and bloat reports are candidates for investigation, not authorization
+to drop indexes or run blocking maintenance. `EXPLAIN ANALYZE` executes the query.
+Consult current [Neon inspection guidance](https://neon.com/docs/cli/inspect) before
+using version-specific flags or installing a missing extension.
+For vector, BM25, and hybrid search, consult the upstream
+[search references](https://github.com/neondatabase/agent-skills/tree/main/skills/neon-postgres/references)
+and verify feature availability in the target project before proposing a migration.

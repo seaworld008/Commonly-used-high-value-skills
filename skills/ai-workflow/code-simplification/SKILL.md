@@ -1,15 +1,15 @@
 ---
 name: code-simplification
-description: 'Simplifies code for clarity. Use when refactoring code for clarity without changing behavior. Use when code works but is harder to read, maintain, or extend than it should be. Use when reviewing code that has accumulated unnecessary complexity.'
-zh_description: "用于代码、simplification，支持任务规划、执行、评审和验证。"
-version: "1.0.0"
+description: 'Refactor working code for clarity and maintainability while preserving behavior; use when complexity or duplication obstructs changes.'
+zh_description: "在保持行为一致的前提下简化代码和消除重复。"
+version: "1.0.1"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/code-simplification/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "code-simplification", "engineering", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-07-27"
+updated_at: "2026-09-06"
 quality: 5
 complexity: advanced
 upstream_slug: code-simplification

@@ -1,15 +1,15 @@
 ---
 name: security-review
-description: 'Security code review for vulnerabilities. Use when asked to \"security review\", \"find vulnerabilities\", \"check for security issues\", \"audit security\", \"OWASP review\", or review code for injection, XSS, authentication, authorization, cryptography issues. Provides systematic review with confidence-based reporting.'
-zh_description: "用于安全、评审，支持安全扫描、审计、加固和风险治理。"
-version: "1.0.0"
+description: 'Review code changes for injection, XSS, authentication, authorization, cryptography, and other security defects with evidence-based severity.'
+zh_description: "依据代码证据审查注入、认证、授权和加密漏洞。"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:getsentry/skills"
 source_url: "https://skills.sh/getsentry/skills/security-review"
 license: Apache-2.0
 tags: '["review", "security"]'
 created_at: "2026-06-21"
-updated_at: "2026-06-21"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "intermediate"
 allowed-tools: 'Read, Grep, Glob, Bash, Task'

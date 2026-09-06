@@ -64,6 +64,12 @@ Before reaching for controls, spend five minutes thinking like an attacker:
 - [ ] URLs validated before redirect (prevent open redirect)
 - [ ] Server-side URL fetches allowlisted; private/reserved IPs blocked (prevent SSRF)
 
+## Destructive Path Checks
+
+- Resolve targets under an allowlisted root, reject deleting that root, and verify ownership from trusted state before teardown.
+- Treat a writable ownership marker as a consistency check, not independent authorization.
+- Prevent symlink or check-use races with descriptor-based operations or an immutable hierarchy; do not fall back to a broader path after failure.
+
 ## Security Headers
 
 ```

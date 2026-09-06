@@ -2,14 +2,14 @@
 name: lore
 description: 'Curating cross-agent knowledge and institutional memory: extracts patterns from agent journals into METAPATTERNS.md, detects knowledge decay, propagates best practices. Use for memory curation.'
 zh_description: "跨智能体知识沉淀、模式提炼和最佳实践传播。"
-version: "1.0.5"
+version: "1.0.6"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/.agents/skills/lore"
 license: MIT
 tags: '["knowledge", "lore"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-20"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -96,11 +96,13 @@ Route elsewhere when the task is primarily:
 - **Architecture sub-graph**: `knowledge_graph_enrichment` supports Architecture nodes (`service`, `module`, `api`, `event`, `database`, `table`, `queue`, `cloud_resource`, `user_journey`, `persona`, `policy`, `adr`, `runbook`, `dashboard`, `alert`, `owner`, `slo`, plus ops-extension `secret`, `config`, `feature_flag`, `environment`, `cluster`, `iam_role`, `vulnerability`, `metric`, `terraform_resource`, `kubernetes_object`, `container_image`) and edges (`calls`, `publishes`, `subscribes`, `owns`, `stores`, `reads`, `writes`, `depends_on`, `governed_by`, `documented_by`, `monitored_by`, `decided_by`, plus `reads_secret`, `exposes_data`, `has_vulnerability`, `scaled_by`, `rolled_back_by`, `deployed_to`). Architecture and Ops live as **one unified sub-graph** inside METAPATTERNS.md — never a separate centralized "Living Twin" SoT (the Twin Tyranny anti-pattern).
 - **Concept consistency audit (advisory only)**: a `concept` node sub-type carries `definition`, `boundary`, `metric_ref`, `aliases`, `category`; the audit detects category errors, naming collisions, and orphan concepts. **Never blocks merge** — it flags drift for human review. Legitimate polysemy is preserved (one concept may hold audience-specific definitions) rather than forced to canonicity.
 - **G11 KB Write Authority Separation applies to the Architecture sub-graph**: AI agents are read-only and propose edits to a queue; mutations require a human Architecture Lead merge. Confidence and freshness are deterministic-computed, never hand-set. The sub-graph is **advisory** — on divergence, reality wins and the graph is updated to match, never the reverse.
-- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Lore; P2, P1 recommended).
 
 ---
 
 ## Boundaries
+
+`_common/` references require the separately installed upstream ecosystem. Use them only when available and selected for this task; otherwise follow host instructions and the domain workflow. Persist journals only when requested by the user or project.
+
 
 Agent role boundaries → `_common/BOUNDARIES.md`
 
@@ -110,7 +112,7 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 - Structure extracted patterns as entity-relation triples per Workflow postmortem mining rules, with proactive validity windows (expected TTL based on domain multiplier) to enable automated revalidation scheduling before patterns reach STALE state.
 - When consuming Darwin fitness trend data, cross-reference with existing pattern decay signals to identify ecosystem-wide knowledge gaps.
 
-### Ask First
+### Ask First When Not Already Authorized
 
 - Archiving patterns with `< 3` evidence instances.
 - Resolving contradictions between agent learnings.
@@ -289,7 +291,6 @@ When HARVEST scope includes 3+ independent source categories (e.g., agent journa
 | `reference/propagation-protocol.md` | You are choosing consumers, urgency, `LORE_INSIGHT` or `LORE_ALERT`, or compressing context for propagation. |
 | `reference/decay-detection.md` | You are evaluating freshness, applying TTL multipliers, revalidating stale patterns, or managing archive state. |
 | `reference/official-pattern-taxonomy.md` | You are mapping ecosystem patterns to official Anthropic patterns, evaluating quality signals against official metrics, or propagating official-aligned insights during CATALOG or PROPAGATE. |
-| `_common/OPUS_5_AUTHORING.md` | You are sizing the knowledge report, deciding adaptive thinking depth at freshness/unlearning, or front-loading domain/cutoff/audience at HARVEST. Critical for Lore: P3, P5. |
 | `reference/autorun-schema.md` | You are emitting the AUTORUN `_STEP_COMPLETE` block — Lore-specific Output/Next schema. |
 
 ---

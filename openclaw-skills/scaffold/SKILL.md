@@ -2,14 +2,14 @@
 name: scaffold
 description: '云基础设施、环境配置和本地开发部署脚手架。'
 zh_description: "云基础设施、环境配置和本地开发部署脚手架。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/scaffold"
 license: MIT
 tags: ["deployment", "scaffold"]
 created_at: "2026-08-24"
-updated_at: "2026-08-24"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -77,7 +77,6 @@ Route elsewhere when the task is primarily:
 - Prefer ephemeral values/resources for short-lived credentials (tokens, temporary keys). Use state encryption for data that must persist. Combine both strategies: ephemeral prevents storage, encryption protects what must be stored.
 - Keep modules focused with single responsibility. Flag modules exceeding ~200 HCL lines or managing resources across multiple concern domains for split review.
 - Avoid monolithic state files ("terralith"). Split state by environment, service boundary, or blast-radius domain. A single state file managing an entire environment slows plan/apply, increases lock contention, and amplifies the blast radius of any change. Prefer one state per deployable unit.
-- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P6 critical for Scaffold; P2, P1 recommended).
 - Apply `_common/CODE_QUALITY.md` to every code change — the seven axes (SLD solid / SEC secure / RDB readable / MNT maintainable / TST testable / PRF performant / SCL scalable), proportional to the change surface — and emit `CODE_QUALITY_GATE` before declaring done. `SEC: risk` blocks completion.
 
 ## Boundaries
@@ -91,7 +90,7 @@ Route elsewhere when the task is primarily:
 - Document variables, outputs, assumptions, and provider-specific caveats.
 - Record durable infra decisions in `.agents/scaffold.md` and `.agents/PROJECT.md`.
 
-### Ask First
+### Ask First When Not Already Authorized
 - New cloud accounts or projects
 - VPC, VNet, routing, or subnet changes
 - IAM, SCP, Organization Policy, or other security-boundary changes
@@ -229,7 +228,7 @@ Add these when relevant:
 
 ## Operational
 
-**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
+**Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
 - Before starting (mandatory): read `.agents/scaffold.md` and `.agents/PROJECT.md`; create `.agents/scaffold.md` if missing.
 - After task completion (mandatory): append `| YYYY-MM-DD | Scaffold | (action) | (files) | (outcome) |` to `.agents/PROJECT.md`.
@@ -265,7 +264,6 @@ Add these when relevant:
 | `reference/docker-environment-anti-patterns.md` | You are reviewing Docker Compose, Dockerfile, secret handling, or local-dev anti-patterns. |
 | `reference/cloud-infrastructure-anti-patterns.md` | You are reviewing networking, IAM, encryption, HA, or multi-account/cloud anti-patterns. |
 | `reference/cost-finops-anti-patterns.md` | You are reviewing over-provisioning, commitment, tagging, or budget-management anti-patterns. |
-| `_common/OPUS_5_AUTHORING.md` | You are sizing the IaC report, calibrating effort to env/blast-radius scope, or front-loading provider/env at ASSESS. Critical for Scaffold: P3, P6. |
 | `reference/autorun-schema.md` | You are emitting the AUTORUN `_STEP_COMPLETE` block — Scaffold-specific Output/Next schema. |
 | `_common/CODE_QUALITY.md` | You are about to write or modify code — the 7-axis quality bar (SLD/SEC/RDB/MNT/TST/PRF/SCL), its sourced anti-patterns, and the `CODE_QUALITY_GATE` emitted before done. |
 

@@ -1,15 +1,15 @@
 ---
 name: systematic-debugging
 description: 'Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes'
-zh_description: "用于systematic、调试，支持开发、调试、评审和交付。"
-version: "1.0.3"
+zh_description: "通过复现、假设检验和证据定位故障根因。"
+version: "1.0.4"
 author: seaworld008
 source: "github:obra/superpowers"
 source_url: "https://github.com/obra/superpowers/tree/main/skills/systematic-debugging"
 license: MIT
 tags: '["debugging", "development", "systematic"]'
 created_at: "2026-03-27"
-updated_at: "2026-07-27"
+updated_at: "2026-09-06"
 quality: 4
 complexity: intermediate
 ---

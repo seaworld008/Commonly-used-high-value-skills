@@ -1,14 +1,14 @@
 ---
 name: ux-researcher-designer
-description: 'UX research and design toolkit for Senior UX Designer/Researcher including data-driven persona generation, journey mapping, usability testing frameworks, and research synthesis. Use for user research, persona creation, journey mapping, and design validation.'
-zh_description: "用于UX、研究、设计，支持产品研究、策略、界面和交付协作。"
-version: "1.0.0"
+description: 'Plan and synthesize UX research, personas, journey maps, and usability studies when validating product needs or design decisions.'
+zh_description: "通过用户画像、旅程图和可用性研究验证设计。"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["design", "designer", "product", "researcher"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "intermediate"
 ---

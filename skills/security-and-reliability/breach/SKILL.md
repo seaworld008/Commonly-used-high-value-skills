@@ -2,14 +2,14 @@
 name: breach
 description: '红队场景、攻击路径、威胁建模和对抗演练设计。'
 zh_description: "红队场景、攻击路径、威胁建模和对抗演练设计。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/breach"
 license: MIT
 tags: ["breach", "security"]
 created_at: "2026-08-24"
-updated_at: "2026-08-24"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -109,7 +109,6 @@ Route elsewhere when the task is primarily:
 - Apply the OWASP Vendor Evaluation Criteria for AI Red Teaming Providers & Tooling when selecting vendors — it separates meaningful adversarial testing from "jailbreak-only" offerings.
 - Map techniques against MITRE ATT&CK v19 (Enterprise: 15 Tactics, 222 Techniques, 475 Sub-Techniques).
 - Output language follows the CLI global config (`settings.json` `language` field, `CLAUDE.md`, `AGENTS.md`, or `GEMINI.md`).
-- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Breach; P2, P1 recommended).
 
 ---
 
@@ -281,14 +280,13 @@ A complete deliverable carries the following — a ceiling, not a floor. Emit on
 | `reference/supply-chain-attack-design.md` | Modeling supply chain attacks (dependency confusion, typosquatting, build-tool compromise, postinstall scripts) with SBOM/SLSA/in-toto verification guidance. |
 | `reference/social-engineering-design.md` | Planning social engineering scenarios (vishing, smishing, tailgating, OSINT pretexting, BEC, deepfakes) coordinated with an awareness program. |
 | `reference/handoffs.md` | Handoff templates for passing findings to Builder, Sentinel, Radar, Scribe, or Mend. |
-| `_common/OPUS_5_AUTHORING.md` | Sizing the red-team report, deciding adaptive thinking depth at framework selection, or front-loading target type/framework/cadence at FRAME. Critical for Breach: P3, P5. |
 | `reference/autorun-schema.md` | Emitting the AUTORUN `_STEP_COMPLETE` block — Breach-specific Output/Next schema. |
 
 ---
 
 ## Operational
 
-**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
+**Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
 - Journal novel attack vectors and bypass techniques in `.agents/breach.md`; create it if missing.
 - Record effective framework mappings, detection gaps, and adversarial insights worth preserving.

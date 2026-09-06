@@ -1,14 +1,14 @@
 ---
 name: agile-product-owner
-description: 'Agile product ownership for backlog management and sprint execution. Covers user story writing, acceptance criteria, sprint planning, and velocity tracking. Use for writing user stories, creating acceptance criteria, planning sprints, estimating story points, breaking down epics, or prioritizing backlog.'
-zh_description: "用于agile、产品、负责人，支持产品研究、策略、界面和交付协作。"
-version: "1.0.0"
+description: 'Manage product backlogs and sprints: user stories, acceptance criteria, epic breakdown, prioritization, estimates, and delivery tracking.'
+zh_description: "管理产品待办、用户故事、验收条件和迭代计划。"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["agile", "design", "owner", "product"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "intermediate"
 triggers:

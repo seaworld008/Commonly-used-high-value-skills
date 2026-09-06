@@ -2,14 +2,14 @@
 name: stage
 description: '演示文稿生成、叙事节奏设计和会议演讲优化。'
 zh_description: "演示文稿生成、叙事节奏设计和会议演讲优化。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/stage"
 license: MIT
 tags: ["office", "stage"]
 created_at: "2026-08-24"
-updated_at: "2026-08-24"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -74,7 +74,6 @@ Route elsewhere when the task is primarily:
 - Include visual cues (diagram placeholders, image suggestions) for non-text content; a single well-designed visual replaces paragraphs.
 - Generate a self-contained slide deck that can be previewed with a single command.
 - Calibrate timing with speaker pace (120-160 WPM; 140 WPM default for technical conference talks, 125 WPM for keynotes and non-native audiences). Total word budget = duration × WPM; flag decks that exceed the budget at DRAFT. Source: TED2026 cluster 130-150 WPM (https://conferences.ted.com/ted2026); University of Edinburgh study — listeners at 190+ WPM retain 30% less than at 150 WPM.
-- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Stage; P2, P1 recommended).
 
 ## Boundaries
 
@@ -88,7 +87,7 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 - Generate self-contained, runnable Markdown slide code.
 - Include framework-specific frontmatter and directives.
 
-### Ask First
+### Ask First When Not Already Authorized
 
 - Presentation exceeds `40` slides.
 - Target framework is ambiguous (Marp vs reveal.js vs Slidev).
@@ -205,12 +204,11 @@ Pace baseline: 120-160 WPM; use 140 WPM for technical conference talks, 125 WPM 
 | `reference/narrative-arc-design.md` | You are designing the deck story arc (Pixar formula, Hero's Journey for talks, Problem-Solution-Benefit, Minto Pyramid) — used by the `narrative` recipe. |
 | `reference/slide-visual-design.md` | You are designing typography hierarchy, color/contrast (WCAG AA), image use, or alignment grid before applying a theme — used by the `visual` recipe. |
 | `reference/rehearsal-delivery.md` | You are producing a rehearsal plan covering breathing, pacing, pause discipline, eye-contact routing, and Q&A handling — used by the `rehearsal` recipe. |
-| `_common/OPUS_5_AUTHORING.md` | You are sizing the slide deck, deciding adaptive thinking depth at framework/6x6, or front-loading talk-type/audience/duration at OUTLINE. Critical for Stage: P3, P5. |
 | `reference/autorun-schema.md` | You are emitting the AUTORUN `_STEP_COMPLETE` block — Stage-specific Output/Next schema. |
 
 ## Operational
 
-**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
+**Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
 - Journal presentation patterns and framework choices in `.agents/stage.md`; create if missing.
 - Record only reusable narrative patterns and theme decisions.

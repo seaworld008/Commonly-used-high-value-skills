@@ -1,14 +1,14 @@
 ---
 name: develop-web-game
-description: 'Use when Codex is building or iterating on a web game (HTML/JS) and needs a reliable development + testing loop: implement small changes, run a Playwright-based test script with short input bursts and intentional pauses, inspect screenshots/text, and review console errors with render_game_to_text.'
+description: 'Build or iterate on HTML/JS web games with Playwright input bursts, gameplay screenshots, state inspection, and console checks.'
 zh_description: "用于开发网页游戏原型、玩法循环、交互逻辑和前端实现。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["agent", "ai", "develop", "game", "web"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-09-06"
 quality: 4
 complexity: "intermediate"
 ---

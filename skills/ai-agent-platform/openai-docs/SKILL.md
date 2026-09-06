@@ -1,14 +1,14 @@
 ---
 name: openai-docs
-description: 'Use when the user asks how to build with OpenAI products or APIs and needs current official documentation with citations, including Codex, Responses API, Chat Completions, Apps SDK, Agents SDK, Realtime, model capabilities, limits, or migrations; prioritize an available official OpenAI documentation connector and restrict fallback browsing to official OpenAI domains.'
+description: 'Find current official OpenAI guidance for Codex, APIs, models, prompting, or migrations. Preserve a named target model and cite fetched documentation.'
 zh_description: "用于查阅和应用 OpenAI 官方文档、API 行为和集成指南。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["agent", "ai", "docs", "openai"]'
 created_at: "2026-03-04"
-updated_at: "2026-08-10"
+updated_at: "2026-09-06"
 quality: 3
 complexity: "intermediate"
 ---
@@ -51,6 +51,26 @@ search official docs
 - Use its page-fetch operation to retrieve exact sections for accurate
   paraphrases and citations.
 - Use its browse/list operation only when no precise query is available.
+
+## Named Model and Instruction Audits
+
+Preserve an explicitly named model, including GPT-6 Astra; do not substitute a
+different model or infer availability from the repository's examples.
+Search the exact model and topic, then fetch the relevant official page before
+changing model-specific guidance. Use `developers.openai.com`,
+`platform.openai.com`, and `learn.chatgpt.com` for current OpenAI documentation.
+
+For a prompt, AGENTS.md, or skill audit, identify the actual behavior problem:
+unnecessary approval pauses, overbroad skill triggers, contradictory authority,
+excessive context loading, or verification that repeats without new evidence.
+Simplify the instruction causing that problem while retaining task acceptance
+criteria, user-owned data protections, and host permission boundaries.
+
+Use the [GPT-6 Astra model guide](https://developers.openai.com/api/docs/guides/latest-model?model=gpt-6-astra)
+for Astra-specific behavior, and [Build skills](https://learn.chatgpt.com/docs/build-skills)
+for skill discovery and progressive disclosure. Recheck these sources when used.
+Treat concise prompts and risk-based verification as design choices to evaluate;
+static lint does not establish improved latency, cost, or task success.
 
 Example:
 

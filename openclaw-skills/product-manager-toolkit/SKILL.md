@@ -1,14 +1,14 @@
 ---
 name: product-manager-toolkit
-description: 'Comprehensive toolkit for product managers including RICE prioritization, customer interview analysis, PRD templates, discovery frameworks, and go-to-market strategies. Use for feature prioritization, user research synthesis, requirement documentation, and product strategy development.'
-zh_description: "用于产品、管理、工具包，支持产品研究、策略、界面和交付协作。"
-version: "1.0.0"
+description: 'Prioritize features, synthesize customer research, and write PRDs or go-to-market plans using practical product management frameworks.'
+zh_description: "开展需求优先级排序、用户研究和产品需求文档编写。"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["design", "manager", "product", "toolkit"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "intermediate"
 ---
@@ -345,84 +345,7 @@ Q2 - Capacity: 10/15 person-months
 
 ### Customer Interview Analyzer Example
 
-**Input (interview.txt):**
-```
-Customer: Jane, Enterprise PM at TechCorp
-Date: 2024-01-15
-
-Interviewer: What's the hardest part of your current workflow?
-
-Jane: The biggest frustration is the lack of real-time collaboration.
-When I'm working on a PRD, I have to constantly ping my team on Slack
-to get updates. It's really frustrating to wait for responses,
-especially when we're on a tight deadline.
-
-I've tried using Google Docs for collaboration, but it doesn't
-integrate with our roadmap tools. I'd pay extra for something that
-just worked seamlessly.
-
-Interviewer: How often does this happen?
-
-Jane: Literally every day. I probably waste 30 minutes just on
-back-and-forth messages. It's my biggest pain point right now.
-```
-
-**Command:**
-```bash
-python scripts/customer_interview_analyzer.py interview.txt
-```
-
-**Output:**
-```
-============================================================
-CUSTOMER INTERVIEW ANALYSIS
-============================================================
-
-📋 INTERVIEW METADATA
-Segments found: 1
-Lines analyzed: 15
-
-😟 PAIN POINTS (3 found)
-
-1. [HIGH] Lack of real-time collaboration
-   "I have to constantly ping my team on Slack to get updates"
-
-2. [MEDIUM] Tool integration gaps
-   "Google Docs...doesn't integrate with our roadmap tools"
-
-3. [HIGH] Time wasted on communication
-   "waste 30 minutes just on back-and-forth messages"
-
-💡 FEATURE REQUESTS (2 found)
-
-1. Real-time collaboration - Priority: High
-2. Seamless tool integration - Priority: Medium
-
-🎯 JOBS TO BE DONE
-
-When working on PRDs with tight deadlines
-I want real-time visibility into team updates
-So I can avoid wasted time on status checks
-
-📊 SENTIMENT ANALYSIS
-
-Overall: Negative (pain-focused interview)
-Key emotions: Frustration, Time pressure
-
-💬 KEY QUOTES
-
-• "It's really frustrating to wait for responses"
-• "I'd pay extra for something that just worked seamlessly"
-• "It's my biggest pain point right now"
-
-🏷️ THEMES
-
-- Collaboration friction
-- Tool fragmentation
-- Time efficiency
-```
-
----
+Read [the detailed procedure and examples](EXTENDED.md#section-1) when working on this part of the task.
 
 ## Integration Points
 

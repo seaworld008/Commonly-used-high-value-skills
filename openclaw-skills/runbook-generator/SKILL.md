@@ -1,14 +1,14 @@
 ---
 name: runbook-generator
-description: 'Create and review production operational runbooks from repository and platform evidence. Use when documenting deployments, rollbacks, incidents, database maintenance, disaster recovery, scaling, or recurring operator procedures that require safe commands, explicit preconditions, verification, escalation, and rehearsal.'
+description: 'Write or review operational runbooks for deployment, rollback, incidents, recovery, and maintenance using concrete commands and verification evidence.'
 zh_description: "用于基于仓库和平台证据编写安全、可演练、可验证的生产运维 Runbook。"
-version: "2.0.0"
+version: "2.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["generator", "runbook", "operations", "sre", "safety"]'
 created_at: "2026-03-04"
-updated_at: "2026-07-27"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---

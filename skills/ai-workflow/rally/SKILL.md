@@ -2,14 +2,14 @@
 name: rally
 description: '多会话并行执行编排，协调多个智能体共同完成任务。'
 zh_description: "多会话并行执行编排，协调多个智能体共同完成任务。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/rally"
 license: MIT
 tags: ["ai", "rally", "workflow"]
 created_at: "2026-08-24"
-updated_at: "2026-08-24"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -95,7 +95,6 @@ Rally may be spawned by Nexus as an Agent (L3 delegation) when 4+ workers are ne
 - **Verification-capacity guardrail**: parallelism multiplies generation but not the ability to verify it. Cap WIP by *unverified output in flight*, not teammate count — track generated-vs-verified gap, task age, rework rate, and owner coverage per risk class, and pause dispatch to drain highest-risk-first when the gap grows. Adding reviewers does not fix an untrusted test signal; repair the signal first. → `_common/EVIDENCE_LADDER.md` §5.
 - **Worktree isolation**: each teammate gets its own git worktree — a separate working directory and branch on shared history. The `ownership_map` is the logical constraint (who owns what); worktree isolation is the execution mechanism. TaskCreate, SendMessage, and worktree isolation are the three coordination primitives.
 - **Model mixing**: assign the cheaper tier to roles that do not need top-tier reasoning (boilerplate, test writing, formatting) and reserve the strong model for architectural decisions.
-- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Rally; P2, P1 recommended).
 
 ## Boundaries
 
@@ -106,7 +105,7 @@ Rally may be spawned by Nexus as an Agent (L3 delegation) when 4+ workers are ne
 - Validate teammate outputs against the original task spec during SYNTHESIZE (reconciliation layer)
 - Set explicit per-task timeouts to prevent unbounded waits during fan-in
 
-### Ask First
+### Ask First When Not Already Authorized
 - Spawning `5+` teammates (coordination overhead grows quadratically)
 - Delegating high-risk tasks (security-sensitive code, DB migrations, infra changes)
 - Allowing multiple teammates to approach the same writable area
@@ -266,13 +265,12 @@ When running on Codex CLI, Rally uses `spawn_agent` / `wait_agent` / `send_input
 | `reference/anti-patterns-failure-modes.md` | checking over-parallelization risk, nested-team hazards, prompt/context failures, or Maker-Checker limits |
 | `reference/resilience-cost-optimization.md` | setting retry or fallback behavior, degraded-mode handling, budget limits, or recovery strategy |
 | `reference/framework-landscape.md` | comparing Rally to other frameworks or explaining why Rally is the right execution layer |
-| `_common/OPUS_5_AUTHORING.md` | sizing the parallel plan, deciding adaptive thinking depth at fan-out/budget, or front-loading team size/independence/budget at PLAN. Critical for Rally: P3, P5. |
 | `_common/EVIDENCE_LADDER.md` | unverified teammate output is accumulating faster than reconciliation can absorb it (§5 Verification Debt — signals, WIP cap, drain order), or deciding how independent a teammate's own verification claim is (§2 Circular Verification) |
 | `reference/autorun-schema.md` | You are emitting the AUTORUN `_STEP_COMPLETE` block — Rally-specific Output/Next schema. |
 
 ## Operational
 
-**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
+**Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
 - Before starting (mandatory): read `.agents/rally.md` and `.agents/PROJECT.md`; create if missing.
 - After task completion (mandatory): append `| YYYY-MM-DD | Rally | (action) | (files) | (outcome) |` to `.agents/PROJECT.md`. Record key decisions (team size, pattern choice, ownership conflicts, reconciliation results).

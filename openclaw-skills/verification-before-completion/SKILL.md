@@ -1,15 +1,15 @@
 ---
 name: verification-before-completion
 description: 'Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always'
-zh_description: "用于verification、before、completion，支持任务规划、执行、评审和验证。"
-version: "1.0.1"
+zh_description: "在宣告完成前核对当前代码的验证证据与适用范围。"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:obra/superpowers"
 source_url: "https://skills.sh/obra/superpowers/verification-before-completion"
 license: MIT
 tags: '["verification", "workflow", "quality-gate"]'
 created_at: "2026-04-13"
-updated_at: "2026-07-27"
+updated_at: "2026-09-06"
 quality: 4
 complexity: "intermediate"
 ---
@@ -28,7 +28,7 @@ complexity: "intermediate"
 NO COMPLETION CLAIMS WITHOUT FRESH VERIFICATION EVIDENCE
 ```
 
-If you haven't run the verification command in this message, you cannot claim it passes.
+Use recorded evidence from the current code and relevant environment. Do not rerun an unchanged successful check just to repeat its result in a new message; rerun after changes or when the evidence no longer supports the claim.
 
 ## The Gate Function
 
@@ -36,7 +36,7 @@ If you haven't run the verification command in this message, you cannot claim it
 BEFORE claiming any status or expressing satisfaction:
 
 1. IDENTIFY: What command proves this claim?
-2. RUN: Execute the FULL command (fresh, complete)
+2. RUN: Execute the relevant command if current evidence is missing or invalidated
 3. READ: Full output, check exit code, count failures
 4. VERIFY: Does output confirm the claim?
    - If NO: State actual status with evidence
@@ -50,7 +50,7 @@ Skip any step = lying, not verifying
 
 | Claim | Requires | Not Sufficient |
 |-------|----------|----------------|
-| Tests pass | Test command output: 0 failures | Previous run, "should pass" |
+| Tests pass | Current code and environment, output: 0 failures | Stale run or "should pass" |
 | Linter clean | Linter output: 0 errors | Partial check, extrapolation |
 | Build succeeds | Build command: exit 0 | Linter passing, logs look good |
 | Bug fixed | Test original symptom: passes | Code changed, assumed fixed |
@@ -79,7 +79,7 @@ Skip any step = lying, not verifying
 | "Linter passed" | Linter ≠ compiler |
 | "Agent said success" | Verify independently |
 | "I'm tired" | Exhaustion ≠ excuse |
-| "Partial check is enough" | Partial proves nothing |
+| "Partial check is enough" | State exactly what it proves; complete required gates |
 | "Different words so rule doesn't apply" | Spirit over letter |
 
 ## Key Patterns

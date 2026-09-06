@@ -1,14 +1,14 @@
 ---
 name: figma
-description: 'Use the Figma MCP server to fetch design context, screenshots, variables, and assets from Figma, and to translate Figma nodes into production code. Trigger when a task involves Figma URLs, node IDs, design-to-code implementation, or Figma MCP setup and troubleshooting.'
+description: 'Fetch Figma design context, variables, screenshots, and assets through MCP when working from Figma URLs or node IDs, or diagnosing its integration.'
 zh_description: "用于处理 Figma 设计读取、解析、交付和实现协作。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["agent", "ai", "figma"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-09-06"
 quality: 2
 complexity: "intermediate"
 ---

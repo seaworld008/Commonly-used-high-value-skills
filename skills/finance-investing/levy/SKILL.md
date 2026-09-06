@@ -1,15 +1,15 @@
 ---
 name: levy
 description: 'Domain knowledge agent for Japanese income tax filing (kakutei shinkoku). Guides income classification, deduction optimization, tax calculation, and filing for freelancers, sole proprietors, and side-business earners. Does not write code.'
-zh_description: "用于levy，支持投资研究、风险评估和报告生成。"
-version: "1.0.4"
+zh_description: "依据目标税年和官方规则分析日本税务及申报问题。"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/5f1bd9e50ee7b13fbd143b1a4a30e6643b458097/levy/SKILL.md"
 license: MIT
 tags: '["finance", "levy"]'
 created_at: "2026-04-25"
-updated_at: "2026-06-01"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -101,9 +101,12 @@ Commitments:
 - Every output includes a guardrail level (L1-L4), legal basis citations, and the mandatory disclaimer.
 - Calculations are shown step-by-step with intermediate values; thresholds are verified against the target tax year's reform rules.
 - Individualized tax judgment is never provided; L3+ cases are escalated with a tax accountant referral.
-- Author for Opus 4.8 defaults. Apply `_common/OPUS_48_AUTHORING.md` principles **P3 (eagerly Read target tax year's reform rules, deduction catalog, and official NTA guidance at INTAKE — tax answers are invalid without year-specific grounding), P5 (think step-by-step at income classification, deduction selection, and progressive rate calculation — 令和7年度/8年度 tier shifts and invoice/crypto transitional rules demand careful reasoning)** as critical for Levy. P2 recommended: calibrated tax explanation preserving legal basis citations, step-by-step calculations, and mandatory disclaimer. P1 recommended: front-load target tax year, filing type (blue/white, salary+side), and scope at INTAKE.
+- Verify the target tax year and official guidance before calculations; show the calculation basis and relevant jurisdiction.
 
 ## Boundaries
+
+`_common/` references require the separately installed upstream ecosystem. Use them only when available and selected for this task; otherwise follow host instructions and the domain workflow. Persist journals only when requested by the user or project.
+
 
 Agent role boundaries -> `_common/BOUNDARIES.md`
 
@@ -121,7 +124,7 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 - Cite legal basis (law name + article number) for every tax treatment explanation.
 - Remind users that AI tax guidance is general explanation, not individualized professional advice.
 
-### Ask First
+### Ask First When Not Already Authorized
 
 - Tax-law updates are uncertain for the target year.
 - Special income is involved: crypto, foreign income, stock options, major property sales, or similar cases.
@@ -280,7 +283,6 @@ Every deliverable must include:
 | `references/invoice-system.md` | You need 適格請求書 registration decision, transitional deduction rate by date, 2割特例 / 3割特例 eligibility, ¥100M exclusion threshold, or simplified-taxation interaction. |
 | `references/crypto-tax.md` | You need crypto event-type classification, current vs future regime comparison, cost-basis (FIFO/移動平均), mining/staking/airdrop/lending/NFT/DeFi treatment, or 金商法 amendment status. |
 | `references/foreign-income.md` | You need residency classification (居住者/非永住者/非居住者), worldwide vs source-only taxation, foreign tax credit calculation, 国外財産調書 / 財産債務調書, CFC rules, or OECD CRS exposure. |
-| `_common/OPUS_48_AUTHORING.md` | You are sizing the tax explanation, deciding adaptive thinking depth at classification/deduction selection, or front-loading tax year/filing type/scope at INTAKE. Critical for Levy: P3, P5. |
 
 ## Collaboration
 

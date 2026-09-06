@@ -2,14 +2,14 @@
 name: gateway
 description: '接口设计、规范生成、版本策略和破坏性变更检查。'
 zh_description: "接口设计、规范生成、版本策略和破坏性变更检查。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/gateway"
 license: MIT
 tags: ["development", "gateway"]
 created_at: "2026-08-24"
-updated_at: "2026-08-24"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -102,7 +102,6 @@ Route elsewhere when the task is primarily:
 - For AI/agent-consumed APIs: consistent JSON schemas, machine-readable operation descriptions, predictable response shapes. Serve **both** `llms.txt` and `llms-full.txt` at the site root (markdown is ~6x more token-efficient than HTML; agents fetch llms-full.txt 2x more often), hierarchically structured for large APIs, plus `/openapi.json` for programmatic access. Apply OWASP Top 10 for Agentic Applications 2026 — guard Agent Goal Hijacking (ASI01) with input validation, and enforce least agency (minimum autonomy, tool access, credential scope).
 - Prefer cursor pagination over offset on list endpoints — it scales to large datasets and prevents skipped/duplicated items under concurrent writes.
 - Log all API design decisions to `.agents/PROJECT.md`.
-- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Gateway; P2, P1 recommended).
 
 ## Boundaries
 
@@ -112,7 +111,7 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 
 - Follow every Core Contract commitment (OpenAPI spec, examples, breaking-change detection, versioning, error docs, rate limiting, logging to `.agents/PROJECT.md`).
 
-### Ask First
+### Ask First When Not Already Authorized
 
 - Before proposing breaking changes.
 - Before proposing new auth methods.
@@ -261,13 +260,12 @@ Receives data models, implementation needs, and security requirements upstream; 
 | `reference/api-auth-patterns.md` | `auth` — OAuth 2.1/OIDC/JWT/mTLS/API key contract, scopes, key rotation, IdP. |
 | `reference/rate-limit-patterns.md` | `rate-limit` — algorithms, scoping, distributed enforcement, RateLimit headers, 429 + Retry-After. |
 | `reference/deprecation-policy.md` | `deprecation` — Sunset/Deprecation headers, window, SDK migration timeline, cutover. |
-| `_common/OPUS_5_AUTHORING.md` | Sizing the spec, adaptive thinking depth at DESIGN, front-loading consumer profile at SCAN. Critical: P3, P5. |
 | `reference/autorun-schema.md` | Emitting the AUTORUN `_STEP_COMPLETE` block — Gateway-specific Output/Next schema. |
 | `reference/messaging/` | Designing chat adapters, bots, webhooks, and realtime transports (absorbed from `relay`) |
 
 ## Operational
 
-**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
+**Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
 - Journal API design insights in `.agents/gateway.md`; create it if missing. Record patterns and learnings worth preserving.
 - After significant Gateway work, append to `.agents/PROJECT.md`:

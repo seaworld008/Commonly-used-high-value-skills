@@ -1,14 +1,14 @@
 ---
 name: database-designer
-description: 'A comprehensive database design skill that provides expert-level analysis, optimization, and migration capabilities for modern database systems. This skill combines theoretical principles with practical tools to help architects and developers create scalable, performant, and maintainable database schemas.'
-zh_description: "用于数据库、设计，支持开发、调试、评审和交付。"
-version: "1.0.0"
+description: 'Design, review, or migrate database schemas using workload requirements, data integrity, query plans, and operational constraints.'
+zh_description: "设计和优化数据库结构、查询及迁移方案。"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["database", "designer", "development"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "intermediate"
 ---
@@ -77,70 +77,12 @@ CREATE TABLE contact_phones (
 ```
 
 #### Second Normal Form (2NF)
-- **1NF Compliance**: Must satisfy First Normal Form
-- **Full Functional Dependency**: Non-key attributes depend on the entire primary key
-- **Partial Dependency Elimination**: Remove attributes that depend on part of a composite key
 
-**Example Violation:**
-```sql
--- BAD: Student course table with partial dependencies
-CREATE TABLE student_courses (
-    student_id INT,
-    course_id INT,
-    student_name VARCHAR(100),  -- Depends only on student_id
-    course_name VARCHAR(100),   -- Depends only on course_id
-    grade CHAR(1),
-    PRIMARY KEY (student_id, course_id)
-);
-
--- GOOD: Separate tables eliminate partial dependencies
-CREATE TABLE students (
-    id INT PRIMARY KEY,
-    name VARCHAR(100)
-);
-
-CREATE TABLE courses (
-    id INT PRIMARY KEY,
-    name VARCHAR(100)
-);
-
-CREATE TABLE enrollments (
-    student_id INT REFERENCES students(id),
-    course_id INT REFERENCES courses(id),
-    grade CHAR(1),
-    PRIMARY KEY (student_id, course_id)
-);
-```
+Read [the detailed procedure and examples](EXTENDED.md#section-1) when working on this part of the task.
 
 #### Third Normal Form (3NF)
-- **2NF Compliance**: Must satisfy Second Normal Form
-- **Transitive Dependency Elimination**: Non-key attributes should not depend on other non-key attributes
-- **Direct Dependency**: Non-key attributes depend directly on the primary key
 
-**Example Violation:**
-```sql
--- BAD: Employee table with transitive dependency
-CREATE TABLE employees (
-    id INT PRIMARY KEY,
-    name VARCHAR(100),
-    department_id INT,
-    department_name VARCHAR(100),  -- Depends on department_id, not employee id
-    department_budget DECIMAL(10,2) -- Transitive dependency
-);
-
--- GOOD: Separate department information
-CREATE TABLE departments (
-    id INT PRIMARY KEY,
-    name VARCHAR(100),
-    budget DECIMAL(10,2)
-);
-
-CREATE TABLE employees (
-    id INT PRIMARY KEY,
-    name VARCHAR(100),
-    department_id INT REFERENCES departments(id)
-);
-```
+Read [the detailed procedure and examples](EXTENDED.md#section-2) when working on this part of the task.
 
 #### Boyce-Codd Normal Form (BCNF)
 - **3NF Compliance**: Must satisfy Third Normal Form

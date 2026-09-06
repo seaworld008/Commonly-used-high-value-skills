@@ -1,15 +1,15 @@
 ---
 name: using-agent-skills
-description: Discovers and invokes agent skills. Use when starting a session or when you need to discover which skill applies to the current task. This is the meta-skill that governs how all other skills are discovered and invoked.
+description: 'Find the most relevant engineering skill when task routing is unclear; load only the guidance needed for the current work.'
 zh_description: "用于选择、加载和正确使用 Agent Skills 完成任务。"
-version: "1.0.1"
+version: "1.0.2"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/using-agent-skills/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "using-agent-skills", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-10"
+updated_at: "2026-09-06"
 quality: 4
 complexity: advanced
 upstream_slug: using-agent-skills
@@ -55,7 +55,7 @@ Task arrives
 
 ## Core Operating Behaviors
 
-These behaviors apply at all times, across all skills. They are non-negotiable.
+Apply these behaviors when they help the selected engineering task; user intent and host instructions govern scope.
 
 ### 1. Surface Assumptions
 
@@ -75,10 +75,10 @@ Don't silently fill in ambiguous requirements. The most common failure mode is m
 
 When you encounter inconsistencies, conflicting requirements, or unclear specifications:
 
-1. **STOP.** Do not proceed with a guess.
-2. Name the specific confusion.
-3. Present the tradeoff or ask the clarifying question.
-4. Wait for resolution before continuing.
+1. Check the relevant code and existing decisions.
+2. Resolve routine reversible choices using that evidence.
+3. Ask only when the conflict materially changes the requested result.
+4. Continue independent work while waiting for a required answer.
 
 **Bad:** Silently picking one interpretation and hoping it's right.
 **Good:** "I see X in the spec but Y in the existing code. Which takes precedence?"

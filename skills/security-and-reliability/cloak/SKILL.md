@@ -2,14 +2,14 @@
 name: cloak
 description: '隐私工程、敏感信息流、同意管理和数据治理。'
 zh_description: "隐私工程、敏感信息流、同意管理和数据治理。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/cloak"
 license: MIT
 tags: ["cloak", "security"]
 created_at: "2026-08-24"
-updated_at: "2026-08-24"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -98,7 +98,7 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 - Provide concrete code patterns, not abstract advice.
 - Check/log to `.agents/PROJECT.md`.
 
-### Ask First
+### Ask First When Not Already Authorized
 
 - Which regulatory framework applies (GDPR, CCPA, PIPEDA, APPI, or combination).
 - Data retention period choices (business decision, not technical).
@@ -130,7 +130,6 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 - Structure risk management on NIST Privacy Framework 1.1 (incl. its AI privacy-risk guidance) and ISO/IEC 27701 for PIMS, alongside regulation-specific requirements.
 - Evaluate differential-privacy guarantees against NIST SP 800-226 — stronger privacy costs utility, so calibrate epsilon to the sensitivity tier.
 - High-risk AI processing personal data requires **both** an EU AI Act FRIA (Art. 27) and a GDPR DPIA (Art. 35); AI Act penalties reach €35M / 7% of turnover, above GDPR.
-- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Cloak; P2, P1 recommended).
 
 ## Data Classification
 
@@ -273,7 +272,6 @@ Receives security findings, standard requirements, and codebase analysis upstrea
 | `reference/ccpa-cpra.md` | Working on California-targeted features and need consumer-rights endpoints, GPC parsing with visible confirmation, SPI limit-use mechanics, service-provider/contractor/third-party contract distinctions, or 2026 ADMT/risk-assessment readiness. |
 | `reference/appi-japan.md` | Processing data of subjects in Japan and need the personal information (個人情報) / pseudonymously processed information (仮名加工情報) / anonymously processed information (匿名加工情報) distinction, Article 24 cross-border transfer paths, Article 23 opt-out filing, special care-required personal information (要配慮個人情報) consent surface, or PPC notification thresholds. |
 | `reference/pseudonymization-techniques.md` | Choosing a de-identification technique — k-anonymity / l-diversity / t-closeness / differential privacy parameters, tokenization vs HMAC vs FPE primitives, key custody and destruction to distinguish pseudonymized from anonymized data under GDPR Art. 4(5). |
-| `_common/OPUS_5_AUTHORING.md` | Sizing the privacy report, deciding adaptive thinking depth at classification/DPIA, or front-loading regulations/sensitivity/jurisdiction at SCAN. Critical for Cloak: P3, P5. |
 | `reference/autorun-schema.md` | Emitting the AUTORUN `_STEP_COMPLETE` block — Cloak-specific Output/Next schema. |
 
 ## Output Requirements
@@ -289,7 +287,7 @@ A complete deliverable carries the following — a ceiling, not a floor. Emit on
 
 ## Operational
 
-**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
+**Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
 **Journal** (`.agents/cloak.md`): Read/update `.agents/cloak.md` (create if missing) — only record project-specific PII patterns discovered, data flow insights, regulation applicability decisions, and consent architecture choices.
 - After significant Cloak work, append to `.agents/PROJECT.md`: `| YYYY-MM-DD | Cloak | (action) | (files) | (outcome) |`

@@ -2,14 +2,14 @@
 name: nexus
 description: '多智能体任务分解、链路编排、执行协调和结果整合。'
 zh_description: "多智能体任务分解、链路编排、执行协调和结果整合。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/nexus"
 license: MIT
 tags: ["ai", "nexus", "workflow"]
 created_at: "2026-08-24"
-updated_at: "2026-08-24"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -88,7 +88,7 @@ Agent boundaries → `_common/BOUNDARIES.md` · disambiguation → `reference/ag
 - Journal routing corrections and user overrides.
 - Track OE and token efficiency per chain, splitting `thinking_tokens` where available. Cost per *successful* task includes retries, fallback spawns, verification, and user correction; success means ACs held (Q15) → `oracle/reference/cost-optimization.md`.
 
-### Ask First
+### Ask First When Not Already Authorized
 
 - `L4` security triggers, destructive data actions, external system changes.
 - Actions affecting 10+ files.
@@ -243,7 +243,7 @@ Read only files matching the current decision point. A file already named where 
 
 ## Operational
 
-**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
+**Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
 Beyond the spine, follow `_common/HARNESS_EVOLUTION.md`. Apply the hub-engine protocol: `_common/OPUS_5_AUTHORING.md` (Claude Code; add F-principles on a Fable 5 hub), `CODEX_ORCHESTRATION.md`, or `AGY_ORCHESTRATION.md` (A1-A9). Journal in `.agents/nexus.md`, log to `.agents/PROJECT.md`, no agent names in commits/PRs. Keep chains small, handoffs structured, recovery explicit.
 

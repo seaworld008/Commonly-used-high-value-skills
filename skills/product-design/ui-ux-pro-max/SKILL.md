@@ -1,15 +1,15 @@
 ---
 name: ui-ux-pro-max
 description: 'Front-end UI/UX design intelligence for creating, reviewing, and hardening polished product interfaces across web, mobile, dashboards, SaaS, ecommerce, and content-heavy apps.'
-zh_description: "用于UI、UX、pro、max，支持产品研究、策略、界面和交付协作。"
-version: "1.0.0"
+zh_description: "设计和审查网页、移动端及业务系统的界面体验。"
+version: "1.0.1"
 author: seaworld008
 source: in-house
 source_url: "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/main/.claude/skills/ui-ux-pro-max/SKILL.md"
 license: MIT
 tags: '[ui, ux, design-system, frontend, accessibility, typography, color, responsive-design]'
 created_at: "2026-06-03"
-updated_at: "2026-06-03"
+updated_at: "2026-09-06"
 quality: 4
 complexity: advanced
 ---

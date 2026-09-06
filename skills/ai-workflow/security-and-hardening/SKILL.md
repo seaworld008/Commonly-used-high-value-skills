@@ -1,15 +1,15 @@
 ---
 name: security-and-hardening
-description: 'Hardens code against vulnerabilities. Use when handling user input, authentication, data storage, or external integrations. Use when building any feature that accepts untrusted data, manages user sessions, or interacts with third-party services. Use when personal data or privacy compliance (GDPR, CCPA) is involved.'
-zh_description: "用于安全、加固，支持任务规划、执行、评审和验证。"
-version: "1.0.2"
+description: 'Harden authentication, input handling, storage, and integrations when implementing security controls or remediating concrete vulnerabilities.'
+zh_description: "加固身份认证、输入处理、数据存储和外部集成。"
+version: "1.0.3"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/security-and-hardening/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "security-and-hardening", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-17"
+updated_at: "2026-09-06"
 quality: 5
 complexity: advanced
 upstream_slug: security-and-hardening
@@ -200,36 +200,7 @@ if (!API_KEY) throw new Error('STRIPE_API_KEY not configured');
 
 ### Server-Side Request Forgery (SSRF)
 
-Any time the server fetches a URL the user influenced — webhooks, "import from URL", image proxies, link previews — an attacker can aim it at internal services (cloud metadata, `localhost`, private IPs).
-
-```typescript
-// BAD: fetch whatever the user gives you
-await fetch(req.body.webhookUrl);
-
-// GOOD: allowlist scheme + host, reject if ANY resolved IP is private, forbid redirects
-import { lookup } from 'node:dns/promises';
-import ipaddr from 'ipaddr.js';
-
-const ALLOWED_HOSTS = new Set(['hooks.example.com']);
-
-async function assertSafeUrl(raw: string): Promise<URL> {
-  const url = new URL(raw);
-  if (url.protocol !== 'https:') throw new Error('https only');
-  if (!ALLOWED_HOSTS.has(url.hostname)) throw new Error('host not allowed');
-  // Resolve ALL records; a single private/reserved address fails the check.
-  const addrs = await lookup(url.hostname, { all: true });
-  if (addrs.some((a) => ipaddr.parse(a.address).range() !== 'unicast')) {
-    throw new Error('private/reserved IP');
-  }
-  return url;
-}
-
-await fetch(await assertSafeUrl(req.body.webhookUrl), { redirect: 'error' });
-```
-
-The `range() !== 'unicast'` check covers loopback, link-local `169.254.169.254` (cloud metadata, the #1 SSRF target), private, and unique-local ranges across IPv4 and IPv6.
-
-**Caveat — this still has a TOCTOU gap.** `fetch` resolves DNS again after the check, so an attacker using a short-TTL record can rebind to an internal IP between validation and connection. For high-risk surfaces, resolve once and connect to the pinned IP, or put a filtering agent in front (`request-filtering-agent` / `ssrf-req-filter`).
+Read [the detailed procedure and examples](EXTENDED.md#section-1) when working on this part of the task.
 
 ## Input Validation Patterns
 
@@ -509,3 +480,13 @@ After implementing security-relevant code:
 - [ ] LLM/model output validated and encoded before use (if AI features present)
 - [ ] Personal data is classified, minimized to a stated purpose, and has a retention limit
 - [ ] Deletion and export requests work end-to-end (including backups, caches, and analytics copies)
+
+## Derived Paths and Shared Limits
+
+Treat filenames, other processes' arguments, and job-supplied paths as untrusted
+when their writers are not trusted. Before destructive operations, resolve the
+target below an allowlisted root, reject the root itself, verify ownership from
+trusted state, and prevent symlink/check-use races. A writable marker alone is
+not authorization; failure must not fall back to a broader target.
+For multi-process or serverless rate limits, use a shared store or platform limiter;
+process-local counters cannot enforce one global authentication limit.

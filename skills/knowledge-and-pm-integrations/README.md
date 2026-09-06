@@ -33,7 +33,7 @@
 | `lark-meeting` | 统一处理飞书会议、妙记、智能纪要、逐字稿和经授权的会中互动。 | [目录](./lark-meeting/) | [SKILL.md](./lark-meeting/SKILL.md) |
 | `lark-okr` | 飞书 OKR：管理目标与关键结果。 | [目录](./lark-okr/) | [SKILL.md](./lark-okr/SKILL.md) |
 | `lark-openapi-explorer` | 飞书/Lark 原生 OpenAPI 探索：从官方文档库中挖掘未经 CLI 封装的原生 OpenAPI 接口。 | [目录](./lark-openapi-explorer/) | [SKILL.md](./lark-openapi-explorer/SKILL.md) |
-| `lark-shared` | 用于lark、shared，支持知识管理、项目同步和平台集成。 | [目录](./lark-shared/) | [SKILL.md](./lark-shared/SKILL.md) |
+| `lark-shared` | 配置飞书 CLI 的认证、权限和各业务技能共用能力。 | [目录](./lark-shared/) | [SKILL.md](./lark-shared/SKILL.md) |
 | `lark-sheets` | 用于读取、编辑和分析飞书电子表格数据。 | [目录](./lark-sheets/) | [SKILL.md](./lark-sheets/SKILL.md) |
 | `lark-skill-maker` | 用于把飞书 API 操作封装为可复用技能、流程模板和多步自动化。 | [目录](./lark-skill-maker/) | [SKILL.md](./lark-skill-maker/SKILL.md) |
 | `lark-slides` | 飞书幻灯片：创建和编辑幻灯片。 | [目录](./lark-slides/) | [SKILL.md](./lark-slides/SKILL.md) |

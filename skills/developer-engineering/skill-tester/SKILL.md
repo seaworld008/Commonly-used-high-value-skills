@@ -1,14 +1,14 @@
 ---
 name: skill-tester
 description: 'Name: skill-tester Tier: POWERFUL Category: Engineering Quality Assurance Dependencies: None (Python Standard Library Only) Author: Claude Skills Engineering Team Version: 1.0.0 Last Updated: 2026-02-16.'
-zh_description: "用于技能、tester，支持开发、调试、评审和交付。"
-version: "1.0.0"
+zh_description: "验证技能触发、执行步骤和输出结果是否符合预期。"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["development", "skill", "tester"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "intermediate"
 ---

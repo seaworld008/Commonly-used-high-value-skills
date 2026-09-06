@@ -2,14 +2,14 @@
 name: lark-doc
 description: '飞书云文档（Docx / Wiki）内容操作：读取、创建、编辑文档，插入或下载图片附件，以及操作思维笔记。用户提供文档 URL/token（包括 doubao.com 的 /docx/、/wiki/）时使用；按 URL 路径/token 而非域名路由。文档内嵌资源按读取参考中的统一规则分流。独立评论操作走 lark-drive；随正文读取评论使用 docs +fetch。表格或 Base 内部数据操作不在本 skill。'
 zh_description: "用于读取、编辑和生成飞书云文档内容。"
-version: "1.0.14"
+version: "1.0.15"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-doc"
 license: MIT
 tags: '[feishu, lark, lark-cli, docs, documents]'
 created_at: "2026-05-19"
-updated_at: "2026-08-20"
+updated_at: "2026-09-06"
 quality: 3
 complexity: intermediate
 metadata:

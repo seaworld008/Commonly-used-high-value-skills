@@ -9,6 +9,7 @@ MAPPING_PATH = REPO_ROOT / "docs/sources/graphify-2026-04.skills.json"
 RELEASE_COMMIT = "b14b52e94ec3d9840413d81777f4c134eac0a40d"
 EXPECTED_RELATIVE_FILES = {
     "SKILL.md",
+    "EXTENDED.md",
     "references/add-watch.md",
     "references/exports.md",
     "references/extraction-spec.md",
@@ -24,7 +25,7 @@ def _sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def test_graphify_is_exact_official_codex_artifact_set() -> None:
+def test_graphify_preserves_official_references_with_curated_entry_and_excerpt() -> None:
     actual = {
         path.relative_to(SKILL_ROOT).as_posix()
         for path in SKILL_ROOT.rglob("*")
@@ -40,10 +41,18 @@ def test_graphify_release_mapping_has_single_owner_and_exact_hashes() -> None:
     origin = entry["origins"][0]
 
     assert entry["normalized_slug"] == "graphify"
-    assert entry["kind"] == "mirror"
-    assert entry["sync_mode"] == "replace"
-    assert len(entry["origins"]) == 1
-    assert origin["sync_mode"] == "replace"
+    assert entry["kind"] == "overlay"
+    assert entry["sync_mode"] == "monitor"
+    assert len(entry["origins"]) == 2
+    assert origin["sync_mode"] == "monitor"
+    local = entry["origins"][1]
+    assert local["repo"] == "local-repo/curation"
+    assert local["sync_mode"] == "local-only"
+    assert local["artifacts"] == [{
+        "source": "skills/developer-engineering/graphify/EXTENDED.md",
+        "target": "skills/developer-engineering/graphify/EXTENDED.md",
+        "type": "file",
+    }]
     assert origin["tracking"]["channel"] == "latest_release"
     assert origin["tracking"]["ref"] == "v0.9.47"
     assert origin["tracking"]["resolved_commit"] == RELEASE_COMMIT
@@ -78,7 +87,7 @@ def test_graphify_release_mapping_has_single_owner_and_exact_hashes() -> None:
         for path in EXPECTED_RELATIVE_FILES
     }
     assert set(managed) == expected_paths
-    assert len(managed) == 9
+    assert len(managed) == 10
     assert all(item["owner"] == "graphify" for item in managed.values())
     assert all(item["mode"] == "100644" for item in managed.values())
     for relative_path in EXPECTED_RELATIVE_FILES:

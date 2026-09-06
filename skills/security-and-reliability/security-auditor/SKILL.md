@@ -1,15 +1,15 @@
 ---
 name: security-auditor
 description: 'Security audit workflow for AI-generated application code, APIs, infrastructure changes, dependencies, secrets, auth flows, and pull requests before they ship.'
-zh_description: "用于安全、审计，支持安全扫描、审计、加固和风险治理。"
-version: "1.0.0"
+zh_description: "审查应用、接口、基础设施和依赖中的实际安全风险。"
+version: "1.0.1"
 author: seaworld008
 source: in-house
 source_url: ""
 license: MIT
 tags: '[security, appsec, ai-generated-code, code-review, owasp, secrets, dependency-audit, threat-modeling]'
 created_at: "2026-06-03"
-updated_at: "2026-06-03"
+updated_at: "2026-09-06"
 quality: 4
 complexity: advanced
 ---

@@ -1,15 +1,15 @@
 ---
 name: security-audit
-description: 'Security audit of a codebase — web apps, APIs, services, CLI tools, libraries, daemons, and more. Use when asked to find security bugs, do a security review, audit for vulnerabilities, or pen-test the code. Focuses on exploitable issues with real impact, not theoretical concerns or industry-standard behavior.'
+description: 'Audit codebases for exploitable security vulnerabilities with concrete attack paths, impact, and source evidence.'
 zh_description: "对代码库进行安全审计，聚焦可利用且有真实影响的漏洞，并生成可验证的发现、报告和结构化输出。"
-version: "1.0.0"
+version: "1.0.1"
 author: seaworld008
 source: github:cloudflare/security-audit-skill
 source_url: "https://github.com/cloudflare/security-audit-skill/tree/main/skills/security-audit"
 license: MIT
 tags: '[security-audit, vulnerability-research, application-security, threat-modeling, code-review, validation]'
 created_at: "2026-07-20"
-updated_at: "2026-07-20"
+updated_at: "2026-09-06"
 quality: 4
 complexity: advanced
 ---

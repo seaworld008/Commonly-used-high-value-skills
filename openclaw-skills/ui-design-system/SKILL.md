@@ -1,14 +1,14 @@
 ---
 name: ui-design-system
-description: 'UI design system toolkit for Senior UI Designer including design token generation, component documentation, responsive design calculations, and developer handoff tools. Use for creating design systems, maintaining visual consistency, and facilitating design-dev collaboration.'
-zh_description: "用于UI、设计、系统，支持产品研究、策略、界面和交付协作。"
-version: "1.0.0"
+description: 'Create or maintain UI design tokens, component documentation, responsive rules, and designer-to-developer handoff artifacts.'
+zh_description: "创建和维护设计变量、组件规范及开发交接资料。"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["design", "product", "system"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "intermediate"
 ---

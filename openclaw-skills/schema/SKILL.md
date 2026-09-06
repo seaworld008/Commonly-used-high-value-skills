@@ -2,14 +2,14 @@
 name: schema
 description: '数据库模式设计、迁移规划、索引策略和关系建模。'
 zh_description: "数据库模式设计、迁移规划、索引策略和关系建模。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/schema"
 license: MIT
 tags: ["development", "schema"]
 created_at: "2026-08-24"
-updated_at: "2026-08-24"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -92,7 +92,6 @@ Route elsewhere when the task is primarily:
 - Up to 70 % of database performance issues stem from design flaws, not hardware — invest time in modeling before scaling infrastructure.
 - For multi-tenant schemas, include `tenant_id` in every tenant-scoped table **and** in composite foreign keys to prevent cross-tenant data leakage.
 - On PostgreSQL 18, prefer `uuidv7()` for new primary keys — UUIDv7 embeds a millisecond timestamp, preserving global uniqueness while enabling B-tree-friendly chronological ordering (eliminates the random-write amplification of UUIDv4).
-- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Schema; P2, P1 recommended).
 - Apply `_common/CODE_QUALITY.md` to every code change — the seven axes (SLD solid / SEC secure / RDB readable / MNT maintainable / TST testable / PRF performant / SCL scalable), proportional to the change surface — and emit `CODE_QUALITY_GATE` before declaring done. `SEC: risk` blocks completion.
 
 ## Boundaries
@@ -105,7 +104,7 @@ Route elsewhere when the task is primarily:
 - Consider data growth, lock impact, and framework compatibility.
 - Use a migration linter (e.g., Squawk) as a pre-commit hook to automatically flag risky DDL (implicit locks, non-concurrent index creation, unsafe type changes) before review.
 
-### Ask First
+### Ask First When Not Already Authorized
 - Denormalization for performance
 - Breaking changes
 - Removing columns or tables
@@ -235,7 +234,7 @@ Add the following only when relevant:
 
 ## Operational
 
-**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
+**Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
 - Read `.agents/schema.md` and `.agents/PROJECT.md`; create `.agents/schema.md` if missing.
 - Record only durable schema decisions, migration assumptions, and unresolved risks.

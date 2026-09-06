@@ -133,7 +133,7 @@
             "ref": "main",
             "resolved_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
             "path_commit": "09fc6e0f3be2a3d74e95c6058408a76972e4571b",
-            "content_sha256": "d6d75cbfe7f1b1c750681fd38947f51ba32fa313e65cc2c6b142d898c0f5e3f4",
+            "content_sha256": "63c622c90e2e5d4caf5e1a873bcc2bb298b27911c6b54e3631b7748f83e800b6",
             "last_checked_at": "2026-08-31",
             "last_synced_at": "2026-08-31",
             "license_checkpoint": {
@@ -151,7 +151,7 @@
         {
           "path": "skills/ai-workflow/executing-plans/SKILL.md",
           "owner": "executing-plans",
-          "sha256": "d6d75cbfe7f1b1c750681fd38947f51ba32fa313e65cc2c6b142d898c0f5e3f4",
+          "sha256": "63c622c90e2e5d4caf5e1a873bcc2bb298b27911c6b54e3631b7748f83e800b6",
           "mode": "100644"
         }
       ]
@@ -192,7 +192,7 @@
             "ref": "main",
             "resolved_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
             "path_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
-            "content_sha256": "535c9ada1f4dfcf344c60a81727178b2438061e1c7ccdca8f8fb5566612f6473",
+            "content_sha256": "403138a56b993ed064fb5014c111374848c94c7b71b4d11922784caab9eaa26b",
             "last_checked_at": "2026-08-31",
             "last_synced_at": "2026-08-31",
             "license_checkpoint": {
@@ -210,7 +210,7 @@
         {
           "path": "skills/ai-workflow/finishing-a-development-branch/SKILL.md",
           "owner": "finishing-a-development-branch",
-          "sha256": "535c9ada1f4dfcf344c60a81727178b2438061e1c7ccdca8f8fb5566612f6473",
+          "sha256": "403138a56b993ed064fb5014c111374848c94c7b71b4d11922784caab9eaa26b",
           "mode": "100644"
         }
       ]
@@ -251,7 +251,7 @@
             "ref": "main",
             "resolved_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
             "path_commit": "3fb75974186ea7fada621d8ab77b3b02169baf57",
-            "content_sha256": "d00f1dfa10f0fd71d87589b18d70b1d74d9272f5fb7728e605d9e424ebf9604d",
+            "content_sha256": "c4307f97ba19cab5c9e7b51a07e5f4991e01521cfa48d2ba8cd45d7312cebad5",
             "last_checked_at": "2026-08-31",
             "last_synced_at": "2026-08-31",
             "license_checkpoint": {
@@ -269,7 +269,7 @@
         {
           "path": "skills/ai-workflow/receiving-code-review/SKILL.md",
           "owner": "receiving-code-review",
-          "sha256": "d00f1dfa10f0fd71d87589b18d70b1d74d9272f5fb7728e605d9e424ebf9604d",
+          "sha256": "c4307f97ba19cab5c9e7b51a07e5f4991e01521cfa48d2ba8cd45d7312cebad5",
           "mode": "100644"
         }
       ]
@@ -412,7 +412,7 @@
             "ref": "main",
             "resolved_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
             "path_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
-            "content_sha256": "f9a8d5a6d098835c14f65fcd0cda793f552c3c9d7617af9735b4b8dc8674d2f9",
+            "content_sha256": "89f47d329716ef6c056953f175d88f5d4407c278cb499c044588c982306845cc",
             "last_checked_at": "2026-08-31",
             "last_synced_at": "2026-08-31",
             "license_checkpoint": {
@@ -440,6 +440,11 @@
               "source": "skills/ai-workflow/subagent-driven-development/spec-reviewer-prompt.md",
               "target": "skills/ai-workflow/subagent-driven-development/spec-reviewer-prompt.md",
               "type": "file"
+            },
+            {
+              "source": "skills/ai-workflow/subagent-driven-development/EXTENDED.md",
+              "target": "skills/ai-workflow/subagent-driven-development/EXTENDED.md",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -456,7 +461,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/subagent-driven-development/SKILL.md",
-          "sha256": "f9a8d5a6d098835c14f65fcd0cda793f552c3c9d7617af9735b4b8dc8674d2f9",
+          "sha256": "89f47d329716ef6c056953f175d88f5d4407c278cb499c044588c982306845cc",
           "owner": "subagent-driven-development",
           "mode": "100644"
         },
@@ -488,6 +493,12 @@
           "path": "skills/ai-workflow/subagent-driven-development/task-reviewer-prompt.md",
           "sha256": "eea23e33ec570c3041f40e9569fa711d61b8029f9eecf908345138aa1c6e61ab",
           "owner": "subagent-driven-development",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/subagent-driven-development/EXTENDED.md",
+          "owner": "subagent-driven-development",
+          "sha256": "7884965876ddca370741e1278912b704287532154b69c9a2451bdedda9880385",
           "mode": "100644"
         }
       ]
@@ -578,7 +589,7 @@
             "ref": "main",
             "resolved_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
             "path_commit": "c74782ead66b8ded584d9b9cf64dcba95457f320",
-            "content_sha256": "c73517217753ebc7697fe030a025a6050c538554b086cf19b0b77b2047dbd49d",
+            "content_sha256": "6166e02afc73d2f82158038505b9f2770ddb9d3a1233932969aa8edf4bc8ad77",
             "last_checked_at": "2026-08-31",
             "last_synced_at": "2026-08-31",
             "license_checkpoint": {
@@ -601,7 +612,7 @@
         },
         {
           "path": "skills/developer-engineering/systematic-debugging/SKILL.md",
-          "sha256": "c73517217753ebc7697fe030a025a6050c538554b086cf19b0b77b2047dbd49d",
+          "sha256": "6166e02afc73d2f82158038505b9f2770ddb9d3a1233932969aa8edf4bc8ad77",
           "owner": "systematic-debugging",
           "mode": "100644"
         },
@@ -762,7 +773,7 @@
             "ref": "main",
             "resolved_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
             "path_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
-            "content_sha256": "646434d7069e36d6dec72d93a52ff3295d14c98fae8dfc2133758a8500af13ef",
+            "content_sha256": "d82d4300adc64a3e1c577b706c92761e7e979803fa154db3b655a69fffae977b",
             "last_checked_at": "2026-08-31",
             "last_synced_at": "2026-08-31",
             "license_checkpoint": {
@@ -779,7 +790,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/using-superpowers/SKILL.md",
-          "sha256": "646434d7069e36d6dec72d93a52ff3295d14c98fae8dfc2133758a8500af13ef",
+          "sha256": "d82d4300adc64a3e1c577b706c92761e7e979803fa154db3b655a69fffae977b",
           "owner": "using-superpowers",
           "mode": "100644"
         },
@@ -851,7 +862,7 @@
             "ref": "main",
             "resolved_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
             "path_commit": "3be5aad3dd2400ef23b15680969f4bcd3b6d7b8b",
-            "content_sha256": "7a01a9dec974a1329c87037660e95478d0a9e9237121d31919619d885be9cf12",
+            "content_sha256": "08d0db3630db62ba4c95acbc1123cb8ae63f0d043121e59a7c35fc27068666d0",
             "last_checked_at": "2026-08-31",
             "last_synced_at": "2026-08-31",
             "license_checkpoint": {
@@ -869,7 +880,7 @@
         {
           "path": "skills/ai-workflow/verification-before-completion/SKILL.md",
           "owner": "verification-before-completion",
-          "sha256": "7a01a9dec974a1329c87037660e95478d0a9e9237121d31919619d885be9cf12",
+          "sha256": "08d0db3630db62ba4c95acbc1123cb8ae63f0d043121e59a7c35fc27068666d0",
           "mode": "100644"
         }
       ]
@@ -930,7 +941,7 @@
             "ref": "main",
             "resolved_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
             "path_commit": "d238a48f5d6b8f51f822fea17d646cfe177747ee",
-            "content_sha256": "fbfc6dbe38412b1cf270675f89228930b70f6057e1d482b76497bc04bb33f159",
+            "content_sha256": "930b45763fbded5926bcd13cb2e37368589383f3dcc9bb9fc6e6003a8826c677",
             "last_checked_at": "2026-08-31",
             "last_synced_at": "2026-08-31",
             "license_checkpoint": {
@@ -958,6 +969,11 @@
               "source": "skills/ai-workflow/writing-skills/persuasion-principles.md",
               "target": "skills/ai-workflow/writing-skills/persuasion-principles.md",
               "type": "file"
+            },
+            {
+              "source": "skills/ai-workflow/writing-skills/EXTENDED.md",
+              "target": "skills/ai-workflow/writing-skills/EXTENDED.md",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -974,7 +990,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/writing-skills/SKILL.md",
-          "sha256": "fbfc6dbe38412b1cf270675f89228930b70f6057e1d482b76497bc04bb33f159",
+          "sha256": "930b45763fbded5926bcd13cb2e37368589383f3dcc9bb9fc6e6003a8826c677",
           "owner": "writing-skills",
           "mode": "100644"
         },
@@ -1012,6 +1028,12 @@
           "path": "skills/ai-workflow/writing-skills/testing-skills-with-subagents.md",
           "sha256": "c711346852c911b24a84aa161e0cff06a4cd7f4e2fa9e9c0a266cead5afcbade",
           "owner": "writing-skills",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/writing-skills/EXTENDED.md",
+          "owner": "writing-skills",
+          "sha256": "0abb0d00dd1db0dc1a00bde550e5127d9f27cc9e5993778f8ddf751a6c4ce167",
           "mode": "100644"
         }
       ]

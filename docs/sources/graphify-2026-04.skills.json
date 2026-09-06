@@ -29,7 +29,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/graphify/SKILL.md",
       "source": "https://github.com/Graphify-Labs/graphify/blob/v0.9.47/graphify/skill-codex.md",
-      "notes": "Mirrors only the official Graphify v0.9.47 Codex skill artifact set: SKILL.md plus eight references.",
+      "notes": "Mirrors only the official Graphify v0.9.47 Codex skill artifact set: SKILL.md plus eight references. Local Astra curation splits long procedures into EXTENDED.md and narrows trigger/host guidance; preserve the reviewed upstream reference set and review future releases before applying.",
       "upstream": {
         "repo": "Graphify-Labs/graphify",
         "path": "graphify/skill-codex.md",
@@ -37,17 +37,17 @@
         "last_checked_at": "2026-08-20",
         "last_synced_at": "2026-08-20",
         "last_synced_commit": "b14b52e94ec3d9840413d81777f4c134eac0a40d",
-        "sync_mode": "replace",
+        "sync_mode": "monitor",
         "path_commit": "3d19463484ebcf773b399ddad9fd3363b2ab3bff"
       },
-      "kind": "mirror",
-      "sync_mode": "replace",
+      "kind": "overlay",
+      "sync_mode": "monitor",
       "origins": [
         {
           "repo": "Graphify-Labs/graphify",
           "path": "graphify/skill-codex.md",
           "license": "Apache-2.0",
-          "sync_mode": "replace",
+          "sync_mode": "monitor",
           "artifacts": [
             {
               "source": "graphify/skill-codex.md",
@@ -65,7 +65,7 @@
             "ref": "v0.9.47",
             "resolved_commit": "b14b52e94ec3d9840413d81777f4c134eac0a40d",
             "path_commit": "3d19463484ebcf773b399ddad9fd3363b2ab3bff",
-            "content_sha256": "565a103f9c5848004139c51ecfc5676f36629bd828d1f9f610136c5a46fdcd36",
+            "content_sha256": "7bc85fef495f99d8f004a4a666072a796185ae2cd81f5a1fa844fe4a94f5efb9",
             "last_checked_at": "2026-08-20",
             "last_synced_at": "2026-08-20",
             "license_checkpoint": {
@@ -77,12 +77,34 @@
               "api_spdx": "NOASSERTION"
             }
           }
+        },
+        {
+          "repo": "local-repo/curation",
+          "path": "skills/developer-engineering/graphify",
+          "license": null,
+          "sync_mode": "local-only",
+          "artifacts": [
+            {
+              "source": "skills/developer-engineering/graphify/EXTENDED.md",
+              "target": "skills/developer-engineering/graphify/EXTENDED.md",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "local",
+            "ref": "local",
+            "resolved_commit": null,
+            "path_commit": null,
+            "content_sha256": null,
+            "last_checked_at": "2026-09-06",
+            "last_synced_at": "2026-09-06"
+          }
         }
       ],
       "managed_files": [
         {
           "path": "skills/developer-engineering/graphify/SKILL.md",
-          "sha256": "565a103f9c5848004139c51ecfc5676f36629bd828d1f9f610136c5a46fdcd36",
+          "sha256": "7bc85fef495f99d8f004a4a666072a796185ae2cd81f5a1fa844fe4a94f5efb9",
           "owner": "graphify",
           "mode": "100644"
         },
@@ -132,6 +154,12 @@
           "path": "skills/developer-engineering/graphify/references/update.md",
           "sha256": "661f559b3ff4f3db7ba47bc2ba1c7e19f1c1d66a36f647e49221eecb174f2228",
           "owner": "graphify",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/graphify/EXTENDED.md",
+          "owner": "graphify",
+          "sha256": "23036e44ed4135acc701abddc1ef9dad95d388efdd30366d84798b6c797a63cd",
           "mode": "100644"
         }
       ]

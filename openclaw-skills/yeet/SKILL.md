@@ -1,14 +1,14 @@
 ---
 name: yeet
 description: 'Use only when the user explicitly asks to stage, commit, push, and open a GitHub pull request in one flow using the GitHub CLI (`gh`).'
-zh_description: "用于yeet，支持工程协作、自动化验证和交付闭环。"
-version: "1.0.0"
+zh_description: "按用户要求暂存、提交、推送改动并创建 GitHub PR。"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["automation", "workflow", "yeet"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-09-06"
 quality: 2
 complexity: "intermediate"
 ---

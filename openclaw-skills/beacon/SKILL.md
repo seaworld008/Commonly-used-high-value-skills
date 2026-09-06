@@ -2,14 +2,14 @@
 name: beacon
 description: '可观测性、服务目标、告警、容量和可靠性设计。'
 zh_description: "可观测性、服务目标、告警、容量和可靠性设计。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/beacon"
 license: MIT
 tags: ["beacon", "devops", "sre"]
 created_at: "2026-08-24"
-updated_at: "2026-08-24"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -84,7 +84,6 @@ Route elsewhere when the task is primarily:
 - **OTel stack rules**: mandate semantic conventions for all instrumentation (non-negotiable for cross-service correlation and vendor portability; `gen_ai.*` for GenAI workloads, dual-emission during version transitions); prefer declarative YAML SDK configuration over code-based setup; evaluate eBPF zero-code instrumentation for brownfield services before committing to SDKs; adopt OpAMP supervisor-based fleet management beyond 10 Collectors; assess continuous Profiles as a fourth pillar during DESIGN, marked experimental until stable. Standardise production-scale profiling on Pyroscope/Parca and wire **temporal flame-graph windows** into leak detection — the leak signature is "allocations inside a window still unfreed at its end", not "high allocation rate". Detail and sources -> `reference/opentelemetry-best-practices.md`.
 - Treat SLO definitions as code (e.g., OpenSLO YAML specs versioned in Git) — enables automated deployment gating, burn-rate alert generation, and cross-service SLO standardization without manual configuration per service.
 - Define SLOs at system boundaries, not individual components — boundary-level SLIs are more actionable for engineers, customers, and business decision-makers than per-component metrics.
-- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Beacon; P2, P1 recommended).
 - Apply `_common/CODE_QUALITY.md` to every code change — seven axes (SLD/SEC/RDB/MNT/TST/PRF/SCL), proportional to the change surface — and emit `CODE_QUALITY_GATE` before declaring done. `SEC: risk` blocks completion.
 ## Boundaries
 
@@ -100,7 +99,7 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 - Consider alert fatigue in every design.
 - Review monitoring gaps after incidents.
 
-### Ask First
+### Ask First When Not Already Authorized
 
 - SLO targets that affect business decisions.
 - Alert escalation policies.
@@ -276,14 +275,13 @@ When auditing observability for 4+ services, spawn 2–3 Explore subagents to sc
 | `reference/golden-signals.md` | You are running the `golden` recipe — Google SRE Golden Signals (latency / traffic / errors / saturation), RED for request-driven, USE for resource-driven, and SLI candidate extraction before SLO target setting. |
 | `reference/logging-design.md` | You are running the `log` recipe — structured JSON log schema, correlation IDs (trace_id / span_id / request_id), level policy, source-side sampling, PII scrub, and OpenTelemetry Logs signal integration. |
 | `reference/toil-reduction.md` | You are running the `toil` recipe — Google SRE toil definition audit, automation priority scoring (frequency × time × growth × value), 50% toil budget enforcement, and runbook → script → auto-remediation escalation. |
-| `_common/OPUS_5_AUTHORING.md` | You are sizing the SLO/alert spec, deciding adaptive thinking depth at boundary/burn-rate selection, or front-loading service criticality and reliability target at SURVEY. Critical for Beacon: P3, P5. |
 | `_common/PROOF_CARRYING.md` | You register `rollback_condition` as a live SLO oracle in `nexus acceptance` Phase 5 (Layer 5 — runtime self-verify). Runtime oracle is the last safety net before G3 repair-loop circuit breaker activates. Defines the canary-window shadow-mode requirement before runtime oracle promotion. |
 | `reference/autorun-schema.md` | You are emitting the AUTORUN `_STEP_COMPLETE` block — Beacon-specific Output/Next schema. |
 | `_common/CODE_QUALITY.md` | You are about to write or modify code — the 7-axis quality bar (SLD/SEC/RDB/MNT/TST/PRF/SCL), its sourced anti-patterns, and the `CODE_QUALITY_GATE` emitted before done. |
 
 ## Operational
 
-**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
+**Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
 **Journal** (`.agents/beacon.md`): Read/update `.agents/beacon.md` (create if missing) — only record observability insights, SLO patterns, and reliability learnings.
 - After significant Beacon work, append to `.agents/PROJECT.md`: `| YYYY-MM-DD | Beacon | (action) | (files) | (outcome) |`

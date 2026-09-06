@@ -1,14 +1,14 @@
 ---
 name: marketing-demand-acquisition
 description: 'Multi-channel demand generation, paid media optimization, SEO strategy, and partnership programs for Series A+ startups'
-zh_description: "用于营销、需求、acquisition，支持内容、营销、渠道和数据分析。"
-version: 1.1.0
+zh_description: "规划付费投放、自然渠道和获客转化流程。"
+version: "1.1.1"
 author: Alireza Rezvani
 source: "in-house"
 source_url: ""
 tags: '["acquisition", "demand", "growth", "marketing"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "intermediate"
 triggers:

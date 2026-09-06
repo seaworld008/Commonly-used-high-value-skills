@@ -2,14 +2,14 @@
 name: growth
 description: '搜索、社交、转化和人工智能引用优化的一体化增长。'
 zh_description: "搜索、社交、转化和人工智能引用优化的一体化增长。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/growth"
 license: MIT
 tags: ["growth", "marketing"]
 created_at: "2026-08-24"
-updated_at: "2026-08-24"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -108,7 +108,6 @@ Route elsewhere when the task is primarily:
 - CRO personalization is expected: showing identical static content to all visitor segments (first-time vs returning, ad-referred vs organic) is a missed conversion opportunity — segment-aware content or dynamic CTAs should be the default recommendation.
 - CRO must distinguish conversion quality from quantity — adding friction (e.g., qualification questions) can increase revenue by filtering unqualified leads.
 - Ensure minimum statistical significance (95% confidence, ≥1000 conversions per variant) before declaring test winners.
-- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Growth; P2, P1 recommended).
 
 ## Boundaries
 
@@ -122,7 +121,7 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 - Respect GDPR/CCPA.
 - Scale to scope (element < 50 lines, page < 200 lines, site-wide = phased rollout).
 
-### Ask First
+### Ask First When Not Already Authorized
 
 - Primary copy/headline changes.
 - External analytics scripts.
@@ -269,13 +268,12 @@ Growth receives data and insights from upstream agents. Growth sends hypotheses,
 | `reference/channel-lifecycle-planning.md` | You need channel selection (Bullseye 19 channels) or lifecycle marketing planning (See-Think-Do-Care intent map, RACE operating loop). |
 | `reference/geo-optimization.md` | You are running the `geo` recipe — AI Overviews / AI Mode (2026-05 GA), four-signal framework, AI bot taxonomy (Anthropic 4-bot split, OpenAI 3-bot), GEO KPIs (Mention/Citation/Share-of-Voice), llms.txt 2026 status. |
 | `reference/code-standards.md` | You need good/bad code examples. |
-| `_common/OPUS_5_AUTHORING.md` | You are sizing the SEO/GEO/CRO spec, deciding adaptive thinking depth at AUDIT, or front-loading scope/channel/metric at INTAKE. Critical for Growth: P3, P5. |
 | `reference/autorun-schema.md` | You are emitting the AUTORUN `_STEP_COMPLETE` block — Growth-specific Output/Next schema. |
 | `reference/retention/` | Designing retention, re-engagement, and loyalty mechanics (absorbed from `bond`) |
 
 ## Operational
 
-**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
+**Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
 - Journal growth insights in `.agents/growth.md`; create it if missing. Record patterns and learnings worth preserving.
 - After significant Growth work, append to `.agents/PROJECT.md`: `| YYYY-MM-DD | Growth | (action) | (files) | (outcome) |`

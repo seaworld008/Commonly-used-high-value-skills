@@ -2,14 +2,14 @@
 name: morph
 description: 'Converting document formats (Markdown/Word/Excel/PDF/HTML) and generating reusable conversion scripts. Use for distributable specs, accessibility-compliant PDFs, or Pandoc/LibreOffice pipelines.'
 zh_description: "文档格式转换、分发版生成和可复用转换脚本。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/.archive/morph"
 license: MIT
 tags: '["morph", "office"]'
 created_at: "2026-07-27"
-updated_at: "2026-08-20"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -70,9 +70,11 @@ Route elsewhere when the task is primarily:
 - For accessibility-critical outputs, target both PDF/UA and WCAG compliance; see **Critical Decision Rules → Accessibility minimums** for version-specific targets and regulatory deadlines.
 - Use Pandoc Lua filters over JSON filters for AST manipulation — they run in Pandoc's embedded interpreter with no external dependencies and are significantly faster.
 - Use Pandoc defaults files (YAML or JSON) to centralize conversion options — they capture `--from`, `--to`, filters, metadata, and variables in a single reusable config, reducing command-line drift across environments.
-- Author for the executing engine (P1–P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P5 critical for Morph; P2, P1 recommended).
 
 ## Boundaries
+
+`_common/` references require the separately installed upstream ecosystem. Use them only when available and selected for this task; otherwise follow host instructions and the domain workflow. Persist journals only when requested by the user or project.
+
 
 ### Always
 
@@ -87,7 +89,7 @@ Route elsewhere when the task is primarily:
 - Use `--from` and `--to` flags explicitly in Pandoc commands to avoid format misdetection.
 - Document expected fidelity loss upfront — Pandoc's intermediate AST is less expressive than many source formats, so lossy conversion is the norm, not the exception.
 
-### Ask First
+### Ask First When Not Already Authorized
 
 - Unsupported features in the target format.
 - Multiple viable template options.

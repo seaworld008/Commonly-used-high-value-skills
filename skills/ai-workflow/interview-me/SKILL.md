@@ -1,15 +1,15 @@
 ---
 name: interview-me
-description: 'Extracts what the user actually wants instead of what they think they should want. Achieves this through one-question-at-a-time interview until ~95% confidence about the underlying intent. Use when an ask is underspecified (\"build me X\" without \"for whom\" or \"why now\"), when the user explicitly invokes (\"interview me\", \"grill me\", \"are we sure?\", \"stress-test my thinking\"), or when you catch yourself silently filling in ambiguous requirements before any plan, spec, or code exists.'
+description: 'Interview the user when they request guided discovery or when unresolved goals, audience, or constraints materially affect a proposed solution.'
 zh_description: "通过逐问访谈澄清真实需求、目标用户与成功标准，避免在含糊请求上过早实施。"
-version: "1.0.0"
+version: "1.0.1"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/interview-me/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "interview-me", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-07-27"
+updated_at: "2026-09-06"
 quality: 5
 complexity: advanced
 upstream_slug: interview-me

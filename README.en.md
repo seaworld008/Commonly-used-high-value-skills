@@ -237,9 +237,13 @@ This repository does not just happen to include a few Hermes-related skills. It 
 - it includes [`native-mcp`](./skills/ai-agent-platform/native-mcp/) for Hermes MCP usage
 - it includes [`hermes-open-gsd-workflow`](./skills/ai-agent-platform/hermes-open-gsd-workflow/) as a thin router across Hermes, Graphify, Open GSD Core, and explicitly optional GSD Pi
 
+## GPT-6 Astra instruction improvements
+
+Skills use focused triggers, on-demand references, and verification sized to task risk. See the [Astra guidance](docs/astra-skill-guidance.md) for official sources, audit scope, and evaluation limits, and the [shared maintenance workflow](docs/maintenance-workflow.md) for validation. Repository updates are separate from local model settings and skill installation.
+
 ## Hermes, Graphify, and Open GSD
 
-The repository mirrors the official Hermes and Graphify artifact sets and governs Open GSD Core / Pi as managed bundles. The local composition layer has one entry point and does not duplicate upstream versions, installer commands, or state machines:
+The repository mirrors the official Hermes artifact set, curates the Graphify entry while preserving its complete official references, and governs Open GSD Core / Pi as managed bundles. The local composition layer has one entry point and does not duplicate upstream versions, installer commands, or state machines:
 
 - capability routing and failure ownership: [`hermes-open-gsd-workflow`](./skills/ai-agent-platform/hermes-open-gsd-workflow/)
 

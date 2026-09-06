@@ -1,14 +1,14 @@
 ---
 name: react-native-engineering
-description: 'Use when building, reviewing, debugging, testing, upgrading, or shipping React Native and Expo applications, including navigation, native modules, New Architecture compatibility, iOS/Android platform differences, performance, EAS builds, over-the-air updates, and release validation.'
+description: 'Build, debug, upgrade, or ship React Native and Expo apps, including navigation, native modules, iOS/Android differences, performance, and EAS delivery.'
 zh_description: "用于构建、审查、调试、测试、升级和发布 React Native 与 Expo 应用，覆盖新架构、原生模块、性能、EAS 和双平台验证。"
-version: "1.0.0"
+version: "1.0.1"
 author: seaworld008
 source: "in-house"
 source_url: ""
 tags: '[react-native, expo, mobile, ios, android, testing, performance, eas]'
 created_at: "2026-08-10"
-updated_at: "2026-08-10"
+updated_at: "2026-09-06"
 quality: 5
 complexity: advanced
 ---

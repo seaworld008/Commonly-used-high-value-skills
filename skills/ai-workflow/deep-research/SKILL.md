@@ -1,14 +1,14 @@
 ---
 name: deep-research
-description: 'Generate format-controlled research reports with evidence tracking, citations, and iterative review. This skill should be used when users request a research report, literature review, market or industry analysis, competitive landscape, policy or technical brief, or require a strict report template and section formatting that a single deepresearch pass cannot reliably enforce.'
+description: 'Produce source-backed research reports, literature reviews, or technical and market briefs when evidence tracking and a defined report format matter.'
 zh_description: "用于执行深度研究、资料收集、来源核验和综合分析。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["deep", "planning", "research", "workflow"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "intermediate"
 ---

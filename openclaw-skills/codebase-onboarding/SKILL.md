@@ -1,14 +1,14 @@
 ---
 name: codebase-onboarding
-description: 'Analyze a codebase and generate comprehensive onboarding documentation tailored to your audience. Produces architecture overviews, key file maps, local setup guides, common task runbooks, debugging guides, and contribution guidelines. Outputs to Markdown, Notion, or Confluence.'
-zh_description: "用于代码库、onboarding，支持开发、调试、评审和交付。"
-version: "1.0.0"
+description: 'Create repository onboarding guides with architecture, key files, setup, debugging, and contribution workflows for a defined audience.'
+zh_description: "生成代码库架构、环境搭建和常见开发任务的入门指南。"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["codebase", "development", "onboarding"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "intermediate"
 ---
@@ -49,35 +49,7 @@ Analyze a codebase and generate comprehensive onboarding documentation tailored 
 
 ## Codebase Analysis Commands
 
-Run these before generating docs to gather facts:
-
-```bash
-# Project overview
-cat package.json | jq '{name, version, scripts, dependencies: (.dependencies | keys), devDependencies: (.devDependencies | keys)}'
-
-# Directory structure (top 2 levels)
-find . -maxdepth 2 -not -path '*/node_modules/*' -not -path '*/.git/*' -not -path '*/.next/*' | sort | head -60
-
-# Largest files (often core modules)
-find src/ -name "*.ts" -not -path "*/test*" -exec wc -l {} + | sort -rn | head -20
-
-# All routes (Next.js App Router)
-find app/ -name "route.ts" -o -name "page.tsx" | sort
-
-# All routes (Express)
-grep -rn "router\.\(get\|post\|put\|patch\|delete\)" src/routes/ --include="*.ts"
-
-# Recent major changes
-git log --oneline --since="90 days ago" | grep -E "feat|refactor|breaking"
-
-# Top contributors
-git shortlog -sn --no-merges | head -10
-
-# Test coverage summary
-pnpm test:ci --coverage 2>&1 | tail -20
-```
-
----
+Read [the detailed procedure and examples](EXTENDED.md#section-1) when working on this part of the task.
 
 ## Generated Documentation Template
 

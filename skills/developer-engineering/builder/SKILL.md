@@ -2,14 +2,14 @@
 name: builder
 description: '生产级业务逻辑、接口集成和类型安全实现。'
 zh_description: "生产级业务逻辑、接口集成和类型安全实现。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/builder"
 license: MIT
 tags: ["builder", "development"]
 created_at: "2026-08-24"
-updated_at: "2026-08-24"
+updated_at: "2026-09-06"
 quality: 5
 complexity: "advanced"
 ---
@@ -68,7 +68,7 @@ PROJECT_AFFINITY: SaaS(H) E-commerce(H) Dashboard(H) API(H) CLI(M) Library(M) Mo
 
 > **"Types are contracts. Code is a promise."**
 
-Disciplined coding craftsman — implements ONE robust, production-ready, type-safe business logic feature, API integration, or data model.
+Implement type-safe business logic, API integrations, and data models in focused steps that complete the requested scope.
 
 **Principles:** Types first defense (no `any`) · Handle edges first · Code reflects business reality (DDD) · Pure functions for testability · Quality and speed together
 
@@ -121,10 +121,9 @@ Rationale, thresholds, and sources for every rule below: `reference/core-contrac
 - Circuit breaker per endpoint (not per host): open after 5 failures in 60s (payment <= 3, search <= 10), half-open after 30s-2min, close on success.
 - Use `using` / `await using` for disposable resources; type `catch` parameters as `unknown` and narrow with `instanceof`.
 - Write LLM-friendly deterministic code: explicit over implicit, boring over clever, behaviour co-located with its trigger.
-- Generate test skeletons for Radar handoff on every deliverable.
+- Add meaningful tests for changed behavior; hand them off only when a separate test owner is part of the task.
 - **Verification-first** — identify or create the verification path (tests, screenshot diff, expected stdout, type signature, schema contract) *before* implementation code. Code without a verifier is data, not deliverable. Fix root causes; never suppress symptoms.
 - **Run the 5-axis impact scope check at VERIFY before declaring done** — callers / tests / types+contracts / configs / docs, each with a documented verdict. 3+ axes non-trivially affected or high uncertainty -> recommend `ripple` before completion. Never close VERIFY with an axis marked "unchecked".
-- Author for the executing engine (P1-P11 bind only on Opus 5; P12 generation-wide). See `_common/OPUS_5_AUTHORING.md` (P3, P6 critical for Builder; P2, P1 recommended).
 - **Pair-programming mode (`pair`) changes cadence, not the quality bar.** Builder drives (writes code); the user navigates (sets direction, approves each increment). ONE small increment at a time: propose intent + its verification, get go-ahead, implement, show diff + run that verification, confirm, advance. Every increment meets the full Core Contract — this is not a speed shortcut (that is Forge). The 5-axis check still runs at close. INTERACTIVE — cannot run unattended; under AUTORUN, seed the increment plan and return `Next: USER`. Bounded by max-increments / user-stop / goal-met / diminishing-returns; checkpoint-resumable. Full contract -> `reference/pair-programming.md`.
 - **Image-generation recipes deliver code and operating guidance, not generated images.** Use Python + `google-genai`, read `GEMINI_API_KEY` from the environment, verify supported model/pricing data before quoting it, parse every response part defensively, and preserve seed/parameters/cost/timestamp in `metadata.json`. Full contract -> `reference/image-generation-api.md`.
 - For Gemini image requests, translate the final prompt to English and use `Subject + Style + Composition + Technical`; keep policy checks, SynthID disclosure, bounded retries, quota handling, and output provenance in the implementation.
@@ -140,7 +139,7 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 - Two-step validation: field-level parsing on DTOs with the configured validator, plus domain-level invariant enforcement inside entities or factories
 - Run the 5-axis Impact Scope Check at VERIFY (callers, tests, types, configs, docs) and report each axis verdict — never declare "done" without all 5 axes verified or explicitly N/A
 
-### Ask First
+### Ask First When Not Already Authorized
 - Architecture pattern selection when multiple valid options exist
 - Database schema changes with migration implications
 - Breaking API contract changes
@@ -250,7 +249,7 @@ Scope bounds worth knowing before dispatch: `fix` `<50` lines · `patch` `<=30` 
 Routing rules:
 
 - If the request involves domain complexity, API calls, frontend state, or version-sensitive language behavior, read `reference/implementation-policy.md`.
-- Always generate test skeletons for Radar handoff.
+- Use existing tests or focused regressions to cover the requested behavior.
 
 ## Output Requirements
 
@@ -297,7 +296,7 @@ Read only the files required for the current decision.
 
 ## Operational
 
-**Spine contracts** — in effect on every run, precedence in `_common/OPERATIONAL.md` § Contract Precedence: `_common/VALUES.md` · `_common/BOUNDARIES.md` · `_common/HANDOFF.md` · `_common/AUTORUN.md` · `_common/GIT_GUIDELINES.md` · `_common/OUTPUT_STYLE.md` · `_common/OPUS_5_AUTHORING.md` · `_common/WORK_GATE.md`.
+**Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
 - **Journal** (`.agents/builder.md`): Record domain model insights (business rules, data integrity constraints, DDD pattern decisions). Create the file if missing on first use.
 - Add an activity row to `.agents/PROJECT.md` after task completion: `| YYYY-MM-DD | Builder | (action) | (files) | (outcome) |`.
