@@ -442,7 +442,7 @@ def test_damaged_controller_record_shape_is_a_per_run_failure(tmp_path):
     malformed=[]
     for key in ('assertions','returncodes'):
         bad=dict(good);bad.pop(key);malformed.append(bad)
-    malformed.extend([dict(good,assertions=[]),dict(good,assertions={'broken':'truthy'}),dict(good,returncodes=None),dict(good,usage='bad'),dict(good,elapsed_seconds='bad')])
+    malformed.extend([dict(good,assertions=[]),dict(good,assertions={'broken':'truthy'}),dict(good,returncodes=None),dict(good,usage='bad'),dict(good,elapsed_seconds='bad'),dict(good,elapsed_seconds=10**1000)])
     for raw in malformed:
         (folder/'result.json').write_text(json.dumps(raw))
         row=assess(folder/'result.json')

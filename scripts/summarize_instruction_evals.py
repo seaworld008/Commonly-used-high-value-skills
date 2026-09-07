@@ -68,7 +68,11 @@ def valid_metrics(raw):
     elapsed=raw.get('elapsed_seconds')
     calls=raw.get('completed_tool_calls')
     usage=raw.get('usage')
-    if (type(elapsed) not in (int,float) or not math.isfinite(elapsed) or elapsed < 0
+    try:
+        finite_elapsed=type(elapsed) in (int,float) and math.isfinite(elapsed)
+    except OverflowError:
+        finite_elapsed=False
+    if (not finite_elapsed or elapsed < 0
             or type(calls) is not int or calls < 0 or not isinstance(usage,list)):
         return False
     return all(isinstance(item,dict) and all(type(value) is int and value >= 0 for value in item.values()) for item in usage)
