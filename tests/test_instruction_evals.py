@@ -368,3 +368,18 @@ def test_file_changes_invalidate_an_operator_review(tmp_path):
     after=assess(folder/'result.json');apply_review(after,reviews)
     assert after['evidence_digest'] != before['evidence_digest']
     assert after['task_verdict']=='unreviewed'
+
+
+def test_index_only_changes_invalidate_a_semantic_review(tmp_path):
+    import subprocess
+    from scripts.summarize_instruction_evals import assess,apply_review
+    work=_evaluation_fixture(tmp_path);folder=work.parent
+    raw={'run_id':'candidate-dirty_work-1','case':'read_only','cohort':'candidate','repeat':1,'deterministic_pass':True,'assertions':{},'returncodes':[0],'usage':[{'input_tokens':1}],'elapsed_seconds':1,'completed_tool_calls':0}
+    (folder/'result.json').write_text(json.dumps(raw));(folder/'turn-0.jsonl').write_text('{"type":"turn.completed"}\n')
+    before=assess(folder/'result.json');content=(work/'user_notes.md').read_bytes()
+    review={'run_id':before['run_id'],'evidence_digest':before['evidence_digest'],'verdict':'pass','reviewer':'operator','rationale':'User draft remains unstaged.'}
+    subprocess.run(['git','add','user_notes.md'],cwd=work,check=True)
+    assert (work/'user_notes.md').read_bytes()==content
+    after=assess(folder/'result.json');apply_review(after,{(before['run_id'],before['evidence_digest']):review})
+    assert after['evidence_digest']!=before['evidence_digest']
+    assert after['task_verdict']=='unreviewed'
