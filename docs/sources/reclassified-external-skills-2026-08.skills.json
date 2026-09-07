@@ -1995,7 +1995,7 @@
             "ref": "main",
             "resolved_commit": "8331f910845103c08d51f6ca1d86ebb7d1f745e3",
             "path_commit": "32912161e2732c3e5001c6811a76c1f8308ed0da",
-            "content_sha256": "2e78057e19e117750fe1c59147428e649538cc85a4975400225f97d7d6fb3e3a",
+            "content_sha256": "06641745423da5a205f718e1a363d98165b76023ba84c32ce3ce80163bfb8c13",
             "last_checked_at": "2026-08-31",
             "last_synced_at": "2026-08-31",
             "license_checkpoint": {
@@ -2018,7 +2018,7 @@
         },
         {
           "path": "skills/developer-engineering/supabase-postgres-best-practices/SKILL.md",
-          "sha256": "2e78057e19e117750fe1c59147428e649538cc85a4975400225f97d7d6fb3e3a",
+          "sha256": "06641745423da5a205f718e1a363d98165b76023ba84c32ce3ce80163bfb8c13",
           "owner": "supabase-postgres-best-practices",
           "mode": "100644"
         },
