@@ -1,8 +1,8 @@
 ---
 name: supabase-postgres-best-practices
-description: 'Review Postgres schemas, queries, indexes, RLS, and migrations using Supabase''s database guidance; applicable to Postgres on any hosting platform.'
-zh_description: "用于编写、评审和优化 Supabase/Postgres 查询、Schema、索引和数据库配置。"
-version: "1.0.3"
+description: 'Use when writing or reviewing Postgres schemas, queries, indexes, RLS policies, connection settings, or migrations with Supabase guidance; applicable to Postgres on any hosting platform.'
+zh_description: "用于编写或评审 Supabase/Postgres 的查询、Schema、索引、RLS、连接配置与迁移。"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:supabase/agent-skills"
 source_url: "https://skills.sh/supabase/agent-skills/supabase-postgres-best-practices"
@@ -73,30 +73,43 @@ Each rule file contains:
 - https://supabase.com/docs/guides/database/overview
 - https://supabase.com/docs/guides/auth/row-level-security
 <!-- LOCAL-QUALITY-SUPPLEMENT:START -->
-## Usage Notes
+## Review Workflow
 
-This supplement is maintained by the repository sync pipeline. It keeps the
-imported upstream skill usable inside this curated collection when the upstream
-source is intentionally concise.
+Select only the rule files that match the task. Start with correctness and
+access control, then measure performance before proposing tuning changes.
 
-## Common Patterns
+1. Identify the database version, hosting constraints, workload shape, and
+   whether the task changes data or only reviews SQL.
+2. Read the relevant `query-`, `conn-`, `security-`, `schema-`, `lock-`,
+   `data-`, or `monitor-` references; avoid loading the full rule set by default.
+3. Preserve existing RLS and privilege boundaries. Treat disabling RLS,
+   broadening grants, destructive DDL, and production writes as separate,
+   explicitly authorized actions.
+4. For performance claims, capture the query shape and an `EXPLAIN` or
+   `EXPLAIN (ANALYZE, BUFFERS)` result in a safe environment. Do not infer an
+   improvement from the presence of an index alone.
+5. Verify migrations on a representative schema, including rollback or a
+   forward-fix path, lock duration, and compatibility with concurrent traffic.
 
-```text
-1. Confirm that the user's task matches the skill trigger.
-2. Read the relevant project files or user-provided context before acting.
-3. Choose the smallest reversible action that advances the task.
-4. Run the verification command or manual check that proves the result.
-5. Report the outcome, evidence, and any remaining risk.
-```
+## Acceptance Evidence
+
+- Query tuning: compare plans and measured latency or buffer usage under the
+  same parameters and representative data distribution.
+- Index changes: confirm intended scans use the index and account for write,
+  storage, and maintenance overhead.
+- RLS or privilege changes: test allowed and denied paths with the actual roles;
+  service-role success is not proof that end-user policies work.
+- Connection changes: verify pool mode, transaction semantics, prepared
+  statement compatibility, connection limits, and saturation behavior.
+- Schema changes: verify constraints, backfill behavior, lock exposure, and the
+  recovery procedure before production rollout.
 
 ## Boundaries
 
-- Prefer the upstream workflow for Supabase Postgres Best Practices; this section only adds local quality
-  guardrails.
-- Do not invent project facts when required files, vaults, services, or tools are
-  unavailable.
-- Stop and ask for clarification when the next action could overwrite user work,
-  expose private data, or change production state.
-- Treat skill selection as routing, not ceremony: invoke only the narrowest
-  applicable workflow and keep user or repository instructions authoritative.
+- Never run `EXPLAIN ANALYZE` on a mutating statement in production without an
+  explicitly safe transaction and authorization; plain `EXPLAIN` is the safer
+  default for uncertain statements.
+- Do not present generic PostgreSQL advice as a Supabase platform guarantee.
+- Static SQL review and local tests do not prove production capacity, failover,
+  replication health, or zero-downtime migration behavior.
 <!-- LOCAL-QUALITY-SUPPLEMENT:END -->

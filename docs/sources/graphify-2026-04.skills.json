@@ -2,7 +2,7 @@
   "schema_version": 2,
   "video": {
     "url": "https://github.com/Graphify-Labs/graphify/releases/tag/v0.9.47",
-    "checked_at": "2026-08-20",
+    "checked_at": "2026-09-07",
     "note": "Official Graphify Codex skill artifact-set mirror. Python package and non-Codex client snapshots are intentionally excluded."
   },
   "official_references": [
@@ -33,10 +33,10 @@
       "upstream": {
         "repo": "Graphify-Labs/graphify",
         "path": "graphify/skill-codex.md",
-        "ref": "v0.9.47",
-        "last_checked_at": "2026-08-20",
-        "last_synced_at": "2026-08-20",
-        "last_synced_commit": "b14b52e94ec3d9840413d81777f4c134eac0a40d",
+        "ref": "v0.9.55",
+        "last_checked_at": "2026-09-07",
+        "last_synced_at": "2026-09-07",
+        "last_synced_commit": "c9f99018774e2e0380e9f65b3959944559a0d5f6",
         "sync_mode": "monitor",
         "path_commit": "3d19463484ebcf773b399ddad9fd3363b2ab3bff"
       },
@@ -62,18 +62,18 @@
           ],
           "tracking": {
             "channel": "latest_release",
-            "ref": "v0.9.47",
-            "resolved_commit": "b14b52e94ec3d9840413d81777f4c134eac0a40d",
+            "ref": "v0.9.55",
+            "resolved_commit": "c9f99018774e2e0380e9f65b3959944559a0d5f6",
             "path_commit": "3d19463484ebcf773b399ddad9fd3363b2ab3bff",
             "content_sha256": "7bc85fef495f99d8f004a4a666072a796185ae2cd81f5a1fa844fe4a94f5efb9",
-            "last_checked_at": "2026-08-20",
-            "last_synced_at": "2026-08-20",
+            "last_checked_at": "2026-09-07",
+            "last_synced_at": "2026-09-07",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
               "content_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
               "spdx": "Apache-2.0",
-              "resolved_commit": "b14b52e94ec3d9840413d81777f4c134eac0a40d",
+              "resolved_commit": "c9f99018774e2e0380e9f65b3959944559a0d5f6",
               "api_spdx": "NOASSERTION"
             }
           }
@@ -193,6 +193,13 @@
       "target": "Graphify-Labs/graphify@v0.9.47",
       "result": "success",
       "evidence": "Resolved v0.9.47 to b14b52e94ec3d9840413d81777f4c134eac0a40d, verified LICENSE blob d645695673349e3947e8e5ae42332d0ac3164cd7, mirrored the Codex SKILL plus eight references, and removed 64 fully superseded managed snapshot files."
+    },
+    {
+      "date": "2026-09-07",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "Graphify-Labs/graphify@c9f99018774e2e0380e9f65b3959944559a0d5f6",
+      "result": "success",
+      "evidence": "Reviewed v0.9.47 through v0.9.55 (156 commits). The managed Codex entry and eight reference blobs are byte-identical, so no local skill text changed; runtime-only fixes remain outside this artifact set."
     }
   ]
 }

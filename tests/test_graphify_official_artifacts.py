@@ -6,7 +6,6 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SKILL_ROOT = REPO_ROOT / "skills/developer-engineering/graphify"
 MAPPING_PATH = REPO_ROOT / "docs/sources/graphify-2026-04.skills.json"
-RELEASE_COMMIT = "b14b52e94ec3d9840413d81777f4c134eac0a40d"
 EXPECTED_RELATIVE_FILES = {
     "SKILL.md",
     "EXTENDED.md",
@@ -54,8 +53,12 @@ def test_graphify_release_mapping_has_single_owner_and_exact_hashes() -> None:
         "type": "file",
     }]
     assert origin["tracking"]["channel"] == "latest_release"
-    assert origin["tracking"]["ref"] == "v0.9.47"
-    assert origin["tracking"]["resolved_commit"] == RELEASE_COMMIT
+    assert origin["tracking"]["ref"].startswith("v")
+    reviewed = mapping["verification_attempts"][-1]
+    assert reviewed["method"] == "commit-aware-manual-monitor-review"
+    assert reviewed["result"] == "success"
+    reviewed_commit = reviewed["target"].rsplit("@", 1)[1]
+    assert origin["tracking"]["resolved_commit"] == reviewed_commit
     assert origin["tracking"]["license_checkpoint"] == {
         "path": "LICENSE",
         "blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
@@ -63,7 +66,7 @@ def test_graphify_release_mapping_has_single_owner_and_exact_hashes() -> None:
             "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
         ),
         "spdx": "Apache-2.0",
-        "resolved_commit": RELEASE_COMMIT,
+        "resolved_commit": reviewed_commit,
         "api_spdx": "NOASSERTION",
     }
 
@@ -98,7 +101,7 @@ def test_graphify_release_mapping_has_single_owner_and_exact_hashes() -> None:
     assert origin["tracking"]["content_sha256"] == skill_hash
 
 
-def test_graphify_references_match_reviewed_v0947_hashes() -> None:
+def test_graphify_references_match_reviewed_release_hashes() -> None:
     expected_hashes = {
         "add-watch.md": "b3f67570240582689c2834b4831917550c2d1aaf042148868c39dcbf387ce3fd",
         "exports.md": "ee47fae477f106d8aed38798c58493b5a7f060a0d9d2581ce6132302827bc14b",

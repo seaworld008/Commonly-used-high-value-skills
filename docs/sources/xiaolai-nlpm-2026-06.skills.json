@@ -2,7 +2,7 @@
   "schema_version": 2,
   "video": {
     "url": "https://nlpm.com/",
-    "checked_at": "2026-09-06",
+    "checked_at": "2026-09-07",
     "note": "Curated from xiaolai/nlpm after reviewing the website, why page, README, LICENSE, author docs, rules, scoring, and testing materials. Imported as an original repository skill that captures the durable audit method rather than mirroring the full upstream command/plugin product."
   },
   "official_references": [
@@ -50,9 +50,9 @@
         "path": "README.md",
         "ref": "main",
         "sync_mode": "monitor",
-        "last_checked_at": "2026-09-06",
-        "last_synced_at": "2026-09-06",
-        "last_synced_commit": "dffbb03c449fa70bf0cfd2c16ff13055130d794c",
+        "last_checked_at": "2026-09-07",
+        "last_synced_at": "2026-09-07",
+        "last_synced_commit": "eb6b088f0218f82a34000f356dd094a242d50a5c",
         "path_commit": "5959cde46b0c79129dd791e3e0639adb0bdf7222"
       },
       "kind": "overlay",
@@ -72,17 +72,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "dffbb03c449fa70bf0cfd2c16ff13055130d794c",
+            "resolved_commit": "eb6b088f0218f82a34000f356dd094a242d50a5c",
             "path_commit": "5959cde46b0c79129dd791e3e0639adb0bdf7222",
             "content_sha256": "0f4df860e8ab1b47d45b439b49b1fb595cf258bf3b5216a5e1a6d78426cb23a8",
-            "last_checked_at": "2026-09-06",
-            "last_synced_at": "2026-09-06",
+            "last_checked_at": "2026-09-07",
+            "last_synced_at": "2026-09-07",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "554937c222c6dd2db191634da77b5486a4a0410b",
               "content_sha256": "87b3f4064cb76d1c7cc8c39546d7d62790b76372f37cfb9de1bb828a5f652b51",
               "spdx": "ISC",
-              "resolved_commit": "dffbb03c449fa70bf0cfd2c16ff13055130d794c",
+              "resolved_commit": "eb6b088f0218f82a34000f356dd094a242d50a5c",
               "api_spdx": "ISC"
             }
           }
@@ -290,6 +290,13 @@
       "target": "xiaolai/nlpm@dffbb03c449fa70bf0cfd2c16ff13055130d794c",
       "result": "success",
       "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-09-07",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "xiaolai/nlpm@eb6b088f0218f82a34000f356dd094a242d50a5c",
+      "result": "success",
+      "evidence": "Reviewed 10 commits after dffbb03c449fa70bf0cfd2c16ff13055130d794c. Changes are tracking logs, a daily report, and dashboard data; the managed README blob is unchanged, so no local skill text changed."
     }
   ]
 }

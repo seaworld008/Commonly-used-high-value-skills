@@ -54,7 +54,7 @@
 | `schema` | 数据库模式设计、迁移规划、索引策略和关系建模。 | [目录](./schema/) | [SKILL.md](./schema/SKILL.md) |
 | `skill-tester` | 验证技能触发、执行步骤和输出结果是否符合预期。 | [目录](./skill-tester/) | [SKILL.md](./skill-tester/SKILL.md) |
 | `supabase` | 开发和排查 Supabase 数据库、认证、存储及应用集成。 | [目录](./supabase/) | [SKILL.md](./supabase/SKILL.md) |
-| `supabase-postgres-best-practices` | 用于编写、评审和优化 Supabase/Postgres 查询、Schema、索引和数据库配置。 | [目录](./supabase-postgres-best-practices/) | [SKILL.md](./supabase-postgres-best-practices/SKILL.md) |
+| `supabase-postgres-best-practices` | 用于编写或评审 Supabase/Postgres 的查询、Schema、索引、RLS、连接配置与迁移。 | [目录](./supabase-postgres-best-practices/) | [SKILL.md](./supabase-postgres-best-practices/SKILL.md) |
 | `systematic-debugging` | 通过复现、假设检验和证据定位故障根因。 | [目录](./systematic-debugging/) | [SKILL.md](./systematic-debugging/SKILL.md) |
 | `tailwind-design-system` | 用于 Tailwind CSS 设计系统、主题 token、组件样式和响应式布局规范。 | [目录](./tailwind-design-system/) | [SKILL.md](./tailwind-design-system/SKILL.md) |
 | `tech-debt-tracker` | 识别和量化技术债，确定修复优先级并跟踪治理进度。 | [目录](./tech-debt-tracker/) | [SKILL.md](./tech-debt-tracker/SKILL.md) |

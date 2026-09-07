@@ -2269,7 +2269,7 @@
     {
       "name": "supabase-postgres-best-practices",
       "category": "developer-engineering",
-      "description": "Review Postgres schemas, queries, indexes, RLS, and migrations using Supabase''s database guidance; applicable to Postgres on any hosting platform.",
+      "description": "Use when writing or reviewing Postgres schemas, queries, indexes, RLS policies, connection settings, or migrations with Supabase guidance; applicable to Postgres on any hosting platform.",
       "version": "1.1.1",
       "author": "supabase",
       "source": "github:supabase/agent-skills",
@@ -2284,7 +2284,7 @@
       "complexity": "intermediate",
       "created_at": "2026-05-05",
       "updated_at": "2026-09-06",
-      "line_count": 102,
+      "line_count": 115,
       "path": "skills/developer-engineering/supabase-postgres-best-practices/SKILL.md"
     },
     {

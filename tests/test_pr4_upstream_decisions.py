@@ -55,24 +55,31 @@ def test_reviewed_monitor_checkpoints_advance_without_body_churn() -> None:
         (
             "addyosmani-agent-skills-2026-04.skills.json",
             "api-and-interface-design",
-            "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
         ),
         (
             "firebase-agent-skills-2026-07.skills.json",
             "firebase-security-rules-auditor",
-            "a0b4e143f40c1ebe05fe5f9a4787fecd4da8f478",
         ),
         (
             "xiaolai-nlpm-2026-06.skills.json",
             "nlpm-audit",
-            "dffbb03c449fa70bf0cfd2c16ff13055130d794c",
         ),
     )
-    for mapping_name, slug, commit in cases:
-        item = entry(mapping(mapping_name), slug)
+    for mapping_name, slug in cases:
+        mapping_data = mapping(mapping_name)
+        item = entry(mapping_data, slug)
+        origin = item["origins"][0]
         tracking = item["origins"][0]["tracking"]
-        assert tracking["resolved_commit"] == commit
-        assert tracking["license_checkpoint"]["resolved_commit"] == commit
+        reviewed = next(
+            attempt
+            for attempt in reversed(mapping_data["verification_attempts"])
+            if attempt["method"] == "commit-aware-manual-monitor-review"
+            and attempt["target"].startswith(f"{origin['repo']}@")
+        )
+        reviewed_commit = reviewed["target"].rsplit("@", 1)[1]
+        assert reviewed["result"] == "success"
+        assert tracking["resolved_commit"] == reviewed_commit
+        assert tracking["license_checkpoint"]["resolved_commit"] == reviewed_commit
         assert_managed_inventory(item)
 
 
