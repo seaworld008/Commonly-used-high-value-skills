@@ -13,9 +13,11 @@ All notable changes to this repository are documented here.
 #### [2026-09-07]
 
 ##### Changed
+- align cross-agent instructions and add Astra evaluations
 - review weekly skill sources (#102)
 
 ##### Fixed
+- correct catalog metadata and complete maintenance audit (#105)
 - prevent duplicate changelog auth headers (#104)
 - address weekly review findings (#103)
 
