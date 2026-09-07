@@ -106,7 +106,7 @@ Durable, cross-project changes — rewriting the Agent Spawn Template, `hub-auth
 
 `offline tune (corpus backtest) → Lore curation (METAPATTERNS) → Darwin promotion proposal → user approval → Guardian commit`
 
-This keeps the irreversible, all-spawns-affecting writes behind evidence + approval, while the day-to-day session/project adaptation here stays fully automatic.
+This keeps the irreversible, all-spawns-affecting writes behind evidence + approval, while session-local adjustments remain inside already-authorized settings. Model and effort authority is never inferred from reversibility.
 
 ---
 
@@ -148,8 +148,8 @@ The tuning is internal but **never silent** — a tuned spawn is never quietly d
 
 **Where it surfaces (delta-only — zero output when nothing was tuned, so it adds no noise):**
 1. **Inline in the Nexus Execution Report** — a tuned step's per-step line carries a compact one-liner, e.g.
-   `🎛 Forge: envelope 200→120w (repeated overlength) · effort high→med (VERIFY pass×3)`
+   `🎛 Forge: envelope 200→120w (repeated overlength)`
 2. **`## Prompt Tuning` summary subsection in `DELIVER`** — the full per-spawn trace table, included **only when ≥ 1 spawn was tuned**; omitted entirely otherwise.
 3. **Journal (with warm-start §5)** — appended to `.agents/adaptive-prompt-policy.journal.md` for audit/resume; carries the trigger + reward_basis so a later session (or the user) can review *why* each tuning happened.
 
-This makes every internal adjustment **inspectable after the fact** without forcing a confirmation gate — the user sees what changed, the signal behind it, and the evidence, but the reversible per-spawn tuning still runs automatically.
+This makes every internal adjustment **inspectable after the fact** within existing authority — the user sees the change and its evidence. Model or effort changes require an already-authorized range or a focused approval; being reversible does not supply that authority.

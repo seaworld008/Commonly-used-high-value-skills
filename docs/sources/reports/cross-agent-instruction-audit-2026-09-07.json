@@ -4070,8 +4070,8 @@
         },
         {
           "path": "skills/ai-workflow/nexus/reference/adaptive-prompt-policy.md",
-          "sha256": "9e921e77fcdd917257211b8a0bbc168cd2b74f8e0b76d1cd4ea8ace0edb16398",
-          "bytes": 13479,
+          "sha256": "a4dec5992d54cd9d0b62fd8901340780eadefaebe24bbcddbd1394682f58823d",
+          "bytes": 13540,
           "kind": "markdown",
           "findings": [],
           "review_hints": [],
@@ -49583,8 +49583,8 @@
     },
     {
       "path": "docs/cross-agent-compatibility.md",
-      "sha256": "21384456d2d8ff4fac2f85af64dc626deb15737f3b0bcc8c048533786db513dc",
-      "bytes": 5383,
+      "sha256": "d6e7291aef4ecacdd31bb11e1d6624759df7f2823b47ddd420ef23ecb8a568a8",
+      "bytes": 5908,
       "kind": "markdown",
       "findings": [],
       "review_hints": [
