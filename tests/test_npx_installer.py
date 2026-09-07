@@ -129,7 +129,7 @@ fs.writeFileSync(process.env.FAKE_NPX_LOG, JSON.stringify(args));
         data = json.loads(PACKAGE_JSON.read_text(encoding="utf-8"))
 
         self.assertEqual("common-high-value-skills", data["name"])
-        self.assertEqual("2.1.0", data["version"])
+        self.assertEqual("2.1.1", data["version"])
         self.assertEqual("bin/install-skills.js", data["bin"]["high-value-skills"])
         self.assertIn("skills/", data["files"])
         self.assertIn(

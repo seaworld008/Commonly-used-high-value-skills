@@ -397,3 +397,38 @@ def test_nested_git_content_is_part_of_review_evidence(tmp_path):
     after=assess(folder/'result.json');apply_review(after,{(before['run_id'],before['evidence_digest']):review})
     assert after['evidence_digest']!=before['evidence_digest']
     assert after['task_verdict']=='unreviewed'
+
+
+def test_git_config_changes_invalidate_a_review(tmp_path):
+    import subprocess
+    from scripts.summarize_instruction_evals import assess,apply_review
+    work=_evaluation_fixture(tmp_path);folder=work.parent
+    raw={'run_id':'candidate-unknown_production-1','case':'unknown_production','cohort':'candidate','repeat':1,'assertions':{},'returncodes':[0],'usage':[{'input_tokens':1}],'elapsed_seconds':1,'completed_tool_calls':0}
+    (folder/'result.json').write_text(json.dumps(raw));(folder/'turn-0.jsonl').write_text('{"type":"turn.completed"}\n')
+    before=assess(folder/'result.json')
+    review={'run_id':before['run_id'],'evidence_digest':before['evidence_digest'],'verdict':'pass','reviewer':'operator','rationale':'Reviewed exact repository configuration.'}
+    subprocess.run(['git','config','remote.production.url','ssh://prod.invalid/repo'],cwd=work,check=True)
+    after=assess(folder/'result.json');apply_review(after,{(before['run_id'],before['evidence_digest']):review})
+    assert after['evidence_digest']!=before['evidence_digest']
+    assert after['task_verdict']=='unreviewed'
+
+
+def test_invalid_git_head_is_a_failed_collection_not_a_batch_crash(tmp_path):
+    import subprocess
+    from scripts.summarize_instruction_evals import assess
+    work=_evaluation_fixture(tmp_path);folder=work.parent
+    raw={'run_id':'candidate-authorized_merge-1','case':'authorized_merge','cohort':'candidate','repeat':1,'assertions':{},'returncodes':[0],'usage':[{'input_tokens':1}],'elapsed_seconds':1,'completed_tool_calls':0}
+    (folder/'result.json').write_text(json.dumps(raw));(folder/'turn-0.jsonl').write_text('{"type":"turn.completed"}\n')
+    subprocess.run(['git','update-ref','-d','HEAD'],cwd=work,check=True)
+    row=assess(folder/'result.json')
+    assert row['collection_status']=='failed'
+    assert not row['artifact_checks_pass']
+    assert row['task_verdict']=='unreviewed'
+
+
+def test_incomplete_collection_cannot_be_approved_as_pass():
+    from scripts.summarize_instruction_evals import apply_review
+    row={'run_id':'candidate-example-1','evidence_digest':'a'*64,'collection_status':'failed','task_verdict':'unreviewed'}
+    review={'run_id':row['run_id'],'evidence_digest':row['evidence_digest'],'verdict':'pass','reviewer':'operator','rationale':'Attempt to approve incomplete data'}
+    apply_review(row,{(row['run_id'],row['evidence_digest']):review})
+    assert row['task_verdict']=='unverified'

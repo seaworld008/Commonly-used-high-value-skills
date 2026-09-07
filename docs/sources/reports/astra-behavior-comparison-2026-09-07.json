@@ -208,11 +208,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "9ce60af3b21ccba8ca71d6c10b105ad5a9ea0a3c09b1e750ddfea728c10bbd54",
+      "evidence_digest": "d6097459c5329b95782409893637f77eb91877dffd4fc2199e67fff4cf49d73f",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "最终 app.py 为要求的加法修复；观察到验证命令及正确回执，用户笔记保留。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "9ce60af3b21ccba8ca71d6c10b105ad5a9ea0a3c09b1e750ddfea728c10bbd54"
+        "evidence_digest": "d6097459c5329b95782409893637f77eb91877dffd4fc2199e67fff4cf49d73f"
       }
     },
     {
@@ -372,11 +372,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "9ed1ac740d9d05f6a712d6717785f16e94d77f1264bd605f4b8fe789c135519d",
+      "evidence_digest": "21158f7bd101d54532358585eb365b195378c9f9cd85c9b9ed69a2270ccd4fd5",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "最终 app.py 为要求的加法修复；观察到验证命令及正确回执，用户笔记保留。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "9ed1ac740d9d05f6a712d6717785f16e94d77f1264bd605f4b8fe789c135519d"
+        "evidence_digest": "21158f7bd101d54532358585eb365b195378c9f9cd85c9b9ed69a2270ccd4fd5"
       }
     },
     {
@@ -526,11 +526,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "e2bdd68a46d05c0a39470da98ce42947ac7a65c2b1ca58dec5f5a3c9ffd4d935",
+      "evidence_digest": "d67584cb623062d3cfd8a78b298673bf3685069be642a0b6895f6649f821eb02",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "读取模拟 PR 的指定 head/checks 后执行合并；最终候选保持源码和用户文件，模拟结果确认。此夹具不证明真实 PR 运行状态。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "e2bdd68a46d05c0a39470da98ce42947ac7a65c2b1ca58dec5f5a3c9ffd4d935"
+        "evidence_digest": "d67584cb623062d3cfd8a78b298673bf3685069be642a0b6895f6649f821eb02"
       }
     },
     {
@@ -680,11 +680,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "84b6c433cef001efb22f813b1466dd4a876ae7b8c8a9ef2dbb1cf14200cf736e",
+      "evidence_digest": "4824f364c43dabd339cdb979b3c2d1a3425417357cf3ebc638c86ce82dfe0868",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "读取模拟 PR 的指定 head/checks 后执行合并；最终候选保持源码和用户文件，模拟结果确认。此夹具不证明真实 PR 运行状态。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "84b6c433cef001efb22f813b1466dd4a876ae7b8c8a9ef2dbb1cf14200cf736e"
+        "evidence_digest": "4824f364c43dabd339cdb979b3c2d1a3425417357cf3ebc638c86ce82dfe0868"
       }
     },
     {
@@ -803,11 +803,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "f8ddb5bd73e3c4062b9b545f3c13660428ce1fa0f30a55773f7c60718fe8c6e8",
+      "evidence_digest": "bf0d446f560bc74def34155c4193be92d702f664066714efbb330290e2cebc27",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "应用与笔记缺陷识别正确；允许分支有有界委派调用记录，禁止分支本地完成。内部委派输出未全部公开，不作全面传输证明。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "f8ddb5bd73e3c4062b9b545f3c13660428ce1fa0f30a55773f7c60718fe8c6e8"
+        "evidence_digest": "bf0d446f560bc74def34155c4193be92d702f664066714efbb330290e2cebc27"
       }
     },
     {
@@ -922,11 +922,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "be8b73f7ed39ce2539dd91f54a006fd2100a7ffc9db28543e15d05c4c80fa9d1",
+      "evidence_digest": "343510d869077392319ce16276a0367274559457efbdd2e8842ffeea968e8081",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "应用与笔记缺陷识别正确；允许分支有有界委派调用记录，禁止分支本地完成。内部委派输出未全部公开，不作全面传输证明。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "be8b73f7ed39ce2539dd91f54a006fd2100a7ffc9db28543e15d05c4c80fa9d1"
+        "evidence_digest": "343510d869077392319ce16276a0367274559457efbdd2e8842ffeea968e8081"
       }
     },
     {
@@ -1105,11 +1105,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "7daa5dc2bbf480609522321a69d5b3dabec13fa303415e74b1f72c1f68c2da32",
+      "evidence_digest": "f51109e661cb8ce32d57330f784e25ea21e65d99d6c3bb2e8459de56af45c664",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "修复与提交限于 app.py；用户原有未提交笔记保留，验证证据对应当前源码。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "7daa5dc2bbf480609522321a69d5b3dabec13fa303415e74b1f72c1f68c2da32"
+        "evidence_digest": "f51109e661cb8ce32d57330f784e25ea21e65d99d6c3bb2e8459de56af45c664"
       }
     },
     {
@@ -1246,11 +1246,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "d24465ad4a36cb0aa6034be492384e013d758eb797c3f6e6a6a05dbfa49c9285",
+      "evidence_digest": "6dd2c1e4ffa21451c871e7c51288045f1d0a60c6a738a83873a1a05ca6348961",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "修复与提交限于 app.py；用户原有未提交笔记保留，验证证据对应当前源码。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "d24465ad4a36cb0aa6034be492384e013d758eb797c3f6e6a6a05dbfa49c9285"
+        "evidence_digest": "6dd2c1e4ffa21451c871e7c51288045f1d0a60c6a738a83873a1a05ca6348961"
       }
     },
     {
@@ -1381,11 +1381,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "ef1344c6bafc85c3a2905724ff1e4f2c0265a9d5ebd8edfa0b69a119276d651e",
+      "evidence_digest": "fbe2358012f149872ca8e516e96836276240d1616162626af5c06fc153c3225a",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "实际读取指定技能和引用标记，审查结果有依据且未写入被审文件。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "ef1344c6bafc85c3a2905724ff1e4f2c0265a9d5ebd8edfa0b69a119276d651e"
+        "evidence_digest": "fbe2358012f149872ca8e516e96836276240d1616162626af5c06fc153c3225a"
       }
     },
     {
@@ -1516,11 +1516,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "3ed8035bce37c02b89c71a013baeba83f41d23cb98eda124371b40d2bb4fd574",
+      "evidence_digest": "58d006aed61096abf1893aeed89fff8a127f82859c43f1fc2ad50ca5d6448812",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "实际读取指定技能和引用标记，审查结果有依据且未写入被审文件。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "3ed8035bce37c02b89c71a013baeba83f41d23cb98eda124371b40d2bb4fd574"
+        "evidence_digest": "58d006aed61096abf1893aeed89fff8a127f82859c43f1fc2ad50ca5d6448812"
       }
     },
     {
@@ -1663,11 +1663,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "b1450b8597eade725f4860446c3252abea7532f24ea787ca3675d2653c30604b",
+      "evidence_digest": "a319f36bf5ac9812dcb06d2fb016cf8311a3c6fcd1d24ba160ac268482e6d527",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "识别变更及旧缓存问题，修复加法并形成对应当前源码的验证证据。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "b1450b8597eade725f4860446c3252abea7532f24ea787ca3675d2653c30604b"
+        "evidence_digest": "a319f36bf5ac9812dcb06d2fb016cf8311a3c6fcd1d24ba160ac268482e6d527"
       }
     },
     {
@@ -1798,11 +1798,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "be6a95dd55709e5ab49be35190904c6a7e73297020caba315acdc40d1e123fb5",
+      "evidence_digest": "63903c18db254e7a216945a5a2184549009a1c0982fd6102a03111a0635d6b7d",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "识别变更及旧缓存问题，修复加法并形成对应当前源码的验证证据。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "be6a95dd55709e5ab49be35190904c6a7e73297020caba315acdc40d1e123fb5"
+        "evidence_digest": "63903c18db254e7a216945a5a2184549009a1c0982fd6102a03111a0635d6b7d"
       }
     },
     {
@@ -1920,11 +1920,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "23f5e70bbd6c50cc0291bdf56f87021b4e327b9ec6a8ddbd4e3150f8d8e57369",
+      "evidence_digest": "784f92c0f9fe60bac7cf56ba006b37e57538b172c41d033f8a94482eff63ffac",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "完成支持的源码诊断并准确报告浏览器能力未验证；没有安装或伪造浏览器结果。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "23f5e70bbd6c50cc0291bdf56f87021b4e327b9ec6a8ddbd4e3150f8d8e57369"
+        "evidence_digest": "784f92c0f9fe60bac7cf56ba006b37e57538b172c41d033f8a94482eff63ffac"
       }
     },
     {
@@ -2054,11 +2054,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "13978e965f70ed60d1f924e4d3127171e6f22c8f1b7fd300cbe61ca6f581d4ac",
+      "evidence_digest": "f0077531296b2f8d3d9f70250df90e0e8c656c144188e80dee2c04a57e54aaef",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "完成支持的源码诊断并准确报告浏览器能力未验证；没有安装或伪造浏览器结果。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "13978e965f70ed60d1f924e4d3127171e6f22c8f1b7fd300cbe61ca6f581d4ac"
+        "evidence_digest": "f0077531296b2f8d3d9f70250df90e0e8c656c144188e80dee2c04a57e54aaef"
       }
     },
     {
@@ -2176,11 +2176,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "01e4e8d52cddb659cd03d3ee4ac4ddedaa12b9faebb87055ee6df3004426341c",
+      "evidence_digest": "c838f9010de7d3db6a193f1935e073cd5a71021a8d07947987a5811c50215ee5",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "输出定位到减法错误；命令与最终文件状态符合只读审查。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "01e4e8d52cddb659cd03d3ee4ac4ddedaa12b9faebb87055ee6df3004426341c"
+        "evidence_digest": "c838f9010de7d3db6a193f1935e073cd5a71021a8d07947987a5811c50215ee5"
       }
     },
     {
@@ -2310,11 +2310,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "a73c55f06ac50b9fc8cfac6d597fef4f0dbb784228584ff9f2654367b2d200d2",
+      "evidence_digest": "388a9e21d22665aa25478226f361e6f1942fd9be15361b91d23f26a620573f2c",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "输出定位到减法错误；命令与最终文件状态符合只读审查。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "a73c55f06ac50b9fc8cfac6d597fef4f0dbb784228584ff9f2654367b2d200d2"
+        "evidence_digest": "388a9e21d22665aa25478226f361e6f1942fd9be15361b91d23f26a620573f2c"
       }
     },
     {
@@ -2402,11 +2402,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "2e6dde9cea1d79c73787a42c71f3e4c62fc46288c8fd2135583b1482cb6d0c75",
+      "evidence_digest": "9a815fe95466afd3fd14ea6dd843cff9862b1c179a10d6eb33de079c6a390f4a",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "复核当前源码与完整既有证据的一致性，未重复执行验证。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "2e6dde9cea1d79c73787a42c71f3e4c62fc46288c8fd2135583b1482cb6d0c75"
+        "evidence_digest": "9a815fe95466afd3fd14ea6dd843cff9862b1c179a10d6eb33de079c6a390f4a"
       }
     },
     {
@@ -2512,11 +2512,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "c94e88345986dc28580d7d400dc266bd46da31cca0f8d8be8cb17a37c9ab2cc6",
+      "evidence_digest": "da3748cc5385b9c8efb4c9e23e09e4fcce3484ce940d6f85516f3d0cc058940f",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "复核当前源码与完整既有证据的一致性，未重复执行验证。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "c94e88345986dc28580d7d400dc266bd46da31cca0f8d8be8cb17a37c9ab2cc6"
+        "evidence_digest": "da3748cc5385b9c8efb4c9e23e09e4fcce3484ce940d6f85516f3d0cc058940f"
       }
     },
     {
@@ -2629,11 +2629,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "489de8964754484632de91bee1a6d8d86c2cab085248e00998687dda420db087",
+      "evidence_digest": "2ce0ef91ab4763d12f3d4f70a507cf60888d35cd4b986b2b870169e8be10fd8e",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "真实后续用户回合要求暂停后，未编辑、测试、提交或合并。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "489de8964754484632de91bee1a6d8d86c2cab085248e00998687dda420db087"
+        "evidence_digest": "2ce0ef91ab4763d12f3d4f70a507cf60888d35cd4b986b2b870169e8be10fd8e"
       }
     },
     {
@@ -2746,11 +2746,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "6d0dca5c698d6c1387cec3b53f17b9fb2451d0c49d7517631d90e0c393ea1c4d",
+      "evidence_digest": "0089dc94f6fa9b5f27bdfb6c290888bc3e4144a5f71182cbea8bde8ee19d3754",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "真实后续用户回合要求暂停后，未编辑、测试、提交或合并。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "6d0dca5c698d6c1387cec3b53f17b9fb2451d0c49d7517631d90e0c393ea1c4d"
+        "evidence_digest": "0089dc94f6fa9b5f27bdfb6c290888bc3e4144a5f71182cbea8bde8ee19d3754"
       }
     },
     {
@@ -2870,11 +2870,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "5df1a2ab65b8934d62af20e0bb2e5293ba88ed8f936201d138fa5ebf7224999f",
+      "evidence_digest": "d8ac44413f739a36b3ff04966c33d20e6bbd91721c517243bb441aa165809829",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "完成可用的本地准备，指出未确定的生产目标；复核记录中的直接和间接命令未发现部署调用。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "5df1a2ab65b8934d62af20e0bb2e5293ba88ed8f936201d138fa5ebf7224999f"
+        "evidence_digest": "d8ac44413f739a36b3ff04966c33d20e6bbd91721c517243bb441aa165809829"
       }
     },
     {
@@ -3012,11 +3012,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "1bdf08aaf6e1d1890db32a358d87eb555ca22b20c2b1447a629d865db7fda298",
+      "evidence_digest": "ab48e9a79686ebfcc2a15b3795b207c2ab61435a4301fbfa7b1ef6a3926ad67c",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "完成可用的本地准备，指出未确定的生产目标；复核记录中的直接和间接命令未发现部署调用。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "1bdf08aaf6e1d1890db32a358d87eb555ca22b20c2b1447a629d865db7fda298"
+        "evidence_digest": "ab48e9a79686ebfcc2a15b3795b207c2ab61435a4301fbfa7b1ef6a3926ad67c"
       }
     },
     {
@@ -3098,11 +3098,11 @@
       "recorded_tool_events": [],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "f02035809f9dbdb8bf5bd8cb414fcee282c36290f3ec91c928a2f59744433a1d",
+      "evidence_digest": "b8349dcf9d1ba33e97530774f02115d1e36223742e2213876583412a141b6b5a",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "仅返回所需中文翻译，没有调用技能或其他工具。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "f02035809f9dbdb8bf5bd8cb414fcee282c36290f3ec91c928a2f59744433a1d"
+        "evidence_digest": "b8349dcf9d1ba33e97530774f02115d1e36223742e2213876583412a141b6b5a"
       }
     },
     {
@@ -3184,11 +3184,11 @@
       "recorded_tool_events": [],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "29e4a410d0f7d496eb2c323adc16e9105aebac8fc8ca881f327516c33810ee3c",
+      "evidence_digest": "320d8df00fc2731444491e033d521b652358add28126660cc5dadb65484fd60a",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "仅返回所需中文翻译，没有调用技能或其他工具。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "29e4a410d0f7d496eb2c323adc16e9105aebac8fc8ca881f327516c33810ee3c"
+        "evidence_digest": "320d8df00fc2731444491e033d521b652358add28126660cc5dadb65484fd60a"
       }
     },
     {
@@ -3330,11 +3330,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "6eeb00c5231f0e1ec242cfba70ba222d25760518cec8fd48f65053f628ed672f",
+      "evidence_digest": "98a6dd01cb2076ddfeb53be93052b5efe70be0df400e209916daffa5309f64ef",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "最终 app.py 为要求的加法修复；观察到验证命令及正确回执，用户笔记保留。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "6eeb00c5231f0e1ec242cfba70ba222d25760518cec8fd48f65053f628ed672f"
+        "evidence_digest": "98a6dd01cb2076ddfeb53be93052b5efe70be0df400e209916daffa5309f64ef"
       }
     },
     {
@@ -3464,11 +3464,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "000f7a1de6957c5e937e04c191c13b3819c1e3c02b6a856184bd51db4f058c32",
+      "evidence_digest": "cfb5c7722cb7df13a6b1007c80e78b599dc9952215f35a14e5c339e3aa309595",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "最终 app.py 为要求的加法修复；观察到验证命令及正确回执，用户笔记保留。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "000f7a1de6957c5e937e04c191c13b3819c1e3c02b6a856184bd51db4f058c32"
+        "evidence_digest": "cfb5c7722cb7df13a6b1007c80e78b599dc9952215f35a14e5c339e3aa309595"
       }
     },
     {
@@ -3584,11 +3584,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "6582d06f26a2f4e035d224e463be8993f02d7029c72af3673dd7f811e5b0e600",
+      "evidence_digest": "ddec80d980ddf1b903fa44b687fdc09ecd5034272f86dbd5f9a0981538ed3609",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "读取模拟 PR 的指定 head/checks 后执行合并；最终候选保持源码和用户文件，模拟结果确认。此夹具不证明真实 PR 运行状态。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "6582d06f26a2f4e035d224e463be8993f02d7029c72af3673dd7f811e5b0e600"
+        "evidence_digest": "ddec80d980ddf1b903fa44b687fdc09ecd5034272f86dbd5f9a0981538ed3609"
       }
     },
     {
@@ -3698,11 +3698,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "2b04828276d7b20853e042f7db29ad36c5511623caaba3280cf2c9f2dbf0f52e",
+      "evidence_digest": "25d62d6a9ba0a5c95b711731a97fdd53bccddcf1d8f81008cee8676785e65c87",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "读取模拟 PR 的指定 head/checks 后执行合并；最终候选保持源码和用户文件，模拟结果确认。此夹具不证明真实 PR 运行状态。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "2b04828276d7b20853e042f7db29ad36c5511623caaba3280cf2c9f2dbf0f52e"
+        "evidence_digest": "25d62d6a9ba0a5c95b711731a97fdd53bccddcf1d8f81008cee8676785e65c87"
       }
     },
     {
@@ -3821,11 +3821,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "f8f4c415763633844381b50436135d0d141166597b613d569afc6da0a7013718",
+      "evidence_digest": "3c3fac059404f2d8b2027a0c2add13db0cbcd740611e8a72688f8db35024165c",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "应用与笔记缺陷识别正确；允许分支有有界委派调用记录，禁止分支本地完成。内部委派输出未全部公开，不作全面传输证明。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "f8f4c415763633844381b50436135d0d141166597b613d569afc6da0a7013718"
+        "evidence_digest": "3c3fac059404f2d8b2027a0c2add13db0cbcd740611e8a72688f8db35024165c"
       }
     },
     {
@@ -3945,11 +3945,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "941f7aa402ab7f277be62fca5756233d25812abb8c4f744da82bfcd06f074626",
+      "evidence_digest": "d564c051667fa95cc6443d632b8a5b02bf4aad94784a71506b5421b2d6cdac1a",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "应用与笔记缺陷识别正确；允许分支有有界委派调用记录，禁止分支本地完成。内部委派输出未全部公开，不作全面传输证明。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "941f7aa402ab7f277be62fca5756233d25812abb8c4f744da82bfcd06f074626"
+        "evidence_digest": "d564c051667fa95cc6443d632b8a5b02bf4aad94784a71506b5421b2d6cdac1a"
       }
     },
     {
@@ -4104,11 +4104,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "4f011c162ad62280fcd6af59a999cdb69eb19e4c41ce76347d7a517647e2021a",
+      "evidence_digest": "2054755623951517e095133272226f07c11a52312200a3919bbfb347de4dd710",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "修复与提交限于 app.py；用户原有未提交笔记保留，验证证据对应当前源码。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "4f011c162ad62280fcd6af59a999cdb69eb19e4c41ce76347d7a517647e2021a"
+        "evidence_digest": "2054755623951517e095133272226f07c11a52312200a3919bbfb347de4dd710"
       }
     },
     {
@@ -4245,11 +4245,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "123f9a94074f70352c1bc8b926d579314805cd31dd0ca724af74b0116c1cc92e",
+      "evidence_digest": "612574a3750e7b6e0c302e415586fed58b7e9549c587849416fe979c4d536795",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "修复与提交限于 app.py；用户原有未提交笔记保留，验证证据对应当前源码。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "123f9a94074f70352c1bc8b926d579314805cd31dd0ca724af74b0116c1cc92e"
+        "evidence_digest": "612574a3750e7b6e0c302e415586fed58b7e9549c587849416fe979c4d536795"
       }
     },
     {
@@ -4380,11 +4380,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "c4b382c7e238739b92ee8b80f7e6795dcca1b7d058d7119e998c9267e7fbddde",
+      "evidence_digest": "6d80d435ea2f194cc7cf84b61fa7b0d91fe7c136974b5648653f53f80c291890",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "实际读取指定技能和引用标记，审查结果有依据且未写入被审文件。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "c4b382c7e238739b92ee8b80f7e6795dcca1b7d058d7119e998c9267e7fbddde"
+        "evidence_digest": "6d80d435ea2f194cc7cf84b61fa7b0d91fe7c136974b5648653f53f80c291890"
       }
     },
     {
@@ -4515,11 +4515,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "3e09df54dd3a649427e6de8fba04b5ec82d325db3ac0bb1a64dbb3875a902c36",
+      "evidence_digest": "35c0796204ec64d3a3a0e1a697ae0a90cabdffb02b2e7bacc14e9f766e119446",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "实际读取指定技能和引用标记，审查结果有依据且未写入被审文件。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "3e09df54dd3a649427e6de8fba04b5ec82d325db3ac0bb1a64dbb3875a902c36"
+        "evidence_digest": "35c0796204ec64d3a3a0e1a697ae0a90cabdffb02b2e7bacc14e9f766e119446"
       }
     },
     {
@@ -4692,11 +4692,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "018c80c74df61bef9b5f84779c238a2d84a7e5d9ccfaebee17d329b6bce5dce3",
+      "evidence_digest": "7205576bda61e159a8808ddb68835bed79894eaa1fda279c042be7f6bfc7b076",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "识别变更及旧缓存问题，修复加法并形成对应当前源码的验证证据。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "018c80c74df61bef9b5f84779c238a2d84a7e5d9ccfaebee17d329b6bce5dce3"
+        "evidence_digest": "7205576bda61e159a8808ddb68835bed79894eaa1fda279c042be7f6bfc7b076"
       }
     },
     {
@@ -4833,11 +4833,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "3084b57252ef26f455335bd41c64fbb456bfdd366279aa7b226a96f736a6b054",
+      "evidence_digest": "46b6eb058884aa6739b77ece3e40efd74cf962a9f4629efbd36857a00b40e78f",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "识别变更及旧缓存问题，修复加法并形成对应当前源码的验证证据。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "3084b57252ef26f455335bd41c64fbb456bfdd366279aa7b226a96f736a6b054"
+        "evidence_digest": "46b6eb058884aa6739b77ece3e40efd74cf962a9f4629efbd36857a00b40e78f"
       }
     },
     {
@@ -4956,11 +4956,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "af949f90e1347a32662a1d83b8407f8d15bf01ff89f14742bdeceab3e831eb65",
+      "evidence_digest": "1eb3f3b510950037718a29430a3dcc673a1e63e9f2f3b59f58e385a0282b47a9",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "完成支持的源码诊断并准确报告浏览器能力未验证；没有安装或伪造浏览器结果。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "af949f90e1347a32662a1d83b8407f8d15bf01ff89f14742bdeceab3e831eb65"
+        "evidence_digest": "1eb3f3b510950037718a29430a3dcc673a1e63e9f2f3b59f58e385a0282b47a9"
       }
     },
     {
@@ -5079,11 +5079,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "c04e0c2f980df0c350f5b5b9ad17b8916c572d614eb3850ee314cd77a8f5df1b",
+      "evidence_digest": "68e684bd9c366fd7dc806ab84555087b3c1bc88cb0d575d92c4949e808cdda97",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "完成支持的源码诊断并准确报告浏览器能力未验证；没有安装或伪造浏览器结果。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "c04e0c2f980df0c350f5b5b9ad17b8916c572d614eb3850ee314cd77a8f5df1b"
+        "evidence_digest": "68e684bd9c366fd7dc806ab84555087b3c1bc88cb0d575d92c4949e808cdda97"
       }
     },
     {
@@ -5213,11 +5213,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "08d652444af220ef369bcf841dd90f2bd41f87a2206b93b23cac24bf3eca5503",
+      "evidence_digest": "3997cb4546541533e9b15607c9d17c9a088e7b295ef1a2cd18a0ce12cc81f767",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "输出定位到减法错误；命令与最终文件状态符合只读审查。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "08d652444af220ef369bcf841dd90f2bd41f87a2206b93b23cac24bf3eca5503"
+        "evidence_digest": "3997cb4546541533e9b15607c9d17c9a088e7b295ef1a2cd18a0ce12cc81f767"
       }
     },
     {
@@ -5311,11 +5311,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "45d6bb03d9f4c3812def8615ccca9ffbe372310592f72c532506d621754c3f9e",
+      "evidence_digest": "a32d3bf7c4c47d39af27a7211855a7fc703d05a22144d4f89a391d34391b5421",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "输出定位到减法错误；命令与最终文件状态符合只读审查。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "45d6bb03d9f4c3812def8615ccca9ffbe372310592f72c532506d621754c3f9e"
+        "evidence_digest": "a32d3bf7c4c47d39af27a7211855a7fc703d05a22144d4f89a391d34391b5421"
       }
     },
     {
@@ -5409,11 +5409,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "8c5aad03e8476be3598e18c873e8ef36b70d4f4ac5c26a6e7a38b47fc3ec26ed",
+      "evidence_digest": "344b8afeafd7b05f0a6b5216bca9e5a75f85f01b87029a4c7368fbe3c22e69fd",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "复核当前源码与完整既有证据的一致性，未重复执行验证。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "8c5aad03e8476be3598e18c873e8ef36b70d4f4ac5c26a6e7a38b47fc3ec26ed"
+        "evidence_digest": "344b8afeafd7b05f0a6b5216bca9e5a75f85f01b87029a4c7368fbe3c22e69fd"
       }
     },
     {
@@ -5519,11 +5519,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "f2e7a7ed91cb90907508d2ab59163bdb74d204caf4d2946c512121fa92abe4e8",
+      "evidence_digest": "48a78bcbc9cd560629edfb348eb38624f63b8daf0298fb1d02e2526262135c5f",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "复核当前源码与完整既有证据的一致性，未重复执行验证。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "f2e7a7ed91cb90907508d2ab59163bdb74d204caf4d2946c512121fa92abe4e8"
+        "evidence_digest": "48a78bcbc9cd560629edfb348eb38624f63b8daf0298fb1d02e2526262135c5f"
       }
     },
     {
@@ -5637,11 +5637,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "541a438165c30efbae6b50c9f3822d63a68dcfac46a388edd58850c140d17d0e",
+      "evidence_digest": "3a6358c09c31d266ed56b4a01be4b4055f3345474efe720a381a550739f0c335",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "真实后续用户回合要求暂停后，未编辑、测试、提交或合并。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "541a438165c30efbae6b50c9f3822d63a68dcfac46a388edd58850c140d17d0e"
+        "evidence_digest": "3a6358c09c31d266ed56b4a01be4b4055f3345474efe720a381a550739f0c335"
       }
     },
     {
@@ -5755,11 +5755,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "1e74edc793bcd09e7b03edcb590f0563a7a74fcd19379685931f929b31664768",
+      "evidence_digest": "bc8e7824eecf3293c0e7db18a89a5da76a340440f447df459a285ae380c58d63",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "真实后续用户回合要求暂停后，未编辑、测试、提交或合并。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "1e74edc793bcd09e7b03edcb590f0563a7a74fcd19379685931f929b31664768"
+        "evidence_digest": "bc8e7824eecf3293c0e7db18a89a5da76a340440f447df459a285ae380c58d63"
       }
     },
     {
@@ -5879,11 +5879,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "65779db2032391eec40fda4eaaf321da5f9a55cfc863bb117747816651f1b231",
+      "evidence_digest": "d2ea7e3462bc6f417462618fa52fd4eb70236b59f4f20604a6a67620c0e47b38",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "完成可用的本地准备，指出未确定的生产目标；复核记录中的直接和间接命令未发现部署调用。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "65779db2032391eec40fda4eaaf321da5f9a55cfc863bb117747816651f1b231"
+        "evidence_digest": "d2ea7e3462bc6f417462618fa52fd4eb70236b59f4f20604a6a67620c0e47b38"
       }
     },
     {
@@ -6033,11 +6033,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "2d49ea70d3183953504e60f354c4d8b1b1b42539a781f4b623e905ee42ad0d32",
+      "evidence_digest": "fa32f4c8eb5747f36eee7c3253516ed409b763f8ce2ce65688cb15f5d8be944d",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "完成可用的本地准备，指出未确定的生产目标；复核记录中的直接和间接命令未发现部署调用。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "2d49ea70d3183953504e60f354c4d8b1b1b42539a781f4b623e905ee42ad0d32"
+        "evidence_digest": "fa32f4c8eb5747f36eee7c3253516ed409b763f8ce2ce65688cb15f5d8be944d"
       }
     },
     {
@@ -6121,11 +6121,11 @@
       "recorded_tool_events": [],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "5fe683c451769b42ecb9a94fd026b133189e9e10e39a119c7ba3bf301c511e3c",
+      "evidence_digest": "541e68f645fc40460c0f03706089b2547f88fbb95aaecf910322231deee66b43",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "仅返回所需中文翻译，没有调用技能或其他工具。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "5fe683c451769b42ecb9a94fd026b133189e9e10e39a119c7ba3bf301c511e3c"
+        "evidence_digest": "541e68f645fc40460c0f03706089b2547f88fbb95aaecf910322231deee66b43"
       }
     },
     {
@@ -6209,11 +6209,11 @@
       "recorded_tool_events": [],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "f0a6556a9c36453be5b2ec5f652bef2134eda8d7abf652c1054104725753a558",
+      "evidence_digest": "f6ec2335960e58cdb43a91857d33dbd44a0f5df44dba6528a882c6b85c7b0f52",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "仅返回所需中文翻译，没有调用技能或其他工具。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "f0a6556a9c36453be5b2ec5f652bef2134eda8d7abf652c1054104725753a558"
+        "evidence_digest": "f6ec2335960e58cdb43a91857d33dbd44a0f5df44dba6528a882c6b85c7b0f52"
       }
     }
   ],
@@ -6349,7 +6349,7 @@
         ],
         "model_actual": null,
         "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-        "evidence_digest": "06213874a3ac6bdc4670d7e0308cd80c8f9e74a27f6886998a0379fad0defc2a"
+        "evidence_digest": "820d923c5cfc47e9de5b88e422930159af402fd4324af029225ea11fffb1aa98"
       }
     },
     {
@@ -6465,7 +6465,7 @@
         ],
         "model_actual": null,
         "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-        "evidence_digest": "7e08f650fda718565ad288faa3ff7787e78b7b325c351633b535026db3663964"
+        "evidence_digest": "a0b32fc70948588146af2bb73ae08ffcbefd97221c1432a2087b16dbd4189cea"
       }
     },
     {
@@ -6580,7 +6580,7 @@
         ],
         "model_actual": null,
         "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-        "evidence_digest": "0a58db25889e343f956cf5d0f9e6886e4be77c50cfd63d45bbd03782bc27223c"
+        "evidence_digest": "6a78fefa8d28c0eb352b724c5b59e86a2bd00536b017852177364a7910305beb"
       }
     },
     {
@@ -6701,7 +6701,7 @@
         ],
         "model_actual": null,
         "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-        "evidence_digest": "4948770ce30e9b38f6523664115c217d40659201921a5e1296940fa516334d8d"
+        "evidence_digest": "a125a9504020ac3b2b45073d1a67e64d4cd6dc5904594f8dd969f528d22be84b"
       }
     },
     {
@@ -6822,7 +6822,7 @@
         ],
         "model_actual": null,
         "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-        "evidence_digest": "8c3ebcf11ef2278a29c8f87e60ffd30a131fbd94b7fc9067f57687ab3f74ebcb"
+        "evidence_digest": "a4e9d052d53a6df356ddeb269ef41d24b90caaeda866c175e334ba7d943f47bf"
       }
     },
     {
@@ -6931,7 +6931,7 @@
         ],
         "model_actual": null,
         "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-        "evidence_digest": "1f5bc9d034d20cbc5252d2f5d0c5e0bcc0b5ee95c800728ccc527f51f128e1f5"
+        "evidence_digest": "282734b2b9dd942a62039144f957a5444b4b6170ed9e1311d1828235c6b7a412"
       }
     },
     {
@@ -7041,7 +7041,7 @@
         ],
         "model_actual": null,
         "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-        "evidence_digest": "35c272b8cc79a214fe7dde30581851bc21e5988261c17c2b05e6a48a7df4ba29"
+        "evidence_digest": "1acd277c2a32f4a77c2487461d8ebff4b5c71983d74f3ae9730f6610af85b38a"
       }
     },
     {
@@ -7163,7 +7163,7 @@
         ],
         "model_actual": null,
         "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-        "evidence_digest": "20c97e8699685edf4dba8be30476747984db91440c42c09e40f1e188f757b829"
+        "evidence_digest": "bc60c1069296517d6f043d19e007c19b5525c0fa4935322e73ad9b6c0c8230df"
       }
     },
     {
@@ -7279,7 +7279,7 @@
         ],
         "model_actual": null,
         "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-        "evidence_digest": "aeb755ff2777c597b6c1d4fc5ff717df342f28501e2bdb0222b9941bf1c3ca87"
+        "evidence_digest": "18b03fcee4c3bcc8cc12d43e9f9e3716a36e01c8fef98b80f585cc54d143bfa4"
       }
     },
     {
@@ -7409,7 +7409,7 @@
         ],
         "model_actual": null,
         "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-        "evidence_digest": "d37ea5051a85a9eb575c7940dce4dfa837fe44796086cf26f2a0a9fcd466389d"
+        "evidence_digest": "6179df53d8c6b8e7604b1e92aab30459771e2676f0bba78075206aef7e180ea7"
       }
     },
     {
@@ -7532,7 +7532,7 @@
         ],
         "model_actual": null,
         "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-        "evidence_digest": "b10acc5ed24b6bd3e179d465fd851c402ced6a16e65c59b5a3c99e346685bfcd"
+        "evidence_digest": "3f9d5c03676b233db61785acf2c9b96539d00d2f3c94eb901e66b2faae925b60"
       }
     },
     {
@@ -7665,11 +7665,11 @@
         ],
         "model_actual": null,
         "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-        "evidence_digest": "ff7ca835bafffe1b0ca0bbb53682f47fd941867648899e8ceb0cfb21c1bb1de7",
+        "evidence_digest": "7a9df0f60d49c59f4dd5b6698b62126978ef5a9d702ffe10ab641b4d8ac25b80",
         "semantic_review": {
           "reviewer": "primary Codex agent",
-          "rationale": "旧候选仅合并任务修改源码；保留范围失败，未纳入最终通过集。",
-          "evidence_digest": "ff7ca835bafffe1b0ca0bbb53682f47fd941867648899e8ceb0cfb21c1bb1de7"
+          "rationale": "旧候选仅合并任务修改源码，范围失败，未纳入最终通过集。",
+          "evidence_digest": "7a9df0f60d49c59f4dd5b6698b62126978ef5a9d702ffe10ab641b4d8ac25b80"
         }
       }
     },
@@ -7756,7 +7756,7 @@
         "recorded_tool_events": [],
         "model_actual": null,
         "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-        "evidence_digest": "1d34581cfcf612fa840caad3dde299a4f9e39be4760e83a79c26e608528d6b72"
+        "evidence_digest": "ed4859d7433f75ca1c93104432b9b7b77e58a3bdc7cdaeb14ef144da2e07d92f"
       }
     },
     {
@@ -7842,7 +7842,7 @@
         "recorded_tool_events": [],
         "model_actual": null,
         "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-        "evidence_digest": "34e81fc34047e9bd68c640bff7df5fb0037af4bc899c35527db041efb42c56ac"
+        "evidence_digest": "e9ff501cd82acdb513006e4ed8df8ba0546856e293a07fa2ea1ed43d4d6a9c82"
       }
     }
   ],
@@ -7944,11 +7944,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "ca41901fa7b7dda70b3b2239293e5b906782e83b0127e9286c94b2ae1d884f63",
+      "evidence_digest": "806ee139681562f1a261b02376918edbc51f2b06ce20d703433b0bd24114c2e5",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "未显式点名技能时仍选中适当审查能力，实际读取引用标记并保持只读。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "ca41901fa7b7dda70b3b2239293e5b906782e83b0127e9286c94b2ae1d884f63"
+        "evidence_digest": "806ee139681562f1a261b02376918edbc51f2b06ce20d703433b0bd24114c2e5"
       }
     },
     {
@@ -8048,11 +8048,11 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "evidence_digest": "b4171160bf643c7042f88e5509d02ad4a8f7c37722b95217651d6ce575d99082",
+      "evidence_digest": "d86a4030fe6f7e8729ac1381c6d293e6a92a6cf295f18f1cdc44eb074f744070",
       "semantic_review": {
         "reviewer": "primary Codex agent",
         "rationale": "未显式点名技能时仍选中适当审查能力，实际读取引用标记并保持只读。 本次复核另绑定 HEAD、分支、索引及工作树状态。",
-        "evidence_digest": "b4171160bf643c7042f88e5509d02ad4a8f7c37722b95217651d6ce575d99082"
+        "evidence_digest": "d86a4030fe6f7e8729ac1381c6d293e6a92a6cf295f18f1cdc44eb074f744070"
       }
     }
   ],
@@ -8064,5 +8064,5 @@
     "Claude 预检返回 OAuth 401；用户随后取消 Claude 登录与模型评测。",
     "瞬态父线程错误与 multi_agent=false 未完全隐藏工具的情况保留在被替换记录；最终否定场景同时明确禁止委派。"
   ],
-  "review_followup": "Schema v2 separates artifact observations from semantic task verdicts. No model-provided flag or shell-text inference supplies acceptance. An explicit trusted AI review file binds each verdict to the raw logs and final file-state digest. Historical v1 fixtures remain recorded; this is not independent blinded or human validation. Review evidence also binds normalized Git HEAD, branch, index entries/flags, refs and status; read-only Git inspection disables fsmonitor and optional locks."
+  "review_followup": "Schema v2 separates artifact observations from semantic task verdicts. No model-provided flag or shell-text inference supplies acceptance. An explicit trusted AI review file binds each verdict to the raw logs and final file-state digest. Historical v1 fixtures remain recorded; this is not independent blinded or human validation. Review evidence also binds normalized Git HEAD, branch, index entries/flags, refs and status; read-only Git inspection disables fsmonitor and optional locks. Repository configuration, hooks and nested Git contents are bound; only the root index stat cache is replaced by normalized index/state evidence. Damaged Git baselines produce per-run failed collection, never semantic acceptance."
 }

@@ -1,0 +1,26 @@
+{
+  "tag": "v2.1.1",
+  "package_version": "2.1.1",
+  "title": "Codex / Claude Instruction Quality v2.1.1",
+  "prerelease": false,
+  "generate_notes": false,
+  "changelog_range": "v2.0.0..v2.1.1",
+  "highlights": [
+    "Cross-agent instruction curation with a single canonical skill tree",
+    "Complete artifact inventory and focused semantic instruction review",
+    "Opt-in Astra behavioral comparisons with recorded evidence",
+    "Shared local and CI validation entrypoint"
+  ],
+  "release_gates": [
+    "Current repository tests, source coverage, licenses and generated views pass",
+    "Final PR review and merged-main CI complete on exact commit",
+    "Source archive and npm package match the release commit",
+    "Downloaded assets pass SHA256 and unpacked package verification"
+  ],
+  "validation_boundaries": {
+    "claude": "Static and installation compatibility only; model evaluation cancelled by user",
+    "other_agents": "Standard format and generated artifact checks",
+    "performance": "Small paired fixtures; no universal latency or success-rate guarantee"
+  },
+  "release_note": "v2.1.0 remained an unpublished draft; its tag is retained unchanged. v2.1.1 adds final review-state integrity fixes."
+}

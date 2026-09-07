@@ -61,7 +61,7 @@ def valid_app_cache(relative, fixture, events):
     return checked.returncode==0
 
 
-def assess(path):
+def _assess(path):
     result=json.loads(path.read_text())
     result.setdefault('fixture_version', 1)
     original=result.get('deterministic_pass')
@@ -134,11 +134,39 @@ def assess(path):
     return result
 
 
+def assess(path):
+    """One damaged model workspace must not abort the rest of the collection."""
+    try:
+        return _assess(path)
+    except (OSError, UnicodeError, ValueError, subprocess.CalledProcessError, subprocess.TimeoutExpired) as error:
+        result=json_artifact(path)
+        result.setdefault('run_id',path.parent.name)
+        result.setdefault('case','unknown')
+        result.setdefault('cohort','unknown')
+        result.setdefault('elapsed_seconds',0)
+        result.setdefault('completed_tool_calls',0)
+        result.setdefault('usage',[])
+        result['assertions']={'observation_completed':False}
+        result['artifact_checks_pass']=False
+        result['deterministic_pass']=None
+        result['task_verdict']='unreviewed'
+        result['semantic_grade']='pending_review'
+        result['collection_status']='failed'
+        result['collection_error']={'kind':type(error).__name__,'returncode':getattr(error,'returncode',None)}
+        result['transcripts']=[]
+        try:
+            result['evidence_digest']=evidence_digest(path.parent,result)
+        except (OSError, ValueError, subprocess.SubprocessError):
+            result['evidence_digest']=hashlib.sha256(json.dumps(result,sort_keys=True,ensure_ascii=False).encode()).hexdigest()
+            result['collection_error']['snapshot_incomplete']=True
+        return result
+
+
 def evidence_digest(folder, assessed):
     """Bind a reviewer decision to raw logs, controller output and file state."""
     files=[]
     for parent, directories, names in os.walk(folder, followlinks=False):
-        directories[:] = sorted(d for d in directories if not (d == '.git' and Path(parent) == folder))
+        directories[:] = sorted(directories)
         for name in list(directories):
             directory=Path(parent)/name
             if directory.is_symlink():
@@ -148,6 +176,10 @@ def evidence_digest(folder, assessed):
                 files.append({'path':directory.relative_to(folder).as_posix(),'mode':stat.S_IMODE(directory.stat().st_mode),'kind':'directory'})
         for name in sorted(names):
             path=Path(parent)/name
+            # The index stat cache is volatile; its semantic entries and flags
+            # are captured below. All config, hooks and other Git files stay bound.
+            if path == folder/'.git/index':
+                continue
             if path.is_symlink():
                 value={'link':os.readlink(path)}
             elif path.is_file():
@@ -175,6 +207,10 @@ def apply_review(row, reviews):
     """A tested model's own success claim never supplies semantic acceptance."""
     review=reviews.get((row['run_id'],row['evidence_digest']))
     if review is None:
+        return
+    if review['verdict']=='pass' and row.get('collection_status')=='failed':
+        row['task_verdict']='unverified'
+        row['review_application_error']='incomplete_evidence_collection'
         return
     row['task_verdict']=review['verdict']
     row['semantic_grade']=review['verdict']
