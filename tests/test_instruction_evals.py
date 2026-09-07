@@ -383,3 +383,17 @@ def test_index_only_changes_invalidate_a_semantic_review(tmp_path):
     after=assess(folder/'result.json');apply_review(after,{(before['run_id'],before['evidence_digest']):review})
     assert after['evidence_digest']!=before['evidence_digest']
     assert after['task_verdict']=='unreviewed'
+
+
+def test_nested_git_content_is_part_of_review_evidence(tmp_path):
+    from scripts.summarize_instruction_evals import assess,apply_review
+    work=_evaluation_fixture(tmp_path);folder=work.parent
+    nested=work/'nested/.git';nested.mkdir(parents=True);payload=nested/'payload';payload.write_text('before')
+    raw={'run_id':'candidate-read_only-1','case':'read_only','cohort':'candidate','repeat':1,'deterministic_pass':True,'assertions':{},'returncodes':[0],'usage':[{'input_tokens':1}],'elapsed_seconds':1,'completed_tool_calls':0}
+    (folder/'result.json').write_text(json.dumps(raw));(folder/'turn-0.jsonl').write_text('{"type":"turn.completed"}\n')
+    before=assess(folder/'result.json')
+    review={'run_id':before['run_id'],'evidence_digest':before['evidence_digest'],'verdict':'pass','reviewer':'operator','rationale':'Reviewed exact nested content.'}
+    payload.write_text('after')
+    after=assess(folder/'result.json');apply_review(after,{(before['run_id'],before['evidence_digest']):review})
+    assert after['evidence_digest']!=before['evidence_digest']
+    assert after['task_verdict']=='unreviewed'

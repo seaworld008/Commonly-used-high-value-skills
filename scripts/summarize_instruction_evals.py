@@ -138,7 +138,7 @@ def evidence_digest(folder, assessed):
     """Bind a reviewer decision to raw logs, controller output and file state."""
     files=[]
     for parent, directories, names in os.walk(folder, followlinks=False):
-        directories[:] = sorted(d for d in directories if d != '.git')
+        directories[:] = sorted(d for d in directories if not (d == '.git' and Path(parent) == folder))
         for name in list(directories):
             directory=Path(parent)/name
             if directory.is_symlink():
