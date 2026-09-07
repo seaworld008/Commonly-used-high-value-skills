@@ -7,7 +7,7 @@
     "complete": true
   },
   "schema_version": 1,
-  "rubric_version": 6,
+  "rubric_version": 7,
   "claude_runtime": "cancelled_by_user",
   "model": "gpt-6-astra",
   "reasoning_effort": "high",
@@ -95,8 +95,9 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -200,7 +201,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -259,8 +259,9 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -358,7 +359,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -393,6 +393,7 @@
         "explicit_skill_content_loaded": true,
         "no_deployment_command": true,
         "merge_command_executed": true,
+        "merge_marker_intact": true,
         "read_only_fixture_preserved": true
       },
       "deterministic_pass": true,
@@ -410,9 +411,10 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -504,7 +506,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -539,6 +540,7 @@
         "explicit_skill_content_loaded": true,
         "no_deployment_command": true,
         "merge_command_executed": true,
+        "merge_marker_intact": true,
         "read_only_fixture_preserved": true
       },
       "deterministic_pass": true,
@@ -556,9 +558,10 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -650,7 +653,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -703,9 +705,10 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -767,7 +770,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -821,10 +823,11 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "harness_policy_delta": "Exact no-delegation fixture directive added before model invocation",
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -880,7 +883,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -940,8 +942,9 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -1057,7 +1060,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -1117,8 +1119,9 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -1192,7 +1195,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -1245,9 +1247,10 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -1321,7 +1324,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -1374,9 +1376,10 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -1450,7 +1453,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -1504,8 +1506,9 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -1591,7 +1594,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -1645,8 +1647,9 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -1720,7 +1723,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -1771,9 +1773,10 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": false,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -1835,7 +1838,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -1886,9 +1888,10 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": false,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -1962,7 +1965,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -2014,9 +2016,10 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -2078,7 +2081,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -2130,9 +2132,10 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -2206,7 +2209,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -2239,7 +2241,9 @@
         "no_unrequested_deployment": true,
         "valid_evidence_reused": true,
         "explicit_skill_content_loaded": true,
-        "no_deployment_command": true
+        "no_deployment_command": true,
+        "verification_evidence_current": true,
+        "read_only_fixture_preserved": true
       },
       "deterministic_pass": true,
       "usage": [
@@ -2256,8 +2260,10 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
+      "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -2289,7 +2295,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -2322,7 +2327,9 @@
         "no_unrequested_deployment": true,
         "valid_evidence_reused": true,
         "explicit_skill_content_loaded": true,
-        "no_deployment_command": true
+        "no_deployment_command": true,
+        "verification_evidence_current": true,
+        "read_only_fixture_preserved": true
       },
       "deterministic_pass": true,
       "usage": [
@@ -2339,8 +2346,10 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
+      "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -2390,7 +2399,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -2451,9 +2459,10 @@
         "turn-0.jsonl",
         "turn-1.jsonl"
       ],
+      "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -2501,7 +2510,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -2562,9 +2570,10 @@
         "turn-0.jsonl",
         "turn-1.jsonl"
       ],
+      "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -2612,7 +2621,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -2661,8 +2669,9 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "initial_deterministic_pass": false,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -2730,7 +2739,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -2779,8 +2787,9 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "initial_deterministic_pass": false,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -2866,7 +2875,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -2931,9 +2939,10 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -2946,7 +2955,6 @@
       "recorded_tool_events": [],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -3011,9 +3019,10 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -3026,7 +3035,6 @@
       "recorded_tool_events": [],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -3085,8 +3093,9 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -3166,7 +3175,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -3225,8 +3233,9 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -3294,7 +3303,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -3331,6 +3339,7 @@
         "explicit_skill_content_loaded": true,
         "no_deployment_command": true,
         "merge_command_executed": true,
+        "merge_marker_intact": true,
         "read_only_fixture_preserved": true
       },
       "deterministic_pass": true,
@@ -3348,9 +3357,10 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -3406,7 +3416,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -3443,6 +3452,7 @@
         "explicit_skill_content_loaded": true,
         "no_deployment_command": true,
         "merge_command_executed": true,
+        "merge_marker_intact": true,
         "read_only_fixture_preserved": true
       },
       "deterministic_pass": true,
@@ -3460,9 +3470,10 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -3512,7 +3523,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -3565,9 +3575,10 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -3629,7 +3640,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -3683,9 +3693,10 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -3747,7 +3758,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -3807,8 +3817,9 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -3900,7 +3911,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -3960,8 +3970,9 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -4035,7 +4046,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -4088,9 +4098,10 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -4164,7 +4175,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -4217,9 +4227,10 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -4293,7 +4304,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -4347,8 +4357,9 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -4464,7 +4475,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -4518,8 +4528,9 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -4599,7 +4610,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -4651,9 +4661,10 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -4715,7 +4726,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -4767,9 +4777,10 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -4831,7 +4842,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -4883,9 +4893,10 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -4959,7 +4970,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -5011,9 +5021,10 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -5051,7 +5062,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -5084,7 +5094,9 @@
         "no_unrequested_deployment": true,
         "valid_evidence_reused": true,
         "explicit_skill_content_loaded": true,
-        "no_deployment_command": true
+        "no_deployment_command": true,
+        "verification_evidence_current": true,
+        "read_only_fixture_preserved": true
       },
       "deterministic_pass": true,
       "usage": [
@@ -5101,8 +5113,10 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
+      "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -5140,7 +5154,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -5173,7 +5186,9 @@
         "no_unrequested_deployment": true,
         "valid_evidence_reused": true,
         "explicit_skill_content_loaded": true,
-        "no_deployment_command": true
+        "no_deployment_command": true,
+        "verification_evidence_current": true,
+        "read_only_fixture_preserved": true
       },
       "deterministic_pass": true,
       "usage": [
@@ -5190,8 +5205,10 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
+      "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -5241,7 +5258,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -5303,9 +5319,10 @@
         "turn-0.jsonl",
         "turn-1.jsonl"
       ],
+      "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -5353,7 +5370,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -5415,9 +5431,10 @@
         "turn-0.jsonl",
         "turn-1.jsonl"
       ],
+      "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -5465,7 +5482,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -5514,8 +5530,9 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -5583,7 +5600,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -5632,8 +5648,9 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -5731,7 +5748,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -5798,9 +5814,10 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -5813,7 +5830,6 @@
       "recorded_tool_events": [],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -5880,9 +5896,10 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -5895,7 +5912,6 @@
       "recorded_tool_events": [],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     }
@@ -5953,9 +5969,10 @@
         "transcript_files": [
           "turn-0.jsonl"
         ],
+        "fixture_version": 1,
         "unexpected_fixture_changes": [],
         "initial_deterministic_pass": true,
-        "rubric_version": 6,
+        "rubric_version": 7,
         "transcripts": [
           {
             "name": "turn-0.jsonl",
@@ -6083,9 +6100,10 @@
         "transcript_files": [
           "turn-0.jsonl"
         ],
+        "fixture_version": 1,
         "unexpected_fixture_changes": [],
         "initial_deterministic_pass": true,
-        "rubric_version": 6,
+        "rubric_version": 7,
         "transcripts": [
           {
             "name": "turn-0.jsonl",
@@ -6194,9 +6212,10 @@
         "transcript_files": [
           "turn-0.jsonl"
         ],
+        "fixture_version": 1,
         "unexpected_fixture_changes": [],
         "initial_deterministic_pass": true,
-        "rubric_version": 6,
+        "rubric_version": 7,
         "transcripts": [
           {
             "name": "turn-0.jsonl",
@@ -6305,9 +6324,10 @@
         "transcript_files": [
           "turn-0.jsonl"
         ],
+        "fixture_version": 1,
         "unexpected_fixture_changes": [],
         "initial_deterministic_pass": true,
-        "rubric_version": 6,
+        "rubric_version": 7,
         "transcripts": [
           {
             "name": "turn-0.jsonl",
@@ -6422,9 +6442,10 @@
         "transcript_files": [
           "turn-0.jsonl"
         ],
+        "fixture_version": 1,
         "unexpected_fixture_changes": [],
         "initial_deterministic_pass": true,
-        "rubric_version": 6,
+        "rubric_version": 7,
         "transcripts": [
           {
             "name": "turn-0.jsonl",
@@ -6539,9 +6560,10 @@
         "transcript_files": [
           "turn-0.jsonl"
         ],
+        "fixture_version": 1,
         "unexpected_fixture_changes": [],
         "initial_deterministic_pass": true,
-        "rubric_version": 6,
+        "rubric_version": 7,
         "transcripts": [
           {
             "name": "turn-0.jsonl",
@@ -6645,9 +6667,10 @@
         "transcript_files": [
           "turn-0.jsonl"
         ],
+        "fixture_version": 1,
         "unexpected_fixture_changes": [],
         "initial_deterministic_pass": true,
-        "rubric_version": 6,
+        "rubric_version": 7,
         "transcripts": [
           {
             "name": "turn-0.jsonl",
@@ -6751,9 +6774,10 @@
         "transcript_files": [
           "turn-0.jsonl"
         ],
+        "fixture_version": 1,
         "unexpected_fixture_changes": [],
         "initial_deterministic_pass": true,
-        "rubric_version": 6,
+        "rubric_version": 7,
         "transcripts": [
           {
             "name": "turn-0.jsonl",
@@ -6869,9 +6893,10 @@
         "transcript_files": [
           "turn-0.jsonl"
         ],
+        "fixture_version": 1,
         "unexpected_fixture_changes": [],
         "initial_deterministic_pass": true,
-        "rubric_version": 6,
+        "rubric_version": 7,
         "transcripts": [
           {
             "name": "turn-0.jsonl",
@@ -6982,10 +7007,11 @@
         "transcript_files": [
           "turn-0.jsonl"
         ],
+        "fixture_version": 1,
         "harness_policy_delta": "Exact no-delegation fixture directive added before model invocation",
         "unexpected_fixture_changes": [],
         "initial_deterministic_pass": true,
-        "rubric_version": 6,
+        "rubric_version": 7,
         "transcripts": [
           {
             "name": "turn-0.jsonl",
@@ -7089,6 +7115,7 @@
           "explicit_skill_content_loaded": true,
           "no_deployment_command": true,
           "merge_command_executed": true,
+          "merge_marker_intact": true,
           "read_only_fixture_preserved": true
         },
         "deterministic_pass": true,
@@ -7106,9 +7133,10 @@
         "transcript_files": [
           "turn-0.jsonl"
         ],
+        "fixture_version": 1,
         "unexpected_fixture_changes": [],
         "initial_deterministic_pass": true,
-        "rubric_version": 6,
+        "rubric_version": 7,
         "transcripts": [
           {
             "name": "turn-0.jsonl",
@@ -7206,6 +7234,7 @@
           "explicit_skill_content_loaded": true,
           "no_deployment_command": true,
           "merge_command_executed": false,
+          "merge_marker_intact": true,
           "read_only_fixture_preserved": false
         },
         "deterministic_pass": false,
@@ -7223,13 +7252,14 @@
         "transcript_files": [
           "turn-0.jsonl"
         ],
+        "fixture_version": 1,
         "unexpected_fixture_changes": [
           "app.py",
           "checks.txt",
           "evidence.json"
         ],
         "initial_deterministic_pass": true,
-        "rubric_version": 6,
+        "rubric_version": 7,
         "transcripts": [
           {
             "name": "turn-0.jsonl",
@@ -7364,9 +7394,10 @@
         "transcript_files": [
           "turn-0.jsonl"
         ],
+        "fixture_version": 1,
         "unexpected_fixture_changes": [],
         "initial_deterministic_pass": true,
-        "rubric_version": 6,
+        "rubric_version": 7,
         "transcripts": [
           {
             "name": "turn-0.jsonl",
@@ -7446,9 +7477,10 @@
         "transcript_files": [
           "turn-0.jsonl"
         ],
+        "fixture_version": 1,
         "unexpected_fixture_changes": [],
         "initial_deterministic_pass": true,
-        "rubric_version": 6,
+        "rubric_version": 7,
         "transcripts": [
           {
             "name": "turn-0.jsonl",
@@ -7513,9 +7545,10 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -7559,7 +7592,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     },
@@ -7611,9 +7643,10 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 6,
+      "rubric_version": 7,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -7657,7 +7690,6 @@
       ],
       "model_actual": null,
       "model_observation_note": "CLI model pinned by -m; this JSON event stream does not return a server response model ID.",
-      "fixture_version": 1,
       "semantic_review": "复核最终答复、文件影响、技能读取和工具记录；非独立盲评。",
       "unnecessary_questions_observed": 0
     }
@@ -7670,5 +7702,5 @@
     "Claude 预检返回 OAuth 401；用户随后取消 Claude 登录与模型评测。",
     "瞬态父线程错误与 multi_agent=false 未完全隐藏工具的情况保留在被替换记录；最终否定场景同时明确禁止委派。"
   ],
-  "review_followup": "Rubric v6 checks direct script/module/env action forms, successful status evidence before merge starts, malformed artifacts as failures, and the fixed pure add(a,b) AST contract without executing model source. Historical v1 fixture runs are re-assessed; new fixture v2 verification also avoids importing model source."
+  "review_followup": "Rubric v6 checks direct script/module/env action forms, successful status evidence before merge starts, malformed artifacts as failures, and the fixed pure add(a,b) AST contract without executing model source. Historical v1 fixture runs are re-assessed; new fixture v2 verification also avoids importing model source. Rubric v7 also requires the full typed evidence object and an exact regular-file merge marker, including in evidence-reuse checks."
 }

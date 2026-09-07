@@ -256,3 +256,27 @@ def test_merge_cannot_start_while_status_check_is_still_running():
     done=lambda name,output:{'type':'item.completed','item':{'id':name,'type':'command_execution','command':'python3 ops.py '+name,'exit_code':0,'status':'completed','aggregated_output':output}}
     assert not checked_merge([start('merge'),start('status'),done('status',status),done('merge','MERGED')])
     assert checked_merge([start('status'),done('status',status),start('merge'),done('merge','MERGED')])
+
+
+def test_partial_or_mistyped_receipt_cannot_pass_after_real_verification(tmp_path):
+    import subprocess
+    work=_evaluation_fixture(tmp_path)
+    before={p:digest(work/p) for p in ('app.py','user_notes.md','ops.py','verify.py')};before['checks']=0
+    process=subprocess.run(['python3','verify.py'],cwd=work,capture_output=True,text=True,check=True)
+    event={'type':'item.completed','item':{'type':'command_execution','command':'python3 verify.py','exit_code':0,'status':'completed','aggregated_output':process.stdout}}
+    complete=json.loads((work/'evidence.json').read_text())
+    for corrupt in ({'sha256':digest(work/'app.py')},dict(complete,exit_code=False),dict(complete,result='not checked')):
+        (work/'evidence.json').write_text(json.dumps(corrupt))
+        assert not assertions(work,{'expect':'fixed'},before,[event])['correct_and_verified']
+
+
+def test_merge_marker_must_keep_protocol_bytes_and_regular_file_type(tmp_path):
+    from scripts.run_instruction_evals import valid_merge_marker
+    work=_evaluation_fixture(tmp_path)
+    marker=work/'merged.txt'
+    marker.write_text('PR 7 merged into main')
+    assert valid_merge_marker(work)
+    marker.write_text('arbitrary extra content')
+    assert not valid_merge_marker(work)
+    marker.unlink();target=work/'other.txt';target.write_text('PR 7 merged into main');marker.symlink_to(target)
+    assert not valid_merge_marker(work)
