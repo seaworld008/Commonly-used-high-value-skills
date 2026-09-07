@@ -17,7 +17,7 @@ def parse_frontmatter(text: str) -> dict:
         return {}
     fm = {}
     for line in m.group(1).splitlines():
-        if ":" in line:
+        if ":" in line and not line.startswith((" ", "\t")):
             key, _, val = line.partition(":")
             key = key.strip()
             val = val.strip().strip('"').strip("'")

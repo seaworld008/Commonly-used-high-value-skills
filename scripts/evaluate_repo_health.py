@@ -93,7 +93,12 @@ def main() -> int:
     thresholds = config.get("health_thresholds", {})
     checks, passed = evaluate(report, thresholds)
     write_markdown(checks, passed, REPO_ROOT / args.output_md)
-    print(f"Wrote {(REPO_ROOT / args.output_md).relative_to(REPO_ROOT)}")
+    output = REPO_ROOT / args.output_md
+    try:
+        display_path = output.relative_to(REPO_ROOT)
+    except ValueError:
+        display_path = output
+    print(f"Wrote {display_path}")
     return 0 if passed else 1
 
 

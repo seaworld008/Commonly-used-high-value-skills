@@ -33,7 +33,7 @@ def run_generate(*args: str) -> subprocess.CompletedProcess[str]:
 
 class EvaluateRepoHealthTests(unittest.TestCase):
     def test_evaluate_repo_health_passes_on_current_state(self) -> None:
-        with tempfile.TemporaryDirectory(dir=REPO_ROOT) as tmp:
+        with tempfile.TemporaryDirectory() as tmp:
             tmp_dir = Path(tmp)
             reports_dir = tmp_dir / "reports"
             reports_dir.mkdir(parents=True, exist_ok=True)

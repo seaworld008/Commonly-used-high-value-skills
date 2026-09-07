@@ -23,6 +23,30 @@ def load_module():
 
 
 class BuildCatalogJsonTests(unittest.TestCase):
+    def test_nested_metadata_does_not_override_catalog_or_tag_fields(self):
+        module = load_module()
+        import generate_tags_index
+
+        content = """---
+name: local-skill
+version: '1.0.4'
+author: local-curator
+tags: '[postgres, review]'
+metadata:
+  name: upstream-name
+  version: '1.1.1'
+  author: upstream-author
+  tags: '[upstream]'
+---
+"""
+        for parser in (module.parse_frontmatter, generate_tags_index.parse_frontmatter):
+            with self.subTest(parser=parser.__module__):
+                fields = parser(content)
+                self.assertEqual("local-skill", fields["name"])
+                self.assertEqual("1.0.4", fields["version"])
+                self.assertEqual("local-curator", fields["author"])
+                self.assertEqual("[postgres, review]", fields["tags"])
+
     def test_resolve_generated_at_preserves_existing_value(self):
         module = load_module()
 

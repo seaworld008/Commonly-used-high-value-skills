@@ -211,14 +211,6 @@
         "spawning",
         "cli",
         "gateway",
-        "bots",
-        "bot-mode",
-        "features",
-        "themes",
-        "skins",
-        "desktop-plugins",
-        "tui-widgets",
-        "petdex",
         "development"
       ],
       "quality": 4,
@@ -2251,8 +2243,8 @@
       "name": "supabase",
       "category": "developer-engineering",
       "description": "Build or troubleshoot Supabase Database, Auth, Storage, Realtime, Edge Functions, and client/SSR integrations; use current platform documentation.",
-      "version": "0.1.2",
-      "author": "supabase",
+      "version": "1.0.4",
+      "author": "seaworld008",
       "source": "github:supabase/agent-skills",
       "source_url": "https://skills.sh/supabase/agent-skills/supabase",
       "tags": [
@@ -2262,7 +2254,7 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-06-03",
-      "updated_at": "2026-09-06",
+      "updated_at": "2026-09-07",
       "line_count": 188,
       "path": "skills/developer-engineering/supabase/SKILL.md"
     },
@@ -2270,8 +2262,8 @@
       "name": "supabase-postgres-best-practices",
       "category": "developer-engineering",
       "description": "Use when writing or reviewing Postgres schemas, queries, indexes, RLS policies, connection settings, or migrations with Supabase guidance; applicable to Postgres on any hosting platform.",
-      "version": "1.1.1",
-      "author": "supabase",
+      "version": "1.0.4",
+      "author": "seaworld008",
       "source": "github:supabase/agent-skills",
       "source_url": "https://skills.sh/supabase/agent-skills/supabase-postgres-best-practices",
       "tags": [
@@ -2394,8 +2386,8 @@
       "name": "vercel-react-best-practices",
       "category": "developer-engineering",
       "description": "Optimize React and Next.js rendering, data fetching, bundles, and runtime performance using Vercel''s engineering guidance.",
-      "version": "1.0.0",
-      "author": "vercel",
+      "version": "1.0.2",
+      "author": "seaworld008",
       "source": "github:vercel-labs/agent-skills",
       "source_url": "https://github.com/vercel-labs/agent-skills/blob/b8caa260a420a73042e35521de4b5c8baf6446cc/skills/react-best-practices/SKILL.md",
       "tags": [
@@ -2479,8 +2471,8 @@
       "name": "azure-kubernetes",
       "category": "devops-sre",
       "description": "Plan and configure Azure Kubernetes Service clusters, including SKU, networking, identity, deployment readiness, and operational constraints.",
-      "version": "1.1.4",
-      "author": "Microsoft",
+      "version": "1.0.3",
+      "author": "seaworld008",
       "source": "github:microsoft/azure-skills",
       "source_url": "https://skills.sh/microsoft/azure-skills/azure-kubernetes",
       "tags": [
@@ -3646,17 +3638,18 @@
     {
       "name": "x-twitter-scraper",
       "category": "growth-operations-xiaohongshu",
-      "description": "Per-callback HMAC secret returned by the signed event delivery API.",
+      "description": "Use Xquik for X/Twitter research and connected-account actions; Radar and support workflows require a named request. Offline text analysis does not need this skill.",
       "version": "1.0.5",
-      "author": "Xquik",
+      "author": "Xquik <support@xquik.com>",
       "source": "github:Xquik-dev/x-twitter-scraper",
       "source_url": "https://github.com/Xquik-dev/x-twitter-scraper/tree/3b12bf550dd2804056c09dc3925c7dae5369665c/skills/x-twitter-scraper",
       "tags": [
+        "growth",
+        "social-media",
         "twitter",
         "x",
-        "social-media",
-        "api-development",
-        "scraping"
+        "api",
+        "mcp"
       ],
       "quality": 5,
       "complexity": "advanced",
@@ -4367,10 +4360,9 @@
       "source": "github:NousResearch/hermes-agent",
       "source_url": "https://github.com/NousResearch/hermes-agent/blob/main/skills/note-taking/obsidian/SKILL.md",
       "tags": [
-        "Obsidian",
-        "Notes",
-        "Markdown",
-        "Vault"
+        "obsidian",
+        "notes",
+        "knowledge-base"
       ],
       "quality": 3,
       "complexity": "intermediate",
@@ -4830,8 +4822,7 @@
         "Profiles",
         "Observation",
         "Dialectic",
-        "User-Modeling",
-        "Session-Summary"
+        "User-Modeling"
       ],
       "quality": 4,
       "complexity": "intermediate",

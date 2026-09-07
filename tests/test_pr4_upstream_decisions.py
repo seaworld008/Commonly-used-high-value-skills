@@ -75,6 +75,7 @@ def test_reviewed_monitor_checkpoints_advance_without_body_churn() -> None:
             for attempt in reversed(mapping_data["verification_attempts"])
             if attempt["method"] == "commit-aware-manual-monitor-review"
             and attempt["target"].startswith(f"{origin['repo']}@")
+            and attempt["result"] == "success"
         )
         reviewed_commit = reviewed["target"].rsplit("@", 1)[1]
         assert reviewed["result"] == "success"

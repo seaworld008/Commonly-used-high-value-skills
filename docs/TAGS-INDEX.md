@@ -1,6 +1,6 @@
 # Tags Index
 
-> Auto-generated from 1103 skill-tag mappings across 499 tags.
+> Auto-generated from 1094 skill-tag mappings across 487 tags.
 > Last updated: see git log.
 
 ## Quick Navigation
@@ -17,7 +17,7 @@
 - [`design`](#design) (16)
 - [`finance`](#finance) (16)
 - [`automation`](#automation) (15)
-- [`growth`](#growth) (14)
+- [`growth`](#growth) (15)
 - [`planning`](#planning) (14)
 - [`sre`](#sre) (14)
 - [`devops`](#devops) (13)
@@ -26,10 +26,11 @@
 - [`productivity`](#productivity) (10)
 - [`deployment`](#deployment) (7)
 - [`designer`](#designer) (7)
-- [`api`](#api) (5)
+- [`api`](#api) (6)
 - [`code-review`](#code-review) (5)
 - [`expert`](#expert) (5)
 - [`manager`](#manager) (5)
+- [`mcp`](#mcp) (5)
 - [`skill`](#skill) (5)
 - [`analysis`](#analysis) (4)
 - [`appsec`](#appsec) (4)
@@ -43,8 +44,6 @@
 - [`github`](#github) (4)
 - [`knowledge`](#knowledge) (4)
 - [`kubernetes`](#kubernetes) (4)
-- [`markdown`](#markdown) (4)
-- [`mcp`](#mcp) (4)
 - [`media`](#media) (4)
 - [`memory`](#memory) (4)
 - [`notion`](#notion) (4)
@@ -61,6 +60,8 @@
 - [`frontend`](#frontend) (3)
 - [`generator`](#generator) (3)
 - [`git`](#git) (3)
+- [`knowledge-base`](#knowledge-base) (3)
+- [`markdown`](#markdown) (3)
 - [`meeting`](#meeting) (3)
 - [`office`](#office) (3)
 - [`postgres`](#postgres) (3)
@@ -95,7 +96,6 @@
 - [`graphql`](#graphql) (2)
 - [`hermes`](#hermes) (2)
 - [`integrations`](#integrations) (2)
-- [`knowledge-base`](#knowledge-base) (2)
 - [`linkedin`](#linkedin) (2)
 - [`metrics`](#metrics) (2)
 - [`minutes`](#minutes) (2)
@@ -144,7 +144,6 @@
 - [`android`](#android) (1)
 - [`animation`](#animation) (1)
 - [`api-and-interface-design`](#api-and-interface-design) (1)
-- [`api-development`](#api-development) (1)
 - [`application-security`](#application-security) (1)
 - [`approval`](#approval) (1)
 - [`apps`](#apps) (1)
@@ -164,8 +163,6 @@
 - [`base`](#base) (1)
 - [`beacon`](#beacon) (1)
 - [`billing`](#billing) (1)
-- [`bot-mode`](#bot-mode) (1)
-- [`bots`](#bots) (1)
 - [`brainstorming`](#brainstorming) (1)
 - [`brand`](#brand) (1)
 - [`breach`](#breach) (1)
@@ -224,7 +221,6 @@
 - [`dependency-scanning`](#dependency-scanning) (1)
 - [`deprecation-and-migration`](#deprecation-and-migration) (1)
 - [`design-system`](#design-system) (1)
-- [`desktop-plugins`](#desktop-plugins) (1)
 - [`develop`](#develop) (1)
 - [`diagram`](#diagram) (1)
 - [`dialectic`](#dialectic) (1)
@@ -248,7 +244,6 @@
 - [`fact`](#fact) (1)
 - [`factor`](#factor) (1)
 - [`factory`](#factory) (1)
-- [`features`](#features) (1)
 - [`feedback`](#feedback) (1)
 - [`files`](#files) (1)
 - [`filing`](#filing) (1)
@@ -367,7 +362,6 @@
 - [`pdf`](#pdf) (1)
 - [`penetration-testing`](#penetration-testing) (1)
 - [`performance-optimization`](#performance-optimization) (1)
-- [`petdex`](#petdex) (1)
 - [`pipe`](#pipe) (1)
 - [`planning-and-task-breakdown`](#planning-and-task-breakdown) (1)
 - [`pmm`](#pmm) (1)
@@ -418,7 +412,6 @@
 - [`science`](#science) (1)
 - [`scout`](#scout) (1)
 - [`scraper`](#scraper) (1)
-- [`scraping`](#scraping) (1)
 - [`screener`](#screener) (1)
 - [`screenshot`](#screenshot) (1)
 - [`search`](#search) (1)
@@ -429,7 +422,6 @@
 - [`self`](#self) (1)
 - [`semgrep`](#semgrep) (1)
 - [`sentry`](#sentry) (1)
-- [`session-summary`](#session-summary) (1)
 - [`setup`](#setup) (1)
 - [`shard`](#shard) (1)
 - [`sheets`](#sheets) (1)
@@ -438,7 +430,6 @@
 - [`sigil`](#sigil) (1)
 - [`sketch`](#sketch) (1)
 - [`skill-quality`](#skill-quality) (1)
-- [`skins`](#skins) (1)
 - [`slack`](#slack) (1)
 - [`social`](#social) (1)
 - [`solution`](#solution) (1)
@@ -470,7 +461,6 @@
 - [`test-driven-development`](#test-driven-development) (1)
 - [`tester`](#tester) (1)
 - [`theme`](#theme) (1)
-- [`themes`](#themes) (1)
 - [`threat`](#threat) (1)
 - [`tome`](#tome) (1)
 - [`tone`](#tone) (1)
@@ -480,7 +470,6 @@
 - [`transitions`](#transitions) (1)
 - [`triage`](#triage) (1)
 - [`troubleshooting`](#troubleshooting) (1)
-- [`tui-widgets`](#tui-widgets) (1)
 - [`typescript`](#typescript) (1)
 - [`typography`](#typography) (1)
 - [`ui`](#ui) (1)
@@ -489,7 +478,6 @@
 - [`ux`](#ux) (1)
 - [`validation`](#validation) (1)
 - [`valuation`](#valuation) (1)
-- [`vault`](#vault) (1)
 - [`vetter`](#vetter) (1)
 - [`visual-regression`](#visual-regression) (1)
 - [`voice`](#voice) (1)
@@ -930,7 +918,7 @@
 
 ## growth
 
-**14 skills**
+**15 skills**
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
@@ -946,6 +934,7 @@
 | [marketing-strategy-pmm](skills/growth-operations-xiaohongshu/marketing-strategy-pmm) | growth-operations-xiaohongshu | ★★★★★ | Product marketing skill for positioning, GTM strategy, competitive intelligence, |
 | [pulse](skills/growth-operations-xiaohongshu/pulse) | growth-operations-xiaohongshu | ★★★★★ | 关键指标、埋点、漏斗、留存和仪表盘规格设计。 |
 | [social-media-analyzer](skills/growth-operations-xiaohongshu/social-media-analyzer) | growth-operations-xiaohongshu | ★★★★★ | Analyze social campaign engagement, ROI, audience behavior, and platform compari |
+| [x-twitter-scraper](skills/growth-operations-xiaohongshu/x-twitter-scraper) | growth-operations-xiaohongshu | ★★★★★ | Use Xquik for X/Twitter research and connected-account actions; Radar and suppor |
 | [tweetclaw-source-research](skills/growth-operations-xiaohongshu/tweetclaw-source-research) | growth-operations-xiaohongshu | ★★★★☆ | Use TweetClaw through OpenClaw to collect X/Twitter source context before drafti |
 | [twitter-reader](skills/growth-operations-xiaohongshu/twitter-reader) | growth-operations-xiaohongshu | ★★★☆☆ | Read Twitter/X posts and threads from supplied URLs, including author, text, tim |
 
@@ -1097,12 +1086,13 @@
 
 ## api
 
-**5 skills**
+**6 skills**
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [api-design-reviewer](skills/developer-engineering/api-design-reviewer) | developer-engineering | ★★★★★ | Use when reviewing API designs for consistency, usability, versioning, error sem |
 | [api-test-suite-builder](skills/developer-engineering/api-test-suite-builder) | developer-engineering | ★★★★★ | Generate API tests from routes and contracts for authentication, validation, pag |
+| [x-twitter-scraper](skills/growth-operations-xiaohongshu/x-twitter-scraper) | growth-operations-xiaohongshu | ★★★★★ | Use Xquik for X/Twitter research and connected-account actions; Radar and suppor |
 | [mcporter](skills/ai-agent-platform/mcporter) | ai-agent-platform | ★★★★☆ | Use when a user explicitly needs terminal-based MCP discovery, schema inspection |
 | [arxiv](skills/knowledge-and-pm-integrations/arxiv) | knowledge-and-pm-integrations | ★★★★☆ | Search arXiv papers by keyword, author, category, or ID. |
 | [lark-openapi-explorer](skills/knowledge-and-pm-integrations/lark-openapi-explorer) | knowledge-and-pm-integrations | ★★★★☆ | 飞书/Lark 原生 OpenAPI 探索：从官方文档库中挖掘未经 CLI 封装的原生 OpenAPI 接口。当用户的需求无法被现有 lark-* skill  |
@@ -1142,6 +1132,18 @@
 | [product-manager-toolkit](skills/product-design/product-manager-toolkit) | product-design | ★★★★★ | Prioritize features, synthesize customer research, and write PRDs or go-to-marke |
 | [git-worktree-manager](skills/developer-engineering/git-worktree-manager) | developer-engineering | ★★★★☆ | Create, inspect, and clean up Git worktrees for parallel development, with expli |
 | [portfolio-risk-manager](skills/finance-investing/portfolio-risk-manager) | finance-investing | ★★☆☆☆ | Use when reviewing portfolio exposures, checking concentration and beta risk, su |
+
+## mcp
+
+**5 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [mcp-builder](skills/developer-engineering/mcp-builder) | developer-engineering | ★★★★★ | Build MCP servers that expose external APIs or services through well-scoped tool |
+| [x-twitter-scraper](skills/growth-operations-xiaohongshu/x-twitter-scraper) | growth-operations-xiaohongshu | ★★★★★ | Use Xquik for X/Twitter research and connected-account actions; Radar and suppor |
+| [mcporter](skills/ai-agent-platform/mcporter) | ai-agent-platform | ★★★★☆ | Use when a user explicitly needs terminal-based MCP discovery, schema inspection |
+| [native-mcp](skills/ai-agent-platform/native-mcp) | ai-agent-platform | ★★★★☆ | Configure Hermes Agent''s built-in MCP client: server discovery, stdio/HTTP conn |
+| [linear](skills/knowledge-and-pm-integrations/linear) | knowledge-and-pm-integrations | ★★★★☆ | 用于管理 Linear issues、项目、团队和协作状态。 |
 
 ## skill
 
@@ -1286,28 +1288,6 @@
 | [azure-kubernetes](skills/devops-sre/azure-kubernetes) | devops-sre | ★★★★☆ | Plan and configure Azure Kubernetes Service clusters, including SKU, networking, |
 | [cc-devops-skills](skills/devops-sre/cc-devops-skills) | devops-sre | ★★★★☆ | SRE, DevOps, Kubernetes, CI/CD, PromQL, Terraform, Docker, and incident operatio |
 | [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Trivy 扫描仓库、容器镜像、文件系统、rootfs、SBOM、Kubernetes、IaC、密钥、许可证和系统 CVE。 |
-
-## markdown
-
-**4 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [llm-wiki](skills/knowledge-and-pm-integrations/llm-wiki) | knowledge-and-pm-integrations | ★★★★☆ | Karpathy''s LLM Wiki: build/query interlinked markdown KB. |
-| [markdown-tools](skills/office-white-collar/markdown-tools) | office-white-collar | ★★★★☆ | Convert PDF, DOCX, PPTX, and other documents to Markdown, preserving tables, ima |
-| [lark-markdown](skills/knowledge-and-pm-integrations/lark-markdown) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书 Markdown：查看、创建、上传、编辑和比较 Markdown 文件。当用户需要创建或编辑 Markdown 文件、读取、修改、局部 patch 或比较 |
-| [obsidian](skills/knowledge-and-pm-integrations/obsidian) | knowledge-and-pm-integrations | ★★★☆☆ | Read, search, create, or edit notes in an authorized Obsidian vault while preser |
-
-## mcp
-
-**4 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [mcp-builder](skills/developer-engineering/mcp-builder) | developer-engineering | ★★★★★ | Build MCP servers that expose external APIs or services through well-scoped tool |
-| [mcporter](skills/ai-agent-platform/mcporter) | ai-agent-platform | ★★★★☆ | Use when a user explicitly needs terminal-based MCP discovery, schema inspection |
-| [native-mcp](skills/ai-agent-platform/native-mcp) | ai-agent-platform | ★★★★☆ | Configure Hermes Agent''s built-in MCP client: server discovery, stdio/HTTP conn |
-| [linear](skills/knowledge-and-pm-integrations/linear) | knowledge-and-pm-integrations | ★★★★☆ | 用于管理 Linear issues、项目、团队和协作状态。 |
 
 ## media
 
@@ -1479,6 +1459,26 @@
 | [using-git-worktrees](skills/ai-workflow/using-git-worktrees) | ai-workflow | ★★★★☆ | Use when starting feature work that needs isolation from current workspace or be |
 | [git-worktree-manager](skills/developer-engineering/git-worktree-manager) | developer-engineering | ★★★★☆ | Create, inspect, and clean up Git worktrees for parallel development, with expli |
 
+## knowledge-base
+
+**3 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [lark-wiki](skills/knowledge-and-pm-integrations/lark-wiki) | knowledge-and-pm-integrations | ★★★★☆ | 管理飞书知识空间、成员和文档节点，查询或调整节点层级。支持飞书或 doubao.com 的 /wiki/ 链接和 token；文件上传转 lark-drive， |
+| [llm-wiki](skills/knowledge-and-pm-integrations/llm-wiki) | knowledge-and-pm-integrations | ★★★★☆ | Karpathy''s LLM Wiki: build/query interlinked markdown KB. |
+| [obsidian](skills/knowledge-and-pm-integrations/obsidian) | knowledge-and-pm-integrations | ★★★☆☆ | Read, search, create, or edit notes in an authorized Obsidian vault while preser |
+
+## markdown
+
+**3 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [llm-wiki](skills/knowledge-and-pm-integrations/llm-wiki) | knowledge-and-pm-integrations | ★★★★☆ | Karpathy''s LLM Wiki: build/query interlinked markdown KB. |
+| [markdown-tools](skills/office-white-collar/markdown-tools) | office-white-collar | ★★★★☆ | Convert PDF, DOCX, PPTX, and other documents to Markdown, preserving tables, ima |
+| [lark-markdown](skills/knowledge-and-pm-integrations/lark-markdown) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书 Markdown：查看、创建、上传、编辑和比较 Markdown 文件。当用户需要创建或编辑 Markdown 文件、读取、修改、局部 patch 或比较 |
+
 ## meeting
 
 **3 skills**
@@ -1545,7 +1545,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [x-twitter-scraper](skills/growth-operations-xiaohongshu/x-twitter-scraper) | growth-operations-xiaohongshu | ★★★★★ | Per-callback HMAC secret returned by the signed event delivery API. |
+| [x-twitter-scraper](skills/growth-operations-xiaohongshu/x-twitter-scraper) | growth-operations-xiaohongshu | ★★★★★ | Use Xquik for X/Twitter research and connected-account actions; Radar and suppor |
 | [linkedin](skills/operations-general/linkedin) | operations-general | ★★★★★ | General-purpose LinkedIn automation – fetch profiles, search people and companie |
 | [tweetclaw-source-research](skills/growth-operations-xiaohongshu/tweetclaw-source-research) | growth-operations-xiaohongshu | ★★★★☆ | Use TweetClaw through OpenClaw to collect X/Twitter source context before drafti |
 
@@ -1575,7 +1575,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [x-twitter-scraper](skills/growth-operations-xiaohongshu/x-twitter-scraper) | growth-operations-xiaohongshu | ★★★★★ | Per-callback HMAC secret returned by the signed event delivery API. |
+| [x-twitter-scraper](skills/growth-operations-xiaohongshu/x-twitter-scraper) | growth-operations-xiaohongshu | ★★★★★ | Use Xquik for X/Twitter research and connected-account actions; Radar and suppor |
 | [tweetclaw-source-research](skills/growth-operations-xiaohongshu/tweetclaw-source-research) | growth-operations-xiaohongshu | ★★★★☆ | Use TweetClaw through OpenClaw to collect X/Twitter source context before drafti |
 | [twitter-reader](skills/growth-operations-xiaohongshu/twitter-reader) | growth-operations-xiaohongshu | ★★★☆☆ | Read Twitter/X posts and threads from supplied URLs, including author, text, tim |
 
@@ -1796,15 +1796,6 @@
 |-------|----------|---------|-------------|
 | [mcporter](skills/ai-agent-platform/mcporter) | ai-agent-platform | ★★★★☆ | Use when a user explicitly needs terminal-based MCP discovery, schema inspection |
 | [native-mcp](skills/ai-agent-platform/native-mcp) | ai-agent-platform | ★★★★☆ | Configure Hermes Agent''s built-in MCP client: server discovery, stdio/HTTP conn |
-
-## knowledge-base
-
-**2 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [lark-wiki](skills/knowledge-and-pm-integrations/lark-wiki) | knowledge-and-pm-integrations | ★★★★☆ | 管理飞书知识空间、成员和文档节点，查询或调整节点层级。支持飞书或 doubao.com 的 /wiki/ 链接和 token；文件上传转 lark-drive， |
-| [llm-wiki](skills/knowledge-and-pm-integrations/llm-wiki) | knowledge-and-pm-integrations | ★★★★☆ | Karpathy''s LLM Wiki: build/query interlinked markdown KB. |
 
 ## linkedin
 
@@ -2100,7 +2091,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [x-twitter-scraper](skills/growth-operations-xiaohongshu/x-twitter-scraper) | growth-operations-xiaohongshu | ★★★★★ | Per-callback HMAC secret returned by the signed event delivery API. |
+| [x-twitter-scraper](skills/growth-operations-xiaohongshu/x-twitter-scraper) | growth-operations-xiaohongshu | ★★★★★ | Use Xquik for X/Twitter research and connected-account actions; Radar and suppor |
 | [tweetclaw-source-research](skills/growth-operations-xiaohongshu/tweetclaw-source-research) | growth-operations-xiaohongshu | ★★★★☆ | Use TweetClaw through OpenClaw to collect X/Twitter source context before drafti |
 
 ## academic
@@ -2222,14 +2213,6 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [api-and-interface-design](skills/ai-workflow/api-and-interface-design) | ai-workflow | ★★★★★ | Design REST/GraphQL APIs, module interfaces, and type contracts when creating en |
-
-## api-development
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [x-twitter-scraper](skills/growth-operations-xiaohongshu/x-twitter-scraper) | growth-operations-xiaohongshu | ★★★★★ | Per-callback HMAC secret returned by the signed event delivery API. |
 
 ## application-security
 
@@ -2382,22 +2365,6 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [billing-automation](skills/engineering-workflow-automation/billing-automation) | engineering-workflow-automation | ★★★☆☆ | Build automated billing systems for recurring payments, invoicing, subscription  |
-
-## bot-mode
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Use, configure, theme, extend, and orchestrate Hermes Agent. |
-
-## bots
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Use, configure, theme, extend, and orchestrate Hermes Agent. |
 
 ## brainstorming
 
@@ -2863,14 +2830,6 @@
 |-------|----------|---------|-------------|
 | [ui-ux-pro-max](skills/product-design/ui-ux-pro-max) | product-design | ★★★★☆ | Front-end UI/UX design intelligence for creating, reviewing, and hardening polis |
 
-## desktop-plugins
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Use, configure, theme, extend, and orchestrate Hermes Agent. |
-
 ## develop
 
 **1 skills**
@@ -3054,14 +3013,6 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [theme-factory](skills/operations-general/theme-factory) | operations-general | ★★★☆☆ | Use when styling artifacts with reusable themes, applying preset color/font syst |
-
-## features
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Use, configure, theme, extend, and orchestrate Hermes Agent. |
 
 ## feedback
 
@@ -4007,14 +3958,6 @@
 |-------|----------|---------|-------------|
 | [performance-optimization](skills/ai-workflow/performance-optimization) | ai-workflow | ★★★★★ | Investigate and improve measured frontend, backend, query, or database bottlenec |
 
-## petdex
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Use, configure, theme, extend, and orchestrate Hermes Agent. |
-
 ## pipe
 
 **1 skills**
@@ -4415,14 +4358,6 @@
 |-------|----------|---------|-------------|
 | [web-scraper](skills/engineering-workflow-automation/web-scraper) | engineering-workflow-automation | ★★★★☆ | Use when users need webpage scraping, structured data extraction, crawling strat |
 
-## scraping
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [x-twitter-scraper](skills/growth-operations-xiaohongshu/x-twitter-scraper) | growth-operations-xiaohongshu | ★★★★★ | Per-callback HMAC secret returned by the signed event delivery API. |
-
 ## screener
 
 **1 skills**
@@ -4503,14 +4438,6 @@
 |-------|----------|---------|-------------|
 | [sentry](skills/security-and-reliability/sentry) | security-and-reliability | ★★★★☆ | 用于只读查询 Sentry issues、events 和服务健康数据，汇总线上错误并辅助生产问题排查。 |
 
-## session-summary
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [honcho](skills/openclaw-memory-and-safety/honcho) | openclaw-memory-and-safety | ★★★★☆ | Configure and troubleshoot Honcho memory for Hermes. |
-
 ## setup
 
 **1 skills**
@@ -4574,14 +4501,6 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [nlpm-audit](skills/ai-workflow/nlpm-audit) | ai-workflow | ★★★★☆ | Audit SKILL.md, AGENTS.md, prompts, hooks, and plugin manifests for instruction  |
-
-## skins
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Use, configure, theme, extend, and orchestrate Hermes Agent. |
 
 ## slack
 
@@ -4831,14 +4750,6 @@
 |-------|----------|---------|-------------|
 | [theme-factory](skills/operations-general/theme-factory) | operations-general | ★★★☆☆ | Use when styling artifacts with reusable themes, applying preset color/font syst |
 
-## themes
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Use, configure, theme, extend, and orchestrate Hermes Agent. |
-
 ## threat
 
 **1 skills**
@@ -4911,14 +4822,6 @@
 |-------|----------|---------|-------------|
 | [cloudflare-troubleshooting](skills/devops-sre/cloudflare-troubleshooting) | devops-sre | ★★★★★ | Diagnose Cloudflare DNS, TLS, redirects, and configuration issues using live API |
 
-## tui-widgets
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Use, configure, theme, extend, and orchestrate Hermes Agent. |
-
 ## typescript
 
 **1 skills**
@@ -4982,14 +4885,6 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [comps-valuation-analyst](skills/finance-investing/comps-valuation-analyst) | finance-investing | ★★☆☆☆ | Use when valuing a public company with peer multiples, building comparable-compa |
-
-## vault
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [obsidian](skills/knowledge-and-pm-integrations/obsidian) | knowledge-and-pm-integrations | ★★★☆☆ | Read, search, create, or edit notes in an authorized Obsidian vault while preser |
 
 ## vetter
 

@@ -1714,7 +1714,7 @@
             "ref": "main",
             "resolved_commit": "8331f910845103c08d51f6ca1d86ebb7d1f745e3",
             "path_commit": "3a4f0ce0782e0cbdcf187c362e8d15d9e324462b",
-            "content_sha256": "ee08743f47109c41514e4c3399f0238a7a314d73a99328804886ab098109b084",
+            "content_sha256": "a5ae4435980821666128af5d206dbfac427fc956fad340e4fb384d012bcf29e3",
             "last_checked_at": "2026-08-31",
             "last_synced_at": "2026-08-31",
             "license_checkpoint": {
@@ -1759,7 +1759,7 @@
         },
         {
           "path": "skills/developer-engineering/supabase/SKILL.md",
-          "sha256": "ee08743f47109c41514e4c3399f0238a7a314d73a99328804886ab098109b084",
+          "sha256": "a5ae4435980821666128af5d206dbfac427fc956fad340e4fb384d012bcf29e3",
           "owner": "supabase",
           "mode": "100644"
         },
