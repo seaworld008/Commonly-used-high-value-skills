@@ -35,7 +35,7 @@ ALGORITHMIC_ART_VIEWER = (
     / "templates"
     / "viewer.html"
 )
-CREATE_PULL_REQUEST_V6_COMMIT = "c5a7806660adbe173f04e3e038b0ccdcd758773c"
+CREATE_PULL_REQUEST_V8_COMMIT = "5f6978faf089d4d20b00c7766989d076bb2fc7f1"
 P5_1_7_0_SHA384 = (
     "sha384-Mhzoc5EVkjFUVtIW2M3h8BgXtFlUsUpu9lTCThPrV7+"
     "k6MN6vTi079rew0LkvgFb"
@@ -70,9 +70,15 @@ class CodeQLBatchASecurityTests(unittest.TestCase):
             )
         )
         self.assertEqual(
-            f"peter-evans/create-pull-request@{CREATE_PULL_REQUEST_V6_COMMIT}",
+            f"peter-evans/create-pull-request@{CREATE_PULL_REQUEST_V8_COMMIT}",
             create_pr["uses"],
         )
+        checkout = next(
+            step
+            for step in steps
+            if str(step.get("uses", "")).startswith("actions/checkout@")
+        )
+        self.assertFalse(checkout["with"]["persist-credentials"])
 
     def test_harvest_passes_untrusted_filters_as_gh_argv(self):
         repo_value = "owner/repo; touch /tmp/must-not-run"
