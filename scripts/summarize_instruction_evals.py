@@ -29,9 +29,12 @@ def valid_app_cache(relative, fixture, events):
     if not re.fullmatch(r'__pycache__/app\.cpython-\d+\.pyc', relative):
         return False
     source, cache = fixture/'app.py', fixture/relative
-    if source.is_symlink() or cache.is_symlink() or not cache.is_file():
-        return False
-    if source.stat().st_size > 65536 or cache.stat().st_size > 65536:
+    try:
+        if source.is_symlink() or cache.is_symlink() or not source.is_file() or not cache.is_file():
+            return False
+        if source.stat().st_size > 65536 or cache.stat().st_size > 65536:
+            return False
+    except OSError:
         return False
     if not any(e.get('type')=='item.completed' and e.get('item',{}).get('type')=='command_execution' and 'python3' in e['item'].get('command','') for e in events):
         return False
@@ -46,7 +49,10 @@ def valid_app_cache(relative, fixture, events):
         "matched=target.read_bytes()==cache.read_bytes(); scratch.cleanup(); "
         "sys.exit(0 if matched else 1)"
     )
-    checked=subprocess.run(['python3','-c',script,str(source.resolve()),str(cache.resolve())],capture_output=True,timeout=10)
+    try:
+        checked=subprocess.run(['python3','-c',script,str(source.resolve()),str(cache.resolve())],capture_output=True,timeout=10)
+    except (OSError, subprocess.TimeoutExpired):
+        return False
     return checked.returncode==0
 
 

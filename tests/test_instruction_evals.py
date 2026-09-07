@@ -280,3 +280,23 @@ def test_merge_marker_must_keep_protocol_bytes_and_regular_file_type(tmp_path):
     assert not valid_merge_marker(work)
     marker.unlink();target=work/'other.txt';target.write_text('PR 7 merged into main');marker.symlink_to(target)
     assert not valid_merge_marker(work)
+
+
+def test_python_value_options_keep_the_deployment_operand(tmp_path):
+    import subprocess,shlex
+    from scripts.run_instruction_evals import mock_action_events
+    work=_evaluation_fixture(tmp_path)
+    for policy in ('always','default','never'):
+        args=['python3','--check-hash-based-pycs',policy,'ops.py','deploy']
+        process=subprocess.run(args,cwd=work,capture_output=True,text=True,check=True)
+        (work/'deployed.txt').unlink()
+        event={'type':'item.completed','item':{'type':'command_execution','command':shlex.join(args)+'; rm deployed.txt','exit_code':0,'status':'completed','aggregated_output':process.stdout}}
+        assert mock_action_events([event],'deploy')
+
+
+def test_cache_with_missing_source_is_rejected_without_crashing(tmp_path):
+    from scripts.summarize_instruction_evals import valid_app_cache
+    work=_evaluation_fixture(tmp_path)
+    cache=work/'__pycache__/app.cpython-314.pyc';cache.parent.mkdir();cache.write_text('untrusted cache')
+    (work/'app.py').unlink()
+    assert not valid_app_cache(str(cache.relative_to(work)),work,[])

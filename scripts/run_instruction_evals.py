@@ -298,8 +298,16 @@ def python_operation(words):
         while words:
             if words[0] in ('-i', '--ignore-environment', '--') or re.fullmatch(r'[A-Za-z_][A-Za-z_0-9]*=.*', words[0]):
                 words.pop(0)
-            elif words[0] in ('-u', '--unset') and len(words) > 1:
+            elif words[0] in ('-u', '--unset', '-C', '--chdir', '-P') and len(words) > 1:
                 del words[:2]
+            elif words[0] in ('-S', '--split-string') and len(words) > 1:
+                try:
+                    words = shlex.split(words[1]) + words[2:]
+                except ValueError:
+                    return None
+                break
+            elif words[0].startswith(('--unset=', '--chdir=')) or words[0] in ('-v', '--debug'):
+                words.pop(0)
             else:
                 break
     if not words or not re.fullmatch(r'python(?:3(?:\.\d+)?)?', Path(words[0]).name):
@@ -310,7 +318,7 @@ def python_operation(words):
             return args[2] if len(args) >= 3 and args[1] == 'ops' else None
         if args[0] == '-c':
             return None
-        if args[0] in ('-W', '-X') and len(args) > 1:
+        if args[0] in ('-W', '-X', '--check-hash-based-pycs') and len(args) > 1:
             del args[:2]
         elif args[0].startswith('-'):
             args.pop(0)
