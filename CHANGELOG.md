@@ -17,6 +17,7 @@ All notable changes to this repository are documented here.
 - review weekly skill sources (#102)
 
 ##### Fixed
+- exclude interpreter caches from npm skill packages
 - correct catalog metadata and complete maintenance audit (#105)
 - prevent duplicate changelog auth headers (#104)
 - address weekly review findings (#103)
