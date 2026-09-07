@@ -17,7 +17,8 @@ All notable changes to this repository are documented here.
 - review weekly skill sources (#102)
 
 ##### Fixed
-- require execution-backed evaluation evidence and align Nexus policies
+- complete review-state integrity for v2.1.1
+- require observed verification and finish cross-agent policy alignment (#107)
 - correct catalog metadata and complete maintenance audit (#105)
 - prevent duplicate changelog auth headers (#104)
 - address weekly review findings (#103)
