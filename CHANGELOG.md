@@ -10,9 +10,24 @@ All notable changes to this repository are documented here.
 
 变更范围 / Revision range: `v2.0.0..HEAD`.
 
+#### [2026-09-07]
+
+##### Changed
+- review weekly skill sources (#102)
+
+##### Fixed
+- prevent duplicate changelog auth headers (#104)
+- address weekly review findings (#103)
+
+#### [2026-09-06]
+
+##### Changed
+- modernize skills and workflows for GPT-6 Astra (#101)
+
 #### [2026-08-31]
 
 ##### Fixed
+- keep scanner rule metadata out of text logs (#98)
 - preserve curated history during changelog refresh (#97)
 - complete quality-first skills maintenance (#95)
 
