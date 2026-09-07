@@ -1,7 +1,9 @@
 ---
 name: sample-skill
-description: 'Name: sample-text-processor Tier: BASIC Category: Text Processing Dependencies: None (Python Standard Library Only) Author: Claude Skills Engineering Team Version: 1.0.0 Last Updated: 2026-02-16.'
-version: "1.0.0"
+description: 'Demonstrate skill packaging with word counts, character statistics and text transformations in text or JSON output.'
+zh_description: "演示技能封装，提供字数统计、字符分析和文本转换。"
+source: "in-house"
+version: "1.0.1"
 tags: '["sample", "template", "text-processing"]'
 quality: 3
 ---

@@ -2,14 +2,14 @@
 name: performance-optimization
 description: 'Investigate and improve measured frontend, backend, query, or database bottlenecks; use profiling and workload evidence to protect the gains.'
 zh_description: "基于测量优化前后端与数据库性能，并用 CI 预算和真实用户监测防止回退。"
-version: "1.0.3"
+version: "1.0.4"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/performance-optimization/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "performance-optimization", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-09-06"
+updated_at: "2026-09-07"
 quality: 5
 complexity: advanced
 upstream_slug: performance-optimization

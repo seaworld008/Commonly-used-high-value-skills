@@ -2,14 +2,14 @@
 name: code-review-and-quality
 description: 'Review code changes for correctness, maintainability, security, and validation evidence before integration or when a review is requested.'
 zh_description: "审查代码正确性、可维护性、安全性和验证证据。"
-version: "1.0.2"
+version: "1.0.3"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/code-review-and-quality/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "code-review-and-quality", "engineering", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-09-06"
+updated_at: "2026-09-07"
 quality: 5
 complexity: advanced
 upstream_slug: code-review-and-quality

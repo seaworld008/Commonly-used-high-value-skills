@@ -2,14 +2,14 @@
 name: nexus
 description: '多智能体任务分解、链路编排、执行协调和结果整合。'
 zh_description: "多智能体任务分解、链路编排、执行协调和结果整合。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/nexus"
 license: MIT
 tags: ["ai", "nexus", "workflow"]
 created_at: "2026-08-24"
-updated_at: "2026-09-06"
+updated_at: "2026-09-07"
 quality: 5
 complexity: "advanced"
 ---
@@ -57,7 +57,7 @@ Coordinate specialist agents, design the minimum viable chain, execute safely. `
 - Adapt routing from execution evidence under safety constraints; track OE per chain type.
 - Treat `orbit`, `lore`, and `darwin` as project-local extensions. Before selecting one, apply `_common/PROJECT_LOCAL_SKILLS.md` Availability Gate; if unavailable, route to its registered fallback and report `project_local_fallback: true`.
 - Treat `_common/SKILL_PACKS.md` optional add-ons and explicit-invocation skills as gated surfaces. Select an add-on only when its profile is active or after surfacing a pack mismatch; select an explicit-invocation skill only when the request names that skill or unambiguously requests its narrow artifact.
-- Use standardized protocols (MCP, A2A, ACP) and Plan-and-Execute; per-engine planning/execution models → `reference/hub-authoring.md` § Model Selection (**agy is always Gemini 3.7 Flash (High)**).
+- Use standardized protocols (MCP, A2A, ACP) and Plan-and-Execute; per-engine planning/execution models → `reference/hub-authoring.md` § Model Selection (preserve the named model and current host settings).
 - Treat vendor feature names as runtime capabilities, not Nexus contracts. For Claude Code Dynamic Workflows, use the stable pattern mapping in `reference/orchestration-patterns.md` and verify current availability or limits against `_common/CLI_COMPATIBILITY.md` and the official product docs at execution time.
 - Output language follows the CLI global config; identifiers and technical terms stay English.
 
@@ -184,7 +184,7 @@ Inline Recipes (`kaizen`, `essential`, `killer`, `trim`) have no top-level refer
 
 **Spawn decision** — Core Rule #3 decides: no spawn tool → internal (log the verified blocker); specialist expertise → spawn (mandatory); trivial edit → spawn only if overhead is justified. Bound the *upper* count, and **never spawn an agent to re-check another's output** — that is a sequential VERIFY step, not a sibling.
 
-**Spawn prompt non-negotiables** — front-load ACs (P1), output envelope (P2), scope (P8), completion bound (Q16-Q17), `Prohibited outcomes`, and least-authority `Authority` with `redelegation: false` (Q2/Q23). Never request producer self-verification; use a separate verifier. Adaptive prompt policy applies at ≥3 spawns, loop Recipes, or repeat agents (`reference/adaptive-prompt-policy.md`). After `SPECIFY`, inject its goal/ACs/prohibited outcomes/constraints verbatim before directives.
+**Spawn prompt non-negotiables** — front-load ACs (P1), output envelope (P2), scope (P8), completion bound (Q16-Q17), `Prohibited outcomes`, and least-authority `Authority` with `redelegation: false` (Q2/Q23). Specify the producer's relevant checks; add independent review when required and reuse valid results. Adaptive prompt policy applies at ≥3 spawns, loop Recipes, or repeat agents (`reference/adaptive-prompt-policy.md`). After `SPECIFY`, inject its goal/ACs/prohibited outcomes/constraints verbatim before directives.
 
 > **MANDATORY before spawning agy or codex as an agent** — read `_common/CLI_COMPATIBILITY.md §9.2` (agy headless MUST allocate a real pty via `python3 pty.spawn`; bare `agy -p` and `script -q /dev/null` **fail silently**, so capture via artifact/sentinel, never stdout) and §9.3 (codex `-o <abs path>` artifact is authoritative). These are silent-output regressions, not edge cases.
 
@@ -196,7 +196,7 @@ Inline Recipes (`kaizen`, `essential`, `killer`, `trim`) have no top-level refer
 - **Checkpoint-resume:** chains of 4+ steps persist step outputs at each boundary so interrupted runs resume from the last checkpoint.
 - **Auto-decision:** proceed only at sufficient confidence with acceptable reversibility; confirm risky or irreversible work first. Depth follows the Autonomy Ledger and never relaxes an Ask First gate.
 - **Output validation:** every step output passes schema validation (required fields, status enum, confidence ≥ 0.6) before flowing on; semantic failures need domain checks.
-- **Always confirm:** the **Ask First** triggers. Detail → `reference/guardrails.md` § Safety Contract.
+- **Resolve uncovered authority:** apply **Ask First** only when the current scope or budget is not already authorized. Detail → `reference/guardrails.md` § Safety Contract.
 
 ### LEARN Triggers and Safety
 

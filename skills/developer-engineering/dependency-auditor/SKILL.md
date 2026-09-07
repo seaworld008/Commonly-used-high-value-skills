@@ -1,14 +1,14 @@
 ---
 name: dependency-auditor
-description: '> Skill Type: POWERFUL > Category: Engineering > Domain: Dependency Management & Security.'
+description: 'Audit dependency versions, vulnerabilities, licenses and upgrade risks across package manifests and lockfiles.'
 zh_description: "检查依赖版本、漏洞、许可证和升级风险。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["auditor", "dependency", "development"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-09-07"
 quality: 5
 complexity: "intermediate"
 ---

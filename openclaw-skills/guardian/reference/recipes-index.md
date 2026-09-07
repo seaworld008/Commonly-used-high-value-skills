@@ -19,4 +19,4 @@ what Recipes exist at all.
 | Audit History | `audit` | | Read-only diagnosis of a branch's commit history (WIP/fixup residue, Conventional Commits violations, atomicity, size deviation) | `reference/history-audit.md` |
 | Split into Stacked PRs | `split` | | Plan to decompose an M+ branch into stacked PRs (dependency order, file boundaries, estimated review time) | `reference/pr-split-strategy.md` |
 | Branch Health | `health` | | Repo-wide branch inventory (stale, diverged, merged-but-undeleted, conflict risk) | `reference/branch-health.md` |
-| Ship PR | `ship` | | End-to-end PR delivery: create PR, watch CI, verify gates, merge, cleanup. Consumes `pr` and `strategy` Recipe outputs. Merge step is always Ask First. | `reference/pr-ship-flow.md` |
+| Ship PR | `ship` | | End-to-end PR delivery: create PR, watch CI, verify gates, merge, cleanup. Consumes `pr` and `strategy` Recipe outputs. Merge requires existing user authority and satisfied repository gates. | `reference/pr-ship-flow.md` |

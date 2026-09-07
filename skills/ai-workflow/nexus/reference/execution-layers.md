@@ -12,7 +12,7 @@
 
 | Layer | Method | When | API |
 |-------|--------|------|-----|
-| **L1: Direct Spawn** | Agent tool (foreground) | 1-4 step sequential chains | `Agent(prompt, mode: bypassPermissions)` |
+| **L1: Direct Spawn** | Agent tool (foreground) | 1-4 step sequential chains | `Agent(prompt, mode: default)` |
 | **L2: Parallel Spawn** | Agent tool (background) | 2-3 independent branches | `Agent(prompt, run_in_background: true)` |
 | **L3: Rally Delegation** | Spawn Rally as Agent | 4+ workers, complex ownership | `Agent(prompt="You are Rally...")` |
 | **L3-alt: Agent Teams** | TeammateTool (peer-to-peer) | Shared task list, independent contexts | Claude Agent SDK `team_name` parameter |

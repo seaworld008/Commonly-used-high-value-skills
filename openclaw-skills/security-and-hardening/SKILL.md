@@ -2,14 +2,14 @@
 name: security-and-hardening
 description: 'Harden authentication, input handling, storage, and integrations when implementing security controls or remediating concrete vulnerabilities.'
 zh_description: "加固身份认证、输入处理、数据存储和外部集成。"
-version: "1.0.3"
+version: "1.0.4"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/security-and-hardening/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "security-and-hardening", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-09-06"
+updated_at: "2026-09-07"
 quality: 5
 complexity: advanced
 upstream_slug: security-and-hardening

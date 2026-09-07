@@ -2,14 +2,14 @@
 name: interview-me
 description: 'Interview the user when they request guided discovery or when unresolved goals, audience, or constraints materially affect a proposed solution.'
 zh_description: "通过逐问访谈澄清真实需求、目标用户与成功标准，避免在含糊请求上过早实施。"
-version: "1.0.1"
+version: "1.0.2"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/interview-me/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "interview-me", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-09-06"
+updated_at: "2026-09-07"
 quality: 5
 complexity: advanced
 upstream_slug: interview-me

@@ -1,25 +1,25 @@
 # Skill Evaluation Checklist
 
-Complete checklist for evaluating Claude Code skills against best practices.
+Review skills against the target host's current documentation and the repository's quality contract. Treat this checklist as review criteria, not additional universal approval gates.
 
 ## YAML Frontmatter
 
 - [ ] `name` field present and valid
   - Max 64 characters
   - Lowercase letters, numbers, hyphens only
-  - No reserved words (anthropic, claude)
+  - Host-specific naming restrictions checked against its current schema
 - [ ] `description` field present and valid
   - Non-empty
-  - Max 1024 characters
-  - Third-person voice
+  - Meets the repository and host description budgets
+  - Concrete task and trigger words appear first
   - Includes trigger conditions ("Use when...")
 
 ## Description Quality
 
-### Third-Person Voice Check
+### Clear Task Description Check
 
 ```
-❌ "Browse YouTube videos..."
+✅ "Read transcripts from supplied YouTube URLs..."
 ❌ "You can use this to..."
 ❌ "I can help you..."
 ✅ "Browses YouTube videos..."
@@ -81,14 +81,14 @@ Description should include:
 ## Privacy and Paths
 
 - [ ] No absolute user paths (`/Users/username/`)
-- [ ] No personal/company names
+- [ ] No private identities or undeclared personal data; public product and attribution names may be necessary
 - [ ] No hardcoded secrets
-- [ ] Relative paths only
+- [ ] Resources resolve from the installed skill; use runtime-resolved paths when tools require absolute paths
 
 ## Workflow Pattern
 
 - [ ] Clear sequential steps
-- [ ] Copy-paste checklist provided
+- [ ] Complex workflows have usable checkpoints without requiring boilerplate for simple tasks
 - [ ] Validation/verification steps included
 
 ## Error Handling

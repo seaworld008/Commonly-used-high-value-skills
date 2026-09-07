@@ -2,14 +2,14 @@
 name: subagent-driven-development
 description: Use when executing implementation plans with independent tasks in the current session
 zh_description: "协调独立子任务的实现、审查和结果集成。"
-version: "1.0.6"
+version: "1.0.7"
 author: seaworld008
 source: "github:obra/superpowers"
 source_url: "https://github.com/obra/superpowers/tree/main/skills/subagent-driven-development"
 license: MIT
 tags: '["development", "driven", "planning", "subagent", "workflow"]'
 created_at: "2026-03-27"
-updated_at: "2026-09-06"
+updated_at: "2026-09-07"
 quality: 3
 complexity: intermediate
 ---
@@ -18,7 +18,7 @@ complexity: intermediate
 
 Execute plan by dispatching a fresh implementer subagent per task, a task review (spec compliance + code quality) after each, and a broad whole-branch review at the end.
 
-**Why subagents:** You delegate tasks to specialized agents with isolated context. By precisely crafting their instructions and context, you ensure they stay focused and succeed at their task. They should never inherit your session's context or history — you construct exactly what they need. This also preserves your own context for coordination work.
+**Why subagents:** You delegate tasks to specialized agents with isolated context. By precisely crafting their instructions and context, you ensure they stay focused and succeed at their task. Choose isolated context for independent comparisons and shared history when continuity matters; use the host's available context controls.
 
 **Core principle:** Fresh subagent per task + task review (spec + quality) + broad final review = high quality, fast iteration
 
@@ -27,19 +27,19 @@ ledger and the tool results carry the record.
 
 **Continuous execution:** Do not pause to check in with your human partner between tasks. Execute all tasks from the plan without stopping. The only reasons to stop are the four named below, or all tasks complete. "Should I continue?" prompts and progress summaries waste their time — they asked you to execute the plan, so execute it.
 
-**Rulings, not stalls.** A running plan does not wait on a human. Conflicts,
-ambiguities, plan defects, a cap you would have asked to exceed — decide
-them. The spec is the binding authority, the plan is its argument, and your
-judgment settles what neither answers. Record every decision in the ledger as
-`Ruling: <what you decided> — <why> — <what it costs if wrong>`, and keep
-going. A wrong ruling costs rework your human partner can see and undo; a
-session parked on a question costs their whole day and buys nothing.
+**Resolve routine decisions.** Use the specification, repository evidence and
+current authorization for reversible implementation choices. Record material
+assumptions with their rationale. When missing information changes the outcome
+or exceeds authority, ask a focused question and continue independent work.
 
-Four things stop you, and only these: an irreversible or destructive
-operation; a security-sensitive action; a side effect outside this worktree
-that norms say you ask about first (a merge, a push to a shared branch, a
-publish); and a plan so broken that every path forward is a guess. For those,
-stop and ask.
+Respect user corrections and pauses throughout the plan. Check the existing
+authorization before merge, push or publish; require new clarification only for
+unresolved targets, authority or irreversible impact. Repository protection and
+host permission controls still apply.
+
+Delegation requires supported host tools. If unavailable, execute the plan locally
+and preserve its review and acceptance requirements without installing an agent
+runtime or inventing an unavailable reviewer.
 
 ## When to Use
 

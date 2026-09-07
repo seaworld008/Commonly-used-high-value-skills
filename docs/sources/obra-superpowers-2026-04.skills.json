@@ -55,7 +55,7 @@
         "sync_mode": "monitor",
         "path_commit": "6dbbbda3baeff8407f3dddb0cc9e8a9495a273bc"
       },
-      "kind": "mirror",
+      "kind": "overlay",
       "sync_mode": "monitor",
       "origins": [
         {
@@ -74,7 +74,7 @@
             "ref": "main",
             "resolved_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
             "path_commit": "6dbbbda3baeff8407f3dddb0cc9e8a9495a273bc",
-            "content_sha256": "ba747816da03a5359702ae2ea8973446ca97ef24d6b2ba8b1a362953309cf64c",
+            "content_sha256": "11012cd290b13da76b221b1989b13df425d6d32ca701f80556f6de0b22ec2c3f",
             "last_checked_at": "2026-08-31",
             "last_synced_at": "2026-08-31",
             "license_checkpoint": {
@@ -92,10 +92,11 @@
         {
           "path": "skills/ai-workflow/dispatching-parallel-agents/SKILL.md",
           "owner": "dispatching-parallel-agents",
-          "sha256": "ba747816da03a5359702ae2ea8973446ca97ef24d6b2ba8b1a362953309cf64c",
+          "sha256": "11012cd290b13da76b221b1989b13df425d6d32ca701f80556f6de0b22ec2c3f",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
     },
     {
       "video_name": "executing-plans",
@@ -412,7 +413,7 @@
             "ref": "main",
             "resolved_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
             "path_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
-            "content_sha256": "89f47d329716ef6c056953f175d88f5d4407c278cb499c044588c982306845cc",
+            "content_sha256": "909200f4825df1875cfe4c60bcf99ae851496dfc245487a9b54c2153db5c4d9d",
             "last_checked_at": "2026-08-31",
             "last_synced_at": "2026-08-31",
             "license_checkpoint": {
@@ -461,7 +462,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/subagent-driven-development/SKILL.md",
-          "sha256": "89f47d329716ef6c056953f175d88f5d4407c278cb499c044588c982306845cc",
+          "sha256": "909200f4825df1875cfe4c60bcf99ae851496dfc245487a9b54c2153db5c4d9d",
           "owner": "subagent-driven-development",
           "mode": "100644"
         },
@@ -501,7 +502,8 @@
           "sha256": "7884965876ddca370741e1278912b704287532154b69c9a2451bdedda9880385",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
     },
     {
       "video_name": "systematic-debugging",

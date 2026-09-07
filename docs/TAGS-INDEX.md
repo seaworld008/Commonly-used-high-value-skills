@@ -507,7 +507,7 @@
 | [ci-cd-and-automation](skills/ai-workflow/ci-cd-and-automation) | ai-workflow | ★★★★★ | Automates CI/CD pipeline setup. Use when setting up or modifying build and deplo |
 | [code-review-and-quality](skills/ai-workflow/code-review-and-quality) | ai-workflow | ★★★★★ | Review code changes for correctness, maintainability, security, and validation e |
 | [code-simplification](skills/ai-workflow/code-simplification) | ai-workflow | ★★★★★ | Refactor working code for clarity and maintainability while preserving behavior; |
-| [context-engineering](skills/ai-workflow/context-engineering) | ai-workflow | ★★★★★ | Optimizes agent context setup. Use when starting a new session, when agent outpu |
+| [context-engineering](skills/ai-workflow/context-engineering) | ai-workflow | ★★★★★ | Diagnose missing or overloaded agent context and configure project instructions  |
 | [debugging-and-error-recovery](skills/ai-workflow/debugging-and-error-recovery) | ai-workflow | ★★★★★ | Diagnose failing tests, broken builds, and unexpected runtime behavior through r |
 | [deep-research](skills/ai-workflow/deep-research) | ai-workflow | ★★★★★ | Produce source-backed research reports, literature reviews, or technical and mar |
 | [deprecation-and-migration](skills/ai-workflow/deprecation-and-migration) | ai-workflow | ★★★★★ | Plan deprecation and migration of systems, APIs, and production schemas, includi |
@@ -540,7 +540,7 @@
 | [prompt-optimizer](skills/ai-workflow/prompt-optimizer) | ai-workflow | ★★★★☆ | Refine prompts or ambiguous requirements into testable specifications when the u |
 | [receiving-code-review](skills/ai-workflow/receiving-code-review) | ai-workflow | ★★★★☆ | Use when receiving code review feedback, before implementing suggestions, especi |
 | [requesting-code-review](skills/ai-workflow/requesting-code-review) | ai-workflow | ★★★★☆ | Use when completing tasks, implementing major features, or before merging to ver |
-| [source-driven-development](skills/ai-workflow/source-driven-development) | ai-workflow | ★★★★☆ | Grounds every implementation decision in official documentation. Use when you wa |
+| [source-driven-development](skills/ai-workflow/source-driven-development) | ai-workflow | ★★★★☆ | Verify implementation against official documentation when the task requests sour |
 | [using-agent-skills](skills/ai-workflow/using-agent-skills) | ai-workflow | ★★★★☆ | Find the most relevant engineering skill when task routing is unclear; load only |
 | [using-git-worktrees](skills/ai-workflow/using-git-worktrees) | ai-workflow | ★★★★☆ | Use when starting feature work that needs isolation from current workspace or be |
 | [using-superpowers](skills/ai-workflow/using-superpowers) | ai-workflow | ★★★★☆ | Select relevant Superpowers workflow skills when the user requests that workflow |
@@ -575,7 +575,7 @@
 | [codebase-onboarding](skills/developer-engineering/codebase-onboarding) | developer-engineering | ★★★★★ | Create repository onboarding guides with architecture, key files, setup, debuggi |
 | [database-designer](skills/developer-engineering/database-designer) | developer-engineering | ★★★★★ | Design, review, or migrate database schemas using workload requirements, data in |
 | [database-schema-designer](skills/developer-engineering/database-schema-designer) | developer-engineering | ★★★★★ | Design relational database schemas from requirements and generate migrations, Ty |
-| [dependency-auditor](skills/developer-engineering/dependency-auditor) | developer-engineering | ★★★★★ | > Skill Type: POWERFUL > Category: Engineering > Domain: Dependency Management & |
+| [dependency-auditor](skills/developer-engineering/dependency-auditor) | developer-engineering | ★★★★★ | Audit dependency versions, vulnerabilities, licenses and upgrade risks across pa |
 | [gateway](skills/developer-engineering/gateway) | developer-engineering | ★★★★★ | 接口设计、规范生成、版本策略和破坏性变更检查。 |
 | [github-contributor](skills/developer-engineering/github-contributor) | developer-engineering | ★★★★★ | Find suitable open-source contribution opportunities and prepare focused GitHub  |
 | [graphify](skills/developer-engineering/graphify) | developer-engineering | ★★★★★ | Build, query, or refresh Graphify knowledge graphs for code and documents when g |
@@ -589,8 +589,8 @@
 | [qa-expert](skills/developer-engineering/qa-expert) | developer-engineering | ★★★★★ | Design QA strategies, risk-based test cases, execution plans, and defect reports |
 | [repomix-safe-mixer](skills/developer-engineering/repomix-safe-mixer) | developer-engineering | ★★★★★ | Scan for hardcoded credentials, report redacted findings, and block repomix pack |
 | [schema](skills/developer-engineering/schema) | developer-engineering | ★★★★★ | 数据库模式设计、迁移规划、索引策略和关系建模。 |
-| [skill-tester](skills/developer-engineering/skill-tester) | developer-engineering | ★★★★★ | Name: skill-tester Tier: POWERFUL Category: Engineering Quality Assurance Depend |
-| [tech-debt-tracker](skills/developer-engineering/tech-debt-tracker) | developer-engineering | ★★★★★ | Tier: POWERFUL 🔥 Category: Engineering Process Automation Expertise: Code Qualit |
+| [skill-tester](skills/developer-engineering/skill-tester) | developer-engineering | ★★★★★ | Validate skill structure, bundled scripts and expected outputs against the targe |
+| [tech-debt-tracker](skills/developer-engineering/tech-debt-tracker) | developer-engineering | ★★★★★ | Identify technical debt, rank remediation by impact and effort, and track progre |
 | [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Use, configure, theme, extend, and orchestrate Hermes Agent. |
 | [aws-solution-architect](skills/developer-engineering/aws-solution-architect) | developer-engineering | ★★★★☆ | Design or review AWS architecture and infrastructure as code for serverless syst |
 | [docker-expert](skills/developer-engineering/docker-expert) | developer-engineering | ★★★★☆ | Use when containerizing an application with Docker, optimizing multi-stage build |
@@ -630,7 +630,7 @@
 | [ci-cd-and-automation](skills/ai-workflow/ci-cd-and-automation) | ai-workflow | ★★★★★ | Automates CI/CD pipeline setup. Use when setting up or modifying build and deplo |
 | [code-review-and-quality](skills/ai-workflow/code-review-and-quality) | ai-workflow | ★★★★★ | Review code changes for correctness, maintainability, security, and validation e |
 | [code-simplification](skills/ai-workflow/code-simplification) | ai-workflow | ★★★★★ | Refactor working code for clarity and maintainability while preserving behavior; |
-| [context-engineering](skills/ai-workflow/context-engineering) | ai-workflow | ★★★★★ | Optimizes agent context setup. Use when starting a new session, when agent outpu |
+| [context-engineering](skills/ai-workflow/context-engineering) | ai-workflow | ★★★★★ | Diagnose missing or overloaded agent context and configure project instructions  |
 | [debugging-and-error-recovery](skills/ai-workflow/debugging-and-error-recovery) | ai-workflow | ★★★★★ | Diagnose failing tests, broken builds, and unexpected runtime behavior through r |
 | [deprecation-and-migration](skills/ai-workflow/deprecation-and-migration) | ai-workflow | ★★★★★ | Plan deprecation and migration of systems, APIs, and production schemas, includi |
 | [documentation-and-adrs](skills/ai-workflow/documentation-and-adrs) | ai-workflow | ★★★★★ | Records decisions and documentation. Use when making architectural decisions, ch |
@@ -650,7 +650,7 @@
 | [agent-hub](skills/ai-agent-platform/agent-hub) | ai-agent-platform | ★★★★☆ | Compare independent solutions with agent-hub when parallel competition is reques |
 | [develop-web-game](skills/ai-agent-platform/develop-web-game) | ai-agent-platform | ★★★★☆ | Build or iterate on HTML/JS web games with Playwright input bursts, gameplay scr |
 | [idea-refine](skills/ai-workflow/idea-refine) | ai-workflow | ★★★★☆ | Explore alternatives and stress-test assumptions when refining a vague idea into |
-| [source-driven-development](skills/ai-workflow/source-driven-development) | ai-workflow | ★★★★☆ | Grounds every implementation decision in official documentation. Use when you wa |
+| [source-driven-development](skills/ai-workflow/source-driven-development) | ai-workflow | ★★★★☆ | Verify implementation against official documentation when the task requests sour |
 | [using-agent-skills](skills/ai-workflow/using-agent-skills) | ai-workflow | ★★★★☆ | Find the most relevant engineering skill when task routing is unclear; load only |
 | [openai-docs](skills/ai-agent-platform/openai-docs) | ai-agent-platform | ★★★☆☆ | Find current official OpenAI guidance for Codex, APIs, models, prompting, or mig |
 | [figma](skills/ai-agent-platform/figma) | ai-agent-platform | ★★☆☆☆ | Fetch Figma design context, variables, screenshots, and assets through MCP when  |
@@ -673,7 +673,7 @@
 | [ci-cd-and-automation](skills/ai-workflow/ci-cd-and-automation) | ai-workflow | ★★★★★ | Automates CI/CD pipeline setup. Use when setting up or modifying build and deplo |
 | [code-review-and-quality](skills/ai-workflow/code-review-and-quality) | ai-workflow | ★★★★★ | Review code changes for correctness, maintainability, security, and validation e |
 | [code-simplification](skills/ai-workflow/code-simplification) | ai-workflow | ★★★★★ | Refactor working code for clarity and maintainability while preserving behavior; |
-| [context-engineering](skills/ai-workflow/context-engineering) | ai-workflow | ★★★★★ | Optimizes agent context setup. Use when starting a new session, when agent outpu |
+| [context-engineering](skills/ai-workflow/context-engineering) | ai-workflow | ★★★★★ | Diagnose missing or overloaded agent context and configure project instructions  |
 | [debugging-and-error-recovery](skills/ai-workflow/debugging-and-error-recovery) | ai-workflow | ★★★★★ | Diagnose failing tests, broken builds, and unexpected runtime behavior through r |
 | [deprecation-and-migration](skills/ai-workflow/deprecation-and-migration) | ai-workflow | ★★★★★ | Plan deprecation and migration of systems, APIs, and production schemas, includi |
 | [documentation-and-adrs](skills/ai-workflow/documentation-and-adrs) | ai-workflow | ★★★★★ | Records decisions and documentation. Use when making architectural decisions, ch |
@@ -695,7 +695,7 @@
 | [agent-hub](skills/ai-agent-platform/agent-hub) | ai-agent-platform | ★★★★☆ | Compare independent solutions with agent-hub when parallel competition is reques |
 | [develop-web-game](skills/ai-agent-platform/develop-web-game) | ai-agent-platform | ★★★★☆ | Build or iterate on HTML/JS web games with Playwright input bursts, gameplay scr |
 | [idea-refine](skills/ai-workflow/idea-refine) | ai-workflow | ★★★★☆ | Explore alternatives and stress-test assumptions when refining a vague idea into |
-| [source-driven-development](skills/ai-workflow/source-driven-development) | ai-workflow | ★★★★☆ | Grounds every implementation decision in official documentation. Use when you wa |
+| [source-driven-development](skills/ai-workflow/source-driven-development) | ai-workflow | ★★★★☆ | Verify implementation against official documentation when the task requests sour |
 | [using-agent-skills](skills/ai-workflow/using-agent-skills) | ai-workflow | ★★★★☆ | Find the most relevant engineering skill when task routing is unclear; load only |
 | [openai-docs](skills/ai-agent-platform/openai-docs) | ai-agent-platform | ★★★☆☆ | Find current official OpenAI guidance for Codex, APIs, models, prompting, or mig |
 | [figma](skills/ai-agent-platform/figma) | ai-agent-platform | ★★☆☆☆ | Fetch Figma design context, variables, screenshots, and assets through MCP when  |
@@ -712,7 +712,7 @@
 | [ci-cd-and-automation](skills/ai-workflow/ci-cd-and-automation) | ai-workflow | ★★★★★ | Automates CI/CD pipeline setup. Use when setting up or modifying build and deplo |
 | [code-review-and-quality](skills/ai-workflow/code-review-and-quality) | ai-workflow | ★★★★★ | Review code changes for correctness, maintainability, security, and validation e |
 | [code-simplification](skills/ai-workflow/code-simplification) | ai-workflow | ★★★★★ | Refactor working code for clarity and maintainability while preserving behavior; |
-| [context-engineering](skills/ai-workflow/context-engineering) | ai-workflow | ★★★★★ | Optimizes agent context setup. Use when starting a new session, when agent outpu |
+| [context-engineering](skills/ai-workflow/context-engineering) | ai-workflow | ★★★★★ | Diagnose missing or overloaded agent context and configure project instructions  |
 | [debugging-and-error-recovery](skills/ai-workflow/debugging-and-error-recovery) | ai-workflow | ★★★★★ | Diagnose failing tests, broken builds, and unexpected runtime behavior through r |
 | [deprecation-and-migration](skills/ai-workflow/deprecation-and-migration) | ai-workflow | ★★★★★ | Plan deprecation and migration of systems, APIs, and production schemas, includi |
 | [documentation-and-adrs](skills/ai-workflow/documentation-and-adrs) | ai-workflow | ★★★★★ | Records decisions and documentation. Use when making architectural decisions, ch |
@@ -729,7 +729,7 @@
 | [spec-driven-development](skills/ai-workflow/spec-driven-development) | ai-workflow | ★★★★★ | Specify new features or substantial behavior changes when goals, boundaries, and |
 | [test-driven-development](skills/ai-workflow/test-driven-development) | ai-workflow | ★★★★★ | Develop testable logic or fix behavioral bugs with focused regression tests and  |
 | [idea-refine](skills/ai-workflow/idea-refine) | ai-workflow | ★★★★☆ | Explore alternatives and stress-test assumptions when refining a vague idea into |
-| [source-driven-development](skills/ai-workflow/source-driven-development) | ai-workflow | ★★★★☆ | Grounds every implementation decision in official documentation. Use when you wa |
+| [source-driven-development](skills/ai-workflow/source-driven-development) | ai-workflow | ★★★★☆ | Verify implementation against official documentation when the task requests sour |
 | [using-agent-skills](skills/ai-workflow/using-agent-skills) | ai-workflow | ★★★★☆ | Find the most relevant engineering skill when task routing is unclear; load only |
 
 ## lark
@@ -757,7 +757,7 @@
 | [lark-attendance](skills/knowledge-and-pm-integrations/lark-attendance) | knowledge-and-pm-integrations | ★★★☆☆ | Use when querying Lark attendance records, checking missing clock-ins, and prepa |
 | [lark-contact](skills/knowledge-and-pm-integrations/lark-contact) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书 / Lark 通讯录:按姓名 / 邮箱解析成 open_id,或按 open_id 反查姓名 / 部门 / 邮箱 / 联系方式 / 个人状态 / 签名,以 |
 | [lark-doc](skills/knowledge-and-pm-integrations/lark-doc) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书云文档（Docx / Wiki）内容操作：读取、创建、编辑文档，插入或下载图片附件，以及操作思维笔记。用户提供文档 URL/token（包括 doubao. |
-| [lark-markdown](skills/knowledge-and-pm-integrations/lark-markdown) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书 Markdown：查看、创建、上传、编辑和比较 Markdown 文件。当用户需要创建或编辑 Markdown 文件、读取、修改、局部 patch 或比较 |
+| [lark-markdown](skills/knowledge-and-pm-integrations/lark-markdown) | knowledge-and-pm-integrations | ★★★☆☆ | 操作飞书云空间中的 Markdown 文件：读取、创建、上传、局部编辑和比较。用于飞书 Markdown 资源操作；本地 Markdown 编辑无需此技能，导入 |
 | [lark-shared](skills/knowledge-and-pm-integrations/lark-shared) | knowledge-and-pm-integrations | ★★★☆☆ | Use for lark-cli setup/auth tasks: auth login/status/logout, user vs bot identit |
 | [lark-skill-maker](skills/knowledge-and-pm-integrations/lark-skill-maker) | knowledge-and-pm-integrations | ★★★☆☆ | 创建 lark-cli 的自定义 Skill。当用户需要把飞书 API 操作封装成可复用的 Skill（包装原子 API 或编排多步流程）时使用。 |
 | [lark-whiteboard](skills/knowledge-and-pm-integrations/lark-whiteboard) | knowledge-and-pm-integrations | ★★★☆☆ | Use when querying, exporting, or editing Lark whiteboards, including preview ima |
@@ -786,7 +786,7 @@
 | [lark-attendance](skills/knowledge-and-pm-integrations/lark-attendance) | knowledge-and-pm-integrations | ★★★☆☆ | Use when querying Lark attendance records, checking missing clock-ins, and prepa |
 | [lark-contact](skills/knowledge-and-pm-integrations/lark-contact) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书 / Lark 通讯录:按姓名 / 邮箱解析成 open_id,或按 open_id 反查姓名 / 部门 / 邮箱 / 联系方式 / 个人状态 / 签名,以 |
 | [lark-doc](skills/knowledge-and-pm-integrations/lark-doc) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书云文档（Docx / Wiki）内容操作：读取、创建、编辑文档，插入或下载图片附件，以及操作思维笔记。用户提供文档 URL/token（包括 doubao. |
-| [lark-markdown](skills/knowledge-and-pm-integrations/lark-markdown) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书 Markdown：查看、创建、上传、编辑和比较 Markdown 文件。当用户需要创建或编辑 Markdown 文件、读取、修改、局部 patch 或比较 |
+| [lark-markdown](skills/knowledge-and-pm-integrations/lark-markdown) | knowledge-and-pm-integrations | ★★★☆☆ | 操作飞书云空间中的 Markdown 文件：读取、创建、上传、局部编辑和比较。用于飞书 Markdown 资源操作；本地 Markdown 编辑无需此技能，导入 |
 | [lark-shared](skills/knowledge-and-pm-integrations/lark-shared) | knowledge-and-pm-integrations | ★★★☆☆ | Use for lark-cli setup/auth tasks: auth login/status/logout, user vs bot identit |
 | [lark-skill-maker](skills/knowledge-and-pm-integrations/lark-skill-maker) | knowledge-and-pm-integrations | ★★★☆☆ | 创建 lark-cli 的自定义 Skill。当用户需要把飞书 API 操作封装成可复用的 Skill（包装原子 API 或编排多步流程）时使用。 |
 | [lark-whiteboard](skills/knowledge-and-pm-integrations/lark-whiteboard) | knowledge-and-pm-integrations | ★★★☆☆ | Use when querying, exporting, or editing Lark whiteboards, including preview ima |
@@ -815,7 +815,7 @@
 | [lark-attendance](skills/knowledge-and-pm-integrations/lark-attendance) | knowledge-and-pm-integrations | ★★★☆☆ | Use when querying Lark attendance records, checking missing clock-ins, and prepa |
 | [lark-contact](skills/knowledge-and-pm-integrations/lark-contact) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书 / Lark 通讯录:按姓名 / 邮箱解析成 open_id,或按 open_id 反查姓名 / 部门 / 邮箱 / 联系方式 / 个人状态 / 签名,以 |
 | [lark-doc](skills/knowledge-and-pm-integrations/lark-doc) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书云文档（Docx / Wiki）内容操作：读取、创建、编辑文档，插入或下载图片附件，以及操作思维笔记。用户提供文档 URL/token（包括 doubao. |
-| [lark-markdown](skills/knowledge-and-pm-integrations/lark-markdown) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书 Markdown：查看、创建、上传、编辑和比较 Markdown 文件。当用户需要创建或编辑 Markdown 文件、读取、修改、局部 patch 或比较 |
+| [lark-markdown](skills/knowledge-and-pm-integrations/lark-markdown) | knowledge-and-pm-integrations | ★★★☆☆ | 操作飞书云空间中的 Markdown 文件：读取、创建、上传、局部编辑和比较。用于飞书 Markdown 资源操作；本地 Markdown 编辑无需此技能，导入 |
 | [lark-shared](skills/knowledge-and-pm-integrations/lark-shared) | knowledge-and-pm-integrations | ★★★☆☆ | Use for lark-cli setup/auth tasks: auth login/status/logout, user vs bot identit |
 | [lark-skill-maker](skills/knowledge-and-pm-integrations/lark-skill-maker) | knowledge-and-pm-integrations | ★★★☆☆ | 创建 lark-cli 的自定义 Skill。当用户需要把飞书 API 操作封装成可复用的 Skill（包装原子 API 或编排多步流程）时使用。 |
 | [lark-whiteboard](skills/knowledge-and-pm-integrations/lark-whiteboard) | knowledge-and-pm-integrations | ★★★☆☆ | Use when querying, exporting, or editing Lark whiteboards, including preview ima |
@@ -971,7 +971,7 @@
 | [gear](skills/devops-sre/gear) | devops-sre | ★★★★★ | 依赖、构建、容器、监控和开发环境运维优化。 |
 | [github-ops](skills/devops-sre/github-ops) | devops-sre | ★★★★★ | Operate GitHub repositories, PRs, issues, and Actions through gh CLI and GitHub  |
 | [incident-commander](skills/devops-sre/incident-commander) | devops-sre | ★★★★★ | Coordinate active incidents through severity assessment, roles, mitigation, comm |
-| [observability-designer](skills/devops-sre/observability-designer) | devops-sre | ★★★★★ | Description: Design comprehensive observability strategies for production system |
+| [observability-designer](skills/devops-sre/observability-designer) | devops-sre | ★★★★★ | Design production observability with SLI/SLO definitions, actionable alerts, tel |
 | [release-manager](skills/devops-sre/release-manager) | devops-sre | ★★★★★ | Prepare software releases with version selection, changelogs, artifacts, validat |
 | [senior-devops](skills/devops-sre/senior-devops) | devops-sre | ★★★★★ | Design and operate CI/CD, infrastructure as code, containers, and cloud deployme |
 | [triage](skills/devops-sre/triage) | devops-sre | ★★★★★ | 事故首响、影响范围识别、恢复步骤和复盘整理。 |
@@ -992,7 +992,7 @@
 | [gear](skills/devops-sre/gear) | devops-sre | ★★★★★ | 依赖、构建、容器、监控和开发环境运维优化。 |
 | [github-ops](skills/devops-sre/github-ops) | devops-sre | ★★★★★ | Operate GitHub repositories, PRs, issues, and Actions through gh CLI and GitHub  |
 | [incident-commander](skills/devops-sre/incident-commander) | devops-sre | ★★★★★ | Coordinate active incidents through severity assessment, roles, mitigation, comm |
-| [observability-designer](skills/devops-sre/observability-designer) | devops-sre | ★★★★★ | Description: Design comprehensive observability strategies for production system |
+| [observability-designer](skills/devops-sre/observability-designer) | devops-sre | ★★★★★ | Design production observability with SLI/SLO definitions, actionable alerts, tel |
 | [release-manager](skills/devops-sre/release-manager) | devops-sre | ★★★★★ | Prepare software releases with version selection, changelogs, artifacts, validat |
 | [senior-devops](skills/devops-sre/senior-devops) | devops-sre | ★★★★★ | Design and operate CI/CD, infrastructure as code, containers, and cloud deployme |
 | [triage](skills/devops-sre/triage) | devops-sre | ★★★★★ | 事故首响、影响范围识别、恢复步骤和复盘整理。 |
@@ -1052,7 +1052,7 @@
 | [interview-system-designer](skills/operations-general/interview-system-designer) | operations-general | ★★★★★ | Design hiring interviews, competency matrices, question banks, scoring rubrics,  |
 | [slack-gif-creator](skills/operations-general/slack-gif-creator) | operations-general | ★★★★★ | Knowledge and utilities for creating animated GIFs optimized for Slack. Provides |
 | [linear](skills/knowledge-and-pm-integrations/linear) | knowledge-and-pm-integrations | ★★★★☆ | 用于管理 Linear issues、项目、团队和协作状态。 |
-| [brand-guidelines](skills/operations-general/brand-guidelines) | operations-general | ★★★☆☆ | Applies Anthropic''s official brand colors and typography to any sort of artifac |
+| [brand-guidelines](skills/operations-general/brand-guidelines) | operations-general | ★★★☆☆ | Apply Anthropic brand colors and typography when the user requests Anthropic vis |
 | [docs-cleaner](skills/operations-general/docs-cleaner) | operations-general | ★★★☆☆ | Consolidate overlapping documentation and remove repetition while preserving use |
 | [theme-factory](skills/operations-general/theme-factory) | operations-general | ★★★☆☆ | Use when styling artifacts with reusable themes, applying preset color/font syst |
 
@@ -1080,7 +1080,7 @@
 | [agent-designer](skills/developer-engineering/agent-designer) | developer-engineering | ★★★★★ | Design AI agent responsibilities, tools, memory, orchestration, and evaluation w |
 | [database-designer](skills/developer-engineering/database-designer) | developer-engineering | ★★★★★ | Design, review, or migrate database schemas using workload requirements, data in |
 | [database-schema-designer](skills/developer-engineering/database-schema-designer) | developer-engineering | ★★★★★ | Design relational database schemas from requirements and generate migrations, Ty |
-| [observability-designer](skills/devops-sre/observability-designer) | devops-sre | ★★★★★ | Description: Design comprehensive observability strategies for production system |
+| [observability-designer](skills/devops-sre/observability-designer) | devops-sre | ★★★★★ | Design production observability with SLI/SLO definitions, actionable alerts, tel |
 | [interview-system-designer](skills/operations-general/interview-system-designer) | operations-general | ★★★★★ | Design hiring interviews, competency matrices, question banks, scoring rubrics,  |
 | [ux-researcher-designer](skills/product-design/ux-researcher-designer) | product-design | ★★★★★ | Plan and synthesize UX research, personas, journey maps, and usability studies w |
 
@@ -1153,7 +1153,7 @@
 |-------|----------|---------|-------------|
 | [skill-creator](skills/ai-workflow/skill-creator) | ai-workflow | ★★★★★ | Create or improve agent skills, trigger descriptions, and evaluation cases; use  |
 | [skill-reviewer](skills/ai-workflow/skill-reviewer) | ai-workflow | ★★★★★ | Review and improve agent skills for clear triggers, actionable instructions, pro |
-| [skill-tester](skills/developer-engineering/skill-tester) | developer-engineering | ★★★★★ | Name: skill-tester Tier: POWERFUL Category: Engineering Quality Assurance Depend |
+| [skill-tester](skills/developer-engineering/skill-tester) | developer-engineering | ★★★★★ | Validate skill structure, bundled scripts and expected outputs against the targe |
 | [skill-security-auditor](skills/security-and-reliability/skill-security-auditor) | security-and-reliability | ★★★★☆ | Audit external agent skills before installation for malicious instructions, unsa |
 | [skill-vetter](skills/security-and-reliability/skill-vetter) | security-and-reliability | ★★☆☆☆ | Use before installing or trusting an external skill to inspect instructions, scr |
 
@@ -1253,7 +1253,7 @@
 |-------|----------|---------|-------------|
 | [openai-docs](skills/ai-agent-platform/openai-docs) | ai-agent-platform | ★★★☆☆ | Find current official OpenAI guidance for Codex, APIs, models, prompting, or mig |
 | [lark-doc](skills/knowledge-and-pm-integrations/lark-doc) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书云文档（Docx / Wiki）内容操作：读取、创建、编辑文档，插入或下载图片附件，以及操作思维笔记。用户提供文档 URL/token（包括 doubao. |
-| [lark-markdown](skills/knowledge-and-pm-integrations/lark-markdown) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书 Markdown：查看、创建、上传、编辑和比较 Markdown 文件。当用户需要创建或编辑 Markdown 文件、读取、修改、局部 patch 或比较 |
+| [lark-markdown](skills/knowledge-and-pm-integrations/lark-markdown) | knowledge-and-pm-integrations | ★★★☆☆ | 操作飞书云空间中的 Markdown 文件：读取、创建、上传、局部编辑和比较。用于飞书 Markdown 资源操作；本地 Markdown 编辑无需此技能，导入 |
 | [docs-cleaner](skills/operations-general/docs-cleaner) | operations-general | ★★★☆☆ | Consolidate overlapping documentation and remove repetition while preserving use |
 
 ## github
@@ -1477,7 +1477,7 @@
 |-------|----------|---------|-------------|
 | [llm-wiki](skills/knowledge-and-pm-integrations/llm-wiki) | knowledge-and-pm-integrations | ★★★★☆ | Karpathy''s LLM Wiki: build/query interlinked markdown KB. |
 | [markdown-tools](skills/office-white-collar/markdown-tools) | office-white-collar | ★★★★☆ | Convert PDF, DOCX, PPTX, and other documents to Markdown, preserving tables, ima |
-| [lark-markdown](skills/knowledge-and-pm-integrations/lark-markdown) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书 Markdown：查看、创建、上传、编辑和比较 Markdown 文件。当用户需要创建或编辑 Markdown 文件、读取、修改、局部 patch 或比较 |
+| [lark-markdown](skills/knowledge-and-pm-integrations/lark-markdown) | knowledge-and-pm-integrations | ★★★☆☆ | 操作飞书云空间中的 Markdown 文件：读取、创建、上传、局部编辑和比较。用于飞书 Markdown 资源操作；本地 Markdown 编辑无需此技能，导入 |
 
 ## meeting
 
@@ -1641,7 +1641,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [dependency-auditor](skills/developer-engineering/dependency-auditor) | developer-engineering | ★★★★★ | > Skill Type: POWERFUL > Category: Engineering > Domain: Dependency Management & |
+| [dependency-auditor](skills/developer-engineering/dependency-auditor) | developer-engineering | ★★★★★ | Audit dependency versions, vulnerabilities, licenses and upgrade risks across pa |
 | [skill-security-auditor](skills/security-and-reliability/skill-security-auditor) | security-and-reliability | ★★★★☆ | Audit external agent skills before installation for malicious instructions, unsa |
 
 ## checker
@@ -1857,7 +1857,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [observability-designer](skills/devops-sre/observability-designer) | devops-sre | ★★★★★ | Description: Design comprehensive observability strategies for production system |
+| [observability-designer](skills/devops-sre/observability-designer) | devops-sre | ★★★★★ | Design production observability with SLI/SLO definitions, actionable alerts, tel |
 | [cc-devops-skills](skills/devops-sre/cc-devops-skills) | devops-sre | ★★★★☆ | SRE, DevOps, Kubernetes, CI/CD, PromQL, Terraform, Docker, and incident operatio |
 
 ## outreach
@@ -2046,7 +2046,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [tech-debt-tracker](skills/developer-engineering/tech-debt-tracker) | developer-engineering | ★★★★★ | Tier: POWERFUL 🔥 Category: Engineering Process Automation Expertise: Code Qualit |
+| [tech-debt-tracker](skills/developer-engineering/tech-debt-tracker) | developer-engineering | ★★★★★ | Identify technical debt, rank remediation by impact and effort, and track progre |
 | [event-driven-tracker](skills/finance-investing/event-driven-tracker) | finance-investing | ★★☆☆☆ | Use when tracking earnings, product launches, M&A, dividends, buybacks, unlocks, |
 
 ## transcript
@@ -2380,7 +2380,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [brand-guidelines](skills/operations-general/brand-guidelines) | operations-general | ★★★☆☆ | Applies Anthropic''s official brand colors and typography to any sort of artifac |
+| [brand-guidelines](skills/operations-general/brand-guidelines) | operations-general | ★★★☆☆ | Apply Anthropic brand colors and typography when the user requests Anthropic vis |
 
 ## breach
 
@@ -2684,7 +2684,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [context-engineering](skills/ai-workflow/context-engineering) | ai-workflow | ★★★★★ | Optimizes agent context setup. Use when starting a new session, when agent outpu |
+| [context-engineering](skills/ai-workflow/context-engineering) | ai-workflow | ★★★★★ | Diagnose missing or overloaded agent context and configure project instructions  |
 
 ## contributor
 
@@ -2740,7 +2740,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [tech-debt-tracker](skills/developer-engineering/tech-debt-tracker) | developer-engineering | ★★★★★ | Tier: POWERFUL 🔥 Category: Engineering Process Automation Expertise: Code Qualit |
+| [tech-debt-tracker](skills/developer-engineering/tech-debt-tracker) | developer-engineering | ★★★★★ | Identify technical debt, rank remediation by impact and effort, and track progre |
 
 ## debugging
 
@@ -2796,7 +2796,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [dependency-auditor](skills/developer-engineering/dependency-auditor) | developer-engineering | ★★★★★ | > Skill Type: POWERFUL > Category: Engineering > Domain: Dependency Management & |
+| [dependency-auditor](skills/developer-engineering/dependency-auditor) | developer-engineering | ★★★★★ | Audit dependency versions, vulnerabilities, licenses and upgrade risks across pa |
 
 ## dependency-audit
 
@@ -3204,7 +3204,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [brand-guidelines](skills/operations-general/brand-guidelines) | operations-general | ★★★☆☆ | Applies Anthropic''s official brand colors and typography to any sort of artifac |
+| [brand-guidelines](skills/operations-general/brand-guidelines) | operations-general | ★★★☆☆ | Apply Anthropic brand colors and typography when the user requests Anthropic vis |
 
 ## harvest
 
@@ -4540,7 +4540,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [source-driven-development](skills/ai-workflow/source-driven-development) | ai-workflow | ★★★★☆ | Grounds every implementation decision in official documentation. Use when you wa |
+| [source-driven-development](skills/ai-workflow/source-driven-development) | ai-workflow | ★★★★☆ | Verify implementation against official documentation when the task requests sour |
 
 ## source-research
 
@@ -4716,7 +4716,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [tech-debt-tracker](skills/developer-engineering/tech-debt-tracker) | developer-engineering | ★★★★★ | Tier: POWERFUL 🔥 Category: Engineering Process Automation Expertise: Code Qualit |
+| [tech-debt-tracker](skills/developer-engineering/tech-debt-tracker) | developer-engineering | ★★★★★ | Identify technical debt, rank remediation by impact and effort, and track progre |
 
 ## test
 
@@ -4740,7 +4740,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [skill-tester](skills/developer-engineering/skill-tester) | developer-engineering | ★★★★★ | Name: skill-tester Tier: POWERFUL Category: Engineering Quality Assurance Depend |
+| [skill-tester](skills/developer-engineering/skill-tester) | developer-engineering | ★★★★★ | Validate skill structure, bundled scripts and expected outputs against the targe |
 
 ## theme
 

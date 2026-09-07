@@ -2,14 +2,14 @@
 name: observability-and-instrumentation
 description: 'Add or improve logs, metrics, traces, and alerts when services need diagnosable production behavior or operational acceptance evidence.'
 zh_description: "为生产代码设计日志、指标、追踪和告警，使行为可观测、问题可诊断。"
-version: "1.0.2"
+version: "1.0.3"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/observability-and-instrumentation/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "observability-and-instrumentation", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-09-06"
+updated_at: "2026-09-07"
 quality: 5
 complexity: advanced
 upstream_slug: observability-and-instrumentation

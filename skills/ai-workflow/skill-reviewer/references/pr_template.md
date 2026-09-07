@@ -1,129 +1,42 @@
 # PR Template for Skill Contributions
 
-Use this template when creating PRs for Claude Code skill repositories.
+Use the target repository's template. Keep the description proportional to the
+change and explain the behavior a reviewer should assess.
 
-## PR Title Format
+## Title
 
-```
-refactor: Align skill with Claude Code best practices
-```
-
-Or for specific improvements:
-```
-feat: Add marketplace support for plugin installation
-docs: Add bilingual documentation (English/Chinese)
-fix: Improve error handling in scripts
+```text
+fix: clarify skill authorization and trigger scope
+refactor: share instruction validation between local and CI
 ```
 
-## PR Body Template
+## Body
 
 ```markdown
 ## Summary
 
-This PR improves the [skill-name] skill by aligning it with [Claude Code Skill Best Practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices).
+[Concrete trigger or problem, and how the skill behaves after this change.]
 
-### What This PR Does
+## Validation
 
-- [Improvement 1]
-- [Improvement 2]
-- [Improvement 3]
-
-### What This PR Does NOT Change
-
-- [Preserved item 1]
-- [Preserved item 2]
-
-## Detailed Changes
-
-### 1. [Change Category]
-
-**Before:**
-[Description of current state]
-
-**After:**
-[Description of improvement]
-
-**Rationale:**
-[Why this change helps users]
-
-### 2. [Change Category]
-
-...
-
-## Why These Changes?
-
-According to Claude Code best practices:
-
-> "[Quote from documentation]"
-
-This PR addresses:
-- [Issue 1 and how it's fixed]
-- [Issue 2 and how it's fixed]
-
-## Files Changed
-
-| File | Change Type | Description |
-|------|-------------|-------------|
-| SKILL.md | Modified | Improved description and workflow |
-| README.md | Modified | Added installation instructions |
-| README.en.md | Added | English documentation |
-| .claude-plugin/marketplace.json | Added | Plugin marketplace support |
-
-## Test Plan
-
-- [ ] Test 1
-- [ ] Test 2
-- [ ] Test 3
-
-## References
-
-- [Claude Code Skill Best Practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices)
-- [Skills Overview](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview)
-
----
-
-🤖 Generated with [Claude Code](https://claude.com/claude-code)
+[Checks actually run, relevant evidence, and untested behavior.]
 ```
 
-## Key Sections Explained
+For larger changes, add compatibility or source details that affect a decision:
 
-### Summary
-- Brief overview (2-3 sentences)
-- Link to best practices
+- Which host-specific extensions are involved and what other agents can use.
+- Whether source ownership or generated artifacts changed.
+- Whether runtime comparison supports a behavior claim or only static checks ran.
+- Whether an existing consumer needs to change its workflow.
 
-### What This PR Does NOT Change
-**CRITICAL** - Always include this section to show respect for original work.
+Do not invent before/after measurements, require a quote from every source,
+repeat the complete file list, or add empty sections. Cite official guidance when
+it supports a material change. Attribution follows the target repository and
+host requirements; this template does not append a tool trailer.
 
-### Rationale
-- Explain WHY each change helps
-- Quote official documentation
-- Don't be judgmental
+## Reviewer Questions
 
-### Test Plan
-- Provide actionable verification steps
-- Help maintainers review quickly
-
-## Tone Guidelines
-
-### Do
-- Be helpful and constructive
-- Explain benefits to users
-- Acknowledge good aspects of original
-
-### Don't
-- Be critical or judgmental
-- Imply the original is "wrong"
-- Use words like "fix", "correct", "proper" negatively
-
-### Examples
-
-```
-❌ "Fixed the incorrect description format"
-✅ "Improved description for better skill discovery"
-
-❌ "The skill had several issues..."
-✅ "This PR adds improvements for..."
-
-❌ "Corrected the non-standard structure"
-✅ "Added marketplace support for easier installation"
-```
+1. Is the task and trigger boundary clear?
+2. Are user authority and required repository checks preserved?
+3. Are examples, scripts and links still usable after installation?
+4. Does the evidence support the claimed behavior change?

@@ -2,14 +2,14 @@
 name: planning-and-task-breakdown
 description: 'Turn clear requirements into ordered tasks, dependencies, and acceptance checks; preserve unfinished work when revising an existing plan.'
 zh_description: "将需求拆成有依赖与验收标准的任务，并保护已有未完成计划。"
-version: "1.0.4"
+version: "1.0.5"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/planning-and-task-breakdown/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "planning-and-task-breakdown", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-09-06"
+updated_at: "2026-09-07"
 quality: 5
 complexity: advanced
 upstream_slug: planning-and-task-breakdown

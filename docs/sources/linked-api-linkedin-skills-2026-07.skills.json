@@ -332,7 +332,7 @@
             "ref": "main",
             "resolved_commit": "e5e642e2bbbd839501c59a7742cdc04a9d9c66a0",
             "path_commit": "945636d8b3b4f7cc6e98e5bfa397473e2557147f",
-            "content_sha256": "af74ff932fc211337b048d3aa748d7be4196b5babc83d4abb5c62e9dacd2b116",
+            "content_sha256": "6e611ae930c43b0338f1dbc62a0a8a6942ba21a1ce0cf1821f1116e8e2b8867d",
             "last_checked_at": "2026-08-31",
             "last_synced_at": "2026-08-31",
             "license_checkpoint": {
@@ -404,7 +404,7 @@
         },
         {
           "path": "skills/growth-operations-xiaohongshu/linkedin-growth/SKILL.md",
-          "sha256": "af74ff932fc211337b048d3aa748d7be4196b5babc83d4abb5c62e9dacd2b116",
+          "sha256": "6e611ae930c43b0338f1dbc62a0a8a6942ba21a1ce0cf1821f1116e8e2b8867d",
           "owner": "linkedin-growth",
           "mode": "100644"
         },
@@ -618,7 +618,8 @@
           "sha256": "cdd1132d5924bb656a9e319ca9a89cab508640d1e8eef5f3b3fa6b47a903651b",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
     }
   ],
   "verification_attempts": [

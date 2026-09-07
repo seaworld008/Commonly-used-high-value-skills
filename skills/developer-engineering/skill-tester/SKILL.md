@@ -1,14 +1,14 @@
 ---
 name: skill-tester
-description: 'Name: skill-tester Tier: POWERFUL Category: Engineering Quality Assurance Dependencies: None (Python Standard Library Only) Author: Claude Skills Engineering Team Version: 1.0.0 Last Updated: 2026-02-16.'
+description: 'Validate skill structure, bundled scripts and expected outputs against the target repository and agent host requirements.'
 zh_description: "验证技能触发、执行步骤和输出结果是否符合预期。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["development", "skill", "tester"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-09-07"
 quality: 5
 complexity: "intermediate"
 ---
@@ -20,7 +20,7 @@ complexity: "intermediate"
 **Name**: skill-tester
 **Tier**: POWERFUL
 **Category**: Engineering Quality Assurance
-**Dependencies**: None (Python Standard Library Only)
+**Dependencies**: Python; PyYAML for the validator and quality scorer
 **Author**: Claude Skills Engineering Team
 **Version**: 1.0.0
 **Last Updated**: 2026-02-16
@@ -38,6 +38,8 @@ As the gatekeeping system for skill quality, this meta-skill provides three core
 
 This skill is essential for maintaining ecosystem consistency, enabling automated CI/CD integration, and supporting both manual and automated quality assurance workflows. It serves as the foundation for pre-commit hooks, pull request validation, and continuous integration processes that maintain the high-quality standards of the claude-skills repository.
 
+Use the target repository's validators first. The bundled scoring scripts implement a legacy rubric; run that rubric only when requested, and do not treat its tier scores as Codex or Claude model performance.
+
 ## Core Features
 
 ### Comprehensive Skill Validation
@@ -47,7 +49,7 @@ This skill is essential for maintaining ecosystem consistency, enabling automate
 
 ### Advanced Script Testing
 - **Syntax Validation**: Compiles Python scripts to detect syntax errors before execution
-- **Import Analysis**: Enforces standard library only policy, identifies external dependencies
+- **Import Analysis**: Identifies dependencies and checks them against the target project's declared runtime and policy
 - **Runtime Testing**: Executes scripts with sample data, validates argparse implementation, tests --help functionality
 - **Output Format Compliance**: Verifies dual output support (JSON + human-readable), proper error handling
 
@@ -57,8 +59,8 @@ This skill is essential for maintaining ecosystem consistency, enabling automate
 - **Completeness (25%)**: Required directory presence, sample data adequacy, expected output verification
 - **Usability (25%)**: Example clarity, argparse help text quality, installation simplicity, user experience
 
-### Tier Classification System
-Automatically classifies skills based on complexity and functionality:
+### Legacy Tier Classification Example
+The following tiers describe the original toolkit. Use the target repository's current quality contract for acceptance; these examples do not require adding scripts or padding entries in instruction-only skills:
 
 #### BASIC Tier Requirements
 - Minimum 100 lines in SKILL.md
@@ -251,7 +253,7 @@ Recommendations:
 ## Quality Assurance Standards
 
 ### Code Quality Requirements
-- **Standard Library Only**: No external dependencies (pip packages)
+- **Declared Dependencies**: Use an isolated environment; `skill_validator.py` and `quality_scorer.py` require PyYAML
 - **Error Handling**: Comprehensive exception handling with meaningful error messages
 - **Output Consistency**: Standardized JSON schema and human-readable formatting
 - **Performance**: Efficient validation algorithms with reasonable execution time
@@ -359,7 +361,7 @@ python engineering/skill-tester/scripts/trend_analyzer.py reports/ \
 
 #### Validation Failures
 - **Missing Files**: Check directory structure against tier requirements
-- **Import Errors**: Ensure only standard library imports are used
+- **Import Errors**: Check the script's declared dependencies; install PyYAML in the selected environment for validator/scorer imports
 - **Documentation Issues**: Verify SKILL.md frontmatter and section completeness
 
 #### Script Testing Problems  

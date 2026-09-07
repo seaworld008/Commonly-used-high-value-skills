@@ -2,14 +2,14 @@
 name: dispatching-parallel-agents
 description: Use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies
 zh_description: "用于拆分任务并调度多个 Agent 并行协作。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:obra/superpowers"
 source_url: "https://github.com/obra/superpowers/blob/main/skills/dispatching-parallel-agents/SKILL.md"
 license: MIT
 tags: '["agents", "parallel", "workflow"]'
 created_at: "2026-04-13"
-updated_at: "2026-07-27"
+updated_at: "2026-09-07"
 quality: 4
 complexity: "intermediate"
 ---
@@ -18,11 +18,11 @@ complexity: "intermediate"
 
 ## Overview
 
-You delegate tasks to specialized agents with isolated context. By precisely crafting their instructions and context, you ensure they stay focused and succeed at their task. They should never inherit your session's context or history — you construct exactly what they need. This also preserves your own context for coordination work.
+You delegate tasks to specialized agents with isolated context. By precisely crafting their instructions and context, you ensure they stay focused and succeed at their task. Give each agent the context needed for its task; use isolated prompts for independent comparisons and shared history when continuity matters. Follow the host's supported context controls.
 
 When you have multiple unrelated failures (different test files, different subsystems, different bugs), investigating them sequentially wastes time. Each investigation is independent and can happen in parallel.
 
-**Core principle:** Dispatch one agent per independent problem domain. Let them work concurrently.
+**Core principle:** Delegate bounded independent work when the host exposes suitable tools and the task permits it. Without delegation support, complete the same investigations locally; do not install another runtime just to follow this workflow.
 
 ## When to Use
 
@@ -174,5 +174,5 @@ Agent 3 → Fix tool-approval-race-conditions.test.ts
 After agents return:
 1. **Review each summary** - Understand what changed
 2. **Check for conflicts** - Did agents edit same code?
-3. **Run full suite** - Verify all fixes work together
+3. **Run affected checks** - Verify integrated changes and project-required gates; reuse valid results for unchanged code
 4. **Spot check** - Agents can make systematic errors

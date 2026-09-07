@@ -28,7 +28,7 @@ Every `Agent(...)` block in this file omits the fields that never vary. Assume o
 
 ```
 subagent_type: general-purpose
-mode: bypassPermissions
+mode: default
 model: sonnet                    # tier per hub-authoring.md § Model Selection
 prompt prefix: "You are the <Agent> agent. First, read ~/.claude/skills/<agent>/SKILL.md
                 and follow its instructions."

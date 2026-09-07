@@ -2,20 +2,20 @@
 name: skill-reviewer
 description: 'Review and improve agent skills for clear triggers, actionable instructions, progressive disclosure, reliable resources, and evidence-backed validation.'
 zh_description: "审查技能的触发边界、执行指导、引用和验证质量。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["planning", "reviewer", "skill", "workflow"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-09-07"
 quality: 5
 complexity: "intermediate"
 ---
 
 # Skill Reviewer
 
-Review and improve Claude Code skills against official best practices.
+Review and improve skills for Codex, Claude Code and other Agent Skills hosts using their official guidance and actual runtime capabilities.
 
 ## Setup and Scope
 
@@ -80,7 +80,7 @@ Auto-PR Workflow:
 |----------|-------|--------|
 | **Frontmatter** | name present? | |
 | | description present? | |
-| | description in third-person? | |
+| | description states a concrete task and trigger boundary? | |
 | | includes trigger conditions? | |
 | **Instructions** | imperative form? | |
 | | under 500 lines? | |
@@ -110,7 +110,7 @@ Do not bump versions for untouched skills or call static lint a model benchmark.
 
 ## Common Issues & Fixes
 
-### Issue: Description Not Third-Person
+### Issue: Description Does Not Identify a Task
 
 ```yaml
 # Before
@@ -146,7 +146,7 @@ Task Progress:
 \`\`\`
 ```
 
-### Issue: Missing Marketplace Support
+### Issue: Requested Plugin Packaging Is Missing
 
 ```bash
 mkdir -p .claude-plugin
@@ -154,6 +154,8 @@ mkdir -p .claude-plugin
 ```
 
 See `references/marketplace_template.json`.
+
+Plugin packaging is optional. Add it only when distribution through a marketplace is part of the requested deliverable.
 
 ## PR Guidelines
 
@@ -169,10 +171,10 @@ When submitting PRs to external repos:
 ✅ "Improved description with trigger conditions"
 ```
 
-### Required Sections
+### Relevant Content
 
 1. **Summary** - What this PR does
-2. **What's NOT Changed** - Show respect for original
+2. **Compatibility** - Explain any material effect on existing consumers
 3. **Rationale** - Why each change helps
 4. **Test Plan** - How to verify
 

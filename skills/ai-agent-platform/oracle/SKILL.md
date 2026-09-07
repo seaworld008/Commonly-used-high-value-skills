@@ -2,14 +2,14 @@
 name: oracle
 description: '人工智能应用设计、评估、检索增强和安全护栏规划。'
 zh_description: "人工智能应用设计、评估、检索增强和安全护栏规划。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/oracle"
 license: MIT
 tags: ["agent", "ai", "oracle"]
 created_at: "2026-08-24"
-updated_at: "2026-09-06"
+updated_at: "2026-09-07"
 quality: 5
 complexity: "advanced"
 ---
@@ -160,7 +160,7 @@ Behavior notes per Recipe:
 
 | Area         | Rule                                                                                                                                  |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------- |
-| Prompt | `3-5` few-shot examples only when they measurably help; constrained decoding for structured output; XML tags over Markdown for Claude; avoid aggressive language ("CRITICAL!", "YOU MUST") which overtriggers and degrades quality; keep prompts at `150-300` words (reasoning degrades near `3k` tokens); static content first, variable last for caching; on current Claude models adaptive thinking is the mechanism and the `effort` parameter controls depth; calibrate verification to task risk and measured behavior; retain required correctness checks |
+| Prompt | `3-5` few-shot examples only when they measurably help; constrained decoding for structured output; choose readable structure supported by the target host; use strong directives for actual constraints; keep prompts concise without arbitrary word targets; static content first, variable last for caching; use the target model's documented reasoning controls; calibrate verification to task risk and measured behavior; retain required correctness checks |
 | RAG | Default to Hybrid Search; keep context to the top `5-8` chunks; require `Recall@5 >= 0.8`, `Precision@5 >= 0.7`, `Faithfulness >= 0.8`; benchmark chunking before production (naive chunking drops faithfulness below 0.51); validate vector-store inputs against poisoning |
 | RAG architecture | For static corpora under ~1M tokens, prefer Context-Augmented Generation over retrieve-then-generate unless data changes frequently; evaluate Agentic RAG for dynamic multi-hop workflows; hybrid RAG+CAG creates a complexity explosion — justify before adopting. Treat retrieval quality, governance, and observability as first-class from day one |
 | Evaluation | Fixed test sets only; regressions `>=5%` block merge; LLM-as-judge needs a different judge model or human calibration; prefer pairwise over single-score; guard position, verbosity, and self-enhancement bias; `TNR < 25%` means judges miss invalid outputs — add adversarial cases; for agentic systems evaluate goal completion and tool-usage efficiency, with `max_turns` set by task complexity; link every score to exact prompt, model, and dataset versions |

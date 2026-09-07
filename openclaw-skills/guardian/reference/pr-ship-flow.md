@@ -1,6 +1,6 @@
 # PR Ship Flow Reference
 
-Purpose: After PR preparation is complete (typically the output of the `pr` Recipe), execute the full delivery flow: create the PR, monitor CI, verify approval gates, merge, and clean up. Every state-changing step is a proposal — guardian does not auto-execute merges without explicit user consent.
+Purpose: After PR preparation is complete (typically the output of the `pr` Recipe), execute the full delivery flow: create the PR, monitor CI, verify approval gates, merge, and clean up. Execute steps covered by the current request and prior authorization; resolve missing scope before a new external action.
 
 ## Contents
 
@@ -208,7 +208,7 @@ gh pr view "$PR_NUMBER" --json state -q .state   # MERGED
 | Merge without existing authority for this PR and target | Resolve the missing scope or authorization |
 | `--admin` flag (bypass protection) | Compliance and audit risk |
 | Force-merge over `UNSTABLE` state | Non-required checks may signal real issues |
-| Merge to default branch outside business hours | Reduced rollback bandwidth |
+| Merge outside an established repository deployment window | Follow the project's actual operating policy |
 | Skip merge queue | Defeats batching/bisection safety |
 | Direct merge without squash on `feat/*` branches | Pollutes history |
 
@@ -256,7 +256,7 @@ If destructive recovery is needed (force-push reversal), escalate to user; never
 
 ## Verification Checklist
 
-Deliver this with every `ship` output:
+Use this checklist internally when shipping; report the outcome, relevant evidence and unresolved items:
 
 - [ ] All preconditions satisfied (clean tree, pushed, base synced, `gh` authed)
 - [ ] All hard gates passed (quality, risk, security, intent alignment, CI, approvals)
@@ -286,7 +286,7 @@ Deliver this with every `ship` output:
 - `gh` auth: OK
 - Required checks discovered: `ci/test`, `ci/lint`, `ci/security-scan`
 
-### Execution Script (proposal — Ask First on MERGE)
+### Execution Script (requires merge authority and passing gates)
 
 \```bash
 # PREFLIGHT, CREATE, WATCH, GATE — see Command Recipes

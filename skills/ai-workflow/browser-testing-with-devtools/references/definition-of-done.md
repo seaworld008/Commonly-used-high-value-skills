@@ -1,6 +1,6 @@
 # Definition of Done
 
-A standing, project-wide bar that every change must clear before it counts as done. Unlike acceptance criteria, which vary per task and answer "did we build the right thing?", the Definition of Done is the same every time and answers "is this finished to our standard?". Use it as the final gate in `planning-and-task-breakdown`, `incremental-implementation`, and `shipping-and-launch`.
+Use the target project's Definition of Done and the task's acceptance criteria. The checklist below is a starting point for projects that do not already define one. Unlike acceptance criteria, which vary per task and answer "did we build the right thing?", the Definition of Done is the same every time and answers "is this finished to our standard?". Use it as the final gate in `planning-and-task-breakdown`, `incremental-implementation`, and `shipping-and-launch`.
 
 ## Definition of Done vs. Acceptance Criteria
 
@@ -16,12 +16,12 @@ The two are complementary. A task is done only when **its** acceptance criteria 
 
 ## The Standing Checklist
 
-Apply this to every change before declaring it done.
+Apply relevant items to the change. A documentation correction needs content and link checks; runtime behavior, integration, and production checks apply when those surfaces change. Reuse successful evidence while code and environment remain unchanged.
 
 ### Correctness
 - [ ] All acceptance criteria for the task are met
 - [ ] Code runs and behaves as intended, verified at runtime, not just compiled or typechecked
-- [ ] New behavior is covered by tests that fail without the change and pass with it
+- [ ] Meaningful behavior changes have relevant regression coverage; reversible wording changes do not require tests that mirror the text
 - [ ] Existing tests still pass; no regressions introduced
 - [ ] Edge cases and error paths are handled, not just the happy path
 
@@ -48,7 +48,7 @@ The depth behind these items lives in `code-review-and-quality` (the five-axis r
 - [ ] Security implications reviewed for any untrusted input, auth, or data handling (see `security-and-hardening`)
 - [ ] Observability in place for new critical paths (logs, metrics, traces) (see `observability-and-instrumentation`)
 - [ ] Rollback path exists for anything risky (see `shipping-and-launch`)
-- [ ] The human has reviewed and approved before merge or deploy
+- [ ] Required repository reviews and current user authorization cover the intended merge or deployment
 
 ## How to Apply
 
@@ -56,7 +56,7 @@ The depth behind these items lives in `code-review-and-quality` (the five-axis r
 - **Per feature**: confirm Integration and Documentation before considering the feature complete.
 - **Per release**: the full checklist is the floor; `shipping-and-launch` adds the deploy-specific gates on top.
 
-Tailor the list to the project once, then reuse it unchanged. A Definition of Done that is renegotiated every sprint is not a Definition of Done.
+Keep the project's required gates stable. Select the applicable checks by changed behavior and risk; expand testing when new changes, failures or unresolved concerns invalidate existing evidence.
 
 ## Red Flags
 

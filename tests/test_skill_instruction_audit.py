@@ -99,3 +99,55 @@ def test_validation_default_never_runs_generators(tmp_path):
 
     assert run_pipeline(tmp_path, run=runner) == 0
     assert calls == [list(command) for command in CHECKS]
+
+
+def test_inventory_covers_uppercase_markdown_scripts_and_binary_without_claiming_review(tmp_path):
+    path = make_skill(tmp_path)
+    (path.parent / "GUIDE.MD").write_text("Merge step is always Ask First.\n")
+    (path.parent / "prompt.py").write_text('PROMPT = "Always ask for approval"\n')
+    (path.parent / "sample.bin").write_bytes(b"\x00\xff")
+    item = inspect_skill(path, tmp_path)
+    assert item["markdown_resources"] == 2
+    assert len(item["resources"]) == 4
+    assert {f["rule"] for f in item["findings"]} == {"unconditional_merge_gate"}
+    script = next(r for r in item["resources"] if r["path"].endswith("prompt.py"))
+    assert script["review_hints"] == [{"rule": "approval_scope", "line": 1}]
+    assert all(r["semantic_review"] == "not_assessed" for r in item["resources"])
+
+
+def test_shared_entrypoints_and_ci_are_included_once(tmp_path):
+    make_skill(tmp_path)
+    (tmp_path / "AGENTS.md").write_text("Merge step is always Ask First.\n")
+    workflow = tmp_path / ".github/workflows/validate.yml"
+    workflow.parent.mkdir(parents=True)
+    workflow.write_text("name: Validate\n")
+    report = audit(tmp_path)
+    assert report["summary"]["files"] == 3
+    assert report["summary"]["findings"] == 1
+    assert len(report["repository_files"]) == 2
+
+
+def test_approval_examples_remain_advisory_and_nested_symlink_is_excluded(tmp_path):
+    path = make_skill(tmp_path, "```text\nAlways ask for approval\n```\nRequest approval for unapproved production deletion.\n")
+    outside = tmp_path.parent / (tmp_path.name + "-external")
+    outside.mkdir()
+    (outside / "AGENTS.md").write_text("Merge step is always Ask First.\n")
+    (path.parent / "external").symlink_to(outside, target_is_directory=True)
+    report = audit(tmp_path)
+    assert report["summary"]["findings"] == 0
+    assert report["summary"]["review_hints"] == 1
+    assert report["summary"]["files"] == 1
+
+
+def test_interpreter_caches_do_not_change_bundled_inventory(tmp_path):
+    path = make_skill(tmp_path)
+    before = audit(tmp_path)
+    cache = path.parent / "scripts/__pycache__"
+    cache.mkdir(parents=True)
+    (cache / "helper.cpython-313.pyc").write_bytes(b"runtime-only")
+    assert audit(tmp_path) == before
+
+
+def test_metadata_is_not_a_task_description(tmp_path):
+    path = make_skill(tmp_path, description="'> Skill Type: POWERFUL > Category: Engineering'")
+    assert "metadata_as_description" in {f["rule"] for f in inspect_skill(path, tmp_path)["findings"]}

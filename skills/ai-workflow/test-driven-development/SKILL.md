@@ -2,14 +2,14 @@
 name: test-driven-development
 description: Develop testable logic or fix behavioral bugs with focused regression tests and a red-green-refactor loop where it provides useful evidence.
 zh_description: "通过聚焦的回归测试验证业务逻辑和缺陷修复。"
-version: "1.0.2"
+version: "1.0.3"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/test-driven-development/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "test-driven-development", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-09-06"
+updated_at: "2026-09-07"
 quality: 5
 complexity: advanced
 upstream_slug: test-driven-development

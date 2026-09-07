@@ -2,14 +2,14 @@
 name: spec-driven-development
 description: 'Specify new features or substantial behavior changes when goals, boundaries, and acceptance criteria need agreement before implementation.'
 zh_description: "把需求转成明确的功能边界、契约和验收标准。"
-version: "1.0.2"
+version: "1.0.3"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/spec-driven-development/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "spec-driven-development", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-09-06"
+updated_at: "2026-09-07"
 quality: 5
 complexity: advanced
 upstream_slug: spec-driven-development

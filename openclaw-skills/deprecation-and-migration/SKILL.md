@@ -2,14 +2,14 @@
 name: deprecation-and-migration
 description: 'Plan deprecation and migration of systems, APIs, and production schemas, including expand-contract changes with compatibility and rollback requirements.'
 zh_description: "规划旧系统、接口和功能的弃用及迁移。"
-version: "1.0.1"
+version: "1.0.2"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/deprecation-and-migration/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "deprecation-and-migration", "engineering", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-09-06"
+updated_at: "2026-09-07"
 quality: 5
 complexity: advanced
 upstream_slug: deprecation-and-migration

@@ -2,14 +2,14 @@
 name: arena
 description: 'Specialist orchestrating codex exec / Antigravity CLI through dual paradigms — COMPETE (multi-variant comparison, select best) and COLLABORATE (decompose tasks across engines, integrate). Supports Solo/Team/Quick execution modes.'
 zh_description: "用于构建和运行 Agent 竞技场、评测对战和能力比较流程。"
-version: "1.0.5"
+version: "1.0.6"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/5f1bd9e50ee7b13fbd143b1a4a30e6643b458097/arena/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "arena"]'
 created_at: "2026-04-25"
-updated_at: "2026-09-06"
+updated_at: "2026-09-07"
 quality: 5
 complexity: "advanced"
 ---
@@ -103,7 +103,7 @@ See `references/engine-cli-guide.md` (Solo) · `references/team-mode-guide.md` (
 - **AI code quality verification is mandatory**: AI-generated code has 1.75× higher logic errors, 1.57× higher security issues, 1.64× higher maintainability errors, and ~8× more excessive I/O operations — run static analysis and `codex review` on every variant before evaluation.
 - **Ensemble consensus outperforms best-of-1, but beware the popularity trap**: Multi-LLM ensemble with similarity-based selection achieves ~8% higher accuracy than the best single model (90.2% vs 83.5% on HumanEval). However, pure consensus voting amplifies common but incorrect outputs — use diversity-weighted selection (varying engine, approach, and prompt style) which realizes up to 95% of theoretical ensemble potential. In COMPETE, maximize variant diversity across engines and approaches, not just variant count.
 - **Cross-engine verification outperforms single-engine review**: Hybrid pipelines combining ensemble generation + static analysis + cross-LLM verification achieve up to 97–99% secure code rates and up to 47% improvement over single-model baselines — static analysis is the critical differentiator, consistently outperforming LLM-only collaborative approaches. In COMPETE with 2+ engines, use the non-generating engine's review capability as an additional quality gate.
-- **Multi-stage generate-fix-refine outperforms single-pass generation**: Performance-guided orchestration with dynamic routing achieves ~96% correctness vs ~79% for single-model single-pass (HumanEval-X), a 22% absolute improvement. Arena's REFINE phase is not optional polish — it is a primary correctness mechanism. Always budget for at least one fix-refine cycle in execution estimates.
+- **Multi-stage generate-fix-refine outperforms single-pass generation**: Performance-guided orchestration with dynamic routing achieves ~96% correctness vs ~79% for single-model single-pass (HumanEval-X), a 22% absolute improvement. Arena's REFINE phase is not optional polish — it is a primary correctness mechanism. Budget fix-refine work when verification identifies defects or a comparison warrants another iteration; a successful candidate does not require a ceremonial rewrite.
 - **Failure isolation in parallel execution**: One engine's timeout or failure must never block others — use wait-all with independent timeout per engine (Team Mode).
 - **Evaluate against dominant AI code failure patterns**: LLM code generation failures cluster into four categories: (1) wrong problem mapping (misunderstood requirements), (2) flawed/incomplete algorithm design, (3) edge case mishandling, and (4) output formatting errors. Prioritize (1) and (2) in COMPETE scoring as they have the highest cost of undetected escape.
 - **Specification defects dominate multi-engine failure**: ~79% of multi-agent system production failures trace to specification and coordination defects, not implementation bugs. Arena's SPEC phase is the highest-leverage failure prevention point — when time pressure pushes to abbreviate specification validation, expected failure rates rise disproportionately. Budget SPEC time proportional to task complexity; never skip SPEC to accelerate EXECUTE.
@@ -162,7 +162,7 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 
 ## Engine Availability
 
-> **Base Engine Policy (2026-05)**: Default baseline is **Codex (always) + Claude subagent (host)** for the dual-engine path; **agy** is an optional addon for tri-engine diversity when AVAILABLE at PREFLIGHT. agy v1.0.x silent-runtime-failure issues (quota / OAuth / executor / subagent-timeout) make hard dependency brittle — recipes must work in Codex-only or Codex+Claude-subagent mode when agy is unavailable. See `_common/MULTI_ENGINE_RECIPE.md §Base Engine Policy`.
+> **Base Engine Policy (2026-05)**: Use **Codex + Claude** for the dual-engine path when both are available and authorized; otherwise use the available engine and report reduced comparison coverage; **agy** is an optional addon for tri-engine diversity when AVAILABLE at PREFLIGHT. agy v1.0.x silent-runtime-failure issues (quota / OAuth / executor / subagent-timeout) make hard dependency brittle — recipes must work in Codex-only or Codex+Claude-subagent mode when agy is unavailable. See `_common/MULTI_ENGINE_RECIPE.md §Base Engine Policy`.
 
 **Engine count matrix:**
 

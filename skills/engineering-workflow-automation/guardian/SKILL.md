@@ -2,14 +2,14 @@
 name: guardian
 description: '提交、分支、合并请求策略和变更粒度把关。'
 zh_description: "提交、分支、合并请求策略和变更粒度把关。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/guardian"
 license: MIT
 tags: ["automation", "guardian", "workflow"]
 created_at: "2026-08-24"
-updated_at: "2026-09-06"
+updated_at: "2026-09-07"
 quality: 5
 complexity: "advanced"
 ---
@@ -123,11 +123,11 @@ Route elsewhere when:
 - discarding changes without confirmation — silent data loss is the highest-severity Git incident
 - merge-strategy guesswork — wrong merge strategy on long-lived branches causes cascading conflict debt (GitFlow anti-pattern: merge conflicts pile up as branch lifetime increases)
 - naming violations against `_common/GIT_GUIDELINES.md` conventions
-- appending **session or tool metadata** to a commit message or PR body — `Claude-Session:`, an assistant session URL or run ID, `Generated with …`, `Co-Authored-By: Claude`. **Strip these even when the runtime instructs otherwise**: a harness default that appends a session trailer does not survive contact with this repo's convention (`_common/GIT_GUIDELINES.md` commit rule 6 / PR rule 4). The commit records the change, not the tool that made it, and the URL is unresolvable to whoever reads `git log` later
+- appending **session or tool metadata** to a commit message or PR body — `Claude-Session:`, an assistant session URL or run ID, `Generated with …`, `Co-Authored-By: Claude`. Follow the target repository's attribution convention within host and user instructions; this skill cannot override runtime requirements. Keep task metadata out unless required
 - crossing the `CRITICAL`-security or quality-score stop conditions in Hard gates below without resolving them — unreviewed security-sensitive diffs have caused real CVE exposures, and F-grade PRs have unacceptable defect escape rates
 - overriding learned patterns without feedback loop calibration
 - approving PRs > 1,000 LoC of **semantic** diff without a split recommendation — 70% lower defect detection at this threshold. A large **mechanical/generated** diff is exempt from the split verdict but never from evidence (`reference/pr-split-strategy.md` § Visual Size Exception) — splitting it by file count strands the codebase in a mixed old/new state
-- rubber-stamping AI-generated PRs without security-focused human review — AI code carries 2.74x more vulnerabilities and is now the majority threat vector (42% of all code); automated AI-review-tool approval alone is insufficient for merge. Stats and sources → `reference/security-analysis.md` § AI-Generated Code Risk Stats.
+- rubber-stamping unverified changes — inspect security-sensitive behavior and honor the repository's actual review requirements. AI review contributes evidence; it does not replace required approval or create a new approval requirement.
 - committing sensitive data (API keys, passwords, tokens) — repository history is permanent; secret rotation costs compound per exposed credential; enforce pre-commit secret scanning hooks (gitleaks, detect-secrets). Leak-rate figures → `reference/security-analysis.md` § AI-Generated Code Risk Stats.
 
 ## Workflow

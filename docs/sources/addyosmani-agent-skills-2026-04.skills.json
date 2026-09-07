@@ -54,7 +54,7 @@
             "ref": "main",
             "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
             "path_commit": "ce89b03cbd768d4c9f512beedae46c20822a6bf6",
-            "content_sha256": "41c59e37a7f90fda49253f270f38b9f7bd45eb29180d62fa58209e6824148213",
+            "content_sha256": "bb2571c39d1e9c0c112e9812d54ae093e97daa4d20908b88180298ef65cd212b",
             "last_checked_at": "2026-09-06",
             "last_synced_at": "2026-09-06",
             "license_checkpoint": {
@@ -123,7 +123,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/api-and-interface-design/SKILL.md",
-          "sha256": "41c59e37a7f90fda49253f270f38b9f7bd45eb29180d62fa58209e6824148213",
+          "sha256": "bb2571c39d1e9c0c112e9812d54ae093e97daa4d20908b88180298ef65cd212b",
           "owner": "api-and-interface-design",
           "mode": "100644"
         },
@@ -135,7 +135,7 @@
         },
         {
           "path": "skills/ai-workflow/api-and-interface-design/references/definition-of-done.md",
-          "sha256": "d1c75d2ae65d2c7a9cd01f93fa8de63e00e75f2fe5d08be224d576157054dcee",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "api-and-interface-design",
           "mode": "100644"
         },
@@ -169,7 +169,8 @@
           "owner": "api-and-interface-design",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
     },
     {
       "video_name": "browser-testing-with-devtools",
@@ -207,7 +208,7 @@
             "ref": "main",
             "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
             "path_commit": "e8c9b4632d9e4ab8ca4ea514dae03e25683e8186",
-            "content_sha256": "3113261666ff07a3b63345d072dd77b3b1388bb3df93f10ae701ae5ee215605f",
+            "content_sha256": "b688f7919193c15c67b34bbebf47806cddc5a46f2136256deb233b620a51fc03",
             "last_checked_at": "2026-09-06",
             "last_synced_at": "2026-09-06",
             "license_checkpoint": {
@@ -276,7 +277,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/browser-testing-with-devtools/SKILL.md",
-          "sha256": "3113261666ff07a3b63345d072dd77b3b1388bb3df93f10ae701ae5ee215605f",
+          "sha256": "b688f7919193c15c67b34bbebf47806cddc5a46f2136256deb233b620a51fc03",
           "owner": "browser-testing-with-devtools",
           "mode": "100644"
         },
@@ -288,7 +289,7 @@
         },
         {
           "path": "skills/ai-workflow/browser-testing-with-devtools/references/definition-of-done.md",
-          "sha256": "d1c75d2ae65d2c7a9cd01f93fa8de63e00e75f2fe5d08be224d576157054dcee",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "browser-testing-with-devtools",
           "mode": "100644"
         },
@@ -322,7 +323,8 @@
           "owner": "browser-testing-with-devtools",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
     },
     {
       "video_name": "ci-cd-and-automation",
@@ -360,7 +362,7 @@
             "ref": "main",
             "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
             "path_commit": "fea75b16472ba87e8c11f13a9e000c3ffdb2d1f5",
-            "content_sha256": "37680317ce2fcdb97f878233d660e5cb215fffa9a6a64159462413146ea1a03b",
+            "content_sha256": "eeca38e6488863e5b91015a2ad6681aa355411da5070b4b1af7b2511e84719d3",
             "last_checked_at": "2026-09-06",
             "last_synced_at": "2026-09-06",
             "license_checkpoint": {
@@ -429,7 +431,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/ci-cd-and-automation/SKILL.md",
-          "sha256": "37680317ce2fcdb97f878233d660e5cb215fffa9a6a64159462413146ea1a03b",
+          "sha256": "eeca38e6488863e5b91015a2ad6681aa355411da5070b4b1af7b2511e84719d3",
           "owner": "ci-cd-and-automation",
           "mode": "100644"
         },
@@ -441,7 +443,7 @@
         },
         {
           "path": "skills/ai-workflow/ci-cd-and-automation/references/definition-of-done.md",
-          "sha256": "d1c75d2ae65d2c7a9cd01f93fa8de63e00e75f2fe5d08be224d576157054dcee",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "ci-cd-and-automation",
           "mode": "100644"
         },
@@ -475,7 +477,8 @@
           "owner": "ci-cd-and-automation",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
     },
     {
       "video_name": "code-review-and-quality",
@@ -513,7 +516,7 @@
             "ref": "main",
             "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
             "path_commit": "91d4d07522de9577caf5d213e5bf1acc38fa3df2",
-            "content_sha256": "8456e310f481a26cbdea45c44865b60e3537f253d1a50a1d8e8be8cfdfdf0ce3",
+            "content_sha256": "75e9a227b45afa9d05f28c868a18b4be3a88d81251cb32d064830d01303f4163",
             "last_checked_at": "2026-09-06",
             "last_synced_at": "2026-09-06",
             "license_checkpoint": {
@@ -582,7 +585,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/code-review-and-quality/SKILL.md",
-          "sha256": "8456e310f481a26cbdea45c44865b60e3537f253d1a50a1d8e8be8cfdfdf0ce3",
+          "sha256": "75e9a227b45afa9d05f28c868a18b4be3a88d81251cb32d064830d01303f4163",
           "owner": "code-review-and-quality",
           "mode": "100644"
         },
@@ -594,7 +597,7 @@
         },
         {
           "path": "skills/ai-workflow/code-review-and-quality/references/definition-of-done.md",
-          "sha256": "d1c75d2ae65d2c7a9cd01f93fa8de63e00e75f2fe5d08be224d576157054dcee",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "code-review-and-quality",
           "mode": "100644"
         },
@@ -628,7 +631,8 @@
           "owner": "code-review-and-quality",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
     },
     {
       "video_name": "code-simplification",
@@ -666,7 +670,7 @@
             "ref": "main",
             "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
             "path_commit": "fea75b16472ba87e8c11f13a9e000c3ffdb2d1f5",
-            "content_sha256": "8604119fc2fe7cb2b14d97b9e4d6690601eada858cbd77ebc8220ec94f6010b6",
+            "content_sha256": "3c2b55fbc8611c99ea74368b017fe74881ba39a9285dd1bd48388a3e52b78687",
             "last_checked_at": "2026-09-06",
             "last_synced_at": "2026-09-06",
             "license_checkpoint": {
@@ -735,7 +739,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/code-simplification/SKILL.md",
-          "sha256": "8604119fc2fe7cb2b14d97b9e4d6690601eada858cbd77ebc8220ec94f6010b6",
+          "sha256": "3c2b55fbc8611c99ea74368b017fe74881ba39a9285dd1bd48388a3e52b78687",
           "owner": "code-simplification",
           "mode": "100644"
         },
@@ -747,7 +751,7 @@
         },
         {
           "path": "skills/ai-workflow/code-simplification/references/definition-of-done.md",
-          "sha256": "d1c75d2ae65d2c7a9cd01f93fa8de63e00e75f2fe5d08be224d576157054dcee",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "code-simplification",
           "mode": "100644"
         },
@@ -781,7 +785,8 @@
           "owner": "code-simplification",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
     },
     {
       "video_name": "context-engineering",
@@ -819,7 +824,7 @@
             "ref": "main",
             "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
             "path_commit": "cc48b6997eb3d76c1b403826b020299a2eae179f",
-            "content_sha256": "9a963c0827063f894c83314b8a0bb8d7a04a44e1829dd4412a456546e1fd8fea",
+            "content_sha256": "73764d5ac55e42e79729dcb336ec13dd9ffab0fe91628e8348f565d8a5ebb19b",
             "last_checked_at": "2026-09-06",
             "last_synced_at": "2026-09-06",
             "license_checkpoint": {
@@ -888,7 +893,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/context-engineering/SKILL.md",
-          "sha256": "9a963c0827063f894c83314b8a0bb8d7a04a44e1829dd4412a456546e1fd8fea",
+          "sha256": "73764d5ac55e42e79729dcb336ec13dd9ffab0fe91628e8348f565d8a5ebb19b",
           "owner": "context-engineering",
           "mode": "100644"
         },
@@ -900,7 +905,7 @@
         },
         {
           "path": "skills/ai-workflow/context-engineering/references/definition-of-done.md",
-          "sha256": "d1c75d2ae65d2c7a9cd01f93fa8de63e00e75f2fe5d08be224d576157054dcee",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "context-engineering",
           "mode": "100644"
         },
@@ -934,7 +939,8 @@
           "owner": "context-engineering",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
     },
     {
       "video_name": "debugging-and-error-recovery",
@@ -972,7 +978,7 @@
             "ref": "main",
             "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
             "path_commit": "45ccfb6f3dcb0116e91f8a0d5a8338840c1b404f",
-            "content_sha256": "afff24376e037c8574b4c4a91ae38580bd93404b10485b05187576abeabd1c2f",
+            "content_sha256": "ecdcf52c801e0c124381ec71d2b0e9b7cbbde0ac9dcef40bc4862fbfdeafa2bb",
             "last_checked_at": "2026-09-06",
             "last_synced_at": "2026-09-06",
             "license_checkpoint": {
@@ -1041,7 +1047,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/debugging-and-error-recovery/SKILL.md",
-          "sha256": "afff24376e037c8574b4c4a91ae38580bd93404b10485b05187576abeabd1c2f",
+          "sha256": "ecdcf52c801e0c124381ec71d2b0e9b7cbbde0ac9dcef40bc4862fbfdeafa2bb",
           "owner": "debugging-and-error-recovery",
           "mode": "100644"
         },
@@ -1053,7 +1059,7 @@
         },
         {
           "path": "skills/ai-workflow/debugging-and-error-recovery/references/definition-of-done.md",
-          "sha256": "d1c75d2ae65d2c7a9cd01f93fa8de63e00e75f2fe5d08be224d576157054dcee",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "debugging-and-error-recovery",
           "mode": "100644"
         },
@@ -1087,7 +1093,8 @@
           "owner": "debugging-and-error-recovery",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
     },
     {
       "video_name": "deprecation-and-migration",
@@ -1125,7 +1132,7 @@
             "ref": "main",
             "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
             "path_commit": "1483fc12473e5297408a069b661778aa76fbd1cf",
-            "content_sha256": "2231ce432325456f81b3f95d8efa024946a9cbb041aa81ffb6dfd0d3a46cc1ee",
+            "content_sha256": "47f36a0b6b7800e4d2e6ac8e53e36d9b809559644307de2250101a10209f8550",
             "last_checked_at": "2026-09-06",
             "last_synced_at": "2026-09-06",
             "license_checkpoint": {
@@ -1194,7 +1201,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/deprecation-and-migration/SKILL.md",
-          "sha256": "2231ce432325456f81b3f95d8efa024946a9cbb041aa81ffb6dfd0d3a46cc1ee",
+          "sha256": "47f36a0b6b7800e4d2e6ac8e53e36d9b809559644307de2250101a10209f8550",
           "owner": "deprecation-and-migration",
           "mode": "100644"
         },
@@ -1206,7 +1213,7 @@
         },
         {
           "path": "skills/ai-workflow/deprecation-and-migration/references/definition-of-done.md",
-          "sha256": "d1c75d2ae65d2c7a9cd01f93fa8de63e00e75f2fe5d08be224d576157054dcee",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "deprecation-and-migration",
           "mode": "100644"
         },
@@ -1240,7 +1247,8 @@
           "owner": "deprecation-and-migration",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
     },
     {
       "video_name": "documentation-and-adrs",
@@ -1278,7 +1286,7 @@
             "ref": "main",
             "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
             "path_commit": "a0eba71b5544c47c922cc55127bccec8b0f1e6ab",
-            "content_sha256": "062512d3a4772dfa0fff78bbb92696801b42bc2f0d2b3f809e3a23a9c7bd8e9b",
+            "content_sha256": "c745e9037c7486f6d931070ab3576ccf90dd089c6e772a60942e60152c1a7bba",
             "last_checked_at": "2026-09-06",
             "last_synced_at": "2026-09-06",
             "license_checkpoint": {
@@ -1347,7 +1355,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/documentation-and-adrs/SKILL.md",
-          "sha256": "062512d3a4772dfa0fff78bbb92696801b42bc2f0d2b3f809e3a23a9c7bd8e9b",
+          "sha256": "c745e9037c7486f6d931070ab3576ccf90dd089c6e772a60942e60152c1a7bba",
           "owner": "documentation-and-adrs",
           "mode": "100644"
         },
@@ -1359,7 +1367,7 @@
         },
         {
           "path": "skills/ai-workflow/documentation-and-adrs/references/definition-of-done.md",
-          "sha256": "d1c75d2ae65d2c7a9cd01f93fa8de63e00e75f2fe5d08be224d576157054dcee",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "documentation-and-adrs",
           "mode": "100644"
         },
@@ -1393,7 +1401,8 @@
           "owner": "documentation-and-adrs",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
     },
     {
       "video_name": "doubt-driven-development",
@@ -1431,7 +1440,7 @@
             "ref": "main",
             "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
             "path_commit": "91d4d07522de9577caf5d213e5bf1acc38fa3df2",
-            "content_sha256": "3c6094e682d69f1407a09f7a1cd1bef05a6582321bba83001f7d7044c9d2f0c0",
+            "content_sha256": "97f4d4aecfc9c41e4dd4130a32238553ea889d7f5e7f492dd7647c7e2ee36098",
             "last_checked_at": "2026-09-06",
             "last_synced_at": "2026-09-06",
             "license_checkpoint": {
@@ -1500,7 +1509,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/doubt-driven-development/SKILL.md",
-          "sha256": "3c6094e682d69f1407a09f7a1cd1bef05a6582321bba83001f7d7044c9d2f0c0",
+          "sha256": "97f4d4aecfc9c41e4dd4130a32238553ea889d7f5e7f492dd7647c7e2ee36098",
           "owner": "doubt-driven-development",
           "mode": "100644"
         },
@@ -1512,7 +1521,7 @@
         },
         {
           "path": "skills/ai-workflow/doubt-driven-development/references/definition-of-done.md",
-          "sha256": "d1c75d2ae65d2c7a9cd01f93fa8de63e00e75f2fe5d08be224d576157054dcee",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "doubt-driven-development",
           "mode": "100644"
         },
@@ -1546,7 +1555,8 @@
           "owner": "doubt-driven-development",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
     },
     {
       "video_name": "frontend-ui-engineering",
@@ -1584,7 +1594,7 @@
             "ref": "main",
             "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
             "path_commit": "91d4d07522de9577caf5d213e5bf1acc38fa3df2",
-            "content_sha256": "8bde8318c82323bd3df903b2db10790a70420f0dbffc099fd6f3b2979085396e",
+            "content_sha256": "cbb98b612e203f183cfaed31a9eec5c368ba49f8ee3cfa3fe3a8c27acbe7d706",
             "last_checked_at": "2026-09-06",
             "last_synced_at": "2026-09-06",
             "license_checkpoint": {
@@ -1653,7 +1663,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/frontend-ui-engineering/SKILL.md",
-          "sha256": "8bde8318c82323bd3df903b2db10790a70420f0dbffc099fd6f3b2979085396e",
+          "sha256": "cbb98b612e203f183cfaed31a9eec5c368ba49f8ee3cfa3fe3a8c27acbe7d706",
           "owner": "frontend-ui-engineering",
           "mode": "100644"
         },
@@ -1665,7 +1675,7 @@
         },
         {
           "path": "skills/ai-workflow/frontend-ui-engineering/references/definition-of-done.md",
-          "sha256": "d1c75d2ae65d2c7a9cd01f93fa8de63e00e75f2fe5d08be224d576157054dcee",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "frontend-ui-engineering",
           "mode": "100644"
         },
@@ -1699,7 +1709,8 @@
           "owner": "frontend-ui-engineering",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
     },
     {
       "video_name": "git-workflow-and-versioning",
@@ -1737,7 +1748,7 @@
             "ref": "main",
             "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
             "path_commit": "b61213f5340b6671208d56c1db7be6c4fcbd98ac",
-            "content_sha256": "5c496b54cc9e9888ba0f1bc3c36de0fc393d70de801d0b143dea19d3040b47a7",
+            "content_sha256": "43b28183211d9478e7c9c65f3615526f5d3d7904e8f9549694ca11437f8e28f2",
             "last_checked_at": "2026-09-06",
             "last_synced_at": "2026-09-06",
             "license_checkpoint": {
@@ -1806,7 +1817,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/git-workflow-and-versioning/SKILL.md",
-          "sha256": "5c496b54cc9e9888ba0f1bc3c36de0fc393d70de801d0b143dea19d3040b47a7",
+          "sha256": "43b28183211d9478e7c9c65f3615526f5d3d7904e8f9549694ca11437f8e28f2",
           "owner": "git-workflow-and-versioning",
           "mode": "100644"
         },
@@ -1818,7 +1829,7 @@
         },
         {
           "path": "skills/ai-workflow/git-workflow-and-versioning/references/definition-of-done.md",
-          "sha256": "d1c75d2ae65d2c7a9cd01f93fa8de63e00e75f2fe5d08be224d576157054dcee",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "git-workflow-and-versioning",
           "mode": "100644"
         },
@@ -1852,7 +1863,8 @@
           "owner": "git-workflow-and-versioning",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
     },
     {
       "video_name": "idea-refine",
@@ -1910,7 +1922,7 @@
             "ref": "main",
             "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
             "path_commit": "5aacc3bce933539dc85fa7c78a1807aa396f4801",
-            "content_sha256": "b240e3b956311a61b6db7a32622d6e04c9873b54b2e98055b3336f5236307621",
+            "content_sha256": "fac3e0b84f45bb37c1de1fb3ec4713717d55d7a0098a41e25f7e14054f0de717",
             "last_checked_at": "2026-09-06",
             "last_synced_at": "2026-09-06",
             "license_checkpoint": {
@@ -1979,7 +1991,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/idea-refine/SKILL.md",
-          "sha256": "b240e3b956311a61b6db7a32622d6e04c9873b54b2e98055b3336f5236307621",
+          "sha256": "fac3e0b84f45bb37c1de1fb3ec4713717d55d7a0098a41e25f7e14054f0de717",
           "owner": "idea-refine",
           "mode": "100644"
         },
@@ -2003,7 +2015,7 @@
         },
         {
           "path": "skills/ai-workflow/idea-refine/references/definition-of-done.md",
-          "sha256": "d1c75d2ae65d2c7a9cd01f93fa8de63e00e75f2fe5d08be224d576157054dcee",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "idea-refine",
           "mode": "100644"
         },
@@ -2049,7 +2061,8 @@
           "owner": "idea-refine",
           "mode": "100755"
         }
-      ]
+      ],
+      "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
     },
     {
       "video_name": "incremental-implementation",
@@ -2087,7 +2100,7 @@
             "ref": "main",
             "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
             "path_commit": "91d4d07522de9577caf5d213e5bf1acc38fa3df2",
-            "content_sha256": "31a0cb887a13d3713573edd79e53f7225961c57187ec885e29ec88632a911f30",
+            "content_sha256": "a70d0b5d98ee5eb02b88576f14cf6c52459ed7f16aeb8415deeae2d492a7159f",
             "last_checked_at": "2026-09-06",
             "last_synced_at": "2026-09-06",
             "license_checkpoint": {
@@ -2156,7 +2169,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/incremental-implementation/SKILL.md",
-          "sha256": "31a0cb887a13d3713573edd79e53f7225961c57187ec885e29ec88632a911f30",
+          "sha256": "a70d0b5d98ee5eb02b88576f14cf6c52459ed7f16aeb8415deeae2d492a7159f",
           "owner": "incremental-implementation",
           "mode": "100644"
         },
@@ -2168,7 +2181,7 @@
         },
         {
           "path": "skills/ai-workflow/incremental-implementation/references/definition-of-done.md",
-          "sha256": "d1c75d2ae65d2c7a9cd01f93fa8de63e00e75f2fe5d08be224d576157054dcee",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "incremental-implementation",
           "mode": "100644"
         },
@@ -2202,7 +2215,8 @@
           "owner": "incremental-implementation",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
     },
     {
       "video_name": "interview-me",
@@ -2240,7 +2254,7 @@
             "ref": "main",
             "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
             "path_commit": "c4ad44928cd535fcfee1972988f97309d4cebf9f",
-            "content_sha256": "b425471adf6a76932c7bc02b235fe1d06504abf91ac60435d0c42d109108e24d",
+            "content_sha256": "52d00041ea64a1ab6ba1edbf2eea12dc5dcaa75ef5e1a19f8b20a882aa623ea0",
             "last_checked_at": "2026-09-06",
             "last_synced_at": "2026-09-06",
             "license_checkpoint": {
@@ -2309,7 +2323,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/interview-me/SKILL.md",
-          "sha256": "b425471adf6a76932c7bc02b235fe1d06504abf91ac60435d0c42d109108e24d",
+          "sha256": "52d00041ea64a1ab6ba1edbf2eea12dc5dcaa75ef5e1a19f8b20a882aa623ea0",
           "owner": "interview-me",
           "mode": "100644"
         },
@@ -2321,7 +2335,7 @@
         },
         {
           "path": "skills/ai-workflow/interview-me/references/definition-of-done.md",
-          "sha256": "d1c75d2ae65d2c7a9cd01f93fa8de63e00e75f2fe5d08be224d576157054dcee",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "interview-me",
           "mode": "100644"
         },
@@ -2355,7 +2369,8 @@
           "owner": "interview-me",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
     },
     {
       "video_name": "observability-and-instrumentation",
@@ -2393,7 +2408,7 @@
             "ref": "main",
             "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
             "path_commit": "6a9f2eb2d6f318e89faaff03a23ed84d8862c8e0",
-            "content_sha256": "71b1391f39e74c8f4fc7c40222ef95991528d6aedbd9df6b780d631acd73b61e",
+            "content_sha256": "c5e23550d3453bb0f36ebd3a8ed452bf0d82d74a62e0a2150f06cb9ba307b948",
             "last_checked_at": "2026-09-06",
             "last_synced_at": "2026-09-06",
             "license_checkpoint": {
@@ -2462,7 +2477,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/observability-and-instrumentation/SKILL.md",
-          "sha256": "71b1391f39e74c8f4fc7c40222ef95991528d6aedbd9df6b780d631acd73b61e",
+          "sha256": "c5e23550d3453bb0f36ebd3a8ed452bf0d82d74a62e0a2150f06cb9ba307b948",
           "owner": "observability-and-instrumentation",
           "mode": "100644"
         },
@@ -2474,7 +2489,7 @@
         },
         {
           "path": "skills/ai-workflow/observability-and-instrumentation/references/definition-of-done.md",
-          "sha256": "d1c75d2ae65d2c7a9cd01f93fa8de63e00e75f2fe5d08be224d576157054dcee",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "observability-and-instrumentation",
           "mode": "100644"
         },
@@ -2508,7 +2523,8 @@
           "owner": "observability-and-instrumentation",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
     },
     {
       "video_name": "performance-optimization",
@@ -2546,7 +2562,7 @@
             "ref": "main",
             "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
             "path_commit": "6a268d7710c15708598e4b0a6942275a359760ee",
-            "content_sha256": "b36087852c6ccc4316e0715a02b35a589b759a48e34da96cb87bdc329e261fa3",
+            "content_sha256": "70a05f74dbf6b9c097c3cc217c4343e722c02103233132e0cc4eaa6f356a9c50",
             "last_checked_at": "2026-09-06",
             "last_synced_at": "2026-09-06",
             "license_checkpoint": {
@@ -2615,7 +2631,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/performance-optimization/SKILL.md",
-          "sha256": "b36087852c6ccc4316e0715a02b35a589b759a48e34da96cb87bdc329e261fa3",
+          "sha256": "70a05f74dbf6b9c097c3cc217c4343e722c02103233132e0cc4eaa6f356a9c50",
           "owner": "performance-optimization",
           "mode": "100644"
         },
@@ -2627,7 +2643,7 @@
         },
         {
           "path": "skills/ai-workflow/performance-optimization/references/definition-of-done.md",
-          "sha256": "d1c75d2ae65d2c7a9cd01f93fa8de63e00e75f2fe5d08be224d576157054dcee",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "performance-optimization",
           "mode": "100644"
         },
@@ -2661,7 +2677,8 @@
           "owner": "performance-optimization",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
     },
     {
       "video_name": "planning-and-task-breakdown",
@@ -2699,7 +2716,7 @@
             "ref": "main",
             "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
             "path_commit": "8300e1bbe77a9f1610a0e9da624593c3d5dea020",
-            "content_sha256": "b21e22eb832a72279bdba599457870e818c69bf783e0f0e1da12e9a1633ad0fb",
+            "content_sha256": "952eadd5fa68da0954e2361972a297a1f8221c0f646da1c889cdb1fe923b3e54",
             "last_checked_at": "2026-09-06",
             "last_synced_at": "2026-09-06",
             "license_checkpoint": {
@@ -2768,7 +2785,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/planning-and-task-breakdown/SKILL.md",
-          "sha256": "b21e22eb832a72279bdba599457870e818c69bf783e0f0e1da12e9a1633ad0fb",
+          "sha256": "952eadd5fa68da0954e2361972a297a1f8221c0f646da1c889cdb1fe923b3e54",
           "owner": "planning-and-task-breakdown",
           "mode": "100644"
         },
@@ -2780,7 +2797,7 @@
         },
         {
           "path": "skills/ai-workflow/planning-and-task-breakdown/references/definition-of-done.md",
-          "sha256": "d1c75d2ae65d2c7a9cd01f93fa8de63e00e75f2fe5d08be224d576157054dcee",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "planning-and-task-breakdown",
           "mode": "100644"
         },
@@ -2814,7 +2831,8 @@
           "owner": "planning-and-task-breakdown",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
     },
     {
       "video_name": "security-and-hardening",
@@ -2852,7 +2870,7 @@
             "ref": "main",
             "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
             "path_commit": "45fd4a043983fec456bf7eea6562147e8e9cd2b4",
-            "content_sha256": "fc1b9637ae17b2aeb08a1388c11d3a4a5a2e72c600f0c3ef06a37c8aab73d767",
+            "content_sha256": "bfe7c42f8e218960069c16434a493ae567795b3f43ad2b6db7321f8de7ebde00",
             "last_checked_at": "2026-09-06",
             "last_synced_at": "2026-09-06",
             "license_checkpoint": {
@@ -2926,7 +2944,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/security-and-hardening/SKILL.md",
-          "sha256": "fc1b9637ae17b2aeb08a1388c11d3a4a5a2e72c600f0c3ef06a37c8aab73d767",
+          "sha256": "bfe7c42f8e218960069c16434a493ae567795b3f43ad2b6db7321f8de7ebde00",
           "owner": "security-and-hardening",
           "mode": "100644"
         },
@@ -2938,7 +2956,7 @@
         },
         {
           "path": "skills/ai-workflow/security-and-hardening/references/definition-of-done.md",
-          "sha256": "d1c75d2ae65d2c7a9cd01f93fa8de63e00e75f2fe5d08be224d576157054dcee",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "security-and-hardening",
           "mode": "100644"
         },
@@ -2978,7 +2996,8 @@
           "sha256": "020394ca120db16004747eb65fd6585474bac5cddcdc5b65e84f06d0c2dcd339",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
     },
     {
       "video_name": "shipping-and-launch",
@@ -3016,7 +3035,7 @@
             "ref": "main",
             "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
             "path_commit": "cca4df5c573b0038fc1ca2ef5185552b507e18ad",
-            "content_sha256": "d476e25d619022b23a0556dd57d5f16224dd771d21df21f5afc149331a089814",
+            "content_sha256": "ebbd01f67745b163792469fdd7f81d38418ded6c90578548a4fa6f166bb555f5",
             "last_checked_at": "2026-09-06",
             "last_synced_at": "2026-09-06",
             "license_checkpoint": {
@@ -3085,7 +3104,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/shipping-and-launch/SKILL.md",
-          "sha256": "d476e25d619022b23a0556dd57d5f16224dd771d21df21f5afc149331a089814",
+          "sha256": "ebbd01f67745b163792469fdd7f81d38418ded6c90578548a4fa6f166bb555f5",
           "owner": "shipping-and-launch",
           "mode": "100644"
         },
@@ -3097,7 +3116,7 @@
         },
         {
           "path": "skills/ai-workflow/shipping-and-launch/references/definition-of-done.md",
-          "sha256": "d1c75d2ae65d2c7a9cd01f93fa8de63e00e75f2fe5d08be224d576157054dcee",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "shipping-and-launch",
           "mode": "100644"
         },
@@ -3131,7 +3150,8 @@
           "owner": "shipping-and-launch",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
     },
     {
       "video_name": "source-driven-development",
@@ -3169,7 +3189,7 @@
             "ref": "main",
             "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
             "path_commit": "6681f80a1141b07377272649d9a3b2b041551d00",
-            "content_sha256": "3a0229f2012c88cb2cb47339f49bc25396cdc442687aa2dcb6b3c60db1394fca",
+            "content_sha256": "f9ed0a8a41c38cbb1728306c6e42ac769e24b7e747d60394491da95ba002ffa2",
             "last_checked_at": "2026-09-06",
             "last_synced_at": "2026-09-06",
             "license_checkpoint": {
@@ -3238,7 +3258,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/source-driven-development/SKILL.md",
-          "sha256": "3a0229f2012c88cb2cb47339f49bc25396cdc442687aa2dcb6b3c60db1394fca",
+          "sha256": "f9ed0a8a41c38cbb1728306c6e42ac769e24b7e747d60394491da95ba002ffa2",
           "owner": "source-driven-development",
           "mode": "100644"
         },
@@ -3250,7 +3270,7 @@
         },
         {
           "path": "skills/ai-workflow/source-driven-development/references/definition-of-done.md",
-          "sha256": "d1c75d2ae65d2c7a9cd01f93fa8de63e00e75f2fe5d08be224d576157054dcee",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "source-driven-development",
           "mode": "100644"
         },
@@ -3284,7 +3304,8 @@
           "owner": "source-driven-development",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
     },
     {
       "video_name": "spec-driven-development",
@@ -3322,7 +3343,7 @@
             "ref": "main",
             "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
             "path_commit": "966e4e585191ae0bd879be959ce1eddcdd9d0e1a",
-            "content_sha256": "1f2b9b0ac7a99a94136d15ebedf1e25a6914f54f92e43df6ac34188b99cb689b",
+            "content_sha256": "3e3e0f5ee8b01fc44e0bf9f96d30b1a84d2b7de5cacc0ee81d259916a2f6739d",
             "last_checked_at": "2026-09-06",
             "last_synced_at": "2026-09-06",
             "license_checkpoint": {
@@ -3391,7 +3412,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/spec-driven-development/SKILL.md",
-          "sha256": "1f2b9b0ac7a99a94136d15ebedf1e25a6914f54f92e43df6ac34188b99cb689b",
+          "sha256": "3e3e0f5ee8b01fc44e0bf9f96d30b1a84d2b7de5cacc0ee81d259916a2f6739d",
           "owner": "spec-driven-development",
           "mode": "100644"
         },
@@ -3403,7 +3424,7 @@
         },
         {
           "path": "skills/ai-workflow/spec-driven-development/references/definition-of-done.md",
-          "sha256": "d1c75d2ae65d2c7a9cd01f93fa8de63e00e75f2fe5d08be224d576157054dcee",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "spec-driven-development",
           "mode": "100644"
         },
@@ -3437,7 +3458,8 @@
           "owner": "spec-driven-development",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
     },
     {
       "video_name": "test-driven-development",
@@ -3475,7 +3497,7 @@
             "ref": "main",
             "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
             "path_commit": "91d4d07522de9577caf5d213e5bf1acc38fa3df2",
-            "content_sha256": "aea83ac3a156fed670046079768fad2bedfe1eea9cb4b269b0eea9e877c3d919",
+            "content_sha256": "e7108d48e12e401b78234a6130c0aac860bbb22a7add1528953d76583c738472",
             "last_checked_at": "2026-09-06",
             "last_synced_at": "2026-09-06",
             "license_checkpoint": {
@@ -3544,7 +3566,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/test-driven-development/SKILL.md",
-          "sha256": "aea83ac3a156fed670046079768fad2bedfe1eea9cb4b269b0eea9e877c3d919",
+          "sha256": "e7108d48e12e401b78234a6130c0aac860bbb22a7add1528953d76583c738472",
           "owner": "test-driven-development",
           "mode": "100644"
         },
@@ -3556,7 +3578,7 @@
         },
         {
           "path": "skills/ai-workflow/test-driven-development/references/definition-of-done.md",
-          "sha256": "d1c75d2ae65d2c7a9cd01f93fa8de63e00e75f2fe5d08be224d576157054dcee",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "test-driven-development",
           "mode": "100644"
         },
@@ -3590,7 +3612,8 @@
           "owner": "test-driven-development",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
     },
     {
       "video_name": "using-agent-skills",
@@ -3628,7 +3651,7 @@
             "ref": "main",
             "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
             "path_commit": "2ce8d47a16017beb969f84db14f09270c45ab4e9",
-            "content_sha256": "2ef0eff4e6451bbd3da23977cd7d9ac4485f9680f52707f4c96874603c20cd75",
+            "content_sha256": "e901a07ab7b208f20dc5c1602e75cbe0ed50494191c95008e4982d1da26839a1",
             "last_checked_at": "2026-09-06",
             "last_synced_at": "2026-09-06",
             "license_checkpoint": {
@@ -3912,7 +3935,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/using-agent-skills/SKILL.md",
-          "sha256": "2ef0eff4e6451bbd3da23977cd7d9ac4485f9680f52707f4c96874603c20cd75",
+          "sha256": "e901a07ab7b208f20dc5c1602e75cbe0ed50494191c95008e4982d1da26839a1",
           "owner": "using-agent-skills",
           "mode": "100644"
         },
@@ -3924,7 +3947,7 @@
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/references/definition-of-done.md",
-          "sha256": "d1c75d2ae65d2c7a9cd01f93fa8de63e00e75f2fe5d08be224d576157054dcee",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "using-agent-skills",
           "mode": "100644"
         },
@@ -4182,7 +4205,7 @@
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/references/definition-of-done.md",
-          "sha256": "d1c75d2ae65d2c7a9cd01f93fa8de63e00e75f2fe5d08be224d576157054dcee",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "using-agent-skills",
           "mode": "100644"
         },
@@ -4216,7 +4239,8 @@
           "owner": "using-agent-skills",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
     }
   ],
   "verification_attempts": [

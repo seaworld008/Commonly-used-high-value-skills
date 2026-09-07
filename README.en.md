@@ -239,7 +239,7 @@ This repository does not just happen to include a few Hermes-related skills. It 
 
 ## GPT-6 Astra instruction improvements
 
-Skills use focused triggers, on-demand references, and verification sized to task risk. See the [Astra guidance](docs/astra-skill-guidance.md) for official sources, audit scope, and evaluation limits, and the [shared maintenance workflow](docs/maintenance-workflow.md) for validation. Repository updates are separate from local model settings and skill installation.
+Skills use focused triggers, on-demand references, and verification sized to task risk. See the [Astra guidance](docs/astra-skill-guidance.md) for official sources, audit scope, and evaluation limits, and the [shared maintenance workflow](docs/maintenance-workflow.md) for validation. Repository updates are separate from local model settings and skill installation. See [cross-agent compatibility](docs/cross-agent-compatibility.md) for shared formats, host-specific behavior, and evaluation boundaries.
 
 ## Hermes, Graphify, and Open GSD
 

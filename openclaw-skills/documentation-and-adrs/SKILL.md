@@ -2,14 +2,14 @@
 name: documentation-and-adrs
 description: 'Records decisions and documentation. Use when making architectural decisions, changing public APIs, shipping features, or when you need to record context that future engineers and agents will need to understand the codebase.'
 zh_description: "记录架构决策、接口变化和工程交接信息。"
-version: "1.0.1"
+version: "1.0.2"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/documentation-and-adrs/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "documentation-and-adrs", "engineering", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-09-06"
+updated_at: "2026-09-07"
 quality: 5
 complexity: advanced
 upstream_slug: documentation-and-adrs

@@ -974,7 +974,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "59b81f971c363a849236c928a444883da29381b933e86e9deb436d1223d06f44",
+            "content_sha256": "9fbb18e6226ae411630978874f831992d8b7ab091a9b13c77dfeb9b45dd14839",
             "last_checked_at": "2026-09-07",
             "last_synced_at": "2026-04-13"
           }
@@ -990,7 +990,7 @@
         {
           "path": "skills/operations-general/brand-guidelines/SKILL.md",
           "owner": "brand-guidelines",
-          "sha256": "59b81f971c363a849236c928a444883da29381b933e86e9deb436d1223d06f44",
+          "sha256": "9fbb18e6226ae411630978874f831992d8b7ab091a9b13c77dfeb9b45dd14839",
           "mode": "100644"
         }
       ]
@@ -6986,7 +6986,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "6513b81490dec7ec2798b172c9d73b0384dbc98d6efed74183c4caf324446e25",
+            "content_sha256": "bcf3d1b9d649be2d4c6b78d158d30ff902266c940dfa716704dd5734c35dc2bb",
             "last_checked_at": "2026-09-07",
             "last_synced_at": "2026-09-06"
           }
@@ -7002,7 +7002,7 @@
         {
           "path": "skills/developer-engineering/dependency-auditor/SKILL.md",
           "owner": "dependency-auditor",
-          "sha256": "6513b81490dec7ec2798b172c9d73b0384dbc98d6efed74183c4caf324446e25",
+          "sha256": "bcf3d1b9d649be2d4c6b78d158d30ff902266c940dfa716704dd5734c35dc2bb",
           "mode": "100644"
         },
         {
@@ -13468,7 +13468,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "3418cd7169e32914279e6291f8782f39f1819aea432371c71730c5e7db9da240",
+            "content_sha256": "57830d644763089cbcd3118b49db277e763e2421f09933a6182edbc6cc7575e4",
             "last_checked_at": "2026-09-07",
             "last_synced_at": "2026-09-06"
           }
@@ -13484,7 +13484,7 @@
         {
           "path": "skills/devops-sre/observability-designer/SKILL.md",
           "owner": "observability-designer",
-          "sha256": "3418cd7169e32914279e6291f8782f39f1819aea432371c71730c5e7db9da240",
+          "sha256": "57830d644763089cbcd3118b49db277e763e2421f09933a6182edbc6cc7575e4",
           "mode": "100644"
         },
         {
@@ -16091,7 +16091,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "715c19b6a196d0a5556af819b84cdf4cdfb4e2d12781f453245d133c0743fb31",
+            "content_sha256": "c3b2a4f19540ba9f69c9802b47a86fc375dac0939f170b2979e3d4fd61e6d8a8",
             "last_checked_at": "2026-09-07",
             "last_synced_at": "2026-09-06"
           }
@@ -16113,7 +16113,7 @@
         {
           "path": "skills/task-understanding-decomposition/reflect-learn/SKILL.md",
           "owner": "reflect-learn",
-          "sha256": "715c19b6a196d0a5556af819b84cdf4cdfb4e2d12781f453245d133c0743fb31",
+          "sha256": "c3b2a4f19540ba9f69c9802b47a86fc375dac0939f170b2979e3d4fd61e6d8a8",
           "mode": "100644"
         },
         {
@@ -17938,7 +17938,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "7546eeaf40224123484ccc0a4b46cde9dfbe0dd379f77702ea2db255d2421b25",
+            "content_sha256": "ede942fd0d0e19165a1819765ee7c217c807cfaa848f50bd396347231408687e",
             "last_checked_at": "2026-09-07",
             "last_synced_at": "2026-09-06"
           }
@@ -17954,13 +17954,13 @@
         {
           "path": "skills/ai-workflow/skill-reviewer/SKILL.md",
           "owner": "skill-reviewer",
-          "sha256": "7546eeaf40224123484ccc0a4b46cde9dfbe0dd379f77702ea2db255d2421b25",
+          "sha256": "ede942fd0d0e19165a1819765ee7c217c807cfaa848f50bd396347231408687e",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/skill-reviewer/references/evaluation_checklist.md",
           "owner": "skill-reviewer",
-          "sha256": "b9ecbe4e61fb00c4e04a8324bcf38b04c4161ae422665f2f37a7c8cd76fca4fe",
+          "sha256": "bb2f2a3c0fc86f807ddf0ba2330fd43c167eb2f0b6ff34c774c8dcc35b696be7",
           "mode": "100644"
         },
         {
@@ -17972,7 +17972,7 @@
         {
           "path": "skills/ai-workflow/skill-reviewer/references/pr_template.md",
           "owner": "skill-reviewer",
-          "sha256": "e6bddddec4ab0fa6b4064bb134ec4770dda1905423f883dc6f9f0da20344c94e",
+          "sha256": "5ca0ba2864e22cb6e5914452cf4b89f7581401188534b0f31da32fb78ad22a8e",
           "mode": "100644"
         }
       ]
@@ -18088,7 +18088,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "3c68377a06bf747352a2a9b58e2463882562250de671bfd38908f7e2c2dee5ef",
+            "content_sha256": "28763aab312a42949b404f1146eceee443be54a23e9a45438da02b8435f3b5f0",
             "last_checked_at": "2026-09-07",
             "last_synced_at": "2026-09-06"
           }
@@ -18104,7 +18104,7 @@
         {
           "path": "skills/developer-engineering/skill-tester/SKILL.md",
           "owner": "skill-tester",
-          "sha256": "3c68377a06bf747352a2a9b58e2463882562250de671bfd38908f7e2c2dee5ef",
+          "sha256": "28763aab312a42949b404f1146eceee443be54a23e9a45438da02b8435f3b5f0",
           "mode": "100644"
         },
         {
@@ -18116,7 +18116,7 @@
         {
           "path": "skills/developer-engineering/skill-tester/assets/sample-skill/SKILL.md",
           "owner": "skill-tester",
-          "sha256": "d480a026684bec64cdd1f87063a7d66fa9beaf7ed28f0e3e3d8e525f7034c45e",
+          "sha256": "ff4561763dcd9e2c81e6c61422257fcd236cb1138c8b380c56e105fae1846ea7",
           "mode": "100644"
         },
         {
@@ -18176,7 +18176,7 @@
         {
           "path": "skills/developer-engineering/skill-tester/scripts/quality_scorer.py",
           "owner": "skill-tester",
-          "sha256": "a0e5b2c7778f9098811fc7e4ec2d09a7c7b6a407291ba0132a40258111eebca1",
+          "sha256": "31069ea2b2a23e7cb9f12fff663af6e8d312e2c8272cbe15a48779f26e102aa3",
           "mode": "100644"
         },
         {
@@ -18188,7 +18188,7 @@
         {
           "path": "skills/developer-engineering/skill-tester/scripts/skill_validator.py",
           "owner": "skill-tester",
-          "sha256": "7c375c6b157416fe7fb0dd020f4cbd9b4e46a5e7227c47d0e3df862edb7fe6a0",
+          "sha256": "e7faa845a67e6009832f8c806ef9e313160b6cd6d25f22f09b53add57f17f59b",
           "mode": "100644"
         }
       ]
@@ -19093,7 +19093,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "343d79ed6f560ab063831cb8e9322f685f4385d3907d775b35df897729e972a4",
+            "content_sha256": "24838f86ca48e952ef017f6eea360bac2d4fabc8f5c477a28a466a6b1416f5cd",
             "last_checked_at": "2026-09-07",
             "last_synced_at": "2026-09-06"
           }
@@ -19109,7 +19109,7 @@
         {
           "path": "skills/developer-engineering/tech-debt-tracker/SKILL.md",
           "owner": "tech-debt-tracker",
-          "sha256": "343d79ed6f560ab063831cb8e9322f685f4385d3907d775b35df897729e972a4",
+          "sha256": "24838f86ca48e952ef017f6eea360bac2d4fabc8f5c477a28a466a6b1416f5cd",
           "mode": "100644"
         },
         {

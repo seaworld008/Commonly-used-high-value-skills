@@ -11,7 +11,7 @@ Usage:
 
 Author: Claude Skills Engineering Team
 Version: 1.0.0
-Dependencies: Python Standard Library Only
+Dependencies: Python and PyYAML
 """
 
 import argparse

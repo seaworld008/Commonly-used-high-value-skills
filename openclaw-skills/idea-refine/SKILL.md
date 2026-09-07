@@ -2,14 +2,14 @@
 name: idea-refine
 description: Explore alternatives and stress-test assumptions when refining a vague idea into a concrete concept or evaluating an early plan.
 zh_description: "澄清初步想法，比较方案并检验关键假设。"
-version: "1.0.1"
+version: "1.0.2"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/idea-refine/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "idea-refine", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-09-06"
+updated_at: "2026-09-07"
 quality: 4
 complexity: advanced
 upstream_slug: idea-refine

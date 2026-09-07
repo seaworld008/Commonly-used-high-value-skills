@@ -2512,7 +2512,7 @@
             "ref": "main",
             "resolved_commit": "7fd6ef3c07182257ce776cdc5a614e122d5bd4b3",
             "path_commit": "62f270afd68c9d98ceb9d10ca9216f802a5f54c3",
-            "content_sha256": "828ba06754f953ffd1903ed4ff14252cc669345109acd4969801648986285d91",
+            "content_sha256": "e78c53c30bcf99973b5e229438123aae6f0422a8c1d922151d607c0365322d4f",
             "last_checked_at": "2026-09-06",
             "last_synced_at": "2026-09-06",
             "license_checkpoint": {
@@ -2529,7 +2529,7 @@
       "managed_files": [
         {
           "path": "skills/knowledge-and-pm-integrations/lark-markdown/SKILL.md",
-          "sha256": "828ba06754f953ffd1903ed4ff14252cc669345109acd4969801648986285d91",
+          "sha256": "e78c53c30bcf99973b5e229438123aae6f0422a8c1d922151d607c0365322d4f",
           "owner": "lark-markdown",
           "mode": "100644"
         },
@@ -2563,7 +2563,8 @@
           "owner": "lark-markdown",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-07: local frontmatter-only trigger refinement; upstream skill body, artifact directory and reviewed commit remain unchanged; monitor mode protects local metadata."
     },
     {
       "video_name": "lark-okr",

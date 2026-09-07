@@ -2,14 +2,14 @@
 name: debugging-and-error-recovery
 description: 'Diagnose failing tests, broken builds, and unexpected runtime behavior through reproduction, evidence, root-cause analysis, and focused recovery.'
 zh_description: "复现故障、定位根因并验证修复与恢复结果。"
-version: "1.0.1"
+version: "1.0.2"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/debugging-and-error-recovery/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "debugging-and-error-recovery", "engineering", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-09-06"
+updated_at: "2026-09-07"
 quality: 5
 complexity: advanced
 upstream_slug: debugging-and-error-recovery

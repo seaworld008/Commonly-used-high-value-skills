@@ -2,14 +2,14 @@
 name: ci-cd-and-automation
 description: 'Automates CI/CD pipeline setup. Use when setting up or modifying build and deployment pipelines. Use when you need to automate quality gates, configure test runners in CI, or establish deployment strategies.'
 zh_description: "建立和优化持续集成、质量检查与部署自动化。"
-version: "1.0.1"
+version: "1.0.2"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/ci-cd-and-automation/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "ci-cd-and-automation", "engineering", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-09-06"
+updated_at: "2026-09-07"
 quality: 5
 complexity: advanced
 upstream_slug: ci-cd-and-automation

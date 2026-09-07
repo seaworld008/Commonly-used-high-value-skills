@@ -3,6 +3,8 @@ from pathlib import Path
 
 import yaml
 
+from scripts.validate_repository import CHECKS, REFRESH
+
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 WORKFLOW_PATH = REPO_ROOT / ".github" / "workflows" / "repo-validation.yml"
@@ -38,27 +40,29 @@ class RepoValidationWorkflowTests(unittest.TestCase):
             "python -m pip install pyyaml pytest jsonschema",
             job_commands,
         )
-        self.assertIn("python scripts/audit_skill_portfolio.py --check-policy", commands)
-        self.assertIn("python scripts/audit_skill_instructions.py", commands)
-        self.assertIn("python scripts/lint_skill_quality.py --min-lines 50 --strict", commands)
-        self.assertIn("python scripts/audit_licenses.py", commands)
-        self.assertIn("python scripts/validate_skill_sources.py", commands)
-        self.assertIn(
-            "python scripts/reconcile_artifact_inventory.py "
-            "--offline --check-clean --quiet",
-            commands,
-        )
-        self.assertIn(
-            "python scripts/check_source_coverage.py --min-percent 100",
-            commands,
-        )
+        self.assertEqual(1, job_commands.count("python scripts/validate_repository.py --refresh"))
+        # Validate the delegated gate list as well as workflow wiring, so a gate
+        # cannot disappear unnoticed when moving commands between local and CI.
+        gates = {tuple(command) for command in CHECKS}
+        for expected in (
+            ("scripts/audit_skill_instructions.py",),
+            ("scripts/lint_skill_quality.py", "--min-lines", "50", "--strict"),
+            ("scripts/audit_skill_portfolio.py", "--check-policy"),
+            ("scripts/audit_licenses.py",),
+            ("scripts/validate_skill_sources.py",),
+            ("scripts/reconcile_artifact_inventory.py", "--offline", "--check-clean", "--quiet"),
+            ("scripts/check_source_coverage.py", "--min-percent", "100"),
+            ("scripts/check_readme_sync.py",),
+            ("scripts/check_merge_conflicts.py",),
+            ("-m", "pytest", "-q", "tests"),
+        ):
+            self.assertIn(expected, gates)
+        self.assertIn(("scripts/refresh_repo_views.py",), REFRESH)
         self.assertIn("python scripts/generate_repo_health_report.py", commands)
         self.assertIn("python scripts/evaluate_repo_health.py", commands)
-        self.assertIn("python scripts/refresh_repo_views.py", commands)
-        self.assertIn("python scripts/check_readme_sync.py", commands)
         self.assertIn("node --check bin/install-skills.js", commands)
         self.assertIn("npm pack --dry-run --silent", commands)
-        self.assertIn("python -m pytest -q tests", job_commands)
+        self.assertNotIn("python -m pytest -q tests", job_commands)
         self.assertNotIn("python -m unittest", commands)
         self.assertIn("GITHUB_STEP_SUMMARY", commands)
         self.assertIn("git diff --exit-code", commands)
@@ -102,7 +106,7 @@ class RepoValidationWorkflowTests(unittest.TestCase):
         for workflow_path in sorted((REPO_ROOT / ".github" / "workflows").glob("*.y*ml")):
             data = yaml.safe_load(workflow_path.read_text(encoding="utf-8"))
             for job in (data.get("jobs") or {}).values():
-                if full_suite_command in run_commands(job):
+                if any(command in run_commands(job) for command in (full_suite_command, "python scripts/validate_repository.py --refresh")):
                     owners.append(workflow_path.name)
 
         self.assertEqual(["repo-validation.yml"], owners)

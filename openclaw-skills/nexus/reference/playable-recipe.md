@@ -42,7 +42,7 @@ Parallelism: `DESIGN` Glance depends on Quest's systems (sequential within phase
 - **GUIDED/INTERACTIVE**: contract-level checkpoint; AUTORUN cannot skip the gate's existence, only auto-resolve it on PASS.
 
 **Confirm / safety:**
-- **Confirm before launch** — `playable` spawns 8-22 agents (high cost). Always confirm before the run starts (same tier as `apex`).
+- **Confirm uncovered scope or budget before launch** — `playable` spawns 8-22 agents (high cost). Resolve scope and budget authorization before the run starts; reuse approval of the same envelope (same tier as `apex`).
 - **Ask First** — `SHIP` release/deploy, destructive data, 10+ file commits, any L4.
 
 ## 4. Resume

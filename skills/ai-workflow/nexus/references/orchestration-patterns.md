@@ -39,7 +39,7 @@ Nexus → VERIFY → DELIVER
 result1 = Agent(
   name: "scout-investigation"
   description: "Root cause analysis"
-  mode: bypassPermissions
+  mode: default
   model: sonnet
   prompt: "あなたは Scout エージェントです。まず ~/.claude/skills/scout/SKILL.md を読み..."
 )
@@ -48,7 +48,7 @@ result1 = Agent(
 result2 = Agent(
   name: "builder-fix"
   description: "Implement fix"
-  mode: bypassPermissions
+  mode: default
   model: sonnet
   prompt: "あなたは Builder エージェントです。まず ~/.claude/skills/builder/SKILL.md を読み...
     前ステップからのコンテキスト: {result1}"
@@ -108,7 +108,7 @@ Agent(
   name: "builder-email"
   description: "Email validation"
   run_in_background: true
-  mode: bypassPermissions
+  mode: default
   model: sonnet
   prompt: "あなたは Builder エージェントです。まず ~/.claude/skills/builder/SKILL.md を読み...
     ファイル所有権: src/validators/email.ts, tests/validators/email.test.ts
@@ -119,7 +119,7 @@ Agent(
   name: "builder-phone"
   description: "Phone validation"
   run_in_background: true
-  mode: bypassPermissions
+  mode: default
   model: sonnet
   prompt: "あなたは Builder エージェントです。まず ~/.claude/skills/builder/SKILL.md を読み...
     ファイル所有権: src/validators/phone.ts, tests/validators/phone.test.ts
@@ -266,7 +266,7 @@ Agent(
   name: "rally-feature-impl"
   description: "Parallel feature implementation"
   subagent_type: general-purpose
-  mode: bypassPermissions
+  mode: default
   model: sonnet
   prompt: |
     あなたは Rally エージェントです。
@@ -318,7 +318,7 @@ Nexus → Aggregate EVALUATION_FEEDBACK
 result = Agent(
   name: "builder-feature-impl"
   description: "Implement feature"
-  mode: bypassPermissions
+  mode: default
   model: sonnet
   prompt: "あなたは Builder エージェントです。まず ~/.claude/skills/builder/SKILL.md を読み...
     Sprint Contract: {contract}
@@ -330,7 +330,7 @@ Agent(
   name: "judge-eval-feature"
   description: "Code quality evaluation"
   run_in_background: true
-  mode: bypassPermissions
+  mode: default
   model: sonnet
   prompt: "あなたは Judge エージェントです。まず ~/.claude/skills/judge/SKILL.md を読み...
     モード: EVALUATOR (評価のみ、コード変更不可)
@@ -342,7 +342,7 @@ Agent(
   name: "radar-eval-feature"
   description: "Test coverage evaluation"
   run_in_background: true
-  mode: bypassPermissions
+  mode: default
   model: sonnet
   prompt: "あなたは Radar エージェントです。まず ~/.claude/skills/radar/SKILL.md を読み...
     モード: EVALUATOR (評価のみ、コード変更不可)

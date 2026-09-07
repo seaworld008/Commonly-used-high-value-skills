@@ -2,14 +2,14 @@
 name: doubt-driven-development
 description: Review high-risk or uncertain engineering decisions adversarially when independent verification can expose costly assumptions before implementation.
 zh_description: "用新上下文的对抗性审查质疑关键决策，适用于高风险或正确性优先的开发任务。"
-version: "1.0.2"
+version: "1.0.3"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/doubt-driven-development/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "doubt-driven-development", "engineering", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-09-06"
+updated_at: "2026-09-07"
 quality: 5
 complexity: advanced
 upstream_slug: doubt-driven-development

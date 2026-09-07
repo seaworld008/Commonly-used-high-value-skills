@@ -44,7 +44,7 @@ Read this file before executing the `marquee` Recipe.
 
 **Overloaded anchor:** bare "landing page" with no ceiling framing → REDIRECT per `reference/intent-clarification.md` (normal quality → `funnel[premium]`/`funnel`; ceiling one-shot → `marquee`).
 
-**Scale: 26-55 agents × ≤4 cycles (3 + ≤1 exit-gate bonus), 10-24× cost.** Per-phase: P0-P1 ≈ 2 · P2 ≈ 4-6 (Ground sweep) · P3 ≈ 9-12 (3 directions × structure+direction+prototype, + judge panel) · P4 ≈ 6-8 (craft-axis production) · P5 ≈ 5-7 Evaluators/cycle + 2-3 skeptics on near-ceiling cycles · P6-P7 ≈ 2. **Confirm-before-launch always** (unconditional — intentional parity with wish/summit).
+**Scale: 26-55 agents × ≤4 cycles (3 + ≤1 exit-gate bonus), 10-24× cost.** Per-phase: P0-P1 ≈ 2 · P2 ≈ 4-6 (Ground sweep) · P3 ≈ 9-12 (3 directions × structure+direction+prototype, + judge panel) · P4 ≈ 6-8 (craft-axis production) · P5 ≈ 5-7 Evaluators/cycle + 2-3 skeptics on near-ceiling cycles · P6-P7 ≈ 2. **Resolve unapproved launch scope or budget before execution** (unconditional — intentional parity with wish/summit).
 
 **Model selection:** as wish §1, judgment-heavy phases at plan-tier / rest at Sonnet 5 default — mapped here to Phase 1 Crystallize + the Phase 6 One-Shot Gate verdict (plan-tier) vs tournament generators, craft-axis producers, and Evaluators (Sonnet 5).
 
@@ -59,7 +59,7 @@ As wish §2 (`reference/wish-recipe.md`) for the exit-reason vocabulary and best
 As wish §3 (`reference/wish-recipe.md`) for the confirm-always parity, the contract-level/AUTORUN-cannot-skip checkpoint mechanic, and the F8 cost-gate subsumption. Marquee-specific: Phase 0 surfaces the 5-dimension rubric skeleton + preliminary cost envelope; Phase 1 Crystallize excavates the conversion contract (goal / single CTA / offer / audience / brand constraints / disappointment criteria).
 
 - **No Scarcity Gate** — intentional difference from wish (§1).
-- Standard Ask First tiers apply unchanged (L4 security, 10+ files, external publish/deploy — shipping the LP to a live host is an external system modification and always confirms).
+- Standard Ask First tiers apply unchanged (L4 security, 10+ files, external publish/deploy — shipping the LP to a live host requires authorization for that concrete target and effect).
 
 ## 4. Resume
 

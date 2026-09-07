@@ -137,7 +137,7 @@ Spawn agents via Agent tool with guardrail checkpoints:
 
 For chains with 1-4 sequential steps:
 
-1. Spawn agent via `Agent(name, description, subagent_type: general-purpose, mode: bypassPermissions, model, prompt)` in foreground
+1. Spawn agent via `Agent(name, description, subagent_type: general-purpose, mode: default, model, prompt)` in foreground
 2. Agent reads its own SKILL.md and executes autonomously
 3. Receive `_STEP_COMPLETE` from the spawned agent's response
 4. Guardrail Check at configured checkpoints
@@ -150,7 +150,7 @@ Agent(
   name: "scout-[task-slug]"
   description: "[Short description]"
   subagent_type: general-purpose
-  mode: bypassPermissions
+  mode: default
   model: sonnet
   prompt: |
     あなたは Scout エージェントです。
@@ -187,7 +187,7 @@ Agent(
   name: "builder-email-validation"
   description: "Implement email validation"
   run_in_background: true
-  mode: bypassPermissions
+  mode: default
   model: sonnet
   prompt: |
     あなたは Builder エージェントです。
@@ -202,7 +202,7 @@ Agent(
   name: "builder-phone-validation"
   description: "Implement phone validation"
   run_in_background: true
-  mode: bypassPermissions
+  mode: default
   model: sonnet
   prompt: |
     あなたは Builder エージェントです。
@@ -227,7 +227,7 @@ Agent(
   name: "rally-parallel-impl"
   description: "Parallel implementation coordination"
   subagent_type: general-purpose
-  mode: bypassPermissions
+  mode: default
   model: sonnet
   prompt: |
     あなたは Rally エージェントです。

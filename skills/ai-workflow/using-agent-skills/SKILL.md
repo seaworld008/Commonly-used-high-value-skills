@@ -2,14 +2,14 @@
 name: using-agent-skills
 description: 'Find the most relevant engineering skill when task routing is unclear; load only the guidance needed for the current work.'
 zh_description: "用于选择、加载和正确使用 Agent Skills 完成任务。"
-version: "1.0.2"
+version: "1.0.3"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/using-agent-skills/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "using-agent-skills", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-09-06"
+updated_at: "2026-09-07"
 quality: 4
 complexity: advanced
 upstream_slug: using-agent-skills
@@ -122,7 +122,7 @@ Your job is surgical precision, not unsolicited renovation.
 
 Every skill includes a verification step. A task is not complete until verification passes. "Seems right" is never sufficient — there must be evidence (passing tests, build output, runtime data).
 
-Per-skill verification is the local check. The project-wide bar that applies to *every* change, regardless of which skill is active, is the Definition of Done: tests pass, no regressions, behavior verified at runtime, docs updated. See `references/definition-of-done.md`. It complements each task's acceptance criteria rather than replacing them.
+Use the target project's required checks and the task's acceptance criteria. Select runtime and integration verification when the changed behavior needs them; reuse valid results for unchanged code and environment. See `references/definition-of-done.md` for a checklist to adapt when the project has no established gate.
 
 ## Failure Modes to Avoid
 

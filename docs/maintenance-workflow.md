@@ -81,6 +81,8 @@ complexity: intermediate
 python scripts/validate_repository.py --refresh
 ```
 
+CI 的 Repository Validation 调用同一个 `validate_repository.py --refresh` 入口；安装打包和健康报告是其附加步骤。模型行为评测仅显式运行，不进入定时 CI，见[双端兼容说明](cross-agent-compatibility.md)。
+
 不带 `--refresh` 时只执行校验。刷新阶段依次运行 frontmatter、in-house 来源、仓库视图、标签和 catalog 生成；校验阶段覆盖指令、质量、组合策略、许可、来源、覆盖率、README、冲突标记和完整 pytest。脚本不会提交、推送、安装技能或修改用户配置。
 
 修改安装器时另外执行 `npm test`；修改 GitHub Actions 时检查所有 YAML 和 `actionlint`（可用时）。CI 保留独立来源检查与 CodeQL。流水线全部通过才进入提交。

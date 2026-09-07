@@ -1,14 +1,14 @@
 ---
 name: tech-debt-tracker
-description: 'Tier: POWERFUL 🔥 Category: Engineering Process Automation Expertise: Code Quality, Technical Debt Management, Software Engineering.'
+description: 'Identify technical debt, rank remediation by impact and effort, and track progress using code and maintenance evidence.'
 zh_description: "识别和量化技术债，确定修复优先级并跟踪治理进度。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["debt", "development", "tech", "tracker"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-09-07"
 quality: 5
 complexity: "intermediate"
 ---

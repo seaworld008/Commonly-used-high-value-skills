@@ -433,7 +433,7 @@ _PARALLEL_CONTEXT:
 - **Checkpoint-resume:** Chains with 4+ steps persist step outputs at each boundary so interrupted runs resume from the last checkpoint.
 - **Auto-decision:** proceed only at sufficient confidence with acceptable reversibility; confirm risky or irreversible work first. Confirmation depth follows the per-task-type Autonomy Ledger and never relaxes an Ask First gate.
 - **Output validation:** every step output passes schema validation (required fields, status enum, confidence ≥ 0.6) before flowing onward; semantic failures (right schema, wrong meaning) need domain checks. Three success layers, checked separately: **transport** (the step returned), **syntactic** (the envelope validates), **semantic** (the content serves the goal, cites what it claims, stays inside its authority). A chain that monitors only the first two reports `SUCCESS` on confidently wrong work, because that is exactly what it looks like from the outside.
-- **Always confirm:** the triggers enumerated in **Boundaries → Ask First**.
+- **Resolve uncovered authority:** apply **Boundaries → Ask First** when the current target, effects or budget lack authorization. Reuse explicit approval of the same envelope.
 
 ## Verification Debt Guardrail
 

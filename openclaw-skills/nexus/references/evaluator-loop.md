@@ -174,7 +174,7 @@ Agent(
   name: "[evaluator]-eval-[task-slug]"
   description: "Evaluate [aspect] for [task]"
   run_in_background: true
-  mode: bypassPermissions
+  mode: default
   model: sonnet
   prompt: |
     あなたは [Evaluator] エージェントです。
@@ -269,7 +269,7 @@ The traditional VERIFY checks (tests pass, build OK) are subsumed by the Evaluat
 
 | Action | Claude Code | Codex CLI |
 |--------|-------------|-----------|
-| Spawn Generator (foreground) | `Agent(mode: bypassPermissions)` | `spawn_agent()` → `wait_agent()` |
+| Spawn Generator (foreground) | `Agent(mode: default)` | `spawn_agent()` → `wait_agent()` |
 | Spawn Evaluators (parallel) | `Agent(run_in_background: true)` × N | `spawn_agent()` × N → `wait_agent()` × N |
 | Pass feedback to Generator | New `Agent()` with REVISION_BRIEF in prompt | `spawn_agent()` with REVISION_BRIEF |
 | Cleanup | Automatic | `close_agent()` per agent |

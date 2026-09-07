@@ -2,14 +2,14 @@
 name: git-workflow-and-versioning
 description: 'Manage branches, commits, conflicts, semantic versions, and changelogs when preparing Git changes or releases.'
 zh_description: "管理 Git 分支、提交、冲突、版本和变更记录。"
-version: "1.0.1"
+version: "1.0.2"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/git-workflow-and-versioning/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "git-workflow-and-versioning", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-09-06"
+updated_at: "2026-09-07"
 quality: 5
 complexity: advanced
 upstream_slug: git-workflow-and-versioning

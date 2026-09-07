@@ -2,14 +2,14 @@
 name: frontend-ui-engineering
 description: 'Build accessible, responsive interfaces and components with production UI states, project conventions, and browser validation.'
 zh_description: "实现可访问、响应式的前端界面和交互状态。"
-version: "1.0.2"
+version: "1.0.3"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/frontend-ui-engineering/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "frontend-ui-engineering", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-09-06"
+updated_at: "2026-09-07"
 quality: 5
 complexity: advanced
 upstream_slug: frontend-ui-engineering

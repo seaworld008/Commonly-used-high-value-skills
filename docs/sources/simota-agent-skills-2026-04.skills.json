@@ -2070,7 +2070,7 @@
             "ref": "main",
             "resolved_commit": "9f7d77adc30fd39f039871081d26aaf7bf60f54d",
             "path_commit": "4d4eeea81a874a3a90d46596fc1a9dcbf9d0fb45",
-            "content_sha256": "f7115d286ebe19245d19ef733ecb379cfc696d2971f774a58caffacbd67efefe",
+            "content_sha256": "d1e3c74d7713cec4dca2e6678b92ffc35f2361566f041f4978ddea9bcfb4e4f8",
             "last_checked_at": "2026-09-06",
             "last_synced_at": "2026-09-06",
             "license_checkpoint": {
@@ -2324,7 +2324,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/nexus/SKILL.md",
-          "sha256": "f7115d286ebe19245d19ef733ecb379cfc696d2971f774a58caffacbd67efefe",
+          "sha256": "d1e3c74d7713cec4dca2e6678b92ffc35f2361566f041f4978ddea9bcfb4e4f8",
           "owner": "nexus",
           "mode": "100644"
         },
@@ -2390,7 +2390,7 @@
         },
         {
           "path": "skills/ai-workflow/nexus/reference/assay-recipe.md",
-          "sha256": "ce77ef5b590a22969b9a072f37d949c7709044e2a678de7455eeeaa5c90c095d",
+          "sha256": "a5258f9dc76ed449457031330a822301039c04bf0ec337539e6bc91b7d176f16",
           "owner": "nexus",
           "mode": "100644"
         },
@@ -2420,13 +2420,13 @@
         },
         {
           "path": "skills/ai-workflow/nexus/reference/charter-recipe.md",
-          "sha256": "1adf135b67391c7fb40c21e795bf89d03450b9e8678185481e14a9fe49559a92",
+          "sha256": "783bb32f9bbbe20c1226f794169e1dfce1f799bec36fb1b57c068c3792c2cb4c",
           "owner": "nexus",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/nexus/reference/chorus-recipe.md",
-          "sha256": "d0e2d9e6f01b01c1c8c1c191e940aa9f9d905f92ddb458d0b67ef52ca75f9834",
+          "sha256": "36f888af7bbb8fe4769e2481ac7ff96565965df06efc92e5997e30c32d9e8dea",
           "owner": "nexus",
           "mode": "100644"
         },
@@ -2468,7 +2468,7 @@
         },
         {
           "path": "skills/ai-workflow/nexus/reference/crucible-recipe.md",
-          "sha256": "b294958d3994b82aa36b6ee63e96e42025635d73603395efabedf1f3a4cfe276",
+          "sha256": "d9e8df5840ce926bf43ee02fcb69c5ce641decd733b23790c849979cc7880a9a",
           "owner": "nexus",
           "mode": "100644"
         },
@@ -2570,7 +2570,7 @@
         },
         {
           "path": "skills/ai-workflow/nexus/reference/eureka-recipe.md",
-          "sha256": "6d86357f90119fb61c8d0a1cd6d2618632a494ddffe3467111abcee6e85b0955",
+          "sha256": "003363f5f5e9d049410c1d5ce93730cdd26072fe999a66714dd36f5fd3a9dde9",
           "owner": "nexus",
           "mode": "100644"
         },
@@ -2582,7 +2582,7 @@
         },
         {
           "path": "skills/ai-workflow/nexus/reference/execution-layers.md",
-          "sha256": "f92455135d37f50aa8bf2ce82d3cc76b9a99b3ffdb34f322d2c4434b4e316eba",
+          "sha256": "42de51e45d19fe3b66685e6c3f123cf937dd1ac43708cd580d27f1c799dbc78b",
           "owner": "nexus",
           "mode": "100644"
         },
@@ -2630,7 +2630,7 @@
         },
         {
           "path": "skills/ai-workflow/nexus/reference/guardrails.md",
-          "sha256": "63aecbbc3c7575544128c5a5fa4c516eacd67db8268438ca6a7f72ca62f86167",
+          "sha256": "cea32b8e7863cc610226e5de87872f654adf6703cefd247d9fbea4f4bb9b705c",
           "owner": "nexus",
           "mode": "100644"
         },
@@ -2648,7 +2648,7 @@
         },
         {
           "path": "skills/ai-workflow/nexus/reference/hub-authoring.md",
-          "sha256": "2634b9f11b06a03cc272579e74b201e93e550e28c00b78476119c0c08b607f04",
+          "sha256": "d06d3988148c752532a7e382e0441b36a0e0b7401a6b272109894fab07fbbea4",
           "owner": "nexus",
           "mode": "100644"
         },
@@ -2702,7 +2702,7 @@
         },
         {
           "path": "skills/ai-workflow/nexus/reference/marquee-recipe.md",
-          "sha256": "06979a6da007b85238230dc656be5b3e234b05f6c2a23db720863f292a31d135",
+          "sha256": "8a393997a41d42dee7a392dc425d83c0dbc026ea0d60c613708bdb9433374aa1",
           "owner": "nexus",
           "mode": "100644"
         },
@@ -2738,7 +2738,7 @@
         },
         {
           "path": "skills/ai-workflow/nexus/reference/orchestration-patterns.md",
-          "sha256": "cc74d82cf2cccc70c62c8a7ce5a2fef4e6e3c48b067772fd5c68b6e158279ee2",
+          "sha256": "2b8050be9aa04e84def69ecc53a12b29607f0771d8cd362f7bf5b6191943e927",
           "owner": "nexus",
           "mode": "100644"
         },
@@ -2762,7 +2762,7 @@
         },
         {
           "path": "skills/ai-workflow/nexus/reference/playable-recipe.md",
-          "sha256": "316e4f7bf6d5b3dd642e4844fe91f891f79f5cc5cad7ac2b6286e8e83cc8ad3c",
+          "sha256": "db847dd64c120a1991b7b9c46c5956872a1f2e6c1c213c8332ac005d24f6928c",
           "owner": "nexus",
           "mode": "100644"
         },
@@ -2810,13 +2810,13 @@
         },
         {
           "path": "skills/ai-workflow/nexus/reference/recipes-detail.md",
-          "sha256": "5bf993588492a05f8a55388e7f674afddffc4c1fab5c8f8445d9e60f0e645fea",
+          "sha256": "c16fa4831d9f553fb0f4da10896e02e3028570d8ff71b2cdc054e0f831aaf1f2",
           "owner": "nexus",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/nexus/reference/recipes-index.md",
-          "sha256": "b4cc214073af07851b6466d8735b9902cf1a2eeaaa2ba2ca5f7bb1a8782cfe20",
+          "sha256": "d96161d171d4e61ac8a0010d4339dcb765bf64ceeb176f7c72e62377d04147ac",
           "owner": "nexus",
           "mode": "100644"
         },
@@ -2870,7 +2870,7 @@
         },
         {
           "path": "skills/ai-workflow/nexus/reference/silhouette-recipe.md",
-          "sha256": "6e7d118fdf53fbd5620754defd7a94410821068f84c32ef9c604c892a3ef245f",
+          "sha256": "be635838e6fd295e9462d596d171c815af5815fffaccf992c6d8c56642f1dc8e",
           "owner": "nexus",
           "mode": "100644"
         },
@@ -2942,7 +2942,7 @@
         },
         {
           "path": "skills/ai-workflow/nexus/reference/wish-recipe.md",
-          "sha256": "a90d50847b1a02312f731a804e5bdab5c168615a69a47f2c3f00e429e8c73b6c",
+          "sha256": "8b1738d445f5c1f0fe77fbfcafba49681684ffa43bebc46d5e23fb28fa137997",
           "owner": "nexus",
           "mode": "100644"
         },
@@ -2996,13 +2996,13 @@
         },
         {
           "path": "skills/ai-workflow/nexus/references/evaluator-loop.md",
-          "sha256": "f35a917fcbc14f59222def1eb2bc7ef6c7894d5a0bfc6e4f397d3e585b58128d",
+          "sha256": "cfc54aedd1a50ea43574bee43730da66163241130299b7974430fe69e420cce3",
           "owner": "nexus",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/nexus/references/execution-phases.md",
-          "sha256": "2e9e3e0fe38651b11ce9f25d4ca142a7be94cc903f8803238334d920b265fd77",
+          "sha256": "d90975638bb23c688fbd049547a60e681199c58c4697b4c15e391fa84294b2a5",
           "owner": "nexus",
           "mode": "100644"
         },
@@ -3038,7 +3038,7 @@
         },
         {
           "path": "skills/ai-workflow/nexus/references/orchestration-patterns.md",
-          "sha256": "30d037c75c09d95c645dd8f4f22949c7c083ef5d7f08a116d9d83c33b9fd8b4c",
+          "sha256": "f86160761c39b5230435776ee84ca6d961a4663cfb4a556eda539921684f0f8d",
           "owner": "nexus",
           "mode": "100644"
         },
@@ -3102,7 +3102,8 @@
           "owner": "nexus",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
     },
     {
       "video_name": "sherpa",
@@ -3837,7 +3838,7 @@
             "ref": "main",
             "resolved_commit": "9f7d77adc30fd39f039871081d26aaf7bf60f54d",
             "path_commit": "4d4eeea81a874a3a90d46596fc1a9dcbf9d0fb45",
-            "content_sha256": "f2a97114ecd5be5145e08f45682da4f2f695dad2507759a362086761090b69d2",
+            "content_sha256": "98320ca02c8277136556bf099d3452abf6d3bfa0ecc22835bc3dd4d4405c0755",
             "last_checked_at": "2026-09-06",
             "last_synced_at": "2026-09-06",
             "license_checkpoint": {
@@ -3911,7 +3912,7 @@
       "managed_files": [
         {
           "path": "skills/ai-agent-platform/oracle/SKILL.md",
-          "sha256": "f2a97114ecd5be5145e08f45682da4f2f695dad2507759a362086761090b69d2",
+          "sha256": "98320ca02c8277136556bf099d3452abf6d3bfa0ecc22835bc3dd4d4405c0755",
           "owner": "oracle",
           "mode": "100644"
         },
@@ -4059,7 +4060,8 @@
           "owner": "oracle",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
     },
     {
       "video_name": "arena",
@@ -4155,7 +4157,7 @@
             "ref": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
             "resolved_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
             "path_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
-            "content_sha256": "e30cc45202e8ece0d8748504aca0b8a1f5a1cdde910d3831ea0a470e85e6fe99",
+            "content_sha256": "2e08d00f5f45c78603fb15747d71f2a547b5dc811308a7aff586d0bb46904d9a",
             "last_checked_at": "2026-07-27",
             "last_synced_at": "2026-06-01"
           }
@@ -4164,7 +4166,7 @@
       "managed_files": [
         {
           "path": "skills/ai-agent-platform/arena/SKILL.md",
-          "sha256": "e30cc45202e8ece0d8748504aca0b8a1f5a1cdde910d3831ea0a470e85e6fe99",
+          "sha256": "2e08d00f5f45c78603fb15747d71f2a547b5dc811308a7aff586d0bb46904d9a",
           "owner": "arena",
           "mode": "100644"
         },
@@ -4234,7 +4236,8 @@
           "owner": "arena",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
     },
     {
       "video_name": "sigil",
@@ -4353,7 +4356,7 @@
             "ref": "main",
             "resolved_commit": "9f7d77adc30fd39f039871081d26aaf7bf60f54d",
             "path_commit": "4d4eeea81a874a3a90d46596fc1a9dcbf9d0fb45",
-            "content_sha256": "37f44e46bf999049d8654d7f7790d7676a3692658ab3823e06d57d366585ae20",
+            "content_sha256": "0f6db072e6fd895d7e541a4a1be2b2d3be76c4b5ce524d2da3e929cdd63350c6",
             "last_checked_at": "2026-09-06",
             "last_synced_at": "2026-09-06",
             "license_checkpoint": {
@@ -4447,7 +4450,7 @@
       "managed_files": [
         {
           "path": "skills/ai-agent-platform/sigil/SKILL.md",
-          "sha256": "37f44e46bf999049d8654d7f7790d7676a3692658ab3823e06d57d366585ae20",
+          "sha256": "0f6db072e6fd895d7e541a4a1be2b2d3be76c4b5ce524d2da3e929cdd63350c6",
           "owner": "sigil",
           "mode": "100644"
         },
@@ -4619,7 +4622,8 @@
           "owner": "sigil",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
     },
     {
       "video_name": "guardian",
@@ -4768,7 +4772,7 @@
             "ref": "main",
             "resolved_commit": "9f7d77adc30fd39f039871081d26aaf7bf60f54d",
             "path_commit": "a0a6bdb8e7223cb1966afd3d09238f31023f32fe",
-            "content_sha256": "8d94baedd0cbff6bbe8d182bf338f7db945822df19cbb2c0aaad632e301c4cdd",
+            "content_sha256": "b447651ad193a444430f32d9e0a62ad4431f933518262432b07450085d58f55c",
             "last_checked_at": "2026-09-06",
             "last_synced_at": "2026-09-06",
             "license_checkpoint": {
@@ -4877,7 +4881,7 @@
       "managed_files": [
         {
           "path": "skills/engineering-workflow-automation/guardian/SKILL.md",
-          "sha256": "8d94baedd0cbff6bbe8d182bf338f7db945822df19cbb2c0aaad632e301c4cdd",
+          "sha256": "b447651ad193a444430f32d9e0a62ad4431f933518262432b07450085d58f55c",
           "owner": "guardian",
           "mode": "100644"
         },
@@ -4979,7 +4983,7 @@
         },
         {
           "path": "skills/engineering-workflow-automation/guardian/reference/pr-ship-flow.md",
-          "sha256": "070e6a7f0b501d8f506c31725188e15d4dc59e6019aa24cbf430d8afebd5857d",
+          "sha256": "3cf7f233c05dbf449a467415f83be2634bb1fc483263d91859745518192e3aeb",
           "owner": "guardian",
           "mode": "100644"
         },
@@ -5003,7 +5007,7 @@
         },
         {
           "path": "skills/engineering-workflow-automation/guardian/reference/recipes-index.md",
-          "sha256": "dcfc9e615eaab813bf952e7d0d19620102c1acc90b2c788ddcbe37bff41e4987",
+          "sha256": "23b6f4b4a1d20f6ac1e1bedd9b2ab2165f33b875efc7b40fcbf466d75c6f3f5d",
           "owner": "guardian",
           "mode": "100644"
         },
@@ -5103,7 +5107,8 @@
           "owner": "guardian",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
     },
     {
       "video_name": "harvest",

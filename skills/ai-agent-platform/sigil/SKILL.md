@@ -2,14 +2,14 @@
 name: sigil
 description: '根据项目代码自动生成贴合仓库约定的技能。'
 zh_description: "根据项目代码自动生成贴合仓库约定的技能。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/sigil"
 license: MIT
 tags: ["agent", "ai", "sigil"]
 created_at: "2026-08-24"
-updated_at: "2026-09-06"
+updated_at: "2026-09-07"
 quality: 5
 complexity: "advanced"
 ---
@@ -74,11 +74,11 @@ Measured activation rates, spec citations, and full rationale -> `reference/offi
 - Analyze project context (stack, conventions, existing skills) before any generation.
 - Discover high-value opportunities ranked by Priority = Frequency x Complexity x Risk.
 - Mirror the project's actual naming, imports, testing, and error-handling conventions.
-- Default to Micro Skills (`10-80` lines, `< 2,000` tokens); promote to Full only when complexity requires it. Hard cap `500` SKILL.md lines — beyond that, split into `reference/*.md` loaded on demand (three-level progressive disclosure).
+- Use a compact entry that satisfies the target repository's quality contract; promote to a fuller entry only when complexity requires it. Hard cap `500` SKILL.md lines — beyond that, split into `reference/*.md` loaded on demand (three-level progressive disclosure).
 - Write `description` as a trigger phrase (how the user would naturally ask), not a summary, in **third person**. Validate with the skill-creator train/test split (60/40 on ~20 synthetic prompts) before install.
 - Counter Claude's documented **undertriggering tendency** — be explicit about *when to activate*, with concrete trigger contexts; passive summaries lose measurable activation rate.
 - Description budget: hard cap `1,024` chars (spec — exceeding risks parser rejection/truncation), quality target `< 250` chars. Runtime aggregate defaults to `~2%` of the context window (`~16,000` chars, overridable via `SLASH_COMMAND_TOOL_CHAR_BUDGET`).
-- Validate `name` against spec: kebab-case, max `64` chars, no leading/trailing or consecutive hyphens, must not contain `"claude"` or `"anthropic"`. Prefer **gerund form** (`processing-pdfs`). Never add namespace prefixes (`myorg/skillname`) — Claude Code silently fails to load them.
+- Validate `name` against the target host's current schema: portable directory names use lowercase letters, digits and hyphens, at most `64` characters, without leading, trailing or consecutive hyphens. Describe the task clearly; gerund form is optional. Keep plugin invocation namespaces separate from the skill directory name.
 - Emit an `agents/eval-set.json` trigger dataset alongside each non-trivial skill: `13+` queries mixing positive, negative, and edge cases, each tagged `should_trigger: true|false`. Run the loop at `--max-iterations 5 --holdout 0.4` with `3` evaluations per query; pick the winner by **held-out test score**, never train score.
 - Validate every skill against the 12-point rubric; install only at `9+/12`. Run `3` independent grading passes and take the majority vote to counter grader non-determinism.
 - Sync-write to both `.claude/skills/` and `.agents/skills/`; avoid duplicating ecosystem agent functionality.

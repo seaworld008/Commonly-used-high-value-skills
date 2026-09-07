@@ -252,7 +252,7 @@ python3 scripts/sync_codex_skills.py --source-root ./skills --codex-root ~/.code
 
 ## GPT-6 Astra 指令优化
 
-技能采用简洁触发、按需资料和按风险验证的执行方式。全量审计说明、官方来源及模型评测边界见 [Astra 适配指南](docs/astra-skill-guidance.md)，日常维护使用 [统一工作流](docs/maintenance-workflow.md)。仓库内容更新与本地模型配置、技能安装分别管理。
+技能采用简洁触发、按需资料和按风险验证的执行方式。全量审计说明、官方来源及模型评测边界见 [Astra 适配指南](docs/astra-skill-guidance.md)，日常维护使用 [统一工作流](docs/maintenance-workflow.md)。仓库内容更新与本地模型配置、技能安装分别管理。Codex／Claude 的共享格式、宿主差异和验证边界见[双端兼容说明](docs/cross-agent-compatibility.md)。
 
 ## Hermes、Graphify 与 Open GSD 使用说明
 

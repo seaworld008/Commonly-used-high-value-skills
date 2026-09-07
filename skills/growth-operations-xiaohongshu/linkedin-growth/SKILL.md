@@ -2,14 +2,14 @@
 name: linkedin-growth
 description: 'Manage LinkedIn lead qualification and follow-up workflows through linkedin-cli and local lead records; outreach requires existing user authorization.'
 zh_description: "构建领英线索导入、筛选、分配、邀请与待处理请求维护流水线。"
-version: "1.0.2"
+version: "1.0.3"
 author: vprudnikoff
 source: github:Linked-API/linkedin-skills
 source_url: "https://github.com/Linked-API/linkedin-skills/tree/edd0bdbbb25776e9288186b88969b29175531995/linkedin-growth"
 license: MIT
 tags: '[linkedin, lead-generation, growth, outreach, automation]'
 created_at: "2026-07-10"
-updated_at: "2026-09-06"
+updated_at: "2026-09-07"
 quality: 5
 complexity: advanced
 ---
@@ -49,8 +49,9 @@ Triggered by the user via wording like:
 
 ### Step 1 — Prepare
 
-**Always ask the user for a limit first.** Before running `prepare`, ask "how many of the
-found leads should I take?" — the user gives a number, or says "max" for the maximum. The
+**Resolve the requested limit before preparing an import.** Reuse an explicit limit
+from the current task; if none is supplied, ask how many leads to import. The user
+can give a number or choose "max". The
 maximum depends on the search type (these are the Linked API / LinkedIn caps):
 - Sales Navigator (`nv`): **2500**
 - standard search (`st`): **1000**

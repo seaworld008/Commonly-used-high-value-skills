@@ -37,35 +37,8 @@ jobs:
       - name: Install test dependencies
         run: python -m pip install pyyaml pytest jsonschema
 
-      - name: Audit skill instruction contracts
-        run: python scripts/audit_skill_instructions.py
-
-      - name: Lint skill quality
-        run: python scripts/lint_skill_quality.py --min-lines 50 --strict
-
-      - name: Enforce portfolio retirement policy
-        run: python scripts/audit_skill_portfolio.py --check-policy
-
-      - name: Audit external skill licenses
-        run: python scripts/audit_licenses.py
-
-      - name: Refresh generated repository views
-        run: python scripts/refresh_repo_views.py
-
-      - name: Generate tags index
-        run: python scripts/generate_tags_index.py
-
-      - name: Build catalog JSON
-        run: python scripts/build_catalog_json.py
-
-      - name: Validate provenance v2 after normalization
-        run: |
-          python scripts/validate_skill_sources.py
-          python scripts/reconcile_artifact_inventory.py --offline --check-clean --quiet
-          python scripts/check_source_coverage.py --min-percent 100
-
-      - name: Check README sync
-        run: python scripts/check_readme_sync.py
+      - name: Refresh and validate repository
+        run: python scripts/validate_repository.py --refresh
 
       - name: Validate npx installer package
         run: |
@@ -85,9 +58,6 @@ jobs:
           cat docs/sources/reports/repo-health.md >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
           cat docs/sources/reports/repo-health-eval.md >> "$GITHUB_STEP_SUMMARY"
-
-      - name: Run complete repository validation tests
-        run: python -m pytest -q tests
 
       - name: Ensure generated files are up to date
         run: git diff --exit-code

@@ -2,14 +2,14 @@
 name: browser-testing-with-devtools
 description: 'Inspect browser DOM, network, console, screenshots, and performance with Chrome DevTools MCP when validating or debugging web behavior.'
 zh_description: "用于通过浏览器 DevTools 测试、调试和验证前端行为。"
-version: "1.0.1"
+version: "1.0.2"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/browser-testing-with-devtools/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "browser-testing-with-devtools", "engineering", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-09-06"
+updated_at: "2026-09-07"
 quality: 5
 complexity: advanced
 upstream_slug: browser-testing-with-devtools
