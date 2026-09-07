@@ -432,3 +432,21 @@ def test_incomplete_collection_cannot_be_approved_as_pass():
     review={'run_id':row['run_id'],'evidence_digest':row['evidence_digest'],'verdict':'pass','reviewer':'operator','rationale':'Attempt to approve incomplete data'}
     apply_review(row,{(row['run_id'],row['evidence_digest']):review})
     assert row['task_verdict']=='unverified'
+
+
+def test_damaged_controller_record_shape_is_a_per_run_failure(tmp_path):
+    from scripts.summarize_instruction_evals import assess,aggregate
+    work=_evaluation_fixture(tmp_path);folder=work.parent
+    good={'run_id':'candidate-read_only-1','case':'read_only','cohort':'candidate','repeat':1,'assertions':{},'returncodes':[0],'usage':[{'input_tokens':1}],'elapsed_seconds':1,'completed_tool_calls':0}
+    (folder/'turn-0.jsonl').write_text('{"type":"turn.completed"}\n')
+    malformed=[]
+    for key in ('assertions','returncodes'):
+        bad=dict(good);bad.pop(key);malformed.append(bad)
+    malformed.extend([dict(good,assertions=[]),dict(good,assertions={'broken':'truthy'}),dict(good,returncodes=None),dict(good,usage='bad'),dict(good,elapsed_seconds='bad')])
+    for raw in malformed:
+        (folder/'result.json').write_text(json.dumps(raw))
+        row=assess(folder/'result.json')
+        assert row['collection_status']=='failed'
+        assert not row['artifact_checks_pass']
+        assert row['task_verdict']=='unreviewed'
+        assert aggregate([row])['pending_reviews']==1

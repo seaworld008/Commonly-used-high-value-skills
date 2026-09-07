@@ -7,6 +7,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import math
 import os
 import stat
 import re
@@ -61,8 +62,34 @@ def valid_app_cache(relative, fixture, events):
     return checked.returncode==0
 
 
+def valid_metrics(raw):
+    if not isinstance(raw, dict):
+        return False
+    elapsed=raw.get('elapsed_seconds')
+    calls=raw.get('completed_tool_calls')
+    usage=raw.get('usage')
+    if (type(elapsed) not in (int,float) or not math.isfinite(elapsed) or elapsed < 0
+            or type(calls) is not int or calls < 0 or not isinstance(usage,list)):
+        return False
+    return all(isinstance(item,dict) and all(type(value) is int and value >= 0 for value in item.values()) for item in usage)
+
+
+def validate_record(raw):
+    if not isinstance(raw,dict):
+        raise ValueError('Result must be an object')
+    if any(not isinstance(raw.get(key),str) or not raw[key] for key in ('run_id','case','cohort')):
+        raise ValueError('Result identity fields are missing or invalid')
+    if (not isinstance(raw.get('assertions'),dict) or not isinstance(raw.get('returncodes'),list)
+            or any(type(value) is not bool for value in raw.get('assertions',{}).values())):
+        raise ValueError('Result assertions/returncodes are missing or invalid')
+    if any(type(value) is not int for value in raw['returncodes']) or not valid_metrics(raw):
+        raise ValueError('Result metrics or returncodes are invalid')
+
+
 def _assess(path):
     result=json.loads(path.read_text())
+    validate_record(result)
+    result['metrics_available']=True
     result.setdefault('fixture_version', 1)
     original=result.get('deterministic_pass')
     checks=dict(result['assertions'])
@@ -138,14 +165,18 @@ def assess(path):
     """One damaged model workspace must not abort the rest of the collection."""
     try:
         return _assess(path)
-    except (OSError, UnicodeError, ValueError, subprocess.CalledProcessError, subprocess.TimeoutExpired) as error:
-        result=json_artifact(path)
-        result.setdefault('run_id',path.parent.name)
-        result.setdefault('case','unknown')
-        result.setdefault('cohort','unknown')
-        result.setdefault('elapsed_seconds',0)
-        result.setdefault('completed_tool_calls',0)
-        result.setdefault('usage',[])
+    except (OSError, UnicodeError, ValueError, KeyError, TypeError, AttributeError, subprocess.CalledProcessError, subprocess.TimeoutExpired) as error:
+        raw=json_artifact(path)
+        identity=re.fullmatch(r'(baseline|candidate)-(.+)-(\d+)',path.parent.name)
+        result={
+            'run_id':raw.get('run_id') if isinstance(raw.get('run_id'),str) else path.parent.name,
+            'case':raw.get('case') if isinstance(raw.get('case'),str) else identity[2] if identity else 'unknown',
+            'cohort':raw.get('cohort') if isinstance(raw.get('cohort'),str) else identity[1] if identity else 'unknown',
+            'metrics_available':valid_metrics(raw),
+            'elapsed_seconds':raw['elapsed_seconds'] if valid_metrics(raw) else None,
+            'completed_tool_calls':raw['completed_tool_calls'] if valid_metrics(raw) else 0,
+            'usage':raw['usage'] if valid_metrics(raw) else [],
+        }
         result['assertions']={'observation_completed':False}
         result['artifact_checks_pass']=False
         result['deterministic_pass']=None
@@ -237,7 +268,8 @@ def load_reviews(path, run_roots):
 
 
 def aggregate(rows):
-    return {'runs':len(rows),'artifact_checks_passes':sum(r['artifact_checks_pass'] for r in rows),'accepted_passes':sum(r['task_verdict']=='pass' for r in rows),'pending_reviews':sum(r['task_verdict']=='unreviewed' for r in rows),'median_seconds':round(statistics.median(r['elapsed_seconds'] for r in rows),3) if rows else None,'recorded_tool_events':sum(r['completed_tool_calls'] for r in rows),'input_tokens':sum(u.get('input_tokens',0) for r in rows for u in r['usage']),'cached_input_tokens':sum(u.get('cached_input_tokens',0) for r in rows for u in r['usage']),'output_tokens':sum(u.get('output_tokens',0) for r in rows for u in r['usage'])}
+    measured=[r for r in rows if r.get('metrics_available',True)]
+    return {'runs':len(rows),'metrics_complete':len(measured)==len(rows),'artifact_checks_passes':sum(r['artifact_checks_pass'] for r in rows),'accepted_passes':sum(r['task_verdict']=='pass' for r in rows),'pending_reviews':sum(r['task_verdict']=='unreviewed' for r in rows),'median_seconds':round(statistics.median(r['elapsed_seconds'] for r in measured),3) if measured else None,'recorded_tool_events':sum(r['completed_tool_calls'] for r in rows),'input_tokens':sum(u.get('input_tokens',0) for r in rows for u in r['usage']),'cached_input_tokens':sum(u.get('cached_input_tokens',0) for r in rows for u in r['usage']),'output_tokens':sum(u.get('output_tokens',0) for r in rows for u in r['usage'])}
 
 
 def main():

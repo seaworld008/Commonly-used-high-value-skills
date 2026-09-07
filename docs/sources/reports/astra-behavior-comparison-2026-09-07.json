@@ -23,6 +23,7 @@
   "summary": {
     "baseline": {
       "runs": 24,
+      "metrics_complete": true,
       "artifact_checks_passes": 24,
       "accepted_passes": 24,
       "pending_reviews": 0,
@@ -34,6 +35,7 @@
     },
     "candidate": {
       "runs": 24,
+      "metrics_complete": true,
       "artifact_checks_passes": 24,
       "accepted_passes": 24,
       "pending_reviews": 0,
@@ -100,6 +102,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "initial_deterministic_pass": true,
       "artifact_checks_pass": true,
@@ -270,6 +273,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "initial_deterministic_pass": true,
       "artifact_checks_pass": true,
@@ -429,6 +433,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
@@ -583,6 +588,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
@@ -736,6 +742,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
@@ -860,6 +867,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "harness_policy_delta": "Exact no-delegation fixture directive added before model invocation",
       "unexpected_fixture_changes": [],
@@ -985,6 +993,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "initial_deterministic_pass": true,
       "artifact_checks_pass": true,
@@ -1168,6 +1177,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "initial_deterministic_pass": true,
       "artifact_checks_pass": true,
@@ -1302,6 +1312,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
@@ -1437,6 +1448,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
@@ -1573,6 +1585,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "initial_deterministic_pass": true,
       "artifact_checks_pass": true,
@@ -1720,6 +1733,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "initial_deterministic_pass": true,
       "artifact_checks_pass": true,
@@ -1853,6 +1867,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": false,
@@ -1975,6 +1990,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": false,
@@ -2109,6 +2125,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
@@ -2231,6 +2248,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
@@ -2365,6 +2383,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
@@ -2457,6 +2476,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
@@ -2576,6 +2596,7 @@
         "turn-0.jsonl",
         "turn-1.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
@@ -2693,6 +2714,7 @@
         "turn-0.jsonl",
         "turn-1.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
@@ -2798,6 +2820,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "initial_deterministic_pass": false,
       "artifact_checks_pass": true,
@@ -2922,6 +2945,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "initial_deterministic_pass": false,
       "artifact_checks_pass": true,
@@ -3080,6 +3104,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
@@ -3166,6 +3191,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
@@ -3246,6 +3272,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "initial_deterministic_pass": true,
       "artifact_checks_pass": true,
@@ -3392,6 +3419,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "initial_deterministic_pass": true,
       "artifact_checks_pass": true,
@@ -3523,6 +3551,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
@@ -3643,6 +3672,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
@@ -3754,6 +3784,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
@@ -3878,6 +3909,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
@@ -4008,6 +4040,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "initial_deterministic_pass": true,
       "artifact_checks_pass": true,
@@ -4167,6 +4200,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "initial_deterministic_pass": true,
       "artifact_checks_pass": true,
@@ -4301,6 +4335,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
@@ -4436,6 +4471,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
@@ -4572,6 +4608,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "initial_deterministic_pass": true,
       "artifact_checks_pass": true,
@@ -4749,6 +4786,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "initial_deterministic_pass": true,
       "artifact_checks_pass": true,
@@ -4889,6 +4927,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
@@ -5012,6 +5051,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
@@ -5134,6 +5174,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
@@ -5268,6 +5309,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
@@ -5366,6 +5408,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
@@ -5464,6 +5507,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
@@ -5584,6 +5628,7 @@
         "turn-0.jsonl",
         "turn-1.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
@@ -5702,6 +5747,7 @@
         "turn-0.jsonl",
         "turn-1.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
@@ -5807,6 +5853,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "initial_deterministic_pass": true,
       "artifact_checks_pass": true,
@@ -5931,6 +5978,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "initial_deterministic_pass": true,
       "artifact_checks_pass": true,
@@ -6103,6 +6151,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
@@ -6191,6 +6240,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
@@ -6270,6 +6320,7 @@
         "transcript_files": [
           "turn-0.jsonl"
         ],
+        "metrics_available": true,
         "fixture_version": 1,
         "unexpected_fixture_changes": [],
         "initial_deterministic_pass": true,
@@ -6404,6 +6455,7 @@
         "transcript_files": [
           "turn-0.jsonl"
         ],
+        "metrics_available": true,
         "fixture_version": 1,
         "unexpected_fixture_changes": [],
         "initial_deterministic_pass": true,
@@ -6519,6 +6571,7 @@
         "transcript_files": [
           "turn-0.jsonl"
         ],
+        "metrics_available": true,
         "fixture_version": 1,
         "unexpected_fixture_changes": [],
         "initial_deterministic_pass": true,
@@ -6634,6 +6687,7 @@
         "transcript_files": [
           "turn-0.jsonl"
         ],
+        "metrics_available": true,
         "fixture_version": 1,
         "unexpected_fixture_changes": [],
         "initial_deterministic_pass": true,
@@ -6755,6 +6809,7 @@
         "transcript_files": [
           "turn-0.jsonl"
         ],
+        "metrics_available": true,
         "fixture_version": 1,
         "unexpected_fixture_changes": [],
         "initial_deterministic_pass": true,
@@ -6876,6 +6931,7 @@
         "transcript_files": [
           "turn-0.jsonl"
         ],
+        "metrics_available": true,
         "fixture_version": 1,
         "unexpected_fixture_changes": [],
         "initial_deterministic_pass": true,
@@ -6986,6 +7042,7 @@
         "transcript_files": [
           "turn-0.jsonl"
         ],
+        "metrics_available": true,
         "fixture_version": 1,
         "unexpected_fixture_changes": [],
         "initial_deterministic_pass": true,
@@ -7096,6 +7153,7 @@
         "transcript_files": [
           "turn-0.jsonl"
         ],
+        "metrics_available": true,
         "fixture_version": 1,
         "unexpected_fixture_changes": [],
         "initial_deterministic_pass": true,
@@ -7218,6 +7276,7 @@
         "transcript_files": [
           "turn-0.jsonl"
         ],
+        "metrics_available": true,
         "fixture_version": 1,
         "unexpected_fixture_changes": [],
         "initial_deterministic_pass": true,
@@ -7335,6 +7394,7 @@
         "transcript_files": [
           "turn-0.jsonl"
         ],
+        "metrics_available": true,
         "fixture_version": 1,
         "harness_policy_delta": "Exact no-delegation fixture directive added before model invocation",
         "unexpected_fixture_changes": [],
@@ -7465,6 +7525,7 @@
         "transcript_files": [
           "turn-0.jsonl"
         ],
+        "metrics_available": true,
         "fixture_version": 1,
         "unexpected_fixture_changes": [],
         "initial_deterministic_pass": true,
@@ -7588,6 +7649,7 @@
         "transcript_files": [
           "turn-0.jsonl"
         ],
+        "metrics_available": true,
         "fixture_version": 1,
         "unexpected_fixture_changes": [
           "app.py",
@@ -7738,6 +7800,7 @@
         "transcript_files": [
           "turn-0.jsonl"
         ],
+        "metrics_available": true,
         "fixture_version": 1,
         "unexpected_fixture_changes": [],
         "initial_deterministic_pass": true,
@@ -7824,6 +7887,7 @@
         "transcript_files": [
           "turn-0.jsonl"
         ],
+        "metrics_available": true,
         "fixture_version": 1,
         "unexpected_fixture_changes": [],
         "initial_deterministic_pass": true,
@@ -7895,6 +7959,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
@@ -7999,6 +8064,7 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "metrics_available": true,
       "fixture_version": 1,
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
@@ -8064,5 +8130,5 @@
     "Claude 预检返回 OAuth 401；用户随后取消 Claude 登录与模型评测。",
     "瞬态父线程错误与 multi_agent=false 未完全隐藏工具的情况保留在被替换记录；最终否定场景同时明确禁止委派。"
   ],
-  "review_followup": "Schema v2 separates artifact observations from semantic task verdicts. No model-provided flag or shell-text inference supplies acceptance. An explicit trusted AI review file binds each verdict to the raw logs and final file-state digest. Historical v1 fixtures remain recorded; this is not independent blinded or human validation. Review evidence also binds normalized Git HEAD, branch, index entries/flags, refs and status; read-only Git inspection disables fsmonitor and optional locks. Repository configuration, hooks and nested Git contents are bound; only the root index stat cache is replaced by normalized index/state evidence. Damaged Git baselines produce per-run failed collection, never semantic acceptance."
+  "review_followup": "Schema v2 separates artifact observations from semantic task verdicts. No model-provided flag or shell-text inference supplies acceptance. An explicit trusted AI review file binds each verdict to the raw logs and final file-state digest. Historical v1 fixtures remain recorded; this is not independent blinded or human validation. Review evidence also binds normalized Git HEAD, branch, index entries/flags, refs and status; read-only Git inspection disables fsmonitor and optional locks. Repository configuration, hooks and nested Git contents are bound; only the root index stat cache is replaced by normalized index/state evidence. Damaged Git baselines produce per-run failed collection, never semantic acceptance. Damaged record structure and unavailable metrics are explicitly reported as per-run collection failures."
 }
