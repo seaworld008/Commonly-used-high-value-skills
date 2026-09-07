@@ -53,3 +53,5 @@ python scripts/run_instruction_evals.py \
 用户已取消本次 Claude 登录与模型运行：Claude 仅进行静态和布局兼容验证，真实对照为 Codex/Astra 12 场景 × 前后 × 2 次，共 48 个场景运行。暂停场景包含实际后续用户回合，应单独记录回合数。不能把 Claude 的静态兼容检查称为模型实测通过。
 
 本轮实测结果见 [Astra 行为对照](sources/reports/astra-behavior-comparison-2026-09-07.md)。维护和评测脚本在源码 checkout 中运行；npm 包用于安装技能，完整工具与报告随源码发布。
+
+`skills/.npmignore` 排除 Python 字节码和解释器缓存。npm 自身还会省略技能中的 5 个 `.gitignore`（Git 元数据）；完整源码压缩包保留这些文件。脚本、引用与其他技能资源仍按清单验证。

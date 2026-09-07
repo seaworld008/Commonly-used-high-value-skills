@@ -638,3 +638,30 @@ fs.writeFileSync(process.env.FAKE_NPX_LOG, JSON.stringify(args));
 
 if __name__ == "__main__":
     unittest.main()
+
+
+def test_npm_package_excludes_interpreter_caches_without_dropping_resources(tmp_path):
+    """Exercise npm's nested ignore rules; root files whitelists override .gitignore."""
+    import shutil
+    import pytest
+    if shutil.which("npm") is None:
+        pytest.skip("npm is required for the real pack boundary check")
+    (tmp_path / "package.json").write_text(json.dumps({
+        "name": "skill-pack-fixture", "version": "1.0.0", "files": ["skills/"]
+    }))
+    skill = tmp_path / "skills" / "category" / "example"
+    (skill / "scripts" / "__pycache__").mkdir(parents=True)
+    (skill / "SKILL.md").write_text("# Example\n")
+    (skill / "scripts" / "helper.py").write_text("print('example')\n")
+    (skill / "scripts" / "__pycache__" / "helper.pyc").write_bytes(b"cache fixture")
+    (skill / "scripts" / "loose.pyc").write_bytes(b"cache fixture")
+    (skill / "scripts" / "loose.pyo").write_bytes(b"cache fixture")
+    shutil.copy2(REPO_ROOT / "skills" / ".npmignore", tmp_path / "skills" / ".npmignore")
+    result = subprocess.run(
+        ["npm", "pack", "--dry-run", "--json", "--ignore-scripts"],
+        cwd=tmp_path, check=True, capture_output=True, text=True,
+    )
+    paths = {item["path"] for item in json.loads(result.stdout)[0]["files"]}
+    assert "skills/category/example/SKILL.md" in paths
+    assert "skills/category/example/scripts/helper.py" in paths
+    assert not any("__pycache__" in p or p.endswith((".pyc", ".pyo")) for p in paths)

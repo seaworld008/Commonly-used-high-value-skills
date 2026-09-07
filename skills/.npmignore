@@ -1,0 +1,4 @@
+# Match the installer: interpreter caches are not distributable skill artifacts.
+**/__pycache__/**
+**/*.pyc
+**/*.pyo
