@@ -79,7 +79,7 @@ Scribe[unified: claude staged elaboration: L0 Vision → L1 Requirements → L2 
 
 ## Spec Quality Gate (lock precondition)
 
-Before sign-off, the spec is adversarially reviewed **as an artifact by an independent agent** — Judge[claude spec-as-artifact review] (+Attest for AC verifiability, +Magi when requirements trade off). "Independent" is load-bearing: the spec's author never scores its own gate (Q9), and the gate is never implemented by telling the authoring agent to re-check itself (P9). The gate scores six dimensions; each must pass, or its finding is explicitly downgraded into Open Questions (never silently passed):
+Before sign-off, the spec is adversarially reviewed **as an artifact by an independent agent** — Judge[claude spec-as-artifact review] (+Attest for AC verifiability, +Magi when requirements trade off). "Independent" is load-bearing: the spec's author never scores its own gate (Q9), and the independent gate does not replace the author's relevant checks. The gate scores six dimensions; each must pass, or its finding is explicitly downgraded into Open Questions (never silently passed):
 
 | Dimension | Question |
 |-----------|----------|

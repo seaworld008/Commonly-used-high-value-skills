@@ -3,7 +3,7 @@
 **Purpose:** Auto-tailor every spawn prompt to the current **project** and **session** context, and self-reinforce within the session from observed outcomes — so inter-agent instructions get sharper as a session progresses, without any durable global rewrite.
 **Read when:** Composing a spawn prompt at an EXECUTE step, or deciding how directives adapt to project/session signals.
 
-> **Scope is the safety model.** This policy operates **only within the current session + project**. It is **ephemeral** (resets at the session/project boundary) and **reversible** (every adjustment is per-spawn; nothing irreversible happens). Because no durable global file is written, **no approval gate is required** — this runs automatically in all modes. Durable, cross-project template rewrites are explicitly **out of scope** here; that path stays gated (offline `tune` → Darwin promotion → Guardian commit, see §6).
+> **Scope is the safety model.** This policy operates **only within the current session + project**. It is **ephemeral** (resets at the session/project boundary) and **reversible** (every adjustment is per-spawn; nothing irreversible happens). Adaptation stays within the current model, permission and budget constraints; being ephemeral does not grant authority to change those settings. Durable, cross-project template rewrites are explicitly **out of scope** here; that path stays gated (offline `tune` → Darwin promotion → Guardian commit, see §6).
 
 > **Honest mechanism.** This is **evidence-accumulating, case-based adaptation** — not neural RL. The hub cannot train weights mid-session. "Reinforcement" means: a journaled within-session record of `context-features → directive-choice → outcome`, consulted to bias the next spawn's directive selection. Bounded, **corrective (bidirectional)** heuristics over a vetted directive library, never free-form prompt invention — every adjustment maps to an existing structured directive field (envelope / effort / tool-use / thinking / which references), never raw prepended text.
 
@@ -38,7 +38,7 @@ Assemble at Orchestrator Detection (before the first spawn) and cache for the se
 | `.agents/PROJECT.md` | project phase, goals, constraints | which references to front-load; tone |
 | repo stack (lang / framework) | TS-strict / dynamic / native | tool-use directive emphasis (type rigor, test-first) |
 | `CLAUDE.md` / `AGENTS.md` / `GEMINI.md` | conventions, language, style | output language, naming, commit style passed to spawns |
-| hub engine (Opus 5 / Fable 5 / Codex / agy) | authoring protocol | **Opus 5 → P1 + P2 envelope + P8 scope bound always, P3/P5 by scale, and P9 forbids any self-check wording; Fable 5 → lighter prompt + no-reasoning-reproduction.** Both default to `high` effort (per `hub-authoring.md`) |
+| available host tools and configured model | supported API and settings | Bind to `hub-authoring.md`; preserve the named model and current effort. State task scope, acceptance criteria and relevant checks without model-specific boilerplate |
 | domain affinity (Game/SaaS/…) | task domain | default add-on agents, envelope sizing |
 | repo size / file count | scope | base output envelope (small repo → tighter) |
 
@@ -59,7 +59,7 @@ Within-session signals → next-spawn adjustment. **A directive only flips on a 
 | Observed this session | Adjustment to subsequent spawns |
 |-----------------------|----------------------------------|
 | Output repeatedly overran its envelope | Tighten the envelope for that agent / similar tasks |
-| Step failed VERIFY (or `BLOCKED`/`FAILED`) | Raise effort, add context delta, add a thinking directive next attempt |
+| Step failed VERIFY (or `BLOCKED`/`FAILED`) | Diagnose the failure and repair missing context or scope; change effort only within authorized settings and with supporting evidence |
 | Steps repeatedly passed VERIFY cheaply | Loosen — trim directives for token economy (corrective, bidirectional) |
 | **User issued an explicit correction turn** (style, scope, wrong assumption) | Map it to a **structured constraint** on subsequent same-agent spawns (envelope / tone / scope / forbidden-actions field) — never prepend the raw correction text. Detected only from an explicit user turn, not inferred. |
 | Token budget pressure rising | Trim which references are loaded; shrink envelopes; switch context-strategy toward `reset` |
@@ -80,10 +80,10 @@ spawn_prompt = base template (Agent Spawn Template)
 ```
 
 **Bounded to vetted ranges — the assembly is selection, not invention:**
-- Envelope length, effort tier, tool-use / thinking directives, and the reference subset are chosen from the libraries in `hub-authoring.md` / `OPUS_5_AUTHORING.md`. The policy **selects and dials within** those; it never authors a novel unsafe directive.
+- Select task scope, output detail, checks and references from `hub-authoring.md`. Model or effort changes require current host support and authorization; a recipe does not silently supply either.
 - **Never deletes a behavior or safety rule, acceptance criterion, or output-contract field** (Core Rule #4 — preserve behavior before style). Adaptation only *adds/sizes* guidance; it cannot strip the spawn's required structure.
-- **Two directives are floors, not dials.** The P2 length envelope and the P8 scope bound are present on every Opus 5 spawn and can be *sized* but never dropped — Opus 5 over-produces and widens scope by default, so removing them is not a token optimization, it is a regression. Likewise the P9 prohibition is absolute: the policy may never add "verify / double-check / re-check your work" wording as a response to a VERIFY failure (raise effort or tighten the scope bound instead; independent verification is a *chain* step, not a prompt field).
-- **Honors the hub-authoring protocol**: Opus 5 → P1/P2/P8 always plus P3/P5 by scale; Fable 5 → lighter prompts, and the **no-reasoning-reproduction rule** (any "echo/show/transcribe your reasoning" wording is forbidden — it trips `refusal`). Adjustments resolve through the **per-engine mapping** in `hub-authoring.md` — e.g. "raise effort" = a higher reasoning tier on Claude Code but `model_reasoning_effort` on Codex (the model never downgrades there), not a model swap.
+- **Preserve scope and acceptance criteria.** Size the output guidance to the task. Producers run the checks relevant to their changes; independent review is an additional project or task requirement, not a reason to forbid producer verification. Reuse valid evidence for unchanged code and environment.
+- **Honor the actual host binding.** Follow `hub-authoring.md` and current host instructions, preserve user-selected models/settings, and return outcomes with evidence. Do not use copied Opus/Fable protocols to override these choices or request private reasoning transcripts.
 
 The tuning shapes the spawn prompt but does **not** bypass the active Mode's confirmations (in `INTERACTIVE`/`GUIDED` the step still stops where the Mode requires; only the prompt *content* is adapted, not the gating). It is **internal but never silent**: every adjustment that differs from the base template emits a **Tuning Trace** (§9) so the user can always see what was changed and why.
 
@@ -129,7 +129,7 @@ Each guard is defined where it operates; this is the index of what is guarded an
 ## 8. Relationship to neighbors
 
 - **`context-strategy.md`** — sibling: that decides *what context flows* between agents (reset / persist / hybrid); this decides *how the spawn directives adapt* to project+session signals. Used together at spawn time.
-- **`hub-authoring.md` / `OPUS_5_AUTHORING.md`** — the vetted directive library this policy selects from; the source of the P/F principles it must honor.
+- **`hub-authoring.md`** — the shared task envelope and current host-binding rules; preserve model choice, authority and relevant verification.
 - **LEARN / `routing-learning.md`** — LEARN adapts *routing* (which chain) across runs with durable safety; this adapts *spawn directives* within a session, ephemerally. Same evidence spirit, different target and scope.
 
 ---

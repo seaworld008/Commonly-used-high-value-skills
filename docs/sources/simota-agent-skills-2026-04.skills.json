@@ -2070,7 +2070,7 @@
             "ref": "main",
             "resolved_commit": "9f7d77adc30fd39f039871081d26aaf7bf60f54d",
             "path_commit": "4d4eeea81a874a3a90d46596fc1a9dcbf9d0fb45",
-            "content_sha256": "d1e3c74d7713cec4dca2e6678b92ffc35f2361566f041f4978ddea9bcfb4e4f8",
+            "content_sha256": "2fe902cd1359c8d1be637cadadba65c5b4fcddacd0db4f6535b36baa4851ddec",
             "last_checked_at": "2026-09-06",
             "last_synced_at": "2026-09-06",
             "license_checkpoint": {
@@ -2324,7 +2324,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/nexus/SKILL.md",
-          "sha256": "d1e3c74d7713cec4dca2e6678b92ffc35f2361566f041f4978ddea9bcfb4e4f8",
+          "sha256": "2fe902cd1359c8d1be637cadadba65c5b4fcddacd0db4f6535b36baa4851ddec",
           "owner": "nexus",
           "mode": "100644"
         },
@@ -2342,7 +2342,7 @@
         },
         {
           "path": "skills/ai-workflow/nexus/reference/adaptive-prompt-policy.md",
-          "sha256": "1108f8e29146578e6666b2b005f5d8a306d2c0446a348767d2cadce2f5daa605",
+          "sha256": "9e921e77fcdd917257211b8a0bbc168cd2b74f8e0b76d1cd4ea8ace0edb16398",
           "owner": "nexus",
           "mode": "100644"
         },
@@ -2396,7 +2396,7 @@
         },
         {
           "path": "skills/ai-workflow/nexus/reference/autonomy-quality-protocol.md",
-          "sha256": "b8c9f48cc1c274418a8bc7790bbefe78f82ca593f47fb42cda7b6a4754a744f4",
+          "sha256": "4a169587d91b006813500039fb80088b6f25c1325b4be013ddb8b6247d5f5b8e",
           "owner": "nexus",
           "mode": "100644"
         },
@@ -2414,7 +2414,7 @@
         },
         {
           "path": "skills/ai-workflow/nexus/reference/cartograph-recipe.md",
-          "sha256": "94117d837a17588b14f84c2cc5a43b34f8d99667a32489e6f7a980c9171ce0da",
+          "sha256": "662b4998ff9887aa9e31471c8e99b7c7a917399910a8fda37d9c6b2d8ce7a2bf",
           "owner": "nexus",
           "mode": "100644"
         },
@@ -2876,7 +2876,7 @@
         },
         {
           "path": "skills/ai-workflow/nexus/reference/spec-recipe.md",
-          "sha256": "b165b5e27fcf93ec753d46670597843e89037dce1164683846202fca9e7e58e6",
+          "sha256": "8f62588a5d9c2514bd15dd117e704c99cc5cdb14ce324629ecd5a89dcf954a7d",
           "owner": "nexus",
           "mode": "100644"
         },

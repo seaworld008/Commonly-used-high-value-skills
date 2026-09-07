@@ -4024,7 +4024,7 @@
     {
       "name": "nexus",
       "path": "skills/ai-workflow/nexus/SKILL.md",
-      "sha256": "d1e3c74d7713cec4dca2e6678b92ffc35f2361566f041f4978ddea9bcfb4e4f8",
+      "sha256": "2fe902cd1359c8d1be637cadadba65c5b4fcddacd0db4f6535b36baa4851ddec",
       "entry_lines": 260,
       "entry_chars": 25012,
       "description_chars": 24,
@@ -4032,7 +4032,7 @@
       "resources": [
         {
           "path": "skills/ai-workflow/nexus/SKILL.md",
-          "sha256": "d1e3c74d7713cec4dca2e6678b92ffc35f2361566f041f4978ddea9bcfb4e4f8",
+          "sha256": "2fe902cd1359c8d1be637cadadba65c5b4fcddacd0db4f6535b36baa4851ddec",
           "bytes": 25418,
           "kind": "markdown",
           "findings": [],
@@ -4070,14 +4070,14 @@
         },
         {
           "path": "skills/ai-workflow/nexus/reference/adaptive-prompt-policy.md",
-          "sha256": "1108f8e29146578e6666b2b005f5d8a306d2c0446a348767d2cadce2f5daa605",
-          "bytes": 13963,
+          "sha256": "9e921e77fcdd917257211b8a0bbc168cd2b74f8e0b76d1cd4ea8ace0edb16398",
+          "bytes": 13479,
           "kind": "markdown",
           "findings": [],
           "review_hints": [],
-          "semantic_review": "not_assessed",
-          "decision": "retained",
-          "review_level": "inventory_and_instruction_screen"
+          "semantic_review": "targeted_change_review",
+          "decision": "modified",
+          "review_level": "changed_content_review"
         },
         {
           "path": "skills/ai-workflow/nexus/reference/agent-chains.md",
@@ -4304,14 +4304,14 @@
         },
         {
           "path": "skills/ai-workflow/nexus/reference/autonomy-quality-protocol.md",
-          "sha256": "b8c9f48cc1c274418a8bc7790bbefe78f82ca593f47fb42cda7b6a4754a744f4",
-          "bytes": 39002,
+          "sha256": "4a169587d91b006813500039fb80088b6f25c1325b4be013ddb8b6247d5f5b8e",
+          "bytes": 37478,
           "kind": "markdown",
           "findings": [],
           "review_hints": [],
-          "semantic_review": "not_assessed",
-          "decision": "retained",
-          "review_level": "inventory_and_instruction_screen"
+          "semantic_review": "targeted_change_review",
+          "decision": "modified",
+          "review_level": "changed_content_review"
         },
         {
           "path": "skills/ai-workflow/nexus/reference/autorun-schema.md",
@@ -4337,14 +4337,14 @@
         },
         {
           "path": "skills/ai-workflow/nexus/reference/cartograph-recipe.md",
-          "sha256": "94117d837a17588b14f84c2cc5a43b34f8d99667a32489e6f7a980c9171ce0da",
-          "bytes": 28180,
+          "sha256": "662b4998ff9887aa9e31471c8e99b7c7a917399910a8fda37d9c6b2d8ce7a2bf",
+          "bytes": 28135,
           "kind": "markdown",
           "findings": [],
           "review_hints": [],
-          "semantic_review": "not_assessed",
-          "decision": "retained",
-          "review_level": "inventory_and_instruction_screen"
+          "semantic_review": "targeted_change_review",
+          "decision": "modified",
+          "review_level": "changed_content_review"
         },
         {
           "path": "skills/ai-workflow/nexus/reference/charter-recipe.md",
@@ -5403,8 +5403,8 @@
         },
         {
           "path": "skills/ai-workflow/nexus/reference/spec-recipe.md",
-          "sha256": "b165b5e27fcf93ec753d46670597843e89037dce1164683846202fca9e7e58e6",
-          "bytes": 26107,
+          "sha256": "8f62588a5d9c2514bd15dd117e704c99cc5cdb14ce324629ecd5a89dcf954a7d",
+          "bytes": 26089,
           "kind": "markdown",
           "findings": [],
           "review_hints": [
@@ -5413,9 +5413,9 @@
               "line": 145
             }
           ],
-          "semantic_review": "not_assessed",
-          "decision": "retained",
-          "review_level": "inventory_and_instruction_screen"
+          "semantic_review": "targeted_change_review",
+          "decision": "modified",
+          "review_level": "changed_content_review"
         },
         {
           "path": "skills/ai-workflow/nexus/reference/specify-phase.md",
@@ -5912,7 +5912,10 @@
       "reason": "修复已定位的触发、授权、宿主或验证问题，保留领域方法。",
       "changed_files": [
         "skills/ai-workflow/nexus/SKILL.md",
+        "skills/ai-workflow/nexus/reference/adaptive-prompt-policy.md",
         "skills/ai-workflow/nexus/reference/assay-recipe.md",
+        "skills/ai-workflow/nexus/reference/autonomy-quality-protocol.md",
+        "skills/ai-workflow/nexus/reference/cartograph-recipe.md",
         "skills/ai-workflow/nexus/reference/charter-recipe.md",
         "skills/ai-workflow/nexus/reference/chorus-recipe.md",
         "skills/ai-workflow/nexus/reference/crucible-recipe.md",
@@ -5926,6 +5929,7 @@
         "skills/ai-workflow/nexus/reference/recipes-detail.md",
         "skills/ai-workflow/nexus/reference/recipes-index.md",
         "skills/ai-workflow/nexus/reference/silhouette-recipe.md",
+        "skills/ai-workflow/nexus/reference/spec-recipe.md",
         "skills/ai-workflow/nexus/reference/wish-recipe.md",
         "skills/ai-workflow/nexus/references/evaluator-loop.md",
         "skills/ai-workflow/nexus/references/execution-phases.md",

@@ -2,7 +2,7 @@
 name: nexus
 description: '多智能体任务分解、链路编排、执行协调和结果整合。'
 zh_description: "多智能体任务分解、链路编排、执行协调和结果整合。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/nexus"

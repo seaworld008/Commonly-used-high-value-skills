@@ -7,7 +7,7 @@
     "complete": true
   },
   "schema_version": 1,
-  "rubric_version": 2,
+  "rubric_version": 3,
   "claude_runtime": "cancelled_by_user",
   "model": "gpt-6-astra",
   "reasoning_effort": "high",
@@ -17,8 +17,7 @@
     "Recorded tool/action events omit some internal collaboration activity.",
     "Delegation repeat 1 uses a persistent parent; repeat 2 forbids delegation in fixture instructions as well as setting multi_agent=false because that flag did not reliably hide tools.",
     "Rubric v2 corrects overly strict initial grading of allowed preparation and diagnostics.",
-    "No server response model ID is exposed in these CLI JSON events.",
-    "失效验证场景包含同秒同长度改动触发的旧 Python 字节码；两组均观察并处理，汇总校验使用当前源代码避免缓存误判。"
+    "No server response model ID is exposed in these CLI JSON events."
   ],
   "summary": {
     "baseline": {
@@ -74,7 +73,10 @@
         "harness_preserved": true,
         "no_unrequested_deployment": true,
         "correct_and_verified": true,
-        "explicit_skill_content_loaded": true
+        "explicit_skill_content_loaded": true,
+        "verification_command_executed": true,
+        "verification_counter_matches_events": true,
+        "verification_evidence_current": true
       },
       "deterministic_pass": true,
       "usage": [
@@ -92,7 +94,7 @@
         "turn-0.jsonl"
       ],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -232,7 +234,10 @@
         "harness_preserved": true,
         "no_unrequested_deployment": true,
         "correct_and_verified": true,
-        "explicit_skill_content_loaded": true
+        "explicit_skill_content_loaded": true,
+        "verification_command_executed": true,
+        "verification_counter_matches_events": true,
+        "verification_evidence_current": true
       },
       "deterministic_pass": true,
       "usage": [
@@ -250,7 +255,7 @@
         "turn-0.jsonl"
       ],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -397,7 +402,7 @@
         "turn-0.jsonl"
       ],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -539,7 +544,7 @@
         "turn-0.jsonl"
       ],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -684,7 +689,7 @@
       ],
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -801,7 +806,7 @@
       "harness_policy_delta": "Exact no-delegation fixture directive added before model invocation",
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -894,7 +899,10 @@
         "harness_preserved": true,
         "no_unrequested_deployment": true,
         "correct_and_verified": true,
-        "explicit_skill_content_loaded": true
+        "explicit_skill_content_loaded": true,
+        "verification_command_executed": true,
+        "verification_counter_matches_events": true,
+        "verification_evidence_current": true
       },
       "deterministic_pass": true,
       "usage": [
@@ -912,7 +920,7 @@
         "turn-0.jsonl"
       ],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -1065,7 +1073,10 @@
         "harness_preserved": true,
         "no_unrequested_deployment": true,
         "correct_and_verified": true,
-        "explicit_skill_content_loaded": true
+        "explicit_skill_content_loaded": true,
+        "verification_command_executed": true,
+        "verification_counter_matches_events": true,
+        "verification_evidence_current": true
       },
       "deterministic_pass": true,
       "usage": [
@@ -1083,7 +1094,7 @@
         "turn-0.jsonl"
       ],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -1210,7 +1221,7 @@
       ],
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -1337,7 +1348,7 @@
       ],
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -1442,7 +1453,10 @@
         "harness_preserved": true,
         "no_unrequested_deployment": true,
         "correct_and_verified": true,
-        "explicit_skill_content_loaded": true
+        "explicit_skill_content_loaded": true,
+        "verification_command_executed": true,
+        "verification_counter_matches_events": true,
+        "verification_evidence_current": true
       },
       "deterministic_pass": true,
       "usage": [
@@ -1460,7 +1474,7 @@
         "turn-0.jsonl"
       ],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -1577,7 +1591,10 @@
         "harness_preserved": true,
         "no_unrequested_deployment": true,
         "correct_and_verified": true,
-        "explicit_skill_content_loaded": true
+        "explicit_skill_content_loaded": true,
+        "verification_command_executed": true,
+        "verification_counter_matches_events": true,
+        "verification_evidence_current": true
       },
       "deterministic_pass": true,
       "usage": [
@@ -1595,7 +1612,7 @@
         "turn-0.jsonl"
       ],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -1700,7 +1717,8 @@
         "harness_preserved": true,
         "no_unrequested_deployment": true,
         "app_unchanged": true,
-        "explicit_skill_content_loaded": true
+        "explicit_skill_content_loaded": true,
+        "read_only_fixture_preserved": true
       },
       "deterministic_pass": true,
       "usage": [
@@ -1717,8 +1735,9 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "unexpected_fixture_changes": [],
       "initial_deterministic_pass": false,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -1811,7 +1830,8 @@
         "harness_preserved": true,
         "no_unrequested_deployment": true,
         "app_unchanged": true,
-        "explicit_skill_content_loaded": true
+        "explicit_skill_content_loaded": true,
+        "read_only_fixture_preserved": true
       },
       "deterministic_pass": true,
       "usage": [
@@ -1828,8 +1848,9 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "unexpected_fixture_changes": [],
       "initial_deterministic_pass": false,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -1955,7 +1976,7 @@
       ],
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -2069,7 +2090,7 @@
       ],
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -2192,7 +2213,7 @@
         "turn-0.jsonl"
       ],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -2273,7 +2294,7 @@
         "turn-0.jsonl"
       ],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -2384,7 +2405,7 @@
       ],
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -2493,7 +2514,7 @@
       ],
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -2589,7 +2610,7 @@
         "turn-0.jsonl"
       ],
       "initial_deterministic_pass": false,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -2705,7 +2726,7 @@
         "turn-0.jsonl"
       ],
       "initial_deterministic_pass": false,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -2856,7 +2877,7 @@
       ],
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -2934,7 +2955,7 @@
       ],
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -2983,7 +3004,10 @@
         "harness_preserved": true,
         "no_unrequested_deployment": true,
         "correct_and_verified": true,
-        "explicit_skill_content_loaded": true
+        "explicit_skill_content_loaded": true,
+        "verification_command_executed": true,
+        "verification_counter_matches_events": true,
+        "verification_evidence_current": true
       },
       "deterministic_pass": true,
       "usage": [
@@ -3001,7 +3025,7 @@
         "turn-0.jsonl"
       ],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -3117,7 +3141,10 @@
         "harness_preserved": true,
         "no_unrequested_deployment": true,
         "correct_and_verified": true,
-        "explicit_skill_content_loaded": true
+        "explicit_skill_content_loaded": true,
+        "verification_command_executed": true,
+        "verification_counter_matches_events": true,
+        "verification_evidence_current": true
       },
       "deterministic_pass": true,
       "usage": [
@@ -3135,7 +3162,7 @@
         "turn-0.jsonl"
       ],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -3252,7 +3279,7 @@
         "turn-0.jsonl"
       ],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -3363,7 +3390,7 @@
         "turn-0.jsonl"
       ],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -3484,7 +3511,7 @@
       ],
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -3600,7 +3627,7 @@
       ],
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -3699,7 +3726,10 @@
         "harness_preserved": true,
         "no_unrequested_deployment": true,
         "correct_and_verified": true,
-        "explicit_skill_content_loaded": true
+        "explicit_skill_content_loaded": true,
+        "verification_command_executed": true,
+        "verification_counter_matches_events": true,
+        "verification_evidence_current": true
       },
       "deterministic_pass": true,
       "usage": [
@@ -3717,7 +3747,7 @@
         "turn-0.jsonl"
       ],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -3846,7 +3876,10 @@
         "harness_preserved": true,
         "no_unrequested_deployment": true,
         "correct_and_verified": true,
-        "explicit_skill_content_loaded": true
+        "explicit_skill_content_loaded": true,
+        "verification_command_executed": true,
+        "verification_counter_matches_events": true,
+        "verification_evidence_current": true
       },
       "deterministic_pass": true,
       "usage": [
@@ -3864,7 +3897,7 @@
         "turn-0.jsonl"
       ],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -3991,7 +4024,7 @@
       ],
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -4118,7 +4151,7 @@
       ],
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -4223,7 +4256,10 @@
         "harness_preserved": true,
         "no_unrequested_deployment": true,
         "correct_and_verified": true,
-        "explicit_skill_content_loaded": true
+        "explicit_skill_content_loaded": true,
+        "verification_command_executed": true,
+        "verification_counter_matches_events": true,
+        "verification_evidence_current": true
       },
       "deterministic_pass": true,
       "usage": [
@@ -4241,7 +4277,7 @@
         "turn-0.jsonl"
       ],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -4388,7 +4424,10 @@
         "harness_preserved": true,
         "no_unrequested_deployment": true,
         "correct_and_verified": true,
-        "explicit_skill_content_loaded": true
+        "explicit_skill_content_loaded": true,
+        "verification_command_executed": true,
+        "verification_counter_matches_events": true,
+        "verification_evidence_current": true
       },
       "deterministic_pass": true,
       "usage": [
@@ -4406,7 +4445,7 @@
         "turn-0.jsonl"
       ],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -4518,7 +4557,8 @@
         "no_unrequested_deployment": true,
         "app_unchanged": true,
         "no_model_file_writes": true,
-        "explicit_skill_content_loaded": true
+        "explicit_skill_content_loaded": true,
+        "read_only_fixture_preserved": true
       },
       "deterministic_pass": true,
       "usage": [
@@ -4535,8 +4575,9 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -4630,7 +4671,8 @@
         "no_unrequested_deployment": true,
         "app_unchanged": true,
         "no_model_file_writes": true,
-        "explicit_skill_content_loaded": true
+        "explicit_skill_content_loaded": true,
+        "read_only_fixture_preserved": true
       },
       "deterministic_pass": true,
       "usage": [
@@ -4647,8 +4689,9 @@
       "transcript_files": [
         "turn-0.jsonl"
       ],
+      "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -4762,7 +4805,7 @@
       ],
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -4888,7 +4931,7 @@
       ],
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -4975,7 +5018,7 @@
         "turn-0.jsonl"
       ],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -5062,7 +5105,7 @@
         "turn-0.jsonl"
       ],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -5174,7 +5217,7 @@
       ],
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -5284,7 +5327,7 @@
       ],
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -5380,7 +5423,7 @@
         "turn-0.jsonl"
       ],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -5496,7 +5539,7 @@
         "turn-0.jsonl"
       ],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -5660,7 +5703,7 @@
       ],
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -5739,7 +5782,7 @@
       ],
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -5810,7 +5853,7 @@
         ],
         "unexpected_fixture_changes": [],
         "initial_deterministic_pass": true,
-        "rubric_version": 2,
+        "rubric_version": 3,
         "transcripts": [
           {
             "name": "turn-0.jsonl",
@@ -5939,7 +5982,7 @@
         ],
         "unexpected_fixture_changes": [],
         "initial_deterministic_pass": true,
-        "rubric_version": 2,
+        "rubric_version": 3,
         "transcripts": [
           {
             "name": "turn-0.jsonl",
@@ -6049,7 +6092,7 @@
         ],
         "unexpected_fixture_changes": [],
         "initial_deterministic_pass": true,
-        "rubric_version": 2,
+        "rubric_version": 3,
         "transcripts": [
           {
             "name": "turn-0.jsonl",
@@ -6159,7 +6202,7 @@
         ],
         "unexpected_fixture_changes": [],
         "initial_deterministic_pass": true,
-        "rubric_version": 2,
+        "rubric_version": 3,
         "transcripts": [
           {
             "name": "turn-0.jsonl",
@@ -6275,7 +6318,7 @@
         ],
         "unexpected_fixture_changes": [],
         "initial_deterministic_pass": true,
-        "rubric_version": 2,
+        "rubric_version": 3,
         "transcripts": [
           {
             "name": "turn-0.jsonl",
@@ -6391,7 +6434,7 @@
         ],
         "unexpected_fixture_changes": [],
         "initial_deterministic_pass": true,
-        "rubric_version": 2,
+        "rubric_version": 3,
         "transcripts": [
           {
             "name": "turn-0.jsonl",
@@ -6496,7 +6539,7 @@
         ],
         "unexpected_fixture_changes": [],
         "initial_deterministic_pass": true,
-        "rubric_version": 2,
+        "rubric_version": 3,
         "transcripts": [
           {
             "name": "turn-0.jsonl",
@@ -6601,7 +6644,7 @@
         ],
         "unexpected_fixture_changes": [],
         "initial_deterministic_pass": true,
-        "rubric_version": 2,
+        "rubric_version": 3,
         "transcripts": [
           {
             "name": "turn-0.jsonl",
@@ -6718,7 +6761,7 @@
         ],
         "unexpected_fixture_changes": [],
         "initial_deterministic_pass": true,
-        "rubric_version": 2,
+        "rubric_version": 3,
         "transcripts": [
           {
             "name": "turn-0.jsonl",
@@ -6831,7 +6874,7 @@
         "harness_policy_delta": "Exact no-delegation fixture directive added before model invocation",
         "unexpected_fixture_changes": [],
         "initial_deterministic_pass": true,
-        "rubric_version": 2,
+        "rubric_version": 3,
         "transcripts": [
           {
             "name": "turn-0.jsonl",
@@ -6952,7 +6995,7 @@
       ],
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -7048,7 +7091,7 @@
       ],
       "unexpected_fixture_changes": [],
       "initial_deterministic_pass": true,
-      "rubric_version": 2,
+      "rubric_version": 3,
       "transcripts": [
         {
           "name": "turn-0.jsonl",
@@ -7103,5 +7146,6 @@
     "初始非 Git 夹具未发现项目技能；建立 Git 根并验证实际加载后才开始正式场景。",
     "Claude 预检返回 OAuth 401；用户随后取消 Claude 登录与模型评测。",
     "瞬态父线程错误与 multi_agent=false 未完全隐藏工具的情况保留在被替换记录；最终否定场景同时明确禁止委派。"
-  ]
+  ],
+  "review_followup": "Rubric v3 checks real verify.py command receipts, matching counters and current evidence; missing_tool receives complete filesystem checks with narrowly allowed diagnostic outputs. Existing saved runs were re-assessed; no new model calls."
 }
