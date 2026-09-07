@@ -8,45 +8,9 @@ All notable changes to this repository are documented here.
 <!-- AUTO-CHANGELOG:START -->
 ### 自动更新 / Automated updates
 
-变更范围 / Revision range: `v2.0.0..HEAD`.
+变更范围 / Revision range: `v2.1.1..HEAD`.
 
-#### [2026-09-07]
-
-##### Changed
-- align cross-agent instructions and prepare v2.1.0 (#106)
-- review weekly skill sources (#102)
-
-##### Fixed
-- complete review-state integrity for v2.1.1
-- require observed verification and finish cross-agent policy alignment (#107)
-- correct catalog metadata and complete maintenance audit (#105)
-- prevent duplicate changelog auth headers (#104)
-- address weekly review findings (#103)
-
-#### [2026-09-06]
-
-##### Changed
-- modernize skills and workflows for GPT-6 Astra (#101)
-
-#### [2026-08-31]
-
-##### Fixed
-- keep scanner rule metadata out of text logs (#98)
-- preserve curated history during changelog refresh (#97)
-- complete quality-first skills maintenance (#95)
-
-#### [2026-08-24]
-
-##### Added
-- `lark-meeting` (knowledge-and-pm-integrations) — lark-meeting
-
-##### Changed
-- curate weekly skill updates (#94)
-
-#### [2026-08-20]
-
-##### Changed
-- remove retired migration compatibility (#92)
+此范围内暂无可归类的变更。 / No categorized changes in this range.
 <!-- AUTO-CHANGELOG:END -->
 
 ### Removed / 移除
