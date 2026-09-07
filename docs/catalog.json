@@ -2848,7 +2848,7 @@
       "name": "guardian",
       "category": "engineering-workflow-automation",
       "description": "提交、分支、合并请求策略和变更粒度把关。",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "author": "seaworld008",
       "source": "github:simota/agent-skills",
       "source_url": "https://github.com/simota/agent-skills/tree/main/guardian",
@@ -2861,7 +2861,7 @@
       "complexity": "advanced",
       "created_at": "2026-08-24",
       "updated_at": "2026-09-07",
-      "line_count": 319,
+      "line_count": 320,
       "path": "skills/engineering-workflow-automation/guardian/SKILL.md"
     },
     {

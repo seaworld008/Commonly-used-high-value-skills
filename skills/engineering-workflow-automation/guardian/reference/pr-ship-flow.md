@@ -153,7 +153,7 @@ Decision table:
 
 A request to merge this PR after checks pass is already authorization. Ask only
 when the target, scope, or authority is unresolved. Honor branch protections and
-required reviews; do not infer permission to bypass them.
+required reviews; do not infer permission to bypass them. Apply the Core Contract's merge-only scope: verification of this PR is not implicit authority to rewrite its source.
 
 ```bash
 # Strategy from `strategy` Recipe output (default: squash for feature branches)

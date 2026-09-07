@@ -4772,7 +4772,7 @@
             "ref": "main",
             "resolved_commit": "9f7d77adc30fd39f039871081d26aaf7bf60f54d",
             "path_commit": "a0a6bdb8e7223cb1966afd3d09238f31023f32fe",
-            "content_sha256": "b447651ad193a444430f32d9e0a62ad4431f933518262432b07450085d58f55c",
+            "content_sha256": "93a2eacf77c80292e965ff3166bf717d33583ca67749986d932ff0984e683d9a",
             "last_checked_at": "2026-09-06",
             "last_synced_at": "2026-09-06",
             "license_checkpoint": {
@@ -4881,7 +4881,7 @@
       "managed_files": [
         {
           "path": "skills/engineering-workflow-automation/guardian/SKILL.md",
-          "sha256": "b447651ad193a444430f32d9e0a62ad4431f933518262432b07450085d58f55c",
+          "sha256": "93a2eacf77c80292e965ff3166bf717d33583ca67749986d932ff0984e683d9a",
           "owner": "guardian",
           "mode": "100644"
         },
@@ -4983,7 +4983,7 @@
         },
         {
           "path": "skills/engineering-workflow-automation/guardian/reference/pr-ship-flow.md",
-          "sha256": "3cf7f233c05dbf449a467415f83be2634bb1fc483263d91859745518192e3aeb",
+          "sha256": "9e657686bc7fb26dd15e257287a5364c14468ed013063dac5d9ffc09d1ec8610",
           "owner": "guardian",
           "mode": "100644"
         },

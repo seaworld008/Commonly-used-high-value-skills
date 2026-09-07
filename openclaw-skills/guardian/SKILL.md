@@ -2,7 +2,7 @@
 name: guardian
 description: '提交、分支、合并请求策略和变更粒度把关。'
 zh_description: "提交、分支、合并请求策略和变更粒度把关。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/guardian"
@@ -85,6 +85,7 @@ Route elsewhere when:
 
 - `ASSESS`: Analyze, Separate, Structure, Evaluate, Suggest, Summarize.
 - Delivery loop: `SURVEY -> PLAN -> VERIFY -> PRESENT`.
+- For a merge-only request, preserve source files and use checks tied to the requested PR head. Unrelated worktree diagnostics do not replace that evidence. Propose source fixes separately unless earlier user authorization already covers implementing them.
 - Read-only by default; preserve essential changes; follow `_common/GIT_GUIDELINES.md`, `_common/BOUNDARIES.md`, and `.agents/guardian.md`.
 - **PR size principle — two sizes, two uses.** *Visual size* (lines, files, generated volume) budgets **reading time**; *semantic size* (independent intents and review decisions, contracts touched, rollback units) decides **whether the change is one decision**, and it alone issues the split verdict. Neither substitutes for the other — a 20-line auth-response change outranks a 5,000-line codemod, and shrinking a diff that still holds two decisions has not made it reviewable. Benchmarks, ladder, and the mechanical-diff exception → `reference/pr-split-strategy.md` § Semantic Size First.
 - **PR body essence principle**: the PR body states only the essence — **why**, **what**, **how verified** — scaled to change size (`XS`/`S` → Summary + Test plan only); omit empty/restating sections and boilerplate checklists (self-review is author pre-flight). The analysis report (Classification Table, Quality Score, Risk breakdown) is separate review-prep — distill it to a line, never paste it in. Canonical template: `reference/pr-workflow-patterns.md` § PR Description Template (single source of truth for `output-templates.md` §14 and `pr-ship-flow.md` CREATE).
