@@ -59,6 +59,7 @@ def test_graphify_release_mapping_has_single_owner_and_exact_hashes() -> None:
         for attempt in reversed(mapping["verification_attempts"])
         if attempt["method"] == "commit-aware-manual-monitor-review"
         and attempt["target"].startswith(f"{origin['repo']}@")
+        and attempt["result"] == "success"
     )
     assert reviewed["method"] == "commit-aware-manual-monitor-review"
     assert reviewed["result"] == "success"
