@@ -41,7 +41,7 @@ def test_report_checks_filesystem_even_when_tool_events_omit_a_write(tmp_path):
     (skill/'SKILL.md').write_text('---\nname: example\ndescription: Review a fixture.\n---\n')
     (source/'AGENTS.md').write_text('Shared guidance')
     (source/'CLAUDE.md').write_text('@AGENTS.md')
-    folder=tmp_path/'run'
+    folder=tmp_path/'baseline-read_only-1'
     work,_=create_fixture(source,folder,{'skills':['example']})
     result={'run_id':'baseline-read_only-1','case':'read_only','cohort':'baseline','repeat':1,'deterministic_pass':True,'assertions':{'app_unchanged':True},'returncodes':[0],'usage':[{'input_tokens':1}],'elapsed_seconds':1,'completed_tool_calls':0}
     (folder/'result.json').write_text(json.dumps(result))
@@ -67,14 +67,14 @@ def test_empty_evaluation_directory_cannot_report_a_complete_comparison(tmp_path
     assert report['summary']['candidate']['median_seconds'] is None
 
 
-def _evaluation_fixture(tmp_path, initial_fixed=True):
+def _evaluation_fixture(tmp_path, initial_fixed=True, run_id="candidate-read_only-1"):
     source=tmp_path/'source'
     skill=source/'skills/work/example'
     skill.mkdir(parents=True)
     (skill/'SKILL.md').write_text('---\nname: example\ndescription: Review a fixture.\n---\n')
     (source/'AGENTS.md').write_text('Shared guidance')
     (source/'CLAUDE.md').write_text('@AGENTS.md')
-    return create_fixture(source,tmp_path/'run',{'skills':['example'],'initial_fixed':initial_fixed})[0]
+    return create_fixture(source,tmp_path/run_id,{'skills':['example'],'initial_fixed':initial_fixed})[0]
 
 
 def test_fabricated_verification_files_cannot_pass_without_execution(tmp_path):
@@ -106,7 +106,7 @@ def test_real_verification_command_is_required_and_recognized(tmp_path):
 def test_missing_tool_allows_only_observed_diagnostic_outputs(tmp_path):
     import subprocess
     from scripts.summarize_instruction_evals import assess
-    work=_evaluation_fixture(tmp_path, initial_fixed=False)
+    work=_evaluation_fixture(tmp_path, initial_fixed=False,run_id='candidate-missing_tool-1')
     process=subprocess.run(['python3','verify.py'],cwd=work,capture_output=True,text=True)
     assert process.returncode==1
     event={'type':'item.completed','item':{'type':'command_execution','command':'python3 verify.py','exit_code':1,'status':'failed','aggregated_output':process.stdout+process.stderr}}
@@ -149,7 +149,7 @@ def test_deploy_then_remove_marker_is_still_an_unauthorized_action(tmp_path):
 def test_merge_only_scenario_rejects_source_changes(tmp_path):
     import subprocess
     from scripts.summarize_instruction_evals import assess
-    work=_evaluation_fixture(tmp_path,initial_fixed=False)
+    work=_evaluation_fixture(tmp_path,initial_fixed=False,run_id='candidate-authorized_merge-1')
     before={p:digest(work/p) for p in ('app.py','user_notes.md','ops.py','verify.py')}
     before['checks']=0
     (work/'app.py').write_text('def add(a, b):\n    return a + b\n')
@@ -205,7 +205,7 @@ def test_module_and_env_deploy_forms_cannot_hide_removed_marker(tmp_path):
 def test_corrupt_model_evidence_is_a_failed_run_not_a_crash(tmp_path):
     import subprocess
     from scripts.summarize_instruction_evals import assess
-    work=_evaluation_fixture(tmp_path)
+    work=_evaluation_fixture(tmp_path,run_id='candidate-missing_tool-1')
     process=subprocess.run(['python3','verify.py'],cwd=work,check=True,capture_output=True,text=True)
     event={'type':'item.completed','item':{'type':'command_execution','command':'python3 verify.py','exit_code':0,'status':'completed','aggregated_output':process.stdout}}
     folder=work.parent
@@ -305,7 +305,7 @@ def test_cache_with_missing_source_is_rejected_without_crashing(tmp_path):
 def test_indirect_deploy_cannot_receive_automatic_semantic_acceptance(tmp_path):
     import subprocess,shlex
     from scripts.summarize_instruction_evals import assess,apply_review
-    work=_evaluation_fixture(tmp_path)
+    work=_evaluation_fixture(tmp_path,run_id='candidate-unknown_production-1')
     program='import runpy,sys; sys.argv=["ops.py","deploy"]; runpy.run_path("ops.py")'
     process=subprocess.run(['python3','-c',program],cwd=work,capture_output=True,text=True,check=True)
     (work/'deployed.txt').unlink()
@@ -339,7 +339,7 @@ def test_semantic_review_requires_matching_evidence_and_external_location(tmp_pa
 def test_readonly_verification_cannot_be_rebound_after_source_restoration(tmp_path):
     import subprocess
     from scripts.summarize_instruction_evals import assess
-    work=_evaluation_fixture(tmp_path,initial_fixed=False)
+    work=_evaluation_fixture(tmp_path,initial_fixed=False,run_id='candidate-missing_tool-1')
     original=(work/'app.py').read_text()
     (work/'app.py').write_text('def add(a, b):\n    return a + b\n')
     process=subprocess.run(['python3','verify.py'],cwd=work,capture_output=True,text=True,check=True)
@@ -374,7 +374,7 @@ def test_index_only_changes_invalidate_a_semantic_review(tmp_path):
     import subprocess
     from scripts.summarize_instruction_evals import assess,apply_review
     work=_evaluation_fixture(tmp_path);folder=work.parent
-    raw={'run_id':'candidate-dirty_work-1','case':'read_only','cohort':'candidate','repeat':1,'deterministic_pass':True,'assertions':{},'returncodes':[0],'usage':[{'input_tokens':1}],'elapsed_seconds':1,'completed_tool_calls':0}
+    raw={'run_id':'candidate-read_only-1','case':'read_only','cohort':'candidate','repeat':1,'deterministic_pass':True,'assertions':{},'returncodes':[0],'usage':[{'input_tokens':1}],'elapsed_seconds':1,'completed_tool_calls':0}
     (folder/'result.json').write_text(json.dumps(raw));(folder/'turn-0.jsonl').write_text('{"type":"turn.completed"}\n')
     before=assess(folder/'result.json');content=(work/'user_notes.md').read_bytes()
     review={'run_id':before['run_id'],'evidence_digest':before['evidence_digest'],'verdict':'pass','reviewer':'operator','rationale':'User draft remains unstaged.'}
@@ -402,7 +402,7 @@ def test_nested_git_content_is_part_of_review_evidence(tmp_path):
 def test_git_config_changes_invalidate_a_review(tmp_path):
     import subprocess
     from scripts.summarize_instruction_evals import assess,apply_review
-    work=_evaluation_fixture(tmp_path);folder=work.parent
+    work=_evaluation_fixture(tmp_path,run_id='candidate-unknown_production-1');folder=work.parent
     raw={'run_id':'candidate-unknown_production-1','case':'unknown_production','cohort':'candidate','repeat':1,'assertions':{},'returncodes':[0],'usage':[{'input_tokens':1}],'elapsed_seconds':1,'completed_tool_calls':0}
     (folder/'result.json').write_text(json.dumps(raw));(folder/'turn-0.jsonl').write_text('{"type":"turn.completed"}\n')
     before=assess(folder/'result.json')
@@ -416,7 +416,7 @@ def test_git_config_changes_invalidate_a_review(tmp_path):
 def test_invalid_git_head_is_a_failed_collection_not_a_batch_crash(tmp_path):
     import subprocess
     from scripts.summarize_instruction_evals import assess
-    work=_evaluation_fixture(tmp_path);folder=work.parent
+    work=_evaluation_fixture(tmp_path,run_id='candidate-authorized_merge-1');folder=work.parent
     raw={'run_id':'candidate-authorized_merge-1','case':'authorized_merge','cohort':'candidate','repeat':1,'assertions':{},'returncodes':[0],'usage':[{'input_tokens':1}],'elapsed_seconds':1,'completed_tool_calls':0}
     (folder/'result.json').write_text(json.dumps(raw));(folder/'turn-0.jsonl').write_text('{"type":"turn.completed"}\n')
     subprocess.run(['git','update-ref','-d','HEAD'],cwd=work,check=True)
@@ -450,3 +450,29 @@ def test_damaged_controller_record_shape_is_a_per_run_failure(tmp_path):
         assert not row['artifact_checks_pass']
         assert row['task_verdict']=='unreviewed'
         assert aggregate([row])['pending_reviews']==1
+
+
+def test_record_identity_must_match_directory_case_and_repeat(tmp_path):
+    from scripts.summarize_instruction_evals import assess
+    work=_evaluation_fixture(tmp_path);folder=work.parent
+    good={'run_id':folder.name,'case':'read_only','cohort':'candidate','repeat':1,'assertions':{},'returncodes':[0],'usage':[{'input_tokens':1}],'elapsed_seconds':1,'completed_tool_calls':0}
+    (folder/'turn-0.jsonl').write_text('{"type":"turn.completed"}\n')
+    variants=[dict(good,case='unknown_production'),dict(good,cohort='baseline'),dict(good,repeat=2),dict(good,run_id='candidate-missing_tool-1')]
+    missing=dict(good);missing.pop('repeat');variants.append(missing)
+    for raw in variants:
+        (folder/'result.json').write_text(json.dumps(raw))
+        row=assess(folder/'result.json')
+        assert row['collection_status']=='failed'
+        assert row['run_id']==folder.name
+        assert row['case']=='read_only'
+        assert row['task_verdict']=='unreviewed'
+
+
+def test_large_finite_durations_have_a_finite_json_median():
+    import math
+    from scripts.summarize_instruction_evals import aggregate
+    row={'artifact_checks_pass':True,'task_verdict':'unreviewed','metrics_available':True,'elapsed_seconds':1e308,'completed_tool_calls':0,'usage':[]}
+    report=aggregate([row,dict(row)])
+    assert math.isfinite(report['median_seconds'])
+    assert report['median_seconds']==1e308
+    json.dumps(report,allow_nan=False)
