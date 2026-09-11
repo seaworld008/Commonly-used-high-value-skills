@@ -991,7 +991,7 @@ class SyncUpstreamTests(unittest.TestCase):
             skill for skill in loaded if skill.get("kind") == "snapshot"
         ]
 
-        self.assertEqual(149, len(loaded))
+        self.assertEqual(153, len(loaded))
         self.assertEqual(25, len(snapshots))
         self.assertTrue(
             all(skill.get("expected_skip_reason") for skill in snapshots)

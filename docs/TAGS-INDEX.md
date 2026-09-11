@@ -1,11 +1,11 @@
 # Tags Index
 
-> Auto-generated from 1094 skill-tag mappings across 487 tags.
+> Auto-generated from 1114 skill-tag mappings across 495 tags.
 > Last updated: see git log.
 
 ## Quick Navigation
 
-- [`workflow`](#workflow) (59)
+- [`workflow`](#workflow) (60)
 - [`development`](#development) (45)
 - [`agent`](#agent) (37)
 - [`ai`](#ai) (37)
@@ -24,6 +24,7 @@
 - [`marketing`](#marketing) (13)
 - [`product`](#product) (12)
 - [`productivity`](#productivity) (10)
+- [`cli`](#cli) (8)
 - [`deployment`](#deployment) (7)
 - [`designer`](#designer) (7)
 - [`api`](#api) (6)
@@ -37,13 +38,13 @@
 - [`architect`](#architect) (4)
 - [`best`](#best) (4)
 - [`builder`](#builder) (4)
-- [`cli`](#cli) (4)
 - [`cve`](#cve) (4)
 - [`deploy`](#deploy) (4)
 - [`docs`](#docs) (4)
 - [`github`](#github) (4)
 - [`knowledge`](#knowledge) (4)
 - [`kubernetes`](#kubernetes) (4)
+- [`markdown`](#markdown) (4)
 - [`media`](#media) (4)
 - [`memory`](#memory) (4)
 - [`notion`](#notion) (4)
@@ -54,6 +55,7 @@
 - [`skills`](#skills) (4)
 - [`tools`](#tools) (4)
 - [`vulnerability-scanning`](#vulnerability-scanning) (4)
+- [`yylo`](#yylo) (4)
 - [`ci`](#ci) (3)
 - [`creator`](#creator) (3)
 - [`database`](#database) (3)
@@ -61,7 +63,6 @@
 - [`generator`](#generator) (3)
 - [`git`](#git) (3)
 - [`knowledge-base`](#knowledge-base) (3)
-- [`markdown`](#markdown) (3)
 - [`meeting`](#meeting) (3)
 - [`office`](#office) (3)
 - [`postgres`](#postgres) (3)
@@ -74,10 +75,12 @@
 - [`twitter`](#twitter) (3)
 - [`vercel`](#vercel) (3)
 - [`web`](#web) (3)
+- [`wiki`](#wiki) (3)
 - [`agent-skill`](#agent-skill) (2)
 - [`analyst`](#analyst) (2)
 - [`analyzer`](#analyzer) (2)
 - [`app`](#app) (2)
+- [`artifacts`](#artifacts) (2)
 - [`auditor`](#auditor) (2)
 - [`checker`](#checker) (2)
 - [`cloudflare`](#cloudflare) (2)
@@ -125,8 +128,8 @@
 - [`threat-modeling`](#threat-modeling) (2)
 - [`tracker`](#tracker) (2)
 - [`transcript`](#transcript) (2)
+- [`validation`](#validation) (2)
 - [`verification`](#verification) (2)
-- [`wiki`](#wiki) (2)
 - [`worktree`](#worktree) (2)
 - [`x`](#x) (2)
 - [`academic`](#academic) (1)
@@ -134,6 +137,7 @@
 - [`acquisition`](#acquisition) (1)
 - [`address`](#address) (1)
 - [`agent-audit`](#agent-audit) (1)
+- [`agent-automation`](#agent-automation) (1)
 - [`agent-workflow`](#agent-workflow) (1)
 - [`agents`](#agents) (1)
 - [`agile`](#agile) (1)
@@ -150,7 +154,6 @@
 - [`architecture`](#architecture) (1)
 - [`arena`](#arena) (1)
 - [`art`](#art) (1)
-- [`artifacts`](#artifacts) (1)
 - [`arxiv`](#arxiv) (1)
 - [`attendance`](#attendance) (1)
 - [`auth`](#auth) (1)
@@ -216,6 +219,7 @@
 - [`delivery`](#delivery) (1)
 - [`demand`](#demand) (1)
 - [`demo`](#demo) (1)
+- [`dependencies`](#dependencies) (1)
 - [`dependency`](#dependency) (1)
 - [`dependency-audit`](#dependency-audit) (1)
 - [`dependency-scanning`](#dependency-scanning) (1)
@@ -239,6 +243,7 @@
 - [`evaluator`](#evaluator) (1)
 - [`event`](#event) (1)
 - [`events`](#events) (1)
+- [`evidence`](#evidence) (1)
 - [`execution`](#execution) (1)
 - [`expo`](#expo) (1)
 - [`fact`](#fact) (1)
@@ -298,6 +303,8 @@
 - [`iso27001`](#iso27001) (1)
 - [`issues`](#issues) (1)
 - [`jupyter`](#jupyter) (1)
+- [`kanban`](#kanban) (1)
+- [`knowledge-management`](#knowledge-management) (1)
 - [`landing`](#landing) (1)
 - [`latch`](#latch) (1)
 - [`lead-generation`](#lead-generation) (1)
@@ -376,6 +383,7 @@
 - [`prompt-engineering`](#prompt-engineering) (1)
 - [`promptfoo`](#promptfoo) (1)
 - [`promql`](#promql) (1)
+- [`provenance`](#provenance) (1)
 - [`pulse`](#pulse) (1)
 - [`pygount`](#pygount) (1)
 - [`python`](#python) (1)
@@ -454,6 +462,7 @@
 - [`systematic`](#systematic) (1)
 - [`tailwind`](#tailwind) (1)
 - [`taker`](#taker) (1)
+- [`task-management`](#task-management) (1)
 - [`tasks`](#tasks) (1)
 - [`teardown`](#teardown) (1)
 - [`tech`](#tech) (1)
@@ -476,7 +485,6 @@
 - [`user-modeling`](#user-modeling) (1)
 - [`using-agent-skills`](#using-agent-skills) (1)
 - [`ux`](#ux) (1)
-- [`validation`](#validation) (1)
 - [`valuation`](#valuation) (1)
 - [`vetter`](#vetter) (1)
 - [`visual-regression`](#visual-regression) (1)
@@ -497,7 +505,7 @@
 
 ## workflow
 
-**59 skills**
+**60 skills**
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
@@ -556,6 +564,7 @@
 | [billing-automation](skills/engineering-workflow-automation/billing-automation) | engineering-workflow-automation | ★★★☆☆ | Build automated billing systems for recurring payments, invoicing, subscription  |
 | [gh-fix-ci](skills/engineering-workflow-automation/gh-fix-ci) | engineering-workflow-automation | ★★★☆☆ | Inspect and fix failing GitHub Actions PR checks using gh logs and focused valid |
 | [lark-approval](skills/knowledge-and-pm-integrations/lark-approval) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书审批：查询和处理审批待办/已办/实例，搜索可发起审批定义、查看定义详情并发起原生审批实例。当用户要处理审批任务、查看审批实例、搜索或发起审批时使用。审批待办 |
+| [workflow-yylo](skills/ai-workflow/workflow-yylo) | ai-workflow | ★★☆☆☆ | Create and maintain validated YYLO Ledger workflow Records while keeping storage |
 | [agent-browser](skills/engineering-workflow-automation/agent-browser) | engineering-workflow-automation | ★★☆☆☆ | Use when an agent needs real browser automation for semantic element targeting,  |
 | [gh-address-comments](skills/engineering-workflow-automation/gh-address-comments) | engineering-workflow-automation | ★★☆☆☆ | Use when addressing GitHub PR review comments or issue comments on the current b |
 | [github](skills/engineering-workflow-automation/github) | engineering-workflow-automation | ★★☆☆☆ | Use when automating GitHub issues, pull requests, reviews, CI checks, labels, re |
@@ -1056,6 +1065,21 @@
 | [docs-cleaner](skills/operations-general/docs-cleaner) | operations-general | ★★★☆☆ | Consolidate overlapping documentation and remove repetition while preserving use |
 | [theme-factory](skills/operations-general/theme-factory) | operations-general | ★★★☆☆ | Use when styling artifacts with reusable themes, applying preset color/font syst |
 
+## cli
+
+**8 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [cli-demo-generator](skills/developer-engineering/cli-demo-generator) | developer-engineering | ★★★★★ | Create terminal recordings and animated CLI demo GIFs from command workflows or  |
+| [linkedin](skills/operations-general/linkedin) | operations-general | ★★★★★ | General-purpose LinkedIn automation – fetch profiles, search people and companie |
+| [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Use, configure, theme, extend, and orchestrate Hermes Agent. |
+| [ledger-tasks-yylo](skills/ai-workflow/ledger-tasks-yylo) | ai-workflow | ★★★★☆ | Comprehensive guide for YYLO Ledger task management: all commands (create, list, |
+| [lark-meeting](skills/knowledge-and-pm-integrations/lark-meeting) | knowledge-and-pm-integrations | ★★★★☆ | Use Lark CLI to locate meetings, manage Minutes and AI notes, inspect transcript |
+| [wiki-yylo](skills/ai-workflow/wiki-yylo) | ai-workflow | ★★★☆☆ | Use YYLO Ledger wiki Records as durable project knowledge. Search before creatin |
+| [artifact-yylo](skills/ai-workflow/artifact-yylo) | ai-workflow | ★★☆☆☆ | Capture and retrieve durable YYLO Ledger artifact Records with intentional profi |
+| [workflow-yylo](skills/ai-workflow/workflow-yylo) | ai-workflow | ★★☆☆☆ | Create and maintain validated YYLO Ledger workflow Records while keeping storage |
+
 ## deployment
 
 **7 skills**
@@ -1212,17 +1236,6 @@
 | [web-artifacts-builder](skills/developer-engineering/web-artifacts-builder) | developer-engineering | ★★★☆☆ | Build complex interactive HTML artifacts with React, Tailwind, and shadcn/ui whe |
 | [stock-screener-builder](skills/finance-investing/stock-screener-builder) | finance-investing | ★★☆☆☆ | Use when building a stock screen, filtering a universe by valuation, growth, qua |
 
-## cli
-
-**4 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [cli-demo-generator](skills/developer-engineering/cli-demo-generator) | developer-engineering | ★★★★★ | Create terminal recordings and animated CLI demo GIFs from command workflows or  |
-| [linkedin](skills/operations-general/linkedin) | operations-general | ★★★★★ | General-purpose LinkedIn automation – fetch profiles, search people and companie |
-| [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Use, configure, theme, extend, and orchestrate Hermes Agent. |
-| [lark-meeting](skills/knowledge-and-pm-integrations/lark-meeting) | knowledge-and-pm-integrations | ★★★★☆ | Use Lark CLI to locate meetings, manage Minutes and AI notes, inspect transcript |
-
 ## cve
 
 **4 skills**
@@ -1288,6 +1301,17 @@
 | [azure-kubernetes](skills/devops-sre/azure-kubernetes) | devops-sre | ★★★★☆ | Plan and configure Azure Kubernetes Service clusters, including SKU, networking, |
 | [cc-devops-skills](skills/devops-sre/cc-devops-skills) | devops-sre | ★★★★☆ | SRE, DevOps, Kubernetes, CI/CD, PromQL, Terraform, Docker, and incident operatio |
 | [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Trivy 扫描仓库、容器镜像、文件系统、rootfs、SBOM、Kubernetes、IaC、密钥、许可证和系统 CVE。 |
+
+## markdown
+
+**4 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [llm-wiki](skills/knowledge-and-pm-integrations/llm-wiki) | knowledge-and-pm-integrations | ★★★★☆ | Karpathy''s LLM Wiki: build/query interlinked markdown KB. |
+| [markdown-tools](skills/office-white-collar/markdown-tools) | office-white-collar | ★★★★☆ | Convert PDF, DOCX, PPTX, and other documents to Markdown, preserving tables, ima |
+| [wiki-yylo](skills/ai-workflow/wiki-yylo) | ai-workflow | ★★★☆☆ | Use YYLO Ledger wiki Records as durable project knowledge. Search before creatin |
+| [lark-markdown](skills/knowledge-and-pm-integrations/lark-markdown) | knowledge-and-pm-integrations | ★★★☆☆ | 操作飞书云空间中的 Markdown 文件：读取、创建、上传、局部编辑和比较。用于飞书 Markdown 资源操作；本地 Markdown 编辑无需此技能，导入 |
 
 ## media
 
@@ -1399,6 +1423,17 @@
 | [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Trivy 扫描仓库、容器镜像、文件系统、rootfs、SBOM、Kubernetes、IaC、密钥、许可证和系统 CVE。 |
 | [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Vuls 对 Linux、FreeBSD、容器、WordPress、库和网络设备执行 Agentless CVE 扫描。 |
 
+## yylo
+
+**4 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [ledger-tasks-yylo](skills/ai-workflow/ledger-tasks-yylo) | ai-workflow | ★★★★☆ | Comprehensive guide for YYLO Ledger task management: all commands (create, list, |
+| [wiki-yylo](skills/ai-workflow/wiki-yylo) | ai-workflow | ★★★☆☆ | Use YYLO Ledger wiki Records as durable project knowledge. Search before creatin |
+| [artifact-yylo](skills/ai-workflow/artifact-yylo) | ai-workflow | ★★☆☆☆ | Capture and retrieve durable YYLO Ledger artifact Records with intentional profi |
+| [workflow-yylo](skills/ai-workflow/workflow-yylo) | ai-workflow | ★★☆☆☆ | Create and maintain validated YYLO Ledger workflow Records while keeping storage |
+
 ## ci
 
 **3 skills**
@@ -1468,16 +1503,6 @@
 | [lark-wiki](skills/knowledge-and-pm-integrations/lark-wiki) | knowledge-and-pm-integrations | ★★★★☆ | 管理飞书知识空间、成员和文档节点，查询或调整节点层级。支持飞书或 doubao.com 的 /wiki/ 链接和 token；文件上传转 lark-drive， |
 | [llm-wiki](skills/knowledge-and-pm-integrations/llm-wiki) | knowledge-and-pm-integrations | ★★★★☆ | Karpathy''s LLM Wiki: build/query interlinked markdown KB. |
 | [obsidian](skills/knowledge-and-pm-integrations/obsidian) | knowledge-and-pm-integrations | ★★★☆☆ | Read, search, create, or edit notes in an authorized Obsidian vault while preser |
-
-## markdown
-
-**3 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [llm-wiki](skills/knowledge-and-pm-integrations/llm-wiki) | knowledge-and-pm-integrations | ★★★★☆ | Karpathy''s LLM Wiki: build/query interlinked markdown KB. |
-| [markdown-tools](skills/office-white-collar/markdown-tools) | office-white-collar | ★★★★☆ | Convert PDF, DOCX, PPTX, and other documents to Markdown, preserving tables, ima |
-| [lark-markdown](skills/knowledge-and-pm-integrations/lark-markdown) | knowledge-and-pm-integrations | ★★★☆☆ | 操作飞书云空间中的 Markdown 文件：读取、创建、上传、局部编辑和比较。用于飞书 Markdown 资源操作；本地 Markdown 编辑无需此技能，导入 |
 
 ## meeting
 
@@ -1599,6 +1624,16 @@
 | [web-scraper](skills/engineering-workflow-automation/web-scraper) | engineering-workflow-automation | ★★★★☆ | Use when users need webpage scraping, structured data extraction, crawling strat |
 | [web-artifacts-builder](skills/developer-engineering/web-artifacts-builder) | developer-engineering | ★★★☆☆ | Build complex interactive HTML artifacts with React, Tailwind, and shadcn/ui whe |
 
+## wiki
+
+**3 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [lark-wiki](skills/knowledge-and-pm-integrations/lark-wiki) | knowledge-and-pm-integrations | ★★★★☆ | 管理飞书知识空间、成员和文档节点，查询或调整节点层级。支持飞书或 doubao.com 的 /wiki/ 链接和 token；文件上传转 lark-drive， |
+| [llm-wiki](skills/knowledge-and-pm-integrations/llm-wiki) | knowledge-and-pm-integrations | ★★★★☆ | Karpathy''s LLM Wiki: build/query interlinked markdown KB. |
+| [wiki-yylo](skills/ai-workflow/wiki-yylo) | ai-workflow | ★★★☆☆ | Use YYLO Ledger wiki Records as durable project knowledge. Search before creatin |
+
 ## agent-skill
 
 **2 skills**
@@ -1634,6 +1669,15 @@
 |-------|----------|---------|-------------|
 | [app-store-optimization](skills/growth-operations-xiaohongshu/app-store-optimization) | growth-operations-xiaohongshu | ★★★★★ | App Store Optimization toolkit for researching keywords, optimizing metadata, an |
 | [nextjs-app-router](skills/developer-engineering/nextjs-app-router) | developer-engineering | ★★★★☆ | Master Next.js 14+ App Router with Server Components, streaming, parallel routes |
+
+## artifacts
+
+**2 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [web-artifacts-builder](skills/developer-engineering/web-artifacts-builder) | developer-engineering | ★★★☆☆ | Build complex interactive HTML artifacts with React, Tailwind, and shadcn/ui whe |
+| [artifact-yylo](skills/ai-workflow/artifact-yylo) | ai-workflow | ★★☆☆☆ | Capture and retrieve durable YYLO Ledger artifact Records with intentional profi |
 
 ## auditor
 
@@ -2058,6 +2102,15 @@
 | [lark-meeting](skills/knowledge-and-pm-integrations/lark-meeting) | knowledge-and-pm-integrations | ★★★★☆ | Use Lark CLI to locate meetings, manage Minutes and AI notes, inspect transcript |
 | [transcript-fixer](skills/office-white-collar/transcript-fixer) | office-white-collar | ★★★★☆ | Correct speech-recognition errors, homophones, and mixed Chinese/English termino |
 
+## validation
+
+**2 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [security-audit](skills/security-and-reliability/security-audit) | security-and-reliability | ★★★★☆ | Audit codebases for exploitable security vulnerabilities with concrete attack pa |
+| [workflow-yylo](skills/ai-workflow/workflow-yylo) | ai-workflow | ★★☆☆☆ | Create and maintain validated YYLO Ledger workflow Records while keeping storage |
+
 ## verification
 
 **2 skills**
@@ -2066,15 +2119,6 @@
 |-------|----------|---------|-------------|
 | [andrej-karpathy-skills](skills/ai-workflow/andrej-karpathy-skills) | ai-workflow | ★★★★☆ | Karpathy-inspired coding discipline for AI agents: think before coding, keep cha |
 | [verification-before-completion](skills/ai-workflow/verification-before-completion) | ai-workflow | ★★★★☆ | Use when about to claim work is complete, fixed, or passing, before committing o |
-
-## wiki
-
-**2 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [lark-wiki](skills/knowledge-and-pm-integrations/lark-wiki) | knowledge-and-pm-integrations | ★★★★☆ | 管理飞书知识空间、成员和文档节点，查询或调整节点层级。支持飞书或 doubao.com 的 /wiki/ 链接和 token；文件上传转 lark-drive， |
-| [llm-wiki](skills/knowledge-and-pm-integrations/llm-wiki) | knowledge-and-pm-integrations | ★★★★☆ | Karpathy''s LLM Wiki: build/query interlinked markdown KB. |
 
 ## worktree
 
@@ -2133,6 +2177,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [nlpm-audit](skills/ai-workflow/nlpm-audit) | ai-workflow | ★★★★☆ | Audit SKILL.md, AGENTS.md, prompts, hooks, and plugin manifests for instruction  |
+
+## agent-automation
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [workflow-yylo](skills/ai-workflow/workflow-yylo) | ai-workflow | ★★☆☆☆ | Create and maintain validated YYLO Ledger workflow Records while keeping storage |
 
 ## agent-workflow
 
@@ -2261,14 +2313,6 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [algorithmic-art](skills/growth-operations-xiaohongshu/algorithmic-art) | growth-operations-xiaohongshu | ★★★★★ | Create original generative art with p5.js, seeded randomness, flow fields, parti |
-
-## artifacts
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [web-artifacts-builder](skills/developer-engineering/web-artifacts-builder) | developer-engineering | ★★★☆☆ | Build complex interactive HTML artifacts with React, Tailwind, and shadcn/ui whe |
 
 ## arxiv
 
@@ -2790,6 +2834,14 @@
 |-------|----------|---------|-------------|
 | [cli-demo-generator](skills/developer-engineering/cli-demo-generator) | developer-engineering | ★★★★★ | Create terminal recordings and animated CLI demo GIFs from command workflows or  |
 
+## dependencies
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [ledger-tasks-yylo](skills/ai-workflow/ledger-tasks-yylo) | ai-workflow | ★★★★☆ | Comprehensive guide for YYLO Ledger task management: all commands (create, list, |
+
 ## dependency
 
 **1 skills**
@@ -2973,6 +3025,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [lark-event](skills/knowledge-and-pm-integrations/lark-event) | knowledge-and-pm-integrations | ★★★★☆ | Consume Lark/Feishu events as NDJSON with lark-cli for messaging, approvals, tas |
+
+## evidence
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [artifact-yylo](skills/ai-workflow/artifact-yylo) | ai-workflow | ★★☆☆☆ | Capture and retrieve durable YYLO Ledger artifact Records with intentional profi |
 
 ## execution
 
@@ -3445,6 +3505,22 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [jupyter-notebook](skills/engineering-workflow-automation/jupyter-notebook) | engineering-workflow-automation | ★★★★☆ | Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) |
+
+## kanban
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [ledger-tasks-yylo](skills/ai-workflow/ledger-tasks-yylo) | ai-workflow | ★★★★☆ | Comprehensive guide for YYLO Ledger task management: all commands (create, list, |
+
+## knowledge-management
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [wiki-yylo](skills/ai-workflow/wiki-yylo) | ai-workflow | ★★★☆☆ | Use YYLO Ledger wiki Records as durable project knowledge. Search before creatin |
 
 ## landing
 
@@ -4070,6 +4146,14 @@
 |-------|----------|---------|-------------|
 | [cc-devops-skills](skills/devops-sre/cc-devops-skills) | devops-sre | ★★★★☆ | SRE, DevOps, Kubernetes, CI/CD, PromQL, Terraform, Docker, and incident operatio |
 
+## provenance
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [artifact-yylo](skills/ai-workflow/artifact-yylo) | ai-workflow | ★★☆☆☆ | Capture and retrieve durable YYLO Ledger artifact Records with intentional profi |
+
 ## pulse
 
 **1 skills**
@@ -4694,6 +4778,14 @@
 |-------|----------|---------|-------------|
 | [meeting-minutes-taker](skills/office-white-collar/meeting-minutes-taker) | office-white-collar | ★★★★★ | Turn meeting transcripts into accurate minutes with decisions, actions, owners,  |
 
+## task-management
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [ledger-tasks-yylo](skills/ai-workflow/ledger-tasks-yylo) | ai-workflow | ★★★★☆ | Comprehensive guide for YYLO Ledger task management: all commands (create, list, |
+
 ## tasks
 
 **1 skills**
@@ -4869,14 +4961,6 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [ui-ux-pro-max](skills/product-design/ui-ux-pro-max) | product-design | ★★★★☆ | Front-end UI/UX design intelligence for creating, reviewing, and hardening polis |
-
-## validation
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [security-audit](skills/security-and-reliability/security-audit) | security-and-reliability | ★★★★☆ | Audit codebases for exploitable security vulnerabilities with concrete attack pa |
 
 ## valuation
 

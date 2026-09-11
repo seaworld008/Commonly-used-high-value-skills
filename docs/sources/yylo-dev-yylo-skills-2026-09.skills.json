@@ -1,0 +1,410 @@
+{
+  "schema_version": 2,
+  "video": {
+    "url": "https://github.com/yylo-dev/yylo-skills",
+    "checked_at": "2026-09-11",
+    "note": "Curated from yylo-dev/yylo-skills (YYLO agent-workflow skills for YYLO CLI / YYLO Ledger) with exact-path upstream tracking enabled."
+  },
+  "official_references": [
+    {
+      "name": "YYLO Skills repository",
+      "url": "https://github.com/yylo-dev/yylo-skills",
+      "purpose": "Canonical upstream repository for the yylo skills."
+    },
+    {
+      "name": "YYLO Skills MIT license",
+      "url": "https://github.com/yylo-dev/yylo-skills/blob/506edfd8d3fab524df2fdbc0bc739af876c95aa1/LICENSE",
+      "purpose": "MIT license and copyright notice verified at the imported commit."
+    },
+    {
+      "name": "ledger-tasks-yylo upstream skill",
+      "url": "https://github.com/yylo-dev/yylo-skills/tree/506edfd8d3fab524df2fdbc0bc739af876c95aa1/skills/ledger-tasks-yylo",
+      "purpose": "Exact source directory for the imported ledger-tasks-yylo skill."
+    },
+    {
+      "name": "workflow-yylo upstream skill",
+      "url": "https://github.com/yylo-dev/yylo-skills/tree/506edfd8d3fab524df2fdbc0bc739af876c95aa1/skills/workflow-yylo",
+      "purpose": "Exact source directory for the imported workflow-yylo skill."
+    },
+    {
+      "name": "wiki-yylo upstream skill",
+      "url": "https://github.com/yylo-dev/yylo-skills/tree/506edfd8d3fab524df2fdbc0bc739af876c95aa1/skills/wiki-yylo",
+      "purpose": "Exact source directory for the imported wiki-yylo skill."
+    },
+    {
+      "name": "artifact-yylo upstream skill",
+      "url": "https://github.com/yylo-dev/yylo-skills/tree/506edfd8d3fab524df2fdbc0bc739af876c95aa1/skills/artifact-yylo",
+      "purpose": "Exact source directory for the imported artifact-yylo skill."
+    }
+  ],
+  "skills": [
+    {
+      "video_name": "ledger-tasks-yylo",
+      "normalized_slug": "ledger-tasks-yylo",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/ai-workflow/ledger-tasks-yylo/SKILL.md",
+      "source": "https://github.com/yylo-dev/yylo-skills/tree/506edfd8d3fab524df2fdbc0bc739af876c95aa1/skills/ledger-tasks-yylo",
+      "notes": "Imported under MIT at the recorded commit; frontmatter adapted to the house schema (zh_description, tags, quality, provenance fields, description within the 240-char budget) and at most one heading normalized to the house section contract; prose and code blocks verbatim from upstream.",
+      "upstream": {
+        "repo": "yylo-dev/yylo-skills",
+        "path": "skills/ledger-tasks-yylo/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-09-11",
+        "last_synced_at": "2026-09-11",
+        "last_synced_commit": "506edfd8d3fab524df2fdbc0bc739af876c95aa1",
+        "sync_mode": "monitor",
+        "path_commit": "506edfd8d3fab524df2fdbc0bc739af876c95aa1"
+      },
+      "kind": "overlay",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "yylo-dev/yylo-skills",
+          "path": "skills/ledger-tasks-yylo/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/ledger-tasks-yylo/SKILL.md",
+              "target": "skills/ai-workflow/ledger-tasks-yylo/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "506edfd8d3fab524df2fdbc0bc739af876c95aa1",
+            "path_commit": "506edfd8d3fab524df2fdbc0bc739af876c95aa1",
+            "content_sha256": "3f421a3a929d3c77dba610e2baae83569a918dc616a661531083b16d8176c4b4",
+            "blob_sha": "4b774de02a83aed9cf5b5f06defa253f7e83501c",
+            "last_checked_at": "2026-09-11",
+            "last_synced_at": "2026-09-11",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "c7cd735642b26f589cd949914afaa3a7abd2c360",
+              "content_sha256": "95f3d09ccad6480516255cb5927ad1c96f66fba7746fbece09e8bd476b0252be",
+              "spdx": "MIT",
+              "resolved_commit": "506edfd8d3fab524df2fdbc0bc739af876c95aa1",
+              "api_spdx": "MIT"
+            }
+          }
+        },
+        {
+          "repo": "local-repo/curation",
+          "path": "skills/ai-workflow/ledger-tasks-yylo",
+          "license": null,
+          "sync_mode": "local-only",
+          "artifacts": [
+            {
+              "source": "skills/ai-workflow/ledger-tasks-yylo/LICENSE",
+              "target": "skills/ai-workflow/ledger-tasks-yylo/LICENSE",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "local",
+            "ref": "local",
+            "resolved_commit": null,
+            "path_commit": null,
+            "content_sha256": null,
+            "last_checked_at": "2026-09-11",
+            "last_synced_at": "2026-09-11"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/ledger-tasks-yylo/LICENSE",
+          "sha256": "95f3d09ccad6480516255cb5927ad1c96f66fba7746fbece09e8bd476b0252be",
+          "owner": "ledger-tasks-yylo",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/ledger-tasks-yylo/SKILL.md",
+          "sha256": "3f421a3a929d3c77dba610e2baae83569a918dc616a661531083b16d8176c4b4",
+          "owner": "ledger-tasks-yylo",
+          "mode": "100644"
+        }
+      ]
+    },
+    {
+      "video_name": "workflow-yylo",
+      "normalized_slug": "workflow-yylo",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/ai-workflow/workflow-yylo/SKILL.md",
+      "source": "https://github.com/yylo-dev/yylo-skills/tree/506edfd8d3fab524df2fdbc0bc739af876c95aa1/skills/workflow-yylo",
+      "notes": "Imported under MIT at the recorded commit; frontmatter adapted to the house schema (zh_description, tags, quality, provenance fields, description within the 240-char budget) and at most one heading normalized to the house section contract; prose and code blocks verbatim from upstream.",
+      "upstream": {
+        "repo": "yylo-dev/yylo-skills",
+        "path": "skills/workflow-yylo/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-09-11",
+        "last_synced_at": "2026-09-11",
+        "last_synced_commit": "506edfd8d3fab524df2fdbc0bc739af876c95aa1",
+        "sync_mode": "monitor",
+        "path_commit": "506edfd8d3fab524df2fdbc0bc739af876c95aa1"
+      },
+      "kind": "overlay",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "yylo-dev/yylo-skills",
+          "path": "skills/workflow-yylo/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/workflow-yylo/SKILL.md",
+              "target": "skills/ai-workflow/workflow-yylo/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "506edfd8d3fab524df2fdbc0bc739af876c95aa1",
+            "path_commit": "506edfd8d3fab524df2fdbc0bc739af876c95aa1",
+            "content_sha256": "b22e35ddb544814c7c97321504b32ca1cbd74f66233e60c5fa166a6b172495b6",
+            "blob_sha": "a37c284816dee329cefa87396aab1e739e859022",
+            "last_checked_at": "2026-09-11",
+            "last_synced_at": "2026-09-11",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "c7cd735642b26f589cd949914afaa3a7abd2c360",
+              "content_sha256": "95f3d09ccad6480516255cb5927ad1c96f66fba7746fbece09e8bd476b0252be",
+              "spdx": "MIT",
+              "resolved_commit": "506edfd8d3fab524df2fdbc0bc739af876c95aa1",
+              "api_spdx": "MIT"
+            }
+          }
+        },
+        {
+          "repo": "local-repo/curation",
+          "path": "skills/ai-workflow/workflow-yylo",
+          "license": null,
+          "sync_mode": "local-only",
+          "artifacts": [
+            {
+              "source": "skills/ai-workflow/workflow-yylo/LICENSE",
+              "target": "skills/ai-workflow/workflow-yylo/LICENSE",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "local",
+            "ref": "local",
+            "resolved_commit": null,
+            "path_commit": null,
+            "content_sha256": null,
+            "last_checked_at": "2026-09-11",
+            "last_synced_at": "2026-09-11"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/workflow-yylo/LICENSE",
+          "sha256": "95f3d09ccad6480516255cb5927ad1c96f66fba7746fbece09e8bd476b0252be",
+          "owner": "workflow-yylo",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/workflow-yylo/SKILL.md",
+          "sha256": "b22e35ddb544814c7c97321504b32ca1cbd74f66233e60c5fa166a6b172495b6",
+          "owner": "workflow-yylo",
+          "mode": "100644"
+        }
+      ]
+    },
+    {
+      "video_name": "wiki-yylo",
+      "normalized_slug": "wiki-yylo",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/ai-workflow/wiki-yylo/SKILL.md",
+      "source": "https://github.com/yylo-dev/yylo-skills/tree/506edfd8d3fab524df2fdbc0bc739af876c95aa1/skills/wiki-yylo",
+      "notes": "Imported under MIT at the recorded commit; frontmatter adapted to the house schema (zh_description, tags, quality, provenance fields, description within the 240-char budget) and at most one heading normalized to the house section contract; prose and code blocks verbatim from upstream.",
+      "upstream": {
+        "repo": "yylo-dev/yylo-skills",
+        "path": "skills/wiki-yylo/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-09-11",
+        "last_synced_at": "2026-09-11",
+        "last_synced_commit": "506edfd8d3fab524df2fdbc0bc739af876c95aa1",
+        "sync_mode": "monitor",
+        "path_commit": "506edfd8d3fab524df2fdbc0bc739af876c95aa1"
+      },
+      "kind": "overlay",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "yylo-dev/yylo-skills",
+          "path": "skills/wiki-yylo/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/wiki-yylo/SKILL.md",
+              "target": "skills/ai-workflow/wiki-yylo/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "506edfd8d3fab524df2fdbc0bc739af876c95aa1",
+            "path_commit": "506edfd8d3fab524df2fdbc0bc739af876c95aa1",
+            "content_sha256": "98bb179862b5ef6b1cf9145318713f519dab5b81fc1c5718bffda7eea852c591",
+            "blob_sha": "290d2e9e3a80e67975dbe3c3063e5e23e8d14cfe",
+            "last_checked_at": "2026-09-11",
+            "last_synced_at": "2026-09-11",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "c7cd735642b26f589cd949914afaa3a7abd2c360",
+              "content_sha256": "95f3d09ccad6480516255cb5927ad1c96f66fba7746fbece09e8bd476b0252be",
+              "spdx": "MIT",
+              "resolved_commit": "506edfd8d3fab524df2fdbc0bc739af876c95aa1",
+              "api_spdx": "MIT"
+            }
+          }
+        },
+        {
+          "repo": "local-repo/curation",
+          "path": "skills/ai-workflow/wiki-yylo",
+          "license": null,
+          "sync_mode": "local-only",
+          "artifacts": [
+            {
+              "source": "skills/ai-workflow/wiki-yylo/LICENSE",
+              "target": "skills/ai-workflow/wiki-yylo/LICENSE",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "local",
+            "ref": "local",
+            "resolved_commit": null,
+            "path_commit": null,
+            "content_sha256": null,
+            "last_checked_at": "2026-09-11",
+            "last_synced_at": "2026-09-11"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/wiki-yylo/LICENSE",
+          "sha256": "95f3d09ccad6480516255cb5927ad1c96f66fba7746fbece09e8bd476b0252be",
+          "owner": "wiki-yylo",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/wiki-yylo/SKILL.md",
+          "sha256": "98bb179862b5ef6b1cf9145318713f519dab5b81fc1c5718bffda7eea852c591",
+          "owner": "wiki-yylo",
+          "mode": "100644"
+        }
+      ]
+    },
+    {
+      "video_name": "artifact-yylo",
+      "normalized_slug": "artifact-yylo",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/ai-workflow/artifact-yylo/SKILL.md",
+      "source": "https://github.com/yylo-dev/yylo-skills/tree/506edfd8d3fab524df2fdbc0bc739af876c95aa1/skills/artifact-yylo",
+      "notes": "Imported under MIT at the recorded commit; frontmatter adapted to the house schema (zh_description, tags, quality, provenance fields, description within the 240-char budget) and at most one heading normalized to the house section contract; prose and code blocks verbatim from upstream.",
+      "upstream": {
+        "repo": "yylo-dev/yylo-skills",
+        "path": "skills/artifact-yylo/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-09-11",
+        "last_synced_at": "2026-09-11",
+        "last_synced_commit": "506edfd8d3fab524df2fdbc0bc739af876c95aa1",
+        "sync_mode": "monitor",
+        "path_commit": "506edfd8d3fab524df2fdbc0bc739af876c95aa1"
+      },
+      "kind": "overlay",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "yylo-dev/yylo-skills",
+          "path": "skills/artifact-yylo/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/artifact-yylo/SKILL.md",
+              "target": "skills/ai-workflow/artifact-yylo/SKILL.md"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "506edfd8d3fab524df2fdbc0bc739af876c95aa1",
+            "path_commit": "506edfd8d3fab524df2fdbc0bc739af876c95aa1",
+            "content_sha256": "614f9f5e84486b5a80475cd4acbeb18782a64482ced5df1c1dc22bd5ba1f80e4",
+            "blob_sha": "903722967c29874234f79255def3d1b4b323e55c",
+            "last_checked_at": "2026-09-11",
+            "last_synced_at": "2026-09-11",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "c7cd735642b26f589cd949914afaa3a7abd2c360",
+              "content_sha256": "95f3d09ccad6480516255cb5927ad1c96f66fba7746fbece09e8bd476b0252be",
+              "spdx": "MIT",
+              "resolved_commit": "506edfd8d3fab524df2fdbc0bc739af876c95aa1",
+              "api_spdx": "MIT"
+            }
+          }
+        },
+        {
+          "repo": "local-repo/curation",
+          "path": "skills/ai-workflow/artifact-yylo",
+          "license": null,
+          "sync_mode": "local-only",
+          "artifacts": [
+            {
+              "source": "skills/ai-workflow/artifact-yylo/LICENSE",
+              "target": "skills/ai-workflow/artifact-yylo/LICENSE",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "local",
+            "ref": "local",
+            "resolved_commit": null,
+            "path_commit": null,
+            "content_sha256": null,
+            "last_checked_at": "2026-09-11",
+            "last_synced_at": "2026-09-11"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/ai-workflow/artifact-yylo/LICENSE",
+          "sha256": "95f3d09ccad6480516255cb5927ad1c96f66fba7746fbece09e8bd476b0252be",
+          "owner": "artifact-yylo",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/artifact-yylo/SKILL.md",
+          "sha256": "614f9f5e84486b5a80475cd4acbeb18782a64482ced5df1c1dc22bd5ba1f80e4",
+          "owner": "artifact-yylo",
+          "mode": "100644"
+        }
+      ]
+    }
+  ],
+  "verification_attempts": [
+    {
+      "date": "2026-09-11",
+      "method": "github-api-license-commit-and-path-check",
+      "target": "repos/yylo-dev/yylo-skills",
+      "result": "success",
+      "evidence": "GitHub API resolved 506edfd8d3fab524df2fdbc0bc739af876c95aa1 on main, reported MIT via the repo license endpoint, and confirmed skills/ledger-tasks-yylo/SKILL.md, skills/workflow-yylo/SKILL.md, skills/wiki-yylo/SKILL.md, skills/artifact-yylo/SKILL.md plus the root LICENSE."
+    },
+    {
+      "date": "2026-09-11",
+      "method": "repository-quality-review",
+      "target": "skills/ai-workflow/*-yylo/SKILL.md",
+      "result": "success",
+      "evidence": "Verified complete house frontmatter (incl. zh_description), exact pinned source URLs, local MIT notices per skill, category placement, and honest quality tiers against the line floors."
+    }
+  ]
+}

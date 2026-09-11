@@ -4,7 +4,7 @@
 
 聚焦 AI 编程 Agent 的规格、计划、实现、测试、审查、发布与持续同步工作流。
 
-当前分类共 **47** 个技能。
+当前分类共 **51** 个技能。
 
 ## 推荐先看
 
@@ -20,6 +20,7 @@
 | `agent-workflow-designer` | 设计多智能体协作流程、任务交接、状态管理和故障恢复。 | [目录](./agent-workflow-designer/) | [SKILL.md](./agent-workflow-designer/SKILL.md) |
 | `andrej-karpathy-skills` | 用于应用 Andrej Karpathy 风格的 AI 学习、构建和研究实践。 | [目录](./andrej-karpathy-skills/) | [SKILL.md](./andrej-karpathy-skills/SKILL.md) |
 | `api-and-interface-design` | 设计稳定的 API、模块接口和类型契约。 | [目录](./api-and-interface-design/) | [SKILL.md](./api-and-interface-design/SKILL.md) |
+| `artifact-yylo` | 捕获与检索 YYLO Ledger 工件记录：按用途选择档案与载荷模式，附加来源与保留策略，沉淀不可变、防泄密的运行证据。 | [目录](./artifact-yylo/) | [SKILL.md](./artifact-yylo/SKILL.md) |
 | `brainstorming` | 用于在实现前澄清创意型产品或工程需求，探索目标、约束、方案与取舍。 | [目录](./brainstorming/) | [SKILL.md](./brainstorming/SKILL.md) |
 | `browser-testing-with-devtools` | 用于通过浏览器 DevTools 测试、调试和验证前端行为。 | [目录](./browser-testing-with-devtools/) | [SKILL.md](./browser-testing-with-devtools/SKILL.md) |
 | `ci-cd-and-automation` | 建立和优化持续集成、质量检查与部署自动化。 | [目录](./ci-cd-and-automation/) | [SKILL.md](./ci-cd-and-automation/SKILL.md) |
@@ -40,6 +41,7 @@
 | `idea-refine` | 澄清初步想法，比较方案并检验关键假设。 | [目录](./idea-refine/) | [SKILL.md](./idea-refine/SKILL.md) |
 | `incremental-implementation` | 将功能拆成可验证的小步改动并逐步完成实现。 | [目录](./incremental-implementation/) | [SKILL.md](./incremental-implementation/SKILL.md) |
 | `interview-me` | 通过逐问访谈澄清真实需求、目标用户与成功标准，避免在含糊请求上过早实施。 | [目录](./interview-me/) | [SKILL.md](./interview-me/SKILL.md) |
+| `ledger-tasks-yylo` | YYLO Ledger 看板任务管理完整参考：创建、检索、状态流转、依赖与排序、冷归档与多目录合并，以及控制器路由与环境变量。 | [目录](./ledger-tasks-yylo/) | [SKILL.md](./ledger-tasks-yylo/SKILL.md) |
 | `nexus` | 多智能体任务分解、链路编排、执行协调和结果整合。 | [目录](./nexus/) | [SKILL.md](./nexus/SKILL.md) |
 | `nlpm-audit` | 审计 SKILL.md、AGENTS.md、CLAUDE.md、插件清单、hooks、commands 和提示词，检查安装一致性、质量评分、安全风险与版本漂移。 | [目录](./nlpm-audit/) | [SKILL.md](./nlpm-audit/SKILL.md) |
 | `observability-and-instrumentation` | 为生产代码设计日志、指标、追踪和告警，使行为可观测、问题可诊断。 | [目录](./observability-and-instrumentation/) | [SKILL.md](./observability-and-instrumentation/SKILL.md) |
@@ -62,6 +64,8 @@
 | `using-git-worktrees` | 用于使用 Git worktree 隔离并行开发和审查工作。 | [目录](./using-git-worktrees/) | [SKILL.md](./using-git-worktrees/SKILL.md) |
 | `using-superpowers` | 用于使用 Superpowers 工作流提升计划、执行和验证质量。 | [目录](./using-superpowers/) | [SKILL.md](./using-superpowers/SKILL.md) |
 | `verification-before-completion` | 在宣告完成前核对当前代码的验证证据与适用范围。 | [目录](./verification-before-completion/) | [SKILL.md](./verification-before-completion/SKILL.md) |
+| `wiki-yylo` | 把 YYLO Ledger wiki 记录当作持久项目知识：先检索后创建、按记录类型正确分类，并通过修订安全契约更新 Markdown。 | [目录](./wiki-yylo/) | [SKILL.md](./wiki-yylo/SKILL.md) |
+| `workflow-yylo` | 以 YYLO Ledger 工作流记录为中心：安全创建、校验与修订可执行工作流定义，并保持存储、执行与运行证据三类边界分离。 | [目录](./workflow-yylo/) | [SKILL.md](./workflow-yylo/SKILL.md) |
 | `writing-plans` | 编写包含任务依赖、修改范围和验收方法的实现计划。 | [目录](./writing-plans/) | [SKILL.md](./writing-plans/SKILL.md) |
 | `writing-skills` | 编写可复用的技能指导并验证实际触发和执行行为。 | [目录](./writing-skills/) | [SKILL.md](./writing-skills/SKILL.md) |
 
