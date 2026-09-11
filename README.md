@@ -5,10 +5,10 @@
 [![简体中文](https://img.shields.io/badge/README-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1677ff)](./README.md)
 [![English](https://img.shields.io/badge/README-English-111111)](./README.en.md)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b894)](./openclaw-skills/README.md)
-[![Skills](https://img.shields.io/badge/Skills-284-7c3aed)](./skills/)
+[![Skills](https://img.shields.io/badge/Skills-288-7c3aed)](./skills/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
-面向全球 AI 开发者与 Agent 工作流构建者的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理等高频任务场景。当前共 **16 个分类 / 284 个技能**。
+面向全球 AI 开发者与 Agent 工作流构建者的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理等高频任务场景。当前共 **16 个分类 / 288 个技能**。
 
 ## 为什么值得收藏
 
@@ -386,7 +386,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 2. 打开对应技能的 `SKILL.md` 查看触发条件、操作流程和脚本说明。
 3. 若技能下含 `scripts/`、`references/`、`assets/`，优先复用现成内容。
 
-## 技能总览（按分类，16 类 / 284 技能）
+## 技能总览（按分类，16 类 / 288 技能）
 
 <a id="cat-developer-engineering"></a>
 ### 1. 开发工程（developer-engineering，47）
@@ -440,11 +440,12 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `webapp-testing`：用于使用 Playwright 测试本地 Web 应用、验证前端行为、截图和查看浏览器日志。
 
 <a id="cat-ai-workflow"></a>
-### 2. AI 工作流（ai-workflow，47）
+### 2. AI 工作流（ai-workflow，51）
 
 - `agent-workflow-designer`：设计多智能体协作流程、任务交接、状态管理和故障恢复。
 - `andrej-karpathy-skills`：用于应用 Andrej Karpathy 风格的 AI 学习、构建和研究实践。
 - `api-and-interface-design`：设计稳定的 API、模块接口和类型契约。
+- `artifact-yylo`：捕获与检索 YYLO Ledger 工件记录：按用途选择档案与载荷模式，附加来源与保留策略，沉淀不可变、防泄密的运行证据。
 - `brainstorming`：用于在实现前澄清创意型产品或工程需求，探索目标、约束、方案与取舍。
 - `browser-testing-with-devtools`：用于通过浏览器 DevTools 测试、调试和验证前端行为。
 - `ci-cd-and-automation`：建立和优化持续集成、质量检查与部署自动化。
@@ -465,6 +466,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `idea-refine`：澄清初步想法，比较方案并检验关键假设。
 - `incremental-implementation`：将功能拆成可验证的小步改动并逐步完成实现。
 - `interview-me`：通过逐问访谈澄清真实需求、目标用户与成功标准，避免在含糊请求上过早实施。
+- `ledger-tasks-yylo`：YYLO Ledger 看板任务管理完整参考：创建、检索、状态流转、依赖与排序、冷归档与多目录合并，以及控制器路由与环境变量。
 - `nexus`：多智能体任务分解、链路编排、执行协调和结果整合。
 - `nlpm-audit`：审计 SKILL.md、AGENTS.md、CLAUDE.md、插件清单、hooks、commands 和提示词，检查安装一致性、质量评分、安全风险与版本漂移。
 - `observability-and-instrumentation`：为生产代码设计日志、指标、追踪和告警，使行为可观测、问题可诊断。
@@ -487,6 +489,8 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `using-git-worktrees`：用于使用 Git worktree 隔离并行开发和审查工作。
 - `using-superpowers`：用于使用 Superpowers 工作流提升计划、执行和验证质量。
 - `verification-before-completion`：在宣告完成前核对当前代码的验证证据与适用范围。
+- `wiki-yylo`：把 YYLO Ledger wiki 记录当作持久项目知识：先检索后创建、按记录类型正确分类，并通过修订安全契约更新 Markdown。
+- `workflow-yylo`：以 YYLO Ledger 工作流记录为中心：安全创建、校验与修订可执行工作流定义，并保持存储、执行与运行证据三类边界分离。
 - `writing-plans`：编写包含任务依赖、修改范围和验收方法的实现计划。
 - `writing-skills`：编写可复用的技能指导并验证实际触发和执行行为。
 

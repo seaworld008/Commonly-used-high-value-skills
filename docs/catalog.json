@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
   "generated_at": "2026-06-08",
-  "total_skills": 284,
+  "total_skills": 288,
   "total_categories": 16,
   "categories": [
     {
       "name": "ai-workflow",
-      "count": 47
+      "count": 51
     },
     {
       "name": "developer-engineering",
@@ -432,6 +432,28 @@
       "updated_at": "2026-09-07",
       "line_count": 379,
       "path": "skills/ai-workflow/api-and-interface-design/SKILL.md"
+    },
+    {
+      "name": "artifact-yylo",
+      "category": "ai-workflow",
+      "description": "Capture and retrieve durable YYLO Ledger artifact Records with intentional profiles, payload modes, provenance, retention, and secret-safe immutable evidence.",
+      "version": "2.0.0",
+      "author": "yylo-dev",
+      "source": "github:yylo-dev/yylo-skills",
+      "source_url": "https://github.com/yylo-dev/yylo-skills/tree/506edfd8d3fab524df2fdbc0bc739af876c95aa1/skills/artifact-yylo",
+      "tags": [
+        "yylo",
+        "artifacts",
+        "evidence",
+        "provenance",
+        "cli"
+      ],
+      "quality": 2,
+      "complexity": "intermediate",
+      "created_at": "2026-09-11",
+      "updated_at": "2026-09-11",
+      "line_count": 83,
+      "path": "skills/ai-workflow/artifact-yylo/SKILL.md"
     },
     {
       "name": "brainstorming",
@@ -862,6 +884,28 @@
       "updated_at": "2026-09-07",
       "line_count": 237,
       "path": "skills/ai-workflow/interview-me/SKILL.md"
+    },
+    {
+      "name": "ledger-tasks-yylo",
+      "category": "ai-workflow",
+      "description": "Comprehensive guide for YYLO Ledger task management: all commands (create, list, search, get, mark, update, archive, deps, ready, order, merge), dependency management, best practices, and workflow patterns.",
+      "version": "2.0.0",
+      "author": "yylo-dev",
+      "source": "github:yylo-dev/yylo-skills",
+      "source_url": "https://github.com/yylo-dev/yylo-skills/tree/506edfd8d3fab524df2fdbc0bc739af876c95aa1/skills/ledger-tasks-yylo",
+      "tags": [
+        "yylo",
+        "kanban",
+        "task-management",
+        "dependencies",
+        "cli"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-09-11",
+      "updated_at": "2026-09-11",
+      "line_count": 191,
+      "path": "skills/ai-workflow/ledger-tasks-yylo/SKILL.md"
     },
     {
       "name": "nexus",
@@ -1328,6 +1372,50 @@
       "updated_at": "2026-09-06",
       "line_count": 131,
       "path": "skills/ai-workflow/verification-before-completion/SKILL.md"
+    },
+    {
+      "name": "wiki-yylo",
+      "category": "ai-workflow",
+      "description": "Use YYLO Ledger wiki Records as durable project knowledge. Search before creating, classify information correctly, and make revision-safe Markdown updates without editing Ledger storage directly.",
+      "version": "2.0.0",
+      "author": "yylo-dev",
+      "source": "github:yylo-dev/yylo-skills",
+      "source_url": "https://github.com/yylo-dev/yylo-skills/tree/506edfd8d3fab524df2fdbc0bc739af876c95aa1/skills/wiki-yylo",
+      "tags": [
+        "yylo",
+        "wiki",
+        "knowledge-management",
+        "markdown",
+        "cli"
+      ],
+      "quality": 3,
+      "complexity": "intermediate",
+      "created_at": "2026-09-11",
+      "updated_at": "2026-09-11",
+      "line_count": 90,
+      "path": "skills/ai-workflow/wiki-yylo/SKILL.md"
+    },
+    {
+      "name": "workflow-yylo",
+      "category": "ai-workflow",
+      "description": "Create and maintain validated YYLO Ledger workflow Records while keeping storage, execution, and run evidence as separate explicit boundaries.",
+      "version": "2.0.0",
+      "author": "yylo-dev",
+      "source": "github:yylo-dev/yylo-skills",
+      "source_url": "https://github.com/yylo-dev/yylo-skills/tree/506edfd8d3fab524df2fdbc0bc739af876c95aa1/skills/workflow-yylo",
+      "tags": [
+        "yylo",
+        "workflow",
+        "validation",
+        "agent-automation",
+        "cli"
+      ],
+      "quality": 2,
+      "complexity": "intermediate",
+      "created_at": "2026-09-11",
+      "updated_at": "2026-09-11",
+      "line_count": 84,
+      "path": "skills/ai-workflow/workflow-yylo/SKILL.md"
     },
     {
       "name": "writing-plans",
