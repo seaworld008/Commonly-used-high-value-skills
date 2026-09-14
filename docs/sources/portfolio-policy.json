@@ -177,6 +177,22 @@
       "name": "lark-vc-agent",
       "replacement": "lark-meeting",
       "reason": "The official unified Lark meeting skill now covers authorized bot join, leave, and in-meeting interaction."
+    },
+    {
+      "name": "ledger-tasks-yylo",
+      "reason": "Retired as a low-adoption provider-specific YYLO skill at maintainer request; do not reintroduce without a renewed portfolio decision."
+    },
+    {
+      "name": "workflow-yylo",
+      "reason": "Retired as a low-adoption provider-specific YYLO skill at maintainer request; do not reintroduce without a renewed portfolio decision."
+    },
+    {
+      "name": "wiki-yylo",
+      "reason": "Retired as a low-adoption provider-specific YYLO skill at maintainer request; do not reintroduce without a renewed portfolio decision."
+    },
+    {
+      "name": "artifact-yylo",
+      "reason": "Retired as a low-adoption provider-specific YYLO skill at maintainer request; do not reintroduce without a renewed portfolio decision."
     }
   ],
   "canonical_groups": [
