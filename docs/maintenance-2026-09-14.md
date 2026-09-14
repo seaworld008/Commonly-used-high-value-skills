@@ -32,3 +32,7 @@
 - `validate_repository.py --refresh`：最终通过；质量 287 PASS / 0 WARN / 0 FAIL，完整 pytest 603 passed，来源覆盖 284/284，许可证 155 external OK、0 missing/disallowed，README/冲突/源映射检查通过。
 - OpenClaw 视频映射、Python 编译、Node installer syntax/help/targets、`npm pack --dry-run`、repo health evaluation、`git diff --check` 与生成器幂等检查通过。
 - 这些是静态、来源、仓库和 CI 类证据；不代表生产运行、在线迁移、数据库性能、模型成功率或真实设备验收。
+
+## 后续组合调整
+
+- 维护者随后决定移除低采用度的 YYLO 专用技能集合：`ledger-tasks-yylo`、`workflow-yylo`、`wiki-yylo`、`artifact-yylo`。已删除 canonical 正文、OpenClaw 导出与 provenance 映射，并将四个名称加入永久退休墓碑；其余组合保持不变。
