@@ -2,7 +2,7 @@
   "schema_version": 2,
   "video": {
     "url": "https://github.com/seaworld008/Commonly-used-high-value-skills",
-    "checked_at": "2026-09-06",
+    "checked_at": "2026-09-14",
     "note": "External canonical skills reclassified from the legacy in-house provenance mapping."
   },
   "collection": {
@@ -262,6 +262,20 @@
       "target": "wshobson/agents@a30778f8c4e6b0a87567941b7cca4f534bf642b6",
       "result": "success",
       "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-09-14",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "microsoft/azure-skills@9d46511c1828eee052d6d0ef4652dcd548565e27",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-09-14",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "wshobson/agents@4236bb91f8395b0435f1d8b8baf9e8e4c69a8620",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
     }
   ],
   "skills": [
@@ -424,9 +438,9 @@
         "repo": "microsoft/azure-skills",
         "path": "skills/azure-kubernetes/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-06",
-        "last_synced_at": "2026-09-06",
-        "last_synced_commit": "49e1542b04d296052f31ac62abe68562d4cc1204",
+        "last_checked_at": "2026-09-14",
+        "last_synced_at": "2026-09-14",
+        "last_synced_commit": "9d46511c1828eee052d6d0ef4652dcd548565e27",
         "sync_mode": "monitor",
         "path_commit": "3b087be2faf4ff65bedf693986c3446f97645e7f"
       },
@@ -708,17 +722,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "49e1542b04d296052f31ac62abe68562d4cc1204",
+            "resolved_commit": "9d46511c1828eee052d6d0ef4652dcd548565e27",
             "path_commit": "3b087be2faf4ff65bedf693986c3446f97645e7f",
             "content_sha256": "766915a730a1e5e592d05218fec5c69f3e7afa9dc9bcb091ccb1634640eaeaa6",
-            "last_checked_at": "2026-09-06",
-            "last_synced_at": "2026-09-06",
+            "last_checked_at": "2026-09-14",
+            "last_synced_at": "2026-09-14",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "356b112bcc4f07e03b6e57569eedf9d79978d2d5",
               "content_sha256": "8a5d8efb70942e65032f930c761d097feeb41a7517ebd04c9d2e4ec3764071c5",
               "spdx": "MIT",
-              "resolved_commit": "49e1542b04d296052f31ac62abe68562d4cc1204",
+              "resolved_commit": "9d46511c1828eee052d6d0ef4652dcd548565e27",
               "api_spdx": "MIT"
             }
           }
@@ -1411,9 +1425,9 @@
         "repo": "wshobson/agents",
         "path": "plugins/frontend-mobile-development/skills/nextjs-app-router-patterns/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-06",
-        "last_synced_at": "2026-09-06",
-        "last_synced_commit": "a30778f8c4e6b0a87567941b7cca4f534bf642b6",
+        "last_checked_at": "2026-09-14",
+        "last_synced_at": "2026-09-14",
+        "last_synced_commit": "4236bb91f8395b0435f1d8b8baf9e8e4c69a8620",
         "sync_mode": "monitor",
         "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f"
       },
@@ -1440,17 +1454,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "a30778f8c4e6b0a87567941b7cca4f534bf642b6",
+            "resolved_commit": "4236bb91f8395b0435f1d8b8baf9e8e4c69a8620",
             "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f",
             "content_sha256": "75ea8d7f86c3b80fc096eed53ea5decb4b29e4f1e2cbb61177d15069e7fd2b7e",
-            "last_checked_at": "2026-09-06",
-            "last_synced_at": "2026-09-06",
+            "last_checked_at": "2026-09-14",
+            "last_synced_at": "2026-09-14",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "326f0a55c96e672fedf9d807ca043c00df05ba0e",
               "content_sha256": "f89abb55d9f073f38f1703e4518f0613c788c6174be7f13b8dfe48a1c076c746",
               "spdx": "MIT",
-              "resolved_commit": "a30778f8c4e6b0a87567941b7cca4f534bf642b6",
+              "resolved_commit": "4236bb91f8395b0435f1d8b8baf9e8e4c69a8620",
               "api_spdx": "MIT"
             }
           }
@@ -1482,9 +1496,9 @@
         "repo": "wshobson/agents",
         "path": "plugins/python-development/skills/python-performance-optimization/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-06",
-        "last_synced_at": "2026-09-06",
-        "last_synced_commit": "a30778f8c4e6b0a87567941b7cca4f534bf642b6",
+        "last_checked_at": "2026-09-14",
+        "last_synced_at": "2026-09-14",
+        "last_synced_commit": "4236bb91f8395b0435f1d8b8baf9e8e4c69a8620",
         "sync_mode": "monitor",
         "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f"
       },
@@ -1516,17 +1530,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "a30778f8c4e6b0a87567941b7cca4f534bf642b6",
+            "resolved_commit": "4236bb91f8395b0435f1d8b8baf9e8e4c69a8620",
             "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f",
             "content_sha256": "f7747318fa39498c0f2d72295acf0055f86528a1b46c056832e2a0044aee4a3d",
-            "last_checked_at": "2026-09-06",
-            "last_synced_at": "2026-09-06",
+            "last_checked_at": "2026-09-14",
+            "last_synced_at": "2026-09-14",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "326f0a55c96e672fedf9d807ca043c00df05ba0e",
               "content_sha256": "f89abb55d9f073f38f1703e4518f0613c788c6174be7f13b8dfe48a1c076c746",
               "spdx": "MIT",
-              "resolved_commit": "a30778f8c4e6b0a87567941b7cca4f534bf642b6",
+              "resolved_commit": "4236bb91f8395b0435f1d8b8baf9e8e4c69a8620",
               "api_spdx": "MIT"
             }
           }
@@ -2239,9 +2253,9 @@
         "repo": "wshobson/agents",
         "path": "plugins/frontend-mobile-development/skills/tailwind-design-system/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-06",
-        "last_synced_at": "2026-09-06",
-        "last_synced_commit": "a30778f8c4e6b0a87567941b7cca4f534bf642b6",
+        "last_checked_at": "2026-09-14",
+        "last_synced_at": "2026-09-14",
+        "last_synced_commit": "4236bb91f8395b0435f1d8b8baf9e8e4c69a8620",
         "sync_mode": "monitor",
         "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f"
       },
@@ -2273,17 +2287,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "a30778f8c4e6b0a87567941b7cca4f534bf642b6",
+            "resolved_commit": "4236bb91f8395b0435f1d8b8baf9e8e4c69a8620",
             "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f",
             "content_sha256": "af6eb5191a0d791a3d20ea177836290d2bbdb2cacf7f8cd08d9701eac4d96dff",
-            "last_checked_at": "2026-09-06",
-            "last_synced_at": "2026-09-06",
+            "last_checked_at": "2026-09-14",
+            "last_synced_at": "2026-09-14",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "326f0a55c96e672fedf9d807ca043c00df05ba0e",
               "content_sha256": "f89abb55d9f073f38f1703e4518f0613c788c6174be7f13b8dfe48a1c076c746",
               "spdx": "MIT",
-              "resolved_commit": "a30778f8c4e6b0a87567941b7cca4f534bf642b6",
+              "resolved_commit": "4236bb91f8395b0435f1d8b8baf9e8e4c69a8620",
               "api_spdx": "MIT"
             }
           }

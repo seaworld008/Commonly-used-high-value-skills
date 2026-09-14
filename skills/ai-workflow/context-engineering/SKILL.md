@@ -2,14 +2,14 @@
 name: context-engineering
 description: Diagnose missing or overloaded agent context and configure project instructions when setup or context quality is the task.
 zh_description: "用于设计上下文工程策略、提示输入结构和长任务信息流。"
-version: "1.0.2"
+version: "1.0.3"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/context-engineering/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "context-engineering", "engineering", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-09-07"
+updated_at: "2026-09-14"
 quality: 5
 complexity: advanced
 upstream_slug: context-engineering
@@ -129,6 +129,18 @@ Long conversations accumulate stale context. Manage this:
 - **Start fresh sessions** when switching between major features
 - **Summarize progress** when context is getting long: "So far we've completed X, Y, Z. Now working on W."
 - **Compact deliberately** — if the tool supports it, compact/summarize before critical work
+
+### Restartable Session Boundaries
+
+A fresh session is safe at a completed task boundary, not at an arbitrary token
+count. Before leaving the current session, persist the accepted scope and
+decisions, current task status and next task, files changed and working-tree
+state, exact verification commands and outcomes, and unresolved risks or
+approvals. Commit only when the user or repository workflow authorizes it;
+otherwise leave the working tree intact and record that the changes are
+uncommitted. In the fresh session, read the rules, plan, task status, and actual
+`git status` before acting. Re-run verification when the recorded baseline is
+missing, the code has moved, or the next task depends on it.
 
 ## Context Packing Strategies
 

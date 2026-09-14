@@ -2,7 +2,7 @@
   "schema_version": 2,
   "video": {
     "url": "https://github.com/addyosmani/agent-skills",
-    "checked_at": "2026-09-06",
+    "checked_at": "2026-09-14",
     "note": "Curated full import of addyosmani/agent-skills; refresh with scripts/sync_addyosmani_agent_skills.py."
   },
   "official_references": [
@@ -29,9 +29,9 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/api-and-interface-design/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-06",
-        "last_synced_at": "2026-09-06",
-        "last_synced_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+        "last_checked_at": "2026-09-14",
+        "last_synced_at": "2026-09-14",
+        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
         "sync_mode": "monitor",
         "path_commit": "ce89b03cbd768d4c9f512beedae46c20822a6bf6"
       },
@@ -52,17 +52,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
             "path_commit": "ce89b03cbd768d4c9f512beedae46c20822a6bf6",
             "content_sha256": "bb2571c39d1e9c0c112e9812d54ae093e97daa4d20908b88180298ef65cd212b",
-            "last_checked_at": "2026-09-06",
-            "last_synced_at": "2026-09-06",
+            "last_checked_at": "2026-09-14",
+            "last_synced_at": "2026-09-14",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
               "api_spdx": "MIT"
             }
           }
@@ -183,9 +183,9 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/browser-testing-with-devtools/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-06",
-        "last_synced_at": "2026-09-06",
-        "last_synced_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+        "last_checked_at": "2026-09-14",
+        "last_synced_at": "2026-09-14",
+        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
         "sync_mode": "monitor",
         "path_commit": "e8c9b4632d9e4ab8ca4ea514dae03e25683e8186"
       },
@@ -206,17 +206,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
             "path_commit": "e8c9b4632d9e4ab8ca4ea514dae03e25683e8186",
             "content_sha256": "b688f7919193c15c67b34bbebf47806cddc5a46f2136256deb233b620a51fc03",
-            "last_checked_at": "2026-09-06",
-            "last_synced_at": "2026-09-06",
+            "last_checked_at": "2026-09-14",
+            "last_synced_at": "2026-09-14",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
               "api_spdx": "MIT"
             }
           }
@@ -337,9 +337,9 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/ci-cd-and-automation/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-06",
-        "last_synced_at": "2026-09-06",
-        "last_synced_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+        "last_checked_at": "2026-09-14",
+        "last_synced_at": "2026-09-14",
+        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
         "sync_mode": "monitor",
         "path_commit": "fea75b16472ba87e8c11f13a9e000c3ffdb2d1f5"
       },
@@ -360,17 +360,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
             "path_commit": "fea75b16472ba87e8c11f13a9e000c3ffdb2d1f5",
             "content_sha256": "eeca38e6488863e5b91015a2ad6681aa355411da5070b4b1af7b2511e84719d3",
-            "last_checked_at": "2026-09-06",
-            "last_synced_at": "2026-09-06",
+            "last_checked_at": "2026-09-14",
+            "last_synced_at": "2026-09-14",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
               "api_spdx": "MIT"
             }
           }
@@ -491,9 +491,9 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/code-review-and-quality/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-06",
-        "last_synced_at": "2026-09-06",
-        "last_synced_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+        "last_checked_at": "2026-09-14",
+        "last_synced_at": "2026-09-14",
+        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
         "sync_mode": "monitor",
         "path_commit": "91d4d07522de9577caf5d213e5bf1acc38fa3df2"
       },
@@ -514,17 +514,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
             "path_commit": "91d4d07522de9577caf5d213e5bf1acc38fa3df2",
             "content_sha256": "75e9a227b45afa9d05f28c868a18b4be3a88d81251cb32d064830d01303f4163",
-            "last_checked_at": "2026-09-06",
-            "last_synced_at": "2026-09-06",
+            "last_checked_at": "2026-09-14",
+            "last_synced_at": "2026-09-14",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
               "api_spdx": "MIT"
             }
           }
@@ -645,9 +645,9 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/code-simplification/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-06",
-        "last_synced_at": "2026-09-06",
-        "last_synced_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+        "last_checked_at": "2026-09-14",
+        "last_synced_at": "2026-09-14",
+        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
         "sync_mode": "monitor",
         "path_commit": "fea75b16472ba87e8c11f13a9e000c3ffdb2d1f5"
       },
@@ -668,17 +668,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
             "path_commit": "fea75b16472ba87e8c11f13a9e000c3ffdb2d1f5",
             "content_sha256": "3c2b55fbc8611c99ea74368b017fe74881ba39a9285dd1bd48388a3e52b78687",
-            "last_checked_at": "2026-09-06",
-            "last_synced_at": "2026-09-06",
+            "last_checked_at": "2026-09-14",
+            "last_synced_at": "2026-09-14",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
               "api_spdx": "MIT"
             }
           }
@@ -799,11 +799,11 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/context-engineering/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-06",
-        "last_synced_at": "2026-09-06",
-        "last_synced_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+        "last_checked_at": "2026-09-14",
+        "last_synced_at": "2026-09-14",
+        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
         "sync_mode": "monitor",
-        "path_commit": "cc48b6997eb3d76c1b403826b020299a2eae179f"
+        "path_commit": "226bdd3aef2a74f43782c01583d91bcea92915ed"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -822,17 +822,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
-            "path_commit": "cc48b6997eb3d76c1b403826b020299a2eae179f",
-            "content_sha256": "73764d5ac55e42e79729dcb336ec13dd9ffab0fe91628e8348f565d8a5ebb19b",
-            "last_checked_at": "2026-09-06",
-            "last_synced_at": "2026-09-06",
+            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+            "path_commit": "226bdd3aef2a74f43782c01583d91bcea92915ed",
+            "content_sha256": "51bc7a3e2aa7c879e79f916d8d827220787b06d964225f9b8e8c6ceac8b2f2ce",
+            "last_checked_at": "2026-09-14",
+            "last_synced_at": "2026-09-14",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
               "api_spdx": "MIT"
             }
           }
@@ -893,7 +893,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/context-engineering/SKILL.md",
-          "sha256": "73764d5ac55e42e79729dcb336ec13dd9ffab0fe91628e8348f565d8a5ebb19b",
+          "sha256": "51bc7a3e2aa7c879e79f916d8d827220787b06d964225f9b8e8c6ceac8b2f2ce",
           "owner": "context-engineering",
           "mode": "100644"
         },
@@ -953,11 +953,11 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/debugging-and-error-recovery/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-06",
-        "last_synced_at": "2026-09-06",
-        "last_synced_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+        "last_checked_at": "2026-09-14",
+        "last_synced_at": "2026-09-14",
+        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
         "sync_mode": "monitor",
-        "path_commit": "45ccfb6f3dcb0116e91f8a0d5a8338840c1b404f"
+        "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -976,17 +976,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
-            "path_commit": "45ccfb6f3dcb0116e91f8a0d5a8338840c1b404f",
+            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+            "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1",
             "content_sha256": "ecdcf52c801e0c124381ec71d2b0e9b7cbbde0ac9dcef40bc4862fbfdeafa2bb",
-            "last_checked_at": "2026-09-06",
-            "last_synced_at": "2026-09-06",
+            "last_checked_at": "2026-09-14",
+            "last_synced_at": "2026-09-14",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
               "api_spdx": "MIT"
             }
           }
@@ -1107,9 +1107,9 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/deprecation-and-migration/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-06",
-        "last_synced_at": "2026-09-06",
-        "last_synced_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+        "last_checked_at": "2026-09-14",
+        "last_synced_at": "2026-09-14",
+        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
         "sync_mode": "monitor",
         "path_commit": "1483fc12473e5297408a069b661778aa76fbd1cf"
       },
@@ -1130,17 +1130,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
             "path_commit": "1483fc12473e5297408a069b661778aa76fbd1cf",
             "content_sha256": "47f36a0b6b7800e4d2e6ac8e53e36d9b809559644307de2250101a10209f8550",
-            "last_checked_at": "2026-09-06",
-            "last_synced_at": "2026-09-06",
+            "last_checked_at": "2026-09-14",
+            "last_synced_at": "2026-09-14",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
               "api_spdx": "MIT"
             }
           }
@@ -1261,11 +1261,11 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/documentation-and-adrs/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-06",
-        "last_synced_at": "2026-09-06",
-        "last_synced_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+        "last_checked_at": "2026-09-14",
+        "last_synced_at": "2026-09-14",
+        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
         "sync_mode": "monitor",
-        "path_commit": "a0eba71b5544c47c922cc55127bccec8b0f1e6ab"
+        "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -1284,17 +1284,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
-            "path_commit": "a0eba71b5544c47c922cc55127bccec8b0f1e6ab",
+            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+            "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1",
             "content_sha256": "c745e9037c7486f6d931070ab3576ccf90dd089c6e772a60942e60152c1a7bba",
-            "last_checked_at": "2026-09-06",
-            "last_synced_at": "2026-09-06",
+            "last_checked_at": "2026-09-14",
+            "last_synced_at": "2026-09-14",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
               "api_spdx": "MIT"
             }
           }
@@ -1415,11 +1415,11 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/doubt-driven-development/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-06",
-        "last_synced_at": "2026-09-06",
-        "last_synced_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+        "last_checked_at": "2026-09-14",
+        "last_synced_at": "2026-09-14",
+        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
         "sync_mode": "monitor",
-        "path_commit": "91d4d07522de9577caf5d213e5bf1acc38fa3df2"
+        "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -1438,17 +1438,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
-            "path_commit": "91d4d07522de9577caf5d213e5bf1acc38fa3df2",
+            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+            "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1",
             "content_sha256": "97f4d4aecfc9c41e4dd4130a32238553ea889d7f5e7f492dd7647c7e2ee36098",
-            "last_checked_at": "2026-09-06",
-            "last_synced_at": "2026-09-06",
+            "last_checked_at": "2026-09-14",
+            "last_synced_at": "2026-09-14",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
               "api_spdx": "MIT"
             }
           }
@@ -1569,9 +1569,9 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/frontend-ui-engineering/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-06",
-        "last_synced_at": "2026-09-06",
-        "last_synced_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+        "last_checked_at": "2026-09-14",
+        "last_synced_at": "2026-09-14",
+        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
         "sync_mode": "monitor",
         "path_commit": "91d4d07522de9577caf5d213e5bf1acc38fa3df2"
       },
@@ -1592,17 +1592,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
             "path_commit": "91d4d07522de9577caf5d213e5bf1acc38fa3df2",
             "content_sha256": "cbb98b612e203f183cfaed31a9eec5c368ba49f8ee3cfa3fe3a8c27acbe7d706",
-            "last_checked_at": "2026-09-06",
-            "last_synced_at": "2026-09-06",
+            "last_checked_at": "2026-09-14",
+            "last_synced_at": "2026-09-14",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
               "api_spdx": "MIT"
             }
           }
@@ -1723,11 +1723,11 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/git-workflow-and-versioning/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-06",
-        "last_synced_at": "2026-09-06",
-        "last_synced_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+        "last_checked_at": "2026-09-14",
+        "last_synced_at": "2026-09-14",
+        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
         "sync_mode": "monitor",
-        "path_commit": "b61213f5340b6671208d56c1db7be6c4fcbd98ac"
+        "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -1746,17 +1746,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
-            "path_commit": "b61213f5340b6671208d56c1db7be6c4fcbd98ac",
+            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+            "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1",
             "content_sha256": "43b28183211d9478e7c9c65f3615526f5d3d7904e8f9549694ca11437f8e28f2",
-            "last_checked_at": "2026-09-06",
-            "last_synced_at": "2026-09-06",
+            "last_checked_at": "2026-09-14",
+            "last_synced_at": "2026-09-14",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
               "api_spdx": "MIT"
             }
           }
@@ -1877,9 +1877,9 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/idea-refine/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-06",
-        "last_synced_at": "2026-09-06",
-        "last_synced_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+        "last_checked_at": "2026-09-14",
+        "last_synced_at": "2026-09-14",
+        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
         "sync_mode": "monitor",
         "path_commit": "5aacc3bce933539dc85fa7c78a1807aa396f4801"
       },
@@ -1920,17 +1920,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
             "path_commit": "5aacc3bce933539dc85fa7c78a1807aa396f4801",
             "content_sha256": "fac3e0b84f45bb37c1de1fb3ec4713717d55d7a0098a41e25f7e14054f0de717",
-            "last_checked_at": "2026-09-06",
-            "last_synced_at": "2026-09-06",
+            "last_checked_at": "2026-09-14",
+            "last_synced_at": "2026-09-14",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
               "api_spdx": "MIT"
             }
           }
@@ -2075,11 +2075,11 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/incremental-implementation/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-06",
-        "last_synced_at": "2026-09-06",
-        "last_synced_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+        "last_checked_at": "2026-09-14",
+        "last_synced_at": "2026-09-14",
+        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
         "sync_mode": "monitor",
-        "path_commit": "91d4d07522de9577caf5d213e5bf1acc38fa3df2"
+        "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -2098,17 +2098,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
-            "path_commit": "91d4d07522de9577caf5d213e5bf1acc38fa3df2",
+            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+            "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1",
             "content_sha256": "a70d0b5d98ee5eb02b88576f14cf6c52459ed7f16aeb8415deeae2d492a7159f",
-            "last_checked_at": "2026-09-06",
-            "last_synced_at": "2026-09-06",
+            "last_checked_at": "2026-09-14",
+            "last_synced_at": "2026-09-14",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
               "api_spdx": "MIT"
             }
           }
@@ -2229,9 +2229,9 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/interview-me/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-06",
-        "last_synced_at": "2026-09-06",
-        "last_synced_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+        "last_checked_at": "2026-09-14",
+        "last_synced_at": "2026-09-14",
+        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
         "sync_mode": "monitor",
         "path_commit": "c4ad44928cd535fcfee1972988f97309d4cebf9f"
       },
@@ -2252,17 +2252,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
             "path_commit": "c4ad44928cd535fcfee1972988f97309d4cebf9f",
             "content_sha256": "52d00041ea64a1ab6ba1edbf2eea12dc5dcaa75ef5e1a19f8b20a882aa623ea0",
-            "last_checked_at": "2026-09-06",
-            "last_synced_at": "2026-09-06",
+            "last_checked_at": "2026-09-14",
+            "last_synced_at": "2026-09-14",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
               "api_spdx": "MIT"
             }
           }
@@ -2383,11 +2383,11 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/observability-and-instrumentation/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-06",
-        "last_synced_at": "2026-09-06",
-        "last_synced_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+        "last_checked_at": "2026-09-14",
+        "last_synced_at": "2026-09-14",
+        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
         "sync_mode": "monitor",
-        "path_commit": "6a9f2eb2d6f318e89faaff03a23ed84d8862c8e0"
+        "path_commit": "fe6f08112b3b4bc180c53807d00c3623a7b505e1"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -2406,17 +2406,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
-            "path_commit": "6a9f2eb2d6f318e89faaff03a23ed84d8862c8e0",
-            "content_sha256": "c5e23550d3453bb0f36ebd3a8ed452bf0d82d74a62e0a2150f06cb9ba307b948",
-            "last_checked_at": "2026-09-06",
-            "last_synced_at": "2026-09-06",
+            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+            "path_commit": "fe6f08112b3b4bc180c53807d00c3623a7b505e1",
+            "content_sha256": "61c2fd2e87461b190d7d30c2645ed418cb91e39a2c25d549c36d12a330c68c04",
+            "last_checked_at": "2026-09-14",
+            "last_synced_at": "2026-09-14",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
               "api_spdx": "MIT"
             }
           }
@@ -2477,7 +2477,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/observability-and-instrumentation/SKILL.md",
-          "sha256": "c5e23550d3453bb0f36ebd3a8ed452bf0d82d74a62e0a2150f06cb9ba307b948",
+          "sha256": "61c2fd2e87461b190d7d30c2645ed418cb91e39a2c25d549c36d12a330c68c04",
           "owner": "observability-and-instrumentation",
           "mode": "100644"
         },
@@ -2537,9 +2537,9 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/performance-optimization/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-06",
-        "last_synced_at": "2026-09-06",
-        "last_synced_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+        "last_checked_at": "2026-09-14",
+        "last_synced_at": "2026-09-14",
+        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
         "sync_mode": "monitor",
         "path_commit": "6a268d7710c15708598e4b0a6942275a359760ee"
       },
@@ -2560,17 +2560,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
             "path_commit": "6a268d7710c15708598e4b0a6942275a359760ee",
             "content_sha256": "70a05f74dbf6b9c097c3cc217c4343e722c02103233132e0cc4eaa6f356a9c50",
-            "last_checked_at": "2026-09-06",
-            "last_synced_at": "2026-09-06",
+            "last_checked_at": "2026-09-14",
+            "last_synced_at": "2026-09-14",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
               "api_spdx": "MIT"
             }
           }
@@ -2691,9 +2691,9 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/planning-and-task-breakdown/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-06",
-        "last_synced_at": "2026-09-06",
-        "last_synced_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+        "last_checked_at": "2026-09-14",
+        "last_synced_at": "2026-09-14",
+        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
         "sync_mode": "monitor",
         "path_commit": "8300e1bbe77a9f1610a0e9da624593c3d5dea020"
       },
@@ -2714,17 +2714,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
             "path_commit": "8300e1bbe77a9f1610a0e9da624593c3d5dea020",
             "content_sha256": "952eadd5fa68da0954e2361972a297a1f8221c0f646da1c889cdb1fe923b3e54",
-            "last_checked_at": "2026-09-06",
-            "last_synced_at": "2026-09-06",
+            "last_checked_at": "2026-09-14",
+            "last_synced_at": "2026-09-14",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
               "api_spdx": "MIT"
             }
           }
@@ -2845,11 +2845,11 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/security-and-hardening/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-06",
-        "last_synced_at": "2026-09-06",
-        "last_synced_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+        "last_checked_at": "2026-09-14",
+        "last_synced_at": "2026-09-14",
+        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
         "sync_mode": "monitor",
-        "path_commit": "45fd4a043983fec456bf7eea6562147e8e9cd2b4"
+        "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -2868,17 +2868,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
-            "path_commit": "45fd4a043983fec456bf7eea6562147e8e9cd2b4",
+            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+            "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1",
             "content_sha256": "bfe7c42f8e218960069c16434a493ae567795b3f43ad2b6db7321f8de7ebde00",
-            "last_checked_at": "2026-09-06",
-            "last_synced_at": "2026-09-06",
+            "last_checked_at": "2026-09-14",
+            "last_synced_at": "2026-09-14",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
               "api_spdx": "MIT"
             }
           }
@@ -3010,11 +3010,11 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/shipping-and-launch/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-06",
-        "last_synced_at": "2026-09-06",
-        "last_synced_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+        "last_checked_at": "2026-09-14",
+        "last_synced_at": "2026-09-14",
+        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
         "sync_mode": "monitor",
-        "path_commit": "cca4df5c573b0038fc1ca2ef5185552b507e18ad"
+        "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -3033,17 +3033,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
-            "path_commit": "cca4df5c573b0038fc1ca2ef5185552b507e18ad",
+            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+            "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1",
             "content_sha256": "ebbd01f67745b163792469fdd7f81d38418ded6c90578548a4fa6f166bb555f5",
-            "last_checked_at": "2026-09-06",
-            "last_synced_at": "2026-09-06",
+            "last_checked_at": "2026-09-14",
+            "last_synced_at": "2026-09-14",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
               "api_spdx": "MIT"
             }
           }
@@ -3164,11 +3164,11 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/source-driven-development/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-06",
-        "last_synced_at": "2026-09-06",
-        "last_synced_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+        "last_checked_at": "2026-09-14",
+        "last_synced_at": "2026-09-14",
+        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
         "sync_mode": "monitor",
-        "path_commit": "6681f80a1141b07377272649d9a3b2b041551d00"
+        "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -3187,17 +3187,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
-            "path_commit": "6681f80a1141b07377272649d9a3b2b041551d00",
+            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+            "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1",
             "content_sha256": "f9ed0a8a41c38cbb1728306c6e42ac769e24b7e747d60394491da95ba002ffa2",
-            "last_checked_at": "2026-09-06",
-            "last_synced_at": "2026-09-06",
+            "last_checked_at": "2026-09-14",
+            "last_synced_at": "2026-09-14",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
               "api_spdx": "MIT"
             }
           }
@@ -3318,11 +3318,11 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/spec-driven-development/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-06",
-        "last_synced_at": "2026-09-06",
-        "last_synced_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+        "last_checked_at": "2026-09-14",
+        "last_synced_at": "2026-09-14",
+        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
         "sync_mode": "monitor",
-        "path_commit": "966e4e585191ae0bd879be959ce1eddcdd9d0e1a"
+        "path_commit": "bc97fd46fdb294dc3518d0e94edb989a38894f31"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -3341,17 +3341,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
-            "path_commit": "966e4e585191ae0bd879be959ce1eddcdd9d0e1a",
-            "content_sha256": "3e3e0f5ee8b01fc44e0bf9f96d30b1a84d2b7de5cacc0ee81d259916a2f6739d",
-            "last_checked_at": "2026-09-06",
-            "last_synced_at": "2026-09-06",
+            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+            "path_commit": "bc97fd46fdb294dc3518d0e94edb989a38894f31",
+            "content_sha256": "eb982cc12edc5b55e96595c85f25470197c69f9670fac69cc232a4c1fcd51caa",
+            "last_checked_at": "2026-09-14",
+            "last_synced_at": "2026-09-14",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
               "api_spdx": "MIT"
             }
           }
@@ -3412,7 +3412,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/spec-driven-development/SKILL.md",
-          "sha256": "3e3e0f5ee8b01fc44e0bf9f96d30b1a84d2b7de5cacc0ee81d259916a2f6739d",
+          "sha256": "eb982cc12edc5b55e96595c85f25470197c69f9670fac69cc232a4c1fcd51caa",
           "owner": "spec-driven-development",
           "mode": "100644"
         },
@@ -3472,11 +3472,11 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/test-driven-development/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-06",
-        "last_synced_at": "2026-09-06",
-        "last_synced_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+        "last_checked_at": "2026-09-14",
+        "last_synced_at": "2026-09-14",
+        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
         "sync_mode": "monitor",
-        "path_commit": "91d4d07522de9577caf5d213e5bf1acc38fa3df2"
+        "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -3495,17 +3495,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
-            "path_commit": "91d4d07522de9577caf5d213e5bf1acc38fa3df2",
+            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+            "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1",
             "content_sha256": "e7108d48e12e401b78234a6130c0aac860bbb22a7add1528953d76583c738472",
-            "last_checked_at": "2026-09-06",
-            "last_synced_at": "2026-09-06",
+            "last_checked_at": "2026-09-14",
+            "last_synced_at": "2026-09-14",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
               "api_spdx": "MIT"
             }
           }
@@ -3626,11 +3626,11 @@
         "repo": "addyosmani/agent-skills",
         "path": "skills/using-agent-skills/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-06",
-        "last_synced_at": "2026-09-06",
-        "last_synced_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+        "last_checked_at": "2026-09-14",
+        "last_synced_at": "2026-09-14",
+        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
         "sync_mode": "monitor",
-        "path_commit": "2ce8d47a16017beb969f84db14f09270c45ab4e9"
+        "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -3649,17 +3649,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
-            "path_commit": "2ce8d47a16017beb969f84db14f09270c45ab4e9",
+            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+            "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1",
             "content_sha256": "e901a07ab7b208f20dc5c1602e75cbe0ed50494191c95008e4982d1da26839a1",
-            "last_checked_at": "2026-09-06",
-            "last_synced_at": "2026-09-06",
+            "last_checked_at": "2026-09-14",
+            "last_synced_at": "2026-09-14",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
               "api_spdx": "MIT"
             }
           }
@@ -4276,6 +4276,13 @@
       "date": "2026-09-06",
       "method": "commit-aware-manual-monitor-review",
       "target": "addyosmani/agent-skills@48cb1168aeaaa70dfc2bbf709eddfa2a8ed8129a",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-09-14",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "addyosmani/agent-skills@be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
       "result": "success",
       "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
     }
