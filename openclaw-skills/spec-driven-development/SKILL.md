@@ -2,14 +2,14 @@
 name: spec-driven-development
 description: 'Specify new features or substantial behavior changes when goals, boundaries, and acceptance criteria need agreement before implementation.'
 zh_description: "把需求转成明确的功能边界、契约和验收标准。"
-version: "1.0.3"
+version: "1.0.4"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/spec-driven-development/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "spec-driven-development", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-09-07"
+updated_at: "2026-09-14"
 quality: 5
 complexity: advanced
 upstream_slug: spec-driven-development
@@ -214,6 +214,14 @@ Break the plan into discrete, implementable tasks:
 Execute tasks one at a time following `skills/incremental-implementation/SKILL.md` (`incremental-implementation`) and `skills/test-driven-development/SKILL.md` (`test-driven-development`). Use `skills/context-engineering/SKILL.md` (`context-engineering`) to load the right spec sections and source files at each step rather than flooding the agent with the entire spec.
 
 ## Keeping the Spec Alive
+
+### External Specification Tools
+
+This workflow is format-agnostic. If a project already uses OpenSpec or
+another specification system, keep that system's artifact format and storage
+conventions instead of creating a duplicate `SPEC.md`. This skill owns
+clarification, content, and approval gates; the external tool owns how the
+approved specification is represented.
 
 The spec is a living document, not a one-time artifact:
 

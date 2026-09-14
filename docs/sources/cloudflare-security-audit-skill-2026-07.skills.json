@@ -2,7 +2,7 @@
   "schema_version": 2,
   "video": {
     "url": "https://github.com/cloudflare/security-audit-skill",
-    "checked_at": "2026-08-31",
+    "checked_at": "2026-09-14",
     "note": "Cloudflare security audit skill imported with companion methodology files under MIT."
   },
   "official_references": [
@@ -34,11 +34,11 @@
         "repo": "cloudflare/security-audit-skill",
         "path": "skills/security-audit/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-31",
-        "last_synced_at": "2026-08-31",
-        "last_synced_commit": "8bac42001ddd90a4dcd8d5a5045199283a8eba75",
+        "last_checked_at": "2026-09-14",
+        "last_synced_at": "2026-09-14",
+        "last_synced_commit": "d24bc269171a9171fac58493e0ffba511d571a4a",
         "sync_mode": "monitor",
-        "path_commit": "c1239b903704f5ea063b6dc0de3ba905f4cca3e4"
+        "path_commit": "158eb448038e65f05bc5f2ba36c7e981e6890cea"
       },
       "kind": "mirror",
       "sync_mode": "monitor",
@@ -107,17 +107,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "8bac42001ddd90a4dcd8d5a5045199283a8eba75",
-            "path_commit": "c1239b903704f5ea063b6dc0de3ba905f4cca3e4",
+            "resolved_commit": "d24bc269171a9171fac58493e0ffba511d571a4a",
+            "path_commit": "158eb448038e65f05bc5f2ba36c7e981e6890cea",
             "content_sha256": "cb2de6a10682370de177575a9f34081175fd5f44a70223fb1456bd9ab8c4650c",
-            "last_checked_at": "2026-08-31",
-            "last_synced_at": "2026-08-31",
+            "last_checked_at": "2026-09-14",
+            "last_synced_at": "2026-09-14",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "6dbc9ecb3a5b9080e95b962869e8c7ab16cfdc20",
               "content_sha256": "e598e694aa506650c7192d5ea3be0e50aca0d356ea00551c53429f0b01eb6391",
               "spdx": "MIT",
-              "resolved_commit": "8bac42001ddd90a4dcd8d5a5045199283a8eba75",
+              "resolved_commit": "d24bc269171a9171fac58493e0ffba511d571a4a",
               "api_spdx": "MIT"
             }
           }
@@ -212,6 +212,13 @@
       "date": "2026-08-31",
       "method": "commit-aware-manual-monitor-review",
       "target": "cloudflare/security-audit-skill@8bac42001ddd90a4dcd8d5a5045199283a8eba75",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-09-14",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "cloudflare/security-audit-skill@d24bc269171a9171fac58493e0ffba511d571a4a",
       "result": "success",
       "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
     }
