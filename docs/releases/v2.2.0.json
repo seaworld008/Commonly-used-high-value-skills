@@ -1,0 +1,23 @@
+{
+  "tag": "v2.2.0",
+  "package_version": "2.2.0",
+  "title": "ADHD-Friendly Output Skill v2.2.0",
+  "prerelease": false,
+  "generate_notes": false,
+  "changelog_range": "v2.1.1..v2.2.0",
+  "highlights": [
+    "Add the MIT-licensed i-have-adhd skill with cross-agent metadata",
+    "Register immutable upstream provenance and generated OpenClaw views",
+    "Recognize rule-oriented sections in the skill quality gate"
+  ],
+  "release_gates": [
+    "Merged-main Repository Validation and CodeQL checks pass on the exact release commit",
+    "Full repository validation and npm package checks pass before tagging",
+    "Release tag is created from the merged main commit",
+    "Downloaded source archive and npm package match the tag and pass SHA-256 verification"
+  ],
+  "validation_boundaries": {
+    "upstream": "Canonical skill body and sidecar artifacts matched ayghri/i-have-adhd at immutable commit b15d0be58f55b33972ba3e39709e0e5208ef30cb",
+    "runtime": "Static repository, source, license, CodeQL, and package checks; no model-behavior or production runtime acceptance claimed"
+  }
+}
