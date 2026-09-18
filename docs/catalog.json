@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "generated_at": "2026-06-08",
-  "total_skills": 284,
+  "total_skills": 285,
   "total_categories": 16,
   "categories": [
     {
@@ -50,7 +50,7 @@
     },
     {
       "name": "operations-general",
-      "count": 10
+      "count": 11
     },
     {
       "name": "multimodal-media",
@@ -5050,6 +5050,27 @@
       "updated_at": "2026-09-06",
       "line_count": 306,
       "path": "skills/operations-general/hearth/SKILL.md"
+    },
+    {
+      "name": "i-have-adhd",
+      "category": "operations-general",
+      "description": "Shape ADHD-friendly output: lead with the next action, number steps, restate state, suppress tangents, give concrete time estimates, and make progress visible. Invoke with /i-have-adhd; stop with \"stop adhd mode\".",
+      "version": "0.3.0",
+      "author": "ayghri",
+      "source": "github:ayghri/i-have-adhd",
+      "source_url": "https://github.com/ayghri/i-have-adhd",
+      "tags": [
+        "adhd",
+        "productivity",
+        "communication",
+        "output-style"
+      ],
+      "quality": 4,
+      "complexity": "basic",
+      "created_at": "2026-09-18",
+      "updated_at": "2026-09-18",
+      "line_count": 152,
+      "path": "skills/operations-general/i-have-adhd/SKILL.md"
     },
     {
       "name": "interview-system-designer",

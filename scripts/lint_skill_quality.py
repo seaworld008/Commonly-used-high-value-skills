@@ -122,6 +122,9 @@ def lint_skill(file_path: Path, min_lines: int, tiered: bool = True) -> Dict[str
         "decision tree",
         "tool priority",
         "output",
+        "rules",
+        "persistence",
+        "pre-send check",
     ]
 
     headings = re.findall(r"^##\s+(.+)$", content, re.MULTILINE)
