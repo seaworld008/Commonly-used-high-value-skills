@@ -209,7 +209,7 @@ def main():
         content = update_unreleased(existing, body)
 
     if args.dry_run:
-        print(content)
+        print(content, end="")
     else:
         Path(args.output).write_text(content, encoding="utf-8")
         print(f"Changelog generated: {args.output}")

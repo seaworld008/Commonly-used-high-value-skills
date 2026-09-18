@@ -8,45 +8,27 @@ All notable changes to this repository are documented here.
 <!-- AUTO-CHANGELOG:START -->
 ### 自动更新 / Automated updates
 
-变更范围 / Revision range: `v2.0.0..HEAD`.
+变更范围 / Revision range: `v2.1.1..HEAD^`.
 
-#### [2026-09-07]
-
-##### Changed
-- align cross-agent instructions and prepare v2.1.0 (#106)
-- review weekly skill sources (#102)
-
-##### Fixed
-- complete review-state integrity for v2.1.1
-- require observed verification and finish cross-agent policy alignment (#107)
-- correct catalog metadata and complete maintenance audit (#105)
-- prevent duplicate changelog auth headers (#104)
-- address weekly review findings (#103)
-
-#### [2026-09-06]
-
-##### Changed
-- modernize skills and workflows for GPT-6 Astra (#101)
-
-#### [2026-08-31]
-
-##### Fixed
-- keep scanner rule metadata out of text logs (#98)
-- preserve curated history during changelog refresh (#97)
-- complete quality-first skills maintenance (#95)
-
-#### [2026-08-24]
+#### [2026-09-18]
 
 ##### Added
-- `lark-meeting` (knowledge-and-pm-integrations) — lark-meeting
+- `i-have-adhd` (operations-general) — i-have-adhd
 
 ##### Changed
-- curate weekly skill updates (#94)
+- add i-have-adhd skill
 
-#### [2026-08-20]
+#### [2026-09-14]
+
+##### Added
+- `artifact-yylo` (ai-workflow) — artifact-yylo
+- `ledger-tasks-yylo` (ai-workflow) — ledger-tasks-yylo
+- `wiki-yylo` (ai-workflow) — wiki-yylo
+- `workflow-yylo` (ai-workflow) — workflow-yylo
 
 ##### Changed
-- remove retired migration compatibility (#92)
+- retire yylo skills
+- refresh weekly skill portfolio
 <!-- AUTO-CHANGELOG:END -->
 
 ### Removed / 移除
