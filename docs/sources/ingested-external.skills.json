@@ -1,0 +1,107 @@
+{
+  "schema_version": 2,
+  "video": {
+    "url": "https://github.com/ayghri/i-have-adhd",
+    "checked_at": "2026-09-18",
+    "note": "External skills registered by scripts/ingest_skill.py."
+  },
+  "official_references": [
+    {
+      "name": "i-have-adhd upstream",
+      "url": "https://github.com/ayghri/i-have-adhd",
+      "purpose": "Original external source registered during ingestion."
+    }
+  ],
+  "skills": [
+    {
+      "video_name": "i-have-adhd",
+      "normalized_slug": "i-have-adhd",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/operations-general/i-have-adhd/SKILL.md",
+      "source": "https://github.com/ayghri/i-have-adhd",
+      "notes": "External skill registered by scripts/ingest_skill.py.",
+      "upstream": {
+        "repo": "ayghri/i-have-adhd",
+        "path": "skills/i-have-adhd/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-09-18",
+        "last_synced_at": "2026-09-18",
+        "last_synced_commit": "b15d0be58f55b33972ba3e39709e0e5208ef30cb",
+        "sync_mode": "monitor"
+      },
+      "kind": "mirror",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "ayghri/i-have-adhd",
+          "path": "skills/i-have-adhd/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "LICENSE",
+              "target": "skills/operations-general/i-have-adhd/LICENSE.txt",
+              "type": "file"
+            },
+            {
+              "source": "skills/i-have-adhd/SKILL.md",
+              "target": "skills/operations-general/i-have-adhd/SKILL.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/i-have-adhd/agents/openai.yaml",
+              "target": "skills/operations-general/i-have-adhd/agents/openai.yaml",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "b15d0be58f55b33972ba3e39709e0e5208ef30cb",
+            "path_commit": "4c76175b17421d61babfc35c10ab07604ef578d0",
+            "content_sha256": "ae7f01da252017849530bd3a19a1ef183d4c926ffe4975a82363e78d5cfdba4d",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "19db5f1b0ca65e277c158bd4c4263139ccfd859c",
+              "content_sha256": "8acbb618089b738404f76ac60fca1aaa995d9a87995eddf95f0b777acd7f7d2c",
+              "spdx": "MIT",
+              "resolved_commit": "b15d0be58f55b33972ba3e39709e0e5208ef30cb",
+              "api_spdx": "MIT"
+            },
+            "last_checked_at": "2026-09-18",
+            "last_synced_at": "2026-09-18"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/operations-general/i-have-adhd/LICENSE.txt",
+          "owner": "i-have-adhd",
+          "sha256": "8acbb618089b738404f76ac60fca1aaa995d9a87995eddf95f0b777acd7f7d2c",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/operations-general/i-have-adhd/SKILL.md",
+          "owner": "i-have-adhd",
+          "sha256": "ae7f01da252017849530bd3a19a1ef183d4c926ffe4975a82363e78d5cfdba4d",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/operations-general/i-have-adhd/agents/openai.yaml",
+          "owner": "i-have-adhd",
+          "sha256": "2c51291283dcefdca43ca6b0c08172f225c7c26a9783ec444d6bdfa51ca96f8f",
+          "mode": "100644"
+        }
+      ]
+    }
+  ],
+  "verification_attempts": [
+    {
+      "date": "2026-09-18",
+      "method": "ingest-skill",
+      "target": "skills/operations-general/i-have-adhd/SKILL.md",
+      "result": "success",
+      "evidence": "Registered external provenance for i-have-adhd"
+    }
+  ]
+}

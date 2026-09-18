@@ -4,7 +4,7 @@
 
 覆盖品牌、事实核查、内部沟通、主题与常用运营辅助技能。
 
-当前分类共 **10** 个技能。
+当前分类共 **11** 个技能。
 
 ## 推荐先看
 
@@ -23,6 +23,7 @@
 | `docs-cleaner` | 用于合并冗余文档、减少文档膨胀，并在保留有效内容的前提下整理知识库。 | [目录](./docs-cleaner/) | [SKILL.md](./docs-cleaner/SKILL.md) |
 | `fact-checker` | 核实事实与时效性，并按请求修正文档及补充来源。 | [目录](./fact-checker/) | [SKILL.md](./fact-checker/SKILL.md) |
 | `hearth` | 终端、编辑器和本地开发环境配置生成与审计。 | [目录](./hearth/) | [SKILL.md](./hearth/SKILL.md) |
+| `i-have-adhd` | 为 ADHD 读者塑造可执行、行动优先的输出：先给下一步、编号步骤、跨轮次重述状态、抑制跑题、给出具体时间估计并展示进展。 | [目录](./i-have-adhd/) | [SKILL.md](./i-have-adhd/SKILL.md) |
 | `interview-system-designer` | 设计招聘面试、能力矩阵、题库和评分标准。 | [目录](./interview-system-designer/) | [SKILL.md](./interview-system-designer/SKILL.md) |
 | `linkedin` | 通过 Linked API 搜索领英资料、管理连接、消息与内容发布。 | [目录](./linkedin/) | [SKILL.md](./linkedin/SKILL.md) |
 | `slack-gif-creator` | 创建适合 Slack 展示的轻量动态 GIF。 | [目录](./slack-gif-creator/) | [SKILL.md](./slack-gif-creator/SKILL.md) |

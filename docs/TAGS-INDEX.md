@@ -1,6 +1,6 @@
 # Tags Index
 
-> Auto-generated from 1094 skill-tag mappings across 487 tags.
+> Auto-generated from 1098 skill-tag mappings across 490 tags.
 > Last updated: see git log.
 
 ## Quick Navigation
@@ -23,7 +23,7 @@
 - [`devops`](#devops) (13)
 - [`marketing`](#marketing) (13)
 - [`product`](#product) (12)
-- [`productivity`](#productivity) (10)
+- [`productivity`](#productivity) (11)
 - [`deployment`](#deployment) (7)
 - [`designer`](#designer) (7)
 - [`api`](#api) (6)
@@ -133,6 +133,7 @@
 - [`accessibility`](#accessibility) (1)
 - [`acquisition`](#acquisition) (1)
 - [`address`](#address) (1)
+- [`adhd`](#adhd) (1)
 - [`agent-audit`](#agent-audit) (1)
 - [`agent-workflow`](#agent-workflow) (1)
 - [`agents`](#agents) (1)
@@ -194,6 +195,7 @@
 - [`color`](#color) (1)
 - [`commander`](#commander) (1)
 - [`comments`](#comments) (1)
+- [`communication`](#communication) (1)
 - [`compete`](#compete) (1)
 - [`competitive`](#competitive) (1)
 - [`competitors`](#competitors) (1)
@@ -353,6 +355,7 @@
 - [`oracle`](#oracle) (1)
 - [`orchestration`](#orchestration) (1)
 - [`osv`](#osv) (1)
+- [`output-style`](#output-style) (1)
 - [`owner`](#owner) (1)
 - [`ownership`](#ownership) (1)
 - [`page`](#page) (1)
@@ -1041,7 +1044,7 @@
 
 ## productivity
 
-**10 skills**
+**11 skills**
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
@@ -1052,6 +1055,7 @@
 | [interview-system-designer](skills/operations-general/interview-system-designer) | operations-general | ★★★★★ | Design hiring interviews, competency matrices, question banks, scoring rubrics,  |
 | [slack-gif-creator](skills/operations-general/slack-gif-creator) | operations-general | ★★★★★ | Knowledge and utilities for creating animated GIFs optimized for Slack. Provides |
 | [linear](skills/knowledge-and-pm-integrations/linear) | knowledge-and-pm-integrations | ★★★★☆ | 用于管理 Linear issues、项目、团队和协作状态。 |
+| [i-have-adhd](skills/operations-general/i-have-adhd) | operations-general | ★★★★☆ | Shape ADHD-friendly output: lead with the next action, number steps, restate sta |
 | [brand-guidelines](skills/operations-general/brand-guidelines) | operations-general | ★★★☆☆ | Apply Anthropic brand colors and typography when the user requests Anthropic vis |
 | [docs-cleaner](skills/operations-general/docs-cleaner) | operations-general | ★★★☆☆ | Consolidate overlapping documentation and remove repetition while preserving use |
 | [theme-factory](skills/operations-general/theme-factory) | operations-general | ★★★☆☆ | Use when styling artifacts with reusable themes, applying preset color/font syst |
@@ -2126,6 +2130,14 @@
 |-------|----------|---------|-------------|
 | [gh-address-comments](skills/engineering-workflow-automation/gh-address-comments) | engineering-workflow-automation | ★★☆☆☆ | Use when addressing GitHub PR review comments or issue comments on the current b |
 
+## adhd
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [i-have-adhd](skills/operations-general/i-have-adhd) | operations-general | ★★★★☆ | Shape ADHD-friendly output: lead with the next action, number steps, restate sta |
+
 ## agent-audit
 
 **1 skills**
@@ -2613,6 +2625,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [gh-address-comments](skills/engineering-workflow-automation/gh-address-comments) | engineering-workflow-automation | ★★☆☆☆ | Use when addressing GitHub PR review comments or issue comments on the current b |
+
+## communication
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [i-have-adhd](skills/operations-general/i-have-adhd) | operations-general | ★★★★☆ | Shape ADHD-friendly output: lead with the next action, number steps, restate sta |
 
 ## compete
 
@@ -3885,6 +3905,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [osv-scanner](skills/security-and-reliability/osv-scanner) | security-and-reliability | ★★★★☆ | 用于通过 OSV-Scanner 检查锁文件、清单、SBOM、Git 历史和源码树中的开源依赖漏洞。 |
+
+## output-style
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [i-have-adhd](skills/operations-general/i-have-adhd) | operations-general | ★★★★☆ | Shape ADHD-friendly output: lead with the next action, number steps, restate sta |
 
 ## owner
 

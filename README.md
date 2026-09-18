@@ -5,10 +5,10 @@
 [![简体中文](https://img.shields.io/badge/README-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1677ff)](./README.md)
 [![English](https://img.shields.io/badge/README-English-111111)](./README.en.md)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b894)](./openclaw-skills/README.md)
-[![Skills](https://img.shields.io/badge/Skills-284-7c3aed)](./skills/)
+[![Skills](https://img.shields.io/badge/Skills-285-7c3aed)](./skills/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
-面向全球 AI 开发者与 Agent 工作流构建者的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理等高频任务场景。当前共 **16 个分类 / 284 个技能**。
+面向全球 AI 开发者与 Agent 工作流构建者的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理等高频任务场景。当前共 **16 个分类 / 285 个技能**。
 
 ## 为什么值得收藏
 
@@ -386,7 +386,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 2. 打开对应技能的 `SKILL.md` 查看触发条件、操作流程和脚本说明。
 3. 若技能下含 `scripts/`、`references/`、`assets/`，优先复用现成内容。
 
-## 技能总览（按分类，16 类 / 284 技能）
+## 技能总览（按分类，16 类 / 285 技能）
 
 <a id="cat-developer-engineering"></a>
 ### 1. 开发工程（developer-engineering，47）
@@ -636,7 +636,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `tome`：把仓库变更转化为学习文档、术语说明和设计记录。
 
 <a id="cat-operations-general"></a>
-### 10. 通用运营（operations-general，10）
+### 10. 通用运营（operations-general，11）
 
 - `brand-guidelines`：用于在文档、页面或视觉产物中应用 Anthropic 风格的品牌色、字体和视觉规范。
 - `crest`：技术个人品牌、主页资料、文章和公开形象策略。
@@ -644,6 +644,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `docs-cleaner`：用于合并冗余文档、减少文档膨胀，并在保留有效内容的前提下整理知识库。
 - `fact-checker`：核实事实与时效性，并按请求修正文档及补充来源。
 - `hearth`：终端、编辑器和本地开发环境配置生成与审计。
+- `i-have-adhd`：为 ADHD 读者塑造可执行、行动优先的输出：先给下一步、编号步骤、跨轮次重述状态、抑制跑题、给出具体时间估计并展示进展。
 - `interview-system-designer`：设计招聘面试、能力矩阵、题库和评分标准。
 - `linkedin`：通过 Linked API 搜索领英资料、管理连接、消息与内容发布。
 - `slack-gif-creator`：创建适合 Slack 展示的轻量动态 GIF。
