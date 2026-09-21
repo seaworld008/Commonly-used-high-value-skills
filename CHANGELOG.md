@@ -8,27 +8,9 @@ All notable changes to this repository are documented here.
 <!-- AUTO-CHANGELOG:START -->
 ### 自动更新 / Automated updates
 
-变更范围 / Revision range: `v2.1.1..HEAD^`.
+变更范围 / Revision range: `v2.2.0..HEAD`.
 
-#### [2026-09-18]
-
-##### Added
-- `i-have-adhd` (operations-general) — i-have-adhd
-
-##### Changed
-- add i-have-adhd skill
-
-#### [2026-09-14]
-
-##### Added
-- `artifact-yylo` (ai-workflow) — artifact-yylo
-- `ledger-tasks-yylo` (ai-workflow) — ledger-tasks-yylo
-- `wiki-yylo` (ai-workflow) — wiki-yylo
-- `workflow-yylo` (ai-workflow) — workflow-yylo
-
-##### Changed
-- retire yylo skills
-- refresh weekly skill portfolio
+此范围内暂无可归类的变更。 / No categorized changes in this range.
 <!-- AUTO-CHANGELOG:END -->
 
 ### Removed / 移除
