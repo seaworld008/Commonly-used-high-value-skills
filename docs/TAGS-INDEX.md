@@ -1,6 +1,6 @@
 # Tags Index
 
-> Auto-generated from 1095 skill-tag mappings across 490 tags.
+> Auto-generated from 1105 skill-tag mappings across 492 tags.
 > Last updated: see git log.
 
 ## Quick Navigation
@@ -28,6 +28,7 @@
 - [`designer`](#designer) (7)
 - [`api`](#api) (6)
 - [`code-review`](#code-review) (5)
+- [`database`](#database) (5)
 - [`expert`](#expert) (5)
 - [`manager`](#manager) (5)
 - [`mcp`](#mcp) (5)
@@ -56,13 +57,13 @@
 - [`vulnerability-scanning`](#vulnerability-scanning) (4)
 - [`ci`](#ci) (3)
 - [`creator`](#creator) (3)
-- [`database`](#database) (3)
 - [`frontend`](#frontend) (3)
 - [`generator`](#generator) (3)
 - [`git`](#git) (3)
 - [`knowledge-base`](#knowledge-base) (3)
 - [`markdown`](#markdown) (3)
 - [`meeting`](#meeting) (3)
+- [`migration`](#migration) (3)
 - [`office`](#office) (3)
 - [`postgres`](#postgres) (3)
 - [`review`](#review) (3)
@@ -72,6 +73,7 @@
 - [`supply-chain`](#supply-chain) (3)
 - [`system`](#system) (3)
 - [`twitter`](#twitter) (3)
+- [`typescript`](#typescript) (3)
 - [`vercel`](#vercel) (3)
 - [`web`](#web) (3)
 - [`agent-skill`](#agent-skill) (2)
@@ -109,6 +111,7 @@
 - [`playwright`](#playwright) (2)
 - [`practices`](#practices) (2)
 - [`presentation`](#presentation) (2)
+- [`prisma`](#prisma) (2)
 - [`project-management`](#project-management) (2)
 - [`quality-gate`](#quality-gate) (2)
 - [`react`](#react) (2)
@@ -123,6 +126,7 @@
 - [`testing`](#testing) (2)
 - [`threat-modeling`](#threat-modeling) (2)
 - [`tracker`](#tracker) (2)
+- [`transactions`](#transactions) (2)
 - [`transcript`](#transcript) (2)
 - [`verification`](#verification) (2)
 - [`wiki`](#wiki) (2)
@@ -320,7 +324,6 @@
 - [`memo`](#memo) (1)
 - [`mermaid`](#mermaid) (1)
 - [`messaging`](#messaging) (1)
-- [`migration`](#migration) (1)
 - [`mixer`](#mixer) (1)
 - [`mobile`](#mobile) (1)
 - [`model`](#model) (1)
@@ -473,7 +476,6 @@
 - [`transitions`](#transitions) (1)
 - [`triage`](#triage) (1)
 - [`troubleshooting`](#troubleshooting) (1)
-- [`typescript`](#typescript) (1)
 - [`typography`](#typography) (1)
 - [`ui`](#ui) (1)
 - [`user-modeling`](#user-modeling) (1)
@@ -1111,6 +1113,18 @@
 | [security-audit](skills/security-and-reliability/security-audit) | security-and-reliability | ★★★★☆ | Audit codebases for exploitable security vulnerabilities with concrete attack pa |
 | [security-auditor](skills/security-and-reliability/security-auditor) | security-and-reliability | ★★★★☆ | Security audit workflow for AI-generated application code, APIs, infrastructure  |
 
+## database
+
+**5 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [database-designer](skills/developer-engineering/database-designer) | developer-engineering | ★★★★★ | Design, review, or migrate database schemas using workload requirements, data in |
+| [database-schema-designer](skills/developer-engineering/database-schema-designer) | developer-engineering | ★★★★★ | Design relational database schemas from requirements and generate migrations, Ty |
+| [prisma-client-api](skills/developer-engineering/prisma-client-api) | developer-engineering | ★★★★☆ | Use when writing or reviewing Prisma Client queries, relation writes, transactio |
+| [prisma-upgrade-v7](skills/developer-engineering/prisma-upgrade-v7) | developer-engineering | ★★★★☆ | Use when migrating an existing Prisma ORM SQL project from v6 to v7, updating ge |
+| [lark-base](skills/knowledge-and-pm-integrations/lark-base) | knowledge-and-pm-integrations | ★★★★☆ | 操作飞书 Base 多维表格、字段、记录、视图、公式、仪表盘、BaseApp 页面和角色权限。处理 /base/、/app/ 链接；导入导出转 lark-dri |
+
 ## expert
 
 **5 skills**
@@ -1421,16 +1435,6 @@
 | [content-creator](skills/growth-operations-xiaohongshu/content-creator) | growth-operations-xiaohongshu | ★★★★★ | Create or revise marketing content with a consistent brand voice, audience inten |
 | [slack-gif-creator](skills/operations-general/slack-gif-creator) | operations-general | ★★★★★ | Knowledge and utilities for creating animated GIFs optimized for Slack. Provides |
 
-## database
-
-**3 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [database-designer](skills/developer-engineering/database-designer) | developer-engineering | ★★★★★ | Design, review, or migrate database schemas using workload requirements, data in |
-| [database-schema-designer](skills/developer-engineering/database-schema-designer) | developer-engineering | ★★★★★ | Design relational database schemas from requirements and generate migrations, Ty |
-| [lark-base](skills/knowledge-and-pm-integrations/lark-base) | knowledge-and-pm-integrations | ★★★★☆ | 操作飞书 Base 多维表格、字段、记录、视图、公式、仪表盘、BaseApp 页面和角色权限。处理 /base/、/app/ 链接；导入导出转 lark-dri |
-
 ## frontend
 
 **3 skills**
@@ -1490,6 +1494,16 @@
 | [meeting-minutes-taker](skills/office-white-collar/meeting-minutes-taker) | office-white-collar | ★★★★★ | Turn meeting transcripts into accurate minutes with decisions, actions, owners,  |
 | [lark-meeting](skills/knowledge-and-pm-integrations/lark-meeting) | knowledge-and-pm-integrations | ★★★★☆ | Use Lark CLI to locate meetings, manage Minutes and AI notes, inspect transcript |
 | [notion-meeting-intelligence](skills/knowledge-and-pm-integrations/notion-meeting-intelligence) | knowledge-and-pm-integrations | ★★★☆☆ | 用于基于 Notion 上下文准备会议材料。 |
+
+## migration
+
+**3 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [migration-architect](skills/developer-engineering/migration-architect) | developer-engineering | ★★★★★ | Purpose: Zero-downtime migration planning, compatibility validation, and rollbac |
+| [prisma-client-api](skills/developer-engineering/prisma-client-api) | developer-engineering | ★★★★☆ | Use when writing or reviewing Prisma Client queries, relation writes, transactio |
+| [prisma-upgrade-v7](skills/developer-engineering/prisma-upgrade-v7) | developer-engineering | ★★★★☆ | Use when migrating an existing Prisma ORM SQL project from v6 to v7, updating ge |
 
 ## office
 
@@ -1580,6 +1594,16 @@
 | [x-twitter-scraper](skills/growth-operations-xiaohongshu/x-twitter-scraper) | growth-operations-xiaohongshu | ★★★★★ | Use Xquik for X/Twitter research and connected-account actions; Radar and suppor |
 | [tweetclaw-source-research](skills/growth-operations-xiaohongshu/tweetclaw-source-research) | growth-operations-xiaohongshu | ★★★★☆ | Use TweetClaw through OpenClaw to collect X/Twitter source context before drafti |
 | [twitter-reader](skills/growth-operations-xiaohongshu/twitter-reader) | growth-operations-xiaohongshu | ★★★☆☆ | Read Twitter/X posts and threads from supplied URLs, including author, text, tim |
+
+## typescript
+
+**3 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [prisma-client-api](skills/developer-engineering/prisma-client-api) | developer-engineering | ★★★★☆ | Use when writing or reviewing Prisma Client queries, relation writes, transactio |
+| [prisma-upgrade-v7](skills/developer-engineering/prisma-upgrade-v7) | developer-engineering | ★★★★☆ | Use when migrating an existing Prisma ORM SQL project from v6 to v7, updating ge |
+| [typescript-best-practices](skills/developer-engineering/typescript-best-practices) | developer-engineering | ★★★★☆ | Use when writing or reviewing TypeScript for type safety, advanced types, API bo |
 
 ## vercel
 
@@ -1916,6 +1940,15 @@
 | [guizang-ppt-skill](skills/office-white-collar/guizang-ppt-skill) | office-white-collar | ★★★★★ | 制作可横向翻页的单 HTML 网页 PPT，支持杂志风或瑞士风、讲稿、演讲者视图和观众屏同步；用于演讲、分享或发布会网页演示。 |
 | [lark-slides](skills/knowledge-and-pm-integrations/lark-slides) | knowledge-and-pm-integrations | ★★★★☆ | 创建、读取和编辑飞书幻灯片与页面；支持飞书或 doubao.com 的 /slides/ 链接和 token。文件导入导出转 lark-drive，独立画板转  |
 
+## prisma
+
+**2 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [prisma-client-api](skills/developer-engineering/prisma-client-api) | developer-engineering | ★★★★☆ | Use when writing or reviewing Prisma Client queries, relation writes, transactio |
+| [prisma-upgrade-v7](skills/developer-engineering/prisma-upgrade-v7) | developer-engineering | ★★★★☆ | Use when migrating an existing Prisma ORM SQL project from v6 to v7, updating ge |
+
 ## project-management
 
 **2 skills**
@@ -2041,6 +2074,15 @@
 |-------|----------|---------|-------------|
 | [tech-debt-tracker](skills/developer-engineering/tech-debt-tracker) | developer-engineering | ★★★★★ | Identify technical debt, rank remediation by impact and effort, and track progre |
 | [event-driven-tracker](skills/finance-investing/event-driven-tracker) | finance-investing | ★★☆☆☆ | Use when tracking earnings, product launches, M&A, dividends, buybacks, unlocks, |
+
+## transactions
+
+**2 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [prisma-client-api](skills/developer-engineering/prisma-client-api) | developer-engineering | ★★★★☆ | Use when writing or reviewing Prisma Client queries, relation writes, transactio |
+| [prisma-upgrade-v7](skills/developer-engineering/prisma-upgrade-v7) | developer-engineering | ★★★★☆ | Use when migrating an existing Prisma ORM SQL project from v6 to v7, updating ge |
 
 ## transcript
 
@@ -3623,14 +3665,6 @@
 |-------|----------|---------|-------------|
 | [lark-im](skills/knowledge-and-pm-integrations/lark-im) | knowledge-and-pm-integrations | ★★★★☆ | 飞书即时通讯：收发消息和管理群聊。发送和回复消息、搜索聊天记录、管理群聊成员、上传下载图片和文件、管理表情回复、发送应用内/短信/电话加急、发送和处理交互卡片（ |
 
-## migration
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [migration-architect](skills/developer-engineering/migration-architect) | developer-engineering | ★★★★★ | Purpose: Zero-downtime migration planning, compatibility validation, and rollbac |
-
 ## mixer
 
 **1 skills**
@@ -4846,14 +4880,6 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [cloudflare-troubleshooting](skills/devops-sre/cloudflare-troubleshooting) | devops-sre | ★★★★★ | Diagnose Cloudflare DNS, TLS, redirects, and configuration issues using live API |
-
-## typescript
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [typescript-best-practices](skills/developer-engineering/typescript-best-practices) | developer-engineering | ★★★★☆ | Use when writing or reviewing TypeScript for type safety, advanced types, API bo |
 
 ## typography
 

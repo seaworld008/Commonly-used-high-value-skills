@@ -1011,7 +1011,14 @@ class SyncUpstreamTests(unittest.TestCase):
             skill for skill in loaded if skill.get("kind") == "snapshot"
         ]
 
-        self.assertEqual(150, len(loaded))
+        expected = set()
+        for mapping in module.SOURCE_MAPPINGS_DIR.glob("*.skills.json"):
+            for entry in json.loads(mapping.read_text())["skills"]:
+                if (entry.get("status") in {"verified_in_repo", "in_house"}
+                        and entry.get("kind") in {"mirror", "overlay", "snapshot"}):
+                    expected.add(entry["normalized_slug"])
+        self.assertEqual(expected, {skill["name"] for skill in loaded})
+        self.assertEqual(len(expected), len(loaded))
         self.assertEqual(25, len(snapshots))
         self.assertTrue(
             all(skill.get("expected_skip_reason") for skill in snapshots)

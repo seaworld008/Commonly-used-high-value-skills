@@ -4,7 +4,7 @@
 
 覆盖开发、测试、性能、架构、数据库和工程效率的核心技能集合。
 
-当前分类共 **47** 个技能。
+当前分类共 **49** 个技能。
 
 ## 推荐先看
 
@@ -45,6 +45,8 @@
 | `nextjs-app-router` | 用于 Next.js App Router 项目开发、路由设计和服务端渲染实践。 | [目录](./nextjs-app-router/) | [SKILL.md](./nextjs-app-router/SKILL.md) |
 | `performance-profiler` | 分析 CPU、内存、I/O 和查询瓶颈并验证优化效果。 | [目录](./performance-profiler/) | [SKILL.md](./performance-profiler/SKILL.md) |
 | `pr-review-expert` | 审查 PR 的正确性、安全、兼容性和测试覆盖变化。 | [目录](./pr-review-expert/) | [SKILL.md](./pr-review-expert/SKILL.md) |
+| `prisma-client-api` | 用于 Prisma Client 查询、关联写入、事务、分页与原生 SQL 审查。 | [目录](./prisma-client-api/) | [SKILL.md](./prisma-client-api/SKILL.md) |
+| `prisma-upgrade-v7` | 用于 Prisma ORM 6 到 7 的 SQL 项目迁移、驱动适配器、客户端导入与配置升级。 | [目录](./prisma-upgrade-v7/) | [SKILL.md](./prisma-upgrade-v7/SKILL.md) |
 | `promptfoo-evaluation` | 配置和运行 Promptfoo 提示词、模型及输出质量评测。 | [目录](./promptfoo-evaluation/) | [SKILL.md](./promptfoo-evaluation/SKILL.md) |
 | `python-performance` | 用于 Python 性能分析、内存优化、热点路径调优和并发模式评审。 | [目录](./python-performance/) | [SKILL.md](./python-performance/SKILL.md) |
 | `qa-expert` | 制定测试策略、风险用例、执行计划和缺陷跟踪流程。 | [目录](./qa-expert/) | [SKILL.md](./qa-expert/SKILL.md) |
