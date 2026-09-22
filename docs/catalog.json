@@ -2101,7 +2101,7 @@
       "name": "prisma-upgrade-v7",
       "category": "developer-engineering",
       "description": "Use when migrating an existing Prisma ORM SQL project from v6 to v7, updating generated-client imports, driver adapters, module format, or configuration.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": "Prisma",
       "source": "github:prisma/skills",
       "source_url": "https://github.com/prisma/skills/tree/1123817e60d15ca0f3af91878923241dee7e3b09/prisma-upgrade-v7",

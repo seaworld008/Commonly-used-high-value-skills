@@ -35,6 +35,29 @@ HISTORY = """# Changelog / 更新日志
 
 
 class PreserveHistoryTests(unittest.TestCase):
+    def test_archives_tagged_entries_without_markers_or_loss_of_history(self):
+        snapshot = changelog.update_unreleased(HISTORY, "### Automated\n\nRevision range: `v2.0.0..HEAD^`.\n\n- old skill")
+        current = changelog.update_unreleased(HISTORY, "new skill")
+        result = changelog.archive_tagged_block(current, snapshot, "v2.2.0", "2026-09-18")
+        self.assertIn("## [2.2.0] - 2026-09-18", result)
+        self.assertIn("v2.0.0..v2.2.0", result)
+        self.assertIn("- old skill", result)
+        self.assertEqual(1, result.count(changelog.AUTO_START))
+        self.assertEqual(current.split("## [2.0.0]")[1], result.split("## [2.0.0]")[1])
+        self.assertEqual(changelog.archive_tagged_block(result, snapshot, "v2.2.0", "2026-09-18"), result)
+        refreshed = changelog.update_unreleased(result, "next range")
+        self.assertIn("- old skill", refreshed)
+
+    def test_archive_rejects_unsafe_tags_missing_blocks_and_duplicate_sections(self):
+        snapshot = changelog.update_unreleased(HISTORY, "old entry")
+        for tag, source, current in [
+            ("--all", snapshot, HISTORY), ("../v2.2.0", snapshot, HISTORY),
+            ("v2.2.0", HISTORY, HISTORY),
+            ("v2.2.0", snapshot, HISTORY + "\n## [2.2.0]\n\n## [2.2.0]\n"),
+        ]:
+            with self.subTest(tag=tag), self.assertRaises(ValueError):
+                changelog.archive_tagged_block(current, source, tag, "2026-09-18")
+
     def test_only_inserts_managed_block_in_unreleased(self):
         result = changelog.update_unreleased(HISTORY, "自动更新内容")
         start = result.index(changelog.AUTO_START)
@@ -79,6 +102,31 @@ class GenerateChangelogTests(unittest.TestCase):
             text=True,
             capture_output=True,
         ).stdout.strip()
+
+    def test_archive_cli_uses_tagged_snapshot_and_keeps_new_unreleased_entries(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            self.git(root, "init", "-q")
+            self.git(root, "config", "user.name", "Test")
+            self.git(root, "config", "user.email", "test@example.com")
+            output = root / "CHANGELOG.md"
+            output.write_text(changelog.update_unreleased(HISTORY, "- previously released skill"))
+            self.git(root, "add", ".")
+            self.git(root, "commit", "-qm", "chore: previous release")
+            self.git(root, "tag", "v2.2.0")
+            output.write_text(changelog.update_unreleased(HISTORY, "unreleased temporary text"))
+            (root / "code.txt").write_text("new behavior")
+            self.git(root, "add", ".")
+            self.git(root, "commit", "-qm", "fix: current behavior")
+            command = [sys.executable, str(SCRIPT), "--preserve-history",
+                       "--archive-tag", "v2.2.0", "--since", "v2.2.0"]
+            subprocess.run(command, cwd=root, check=True, capture_output=True)
+            result = output.read_text()
+            self.assertIn("- previously released skill", result)
+            self.assertIn("current behavior", result)
+            self.assertNotIn("unreleased temporary text", result)
+            subprocess.run(command, cwd=root, check=True, capture_output=True)
+            self.assertEqual(result, output.read_text())
 
     def test_last_tag_uses_exclusive_tag_range(self):
         with tempfile.TemporaryDirectory() as tmp:

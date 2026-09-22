@@ -6,11 +6,41 @@ import argparse
 import re
 import subprocess
 from collections import defaultdict
+from datetime import date as calendar_date
 from pathlib import Path
 
 
 AUTO_START = "<!-- AUTO-CHANGELOG:START -->"
 AUTO_END = "<!-- AUTO-CHANGELOG:END -->"
+
+
+def archive_tagged_block(existing: str, snapshot: str, tag: str, released: str) -> str:
+    """Add a missing release section from a tagged snapshot without rewriting history."""
+    if not re.fullmatch(r"v?\d+\.\d+\.\d+", tag):
+        raise ValueError("--archive-tag requires a stable semantic version tag")
+    calendar_date.fromisoformat(released)
+    update_unreleased(existing, "")
+    update_unreleased(snapshot, "")
+    version = tag.removeprefix("v")
+    headings = re.findall(rf"^## \[{re.escape(version)}\](?: |$)", existing, re.MULTILINE)
+    if len(headings) > 1:
+        raise ValueError("Duplicate release sections; refusing ambiguous archival")
+    if headings:
+        return existing  # Preserve an already curated release section verbatim.
+    if snapshot.count(AUTO_START) != 1 or snapshot.count(AUTO_END) != 1:
+        raise ValueError("Tagged changelog has no unique automatic block to archive")
+    body = snapshot.split(AUTO_START, 1)[1].split(AUTO_END, 1)[0].strip()
+    if not body:
+        raise ValueError("Tagged changelog automatic block is empty")
+    # A symbolic HEAD in an immutable historical section must name its release.
+    body = re.sub(r"(?m)^(.*Revision range:.*)HEAD\^?(.*)$",
+                  lambda match: match[1] + tag + match[2], body)
+    heading = re.search(r"^## \[Unreleased\][^\n]*\n", existing, re.MULTILINE)
+    following = re.search(r"^## ", existing[heading.end():], re.MULTILINE)
+    offset = heading.end() + following.start() if following else len(existing)
+    section = f"## [{version}] - {released}\n\n{body}\n\n"
+    separator = "" if existing[:offset].endswith("\n\n") else "\n\n"
+    return existing[:offset] + separator + section + existing[offset:]
 
 
 def update_unreleased(existing: str, body: str) -> str:
@@ -109,13 +139,21 @@ def main():
         action="store_true",
         help="Update only a managed block in an existing Unreleased section; preserve release history",
     )
+    parser.add_argument("--archive-tag", help="Archive the automatic block from this tag's CHANGELOG.md before refreshing Unreleased")
     args = parser.parse_args()
+    if args.archive_tag and (not args.preserve_history or not re.fullmatch(r"v?\d+\.\d+\.\d+", args.archive_tag)):
+        parser.error("--archive-tag requires --preserve-history and a stable semantic version tag")
 
     try:
         existing = ""
         if args.preserve_history:
             existing = Path(args.output).read_text(encoding="utf-8")
             update_unreleased(existing, "")  # Validate ownership before invoking Git.
+            if args.archive_tag:
+                commit = run_git_command(["rev-parse", "--verify", f"refs/tags/{args.archive_tag}^{{commit}}"])
+                snapshot = run_git_command(["show", f"{commit}:CHANGELOG.md"])
+                released = run_git_command(["show", "-s", "--format=%cs", commit])
+                existing = archive_tagged_block(existing, snapshot, args.archive_tag, released)
         revisions, revision_label = resolve_log_args(args.since, args.to)
     except (ValueError, OSError) as error:
         parser.error(str(error))
