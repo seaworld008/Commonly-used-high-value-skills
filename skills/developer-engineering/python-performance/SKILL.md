@@ -2,14 +2,14 @@
 name: python-performance
 description: 'Profile and optimize Python code using cProfile, memory profilers, and performance best practices. Use when debugging slow Python code, optimizing bottlenecks, or improving application performance.'
 zh_description: "用于 Python 性能分析、内存优化、热点路径调优和并发模式评审。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "skills.sh"
 source_url: "https://skills.sh/wshobson/agents/python-performance-optimization"
 license: "MIT"
 tags: '["development", "performance", "python"]'
 created_at: "2026-03-27"
-updated_at: "2026-08-20"
+updated_at: "2026-09-22"
 quality: 4
 complexity: "intermediate"
 ---
@@ -63,12 +63,12 @@ import time
 
 def measure_time():
     """Simple timing measurement."""
-    start = time.time()
+    start = time.perf_counter()
 
     # Your code here
     result = sum(range(1000000))
 
-    elapsed = time.time() - start
+    elapsed = time.perf_counter() - start
     print(f"Execution time: {elapsed:.4f} seconds")
     return result
 
@@ -109,3 +109,13 @@ Detailed pattern documentation lives in `references/details.md`. Read that file 
 - Ignoring algorithmic complexity
 - Over-optimizing rare code paths
 - Not considering memory usage
+
+## Benchmark Acceptance
+
+Use the same interpreter, dataset, warmup policy and dependency versions for
+baseline and candidate runs. Record repeated samples rather than a single run.
+Report elapsed-time units, median, spread, input size, and peak memory.
+Check result equivalence before accepting a faster implementation.
+Separate CPU profiling overhead from wall-clock measurements.
+For I/O workloads, include concurrency, service latency and cache state.
+Do not infer production gains from a microbenchmark alone.

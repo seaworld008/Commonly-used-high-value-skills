@@ -1532,7 +1532,7 @@
             "ref": "main",
             "resolved_commit": "4236bb91f8395b0435f1d8b8baf9e8e4c69a8620",
             "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f",
-            "content_sha256": "f7747318fa39498c0f2d72295acf0055f86528a1b46c056832e2a0044aee4a3d",
+            "content_sha256": "607243d4673f249937a87b93df48f80e07670dd8c42c59b4142105faeab6ce81",
             "last_checked_at": "2026-09-14",
             "last_synced_at": "2026-09-14",
             "license_checkpoint": {
@@ -1549,7 +1549,7 @@
       "managed_files": [
         {
           "path": "skills/developer-engineering/python-performance/SKILL.md",
-          "sha256": "f7747318fa39498c0f2d72295acf0055f86528a1b46c056832e2a0044aee4a3d",
+          "sha256": "607243d4673f249937a87b93df48f80e07670dd8c42c59b4142105faeab6ce81",
           "owner": "python-performance",
           "mode": "100644"
         },

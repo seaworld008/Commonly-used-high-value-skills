@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-08-24",
+  "updated_at": "2026-09-22",
   "decision_rule": "Retire only after replacement coverage is proven and unique executable assets, external contracts, high-risk guardrails, and acceptance criteria have been preserved.",
   "decisions": [
     {
@@ -169,6 +169,16 @@
       "license_lineage": "MIT at reviewed commit 56ad837c3d8f4c49d6b9725a3530c37408533ead",
       "local_cleanup_action": "Keep as the only canonical Lark meeting entry point.",
       "rationale": "It is the complete official workflow and canonical replacement for three overlapping skills."
+    },
+    {
+      "name": "senior-devops",
+      "decision": "retire",
+      "replacement": "cc-devops-skills",
+      "unique_assets": [],
+      "external_contract": null,
+      "license_lineage": "in-house",
+      "local_cleanup_action": "Remove the canonical placeholder skill and generated export; installer --prune-retired handles only an explicitly requested local cleanup.",
+      "rationale": "Reviewed pipeline_generator.py, terraform_scaffolder.py and deployment_manager.py: analyze() unconditionally sets success and empty findings. All three references contain only template examples. Real CI, IaC, rollout and rollback guidance is covered by cc-devops-skills, pipe, terraform-engineer and release-manager."
     }
   ]
 }

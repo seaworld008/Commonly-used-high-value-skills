@@ -2,13 +2,13 @@
 name: performance-profiler
 description: 'Profile Node.js, Python, or Go CPU, memory, I/O, and query bottlenecks; use flamegraphs and representative load tests to verify improvements.'
 zh_description: "分析 CPU、内存、I/O 和查询瓶颈并验证优化效果。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["development", "performance", "profiler"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-09-22"
 quality: 5
 complexity: "intermediate"
 ---
@@ -156,7 +156,7 @@ py-spy record -o flamegraph.svg -- python -m uvicorn app.main:app
 ### cProfile for function-level profiling
 
 ```python
-# scripts/profile_endpoint.py
+# Example to save as scripts/profile_endpoint.py in the target project
 import cProfile
 import pstats
 import io
@@ -196,7 +196,7 @@ def my_function():
 
 ```bash
 # Run with line-by-line memory tracking
-python -m memory_profiler scripts/profile_function.py
+python -m memory_profiler path/to/your_profile_target.py
 
 # Output:
 # Line #    Mem usage    Increment   Line Contents

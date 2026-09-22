@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "generated_at": "2026-06-08",
-  "total_skills": 285,
+  "total_skills": 284,
   "total_categories": 16,
   "categories": [
     {
@@ -33,16 +33,16 @@
       "count": 14
     },
     {
-      "name": "devops-sre",
-      "count": 13
-    },
-    {
       "name": "engineering-workflow-automation",
       "count": 13
     },
     {
       "name": "product-design",
       "count": 13
+    },
+    {
+      "name": "devops-sre",
+      "count": 12
     },
     {
       "name": "office-white-collar",
@@ -74,7 +74,7 @@
       "name": "agent-hub",
       "category": "ai-agent-platform",
       "description": "Compare independent solutions with agent-hub when parallel competition is requested; isolate Git worktrees, evaluate variants, and integrate the selected result.",
-      "version": "1.0.10",
+      "version": "1.0.11",
       "author": "seaworld008",
       "source": "github:alirezarezvani/claude-skills",
       "source_url": "https://github.com/alirezarezvani/claude-skills/blob/main/engineering/agenthub/skills/agenthub/SKILL.md",
@@ -86,8 +86,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-27",
-      "updated_at": "2026-09-06",
-      "line_count": 288,
+      "updated_at": "2026-09-22",
+      "line_count": 297,
       "path": "skills/ai-agent-platform/agent-hub/SKILL.md"
     },
     {
@@ -199,7 +199,7 @@
       "name": "hermes-agent",
       "category": "ai-agent-platform",
       "description": "Use, configure, theme, extend, and orchestrate Hermes Agent.",
-      "version": "2.0.20",
+      "version": "2.0.21",
       "author": "Hermes Agent + Teknium",
       "source": "github:NousResearch/hermes-agent",
       "source_url": "https://github.com/NousResearch/hermes-agent/blob/main/skills/autonomous-ai-agents/hermes-agent/SKILL.md",
@@ -216,7 +216,7 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-04-13",
-      "updated_at": "2026-09-14",
+      "updated_at": "2026-09-22",
       "line_count": 221,
       "path": "skills/ai-agent-platform/hermes-agent/SKILL.md"
     },
@@ -695,8 +695,8 @@
     {
       "name": "executing-plans",
       "category": "ai-workflow",
-      "description": "Use when you have a written implementation plan to execute in a separate session with review checkpoints",
-      "version": "1.0.6",
+      "description": "Use when executing an existing implementation plan, tracking dependencies, adapting outdated steps, and verifying acceptance checks.",
+      "version": "1.0.7",
       "author": "seaworld008",
       "source": "github:obra/superpowers",
       "source_url": "https://github.com/obra/superpowers/blob/main/skills/executing-plans/SKILL.md",
@@ -708,8 +708,8 @@
       "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-04-13",
-      "updated_at": "2026-09-06",
-      "line_count": 101,
+      "updated_at": "2026-09-22",
+      "line_count": 109,
       "path": "skills/ai-workflow/executing-plans/SKILL.md"
     },
     {
@@ -954,7 +954,7 @@
       "name": "planning-and-task-breakdown",
       "category": "ai-workflow",
       "description": "Turn clear requirements into ordered tasks, dependencies, and acceptance checks; preserve unfinished work when revising an existing plan.",
-      "version": "1.0.5",
+      "version": "1.0.6",
       "author": "addyosmani",
       "source": "github:addyosmani/agent-skills",
       "source_url": "https://github.com/addyosmani/agent-skills/blob/main/skills/planning-and-task-breakdown/SKILL.md",
@@ -968,7 +968,7 @@
       "quality": 5,
       "complexity": "advanced",
       "created_at": "2026-07-27",
-      "updated_at": "2026-09-07",
+      "updated_at": "2026-09-22",
       "line_count": 266,
       "path": "skills/ai-workflow/planning-and-task-breakdown/SKILL.md"
     },
@@ -1333,7 +1333,7 @@
       "name": "writing-plans",
       "category": "ai-workflow",
       "description": "Write a practical implementation plan when multi-step work needs task boundaries, dependencies, and acceptance checks.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -1346,8 +1346,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-04",
-      "updated_at": "2026-09-06",
-      "line_count": 126,
+      "updated_at": "2026-09-22",
+      "line_count": 143,
       "path": "skills/ai-workflow/writing-plans/SKILL.md"
     },
     {
@@ -2039,7 +2039,7 @@
       "name": "performance-profiler",
       "category": "developer-engineering",
       "description": "Profile Node.js, Python, or Go CPU, memory, I/O, and query bottlenecks; use flamegraphs and representative load tests to verify improvements.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -2051,7 +2051,7 @@
       "quality": 5,
       "complexity": "intermediate",
       "created_at": "2026-03-04",
-      "updated_at": "2026-09-06",
+      "updated_at": "2026-09-22",
       "line_count": 468,
       "path": "skills/developer-engineering/performance-profiler/SKILL.md"
     },
@@ -2099,7 +2099,7 @@
       "name": "python-performance",
       "category": "developer-engineering",
       "description": "Profile and optimize Python code using cProfile, memory profilers, and performance best practices. Use when debugging slow Python code, optimizing bottlenecks, or improving application performance.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "skills.sh",
       "source_url": "https://skills.sh/wshobson/agents/python-performance-optimization",
@@ -2111,8 +2111,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-27",
-      "updated_at": "2026-08-20",
-      "line_count": 111,
+      "updated_at": "2026-09-22",
+      "line_count": 121,
       "path": "skills/developer-engineering/python-performance/SKILL.md"
     },
     {
@@ -2685,7 +2685,7 @@
       "name": "senior-architect",
       "category": "devops-sre",
       "description": "Design or review system architecture, technical tradeoffs, dependencies, and scalability; produce diagrams and decision records grounded in requirements.",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "author": "seaworld008",
       "source": "github:alirezarezvani/claude-skills",
       "source_url": "https://github.com/alirezarezvani/claude-skills/blob/main/engineering-team/skills/senior-architect/SKILL.md",
@@ -2698,29 +2698,9 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-27",
-      "updated_at": "2026-09-06",
+      "updated_at": "2026-09-22",
       "line_count": 354,
       "path": "skills/devops-sre/senior-architect/SKILL.md"
-    },
-    {
-      "name": "senior-devops",
-      "category": "devops-sre",
-      "description": "Design and operate CI/CD, infrastructure as code, containers, and cloud deployments with observable, reversible release procedures.",
-      "version": "1.0.1",
-      "author": "seaworld008",
-      "source": "in-house",
-      "source_url": "",
-      "tags": [
-        "devops",
-        "senior",
-        "sre"
-      ],
-      "quality": 5,
-      "complexity": "intermediate",
-      "created_at": "2026-03-04",
-      "updated_at": "2026-09-06",
-      "line_count": 219,
-      "path": "skills/devops-sre/senior-devops/SKILL.md"
     },
     {
       "name": "triage",
@@ -2973,8 +2953,8 @@
     {
       "name": "web-scraper",
       "category": "engineering-workflow-automation",
-      "description": "Use when users need webpage scraping, structured data extraction, crawling strategy, anti-bot handling, selector design, or repeatable web data collection workflows.",
-      "version": "1.0.0",
+      "description": "Use when users need webpage scraping, structured data extraction, crawling strategy, pagination, selector design, or repeatable web data collection workflows.",
+      "version": "1.0.1",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -2987,8 +2967,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-27",
-      "updated_at": "2026-06-29",
-      "line_count": 110,
+      "updated_at": "2026-09-22",
+      "line_count": 138,
       "path": "skills/engineering-workflow-automation/web-scraper/SKILL.md"
     },
     {
@@ -3280,7 +3260,7 @@
       "name": "saas-metrics-coach",
       "category": "finance-investing",
       "description": "SaaS financial health advisor. Use when a user shares revenue or customer numbers, or mentions ARR, MRR, churn, LTV, CAC, NRR, or asks how their SaaS business is doing.",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "author": "seaworld008",
       "source": "github:alirezarezvani/claude-skills",
       "source_url": "https://github.com/alirezarezvani/claude-skills/blob/main/finance/skills/saas-metrics-coach/SKILL.md",
@@ -3293,7 +3273,7 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-27",
-      "updated_at": "2026-09-06",
+      "updated_at": "2026-09-22",
       "line_count": 163,
       "path": "skills/finance-investing/saas-metrics-coach/SKILL.md"
     },
@@ -3662,7 +3642,7 @@
       "name": "arxiv",
       "category": "knowledge-and-pm-integrations",
       "description": "Search arXiv papers by keyword, author, category, or ID.",
-      "version": "1.0.4",
+      "version": "1.0.5",
       "author": "Hermes Agent",
       "source": "github:NousResearch/hermes-agent",
       "source_url": "https://github.com/NousResearch/hermes-agent/blob/main/skills/research/arxiv/SKILL.md",
@@ -3677,7 +3657,7 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-04-13",
-      "updated_at": "2026-08-31",
+      "updated_at": "2026-09-22",
       "line_count": 290,
       "path": "skills/knowledge-and-pm-integrations/arxiv/SKILL.md"
     },
@@ -4210,7 +4190,7 @@
       "name": "linear",
       "category": "knowledge-and-pm-integrations",
       "description": "用于管理 Linear issues、项目、团队和协作状态。",
-      "version": "2.0.2",
+      "version": "2.0.3",
       "author": "seaworld008",
       "source": "adapted-from-hermes-agent",
       "source_url": "https://github.com/NousResearch/hermes-agent/blob/3636f64540a3d80c8425f195f46e53e940956cba/skills/productivity/linear/SKILL.md",
@@ -4225,8 +4205,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-04",
-      "updated_at": "2026-05-19",
-      "line_count": 383,
+      "updated_at": "2026-09-22",
+      "line_count": 378,
       "path": "skills/knowledge-and-pm-integrations/linear/SKILL.md"
     },
     {
@@ -5222,7 +5202,7 @@
       "name": "landing-page-generator",
       "category": "product-design",
       "description": "Build React/Next.js landing pages with Tailwind, focused copy, accessible sections, calls to action, metadata, and performance validation.",
-      "version": "1.0.7",
+      "version": "1.0.8",
       "author": "seaworld008",
       "source": "github:alirezarezvani/claude-skills",
       "source_url": "https://github.com/alirezarezvani/claude-skills/blob/main/product-team/skills/landing-page-generator/SKILL.md",
@@ -5236,7 +5216,7 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-27",
-      "updated_at": "2026-09-06",
+      "updated_at": "2026-09-22",
       "line_count": 217,
       "path": "skills/product-design/landing-page-generator/SKILL.md"
     },
@@ -5583,7 +5563,7 @@
       "name": "information-security-manager-iso27001",
       "category": "security-and-reliability",
       "description": "Design or audit ISO 27001 ISMS controls, security risk treatment, and compliance evidence, including healthcare and medical-device contexts.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "alirezarezvani",
       "source": "github:alirezarezvani/claude-skills",
       "source_url": "https://github.com/alirezarezvani/claude-skills/blob/main/ra-qm-team/skills/information-security-manager-iso27001/SKILL.md",
@@ -5599,7 +5579,7 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-06-01",
-      "updated_at": "2026-09-06",
+      "updated_at": "2026-09-22",
       "line_count": 430,
       "path": "skills/security-and-reliability/information-security-manager-iso27001/SKILL.md"
     },
@@ -5740,7 +5720,7 @@
       "name": "security-pen-testing",
       "category": "security-and-reliability",
       "description": "Perform authorized security assessments, vulnerability scans, and penetration tests with explicit targets, scope, evidence, and remediation guidance.",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "author": "alirezarezvani",
       "source": "github:alirezarezvani/claude-skills",
       "source_url": "https://github.com/alirezarezvani/claude-skills/blob/main/engineering-team/skills/security-pen-testing/SKILL.md",
@@ -5755,8 +5735,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-06-01",
-      "updated_at": "2026-09-06",
-      "line_count": 317,
+      "updated_at": "2026-09-22",
+      "line_count": 325,
       "path": "skills/security-and-reliability/security-pen-testing/SKILL.md"
     },
     {
@@ -5846,7 +5826,7 @@
       "name": "skill-security-auditor",
       "category": "security-and-reliability",
       "description": "Audit external agent skills before installation for malicious instructions, unsafe scripts, excessive permissions, dependency risks, and data exfiltration.",
-      "version": "1.0.5",
+      "version": "1.0.6",
       "author": "seaworld008",
       "source": "github:alirezarezvani/claude-skills",
       "source_url": "https://github.com/alirezarezvani/claude-skills/blob/main/engineering/skills/skill-security-auditor/SKILL.md",
@@ -5858,7 +5838,7 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-27",
-      "updated_at": "2026-09-06",
+      "updated_at": "2026-09-22",
       "line_count": 173,
       "path": "skills/security-and-reliability/skill-security-auditor/SKILL.md"
     },

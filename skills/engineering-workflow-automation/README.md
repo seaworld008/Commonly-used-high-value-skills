@@ -28,7 +28,7 @@
 | `latch` | 配置和维护生命周期钩子、质量门禁和自动化守卫。 | [目录](./latch/) | [SKILL.md](./latch/SKILL.md) |
 | `playwright` | 用于使用 Playwright 编写、运行和调试端到端测试。 | [目录](./playwright/) | [SKILL.md](./playwright/SKILL.md) |
 | `playwright-pro` | 用于高级 Playwright 测试、诊断、稳定性和浏览器自动化。 | [目录](./playwright-pro/) | [SKILL.md](./playwright-pro/SKILL.md) |
-| `web-scraper` | 用于网页抓取、结构化数据提取、爬取策略、选择器设计和反爬应对。 | [目录](./web-scraper/) | [SKILL.md](./web-scraper/SKILL.md) |
+| `web-scraper` | 用于网页抓取、结构化数据提取、爬取策略、选择器设计和增量更新。 | [目录](./web-scraper/) | [SKILL.md](./web-scraper/SKILL.md) |
 | `yeet` | 按用户要求暂存、提交、推送改动并创建 GitHub PR。 | [目录](./yeet/) | [SKILL.md](./yeet/SKILL.md) |
 
 ## 维护方式

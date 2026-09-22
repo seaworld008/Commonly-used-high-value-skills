@@ -1,6 +1,6 @@
 # Tags Index
 
-> Auto-generated from 1098 skill-tag mappings across 490 tags.
+> Auto-generated from 1095 skill-tag mappings across 490 tags.
 > Last updated: see git log.
 
 ## Quick Navigation
@@ -19,9 +19,9 @@
 - [`automation`](#automation) (15)
 - [`growth`](#growth) (15)
 - [`planning`](#planning) (14)
-- [`sre`](#sre) (14)
-- [`devops`](#devops) (13)
 - [`marketing`](#marketing) (13)
+- [`sre`](#sre) (13)
+- [`devops`](#devops) (12)
 - [`product`](#product) (12)
 - [`productivity`](#productivity) (11)
 - [`deployment`](#deployment) (7)
@@ -116,7 +116,6 @@
 - [`saas`](#saas) (2)
 - [`sast`](#sast) (2)
 - [`schema`](#schema) (2)
-- [`senior`](#senior) (2)
 - [`slides`](#slides) (2)
 - [`strategy`](#strategy) (2)
 - [`supabase`](#supabase) (2)
@@ -424,6 +423,7 @@
 - [`security-rules`](#security-rules) (1)
 - [`self`](#self) (1)
 - [`semgrep`](#semgrep) (1)
+- [`senior`](#senior) (1)
 - [`sentry`](#sentry) (1)
 - [`setup`](#setup) (1)
 - [`shard`](#shard) (1)
@@ -554,7 +554,7 @@
 | [playwright](skills/engineering-workflow-automation/playwright) | engineering-workflow-automation | ★★★★☆ | Use when the task requires automating a real browser from the terminal (navigati |
 | [web-scraper](skills/engineering-workflow-automation/web-scraper) | engineering-workflow-automation | ★★★★☆ | Use when users need webpage scraping, structured data extraction, crawling strat |
 | [brainstorming](skills/ai-workflow/brainstorming) | ai-workflow | ★★★☆☆ | Use before creative product or engineering work when the user wants to design a  |
-| [executing-plans](skills/ai-workflow/executing-plans) | ai-workflow | ★★★☆☆ | Use when you have a written implementation plan to execute in a separate session |
+| [executing-plans](skills/ai-workflow/executing-plans) | ai-workflow | ★★★☆☆ | Use when executing an existing implementation plan, tracking dependencies, adapt |
 | [subagent-driven-development](skills/ai-workflow/subagent-driven-development) | ai-workflow | ★★★☆☆ | Use when executing implementation plans with independent tasks in the current se |
 | [billing-automation](skills/engineering-workflow-automation/billing-automation) | engineering-workflow-automation | ★★★☆☆ | Build automated billing systems for recurring payments, invoicing, subscription  |
 | [gh-fix-ci](skills/engineering-workflow-automation/gh-fix-ci) | engineering-workflow-automation | ★★★☆☆ | Inspect and fix failing GitHub Actions PR checks using gh logs and focused valid |
@@ -962,47 +962,6 @@
 | [brainstorming](skills/ai-workflow/brainstorming) | ai-workflow | ★★★☆☆ | Use before creative product or engineering work when the user wants to design a  |
 | [subagent-driven-development](skills/ai-workflow/subagent-driven-development) | ai-workflow | ★★★☆☆ | Use when executing implementation plans with independent tasks in the current se |
 
-## sre
-
-**14 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [beacon](skills/devops-sre/beacon) | devops-sre | ★★★★★ | 可观测性、服务目标、告警、容量和可靠性设计。 |
-| [cloudflare-troubleshooting](skills/devops-sre/cloudflare-troubleshooting) | devops-sre | ★★★★★ | Diagnose Cloudflare DNS, TLS, redirects, and configuration issues using live API |
-| [env-secrets-manager](skills/devops-sre/env-secrets-manager) | devops-sre | ★★★★★ | Manage environment files, required-variable validation, secret storage, leak det |
-| [gear](skills/devops-sre/gear) | devops-sre | ★★★★★ | 依赖、构建、容器、监控和开发环境运维优化。 |
-| [github-ops](skills/devops-sre/github-ops) | devops-sre | ★★★★★ | Operate GitHub repositories, PRs, issues, and Actions through gh CLI and GitHub  |
-| [incident-commander](skills/devops-sre/incident-commander) | devops-sre | ★★★★★ | Coordinate active incidents through severity assessment, roles, mitigation, comm |
-| [observability-designer](skills/devops-sre/observability-designer) | devops-sre | ★★★★★ | Design production observability with SLI/SLO definitions, actionable alerts, tel |
-| [release-manager](skills/devops-sre/release-manager) | devops-sre | ★★★★★ | Prepare software releases with version selection, changelogs, artifacts, validat |
-| [senior-devops](skills/devops-sre/senior-devops) | devops-sre | ★★★★★ | Design and operate CI/CD, infrastructure as code, containers, and cloud deployme |
-| [triage](skills/devops-sre/triage) | devops-sre | ★★★★★ | 事故首响、影响范围识别、恢复步骤和复盘整理。 |
-| [runbook-generator](skills/openclaw-memory-and-safety/runbook-generator) | openclaw-memory-and-safety | ★★★★★ | Write or review operational runbooks for deployment, rollback, incidents, recove |
-| [azure-kubernetes](skills/devops-sre/azure-kubernetes) | devops-sre | ★★★★☆ | Plan and configure Azure Kubernetes Service clusters, including SKU, networking, |
-| [cc-devops-skills](skills/devops-sre/cc-devops-skills) | devops-sre | ★★★★☆ | SRE, DevOps, Kubernetes, CI/CD, PromQL, Terraform, Docker, and incident operatio |
-| [senior-architect](skills/devops-sre/senior-architect) | devops-sre | ★★★★☆ | Design or review system architecture, technical tradeoffs, dependencies, and sca |
-
-## devops
-
-**13 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [beacon](skills/devops-sre/beacon) | devops-sre | ★★★★★ | 可观测性、服务目标、告警、容量和可靠性设计。 |
-| [cloudflare-troubleshooting](skills/devops-sre/cloudflare-troubleshooting) | devops-sre | ★★★★★ | Diagnose Cloudflare DNS, TLS, redirects, and configuration issues using live API |
-| [env-secrets-manager](skills/devops-sre/env-secrets-manager) | devops-sre | ★★★★★ | Manage environment files, required-variable validation, secret storage, leak det |
-| [gear](skills/devops-sre/gear) | devops-sre | ★★★★★ | 依赖、构建、容器、监控和开发环境运维优化。 |
-| [github-ops](skills/devops-sre/github-ops) | devops-sre | ★★★★★ | Operate GitHub repositories, PRs, issues, and Actions through gh CLI and GitHub  |
-| [incident-commander](skills/devops-sre/incident-commander) | devops-sre | ★★★★★ | Coordinate active incidents through severity assessment, roles, mitigation, comm |
-| [observability-designer](skills/devops-sre/observability-designer) | devops-sre | ★★★★★ | Design production observability with SLI/SLO definitions, actionable alerts, tel |
-| [release-manager](skills/devops-sre/release-manager) | devops-sre | ★★★★★ | Prepare software releases with version selection, changelogs, artifacts, validat |
-| [senior-devops](skills/devops-sre/senior-devops) | devops-sre | ★★★★★ | Design and operate CI/CD, infrastructure as code, containers, and cloud deployme |
-| [triage](skills/devops-sre/triage) | devops-sre | ★★★★★ | 事故首响、影响范围识别、恢复步骤和复盘整理。 |
-| [azure-kubernetes](skills/devops-sre/azure-kubernetes) | devops-sre | ★★★★☆ | Plan and configure Azure Kubernetes Service clusters, including SKU, networking, |
-| [cc-devops-skills](skills/devops-sre/cc-devops-skills) | devops-sre | ★★★★☆ | SRE, DevOps, Kubernetes, CI/CD, PromQL, Terraform, Docker, and incident operatio |
-| [senior-architect](skills/devops-sre/senior-architect) | devops-sre | ★★★★☆ | Design or review system architecture, technical tradeoffs, dependencies, and sca |
-
 ## marketing
 
 **13 skills**
@@ -1022,6 +981,45 @@
 | [social-media-analyzer](skills/growth-operations-xiaohongshu/social-media-analyzer) | growth-operations-xiaohongshu | ★★★★★ | Analyze social campaign engagement, ROI, audience behavior, and platform compari |
 | [tweetclaw-source-research](skills/growth-operations-xiaohongshu/tweetclaw-source-research) | growth-operations-xiaohongshu | ★★★★☆ | Use TweetClaw through OpenClaw to collect X/Twitter source context before drafti |
 | [twitter-reader](skills/growth-operations-xiaohongshu/twitter-reader) | growth-operations-xiaohongshu | ★★★☆☆ | Read Twitter/X posts and threads from supplied URLs, including author, text, tim |
+
+## sre
+
+**13 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [beacon](skills/devops-sre/beacon) | devops-sre | ★★★★★ | 可观测性、服务目标、告警、容量和可靠性设计。 |
+| [cloudflare-troubleshooting](skills/devops-sre/cloudflare-troubleshooting) | devops-sre | ★★★★★ | Diagnose Cloudflare DNS, TLS, redirects, and configuration issues using live API |
+| [env-secrets-manager](skills/devops-sre/env-secrets-manager) | devops-sre | ★★★★★ | Manage environment files, required-variable validation, secret storage, leak det |
+| [gear](skills/devops-sre/gear) | devops-sre | ★★★★★ | 依赖、构建、容器、监控和开发环境运维优化。 |
+| [github-ops](skills/devops-sre/github-ops) | devops-sre | ★★★★★ | Operate GitHub repositories, PRs, issues, and Actions through gh CLI and GitHub  |
+| [incident-commander](skills/devops-sre/incident-commander) | devops-sre | ★★★★★ | Coordinate active incidents through severity assessment, roles, mitigation, comm |
+| [observability-designer](skills/devops-sre/observability-designer) | devops-sre | ★★★★★ | Design production observability with SLI/SLO definitions, actionable alerts, tel |
+| [release-manager](skills/devops-sre/release-manager) | devops-sre | ★★★★★ | Prepare software releases with version selection, changelogs, artifacts, validat |
+| [triage](skills/devops-sre/triage) | devops-sre | ★★★★★ | 事故首响、影响范围识别、恢复步骤和复盘整理。 |
+| [runbook-generator](skills/openclaw-memory-and-safety/runbook-generator) | openclaw-memory-and-safety | ★★★★★ | Write or review operational runbooks for deployment, rollback, incidents, recove |
+| [azure-kubernetes](skills/devops-sre/azure-kubernetes) | devops-sre | ★★★★☆ | Plan and configure Azure Kubernetes Service clusters, including SKU, networking, |
+| [cc-devops-skills](skills/devops-sre/cc-devops-skills) | devops-sre | ★★★★☆ | SRE, DevOps, Kubernetes, CI/CD, PromQL, Terraform, Docker, and incident operatio |
+| [senior-architect](skills/devops-sre/senior-architect) | devops-sre | ★★★★☆ | Design or review system architecture, technical tradeoffs, dependencies, and sca |
+
+## devops
+
+**12 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [beacon](skills/devops-sre/beacon) | devops-sre | ★★★★★ | 可观测性、服务目标、告警、容量和可靠性设计。 |
+| [cloudflare-troubleshooting](skills/devops-sre/cloudflare-troubleshooting) | devops-sre | ★★★★★ | Diagnose Cloudflare DNS, TLS, redirects, and configuration issues using live API |
+| [env-secrets-manager](skills/devops-sre/env-secrets-manager) | devops-sre | ★★★★★ | Manage environment files, required-variable validation, secret storage, leak det |
+| [gear](skills/devops-sre/gear) | devops-sre | ★★★★★ | 依赖、构建、容器、监控和开发环境运维优化。 |
+| [github-ops](skills/devops-sre/github-ops) | devops-sre | ★★★★★ | Operate GitHub repositories, PRs, issues, and Actions through gh CLI and GitHub  |
+| [incident-commander](skills/devops-sre/incident-commander) | devops-sre | ★★★★★ | Coordinate active incidents through severity assessment, roles, mitigation, comm |
+| [observability-designer](skills/devops-sre/observability-designer) | devops-sre | ★★★★★ | Design production observability with SLI/SLO definitions, actionable alerts, tel |
+| [release-manager](skills/devops-sre/release-manager) | devops-sre | ★★★★★ | Prepare software releases with version selection, changelogs, artifacts, validat |
+| [triage](skills/devops-sre/triage) | devops-sre | ★★★★★ | 事故首响、影响范围识别、恢复步骤和复盘整理。 |
+| [azure-kubernetes](skills/devops-sre/azure-kubernetes) | devops-sre | ★★★★☆ | Plan and configure Azure Kubernetes Service clusters, including SKU, networking, |
+| [cc-devops-skills](skills/devops-sre/cc-devops-skills) | devops-sre | ★★★★☆ | SRE, DevOps, Kubernetes, CI/CD, PromQL, Terraform, Docker, and incident operatio |
+| [senior-architect](skills/devops-sre/senior-architect) | devops-sre | ★★★★☆ | Design or review system architecture, technical tradeoffs, dependencies, and sca |
 
 ## product
 
@@ -1889,7 +1887,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [writing-plans](skills/ai-workflow/writing-plans) | ai-workflow | ★★★★☆ | Write a practical implementation plan when multi-step work needs task boundaries |
-| [executing-plans](skills/ai-workflow/executing-plans) | ai-workflow | ★★★☆☆ | Use when you have a written implementation plan to execute in a separate session |
+| [executing-plans](skills/ai-workflow/executing-plans) | ai-workflow | ★★★☆☆ | Use when executing an existing implementation plan, tracking dependencies, adapt |
 
 ## playwright
 
@@ -1980,15 +1978,6 @@
 |-------|----------|---------|-------------|
 | [database-schema-designer](skills/developer-engineering/database-schema-designer) | developer-engineering | ★★★★★ | Design relational database schemas from requirements and generate migrations, Ty |
 | [schema](skills/developer-engineering/schema) | developer-engineering | ★★★★★ | 数据库模式设计、迁移规划、索引策略和关系建模。 |
-
-## senior
-
-**2 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [senior-devops](skills/devops-sre/senior-devops) | devops-sre | ★★★★★ | Design and operate CI/CD, infrastructure as code, containers, and cloud deployme |
-| [senior-architect](skills/devops-sre/senior-architect) | devops-sre | ★★★★☆ | Design or review system architecture, technical tradeoffs, dependencies, and sca |
 
 ## slides
 
@@ -3000,7 +2989,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [executing-plans](skills/ai-workflow/executing-plans) | ai-workflow | ★★★☆☆ | Use when you have a written implementation plan to execute in a separate session |
+| [executing-plans](skills/ai-workflow/executing-plans) | ai-workflow | ★★★☆☆ | Use when executing an existing implementation plan, tracking dependencies, adapt |
 
 ## expo
 
@@ -4457,6 +4446,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。 |
+
+## senior
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [senior-architect](skills/devops-sre/senior-architect) | devops-sre | ★★★★☆ | Design or review system architecture, technical tradeoffs, dependencies, and sca |
 
 ## sentry
 

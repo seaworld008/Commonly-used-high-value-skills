@@ -8,10 +8,10 @@
 
 ## 推荐先看
 
+- [information-security-manager-iso27001](./information-security-manager-iso27001/) - 建立和审计 ISO 27001 信息安全管理体系及风险控制。
 - [security-ownership-map](./security-ownership-map/) - 用于基于 Git 历史分析安全所有权、敏感代码归属、bus factor、CODEOWNERS 现实差距和风险热点。
+- [security-pen-testing](./security-pen-testing/) - 在授权范围内执行漏洞扫描、渗透测试和修复验证。
 - [sentry](./sentry/) - 用于只读查询 Sentry issues、events 和服务健康数据，汇总线上错误并辅助生产问题排查。
-- [breach](./breach/) - 红队场景、攻击路径、威胁建模和对抗演练设计。
-- [cloak](./cloak/) - 隐私工程、敏感信息流、同意管理和数据治理。
 
 ## 技能总览
 

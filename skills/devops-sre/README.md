@@ -4,7 +4,7 @@
 
 面向发布、CI/CD、可观测性、故障响应和环境治理的技能集合。
 
-当前分类共 **13** 个技能。
+当前分类共 **12** 个技能。
 
 ## 推荐先看
 
@@ -28,7 +28,6 @@
 | `observability-designer` | 设计日志、指标、链路追踪、告警和服务运行目标。 | [目录](./observability-designer/) | [SKILL.md](./observability-designer/SKILL.md) |
 | `release-manager` | 组织版本、变更记录、发布制品和发布后验证。 | [目录](./release-manager/) | [SKILL.md](./release-manager/SKILL.md) |
 | `senior-architect` | 分析系统架构、依赖、扩展性和关键技术取舍。 | [目录](./senior-architect/) | [SKILL.md](./senior-architect/SKILL.md) |
-| `senior-devops` | 建设可观测、可回滚的基础设施与持续交付流程。 | [目录](./senior-devops/) | [SKILL.md](./senior-devops/SKILL.md) |
 | `triage` | 事故首响、影响范围识别、恢复步骤和复盘整理。 | [目录](./triage/) | [SKILL.md](./triage/SKILL.md) |
 
 ## 维护方式

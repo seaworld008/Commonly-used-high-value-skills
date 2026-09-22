@@ -158,7 +158,7 @@ jobs:
 ### kubernetes (5 skills)
 - [kubernetes-specialist](skills/developer-engineering/kubernetes-specialist) ⭐4
 - [docker-expert](skills/developer-engineering/docker-expert) ⭐4
-- [senior-devops](skills/devops-sre/senior-devops) ⭐3
+- `senior-devops` — retired 2026-09-22; use `cc-devops-skills`
 ...
 
 ### react (3 skills)

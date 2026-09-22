@@ -2,14 +2,14 @@
 name: planning-and-task-breakdown
 description: 'Turn clear requirements into ordered tasks, dependencies, and acceptance checks; preserve unfinished work when revising an existing plan.'
 zh_description: "将需求拆成有依赖与验收标准的任务，并保护已有未完成计划。"
-version: "1.0.5"
+version: "1.0.6"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/planning-and-task-breakdown/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "planning-and-task-breakdown", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-09-07"
+updated_at: "2026-09-22"
 quality: 5
 complexity: advanced
 upstream_slug: planning-and-task-breakdown
@@ -33,16 +33,16 @@ Decompose work into small, verifiable tasks with explicit acceptance criteria. G
 
 ## The Planning Process
 
-### Step 1: Enter Plan Mode
+### Step 1: Inspect the Existing Plan and Code
 
-Before writing any code, operate in read-only mode:
+Start by reading the relevant context:
 
 - Read the spec and relevant codebase sections
 - Identify existing patterns and conventions
 - Map dependencies between components
 - Note risks and unknowns
 
-**Do NOT write code during planning.** The output is a plan document saved to `tasks/plan.md` and a task list recorded in the task list target (see Output Files; default `tasks/todo.md`), not implementation.
+For a plan-only request, deliver the plan document and task list without implementation. When implementation is already authorized, continue once material decisions are resolved; this skill does not require switching host modes.
 
 ### Step 2: Identify the Dependency Graph
 
@@ -131,7 +131,7 @@ Add explicit checkpoints to the task list target:
 - [ ] All tests pass
 - [ ] Application builds without errors
 - [ ] Core user flow works end-to-end
-- [ ] Review with human before proceeding
+- [ ] Resolve any material open decision before dependent work
 ```
 
 ## Task Sizing Guidelines
@@ -235,8 +235,8 @@ When multiple agents or sessions are available:
 | Rationalization | Reality |
 |---|---|
 | "I'll figure it out as I go" | That's how you end up with a tangled mess and rework. 10 minutes of planning saves hours. |
-| "The tasks are obvious" | Write them down anyway. Explicit tasks surface hidden dependencies and forgotten edge cases. |
-| "Planning is overhead" | Planning is the task. Implementation without a plan is just typing. |
+| "The tasks are obvious" | Skip this skill when scope is already clear; record only dependencies or acceptance gaps. |
+| "Planning is overhead" | Scale the plan to the uncertainty and coordination the work actually needs. |
 | "I can hold it all in my head" | Context windows are finite. Written plans survive session boundaries and compaction. |
 
 ## Red Flags
@@ -259,7 +259,7 @@ Before starting implementation, confirm:
 - [ ] Tasks are recorded in the task list target (default `tasks/todo.md`)
 - [ ] No task touches more than ~5 files
 - [ ] Checkpoints exist between major phases
-- [ ] The human has reviewed and approved the plan
+- [ ] Material open decisions are resolved and execution is within the user's authorization
 
 ## See Also
 

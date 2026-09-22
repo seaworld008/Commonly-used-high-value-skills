@@ -151,3 +151,17 @@ def test_interpreter_caches_do_not_change_bundled_inventory(tmp_path):
 def test_metadata_is_not_a_task_description(tmp_path):
     path = make_skill(tmp_path, description="'> Skill Type: POWERFUL > Category: Engineering'")
     assert "metadata_as_description" in {f["rule"] for f in inspect_skill(path, tmp_path)["findings"]}
+
+
+def test_rejects_placeholder_analyzer_reporting_unconditional_success(tmp_path):
+    path = make_skill(tmp_path)
+    script = path.parent / "analyzer.py"
+    script.write_text("""def analyze(self):
+    # Main logic here
+    self.results['status'] = 'success'
+    self.results['target'] = str(self.target_path)
+    self.results['findings'] = []
+""")
+    assert "empty_success_scaffold" in {f["rule"] for f in inspect_skill(path, tmp_path)["findings"]}
+    script.write_text("def analyze(items):\n    return [item for item in items if item.invalid]\n")
+    assert inspect_skill(path, tmp_path)["findings"] == []

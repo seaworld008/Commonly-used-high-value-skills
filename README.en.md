@@ -5,12 +5,12 @@
 [![简体中文](https://img.shields.io/badge/README-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1677ff)](./README.md)
 [![English](https://img.shields.io/badge/README-English-111111)](./README.en.md)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b894)](./openclaw-skills/README.md)
-[![Skills](https://img.shields.io/badge/Skills-285-7c3aed)](./skills/)
+[![Skills](https://img.shields.io/badge/Skills-284-7c3aed)](./skills/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
 A high-value skills repository for AI developers, organized by real work scenarios such as developer engineering, DevOps, automation, finance, design, knowledge workflows, and reliability.
 
-This repository currently contains **16 categories / 285 skills**.
+This repository currently contains **16 categories / 284 skills**.
 
 ## Who This Is For
 
@@ -337,7 +337,7 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 2. Open the relevant `SKILL.md` and read its triggers, workflow, boundaries, and scripts.
 3. If a skill includes `scripts/`, `references/`, or `assets/`, reuse those files before recreating similar content.
 
-## Skill Overview (by category, 16 categories / 285 skills)
+## Skill Overview (by category, 16 categories / 284 skills)
 
 <a id="cat-developer-engineering"></a>
 ### 1. Developer Engineering (developer-engineering, 47)
@@ -477,7 +477,7 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`yeet`](./skills/engineering-workflow-automation/yeet/)
 
 <a id="cat-devops-sre"></a>
-### 5. DevOps / SRE (devops-sre, 13)
+### 5. DevOps / SRE (devops-sre, 12)
 
 - [`azure-kubernetes`](./skills/devops-sre/azure-kubernetes/)
 - [`beacon`](./skills/devops-sre/beacon/)
@@ -490,7 +490,6 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`observability-designer`](./skills/devops-sre/observability-designer/)
 - [`release-manager`](./skills/devops-sre/release-manager/)
 - [`senior-architect`](./skills/devops-sre/senior-architect/)
-- [`senior-devops`](./skills/devops-sre/senior-devops/)
 - [`triage`](./skills/devops-sre/triage/)
 
 <a id="cat-finance-investing"></a>

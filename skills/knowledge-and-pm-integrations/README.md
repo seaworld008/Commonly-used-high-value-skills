@@ -11,7 +11,7 @@
 - [lark-mail](./lark-mail/) - 用于飞书邮件起草、查询、回复、转发及经授权的发送与邮箱管理。
 - [lark-sheets](./lark-sheets/) - 用于读取、编辑和分析飞书电子表格数据。
 - [lark-slides](./lark-slides/) - 飞书幻灯片：创建和编辑幻灯片。
-- [grove](./grove/) - 仓库结构、文档布局、测试脚本组织和迁移规划。
+- [arxiv](./arxiv/) - 用于按关键词、作者、分类或编号检索 arXiv 论文。
 
 ## 技能总览
 
