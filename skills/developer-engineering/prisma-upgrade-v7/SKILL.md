@@ -2,7 +2,7 @@
 name: prisma-upgrade-v7
 description: 'Use when migrating an existing Prisma ORM SQL project from v6 to v7, updating generated-client imports, driver adapters, module format, or configuration.'
 zh_description: "用于 Prisma ORM 6 到 7 的 SQL 项目迁移、驱动适配器、客户端导入与配置升级。"
-version: "1.0.0"
+version: "1.0.1"
 author: Prisma
 source: "github:prisma/skills"
 source_url: "https://github.com/prisma/skills/tree/1123817e60d15ca0f3af91878923241dee7e3b09/prisma-upgrade-v7"
@@ -257,7 +257,7 @@ npx prisma migrate dev  # if needed
 
 ## Resources
 
-- [Official v7 Upgrade Guide](https://www.prisma.io/docs/orm/more/upgrades/to-v7)
+- [Official v7 Upgrade Guide](https://www.prisma.io/docs/guides/upgrade-prisma-orm/v7)
 - [Driver Adapters Documentation](https://www.prisma.io/docs/orm/core-concepts/supported-databases/database-drivers)
 - [Prisma Config Reference](https://www.prisma.io/docs/orm/reference/prisma-config-reference)
 

@@ -1,0 +1,30 @@
+{
+  "tag": "v3.0.0",
+  "package_version": "3.0.0",
+  "title": "Curated Portfolio and Prisma Skills v3.0.0",
+  "prerelease": false,
+  "generate_notes": false,
+  "changelog_range": "v2.2.0..v3.0.0",
+  "canonical_skills": 286,
+  "highlights": [
+    "Restore 48 missing executable, reference, template and license files across eight existing skills",
+    "Retire senior-devops after proving its three advertised scripts were empty success scaffolds",
+    "Add two MIT-licensed official Prisma skills with complete references and reviewed local corrections",
+    "Upgrade Hermes Agent references to stable v2026.9.21 and preserve cross-agent planning boundaries",
+    "Prevent filtered upstream checks from hiding provenance errors; add resource and dirty-worktree regressions"
+  ],
+  "release_gates": [
+    "Merged-main Repository Validation, provenance and CodeQL pass on the exact release commit",
+    "Repository validation, npm package checks and generator idempotence pass before tagging",
+    "Create the release tag from the verified merged main commit",
+    "Independently download source archive and npm package; verify SHA-256, metadata and canonical file contents"
+  ],
+  "validation_boundaries": {
+    "upstream": "Default-branch monitor candidates and removed upstream paths retain their reviewed licensed checkpoints; no claim of full upstream freshness. Prisma pinned to 1123817e60d15ca0f3af91878923241dee7e3b09; Hermes stable d337b736aa1e8ebecfab043842d13e4a2d2f48a3.",
+    "runtime": "Static repository checks, offline helper tests and CLI smoke checks; no model-behavior, live Prisma database or production-runtime acceptance claimed.",
+    "local_installation": "Release preparation does not change global skills or client configuration."
+  },
+  "breaking_changes": [
+    "The public senior-devops skill is removed. Use cc-devops-skills for operations, pipe for CI/CD, terraform-engineer for IaC, and release-manager for releases. Existing 2.x consumers must explicitly select the 3.x release."
+  ]
+}

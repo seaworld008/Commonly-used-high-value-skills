@@ -339,7 +339,7 @@
             "ref": "main",
             "resolved_commit": "1123817e60d15ca0f3af91878923241dee7e3b09",
             "path_commit": "72aa5e3b6fea2cc00cefcf8a5decc84ec1d6302b",
-            "content_sha256": "baef118fd561ab51a2b2be71c8b530789ef525597f23ebe52148a789eda8a31f",
+            "content_sha256": "405fdadba1566cc401c8a463b82036027bb2623dc3c90ccb8b5e9bad05fbd777",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "cff9f2c6d509cccd360cc36634e193b7355dc322",
@@ -363,7 +363,7 @@
         {
           "path": "skills/developer-engineering/prisma-upgrade-v7/SKILL.md",
           "owner": "prisma-upgrade-v7",
-          "sha256": "baef118fd561ab51a2b2be71c8b530789ef525597f23ebe52148a789eda8a31f",
+          "sha256": "405fdadba1566cc401c8a463b82036027bb2623dc3c90ccb8b5e9bad05fbd777",
           "mode": "100644"
         },
         {

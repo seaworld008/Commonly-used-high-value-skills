@@ -97,3 +97,13 @@ CI 的 Repository Validation 调用同一个 `validate_repository.py --refresh` 
 
 变更历史使用 `python scripts/generate_changelog.py --preserve-history`；只允许更新唯一 Unreleased 内的标记块，保留已整理历史。
 模型延迟、成本和任务成功率需要独立运行的评测；静态指令检查与仓库测试不能代替这些结果。
+
+发布前若上一个版本的记录仍留在自动区块，先使用 `--archive-tag vX.Y.Z` 从该 tag 的
+`CHANGELOG.md` 恢复缺失的版本章节，再刷新当前范围；该选项必须与 `--preserve-history` 一起使用。
+已经存在的版本章节保持原样，归档内容不带自动区块标记。示例：
+
+```bash
+python scripts/generate_changelog.py --preserve-history --archive-tag v2.2.0 --since v2.2.0 --to HEAD^
+```
+
+删除公开的技能名称或路径属于破坏性变更，发布时提高主版本，并列出可用替代入口。
