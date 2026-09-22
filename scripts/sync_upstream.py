@@ -4471,15 +4471,18 @@ def main(argv: list[str] | None = None) -> int:
         skills = [
             s
             for s in skills
-            if s.get("repo") == source or s.get("source") == args.source
+            if s.get("load_error")
+            or s.get("repo") == source or s.get("source") == args.source
         ]
     if args.exclude_source:
         excluded = {item.replace("github:", "") for item in args.exclude_source}
         skills = [
             s
             for s in skills
-            if s.get("repo") not in excluded
-            and s.get("source") not in args.exclude_source
+            if s.get("load_error") or (
+                s.get("repo") not in excluded
+                and s.get("source") not in args.exclude_source
+            )
         ]
     
     print(

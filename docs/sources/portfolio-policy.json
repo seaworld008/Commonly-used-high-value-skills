@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-08-24",
+  "updated_at": "2026-09-22",
   "decision_rule": "Retire a skill only when it has no unique executable asset, current external-system contract, high-risk domain guardrail, or measurable acceptance standard, and a canonical replacement covers the same user intent.",
   "retired_skills": [
     {
@@ -193,6 +193,11 @@
     {
       "name": "artifact-yylo",
       "reason": "Retired as a low-adoption provider-specific YYLO skill at maintainer request; do not reintroduce without a renewed portfolio decision."
+    },
+    {
+      "name": "senior-devops",
+      "replacement": "cc-devops-skills",
+      "reason": "All three advertised automation scripts return success without analysis; all three references are placeholder templates. Use cc-devops-skills, pipe, terraform-engineer, and release-manager for the covered intents."
     }
   ],
   "canonical_groups": [
@@ -266,6 +271,12 @@
         "lark-minutes",
         "lark-vc",
         "lark-vc-agent"
+      ]
+    },
+    {
+      "canonical": "cc-devops-skills",
+      "retired_aliases": [
+        "senior-devops"
       ]
     }
   ],

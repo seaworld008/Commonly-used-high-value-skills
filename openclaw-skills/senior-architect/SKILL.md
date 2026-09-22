@@ -2,14 +2,14 @@
 name: senior-architect
 description: 'Design or review system architecture, technical tradeoffs, dependencies, and scalability; produce diagrams and decision records grounded in requirements.'
 zh_description: "分析系统架构、依赖、扩展性和关键技术取舍。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:alirezarezvani/claude-skills"
 source_url: "https://github.com/alirezarezvani/claude-skills/blob/main/engineering-team/skills/senior-architect/SKILL.md"
 license: MIT
 tags: '["architect", "devops", "senior", "sre"]'
 created_at: "2026-03-27"
-updated_at: "2026-09-06"
+updated_at: "2026-09-22"
 quality: 4
 complexity: "intermediate"
 ---

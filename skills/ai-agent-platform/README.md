@@ -9,9 +9,9 @@
 ## 推荐先看
 
 - [develop-web-game](./develop-web-game/) - 用于开发网页游戏原型、玩法循环、交互逻辑和前端实现。
+- [agent-hub](./agent-hub/) - 用于管理 Agent 能力中心、技能发现、路由和协作工作流。
 - [chatgpt-apps](./chatgpt-apps/) - 用于设计、构建和调试 ChatGPT Apps 与相关集成能力。
 - [figma](./figma/) - 用于处理 Figma 设计读取、解析、交付和实现协作。
-- [arena](./arena/) - 用于构建和运行 Agent 竞技场、评测对战和能力比较流程。
 
 ## 技能总览
 

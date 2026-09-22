@@ -2,14 +2,14 @@
 name: information-security-manager-iso27001
 description: 'Design or audit ISO 27001 ISMS controls, security risk treatment, and compliance evidence, including healthcare and medical-device contexts.'
 zh_description: "建立和审计 ISO 27001 信息安全管理体系及风险控制。"
-version: "1.0.1"
+version: "1.0.2"
 author: alirezarezvani
 source: "github:alirezarezvani/claude-skills"
 source_url: "https://github.com/alirezarezvani/claude-skills/blob/main/ra-qm-team/skills/information-security-manager-iso27001/SKILL.md"
 license: MIT
 tags: '["security", "iso27001", "isms", "compliance", "risk-assessment", "governance", "agent-skill"]'
 created_at: "2026-06-01"
-updated_at: "2026-09-06"
+updated_at: "2026-09-22"
 quality: 4
 complexity: intermediate
 ---

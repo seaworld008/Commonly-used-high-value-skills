@@ -115,7 +115,7 @@
         "sync_mode": "monitor",
         "path_commit": "09fc6e0f3be2a3d74e95c6058408a76972e4571b"
       },
-      "kind": "mirror",
+      "kind": "overlay",
       "sync_mode": "monitor",
       "origins": [
         {
@@ -134,7 +134,7 @@
             "ref": "main",
             "resolved_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
             "path_commit": "09fc6e0f3be2a3d74e95c6058408a76972e4571b",
-            "content_sha256": "63c622c90e2e5d4caf5e1a873bcc2bb298b27911c6b54e3631b7748f83e800b6",
+            "content_sha256": "2909d80e5a9921015f2db93952de08ae5fa7bf1e180c75d2e89edec3b14e1632",
             "last_checked_at": "2026-08-31",
             "last_synced_at": "2026-08-31",
             "license_checkpoint": {
@@ -151,11 +151,12 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/executing-plans/SKILL.md",
+          "sha256": "2909d80e5a9921015f2db93952de08ae5fa7bf1e180c75d2e89edec3b14e1632",
           "owner": "executing-plans",
-          "sha256": "63c622c90e2e5d4caf5e1a873bcc2bb298b27911c6b54e3631b7748f83e800b6",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-22: reviewed local overlay; remove mandatory host-specific handoffs or unavailable helper claims while preserving domain methods and original upstream license/checkpoint."
     },
     {
       "video_name": "finishing-a-development-branch",

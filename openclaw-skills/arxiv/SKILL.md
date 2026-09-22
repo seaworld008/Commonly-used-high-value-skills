@@ -2,14 +2,14 @@
 name: arxiv
 description: 'Search arXiv papers by keyword, author, category, or ID.'
 zh_description: "用于按关键词、作者、分类或编号检索 arXiv 论文。"
-version: "1.0.4"
+version: "1.0.5"
 author: Hermes Agent
 source: "github:NousResearch/hermes-agent"
 source_url: "https://github.com/NousResearch/hermes-agent/blob/main/skills/research/arxiv/SKILL.md"
 license: MIT
 tags: '[Research, Arxiv, Papers, Academic, Science, API]'
 created_at: "2026-04-13"
-updated_at: "2026-08-31"
+updated_at: "2026-09-22"
 quality: 4
 complexity: "intermediate"
 platforms: '[linux, macos, windows]'

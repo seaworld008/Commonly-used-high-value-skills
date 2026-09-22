@@ -42,6 +42,56 @@
             {
               "source": "engineering/agenthub/skills/agenthub/SKILL.md",
               "target": "skills/ai-agent-platform/agent-hub/SKILL.md"
+            },
+            {
+              "source": "engineering/agenthub/skills/agenthub/references/agent-templates.md",
+              "target": "skills/ai-agent-platform/agent-hub/references/agent-templates.md",
+              "type": "file"
+            },
+            {
+              "source": "engineering/agenthub/skills/agenthub/references/coordination-strategies.md",
+              "target": "skills/ai-agent-platform/agent-hub/references/coordination-strategies.md",
+              "type": "file"
+            },
+            {
+              "source": "engineering/agenthub/skills/agenthub/references/dag-patterns.md",
+              "target": "skills/ai-agent-platform/agent-hub/references/dag-patterns.md",
+              "type": "file"
+            },
+            {
+              "source": "engineering/agenthub/skills/agenthub/scripts/board_manager.py",
+              "target": "skills/ai-agent-platform/agent-hub/scripts/board_manager.py",
+              "type": "file"
+            },
+            {
+              "source": "engineering/agenthub/skills/agenthub/scripts/dag_analyzer.py",
+              "target": "skills/ai-agent-platform/agent-hub/scripts/dag_analyzer.py",
+              "type": "file"
+            },
+            {
+              "source": "engineering/agenthub/skills/agenthub/scripts/dry_run.py",
+              "target": "skills/ai-agent-platform/agent-hub/scripts/dry_run.py",
+              "type": "file"
+            },
+            {
+              "source": "engineering/agenthub/skills/agenthub/scripts/hub_init.py",
+              "target": "skills/ai-agent-platform/agent-hub/scripts/hub_init.py",
+              "type": "file"
+            },
+            {
+              "source": "engineering/agenthub/skills/agenthub/scripts/result_ranker.py",
+              "target": "skills/ai-agent-platform/agent-hub/scripts/result_ranker.py",
+              "type": "file"
+            },
+            {
+              "source": "engineering/agenthub/skills/agenthub/scripts/session_manager.py",
+              "target": "skills/ai-agent-platform/agent-hub/scripts/session_manager.py",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-agent-platform/agent-hub/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -49,7 +99,7 @@
             "ref": "main",
             "resolved_commit": "19392f7a08264ed00486a251f5b2098321771f94",
             "path_commit": "a80eec2267a93a681958164b27e74ff96a24f518",
-            "content_sha256": "465a96b7be166f9f6727e8b55036cdd6092f67dafd55fa18f3ca80beb5cab7a3",
+            "content_sha256": "3d43c6b5eaf2f84831f61fdeaddfe07f819dc2cdfcb1e68be557e52af565ff7f",
             "last_checked_at": "2026-08-31",
             "last_synced_at": "2026-08-31",
             "license_checkpoint": {
@@ -103,6 +153,12 @@
           "mode": "100644"
         },
         {
+          "path": "skills/ai-agent-platform/agent-hub/LICENSE.upstream.txt",
+          "sha256": "a20126646f93d32a8989c3cf4772d59194f405034f7babe7daebeac22b8ab151",
+          "owner": "agent-hub",
+          "mode": "100644"
+        },
+        {
           "path": "skills/ai-agent-platform/agent-hub/README.md",
           "sha256": "a555836eacdc116ddb76e8bf9cb0c91466806c7b41091586f493826cdea1536c",
           "owner": "agent-hub",
@@ -110,7 +166,61 @@
         },
         {
           "path": "skills/ai-agent-platform/agent-hub/SKILL.md",
-          "sha256": "465a96b7be166f9f6727e8b55036cdd6092f67dafd55fa18f3ca80beb5cab7a3",
+          "sha256": "3d43c6b5eaf2f84831f61fdeaddfe07f819dc2cdfcb1e68be557e52af565ff7f",
+          "owner": "agent-hub",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/agent-hub/references/agent-templates.md",
+          "sha256": "82ecbeebfd360975897a03c0f7b092d4b6e4d38e7bd6ce1b638fd877ff2c4afc",
+          "owner": "agent-hub",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/agent-hub/references/coordination-strategies.md",
+          "sha256": "574b74a4f97d4cb5719bf1309160417c77d0c3a4fdd3267510e70075dc7fd18b",
+          "owner": "agent-hub",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/agent-hub/references/dag-patterns.md",
+          "sha256": "30b5719572ef0c57b6a3e7cbc990368c626b1a75a4ea8fb41a4da5b4af54c41a",
+          "owner": "agent-hub",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/agent-hub/scripts/board_manager.py",
+          "sha256": "0d3f3e5000133228a2c511f915dac7def5a7c025a1a7ccecb0084eac2596dee0",
+          "owner": "agent-hub",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/agent-hub/scripts/dag_analyzer.py",
+          "sha256": "32ea7490d5d96b3d5d581d8f9d68b67ac27be4eaa89a51f6bd47b663700b3b56",
+          "owner": "agent-hub",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/agent-hub/scripts/dry_run.py",
+          "sha256": "1a02c84929cfcba641adcbe31275fb2cdc6a226d538990253e1b28d1762626a3",
+          "owner": "agent-hub",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/agent-hub/scripts/hub_init.py",
+          "sha256": "a74d4b9159d5b923d895c2a592fda5e0442dcf55068660040fef1a146e4567cb",
+          "owner": "agent-hub",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/agent-hub/scripts/result_ranker.py",
+          "sha256": "9257e232b5320d54b37942e49f62bcd2c6e5e2e50caee6695cc0c18abb29d71e",
+          "owner": "agent-hub",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/agent-hub/scripts/session_manager.py",
+          "sha256": "b4854f2c59165eb98033e0bd0c9a86b346e625a1d0b5fa805eaf5dec01d4e16c",
           "owner": "agent-hub",
           "mode": "100644"
         },
@@ -120,7 +230,8 @@
           "owner": "agent-hub",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-22: restore all omitted sibling scripts/references/assets at the existing immutable licensed checkpoint; preserve local entry curation. Resource checks are static and CLI smoke tests, not security certification. Trailing whitespace in restored Python helpers is normalized locally; agent-hub cleanup also preserves dirty worktrees."
     },
     {
       "video_name": "security-pen-testing",
@@ -139,7 +250,7 @@
         "sync_mode": "monitor",
         "path_commit": "b99505446a787228e776bf51b49d8f4b5939e203"
       },
-      "kind": "mirror",
+      "kind": "overlay",
       "sync_mode": "monitor",
       "origins": [
         {
@@ -151,6 +262,41 @@
             {
               "source": "engineering-team/skills/security-pen-testing/SKILL.md",
               "target": "skills/security-and-reliability/security-pen-testing/SKILL.md"
+            },
+            {
+              "source": "engineering-team/skills/security-pen-testing/references/attack_patterns.md",
+              "target": "skills/security-and-reliability/security-pen-testing/references/attack_patterns.md",
+              "type": "file"
+            },
+            {
+              "source": "engineering-team/skills/security-pen-testing/references/owasp_top_10_checklist.md",
+              "target": "skills/security-and-reliability/security-pen-testing/references/owasp_top_10_checklist.md",
+              "type": "file"
+            },
+            {
+              "source": "engineering-team/skills/security-pen-testing/references/responsible_disclosure.md",
+              "target": "skills/security-and-reliability/security-pen-testing/references/responsible_disclosure.md",
+              "type": "file"
+            },
+            {
+              "source": "engineering-team/skills/security-pen-testing/scripts/dependency_auditor.py",
+              "target": "skills/security-and-reliability/security-pen-testing/scripts/dependency_auditor.py",
+              "type": "file"
+            },
+            {
+              "source": "engineering-team/skills/security-pen-testing/scripts/pentest_report_generator.py",
+              "target": "skills/security-and-reliability/security-pen-testing/scripts/pentest_report_generator.py",
+              "type": "file"
+            },
+            {
+              "source": "engineering-team/skills/security-pen-testing/scripts/vulnerability_scanner.py",
+              "target": "skills/security-and-reliability/security-pen-testing/scripts/vulnerability_scanner.py",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/security-and-reliability/security-pen-testing/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -158,7 +304,7 @@
             "ref": "main",
             "resolved_commit": "19392f7a08264ed00486a251f5b2098321771f94",
             "path_commit": "b99505446a787228e776bf51b49d8f4b5939e203",
-            "content_sha256": "b038b052717de132325cc2d464870f73e2f7b8eba190d2108c0098b960e8876e",
+            "content_sha256": "0076b9907a32eda47820dc75e7e09403e5a6d556be9802b136be6ee8d6b0dfae",
             "last_checked_at": "2026-08-31",
             "last_synced_at": "2026-08-31",
             "license_checkpoint": {
@@ -174,12 +320,55 @@
       ],
       "managed_files": [
         {
-          "path": "skills/security-and-reliability/security-pen-testing/SKILL.md",
+          "path": "skills/security-and-reliability/security-pen-testing/LICENSE.upstream.txt",
+          "sha256": "a20126646f93d32a8989c3cf4772d59194f405034f7babe7daebeac22b8ab151",
           "owner": "security-pen-testing",
-          "sha256": "b038b052717de132325cc2d464870f73e2f7b8eba190d2108c0098b960e8876e",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-pen-testing/SKILL.md",
+          "sha256": "0076b9907a32eda47820dc75e7e09403e5a6d556be9802b136be6ee8d6b0dfae",
+          "owner": "security-pen-testing",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-pen-testing/references/attack_patterns.md",
+          "sha256": "8587e6e1d1f06ea4b226efe01082503c1011f454133fa621d1ef9a884b989af2",
+          "owner": "security-pen-testing",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-pen-testing/references/owasp_top_10_checklist.md",
+          "sha256": "e4b7d2e3f72bf8aff37fd9c85bd599db7092335de42e5fc09081f0f6b60e03c4",
+          "owner": "security-pen-testing",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-pen-testing/references/responsible_disclosure.md",
+          "sha256": "4ed19a27acd1ce3184ccc9a27ce6038774231fa2b8ab29335de15d2de395d194",
+          "owner": "security-pen-testing",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-pen-testing/scripts/dependency_auditor.py",
+          "sha256": "9f7f48173fc20a464e314eae62ebb9c2fceed17715e980582def25d972d38cf0",
+          "owner": "security-pen-testing",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-pen-testing/scripts/pentest_report_generator.py",
+          "sha256": "14d8cabbfadf30305c46baa1cc0e974b137270a58451a395739b013fde74a3a9",
+          "owner": "security-pen-testing",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-pen-testing/scripts/vulnerability_scanner.py",
+          "sha256": "cbea336b58ee9453cf227d8dbf75d95cabd9ead2d2bc602bc928a5424fab7b14",
+          "owner": "security-pen-testing",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-22: restore all omitted sibling scripts/references/assets at the existing immutable licensed checkpoint; preserve local entry curation. Resource checks are static and CLI smoke tests, not security certification. Trailing whitespace in restored Python helpers is normalized locally; agent-hub cleanup also preserves dirty worktrees."
     },
     {
       "video_name": "information-security-manager-iso27001",
@@ -198,7 +387,7 @@
         "sync_mode": "monitor",
         "path_commit": "aecfb8e0bb71dbf1413082f86b33a5c4c9b8f416"
       },
-      "kind": "mirror",
+      "kind": "overlay",
       "sync_mode": "monitor",
       "origins": [
         {
@@ -210,6 +399,36 @@
             {
               "source": "ra-qm-team/skills/information-security-manager-iso27001/SKILL.md",
               "target": "skills/security-and-reliability/information-security-manager-iso27001/SKILL.md"
+            },
+            {
+              "source": "ra-qm-team/skills/information-security-manager-iso27001/references/incident-response.md",
+              "target": "skills/security-and-reliability/information-security-manager-iso27001/references/incident-response.md",
+              "type": "file"
+            },
+            {
+              "source": "ra-qm-team/skills/information-security-manager-iso27001/references/iso27001-controls.md",
+              "target": "skills/security-and-reliability/information-security-manager-iso27001/references/iso27001-controls.md",
+              "type": "file"
+            },
+            {
+              "source": "ra-qm-team/skills/information-security-manager-iso27001/references/risk-assessment-guide.md",
+              "target": "skills/security-and-reliability/information-security-manager-iso27001/references/risk-assessment-guide.md",
+              "type": "file"
+            },
+            {
+              "source": "ra-qm-team/skills/information-security-manager-iso27001/scripts/compliance_checker.py",
+              "target": "skills/security-and-reliability/information-security-manager-iso27001/scripts/compliance_checker.py",
+              "type": "file"
+            },
+            {
+              "source": "ra-qm-team/skills/information-security-manager-iso27001/scripts/risk_assessment.py",
+              "target": "skills/security-and-reliability/information-security-manager-iso27001/scripts/risk_assessment.py",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/security-and-reliability/information-security-manager-iso27001/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -217,7 +436,7 @@
             "ref": "main",
             "resolved_commit": "19392f7a08264ed00486a251f5b2098321771f94",
             "path_commit": "aecfb8e0bb71dbf1413082f86b33a5c4c9b8f416",
-            "content_sha256": "fc79e87d967bf9144bd657f0e6e9dd98a06cc27a6a5c86f17f3f7a075280d45a",
+            "content_sha256": "919e7651c83b2725c624e5648e81387b8a09b8f5889eab89ef015201715d7f3e",
             "last_checked_at": "2026-08-31",
             "last_synced_at": "2026-08-31",
             "license_checkpoint": {
@@ -233,12 +452,49 @@
       ],
       "managed_files": [
         {
-          "path": "skills/security-and-reliability/information-security-manager-iso27001/SKILL.md",
+          "path": "skills/security-and-reliability/information-security-manager-iso27001/LICENSE.upstream.txt",
+          "sha256": "a20126646f93d32a8989c3cf4772d59194f405034f7babe7daebeac22b8ab151",
           "owner": "information-security-manager-iso27001",
-          "sha256": "fc79e87d967bf9144bd657f0e6e9dd98a06cc27a6a5c86f17f3f7a075280d45a",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/information-security-manager-iso27001/SKILL.md",
+          "sha256": "919e7651c83b2725c624e5648e81387b8a09b8f5889eab89ef015201715d7f3e",
+          "owner": "information-security-manager-iso27001",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/information-security-manager-iso27001/references/incident-response.md",
+          "sha256": "266db8e691d501512b60fdf948332601b44ce45577f13c284fef64507ec5b9a1",
+          "owner": "information-security-manager-iso27001",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/information-security-manager-iso27001/references/iso27001-controls.md",
+          "sha256": "6a43451521d4d438dde3f7d1fc6338d9f312e49212291c460998aa2061f2a1c2",
+          "owner": "information-security-manager-iso27001",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/information-security-manager-iso27001/references/risk-assessment-guide.md",
+          "sha256": "618090fcb9c94b0705bd0f89cc3fe9014f15fac79dac23edc0714354b86b3af1",
+          "owner": "information-security-manager-iso27001",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/information-security-manager-iso27001/scripts/compliance_checker.py",
+          "sha256": "cdef6b2dda8eaeb5d35f53e26f7ec9921077bddea6937335b5f4ee0daf0d653d",
+          "owner": "information-security-manager-iso27001",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/information-security-manager-iso27001/scripts/risk_assessment.py",
+          "sha256": "9e8adf14ae3a157667d40f8a6d3c77a9113a39be6485ba76c527d8da30850bd7",
+          "owner": "information-security-manager-iso27001",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-22: restore all omitted sibling scripts/references/assets at the existing immutable licensed checkpoint; preserve local entry curation. Resource checks are static and CLI smoke tests, not security certification. Trailing whitespace in restored Python helpers is normalized locally; agent-hub cleanup also preserves dirty worktrees."
     },
     {
       "video_name": "landing-page-generator",
@@ -257,7 +513,7 @@
         "sync_mode": "monitor",
         "path_commit": "a088c8ba778319fea026c8a25e9e98b15754f379"
       },
-      "kind": "mirror",
+      "kind": "overlay",
       "sync_mode": "monitor",
       "origins": [
         {
@@ -269,6 +525,36 @@
             {
               "source": "product-team/skills/landing-page-generator/SKILL.md",
               "target": "skills/product-design/landing-page-generator/SKILL.md"
+            },
+            {
+              "source": "product-team/skills/landing-page-generator/references/conversion-patterns.md",
+              "target": "skills/product-design/landing-page-generator/references/conversion-patterns.md",
+              "type": "file"
+            },
+            {
+              "source": "product-team/skills/landing-page-generator/references/copy-frameworks.md",
+              "target": "skills/product-design/landing-page-generator/references/copy-frameworks.md",
+              "type": "file"
+            },
+            {
+              "source": "product-team/skills/landing-page-generator/references/landing-page-patterns.md",
+              "target": "skills/product-design/landing-page-generator/references/landing-page-patterns.md",
+              "type": "file"
+            },
+            {
+              "source": "product-team/skills/landing-page-generator/references/seo-checklist.md",
+              "target": "skills/product-design/landing-page-generator/references/seo-checklist.md",
+              "type": "file"
+            },
+            {
+              "source": "product-team/skills/landing-page-generator/scripts/landing_page_scaffolder.py",
+              "target": "skills/product-design/landing-page-generator/scripts/landing_page_scaffolder.py",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/product-design/landing-page-generator/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -276,7 +562,7 @@
             "ref": "main",
             "resolved_commit": "19392f7a08264ed00486a251f5b2098321771f94",
             "path_commit": "a088c8ba778319fea026c8a25e9e98b15754f379",
-            "content_sha256": "4a129058497d70061093466e2838c0fa92395536c88c14f72c231919f0a6d3fd",
+            "content_sha256": "9778d9446fda3cc9591e0f6eb5c682b78f5b2b2647e9c3ae9c8766da345f8a59",
             "last_checked_at": "2026-08-31",
             "last_synced_at": "2026-08-31",
             "license_checkpoint": {
@@ -292,12 +578,49 @@
       ],
       "managed_files": [
         {
-          "path": "skills/product-design/landing-page-generator/SKILL.md",
+          "path": "skills/product-design/landing-page-generator/LICENSE.upstream.txt",
+          "sha256": "a20126646f93d32a8989c3cf4772d59194f405034f7babe7daebeac22b8ab151",
           "owner": "landing-page-generator",
-          "sha256": "4a129058497d70061093466e2838c0fa92395536c88c14f72c231919f0a6d3fd",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/product-design/landing-page-generator/SKILL.md",
+          "sha256": "9778d9446fda3cc9591e0f6eb5c682b78f5b2b2647e9c3ae9c8766da345f8a59",
+          "owner": "landing-page-generator",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/product-design/landing-page-generator/references/conversion-patterns.md",
+          "sha256": "6dd90cb5c8ce62cae2ccb6dd983b96ae549ec3c137059bb5c5f93433bde9e1e5",
+          "owner": "landing-page-generator",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/product-design/landing-page-generator/references/copy-frameworks.md",
+          "sha256": "ed238c8627a7e379bdf1ce44ef68c7278dfac5bf75e2e57dd2925fb260ae0812",
+          "owner": "landing-page-generator",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/product-design/landing-page-generator/references/landing-page-patterns.md",
+          "sha256": "51b1b82fd53922960bb7c5b49f9963357f0dd389ac0cc954bafe19e2293502af",
+          "owner": "landing-page-generator",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/product-design/landing-page-generator/references/seo-checklist.md",
+          "sha256": "6172f2059c0bebb7789112e7a6da149f5869fcd3140fc48c64aed98f8436e5e7",
+          "owner": "landing-page-generator",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/product-design/landing-page-generator/scripts/landing_page_scaffolder.py",
+          "sha256": "cfa4f2f633976a5ad316aa7ab93cd38288e3788157c4e32e5ed2a77160f68755",
+          "owner": "landing-page-generator",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-22: restore all omitted sibling scripts/references/assets at the existing immutable licensed checkpoint; preserve local entry curation. Resource checks are static and CLI smoke tests, not security certification. Trailing whitespace in restored Python helpers is normalized locally; agent-hub cleanup also preserves dirty worktrees."
     },
     {
       "video_name": "saas-metrics-coach",
@@ -316,7 +639,7 @@
         "sync_mode": "monitor",
         "path_commit": "1851c8fb09ea8ff0488d48bd7c312abb1bbf5850"
       },
-      "kind": "mirror",
+      "kind": "overlay",
       "sync_mode": "monitor",
       "origins": [
         {
@@ -328,6 +651,41 @@
             {
               "source": "finance/skills/saas-metrics-coach/SKILL.md",
               "target": "skills/finance-investing/saas-metrics-coach/SKILL.md"
+            },
+            {
+              "source": "finance/skills/saas-metrics-coach/assets/input-template.md",
+              "target": "skills/finance-investing/saas-metrics-coach/assets/input-template.md",
+              "type": "file"
+            },
+            {
+              "source": "finance/skills/saas-metrics-coach/references/benchmarks.md",
+              "target": "skills/finance-investing/saas-metrics-coach/references/benchmarks.md",
+              "type": "file"
+            },
+            {
+              "source": "finance/skills/saas-metrics-coach/references/formulas.md",
+              "target": "skills/finance-investing/saas-metrics-coach/references/formulas.md",
+              "type": "file"
+            },
+            {
+              "source": "finance/skills/saas-metrics-coach/scripts/metrics_calculator.py",
+              "target": "skills/finance-investing/saas-metrics-coach/scripts/metrics_calculator.py",
+              "type": "file"
+            },
+            {
+              "source": "finance/skills/saas-metrics-coach/scripts/quick_ratio_calculator.py",
+              "target": "skills/finance-investing/saas-metrics-coach/scripts/quick_ratio_calculator.py",
+              "type": "file"
+            },
+            {
+              "source": "finance/skills/saas-metrics-coach/scripts/unit_economics_simulator.py",
+              "target": "skills/finance-investing/saas-metrics-coach/scripts/unit_economics_simulator.py",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/finance-investing/saas-metrics-coach/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -335,7 +693,7 @@
             "ref": "main",
             "resolved_commit": "19392f7a08264ed00486a251f5b2098321771f94",
             "path_commit": "1851c8fb09ea8ff0488d48bd7c312abb1bbf5850",
-            "content_sha256": "ba7d8325b3a21108c56d9b0cf97949d5cb9c105a1ed397605c131e3e2dd4dd10",
+            "content_sha256": "644d4fe6d39015699d67a0f294c400d9d161c2388b7a6d43f4bca394e06eb233",
             "last_checked_at": "2026-08-31",
             "last_synced_at": "2026-08-31",
             "license_checkpoint": {
@@ -351,12 +709,55 @@
       ],
       "managed_files": [
         {
-          "path": "skills/finance-investing/saas-metrics-coach/SKILL.md",
+          "path": "skills/finance-investing/saas-metrics-coach/LICENSE.upstream.txt",
+          "sha256": "a20126646f93d32a8989c3cf4772d59194f405034f7babe7daebeac22b8ab151",
           "owner": "saas-metrics-coach",
-          "sha256": "ba7d8325b3a21108c56d9b0cf97949d5cb9c105a1ed397605c131e3e2dd4dd10",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/finance-investing/saas-metrics-coach/SKILL.md",
+          "sha256": "644d4fe6d39015699d67a0f294c400d9d161c2388b7a6d43f4bca394e06eb233",
+          "owner": "saas-metrics-coach",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/finance-investing/saas-metrics-coach/assets/input-template.md",
+          "sha256": "235fcd9768c07b96baf32a34eea747d2647515dc4da067cc9ed5b0c61e1077b3",
+          "owner": "saas-metrics-coach",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/finance-investing/saas-metrics-coach/references/benchmarks.md",
+          "sha256": "c06584d2494a41710f7ac6e16bf878742078413fa17a3255a94e7dd094af2c0c",
+          "owner": "saas-metrics-coach",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/finance-investing/saas-metrics-coach/references/formulas.md",
+          "sha256": "df7acae541e96cb5164329e63aa1a4fdd9f67c32bf68a88e5f58ac07604497ff",
+          "owner": "saas-metrics-coach",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/finance-investing/saas-metrics-coach/scripts/metrics_calculator.py",
+          "sha256": "decb7362196e97172e876f9732456ef41e91e123c6a335f62883d87fc0cfbf49",
+          "owner": "saas-metrics-coach",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/finance-investing/saas-metrics-coach/scripts/quick_ratio_calculator.py",
+          "sha256": "19bd21b89b0ddea7de121f0611c550905278aa18b35f35e71f6b0b7ea081c33e",
+          "owner": "saas-metrics-coach",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/finance-investing/saas-metrics-coach/scripts/unit_economics_simulator.py",
+          "sha256": "c90c544a88681f93cb6e3a144d076cc8d441960fac3d41fbe4bfc520009d984c",
+          "owner": "saas-metrics-coach",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-22: restore all omitted sibling scripts/references/assets at the existing immutable licensed checkpoint; preserve local entry curation. Resource checks are static and CLI smoke tests, not security certification. Trailing whitespace in restored Python helpers is normalized locally; agent-hub cleanup also preserves dirty worktrees."
     },
     {
       "video_name": "senior-architect",
@@ -375,7 +776,7 @@
         "sync_mode": "monitor",
         "path_commit": "1851c8fb09ea8ff0488d48bd7c312abb1bbf5850"
       },
-      "kind": "mirror",
+      "kind": "overlay",
       "sync_mode": "monitor",
       "origins": [
         {
@@ -387,6 +788,41 @@
             {
               "source": "engineering-team/skills/senior-architect/SKILL.md",
               "target": "skills/devops-sre/senior-architect/SKILL.md"
+            },
+            {
+              "source": "engineering-team/skills/senior-architect/references/architecture_patterns.md",
+              "target": "skills/devops-sre/senior-architect/references/architecture_patterns.md",
+              "type": "file"
+            },
+            {
+              "source": "engineering-team/skills/senior-architect/references/system_design_workflows.md",
+              "target": "skills/devops-sre/senior-architect/references/system_design_workflows.md",
+              "type": "file"
+            },
+            {
+              "source": "engineering-team/skills/senior-architect/references/tech_decision_guide.md",
+              "target": "skills/devops-sre/senior-architect/references/tech_decision_guide.md",
+              "type": "file"
+            },
+            {
+              "source": "engineering-team/skills/senior-architect/scripts/architecture_diagram_generator.py",
+              "target": "skills/devops-sre/senior-architect/scripts/architecture_diagram_generator.py",
+              "type": "file"
+            },
+            {
+              "source": "engineering-team/skills/senior-architect/scripts/dependency_analyzer.py",
+              "target": "skills/devops-sre/senior-architect/scripts/dependency_analyzer.py",
+              "type": "file"
+            },
+            {
+              "source": "engineering-team/skills/senior-architect/scripts/project_architect.py",
+              "target": "skills/devops-sre/senior-architect/scripts/project_architect.py",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/devops-sre/senior-architect/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -394,7 +830,7 @@
             "ref": "main",
             "resolved_commit": "19392f7a08264ed00486a251f5b2098321771f94",
             "path_commit": "1851c8fb09ea8ff0488d48bd7c312abb1bbf5850",
-            "content_sha256": "79b8d47bcf45dbeb9f74473cb43257a77d8501357395110b93aedd5b4402fb0e",
+            "content_sha256": "5fb8bd49ff35d6e05df043b41251bc095220242ca98bbbbbec1e352ab765c090",
             "last_checked_at": "2026-08-31",
             "last_synced_at": "2026-08-31",
             "license_checkpoint": {
@@ -410,12 +846,55 @@
       ],
       "managed_files": [
         {
-          "path": "skills/devops-sre/senior-architect/SKILL.md",
+          "path": "skills/devops-sre/senior-architect/LICENSE.upstream.txt",
+          "sha256": "a20126646f93d32a8989c3cf4772d59194f405034f7babe7daebeac22b8ab151",
           "owner": "senior-architect",
-          "sha256": "79b8d47bcf45dbeb9f74473cb43257a77d8501357395110b93aedd5b4402fb0e",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/senior-architect/SKILL.md",
+          "sha256": "5fb8bd49ff35d6e05df043b41251bc095220242ca98bbbbbec1e352ab765c090",
+          "owner": "senior-architect",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/senior-architect/references/architecture_patterns.md",
+          "sha256": "29f2f8549551551da428181a3e728df6fb076f52760b6f82236b8b9ed7292ded",
+          "owner": "senior-architect",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/senior-architect/references/system_design_workflows.md",
+          "sha256": "aa88778dd7ef7a18eb71943310c348b97bf044cbd62bc7251941c8716feae260",
+          "owner": "senior-architect",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/senior-architect/references/tech_decision_guide.md",
+          "sha256": "a6a322d7199aa534640d0ede61431fce0e8232a4bd19a3d9a93c30920b58d51f",
+          "owner": "senior-architect",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/senior-architect/scripts/architecture_diagram_generator.py",
+          "sha256": "53b8b0c24065f34b4f21ce15eaf551679670bf5d9e4f4d201c3253e0fabd7b2b",
+          "owner": "senior-architect",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/senior-architect/scripts/dependency_analyzer.py",
+          "sha256": "bce84d2dd0a2b6d6034356f01c30ee5fec51a1fa13e7c617bde53eb1d61c2145",
+          "owner": "senior-architect",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/senior-architect/scripts/project_architect.py",
+          "sha256": "f421cd71f7ee790e292c44a29656b9b3f38bc93126a894e2faf2fed6f8aa1aab",
+          "owner": "senior-architect",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-22: restore all omitted sibling scripts/references/assets at the existing immutable licensed checkpoint; preserve local entry curation. Resource checks are static and CLI smoke tests, not security certification. Trailing whitespace in restored Python helpers is normalized locally; agent-hub cleanup also preserves dirty worktrees."
     },
     {
       "video_name": "skill-security-auditor",
@@ -434,7 +913,7 @@
         "sync_mode": "monitor",
         "path_commit": "a088c8ba778319fea026c8a25e9e98b15754f379"
       },
-      "kind": "mirror",
+      "kind": "overlay",
       "sync_mode": "monitor",
       "origins": [
         {
@@ -446,6 +925,21 @@
             {
               "source": "engineering/skills/skill-security-auditor/SKILL.md",
               "target": "skills/security-and-reliability/skill-security-auditor/SKILL.md"
+            },
+            {
+              "source": "engineering/skills/skill-security-auditor/references/threat-model.md",
+              "target": "skills/security-and-reliability/skill-security-auditor/references/threat-model.md",
+              "type": "file"
+            },
+            {
+              "source": "engineering/skills/skill-security-auditor/scripts/skill_security_auditor.py",
+              "target": "skills/security-and-reliability/skill-security-auditor/scripts/skill_security_auditor.py",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/security-and-reliability/skill-security-auditor/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -453,7 +947,7 @@
             "ref": "main",
             "resolved_commit": "19392f7a08264ed00486a251f5b2098321771f94",
             "path_commit": "a088c8ba778319fea026c8a25e9e98b15754f379",
-            "content_sha256": "37394f9672dfc8e8f11984c0fcef3c406c60bbee26c92ed4bc48699d82d624fd",
+            "content_sha256": "5eacf01dc1354604c30c216955876732cdf8fd861c4cd42f3ea09e337c58bdf3",
             "last_checked_at": "2026-08-31",
             "last_synced_at": "2026-08-31",
             "license_checkpoint": {
@@ -469,12 +963,31 @@
       ],
       "managed_files": [
         {
-          "path": "skills/security-and-reliability/skill-security-auditor/SKILL.md",
+          "path": "skills/security-and-reliability/skill-security-auditor/LICENSE.upstream.txt",
+          "sha256": "a20126646f93d32a8989c3cf4772d59194f405034f7babe7daebeac22b8ab151",
           "owner": "skill-security-auditor",
-          "sha256": "37394f9672dfc8e8f11984c0fcef3c406c60bbee26c92ed4bc48699d82d624fd",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/skill-security-auditor/SKILL.md",
+          "sha256": "5eacf01dc1354604c30c216955876732cdf8fd861c4cd42f3ea09e337c58bdf3",
+          "owner": "skill-security-auditor",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/skill-security-auditor/references/threat-model.md",
+          "sha256": "4b181e36659bb01afc5e1663ff948728bdd17051fa861044917cc21ab0d54dd5",
+          "owner": "skill-security-auditor",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/skill-security-auditor/scripts/skill_security_auditor.py",
+          "sha256": "7111717862232f0368699ec96ccb09d98052149e012c9d98b600dde4c6661ac4",
+          "owner": "skill-security-auditor",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-22: restore all omitted sibling scripts/references/assets at the existing immutable licensed checkpoint; preserve local entry curation. Resource checks are static and CLI smoke tests, not security certification. Trailing whitespace in restored Python helpers is normalized locally; agent-hub cleanup also preserves dirty worktrees."
     }
   ],
   "verification_attempts": [

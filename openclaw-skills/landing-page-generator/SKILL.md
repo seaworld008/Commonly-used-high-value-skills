@@ -2,14 +2,14 @@
 name: landing-page-generator
 description: 'Build React/Next.js landing pages with Tailwind, focused copy, accessible sections, calls to action, metadata, and performance validation.'
 zh_description: "生成具备清晰文案、行动入口和可访问性的落地页。"
-version: "1.0.7"
+version: "1.0.8"
 author: "seaworld008"
 source: "github:alirezarezvani/claude-skills"
 source_url: "https://github.com/alirezarezvani/claude-skills/blob/main/product-team/skills/landing-page-generator/SKILL.md"
 license: MIT
 tags: '["design", "generator", "landing", "page", "product"]'
 created_at: "2026-03-27"
-updated_at: "2026-09-06"
+updated_at: "2026-09-22"
 quality: 4
 complexity: "intermediate"
 ---
@@ -41,7 +41,7 @@ Generate high-converting landing pages from a product description. Output comple
 Follow these steps in order for every landing page request:
 
 1. **Gather inputs** — collect product name, tagline, audience, pain point, key benefit, pricing tiers, design style, and copy framework using the trigger format below. Ask only for missing fields.
-2. **Analyze brand voice** (recommended) — if the user has existing brand content (website copy, blog posts, marketing materials), run it through `marketing-skill/skills/content-production/scripts/brand_voice_analyzer.py` to get a voice profile (formality, tone, perspective). Use the profile to inform design style and copy framework selection:
+2. **Analyze brand voice** (recommended) — if the user has existing brand content (website copy, blog posts, marketing materials), resolve the installed `content-creator` skill and, if its `scripts/brand_voice_analyzer.py` is available, use it to get a voice profile (formality, tone, perspective). Use the profile to inform design style and copy framework selection:
    - formal + professional → **enterprise** style, **AIDA** framework
    - casual + friendly → **bold-startup** style, **BAB** framework
    - professional + authoritative → **dark-saas** style, **PAS** framework
@@ -204,7 +204,7 @@ Inject `FAQPage` JSON-LD via `<script type="application/ld+json" dangerouslySetI
 
 ## Related Skills
 
-- **Brand Voice Analyzer** (`marketing-skill/skills/content-production/scripts/brand_voice_analyzer.py`) — Run before generation to establish voice profile and ensure copy consistency
+- **Brand Voice Analyzer** — Optional helper in the separately installed `content-creator` skill. If unavailable, use the bundled copy frameworks to establish tone.
 - **UI Design System** (`product-team/ui-design-system/`) — Generate design tokens from brand color before building the page
 - **Competitive Teardown** (`product-team/competitive-teardown/`) — Competitive positioning informs landing page messaging and differentiation
 

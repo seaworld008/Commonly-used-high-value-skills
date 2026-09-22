@@ -835,6 +835,26 @@ class SyncUpstreamTests(unittest.TestCase):
             self.assertEqual(before_mapping, mapping.read_bytes())
             self.assertEqual(before_skill, local_path.read_bytes())
 
+    def test_source_filters_cannot_hide_unattributed_mapping_errors(self):
+        for flags in (["--source", "github:owner/repo"],
+                      ["--exclude-source", "provenance:v2"]):
+            with self.subTest(flags=flags):
+                module = load_module()
+                skills = [
+                    {"name": "valid", "schema_version": 2,
+                     "source": "github:owner/repo", "repo": "owner/repo"},
+                    {"name": "broken", "schema_version": 2,
+                     "source": "provenance:v2", "repo": "",
+                     "load_error": "invalid managed digest"},
+                ]
+                code, output = self._run_main(
+                    module, ["--check-only", *flags], skills,
+                    lambda skill, _token: {"skill": skill, "changes": "none"},
+                )
+                self.assertEqual(1, code)
+                self.assertIn("invalid managed digest", output)
+                self.assertIn("total=2", output)
+
     def test_explicit_source_with_zero_matches_is_nonzero_for_check_only(self):
         module = load_module()
         exit_code, output = self._run_main(

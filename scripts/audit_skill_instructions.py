@@ -60,6 +60,15 @@ def inspect_resource(path: Path, root: Path) -> dict:
     markdown = path.suffix.lower() == ".md"
     findings, hints = [], []
     if text is not None:
+        # This exact scaffold was shipped as three functioning DevOps tools.
+        # Do not mistake its unconditional empty success report for analysis.
+        if path.suffix == ".py" and re.search(
+            r"# Main logic here\s+self\.results\['status'\] = 'success'\s+"
+            r"self\.results\['target'\] = str\(self\.target_path\)\s+"
+            r"self\.results\['findings'\] = \[\]", text
+        ):
+            line = text[:text.index("# Main logic here")].count("\n") + 1
+            findings.append({"rule": "empty_success_scaffold", "path": path.relative_to(root).as_posix(), "line": line})
         if markdown:
             for line, value in prose_lines(text):
                 for rule, pattern in RULES.items():

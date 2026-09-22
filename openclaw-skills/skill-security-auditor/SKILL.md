@@ -2,14 +2,14 @@
 name: skill-security-auditor
 description: 'Audit external agent skills before installation for malicious instructions, unsafe scripts, excessive permissions, dependency risks, and data exfiltration.'
 zh_description: "安装前审查技能指令、脚本、权限和数据外传风险。"
-version: "1.0.5"
+version: "1.0.6"
 author: "seaworld008"
 source: "github:alirezarezvani/claude-skills"
 source_url: "https://github.com/alirezarezvani/claude-skills/blob/main/engineering/skills/skill-security-auditor/SKILL.md"
 license: MIT
 tags: '["auditor", "security", "skill"]'
 created_at: "2026-03-27"
-updated_at: "2026-09-06"
+updated_at: "2026-09-22"
 quality: 4
 complexity: "intermediate"
 ---

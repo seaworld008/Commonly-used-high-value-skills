@@ -2716,7 +2716,7 @@
             "ref": "main",
             "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
             "path_commit": "8300e1bbe77a9f1610a0e9da624593c3d5dea020",
-            "content_sha256": "952eadd5fa68da0954e2361972a297a1f8221c0f646da1c889cdb1fe923b3e54",
+            "content_sha256": "7ca451b28e51a1db7483aedd5db064cb57bb815f5f97c766952939d45a920ca3",
             "last_checked_at": "2026-09-14",
             "last_synced_at": "2026-09-14",
             "license_checkpoint": {
@@ -2785,7 +2785,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/planning-and-task-breakdown/SKILL.md",
-          "sha256": "952eadd5fa68da0954e2361972a297a1f8221c0f646da1c889cdb1fe923b3e54",
+          "sha256": "7ca451b28e51a1db7483aedd5db064cb57bb815f5f97c766952939d45a920ca3",
           "owner": "planning-and-task-breakdown",
           "mode": "100644"
         },
@@ -2832,7 +2832,7 @@
           "mode": "100644"
         }
       ],
-      "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
+      "curation_note": "2026-09-22: reviewed local overlay; remove mandatory host-specific handoffs or unavailable helper claims while preserving domain methods and original upstream license/checkpoint."
     },
     {
       "video_name": "security-and-hardening",

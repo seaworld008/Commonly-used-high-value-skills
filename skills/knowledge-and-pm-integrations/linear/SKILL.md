@@ -2,14 +2,14 @@
 name: linear
 description: '用于管理 Linear issues、项目、团队和协作状态。'
 zh_description: "用于管理 Linear issue、项目、状态流转和工程协作。"
-version: "2.0.2"
+version: "2.0.3"
 author: "seaworld008"
 source: "adapted-from-hermes-agent"
 source_url: "https://github.com/NousResearch/hermes-agent/blob/3636f64540a3d80c8425f195f46e53e940956cba/skills/productivity/linear/SKILL.md"
 license: "MIT"
 tags: '["graphql", "issues", "linear", "mcp", "productivity", "project-management"]'
 created_at: "2026-03-04"
-updated_at: "2026-05-19"
+updated_at: "2026-09-22"
 quality: 4
 complexity: "intermediate"
 metadata:
@@ -40,23 +40,18 @@ curl -s -X POST https://api.linear.app/graphql \
   -d '{"query": "{ viewer { id name } }"}' | python3 -m json.tool
 ```
 
-## Python helper script (ergonomic alternative)
+## Connector and API Selection
 
-For faster one-liners that don't need hand-written GraphQL, this skill ships a stdlib Python CLI at `scripts/linear_api.py`. Zero dependencies. Same auth (reads `LINEAR_API_KEY`).
+Use the host's connected Linear tools when they cover the requested operation.
+The standalone Python helper referenced by older copies is not bundled and is
+unavailable at this skill's archived upstream commit; use the GraphQL examples
+below when a connector is unavailable.
 
-```bash
-SCRIPT=$(dirname "$(find ~/.hermes -path '*skills/productivity/linear/scripts/linear_api.py' 2>/dev/null | head -1)")/linear_api.py
-
-python3 "$SCRIPT" whoami
-python3 "$SCRIPT" list-teams
-python3 "$SCRIPT" get-issue ENG-42
-python3 "$SCRIPT" get-document 38359beef67c      # fetch a doc by slugId from the URL
-python3 "$SCRIPT" raw 'query { viewer { name } }'
-```
-
-All subcommands: `whoami`, `list-teams`, `list-projects`, `list-states`, `list-issues`, `get-issue`, `search-issues`, `create-issue`, `update-issue`, `update-status`, `add-comment`, `list-documents`, `get-document`, `search-documents`, `raw`. Run with `--help` for flags.
-
-Use the script when: you want a quick answer without crafting GraphQL. Use curl when: you need a query the script doesn't wrap, or you want to compose filters inline.
+Keep credentials in the environment and out of reports or committed files.
+Read the response's `errors` field as well as the HTTP status.
+Resolve team, workflow state and project identifiers before mutation.
+Paginate `pageInfo.hasNextPage` with `endCursor` when listing large collections.
+Write issues or comments only within the user's requested scope.
 
 ## Workflow States
 

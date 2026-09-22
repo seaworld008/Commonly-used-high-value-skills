@@ -2,13 +2,13 @@
 name: writing-plans
 description: 'Write a practical implementation plan when multi-step work needs task boundaries, dependencies, and acceptance checks.'
 zh_description: "编写包含任务依赖、修改范围和验收方法的实现计划。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["planning", "plans", "workflow", "writing"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-09-22"
 quality: 4
 complexity: "intermediate"
 ---
@@ -38,12 +38,12 @@ Describe the constraints and interfaces that matter; rely on the implementer's j
 
 ## Plan Document Header
 
-**Every plan MUST start with this header:**
+**Use the project's existing format, or this portable header:**
 
 ```markdown
 # [Feature Name] Implementation Plan
 
-> **For Claude:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.
+> **Execution:** Follow the task dependencies and acceptance checks using the current host.
 
 **Goal:** [One sentence describing what this builds]
 
@@ -101,26 +101,43 @@ git commit -m "feat: add specific feature"
 - Exact file paths always
 - Describe interfaces, behavior, and acceptance criteria; include code only to resolve ambiguity
 - Exact commands with expected output
-- Reference relevant skills with @ syntax
+- Name relevant skills only when their methods are needed and available
 - DRY, YAGNI, TDD, frequent commits
 
 ## Execution Handoff
 
-After saving the plan, continue implementation if already requested. Offer the following choices only when the user has not selected an execution path:
+Continue implementation when the user already requested it.
+For a plan-only request, deliver the plan and its unresolved decisions.
+Keep execution in the current task unless the user requests another session.
+Use delegation only when permitted by the host and useful for independent work.
+A missing subagent tool does not prevent direct sequential execution.
 
-**"Plan complete and saved to `docs/plans/<filename>.md`. Two execution options:**
+Include the following information with any handoff:
 
-**1. Subagent-Driven (this session)** - I dispatch fresh subagent per task, review between tasks, fast iteration
+- The plan path and current task status.
+- The exact repository branch and ownership of existing changes.
+- Dependencies that must finish before the next task starts.
+- Completed checks and the revision they cover.
+- Missing access or decisions that materially block work.
+- The requested delivery target: local patch, PR, merge, or release.
 
-**2. Parallel Session (separate)** - Open new session with executing-plans, batch execution with checkpoints
+## Adapting Existing Plans
 
-**Which approach?"**
+Read unfinished tasks before replacing or extending a plan.
+Keep completed evidence and unresolved work visible.
+Update obsolete commands from the repository's current configuration.
+Record why an acceptance criterion changed; do not silently weaken it.
+When a check fails, investigate before adding workarounds or more tests.
+Tests are appropriate for behavior changes and meaningful regressions.
+A reversible prose edit usually needs review rather than a new test suite.
 
-**If Subagent-Driven chosen:**
-- **REQUIRED SUB-SKILL:** Use superpowers:subagent-driven-development
-- Stay in this session
-- Fresh subagent per task + code review
+## Worked Handoff Example
 
-**If Parallel Session chosen:**
-- Guide them to open new session in worktree
-- **REQUIRED SUB-SKILL:** New session uses superpowers:executing-plans
+```text
+Task: Add filtered CSV export.
+Done: Filter and column-order behavior covered by focused tests.
+Next: Connect the existing table action to the export service.
+Dependency: Reuse the approved data-access path.
+Evidence: Focused tests passed on the recorded commit.
+Delivery: User requested a PR and merge after required CI passes.
+```

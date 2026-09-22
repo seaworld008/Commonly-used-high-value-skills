@@ -2,7 +2,7 @@
   "schema_version": 2,
   "video": {
     "url": "https://github.com/NousResearch/hermes-agent",
-    "checked_at": "2026-09-14",
+    "checked_at": "2026-09-22",
     "note": "Curated subset from Hermes Agent focused on persistent knowledge workflows and self-improving agent infrastructure."
   },
   "official_references": [
@@ -110,17 +110,17 @@
       "normalized_slug": "hermes-agent",
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-agent-platform/hermes-agent/SKILL.md",
-      "source": "https://github.com/NousResearch/hermes-agent/tree/v2026.8.18/skills/autonomous-ai-agents/hermes-agent",
+      "source": "https://github.com/NousResearch/hermes-agent/tree/v2026.9.21/skills/autonomous-ai-agents/hermes-agent",
       "notes": "Official Hermes Agent stable-release artifact-set mirror: SKILL.md, 18 references, and 3 templates.",
       "upstream": {
         "repo": "NousResearch/hermes-agent",
         "path": "skills/autonomous-ai-agents/hermes-agent/SKILL.md",
-        "ref": "v2026.9.11",
-        "last_checked_at": "2026-09-14",
-        "last_synced_at": "2026-09-14",
-        "last_synced_commit": "939e45c91d751fadd94dcd1b873ac3cb44846213",
+        "ref": "v2026.9.21",
+        "last_checked_at": "2026-09-22",
+        "last_synced_at": "2026-09-22",
+        "last_synced_commit": "d337b736aa1e8ebecfab043842d13e4a2d2f48a3",
         "sync_mode": "replace",
-        "path_commit": "248ff2d3e8bfc3ac4b7dfa5c5bbb95865dde75a7"
+        "path_commit": "626bc82f13d975dc88fbeda5076f0bf442856b20"
       },
       "kind": "mirror",
       "sync_mode": "replace",
@@ -149,18 +149,18 @@
           ],
           "tracking": {
             "channel": "latest_release",
-            "ref": "v2026.9.11",
-            "resolved_commit": "939e45c91d751fadd94dcd1b873ac3cb44846213",
-            "path_commit": "248ff2d3e8bfc3ac4b7dfa5c5bbb95865dde75a7",
-            "content_sha256": "7bcd53a751d118498b045c2b69db37e662f11c00a3f4e37db45fddccad0d179d",
-            "last_checked_at": "2026-09-14",
-            "last_synced_at": "2026-09-14",
+            "ref": "v2026.9.21",
+            "resolved_commit": "d337b736aa1e8ebecfab043842d13e4a2d2f48a3",
+            "path_commit": "626bc82f13d975dc88fbeda5076f0bf442856b20",
+            "content_sha256": "09da7d21e3f3eedd29637b8cebd907377c2f99425b8236c956846545ab15f4d8",
+            "last_checked_at": "2026-09-22",
+            "last_synced_at": "2026-09-22",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "75410e73319c72cd3e991a501c5455eb78f38375",
               "content_sha256": "821556e6336796450ab852d375117b48a4887e71d255794fd6318d99982a5ab6",
               "spdx": "MIT",
-              "resolved_commit": "939e45c91d751fadd94dcd1b873ac3cb44846213",
+              "resolved_commit": "d337b736aa1e8ebecfab043842d13e4a2d2f48a3",
               "api_spdx": "MIT"
             }
           }
@@ -169,7 +169,7 @@
       "managed_files": [
         {
           "path": "skills/ai-agent-platform/hermes-agent/SKILL.md",
-          "sha256": "7bcd53a751d118498b045c2b69db37e662f11c00a3f4e37db45fddccad0d179d",
+          "sha256": "09da7d21e3f3eedd29637b8cebd907377c2f99425b8236c956846545ab15f4d8",
           "owner": "hermes-agent",
           "mode": "100644"
         },
@@ -181,7 +181,7 @@
         },
         {
           "path": "skills/ai-agent-platform/hermes-agent/references/cli-reference.md",
-          "sha256": "339563a94249b8422ffc1eb165ba43af0297bd24d67aa4023a95a77e24d0973c",
+          "sha256": "1732000d896879e753740e465936883a06da11e82e3e9830c9b59cff3e4f39d1",
           "owner": "hermes-agent",
           "mode": "100644"
         },
@@ -211,7 +211,7 @@
         },
         {
           "path": "skills/ai-agent-platform/hermes-agent/references/native-mcp.md",
-          "sha256": "46406b679c0c2dca6aa0a3285a167951e39696203806793991ad2c3a3f7ced1b",
+          "sha256": "d02ad7616664ac4fb817953de42ab51d31220bae5e952952291681e72c015130",
           "owner": "hermes-agent",
           "mode": "100644"
         },
@@ -488,7 +488,7 @@
         "sync_mode": "monitor",
         "path_commit": "c49fa88b80753071e7b7bb83e2882232e43e87c0"
       },
-      "kind": "mirror",
+      "kind": "overlay",
       "sync_mode": "monitor",
       "origins": [
         {
@@ -500,6 +500,16 @@
             {
               "source": "skills/research/arxiv/SKILL.md",
               "target": "skills/knowledge-and-pm-integrations/arxiv/SKILL.md"
+            },
+            {
+              "source": "skills/research/arxiv/scripts/search_arxiv.py",
+              "target": "skills/knowledge-and-pm-integrations/arxiv/scripts/search_arxiv.py",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/knowledge-and-pm-integrations/arxiv/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -507,7 +517,7 @@
             "ref": "main",
             "resolved_commit": "ee4452991d17534aa561f31ee55596d082aa94e7",
             "path_commit": "c49fa88b80753071e7b7bb83e2882232e43e87c0",
-            "content_sha256": "82b9c9b0645d0c3a4ab5ef9387e1fa54eed3dc9e726bdc5d35f8b553f45a3bb6",
+            "content_sha256": "1e37cdf449c15edae77fe859dd8a43e955ff89d3578dca8daf3a6b3a785fa5b7",
             "last_checked_at": "2026-09-14",
             "last_synced_at": "2026-09-14",
             "license_checkpoint": {
@@ -523,12 +533,25 @@
       ],
       "managed_files": [
         {
-          "path": "skills/knowledge-and-pm-integrations/arxiv/SKILL.md",
+          "path": "skills/knowledge-and-pm-integrations/arxiv/LICENSE.upstream.txt",
+          "sha256": "821556e6336796450ab852d375117b48a4887e71d255794fd6318d99982a5ab6",
           "owner": "arxiv",
-          "sha256": "82b9c9b0645d0c3a4ab5ef9387e1fa54eed3dc9e726bdc5d35f8b553f45a3bb6",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/knowledge-and-pm-integrations/arxiv/SKILL.md",
+          "sha256": "1e37cdf449c15edae77fe859dd8a43e955ff89d3578dca8daf3a6b3a785fa5b7",
+          "owner": "arxiv",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/knowledge-and-pm-integrations/arxiv/scripts/search_arxiv.py",
+          "sha256": "3c388081728fa350883a5a8846c8e29d9dee9e0db68fd8268f37b68f4042fd9d",
+          "owner": "arxiv",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-22: restore omitted search helper and MIT license from the existing immutable upstream checkpoint. Trailing whitespace in restored Python helpers is normalized locally; agent-hub cleanup also preserves dirty worktrees."
     },
     {
       "video_name": "obsidian",
@@ -685,7 +708,7 @@
             "ref": "3636f64540a3d80c8425f195f46e53e940956cba",
             "resolved_commit": "3636f64540a3d80c8425f195f46e53e940956cba",
             "path_commit": "3636f64540a3d80c8425f195f46e53e940956cba",
-            "content_sha256": "edf4821482e71172b744c38272d733d56596e86e226848392cf5eb39b19422b2",
+            "content_sha256": "2ef83d85647186747a2054d04f5a706836dbccd29cb47ffb8d18c60acff9e714",
             "last_checked_at": "2026-05-19",
             "last_synced_at": "2026-05-19"
           }
@@ -737,7 +760,7 @@
         },
         {
           "path": "skills/knowledge-and-pm-integrations/linear/SKILL.md",
-          "sha256": "edf4821482e71172b744c38272d733d56596e86e226848392cf5eb39b19422b2",
+          "sha256": "2ef83d85647186747a2054d04f5a706836dbccd29cb47ffb8d18c60acff9e714",
           "owner": "linear",
           "mode": "100644"
         },
@@ -759,7 +782,8 @@
           "owner": "linear",
           "mode": "100644"
         }
-      ]
+      ],
+      "curation_note": "2026-09-22: reviewed local overlay; remove mandatory host-specific handoffs or unavailable helper claims while preserving domain methods and original upstream license/checkpoint."
     }
   ],
   "verification_attempts": [

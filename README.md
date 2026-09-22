@@ -5,10 +5,10 @@
 [![简体中文](https://img.shields.io/badge/README-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1677ff)](./README.md)
 [![English](https://img.shields.io/badge/README-English-111111)](./README.en.md)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b894)](./openclaw-skills/README.md)
-[![Skills](https://img.shields.io/badge/Skills-285-7c3aed)](./skills/)
+[![Skills](https://img.shields.io/badge/Skills-284-7c3aed)](./skills/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
-面向全球 AI 开发者与 Agent 工作流构建者的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理等高频任务场景。当前共 **16 个分类 / 285 个技能**。
+面向全球 AI 开发者与 Agent 工作流构建者的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理等高频任务场景。当前共 **16 个分类 / 284 个技能**。
 
 ## 为什么值得收藏
 
@@ -386,7 +386,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 2. 打开对应技能的 `SKILL.md` 查看触发条件、操作流程和脚本说明。
 3. 若技能下含 `scripts/`、`references/`、`assets/`，优先复用现成内容。
 
-## 技能总览（按分类，16 类 / 285 技能）
+## 技能总览（按分类，16 类 / 284 技能）
 
 <a id="cat-developer-engineering"></a>
 ### 1. 开发工程（developer-engineering，47）
@@ -522,11 +522,11 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `latch`：配置和维护生命周期钩子、质量门禁和自动化守卫。
 - `playwright`：用于使用 Playwright 编写、运行和调试端到端测试。
 - `playwright-pro`：用于高级 Playwright 测试、诊断、稳定性和浏览器自动化。
-- `web-scraper`：用于网页抓取、结构化数据提取、爬取策略、选择器设计和反爬应对。
+- `web-scraper`：用于网页抓取、结构化数据提取、爬取策略、选择器设计和增量更新。
 - `yeet`：按用户要求暂存、提交、推送改动并创建 GitHub PR。
 
 <a id="cat-devops-sre"></a>
-### 5. DevOps / SRE（devops-sre，13）
+### 5. DevOps / SRE（devops-sre，12）
 
 - `azure-kubernetes`：用于 Azure Kubernetes 集群管理、部署、排障和运维。
 - `beacon`：可观测性、服务目标、告警、容量和可靠性设计。
@@ -539,7 +539,6 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `observability-designer`：设计日志、指标、链路追踪、告警和服务运行目标。
 - `release-manager`：组织版本、变更记录、发布制品和发布后验证。
 - `senior-architect`：分析系统架构、依赖、扩展性和关键技术取舍。
-- `senior-devops`：建设可观测、可回滚的基础设施与持续交付流程。
 - `triage`：事故首响、影响范围识别、恢复步骤和复盘整理。
 
 <a id="cat-finance-investing"></a>

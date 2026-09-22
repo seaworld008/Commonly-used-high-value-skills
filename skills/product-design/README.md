@@ -9,9 +9,9 @@
 ## 推荐先看
 
 - [agile-product-owner](./agile-product-owner/) - 管理产品待办、用户故事、验收条件和迭代计划。
+- [landing-page-generator](./landing-page-generator/) - 生成具备清晰文案、行动入口和可访问性的落地页。
 - [product-manager-toolkit](./product-manager-toolkit/) - 开展需求优先级排序、用户研究和产品需求文档编写。
 - [product-strategist](./product-strategist/) - 制定产品愿景、目标、市场分析和团队发展策略。
-- [ui-design-system](./ui-design-system/) - 创建和维护设计变量、组件规范及开发交接资料。
 
 ## 技能总览
 
