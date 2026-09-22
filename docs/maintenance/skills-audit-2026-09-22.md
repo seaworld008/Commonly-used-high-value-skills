@@ -85,3 +85,17 @@ PR 和合并后验证以相应精确提交的 CI 为准。发布阶段另行验�
 
 维护 PR 本地最终门槛：287 项严格质量 PASS，0 WARN/FAIL；616 tests 与 227 subtests 通过；
 来源覆盖 284/284、外部许可缺失与禁止均为 0；npm 打包检查与 15 项决策账本通过。
+
+## 新增交付与最终上游盘点
+
+Prisma 两项已收录完整的 15 个参考文档和各自 MIT 许可，统一使用固定提交来源与 monitor overlay，
+保留本地修正而不冒充上游原文。查询技能修正依赖写入硬编码 ID；迁移技能改正过期的“最新版本”
+声明、区分上游作者的运行证据，并标明数据库重置的破坏性。
+收录后的规范技能数为 286：原 285 项减 1 项、增 2 项。
+
+来源检查最终覆盖 24 个仓库的 150 个原有 active external 条目：21 equal、1 stable changed、
+84 monitor review、19 upstream path unavailable、25 expected skipped。唯一稳定更新 Hermes 已应用；
+监控与已删除上游路径按前述保留策略处理。Lark 在较长但有总时限的复查中完成，全部 23 项为 monitor review。
+397 个原有文档链接实测无死链；新增 Prisma 文档链接与 API 示例使用固定官方来源。
+维护 PR #122 的合并提交 `983e4d8c4919e03674b309e68e6513cdb1464087` 已通过 Repository Validation、
+provenance 与 CodeQL，开放 code-scanning 告警为 0（检查时点）。

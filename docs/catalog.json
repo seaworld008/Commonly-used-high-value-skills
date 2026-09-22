@@ -1,15 +1,15 @@
 {
   "version": "1.0.0",
   "generated_at": "2026-06-08",
-  "total_skills": 284,
+  "total_skills": 286,
   "total_categories": 16,
   "categories": [
     {
-      "name": "ai-workflow",
-      "count": 47
+      "name": "developer-engineering",
+      "count": 49
     },
     {
-      "name": "developer-engineering",
+      "name": "ai-workflow",
       "count": 47
     },
     {
@@ -2074,6 +2074,50 @@
       "updated_at": "2026-09-06",
       "line_count": 394,
       "path": "skills/developer-engineering/pr-review-expert/SKILL.md"
+    },
+    {
+      "name": "prisma-client-api",
+      "category": "developer-engineering",
+      "description": "Use when writing or reviewing Prisma Client queries, relation writes, transaction boundaries, filters, pagination, or raw SQL in a Prisma project.",
+      "version": "1.0.0",
+      "author": "Prisma",
+      "source": "github:prisma/skills",
+      "source_url": "https://github.com/prisma/skills/tree/1123817e60d15ca0f3af91878923241dee7e3b09/prisma-client-api",
+      "tags": [
+        "prisma",
+        "database",
+        "typescript",
+        "transactions",
+        "migration"
+      ],
+      "quality": 4,
+      "complexity": "advanced",
+      "created_at": "2026-09-22",
+      "updated_at": "2026-09-22",
+      "line_count": 237,
+      "path": "skills/developer-engineering/prisma-client-api/SKILL.md"
+    },
+    {
+      "name": "prisma-upgrade-v7",
+      "category": "developer-engineering",
+      "description": "Use when migrating an existing Prisma ORM SQL project from v6 to v7, updating generated-client imports, driver adapters, module format, or configuration.",
+      "version": "1.0.0",
+      "author": "Prisma",
+      "source": "github:prisma/skills",
+      "source_url": "https://github.com/prisma/skills/tree/1123817e60d15ca0f3af91878923241dee7e3b09/prisma-upgrade-v7",
+      "tags": [
+        "prisma",
+        "database",
+        "typescript",
+        "transactions",
+        "migration"
+      ],
+      "quality": 4,
+      "complexity": "advanced",
+      "created_at": "2026-09-22",
+      "updated_at": "2026-09-22",
+      "line_count": 283,
+      "path": "skills/developer-engineering/prisma-upgrade-v7/SKILL.md"
     },
     {
       "name": "promptfoo-evaluation",

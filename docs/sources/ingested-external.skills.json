@@ -2,13 +2,23 @@
   "schema_version": 2,
   "video": {
     "url": "https://github.com/ayghri/i-have-adhd",
-    "checked_at": "2026-09-18",
+    "checked_at": "2026-09-22",
     "note": "External skills registered by scripts/ingest_skill.py."
   },
   "official_references": [
     {
       "name": "i-have-adhd upstream",
       "url": "https://github.com/ayghri/i-have-adhd",
+      "purpose": "Original external source registered during ingestion."
+    },
+    {
+      "name": "prisma-client-api upstream",
+      "url": "https://github.com/prisma/skills/tree/1123817e60d15ca0f3af91878923241dee7e3b09/prisma-client-api",
+      "purpose": "Original external source registered during ingestion."
+    },
+    {
+      "name": "prisma-upgrade-v7 upstream",
+      "url": "https://github.com/prisma/skills/tree/1123817e60d15ca0f3af91878923241dee7e3b09/prisma-upgrade-v7",
       "purpose": "Original external source registered during ingestion."
     }
   ],
@@ -93,6 +103,313 @@
           "mode": "100644"
         }
       ]
+    },
+    {
+      "video_name": "prisma-client-api",
+      "normalized_slug": "prisma-client-api",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/developer-engineering/prisma-client-api/SKILL.md",
+      "source": "https://github.com/prisma/skills/tree/1123817e60d15ca0f3af91878923241dee7e3b09/prisma-client-api",
+      "notes": "External skill registered by scripts/ingest_skill.py.",
+      "upstream": {
+        "repo": "prisma/skills",
+        "path": "prisma-client-api/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-09-22",
+        "last_synced_at": "2026-09-22",
+        "last_synced_commit": "1123817e60d15ca0f3af91878923241dee7e3b09",
+        "sync_mode": "monitor"
+      },
+      "kind": "overlay",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "prisma/skills",
+          "path": "prisma-client-api/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "LICENSE",
+              "target": "skills/developer-engineering/prisma-client-api/LICENSE.txt",
+              "type": "file"
+            },
+            {
+              "source": "prisma-client-api/SKILL.md",
+              "target": "skills/developer-engineering/prisma-client-api/SKILL.md",
+              "type": "file"
+            },
+            {
+              "source": "prisma-client-api/references/client-methods.md",
+              "target": "skills/developer-engineering/prisma-client-api/references/client-methods.md",
+              "type": "file"
+            },
+            {
+              "source": "prisma-client-api/references/constructor.md",
+              "target": "skills/developer-engineering/prisma-client-api/references/constructor.md",
+              "type": "file"
+            },
+            {
+              "source": "prisma-client-api/references/filters.md",
+              "target": "skills/developer-engineering/prisma-client-api/references/filters.md",
+              "type": "file"
+            },
+            {
+              "source": "prisma-client-api/references/model-queries.md",
+              "target": "skills/developer-engineering/prisma-client-api/references/model-queries.md",
+              "type": "file"
+            },
+            {
+              "source": "prisma-client-api/references/query-options.md",
+              "target": "skills/developer-engineering/prisma-client-api/references/query-options.md",
+              "type": "file"
+            },
+            {
+              "source": "prisma-client-api/references/raw-queries.md",
+              "target": "skills/developer-engineering/prisma-client-api/references/raw-queries.md",
+              "type": "file"
+            },
+            {
+              "source": "prisma-client-api/references/relations.md",
+              "target": "skills/developer-engineering/prisma-client-api/references/relations.md",
+              "type": "file"
+            },
+            {
+              "source": "prisma-client-api/references/transactions.md",
+              "target": "skills/developer-engineering/prisma-client-api/references/transactions.md",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "1123817e60d15ca0f3af91878923241dee7e3b09",
+            "path_commit": "808913c1dac11dc425631c2454f7fcb2d5ade5ca",
+            "content_sha256": "04bafce64b4e2210284cf97726dede8ad62cf1e4b5613916c3fb97ef72d13e11",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "cff9f2c6d509cccd360cc36634e193b7355dc322",
+              "content_sha256": "03b4d243884e832289d7306e3bcc725ce5095834cc91e0be2b46f178eaafd973",
+              "spdx": "MIT",
+              "resolved_commit": "1123817e60d15ca0f3af91878923241dee7e3b09",
+              "api_spdx": "MIT"
+            },
+            "last_checked_at": "2026-09-22",
+            "last_synced_at": "2026-09-22"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/developer-engineering/prisma-client-api/LICENSE.txt",
+          "owner": "prisma-client-api",
+          "sha256": "03b4d243884e832289d7306e3bcc725ce5095834cc91e0be2b46f178eaafd973",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/prisma-client-api/SKILL.md",
+          "owner": "prisma-client-api",
+          "sha256": "04bafce64b4e2210284cf97726dede8ad62cf1e4b5613916c3fb97ef72d13e11",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/prisma-client-api/references/client-methods.md",
+          "owner": "prisma-client-api",
+          "sha256": "2113d60e37017220395b59adbe244d6f157235041301ac47193eaa5a90881c7f",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/prisma-client-api/references/constructor.md",
+          "owner": "prisma-client-api",
+          "sha256": "90be727e5ec7142c2e9ee4c8d40d9683b6fc8ce29061bb52feb0058c944e1c61",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/prisma-client-api/references/filters.md",
+          "owner": "prisma-client-api",
+          "sha256": "704f555798265451f86d4a1e96569bb132f9cbccdad678ee346d0f4f3eb56f35",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/prisma-client-api/references/model-queries.md",
+          "owner": "prisma-client-api",
+          "sha256": "86c23f822803e6e250bd8c9de214fd1724d7847a9ee4f1798a6e253d7aadd63f",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/prisma-client-api/references/query-options.md",
+          "owner": "prisma-client-api",
+          "sha256": "18044ee8cc142f73dcfce4f667ff51acf678cb7584823dcc49e97e080c78d490",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/prisma-client-api/references/raw-queries.md",
+          "owner": "prisma-client-api",
+          "sha256": "105c1358ecfa60c9aec09a9a6db868fe113d1e2f3e3ce7ccbbbdfa5cb46adf38",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/prisma-client-api/references/relations.md",
+          "owner": "prisma-client-api",
+          "sha256": "f6a7b701d823b125e6208e4baadacc3209b068a5c770fbed3d7b60bb7a92df49",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/prisma-client-api/references/transactions.md",
+          "owner": "prisma-client-api",
+          "sha256": "d92fae0f21f9f19b5d038f920e54ace749a680ccf16e9efe7642e2bcf2e12471",
+          "mode": "100644"
+        }
+      ],
+      "curation_note": "2026-09-22: reviewed MIT official skill at 1123817e60d15ca0f3af91878923241dee7e3b09; all references and license mapped to immutable upstream. Local overlay narrows triggers, fixes dependent transaction IDs, replaces stale latest-version wording, labels upstream evidence and constrains destructive migration examples. Markdown trailing whitespace normalized. Runtime Prisma execution not claimed."
+    },
+    {
+      "video_name": "prisma-upgrade-v7",
+      "normalized_slug": "prisma-upgrade-v7",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/developer-engineering/prisma-upgrade-v7/SKILL.md",
+      "source": "https://github.com/prisma/skills/tree/1123817e60d15ca0f3af91878923241dee7e3b09/prisma-upgrade-v7",
+      "notes": "External skill registered by scripts/ingest_skill.py.",
+      "upstream": {
+        "repo": "prisma/skills",
+        "path": "prisma-upgrade-v7/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-09-22",
+        "last_synced_at": "2026-09-22",
+        "last_synced_commit": "1123817e60d15ca0f3af91878923241dee7e3b09",
+        "sync_mode": "monitor"
+      },
+      "kind": "overlay",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "prisma/skills",
+          "path": "prisma-upgrade-v7/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "LICENSE",
+              "target": "skills/developer-engineering/prisma-upgrade-v7/LICENSE.txt",
+              "type": "file"
+            },
+            {
+              "source": "prisma-upgrade-v7/SKILL.md",
+              "target": "skills/developer-engineering/prisma-upgrade-v7/SKILL.md",
+              "type": "file"
+            },
+            {
+              "source": "prisma-upgrade-v7/references/accelerate-users.md",
+              "target": "skills/developer-engineering/prisma-upgrade-v7/references/accelerate-users.md",
+              "type": "file"
+            },
+            {
+              "source": "prisma-upgrade-v7/references/driver-adapters.md",
+              "target": "skills/developer-engineering/prisma-upgrade-v7/references/driver-adapters.md",
+              "type": "file"
+            },
+            {
+              "source": "prisma-upgrade-v7/references/env-variables.md",
+              "target": "skills/developer-engineering/prisma-upgrade-v7/references/env-variables.md",
+              "type": "file"
+            },
+            {
+              "source": "prisma-upgrade-v7/references/esm-support.md",
+              "target": "skills/developer-engineering/prisma-upgrade-v7/references/esm-support.md",
+              "type": "file"
+            },
+            {
+              "source": "prisma-upgrade-v7/references/prisma-config.md",
+              "target": "skills/developer-engineering/prisma-upgrade-v7/references/prisma-config.md",
+              "type": "file"
+            },
+            {
+              "source": "prisma-upgrade-v7/references/removed-features.md",
+              "target": "skills/developer-engineering/prisma-upgrade-v7/references/removed-features.md",
+              "type": "file"
+            },
+            {
+              "source": "prisma-upgrade-v7/references/schema-changes.md",
+              "target": "skills/developer-engineering/prisma-upgrade-v7/references/schema-changes.md",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "1123817e60d15ca0f3af91878923241dee7e3b09",
+            "path_commit": "72aa5e3b6fea2cc00cefcf8a5decc84ec1d6302b",
+            "content_sha256": "baef118fd561ab51a2b2be71c8b530789ef525597f23ebe52148a789eda8a31f",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "cff9f2c6d509cccd360cc36634e193b7355dc322",
+              "content_sha256": "03b4d243884e832289d7306e3bcc725ce5095834cc91e0be2b46f178eaafd973",
+              "spdx": "MIT",
+              "resolved_commit": "1123817e60d15ca0f3af91878923241dee7e3b09",
+              "api_spdx": "MIT"
+            },
+            "last_checked_at": "2026-09-22",
+            "last_synced_at": "2026-09-22"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/developer-engineering/prisma-upgrade-v7/LICENSE.txt",
+          "owner": "prisma-upgrade-v7",
+          "sha256": "03b4d243884e832289d7306e3bcc725ce5095834cc91e0be2b46f178eaafd973",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/prisma-upgrade-v7/SKILL.md",
+          "owner": "prisma-upgrade-v7",
+          "sha256": "baef118fd561ab51a2b2be71c8b530789ef525597f23ebe52148a789eda8a31f",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/prisma-upgrade-v7/references/accelerate-users.md",
+          "owner": "prisma-upgrade-v7",
+          "sha256": "fa70c8d9b0ca4474448cd658d8e37bb701526de2efe01de9ce6f4294fdf032f3",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/prisma-upgrade-v7/references/driver-adapters.md",
+          "owner": "prisma-upgrade-v7",
+          "sha256": "28668eb7787158d7c68cfc2981095f5cb66141cecd338ea5e6a4b2eecbe517b6",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/prisma-upgrade-v7/references/env-variables.md",
+          "owner": "prisma-upgrade-v7",
+          "sha256": "5b11d1d625be73a9ac95c36f766cf1443f938e714f4b213fdd6130dac4d916a7",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/prisma-upgrade-v7/references/esm-support.md",
+          "owner": "prisma-upgrade-v7",
+          "sha256": "558b2cff56a303f3e8f9c4878e29b65f340a3f154c433989aa50bf76d60a06c9",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/prisma-upgrade-v7/references/prisma-config.md",
+          "owner": "prisma-upgrade-v7",
+          "sha256": "868d1fbbcbcae2d58cb1d6d9ed35384a8a71db480c32dc61609b28201f039f8d",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/prisma-upgrade-v7/references/removed-features.md",
+          "owner": "prisma-upgrade-v7",
+          "sha256": "1a62b15e5554c796a89b8798f0eed3348b5ca0245f07221135565d2a7e741de6",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/prisma-upgrade-v7/references/schema-changes.md",
+          "owner": "prisma-upgrade-v7",
+          "sha256": "cfd913c0d58b9e194c7ad7af96b95dbd0c1acd220e44eb1c1811db8bec0e318c",
+          "mode": "100644"
+        }
+      ],
+      "curation_note": "2026-09-22: reviewed MIT official skill at 1123817e60d15ca0f3af91878923241dee7e3b09; all references and license mapped to immutable upstream. Local overlay narrows triggers, fixes dependent transaction IDs, replaces stale latest-version wording, labels upstream evidence and constrains destructive migration examples. Markdown trailing whitespace normalized. Runtime Prisma execution not claimed."
     }
   ],
   "verification_attempts": [
@@ -102,6 +419,20 @@
       "target": "skills/operations-general/i-have-adhd/SKILL.md",
       "result": "success",
       "evidence": "Registered external provenance for i-have-adhd"
+    },
+    {
+      "date": "2026-09-22",
+      "method": "ingest-skill",
+      "target": "skills/developer-engineering/prisma-client-api/SKILL.md",
+      "result": "success",
+      "evidence": "Registered external provenance for prisma-client-api"
+    },
+    {
+      "date": "2026-09-22",
+      "method": "ingest-skill",
+      "target": "skills/developer-engineering/prisma-upgrade-v7/SKILL.md",
+      "result": "success",
+      "evidence": "Registered external provenance for prisma-upgrade-v7"
     }
   ]
 }

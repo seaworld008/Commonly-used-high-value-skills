@@ -5,10 +5,10 @@
 [![简体中文](https://img.shields.io/badge/README-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1677ff)](./README.md)
 [![English](https://img.shields.io/badge/README-English-111111)](./README.en.md)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b894)](./openclaw-skills/README.md)
-[![Skills](https://img.shields.io/badge/Skills-284-7c3aed)](./skills/)
+[![Skills](https://img.shields.io/badge/Skills-286-7c3aed)](./skills/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
-面向全球 AI 开发者与 Agent 工作流构建者的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理等高频任务场景。当前共 **16 个分类 / 284 个技能**。
+面向全球 AI 开发者与 Agent 工作流构建者的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理等高频任务场景。当前共 **16 个分类 / 286 个技能**。
 
 ## 为什么值得收藏
 
@@ -386,10 +386,10 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 2. 打开对应技能的 `SKILL.md` 查看触发条件、操作流程和脚本说明。
 3. 若技能下含 `scripts/`、`references/`、`assets/`，优先复用现成内容。
 
-## 技能总览（按分类，16 类 / 284 技能）
+## 技能总览（按分类，16 类 / 286 技能）
 
 <a id="cat-developer-engineering"></a>
-### 1. 开发工程（developer-engineering，47）
+### 1. 开发工程（developer-engineering，49）
 
 - `agent-designer`：设计智能体的职责、工具、记忆、协作架构和评测方法。
 - `api-design-reviewer`：用于评审 API 设计的一致性、可用性、版本策略、错误语义、安全性和开发者体验。
@@ -419,6 +419,8 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `nextjs-app-router`：用于 Next.js App Router 项目开发、路由设计和服务端渲染实践。
 - `performance-profiler`：分析 CPU、内存、I/O 和查询瓶颈并验证优化效果。
 - `pr-review-expert`：审查 PR 的正确性、安全、兼容性和测试覆盖变化。
+- `prisma-client-api`：用于 Prisma Client 查询、关联写入、事务、分页与原生 SQL 审查。
+- `prisma-upgrade-v7`：用于 Prisma ORM 6 到 7 的 SQL 项目迁移、驱动适配器、客户端导入与配置升级。
 - `promptfoo-evaluation`：配置和运行 Promptfoo 提示词、模型及输出质量评测。
 - `python-performance`：用于 Python 性能分析、内存优化、热点路径调优和并发模式评审。
 - `qa-expert`：制定测试策略、风险用例、执行计划和缺陷跟踪流程。
