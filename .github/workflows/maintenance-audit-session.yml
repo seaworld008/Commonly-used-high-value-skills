@@ -11,29 +11,43 @@ permissions:
   contents: read
 
 jobs:
-  snapshot:
+  upstream:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 25
     steps:
-      - name: Check out audit branch without persisted credentials
+      - name: Check out reviewed baseline without persisted credentials
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          fetch-depth: 0
+          ref: 4d170b083cd41ad5d16fa088bcfe8f73da55df6f
           persist-credentials: false
-      - name: Export tracked source and Git history only
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.13'
+      - name: Install audit dependencies
+        run: python -m pip install pyyaml jsonschema
+      - name: Check all active upstream mappings without applying or recording changes
+        id: upstream
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         shell: bash
         run: |
-          set -euo pipefail
-          mkdir -p "$RUNNER_TEMP/maintenance-audit"
-          git archive --format=tar.gz --output="$RUNNER_TEMP/maintenance-audit/source.tar.gz" HEAD
-          git bundle create "$RUNNER_TEMP/maintenance-audit/source.bundle" --all
-          git rev-parse HEAD > "$RUNNER_TEMP/maintenance-audit/HEAD.txt"
-          cd "$RUNNER_TEMP/maintenance-audit"
-          sha256sum source.tar.gz source.bundle HEAD.txt > SHA256SUMS
-      - name: Upload source snapshot for the authorized audit
+          mkdir -p "$RUNNER_TEMP/maintenance-upstream"
+          set +e
+          python scripts/sync_upstream.py --check-only --report-json "$RUNNER_TEMP/maintenance-upstream/upstream.json" > "$RUNNER_TEMP/maintenance-upstream/upstream.log" 2>&1
+          result=$?
+          printf '%s\n' "$result" > "$RUNNER_TEMP/maintenance-upstream/exit-code.txt"
+          tail -100 "$RUNNER_TEMP/maintenance-upstream/upstream.log"
+          exit "$result"
+      - name: Assert the check did not modify tracked files
+        if: always()
+        run: git diff --exit-code
+      - name: Upload upstream evidence including unavailable sources
+        if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: maintenance-audit-source
-          path: ${{ runner.temp }}/maintenance-audit/
-          retention-days: 3
+          name: maintenance-upstream-check
+          path: ${{ runner.temp }}/maintenance-upstream/
+          retention-days: 7
           if-no-files-found: error
