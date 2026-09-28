@@ -55,9 +55,11 @@ jobs:
 
       - name: Publish repo health summary
         run: |
-          cat docs/sources/reports/repo-health.md >> "$GITHUB_STEP_SUMMARY"
-          echo "" >> "$GITHUB_STEP_SUMMARY"
-          cat docs/sources/reports/repo-health-eval.md >> "$GITHUB_STEP_SUMMARY"
+          {
+            cat docs/sources/reports/repo-health.md
+            echo ""
+            cat docs/sources/reports/repo-health-eval.md
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Ensure generated files are up to date
         run: git diff --exit-code
