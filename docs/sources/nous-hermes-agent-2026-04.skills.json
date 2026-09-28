@@ -2,7 +2,7 @@
   "schema_version": 2,
   "video": {
     "url": "https://github.com/NousResearch/hermes-agent",
-    "checked_at": "2026-09-22",
+    "checked_at": "2026-09-28",
     "note": "Curated subset from Hermes Agent focused on persistent knowledge workflows and self-improving agent infrastructure."
   },
   "official_references": [
@@ -115,12 +115,12 @@
       "upstream": {
         "repo": "NousResearch/hermes-agent",
         "path": "skills/autonomous-ai-agents/hermes-agent/SKILL.md",
-        "ref": "v2026.9.21",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-22",
-        "last_synced_commit": "d337b736aa1e8ebecfab043842d13e4a2d2f48a3",
+        "ref": "v2026.9.24",
+        "last_checked_at": "2026-09-28",
+        "last_synced_at": "2026-09-28",
+        "last_synced_commit": "f97608f178d1ffeca59860195ab7da295f7c8e5f",
         "sync_mode": "replace",
-        "path_commit": "626bc82f13d975dc88fbeda5076f0bf442856b20"
+        "path_commit": "8eda97cafb92964f6b84b355a8260c79692fbdc2"
       },
       "kind": "mirror",
       "sync_mode": "replace",
@@ -149,18 +149,18 @@
           ],
           "tracking": {
             "channel": "latest_release",
-            "ref": "v2026.9.21",
-            "resolved_commit": "d337b736aa1e8ebecfab043842d13e4a2d2f48a3",
-            "path_commit": "626bc82f13d975dc88fbeda5076f0bf442856b20",
-            "content_sha256": "09da7d21e3f3eedd29637b8cebd907377c2f99425b8236c956846545ab15f4d8",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-22",
+            "ref": "v2026.9.24",
+            "resolved_commit": "f97608f178d1ffeca59860195ab7da295f7c8e5f",
+            "path_commit": "8eda97cafb92964f6b84b355a8260c79692fbdc2",
+            "content_sha256": "6cd26b16955b78c45fd642960ab9c27e37afdb3ddd5c6fd09e6fb01d2d21a1f1",
+            "last_checked_at": "2026-09-28",
+            "last_synced_at": "2026-09-28",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "75410e73319c72cd3e991a501c5455eb78f38375",
               "content_sha256": "821556e6336796450ab852d375117b48a4887e71d255794fd6318d99982a5ab6",
               "spdx": "MIT",
-              "resolved_commit": "d337b736aa1e8ebecfab043842d13e4a2d2f48a3",
+              "resolved_commit": "f97608f178d1ffeca59860195ab7da295f7c8e5f",
               "api_spdx": "MIT"
             }
           }
@@ -169,7 +169,7 @@
       "managed_files": [
         {
           "path": "skills/ai-agent-platform/hermes-agent/SKILL.md",
-          "sha256": "09da7d21e3f3eedd29637b8cebd907377c2f99425b8236c956846545ab15f4d8",
+          "sha256": "6cd26b16955b78c45fd642960ab9c27e37afdb3ddd5c6fd09e6fb01d2d21a1f1",
           "owner": "hermes-agent",
           "mode": "100644"
         },
@@ -271,7 +271,7 @@
         },
         {
           "path": "skills/ai-agent-platform/hermes-agent/references/webhooks.md",
-          "sha256": "a4ef792943b03fbd1769e5176703a1f356c23756554abd37e0070f3885582489",
+          "sha256": "f668c57d1900e249cb4b54e5d624e9aacb399ecf1452f9b258a1bf857ffa8a42",
           "owner": "hermes-agent",
           "mode": "100644"
         },

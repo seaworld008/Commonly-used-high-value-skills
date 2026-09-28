@@ -6,6 +6,7 @@ const fs = require("fs");
 const os = require("os");
 const path = require("path");
 const { spawnSync } = require("child_process");
+const { npmInvocation } = require("./npm-command");
 
 const REPO_ROOT = path.resolve(__dirname, "..");
 const PACKAGE = require(path.join(REPO_ROOT, "package.json"));
@@ -101,6 +102,8 @@ Options:
 Safety:
   - Normal installation never includes installer-only bundles.
   - Each destination receives ${MANIFEST_NAME} with owner, source digest, file digest, and mode.
+  - Modified or unowned replacements are archived; copies are staged and verified first.
+  - Source/destination overlap and duplicate selected skill names are rejected before writes.
   - Dry-run performs no writes and never invokes an upstream installer.
   - Retired files are deleted only when this installer owns them and their digests are unchanged.
 `);
@@ -352,9 +355,10 @@ function expectedNpmPackFilename(installer) {
 }
 
 function downloadAndVerifyBundle(installer, tempDir) {
+  const npm = npmInvocation("npm");
   const result = spawnSync(
-    "npm",
-    ["pack", installer.spec, "--json", "--ignore-scripts"],
+    npm.command,
+    [...npm.args, "pack", installer.spec, "--json", "--ignore-scripts"],
     {
       cwd: tempDir,
       encoding: "utf8",
@@ -439,6 +443,7 @@ function resolveInstallPlan(args, target) {
       target,
       label: "custom skills directory",
       destRoot: args.destDir,
+      sourceRoot: args.sourceRoot,
       skills: filterSkills(discoverCategorizedSkills(args.sourceRoot), args),
     };
   }
@@ -456,6 +461,7 @@ function resolveInstallPlan(args, target) {
     target,
     label: config.label,
     destRoot: args.destDir || config.dest(),
+    sourceRoot,
     skills: filterSkills(
       hasOpenClawExport
         ? discoverFlatSkills(sourceRoot)
@@ -527,7 +533,8 @@ function readInstallManifest(destRoot) {
     data.schema_version !== 1 ||
     data.installer !== INSTALLER_ID ||
     !data.skills ||
-    typeof data.skills !== "object"
+    typeof data.skills !== "object" ||
+    Array.isArray(data.skills)
   ) {
     throw new Error(`Refusing invalid or foreign install manifest: ${manifestPath}`);
   }
@@ -545,6 +552,7 @@ function readInstallManifest(destRoot) {
           typeof file.path === "string" &&
           file.path.length > 0 &&
           !path.posix.isAbsolute(file.path) &&
+          !file.path.includes("\\") &&
           !file.path.split("/").includes("..") &&
           /^[0-9a-f]{64}$/.test(file.sha256) &&
           /^(?:[0-7]{3}|[0-7]{4})$/.test(file.mode)
@@ -565,12 +573,95 @@ function writeJsonAtomic(file, data) {
   fs.renameSync(temp, file);
 }
 
-function copySkill(sourceDir, destDir) {
-  fs.rmSync(destDir, { recursive: true, force: true });
-  fs.cpSync(sourceDir, destDir, {
-    recursive: true,
-    filter: (source) => !source.split(path.sep).includes("__pycache__"),
+// Resolve the nearest existing ancestor too, so aliases and not-yet-created
+// destination descendants receive the same overlap checks as existing paths.
+function canonicalPath(file) {
+  const absolute = path.resolve(file);
+  if (lstatExists(absolute)) return fs.realpathSync(absolute);
+  const parent = path.dirname(absolute);
+  if (parent === absolute) return absolute;
+  return path.join(canonicalPath(parent), path.basename(absolute));
+}
+
+function pathsOverlap(left, right) {
+  function contains(parent, child) {
+    const relative = path.relative(parent, child);
+    return relative === "" ||
+      (relative !== ".." && !relative.startsWith(`..${path.sep}`) && !path.isAbsolute(relative));
+  }
+  return contains(left, right) || contains(right, left);
+}
+
+function prepareInstallPlans(plans) {
+  const sources = plans.flatMap((plan) => [canonicalPath(plan.sourceRoot),
+    ...plan.skills.map((skill) => canonicalPath(skill.sourceDir))]);
+  const destinations = plans.map((plan) => canonicalPath(plan.destRoot));
+  for (let i = 0; i < plans.length; i += 1) {
+    if (sources.some((source) => pathsOverlap(source, destinations[i]))) {
+      throw new Error(`Source and destination overlap: ${plans[i].destRoot}`);
+    }
+    if (destinations.slice(0, i).some((dest) => pathsOverlap(dest, destinations[i]))) {
+      throw new Error(`Installation destinations overlap: ${plans[i].destRoot}`);
+    }
+  }
+  return plans.map((plan) => {
+    const manifest = readInstallManifest(plan.destRoot);
+    const expected = new Map();
+    for (const skill of plan.skills) {
+      if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(skill.name)) {
+        throw new Error(`Unsafe skill name: ${skill.name}`);
+      }
+      if (expected.has(skill.name)) throw new Error(`Duplicate skill name: ${skill.name}`);
+      if (!fs.lstatSync(skill.sourceDir).isDirectory()) {
+        throw new Error(`Skill source must be a real directory: ${skill.sourceDir}`);
+      }
+      const inventory = inventorySkill(skill.sourceDir, skill.name);
+      expected.set(skill.name, { ...inventory, owner: skill.name });
+    }
+    return { ...plan, manifest, expected };
   });
+}
+
+function copySkill(sourceDir, destDir, expected, owned, archive) {
+  const stage = fs.mkdtempSync(path.join(path.dirname(destDir), ".high-value-skills-stage-"));
+  const next = path.join(stage, "next");
+  let previous = null;
+  let preserveStage = false;
+  let archived = false;
+  try {
+    fs.cpSync(sourceDir, next, {
+      recursive: true,
+      filter: (source) => !source.split(path.sep).includes("__pycache__"),
+    });
+    if (!inventoryMatches(next, expected)) {
+      throw new Error(`Staged skill failed inventory verification: ${sourceDir}`);
+    }
+    // Recheck ownership after copying, immediately before moving the old tree.
+    if (lstatExists(destDir)) {
+      archived = !owned || !inventoryMatches(destDir, owned);
+      previous = archived ? archive : path.join(stage, "previous");
+      fs.mkdirSync(path.dirname(previous), { recursive: true });
+      if (lstatExists(previous)) throw new Error(`Backup destination already exists: ${previous}`);
+      fs.renameSync(destDir, previous);
+    }
+    try {
+      fs.renameSync(next, destDir);
+    } catch (error) {
+      if (previous) {
+        try {
+          if (lstatExists(destDir)) throw new Error("destination changed concurrently");
+          fs.renameSync(previous, destDir);
+        } catch (restoreError) {
+          preserveStage = true;
+          throw new Error(`Install failed: ${error.message}; rollback failed: ${restoreError.message}; previous copy preserved at ${previous}`);
+        }
+      }
+      throw error;
+    }
+    return archived;
+  } finally {
+    if (!preserveStage) fs.rmSync(stage, { recursive: true, force: true });
+  }
 }
 
 function inventoryMatches(root, expected) {
@@ -633,13 +724,9 @@ function pruneRetired(destRoot, manifest, policyPath, dryRun, timestamp) {
 }
 
 function installPlan(plan, args, timestamp) {
-  const manifest = readInstallManifest(plan.destRoot);
+  const { manifest, expected } = plan;
   if (!args.dryRun) fs.mkdirSync(plan.destRoot, { recursive: true });
-  const expected = new Map();
-  for (const skill of plan.skills) {
-    const inventory = inventorySkill(skill.sourceDir, skill.name);
-    expected.set(skill.name, { ...inventory, owner: skill.name });
-  }
+  let archived = 0;
   let added = 0;
   let updated = 0;
   let unchanged = 0;
@@ -648,9 +735,17 @@ function installPlan(plan, args, timestamp) {
     const entry = expected.get(skill.name);
     const matches = inventoryMatches(destDir, entry);
     if (matches) unchanged += 1;
-    else if (fs.existsSync(destDir)) updated += 1;
+    else if (lstatExists(destDir)) updated += 1;
     else added += 1;
-    if (!args.dryRun && !matches) copySkill(skill.sourceDir, destDir);
+    if (!matches) {
+      const owned = manifest.skills[skill.name];
+      if (args.dryRun) {
+        if (lstatExists(destDir) && (!owned || !inventoryMatches(destDir, owned))) archived += 1;
+      } else if (copySkill(skill.sourceDir, destDir, entry, owned,
+        path.join(backupRoot(plan.destRoot, timestamp), skill.name))) {
+        archived += 1;
+      }
+    }
     manifest.skills[skill.name] = entry;
   }
   let pruned = { deleted: [], archived: [], absent: [] };
@@ -684,6 +779,7 @@ function installPlan(plan, args, timestamp) {
     added,
     updated,
     unchanged,
+    archived,
     preserved: existing.filter((name) => !selected.has(name)).length,
     pruned,
   };
@@ -740,7 +836,8 @@ function runBundle(args) {
   try {
     const tarballPath = downloadAndVerifyBundle(data.installer, tempDir);
     const verifiedCommandArgs = ["--yes", tarballPath, ...flags, "--global"];
-    const result = spawnSync("npx", verifiedCommandArgs, {
+    const npx = npmInvocation("npx");
+    const result = spawnSync(npx.command, [...npx.args, ...verifiedCommandArgs], {
       stdio: "inherit",
       shell: false,
     });
@@ -867,15 +964,15 @@ function main() {
   if (args.bundle) return runBundle(args);
 
   const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
-  const summaries = args.targets.map((target) =>
-    installPlan(resolveInstallPlan(args, target), args, timestamp)
-  );
+  const plans = prepareInstallPlans(args.targets.map((target) => resolveInstallPlan(args, target)));
+  const summaries = plans.map((plan) => installPlan(plan, args, timestamp));
   for (const summary of summaries) {
     const prefix = args.dryRun ? "[dry-run] Would reconcile" : "Installed";
     console.log(
       `${prefix} ${summary.skillCount} skills to ${summary.label} ` +
         `(${summary.destRoot}). Added: ${summary.added}, Updated: ${summary.updated}, ` +
-        `Unchanged: ${summary.unchanged}, Preserved extras: ${summary.preserved}.`
+        `Unchanged: ${summary.unchanged}, Preserved extras: ${summary.preserved}. ` +
+        `Archived replacements: ${summary.archived}.`
     );
     if (args.pruneRetired) {
       console.log(

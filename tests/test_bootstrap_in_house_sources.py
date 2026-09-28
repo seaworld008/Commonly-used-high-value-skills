@@ -1,3 +1,4 @@
+import json
 import hashlib
 import importlib.util
 import tempfile
@@ -219,6 +220,7 @@ class BootstrapInHouseSourcesTests(unittest.TestCase):
                 repo_url="https://github.com/example/repo",
                 existing_payload=first,
                 today="2026-03-28",
+                record_check=True,
             )
             unchanged_entry = unchanged["skills"][0]
             unchanged_tracking = unchanged_entry["origins"][0]["tracking"]
@@ -322,3 +324,15 @@ class BootstrapInHouseSourcesTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+def test_default_refresh_is_identical_across_days(tmp_path):
+    module = load_module()
+    skill = tmp_path / "skills/example/example-skill/SKILL.md"
+    skill.parent.mkdir(parents=True)
+    skill.write_text("---\nname: example-skill\nsource: in-house\n---\n# Example\n")
+    first = module.build_in_house_mapping(repo_root=tmp_path, repo_url="https://github.com/example/repo", today="2026-09-22")
+    saved = json.dumps(first, sort_keys=True)
+    later = module.build_in_house_mapping(repo_root=tmp_path, repo_url="https://github.com/example/repo", existing_payload=first, today="2026-10-22")
+    assert later == first
+    assert json.dumps(first, sort_keys=True) == saved

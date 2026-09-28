@@ -2,14 +2,14 @@
 name: firebase-security-rules-auditor
 description: 'Audit Firestore and Cloud Storage rules for authorization, tenant isolation, field validation, and emulator coverage when data models or rules change.'
 zh_description: "审计 Firestore 与 Cloud Storage 安全规则，检查授权、字段校验、权限提升、资源滥用和模拟器测试覆盖。"
-version: "1.1.2"
+version: "1.1.3"
 author: seaworld008
 source: github:firebase/agent-skills
 source_url: "https://github.com/firebase/agent-skills/tree/main/skills/firebase-security-rules-auditor"
 license: Apache-2.0
 tags: '[firebase, firestore, cloud-storage, security-rules, authorization, appsec]'
 created_at: "2026-07-06"
-updated_at: "2026-09-06"
+updated_at: "2026-09-28"
 quality: 4
 complexity: advanced
 ---
@@ -45,9 +45,9 @@ operations to bypass it.
 1. **Type Safety:** Are fields checked with 'is string', 'is int', or 'is
    timestamp'?
 1. **Field-Level vs. Identity-Level Security:** Be careful with rules that use
-   \`hasOnly()\` or \`diff()\`. While these restrict *which* fields can be
+   `hasOnly()` or `diff()`. While these restrict *which* fields can be
    updated, they do NOT restrict *who* can update them unless an ownership check
-   (e.g., \`resource.data.uid == request.auth.uid\`) is also present. If a rule
+   (e.g., `resource.data.uid == request.auth.uid`) is also present. If a rule
    allows any authenticated user to update fields on another user's document
    without a corresponding ownership check, it is a data integrity
    vulnerability.
@@ -75,10 +75,21 @@ single hardcoded admin email (e.g., checking request.auth.token.email ==
 - **5 (Secure):** Comprehensive validation, strict ownership, and role-based
   access via secure ACLs.
 
-Return your assessment in JSON format using the following structure: { "score":
-1-5, "summary": "overall assessment", "findings": \[ { "check": "checklist
-item", "severity": "critical|major|moderate|minor", "issue": "description",
-"recommendation": "fix" } \] }
+Return your assessment in JSON format using the following structure:
+```json
+{
+  "score": 1,
+  "summary": "overall assessment",
+  "findings": [
+    {
+      "check": "checklist item",
+      "severity": "critical|major|moderate|minor",
+      "issue": "description",
+      "recommendation": "fix"
+    }
+  ]
+}
+```
 <!-- LOCAL-QUALITY-SUPPLEMENT:START -->
 ## Usage Notes
 

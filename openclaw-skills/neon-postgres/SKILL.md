@@ -2,14 +2,14 @@
 name: neon-postgres
 description: 'Build or troubleshoot Neon Postgres connections, branching, pooling, scaling, Auth, and platform integrations using current Neon documentation.'
 zh_description: "用于 Neon Postgres 数据库连接、分支、迁移和运行维护。"
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:neondatabase/agent-skills"
 source_url: "https://skills.sh/neondatabase/agent-skills/neon-postgres"
 license: Apache-2.0
 tags: '["development", "neon", "postgres"]'
 created_at: "2026-06-03"
-updated_at: "2026-09-06"
+updated_at: "2026-09-28"
 quality: 5
 complexity: "intermediate"
 ---
@@ -125,7 +125,7 @@ Link: https://neon.com/docs/connect/choose-connection.md
 
 ### Recommended: Drizzle + the right driver for your runtime
 
-Always pair Neon with an ORM such as **Drizzle** for easy schema management and migrations. Pick the driver based on how the runtime treats your code:
+Preserve the project's existing ORM and driver; Drizzle is an option for new schema work, not a required migration. Pick the driver based on how the runtime treats your code:
 
 - **Long-running or shared-runtime environments → node-postgres (`pg`).** Neon Functions, and any host where the function runtime is shared across requests / runs on fluid compute (e.g. **Vercel** with Fluid compute), keep a module-scope process alive across many requests. Open a `pg` pool **once at module scope** and reuse it across requests.
 - **Fully isolated serverless (Lambda-style) → Neon's serverless driver (`@neondatabase/serverless`).** Hosts like **Netlify** spin up a fresh, isolated instance per request, so a persistent TCP pool can't be reused; the serverless driver queries over HTTP and is built for this.
@@ -416,3 +416,11 @@ using version-specific flags or installing a missing extension.
 For vector, BM25, and hybrid search, consult the upstream
 [search references](https://github.com/neondatabase/agent-skills/tree/main/skills/neon-postgres/references)
 and verify feature availability in the target project before proposing a migration.
+
+## Existing Project Boundary
+
+Use an already supplied `DATABASE_URL` or linked `.neon` project for the requested
+schema work; do not enumerate organizations or create another project by default.
+Preserve the existing ORM and driver. Suggest a new ORM only when no project
+choice exists and the task actually needs one. Read an existing environment file
+before editing it, and do not expose connection strings in logs or responses.

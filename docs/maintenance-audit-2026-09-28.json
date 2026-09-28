@@ -1,0 +1,1477 @@
+{
+  "audit_date": "2026-09-28",
+  "baseline_commit": "4d170b083cd41ad5d16fa088bcfe8f73da55df6f",
+  "baseline_release": "v3.0.0",
+  "canonical_skills": 286,
+  "categories": 16,
+  "baseline_validation": {
+    "tests_passed": 619,
+    "subtests_passed": 231
+  },
+  "upstream_summary": {
+    "total": 152,
+    "equal": 17,
+    "changed": 1,
+    "monitor_review": 90,
+    "unavailable": 19,
+    "rollback": 0,
+    "expected_skipped": 25
+  },
+  "upstream_state": "failed",
+  "evidence_runs": [
+    36375883150,
+    36376423050
+  ],
+  "selected_pinned_file_comparisons": 169,
+  "comparison_scope_note": "Selected changed text artifacts were fetched at immutable old/new commits. Directory-mapped children and unresolved sidecars were not all covered by the 169-file comparison; monitor checkpoints remain unchanged.",
+  "curated_changes": [
+    {
+      "name": "frontend-ui-engineering",
+      "target": "skills/ai-workflow/frontend-ui-engineering/SKILL.md",
+      "upstream_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+      "kind": "reviewed_delta"
+    },
+    {
+      "name": "graphify",
+      "target": "skills/developer-engineering/graphify/SKILL.md",
+      "upstream_commit": "4df8d4dcfadee5555203eaba585cc7dec1dee2fb",
+      "kind": "reviewed_delta"
+    },
+    {
+      "name": "lark-mail",
+      "target": "skills/knowledge-and-pm-integrations/lark-mail/references/lark-mail-triage.md",
+      "upstream_commit": "32e14dea9041e7876c8b41aead963b10866267d1",
+      "kind": "reviewed_delta"
+    },
+    {
+      "name": "lark-mail",
+      "target": "skills/knowledge-and-pm-integrations/lark-mail/references/lark-mail-watch.md",
+      "upstream_commit": "32e14dea9041e7876c8b41aead963b10866267d1",
+      "kind": "reviewed_delta"
+    },
+    {
+      "name": "lark-meeting",
+      "target": "skills/knowledge-and-pm-integrations/lark-meeting/scenes/live-meeting-attend.md",
+      "upstream_commit": "32e14dea9041e7876c8b41aead963b10866267d1",
+      "kind": "reviewed_delta"
+    },
+    {
+      "name": "lark-meeting",
+      "target": "skills/knowledge-and-pm-integrations/lark-meeting/scenes/live-meeting-interact.md",
+      "upstream_commit": "32e14dea9041e7876c8b41aead963b10866267d1",
+      "kind": "reviewed_delta"
+    },
+    {
+      "name": "requesting-code-review",
+      "target": "skills/ai-workflow/requesting-code-review/SKILL.md",
+      "upstream_commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+      "kind": "reviewed_delta"
+    },
+    {
+      "name": "systematic-debugging",
+      "target": "skills/developer-engineering/systematic-debugging/root-cause-tracing.md",
+      "upstream_commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+      "kind": "reviewed_delta"
+    },
+    {
+      "name": "code-review-and-quality",
+      "target": "skills/ai-workflow/code-review-and-quality/SKILL.md",
+      "upstream_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+      "kind": "curated_trigger"
+    },
+    {
+      "name": "neon-postgres",
+      "target": "skills/developer-engineering/neon-postgres/SKILL.md",
+      "upstream_commit": "80164a28443aca7c82ac1a70aed836950d6c29ea",
+      "kind": "curated_safety_guidance"
+    },
+    {
+      "name": "supabase",
+      "target": "skills/developer-engineering/supabase/SKILL.md",
+      "upstream_commit": "551274ed2fe97c8fea1325f7ceb05803a542f8df",
+      "kind": "curated_safety_guidance"
+    },
+    {
+      "name": "firebase-security-rules-auditor",
+      "target": "skills/security-and-reliability/firebase-security-rules-auditor/SKILL.md",
+      "upstream_commit": "cad501960f600a0f5ed9c5b80bdf349559d927b5",
+      "kind": "reviewed_delta_preserving_local_overlay"
+    },
+    {
+      "name": "lark-meeting",
+      "target": "skills/knowledge-and-pm-integrations/lark-meeting/references/lark-vc-meeting-events.md",
+      "upstream_commit": "32e14dea9041e7876c8b41aead963b10866267d1",
+      "kind": "reviewed_delta_preserving_local_overlay"
+    },
+    {
+      "name": "writing-skills",
+      "target": "skills/ai-workflow/writing-skills/SKILL.md",
+      "upstream_commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+      "kind": "curated_interpreter_invocation"
+    }
+  ],
+  "results": [
+    {
+      "name": "api-and-interface-design",
+      "repository": "addyosmani/agent-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "browser-testing-with-devtools",
+      "repository": "addyosmani/agent-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "ci-cd-and-automation",
+      "repository": "addyosmani/agent-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "code-review-and-quality",
+      "repository": "addyosmani/agent-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": true
+    },
+    {
+      "name": "code-simplification",
+      "repository": "addyosmani/agent-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "context-engineering",
+      "repository": "addyosmani/agent-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "debugging-and-error-recovery",
+      "repository": "addyosmani/agent-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "deprecation-and-migration",
+      "repository": "addyosmani/agent-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "documentation-and-adrs",
+      "repository": "addyosmani/agent-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "doubt-driven-development",
+      "repository": "addyosmani/agent-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "frontend-ui-engineering",
+      "repository": "addyosmani/agent-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": true
+    },
+    {
+      "name": "git-workflow-and-versioning",
+      "repository": "addyosmani/agent-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "idea-refine",
+      "repository": "addyosmani/agent-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "incremental-implementation",
+      "repository": "addyosmani/agent-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "interview-me",
+      "repository": "addyosmani/agent-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "observability-and-instrumentation",
+      "repository": "addyosmani/agent-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "performance-optimization",
+      "repository": "addyosmani/agent-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "planning-and-task-breakdown",
+      "repository": "addyosmani/agent-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "security-and-hardening",
+      "repository": "addyosmani/agent-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "shipping-and-launch",
+      "repository": "addyosmani/agent-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "source-driven-development",
+      "repository": "addyosmani/agent-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "spec-driven-development",
+      "repository": "addyosmani/agent-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "test-driven-development",
+      "repository": "addyosmani/agent-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "using-agent-skills",
+      "repository": "addyosmani/agent-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "agent-hub",
+      "repository": "alirezarezvani/claude-skills",
+      "status": "none",
+      "resolved_ref": "main",
+      "current_commit": "19392f7a08264ed00486a251f5b2098321771f94",
+      "decision": "上游检查点未发现可应用更新；保留本地策展覆盖。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "security-pen-testing",
+      "repository": "alirezarezvani/claude-skills",
+      "status": "none",
+      "resolved_ref": "main",
+      "current_commit": "19392f7a08264ed00486a251f5b2098321771f94",
+      "decision": "上游检查点未发现可应用更新；保留本地策展覆盖。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "information-security-manager-iso27001",
+      "repository": "alirezarezvani/claude-skills",
+      "status": "none",
+      "resolved_ref": "main",
+      "current_commit": "19392f7a08264ed00486a251f5b2098321771f94",
+      "decision": "上游检查点未发现可应用更新；保留本地策展覆盖。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "landing-page-generator",
+      "repository": "alirezarezvani/claude-skills",
+      "status": "none",
+      "resolved_ref": "main",
+      "current_commit": "19392f7a08264ed00486a251f5b2098321771f94",
+      "decision": "上游检查点未发现可应用更新；保留本地策展覆盖。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "saas-metrics-coach",
+      "repository": "alirezarezvani/claude-skills",
+      "status": "none",
+      "resolved_ref": "main",
+      "current_commit": "19392f7a08264ed00486a251f5b2098321771f94",
+      "decision": "上游检查点未发现可应用更新；保留本地策展覆盖。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "senior-architect",
+      "repository": "alirezarezvani/claude-skills",
+      "status": "none",
+      "resolved_ref": "main",
+      "current_commit": "19392f7a08264ed00486a251f5b2098321771f94",
+      "decision": "上游检查点未发现可应用更新；保留本地策展覆盖。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "skill-security-auditor",
+      "repository": "alirezarezvani/claude-skills",
+      "status": "none",
+      "resolved_ref": "main",
+      "current_commit": "19392f7a08264ed00486a251f5b2098321771f94",
+      "decision": "上游检查点未发现可应用更新；保留本地策展覆盖。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "security-audit",
+      "repository": "cloudflare/security-audit-skill",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "c1c8a8c1471069fb0e188eeaff69b8e8db6564a8",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "firebase-security-rules-auditor",
+      "repository": "firebase/agent-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "cad501960f600a0f5ed9c5b80bdf349559d927b5",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": true
+    },
+    {
+      "name": "graphify",
+      "repository": "Graphify-Labs/graphify",
+      "status": "monitor_review",
+      "resolved_ref": "v0.9.70",
+      "current_commit": "4df8d4dcfadee5555203eaba585cc7dec1dee2fb",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": true
+    },
+    {
+      "name": "i-have-adhd",
+      "repository": "ayghri/i-have-adhd",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "839872f9d1cd634fed642b4589ce7226199cc15f",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "prisma-client-api",
+      "repository": "prisma/skills",
+      "status": "none",
+      "resolved_ref": "main",
+      "current_commit": "1123817e60d15ca0f3af91878923241dee7e3b09",
+      "decision": "上游检查点未发现可应用更新；保留本地策展覆盖。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "prisma-upgrade-v7",
+      "repository": "prisma/skills",
+      "status": "none",
+      "resolved_ref": "main",
+      "current_commit": "1123817e60d15ca0f3af91878923241dee7e3b09",
+      "decision": "上游检查点未发现可应用更新；保留本地策展覆盖。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "lark-approval",
+      "repository": "larksuite/cli",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "32e14dea9041e7876c8b41aead963b10866267d1",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "lark-attendance",
+      "repository": "larksuite/cli",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "32e14dea9041e7876c8b41aead963b10866267d1",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "lark-base",
+      "repository": "larksuite/cli",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "32e14dea9041e7876c8b41aead963b10866267d1",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "lark-calendar",
+      "repository": "larksuite/cli",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "32e14dea9041e7876c8b41aead963b10866267d1",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "lark-contact",
+      "repository": "larksuite/cli",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "32e14dea9041e7876c8b41aead963b10866267d1",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "lark-doc",
+      "repository": "larksuite/cli",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "32e14dea9041e7876c8b41aead963b10866267d1",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "lark-drive",
+      "repository": "larksuite/cli",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "32e14dea9041e7876c8b41aead963b10866267d1",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "lark-event",
+      "repository": "larksuite/cli",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "32e14dea9041e7876c8b41aead963b10866267d1",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "lark-im",
+      "repository": "larksuite/cli",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "32e14dea9041e7876c8b41aead963b10866267d1",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "lark-mail",
+      "repository": "larksuite/cli",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "32e14dea9041e7876c8b41aead963b10866267d1",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": true
+    },
+    {
+      "name": "lark-markdown",
+      "repository": "larksuite/cli",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "32e14dea9041e7876c8b41aead963b10866267d1",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "lark-okr",
+      "repository": "larksuite/cli",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "32e14dea9041e7876c8b41aead963b10866267d1",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "lark-openapi-explorer",
+      "repository": "larksuite/cli",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "32e14dea9041e7876c8b41aead963b10866267d1",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "lark-shared",
+      "repository": "larksuite/cli",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "32e14dea9041e7876c8b41aead963b10866267d1",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "lark-sheets",
+      "repository": "larksuite/cli",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "32e14dea9041e7876c8b41aead963b10866267d1",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "lark-skill-maker",
+      "repository": "larksuite/cli",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "32e14dea9041e7876c8b41aead963b10866267d1",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "lark-slides",
+      "repository": "larksuite/cli",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "32e14dea9041e7876c8b41aead963b10866267d1",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "lark-task",
+      "repository": "larksuite/cli",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "32e14dea9041e7876c8b41aead963b10866267d1",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "lark-whiteboard",
+      "repository": "larksuite/cli",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "32e14dea9041e7876c8b41aead963b10866267d1",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "lark-wiki",
+      "repository": "larksuite/cli",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "32e14dea9041e7876c8b41aead963b10866267d1",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "lark-workflow-meeting-summary",
+      "repository": "larksuite/cli",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "32e14dea9041e7876c8b41aead963b10866267d1",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "lark-workflow-standup-report",
+      "repository": "larksuite/cli",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "32e14dea9041e7876c8b41aead963b10866267d1",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "lark-meeting",
+      "repository": "larksuite/cli",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "32e14dea9041e7876c8b41aead963b10866267d1",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": true
+    },
+    {
+      "name": "linkedin",
+      "repository": "Linked-API/linkedin-skills",
+      "status": "none",
+      "resolved_ref": "main",
+      "current_commit": "e5e642e2bbbd839501c59a7742cdc04a9d9c66a0",
+      "decision": "上游检查点未发现可应用更新；保留本地策展覆盖。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "linkedin-growth",
+      "repository": "Linked-API/linkedin-skills",
+      "status": "none",
+      "resolved_ref": "main",
+      "current_commit": "e5e642e2bbbd839501c59a7742cdc04a9d9c66a0",
+      "decision": "上游检查点未发现可应用更新；保留本地策展覆盖。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "llm-wiki",
+      "repository": "NousResearch/hermes-agent",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "9a0a1625367242596d338ae2da541c4a1fc785a2",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "hermes-agent",
+      "repository": "NousResearch/hermes-agent",
+      "status": "artifact_changed",
+      "resolved_ref": "v2026.9.24",
+      "current_commit": "f97608f178d1ffeca59860195ab7da295f7c8e5f",
+      "decision": "稳定版更新；通过原同步事务及组合技能正文摘要审阅后应用。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "honcho",
+      "repository": "NousResearch/hermes-agent",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "9a0a1625367242596d338ae2da541c4a1fc785a2",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "native-mcp",
+      "repository": "NousResearch/hermes-agent",
+      "status": "expected_skipped",
+      "reason": "licensed immutable snapshot; automatic upstream checking is disabled by provenance policy",
+      "decision": "依据 provenance 策略保留不可变授权快照，不作追新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "codebase-inspection",
+      "repository": "NousResearch/hermes-agent",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "9a0a1625367242596d338ae2da541c4a1fc785a2",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "arxiv",
+      "repository": "NousResearch/hermes-agent",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "9a0a1625367242596d338ae2da541c4a1fc785a2",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "obsidian",
+      "repository": "NousResearch/hermes-agent",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "9a0a1625367242596d338ae2da541c4a1fc785a2",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "mcporter",
+      "repository": "NousResearch/hermes-agent",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "9a0a1625367242596d338ae2da541c4a1fc785a2",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "linear",
+      "repository": "NousResearch/hermes-agent",
+      "status": "expected_skipped",
+      "reason": "licensed immutable snapshot; automatic upstream checking is disabled by provenance policy",
+      "decision": "依据 provenance 策略保留不可变授权快照，不作追新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "dispatching-parallel-agents",
+      "repository": "obra/superpowers",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "executing-plans",
+      "repository": "obra/superpowers",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "finishing-a-development-branch",
+      "repository": "obra/superpowers",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "receiving-code-review",
+      "repository": "obra/superpowers",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "requesting-code-review",
+      "repository": "obra/superpowers",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": true
+    },
+    {
+      "name": "subagent-driven-development",
+      "repository": "obra/superpowers",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "systematic-debugging",
+      "repository": "obra/superpowers",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": true
+    },
+    {
+      "name": "using-git-worktrees",
+      "repository": "obra/superpowers",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "using-superpowers",
+      "repository": "obra/superpowers",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "verification-before-completion",
+      "repository": "obra/superpowers",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "writing-skills",
+      "repository": "obra/superpowers",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": true
+    },
+    {
+      "name": "guizang-ppt-skill",
+      "repository": "op7418/guizang-ppt-skill",
+      "status": "expected_skipped",
+      "reason": "licensed immutable snapshot; automatic upstream checking is disabled by provenance policy",
+      "decision": "依据 provenance 策略保留不可变授权快照，不作追新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "aws-solution-architect",
+      "repository": "alirezarezvani/claude-skills",
+      "status": "none",
+      "resolved_ref": "main",
+      "current_commit": "19392f7a08264ed00486a251f5b2098321771f94",
+      "decision": "上游检查点未发现可应用更新；保留本地策展覆盖。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "azure-kubernetes",
+      "repository": "microsoft/azure-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "117b038edfef5d7af09848b8ffcd355f28f19956",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "cc-devops-skills",
+      "repository": "akin-ozer/cc-devops-skills",
+      "status": "none",
+      "resolved_ref": "main",
+      "current_commit": "276af751e659315aaf56d3ad13d7c26f4e72e28a",
+      "decision": "上游检查点未发现可应用更新；保留本地策展覆盖。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "docker-expert",
+      "repository": "sickn33/agentic-awesome-skills",
+      "status": "expected_skipped",
+      "reason": "licensed immutable snapshot; automatic upstream checking is disabled by provenance policy",
+      "decision": "依据 provenance 策略保留不可变授权快照，不作追新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "gha-security-review",
+      "repository": "getsentry/skills",
+      "status": "none",
+      "resolved_ref": "main",
+      "current_commit": "c2f99a5b04b4cd992ec3022d7c2c3e23e938d241",
+      "decision": "上游检查点未发现可应用更新；保留本地策展覆盖。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "kubernetes-specialist",
+      "repository": "Jeffallan/claude-skills",
+      "status": "none",
+      "resolved_ref": "main",
+      "current_commit": "882ef55e377dbf9a4dbe496bb41ac6ccd0e555cf",
+      "decision": "上游检查点未发现可应用更新；保留本地策展覆盖。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "neon-postgres",
+      "repository": "neondatabase/agent-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "80164a28443aca7c82ac1a70aed836950d6c29ea",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": true
+    },
+    {
+      "name": "neon-postgres-egress-optimizer",
+      "repository": "neondatabase/agent-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "80164a28443aca7c82ac1a70aed836950d6c29ea",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "nextjs-app-router",
+      "repository": "wshobson/agents",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "9b15b34b0bfc13a815cbfc2366e14ea549e09422",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "python-performance",
+      "repository": "wshobson/agents",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "9b15b34b0bfc13a815cbfc2366e14ea549e09422",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "rust-engineer",
+      "repository": "404kidwiz/claude-supercode-skills",
+      "status": "expected_skipped",
+      "reason": "licensed immutable snapshot; automatic upstream checking is disabled by provenance policy",
+      "decision": "依据 provenance 策略保留不可变授权快照，不作追新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "security-review",
+      "repository": "getsentry/skills",
+      "status": "none",
+      "resolved_ref": "main",
+      "current_commit": "c2f99a5b04b4cd992ec3022d7c2c3e23e938d241",
+      "decision": "上游检查点未发现可应用更新；保留本地策展覆盖。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "supabase",
+      "repository": "supabase/agent-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "551274ed2fe97c8fea1325f7ceb05803a542f8df",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": true
+    },
+    {
+      "name": "supabase-postgres-best-practices",
+      "repository": "supabase/agent-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "551274ed2fe97c8fea1325f7ceb05803a542f8df",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "tailwind-design-system",
+      "repository": "wshobson/agents",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "9b15b34b0bfc13a815cbfc2366e14ea549e09422",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "terraform-engineer",
+      "repository": "Jeffallan/claude-skills",
+      "status": "none",
+      "resolved_ref": "main",
+      "current_commit": "882ef55e377dbf9a4dbe496bb41ac6ccd0e555cf",
+      "decision": "上游检查点未发现可应用更新；保留本地策展覆盖。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "vercel-react-best-practices",
+      "repository": "vercel-labs/agent-skills",
+      "status": "expected_skipped",
+      "reason": "licensed immutable snapshot; automatic upstream checking is disabled by provenance policy",
+      "decision": "依据 provenance 策略保留不可变授权快照，不作追新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "vercel-react-view-transitions",
+      "repository": "vercel-labs/agent-skills",
+      "status": "expected_skipped",
+      "reason": "licensed immutable snapshot; automatic upstream checking is disabled by provenance policy",
+      "decision": "依据 provenance 策略保留不可变授权快照，不作追新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "x-twitter-scraper",
+      "repository": "Xquik-dev/x-twitter-scraper",
+      "status": "monitor_review",
+      "resolved_ref": "master",
+      "current_commit": "b417801c7565d062d75cae70d66bb09362a1a43f",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "builder",
+      "repository": "simota/agent-skills",
+      "status": "unavailable",
+      "resolved_ref": "main",
+      "current_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "reason": "declared upstream artifact source is missing: builder/reference/cli-tui/cross-platform.md, builder/reference/core-contract-rationale.md",
+      "decision": "上游声明的资源不可用；保留已有授权本地副本，不自动删除或冒充已更新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "gateway",
+      "repository": "simota/agent-skills",
+      "status": "unavailable",
+      "resolved_ref": "main",
+      "current_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "reason": "declared upstream artifact source is missing: gateway/reference/api-design-anti-patterns.md, gateway/reference/graphql-spec-anti-patterns.md, gateway/reference/versioning-governance-anti-patterns.md",
+      "decision": "上游声明的资源不可用；保留已有授权本地副本，不自动删除或冒充已更新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "schema",
+      "repository": "simota/agent-skills",
+      "status": "unavailable",
+      "resolved_ref": "main",
+      "current_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "reason": "declared upstream artifact source is missing: schema/reference/autorun-schema.md, schema/reference/index-performance-anti-patterns.md, schema/reference/migration-deployment-anti-patterns.md, schema/reference/tenant-architecture-examples.md, schema/reference/tenant-architecture-patterns.md",
+      "decision": "上游声明的资源不可用；保留已有授权本地副本，不自动删除或冒充已更新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "nexus",
+      "repository": "simota/agent-skills",
+      "status": "unavailable",
+      "resolved_ref": "main",
+      "current_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "reason": "declared upstream artifact source is missing: nexus/reference/delivery-founder-lifecycle-mapping.md, nexus/reference/delivery-integration.md",
+      "decision": "上游声明的资源不可用；保留已有授权本地副本，不自动删除或冒充已更新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "sherpa",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "rally",
+      "repository": "simota/agent-skills",
+      "status": "unavailable",
+      "resolved_ref": "main",
+      "current_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "reason": "declared upstream artifact source is missing: rally/reference/autorun-schema.md, rally/reference/framework-landscape.md",
+      "decision": "上游声明的资源不可用；保留已有授权本地副本，不自动删除或冒充已更新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "oracle",
+      "repository": "simota/agent-skills",
+      "status": "unavailable",
+      "resolved_ref": "main",
+      "current_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "reason": "declared upstream artifact source is missing: oracle/reference/autorun-schema.md",
+      "decision": "上游声明的资源不可用；保留已有授权本地副本，不自动删除或冒充已更新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "arena",
+      "repository": "simota/agent-skills",
+      "status": "expected_skipped",
+      "reason": "licensed immutable snapshot; automatic upstream checking is disabled by provenance policy",
+      "decision": "依据 provenance 策略保留不可变授权快照，不作追新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "sigil",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "guardian",
+      "repository": "simota/agent-skills",
+      "status": "unavailable",
+      "resolved_ref": "main",
+      "current_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "reason": "declared upstream artifact source is missing: guardian/reference/autorun-schema.md, guardian/reference/commit-conventions.md, guardian/reference/git-automation.md",
+      "decision": "上游声明的资源不可用；保留已有授权本地副本，不自动删除或冒充已更新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "harvest",
+      "repository": "simota/agent-skills",
+      "status": "expected_skipped",
+      "reason": "licensed immutable snapshot; automatic upstream checking is disabled by provenance policy",
+      "decision": "依据 provenance 策略保留不可变授权快照，不作追新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "latch",
+      "repository": "simota/agent-skills",
+      "status": "expected_skipped",
+      "reason": "licensed immutable snapshot; automatic upstream checking is disabled by provenance policy",
+      "decision": "依据 provenance 策略保留不可变授权快照，不作追新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "beacon",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "triage",
+      "repository": "simota/agent-skills",
+      "status": "unavailable",
+      "resolved_ref": "main",
+      "current_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "reason": "declared upstream artifact source is missing: triage/reference/autorun-schema.md",
+      "decision": "上游声明的资源不可用；保留已有授权本地副本，不自动删除或冒充已更新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "gear",
+      "repository": "simota/agent-skills",
+      "status": "unavailable",
+      "resolved_ref": "main",
+      "current_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "reason": "declared upstream artifact source is missing: gear/reference/gha-automation-recipes.md, gear/reference/gha-performance-and-caching.md, gear/reference/gha-performance-cost-anti-patterns.md, gear/reference/gha-reusable-maintenance-anti-patterns.md, gear/reference/gha-security-anti-patterns.md, gear/reference/gha-workflow-design-anti-patterns.md",
+      "decision": "上游声明的资源不可用；保留已有授权本地副本，不自动删除或冒充已更新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "ledger",
+      "repository": "simota/agent-skills",
+      "status": "unavailable",
+      "resolved_ref": "main",
+      "current_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "reason": "declared upstream artifact source is missing: ledger/reference/cloud-pricing-models.md",
+      "decision": "上游声明的资源不可用；保留已有授权本地副本，不自动删除或冒充已更新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "helm",
+      "repository": "simota/agent-skills",
+      "status": "expected_skipped",
+      "reason": "licensed immutable snapshot; automatic upstream checking is disabled by provenance policy",
+      "decision": "依据 provenance 策略保留不可变授权快照，不作追新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "levy",
+      "repository": "simota/agent-skills",
+      "status": "expected_skipped",
+      "reason": "licensed immutable snapshot; automatic upstream checking is disabled by provenance policy",
+      "decision": "依据 provenance 策略保留不可变授权快照，不作追新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "growth",
+      "repository": "simota/agent-skills",
+      "status": "unavailable",
+      "resolved_ref": "main",
+      "current_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "reason": "declared upstream artifact source is missing: growth/reference/core-web-vitals.md, growth/reference/ogp-social-templates.md",
+      "decision": "上游声明的资源不可用；保留已有授权本地副本，不自动删除或冒充已更新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "compete",
+      "repository": "simota/agent-skills",
+      "status": "unavailable",
+      "resolved_ref": "main",
+      "current_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "reason": "declared upstream artifact source is missing: compete/reference/brand-equity.md, compete/reference/ci-anti-patterns-biases.md",
+      "decision": "上游声明的资源不可用；保留已有授权本地副本，不自动删除或冒充已更新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "pulse",
+      "repository": "simota/agent-skills",
+      "status": "unavailable",
+      "resolved_ref": "main",
+      "current_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "reason": "declared upstream artifact source is missing: pulse/reference/code-standards.md",
+      "decision": "上游声明的资源不可用；保留已有授权本地副本，不自动删除或冒充已更新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "morph",
+      "repository": "simota/agent-skills",
+      "status": "expected_skipped",
+      "reason": "licensed immutable snapshot; automatic upstream checking is disabled by provenance policy",
+      "decision": "依据 provenance 策略保留不可变授权快照，不作追新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "stage",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "prism",
+      "repository": "simota/agent-skills",
+      "status": "expected_skipped",
+      "reason": "licensed immutable snapshot; automatic upstream checking is disabled by provenance policy",
+      "decision": "依据 provenance 策略保留不可变授权快照，不作追新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "lore",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "tome",
+      "repository": "simota/agent-skills",
+      "status": "unavailable",
+      "resolved_ref": "main",
+      "current_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "reason": "declared upstream artifact source is missing: tome/reference/article-hook-design.md",
+      "decision": "上游声明的资源不可用；保留已有授权本地副本，不自动删除或冒充已更新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "grove",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "crest",
+      "repository": "simota/agent-skills",
+      "status": "expected_skipped",
+      "reason": "licensed immutable snapshot; automatic upstream checking is disabled by provenance policy",
+      "decision": "依据 provenance 策略保留不可变授权快照，不作追新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "hearth",
+      "repository": "simota/agent-skills",
+      "status": "expected_skipped",
+      "reason": "licensed immutable snapshot; automatic upstream checking is disabled by provenance policy",
+      "decision": "依据 provenance 策略保留不可变授权快照，不作追新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "dawn",
+      "repository": "simota/agent-skills",
+      "status": "expected_skipped",
+      "reason": "licensed immutable snapshot; automatic upstream checking is disabled by provenance policy",
+      "decision": "依据 provenance 策略保留不可变授权快照，不作追新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "voice",
+      "repository": "simota/agent-skills",
+      "status": "unavailable",
+      "resolved_ref": "main",
+      "current_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "reason": "declared upstream artifact source is missing: voice/reference/csat-ces-surveys.md",
+      "decision": "上游声明的资源不可用；保留已有授权本地副本，不自动删除或冒充已更新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "trace",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "researcher",
+      "repository": "simota/agent-skills",
+      "status": "expected_skipped",
+      "reason": "licensed immutable snapshot; automatic upstream checking is disabled by provenance policy",
+      "decision": "依据 provenance 策略保留不可变授权快照，不作追新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "breach",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "cloak",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "comply",
+      "repository": "simota/agent-skills",
+      "status": "expected_skipped",
+      "reason": "licensed immutable snapshot; automatic upstream checking is disabled by provenance policy",
+      "decision": "依据 provenance 策略保留不可变授权快照，不作追新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "sketch",
+      "repository": "simota/agent-skills",
+      "status": "expected_skipped",
+      "reason": "licensed immutable snapshot; automatic upstream checking is disabled by provenance policy",
+      "decision": "依据 provenance 策略保留不可变授权快照，不作追新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "clay",
+      "repository": "simota/agent-skills",
+      "status": "expected_skipped",
+      "reason": "licensed immutable snapshot; automatic upstream checking is disabled by provenance policy",
+      "decision": "依据 provenance 策略保留不可变授权快照，不作追新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "tone",
+      "repository": "simota/agent-skills",
+      "status": "expected_skipped",
+      "reason": "licensed immutable snapshot; automatic upstream checking is disabled by provenance policy",
+      "decision": "依据 provenance 策略保留不可变授权快照，不作追新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "scaffold",
+      "repository": "simota/agent-skills",
+      "status": "unavailable",
+      "resolved_ref": "main",
+      "current_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "reason": "declared upstream artifact source is missing: scaffold/reference/autorun-schema.md, scaffold/reference/cloud-infrastructure-anti-patterns.md, scaffold/reference/cost-finops-anti-patterns.md",
+      "decision": "上游声明的资源不可用；保留已有授权本地副本，不自动删除或冒充已更新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "pipe",
+      "repository": "simota/agent-skills",
+      "status": "expected_skipped",
+      "reason": "licensed immutable snapshot; automatic upstream checking is disabled by provenance policy",
+      "decision": "依据 provenance 策略保留不可变授权快照，不作追新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "shard",
+      "repository": "simota/agent-skills",
+      "status": "expected_skipped",
+      "reason": "licensed immutable snapshot; automatic upstream checking is disabled by provenance policy",
+      "decision": "依据 provenance 策略保留不可变授权快照，不作追新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "cast",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "omen",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "warden",
+      "repository": "simota/agent-skills",
+      "status": "expected_skipped",
+      "reason": "licensed immutable snapshot; automatic upstream checking is disabled by provenance policy",
+      "decision": "依据 provenance 策略保留不可变授权快照，不作追新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "lens",
+      "repository": "simota/agent-skills",
+      "status": "unavailable",
+      "resolved_ref": "main",
+      "current_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "reason": "declared upstream artifact source is missing: lens/reference/comprehension-research.md",
+      "decision": "上游声明的资源不可用；保留已有授权本地副本，不自动删除或冒充已更新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "scout",
+      "repository": "simota/agent-skills",
+      "status": "unavailable",
+      "resolved_ref": "main",
+      "current_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "reason": "declared upstream artifact source is missing: scout/reference/bug-patterns.md, scout/reference/core-contract-rationale.md, scout/reference/debugging-anti-patterns.md, scout/reference/frontend-debugging.md",
+      "decision": "上游声明的资源不可用；保留已有授权本地副本，不自动删除或冒充已更新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "ripple",
+      "repository": "simota/agent-skills",
+      "status": "unavailable",
+      "resolved_ref": "main",
+      "current_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "reason": "declared upstream artifact source is missing: ripple/reference/autorun-schema.md",
+      "decision": "上游声明的资源不可用；保留已有授权本地副本，不自动删除或冒充已更新。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "billing-automation",
+      "repository": "wshobson/agents",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "9b15b34b0bfc13a815cbfc2366e14ea549e09422",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    },
+    {
+      "name": "nlpm-audit",
+      "repository": "xiaolai/nlpm",
+      "status": "monitor_review",
+      "resolved_ref": "main",
+      "current_commit": "2883dc9339db0abd3900de546b7bacd167578650",
+      "decision": "保留 monitor-only 检查点；仅吸收报告明确列出的策展差异，未对全部引用或模型行为作兼容承诺。",
+      "curated_in_this_release": false
+    }
+  ]
+}

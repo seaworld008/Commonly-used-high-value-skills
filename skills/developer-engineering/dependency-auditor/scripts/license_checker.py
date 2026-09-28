@@ -545,15 +545,13 @@ class LicenseChecker:
             'lgpl-3.0': 'LGPL-3.0',
             'mpl-2.0': 'MPL-2.0',
             'isc': 'ISC',
-            'unlicense': 'MIT',  # Treat as permissive
-            'public domain': 'MIT',  # Treat as permissive
             'proprietary': 'PROPRIETARY',
             'commercial': 'PROPRIETARY'
         }
         
         license_lower = license_string.lower()
         for pattern, mapped_license in license_mappings.items():
-            if pattern in license_lower:
+            if pattern == license_lower:
                 return self.license_database.get(mapped_license)
         
         return None

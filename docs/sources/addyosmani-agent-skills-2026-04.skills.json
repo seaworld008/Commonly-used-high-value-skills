@@ -486,7 +486,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/code-review-and-quality/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/code-review-and-quality/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-28: curated reviewed deltas from 2686b620fc1fed2e8f60c704839c766b8594c6b6; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/code-review-and-quality/SKILL.md",
@@ -516,7 +516,7 @@
             "ref": "main",
             "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
             "path_commit": "91d4d07522de9577caf5d213e5bf1acc38fa3df2",
-            "content_sha256": "75e9a227b45afa9d05f28c868a18b4be3a88d81251cb32d064830d01303f4163",
+            "content_sha256": "29a708d4b2a8bd0735765f486392c96d56661a003e1c172acd824d8348183e8f",
             "last_checked_at": "2026-09-14",
             "last_synced_at": "2026-09-14",
             "license_checkpoint": {
@@ -585,7 +585,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/code-review-and-quality/SKILL.md",
-          "sha256": "75e9a227b45afa9d05f28c868a18b4be3a88d81251cb32d064830d01303f4163",
+          "sha256": "29a708d4b2a8bd0735765f486392c96d56661a003e1c172acd824d8348183e8f",
           "owner": "code-review-and-quality",
           "mode": "100644"
         },
@@ -1564,7 +1564,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/frontend-ui-engineering/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/frontend-ui-engineering/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-28: curated reviewed deltas from 2686b620fc1fed2e8f60c704839c766b8594c6b6; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/frontend-ui-engineering/SKILL.md",
@@ -1594,7 +1594,7 @@
             "ref": "main",
             "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
             "path_commit": "91d4d07522de9577caf5d213e5bf1acc38fa3df2",
-            "content_sha256": "cbb98b612e203f183cfaed31a9eec5c368ba49f8ee3cfa3fe3a8c27acbe7d706",
+            "content_sha256": "7f222032a0cc38f801d8011348f1c887a584d346833ea85f4c11cebd6dba80b1",
             "last_checked_at": "2026-09-14",
             "last_synced_at": "2026-09-14",
             "license_checkpoint": {
@@ -1663,7 +1663,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/frontend-ui-engineering/SKILL.md",
-          "sha256": "cbb98b612e203f183cfaed31a9eec5c368ba49f8ee3cfa3fe3a8c27acbe7d706",
+          "sha256": "7f222032a0cc38f801d8011348f1c887a584d346833ea85f4c11cebd6dba80b1",
           "owner": "frontend-ui-engineering",
           "mode": "100644"
         },

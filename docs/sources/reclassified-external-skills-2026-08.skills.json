@@ -1302,7 +1302,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/neon-postgres/SKILL.md",
       "source": "https://skills.sh/neondatabase/agent-skills/neon-postgres",
-      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-28: curated reviewed deltas from 80164a28443aca7c82ac1a70aed836950d6c29ea; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences.",
       "upstream": {
         "repo": "neondatabase/agent-skills",
         "path": "skills/neon-postgres/SKILL.md",
@@ -1332,7 +1332,7 @@
             "ref": "main",
             "resolved_commit": "2e0da3a1653bcdd227565ac14bb3e9e453a8b854",
             "path_commit": "ca7821ea5f7825ecde98d68b03a7aeb0de9431dc",
-            "content_sha256": "ea9fa0d833bbf2d3c48ad132cb674e61d0683ad65e3ed52f358d384efd451b0c",
+            "content_sha256": "9e0ae9614cab50725f9dd839e238b521e1476e27444b065e89feae518d8b1003",
             "last_checked_at": "2026-09-06",
             "last_synced_at": "2026-09-06",
             "license_checkpoint": {
@@ -1350,7 +1350,7 @@
         {
           "path": "skills/developer-engineering/neon-postgres/SKILL.md",
           "owner": "neon-postgres",
-          "sha256": "ea9fa0d833bbf2d3c48ad132cb674e61d0683ad65e3ed52f358d384efd451b0c",
+          "sha256": "9e0ae9614cab50725f9dd839e238b521e1476e27444b065e89feae518d8b1003",
           "mode": "100644"
         }
       ]
@@ -1682,7 +1682,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/supabase/SKILL.md",
       "source": "https://skills.sh/supabase/agent-skills/supabase",
-      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-28: curated reviewed deltas from 551274ed2fe97c8fea1325f7ceb05803a542f8df; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences.",
       "upstream": {
         "repo": "supabase/agent-skills",
         "path": "skills/supabase/SKILL.md",
@@ -1728,7 +1728,7 @@
             "ref": "main",
             "resolved_commit": "8331f910845103c08d51f6ca1d86ebb7d1f745e3",
             "path_commit": "3a4f0ce0782e0cbdcf187c362e8d15d9e324462b",
-            "content_sha256": "a5ae4435980821666128af5d206dbfac427fc956fad340e4fb384d012bcf29e3",
+            "content_sha256": "23b04d149a78a70c90b1aa9b46b3ed8a58be6ff838549a06d9f8cf4b342e8b18",
             "last_checked_at": "2026-08-31",
             "last_synced_at": "2026-08-31",
             "license_checkpoint": {
@@ -1773,7 +1773,7 @@
         },
         {
           "path": "skills/developer-engineering/supabase/SKILL.md",
-          "sha256": "a5ae4435980821666128af5d206dbfac427fc956fad340e4fb384d012bcf29e3",
+          "sha256": "23b04d149a78a70c90b1aa9b46b3ed8a58be6ff838549a06d9f8cf4b342e8b18",
           "owner": "supabase",
           "mode": "100644"
         },

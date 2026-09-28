@@ -6986,7 +6986,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "bcf3d1b9d649be2d4c6b78d158d30ff902266c940dfa716704dd5734c35dc2bb",
+            "content_sha256": "3ed859e2ca9d31054299b66e596f701f5a181c23aa419d2c0a51d78097cce413",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -7002,7 +7002,7 @@
         {
           "path": "skills/developer-engineering/dependency-auditor/SKILL.md",
           "owner": "dependency-auditor",
-          "sha256": "bcf3d1b9d649be2d4c6b78d158d30ff902266c940dfa716704dd5734c35dc2bb",
+          "sha256": "3ed859e2ca9d31054299b66e596f701f5a181c23aa419d2c0a51d78097cce413",
           "mode": "100644"
         },
         {
@@ -7056,19 +7056,19 @@
         {
           "path": "skills/developer-engineering/dependency-auditor/scripts/dep_scanner.py",
           "owner": "dependency-auditor",
-          "sha256": "d45544d84c3e621af56b9b62c42b7022944399a4a2fe7891e5dea02125c97e32",
+          "sha256": "ee13801f6233e6a1cb982f359efa418811b01f56fcb52ad88456a782c6d1267a",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/dependency-auditor/scripts/license_checker.py",
           "owner": "dependency-auditor",
-          "sha256": "7fa7b6d19cc8de7d38850c24d1c8970fafac9df6bd4f44f883056745bd410dc8",
+          "sha256": "009ad529ed9bfa0bea3ae8739a9ceb1a28c786638eec92e37df25dd055399000",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/dependency-auditor/scripts/upgrade_planner.py",
           "owner": "dependency-auditor",
-          "sha256": "fcaf65475a3376c53c345ad27137a06a99c67184a7b328129021d69f48cc870b",
+          "sha256": "bad2fe59d16944f5e7444306ab794ae71a407f479ab851276226db719f813199",
           "mode": "100644"
         },
         {
@@ -7142,6 +7142,11 @@
               "type": "file"
             },
             {
+              "source": "skills/ai-agent-platform/develop-web-game/package.json",
+              "target": "skills/ai-agent-platform/develop-web-game/package.json",
+              "type": "file"
+            },
+            {
               "source": "skills/ai-agent-platform/develop-web-game/references/action_payloads.json",
               "target": "skills/ai-agent-platform/develop-web-game/references/action_payloads.json",
               "type": "file"
@@ -7157,7 +7162,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "4bdf0629d8b4da8815e6676493820104b02abd1ef3386d91d4748878b6048a04",
+            "content_sha256": "4c0590c080ebc27e077b248d8ef2582004d46aef1063eefda0a022b30e5e1510",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -7173,7 +7178,7 @@
         {
           "path": "skills/ai-agent-platform/develop-web-game/SKILL.md",
           "owner": "develop-web-game",
-          "sha256": "4bdf0629d8b4da8815e6676493820104b02abd1ef3386d91d4748878b6048a04",
+          "sha256": "4c0590c080ebc27e077b248d8ef2582004d46aef1063eefda0a022b30e5e1510",
           "mode": "100644"
         },
         {
@@ -7204,6 +7209,12 @@
           "path": "skills/ai-agent-platform/develop-web-game/scripts/web_game_playwright_client.js",
           "owner": "develop-web-game",
           "sha256": "e95c3bcbdc0d15eb08fd3a6021283ec32f715b51f1e5847d3db20df526be5996",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/develop-web-game/package.json",
+          "owner": "develop-web-game",
+          "sha256": "609158e6c5fbc237939fa3ddf7faab80ab690bdc0c8d584414a885130103c4e8",
           "mode": "100644"
         }
       ]
@@ -9792,7 +9803,7 @@
       "status": "in_house",
       "repo_skill": "skills/ai-agent-platform/hermes-open-gsd-workflow/SKILL.md",
       "source": "https://github.com/seaworld008/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
+      "notes": "In-house canonical skill (local repository source of truth). 2026-09-28: reviewed unchanged composite body 6e1bbecf1c863b1b9895ac94eb66e57750877363b483805cbba4cb39b880c52d against the curated Graphify path-quoting delta; routing/state ownership and installer boundaries remain unchanged.",
       "upstream": {
         "repo": "local-repo/in-house",
         "path": "skills/ai-agent-platform/hermes-open-gsd-workflow",
@@ -9856,8 +9867,8 @@
           }
         ],
         "dependency_lock": {
-          "hermes-agent": "09da7d21e3f3eedd29637b8cebd907377c2f99425b8236c956846545ab15f4d8",
-          "graphify": "7bc85fef495f99d8f004a4a666072a796185ae2cd81f5a1fa844fe4a94f5efb9",
+          "hermes-agent": "6cd26b16955b78c45fd642960ab9c27e37afdb3ddd5c6fd09e6fb01d2d21a1f1",
+          "graphify": "fd72c04ab619439d9bceb1ecd8253ca62ec2345135c219ccbf215c06922393dc",
           "open-gsd/gsd-core": "b7ed2186d397b270a52db5e9816a9fd88a240466b356b1f4a28823f93cb8fd9d",
           "open-gsd/gsd-pi": "16165f4b80211b9e3aa3801e68e04de2f5599ab9a0c247307b1712aa5a9b5df5"
         }

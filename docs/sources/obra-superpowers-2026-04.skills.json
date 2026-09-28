@@ -282,7 +282,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/requesting-code-review/SKILL.md",
       "source": "https://skills.sh/obra/superpowers/requesting-code-review",
-      "notes": "Imported to strengthen the repository's review-request workflow coverage before merge or milestone handoff.",
+      "notes": "Imported to strengthen the repository's review-request workflow coverage before merge or milestone handoff. 2026-09-28: curated reviewed deltas from 8ca22dba9a94f28898bbce59f2537ff4d87c747d; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences.",
       "upstream": {
         "repo": "obra/superpowers",
         "path": "skills/requesting-code-review/SKILL.md",
@@ -312,7 +312,7 @@
             "ref": "main",
             "resolved_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
             "path_commit": "cfb6281371ef2d2b7937b22eb475a11a9644ff87",
-            "content_sha256": "af7127c0378b04a913864597032121a1d1bdc9780b90a7ba97e176cf6a01e1ee",
+            "content_sha256": "b8af72d66ea79d5a42e2cb173dd54704e93ef6eda7be4ec84e6dfe658f575b56",
             "last_checked_at": "2026-08-31",
             "last_synced_at": "2026-08-31",
             "license_checkpoint": {
@@ -351,7 +351,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/requesting-code-review/SKILL.md",
-          "sha256": "af7127c0378b04a913864597032121a1d1bdc9780b90a7ba97e176cf6a01e1ee",
+          "sha256": "b8af72d66ea79d5a42e2cb173dd54704e93ef6eda7be4ec84e6dfe658f575b56",
           "owner": "requesting-code-review",
           "mode": "100644"
         },
@@ -512,7 +512,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/systematic-debugging/SKILL.md",
       "source": "https://skills.sh/obra/superpowers/systematic-debugging",
-      "notes": "Reconciled from SKILL.md source declaration; upstream tracking enabled.",
+      "notes": "Reconciled from SKILL.md source declaration; upstream tracking enabled. 2026-09-28: curated reviewed deltas from 8ca22dba9a94f28898bbce59f2537ff4d87c747d; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences.",
       "upstream": {
         "repo": "obra/superpowers",
         "path": "skills/systematic-debugging/SKILL.md",
@@ -592,7 +592,7 @@
             "ref": "main",
             "resolved_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
             "path_commit": "c74782ead66b8ded584d9b9cf64dcba95457f320",
-            "content_sha256": "6166e02afc73d2f82158038505b9f2770ddb9d3a1233932969aa8edf4bc8ad77",
+            "content_sha256": "f472663296e2d8cab8be0a8535ce09c71b54cecc5cf22e9a7334f1e0a05108f6",
             "last_checked_at": "2026-08-31",
             "last_synced_at": "2026-08-31",
             "license_checkpoint": {
@@ -615,7 +615,7 @@
         },
         {
           "path": "skills/developer-engineering/systematic-debugging/SKILL.md",
-          "sha256": "6166e02afc73d2f82158038505b9f2770ddb9d3a1233932969aa8edf4bc8ad77",
+          "sha256": "f472663296e2d8cab8be0a8535ce09c71b54cecc5cf22e9a7334f1e0a05108f6",
           "owner": "systematic-debugging",
           "mode": "100644"
         },
@@ -645,7 +645,7 @@
         },
         {
           "path": "skills/developer-engineering/systematic-debugging/root-cause-tracing.md",
-          "sha256": "6b0622269e098ca1399e123e553fd385f0b6412d88ef0e9c4f5a8ea9cf1cec7b",
+          "sha256": "75b933b6a8c40bdb2031b10f21654395b56ec6ab6bc7b018c18d3fe57aeb7fb8",
           "owner": "systematic-debugging",
           "mode": "100644"
         },
@@ -894,7 +894,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/writing-skills/SKILL.md",
       "source": "https://github.com/obra/superpowers/blob/main/skills/writing-skills/SKILL.md",
-      "notes": "Imported to strengthen authoring, packaging, and validation guidance for new skills in this repository.",
+      "notes": "Imported to strengthen authoring, packaging, and validation guidance for new skills in this repository. Local module-scope overlay added 2026-09-28; upstream JavaScript is unchanged. 2026-09-28: curated reviewed deltas from 8ca22dba9a94f28898bbce59f2537ff4d87c747d; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md.",
       "upstream": {
         "repo": "obra/superpowers",
         "path": "skills/writing-skills/SKILL.md",
@@ -944,7 +944,7 @@
             "ref": "main",
             "resolved_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
             "path_commit": "d238a48f5d6b8f51f822fea17d646cfe177747ee",
-            "content_sha256": "930b45763fbded5926bcd13cb2e37368589383f3dcc9bb9fc6e6003a8826c677",
+            "content_sha256": "0bed65581b450b34591a64b13592628663d43bb31a91a60a8c21d3dc55e6f4ae",
             "last_checked_at": "2026-08-31",
             "last_synced_at": "2026-08-31",
             "license_checkpoint": {
@@ -977,6 +977,11 @@
               "source": "skills/ai-workflow/writing-skills/EXTENDED.md",
               "target": "skills/ai-workflow/writing-skills/EXTENDED.md",
               "type": "file"
+            },
+            {
+              "source": "skills/ai-workflow/writing-skills/package.json",
+              "target": "skills/ai-workflow/writing-skills/package.json",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -993,7 +998,7 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/writing-skills/SKILL.md",
-          "sha256": "930b45763fbded5926bcd13cb2e37368589383f3dcc9bb9fc6e6003a8826c677",
+          "sha256": "0bed65581b450b34591a64b13592628663d43bb31a91a60a8c21d3dc55e6f4ae",
           "owner": "writing-skills",
           "mode": "100644"
         },
@@ -1037,6 +1042,12 @@
           "path": "skills/ai-workflow/writing-skills/EXTENDED.md",
           "owner": "writing-skills",
           "sha256": "0abb0d00dd1db0dc1a00bde550e5127d9f27cc9e5993778f8ddf751a6c4ce167",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/writing-skills/package.json",
+          "sha256": "609158e6c5fbc237939fa3ddf7faab80ab690bdc0c8d584414a885130103c4e8",
+          "owner": "writing-skills",
           "mode": "100644"
         }
       ]

@@ -1,6 +1,6 @@
 # Tags Index
 
-> Auto-generated from 1105 skill-tag mappings across 492 tags.
+> Auto-generated from 1106 skill-tag mappings across 492 tags.
 > Last updated: see git log.
 
 ## Quick Navigation
@@ -13,7 +13,7 @@
 - [`lark`](#lark) (23)
 - [`feishu`](#feishu) (22)
 - [`lark-cli`](#lark-cli) (22)
-- [`security`](#security) (21)
+- [`security`](#security) (22)
 - [`design`](#design) (16)
 - [`finance`](#finance) (16)
 - [`automation`](#automation) (15)
@@ -510,7 +510,7 @@
 | [api-and-interface-design](skills/ai-workflow/api-and-interface-design) | ai-workflow | ★★★★★ | Design REST/GraphQL APIs, module interfaces, and type contracts when creating en |
 | [browser-testing-with-devtools](skills/ai-workflow/browser-testing-with-devtools) | ai-workflow | ★★★★★ | Inspect browser DOM, network, console, screenshots, and performance with Chrome  |
 | [ci-cd-and-automation](skills/ai-workflow/ci-cd-and-automation) | ai-workflow | ★★★★★ | Automates CI/CD pipeline setup. Use when setting up or modifying build and deplo |
-| [code-review-and-quality](skills/ai-workflow/code-review-and-quality) | ai-workflow | ★★★★★ | Review code changes for correctness, maintainability, security, and validation e |
+| [code-review-and-quality](skills/ai-workflow/code-review-and-quality) | ai-workflow | ★★★★★ | Review a diff, pull request, or pasted code for correctness, regressions, securi |
 | [code-simplification](skills/ai-workflow/code-simplification) | ai-workflow | ★★★★★ | Refactor working code for clarity and maintainability while preserving behavior; |
 | [context-engineering](skills/ai-workflow/context-engineering) | ai-workflow | ★★★★★ | Diagnose missing or overloaded agent context and configure project instructions  |
 | [debugging-and-error-recovery](skills/ai-workflow/debugging-and-error-recovery) | ai-workflow | ★★★★★ | Diagnose failing tests, broken builds, and unexpected runtime behavior through r |
@@ -580,7 +580,7 @@
 | [codebase-onboarding](skills/developer-engineering/codebase-onboarding) | developer-engineering | ★★★★★ | Create repository onboarding guides with architecture, key files, setup, debuggi |
 | [database-designer](skills/developer-engineering/database-designer) | developer-engineering | ★★★★★ | Design, review, or migrate database schemas using workload requirements, data in |
 | [database-schema-designer](skills/developer-engineering/database-schema-designer) | developer-engineering | ★★★★★ | Design relational database schemas from requirements and generate migrations, Ty |
-| [dependency-auditor](skills/developer-engineering/dependency-auditor) | developer-engineering | ★★★★★ | Audit dependency versions, vulnerabilities, licenses and upgrade risks across pa |
+| [dependency-auditor](skills/developer-engineering/dependency-auditor) | developer-engineering | ★★★★★ | Audit dependency inventories, verify vulnerability and license evidence, and pla |
 | [gateway](skills/developer-engineering/gateway) | developer-engineering | ★★★★★ | 接口设计、规范生成、版本策略和破坏性变更检查。 |
 | [github-contributor](skills/developer-engineering/github-contributor) | developer-engineering | ★★★★★ | Find suitable open-source contribution opportunities and prepare focused GitHub  |
 | [graphify](skills/developer-engineering/graphify) | developer-engineering | ★★★★★ | Build, query, or refresh Graphify knowledge graphs for code and documents when g |
@@ -633,7 +633,7 @@
 | [api-and-interface-design](skills/ai-workflow/api-and-interface-design) | ai-workflow | ★★★★★ | Design REST/GraphQL APIs, module interfaces, and type contracts when creating en |
 | [browser-testing-with-devtools](skills/ai-workflow/browser-testing-with-devtools) | ai-workflow | ★★★★★ | Inspect browser DOM, network, console, screenshots, and performance with Chrome  |
 | [ci-cd-and-automation](skills/ai-workflow/ci-cd-and-automation) | ai-workflow | ★★★★★ | Automates CI/CD pipeline setup. Use when setting up or modifying build and deplo |
-| [code-review-and-quality](skills/ai-workflow/code-review-and-quality) | ai-workflow | ★★★★★ | Review code changes for correctness, maintainability, security, and validation e |
+| [code-review-and-quality](skills/ai-workflow/code-review-and-quality) | ai-workflow | ★★★★★ | Review a diff, pull request, or pasted code for correctness, regressions, securi |
 | [code-simplification](skills/ai-workflow/code-simplification) | ai-workflow | ★★★★★ | Refactor working code for clarity and maintainability while preserving behavior; |
 | [context-engineering](skills/ai-workflow/context-engineering) | ai-workflow | ★★★★★ | Diagnose missing or overloaded agent context and configure project instructions  |
 | [debugging-and-error-recovery](skills/ai-workflow/debugging-and-error-recovery) | ai-workflow | ★★★★★ | Diagnose failing tests, broken builds, and unexpected runtime behavior through r |
@@ -676,7 +676,7 @@
 | [api-and-interface-design](skills/ai-workflow/api-and-interface-design) | ai-workflow | ★★★★★ | Design REST/GraphQL APIs, module interfaces, and type contracts when creating en |
 | [browser-testing-with-devtools](skills/ai-workflow/browser-testing-with-devtools) | ai-workflow | ★★★★★ | Inspect browser DOM, network, console, screenshots, and performance with Chrome  |
 | [ci-cd-and-automation](skills/ai-workflow/ci-cd-and-automation) | ai-workflow | ★★★★★ | Automates CI/CD pipeline setup. Use when setting up or modifying build and deplo |
-| [code-review-and-quality](skills/ai-workflow/code-review-and-quality) | ai-workflow | ★★★★★ | Review code changes for correctness, maintainability, security, and validation e |
+| [code-review-and-quality](skills/ai-workflow/code-review-and-quality) | ai-workflow | ★★★★★ | Review a diff, pull request, or pasted code for correctness, regressions, securi |
 | [code-simplification](skills/ai-workflow/code-simplification) | ai-workflow | ★★★★★ | Refactor working code for clarity and maintainability while preserving behavior; |
 | [context-engineering](skills/ai-workflow/context-engineering) | ai-workflow | ★★★★★ | Diagnose missing or overloaded agent context and configure project instructions  |
 | [debugging-and-error-recovery](skills/ai-workflow/debugging-and-error-recovery) | ai-workflow | ★★★★★ | Diagnose failing tests, broken builds, and unexpected runtime behavior through r |
@@ -715,7 +715,7 @@
 | [api-and-interface-design](skills/ai-workflow/api-and-interface-design) | ai-workflow | ★★★★★ | Design REST/GraphQL APIs, module interfaces, and type contracts when creating en |
 | [browser-testing-with-devtools](skills/ai-workflow/browser-testing-with-devtools) | ai-workflow | ★★★★★ | Inspect browser DOM, network, console, screenshots, and performance with Chrome  |
 | [ci-cd-and-automation](skills/ai-workflow/ci-cd-and-automation) | ai-workflow | ★★★★★ | Automates CI/CD pipeline setup. Use when setting up or modifying build and deplo |
-| [code-review-and-quality](skills/ai-workflow/code-review-and-quality) | ai-workflow | ★★★★★ | Review code changes for correctness, maintainability, security, and validation e |
+| [code-review-and-quality](skills/ai-workflow/code-review-and-quality) | ai-workflow | ★★★★★ | Review a diff, pull request, or pasted code for correctness, regressions, securi |
 | [code-simplification](skills/ai-workflow/code-simplification) | ai-workflow | ★★★★★ | Refactor working code for clarity and maintainability while preserving behavior; |
 | [context-engineering](skills/ai-workflow/context-engineering) | ai-workflow | ★★★★★ | Diagnose missing or overloaded agent context and configure project instructions  |
 | [debugging-and-error-recovery](skills/ai-workflow/debugging-and-error-recovery) | ai-workflow | ★★★★★ | Diagnose failing tests, broken builds, and unexpected runtime behavior through r |
@@ -827,10 +827,11 @@
 
 ## security
 
-**21 skills**
+**22 skills**
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
+| [dependency-auditor](skills/developer-engineering/dependency-auditor) | developer-engineering | ★★★★★ | Audit dependency inventories, verify vulnerability and license evidence, and pla |
 | [breach](skills/security-and-reliability/breach) | security-and-reliability | ★★★★★ | 红队场景、攻击路径、威胁建模和对抗演练设计。 |
 | [cloak](skills/security-and-reliability/cloak) | security-and-reliability | ★★★★★ | 隐私工程、敏感信息流、同意管理和数据治理。 |
 | [comply](skills/security-and-reliability/comply) | security-and-reliability | ★★★★★ | Regulatory compliance and audit agent. Maps business regulatory requirements (SO |
@@ -1667,7 +1668,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [dependency-auditor](skills/developer-engineering/dependency-auditor) | developer-engineering | ★★★★★ | Audit dependency versions, vulnerabilities, licenses and upgrade risks across pa |
+| [dependency-auditor](skills/developer-engineering/dependency-auditor) | developer-engineering | ★★★★★ | Audit dependency inventories, verify vulnerability and license evidence, and pla |
 | [skill-security-auditor](skills/security-and-reliability/skill-security-auditor) | security-and-reliability | ★★★★☆ | Audit external agent skills before installation for malicious instructions, unsa |
 
 ## checker
@@ -2591,7 +2592,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [code-review-and-quality](skills/ai-workflow/code-review-and-quality) | ai-workflow | ★★★★★ | Review code changes for correctness, maintainability, security, and validation e |
+| [code-review-and-quality](skills/ai-workflow/code-review-and-quality) | ai-workflow | ★★★★★ | Review a diff, pull request, or pasted code for correctness, regressions, securi |
 
 ## code-simplification
 
@@ -2847,7 +2848,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [dependency-auditor](skills/developer-engineering/dependency-auditor) | developer-engineering | ★★★★★ | Audit dependency versions, vulnerabilities, licenses and upgrade risks across pa |
+| [dependency-auditor](skills/developer-engineering/dependency-auditor) | developer-engineering | ★★★★★ | Audit dependency inventories, verify vulnerability and license evidence, and pla |
 
 ## dependency-audit
 

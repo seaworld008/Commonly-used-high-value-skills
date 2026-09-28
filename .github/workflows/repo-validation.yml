@@ -55,9 +55,11 @@ jobs:
 
       - name: Publish repo health summary
         run: |
-          cat docs/sources/reports/repo-health.md >> "$GITHUB_STEP_SUMMARY"
-          echo "" >> "$GITHUB_STEP_SUMMARY"
-          cat docs/sources/reports/repo-health-eval.md >> "$GITHUB_STEP_SUMMARY"
+          {
+            cat docs/sources/reports/repo-health.md
+            echo ""
+            cat docs/sources/reports/repo-health-eval.md
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Ensure generated files are up to date
         run: git diff --exit-code
@@ -71,3 +73,32 @@ jobs:
             docs/sources/reports/repo-health.md
             docs/sources/reports/repo-health-eval.md
           retention-days: 30
+
+  installer-portability:
+    name: Installer (${{ matrix.os }}, Node ${{ matrix.node }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        node: ['22', '24']
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.13'
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Install test dependencies
+        run: python -m pip install pytest
+      - name: Test isolated installer safety and native npm launch
+        run: python -m pytest -q tests/test_installer_safety.py tests/test_npm_command.py
+      - name: Check package without installing globally
+        run: npm test

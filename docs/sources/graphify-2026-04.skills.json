@@ -29,7 +29,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/graphify/SKILL.md",
       "source": "https://github.com/Graphify-Labs/graphify/blob/v0.9.47/graphify/skill-codex.md",
-      "notes": "Mirrors only the official Graphify v0.9.47 Codex skill artifact set: SKILL.md plus eight references. Local Astra curation splits long procedures into EXTENDED.md and narrows trigger/host guidance; preserve the reviewed upstream reference set and review future releases before applying.",
+      "notes": "Mirrors only the official Graphify v0.9.47 Codex skill artifact set: SKILL.md plus eight references. Local Astra curation splits long procedures into EXTENDED.md and narrows trigger/host guidance; preserve the reviewed upstream reference set and review future releases before applying. 2026-09-28: curated reviewed deltas from 4df8d4dcfadee5555203eaba585cc7dec1dee2fb; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences.",
       "upstream": {
         "repo": "Graphify-Labs/graphify",
         "path": "graphify/skill-codex.md",
@@ -65,7 +65,7 @@
             "ref": "v0.9.61",
             "resolved_commit": "fe66389083369c3159aa391117185c8f58b4d07c",
             "path_commit": "3d19463484ebcf773b399ddad9fd3363b2ab3bff",
-            "content_sha256": "7bc85fef495f99d8f004a4a666072a796185ae2cd81f5a1fa844fe4a94f5efb9",
+            "content_sha256": "fd72c04ab619439d9bceb1ecd8253ca62ec2345135c219ccbf215c06922393dc",
             "last_checked_at": "2026-09-14",
             "last_synced_at": "2026-09-14",
             "license_checkpoint": {
@@ -104,7 +104,7 @@
       "managed_files": [
         {
           "path": "skills/developer-engineering/graphify/SKILL.md",
-          "sha256": "7bc85fef495f99d8f004a4a666072a796185ae2cd81f5a1fa844fe4a94f5efb9",
+          "sha256": "fd72c04ab619439d9bceb1ecd8253ca62ec2345135c219ccbf215c06922393dc",
           "owner": "graphify",
           "mode": "100644"
         },

@@ -1,348 +1,266 @@
 ---
 name: dependency-auditor
-description: 'Audit dependency versions, vulnerabilities, licenses and upgrade risks across package manifests and lockfiles.'
-zh_description: "检查依赖版本、漏洞、许可证和升级风险。"
-version: "1.0.2"
+description: 'Audit dependency inventories, verify vulnerability and license evidence, and plan tested upgrades for an existing project.'
+zh_description: "梳理依赖清单，核实漏洞与许可证证据，规划可验证的升级。"
+version: "1.0.3"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
-tags: '["auditor", "dependency", "development"]'
+license: MIT
+tags: [auditor, dependency, development, security]
 created_at: "2026-03-04"
-updated_at: "2026-09-07"
+updated_at: "2026-09-28"
 quality: 5
 complexity: "intermediate"
 ---
 
 # Dependency Auditor
 
-> **Skill Type:** POWERFUL  
-> **Category:** Engineering  
-> **Domain:** Dependency Management & Security  
+## When to Use
 
-## Overview
+Use for dependency security reviews, lockfile changes, upgrade planning,
+license evidence collection, or an existing project's dependency inventory.
+Use a dedicated performance workflow when the question is actual bundle size.
+Do not infer vulnerabilities, latest releases, or legal compliance from names alone.
 
-The **Dependency Auditor** is a comprehensive toolkit for analyzing, auditing, and managing dependencies across multi-language software projects. This skill provides deep visibility into your project's dependency ecosystem, enabling teams to identify vulnerabilities, ensure license compliance, optimize dependency trees, and plan safe upgrades.
+## Evidence Contract
 
-In modern software development, dependencies form complex webs that can introduce significant security, legal, and maintenance risks. A single project might have hundreds of direct and transitive dependencies, each potentially introducing vulnerabilities, license conflicts, or maintenance burden. This skill addresses these challenges through automated analysis and actionable recommendations.
+Keep three distinct outputs: what is installed, what has been checked against
+current evidence, and what changes have been tested.
+An inventory is not an advisory database or a dependency resolver.
+An empty finding list does not prove that a scan ran successfully.
+Record the repository revision, lockfiles, runtime, scanner version, and scan date.
+State unavailable databases, private registries, excluded workspaces, and parse errors.
+Never turn `not_assessed` into `passed` in a report or CI gate.
 
-## Core Capabilities
+## Bundled Helpers and Their Limits
 
-### 1. Vulnerability Scanning & CVE Matching
+### Offline inventory: `scripts/dep_scanner.py`
 
-**Comprehensive Security Analysis**
-- Scans dependencies against built-in vulnerability databases
-- Matches Common Vulnerabilities and Exposures (CVE) patterns
-- Identifies known security issues across multiple ecosystems
-- Analyzes transitive dependency vulnerabilities
-- Provides CVSS scores and exploit assessments
-- Tracks vulnerability disclosure timelines
-- Maps vulnerabilities to dependency paths
+This helper enumerates selected manifests using simplified parsers.
+It performs no registry query, package installation, or vulnerability matching.
+Supported inputs include these common forms:
 
-**Multi-Language Support**
-- **JavaScript/Node.js**: package.json, package-lock.json, yarn.lock
-- **Python**: requirements.txt, pyproject.toml, Pipfile.lock, poetry.lock
-- **Go**: go.mod, go.sum
-- **Rust**: Cargo.toml, Cargo.lock
-- **Ruby**: Gemfile, Gemfile.lock
-- **Java/Maven**: pom.xml, gradle.lockfile
-- **PHP**: composer.json, composer.lock
-- **C#/.NET**: packages.config, project.assets.json
+| Ecosystem | Inputs recognized | Important limitation |
+|---|---|---|
+| Node.js | package.json, package-lock.json, yarn.lock | Not a replacement for the package manager's resolved graph |
+| Python | requirements.txt, Poetry-style pyproject.toml, Pipfile.lock, poetry.lock | Dynamic and modern project metadata can need native tooling |
+| Go | go.mod | Does not resolve the selected module graph |
+| Rust | Cargo.toml, Cargo.lock | Simplified inventory; use Cargo for full resolution |
+| Ruby | Gemfile, Gemfile.lock | Does not evaluate arbitrary Ruby declarations |
 
-### 2. License Compliance & Legal Risk Assessment
-
-**License Classification System**
-- **Permissive Licenses**: MIT, Apache 2.0, BSD (2-clause, 3-clause), ISC
-- **Copyleft (Strong)**: GPL (v2, v3), AGPL (v3)
-- **Copyleft (Weak)**: LGPL (v2.1, v3), MPL (v2.0)
-- **Proprietary**: Commercial, custom, or restrictive licenses
-- **Dual Licensed**: Multi-license scenarios and compatibility
-- **Unknown/Ambiguous**: Missing or unclear licensing
-
-**Conflict Detection**
-- Identifies incompatible license combinations
-- Warns about GPL contamination in permissive projects
-- Analyzes license inheritance through dependency chains
-- Provides compliance recommendations for distribution
-- Generates legal risk matrices for decision-making
-
-### 3. Outdated Dependency Detection
-
-**Version Analysis**
-- Identifies dependencies with available updates
-- Categorizes updates by severity (patch, minor, major)
-- Detects pinned versions that may be outdated
-- Analyzes semantic versioning patterns
-- Identifies floating version specifiers
-- Tracks release frequencies and maintenance status
-
-**Maintenance Status Assessment**
-- Identifies abandoned or unmaintained packages
-- Analyzes commit frequency and contributor activity
-- Tracks last release dates and security patch availability
-- Identifies packages with known end-of-life dates
-- Assesses upstream maintenance quality
-
-### 4. Dependency Bloat Analysis
-
-**Unused Dependency Detection**
-- Identifies dependencies that aren't actually imported/used
-- Analyzes import statements and usage patterns
-- Detects redundant dependencies with overlapping functionality
-- Identifies oversized packages for simple use cases
-- Maps actual vs. declared dependency usage
-
-**Redundancy Analysis**
-- Identifies multiple packages providing similar functionality
-- Detects version conflicts in transitive dependencies
-- Analyzes bundle size impact of dependencies
-- Identifies opportunities for dependency consolidation
-- Maps dependency overlap and duplication
-
-### 5. Upgrade Path Planning & Breaking Change Risk
-
-**Semantic Versioning Analysis**
-- Analyzes semver patterns to predict breaking changes
-- Identifies safe upgrade paths (patch/minor versions)
-- Flags major version updates requiring attention
-- Tracks breaking changes across dependency updates
-- Provides rollback strategies for failed upgrades
-
-**Risk Assessment Matrix**
-- Low Risk: Patch updates, security fixes
-- Medium Risk: Minor updates with new features
-- High Risk: Major version updates, API changes
-- Critical Risk: Dependencies with known breaking changes
-
-**Upgrade Prioritization**
-- Security patches: Highest priority
-- Bug fixes: High priority
-- Feature updates: Medium priority
-- Major rewrites: Planned priority
-- Deprecated features: Immediate attention
-
-### 6. Supply Chain Security
-
-**Dependency Provenance**
-- Verifies package signatures and checksums
-- Analyzes package download sources and mirrors
-- Identifies suspicious or compromised packages
-- Tracks package ownership changes and maintainer shifts
-- Detects typosquatting and malicious packages
-
-**Transitive Risk Analysis**
-- Maps complete dependency trees
-- Identifies high-risk transitive dependencies
-- Analyzes dependency depth and complexity
-- Tracks influence of indirect dependencies
-- Provides supply chain risk scoring
-
-### 7. Lockfile Analysis & Deterministic Builds
-
-**Lockfile Validation**
-- Ensures lockfiles are up-to-date with manifests
-- Validates integrity hashes and version consistency
-- Identifies drift between environments
-- Analyzes lockfile conflicts and resolution strategies
-- Ensures deterministic, reproducible builds
-
-**Environment Consistency**
-- Compares dependencies across environments (dev/staging/prod)
-- Identifies version mismatches between team members
-- Validates CI/CD environment consistency
-- Tracks dependency resolution differences
-
-## Technical Architecture
-
-### Scanner Engine (`dep_scanner.py`)
-- Multi-format parser supporting 8+ package ecosystems
-- Built-in vulnerability database with 500+ CVE patterns
-- Transitive dependency resolution from lockfiles
-- JSON and human-readable output formats
-- Configurable scanning depth and exclusion patterns
-
-### License Analyzer (`license_checker.py`)
-- License detection from package metadata and files
-- Compatibility matrix with 20+ license types
-- Conflict detection engine with remediation suggestions
-- Risk scoring based on distribution and usage context
-- Export capabilities for legal review
-
-### Upgrade Planner (`upgrade_planner.py`)
-- Semantic version analysis with breaking change prediction
-- Dependency ordering based on risk and interdependence
-- Migration checklists with testing recommendations
-- Rollback procedures for failed upgrades
-- Timeline estimation for upgrade cycles
-
-## Use Cases & Applications
-
-### Security Teams
-- **Vulnerability Management**: Continuous scanning for security issues
-- **Incident Response**: Rapid assessment of vulnerable dependencies
-- **Supply Chain Monitoring**: Tracking third-party security posture
-- **Compliance Reporting**: Automated security compliance documentation
-
-### Legal & Compliance Teams
-- **License Auditing**: Comprehensive license compliance verification
-- **Risk Assessment**: Legal risk analysis for software distribution
-- **Due Diligence**: Dependency licensing for M&A activities
-- **Policy Enforcement**: Automated license policy compliance
-
-### Development Teams
-- **Dependency Hygiene**: Regular cleanup of unused dependencies
-- **Upgrade Planning**: Strategic dependency update scheduling
-- **Performance Optimization**: Bundle size optimization through dep analysis
-- **Technical Debt**: Identifying and prioritizing dependency technical debt
-
-### DevOps & Platform Teams
-- **Build Optimization**: Faster builds through dependency optimization
-- **Security Automation**: Automated vulnerability scanning in CI/CD
-- **Environment Consistency**: Ensuring consistent dependencies across environments
-- **Release Management**: Dependency-aware release planning
-
-## Integration Patterns
-
-### CI/CD Pipeline Integration
-```bash
-# Security gate in CI
-python dep_scanner.py /project --format json --fail-on-high
-python license_checker.py /project --policy strict --format json
-```
-
-### Scheduled Audits
-```bash
-# Weekly dependency audit
-./audit_dependencies.sh > weekly_report.html
-python upgrade_planner.py deps.json --timeline 30days
-```
-
-### Development Workflow
-```bash
-# Pre-commit dependency check
-python dep_scanner.py . --quick-scan
-python license_checker.py . --warn-conflicts
-```
-
-## Advanced Features
-
-### Custom Vulnerability Databases
-- Support for internal/proprietary vulnerability feeds
-- Custom CVE pattern definitions
-- Organization-specific risk scoring
-- Integration with enterprise security tools
-
-### Policy-Based Scanning
-- Configurable license policies by project type
-- Custom risk thresholds and escalation rules
-- Automated policy enforcement and notifications
-- Exception management for approved violations
-
-### Reporting & Dashboards
-- Executive summaries for management
-- Technical reports for development teams
-- Trend analysis and dependency health metrics
-- Integration with project management tools
-
-### Multi-Project Analysis
-- Portfolio-level dependency analysis
-- Shared dependency impact analysis
-- Organization-wide license compliance
-- Cross-project vulnerability propagation
-
-## Best Practices
-
-### Scanning Frequency
-- **Security Scans**: Daily or on every commit
-- **License Audits**: Weekly or monthly
-- **Upgrade Planning**: Monthly or quarterly
-- **Full Dependency Audit**: Quarterly
-
-### Risk Management
-1. **Prioritize Security**: Address high/critical CVEs immediately
-2. **License First**: Ensure compliance before functionality
-3. **Gradual Updates**: Incremental dependency updates
-4. **Test Thoroughly**: Comprehensive testing after updates
-5. **Monitor Continuously**: Automated monitoring and alerting
-
-### Team Workflows
-1. **Security Champions**: Designate dependency security owners
-2. **Review Process**: Mandatory review for new dependencies
-3. **Update Cycles**: Regular, scheduled dependency updates
-4. **Documentation**: Maintain dependency rationale and decisions
-5. **Training**: Regular team education on dependency security
-
-## Metrics & KPIs
-
-### Security Metrics
-- Mean Time to Patch (MTTP) for vulnerabilities
-- Number of high/critical vulnerabilities
-- Percentage of dependencies with known vulnerabilities
-- Security debt accumulation rate
-
-### Compliance Metrics
-- License compliance percentage
-- Number of license conflicts
-- Time to resolve compliance issues
-- Policy violation frequency
-
-### Maintenance Metrics
-- Percentage of up-to-date dependencies
-- Average dependency age
-- Number of abandoned dependencies
-- Upgrade success rate
-
-### Efficiency Metrics
-- Bundle size reduction percentage
-- Unused dependency elimination rate
-- Build time improvement
-- Developer productivity impact
-
-## Troubleshooting Guide
-
-### Common Issues
-1. **False Positives**: Tuning vulnerability detection sensitivity
-2. **License Ambiguity**: Resolving unclear or multiple licenses
-3. **Breaking Changes**: Managing major version upgrades
-4. **Performance Impact**: Optimizing scanning for large codebases
-
-### Resolution Strategies
-- Whitelist false positives with documentation
-- Contact maintainers for license clarification
-- Implement feature flags for risky upgrades
-- Use incremental scanning for large projects
-
-## Future Enhancements
-
-### Planned Features
-- Machine learning for vulnerability prediction
-- Automated dependency update pull requests
-- Integration with container image scanning
-- Real-time dependency monitoring dashboards
-- Natural language policy definition
-
-### Ecosystem Expansion
-- Additional language support (Swift, Kotlin, Dart)
-- Container and infrastructure dependencies
-- Development tool and build system dependencies
-- Cloud service and SaaS dependency tracking
-
----
-
-## Quick Start
+`go.sum` is not treated as an installed-dependency lockfile.
+Java, PHP, .NET, pnpm lockfiles, and arbitrary custom formats need their native tools.
+Do not claim those formats were scanned by this helper.
+Overlapping manifests may describe the same package or multiple versions.
+Preserve the source file and check duplicates against the authoritative lockfile.
 
 ```bash
-# Scan project for vulnerabilities and licenses
-python scripts/dep_scanner.py /path/to/project
-
-# Check license compliance
-python scripts/license_checker.py /path/to/project --policy strict
-
-# Plan dependency upgrades
-python scripts/upgrade_planner.py deps.json --risk-threshold medium
+python scripts/dep_scanner.py /path/to/project --format json --output inventory.json
+python scripts/dep_scanner.py /path/to/project --quick-scan
 ```
 
-For detailed usage instructions, see [README.md](README.md).
+Run these paths relative to this skill's directory, or use their absolute paths.
+The project argument selects the project being inspected, not the skill repository.
+`--quick-scan` filters records classified as direct by the simplified parser.
+It is not a guarantee that every direct dependency has been found.
 
----
+The JSON result contains explicit coverage information:
 
-*This skill provides comprehensive dependency management capabilities essential for maintaining secure, compliant, and efficient software projects. Regular use helps teams stay ahead of security threats, maintain legal compliance, and optimize their dependency ecosystems.*
+```json
+{
+  "inventory_status": "best_effort",
+  "vulnerability_status": "not_assessed",
+  "advisory_source": null,
+  "parse_errors": [],
+  "vulnerabilities_found": 0
+}
+```
+
+The zero count remains for compatibility; it is not a security verdict.
+Malformed recognized inputs produce `inventory_status: partial` and `parse_errors`.
+The CLI exits 2 for a partial inventory.
+The legacy `--fail-on-high` option always exits 2 because advisory coverage is absent.
+Replace that security gate with a maintained ecosystem scanner.
+Exit 1 indicates an execution or input failure; do not suppress it.
+
+### License triage: `scripts/license_checker.py`
+
+This is a heuristic classifier for supplied license metadata and local files.
+It is not a legal opinion, an SPDX expression engine, or proof of compliance.
+Its policy scores are triage signals, not an authorization to distribute software.
+Unknown expressions and uncertain license texts require inspection.
+Do not simplify `MIT AND GPL-3.0` to MIT.
+Do not relabel the Unlicense or a public-domain declaration as MIT.
+
+```bash
+python scripts/license_checker.py /path/to/project --inventory inventory.json --format json
+```
+
+Keep declared metadata, actual license text, copyright notices, and package version.
+Inspect dual-license choices and exceptions separately before choosing a policy.
+A README mentioning a license is weaker evidence than the distributed package's license.
+Review the exact artifact that will be shipped, including vendored dependencies.
+
+### Retired simulation: `scripts/upgrade_planner.py`
+
+The old handwritten latest-version catalog and simulated migration estimates
+have been retired. They could recommend stale versions as if queried live.
+The compatibility entry point remains so existing callers get an explicit result:
+
+```bash
+python scripts/upgrade_planner.py inventory.json --format json
+```
+
+It returns `version_status: not_assessed` and exits 2.
+Historical flags remain accepted, but they do not re-enable simulated analysis.
+An empty `available_upgrades` list means no version assessment was performed.
+Use the evidence-driven workflow below instead of treating this helper as a gate.
+
+## Workflow
+
+### 1. Establish the actual dependency scope
+
+Read manifests and lockfiles before running commands that may modify them.
+Identify workspaces, optional dependencies, extras, build tools, and deployment targets.
+Record the package manager and its version from the project, not from memory.
+Check the configured registry without printing authentication credentials.
+Do not replace a private registry with a public registry merely to obtain a result.
+Include runtime constraints such as Node, Python, Java, Rust, and operating system.
+Separate runtime dependencies from build-only or test-only dependencies.
+A development dependency can still affect the build supply chain.
+
+Example scope note:
+
+```text
+Revision: <commit>
+Workspace: apps/api
+Runtime: <project-supported runtime>
+Resolver: <package manager and version>
+Lockfile: <path and digest>
+Included: runtime + build dependencies
+Excluded: optional mobile workspace; reason recorded
+```
+
+### 2. Obtain the native resolved inventory
+
+Prefer the ecosystem's resolver output when exact transitive relationships matter.
+Use read-only inspection commands and preserve their exit status and stderr.
+For npm, inspect the lockfile and `npm ls --all --json` output together.
+For Go, inspect the selected module graph rather than every checksum in go.sum.
+For Cargo, use metadata or tree output for the intended target and feature selection.
+For Python, distinguish declared requirements from the environment actually deployed.
+Do not install project dependencies globally just to inspect them.
+Any environment creation or dependency resolution should use an isolated workspace.
+
+### 3. Run maintained advisory tooling
+
+Use the tool appropriate to the ecosystem and the available, authorized environment.
+Check its official documentation for supported inputs and exit-code meanings.
+Do not use the offline inventory helper as a substitute.
+Typical tools include npm audit, pip-audit, cargo audit, and ecosystem-specific scanners.
+A scanner can contact a registry or advisory service and disclose dependency names.
+Confirm that this matches the project's private-package and network policies.
+Do not send private package inventories to an unrelated service.
+
+For a configured npm project with a valid lockfile:
+
+```bash
+npm audit --json > npm-audit.json
+```
+
+Capture the command's nonzero exit code; distinguish findings from tool failure.
+Do not run `npm audit fix`, `--force`, or package-manager update commands as a scan.
+Those are changes and need the same review and tests as an ordinary dependency update.
+For other ecosystems, use the installed scanner's documented lockfile/environment mode.
+Record the advisory database refresh time when the tool exposes it.
+A timed-out or unreachable advisory source is `unavailable`, not `no vulnerabilities`.
+
+### 4. Verify each actionable finding
+
+Match package identity and ecosystem before comparing versions.
+Read the advisory's affected ranges, fixed ranges, withdrawn status, and aliases.
+Do not apply one ecosystem's version-ordering rules to another.
+Check whether the affected package is present in the deployed dependency graph.
+Trace how the package is introduced and whether it is reachable in the application.
+A reachable exploit path increases priority; lack of a demonstrated path is not proof of safety.
+Distinguish a vulnerable package from an unmaintained-package advisory.
+Do not invent CVSS scores, exploit availability, or a remediation version.
+Deduplicate aliases while retaining links to the source advisories.
+
+Example finding record:
+
+```json
+{
+  "package": "<ecosystem/name>",
+  "installed_version": "<resolved version>",
+  "advisory": "<verified advisory identifier>",
+  "source": "<official advisory location>",
+  "affected": "<verified range>",
+  "fixed": "<verified range or unavailable>",
+  "dependency_path": ["application", "parent", "affected package"],
+  "reachability": "not yet established",
+  "decision": "investigate or upgrade with tests"
+}
+```
+
+### 5. Collect license evidence
+
+Read license metadata from the exact package version and distributed artifact.
+Preserve copyright, NOTICE files, SPDX expressions, and exceptions.
+Record missing licenses as unknown, not permissive by default.
+Check whether the dependency is linked, vendored, modified, or distributed separately.
+Different distribution models can require different reviews.
+Escalate ambiguous obligations to the project's responsible reviewer.
+Do not make legal conclusions from a numerical helper score.
+
+### 6. Choose a verified upgrade target
+
+Query the project's approved registry and read upstream release notes.
+Record the query time and distinguish latest published from latest compatible.
+A newer prerelease is not automatically a suitable production target.
+A patch version can still change behavior; semantic versioning is not a safety proof.
+Check peer dependencies, runtime floors, native addons, and platform support.
+Prefer the smallest supported fix that addresses the verified problem.
+Do not hold an upgrade merely because it is major when no supported smaller fix exists.
+Separate unrelated ecosystem migrations so failures are attributable.
+
+### 7. Apply changes in an isolated branch
+
+Use the project's package manager to update manifests and lockfiles together.
+Inspect install scripts and provenance before allowing new code to execute.
+Review the lockfile diff for unexpected registries, unrelated packages, and integrity changes.
+Preserve project-specific patches and document whether they are still needed.
+Do not delete a lockfile to make resolution succeed without understanding the impact.
+Run formatting, compilation, unit tests, and relevant integration tests.
+Exercise the application path that imports the changed dependency.
+
+### 8. Plan deployment and rollback
+
+Record the old manifest, lockfile, build artifact, and configuration versions.
+For database or data-format changes, verify rollback compatibility explicitly.
+A package downgrade is not a database rollback strategy.
+Define the health metrics and observation window used for rollout acceptance.
+Use staging or a canary where the project provides one.
+Do not claim production acceptance from static scanning or mocked tests.
+
+## Completion Checklist
+
+- Inventory scope and exclusions are explicit.
+- Scanner execution errors are distinct from findings.
+- Each vulnerability has a verified package, range, and source.
+- Each license conclusion has artifact-level evidence or is marked unresolved.
+- Upgrade targets are queried and compatible, not supplied by a mock catalog.
+- Manifest and lockfile changes are reviewed together.
+- Tests and rollback evidence identify the exact changed revision.
+- The report separates fixed, accepted, deferred, and unavailable items.
+
+## Reference Entry Points
+
+- npm audit: https://docs.npmjs.com/cli/commands/npm-audit
+- pip-audit: https://pypi.org/project/pip-audit/
+- RustSec and cargo audit: https://rustsec.org/
+- Go module reference: https://go.dev/ref/mod
+
+Read current tool documentation when executing an audit; this skill does not
+embed a security database or promise that any package is presently safe.

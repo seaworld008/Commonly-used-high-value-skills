@@ -2,13 +2,13 @@
 name: develop-web-game
 description: 'Build or iterate on HTML/JS web games with Playwright input bursts, gameplay screenshots, state inspection, and console checks.'
 zh_description: "用于开发网页游戏原型、玩法循环、交互逻辑和前端实现。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["agent", "ai", "develop", "game", "web"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-09-28"
 quality: 4
 complexity: "intermediate"
 ---
@@ -156,3 +156,9 @@ At the end of your work, leave TODOs and suggestions for the next agent in `prog
 ## References
 
 - `$WEB_GAME_ACTIONS` (installed default: `$CODEX_HOME/skills/develop-web-game/references/action_payloads.json`) — example action payloads (keyboard + mouse, per-frame capture). Use these to build your burst.
+
+## Node Helper Runtime
+
+The bundled `package.json` marks this skill directory as an ES module scope.
+Keep it beside the helper files when copying the skill into a CommonJS project.
+This scope declaration does not install dependencies or change the parent project.

@@ -29,7 +29,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/security-and-reliability/firebase-security-rules-auditor/SKILL.md",
       "source": "https://github.com/firebase/agent-skills/tree/main/skills/firebase-security-rules-auditor",
-      "notes": "Imported from the official Firebase Agent Skills repository under Apache-2.0 and expanded with repository-standard audit workflow, examples, emulator tests, and severity guidance.",
+      "notes": "Imported from the official Firebase Agent Skills repository under Apache-2.0 and expanded with repository-standard audit workflow, examples, emulator tests, and severity guidance. 2026-09-28: curated reviewed deltas from cad501960f600a0f5ed9c5b80bdf349559d927b5; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md.",
       "upstream": {
         "repo": "firebase/agent-skills",
         "path": "skills/firebase-security-rules-auditor/SKILL.md",
@@ -59,7 +59,7 @@
             "ref": "main",
             "resolved_commit": "28caac2db9633794bf747bb030d7c39e62a951ab",
             "path_commit": "073edf7bb747c27b9c911a9126adaa5bc4648fdc",
-            "content_sha256": "de6dfa3b8dbeb0339b8cd53d36a97c49fcd73fde257a475eea348b4e5062c18c",
+            "content_sha256": "e389e5c312b2555bbde83f1791a666f2fef70f0ba28a34c497cd8828ae0407bf",
             "last_checked_at": "2026-09-14",
             "last_synced_at": "2026-09-14",
             "license_checkpoint": {
@@ -77,7 +77,7 @@
         {
           "path": "skills/security-and-reliability/firebase-security-rules-auditor/SKILL.md",
           "owner": "firebase-security-rules-auditor",
-          "sha256": "de6dfa3b8dbeb0339b8cd53d36a97c49fcd73fde257a475eea348b4e5062c18c",
+          "sha256": "e389e5c312b2555bbde83f1791a666f2fef70f0ba28a34c497cd8828ae0407bf",
           "mode": "100644"
         }
       ]

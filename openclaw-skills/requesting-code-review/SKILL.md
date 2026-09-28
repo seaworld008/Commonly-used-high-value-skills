@@ -2,14 +2,14 @@
 name: requesting-code-review
 description: 'Use when completing tasks, implementing major features, or before merging to verify work meets requirements'
 zh_description: "用于在完成任务、实现重要功能或合并前请求代码审查并验证需求满足情况。"
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:obra/superpowers"
 source_url: "https://skills.sh/obra/superpowers/requesting-code-review"
 license: MIT
 tags: '["code-review", "workflow", "quality-gate"]'
 created_at: "2026-04-13"
-updated_at: "2026-07-27"
+updated_at: "2026-09-28"
 quality: 4
 complexity: "intermediate"
 ---
@@ -36,7 +36,7 @@ Dispatch a code reviewer subagent to catch issues before they cascade. The revie
 
 **1. Get git SHAs:**
 ```bash
-BASE_SHA=$(git rev-parse HEAD~1)  # or origin/main
+BASE_SHA=$(git rev-parse HEAD~1)  # or: git merge-base origin/main HEAD
 HEAD_SHA=$(git rev-parse HEAD)
 ```
 

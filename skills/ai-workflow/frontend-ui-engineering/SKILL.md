@@ -2,14 +2,14 @@
 name: frontend-ui-engineering
 description: 'Build accessible, responsive interfaces and components with production UI states, project conventions, and browser validation.'
 zh_description: "实现可访问、响应式的前端界面和交互状态。"
-version: "1.0.3"
+version: "1.0.4"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/frontend-ui-engineering/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "frontend-ui-engineering", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-09-07"
+updated_at: "2026-09-28"
 quality: 5
 complexity: advanced
 upstream_slug: frontend-ui-engineering
@@ -126,6 +126,17 @@ Global store (Zustand, Redux)    → Complex client state shared app-wide
 **Avoid prop drilling deeper than 3 levels.** If you're passing props through components that don't use them, introduce context or restructure the component tree.
 
 ## Design System Adherence
+
+### Reference-led UI quality
+
+When the product needs a distinct visual direction, collect evidence before choosing a layout:
+
+1. Search a trusted reference catalogue or use references supplied by the product team.
+2. Study two or three relevant screens. Record decisions about hierarchy, density, navigation, controls, responsive behavior, and interaction states.
+3. Turn those decisions into a short design contract before implementation. Name the screen's job, primary action, required states, responsive rules, and patterns to reject.
+4. Rebuild the useful structure in the product's own components, tokens, content, and visual language. Never copy another product's branding, proprietary text, imagery, or exact layout.
+
+Use references as evidence, not as templates. If references are unavailable, document the assumptions and verify the result against the product's existing design system.
 
 ### Avoid the AI Aesthetic
 
@@ -335,6 +346,7 @@ After building UI:
 - [ ] All interactive elements are keyboard accessible (Tab through the page)
 - [ ] Screen reader can convey the page's content and structure
 - [ ] Responsive: works at 320px, 768px, 1024px, 1440px
-- [ ] Loading, error, and empty states all handled
+- [ ] Loading, empty, error, success, and permission states handled when applicable
 - [ ] Follows the project's design system (spacing, colors, typography)
+- [ ] The rendered result passes a final UI-specific finish-gate review
 - [ ] No accessibility warnings in dev tools or axe-core

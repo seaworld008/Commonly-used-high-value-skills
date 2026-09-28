@@ -1,0 +1,28 @@
+{
+  "tag": "v3.1.0",
+  "package_version": "3.1.0",
+  "title": "Safer Updates and Evidence-Driven Maintenance v3.1.0",
+  "prerelease": false,
+  "generate_notes": false,
+  "changelog_range": "v3.0.0..v3.1.0",
+  "canonical_skills": 286,
+  "highlights": [
+    "Stage and verify installations, preserve customized copies, reject source/destination aliases, and support npm/npx safely on Windows",
+    "Make unchanged provenance regeneration deterministic across calendar days",
+    "Retire fabricated dependency advisories/latest-version catalogs and reject misleading license substring matches",
+    "Upgrade stable Hermes Agent references to v2026.9.24 with explicit composite compatibility review",
+    "Curate targeted security, project-boundary, interpreter, UI, and meeting guidance while preserving monitor-only sources"
+  ],
+  "release_gates": [
+    "Exact merged-main Repository Validation, provenance, and CodeQL workflow runs succeed",
+    "Complete repository tests, installer matrix, package smoke checks, and generation idempotence succeed",
+    "Build source and npm archives from the verified main commit",
+    "Independently download release assets and verify SHA-256, package metadata and canonical file contents before publication"
+  ],
+  "validation_boundaries": {
+    "upstream": "152 active mappings checked at the recorded baseline: 1 stable update, 90 monitor candidates, 19 unavailable, 17 equal, 25 expected skips. Selected monitor deltas curated without falsely advancing unreviewed checkpoints.",
+    "runtime": "Static/offline and native installer tests only; no model-behavior, live SaaS, database, client-global-installation or production-runtime acceptance claimed.",
+    "compatibility": "No canonical skill path removed. Legacy simulated upgrade-planner invocations now exit 2 and report not_assessed rather than false upgrade advice; dep_scanner --fail-on-high also fails closed."
+  },
+  "breaking_changes": []
+}

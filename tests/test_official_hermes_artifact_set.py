@@ -14,10 +14,10 @@ MAPPING = (
     / "nous-hermes-agent-2026-04.skills.json"
 )
 SKILL_ROOT = REPO_ROOT / "skills" / "ai-agent-platform" / "hermes-agent"
-RELEASE_COMMIT = "d337b736aa1e8ebecfab043842d13e4a2d2f48a3"
-PATH_COMMIT = "626bc82f13d975dc88fbeda5076f0bf442856b20"
+RELEASE_COMMIT = "f97608f178d1ffeca59860195ab7da295f7c8e5f"
+PATH_COMMIT = "8eda97cafb92964f6b84b355a8260c79692fbdc2"
 CANONICAL_SHA256 = (
-    "09da7d21e3f3eedd29637b8cebd907377c2f99425b8236c956846545ab15f4d8"
+    "6cd26b16955b78c45fd642960ab9c27e37afdb3ddd5c6fd09e6fb01d2d21a1f1"
 )
 
 
@@ -44,7 +44,7 @@ def test_hermes_is_a_complete_pinned_stable_release_mirror() -> None:
     tracking = origin["tracking"]
     assert origin["sync_mode"] == "replace"
     assert tracking["channel"] == "latest_release"
-    assert tracking["ref"] == "v2026.9.21"
+    assert tracking["ref"] == "v2026.9.24"
     assert tracking["resolved_commit"] == RELEASE_COMMIT
     assert tracking["path_commit"] == PATH_COMMIT
     assert tracking["content_sha256"] == CANONICAL_SHA256
