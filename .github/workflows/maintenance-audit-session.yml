@@ -6,9 +6,8 @@ on:
     paths: [.github/workflows/maintenance-audit-session.yml]
 permissions:
   contents: read
-  actions: read
 jobs:
-  review:
+  stable:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -16,78 +15,25 @@ jobs:
         with:
           ref: 4d170b083cd41ad5d16fa088bcfe8f73da55df6f
           persist-credentials: false
-      - name: Retrieve read-only audit evidence
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.13'
+      - run: python -m pip install pyyaml jsonschema
+      - name: Apply only stable eligible Hermes mappings in disposable checkout
         env:
-          GH_TOKEN: ${{ github.token }}
-        run: gh run download 36375883150 --repo "$GITHUB_REPOSITORY" --name maintenance-upstream-check --dir "$RUNNER_TEMP/upstream-check"
-      - name: Fetch immutable text deltas only; never execute upstream files
+          GITHUB_TOKEN: ${{ github.token }}
         shell: bash
         run: |
-          python - <<'PY'
-          import concurrent.futures, difflib, json, os, pathlib, re, time, urllib.request, urllib.error, urllib.parse
-          out = pathlib.Path(os.environ['RUNNER_TEMP']) / 'upstream-review'
-          out.mkdir()
-          check = json.loads((pathlib.Path(os.environ['RUNNER_TEMP'])/'upstream-check/upstream.json').read_text())
-          entries = {}
-          for p in pathlib.Path('docs/sources').glob('*.skills.json'):
-              for item in json.loads(p.read_text()).get('skills', []):
-                  if item.get('status') in ('in_house', 'verified_in_repo'):
-                      entries[item.get('normalized_slug')] = item
-          tasks = []
-          for result in check['results']:
-              if result['status'] not in ('monitor_review', 'artifact_changed', 'unavailable'):
-                  continue
-              item = entries.get(result['name'], {})
-              changed = set(result.get('changed_files', [])) | {item.get('repo_skill')}
-              for origin in item.get('origins', []):
-                  repo = origin.get('repo', '')
-                  if repo != result.get('repository') or not re.fullmatch(r'[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+', repo):
-                      continue
-                  new = result.get('current_commit', '')
-                  old = origin.get('tracking', {}).get('resolved_commit', '')
-                  if not all(re.fullmatch(r'[0-9a-f]{40}', str(c)) for c in (old, new)):
-                      continue
-                  for artifact in origin.get('artifacts', []):
-                      target, source = artifact.get('target'), artifact.get('source')
-                      if target not in changed or not isinstance(source, str):
-                          continue
-                      if source.endswith(('.md', '.py', '.js', '.mjs', '.json', '.yaml', '.yml', '.sh', '.txt')):
-                          tasks.append((result['name'], repo, source, target, old, new))
-          def fetch(repo, commit, source):
-              url = 'https://raw.githubusercontent.com/' + repo + '/' + commit + '/' + urllib.parse.quote(source, safe='/')
-              for attempt in range(3):
-                  try:
-                      with urllib.request.urlopen(url, timeout=25) as response:
-                          data = response.read(2_000_001)
-                      if len(data) > 2_000_000:
-                          return None, 'over size limit'
-                      return data.decode('utf-8'), None
-                  except (OSError, UnicodeError) as error:
-                      if attempt == 2 or getattr(error, 'code', None) == 404:
-                          return None, str(error)
-                      time.sleep(attempt + 1)
-          def collect(task):
-              name, repo, source, target, old, new = task
-              previous, old_error = fetch(repo, old, source)
-              current, new_error = fetch(repo, new, source)
-              local_path = pathlib.Path(target)
-              local = local_path.read_text() if local_path.is_file() else None
-              record = dict(name=name, repository=repo, source=source, target=target, old_commit=old, new_commit=new, old=previous, new=current, local=local, old_error=old_error, new_error=new_error)
-              if previous is not None and current is not None:
-                  record['diff'] = ''.join(difflib.unified_diff(previous.splitlines(True), current.splitlines(True), fromfile=old+':'+source, tofile=new+':'+source, n=3))
-              return record
-          with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:
-              records = list(pool.map(collect, tasks))
-          (out/'review.json').write_text(json.dumps(records, ensure_ascii=False, indent=2))
-          summary = {'files': len(records), 'changed': sum(bool(x.get('diff')) for x in records), 'unavailable': sum(bool(x['old_error'] or x['new_error']) for x in records)}
-          (out/'summary.json').write_text(json.dumps(summary, indent=2))
-          print(json.dumps(summary))
-          PY
-      - name: Assert no repository mutations
-        run: git diff --exit-code
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/stable-review"
+          python scripts/sync_upstream.py --apply --source github:NousResearch/hermes-agent --report-json "$RUNNER_TEMP/stable-review/report.json" > "$RUNNER_TEMP/stable-review/sync.log" 2>&1
+          git diff --binary > "$RUNNER_TEMP/stable-review/stable.patch"
+          git diff --stat
+          cat "$RUNNER_TEMP/stable-review/sync.log"
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: always()
         with:
-          name: maintenance-upstream-review
-          path: ${{ runner.temp }}/upstream-review/
+          name: maintenance-stable-update
+          path: ${{ runner.temp }}/stable-review/
           retention-days: 7
           if-no-files-found: error
