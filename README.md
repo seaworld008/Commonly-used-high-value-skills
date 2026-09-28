@@ -10,6 +10,20 @@
 
 面向全球 AI 开发者与 Agent 工作流构建者的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理等高频任务场景。当前共 **16 个分类 / 286 个技能**。
 
+
+## v3.1.0 维护与安全更新
+
+[全仓审计与取舍记录](docs/maintenance-audit-2026-09-28.md)说明本次修复、来源检查及未解决边界。普通安装先暂存和校验，再替换目标；用户修改或未托管副本会保存在目标目录同级的 `.high-value-skills-backups/`。这不是所有目标的一次性事务，异常时应检查输出与备份，不要手动删除旧副本。
+
+先按需安装，避免把全部技能放入每个客户端；`--all` 表示所有客户端目标，而不是推荐配置。
+
+```bash
+# 先预览，再去掉 --dry-run 执行；仅安装需要的技能
+npx github:seaworld008/Commonly-used-high-value-skills#v3.1.0 install --target codex --skill systematic-debugging,cc-devops-skills,release-manager --dry-run
+```
+
+依赖审计器不再把硬编码漏洞和模拟版本当作真实结论。`dep_scanner.py` 是离线清单工具；漏洞状态为 `not_assessed`。旧 `--fail-on-high` 与退役的模拟升级规划入口返回退出码 2，安全门禁请改用有实时证据的生态扫描器。
+
 ## 为什么值得收藏
 
 - 一次收齐高频可复用 Skills，减少到处找 prompt、脚本和工作流的时间。
@@ -401,7 +415,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `codebase-onboarding`：生成代码库架构、环境搭建和常见开发任务的入门指南。
 - `database-designer`：设计和优化数据库结构、查询及迁移方案。
 - `database-schema-designer`：设计数据表、约束、索引、迁移和行级权限策略。
-- `dependency-auditor`：检查依赖版本、漏洞、许可证和升级风险。
+- `dependency-auditor`：梳理依赖清单，核实漏洞与许可证证据，规划可验证的升级。
 - `docker-expert`：用于 Docker 容器化最佳实践、多阶段构建优化与 Docker Compose 编排。
 - `frontend-design`：用于创建高质量、非模板化的前端页面、组件、仪表盘、海报和 Web UI。
 - `gateway`：接口设计、规范生成、版本策略和破坏性变更检查。

@@ -2,14 +2,14 @@
 name: graphify
 description: 'Build, query, or refresh Graphify knowledge graphs for code and documents when graph-based relationship analysis is useful or explicitly requested.'
 zh_description: "将代码、文档和多媒体资料映射为持久知识图谱，支持社区发现、路径查询、解释和影响分析。"
-version: "1.0.7"
+version: "1.0.8"
 author: "Graphify-Labs"
 source: "github:Graphify-Labs/graphify"
 source_url: "https://github.com/Graphify-Labs/graphify/blob/v0.9.47/graphify/skill-codex.md"
 license: Apache-2.0
 tags: '["development", "graphify"]'
 created_at: "2026-04-13"
-updated_at: "2026-09-06"
+updated_at: "2026-09-28"
 quality: 5
 complexity: "intermediate"
 ---
@@ -107,8 +107,14 @@ fi
 # Write interpreter path for all subsequent steps (persists across invocations)
 mkdir -p graphify-out
 "$PYTHON" -c "import sys; open('graphify-out/.graphify_python', 'w', encoding='utf-8').write(sys.executable)"
-# Save scan root so `graphify update` (no args) knows where to look next time
-echo "$(cd INPUT_PATH && pwd)" > graphify-out/.graphify_root
+# Save scan root so `graphify update` (no args) knows where to look next time.
+# The scan path is passed through a quoted heredoc, never substituted into the
+# command line itself: a bare `cd <path>` (or an unquoted heredoc, which
+# still expands $()/backticks in its body) would let a malicious path execute
+# as shell code the moment this line runs.
+"$PYTHON" -c "import os, sys; out_path = os.path.abspath('graphify-out/.graphify_root'); os.chdir(sys.stdin.readline().rstrip('\n')); open(out_path, 'w', encoding='utf-8').write(os.getcwd())" <<'GRAPHIFY_ROOT_EOF'
+INPUT_PATH
+GRAPHIFY_ROOT_EOF
 ```
 
 If the import succeeds, print nothing and move straight to Step 2.

@@ -20,6 +20,7 @@ class NpxInstallerTests(unittest.TestCase):
         (repo / "bin").mkdir(parents=True)
         (repo / "docs" / "sources").mkdir(parents=True)
         shutil.copy2(INSTALLER, repo / "bin" / INSTALLER.name)
+        shutil.copy2(REPO_ROOT / "bin/npm-command.js", repo / "bin/npm-command.js")
         (repo / "package.json").write_text(
             json.dumps({"name": "bundle-gate-test", "version": "1.0.0"}),
             encoding="utf-8",
@@ -129,7 +130,7 @@ fs.writeFileSync(process.env.FAKE_NPX_LOG, JSON.stringify(args));
         data = json.loads(PACKAGE_JSON.read_text(encoding="utf-8"))
 
         self.assertEqual("common-high-value-skills", data["name"])
-        self.assertEqual("3.0.0", data["version"])
+        self.assertEqual("3.1.0", data["version"])
         self.assertEqual("bin/install-skills.js", data["bin"]["high-value-skills"])
         self.assertIn("skills/", data["files"])
         self.assertIn(

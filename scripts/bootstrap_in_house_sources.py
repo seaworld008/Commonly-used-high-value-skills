@@ -157,6 +157,15 @@ def build_verification_attempts(
     return attempts
 
 
+def without_check_dates(entry: dict) -> dict:
+    """Compare provenance facts without treating a fresh scan as a content edit."""
+    value = deepcopy(entry)
+    value.get("upstream", {}).pop("last_checked_at", None)
+    for origin in value.get("origins", []):
+        origin.get("tracking", {}).pop("last_checked_at", None)
+    return value
+
+
 def build_in_house_mapping(
     *,
     repo_root: Path,
@@ -164,6 +173,7 @@ def build_in_house_mapping(
     target_mapping: Path | None = None,
     existing_payload: dict | None = None,
     today: str | None = None,
+    record_check: bool = False,
 ) -> dict:
     today = today or date.today().isoformat()
     skill_files = sorted(repo_root.glob("skills/*/*/SKILL.md"))
@@ -224,11 +234,30 @@ def build_in_house_mapping(
             skill_count=len(skills),
         ),
     }
-    return migrate_payload(payload, repo_root, local_tracking_date=today)
+    migrated = migrate_payload(payload, repo_root, local_tracking_date=today)
+    if existing_payload and not record_check:
+        # Generators must be reproducible across dates. Only check timestamps are
+        # ignored: hashes, modes, artifacts, licenses, and sync checkpoints must
+        # still reflect real changes, never be hidden by an old snapshot.
+        for entry in migrated["skills"]:
+            previous = existing_by_path.get(entry.get("repo_skill"))
+            if previous and without_check_dates(entry) == without_check_dates(previous):
+                entry.clear()
+                entry.update(deepcopy(previous))
+        comparable = deepcopy(migrated)
+        old_comparable = deepcopy(existing_payload)
+        for value in (comparable, old_comparable):
+            value.pop("verification_attempts", None)
+            value.get("video", {}).pop("checked_at", None)
+        if comparable == old_comparable:
+            migrated["video"]["checked_at"] = existing_payload.get("video", {}).get("checked_at")
+            migrated["verification_attempts"] = deepcopy(existing_payload.get("verification_attempts", []))
+    return migrated
 
 
 def main() -> int:
     parser = argparse.ArgumentParser()
+    parser.add_argument("--record-check", action="store_true", help="Record a fresh local scan even when source facts are unchanged")
     parser.add_argument("--write-json", default="docs/sources/in-house.skills.json")
     parser.add_argument(
         "--repo-url",
@@ -243,6 +272,7 @@ def main() -> int:
         repo_url=args.repo_url,
         target_mapping=out,
         existing_payload=load_existing_payload(out),
+        record_check=args.record_check,
     )
 
     out.parent.mkdir(parents=True, exist_ok=True)

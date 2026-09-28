@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-Dependency Scanner - Multi-language dependency vulnerability and analysis tool.
+Dependency Scanner - Best-effort, offline dependency inventory.
 
-This script parses dependency files from various package managers, extracts direct
-and transitive dependencies, checks against built-in vulnerability databases,
-and provides comprehensive security analysis with actionable recommendations.
+This script inventories selected manifests and lockfiles without network access.
+It does not assess vulnerabilities. Use maintained ecosystem scanners for security
+gates; legacy --fail-on-high exits 2 when no assessment is available.
 
 Author: Claude Skills Engineering Team
 License: MIT
@@ -54,7 +54,6 @@ class DependencyScanner:
     """Main dependency scanner class."""
     
     def __init__(self):
-        self.known_vulnerabilities = self._load_vulnerability_database()
         self.supported_files = {
             'package.json': self._parse_package_json,
             'package-lock.json': self._parse_package_lock,
@@ -64,140 +63,17 @@ class DependencyScanner:
             'Pipfile.lock': self._parse_pipfile_lock,
             'poetry.lock': self._parse_poetry_lock,
             'go.mod': self._parse_go_mod,
-            'go.sum': self._parse_go_sum,
             'Cargo.toml': self._parse_cargo_toml,
             'Cargo.lock': self._parse_cargo_lock,
             'Gemfile': self._parse_gemfile,
             'Gemfile.lock': self._parse_gemfile_lock,
         }
     
-    def _load_vulnerability_database(self) -> Dict[str, List[Vulnerability]]:
-        """Load built-in vulnerability database with common CVE patterns."""
-        return {
-            # JavaScript/Node.js vulnerabilities
-            'lodash': [
-                Vulnerability(
-                    id='CVE-2021-23337',
-                    summary='Prototype pollution in lodash',
-                    severity='HIGH',
-                    cvss_score=7.2,
-                    affected_versions='<4.17.21',
-                    fixed_version='4.17.21',
-                    published_date='2021-02-15',
-                    references=['https://nvd.nist.gov/vuln/detail/CVE-2021-23337']
-                )
-            ],
-            'axios': [
-                Vulnerability(
-                    id='CVE-2023-45857',
-                    summary='Cross-site request forgery in axios',
-                    severity='MEDIUM',
-                    cvss_score=6.1,
-                    affected_versions='>=1.0.0 <1.6.0',
-                    fixed_version='1.6.0',
-                    published_date='2023-10-11',
-                    references=['https://nvd.nist.gov/vuln/detail/CVE-2023-45857']
-                )
-            ],
-            'express': [
-                Vulnerability(
-                    id='CVE-2022-24999',
-                    summary='Open redirect in express',
-                    severity='MEDIUM',
-                    cvss_score=6.1,
-                    affected_versions='<4.18.2',
-                    fixed_version='4.18.2',
-                    published_date='2022-11-26',
-                    references=['https://nvd.nist.gov/vuln/detail/CVE-2022-24999']
-                )
-            ],
-            
-            # Python vulnerabilities
-            'django': [
-                Vulnerability(
-                    id='CVE-2024-27351',
-                    summary='SQL injection in Django',
-                    severity='HIGH',
-                    cvss_score=9.8,
-                    affected_versions='>=3.2 <4.2.11',
-                    fixed_version='4.2.11',
-                    published_date='2024-02-06',
-                    references=['https://nvd.nist.gov/vuln/detail/CVE-2024-27351']
-                )
-            ],
-            'requests': [
-                Vulnerability(
-                    id='CVE-2023-32681',
-                    summary='Proxy-authorization header leak in requests',
-                    severity='MEDIUM',
-                    cvss_score=6.1,
-                    affected_versions='>=2.3.0 <2.31.0',
-                    fixed_version='2.31.0',
-                    published_date='2023-05-26',
-                    references=['https://nvd.nist.gov/vuln/detail/CVE-2023-32681']
-                )
-            ],
-            'pillow': [
-                Vulnerability(
-                    id='CVE-2023-50447',
-                    summary='Arbitrary code execution in Pillow',
-                    severity='HIGH',
-                    cvss_score=8.8,
-                    affected_versions='<10.2.0',
-                    fixed_version='10.2.0',
-                    published_date='2024-01-02',
-                    references=['https://nvd.nist.gov/vuln/detail/CVE-2023-50447']
-                )
-            ],
-            
-            # Go vulnerabilities
-            'github.com/gin-gonic/gin': [
-                Vulnerability(
-                    id='CVE-2023-26125',
-                    summary='Path traversal in gin',
-                    severity='HIGH',
-                    cvss_score=7.5,
-                    affected_versions='<1.9.1',
-                    fixed_version='1.9.1',
-                    published_date='2023-02-28',
-                    references=['https://nvd.nist.gov/vuln/detail/CVE-2023-26125']
-                )
-            ],
-            
-            # Rust vulnerabilities
-            'serde': [
-                Vulnerability(
-                    id='RUSTSEC-2022-0061',
-                    summary='Deserialization vulnerability in serde',
-                    severity='HIGH',
-                    cvss_score=8.2,
-                    affected_versions='<1.0.152',
-                    fixed_version='1.0.152',
-                    published_date='2022-12-07',
-                    references=['https://rustsec.org/advisories/RUSTSEC-2022-0061']
-                )
-            ],
-            
-            # Ruby vulnerabilities
-            'rails': [
-                Vulnerability(
-                    id='CVE-2023-28362',
-                    summary='ReDoS vulnerability in Rails',
-                    severity='HIGH',
-                    cvss_score=7.5,
-                    affected_versions='>=7.0.0 <7.0.4.3',
-                    fixed_version='7.0.4.3',
-                    published_date='2023-03-13',
-                    references=['https://nvd.nist.gov/vuln/detail/CVE-2023-28362']
-                )
-            ]
-        }
-    
-    def scan_project(self, project_path: str) -> Dict[str, Any]:
-        """Scan a project directory for dependencies and vulnerabilities."""
+    def scan_project(self, project_path: str, *, quick_scan: bool = False) -> Dict[str, Any]:
+        """Inventory dependencies; never interpret absent advisory data as safe."""
         project_path = Path(project_path)
         
-        if not project_path.exists():
+        if not project_path.is_dir():
             raise FileNotFoundError(f"Project path does not exist: {project_path}")
         
         scan_results = {
@@ -210,7 +86,15 @@ class DependencyScanner:
             'low_severity_count': 0,
             'ecosystems': set(),
             'scan_summary': {},
-            'recommendations': []
+            'recommendations': [],
+            'inventory_status': 'best_effort',
+            'vulnerability_status': 'not_assessed',
+            'advisory_source': None,
+            'parse_errors': [],
+            'inventory_notes': [
+                'go.sum is checksum evidence, not a resolved dependency lockfile; it is not parsed.',
+                'Manifest version ranges and simplified parsers are not an authoritative build graph.',
+            ],
         }
         
         # Find and parse dependency files
@@ -220,88 +104,22 @@ class DependencyScanner:
             for dep_file in matching_files:
                 try:
                     dependencies = parser(dep_file)
+                    if quick_scan:
+                        dependencies = [dep for dep in dependencies if dep.direct]
                     scan_results['dependencies'].extend(dependencies)
                     
                     for dep in dependencies:
                         scan_results['ecosystems'].add(dep.ecosystem)
                         
-                        # Check for vulnerabilities
-                        vulnerabilities = self._check_vulnerabilities(dep)
-                        dep.vulnerabilities = vulnerabilities
-                        
-                        scan_results['vulnerabilities_found'] += len(vulnerabilities)
-                        
-                        for vuln in vulnerabilities:
-                            if vuln.severity == 'HIGH':
-                                scan_results['high_severity_count'] += 1
-                            elif vuln.severity == 'MEDIUM':
-                                scan_results['medium_severity_count'] += 1
-                            else:
-                                scan_results['low_severity_count'] += 1
-                
                 except Exception as e:
-                    print(f"Error parsing {dep_file}: {e}")
-                    continue
-        
+                    scan_results['parse_errors'].append({'path': str(dep_file), 'error': str(e)})
+                    scan_results['inventory_status'] = 'partial'
+
         scan_results['ecosystems'] = list(scan_results['ecosystems'])
         scan_results['scan_summary'] = self._generate_scan_summary(scan_results)
         scan_results['recommendations'] = self._generate_recommendations(scan_results)
         
         return scan_results
-    
-    def _check_vulnerabilities(self, dependency: Dependency) -> List[Vulnerability]:
-        """Check if a dependency has known vulnerabilities."""
-        vulnerabilities = []
-        
-        # Check package name (exact match and common variations)
-        package_names = [dependency.name, dependency.name.lower()]
-        
-        for pkg_name in package_names:
-            if pkg_name in self.known_vulnerabilities:
-                for vuln in self.known_vulnerabilities[pkg_name]:
-                    if self._version_matches_vulnerability(dependency.version, vuln.affected_versions):
-                        vulnerabilities.append(vuln)
-        
-        return vulnerabilities
-    
-    def _version_matches_vulnerability(self, version: str, affected_pattern: str) -> bool:
-        """Check if a version matches a vulnerability pattern."""
-        # Simple version matching - in production, use proper semver library
-        try:
-            # Handle common patterns like "<4.17.21", ">=1.0.0 <1.6.0"
-            if '<' in affected_pattern and '>' not in affected_pattern:
-                # Pattern like "<4.17.21"
-                max_version = affected_pattern.replace('<', '').strip()
-                return self._compare_versions(version, max_version) < 0
-            elif '>=' in affected_pattern and '<' in affected_pattern:
-                # Pattern like ">=1.0.0 <1.6.0"
-                parts = affected_pattern.split('<')
-                min_part = parts[0].replace('>=', '').strip()
-                max_part = parts[1].strip()
-                return (self._compare_versions(version, min_part) >= 0 and 
-                       self._compare_versions(version, max_part) < 0)
-        except:
-            pass
-        
-        return False
-    
-    def _compare_versions(self, v1: str, v2: str) -> int:
-        """Simple version comparison. Returns -1, 0, or 1."""
-        try:
-            def normalize(v):
-                return [int(x) for x in re.sub(r'(\.0+)*$','', v).split('.')]
-            
-            v1_parts = normalize(v1)
-            v2_parts = normalize(v2)
-            
-            if v1_parts < v2_parts:
-                return -1
-            elif v1_parts > v2_parts:
-                return 1
-            else:
-                return 0
-        except:
-            return 0
     
     # Package file parsers
     
@@ -326,7 +144,7 @@ class DependencyScanner:
                         dependencies.append(dep)
         
         except Exception as e:
-            print(f"Error parsing package.json: {e}")
+            raise ValueError(f"Error parsing package.json: {e}") from e
         
         return dependencies
     
@@ -356,7 +174,7 @@ class DependencyScanner:
                     dependencies.append(dep)
         
         except Exception as e:
-            print(f"Error parsing package-lock.json: {e}")
+            raise ValueError(f"Error parsing package-lock.json: {e}") from e
         
         return dependencies
     
@@ -410,7 +228,7 @@ class DependencyScanner:
                     package_spec = None
         
         except Exception as e:
-            print(f"Error parsing yarn.lock: {e}")
+            raise ValueError(f"Error parsing yarn.lock: {e}") from e
         
         return dependencies
     
@@ -438,7 +256,7 @@ class DependencyScanner:
                         dependencies.append(dep)
         
         except Exception as e:
-            print(f"Error parsing requirements.txt: {e}")
+            raise ValueError(f"Error parsing requirements.txt: {e}") from e
         
         return dependencies
     
@@ -467,7 +285,7 @@ class DependencyScanner:
                             dependencies.append(dep)
         
         except Exception as e:
-            print(f"Error parsing pyproject.toml: {e}")
+            raise ValueError(f"Error parsing pyproject.toml: {e}") from e
         
         return dependencies
     
@@ -492,7 +310,7 @@ class DependencyScanner:
                         dependencies.append(dep)
         
         except Exception as e:
-            print(f"Error parsing Pipfile.lock: {e}")
+            raise ValueError(f"Error parsing Pipfile.lock: {e}") from e
         
         return dependencies
     
@@ -517,7 +335,7 @@ class DependencyScanner:
                 dependencies.append(dep)
         
         except Exception as e:
-            print(f"Error parsing poetry.lock: {e}")
+            raise ValueError(f"Error parsing poetry.lock: {e}") from e
         
         return dependencies
     
@@ -546,13 +364,9 @@ class DependencyScanner:
                         dependencies.append(dep)
         
         except Exception as e:
-            print(f"Error parsing go.mod: {e}")
+            raise ValueError(f"Error parsing go.mod: {e}") from e
         
         return dependencies
-    
-    def _parse_go_sum(self, file_path: Path) -> List[Dependency]:
-        """Parse go.sum for Go dependency checksums."""
-        return []  # go.sum mainly contains checksums, dependencies are in go.mod
     
     def _parse_cargo_toml(self, file_path: Path) -> List[Dependency]:
         """Parse Cargo.toml for Rust dependencies."""
@@ -578,7 +392,7 @@ class DependencyScanner:
                         dependencies.append(dep)
         
         except Exception as e:
-            print(f"Error parsing Cargo.toml: {e}")
+            raise ValueError(f"Error parsing Cargo.toml: {e}") from e
         
         return dependencies
     
@@ -603,7 +417,7 @@ class DependencyScanner:
                 dependencies.append(dep)
         
         except Exception as e:
-            print(f"Error parsing Cargo.lock: {e}")
+            raise ValueError(f"Error parsing Cargo.lock: {e}") from e
         
         return dependencies
     
@@ -631,7 +445,7 @@ class DependencyScanner:
                 dependencies.append(dep)
         
         except Exception as e:
-            print(f"Error parsing Gemfile: {e}")
+            raise ValueError(f"Error parsing Gemfile: {e}") from e
         
         return dependencies
     
@@ -659,7 +473,7 @@ class DependencyScanner:
                     dependencies.append(dep)
         
         except Exception as e:
-            print(f"Error parsing Gemfile.lock: {e}")
+            raise ValueError(f"Error parsing Gemfile.lock: {e}") from e
         
         return dependencies
     
@@ -682,7 +496,7 @@ class DependencyScanner:
     
     def _generate_recommendations(self, scan_results: Dict[str, Any]) -> List[str]:
         """Generate actionable recommendations based on scan results."""
-        recommendations = []
+        recommendations = ["Run a maintained ecosystem advisory scanner: vulnerabilities are NOT ASSESSED by this offline inventory."]
         
         high_count = scan_results['high_severity_count']
         medium_count = scan_results['medium_severity_count']
@@ -726,7 +540,8 @@ class DependencyScanner:
         # Text format report
         report = []
         report.append("=" * 60)
-        report.append("DEPENDENCY SECURITY SCAN REPORT")
+        report.append("DEPENDENCY INVENTORY REPORT")
+        report.append("Vulnerability assessment: NOT ASSESSED (no advisory database)")
         report.append("=" * 60)
         report.append(f"Scan Date: {scan_results['timestamp']}")
         report.append(f"Project: {scan_results['project_path']}")
@@ -773,7 +588,7 @@ class DependencyScanner:
 def main():
     """Main entry point for the dependency scanner."""
     parser = argparse.ArgumentParser(
-        description='Scan project dependencies for vulnerabilities and security issues',
+        description='Inventory project dependencies offline; this is not a vulnerability scanner',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
@@ -790,7 +605,7 @@ Examples:
     parser.add_argument('--output', '-o',
                        help='Output file path (default: stdout)')
     parser.add_argument('--fail-on-high', action='store_true',
-                       help='Exit with error code if high-severity vulnerabilities found')
+                       help='Legacy security gate: exits 2 because vulnerabilities are not assessed')
     parser.add_argument('--quick-scan', action='store_true',
                        help='Perform quick scan (skip transitive dependencies)')
     
@@ -798,7 +613,7 @@ Examples:
     
     try:
         scanner = DependencyScanner()
-        results = scanner.scan_project(args.project_path)
+        results = scanner.scan_project(args.project_path, quick_scan=args.quick_scan)
         report = scanner.generate_report(results, args.format)
         
         if args.output:
@@ -808,9 +623,12 @@ Examples:
         else:
             print(report)
         
-        # Exit with error if high-severity vulnerabilities found and --fail-on-high is set
-        if args.fail_on_high and results['high_severity_count'] > 0:
-            sys.exit(1)
+        # Fail closed: missing advisory coverage must never pass a security gate.
+        if args.fail_on_high:
+            print('Security gate unavailable: run a maintained vulnerability scanner.', file=sys.stderr)
+            sys.exit(2)
+        if results['parse_errors']:
+            sys.exit(2)
     
     except Exception as e:
         print(f"Error: {e}", file=sys.stderr)

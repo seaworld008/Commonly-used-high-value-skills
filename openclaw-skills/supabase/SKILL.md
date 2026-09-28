@@ -2,14 +2,14 @@
 name: supabase
 description: 'Build or troubleshoot Supabase Database, Auth, Storage, Realtime, Edge Functions, and client/SSR integrations; use current platform documentation.'
 zh_description: "开发和排查 Supabase 数据库、认证、存储及应用集成。"
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:supabase/agent-skills"
 source_url: "https://skills.sh/supabase/agent-skills/supabase"
 license: MIT
 tags: '["development", "supabase"]'
 created_at: "2026-06-03"
-updated_at: "2026-09-07"
+updated_at: "2026-09-28"
 quality: 4
 complexity: "intermediate"
 metadata:
@@ -186,3 +186,18 @@ source is intentionally concise.
 - Treat skill selection as routing, not ceremony: invoke only the narrowest
   applicable workflow and keep user or repository instructions authoritative.
 <!-- LOCAL-QUALITY-SUPPLEMENT:END -->
+
+## Scoped Automation Credentials
+
+For Management API, CLI, or MCP automation, prefer an existing scoped personal
+access token limited to the required projects and permissions over an account-wide
+classic token. Use the host's authorized connection where available; never request
+a token in chat or print it. Consult the official personal-access-token guide for
+endpoint and MCP permission names rather than guessing them. Scoped tokens are
+being rolled out; unavailable account features must be reported, not assumed.
+
+A token permission boundary does not constrain commands authenticated separately
+with a database password. Treat direct SQL and migration credentials as a separate
+access boundary. A permission failure is not a reason to silently expand token scope.
+
+Reference: https://supabase.com/docs/guides/platform/personal-access-tokens.md

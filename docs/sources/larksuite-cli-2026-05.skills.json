@@ -2041,7 +2041,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/knowledge-and-pm-integrations/lark-mail/SKILL.md",
       "source": "https://github.com/larksuite/cli/tree/main/skills/lark-mail",
-      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 1 upstream whitespace-only sidecar defect(s) are normalized by an explicit local curation overlay.",
+      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 1 upstream whitespace-only sidecar defect(s) are normalized by an explicit local curation overlay. 2026-09-28: curated reviewed deltas from 32e14dea9041e7876c8b41aead963b10866267d1; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences.",
       "upstream": {
         "repo": "larksuite/cli",
         "path": "skills/lark-mail/SKILL.md",
@@ -2232,7 +2232,7 @@
             "ref": "main",
             "resolved_commit": "39aaf9fca0e08825b51f6d8c6c617bf781db761b",
             "path_commit": "3e8b6c6659e9e757b54f306da0631ff99dae7e61",
-            "content_sha256": "a1625f4f335c8deba225eb2b6d11664181ee22d8ca84ab340ef6e4a89bbfce9a",
+            "content_sha256": "9f15d14079235c130258f63a8a24c02e656edb4d5805019e2364d23fe78d2757",
             "last_checked_at": "2026-09-14",
             "last_synced_at": "2026-09-14",
             "license_checkpoint": {
@@ -2271,7 +2271,7 @@
       "managed_files": [
         {
           "path": "skills/knowledge-and-pm-integrations/lark-mail/SKILL.md",
-          "sha256": "a1625f4f335c8deba225eb2b6d11664181ee22d8ca84ab340ef6e4a89bbfce9a",
+          "sha256": "9f15d14079235c130258f63a8a24c02e656edb4d5805019e2364d23fe78d2757",
           "owner": "lark-mail",
           "mode": "100644"
         },
@@ -2463,13 +2463,13 @@
         },
         {
           "path": "skills/knowledge-and-pm-integrations/lark-mail/references/lark-mail-triage.md",
-          "sha256": "9b4a82d6051255d32170a14150c53937e762d48a08250cc2ec99e653b3350cfd",
+          "sha256": "50a76723fcaa1b697edf1fcf0713ae79fd087a7edf6072bec9075fd64726fd19",
           "owner": "lark-mail",
           "mode": "100644"
         },
         {
           "path": "skills/knowledge-and-pm-integrations/lark-mail/references/lark-mail-watch.md",
-          "sha256": "36025370e4ea9f16463e98f118b823dfbcadd84127355b1fb59c141ec5a0ff7b",
+          "sha256": "4b9fe92dd0fcb9bfd3802febbd5dc7b1cd844b1acba3a6a522fedcaa9c1365d6",
           "owner": "lark-mail",
           "mode": "100644"
         }
@@ -4561,7 +4561,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/knowledge-and-pm-integrations/lark-meeting/SKILL.md",
       "source": "https://github.com/larksuite/cli/tree/56ad837c3d8f4c49d6b9725a3530c37408533ead/skills/lark-meeting",
-      "notes": "Official unified Lark meeting workflow reviewed at commit 56ad837c3d8f4c49d6b9725a3530c37408533ead; merged lark-minutes, lark-vc, and lark-vc-agent while preserving the local cross-domain boundary reference.",
+      "notes": "Official unified Lark meeting workflow reviewed at commit 56ad837c3d8f4c49d6b9725a3530c37408533ead; merged lark-minutes, lark-vc, and lark-vc-agent while preserving the local cross-domain boundary reference. 2026-09-28: curated reviewed deltas from 32e14dea9041e7876c8b41aead963b10866267d1; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences.",
       "upstream": {
         "repo": "larksuite/cli",
         "path": "skills/lark-meeting/SKILL.md",
@@ -4717,7 +4717,7 @@
             "ref": "main",
             "resolved_commit": "39aaf9fca0e08825b51f6d8c6c617bf781db761b",
             "path_commit": "5d6bf9fa3b8afedca9ae3c490ed38c2657f6ff81",
-            "content_sha256": "36c0f6861104d6a6eaf13c312c1970bc51c64656dde4908867fbbe42283fcdea",
+            "content_sha256": "479b1eb3034470ec6ab5ece654677e4b354850a7625c407d5bd1447e82f30dd5",
             "last_checked_at": "2026-09-14",
             "last_synced_at": "2026-09-14",
             "license_checkpoint": {
@@ -4756,7 +4756,7 @@
       "managed_files": [
         {
           "path": "skills/knowledge-and-pm-integrations/lark-meeting/SKILL.md",
-          "sha256": "36c0f6861104d6a6eaf13c312c1970bc51c64656dde4908867fbbe42283fcdea",
+          "sha256": "479b1eb3034470ec6ab5ece654677e4b354850a7625c407d5bd1447e82f30dd5",
           "owner": "lark-meeting",
           "mode": "100644"
         },
@@ -4846,7 +4846,7 @@
         },
         {
           "path": "skills/knowledge-and-pm-integrations/lark-meeting/references/lark-vc-meeting-events.md",
-          "sha256": "1336b9a4004a33e1bd887dba04a6788a8a6a9ab84335223fb69bf5b59cddb868",
+          "sha256": "3cb32d9cddfc0b79f8e50b86f6b79367f69b60d98848835a1dccfbc291403a86",
           "owner": "lark-meeting",
           "mode": "100644"
         },
@@ -4888,13 +4888,13 @@
         },
         {
           "path": "skills/knowledge-and-pm-integrations/lark-meeting/scenes/live-meeting-attend.md",
-          "sha256": "bc6732d46b1b2b9c3984db496695442ac18d2864b1371b99745d7bfa917320a2",
+          "sha256": "eab018ec7b3c2719e45a9d1e643a96aeba11832760aac9356424636e538a57e8",
           "owner": "lark-meeting",
           "mode": "100644"
         },
         {
           "path": "skills/knowledge-and-pm-integrations/lark-meeting/scenes/live-meeting-interact.md",
-          "sha256": "5cdab1c8853eb2bf3842bcca9b6bd99e75c63740837147e308f8faf35b9534a4",
+          "sha256": "50043d1f7c128963eb495605aa84e9573dc2754443c0e8e456e165c0b63f364f",
           "owner": "lark-meeting",
           "mode": "100644"
         },

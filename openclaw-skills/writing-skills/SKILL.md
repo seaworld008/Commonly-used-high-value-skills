@@ -2,14 +2,14 @@
 name: writing-skills
 description: 'Use when creating new skills, editing existing skills, or verifying skills work before deployment'
 zh_description: "编写可复用的技能指导并验证实际触发和执行行为。"
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:obra/superpowers"
 source_url: "https://github.com/obra/superpowers/blob/main/skills/writing-skills/SKILL.md"
 license: MIT
 tags: '["skills", "authoring", "workflow"]'
 created_at: "2026-04-13"
-updated_at: "2026-09-06"
+updated_at: "2026-09-28"
 quality: 4
 complexity: "intermediate"
 ---
@@ -484,3 +484,13 @@ How future agents find your skill:
 6. **Loads example** (only when implementing)
 
 **Optimize for this flow** - put searchable terms early and often.
+
+## Node Helper Runtime
+
+The bundled `package.json` marks this skill directory as an ES module scope.
+Keep it beside the helper files when copying the skill into a CommonJS project.
+This scope declaration does not install dependencies or change the parent project.
+
+Invoke packaged helpers through their interpreters, for example
+`node render-graphs.js /path/to/skill` or `bash scripts/tool.sh`.
+Do not assume a client package preserves executable bits.

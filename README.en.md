@@ -12,6 +12,20 @@ A high-value skills repository for AI developers, organized by real work scenari
 
 This repository currently contains **16 categories / 286 skills**.
 
+
+## v3.1.0 Maintenance and Safer Updates
+
+The [repository audit and decisions](docs/maintenance-audit-2026-09-28.md) record fixes, upstream coverage, and unresolved boundaries. Normal installation stages and verifies each replacement first; modified or unowned copies are archived in `.high-value-skills-backups/` beside the destination. This is not one atomic transaction across all targets: inspect errors and backups rather than deleting an old copy manually.
+
+Install only what a client needs. `--all` means all client targets, not a recommended default.
+
+```bash
+# Preview first; remove --dry-run only after reviewing the destination and selection
+npx github:seaworld008/Commonly-used-high-value-skills#v3.1.0 install --target codex --skill systematic-debugging,cc-devops-skills,release-manager --dry-run
+```
+
+The dependency auditor no longer presents hard-coded advisories or simulated versions as facts. `dep_scanner.py` is an offline inventory tool with vulnerability status `not_assessed`. Its legacy `--fail-on-high` gate and the retired simulated upgrade planner exit 2; use maintained ecosystem scanners for security gates.
+
 ## Who This Is For
 
 - AI developers using `Codex`, `Claude Code`, `Hermes Agent`, or similar coding assistants

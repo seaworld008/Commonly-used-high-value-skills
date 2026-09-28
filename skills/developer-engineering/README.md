@@ -10,7 +10,7 @@
 
 - [aws-solution-architect](./aws-solution-architect/) - 用于 AWS 云架构设计、服务选型、成本优化与 Well-Architected Framework 评估。
 - [cli-demo-generator](./cli-demo-generator/) - 把命令行操作制作成终端录屏和动态演示 GIF。
-- [dependency-auditor](./dependency-auditor/) - 检查依赖版本、漏洞、许可证和升级风险。
+- [dependency-auditor](./dependency-auditor/) - 梳理依赖清单，核实漏洞与许可证证据，规划可验证的升级。
 - [migration-architect](./migration-architect/) - 规划可回滚、低停机的数据和系统迁移。
 
 ## 技能总览
@@ -27,7 +27,7 @@
 | `codebase-onboarding` | 生成代码库架构、环境搭建和常见开发任务的入门指南。 | [目录](./codebase-onboarding/) | [SKILL.md](./codebase-onboarding/SKILL.md) |
 | `database-designer` | 设计和优化数据库结构、查询及迁移方案。 | [目录](./database-designer/) | [SKILL.md](./database-designer/SKILL.md) |
 | `database-schema-designer` | 设计数据表、约束、索引、迁移和行级权限策略。 | [目录](./database-schema-designer/) | [SKILL.md](./database-schema-designer/SKILL.md) |
-| `dependency-auditor` | 检查依赖版本、漏洞、许可证和升级风险。 | [目录](./dependency-auditor/) | [SKILL.md](./dependency-auditor/SKILL.md) |
+| `dependency-auditor` | 梳理依赖清单，核实漏洞与许可证证据，规划可验证的升级。 | [目录](./dependency-auditor/) | [SKILL.md](./dependency-auditor/SKILL.md) |
 | `docker-expert` | 用于 Docker 容器化最佳实践、多阶段构建优化与 Docker Compose 编排。 | [目录](./docker-expert/) | [SKILL.md](./docker-expert/SKILL.md) |
 | `frontend-design` | 用于创建高质量、非模板化的前端页面、组件、仪表盘、海报和 Web UI。 | [目录](./frontend-design/) | [SKILL.md](./frontend-design/SKILL.md) |
 | `gateway` | 接口设计、规范生成、版本策略和破坏性变更检查。 | [目录](./gateway/) | [SKILL.md](./gateway/SKILL.md) |
