@@ -8,21 +8,9 @@ All notable changes to this repository are documented here.
 <!-- AUTO-CHANGELOG:START -->
 ### 自动更新 / Automated updates
 
-变更范围 / Revision range: `v3.0.0..HEAD`.
+变更范围 / Revision range: `v3.1.0..HEAD`.
 
-#### [2026-09-28]
-
-##### Changed
-- audit 286 skills and harden evidence-driven v3.1.0 updates
-- validate final shellcheck-clean tree and commit maintenance
-- stage regenerated exports before index-integrity gates
-- validate and commit the reviewed maintenance transaction
-- retain successful stable patch alongside monitor-only status
-- approve unchanged composite against reviewed Hermes webhook delta
-- stage reviewed stable Hermes update for inspection
-- collect pinned upstream deltas for curation review
-- run read-only full upstream provenance check
-- capture isolated source snapshot for maintenance review
+此范围内暂无可归类的变更。 / No categorized changes in this range.
 <!-- AUTO-CHANGELOG:END -->
 
 ### Removed / 移除
