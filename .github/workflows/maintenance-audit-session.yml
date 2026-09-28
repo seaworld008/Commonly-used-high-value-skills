@@ -1,0 +1,39 @@
+name: Maintenance audit session
+
+on:
+  push:
+    branches:
+      - codex/audit-maintenance-20260928
+    paths:
+      - .github/workflows/maintenance-audit-session.yml
+
+permissions:
+  contents: read
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out audit branch without persisted credentials
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Export tracked source and Git history only
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/maintenance-audit"
+          git archive --format=tar.gz --output="$RUNNER_TEMP/maintenance-audit/source.tar.gz" HEAD
+          git bundle create "$RUNNER_TEMP/maintenance-audit/source.bundle" --all
+          git rev-parse HEAD > "$RUNNER_TEMP/maintenance-audit/HEAD.txt"
+          cd "$RUNNER_TEMP/maintenance-audit"
+          sha256sum source.tar.gz source.bundle HEAD.txt > SHA256SUMS
+      - name: Upload source snapshot for the authorized audit
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: maintenance-audit-source
+          path: ${{ runner.temp }}/maintenance-audit/
+          retention-days: 3
+          if-no-files-found: error
