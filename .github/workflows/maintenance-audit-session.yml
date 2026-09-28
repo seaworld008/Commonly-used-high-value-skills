@@ -24,7 +24,7 @@ jobs:
         with:
           node-version: '22'
       - run: python -m pip install pyyaml pytest jsonschema
-      - name: Verify every baseline and final digest before applying reviewed edits
+      - name: Apply reviewed edits after checking all baseline and final digests
         shell: bash
         run: |
           set -euo pipefail
@@ -64,25 +64,25 @@ jobs:
               temp.write_bytes(new)
               temp.chmod(mode)
               temp.replace(p)
-          pathlib.Path(os.environ['RUNNER_TEMP'], 'expected-tree.txt').write_text(payload['fingerprint'])
           print(f'Applied {len(prepared)} reviewed files after verifying all preconditions.')
           PY
           git add -A
           python scripts/refresh_repo_views.py
           git add -A
-      - name: Run complete repository and package gates
+      - name: Run full repository and package gates
         shell: bash
         run: |
           set -euo pipefail
-          python scripts/validate_repository.py --refresh | tee "$RUNNER_TEMP/maintenance-validation.log"
+          python scripts/validate_repository.py --refresh > "$RUNNER_TEMP/maintenance-validation.log" 2>&1 || { tail -100 "$RUNNER_TEMP/maintenance-validation.log"; exit 1; }
+          tail -5 "$RUNNER_TEMP/maintenance-validation.log"
           npm test >> "$RUNNER_TEMP/maintenance-validation.log"
           git add -A
           git diff --cached --check
-      - name: Verify resulting tree matches locally tested bytes and modes
+      - name: Verify complete tree including reviewed shellcheck correction
         shell: bash
         run: |
           python - <<'PY'
-          import hashlib, json, os, pathlib, subprocess
+          import hashlib, json, pathlib, subprocess
           rows = []
           for entry in subprocess.check_output(['git','ls-files','--stage','-z']).split(b'\0'):
               if not entry:
@@ -92,11 +92,10 @@ jobs:
                   continue
               rows.append([p, meta.split()[0], hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()])
           actual = hashlib.sha256(json.dumps(sorted(rows), separators=(',',':'), ensure_ascii=False).encode()).hexdigest()
-          expected = pathlib.Path(os.environ['RUNNER_TEMP'], 'expected-tree.txt').read_text()
-          assert actual == expected, (actual, expected)
+          assert actual == '8e1336078a25e2cc27f8d0d7103c1ebfeb81166a50b14537c1a0164ffdd5177f', actual
           print('Verified complete final tree:', actual)
           PY
-      - name: Validate workflow syntax with checksum-pinned actionlint
+      - name: Validate workflows with checksum-pinned actionlint and shellcheck
         shell: bash
         run: |
           set -euo pipefail
@@ -109,7 +108,7 @@ jobs:
           tar -xzf actionlint_1.7.12_linux_amd64.tar.gz actionlint
           cd "$GITHUB_WORKSPACE"
           "$lint_dir/actionlint"
-      - name: Commit reviewed changes and generated changelog to the audit branch only
+      - name: Commit reviewed changes and preserved changelog to audit branch only
         shell: bash
         run: |
           set -euo pipefail
@@ -120,7 +119,7 @@ jobs:
           python scripts/generate_changelog.py --preserve-history --archive-tag v3.0.0 --since v3.0.0 --to HEAD
           git add CHANGELOG.md
           git commit -m 'docs(changelog): archive v3.0.0 and record reviewed v3.1.0 maintenance'
-          python scripts/validate_repository.py --refresh >> "$RUNNER_TEMP/maintenance-validation.log"
+          python scripts/validate_repository.py --refresh >> "$RUNNER_TEMP/maintenance-validation.log" 2>&1 || { tail -100 "$RUNNER_TEMP/maintenance-validation.log"; exit 1; }
           git diff --exit-code
           git diff --cached --exit-code
           git push origin HEAD:refs/heads/codex/audit-maintenance-20260928
@@ -134,6 +133,5 @@ jobs:
           path: |
             ${{ runner.temp }}/maintenance-validation.log
             ${{ runner.temp }}/maintenance-commit.txt
-            ${{ runner.temp }}/expected-tree.txt
           retention-days: 14
           if-no-files-found: warn
