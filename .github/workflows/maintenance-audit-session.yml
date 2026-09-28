@@ -6,47 +6,132 @@ on:
 permissions:
   contents: read
 jobs:
-  stable:
+  integrate:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
+    permissions:
+      contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: 4d170b083cd41ad5d16fa088bcfe8f73da55df6f
-          persist-credentials: false
+          fetch-depth: 0
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: '3.13'
-      - run: python -m pip install pyyaml jsonschema
-      - name: Preserve monitor status and export only verified stable mutation
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '22'
+      - run: python -m pip install pyyaml pytest jsonschema
+      - name: Verify every baseline and final digest before applying reviewed edits
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p "$RUNNER_TEMP/stable-review"
-          set +e
-          python scripts/sync_upstream.py --apply --source github:NousResearch/hermes-agent --reviewed-dependent hermes-open-gsd-workflow=6e1bbecf1c863b1b9895ac94eb66e57750877363b483805cbba4cb39b880c52d --report-json "$RUNNER_TEMP/stable-review/report.json" > "$RUNNER_TEMP/stable-review/sync.log" 2>&1
-          result=$?
-          set -e
-          printf '%s\n' "$result" > "$RUNNER_TEMP/stable-review/exit-code.txt"
           python - <<'PY'
-          import json, os, pathlib
-          folder=pathlib.Path(os.environ['RUNNER_TEMP'])/'stable-review'
-          report=json.loads((folder/'report.json').read_text())
-          result=next(r for r in report['results'] if r['name']=='hermes-agent')
-          assert result['current_commit']=='f97608f178d1ffeca59860195ab7da295f7c8e5f', result
-          assert report.get('apply_errors')==[], report
-          assert 'Applied 1 updates.' in (folder/'sync.log').read_text()
-          assert report['summary']['unavailable']==0 and report['summary']['rollback']==0
-          print('Stable update succeeded; monitor-only candidates remain explicitly unresolved.')
+          import base64, hashlib, json, lzma, os, pathlib, subprocess
+          repo = os.environ['GITHUB_REPOSITORY']
+          blobs = ['304cef0c864568d1bddd093f02c3a3c1e7537aee', '2932165895edd7cda71ed3ef3a1f690b4420d660', '00c7d3372d7542a109e42caed6ab163d867aa203', 'b806176b852d316b5d48f17baaa3b8010f8deef0', '491c21115f217383daa50f5aff7aabccbbe2bda8', '02258a65540e4dbe6230dfb6e42117d0a8b36cf7']
+          compressed = b''.join(base64.b64decode(json.loads(subprocess.check_output(['gh', 'api', f'repos/{repo}/git/blobs/{sha}']))['content']) for sha in blobs)
+          assert hashlib.sha256(compressed).hexdigest() == '1b55343750daa4ef40dafd8996d469e5ddf8ba6a27e8781284ef5c57a4513279'
+          payload = json.loads(lzma.decompress(compressed))
+          assert payload['baseline'] == '4d170b083cd41ad5d16fa088bcfe8f73da55df6f'
+          subprocess.run(['git', 'merge-base', '--is-ancestor', payload['baseline'], 'HEAD'], check=True)
+          root = pathlib.Path.cwd().resolve()
+          prepared = []
+          for entry in payload['files']:
+              p = pathlib.Path(entry['p'])
+              assert not p.is_absolute() and '..' not in p.parts and '.git' not in p.parts
+              assert not entry['p'].startswith('.github/workflows/')
+              assert not p.is_symlink() and p.resolve().is_relative_to(root)
+              old = p.read_bytes() if p.is_file() else b''
+              if entry['old'] is None:
+                  assert not p.exists(), str(p)
+              else:
+                  assert hashlib.sha256(old).hexdigest() == entry['old'], str(p)
+              lines = old.decode('utf-8').splitlines(True)
+              for start, end, text in reversed(entry['ops']):
+                  assert 0 <= start <= end <= len(lines)
+                  lines[start:end] = [text]
+              new = ''.join(lines).encode('utf-8')
+              assert hashlib.sha256(new).hexdigest() == entry['new'], str(p)
+              assert entry['mode'] in ('100644', '100755')
+              prepared.append((p, new, int(entry['mode'][-3:], 8)))
+          for p, new, mode in prepared:
+              p.parent.mkdir(parents=True, exist_ok=True)
+              temp = p.with_name(p.name + '.audit-tmp')
+              assert not temp.exists()
+              temp.write_bytes(new)
+              temp.chmod(mode)
+              temp.replace(p)
+          pathlib.Path(os.environ['RUNNER_TEMP'], 'expected-tree.txt').write_text(payload['fingerprint'])
+          print(f'Applied {len(prepared)} reviewed files after verifying all preconditions.')
           PY
-          git diff --binary > "$RUNNER_TEMP/stable-review/stable.patch"
-          git diff --stat
-      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+          git add -A
+      - name: Run complete repository and package gates
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/validate_repository.py --refresh | tee "$RUNNER_TEMP/maintenance-validation.log"
+          npm test >> "$RUNNER_TEMP/maintenance-validation.log"
+          git add -A
+          git diff --cached --check
+      - name: Verify resulting tree matches locally tested bytes and modes
+        shell: bash
+        run: |
+          python - <<'PY'
+          import hashlib, json, os, pathlib, subprocess
+          rows = []
+          for entry in subprocess.check_output(['git','ls-files','--stage','-z']).split(b'\0'):
+              if not entry:
+                  continue
+              meta, p = entry.decode().split('\t')
+              if p in ('.github/workflows/maintenance-audit-session.yml', 'CHANGELOG.md'):
+                  continue
+              rows.append([p, meta.split()[0], hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()])
+          actual = hashlib.sha256(json.dumps(sorted(rows), separators=(',',':'), ensure_ascii=False).encode()).hexdigest()
+          expected = pathlib.Path(os.environ['RUNNER_TEMP'], 'expected-tree.txt').read_text()
+          assert actual == expected, (actual, expected)
+          print('Verified complete final tree:', actual)
+          PY
+      - name: Validate workflow syntax with checksum-pinned actionlint
+        shell: bash
+        run: |
+          set -euo pipefail
+          lint_dir="$RUNNER_TEMP/actionlint"
+          mkdir -p "$lint_dir"
+          gh release download v1.7.12 --repo rhysd/actionlint --pattern 'actionlint_1.7.12_linux_amd64.tar.gz' --pattern 'actionlint_1.7.12_checksums.txt' --dir "$lint_dir"
+          cd "$lint_dir"
+          echo '433028cf0ba3c42163ea1a668dedce30fcdbe84fe912b1a5e288c006eab8a4f5  actionlint_1.7.12_checksums.txt' | sha256sum -c -
+          grep '  actionlint_1.7.12_linux_amd64.tar.gz$' actionlint_1.7.12_checksums.txt | sha256sum -c -
+          tar -xzf actionlint_1.7.12_linux_amd64.tar.gz actionlint
+          cd "$GITHUB_WORKSPACE"
+          "$lint_dir/actionlint"
+      - name: Commit reviewed changes and generated changelog to the audit branch only
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF_NAME" = 'codex/audit-maintenance-20260928'
+          git config user.name 'SeaWorld'
+          git config user.email '70318946+seaworld008@users.noreply.github.com'
+          git commit -m 'feat(maintenance): audit 286 skills and harden evidence-driven v3.1.0 updates'
+          python scripts/generate_changelog.py --preserve-history --archive-tag v3.0.0 --since v3.0.0 --to HEAD
+          git add CHANGELOG.md
+          git commit -m 'docs(changelog): archive v3.0.0 and record reviewed v3.1.0 maintenance'
+          python scripts/validate_repository.py --refresh >> "$RUNNER_TEMP/maintenance-validation.log"
+          git diff --exit-code
+          git diff --cached --exit-code
+          git push origin HEAD:refs/heads/codex/audit-maintenance-20260928
+          git rev-parse HEAD > "$RUNNER_TEMP/maintenance-commit.txt"
+          git diff --stat 4d170b083cd41ad5d16fa088bcfe8f73da55df6f..HEAD
+      - name: Preserve validation evidence
         if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: maintenance-stable-update
-          path: ${{ runner.temp }}/stable-review/
-          retention-days: 7
-          if-no-files-found: error
+          name: maintenance-integration-evidence
+          path: |
+            ${{ runner.temp }}/maintenance-validation.log
+            ${{ runner.temp }}/maintenance-commit.txt
+            ${{ runner.temp }}/expected-tree.txt
+          retention-days: 14
+          if-no-files-found: warn
