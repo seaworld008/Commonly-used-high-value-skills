@@ -68,6 +68,8 @@ jobs:
           print(f'Applied {len(prepared)} reviewed files after verifying all preconditions.')
           PY
           git add -A
+          python scripts/refresh_repo_views.py
+          git add -A
       - name: Run complete repository and package gates
         shell: bash
         run: |
