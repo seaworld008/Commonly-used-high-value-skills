@@ -1,0 +1,137 @@
+{
+  "schema_version": 2,
+  "video": {
+    "url": "https://github.com/mattpocock/skills",
+    "checked_at": "2026-09-30",
+    "note": "Reviewed standalone adaptation of grill-me and its grilling dependency."
+  },
+  "official_references": [
+    {
+      "name": "Matt Pocock skills v1.2.3",
+      "url": "https://github.com/mattpocock/skills/releases/tag/v1.2.3",
+      "purpose": "Stable release and license origin."
+    }
+  ],
+  "skills": [
+    {
+      "video_name": "grill-me",
+      "normalized_slug": "grill-me",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/task-understanding-decomposition/grill-me/SKILL.md",
+      "source": "https://github.com/mattpocock/skills/tree/6acc160e4e0cd062dbbbd7a1b26ae92855edf07e/skills/productivity/grilling",
+      "notes": "2026-09-30: portable Chinese overlay of reviewed v1.2.3 grill-me wrapper and grilling implementation; exact originals and MIT copyright retained. Complete method in local entry; no separately installed grilling or mandatory host tool. Local version is not an upstream release.",
+      "kind": "overlay",
+      "sync_mode": "monitor",
+      "upstream": {
+        "repo": "mattpocock/skills",
+        "path": "skills/productivity/grilling/SKILL.md",
+        "ref": "v1.2.3",
+        "last_checked_at": "2026-09-30",
+        "last_synced_at": "2026-09-30",
+        "last_synced_commit": "6acc160e4e0cd062dbbbd7a1b26ae92855edf07e",
+        "sync_mode": "monitor"
+      },
+      "origins": [
+        {
+          "repo": "mattpocock/skills",
+          "path": "skills/productivity/grilling/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/productivity/grilling/SKILL.md",
+              "target": "skills/task-understanding-decomposition/grill-me/SKILL.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/productivity/grill-me/SKILL.md",
+              "target": "skills/task-understanding-decomposition/grill-me/references/upstream-grill-me.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/productivity/grilling/SKILL.md",
+              "target": "skills/task-understanding-decomposition/grill-me/references/upstream-grilling.md",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/task-understanding-decomposition/grill-me/LICENSE.upstream.txt",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "latest_release",
+            "ref": "v1.2.3",
+            "resolved_commit": "6acc160e4e0cd062dbbbd7a1b26ae92855edf07e",
+            "path_commit": "6acc160e4e0cd062dbbbd7a1b26ae92855edf07e",
+            "content_sha256": "d9a98c3bc6dd057da62eae9989c1afd47ff3a9547ad630979fbf79b25b76f022",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
+              "content_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+              "spdx": "MIT",
+              "api_spdx": "MIT",
+              "resolved_commit": "6acc160e4e0cd062dbbbd7a1b26ae92855edf07e"
+            },
+            "last_checked_at": "2026-09-30",
+            "last_synced_at": "2026-09-30"
+          }
+        },
+        {
+          "repo": "local-repo/curation",
+          "path": "skills/task-understanding-decomposition/grill-me",
+          "license": null,
+          "sync_mode": "local-only",
+          "artifacts": [
+            {
+              "source": "skills/task-understanding-decomposition/grill-me/references/decision-tree-template.md",
+              "target": "skills/task-understanding-decomposition/grill-me/references/decision-tree-template.md",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "local",
+            "ref": "local",
+            "resolved_commit": null,
+            "path_commit": null,
+            "content_sha256": "d9a98c3bc6dd057da62eae9989c1afd47ff3a9547ad630979fbf79b25b76f022",
+            "last_checked_at": "2026-09-30",
+            "last_synced_at": "2026-09-30"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/task-understanding-decomposition/grill-me/LICENSE.upstream.txt",
+          "owner": "grill-me",
+          "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/task-understanding-decomposition/grill-me/SKILL.md",
+          "owner": "grill-me",
+          "sha256": "d9a98c3bc6dd057da62eae9989c1afd47ff3a9547ad630979fbf79b25b76f022",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/task-understanding-decomposition/grill-me/references/decision-tree-template.md",
+          "owner": "grill-me",
+          "sha256": "d661dcaa4542a6787783194a03b70ffbe22c59ed0878abaf37106fb3d7d29b0a",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/task-understanding-decomposition/grill-me/references/upstream-grill-me.md",
+          "owner": "grill-me",
+          "sha256": "6189dfceb7304a6e5558f75d87e68fa3bc7fcf7ba120e44f21f8a61fe01eba54",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/task-understanding-decomposition/grill-me/references/upstream-grilling.md",
+          "owner": "grill-me",
+          "sha256": "fa5c1e5ee76b1c8f1ae56101f52c9e239de75d5c578adc61227b92d10b7e52ef",
+          "mode": "100644"
+        }
+      ]
+    }
+  ]
+}
