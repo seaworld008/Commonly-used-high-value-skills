@@ -7,45 +7,107 @@ on:
 
 permissions:
   contents: read
+  actions: read
 
 jobs:
-  baseline:
+  snapshot-deltas:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
       - name: Checkout isolated maintenance branch
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          fetch-depth: 0
           persist-credentials: false
-      - name: Export committed repository for offline inspection
-        run: |
-          mkdir -p "$RUNNER_TEMP/maintenance-audit"
-          git bundle create "$RUNNER_TEMP/maintenance-audit/repository.bundle" --all
-          git rev-parse HEAD > "$RUNNER_TEMP/maintenance-audit/head.txt"
-      - name: Upload repository snapshot
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
-        with:
-          name: maintenance-repository-snapshot
-          path: ${{ runner.temp }}/maintenance-audit/
-          retention-days: 3
       - name: Set up Python
         uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: '3.13'
-      - name: Install audit dependencies
-        run: python -m pip install pyyaml pytest jsonschema
-      - name: Check every tracked upstream without applying changes
+      - name: Read recorded upstream evidence
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download 36708703530 -n maintenance-upstream-evidence -D "$RUNNER_TEMP/upstream-evidence"
+      - name: Fetch immutable source bytes without executing upstream code
         env:
           GITHUB_TOKEN: ${{ github.token }}
-        run: python scripts/sync_upstream.py --check-only --report-json "$RUNNER_TEMP/maintenance-audit/upstream-check.json" > "$RUNNER_TEMP/maintenance-audit/upstream-check.log" 2>&1
-      - name: Upload upstream evidence
+        shell: python
+        run: |
+          import base64, dataclasses, hashlib, json, os, pathlib, sys
+          sys.path.insert(0, 'scripts')
+          from github_artifact_provider import GitHubArtifactProvider
+          root = pathlib.Path.cwd()
+          out = pathlib.Path(os.environ['RUNNER_TEMP']) / 'upstream-deltas'
+          out.mkdir()
+          provider = GitHubArtifactProvider(token=os.environ['GITHUB_TOKEN'])
+          results = {r['name']: r for r in json.loads((out.parent / 'upstream-evidence/upstream-check.json').read_text())['results']}
+          data = {'entries': [], 'errors': [], 'trees': {}, 'extra_sources': {}}
+          def save():
+              (out / 'snapshots.json').write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n')
+          def payload(repo, item):
+              if not item or item.get('type') != 'blob' or item.get('mode') not in ('100644', '100755'):
+                  return None
+              raw = provider.blob(repo, item['sha'])
+              return {'git_blob': item['sha'], 'sha256': hashlib.sha256(raw).hexdigest(), 'mode': item['mode'], 'base64': base64.b64encode(raw).decode()}
+          def expand(artifacts, tree):
+              found = {}
+              for a in artifacts:
+                  src, dst = a['source'], a['target']
+                  if a.get('type', 'file') == 'file':
+                      found[dst] = src
+                  else:
+                      prefix = src.rstrip('/') + '/'
+                      for path, item in tree.items():
+                          if path.startswith(prefix) and item.get('type') == 'blob':
+                              found[dst.rstrip('/') + '/' + path[len(prefix):]] = path
+              return found
+          for mapping in sorted((root / 'docs/sources').glob('*.skills.json')):
+              for entry in json.loads(mapping.read_text()).get('skills', []):
+                  name = entry.get('normalized_slug')
+                  r = results.get(name, {})
+                  if r.get('status') not in ('monitor_review', 'unavailable'):
+                      continue
+                  record = {'name': name, 'mapping': str(mapping.relative_to(root)), 'repo_skill': entry['repo_skill'], 'origins': []}
+                  data['entries'].append(record)
+                  for origin in entry.get('origins', []):
+                      repo = origin.get('repo', '')
+                      if repo.startswith('local-repo/') or origin.get('sync_mode') == 'archived' or repo != r.get('repository'):
+                          continue
+                      try:
+                          old = origin['tracking'].get('resolved_commit')
+                          current = r['current_commit']
+                          previous = provider.tree(repo, old) if old else {}
+                          tree = provider.tree(repo, current)
+                          data['trees'][repo + '@' + current] = tree
+                          evidence = dataclasses.asdict(provider.license_evidence(repo, current))
+                          row = {'repo': repo, 'base_commit': old, 'current_commit': current, 'origin_path': origin['path'], 'license': evidence, 'files': []}
+                          record['origins'].append(row)
+                          before = expand(origin['artifacts'], previous)
+                          after = expand(origin['artifacts'], tree)
+                          for dst in sorted(set(before) | set(after)):
+                              src = after.get(dst, before.get(dst))
+                              prior = previous.get(before.get(dst, src))
+                              now = tree.get(src)
+                              local = root / dst
+                              raw = local.read_bytes() if local.is_file() else None
+                              local_blob = hashlib.sha1(b'blob ' + str(len(raw)).encode() + b'\0' + raw).hexdigest() if raw is not None else None
+                              detail = {'source': src, 'target': dst, 'base_blob': prior.get('sha') if prior else None, 'current_blob': now.get('sha') if now else None, 'local_blob': local_blob}
+                              if detail['base_blob'] != detail['current_blob'] or detail['current_blob'] != local_blob:
+                                  detail['current'] = payload(repo, now)
+                                  detail['baseline'] = payload(repo, prior)
+                              row['files'].append(detail)
+                          print(name, 'files', len(row['files']), flush=True)
+                      except Exception as exc:
+                          data['errors'].append({'name': name, 'repo': repo, 'error': str(exc)})
+                          print(name, type(exc).__name__, str(exc), flush=True)
+                  save()
+          repo = 'mattpocock/skills'
+          commit = '6acc160e4e0cd062dbbbd7a1b26ae92855edf07e'
+          tree = provider.tree(repo, commit)
+          data['extra_sources'][repo] = {'commit': commit, 'license': dataclasses.asdict(provider.license_evidence(repo, commit)), 'files': {path: payload(repo, tree.get(path)) for path in ['LICENSE', 'skills/productivity/grill-me/SKILL.md', 'skills/productivity/grilling/SKILL.md']}}
+          save()
+      - name: Upload immutable source evidence
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: maintenance-upstream-evidence
-          path: |
-            ${{ runner.temp }}/maintenance-audit/upstream-check.json
-            ${{ runner.temp }}/maintenance-audit/upstream-check.log
-          if-no-files-found: warn
+          name: maintenance-upstream-deltas
+          path: ${{ runner.temp }}/upstream-deltas/
           retention-days: 3
