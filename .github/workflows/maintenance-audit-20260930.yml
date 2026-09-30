@@ -1,67 +1,79 @@
-name: Maintenance audit 20260930
+name: Grill Me intake preparation
 
 on:
   push:
     branches: [codex/grill-me-maintenance-20260930]
     paths: [.github/workflows/maintenance-audit-20260930.yml]
 permissions:
-  contents: read
+  contents: write
   actions: read
 jobs:
-  dependency-closure:
+  intake:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ github.token }}
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Checkout reviewed transfer code only
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
+          path: transfer
           persist-credentials: false
-      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+      - name: Checkout immutable original main
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: 85651f151d6cd77dc1f091f830f27296ebaff64a
+          fetch-depth: 0
+          path: candidate
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
         with:
           python-version: '3.13'
-      - name: Download immutable source inventory
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: gh run download 36709677523 -n maintenance-upstream-deltas -D "$RUNNER_TEMP/upstream-deltas"
-      - name: Inspect regular new resources without following symlinks
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        shell: python
-        run: |
-          import base64, hashlib, json, os, pathlib, posixpath, sys
-          sys.path.insert(0, 'scripts')
-          from github_artifact_provider import GitHubArtifactProvider
-          out = pathlib.Path(os.environ['RUNNER_TEMP']) / 'upstream-closure'
-          out.mkdir()
-          snapshot = json.loads((out.parent / 'upstream-deltas/snapshots.json').read_text())
-          provider = GitHubArtifactProvider(token=os.environ['GITHUB_TOKEN'])
-          data = {'files': [], 'special_objects_not_imported': [], 'errors': []}
-          for entry in snapshot['entries']:
-              for origin in entry['origins']:
-                  if not origin['origin_path'].endswith('/SKILL.md'):
-                      continue
-                  repo, commit = origin['repo'], origin['current_commit']
-                  tree = snapshot['trees'][repo + '@' + commit]
-                  prefix = posixpath.dirname(origin['origin_path']) + '/'
-                  known = {item['source'] for item in origin['files']}
-                  for path, item in sorted(tree.items()):
-                      if not path.startswith(prefix) or item.get('type') != 'blob' or path in known:
-                          continue
-                      row = {'name': entry['name'], 'repo': repo, 'commit': commit, 'source': path, 'target': posixpath.dirname(entry['repo_skill']) + '/' + path[len(prefix):], 'mode': item['mode'], 'blob_sha': item['sha']}
-                      if item['mode'] not in ('100644', '100755'):
-                          data['special_objects_not_imported'].append(row)
-                          continue
-                      try:
-                          raw = provider.blob(repo, item['sha'])
-                          row.update(sha256=hashlib.sha256(raw).hexdigest(), base64=base64.b64encode(raw).decode())
-                          data['files'].append(row)
-                      except Exception as exc:
-                          data['errors'].append({'source': path, 'error': str(exc)})
-          (out / 'closure.json').write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n')
-          print('Regular new resources:', len(data['files']), 'Rejected symlink/git objects:', len(data['special_objects_not_imported']), 'Errors:', len(data['errors']))
-      - name: Upload dependency evidence
-        if: always()
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
         with:
-          name: maintenance-upstream-closure
-          path: ${{ runner.temp }}/upstream-closure/
+          node-version: '22'
+      - name: Download immutable evidence
+        working-directory: candidate
+        run: |
+          gh run download 36709677523 -n maintenance-upstream-deltas -D "$RUNNER_TEMP/evidence"
+          gh run download 36710320354 -n maintenance-upstream-closure -D "$RUNNER_TEMP/evidence"
+      - name: Reconstruct only the seven reviewed intake files
+        working-directory: candidate
+        run: |
+          python ../transfer/.github/maintenance-20260930/reconstruct.py --parts ../transfer/.github/maintenance-20260930/intake.xz.b64 --sha256 c08bd00b55835c71f104d546e9422a89d071340f285d0033d91797054cb6667b --evidence "$RUNNER_TEMP/evidence"
+          git add skills/task-understanding-decomposition/grill-me docs/sources/mattpocock-skills-2026-09.skills.json tests/test_grill_me_skill.py
+      - name: Full intake validation and package checks
+        working-directory: candidate
+        run: |
+          python -m pip install pyyaml pytest jsonschema
+          python scripts/validate_repository.py --refresh
+          npm test
+          python scripts/generate_repo_health_report.py
+          python scripts/evaluate_repo_health.py
+      - name: Commit and verify generated views are idempotent
+        working-directory: candidate
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'feat: add standalone grill-me with pinned upstream evidence'
+          python - <<'PY'
+          import subprocess, sys
+          sys.path.insert(0, 'scripts')
+          from validate_repository import REFRESH
+          for command in REFRESH:
+              subprocess.run([sys.executable, *command], check=True)
+          PY
+          git diff --exit-code
+          gh auth setup-git
+          git push origin HEAD:refs/heads/codex/grill-me-intake-20260930
+          mkdir -p "$RUNNER_TEMP/intake-result"
+          git rev-parse HEAD > "$RUNNER_TEMP/intake-result/head.txt"
+          git rev-parse HEAD^{tree} > "$RUNNER_TEMP/intake-result/tree.txt"
+          git bundle create "$RUNNER_TEMP/intake-result/repository.bundle" HEAD
+      - name: Upload verified intake result
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: grill-me-intake-result
+          path: ${{ runner.temp }}/intake-result/
           retention-days: 3
