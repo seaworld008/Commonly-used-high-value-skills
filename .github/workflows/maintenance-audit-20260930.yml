@@ -1,0 +1,51 @@
+name: Maintenance audit 20260930
+
+on:
+  push:
+    branches: [codex/grill-me-maintenance-20260930]
+    paths: [.github/workflows/maintenance-audit-20260930.yml]
+
+permissions:
+  contents: read
+
+jobs:
+  baseline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout isolated maintenance branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Export committed repository for offline inspection
+        run: |
+          mkdir -p "$RUNNER_TEMP/maintenance-audit"
+          git bundle create "$RUNNER_TEMP/maintenance-audit/repository.bundle" --all
+          git rev-parse HEAD > "$RUNNER_TEMP/maintenance-audit/head.txt"
+      - name: Upload repository snapshot
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: maintenance-repository-snapshot
+          path: ${{ runner.temp }}/maintenance-audit/
+          retention-days: 3
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.13'
+      - name: Install audit dependencies
+        run: python -m pip install pyyaml pytest jsonschema
+      - name: Check every tracked upstream without applying changes
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python scripts/sync_upstream.py --check-only --report-json "$RUNNER_TEMP/maintenance-audit/upstream-check.json" > "$RUNNER_TEMP/maintenance-audit/upstream-check.log" 2>&1
+      - name: Upload upstream evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: maintenance-upstream-evidence
+          path: |
+            ${{ runner.temp }}/maintenance-audit/upstream-check.json
+            ${{ runner.temp }}/maintenance-audit/upstream-check.log
+          if-no-files-found: warn
+          retention-days: 3
