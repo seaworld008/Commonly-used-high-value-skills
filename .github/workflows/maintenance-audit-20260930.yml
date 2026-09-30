@@ -42,10 +42,21 @@ jobs:
         run: |
           python ../transfer/.github/maintenance-20260930/reconstruct.py --parts ../transfer/.github/maintenance-20260930/intake.xz.b64 --sha256 c08bd00b55835c71f104d546e9422a89d071340f285d0033d91797054cb6667b --evidence "$RUNNER_TEMP/evidence"
           git add skills/task-understanding-decomposition/grill-me docs/sources/mattpocock-skills-2026-09.skills.json tests/test_grill_me_skill.py
-      - name: Full intake validation and package checks
+      - name: Generate and stage exported files before index-based tests
         working-directory: candidate
         run: |
           python -m pip install pyyaml pytest jsonschema
+          python - <<'PY'
+          import subprocess, sys
+          sys.path.insert(0, 'scripts')
+          from validate_repository import REFRESH
+          for command in REFRESH:
+              subprocess.run([sys.executable, *command], check=True)
+          PY
+          git add -A
+      - name: Full intake validation and package checks
+        working-directory: candidate
+        run: |
           python scripts/validate_repository.py --refresh
           npm test
           python scripts/generate_repo_health_report.py
