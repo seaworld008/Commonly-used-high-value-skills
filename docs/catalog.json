@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "generated_at": "2026-06-08",
-  "total_skills": 286,
+  "total_skills": 287,
   "total_categories": 16,
   "categories": [
     {
@@ -66,7 +66,7 @@
     },
     {
       "name": "task-understanding-decomposition",
-      "count": 4
+      "count": 5
     }
   ],
   "skills": [
@@ -5956,6 +5956,28 @@
       "updated_at": "2026-05-20",
       "line_count": 183,
       "path": "skills/security-and-reliability/vuls-linux-cve-scanner/SKILL.md"
+    },
+    {
+      "name": "grill-me",
+      "category": "task-understanding-decomposition",
+      "description": "Stress-test a plan, design, or decision when the user explicitly asks to be grilled, challenged, or interviewed about assumptions, trade-offs, and unresolved requirements.",
+      "version": "1.0.0",
+      "author": "Matt Pocock; seaworld008 (portable adaptation)",
+      "source": "github:mattpocock/skills",
+      "source_url": "https://github.com/mattpocock/skills/tree/6acc160e4e0cd062dbbbd7a1b26ae92855edf07e/skills/productivity/grilling",
+      "tags": [
+        "planning",
+        "requirements",
+        "design-review",
+        "decision-making",
+        "interview"
+      ],
+      "quality": 3,
+      "complexity": "intermediate",
+      "created_at": "2026-09-30",
+      "updated_at": "2026-09-30",
+      "line_count": 124,
+      "path": "skills/task-understanding-decomposition/grill-me/SKILL.md"
     },
     {
       "name": "lens",

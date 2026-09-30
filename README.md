@@ -5,10 +5,10 @@
 [![简体中文](https://img.shields.io/badge/README-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1677ff)](./README.md)
 [![English](https://img.shields.io/badge/README-English-111111)](./README.en.md)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b894)](./openclaw-skills/README.md)
-[![Skills](https://img.shields.io/badge/Skills-286-7c3aed)](./skills/)
+[![Skills](https://img.shields.io/badge/Skills-287-7c3aed)](./skills/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
-面向全球 AI 开发者与 Agent 工作流构建者的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理等高频任务场景。当前共 **16 个分类 / 286 个技能**。
+面向全球 AI 开发者与 Agent 工作流构建者的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理等高频任务场景。当前共 **16 个分类 / 287 个技能**。
 
 
 ## 为什么值得收藏
@@ -387,7 +387,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 2. 打开对应技能的 `SKILL.md` 查看触发条件、操作流程和脚本说明。
 3. 若技能下含 `scripts/`、`references/`、`assets/`，优先复用现成内容。
 
-## 技能总览（按分类，16 类 / 286 技能）
+## 技能总览（按分类，16 类 / 287 技能）
 
 <a id="cat-developer-engineering"></a>
 ### 1. 开发工程（developer-engineering，49）
@@ -732,8 +732,9 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `warden`：按价值、用户自主性和体验韧性评估产品质量。
 
 <a id="cat-task-understanding"></a>
-### 16. 任务理解与拆解（task-understanding-decomposition，4）
+### 16. 任务理解与拆解（task-understanding-decomposition，5）
 
+- `grill-me`：对方案、设计和关键决策进行追问，检验假设、取舍与遗漏的需求。
 - `lens`：代码库理解、功能发现、数据流追踪和上下文调查。
 - `reflect-learn`：分析用户纠正和任务结果，提出可复用的改进建议。
 - `ripple`：变更前影响分析，评估依赖链和一致性风险。

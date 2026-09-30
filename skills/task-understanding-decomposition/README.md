@@ -4,19 +4,20 @@
 
 聚焦 brainstorming、research、计划编写、skills 检索与任务拆解。
 
-当前分类共 **4** 个技能。
+当前分类共 **5** 个技能。
 
 ## 推荐先看
 
 - [reflect-learn](./reflect-learn/) - 分析用户纠正和任务结果，提出可复用的改进建议。
+- [grill-me](./grill-me/) - 对方案、设计和关键决策进行追问，检验假设、取舍与遗漏的需求。
 - [lens](./lens/) - 代码库理解、功能发现、数据流追踪和上下文调查。
 - [ripple](./ripple/) - 变更前影响分析，评估依赖链和一致性风险。
-- [scout](./scout/) - 缺陷调查、复现步骤、根因分析和影响评估。
 
 ## 技能总览
 
 | 技能 | 简介 | 目录 | 详情 |
 |------|------|------|------|
+| `grill-me` | 对方案、设计和关键决策进行追问，检验假设、取舍与遗漏的需求。 | [目录](./grill-me/) | [SKILL.md](./grill-me/SKILL.md) |
 | `lens` | 代码库理解、功能发现、数据流追踪和上下文调查。 | [目录](./lens/) | [SKILL.md](./lens/SKILL.md) |
 | `reflect-learn` | 分析用户纠正和任务结果，提出可复用的改进建议。 | [目录](./reflect-learn/) | [SKILL.md](./reflect-learn/SKILL.md) |
 | `ripple` | 变更前影响分析，评估依赖链和一致性风险。 | [目录](./ripple/) | [SKILL.md](./ripple/SKILL.md) |

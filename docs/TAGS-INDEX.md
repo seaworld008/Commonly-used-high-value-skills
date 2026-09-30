@@ -1,6 +1,6 @@
 # Tags Index
 
-> Auto-generated from 1106 skill-tag mappings across 492 tags.
+> Auto-generated from 1111 skill-tag mappings across 495 tags.
 > Last updated: see git log.
 
 ## Quick Navigation
@@ -18,7 +18,7 @@
 - [`finance`](#finance) (16)
 - [`automation`](#automation) (15)
 - [`growth`](#growth) (15)
-- [`planning`](#planning) (14)
+- [`planning`](#planning) (15)
 - [`marketing`](#marketing) (13)
 - [`sre`](#sre) (13)
 - [`devops`](#devops) (12)
@@ -98,6 +98,7 @@
 - [`graphql`](#graphql) (2)
 - [`hermes`](#hermes) (2)
 - [`integrations`](#integrations) (2)
+- [`interview`](#interview) (2)
 - [`linkedin`](#linkedin) (2)
 - [`metrics`](#metrics) (2)
 - [`minutes`](#minutes) (2)
@@ -217,6 +218,7 @@
 - [`debt`](#debt) (1)
 - [`debugging`](#debugging) (1)
 - [`debugging-and-error-recovery`](#debugging-and-error-recovery) (1)
+- [`decision-making`](#decision-making) (1)
 - [`deep`](#deep) (1)
 - [`delivery`](#delivery) (1)
 - [`demand`](#demand) (1)
@@ -225,6 +227,7 @@
 - [`dependency-audit`](#dependency-audit) (1)
 - [`dependency-scanning`](#dependency-scanning) (1)
 - [`deprecation-and-migration`](#deprecation-and-migration) (1)
+- [`design-review`](#design-review) (1)
 - [`design-system`](#design-system) (1)
 - [`develop`](#develop) (1)
 - [`diagram`](#diagram) (1)
@@ -295,7 +298,6 @@
 - [`input`](#input) (1)
 - [`intelligence`](#intelligence) (1)
 - [`interop`](#interop) (1)
-- [`interview`](#interview) (1)
 - [`interview-me`](#interview-me) (1)
 - [`investment`](#investment) (1)
 - [`ios`](#ios) (1)
@@ -399,6 +401,7 @@
 - [`repomix`](#repomix) (1)
 - [`reporting`](#reporting) (1)
 - [`repository`](#repository) (1)
+- [`requirements`](#requirements) (1)
 - [`responsive-design`](#responsive-design) (1)
 - [`retrieval`](#retrieval) (1)
 - [`ripple`](#ripple) (1)
@@ -946,7 +949,7 @@
 
 ## planning
 
-**14 skills**
+**15 skills**
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
@@ -964,6 +967,7 @@
 | [lark-okr](skills/knowledge-and-pm-integrations/lark-okr) | knowledge-and-pm-integrations | ★★★★☆ | 飞书 OKR：管理目标与关键结果。查看和编辑 OKR 周期、目标、关键结果、对齐关系、量化指标和进展记录。当用户需要查看或创建 OKR、管理目标和关键结果、查看 |
 | [brainstorming](skills/ai-workflow/brainstorming) | ai-workflow | ★★★☆☆ | Use before creative product or engineering work when the user wants to design a  |
 | [subagent-driven-development](skills/ai-workflow/subagent-driven-development) | ai-workflow | ★★★☆☆ | Use when executing implementation plans with independent tasks in the current se |
+| [grill-me](skills/task-understanding-decomposition/grill-me) | task-understanding-decomposition | ★★★☆☆ | Stress-test a plan, design, or decision when the user explicitly asks to be gril |
 
 ## marketing
 
@@ -1823,6 +1827,15 @@
 |-------|----------|---------|-------------|
 | [mcporter](skills/ai-agent-platform/mcporter) | ai-agent-platform | ★★★★☆ | Use when a user explicitly needs terminal-based MCP discovery, schema inspection |
 | [native-mcp](skills/ai-agent-platform/native-mcp) | ai-agent-platform | ★★★★☆ | Configure Hermes Agent''s built-in MCP client: server discovery, stdio/HTTP conn |
+
+## interview
+
+**2 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [interview-system-designer](skills/operations-general/interview-system-designer) | operations-general | ★★★★★ | Design hiring interviews, competency matrices, question banks, scoring rubrics,  |
+| [grill-me](skills/task-understanding-decomposition/grill-me) | task-understanding-decomposition | ★★★☆☆ | Stress-test a plan, design, or decision when the user explicitly asks to be gril |
 
 ## linkedin
 
@@ -2810,6 +2823,14 @@
 |-------|----------|---------|-------------|
 | [debugging-and-error-recovery](skills/ai-workflow/debugging-and-error-recovery) | ai-workflow | ★★★★★ | Diagnose failing tests, broken builds, and unexpected runtime behavior through r |
 
+## decision-making
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [grill-me](skills/task-understanding-decomposition/grill-me) | task-understanding-decomposition | ★★★☆☆ | Stress-test a plan, design, or decision when the user explicitly asks to be gril |
+
 ## deep
 
 **1 skills**
@@ -2873,6 +2894,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [deprecation-and-migration](skills/ai-workflow/deprecation-and-migration) | ai-workflow | ★★★★★ | Plan deprecation and migration of systems, APIs, and production schemas, includi |
+
+## design-review
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [grill-me](skills/task-understanding-decomposition/grill-me) | task-understanding-decomposition | ★★★☆☆ | Stress-test a plan, design, or decision when the user explicitly asks to be gril |
 
 ## design-system
 
@@ -3433,14 +3462,6 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [mcporter](skills/ai-agent-platform/mcporter) | ai-agent-platform | ★★★★☆ | Use when a user explicitly needs terminal-based MCP discovery, schema inspection |
-
-## interview
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [interview-system-designer](skills/operations-general/interview-system-designer) | operations-general | ★★★★★ | Design hiring interviews, competency matrices, question banks, scoring rubrics,  |
 
 ## interview-me
 
@@ -4265,6 +4286,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [codebase-inspection](skills/developer-engineering/codebase-inspection) | developer-engineering | ★★★★☆ | Use when a user needs reproducible repository sizing, language composition, file |
+
+## requirements
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [grill-me](skills/task-understanding-decomposition/grill-me) | task-understanding-decomposition | ★★★☆☆ | Stress-test a plan, design, or decision when the user explicitly asks to be gril |
 
 ## responsive-design
 
