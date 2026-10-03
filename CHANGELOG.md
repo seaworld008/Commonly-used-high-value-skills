@@ -15,6 +15,9 @@ All notable changes to this repository are documented here.
 ##### Changed
 - recover curated skills maintenance and prepare v3.2.0
 
+##### Fixed
+- close fresh upstream review and Lark chart findings
+
 #### [2026-09-30]
 
 ##### Added
