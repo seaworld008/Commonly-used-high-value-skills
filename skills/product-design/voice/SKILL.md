@@ -2,14 +2,14 @@
 name: voice
 description: '用户反馈收集、满意度调研、评论分析和洞察提炼。'
 zh_description: "用户反馈收集、满意度调研、评论分析和洞察提炼。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/main/voice"
+source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/voice/SKILL.md"
 license: MIT
 tags: ["design", "product", "voice"]
 created_at: "2026-08-24"
-updated_at: "2026-09-06"
+updated_at: "2026-09-30"
 quality: 5
 complexity: "advanced"
 ---
@@ -171,8 +171,8 @@ Behavior notes per Recipe:
 | Signal | Approach | Primary output | Read next |
 | ------ | -------- | -------------- | --------- |
 | `NPS`, `loyalty`, `advocacy`, `promoter` | NPS analysis | NPS survey + report | `reference/nps-survey.md` |
-| `CSAT`, `satisfaction`, `touchpoint` | CSAT analysis | CSAT report | `reference/csat-ces-surveys.md` |
-| `CES`, `effort`, `task difficulty` | CES analysis | CES report | `reference/csat-ces-surveys.md` |
+| `CSAT`, `satisfaction`, `touchpoint` | CSAT analysis | CSAT report | `reference/csat-ces-measurement.md` |
+| `CES`, `effort`, `task difficulty` | CES analysis | CES report | `reference/csat-ces-measurement.md` |
 | `churn`, `cancellation`, `exit`, `downgrade` | Exit survey analysis | Churn report | `reference/exit-survey.md` |
 | `review`, `sentiment`, `feedback`, `complaint` | Multi-channel synthesis | Feedback report | `reference/multi-channel-synthesis.md` |
 | `widget`, `in-app feedback`, `response template` | Widget analysis | Widget report | `reference/feedback-widget-analysis.md` |
@@ -184,7 +184,7 @@ Behavior notes per Recipe:
 Routing rules:
 
 - If the request mentions NPS, loyalty, or advocacy, read `reference/nps-survey.md`.
-- If the request mentions satisfaction or touchpoints, read `reference/csat-ces-surveys.md`.
+- If the request mentions satisfaction or touchpoints, read `reference/csat-ces-measurement.md`.
 - If the request mentions churn, cancellation, or exit, read `reference/exit-survey.md`.
 - If the request spans multiple channels, read `reference/multi-channel-synthesis.md`.
 - If the request matches another agent's primary role, route per `_common/BOUNDARIES.md`.
@@ -237,7 +237,7 @@ Overlap boundaries:
 | File | Read this when... |
 | ---- | ----------------- |
 | `reference/nps-survey.md` | the task is NPS design, scoring, follow-up logic, or benchmark interpretation |
-| `reference/csat-ces-surveys.md` | the task is CSAT or CES design, touchpoint selection, or effort analysis |
+| `reference/csat-ces-measurement.md` | CSAT/CES instrument, scale and denominator selection, follow-up rules, or combined interpretation. |
 | `reference/exit-survey.md` | the task is churn-reason capture, save-offer design, or cancellation analysis |
 | `reference/multi-channel-synthesis.md` | feedback must be unified across surveys, tickets, reviews, sales notes, or social channels |
 | `reference/feedback-widget-analysis.md` | the task is in-app feedback widgets, sentiment tagging, or response templates |

@@ -2,14 +2,14 @@
 name: scout
 description: '缺陷调查、复现步骤、根因分析和影响评估。'
 zh_description: "缺陷调查、复现步骤、根因分析和影响评估。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/main/scout"
+source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/scout/SKILL.md"
 license: MIT
 tags: ["analysis", "planning", "scout"]
 created_at: "2026-08-24"
-updated_at: "2026-09-06"
+updated_at: "2026-09-30"
 quality: 5
 complexity: "advanced"
 ---
@@ -97,7 +97,7 @@ Route elsewhere when the task is primarily:
 - Trace from symptom to code location, condition, state, or dependency.
 - Assess severity, scope, workaround, and next owner before closing.
 - Run an extent-of-cause check; monitor recurrence 2-4 weeks post-fix.
-- AI-authored code: extra hypothesis round, slopsquat/hallucinated-import check, Generator-Evaluator separation, `comprehension_debt` flag. Rationale + thresholds: `reference/core-contract-rationale.md`.
+- AI-authored code: extra hypothesis round, slopsquat/hallucinated-import check, Generator-Evaluator separation, `comprehension_debt` flag.
 - Use the unified confidence scale from `_common/INVESTIGATION_ESCALATION.md`: HIGH (>=0.8, 3+ evidence), MEDIUM (0.5-0.79, 2 evidence), LOW (<0.5, <=1 evidence).
 - Hand off fix direction to Builder and regression ideas to Radar; do not write code.
 - **Quantify recommended-fix impact scope across 5 axes before handoff** (callers / tests / types / configs / docs) with file paths per axis or `none`. 3+ axes non-trivially affected -> recommend `ripple` as next agent, not Builder. Mandatory whenever an LLM Fix Prompt is included.
@@ -133,7 +133,6 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 - Treat surface-level errors (timeout, HTTP 5xx, connection failure) as root causes.
 - Accept "human error" as root cause — it is a symptom of systemic weakness.
 
-Rationale and countermeasures for each: `reference/debugging-anti-patterns.md`.
 
 ## Workflow
 
@@ -145,7 +144,7 @@ Rationale and countermeasures for each: `reference/debugging-anti-patterns.md`.
 | `RECEIVE` | Normalize the report | Capture exact symptoms, environment, timing, and available evidence | Separate observed facts from reporter interpretation | `reference/output-format.md` |
 | `REPRODUCE` | Confirm the failure | Build a minimal, reliable repro or record reproduction conditions | Minimal repro first; environment repro if minimal fails | `reference/reproduction-templates.md` |
 | `TRACE` | Narrow the search space | Reconstruct event timeline, follow execution flow, inspect logs and history, test hypotheses | One variable at a time; log hypothesis and result | `reference/debug-strategies.md` |
-| `LOCATE` | Pinpoint the cause | Identify file, line, function, state transition, or external dependency | Confirm with at least 2 independent evidence points | `reference/bug-patterns.md` |
+| `LOCATE` | Pinpoint the cause | Identify file, line, function, state transition, or external dependency | Confirm with at least 2 independent evidence points | `reference/debug-strategies.md` |
 | `ASSESS` | Classify impact | Evaluate severity, affected users, workaround, and follow-up urgency | Use base severity table below; escalate if scope widens | `reference/advanced-reproduction-triage.md` |
 | `REPORT` | Produce handoff artifact | Write investigation report and route fixes or tests | Use canonical output format; include confidence level | `reference/output-format.md` |
 
@@ -171,7 +170,7 @@ Full phase contracts live in the "Read First" references.
 
 | Recipe | Subcommand | Default? | When to Use | Read First |
 |--------|-----------|---------|-------------|------------|
-| Focused Hunt | `bug` | ✓ | Single bug, clear symptom, single evidence chain | `reference/debug-strategies.md`, `reference/bug-patterns.md` |
+| Focused Hunt | `bug` | ✓ | Single bug, clear symptom, single evidence chain | `reference/debug-strategies.md` |
 | History-Led | `regression` | | Regression signal (recent deploy, version bump) — `git log`/diff/bisect first; delegate to Trail if history suffices | `reference/git-bisect.md`, `reference/modern-rca-methodology.md` |
 | Observability-Led | `prod` | | Production traces/logs/metrics dominate the signal | `reference/observability-debugging.md` |
 | Multi-Engine | `multi` | | Ambiguous RCA after 3 stalled hypotheses, or lock-in risk on high-stakes RCA — ships Primary RCA + Alternatives with verification ordering | `reference/tri-engine-investigate.md` |
@@ -222,7 +221,7 @@ Recommended Fix Impact Scope YAML template (`callers`/`tests`/`types`/`configs`/
 
 ## LLM Fix Prompt Generation
 
-Every Scout report for a confirmed root cause ends with a paste-ready `## LLM Fix Prompt` block. Universal authoring rules: `_common/LLM_PROMPT_GENERATION.md`. Scout-specific authoring rules, verb table, suppression cases, template fields, and worked examples: `reference/fix-prompt-generation.md`.
+Every Scout report for a confirmed root cause ends with a paste-ready `## LLM Fix Prompt` block. Universal authoring rules: `_common/LLM_PROMPT_GENERATION.md`. Scout-specific authoring rules, verb table, suppression cases, template fields: `reference/fix-prompt-generation.md`.
 
 Verbs: `FIX` (HIGH confidence, scoped, no security/concurrency concern → Builder/Claude/Codex), `FIX-WITH-TEST` (HIGH + Radar-quality regression specs bundled → Builder+Radar), `MITIGATE` (workaround only, root cause blocked/out of scope → Builder), `INVESTIGATE-FURTHER` (LOW/MEDIUM confidence, receiver must reproduce first → Claude/Codex), `REFACTOR-FIX` (structural change beyond one function → Atlas → Builder). Suppress (with a one-line note why) when escalating to Sentinel, investigation-only was requested, evidence is too weak even for `INVESTIGATE-FURTHER`, or the bug is `WONTFIX`.
 
@@ -254,21 +253,17 @@ Cross-cluster escalation (LENS↔SCOUT, unified confidence scale): `_common/INVE
 | `reference/output-format.md` | Canonical report shape, toolkit, completion rules. |
 | `reference/vague-report-handling.md` | Report is vague, urgent, screenshot-only, or missing reproduction detail. |
 | `reference/debug-strategies.md` | First move by error type, reproducibility, or environment. |
-| `reference/bug-patterns.md` | Symptom resembles a known family (null access, race, stale state, leak). |
 | `reference/reproduction-templates.md` | Building a reproducible report for UI/API/state/async failures. |
 | `reference/git-bisect.md` | Likely a regression needing commit-level isolation. |
 | `reference/modern-rca-methodology.md` | Evidence-driven RCA, contributing factors, incident-review framing. |
-| `reference/core-contract-rationale.md` | A Core Contract line needs justification, calibration, or citation. |
 | `reference/5whys-rca.md` | `5whys` recipe — why-chain template, stop conditions, examples. |
 | `reference/fishbone-6m.md` | `fishbone` recipe — 6M decomposition guide. |
 | `reference/timeline-reconstruction.md` | `timeline` recipe — incident timeline + detection/response gap analysis. |
-| `reference/debugging-anti-patterns.md` | Investigation is drifting, biased, or changing too many variables. |
 | `reference/observability-debugging.md` | Traces, logs, metrics, profiling, production-safe debugging. |
 | `reference/perf-investigation.md` | `perf` recipe — flamegraph, hot-path isolation, N+1/algorithmic/I/O/lock/GC. |
 | `reference/memory-investigation.md` | `memory` recipe — heap-snapshot diff, retainer paths, OOM/GC pressure. |
 | `reference/flake-investigation.md` | `flake` recipe — reproducibility rate, environment/timing classification. |
 | `reference/advanced-reproduction-triage.md` | Time-travel debugging, flaky-test strategy, `RICE`/`ICE` severity scoring. |
-| `reference/frontend-debugging.md` | Browser rendering, React/Vue behavior, CSS layout, frontend state. |
 | `reference/video-bug-analysis.md` | `video` recipe or `P06` inferred — frame extractor contract, Codex invocation, JSON schema, privacy rules. |
 | `reference/fix-prompt-generation.md` | Authoring `## LLM Fix Prompt`, choosing the verb, or deciding suppression. |
 | `reference/tri-engine-investigate.md` | `multi` recipe — activation, fan-out, CLUSTER/Confidence/Perspective rules, GROUND, SYNTHESIZE, JSON schema, prompts, and degraded mode. |

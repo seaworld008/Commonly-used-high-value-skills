@@ -29,16 +29,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/security-and-reliability/firebase-security-rules-auditor/SKILL.md",
       "source": "https://github.com/firebase/agent-skills/tree/main/skills/firebase-security-rules-auditor",
-      "notes": "Imported from the official Firebase Agent Skills repository under Apache-2.0 and expanded with repository-standard audit workflow, examples, emulator tests, and severity guidance. 2026-09-28: curated reviewed deltas from cad501960f600a0f5ed9c5b80bdf349559d927b5; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md.",
+      "notes": "Imported from the official Firebase Agent Skills repository under Apache-2.0 and expanded with repository-standard audit workflow, examples, emulator tests, and severity guidance. 2026-09-28: curated reviewed deltas from cad501960f600a0f5ed9c5b80bdf349559d927b5; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
       "upstream": {
         "repo": "firebase/agent-skills",
         "path": "skills/firebase-security-rules-auditor/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-14",
-        "last_synced_at": "2026-09-14",
-        "last_synced_commit": "28caac2db9633794bf747bb030d7c39e62a951ab",
+        "last_checked_at": "2026-09-30",
+        "last_synced_at": "2026-09-30",
+        "last_synced_commit": "daaf0e1577b2d4ac23cfa9d31f421178ef229735",
         "sync_mode": "monitor",
-        "path_commit": "073edf7bb747c27b9c911a9126adaa5bc4648fdc"
+        "path_commit": "e35a2d54bb0f737c0af59545330c1f53086ad52e"
       },
       "kind": "mirror",
       "sync_mode": "monitor",
@@ -57,17 +57,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "28caac2db9633794bf747bb030d7c39e62a951ab",
-            "path_commit": "073edf7bb747c27b9c911a9126adaa5bc4648fdc",
+            "resolved_commit": "daaf0e1577b2d4ac23cfa9d31f421178ef229735",
+            "path_commit": "e35a2d54bb0f737c0af59545330c1f53086ad52e",
             "content_sha256": "e389e5c312b2555bbde83f1791a666f2fef70f0ba28a34c497cd8828ae0407bf",
-            "last_checked_at": "2026-09-14",
-            "last_synced_at": "2026-09-14",
+            "last_checked_at": "2026-09-30",
+            "last_synced_at": "2026-09-30",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
               "content_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
               "spdx": "Apache-2.0",
-              "resolved_commit": "28caac2db9633794bf747bb030d7c39e62a951ab",
+              "resolved_commit": "daaf0e1577b2d4ac23cfa9d31f421178ef229735",
               "api_spdx": "Apache-2.0"
             }
           }
@@ -125,6 +125,13 @@
       "target": "firebase/agent-skills@28caac2db9633794bf747bb030d7c39e62a951ab",
       "result": "success",
       "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-09-30",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "firebase/agent-skills@daaf0e1577b2d4ac23cfa9d31f421178ef229735",
+      "result": "success",
+      "evidence": "Compared the complete declared artifact sets and regular sibling resources at immutable commits; applied reviewed deltas, retained local authorization/host adapters, and isolated removed references as immutable licensed sidecars. Source comparison and targeted semantic review are not live vendor/API or model behavioral certification. See docs/maintenance-audit-2026-09-30.json."
     }
   ]
 }

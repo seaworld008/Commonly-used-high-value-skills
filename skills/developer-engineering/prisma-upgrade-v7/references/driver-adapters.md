@@ -1,6 +1,6 @@
 # Driver Adapters
 
-Prisma v7 requires driver adapters for SQL database connections. This is the standard SQL execution path in current Prisma releases.
+These examples apply to **Prisma ORM 7 SQL clients** during a 6-to-7 upgrade. They do not configure Prisma 8; use the installed package-owned `prisma-8` runtime guidance for that version.
 
 MongoDB should not follow this path. There is no published MongoDB `@prisma/adapter-*` package, and MongoDB projects should remain on the latest Prisma 6.x release instead of trying to fit into the Prisma 7 SQL adapter model.
 

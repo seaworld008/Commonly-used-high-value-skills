@@ -2,14 +2,14 @@
 name: lark-contact
 description: '飞书 / Lark 通讯录:按姓名 / 邮箱解析成 open_id,或按 open_id 反查姓名 / 部门 / 邮箱 / 联系方式 / 个人状态 / 签名,以及按关键词搜索当前用户可见的机器人 / 智能体(agent)。当用户提到一个名字要下一步发消息 / 排日程,或拿到 open_id 想查具体信息时使用。不负责部门树遍历、按部门列员工、组织架构图,这类需求走原生 OpenAPI。'
 zh_description: "用于按姓名或邮箱解析飞书 open_id，并反查成员姓名、部门、邮箱和个人状态。"
-version: "1.0.5"
+version: "1.0.6"
 author: larksuite
 source: "github:larksuite/cli"
-source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-contact"
+source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-contact"
 license: MIT
 tags: '[feishu, lark, lark-cli, contacts, identity]'
 created_at: "2026-05-19"
-updated_at: "2026-08-20"
+updated_at: "2026-09-30"
 quality: 3
 complexity: intermediate
 metadata:
@@ -79,6 +79,7 @@ lark-cli contact +search-bot --queries '会议助手,日报助手,审批助手' 
 - 发消息 / 查聊天记录 → [`lark-im`](../lark-im/SKILL.md)
 - 排日程 / 邀请会议 → [`lark-calendar`](../lark-calendar/SKILL.md)
 - 部门树 / 按部门列员工 / 组织架构 → [`lark-openapi-explorer`](../lark-openapi-explorer/SKILL.md) 查找原生接口
+
 <!-- LOCAL-QUALITY-SUPPLEMENT:START -->
 ## Usage Notes
 

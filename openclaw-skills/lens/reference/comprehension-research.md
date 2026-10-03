@@ -1,3 +1,5 @@
+> **Historical compatibility snapshot — not current upstream guidance.** Upstream removed this path by `f425adcb2111ca8c0be88b325888ff61b64dec49`. Preserved from `bd5d9cd61c0718c3c093e9cfcce2bd20e9cb4104` under the recorded license. Use the canonical skill and current references for new work.
+
 # Comprehension Research & Advanced Techniques
 
 Research backing, source citations, and advanced context-engineering techniques for Lens. The SKILL.md Principles, Core Contract, and Boundaries sections carry the operative rules in tightened form; the full research detail, study results, and source citations live here so no evidence is lost.

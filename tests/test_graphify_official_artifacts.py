@@ -109,7 +109,7 @@ def test_graphify_release_mapping_has_single_owner_and_exact_hashes() -> None:
 
 def test_graphify_references_match_reviewed_release_hashes() -> None:
     expected_hashes = {
-        "add-watch.md": "b3f67570240582689c2834b4831917550c2d1aaf042148868c39dcbf387ce3fd",
+        "add-watch.md": "7b89268619e2bf6a4432b7dc46624a6d6b40be7dbfc605a6f79a1c2f62cd17b8",
         "exports.md": "ee47fae477f106d8aed38798c58493b5a7f060a0d9d2581ce6132302827bc14b",
         "extraction-spec.md": "32d7decad42d58129c6694ea4e4ce1f72a531bc5161827d2095787e9448735e9",
         "github-and-merge.md": "e5ebd90c7686f50363ff7a535556bc2f596d4c47ec1e6c8b95e11e36a0dfea2b",

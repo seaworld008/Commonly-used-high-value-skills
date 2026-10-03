@@ -2,14 +2,14 @@
 name: lark-workflow-meeting-summary
 description: '会议纪要整理工作流：汇总指定时间范围内的会议纪要并生成结构化报告。当用户需要整理会议纪要、生成会议周报、回顾一段时间内的会议内容时使用。'
 zh_description: "用于汇总指定时间范围内的飞书会议纪要，并生成结构化会议报告或周报。"
-version: "1.0.6"
+version: "1.0.7"
 author: larksuite
 source: "github:larksuite/cli"
-source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-workflow-meeting-summary"
+source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-workflow-meeting-summary"
 license: MIT
 tags: '[feishu, lark, lark-cli, meetings, summary]'
 created_at: "2026-05-19"
-updated_at: "2026-08-24"
+updated_at: "2026-09-30"
 quality: 4
 complexity: intermediate
 metadata:
@@ -137,6 +137,7 @@ lark-cli docs +update --doc "<url_or_token>" --command append --doc-format markd
 - [查询妙记及关联产物](../lark-meeting/scenes/query-minutes-and-artifacts.md) — 无 `note_id` 时的妙记备选路径
 - [`vc +search`](../lark-meeting/references/lark-vc-search.md)、[`vc +detail`](../lark-meeting/references/lark-vc-detail.md)、[`note +detail`](../lark-meeting/references/lark-note-detail.md)、[`note +transcript`](../lark-meeting/references/lark-note-transcript.md)、[`minutes +detail`](../lark-meeting/references/lark-minutes-detail.md)、[`minutes +apply-permission`](../lark-meeting/references/lark-minutes-apply-permission.md) — 命令细节
 - [lark-doc](../lark-doc/SKILL.md) — `+fetch`、`+create`、`+update` 详细用法
+
 <!-- LOCAL-QUALITY-SUPPLEMENT:START -->
 ## Usage Notes
 

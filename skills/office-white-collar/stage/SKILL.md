@@ -2,14 +2,14 @@
 name: stage
 description: '演示文稿生成、叙事节奏设计和会议演讲优化。'
 zh_description: "演示文稿生成、叙事节奏设计和会议演讲优化。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/main/stage"
+source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/stage/SKILL.md"
 license: MIT
 tags: ["office", "stage"]
 created_at: "2026-08-24"
-updated_at: "2026-09-06"
+updated_at: "2026-09-30"
 quality: 5
 complexity: "advanced"
 ---
@@ -95,7 +95,7 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 
 ### Never
 
-- Create text-wall slides (>8 lines of body text per slide). Text-heavy decks collapse audience retention from ~35-40% (clean visuals) to ~10-15% (Duarte research).
+- Create text-wall slides (>8 lines of body text per slide).
 - Put full sentences on slides — reading and listening share one cognitive channel, so the audience absorbs neither well.
 - Omit speaker notes from content slides.
 - Generate binary presentation files (PPTX/PDF) directly; output code that produces them.
@@ -133,7 +133,7 @@ Parse the first token of user input.
 | Signal | Approach | Primary output | Read next |
 |--------|----------|----------------|-----------|
 | `PPTX`, `corporate`, `.ppt` deliverable | Marp (native PPTX export with speaker notes; add `--pptx-editable` for text-editable output, requires LibreOffice) | `.md` with Marp directives | `reference/patterns.md` |
-| `PDF`, `print`, handout | Marp (PDF export with outlines/notes); for accessible PDF/UA, export via PPTX then PowerPoint Save-As-PDF with Document Structure Tags | `.md` with Marp directives | `reference/patterns.md` |
+| `PDF`, `print`, handout | Marp; verify the actual PDF export/notes and accessibility. No conversion route alone proves PDF/UA conformance | `.md` with Marp directives | `reference/patterns.md` |
 | live code demo, `Monaco`, `Shiki`, animated code walkthrough | Slidev (Monaco editor + Shiki line animations) | `.md` with Slidev syntax | `reference/patterns.md` |
 | `Vue`, developer talk, built-in recording/camera | Slidev (built-in camera/screen recording, https://sli.dev/features/recording) | `.md` with Slidev syntax | `reference/patterns.md` |
 | `reveal`, heavy customization, plugin ecosystem, multiplexing | reveal.js HTML | `.html` | `reference/patterns.md` |
@@ -149,11 +149,11 @@ Parse the first token of user input.
 | Phase | Required action | Key rule | Read |
 |-------|-----------------|----------|------|
 | `OUTLINE` | Extract key messages and audience profile | Identify the one thing the audience should remember | — |
-| `ARC` | Design narrative structure | Choose arc pattern (Problem-Solution, AIDA, Before-After, Hero's Journey) | `reference/patterns.md` |
+| `ARC` | Design narrative structure | Choose an audience- and evidence-grounded arc | `reference/narrative-arc-design.md` |
 | `DRAFT` | Write slide content with visual cues | 6x6 rule; one idea per slide | `reference/patterns.md` |
-| `THEME` | Apply or create theme | Match audience and venue context | `reference/patterns.md` |
+| `THEME` | Apply or create theme | Match audience and venue context | `reference/slide-visual-design.md` |
 | `NOTES` | Add speaker notes and timing | Every content slide gets notes; note word count ≤ (slide seconds × WPM ÷ 60) | — |
-| `REVIEW` | Check flow, pacing, and slide count | Verify arc coherence; total notes word count ≤ duration × 125 WPM | — |
+| `REVIEW` | Check flow, pacing, and slide count | Verify arc coherence; total notes word count fits the chosen WPM and reserved demo/transition/Q&A time | — |
 
 ## Narrative Patterns
 
@@ -199,7 +199,7 @@ Pace baseline: 120-160 WPM; use 140 WPM for technical conference talks, 125 WPM 
 
 | Reference | Read this when |
 |-----------|----------------|
-| `reference/patterns.md` | You need slide framework syntax, theme templates, or layout patterns. |
+| `reference/patterns.md` | You need renderer binding, notes/diagram integration or export checks. |
 | `reference/handoffs.md` | You need handoff templates for collaboration with other agents. |
 | `reference/narrative-arc-design.md` | You are designing the deck story arc (Pixar formula, Hero's Journey for talks, Problem-Solution-Benefit, Minto Pyramid) — used by the `narrative` recipe. |
 | `reference/slide-visual-design.md` | You are designing typography hierarchy, color/contrast (WCAG AA), image use, or alignment grid before applying a theme — used by the `visual` recipe. |

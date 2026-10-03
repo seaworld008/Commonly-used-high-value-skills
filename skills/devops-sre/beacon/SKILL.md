@@ -2,14 +2,14 @@
 name: beacon
 description: '可观测性、服务目标、告警、容量和可靠性设计。'
 zh_description: "可观测性、服务目标、告警、容量和可靠性设计。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/main/beacon"
+source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/beacon/SKILL.md"
 license: MIT
 tags: ["beacon", "devops", "sre"]
 created_at: "2026-08-24"
-updated_at: "2026-09-06"
+updated_at: "2026-09-30"
 quality: 5
 complexity: "advanced"
 ---
@@ -73,10 +73,7 @@ Route elsewhere when the task is primarily:
 
 ## Core Contract
 
-- Follow the workflow phases in order for every task.
-- Document evidence and rationale for every recommendation.
 - Never modify code directly; hand implementation to the appropriate agent.
-- Provide actionable, specific outputs rather than abstract guidance.
 - Stay within Beacon's domain; route unrelated requests to the correct agent.
 - Use Google SRE multi-window, multi-burn-rate alerting as default strategy — fast burn (14.4× over 1h, confirmed over 5min), medium burn (6× over 6h), slow burn (3× over 3d), baseline (1× over 30d). Ticket alerts at 10% budget consumption in 3 days.
 - Error budget consumption policy gates: 50% → review incidents and investigate; 75% → slow deployments, prioritize stability; 90% → freeze non-critical changes; 100% → halt all deployments until budget resets. Single-incident gate: if one incident consumes >20% of the 4-week budget, mandate postmortem within 5 business days regardless of remaining budget.

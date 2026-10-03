@@ -29,7 +29,8 @@ def test_canonical_files_ignore_bytecode_but_not_unmanaged_source(tmp_path):
 
 
 MAPPING_PATH = REPO_ROOT / "docs/sources/larksuite-cli-2026-05.skills.json"
-REVIEWED_COMMIT = "39aaf9fca0e08825b51f6d8c6c617bf781db761b"
+REVIEWED_COMMIT = "7beffb086d7fa3c5b843d8affa7c089f49cfc65e"
+SEPTEMBER_14_REVIEWED_COMMIT = "39aaf9fca0e08825b51f6d8c6c617bf781db761b"
 SEPTEMBER_6_REVIEWED_COMMIT = "7fd6ef3c07182257ce776cdc5a614e122d5bd4b3"
 AUGUST_31_REVIEWED_COMMIT = "6646386e0996b1ff5df640bccff834a20bcb203b"
 AUGUST_24_REVIEWED_COMMIT = "56ad837c3d8f4c49d6b9725a3530c37408533ead"
@@ -38,20 +39,19 @@ INITIAL_REVIEWED_COMMIT = "755daa4de3ea12785c43a15244ffb8f012122c13"
 EXPECTED_COUNTS = {
     "lark-approval": 17,
     "lark-attendance": 1,
-    "lark-base": 31,
-    "lark-calendar": 13,
+    "lark-base": 33,
+    "lark-calendar": 15,
     "lark-contact": 4,
     "lark-doc": 44,
     "lark-drive": 61,
     "lark-event": 8,
-    "lark-im": 60,
+    "lark-im": 61,
     "lark-mail": 34,
     "lark-markdown": 6,
-    "lark-meeting": 27,
     "lark-okr": 19,
     "lark-openapi-explorer": 1,
     "lark-shared": 7,
-    "lark-sheets": 28,
+    "lark-sheets": 32,
     "lark-skill-maker": 1,
     "lark-slides": 50,
     "lark-task": 18,
@@ -59,31 +59,32 @@ EXPECTED_COUNTS = {
     "lark-wiki": 14,
     "lark-workflow-meeting-summary": 1,
     "lark-workflow-standup-report": 1,
+    "lark-meeting": 27
 }
 EXPECTED_PATH_COMMITS = {
     "lark-approval": "0d5334a0cdfdf18b0313ba051befb2848493ecda",
     "lark-attendance": "69ae326d01a9163ca22408c746e052003cf0af2c",
-    "lark-base": "b67a4e85b17e1ff0f8488dd7d2cb2e05f5ca2f6f",
-    "lark-calendar": "ad8766b6166fca510bbd2e29942a9ee55c605456",
+    "lark-base": "d1ae4727324533f30b12c866f47f25a03f21f56d",
+    "lark-calendar": "7bd7708fae3eb8c637e9cc1221ca310a2ab77cb2",
     "lark-contact": "87be09ef5f227c7b63d5eba40649544b5bec0133",
-    "lark-doc": "9a29abeac09de79dceb16a1bf1416f67de2e20c8",
-    "lark-drive": "dd8edc738f3acc592c366247ccd4a595c7c44d65",
+    "lark-doc": "d1ae4727324533f30b12c866f47f25a03f21f56d",
+    "lark-drive": "a3e6b9ef362e689a0af0a8aeedf4d4381012a0ef",
     "lark-event": "fcdef499bb23739b720c665d49875a9957c97d48",
-    "lark-im": "5975fdda2cf6668a7c380fb265cb16f15a1d9d24",
-    "lark-mail": "3e8b6c6659e9e757b54f306da0631ff99dae7e61",
-    "lark-markdown": "62f270afd68c9d98ceb9d10ca9216f802a5f54c3",
-    "lark-meeting": "5d6bf9fa3b8afedca9ae3c490ed38c2657f6ff81",
+    "lark-im": "341ee384fd668a963a68382cb48f73b8143879be",
+    "lark-mail": "d1ae4727324533f30b12c866f47f25a03f21f56d",
+    "lark-markdown": "d1ae4727324533f30b12c866f47f25a03f21f56d",
     "lark-okr": "baf9640bec9eddb658ec351956553b8fa0bad6cb",
     "lark-openapi-explorer": "83dfb068ad8bb4052787d80ca415118a20849b85",
     "lark-shared": "dd8edc738f3acc592c366247ccd4a595c7c44d65",
-    "lark-sheets": "4120a6b47ca00ebfdf4aefde38768494cb6778cd",
+    "lark-sheets": "d5a32489b93050c88a21e54784593dd3effd452b",
     "lark-skill-maker": "83dfb068ad8bb4052787d80ca415118a20849b85",
-    "lark-slides": "f0f2fb92930a7aa69fe43f4789e19dbbe2fc237f",
-    "lark-task": "e525beb8d6ddecbde68ea3b2df292f1d70a66fa5",
+    "lark-slides": "7f4a15cca68b5cd05c161820e7a5e35f32f778f0",
+    "lark-task": "d1ae4727324533f30b12c866f47f25a03f21f56d",
     "lark-whiteboard": "27ab8fbea3e6f2b07e93a26bc635e0e52023d7a0",
-    "lark-wiki": "dd8edc738f3acc592c366247ccd4a595c7c44d65",
+    "lark-wiki": "d1ae4727324533f30b12c866f47f25a03f21f56d",
     "lark-workflow-meeting-summary": "e525beb8d6ddecbde68ea3b2df292f1d70a66fa5",
-    "lark-workflow-standup-report": "049ddf771b435e86a4f5a71e616336ec44341160"
+    "lark-workflow-standup-report": "049ddf771b435e86a4f5a71e616336ec44341160",
+    "lark-meeting": "1da5768f96ed22e774a09fa2aa60af607d63a99e"
 }
 
 LOCAL_OVERLAYS = {
@@ -136,9 +137,9 @@ def test_lark_complete_directory_mirrors_are_exact_and_owned() -> None:
         )
         assert entry["sync_mode"] == "monitor"
         assert len(entry["origins"]) == (
-            2 if slug in LOCAL_OVERLAYS else 1
+            2 if slug in LOCAL_OVERLAYS or slug == "lark-sheets" else 1
         )
-        assert origin["path"] == source_root
+        assert origin["path"] == (source_root + "/SKILL.md" if slug == "lark-sheets" else source_root)
         assert origin["sync_mode"] == "monitor"
         if slug in LOCAL_OVERLAYS:
             local_targets = LOCAL_OVERLAYS[slug]
@@ -175,6 +176,15 @@ def test_lark_complete_directory_mirrors_are_exact_and_owned() -> None:
                     ),
                 },
             }
+        elif slug == "lark-sheets":
+            archived = entry["origins"][1]
+            assert archived["sync_mode"] == "archived"
+            assert archived["tracking"]["ref"] == SEPTEMBER_14_REVIEWED_COMMIT
+            assert {Path(a["target"]).name for a in archived["artifacts"]} == {
+                "sheets_df.py", "lark-sheets-legacy-command-migration.md",
+            }
+            assert len(origin["artifacts"]) == expected_count - 2
+            assert all(a["type"] == "file" for a in origin["artifacts"])
         else:
             assert origin["artifacts"] == [
                 {
@@ -235,7 +245,7 @@ def test_lark_whitespace_adaptations_are_scoped_and_clean() -> None:
 
     mapping = json.loads(MAPPING_PATH.read_text(encoding="utf-8"))
     attempts = mapping["verification_attempts"]
-    assert len(attempts) == 7
+    assert len(attempts) == 8
     assert attempts[0]["target"] == (
         f"larksuite/cli@{INITIAL_REVIEWED_COMMIT}"
     )
@@ -260,5 +270,14 @@ def test_lark_whitespace_adaptations_are_scoped_and_clean() -> None:
         f"larksuite/cli@{SEPTEMBER_6_REVIEWED_COMMIT}"
     )
     assert attempts[5]["result"] == "success"
-    assert attempts[6]["target"] == f"larksuite/cli@{REVIEWED_COMMIT}"
+    assert attempts[6]["target"] == f"larksuite/cli@{SEPTEMBER_14_REVIEWED_COMMIT}"
     assert attempts[6]["result"] == "success"
+
+
+def test_lark_latest_review_has_explicit_evidence():
+    mapping = json.loads(MAPPING_PATH.read_text(encoding="utf-8"))
+    latest = mapping["verification_attempts"][-1]
+    assert latest["target"] == f"larksuite/cli@{REVIEWED_COMMIT}"
+    assert latest["date"] == "2026-09-30"
+    assert latest["result"] == "success"
+    assert "complete declared artifact sets" in latest["evidence"]

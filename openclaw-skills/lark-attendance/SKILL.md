@@ -2,14 +2,14 @@
 name: lark-attendance
 description: 'Use when querying Lark attendance records, checking missing clock-ins, and preparing traceable explanations for attendance exceptions.'
 zh_description: "用于查询飞书考勤记录、核对打卡缺失、整理异常考勤并生成可追溯说明。"
-version: "1.0.3"
+version: "1.0.4"
 author: larksuite
 source: "github:larksuite/cli"
-source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-attendance"
+source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-attendance"
 license: MIT
 tags: '[feishu, lark, lark-cli, attendance]'
 created_at: "2026-05-19"
-updated_at: "2026-08-20"
+updated_at: "2026-09-30"
 quality: 3
 complexity: intermediate
 metadata:
@@ -64,6 +64,7 @@ lark-cli attendance <resource> <method> [flags]  # 调用 API
 | 方法 | 所需 scope |
 |------|-----------|
 | `user_tasks.query` | `attendance:task:readonly` |
+
 <!-- LOCAL-QUALITY-SUPPLEMENT:START -->
 ## Usage Notes
 
@@ -92,26 +93,3 @@ source is intentionally concise.
 - Treat skill selection as routing, not ceremony: invoke only the narrowest
   applicable workflow and keep user or repository instructions authoritative.
 <!-- LOCAL-QUALITY-SUPPLEMENT:END -->
-
-<!-- LOCAL-CURATION-SUPPLEMENT:START -->
-## Attendance Review Checklist
-
-Use this checklist before returning attendance findings:
-
-- Confirm the target date range, timezone, and whether the user wants raw records, exception summaries, or reconciliation evidence.
-- Resolve the person identifier first; do not mix `open_id`, employee number, and user display name in the same API call.
-- Keep `employee_type` consistent with the identifier type required by the endpoint.
-- Treat empty results as ambiguous until the date range, permission scope, and user identity are verified.
-- Separate late arrival, early leave, missing punch, leave approval, business trip, and holiday explanations when the API data supports it.
-- If multiple employees are queried, preserve one row per employee per day so downstream HR review can audit the result.
-
-## Output Format
-
-Prefer a compact table for user-facing summaries:
-
-| Date | Person | Status | Evidence | Follow-up |
-|---|---|---|---|---|
-| 2026-06-29 | Example | Missing PM punch | `user_tasks.query` returned no end record | Ask employee to confirm |
-
-When uncertainty remains, state exactly which API response, scope, or identifier prevented a definitive conclusion.
-<!-- LOCAL-CURATION-SUPPLEMENT:END -->

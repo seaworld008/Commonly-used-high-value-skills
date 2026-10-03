@@ -2,14 +2,14 @@
 name: x-twitter-scraper
 description: 'Use Xquik for X/Twitter research and connected-account actions; Radar and support workflows require a named request. Offline text analysis does not need this skill.'
 zh_description: "用于规划和执行 Xquik 的 X/Twitter 数据读取、导出、监控及经确认的账户操作。"
-version: "1.0.5"
+version: "1.0.6"
 author: 'Xquik <support@xquik.com>'
 source: "github:Xquik-dev/x-twitter-scraper"
-source_url: "https://github.com/Xquik-dev/x-twitter-scraper/tree/3b12bf550dd2804056c09dc3925c7dae5369665c/skills/x-twitter-scraper"
+source_url: "https://github.com/Xquik-dev/x-twitter-scraper/blob/645ccfbad23f258ed9efb24de1ead641f15938e1/skills/x-twitter-scraper/SKILL.md"
 license: MIT
 tags: [growth, social-media, twitter, x, api, mcp]
 created_at: "2026-06-22"
-updated_at: "2026-09-06"
+updated_at: "2026-09-30"
 quality: 5
 complexity: advanced
 allowed-tools: WebFetch
@@ -429,3 +429,9 @@ to arbitrary local files. Never open user files or unrelated local paths.
 | [reliable-twitter-data-api-2026.md](references/reliable-twitter-data-api-2026.md) | Twitter data API cost, scale, accuracy, history, documentation, and integration |
 | [best-x-api-alternative.md](references/best-x-api-alternative.md) | Xquik pricing, filters, API access, reliability, security, and developer fit |
 | [twitter-scraper-api-guide.md](references/twitter-scraper-api-guide.md) | Twitter scraper API setup, analytics, monitoring, history, and legal controls |
+
+## Current Route References and Historical Compatibility
+
+The September 2026 upstream consolidated its reference layout. For current provider route shapes, read only the required guide: [reads](references/reads.md), [monitors and webhooks](references/monitors-webhooks.md), [MCP setup](references/mcp.md), or [write-request shapes](references/writes.md). These references do not grant permission to execute an X account change, invoke MCP from this skill, quote a cached price, or accept vendor legal conclusions. The safety and live-estimate rules above remain authoritative.
+
+Older references retained at their public paths carry a historical-snapshot notice and fixed licensed provenance. They are for compatibility and comparison, not proof of a current endpoint contract. Reconfirm the live route before preparing a request that relies on a historical guide.

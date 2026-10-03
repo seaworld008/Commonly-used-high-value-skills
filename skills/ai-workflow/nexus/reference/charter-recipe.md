@@ -137,7 +137,7 @@ The Charter is **multi-engine by default** (`engines=claude+codex`). Phase 3 ass
 | Work-package class | Default engine | Why |
 |--------------------|----------------|-----|
 | Analysis, architecture, spec, design, review, decision | **Claude Code** (Agent tool) | Planning/judgment quality; native to the hub |
-| Build loops + high-volume parallel coding (multi-iteration implementation, test authoring, codemods) | **Codex CLI** (`spawn_agent` → `wait_agent`), model **`gpt-5.6-terra`** (C3.0 variant tiering: sol=plan/design, terra=implementation, luna=rote) | Fresh context per iteration avoids context rot; tuned for autonomous coding cycles; explicit `spawn_agent`/`close_agent` lifecycle makes parallel file-ownership/branch isolation cheap — same rationale as Apex Phase 6 |
+| Build loops + high-volume parallel coding (multi-iteration implementation, test authoring, codemods) | **Codex CLI**, subject to advertised capabilities and approved model/effort | Independent iteration state and owned writes; verify availability, never assume a variant from its name |
 | Optional third axis (cross-engine triangulation, extra parallel capacity) | **agy** (`/agent` / `agy -p`) when AVAILABLE | Perspective diversity; only when `engines=all` and prereqs hold |
 
 **Authoring rules:**
@@ -239,7 +239,7 @@ Nexus AUTORUN charter
   → scribe(+scribe[unified] trace, void? full)
        → finalize §5 roster + §6 orchestration plan
        → assign engine per package: Claude Code (plan/design/review)
-         ‖ Codex CLI model=gpt-5.6-terra (build loops + high-volume parallel
+         ‖ Codex CLI with verified authorized model (build loops + high-volume parallel
            coding; Orbit sub-hub pinned to Codex) ‖ agy? (engines=all)
        → record per-engine prereqs + fallback_engine in §6
        → write docs/CHARTER.md + CHARTER.roster.yaml

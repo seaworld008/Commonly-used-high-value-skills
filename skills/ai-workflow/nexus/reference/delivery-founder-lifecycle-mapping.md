@@ -1,3 +1,5 @@
+> **Historical compatibility snapshot — not current upstream guidance.** Upstream removed this path by `f425adcb2111ca8c0be88b325888ff61b64dec49`. Preserved from `bd5d9cd61c0718c3c093e9cfcce2bd20e9cb4104` under the recorded license. Use the canonical skill and current references for new work.
+
 # Founder Lifecycle ↔ Nexus[deliver] Phase Mapping
 
 Anthropic's *Founder's Playbook* frames the journey from idea to scaled product as a four-stage lifecycle: **Idea → MVP → Launch → Scale**. Nexus[deliver]'s phased delivery (DISCOVER → DEFINE → ARCHITECT → BUILD → HARDEN → VALIDATE → LAUNCH → GROW → EVOLVE) is the implementation backbone for this lifecycle. This reference makes the mapping explicit so that Nexus[deliver]-driven work can be communicated in founder vocabulary and gated against stage-appropriate exit criteria.

@@ -1,6 +1,6 @@
 # im +messages-mget
 
-> **Prerequisite:** Read [`../lark-shared/SKILL.md`](../../lark-shared/SKILL.md) first to understand authentication, global parameters, and safety rules.
+> **Prerequisite:** Read [`../../lark-shared/SKILL.md`](../../lark-shared/SKILL.md) first to understand authentication, global parameters, and safety rules.
 
 Fetch message details in batch. Given a list of message IDs, this returns the full content for multiple messages in one call and automatically resolves sender names.
 
@@ -51,7 +51,7 @@ Each message contains:
 | `sender` | Sender information (includes `name`) |
 | `content` | Message content |
 
-For `folder` messages, `content` carries a folder key; `mget` expands the folder one level (`GET /files/:file_key/folder`), rendering first-level children inside the folder tag:
+For `folder` messages, `content` carries a folder key; `mget` expands the folder one level, rendering first-level children inside the folder tag (to expand/download folder children yourself, follow the Folder resources note in [`lark-im`](../SKILL.md)):
 
 ```
 <folder key="file_v3_...g" name="assets" child_count="5">

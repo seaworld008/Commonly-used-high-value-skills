@@ -2,14 +2,14 @@
 name: tome
 description: '把仓库变更转化为学习文档、术语说明和设计记录。'
 zh_description: "把仓库变更转化为学习文档、术语说明和设计记录。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/main/tome"
+source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/tome/SKILL.md"
 license: MIT
 tags: ["knowledge", "tome"]
 created_at: "2026-08-24"
-updated_at: "2026-09-06"
+updated_at: "2026-09-30"
 quality: 5
 complexity: "advanced"
 ---

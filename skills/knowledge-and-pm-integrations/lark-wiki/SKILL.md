@@ -2,14 +2,14 @@
 name: lark-wiki
 description: '管理飞书知识空间、成员和文档节点，查询或调整节点层级。支持飞书或 doubao.com 的 /wiki/ 链接和 token；文件上传转 lark-drive，正文编辑转 lark-doc。'
 zh_description: "飞书知识库：管理知识空间、空间成员和文档节点。"
-version: "1.0.10"
+version: "1.0.11"
 author: larksuite
 source: "github:larksuite/cli"
-source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-wiki"
+source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-wiki"
 license: MIT
 tags: '[feishu, lark, lark-cli, wiki, knowledge-base]'
 created_at: "2026-05-19"
-updated_at: "2026-09-06"
+updated_at: "2026-09-30"
 quality: 4
 complexity: intermediate
 metadata:
@@ -59,7 +59,7 @@ metadata:
 
 Shortcut 是对常用操作的高级封装（`lark-cli wiki +<verb> [flags]`）。有 Shortcut 的操作优先使用。
 
-获取或解析 Wiki 节点统一优先使用 `wiki +node-get`，包括只为获取 `space_id`、`node_token`、`obj_token` 或 `obj_type` 的中间步骤。只有当前 CLI 不提供该 shortcut，或任务明确需要 shortcut 未输出的原始响应字段时，才回退到 `wiki spaces get_node`；回退前先运行 `lark-cli schema wiki.spaces.get_node`。
+获取或解析 Wiki 节点统一使用 `wiki +node-get`，包括只为获取 `space_id`、`node_token`、`obj_token` 或 `obj_type` 的中间步骤。
 
 | Shortcut | 说明 |
 |----------|------|
@@ -105,7 +105,6 @@ lark-cli wiki <resource> <method> [flags]  # 调用 API
 
 - `create` — 创建知识空间
 - `get` — 获取知识空间信息
-- `get_node` — 获取知识空间节点信息
 - `list` — 获取知识空间列表
 
 ### members
@@ -127,6 +126,7 @@ lark-cli wiki <resource> <method> [flags]  # 调用 API
 - 编辑文档正文内容 → [`lark-doc`](../lark-doc/SKILL.md)
 - 表格 / 多维表格数据操作 → [`lark-sheets`](../lark-sheets/SKILL.md) / [`lark-base`](../lark-base/SKILL.md)
 - 按名称搜索文档 / Wiki / 表格文件、评论与权限管理 → [`lark-drive`](../lark-drive/SKILL.md)
+
 <!-- LOCAL-QUALITY-SUPPLEMENT:START -->
 ## Usage Notes
 

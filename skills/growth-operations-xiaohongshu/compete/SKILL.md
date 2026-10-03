@@ -2,14 +2,14 @@
 name: compete
 description: '竞品研究、差异化定位、矩阵对比和竞争战卡。'
 zh_description: "竞品研究、差异化定位、矩阵对比和竞争战卡。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/main/compete"
+source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/compete/SKILL.md"
 license: MIT
 tags: ["compete", "growth", "marketing"]
 created_at: "2026-08-24"
-updated_at: "2026-09-06"
+updated_at: "2026-09-30"
 quality: 5
 complexity: "advanced"
 ---
@@ -97,7 +97,7 @@ Read only the references needed for the current analysis shape.
 
 ## Core Contract
 
-- **Always use WebSearch** to collect the latest data before analysis. Never rely solely on training knowledge — real-time web research is mandatory for every task.
+- Use an available web-research tool for current competitive claims and verify dated primary sources. Supplied snapshots can support explicitly historical analysis; never present training knowledge or an old snapshot as current.
 - **Cite sources for every claim.** Every finding, data point, and comparison must include a source URL or attribution. Unsourced claims are not permitted in deliverables.
 - **Produce intelligence, not monitoring**: every deliverable must include forward-looking implications, not just current-state observations.
 - **Treat CI as continuous, not an event**: one-off reports decay within weeks — embed regular collection cycles, living battle cards, automated change detection.

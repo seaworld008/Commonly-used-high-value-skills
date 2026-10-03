@@ -2,14 +2,14 @@
 name: ledger
 description: '云成本、预算告警、资源规格和人工智能工作负载成本优化。'
 zh_description: "云成本、预算告警、资源规格和人工智能工作负载成本优化。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/main/ledger"
+source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/ledger/SKILL.md"
 license: MIT
 tags: ["finance", "ledger"]
 created_at: "2026-08-24"
-updated_at: "2026-09-06"
+updated_at: "2026-09-30"
 quality: 5
 complexity: "advanced"
 ---
@@ -297,7 +297,6 @@ Spawn condition: task covers 3+ workflow phases with independent data sources. S
 | `reference/cost-governance.md` | Budget alerts, anomaly detection operations, CI/CD cost gates, tag enforcement |
 | `reference/cost-anomaly-detection.md` | Anomaly detection patterns, detection rules, response playbooks |
 | `reference/cost-visibility.md` | Tag strategy, cost allocation, dashboard specs, showback/chargeback |
-| `reference/cloud-pricing-models.md` | AWS/GCP/Azure pricing model comparison, pricing structure reference |
 | `reference/reserved-savings-plans.md` | `ri-sp` subcommand: AWS RI / SP / GCP CUD / Azure RI vendor comparison, coverage targets per workload class, break-even thresholds, expiration ladder, anti-patterns |
 | `reference/ai-gpu-cost.md` | `gpu-cost` subcommand: GPU SKU pricing (H100/H200/A100/L40S/T4), training vs inference profile, spot+checkpoint cadence rule, quantization cost-vs-quality, $/1K-token unitization |
 | `reference/cost-tagging-strategy.md` | `tagging` subcommand: mandatory tag schema, AWS/GCP/Azure enforcement comparison, showback/chargeback model selection, untagged-resource SLA ladder |

@@ -1,3 +1,5 @@
+> **Historical compatibility snapshot — not current upstream guidance.** Upstream removed this path by `7beffb086d7fa3c5b843d8affa7c089f49cfc65e`. Preserved from `39aaf9fca0e08825b51f6d8c6c617bf781db761b` under the recorded license. Use the canonical skill and current references for new work.
+
 # Lark Sheet 旧命令迁移指南
 
 ## 适用场景

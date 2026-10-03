@@ -2,17 +2,17 @@
 name: gha-security-review
 description: 'Audit GitHub Actions workflows for unsafe triggers, expression injection, credential exposure, and supply-chain attack paths.'
 zh_description: "审查 GitHub Actions 触发器、注入、凭据和供应链风险。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:getsentry/skills"
-source_url: "https://skills.sh/getsentry/skills/gha-security-review"
+source_url: "https://github.com/getsentry/skills/blob/d18b7aa8ba878354e5c348310230e652f7690f9c/skills/gha-security-review/SKILL.md"
 license: Apache-2.0
 tags: '["gha", "review", "security"]'
 created_at: "2026-06-21"
-updated_at: "2026-09-06"
+updated_at: "2026-09-30"
 quality: 4
 complexity: "intermediate"
-allowed-tools: 'Read, Grep, Glob, Bash, Task'
+allowed-tools: 'Read Grep Glob Bash Task'
 ---
 
 <!--

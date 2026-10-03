@@ -2,14 +2,14 @@
 name: lark-skill-maker
 description: '创建 lark-cli 的自定义 Skill。当用户需要把飞书 API 操作封装成可复用的 Skill（包装原子 API 或编排多步流程）时使用。'
 zh_description: "用于把飞书 API 操作封装为可复用技能、流程模板和多步自动化。"
-version: "1.0.3"
+version: "1.0.4"
 author: larksuite
 source: "github:larksuite/cli"
-source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-skill-maker"
+source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-skill-maker"
 license: MIT
 tags: '[feishu, lark, lark-cli, skills, agent-workflow]'
 created_at: "2026-05-19"
-updated_at: "2026-08-20"
+updated_at: "2026-09-30"
 quality: 3
 complexity: intermediate
 metadata:
@@ -93,6 +93,7 @@ lark-cli api POST /open-apis/xxx --data '{...}'
 - **认证** — 说明所需 scope，登录用 `lark-cli auth login --domain <name>`
 - **安全** — 写入操作前确认用户意图，建议 `--dry-run` 预览
 - **编排** — 说明数据传递、失败回滚、可并行步骤
+
 <!-- LOCAL-QUALITY-SUPPLEMENT:START -->
 ## Usage Notes
 
@@ -121,21 +122,3 @@ source is intentionally concise.
 - Treat skill selection as routing, not ceremony: invoke only the narrowest
   applicable workflow and keep user or repository instructions authoritative.
 <!-- LOCAL-QUALITY-SUPPLEMENT:END -->
-
-<!-- LOCAL-CURATION-SUPPLEMENT:START -->
-## Skill Packaging Checklist
-
-When converting a Lark API workflow into a reusable skill, include:
-
-- A trigger-focused `description` that says when the skill should activate and what it must not handle.
-- Required scopes and authentication steps before any command examples.
-- A minimal read-only example before write operations.
-- A dry-run or confirmation pattern for destructive or externally visible writes.
-- Data handoff notes between steps, including which response fields become inputs for later calls.
-- Failure handling for missing permissions, rate limits, partial writes, and invalid identifiers.
-- A final verification command or UI check that proves the workflow completed.
-
-## Quality Bar
-
-Do not package a Lark workflow as a skill if it is only a single undocumented API call. A useful skill should explain intent, parameters, scopes, boundaries, and repeatable troubleshooting steps so another agent can run it without rediscovering the API from scratch.
-<!-- LOCAL-CURATION-SUPPLEMENT:END -->

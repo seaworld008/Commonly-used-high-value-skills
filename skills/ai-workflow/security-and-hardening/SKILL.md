@@ -2,14 +2,14 @@
 name: security-and-hardening
 description: 'Harden authentication, input handling, storage, and integrations when implementing security controls or remediating concrete vulnerabilities.'
 zh_description: "加固身份认证、输入处理、数据存储和外部集成。"
-version: "1.0.4"
+version: "1.0.5"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
-source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/security-and-hardening/SKILL.md"
+source_url: "https://github.com/addyosmani/agent-skills/blob/2686b620fc1fed2e8f60c704839c766b8594c6b6/skills/security-and-hardening/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "security-and-hardening", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-09-07"
+updated_at: "2026-09-30"
 quality: 5
 complexity: advanced
 upstream_slug: security-and-hardening
@@ -119,7 +119,7 @@ app.use(session({
   cookie: {
     httpOnly: true,     // Not accessible via JavaScript
     secure: true,       // HTTPS only
-    sameSite: 'lax',    // CSRF protection
+    sameSite: 'lax',    // Defense in depth; state changes also need CSRF/origin checks
     maxAge: 24 * 60 * 60 * 1000,  // 24 hours
   },
 }));
@@ -314,29 +314,15 @@ app.use('/api/auth/', rateLimit({
 
 ## Secrets Management
 
-```
-.env files:
-  ├── .env.example  → Committed (template with placeholder values)
-  ├── .env          → NOT committed (contains real secrets)
-  └── .env.local    → NOT committed (local overrides)
+### Injection, XSS, and access control
 
-.gitignore must include:
-  .env
-  .env.local
-  .env.*.local
-  *.pem
-  *.key
-```
+- Parameterize every query. Never build SQL, NoSQL, or shell commands from input strings.
+- Encode output through the framework's auto-escaping. If raw HTML is unavoidable, sanitize with an allowlist sanitizer first.
+- Check **authorization** on every request, not just authentication: the authenticated user must own, or be permitted on, the specific resource (A01, IDOR).
 
-**Always check before committing:**
-```bash
-# Check for accidentally staged secrets
-git diff --cached | grep -i "password\|secret\|api_key\|token"
-```
+Patterns: [Injection](references/hardening-patterns.md#injection), [XSS](references/hardening-patterns.md#cross-site-scripting-xss), [Access control](references/hardening-patterns.md#broken-access-control).
 
-**If a secret is ever committed, rotate it.** Deleting the line or rewriting history is not enough — assume it's compromised the moment it reaches a remote. Revoke and reissue the key first, then purge it from history.
-
-## Data Privacy & Compliance
+### Authentication and sessions
 
 Securing data is "can an attacker read it?" Privacy is "should *we* even hold it, and for how long?" — a separate question that hardening doesn't answer. The cheapest data to protect, breach, and comply over is the data you never collected. Treat personal data as a liability to minimize, not an asset to hoard.
 
@@ -490,3 +476,12 @@ trusted state, and prevent symlink/check-use races. A writable marker alone is
 not authorization; failure must not fall back to a broader target.
 For multi-process or serverless rate limits, use a shared store or platform limiter;
 process-local counters cannot enforce one global authentication limit.
+
+## Derived Paths, Untrusted Output, and Supply-chain Boundaries
+
+- Before deleting or replacing a derived path, validate its canonical parent, allowed root, and ownership evidence. Do not follow a dangling destination symlink into a new target. Stage work separately and preserve a rollback path; a lexical prefix is not a containment proof.
+- Treat model output, retrieved content, filenames, and tool results as untrusted input. Validate structured fields and allowed operations before they can select commands, paths, destinations, or credentials.
+- SSRF checks cover redirects and every resolved address, not just the hostname string. Pin or revalidate the destination used by the connection to avoid a DNS check/use gap.
+- Use the project's actual package manager and lockfile. Review install scripts and dependency changes before execution; an offline inventory is not a current vulnerability scan. Report scanner coverage, failures, and remaining uncertainty.
+- Minimize retained personal data and bound CPU, memory, upload size, queue size, retries, and session lifetime according to the service's threat model. Generic example limits are not production capacity estimates.
+- Consult [hardening patterns](references/hardening-patterns.md) for threat-specific examples. Apply only controls relevant to the authorized change, preserve existing valid architecture, and verify the actual failure path.

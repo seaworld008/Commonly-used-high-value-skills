@@ -2,14 +2,14 @@
 name: lark-okr
 description: '飞书 OKR：管理目标与关键结果。查看和编辑 OKR 周期、目标、关键结果、对齐关系、量化指标和进展记录。当用户需要查看或创建 OKR、管理目标和关键结果、查看对齐关系时使用。不负责：待办任务管理（lark-task）、日程/会议安排（lark-calendar）、绩效评估'
 zh_description: "飞书 OKR：管理目标与关键结果。"
-version: "1.0.6"
+version: "1.0.7"
 author: larksuite
 source: "github:larksuite/cli"
-source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-okr"
+source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-okr"
 license: MIT
 tags: '[feishu, lark, lark-cli, okr, planning]'
 created_at: "2026-05-19"
-updated_at: "2026-09-06"
+updated_at: "2026-09-30"
 quality: 4
 complexity: intermediate
 metadata:
@@ -182,6 +182,7 @@ Shortcut 是对常用操作的高级封装（`lark-cli okr +<verb> [flags]`）�
 - 待办任务管理 → 使用 [`lark-task`](../lark-task/SKILL.md)
 - 日程安排 → 使用 [`lark-calendar`](../lark-calendar/SKILL.md)
 - 绩效评估 → 使用 [`lark-openapi-explorer`](../lark-openapi-explorer/SKILL.md) 查找原生接口
+
 <!-- LOCAL-QUALITY-SUPPLEMENT:START -->
 ## Usage Notes
 

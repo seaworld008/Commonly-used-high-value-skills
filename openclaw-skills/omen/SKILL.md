@@ -2,14 +2,14 @@
 name: omen
 description: '预演失败模式，识别计划风险并给出优先级。'
 zh_description: "预演失败模式，识别计划风险并给出优先级。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/main/omen"
+source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/omen/SKILL.md"
 license: MIT
 tags: ["memory", "omen", "safety"]
 created_at: "2026-08-24"
-updated_at: "2026-09-06"
+updated_at: "2026-09-30"
 quality: 5
 complexity: "advanced"
 ---
@@ -201,7 +201,7 @@ Mandatory when actionable modes exist (suppress for plan-review-only or all-acce
 
 ## LLM Fix Prompt Generation
 
-Every Omen pre-mortem with at least one actionable failure mode ends with paste-ready `## LLM Fix Prompt` blocks — self-contained prompts that drive the receiving agent (Builder for guardrails, Beacon for monitoring, Triage/Mend for runbooks) toward a precise mitigation without manual reformulation. Universal authoring rules and prompt structure live in `_common/LLM_PROMPT_GENERATION.md`; Omen-specific verbs, suppression cases, template fields, and a worked example live in `reference/fix-prompt-generation.md`.
+Every Omen pre-mortem with at least one actionable failure mode ends with paste-ready `## LLM Fix Prompt` blocks — self-contained prompts that drive the receiving agent (Builder for guardrails, Beacon for monitoring, Triage/Mend for runbooks) toward a precise mitigation without manual reformulation. Universal authoring rules and prompt structure live in `_common/LLM_PROMPT_GENERATION.md`; Omen-specific verbs, suppression cases, template fields live in `reference/fix-prompt-generation.md`.
 
 | Verb | Use when | Receiving agent |
 |------|----------|----------------|

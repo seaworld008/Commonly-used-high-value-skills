@@ -2,14 +2,14 @@
 name: using-superpowers
 description: Select relevant Superpowers workflow skills when the user requests that workflow or a concrete development task benefits from its process guidance.
 zh_description: "用于使用 Superpowers 工作流提升计划、执行和验证质量。"
-version: "1.0.6"
+version: "1.0.7"
 author: "seaworld008"
 source: "github:obra/superpowers"
-source_url: "https://github.com/obra/superpowers/blob/main/skills/using-superpowers/SKILL.md"
+source_url: "https://github.com/obra/superpowers/blob/8ca22dba9a94f28898bbce59f2537ff4d87c747d/skills/using-superpowers/SKILL.md"
 license: MIT
 tags: '["skills", "workflow", "process"]'
 created_at: "2026-04-13"
-updated_at: "2026-09-06"
+updated_at: "2026-09-30"
 quality: 4
 complexity: "intermediate"
 ---
@@ -104,10 +104,12 @@ Avoid repeating a checklist as prose when a concise status is sufficient.
 
 If your harness appears here, read its reference file for special instructions:
 
+- Claude Code: `references/claude-code-tools.md`
 - Codex: `references/codex-tools.md`
 - Pi: `references/pi-tools.md`
 - Antigravity: `references/antigravity-tools.md`
 - Hermes Agent: `references/hermes-tools.md`
+- Muse: `references/muse-tools.md`
 
 ## User Instructions
 

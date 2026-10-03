@@ -1,3 +1,5 @@
+> **Historical compatibility snapshot — not current upstream guidance.** Upstream removed this path by `f425adcb2111ca8c0be88b325888ff61b64dec49`. Preserved from `bd5d9cd61c0718c3c093e9cfcce2bd20e9cb4104` under the recorded license. Use the canonical skill and current references for new work.
+
 # Ripple — AUTORUN `_STEP_COMPLETE` Schema
 
 When Ripple receives `_AGENT_CONTEXT`, parse `task_type`, `description`, and `Constraints`, execute the standard workflow, and return `_STEP_COMPLETE`.

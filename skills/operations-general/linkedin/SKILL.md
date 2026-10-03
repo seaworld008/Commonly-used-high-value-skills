@@ -2,14 +2,14 @@
 name: linkedin
 description: 'General-purpose LinkedIn automation – fetch profiles, search people and companies, send messages, manage connections, create posts, and more. Use when the user wants to interact with LinkedIn.'
 zh_description: "通过 Linked API 搜索领英资料、管理连接、消息与内容发布。"
-version: "1.0.2"
+version: "1.0.3"
 author: vprudnikoff
 source: github:Linked-API/linkedin-skills
-source_url: "https://github.com/Linked-API/linkedin-skills/tree/edd0bdbbb25776e9288186b88969b29175531995/linkedin"
+source_url: "https://github.com/Linked-API/linkedin-skills/blob/e46beb9aea0af3896fd49dd7b39cff1061bf8f6d/linkedin/SKILL.md"
 license: MIT
 tags: '[linkedin, automation, social-media, outreach, cli]'
 created_at: "2026-07-10"
-updated_at: "2026-09-06"
+updated_at: "2026-09-30"
 quality: 5
 complexity: intermediate
 ---
@@ -254,6 +254,7 @@ linkedin post create '<text>' [flags] --json -q
 |------|-------------|
 | `--company-url` | Post on behalf of a company page (requires admin access) |
 | `--attachments` | Attachment as `url:type` or `url:type:name`. Types: `image`, `video`, `document`. Can be specified multiple times. |
+| `--mention` | Mention as `key:name` or `key:name:identifier`, bound to `@[key]` in the text. Can be specified multiple times. |
 
 Attachment limits: up to 9 images, or 1 video, or 1 document. Cannot mix types.
 
@@ -264,9 +265,34 @@ linkedin post create 'Excited to share our latest update!' --json -q
 linkedin post create 'Our Q4 report' \
   --attachments "https://example.com/report.pdf:document:Q4 Report" --json -q
 
+# Mentioning a person
+linkedin post create 'Huge thanks to @[author] for the write-up!' \
+  --mention "author:Example Person:urn:li:member:123456789" --json -q
+
 # Post as a company
 linkedin post create 'Company announcement' \
   --company-url https://www.linkedin.com/company/name --json -q
+```
+
+#### Repost a post
+
+```bash
+linkedin post repost <url> [flags] --json -q
+```
+
+| Flag | Description |
+|------|-------------|
+| `--text` | Your own commentary (up to 3000 characters). Without it the post is reposted as is. |
+| `--mention` | Mention as `key:name` or `key:name:identifier`, bound to `@[key]` in `--text`. Can be specified multiple times. |
+
+The repost's own `postUrl` and `postUrn` come back, not those of the post you reposted. Reposting the same post twice from the same account fails with `alreadyReposted`.
+
+```bash
+linkedin post repost https://www.linkedin.com/posts/username_activity-123 --json -q
+
+# With commentary
+linkedin post repost urn:li:activity:1234567890123456789 \
+  --text 'Worth reading, especially the part on onboarding.' --json -q
 ```
 
 #### React to a post
@@ -447,32 +473,6 @@ linkedin reset --all                             # Remove all accounts
 - **Action limits.** Per-account limits are configurable on the platform. A `limitExceeded` error means the limit was reached.
 - **URL normalization.** All LinkedIn URLs in responses are normalized to `https://www.linkedin.com/...` format without trailing slashes.
 - **Null fields.** Fields that are unavailable are returned as `null` or `[]`, not omitted.
-<!-- LOCAL-QUALITY-SUPPLEMENT:START -->
-## Usage Notes
-
-This supplement is maintained by the repository sync pipeline. It keeps the
-imported upstream skill usable inside this curated collection when the upstream
-source is intentionally concise.
-
-## Common Patterns
-
-```text
-1. Confirm that the user's task matches the skill trigger.
-2. Read the relevant project files or user-provided context before acting.
-3. Choose the smallest reversible action that advances the task.
-4. Run the verification command or manual check that proves the result.
-5. Report the outcome, evidence, and any remaining risk.
-```
-
-## Boundaries
-
-- Prefer the upstream workflow for Linkedin; this section only adds local quality
-  guardrails.
-- Do not invent project facts when required files, vaults, services, or tools are
-  unavailable.
-- Stop and ask for clarification when the next action could overwrite user work,
-  expose private data, or change production state.
-<!-- LOCAL-QUALITY-SUPPLEMENT:END -->
 
 <!-- LOCAL-CURATION-SUPPLEMENT:START -->
 ## Boundaries and Safe Authorization

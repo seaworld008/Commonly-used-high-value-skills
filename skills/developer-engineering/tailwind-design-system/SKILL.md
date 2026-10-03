@@ -2,14 +2,14 @@
 name: tailwind-design-system
 description: 'Build scalable design systems with Tailwind CSS v4, design tokens, component libraries, and responsive patterns. Use when creating component libraries, implementing design systems, or standardizing UI patterns.'
 zh_description: "用于 Tailwind CSS 设计系统、主题 token、组件样式和响应式布局规范。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "skills.sh"
-source_url: "https://skills.sh/wshobson/agents/tailwind-design-system"
+source_url: "https://github.com/wshobson/agents/blob/156b7a5e7a8b93642628a339ee4039c925b34c7f/plugins/frontend-mobile-development/skills/tailwind-design-system/SKILL.md"
 license: "MIT"
 tags: '["design", "development", "system", "tailwind"]'
 created_at: "2026-03-27"
-updated_at: "2026-08-20"
+updated_at: "2026-09-30"
 quality: 4
 complexity: "intermediate"
 ---

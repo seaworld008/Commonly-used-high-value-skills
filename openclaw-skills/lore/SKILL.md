@@ -2,14 +2,14 @@
 name: lore
 description: 'Curating cross-agent knowledge and institutional memory: extracts patterns from agent journals into METAPATTERNS.md, detects knowledge decay, propagates best practices. Use for memory curation.'
 zh_description: "跨智能体知识沉淀、模式提炼和最佳实践传播。"
-version: "1.0.6"
+version: "1.0.7"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/.agents/skills/lore"
+source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/.agents/skills/lore/SKILL.md"
 license: MIT
 tags: '["knowledge", "lore"]'
 created_at: "2026-07-27"
-updated_at: "2026-09-06"
+updated_at: "2026-09-30"
 quality: 5
 complexity: "advanced"
 ---

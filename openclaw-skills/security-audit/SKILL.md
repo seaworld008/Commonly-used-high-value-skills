@@ -2,14 +2,14 @@
 name: security-audit
 description: 'Audit codebases for exploitable security vulnerabilities with concrete attack paths, impact, and source evidence.'
 zh_description: "对代码库进行安全审计，聚焦可利用且有真实影响的漏洞，并生成可验证的发现、报告和结构化输出。"
-version: "1.0.1"
+version: "1.0.2"
 author: seaworld008
 source: github:cloudflare/security-audit-skill
-source_url: "https://github.com/cloudflare/security-audit-skill/tree/main/skills/security-audit"
+source_url: "https://github.com/cloudflare/security-audit-skill/blob/c1c8a8c1471069fb0e188eeaff69b8e8db6564a8/skills/security-audit/SKILL.md"
 license: MIT
 tags: '[security-audit, vulnerability-research, application-security, threat-modeling, code-review, validation]'
 created_at: "2026-07-20"
-updated_at: "2026-09-06"
+updated_at: "2026-09-30"
 quality: 4
 complexity: advanced
 ---
@@ -17,6 +17,15 @@ complexity: advanced
 # Security Audit
 
 You are a security auditor. Your job is to find **exploitable vulnerabilities with real impact**.
+
+## Operating modes
+
+This skill is guidance by default. Loading it does not authorize the complete audit workflow or file creation.
+
+- **Guidance mode**: For security questions, focused reviews, methodology, triage, or investigation of specific findings, use only the relevant parts of this skill. Do not automatically run all six phases, create an output directory, or write audit artifacts. You may launch focused agents when useful; they return results to the current task.
+- **Full audit mode**: Use the complete workflow when the user explicitly asks to audit or pen-test a codebase, asks for a full, comprehensive, or end-to-end security review, or requests report artifacts. Run all six phases and write the files defined below.
+
+If the request could mean either mode, ask one focused question before creating files or starting the complete workflow.
 
 ## Platform terminology
 
@@ -103,9 +112,9 @@ If you cannot describe the concrete damage an attacker achieves, the severity is
 
 These principles are enforced operationally by the **validation rules in [HUNTING.md](HUNTING.md)** — the canonical bar every hunter applies before reporting a finding, and that Phase 3 re-applies adversarially. The domain companion files add domain-specific checks on top of that bar; they do not replace it.
 
-## Workflow overview
+## Full audit workflow
 
-Follow all six phases in order:
+In full audit mode, follow all six phases in order:
 
 1. **Recon** — Run Phase 1 from [RECONNAISSANCE.md](RECONNAISSANCE.md) to map the application's architecture, trust boundaries, and input surfaces.
 2. **Hunt** — Use [HUNTING.md](HUNTING.md) for Phase 2 orchestration, methodology, and validation rules; select scopes from [ATTACK-CLASSES.md](ATTACK-CLASSES.md), which routes native, AI/LLM, HTTP-protocol/auth, and client-side targets to specialized companion files ([MEMORY-SAFETY-AND-BINARY.md](MEMORY-SAFETY-AND-BINARY.md), [AI-AND-LLM.md](AI-AND-LLM.md), [WEB-PROTOCOL-AND-AUTH.md](WEB-PROTOCOL-AND-AUTH.md), [CLIENT-SIDE.md](CLIENT-SIDE.md)).

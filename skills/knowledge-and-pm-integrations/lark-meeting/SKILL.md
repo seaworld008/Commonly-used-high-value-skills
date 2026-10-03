@@ -2,14 +2,14 @@
 name: lark-meeting
 description: 'Use Lark CLI to locate meetings, manage Minutes and AI notes, inspect transcripts, and run authorized live-meeting interactions.'
 zh_description: "统一处理飞书会议、妙记、智能纪要、逐字稿和经授权的会中互动。"
-version: "1.0.2"
+version: "1.0.3"
 author: "Lark CLI contributors"
 source: "github:larksuite/cli"
-source_url: "https://github.com/larksuite/cli/tree/56ad837c3d8f4c49d6b9725a3530c37408533ead/skills/lark-meeting"
+source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-meeting"
 license: MIT
 tags: [lark, meeting, minutes, transcript, cli]
 created_at: "2026-08-24"
-updated_at: "2026-09-28"
+updated_at: "2026-09-30"
 quality: 4
 complexity: advanced
 metadata:
@@ -20,13 +20,9 @@ metadata:
 
 # lark-meeting
 
-飞书视频会议业务的统一入口，支持查询会议记录、实时会议互动、管理妙记、阅读智能纪要等操作。本技能负责领域关系、任务路由和跨命令编排。涉及 Calendar、VC、Doc、Note 与 Minutes 的产物选择、身份延续或权限边界时，同时读取 [`vc-domain-boundaries.md`](references/vc-domain-boundaries.md)。
+飞书视频会议业务的统一入口，支持查询会议记录、实时会议互动、管理妙记、阅读智能纪要等操作。本技能负责领域关系、任务路由和跨命令编排。
 
 无需预读 [`lark-shared`](../lark-shared/SKILL.md) 或预跑 `auth status --verify`，仅遇到未认证、token / 身份或 scope 错误时读取该 Skill，修复后重试。认证、身份或 scope 管理请求则直接使用该 Skill。
-
-## Usage
-
-当任务涉及历史或进行中的飞书会议、妙记、智能纪要、逐字稿、会议产物权限或经授权的机器人会中互动时使用本技能；预约会议、忙闲和会议室管理仍交给 `lark-calendar`。
 
 ## 身份初始化与延续
 
@@ -64,7 +60,7 @@ Calendar 日程 ──meeting_note────────────► Doc（
 │
 └── 录制 ──► Minutes 妙记 (minute_token)
                  ├── AI 产物：Summary / Todo / Chapter / Keyword
-                 ├── Transcript（文字记录）
+                 ├── Transcript（文字记录，别名：「转写」「逐字稿」「文字记录」）
                  └── 原始音视频
 
 本地音视频 ─────────────────────────────► Minutes 妙记 (minute_token)
@@ -75,7 +71,7 @@ Calendar 日程 ──meeting_note────────────► Doc（
 | Calendar 日程 | `event_id` | 日历上的日程，包含时间、参与人、会议室和 RSVP，可预约或关联 VC 会议；不是完整的会议记录。日程上的 `meeting_note` 是用户手工绑定的 Doc，与 AI 智能纪要无关。 |
 | Meeting 会议 | `meeting_id` | 实际发生的视频会议，可以来自 Calendar，也可以是没有日程的即时会议。会议主题、时间、参会人快照和会中事件属于会议数据；Note 与 Minutes 是它可能关联的会后产物。 |
 | Note 智能纪要 | `note_id` | 开启 AI 总结后形成的逻辑产物集合。`note_display_type` 决定获取逐字稿中文字记录的不同方式。 |
-| Minutes 妙记 | `minute_token` | 由会议录制或本地音视频上传生成，包含总结、待办、章节、关键词、文字记录和原始音视频；可以关联 VC 会议，也可以独立存在。 |
+| Minutes 妙记 | `minute_token` | 由会议录制或本地音视频上传生成，包含总结、待办、章节、关键词、文字记录(别名：「转写」「逐字稿」「文字记录」)和原始音视频；可以关联 VC 会议，也可以独立存在。 |
 | Doc 文档 | Doc token | 内容载体，不是会议标识。`note_doc_token`、`shared_doc_tokens` 和部分 `verbatim_doc_token` 指向 Doc；Doc token 不能当作 `note_id` 或 `meeting_id`。 |
 
 ### 核心标识
@@ -111,7 +107,7 @@ lark-cli vc +meeting-events --as <source_identity> --meeting-id <meeting_id> --p
 
 应用身份只返回“目标用户正在参会、且应用机器人也在同一会议中”的会议；返回空不代表目标用户没有在开会。向用户说明结果时使用“用户身份”或“应用身份”，不要暴露 `user` / `bot` 这类内部缩写。
 
-## 场景手册
+## 核心能力与场景手册
 
 当任务目标与场景匹配时，阅读对应的场景手册，按流程执行任务。
 
@@ -119,8 +115,8 @@ lark-cli vc +meeting-events --as <source_identity> --meeting-id <meeting_id> --p
 - [查询妙记及其产物](scenes/query-minutes-and-artifacts.md)：已有妙记 URL / `minute_token`，或按标题、所有者、参与者搜索妙记；读取总结、待办、章节、关键词、逐字稿，下载原始音视频，或查询关联智能纪要。
 - [生成和修改妙记、管理妙记权限](scenes/create-and-edit-minutes.md)：将本地音视频生成妙记、逐字稿、总结、待办或章节；修改妙记标题、总结、待办、关键词或说话人；申请妙记权限，或查看、分配妙记协作者权限。
 - [查询智能纪要及关联产物](scenes/query-note-and-artifacts.md)：已有 `note_id`、智能纪要 Docx URL/token，或需要查询纪要正文、逐字稿、妙记和共享文档等关联产物。
-- [应用机器人参会与会中互动](scenes/live-meeting-attend.md)：完整编排应用机器人的活跃会议发现、真实入会、事件拉取、文本/表情互动和明确授权后的离会。
-- [会中事件与会中互动](scenes/live-meeting-interact.md)：在不触发新的入会/离会操作时，使用用户身份或已在会中的应用身份查询活跃会议、查看发言/聊天/共享内容，或发送文本和表情。
+- [应用机器人参会与会中互动](scenes/live-meeting-attend.md)：完整编排应用机器人的活跃会议发现、发起或加入、邀请、事件拉取、会议截图、文本/表情/倒计时互动、结束会议和明确授权后的离会。
+- [会中事件与会中互动](scenes/live-meeting-interact.md)：在不触发新的入会/离会操作时，使用用户身份或已在会中的应用身份查询活跃会议、查看发言/聊天/共享内容、按需读取当前会议画面，或发送文本/表情、操作倒计时。
 
 ## 命令参考
 
@@ -133,7 +129,11 @@ lark-cli vc +meeting-events --as <source_identity> --meeting-id <meeting_id> --p
 | `vc +meeting-list-active` | 发现当前可见的进行中会议 | [lark-vc-meeting-list-active](references/lark-vc-meeting-list-active.md) |
 | `vc +meeting-events` | 读取会中事件和共享内容 | [lark-vc-meeting-events](references/lark-vc-meeting-events.md) |
 | `vc +meeting-message-send` | 发送会中文本消息或表情 | [lark-vc-meeting-message-send](references/lark-vc-meeting-message-send.md) |
+| `vc +meeting-screenshot` | 获取视频会议截图 | [lark-vc-meeting-screenshot](references/lark-vc-meeting-screenshot.md) |
+| `vc +meeting-countdown` | 设置、延长、提前结束或关闭会中倒计时 | [lark-vc-meeting-countdown](references/lark-vc-meeting-countdown.md) |
 | `vc +meeting-join` | 让应用机器人加入会议 | [lark-vc-agent-meeting-join](references/lark-vc-agent-meeting-join.md) |
+| `vc +meeting-invite` | 以应用机器人邀请指定用户或全部合格日程参会人 | [lark-vc-agent-meeting-invite](references/lark-vc-agent-meeting-invite.md) |
+| `vc +meeting-end` | 让当前 Host 应用机器人结束会议 | [lark-vc-agent-meeting-end](references/lark-vc-agent-meeting-end.md) |
 | `vc +meeting-leave` | 让应用机器人离开会议 | [lark-vc-agent-meeting-leave](references/lark-vc-agent-meeting-leave.md) |
 | `minutes +search` | 搜索妙记 | [lark-minutes-search](references/lark-minutes-search.md) |
 | `minutes minutes get` | 查询妙记基础信息 | `lark-cli minutes minutes get --help` |

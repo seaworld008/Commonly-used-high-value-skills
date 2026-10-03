@@ -13,6 +13,17 @@ A high-value skills repository for AI developers, organized by real work scenari
 This repository currently contains **16 categories / 287 skills**.
 
 
+## v3.2.0: Grill Me and Complete Source Maintenance
+
+New [grill-me](skills/task-understanding-decomposition/grill-me/SKILL.md) stress-tests plans and decisions through dependency-aware interview rounds. It bundles the actual method, pinned upstream texts and MIT attribution instead of installing a wrapper with a missing `grilling` dependency. Merely installing or auditing it does not start an interview.
+
+The [maintenance audit](docs/maintenance-audit-2026-09-30.md) distinguishes applied updates, local curation, frozen items and historical references. All existing canonical paths remain available. Removed upstream helpers are pinned as historical sidecars rather than presented as current. The installer also archives dangling destination links without following their missing targets and restores them on replacement failure.
+
+```bash
+# Preview only; remove --dry-run after checking the destination
+npx github:seaworld008/Commonly-used-high-value-skills#v3.2.0 install --target codex --skill grill-me --dry-run
+```
+
 ## v3.1.0 Maintenance and Safer Updates
 
 The [repository audit and decisions](docs/maintenance-audit-2026-09-28.md) record fixes, upstream coverage, and unresolved boundaries. Normal installation stages and verifies each replacement first; modified or unowned copies are archived in `.high-value-skills-backups/` beside the destination. This is not one atomic transaction across all targets: inspect errors and backups rather than deleting an old copy manually.

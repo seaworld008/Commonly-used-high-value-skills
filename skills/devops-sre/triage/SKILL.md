@@ -2,14 +2,14 @@
 name: triage
 description: '事故首响、影响范围识别、恢复步骤和复盘整理。'
 zh_description: "事故首响、影响范围识别、恢复步骤和复盘整理。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/main/triage"
+source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/triage/SKILL.md"
 license: MIT
 tags: ["devops", "sre", "triage"]
 created_at: "2026-08-24"
-updated_at: "2026-09-06"
+updated_at: "2026-09-30"
 quality: 5
 complexity: "advanced"
 ---
@@ -299,7 +299,7 @@ Execution loop: `SURVEY → PLAN → VERIFY → PRESENT`
 
 ## AUTORUN Support
 
-See `_common/AUTORUN.md` for the protocol (`_AGENT_CONTEXT` input, mode semantics, error handling). Triage-specific `_STEP_COMPLETE.Output` schema lives in `reference/autorun-schema.md`.
+Emit `_STEP_COMPLETE` using `_common/AUTORUN.md` § Default Completion Schema; no skill-specific extension is required.
 
 ## Nexus Hub Mode
 

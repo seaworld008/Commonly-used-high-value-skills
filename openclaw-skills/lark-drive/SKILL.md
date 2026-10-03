@@ -2,14 +2,14 @@
 name: lark-drive
 description: '管理飞书 Drive 云空间文件、目录、元数据、权限和版本，以及 Word/Markdown/Excel/CSV/PPTX 导入导出。搜索文件或解析资源链接时使用；文档正文编辑转对应文档技能。'
 zh_description: "用于搜索、读取和管理飞书云空间文件与权限。"
-version: "1.0.17"
+version: "1.0.18"
 author: larksuite
 source: "github:larksuite/cli"
-source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-drive"
+source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-drive"
 license: MIT
 tags: '[feishu, lark, lark-cli, drive, files]'
 created_at: "2026-05-19"
-updated_at: "2026-09-06"
+updated_at: "2026-09-30"
 quality: 4
 complexity: intermediate
 metadata:
@@ -224,6 +224,7 @@ lark-cli drive <resource> <method> [flags] # 调用 API
   - `get` — 获取当前用户的容量信息，包含各业务使用量、租户配额是否超限、用户配额、所在部门配额
     - 仅支持 `--as user`，不要使用默认的 bot 身份
     - `quota_detail_id` 传当前用户的 `user_id`
+
 <!-- LOCAL-QUALITY-SUPPLEMENT:START -->
 ## Usage Notes
 

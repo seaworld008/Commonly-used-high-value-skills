@@ -24,14 +24,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/api-and-interface-design/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/api-and-interface-design/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/api-and-interface-design/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-14",
-        "last_synced_at": "2026-09-14",
-        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+        "last_checked_at": "2026-09-30",
+        "last_synced_at": "2026-09-30",
+        "last_synced_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
         "sync_mode": "monitor",
         "path_commit": "ce89b03cbd768d4c9f512beedae46c20822a6bf6"
       },
@@ -52,17 +52,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+            "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
             "path_commit": "ce89b03cbd768d4c9f512beedae46c20822a6bf6",
             "content_sha256": "bb2571c39d1e9c0c112e9812d54ae093e97daa4d20908b88180298ef65cd212b",
-            "last_checked_at": "2026-09-14",
-            "last_synced_at": "2026-09-14",
+            "last_checked_at": "2026-09-30",
+            "last_synced_at": "2026-09-30",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+              "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
               "api_spdx": "MIT"
             }
           }
@@ -123,50 +123,50 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/api-and-interface-design/SKILL.md",
-          "sha256": "bb2571c39d1e9c0c112e9812d54ae093e97daa4d20908b88180298ef65cd212b",
           "owner": "api-and-interface-design",
+          "sha256": "bb2571c39d1e9c0c112e9812d54ae093e97daa4d20908b88180298ef65cd212b",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/api-and-interface-design/references/accessibility-checklist.md",
-          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "owner": "api-and-interface-design",
+          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/api-and-interface-design/references/definition-of-done.md",
-          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "api-and-interface-design",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/api-and-interface-design/references/observability-checklist.md",
-          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "owner": "api-and-interface-design",
+          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/api-and-interface-design/references/orchestration-patterns.md",
-          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "owner": "api-and-interface-design",
+          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/api-and-interface-design/references/performance-checklist.md",
-          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "owner": "api-and-interface-design",
+          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/api-and-interface-design/references/security-checklist.md",
-          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "owner": "api-and-interface-design",
+          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/api-and-interface-design/references/testing-patterns.md",
-          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "owner": "api-and-interface-design",
+          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
         }
       ],
@@ -178,14 +178,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/browser-testing-with-devtools/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/browser-testing-with-devtools/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/browser-testing-with-devtools/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-14",
-        "last_synced_at": "2026-09-14",
-        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+        "last_checked_at": "2026-09-30",
+        "last_synced_at": "2026-09-30",
+        "last_synced_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
         "sync_mode": "monitor",
         "path_commit": "e8c9b4632d9e4ab8ca4ea514dae03e25683e8186"
       },
@@ -206,17 +206,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+            "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
             "path_commit": "e8c9b4632d9e4ab8ca4ea514dae03e25683e8186",
             "content_sha256": "b688f7919193c15c67b34bbebf47806cddc5a46f2136256deb233b620a51fc03",
-            "last_checked_at": "2026-09-14",
-            "last_synced_at": "2026-09-14",
+            "last_checked_at": "2026-09-30",
+            "last_synced_at": "2026-09-30",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+              "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
               "api_spdx": "MIT"
             }
           }
@@ -277,50 +277,50 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/browser-testing-with-devtools/SKILL.md",
-          "sha256": "b688f7919193c15c67b34bbebf47806cddc5a46f2136256deb233b620a51fc03",
           "owner": "browser-testing-with-devtools",
+          "sha256": "b688f7919193c15c67b34bbebf47806cddc5a46f2136256deb233b620a51fc03",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/browser-testing-with-devtools/references/accessibility-checklist.md",
-          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "owner": "browser-testing-with-devtools",
+          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/browser-testing-with-devtools/references/definition-of-done.md",
-          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "browser-testing-with-devtools",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/browser-testing-with-devtools/references/observability-checklist.md",
-          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "owner": "browser-testing-with-devtools",
+          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/browser-testing-with-devtools/references/orchestration-patterns.md",
-          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "owner": "browser-testing-with-devtools",
+          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/browser-testing-with-devtools/references/performance-checklist.md",
-          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "owner": "browser-testing-with-devtools",
+          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/browser-testing-with-devtools/references/security-checklist.md",
-          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "owner": "browser-testing-with-devtools",
+          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/browser-testing-with-devtools/references/testing-patterns.md",
-          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "owner": "browser-testing-with-devtools",
+          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
         }
       ],
@@ -332,14 +332,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/ci-cd-and-automation/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/ci-cd-and-automation/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/ci-cd-and-automation/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-14",
-        "last_synced_at": "2026-09-14",
-        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+        "last_checked_at": "2026-09-30",
+        "last_synced_at": "2026-09-30",
+        "last_synced_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
         "sync_mode": "monitor",
         "path_commit": "fea75b16472ba87e8c11f13a9e000c3ffdb2d1f5"
       },
@@ -360,17 +360,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+            "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
             "path_commit": "fea75b16472ba87e8c11f13a9e000c3ffdb2d1f5",
             "content_sha256": "eeca38e6488863e5b91015a2ad6681aa355411da5070b4b1af7b2511e84719d3",
-            "last_checked_at": "2026-09-14",
-            "last_synced_at": "2026-09-14",
+            "last_checked_at": "2026-09-30",
+            "last_synced_at": "2026-09-30",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+              "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
               "api_spdx": "MIT"
             }
           }
@@ -431,50 +431,50 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/ci-cd-and-automation/SKILL.md",
-          "sha256": "eeca38e6488863e5b91015a2ad6681aa355411da5070b4b1af7b2511e84719d3",
           "owner": "ci-cd-and-automation",
+          "sha256": "eeca38e6488863e5b91015a2ad6681aa355411da5070b4b1af7b2511e84719d3",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/ci-cd-and-automation/references/accessibility-checklist.md",
-          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "owner": "ci-cd-and-automation",
+          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/ci-cd-and-automation/references/definition-of-done.md",
-          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "ci-cd-and-automation",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/ci-cd-and-automation/references/observability-checklist.md",
-          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "owner": "ci-cd-and-automation",
+          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/ci-cd-and-automation/references/orchestration-patterns.md",
-          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "owner": "ci-cd-and-automation",
+          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/ci-cd-and-automation/references/performance-checklist.md",
-          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "owner": "ci-cd-and-automation",
+          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/ci-cd-and-automation/references/security-checklist.md",
-          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "owner": "ci-cd-and-automation",
+          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/ci-cd-and-automation/references/testing-patterns.md",
-          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "owner": "ci-cd-and-automation",
+          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
         }
       ],
@@ -486,16 +486,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/code-review-and-quality/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/code-review-and-quality/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-28: curated reviewed deltas from 2686b620fc1fed2e8f60c704839c766b8594c6b6; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-28: curated reviewed deltas from 2686b620fc1fed2e8f60c704839c766b8594c6b6; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/code-review-and-quality/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-14",
-        "last_synced_at": "2026-09-14",
-        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+        "last_checked_at": "2026-09-30",
+        "last_synced_at": "2026-09-30",
+        "last_synced_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
         "sync_mode": "monitor",
-        "path_commit": "91d4d07522de9577caf5d213e5bf1acc38fa3df2"
+        "path_commit": "01cc88474c67c98331953ce5a286df516b517445"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -514,17 +514,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
-            "path_commit": "91d4d07522de9577caf5d213e5bf1acc38fa3df2",
+            "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+            "path_commit": "01cc88474c67c98331953ce5a286df516b517445",
             "content_sha256": "29a708d4b2a8bd0735765f486392c96d56661a003e1c172acd824d8348183e8f",
-            "last_checked_at": "2026-09-14",
-            "last_synced_at": "2026-09-14",
+            "last_checked_at": "2026-09-30",
+            "last_synced_at": "2026-09-30",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+              "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
               "api_spdx": "MIT"
             }
           }
@@ -585,50 +585,50 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/code-review-and-quality/SKILL.md",
-          "sha256": "29a708d4b2a8bd0735765f486392c96d56661a003e1c172acd824d8348183e8f",
           "owner": "code-review-and-quality",
+          "sha256": "29a708d4b2a8bd0735765f486392c96d56661a003e1c172acd824d8348183e8f",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/code-review-and-quality/references/accessibility-checklist.md",
-          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "owner": "code-review-and-quality",
+          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/code-review-and-quality/references/definition-of-done.md",
-          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "code-review-and-quality",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/code-review-and-quality/references/observability-checklist.md",
-          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "owner": "code-review-and-quality",
+          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/code-review-and-quality/references/orchestration-patterns.md",
-          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "owner": "code-review-and-quality",
+          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/code-review-and-quality/references/performance-checklist.md",
-          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "owner": "code-review-and-quality",
+          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/code-review-and-quality/references/security-checklist.md",
-          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "owner": "code-review-and-quality",
+          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/code-review-and-quality/references/testing-patterns.md",
-          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "owner": "code-review-and-quality",
+          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
         }
       ],
@@ -640,14 +640,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/code-simplification/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/code-simplification/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/code-simplification/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-14",
-        "last_synced_at": "2026-09-14",
-        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+        "last_checked_at": "2026-09-30",
+        "last_synced_at": "2026-09-30",
+        "last_synced_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
         "sync_mode": "monitor",
         "path_commit": "fea75b16472ba87e8c11f13a9e000c3ffdb2d1f5"
       },
@@ -668,17 +668,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+            "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
             "path_commit": "fea75b16472ba87e8c11f13a9e000c3ffdb2d1f5",
             "content_sha256": "3c2b55fbc8611c99ea74368b017fe74881ba39a9285dd1bd48388a3e52b78687",
-            "last_checked_at": "2026-09-14",
-            "last_synced_at": "2026-09-14",
+            "last_checked_at": "2026-09-30",
+            "last_synced_at": "2026-09-30",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+              "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
               "api_spdx": "MIT"
             }
           }
@@ -739,50 +739,50 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/code-simplification/SKILL.md",
-          "sha256": "3c2b55fbc8611c99ea74368b017fe74881ba39a9285dd1bd48388a3e52b78687",
           "owner": "code-simplification",
+          "sha256": "3c2b55fbc8611c99ea74368b017fe74881ba39a9285dd1bd48388a3e52b78687",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/code-simplification/references/accessibility-checklist.md",
-          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "owner": "code-simplification",
+          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/code-simplification/references/definition-of-done.md",
-          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "code-simplification",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/code-simplification/references/observability-checklist.md",
-          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "owner": "code-simplification",
+          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/code-simplification/references/orchestration-patterns.md",
-          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "owner": "code-simplification",
+          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/code-simplification/references/performance-checklist.md",
-          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "owner": "code-simplification",
+          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/code-simplification/references/security-checklist.md",
-          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "owner": "code-simplification",
+          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/code-simplification/references/testing-patterns.md",
-          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "owner": "code-simplification",
+          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
         }
       ],
@@ -794,14 +794,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/context-engineering/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/context-engineering/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/context-engineering/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-14",
-        "last_synced_at": "2026-09-14",
-        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+        "last_checked_at": "2026-09-30",
+        "last_synced_at": "2026-09-30",
+        "last_synced_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
         "sync_mode": "monitor",
         "path_commit": "226bdd3aef2a74f43782c01583d91bcea92915ed"
       },
@@ -822,17 +822,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+            "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
             "path_commit": "226bdd3aef2a74f43782c01583d91bcea92915ed",
             "content_sha256": "51bc7a3e2aa7c879e79f916d8d827220787b06d964225f9b8e8c6ceac8b2f2ce",
-            "last_checked_at": "2026-09-14",
-            "last_synced_at": "2026-09-14",
+            "last_checked_at": "2026-09-30",
+            "last_synced_at": "2026-09-30",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+              "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
               "api_spdx": "MIT"
             }
           }
@@ -893,50 +893,50 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/context-engineering/SKILL.md",
-          "sha256": "51bc7a3e2aa7c879e79f916d8d827220787b06d964225f9b8e8c6ceac8b2f2ce",
           "owner": "context-engineering",
+          "sha256": "51bc7a3e2aa7c879e79f916d8d827220787b06d964225f9b8e8c6ceac8b2f2ce",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/context-engineering/references/accessibility-checklist.md",
-          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "owner": "context-engineering",
+          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/context-engineering/references/definition-of-done.md",
-          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "context-engineering",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/context-engineering/references/observability-checklist.md",
-          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "owner": "context-engineering",
+          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/context-engineering/references/orchestration-patterns.md",
-          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "owner": "context-engineering",
+          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/context-engineering/references/performance-checklist.md",
-          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "owner": "context-engineering",
+          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/context-engineering/references/security-checklist.md",
-          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "owner": "context-engineering",
+          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/context-engineering/references/testing-patterns.md",
-          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "owner": "context-engineering",
+          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
         }
       ],
@@ -948,14 +948,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/debugging-and-error-recovery/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/debugging-and-error-recovery/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/debugging-and-error-recovery/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-14",
-        "last_synced_at": "2026-09-14",
-        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+        "last_checked_at": "2026-09-30",
+        "last_synced_at": "2026-09-30",
+        "last_synced_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
         "sync_mode": "monitor",
         "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1"
       },
@@ -976,17 +976,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+            "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
             "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1",
             "content_sha256": "ecdcf52c801e0c124381ec71d2b0e9b7cbbde0ac9dcef40bc4862fbfdeafa2bb",
-            "last_checked_at": "2026-09-14",
-            "last_synced_at": "2026-09-14",
+            "last_checked_at": "2026-09-30",
+            "last_synced_at": "2026-09-30",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+              "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
               "api_spdx": "MIT"
             }
           }
@@ -1047,50 +1047,50 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/debugging-and-error-recovery/SKILL.md",
-          "sha256": "ecdcf52c801e0c124381ec71d2b0e9b7cbbde0ac9dcef40bc4862fbfdeafa2bb",
           "owner": "debugging-and-error-recovery",
+          "sha256": "ecdcf52c801e0c124381ec71d2b0e9b7cbbde0ac9dcef40bc4862fbfdeafa2bb",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/debugging-and-error-recovery/references/accessibility-checklist.md",
-          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "owner": "debugging-and-error-recovery",
+          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/debugging-and-error-recovery/references/definition-of-done.md",
-          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "debugging-and-error-recovery",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/debugging-and-error-recovery/references/observability-checklist.md",
-          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "owner": "debugging-and-error-recovery",
+          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/debugging-and-error-recovery/references/orchestration-patterns.md",
-          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "owner": "debugging-and-error-recovery",
+          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/debugging-and-error-recovery/references/performance-checklist.md",
-          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "owner": "debugging-and-error-recovery",
+          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/debugging-and-error-recovery/references/security-checklist.md",
-          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "owner": "debugging-and-error-recovery",
+          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/debugging-and-error-recovery/references/testing-patterns.md",
-          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "owner": "debugging-and-error-recovery",
+          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
         }
       ],
@@ -1102,14 +1102,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/deprecation-and-migration/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/deprecation-and-migration/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/deprecation-and-migration/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-14",
-        "last_synced_at": "2026-09-14",
-        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+        "last_checked_at": "2026-09-30",
+        "last_synced_at": "2026-09-30",
+        "last_synced_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
         "sync_mode": "monitor",
         "path_commit": "1483fc12473e5297408a069b661778aa76fbd1cf"
       },
@@ -1130,17 +1130,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+            "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
             "path_commit": "1483fc12473e5297408a069b661778aa76fbd1cf",
             "content_sha256": "47f36a0b6b7800e4d2e6ac8e53e36d9b809559644307de2250101a10209f8550",
-            "last_checked_at": "2026-09-14",
-            "last_synced_at": "2026-09-14",
+            "last_checked_at": "2026-09-30",
+            "last_synced_at": "2026-09-30",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+              "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
               "api_spdx": "MIT"
             }
           }
@@ -1201,50 +1201,50 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/deprecation-and-migration/SKILL.md",
-          "sha256": "47f36a0b6b7800e4d2e6ac8e53e36d9b809559644307de2250101a10209f8550",
           "owner": "deprecation-and-migration",
+          "sha256": "47f36a0b6b7800e4d2e6ac8e53e36d9b809559644307de2250101a10209f8550",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/deprecation-and-migration/references/accessibility-checklist.md",
-          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "owner": "deprecation-and-migration",
+          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/deprecation-and-migration/references/definition-of-done.md",
-          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "deprecation-and-migration",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/deprecation-and-migration/references/observability-checklist.md",
-          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "owner": "deprecation-and-migration",
+          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/deprecation-and-migration/references/orchestration-patterns.md",
-          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "owner": "deprecation-and-migration",
+          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/deprecation-and-migration/references/performance-checklist.md",
-          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "owner": "deprecation-and-migration",
+          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/deprecation-and-migration/references/security-checklist.md",
-          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "owner": "deprecation-and-migration",
+          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/deprecation-and-migration/references/testing-patterns.md",
-          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "owner": "deprecation-and-migration",
+          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
         }
       ],
@@ -1256,14 +1256,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/documentation-and-adrs/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/documentation-and-adrs/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/documentation-and-adrs/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-14",
-        "last_synced_at": "2026-09-14",
-        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+        "last_checked_at": "2026-09-30",
+        "last_synced_at": "2026-09-30",
+        "last_synced_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
         "sync_mode": "monitor",
         "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1"
       },
@@ -1284,17 +1284,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+            "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
             "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1",
             "content_sha256": "c745e9037c7486f6d931070ab3576ccf90dd089c6e772a60942e60152c1a7bba",
-            "last_checked_at": "2026-09-14",
-            "last_synced_at": "2026-09-14",
+            "last_checked_at": "2026-09-30",
+            "last_synced_at": "2026-09-30",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+              "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
               "api_spdx": "MIT"
             }
           }
@@ -1355,50 +1355,50 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/documentation-and-adrs/SKILL.md",
-          "sha256": "c745e9037c7486f6d931070ab3576ccf90dd089c6e772a60942e60152c1a7bba",
           "owner": "documentation-and-adrs",
+          "sha256": "c745e9037c7486f6d931070ab3576ccf90dd089c6e772a60942e60152c1a7bba",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/documentation-and-adrs/references/accessibility-checklist.md",
-          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "owner": "documentation-and-adrs",
+          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/documentation-and-adrs/references/definition-of-done.md",
-          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "documentation-and-adrs",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/documentation-and-adrs/references/observability-checklist.md",
-          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "owner": "documentation-and-adrs",
+          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/documentation-and-adrs/references/orchestration-patterns.md",
-          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "owner": "documentation-and-adrs",
+          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/documentation-and-adrs/references/performance-checklist.md",
-          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "owner": "documentation-and-adrs",
+          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/documentation-and-adrs/references/security-checklist.md",
-          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "owner": "documentation-and-adrs",
+          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/documentation-and-adrs/references/testing-patterns.md",
-          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "owner": "documentation-and-adrs",
+          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
         }
       ],
@@ -1410,14 +1410,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/doubt-driven-development/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/doubt-driven-development/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/doubt-driven-development/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-14",
-        "last_synced_at": "2026-09-14",
-        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+        "last_checked_at": "2026-09-30",
+        "last_synced_at": "2026-09-30",
+        "last_synced_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
         "sync_mode": "monitor",
         "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1"
       },
@@ -1438,17 +1438,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+            "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
             "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1",
             "content_sha256": "97f4d4aecfc9c41e4dd4130a32238553ea889d7f5e7f492dd7647c7e2ee36098",
-            "last_checked_at": "2026-09-14",
-            "last_synced_at": "2026-09-14",
+            "last_checked_at": "2026-09-30",
+            "last_synced_at": "2026-09-30",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+              "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
               "api_spdx": "MIT"
             }
           }
@@ -1509,50 +1509,50 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/doubt-driven-development/SKILL.md",
-          "sha256": "97f4d4aecfc9c41e4dd4130a32238553ea889d7f5e7f492dd7647c7e2ee36098",
           "owner": "doubt-driven-development",
+          "sha256": "97f4d4aecfc9c41e4dd4130a32238553ea889d7f5e7f492dd7647c7e2ee36098",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/doubt-driven-development/references/accessibility-checklist.md",
-          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "owner": "doubt-driven-development",
+          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/doubt-driven-development/references/definition-of-done.md",
-          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "doubt-driven-development",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/doubt-driven-development/references/observability-checklist.md",
-          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "owner": "doubt-driven-development",
+          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/doubt-driven-development/references/orchestration-patterns.md",
-          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "owner": "doubt-driven-development",
+          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/doubt-driven-development/references/performance-checklist.md",
-          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "owner": "doubt-driven-development",
+          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/doubt-driven-development/references/security-checklist.md",
-          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "owner": "doubt-driven-development",
+          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/doubt-driven-development/references/testing-patterns.md",
-          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "owner": "doubt-driven-development",
+          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
         }
       ],
@@ -1564,16 +1564,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/frontend-ui-engineering/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/frontend-ui-engineering/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-28: curated reviewed deltas from 2686b620fc1fed2e8f60c704839c766b8594c6b6; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-28: curated reviewed deltas from 2686b620fc1fed2e8f60c704839c766b8594c6b6; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/frontend-ui-engineering/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-14",
-        "last_synced_at": "2026-09-14",
-        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+        "last_checked_at": "2026-09-30",
+        "last_synced_at": "2026-09-30",
+        "last_synced_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
         "sync_mode": "monitor",
-        "path_commit": "91d4d07522de9577caf5d213e5bf1acc38fa3df2"
+        "path_commit": "e778fc697898e6fd5f78c26ad0a21635cad7e8fd"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -1592,17 +1592,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
-            "path_commit": "91d4d07522de9577caf5d213e5bf1acc38fa3df2",
+            "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+            "path_commit": "e778fc697898e6fd5f78c26ad0a21635cad7e8fd",
             "content_sha256": "7f222032a0cc38f801d8011348f1c887a584d346833ea85f4c11cebd6dba80b1",
-            "last_checked_at": "2026-09-14",
-            "last_synced_at": "2026-09-14",
+            "last_checked_at": "2026-09-30",
+            "last_synced_at": "2026-09-30",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+              "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
               "api_spdx": "MIT"
             }
           }
@@ -1663,50 +1663,50 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/frontend-ui-engineering/SKILL.md",
-          "sha256": "7f222032a0cc38f801d8011348f1c887a584d346833ea85f4c11cebd6dba80b1",
           "owner": "frontend-ui-engineering",
+          "sha256": "7f222032a0cc38f801d8011348f1c887a584d346833ea85f4c11cebd6dba80b1",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/frontend-ui-engineering/references/accessibility-checklist.md",
-          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "owner": "frontend-ui-engineering",
+          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/frontend-ui-engineering/references/definition-of-done.md",
-          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "frontend-ui-engineering",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/frontend-ui-engineering/references/observability-checklist.md",
-          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "owner": "frontend-ui-engineering",
+          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/frontend-ui-engineering/references/orchestration-patterns.md",
-          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "owner": "frontend-ui-engineering",
+          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/frontend-ui-engineering/references/performance-checklist.md",
-          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "owner": "frontend-ui-engineering",
+          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/frontend-ui-engineering/references/security-checklist.md",
-          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "owner": "frontend-ui-engineering",
+          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/frontend-ui-engineering/references/testing-patterns.md",
-          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "owner": "frontend-ui-engineering",
+          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
         }
       ],
@@ -1718,14 +1718,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/git-workflow-and-versioning/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/git-workflow-and-versioning/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/git-workflow-and-versioning/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-14",
-        "last_synced_at": "2026-09-14",
-        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+        "last_checked_at": "2026-09-30",
+        "last_synced_at": "2026-09-30",
+        "last_synced_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
         "sync_mode": "monitor",
         "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1"
       },
@@ -1746,17 +1746,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+            "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
             "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1",
             "content_sha256": "43b28183211d9478e7c9c65f3615526f5d3d7904e8f9549694ca11437f8e28f2",
-            "last_checked_at": "2026-09-14",
-            "last_synced_at": "2026-09-14",
+            "last_checked_at": "2026-09-30",
+            "last_synced_at": "2026-09-30",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+              "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
               "api_spdx": "MIT"
             }
           }
@@ -1817,50 +1817,50 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/git-workflow-and-versioning/SKILL.md",
-          "sha256": "43b28183211d9478e7c9c65f3615526f5d3d7904e8f9549694ca11437f8e28f2",
           "owner": "git-workflow-and-versioning",
+          "sha256": "43b28183211d9478e7c9c65f3615526f5d3d7904e8f9549694ca11437f8e28f2",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/git-workflow-and-versioning/references/accessibility-checklist.md",
-          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "owner": "git-workflow-and-versioning",
+          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/git-workflow-and-versioning/references/definition-of-done.md",
-          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "git-workflow-and-versioning",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/git-workflow-and-versioning/references/observability-checklist.md",
-          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "owner": "git-workflow-and-versioning",
+          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/git-workflow-and-versioning/references/orchestration-patterns.md",
-          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "owner": "git-workflow-and-versioning",
+          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/git-workflow-and-versioning/references/performance-checklist.md",
-          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "owner": "git-workflow-and-versioning",
+          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/git-workflow-and-versioning/references/security-checklist.md",
-          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "owner": "git-workflow-and-versioning",
+          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/git-workflow-and-versioning/references/testing-patterns.md",
-          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "owner": "git-workflow-and-versioning",
+          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
         }
       ],
@@ -1872,14 +1872,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/idea-refine/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/idea-refine/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/idea-refine/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-14",
-        "last_synced_at": "2026-09-14",
-        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+        "last_checked_at": "2026-09-30",
+        "last_synced_at": "2026-09-30",
+        "last_synced_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
         "sync_mode": "monitor",
         "path_commit": "5aacc3bce933539dc85fa7c78a1807aa396f4801"
       },
@@ -1920,17 +1920,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+            "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
             "path_commit": "5aacc3bce933539dc85fa7c78a1807aa396f4801",
             "content_sha256": "fac3e0b84f45bb37c1de1fb3ec4713717d55d7a0098a41e25f7e14054f0de717",
-            "last_checked_at": "2026-09-14",
-            "last_synced_at": "2026-09-14",
+            "last_checked_at": "2026-09-30",
+            "last_synced_at": "2026-09-30",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+              "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
               "api_spdx": "MIT"
             }
           }
@@ -1991,74 +1991,74 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/idea-refine/SKILL.md",
-          "sha256": "fac3e0b84f45bb37c1de1fb3ec4713717d55d7a0098a41e25f7e14054f0de717",
           "owner": "idea-refine",
+          "sha256": "fac3e0b84f45bb37c1de1fb3ec4713717d55d7a0098a41e25f7e14054f0de717",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/idea-refine/examples.md",
-          "sha256": "563204bfbf2f80a444151695205af4cb759e722b3d1e5460e08f278a69c89ba1",
           "owner": "idea-refine",
+          "sha256": "563204bfbf2f80a444151695205af4cb759e722b3d1e5460e08f278a69c89ba1",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/idea-refine/frameworks.md",
-          "sha256": "161ebc18fdf2d996bc62a87a2d747cf1bf53548354f8925de25c732c27f00309",
           "owner": "idea-refine",
+          "sha256": "161ebc18fdf2d996bc62a87a2d747cf1bf53548354f8925de25c732c27f00309",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/idea-refine/references/accessibility-checklist.md",
-          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "owner": "idea-refine",
+          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/idea-refine/references/definition-of-done.md",
-          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "idea-refine",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/idea-refine/references/observability-checklist.md",
-          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "owner": "idea-refine",
+          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/idea-refine/references/orchestration-patterns.md",
-          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "owner": "idea-refine",
+          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/idea-refine/references/performance-checklist.md",
-          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "owner": "idea-refine",
+          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/idea-refine/references/security-checklist.md",
-          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "owner": "idea-refine",
+          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/idea-refine/references/testing-patterns.md",
-          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "owner": "idea-refine",
+          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/idea-refine/refinement-criteria.md",
-          "sha256": "1ca2973a4d01b5cb37ab7ddb2eff77fa4e792634a33d0ce44961c068fc88d51a",
           "owner": "idea-refine",
+          "sha256": "1ca2973a4d01b5cb37ab7ddb2eff77fa4e792634a33d0ce44961c068fc88d51a",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/idea-refine/scripts/idea-refine.sh",
-          "sha256": "f02a52408a4218047c032d221483abfbb48d11f090bb4915965c7419bf2e0e47",
           "owner": "idea-refine",
+          "sha256": "f02a52408a4218047c032d221483abfbb48d11f090bb4915965c7419bf2e0e47",
           "mode": "100755"
         }
       ],
@@ -2070,14 +2070,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/incremental-implementation/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/incremental-implementation/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/incremental-implementation/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-14",
-        "last_synced_at": "2026-09-14",
-        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+        "last_checked_at": "2026-09-30",
+        "last_synced_at": "2026-09-30",
+        "last_synced_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
         "sync_mode": "monitor",
         "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1"
       },
@@ -2098,17 +2098,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+            "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
             "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1",
             "content_sha256": "a70d0b5d98ee5eb02b88576f14cf6c52459ed7f16aeb8415deeae2d492a7159f",
-            "last_checked_at": "2026-09-14",
-            "last_synced_at": "2026-09-14",
+            "last_checked_at": "2026-09-30",
+            "last_synced_at": "2026-09-30",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+              "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
               "api_spdx": "MIT"
             }
           }
@@ -2169,50 +2169,50 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/incremental-implementation/SKILL.md",
-          "sha256": "a70d0b5d98ee5eb02b88576f14cf6c52459ed7f16aeb8415deeae2d492a7159f",
           "owner": "incremental-implementation",
+          "sha256": "a70d0b5d98ee5eb02b88576f14cf6c52459ed7f16aeb8415deeae2d492a7159f",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/incremental-implementation/references/accessibility-checklist.md",
-          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "owner": "incremental-implementation",
+          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/incremental-implementation/references/definition-of-done.md",
-          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "incremental-implementation",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/incremental-implementation/references/observability-checklist.md",
-          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "owner": "incremental-implementation",
+          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/incremental-implementation/references/orchestration-patterns.md",
-          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "owner": "incremental-implementation",
+          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/incremental-implementation/references/performance-checklist.md",
-          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "owner": "incremental-implementation",
+          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/incremental-implementation/references/security-checklist.md",
-          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "owner": "incremental-implementation",
+          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/incremental-implementation/references/testing-patterns.md",
-          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "owner": "incremental-implementation",
+          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
         }
       ],
@@ -2224,16 +2224,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/interview-me/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/interview-me/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/interview-me/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-14",
-        "last_synced_at": "2026-09-14",
-        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+        "last_checked_at": "2026-09-30",
+        "last_synced_at": "2026-09-30",
+        "last_synced_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
         "sync_mode": "monitor",
-        "path_commit": "c4ad44928cd535fcfee1972988f97309d4cebf9f"
+        "path_commit": "1d32b886c25d189b6dd6a455e76728bcaefb96b0"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -2252,17 +2252,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
-            "path_commit": "c4ad44928cd535fcfee1972988f97309d4cebf9f",
+            "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+            "path_commit": "1d32b886c25d189b6dd6a455e76728bcaefb96b0",
             "content_sha256": "52d00041ea64a1ab6ba1edbf2eea12dc5dcaa75ef5e1a19f8b20a882aa623ea0",
-            "last_checked_at": "2026-09-14",
-            "last_synced_at": "2026-09-14",
+            "last_checked_at": "2026-09-30",
+            "last_synced_at": "2026-09-30",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+              "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
               "api_spdx": "MIT"
             }
           }
@@ -2323,50 +2323,50 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/interview-me/SKILL.md",
-          "sha256": "52d00041ea64a1ab6ba1edbf2eea12dc5dcaa75ef5e1a19f8b20a882aa623ea0",
           "owner": "interview-me",
+          "sha256": "52d00041ea64a1ab6ba1edbf2eea12dc5dcaa75ef5e1a19f8b20a882aa623ea0",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/interview-me/references/accessibility-checklist.md",
-          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "owner": "interview-me",
+          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/interview-me/references/definition-of-done.md",
-          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "interview-me",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/interview-me/references/observability-checklist.md",
-          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "owner": "interview-me",
+          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/interview-me/references/orchestration-patterns.md",
-          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "owner": "interview-me",
+          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/interview-me/references/performance-checklist.md",
-          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "owner": "interview-me",
+          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/interview-me/references/security-checklist.md",
-          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "owner": "interview-me",
+          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/interview-me/references/testing-patterns.md",
-          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "owner": "interview-me",
+          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
         }
       ],
@@ -2378,14 +2378,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/observability-and-instrumentation/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/observability-and-instrumentation/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/observability-and-instrumentation/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-14",
-        "last_synced_at": "2026-09-14",
-        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+        "last_checked_at": "2026-09-30",
+        "last_synced_at": "2026-09-30",
+        "last_synced_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
         "sync_mode": "monitor",
         "path_commit": "fe6f08112b3b4bc180c53807d00c3623a7b505e1"
       },
@@ -2406,17 +2406,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+            "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
             "path_commit": "fe6f08112b3b4bc180c53807d00c3623a7b505e1",
             "content_sha256": "61c2fd2e87461b190d7d30c2645ed418cb91e39a2c25d549c36d12a330c68c04",
-            "last_checked_at": "2026-09-14",
-            "last_synced_at": "2026-09-14",
+            "last_checked_at": "2026-09-30",
+            "last_synced_at": "2026-09-30",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+              "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
               "api_spdx": "MIT"
             }
           }
@@ -2477,50 +2477,50 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/observability-and-instrumentation/SKILL.md",
-          "sha256": "61c2fd2e87461b190d7d30c2645ed418cb91e39a2c25d549c36d12a330c68c04",
           "owner": "observability-and-instrumentation",
+          "sha256": "61c2fd2e87461b190d7d30c2645ed418cb91e39a2c25d549c36d12a330c68c04",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/observability-and-instrumentation/references/accessibility-checklist.md",
-          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "owner": "observability-and-instrumentation",
+          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/observability-and-instrumentation/references/definition-of-done.md",
-          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "observability-and-instrumentation",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/observability-and-instrumentation/references/observability-checklist.md",
-          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "owner": "observability-and-instrumentation",
+          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/observability-and-instrumentation/references/orchestration-patterns.md",
-          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "owner": "observability-and-instrumentation",
+          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/observability-and-instrumentation/references/performance-checklist.md",
-          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "owner": "observability-and-instrumentation",
+          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/observability-and-instrumentation/references/security-checklist.md",
-          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "owner": "observability-and-instrumentation",
+          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/observability-and-instrumentation/references/testing-patterns.md",
-          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "owner": "observability-and-instrumentation",
+          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
         }
       ],
@@ -2532,14 +2532,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/performance-optimization/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/performance-optimization/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/performance-optimization/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-14",
-        "last_synced_at": "2026-09-14",
-        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+        "last_checked_at": "2026-09-30",
+        "last_synced_at": "2026-09-30",
+        "last_synced_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
         "sync_mode": "monitor",
         "path_commit": "6a268d7710c15708598e4b0a6942275a359760ee"
       },
@@ -2560,17 +2560,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+            "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
             "path_commit": "6a268d7710c15708598e4b0a6942275a359760ee",
             "content_sha256": "70a05f74dbf6b9c097c3cc217c4343e722c02103233132e0cc4eaa6f356a9c50",
-            "last_checked_at": "2026-09-14",
-            "last_synced_at": "2026-09-14",
+            "last_checked_at": "2026-09-30",
+            "last_synced_at": "2026-09-30",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+              "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
               "api_spdx": "MIT"
             }
           }
@@ -2631,50 +2631,50 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/performance-optimization/SKILL.md",
-          "sha256": "70a05f74dbf6b9c097c3cc217c4343e722c02103233132e0cc4eaa6f356a9c50",
           "owner": "performance-optimization",
+          "sha256": "70a05f74dbf6b9c097c3cc217c4343e722c02103233132e0cc4eaa6f356a9c50",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/performance-optimization/references/accessibility-checklist.md",
-          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "owner": "performance-optimization",
+          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/performance-optimization/references/definition-of-done.md",
-          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "performance-optimization",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/performance-optimization/references/observability-checklist.md",
-          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "owner": "performance-optimization",
+          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/performance-optimization/references/orchestration-patterns.md",
-          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "owner": "performance-optimization",
+          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/performance-optimization/references/performance-checklist.md",
-          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "owner": "performance-optimization",
+          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/performance-optimization/references/security-checklist.md",
-          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "owner": "performance-optimization",
+          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/performance-optimization/references/testing-patterns.md",
-          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "owner": "performance-optimization",
+          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
         }
       ],
@@ -2686,14 +2686,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/planning-and-task-breakdown/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/planning-and-task-breakdown/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/planning-and-task-breakdown/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-14",
-        "last_synced_at": "2026-09-14",
-        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+        "last_checked_at": "2026-09-30",
+        "last_synced_at": "2026-09-30",
+        "last_synced_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
         "sync_mode": "monitor",
         "path_commit": "8300e1bbe77a9f1610a0e9da624593c3d5dea020"
       },
@@ -2714,17 +2714,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+            "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
             "path_commit": "8300e1bbe77a9f1610a0e9da624593c3d5dea020",
             "content_sha256": "7ca451b28e51a1db7483aedd5db064cb57bb815f5f97c766952939d45a920ca3",
-            "last_checked_at": "2026-09-14",
-            "last_synced_at": "2026-09-14",
+            "last_checked_at": "2026-09-30",
+            "last_synced_at": "2026-09-30",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+              "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
               "api_spdx": "MIT"
             }
           }
@@ -2785,50 +2785,50 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/planning-and-task-breakdown/SKILL.md",
-          "sha256": "7ca451b28e51a1db7483aedd5db064cb57bb815f5f97c766952939d45a920ca3",
           "owner": "planning-and-task-breakdown",
+          "sha256": "7ca451b28e51a1db7483aedd5db064cb57bb815f5f97c766952939d45a920ca3",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/planning-and-task-breakdown/references/accessibility-checklist.md",
-          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "owner": "planning-and-task-breakdown",
+          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/planning-and-task-breakdown/references/definition-of-done.md",
-          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "planning-and-task-breakdown",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/planning-and-task-breakdown/references/observability-checklist.md",
-          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "owner": "planning-and-task-breakdown",
+          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/planning-and-task-breakdown/references/orchestration-patterns.md",
-          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "owner": "planning-and-task-breakdown",
+          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/planning-and-task-breakdown/references/performance-checklist.md",
-          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "owner": "planning-and-task-breakdown",
+          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/planning-and-task-breakdown/references/security-checklist.md",
-          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "owner": "planning-and-task-breakdown",
+          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/planning-and-task-breakdown/references/testing-patterns.md",
-          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "owner": "planning-and-task-breakdown",
+          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
         }
       ],
@@ -2839,17 +2839,17 @@
       "normalized_slug": "security-and-hardening",
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/security-and-hardening/SKILL.md",
-      "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/security-and-hardening/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "source": "https://github.com/addyosmani/agent-skills/blob/2686b620fc1fed2e8f60c704839c766b8594c6b6/skills/security-and-hardening/SKILL.md",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/security-and-hardening/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-14",
-        "last_synced_at": "2026-09-14",
-        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+        "last_checked_at": "2026-09-30",
+        "last_synced_at": "2026-09-30",
+        "last_synced_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
         "sync_mode": "monitor",
-        "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1"
+        "path_commit": "d1463fd0d6675c6e145d9c57802d70faf84d1f51"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -2863,22 +2863,27 @@
             {
               "source": "skills/security-and-hardening/SKILL.md",
               "target": "skills/ai-workflow/security-and-hardening/SKILL.md"
+            },
+            {
+              "source": "skills/security-and-hardening/references/hardening-patterns.md",
+              "target": "skills/ai-workflow/security-and-hardening/references/hardening-patterns.md",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
-            "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1",
-            "content_sha256": "bfe7c42f8e218960069c16434a493ae567795b3f43ad2b6db7321f8de7ebde00",
-            "last_checked_at": "2026-09-14",
-            "last_synced_at": "2026-09-14",
+            "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+            "path_commit": "d1463fd0d6675c6e145d9c57802d70faf84d1f51",
+            "content_sha256": "c9707f568d24db59e3820a8768940fd069030d6a1eed52ae3eb67f7cbe7bb3ca",
+            "last_checked_at": "2026-09-30",
+            "last_synced_at": "2026-09-30",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+              "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
               "api_spdx": "MIT"
             }
           }
@@ -2943,57 +2948,63 @@
       ],
       "managed_files": [
         {
-          "path": "skills/ai-workflow/security-and-hardening/SKILL.md",
-          "sha256": "bfe7c42f8e218960069c16434a493ae567795b3f43ad2b6db7321f8de7ebde00",
+          "path": "skills/ai-workflow/security-and-hardening/EXTENDED.md",
           "owner": "security-and-hardening",
+          "sha256": "020394ca120db16004747eb65fd6585474bac5cddcdc5b65e84f06d0c2dcd339",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/security-and-hardening/SKILL.md",
+          "owner": "security-and-hardening",
+          "sha256": "c9707f568d24db59e3820a8768940fd069030d6a1eed52ae3eb67f7cbe7bb3ca",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/security-and-hardening/references/accessibility-checklist.md",
-          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "owner": "security-and-hardening",
+          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/security-and-hardening/references/definition-of-done.md",
-          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "security-and-hardening",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/security-and-hardening/references/hardening-patterns.md",
+          "owner": "security-and-hardening",
+          "sha256": "d8ba58cad151aeca4804e48fc768240af0dd6b0ecddd07fbf24a1562140ba97a",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/security-and-hardening/references/observability-checklist.md",
-          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "owner": "security-and-hardening",
+          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/security-and-hardening/references/orchestration-patterns.md",
-          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "owner": "security-and-hardening",
+          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/security-and-hardening/references/performance-checklist.md",
-          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "owner": "security-and-hardening",
+          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/security-and-hardening/references/security-checklist.md",
-          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "owner": "security-and-hardening",
+          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/security-and-hardening/references/testing-patterns.md",
+          "owner": "security-and-hardening",
           "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
-          "owner": "security-and-hardening",
-          "mode": "100644"
-        },
-        {
-          "path": "skills/ai-workflow/security-and-hardening/EXTENDED.md",
-          "owner": "security-and-hardening",
-          "sha256": "020394ca120db16004747eb65fd6585474bac5cddcdc5b65e84f06d0c2dcd339",
           "mode": "100644"
         }
       ],
@@ -3005,14 +3016,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/shipping-and-launch/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/shipping-and-launch/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/shipping-and-launch/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-14",
-        "last_synced_at": "2026-09-14",
-        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+        "last_checked_at": "2026-09-30",
+        "last_synced_at": "2026-09-30",
+        "last_synced_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
         "sync_mode": "monitor",
         "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1"
       },
@@ -3033,17 +3044,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+            "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
             "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1",
             "content_sha256": "ebbd01f67745b163792469fdd7f81d38418ded6c90578548a4fa6f166bb555f5",
-            "last_checked_at": "2026-09-14",
-            "last_synced_at": "2026-09-14",
+            "last_checked_at": "2026-09-30",
+            "last_synced_at": "2026-09-30",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+              "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
               "api_spdx": "MIT"
             }
           }
@@ -3104,50 +3115,50 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/shipping-and-launch/SKILL.md",
-          "sha256": "ebbd01f67745b163792469fdd7f81d38418ded6c90578548a4fa6f166bb555f5",
           "owner": "shipping-and-launch",
+          "sha256": "ebbd01f67745b163792469fdd7f81d38418ded6c90578548a4fa6f166bb555f5",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/shipping-and-launch/references/accessibility-checklist.md",
-          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "owner": "shipping-and-launch",
+          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/shipping-and-launch/references/definition-of-done.md",
-          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "shipping-and-launch",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/shipping-and-launch/references/observability-checklist.md",
-          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "owner": "shipping-and-launch",
+          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/shipping-and-launch/references/orchestration-patterns.md",
-          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "owner": "shipping-and-launch",
+          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/shipping-and-launch/references/performance-checklist.md",
-          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "owner": "shipping-and-launch",
+          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/shipping-and-launch/references/security-checklist.md",
-          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "owner": "shipping-and-launch",
+          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/shipping-and-launch/references/testing-patterns.md",
-          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "owner": "shipping-and-launch",
+          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
         }
       ],
@@ -3159,14 +3170,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/source-driven-development/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/source-driven-development/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/source-driven-development/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-14",
-        "last_synced_at": "2026-09-14",
-        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+        "last_checked_at": "2026-09-30",
+        "last_synced_at": "2026-09-30",
+        "last_synced_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
         "sync_mode": "monitor",
         "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1"
       },
@@ -3187,17 +3198,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+            "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
             "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1",
             "content_sha256": "f9ed0a8a41c38cbb1728306c6e42ac769e24b7e747d60394491da95ba002ffa2",
-            "last_checked_at": "2026-09-14",
-            "last_synced_at": "2026-09-14",
+            "last_checked_at": "2026-09-30",
+            "last_synced_at": "2026-09-30",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+              "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
               "api_spdx": "MIT"
             }
           }
@@ -3258,50 +3269,50 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/source-driven-development/SKILL.md",
-          "sha256": "f9ed0a8a41c38cbb1728306c6e42ac769e24b7e747d60394491da95ba002ffa2",
           "owner": "source-driven-development",
+          "sha256": "f9ed0a8a41c38cbb1728306c6e42ac769e24b7e747d60394491da95ba002ffa2",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/source-driven-development/references/accessibility-checklist.md",
-          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "owner": "source-driven-development",
+          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/source-driven-development/references/definition-of-done.md",
-          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "source-driven-development",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/source-driven-development/references/observability-checklist.md",
-          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "owner": "source-driven-development",
+          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/source-driven-development/references/orchestration-patterns.md",
-          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "owner": "source-driven-development",
+          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/source-driven-development/references/performance-checklist.md",
-          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "owner": "source-driven-development",
+          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/source-driven-development/references/security-checklist.md",
-          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "owner": "source-driven-development",
+          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/source-driven-development/references/testing-patterns.md",
-          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "owner": "source-driven-development",
+          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
         }
       ],
@@ -3313,14 +3324,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/spec-driven-development/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/spec-driven-development/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/spec-driven-development/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-14",
-        "last_synced_at": "2026-09-14",
-        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+        "last_checked_at": "2026-09-30",
+        "last_synced_at": "2026-09-30",
+        "last_synced_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
         "sync_mode": "monitor",
         "path_commit": "bc97fd46fdb294dc3518d0e94edb989a38894f31"
       },
@@ -3341,17 +3352,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+            "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
             "path_commit": "bc97fd46fdb294dc3518d0e94edb989a38894f31",
             "content_sha256": "eb982cc12edc5b55e96595c85f25470197c69f9670fac69cc232a4c1fcd51caa",
-            "last_checked_at": "2026-09-14",
-            "last_synced_at": "2026-09-14",
+            "last_checked_at": "2026-09-30",
+            "last_synced_at": "2026-09-30",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+              "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
               "api_spdx": "MIT"
             }
           }
@@ -3412,50 +3423,50 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/spec-driven-development/SKILL.md",
-          "sha256": "eb982cc12edc5b55e96595c85f25470197c69f9670fac69cc232a4c1fcd51caa",
           "owner": "spec-driven-development",
+          "sha256": "eb982cc12edc5b55e96595c85f25470197c69f9670fac69cc232a4c1fcd51caa",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/spec-driven-development/references/accessibility-checklist.md",
-          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "owner": "spec-driven-development",
+          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/spec-driven-development/references/definition-of-done.md",
-          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "spec-driven-development",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/spec-driven-development/references/observability-checklist.md",
-          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "owner": "spec-driven-development",
+          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/spec-driven-development/references/orchestration-patterns.md",
-          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "owner": "spec-driven-development",
+          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/spec-driven-development/references/performance-checklist.md",
-          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "owner": "spec-driven-development",
+          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/spec-driven-development/references/security-checklist.md",
-          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "owner": "spec-driven-development",
+          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/spec-driven-development/references/testing-patterns.md",
-          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "owner": "spec-driven-development",
+          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
         }
       ],
@@ -3467,14 +3478,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/test-driven-development/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/test-driven-development/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/test-driven-development/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-14",
-        "last_synced_at": "2026-09-14",
-        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+        "last_checked_at": "2026-09-30",
+        "last_synced_at": "2026-09-30",
+        "last_synced_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
         "sync_mode": "monitor",
         "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1"
       },
@@ -3495,17 +3506,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+            "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
             "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1",
             "content_sha256": "e7108d48e12e401b78234a6130c0aac860bbb22a7add1528953d76583c738472",
-            "last_checked_at": "2026-09-14",
-            "last_synced_at": "2026-09-14",
+            "last_checked_at": "2026-09-30",
+            "last_synced_at": "2026-09-30",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+              "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
               "api_spdx": "MIT"
             }
           }
@@ -3566,50 +3577,50 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/test-driven-development/SKILL.md",
-          "sha256": "e7108d48e12e401b78234a6130c0aac860bbb22a7add1528953d76583c738472",
           "owner": "test-driven-development",
+          "sha256": "e7108d48e12e401b78234a6130c0aac860bbb22a7add1528953d76583c738472",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/test-driven-development/references/accessibility-checklist.md",
-          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "owner": "test-driven-development",
+          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/test-driven-development/references/definition-of-done.md",
-          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "test-driven-development",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/test-driven-development/references/observability-checklist.md",
-          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "owner": "test-driven-development",
+          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/test-driven-development/references/orchestration-patterns.md",
-          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "owner": "test-driven-development",
+          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/test-driven-development/references/performance-checklist.md",
-          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "owner": "test-driven-development",
+          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/test-driven-development/references/security-checklist.md",
-          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "owner": "test-driven-development",
+          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/test-driven-development/references/testing-patterns.md",
-          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "owner": "test-driven-development",
+          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
         }
       ],
@@ -3621,14 +3632,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/using-agent-skills/SKILL.md",
       "source": "https://github.com/addyosmani/agent-skills/blob/main/skills/using-agent-skills/SKILL.md",
-      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync.",
+      "notes": "Imported from addyosmani/agent-skills into the AI workflow category with repeatable upstream sync. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
       "upstream": {
         "repo": "addyosmani/agent-skills",
         "path": "skills/using-agent-skills/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-14",
-        "last_synced_at": "2026-09-14",
-        "last_synced_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+        "last_checked_at": "2026-09-30",
+        "last_synced_at": "2026-09-30",
+        "last_synced_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
         "sync_mode": "monitor",
         "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1"
       },
@@ -3649,17 +3660,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+            "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
             "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1",
             "content_sha256": "e901a07ab7b208f20dc5c1602e75cbe0ed50494191c95008e4982d1da26839a1",
-            "last_checked_at": "2026-09-14",
-            "last_synced_at": "2026-09-14",
+            "last_checked_at": "2026-09-30",
+            "last_synced_at": "2026-09-30",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
               "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
               "spdx": "MIT",
-              "resolved_commit": "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
+              "resolved_commit": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
               "api_spdx": "MIT"
             }
           }
@@ -3935,308 +3946,308 @@
       "managed_files": [
         {
           "path": "skills/ai-workflow/using-agent-skills/SKILL.md",
-          "sha256": "e901a07ab7b208f20dc5c1602e75cbe0ed50494191c95008e4982d1da26839a1",
           "owner": "using-agent-skills",
+          "sha256": "e901a07ab7b208f20dc5c1602e75cbe0ed50494191c95008e4982d1da26839a1",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/references/accessibility-checklist.md",
-          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "owner": "using-agent-skills",
+          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/references/definition-of-done.md",
-          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "using-agent-skills",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/references/observability-checklist.md",
-          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "owner": "using-agent-skills",
+          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/references/orchestration-patterns.md",
-          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "owner": "using-agent-skills",
+          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/references/performance-checklist.md",
-          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "owner": "using-agent-skills",
+          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/references/security-checklist.md",
-          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "owner": "using-agent-skills",
+          "sha256": "ddd8278dd1d2c86fa5addc639ae9a2ae0344f05fa7214bf896643bc413943847",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/references/testing-patterns.md",
+          "owner": "using-agent-skills",
           "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
-          "owner": "using-agent-skills",
-          "mode": "100644"
-        },
-        {
-          "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/.claude-plugin/marketplace.json",
-          "sha256": "49d1e650a25265c1cea43d3b82b673fa8bbadc86be95e58d6d4ef903835fc9c2",
-          "owner": "using-agent-skills",
-          "mode": "100644"
-        },
-        {
-          "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/.claude-plugin/plugin.json",
-          "sha256": "c7c604d3e6bc3ed516bb84f5845685536bda1c0aba1443aefabe2585bd287d38",
-          "owner": "using-agent-skills",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/.claude/commands/build.md",
-          "sha256": "74cc85b5092f8e209bcda36441a4ce17a5cd9efd2a7d8ce76ba202816088e277",
           "owner": "using-agent-skills",
+          "sha256": "74cc85b5092f8e209bcda36441a4ce17a5cd9efd2a7d8ce76ba202816088e277",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/.claude/commands/code-simplify.md",
-          "sha256": "71e9e8d38c5cbab5b7ecff324ed4ea0f1aaa4fd053ea6c2b717f2fbadfb65a91",
           "owner": "using-agent-skills",
+          "sha256": "71e9e8d38c5cbab5b7ecff324ed4ea0f1aaa4fd053ea6c2b717f2fbadfb65a91",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/.claude/commands/plan.md",
-          "sha256": "4a14758a45963c4c43b239f405dcdf0cf70778fc0de8c90953fd86177f952832",
           "owner": "using-agent-skills",
+          "sha256": "4a14758a45963c4c43b239f405dcdf0cf70778fc0de8c90953fd86177f952832",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/.claude/commands/review.md",
-          "sha256": "8ad7da75873b430b737328d1bdd95fc8d2de4a4866737087feb4d218abe4e88f",
           "owner": "using-agent-skills",
+          "sha256": "8ad7da75873b430b737328d1bdd95fc8d2de4a4866737087feb4d218abe4e88f",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/.claude/commands/ship.md",
-          "sha256": "02d2d0fc10bfb58bb62dcfe22ed396cd2b9f55dced7d5cd92fce6d29f0da4ace",
           "owner": "using-agent-skills",
+          "sha256": "02d2d0fc10bfb58bb62dcfe22ed396cd2b9f55dced7d5cd92fce6d29f0da4ace",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/.claude/commands/spec.md",
-          "sha256": "ac359a9ad030dee29e54bd0db64b96cadaab00daf8eb900043956930f23e17e5",
           "owner": "using-agent-skills",
+          "sha256": "ac359a9ad030dee29e54bd0db64b96cadaab00daf8eb900043956930f23e17e5",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/.claude/commands/test.md",
-          "sha256": "62f72b64cfac6db984db072fdc987a23e6049876191297da5f37367def986ff2",
           "owner": "using-agent-skills",
+          "sha256": "62f72b64cfac6db984db072fdc987a23e6049876191297da5f37367def986ff2",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/.claude/commands/webperf.md",
-          "sha256": "74c0c1335f1397a5138a78eda4275e4e5deba16c4537f3a4b4971c3280d0ba27",
           "owner": "using-agent-skills",
+          "sha256": "74c0c1335f1397a5138a78eda4275e4e5deba16c4537f3a4b4971c3280d0ba27",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/.claude-plugin/marketplace.json",
+          "owner": "using-agent-skills",
+          "sha256": "49d1e650a25265c1cea43d3b82b673fa8bbadc86be95e58d6d4ef903835fc9c2",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/.claude-plugin/plugin.json",
+          "owner": "using-agent-skills",
+          "sha256": "c7c604d3e6bc3ed516bb84f5845685536bda1c0aba1443aefabe2585bd287d38",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/agents/code-reviewer.md",
-          "sha256": "74667b052cb6a75079791cee8f6e465a248e28fd82178505aaaec8db95c40ccf",
           "owner": "using-agent-skills",
+          "sha256": "74667b052cb6a75079791cee8f6e465a248e28fd82178505aaaec8db95c40ccf",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/agents/security-auditor.md",
-          "sha256": "66a3f68f1c691b600ddb44e88afb138e239d0572df37be84e1f9a427c887dd0a",
           "owner": "using-agent-skills",
+          "sha256": "66a3f68f1c691b600ddb44e88afb138e239d0572df37be84e1f9a427c887dd0a",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/agents/test-engineer.md",
-          "sha256": "c4acde91d6307d88515387344a129a2d0679134e587596c3517d73faffcd5aa6",
           "owner": "using-agent-skills",
+          "sha256": "c4acde91d6307d88515387344a129a2d0679134e587596c3517d73faffcd5aa6",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/agents/web-performance-auditor.md",
-          "sha256": "0928b1cf8103262a364bce0c1fc689a918852e2275441f1b2e687adfa1e607e9",
           "owner": "using-agent-skills",
+          "sha256": "0928b1cf8103262a364bce0c1fc689a918852e2275441f1b2e687adfa1e607e9",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/docs/adoption-guide.md",
-          "sha256": "21bff9ad02144ff2860243f9d71ad45e90294db6b9066149af74b2f97a1908f6",
           "owner": "using-agent-skills",
+          "sha256": "21bff9ad02144ff2860243f9d71ad45e90294db6b9066149af74b2f97a1908f6",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/docs/agents.md",
-          "sha256": "e03481592a725146ed48ee22010086dcfebd1faf1373cb99e7f2ed4d2100275c",
           "owner": "using-agent-skills",
+          "sha256": "e03481592a725146ed48ee22010086dcfebd1faf1373cb99e7f2ed4d2100275c",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/docs/antigravity-setup.md",
-          "sha256": "cd3b7ddf7eb42af069f43cecbddceb98faaa2717fa184568e5e6bccda6612ef0",
           "owner": "using-agent-skills",
+          "sha256": "cd3b7ddf7eb42af069f43cecbddceb98faaa2717fa184568e5e6bccda6612ef0",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/docs/codex-setup.md",
-          "sha256": "a99892641e69e5dee19b7236054d1f18d2759fd854b98f4dfa15fe60f401c47f",
           "owner": "using-agent-skills",
+          "sha256": "a99892641e69e5dee19b7236054d1f18d2759fd854b98f4dfa15fe60f401c47f",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/docs/comparison.md",
-          "sha256": "7edc3360fc5ee5a4fcacdeb8f4d19cd8174f4bed7436b1c04c0369d8c3b72fb8",
           "owner": "using-agent-skills",
+          "sha256": "7edc3360fc5ee5a4fcacdeb8f4d19cd8174f4bed7436b1c04c0369d8c3b72fb8",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/docs/copilot-setup.md",
-          "sha256": "c8fb9c61c286ea2fb0358de0fb2e3cd4cab2b5e356dbc455386fe349fae8a469",
           "owner": "using-agent-skills",
+          "sha256": "c8fb9c61c286ea2fb0358de0fb2e3cd4cab2b5e356dbc455386fe349fae8a469",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/docs/cursor-setup.md",
-          "sha256": "1ce79da3cddb3217e53b1815c62ddc75dfa740f4965c8d56a5014c2395d15352",
           "owner": "using-agent-skills",
+          "sha256": "1ce79da3cddb3217e53b1815c62ddc75dfa740f4965c8d56a5014c2395d15352",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/docs/developer-onboarding.md",
-          "sha256": "59a35b68045f34aa42161bc5901892489e6ecdac4b5bbfcf311fde65f8255eea",
           "owner": "using-agent-skills",
+          "sha256": "59a35b68045f34aa42161bc5901892489e6ecdac4b5bbfcf311fde65f8255eea",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/docs/gemini-cli-setup.md",
-          "sha256": "982d9cdc469fb26cbd4dd6a2d26d1894f2b93e2f821dd8646c188dacb8150803",
           "owner": "using-agent-skills",
+          "sha256": "982d9cdc469fb26cbd4dd6a2d26d1894f2b93e2f821dd8646c188dacb8150803",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/docs/getting-started.md",
-          "sha256": "64021c41172dce3741b262b8b1df87cb6ab4ea5a3a46c08d062f1f5e4c7000a9",
           "owner": "using-agent-skills",
+          "sha256": "64021c41172dce3741b262b8b1df87cb6ab4ea5a3a46c08d062f1f5e4c7000a9",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/docs/opencode-setup.md",
-          "sha256": "4ea73ec1e4a46e5fc1a7984a6a15e64b6289522c4d8927147e34d4abdf0030f4",
           "owner": "using-agent-skills",
+          "sha256": "4ea73ec1e4a46e5fc1a7984a6a15e64b6289522c4d8927147e34d4abdf0030f4",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/docs/skill-anatomy.md",
-          "sha256": "5026d3ade4cec780a6d4c372cc11403ca1014ac369f72791f8c5ebe063519343",
           "owner": "using-agent-skills",
+          "sha256": "5026d3ade4cec780a6d4c372cc11403ca1014ac369f72791f8c5ebe063519343",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/docs/windsurf-setup.md",
-          "sha256": "1410af016060047d1a265365f8d98aadd00a58bcfa2a048edec06d61d337cd97",
           "owner": "using-agent-skills",
+          "sha256": "1410af016060047d1a265365f8d98aadd00a58bcfa2a048edec06d61d337cd97",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/hooks/SDD-CACHE.md",
-          "sha256": "8c1d337a11ed7fd4f3f0e965856cb86a97cdf8b3de0b29b63345ad0133b3db12",
           "owner": "using-agent-skills",
+          "sha256": "8c1d337a11ed7fd4f3f0e965856cb86a97cdf8b3de0b29b63345ad0133b3db12",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/hooks/SIMPLIFY-IGNORE.md",
-          "sha256": "a7121b0505c960a8a7a7f09600c9fa81464fc403ab297b95d23f5109b13ea52a",
           "owner": "using-agent-skills",
+          "sha256": "a7121b0505c960a8a7a7f09600c9fa81464fc403ab297b95d23f5109b13ea52a",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/hooks/hooks.json",
-          "sha256": "870c97c9cb6f526b66cc1d684e261ad2f7b45066a41e56ca5cb3fa6784df8888",
           "owner": "using-agent-skills",
+          "sha256": "870c97c9cb6f526b66cc1d684e261ad2f7b45066a41e56ca5cb3fa6784df8888",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/hooks/sdd-cache-post.sh",
-          "sha256": "cf60a60fd475cceaf8cefdf0462393b1be0d7a4a5a4ea54508172f36ec0883e5",
           "owner": "using-agent-skills",
+          "sha256": "cf60a60fd475cceaf8cefdf0462393b1be0d7a4a5a4ea54508172f36ec0883e5",
           "mode": "100755"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/hooks/sdd-cache-pre.sh",
-          "sha256": "853ad36f5e17e977060b92313e34b848ec1d321f2ac4aa657e9f3b9281cc0473",
           "owner": "using-agent-skills",
+          "sha256": "853ad36f5e17e977060b92313e34b848ec1d321f2ac4aa657e9f3b9281cc0473",
           "mode": "100755"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/hooks/session-start-test.sh",
-          "sha256": "db35bb3e69a98900dddb0c5b1c9ceb8e738cdeb17613ed50177fff7924d350d2",
           "owner": "using-agent-skills",
+          "sha256": "db35bb3e69a98900dddb0c5b1c9ceb8e738cdeb17613ed50177fff7924d350d2",
           "mode": "100755"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/hooks/session-start.sh",
-          "sha256": "9f3ab636c164463b26bc93af82626d42b184ce323a6b64c9a9aec873dd2c7cb7",
           "owner": "using-agent-skills",
+          "sha256": "9f3ab636c164463b26bc93af82626d42b184ce323a6b64c9a9aec873dd2c7cb7",
           "mode": "100755"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/hooks/simplify-ignore-test.sh",
-          "sha256": "8f93c89e46c5a7478c01fa8531fa45e594fc5105411eaa7bd7c9f3ca8343926e",
           "owner": "using-agent-skills",
+          "sha256": "8f93c89e46c5a7478c01fa8531fa45e594fc5105411eaa7bd7c9f3ca8343926e",
           "mode": "100755"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/hooks/simplify-ignore.sh",
-          "sha256": "1256c677adbce33f3c361793d7dae2405fb02a7efc07b19cc8f42134def8a5cd",
           "owner": "using-agent-skills",
+          "sha256": "1256c677adbce33f3c361793d7dae2405fb02a7efc07b19cc8f42134def8a5cd",
           "mode": "100755"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/references/accessibility-checklist.md",
-          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "owner": "using-agent-skills",
+          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/references/definition-of-done.md",
-          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "owner": "using-agent-skills",
+          "sha256": "62564cc59a03daacf45d88c4ab5910116b8ece149bb86e37761ef55fe9a7b516",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/references/observability-checklist.md",
-          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "owner": "using-agent-skills",
+          "sha256": "28659e0a4b9625a434285fa9ede632802afa909f768d0f8d839dca227e53d8fe",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/references/orchestration-patterns.md",
-          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "owner": "using-agent-skills",
+          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/references/performance-checklist.md",
-          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "owner": "using-agent-skills",
+          "sha256": "628539583b7f515f84d0b8e4f4210ccdc0449afd31901149a078209f0769e654",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/references/security-checklist.md",
-          "sha256": "a8bbff3b1ac9122985e98fbe9a8fa09cd8ad53b190bac7f8f0f63687900f7d7a",
           "owner": "using-agent-skills",
+          "sha256": "a8bbff3b1ac9122985e98fbe9a8fa09cd8ad53b190bac7f8f0f63687900f7d7a",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/using-agent-skills/upstream-bundle/references/testing-patterns.md",
-          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "owner": "using-agent-skills",
+          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
           "mode": "100644"
         }
       ],
@@ -4285,6 +4296,13 @@
       "target": "addyosmani/agent-skills@be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39",
       "result": "success",
       "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-09-30",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "addyosmani/agent-skills@2686b620fc1fed2e8f60c704839c766b8594c6b6",
+      "result": "success",
+      "evidence": "Compared the complete declared artifact sets and regular sibling resources at immutable commits; applied reviewed deltas, retained local authorization/host adapters, and isolated removed references as immutable licensed sidecars. Source comparison and targeted semantic review are not live vendor/API or model behavioral certification. See docs/maintenance-audit-2026-09-30.json."
     }
   ]
 }

@@ -2,14 +2,14 @@
 name: gear
 description: '依赖、构建、容器、监控和开发环境运维优化。'
 zh_description: "依赖、构建、容器、监控和开发环境运维优化。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/main/gear"
+source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/gear/SKILL.md"
 license: MIT
 tags: ["devops", "gear", "sre"]
 created_at: "2026-08-24"
-updated_at: "2026-09-06"
+updated_at: "2026-09-30"
 quality: 5
 complexity: "advanced"
 ---
@@ -217,7 +217,6 @@ A complete deliverable carries the following — a ceiling, not a floor. Emit on
 | `reference/gha-security-hardening.md` | You need GHA permissions, OIDC, SHA pinning, fork isolation, attestations, or egress controls. |
 | `reference/gha-matrix-strategy.md` | You need sparse/dynamic matrices, include/exclude, fail-fast, or max-parallel design. |
 | `reference/gha-cache-strategy.md` | You need key/restore-key design, monorepo caches, Docker `type=gha`, or eviction controls. |
-| `reference/gha-automation-recipes.md` | You need PR labels, assignment, release automation, or workflow-driven governance. |
 | `reference/docker-patterns.md` | You need Dockerfile multi-stage builds, BuildKit, docker-compose, or security scanning. |
 | `reference/observability.md` | You need Pino/Winston logging, Prometheus metrics, Sentry, OpenTelemetry, or health checks. |
 | `reference/monorepo-guide.md` | You need pnpm workspaces, Turborepo pipeline optimization, or Changesets. |

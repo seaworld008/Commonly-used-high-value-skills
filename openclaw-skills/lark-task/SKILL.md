@@ -2,14 +2,14 @@
 name: lark-task
 description: '飞书任务：管理任务、清单和任务智能体。创建待办任务、查看和更新任务状态、拆分子任务、组织任务清单、分配协作成员、上传任务附件、注册或注销任务智能体、更新任务智能体的主页数据、写入智能体任务记录。当用户需要创建待办事项、查看任务列表、跟踪任务进度、管理项目清单或给他人分配任务、为任务上传附件文件、注册注销任务智能体、更新智能体主页数据、写入任务记录时使用。'
 zh_description: "用于创建、查询和更新飞书任务及待办事项。"
-version: "1.0.8"
+version: "1.0.9"
 author: larksuite
 source: "github:larksuite/cli"
-source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-task"
+source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-task"
 license: MIT
 tags: '[feishu, lark, lark-cli, tasks, project-management]'
 created_at: "2026-05-19"
-updated_at: "2026-08-24"
+updated_at: "2026-09-30"
 quality: 4
 complexity: intermediate
 metadata:
@@ -195,6 +195,7 @@ lark-cli task <resource> <method> [flags] # 调用 API
 | `agent.update_agent_profile` | `task:task:write` |
 | `agent.register_agent` | `task:task:write` |
 | `agent_task_step_info.append_task_steps` | `task:task:write` |
+
 <!-- LOCAL-QUALITY-SUPPLEMENT:START -->
 ## Usage Notes
 

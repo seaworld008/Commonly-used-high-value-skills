@@ -2,14 +2,14 @@
 name: lark-whiteboard
 description: 'Use when querying, exporting, or editing Lark whiteboards, including preview images, raw node structures, and structured canvas updates.'
 zh_description: "用于查询、导出和编辑飞书云文档中的画板内容和节点结构。"
-version: "1.0.8"
+version: "1.0.9"
 author: larksuite
 source: "github:larksuite/cli"
-source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-whiteboard"
+source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-whiteboard"
 license: MIT
 tags: '[feishu, lark, lark-cli, whiteboard, diagram]'
 created_at: "2026-05-19"
-updated_at: "2026-08-20"
+updated_at: "2026-09-30"
 quality: 3
 complexity: advanced
 metadata:
@@ -61,6 +61,7 @@ metadata:
 - 文档内容编辑 → lark-doc [lark-doc](../lark-doc/SKILL.md)
 - 在文档中创建画板 → [lark-doc-whiteboard.md](../lark-doc/references/lark-doc-whiteboard.md)
 - 表格 / Base 操作 → [lark-sheets](../lark-sheets/SKILL.md) / [lark-base](../lark-base/SKILL.md)
+
 <!-- LOCAL-QUALITY-SUPPLEMENT:START -->
 ## Usage Notes
 

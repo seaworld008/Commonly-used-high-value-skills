@@ -9803,7 +9803,7 @@
       "status": "in_house",
       "repo_skill": "skills/ai-agent-platform/hermes-open-gsd-workflow/SKILL.md",
       "source": "https://github.com/seaworld008/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth). 2026-09-28: reviewed unchanged composite body 6e1bbecf1c863b1b9895ac94eb66e57750877363b483805cbba4cb39b880c52d against the curated Graphify path-quoting delta; routing/state ownership and installer boundaries remain unchanged.",
+      "notes": "In-house canonical skill (local repository source of truth). 2026-09-28: reviewed unchanged composite body 6e1bbecf1c863b1b9895ac94eb66e57750877363b483805cbba4cb39b880c52d against the curated Graphify path-quoting delta; routing/state ownership and installer boundaries remain unchanged. 2026-09-30: reviewed Graphify v0.9.72 overlay (canonical metadata and quoted watcher interpreter/root only); thin routing, planning-state ownership, optional Pi and installer boundaries remain compatible. Refreshed only the Graphify dependency lock; no live runtime certification.",
       "upstream": {
         "repo": "local-repo/in-house",
         "path": "skills/ai-agent-platform/hermes-open-gsd-workflow",
@@ -9868,7 +9868,7 @@
         ],
         "dependency_lock": {
           "hermes-agent": "6cd26b16955b78c45fd642960ab9c27e37afdb3ddd5c6fd09e6fb01d2d21a1f1",
-          "graphify": "fd72c04ab619439d9bceb1ecd8253ca62ec2345135c219ccbf215c06922393dc",
+          "graphify": "8a474a2c170798985419e70a318b99271b779df9985966044e036899c671f6d9",
           "open-gsd/gsd-core": "b7ed2186d397b270a52db5e9816a9fd88a240466b356b1f4a28823f93cb8fd9d",
           "open-gsd/gsd-pi": "16165f4b80211b9e3aa3801e68e04de2f5599ab9a0c247307b1712aa5a9b5df5"
         }
