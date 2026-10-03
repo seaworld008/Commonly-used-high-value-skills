@@ -1,97 +1,113 @@
-name: Review fresh upstream deltas
+name: Validate final skills follow-up
 on:
   push:
     branches: [codex/grill-me-maintenance-20260930]
     paths: [.github/workflows/maintenance-audit-20260930.yml]
 permissions:
-  contents: read
+  contents: write
   actions: read
 jobs:
-  collect:
+  followup:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
+          path: transfer
+          persist-credentials: false
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
           ref: 5ea7154e7ed04dbf997df3cb23ed85fe1af28055
+          fetch-depth: 0
+          path: candidate
           persist-credentials: false
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: '3.13'
-      - name: Download current read-only report
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: gh run download 37147008919 -n skills-maintenance-recovered -D "$RUNNER_TEMP/current"
-      - name: Compare declared artifact sets and new regular siblings, without running upstream code
-        env:
-          GH_TOKEN: ${{ github.token }}
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '22'
+      - name: Verify locally authored patch program and regression bytes
         shell: python
         run: |
-          import base64, dataclasses, hashlib, json, os, pathlib, posixpath, sys
-          sys.path.insert(0, 'scripts')
-          from github_artifact_provider import GitHubArtifactProvider
-          provider = GitHubArtifactProvider(token=os.environ['GH_TOKEN'])
-          out = pathlib.Path(os.environ['RUNNER_TEMP']) / 'deltas'
+          import base64, hashlib, json, lzma, os, pathlib
+          out = pathlib.Path(os.environ['RUNNER_TEMP']) / 'followup'
           out.mkdir()
-          report = json.loads((out.parent / 'current/upstream-current.json').read_text())
-          wanted = {r['name']: r for r in report['results'] if r['status'] == 'monitor_review'}
-          data = {'base': '5ea7154e7ed04dbf997df3cb23ed85fe1af28055', 'report': report, 'entries': [], 'errors': []}
-          def save():
-              (out / 'fresh-deltas.json').write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n')
-          def payload(repo, item):
-              if not item or item.get('type') != 'blob' or item.get('mode') not in ('100644','100755'):
-                  return None
-              raw = provider.blob(repo, item['sha'])
-              return {'blob': item['sha'], 'mode': item['mode'], 'sha256': hashlib.sha256(raw).hexdigest(), 'base64': base64.b64encode(raw).decode()}
-          def expand(origin, tree, entry):
-              files = {}
-              for a in origin.get('artifacts', []):
-                  source, target = a['source'], a['target']
-                  if a.get('type','file') == 'file': files[target] = source
-                  else:
-                      prefix = source.rstrip('/') + '/'
-                      files.update({target.rstrip('/') + '/' + p[len(prefix):]: p for p,it in tree.items() if p.startswith(prefix) and it['type'] == 'blob'})
-              siblings = {}
-              if origin['path'].endswith('/SKILL.md'):
-                  prefix = posixpath.dirname(origin['path']) + '/'
-                  siblings = {posixpath.dirname(entry['repo_skill']) + '/' + p[len(prefix):]: p for p,it in tree.items() if p.startswith(prefix) and it['type'] == 'blob'}
-              return files, siblings
-          for mapping in sorted(pathlib.Path('docs/sources').glob('*.skills.json')):
-              for entry in json.loads(mapping.read_text()).get('skills', []):
-                  name = entry.get('normalized_slug')
-                  if name not in wanted: continue
-                  result = wanted[name]
-                  row = {'name': name, 'mapping': str(mapping), 'repo_skill': entry['repo_skill'], 'origins': []}
-                  data['entries'].append(row)
-                  for index, origin in enumerate(entry.get('origins', [])):
-                      repo = origin.get('repo')
-                      if repo != result['repository'] or origin.get('sync_mode') == 'archived': continue
-                      try:
-                          old = origin['tracking']['resolved_commit']; new = result['current_commit']
-                          before = provider.tree(repo, old); after = provider.tree(repo, new)
-                          current = {'index': index, 'repo': repo, 'old': old, 'new': new, 'path': origin['path'], 'license': dataclasses.asdict(provider.license_evidence(repo,new)), 'changed': [], 'new_siblings': [], 'special_objects': []}
-                          row['origins'].append(current)
-                          a, siblings_a = expand(origin,before,entry); b, siblings_b = expand(origin,after,entry)
-                          for target in sorted(set(a)|set(b)):
-                              source = b.get(target,a.get(target)); left = before.get(a.get(target,source)); right = after.get(source)
-                              if (left or {}).get('sha') == (right or {}).get('sha') and (left or {}).get('mode') == (right or {}).get('mode'): continue
-                              current['changed'].append({'source': source, 'target': target, 'old': payload(repo,left), 'new': payload(repo,right)})
-                          for target, source in sorted(siblings_b.items()):
-                              if target in b or source in siblings_a.values(): continue
-                              item = after[source]
-                              if item['mode'] not in ('100644','100755'):
-                                  current['special_objects'].append({'source':source,'mode':item['mode']}); continue
-                              current['new_siblings'].append({'source':source,'target':target,'new':payload(repo,item)})
-                          print(name, 'changed',len(current['changed']),'new siblings',len(current['new_siblings']),flush=True)
-                      except Exception as exc:
-                          data['errors'].append({'name': name, 'repo': repo, 'error': str(exc)})
-                  save()
-          assert set(wanted) == {e['name'] for e in data['entries']}
-          save()
-      - name: Upload complete delta evidence
+          packed = base64.b64decode(pathlib.Path('transfer/.github/maintenance-20260930/followup.payload.b64').read_text().strip(), validate=True)
+          assert hashlib.sha256(packed).hexdigest() == 'db18cc87546c5d277f3536fd4a237b948cdbe699bf7d1323c2791b56b57cca6d'
+          decoder = lzma.LZMADecompressor(memlimit=64*1024*1024)
+          raw = decoder.decompress(packed, max_length=1024*1024)
+          assert decoder.eof and not decoder.unused_data
+          data = json.loads(raw)
+          expected = {'apply_fresh_review.py':'4dbd6146ee4b270d0983008316db62ef81f7d08f3f47b4eda8229b5e5c1a3e1e', 'test_maintenance_followup.py':'081256cc6280b81c0b903ae001bca1c1b23fb6c06d8bd24503208fd96008372d'}
+          assert data.keys() == expected.keys()
+          for name, text in data.items():
+              assert hashlib.sha256(text.encode()).hexdigest() == expected[name]
+              (out / name).write_text(text)
+      - name: Apply only the reviewed deltas to the exact PR base
+        working-directory: candidate
+        run: |
+          gh run download 37147614811 -n fresh-upstream-deltas -D "$RUNNER_TEMP/evidence"
+          python "$RUNNER_TEMP/followup/apply_fresh_review.py" "$RUNNER_TEMP/evidence/fresh-deltas.json" --expected-digest 5a483b21ecc223997f8bb51689a09ae21ecd3c5f28bf8d59dfe156cf379f1668
+          cp "$RUNNER_TEMP/followup/test_maintenance_followup.py" tests/test_maintenance_followup.py
+      - name: Generate and test the complete candidate
+        working-directory: candidate
+        run: |
+          mkdir -p "$RUNNER_TEMP/result"
+          python -m pip install pyyaml pytest jsonschema
+          python - <<'PY'
+          import subprocess,sys
+          sys.path.insert(0,'scripts')
+          from validate_repository import REFRESH
+          for command in REFRESH:
+              subprocess.run([sys.executable,*command],check=True)
+          PY
+          git add -A
+          python scripts/validate_repository.py --refresh > "$RUNNER_TEMP/result/validation.log" 2>&1
+          node --test skills/security-and-reliability/security-audit/validate-coverage-ledger.test.cjs skills/security-and-reliability/security-audit/validate-findings.test.cjs > "$RUNNER_TEMP/result/node-tests.log" 2>&1
+          npm test > "$RUNNER_TEMP/result/npm-test.log" 2>&1
+          python scripts/generate_repo_health_report.py
+          python scripts/evaluate_repo_health.py
+          tail -5 "$RUNNER_TEMP/result/validation.log"
+      - name: Commit, prove idempotence and push only the existing maintenance PR branch
+        working-directory: candidate
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'fix: close fresh upstream review and Lark chart findings'
+          python - <<'PY'
+          import subprocess,sys
+          sys.path.insert(0,'scripts')
+          from validate_repository import REFRESH
+          for command in REFRESH:
+              subprocess.run([sys.executable,*command],check=True)
+          PY
+          git diff --exit-code
+          git diff --exit-code 5ea7154e7ed04dbf997df3cb23ed85fe1af28055 HEAD -- .github/workflows
+          gh auth setup-git
+          git push origin HEAD:refs/heads/codex/skills-maintenance-20261004
+          git rev-parse HEAD > "$RUNNER_TEMP/result/head.txt"
+          git bundle create "$RUNNER_TEMP/result/repository.bundle" HEAD
+          cp docs/maintenance-followup-2026-10-03.json "$RUNNER_TEMP/result/"
+      - name: Independently recheck tracking after curation
+        working-directory: candidate
+        shell: bash
+        run: |
+          set +e
+          timeout 600 python scripts/sync_upstream.py --check-only --report-json "$RUNNER_TEMP/result/upstream-final.json" > "$RUNNER_TEMP/result/upstream-final.log" 2>&1
+          status=$?
+          printf '%s\n' "$status" > "$RUNNER_TEMP/result/upstream-exit.txt"
+          date -u +%FT%TZ > "$RUNNER_TEMP/result/checked-at.txt"
+          tail -12 "$RUNNER_TEMP/result/upstream-final.log"
+          exit 0
+      - name: Upload final validation and tracking evidence
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: fresh-upstream-deltas
-          path: ${{ runner.temp }}/deltas/
+          name: final-followup-evidence
+          path: ${{ runner.temp }}/result/
+          if-no-files-found: warn
           retention-days: 14
