@@ -27,7 +27,9 @@
     "docs/releases/v3.0.0.json",
     "docs/releases/v3.1.0.json",
     "docs/releases/v3.2.0.json",
-    "docs/maintenance-audit-2026-09-30.md"
+    "docs/maintenance-audit-2026-09-30.md",
+    "docs/maintenance-followup-2026-10-03.md",
+    "docs/maintenance-followup-2026-10-03.json"
   ],
   "scripts": {
     "test": "node --check bin/install-skills.js && node bin/install-skills.js --help && node bin/install-skills.js list-bundles && npm pack --dry-run --silent"
