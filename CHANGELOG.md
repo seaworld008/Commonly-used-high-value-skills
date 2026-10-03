@@ -10,10 +10,19 @@ All notable changes to this repository are documented here.
 
 变更范围 / Revision range: `v3.1.0..HEAD`.
 
-#### [2026-09-30]
+#### [2026-10-03]
 
 ##### Changed
-- capture read-only maintenance baseline and upstream audit
+- recover curated skills maintenance and prepare v3.2.0
+
+#### [2026-09-30]
+
+##### Added
+- `grill-me` (task-understanding-decomposition) — grill-me
+
+##### Changed
+- add standalone grill-me skill (#127)
+- add standalone grill-me with pinned upstream evidence
 <!-- AUTO-CHANGELOG:END -->
 
 ### Removed / 移除
