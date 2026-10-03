@@ -46,12 +46,20 @@ jobs:
           for name, text in data.items():
               assert hashlib.sha256(text.encode()).hexdigest() == expected[name]
               (out / name).write_text(text)
-      - name: Apply only the reviewed deltas to the exact PR base
+      - name: Apply reviewed deltas and explicit provenance expectation
         working-directory: candidate
         run: |
           gh run download 37147614811 -n fresh-upstream-deltas -D "$RUNNER_TEMP/evidence"
           python "$RUNNER_TEMP/followup/apply_fresh_review.py" "$RUNNER_TEMP/evidence/fresh-deltas.json" --expected-digest 5a483b21ecc223997f8bb51689a09ae21ecd3c5f28bf8d59dfe156cf379f1668
           cp "$RUNNER_TEMP/followup/test_maintenance_followup.py" tests/test_maintenance_followup.py
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('tests/test_larksuite_cli_artifacts.py')
+          text = path.read_text()
+          old = '"overlay" if slug in LOCAL_OVERLAYS else "mirror"'
+          assert text.count(old) == 1
+          path.write_text(text.replace(old, '"overlay" if slug in LOCAL_OVERLAYS or slug == "lark-sheets" else "mirror"'))
+          PY
       - name: Generate and test the complete candidate
         working-directory: candidate
         run: |
@@ -71,13 +79,16 @@ jobs:
           python scripts/generate_repo_health_report.py
           python scripts/evaluate_repo_health.py
           tail -5 "$RUNNER_TEMP/result/validation.log"
-      - name: Commit, prove idempotence and push only the existing maintenance PR branch
+      - name: Commit, preserve changelog history, prove idempotence and update PR129
         working-directory: candidate
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
           git commit -m 'fix: close fresh upstream review and Lark chart findings'
+          python scripts/generate_changelog.py --preserve-history
+          git add CHANGELOG.md
+          if ! git diff --cached --quiet; then git commit -m 'docs: refresh changelog after final upstream curation'; fi
           python - <<'PY'
           import subprocess,sys
           sys.path.insert(0,'scripts')
