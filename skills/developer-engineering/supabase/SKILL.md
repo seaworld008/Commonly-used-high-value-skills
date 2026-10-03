@@ -2,14 +2,14 @@
 name: supabase
 description: 'Build or troubleshoot Supabase Database, Auth, Storage, Realtime, Edge Functions, and client/SSR integrations; use current platform documentation.'
 zh_description: "开发和排查 Supabase 数据库、认证、存储及应用集成。"
-version: "1.0.6"
+version: "1.0.7"
 author: "seaworld008"
 source: "github:supabase/agent-skills"
 source_url: "https://github.com/supabase/agent-skills/blob/544bfc56c89afe2b87b20017a59b2c6e9502a1fb/skills/supabase/SKILL.md"
 license: MIT
 tags: '["development", "supabase"]'
 created_at: "2026-06-03"
-updated_at: "2026-09-30"
+updated_at: "2026-10-03"
 quality: 4
 complexity: "intermediate"
 metadata:

@@ -133,7 +133,7 @@ def test_lark_complete_directory_mirrors_are_exact_and_owned() -> None:
         canonical_root = REPO_ROOT / target_root
 
         assert entry["kind"] == (
-            "overlay" if slug in LOCAL_OVERLAYS else "mirror"
+            "overlay" if slug in LOCAL_OVERLAYS or slug == "lark-sheets" else "mirror"
         )
         assert entry["sync_mode"] == "monitor"
         assert len(entry["origins"]) == (

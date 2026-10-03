@@ -44,16 +44,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/nlpm-audit/SKILL.md",
       "source": "https://github.com/xiaolai/nlpm",
-      "notes": "Curated as a durable NL artifact audit workflow. The local skill preserves source attribution and ISC license, but intentionally abstracts the method so future maintenance is not coupled to every upstream slash command or product-specific file. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Curated as a durable NL artifact audit workflow. The local skill preserves source attribution and ISC license, but intentionally abstracts the method so future maintenance is not coupled to every upstream slash command or product-specific file. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Retain the portable local audit rather than replacing it with a product README: manifest verification, client-specific evaluation and advisory scoring already have explicit local boundaries. See docs/maintenance-followup-2026-10-03.json.",
       "upstream": {
         "repo": "xiaolai/nlpm",
         "path": "README.md",
         "ref": "main",
         "sync_mode": "monitor",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "4cf6b70948a2c5201ca50f511d3dd56990bdcb3f",
-        "path_commit": "c5b16966266330c9cbf93e2ecb352fb162442d04"
+        "last_checked_at": "2026-10-03",
+        "last_synced_at": "2026-10-03",
+        "last_synced_commit": "91fa8a7f248fa5f1dca3dd28032a17ab26550f3a",
+        "path_commit": "49b7a7377cdde9afdd0c5e55d5cad5c0be75757c"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -72,17 +72,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "4cf6b70948a2c5201ca50f511d3dd56990bdcb3f",
-            "path_commit": "c5b16966266330c9cbf93e2ecb352fb162442d04",
+            "resolved_commit": "91fa8a7f248fa5f1dca3dd28032a17ab26550f3a",
+            "path_commit": "49b7a7377cdde9afdd0c5e55d5cad5c0be75757c",
             "content_sha256": "0f4df860e8ab1b47d45b439b49b1fb595cf258bf3b5216a5e1a6d78426cb23a8",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30",
+            "last_checked_at": "2026-10-03",
+            "last_synced_at": "2026-10-03",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "554937c222c6dd2db191634da77b5486a4a0410b",
               "content_sha256": "87b3f4064cb76d1c7cc8c39546d7d62790b76372f37cfb9de1bb828a5f652b51",
               "spdx": "ISC",
-              "resolved_commit": "4cf6b70948a2c5201ca50f511d3dd56990bdcb3f",
+              "resolved_commit": "91fa8a7f248fa5f1dca3dd28032a17ab26550f3a",
               "api_spdx": "ISC"
             }
           }
@@ -311,6 +311,13 @@
       "target": "xiaolai/nlpm@4cf6b70948a2c5201ca50f511d3dd56990bdcb3f",
       "result": "success",
       "evidence": "Compared the complete declared artifact sets and regular sibling resources at immutable commits; applied reviewed deltas, retained local authorization/host adapters, and isolated removed references as immutable licensed sidecars. Source comparison and targeted semantic review are not live vendor/API or model behavioral certification. See docs/maintenance-audit-2026-09-30.json."
+    },
+    {
+      "date": "2026-10-03",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "xiaolai/nlpm@91fa8a7f248fa5f1dca3dd28032a17ab26550f3a",
+      "result": "success",
+      "evidence": "Compared complete declared artifacts and new regular siblings at fixed commits; decisions, rejected forced gates and marketing-only changes are recorded in docs/maintenance-followup-2026-10-03.json. Static/source review is not live product or model acceptance."
     }
   ]
 }

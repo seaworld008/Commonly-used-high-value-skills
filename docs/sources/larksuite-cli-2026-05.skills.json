@@ -3033,7 +3033,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/knowledge-and-pm-integrations/lark-sheets/SKILL.md",
       "source": "https://github.com/larksuite/cli/blob/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-sheets/SKILL.md",
-      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: PR #129 findings fixed with read-only grid selection and one bounded transient read retry; upstream checkpoint unchanged. See docs/maintenance-followup-2026-10-03.json.",
       "upstream": {
         "repo": "larksuite/cli",
         "path": "skills/lark-sheets/SKILL.md",
@@ -3044,7 +3044,7 @@
         "sync_mode": "monitor",
         "path_commit": "d5a32489b93050c88a21e54784593dd3effd452b"
       },
-      "kind": "mirror",
+      "kind": "overlay",
       "sync_mode": "monitor",
       "origins": [
         {
@@ -3209,7 +3209,7 @@
             "ref": "main",
             "resolved_commit": "7beffb086d7fa3c5b843d8affa7c089f49cfc65e",
             "path_commit": "d5a32489b93050c88a21e54784593dd3effd452b",
-            "content_sha256": "816db847ed5bc6219a94ea735b60a2d312c30783affa01948a3120723f64c52b",
+            "content_sha256": "db4587cc4d7868c9770d2960cf383714992a13ee5143f7e845e5ca134b15c136",
             "last_checked_at": "2026-09-30",
             "last_synced_at": "2026-09-30",
             "license_checkpoint": {
@@ -3262,7 +3262,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-sheets/SKILL.md",
           "owner": "lark-sheets",
-          "sha256": "816db847ed5bc6219a94ea735b60a2d312c30783affa01948a3120723f64c52b",
+          "sha256": "db4587cc4d7868c9770d2960cf383714992a13ee5143f7e845e5ca134b15c136",
           "mode": "100644"
         },
         {
@@ -3394,7 +3394,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-sheets/scripts/lark_chart_quality_check.py",
           "owner": "lark-sheets",
-          "sha256": "4b9f4f3783dd20fcdc3f4ac88410dc8913f9e4a0bc10f0597179db1c9e241af0",
+          "sha256": "325049559056be80e046c285c0f5456fd2f014605777efb040e25283153ef4fc",
           "mode": "100644"
         },
         {

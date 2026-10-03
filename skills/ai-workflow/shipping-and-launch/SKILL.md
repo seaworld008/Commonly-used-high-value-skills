@@ -2,14 +2,14 @@
 name: shipping-and-launch
 description: 'Prepares production launches. Use when preparing to deploy to production. Use when you need a pre-launch checklist, when setting up monitoring, when planning a staged rollout, or when you need a rollback strategy.'
 zh_description: "准备生产发布、分批上线、监控和回滚方案。"
-version: "1.0.3"
+version: "1.0.4"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/shipping-and-launch/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "shipping-and-launch", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-09-07"
+updated_at: "2026-10-03"
 quality: 5
 complexity: advanced
 upstream_slug: shipping-and-launch
@@ -267,7 +267,7 @@ Every deployment needs a rollback plan before it happens:
 3. Communicate: notify team of rollback
 
 ### Database Considerations
-- Migration [X] has a rollback: `npx prisma migrate rollback`
+- Migration [X] has a rollback: `<verified command or runbook link>`
 - Data inserted by new feature: [preserved / cleaned up]
 
 ### Time to Rollback

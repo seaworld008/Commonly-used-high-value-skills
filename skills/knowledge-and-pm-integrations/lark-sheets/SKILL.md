@@ -2,14 +2,14 @@
 name: lark-sheets
 description: '创建、读取和编辑飞书电子表格，处理单元格、公式、工作表、图表、透视表和财务模型；搜索云空间文件转 lark-drive，Base 多维表格转 lark-base。'
 zh_description: "用于读取、编辑和分析飞书电子表格数据。"
-version: "1.2.9"
+version: "1.2.10"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/blob/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-sheets/SKILL.md"
 license: MIT
 tags: '[feishu, lark, lark-cli, sheets, spreadsheet]'
 created_at: "2026-05-19"
-updated_at: "2026-09-30"
+updated_at: "2026-10-03"
 quality: 4
 complexity: intermediate
 metadata:

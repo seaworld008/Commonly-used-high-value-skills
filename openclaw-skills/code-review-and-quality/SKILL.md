@@ -2,14 +2,14 @@
 name: code-review-and-quality
 description: 'Review a diff, pull request, or pasted code for correctness, regressions, security, maintainability, and missing tests.'
 zh_description: "审查代码正确性、可维护性、安全性和验证证据。"
-version: "1.0.4"
+version: "1.0.5"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/code-review-and-quality/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "code-review-and-quality", "engineering", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-09-28"
+updated_at: "2026-10-03"
 quality: 5
 complexity: advanced
 upstream_slug: code-review-and-quality
@@ -172,6 +172,8 @@ Tests reveal intent and coverage:
 - Do tests have descriptive names?
 - Would the tests catch a regression if the code changed?
 ```
+
+For a changed condition, test whether the regression suite detects a deliberately inverted predicate. Perform this only in an authorized isolated worktree or disposable copy; preserve and restore the original file even when a test fails or times out. Never mutate a shared or read-only checkout merely to review it. A surviving mutation identifies a missing test; record the predicate, command and result. When execution is not authorized, report the untested case instead of claiming coverage.
 
 ### Step 3: Review the Implementation
 

@@ -2,14 +2,14 @@
 name: api-and-interface-design
 description: 'Design REST/GraphQL APIs, module interfaces, and type contracts when creating endpoints or changing public boundaries.'
 zh_description: "设计稳定的 API、模块接口和类型契约。"
-version: "1.0.3"
+version: "1.0.4"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/api-and-interface-design/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "api-and-interface-design", "engineering", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-09-07"
+updated_at: "2026-10-03"
 quality: 5
 complexity: advanced
 upstream_slug: api-and-interface-design
@@ -196,7 +196,7 @@ try {
   await db.insert({ key, state: 'in_progress', requestHash });
 } catch (e) {
   if (isUniqueViolation(e)) return replayOrReject(key);
-  throw;
+  throw e;
 }
 const result = await chargeCard(amount);
 await db.update({ key, state: 'succeeded', response: result });

@@ -122,14 +122,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/prisma-client-api/SKILL.md",
       "source": "https://github.com/prisma/skills/tree/1123817e60d15ca0f3af91878923241dee7e3b09/prisma-client-api",
-      "notes": "External skill registered by scripts/ingest_skill.py. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "External skill registered by scripts/ingest_skill.py. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json.",
       "upstream": {
         "repo": "prisma/skills",
         "path": "prisma-client-api/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "82b88dd82801e958706f8265c29c910e6f0ebfa4",
+        "last_checked_at": "2026-10-03",
+        "last_synced_at": "2026-10-03",
+        "last_synced_commit": "be16a8740d01363d13552b317042431ee8dfc581",
         "sync_mode": "monitor",
         "path_commit": "808913c1dac11dc425631c2454f7fcb2d5ade5ca"
       },
@@ -196,7 +196,7 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "82b88dd82801e958706f8265c29c910e6f0ebfa4",
+            "resolved_commit": "be16a8740d01363d13552b317042431ee8dfc581",
             "path_commit": "808913c1dac11dc425631c2454f7fcb2d5ade5ca",
             "content_sha256": "04bafce64b4e2210284cf97726dede8ad62cf1e4b5613916c3fb97ef72d13e11",
             "license_checkpoint": {
@@ -204,11 +204,11 @@
               "blob_sha": "cff9f2c6d509cccd360cc36634e193b7355dc322",
               "content_sha256": "03b4d243884e832289d7306e3bcc725ce5095834cc91e0be2b46f178eaafd973",
               "spdx": "MIT",
-              "resolved_commit": "82b88dd82801e958706f8265c29c910e6f0ebfa4",
+              "resolved_commit": "be16a8740d01363d13552b317042431ee8dfc581",
               "api_spdx": "MIT"
             },
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30"
+            "last_checked_at": "2026-10-03",
+            "last_synced_at": "2026-10-03"
           }
         }
       ],
@@ -282,14 +282,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/prisma-upgrade-v7/SKILL.md",
       "source": "https://github.com/prisma/skills/blob/82b88dd82801e958706f8265c29c910e6f0ebfa4/prisma-upgrade-v7/SKILL.md",
-      "notes": "External skill registered by scripts/ingest_skill.py. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "External skill registered by scripts/ingest_skill.py. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json.",
       "upstream": {
         "repo": "prisma/skills",
         "path": "prisma-upgrade-v7/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "82b88dd82801e958706f8265c29c910e6f0ebfa4",
+        "last_checked_at": "2026-10-03",
+        "last_synced_at": "2026-10-03",
+        "last_synced_commit": "be16a8740d01363d13552b317042431ee8dfc581",
         "sync_mode": "monitor",
         "path_commit": "5011471f09700f1e13af69b6c334c7740869b4fc"
       },
@@ -351,7 +351,7 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "82b88dd82801e958706f8265c29c910e6f0ebfa4",
+            "resolved_commit": "be16a8740d01363d13552b317042431ee8dfc581",
             "path_commit": "5011471f09700f1e13af69b6c334c7740869b4fc",
             "content_sha256": "de1873522c63c17084510cb4d02e33406751921af6ff405c6dca2ca82ea8ee2e",
             "license_checkpoint": {
@@ -359,11 +359,11 @@
               "blob_sha": "cff9f2c6d509cccd360cc36634e193b7355dc322",
               "content_sha256": "03b4d243884e832289d7306e3bcc725ce5095834cc91e0be2b46f178eaafd973",
               "spdx": "MIT",
-              "resolved_commit": "82b88dd82801e958706f8265c29c910e6f0ebfa4",
+              "resolved_commit": "be16a8740d01363d13552b317042431ee8dfc581",
               "api_spdx": "MIT"
             },
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30"
+            "last_checked_at": "2026-10-03",
+            "last_synced_at": "2026-10-03"
           }
         }
       ],
@@ -461,6 +461,13 @@
       "target": "prisma/skills@82b88dd82801e958706f8265c29c910e6f0ebfa4",
       "result": "success",
       "evidence": "Compared the complete declared artifact sets and regular sibling resources at immutable commits; applied reviewed deltas, retained local authorization/host adapters, and isolated removed references as immutable licensed sidecars. Source comparison and targeted semantic review are not live vendor/API or model behavioral certification. See docs/maintenance-audit-2026-09-30.json."
+    },
+    {
+      "date": "2026-10-03",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "prisma/skills@be16a8740d01363d13552b317042431ee8dfc581",
+      "result": "success",
+      "evidence": "Compared complete declared artifacts and new regular siblings at fixed commits; decisions, rejected forced gates and marketing-only changes are recorded in docs/maintenance-followup-2026-10-03.json. Static/source review is not live product or model acceptance."
     }
   ]
 }

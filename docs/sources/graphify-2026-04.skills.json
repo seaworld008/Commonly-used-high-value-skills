@@ -29,14 +29,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/graphify/SKILL.md",
       "source": "https://github.com/Graphify-Labs/graphify/blob/1cd9a36c0c57a661d2d2234bc3207e887e1ba104/graphify/skill-codex.md",
-      "notes": "Mirrors only the official Graphify v0.9.47 Codex skill artifact set: SKILL.md plus eight references. Local Astra curation splits long procedures into EXTENDED.md and narrows trigger/host guidance; preserve the reviewed upstream reference set and review future releases before applying. 2026-09-28: curated reviewed deltas from 4df8d4dcfadee5555203eaba585cc7dec1dee2fb; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Mirrors only the official Graphify v0.9.47 Codex skill artifact set: SKILL.md plus eight references. Local Astra curation splits long procedures into EXTENDED.md and narrows trigger/host guidance; preserve the reviewed upstream reference set and review future releases before applying. 2026-09-28: curated reviewed deltas from 4df8d4dcfadee5555203eaba585cc7dec1dee2fb; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json.",
       "upstream": {
         "repo": "Graphify-Labs/graphify",
         "path": "graphify/skill-codex.md",
-        "ref": "v0.9.72",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "1cd9a36c0c57a661d2d2234bc3207e887e1ba104",
+        "ref": "v0.9.74",
+        "last_checked_at": "2026-10-03",
+        "last_synced_at": "2026-10-03",
+        "last_synced_commit": "e10df08877f8819a625a1afa38c3297a31fda296",
         "sync_mode": "monitor",
         "path_commit": "286000d199fdf8d677ed89847c056fa0c6745f33"
       },
@@ -62,18 +62,18 @@
           ],
           "tracking": {
             "channel": "latest_release",
-            "ref": "v0.9.72",
-            "resolved_commit": "1cd9a36c0c57a661d2d2234bc3207e887e1ba104",
+            "ref": "v0.9.74",
+            "resolved_commit": "e10df08877f8819a625a1afa38c3297a31fda296",
             "path_commit": "286000d199fdf8d677ed89847c056fa0c6745f33",
             "content_sha256": "8a474a2c170798985419e70a318b99271b779df9985966044e036899c671f6d9",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30",
+            "last_checked_at": "2026-10-03",
+            "last_synced_at": "2026-10-03",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
               "content_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
               "spdx": "Apache-2.0",
-              "resolved_commit": "1cd9a36c0c57a661d2d2234bc3207e887e1ba104",
+              "resolved_commit": "e10df08877f8819a625a1afa38c3297a31fda296",
               "api_spdx": "NOASSERTION"
             }
           }
@@ -214,6 +214,13 @@
       "target": "Graphify-Labs/graphify@1cd9a36c0c57a661d2d2234bc3207e887e1ba104",
       "result": "success",
       "evidence": "Compared the complete declared artifact sets and regular sibling resources at immutable commits; applied reviewed deltas, retained local authorization/host adapters, and isolated removed references as immutable licensed sidecars. Source comparison and targeted semantic review are not live vendor/API or model behavioral certification. See docs/maintenance-audit-2026-09-30.json."
+    },
+    {
+      "date": "2026-10-03",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "Graphify-Labs/graphify@e10df08877f8819a625a1afa38c3297a31fda296",
+      "result": "success",
+      "evidence": "Compared complete declared artifacts and new regular siblings at fixed commits; decisions, rejected forced gates and marketing-only changes are recorded in docs/maintenance-followup-2026-10-03.json. Static/source review is not live product or model acceptance."
     }
   ]
 }

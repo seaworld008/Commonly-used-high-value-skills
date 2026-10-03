@@ -4,7 +4,7 @@
 """Check Lark Sheet chart quality, placement, and numeric source-data issues.
 
 The single required argument is a spreadsheet URL or spreadsheet token. By
-default every worksheet is checked; pass --worksheet-id to restrict the check
+default every explicitly visible grid worksheet is checked; pass --worksheet-id to restrict the check
 to one worksheet reference_id.
 
 Numeric source checks sample at most 50 data points per series and request at
@@ -30,11 +30,36 @@ from lark_sheet_read_cli import (
     emit_error,
     envelope_data,
     resolve_target_sheets,
-    run_sheets,
+    run_sheets as _run_sheets_once,
+    is_grid_sheet,
     sheet_identifier,
     sheet_title,
 )
 from lark_chart_size_rules import MAX_ASPECT_RATIO, MAX_CHART_WIDTH, minimum_chart_size
+
+def _transient_read_error(exc: LarkCliError) -> bool:
+    text = str(exc)
+    try:
+        payload = json.loads(text)
+    except json.JSONDecodeError:
+        payload = None
+    if isinstance(payload, dict) and isinstance(payload.get("error"), dict):
+        return str(payload["error"].get("subtype", "")).lower() == "timeout"
+    return any(part in text.lower() for part in (
+        "timed out", "server time out", "stdout was not json",
+    ))
+
+
+def run_sheets(shortcut: str, **kwargs: Any) -> dict[str, Any]:
+    """Retry a transient read once, without broadening retry policy to writes."""
+    reads = {"+workbook-info", "+chart-list", "+sheet-info", "+cells-get", "+table-get"}
+    try:
+        return _run_sheets_once(shortcut, **kwargs)
+    except LarkCliError as exc:
+        if shortcut not in reads or not _transient_read_error(exc):
+            raise
+    return _run_sheets_once(shortcut, **kwargs)
+
 
 ACTION = "chart_quality_check"
 DEFAULT_COLUMN_WIDTH = 105.0
@@ -1511,10 +1536,14 @@ def main() -> None:
             run_sheets("+workbook-info", **locator, timeout=args.timeout)
         )
         sheets = resolve_target_sheets(workbook_data, sheet_id=args.worksheet_id)
-        if not args.worksheet_id:
-            sheets = [sheet for sheet in sheets if not bool(sheet.get("is_hidden"))]
+        if args.worksheet_id:
+            if any(not is_grid_sheet(sheet) for sheet in sheets):
+                raise LarkCliError("Explicit worksheet is not a grid sheet; use the matching product API")
+        else:
+            sheets = [sheet for sheet in sheets
+                      if is_grid_sheet(sheet) and sheet.get("is_hidden") is False]
         if not sheets:
-            raise LarkCliError("No visible worksheet matched")
+            raise LarkCliError("No visible grid worksheet matched")
         results = [
             check_sheet(
                 locator,
