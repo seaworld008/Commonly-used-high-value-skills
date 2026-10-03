@@ -1,32 +1,103 @@
-name: Recover maintenance evidence
+name: Restore and validate skills maintenance
 
 on:
   push:
     branches: [codex/grill-me-maintenance-20260930]
     paths: [.github/workflows/maintenance-audit-20260930.yml]
 permissions:
-  contents: read
+  contents: write
 jobs:
-  recover:
+  maintenance:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Checkout transfer data
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          fetch-depth: 0
+          path: transfer
           persist-credentials: false
-      - name: Export committed recovery data and current refs
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          mkdir -p "$RUNNER_TEMP/recovery"
-          git bundle create "$RUNNER_TEMP/recovery/repository.bundle" --all
-          git rev-parse origin/main > "$RUNNER_TEMP/recovery/main.txt"
-          gh api repos/seaworld008/Commonly-used-high-value-skills/releases/latest > "$RUNNER_TEMP/recovery/latest-release.json"
-          git status --short --branch
-          git worktree list
-      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+      - name: Checkout exact merged baseline
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          name: maintenance-recovery
-          path: ${{ runner.temp }}/recovery/
+          ref: d392979066d6b9449a9f414ffcf7f8c11c924692
+          fetch-depth: 0
+          path: candidate
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.13'
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '22'
+      - name: Recover immutable bytes and reviewed candidate
+        working-directory: candidate
+        run: |
+          mkdir -p "$RUNNER_TEMP/result"
+          python ../transfer/.github/maintenance-20260930/recover_sources.py ../transfer/.github/maintenance-20260930 "$RUNNER_TEMP/evidence" > "$RUNNER_TEMP/result/recovery.log" 2>&1
+          python ../transfer/.github/maintenance-20260930/reconstruct.py --parts ../transfer/.github/maintenance-20260930/maintenance.part{00..10}.b64 --sha256 f0abc8051fd9cfa2e6f4eb48c178d8951ed0e17d5550b03316810a965a7e1a07 --evidence "$RUNNER_TEMP/evidence" | tee -a "$RUNNER_TEMP/result/recovery.log"
+          test ! -e .github/maintenance-20260930
+          cp .github/workflows/repo-validation.yml "$RUNNER_TEMP/result/repo-validation.yml"
+      - name: Generate and validate the complete candidate
+        working-directory: candidate
+        run: |
+          python -m pip install pyyaml pytest jsonschema
+          python - <<'PY'
+          import subprocess, sys
+          sys.path.insert(0, 'scripts')
+          from validate_repository import REFRESH
+          for command in REFRESH:
+              subprocess.run([sys.executable, *command], check=True)
+          PY
+          git add -A
+          python scripts/validate_repository.py --refresh > "$RUNNER_TEMP/result/validation.log" 2>&1
+          node --test skills/security-and-reliability/security-audit/validate-coverage-ledger.test.cjs skills/security-and-reliability/security-audit/validate-findings.test.cjs > "$RUNNER_TEMP/result/node-tests.log" 2>&1
+          npm test > "$RUNNER_TEMP/result/npm-test.log" 2>&1
+          python scripts/generate_repo_health_report.py
+          python scripts/evaluate_repo_health.py
+          tail -5 "$RUNNER_TEMP/result/validation.log"
+      - name: Commit ordinary files; workflow will be written separately through the connector
+        working-directory: candidate
+        run: |
+          git restore --source=d392979066d6b9449a9f414ffcf7f8c11c924692 --staged --worktree .github/workflows/repo-validation.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'chore: recover curated skills maintenance and prepare v3.2.0'
+          python scripts/generate_changelog.py --preserve-history
+          git add CHANGELOG.md
+          if ! git diff --cached --quiet; then git commit -m 'docs: refresh changelog from recovered maintenance history'; fi
+          python - <<'PY'
+          import subprocess, sys
+          sys.path.insert(0, 'scripts')
+          from validate_repository import REFRESH
+          for command in REFRESH:
+              subprocess.run([sys.executable, *command], check=True)
+          PY
+          git diff --exit-code
+          git diff --exit-code d392979066d6b9449a9f414ffcf7f8c11c924692 HEAD -- .github/workflows
+          git rev-parse HEAD > "$RUNNER_TEMP/result/head.txt"
+          git rev-parse HEAD^{tree} > "$RUNNER_TEMP/result/tree.txt"
+          git bundle create "$RUNNER_TEMP/result/repository.bundle" HEAD
+          gh auth setup-git
+          git push origin HEAD:refs/heads/codex/skills-maintenance-20261004
+      - name: Recheck every tracked upstream at the current time without applying
+        working-directory: candidate
+        shell: bash
+        run: |
+          set +e
+          timeout 900 python scripts/sync_upstream.py --check-only --report-json "$RUNNER_TEMP/result/upstream-current.json" > "$RUNNER_TEMP/result/upstream-current.log" 2>&1
+          status=$?
+          printf '%s\n' "$status" > "$RUNNER_TEMP/result/upstream-check-exit.txt"
+          date -u +%FT%TZ > "$RUNNER_TEMP/result/checked-at.txt"
+          tail -12 "$RUNNER_TEMP/result/upstream-current.log"
+          exit 0
+      - name: Upload evidence even if a step fails
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: skills-maintenance-recovered
+          path: ${{ runner.temp }}/result/
+          if-no-files-found: error
           retention-days: 14
