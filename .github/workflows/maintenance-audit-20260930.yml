@@ -1,5 +1,4 @@
 name: Restore and validate skills maintenance
-
 on:
   push:
     branches: [codex/grill-me-maintenance-20260930]
@@ -57,7 +56,7 @@ jobs:
           python scripts/generate_repo_health_report.py
           python scripts/evaluate_repo_health.py
           tail -5 "$RUNNER_TEMP/result/validation.log"
-      - name: Commit ordinary files; workflow will be written separately through the connector
+      - name: Commit ordinary files; workflow is submitted separately through the connector
         working-directory: candidate
         run: |
           git restore --source=d392979066d6b9449a9f414ffcf7f8c11c924692 --staged --worktree .github/workflows/repo-validation.yml
@@ -82,7 +81,7 @@ jobs:
           git bundle create "$RUNNER_TEMP/result/repository.bundle" HEAD
           gh auth setup-git
           git push origin HEAD:refs/heads/codex/skills-maintenance-20261004
-      - name: Recheck every tracked upstream at the current time without applying
+      - name: Recheck every tracked upstream without applying
         working-directory: candidate
         shell: bash
         run: |
