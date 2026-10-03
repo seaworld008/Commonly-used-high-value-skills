@@ -2,14 +2,14 @@
 name: neon-postgres-egress-optimizer
 description: 'Diagnose excessive Postgres or Neon network egress and database transfer costs by tracing query volume, payloads, polling, and connection behavior.'
 zh_description: "诊断并降低 Neon / Postgres 数据出口流量与相关成本。"
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:neondatabase/agent-skills"
-source_url: "https://github.com/neondatabase/agent-skills/tree/main/skills/neon-postgres-egress-optimizer"
+source_url: "https://github.com/neondatabase/agent-skills/blob/80164a28443aca7c82ac1a70aed836950d6c29ea/skills/neon-postgres-egress-optimizer/SKILL.md"
 license: Apache-2.0
 tags: '["postgres", "neon", "cost-optimization", "performance"]'
 created_at: "2026-06-29"
-updated_at: "2026-09-06"
+updated_at: "2026-09-30"
 quality: 4
 complexity: "intermediate"
 ---
@@ -19,7 +19,7 @@ complexity: "intermediate"
 If the `neon` skill is not installed, fetch it from https://neon.com/docs/ai/skills/neon/SKILL.md or install it with:
 
 ```bash
-npx skills add neondatabase/agent-skills --skill neon
+neon skills -s neon -y
 ```
 
 # Postgres Egress Optimizer

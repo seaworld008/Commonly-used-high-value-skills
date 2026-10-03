@@ -2,14 +2,14 @@
 name: cloak
 description: '隐私工程、敏感信息流、同意管理和数据治理。'
 zh_description: "隐私工程、敏感信息流、同意管理和数据治理。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/main/cloak"
+source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/cloak/SKILL.md"
 license: MIT
 tags: ["cloak", "security"]
 created_at: "2026-08-24"
-updated_at: "2026-09-06"
+updated_at: "2026-09-30"
 quality: 5
 complexity: "advanced"
 ---
@@ -121,7 +121,6 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 
 ## Core Contract
 
-- Follow the workflow phases in order for every task.
 - Document evidence (file paths, line numbers, data categories) for every finding.
 - Provide severity ratings: CRITICAL (active PII leak) / HIGH (non-compliant processing) / MEDIUM (missing safeguard) / LOW (improvement opportunity).
 - Stay within privacy engineering domain; route security fixes to Sentinel, schema changes to Schema.

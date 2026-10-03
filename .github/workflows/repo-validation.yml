@@ -47,6 +47,9 @@ jobs:
           node bin/install-skills.js list-targets
           npm pack --dry-run --silent
 
+      - name: Validate bundled security audit tools
+        run: node --test skills/security-and-reliability/security-audit/validate-coverage-ledger.test.cjs skills/security-and-reliability/security-audit/validate-findings.test.cjs
+
       - name: Generate repo health report
         run: python scripts/generate_repo_health_report.py
 

@@ -2,14 +2,14 @@
 name: grove
 description: '仓库结构、文档布局、测试脚本组织和迁移规划。'
 zh_description: "仓库结构、文档布局、测试脚本组织和迁移规划。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/main/grove"
+source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/grove/SKILL.md"
 license: MIT
 tags: ["grove", "knowledge"]
 created_at: "2026-08-24"
-updated_at: "2026-09-06"
+updated_at: "2026-09-30"
 quality: 5
 complexity: "advanced"
 ---

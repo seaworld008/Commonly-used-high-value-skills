@@ -1,6 +1,6 @@
 # im +messages-resources-download
 
-> **Prerequisite:** Read [`../lark-shared/SKILL.md`](../../lark-shared/SKILL.md) first to understand authentication, global parameters, and safety rules.
+> **Prerequisite:** Read [`../../lark-shared/SKILL.md`](../../lark-shared/SKILL.md) first to understand authentication, global parameters, and safety rules.
 
 Download an image or file attached to a message. Use the `message_id` and resource key returned by a message-reading command; do not guess or combine identifiers from different messages.
 
@@ -50,6 +50,8 @@ Different resource markers in message content correspond to different `file_key`
 | Video | `file_xxx` | `file_xxx` | `file` |
 
 Stickers cannot be downloaded with this command.
+
+A folder itself cannot be downloaded: expand it with `lark-cli im files folder --recursive` first (see [lark-im](../SKILL.md)), then download the files it contains.
 
 ## Output
 

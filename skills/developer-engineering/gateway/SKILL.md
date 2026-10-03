@@ -2,14 +2,14 @@
 name: gateway
 description: '接口设计、规范生成、版本策略和破坏性变更检查。'
 zh_description: "接口设计、规范生成、版本策略和破坏性变更检查。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/main/gateway"
+source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/gateway/SKILL.md"
 license: MIT
 tags: ["development", "gateway"]
 created_at: "2026-08-24"
-updated_at: "2026-09-06"
+updated_at: "2026-09-30"
 quality: 5
 complexity: "advanced"
 ---
@@ -249,10 +249,7 @@ Receives data models, implementation needs, and security requirements upstream; 
 | `reference/error-pagination.md` | Error format/catalog or offset/cursor pagination. (For rate-limit, see `rate-limit-patterns.md`.) |
 | `reference/api-decision-tree.md` | REST vs GraphQL vs gRPC selection flowchart. |
 | `reference/output-format-template.md` | The standard API design output template. |
-| `reference/api-design-anti-patterns.md` | REST API design anti-patterns: URL/HTTP method/error/pagination/response design. |
 | `reference/api-security-anti-patterns.md` | API security anti-patterns: OWASP Top 10/auth/CORS/rate limiting/defense-in-depth. |
-| `reference/versioning-governance-anti-patterns.md` | Versioning/governance anti-patterns — breaking-change management, spec drift, contract testing. |
-| `reference/graphql-spec-anti-patterns.md` | GraphQL/OpenAPI spec anti-patterns: schema design/N+1/type safety/Design-First. |
 | `reference/ai-api-patterns.md` | AI/LLM API design — SSE streaming, tool use, structured output, AI-endpoint errors. |
 | `reference/rest-api-design.md` | `rest` — resource modeling, URI design, status taxonomy, ETag, cursor pagination, RMM, RFC 9457. |
 | `reference/graphql-design.md` | `graphql` — schema-first vs code-first, DataLoader, persisted queries, depth limits, Federation/Gateway, subscriptions. |

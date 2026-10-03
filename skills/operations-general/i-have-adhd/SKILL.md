@@ -5,7 +5,7 @@ zh_description: "为 ADHD 读者塑造可执行、行动优先的输出：先给
 version: "0.3.0"
 author: "ayghri"
 source: "github:ayghri/i-have-adhd"
-source_url: "https://github.com/ayghri/i-have-adhd"
+source_url: "https://github.com/ayghri/i-have-adhd/blob/839872f9d1cd634fed642b4589ce7226199cc15f/skills/i-have-adhd/SKILL.md"
 license: MIT
 tags: '["adhd", "productivity", "communication", "output-style"]'
 created_at: "2026-09-18"

@@ -1,0 +1,1177 @@
+{
+  "evidence_base": "5ea7154e7ed04dbf997df3cb23ed85fe1af28055",
+  "observed_at": "2026-10-03T19:20:12Z",
+  "collected_run": 37147614811,
+  "coverage": {
+    "canonical_skills": 287,
+    "tracked_entries": 153,
+    "none": 85,
+    "monitor_review_before_curation": 43,
+    "unavailable": 0,
+    "expected_skipped": 25
+  },
+  "decisions": [
+    {
+      "name": "api-and-interface-design",
+      "repo_skill": "skills/ai-workflow/api-and-interface-design/SKILL.md",
+      "decision": "updated",
+      "reason": "Adopt the executable catch/rethrow fix (throw e), preserving the idempotency design.",
+      "changed_upstream_files": 1,
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "old": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+          "new": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+            "api_spdx": "MIT"
+          },
+          "files": [
+            {
+              "source": "skills/api-and-interface-design/SKILL.md",
+              "target": "skills/ai-workflow/api-and-interface-design/SKILL.md",
+              "old_blob": "820d6d981f90b7802e0ea8b75bb966a3d78b8d0f",
+              "new_blob": "3e2e37f8f4fba2c66f9f1599eaf01a55ae3f3e33"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "browser-testing-with-devtools",
+      "repo_skill": "skills/ai-workflow/browser-testing-with-devtools/SKILL.md",
+      "decision": "unchanged_artifacts",
+      "reason": "Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only.",
+      "changed_upstream_files": 0,
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "old": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+          "new": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+            "api_spdx": "MIT"
+          },
+          "files": []
+        }
+      ]
+    },
+    {
+      "name": "ci-cd-and-automation",
+      "repo_skill": "skills/ai-workflow/ci-cd-and-automation/SKILL.md",
+      "decision": "unchanged_artifacts",
+      "reason": "Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only.",
+      "changed_upstream_files": 0,
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "old": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+          "new": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+            "api_spdx": "MIT"
+          },
+          "files": []
+        }
+      ]
+    },
+    {
+      "name": "code-review-and-quality",
+      "repo_skill": "skills/ai-workflow/code-review-and-quality/SKILL.md",
+      "decision": "updated",
+      "reason": "Adopt a bounded mutation-test experiment only in an authorized isolated copy; omit the unbundled constraint-driven-development dependency.",
+      "changed_upstream_files": 1,
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "old": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+          "new": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+            "api_spdx": "MIT"
+          },
+          "files": [
+            {
+              "source": "skills/code-review-and-quality/SKILL.md",
+              "target": "skills/ai-workflow/code-review-and-quality/SKILL.md",
+              "old_blob": "f594590a745f040196eec77db43c13a16503bd5d",
+              "new_blob": "08209ff2208d2883d48d945f7754c428b77f8d87"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "code-simplification",
+      "repo_skill": "skills/ai-workflow/code-simplification/SKILL.md",
+      "decision": "unchanged_artifacts",
+      "reason": "Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only.",
+      "changed_upstream_files": 0,
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "old": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+          "new": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+            "api_spdx": "MIT"
+          },
+          "files": []
+        }
+      ]
+    },
+    {
+      "name": "context-engineering",
+      "repo_skill": "skills/ai-workflow/context-engineering/SKILL.md",
+      "decision": "unchanged_artifacts",
+      "reason": "Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only.",
+      "changed_upstream_files": 0,
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "old": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+          "new": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+            "api_spdx": "MIT"
+          },
+          "files": []
+        }
+      ]
+    },
+    {
+      "name": "debugging-and-error-recovery",
+      "repo_skill": "skills/ai-workflow/debugging-and-error-recovery/SKILL.md",
+      "decision": "unchanged_artifacts",
+      "reason": "Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only.",
+      "changed_upstream_files": 0,
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "old": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+          "new": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+            "api_spdx": "MIT"
+          },
+          "files": []
+        }
+      ]
+    },
+    {
+      "name": "deprecation-and-migration",
+      "repo_skill": "skills/ai-workflow/deprecation-and-migration/SKILL.md",
+      "decision": "unchanged_artifacts",
+      "reason": "Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only.",
+      "changed_upstream_files": 0,
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "old": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+          "new": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+            "api_spdx": "MIT"
+          },
+          "files": []
+        }
+      ]
+    },
+    {
+      "name": "documentation-and-adrs",
+      "repo_skill": "skills/ai-workflow/documentation-and-adrs/SKILL.md",
+      "decision": "updated",
+      "reason": "Add Proposed to the ADR status lifecycle; preserve local templates.",
+      "changed_upstream_files": 1,
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "old": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+          "new": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+            "api_spdx": "MIT"
+          },
+          "files": [
+            {
+              "source": "skills/documentation-and-adrs/SKILL.md",
+              "target": "skills/ai-workflow/documentation-and-adrs/SKILL.md",
+              "old_blob": "94d1c3622adfa61f40d934b2063a9a6bece2d7d5",
+              "new_blob": "e37c38f30d76263c77aacdb7dcbacceb1218bc80"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "doubt-driven-development",
+      "repo_skill": "skills/ai-workflow/doubt-driven-development/SKILL.md",
+      "decision": "unchanged_artifacts",
+      "reason": "Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only.",
+      "changed_upstream_files": 0,
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "old": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+          "new": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+            "api_spdx": "MIT"
+          },
+          "files": []
+        }
+      ]
+    },
+    {
+      "name": "frontend-ui-engineering",
+      "repo_skill": "skills/ai-workflow/frontend-ui-engineering/SKILL.md",
+      "decision": "unchanged_artifacts",
+      "reason": "Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only.",
+      "changed_upstream_files": 0,
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "old": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+          "new": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+            "api_spdx": "MIT"
+          },
+          "files": []
+        }
+      ]
+    },
+    {
+      "name": "git-workflow-and-versioning",
+      "repo_skill": "skills/ai-workflow/git-workflow-and-versioning/SKILL.md",
+      "decision": "unchanged_artifacts",
+      "reason": "Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only.",
+      "changed_upstream_files": 0,
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "old": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+          "new": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+            "api_spdx": "MIT"
+          },
+          "files": []
+        }
+      ]
+    },
+    {
+      "name": "idea-refine",
+      "repo_skill": "skills/ai-workflow/idea-refine/SKILL.md",
+      "decision": "unchanged_artifacts",
+      "reason": "Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only.",
+      "changed_upstream_files": 0,
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "old": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+          "new": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+            "api_spdx": "MIT"
+          },
+          "files": []
+        }
+      ]
+    },
+    {
+      "name": "incremental-implementation",
+      "repo_skill": "skills/ai-workflow/incremental-implementation/SKILL.md",
+      "decision": "unchanged_artifacts",
+      "reason": "Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only.",
+      "changed_upstream_files": 0,
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "old": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+          "new": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+            "api_spdx": "MIT"
+          },
+          "files": []
+        }
+      ]
+    },
+    {
+      "name": "interview-me",
+      "repo_skill": "skills/ai-workflow/interview-me/SKILL.md",
+      "decision": "unchanged_artifacts",
+      "reason": "Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only.",
+      "changed_upstream_files": 0,
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "old": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+          "new": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+            "api_spdx": "MIT"
+          },
+          "files": []
+        }
+      ]
+    },
+    {
+      "name": "observability-and-instrumentation",
+      "repo_skill": "skills/ai-workflow/observability-and-instrumentation/SKILL.md",
+      "decision": "unchanged_artifacts",
+      "reason": "Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only.",
+      "changed_upstream_files": 0,
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "old": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+          "new": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+            "api_spdx": "MIT"
+          },
+          "files": []
+        }
+      ]
+    },
+    {
+      "name": "performance-optimization",
+      "repo_skill": "skills/ai-workflow/performance-optimization/SKILL.md",
+      "decision": "updated",
+      "reason": "Move worked examples into the new bundled optimization-patterns reference; repair relative checklist links and preserve local guidance.",
+      "changed_upstream_files": 2,
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "old": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+          "new": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+            "api_spdx": "MIT"
+          },
+          "files": [
+            {
+              "source": "skills/performance-optimization/SKILL.md",
+              "target": "skills/ai-workflow/performance-optimization/SKILL.md",
+              "old_blob": "cbc7e950a6f376d25ac88cf310d5a48555db2ec1",
+              "new_blob": "498735724035f468737bd118f9c60676a013d544"
+            },
+            {
+              "source": "skills/performance-optimization/references/optimization-patterns.md",
+              "target": "skills/ai-workflow/performance-optimization/references/optimization-patterns.md",
+              "old_blob": null,
+              "new_blob": "63e27bcc7a051c3dc23c164f146f374e119874cc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "planning-and-task-breakdown",
+      "repo_skill": "skills/ai-workflow/planning-and-task-breakdown/SKILL.md",
+      "decision": "unchanged_artifacts",
+      "reason": "Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only.",
+      "changed_upstream_files": 0,
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "old": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+          "new": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+            "api_spdx": "MIT"
+          },
+          "files": []
+        }
+      ]
+    },
+    {
+      "name": "security-and-hardening",
+      "repo_skill": "skills/ai-workflow/security-and-hardening/SKILL.md",
+      "decision": "unchanged_artifacts",
+      "reason": "Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only.",
+      "changed_upstream_files": 0,
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "old": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+          "new": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+            "api_spdx": "MIT"
+          },
+          "files": []
+        }
+      ]
+    },
+    {
+      "name": "shipping-and-launch",
+      "repo_skill": "skills/ai-workflow/shipping-and-launch/SKILL.md",
+      "decision": "updated",
+      "reason": "Remove nonexistent Prisma rollback command; require a project-verified command or runbook.",
+      "changed_upstream_files": 1,
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "old": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+          "new": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+            "api_spdx": "MIT"
+          },
+          "files": [
+            {
+              "source": "skills/shipping-and-launch/SKILL.md",
+              "target": "skills/ai-workflow/shipping-and-launch/SKILL.md",
+              "old_blob": "f3fba8a01265db5547a8755c81902d0aa56c4104",
+              "new_blob": "900ba7f3adc217642c607521edd78609030702ec"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "source-driven-development",
+      "repo_skill": "skills/ai-workflow/source-driven-development/SKILL.md",
+      "decision": "unchanged_artifacts",
+      "reason": "Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only.",
+      "changed_upstream_files": 0,
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "old": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+          "new": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+            "api_spdx": "MIT"
+          },
+          "files": []
+        }
+      ]
+    },
+    {
+      "name": "spec-driven-development",
+      "repo_skill": "skills/ai-workflow/spec-driven-development/SKILL.md",
+      "decision": "retained_after_review",
+      "reason": "Retain the local authorization-aware flow; reject a new forced turn/approval gate that conflicts with repository and current-user authorization.",
+      "changed_upstream_files": 1,
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "old": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+          "new": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+            "api_spdx": "MIT"
+          },
+          "files": [
+            {
+              "source": "skills/spec-driven-development/SKILL.md",
+              "target": "skills/ai-workflow/spec-driven-development/SKILL.md",
+              "old_blob": "912bbc0dbbd2a348d95dd769847a862b1164c657",
+              "new_blob": "f54426bec00bcda5f700ab3368eed7203306830f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "test-driven-development",
+      "repo_skill": "skills/ai-workflow/test-driven-development/SKILL.md",
+      "decision": "unchanged_artifacts",
+      "reason": "Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only.",
+      "changed_upstream_files": 0,
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "old": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+          "new": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+            "api_spdx": "MIT"
+          },
+          "files": []
+        }
+      ]
+    },
+    {
+      "name": "using-agent-skills",
+      "repo_skill": "skills/ai-workflow/using-agent-skills/SKILL.md",
+      "decision": "unchanged_artifacts",
+      "reason": "Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only.",
+      "changed_upstream_files": 0,
+      "origins": [
+        {
+          "repo": "addyosmani/agent-skills",
+          "old": "2686b620fc1fed2e8f60c704839c766b8594c6b6",
+          "new": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+            "api_spdx": "MIT"
+          },
+          "files": []
+        }
+      ]
+    },
+    {
+      "name": "firebase-security-rules-auditor",
+      "repo_skill": "skills/security-and-reliability/firebase-security-rules-auditor/SKILL.md",
+      "decision": "unchanged_artifacts",
+      "reason": "Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only.",
+      "changed_upstream_files": 0,
+      "origins": [
+        {
+          "repo": "firebase/agent-skills",
+          "old": "daaf0e1577b2d4ac23cfa9d31f421178ef229735",
+          "new": "de359da26586e4fad59b7ebab7592aa137c49b8a",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+            "content_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+            "spdx": "Apache-2.0",
+            "resolved_commit": "de359da26586e4fad59b7ebab7592aa137c49b8a",
+            "api_spdx": "Apache-2.0"
+          },
+          "files": []
+        }
+      ]
+    },
+    {
+      "name": "graphify",
+      "repo_skill": "skills/developer-engineering/graphify/SKILL.md",
+      "decision": "unchanged_artifacts",
+      "reason": "Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only.",
+      "changed_upstream_files": 0,
+      "origins": [
+        {
+          "repo": "Graphify-Labs/graphify",
+          "old": "1cd9a36c0c57a661d2d2234bc3207e887e1ba104",
+          "new": "e10df08877f8819a625a1afa38c3297a31fda296",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+            "content_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+            "spdx": "Apache-2.0",
+            "resolved_commit": "e10df08877f8819a625a1afa38c3297a31fda296",
+            "api_spdx": "NOASSERTION"
+          },
+          "files": []
+        }
+      ]
+    },
+    {
+      "name": "prisma-client-api",
+      "repo_skill": "skills/developer-engineering/prisma-client-api/SKILL.md",
+      "decision": "unchanged_artifacts",
+      "reason": "Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only.",
+      "changed_upstream_files": 0,
+      "origins": [
+        {
+          "repo": "prisma/skills",
+          "old": "82b88dd82801e958706f8265c29c910e6f0ebfa4",
+          "new": "be16a8740d01363d13552b317042431ee8dfc581",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "cff9f2c6d509cccd360cc36634e193b7355dc322",
+            "content_sha256": "03b4d243884e832289d7306e3bcc725ce5095834cc91e0be2b46f178eaafd973",
+            "spdx": "MIT",
+            "resolved_commit": "be16a8740d01363d13552b317042431ee8dfc581",
+            "api_spdx": "MIT"
+          },
+          "files": []
+        }
+      ]
+    },
+    {
+      "name": "prisma-upgrade-v7",
+      "repo_skill": "skills/developer-engineering/prisma-upgrade-v7/SKILL.md",
+      "decision": "unchanged_artifacts",
+      "reason": "Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only.",
+      "changed_upstream_files": 0,
+      "origins": [
+        {
+          "repo": "prisma/skills",
+          "old": "82b88dd82801e958706f8265c29c910e6f0ebfa4",
+          "new": "be16a8740d01363d13552b317042431ee8dfc581",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "cff9f2c6d509cccd360cc36634e193b7355dc322",
+            "content_sha256": "03b4d243884e832289d7306e3bcc725ce5095834cc91e0be2b46f178eaafd973",
+            "spdx": "MIT",
+            "resolved_commit": "be16a8740d01363d13552b317042431ee8dfc581",
+            "api_spdx": "MIT"
+          },
+          "files": []
+        }
+      ]
+    },
+    {
+      "name": "llm-wiki",
+      "repo_skill": "skills/knowledge-and-pm-integrations/llm-wiki/SKILL.md",
+      "decision": "unchanged_artifacts",
+      "reason": "Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only.",
+      "changed_upstream_files": 0,
+      "origins": [
+        {
+          "repo": "NousResearch/hermes-agent",
+          "old": "f42f579cf8bac4918ac9599bece71618afadd846",
+          "new": "343500b3547e12530457c2fda60ec687e25118b4",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "75410e73319c72cd3e991a501c5455eb78f38375",
+            "content_sha256": "821556e6336796450ab852d375117b48a4887e71d255794fd6318d99982a5ab6",
+            "spdx": "MIT",
+            "resolved_commit": "343500b3547e12530457c2fda60ec687e25118b4",
+            "api_spdx": "MIT"
+          },
+          "files": []
+        }
+      ]
+    },
+    {
+      "name": "honcho",
+      "repo_skill": "skills/openclaw-memory-and-safety/honcho/SKILL.md",
+      "decision": "updated",
+      "reason": "Document the Honcho plugin-catalog installation route only for an explicitly requested installation and supported local CLI; loading the skill never installs it.",
+      "changed_upstream_files": 1,
+      "origins": [
+        {
+          "repo": "NousResearch/hermes-agent",
+          "old": "f42f579cf8bac4918ac9599bece71618afadd846",
+          "new": "343500b3547e12530457c2fda60ec687e25118b4",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "75410e73319c72cd3e991a501c5455eb78f38375",
+            "content_sha256": "821556e6336796450ab852d375117b48a4887e71d255794fd6318d99982a5ab6",
+            "spdx": "MIT",
+            "resolved_commit": "343500b3547e12530457c2fda60ec687e25118b4",
+            "api_spdx": "MIT"
+          },
+          "files": [
+            {
+              "source": "optional-skills/autonomous-ai-agents/honcho/SKILL.md",
+              "target": "skills/openclaw-memory-and-safety/honcho/SKILL.md",
+              "old_blob": "61f8001b249023552b1ea6d2a65e649c7176496e",
+              "new_blob": "482d4a16e29ebbc9d728d9c0475ad2963737f364"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "codebase-inspection",
+      "repo_skill": "skills/developer-engineering/codebase-inspection/SKILL.md",
+      "decision": "unchanged_artifacts",
+      "reason": "Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only.",
+      "changed_upstream_files": 0,
+      "origins": [
+        {
+          "repo": "NousResearch/hermes-agent",
+          "old": "f42f579cf8bac4918ac9599bece71618afadd846",
+          "new": "343500b3547e12530457c2fda60ec687e25118b4",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "75410e73319c72cd3e991a501c5455eb78f38375",
+            "content_sha256": "821556e6336796450ab852d375117b48a4887e71d255794fd6318d99982a5ab6",
+            "spdx": "MIT",
+            "resolved_commit": "343500b3547e12530457c2fda60ec687e25118b4",
+            "api_spdx": "MIT"
+          },
+          "files": []
+        }
+      ]
+    },
+    {
+      "name": "arxiv",
+      "repo_skill": "skills/knowledge-and-pm-integrations/arxiv/SKILL.md",
+      "decision": "unchanged_artifacts",
+      "reason": "Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only.",
+      "changed_upstream_files": 0,
+      "origins": [
+        {
+          "repo": "NousResearch/hermes-agent",
+          "old": "f42f579cf8bac4918ac9599bece71618afadd846",
+          "new": "343500b3547e12530457c2fda60ec687e25118b4",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "75410e73319c72cd3e991a501c5455eb78f38375",
+            "content_sha256": "821556e6336796450ab852d375117b48a4887e71d255794fd6318d99982a5ab6",
+            "spdx": "MIT",
+            "resolved_commit": "343500b3547e12530457c2fda60ec687e25118b4",
+            "api_spdx": "MIT"
+          },
+          "files": []
+        }
+      ]
+    },
+    {
+      "name": "obsidian",
+      "repo_skill": "skills/knowledge-and-pm-integrations/obsidian/SKILL.md",
+      "decision": "unchanged_artifacts",
+      "reason": "Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only.",
+      "changed_upstream_files": 0,
+      "origins": [
+        {
+          "repo": "NousResearch/hermes-agent",
+          "old": "f42f579cf8bac4918ac9599bece71618afadd846",
+          "new": "343500b3547e12530457c2fda60ec687e25118b4",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "75410e73319c72cd3e991a501c5455eb78f38375",
+            "content_sha256": "821556e6336796450ab852d375117b48a4887e71d255794fd6318d99982a5ab6",
+            "spdx": "MIT",
+            "resolved_commit": "343500b3547e12530457c2fda60ec687e25118b4",
+            "api_spdx": "MIT"
+          },
+          "files": []
+        }
+      ]
+    },
+    {
+      "name": "mcporter",
+      "repo_skill": "skills/ai-agent-platform/mcporter/SKILL.md",
+      "decision": "unchanged_artifacts",
+      "reason": "Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only.",
+      "changed_upstream_files": 0,
+      "origins": [
+        {
+          "repo": "NousResearch/hermes-agent",
+          "old": "f42f579cf8bac4918ac9599bece71618afadd846",
+          "new": "343500b3547e12530457c2fda60ec687e25118b4",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "75410e73319c72cd3e991a501c5455eb78f38375",
+            "content_sha256": "821556e6336796450ab852d375117b48a4887e71d255794fd6318d99982a5ab6",
+            "spdx": "MIT",
+            "resolved_commit": "343500b3547e12530457c2fda60ec687e25118b4",
+            "api_spdx": "MIT"
+          },
+          "files": []
+        }
+      ]
+    },
+    {
+      "name": "azure-kubernetes",
+      "repo_skill": "skills/devops-sre/azure-kubernetes/SKILL.md",
+      "decision": "unchanged_artifacts",
+      "reason": "Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only.",
+      "changed_upstream_files": 0,
+      "origins": [
+        {
+          "repo": "microsoft/azure-skills",
+          "old": "f07c05364353925f7c8b0e474aa95afa291bce54",
+          "new": "74f27068b21b85807e35ae69ab3976756b060c03",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "356b112bcc4f07e03b6e57569eedf9d79978d2d5",
+            "content_sha256": "8a5d8efb70942e65032f930c761d097feeb41a7517ebd04c9d2e4ec3764071c5",
+            "spdx": "MIT",
+            "resolved_commit": "74f27068b21b85807e35ae69ab3976756b060c03",
+            "api_spdx": "MIT"
+          },
+          "files": []
+        }
+      ]
+    },
+    {
+      "name": "kubernetes-specialist",
+      "repo_skill": "skills/developer-engineering/kubernetes-specialist/SKILL.md",
+      "decision": "retained_after_review",
+      "reason": "Retain functional guidance and local attribution; upstream changes only add company advertising metadata and footer.",
+      "changed_upstream_files": 1,
+      "origins": [
+        {
+          "repo": "Jeffallan/claude-skills",
+          "old": "882ef55e377dbf9a4dbe496bb41ac6ccd0e555cf",
+          "new": "1be15d8064f88fc25216442406d40add8fd23b53",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
+            "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+            "spdx": "MIT",
+            "resolved_commit": "1be15d8064f88fc25216442406d40add8fd23b53",
+            "api_spdx": "MIT"
+          },
+          "files": [
+            {
+              "source": "skills/kubernetes-specialist/SKILL.md",
+              "target": "skills/developer-engineering/kubernetes-specialist/SKILL.md",
+              "old_blob": "9437ac131714adc5e570ee1b954c3137dcd772e1",
+              "new_blob": "80412ca1e2bd45e748e4972e72366073cfcf1247"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "neon-postgres",
+      "repo_skill": "skills/developer-engineering/neon-postgres/SKILL.md",
+      "decision": "unchanged_artifacts",
+      "reason": "Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only.",
+      "changed_upstream_files": 0,
+      "origins": [
+        {
+          "repo": "neondatabase/agent-skills",
+          "old": "80164a28443aca7c82ac1a70aed836950d6c29ea",
+          "new": "ae082b22275461fbb5e303a1bcdc9bb00b73a946",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+            "content_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+            "spdx": "Apache-2.0",
+            "resolved_commit": "ae082b22275461fbb5e303a1bcdc9bb00b73a946",
+            "api_spdx": "Apache-2.0"
+          },
+          "files": []
+        }
+      ]
+    },
+    {
+      "name": "neon-postgres-egress-optimizer",
+      "repo_skill": "skills/developer-engineering/neon-postgres-egress-optimizer/SKILL.md",
+      "decision": "unchanged_artifacts",
+      "reason": "Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only.",
+      "changed_upstream_files": 0,
+      "origins": [
+        {
+          "repo": "neondatabase/agent-skills",
+          "old": "80164a28443aca7c82ac1a70aed836950d6c29ea",
+          "new": "ae082b22275461fbb5e303a1bcdc9bb00b73a946",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+            "content_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+            "spdx": "Apache-2.0",
+            "resolved_commit": "ae082b22275461fbb5e303a1bcdc9bb00b73a946",
+            "api_spdx": "Apache-2.0"
+          },
+          "files": []
+        }
+      ]
+    },
+    {
+      "name": "supabase",
+      "repo_skill": "skills/developer-engineering/supabase/SKILL.md",
+      "decision": "updated",
+      "reason": "Adopt the upstream changelog entry for scoped PAT guidance; retain local restricted auth and execution policy.",
+      "changed_upstream_files": 1,
+      "origins": [
+        {
+          "repo": "supabase/agent-skills",
+          "old": "544bfc56c89afe2b87b20017a59b2c6e9502a1fb",
+          "new": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d3c9e94fbc6c28f66ecb5a01407d543c99c811b6",
+            "content_sha256": "b65e575eb4f04a13c187d64e958321298e2ab84d67aa8428819f362056ba292c",
+            "spdx": "MIT",
+            "resolved_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+            "api_spdx": "MIT"
+          },
+          "files": [
+            {
+              "source": "skills/supabase/CHANGELOG.md",
+              "target": "skills/developer-engineering/supabase/CHANGELOG.md",
+              "old_blob": "3c08b3b20f07bdb76f535400ea0205178bfab074",
+              "new_blob": "16c4657c58336adeb579418cc0088c46cb83ee7b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "supabase-postgres-best-practices",
+      "repo_skill": "skills/developer-engineering/supabase-postgres-best-practices/SKILL.md",
+      "decision": "unchanged_artifacts",
+      "reason": "Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only.",
+      "changed_upstream_files": 0,
+      "origins": [
+        {
+          "repo": "supabase/agent-skills",
+          "old": "544bfc56c89afe2b87b20017a59b2c6e9502a1fb",
+          "new": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d3c9e94fbc6c28f66ecb5a01407d543c99c811b6",
+            "content_sha256": "b65e575eb4f04a13c187d64e958321298e2ab84d67aa8428819f362056ba292c",
+            "spdx": "MIT",
+            "resolved_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+            "api_spdx": "MIT"
+          },
+          "files": []
+        }
+      ]
+    },
+    {
+      "name": "terraform-engineer",
+      "repo_skill": "skills/developer-engineering/terraform-engineer/SKILL.md",
+      "decision": "retained_after_review",
+      "reason": "Retain functional guidance and local attribution; upstream changes only add company advertising metadata and footer.",
+      "changed_upstream_files": 1,
+      "origins": [
+        {
+          "repo": "Jeffallan/claude-skills",
+          "old": "882ef55e377dbf9a4dbe496bb41ac6ccd0e555cf",
+          "new": "1be15d8064f88fc25216442406d40add8fd23b53",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
+            "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+            "spdx": "MIT",
+            "resolved_commit": "1be15d8064f88fc25216442406d40add8fd23b53",
+            "api_spdx": "MIT"
+          },
+          "files": [
+            {
+              "source": "skills/terraform-engineer/SKILL.md",
+              "target": "skills/developer-engineering/terraform-engineer/SKILL.md",
+              "old_blob": "2f229718806c2c348adbebbea83959f7b0761ddb",
+              "new_blob": "9f3ed183612d5d593a2be9bcd88336bcb045eeb6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "x-twitter-scraper",
+      "repo_skill": "skills/growth-operations-xiaohongshu/x-twitter-scraper/SKILL.md",
+      "decision": "updated",
+      "reason": "Adopt no credentialed redirects, 2xx-only success, no secrets in process arguments and untrusted error isolation; retain local REST execution/MCP planning-only restrictions.",
+      "changed_upstream_files": 2,
+      "origins": [
+        {
+          "repo": "Xquik-dev/x-twitter-scraper",
+          "old": "645ccfbad23f258ed9efb24de1ead641f15938e1",
+          "new": "18b475cfc571b43e7660c49dbe400be66c9dc0a1",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "3a5f93c8e882f8f115758ad4e7fa4e91d1c787b2",
+            "content_sha256": "591a93ca295f08caf49f4417eef0a085bb64d4b208ba8f186e0f0f027aebd4b5",
+            "spdx": "MIT",
+            "resolved_commit": "18b475cfc571b43e7660c49dbe400be66c9dc0a1",
+            "api_spdx": "MIT"
+          },
+          "files": [
+            {
+              "source": "skills/x-twitter-scraper/SKILL.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/SKILL.md",
+              "old_blob": "f1682d6a7f0b0bc27dfe24c2d8f781cf136fa923",
+              "new_blob": "c287a0deda53322875392e42c86e94dcad15f9b2"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/reads.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/reads.md",
+              "old_blob": "3e92147ad17420403cbcd27f34140b8d43182115",
+              "new_blob": "bbf3727bd544cb9b2eb161f2e660110df0c4a668"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "nlpm-audit",
+      "repo_skill": "skills/ai-workflow/nlpm-audit/SKILL.md",
+      "decision": "retained_after_review",
+      "reason": "Retain the portable local audit rather than replacing it with a product README: manifest verification, client-specific evaluation and advisory scoring already have explicit local boundaries.",
+      "changed_upstream_files": 1,
+      "origins": [
+        {
+          "repo": "xiaolai/nlpm",
+          "old": "4cf6b70948a2c5201ca50f511d3dd56990bdcb3f",
+          "new": "91fa8a7f248fa5f1dca3dd28032a17ab26550f3a",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "554937c222c6dd2db191634da77b5486a4a0410b",
+            "content_sha256": "87b3f4064cb76d1c7cc8c39546d7d62790b76372f37cfb9de1bb828a5f652b51",
+            "spdx": "ISC",
+            "resolved_commit": "91fa8a7f248fa5f1dca3dd28032a17ab26550f3a",
+            "api_spdx": "ISC"
+          },
+          "files": [
+            {
+              "source": "README.md",
+              "target": "skills/ai-workflow/nlpm-audit/SKILL.md",
+              "old_blob": "daed9090fde4144446c75d8226dcb5e11ae1770f",
+              "new_blob": "7b9b3cf7bc44f0be4642cfcbbbb9e45b4576ed2c"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "decision_counts": {
+    "updated": 8,
+    "unchanged_artifacts": 31,
+    "retained_after_review": 4
+  },
+  "modified_files": [
+    {
+      "path": "skills/ai-workflow/api-and-interface-design/SKILL.md",
+      "old_sha256": "bb2571c39d1e9c0c112e9812d54ae093e97daa4d20908b88180298ef65cd212b",
+      "new_sha256": "c82ba942f78ec00dc33e6dc6670524ae50ebe8a9b47f48e05f6c3e778cb86ad0"
+    },
+    {
+      "path": "skills/ai-workflow/code-review-and-quality/SKILL.md",
+      "old_sha256": "29a708d4b2a8bd0735765f486392c96d56661a003e1c172acd824d8348183e8f",
+      "new_sha256": "7a832c480f00dbc53ef1c4f7d2bde4c5fb7374fd928ae275ebf10a11e44ec6c3"
+    },
+    {
+      "path": "skills/ai-workflow/documentation-and-adrs/SKILL.md",
+      "old_sha256": "c745e9037c7486f6d931070ab3576ccf90dd089c6e772a60942e60152c1a7bba",
+      "new_sha256": "a5f6c44a82ee74f04f343d371713707ade0720a143c7198e65fb6f558a4c7d66"
+    },
+    {
+      "path": "skills/ai-workflow/performance-optimization/SKILL.md",
+      "old_sha256": "70a05f74dbf6b9c097c3cc217c4343e722c02103233132e0cc4eaa6f356a9c50",
+      "new_sha256": "f8f8ba1bf52d4f7396c3b59d66b91352425576cab60be41ee535b7744187f4cf"
+    },
+    {
+      "path": "skills/ai-workflow/performance-optimization/references/optimization-patterns.md",
+      "old_sha256": null,
+      "new_sha256": "d213e0617efc980e3f0cb6d9204e79f8efd54e0e2391df1c20cd675c1f52fca2"
+    },
+    {
+      "path": "skills/ai-workflow/shipping-and-launch/SKILL.md",
+      "old_sha256": "ebbd01f67745b163792469fdd7f81d38418ded6c90578548a4fa6f166bb555f5",
+      "new_sha256": "984cd500d7ca8cf3eba333192e9c2d8e84920e3ef1a61cb9ba8d2edb9b2bb7be"
+    },
+    {
+      "path": "skills/developer-engineering/supabase/CHANGELOG.md",
+      "old_sha256": "cf20b30af4d24ee6f1205eabf4d61eb07bee4d3c6c241f2c440cd6b8e39ab06a",
+      "new_sha256": "4b9c9387871d7888f18e9c97a7d5691ea38e333401ccdcb0161d2140cb16b2d8"
+    },
+    {
+      "path": "skills/developer-engineering/supabase/SKILL.md",
+      "old_sha256": "edf4f6f9c69c1cda64d2c382a6fb3098c9f84894aaddc7d09e766d9faeedad42",
+      "new_sha256": "69a7fc20ec97b60a3d51679d5bcf41dfe8cc596088ac02ceb1a45ef3b70f4832"
+    },
+    {
+      "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/SKILL.md",
+      "old_sha256": "f44506dee05025c8ed7d714c2e1b192f10e6cc939789da2c9c27b6dcce26ebb5",
+      "new_sha256": "8036ab105af0b9dcf69487b860660153b64f3bf39d937066e2cdb7722f087929"
+    },
+    {
+      "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/reads.md",
+      "old_sha256": "3fce4f228526d92aa4fbe34fa03be817b3e17eb74f0bed629cf25cb766e36825",
+      "new_sha256": "22491c6d2ed9d3dce471fa4e9851b2131cd5d3de24b13fd3053794bc8ac3c8ed"
+    },
+    {
+      "path": "skills/knowledge-and-pm-integrations/lark-sheets/SKILL.md",
+      "old_sha256": "816db847ed5bc6219a94ea735b60a2d312c30783affa01948a3120723f64c52b",
+      "new_sha256": "db4587cc4d7868c9770d2960cf383714992a13ee5143f7e845e5ca134b15c136"
+    },
+    {
+      "path": "skills/knowledge-and-pm-integrations/lark-sheets/scripts/lark_chart_quality_check.py",
+      "old_sha256": "4b9f4f3783dd20fcdc3f4ac88410dc8913f9e4a0bc10f0597179db1c9e241af0",
+      "new_sha256": "325049559056be80e046c285c0f5456fd2f014605777efb040e25283153ef4fc"
+    },
+    {
+      "path": "skills/openclaw-memory-and-safety/honcho/SKILL.md",
+      "old_sha256": "43e95dc0e4c847ade2bbddf4c934cecbe24777e439cdb2099c62914c1e0c9571",
+      "new_sha256": "dec6f07419409fb059aacdd7493d1e4a95e638ce79355c05c2c7533e5285cc22"
+    }
+  ],
+  "review_fixes": [
+    "#129: filter hidden, unknown-visibility and non-grid worksheets; explicit non-grid target fails before chart reads",
+    "#129: retry timeout/invalid-JSON reads once; permission errors, missing CLI and writes do not retry"
+  ],
+  "boundaries": "All 43 observed candidates resolved by explicit curation decisions; not a promise that moving upstream branches cannot change afterwards. 25 policy-frozen items remain frozen. No public skill removed. No live API/account, real-model or production validation."
+}

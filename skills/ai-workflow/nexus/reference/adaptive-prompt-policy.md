@@ -5,7 +5,7 @@
 
 > **Scope is the safety model.** This policy operates **only within the current session + project**. It is **ephemeral** (resets at the session/project boundary) and **reversible** (every adjustment is per-spawn; nothing irreversible happens). Adaptation stays within the current model, permission and budget constraints; being ephemeral does not grant authority to change those settings. Durable, cross-project template rewrites are explicitly **out of scope** here; that path stays gated (offline `tune` → Darwin promotion → Guardian commit, see §6).
 
-> **Honest mechanism.** This is **evidence-accumulating, case-based adaptation** — not neural RL. The hub cannot train weights mid-session. "Reinforcement" means: a journaled within-session record of `context-features → directive-choice → outcome`, consulted to bias the next spawn's directive selection. Bounded, **corrective (bidirectional)** heuristics over a vetted directive library, never free-form prompt invention — every adjustment maps to an existing structured directive field (envelope / effort / tool-use / thinking / which references), never raw prepended text.
+> **Honest mechanism.** This is **evidence-accumulating, case-based adaptation** — not neural RL. The hub cannot train weights mid-session. "Reinforcement" means: a journaled within-session record of `context-features → directive-choice → outcome`, consulted to bias the next spawn's directive selection. Bounded, **corrective (bidirectional)** heuristics over a vetted directive library, never free-form prompt invention — every adjustment maps to an existing structured directive field (envelope / authorized effort / tool-use / which references), never raw prepended text.
 
 ---
 
@@ -17,13 +17,13 @@
 ③ ADAPTIVE ASSEMBLY — every EXECUTE step: base template ⊕ ① ⊕ ② → the spawn prompt
 ```
 
-> **Boundary vs `specify-phase.md`.** This policy tunes **directive fields** (envelope, effort, tool-use, thinking, which references) and never writes task content. The instruction's **content** — goal, acceptance criteria, prohibited outcomes, what stays delegated — is set once at the gated `SPECIFY` phase and copied verbatim into every `_AGENT_CONTEXT`. Order is fixed: Specified Brief first, directive fields layered on after. They occupy disjoint fields and must never overwrite each other.
+> **Boundary vs `specify-phase.md`.** This policy tunes **directive fields** (envelope, authorized effort, tool-use, which references) and never writes task content. The instruction's **content** — goal, acceptance criteria, prohibited outcomes, what stays delegated — is set once at the gated `SPECIFY` phase and copied verbatim into every `_AGENT_CONTEXT`. Order is fixed: Specified Brief first, directive fields layered on after. They occupy disjoint fields and must never overwrite each other.
 
 Layer ③ is the only thing that touches a spawn; ① and ② are the inputs it reads. Layer ① is built during **Orchestrator Detection** (before the first spawn) and cached; ② updates at each step boundary; ③ runs immediately before each `Agent(...)` spawn.
 
 ### Applicability — when NOT to apply
 
-Profile assembly + ledger upkeep is meta-overhead; applying it to trivial work violates the minimum-chain principle (Core Rule #1; "40% of agentic projects fail on cost/complexity"). **Gate:**
+Profile assembly + ledger upkeep is meta-overhead; applying it to trivial work violates the minimum-chain principle (Core Rule #1). **Gate:**
 - **Skip** for a single-spawn or trivial run — use the base template directly (the Project Profile's hub-engine defaults still apply, since those are free and load-bearing for correctness; the Session Ledger does not spin up).
 - **Apply** when the chain has ≥ 3 spawns, runs a loop recipe (`converge`/`kaizen`/`apex`/`migrate`), or the same agent is spawned more than once — i.e. when there is enough repetition for within-session reinforcement to pay back its overhead.
 
@@ -122,7 +122,7 @@ Each guard is defined where it operates; this is the index of what is guarded an
 - **G6 Adaptation masking a real problem** — persistent VERIFY-fail / BLOCKED / FAILED escalates through normal error handling instead of being re-tuned (§3).
 - **G7 Stripping required structure** — the hard rule that behavior/safety/AC/output-contract fields are never deleted (§4).
 - **G8 Cross-session contamination** — ephemeral by default; warm-start pre-seeds Layer ① only (§5).
-- **G9 Unsafe directive on Fable 5** — the no-reasoning-reproduction rule enforced at assembly (§4).
+- **G9 Unsafe directive** — reject private-reasoning extraction and any directive that widens authority (§4).
 
 ---
 

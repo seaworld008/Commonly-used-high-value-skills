@@ -2,17 +2,17 @@
 name: security-review
 description: 'Review code changes for injection, XSS, authentication, authorization, cryptography, and other security defects with evidence-based severity.'
 zh_description: "依据代码证据审查注入、认证、授权和加密漏洞。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:getsentry/skills"
-source_url: "https://skills.sh/getsentry/skills/security-review"
+source_url: "https://github.com/getsentry/skills/blob/d18b7aa8ba878354e5c348310230e652f7690f9c/skills/security-review/SKILL.md"
 license: Apache-2.0
 tags: '["review", "security"]'
 created_at: "2026-06-21"
-updated_at: "2026-09-06"
+updated_at: "2026-09-30"
 quality: 5
 complexity: "intermediate"
-allowed-tools: 'Read, Grep, Glob, Bash, Task'
+allowed-tools: 'Read Grep Glob Bash Task'
 ---
 
 <!--

@@ -2,14 +2,14 @@
 name: subagent-driven-development
 description: Use when executing implementation plans with independent tasks in the current session
 zh_description: "协调独立子任务的实现、审查和结果集成。"
-version: "1.0.7"
+version: "1.0.8"
 author: seaworld008
 source: "github:obra/superpowers"
-source_url: "https://github.com/obra/superpowers/tree/main/skills/subagent-driven-development"
+source_url: "https://github.com/obra/superpowers/blob/8ca22dba9a94f28898bbce59f2537ff4d87c747d/skills/subagent-driven-development/SKILL.md"
 license: MIT
 tags: '["development", "driven", "planning", "subagent", "workflow"]'
 created_at: "2026-03-27"
-updated_at: "2026-09-07"
+updated_at: "2026-09-30"
 quality: 3
 complexity: intermediate
 ---

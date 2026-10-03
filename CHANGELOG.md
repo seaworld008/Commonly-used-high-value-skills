@@ -8,7 +8,36 @@ All notable changes to this repository are documented here.
 <!-- AUTO-CHANGELOG:START -->
 ### 自动更新 / Automated updates
 
-变更范围 / Revision range: `v3.0.0..HEAD`.
+变更范围 / Revision range: `v3.1.0..HEAD`.
+
+#### [2026-10-03]
+
+##### Changed
+- recover curated skills maintenance and prepare v3.2.0
+
+##### Fixed
+- close fresh upstream review and Lark chart findings
+
+#### [2026-09-30]
+
+##### Added
+- `grill-me` (task-understanding-decomposition) — grill-me
+
+##### Changed
+- add standalone grill-me skill (#127)
+- add standalone grill-me with pinned upstream evidence
+<!-- AUTO-CHANGELOG:END -->
+
+### Removed / 移除
+
+- 删除 `open-gsd-core-migration` 兼容技能以及旧 Hermes + Graphify + GSD 组合技能的 alias、tombstone 和 migration 路由；当前 portfolio 仅保留不可路由的名称 denylist，防止这些无用技能被自动重新引入。
+  Removed the `open-gsd-core-migration` compatibility skill and all alias, tombstone, and migration routes for the legacy Hermes + Graphify + GSD composites; only a non-routing name denylist remains to prevent automated reintroduction.
+
+## [3.1.0] - 2026-09-28
+
+### 自动更新 / Automated updates
+
+变更范围 / Revision range: `v3.0.0..v3.1.0`.
 
 #### [2026-09-28]
 
@@ -23,12 +52,6 @@ All notable changes to this repository are documented here.
 - collect pinned upstream deltas for curation review
 - run read-only full upstream provenance check
 - capture isolated source snapshot for maintenance review
-<!-- AUTO-CHANGELOG:END -->
-
-### Removed / 移除
-
-- 删除 `open-gsd-core-migration` 兼容技能以及旧 Hermes + Graphify + GSD 组合技能的 alias、tombstone 和 migration 路由；当前 portfolio 仅保留不可路由的名称 denylist，防止这些无用技能被自动重新引入。
-  Removed the `open-gsd-core-migration` compatibility skill and all alias, tombstone, and migration routes for the legacy Hermes + Graphify + GSD composites; only a non-routing name denylist remains to prevent automated reintroduction.
 
 ## [3.0.0] - 2026-09-23
 

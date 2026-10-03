@@ -2,14 +2,14 @@
 name: nexus
 description: '多智能体任务分解、链路编排、执行协调和结果整合。'
 zh_description: "多智能体任务分解、链路编排、执行协调和结果整合。"
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/main/nexus"
+source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/nexus/SKILL.md"
 license: MIT
 tags: ["ai", "nexus", "workflow"]
 created_at: "2026-08-24"
-updated_at: "2026-09-07"
+updated_at: "2026-09-30"
 quality: 5
 complexity: "advanced"
 ---
@@ -81,7 +81,7 @@ Agent boundaries → `_common/BOUNDARIES.md` · disambiguation → `reference/ag
 - Document goal and acceptance criteria in 1-3 lines before chain selection.
 - Choose the minimum agents needed.
 - Log an immutable record per routing decision (input summary, chain, confidence, rationale).
-- Decompose with Sherpa when a task touches 3+ files, spans components, or hides intermediate steps.
+- Use Sherpa when unresolved dependencies or cross-component work require specialist decomposition; file count alone does not require another handoff.
 - Use the `NEXUS_HANDOFF` format from `_common/HANDOFF.md`.
 - Verify workspace availability before every handoff to a project-local extension.
 - Validate each step's result (schema, required fields, confidence) to catch semantic failures.
@@ -91,13 +91,13 @@ Agent boundaries → `_common/BOUNDARIES.md` · disambiguation → `reference/ag
 ### Ask First When Not Already Authorized
 
 - `L4` security triggers, destructive data actions, external system changes.
-- Actions affecting 10+ files.
+- Actions affecting 10+ files when that scope is not already explicitly authorized.
 - Routing adaptation replacing a high-performing chain (`CES ≥ B`).
 - Chain designs with 5+ agents.
 - First production use of a newly registered agent.
 - Approving a new skill via LADDER (architect's gap-fill proposal, pre-registration).
 - **Before the session's first `agy -p … --dangerously-skip-permissions` spawn** — emit the Pre-flight Notification per `_common/CLI_COMPATIBILITY.md §9.1` (informational; does not block AUTORUN).
-- **On a Fable 5 hub, before a task not warranting Fable 5-tier reasoning** (SIMPLE / single trivial step, no multi-domain planning) — confirm and recommend the cheaper path. The **Fable 5 cost gate (F8)** is contract-level and blocks even in `AUTORUN`/`AUTORUN_FULL`.
+- **Before an unapproved cost escalation** — obtain approval for a higher-priced model, extra paid usage, or a larger delegation budget. The cost gate (`F8` migration identifier) applies to every engine; an already authorized model/scope does not require repeated confirmation.
 
 ### Never
 
@@ -172,26 +172,26 @@ Inline Recipes (`kaizen`, `essential`, `killer`, `trim`) have no top-level refer
 | `CLASSIFY` | Task type, complexity, confidence, guardrail needs; crystallize the intent contract (goal + ACs + non-goals + prohibited outcomes) | `confidence-scoring.md`, `intent-clarification.md`, `autonomy-quality-protocol.md` (Q1-Q3) |
 | `CHAIN` | Minimum viable chain, parallel branches, Plan-and-Execute | `routing-matrix.md`, `agent-chains.md`, `agent-disambiguation.md` |
 | `SPECIFY?` | Gated `Chisel brief`; fires on load-bearing ambiguity, ≥3 spawns, loop/quality-max, or rework, and **runs only after every applicable `Ask First` gate has resolved**. Copy its ACs/prohibited outcomes/constraints/delegated list verbatim into every `_AGENT_CONTEXT`; never replace `GATE` or run per-spawn | `specify-phase.md` |
-| `EXECUTE` | Spawn agents (L1/L2/L3) with checkpoints; pass state deltas only | `execution-phases.md`, `guardrails.md`, `error-handling.md`, `orchestration-patterns.md` |
+| `EXECUTE` | Spawn agents (L1/L2/L3) with checkpoints; pass state deltas only | `reference/execution-phases.md`, `reference/guardrails.md`, `reference/error-handling.md`, `reference/orchestration-patterns.md` |
 | `AGGREGATE` | Merge branch outputs, validate schema/fields, goal-alignment check vs the intent contract | `conflict-resolution.md`, `handoff-validation.md`, `autonomy-quality-protocol.md` (Q7-Q8) |
-| `VERIFY` | Acceptance criteria; tests/build/security mandatory; producer ≠ sole verifier; evidence-bound claims | `guardrails.md`, `output-formats.md`, `quality-iteration.md`, `autonomy-quality-protocol.md` (Q9-Q15) |
+| `VERIFY` | Acceptance criteria; tests/build/security mandatory; producer ≠ sole verifier; evidence-bound claims | `reference/guardrails.md`, `output-formats.md`, `quality-iteration.md`, `autonomy-quality-protocol.md` (Q9-Q15) |
 | `DELIVER` | Final user-facing response | `output-formats.md` |
 | `LEARN` | Adapt routing from evidence after completion | `routing-learning.md` |
 
 ## Execution Model
 
-**Orchestrator detection** — detect which CLI drives *this hub session* once, before the first spawn (`Agent` → Claude Code; `spawn_agent` → Codex CLI; `/agent` in a TUI main session → agy), then bind the spawn API, authoring protocol, and model map. Detection table, per-CLI prereqs, model selection, adaptive-prompt policy, canonical spawn template → `reference/hub-authoring.md` § Execution Model + `reference/execution-layers.md`.
+**Orchestrator detection** — establish the host runtime and advertised delegation capabilities before the first spawn; discover actual schemas rather than identifying a host solely from a familiar tool name. Bind the runtime adapter and authorized model choice. Detection table, per-CLI prereqs, model selection, adaptive-prompt policy, canonical spawn template → `reference/hub-authoring.md` § Execution Model + `reference/execution-layers.md`.
 
 **Spawn decision** — Core Rule #3 decides: no spawn tool → internal (log the verified blocker); specialist expertise → spawn (mandatory); trivial edit → spawn only if overhead is justified. Bound the *upper* count, and **never spawn an agent to re-check another's output** — that is a sequential VERIFY step, not a sibling.
 
 **Spawn prompt non-negotiables** — front-load ACs (P1), output envelope (P2), scope (P8), completion bound (Q16-Q17), `Prohibited outcomes`, and least-authority `Authority` with `redelegation: false` (Q2/Q23). Specify the producer's relevant checks; add independent review when required and reuse valid results. Adaptive prompt policy applies at ≥3 spawns, loop Recipes, or repeat agents (`reference/adaptive-prompt-policy.md`). After `SPECIFY`, inject its goal/ACs/prohibited outcomes/constraints verbatim before directives.
 
-> **MANDATORY before spawning agy or codex as an agent** — read `_common/CLI_COMPATIBILITY.md §9.2` (agy headless MUST allocate a real pty via `python3 pty.spawn`; bare `agy -p` and `script -q /dev/null` **fail silently**, so capture via artifact/sentinel, never stdout) and §9.3 (codex `-o <abs path>` artifact is authoritative). These are silent-output regressions, not edge cases.
+> Before an external spawn, read `_common/CLI_COMPATIBILITY.md` §9 for supported result channels and permission boundaries. Apply historical workarounds only to a reproduced installed-version defect.
 
 ## Safety Contract
 
 - **Guardrails:** `L1` monitor/log → `L2` auto-verify/checkpoint → `L3` pause + auto-recovery → `L4` abort + rollback.
-- **Error handling:** `L1` retry (max 3) → `L2` auto-adjust or inject Builder → `L3` rollback + recovery chain → `L4` ask user (max 5) → `L5` abort. **agy headless failures classify `L0` CAPTURE_FAILURE first** — `exit 0/124 + empty stdout` also describes a *successful* `agy -p` run, so the artifact decides, not the exit code; one typed repair retry, never an L1-L3 escalation.
+- **Error handling:** `L1` retry (max 3) → `L2` auto-adjust or inject Builder → `L3` rollback + recovery chain → `L4` ask user (max 5) → `L5` abort. Diagnose missing output as `L0` CAPTURE_FAILURE before domain escalation; one typed repair retry, with process status and current-run artifact evidence. Timeout is not success.
 - **Circuit breaker:** three consecutive failures marks an agent DEGRADED until a probe succeeds; "Agent Tennis" (two agents disagreeing 3+ turns without progress) trips the breaker and escalates.
 - **Checkpoint-resume:** chains of 4+ steps persist step outputs at each boundary so interrupted runs resume from the last checkpoint.
 - **Auto-decision:** proceed only at sufficient confidence with acceptable reversibility; confirm risky or irreversible work first. Depth follows the Autonomy Ledger and never relaxes an Ask First gate.
@@ -245,7 +245,7 @@ Read only files matching the current decision point. A file already named where 
 
 **Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
-Beyond the spine, follow `_common/HARNESS_EVOLUTION.md`. Apply the hub-engine protocol: `_common/OPUS_5_AUTHORING.md` (Claude Code; add F-principles on a Fable 5 hub), `CODEX_ORCHESTRATION.md`, or `AGY_ORCHESTRATION.md` (A1-A9). Journal in `.agents/nexus.md`, log to `.agents/PROJECT.md`, no agent names in commits/PRs. Keep chains small, handoffs structured, recovery explicit.
+Beyond the spine, follow `_common/HARNESS_EVOLUTION.md`. Apply the hub-engine protocol: `_common/OPUS_5_AUTHORING.md` (shared P1-P12), plus `CODEX_ORCHESTRATION.md` or `AGY_ORCHESTRATION.md` (A1-A9) when applicable. Journal in `.agents/nexus.md`, log to `.agents/PROJECT.md`, no agent names in commits/PRs. Keep chains small, handoffs structured, recovery explicit.
 
 ## Operational Notes for Spawns
 

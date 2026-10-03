@@ -2,8 +2,6 @@
 
 See `_common/AUTORUN.md` for the protocol (`_AGENT_CONTEXT` input, mode semantics, error handling).
 
-Compete-specific `_STEP_COMPLETE.Output` schema:
-
 ```yaml
 _STEP_COMPLETE:
   Agent: Compete
@@ -17,7 +15,7 @@ _STEP_COMPLETE:
       confidence: "[high | medium | low]"
       sources_cited: "[number]"
     tri_engine:                                  # present only when `multi` Recipe ran
-      engines_run: [codex, agy, claude]
+      engines_run: [actual usable engines]  # authorized and actually invoked
       engines_failed: [list or none]
       artifact_merged_into: "[Feature Matrix | Battle Card | Positioning Map | SWOT | Landscape | LLM Visibility | Win/Loss]"
       coverage_distribution:

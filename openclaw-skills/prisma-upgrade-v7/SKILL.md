@@ -2,14 +2,14 @@
 name: prisma-upgrade-v7
 description: 'Use when migrating an existing Prisma ORM SQL project from v6 to v7, updating generated-client imports, driver adapters, module format, or configuration.'
 zh_description: "用于 Prisma ORM 6 到 7 的 SQL 项目迁移、驱动适配器、客户端导入与配置升级。"
-version: "1.0.1"
+version: "1.0.2"
 author: Prisma
 source: "github:prisma/skills"
-source_url: "https://github.com/prisma/skills/tree/1123817e60d15ca0f3af91878923241dee7e3b09/prisma-upgrade-v7"
+source_url: "https://github.com/prisma/skills/blob/82b88dd82801e958706f8265c29c910e6f0ebfa4/prisma-upgrade-v7/SKILL.md"
 license: MIT
 tags: '["prisma", "database", "typescript", "transactions", "migration"]'
 created_at: "2026-09-22"
-updated_at: "2026-09-22"
+updated_at: "2026-09-30"
 quality: 4
 complexity: advanced
 ---
@@ -52,11 +52,11 @@ Reference this skill when:
 
 Prisma 7 has no MongoDB connector. Do not apply any step in this guide to a project with
 `provider = "mongodb"` — see the `prisma-mongodb-upgrade` skill for the actual decision
-(stay on v6 deliberately vs migrate to Prisma Next).
+(stay on v6 deliberately vs migrate to Prisma 8).
 
 ## Important Notes
 
-- **MongoDB projects should stay on Prisma 6.x or migrate to Prisma Next** - do not migrate MongoDB apps to Prisma 7's SQL client path (see `prisma-mongodb-upgrade`)
+- **MongoDB projects should stay on Prisma 6.x or migrate to Prisma 8** - do not migrate MongoDB apps to Prisma 7's SQL client path (see `prisma-mongodb-upgrade`)
 - **Node.js 20.19.0+** required
 - **TypeScript 5.4.0+** required
 - **Reference snapshot**: upstream examples mention `7.6.0`; inspect the project lockfile and current official release notes before selecting the target version.

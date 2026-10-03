@@ -2,14 +2,14 @@
 name: lark-openapi-explorer
 description: '飞书/Lark 原生 OpenAPI 探索：从官方文档库中挖掘未经 CLI 封装的原生 OpenAPI 接口。当用户的需求无法被现有 lark-* skill 或 lark-cli 已注册命令满足，需要查找并调用原生飞书 OpenAPI 时使用。'
 zh_description: "飞书/Lark 原生 OpenAPI 探索：从官方文档库中挖掘未经 CLI 封装的原生 OpenAPI 接口。"
-version: "1.0.3"
+version: "1.0.4"
 author: larksuite
 source: "github:larksuite/cli"
-source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-openapi-explorer"
+source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-openapi-explorer"
 license: MIT
 tags: '[feishu, lark, lark-cli, openapi, api]'
 created_at: "2026-05-19"
-updated_at: "2026-08-20"
+updated_at: "2026-09-30"
 quality: 4
 complexity: advanced
 metadata:
@@ -161,6 +161,7 @@ lark-cli api PATCH /open-apis/im/v1/chats/oc_xxx/announcement \
 
 - [lark-shared](../lark-shared/SKILL.md) — 认证和全局参数
 - [lark-skill-maker](../lark-skill-maker/SKILL.md) — 如需将挖掘到的 API 固化为新 Skill
+
 <!-- LOCAL-QUALITY-SUPPLEMENT:START -->
 ## Usage Notes
 

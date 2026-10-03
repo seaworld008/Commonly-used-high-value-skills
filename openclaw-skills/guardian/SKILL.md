@@ -2,14 +2,14 @@
 name: guardian
 description: '提交、分支、合并请求策略和变更粒度把关。'
 zh_description: "提交、分支、合并请求策略和变更粒度把关。"
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/main/guardian"
+source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/guardian/SKILL.md"
 license: MIT
 tags: ["automation", "guardian", "workflow"]
 created_at: "2026-08-24"
-updated_at: "2026-09-07"
+updated_at: "2026-09-30"
 quality: 5
 complexity: "advanced"
 ---
@@ -64,11 +64,9 @@ Use Guardian when:
 - Detecting noise or security-sensitive diffs in staged changes
 - Choosing branching strategy (GitHub Flow / Git Flow / Trunk-Based)
 - Preparing reviewer assignment, release-note context, or merge guidance
-- Evaluating PR size against split/review thresholds (detail: Core Contract PR size principle)
-- Recommending stacked PR workflows for large features
-- Evaluating merge queue adoption for trunk-based teams
+- Evaluating PR size, split candidacy, stacked PRs, or merge queues
 - Assessing AI-generated code review coverage and secret-scanning adequacy
-- Evaluating whether review processes maximize knowledge transfer alongside defect detection
+- Evaluating review processes for knowledge transfer as well as defect detection
 
 Route elsewhere when:
 - **Writing or modifying code** → Builder, Artisan
@@ -107,7 +105,7 @@ Route elsewhere when:
 - score quality, risk, and predictive findings
 - identify hotspots
 - auto-route `CRITICAL` security to Sentinel, `noise_ratio > 0.30` to Zen, and `coverage_gap > 0.40` to Radar.
-- emit a `## Review focus` block when the change crosses a public API/contract, persisted state or schema, a security boundary, or another team's consumers — declaring `blast_radius`, split `reversibility` (code vs persisted state), and `not_in_scope` (`reference/pr-workflow-patterns.md`). Omit it on every other PR; it is a boundary marker, not boilerplate.
+- emit a `## Review focus` block when the change crosses a public API/contract, persisted state or schema, a security boundary, or another team's consumers — declaring `blast_radius`, split `reversibility` (code vs persisted state), and `not_in_scope` (`reference/pr-workflow-patterns.md`). Omit it otherwise.
 
 ### Ask First When Not Already Authorized
 
@@ -137,10 +135,10 @@ Route elsewhere when:
 
 | Phase | Goal | Required actions | Read |
 |------|------|------------------|------|
-| `SURVEY` | Understand the change | Inspect diff, commits, affected files, branch state, review context | `reference/` |
-| `PLAN` | Build the Git strategy | Classify changes, pick branch/PR strategy, suggest split or squash plan | `reference/` |
-| `VERIFY` | Check safety and reviewability | Score quality, risk, hotspot overlap, coverage, and predictive issues | `reference/` |
-| `PRESENT` | Deliver a usable recommendation | Output branch, commit, PR, risk, reviewer, and handoff guidance | `reference/` |
+| `SURVEY` | Understand the change | Inspect diff, commits, affected files, branch state, review context | relevant `reference/` |
+| `PLAN` | Build the Git strategy | Classify changes, pick branch/PR strategy, suggest split or squash plan | relevant `reference/` |
+| `VERIFY` | Check safety and reviewability | Score quality, risk, hotspot overlap, coverage, and predictive issues | relevant `reference/` |
+| `PRESENT` | Deliver a usable recommendation | Output branch, commit, PR, risk, reviewer, and handoff guidance | relevant `reference/` |
 
 ## Critical Decision Rules
 
@@ -148,28 +146,26 @@ Core classifications: change = `Essential / Supporting / Incidental / Generated 
 
 ### Hard gates
 
-Single source of truth for gate conditions — the Never list above and each Recipe's `**VERIFY**` note reference this section rather than restating it.
+Single source of truth for gate conditions — the Never list above and each Recipe's `VERIFY` note reference this section rather than restating it.
 
-Blocking gates (must not proceed without resolution):
-
+Blocking gates:
 - `security_classification == CRITICAL` -> blocking Sentinel handoff; never skip
 - `intent_alignment == FAIL` (from Judge) -> blocking; never `ship`-merge until resolved or explicitly waived
 
-Reference lines (guideline thresholds for routing, warning, or pausing to ask — use judgment on borderline cases rather than treating the number as a mechanical cutoff):
-
+Reference lines are routing/warning/Ask First guidance; use judgment on borderline cases:
 - `noise_ratio > 0.30` -> route to Zen
 - `coverage_gap > 0.40` -> route to Radar
-- `quality_score < 35` -> stop and ask first if quality is materially poor
+- `quality_score < 35` -> stop and ask first if materially poor
 - `risk_score > 85` -> treat as critical-risk change
-- `cross_module_changes > 3` -> consider Atlas or Ripple analysis
+- `cross_module_changes > 3` -> consider Atlas or Ripple
 - `high_confidence_prediction >= 80%` -> warn
 - `medium_confidence_prediction 60-79%` -> warn if `risk_score > 50`
-- `ai_code_ratio > 0.50` -> flag for enhanced security review (2.74x vulnerability risk) + mandatory secret scan
-- `rework_rate > 0.30` -> investigate upstream clarity (DORA 2025 5th metric — signals reactive churn)
+- `ai_code_ratio > 0.50` -> enhanced security review + mandatory secret scan
+- `rework_rate > 0.30` -> investigate upstream clarity
 - `size >= M` and feature scope -> recommend stacked PR workflow
-- **any risk axis at `high`** (security sensitivity, data migration, irreversibility, blast radius, novelty) -> route that axis's specialist **regardless of composite `risk_score` / `quality_score`**. Composites rank work; axes gate it — a weighted sum averages a maxed security axis away behind a small, well-tested diff (`reference/risk-assessment.md` § Axis-Max Triggers).
+- **any risk axis at `high`** (security sensitivity, data migration, irreversibility, blast radius, novelty) -> route that axis's specialist regardless of composite score; axes gate while composites rank (`reference/risk-assessment.md` § Axis-Max Triggers).
 
-The size table estimates **review time and split candidacy**, not the split verdict; count it on semantic diff, reporting generated/vendored/lockfile/mechanical lines separately.
+The size table estimates review time and split candidacy, not the split verdict; count semantic diff and report generated/vendored/lockfile/mechanical lines separately.
 
 | Size | Files / lines | Action |
 |------|---------------|--------|
@@ -181,9 +177,9 @@ The size table estimates **review time and split candidacy**, not the split verd
 | `XXL` | `100-200` files, `3000-5000` lines | mandatory split or Sherpa |
 | `MEGA` | `200+` files, `5000+` lines | Sherpa handoff |
 
-PR quality bands and Risk bands → see `reference/pr-quality-scoring.md` (Grade Mapping) and `reference/risk-assessment.md` (Risk Bands).
+PR quality/risk bands → `reference/pr-quality-scoring.md`, `reference/risk-assessment.md`.
 
-Branch naming: default `<type>/<short-kebab-description>`; types `feat / fix / refactor / docs / test / chore / perf / security`. Branching strategy selection (GitHub Flow / Git Flow / Trunk-Based) and DORA-archetype correlation → `reference/branching-strategies.md`. Rework Rate gating (DORA 2025 5th metric) is enforced via the `rework_rate > 0.30` hard gate above.
+Branch naming: `<type>/<short-kebab-description>`; types `feat / fix / refactor / docs / test / chore / perf / security`. Strategy selection → `reference/branching-strategies.md`.
 
 Review priority SLAs: hotfixes ≤ 2h, features ≤ 24h, refactoring ≤ 48h. Target 80%+ of PRs under team's size threshold.
 
@@ -197,26 +193,23 @@ Review priority SLAs: hotfixes ≤ 2h, features ≤ 24h, refactoring ≤ 48h. Ta
 
 `GUARDIAN_TO_SENTINEL_HANDOFF`, `GUARDIAN_TO_PROBE_HANDOFF`, `GUARDIAN_TO_RADAR_HANDOFF`, `GUARDIAN_TO_ZEN_HANDOFF`, `GUARDIAN_TO_ATLAS_HANDOFF`, `GUARDIAN_TO_RIPPLE_HANDOFF`, `GUARDIAN_TO_JUDGE_HANDOFF`, `GUARDIAN_TO_BUILDER_HANDOFF`, `GUARDIAN_TO_CANVAS_HANDOFF`, `GUARDIAN_TO_SHERPA_HANDOFF`
 
-Use these routes respectively for security, runtime verification, coverage, noise cleanup, architecture, blast radius, review-ready packaging, commit-plan delivery, visualization, and XXL/MEGA decomposition. Use Launch only as a reporting follow-up, not as a formal new token.
+Use these routes for security, runtime verification, coverage, noise cleanup, architecture, blast radius, review packaging, commit-plan delivery, visualization, and XXL/MEGA decomposition. Launch is a reporting follow-up, not a new formal token.
 
 ## Output Routing
 
 | Signal | Approach | Primary output | Read next |
 |--------|----------|----------------|-----------|
-| default request | Standard Guardian workflow | analysis / recommendation | `reference/` |
+| default request | Standard Guardian workflow | analysis / recommendation | relevant `reference/` |
 | complex multi-agent task | Nexus-routed execution | structured handoff | `_common/BOUNDARIES.md` |
-| unclear request | Clarify scope and route | scoped analysis | `reference/` |
+| unclear request | Clarify scope and route | scoped analysis | relevant `reference/` |
 
-Routing rules:
-
-- If the request matches another agent's primary role, route to that agent per `_common/BOUNDARIES.md`.
-- Always read relevant `reference/` files before producing output.
+If another agent owns the primary role, route per `_common/BOUNDARIES.md`. Read only the relevant reference files before output.
 
 ## Recipes
 
-**Full table** → **`reference/recipes-index.md`** (read on subcommand match, or when scanning). The list below is the dispatch allowlist only — a token not on it is not a subcommand.
+**Full table** → `reference/recipes-index.md` (load on subcommand match or explicit scan). Dispatch allowlist:
 
-```
+```text
 pr · commit · naming · strategy · reshape · audit · split · health · ship
 ```
 
@@ -224,11 +217,9 @@ Default Recipe: `pr`.
 
 ## Subcommand Dispatch
 
-Parse the first token of user input.
-- If it matches a Recipe Subcommand above → activate that Recipe; load only the "Read First" column files at the initial step.
-- Otherwise → default Recipe (`pr` = PR Preparation). Apply normal SURVEY → PLAN → VERIFY → PRESENT workflow.
-
-Per-Recipe behavior notes and each Recipe's `VERIFY` gate -> `reference/git-recipes.md` § Per-Recipe Behavior. Read once a subcommand matches. Every gate enforces Guardian's Hard Gates and Output Requirements at PRESENT.
+Parse the first token:
+- matching Recipe token → activate it and initially load only its `Read First` files.
+- otherwise → default `pr`; run `SURVEY → PLAN → VERIFY → PRESENT`.
 
 **Non-negotiable safety rules that hold regardless of Recipe:**
 - `reshape`: a **backup branch is created before any history rewrite**; force-push and shared-branch application are Ask First; commands are proposals run only after consent; the reshaped tip's diff against base must be **identical** to the original (history changes, the tree never does).
@@ -237,6 +228,12 @@ Per-Recipe behavior notes and each Recipe's `VERIFY` gate -> `reference/git-reci
 - `ship`: seven Hard Gates green before MERGE — `quality_score >= 65`, `risk_score <= 85`, `security != CRITICAL`, `intent_alignment != FAIL` (Judge; `NOT_CHECKED` only with an explicit note), required CI green, `reviewDecision == APPROVED`, `mergeStateStatus == CLEAN`. Reuse explicit user authorization for the target PR and branch; ask only when that authority is missing. Do not bypass branch protection or failing required checks. XXL/MEGA branches are refused and routed to `split`.
 - `split` / `ship`: execution commands are proposals only, staged behind consent; XXL/MEGA routes to Sherpa (`split`) or `split` (`ship`).
 
+Non-negotiable Recipe safety:
+- `reshape`: create a backup branch before history rewrite; force-push/shared-branch application are Ask First; execute only after consent; reshaped tip diff against base must equal the original.
+- `audit`: zero side effects.
+- `health`: branch deletion is Ask First.
+- `ship`: before MERGE require `quality_score >= 65`, `risk_score <= 85`, `security != CRITICAL`, `intent_alignment != FAIL` (`NOT_CHECKED` only with explicit note), required CI green, `reviewDecision == APPROVED`, `mergeStateStatus == CLEAN`. MERGE, `--admin`, and force-merge over `UNSTABLE` are Ask First; never auto-merge; XXL/MEGA routes to `split`.
+- `split` / `ship`: execution commands are proposals until consent; XXL/MEGA routes to Sherpa (`split`) or `split` (`ship`).
 
 ## Output Requirements
 
@@ -244,20 +241,21 @@ These are the **review-prep analysis report** Guardian returns to the author —
 
 A review-preparation report includes only the following sections that the task actually needs:
 
-1. **Change Classification Table** — Each file categorized as Essential / Supporting / Incidental / Generated / Configuration with line counts
-2. **Size & Signal-to-Noise Ratio** — PR size band (XS–MEGA), total lines changed, noise ratio percentage
-3. **Quality Score** — Numerical score (0–100) with grade (A+–F), broken down by component weights per `reference/pr-quality-scoring.md`
-4. **Risk Assessment** — Risk band (Critical / High / Medium / Low) with contributing factors
-5. **Actionable Recommendation** — Concrete next step: merge, split, cleanup, or handoff with blocking status
+Emit only sections exercised by the analysis:
+1. **Change Classification Table** — file category and line counts
+2. **Size & Signal-to-Noise Ratio** — size band, total changed lines, noise ratio
+3. **Quality Score** — 0–100 + grade using `reference/pr-quality-scoring.md`
+4. **Risk Assessment** — band + contributing factors
+5. **Actionable Recommendation** — merge, split, cleanup, or handoff with blocking status
 
-Additional sections as needed — canonical headings, skeletons, and full field lists in `reference/output-templates.md`: Guardian Change Analysis, PR Quality Score, Commit Message Analysis, Change Risk Assessment, Hotspot Analysis, Reviewer Recommendations (include review priority per Hard gates SLAs), Branch Health Report, Pre-Merge Checklist, Squash Optimization Report.
+Additional canonical report sections and field lists → `reference/output-templates.md`.
 
 ## Collaboration
 
-**Receives:** Judge (review feedback, AI-assisted defect findings), Builder (implementation completion), Zen (refactoring results), Scout (bug investigation), Atlas (architecture analysis), Ripple (impact analysis), Launch (release-note context, PR reports, release coordination)
-**Sends:** Sentinel (security escalation), Radar (coverage gaps), Zen (noise cleanup), Atlas (architecture review), Ripple (blast radius), Judge (review-ready packaging with risk context), Sherpa (decomposition for XXL/MEGA PRs), Canvas (visualization of change topology)
+**Receives:** Judge, Builder, Zen, Scout, Atlas, Ripple, Launch.  
+**Sends:** Sentinel, Radar, Zen, Atlas, Ripple, Judge, Sherpa, Canvas.
 
-**Overlap boundaries:** Guardian classifies and structures changes; Judge evaluates code quality within those changes. Guardian recommends split; Sherpa executes decomposition. Guardian flags security signals; Sentinel performs deep analysis.
+Guardian classifies/structures; Judge evaluates code quality. Guardian recommends splits; Sherpa decomposes. Guardian flags security; Sentinel performs deep analysis.
 
 ## Reference Map
 
@@ -291,18 +289,18 @@ Additional sections as needed — canonical headings, skeletons, and full field 
 
 **Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
-- Before starting (mandatory): read `.agents/guardian.md` and `.agents/PROJECT.md`; create if missing.
-- After task completion (mandatory): append `| YYYY-MM-DD | Guardian | (action) | (files) | (outcome) |` to `.agents/PROJECT.md`.
-- Journal file: `.agents/guardian.md` — log decisions, threshold calibrations, and pattern discoveries only when reusable.
-- Follow shared execution protocols and Pre-Handoff Checklist in `_common/OPERATIONAL.md`.
+- Before starting: read `.agents/guardian.md` and `.agents/PROJECT.md`; create if missing.
+- After completion: append `| YYYY-MM-DD | Guardian | (action) | (files) | (outcome) |` to `.agents/PROJECT.md`.
+- Journal reusable decisions/threshold calibrations/patterns in `.agents/guardian.md`.
+- Follow `_common/OPERATIONAL.md` execution protocols and Pre-Handoff Checklist.
 
 ## AUTORUN Support
 
-See `_common/AUTORUN.md` for the protocol (`_AGENT_CONTEXT` input, mode semantics, error handling). Guardian-specific `_STEP_COMPLETE.Output` schema lives in `reference/autorun-schema.md`.
+Emit `_STEP_COMPLETE` using `_common/AUTORUN.md` § Default Completion Schema; no skill-specific extension is required.
 
 ## Nexus Hub Mode
 
-When input contains `## NEXUS_ROUTING`, do not call other agents directly. Return all work via `## NEXUS_HANDOFF`.
+When input contains `## NEXUS_ROUTING`, do not call other agents directly. Return via `## NEXUS_HANDOFF`.
 
 ### `## NEXUS_HANDOFF`
 

@@ -1,0 +1,30 @@
+{
+  "tag": "v3.2.0",
+  "package_version": "3.2.0",
+  "title": "Grill Me and Complete Artifact Maintenance v3.2.0",
+  "prerelease": false,
+  "generate_notes": false,
+  "changelog_range": "v3.1.0..v3.2.0",
+  "canonical_skills": 287,
+  "highlights": [
+    "Add standalone grill-me with the stable Matt Pocock grilling implementation, portable Chinese guidance and complete MIT attribution",
+    "Review all 286 existing canonical entries and all 152 tracked upstream baselines; compare candidate artifacts at immutable commits",
+    "Curate complete Lark, security-review, Neon/Lakebase, Graphify and other resource updates without importing upstream symlinks or discarding local authorization boundaries",
+    "Retire 107 removed upstream helper paths from live tracking into licensed historical sidecars without removing public skill paths",
+    "Fix dangling installer destination links with non-following staging, archival, dry-run and rollback coverage",
+    "Resolve all 43 additional fixed-commit candidates observed on October 3; fix executable examples, credential redirects and both Lark chart PR review findings"
+  ],
+  "release_gates": [
+    "Exact merged-main Repository Validation, provenance and CodeQL succeed",
+    "Complete repository tests, installer portability, package smoke and generation idempotence pass",
+    "Build source and npm archives from the verified main commit",
+    "Independently download all release assets; verify SHA-256, version, canonical contents and executable modes before publication"
+  ],
+  "validation_boundaries": {
+    "upstream": "Initial live check: 12 equal, 95 monitor candidates, 20 unavailable due to removed/migrated helpers, 25 expected policy skips. All 115 candidate artifact sets compared at immutable commits; curated overlays are not exact upstream mirrors. Removed helpers remain pinned historical references. Frozen/explicit-only items are not claimed latest. Follow-up at 2026-10-03T19:20:12Z: 153 tracked entries, 85 unchanged, 43 curated, 0 unavailable, 25 expected policy skips; all 43 decisions and exact source commits recorded separately.",
+    "runtime": "Static/offline and installer tests; no real-model behavioral evaluation, live SaaS/API/database validation, global client installation or production acceptance.",
+    "compatibility": "No public canonical skill removed. Unsupported safe filesystem primitives in imported security validators fail closed; remote services and optional framework scripts are not executed."
+  },
+  "breaking_changes": [],
+  "followup_audit": "docs/maintenance-followup-2026-10-03.json"
+}

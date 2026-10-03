@@ -2,14 +2,14 @@
 name: lark-markdown
 description: '操作飞书云空间中的 Markdown 文件：读取、创建、上传、局部编辑和比较。用于飞书 Markdown 资源操作；本地 Markdown 编辑无需此技能，导入在线文档和云盘管理转对应技能。'
 zh_description: "飞书 Markdown：查看、创建、上传、编辑和比较 Markdown 文件。"
-version: "1.1.7"
+version: "1.1.8"
 author: larksuite
 source: "github:larksuite/cli"
-source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-markdown"
+source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-markdown"
 license: MIT
 tags: '[feishu, lark, lark-cli, markdown, docs]'
 created_at: "2026-05-19"
-updated_at: "2026-09-07"
+updated_at: "2026-09-30"
 quality: 3
 complexity: intermediate
 metadata:
@@ -78,6 +78,7 @@ Shortcut 是对常用操作的高级封装（`lark-cli markdown +<verb> [flags]`
 
 - [lark-shared](../lark-shared/SKILL.md) — 认证和全局参数
 - [lark-drive](../lark-drive/SKILL.md) — Drive 文件管理、导入 docx、move/delete/search 等
+
 <!-- LOCAL-QUALITY-SUPPLEMENT:START -->
 ## Usage Notes
 

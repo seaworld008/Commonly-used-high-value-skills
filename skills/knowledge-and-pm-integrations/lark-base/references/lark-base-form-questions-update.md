@@ -1,6 +1,6 @@
 # base +form-questions-update
 
-> **前置条件：** 先阅读 [`../lark-shared/SKILL.md`](../../lark-shared/SKILL.md) 了解认证、全局参数和安全规则。
+> **前置条件：** 先阅读 [`../../lark-shared/SKILL.md`](../../lark-shared/SKILL.md) 了解认证、全局参数和安全规则。
 
 批量更新多维表格表单/问卷中的问题配置（标题、描述、是否必填、显隐条件等）。
 
@@ -29,7 +29,7 @@ lark-cli base +form-questions-update \
   --table-id <table_id> \
   --form-id <form_id> \
   --questions '[{"id":"q_001","title":"姓名（必填）","required":true},{"id":"q_002","title":"联系方式","required":false}]'
-  
+
 # 更新问题描述（纯文本），同时带回要保留的 title / required / visible_rule
 lark-cli base +form-questions-update \
   --base-token <base_token> \

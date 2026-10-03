@@ -1,6 +1,6 @@
 # base +form-questions-create
 
-> **前置条件：** 先阅读 [`../lark-shared/SKILL.md`](../../lark-shared/SKILL.md) 了解认证、全局参数和安全规则。
+> **前置条件：** 先阅读 [`../../lark-shared/SKILL.md`](../../lark-shared/SKILL.md) 了解认证、全局参数和安全规则。
 
 向多维表格表单/问卷中批量添加问题。可以新建字段并作为题目，也可以把已有字段加到表单中作为题目而不新建字段。
 
@@ -34,7 +34,7 @@ lark-cli base +form-questions-create \
   --table-id <table_id> \
   --form-id <form_id> \
   --questions '[{"type":"number","title":"服务评分","style":{"type":"rating","icon":"star","min":1,"max":5}}]'
-  
+
 # 添加带描述的问题（纯文本）
 lark-cli base +form-questions-create \
   --base-token <base_token> \
@@ -46,7 +46,7 @@ lark-cli base +form-questions-create \
   --base-token <base_token> \
   --table-id <table_id> \
   --form-id <form_id> \
-  --questions '[{"type":"text","title":"反馈建议","description":"更多详情请查看[帮助文档](https://example.com/help)"}]'  
+  --questions '[{"type":"text","title":"反馈建议","description":"更多详情请查看[帮助文档](https://example.com/help)"}]'
 
 # 添加带显隐条件（visible_rule）的问题：当「是否需要发票」选择「是」时才显示「发票抬头」
 lark-cli base +form-questions-create \

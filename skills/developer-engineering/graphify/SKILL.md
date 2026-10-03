@@ -2,14 +2,14 @@
 name: graphify
 description: 'Build, query, or refresh Graphify knowledge graphs for code and documents when graph-based relationship analysis is useful or explicitly requested.'
 zh_description: "将代码、文档和多媒体资料映射为持久知识图谱，支持社区发现、路径查询、解释和影响分析。"
-version: "1.0.8"
+version: "1.0.9"
 author: "Graphify-Labs"
 source: "github:Graphify-Labs/graphify"
-source_url: "https://github.com/Graphify-Labs/graphify/blob/v0.9.47/graphify/skill-codex.md"
+source_url: "https://github.com/Graphify-Labs/graphify/blob/1cd9a36c0c57a661d2d2234bc3207e887e1ba104/graphify/skill-codex.md"
 license: Apache-2.0
 tags: '["development", "graphify"]'
 created_at: "2026-04-13"
-updated_at: "2026-09-28"
+updated_at: "2026-09-30"
 quality: 5
 complexity: "intermediate"
 ---

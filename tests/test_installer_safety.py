@@ -134,3 +134,72 @@ def test_source_category_alias_cannot_hide_destination_overlap(tmp_path):
     assert result.returncode != 0
     assert "overlap" in result.stderr.lower()
     assert not (real / ".high-value-skills-manifest.json").exists()
+
+
+def dangling_destination(tmp_path):
+    source, dest, command = fixture(tmp_path)
+    missing = tmp_path / "missing-target"
+    try:
+        dest.symlink_to(missing, target_is_directory=True)
+    except OSError:
+        pytest.skip("directory symlinks unavailable")
+    return source, dest, command, missing
+
+
+def test_dangling_destination_is_archived_without_following_target(tmp_path):
+    source, dest, command, missing = dangling_destination(tmp_path)
+    original = os.readlink(dest)
+    dry = run([*command, "--dry-run"])
+    assert dry.returncode == 0, dry.stderr
+    assert dest.is_symlink() and os.readlink(dest) == original
+    assert not missing.exists()
+    assert not (tmp_path / ".high-value-skills-backups").exists()
+    result = run(command)
+    assert result.returncode == 0, result.stderr
+    assert dest.is_dir() and not dest.is_symlink()
+    assert (dest / "sample-skill/SKILL.md").read_text() == "# shipped\n"
+    assert not missing.exists()
+    backups = [p for p in (tmp_path / ".high-value-skills-backups").rglob("*") if p.is_symlink()]
+    assert len(backups) == 1 and os.readlink(backups[0]) == original
+    assert "Archived destination symlink:" in result.stdout
+
+
+@pytest.mark.parametrize("failure", ["copy", "rename"])
+def test_dangling_destination_failure_preserves_original_link(tmp_path, failure):
+    source, dest, command, missing = dangling_destination(tmp_path)
+    original = os.readlink(dest)
+    hook = tmp_path / "root-failure.cjs"
+    if failure == "copy":
+        hook.write_text("require('fs').cpSync = () => { throw new Error('injected root copy failure'); };\n")
+    else:
+        hook.write_text("const fs = require('fs'); const old = fs.renameSync; fs.renameSync = (a,b) => { if (require('path').basename(a).startsWith('.high-value-skills-root-') && b === process.env.TEST_DEST) throw new Error('injected root rename failure'); return old(a,b); };\n")
+    result = run(["node", "--require", str(hook), *command[1:]], env={**os.environ, "TEST_DEST": str(dest)})
+    assert result.returncode != 0
+    assert "injected root" in result.stderr
+    assert dest.is_symlink() and os.readlink(dest) == original
+    assert not missing.exists()
+    assert not list(tmp_path.glob(".high-value-skills-root-*"))
+
+
+def test_dangling_ancestor_fails_without_modifying_link_or_target(tmp_path):
+    source, dest, command, missing = dangling_destination(tmp_path)
+    command[-1] = str(dest / "nested")
+    result = run(command)
+    assert result.returncode != 0
+    assert dest.is_symlink()
+    assert not missing.exists()
+
+
+def test_dangling_destination_inside_source_still_rejects_overlap(tmp_path):
+    source, dest, command = fixture(tmp_path)
+    target = source / "dangling-output"
+    try:
+        target.symlink_to(tmp_path / "missing-target", target_is_directory=True)
+    except OSError:
+        pytest.skip("directory symlinks unavailable")
+    command[-1] = str(target)
+    result = run(command)
+    assert result.returncode != 0
+    assert "overlap" in result.stderr.lower()
+    assert target.is_symlink()
+    assert not (source / ".high-value-skills-backups").exists()

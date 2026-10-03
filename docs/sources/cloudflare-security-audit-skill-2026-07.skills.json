@@ -28,17 +28,17 @@
       "normalized_slug": "security-audit",
       "status": "verified_in_repo",
       "repo_skill": "skills/security-and-reliability/security-audit/SKILL.md",
-      "source": "https://github.com/cloudflare/security-audit-skill/tree/8bac42001ddd90a4dcd8d5a5045199283a8eba75/skills/security-audit",
-      "notes": "Imported from Cloudflare under MIT with all companion audit methodology files. Local frontmatter and one setup command example were added to satisfy repository metadata and quality gates.",
+      "source": "https://github.com/cloudflare/security-audit-skill/blob/c1c8a8c1471069fb0e188eeaff69b8e8db6564a8/skills/security-audit/SKILL.md",
+      "notes": "Imported from Cloudflare under MIT with all companion audit methodology files. Local frontmatter and one setup command example were added to satisfy repository metadata and quality gates. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
       "upstream": {
         "repo": "cloudflare/security-audit-skill",
         "path": "skills/security-audit/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-14",
-        "last_synced_at": "2026-09-14",
-        "last_synced_commit": "d24bc269171a9171fac58493e0ffba511d571a4a",
+        "last_checked_at": "2026-09-30",
+        "last_synced_at": "2026-09-30",
+        "last_synced_commit": "c1c8a8c1471069fb0e188eeaff69b8e8db6564a8",
         "sync_mode": "monitor",
-        "path_commit": "158eb448038e65f05bc5f2ba36c7e981e6890cea"
+        "path_commit": "c1c8a8c1471069fb0e188eeaff69b8e8db6564a8"
       },
       "kind": "mirror",
       "sync_mode": "monitor",
@@ -102,22 +102,67 @@
               "source": "skills/security-audit/validate-findings.cjs",
               "target": "skills/security-and-reliability/security-audit/validate-findings.cjs",
               "type": "file"
+            },
+            {
+              "source": "skills/security-audit/CLOUD-AND-DEPLOYMENT.md",
+              "target": "skills/security-and-reliability/security-audit/CLOUD-AND-DEPLOYMENT.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-audit/DATA-ISOLATION-AND-LIFECYCLE.md",
+              "target": "skills/security-and-reliability/security-audit/DATA-ISOLATION-AND-LIFECYCLE.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-audit/DESKTOP-MOBILE-AND-LOCAL-IPC.md",
+              "target": "skills/security-and-reliability/security-audit/DESKTOP-MOBILE-AND-LOCAL-IPC.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-audit/PROTOCOLS-RPC-AND-MESSAGING.md",
+              "target": "skills/security-and-reliability/security-audit/PROTOCOLS-RPC-AND-MESSAGING.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-audit/RESOURCE-EXHAUSTION-AND-AVAILABILITY.md",
+              "target": "skills/security-and-reliability/security-audit/RESOURCE-EXHAUSTION-AND-AVAILABILITY.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-audit/SUPPLY-CHAIN-AND-RELEASE.md",
+              "target": "skills/security-and-reliability/security-audit/SUPPLY-CHAIN-AND-RELEASE.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-audit/validate-coverage-ledger.cjs",
+              "target": "skills/security-and-reliability/security-audit/validate-coverage-ledger.cjs",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-audit/validate-coverage-ledger.test.cjs",
+              "target": "skills/security-and-reliability/security-audit/validate-coverage-ledger.test.cjs",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-audit/validate-findings.test.cjs",
+              "target": "skills/security-and-reliability/security-audit/validate-findings.test.cjs",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "d24bc269171a9171fac58493e0ffba511d571a4a",
-            "path_commit": "158eb448038e65f05bc5f2ba36c7e981e6890cea",
-            "content_sha256": "cb2de6a10682370de177575a9f34081175fd5f44a70223fb1456bd9ab8c4650c",
-            "last_checked_at": "2026-09-14",
-            "last_synced_at": "2026-09-14",
+            "resolved_commit": "c1c8a8c1471069fb0e188eeaff69b8e8db6564a8",
+            "path_commit": "c1c8a8c1471069fb0e188eeaff69b8e8db6564a8",
+            "content_sha256": "c7f4091b9ed9ac1c1a370f463ded0c95ca7a9e5552c8d0dfad4fa8a6f5cfd333",
+            "last_checked_at": "2026-09-30",
+            "last_synced_at": "2026-09-30",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "6dbc9ecb3a5b9080e95b962869e8c7ab16cfdc20",
               "content_sha256": "e598e694aa506650c7192d5ea3be0e50aca0d356ea00551c53429f0b01eb6391",
               "spdx": "MIT",
-              "resolved_commit": "d24bc269171a9171fac58493e0ffba511d571a4a",
+              "resolved_commit": "c1c8a8c1471069fb0e188eeaff69b8e8db6564a8",
               "api_spdx": "MIT"
             }
           }
@@ -126,69 +171,123 @@
       "managed_files": [
         {
           "path": "skills/security-and-reliability/security-audit/AI-AND-LLM.md",
-          "sha256": "e3f1f732de2bdd469023a6ac591849a1285abe9b0d12de11fb7d9fd13f6c108e",
           "owner": "security-audit",
+          "sha256": "e3f1f732de2bdd469023a6ac591849a1285abe9b0d12de11fb7d9fd13f6c108e",
           "mode": "100644"
         },
         {
           "path": "skills/security-and-reliability/security-audit/ATTACK-CLASSES.md",
-          "sha256": "f3fab5e6a113553f357e3586f488b9c7e047d48c2ee5443c77724ec1d1d5fdb0",
           "owner": "security-audit",
+          "sha256": "f3fab5e6a113553f357e3586f488b9c7e047d48c2ee5443c77724ec1d1d5fdb0",
           "mode": "100644"
         },
         {
           "path": "skills/security-and-reliability/security-audit/CLIENT-SIDE.md",
-          "sha256": "14a0bef183b95e62de4945b886fbfd677c53c68d77f8fdf4c7e2d42e9815f883",
           "owner": "security-audit",
+          "sha256": "14a0bef183b95e62de4945b886fbfd677c53c68d77f8fdf4c7e2d42e9815f883",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-audit/CLOUD-AND-DEPLOYMENT.md",
+          "owner": "security-audit",
+          "sha256": "3c80f3088be22345e07b057c056d6ed99fe2b0304f794398964f7ccd5a496ca3",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-audit/DATA-ISOLATION-AND-LIFECYCLE.md",
+          "owner": "security-audit",
+          "sha256": "307dcb3e24d292715c4a041190e7bb135646a37eb6187619ae01d000a634a4ad",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-audit/DESKTOP-MOBILE-AND-LOCAL-IPC.md",
+          "owner": "security-audit",
+          "sha256": "58eae8ee0ca6a46611c501ec5a3ab47fdff88dd7db0d8d74789bbf8bb19d8cb2",
           "mode": "100644"
         },
         {
           "path": "skills/security-and-reliability/security-audit/HUNTING.md",
-          "sha256": "735caebbc3bfed31d2c9fbbf61f383060305774708e0d0ac38050a7eac7ac679",
           "owner": "security-audit",
+          "sha256": "735caebbc3bfed31d2c9fbbf61f383060305774708e0d0ac38050a7eac7ac679",
           "mode": "100644"
         },
         {
           "path": "skills/security-and-reliability/security-audit/MEMORY-SAFETY-AND-BINARY.md",
-          "sha256": "8e1f8e8d9029941083fd5739fec493de7f2699a13fec23d0d0a9a3aae85f7e55",
           "owner": "security-audit",
+          "sha256": "8e1f8e8d9029941083fd5739fec493de7f2699a13fec23d0d0a9a3aae85f7e55",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-audit/PROTOCOLS-RPC-AND-MESSAGING.md",
+          "owner": "security-audit",
+          "sha256": "8b73816fa5b3697c9c40977f0c836b40f01d6e81929ff2720fe83ce089e9a619",
           "mode": "100644"
         },
         {
           "path": "skills/security-and-reliability/security-audit/RECONNAISSANCE.md",
-          "sha256": "89e2f899107335467716f06bc0bb175e87ccfb662dd9878b9a0f155d8005343f",
           "owner": "security-audit",
+          "sha256": "89e2f899107335467716f06bc0bb175e87ccfb662dd9878b9a0f155d8005343f",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-audit/RESOURCE-EXHAUSTION-AND-AVAILABILITY.md",
+          "owner": "security-audit",
+          "sha256": "4326fab5c92a0b4c420a70196254040105cd794026562130b59bf1a6db3e4baa",
           "mode": "100644"
         },
         {
           "path": "skills/security-and-reliability/security-audit/SKILL.md",
-          "sha256": "cb2de6a10682370de177575a9f34081175fd5f44a70223fb1456bd9ab8c4650c",
           "owner": "security-audit",
+          "sha256": "c7f4091b9ed9ac1c1a370f463ded0c95ca7a9e5552c8d0dfad4fa8a6f5cfd333",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-audit/SUPPLY-CHAIN-AND-RELEASE.md",
+          "owner": "security-audit",
+          "sha256": "f372e919940e335468ba1ae09f99026c3986a345f7fe26f8068f132e199f52a5",
           "mode": "100644"
         },
         {
           "path": "skills/security-and-reliability/security-audit/VALIDATION-AND-REPORTING.md",
-          "sha256": "049dea0289689c66fd913aafa7d6d6df3d5b38d5d9d8e571825ba58f4308c2bd",
           "owner": "security-audit",
+          "sha256": "049dea0289689c66fd913aafa7d6d6df3d5b38d5d9d8e571825ba58f4308c2bd",
           "mode": "100644"
         },
         {
           "path": "skills/security-and-reliability/security-audit/WEB-PROTOCOL-AND-AUTH.md",
-          "sha256": "b8f9a0e29ad6685a3d96cf42a538be7012c4a18925a4871a475291aae497ed04",
           "owner": "security-audit",
+          "sha256": "b8f9a0e29ad6685a3d96cf42a538be7012c4a18925a4871a475291aae497ed04",
           "mode": "100644"
         },
         {
           "path": "skills/security-and-reliability/security-audit/report-schema.json",
-          "sha256": "05c24d50f3314b025dbfb28dfee550d9dec9775602d51fc5c891013a3ab8b273",
           "owner": "security-audit",
+          "sha256": "6575c9de4a62255699ea052ebf9a49ebfb373a32891bcd89af6f55cc84b35519",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-audit/validate-coverage-ledger.cjs",
+          "owner": "security-audit",
+          "sha256": "2eb280bd2e33c002916f86db9b29f9edfedb6454e5db973c766290465b868ac8",
+          "mode": "100755"
+        },
+        {
+          "path": "skills/security-and-reliability/security-audit/validate-coverage-ledger.test.cjs",
+          "owner": "security-audit",
+          "sha256": "cfb9df26b03469a4279a70e7664a2a5434dd6f8c2c204e91f9b0aeb9dd71e648",
           "mode": "100644"
         },
         {
           "path": "skills/security-and-reliability/security-audit/validate-findings.cjs",
-          "sha256": "36d445209703d838c320c6366935f6476823e96e6b76d99a64f3aaf9beb51f2e",
           "owner": "security-audit",
+          "sha256": "e85f232e36bfac0f866f244da50376692d6b45c690beadcb00608b0e6c8b5283",
           "mode": "100755"
+        },
+        {
+          "path": "skills/security-and-reliability/security-audit/validate-findings.test.cjs",
+          "owner": "security-audit",
+          "sha256": "b92001117a92c4161d43777a0ba2fa182a8a4d97f2304cc8c0cee5331497b73b",
+          "mode": "100644"
         }
       ]
     }
@@ -221,6 +320,13 @@
       "target": "cloudflare/security-audit-skill@d24bc269171a9171fac58493e0ffba511d571a4a",
       "result": "success",
       "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-09-30",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "cloudflare/security-audit-skill@c1c8a8c1471069fb0e188eeaff69b8e8db6564a8",
+      "result": "success",
+      "evidence": "Compared the complete declared artifact sets and regular sibling resources at immutable commits; applied reviewed deltas, retained local authorization/host adapters, and isolated removed references as immutable licensed sidecars. Source comparison and targeted semantic review are not live vendor/API or model behavioral certification. See docs/maintenance-audit-2026-09-30.json."
     }
   ]
 }

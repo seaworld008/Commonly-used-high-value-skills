@@ -37,10 +37,12 @@ def test_using_superpowers_tracks_current_complete_reference_set() -> None:
     references = ROOT / "skills" / "ai-workflow" / "using-superpowers" / "references"
 
     assert origin["tracking"]["resolved_commit"] == (
-        "b36e0829c6d0140e93cfef2ca599b1b07d4a7797"
+        "8ca22dba9a94f28898bbce59f2537ff4d87c747d"
     )
     assert {path.name for path in references.glob("*.md")} == {
         "antigravity-tools.md",
+        "claude-code-tools.md",
+        "muse-tools.md",
         "codex-tools.md",
         "gemini-tools.md",
         "hermes-tools.md",

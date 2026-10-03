@@ -276,6 +276,83 @@
       "target": "wshobson/agents@4236bb91f8395b0435f1d8b8baf9e8e4c69a8620",
       "result": "success",
       "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-09-30",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "Xquik-dev/x-twitter-scraper@645ccfbad23f258ed9efb24de1ead641f15938e1",
+      "result": "success",
+      "evidence": "Compared the complete declared artifact sets and regular sibling resources at immutable commits; applied reviewed deltas, retained local authorization/host adapters, and isolated removed references as immutable licensed sidecars. Source comparison and targeted semantic review are not live vendor/API or model behavioral certification. See docs/maintenance-audit-2026-09-30.json."
+    },
+    {
+      "date": "2026-09-30",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "getsentry/skills@d18b7aa8ba878354e5c348310230e652f7690f9c",
+      "result": "success",
+      "evidence": "Compared the complete declared artifact sets and regular sibling resources at immutable commits; applied reviewed deltas, retained local authorization/host adapters, and isolated removed references as immutable licensed sidecars. Source comparison and targeted semantic review are not live vendor/API or model behavioral certification. See docs/maintenance-audit-2026-09-30.json."
+    },
+    {
+      "date": "2026-09-30",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "microsoft/azure-skills@f07c05364353925f7c8b0e474aa95afa291bce54",
+      "result": "success",
+      "evidence": "Compared the complete declared artifact sets and regular sibling resources at immutable commits; applied reviewed deltas, retained local authorization/host adapters, and isolated removed references as immutable licensed sidecars. Source comparison and targeted semantic review are not live vendor/API or model behavioral certification. See docs/maintenance-audit-2026-09-30.json."
+    },
+    {
+      "date": "2026-09-30",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "neondatabase/agent-skills@80164a28443aca7c82ac1a70aed836950d6c29ea",
+      "result": "success",
+      "evidence": "Compared the complete declared artifact sets and regular sibling resources at immutable commits; applied reviewed deltas, retained local authorization/host adapters, and isolated removed references as immutable licensed sidecars. Source comparison and targeted semantic review are not live vendor/API or model behavioral certification. See docs/maintenance-audit-2026-09-30.json."
+    },
+    {
+      "date": "2026-09-30",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "supabase/agent-skills@544bfc56c89afe2b87b20017a59b2c6e9502a1fb",
+      "result": "success",
+      "evidence": "Compared the complete declared artifact sets and regular sibling resources at immutable commits; applied reviewed deltas, retained local authorization/host adapters, and isolated removed references as immutable licensed sidecars. Source comparison and targeted semantic review are not live vendor/API or model behavioral certification. See docs/maintenance-audit-2026-09-30.json."
+    },
+    {
+      "date": "2026-09-30",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "wshobson/agents@156b7a5e7a8b93642628a339ee4039c925b34c7f",
+      "result": "success",
+      "evidence": "Compared the complete declared artifact sets and regular sibling resources at immutable commits; applied reviewed deltas, retained local authorization/host adapters, and isolated removed references as immutable licensed sidecars. Source comparison and targeted semantic review are not live vendor/API or model behavioral certification. See docs/maintenance-audit-2026-09-30.json."
+    },
+    {
+      "date": "2026-10-03",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "Jeffallan/claude-skills@1be15d8064f88fc25216442406d40add8fd23b53",
+      "result": "success",
+      "evidence": "Compared complete declared artifacts and new regular siblings at fixed commits; decisions, rejected forced gates and marketing-only changes are recorded in docs/maintenance-followup-2026-10-03.json. Static/source review is not live product or model acceptance."
+    },
+    {
+      "date": "2026-10-03",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "Xquik-dev/x-twitter-scraper@18b475cfc571b43e7660c49dbe400be66c9dc0a1",
+      "result": "success",
+      "evidence": "Compared complete declared artifacts and new regular siblings at fixed commits; decisions, rejected forced gates and marketing-only changes are recorded in docs/maintenance-followup-2026-10-03.json. Static/source review is not live product or model acceptance."
+    },
+    {
+      "date": "2026-10-03",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "microsoft/azure-skills@74f27068b21b85807e35ae69ab3976756b060c03",
+      "result": "success",
+      "evidence": "Compared complete declared artifacts and new regular siblings at fixed commits; decisions, rejected forced gates and marketing-only changes are recorded in docs/maintenance-followup-2026-10-03.json. Static/source review is not live product or model acceptance."
+    },
+    {
+      "date": "2026-10-03",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "neondatabase/agent-skills@ae082b22275461fbb5e303a1bcdc9bb00b73a946",
+      "result": "success",
+      "evidence": "Compared complete declared artifacts and new regular siblings at fixed commits; decisions, rejected forced gates and marketing-only changes are recorded in docs/maintenance-followup-2026-10-03.json. Static/source review is not live product or model acceptance."
+    },
+    {
+      "date": "2026-10-03",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "supabase/agent-skills@c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "result": "success",
+      "evidence": "Compared complete declared artifacts and new regular siblings at fixed commits; decisions, rejected forced gates and marketing-only changes are recorded in docs/maintenance-followup-2026-10-03.json. Static/source review is not live product or model acceptance."
     }
   ],
   "skills": [
@@ -290,7 +367,7 @@
         "repo": "alirezarezvani/claude-skills",
         "path": "engineering-team/skills/aws-solution-architect/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-31",
+        "last_checked_at": "2026-09-30",
         "last_synced_at": "2026-08-31",
         "last_synced_commit": "19392f7a08264ed00486a251f5b2098321771f94",
         "sync_mode": "monitor",
@@ -357,7 +434,7 @@
             "resolved_commit": "19392f7a08264ed00486a251f5b2098321771f94",
             "path_commit": "1851c8fb09ea8ff0488d48bd7c312abb1bbf5850",
             "content_sha256": "0b0e73ca32fdcfa75d609d3b30b04147f72809c6ea5eac67b5e6df06abd103b1",
-            "last_checked_at": "2026-08-31",
+            "last_checked_at": "2026-09-30",
             "last_synced_at": "2026-08-31",
             "license_checkpoint": {
               "path": "LICENSE",
@@ -433,14 +510,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/devops-sre/azure-kubernetes/SKILL.md",
       "source": "https://skills.sh/microsoft/azure-skills/azure-kubernetes",
-      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json.",
       "upstream": {
         "repo": "microsoft/azure-skills",
         "path": "skills/azure-kubernetes/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-14",
-        "last_synced_at": "2026-09-14",
-        "last_synced_commit": "9d46511c1828eee052d6d0ef4652dcd548565e27",
+        "last_checked_at": "2026-10-03",
+        "last_synced_at": "2026-10-03",
+        "last_synced_commit": "74f27068b21b85807e35ae69ab3976756b060c03",
         "sync_mode": "monitor",
         "path_commit": "3b087be2faf4ff65bedf693986c3446f97645e7f"
       },
@@ -722,17 +799,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "9d46511c1828eee052d6d0ef4652dcd548565e27",
+            "resolved_commit": "74f27068b21b85807e35ae69ab3976756b060c03",
             "path_commit": "3b087be2faf4ff65bedf693986c3446f97645e7f",
             "content_sha256": "766915a730a1e5e592d05218fec5c69f3e7afa9dc9bcb091ccb1634640eaeaa6",
-            "last_checked_at": "2026-09-14",
-            "last_synced_at": "2026-09-14",
+            "last_checked_at": "2026-10-03",
+            "last_synced_at": "2026-10-03",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "356b112bcc4f07e03b6e57569eedf9d79978d2d5",
               "content_sha256": "8a5d8efb70942e65032f930c761d097feeb41a7517ebd04c9d2e4ec3764071c5",
               "spdx": "MIT",
-              "resolved_commit": "9d46511c1828eee052d6d0ef4652dcd548565e27",
+              "resolved_commit": "74f27068b21b85807e35ae69ab3976756b060c03",
               "api_spdx": "MIT"
             }
           }
@@ -741,320 +818,320 @@
       "managed_files": [
         {
           "path": "skills/devops-sre/azure-kubernetes/SKILL.md",
-          "sha256": "766915a730a1e5e592d05218fec5c69f3e7afa9dc9bcb091ccb1634640eaeaa6",
           "owner": "azure-kubernetes",
+          "sha256": "766915a730a1e5e592d05218fec5c69f3e7afa9dc9bcb091ccb1634640eaeaa6",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/SKILL.md",
-          "sha256": "a963f7e911101d8d8184c34319e251756a68a2156ff13a25a4da4a83978210e9",
           "owner": "azure-kubernetes",
+          "sha256": "a963f7e911101d8d8184c34319e251756a68a2156ff13a25a4da4a83978210e9",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/knowledge-packs/frameworks/aspnet-core.md",
-          "sha256": "e67fdfd98e1544f5473a62c0ac70024d33306f051e2bd7b80f5a4ea0335c8b15",
           "owner": "azure-kubernetes",
+          "sha256": "e67fdfd98e1544f5473a62c0ac70024d33306f051e2bd7b80f5a4ea0335c8b15",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/knowledge-packs/frameworks/django.md",
-          "sha256": "33826ede3306b4c2d9894968f79fbc2b8c3835c73c28bdf636efda45f5661da3",
           "owner": "azure-kubernetes",
+          "sha256": "33826ede3306b4c2d9894968f79fbc2b8c3835c73c28bdf636efda45f5661da3",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/knowledge-packs/frameworks/express.md",
-          "sha256": "7fd50a40bc8abff5e22da41714698b80994f41250e72b8e864bfcf36dd8a9efa",
           "owner": "azure-kubernetes",
+          "sha256": "7fd50a40bc8abff5e22da41714698b80994f41250e72b8e864bfcf36dd8a9efa",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/knowledge-packs/frameworks/fastapi.md",
-          "sha256": "33ef9f994485797759813d526435e6ccdd02359ceebb043a48aad4f24f883bc3",
           "owner": "azure-kubernetes",
+          "sha256": "33ef9f994485797759813d526435e6ccdd02359ceebb043a48aad4f24f883bc3",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/knowledge-packs/frameworks/flask.md",
-          "sha256": "d8403f95736a0215544f472dbb542269ec9769803487c1ff4ce1b724fcf63d9e",
           "owner": "azure-kubernetes",
+          "sha256": "d8403f95736a0215544f472dbb542269ec9769803487c1ff4ce1b724fcf63d9e",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/knowledge-packs/frameworks/go.md",
-          "sha256": "4744f03992e3ed175241f1729824b0bcde2c2c2fc75bd85ab9568cb3d5e63528",
           "owner": "azure-kubernetes",
+          "sha256": "4744f03992e3ed175241f1729824b0bcde2c2c2fc75bd85ab9568cb3d5e63528",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/knowledge-packs/frameworks/nestjs.md",
-          "sha256": "d79dea38ee39735e2f85b71a26a570e476258bd94166fe33aa3f0cfcf7edfa34",
           "owner": "azure-kubernetes",
+          "sha256": "d79dea38ee39735e2f85b71a26a570e476258bd94166fe33aa3f0cfcf7edfa34",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/knowledge-packs/frameworks/nextjs.md",
-          "sha256": "9faf0bb704d0ae9e5bc797606065853d10fbb18ce7cecf3f9ea278e6a64dc466",
           "owner": "azure-kubernetes",
+          "sha256": "9faf0bb704d0ae9e5bc797606065853d10fbb18ce7cecf3f9ea278e6a64dc466",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/knowledge-packs/frameworks/spring-boot.md",
-          "sha256": "3822a0468c2e22528a26bffc5dcdfe74276bb755a86109dea7c49296e5d86753",
           "owner": "azure-kubernetes",
+          "sha256": "3822a0468c2e22528a26bffc5dcdfe74276bb755a86109dea7c49296e5d86753",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/phases/quick-deploy.md",
-          "sha256": "3203e42fd195104c188e585146994f2d88cb7474250623abbb145360c492d737",
           "owner": "azure-kubernetes",
+          "sha256": "3203e42fd195104c188e585146994f2d88cb7474250623abbb145360c492d737",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/references/base-images.md",
-          "sha256": "24e31442c3e6ea40810cb10e1e64fc6fb9d0afea9898bee168c683e2b11931be",
           "owner": "azure-kubernetes",
+          "sha256": "24e31442c3e6ea40810cb10e1e64fc6fb9d0afea9898bee168c683e2b11931be",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/references/detection.md",
-          "sha256": "41804e5e275c0f4e3b1cad11d90a67afd09fb635f699ac89bd6eff81854f0998",
           "owner": "azure-kubernetes",
+          "sha256": "41804e5e275c0f4e3b1cad11d90a67afd09fb635f699ac89bd6eff81854f0998",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/references/rollback.md",
-          "sha256": "be48bb7ed21568fe4b11cfccda269fc7b0c305647acedcbfb23a7468edfa8162",
           "owner": "azure-kubernetes",
+          "sha256": "be48bb7ed21568fe4b11cfccda269fc7b0c305647acedcbfb23a7468edfa8162",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/references/safeguards.md",
-          "sha256": "9f7894df0940a5c839cf8c5fb08d1f0d683d9b9b106e36157d6e91e9c1d8a813",
           "owner": "azure-kubernetes",
+          "sha256": "9f7894df0940a5c839cf8c5fb08d1f0d683d9b9b106e36157d6e91e9c1d8a813",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/references/workload-identity.md",
-          "sha256": "342284fd3ad2a24f2c35f3c60a739a76bed44c59341819d55b70849f006977ed",
           "owner": "azure-kubernetes",
+          "sha256": "342284fd3ad2a24f2c35f3c60a739a76bed44c59341819d55b70849f006977ed",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/dotnet.Dockerfile",
-          "sha256": "f0e13016f78487dd8bfaa36febd2a730cb6728f8ac0dcceb6844d148a8f41757",
           "owner": "azure-kubernetes",
+          "sha256": "f0e13016f78487dd8bfaa36febd2a730cb6728f8ac0dcceb6844d148a8f41757",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/dotnet.dockerignore",
-          "sha256": "5306cbaeaebe80c763c1037fabf727bd8ef4493c1b6dc11d4d587a93587bc95b",
           "owner": "azure-kubernetes",
+          "sha256": "5306cbaeaebe80c763c1037fabf727bd8ef4493c1b6dc11d4d587a93587bc95b",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/go.Dockerfile",
-          "sha256": "161d291610c232ec5e2c58c0232174321864fa530107f20663f249f893a2ba33",
           "owner": "azure-kubernetes",
+          "sha256": "161d291610c232ec5e2c58c0232174321864fa530107f20663f249f893a2ba33",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/go.dockerignore",
-          "sha256": "76f037bb2393f2368d1211aa84df158fe5849324917b7fe10bb305affaac72c7",
           "owner": "azure-kubernetes",
+          "sha256": "76f037bb2393f2368d1211aa84df158fe5849324917b7fe10bb305affaac72c7",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/java.Dockerfile",
-          "sha256": "a8d0772283ed7ea6905d88589923e9c63db378b679dff40612c14915e8d4e66e",
           "owner": "azure-kubernetes",
+          "sha256": "a8d0772283ed7ea6905d88589923e9c63db378b679dff40612c14915e8d4e66e",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/java.dockerignore",
-          "sha256": "832a7b09580d6e21ad1e9e428650dcdd8555d2dae63d970e461ea2c4003e6927",
           "owner": "azure-kubernetes",
+          "sha256": "832a7b09580d6e21ad1e9e428650dcdd8555d2dae63d970e461ea2c4003e6927",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/node.Dockerfile",
-          "sha256": "21a5925d7462213629279746415c4088593a79174cc00b24d4a5d04b5ead7041",
           "owner": "azure-kubernetes",
+          "sha256": "21a5925d7462213629279746415c4088593a79174cc00b24d4a5d04b5ead7041",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/node.dockerignore",
-          "sha256": "a7d7ff4bdbaefaf3a06dc8546b71b3d6e43c8af7be151f5e431ec1978ab3f2a4",
           "owner": "azure-kubernetes",
+          "sha256": "a7d7ff4bdbaefaf3a06dc8546b71b3d6e43c8af7be151f5e431ec1978ab3f2a4",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/python.Dockerfile",
-          "sha256": "1df050f85fa1ff0821672ef6ac950974ea52d66c23fc77901d565cb7cd10d8f4",
           "owner": "azure-kubernetes",
+          "sha256": "1df050f85fa1ff0821672ef6ac950974ea52d66c23fc77901d565cb7cd10d8f4",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/python.dockerignore",
-          "sha256": "641836812197f5fea8816595ef13b6dfcdc49a078ee883920f9438d3743f4149",
           "owner": "azure-kubernetes",
+          "sha256": "641836812197f5fea8816595ef13b6dfcdc49a078ee883920f9438d3743f4149",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/rust.Dockerfile",
-          "sha256": "cf84e7246d43c36015bfbdb5d0f3a96d16bc77892a725cc1956186612c35f70c",
           "owner": "azure-kubernetes",
+          "sha256": "cf84e7246d43c36015bfbdb5d0f3a96d16bc77892a725cc1956186612c35f70c",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/rust.dockerignore",
-          "sha256": "2c0b055944802d7ae80ae3b37891ab31233ae6bc93fcfc2a17988d5889bf2289",
           "owner": "azure-kubernetes",
+          "sha256": "2c0b055944802d7ae80ae3b37891ab31233ae6bc93fcfc2a17988d5889bf2289",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/github-actions/deploy.yml",
-          "sha256": "ed07c82ed48bb296e45d9fe37e44669c2bb0387caf58325eeded5da5eb1bb494",
           "owner": "azure-kubernetes",
+          "sha256": "ed07c82ed48bb296e45d9fe37e44669c2bb0387caf58325eeded5da5eb1bb494",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/configmap.yaml",
-          "sha256": "1a90e403f53b5e9542319cffe1d41cce5101f0b85b3d0c04008c4de1c39b17f4",
           "owner": "azure-kubernetes",
+          "sha256": "1a90e403f53b5e9542319cffe1d41cce5101f0b85b3d0c04008c4de1c39b17f4",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/deployment.yaml",
-          "sha256": "95eed829f21c93256dcb45697cd10bd7dc4698237396b92bf77cbd5c43887fca",
           "owner": "azure-kubernetes",
+          "sha256": "95eed829f21c93256dcb45697cd10bd7dc4698237396b92bf77cbd5c43887fca",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/gateway.yaml",
-          "sha256": "a88f09525879b8331bc1dc9f1eb5c5efb898d90ae4e9e468acb8eedbe49819d5",
           "owner": "azure-kubernetes",
+          "sha256": "a88f09525879b8331bc1dc9f1eb5c5efb898d90ae4e9e468acb8eedbe49819d5",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/hpa.yaml",
-          "sha256": "85a69dca61312621f002b7908b2995412c45b794d6638a1191b080655fb0bfe6",
           "owner": "azure-kubernetes",
+          "sha256": "85a69dca61312621f002b7908b2995412c45b794d6638a1191b080655fb0bfe6",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/httproute.yaml",
-          "sha256": "b7a20e01dbfe38b1d0c60ad92b77b29dcf6ae338fb2837651cf1305dd7a74866",
           "owner": "azure-kubernetes",
+          "sha256": "b7a20e01dbfe38b1d0c60ad92b77b29dcf6ae338fb2837651cf1305dd7a74866",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/ingress.yaml",
-          "sha256": "e6f088b331b0fdf40b2b07f90640354cdb71110ec454a18f88d29c64e6a4b3fa",
           "owner": "azure-kubernetes",
+          "sha256": "e6f088b331b0fdf40b2b07f90640354cdb71110ec454a18f88d29c64e6a4b3fa",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/namespace.yaml",
-          "sha256": "e77f6a0f68dec95d48405b43908a2eac68c9de4c0a3633fc5b8fd0ed76819a92",
           "owner": "azure-kubernetes",
+          "sha256": "e77f6a0f68dec95d48405b43908a2eac68c9de4c0a3633fc5b8fd0ed76819a92",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/networkpolicy.yaml",
-          "sha256": "c0f5ba2f56628e38c87091658cd551c5ff0ef1353e2c389559f162866511192b",
           "owner": "azure-kubernetes",
+          "sha256": "c0f5ba2f56628e38c87091658cd551c5ff0ef1353e2c389559f162866511192b",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/pdb.yaml",
-          "sha256": "4cbe61ad7e8a8a994bd435253f1218ca8735f08233a7a45968e50873f14ff556",
           "owner": "azure-kubernetes",
+          "sha256": "4cbe61ad7e8a8a994bd435253f1218ca8735f08233a7a45968e50873f14ff556",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/service.yaml",
-          "sha256": "4174de229b2b7fb318eab0f57f25c05055bab03849aa7c795f49b039e48f4d57",
           "owner": "azure-kubernetes",
+          "sha256": "4174de229b2b7fb318eab0f57f25c05055bab03849aa7c795f49b039e48f4d57",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/k8s/serviceaccount.yaml",
-          "sha256": "c4d222b307b80d19c2d86708121329578cd0d39b0f619680a50fcc1824d70ece",
           "owner": "azure-kubernetes",
+          "sha256": "c4d222b307b80d19c2d86708121329578cd0d39b0f619680a50fcc1824d70ece",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/mermaid/architecture-diagram.md",
-          "sha256": "4ba00f2d649e771d2011f48f1c0eb7534c05aa5770239fbec80073b15de524a4",
           "owner": "azure-kubernetes",
+          "sha256": "4ba00f2d649e771d2011f48f1c0eb7534c05aa5770239fbec80073b15de524a4",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/mermaid/summary-dashboard.md",
-          "sha256": "026641bacf96fdb18ec3c071b9789ab055a610e2c56116fd951bfde7c9b645c2",
           "owner": "azure-kubernetes",
+          "sha256": "026641bacf96fdb18ec3c071b9789ab055a610e2c56116fd951bfde7c9b645c2",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-automatic-readiness/SKILL.md",
-          "sha256": "edb3cf2c27742796dc03cffcd96963964ee989a92bbdc9d1483ae8fd8369998d",
           "owner": "azure-kubernetes",
+          "sha256": "edb3cf2c27742796dc03cffcd96963964ee989a92bbdc9d1483ae8fd8369998d",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-automatic-readiness/references/common-fixes.md",
-          "sha256": "6197c9fdbc3efcc26ef8984803b8a1bcc464443a7b84420c8800e884602befd0",
           "owner": "azure-kubernetes",
+          "sha256": "6197c9fdbc3efcc26ef8984803b8a1bcc464443a7b84420c8800e884602befd0",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-automatic-readiness/references/constraint-spec-v1.yaml",
-          "sha256": "51f67a31dab3fcc1bd3b1d82200439451c8f7acf93a4418d423a0c637c874bda",
           "owner": "azure-kubernetes",
+          "sha256": "51f67a31dab3fcc1bd3b1d82200439451c8f7acf93a4418d423a0c637c874bda",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-automatic-readiness/references/mcp-integration.md",
-          "sha256": "77da9a1a84ba0e48e91c3798772d97791227235b9eeda2fca8cfb9f523eb0737",
           "owner": "azure-kubernetes",
+          "sha256": "77da9a1a84ba0e48e91c3798772d97791227235b9eeda2fca8cfb9f523eb0737",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-automatic-readiness/references/migration-guide-summary.md",
-          "sha256": "81e555345e5b75c7bb9107e97f8a26206a02510378f05e0c1012d4df828244ce",
           "owner": "azure-kubernetes",
+          "sha256": "81e555345e5b75c7bb9107e97f8a26206a02510378f05e0c1012d4df828244ce",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/references/azure-aks-autoscaler.md",
-          "sha256": "715444b6f1fd638c57b0275d822ff9117e99e0f52d6d0dc2d6584fa81c08e967",
           "owner": "azure-kubernetes",
+          "sha256": "715444b6f1fd638c57b0275d822ff9117e99e0f52d6d0dc2d6584fa81c08e967",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/references/azure-aks-rightsizing.md",
-          "sha256": "8c9edefed4b07ca3c914732e6fb3b43ff4f43fc93451ad58f169981efd5f4358",
           "owner": "azure-kubernetes",
+          "sha256": "8c9edefed4b07ca3c914732e6fb3b43ff4f43fc93451ad58f169981efd5f4358",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/references/azure-aks-spot.md",
-          "sha256": "3e91bb2bc5cb3b11a05bc9dcc4a33e7cc8f1fc3d61bf8c3712cc26cea5f52c11",
           "owner": "azure-kubernetes",
+          "sha256": "3e91bb2bc5cb3b11a05bc9dcc4a33e7cc8f1fc3d61bf8c3712cc26cea5f52c11",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/references/azure-aks-vpa.md",
-          "sha256": "3dae1c706ebe394f4964b581bd9537fdb7625c3784a03e76bcce52cd7bb80cb6",
           "owner": "azure-kubernetes",
+          "sha256": "3dae1c706ebe394f4964b581bd9537fdb7625c3784a03e76bcce52cd7bb80cb6",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/references/cli-reference.md",
-          "sha256": "b3c5588bd3abf50244c984f6ee79cfa4d6d157a9ac488a1cc6bf20060087d7f3",
           "owner": "azure-kubernetes",
+          "sha256": "b3c5588bd3abf50244c984f6ee79cfa4d6d157a9ac488a1cc6bf20060087d7f3",
           "mode": "100644"
         }
       ]
@@ -1070,7 +1147,7 @@
         "repo": "akin-ozer/cc-devops-skills",
         "path": "README.md",
         "ref": "main",
-        "last_checked_at": "2026-08-31",
+        "last_checked_at": "2026-09-30",
         "last_synced_at": "2026-08-31",
         "last_synced_commit": "276af751e659315aaf56d3ad13d7c26f4e72e28a",
         "sync_mode": "monitor",
@@ -1097,7 +1174,7 @@
             "resolved_commit": "276af751e659315aaf56d3ad13d7c26f4e72e28a",
             "path_commit": "84f796a092ff67d05e56dab16acf48b965b95d56",
             "content_sha256": "9d253f88c04ec3556e91756a025318c438df66516c4702ecb768ad1a148168e4",
-            "last_checked_at": "2026-08-31",
+            "last_checked_at": "2026-09-30",
             "last_synced_at": "2026-08-31",
             "license_checkpoint": {
               "path": "LICENSE",
@@ -1183,17 +1260,17 @@
       "normalized_slug": "gha-security-review",
       "status": "verified_in_repo",
       "repo_skill": "skills/security-and-reliability/gha-security-review/SKILL.md",
-      "source": "https://skills.sh/getsentry/skills/gha-security-review",
-      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.",
+      "source": "https://github.com/getsentry/skills/blob/d18b7aa8ba878354e5c348310230e652f7690f9c/skills/gha-security-review/SKILL.md",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
       "upstream": {
         "repo": "getsentry/skills",
         "path": "skills/gha-security-review/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-31",
-        "last_synced_at": "2026-08-31",
-        "last_synced_commit": "c2f99a5b04b4cd992ec3022d7c2c3e23e938d241",
+        "last_checked_at": "2026-09-30",
+        "last_synced_at": "2026-09-30",
+        "last_synced_commit": "d18b7aa8ba878354e5c348310230e652f7690f9c",
         "sync_mode": "monitor",
-        "path_commit": "7e127fe8a5d16a6800a80f9cf50f96a7324eac0e"
+        "path_commit": "e99aa676c22ca6db324c675630dd2b42b793a70e"
       },
       "kind": "mirror",
       "sync_mode": "monitor",
@@ -1207,22 +1284,67 @@
             {
               "source": "skills/gha-security-review/SKILL.md",
               "target": "skills/security-and-reliability/gha-security-review/SKILL.md"
+            },
+            {
+              "source": "skills/gha-security-review/references/ai-prompt-injection-via-ci.md",
+              "target": "skills/security-and-reliability/gha-security-review/references/ai-prompt-injection-via-ci.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/gha-security-review/references/comment-triggered-commands.md",
+              "target": "skills/security-and-reliability/gha-security-review/references/comment-triggered-commands.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/gha-security-review/references/credential-escalation.md",
+              "target": "skills/security-and-reliability/gha-security-review/references/credential-escalation.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/gha-security-review/references/expression-injection.md",
+              "target": "skills/security-and-reliability/gha-security-review/references/expression-injection.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/gha-security-review/references/permissions-and-secrets.md",
+              "target": "skills/security-and-reliability/gha-security-review/references/permissions-and-secrets.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/gha-security-review/references/pwn-request.md",
+              "target": "skills/security-and-reliability/gha-security-review/references/pwn-request.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/gha-security-review/references/real-world-attacks.md",
+              "target": "skills/security-and-reliability/gha-security-review/references/real-world-attacks.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/gha-security-review/references/runner-infrastructure.md",
+              "target": "skills/security-and-reliability/gha-security-review/references/runner-infrastructure.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/gha-security-review/references/supply-chain.md",
+              "target": "skills/security-and-reliability/gha-security-review/references/supply-chain.md",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "c2f99a5b04b4cd992ec3022d7c2c3e23e938d241",
-            "path_commit": "7e127fe8a5d16a6800a80f9cf50f96a7324eac0e",
-            "content_sha256": "b5755fb9f86d189acbca1d8ccd37f8d931c97b26b5094d58ec31be196b951cc5",
-            "last_checked_at": "2026-08-31",
-            "last_synced_at": "2026-08-31",
+            "resolved_commit": "d18b7aa8ba878354e5c348310230e652f7690f9c",
+            "path_commit": "e99aa676c22ca6db324c675630dd2b42b793a70e",
+            "content_sha256": "1303ee58e94777a6f36d16ada296966e046d99c32f9e9571c682a912ed941a70",
+            "last_checked_at": "2026-09-30",
+            "last_synced_at": "2026-09-30",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "753a6c03c60a9232405d05170bd3ad3cab49a1ef",
               "content_sha256": "96e78a9ce85795b117c8929887bdb78f88bf23f7b85a31f0872cde4dff7e92cd",
               "spdx": "Apache-2.0",
-              "resolved_commit": "c2f99a5b04b4cd992ec3022d7c2c3e23e938d241",
+              "resolved_commit": "d18b7aa8ba878354e5c348310230e652f7690f9c",
               "api_spdx": "Apache-2.0"
             }
           }
@@ -1232,7 +1354,61 @@
         {
           "path": "skills/security-and-reliability/gha-security-review/SKILL.md",
           "owner": "gha-security-review",
-          "sha256": "b5755fb9f86d189acbca1d8ccd37f8d931c97b26b5094d58ec31be196b951cc5",
+          "sha256": "1303ee58e94777a6f36d16ada296966e046d99c32f9e9571c682a912ed941a70",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/gha-security-review/references/ai-prompt-injection-via-ci.md",
+          "owner": "gha-security-review",
+          "sha256": "9177d24968ac5b8d719b9f6748f91751d5e157ae0afa4d41cd0bb760356f23a2",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/gha-security-review/references/comment-triggered-commands.md",
+          "owner": "gha-security-review",
+          "sha256": "243526302999b7cbcbff4bbdd01c7d16377b1c60a86ee8877326c2b2b040a0b3",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/gha-security-review/references/credential-escalation.md",
+          "owner": "gha-security-review",
+          "sha256": "7febad6c0e4073dabfb338ee4646c2dd484251ad7d18b500ea83ad6fd9ac1a1d",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/gha-security-review/references/expression-injection.md",
+          "owner": "gha-security-review",
+          "sha256": "f701049355e4758207f77efc53c8e4a42f377eaa15240a2c867446154041d4f0",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/gha-security-review/references/permissions-and-secrets.md",
+          "owner": "gha-security-review",
+          "sha256": "6b6837c5f37ff85cf18c1f611f882202ce0ce41cb006b55dd49c4da52f976779",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/gha-security-review/references/pwn-request.md",
+          "owner": "gha-security-review",
+          "sha256": "6dd84c91ce77d57883059edf95c2f1c64ea1ec39551c5c8208e0cadb9c3ca673",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/gha-security-review/references/real-world-attacks.md",
+          "owner": "gha-security-review",
+          "sha256": "761260977a220264a1ee30e0b961618495723c2e6cc4e91893b7d9d4a9408718",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/gha-security-review/references/runner-infrastructure.md",
+          "owner": "gha-security-review",
+          "sha256": "cb427fa29c34c10aef18766441e0be8e0123632bb87c307bdb8d1c40b47fc81e",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/gha-security-review/references/supply-chain.md",
+          "owner": "gha-security-review",
+          "sha256": "1f80df872a1be8f70ccf1be0bb25b2e24ee1ec2ac6a9f3d7a53800cb361bfa86",
           "mode": "100644"
         }
       ]
@@ -1243,16 +1419,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/kubernetes-specialist/SKILL.md",
       "source": "https://skills.sh/jeffallan/claude-skills/kubernetes-specialist",
-      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.\n2026-10-03: Retain functional guidance and local attribution; upstream changes only add company advertising metadata and footer. See docs/maintenance-followup-2026-10-03.json.",
       "upstream": {
         "repo": "Jeffallan/claude-skills",
         "path": "skills/kubernetes-specialist/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-31",
-        "last_synced_at": "2026-08-31",
-        "last_synced_commit": "882ef55e377dbf9a4dbe496bb41ac6ccd0e555cf",
+        "last_checked_at": "2026-10-03",
+        "last_synced_at": "2026-10-03",
+        "last_synced_commit": "1be15d8064f88fc25216442406d40add8fd23b53",
         "sync_mode": "monitor",
-        "path_commit": "efebc44c90ae6eb3b36ff1c53802a765418481b9"
+        "path_commit": "958e60fb998e008507c978b7943211f337def6a6"
       },
       "kind": "mirror",
       "sync_mode": "monitor",
@@ -1271,17 +1447,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "882ef55e377dbf9a4dbe496bb41ac6ccd0e555cf",
-            "path_commit": "efebc44c90ae6eb3b36ff1c53802a765418481b9",
+            "resolved_commit": "1be15d8064f88fc25216442406d40add8fd23b53",
+            "path_commit": "958e60fb998e008507c978b7943211f337def6a6",
             "content_sha256": "e41b625752f3324784b452dd8102b792c2be28b98e73ba6e703d80df3b111f6c",
-            "last_checked_at": "2026-08-31",
-            "last_synced_at": "2026-08-31",
+            "last_checked_at": "2026-10-03",
+            "last_synced_at": "2026-10-03",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "882ef55e377dbf9a4dbe496bb41ac6ccd0e555cf",
+              "resolved_commit": "1be15d8064f88fc25216442406d40add8fd23b53",
               "api_spdx": "MIT"
             }
           }
@@ -1301,17 +1477,17 @@
       "normalized_slug": "neon-postgres",
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/neon-postgres/SKILL.md",
-      "source": "https://skills.sh/neondatabase/agent-skills/neon-postgres",
-      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-28: curated reviewed deltas from 80164a28443aca7c82ac1a70aed836950d6c29ea; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences.",
+      "source": "https://github.com/neondatabase/agent-skills/blob/80164a28443aca7c82ac1a70aed836950d6c29ea/skills/neon-postgres/SKILL.md",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-28: curated reviewed deltas from 80164a28443aca7c82ac1a70aed836950d6c29ea; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json.",
       "upstream": {
         "repo": "neondatabase/agent-skills",
         "path": "skills/neon-postgres/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-06",
-        "last_synced_at": "2026-09-06",
-        "last_synced_commit": "2e0da3a1653bcdd227565ac14bb3e9e453a8b854",
+        "last_checked_at": "2026-10-03",
+        "last_synced_at": "2026-10-03",
+        "last_synced_commit": "ae082b22275461fbb5e303a1bcdc9bb00b73a946",
         "sync_mode": "monitor",
-        "path_commit": "ca7821ea5f7825ecde98d68b03a7aeb0de9431dc"
+        "path_commit": "dd290a9d92e8ed9d80365337bd78c9f0ddfbaed3"
       },
       "kind": "mirror",
       "sync_mode": "monitor",
@@ -1325,22 +1501,42 @@
             {
               "source": "skills/neon-postgres/SKILL.md",
               "target": "skills/developer-engineering/neon-postgres/SKILL.md"
+            },
+            {
+              "source": "skills/neon-postgres/references/full-text-search.md",
+              "target": "skills/developer-engineering/neon-postgres/references/full-text-search.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/neon-postgres/references/hybrid-search.md",
+              "target": "skills/developer-engineering/neon-postgres/references/hybrid-search.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/neon-postgres/references/lakebase-search-drizzle.md",
+              "target": "skills/developer-engineering/neon-postgres/references/lakebase-search-drizzle.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/neon-postgres/references/vector-search.md",
+              "target": "skills/developer-engineering/neon-postgres/references/vector-search.md",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2e0da3a1653bcdd227565ac14bb3e9e453a8b854",
-            "path_commit": "ca7821ea5f7825ecde98d68b03a7aeb0de9431dc",
-            "content_sha256": "9e0ae9614cab50725f9dd839e238b521e1476e27444b065e89feae518d8b1003",
-            "last_checked_at": "2026-09-06",
-            "last_synced_at": "2026-09-06",
+            "resolved_commit": "ae082b22275461fbb5e303a1bcdc9bb00b73a946",
+            "path_commit": "dd290a9d92e8ed9d80365337bd78c9f0ddfbaed3",
+            "content_sha256": "d56bc858a7f603227b8343bb5d527ba381a6b9b9cc2234e87d2cba9195f9aa5e",
+            "last_checked_at": "2026-10-03",
+            "last_synced_at": "2026-10-03",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
               "content_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
               "spdx": "Apache-2.0",
-              "resolved_commit": "2e0da3a1653bcdd227565ac14bb3e9e453a8b854",
+              "resolved_commit": "ae082b22275461fbb5e303a1bcdc9bb00b73a946",
               "api_spdx": "Apache-2.0"
             }
           }
@@ -1350,7 +1546,31 @@
         {
           "path": "skills/developer-engineering/neon-postgres/SKILL.md",
           "owner": "neon-postgres",
-          "sha256": "9e0ae9614cab50725f9dd839e238b521e1476e27444b065e89feae518d8b1003",
+          "sha256": "d56bc858a7f603227b8343bb5d527ba381a6b9b9cc2234e87d2cba9195f9aa5e",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/neon-postgres/references/full-text-search.md",
+          "owner": "neon-postgres",
+          "sha256": "025d4380ccfe8e2c745687d82ed6182d501d5678a3941112f37f58bac38e7db4",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/neon-postgres/references/hybrid-search.md",
+          "owner": "neon-postgres",
+          "sha256": "80b9b1a9974c41eea80bfa4159c5be2b89ca0caaf96b06356ce60d49b2443f90",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/neon-postgres/references/lakebase-search-drizzle.md",
+          "owner": "neon-postgres",
+          "sha256": "9d5193830642719ecd325dd60f2ffc7c1104055e9c7c4f4828963299adb234b7",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/neon-postgres/references/vector-search.md",
+          "owner": "neon-postgres",
+          "sha256": "4d7c14f1940033e2c379be62f00ef5ba5e17878a44bc11957a5176f91c2aa0ac",
           "mode": "100644"
         }
       ]
@@ -1360,17 +1580,17 @@
       "normalized_slug": "neon-postgres-egress-optimizer",
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/neon-postgres-egress-optimizer/SKILL.md",
-      "source": "https://github.com/neondatabase/agent-skills/tree/main/skills/neon-postgres-egress-optimizer",
-      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.",
+      "source": "https://github.com/neondatabase/agent-skills/blob/80164a28443aca7c82ac1a70aed836950d6c29ea/skills/neon-postgres-egress-optimizer/SKILL.md",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json.",
       "upstream": {
         "repo": "neondatabase/agent-skills",
         "path": "skills/neon-postgres-egress-optimizer/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-06",
-        "last_synced_at": "2026-09-06",
-        "last_synced_commit": "2e0da3a1653bcdd227565ac14bb3e9e453a8b854",
+        "last_checked_at": "2026-10-03",
+        "last_synced_at": "2026-10-03",
+        "last_synced_commit": "ae082b22275461fbb5e303a1bcdc9bb00b73a946",
         "sync_mode": "monitor",
-        "path_commit": "e20e68996aa1dbd5cf4d2c981e5357cdefd8f5bd"
+        "path_commit": "e5a62ea5e1f44fa39be6017c7b6251e6d2363d5a"
       },
       "kind": "mirror",
       "sync_mode": "monitor",
@@ -1389,17 +1609,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "2e0da3a1653bcdd227565ac14bb3e9e453a8b854",
-            "path_commit": "e20e68996aa1dbd5cf4d2c981e5357cdefd8f5bd",
-            "content_sha256": "43152f78babe25e0e666d751de36011573cd2833bb1756fbb984f8648690bea1",
-            "last_checked_at": "2026-09-06",
-            "last_synced_at": "2026-09-06",
+            "resolved_commit": "ae082b22275461fbb5e303a1bcdc9bb00b73a946",
+            "path_commit": "e5a62ea5e1f44fa39be6017c7b6251e6d2363d5a",
+            "content_sha256": "7b0bf839197895bcbd23d26a8ced1fd1ce2f55d2f2e3af413e3ab130151f74d0",
+            "last_checked_at": "2026-10-03",
+            "last_synced_at": "2026-10-03",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
               "content_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
               "spdx": "Apache-2.0",
-              "resolved_commit": "2e0da3a1653bcdd227565ac14bb3e9e453a8b854",
+              "resolved_commit": "ae082b22275461fbb5e303a1bcdc9bb00b73a946",
               "api_spdx": "Apache-2.0"
             }
           }
@@ -1409,7 +1629,7 @@
         {
           "path": "skills/developer-engineering/neon-postgres-egress-optimizer/SKILL.md",
           "owner": "neon-postgres-egress-optimizer",
-          "sha256": "43152f78babe25e0e666d751de36011573cd2833bb1756fbb984f8648690bea1",
+          "sha256": "7b0bf839197895bcbd23d26a8ced1fd1ce2f55d2f2e3af413e3ab130151f74d0",
           "mode": "100644"
         }
       ]
@@ -1420,14 +1640,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/nextjs-app-router/SKILL.md",
       "source": "https://skills.sh/wshobson/agents/nextjs-app-router-patterns",
-      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
       "upstream": {
         "repo": "wshobson/agents",
         "path": "plugins/frontend-mobile-development/skills/nextjs-app-router-patterns/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-14",
-        "last_synced_at": "2026-09-14",
-        "last_synced_commit": "4236bb91f8395b0435f1d8b8baf9e8e4c69a8620",
+        "last_checked_at": "2026-09-30",
+        "last_synced_at": "2026-09-30",
+        "last_synced_commit": "156b7a5e7a8b93642628a339ee4039c925b34c7f",
         "sync_mode": "monitor",
         "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f"
       },
@@ -1454,17 +1674,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "4236bb91f8395b0435f1d8b8baf9e8e4c69a8620",
+            "resolved_commit": "156b7a5e7a8b93642628a339ee4039c925b34c7f",
             "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f",
             "content_sha256": "75ea8d7f86c3b80fc096eed53ea5decb4b29e4f1e2cbb61177d15069e7fd2b7e",
-            "last_checked_at": "2026-09-14",
-            "last_synced_at": "2026-09-14",
+            "last_checked_at": "2026-09-30",
+            "last_synced_at": "2026-09-30",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "326f0a55c96e672fedf9d807ca043c00df05ba0e",
               "content_sha256": "f89abb55d9f073f38f1703e4518f0613c788c6174be7f13b8dfe48a1c076c746",
               "spdx": "MIT",
-              "resolved_commit": "4236bb91f8395b0435f1d8b8baf9e8e4c69a8620",
+              "resolved_commit": "156b7a5e7a8b93642628a339ee4039c925b34c7f",
               "api_spdx": "MIT"
             }
           }
@@ -1473,14 +1693,14 @@
       "managed_files": [
         {
           "path": "skills/developer-engineering/nextjs-app-router/SKILL.md",
-          "sha256": "75ea8d7f86c3b80fc096eed53ea5decb4b29e4f1e2cbb61177d15069e7fd2b7e",
           "owner": "nextjs-app-router",
+          "sha256": "75ea8d7f86c3b80fc096eed53ea5decb4b29e4f1e2cbb61177d15069e7fd2b7e",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/nextjs-app-router/references/details.md",
-          "sha256": "ce694daee93b0bba3373ae77bc3dbe66583807fee394088a24b33b8adae1d96e",
           "owner": "nextjs-app-router",
+          "sha256": "ce694daee93b0bba3373ae77bc3dbe66583807fee394088a24b33b8adae1d96e",
           "mode": "100644"
         }
       ]
@@ -1490,15 +1710,15 @@
       "normalized_slug": "python-performance",
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/python-performance/SKILL.md",
-      "source": "https://skills.sh/wshobson/agents/python-performance-optimization",
-      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.",
+      "source": "https://github.com/wshobson/agents/blob/156b7a5e7a8b93642628a339ee4039c925b34c7f/plugins/python-development/skills/python-performance-optimization/SKILL.md",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
       "upstream": {
         "repo": "wshobson/agents",
         "path": "plugins/python-development/skills/python-performance-optimization/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-14",
-        "last_synced_at": "2026-09-14",
-        "last_synced_commit": "4236bb91f8395b0435f1d8b8baf9e8e4c69a8620",
+        "last_checked_at": "2026-09-30",
+        "last_synced_at": "2026-09-30",
+        "last_synced_commit": "156b7a5e7a8b93642628a339ee4039c925b34c7f",
         "sync_mode": "monitor",
         "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f"
       },
@@ -1530,17 +1750,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "4236bb91f8395b0435f1d8b8baf9e8e4c69a8620",
+            "resolved_commit": "156b7a5e7a8b93642628a339ee4039c925b34c7f",
             "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f",
-            "content_sha256": "607243d4673f249937a87b93df48f80e07670dd8c42c59b4142105faeab6ce81",
-            "last_checked_at": "2026-09-14",
-            "last_synced_at": "2026-09-14",
+            "content_sha256": "7d92f95bdebc5f57b77fe1a32e0aac0605ae6055f8c64e1ec17838b505f827d4",
+            "last_checked_at": "2026-09-30",
+            "last_synced_at": "2026-09-30",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "326f0a55c96e672fedf9d807ca043c00df05ba0e",
               "content_sha256": "f89abb55d9f073f38f1703e4518f0613c788c6174be7f13b8dfe48a1c076c746",
               "spdx": "MIT",
-              "resolved_commit": "4236bb91f8395b0435f1d8b8baf9e8e4c69a8620",
+              "resolved_commit": "156b7a5e7a8b93642628a339ee4039c925b34c7f",
               "api_spdx": "MIT"
             }
           }
@@ -1549,20 +1769,20 @@
       "managed_files": [
         {
           "path": "skills/developer-engineering/python-performance/SKILL.md",
-          "sha256": "607243d4673f249937a87b93df48f80e07670dd8c42c59b4142105faeab6ce81",
           "owner": "python-performance",
+          "sha256": "7d92f95bdebc5f57b77fe1a32e0aac0605ae6055f8c64e1ec17838b505f827d4",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/python-performance/references/advanced-patterns.md",
-          "sha256": "dc1bca8a377572ba1583316b8288af0e5ca2d2be864dc33889b2d3b1ee5c2abf",
           "owner": "python-performance",
+          "sha256": "dc1bca8a377572ba1583316b8288af0e5ca2d2be864dc33889b2d3b1ee5c2abf",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/python-performance/references/details.md",
-          "sha256": "3d3960a8fbbddb7a3557ae7452fd962fad2c618843d184a5ce02368b14fdc8dc",
           "owner": "python-performance",
+          "sha256": "8643031fabcbaf555ae1b4e702f1b5159689a31a4b286280d4df2822c9731281",
           "mode": "100644"
         }
       ]
@@ -1622,17 +1842,17 @@
       "normalized_slug": "security-review",
       "status": "verified_in_repo",
       "repo_skill": "skills/security-and-reliability/security-review/SKILL.md",
-      "source": "https://skills.sh/getsentry/skills/security-review",
-      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.",
+      "source": "https://github.com/getsentry/skills/blob/d18b7aa8ba878354e5c348310230e652f7690f9c/skills/security-review/SKILL.md",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
       "upstream": {
         "repo": "getsentry/skills",
         "path": "skills/security-review/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-31",
-        "last_synced_at": "2026-08-31",
-        "last_synced_commit": "c2f99a5b04b4cd992ec3022d7c2c3e23e938d241",
+        "last_checked_at": "2026-09-30",
+        "last_synced_at": "2026-09-30",
+        "last_synced_commit": "d18b7aa8ba878354e5c348310230e652f7690f9c",
         "sync_mode": "monitor",
-        "path_commit": "24361e7958f9644d11f1de100654e3b04a509192"
+        "path_commit": "3482d8dd35315adf34607f1c12bf793e14890bfe"
       },
       "kind": "mirror",
       "sync_mode": "monitor",
@@ -1646,22 +1866,127 @@
             {
               "source": "skills/security-review/SKILL.md",
               "target": "skills/security-and-reliability/security-review/SKILL.md"
+            },
+            {
+              "source": "skills/security-review/LICENSE",
+              "target": "skills/security-and-reliability/security-review/LICENSE",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-review/infrastructure/docker.md",
+              "target": "skills/security-and-reliability/security-review/infrastructure/docker.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-review/languages/javascript.md",
+              "target": "skills/security-and-reliability/security-review/languages/javascript.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-review/languages/python.md",
+              "target": "skills/security-and-reliability/security-review/languages/python.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-review/references/api-security.md",
+              "target": "skills/security-and-reliability/security-review/references/api-security.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-review/references/authentication.md",
+              "target": "skills/security-and-reliability/security-review/references/authentication.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-review/references/authorization.md",
+              "target": "skills/security-and-reliability/security-review/references/authorization.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-review/references/business-logic.md",
+              "target": "skills/security-and-reliability/security-review/references/business-logic.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-review/references/cryptography.md",
+              "target": "skills/security-and-reliability/security-review/references/cryptography.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-review/references/csrf.md",
+              "target": "skills/security-and-reliability/security-review/references/csrf.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-review/references/data-protection.md",
+              "target": "skills/security-and-reliability/security-review/references/data-protection.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-review/references/deserialization.md",
+              "target": "skills/security-and-reliability/security-review/references/deserialization.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-review/references/error-handling.md",
+              "target": "skills/security-and-reliability/security-review/references/error-handling.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-review/references/file-security.md",
+              "target": "skills/security-and-reliability/security-review/references/file-security.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-review/references/injection.md",
+              "target": "skills/security-and-reliability/security-review/references/injection.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-review/references/logging.md",
+              "target": "skills/security-and-reliability/security-review/references/logging.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-review/references/misconfiguration.md",
+              "target": "skills/security-and-reliability/security-review/references/misconfiguration.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-review/references/modern-threats.md",
+              "target": "skills/security-and-reliability/security-review/references/modern-threats.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-review/references/ssrf.md",
+              "target": "skills/security-and-reliability/security-review/references/ssrf.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-review/references/supply-chain.md",
+              "target": "skills/security-and-reliability/security-review/references/supply-chain.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-review/references/xss.md",
+              "target": "skills/security-and-reliability/security-review/references/xss.md",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "c2f99a5b04b4cd992ec3022d7c2c3e23e938d241",
-            "path_commit": "24361e7958f9644d11f1de100654e3b04a509192",
-            "content_sha256": "09dfc721c31710bfa8008a83d4e5c5ea359a4e5e16028e7d76bfee9d8dc8b8f7",
-            "last_checked_at": "2026-08-31",
-            "last_synced_at": "2026-08-31",
+            "resolved_commit": "d18b7aa8ba878354e5c348310230e652f7690f9c",
+            "path_commit": "3482d8dd35315adf34607f1c12bf793e14890bfe",
+            "content_sha256": "e1bb20e6572af7872cd5b76c2c9ebac4f23d193d6ff98498e1f298137bc1c029",
+            "last_checked_at": "2026-09-30",
+            "last_synced_at": "2026-09-30",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "753a6c03c60a9232405d05170bd3ad3cab49a1ef",
               "content_sha256": "96e78a9ce85795b117c8929887bdb78f88bf23f7b85a31f0872cde4dff7e92cd",
               "spdx": "Apache-2.0",
-              "resolved_commit": "c2f99a5b04b4cd992ec3022d7c2c3e23e938d241",
+              "resolved_commit": "d18b7aa8ba878354e5c348310230e652f7690f9c",
               "api_spdx": "Apache-2.0"
             }
           }
@@ -1669,9 +1994,135 @@
       ],
       "managed_files": [
         {
+          "path": "skills/security-and-reliability/security-review/LICENSE",
+          "owner": "security-review",
+          "sha256": "0fc858d87f467971ee612fc183896257a1c160a1610a443896b33ae4d2a44ef7",
+          "mode": "100644"
+        },
+        {
           "path": "skills/security-and-reliability/security-review/SKILL.md",
           "owner": "security-review",
-          "sha256": "09dfc721c31710bfa8008a83d4e5c5ea359a4e5e16028e7d76bfee9d8dc8b8f7",
+          "sha256": "e1bb20e6572af7872cd5b76c2c9ebac4f23d193d6ff98498e1f298137bc1c029",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/infrastructure/docker.md",
+          "owner": "security-review",
+          "sha256": "84bd49469c5a0cbd42fecdcce752de98cf6821b601dfef6a1920df61f030ae62",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/languages/javascript.md",
+          "owner": "security-review",
+          "sha256": "f4226c82de13da9dec9be7b509932d74a4ade2c8d46b98a078a5b38bf8aa3319",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/languages/python.md",
+          "owner": "security-review",
+          "sha256": "32d0b1304d132fc582320d584d54bbaea566d51700cd16b3f0be723ed834a556",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/references/api-security.md",
+          "owner": "security-review",
+          "sha256": "65b2456b4c5ae0d6d9849eac8196ac03fbefbf88657c5e069a8aa5063dd6afbf",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/references/authentication.md",
+          "owner": "security-review",
+          "sha256": "7bc598cd4af33bb62406f5a0e8ff7adebff83c04e5fb449e6738f96ae0e26be6",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/references/authorization.md",
+          "owner": "security-review",
+          "sha256": "5ccfd579a1eca4d9d374eb00b04ba33cc9a2918e14e5cb7620c136a6feaeffff",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/references/business-logic.md",
+          "owner": "security-review",
+          "sha256": "fc8ec30eb19f73759e8901e58d7ca66fc87035703325cc8a844298102fa6298a",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/references/cryptography.md",
+          "owner": "security-review",
+          "sha256": "1e1301624e0c9b1699e1d95af11df06a67d104ff06443e93711bb656152f364c",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/references/csrf.md",
+          "owner": "security-review",
+          "sha256": "7b57ba0a45a291eee24578af8b0c69515c76e452c33d8c2d717c66ee3bbdda20",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/references/data-protection.md",
+          "owner": "security-review",
+          "sha256": "920b7dfb86dc696002d31022c1f7665ef602dd1ed76f1124ad937d488ce2b381",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/references/deserialization.md",
+          "owner": "security-review",
+          "sha256": "be9946daf389ad594fbc4065246ff334c389da1e2cf593180ca150b0204287fb",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/references/error-handling.md",
+          "owner": "security-review",
+          "sha256": "e12d3c9f713614223ce797935f3a4c2ac1a7f1fcf0ea24e865a1a70efeab4fb9",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/references/file-security.md",
+          "owner": "security-review",
+          "sha256": "a0a001fb79fe9f1169fa3ba523225164744c42d8779341f15d3d0fc349185f2a",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/references/injection.md",
+          "owner": "security-review",
+          "sha256": "d3989e97af773f521170b430a0e629b26c6ff2051cd826fa62a895523f268178",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/references/logging.md",
+          "owner": "security-review",
+          "sha256": "acca4eeebfc451bb62a7c085d1121ffa443e8cd0831548c2ae6f7fc606056cbc",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/references/misconfiguration.md",
+          "owner": "security-review",
+          "sha256": "919c44e309eaa6427a8bb44a2ed645fbf2b46d9dfe86a0fcdb2d084201898390",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/references/modern-threats.md",
+          "owner": "security-review",
+          "sha256": "d2ac69d91ade6df9c4bf89b2be0d203651d1a0cc5a67d03db8013af52c8ffe6b",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/references/ssrf.md",
+          "owner": "security-review",
+          "sha256": "646a8244fa61997b9b4f093169be1af4f94e6a3d04dcae8d426bb821870b2bff",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/references/supply-chain.md",
+          "owner": "security-review",
+          "sha256": "ef3000d91763ccdddfbce2660943c4090b4c16b3b33afe980f4e10947729e1f1",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-review/references/xss.md",
+          "owner": "security-review",
+          "sha256": "4735df1e581b757b078605fbc27d37e85cfe182c45ab326c9e536c71a930680c",
           "mode": "100644"
         }
       ]
@@ -1681,17 +2132,17 @@
       "normalized_slug": "supabase",
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/supabase/SKILL.md",
-      "source": "https://skills.sh/supabase/agent-skills/supabase",
-      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-28: curated reviewed deltas from 551274ed2fe97c8fea1325f7ceb05803a542f8df; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences.",
+      "source": "https://github.com/supabase/agent-skills/blob/544bfc56c89afe2b87b20017a59b2c6e9502a1fb/skills/supabase/SKILL.md",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-28: curated reviewed deltas from 551274ed2fe97c8fea1325f7ceb05803a542f8df; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Adopt the upstream changelog entry for scoped PAT guidance; retain local restricted auth and execution policy. See docs/maintenance-followup-2026-10-03.json.",
       "upstream": {
         "repo": "supabase/agent-skills",
         "path": "skills/supabase/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-31",
-        "last_synced_at": "2026-08-31",
-        "last_synced_commit": "8331f910845103c08d51f6ca1d86ebb7d1f745e3",
+        "last_checked_at": "2026-10-03",
+        "last_synced_at": "2026-10-03",
+        "last_synced_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
         "sync_mode": "monitor",
-        "path_commit": "3a4f0ce0782e0cbdcf187c362e8d15d9e324462b"
+        "path_commit": "551274ed2fe97c8fea1325f7ceb05803a542f8df"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -1726,17 +2177,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "8331f910845103c08d51f6ca1d86ebb7d1f745e3",
-            "path_commit": "3a4f0ce0782e0cbdcf187c362e8d15d9e324462b",
-            "content_sha256": "23b04d149a78a70c90b1aa9b46b3ed8a58be6ff838549a06d9f8cf4b342e8b18",
-            "last_checked_at": "2026-08-31",
-            "last_synced_at": "2026-08-31",
+            "resolved_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+            "path_commit": "551274ed2fe97c8fea1325f7ceb05803a542f8df",
+            "content_sha256": "69a7fc20ec97b60a3d51679d5bcf41dfe8cc596088ac02ceb1a45ef3b70f4832",
+            "last_checked_at": "2026-10-03",
+            "last_synced_at": "2026-10-03",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d3c9e94fbc6c28f66ecb5a01407d543c99c811b6",
               "content_sha256": "b65e575eb4f04a13c187d64e958321298e2ab84d67aa8428819f362056ba292c",
               "spdx": "MIT",
-              "resolved_commit": "8331f910845103c08d51f6ca1d86ebb7d1f745e3",
+              "resolved_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
               "api_spdx": "MIT"
             }
           }
@@ -1767,32 +2218,32 @@
       "managed_files": [
         {
           "path": "skills/developer-engineering/supabase/CHANGELOG.md",
-          "sha256": "f4c9c7750ea2c9212a05c3f38bc04d66cb2fe037f6b9a3fb6279d53bef152f8e",
           "owner": "supabase",
+          "sha256": "4b9c9387871d7888f18e9c97a7d5691ea38e333401ccdcb0161d2140cb16b2d8",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/supabase/SKILL.md",
-          "sha256": "23b04d149a78a70c90b1aa9b46b3ed8a58be6ff838549a06d9f8cf4b342e8b18",
           "owner": "supabase",
+          "sha256": "69a7fc20ec97b60a3d51679d5bcf41dfe8cc596088ac02ceb1a45ef3b70f4832",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/supabase/assets/feedback-issue-template.md",
-          "sha256": "ea211aa174c5a096fe76461f25143b8bc23f3bde3adc9e727cda38218cc8c282",
           "owner": "supabase",
+          "sha256": "ea211aa174c5a096fe76461f25143b8bc23f3bde3adc9e727cda38218cc8c282",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/supabase/references/skill-feedback.md",
-          "sha256": "09ad94c0291735dfc04c92557c8734fa259ec39e1d56bf2bd5c6a6529d838717",
           "owner": "supabase",
+          "sha256": "09ad94c0291735dfc04c92557c8734fa259ec39e1d56bf2bd5c6a6529d838717",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/supabase/skills/supabase/CHANGELOG.md",
-          "sha256": "a15c75daf614ec9b2563397d8c1367027fcb1267808e5939e99f459b33d72211",
           "owner": "supabase",
+          "sha256": "a15c75daf614ec9b2563397d8c1367027fcb1267808e5939e99f459b33d72211",
           "mode": "100644"
         }
       ]
@@ -1803,14 +2254,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/supabase-postgres-best-practices/SKILL.md",
       "source": "https://skills.sh/supabase/agent-skills/supabase-postgres-best-practices",
-      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json.",
       "upstream": {
         "repo": "supabase/agent-skills",
         "path": "skills/supabase-postgres-best-practices/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-31",
-        "last_synced_at": "2026-08-31",
-        "last_synced_commit": "8331f910845103c08d51f6ca1d86ebb7d1f745e3",
+        "last_checked_at": "2026-10-03",
+        "last_synced_at": "2026-10-03",
+        "last_synced_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
         "sync_mode": "monitor",
         "path_commit": "32912161e2732c3e5001c6811a76c1f8308ed0da"
       },
@@ -2007,17 +2458,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "8331f910845103c08d51f6ca1d86ebb7d1f745e3",
+            "resolved_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
             "path_commit": "32912161e2732c3e5001c6811a76c1f8308ed0da",
             "content_sha256": "06641745423da5a205f718e1a363d98165b76023ba84c32ce3ce80163bfb8c13",
-            "last_checked_at": "2026-08-31",
-            "last_synced_at": "2026-08-31",
+            "last_checked_at": "2026-10-03",
+            "last_synced_at": "2026-10-03",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d3c9e94fbc6c28f66ecb5a01407d543c99c811b6",
               "content_sha256": "b65e575eb4f04a13c187d64e958321298e2ab84d67aa8428819f362056ba292c",
               "spdx": "MIT",
-              "resolved_commit": "8331f910845103c08d51f6ca1d86ebb7d1f745e3",
+              "resolved_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
               "api_spdx": "MIT"
             }
           }
@@ -2026,218 +2477,218 @@
       "managed_files": [
         {
           "path": "skills/developer-engineering/supabase-postgres-best-practices/CHANGELOG.md",
-          "sha256": "751ad110037c85d400018c9894716a04fa46357ff55c22b1169b280752e19e88",
           "owner": "supabase-postgres-best-practices",
+          "sha256": "751ad110037c85d400018c9894716a04fa46357ff55c22b1169b280752e19e88",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/supabase-postgres-best-practices/SKILL.md",
-          "sha256": "06641745423da5a205f718e1a363d98165b76023ba84c32ce3ce80163bfb8c13",
           "owner": "supabase-postgres-best-practices",
+          "sha256": "06641745423da5a205f718e1a363d98165b76023ba84c32ce3ce80163bfb8c13",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/supabase-postgres-best-practices/references/_contributing.md",
-          "sha256": "191e039e7d94764e6073410b513b559f9a594e0fdf0252a30c2a2986df2ab3bc",
           "owner": "supabase-postgres-best-practices",
+          "sha256": "191e039e7d94764e6073410b513b559f9a594e0fdf0252a30c2a2986df2ab3bc",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/supabase-postgres-best-practices/references/_sections.md",
-          "sha256": "c9e992612b422c7122de0b7542ebc2450db283edaab08cfe86c6d657fcccccd5",
           "owner": "supabase-postgres-best-practices",
+          "sha256": "c9e992612b422c7122de0b7542ebc2450db283edaab08cfe86c6d657fcccccd5",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/supabase-postgres-best-practices/references/_template.md",
-          "sha256": "6299954250f212caabe339d752c3e5313a8e07d1a182a4e4b425baee91df1bd2",
           "owner": "supabase-postgres-best-practices",
+          "sha256": "6299954250f212caabe339d752c3e5313a8e07d1a182a4e4b425baee91df1bd2",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/supabase-postgres-best-practices/references/advanced-full-text-search.md",
-          "sha256": "40c2606bbb4c4dce31308f201b24cc7f58c7df05b1d9c6856fe2b888d3b7cf28",
           "owner": "supabase-postgres-best-practices",
+          "sha256": "40c2606bbb4c4dce31308f201b24cc7f58c7df05b1d9c6856fe2b888d3b7cf28",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/supabase-postgres-best-practices/references/advanced-jsonb-indexing.md",
-          "sha256": "24cacf6a8bc35901dd566d24502ce8e57f810a5c196b897e61d52726e521d106",
           "owner": "supabase-postgres-best-practices",
+          "sha256": "24cacf6a8bc35901dd566d24502ce8e57f810a5c196b897e61d52726e521d106",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/supabase-postgres-best-practices/references/conn-idle-timeout.md",
-          "sha256": "630588902c00fcec59a5988cc5d042f76dcf2c923a535abfd8c47dca205eaed5",
           "owner": "supabase-postgres-best-practices",
+          "sha256": "630588902c00fcec59a5988cc5d042f76dcf2c923a535abfd8c47dca205eaed5",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/supabase-postgres-best-practices/references/conn-limits.md",
-          "sha256": "11b2a67a7c7679cbbc5d807bbb17e69c98484a581d0c8b929c03408f412b81b2",
           "owner": "supabase-postgres-best-practices",
+          "sha256": "11b2a67a7c7679cbbc5d807bbb17e69c98484a581d0c8b929c03408f412b81b2",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/supabase-postgres-best-practices/references/conn-pooling.md",
-          "sha256": "88cf086bf98ba865d2e9d0579974e1366b14157619d6a93e7da77be91084e4a5",
           "owner": "supabase-postgres-best-practices",
+          "sha256": "88cf086bf98ba865d2e9d0579974e1366b14157619d6a93e7da77be91084e4a5",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/supabase-postgres-best-practices/references/conn-prepared-statements.md",
-          "sha256": "174e9332fe3dda5c99b2b00159fb1915ae36c00bab3a7882c14e73e4344e946e",
           "owner": "supabase-postgres-best-practices",
+          "sha256": "174e9332fe3dda5c99b2b00159fb1915ae36c00bab3a7882c14e73e4344e946e",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/supabase-postgres-best-practices/references/data-batch-inserts.md",
-          "sha256": "531933b82d6a622d0fae29e0ea80be6fe5d78655adf2804c271ea84a1930de37",
           "owner": "supabase-postgres-best-practices",
+          "sha256": "531933b82d6a622d0fae29e0ea80be6fe5d78655adf2804c271ea84a1930de37",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/supabase-postgres-best-practices/references/data-n-plus-one.md",
-          "sha256": "21a44905e5b16a42741892ec34bb1bfef124d049b140a76934a9acd0f46f5fc2",
           "owner": "supabase-postgres-best-practices",
+          "sha256": "21a44905e5b16a42741892ec34bb1bfef124d049b140a76934a9acd0f46f5fc2",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/supabase-postgres-best-practices/references/data-pagination.md",
-          "sha256": "73c9fa10a3d439bedea0e11b640bd25bf30dd50f0d9006cf85baf7c3151543fa",
           "owner": "supabase-postgres-best-practices",
+          "sha256": "73c9fa10a3d439bedea0e11b640bd25bf30dd50f0d9006cf85baf7c3151543fa",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/supabase-postgres-best-practices/references/data-upsert.md",
-          "sha256": "2612af83b20a2701dde30ef1f8d7efd26b7e9eef84717226b8f038a2d2150ff7",
           "owner": "supabase-postgres-best-practices",
+          "sha256": "2612af83b20a2701dde30ef1f8d7efd26b7e9eef84717226b8f038a2d2150ff7",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/supabase-postgres-best-practices/references/lock-advisory.md",
-          "sha256": "c88d259dbf81c3771438f59a165f7eab8acd09999dd370bdf807521c73f35aab",
           "owner": "supabase-postgres-best-practices",
+          "sha256": "c88d259dbf81c3771438f59a165f7eab8acd09999dd370bdf807521c73f35aab",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/supabase-postgres-best-practices/references/lock-deadlock-prevention.md",
-          "sha256": "09aee46f51d7178c8e55fe056cd5a94a64ba2c122fe418e6900cd99f297b2347",
           "owner": "supabase-postgres-best-practices",
+          "sha256": "09aee46f51d7178c8e55fe056cd5a94a64ba2c122fe418e6900cd99f297b2347",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/supabase-postgres-best-practices/references/lock-short-transactions.md",
-          "sha256": "5aa7f61095916986d39644b446cdbcd2bacca7ef698a3bb50b3f82dd60207602",
           "owner": "supabase-postgres-best-practices",
+          "sha256": "5aa7f61095916986d39644b446cdbcd2bacca7ef698a3bb50b3f82dd60207602",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/supabase-postgres-best-practices/references/lock-skip-locked.md",
-          "sha256": "6c45077f430f29cd9cd8f448c94d578e827e7bd023fcdaf717a756acb116fa4b",
           "owner": "supabase-postgres-best-practices",
+          "sha256": "6c45077f430f29cd9cd8f448c94d578e827e7bd023fcdaf717a756acb116fa4b",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/supabase-postgres-best-practices/references/monitor-explain-analyze.md",
-          "sha256": "4cb67ffbf8e57f2e5b380b0beb4242528b513723ce314a2c2ffcf083bd4203d7",
           "owner": "supabase-postgres-best-practices",
+          "sha256": "4cb67ffbf8e57f2e5b380b0beb4242528b513723ce314a2c2ffcf083bd4203d7",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/supabase-postgres-best-practices/references/monitor-pg-stat-statements.md",
-          "sha256": "89dca99d4e894fcbdcac136be7ad9fbc03d1342904f065c1b198dc9cf495f098",
           "owner": "supabase-postgres-best-practices",
+          "sha256": "89dca99d4e894fcbdcac136be7ad9fbc03d1342904f065c1b198dc9cf495f098",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/supabase-postgres-best-practices/references/monitor-vacuum-analyze.md",
-          "sha256": "2892272011710eb49b3f185ec12f15ce9ce4c365792c672f6e2a9c90da426a1a",
           "owner": "supabase-postgres-best-practices",
+          "sha256": "2892272011710eb49b3f185ec12f15ce9ce4c365792c672f6e2a9c90da426a1a",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/supabase-postgres-best-practices/references/query-composite-indexes.md",
-          "sha256": "73e42424e671f0266e74fdb220db3196790f69fb43e2b19c7b9483eb4971b554",
           "owner": "supabase-postgres-best-practices",
+          "sha256": "73e42424e671f0266e74fdb220db3196790f69fb43e2b19c7b9483eb4971b554",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/supabase-postgres-best-practices/references/query-covering-indexes.md",
-          "sha256": "daf2a7f0477fb7357b62b5fb5b185b1995a77a186347e45cb780e25e7a7589b6",
           "owner": "supabase-postgres-best-practices",
+          "sha256": "daf2a7f0477fb7357b62b5fb5b185b1995a77a186347e45cb780e25e7a7589b6",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/supabase-postgres-best-practices/references/query-index-types.md",
-          "sha256": "472a74f22c2df203bd0154999b3a5a0187cca2ab3d9a3978e305bb7c32f1a282",
           "owner": "supabase-postgres-best-practices",
+          "sha256": "472a74f22c2df203bd0154999b3a5a0187cca2ab3d9a3978e305bb7c32f1a282",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/supabase-postgres-best-practices/references/query-missing-indexes.md",
-          "sha256": "91ad8b0ff4365704b4830a7f077c6f140f7140fd5d3ce5cd0b92b160cf9e25f1",
           "owner": "supabase-postgres-best-practices",
+          "sha256": "91ad8b0ff4365704b4830a7f077c6f140f7140fd5d3ce5cd0b92b160cf9e25f1",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/supabase-postgres-best-practices/references/query-partial-indexes.md",
-          "sha256": "6448982bc8558c6555284958edc331b29239c6a0130e6b4501dd6d4da607a6dd",
           "owner": "supabase-postgres-best-practices",
+          "sha256": "6448982bc8558c6555284958edc331b29239c6a0130e6b4501dd6d4da607a6dd",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/supabase-postgres-best-practices/references/schema-constraints.md",
-          "sha256": "90e8efda3e9e81095e642911ad4aae2809d160f29414338fa997253238f510f8",
           "owner": "supabase-postgres-best-practices",
+          "sha256": "90e8efda3e9e81095e642911ad4aae2809d160f29414338fa997253238f510f8",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/supabase-postgres-best-practices/references/schema-data-types.md",
-          "sha256": "e01b58c14c7f3f65d8ead580b9a4fcf70b83baaab0f9a5f83c569c9fd113e8c8",
           "owner": "supabase-postgres-best-practices",
+          "sha256": "e01b58c14c7f3f65d8ead580b9a4fcf70b83baaab0f9a5f83c569c9fd113e8c8",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/supabase-postgres-best-practices/references/schema-foreign-key-indexes.md",
-          "sha256": "7587713d12a65a212365459b3d39e4717d8a79e4073b10bd62f1054d8192c0dd",
           "owner": "supabase-postgres-best-practices",
+          "sha256": "7587713d12a65a212365459b3d39e4717d8a79e4073b10bd62f1054d8192c0dd",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/supabase-postgres-best-practices/references/schema-lowercase-identifiers.md",
-          "sha256": "4bc80f70865f2390872591f326c8a6be6456a0aeb5a7e5a2475d7cd9d43059ab",
           "owner": "supabase-postgres-best-practices",
+          "sha256": "4bc80f70865f2390872591f326c8a6be6456a0aeb5a7e5a2475d7cd9d43059ab",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/supabase-postgres-best-practices/references/schema-partitioning.md",
-          "sha256": "541e13fbeaf4bb1485c9059d4c9417dbdb766cf16f4237cd63a04ada7ec45b90",
           "owner": "supabase-postgres-best-practices",
+          "sha256": "541e13fbeaf4bb1485c9059d4c9417dbdb766cf16f4237cd63a04ada7ec45b90",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/supabase-postgres-best-practices/references/schema-primary-keys.md",
-          "sha256": "3c8beabef82066f9a0838b926da0885117fd2d9a263aaf84cb5ca9e5f0d400e9",
           "owner": "supabase-postgres-best-practices",
+          "sha256": "3c8beabef82066f9a0838b926da0885117fd2d9a263aaf84cb5ca9e5f0d400e9",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/supabase-postgres-best-practices/references/security-privileges.md",
-          "sha256": "095909274a4fb43df785d7144cf674eeb40284d2d45628f14af4108737b93663",
           "owner": "supabase-postgres-best-practices",
+          "sha256": "095909274a4fb43df785d7144cf674eeb40284d2d45628f14af4108737b93663",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/supabase-postgres-best-practices/references/security-rls-basics.md",
-          "sha256": "e04dd1a3a382aafdaaa73fe9f7976352acdde6e90c2a2470d281b94d4f44b096",
           "owner": "supabase-postgres-best-practices",
+          "sha256": "e04dd1a3a382aafdaaa73fe9f7976352acdde6e90c2a2470d281b94d4f44b096",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/supabase-postgres-best-practices/references/security-rls-performance.md",
-          "sha256": "2e1faeca7d5746e246b1c78f9492fe2a9cfa41c4d7fa1e23c402d58fa18ea014",
           "owner": "supabase-postgres-best-practices",
+          "sha256": "2e1faeca7d5746e246b1c78f9492fe2a9cfa41c4d7fa1e23c402d58fa18ea014",
           "mode": "100644"
         }
       ]
@@ -2247,15 +2698,15 @@
       "normalized_slug": "tailwind-design-system",
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/tailwind-design-system/SKILL.md",
-      "source": "https://skills.sh/wshobson/agents/tailwind-design-system",
-      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.",
+      "source": "https://github.com/wshobson/agents/blob/156b7a5e7a8b93642628a339ee4039c925b34c7f/plugins/frontend-mobile-development/skills/tailwind-design-system/SKILL.md",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
       "upstream": {
         "repo": "wshobson/agents",
         "path": "plugins/frontend-mobile-development/skills/tailwind-design-system/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-14",
-        "last_synced_at": "2026-09-14",
-        "last_synced_commit": "4236bb91f8395b0435f1d8b8baf9e8e4c69a8620",
+        "last_checked_at": "2026-09-30",
+        "last_synced_at": "2026-09-30",
+        "last_synced_commit": "156b7a5e7a8b93642628a339ee4039c925b34c7f",
         "sync_mode": "monitor",
         "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f"
       },
@@ -2287,17 +2738,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "4236bb91f8395b0435f1d8b8baf9e8e4c69a8620",
+            "resolved_commit": "156b7a5e7a8b93642628a339ee4039c925b34c7f",
             "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f",
-            "content_sha256": "af6eb5191a0d791a3d20ea177836290d2bbdb2cacf7f8cd08d9701eac4d96dff",
-            "last_checked_at": "2026-09-14",
-            "last_synced_at": "2026-09-14",
+            "content_sha256": "bb76df1f2d6fbcde5f306b005f8ac42a6050d71c1e5cdccc1e125b0c865b5998",
+            "last_checked_at": "2026-09-30",
+            "last_synced_at": "2026-09-30",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "326f0a55c96e672fedf9d807ca043c00df05ba0e",
               "content_sha256": "f89abb55d9f073f38f1703e4518f0613c788c6174be7f13b8dfe48a1c076c746",
               "spdx": "MIT",
-              "resolved_commit": "4236bb91f8395b0435f1d8b8baf9e8e4c69a8620",
+              "resolved_commit": "156b7a5e7a8b93642628a339ee4039c925b34c7f",
               "api_spdx": "MIT"
             }
           }
@@ -2306,20 +2757,20 @@
       "managed_files": [
         {
           "path": "skills/developer-engineering/tailwind-design-system/SKILL.md",
-          "sha256": "af6eb5191a0d791a3d20ea177836290d2bbdb2cacf7f8cd08d9701eac4d96dff",
           "owner": "tailwind-design-system",
+          "sha256": "bb76df1f2d6fbcde5f306b005f8ac42a6050d71c1e5cdccc1e125b0c865b5998",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/tailwind-design-system/references/advanced-patterns.md",
-          "sha256": "40a4a9fa931f4bc95213870ea1fe7c32ce50aacf3531af07954b660c4f51e1a2",
           "owner": "tailwind-design-system",
+          "sha256": "40a4a9fa931f4bc95213870ea1fe7c32ce50aacf3531af07954b660c4f51e1a2",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/tailwind-design-system/references/details.md",
-          "sha256": "22e5e4500edc1f11c32871d6aad013b10e34724f29d486f080faea46a95bd6e7",
           "owner": "tailwind-design-system",
+          "sha256": "06db0dc31dabeced9ea5ee27dfe2f98fd1783756a3930e6aeacf09ab4fc6562a",
           "mode": "100644"
         }
       ]
@@ -2330,16 +2781,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/terraform-engineer/SKILL.md",
       "source": "https://skills.sh/jeffallan/claude-skills/terraform-engineer",
-      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.\n2026-10-03: Retain functional guidance and local attribution; upstream changes only add company advertising metadata and footer. See docs/maintenance-followup-2026-10-03.json.",
       "upstream": {
         "repo": "Jeffallan/claude-skills",
         "path": "skills/terraform-engineer/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-08-31",
-        "last_synced_at": "2026-08-31",
-        "last_synced_commit": "882ef55e377dbf9a4dbe496bb41ac6ccd0e555cf",
+        "last_checked_at": "2026-10-03",
+        "last_synced_at": "2026-10-03",
+        "last_synced_commit": "1be15d8064f88fc25216442406d40add8fd23b53",
         "sync_mode": "monitor",
-        "path_commit": "d0e7f4e890cbb4692ce78c7518c4769546af2549"
+        "path_commit": "958e60fb998e008507c978b7943211f337def6a6"
       },
       "kind": "mirror",
       "sync_mode": "monitor",
@@ -2358,17 +2809,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "882ef55e377dbf9a4dbe496bb41ac6ccd0e555cf",
-            "path_commit": "d0e7f4e890cbb4692ce78c7518c4769546af2549",
+            "resolved_commit": "1be15d8064f88fc25216442406d40add8fd23b53",
+            "path_commit": "958e60fb998e008507c978b7943211f337def6a6",
             "content_sha256": "d7898eb9cccf409022f4670e04662c0c831860ee8d5b6b6102344d1c43f1b5ad",
-            "last_checked_at": "2026-08-31",
-            "last_synced_at": "2026-08-31",
+            "last_checked_at": "2026-10-03",
+            "last_synced_at": "2026-10-03",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "882ef55e377dbf9a4dbe496bb41ac6ccd0e555cf",
+              "resolved_commit": "1be15d8064f88fc25216442406d40add8fd23b53",
               "api_spdx": "MIT"
             }
           }
@@ -3406,19 +3857,19 @@
       "normalized_slug": "x-twitter-scraper",
       "status": "verified_in_repo",
       "repo_skill": "skills/growth-operations-xiaohongshu/x-twitter-scraper/SKILL.md",
-      "source": "https://github.com/Xquik-dev/x-twitter-scraper",
-      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility.",
+      "source": "https://github.com/Xquik-dev/x-twitter-scraper/blob/645ccfbad23f258ed9efb24de1ead641f15938e1/skills/x-twitter-scraper/SKILL.md",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Adopt no credentialed redirects, 2xx-only success, no secrets in process arguments and untrusted error isolation; retain local REST execution/MCP planning-only restrictions. See docs/maintenance-followup-2026-10-03.json.",
       "upstream": {
         "repo": "Xquik-dev/x-twitter-scraper",
         "path": "skills/x-twitter-scraper/SKILL.md",
         "ref": "master",
-        "last_checked_at": "2026-09-06",
-        "last_synced_at": "2026-09-06",
-        "last_synced_commit": "98260596503409589f727b839e5bd3e2cff910e1",
+        "last_checked_at": "2026-10-03",
+        "last_synced_at": "2026-10-03",
+        "last_synced_commit": "18b475cfc571b43e7660c49dbe400be66c9dc0a1",
         "sync_mode": "monitor",
-        "path_commit": "dc5fa6037d700eb3a7721155e92dabeeb9e56894"
+        "path_commit": "18b475cfc571b43e7660c49dbe400be66c9dc0a1"
       },
-      "kind": "mirror",
+      "kind": "overlay",
       "sync_mode": "monitor",
       "origins": [
         {
@@ -3434,13 +3885,104 @@
             },
             {
               "source": "skills/x-twitter-scraper/SKILL.md",
-              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/SKILL.md"
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/SKILL.md",
+              "type": "file"
             },
             {
               "source": "skills/x-twitter-scraper/metadata.json",
               "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/metadata.json",
               "type": "file"
             },
+            {
+              "source": "skills/x-twitter-scraper/references/extractions.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/extractions.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/compare-faq.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/compare-faq.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/mcp.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/mcp.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/monitors-webhooks.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/monitors-webhooks.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/reads.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/reads.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/writes.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/writes.md",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "master",
+            "resolved_commit": "18b475cfc571b43e7660c49dbe400be66c9dc0a1",
+            "path_commit": "18b475cfc571b43e7660c49dbe400be66c9dc0a1",
+            "content_sha256": "8036ab105af0b9dcf69487b860660153b64f3bf39d937066e2cdb7722f087929",
+            "last_checked_at": "2026-10-03",
+            "last_synced_at": "2026-10-03",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "3a5f93c8e882f8f115758ad4e7fa4e91d1c787b2",
+              "content_sha256": "591a93ca295f08caf49f4417eef0a085bb64d4b208ba8f186e0f0f027aebd4b5",
+              "spdx": "MIT",
+              "resolved_commit": "18b475cfc571b43e7660c49dbe400be66c9dc0a1",
+              "api_spdx": "MIT"
+            }
+          }
+        },
+        {
+          "repo": "Xquik-dev/x-twitter-scraper",
+          "path": "skills/x-twitter-scraper/references",
+          "license": "MIT",
+          "sync_mode": "archived",
+          "artifacts": [
+            {
+              "source": "skills/x-twitter-scraper/references/mcp-setup.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/mcp-setup.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/x-twitter-scraper/references/mcp-tools.md",
+              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/mcp-tools.md",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "fixed_ref",
+            "ref": "3b12bf550dd2804056c09dc3925c7dae5369665c",
+            "resolved_commit": "3b12bf550dd2804056c09dc3925c7dae5369665c",
+            "path_commit": "3b12bf550dd2804056c09dc3925c7dae5369665c",
+            "content_sha256": null,
+            "last_checked_at": "2026-08-31",
+            "last_synced_at": "2026-08-31",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "3a5f93c8e882f8f115758ad4e7fa4e91d1c787b2",
+              "content_sha256": "591a93ca295f08caf49f4417eef0a085bb64d4b208ba8f186e0f0f027aebd4b5",
+              "spdx": "MIT",
+              "resolved_commit": "3b12bf550dd2804056c09dc3925c7dae5369665c",
+              "api_spdx": "MIT"
+            }
+          }
+        },
+        {
+          "repo": "Xquik-dev/x-twitter-scraper",
+          "path": "skills/x-twitter-scraper/references/api-endpoints-api-keys.md",
+          "license": "MIT",
+          "sync_mode": "archived",
+          "artifacts": [
             {
               "source": "skills/x-twitter-scraper/references/api-endpoints-api-keys.md",
               "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-api-keys.md",
@@ -3564,11 +4106,6 @@
             {
               "source": "skills/x-twitter-scraper/references/extract-x-community-data.md",
               "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/extract-x-community-data.md",
-              "type": "file"
-            },
-            {
-              "source": "skills/x-twitter-scraper/references/extractions.md",
-              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/extractions.md",
               "type": "file"
             },
             {
@@ -3763,12 +4300,12 @@
             }
           ],
           "tracking": {
-            "channel": "default_branch",
-            "ref": "master",
+            "channel": "fixed_ref",
+            "ref": "98260596503409589f727b839e5bd3e2cff910e1",
             "resolved_commit": "98260596503409589f727b839e5bd3e2cff910e1",
             "path_commit": "dc5fa6037d700eb3a7721155e92dabeeb9e56894",
-            "content_sha256": "ea30ef4d6828163152326164ca5ab9484be1d3b0ab51b1ded470baa2fce774c5",
-            "last_checked_at": "2026-09-06",
+            "content_sha256": "43e0b6506874a1878f19776134ccc2847b2e39d71aa99c6658d345b5133ccc26",
+            "last_checked_at": "2026-09-30",
             "last_synced_at": "2026-09-06",
             "license_checkpoint": {
               "path": "LICENSE",
@@ -3779,456 +4316,451 @@
               "api_spdx": "MIT"
             }
           }
-        },
-        {
-          "repo": "Xquik-dev/x-twitter-scraper",
-          "path": "skills/x-twitter-scraper/references",
-          "license": "MIT",
-          "sync_mode": "archived",
-          "artifacts": [
-            {
-              "source": "skills/x-twitter-scraper/references/mcp-setup.md",
-              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/mcp-setup.md",
-              "type": "file"
-            },
-            {
-              "source": "skills/x-twitter-scraper/references/mcp-tools.md",
-              "target": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/mcp-tools.md",
-              "type": "file"
-            }
-          ],
-          "tracking": {
-            "channel": "fixed_ref",
-            "ref": "3b12bf550dd2804056c09dc3925c7dae5369665c",
-            "resolved_commit": "3b12bf550dd2804056c09dc3925c7dae5369665c",
-            "path_commit": "3b12bf550dd2804056c09dc3925c7dae5369665c",
-            "content_sha256": null,
-            "last_checked_at": "2026-08-31",
-            "last_synced_at": "2026-08-31",
-            "license_checkpoint": {
-              "path": "LICENSE",
-              "blob_sha": "3a5f93c8e882f8f115758ad4e7fa4e91d1c787b2",
-              "content_sha256": "591a93ca295f08caf49f4417eef0a085bb64d4b208ba8f186e0f0f027aebd4b5",
-              "spdx": "MIT",
-              "resolved_commit": "3b12bf550dd2804056c09dc3925c7dae5369665c",
-              "api_spdx": "MIT"
-            }
-          }
         }
       ],
       "managed_files": [
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/LICENSE",
-          "sha256": "591a93ca295f08caf49f4417eef0a085bb64d4b208ba8f186e0f0f027aebd4b5",
           "owner": "x-twitter-scraper",
+          "sha256": "591a93ca295f08caf49f4417eef0a085bb64d4b208ba8f186e0f0f027aebd4b5",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/SKILL.md",
-          "sha256": "ea30ef4d6828163152326164ca5ab9484be1d3b0ab51b1ded470baa2fce774c5",
           "owner": "x-twitter-scraper",
+          "sha256": "8036ab105af0b9dcf69487b860660153b64f3bf39d937066e2cdb7722f087929",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/metadata.json",
-          "sha256": "77ab75e516a69d4fd16edce1c060b5ebbaf4cb37bac617f1c6553c84ac22a9a8",
           "owner": "x-twitter-scraper",
+          "sha256": "77ab75e516a69d4fd16edce1c060b5ebbaf4cb37bac617f1c6553c84ac22a9a8",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-api-keys.md",
-          "sha256": "43e0b6506874a1878f19776134ccc2847b2e39d71aa99c6658d345b5133ccc26",
           "owner": "x-twitter-scraper",
+          "sha256": "6884a751b91cc45d980ebb05fc84646f0cee42866add4d29298e345263f6e947",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-compose.md",
-          "sha256": "780441b1c30fcc923ee02081f6aeb750626ae7c68acc5826775ca14ebf69c683",
           "owner": "x-twitter-scraper",
+          "sha256": "d1171ebe45181e45a64949c834a2cec7b7d453daa1dba16430917688660d716b",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-credits.md",
-          "sha256": "cb15fe883cff7fc69fa6348fb462d1ed31d12a3bbed4249879e373e1be6fffdc",
           "owner": "x-twitter-scraper",
+          "sha256": "73020c0d588047304ef7e8eb0055efe8af5d7ea7070791c413b6479b80346525",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-drafts.md",
-          "sha256": "a339a71bd690994e49c26bd8bfb35e4eae0291688e8fcb8c24127934654ee3f1",
           "owner": "x-twitter-scraper",
+          "sha256": "a81d85f7d8c94e1aa3599b6d620249fe0f1865df2b4783b3d65b86a790cc72de",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-draws.md",
-          "sha256": "8def5da268b3c6b022dd9a96056d4b0c5a0a84e914e29932b275798253dadc86",
           "owner": "x-twitter-scraper",
+          "sha256": "f6a23501c11a31893abf33a004a9565b3a263c0745027dcc44f48b7f3225afdc",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-error-codes.md",
-          "sha256": "28125b495b0daa3316ea38923921f98060527a9dbd07b1b035b7b35930617ed7",
           "owner": "x-twitter-scraper",
+          "sha256": "f0c4e381ab61cdc35a9f9b92f2416002fcaa9c63b738f726717bdeaea7e8531f",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-events.md",
-          "sha256": "7b1193106495ff211d2c0978ed4d8711f7777d2cd96db447a07d6a81bf1de33c",
           "owner": "x-twitter-scraper",
+          "sha256": "f8496e980dc882a735596b1747b05a3b62092f1b038ec84991434366de734fad",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-extractions.md",
-          "sha256": "2156227ccff0972500c38e1d27d0d6935abced733814c99a1144abf44153fc79",
           "owner": "x-twitter-scraper",
+          "sha256": "100a1e00f142503e8938341b491c0ba94ff3c80fb4cd7d029da387ee87e68432",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-monitors.md",
-          "sha256": "600f9dd6abed13a00a9f8c9be1b343168441a9b32693175d02940887259b334b",
           "owner": "x-twitter-scraper",
+          "sha256": "1800ff0c1edcb7dfd7a362a0c1a39a25e77637621996ea1feac6aa0ac2824169",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-radar.md",
-          "sha256": "dd9e33e69dac7a0f9cb13b3006fdfea51b91398fe7b4a2d03bf4756684bc6f7e",
           "owner": "x-twitter-scraper",
+          "sha256": "1280d92a5f9c28bcd23d2378de14c2c8a7230b217976b252cda283e2816eccc5",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-support.md",
-          "sha256": "ac7bc4007521231f700b3d813e75844d4634bbe0ca2628f6bf9f8920461413e7",
           "owner": "x-twitter-scraper",
+          "sha256": "6b93c961effad24dbee4c01247442e8b9c3ea72266b4f07a1d8d40a44b4bddd3",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-trends.md",
-          "sha256": "1a42301f6bc79c186dd53c327915852468d922a73649e1bcdc85096b8e273226",
           "owner": "x-twitter-scraper",
+          "sha256": "ba50088e79f4dbbde646b5a10e624a8aaa3467521fc6d18d27759873dba3e384",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-tweet-style-cache.md",
-          "sha256": "3e769b4d22cf61d501a88700e278fd422724d59a626781055107f1d2b2de9e6c",
           "owner": "x-twitter-scraper",
+          "sha256": "e87cc3853ddf01befa02288e3e48ad72a8a8e3b64e5a976095191559f1101c9e",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-webhooks.md",
-          "sha256": "7dc045cb85428dded43be45015a36fe9a5076063b27a663100b92f4228aac67e",
           "owner": "x-twitter-scraper",
+          "sha256": "a9923a5d3f2ad9846d462bbed2c59202757165b20d20aa5942fc0fc3c7bf1983",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-x-accounts.md",
-          "sha256": "85675badea2be7433e0fc886ee8d58146f87abfa5b88c75c3c004c35038f5aa4",
           "owner": "x-twitter-scraper",
+          "sha256": "e20afb39bb195f1691a34bc69d791032e6350442eee07026897c27e08b99255e",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-x-api.md",
-          "sha256": "b4e957c758dbe006464ef82152b7419ff0837184c741f660109dea5da886c0bb",
           "owner": "x-twitter-scraper",
+          "sha256": "7a28e942ce0f54d0372430d5af55fe87f0f3489491889d4f34546a767659441b",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-x-media.md",
-          "sha256": "83971fb690bc4c7226ec5a7e023f5ab5002502c2ada7f16e9e83865684ce9fae",
           "owner": "x-twitter-scraper",
+          "sha256": "09465ae8b1a5d6b750eeade7f6ecef909fe9fdd5066821603a5f86c0f9df968e",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints-x-write.md",
-          "sha256": "e106bbd7b36c548ff95e5a1b74ff69190dcf55eff1f0c125ec78f45716c0dd91",
           "owner": "x-twitter-scraper",
+          "sha256": "28a4b4d6ce1b3be36b119a52e536ae23300575e28ff481ecbf233cc2f2bba8ac",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/api-endpoints.md",
-          "sha256": "8acf75fb9bbc31a413de9f2f92832b5fd1b9ab7cbf3436aa814a61e0deb92c03",
           "owner": "x-twitter-scraper",
+          "sha256": "99c1a04d3f801d91ea0a6715792d7938525538aba951680c056bbf803942141f",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/automate-twitter-giveaways.md",
-          "sha256": "e8020c7b77fdf08cb99346a6afb169cf06e34fdb156ab273cfa51b5b2cf5bc51",
           "owner": "x-twitter-scraper",
+          "sha256": "9fb19575188973e2ea911639a0969b6fd031b74471c24dbf28c7a6109a14a700",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/best-x-api-alternative.md",
-          "sha256": "e062a80d0c4cdbe0bd1aab01d991fe417ecf973f5b909df705ec4daf5d25ac09",
           "owner": "x-twitter-scraper",
+          "sha256": "a67113e66534cb9111f23e6e3a2d2beff4853162a41d737650b804bf3f30aa9f",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/compare-faq.md",
+          "owner": "x-twitter-scraper",
+          "sha256": "c3b855e102aa95087d4bd778fb1c45f4f5e59fae5b493edbd723f56ae4774c15",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/compare-twitter-apis.md",
-          "sha256": "9a1d949c5299b3e229fa967c848de946c5acba96968992d957482b6aa422dd30",
           "owner": "x-twitter-scraper",
+          "sha256": "7107b33f8cf3c0d24a34ec1f5dc3280cc360549f8bc62b2ad24f6b9360fe6c35",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/draws.md",
-          "sha256": "51c63af81f8e3bb405e4fe86166cb2773d4606b2639a19f10d6f22d35b94b8cf",
           "owner": "x-twitter-scraper",
+          "sha256": "dddd39fd31b3ad48cdf1428270550a4276ccdb36f12755d9942f11cb22d8ac8a",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/export-twitter-followers.md",
-          "sha256": "4a2b2dbc55ba6256a3fdbb5fe95e0d8a3cfb567b536be949f593cb13b1de165c",
           "owner": "x-twitter-scraper",
+          "sha256": "559b8e511dc8eba8c4b04e69cc47cb3493d19e72aab57b2c8bbcfe7d97cd2c74",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/extract-x-community-data.md",
-          "sha256": "5d9d9e7ab3ae79a338cd404c8c03bbfb8e7cfcd701d2ef523e0f8ba88006fb24",
           "owner": "x-twitter-scraper",
+          "sha256": "9941771cf5c7656c95307822c13f65b57caf579615b30009bdf6dc55cd14c196",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/extractions.md",
-          "sha256": "3a7d3774187ca2285af844d774f3fc08909d82e5b7f1ae5339d17e4dd05aa70b",
           "owner": "x-twitter-scraper",
+          "sha256": "3a7d3774187ca2285af844d774f3fc08909d82e5b7f1ae5339d17e4dd05aa70b",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/mcp-setup.md",
-          "sha256": "e9fcdcabd0b40d2006cd2c4ad400d96a2125eee6c033283d36ab5232afb91e68",
           "owner": "x-twitter-scraper",
+          "sha256": "e9fcdcabd0b40d2006cd2c4ad400d96a2125eee6c033283d36ab5232afb91e68",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/mcp-tools.md",
-          "sha256": "62a786b7e00ffcf5fa171d01e5644ce524b3c67079bbb992292d0f9f1675c3b8",
           "owner": "x-twitter-scraper",
+          "sha256": "62a786b7e00ffcf5fa171d01e5644ce524b3c67079bbb992292d0f9f1675c3b8",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/mcp.md",
+          "owner": "x-twitter-scraper",
+          "sha256": "d544221a045376c94118d1b553bd9455979192364ffa34cb6568dcd85c2bb3ad",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/monitor-twitter-webhooks.md",
-          "sha256": "8af7554be9318a887d42184df27850a1795c307af7cad377fcc8f84084788f38",
           "owner": "x-twitter-scraper",
+          "sha256": "4b7de072ec28950c45aa74c8718ce8533145b3a38d0a2d57f59dc2dbaa2bfbae",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/monitors-webhooks.md",
+          "owner": "x-twitter-scraper",
+          "sha256": "4e507b16cdee4c4779590322db6b84cdc37fc3a3feefe22d22b7660f2833ade2",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/python-examples.md",
-          "sha256": "f37167918f58ef6df896057bbb9569d1dc17c68c030191922e4669d269b5b5aa",
           "owner": "x-twitter-scraper",
+          "sha256": "18d3f0d52365ce090acf7c44081cc92dcd8539ded433d7ea7600a61096313d94",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/reads.md",
+          "owner": "x-twitter-scraper",
+          "sha256": "22491c6d2ed9d3dce471fa4e9851b2131cd5d3de24b13fd3053794bc8ac3c8ed",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/reliable-twitter-data-api-2026.md",
-          "sha256": "afeff1fa6fe6c76776bc7feb14bb034d28384ec30e3784369ded244ec6b49ff9",
           "owner": "x-twitter-scraper",
+          "sha256": "21e73489665daef097cfae5e03514829ca0df8c9dd5f82bc3ce831762d353433",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/scrape-export-twitter-data.md",
-          "sha256": "660f1a574c93b937a47752cb723a2557118e2ddb2ec9cd1de26dec56df00ec60",
           "owner": "x-twitter-scraper",
+          "sha256": "706af44ef6e7896c781780e8568492ae71d13d508abe72e0beff29d5f1d26b35",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/security.md",
-          "sha256": "38905d7b13096605e3c73e672d0fc75304ba49d940fd6091e1acdff4a10d8821",
           "owner": "x-twitter-scraper",
+          "sha256": "c80538de538683063e7eb6d49f0a5fcbfb17d22ccfd65d25753e9a5a2b0cdc0e",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/track-twitter-keywords-mentions.md",
-          "sha256": "45dad483176e7608ddf05404a894fa81a7e5069d21a08d1fc966223d39313d81",
           "owner": "x-twitter-scraper",
+          "sha256": "18e3cb014eee3a29c3e81630cd3ebd2600c4bd88621c77d92fb97ac8c8e979ad",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/twitter-api-alternative-faq.md",
-          "sha256": "ceca88e13f488065f27fcc467e64b401fcbf76040b74bd7b6a7820a4b586cb1f",
           "owner": "x-twitter-scraper",
+          "sha256": "b8cbf15f09ce38bebffdf7d3006e1ebdf0ac659204d182e6cd121d8261504373",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/twitter-api-without-x-account.md",
-          "sha256": "d82ea8917369d81679e9abb12d3f3a20d488a3c8a375ca7b19818dbd2276cd6f",
           "owner": "x-twitter-scraper",
+          "sha256": "13e1313306ea1de828076c0c076387252de747c2c18579e25af81d7de2ba49c9",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/twitter-data-pipeline.md",
-          "sha256": "fd343e059854e60927557892930540c3862d89ecd66ab53696c5ecad85698312",
           "owner": "x-twitter-scraper",
+          "sha256": "5a05c0f58ec9966a2de13c911dc3205d150078aa753f9705e040618ac413f7b2",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/twitter-scraper-api-guide.md",
-          "sha256": "2fbc945a2fd6d6bec0c572b1b5663a41e654f1ba3cfa9be0ca1788f0cc672373",
           "owner": "x-twitter-scraper",
+          "sha256": "3627de4f53bdc27fd739aec00bb7abbb19fedba7e3e706fcbc042652df99e73b",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-account-identity.md",
-          "sha256": "41e5871674a97a9beecd50ef91d2649daa09b354b04d8ccd89acdbc90173327f",
           "owner": "x-twitter-scraper",
+          "sha256": "3ceed8bd204d0f3d599f28d899edbcae7b8871ddf0b88d4abd9494341cd0ab7a",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-account.md",
-          "sha256": "a1fb88434775c8bad700e741760691c6b1eb7f2f3cdd2d588f95cdf695418d65",
           "owner": "x-twitter-scraper",
+          "sha256": "69484ed93ab5d4aaa7eb70ac137ba4aff2540627f2d121e14e4ac38735dee98f",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-bookmarks-and-timeline.md",
-          "sha256": "f1d1b41d977be7b6385a375133988f59fafd830672be1e64eeac189e0aac2607",
           "owner": "x-twitter-scraper",
+          "sha256": "0abae9d15ebad155b9fad1799fd45b5f135c1e23f5e505a840356630acf84ed0",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-credits.md",
-          "sha256": "6eedcbd90d54231b6e53672e64e46c0e54366c422b53f414445b2232ddbf7f88",
           "owner": "x-twitter-scraper",
+          "sha256": "c186f87b15c4ec8975008ea4f412c3ead869aa2504b7e68f5d5fa83c12d66286",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-download-media.md",
-          "sha256": "2038a89149625bdc39d62e9edab5f5220bba9df358abbe0bbaabbd08bfb6b0a8",
           "owner": "x-twitter-scraper",
+          "sha256": "6969124c93772d2396c807e370212681247402e70c0df6243b4fd3f9d99a8461",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-draws.md",
-          "sha256": "3c5badcf682c0a222ff32a08deae49f740a3aed63178f09b9fdad50526d93a4f",
           "owner": "x-twitter-scraper",
+          "sha256": "cc12750848b0c1340ec29e4df631910ac277d5ad2f9b7ee3f4a7bf2e779c396e",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-error.md",
-          "sha256": "b7d4f810b368f8a71d8b896395a3cc78b30b33734e6e2bfcfd4d85c6ebd422c3",
           "owner": "x-twitter-scraper",
+          "sha256": "9f911f53c65f0474b5a9a27a7029e2d57e0fed2e07d9f510ff31803b364c8e2e",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-events.md",
-          "sha256": "86e136e9617559b45fb89ccb7e3a6267b63e43cd610c25891afee0ec4aea5ffd",
           "owner": "x-twitter-scraper",
+          "sha256": "ad8f09a8a31fc3b0aee57c9a6625e1d652dd43055c5d7abaff35d4e151fd5219",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-extractions.md",
-          "sha256": "de57b9ab450f0b0cce3ceacc2000b670a33a14d979a220b37aeee3cb7566f496",
           "owner": "x-twitter-scraper",
+          "sha256": "2a8ef3f33a8aa850499ebb0d174ae6d71a026035c319fda09a1b47d1385fb354",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-mcp-output-schemas.md",
-          "sha256": "a96b0746443280816d0e3ad5614f29490f4112583369cd9ea6634bd8f96889b5",
           "owner": "x-twitter-scraper",
+          "sha256": "9329355fe3c62f042c8eca223ecea2f7a1362b7a535c58b2ca37415ce5ea1a84",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-monitors.md",
-          "sha256": "5b6eaac7913078a1e2742409c715b04cf5c5ec4bbc1d05814e3f08de9b96ed5d",
           "owner": "x-twitter-scraper",
+          "sha256": "fe870d7076c7638b3f8d988a76a59cb306a68f80169d7bfd85c7d0462f822ed7",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-radar.md",
-          "sha256": "ddbeda03a9cdb1ba2ae57a73d7725c0632e6dc15c6bac2a6d4309b0709f99380",
           "owner": "x-twitter-scraper",
+          "sha256": "c1527b9e6f2cd005e10d084814c990705c651cef95cc242a017befb4cb808f28",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-request-bodies.md",
-          "sha256": "eaf7d3b9c929526a556b1584a92487e040672da0c270dbda08a9f45fffb0aef5",
           "owner": "x-twitter-scraper",
+          "sha256": "c7206ca2c36b681ba68afea05c1ecc42c3e3e728012a700af16f4f8edef6de6c",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-rest-api-vs-mcp-field-naming.md",
-          "sha256": "ae98233c7feae509ba7131919e624a894cfe9bdfa5db63117b12caf34e99298a",
           "owner": "x-twitter-scraper",
+          "sha256": "54af9f8e125cc34f423cd6ec448e0cdb20c71d154ed1d8d88d1d6aca33abe9ca",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-support.md",
-          "sha256": "9fae376b3e94e821a4777bf96f355818ac281712a79b2b13645d05215cedfe9f",
           "owner": "x-twitter-scraper",
+          "sha256": "73912798d319bade1c77b19ca1597045e933e0ecfb22587af114c4d78bf52abd",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-trends.md",
-          "sha256": "021238add20431b393c8a67f0393e3df2d19d1062f0f91e665421b7820e5e13d",
           "owner": "x-twitter-scraper",
+          "sha256": "978afb925faf452ff6226b944879cc53f6b4a617f51bf06ac9ed5fc1485cbe21",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-tweet-drafts.md",
-          "sha256": "80e767956f781dcd1eb0508daf550350586151a47865eb6b971d124e74c96992",
           "owner": "x-twitter-scraper",
+          "sha256": "da5c9026e3c7e3f2f39779f29587ea593a25cdd7b65dc26c91fde39fd171bf16",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-tweet-style-cache.md",
-          "sha256": "6dd962724d54082ec013534c9bfea379c9e00c1c497a8326b0baaa0924cfa08b",
           "owner": "x-twitter-scraper",
+          "sha256": "4532ee06b7277d6bd89783989f655bc2dcb90517c0238ea78a4303a3d3340e70",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-user-activity.md",
-          "sha256": "6fe17c567c8868d59cff72b884e1739648c92e9d18a6d24874a82a94749af1a5",
           "owner": "x-twitter-scraper",
+          "sha256": "6b34c5678e5e4d7e145ae29c66de962a5037d2ecbe0a69172c82022a25ffe224",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-webhooks.md",
-          "sha256": "905e7a8b0a553742b3a854fe31481409f0307d01df8724a91f4e7d858ce4707d",
           "owner": "x-twitter-scraper",
+          "sha256": "3e8d54509e7bedcfecb5ed71ea2580e190af20d180ebfee9962acd5a7e0e4ec0",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-x-accounts.md",
-          "sha256": "bcd56bd07daf1940cbdfaac219f67ac358948a2169a5c23323f78fa85a65c3ef",
           "owner": "x-twitter-scraper",
+          "sha256": "50bafe97942646e0f1b916801e12f32fc3b78aa663329dd493d7582f69a1b43f",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-x-api.md",
-          "sha256": "cb76ea032cc2a7245848193e74379b7e24b5dcb01cbeec22ac6fdbc3114697a6",
           "owner": "x-twitter-scraper",
+          "sha256": "6a2fdc464ebe9c6ba89bded5b5bc4174b4da4ed264ebd832c751f9b1159bdd20",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-x-articles.md",
-          "sha256": "491b599704840f6bd2b18fe1f1f5cd2f54edc35d78cf59b052bfbd299655a5d3",
           "owner": "x-twitter-scraper",
+          "sha256": "aafa4c48a27a0aacd9fdda6c794b4727e2ec740adf1f178e4e518167822c1acf",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types-x-write.md",
-          "sha256": "e30954aadee393f7896a9d2ac9fcaf9f1c8ad74ebca56c997d6994a8f10fca5c",
           "owner": "x-twitter-scraper",
+          "sha256": "6eedaf40145b26a6e16b398ffcd2b03185d6c80e87d36be888e21b10ae5567c0",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/types.md",
-          "sha256": "8de147ac05b91f035fc0af6ef998cf68a1a35fbe5b7bc75a533f14c13cfc05eb",
           "owner": "x-twitter-scraper",
+          "sha256": "8f69b3f45dc8048381e51e78303d7c9486546f650d9f4c34bb1ddf92cd067881",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/usage.md",
-          "sha256": "df0fa93848f0ff188a88fd2e6079a34c17b91692ce40c9dc3afca8062d8dd632",
           "owner": "x-twitter-scraper",
+          "sha256": "ed9901e7be5b07c3465ba71c8d974c193f0a45003c278849dbd0bb71b2865701",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/webhooks.md",
-          "sha256": "3aec98b4f69026c748194eaf2f118fa288d325870bacf5e0abfb4fb951d50535",
           "owner": "x-twitter-scraper",
+          "sha256": "f949465fe705ac23bdd63dfb0bf2470ac36ae3013a7bd6268cd1bb9937c86b01",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/workflows.md",
-          "sha256": "13b7fdbe8b5e070d8bb36cee770284cdf1e0ae1510fa539d8f6b662f6c989cb5",
           "owner": "x-twitter-scraper",
+          "sha256": "68bfe869b3bd88462c4ef2a0648ad3dfcfe387faf7dd2b35aab54744bc97ab86",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/writes.md",
+          "owner": "x-twitter-scraper",
+          "sha256": "a09769b767ae6972f09fda4a96309abf0aebd30f0fbf7a94807a1da374b0155e",
           "mode": "100644"
         }
       ]

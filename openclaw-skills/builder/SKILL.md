@@ -2,14 +2,14 @@
 name: builder
 description: '生产级业务逻辑、接口集成和类型安全实现。'
 zh_description: "生产级业务逻辑、接口集成和类型安全实现。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/main/builder"
+source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/builder/SKILL.md"
 license: MIT
 tags: ["builder", "development"]
 created_at: "2026-08-24"
-updated_at: "2026-09-06"
+updated_at: "2026-09-30"
 quality: 5
 complexity: "advanced"
 ---
@@ -103,7 +103,6 @@ Route elsewhere when the task is primarily:
 
 ## Core Contract
 
-Rationale, thresholds, and sources for every rule below: `reference/core-contract-rationale.md`.
 
 - For TypeScript projects, preserve strict mode with no `any`; on new TypeScript projects enable `strict`, `noUncheckedIndexedAccess`, `exactOptionalPropertyTypes`, and `noPropertyAccessFromIndexSignature` explicitly.
 - Define interfaces and types before writing implementation code.
@@ -183,15 +182,15 @@ Handoff tokens follow `<SOURCE>_TO_<TARGET>` for every direction above (e.g.
 
 ### Agent Teams Aptitude
 
-Builder's post-BUILD handoffs to Radar, Sentinel, and Tuner are independent verification tasks with no shared file writes. Use **VERIFICATION_PARALLEL** (`_common/SUBAGENT.md`) or Rally **Pattern D: Specialist Team** (2–3 members) when wall-clock time matters:
+Builder's post-BUILD handoffs to Radar, Sentinel, and Tuner may run independently once production edits are stable. Radar owns test writes; the other branches stay read-only, and the hub joins results before completion. Use **VERIFICATION_PARALLEL** (`_common/SUBAGENT.md`) or Rally **Pattern D: Specialist Team** (2–3 members) when wall-clock time matters:
 
-| Member | Role | Ownership | Model |
-|--------|------|-----------|-------|
-| `test-writer` | Radar handoff — generate test skeletons | `tests/**`, `__tests__/**` | `sonnet` |
-| `security-scanner` | Sentinel handoff — static security scan | read-only | `sonnet` |
-| `perf-analyzer` | Tuner handoff — performance hotspot analysis | read-only | `haiku` |
+| Member | Role | Ownership |
+|--------|------|-----------|
+| `test-writer` | Radar handoff — generate test skeletons | `tests/**`, `__tests__/**` |
+| `security-scanner` | Sentinel handoff — static security scan | read-only |
+| `perf-analyzer` | Tuner handoff — performance hotspot analysis | read-only |
 
-Spawn only when the deliverable touches 4+ files and post-BUILD verification would otherwise block. For single-file fixes, sequential handoff is sufficient.
+Use this fan-out when independent verification work justifies its cost, regardless of file count. Model selection, native tool discovery, and permissions follow `_common/CLI_COMPATIBILITY.md`; never assume a tool or model alias.
 
 ## Decision Policy
 
@@ -259,7 +258,7 @@ A complete deliverable carries the following — a ceiling, not a floor. Emit on
 - Input validation at system boundaries.
 - Error handling with actionable messages.
 - Edge case coverage (null, empty, timeout, partial failure).
-- Test skeleton for Radar handoff.
+- Actual verification results, plus a Radar handoff for remaining test coverage when needed.
 - DDD pattern justification when domain modeling is involved.
 - Performance considerations for data-intensive operations.
 - **Impact Scope Report**: 5-axis verdict block with per-axis status (`OK / Updated / N/A / NEEDS-REVIEW`) for callers, tests, types, configs, docs. If any axis is `NEEDS-REVIEW`, recommend `ripple` invocation before merge.

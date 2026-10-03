@@ -28,17 +28,17 @@
       "normalized_slug": "graphify",
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/graphify/SKILL.md",
-      "source": "https://github.com/Graphify-Labs/graphify/blob/v0.9.47/graphify/skill-codex.md",
-      "notes": "Mirrors only the official Graphify v0.9.47 Codex skill artifact set: SKILL.md plus eight references. Local Astra curation splits long procedures into EXTENDED.md and narrows trigger/host guidance; preserve the reviewed upstream reference set and review future releases before applying. 2026-09-28: curated reviewed deltas from 4df8d4dcfadee5555203eaba585cc7dec1dee2fb; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences.",
+      "source": "https://github.com/Graphify-Labs/graphify/blob/1cd9a36c0c57a661d2d2234bc3207e887e1ba104/graphify/skill-codex.md",
+      "notes": "Mirrors only the official Graphify v0.9.47 Codex skill artifact set: SKILL.md plus eight references. Local Astra curation splits long procedures into EXTENDED.md and narrows trigger/host guidance; preserve the reviewed upstream reference set and review future releases before applying. 2026-09-28: curated reviewed deltas from 4df8d4dcfadee5555203eaba585cc7dec1dee2fb; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json.",
       "upstream": {
         "repo": "Graphify-Labs/graphify",
         "path": "graphify/skill-codex.md",
-        "ref": "v0.9.61",
-        "last_checked_at": "2026-09-14",
-        "last_synced_at": "2026-09-14",
-        "last_synced_commit": "fe66389083369c3159aa391117185c8f58b4d07c",
+        "ref": "v0.9.74",
+        "last_checked_at": "2026-10-03",
+        "last_synced_at": "2026-10-03",
+        "last_synced_commit": "e10df08877f8819a625a1afa38c3297a31fda296",
         "sync_mode": "monitor",
-        "path_commit": "3d19463484ebcf773b399ddad9fd3363b2ab3bff"
+        "path_commit": "286000d199fdf8d677ed89847c056fa0c6745f33"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -62,18 +62,18 @@
           ],
           "tracking": {
             "channel": "latest_release",
-            "ref": "v0.9.61",
-            "resolved_commit": "fe66389083369c3159aa391117185c8f58b4d07c",
-            "path_commit": "3d19463484ebcf773b399ddad9fd3363b2ab3bff",
-            "content_sha256": "fd72c04ab619439d9bceb1ecd8253ca62ec2345135c219ccbf215c06922393dc",
-            "last_checked_at": "2026-09-14",
-            "last_synced_at": "2026-09-14",
+            "ref": "v0.9.74",
+            "resolved_commit": "e10df08877f8819a625a1afa38c3297a31fda296",
+            "path_commit": "286000d199fdf8d677ed89847c056fa0c6745f33",
+            "content_sha256": "8a474a2c170798985419e70a318b99271b779df9985966044e036899c671f6d9",
+            "last_checked_at": "2026-10-03",
+            "last_synced_at": "2026-10-03",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
               "content_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
               "spdx": "Apache-2.0",
-              "resolved_commit": "fe66389083369c3159aa391117185c8f58b4d07c",
+              "resolved_commit": "e10df08877f8819a625a1afa38c3297a31fda296",
               "api_spdx": "NOASSERTION"
             }
           }
@@ -103,63 +103,63 @@
       ],
       "managed_files": [
         {
-          "path": "skills/developer-engineering/graphify/SKILL.md",
-          "sha256": "fd72c04ab619439d9bceb1ecd8253ca62ec2345135c219ccbf215c06922393dc",
+          "path": "skills/developer-engineering/graphify/EXTENDED.md",
           "owner": "graphify",
+          "sha256": "23036e44ed4135acc701abddc1ef9dad95d388efdd30366d84798b6c797a63cd",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/graphify/SKILL.md",
+          "owner": "graphify",
+          "sha256": "8a474a2c170798985419e70a318b99271b779df9985966044e036899c671f6d9",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/graphify/references/add-watch.md",
-          "sha256": "b3f67570240582689c2834b4831917550c2d1aaf042148868c39dcbf387ce3fd",
           "owner": "graphify",
+          "sha256": "7b89268619e2bf6a4432b7dc46624a6d6b40be7dbfc605a6f79a1c2f62cd17b8",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/graphify/references/exports.md",
-          "sha256": "ee47fae477f106d8aed38798c58493b5a7f060a0d9d2581ce6132302827bc14b",
           "owner": "graphify",
+          "sha256": "ee47fae477f106d8aed38798c58493b5a7f060a0d9d2581ce6132302827bc14b",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/graphify/references/extraction-spec.md",
-          "sha256": "32d7decad42d58129c6694ea4e4ce1f72a531bc5161827d2095787e9448735e9",
           "owner": "graphify",
+          "sha256": "32d7decad42d58129c6694ea4e4ce1f72a531bc5161827d2095787e9448735e9",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/graphify/references/github-and-merge.md",
-          "sha256": "e5ebd90c7686f50363ff7a535556bc2f596d4c47ec1e6c8b95e11e36a0dfea2b",
           "owner": "graphify",
+          "sha256": "e5ebd90c7686f50363ff7a535556bc2f596d4c47ec1e6c8b95e11e36a0dfea2b",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/graphify/references/hooks.md",
-          "sha256": "b9a4e9f66813c6fc720589f1071d1a03c95756ab7101447e14e57291fe7844e5",
           "owner": "graphify",
+          "sha256": "b9a4e9f66813c6fc720589f1071d1a03c95756ab7101447e14e57291fe7844e5",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/graphify/references/query.md",
-          "sha256": "e563ddcb1e155aa230f107e5ef9380bc1249c5cd8241128de7ed8a7bd9c20cf5",
           "owner": "graphify",
+          "sha256": "e563ddcb1e155aa230f107e5ef9380bc1249c5cd8241128de7ed8a7bd9c20cf5",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/graphify/references/transcribe.md",
-          "sha256": "676a1e39aa6d43cdfcc416ec56616e36f7bad74066a82bd33a9485515b9a865c",
           "owner": "graphify",
+          "sha256": "676a1e39aa6d43cdfcc416ec56616e36f7bad74066a82bd33a9485515b9a865c",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/graphify/references/update.md",
+          "owner": "graphify",
           "sha256": "661f559b3ff4f3db7ba47bc2ba1c7e19f1c1d66a36f647e49221eecb174f2228",
-          "owner": "graphify",
-          "mode": "100644"
-        },
-        {
-          "path": "skills/developer-engineering/graphify/EXTENDED.md",
-          "owner": "graphify",
-          "sha256": "23036e44ed4135acc701abddc1ef9dad95d388efdd30366d84798b6c797a63cd",
           "mode": "100644"
         }
       ]
@@ -207,6 +207,20 @@
       "target": "Graphify-Labs/graphify@fe66389083369c3159aa391117185c8f58b4d07c",
       "result": "success",
       "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-09-30",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "Graphify-Labs/graphify@1cd9a36c0c57a661d2d2234bc3207e887e1ba104",
+      "result": "success",
+      "evidence": "Compared the complete declared artifact sets and regular sibling resources at immutable commits; applied reviewed deltas, retained local authorization/host adapters, and isolated removed references as immutable licensed sidecars. Source comparison and targeted semantic review are not live vendor/API or model behavioral certification. See docs/maintenance-audit-2026-09-30.json."
+    },
+    {
+      "date": "2026-10-03",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "Graphify-Labs/graphify@e10df08877f8819a625a1afa38c3297a31fda296",
+      "result": "success",
+      "evidence": "Compared complete declared artifacts and new regular siblings at fixed commits; decisions, rejected forced gates and marketing-only changes are recorded in docs/maintenance-followup-2026-10-03.json. Static/source review is not live product or model acceptance."
     }
   ]
 }

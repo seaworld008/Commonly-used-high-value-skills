@@ -5,7 +5,7 @@ zh_description: "用于构建订阅计费、自动开票、续费生命周期和
 version: "1.0.1"
 author: "seaworld008"
 source: "github:wshobson/agents"
-source_url: "https://github.com/wshobson/agents/blob/main/plugins/payment-processing/skills/billing-automation/SKILL.md"
+source_url: "https://github.com/wshobson/agents/blob/156b7a5e7a8b93642628a339ee4039c925b34c7f/plugins/payment-processing/skills/billing-automation/SKILL.md"
 license: MIT
 tags: '["automation", "billing", "workflow"]'
 created_at: "2026-05-28"

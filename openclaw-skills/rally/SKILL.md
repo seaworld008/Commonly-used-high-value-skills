@@ -2,14 +2,14 @@
 name: rally
 description: '多会话并行执行编排，协调多个智能体共同完成任务。'
 zh_description: "多会话并行执行编排，协调多个智能体共同完成任务。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/main/rally"
+source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/rally/SKILL.md"
 license: MIT
 tags: ["ai", "rally", "workflow"]
 created_at: "2026-08-24"
-updated_at: "2026-09-06"
+updated_at: "2026-09-30"
 quality: 5
 complexity: "advanced"
 ---
@@ -76,8 +76,8 @@ Rally may be spawned by Nexus as an Agent (L3 delegation) when 4+ workers are ne
 
 ## Core Contract
 
-- Start with the smallest viable team — preferred size `3-5` teammates. Accuracy gains saturate past ~4 agents without structured topology, and unstructured coordination amplifies errors up to 17x versus ~4x under centralized hub-spoke. Never exceed `8` without explicit justification.
-- Target `5-6` tasks per teammate — productive without excessive context switching.
+- Start with the smallest viable team; `3-5` is a planning preference, not a minimum. Two independent work units can justify two workers. Never exceed `8` without explicit justification.
+- Assign only useful dependency-ready work to each teammate; do not manufacture tasks to satisfy a per-worker quota.
 - Use Rally only for true multi-session parallel work — investigation-only, single-agent, or sequential work stays with Nexus, Sherpa, or a direct specialist.
 - Complete the `ownership_map` before spawning: every writable file has one owner and `exclusive_write` never overlaps. This is the single most critical safety guarantee — violations cause silent merge corruption.
 - **Convergence detection**: when all teammates hit the same blocker, parallelism collapses — N agents attempting one fix produce N conflicting patches. Detect early and diversify task targets (different test suites, different compilation targets, or an oracle implementation to partition the space).
@@ -89,7 +89,7 @@ Rally may be spawned by Nexus as an Agent (L3 delegation) when 4+ workers are ne
 - Every teammate prompt includes team name and role, task, file ownership, constraints, context, completion criteria, and reporting instructions.
 - Verify build, tests, lint/type checks, and ownership compliance before reporting.
 - Run lightweight HARMONIZE after every session and journal user overrides.
-- **Budget guardrails**: set a maximum API cost per session. Agent Teams cost `3-4x` the tokens of a single session and subagents `1.5-2x`, with `1.5-7x` duplication from repeated context propagation. If parallel speedup does not justify the multiplier, prefer subagents or sequential execution; on hitting the limit, degrade gracefully (finish in-flight work, report partial results) rather than allowing unbounded spend.
+- **Budget guardrails**: set a maximum approved cost per session and compare useful parallel progress with coordination and retry cost. At the limit, finish safe in-flight work and report partial results; do not expand spend or permissions.
 - **Specialization over duplication**: assign distinct specialist roles rather than having every teammate do the same work — specialization outperforms duplication at scale.
 - **Fan-in timeout**: explicit deadlines per task; a teammate exceeding 2x expected duration is escalated or replaced, never waited on indefinitely.
 - **Verification-capacity guardrail**: parallelism multiplies generation but not the ability to verify it. Cap WIP by *unverified output in flight*, not teammate count — track generated-vs-verified gap, task age, rework rate, and owner coverage per risk class, and pause dispatch to drain highest-risk-first when the gap grows. Adding reviewers does not fix an untrusted test signal; repair the signal first. → `_common/EVIDENCE_LADDER.md` §5.
@@ -266,7 +266,6 @@ When running on Codex CLI, Rally uses `spawn_agent` / `wait_agent` / `send_input
 | `reference/resilience-cost-optimization.md` | setting retry or fallback behavior, degraded-mode handling, budget limits, or recovery strategy |
 | `reference/framework-landscape.md` | comparing Rally to other frameworks or explaining why Rally is the right execution layer |
 | `_common/EVIDENCE_LADDER.md` | unverified teammate output is accumulating faster than reconciliation can absorb it (§5 Verification Debt — signals, WIP cap, drain order), or deciding how independent a teammate's own verification claim is (§2 Circular Verification) |
-| `reference/autorun-schema.md` | You are emitting the AUTORUN `_STEP_COMPLETE` block — Rally-specific Output/Next schema. |
 
 ## Operational
 
@@ -280,7 +279,7 @@ When running on Codex CLI, Rally uses `spawn_agent` / `wait_agent` / `send_input
 
 ## AUTORUN Support
 
-See `_common/AUTORUN.md` for the protocol (`_AGENT_CONTEXT` input, mode semantics, error handling). Rally-specific `_STEP_COMPLETE.Output` schema lives in `reference/autorun-schema.md`.
+Emit `_STEP_COMPLETE` using `_common/AUTORUN.md` § Default Completion Schema; no skill-specific extension is required.
 
 ## Nexus Hub Mode
 

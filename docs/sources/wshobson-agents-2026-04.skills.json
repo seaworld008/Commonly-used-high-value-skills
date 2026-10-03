@@ -33,15 +33,15 @@
       "normalized_slug": "billing-automation",
       "status": "verified_in_repo",
       "repo_skill": "skills/engineering-workflow-automation/billing-automation/SKILL.md",
-      "source": "https://github.com/wshobson/agents/blob/main/plugins/payment-processing/skills/billing-automation/SKILL.md",
-      "notes": "Reconciled from SKILL.md source declaration; upstream tracking enabled.",
+      "source": "https://github.com/wshobson/agents/blob/156b7a5e7a8b93642628a339ee4039c925b34c7f/plugins/payment-processing/skills/billing-automation/SKILL.md",
+      "notes": "Reconciled from SKILL.md source declaration; upstream tracking enabled. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
       "upstream": {
         "repo": "wshobson/agents",
         "path": "plugins/payment-processing/skills/billing-automation/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-14",
-        "last_synced_at": "2026-09-14",
-        "last_synced_commit": "4236bb91f8395b0435f1d8b8baf9e8e4c69a8620",
+        "last_checked_at": "2026-09-30",
+        "last_synced_at": "2026-09-30",
+        "last_synced_commit": "156b7a5e7a8b93642628a339ee4039c925b34c7f",
         "sync_mode": "monitor",
         "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f"
       },
@@ -57,22 +57,27 @@
             {
               "source": "plugins/payment-processing/skills/billing-automation/SKILL.md",
               "target": "skills/engineering-workflow-automation/billing-automation/SKILL.md"
+            },
+            {
+              "source": "plugins/payment-processing/skills/billing-automation/references/details.md",
+              "target": "skills/engineering-workflow-automation/billing-automation/references/details.md",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "4236bb91f8395b0435f1d8b8baf9e8e4c69a8620",
+            "resolved_commit": "156b7a5e7a8b93642628a339ee4039c925b34c7f",
             "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f",
-            "content_sha256": "f197cebea2d295528dbaf5c7c6fb0830c4d72e95f527c325a638a88a49c66188",
-            "last_checked_at": "2026-09-14",
-            "last_synced_at": "2026-09-14",
+            "content_sha256": "6663aea0dc961520f678a4be9295322cd9596b2d11889bf5b37a7419b80afd73",
+            "last_checked_at": "2026-09-30",
+            "last_synced_at": "2026-09-30",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "326f0a55c96e672fedf9d807ca043c00df05ba0e",
               "content_sha256": "f89abb55d9f073f38f1703e4518f0613c788c6174be7f13b8dfe48a1c076c746",
               "spdx": "MIT",
-              "resolved_commit": "4236bb91f8395b0435f1d8b8baf9e8e4c69a8620",
+              "resolved_commit": "156b7a5e7a8b93642628a339ee4039c925b34c7f",
               "api_spdx": "MIT"
             }
           }
@@ -82,7 +87,13 @@
         {
           "path": "skills/engineering-workflow-automation/billing-automation/SKILL.md",
           "owner": "billing-automation",
-          "sha256": "f197cebea2d295528dbaf5c7c6fb0830c4d72e95f527c325a638a88a49c66188",
+          "sha256": "6663aea0dc961520f678a4be9295322cd9596b2d11889bf5b37a7419b80afd73",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/engineering-workflow-automation/billing-automation/references/details.md",
+          "owner": "billing-automation",
+          "sha256": "71967552e1dfdf4ee23e94f18e8788b1a42a27213139f169adc86a15624c243f",
           "mode": "100644"
         }
       ]
@@ -289,6 +300,13 @@
       "target": "wshobson/agents@4236bb91f8395b0435f1d8b8baf9e8e4c69a8620",
       "result": "success",
       "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-09-30",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "wshobson/agents@156b7a5e7a8b93642628a339ee4039c925b34c7f",
+      "result": "success",
+      "evidence": "Compared the complete declared artifact sets and regular sibling resources at immutable commits; applied reviewed deltas, retained local authorization/host adapters, and isolated removed references as immutable licensed sidecars. Source comparison and targeted semantic review are not live vendor/API or model behavioral certification. See docs/maintenance-audit-2026-09-30.json."
     }
   ]
 }

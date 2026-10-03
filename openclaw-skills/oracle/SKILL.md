@@ -2,14 +2,14 @@
 name: oracle
 description: '人工智能应用设计、评估、检索增强和安全护栏规划。'
 zh_description: "人工智能应用设计、评估、检索增强和安全护栏规划。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/main/oracle"
+source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/oracle/SKILL.md"
 license: MIT
 tags: ["agent", "ai", "oracle"]
 created_at: "2026-08-24"
-updated_at: "2026-09-07"
+updated_at: "2026-09-30"
 quality: 5
 complexity: "advanced"
 ---
@@ -242,7 +242,7 @@ Routing rules:
 
 ## AUTORUN Support
 
-See `_common/AUTORUN.md` for the protocol (`_AGENT_CONTEXT` input, mode semantics, error handling). Oracle-specific `_STEP_COMPLETE.Output` schema lives in `reference/autorun-schema.md`.
+Emit `_STEP_COMPLETE` using `_common/AUTORUN.md` § Default Completion Schema; no skill-specific extension is required.
 
 ## Nexus Hub Mode
 

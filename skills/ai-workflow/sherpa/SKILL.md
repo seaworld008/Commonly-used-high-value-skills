@@ -2,14 +2,14 @@
 name: sherpa
 description: '把复杂任务拆成短步骤，控制漂移并推进交付。'
 zh_description: "把复杂任务拆成短步骤，控制漂移并推进交付。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/main/sherpa"
+source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/sherpa/SKILL.md"
 license: MIT
 tags: ["ai", "sherpa", "workflow"]
 created_at: "2026-08-24"
-updated_at: "2026-09-06"
+updated_at: "2026-09-30"
 quality: 5
 complexity: "advanced"
 ---
@@ -85,8 +85,8 @@ Route elsewhere when the task is primarily:
 
 ## Core Contract
 
-- Break work down until the current step is testable, committable, and small enough to finish in `5-15 min`. Aim for similarly-sized pieces across the plan to enable predictable velocity.
-- Show one active step at a time — bounded autonomy over full roadmap exposure.
+- Decompose around testable, committable, reversible boundaries. The `5-15 min` target is a planning estimate, not a guaranteed runtime or a reason to split one atomic change unnecessarily.
+- Show one active step per workstream and expose independent ready units to Nexus/Rally; dependent work still waits for its prerequisite evidence.
 - Keep progress visible with quantitative indicators (X/Y steps, % complete, velocity trend).
 - Detect drift early and redirect to a Parking Lot rather than silently expanding scope; keep a formal change gate and reject informal additions.
 - Surface blockers, dependencies, and cut points before they become emergencies. Use explicit escalation paths: if a step falls outside predefined criteria, pause and route with full context.

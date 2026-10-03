@@ -2,14 +2,14 @@
 name: pulse
 description: '关键指标、埋点、漏斗、留存和仪表盘规格设计。'
 zh_description: "关键指标、埋点、漏斗、留存和仪表盘规格设计。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/main/pulse"
+source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/pulse/SKILL.md"
 license: MIT
 tags: ["growth", "marketing", "pulse"]
 created_at: "2026-08-24"
-updated_at: "2026-09-06"
+updated_at: "2026-09-30"
 quality: 5
 complexity: "advanced"
 ---

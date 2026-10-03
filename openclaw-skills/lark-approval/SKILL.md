@@ -2,14 +2,14 @@
 name: lark-approval
 description: '飞书审批：查询和处理审批待办/已办/实例，搜索可发起审批定义、查看定义详情并发起原生审批实例。当用户要处理审批任务、查看审批实例、搜索或发起审批时使用。审批待办不是飞书任务；非审批类待办走 lark-task。不负责创建审批定义；三方审批定义不走原生提单。'
 zh_description: "用于查询、处理和发起飞书原生审批，区分审批待办与普通飞书任务。"
-version: "1.0.8"
+version: "1.0.9"
 author: larksuite
 source: "github:larksuite/cli"
-source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-approval"
+source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-approval"
 license: MIT
 tags: '[feishu, lark, lark-cli, approval, workflow]'
 created_at: "2026-05-19"
-updated_at: "2026-08-31"
+updated_at: "2026-09-30"
 quality: 3
 complexity: intermediate
 metadata:
@@ -43,7 +43,7 @@ metadata:
 | 搜可发起定义 | `approvals search` | [`lark-approval-approvals-search.md`](references/lark-approval-approvals-search.md) |
 | 看审批定义详情/提单前确认表单与流程 | `approvals get` | [`lark-approval-approvals-get.md`](references/lark-approval-approvals-get.md)   |
 | 发起原生审批实例/提交请假审批/提交报销审批/创建审批实例 | `instances create` | [`lark-approval-initiate.md`](references/lark-approval-initiate.md)             |
-| 查待办/已办 | `tasks query`（`topic`：1待办 2已办 17未读 18已读） | [`lark-approval-tasks-query.md`](references/lark-approval-tasks-query.md)       |
+| 查/搜待办、已办 | `tasks query`（`topic`：1待办 2已办 17未读 18已读） | [`lark-approval-tasks-query.md`](references/lark-approval-tasks-query.md)       |
 | 看表单/进度/当前节点 | `instances get` | [`lark-approval-instances-get.md`](references/lark-approval-instances-get.md)   |
 | 同意审批 | `tasks approve` | [`lark-approval-tasks-approve.md`](references/lark-approval-tasks-approve.md)   |
 | 拒绝审批 | `tasks reject` | [`lark-approval-tasks-reject.md`](references/lark-approval-tasks-reject.md)     |
@@ -53,7 +53,7 @@ metadata:
 | 催办审批 | `tasks remind` | [`lark-approval-tasks-remind.md`](references/lark-approval-tasks-remind.md)     |
 | 撤回已发起审批 | `instances cancel` | [`lark-approval-instances-cancel.md`](references/lark-approval-instances-cancel.md) |
 | 给审批实例追加抄送 | `instances cc` | [`lark-approval-instances-cc.md`](references/lark-approval-instances-cc.md)     |
-| 按定义查已发起审批 | `instances initiated` | [`lark-approval-instances-initiated.md`](references/lark-approval-instances-initiated.md) |
+| 按定义/关键词查已发起审批 | `instances initiated` | [`lark-approval-instances-initiated.md`](references/lark-approval-instances-initiated.md) |
 
 处理链：
 
@@ -106,6 +106,7 @@ lark-cli approval tasks approve --data '{"instance_code":"<ic>","task_id":"<tid>
 ## 不在本 skill 范围
 
 创建审批定义（走飞书客户端或审批管理后台）；三方定义发起（返回 `create_link`，引导用户通过链接发起）；非审批类待办 → [`lark-task`](../lark-task/SKILL.md)
+
 <!-- LOCAL-QUALITY-SUPPLEMENT:START -->
 ## Usage Notes
 

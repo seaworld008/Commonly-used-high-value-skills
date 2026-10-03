@@ -2,285 +2,73 @@
 name: neon-postgres
 description: 'Build or troubleshoot Neon Postgres connections, branching, pooling, scaling, Auth, and platform integrations using current Neon documentation.'
 zh_description: "用于 Neon Postgres 数据库连接、分支、迁移和运行维护。"
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:neondatabase/agent-skills"
-source_url: "https://skills.sh/neondatabase/agent-skills/neon-postgres"
+source_url: "https://github.com/neondatabase/agent-skills/blob/80164a28443aca7c82ac1a70aed836950d6c29ea/skills/neon-postgres/SKILL.md"
 license: Apache-2.0
 tags: '["development", "neon", "postgres"]'
 created_at: "2026-06-03"
-updated_at: "2026-09-28"
+updated_at: "2026-09-30"
 quality: 5
 complexity: "intermediate"
 ---
 
-# Neon Serverless Postgres
+# Lakebase Postgres
 
-Guide the user through any Neon-related task: setup, connections, branching, and advanced features. Deliver a working Neon connection, a completed feature configuration, or a specific answer from the official Neon docs.
+## Local Scope and Authorization
 
-Neon is a serverless Postgres platform that separates compute and storage to offer autoscaling, branching, instant restore, and scale-to-zero. It's fully compatible with Postgres and works with any language, framework, or ORM that supports Postgres.
+Use existing authorized Neon connections and the user's supplied `DATABASE_URL` or linked `.neon` project first. Do not create a second project, replace an ORM, install a CLI, or start an authentication flow merely because this skill was loaded. Use tools actually available in the current host; optional `neon`, `neon-auth`, and branch skills are separate capabilities, not assumed installed dependencies. Installer commands below are examples only for an explicitly requested setup.
 
-## Neon Documentation
 
-The Neon documentation is the source of truth for all Neon-related information. Always verify claims against the official docs before responding. Neon features and APIs evolve, so prefer fetching current docs over relying on training data.
+Lakebase Postgres is the database at the core of Neon. It runs on the lakebase architecture — OLTP built directly on cloud object storage — which decouples storage from compute to offer autoscaling, branching, instant restore, and scale-to-zero. It's fully compatible with Postgres and works with any language, framework, or ORM that supports Postgres.
 
-### Fetching Docs as Markdown
+It is the same database whether you reach it through Neon or through Databricks; this skill covers the Neon access path.
 
-Any Neon doc page can be fetched as markdown in two ways:
+Login, users, sessions, and `@neondatabase/auth` belong in `neon-auth`.
 
-1. **Append `.md` to the URL** (simplest): https://neon.com/docs/introduction/branching.md
-2. **Request `text/markdown`** on the standard URL: `curl -H "Accept: text/markdown" https://neon.com/docs/introduction/branching`
+## Setup Flow
 
-Both return the same markdown content. Use whichever method your tools support.
+### 1. Select the organization and project
 
-### Finding the Right Page
+If a `DATABASE_URL` is already supplied (prompt, environment, or repo) or a `.neon` file points at a project, use it. Do not list organizations or create a second project for schema work.
 
-The docs index lists every available page with its URL and a short description:
+Otherwise use the CLI (default) or MCP server to list organizations and projects. Let the user select an existing project or create a new one.
 
-```
-https://neon.com/docs/llms.txt
-```
+### 2. Get the connection string
 
-Common doc URLs are organized in the topic links below. If you need a page not listed here, search the docs index: https://neon.com/docs/llms.txt. Don't guess URLs.
+If a `DATABASE_URL` is already supplied, use it. Do not fetch another through the CLI or MCP.
 
-## What Is Neon
+Otherwise use the CLI (default), `neon env pull`, or the MCP server to get the connection string. Store it in `.env` as `DATABASE_URL`. Read the file first before modifying it, to avoid overwriting existing values.
 
-Use this for architecture explanations and terminology (organizations, projects, branches, endpoints) before giving implementation advice.
+#### When to use pooled vs direct connections
 
-Link: https://neon.com/docs/introduction/architecture-overview.md
+| Use case                                 | Connection type  |
+| ---------------------------------------- | ---------------- |
+| Web applications, serverless functions   | Pooled (-pooler) |
+| Schema migrations                        | Direct           |
+| pg_dump / pg_restore                     | Direct           |
+| Logical replication                      | Direct           |
+| Long-running analytics with temp tables  | Direct           |
+| Admin tasks needing SET or session state | Direct           |
+| LISTEN / NOTIFY                          | Direct           |
 
-## Getting Started
+### 3. Pick the connection method and driver
 
-Use this section when guiding a user through first-time Neon setup.
+Preserve the existing ORM and driver. For new TypeScript schema work with no established choice, Drizzle is a suggestion: https://neon.com/docs/guides/drizzle.md. Refer to the connection methods guide to pick the correct driver based on how the runtime treats your code: https://neon.com/docs/connect/choose-connection.md.
 
-### Check Status Quo
+Driver notes:
 
-Before starting setup, inspect the user's codebase and environment:
+- On Vercel, use `node-postgres` (`npm install pg`) with Vercel Fluid compute and `import { attachDatabasePool } from "@vercel/functions";`
+- On Cloudflare, use `node-postgres` with Cloudflare Hyperdrive
+- On Neon Functions, use `node-postgres`, as the functions are long-running and reuse the pool across requests.
+- Use the `@neondatabase/serverless` driver for serverless and edge environments (for example, when using Netlify) — HTTP transport for one-shot queries, WebSocket for transaction support. Link: https://neon.com/docs/serverless/serverless-driver.md
 
-- Existing database connection code
-- Existing Neon MCP server or Neon CLI configuration
-- Existence of a `.env` file and `DATABASE_URL` environment variable
-- Existing ORM (Prisma, Drizzle, TypeORM) configuration
+### 4. Set up the schema
 
-### Self-Driving Setup With Neon's CLI or MCP Server
+Manage schemas and migrations as code. Avoid running ad hoc schema migrations against your database, since they're hard to manage.
 
-Offer to inspect existing connected Neon projects or create new ones using the Neon CLI or MCP server. If neither is set up yet, run init with the `--agent` flag. Use `npx -y` to skip the package install prompt. Auth is handled automatically. If the user is not logged in, it opens their browser for OAuth and waits for completion before proceeding.
-
-```bash
-npx -y neonctl@latest init --agent <agent-name>
-```
-
-Supported `--agent` values: `cursor`, `copilot`, `claude`, `claude-desktop`, `codex`, `opencode`, `cline`, `gemini-cli`, `goose`, `zed`.
-
-This installs the Neon extension (for Cursor/VS Code) or MCP server (for other agents), creates an API key, and adds the `neon-postgres` agent skill to the project.
-
-If `init` is not suitable, the individual steps can be run non-interactively:
-
-- **Extension:** `cursor --install-extension databricks.neon-local-connect`
-- **MCP server:** `npx -y add-mcp https://mcp.neon.tech/mcp -g -n Neon -y -a <agent-name>`
-- **Agent skill:** `npx skills add neondatabase/agent-skills --skill neon-postgres --agent <agent-name> -y`
-
-For full CLI installation options, see https://neon.com/docs/cli/install
-
-### Setup Flow
-
-**1. Select Organization and Project**
-
-Use MCP server or CLI to list organizations and projects. Let the user select an existing project or create a new one.
-
-**2. Get Connection String**
-
-Use MCP server or CLI to get the connection string. Store it in `.env` as `DATABASE_URL`. Read the file first before modifying to avoid overwriting existing values.
-
-**3. Pick Connection Method & Driver**
-
-Refer to the connection methods guide to pick the correct driver based on deployment platform: https://neon.com/docs/connect/choose-connection.md
-
-**4. User Authentication with Neon Auth (if needed)**
-
-Skip for CLI tools, scripts, or apps without user accounts. If the app needs auth: use MCP server `provision_neon_auth` tool, then see the auth overview (https://neon.com/docs/auth/overview.md) for setup. For auth + database queries, see the JavaScript SDK reference (https://neon.com/docs/reference/javascript-sdk.md).
-
-**5. ORM Setup (optional)**
-
-Check for existing ORM (Prisma, Drizzle, TypeORM). If none, ask if they want one. For Drizzle integration, see https://neon.com/docs/guides/drizzle.md.
-
-**6. Schema Setup**
-
-- Check for existing migration files or ORM schemas
-- If none: offer to create an example schema or design one together
-
-### Resume Support
-
-If resuming setup, check what's already configured (MCP connection, `.env` with `DATABASE_URL`, dependencies, schema) and continue from the next incomplete step.
-
-### Security Reminders
-
-Remind users to use environment variables for credentials, never commit connection strings, and use least-privilege database roles.
-
-## Connection Methods & Drivers
-
-Use this when you need to pick the correct transport and driver based on runtime constraints (TCP, HTTP, WebSocket, edge, serverless, long-running).
-
-Link: https://neon.com/docs/connect/choose-connection.md
-
-### Recommended: Drizzle + the right driver for your runtime
-
-Preserve the project's existing ORM and driver; Drizzle is an option for new schema work, not a required migration. Pick the driver based on how the runtime treats your code:
-
-- **Long-running or shared-runtime environments → node-postgres (`pg`).** Neon Functions, and any host where the function runtime is shared across requests / runs on fluid compute (e.g. **Vercel** with Fluid compute), keep a module-scope process alive across many requests. Open a `pg` pool **once at module scope** and reuse it across requests.
-- **Fully isolated serverless (Lambda-style) → Neon's serverless driver (`@neondatabase/serverless`).** Hosts like **Netlify** spin up a fresh, isolated instance per request, so a persistent TCP pool can't be reused; the serverless driver queries over HTTP and is built for this.
-
-**Neon Functions / Vercel / fluid compute — Drizzle + node-postgres:**
-
-```typescript
-import { drizzle } from "drizzle-orm/node-postgres";
-import { Pool } from "pg";
-import * as schema from "./schema";
-
-// Created once at module scope; reused by every request the instance handles.
-const pool = new Pool({ connectionString: process.env.DATABASE_URL, max: 5 });
-const db = drizzle({ client: pool, schema });
-```
-
-On **Vercel** (Fluid compute) also attach the pool with `attachDatabasePool` from `@vercel/functions`, so the function runtime drains idle connections before an instance suspends:
-
-```typescript
-import { drizzle } from "drizzle-orm/node-postgres";
-import { Pool } from "pg";
-import { attachDatabasePool } from "@vercel/functions";
-import * as schema from "./schema";
-
-const pool = new Pool({ connectionString: process.env.DATABASE_URL });
-attachDatabasePool(pool); // let the Vercel runtime manage the pooled connections
-const db = drizzle({ client: pool, schema });
-```
-
-**Netlify and other fully-isolated serverless — Drizzle + Neon serverless driver:**
-
-```typescript
-import { drizzle } from "drizzle-orm/neon-http";
-import { neon } from "@neondatabase/serverless";
-
-const sql = neon(process.env.DATABASE_URL!);
-const db = drizzle({ client: sql });
-```
-
-### Serverless Driver
-
-Use this for `@neondatabase/serverless` patterns, including HTTP queries, WebSocket transactions, and runtime-specific optimizations.
-
-Link: https://neon.com/docs/serverless/serverless-driver.md
-
-### Neon JS SDK
-
-Use this for combined Neon Auth + Data API workflows with PostgREST-style querying and typed client setup.
-
-Link: https://neon.com/docs/reference/javascript-sdk.md
-
-## Developer Tools
-
-Use this for local development enablement with `npx -y neonctl@latest init --agent <agent-name>`, VSCode extension setup, and Neon MCP server configuration.
-
-| Tool             | URL                                             |
-| ---------------- | ----------------------------------------------- |
-| CLI Init Command | https://neon.com/docs/cli/init                 |
-| VSCode Extension | https://neon.com/docs/local/vscode-extension.md |
-| MCP Server       | https://neon.com/docs/ai/neon-mcp-server.md     |
-| Neon CLI         | https://neon.com/docs/cli                      |
-
-### Neon CLI
-
-Use this for terminal-first workflows, scripts, and CI/CD automation with `neonctl`.
-
-Link: https://neon.com/docs/cli
-
-## Neon Admin API
-
-The Neon Admin API can be used to manage Neon resources programmatically. It is used behind the scenes by the Neon CLI and MCP server, but can also be used directly for more complex automation workflows or when embedding Neon in other applications.
-
-### Neon REST API
-
-Use this for direct HTTP automation, endpoint-level control, API key auth, rate-limit handling, and operation polling.
-
-Link: https://neon.com/docs/reference/api-reference.md
-
-### Neon TypeScript SDK
-
-Use this when implementing typed programmatic control of Neon resources in TypeScript via `@neondatabase/api-client`.
-
-Link: https://neon.com/docs/reference/typescript-sdk.md
-
-### Neon Python SDK
-
-Use this when implementing programmatic Neon management in Python with the `neon-api` package.
-
-Link: https://neon.com/docs/reference/python-sdk.md
-
-## Neon Auth
-
-Use this for managed user authentication setup, UI components, auth methods, and Neon Auth integration pitfalls in Next.js and React apps.
-
-Link: https://neon.com/docs/auth/overview.md
-
-Neon Auth is also embedded in the Neon JS SDK. Depending on your use case, you may want to use the Neon JS SDK instead of Neon Auth alone. See https://neon.com/docs/connect/choose-connection.md for more details.
-
-## Neon Infrastructure as Code (`neon.ts`)
-
-`neon.ts` is Neon's branch config and infrastructure-as-code file: declare which services your branches have, get type-safe env vars, and program per-branch compute — all in TypeScript (see the `neon` skill for the full reference). Postgres always exists on every branch, so you never declare the database itself; what you codify here is the Postgres-adjacent surface — Neon Auth, the Data API, and per-branch compute settings (autoscaling and scale-to-zero).
-
-Add it with `@neondatabase/config`:
-
-```bash
-npm i @neondatabase/config
-```
-
-```typescript
-// neon.ts
-import { defineConfig } from "@neondatabase/config/v1";
-
-export default defineConfig({
-  auth: true, // Neon Auth (adds NEON_AUTH_* env vars)
-  dataApi: true, // Data API (adds NEON_DATA_API_URL); requires auth: true (or an external IdP)
-  // Postgres exists on every branch; tune its compute per branch:
-  branch: (branch) => {
-    if (branch.exists) return {}; // leave existing branches untouched
-    if (branch.isDefault) return { protected: true }; // prod keeps default compute
-    return {
-      ttl: "7d", // non-prod branches auto-expire (max 30d)
-      postgres: {
-        computeSettings: {
-          autoscalingLimitMinCu: 0.25, // scale to zero
-          autoscalingLimitMaxCu: 1, // keep dev/preview cheap
-          suspendTimeout: "5m",
-        },
-      },
-    };
-  },
-});
-```
-
-Reconcile the declaration from the CLI — the Neon equivalent of `terraform plan` / `apply`:
-
-```bash
-neonctl config status   # print the branch's live config
-neonctl config plan     # dry-run diff of what apply would change
-neonctl config apply    # provision the declared services / settings
-neonctl deploy          # alias for `neonctl config apply`
-```
-
-Because `neonctl checkout` applies the policy as it **creates** a branch, a fresh branch comes up with these compute settings (and Auth / Data API) already in place. Checking out an _existing_ branch never reconciles it — run `neonctl deploy` to apply changes.
-
-Since `neon.ts` is TypeScript, invalid combinations fail to compile with an actionable message: the Data API verifies requests with Neon Auth by default, so `dataApi: true` without `auth: true` is a type error (the fix — `auth: true`, or `authProvider: 'external'` with a `jwksUrl` — is in the message). See the `neon` skill's type-safe config note.
-
-Read the resulting env back, typed and validated against the policy, with `parseEnv` from `@neondatabase/env`:
-
-```typescript
-import { parseEnv } from "@neondatabase/env";
-import config from "./neon";
-
-const env = parseEnv(config);
-env.postgres.databaseUrl; // typed; enabling auth / dataApi above surfaces env.auth / env.dataApi
-```
+If you're using an ORM, follow your ORM's best practices to manage schemas and migrations. For example, if using Drizzle, only use Drizzle for schema and migration management unless instructed otherwise.
 
 ## Branching
 
@@ -290,21 +78,105 @@ Key points:
 
 - Branches are instant, copy-on-write clones (no full data copy).
 - Each branch has its own compute endpoint.
-- Use the neonctl CLI or MCP server to create, inspect, and compare branches.
+- Use the neon CLI or MCP server to create, inspect, and compare branches.
 
 Link: https://neon.com/docs/introduction/branching.md
 
-For detailed branch creation workflows (normal vs schema-only branches, reset-from-parent, CLI/MCP selection), use the `neon-postgres-branches` skill if available
-
-Or fetch the full branching skill from the following URL:
-
-https://neon.com/docs/ai/skills/neon-postgres-branches/SKILL.md
-
-If this skill is not installed you can use the following command to install it:
+For detailed branch creation workflows (normal vs schema-only branches, reset-from-parent, CLI/MCP selection), use the `neon-postgres-branches` skill. If it isn't installed, fetch it from https://neon.com/docs/ai/skills/neon-postgres-branches/SKILL.md or install it with:
 
 ```bash
-npx skills add neondatabase/agent-skills --skill neon-postgres-branches
+neon skills -s neon-postgres-branches -y
 ```
+
+## Migrations
+
+Test a migration on a branch of production, against production-like data, before applying it to production.
+
+Use a **direct (non-pooled)** connection string when you run the migration, not a pooled one. `neon connection-string` returns the direct string by default; make sure the hostname does not include the `-pooler` suffix.
+
+## Troubleshooting and Neon-Specific Performance
+
+Use Neon's predefined, read-only diagnostics before writing catalog queries by hand. The Neon CLI `neon inspect db` subcommands and the Neon MCP server's `inspect_database` tool run the same checks.
+
+This section covers Neon-specific diagnostic tools, compute cache behavior, and platform signals. When the evidence points to generic Postgres work such as rewriting a query, choosing an index, changing a schema, or interpreting plan nodes, load the [`postgres-best-practices`](https://github.com/neondatabase/postgres-skills/tree/main/skills/postgres-best-practices) skill and carry the diagnostic evidence into that workflow.
+
+Docs:
+
+- CLI: https://neon.com/docs/cli/inspect.md
+- Query performance: https://neon.com/docs/postgresql/query-performance.md
+- `pg_stat_statements`: https://neon.com/docs/extensions/pg_stat_statements.md
+- Neon Local File Cache: https://neon.com/docs/extensions/neon.md
+
+### Choose CLI or MCP
+
+Prefer the Neon CLI when terminal access and authentication are available:
+
+```bash
+neon inspect db <check>
+```
+
+The CLI resolves the project and branch from the current Neon context. Use `--project-id`, `--branch`, and `--database-name` to override it. Omit `--database-name` to inspect every database on the branch. Use `--db-url` only when inspecting a Postgres database directly instead of resolving it through the Neon API.
+
+When using Neon MCP, call `inspect_database` with `projectId` and one `check`. Pass `branchId`, `databaseName`, or `computeId` only when needed. Omit `databaseName` to inspect all databases on the branch. Increase `limit` only when the result says it was truncated.
+
+### Pick the Diagnostic
+
+| Symptom or question                            | Checks                               |
+| ---------------------------------------------- | ------------------------------------ |
+| Which relations consume storage?               | `table-sizes`, `index-sizes`         |
+| Is an index unused or a table scanned heavily? | `unused-indexes`, `seq-scans`        |
+| What has run for 5+ minutes or holds locks?    | `long-running-queries`, `locks`      |
+| Which queries consume the most total time?     | `outliers`                           |
+| Which queries run most often?                  | `calls`                              |
+| Does the active data fit in compute cache?     | `lfc-hit-rate`, `working-set`        |
+| Is autovacuum behind or is space wasted?       | `vacuum-stats`, `bloat`              |
+| Is logical replication healthy?                | `replication-slots`, `subscriptions` |
+
+Do not confuse these checks:
+
+- `long-running-queries` reports statements running **right now** for more than five minutes.
+- `outliers` ranks the top queries by cumulative execution time since statistics were reset. It does not rank by mean latency.
+- `calls` ranks by execution count over the same statistics history.
+
+`outliers` and `calls` require `pg_stat_statements`. `lfc-hit-rate` and `working-set` require the `neon` extension. If a check reports a missing extension, ask before running the suggested `CREATE EXTENSION` statement because installing an extension modifies the database.
+
+### Interpret Results Safely
+
+- Treat `unused-indexes` as a candidate list, not permission to drop indexes. Confirm the observation window, constraints, and workload before removal.
+- A sequential scan can be correct for a small table or a query reading much of a table. Check table size, selectivity, and the query plan before adding an index.
+- `bloat` is a statistical estimate. Confirm the impact and plan locks or maintenance before `VACUUM FULL`, `REINDEX`, or similar remediation.
+- Cache and Postgres statistics reset when compute restarts, including scale-to-zero suspension. Run a representative workload before interpreting fresh `lfc-hit-rate`, `working-set`, `vacuum-stats`, or `pg_stat_statements` results.
+- Compute-wide checks (`lfc-hit-rate`, `working-set`, and `replication-slots`) run once even when inspecting every database.
+- One failing database can fail an all-databases inspection; retry the relevant check with an explicit `databaseName` to isolate it.
+
+### Inspect Neon Cache Behavior Per Query
+
+Standard `EXPLAIN (ANALYZE, BUFFERS)` reports Postgres shared-buffer activity, but it does not show Neon's Local File Cache (LFC) or page prefetching. For a safe read-only query, add Neon's `FILECACHE` and `PREFETCH` options:
+
+```sql
+EXPLAIN (ANALYZE, BUFFERS, PREFETCH, FILECACHE)
+SELECT ...;
+```
+
+- `File cache: hits` counts pages found in the compute's LFC.
+- `File cache: misses` counts pages not found in the LFC and fetched from database storage.
+- `Prefetch: hits`, `misses`, `expired`, and `duplicates` show how effectively Neon fetched pages before the executor requested them.
+
+`FILECACHE` and `PREFETCH` provide metrics for this query and do not require the `neon` extension. By contrast, `neon inspect db lfc-hit-rate` and `working-set` provide compute-wide statistics and do require the extension.
+
+The MCP `explain_sql_statement` tool can produce a standard plan but does not expose `FILECACHE` or `PREFETCH` options. To collect those Neon-specific metrics through MCP, use `run_sql` with the explicit, read-only `EXPLAIN` statement above.
+
+Because `ANALYZE` executes the statement, use it only when execution is safe; do not run it autonomously for mutating SQL. Compare cold- and warm-cache runs carefully because the first execution can populate the cache and materially change later results.
+
+### Performance Workflow
+
+1. Reproduce the symptom and note its time window.
+2. Run the smallest relevant `inspect` checks from the table above.
+3. Identify a specific query before changing schema or compute. Use MCP `explain_sql_statement` for a standard plan, or the Neon-specific `EXPLAIN` above when LFC or prefetch behavior matters.
+4. If the bottleneck is query shape, indexing, schema, locking, or vacuum behavior, load `postgres-best-practices` and carry forward the inspection results and query plan. Keep Neon compute, cache, connection, and platform decisions in this skill.
+5. Re-run the same check and workload to verify the change.
+
+Use MCP `list_slow_queries` instead of `inspect_database` when the user specifically needs queries ranked by average execution time with a custom threshold and limit. Outside the explicit `EXPLAIN` case above, use `run_sql` only for read-only diagnostic SQL when the predefined checks do not answer the question.
 
 ## Autoscaling
 
@@ -318,7 +190,7 @@ Use this when optimizing idle costs and discussing suspend/resume behavior, incl
 
 Key points:
 
-- Idle computes suspend automatically (default 5 minutes, configurable) (unless disabled - launch & scale plan only)
+- Idle computes suspend automatically after a default of 5 minutes; the timeout is configurable, and suspension can only be disabled on the Launch and Scale plans.
 - First query after suspend typically has a cold-start penalty (around hundreds of ms)
 - Storage remains active while compute is suspended.
 
@@ -376,46 +248,32 @@ Key points:
 - Useful for replicating to/from external Postgres systems.
 
 Link: https://neon.com/docs/guides/logical-replication-guide.md
-<!-- LOCAL-QUALITY-SUPPLEMENT:START -->
-## Usage Notes
 
-This supplement is maintained by the repository sync pipeline. It keeps the
-imported upstream skill usable inside this curated collection when the upstream
-source is intentionally concise.
+## Lakebase Search
 
-## Common Patterns
+Use Lakebase Search for semantic, full-text, and hybrid search:
 
-```text
-1. Confirm that the user's task matches the skill trigger.
-2. Read the relevant project files or user-provided context before acting.
-3. Choose the smallest reversible action that advances the task.
-4. Run the verification command or manual check that proves the result.
-5. Report the outcome, evidence, and any remaining risk.
-```
+- For semantic search, read [Vector search](references/vector-search.md).
+- For full-text search with BM25 ranking, read [Full-text search](references/full-text-search.md).
+- For combining semantic and lexical results, read [Hybrid search](references/hybrid-search.md).
+- For managing any of the above through Drizzle ORM, read [Managing Lakebase Search with Drizzle](references/lakebase-search-drizzle.md).
 
-## Boundaries
+Links:
 
-- Prefer the upstream workflow for Neon Postgres; this section only adds local quality
-  guardrails.
-- Do not invent project facts when required files, vaults, services, or tools are
-  unavailable.
-- Stop and ask for clarification when the next action could overwrite user work,
-  expose private data, or change production state.
-<!-- LOCAL-QUALITY-SUPPLEMENT:END -->
+- [Get started with Lakebase Search](https://neon.com/docs/ai/lakebase-search-get-started)
+- [`lakebase_vector` reference](https://neon.com/docs/extensions/lakebase-vector)
+- [`lakebase_text` reference](https://neon.com/docs/extensions/lakebase-text)
 
-## Diagnostics and Search
+## Gotchas
 
-Use the available Neon CLI `neon inspect db` or MCP `inspect_database` checks for
-storage, locks, query calls, outliers, vacuum, and cache behavior. Scope the project,
-branch, and database from the task. Distinguish currently long-running queries
-from cumulative execution time and average latency; statistics can reset on restart.
-Unused-index and bloat reports are candidates for investigation, not authorization
-to drop indexes or run blocking maintenance. `EXPLAIN ANALYZE` executes the query.
-Consult current [Neon inspection guidance](https://neon.com/docs/cli/inspect) before
-using version-specific flags or installing a missing extension.
-For vector, BM25, and hybrid search, consult the upstream
-[search references](https://github.com/neondatabase/agent-skills/tree/main/skills/neon-postgres/references)
-and verify feature availability in the target project before proposing a migration.
+### Pooled vs direct connections: use the direct URL for migrations, dumps, and replication
+
+Neon gives you two connection strings for the same database: a **pooled** one (hostname with the `-pooler` suffix) and a **direct/unpooled** one (no `-pooler` suffix). `neon env pull` writes them as `DATABASE_URL` and `DATABASE_URL_UNPOOLED`. The pooled connection routes through PgBouncer in transaction mode, which doesn't support session-level operations. Choose the right one:
+
+- **Pooled (`DATABASE_URL`)** — your application's normal query traffic, especially serverless and connection-per-request workloads.
+- **Direct (`DATABASE_URL_UNPOOLED`)** — schema migrations (Prisma Migrate, Drizzle Kit, Alembic, and others), `pg_dump` / `pg_restore`, logical replication, `LISTEN`/`NOTIFY`, and anything relying on `SET` or other session state.
+
+Running migrations, dumps, or replication over the pooled connection can fail, and never in a way that names pooling: `prepared statement "s0" already exists` from Prisma Migrate, a `SET search_path` that doesn't persist past its own transaction so the next query reports `relation "mytable" does not exist`, or a write intermittently hitting a read-only transaction (`SQLSTATE 25006`) that a pooled backend inherited from an earlier client. Migration tools generally take both strings at once — Prisma's `directUrl` alongside `url` — so point that at the direct one rather than swapping `DATABASE_URL` and losing pooling for the application. See https://neon.com/docs/connect/connection-pooling.md.
 
 ## Existing Project Boundary
 

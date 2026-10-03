@@ -2,14 +2,14 @@
 name: python-performance
 description: 'Profile and optimize Python code using cProfile, memory profilers, and performance best practices. Use when debugging slow Python code, optimizing bottlenecks, or improving application performance.'
 zh_description: "用于 Python 性能分析、内存优化、热点路径调优和并发模式评审。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "skills.sh"
-source_url: "https://skills.sh/wshobson/agents/python-performance-optimization"
+source_url: "https://github.com/wshobson/agents/blob/156b7a5e7a8b93642628a339ee4039c925b34c7f/plugins/python-development/skills/python-performance-optimization/SKILL.md"
 license: "MIT"
 tags: '["development", "performance", "python"]'
 created_at: "2026-03-27"
-updated_at: "2026-09-22"
+updated_at: "2026-09-30"
 quality: 4
 complexity: "intermediate"
 ---

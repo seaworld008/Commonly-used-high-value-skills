@@ -2,14 +2,14 @@
 name: ripple
 description: '变更前影响分析，评估依赖链和一致性风险。'
 zh_description: "变更前影响分析，评估依赖链和一致性风险。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "github:simota/agent-skills"
-source_url: "https://github.com/simota/agent-skills/tree/main/ripple"
+source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/ripple/SKILL.md"
 license: MIT
 tags: ["analysis", "planning", "ripple"]
 created_at: "2026-08-24"
-updated_at: "2026-09-06"
+updated_at: "2026-09-30"
 quality: 5
 complexity: "advanced"
 ---
@@ -143,7 +143,7 @@ Beyond direct dependency tracing, detect second-order effects that emerge from c
 
 ## Core Contract
 
-- Follow the workflow phases in order for every task — never skip VERTICAL or HORIZONTAL analysis.
+- Cover both VERTICAL dependency impact and HORIZONTAL consistency impact; neither dimension may be skipped, though independent source reads can run together.
 - Document evidence and rationale for every recommendation with file paths, line numbers, and confidence levels.
 - Never modify code directly; hand implementation to Builder, refactoring to Zen.
 - Provide actionable, specific outputs — every finding must include: location, severity, affected dependents count, and suggested mitigation.
@@ -311,7 +311,7 @@ Standard protocols and Pre-Handoff Checklist → `_common/OPERATIONAL.md`
 
 ## AUTORUN Support
 
-See `_common/AUTORUN.md` for the protocol (`_AGENT_CONTEXT` input, mode semantics, error handling). Ripple-specific `_STEP_COMPLETE.Output` schema lives in `reference/autorun-schema.md`.
+Emit `_STEP_COMPLETE` using `_common/AUTORUN.md` § Default Completion Schema; no skill-specific extension is required.
 
 ## Nexus Hub Mode
 

@@ -575,9 +575,19 @@ function writeJsonAtomic(file, data) {
 
 // Resolve the nearest existing ancestor too, so aliases and not-yet-created
 // destination descendants receive the same overlap checks as existing paths.
-function canonicalPath(file) {
+function canonicalPath(file, allowDanglingLeaf = false) {
   const absolute = path.resolve(file);
-  if (lstatExists(absolute)) return fs.realpathSync(absolute);
+  if (lstatExists(absolute)) {
+    try {
+      return fs.realpathSync(absolute);
+    } catch (error) {
+      // A missing leaf link will be archived, not traversed. Ancestor links
+      // remain strict so an unresolved alias cannot hide a source overlap.
+      if (!allowDanglingLeaf || error.code !== "ENOENT" ||
+          !fs.lstatSync(absolute).isSymbolicLink()) throw error;
+      return path.join(canonicalPath(path.dirname(absolute)), path.basename(absolute));
+    }
+  }
   const parent = path.dirname(absolute);
   if (parent === absolute) return absolute;
   return path.join(canonicalPath(parent), path.basename(absolute));
@@ -595,7 +605,7 @@ function pathsOverlap(left, right) {
 function prepareInstallPlans(plans) {
   const sources = plans.flatMap((plan) => [canonicalPath(plan.sourceRoot),
     ...plan.skills.map((skill) => canonicalPath(skill.sourceDir))]);
-  const destinations = plans.map((plan) => canonicalPath(plan.destRoot));
+  const destinations = plans.map((plan) => canonicalPath(plan.destRoot, true));
   for (let i = 0; i < plans.length; i += 1) {
     if (sources.some((source) => pathsOverlap(source, destinations[i]))) {
       throw new Error(`Source and destination overlap: ${plans[i].destRoot}`);
@@ -618,7 +628,10 @@ function prepareInstallPlans(plans) {
       const inventory = inventorySkill(skill.sourceDir, skill.name);
       expected.set(skill.name, { ...inventory, owner: skill.name });
     }
-    return { ...plan, manifest, expected };
+    const danglingDestination = lstatExists(plan.destRoot) &&
+      fs.lstatSync(plan.destRoot).isSymbolicLink() && !fs.existsSync(plan.destRoot)
+      ? fs.readlinkSync(plan.destRoot) : null;
+    return { ...plan, manifest, expected, danglingDestination };
   });
 }
 
@@ -723,7 +736,42 @@ function pruneRetired(destRoot, manifest, policyPath, dryRun, timestamp) {
   return result;
 }
 
+function installDanglingDestination(plan, args, timestamp) {
+  // Build the complete new root before moving the user's link. A failed copy
+  // leaves it untouched; a failed final rename restores it from the archive.
+  const stage = fs.mkdtempSync(path.join(path.dirname(plan.destRoot), ".high-value-skills-root-"));
+  const archive = `${backupRoot(plan.destRoot, timestamp)}.symlink`;
+  try {
+    const summary = installPlan({ ...plan, destRoot: stage, danglingDestination: null }, args, timestamp);
+    if (!lstatExists(plan.destRoot) || !fs.lstatSync(plan.destRoot).isSymbolicLink() ||
+        fs.existsSync(plan.destRoot) || fs.readlinkSync(plan.destRoot) !== plan.danglingDestination) {
+      throw new Error(`Destination symlink changed concurrently: ${plan.destRoot}`);
+    }
+    fs.mkdirSync(path.dirname(archive), { recursive: true });
+    if (lstatExists(archive)) throw new Error(`Backup destination already exists: ${archive}`);
+    fs.renameSync(plan.destRoot, archive);
+    try {
+      fs.renameSync(stage, plan.destRoot);
+    } catch (error) {
+      try {
+        if (lstatExists(plan.destRoot)) throw new Error("destination changed concurrently");
+        fs.renameSync(archive, plan.destRoot);
+      } catch (restoreError) {
+        throw new Error(`Install failed: ${error.message}; rollback failed: ${restoreError.message}; original link preserved at ${archive}`);
+      }
+      throw error;
+    }
+    return { ...summary, destRoot: plan.destRoot, archivedDestination: archive };
+  } finally {
+    // Never remove the archive: it remains the user's recoverable original.
+    if (lstatExists(stage)) fs.rmSync(stage, { recursive: true, force: true });
+  }
+}
+
 function installPlan(plan, args, timestamp) {
+  if (plan.danglingDestination !== null && !args.dryRun) {
+    return installDanglingDestination(plan, args, timestamp);
+  }
   const { manifest, expected } = plan;
   if (!args.dryRun) fs.mkdirSync(plan.destRoot, { recursive: true });
   let archived = 0;
@@ -974,6 +1022,9 @@ function main() {
         `Unchanged: ${summary.unchanged}, Preserved extras: ${summary.preserved}. ` +
         `Archived replacements: ${summary.archived}.`
     );
+    if (summary.archivedDestination) {
+      console.log(`Archived destination symlink: ${summary.archivedDestination}`);
+    }
     if (args.pruneRetired) {
       console.log(
         `${args.dryRun ? "[dry-run] " : ""}Retired: ` +

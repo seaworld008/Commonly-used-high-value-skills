@@ -11,6 +11,17 @@
 面向全球 AI 开发者与 Agent 工作流构建者的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理等高频任务场景。当前共 **16 个分类 / 287 个技能**。
 
 
+## v3.2.0：Grill Me 与全量来源维护
+
+新增 [grill-me](skills/task-understanding-decomposition/grill-me/SKILL.md)：对方案、设计和关键决策进行追问，按依赖关系逐轮检验假设。它包含完整方法与固定版本的上游原文，不会只安装一个缺少 `grilling` 依赖的入口；用户要求收录或安装时也不会自动开始访谈。
+
+本次 [维护审计](docs/maintenance-audit-2026-09-30.md) 区分真实更新、本地策展、冻结项与历史参考。保留全部原有技能路径；上游移除的旧参考固定到历史提交，不再伪装成最新内容。安装器同时修复悬空目标链接的安全归档与失败恢复。
+
+```bash
+# 只预览安装 grill-me；确认目标后去掉 --dry-run
+npx github:seaworld008/Commonly-used-high-value-skills#v3.2.0 install --target codex --skill grill-me --dry-run
+```
+
 ## 为什么值得收藏
 
 - 一次收齐高频可复用 Skills，减少到处找 prompt、脚本和工作流的时间。

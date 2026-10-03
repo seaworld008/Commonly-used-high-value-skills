@@ -2,14 +2,14 @@
 name: honcho
 description: Configure and troubleshoot Honcho memory for Hermes.
 zh_description: "用于管理 Agent 记忆、运行状态、协作上下文和安全边界。"
-version: "1.0.2"
+version: "1.0.3"
 author: Hermes Agent
 source: "github:NousResearch/hermes-agent"
 source_url: "https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/autonomous-ai-agents/honcho/SKILL.md"
 license: MIT
 tags: '[Honcho, Memory, Profiles, Observation, Dialectic, User-Modeling]'
 created_at: "2026-04-13"
-updated_at: "2026-06-01"
+updated_at: "2026-10-03"
 quality: 4
 complexity: "intermediate"
 platforms: '[linux, macos, windows]'
@@ -36,6 +36,8 @@ Honcho provides AI-native cross-session user modeling. It learns who the user is
 - Configuring context budgets and session summary injection
 
 ## Setup
+
+Current upstream also distributes Honcho through the Hermes plugin catalog (provider: Plastic Labs). Only when the user requests installation, check the installed CLI help and use `hermes plugins install honcho` if that command is supported. Do not run an installer just because this skill was loaded. Preserve the configured endpoint, profile and credentials when migrating an existing setup.
 
 ### Cloud (app.honcho.dev)
 

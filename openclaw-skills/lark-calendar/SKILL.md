@@ -2,14 +2,14 @@
 name: lark-calendar
 description: '飞书日历：管理日历日程和会议室。查看/搜索日程、创建/更新日程、管理参会人、查询忙闲和推荐时段、预定会议室。当用户需要查看日程安排、创建/修改会议、查询/预定会议室时使用。不负责：查询过去的视频会议记录（走 lark-meeting）、待办任务（走 lark-task）。'
 zh_description: "用于查询、创建和管理飞书日历事件与日程安排。"
-version: "1.0.10"
+version: "1.0.11"
 author: larksuite
 source: "github:larksuite/cli"
-source_url: "https://github.com/larksuite/cli/tree/main/skills/lark-calendar"
+source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-calendar"
 license: MIT
 tags: '[feishu, lark, lark-cli, calendar, scheduling]'
 created_at: "2026-05-19"
-updated_at: "2026-09-06"
+updated_at: "2026-09-30"
 quality: 4
 complexity: intermediate
 metadata:
@@ -52,6 +52,7 @@ lark-cli calendar +agenda --as bot
 | `+freebusy` | 查询主日历的忙闲/RSVP状态/空闲时间段。(**如需预约/推荐时间段**走 `+suggestion`——它综合工作时间、忙碌区间和休息时间推荐。) |
 | [`+room-find`](references/lark-calendar-room-find.md) | 针对一个或多个**明确的**时间块查找可用会议室（无明确时间时禁止直接调用，需先走 +suggestion） |
 | [`+rsvp`](references/lark-calendar-rsvp.md) | 回复日程（接受/拒绝/待定） |
+| [`+join-event`](references/lark-calendar-join-event.md) | 凭分享 token 加入日程（分享链接/二维码/分享卡片/RSVP 卡片） |
 | [`+suggestion`](references/lark-calendar-suggestion.md) | 根据非明确时间或一段时间范围，推荐多个可用时间块方案 |
 | [`+transfer`](references/lark-calendar-transfer.md) | 把日程组织者转让给另一个用户或机器人；不可逆，需 `--yes` |
 | [`+list-attendees`](references/lark-calendar-list-attendees.md) | 列出日程的参与人和会议室（支持按 `--type` 过滤：user / resource / chat / third_party） |
@@ -82,11 +83,15 @@ lark-cli calendar +get --calendar-id <calendar_id> --event-id <event_id>
 lark-cli calendar +search-event --query "周会" --start 2026-04-20 --end 2026-04-27 --attendee-ids "ou_user1,oc_chat1,omm_room1" --page-token <page_token> --page-size 30
 ```
 
+`--attendee-ids` 的多值语义：**同类型内为 OR（并集）**——只要日程命中列表中的任意一个同类型 ID，就会返回。
+
+- `--attendee-ids "ou_A,ou_B"` = A **或** B 参加的日程（**不是** A 和 B 都参加的）。
+
 ### `+delete` — 删除日程
 
 ```bash
 # calendar_id不传，默认primary
-lark-cli calendar +delete --calendar-id <calendar_id> --event-id <event_id> --notify true
+lark-cli calendar +delete --calendar-id <calendar_id> --event-id <event_id> --notify=true
 ```
 
 ### `+agenda` — 查看近期日程安排
@@ -166,13 +171,14 @@ lark-cli calendar +freebusy --start 2026-03-11T09:00:00+08:00 --end 2026-03-11T1
 
 ## 意图路由
 
+**日程与会议的关系**：用户口中的「会议」通常不区分日程和视频会议。定义、三种查询意图（当前/未来/过去）的分流规则见 [日程与视频会议的关系](references/lark-calendar-meeting-relation.md)。
+
 | 用户意图 | 路由到 |
 |----------|--------|
-| 查询过去的会议（"昨天的会议""上周的会"） | [`../lark-meeting/SKILL.md`](../lark-meeting/SKILL.md)（会议数据含即时会议，仅查日程会遗漏） |
-| 今天有哪些会议| 需要合并两部分内容：[`../lark-meeting/SKILL.md`](../lark-meeting/SKILL.md) 中的 `vc +search` 查询今天已结束的会议， `calendar +agenda` 查询进行中或未开始的日程。|
-| 查询日历/日程或未来时间的会议 | 本 skill |
+| 查询过去的会议（"昨天的会议""上周的会"）/今天有哪些会议 / 当前正在开的会议 | 先读 [日程与视频会议的关系](references/lark-calendar-meeting-relation.md) |
+| 未来的会议 / 明天/下周的会议 | 本 skill：视频会议不存在于未来，等价于查日程 |
 | 按关键词搜索日程 | 本 skill（`+search-event`） |
-| 从日程获取关联的视频会议 ID 或用户绑定的会议纪要文档 | 本 skill（`+meeting`） |
+| 从日程获取关联的视频会议 ID 或用户绑定的会议纪要文档 | 本 skill（[`+meeting`](references/lark-calendar-meeting.md)） |
 | 查看日程的参会人 / 会议室（含 `--type resource` 只看会议室） | 本 skill（[`+list-attendees`](references/lark-calendar-list-attendees.md)） |
 | 把日程分享给某人 / 群 / 粘贴到文档 | 本 skill：先 `calendar events share_info` 取**日程分享链接**，再走 [lark-im](../lark-im/SKILL.md) 发送或粘贴该链接；**分享日程给某个人、某个群或粘贴到文档中，需要的都是日程分享链接，不是 applink**，不要自己拼接或用 applink 代替 |
 | 从日程进一步拿 AI 智能纪要 / 逐字稿 / 妙记产物 | 先 `+meeting` 取 `meeting_id`，再进入 [`lark-meeting`](../lark-meeting/SKILL.md)：[`vc +detail`](../lark-meeting/references/lark-vc-detail.md) → [`note +detail`](../lark-meeting/references/lark-note-detail.md) / [`minutes +detail`](../lark-meeting/references/lark-minutes-detail.md) |
@@ -210,8 +216,6 @@ lark-cli calendar <resource> <method> [flags]
 # 查询用户主日历
 lark-cli calendar calendars primary
 
-# 获取日程详情及 app_link
-lark-cli calendar events get --calendar-id <calendar_id> --event-id <event_id>
 # 获取日程分享链接（分享给他人/群前必须先拿到）
 # 返回形如 {{domain}}/calendar/share?token=<token> 的分享链接，不是 applink；直接把该链接发给对方（对方可凭链接中的 token 走 +join-event 加入）
 lark-cli calendar events share_info --calendar-id <calendar_id> --event-id <event_id>
@@ -252,6 +256,7 @@ lark-cli im +chat-search --query <query> --as user
 
 **注意（强制性）：**
 - 涉及日期（时间）字符串与时间戳的相互转换时，务必调用系统命令或脚本代码等外部工具进行处理，以确保转换的绝对准确；换算**禁止依赖容器默认时区**（常为 UTC，会导致 8 小时偏移），必须显式指定目标时区。违者将导致严重的逻辑错误！
+
 <!-- LOCAL-QUALITY-SUPPLEMENT:START -->
 ## Usage Notes
 
