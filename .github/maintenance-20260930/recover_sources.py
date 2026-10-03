@@ -52,8 +52,13 @@ def main():
     from github_artifact_provider import GitHubArtifactProvider
     provider = GitHubArtifactProvider(token=os.environ['GH_TOKEN'])
     resolved = {}
-    for mapping in sorted(Path('docs/sources').glob('*.skills.json')):
-        original = subprocess.check_output(['git', 'show', BASE + ':' + mapping.as_posix()])
+    baseline_paths = subprocess.check_output(
+        ['git', 'ls-tree', '-r', '--name-only', BASE, '--', 'docs/sources'], text=True,
+    ).splitlines()
+    mappings = sorted(p for p in baseline_paths
+                      if p.endswith('.skills.json') and '/' not in p.removeprefix('docs/sources/'))
+    for mapping in mappings:
+        original = subprocess.check_output(['git', 'show', BASE + ':' + mapping])
         for entry in json.loads(original).get('skills', []):
             for origin in entry.get('origins', []):
                 repo = origin.get('repo')
