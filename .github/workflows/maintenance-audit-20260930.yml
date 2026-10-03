@@ -1,4 +1,4 @@
-name: Publish verified v3.2.0
+name: Publish validated v3.2.0 draft
 on:
   push:
     branches: [codex/grill-me-maintenance-20260930]
@@ -10,166 +10,89 @@ concurrency:
   group: publish-verified-v3.2.0
   cancel-in-progress: false
 jobs:
-  release:
+  publish:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 15
     env:
       GH_TOKEN: ${{ github.token }}
       RELEASE_SHA: 5713743cabfef76135d1cc96a19f656395135632
       REPO: seaworld008/Commonly-used-high-value-skills
     steps:
-      - name: Checkout isolated release verifier
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          path: transfer
-          persist-credentials: false
-      - name: Checkout exact merged main
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: 5713743cabfef76135d1cc96a19f656395135632
           fetch-depth: 0
-          path: candidate
           persist-credentials: false
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: '3.13'
-      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
-        with:
-          node-version: '22'
-      - name: Verify the regression-tested root-directory compatibility fix
-        working-directory: candidate
-        shell: python
+      - name: Retrieve tested verifier and previous independent draft verification
         run: |
-          import hashlib, pathlib
-          p=pathlib.Path('../transfer/.github/maintenance-20260930/release_verify.py')
-          assert hashlib.sha256(p.read_bytes()).hexdigest()=='cdb18853ba4eb94428a4a77d58f5803d38999453869fa211bec74f0df4c408b1'
-          old="        for member in bundle:\n            if not member.name.startswith(prefix):"
-          new="        for member in bundle:\n            # tarfile normalizes a root directory by removing its trailing slash.\n            if member.isdir() and member.name == prefix.rstrip('/'):\n                continue\n            if not member.name.startswith(prefix):"
-          text=p.read_text()
-          assert text.count(old)==1
-          p.write_text(text.replace(old,new))
-          assert hashlib.sha256(p.read_bytes()).hexdigest()=='706446d8225558d9d66fb755cf7a3a9c72c7083ac44e9983f280eca944e6097b'
-      - name: Confirm final upstream closure
-        working-directory: candidate
-        run: |
-          mkdir -p "$RUNNER_TEMP/release-evidence" "$RUNNER_TEMP/assets"
-          cp ../transfer/.github/maintenance-20260930/release_verify.py "$RUNNER_TEMP/release-evidence/"
-          gh run download 37148612723 -n final-followup-evidence -D "$RUNNER_TEMP/final-check"
-          python - <<'PY'
-          import json, os, pathlib
-          root=pathlib.Path(os.environ['RUNNER_TEMP']); source=root/'final-check'
-          report=json.loads((source/'upstream-final.json').read_text())
-          assert (source/'upstream-exit.txt').read_text().strip()=='0'
-          assert report['state']=='complete' and not report['apply_errors']
-          assert report['summary']=={'total':153,'equal':128,'changed':0,'monitor_review':0,'unavailable':0,'rollback':0,'expected_skipped':25}
-          assert '677 passed, 231 subtests passed' in (source/'validation.log').read_text()
-          for name in ['checked-at.txt','upstream-final.json','validation.log','node-tests.log','npm-test.log']:
-              (root/'release-evidence'/name).write_bytes((source/name).read_bytes())
-          PY
-      - name: Verify exact main push CI and merged PR before creating a draft
-        working-directory: candidate
-        shell: python
-        run: |
-          import json, os, pathlib, subprocess, time
-          repo=os.environ['REPO']; sha=os.environ['RELEASE_SHA']
-          def api(path): return json.loads(subprocess.check_output(['gh','api','repos/'+repo+'/'+path],text=True))
-          pr=api('pulls/129')
-          assert pr['merged'] and pr['merge_commit_sha']==sha and pr['head']['sha']=='66463c32cfb1b1a1087a08017fa0033a1533005d'
-          assert api('git/ref/heads/main')['object']['sha']==sha
-          assert api('releases/latest')['tag_name']=='v3.1.0'
-          required={'Repository Validation','skills-provenance-ci','CodeQL'}
-          for attempt in range(48):
-              runs=api('actions/runs?head_sha='+sha+'&event=push&per_page=100')['workflow_runs']; latest={}
-              for run in runs:
-                  if run['head_sha']==sha and run['head_branch']=='main' and run['event']=='push' and run['name'] in required:
-                      if run['name'] not in latest or run['id']>latest[run['name']]['id']: latest[run['name']]=run
-              failures=[r for r in latest.values() if r['status']=='completed' and r['conclusion']!='success']
-              if failures: raise RuntimeError('Merged main checks failed: '+repr([(r['name'],r['conclusion']) for r in failures]))
-              if latest.keys()==required and all(r['status']=='completed' and r['conclusion']=='success' for r in latest.values()): break
-              time.sleep(10)
-          else: raise RuntimeError('Exact merged main CI did not finish; no release created')
-          evidence={'commit':sha,'pr':129,'checks':[{'name':r['name'],'id':r['id'],'url':r['html_url'],'conclusion':r['conclusion']} for r in latest.values()]}
-          (pathlib.Path(os.environ['RUNNER_TEMP'])/'release-evidence/main-ci.json').write_text(json.dumps(evidence,indent=2)+'\n')
-          for path in ['releases/tags/v3.2.0','git/ref/tags/v3.2.0']:
-              result=subprocess.run(['gh','api','repos/'+repo+'/'+path],capture_output=True,text=True)
-              if result.returncode==0: raise RuntimeError('Existing release/tag must not be overwritten: '+path)
-              if '(HTTP 404)' not in result.stderr: raise RuntimeError('Unable to verify absence: '+result.stderr)
-          print(json.dumps(evidence,indent=2))
-      - name: Build and verify source and npm archives without lifecycle scripts
-        working-directory: candidate
-        shell: bash
-        run: |
-          set -euo pipefail
-          git diff --exit-code
-          git archive --format=tar --prefix=high-value-skills-v3.2.0/ "$RELEASE_SHA" | gzip -n > "$RUNNER_TEMP/assets/high-value-skills-v3.2.0.tar.gz"
-          npm pack --ignore-scripts --pack-destination "$RUNNER_TEMP/assets" --silent
-          python ../transfer/.github/maintenance-20260930/release_verify.py --directory "$RUNNER_TEMP/assets" --sha "$RELEASE_SHA" --write-manifest > "$RUNNER_TEMP/release-evidence/build-verification.json"
-          python - <<'PY'
-          import os, pathlib, tarfile
-          archive=pathlib.Path(os.environ['RUNNER_TEMP'])/'assets/common-high-value-skills-3.2.0.tgz'
-          with tarfile.open(archive,'r|gz') as f: names={m.name for m in f}
-          assert {'package/docs/maintenance-followup-2026-10-03.md','package/docs/maintenance-followup-2026-10-03.json'}<=names
-          PY
-          (cd "$RUNNER_TEMP/assets" && sha256sum high-value-skills-v3.2.0.tar.gz common-high-value-skills-3.2.0.tgz release-manifest.json > SHA256SUMS)
-          python - <<'PY'
-          import json, os, pathlib
-          root=pathlib.Path(os.environ['RUNNER_TEMP']); sha=os.environ['RELEASE_SHA']
-          base='https://github.com/'+os.environ['REPO']+'/blob/'+sha+'/docs/'
-          notes=pathlib.Path('docs/releases/v3.2.0.md').read_text().replace('(../maintenance-', '('+base+'maintenance-')
-          notes+='\n## 最终交付证据\n\nMain: `'+sha+'`\n\nPR: #127 / #129\n\n'
-          notes+='更新后复查 '+(root/'release-evidence/checked-at.txt').read_text().strip()+': 153 项来源，128 项无需更新，0 待审阅、0 不可用、0 回退，25 项按既定政策冻结。冻结及经策展保留的内容不等于上游逐字镜像。\n\n'
-          notes+='全量测试 677 项及 231 个子测试通过；随包安全工具 65 项通过。以下为精确合并 main 的成功检查：\n'
-          for check in json.loads((root/'release-evidence/main-ci.json').read_text())['checks']:
-              notes+='- '+check['name']+': '+check['url']+'\n'
-          (root/'release-evidence/release-notes.md').write_text(notes)
-          PY
-      - name: Create draft and upload only the four verified assets
-        working-directory: candidate
-        run: |
-          gh release create v3.2.0 --repo "$REPO" --draft --target "$RELEASE_SHA" --title 'v3.2.0 · Grill Me 与全量技能维护' --notes-file "$RUNNER_TEMP/release-evidence/release-notes.md" "$RUNNER_TEMP/assets/high-value-skills-v3.2.0.tar.gz" "$RUNNER_TEMP/assets/common-high-value-skills-3.2.0.tgz" "$RUNNER_TEMP/assets/release-manifest.json" "$RUNNER_TEMP/assets/SHA256SUMS"
-      - name: Independently download and reverify every asset before publication
-        working-directory: candidate
-        run: |
+          gh run download 37149476466 -n v3.2.0-release-verification -D "$RUNNER_TEMP/evidence"
+          printf '%s  %s\n' 706446d8225558d9d66fb755cf7a3a9c72c7083ac44e9983f280eca944e6097b "$RUNNER_TEMP/evidence/release_verify.py" | sha256sum -c -
+          cmp "$RUNNER_TEMP/evidence/build-verification.json" "$RUNNER_TEMP/evidence/download-verification.json"
           gh release download v3.2.0 --repo "$REPO" --dir "$RUNNER_TEMP/downloaded"
+      - name: Independently revalidate the existing assets without replacing anything
+        run: |
           test "$(find "$RUNNER_TEMP/downloaded" -maxdepth 1 -type f | wc -l)" -eq 4
-          cmp "$RUNNER_TEMP/assets/SHA256SUMS" "$RUNNER_TEMP/downloaded/SHA256SUMS"
-          (cd "$RUNNER_TEMP/downloaded" && sha256sum -c SHA256SUMS) | tee "$RUNNER_TEMP/release-evidence/download-sha256.log"
-          python ../transfer/.github/maintenance-20260930/release_verify.py --directory "$RUNNER_TEMP/downloaded" --sha "$RELEASE_SHA" > "$RUNNER_TEMP/release-evidence/download-verification.json"
-          cmp "$RUNNER_TEMP/release-evidence/build-verification.json" "$RUNNER_TEMP/release-evidence/download-verification.json"
-          cp "$RUNNER_TEMP/downloaded/release-manifest.json" "$RUNNER_TEMP/downloaded/SHA256SUMS" "$RUNNER_TEMP/release-evidence/"
-      - name: Recheck target and publish the verified draft as Latest
-        working-directory: candidate
+          cmp "$RUNNER_TEMP/evidence/SHA256SUMS" "$RUNNER_TEMP/downloaded/SHA256SUMS"
+          (cd "$RUNNER_TEMP/downloaded" && sha256sum -c SHA256SUMS) | tee "$RUNNER_TEMP/evidence/final-sha256.log"
+          python "$RUNNER_TEMP/evidence/release_verify.py" --directory "$RUNNER_TEMP/downloaded" --sha "$RELEASE_SHA" > "$RUNNER_TEMP/evidence/final-archive-verification.json"
+          cmp "$RUNNER_TEMP/evidence/build-verification.json" "$RUNNER_TEMP/evidence/final-archive-verification.json"
+      - name: Check exact main and publish the known draft by ID
         shell: python
         run: |
-          import json, os, pathlib, subprocess
-          repo=os.environ['REPO']; sha=os.environ['RELEASE_SHA']
+          import hashlib, json, os, pathlib, subprocess, time
+          repo=os.environ['REPO']; sha=os.environ['RELEASE_SHA']; root=pathlib.Path(os.environ['RUNNER_TEMP'])
           def api(path): return json.loads(subprocess.check_output(['gh','api','repos/'+repo+'/'+path],text=True))
           assert api('git/ref/heads/main')['object']['sha']==sha
+          pr=api('pulls/129')
+          assert pr['merged'] and pr['merge_commit_sha']==sha
+          report=json.loads((root/'evidence/upstream-final.json').read_text())
+          assert report['state']=='complete' and report['summary']=={'total':153,'equal':128,'changed':0,'monitor_review':0,'unavailable':0,'rollback':0,'expected_skipped':25}
+          checks=json.loads((root/'evidence/main-ci.json').read_text())
+          assert checks['commit']==sha
+          assert {x['name'] for x in checks['checks']}=={'Repository Validation','skills-provenance-ci','CodeQL'}
+          for check in checks['checks']:
+              run=api('actions/runs/'+str(check['id']))
+              assert run['head_sha']==sha and run['head_branch']=='main' and run['event']=='push'
+              assert run['status']=='completed' and run['conclusion']=='success'
           assert api('releases/latest')['tag_name']=='v3.1.0'
-          release=api('releases/tags/v3.2.0')
+          release=api('releases/402667437')
+          assert release['id']==402667437 and release['tag_name']=='v3.2.0'
           assert release['draft'] and not release['prerelease'] and release['target_commitish']==sha
-          assert {a['name'] for a in release['assets']}=={'high-value-skills-v3.2.0.tar.gz','common-high-value-skills-3.2.0.tgz','release-manifest.json','SHA256SUMS'}
-          assert all(a['state']=='uploaded' for a in release['assets'])
-          subprocess.run(['gh','release','edit','v3.2.0','--repo',repo,'--draft=false','--latest'],check=True)
-          latest=api('releases/latest')
-          assert latest['id']==release['id'] and not latest['draft'] and not latest['prerelease']
+          expected={'high-value-skills-v3.2.0.tar.gz':'17d61d72bc10319837870f883559e5da7267c8ccfc1d34f2fcd63f89e57fbdc5','common-high-value-skills-3.2.0.tgz':'67317b018952e058e7519740889ed9db25552e03a4712722cc3a9eaaf6f4f9b9','release-manifest.json':'30eee01a6560e7d169f749cd552d3e5d69b6147fa6cd0116973c8966a979b19b','SHA256SUMS':'3c1728e81be86c1b4355cf94c896d1fa582d881355f2bb3579fea13c9a0af48f'}
+          assert {a['name'] for a in release['assets']}==expected.keys()
+          for asset in release['assets']:
+              assert asset['state']=='uploaded' and asset['digest']=='sha256:'+expected[asset['name']]
+              with (root/'downloaded'/asset['name']).open('rb') as f:
+                  assert hashlib.file_digest(f,'sha256').hexdigest()==expected[asset['name']]
+          published=json.loads(subprocess.check_output(['gh','api','--method','PATCH','repos/'+repo+'/releases/402667437','--field','draft=false','--field','prerelease=false','--raw-field','make_latest=true'],text=True))
+          assert published['id']==402667437 and not published['draft'] and not published['prerelease']
+          for attempt in range(10):
+              latest=api('releases/latest')
+              if latest['id']==402667437: break
+              time.sleep(2)
+          else: raise RuntimeError('Published release was not reflected by latest endpoint')
           obj=api('git/ref/tags/v3.2.0')['object']
           for _ in range(5):
               if obj['type']!='tag': break
               obj=api('git/tags/'+obj['sha'])['object']
           assert obj['type']=='commit' and obj['sha']==sha
-          (pathlib.Path(os.environ['RUNNER_TEMP'])/'release-evidence/published-release.json').write_text(json.dumps(latest,ensure_ascii=False,indent=2)+'\n')
-          print('Published and verified:',latest['html_url'],'commit',sha)
-      - name: Preserve exact main source for local post-merge verification
-        working-directory: candidate
+          (root/'evidence/published-release.json').write_text(json.dumps(latest,ensure_ascii=False,indent=2)+'\n')
+          (root/'evidence/published-tag.json').write_text(json.dumps(obj,indent=2)+'\n')
+          print('Published, Latest and exact tag verified:',latest['html_url'],sha)
+      - name: Preserve exact main source and clean checkout proof
         run: |
           git diff --exit-code
-          git bundle create "$RUNNER_TEMP/release-evidence/merged-main.bundle" HEAD
-      - name: Upload release verification evidence
+          git status --porcelain > "$RUNNER_TEMP/evidence/main-worktree-status.txt"
+          test ! -s "$RUNNER_TEMP/evidence/main-worktree-status.txt"
+          git bundle create "$RUNNER_TEMP/evidence/merged-main.bundle" HEAD
+      - name: Upload final release evidence
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: v3.2.0-release-verification
-          path: ${{ runner.temp }}/release-evidence/
+          name: v3.2.0-final-release-verification
+          path: ${{ runner.temp }}/evidence/
           if-no-files-found: warn
           retention-days: 30
