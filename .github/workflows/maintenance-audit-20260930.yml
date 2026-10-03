@@ -36,18 +36,30 @@ jobs:
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: '22'
-      - name: Confirm final upstream closure and tested verifier
+      - name: Verify the regression-tested root-directory compatibility fix
+        working-directory: candidate
+        shell: python
+        run: |
+          import hashlib, pathlib
+          p=pathlib.Path('../transfer/.github/maintenance-20260930/release_verify.py')
+          assert hashlib.sha256(p.read_bytes()).hexdigest()=='cdb18853ba4eb94428a4a77d58f5803d38999453869fa211bec74f0df4c408b1'
+          old="        for member in bundle:\n            if not member.name.startswith(prefix):"
+          new="        for member in bundle:\n            # tarfile normalizes a root directory by removing its trailing slash.\n            if member.isdir() and member.name == prefix.rstrip('/'):\n                continue\n            if not member.name.startswith(prefix):"
+          text=p.read_text()
+          assert text.count(old)==1
+          p.write_text(text.replace(old,new))
+          assert hashlib.sha256(p.read_bytes()).hexdigest()=='706446d8225558d9d66fb755cf7a3a9c72c7083ac44e9983f280eca944e6097b'
+      - name: Confirm final upstream closure
         working-directory: candidate
         run: |
           mkdir -p "$RUNNER_TEMP/release-evidence" "$RUNNER_TEMP/assets"
-          printf '%s  %s\n' cdb18853ba4eb94428a4a77d58f5803d38999453869fa211bec74f0df4c408b1 ../transfer/.github/maintenance-20260930/release_verify.py | sha256sum -c -
+          cp ../transfer/.github/maintenance-20260930/release_verify.py "$RUNNER_TEMP/release-evidence/"
           gh run download 37148612723 -n final-followup-evidence -D "$RUNNER_TEMP/final-check"
           python - <<'PY'
           import json, os, pathlib
-          root=pathlib.Path(os.environ['RUNNER_TEMP'])
-          source=root/'final-check'
+          root=pathlib.Path(os.environ['RUNNER_TEMP']); source=root/'final-check'
           report=json.loads((source/'upstream-final.json').read_text())
-          assert (source/'upstream-exit.txt').read_text().strip() == '0'
+          assert (source/'upstream-exit.txt').read_text().strip()=='0'
           assert report['state']=='complete' and not report['apply_errors']
           assert report['summary']=={'total':153,'equal':128,'changed':0,'monitor_review':0,'unavailable':0,'rollback':0,'expected_skipped':25}
           assert '677 passed, 231 subtests passed' in (source/'validation.log').read_text()
@@ -60,25 +72,22 @@ jobs:
         run: |
           import json, os, pathlib, subprocess, time
           repo=os.environ['REPO']; sha=os.environ['RELEASE_SHA']
-          def api(path):
-              return json.loads(subprocess.check_output(['gh','api','repos/'+repo+'/'+path],text=True))
+          def api(path): return json.loads(subprocess.check_output(['gh','api','repos/'+repo+'/'+path],text=True))
           pr=api('pulls/129')
           assert pr['merged'] and pr['merge_commit_sha']==sha and pr['head']['sha']=='66463c32cfb1b1a1087a08017fa0033a1533005d'
           assert api('git/ref/heads/main')['object']['sha']==sha
           assert api('releases/latest')['tag_name']=='v3.1.0'
           required={'Repository Validation','skills-provenance-ci','CodeQL'}
           for attempt in range(48):
-              runs=api('actions/runs?head_sha='+sha+'&event=push&per_page=100')['workflow_runs']
-              latest={}
+              runs=api('actions/runs?head_sha='+sha+'&event=push&per_page=100')['workflow_runs']; latest={}
               for run in runs:
                   if run['head_sha']==sha and run['head_branch']=='main' and run['event']=='push' and run['name'] in required:
-                      if run['name'] not in latest or run['id']>latest[run['name']]['id']:
-                          latest[run['name']]=run
+                      if run['name'] not in latest or run['id']>latest[run['name']]['id']: latest[run['name']]=run
               failures=[r for r in latest.values() if r['status']=='completed' and r['conclusion']!='success']
               if failures: raise RuntimeError('Merged main checks failed: '+repr([(r['name'],r['conclusion']) for r in failures]))
               if latest.keys()==required and all(r['status']=='completed' and r['conclusion']=='success' for r in latest.values()): break
               time.sleep(10)
-          else: raise RuntimeError('Exact merged main CI did not finish; no draft or release created')
+          else: raise RuntimeError('Exact merged main CI did not finish; no release created')
           evidence={'commit':sha,'pr':129,'checks':[{'name':r['name'],'id':r['id'],'url':r['html_url'],'conclusion':r['conclusion']} for r in latest.values()]}
           (pathlib.Path(os.environ['RUNNER_TEMP'])/'release-evidence/main-ci.json').write_text(json.dumps(evidence,indent=2)+'\n')
           for path in ['releases/tags/v3.2.0','git/ref/tags/v3.2.0']:
@@ -86,7 +95,7 @@ jobs:
               if result.returncode==0: raise RuntimeError('Existing release/tag must not be overwritten: '+path)
               if '(HTTP 404)' not in result.stderr: raise RuntimeError('Unable to verify absence: '+result.stderr)
           print(json.dumps(evidence,indent=2))
-      - name: Build and verify source and npm archives without running lifecycle scripts
+      - name: Build and verify source and npm archives without lifecycle scripts
         working-directory: candidate
         shell: bash
         run: |
@@ -98,9 +107,8 @@ jobs:
           python - <<'PY'
           import os, pathlib, tarfile
           archive=pathlib.Path(os.environ['RUNNER_TEMP'])/'assets/common-high-value-skills-3.2.0.tgz'
-          with tarfile.open(archive,'r|gz') as f:
-              names={m.name for m in f}
-          assert {'package/docs/maintenance-followup-2026-10-03.md','package/docs/maintenance-followup-2026-10-03.json'} <= names
+          with tarfile.open(archive,'r|gz') as f: names={m.name for m in f}
+          assert {'package/docs/maintenance-followup-2026-10-03.md','package/docs/maintenance-followup-2026-10-03.json'}<=names
           PY
           (cd "$RUNNER_TEMP/assets" && sha256sum high-value-skills-v3.2.0.tar.gz common-high-value-skills-3.2.0.tgz release-manifest.json > SHA256SUMS)
           python - <<'PY'
