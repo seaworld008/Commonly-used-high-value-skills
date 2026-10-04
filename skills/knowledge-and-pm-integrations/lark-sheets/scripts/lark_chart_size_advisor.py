@@ -65,7 +65,7 @@ def _parse_ref(value: str) -> tuple[str | None, str]:
         if len(sheet_name) >= 2 and sheet_name[0] == sheet_name[-1] == "'":
             sheet_name = sheet_name[1:-1].replace("''", "'")
     cell_range = cell_range.replace("$", "")
-    if not re.fullmatch(r"[A-Za-z]+\d+:[A-Za-z]+\d+", cell_range):
+    if not re.fullmatch(r"[A-Za-z]+\d+(?::[A-Za-z]+\d+)?", cell_range):
         raise ValueError(f"Invalid A1 range: {value!r}")
     return sheet_name, cell_range
 
