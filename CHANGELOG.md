@@ -8,24 +8,9 @@ All notable changes to this repository are documented here.
 <!-- AUTO-CHANGELOG:START -->
 ### 自动更新 / Automated updates
 
-变更范围 / Revision range: `v3.1.0..HEAD`.
+变更范围 / Revision range: `v3.2.0..HEAD`.
 
-#### [2026-10-03]
-
-##### Changed
-- recover curated skills maintenance and prepare v3.2.0
-
-##### Fixed
-- close fresh upstream review and Lark chart findings
-
-#### [2026-09-30]
-
-##### Added
-- `grill-me` (task-understanding-decomposition) — grill-me
-
-##### Changed
-- add standalone grill-me skill (#127)
-- add standalone grill-me with pinned upstream evidence
+此范围内暂无可归类的变更。 / No categorized changes in this range.
 <!-- AUTO-CHANGELOG:END -->
 
 ### Removed / 移除
