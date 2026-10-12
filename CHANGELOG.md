@@ -8,14 +8,27 @@ All notable changes to this repository are documented here.
 <!-- AUTO-CHANGELOG:START -->
 ### 自动更新 / Automated updates
 
-变更范围 / Revision range: `v3.2.0..HEAD`.
+变更范围 / Revision range: `v3.2.1..HEAD`.
 
-#### [2026-10-12]
-
-##### Changed
-- strengthen Lark attendance workflow
+此范围内暂无可归类的变更。 / No categorized changes in this range.
 <!-- AUTO-CHANGELOG:END -->
 
+## [3.2.1] - 2026-10-12
+
+### Changed / 更新
+
+- 改进飞书考勤技能的只读查询、异常核对与可追溯证据处理（PR #131）。
+- 完成 287 个规范技能、16 个分类的目录核对，以及关键 DevOps/SRE 技能和新候选的定向复核（PR #132）。
+
+### Fixed / 修复
+
+- 修复每周 CHANGELOG 的已发布稳定版自动归档，增加幂等与历史保全回归。
+- 将 v3.2.0 的发布记录和人工淘汰说明归入正确的版本历史。
+
+### Verification / 验证
+
+- 2026-10-12 上游发现存在四次 HTTP 429，判定 degraded；外部候选不得误认为已同步或已授权。
+- 本版无规范技能新增或删除，继续采用源码及 npm 包独立下载后的 SHA256 校验。
 
 ## [3.2.0] - 2026-10-03
 

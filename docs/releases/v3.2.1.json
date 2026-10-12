@@ -1,0 +1,28 @@
+{
+  "tag": "v3.2.1",
+  "package_version": "3.2.1",
+  "title": "v3.2.1 · 发布治理修复与技能精选复核",
+  "prerelease": false,
+  "generate_notes": false,
+  "changelog_range": "v3.2.0..v3.2.1",
+  "canonical_skills": 287,
+  "highlights": [
+    "Improve Lark attendance evidence-first read-only workflow (#131)",
+    "Archive published changelog history automatically with idempotence regression (#132)",
+    "Review 287 public skill entries across 16 categories without incomplete imports",
+    "Add gated draft-first release publishing with independent asset verification"
+  ],
+  "release_gates": [
+    "Exact merged-main Repository Validation, skills-provenance-ci and CodeQL succeed",
+    "Complete repository tests and Ubuntu/Windows Node 22/24 installer matrix pass",
+    "Build artifacts from exact validated main commit",
+    "Download and verify SHA256, version, skill count and archive contents before publication"
+  ],
+  "validation_boundaries": {
+    "upstream": "2026-10-12 discovery degraded: four GitHub HTTP 429 errors. The 1885 discovered candidates are not adopted, licensed, or fully reviewed by default.",
+    "runtime": "Static/isolated tests only; no production, user global installation, or real-model behavioral acceptance.",
+    "compatibility": "No public canonical skill paths changed."
+  },
+  "breaking_changes": [],
+  "audit": "docs/maintenance-audit-2026-10-12.md"
+}
