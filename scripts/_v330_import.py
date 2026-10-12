@@ -39,7 +39,12 @@ def add(path,raw,mode=0o644,replace=False):
     output=ROOT/path
     if output.exists() and not replace:raise ValueError("unplanned overwrite "+path)
     output.parent.mkdir(parents=True,exist_ok=True)
-    output.write_bytes(raw if isinstance(raw,bytes) else raw.encode("utf-8"))
+    content=raw if isinstance(raw,bytes) else raw.encode("utf-8")
+    if path.endswith("/scripts/am.mjs"):
+        content=re.sub(rb"(?m)^[ \\t]+$",b"",content)
+    if path.endswith("/references/functions/README.md"):
+        content=content.rstrip(b"\\r\\n")+b"\\n"
+    output.write_bytes(content)
     output.chmod(mode)
     return path
 
