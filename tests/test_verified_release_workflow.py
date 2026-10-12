@@ -10,6 +10,11 @@ class VerifiedReleaseWorkflowTests(unittest.TestCase):
         self.assertIn("paths:\n      - package.json", workflow)
         self.assertIn("contents: write", workflow)
         self.assertIn("actions: read", workflow)
+        self.assertIn("security-events: read", workflow)
+        self.assertIn("Require zero open Code Scanning alerts", workflow)
+        self.assertIn("code-scanning/alerts", workflow)
+        self.assertIn("refs/heads/main", workflow)
+        self.assertLess(workflow.index("Require zero open Code Scanning alerts"), workflow.index("Build archives and checksum manifest"))
         self.assertIn("github.ref == 'refs/heads/main'", workflow)
         for name in ("Repository Validation", "skills-provenance-ci", "CodeQL"):
             self.assertIn(name, workflow)
