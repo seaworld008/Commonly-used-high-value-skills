@@ -128,6 +128,37 @@ class GenerateChangelogTests(unittest.TestCase):
             subprocess.run(command, cwd=root, check=True, capture_output=True)
             self.assertEqual(result, output.read_text())
 
+    def test_preserve_mode_auto_archives_latest_release_once(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            self.git(root, "init", "-q")
+            self.git(root, "config", "user.name", "Test")
+            self.git(root, "config", "user.email", "test@example.com")
+            output = root / "CHANGELOG.md"
+            released = changelog.update_unreleased(
+                HISTORY,
+                "### Automated\\n\\nRevision range: `v3.1.0..HEAD`.\\n\\n- released skill",
+            )
+            output.write_text(released, encoding="utf-8")
+            self.git(root, "add", ".")
+            self.git(root, "commit", "-qm", "chore: published v3.2.0")
+            self.git(root, "tag", "v3.2.0")
+            (root / "fix.txt").write_text("new change\\n", encoding="utf-8")
+            self.git(root, "add", ".")
+            self.git(root, "commit", "-qm", "fix: after release")
+
+            cmd = [sys.executable, str(SCRIPT), "--preserve-history", "--since", "last-tag"]
+            subprocess.run(cmd, cwd=root, check=True, capture_output=True, text=True)
+            result = output.read_text(encoding="utf-8")
+            self.assertEqual(result.count("## [3.2.0]"), 1)
+            self.assertIn("Revision range: `v3.1.0..v3.2.0`", result)
+            self.assertEqual(result.count("- released skill"), 1)
+            self.assertIn("Revision range: `v3.2.0..HEAD`", result)
+            self.assertIn("after release", result)
+            self.assertIn("完整发布说明，不可覆盖。", result)
+            subprocess.run(cmd, cwd=root, check=True, capture_output=True, text=True)
+            self.assertEqual(result, output.read_text(encoding="utf-8"))
+
     def test_last_tag_uses_exclusive_tag_range(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

@@ -65,6 +65,26 @@ def update_unreleased(existing: str, body: str) -> str:
     return existing[:start] + block + existing[end:]
 
 
+
+def archive_latest_release_if_needed(existing: str, to_ref: str) -> str:
+    """Archive a published tag's managed block once, without changing curated history.
+
+    Only stable semver tags with an unambiguous tagged changelog are eligible.
+    Missing historical snapshots are left alone rather than fabricating notes.
+    """
+    tag = run_git_command(["describe", "--tags", "--abbrev=0", to_ref], allow_failure=True)
+    if not tag or not re.fullmatch(r"v?\\d+\\.\\d+\\.\\d+", tag):
+        return existing
+    version = tag.removeprefix("v")
+    if re.search(rf"^## \\[{re.escape(version)}\\](?: |$)", existing, re.MULTILINE):
+        return existing
+    snapshot = run_git_command(["show", f"{tag}:CHANGELOG.md"], allow_failure=True)
+    if snapshot.count(AUTO_START) != 1 or snapshot.count(AUTO_END) != 1:
+        return existing
+    released = run_git_command(["show", "-s", "--format=%cs", f"{tag}^{{commit}}"])
+    return archive_tagged_block(existing, snapshot, tag, released)
+
+
 def run_git_command(args: list[str], *, allow_failure: bool = False) -> str:
     try:
         result = subprocess.run(
@@ -154,6 +174,8 @@ def main():
                 snapshot = run_git_command(["show", f"{commit}:CHANGELOG.md"])
                 released = run_git_command(["show", "-s", "--format=%cs", commit])
                 existing = archive_tagged_block(existing, snapshot, args.archive_tag, released)
+            elif args.since == "last-tag":
+                existing = archive_latest_release_if_needed(existing, args.to)
         revisions, revision_label = resolve_log_args(args.since, args.to)
     except (ValueError, OSError) as error:
         parser.error(str(error))
