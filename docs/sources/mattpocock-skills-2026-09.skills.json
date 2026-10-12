@@ -94,7 +94,7 @@
             "ref": "local",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "d9a98c3bc6dd057da62eae9989c1afd47ff3a9547ad630979fbf79b25b76f022",
+            "content_sha256": null,
             "last_checked_at": "2026-09-30",
             "last_synced_at": "2026-09-30"
           }

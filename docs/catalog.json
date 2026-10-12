@@ -3751,7 +3751,7 @@
       "name": "lark-attendance",
       "category": "knowledge-and-pm-integrations",
       "description": "Use when querying Lark attendance records, checking missing clock-ins, and preparing traceable explanations for attendance exceptions.",
-      "version": "1.0.4",
+      "version": "1.0.5",
       "author": "larksuite",
       "source": "github:larksuite/cli",
       "source_url": "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-attendance",
@@ -3764,8 +3764,8 @@
       "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-05-19",
-      "updated_at": "2026-09-30",
-      "line_count": 95,
+      "updated_at": "2026-10-12",
+      "line_count": 169,
       "path": "skills/knowledge-and-pm-integrations/lark-attendance/SKILL.md"
     },
     {
