@@ -134,6 +134,6 @@ import hashlib
 for item in json.loads((ROOT/"docs/sources/curated-v3.3.0.skills.json").read_text())["skills"]:
     rec=item["managed_files"][0]
     print("DIGEST",item["normalized_slug"],rec["sha256"]==hashlib.sha256((ROOT/rec["path"]).read_bytes()).hexdigest(),flush=True)
-subprocess.run(["git","add","-A","--","skills","docs","README.md","README.en.md","CHANGELOG.md","package.json"],cwd=ROOT,check=True)
+subprocess.run(["git","add","-A","--","skills","openclaw-skills","docs","README.md","README.en.md","CHANGELOG.md","package.json"],cwd=ROOT,check=True)
 subprocess.run([sys.executable,"scripts/validate_repository.py","--refresh"],cwd=ROOT,check=True)
 print("PASS v3.3.0 full pipeline, 294 canonical",flush=True)
