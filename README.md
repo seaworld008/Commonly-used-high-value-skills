@@ -11,6 +11,10 @@
 面向全球 AI 开发者与 Agent 工作流构建者的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理等高频任务场景。当前共 **16 个分类 / 294 个技能**。
 
 
+## v4.0.0 安全加固
+
+已处理 v3.3.0 新增 HTML/Live Panel 实现的 CodeQL 风险，发布链路新增“主分支开放 Code Scanning 告警必须归零”门禁。HTML CLI 由高风险上游捆绑脚本切换为受限离线实现，部分旧功能明确停用。仍保留 294 个 Skills 和 16 个分类。
+
 ## v3.3.0 精选增强
 
 Go 三件套、架构重构、HTML 可视化、动态架构面板和 Azure 诊断；升级已有 Agent Browser，完整固定上游来源并遵守授权边界。
@@ -595,7 +599,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 <a id="cat-office-white-collar"></a>
 ### 8. 办公与文档（office-white-collar，13）
 
-- `answer-me-with-html`：用户明确提出要求时，输出包含图表与步骤的独立 HTML 技术讲解页面。
+- `answer-me-with-html`：仅在明确要求时生成离线静态 HTML 技术报告，不执行不可信 HTML、shell 或网络请求。
 - `docx`：用于创建、编辑和检查 Word `.docx` 文档。
 - `guizang-ppt-skill`：生成横向翻页网页 PPT（单 HTML 文件），含 WebGL 背景、章节幕封、数据大字报、图片网格等模板。
 - `markdown-tools`：把文档转换为保留结构、表格和图片的 Markdown。

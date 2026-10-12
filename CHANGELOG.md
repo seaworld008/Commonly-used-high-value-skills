@@ -8,10 +8,24 @@ All notable changes to this repository are documented here.
 <!-- AUTO-CHANGELOG:START -->
 ### 自动更新 / Automated updates
 
-变更范围 / Revision range: v3.3.0..HEAD.
+变更范围 / Revision range: v4.0.0..HEAD.
 
 此范围内暂无可归类的变更。 / No categorized changes in this range.
 <!-- AUTO-CHANGELOG:END -->
+
+## [4.0.0] - 2026-10-12
+
+### Security / 安全修复
+- 修复本版本发布前 CodeQL 报告的 18 条开放告警（14 High、4 Medium）的受影响代码：集中在 HTML 技能打包执行器与动态面板的 URL 配置入口。
+- 以受限的离线 HTML 生成器替换危险的上游第三方捆绑执行器，进行 HTML 转义、CSP 限制、文件大小和安全目录约束、符号链接与路径边界检查。
+- Live Panel 改为只接受由本地 renderer 内嵌的 JSON，不再通过 URL 参数 fetch 配置。
+- Verified Release 新增真实 main 分支 Code Scanning 零开放告警发布门禁，不再仅凭 CodeQL 工作流成功就发版。
+- 增加安全回归测试，核对 XSS payload、路径穿越、符号链接及禁止的联网/命令执行。
+
+### Breaking changes / 安全兼容性变化
+- answer-me-with-html 不再支持旧 CLI 的 serve、clean、update、自动启动浏览器、语音和任意本地文件/图片嵌入。
+- 不再执行 Markdown 内 raw HTML/SVG 或复杂脚本组件，复杂图表改为安全文本/基础 flow。
+- 保留 294 个规范 Skills 路径和 16 分类，不删除用户已收录的技能入口。
 
 ## [3.3.0] - 2026-10-12
 

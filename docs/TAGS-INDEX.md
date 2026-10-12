@@ -1,6 +1,6 @@
 # Tags Index
 
-> Auto-generated from 1131 skill-tag mappings across 505 tags.
+> Auto-generated from 1133 skill-tag mappings across 506 tags.
 > Last updated: see git log.
 
 ## Quick Navigation
@@ -11,9 +11,9 @@
 - [`agent`](#agent) (36)
 - [`engineering`](#engineering) (24)
 - [`lark`](#lark) (23)
+- [`security`](#security) (23)
 - [`feishu`](#feishu) (22)
 - [`lark-cli`](#lark-cli) (22)
-- [`security`](#security) (22)
 - [`design`](#design) (16)
 - [`finance`](#finance) (16)
 - [`automation`](#automation) (15)
@@ -349,6 +349,7 @@
 - [`observation`](#observation) (1)
 - [`obsidian`](#obsidian) (1)
 - [`offensive-security`](#offensive-security) (1)
+- [`offline`](#offline) (1)
 - [`okr`](#okr) (1)
 - [`omen`](#omen) (1)
 - [`onboarding`](#onboarding) (1)
@@ -406,6 +407,7 @@
 - [`release`](#release) (1)
 - [`render`](#render) (1)
 - [`repomix`](#repomix) (1)
+- [`report`](#report) (1)
 - [`reporting`](#reporting) (1)
 - [`repository`](#repository) (1)
 - [`requirements`](#requirements) (1)
@@ -473,7 +475,6 @@
 - [`tasks`](#tasks) (1)
 - [`teardown`](#teardown) (1)
 - [`tech`](#tech) (1)
-- [`technical-report`](#technical-report) (1)
 - [`test`](#test) (1)
 - [`test-driven-development`](#test-driven-development) (1)
 - [`tester`](#tester) (1)
@@ -778,6 +779,36 @@
 | [lark-skill-maker](skills/knowledge-and-pm-integrations/lark-skill-maker) | knowledge-and-pm-integrations | ★★★☆☆ | 创建 lark-cli 的自定义 Skill。当用户需要把飞书 API 操作封装成可复用的 Skill（包装原子 API 或编排多步流程）时使用。 |
 | [lark-whiteboard](skills/knowledge-and-pm-integrations/lark-whiteboard) | knowledge-and-pm-integrations | ★★★☆☆ | Use when querying, exporting, or editing Lark whiteboards, including preview ima |
 
+## security
+
+**23 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [dependency-auditor](skills/developer-engineering/dependency-auditor) | developer-engineering | ★★★★★ | Audit dependency inventories, verify vulnerability and license evidence, and pla |
+| [breach](skills/security-and-reliability/breach) | security-and-reliability | ★★★★★ | 红队场景、攻击路径、威胁建模和对抗演练设计。 |
+| [cloak](skills/security-and-reliability/cloak) | security-and-reliability | ★★★★★ | 隐私工程、敏感信息流、同意管理和数据治理。 |
+| [comply](skills/security-and-reliability/comply) | security-and-reliability | ★★★★★ | Regulatory compliance and audit agent. Maps business regulatory requirements (SO |
+| [security-ownership-map](skills/security-and-reliability/security-ownership-map) | security-and-reliability | ★★★★★ | 用于基于 Git 历史分析安全所有权、敏感代码归属、bus factor、CODEOWNERS 现实差距和风险热点。 |
+| [security-review](skills/security-and-reliability/security-review) | security-and-reliability | ★★★★★ | Review code changes for injection, XSS, authentication, authorization, cryptogra |
+| [codeql-security-scanner](skills/security-and-reliability/codeql-security-scanner) | security-and-reliability | ★★★★☆ | 用于通过 CodeQL 执行语义代码扫描、安全查询、自定义规则、SARIF 报告和 GitHub Code Scanning 集成。 |
+| [gha-security-review](skills/security-and-reliability/gha-security-review) | security-and-reliability | ★★★★☆ | Audit GitHub Actions workflows for unsafe triggers, expression injection, creden |
+| [grype-syft-sbom-scanner](skills/security-and-reliability/grype-syft-sbom-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Syft 生成 SBOM，并用 Grype 扫描容器镜像、文件系统、软件包、归档和 SBOM 漏洞。 |
+| [information-security-manager-iso27001](skills/security-and-reliability/information-security-manager-iso27001) | security-and-reliability | ★★★★☆ | Design or audit ISO 27001 ISMS controls, security risk treatment, and compliance |
+| [osv-scanner](skills/security-and-reliability/osv-scanner) | security-and-reliability | ★★★★☆ | 用于通过 OSV-Scanner 检查锁文件、清单、SBOM、Git 历史和源码树中的开源依赖漏洞。 |
+| [security-auditor](skills/security-and-reliability/security-auditor) | security-and-reliability | ★★★★☆ | Security audit workflow for AI-generated application code, APIs, infrastructure  |
+| [security-pen-testing](skills/security-and-reliability/security-pen-testing) | security-and-reliability | ★★★★☆ | Perform authorized security assessments, vulnerability scans, and penetration te |
+| [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。 |
+| [sentry](skills/security-and-reliability/sentry) | security-and-reliability | ★★★★☆ | 用于只读查询 Sentry issues、events 和服务健康数据，汇总线上错误并辅助生产问题排查。 |
+| [skill-security-auditor](skills/security-and-reliability/skill-security-auditor) | security-and-reliability | ★★★★☆ | Audit external agent skills before installation for malicious instructions, unsa |
+| [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Trivy 扫描仓库、容器镜像、文件系统、rootfs、SBOM、Kubernetes、IaC、密钥、许可证和系统 CVE。 |
+| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Vuls 对 Linux、FreeBSD、容器、WordPress、库和网络设备执行 Agentless CVE 扫描。 |
+| [answer-me-with-html](skills/office-white-collar/answer-me-with-html) | office-white-collar | ★★★☆☆ | Create an offline static HTML technical report only when expressly requested, wi |
+| [security-best-practices](skills/security-and-reliability/security-best-practices) | security-and-reliability | ★★★☆☆ | Use when checking language or framework security best practices, producing secur |
+| [security-threat-model](skills/security-and-reliability/security-threat-model) | security-and-reliability | ★★★☆☆ | Use when creating threat models from codebases, architectures, assets, trust bou |
+| [link-checker](skills/security-and-reliability/link-checker) | security-and-reliability | ★★☆☆☆ | Use when checking URL availability, dead links, redirect chains, suspicious doma |
+| [skill-vetter](skills/security-and-reliability/skill-vetter) | security-and-reliability | ★★☆☆☆ | Use before installing or trusting an external skill to inspect instructions, scr |
+
 ## feishu
 
 **22 skills**
@@ -835,35 +866,6 @@
 | [lark-shared](skills/knowledge-and-pm-integrations/lark-shared) | knowledge-and-pm-integrations | ★★★☆☆ | Use for lark-cli setup/auth tasks: auth login/status/logout, user vs bot identit |
 | [lark-skill-maker](skills/knowledge-and-pm-integrations/lark-skill-maker) | knowledge-and-pm-integrations | ★★★☆☆ | 创建 lark-cli 的自定义 Skill。当用户需要把飞书 API 操作封装成可复用的 Skill（包装原子 API 或编排多步流程）时使用。 |
 | [lark-whiteboard](skills/knowledge-and-pm-integrations/lark-whiteboard) | knowledge-and-pm-integrations | ★★★☆☆ | Use when querying, exporting, or editing Lark whiteboards, including preview ima |
-
-## security
-
-**22 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [dependency-auditor](skills/developer-engineering/dependency-auditor) | developer-engineering | ★★★★★ | Audit dependency inventories, verify vulnerability and license evidence, and pla |
-| [breach](skills/security-and-reliability/breach) | security-and-reliability | ★★★★★ | 红队场景、攻击路径、威胁建模和对抗演练设计。 |
-| [cloak](skills/security-and-reliability/cloak) | security-and-reliability | ★★★★★ | 隐私工程、敏感信息流、同意管理和数据治理。 |
-| [comply](skills/security-and-reliability/comply) | security-and-reliability | ★★★★★ | Regulatory compliance and audit agent. Maps business regulatory requirements (SO |
-| [security-ownership-map](skills/security-and-reliability/security-ownership-map) | security-and-reliability | ★★★★★ | 用于基于 Git 历史分析安全所有权、敏感代码归属、bus factor、CODEOWNERS 现实差距和风险热点。 |
-| [security-review](skills/security-and-reliability/security-review) | security-and-reliability | ★★★★★ | Review code changes for injection, XSS, authentication, authorization, cryptogra |
-| [codeql-security-scanner](skills/security-and-reliability/codeql-security-scanner) | security-and-reliability | ★★★★☆ | 用于通过 CodeQL 执行语义代码扫描、安全查询、自定义规则、SARIF 报告和 GitHub Code Scanning 集成。 |
-| [gha-security-review](skills/security-and-reliability/gha-security-review) | security-and-reliability | ★★★★☆ | Audit GitHub Actions workflows for unsafe triggers, expression injection, creden |
-| [grype-syft-sbom-scanner](skills/security-and-reliability/grype-syft-sbom-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Syft 生成 SBOM，并用 Grype 扫描容器镜像、文件系统、软件包、归档和 SBOM 漏洞。 |
-| [information-security-manager-iso27001](skills/security-and-reliability/information-security-manager-iso27001) | security-and-reliability | ★★★★☆ | Design or audit ISO 27001 ISMS controls, security risk treatment, and compliance |
-| [osv-scanner](skills/security-and-reliability/osv-scanner) | security-and-reliability | ★★★★☆ | 用于通过 OSV-Scanner 检查锁文件、清单、SBOM、Git 历史和源码树中的开源依赖漏洞。 |
-| [security-auditor](skills/security-and-reliability/security-auditor) | security-and-reliability | ★★★★☆ | Security audit workflow for AI-generated application code, APIs, infrastructure  |
-| [security-pen-testing](skills/security-and-reliability/security-pen-testing) | security-and-reliability | ★★★★☆ | Perform authorized security assessments, vulnerability scans, and penetration te |
-| [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。 |
-| [sentry](skills/security-and-reliability/sentry) | security-and-reliability | ★★★★☆ | 用于只读查询 Sentry issues、events 和服务健康数据，汇总线上错误并辅助生产问题排查。 |
-| [skill-security-auditor](skills/security-and-reliability/skill-security-auditor) | security-and-reliability | ★★★★☆ | Audit external agent skills before installation for malicious instructions, unsa |
-| [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Trivy 扫描仓库、容器镜像、文件系统、rootfs、SBOM、Kubernetes、IaC、密钥、许可证和系统 CVE。 |
-| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Vuls 对 Linux、FreeBSD、容器、WordPress、库和网络设备执行 Agentless CVE 扫描。 |
-| [security-best-practices](skills/security-and-reliability/security-best-practices) | security-and-reliability | ★★★☆☆ | Use when checking language or framework security best practices, producing secur |
-| [security-threat-model](skills/security-and-reliability/security-threat-model) | security-and-reliability | ★★★☆☆ | Use when creating threat models from codebases, architectures, assets, trust bou |
-| [link-checker](skills/security-and-reliability/link-checker) | security-and-reliability | ★★☆☆☆ | Use when checking URL availability, dead links, redirect chains, suspicious doma |
-| [skill-vetter](skills/security-and-reliability/skill-vetter) | security-and-reliability | ★★☆☆☆ | Use before installing or trusting an external skill to inspect instructions, scr |
 
 ## design
 
@@ -1884,7 +1886,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [guizang-ppt-skill](skills/office-white-collar/guizang-ppt-skill) | office-white-collar | ★★★★★ | 制作可横向翻页的单 HTML 网页 PPT，支持杂志风或瑞士风、讲稿、演讲者视图和观众屏同步；用于演讲、分享或发布会网页演示。 |
-| [answer-me-with-html](skills/office-white-collar/answer-me-with-html) | office-white-collar | ★★★☆☆ | Create standalone HTML technical explainers when the user explicitly requests th |
+| [answer-me-with-html](skills/office-white-collar/answer-me-with-html) | office-white-collar | ★★★☆☆ | Create an offline static HTML technical report only when expressly requested, wi |
 
 ## incident
 
@@ -3891,6 +3893,14 @@
 |-------|----------|---------|-------------|
 | [security-pen-testing](skills/security-and-reliability/security-pen-testing) | security-and-reliability | ★★★★☆ | Perform authorized security assessments, vulnerability scans, and penetration te |
 
+## offline
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [answer-me-with-html](skills/office-white-collar/answer-me-with-html) | office-white-collar | ★★★☆☆ | Create an offline static HTML technical report only when expressly requested, wi |
+
 ## okr
 
 **1 skills**
@@ -4346,6 +4356,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [repomix-safe-mixer](skills/developer-engineering/repomix-safe-mixer) | developer-engineering | ★★★★★ | Scan for hardcoded credentials, report redacted findings, and block repomix pack |
+
+## report
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [answer-me-with-html](skills/office-white-collar/answer-me-with-html) | office-white-collar | ★★★☆☆ | Create an offline static HTML technical report only when expressly requested, wi |
 
 ## reporting
 
@@ -4883,14 +4901,6 @@
 |-------|----------|---------|-------------|
 | [tech-debt-tracker](skills/developer-engineering/tech-debt-tracker) | developer-engineering | ★★★★★ | Identify technical debt, rank remediation by impact and effort, and track progre |
 
-## technical-report
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [answer-me-with-html](skills/office-white-collar/answer-me-with-html) | office-white-collar | ★★★☆☆ | Create standalone HTML technical explainers when the user explicitly requests th |
-
 ## test
 
 **1 skills**
@@ -5081,7 +5091,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [answer-me-with-html](skills/office-white-collar/answer-me-with-html) | office-white-collar | ★★★☆☆ | Create standalone HTML technical explainers when the user explicitly requests th |
+| [answer-me-with-html](skills/office-white-collar/answer-me-with-html) | office-white-collar | ★★★☆☆ | Create an offline static HTML technical report only when expressly requested, wi |
 
 ## voice
 
