@@ -130,7 +130,11 @@ fs.writeFileSync(process.env.FAKE_NPX_LOG, JSON.stringify(args));
         data = json.loads(PACKAGE_JSON.read_text(encoding="utf-8"))
 
         self.assertEqual("common-high-value-skills", data["name"])
-        self.assertEqual("3.2.0", data["version"])
+        self.assertRegex(data["version"], r"^\d+\.\d+\.\d+$")
+        release_file = REPO_ROOT / "docs" / "releases" / f"v{data['version']}.json"
+        self.assertTrue(release_file.is_file(), "Every package version needs release metadata")
+        metadata = json.loads(release_file.read_text(encoding="utf-8"))
+        self.assertEqual(data["version"], metadata["package_version"])
         self.assertEqual("bin/install-skills.js", data["bin"]["high-value-skills"])
         self.assertIn("skills/", data["files"])
         self.assertIn(
