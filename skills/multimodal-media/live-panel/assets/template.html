@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; base-uri 'none'; form-action 'none';">
 <title>live-panel</title>
 <style>
 /* live-panel template. Content, colours, sizes: all come from the JSON config (see references/config-schema.md).
@@ -60,9 +61,9 @@ function fail(e){var d=document.getElementById('err')||document.body.appendChild
 function loadConfig(){
   var el=document.getElementById('live-config');
   if(el&&el.textContent.trim()) return Promise.resolve(JSON.parse(el.textContent));
-  var m=/[?&]config=([^&]+)/.exec(location.search);
-  if(m) return fetch(decodeURIComponent(m[1])).then(function(r){return r.json()});
-  return Promise.reject(new Error('no config: embed <script id="live-config" type="application/json"> or use ?config=path.json (over http)'));
+  // No URL-derived network fetch: render.py embeds an authenticated local JSON configuration.
+  // Query-string config loading is intentionally disabled to prevent client-side request forgery.
+  return Promise.reject(new Error('missing embedded configuration: use the local renderer to embed live-config JSON'));
 }
 
 // ---------- value access / templating ----------
