@@ -599,7 +599,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 <a id="cat-office-white-collar"></a>
 ### 8. 办公与文档（office-white-collar，13）
 
-- `answer-me-with-html`：用户明确提出要求时，输出包含图表与步骤的独立 HTML 技术讲解页面。
+- `answer-me-with-html`：仅在明确要求时生成离线静态 HTML 技术报告，不执行不可信 HTML、shell 或网络请求。
 - `docx`：用于创建、编辑和检查 Word `.docx` 文档。
 - `guizang-ppt-skill`：生成横向翻页网页 PPT（单 HTML 文件），含 WebGL 背景、章节幕封、数据大字报、图片网格等模板。
 - `markdown-tools`：把文档转换为保留结构、表格和图片的 Markdown。

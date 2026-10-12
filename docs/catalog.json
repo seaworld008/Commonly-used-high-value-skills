@@ -4576,7 +4576,7 @@
       "name": "live-panel",
       "category": "multimodal-media",
       "description": "Render animated system architecture panels into self-contained HTML and MP4.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": "ythx-101/live-panel-skill",
       "source": "github:ythx-101/live-panel-skill",
       "source_url": "https://github.com/ythx-101/live-panel-skill/tree/2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1/",
@@ -4589,7 +4589,7 @@
       "complexity": "advanced",
       "created_at": "2026-10-12",
       "updated_at": "2026-10-12",
-      "line_count": 119,
+      "line_count": 127,
       "path": "skills/multimodal-media/live-panel/SKILL.md"
     },
     {
@@ -4705,21 +4705,23 @@
     {
       "name": "answer-me-with-html",
       "category": "office-white-collar",
-      "description": "Create standalone HTML technical explainers when the user explicitly requests them.",
-      "version": "1.0.0",
-      "author": "QingYunA/answer-me-with-html",
+      "description": "Create an offline static HTML technical report only when expressly requested, without running untrusted HTML, shell commands or network requests.",
+      "version": "1.1.0",
+      "author": "QingYunA (original concept); seaworld008 (hardened implementation)",
       "source": "github:QingYunA/answer-me-with-html",
       "source_url": "https://github.com/QingYunA/answer-me-with-html/tree/5d5b86ddbeea500b7fec6b3e80ad273ad875b005/skills/answer-me-with-html",
       "tags": [
         "html",
+        "security",
+        "offline",
         "visualization",
-        "technical-report"
+        "report"
       ],
       "quality": 3,
       "complexity": "advanced",
       "created_at": "2026-10-12",
       "updated_at": "2026-10-12",
-      "line_count": 204,
+      "line_count": 113,
       "path": "skills/office-white-collar/answer-me-with-html/SKILL.md"
     },
     {

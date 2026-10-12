@@ -321,7 +321,7 @@
             "ref": "5d5b86ddbeea500b7fec6b3e80ad273ad875b005",
             "resolved_commit": "5d5b86ddbeea500b7fec6b3e80ad273ad875b005",
             "path_commit": "5d5b86ddbeea500b7fec6b3e80ad273ad875b005",
-            "content_sha256": "aa741f505cc825503a090b15c6bd42c1e3940da5adb95c7fa7fe1ac644fb3026",
+            "content_sha256": "7c6cdd8d3cddf506f2b63e2a5c9726fe37d459d99cc246a380f16b3bfafbcea8",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "17eca290eefa4fa9d5594edcad845be8df899eb0",
@@ -339,7 +339,7 @@
         {
           "path": "skills/office-white-collar/answer-me-with-html/SKILL.md",
           "owner": "answer-me-with-html",
-          "sha256": "aa741f505cc825503a090b15c6bd42c1e3940da5adb95c7fa7fe1ac644fb3026",
+          "sha256": "7c6cdd8d3cddf506f2b63e2a5c9726fe37d459d99cc246a380f16b3bfafbcea8",
           "mode": "100644"
         },
         {
@@ -363,7 +363,7 @@
         {
           "path": "skills/office-white-collar/answer-me-with-html/scripts/am.mjs",
           "owner": "answer-me-with-html",
-          "sha256": "211ac2345dcf6f483b19faa796283bd901fdd8cceda82ebf4ff0c728bf2a4b8f",
+          "sha256": "a30948377dd7cb6530b4c13fa86033698769f146ee82a45d5ed0efc013d6da61",
           "mode": "100755"
         }
       ],
@@ -1663,7 +1663,7 @@
             "ref": "2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1",
             "resolved_commit": "2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1",
             "path_commit": "2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1",
-            "content_sha256": "8632be24fc2787269aac2f2c7b99c856ea2c60da6febbad060ba707dfe86e197",
+            "content_sha256": "5ff6e109e073683c8fa8d7b443cf104838e644e4b7814411ecd90e8ca97453fd",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "5895384436b9865fc09a784622204a7d742165be",
@@ -1681,7 +1681,7 @@
         {
           "path": "skills/multimodal-media/live-panel/SKILL.md",
           "owner": "live-panel",
-          "sha256": "8632be24fc2787269aac2f2c7b99c856ea2c60da6febbad060ba707dfe86e197",
+          "sha256": "5ff6e109e073683c8fa8d7b443cf104838e644e4b7814411ecd90e8ca97453fd",
           "mode": "100644"
         },
         {
@@ -1693,7 +1693,7 @@
         {
           "path": "skills/multimodal-media/live-panel/assets/template.html",
           "owner": "live-panel",
-          "sha256": "c13f34d59e88624a6d4e37f482316a076dced324a2b023b95fd244514972d4e0",
+          "sha256": "11fed5039e13d26a318954a0cf1bf95fa58e9f8dbf23b68241ba7367e641190c",
           "mode": "100644"
         },
         {
