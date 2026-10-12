@@ -1,0 +1,1751 @@
+{
+  "schema_version": 2,
+  "video": {
+    "url": "https://github.com/seaworld008/Commonly-used-high-value-skills",
+    "checked_at": "2026-10-12",
+    "note": "Immutable curated v3.3.0 source overlays"
+  },
+  "official_references": [
+    {
+      "name": "samber/cc-skills-golang",
+      "url": "https://github.com/samber/cc-skills-golang/tree/8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
+      "purpose": "Reviewed fixed-commit origin with permissive license"
+    },
+    {
+      "name": "vercel-labs/agent-browser",
+      "url": "https://github.com/vercel-labs/agent-browser/tree/d9570915f4dd6504dee4070379d2c4f79d81dbb2",
+      "purpose": "Reviewed fixed-commit origin with permissive license"
+    },
+    {
+      "name": "mattpocock/skills",
+      "url": "https://github.com/mattpocock/skills/tree/49dd158d1076134a641b33efb035946536778336",
+      "purpose": "Reviewed fixed-commit origin with permissive license"
+    },
+    {
+      "name": "QingYunA/answer-me-with-html",
+      "url": "https://github.com/QingYunA/answer-me-with-html/tree/5d5b86ddbeea500b7fec6b3e80ad273ad875b005",
+      "purpose": "Reviewed fixed-commit origin with permissive license"
+    },
+    {
+      "name": "ythx-101/live-panel-skill",
+      "url": "https://github.com/ythx-101/live-panel-skill/tree/2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1",
+      "purpose": "Reviewed fixed-commit origin with permissive license"
+    },
+    {
+      "name": "microsoft/azure-skills",
+      "url": "https://github.com/microsoft/azure-skills/tree/0727d81638d64b6888f796287ee00baecfb08ced",
+      "purpose": "Reviewed fixed-commit origin with permissive license"
+    }
+  ],
+  "skills": [
+    {
+      "video_name": "agent-browser",
+      "normalized_slug": "agent-browser",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/engineering-workflow-automation/agent-browser/SKILL.md",
+      "source": "https://github.com/vercel-labs/agent-browser/blob/d9570915f4dd6504dee4070379d2c4f79d81dbb2/skill-data/core/SKILL.md",
+      "notes": "Pinned licensed upstream and reviewed authorization-limited local overlay; imported scripts not executed.",
+      "upstream": {
+        "repo": "vercel-labs/agent-browser",
+        "path": "skill-data/core/SKILL.md",
+        "ref": "d9570915f4dd6504dee4070379d2c4f79d81dbb2",
+        "last_checked_at": "2026-10-12",
+        "last_synced_at": "2026-10-12",
+        "last_synced_commit": "d9570915f4dd6504dee4070379d2c4f79d81dbb2",
+        "sync_mode": "monitor",
+        "path_commit": "d9570915f4dd6504dee4070379d2c4f79d81dbb2"
+      },
+      "kind": "overlay",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "vercel-labs/agent-browser",
+          "path": "skill-data/core/SKILL.md",
+          "license": "Apache-2.0",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skill-data/core/SKILL.md",
+              "target": "skills/engineering-workflow-automation/agent-browser/SKILL.md",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/engineering-workflow-automation/agent-browser/LICENSE.txt",
+              "type": "file"
+            },
+            {
+              "source": "skill-data/core/references/authentication.md",
+              "target": "skills/engineering-workflow-automation/agent-browser/references/authentication.md",
+              "type": "file"
+            },
+            {
+              "source": "skill-data/core/references/commands.md",
+              "target": "skills/engineering-workflow-automation/agent-browser/references/commands.md",
+              "type": "file"
+            },
+            {
+              "source": "skill-data/core/references/profiling.md",
+              "target": "skills/engineering-workflow-automation/agent-browser/references/profiling.md",
+              "type": "file"
+            },
+            {
+              "source": "skill-data/core/references/proxy-support.md",
+              "target": "skills/engineering-workflow-automation/agent-browser/references/proxy-support.md",
+              "type": "file"
+            },
+            {
+              "source": "skill-data/core/references/session-management.md",
+              "target": "skills/engineering-workflow-automation/agent-browser/references/session-management.md",
+              "type": "file"
+            },
+            {
+              "source": "skill-data/core/references/snapshot-refs.md",
+              "target": "skills/engineering-workflow-automation/agent-browser/references/snapshot-refs.md",
+              "type": "file"
+            },
+            {
+              "source": "skill-data/core/references/streaming.md",
+              "target": "skills/engineering-workflow-automation/agent-browser/references/streaming.md",
+              "type": "file"
+            },
+            {
+              "source": "skill-data/core/references/trust-boundaries.md",
+              "target": "skills/engineering-workflow-automation/agent-browser/references/trust-boundaries.md",
+              "type": "file"
+            },
+            {
+              "source": "skill-data/core/references/video-recording.md",
+              "target": "skills/engineering-workflow-automation/agent-browser/references/video-recording.md",
+              "type": "file"
+            },
+            {
+              "source": "skill-data/core/references/webgpu.md",
+              "target": "skills/engineering-workflow-automation/agent-browser/references/webgpu.md",
+              "type": "file"
+            },
+            {
+              "source": "skill-data/core/templates/authenticated-session.sh",
+              "target": "skills/engineering-workflow-automation/agent-browser/templates/authenticated-session.sh",
+              "type": "file"
+            },
+            {
+              "source": "skill-data/core/templates/capture-workflow.sh",
+              "target": "skills/engineering-workflow-automation/agent-browser/templates/capture-workflow.sh",
+              "type": "file"
+            },
+            {
+              "source": "skill-data/core/templates/form-automation.sh",
+              "target": "skills/engineering-workflow-automation/agent-browser/templates/form-automation.sh",
+              "type": "file"
+            },
+            {
+              "source": "skill-data/core/SKILL.md",
+              "target": "skills/engineering-workflow-automation/agent-browser/references/upstream-core.md",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "fixed_ref",
+            "ref": "d9570915f4dd6504dee4070379d2c4f79d81dbb2",
+            "resolved_commit": "d9570915f4dd6504dee4070379d2c4f79d81dbb2",
+            "path_commit": "d9570915f4dd6504dee4070379d2c4f79d81dbb2",
+            "content_sha256": "62f7cb9d134509b27f0cc122e4e277737e44c0ee100ccdeaaa79faa7e4a36a3e",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "8226d363f88a734e52cc79ead7a5588cc55e76f7",
+              "content_sha256": "014bb31e83d5c2e76aea1cc6e82217346ab41362f32cb355ad0f5c10aa0aeaff",
+              "spdx": "Apache-2.0",
+              "resolved_commit": "d9570915f4dd6504dee4070379d2c4f79d81dbb2",
+              "api_spdx": "Apache-2.0"
+            },
+            "last_checked_at": "2026-10-12",
+            "last_synced_at": "2026-10-12"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/engineering-workflow-automation/agent-browser/SKILL.md",
+          "owner": "agent-browser",
+          "sha256": "62f7cb9d134509b27f0cc122e4e277737e44c0ee100ccdeaaa79faa7e4a36a3e",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/engineering-workflow-automation/agent-browser/LICENSE.txt",
+          "owner": "agent-browser",
+          "sha256": "014bb31e83d5c2e76aea1cc6e82217346ab41362f32cb355ad0f5c10aa0aeaff",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/engineering-workflow-automation/agent-browser/references/authentication.md",
+          "owner": "agent-browser",
+          "sha256": "eacad39ab402458b1023d86ca0e793ffa102e78de4b8bb0dc36061e08849b14e",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/engineering-workflow-automation/agent-browser/references/commands.md",
+          "owner": "agent-browser",
+          "sha256": "fd8201b3f5bb91a65b1f95eb14a7c0c3bffc05547f62f5b5560ad32fed6e3a37",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/engineering-workflow-automation/agent-browser/references/profiling.md",
+          "owner": "agent-browser",
+          "sha256": "bfdbe03f0f1da1a20f79d6fcb1ce889bdb43836756934cbf59af4b94e7a80dee",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/engineering-workflow-automation/agent-browser/references/proxy-support.md",
+          "owner": "agent-browser",
+          "sha256": "5eadc0bfa1c83154d0b6772d677d0805e2d855a2e66729ad570bb4d344165ce6",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/engineering-workflow-automation/agent-browser/references/session-management.md",
+          "owner": "agent-browser",
+          "sha256": "d57c6ad8f72adf4fe4c83f414d8a360927d740e344905fe666d2af739be497ed",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/engineering-workflow-automation/agent-browser/references/snapshot-refs.md",
+          "owner": "agent-browser",
+          "sha256": "fa003be0433f812ba57bdd457fb67abcb9feb407ece23cb80643d7cac17ebccb",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/engineering-workflow-automation/agent-browser/references/streaming.md",
+          "owner": "agent-browser",
+          "sha256": "92d10ccffb1d15f2d00179b3f8ae28797e483d7efb9e980633d50cca54793efc",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/engineering-workflow-automation/agent-browser/references/trust-boundaries.md",
+          "owner": "agent-browser",
+          "sha256": "011b72f87af0002beb8475b9c50baf70067737e89ca9f09ff6ce2b03a456b33c",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/engineering-workflow-automation/agent-browser/references/video-recording.md",
+          "owner": "agent-browser",
+          "sha256": "8a669ed6dc77e0c53d8f8b2e9386751c677e1bbdc0d1d8d54b7df4c0313a7743",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/engineering-workflow-automation/agent-browser/references/webgpu.md",
+          "owner": "agent-browser",
+          "sha256": "f7307651439a45fb8b6dcdfc29c29bf8c70736245282bfee367bdc0b5d2fc94d",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/engineering-workflow-automation/agent-browser/templates/authenticated-session.sh",
+          "owner": "agent-browser",
+          "sha256": "3a44ce1ca1d6b8ff7b049e8456fb9cd383afa3e76f48532cc6dc836dc0f449e7",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/engineering-workflow-automation/agent-browser/templates/capture-workflow.sh",
+          "owner": "agent-browser",
+          "sha256": "caa5fa01b654cab0849d77c7fcb2e07a64b2ba3b7bff4718e9a19d3c8d793177",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/engineering-workflow-automation/agent-browser/templates/form-automation.sh",
+          "owner": "agent-browser",
+          "sha256": "f1b2ef8220d214287d68336512938adfe9bf6e9c2b85e2d66f3239bafc666a6a",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/engineering-workflow-automation/agent-browser/references/upstream-core.md",
+          "owner": "agent-browser",
+          "sha256": "6564e9a33e3aaec7412c8817884588f14fad4d2c626d75ef37bd26cb4d8e286e",
+          "mode": "100644"
+        }
+      ],
+      "curation_note": "2026-10-12: complete selected runtime artifacts from pinned source. Upstream evals and sample media excluded; host-specific commands are optional."
+    },
+    {
+      "video_name": "answer-me-with-html",
+      "normalized_slug": "answer-me-with-html",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/office-white-collar/answer-me-with-html/SKILL.md",
+      "source": "https://github.com/QingYunA/answer-me-with-html/blob/5d5b86ddbeea500b7fec6b3e80ad273ad875b005/skills/answer-me-with-html/SKILL.md",
+      "notes": "Pinned licensed upstream and reviewed authorization-limited local overlay; imported scripts not executed.",
+      "upstream": {
+        "repo": "QingYunA/answer-me-with-html",
+        "path": "skills/answer-me-with-html/SKILL.md",
+        "ref": "5d5b86ddbeea500b7fec6b3e80ad273ad875b005",
+        "last_checked_at": "2026-10-12",
+        "last_synced_at": "2026-10-12",
+        "last_synced_commit": "5d5b86ddbeea500b7fec6b3e80ad273ad875b005",
+        "sync_mode": "monitor",
+        "path_commit": "5d5b86ddbeea500b7fec6b3e80ad273ad875b005"
+      },
+      "kind": "overlay",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "QingYunA/answer-me-with-html",
+          "path": "skills/answer-me-with-html/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/answer-me-with-html/SKILL.md",
+              "target": "skills/office-white-collar/answer-me-with-html/SKILL.md",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/office-white-collar/answer-me-with-html/LICENSE.txt",
+              "type": "file"
+            },
+            {
+              "source": "skills/answer-me-with-html/references/settings.md",
+              "target": "skills/office-white-collar/answer-me-with-html/references/settings.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/answer-me-with-html/references/video.md",
+              "target": "skills/office-white-collar/answer-me-with-html/references/video.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/answer-me-with-html/scripts/am.mjs",
+              "target": "skills/office-white-collar/answer-me-with-html/scripts/am.mjs",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "fixed_ref",
+            "ref": "5d5b86ddbeea500b7fec6b3e80ad273ad875b005",
+            "resolved_commit": "5d5b86ddbeea500b7fec6b3e80ad273ad875b005",
+            "path_commit": "5d5b86ddbeea500b7fec6b3e80ad273ad875b005",
+            "content_sha256": "aa741f505cc825503a090b15c6bd42c1e3940da5adb95c7fa7fe1ac644fb3026",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "17eca290eefa4fa9d5594edcad845be8df899eb0",
+              "content_sha256": "752a1a34b40ae8e64e86f546ec699a691aff573179e1f96997e82757b2ee5d3f",
+              "spdx": "MIT",
+              "resolved_commit": "5d5b86ddbeea500b7fec6b3e80ad273ad875b005",
+              "api_spdx": "MIT"
+            },
+            "last_checked_at": "2026-10-12",
+            "last_synced_at": "2026-10-12"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/office-white-collar/answer-me-with-html/SKILL.md",
+          "owner": "answer-me-with-html",
+          "sha256": "aa741f505cc825503a090b15c6bd42c1e3940da5adb95c7fa7fe1ac644fb3026",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/office-white-collar/answer-me-with-html/LICENSE.txt",
+          "owner": "answer-me-with-html",
+          "sha256": "752a1a34b40ae8e64e86f546ec699a691aff573179e1f96997e82757b2ee5d3f",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/office-white-collar/answer-me-with-html/references/settings.md",
+          "owner": "answer-me-with-html",
+          "sha256": "3849b94db5f8c352ebaffd0cbe7d1b3143c9a1dc384fdef90ca8eb1027abc8db",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/office-white-collar/answer-me-with-html/references/video.md",
+          "owner": "answer-me-with-html",
+          "sha256": "011468549673cf2553e600a6d87eecb71d18eea75b4ab96375c9e3fef781b9c5",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/office-white-collar/answer-me-with-html/scripts/am.mjs",
+          "owner": "answer-me-with-html",
+          "sha256": "211ac2345dcf6f483b19faa796283bd901fdd8cceda82ebf4ff0c728bf2a4b8f",
+          "mode": "100755"
+        }
+      ],
+      "curation_note": "2026-10-12: complete selected runtime artifacts from pinned source. Upstream evals and sample media excluded; host-specific commands are optional."
+    },
+    {
+      "video_name": "azure-diagnostics",
+      "normalized_slug": "azure-diagnostics",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/devops-sre/azure-diagnostics/SKILL.md",
+      "source": "https://github.com/microsoft/azure-skills/blob/0727d81638d64b6888f796287ee00baecfb08ced/skills/azure-diagnostics/SKILL.md",
+      "notes": "Pinned licensed upstream and reviewed authorization-limited local overlay; imported scripts not executed.",
+      "upstream": {
+        "repo": "microsoft/azure-skills",
+        "path": "skills/azure-diagnostics/SKILL.md",
+        "ref": "0727d81638d64b6888f796287ee00baecfb08ced",
+        "last_checked_at": "2026-10-12",
+        "last_synced_at": "2026-10-12",
+        "last_synced_commit": "0727d81638d64b6888f796287ee00baecfb08ced",
+        "sync_mode": "monitor",
+        "path_commit": "0727d81638d64b6888f796287ee00baecfb08ced"
+      },
+      "kind": "overlay",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "microsoft/azure-skills",
+          "path": "skills/azure-diagnostics/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/azure-diagnostics/SKILL.md",
+              "target": "skills/devops-sre/azure-diagnostics/SKILL.md",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/devops-sre/azure-diagnostics/LICENSE.txt",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/references/app-service/README.md",
+              "target": "skills/devops-sre/azure-diagnostics/references/app-service/README.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/references/azure-resource-graph.md",
+              "target": "skills/devops-sre/azure-diagnostics/references/azure-resource-graph.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/references/container-apps/README.md",
+              "target": "skills/devops-sre/azure-diagnostics/references/container-apps/README.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/references/functions/README.md",
+              "target": "skills/devops-sre/azure-diagnostics/references/functions/README.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/references/kql-queries.md",
+              "target": "skills/devops-sre/azure-diagnostics/references/kql-queries.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/scripts/aks-baseline.ps1",
+              "target": "skills/devops-sre/azure-diagnostics/scripts/aks-baseline.ps1",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/scripts/aks-baseline.sh",
+              "target": "skills/devops-sre/azure-diagnostics/scripts/aks-baseline.sh",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/scripts/appservice-diagnostics.ps1",
+              "target": "skills/devops-sre/azure-diagnostics/scripts/appservice-diagnostics.ps1",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/scripts/appservice-diagnostics.sh",
+              "target": "skills/devops-sre/azure-diagnostics/scripts/appservice-diagnostics.sh",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/scripts/containerapp-diagnostics.ps1",
+              "target": "skills/devops-sre/azure-diagnostics/scripts/containerapp-diagnostics.ps1",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/scripts/containerapp-diagnostics.sh",
+              "target": "skills/devops-sre/azure-diagnostics/scripts/containerapp-diagnostics.sh",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/scripts/pod-evidence.ps1",
+              "target": "skills/devops-sre/azure-diagnostics/scripts/pod-evidence.ps1",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/scripts/pod-evidence.sh",
+              "target": "skills/devops-sre/azure-diagnostics/scripts/pod-evidence.sh",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/scripts/run-ig.ps1",
+              "target": "skills/devops-sre/azure-diagnostics/scripts/run-ig.ps1",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/scripts/run-ig.sh",
+              "target": "skills/devops-sre/azure-diagnostics/scripts/run-ig.sh",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/scripts/test-messaging-connectivity.ps1",
+              "target": "skills/devops-sre/azure-diagnostics/scripts/test-messaging-connectivity.ps1",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/scripts/test-messaging-connectivity.sh",
+              "target": "skills/devops-sre/azure-diagnostics/scripts/test-messaging-connectivity.sh",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/troubleshooting/aks/aks-troubleshooting.md",
+              "target": "skills/devops-sre/azure-diagnostics/troubleshooting/aks/aks-troubleshooting.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/troubleshooting/aks/general-diagnostics.md",
+              "target": "skills/devops-sre/azure-diagnostics/troubleshooting/aks/general-diagnostics.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/troubleshooting/aks/load-balancer-and-ingress.md",
+              "target": "skills/devops-sre/azure-diagnostics/troubleshooting/aks/load-balancer-and-ingress.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/troubleshooting/aks/network-policy.md",
+              "target": "skills/devops-sre/azure-diagnostics/troubleshooting/aks/network-policy.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/troubleshooting/aks/networking.md",
+              "target": "skills/devops-sre/azure-diagnostics/troubleshooting/aks/networking.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/troubleshooting/aks/node-issues.md",
+              "target": "skills/devops-sre/azure-diagnostics/troubleshooting/aks/node-issues.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/troubleshooting/aks/optional-aks-operations.md",
+              "target": "skills/devops-sre/azure-diagnostics/troubleshooting/aks/optional-aks-operations.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/troubleshooting/aks/pod-failures.md",
+              "target": "skills/devops-sre/azure-diagnostics/troubleshooting/aks/pod-failures.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/troubleshooting/aks/references/aks-mcp.md",
+              "target": "skills/devops-sre/azure-diagnostics/troubleshooting/aks/references/aks-mcp.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/troubleshooting/aks/references/command-flows.md",
+              "target": "skills/devops-sre/azure-diagnostics/troubleshooting/aks/references/command-flows.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/troubleshooting/aks/references/inspektor-gadget.md",
+              "target": "skills/devops-sre/azure-diagnostics/troubleshooting/aks/references/inspektor-gadget.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/troubleshooting/aks/references/structured-input-modes.md",
+              "target": "skills/devops-sre/azure-diagnostics/troubleshooting/aks/references/structured-input-modes.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/troubleshooting/aks/spot-and-zone-issues.md",
+              "target": "skills/devops-sre/azure-diagnostics/troubleshooting/aks/spot-and-zone-issues.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/troubleshooting/aks/upgrade-operations.md",
+              "target": "skills/devops-sre/azure-diagnostics/troubleshooting/aks/upgrade-operations.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/troubleshooting/compute/references/cannot-connect-to-vm.md",
+              "target": "skills/devops-sre/azure-diagnostics/troubleshooting/compute/references/cannot-connect-to-vm.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/troubleshooting/compute/references/credential-auth-errors.md",
+              "target": "skills/devops-sre/azure-diagnostics/troubleshooting/compute/references/credential-auth-errors.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/troubleshooting/compute/references/firewall-blocking.md",
+              "target": "skills/devops-sre/azure-diagnostics/troubleshooting/compute/references/firewall-blocking.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/troubleshooting/compute/references/network-connectivity.md",
+              "target": "skills/devops-sre/azure-diagnostics/troubleshooting/compute/references/network-connectivity.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/troubleshooting/compute/references/rdp-connectivity.md",
+              "target": "skills/devops-sre/azure-diagnostics/troubleshooting/compute/references/rdp-connectivity.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/troubleshooting/compute/references/rdp-service-config.md",
+              "target": "skills/devops-sre/azure-diagnostics/troubleshooting/compute/references/rdp-service-config.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/troubleshooting/compute/references/ssh-connectivity.md",
+              "target": "skills/devops-sre/azure-diagnostics/troubleshooting/compute/references/ssh-connectivity.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/troubleshooting/compute/references/vm-agent-not-responding.md",
+              "target": "skills/devops-sre/azure-diagnostics/troubleshooting/compute/references/vm-agent-not-responding.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/troubleshooting/compute/vm-troubleshooting.md",
+              "target": "skills/devops-sre/azure-diagnostics/troubleshooting/compute/vm-troubleshooting.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/troubleshooting/messaging/README.md",
+              "target": "skills/devops-sre/azure-diagnostics/troubleshooting/messaging/README.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/troubleshooting/messaging/auth-best-practices.md",
+              "target": "skills/devops-sre/azure-diagnostics/troubleshooting/messaging/auth-best-practices.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/troubleshooting/messaging/azure-eventhubs-dotnet.md",
+              "target": "skills/devops-sre/azure-diagnostics/troubleshooting/messaging/azure-eventhubs-dotnet.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/troubleshooting/messaging/azure-eventhubs-java.md",
+              "target": "skills/devops-sre/azure-diagnostics/troubleshooting/messaging/azure-eventhubs-java.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/troubleshooting/messaging/azure-eventhubs-js.md",
+              "target": "skills/devops-sre/azure-diagnostics/troubleshooting/messaging/azure-eventhubs-js.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/troubleshooting/messaging/azure-eventhubs-py.md",
+              "target": "skills/devops-sre/azure-diagnostics/troubleshooting/messaging/azure-eventhubs-py.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/troubleshooting/messaging/azure-servicebus-dotnet.md",
+              "target": "skills/devops-sre/azure-diagnostics/troubleshooting/messaging/azure-servicebus-dotnet.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/troubleshooting/messaging/azure-servicebus-java.md",
+              "target": "skills/devops-sre/azure-diagnostics/troubleshooting/messaging/azure-servicebus-java.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/troubleshooting/messaging/azure-servicebus-js.md",
+              "target": "skills/devops-sre/azure-diagnostics/troubleshooting/messaging/azure-servicebus-js.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/troubleshooting/messaging/azure-servicebus-py.md",
+              "target": "skills/devops-sre/azure-diagnostics/troubleshooting/messaging/azure-servicebus-py.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/azure-diagnostics/troubleshooting/messaging/service-troubleshooting.md",
+              "target": "skills/devops-sre/azure-diagnostics/troubleshooting/messaging/service-troubleshooting.md",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "fixed_ref",
+            "ref": "0727d81638d64b6888f796287ee00baecfb08ced",
+            "resolved_commit": "0727d81638d64b6888f796287ee00baecfb08ced",
+            "path_commit": "0727d81638d64b6888f796287ee00baecfb08ced",
+            "content_sha256": "323e3cbbedc86e4791b02816a0a289c58455780e61ff18433eacae9d5c4947cb",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "356b112bcc4f07e03b6e57569eedf9d79978d2d5",
+              "content_sha256": "8a5d8efb70942e65032f930c761d097feeb41a7517ebd04c9d2e4ec3764071c5",
+              "spdx": "MIT",
+              "resolved_commit": "0727d81638d64b6888f796287ee00baecfb08ced",
+              "api_spdx": "MIT"
+            },
+            "last_checked_at": "2026-10-12",
+            "last_synced_at": "2026-10-12"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/devops-sre/azure-diagnostics/SKILL.md",
+          "owner": "azure-diagnostics",
+          "sha256": "323e3cbbedc86e4791b02816a0a289c58455780e61ff18433eacae9d5c4947cb",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/LICENSE.txt",
+          "owner": "azure-diagnostics",
+          "sha256": "8a5d8efb70942e65032f930c761d097feeb41a7517ebd04c9d2e4ec3764071c5",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/references/app-service/README.md",
+          "owner": "azure-diagnostics",
+          "sha256": "cf43af284241ce4bae6dcbc1c646cd35f2ce049620da26d209c38a7ca37e1388",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/references/azure-resource-graph.md",
+          "owner": "azure-diagnostics",
+          "sha256": "cd7cf01f8f74983a38e24f8bb20cb8f492f682319a56ac73cdc8647ddf550491",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/references/container-apps/README.md",
+          "owner": "azure-diagnostics",
+          "sha256": "84e55cea1303be8300109c0d0cd95fe479a981f052921f8403ae933f32e12437",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/references/functions/README.md",
+          "owner": "azure-diagnostics",
+          "sha256": "e223022494cd4167f17ebddde73a2fffcf99ec3b840227b46d8470f199df1f73",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/references/kql-queries.md",
+          "owner": "azure-diagnostics",
+          "sha256": "3a784ff92bb90e0967c0c40dc0ce4daed8b664ceb1f014bd7a70d8c2926cc8a3",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/scripts/aks-baseline.ps1",
+          "owner": "azure-diagnostics",
+          "sha256": "e221ecc4e2c2f331a9170d604279d9ece16c834d821032bac23699cf696d61cf",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/scripts/aks-baseline.sh",
+          "owner": "azure-diagnostics",
+          "sha256": "2e0edf4dff2c44af72d3d7459eb7360839e704fb45aa3742bb49f53253595e14",
+          "mode": "100755"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/scripts/appservice-diagnostics.ps1",
+          "owner": "azure-diagnostics",
+          "sha256": "4ec92644f84231bbd1870ad0917884dbb32d4e19b4358423df486602f56558fe",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/scripts/appservice-diagnostics.sh",
+          "owner": "azure-diagnostics",
+          "sha256": "503a3a6d83a2b555ea404f467ff6aff7495c7d8e519bfbe70bd2a53e863de362",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/scripts/containerapp-diagnostics.ps1",
+          "owner": "azure-diagnostics",
+          "sha256": "ba33255d6deb9051cbd0aebf1da5bccaf88e4bf82bcb557ced7221563d55c53b",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/scripts/containerapp-diagnostics.sh",
+          "owner": "azure-diagnostics",
+          "sha256": "bb9bb8f2bbf92aa9c0ac5390966028e46e038b1eac74b6d92095c6cf40ad8d5c",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/scripts/pod-evidence.ps1",
+          "owner": "azure-diagnostics",
+          "sha256": "ec95c20067b66df2dae73ceed09d561e089b0b0b09fa3f6172836b8c3fc2ec27",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/scripts/pod-evidence.sh",
+          "owner": "azure-diagnostics",
+          "sha256": "cb6bbea2957017f1815a87f90f896dcbdcc3aec538097958242752724bf1fefb",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/scripts/run-ig.ps1",
+          "owner": "azure-diagnostics",
+          "sha256": "044c1311c7be68ff990e978c8a6a34c79ba0b8dc0720f14a0570193150ac9201",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/scripts/run-ig.sh",
+          "owner": "azure-diagnostics",
+          "sha256": "35a64f1d4da8c3c1b107b243bae6d4a9a9fa66957c9878febb0b6bcf3fe2582e",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/scripts/test-messaging-connectivity.ps1",
+          "owner": "azure-diagnostics",
+          "sha256": "a42d229408b4281fc6f6110c6e9286091523ce00d48b96e0f28672307c6f49a2",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/scripts/test-messaging-connectivity.sh",
+          "owner": "azure-diagnostics",
+          "sha256": "cf6d212b403a8846c8d58629fc20272f3e7a325d9a97a12688f367d665d87c36",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/troubleshooting/aks/aks-troubleshooting.md",
+          "owner": "azure-diagnostics",
+          "sha256": "37a141177815d3bda47b15f270683d3a96f0d57dd59a2078150da2ab03ec6223",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/troubleshooting/aks/general-diagnostics.md",
+          "owner": "azure-diagnostics",
+          "sha256": "8acf6259604ef912d6ac763d75552a65925e76ab2020da56168ca879c389ef56",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/troubleshooting/aks/load-balancer-and-ingress.md",
+          "owner": "azure-diagnostics",
+          "sha256": "411fe1e7af9b072011d1cdc34733051cf8c31d6fa59355c0b0a5b2421a5f4681",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/troubleshooting/aks/network-policy.md",
+          "owner": "azure-diagnostics",
+          "sha256": "557901c258eb637baad32466e6e4eb9e570fa66deebb21520cef3436fe4672ce",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/troubleshooting/aks/networking.md",
+          "owner": "azure-diagnostics",
+          "sha256": "75ec5358fc5baff4a8c3f5891e3c6bf8fbb6930972abe00cbc09096aa96db66a",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/troubleshooting/aks/node-issues.md",
+          "owner": "azure-diagnostics",
+          "sha256": "1913b8383ecf748ea2fae53b1e3dfb176205c0f1a4183070f5a35ecce01a41d6",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/troubleshooting/aks/optional-aks-operations.md",
+          "owner": "azure-diagnostics",
+          "sha256": "96d5598e05b4dd0ec9982400fcce25bd4a1d969d626877876a3f2426d4607c07",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/troubleshooting/aks/pod-failures.md",
+          "owner": "azure-diagnostics",
+          "sha256": "930c8da84023a13da2fc92793f283eb7252bb03779b611716852338fe79a2126",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/troubleshooting/aks/references/aks-mcp.md",
+          "owner": "azure-diagnostics",
+          "sha256": "6377b54c5828aff186fed7ef86dcb0c38c7eba52d6266309d4b41d27febcf5c1",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/troubleshooting/aks/references/command-flows.md",
+          "owner": "azure-diagnostics",
+          "sha256": "130392554d7d93bad0fb74bef445333b7e11a27124133cf6d4821ae5edbdc3ad",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/troubleshooting/aks/references/inspektor-gadget.md",
+          "owner": "azure-diagnostics",
+          "sha256": "c78220ece086363f969810eee40a1963d276864d8cd31f6cd8af823cf91fb741",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/troubleshooting/aks/references/structured-input-modes.md",
+          "owner": "azure-diagnostics",
+          "sha256": "eb1d1efe70567b5583d56c155a640ed6d3964befba1e63589d57045ee0640119",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/troubleshooting/aks/spot-and-zone-issues.md",
+          "owner": "azure-diagnostics",
+          "sha256": "00531f4c15aafa5d89d9d8696d2b83c37611fbf7014600308252ef2382ec0379",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/troubleshooting/aks/upgrade-operations.md",
+          "owner": "azure-diagnostics",
+          "sha256": "a159e73391f2436c0184790deb9a3296c766288269cead50d07f3d021331dc88",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/troubleshooting/compute/references/cannot-connect-to-vm.md",
+          "owner": "azure-diagnostics",
+          "sha256": "d49c4ac1447e343c465750232379624434dad1955fac1b204894f91ee7e24663",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/troubleshooting/compute/references/credential-auth-errors.md",
+          "owner": "azure-diagnostics",
+          "sha256": "741fdd4facf000ddaf01f0b6d0654a0f12b0421ba9f75d626d51a25babd1805a",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/troubleshooting/compute/references/firewall-blocking.md",
+          "owner": "azure-diagnostics",
+          "sha256": "a855444fd7d42a1f874b97c8a9d354cecf7567f12ce14ce7b410aec4092f221c",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/troubleshooting/compute/references/network-connectivity.md",
+          "owner": "azure-diagnostics",
+          "sha256": "0d4dab14b9ee2b8f05faa0ecc2fc08592a12d05ee23489e4c7a52c5300d0d0fc",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/troubleshooting/compute/references/rdp-connectivity.md",
+          "owner": "azure-diagnostics",
+          "sha256": "e3d5a70e4a027e639602967107eb53be3b40a9360898bb843508cd7214379247",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/troubleshooting/compute/references/rdp-service-config.md",
+          "owner": "azure-diagnostics",
+          "sha256": "1a6e3bb20d6e7ae9a7c7638ce74009bf0bdb82b632c3e560be5201e87ad44881",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/troubleshooting/compute/references/ssh-connectivity.md",
+          "owner": "azure-diagnostics",
+          "sha256": "e9346d563a9a9d890ef6f9a03d429dd5e72decbe7bbdd5868d278c1b5823b44a",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/troubleshooting/compute/references/vm-agent-not-responding.md",
+          "owner": "azure-diagnostics",
+          "sha256": "270c2b73af1ac40d9cc9b0acc6b830363f6fa1a76d5591b2e275cfcbd78f2adc",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/troubleshooting/compute/vm-troubleshooting.md",
+          "owner": "azure-diagnostics",
+          "sha256": "4f25c141241dbc0f4b1ed25d8e998475f4881584ac7207f7e8678ca4ad4ab9a8",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/troubleshooting/messaging/README.md",
+          "owner": "azure-diagnostics",
+          "sha256": "060a285a2fab6038e198261f9a6d2b6151707f8e0aa29951f08816bba0766d2c",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/troubleshooting/messaging/auth-best-practices.md",
+          "owner": "azure-diagnostics",
+          "sha256": "34f6fe88e2b5819c1a0f24aa3930a060d9504fee68ea4b363f0912a78daa5396",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/troubleshooting/messaging/azure-eventhubs-dotnet.md",
+          "owner": "azure-diagnostics",
+          "sha256": "d168fd1529ad865409707fd0e208d44877ae3e9306de25f36ad141fe916e7b5e",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/troubleshooting/messaging/azure-eventhubs-java.md",
+          "owner": "azure-diagnostics",
+          "sha256": "f81e0671f1472545a805cb8ed5982fc3fb3ab743ac7111a26549be1500bb2e49",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/troubleshooting/messaging/azure-eventhubs-js.md",
+          "owner": "azure-diagnostics",
+          "sha256": "f4794520b65453a99ba1ede3fe9c7d34742d37a5148710a957ad8c6ba3033bb4",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/troubleshooting/messaging/azure-eventhubs-py.md",
+          "owner": "azure-diagnostics",
+          "sha256": "4511039cc6ce513e8ff4eaedc46b7248bb64d12897b52003bf66709a0c4a4e78",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/troubleshooting/messaging/azure-servicebus-dotnet.md",
+          "owner": "azure-diagnostics",
+          "sha256": "49ee74f9327aa2fe311d56d0bed2b80d757c807b82e6385833497570a1eb3927",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/troubleshooting/messaging/azure-servicebus-java.md",
+          "owner": "azure-diagnostics",
+          "sha256": "d5c07b964c79225c52f7dcaea2c46cef5fdb320aec67cbf3ba0fc03d46675910",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/troubleshooting/messaging/azure-servicebus-js.md",
+          "owner": "azure-diagnostics",
+          "sha256": "ef4131010dbaa59fea9dd9c5b6b6a4d866e83d375fd4d920c79d25ccadf0e16b",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/troubleshooting/messaging/azure-servicebus-py.md",
+          "owner": "azure-diagnostics",
+          "sha256": "274162fa4cec6f96fea056639c7cf0d8821bce277af82eb01343f6a9e74f647b",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-diagnostics/troubleshooting/messaging/service-troubleshooting.md",
+          "owner": "azure-diagnostics",
+          "sha256": "056d3ee490ff20d121eb8575c47c6bab67a786996b6949921c08de3aa887f949",
+          "mode": "100644"
+        }
+      ],
+      "curation_note": "2026-10-12: complete selected runtime artifacts from pinned source. Upstream evals and sample media excluded; host-specific commands are optional."
+    },
+    {
+      "video_name": "golang-benchmark",
+      "normalized_slug": "golang-benchmark",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/developer-engineering/golang-benchmark/SKILL.md",
+      "source": "https://github.com/samber/cc-skills-golang/blob/8e899e20ff0cd4dc524af3993e4c62d8ee8c5717/skills/golang-benchmark/SKILL.md",
+      "notes": "Pinned licensed upstream and reviewed authorization-limited local overlay; imported scripts not executed.",
+      "upstream": {
+        "repo": "samber/cc-skills-golang",
+        "path": "skills/golang-benchmark/SKILL.md",
+        "ref": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
+        "last_checked_at": "2026-10-12",
+        "last_synced_at": "2026-10-12",
+        "last_synced_commit": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
+        "sync_mode": "monitor",
+        "path_commit": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717"
+      },
+      "kind": "overlay",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "samber/cc-skills-golang",
+          "path": "skills/golang-benchmark/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/golang-benchmark/SKILL.md",
+              "target": "skills/developer-engineering/golang-benchmark/SKILL.md",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/developer-engineering/golang-benchmark/LICENSE.txt",
+              "type": "file"
+            },
+            {
+              "source": "skills/golang-benchmark/references/benchstat.md",
+              "target": "skills/developer-engineering/golang-benchmark/references/benchstat.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/golang-benchmark/references/ci-regression.md",
+              "target": "skills/developer-engineering/golang-benchmark/references/ci-regression.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/golang-benchmark/references/compiler-analysis.md",
+              "target": "skills/developer-engineering/golang-benchmark/references/compiler-analysis.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/golang-benchmark/references/investigation-session.md",
+              "target": "skills/developer-engineering/golang-benchmark/references/investigation-session.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/golang-benchmark/references/pprof.md",
+              "target": "skills/developer-engineering/golang-benchmark/references/pprof.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/golang-benchmark/references/prometheus-go-metrics.md",
+              "target": "skills/developer-engineering/golang-benchmark/references/prometheus-go-metrics.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/golang-benchmark/references/tools.md",
+              "target": "skills/developer-engineering/golang-benchmark/references/tools.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/golang-benchmark/references/trace.md",
+              "target": "skills/developer-engineering/golang-benchmark/references/trace.md",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "fixed_ref",
+            "ref": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
+            "resolved_commit": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
+            "path_commit": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
+            "content_sha256": "165432207efc59f4d98da74507bec4229d1f91a5e0781af73ee47012d1176325",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "e01f008a1febe41946345c425832c6aa093731d3",
+              "content_sha256": "a6735e3815503be2fc1ae4813758cb3d0c24a5309df508309ce180cf5a4ead58",
+              "spdx": "MIT",
+              "resolved_commit": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
+              "api_spdx": "MIT"
+            },
+            "last_checked_at": "2026-10-12",
+            "last_synced_at": "2026-10-12"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/developer-engineering/golang-benchmark/SKILL.md",
+          "owner": "golang-benchmark",
+          "sha256": "165432207efc59f4d98da74507bec4229d1f91a5e0781af73ee47012d1176325",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/golang-benchmark/LICENSE.txt",
+          "owner": "golang-benchmark",
+          "sha256": "a6735e3815503be2fc1ae4813758cb3d0c24a5309df508309ce180cf5a4ead58",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/golang-benchmark/references/benchstat.md",
+          "owner": "golang-benchmark",
+          "sha256": "5df4026b3b1bb628ee25afaea804ee00560461bcca83e81caadc32712a6124b1",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/golang-benchmark/references/ci-regression.md",
+          "owner": "golang-benchmark",
+          "sha256": "ff02834abf7ccace3d478a14241af28843e355eaba1f89d26099eb0511de8624",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/golang-benchmark/references/compiler-analysis.md",
+          "owner": "golang-benchmark",
+          "sha256": "05e1df8abaa28fba34720bae61ef0fd7d81fc27cc338b2b350662f90dfd640ab",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/golang-benchmark/references/investigation-session.md",
+          "owner": "golang-benchmark",
+          "sha256": "86c060fa9add260d8dc77e3919d97d410ca0ea09c47d8f0af44ab8a042eac8a7",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/golang-benchmark/references/pprof.md",
+          "owner": "golang-benchmark",
+          "sha256": "49c7c969499cd001f7d6f9345d66057475290d30576a5d62b5c0d278ca0aee57",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/golang-benchmark/references/prometheus-go-metrics.md",
+          "owner": "golang-benchmark",
+          "sha256": "b52eb0ba6bfaa467dce1013bf5dd46ea9f363fd78276acd647b24a57e4a9219b",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/golang-benchmark/references/tools.md",
+          "owner": "golang-benchmark",
+          "sha256": "d236bd750d0b612ba46a79267ab1cd5c241eda97a35163b53882031fb537902c",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/golang-benchmark/references/trace.md",
+          "owner": "golang-benchmark",
+          "sha256": "626f155a2dd7d7364461bed0fb195ebd4286d526b5d52c4bc39cf39763820fba",
+          "mode": "100644"
+        }
+      ],
+      "curation_note": "2026-10-12: complete selected runtime artifacts from pinned source. Upstream evals and sample media excluded; host-specific commands are optional."
+    },
+    {
+      "video_name": "golang-observability",
+      "normalized_slug": "golang-observability",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/devops-sre/golang-observability/SKILL.md",
+      "source": "https://github.com/samber/cc-skills-golang/blob/8e899e20ff0cd4dc524af3993e4c62d8ee8c5717/skills/golang-observability/SKILL.md",
+      "notes": "Pinned licensed upstream and reviewed authorization-limited local overlay; imported scripts not executed.",
+      "upstream": {
+        "repo": "samber/cc-skills-golang",
+        "path": "skills/golang-observability/SKILL.md",
+        "ref": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
+        "last_checked_at": "2026-10-12",
+        "last_synced_at": "2026-10-12",
+        "last_synced_commit": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
+        "sync_mode": "monitor",
+        "path_commit": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717"
+      },
+      "kind": "overlay",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "samber/cc-skills-golang",
+          "path": "skills/golang-observability/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/golang-observability/SKILL.md",
+              "target": "skills/devops-sre/golang-observability/SKILL.md",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/devops-sre/golang-observability/LICENSE.txt",
+              "type": "file"
+            },
+            {
+              "source": "skills/golang-observability/references/alerting.md",
+              "target": "skills/devops-sre/golang-observability/references/alerting.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/golang-observability/references/dashboards.md",
+              "target": "skills/devops-sre/golang-observability/references/dashboards.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/golang-observability/references/logging.md",
+              "target": "skills/devops-sre/golang-observability/references/logging.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/golang-observability/references/metrics.md",
+              "target": "skills/devops-sre/golang-observability/references/metrics.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/golang-observability/references/profiling.md",
+              "target": "skills/devops-sre/golang-observability/references/profiling.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/golang-observability/references/rum.md",
+              "target": "skills/devops-sre/golang-observability/references/rum.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/golang-observability/references/tracing.md",
+              "target": "skills/devops-sre/golang-observability/references/tracing.md",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "fixed_ref",
+            "ref": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
+            "resolved_commit": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
+            "path_commit": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
+            "content_sha256": "0bec7f792583594d557274e71a1b14735b5e3a0eaea08ccfaeeb28461351b915",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "e01f008a1febe41946345c425832c6aa093731d3",
+              "content_sha256": "a6735e3815503be2fc1ae4813758cb3d0c24a5309df508309ce180cf5a4ead58",
+              "spdx": "MIT",
+              "resolved_commit": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
+              "api_spdx": "MIT"
+            },
+            "last_checked_at": "2026-10-12",
+            "last_synced_at": "2026-10-12"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/devops-sre/golang-observability/SKILL.md",
+          "owner": "golang-observability",
+          "sha256": "0bec7f792583594d557274e71a1b14735b5e3a0eaea08ccfaeeb28461351b915",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/golang-observability/LICENSE.txt",
+          "owner": "golang-observability",
+          "sha256": "a6735e3815503be2fc1ae4813758cb3d0c24a5309df508309ce180cf5a4ead58",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/golang-observability/references/alerting.md",
+          "owner": "golang-observability",
+          "sha256": "a1064b49a48f5bb0806ed134fcefa687cb8f401650114a0aa6120dcf21de8a46",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/golang-observability/references/dashboards.md",
+          "owner": "golang-observability",
+          "sha256": "fac3c553d5b824db3c9a1f569a514248d556cffeebe22a61609090808eaa79f1",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/golang-observability/references/logging.md",
+          "owner": "golang-observability",
+          "sha256": "62c7fd0060f26eba487d40e0b34d619e626ed6c554236ede2281a40b11e281a5",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/golang-observability/references/metrics.md",
+          "owner": "golang-observability",
+          "sha256": "727045e1130ec75896ee5602115729edb0457667df7a7ad61ef46733da1743bb",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/golang-observability/references/profiling.md",
+          "owner": "golang-observability",
+          "sha256": "5d883af7efa90ffbd54a1e4f40d1b488a68cea123e5a55e536434b831fe86a17",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/golang-observability/references/rum.md",
+          "owner": "golang-observability",
+          "sha256": "fb5ef8c33994f75ce8ca0fe6b20db0e0ef699e243e00d813e76328958b85d898",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/golang-observability/references/tracing.md",
+          "owner": "golang-observability",
+          "sha256": "6caccbf8769b3621a6018f6a238797f39c16676464d3e5a339e4de713f64c5d6",
+          "mode": "100644"
+        }
+      ],
+      "curation_note": "2026-10-12: complete selected runtime artifacts from pinned source. Upstream evals and sample media excluded; host-specific commands are optional."
+    },
+    {
+      "video_name": "golang-performance",
+      "normalized_slug": "golang-performance",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/developer-engineering/golang-performance/SKILL.md",
+      "source": "https://github.com/samber/cc-skills-golang/blob/8e899e20ff0cd4dc524af3993e4c62d8ee8c5717/skills/golang-performance/SKILL.md",
+      "notes": "Pinned licensed upstream and reviewed authorization-limited local overlay; imported scripts not executed.",
+      "upstream": {
+        "repo": "samber/cc-skills-golang",
+        "path": "skills/golang-performance/SKILL.md",
+        "ref": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
+        "last_checked_at": "2026-10-12",
+        "last_synced_at": "2026-10-12",
+        "last_synced_commit": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
+        "sync_mode": "monitor",
+        "path_commit": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717"
+      },
+      "kind": "overlay",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "samber/cc-skills-golang",
+          "path": "skills/golang-performance/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/golang-performance/SKILL.md",
+              "target": "skills/developer-engineering/golang-performance/SKILL.md",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/developer-engineering/golang-performance/LICENSE.txt",
+              "type": "file"
+            },
+            {
+              "source": "skills/golang-performance/assets/prometheus-alerts.yml",
+              "target": "skills/developer-engineering/golang-performance/assets/prometheus-alerts.yml",
+              "type": "file"
+            },
+            {
+              "source": "skills/golang-performance/references/caching.md",
+              "target": "skills/developer-engineering/golang-performance/references/caching.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/golang-performance/references/cpu.md",
+              "target": "skills/developer-engineering/golang-performance/references/cpu.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/golang-performance/references/io-networking.md",
+              "target": "skills/developer-engineering/golang-performance/references/io-networking.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/golang-performance/references/memory.md",
+              "target": "skills/developer-engineering/golang-performance/references/memory.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/golang-performance/references/observability.md",
+              "target": "skills/developer-engineering/golang-performance/references/observability.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/golang-performance/references/runtime.md",
+              "target": "skills/developer-engineering/golang-performance/references/runtime.md",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "fixed_ref",
+            "ref": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
+            "resolved_commit": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
+            "path_commit": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
+            "content_sha256": "f5a6671d95a07be4ebde8e2ce9b3e2fd4da65311413a7cc401f9bcfd9cb96f95",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "e01f008a1febe41946345c425832c6aa093731d3",
+              "content_sha256": "a6735e3815503be2fc1ae4813758cb3d0c24a5309df508309ce180cf5a4ead58",
+              "spdx": "MIT",
+              "resolved_commit": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
+              "api_spdx": "MIT"
+            },
+            "last_checked_at": "2026-10-12",
+            "last_synced_at": "2026-10-12"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/developer-engineering/golang-performance/SKILL.md",
+          "owner": "golang-performance",
+          "sha256": "f5a6671d95a07be4ebde8e2ce9b3e2fd4da65311413a7cc401f9bcfd9cb96f95",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/golang-performance/LICENSE.txt",
+          "owner": "golang-performance",
+          "sha256": "a6735e3815503be2fc1ae4813758cb3d0c24a5309df508309ce180cf5a4ead58",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/golang-performance/assets/prometheus-alerts.yml",
+          "owner": "golang-performance",
+          "sha256": "778e10629d29d25acceac196bbf58a88a6939ff6b5366752da9327a4aaa78637",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/golang-performance/references/caching.md",
+          "owner": "golang-performance",
+          "sha256": "21a31011d07b0d99185b50b45690eba929bc5af450dc51e208fa759f8fd92a61",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/golang-performance/references/cpu.md",
+          "owner": "golang-performance",
+          "sha256": "d3553dc0e37649fa41230095007abd0e727d0122e0a2594cba0dd296c16b98b3",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/golang-performance/references/io-networking.md",
+          "owner": "golang-performance",
+          "sha256": "11c3fa80885b5745a9db7c77d72bcd02b36af169bfb9762213fb9421b4237827",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/golang-performance/references/memory.md",
+          "owner": "golang-performance",
+          "sha256": "ffad35427a22817c090a0f6765b012f55c58630c9df6edc6f0ed613fe2b9e08d",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/golang-performance/references/observability.md",
+          "owner": "golang-performance",
+          "sha256": "f3382851dbf07fad60934d5f66cdab8a310d2f336a5b0b6a9928eafc17862922",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/golang-performance/references/runtime.md",
+          "owner": "golang-performance",
+          "sha256": "9e2d912c6e43bec70e809a1b5e6eee4866f9ac5d30540a2897b7d731808b60f2",
+          "mode": "100644"
+        }
+      ],
+      "curation_note": "2026-10-12: complete selected runtime artifacts from pinned source. Upstream evals and sample media excluded; host-specific commands are optional."
+    },
+    {
+      "video_name": "improve-codebase-architecture",
+      "normalized_slug": "improve-codebase-architecture",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/developer-engineering/improve-codebase-architecture/SKILL.md",
+      "source": "https://github.com/mattpocock/skills/blob/49dd158d1076134a641b33efb035946536778336/skills/engineering/improve-codebase-architecture/SKILL.md",
+      "notes": "Pinned licensed upstream and reviewed authorization-limited local overlay; imported scripts not executed.",
+      "upstream": {
+        "repo": "mattpocock/skills",
+        "path": "skills/engineering/improve-codebase-architecture/SKILL.md",
+        "ref": "49dd158d1076134a641b33efb035946536778336",
+        "last_checked_at": "2026-10-12",
+        "last_synced_at": "2026-10-12",
+        "last_synced_commit": "49dd158d1076134a641b33efb035946536778336",
+        "sync_mode": "monitor",
+        "path_commit": "49dd158d1076134a641b33efb035946536778336"
+      },
+      "kind": "overlay",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "mattpocock/skills",
+          "path": "skills/engineering/improve-codebase-architecture/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/engineering/improve-codebase-architecture/SKILL.md",
+              "target": "skills/developer-engineering/improve-codebase-architecture/SKILL.md",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/developer-engineering/improve-codebase-architecture/LICENSE.txt",
+              "type": "file"
+            },
+            {
+              "source": "skills/engineering/improve-codebase-architecture/HTML-REPORT.md",
+              "target": "skills/developer-engineering/improve-codebase-architecture/HTML-REPORT.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/engineering/codebase-design/SKILL.md",
+              "target": "skills/developer-engineering/improve-codebase-architecture/references/codebase-design.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/engineering/codebase-design/DEEPENING.md",
+              "target": "skills/developer-engineering/improve-codebase-architecture/references/deepening.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/engineering/codebase-design/DESIGN-IT-TWICE.md",
+              "target": "skills/developer-engineering/improve-codebase-architecture/references/design-it-twice.md",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "fixed_ref",
+            "ref": "49dd158d1076134a641b33efb035946536778336",
+            "resolved_commit": "49dd158d1076134a641b33efb035946536778336",
+            "path_commit": "49dd158d1076134a641b33efb035946536778336",
+            "content_sha256": "b4166a3faa3348de9c6fa0bd2013779d430f9c2d697f4e1f5950e49614ce526d",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
+              "content_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+              "spdx": "MIT",
+              "resolved_commit": "49dd158d1076134a641b33efb035946536778336",
+              "api_spdx": "MIT"
+            },
+            "last_checked_at": "2026-10-12",
+            "last_synced_at": "2026-10-12"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/developer-engineering/improve-codebase-architecture/SKILL.md",
+          "owner": "improve-codebase-architecture",
+          "sha256": "b4166a3faa3348de9c6fa0bd2013779d430f9c2d697f4e1f5950e49614ce526d",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/improve-codebase-architecture/LICENSE.txt",
+          "owner": "improve-codebase-architecture",
+          "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/improve-codebase-architecture/HTML-REPORT.md",
+          "owner": "improve-codebase-architecture",
+          "sha256": "581e8bb5a521e46bbda8ca7e19b15948bed882187108092ebb90c62513b77528",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/improve-codebase-architecture/references/codebase-design.md",
+          "owner": "improve-codebase-architecture",
+          "sha256": "2c20617f87ec8af6a434859f381b2f061a69b530444e74eb39e78bb016a6d1e2",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/improve-codebase-architecture/references/deepening.md",
+          "owner": "improve-codebase-architecture",
+          "sha256": "f3dd099ce99289bd213914d8ee3e2429b78309c3957ca4583f7659551b1d53c1",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/improve-codebase-architecture/references/design-it-twice.md",
+          "owner": "improve-codebase-architecture",
+          "sha256": "52b52e75655a27aea59c6966b410bac82448968ad46ef1ebb9f07c274e3ae010",
+          "mode": "100644"
+        }
+      ],
+      "curation_note": "2026-10-12: complete selected runtime artifacts from pinned source. Upstream evals and sample media excluded; host-specific commands are optional."
+    },
+    {
+      "video_name": "live-panel",
+      "normalized_slug": "live-panel",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/multimodal-media/live-panel/SKILL.md",
+      "source": "https://github.com/ythx-101/live-panel-skill/blob/2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1/SKILL.md",
+      "notes": "Pinned licensed upstream and reviewed authorization-limited local overlay; imported scripts not executed.",
+      "upstream": {
+        "repo": "ythx-101/live-panel-skill",
+        "path": "SKILL.md",
+        "ref": "2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1",
+        "last_checked_at": "2026-10-12",
+        "last_synced_at": "2026-10-12",
+        "last_synced_commit": "2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1",
+        "sync_mode": "monitor",
+        "path_commit": "2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1"
+      },
+      "kind": "overlay",
+      "sync_mode": "monitor",
+      "origins": [
+        {
+          "repo": "ythx-101/live-panel-skill",
+          "path": "SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "SKILL.md",
+              "target": "skills/multimodal-media/live-panel/SKILL.md",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/multimodal-media/live-panel/LICENSE.txt",
+              "type": "file"
+            },
+            {
+              "source": "assets/template.html",
+              "target": "skills/multimodal-media/live-panel/assets/template.html",
+              "type": "file"
+            },
+            {
+              "source": "examples/agent-architecture/config.json",
+              "target": "skills/multimodal-media/live-panel/examples/agent-architecture/config.json",
+              "type": "file"
+            },
+            {
+              "source": "examples/airbnb/config.json",
+              "target": "skills/multimodal-media/live-panel/examples/airbnb/config.json",
+              "type": "file"
+            },
+            {
+              "source": "examples/codex-agents/config.json",
+              "target": "skills/multimodal-media/live-panel/examples/codex-agents/config.json",
+              "type": "file"
+            },
+            {
+              "source": "references/config-schema.md",
+              "target": "skills/multimodal-media/live-panel/references/config-schema.md",
+              "type": "file"
+            },
+            {
+              "source": "references/motion-grammar.md",
+              "target": "skills/multimodal-media/live-panel/references/motion-grammar.md",
+              "type": "file"
+            },
+            {
+              "source": "scripts/check_frames.py",
+              "target": "skills/multimodal-media/live-panel/scripts/check_frames.py",
+              "type": "file"
+            },
+            {
+              "source": "scripts/livepanel.py",
+              "target": "skills/multimodal-media/live-panel/scripts/livepanel.py",
+              "type": "file"
+            },
+            {
+              "source": "scripts/render.py",
+              "target": "skills/multimodal-media/live-panel/scripts/render.py",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "fixed_ref",
+            "ref": "2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1",
+            "resolved_commit": "2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1",
+            "path_commit": "2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1",
+            "content_sha256": "8632be24fc2787269aac2f2c7b99c856ea2c60da6febbad060ba707dfe86e197",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "5895384436b9865fc09a784622204a7d742165be",
+              "content_sha256": "a7fe974dec4660c7070064bc2606be65a4e95263bb558132848d1475040954d3",
+              "spdx": "MIT",
+              "resolved_commit": "2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1",
+              "api_spdx": "MIT"
+            },
+            "last_checked_at": "2026-10-12",
+            "last_synced_at": "2026-10-12"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/multimodal-media/live-panel/SKILL.md",
+          "owner": "live-panel",
+          "sha256": "8632be24fc2787269aac2f2c7b99c856ea2c60da6febbad060ba707dfe86e197",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/multimodal-media/live-panel/LICENSE.txt",
+          "owner": "live-panel",
+          "sha256": "a7fe974dec4660c7070064bc2606be65a4e95263bb558132848d1475040954d3",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/multimodal-media/live-panel/assets/template.html",
+          "owner": "live-panel",
+          "sha256": "c13f34d59e88624a6d4e37f482316a076dced324a2b023b95fd244514972d4e0",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/multimodal-media/live-panel/examples/agent-architecture/config.json",
+          "owner": "live-panel",
+          "sha256": "ae643887d9768354659583d5b2f03dcedee21a9676f405c64789875dd3a095f4",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/multimodal-media/live-panel/examples/airbnb/config.json",
+          "owner": "live-panel",
+          "sha256": "7d07752b3d7999c23c533a3953e75151127a08dbf19d9d1a59e7adc0448da5f6",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/multimodal-media/live-panel/examples/codex-agents/config.json",
+          "owner": "live-panel",
+          "sha256": "d9303a45d268d27b853bfbd1a44f82eb7a6e8fbfecc1ae87550b9967c69df765",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/multimodal-media/live-panel/references/config-schema.md",
+          "owner": "live-panel",
+          "sha256": "9bf00752d0a3fe05714f3635ad650e4720ba5439e9d71d5d7b9bd32242ae750f",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/multimodal-media/live-panel/references/motion-grammar.md",
+          "owner": "live-panel",
+          "sha256": "b4a4dc946690c25d58f615425b765ef5df844f90da18b1c99838a87bf0f7d2ba",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/multimodal-media/live-panel/scripts/check_frames.py",
+          "owner": "live-panel",
+          "sha256": "d6e4eee19c86f4dcb77b79578a79d61ed4fbf2384fbe9718f7d0925c475b5b23",
+          "mode": "100755"
+        },
+        {
+          "path": "skills/multimodal-media/live-panel/scripts/livepanel.py",
+          "owner": "live-panel",
+          "sha256": "0e1c138977774449b7737dac36030a5e1299840c71444624c6fd16a204f17154",
+          "mode": "100755"
+        },
+        {
+          "path": "skills/multimodal-media/live-panel/scripts/render.py",
+          "owner": "live-panel",
+          "sha256": "541f4be98df54db61522f017128613be50bbbc15c340f75f3d358ac77dc62737",
+          "mode": "100755"
+        }
+      ],
+      "curation_note": "2026-10-12: complete selected runtime artifacts from pinned source. Upstream evals and sample media excluded; host-specific commands are optional."
+    }
+  ]
+}

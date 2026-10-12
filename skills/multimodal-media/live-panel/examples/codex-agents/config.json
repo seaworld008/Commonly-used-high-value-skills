@@ -1,0 +1,1542 @@
+{
+ "meta": {
+  "title": "Codex agent tree (live-panel recreation)",
+  "lang": "en"
+ },
+ "canvas": {
+  "preset": "4:5",
+  "width": 1200,
+  "height": 1500,
+  "duration": 30,
+  "fps": 30,
+  "preroll": 12
+ },
+ "theme": {
+  "preset": "terminal-dark",
+  "font": "\"JetBrains Mono\",\"IBM Plex Mono\",\"DejaVu Sans Mono\",\"Noto Sans Mono CJK SC\",monospace",
+  "fontSize": 21,
+  "lineHeight": 30.7,
+  "colors": {
+   "bg": "#14171c",
+   "bar": "#262a32",
+   "line": "#4a5367",
+   "line2": "#3a4154",
+   "dim": "#6f788c",
+   "mute": "#aab1c0",
+   "fg": "#e4e8f0",
+   "wh": "#ffffff",
+   "cy": "#86e1e6",
+   "bl": "#8fb4f6",
+   "gr": "#7fdba8",
+   "pu": "#b9a2f2",
+   "ye": "#e3c07a",
+   "hl": "#302d45",
+   "dots": "#566078"
+  }
+ },
+ "clock": {
+  "start": "23:48:04",
+  "rate": 3
+ },
+ "titlebar": {
+  "text": "~/agent-tree — zsh — 90x46"
+ },
+ "credit": {
+  "text": "Recreation of @thedelost's Codex agent-tree diagram (made with GPT) · motion style from the clip @slashui quoted · all numbers simulated",
+  "y": 1486
+ },
+ "machines": {
+  "forks": {
+   "type": "counter",
+   "start": 1300,
+   "rate": 16,
+   "format": "comma"
+  },
+  "jev0": {
+   "type": "gauge",
+   "values": [
+    0.94,
+    0.88,
+    0.78,
+    0.97,
+    0.87,
+    0.52,
+    0.91
+   ],
+   "threshold": 0.6,
+   "period": 3.4,
+   "t0": 0.6,
+   "seed": 11,
+   "high": {
+    "label": "sharp",
+    "dest": "code"
+   },
+   "low": {
+    "label": "split",
+    "dest": "Sol"
+   },
+   "log": {
+    "who": "jev",
+    "c": "gr",
+    "msgs": [
+     "which file → src/auth.ts",
+     "which file → src/db.ts",
+     "which file → test/api.spec.ts"
+    ],
+    "tail": "p={value}  {label} → {dest}"
+   }
+  },
+  "jev1": {
+   "type": "gauge",
+   "values": [
+    0.97,
+    0.9,
+    0.52,
+    0.95,
+    0.84,
+    0.91
+   ],
+   "threshold": 0.6,
+   "period": 4.1,
+   "t0": 1.7,
+   "seed": 23,
+   "high": {
+    "label": "sharp",
+    "dest": "code"
+   },
+   "low": {
+    "label": "split",
+    "dest": "Sol"
+   },
+   "log": {
+    "who": "jev",
+    "c": "gr",
+    "msgs": [
+     "which tool → run tests",
+     "which tool → grep",
+     "which tool → apply patch"
+    ],
+    "tail": "p={value}  {label} → {dest}"
+   }
+  },
+  "jev2": {
+   "type": "gauge",
+   "values": [
+    0.91,
+    0.9,
+    0.88,
+    0.56,
+    0.93,
+    0.85
+   ],
+   "threshold": 0.6,
+   "period": 4.9,
+   "t0": 2.4,
+   "seed": 37,
+   "high": {
+    "label": "sharp",
+    "dest": "code"
+   },
+   "low": {
+    "label": "split",
+    "dest": "Sol"
+   },
+   "log": {
+    "who": "jev",
+    "c": "gr",
+    "msgs": [
+     "retry or stop → retry once",
+     "retry or stop → stop + ask"
+    ],
+    "tail": "p={value}  {label} → {dest}"
+   }
+  },
+  "mode": {
+   "type": "any_low",
+   "of": [
+    "jev0",
+    "jev1",
+    "jev2"
+   ]
+  },
+  "astra": {
+   "type": "triggers",
+   "color": "pu",
+   "period": 4.5,
+   "on": 3.0,
+   "t0": -1.6,
+   "callsStart": 1,
+   "tokens": {
+    "start": 129,
+    "step": 93,
+    "unit": "k"
+   },
+   "items": [
+    {
+     "name": "before a plan",
+     "adv": [
+      "» plan skips auth",
+      "» split in 3 PRs"
+     ]
+    },
+    {
+     "name": "error repeats",
+     "adv": [
+      "» wrong fixture,",
+      "» not the code"
+     ]
+    },
+    {
+     "name": "before done",
+     "adv": [
+      "» run full suite",
+      "» then ship"
+     ]
+    }
+   ],
+   "log": {
+    "who": "astra",
+    "c": "pu",
+    "start": {
+     "m": "{name} · spawned, reading diff"
+    },
+    "end": {
+     "m": "{name} · reviewed, back to sol"
+    }
+   }
+  },
+  "worker": {
+   "type": "lane",
+   "period": 9,
+   "run": 6.5,
+   "off": 1.0,
+   "busy": "running",
+   "done": [
+    "tests pass"
+   ],
+   "phase": 0,
+   "log": {
+    "who": "worker",
+    "c": "bl",
+    "msgs": [
+     [
+      "edited src/auth.ts · tests green",
+      ""
+     ]
+    ]
+   }
+  },
+  "explorer": {
+   "type": "lane",
+   "period": 7,
+   "run": 4.6,
+   "off": 0.5,
+   "busy": "running",
+   "done": [
+    "done"
+   ],
+   "phase": 1,
+   "log": {
+    "who": "explorer",
+    "c": "bl",
+    "msgs": [
+     [
+      "mapped 4 call sites",
+      ""
+     ],
+     [
+      "read 23 files",
+      ""
+     ]
+    ]
+   }
+  },
+  "researcher": {
+   "type": "lane",
+   "period": 8,
+   "run": 5.2,
+   "off": 3.0,
+   "busy": "running",
+   "done": [
+    "done"
+   ],
+   "phase": 2,
+   "log": {
+    "who": "researcher",
+    "c": "bl",
+    "msgs": [
+     [
+      "api ref pulled",
+      ""
+     ]
+    ]
+   }
+  }
+ },
+ "elements": [
+  {
+   "type": "text",
+   "x": 0,
+   "w": 1200,
+   "y": 80,
+   "align": "center",
+   "ls": 1,
+   "runs": [
+    {
+     "t": "CODEX AGENT TREE",
+     "c": "wh",
+     "b": 1
+    },
+    {
+     "t": "  ·  ",
+     "c": "dim"
+    },
+    {
+     "t": "GPT-6.1 SOL",
+     "c": "cy",
+     "b": 1
+    },
+    {
+     "t": " WORKS",
+     "c": "wh",
+     "b": 1
+    },
+    {
+     "t": "  ·  ",
+     "c": "dim"
+    },
+    {
+     "t": "ASTRA",
+     "c": "pu",
+     "b": 1
+    },
+    {
+     "t": " ON CALL",
+     "c": "wh",
+     "b": 1
+    }
+   ]
+  },
+  {
+   "type": "rule",
+   "x": 34,
+   "y": 108,
+   "w": 1132
+  },
+  {
+   "type": "text",
+   "x": 0,
+   "w": 1200,
+   "y": 141,
+   "align": "center",
+   "runs": [
+    {
+     "sw": "cy"
+    },
+    {
+     "t": "sol · high",
+     "c": "dim"
+    },
+    {
+     "t": "      ",
+     "c": "dim"
+    },
+    {
+     "sw": "bl"
+    },
+    {
+     "t": "agents · medium",
+     "c": "dim"
+    },
+    {
+     "t": "      ",
+     "c": "dim"
+    },
+    {
+     "sw": "gr"
+    },
+    {
+     "t": "jev · forks",
+     "c": "dim"
+    },
+    {
+     "t": "      ",
+     "c": "dim"
+    },
+    {
+     "sw": "pu"
+    },
+    {
+     "t": "astra · architect",
+     "c": "dim"
+    }
+   ]
+  },
+  {
+   "type": "box",
+   "x": 40,
+   "y": 172,
+   "w": 267,
+   "h": 1014,
+   "color": "pu",
+   "pad": [
+    13,
+    7,
+    7
+   ],
+   "lines": [
+    {
+     "t": "ASTRA",
+     "c": "pu",
+     "b": 1
+    },
+    {
+     "t": "architect · on call",
+     "c": "pu"
+    },
+    {
+     "trigger": [
+      "astra",
+      0
+     ]
+    },
+    "",
+    {
+     "align": "left",
+     "indent": 37,
+     "c": "mute",
+     "t": "spawned only at"
+    },
+    {
+     "align": "left",
+     "indent": 37,
+     "c": "mute",
+     "t": "three moments,"
+    },
+    {
+     "align": "left",
+     "indent": 37,
+     "c": "mute",
+     "t": "reads the plan,"
+    },
+    {
+     "align": "left",
+     "indent": 37,
+     "c": "mute",
+     "t": "diff and errors"
+    },
+    "",
+    "",
+    {
+     "align": "left",
+     "indent": 37,
+     "c": "mute",
+     "t": "last advice:"
+    },
+    {
+     "align": "left",
+     "indent": 37,
+     "runs": [
+      {
+       "v": "astra.adv0",
+       "c": "pu",
+       "b": 1
+      }
+     ]
+    },
+    {
+     "align": "left",
+     "indent": 37,
+     "runs": [
+      {
+       "v": "astra.adv1",
+       "c": "pu",
+       "b": 1
+      }
+     ]
+    },
+    "",
+    {
+     "indent": 37,
+     "items": [
+      {
+       "w": 140,
+       "runs": [
+        {
+         "t": "calls",
+         "c": "mute"
+        }
+       ]
+      },
+      {
+       "w": 51,
+       "align": "right",
+       "runs": [
+        {
+         "v": "astra.calls",
+         "c": "pu",
+         "b": 1
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "align": "left",
+     "indent": 37,
+     "c": "mute",
+     "t": "tokens read"
+    },
+    {
+     "align": "left",
+     "indent": 77,
+     "runs": [
+      {
+       "v": "astra.tokens",
+       "c": "pu"
+      }
+     ]
+    },
+    "",
+    {
+     "align": "left",
+     "indent": 37,
+     "c": "mute",
+     "t": "silent on every"
+    },
+    {
+     "align": "left",
+     "indent": 37,
+     "c": "mute",
+     "t": "routine turn"
+    },
+    "",
+    "",
+    {
+     "trigger": [
+      "astra",
+      1
+     ]
+    },
+    "",
+    "",
+    {
+     "align": "left",
+     "indent": 37,
+     "c": "mute",
+     "t": "never writes"
+    },
+    {
+     "align": "left",
+     "indent": 37,
+     "c": "mute",
+     "t": "code itself."
+    },
+    {
+     "align": "left",
+     "indent": 37,
+     "c": "mute",
+     "t": "Sol applies"
+    },
+    {
+     "align": "left",
+     "indent": 37,
+     "c": "mute",
+     "t": "the review."
+    },
+    "",
+    {
+     "trigger": [
+      "astra",
+      2
+     ]
+    }
+   ]
+  },
+  {
+   "type": "line",
+   "from": [
+    65,
+    283
+   ],
+   "to": [
+    65,
+    862
+   ],
+   "dash": true
+  },
+  {
+   "type": "line",
+   "from": [
+    65,
+    895
+   ],
+   "to": [
+    65,
+    1105
+   ],
+   "dash": true
+  },
+  {
+   "type": "tarrow",
+   "machine": "astra",
+   "i": 0,
+   "from": [
+    312,
+    265
+   ],
+   "to": [
+    582,
+    265
+   ]
+  },
+  {
+   "type": "tarrow",
+   "machine": "astra",
+   "i": 1,
+   "from": [
+    312,
+    878
+   ],
+   "to": [
+    352,
+    878
+   ]
+  },
+  {
+   "type": "tarrow",
+   "machine": "astra",
+   "i": 2,
+   "from": [
+    312,
+    1124
+   ],
+   "to": [
+    542,
+    1124
+   ]
+  },
+  {
+   "type": "box",
+   "x": 586,
+   "y": 172,
+   "w": 355,
+   "h": 154,
+   "color": "cy",
+   "pad": [
+    13,
+    14
+   ],
+   "lines": [
+    {
+     "runs": [
+      {
+       "t": "GPT-6.1 Sol · main",
+       "c": "cy",
+       "b": 1
+      }
+     ]
+    },
+    "plans + writes code",
+    {
+     "runs": [
+      {
+       "t": "effort ",
+       "c": "dim"
+      },
+      {
+       "t": "▮▮▮▮",
+       "c": "cy"
+      },
+      {
+       "t": " high",
+       "c": "cy",
+       "b": 1
+      }
+     ]
+    },
+    {
+     "c": "dim",
+     "t": "$2 / $10 per 1M"
+    }
+   ]
+  },
+  {
+   "type": "line",
+   "from": [
+    764,
+    326
+   ],
+   "to": [
+    764,
+    418
+   ]
+  },
+  {
+   "type": "box",
+   "x": 484,
+   "y": 418,
+   "w": 559,
+   "h": 183,
+   "color": "gr",
+   "pad": [
+    13,
+    19
+   ],
+   "align": "left",
+   "lines": [
+    {
+     "items": [
+      {
+       "w": 319,
+       "runs": [
+        {
+         "t": "JEV · fork layer",
+         "c": "gr",
+         "b": 1
+        }
+       ]
+      },
+      {
+       "w": 100,
+       "runs": [
+        {
+         "t": "forks",
+         "c": "dim"
+        }
+       ]
+      },
+      {
+       "w": 88,
+       "align": "right",
+       "runs": [
+        {
+         "v": "forks",
+         "c": "wh",
+         "b": 1
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "items": [
+      {
+       "w": 203,
+       "runs": [
+        "which file"
+       ]
+      },
+      {
+       "w": 154,
+       "bar": {
+        "gauge": "jev0",
+        "w": 127,
+        "h": 20,
+        "high": "gr",
+        "low": "cy"
+       }
+      },
+      {
+       "runs": [
+        {
+         "v": "jev0",
+         "c": "fg",
+         "when": {
+          "var": "jev0.low",
+          "eq": "1"
+         },
+         "then": {
+          "b": 1,
+          "c": "wh"
+         }
+        },
+        {
+         "t": " "
+        },
+        {
+         "v": "jev0.label"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "items": [
+      {
+       "w": 203,
+       "runs": [
+        "which tool"
+       ]
+      },
+      {
+       "w": 154,
+       "bar": {
+        "gauge": "jev1",
+        "w": 127,
+        "h": 20,
+        "high": "gr",
+        "low": "cy"
+       }
+      },
+      {
+       "runs": [
+        {
+         "v": "jev1",
+         "c": "fg",
+         "when": {
+          "var": "jev1.low",
+          "eq": "1"
+         },
+         "then": {
+          "b": 1,
+          "c": "wh"
+         }
+        },
+        {
+         "t": " "
+        },
+        {
+         "v": "jev1.label"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "items": [
+      {
+       "w": 203,
+       "runs": [
+        "retry or stop"
+       ]
+      },
+      {
+       "w": 154,
+       "bar": {
+        "gauge": "jev2",
+        "w": 127,
+        "h": 20,
+        "high": "gr",
+        "low": "cy"
+       }
+      },
+      {
+       "runs": [
+        {
+         "v": "jev2",
+         "c": "fg",
+         "when": {
+          "var": "jev2.low",
+          "eq": "1"
+         },
+         "then": {
+          "b": 1,
+          "c": "wh"
+         }
+        },
+        {
+         "t": " "
+        },
+        {
+         "v": "jev2.label"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "align": "left",
+     "runs": [
+      {
+       "t": "sharp → runs in code",
+       "c": "gr",
+       "when": {
+        "var": "mode",
+        "eq": "low"
+       },
+       "then": {
+        "c": "dim",
+        "b": 0
+       }
+      },
+      {
+       "t": "  "
+      },
+      {
+       "t": "split → Sol",
+       "c": "dim",
+       "when": {
+        "var": "mode",
+        "eq": "low"
+       },
+       "then": {
+        "c": "cy",
+        "b": 1
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "line",
+   "from": [
+    764,
+    601
+   ],
+   "to": [
+    764,
+    648
+   ]
+  },
+  {
+   "type": "text",
+   "x": 464,
+   "w": 600,
+   "y": 663,
+   "align": "center",
+   "runs": [
+    "spawn agents · max_threads 6 · ",
+    {
+     "t": "medium",
+     "c": "bl",
+     "b": 1
+    }
+   ]
+  },
+  {
+   "type": "line",
+   "from": [
+    764,
+    680
+   ],
+   "to": [
+    764,
+    724
+   ]
+  },
+  {
+   "type": "line",
+   "from": [
+    484,
+    724
+   ],
+   "to": [
+    1043,
+    724
+   ]
+  },
+  {
+   "type": "line",
+   "from": [
+    484,
+    724
+   ],
+   "to": [
+    484,
+    746
+   ]
+  },
+  {
+   "type": "glyph",
+   "x": 484,
+   "y": 755,
+   "ch": "▼",
+   "c": "bl"
+  },
+  {
+   "type": "line",
+   "from": [
+    764,
+    724
+   ],
+   "to": [
+    764,
+    746
+   ]
+  },
+  {
+   "type": "glyph",
+   "x": 764,
+   "y": 755,
+   "ch": "▼",
+   "c": "bl"
+  },
+  {
+   "type": "line",
+   "from": [
+    1043,
+    724
+   ],
+   "to": [
+    1043,
+    746
+   ]
+  },
+  {
+   "type": "glyph",
+   "x": 1043,
+   "y": 755,
+   "ch": "▼",
+   "c": "bl"
+  },
+  {
+   "type": "box",
+   "x": 357,
+   "y": 786,
+   "w": 255,
+   "h": 184,
+   "color": "bl",
+   "pad": [
+    13,
+    14
+   ],
+   "lines": [
+    {
+     "runs": [
+      {
+       "t": "worker",
+       "c": "fg",
+       "b": 1
+      }
+     ]
+    },
+    {
+     "runs": [
+      {
+       "t": "gpt-6.1-sol",
+       "c": "bl"
+      }
+     ]
+    },
+    {
+     "runs": [
+      {
+       "t": "effort ",
+       "c": "dim"
+      },
+      {
+       "t": "▮▮",
+       "c": "bl"
+      },
+      {
+       "t": "▯▯",
+       "c": "dim"
+      },
+      {
+       "t": " med",
+       "c": "bl"
+      }
+     ]
+    },
+    "edits + runs tests",
+    {
+     "runs": [
+      {
+       "v": "worker"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "box",
+   "x": 636,
+   "y": 786,
+   "w": 255,
+   "h": 184,
+   "color": "bl",
+   "pad": [
+    13,
+    14
+   ],
+   "lines": [
+    {
+     "runs": [
+      {
+       "t": "explorer",
+       "c": "fg",
+       "b": 1
+      }
+     ]
+    },
+    {
+     "runs": [
+      {
+       "t": "gpt-6-luna",
+       "c": "bl"
+      }
+     ]
+    },
+    {
+     "runs": [
+      {
+       "t": "effort ",
+       "c": "dim"
+      },
+      {
+       "t": "▮▮",
+       "c": "bl"
+      },
+      {
+       "t": "▯▯",
+       "c": "dim"
+      },
+      {
+       "t": " med",
+       "c": "bl"
+      }
+     ]
+    },
+    "reads the code",
+    {
+     "runs": [
+      {
+       "v": "explorer"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "box",
+   "x": 915,
+   "y": 786,
+   "w": 255,
+   "h": 184,
+   "color": "bl",
+   "pad": [
+    13,
+    14
+   ],
+   "lines": [
+    {
+     "runs": [
+      {
+       "t": "researcher",
+       "c": "fg",
+       "b": 1
+      }
+     ]
+    },
+    {
+     "runs": [
+      {
+       "t": "gpt-6-luna",
+       "c": "bl"
+      }
+     ]
+    },
+    {
+     "runs": [
+      {
+       "t": "effort ",
+       "c": "dim"
+      },
+      {
+       "t": "▮▮",
+       "c": "bl"
+      },
+      {
+       "t": "▯▯",
+       "c": "dim"
+      },
+      {
+       "t": " med",
+       "c": "bl"
+      }
+     ]
+    },
+    "pulls the docs",
+    {
+     "runs": [
+      {
+       "v": "researcher"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "line",
+   "from": [
+    484,
+    970
+   ],
+   "to": [
+    484,
+    1031
+   ]
+  },
+  {
+   "type": "line",
+   "from": [
+    764,
+    970
+   ],
+   "to": [
+    764,
+    1031
+   ]
+  },
+  {
+   "type": "line",
+   "from": [
+    1043,
+    970
+   ],
+   "to": [
+    1043,
+    1031
+   ]
+  },
+  {
+   "type": "line",
+   "from": [
+    484,
+    1031
+   ],
+   "to": [
+    1043,
+    1031
+   ]
+  },
+  {
+   "type": "line",
+   "from": [
+    764,
+    1031
+   ],
+   "to": [
+    764,
+    1052
+   ]
+  },
+  {
+   "type": "glyph",
+   "x": 764,
+   "y": 1062,
+   "ch": "▼",
+   "c": "cy"
+  },
+  {
+   "type": "box",
+   "x": 547,
+   "y": 1093,
+   "w": 433,
+   "h": 93,
+   "color": "cy",
+   "pad": [
+    13,
+    14
+   ],
+   "lines": [
+    {
+     "runs": [
+      {
+       "t": "back to sol · review + verify",
+       "c": "cy",
+       "b": 1
+      }
+     ]
+    },
+    "auto_review checks approvals"
+   ]
+  },
+  {
+   "type": "flow",
+   "path": [
+    [
+     764,
+     326
+    ],
+    [
+     764,
+     418
+    ]
+   ],
+   "period": 1.5,
+   "offsets": [
+    0
+   ],
+   "color": "cy"
+  },
+  {
+   "type": "flow",
+   "path": [
+    [
+     764,
+     601
+    ],
+    [
+     764,
+     724
+    ]
+   ],
+   "period": 2,
+   "offsets": [
+    0.3
+   ],
+   "color": "bl",
+   "gap": [
+    648,
+    680
+   ]
+  },
+  {
+   "type": "flow",
+   "path": [
+    [
+     764,
+     724
+    ],
+    [
+     484,
+     724
+    ],
+    [
+     484,
+     748
+    ]
+   ],
+   "period": 2.5,
+   "offsets": [
+    0,
+    1.3
+   ],
+   "color": "bl"
+  },
+  {
+   "type": "flow",
+   "path": [
+    [
+     764,
+     724
+    ],
+    [
+     764,
+     748
+    ]
+   ],
+   "period": 1.5,
+   "offsets": [
+    0.7
+   ],
+   "color": "bl"
+  },
+  {
+   "type": "flow",
+   "path": [
+    [
+     764,
+     724
+    ],
+    [
+     1043,
+     724
+    ],
+    [
+     1043,
+     748
+    ]
+   ],
+   "period": 2.5,
+   "offsets": [
+    0.6,
+    1.9
+   ],
+   "color": "bl"
+  },
+  {
+   "type": "flow",
+   "path": [
+    [
+     484,
+     970
+    ],
+    [
+     484,
+     1031
+    ],
+    [
+     764,
+     1031
+    ],
+    [
+     764,
+     1055
+    ]
+   ],
+   "period": 3,
+   "offsets": [
+    0.2,
+    1.7
+   ],
+   "color": "wh"
+  },
+  {
+   "type": "flow",
+   "path": [
+    [
+     764,
+     970
+    ],
+    [
+     764,
+     1055
+    ]
+   ],
+   "period": 2,
+   "offsets": [
+    1.1
+   ],
+   "color": "wh"
+  },
+  {
+   "type": "flow",
+   "path": [
+    [
+     1043,
+     970
+    ],
+    [
+     1043,
+     1031
+    ],
+    [
+     764,
+     1031
+    ],
+    [
+     764,
+     1055
+    ]
+   ],
+   "period": 3,
+   "offsets": [
+    1.0,
+    2.4
+   ],
+   "color": "wh"
+  },
+  {
+   "type": "log",
+   "x": 40,
+   "y": 1246,
+   "w": 1130,
+   "rows": 4,
+   "padTop": 16,
+   "padBottom": 29,
+   "padLeft": 20,
+   "title": "session log",
+   "titleX": 38,
+   "titleW": 179,
+   "cols": [
+    {
+     "key": "time",
+     "x": 0
+    },
+    {
+     "key": "who",
+     "x": 126
+    },
+    {
+     "key": "m",
+     "x": 266
+    },
+    {
+     "key": "g",
+     "x": 697
+    }
+   ]
+  },
+  {
+   "type": "text",
+   "x": 34,
+   "y": 1430,
+   "runs": [
+    {
+     "t": "~/agent-tree $",
+     "c": "gr",
+     "b": 1
+    },
+    {
+     "t": " codex "
+    },
+    {
+     "t": "--model",
+     "c": "ye"
+    },
+    {
+     "t": " gpt-6.1-sol"
+    },
+    {
+     "cursor": true,
+     "c": "gr"
+    }
+   ]
+  },
+  {
+   "type": "text",
+   "x": 34,
+   "y": 1461,
+   "runs": [
+    {
+     "t": "effort ",
+     "c": "dim"
+    },
+    {
+     "t": "[high/medium]",
+     "c": "bl",
+     "b": 1
+    },
+    {
+     "t": "  agents    ",
+     "c": "dim"
+    },
+    {
+     "t": "[3/6]",
+     "c": "bl",
+     "b": 1
+    },
+    {
+     "t": "  astra ",
+     "c": "dim"
+    },
+    {
+     "t": "[",
+     "c": "pu",
+     "b": 1
+    },
+    {
+     "v": "astra.status"
+    },
+    {
+     "t": "]",
+     "c": "pu",
+     "b": 1
+    },
+    {
+     "t": "  jev ",
+     "c": "dim"
+    },
+    {
+     "t": "[ ",
+     "c": "gr",
+     "b": 1
+    },
+    {
+     "v": "forks",
+     "c": "gr",
+     "b": 1
+    },
+    {
+     "t": " forks]",
+     "c": "gr",
+     "b": 1
+    }
+   ]
+  }
+ ]
+}

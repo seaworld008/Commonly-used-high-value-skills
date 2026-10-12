@@ -4,19 +4,20 @@
 
 覆盖文档、表格、演示、PDF 与会议内容处理的办公生产力技能集合。
 
-当前分类共 **12** 个技能。
+当前分类共 **13** 个技能。
 
 ## 推荐先看
 
+- [answer-me-with-html](./answer-me-with-html/) - 用户明确提出要求时，输出包含图表与步骤的独立 HTML 技术讲解页面。
 - [guizang-ppt-skill](./guizang-ppt-skill/) - 生成横向翻页网页 PPT（单 HTML 文件），含 WebGL 背景、章节幕封、数据大字报、图片网格等模板。
 - [markdown-tools](./markdown-tools/) - 把文档转换为保留结构、表格和图片的 Markdown。
 - [mermaid-tools](./mermaid-tools/) - 提取 Markdown 中的 Mermaid 图并渲染为图片。
-- [pptx](./pptx/) - 用于创建、编辑和美化 PowerPoint 演示文稿。
 
 ## 技能总览
 
 | 技能 | 简介 | 目录 | 详情 |
 |------|------|------|------|
+| `answer-me-with-html` | 用户明确提出要求时，输出包含图表与步骤的独立 HTML 技术讲解页面。 | [目录](./answer-me-with-html/) | [SKILL.md](./answer-me-with-html/SKILL.md) |
 | `docx` | 用于创建、编辑和检查 Word `.docx` 文档。 | [目录](./docx/) | [SKILL.md](./docx/SKILL.md) |
 | `guizang-ppt-skill` | 生成横向翻页网页 PPT（单 HTML 文件），含 WebGL 背景、章节幕封、数据大字报、图片网格等模板。 | [目录](./guizang-ppt-skill/) | [SKILL.md](./guizang-ppt-skill/SKILL.md) |
 | `markdown-tools` | 把文档转换为保留结构、表格和图片的 Markdown。 | [目录](./markdown-tools/) | [SKILL.md](./markdown-tools/SKILL.md) |

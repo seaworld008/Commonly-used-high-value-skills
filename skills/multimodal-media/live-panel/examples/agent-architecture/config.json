@@ -1,0 +1,2960 @@
+{
+ "meta": {
+  "title": "AI Agent architecture, live (light-pastel example)",
+  "lang": "zh-CN"
+ },
+ "canvas": {
+  "preset": "3:4",
+  "duration": 28,
+  "fps": 30,
+  "preroll": 0
+ },
+ "theme": {
+  "preset": "light-pastel",
+  "colors": {
+   "mct": "#6a5fc4"
+  }
+ },
+ "credit": {
+  "text": "原图：小红书 @林纾《AI Agent 的完整架构》· 动态版由 live-panel 制作（复刻原图并加动效，非原作者作品）",
+  "y": 1416,
+  "size": 14
+ },
+ "machines": {
+  "seq": {
+   "type": "cycle",
+   "period": 3.5,
+   "t0": 0,
+   "values": [
+    {
+     "t": "s1",
+     "tool": 0,
+     "mcp": 0
+    },
+    {
+     "t": "s2",
+     "tool": 3,
+     "mcp": 2
+    },
+    {
+     "t": "s3",
+     "tool": 2,
+     "mcp": 3
+    },
+    {
+     "t": "s4",
+     "tool": 1,
+     "mcp": 1
+    },
+    {
+     "t": "s5",
+     "tool": 5,
+     "mcp": 4
+    },
+    {
+     "t": "reflect",
+     "tool": -1,
+     "mcp": -1
+    },
+    {
+     "t": "output",
+     "tool": -1,
+     "mcp": -1
+    },
+    {
+     "t": "context",
+     "tool": -1,
+     "mcp": -1
+    }
+   ]
+  },
+  "loop": {
+   "type": "cycle",
+   "period": 1.2,
+   "t0": 0,
+   "values": [
+    "Thinking",
+    "Action",
+    "Action Input"
+   ]
+  }
+ },
+ "elements": [
+  {
+   "type": "text",
+   "x": 164.0,
+   "y": 112,
+   "w": 420,
+   "align": "left",
+   "size": 80,
+   "font": "\"Noto Serif CJK SC\",\"Songti SC\",serif",
+   "c": "pk",
+   "b": 1,
+   "t": "AI Agent"
+  },
+  {
+   "type": "text",
+   "x": 570.8,
+   "y": 112,
+   "w": 420,
+   "align": "left",
+   "size": 72,
+   "c": "ink",
+   "b": 1,
+   "t": "的完整架构"
+  },
+  {
+   "type": "line",
+   "from": [
+    536,
+    173
+   ],
+   "to": [
+    572,
+    173
+   ],
+   "width": 5,
+   "color": "ink"
+  },
+  {
+   "type": "box",
+   "x": 256.4,
+   "y": 561.6,
+   "w": 423.6,
+   "h": 300.0,
+   "color": "gy",
+   "fill": "wh",
+   "pad": [
+    148.5,
+    8,
+    8
+   ],
+   "lines": [],
+   "container": true,
+   "dash": true,
+   "border": 1.5
+  },
+  {
+   "type": "text",
+   "inside": false,
+   "x": 340.0,
+   "y": 586.8,
+   "w": 200,
+   "align": "center",
+   "size": 17,
+   "t": "Agent 核心循环",
+   "c": "ink",
+   "b": 1
+  },
+  {
+   "type": "box",
+   "x": 21.2,
+   "y": 457.2,
+   "w": 207.6,
+   "h": 340.8,
+   "color": "pu",
+   "fill": "puf",
+   "pad": [
+    8,
+    8,
+    8
+   ],
+   "lines": [
+    {
+     "t": "3. Memory（记忆）",
+     "size": 16,
+     "c": "put",
+     "b": 1,
+     "indent": 38
+    },
+    {
+     "t": "记住重要信息",
+     "size": 12.5,
+     "c": "fg",
+     "indent": 38
+    }
+   ],
+   "container": true
+  },
+  {
+   "type": "box",
+   "x": 744.8,
+   "y": 499.2,
+   "w": 135.6,
+   "h": 380.4,
+   "color": "or",
+   "fill": "orf",
+   "pad": [
+    8,
+    8,
+    8
+   ],
+   "lines": [
+    {
+     "t": "4. Tool（工具）",
+     "size": 16,
+     "c": "ort",
+     "b": 1
+    },
+    {
+     "t": "调用各种能力完成任务",
+     "size": 12,
+     "c": "fg"
+    }
+   ],
+   "container": true
+  },
+  {
+   "type": "box",
+   "x": 926.0,
+   "y": 499.2,
+   "w": 135.6,
+   "h": 380.4,
+   "color": "mc",
+   "fill": "mcf",
+   "pad": [
+    6,
+    8,
+    8
+   ],
+   "lines": [
+    {
+     "t": "5. MCP",
+     "size": 16,
+     "c": "mct",
+     "b": 1
+    },
+    {
+     "t": "统一协议连接",
+     "size": 12.5,
+     "c": "fg"
+    },
+    {
+     "t": "一切外部系统",
+     "size": 12.5,
+     "c": "fg"
+    }
+   ],
+   "container": true
+  },
+  {
+   "type": "box",
+   "x": 190.4,
+   "y": 1179.6,
+   "w": 598.8,
+   "h": 111.6,
+   "color": "gy",
+   "fill": "gyf",
+   "pad": [
+    54.3,
+    8,
+    8
+   ],
+   "lines": [],
+   "container": true,
+   "border": 1.5
+  },
+  {
+   "type": "text",
+   "inside": false,
+   "x": 386.8,
+   "y": 1201.2,
+   "w": 200,
+   "align": "center",
+   "size": 17,
+   "t": "交互展示",
+   "c": "ink",
+   "b": 1
+  },
+  {
+   "type": "box",
+   "x": 118.4,
+   "y": 1304.4,
+   "w": 830.4,
+   "h": 70.8,
+   "color": "gy",
+   "fill": "wh",
+   "pad": [
+    33.9,
+    8,
+    8
+   ],
+   "lines": [],
+   "container": true,
+   "dash": true,
+   "border": 1.5
+  },
+  {
+   "type": "box",
+   "x": 298.4,
+   "y": 204.0,
+   "w": 440.4,
+   "h": 73.2,
+   "color": "gn",
+   "fill": "gnf",
+   "pad": [
+    11.1,
+    8,
+    8
+   ],
+   "lines": [
+    {
+     "t": "用户目标（User Goal）",
+     "size": 19,
+     "c": "ink",
+     "b": 1
+    },
+    {
+     "t": "例如：帮我做一份竞争对手分析并发到Slack",
+     "size": 13.5,
+     "c": "fg"
+    }
+   ],
+   "when": {
+    "var": "seq.i",
+    "in": [
+     7,
+     0
+    ]
+   },
+   "then": {
+    "glow": "gn",
+    "border": 2.5
+   }
+  },
+  {
+   "type": "text",
+   "inside": true,
+   "x": 313.0,
+   "y": 241.2,
+   "w": 50,
+   "align": "center",
+   "size": 30,
+   "t": "👤"
+  },
+  {
+   "type": "box",
+   "x": 298.4,
+   "y": 318.0,
+   "w": 440.4,
+   "h": 81.6,
+   "color": "bl",
+   "fill": "blf",
+   "pad": [
+    15.3,
+    8,
+    8
+   ],
+   "lines": [
+    {
+     "t": "1. Planner（规划）",
+     "size": 19,
+     "c": "blt",
+     "b": 1
+    },
+    {
+     "t": "将目标拆解为可执行的任务步骤",
+     "size": 13.5,
+     "c": "fg"
+    }
+   ],
+   "when": {
+    "var": "seq.i",
+    "in": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     7
+    ]
+   },
+   "then": {
+    "glow": "bl",
+    "border": 2.5
+   }
+  },
+  {
+   "type": "text",
+   "inside": true,
+   "x": 319.0,
+   "y": 358.8,
+   "w": 50,
+   "align": "center",
+   "size": 32,
+   "t": "🧠"
+  },
+  {
+   "type": "box",
+   "x": 764.0,
+   "y": 284.4,
+   "w": 151.2,
+   "h": 144.0,
+   "color": "gy",
+   "fill": "wh",
+   "pad": [
+    11,
+    8,
+    8
+   ],
+   "lines": [
+    {
+     "align": "left",
+     "indent": 4,
+     "when": {
+      "var": "seq.i",
+      "eq": 0
+     },
+     "then": {
+      "bg": "lit"
+     },
+     "items": [
+      {
+       "w": 66,
+       "runs": [
+        {
+         "t": "Step 1",
+         "size": 13.5,
+         "c": "fg",
+         "when": {
+          "var": "seq.i",
+          "eq": 0
+         },
+         "then": {
+          "b": 1,
+          "c": "ink"
+         }
+        }
+       ]
+      },
+      {
+       "runs": [
+        {
+         "t": "搜集资料",
+         "size": 13.5,
+         "c": "fg",
+         "when": {
+          "var": "seq.i",
+          "eq": 0
+         },
+         "then": {
+          "b": 1,
+          "c": "ink"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "align": "left",
+     "indent": 4,
+     "when": {
+      "var": "seq.i",
+      "eq": 1
+     },
+     "then": {
+      "bg": "lit"
+     },
+     "items": [
+      {
+       "w": 66,
+       "runs": [
+        {
+         "t": "Step 2",
+         "size": 13.5,
+         "c": "fg",
+         "when": {
+          "var": "seq.i",
+          "eq": 1
+         },
+         "then": {
+          "b": 1,
+          "c": "ink"
+         }
+        }
+       ]
+      },
+      {
+       "runs": [
+        {
+         "t": "整理信息",
+         "size": 13.5,
+         "c": "fg",
+         "when": {
+          "var": "seq.i",
+          "eq": 1
+         },
+         "then": {
+          "b": 1,
+          "c": "ink"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "align": "left",
+     "indent": 4,
+     "when": {
+      "var": "seq.i",
+      "eq": 2
+     },
+     "then": {
+      "bg": "lit"
+     },
+     "items": [
+      {
+       "w": 66,
+       "runs": [
+        {
+         "t": "Step 3",
+         "size": 13.5,
+         "c": "fg",
+         "when": {
+          "var": "seq.i",
+          "eq": 2
+         },
+         "then": {
+          "b": 1,
+          "c": "ink"
+         }
+        }
+       ]
+      },
+      {
+       "runs": [
+        {
+         "t": "分析对比",
+         "size": 13.5,
+         "c": "fg",
+         "when": {
+          "var": "seq.i",
+          "eq": 2
+         },
+         "then": {
+          "b": 1,
+          "c": "ink"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "align": "left",
+     "indent": 4,
+     "when": {
+      "var": "seq.i",
+      "eq": 3
+     },
+     "then": {
+      "bg": "lit"
+     },
+     "items": [
+      {
+       "w": 66,
+       "runs": [
+        {
+         "t": "Step 4",
+         "size": 13.5,
+         "c": "fg",
+         "when": {
+          "var": "seq.i",
+          "eq": 3
+         },
+         "then": {
+          "b": 1,
+          "c": "ink"
+         }
+        }
+       ]
+      },
+      {
+       "runs": [
+        {
+         "t": "生成PPT",
+         "size": 13.5,
+         "c": "fg",
+         "when": {
+          "var": "seq.i",
+          "eq": 3
+         },
+         "then": {
+          "b": 1,
+          "c": "ink"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "align": "left",
+     "indent": 4,
+     "when": {
+      "var": "seq.i",
+      "eq": 4
+     },
+     "then": {
+      "bg": "lit"
+     },
+     "items": [
+      {
+       "w": 66,
+       "runs": [
+        {
+         "t": "Step 5",
+         "size": 13.5,
+         "c": "fg",
+         "when": {
+          "var": "seq.i",
+          "eq": 4
+         },
+         "then": {
+          "b": 1,
+          "c": "ink"
+         }
+        }
+       ]
+      },
+      {
+       "runs": [
+        {
+         "t": "发送Slack",
+         "size": 13.5,
+         "c": "fg",
+         "when": {
+          "var": "seq.i",
+          "eq": 4
+         },
+         "then": {
+          "b": 1,
+          "c": "ink"
+         }
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "align": "left",
+   "radius": 7,
+   "border": 1.2
+  },
+  {
+   "type": "box",
+   "x": 298.4,
+   "y": 444.0,
+   "w": 384.0,
+   "h": 75.6,
+   "color": "yl",
+   "fill": "ylf",
+   "pad": [
+    12.3,
+    8,
+    8
+   ],
+   "lines": [
+    {
+     "t": "2. Reasoning（推理）",
+     "size": 19,
+     "c": "ort",
+     "b": 1
+    },
+    {
+     "t": "决定下一步要做什么，如何做",
+     "size": 13.5,
+     "c": "fg"
+    }
+   ],
+   "when": {
+    "var": "seq.i",
+    "in": [
+     0,
+     1,
+     2,
+     3,
+     4
+    ]
+   },
+   "then": {
+    "glow": "yl",
+    "border": 2.5
+   }
+  },
+  {
+   "type": "text",
+   "inside": true,
+   "x": 314.2,
+   "y": 482.4,
+   "w": 50,
+   "align": "center",
+   "size": 30,
+   "t": "💡"
+  },
+  {
+   "type": "box",
+   "x": 278.0,
+   "y": 616.8,
+   "w": 116.4,
+   "h": 67.2,
+   "color": "or",
+   "fill": "orf",
+   "pad": [
+    8.1,
+    8,
+    8
+   ],
+   "lines": [
+    {
+     "t": "Thinking",
+     "size": 15,
+     "c": "ink"
+    },
+    {
+     "t": "思考",
+     "size": 13.5,
+     "c": "fg"
+    }
+   ],
+   "when": [
+    {
+     "var": "loop.i",
+     "eq": 0
+    },
+    {
+     "var": "seq.i",
+     "in": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    }
+   ],
+   "then": {
+    "glow": "or",
+    "border": 2.5
+   },
+   "radius": 6
+  },
+  {
+   "type": "box",
+   "x": 414.8,
+   "y": 616.8,
+   "w": 183.6,
+   "h": 67.2,
+   "color": "bl",
+   "fill": "blf",
+   "pad": [
+    8.1,
+    8,
+    8
+   ],
+   "lines": [
+    {
+     "t": "理解问题，分析目标，",
+     "size": 13.5,
+     "c": "fg"
+    },
+    {
+     "t": "思考解决方案",
+     "size": 13.5,
+     "c": "fg"
+    }
+   ],
+   "when": [
+    {
+     "var": "loop.i",
+     "eq": 0
+    },
+    {
+     "var": "seq.i",
+     "in": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    }
+   ],
+   "then": {
+    "glow": "bl",
+    "border": 2.5
+   },
+   "radius": 6
+  },
+  {
+   "type": "box",
+   "x": 278.0,
+   "y": 698.4,
+   "w": 116.4,
+   "h": 67.2,
+   "color": "or",
+   "fill": "orf",
+   "pad": [
+    8.1,
+    8,
+    8
+   ],
+   "lines": [
+    {
+     "t": "Action",
+     "size": 15,
+     "c": "ink"
+    },
+    {
+     "t": "行动",
+     "size": 13.5,
+     "c": "fg"
+    }
+   ],
+   "when": [
+    {
+     "var": "loop.i",
+     "eq": 1
+    },
+    {
+     "var": "seq.i",
+     "in": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    }
+   ],
+   "then": {
+    "glow": "or",
+    "border": 2.5
+   },
+   "radius": 6
+  },
+  {
+   "type": "box",
+   "x": 414.8,
+   "y": 698.4,
+   "w": 192.0,
+   "h": 67.2,
+   "color": "bl",
+   "fill": "blf",
+   "pad": [
+    20.1,
+    8,
+    8
+   ],
+   "lines": [
+    {
+     "t": "选择合适的工具执行任务",
+     "size": 13.5,
+     "c": "fg"
+    }
+   ],
+   "when": [
+    {
+     "var": "loop.i",
+     "eq": 1
+    },
+    {
+     "var": "seq.i",
+     "in": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    }
+   ],
+   "then": {
+    "glow": "bl",
+    "border": 2.5
+   },
+   "radius": 6
+  },
+  {
+   "type": "box",
+   "x": 278.0,
+   "y": 780.0,
+   "w": 116.4,
+   "h": 66.0,
+   "color": "or",
+   "fill": "orf",
+   "pad": [
+    7.5,
+    8,
+    8
+   ],
+   "lines": [
+    {
+     "t": "Action Input",
+     "size": 15,
+     "c": "ink"
+    },
+    {
+     "t": "行动输入",
+     "size": 13.5,
+     "c": "fg"
+    }
+   ],
+   "when": [
+    {
+     "var": "loop.i",
+     "eq": 2
+    },
+    {
+     "var": "seq.i",
+     "in": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    }
+   ],
+   "then": {
+    "glow": "or",
+    "border": 2.5
+   },
+   "radius": 6
+  },
+  {
+   "type": "box",
+   "x": 414.8,
+   "y": 780.0,
+   "w": 192.0,
+   "h": 66.0,
+   "color": "bl",
+   "fill": "blf",
+   "pad": [
+    19.5,
+    8,
+    8
+   ],
+   "lines": [
+    {
+     "t": "准备并传递工具所需的参数",
+     "size": 13.5,
+     "c": "fg"
+    }
+   ],
+   "when": [
+    {
+     "var": "loop.i",
+     "eq": 2
+    },
+    {
+     "var": "seq.i",
+     "in": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    }
+   ],
+   "then": {
+    "glow": "bl",
+    "border": 2.5
+   },
+   "radius": 6
+  },
+  {
+   "type": "path",
+   "head": 11,
+   "points": [
+    [
+     622.4,
+     817.2
+    ],
+    [
+     628.8,
+     815.5
+    ],
+    [
+     634.7,
+     812.6
+    ],
+    [
+     640.2,
+     808.7
+    ],
+    [
+     645.2,
+     803.9
+    ],
+    [
+     649.6,
+     798.2
+    ],
+    [
+     653.6,
+     791.8
+    ],
+    [
+     657.1,
+     784.7
+    ],
+    [
+     660.0,
+     777.0
+    ],
+    [
+     662.5,
+     768.8
+    ],
+    [
+     664.4,
+     760.3
+    ],
+    [
+     665.8,
+     751.5
+    ],
+    [
+     666.6,
+     742.6
+    ],
+    [
+     666.9,
+     733.5
+    ],
+    [
+     666.7,
+     724.5
+    ],
+    [
+     665.9,
+     715.5
+    ],
+    [
+     664.6,
+     706.8
+    ],
+    [
+     662.6,
+     698.3
+    ],
+    [
+     660.1,
+     690.3
+    ],
+    [
+     657.1,
+     682.7
+    ],
+    [
+     653.4,
+     675.8
+    ],
+    [
+     649.1,
+     669.5
+    ],
+    [
+     644.3,
+     664.0
+    ],
+    [
+     638.8,
+     659.3
+    ],
+    [
+     632.8,
+     655.6
+    ],
+    [
+     626.1,
+     653.0
+    ],
+    [
+     618.8,
+     651.6
+    ]
+   ],
+   "color": "ink",
+   "r": 0,
+   "width": 2.4
+  },
+  {
+   "type": "path",
+   "points": [
+    [
+     622.4,
+     817.2
+    ],
+    [
+     628.8,
+     815.5
+    ],
+    [
+     634.7,
+     812.6
+    ],
+    [
+     640.2,
+     808.7
+    ],
+    [
+     645.2,
+     803.9
+    ],
+    [
+     649.6,
+     798.2
+    ],
+    [
+     653.6,
+     791.8
+    ],
+    [
+     657.1,
+     784.7
+    ],
+    [
+     660.0,
+     777.0
+    ],
+    [
+     662.5,
+     768.8
+    ],
+    [
+     664.4,
+     760.3
+    ],
+    [
+     665.8,
+     751.5
+    ],
+    [
+     666.6,
+     742.6
+    ],
+    [
+     666.9,
+     733.5
+    ],
+    [
+     666.7,
+     724.5
+    ],
+    [
+     665.9,
+     715.5
+    ],
+    [
+     664.6,
+     706.8
+    ],
+    [
+     662.6,
+     698.3
+    ],
+    [
+     660.1,
+     690.3
+    ],
+    [
+     657.1,
+     682.7
+    ],
+    [
+     653.4,
+     675.8
+    ],
+    [
+     649.1,
+     669.5
+    ],
+    [
+     644.3,
+     664.0
+    ],
+    [
+     638.8,
+     659.3
+    ],
+    [
+     632.8,
+     655.6
+    ],
+    [
+     626.1,
+     653.0
+    ],
+    [
+     618.8,
+     651.6
+    ]
+   ],
+   "color": "pk",
+   "width": 0.01,
+   "arrow": false,
+   "opacity": 0,
+   "flow": {
+    "period": 1.2,
+    "offsets": [
+     0,
+     0.6
+    ],
+    "color": "pk"
+   }
+  },
+  {
+   "type": "text",
+   "inside": false,
+   "x": 629.4,
+   "y": 712.8,
+   "w": 22,
+   "align": "center",
+   "size": 13,
+   "t": "循",
+   "c": "ink"
+  },
+  {
+   "type": "text",
+   "inside": false,
+   "x": 629.4,
+   "y": 732.0,
+   "w": 22,
+   "align": "center",
+   "size": 13,
+   "t": "环",
+   "c": "ink"
+  },
+  {
+   "type": "text",
+   "inside": false,
+   "x": 629.4,
+   "y": 751.2,
+   "w": 22,
+   "align": "center",
+   "size": 13,
+   "t": "迭",
+   "c": "ink"
+  },
+  {
+   "type": "text",
+   "inside": false,
+   "x": 629.4,
+   "y": 770.4,
+   "w": 22,
+   "align": "center",
+   "size": 13,
+   "t": "代",
+   "c": "ink"
+  },
+  {
+   "type": "text",
+   "inside": true,
+   "x": 25.8,
+   "y": 482.4,
+   "w": 34,
+   "align": "center",
+   "size": 24,
+   "t": "🗄"
+  },
+  {
+   "type": "box",
+   "x": 32.0,
+   "y": 534.0,
+   "w": 186.0,
+   "h": 73.2,
+   "color": "pu",
+   "fill": "wh",
+   "pad": [
+    11.1,
+    8,
+    8
+   ],
+   "lines": [
+    {
+     "t": "长期记忆",
+     "size": 15,
+     "c": "ink",
+     "b": 1
+    },
+    {
+     "t": "用户偏好、角色设定等",
+     "size": 12.5,
+     "c": "fg"
+    }
+   ],
+   "when": {
+    "var": "seq.i",
+    "eq": 7
+   },
+   "then": {
+    "glow": "pu",
+    "border": 2.5
+   },
+   "radius": 7,
+   "border": 1.2
+  },
+  {
+   "type": "box",
+   "x": 32.0,
+   "y": 621.6,
+   "w": 186.0,
+   "h": 70.8,
+   "color": "pu",
+   "fill": "wh",
+   "pad": [
+    9.9,
+    8,
+    8
+   ],
+   "lines": [
+    {
+     "t": "短期记忆",
+     "size": 15,
+     "c": "ink",
+     "b": 1
+    },
+    {
+     "t": "当前任务上下文",
+     "size": 12.5,
+     "c": "fg"
+    }
+   ],
+   "when": {
+    "var": "seq.i",
+    "eq": 7
+   },
+   "then": {
+    "glow": "pu",
+    "border": 2.5
+   },
+   "radius": 7,
+   "border": 1.2
+  },
+  {
+   "type": "box",
+   "x": 32.0,
+   "y": 709.2,
+   "w": 186.0,
+   "h": 73.2,
+   "color": "pu",
+   "fill": "wh",
+   "pad": [
+    11.1,
+    8,
+    8
+   ],
+   "lines": [
+    {
+     "t": "工作记忆",
+     "size": 15,
+     "c": "ink",
+     "b": 1
+    },
+    {
+     "t": "已完成步骤、结果等",
+     "size": 12.5,
+     "c": "fg"
+    }
+   ],
+   "when": {
+    "var": "seq.i",
+    "eq": 5
+   },
+   "then": {
+    "glow": "pu",
+    "border": 2.5
+   },
+   "radius": 7,
+   "border": 1.2
+  },
+  {
+   "type": "box",
+   "x": 754.4,
+   "y": 576.0,
+   "w": 117.6,
+   "h": 38.4,
+   "color": "or",
+   "fill": "wh",
+   "pad": [
+    5.7,
+    8,
+    8
+   ],
+   "lines": [
+    {
+     "align": "left",
+     "indent": 6,
+     "runs": [
+      {
+       "t": "🌐 ",
+       "size": 13
+      },
+      {
+       "t": "浏览器搜索",
+       "size": 13.5,
+       "c": "fg",
+       "when": {
+        "var": "seq.tool",
+        "eq": 0
+       },
+       "then": {
+        "b": 1,
+        "c": "ink"
+       }
+      }
+     ]
+    }
+   ],
+   "when": {
+    "var": "seq.tool",
+    "eq": 0
+   },
+   "then": {
+    "glow": "or",
+    "border": 2.5
+   },
+   "radius": 6,
+   "border": 1.2
+  },
+  {
+   "type": "box",
+   "x": 754.4,
+   "y": 619.2,
+   "w": 117.6,
+   "h": 38.4,
+   "color": "or",
+   "fill": "wh",
+   "pad": [
+    5.7,
+    8,
+    8
+   ],
+   "lines": [
+    {
+     "align": "left",
+     "indent": 6,
+     "runs": [
+      {
+       "t": "💻 ",
+       "size": 13
+      },
+      {
+       "t": "代码执行",
+       "size": 13.5,
+       "c": "fg",
+       "when": {
+        "var": "seq.tool",
+        "eq": 1
+       },
+       "then": {
+        "b": 1,
+        "c": "ink"
+       }
+      }
+     ]
+    }
+   ],
+   "when": {
+    "var": "seq.tool",
+    "eq": 1
+   },
+   "then": {
+    "glow": "or",
+    "border": 2.5
+   },
+   "radius": 6,
+   "border": 1.2
+  },
+  {
+   "type": "box",
+   "x": 754.4,
+   "y": 662.4,
+   "w": 117.6,
+   "h": 38.4,
+   "color": "or",
+   "fill": "wh",
+   "pad": [
+    5.7,
+    8,
+    8
+   ],
+   "lines": [
+    {
+     "align": "left",
+     "indent": 6,
+     "runs": [
+      {
+       "t": "📊 ",
+       "size": 13
+      },
+      {
+       "t": "数据分析",
+       "size": 13.5,
+       "c": "fg",
+       "when": {
+        "var": "seq.tool",
+        "eq": 2
+       },
+       "then": {
+        "b": 1,
+        "c": "ink"
+       }
+      }
+     ]
+    }
+   ],
+   "when": {
+    "var": "seq.tool",
+    "eq": 2
+   },
+   "then": {
+    "glow": "or",
+    "border": 2.5
+   },
+   "radius": 6,
+   "border": 1.2
+  },
+  {
+   "type": "box",
+   "x": 754.4,
+   "y": 704.4,
+   "w": 117.6,
+   "h": 39.6,
+   "color": "or",
+   "fill": "wh",
+   "pad": [
+    6.3,
+    8,
+    8
+   ],
+   "lines": [
+    {
+     "align": "left",
+     "indent": 6,
+     "runs": [
+      {
+       "t": "🗄 ",
+       "size": 13
+      },
+      {
+       "t": "数据库查询",
+       "size": 13.5,
+       "c": "fg",
+       "when": {
+        "var": "seq.tool",
+        "eq": 3
+       },
+       "then": {
+        "b": 1,
+        "c": "ink"
+       }
+      }
+     ]
+    }
+   ],
+   "when": {
+    "var": "seq.tool",
+    "eq": 3
+   },
+   "then": {
+    "glow": "or",
+    "border": 2.5
+   },
+   "radius": 6,
+   "border": 1.2
+  },
+  {
+   "type": "box",
+   "x": 754.4,
+   "y": 747.6,
+   "w": 117.6,
+   "h": 38.4,
+   "color": "or",
+   "fill": "wh",
+   "pad": [
+    5.7,
+    8,
+    8
+   ],
+   "lines": [
+    {
+     "align": "left",
+     "indent": 6,
+     "runs": [
+      {
+       "t": "✉️ ",
+       "size": 13
+      },
+      {
+       "t": "邮件发送",
+       "size": 13.5,
+       "c": "fg",
+       "when": {
+        "var": "seq.tool",
+        "eq": 4
+       },
+       "then": {
+        "b": 1,
+        "c": "ink"
+       }
+      }
+     ]
+    }
+   ],
+   "when": {
+    "var": "seq.tool",
+    "eq": 4
+   },
+   "then": {
+    "glow": "or",
+    "border": 2.5
+   },
+   "radius": 6,
+   "border": 1.2
+  },
+  {
+   "type": "box",
+   "x": 754.4,
+   "y": 790.8,
+   "w": 117.6,
+   "h": 38.4,
+   "color": "or",
+   "fill": "wh",
+   "pad": [
+    5.7,
+    8,
+    8
+   ],
+   "lines": [
+    {
+     "align": "left",
+     "indent": 6,
+     "runs": [
+      {
+       "t": "💬 ",
+       "size": 13
+      },
+      {
+       "t": "Slack 通知",
+       "size": 13.5,
+       "c": "fg",
+       "when": {
+        "var": "seq.tool",
+        "eq": 5
+       },
+       "then": {
+        "b": 1,
+        "c": "ink"
+       }
+      }
+     ]
+    }
+   ],
+   "when": {
+    "var": "seq.tool",
+    "eq": 5
+   },
+   "then": {
+    "glow": "or",
+    "border": 2.5
+   },
+   "radius": 6,
+   "border": 1.2
+  },
+  {
+   "type": "box",
+   "x": 754.4,
+   "y": 834.0,
+   "w": 117.6,
+   "h": 33.6,
+   "color": "or",
+   "fill": "wh",
+   "pad": [
+    3.3,
+    8,
+    8
+   ],
+   "lines": [
+    {
+     "t": "...",
+     "size": 14,
+     "c": "dim"
+    }
+   ],
+   "radius": 6,
+   "border": 1.2
+  },
+  {
+   "type": "box",
+   "x": 935.6,
+   "y": 576.0,
+   "w": 116.4,
+   "h": 38.4,
+   "color": "mc",
+   "fill": "wh",
+   "pad": [
+    5.7,
+    8,
+    8
+   ],
+   "lines": [
+    {
+     "align": "left",
+     "indent": 6,
+     "runs": [
+      {
+       "t": "G ",
+       "size": 13.5,
+       "c": "bl",
+       "b": 1
+      },
+      {
+       "t": "Google 搜索",
+       "size": 13.5,
+       "c": "fg",
+       "when": {
+        "var": "seq.mcp",
+        "eq": 0
+       },
+       "then": {
+        "b": 1,
+        "c": "ink"
+       }
+      }
+     ]
+    }
+   ],
+   "when": {
+    "var": "seq.mcp",
+    "eq": 0
+   },
+   "then": {
+    "glow": "mc",
+    "border": 2.5
+   },
+   "radius": 6,
+   "border": 1.2
+  },
+  {
+   "type": "box",
+   "x": 935.6,
+   "y": 619.0,
+   "w": 116.4,
+   "h": 38.4,
+   "color": "mc",
+   "fill": "wh",
+   "pad": [
+    5.7,
+    8,
+    8
+   ],
+   "lines": [
+    {
+     "align": "left",
+     "indent": 6,
+     "runs": [
+      {
+       "t": "⌥ ",
+       "size": 13.5,
+       "c": "ink",
+       "b": 1
+      },
+      {
+       "t": "GitHub",
+       "size": 13.5,
+       "c": "fg",
+       "when": {
+        "var": "seq.mcp",
+        "eq": 1
+       },
+       "then": {
+        "b": 1,
+        "c": "ink"
+       }
+      }
+     ]
+    }
+   ],
+   "when": {
+    "var": "seq.mcp",
+    "eq": 1
+   },
+   "then": {
+    "glow": "mc",
+    "border": 2.5
+   },
+   "radius": 6,
+   "border": 1.2
+  },
+  {
+   "type": "box",
+   "x": 935.6,
+   "y": 661.9,
+   "w": 116.4,
+   "h": 38.4,
+   "color": "mc",
+   "fill": "wh",
+   "pad": [
+    5.7,
+    8,
+    8
+   ],
+   "lines": [
+    {
+     "align": "left",
+     "indent": 6,
+     "runs": [
+      {
+       "t": "N ",
+       "size": 13.5,
+       "c": "ink",
+       "b": 1
+      },
+      {
+       "t": "Notion",
+       "size": 13.5,
+       "c": "fg",
+       "when": {
+        "var": "seq.mcp",
+        "eq": 2
+       },
+       "then": {
+        "b": 1,
+        "c": "ink"
+       }
+      }
+     ]
+    }
+   ],
+   "when": {
+    "var": "seq.mcp",
+    "eq": 2
+   },
+   "then": {
+    "glow": "mc",
+    "border": 2.5
+   },
+   "radius": 6,
+   "border": 1.2
+  },
+  {
+   "type": "box",
+   "x": 935.6,
+   "y": 704.9,
+   "w": 116.4,
+   "h": 38.4,
+   "color": "mc",
+   "fill": "wh",
+   "pad": [
+    5.7,
+    8,
+    8
+   ],
+   "lines": [
+    {
+     "align": "left",
+     "indent": 6,
+     "runs": [
+      {
+       "t": "🗄 ",
+       "size": 13.5,
+       "c": "ink",
+       "b": 1
+      },
+      {
+       "t": "数据库",
+       "size": 13.5,
+       "c": "fg",
+       "when": {
+        "var": "seq.mcp",
+        "eq": 3
+       },
+       "then": {
+        "b": 1,
+        "c": "ink"
+       }
+      }
+     ]
+    }
+   ],
+   "when": {
+    "var": "seq.mcp",
+    "eq": 3
+   },
+   "then": {
+    "glow": "mc",
+    "border": 2.5
+   },
+   "radius": 6,
+   "border": 1.2
+  },
+  {
+   "type": "box",
+   "x": 935.6,
+   "y": 747.8,
+   "w": 116.4,
+   "h": 38.4,
+   "color": "mc",
+   "fill": "wh",
+   "pad": [
+    5.7,
+    8,
+    8
+   ],
+   "lines": [
+    {
+     "align": "left",
+     "indent": 6,
+     "runs": [
+      {
+       "t": "# ",
+       "size": 13.5,
+       "c": "pu",
+       "b": 1
+      },
+      {
+       "t": "Slack",
+       "size": 13.5,
+       "c": "fg",
+       "when": {
+        "var": "seq.mcp",
+        "eq": 4
+       },
+       "then": {
+        "b": 1,
+        "c": "ink"
+       }
+      }
+     ]
+    }
+   ],
+   "when": {
+    "var": "seq.mcp",
+    "eq": 4
+   },
+   "then": {
+    "glow": "mc",
+    "border": 2.5
+   },
+   "radius": 6,
+   "border": 1.2
+  },
+  {
+   "type": "box",
+   "x": 935.6,
+   "y": 790.8,
+   "w": 116.4,
+   "h": 38.4,
+   "color": "mc",
+   "fill": "wh",
+   "pad": [
+    5.7,
+    8,
+    8
+   ],
+   "lines": [
+    {
+     "align": "left",
+     "indent": 6,
+     "runs": [
+      {
+       "t": "⚙ ",
+       "size": 13.5,
+       "c": "ink",
+       "b": 1
+      },
+      {
+       "t": "其它系统",
+       "size": 13.5,
+       "c": "fg",
+       "when": {
+        "var": "seq.mcp",
+        "eq": 5
+       },
+       "then": {
+        "b": 1,
+        "c": "ink"
+       }
+      }
+     ]
+    }
+   ],
+   "when": {
+    "var": "seq.mcp",
+    "eq": 5
+   },
+   "then": {
+    "glow": "mc",
+    "border": 2.5
+   },
+   "radius": 6,
+   "border": 1.2
+  },
+  {
+   "type": "box",
+   "x": 935.6,
+   "y": 834.0,
+   "w": 116.4,
+   "h": 33.6,
+   "color": "mc",
+   "fill": "wh",
+   "pad": [
+    3.3,
+    8,
+    8
+   ],
+   "lines": [
+    {
+     "t": "...",
+     "size": 14,
+     "c": "dim"
+    }
+   ],
+   "radius": 6,
+   "border": 1.2
+  },
+  {
+   "type": "box",
+   "x": 298.4,
+   "y": 897.6,
+   "w": 374.4,
+   "h": 67.2,
+   "color": "rd",
+   "fill": "rdf",
+   "pad": [
+    8.1,
+    8,
+    8
+   ],
+   "lines": [
+    {
+     "t": "6. Reflection（反思）",
+     "size": 18,
+     "c": "rdt",
+     "b": 1
+    },
+    {
+     "t": "检查结果，发现问题，修正并重试",
+     "size": 13,
+     "c": "fg"
+    }
+   ],
+   "when": {
+    "var": "seq.i",
+    "in": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   "then": {
+    "glow": "rd",
+    "border": 2.5
+   }
+  },
+  {
+   "type": "box",
+   "x": 298.4,
+   "y": 993.6,
+   "w": 374.4,
+   "h": 61.2,
+   "color": "bl",
+   "fill": "blf",
+   "pad": [
+    5.1,
+    8,
+    8
+   ],
+   "lines": [
+    {
+     "t": "Function 调用 / 执行结果",
+     "size": 17,
+     "c": "blt"
+    },
+    {
+     "t": "返回工具执行结果或数据",
+     "size": 13,
+     "c": "fg"
+    }
+   ],
+   "when": {
+    "var": "seq.i",
+    "in": [
+     5,
+     6
+    ]
+   },
+   "then": {
+    "glow": "bl",
+    "border": 2.5
+   }
+  },
+  {
+   "type": "box",
+   "x": 208.4,
+   "y": 1098.0,
+   "w": 211.2,
+   "h": 57.6,
+   "color": "gn",
+   "fill": "gnf",
+   "pad": [
+    3.3,
+    8,
+    8
+   ],
+   "lines": [
+    {
+     "t": "Final Answer",
+     "size": 15,
+     "c": "ink",
+     "align": "left",
+     "indent": 44
+    },
+    {
+     "t": "最终回答（给用户）",
+     "size": 12.5,
+     "c": "fg",
+     "align": "left",
+     "indent": 44
+    }
+   ],
+   "when": {
+    "var": "seq.i",
+    "eq": 6
+   },
+   "then": {
+    "glow": "gn",
+    "border": 2.5
+   },
+   "radius": 7
+  },
+  {
+   "type": "text",
+   "inside": true,
+   "x": 216.8,
+   "y": 1126.8,
+   "w": 36,
+   "align": "center",
+   "size": 22,
+   "t": "✅"
+  },
+  {
+   "type": "box",
+   "x": 539.6,
+   "y": 1098.0,
+   "w": 212.4,
+   "h": 57.6,
+   "color": "tl",
+   "fill": "tlf",
+   "pad": [
+    3.3,
+    8,
+    8
+   ],
+   "lines": [
+    {
+     "t": "Task 最终结果",
+     "size": 15,
+     "c": "ink",
+     "align": "left",
+     "indent": 44
+    },
+    {
+     "t": "任务产物（文件 / 链接等）",
+     "size": 12.5,
+     "c": "fg",
+     "align": "left",
+     "indent": 44
+    }
+   ],
+   "when": {
+    "var": "seq.i",
+    "eq": 6
+   },
+   "then": {
+    "glow": "tl",
+    "border": 2.5
+   },
+   "radius": 7
+  },
+  {
+   "type": "text",
+   "inside": true,
+   "x": 548.0,
+   "y": 1126.8,
+   "w": 36,
+   "align": "center",
+   "size": 22,
+   "t": "📄"
+  },
+  {
+   "type": "box",
+   "x": 221.6,
+   "y": 1219.2,
+   "w": 214.8,
+   "h": 58.8,
+   "color": "or",
+   "fill": "orf",
+   "pad": [
+    3.9,
+    8,
+    8
+   ],
+   "lines": [
+    {
+     "t": "智能卡片结果",
+     "size": 15,
+     "c": "ink",
+     "b": 1,
+     "align": "left",
+     "indent": 44
+    },
+    {
+     "t": "图文 / 表格 / 链接 / 文件",
+     "size": 12,
+     "c": "fg",
+     "align": "left",
+     "indent": 44
+    }
+   ],
+   "when": {
+    "var": "seq.i",
+    "eq": 6
+   },
+   "then": {
+    "glow": "or",
+    "border": 2.5
+   },
+   "radius": 7
+  },
+  {
+   "type": "text",
+   "inside": true,
+   "x": 230.0,
+   "y": 1249.2,
+   "w": 36,
+   "align": "center",
+   "size": 22,
+   "t": "💬"
+  },
+  {
+   "type": "text",
+   "inside": false,
+   "x": 461.8,
+   "y": 1248.0,
+   "w": 50,
+   "align": "center",
+   "size": 17,
+   "t": "or",
+   "c": "ink",
+   "b": 1
+  },
+  {
+   "type": "box",
+   "x": 538.4,
+   "y": 1219.2,
+   "w": 216.0,
+   "h": 58.8,
+   "color": "or",
+   "fill": "orf",
+   "pad": [
+    3.9,
+    8,
+    8
+   ],
+   "lines": [
+    {
+     "t": "自然语言结果",
+     "size": 15,
+     "c": "ink",
+     "b": 1,
+     "align": "left",
+     "indent": 44
+    },
+    {
+     "t": "直接对话式回复",
+     "size": 12,
+     "c": "fg",
+     "align": "left",
+     "indent": 44
+    }
+   ],
+   "when": {
+    "var": "seq.i",
+    "eq": 6
+   },
+   "then": {
+    "glow": "or",
+    "border": 2.5
+   },
+   "radius": 7
+  },
+  {
+   "type": "text",
+   "inside": true,
+   "x": 546.8,
+   "y": 1249.2,
+   "w": 36,
+   "align": "center",
+   "size": 22,
+   "t": "🔊"
+  },
+  {
+   "type": "text",
+   "inside": true,
+   "x": 134.4,
+   "y": 1338.0,
+   "w": 40,
+   "align": "center",
+   "size": 28,
+   "t": "💡"
+  },
+  {
+   "type": "text",
+   "inside": false,
+   "x": 196.4,
+   "y": 1339.2,
+   "w": 80,
+   "align": "left",
+   "size": 15,
+   "t": "总结：",
+   "c": "ort",
+   "b": 1
+  },
+  {
+   "type": "text",
+   "inside": false,
+   "x": 272.0,
+   "y": 1328.4,
+   "w": 700,
+   "align": "left",
+   "size": 13.5,
+   "t": "Planner 负责规划，Reasoning 负责决策，Memory 负责记忆，Tool 负责执行，",
+   "c": "fg"
+  },
+  {
+   "type": "text",
+   "inside": false,
+   "x": 272.0,
+   "y": 1351.2,
+   "w": 700,
+   "align": "left",
+   "size": 13.5,
+   "t": "MCP 负责连接，Reflection 负责自我修正，最终共同完成用户目标。",
+   "c": "fg"
+  },
+  {
+   "type": "path",
+   "head": 11,
+   "points": [
+    [
+     519.2,
+     277.2
+    ],
+    [
+     519.2,
+     318.0
+    ]
+   ],
+   "color": "line",
+   "r": 0,
+   "flow": {
+    "period": 1.2,
+    "offsets": [
+     0
+    ],
+    "color": "pk"
+   }
+  },
+  {
+   "type": "path",
+   "head": 11,
+   "points": [
+    [
+     519.2,
+     399.6
+    ],
+    [
+     519.2,
+     444.0
+    ]
+   ],
+   "color": "line",
+   "r": 0,
+   "flow": {
+    "period": 1.2,
+    "offsets": [
+     0
+    ],
+    "color": "pk"
+   }
+  },
+  {
+   "type": "path",
+   "head": 11,
+   "points": [
+    [
+     519.2,
+     519.6
+    ],
+    [
+     519.2,
+     561.6
+    ]
+   ],
+   "color": "line",
+   "r": 0,
+   "flow": {
+    "period": 1.2,
+    "offsets": [
+     0
+    ],
+    "color": "pk"
+   }
+  },
+  {
+   "type": "path",
+   "head": 11,
+   "points": [
+    [
+     486.8,
+     861.6
+    ],
+    [
+     486.8,
+     897.6
+    ]
+   ],
+   "color": "line",
+   "r": 0,
+   "flow": {
+    "period": 1.2,
+    "offsets": [
+     0
+    ],
+    "color": "pk"
+   }
+  },
+  {
+   "type": "path",
+   "head": 11,
+   "points": [
+    [
+     486.8,
+     964.8
+    ],
+    [
+     486.8,
+     993.6
+    ]
+   ],
+   "color": "line",
+   "r": 0,
+   "flow": {
+    "period": 1.2,
+    "offsets": [
+     0
+    ],
+    "color": "pk"
+   }
+  },
+  {
+   "type": "path",
+   "head": 11,
+   "points": [
+    [
+     486.8,
+     1054.8
+    ],
+    [
+     486.8,
+     1082.4
+    ],
+    [
+     322.4,
+     1082.4
+    ],
+    [
+     322.4,
+     1098.0
+    ]
+   ],
+   "color": "line",
+   "r": 0,
+   "flow": {
+    "period": 1.8,
+    "offsets": [
+     0
+    ],
+    "color": "pk"
+   }
+  },
+  {
+   "type": "path",
+   "head": 11,
+   "points": [
+    [
+     486.8,
+     1054.8
+    ],
+    [
+     486.8,
+     1082.4
+    ],
+    [
+     648.8,
+     1082.4
+    ],
+    [
+     648.8,
+     1098.0
+    ]
+   ],
+   "color": "line",
+   "r": 0,
+   "flow": {
+    "period": 1.8,
+    "offsets": [
+     0
+    ],
+    "color": "pk"
+   }
+  },
+  {
+   "type": "path",
+   "head": 11,
+   "points": [
+    [
+     486.8,
+     1158.0
+    ],
+    [
+     486.8,
+     1178.4
+    ]
+   ],
+   "color": "line",
+   "r": 0
+  },
+  {
+   "type": "text",
+   "inside": false,
+   "x": 435.6,
+   "y": 1094.4,
+   "w": 100,
+   "align": "center",
+   "size": 12.5,
+   "t": "生成输出",
+   "c": "ink"
+  },
+  {
+   "type": "path",
+   "head": 11,
+   "points": [
+    [
+     764.0,
+     358.8
+    ],
+    [
+     742.4,
+     358.8
+    ]
+   ],
+   "color": "bl",
+   "r": 0,
+   "width": 2
+  },
+  {
+   "type": "path",
+   "head": 11,
+   "points": [
+    [
+     680.0,
+     691.2
+    ],
+    [
+     740.0,
+     691.2
+    ]
+   ],
+   "color": "line",
+   "r": 0,
+   "when": {
+    "var": "seq.i",
+    "in": [
+     0,
+     1,
+     2,
+     3,
+     4
+    ]
+   },
+   "then": {
+    "color": "pk",
+    "width": 3.4
+   }
+  },
+  {
+   "type": "flow",
+   "path": [
+    [
+     680.0,
+     691.2
+    ],
+    [
+     740.0,
+     691.2
+    ]
+   ],
+   "period": 1.6,
+   "offsets": [
+    0,
+    0.8
+   ],
+   "color": "pk",
+   "when": {
+    "var": "seq.i",
+    "in": [
+     0,
+     1,
+     2,
+     3,
+     4
+    ]
+   }
+  },
+  {
+   "type": "text",
+   "inside": false,
+   "x": 693.6,
+   "y": 660.0,
+   "w": 40,
+   "align": "center",
+   "size": 12,
+   "t": "选择",
+   "c": "ink"
+  },
+  {
+   "type": "text",
+   "inside": false,
+   "x": 693.6,
+   "y": 676.8,
+   "w": 40,
+   "align": "center",
+   "size": 12,
+   "t": "调用",
+   "c": "ink"
+  },
+  {
+   "type": "path",
+   "head": 11,
+   "points": [
+    [
+     880.4,
+     709.2
+    ],
+    [
+     922.4,
+     709.2
+    ]
+   ],
+   "color": "line",
+   "r": 0,
+   "when": {
+    "var": "seq.i",
+    "in": [
+     0,
+     1,
+     2,
+     3,
+     4
+    ]
+   },
+   "then": {
+    "color": "pk",
+    "width": 3.4
+   }
+  },
+  {
+   "type": "flow",
+   "path": [
+    [
+     880.4,
+     709.2
+    ],
+    [
+     922.4,
+     709.2
+    ]
+   ],
+   "period": 1.6,
+   "offsets": [
+    0,
+    0.8
+   ],
+   "color": "pk",
+   "when": {
+    "var": "seq.i",
+    "in": [
+     0,
+     1,
+     2,
+     3,
+     4
+    ]
+   }
+  },
+  {
+   "type": "text",
+   "inside": false,
+   "x": 884.4,
+   "y": 649.2,
+   "w": 40,
+   "align": "center",
+   "size": 11,
+   "t": "通过",
+   "c": "ink"
+  },
+  {
+   "type": "text",
+   "inside": false,
+   "x": 884.4,
+   "y": 664.8,
+   "w": 40,
+   "align": "center",
+   "size": 11,
+   "t": "MCP",
+   "c": "ink"
+  },
+  {
+   "type": "text",
+   "inside": false,
+   "x": 884.4,
+   "y": 680.4,
+   "w": 40,
+   "align": "center",
+   "size": 11,
+   "t": "连接",
+   "c": "ink"
+  },
+  {
+   "type": "path",
+   "head": 11,
+   "points": [
+    [
+     998.0,
+     879.6
+    ],
+    [
+     998.0,
+     931.2
+    ],
+    [
+     676.4,
+     931.2
+    ]
+   ],
+   "color": "line",
+   "r": 8,
+   "when": {
+    "var": "seq.i",
+    "in": [
+     0,
+     1,
+     2,
+     3,
+     4
+    ]
+   },
+   "then": {
+    "color": "pk",
+    "width": 3.4
+   }
+  },
+  {
+   "type": "flow",
+   "path": [
+    [
+     998.0,
+     879.6
+    ],
+    [
+     998.0,
+     931.2
+    ],
+    [
+     676.4,
+     931.2
+    ]
+   ],
+   "period": 1.6,
+   "offsets": [
+    0,
+    0.8
+   ],
+   "color": "pk",
+   "when": {
+    "var": "seq.i",
+    "in": [
+     0,
+     1,
+     2,
+     3,
+     4
+    ]
+   }
+  },
+  {
+   "type": "text",
+   "inside": false,
+   "x": 776.8,
+   "y": 916.8,
+   "w": 80,
+   "align": "center",
+   "size": 12.5,
+   "t": "调用反馈",
+   "c": "ink"
+  },
+  {
+   "type": "path",
+   "head": 11,
+   "points": [
+    [
+     298.4,
+     931.2
+    ],
+    [
+     124.4,
+     931.2
+    ],
+    [
+     124.4,
+     804.0
+    ]
+   ],
+   "color": "line",
+   "r": 8,
+   "when": {
+    "var": "seq.i",
+    "eq": 5
+   },
+   "then": {
+    "color": "pk",
+    "width": 3.4
+   }
+  },
+  {
+   "type": "flow",
+   "path": [
+    [
+     298.4,
+     931.2
+    ],
+    [
+     124.4,
+     931.2
+    ],
+    [
+     124.4,
+     804.0
+    ]
+   ],
+   "period": 1.6,
+   "offsets": [
+    0,
+    0.8
+   ],
+   "color": "pk",
+   "when": {
+    "var": "seq.i",
+    "eq": 5
+   }
+  },
+  {
+   "type": "text",
+   "inside": false,
+   "x": 138.4,
+   "y": 916.8,
+   "w": 80,
+   "align": "center",
+   "size": 12.5,
+   "t": "更新记忆",
+   "c": "ink"
+  },
+  {
+   "type": "path",
+   "head": 11,
+   "points": [
+    [
+     124.4,
+     457.2
+    ],
+    [
+     124.4,
+     361.2
+    ],
+    [
+     293.6,
+     361.2
+    ]
+   ],
+   "color": "line",
+   "r": 8,
+   "when": {
+    "var": "seq.i",
+    "eq": 7
+   },
+   "then": {
+    "color": "pk",
+    "width": 3.4
+   }
+  },
+  {
+   "type": "flow",
+   "path": [
+    [
+     124.4,
+     457.2
+    ],
+    [
+     124.4,
+     361.2
+    ],
+    [
+     293.6,
+     361.2
+    ]
+   ],
+   "period": 1.6,
+   "offsets": [
+    0,
+    0.8
+   ],
+   "color": "pk",
+   "when": {
+    "var": "seq.i",
+    "eq": 7
+   }
+  },
+  {
+   "type": "text",
+   "inside": false,
+   "x": 158.4,
+   "y": 340.8,
+   "w": 100,
+   "align": "center",
+   "size": 12.5,
+   "t": "提供上下文",
+   "c": "ink"
+  }
+ ]
+}

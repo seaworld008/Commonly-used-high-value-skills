@@ -4,19 +4,20 @@
 
 面向发布、CI/CD、可观测性、故障响应和环境治理的技能集合。
 
-当前分类共 **12** 个技能。
+当前分类共 **14** 个技能。
 
 ## 推荐先看
 
 - [incident-commander](./incident-commander/) - 用于事故响应中的分诊、角色分配、沟通协调、缓解跟踪和复盘。
 - [observability-designer](./observability-designer/) - 设计日志、指标、链路追踪、告警和服务运行目标。
+- [azure-diagnostics](./azure-diagnostics/) - 使用授权范围内的指标、日志和脚本定位 Azure AKS、虚拟机及应用故障。
 - [cloudflare-troubleshooting](./cloudflare-troubleshooting/) - 依据实际配置排查 Cloudflare DNS、TLS 和重定向问题。
-- [release-manager](./release-manager/) - 组织版本、变更记录、发布制品和发布后验证。
 
 ## 技能总览
 
 | 技能 | 简介 | 目录 | 详情 |
 |------|------|------|------|
+| `azure-diagnostics` | 使用授权范围内的指标、日志和脚本定位 Azure AKS、虚拟机及应用故障。 | [目录](./azure-diagnostics/) | [SKILL.md](./azure-diagnostics/SKILL.md) |
 | `azure-kubernetes` | 用于 Azure Kubernetes 集群管理、部署、排障和运维。 | [目录](./azure-kubernetes/) | [SKILL.md](./azure-kubernetes/SKILL.md) |
 | `beacon` | 可观测性、服务目标、告警、容量和可靠性设计。 | [目录](./beacon/) | [SKILL.md](./beacon/SKILL.md) |
 | `cc-devops-skills` | 提供基础设施、持续交付、容器和运行维护的实践指导。 | [目录](./cc-devops-skills/) | [SKILL.md](./cc-devops-skills/SKILL.md) |
@@ -24,6 +25,7 @@
 | `env-secrets-manager` | 管理环境变量、密钥存储、泄露检测和凭据轮换。 | [目录](./env-secrets-manager/) | [SKILL.md](./env-secrets-manager/SKILL.md) |
 | `gear` | 依赖、构建、容器、监控和开发环境运维优化。 | [目录](./gear/) | [SKILL.md](./gear/SKILL.md) |
 | `github-ops` | 用于 GitHub 运维、仓库管理、PR/Issue 流程和自动化协作。 | [目录](./github-ops/) | [SKILL.md](./github-ops/SKILL.md) |
+| `golang-observability` | 为 Go 服务设计 slog、OpenTelemetry、Prometheus、持续剖析及可靠性告警。 | [目录](./golang-observability/) | [SKILL.md](./golang-observability/SKILL.md) |
 | `incident-commander` | 用于事故响应中的分诊、角色分配、沟通协调、缓解跟踪和复盘。 | [目录](./incident-commander/) | [SKILL.md](./incident-commander/SKILL.md) |
 | `observability-designer` | 设计日志、指标、链路追踪、告警和服务运行目标。 | [目录](./observability-designer/) | [SKILL.md](./observability-designer/SKILL.md) |
 | `release-manager` | 组织版本、变更记录、发布制品和发布后验证。 | [目录](./release-manager/) | [SKILL.md](./release-manager/SKILL.md) |

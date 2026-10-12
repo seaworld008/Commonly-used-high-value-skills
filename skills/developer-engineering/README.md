@@ -4,7 +4,7 @@
 
 覆盖开发、测试、性能、架构、数据库和工程效率的核心技能集合。
 
-当前分类共 **49** 个技能。
+当前分类共 **52** 个技能。
 
 ## 推荐先看
 
@@ -33,9 +33,12 @@
 | `gateway` | 接口设计、规范生成、版本策略和破坏性变更检查。 | [目录](./gateway/) | [SKILL.md](./gateway/SKILL.md) |
 | `git-worktree-manager` | 管理并行开发的 Git worktree、环境和端口分配。 | [目录](./git-worktree-manager/) | [SKILL.md](./git-worktree-manager/SKILL.md) |
 | `github-contributor` | 寻找开源贡献机会并准备可审查的 GitHub PR。 | [目录](./github-contributor/) | [SKILL.md](./github-contributor/SKILL.md) |
+| `golang-benchmark` | 使用 Go benchmark、pprof、benchstat 及 CI 回归分析性能。 | [目录](./golang-benchmark/) | [SKILL.md](./golang-benchmark/SKILL.md) |
+| `golang-performance` | 用性能基线和 pprof 分析优化 Go 热点、内存分配、GC、缓存及网络 I/O。 | [目录](./golang-performance/) | [SKILL.md](./golang-performance/SKILL.md) |
 | `graphify` | 将代码、文档和多媒体资料映射为持久知识图谱，支持社区发现、路径查询、解释和影响分析。 | [目录](./graphify/) | [SKILL.md](./graphify/SKILL.md) |
 | `graphql-expert` | 用于 GraphQL API 设计、Schema/Resolver 评审、查询优化和安全最佳实践。 | [目录](./graphql-expert/) | [SKILL.md](./graphql-expert/SKILL.md) |
 | `i18n-expert` | 实现和审查界面国际化、翻译键、语言文件与格式一致性。 | [目录](./i18n-expert/) | [SKILL.md](./i18n-expert/SKILL.md) |
+| `improve-codebase-architecture` | 结合变更热点、接口深度与测试证据识别高价值架构重构。 | [目录](./improve-codebase-architecture/) | [SKILL.md](./improve-codebase-architecture/SKILL.md) |
 | `kubernetes-specialist` | 用于 Kubernetes 集群管理、Pod 调试、Helm Chart 设计、清单评审和部署优化。 | [目录](./kubernetes-specialist/) | [SKILL.md](./kubernetes-specialist/SKILL.md) |
 | `mcp-builder` | 开发连接外部服务的 MCP 工具服务器。 | [目录](./mcp-builder/) | [SKILL.md](./mcp-builder/SKILL.md) |
 | `migration-architect` | 规划可回滚、低停机的数据和系统迁移。 | [目录](./migration-architect/) | [SKILL.md](./migration-architect/SKILL.md) |
