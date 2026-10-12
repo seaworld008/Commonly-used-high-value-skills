@@ -1,0 +1,49 @@
+name: One-off v3.3.0 Curated Import
+
+on:
+  push:
+    branches:
+      - codex/v3.3.0-curated-enhancement
+
+permissions:
+  contents: write
+
+concurrency:
+  group: v330-curate-one-off
+  cancel-in-progress: false
+
+jobs:
+  curate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - name: Checkout exact review branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.13'
+      - name: Set up Node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '22'
+      - name: Install repository test dependencies
+        run: python -m pip install pyyaml pytest jsonschema
+      - name: Import pinned source resources
+        run: python scripts/_v330_import.py
+      - name: Generate release metadata and validate
+        run: python scripts/_v330_finalize.py
+      - name: Commit audited resource set and generated views
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --check
+          git diff --cached --quiet && { echo "::error::No changes generated"; exit 1; }
+          git commit -m "feat(skills): integrate seven curated skills and upgrade browser for v3.3.0"
+          git push origin HEAD:codex/v3.3.0-curated-enhancement
