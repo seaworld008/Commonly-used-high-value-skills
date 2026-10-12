@@ -5,11 +5,15 @@
 [![简体中文](https://img.shields.io/badge/README-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1677ff)](./README.md)
 [![English](https://img.shields.io/badge/README-English-111111)](./README.en.md)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b894)](./openclaw-skills/README.md)
-[![Skills](https://img.shields.io/badge/Skills-287-7c3aed)](./skills/)
+[![Skills](https://img.shields.io/badge/Skills-294-7c3aed)](./skills/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
-面向全球 AI 开发者与 Agent 工作流构建者的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理等高频任务场景。当前共 **16 个分类 / 287 个技能**。
+面向全球 AI 开发者与 Agent 工作流构建者的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理等高频任务场景。当前共 **16 个分类 / 294 个技能**。
 
+
+## v3.3.0 精选增强
+
+Go 三件套、架构重构、HTML 可视化、动态架构面板和 Azure 诊断；升级已有 Agent Browser，完整固定上游来源并遵守授权边界。
 
 ## 为什么值得收藏
 
@@ -387,10 +391,10 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 2. 打开对应技能的 `SKILL.md` 查看触发条件、操作流程和脚本说明。
 3. 若技能下含 `scripts/`、`references/`、`assets/`，优先复用现成内容。
 
-## 技能总览（按分类，16 类 / 287 技能）
+## 技能总览（按分类，16 类 / 294 技能）
 
 <a id="cat-developer-engineering"></a>
-### 1. 开发工程（developer-engineering，49）
+### 1. 开发工程（developer-engineering，52）
 
 - `agent-designer`：设计智能体的职责、工具、记忆、协作架构和评测方法。
 - `api-design-reviewer`：用于评审 API 设计的一致性、可用性、版本策略、错误语义、安全性和开发者体验。
@@ -408,9 +412,12 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `gateway`：接口设计、规范生成、版本策略和破坏性变更检查。
 - `git-worktree-manager`：管理并行开发的 Git worktree、环境和端口分配。
 - `github-contributor`：寻找开源贡献机会并准备可审查的 GitHub PR。
+- `golang-benchmark`：使用 Go benchmark、pprof、benchstat 及 CI 回归分析性能。
+- `golang-performance`：用性能基线和 pprof 分析优化 Go 热点、内存分配、GC、缓存及网络 I/O。
 - `graphify`：将代码、文档和多媒体资料映射为持久知识图谱，支持社区发现、路径查询、解释和影响分析。
 - `graphql-expert`：用于 GraphQL API 设计、Schema/Resolver 评审、查询优化和安全最佳实践。
 - `i18n-expert`：实现和审查界面国际化、翻译键、语言文件与格式一致性。
+- `improve-codebase-architecture`：结合变更热点、接口深度与测试证据识别高价值架构重构。
 - `kubernetes-specialist`：用于 Kubernetes 集群管理、Pod 调试、Helm Chart 设计、清单评审和部署优化。
 - `mcp-builder`：开发连接外部服务的 MCP 工具服务器。
 - `migration-architect`：规划可回滚、低停机的数据和系统迁移。
@@ -514,7 +521,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 <a id="cat-workflow-automation"></a>
 ### 4. 工程工作流自动化（engineering-workflow-automation，13）
 
-- `agent-browser`：用于让 Agent 操作真实浏览器，完成页面交互、截图录屏、脚本执行和端到端验证。
+- `agent-browser`：在授权浏览器会话中利用官方 agent-browser CLI 快照和 CDP 完成自动化验收。
 - `billing-automation`：用于构建订阅计费、自动开票、续费生命周期和催收管理流程。
 - `gh-address-comments`：用于通过 gh CLI 处理当前分支的 GitHub PR Review 评论或 Issue 评论。
 - `gh-fix-ci`：读取 GitHub Actions 失败日志，修复 CI 并验证 PR 检查。
@@ -529,8 +536,9 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `yeet`：按用户要求暂存、提交、推送改动并创建 GitHub PR。
 
 <a id="cat-devops-sre"></a>
-### 5. DevOps / SRE（devops-sre，12）
+### 5. DevOps / SRE（devops-sre，14）
 
+- `azure-diagnostics`：使用授权范围内的指标、日志和脚本定位 Azure AKS、虚拟机及应用故障。
 - `azure-kubernetes`：用于 Azure Kubernetes 集群管理、部署、排障和运维。
 - `beacon`：可观测性、服务目标、告警、容量和可靠性设计。
 - `cc-devops-skills`：提供基础设施、持续交付、容器和运行维护的实践指导。
@@ -538,6 +546,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `env-secrets-manager`：管理环境变量、密钥存储、泄露检测和凭据轮换。
 - `gear`：依赖、构建、容器、监控和开发环境运维优化。
 - `github-ops`：用于 GitHub 运维、仓库管理、PR/Issue 流程和自动化协作。
+- `golang-observability`：为 Go 服务设计 slog、OpenTelemetry、Prometheus、持续剖析及可靠性告警。
 - `incident-commander`：用于事故响应中的分诊、角色分配、沟通协调、缓解跟踪和复盘。
 - `observability-designer`：设计日志、指标、链路追踪、告警和服务运行目标。
 - `release-manager`：组织版本、变更记录、发布制品和发布后验证。
@@ -584,8 +593,9 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `x-twitter-scraper`：用于规划和执行 Xquik 的 X/Twitter 数据读取、导出、监控及经确认的账户操作。
 
 <a id="cat-office-white-collar"></a>
-### 8. 办公与文档（office-white-collar，12）
+### 8. 办公与文档（office-white-collar，13）
 
+- `answer-me-with-html`：用户明确提出要求时，输出包含图表与步骤的独立 HTML 技术讲解页面。
 - `docx`：用于创建、编辑和检查 Word `.docx` 文档。
 - `guizang-ppt-skill`：生成横向翻页网页 PPT（单 HTML 文件），含 WebGL 背景、章节幕封、数据大字报、图片网格等模板。
 - `markdown-tools`：把文档转换为保留结构、表格和图片的 Markdown。
@@ -697,11 +707,12 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `vuls-linux-cve-scanner`：用于通过 Vuls 对 Linux、FreeBSD、容器、WordPress、库和网络设备执行 Agentless。
 
 <a id="cat-multimodal-media"></a>
-### 13. 多模态内容（multimodal-media，9）
+### 13. 多模态内容（multimodal-media，10）
 
 - `clay`：生成和优化面向目标引擎的三维模型及纹理资产。
 - `gpt-image2`：让 Codex 通过本地配置的 gpt-image-2 兼容画图服务生成图片，支持提示词、参考图、比例、清晰度和本地保存。
 - `imagegen`：用于生成、编辑和迭代图像内容与视觉素材。
+- `live-panel`：将系统架构和数据流 JSON 配置渲染为动态面板 HTML 或 MP4。
 - `screenshot`：用于截图、屏幕捕获、视觉核查和界面证据收集。
 - `sketch`：图像生成代码、提示优化、批量生成和成本估算。
 - `sora`：用于构思、生成和评审 Sora 视频或视频提示词。

@@ -5,13 +5,17 @@
 [![简体中文](https://img.shields.io/badge/README-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1677ff)](./README.md)
 [![English](https://img.shields.io/badge/README-English-111111)](./README.en.md)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b894)](./openclaw-skills/README.md)
-[![Skills](https://img.shields.io/badge/Skills-287-7c3aed)](./skills/)
+[![Skills](https://img.shields.io/badge/Skills-294-7c3aed)](./skills/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
 A high-value skills repository for AI developers, organized by real work scenarios such as developer engineering, DevOps, automation, finance, design, knowledge workflows, and reliability.
 
-This repository currently contains **16 categories / 287 skills**.
+This repository currently contains **16 categories / 294 skills**.
 
+
+## v3.3.0 Curated Engineering Enhancements
+
+Go profiling, benchmarking and observability; architecture deepening, HTML reports, animated topology panels and Azure diagnostics, plus an official CLI upgrade to the existing Agent Browser. Pinned provenance and permission-aware guidance included.
 
 ## v3.2.0: Grill Me and Complete Source Maintenance
 
@@ -362,10 +366,10 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 2. Open the relevant `SKILL.md` and read its triggers, workflow, boundaries, and scripts.
 3. If a skill includes `scripts/`, `references/`, or `assets/`, reuse those files before recreating similar content.
 
-## Skill Overview (by category, 16 categories / 287 skills)
+## Skill Overview (by category, 16 categories / 294 skills)
 
 <a id="cat-developer-engineering"></a>
-### 1. Developer Engineering (developer-engineering, 49)
+### 1. Developer Engineering (developer-engineering, 52)
 
 - [`agent-designer`](./skills/developer-engineering/agent-designer/)
 - [`api-design-reviewer`](./skills/developer-engineering/api-design-reviewer/)
@@ -383,9 +387,12 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`gateway`](./skills/developer-engineering/gateway/)
 - [`git-worktree-manager`](./skills/developer-engineering/git-worktree-manager/)
 - [`github-contributor`](./skills/developer-engineering/github-contributor/)
+- [`golang-benchmark`](./skills/developer-engineering/golang-benchmark/)
+- [`golang-performance`](./skills/developer-engineering/golang-performance/)
 - [`graphify`](./skills/developer-engineering/graphify/)
 - [`graphql-expert`](./skills/developer-engineering/graphql-expert/)
 - [`i18n-expert`](./skills/developer-engineering/i18n-expert/)
+- [`improve-codebase-architecture`](./skills/developer-engineering/improve-codebase-architecture/)
 - [`kubernetes-specialist`](./skills/developer-engineering/kubernetes-specialist/)
 - [`mcp-builder`](./skills/developer-engineering/mcp-builder/)
 - [`migration-architect`](./skills/developer-engineering/migration-architect/)
@@ -504,8 +511,9 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`yeet`](./skills/engineering-workflow-automation/yeet/)
 
 <a id="cat-devops-sre"></a>
-### 5. DevOps / SRE (devops-sre, 12)
+### 5. DevOps / SRE (devops-sre, 14)
 
+- [`azure-diagnostics`](./skills/devops-sre/azure-diagnostics/)
 - [`azure-kubernetes`](./skills/devops-sre/azure-kubernetes/)
 - [`beacon`](./skills/devops-sre/beacon/)
 - [`cc-devops-skills`](./skills/devops-sre/cc-devops-skills/)
@@ -513,6 +521,7 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`env-secrets-manager`](./skills/devops-sre/env-secrets-manager/)
 - [`gear`](./skills/devops-sre/gear/)
 - [`github-ops`](./skills/devops-sre/github-ops/)
+- [`golang-observability`](./skills/devops-sre/golang-observability/)
 - [`incident-commander`](./skills/devops-sre/incident-commander/)
 - [`observability-designer`](./skills/devops-sre/observability-designer/)
 - [`release-manager`](./skills/devops-sre/release-manager/)
@@ -559,8 +568,9 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`x-twitter-scraper`](./skills/growth-operations-xiaohongshu/x-twitter-scraper/)
 
 <a id="cat-office-white-collar"></a>
-### 8. Office and Documents (office-white-collar, 12)
+### 8. Office and Documents (office-white-collar, 13)
 
+- [`answer-me-with-html`](./skills/office-white-collar/answer-me-with-html/)
 - [`docx`](./skills/office-white-collar/docx/)
 - [`guizang-ppt-skill`](./skills/office-white-collar/guizang-ppt-skill/)
 - [`markdown-tools`](./skills/office-white-collar/markdown-tools/)
@@ -672,11 +682,12 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`vuls-linux-cve-scanner`](./skills/security-and-reliability/vuls-linux-cve-scanner/)
 
 <a id="cat-multimodal-media"></a>
-### 13. Multimodal Media (multimodal-media, 9)
+### 13. Multimodal Media (multimodal-media, 10)
 
 - [`clay`](./skills/multimodal-media/clay/)
 - [`gpt-image2`](./skills/multimodal-media/gpt-image2/)
 - [`imagegen`](./skills/multimodal-media/imagegen/)
+- [`live-panel`](./skills/multimodal-media/live-panel/)
 - [`screenshot`](./skills/multimodal-media/screenshot/)
 - [`sketch`](./skills/multimodal-media/sketch/)
 - [`sora`](./skills/multimodal-media/sora/)

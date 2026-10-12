@@ -8,10 +8,23 @@ All notable changes to this repository are documented here.
 <!-- AUTO-CHANGELOG:START -->
 ### 自动更新 / Automated updates
 
-变更范围 / Revision range: `v3.2.1..HEAD`.
+变更范围 / Revision range: v3.3.0..HEAD.
 
 此范围内暂无可归类的变更。 / No categorized changes in this range.
 <!-- AUTO-CHANGELOG:END -->
+
+## [3.3.0] - 2026-10-12
+
+### Added / 新增
+- golang-performance / golang-benchmark / golang-observability。
+- improve-codebase-architecture、answer-me-with-html、live-panel、azure-diagnostics。
+
+### Changed / 更新
+- agent-browser 基于官方 CLI 与固定许可证资料升级，但保留现有唯一公共路径。
+- 增量引入完整被选中运行资源、许可证副本、SHA256 来源映射及按需权限规则。
+
+### Validation / 验证
+- 16 类、294 个规范入口；运行门禁与 Github Release 制品 SHA256 完整性核对。
 
 ## [3.2.1] - 2026-10-12
 

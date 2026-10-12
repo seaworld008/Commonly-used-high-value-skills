@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
   "generated_at": "2026-06-08",
-  "total_skills": 287,
+  "total_skills": 294,
   "total_categories": 16,
   "categories": [
     {
       "name": "developer-engineering",
-      "count": 49
+      "count": 52
     },
     {
       "name": "ai-workflow",
@@ -33,7 +33,15 @@
       "count": 14
     },
     {
+      "name": "devops-sre",
+      "count": 14
+    },
+    {
       "name": "engineering-workflow-automation",
+      "count": 13
+    },
+    {
+      "name": "office-white-collar",
       "count": 13
     },
     {
@@ -41,20 +49,12 @@
       "count": 13
     },
     {
-      "name": "devops-sre",
-      "count": 12
-    },
-    {
-      "name": "office-white-collar",
-      "count": 12
-    },
-    {
       "name": "operations-general",
       "count": 11
     },
     {
       "name": "multimodal-media",
-      "count": 9
+      "count": 10
     },
     {
       "name": "deployment-platforms",
@@ -1836,6 +1836,46 @@
       "path": "skills/developer-engineering/github-contributor/SKILL.md"
     },
     {
+      "name": "golang-benchmark",
+      "category": "developer-engineering",
+      "description": "Run reproducible Go benchmarks, profiling, benchstat and CI regression analysis.",
+      "version": "1.0.0",
+      "author": "samber/cc-skills-golang",
+      "source": "github:samber/cc-skills-golang",
+      "source_url": "https://github.com/samber/cc-skills-golang/tree/8e899e20ff0cd4dc524af3993e4c62d8ee8c5717/skills/golang-benchmark",
+      "tags": [
+        "go",
+        "benchmark",
+        "pprof"
+      ],
+      "quality": 3,
+      "complexity": "advanced",
+      "created_at": "2026-10-12",
+      "updated_at": "2026-10-12",
+      "line_count": 219,
+      "path": "skills/developer-engineering/golang-benchmark/SKILL.md"
+    },
+    {
+      "name": "golang-performance",
+      "category": "developer-engineering",
+      "description": "Optimize Go hot paths after profiling allocations, CPU, GC, caching and I/O.",
+      "version": "1.0.0",
+      "author": "samber/cc-skills-golang",
+      "source": "github:samber/cc-skills-golang",
+      "source_url": "https://github.com/samber/cc-skills-golang/tree/8e899e20ff0cd4dc524af3993e4c62d8ee8c5717/skills/golang-performance",
+      "tags": [
+        "go",
+        "profiling",
+        "performance"
+      ],
+      "quality": 3,
+      "complexity": "advanced",
+      "created_at": "2026-10-12",
+      "updated_at": "2026-10-12",
+      "line_count": 142,
+      "path": "skills/developer-engineering/golang-performance/SKILL.md"
+    },
+    {
       "name": "graphify",
       "category": "developer-engineering",
       "description": "Build, query, or refresh Graphify knowledge graphs for code and documents when graph-based relationship analysis is useful or explicitly requested.",
@@ -1893,6 +1933,26 @@
       "updated_at": "2026-09-06",
       "line_count": 138,
       "path": "skills/developer-engineering/i18n-expert/SKILL.md"
+    },
+    {
+      "name": "improve-codebase-architecture",
+      "category": "developer-engineering",
+      "description": "Review module boundaries, interface depth and high-leverage refactors with evidence.",
+      "version": "1.0.0",
+      "author": "mattpocock/skills",
+      "source": "github:mattpocock/skills",
+      "source_url": "https://github.com/mattpocock/skills/tree/49dd158d1076134a641b33efb035946536778336/skills/engineering/improve-codebase-architecture",
+      "tags": [
+        "architecture",
+        "refactoring",
+        "review"
+      ],
+      "quality": 3,
+      "complexity": "advanced",
+      "created_at": "2026-10-12",
+      "updated_at": "2026-10-12",
+      "line_count": 120,
+      "path": "skills/developer-engineering/improve-codebase-architecture/SKILL.md"
     },
     {
       "name": "kubernetes-specialist",
@@ -2513,6 +2573,26 @@
       "path": "skills/developer-engineering/webapp-testing/SKILL.md"
     },
     {
+      "name": "azure-diagnostics",
+      "category": "devops-sre",
+      "description": "Investigate AKS, VM, App Service, Functions and messaging incidents using scoped evidence.",
+      "version": "1.0.0",
+      "author": "microsoft/azure-skills",
+      "source": "github:microsoft/azure-skills",
+      "source_url": "https://github.com/microsoft/azure-skills/tree/0727d81638d64b6888f796287ee00baecfb08ced/skills/azure-diagnostics",
+      "tags": [
+        "azure",
+        "aks",
+        "incident"
+      ],
+      "quality": 3,
+      "complexity": "advanced",
+      "created_at": "2026-10-12",
+      "updated_at": "2026-10-12",
+      "line_count": 190,
+      "path": "skills/devops-sre/azure-diagnostics/SKILL.md"
+    },
+    {
       "name": "azure-kubernetes",
       "category": "devops-sre",
       "description": "Plan and configure Azure Kubernetes Service clusters, including SKU, networking, identity, deployment readiness, and operational constraints.",
@@ -2664,6 +2744,26 @@
       "path": "skills/devops-sre/github-ops/SKILL.md"
     },
     {
+      "name": "golang-observability",
+      "category": "devops-sre",
+      "description": "Instrument Go services using slog, OpenTelemetry, Prometheus and profiling.",
+      "version": "1.0.0",
+      "author": "samber/cc-skills-golang",
+      "source": "github:samber/cc-skills-golang",
+      "source_url": "https://github.com/samber/cc-skills-golang/tree/8e899e20ff0cd4dc524af3993e4c62d8ee8c5717/skills/golang-observability",
+      "tags": [
+        "go",
+        "opentelemetry",
+        "observability"
+      ],
+      "quality": 3,
+      "complexity": "advanced",
+      "created_at": "2026-10-12",
+      "updated_at": "2026-10-12",
+      "line_count": 217,
+      "path": "skills/devops-sre/golang-observability/SKILL.md"
+    },
+    {
       "name": "incident-commander",
       "category": "devops-sre",
       "description": "Coordinate active incidents through severity assessment, roles, mitigation, communications, recovery verification, and postmortem handoff.",
@@ -2770,22 +2870,21 @@
     {
       "name": "agent-browser",
       "category": "engineering-workflow-automation",
-      "description": "Use when an agent needs real browser automation for semantic element targeting, form interaction, screenshots, recordings, script execution, session reuse, or end-to-end web workflow verification.",
+      "description": "Automate authorized browser workflows with agent-browser CLI snapshots and CDP.",
       "version": "1.0.0",
-      "author": "seaworld008",
-      "source": "in-house",
-      "source_url": "",
+      "author": "vercel-labs/agent-browser",
+      "source": "github:vercel-labs/agent-browser",
+      "source_url": "https://github.com/vercel-labs/agent-browser/tree/d9570915f4dd6504dee4070379d2c4f79d81dbb2/skill-data/core",
       "tags": [
-        "agent",
-        "automation",
         "browser",
-        "workflow"
+        "cdp",
+        "automation"
       ],
-      "quality": 2,
-      "complexity": "intermediate",
-      "created_at": "2026-03-15",
-      "updated_at": "2026-06-29",
-      "line_count": 137,
+      "quality": 4,
+      "complexity": "advanced",
+      "created_at": "2026-10-12",
+      "updated_at": "2026-10-12",
+      "line_count": 118,
       "path": "skills/engineering-workflow-automation/agent-browser/SKILL.md"
     },
     {
@@ -4474,6 +4573,26 @@
       "path": "skills/multimodal-media/imagegen/SKILL.md"
     },
     {
+      "name": "live-panel",
+      "category": "multimodal-media",
+      "description": "Render animated system architecture panels into self-contained HTML and MP4.",
+      "version": "1.0.0",
+      "author": "ythx-101/live-panel-skill",
+      "source": "github:ythx-101/live-panel-skill",
+      "source_url": "https://github.com/ythx-101/live-panel-skill/tree/2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1/",
+      "tags": [
+        "architecture",
+        "animation",
+        "video"
+      ],
+      "quality": 3,
+      "complexity": "advanced",
+      "created_at": "2026-10-12",
+      "updated_at": "2026-10-12",
+      "line_count": 119,
+      "path": "skills/multimodal-media/live-panel/SKILL.md"
+    },
+    {
       "name": "screenshot",
       "category": "multimodal-media",
       "description": "Use when the user explicitly asks for a desktop or system screenshot (full screen, specific app or window, or a pixel region), or when tool-specific capture capabilities are unavailable and an OS-level capture is needed.",
@@ -4582,6 +4701,26 @@
       "updated_at": "2026-06-29",
       "line_count": 111,
       "path": "skills/multimodal-media/transcribe/SKILL.md"
+    },
+    {
+      "name": "answer-me-with-html",
+      "category": "office-white-collar",
+      "description": "Create standalone HTML technical explainers when the user explicitly requests them.",
+      "version": "1.0.0",
+      "author": "QingYunA/answer-me-with-html",
+      "source": "github:QingYunA/answer-me-with-html",
+      "source_url": "https://github.com/QingYunA/answer-me-with-html/tree/5d5b86ddbeea500b7fec6b3e80ad273ad875b005/skills/answer-me-with-html",
+      "tags": [
+        "html",
+        "visualization",
+        "technical-report"
+      ],
+      "quality": 3,
+      "complexity": "advanced",
+      "created_at": "2026-10-12",
+      "updated_at": "2026-10-12",
+      "line_count": 204,
+      "path": "skills/office-white-collar/answer-me-with-html/SKILL.md"
     },
     {
       "name": "docx",

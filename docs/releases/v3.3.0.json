@@ -1,0 +1,27 @@
+{
+  "tag": "v3.3.0",
+  "package_version": "3.3.0",
+  "title": "v3.3.0 · 高价值 Skills 精选增强",
+  "prerelease": false,
+  "generate_notes": false,
+  "changelog_range": "v3.2.1..v3.3.0",
+  "canonical_skills": 294,
+  "highlights": [
+    "Add seven curated skills with all selected runtime assets and source artifacts at immutable commits",
+    "Upgrade existing Agent Browser to the official CLI workflow without duplicating its public route",
+    "Go performance/benchmark/observability, architecture review, HTML visualization, Live Panel and Azure Diagnostics",
+    "Retain 287 existing canonical routes and generate 294 compatible OpenClaw skills"
+  ],
+  "release_gates": [
+    "All required CI workflows succeed on exact merged main",
+    "Complete repository and package tests pass; generated views are deterministic",
+    "Independent release asset download, SHA256 check, npm version and canonical counts pass"
+  ],
+  "validation_boundaries": {
+    "upstream": "Reviewed fixed upstream commit references, not a blanket claim of live current versions.",
+    "runtime": "Static and isolated checks only; no real browser session, live Azure API or production validation.",
+    "compatibility": "Seven additive public skills, one existing skill refreshed; no paths removed."
+  },
+  "breaking_changes": [],
+  "audit": "docs/maintenance-audit-2026-10-12-v3.3.md"
+}

@@ -353,57 +353,6 @@
       "managed_files": []
     },
     {
-      "video_name": "Agent browse",
-      "normalized_slug": "agent-browser",
-      "status": "in_house",
-      "repo_skill": "skills/engineering-workflow-automation/agent-browser/SKILL.md",
-      "source": "https://www.clawhub.com",
-      "notes": "Repository canonical skill is agent-browser.",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/engineering-workflow-automation/agent-browser",
-        "ref": "main",
-        "last_checked_at": "2026-04-13",
-        "last_synced_at": "2026-04-13",
-        "last_synced_commit": null,
-        "sync_mode": "local-only"
-      },
-      "kind": "in_house",
-      "sync_mode": "local-only",
-      "origins": [
-        {
-          "repo": "local-repo/in-house",
-          "path": "skills/engineering-workflow-automation/agent-browser",
-          "license": "MIT",
-          "sync_mode": "local-only",
-          "artifacts": [
-            {
-              "source": "skills/engineering-workflow-automation/agent-browser/SKILL.md",
-              "target": "skills/engineering-workflow-automation/agent-browser/SKILL.md",
-              "type": "file"
-            }
-          ],
-          "tracking": {
-            "channel": "local",
-            "ref": "main",
-            "resolved_commit": null,
-            "path_commit": null,
-            "content_sha256": "481d9840cd780b9bb966b58ca8b035b02eb9202029be07070a79a520ffd4ad81",
-            "last_checked_at": "2026-04-13",
-            "last_synced_at": "2026-04-13"
-          }
-        }
-      ],
-      "managed_files": [
-        {
-          "path": "skills/engineering-workflow-automation/agent-browser/SKILL.md",
-          "owner": "agent-browser",
-          "sha256": "481d9840cd780b9bb966b58ca8b035b02eb9202029be07070a79a520ffd4ad81",
-          "mode": "100644"
-        }
-      ]
-    },
-    {
       "video_name": "Self-improving agent",
       "normalized_slug": "self-improving-agent",
       "status": "in_house",
