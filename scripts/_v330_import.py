@@ -222,8 +222,15 @@ for repo,prefix,category,slug,desc,zh,tags in SPECS:
         original=original.replace("## 1. Decide: produce a page or not","## 1. Decide: produce a page only when expressly requested")
 
     smoke={
-      "agent-browser": ("Quick Start","agent-browser --version\nagent-browser skills get core\nagent-browser snapshot"),
-      "golang-performance": ("Benchmark Before Changes","go test -run '^
+      'agent-browser': ('Quick Start', 'agent-browser --version\nagent-browser skills get core\nagent-browser snapshot'),
+      'golang-performance': ('Benchmark Before Changes', 'go test -bench . -run none ./...\ngo tool pprof cpu.prof'),
+      'improve-codebase-architecture': ('Evidence Gathering', 'git log --oneline -30\ngit diff --name-only main...HEAD'),
+      'live-panel': ('Render Local Sample', 'python3 -m json.tool examples/agent-architecture/config.json\npython3 scripts/render.py --config examples/agent-architecture/config.json --out ./sample.mp4'),
+    }
+    if slug in smoke:
+        title,command=smoke[slug]
+        fenced=chr(96)*3
+        original='\n## '+title+'\n\n'+fenced+'bash\n'+command+'\n'+fenced+'\n\n'+original
     content=fm(slug,desc,zh,repo,entry,tags,4 if slug=="agent-browser" else 3)+banner+GUARD+SPECIAL[slug]+"\n## Upstream operating methods\n\n"+original
     if len(content.splitlines())<100:raise ValueError("Too short: "+slug)
     files=[]
