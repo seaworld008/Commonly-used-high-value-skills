@@ -8,7 +8,20 @@ All notable changes to this repository are documented here.
 <!-- AUTO-CHANGELOG:START -->
 ### 自动更新 / Automated updates
 
-变更范围 / Revision range: `v3.1.0..HEAD`.
+变更范围 / Revision range: `v3.2.0..HEAD`.
+
+#### [2026-10-12]
+
+##### Changed
+- strengthen Lark attendance workflow
+<!-- AUTO-CHANGELOG:END -->
+
+
+## [3.2.0] - 2026-10-03
+
+### 自动更新 / Automated updates
+
+变更范围 / Revision range: `v3.1.0..v3.2.0`.
 
 #### [2026-10-03]
 
@@ -26,7 +39,7 @@ All notable changes to this repository are documented here.
 ##### Changed
 - add standalone grill-me skill (#127)
 - add standalone grill-me with pinned upstream evidence
-<!-- AUTO-CHANGELOG:END -->
+
 
 ### Removed / 移除
 
