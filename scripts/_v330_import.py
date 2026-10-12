@@ -135,6 +135,21 @@ SPECIAL={
 13. Report unavailable Chrome/FFmpeg dependencies rather than claiming video export.
 14. Keep output away from protected project files and respect user workspace ownership.
 15. Validate config syntax and relative resource paths before any rendering step.
+16. Inspect the exact input topology first and list nodes, edges, triggers and metrics before writing config.
+17. For each node, use a stable label and a consistent visual language for success, warning and failure.
+18. Use a readable fixed layout with sufficient spacing; do not animate box movement unless the user requests it.
+19. Use bounded packet frequency so a busy link does not obscure component labels.
+20. Avoid presenting sampled request packets as a complete traffic trace.
+21. For incident demos, mark timestamps and incident severity as illustrative unless derived from source telemetry.
+22. Record the selected theme, output aspect ratio, FPS and software versions in the result notes.
+23. Audit template JavaScript when running in a credentialed browser profile; default to a blank isolated browser session.
+24. Keep input JSON and generated HTML/MP4 together in a dedicated output folder outside the tracked repository.
+25. When a render fails, capture the exact Chrome/FFmpeg error and do not suppress nonzero exit status.
+26. Validate the first, middle and final frames; a valid video container alone does not prove visual correctness.
+27. Before publishing, compare all labels and diagrams with the user's original architecture description.
+28. Never inject production credentials or real customer names into a shareable visual report.
+29. Include a plain Markdown fallback when rendering tools are unavailable.
+30. Preserve the copyright and source of any visual example included in the final report.
 """,
  "azure-diagnostics":"""
 ## Production safety and diagnostic constraints
