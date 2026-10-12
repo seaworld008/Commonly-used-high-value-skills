@@ -270,7 +270,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/office-white-collar/answer-me-with-html/SKILL.md",
       "source": "https://github.com/QingYunA/answer-me-with-html/blob/5d5b86ddbeea500b7fec6b3e80ad273ad875b005/skills/answer-me-with-html/SKILL.md",
-      "notes": "Pinned licensed upstream and reviewed authorization-limited local overlay; imported scripts not executed.",
+      "notes": "Pinned licensed upstream and reviewed authorization-limited local overlay; imported scripts not executed.\n2026-10-12: security-hardened independently implemented CLI. The pinned upstream ref represents original historical concept only; commands are explicitly not feature-equivalent.",
       "upstream": {
         "repo": "QingYunA/answer-me-with-html",
         "path": "skills/answer-me-with-html/SKILL.md",
@@ -367,7 +367,7 @@
           "mode": "100755"
         }
       ],
-      "curation_note": "2026-10-12: complete selected runtime artifacts from pinned source. Upstream evals and sample media excluded; host-specific commands are optional."
+      "curation_note": "2026-10-12 v4.0.0 security response: original MIT upstream concept is attributed, but the 800KB third-party CLI is replaced by an independent, offline, scope-limited renderer. Unsafe commands are disabled; 17 CodeQL alerts tied to upstream generated runtime addressed via removal of unsafe implementation, not suppression. Managed digests cover the reviewed local adapter, not an exact upstream mirror."
     },
     {
       "video_name": "azure-diagnostics",
@@ -1582,7 +1582,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/multimodal-media/live-panel/SKILL.md",
       "source": "https://github.com/ythx-101/live-panel-skill/blob/2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1/SKILL.md",
-      "notes": "Pinned licensed upstream and reviewed authorization-limited local overlay; imported scripts not executed.",
+      "notes": "Pinned licensed upstream and reviewed authorization-limited local overlay; imported scripts not executed.\n2026-10-12: disabled client-side URL-derived config fetch, added CSP; local rendering unchanged.",
       "upstream": {
         "repo": "ythx-101/live-panel-skill",
         "path": "SKILL.md",
@@ -1745,7 +1745,7 @@
           "mode": "100755"
         }
       ],
-      "curation_note": "2026-10-12: complete selected runtime artifacts from pinned source. Upstream evals and sample media excluded; host-specific commands are optional."
+      "curation_note": "2026-10-12 v4.0.0 security response: static template forbids query-string-config fetch; CSP blocks network connections; local embedded-config animation and selected references remain. Provenance is an MIT-authorized local overlay, not byte-exact upstream code."
     }
   ]
 }
