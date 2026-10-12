@@ -73,10 +73,10 @@ def archive_latest_release_if_needed(existing: str, to_ref: str) -> str:
     Missing historical snapshots are left alone rather than fabricating notes.
     """
     tag = run_git_command(["describe", "--tags", "--abbrev=0", to_ref], allow_failure=True)
-    if not tag or not re.fullmatch(r"v?\\d+\\.\\d+\\.\\d+", tag):
+    if not tag or not re.fullmatch(r"v?\d+\.\d+\.\d+", tag):
         return existing
     version = tag.removeprefix("v")
-    if re.search(rf"^## \\[{re.escape(version)}\\](?: |$)", existing, re.MULTILINE):
+    if re.search(rf"^## \[{re.escape(version)}\](?: |$)", existing, re.MULTILINE):
         return existing
     snapshot = run_git_command(["show", f"{tag}:CHANGELOG.md"], allow_failure=True)
     if snapshot.count(AUTO_START) != 1 or snapshot.count(AUTO_END) != 1:
