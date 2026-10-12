@@ -221,6 +221,7 @@ for repo,prefix,category,slug,desc,zh,tags in SPECS:
     if slug=="answer-me-with-html":
         original=original.replace("## 1. Decide: produce a page or not","## 1. Decide: produce a page only when expressly requested")
 
+    banner="# "+slug+": curated pinned source\n\n"
     smoke={
       'agent-browser': ('Quick Start', 'agent-browser --version\nagent-browser skills get core\nagent-browser snapshot'),
       'golang-performance': ('Benchmark Before Changes', 'go test -bench . -run none ./...\ngo tool pprof cpu.prof'),
@@ -231,94 +232,6 @@ for repo,prefix,category,slug,desc,zh,tags in SPECS:
         title,command=smoke[slug]
         fenced=chr(96)*3
         original='\n## '+title+'\n\n'+fenced+'bash\n'+command+'\n'+fenced+'\n\n'+original
-    content=fm(slug,desc,zh,repo,entry,tags,4 if slug=="agent-browser" else 3)+banner+GUARD+SPECIAL[slug]+"\n## Upstream operating methods\n\n"+original
-    if len(content.splitlines())<100:raise ValueError("Too short: "+slug)
-    files=[]
-    files.append(add(dest+"/SKILL.md",content,replace=(slug=="agent-browser")))
-    lic=source(repo,"LICENSE")
-    required=b"Apache License" if slug=="agent-browser" else b"MIT License"
-    if required not in lic[:600]:raise ValueError("license unexpected: "+repo)
-    files.append(add(dest+"/LICENSE.txt",lic))
-    maps=[(entry,dest+"/SKILL.md"),("LICENSE",dest+"/LICENSE.txt")]
-    for path in sorted(SOURCES[repo]):
-        if slug.startswith("golang-"):
-            include=path.startswith(prefix+"references/") or path.startswith(prefix+"assets/")
-        elif slug=="agent-browser":
-            include=path.startswith(prefix+"references/") or path.startswith(prefix+"templates/")
-        elif slug=="improve-codebase-architecture":
-            include=path==prefix+"HTML-REPORT.md"
-        elif slug=="answer-me-with-html":
-            include=path.startswith(prefix+"references/") or path==prefix+"scripts/am.mjs"
-        elif slug=="live-panel":
-            include=(path.startswith(("scripts/","references/","assets/")) or
-                     path.startswith("examples/") and path.endswith("/config.json"))
-        else:
-            include=path.startswith(prefix+"references/") or path.startswith(prefix+"scripts/") or path.startswith(prefix+"troubleshooting/")
-        if not include or path.endswith("/SKILL.md"):continue
-        relative=path[len(prefix):]
-        mode=0o755 if relative.startswith("scripts/") and path.endswith((".mjs",".sh",".py")) and (
-            slug in {"live-panel","answer-me-with-html"} or path.endswith("aks-baseline.sh")) else 0o644
-        target=dest+"/"+relative
-        files.append(add(target,source(repo,path),mode))
-        maps.append((path,target))
-    if slug=="agent-browser":
-        src="skill-data/core/SKILL.md"
-        target=dest+"/references/upstream-core.md"
-        files.append(add(target,source(repo,src)))
-        maps.append((src,target))
-    if slug=="improve-codebase-architecture":
-        for src,target in [
-            ("skills/engineering/codebase-design/SKILL.md","references/codebase-design.md"),
-            ("skills/engineering/codebase-design/DEEPENING.md","references/deepening.md"),
-            ("skills/engineering/codebase-design/DESIGN-IT-TWICE.md","references/design-it-twice.md")]:
-            t=dest+"/"+target;files.append(add(t,source(repo,src)));maps.append((src,t))
-    entries.append((repo,entry,dest,slug,files,maps))
-
-mapping={"schema_version":2,"video":{"url":"https://github.com/seaworld008/Commonly-used-high-value-skills",
-  "checked_at":DAY,"note":"Immutable curated v3.3.0 source overlays"},
-  "official_references":[{"name":r,"url":"https://github.com/"+r+"/tree/"+sha,
-    "purpose":"Reviewed fixed-commit origin with permissive license"} for r,sha in REPOS.items()],
-  "skills":[]}
-for repo,entry,dest,slug,files,maps in entries:
-    sha=REPOS[repo]
-    license_name="Apache-2.0" if slug=="agent-browser" else "MIT"
-    lic=source(repo,"LICENSE")
-    licensing={"path":"LICENSE","blob_sha":gitblob(lic),"content_sha256":hashlib.sha256(lic).hexdigest(),
-               "spdx":license_name,"resolved_commit":sha,"api_spdx":license_name}
-    skill=dest+"/SKILL.md"
-    tracking={"channel":"fixed_ref","ref":sha,"resolved_commit":sha,"path_commit":sha,
-      "content_sha256":hashlib.sha256((ROOT/skill).read_bytes()).hexdigest(),
-      "license_checkpoint":licensing,"last_checked_at":DAY,"last_synced_at":DAY}
-    mapping["skills"].append({
-      "video_name":slug,"normalized_slug":slug,"status":"verified_in_repo","repo_skill":skill,
-      "source":"https://github.com/"+repo+"/blob/"+sha+"/"+entry,
-      "notes":"Pinned licensed upstream and reviewed authorization-limited local overlay; imported scripts not executed.",
-      "upstream":{"repo":repo,"path":entry,"ref":sha,"last_checked_at":DAY,"last_synced_at":DAY,
-        "last_synced_commit":sha,"sync_mode":"monitor","path_commit":sha},
-      "kind":"overlay","sync_mode":"monitor",
-      "origins":[{"repo":repo,"path":entry,"license":license_name,"sync_mode":"monitor",
-        "artifacts":[{"source":src,"target":dst,"type":"file"} for src,dst in maps],
-        "tracking":tracking}],
-      "managed_files":[{"path":p,"owner":slug,"sha256":hashlib.sha256((ROOT/p).read_bytes()).hexdigest(),
-        "mode":"100755" if (ROOT/p).stat().st_mode&0o111 else "100644"} for p in files],
-      "curation_note":"2026-10-12: complete selected runtime artifacts from pinned source. Upstream evals and sample media excluded; host-specific commands are optional."
-    })
-mapping["skills"].sort(key=lambda x:x["normalized_slug"])
-target=ROOT/"docs/sources/curated-v3.3.0.skills.json"
-target.write_text(json.dumps(mapping,ensure_ascii=False,indent=2)+"\n")
-print("Imported skills:",len(entries),"new: 7, upgraded: 1",flush=True)
-subprocess.run([sys.executable,"scripts/bootstrap_in_house_sources.py","--write-json","docs/sources/in-house.skills.json"],cwd=ROOT,check=True)
-subprocess.run([sys.executable,"scripts/migrate_provenance_v2.py","--mapping","docs/sources/curated-v3.3.0.skills.json","--write","--refresh-managed-digests"],cwd=ROOT,check=True)
-print("Curated provenance generated",flush=True)
- -bench . -benchmem ./...\ngo tool pprof cpu.prof"),
-      "improve-codebase-architecture": ("Evidence Gathering","git log --oneline -30\ngit diff --name-only main...HEAD"),
-      "live-panel": ("Render Local Sample","python3 -m json.tool examples/agent-architecture/config.json\npython3 scripts/render.py --config examples/agent-architecture/config.json --out ./sample.mp4")
-    }
-    if slug in smoke:
-        title,command=smoke[slug]
-        fenced=chr(96)*3
-        original="\n## "+title+"\n\n"+fenced+"bash\n"+command+"\n"+fenced+"\n\n"+original
-    banner="# "+slug+": curated pinned source\n\n"
     content=fm(slug,desc,zh,repo,entry,tags,4 if slug=="agent-browser" else 3)+banner+GUARD+SPECIAL[slug]+"\n## Upstream operating methods\n\n"+original
     if len(content.splitlines())<100:raise ValueError("Too short: "+slug)
     files=[]
