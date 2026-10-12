@@ -127,5 +127,12 @@ for f in (ROOT/"skills/multimodal-media/live-panel/scripts").glob("*.py"):
 node=ROOT/"skills/office-white-collar/answer-me-with-html/scripts/am.mjs"
 subprocess.run(["node","--check",str(node)],check=True,cwd=ROOT)
 print("Runtime scripts parse correctly",flush=True)
+subprocess.run([sys.executable,"scripts/enrich_frontmatter.py"],cwd=ROOT,check=True)
+subprocess.run([sys.executable,"scripts/refresh_repo_views.py"],cwd=ROOT,check=True)
+subprocess.run([sys.executable,"scripts/migrate_provenance_v2.py","--mapping","docs/sources/curated-v3.3.0.skills.json","--write","--refresh-managed-digests"],cwd=ROOT,check=True)
+import hashlib
+for item in json.loads((ROOT/"docs/sources/curated-v3.3.0.skills.json").read_text())["skills"]:
+    rec=item["managed_files"][0]
+    print("DIGEST",item["normalized_slug"],rec["sha256"]==hashlib.sha256((ROOT/rec["path"]).read_bytes()).hexdigest(),flush=True)
 subprocess.run([sys.executable,"scripts/validate_repository.py","--refresh"],cwd=ROOT,check=True)
 print("PASS v3.3.0 full pipeline, 294 canonical",flush=True)

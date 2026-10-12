@@ -307,6 +307,13 @@ for repo,entry,dest,slug,files,maps in entries:
 mapping["skills"].sort(key=lambda x:x["normalized_slug"])
 target=ROOT/"docs/sources/curated-v3.3.0.skills.json"
 target.write_text(json.dumps(mapping,ensure_ascii=False,indent=2)+"\n")
+legacy=ROOT/"docs/sources/openclaw-video-2nP0YCjM_hk.skills.json"
+payload=json.loads(legacy.read_text())
+old=[x for x in payload["skills"] if x.get("normalized_slug")=="agent-browser"]
+assert len(old)==1
+payload["skills"]=[x for x in payload["skills"] if x.get("normalized_slug")!="agent-browser"]
+legacy.write_text(json.dumps(payload,ensure_ascii=False,indent=2)+"\n")
+
 print("Imported skills:",len(entries),"new: 7, upgraded: 1",flush=True)
 subprocess.run([sys.executable,"scripts/bootstrap_in_house_sources.py","--write-json","docs/sources/in-house.skills.json"],cwd=ROOT,check=True)
 subprocess.run([sys.executable,"scripts/migrate_provenance_v2.py","--mapping","docs/sources/curated-v3.3.0.skills.json","--write","--refresh-managed-digests"],cwd=ROOT,check=True)
