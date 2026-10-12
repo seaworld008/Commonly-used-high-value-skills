@@ -13,6 +13,10 @@ A high-value skills repository for AI developers, organized by real work scenari
 This repository currently contains **16 categories / 294 skills**.
 
 
+## v4.0.0 Security Hardening
+
+Addresses CodeQL findings introduced with bundled HTML and Live Panel runtimes, adds a zero-open-Code-Scanning release gate and replaces the old executable with a safer offline-only HTML renderer. Several legacy CLI operations are intentionally disabled; all 294 canonical skill paths and 16 categories remain intact.
+
 ## v3.3.0 Curated Engineering Enhancements
 
 Go profiling, benchmarking and observability; architecture deepening, HTML reports, animated topology panels and Azure diagnostics, plus an official CLI upgrade to the existing Agent Browser. Pinned provenance and permission-aware guidance included.

@@ -1,0 +1,31 @@
+{
+  "tag": "v4.0.0",
+  "package_version": "4.0.0",
+  "title": "v4.0.0 · CodeQL Security Hardening",
+  "prerelease": false,
+  "generate_notes": false,
+  "changelog_range": "v3.3.0..v4.0.0",
+  "canonical_skills": 294,
+  "highlights": [
+    "Remediate 18 recorded CodeQL alerts (14 high, 4 medium) by replacing vulnerable HTML CLI and locking down Live Panel network access",
+    "Replace third-party monolithic renderer with audited offline static HTML implementation, strict input and path boundaries",
+    "Add Code Scanning zero-open-alert publish gate and regression tests",
+    "Preserve all 294 canonical skill entry points across 16 categories"
+  ],
+  "release_gates": [
+    "Exact merged-main Repository Validation, provenance and CodeQL all pass",
+    "Main branch Code Scanning open alert API returns zero before publishing",
+    "Full pytest, cross-platform installer tests, provenance and generated artifacts pass",
+    "Draft release assets downloaded and verified with SHA256 and canonical skill count"
+  ],
+  "validation_boundaries": {
+    "upstream": "Locally security-hardened adaptation; not identical to external upstream generated CLI.",
+    "runtime": "Static and isolated CLI tests; no live production cloud/browser acceptance.",
+    "security": "Zero open Code Scanning alerts means zero detected by configured CodeQL rules, not a formal proof of zero vulnerabilities."
+  },
+  "breaking_changes": [
+    "HTML skill serve, update, clean, auto-browser-open, voice, arbitrary local file and image embeds are disabled",
+    "HTML/SVG/complex embedded executable diagrams are rendered as escaped text or simplified flow rather than executed"
+  ],
+  "audit": "docs/security-audit-2026-10-12.md"
+}
