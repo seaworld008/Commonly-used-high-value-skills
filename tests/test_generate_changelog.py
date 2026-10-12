@@ -137,13 +137,13 @@ class GenerateChangelogTests(unittest.TestCase):
             output = root / "CHANGELOG.md"
             released = changelog.update_unreleased(
                 HISTORY,
-                "### Automated\\n\\nRevision range: `v3.1.0..HEAD`.\\n\\n- released skill",
+                "### Automated\n\nRevision range: `v3.1.0..HEAD`.\n\n- released skill",
             )
             output.write_text(released, encoding="utf-8")
             self.git(root, "add", ".")
             self.git(root, "commit", "-qm", "chore: published v3.2.0")
             self.git(root, "tag", "v3.2.0")
-            (root / "fix.txt").write_text("new change\\n", encoding="utf-8")
+            (root / "fix.txt").write_text("new change\n", encoding="utf-8")
             self.git(root, "add", ".")
             self.git(root, "commit", "-qm", "fix: after release")
 
