@@ -308,7 +308,7 @@
             "ref": "main",
             "resolved_commit": "7beffb086d7fa3c5b843d8affa7c089f49cfc65e",
             "path_commit": "69ae326d01a9163ca22408c746e052003cf0af2c",
-            "content_sha256": "eb773bf05b3653792340800619a114e457bad98fe508426e388b180879fc0afc",
+            "content_sha256": "6f803cdd1895d847b2572cc8aff0f0c20e4c25ff71aea8da6f8897871e008fc2",
             "last_checked_at": "2026-09-30",
             "last_synced_at": "2026-09-30",
             "license_checkpoint": {
@@ -326,7 +326,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-attendance/SKILL.md",
           "owner": "lark-attendance",
-          "sha256": "eb773bf05b3653792340800619a114e457bad98fe508426e388b180879fc0afc",
+          "sha256": "6f803cdd1895d847b2572cc8aff0f0c20e4c25ff71aea8da6f8897871e008fc2",
           "mode": "100644"
         }
       ]
