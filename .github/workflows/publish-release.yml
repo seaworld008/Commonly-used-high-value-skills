@@ -1,0 +1,205 @@
+name: Verified Release
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - package.json
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: verified-release-main
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - name: Checkout exact main commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.13'
+
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '22'
+
+      - name: Check release intent and metadata
+        id: preflight
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          import pathlib
+          import re
+          package = json.loads(pathlib.Path("package.json").read_text())
+          version = package["version"]
+          if not re.fullmatch(r"\d+\.\d+\.\d+", version):
+              raise SystemExit("Only stable semver releases are supported")
+          tag = "v" + version
+          info = pathlib.Path("docs/releases") / (tag + ".json")
+          notes = pathlib.Path("docs/releases") / (tag + ".md")
+          if not info.is_file() or not notes.is_file():
+              raise SystemExit("Missing release metadata or notes")
+          metadata = json.loads(info.read_text())
+          skills = len(list(pathlib.Path("skills").glob("*/*/SKILL.md")))
+          if metadata.get("tag") != tag or metadata.get("package_version") != version:
+              raise SystemExit("Version metadata mismatch")
+          if metadata.get("canonical_skills") != skills or not notes.read_text().strip():
+              raise SystemExit("Canonical skill count or notes invalid")
+          print("Release intent:", tag, "skills:", skills)
+          PY
+          TAG="v$(node -p "require('./package.json').version")"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "Release already exists; refusing to replace it."
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+          fi
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+
+      - name: Validate full repository
+        if: steps.preflight.outputs.publish == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install pyyaml pytest jsonschema
+          python scripts/validate_repository.py --refresh
+          git diff --exit-code
+          npm test
+          node --test skills/security-and-reliability/security-audit/validate-coverage-ledger.test.cjs skills/security-and-reliability/security-audit/validate-findings.test.cjs
+
+      - name: Require exact merged-main CI
+        if: steps.preflight.outputs.publish == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, os, time, urllib.request
+          repo = os.environ["GITHUB_REPOSITORY"]
+          sha = os.environ["GITHUB_SHA"]
+          token = os.environ["GH_TOKEN"]
+          required = {"Repository Validation", "skills-provenance-ci", "CodeQL"}
+          url = f"https://api.github.com/repos/{repo}/actions/runs?head_sha={sha}&per_page=100"
+          for _ in range(100):
+              request = urllib.request.Request(url, headers={
+                  "Authorization": "Bearer " + token,
+                  "Accept": "application/vnd.github+json",
+                  "X-GitHub-Api-Version": "2022-11-28",
+              })
+              with urllib.request.urlopen(request, timeout=25) as response:
+                  runs = json.load(response)["workflow_runs"]
+              latest = {}
+              for run in runs:
+                  if (run["event"] != "push" or run["head_sha"] != sha
+                      or run["name"] not in required):
+                      continue
+                  name = run["name"]
+                  if name not in latest or run["created_at"] > latest[name]["created_at"]:
+                      latest[name] = run
+              failed = [(name, run["conclusion"]) for name, run in latest.items()
+                        if run["status"] == "completed" and run["conclusion"] != "success"]
+              if failed:
+                  raise SystemExit(f"Main SHA CI failed: {failed}")
+              if (required.issubset(latest) and
+                  all(latest[name]["status"] == "completed" and
+                      latest[name]["conclusion"] == "success" for name in required)):
+                  print(f"Required CI passed on exact main {sha}")
+                  break
+              time.sleep(15)
+          else:
+              raise SystemExit("Timed out waiting for exact-main CI; no release created")
+          PY
+
+      - name: Build archives and checksum manifest
+        if: steps.preflight.outputs.publish == 'true'
+        env:
+          TAG: ${{ steps.preflight.outputs.tag }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          EXPECTED="common-high-value-skills-$(node -p "require('./package.json').version").tgz"
+          PACKED="$(npm pack --pack-destination dist --silent | tail -n 1)"
+          test "$PACKED" = "$EXPECTED"
+          git archive --format=tar.gz --prefix="high-value-skills-$TAG/" --output="dist/high-value-skills-$TAG.tar.gz" "$GITHUB_SHA"
+          python - <<'PY'
+          import hashlib, json, os
+          from pathlib import Path
+          root = Path("dist")
+          assets = []
+          for path in sorted(root.iterdir()):
+              if path.is_file():
+                  assets.append({"name": path.name, "bytes": path.stat().st_size,
+                                 "sha256": hashlib.sha256(path.read_bytes()).hexdigest()})
+          data = {"tag": os.environ["TAG"], "main_commit": os.environ["GITHUB_SHA"],
+                  "canonical_skills": len(list(Path("skills").glob("*/*/SKILL.md"))),
+                  "assets": assets}
+          (root / "release-manifest.json").write_text(
+              json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+          PY
+          (cd dist && sha256sum "$EXPECTED" "high-value-skills-$TAG.tar.gz" release-manifest.json > SHA256SUMS)
+
+      - name: Draft, independently download and verify, then publish
+        if: steps.preflight.outputs.publish == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.preflight.outputs.tag }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          TITLE="$(python -c "import json,os;print(json.load(open('docs/releases/'+os.environ['TAG']+'.json'))['title'])")"
+          gh release create "$TAG" --target "$GITHUB_SHA" --draft --title "$TITLE" \
+            --notes-file "docs/releases/$TAG.md" \
+            dist/common-high-value-skills-*.tgz dist/high-value-skills-*.tar.gz \
+            dist/release-manifest.json dist/SHA256SUMS
+          mkdir -p verify
+          gh release download "$TAG" --dir verify
+          (cd verify && sha256sum --check SHA256SUMS)
+          python - <<'PY'
+          import json, os, re, tarfile
+          from pathlib import Path
+          root = Path("verify")
+          tag = os.environ["TAG"]
+          version = tag.removeprefix("v")
+          manifest = json.loads((root / "release-manifest.json").read_text())
+          assert manifest["tag"] == tag and manifest["main_commit"] == os.environ["GITHUB_SHA"]
+          assert len(manifest["assets"]) == 2
+          assert len(list(root.iterdir())) == 4
+          npm = root / f"common-high-value-skills-{version}.tgz"
+          src = root / f"high-value-skills-{tag}.tar.gz"
+          with tarfile.open(npm, "r:gz") as archive:
+              package = json.load(archive.extractfile("package/package.json"))
+              assert package["version"] == version
+              assert "package/bin/install-skills.js" in archive.getnames()
+              entries = [name for name in archive.getnames()
+                         if re.fullmatch(r"package/skills/[^/]+/[^/]+/SKILL.md", name)]
+              assert len(entries) == manifest["canonical_skills"]
+          with tarfile.open(src, "r:gz") as archive:
+              names = archive.getnames()
+              assert f"high-value-skills-{tag}/AGENTS.md" in names
+              entries = [name for name in names
+                         if re.fullmatch(r"high-value-skills-" + re.escape(tag) +
+                                         r"/skills/[^/]+/[^/]+/SKILL.md", name)]
+              assert len(entries) == manifest["canonical_skills"]
+          print("Verified downloaded assets, metadata, paths and canonical counts")
+          PY
+          gh release edit "$TAG" --draft=false --latest
