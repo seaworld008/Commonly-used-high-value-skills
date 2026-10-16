@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Render a live-panel config to an H.264 mp4: step window.seek(t) frame by frame, screenshot, pipe into ffmpeg.
 
-  python3 scripts/render.py --config examples/codex-agents/config.json --out out.mp4
+  python3 scripts/render.py --config examples/service-pipeline/config.json --out out.mp4
 Chrome and ffmpeg are looked up on PATH (Chrome also under /Applications on macOS) unless --chrome / --ffmpeg are given.
 Runs on Linux and macOS; on Windows use WSL (the Chrome DevTools pipe needs POSIX fd passing).
 """

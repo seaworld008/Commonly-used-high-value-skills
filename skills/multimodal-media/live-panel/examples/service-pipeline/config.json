@@ -1,0 +1,20 @@
+{
+  "meta": {"title": "Illustrative document pipeline", "lang": "en"},
+  "canvas": {"width": 640, "height": 640, "duration": 2, "fps": 12},
+  "theme": {"preset": "light-pastel", "fontSize": 16, "lineHeight": 26},
+  "titlebar": {"text": "DOCUMENT PIPELINE · SIMULATED", "height": 44, "size": 16},
+  "credit": {"text": "Original example by seaworld008 · MIT · simulated data", "y": 610, "size": 12},
+  "machines": {
+    "received": {"type": "counter", "start": 120, "rate": 4},
+    "validated": {"type": "counter", "start": 112, "rate": 4},
+    "stored": {"type": "counter", "start": 104, "rate": 4}
+  },
+  "elements": [
+    {"type": "box", "x": 150, "y": 80, "w": 340, "h": 110, "color": "fg", "lines": ["INTAKE", "received: {received}", "synthetic documents"]},
+    {"type": "path", "points": [[320, 190], [320, 250]], "color": "fg", "flow": {"period": 1.2, "offsets": [0], "color": "fg"}},
+    {"type": "box", "x": 150, "y": 250, "w": 340, "h": 110, "color": "fg", "lines": ["VALIDATE", "accepted: {validated}", "schema and required fields"]},
+    {"type": "path", "points": [[320, 360], [320, 420]], "color": "fg", "flow": {"period": 1.2, "offsets": [0.5], "color": "fg"}},
+    {"type": "box", "x": 150, "y": 420, "w": 340, "h": 110, "color": "fg", "lines": ["ARCHIVE", "stored: {stored}", "illustrative retention stage"]},
+    {"type": "text", "x": 40, "y": 570, "w": 560, "align": "center", "t": "No live telemetry or customer data", "size": 14}
+  ]
+}

@@ -4576,7 +4576,7 @@
       "name": "live-panel",
       "category": "multimodal-media",
       "description": "Render animated system architecture panels into self-contained HTML and MP4.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "ythx-101/live-panel-skill",
       "source": "github:ythx-101/live-panel-skill",
       "source_url": "https://github.com/ythx-101/live-panel-skill/tree/2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1/",
@@ -4588,8 +4588,8 @@
       "quality": 3,
       "complexity": "advanced",
       "created_at": "2026-10-12",
-      "updated_at": "2026-10-12",
-      "line_count": 127,
+      "updated_at": "2026-10-16",
+      "line_count": 123,
       "path": "skills/multimodal-media/live-panel/SKILL.md"
     },
     {

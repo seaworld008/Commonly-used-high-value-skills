@@ -3,7 +3,7 @@
   "date": "2026-10-16",
   "base_commit": "a655526c",
   "branch": "codex/upstream-curation-20261016",
-  "state": "blocked_upstream_review",
+  "state": "reviewed_release_scope",
   "updated_public_skills": [
     "skills/ai-workflow/api-and-interface-design/SKILL.md",
     "skills/ai-workflow/browser-testing-with-devtools/SKILL.md",
@@ -2293,7 +2293,22 @@
       ]
     }
   ],
-  "blockers": [
+  "validation": {
+    "ordered_pipeline": "passed",
+    "unit_tests_passed": 690,
+    "quality_pass": 297,
+    "quality_warn": 0,
+    "quality_fail": 0,
+    "source_coverage": "294/294",
+    "instruction_findings": 0,
+    "retirement_policy_violations": 0,
+    "skills_python_compile": "passed",
+    "slides_xsd_compile_and_boundary_probes": "passed",
+    "live_vendor_integration": "not_run",
+    "model_behavior_evaluation": "not_run",
+    "merge": "blocked; keep pull request unmerged"
+  },
+  "initial_blockers": [
     {
       "repo": "ythx-101/live-panel-skill",
       "commit": "2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1",
@@ -2316,19 +2331,13 @@
       "reason": "Tree changes observed; full semantic, runtime-contract and/or retrieval review remains pending. Do not advance unreviewed checkpoints."
     }
   ],
-  "validation": {
-    "ordered_pipeline": "passed",
-    "unit_tests_passed": 690,
-    "quality_pass": 297,
-    "quality_warn": 0,
-    "quality_fail": 0,
-    "source_coverage": "294/294",
-    "instruction_findings": 0,
-    "retirement_policy_violations": 0,
-    "skills_python_compile": "passed",
-    "slides_xsd_compile_and_boundary_probes": "passed",
-    "live_vendor_integration": "not_run",
-    "model_behavior_evaluation": "not_run",
-    "merge": "blocked; keep pull request unmerged"
+  "blockers": [],
+  "release_resolution": {
+    "authorization": "2026-10-16: user explicitly requested PR merge, main-only branch cleanup and latest release.",
+    "license_scope": "Retain complete pinned MIT code license and GitHub NOASSERTION; exclude three non-original illustration configs, include a new original simulated sample and local licensing reference. Fixed manually maintained snapshot; global license detector unchanged.",
+    "pending_upstream": "Unabsorbed monitor-only updates remain deferred; their observation is not represented as completed semantic review or latest synchronization.",
+    "release": "v4.1.0",
+    "updated_public_skills_including_release_resolution": 35,
+    "historical_engine_evidence": "The automation memory contains the completed 161-entry pre-checkpoint scan and its exact unavailable classification."
   }
 }

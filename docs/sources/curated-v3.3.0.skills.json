@@ -1582,25 +1582,25 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/multimodal-media/live-panel/SKILL.md",
       "source": "https://github.com/ythx-101/live-panel-skill/blob/2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1/SKILL.md",
-      "notes": "Pinned licensed upstream and reviewed authorization-limited local overlay; imported scripts not executed.\n2026-10-12: disabled client-side URL-derived config fetch, added CSP; local rendering unchanged.",
+      "notes": "Pinned licensed upstream and reviewed authorization-limited local overlay; imported scripts not executed.\n2026-10-12: disabled client-side URL-derived config fetch, added CSP; local rendering unchanged.\n2026-10-16: manually reviewed MIT code scope; preserved complete LICENSE, excluded all three non-original illustration configs, added an independently authored service-pipeline example and local licensing reference. Fixed snapshot; NOASSERTION retained as the actual GitHub classification.",
       "upstream": {
         "repo": "ythx-101/live-panel-skill",
         "path": "SKILL.md",
         "ref": "2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1",
-        "last_checked_at": "2026-10-12",
-        "last_synced_at": "2026-10-12",
+        "last_checked_at": "2026-10-16",
+        "last_synced_at": "2026-10-16",
         "last_synced_commit": "2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1",
-        "sync_mode": "monitor",
+        "sync_mode": "local-only",
         "path_commit": "2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1"
       },
-      "kind": "overlay",
-      "sync_mode": "monitor",
+      "kind": "snapshot",
+      "sync_mode": "local-only",
       "origins": [
         {
           "repo": "ythx-101/live-panel-skill",
           "path": "SKILL.md",
           "license": "MIT",
-          "sync_mode": "monitor",
+          "sync_mode": "local-only",
           "artifacts": [
             {
               "source": "SKILL.md",
@@ -1615,21 +1615,6 @@
             {
               "source": "assets/template.html",
               "target": "skills/multimodal-media/live-panel/assets/template.html",
-              "type": "file"
-            },
-            {
-              "source": "examples/agent-architecture/config.json",
-              "target": "skills/multimodal-media/live-panel/examples/agent-architecture/config.json",
-              "type": "file"
-            },
-            {
-              "source": "examples/airbnb/config.json",
-              "target": "skills/multimodal-media/live-panel/examples/airbnb/config.json",
-              "type": "file"
-            },
-            {
-              "source": "examples/codex-agents/config.json",
-              "target": "skills/multimodal-media/live-panel/examples/codex-agents/config.json",
               "type": "file"
             },
             {
@@ -1663,31 +1648,58 @@
             "ref": "2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1",
             "resolved_commit": "2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1",
             "path_commit": "2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1",
-            "content_sha256": "5ff6e109e073683c8fa8d7b443cf104838e644e4b7814411ecd90e8ca97453fd",
+            "content_sha256": "e3ea7d8b4784dcd878259df37eee2b3822fd8be6c226828d4b1f6ba0b4477fc6",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "5895384436b9865fc09a784622204a7d742165be",
               "content_sha256": "a7fe974dec4660c7070064bc2606be65a4e95263bb558132848d1475040954d3",
               "spdx": "MIT",
               "resolved_commit": "2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1",
-              "api_spdx": "MIT"
+              "api_spdx": "NOASSERTION"
             },
-            "last_checked_at": "2026-10-12",
-            "last_synced_at": "2026-10-12"
+            "last_checked_at": "2026-10-16",
+            "last_synced_at": "2026-10-16"
+          }
+        },
+        {
+          "repo": "local-repo/curation",
+          "path": "skills/multimodal-media/live-panel",
+          "license": null,
+          "sync_mode": "local-only",
+          "artifacts": [
+            {
+              "source": "skills/multimodal-media/live-panel/examples/service-pipeline/config.json",
+              "target": "skills/multimodal-media/live-panel/examples/service-pipeline/config.json",
+              "type": "file"
+            },
+            {
+              "source": "skills/multimodal-media/live-panel/references/licensing.md",
+              "target": "skills/multimodal-media/live-panel/references/licensing.md",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "local",
+            "ref": "local",
+            "resolved_commit": null,
+            "path_commit": null,
+            "content_sha256": null,
+            "last_checked_at": "2026-10-16",
+            "last_synced_at": "2026-10-16"
           }
         }
       ],
       "managed_files": [
         {
-          "path": "skills/multimodal-media/live-panel/SKILL.md",
-          "owner": "live-panel",
-          "sha256": "5ff6e109e073683c8fa8d7b443cf104838e644e4b7814411ecd90e8ca97453fd",
-          "mode": "100644"
-        },
-        {
           "path": "skills/multimodal-media/live-panel/LICENSE.txt",
           "owner": "live-panel",
           "sha256": "a7fe974dec4660c7070064bc2606be65a4e95263bb558132848d1475040954d3",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/multimodal-media/live-panel/SKILL.md",
+          "owner": "live-panel",
+          "sha256": "e3ea7d8b4784dcd878259df37eee2b3822fd8be6c226828d4b1f6ba0b4477fc6",
           "mode": "100644"
         },
         {
@@ -1697,21 +1709,9 @@
           "mode": "100644"
         },
         {
-          "path": "skills/multimodal-media/live-panel/examples/agent-architecture/config.json",
+          "path": "skills/multimodal-media/live-panel/examples/service-pipeline/config.json",
           "owner": "live-panel",
-          "sha256": "ae643887d9768354659583d5b2f03dcedee21a9676f405c64789875dd3a095f4",
-          "mode": "100644"
-        },
-        {
-          "path": "skills/multimodal-media/live-panel/examples/airbnb/config.json",
-          "owner": "live-panel",
-          "sha256": "7d07752b3d7999c23c533a3953e75151127a08dbf19d9d1a59e7adc0448da5f6",
-          "mode": "100644"
-        },
-        {
-          "path": "skills/multimodal-media/live-panel/examples/codex-agents/config.json",
-          "owner": "live-panel",
-          "sha256": "d9303a45d268d27b853bfbd1a44f82eb7a6e8fbfecc1ae87550b9967c69df765",
+          "sha256": "fbf92fbcb42c5b0d0437b271e5eadda7be0bb28af349a5cf698f92368904d7df",
           "mode": "100644"
         },
         {
@@ -1721,15 +1721,21 @@
           "mode": "100644"
         },
         {
+          "path": "skills/multimodal-media/live-panel/references/licensing.md",
+          "owner": "live-panel",
+          "sha256": "8577efcf982b28bf704c29c2e0b148b9dbd3c1d8a2601004234a237dafc1b750",
+          "mode": "100644"
+        },
+        {
           "path": "skills/multimodal-media/live-panel/references/motion-grammar.md",
           "owner": "live-panel",
-          "sha256": "b4a4dc946690c25d58f615425b765ef5df844f90da18b1c99838a87bf0f7d2ba",
+          "sha256": "3784925c946342bcc32b7eeb58f3eb9745d2c4240b1cffe866d6c4ee53dfb60f",
           "mode": "100644"
         },
         {
           "path": "skills/multimodal-media/live-panel/scripts/check_frames.py",
           "owner": "live-panel",
-          "sha256": "d6e4eee19c86f4dcb77b79578a79d61ed4fbf2384fbe9718f7d0925c475b5b23",
+          "sha256": "88130f6c2ac79eb8a4c42cd66f1542dfbb331ce1d63445c2dbbd21be1c4b7857",
           "mode": "100755"
         },
         {
@@ -1741,11 +1747,11 @@
         {
           "path": "skills/multimodal-media/live-panel/scripts/render.py",
           "owner": "live-panel",
-          "sha256": "541f4be98df54db61522f017128613be50bbbc15c340f75f3d358ac77dc62737",
+          "sha256": "5b7df430aef51f0955dee85005159fb5c0e277f1993c4164040e34fda905d7c9",
           "mode": "100755"
         }
       ],
-      "curation_note": "2026-10-12 v4.0.0 security response: static template forbids query-string-config fetch; CSP blocks network connections; local embedded-config animation and selected references remain. Provenance is an MIT-authorized local overlay, not byte-exact upstream code."
+      "curation_note": "Manually maintained MIT code snapshot; third-party illustration configs excluded and original simulated sample tracked as local curation. Automatic license-template detection is not claimed to pass."
     }
   ],
   "verification_attempts": [
@@ -1755,6 +1761,13 @@
       "target": "microsoft/azure-skills@0727d81638d64b6888f796287ee00baecfb08ced",
       "result": "success",
       "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-10-16",
+      "method": "manual-license-scope-and-artifact-review",
+      "target": "ythx-101/live-panel-skill@2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1",
+      "result": "success",
+      "evidence": "Read the complete immutable MIT code grant and third-party illustration reservation. Preserved LICENSE verbatim; excluded three non-original configs; retained renderer/method assets and a new original simulated example. Frozen snapshot with explicit local ownership; automatic NOASSERTION result is not overridden. See docs/releases/v4.1.0.md and skill references/licensing.md."
     }
   ]
 }
