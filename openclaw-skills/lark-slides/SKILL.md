@@ -2,14 +2,14 @@
 name: lark-slides
 description: '创建、读取和编辑飞书幻灯片与页面；支持飞书或 doubao.com 的 /slides/ 链接和 token。文件导入导出转 lark-drive，独立画板转 lark-whiteboard。'
 zh_description: "飞书幻灯片：创建和编辑幻灯片。"
-version: "1.0.12"
+version: "1.0.13"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-slides"
 license: MIT
 tags: '[feishu, lark, lark-cli, slides, presentation]'
 created_at: "2026-05-19"
-updated_at: "2026-09-30"
+updated_at: "2026-10-16"
 quality: 4
 complexity: advanced
 metadata:

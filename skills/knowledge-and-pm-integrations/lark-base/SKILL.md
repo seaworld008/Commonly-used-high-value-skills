@@ -2,14 +2,14 @@
 name: lark-base
 description: '操作飞书 Base 多维表格、字段、记录、视图、公式、仪表盘、BaseApp 页面和角色权限。处理 /base/、/app/ 链接；导入导出转 lark-drive，认证转 lark-shared。'
 zh_description: "用于操作飞书 Base 数据表、记录、字段和自动化数据流程。"
-version: "1.2.18"
+version: "1.2.19"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-base"
 license: MIT
 tags: '[feishu, lark, lark-cli, base, database, automation]'
 created_at: "2026-05-19"
-updated_at: "2026-09-30"
+updated_at: "2026-10-16"
 quality: 4
 complexity: advanced
 metadata:
@@ -164,6 +164,7 @@ PY
 ```jsonc
 {
   "标题": "Created from shortcut", // text: string
+  "待确认": "请 <at user_id=ou_123/> 确认", // text(plain): 人员提及；实际 open_id 用 lark-contact 查询；不发送通知
   "官网": "[官网](https://example.com)", // text(url): 裸 URL 或 Markdown link
   "联系电话": "13800000000", // text(phone): 合法电话号码字符串
   "邮箱": "owner@example.com", // text(email): 合法邮箱字符串

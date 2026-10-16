@@ -2,14 +2,14 @@
 name: frontend-ui-engineering
 description: 'Build accessible, responsive interfaces and components with production UI states, project conventions, and browser validation.'
 zh_description: "实现可访问、响应式的前端界面和交互状态。"
-version: "1.0.4"
+version: "1.0.5"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/frontend-ui-engineering/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "frontend-ui-engineering", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-09-28"
+updated_at: "2026-10-16"
 quality: 5
 complexity: advanced
 upstream_slug: frontend-ui-engineering
@@ -91,7 +91,7 @@ export function TaskItem({ task, onToggle, onDelete }: TaskItemProps) {
 ```tsx
 // Container: handles data
 export function TaskListContainer() {
-  const { tasks, isLoading, error } = useTasks();
+  const { tasks, isLoading, error, refetch } = useTasks();
 
   if (isLoading) return <TaskListSkeleton />;
   if (error) return <ErrorState message="Failed to load tasks" retry={refetch} />;

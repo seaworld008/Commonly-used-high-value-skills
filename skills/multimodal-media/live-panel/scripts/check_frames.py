@@ -2,7 +2,7 @@
 """Sample frames of a live-panel config, check text overflow / overlap by DOM measurement, export a few PNGs,
 and (with --repeat) prove replays are identical.
 
-  python3 scripts/check_frames.py --config examples/airbnb/config.json --out-dir /tmp/check
+  python3 scripts/check_frames.py --config examples/service-pipeline/config.json --out-dir /tmp/check
 Exit status 1 when any problem is found. With --video, the PNGs are cut from that mp4 instead of the live page.
 """
 import argparse, base64, os, subprocess, sys, tempfile

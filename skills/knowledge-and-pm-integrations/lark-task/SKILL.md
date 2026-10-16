@@ -2,14 +2,14 @@
 name: lark-task
 description: '飞书任务：管理任务、清单和任务智能体。创建待办任务、查看和更新任务状态、拆分子任务、组织任务清单、分配协作成员、上传任务附件、注册或注销任务智能体、更新任务智能体的主页数据、写入智能体任务记录。当用户需要创建待办事项、查看任务列表、跟踪任务进度、管理项目清单或给他人分配任务、为任务上传附件文件、注册注销任务智能体、更新智能体主页数据、写入任务记录时使用。'
 zh_description: "用于创建、查询和更新飞书任务及待办事项。"
-version: "1.0.9"
+version: "1.0.10"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-task"
 license: MIT
 tags: '[feishu, lark, lark-cli, tasks, project-management]'
 created_at: "2026-05-19"
-updated_at: "2026-09-30"
+updated_at: "2026-10-16"
 quality: 4
 complexity: intermediate
 metadata:
@@ -33,6 +33,13 @@ metadata:
 5. 遇到 `unknown_subcommand` 时必须停止猜测或尝试变体，回到第 2 步重新发现能力。
 
 shortcut 名称只能来自本 Skill 的 Shortcut 表或 `lark-cli task --help`；原生 resource/method 以逐级 help 为准，参数名、类型和嵌套结构以 method schema 为准。
+
+> **任务分组定位（必读）**：
+> - 在飞书任务/任务中心语境中，用户说“分组 / groups”时，优先对应 `sections`；任务清单对应 `tasklists`。先确定分组归属，再选择查询路径。
+> - 明确属于“我的任务”时，用 `sections.list` 的 `my_tasks` 归属和 `--as user` 查询，无需填写 `--resource-id`；明确属于某个清单时，用 `tasklist` 归属，并将该清单 GUID 传给 `--resource-id`。
+> - 归属不明时，先结合上下文判断，仍不明确再询问属于“我的任务”还是哪个清单；不要为了定位分组先遍历所有任务清单。
+> - 已知 `section_guid` 时，直接用 `sections.tasks` 查询组内任务；仅有分组名称时，先列取所属资源的分组并取得 `guid`。同名候选展示 GUID 和已知归属，不自动选择第一条。
+> - 分组操作的流程和 schema-first 示例见 [分组操作参考](references/lark-task-sections.md)。仅查询分组信息时，无需继续列取组内任务。
 
 > **任务搜索技巧**：先区分用户是否**特地指定使用搜索 skill**，以及是否真的提供了**查询关键字**（例如任务名称、关键词、片段描述）。如果用户特地指定使用搜索 skill，或明确给出了任务查询关键字，则目标是**任务**时优先使用 `+search`。如果用户没有特地指定使用搜索 skill，且意图里没有查询关键字，只有范围条件（例如“今年以来”“已完成”“由我创建”“我关注的”），并且使用 `+search` 与 `+get-related-tasks` / `+get-my-tasks` 都能达到目的时，应优先使用列表型能力，而不是搜索型能力。其中，“与我相关 / 我关注的 / 由我创建”等优先考虑 `+get-related-tasks`；“我负责的 / 分配给我”的列表优先考虑 `+get-my-tasks`。不要把时间范围词（例如“今年以来”）本身误当成 `query` 去走搜索。
 > **任务搜索相关性提示**：`+search` 当前不会自动判断搜索结果与搜索发起人的相关性。如果用户明确要求搜索“与我相关”的任务，必须先识别具体关系，获取当前用户的 `open_id`，并显式传入对应的 `--assignee`（负责人）、`--creator`（创建人）或 `--follower`（关注人）过滤条件；不能只依赖 `query` 期待自动返回与当前用户相关的任务。

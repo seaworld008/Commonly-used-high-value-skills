@@ -29,7 +29,8 @@ def test_canonical_files_ignore_bytecode_but_not_unmanaged_source(tmp_path):
 
 
 MAPPING_PATH = REPO_ROOT / "docs/sources/larksuite-cli-2026-05.skills.json"
-REVIEWED_COMMIT = "7beffb086d7fa3c5b843d8affa7c089f49cfc65e"
+REVIEWED_COMMIT = "017b19a793ad71794a02887ede04757f3d82e10d"
+SEPTEMBER_30_REVIEWED_COMMIT = "7beffb086d7fa3c5b843d8affa7c089f49cfc65e"
 SEPTEMBER_14_REVIEWED_COMMIT = "39aaf9fca0e08825b51f6d8c6c617bf781db761b"
 SEPTEMBER_6_REVIEWED_COMMIT = "7fd6ef3c07182257ce776cdc5a614e122d5bd4b3"
 AUGUST_31_REVIEWED_COMMIT = "6646386e0996b1ff5df640bccff834a20bcb203b"
@@ -54,7 +55,7 @@ EXPECTED_COUNTS = {
     "lark-sheets": 32,
     "lark-skill-maker": 1,
     "lark-slides": 50,
-    "lark-task": 18,
+    "lark-task": 19,
     "lark-whiteboard": 31,
     "lark-wiki": 14,
     "lark-workflow-meeting-summary": 1,
@@ -64,10 +65,10 @@ EXPECTED_COUNTS = {
 EXPECTED_PATH_COMMITS = {
     "lark-approval": "0d5334a0cdfdf18b0313ba051befb2848493ecda",
     "lark-attendance": "69ae326d01a9163ca22408c746e052003cf0af2c",
-    "lark-base": "d1ae4727324533f30b12c866f47f25a03f21f56d",
+    "lark-base": "9067ec079bfa0b1ae2266cd91d1c1ee4a1ce824d",
     "lark-calendar": "7bd7708fae3eb8c637e9cc1221ca310a2ab77cb2",
     "lark-contact": "87be09ef5f227c7b63d5eba40649544b5bec0133",
-    "lark-doc": "d1ae4727324533f30b12c866f47f25a03f21f56d",
+    "lark-doc": "97f0dabe7b046f45cfd820453b8305aeed47a601",
     "lark-drive": "a3e6b9ef362e689a0af0a8aeedf4d4381012a0ef",
     "lark-event": "fcdef499bb23739b720c665d49875a9957c97d48",
     "lark-im": "341ee384fd668a963a68382cb48f73b8143879be",
@@ -78,8 +79,8 @@ EXPECTED_PATH_COMMITS = {
     "lark-shared": "dd8edc738f3acc592c366247ccd4a595c7c44d65",
     "lark-sheets": "d5a32489b93050c88a21e54784593dd3effd452b",
     "lark-skill-maker": "83dfb068ad8bb4052787d80ca415118a20849b85",
-    "lark-slides": "7f4a15cca68b5cd05c161820e7a5e35f32f778f0",
-    "lark-task": "d1ae4727324533f30b12c866f47f25a03f21f56d",
+    "lark-slides": "017b19a793ad71794a02887ede04757f3d82e10d",
+    "lark-task": "64b0d51f1159dfac12be35f839103af86a93fdd9",
     "lark-whiteboard": "27ab8fbea3e6f2b07e93a26bc635e0e52023d7a0",
     "lark-wiki": "d1ae4727324533f30b12c866f47f25a03f21f56d",
     "lark-workflow-meeting-summary": "e525beb8d6ddecbde68ea3b2df292f1d70a66fa5",
@@ -245,7 +246,7 @@ def test_lark_whitespace_adaptations_are_scoped_and_clean() -> None:
 
     mapping = json.loads(MAPPING_PATH.read_text(encoding="utf-8"))
     attempts = mapping["verification_attempts"]
-    assert len(attempts) == 8
+    assert len(attempts) == 9
     assert attempts[0]["target"] == (
         f"larksuite/cli@{INITIAL_REVIEWED_COMMIT}"
     )
@@ -272,12 +273,14 @@ def test_lark_whitespace_adaptations_are_scoped_and_clean() -> None:
     assert attempts[5]["result"] == "success"
     assert attempts[6]["target"] == f"larksuite/cli@{SEPTEMBER_14_REVIEWED_COMMIT}"
     assert attempts[6]["result"] == "success"
+    assert attempts[7]["target"] == f"larksuite/cli@{SEPTEMBER_30_REVIEWED_COMMIT}"
+    assert "complete declared artifact sets" in attempts[7]["evidence"]
 
 
 def test_lark_latest_review_has_explicit_evidence():
     mapping = json.loads(MAPPING_PATH.read_text(encoding="utf-8"))
     latest = mapping["verification_attempts"][-1]
     assert latest["target"] == f"larksuite/cli@{REVIEWED_COMMIT}"
-    assert latest["date"] == "2026-09-30"
+    assert latest["date"] == "2026-10-16"
     assert latest["result"] == "success"
-    assert "complete declared artifact sets" in latest["evidence"]
+    assert "Explicit reviewer checkpoint" in latest["evidence"]

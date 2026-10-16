@@ -2,14 +2,14 @@
 name: answer-me-with-html
 description: 'Create an offline static HTML technical report only when expressly requested, without running untrusted HTML, shell commands or network requests.'
 zh_description: "仅在明确要求时生成离线静态 HTML 技术报告，不执行不可信 HTML、shell 或网络请求。"
-version: "1.1.0"
+version: "1.1.1"
 author: "QingYunA (original concept); seaworld008 (hardened implementation)"
 source: "github:QingYunA/answer-me-with-html"
 source_url: "https://github.com/QingYunA/answer-me-with-html/tree/5d5b86ddbeea500b7fec6b3e80ad273ad875b005/skills/answer-me-with-html"
 license: MIT
 tags: [html, security, offline, visualization, report]
 created_at: "2026-10-12"
-updated_at: "2026-10-12"
+updated_at: "2026-10-16"
 quality: 3
 complexity: advanced
 ---

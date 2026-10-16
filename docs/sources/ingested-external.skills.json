@@ -2,7 +2,7 @@
   "schema_version": 2,
   "video": {
     "url": "https://github.com/ayghri/i-have-adhd",
-    "checked_at": "2026-09-22",
+    "checked_at": "2026-10-16",
     "note": "External skills registered by scripts/ingest_skill.py."
   },
   "official_references": [
@@ -34,11 +34,11 @@
         "repo": "ayghri/i-have-adhd",
         "path": "skills/i-have-adhd/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "839872f9d1cd634fed642b4589ce7226199cc15f",
+        "last_checked_at": "2026-10-16",
+        "last_synced_at": "2026-10-16",
+        "last_synced_commit": "1ecea1993b7fce257ffbd686c070948b5e07eda6",
         "sync_mode": "monitor",
-        "path_commit": "4c76175b17421d61babfc35c10ab07604ef578d0"
+        "path_commit": "5a9244e0c9e69d966243a6104d4c69ac736c9396"
       },
       "kind": "mirror",
       "sync_mode": "monitor",
@@ -73,19 +73,19 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "839872f9d1cd634fed642b4589ce7226199cc15f",
-            "path_commit": "4c76175b17421d61babfc35c10ab07604ef578d0",
-            "content_sha256": "62cd25b02b1d503545b8d28ca15674b0dac32a00bf4e61d03a218bcc56006dd7",
+            "resolved_commit": "1ecea1993b7fce257ffbd686c070948b5e07eda6",
+            "path_commit": "5a9244e0c9e69d966243a6104d4c69ac736c9396",
+            "content_sha256": "bcfbaa331272d594f3c98011553c087bc1c31000b20bd4347cf15ca471db8451",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "19db5f1b0ca65e277c158bd4c4263139ccfd859c",
               "content_sha256": "8acbb618089b738404f76ac60fca1aaa995d9a87995eddf95f0b777acd7f7d2c",
               "spdx": "MIT",
-              "resolved_commit": "839872f9d1cd634fed642b4589ce7226199cc15f",
+              "resolved_commit": "1ecea1993b7fce257ffbd686c070948b5e07eda6",
               "api_spdx": "MIT"
             },
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30"
+            "last_checked_at": "2026-10-16",
+            "last_synced_at": "2026-10-16"
           }
         }
       ],
@@ -99,7 +99,7 @@
         {
           "path": "skills/operations-general/i-have-adhd/SKILL.md",
           "owner": "i-have-adhd",
-          "sha256": "62cd25b02b1d503545b8d28ca15674b0dac32a00bf4e61d03a218bcc56006dd7",
+          "sha256": "bcfbaa331272d594f3c98011553c087bc1c31000b20bd4347cf15ca471db8451",
           "mode": "100644"
         },
         {
@@ -468,6 +468,13 @@
       "target": "prisma/skills@be16a8740d01363d13552b317042431ee8dfc581",
       "result": "success",
       "evidence": "Compared complete declared artifacts and new regular siblings at fixed commits; decisions, rejected forced gates and marketing-only changes are recorded in docs/maintenance-followup-2026-10-03.json. Static/source review is not live product or model acceptance."
+    },
+    {
+      "date": "2026-10-16",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "ayghri/i-have-adhd@1ecea1993b7fce257ffbd686c070948b5e07eda6",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
     }
   ]
 }

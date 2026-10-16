@@ -2,14 +2,14 @@
 name: i-have-adhd
 description: 'Shape ADHD-friendly output: lead with the next action, number steps, restate state, suppress tangents, give concrete time estimates, and make progress visible. Invoke with /i-have-adhd; stop with "stop adhd mode".'
 zh_description: "为 ADHD 读者塑造可执行、行动优先的输出：先给下一步、编号步骤、跨轮次重述状态、抑制跑题、给出具体时间估计并展示进展。"
-version: "0.3.0"
+version: "0.3.1"
 author: "ayghri"
 source: "github:ayghri/i-have-adhd"
 source_url: "https://github.com/ayghri/i-have-adhd/blob/839872f9d1cd634fed642b4589ce7226199cc15f/skills/i-have-adhd/SKILL.md"
 license: MIT
 tags: '["adhd", "productivity", "communication", "output-style"]'
 created_at: "2026-09-18"
-updated_at: "2026-09-18"
+updated_at: "2026-10-16"
 quality: 4
 complexity: "basic"
 disable-model-invocation: true
@@ -45,7 +45,7 @@ Five facts drive every rule below:
 The first line is something the reader can do. Not context. Not a plan. The action.
 
 Bad: "Let's think about this. Your auth flow has a few moving pieces..."
-Good: "Run `npm install jsonwebtoken`, then edit `src/auth.ts:42`."
+Good: "Edit `src/auth.ts:42` to update the token validation."
 
 If the answer is a command, path, or snippet, it goes first. Prose comes after, if at all.
 

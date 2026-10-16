@@ -2,14 +2,14 @@
 name: azure-kubernetes
 description: 'Plan and configure Azure Kubernetes Service clusters, including SKU, networking, identity, deployment readiness, and operational constraints.'
 zh_description: "用于 Azure Kubernetes 集群管理、部署、排障和运维。"
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:microsoft/azure-skills"
 source_url: "https://skills.sh/microsoft/azure-skills/azure-kubernetes"
 license: MIT
 tags: '["azure", "devops", "kubernetes", "sre"]'
 created_at: "2026-06-03"
-updated_at: "2026-09-06"
+updated_at: "2026-10-16"
 quality: 4
 complexity: "intermediate"
 metadata:
@@ -29,7 +29,7 @@ metadata:
 | Best for | AKS cluster planning and Day-0 decisions |
 | MCP Tools | `mcp_azure_mcp_aks` |
 | CLI | `az aks create`, `az aks show`, `kubectl get`, `kubectl describe` |
-| Related skills | azure-kubernetes-app-deploy (deploy an app to an existing cluster), azure-diagnostics (troubleshooting AKS), azure-validate (readiness checks), azure-kubernetes-automatic-readiness (migrate existing cluster to AKS Automatic) |
+| Related skills | azure-kubernetes-app-deploy (deploy an app to an existing cluster), azure-diagnostics (baseline AKS troubleshooting), azure-validate (readiness checks), azure-kubernetes-automatic-readiness (migrate existing cluster to AKS Automatic), optional `aks-skills` operations add-on (focused incident, exact-signature, packet-capture, and GPU Day-2 workflows) |
 
 ## When to Use This Skill
 Activate this skill when user wants to:
@@ -47,6 +47,11 @@ Activate this skill when user wants to:
 > configures the *cluster*. To containerize an app and deploy it to a cluster
 > that already exists (Dockerfile + manifests + Deployment Safeguards), use the
 > `azure-kubernetes-app-deploy` sub-skill instead.
+
+> **Deeper operational task?** Keep Day-0 planning and basic operations in this
+> base skill. Load [optional-aks-operations.md](./references/optional-aks-operations.md)
+> only when a focused optional AKS operational skill could improve the current
+> task.
 
 ## Rules
 1. Start with the user's requirements for provisioning compute, networking, security, and other settings.

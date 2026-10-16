@@ -65,7 +65,7 @@ Time is the only input. `state = f(t)`; "random" is `hash(seed, index)`. Never r
 
 ## 7. The same grammar on a light infographic
 
-For a soft, light-coloured diagram (white background, pastel boxes) keep every rule above and change the expression, not the principle. Worked example: `examples/agent-architecture/`.
+For a soft, light-coloured diagram (white background, pastel boxes) keep every rule above and change the expression, not the principle. Worked example: `examples/service-pipeline/`.
 
 - **Colours and structure are the original's.** Do not turn a pastel infographic into a dark terminal. Boxes keep their fill and border; "active" is a thicker border plus a soft glow, not a new fill.
 - **One master timeline.** A single `cycle` machine (`seq`, 8 segments of 3.5 s = 28 s, loops) says what the system is doing: Step 1..5, then reflect, output, context. Everything lit on screen is derived from it, so all places tell the same story: Step 3 lit in the plan list -> tool "data analysis" and MCP "database" lit -> the arrows to them carry packets.

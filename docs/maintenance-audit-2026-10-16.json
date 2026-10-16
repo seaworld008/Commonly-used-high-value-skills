@@ -1,0 +1,2343 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-16",
+  "base_commit": "a655526c",
+  "branch": "codex/upstream-curation-20261016",
+  "state": "reviewed_release_scope",
+  "updated_public_skills": [
+    "skills/ai-workflow/api-and-interface-design/SKILL.md",
+    "skills/ai-workflow/browser-testing-with-devtools/SKILL.md",
+    "skills/ai-workflow/ci-cd-and-automation/SKILL.md",
+    "skills/ai-workflow/code-review-and-quality/SKILL.md",
+    "skills/ai-workflow/code-simplification/SKILL.md",
+    "skills/ai-workflow/context-engineering/SKILL.md",
+    "skills/ai-workflow/debugging-and-error-recovery/SKILL.md",
+    "skills/ai-workflow/deprecation-and-migration/SKILL.md",
+    "skills/ai-workflow/documentation-and-adrs/SKILL.md",
+    "skills/ai-workflow/doubt-driven-development/SKILL.md",
+    "skills/ai-workflow/frontend-ui-engineering/SKILL.md",
+    "skills/ai-workflow/git-workflow-and-versioning/SKILL.md",
+    "skills/ai-workflow/idea-refine/SKILL.md",
+    "skills/ai-workflow/incremental-implementation/SKILL.md",
+    "skills/ai-workflow/interview-me/SKILL.md",
+    "skills/ai-workflow/observability-and-instrumentation/SKILL.md",
+    "skills/ai-workflow/performance-optimization/SKILL.md",
+    "skills/ai-workflow/planning-and-task-breakdown/SKILL.md",
+    "skills/ai-workflow/requesting-code-review/SKILL.md",
+    "skills/ai-workflow/security-and-hardening/SKILL.md",
+    "skills/ai-workflow/shipping-and-launch/SKILL.md",
+    "skills/ai-workflow/source-driven-development/SKILL.md",
+    "skills/ai-workflow/spec-driven-development/SKILL.md",
+    "skills/ai-workflow/test-driven-development/SKILL.md",
+    "skills/ai-workflow/using-agent-skills/SKILL.md",
+    "skills/developer-engineering/neon-postgres/SKILL.md",
+    "skills/developer-engineering/systematic-debugging/SKILL.md",
+    "skills/devops-sre/azure-kubernetes/SKILL.md",
+    "skills/knowledge-and-pm-integrations/lark-base/SKILL.md",
+    "skills/knowledge-and-pm-integrations/lark-doc/SKILL.md",
+    "skills/knowledge-and-pm-integrations/lark-slides/SKILL.md",
+    "skills/knowledge-and-pm-integrations/lark-task/SKILL.md",
+    "skills/office-white-collar/answer-me-with-html/SKILL.md",
+    "skills/operations-general/i-have-adhd/SKILL.md"
+  ],
+  "added_skills": [],
+  "retired_skills": [],
+  "preserved_local_supplement_blocks": 4,
+  "reviewed_sources": [
+    {
+      "report": "addy-reviewed",
+      "summary": {
+        "total": 24,
+        "equal": 0,
+        "changed": 0,
+        "monitor_review": 24,
+        "unavailable": 0,
+        "rollback": 0,
+        "expected_skipped": 0
+      },
+      "entries": [
+        {
+          "name": "api-and-interface-design",
+          "repo": "addyosmani/agent-skills",
+          "commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+          "path_commit": "5f7865623e92bba6462e2ee5c3c629998d4e0ddf",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "browser-testing-with-devtools",
+          "repo": "addyosmani/agent-skills",
+          "commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+          "path_commit": "e8c9b4632d9e4ab8ca4ea514dae03e25683e8186",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "ci-cd-and-automation",
+          "repo": "addyosmani/agent-skills",
+          "commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+          "path_commit": "fea75b16472ba87e8c11f13a9e000c3ffdb2d1f5",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "code-review-and-quality",
+          "repo": "addyosmani/agent-skills",
+          "commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+          "path_commit": "28f435ea69a78531ec00779c7f3b78c64ce95896",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "code-simplification",
+          "repo": "addyosmani/agent-skills",
+          "commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+          "path_commit": "fea75b16472ba87e8c11f13a9e000c3ffdb2d1f5",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "context-engineering",
+          "repo": "addyosmani/agent-skills",
+          "commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+          "path_commit": "226bdd3aef2a74f43782c01583d91bcea92915ed",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "debugging-and-error-recovery",
+          "repo": "addyosmani/agent-skills",
+          "commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+          "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "deprecation-and-migration",
+          "repo": "addyosmani/agent-skills",
+          "commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+          "path_commit": "1483fc12473e5297408a069b661778aa76fbd1cf",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "documentation-and-adrs",
+          "repo": "addyosmani/agent-skills",
+          "commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+          "path_commit": "30f886278158cad70f6682dcaf7889338bf01444",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "doubt-driven-development",
+          "repo": "addyosmani/agent-skills",
+          "commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+          "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "frontend-ui-engineering",
+          "repo": "addyosmani/agent-skills",
+          "commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+          "path_commit": "3e1e0a2db595ab2abe89b1204f7eabb67a24eb90",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "git-workflow-and-versioning",
+          "repo": "addyosmani/agent-skills",
+          "commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+          "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "idea-refine",
+          "repo": "addyosmani/agent-skills",
+          "commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+          "path_commit": "f3400940f6961e68fa56bdb6214d0183d8d8ae49",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "incremental-implementation",
+          "repo": "addyosmani/agent-skills",
+          "commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+          "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "interview-me",
+          "repo": "addyosmani/agent-skills",
+          "commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+          "path_commit": "1d32b886c25d189b6dd6a455e76728bcaefb96b0",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "observability-and-instrumentation",
+          "repo": "addyosmani/agent-skills",
+          "commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+          "path_commit": "fe6f08112b3b4bc180c53807d00c3623a7b505e1",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "performance-optimization",
+          "repo": "addyosmani/agent-skills",
+          "commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+          "path_commit": "35c3acb42ed12d48e630efd45d639003952946b5",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "planning-and-task-breakdown",
+          "repo": "addyosmani/agent-skills",
+          "commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+          "path_commit": "8300e1bbe77a9f1610a0e9da624593c3d5dea020",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "security-and-hardening",
+          "repo": "addyosmani/agent-skills",
+          "commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+          "path_commit": "d1463fd0d6675c6e145d9c57802d70faf84d1f51",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "shipping-and-launch",
+          "repo": "addyosmani/agent-skills",
+          "commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+          "path_commit": "a31135a26d4adbfb0687544f0bd736a73163e78a",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "source-driven-development",
+          "repo": "addyosmani/agent-skills",
+          "commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+          "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "spec-driven-development",
+          "repo": "addyosmani/agent-skills",
+          "commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+          "path_commit": "7ade9d30f21ab3d4b0c7d3c98309e67d27403b78",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "test-driven-development",
+          "repo": "addyosmani/agent-skills",
+          "commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+          "path_commit": "7c4714658f4f8450c27c2c972b5def502d66f86a",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "using-agent-skills",
+          "repo": "addyosmani/agent-skills",
+          "commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+          "path_commit": "cda4542ade0f3c532494b9a48837eb01d39925f1",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d67778ada6b9cda6227e9130da182c13e73c8b2e",
+            "content_sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+            "spdx": "MIT",
+            "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+            "api_spdx": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "report": "lark-reviewed-final",
+      "summary": {
+        "total": 23,
+        "equal": 0,
+        "changed": 0,
+        "monitor_review": 23,
+        "unavailable": 0,
+        "rollback": 0,
+        "expected_skipped": 0
+      },
+      "entries": [
+        {
+          "name": "lark-approval",
+          "repo": "larksuite/cli",
+          "commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+          "path_commit": "0d5334a0cdfdf18b0313ba051befb2848493ecda",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
+            "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+            "spdx": "MIT",
+            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "lark-attendance",
+          "repo": "larksuite/cli",
+          "commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+          "path_commit": "69ae326d01a9163ca22408c746e052003cf0af2c",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
+            "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+            "spdx": "MIT",
+            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "lark-base",
+          "repo": "larksuite/cli",
+          "commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+          "path_commit": "9067ec079bfa0b1ae2266cd91d1c1ee4a1ce824d",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
+            "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+            "spdx": "MIT",
+            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "lark-calendar",
+          "repo": "larksuite/cli",
+          "commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+          "path_commit": "7bd7708fae3eb8c637e9cc1221ca310a2ab77cb2",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
+            "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+            "spdx": "MIT",
+            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "lark-contact",
+          "repo": "larksuite/cli",
+          "commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+          "path_commit": "87be09ef5f227c7b63d5eba40649544b5bec0133",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
+            "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+            "spdx": "MIT",
+            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "lark-doc",
+          "repo": "larksuite/cli",
+          "commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+          "path_commit": "97f0dabe7b046f45cfd820453b8305aeed47a601",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
+            "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+            "spdx": "MIT",
+            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "lark-drive",
+          "repo": "larksuite/cli",
+          "commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+          "path_commit": "a3e6b9ef362e689a0af0a8aeedf4d4381012a0ef",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
+            "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+            "spdx": "MIT",
+            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "lark-event",
+          "repo": "larksuite/cli",
+          "commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+          "path_commit": "fcdef499bb23739b720c665d49875a9957c97d48",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
+            "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+            "spdx": "MIT",
+            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "lark-im",
+          "repo": "larksuite/cli",
+          "commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+          "path_commit": "341ee384fd668a963a68382cb48f73b8143879be",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
+            "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+            "spdx": "MIT",
+            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "lark-mail",
+          "repo": "larksuite/cli",
+          "commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+          "path_commit": "d1ae4727324533f30b12c866f47f25a03f21f56d",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
+            "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+            "spdx": "MIT",
+            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "lark-markdown",
+          "repo": "larksuite/cli",
+          "commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+          "path_commit": "d1ae4727324533f30b12c866f47f25a03f21f56d",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
+            "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+            "spdx": "MIT",
+            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "lark-okr",
+          "repo": "larksuite/cli",
+          "commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+          "path_commit": "baf9640bec9eddb658ec351956553b8fa0bad6cb",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
+            "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+            "spdx": "MIT",
+            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "lark-openapi-explorer",
+          "repo": "larksuite/cli",
+          "commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+          "path_commit": "83dfb068ad8bb4052787d80ca415118a20849b85",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
+            "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+            "spdx": "MIT",
+            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "lark-shared",
+          "repo": "larksuite/cli",
+          "commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+          "path_commit": "dd8edc738f3acc592c366247ccd4a595c7c44d65",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
+            "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+            "spdx": "MIT",
+            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "lark-sheets",
+          "repo": "larksuite/cli",
+          "commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+          "path_commit": "d5a32489b93050c88a21e54784593dd3effd452b",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
+            "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+            "spdx": "MIT",
+            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "lark-skill-maker",
+          "repo": "larksuite/cli",
+          "commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+          "path_commit": "83dfb068ad8bb4052787d80ca415118a20849b85",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
+            "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+            "spdx": "MIT",
+            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "lark-slides",
+          "repo": "larksuite/cli",
+          "commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+          "path_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
+            "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+            "spdx": "MIT",
+            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "lark-task",
+          "repo": "larksuite/cli",
+          "commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+          "path_commit": "64b0d51f1159dfac12be35f839103af86a93fdd9",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
+            "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+            "spdx": "MIT",
+            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "lark-whiteboard",
+          "repo": "larksuite/cli",
+          "commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+          "path_commit": "27ab8fbea3e6f2b07e93a26bc635e0e52023d7a0",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
+            "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+            "spdx": "MIT",
+            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "lark-wiki",
+          "repo": "larksuite/cli",
+          "commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+          "path_commit": "d1ae4727324533f30b12c866f47f25a03f21f56d",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
+            "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+            "spdx": "MIT",
+            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "lark-workflow-meeting-summary",
+          "repo": "larksuite/cli",
+          "commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+          "path_commit": "e525beb8d6ddecbde68ea3b2df292f1d70a66fa5",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
+            "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+            "spdx": "MIT",
+            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "lark-workflow-standup-report",
+          "repo": "larksuite/cli",
+          "commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+          "path_commit": "049ddf771b435e86a4f5a71e616336ec44341160",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
+            "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+            "spdx": "MIT",
+            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "lark-meeting",
+          "repo": "larksuite/cli",
+          "commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+          "path_commit": "1da5768f96ed22e774a09fa2aa60af607d63a99e",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
+            "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+            "spdx": "MIT",
+            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "api_spdx": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "report": "obra-reviewed",
+      "summary": {
+        "total": 11,
+        "equal": 0,
+        "changed": 0,
+        "monitor_review": 11,
+        "unavailable": 0,
+        "rollback": 0,
+        "expected_skipped": 0
+      },
+      "entries": [
+        {
+          "name": "dispatching-parallel-agents",
+          "repo": "obra/superpowers",
+          "commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+          "path_commit": "6dbbbda3baeff8407f3dddb0cc9e8a9495a273bc",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "abf0390320aa14406af7a520b9b0739fdda9bf08",
+            "content_sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
+            "spdx": "MIT",
+            "resolved_commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "executing-plans",
+          "repo": "obra/superpowers",
+          "commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+          "path_commit": "5bf4e78011075bcfc0dc295f0724994cd123ee71",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "abf0390320aa14406af7a520b9b0739fdda9bf08",
+            "content_sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
+            "spdx": "MIT",
+            "resolved_commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "finishing-a-development-branch",
+          "repo": "obra/superpowers",
+          "commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+          "path_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "abf0390320aa14406af7a520b9b0739fdda9bf08",
+            "content_sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
+            "spdx": "MIT",
+            "resolved_commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "receiving-code-review",
+          "repo": "obra/superpowers",
+          "commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+          "path_commit": "3fb75974186ea7fada621d8ab77b3b02169baf57",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "abf0390320aa14406af7a520b9b0739fdda9bf08",
+            "content_sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
+            "spdx": "MIT",
+            "resolved_commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "requesting-code-review",
+          "repo": "obra/superpowers",
+          "commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+          "path_commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "abf0390320aa14406af7a520b9b0739fdda9bf08",
+            "content_sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
+            "spdx": "MIT",
+            "resolved_commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "subagent-driven-development",
+          "repo": "obra/superpowers",
+          "commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+          "path_commit": "5bf4e78011075bcfc0dc295f0724994cd123ee71",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "abf0390320aa14406af7a520b9b0739fdda9bf08",
+            "content_sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
+            "spdx": "MIT",
+            "resolved_commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "systematic-debugging",
+          "repo": "obra/superpowers",
+          "commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+          "path_commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "abf0390320aa14406af7a520b9b0739fdda9bf08",
+            "content_sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
+            "spdx": "MIT",
+            "resolved_commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "using-git-worktrees",
+          "repo": "obra/superpowers",
+          "commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+          "path_commit": "bc868020bbcec32bbaf9d6b51fa0538dba0b487f",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "abf0390320aa14406af7a520b9b0739fdda9bf08",
+            "content_sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
+            "spdx": "MIT",
+            "resolved_commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "using-superpowers",
+          "repo": "obra/superpowers",
+          "commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+          "path_commit": "5bf4e78011075bcfc0dc295f0724994cd123ee71",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "abf0390320aa14406af7a520b9b0739fdda9bf08",
+            "content_sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
+            "spdx": "MIT",
+            "resolved_commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "verification-before-completion",
+          "repo": "obra/superpowers",
+          "commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+          "path_commit": "3be5aad3dd2400ef23b15680969f4bcd3b6d7b8b",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "abf0390320aa14406af7a520b9b0739fdda9bf08",
+            "content_sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
+            "spdx": "MIT",
+            "resolved_commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "writing-skills",
+          "repo": "obra/superpowers",
+          "commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+          "path_commit": "5bf4e78011075bcfc0dc295f0724994cd123ee71",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "abf0390320aa14406af7a520b9b0739fdda9bf08",
+            "content_sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
+            "spdx": "MIT",
+            "resolved_commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+            "api_spdx": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "report": "adhd-reviewed",
+      "summary": {
+        "total": 1,
+        "equal": 0,
+        "changed": 0,
+        "monitor_review": 1,
+        "unavailable": 0,
+        "rollback": 0,
+        "expected_skipped": 0
+      },
+      "entries": [
+        {
+          "name": "i-have-adhd",
+          "repo": "ayghri/i-have-adhd",
+          "commit": "1ecea1993b7fce257ffbd686c070948b5e07eda6",
+          "path_commit": "5a9244e0c9e69d966243a6104d4c69ac736c9396",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "19db5f1b0ca65e277c158bd4c4263139ccfd859c",
+            "content_sha256": "8acbb618089b738404f76ac60fca1aaa995d9a87995eddf95f0b777acd7f7d2c",
+            "spdx": "MIT",
+            "resolved_commit": "1ecea1993b7fce257ffbd686c070948b5e07eda6",
+            "api_spdx": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "report": "azure-reviewed",
+      "summary": {
+        "total": 2,
+        "equal": 1,
+        "changed": 0,
+        "monitor_review": 1,
+        "unavailable": 0,
+        "rollback": 0,
+        "expected_skipped": 0
+      },
+      "entries": [
+        {
+          "name": "azure-diagnostics",
+          "repo": "microsoft/azure-skills",
+          "commit": "0727d81638d64b6888f796287ee00baecfb08ced",
+          "path_commit": "0727d81638d64b6888f796287ee00baecfb08ced",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "356b112bcc4f07e03b6e57569eedf9d79978d2d5",
+            "content_sha256": "8a5d8efb70942e65032f930c761d097feeb41a7517ebd04c9d2e4ec3764071c5",
+            "spdx": "MIT",
+            "resolved_commit": "0727d81638d64b6888f796287ee00baecfb08ced",
+            "api_spdx": "MIT"
+          }
+        },
+        {
+          "name": "azure-kubernetes",
+          "repo": "microsoft/azure-skills",
+          "commit": "d1736f313f7a5259006325d8c9dbce046ed128c0",
+          "path_commit": "0727d81638d64b6888f796287ee00baecfb08ced",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "356b112bcc4f07e03b6e57569eedf9d79978d2d5",
+            "content_sha256": "8a5d8efb70942e65032f930c761d097feeb41a7517ebd04c9d2e4ec3764071c5",
+            "spdx": "MIT",
+            "resolved_commit": "d1736f313f7a5259006325d8c9dbce046ed128c0",
+            "api_spdx": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "report": "neon-reviewed",
+      "summary": {
+        "total": 2,
+        "equal": 0,
+        "changed": 0,
+        "monitor_review": 2,
+        "unavailable": 0,
+        "rollback": 0,
+        "expected_skipped": 0
+      },
+      "entries": [
+        {
+          "name": "neon-postgres",
+          "repo": "neondatabase/agent-skills",
+          "commit": "5e693d6d5ddbe11d72c93e3b594ecfe574de44b2",
+          "path_commit": "f333dd0a59b93f484770d2331de45dddefd3dbf8",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+            "content_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+            "spdx": "Apache-2.0",
+            "resolved_commit": "5e693d6d5ddbe11d72c93e3b594ecfe574de44b2",
+            "api_spdx": "Apache-2.0"
+          }
+        },
+        {
+          "name": "neon-postgres-egress-optimizer",
+          "repo": "neondatabase/agent-skills",
+          "commit": "5e693d6d5ddbe11d72c93e3b594ecfe574de44b2",
+          "path_commit": "e5a62ea5e1f44fa39be6017c7b6251e6d2363d5a",
+          "license": {
+            "path": "LICENSE",
+            "blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+            "content_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+            "spdx": "Apache-2.0",
+            "resolved_commit": "5e693d6d5ddbe11d72c93e3b594ecfe574de44b2",
+            "api_spdx": "Apache-2.0"
+          }
+        }
+      ]
+    }
+  ],
+  "tree_observations": [
+    {
+      "repo": "larksuite/cli",
+      "observed_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+      "error": null,
+      "skills": [
+        {
+          "name": "lark-approval",
+          "previous_commit": "7beffb086d7fa3c5b843d8affa7c089f49cfc65e",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "lark-attendance",
+          "previous_commit": "7beffb086d7fa3c5b843d8affa7c089f49cfc65e",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "lark-base",
+          "previous_commit": "7beffb086d7fa3c5b843d8affa7c089f49cfc65e",
+          "changed_artifacts": [
+            "skills/lark-base/SKILL.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "lark-calendar",
+          "previous_commit": "7beffb086d7fa3c5b843d8affa7c089f49cfc65e",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "lark-contact",
+          "previous_commit": "7beffb086d7fa3c5b843d8affa7c089f49cfc65e",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "lark-doc",
+          "previous_commit": "7beffb086d7fa3c5b843d8affa7c089f49cfc65e",
+          "changed_artifacts": [
+            "skills/lark-doc/SKILL.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "lark-drive",
+          "previous_commit": "7beffb086d7fa3c5b843d8affa7c089f49cfc65e",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "lark-event",
+          "previous_commit": "7beffb086d7fa3c5b843d8affa7c089f49cfc65e",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "lark-im",
+          "previous_commit": "7beffb086d7fa3c5b843d8affa7c089f49cfc65e",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "lark-mail",
+          "previous_commit": "7beffb086d7fa3c5b843d8affa7c089f49cfc65e",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "lark-markdown",
+          "previous_commit": "7beffb086d7fa3c5b843d8affa7c089f49cfc65e",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "lark-okr",
+          "previous_commit": "7beffb086d7fa3c5b843d8affa7c089f49cfc65e",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "lark-openapi-explorer",
+          "previous_commit": "7beffb086d7fa3c5b843d8affa7c089f49cfc65e",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "lark-shared",
+          "previous_commit": "7beffb086d7fa3c5b843d8affa7c089f49cfc65e",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "lark-sheets",
+          "previous_commit": "7beffb086d7fa3c5b843d8affa7c089f49cfc65e",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "lark-skill-maker",
+          "previous_commit": "7beffb086d7fa3c5b843d8affa7c089f49cfc65e",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "lark-slides",
+          "previous_commit": "7beffb086d7fa3c5b843d8affa7c089f49cfc65e",
+          "changed_artifacts": [
+            "skills/lark-slides/references/xml/slides_xml_schema_definition.xml"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "lark-task",
+          "previous_commit": "7beffb086d7fa3c5b843d8affa7c089f49cfc65e",
+          "changed_artifacts": [
+            "skills/lark-task/SKILL.md",
+            "skills/lark-task/references/lark-task-sections.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "lark-whiteboard",
+          "previous_commit": "7beffb086d7fa3c5b843d8affa7c089f49cfc65e",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "lark-wiki",
+          "previous_commit": "7beffb086d7fa3c5b843d8affa7c089f49cfc65e",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "lark-workflow-meeting-summary",
+          "previous_commit": "7beffb086d7fa3c5b843d8affa7c089f49cfc65e",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "lark-workflow-standup-report",
+          "previous_commit": "7beffb086d7fa3c5b843d8affa7c089f49cfc65e",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "lark-meeting",
+          "previous_commit": "7beffb086d7fa3c5b843d8affa7c089f49cfc65e",
+          "changed_artifacts": [],
+          "new_siblings": []
+        }
+      ]
+    },
+    {
+      "repo": "xiaolai/nlpm",
+      "observed_commit": "1cc60e5e5dab131acd13a13f2e7213c4c379bde6",
+      "error": null,
+      "skills": [
+        {
+          "name": "nlpm-audit",
+          "previous_commit": "91fa8a7f248fa5f1dca3dd28032a17ab26550f3a",
+          "changed_artifacts": [],
+          "new_siblings": []
+        }
+      ]
+    },
+    {
+      "repo": "Graphify-Labs/graphify",
+      "observed_commit": "10130e79ed9caf8f60d998073e097531eaa1a395",
+      "error": null,
+      "skills": [
+        {
+          "name": "graphify",
+          "previous_commit": "e10df08877f8819a625a1afa38c3297a31fda296",
+          "changed_artifacts": [
+            "graphify/skill-codex.md",
+            "graphify/skills/codex/references/query.md",
+            "graphify/skills/codex/references/update.md"
+          ],
+          "new_siblings": []
+        }
+      ]
+    },
+    {
+      "repo": "wshobson/agents",
+      "observed_commit": "044b4b21f083948e69ec878a7b07c8d0951a6ffa",
+      "error": null,
+      "skills": [
+        {
+          "name": "billing-automation",
+          "previous_commit": "156b7a5e7a8b93642628a339ee4039c925b34c7f",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "nextjs-app-router",
+          "previous_commit": "156b7a5e7a8b93642628a339ee4039c925b34c7f",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "python-performance",
+          "previous_commit": "156b7a5e7a8b93642628a339ee4039c925b34c7f",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "tailwind-design-system",
+          "previous_commit": "156b7a5e7a8b93642628a339ee4039c925b34c7f",
+          "changed_artifacts": [],
+          "new_siblings": []
+        }
+      ]
+    },
+    {
+      "repo": "obra/superpowers",
+      "observed_commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+      "error": null,
+      "skills": [
+        {
+          "name": "dispatching-parallel-agents",
+          "previous_commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "executing-plans",
+          "previous_commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "finishing-a-development-branch",
+          "previous_commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "receiving-code-review",
+          "previous_commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "requesting-code-review",
+          "previous_commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+          "changed_artifacts": [
+            "skills/requesting-code-review/SKILL.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "subagent-driven-development",
+          "previous_commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "systematic-debugging",
+          "previous_commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+          "changed_artifacts": [
+            "skills/systematic-debugging/SKILL.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "using-git-worktrees",
+          "previous_commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "using-superpowers",
+          "previous_commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "verification-before-completion",
+          "previous_commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "writing-skills",
+          "previous_commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+          "changed_artifacts": [],
+          "new_siblings": []
+        }
+      ]
+    },
+    {
+      "repo": "alirezarezvani/claude-skills",
+      "observed_commit": "19392f7a08264ed00486a251f5b2098321771f94",
+      "error": null,
+      "skills": [
+        {
+          "name": "agent-hub",
+          "previous_commit": "19392f7a08264ed00486a251f5b2098321771f94",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "security-pen-testing",
+          "previous_commit": "19392f7a08264ed00486a251f5b2098321771f94",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "information-security-manager-iso27001",
+          "previous_commit": "19392f7a08264ed00486a251f5b2098321771f94",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "landing-page-generator",
+          "previous_commit": "19392f7a08264ed00486a251f5b2098321771f94",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "saas-metrics-coach",
+          "previous_commit": "19392f7a08264ed00486a251f5b2098321771f94",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "senior-architect",
+          "previous_commit": "19392f7a08264ed00486a251f5b2098321771f94",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "skill-security-auditor",
+          "previous_commit": "19392f7a08264ed00486a251f5b2098321771f94",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "aws-solution-architect",
+          "previous_commit": "19392f7a08264ed00486a251f5b2098321771f94",
+          "changed_artifacts": [],
+          "new_siblings": []
+        }
+      ]
+    },
+    {
+      "repo": "ayghri/i-have-adhd",
+      "observed_commit": "1ecea1993b7fce257ffbd686c070948b5e07eda6",
+      "error": null,
+      "skills": [
+        {
+          "name": "i-have-adhd",
+          "previous_commit": "839872f9d1cd634fed642b4589ce7226199cc15f",
+          "changed_artifacts": [
+            "skills/i-have-adhd/SKILL.md"
+          ],
+          "new_siblings": []
+        }
+      ]
+    },
+    {
+      "repo": "prisma/skills",
+      "observed_commit": "be16a8740d01363d13552b317042431ee8dfc581",
+      "error": null,
+      "skills": [
+        {
+          "name": "prisma-client-api",
+          "previous_commit": "be16a8740d01363d13552b317042431ee8dfc581",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "prisma-upgrade-v7",
+          "previous_commit": "be16a8740d01363d13552b317042431ee8dfc581",
+          "changed_artifacts": [],
+          "new_siblings": []
+        }
+      ]
+    },
+    {
+      "repo": "cloudflare/security-audit-skill",
+      "observed_commit": "c1c8a8c1471069fb0e188eeaff69b8e8db6564a8",
+      "error": null,
+      "skills": [
+        {
+          "name": "security-audit",
+          "previous_commit": "c1c8a8c1471069fb0e188eeaff69b8e8db6564a8",
+          "changed_artifacts": [],
+          "new_siblings": []
+        }
+      ]
+    },
+    {
+      "repo": "microsoft/azure-skills",
+      "observed_commit": "d1736f313f7a5259006325d8c9dbce046ed128c0",
+      "error": null,
+      "skills": [
+        {
+          "name": "azure-kubernetes",
+          "previous_commit": "74f27068b21b85807e35ae69ab3976756b060c03",
+          "changed_artifacts": [
+            "skills/azure-kubernetes/SKILL.md",
+            "skills/azure-kubernetes/azure-kubernetes-automatic-readiness/SKILL.md",
+            "skills/azure-kubernetes/azure-kubernetes-automatic-readiness/references/common-fixes.md",
+            "skills/azure-kubernetes/azure-kubernetes-automatic-readiness/references/constraint-spec-v1.yaml",
+            "skills/azure-kubernetes/azure-kubernetes-automatic-readiness/references/mcp-integration.md",
+            "skills/azure-kubernetes/azure-kubernetes-automatic-readiness/references/migration-guide-summary.md",
+            "skills/azure-kubernetes/references/azure-aks-autoscaler.md",
+            "skills/azure-kubernetes/references/azure-aks-spot.md"
+          ],
+          "new_siblings": [
+            "skills/azure-kubernetes/azure-kubernetes-automatic-readiness/scripts/sanitize-readiness-input.jq",
+            "skills/azure-kubernetes/references/optional-aks-operations.md"
+          ]
+        }
+      ]
+    },
+    {
+      "repo": "akin-ozer/cc-devops-skills",
+      "observed_commit": "276af751e659315aaf56d3ad13d7c26f4e72e28a",
+      "error": null,
+      "skills": [
+        {
+          "name": "cc-devops-skills",
+          "previous_commit": "276af751e659315aaf56d3ad13d7c26f4e72e28a",
+          "changed_artifacts": [],
+          "new_siblings": []
+        }
+      ]
+    },
+    {
+      "repo": "getsentry/skills",
+      "observed_commit": "f57ada2d0b640406ea7e25b11d636c530e77c58b",
+      "error": null,
+      "skills": [
+        {
+          "name": "gha-security-review",
+          "previous_commit": "d18b7aa8ba878354e5c348310230e652f7690f9c",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "security-review",
+          "previous_commit": "d18b7aa8ba878354e5c348310230e652f7690f9c",
+          "changed_artifacts": [],
+          "new_siblings": []
+        }
+      ]
+    },
+    {
+      "repo": "Jeffallan/claude-skills",
+      "observed_commit": "be8783ecda6f679936a9e70749bceee7c29a8893",
+      "error": null,
+      "skills": [
+        {
+          "name": "kubernetes-specialist",
+          "previous_commit": "1be15d8064f88fc25216442406d40add8fd23b53",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "terraform-engineer",
+          "previous_commit": "1be15d8064f88fc25216442406d40add8fd23b53",
+          "changed_artifacts": [],
+          "new_siblings": []
+        }
+      ]
+    },
+    {
+      "repo": "neondatabase/agent-skills",
+      "observed_commit": "5e693d6d5ddbe11d72c93e3b594ecfe574de44b2",
+      "error": null,
+      "skills": [
+        {
+          "name": "neon-postgres",
+          "previous_commit": "ae082b22275461fbb5e303a1bcdc9bb00b73a946",
+          "changed_artifacts": [
+            "skills/neon-postgres/SKILL.md",
+            "skills/neon-postgres/references/full-text-search.md",
+            "skills/neon-postgres/references/hybrid-search.md",
+            "skills/neon-postgres/references/lakebase-search-drizzle.md",
+            "skills/neon-postgres/references/vector-search.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "neon-postgres-egress-optimizer",
+          "previous_commit": "ae082b22275461fbb5e303a1bcdc9bb00b73a946",
+          "changed_artifacts": [],
+          "new_siblings": []
+        }
+      ]
+    },
+    {
+      "repo": "supabase/agent-skills",
+      "observed_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "error": null,
+      "skills": [
+        {
+          "name": "supabase",
+          "previous_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "supabase-postgres-best-practices",
+          "previous_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+          "changed_artifacts": [],
+          "new_siblings": []
+        }
+      ]
+    },
+    {
+      "repo": "Xquik-dev/x-twitter-scraper",
+      "observed_commit": "bab33f8b2a9c8a8e551ccec1012b5a62fdc08fc5",
+      "error": null,
+      "skills": [
+        {
+          "name": "x-twitter-scraper",
+          "previous_commit": "18b475cfc571b43e7660c49dbe400be66c9dc0a1",
+          "changed_artifacts": [
+            "skills/x-twitter-scraper/SKILL.md",
+            "skills/x-twitter-scraper/metadata.json",
+            "skills/x-twitter-scraper/references/compare-faq.md",
+            "skills/x-twitter-scraper/references/extractions.md",
+            "skills/x-twitter-scraper/references/mcp.md",
+            "skills/x-twitter-scraper/references/monitors-webhooks.md",
+            "skills/x-twitter-scraper/references/reads.md",
+            "skills/x-twitter-scraper/references/writes.md"
+          ],
+          "new_siblings": []
+        }
+      ]
+    },
+    {
+      "repo": "simota/agent-skills",
+      "observed_commit": "79690595643d8b9f23ca90e05885afefd26ed05c",
+      "error": null,
+      "skills": [
+        {
+          "name": "builder",
+          "previous_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+          "changed_artifacts": [
+            "builder/SKILL.md",
+            "builder/reference/autorun-nexus.md",
+            "builder/reference/handoffs.md",
+            "builder/reference/image-generation-batch.md",
+            "builder/reference/reference-index.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "gateway",
+          "previous_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+          "changed_artifacts": [
+            "gateway/SKILL.md",
+            "gateway/reference/graphql-design.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "schema",
+          "previous_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+          "changed_artifacts": [
+            "schema/SKILL.md",
+            "schema/reference/partition-strategies.md",
+            "schema/reference/recipes-index.md",
+            "schema/reference/reference-index.md",
+            "schema/reference/schema-examples.md",
+            "schema/reference/soft-delete-patterns.md",
+            "schema/reference/tenant-handoffs.md",
+            "schema/reference/tenant-provisioning.md",
+            "schema/reference/tenant-quota-throttling.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "nexus",
+          "previous_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+          "changed_artifacts": [
+            "nexus/SKILL.md",
+            "nexus/reference/agent-chains.md",
+            "nexus/reference/agent-disambiguation.md",
+            "nexus/reference/assay-recipe.md",
+            "nexus/reference/clone-recipe.md",
+            "nexus/reference/crucible-recipe.md",
+            "nexus/reference/delivery-agent-deployment-matrix.md",
+            "nexus/reference/delivery-exit-criteria-validation.md",
+            "nexus/reference/delve-recipe.md",
+            "nexus/reference/doc-quality-protocol.md",
+            "nexus/reference/error-handling.md",
+            "nexus/reference/eureka-recipe.md",
+            "nexus/reference/evaluator-loop-protocol.md",
+            "nexus/reference/fuse-recipe.md",
+            "nexus/reference/growth-acceptance-recipe.md",
+            "nexus/reference/handoff-validation.md",
+            "nexus/reference/intent-clarification.md",
+            "nexus/reference/lattice-recipe.md",
+            "nexus/reference/layer-recipe.md",
+            "nexus/reference/marquee-recipe.md",
+            "nexus/reference/optimize-recipe.md",
+            "nexus/reference/pack-subcommand.md",
+            "nexus/reference/package-recipe.md",
+            "nexus/reference/podium-recipe.md",
+            "nexus/reference/rebrand-recipe.md",
+            "nexus/reference/recipe-contract.md",
+            "nexus/reference/recipes-detail.md",
+            "nexus/reference/recipes-index.md",
+            "nexus/reference/research-grounding.md",
+            "nexus/reference/restyle-recipe.md",
+            "nexus/reference/routing-learning.md",
+            "nexus/reference/routing-matrix.md",
+            "nexus/reference/runway-recipe.md",
+            "nexus/reference/signal-keywords.md",
+            "nexus/reference/silhouette-recipe.md",
+            "nexus/reference/spec-recipe.md",
+            "nexus/reference/summit-recipe.md",
+            "nexus/reference/task-battery.md",
+            "nexus/reference/transmute-recipe.md",
+            "nexus/reference/venture-recipe.md",
+            "nexus/reference/whet-recipe.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "sherpa",
+          "previous_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+          "changed_artifacts": [
+            "sherpa/SKILL.md",
+            "sherpa/reference/progress-tracking.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "rally",
+          "previous_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+          "changed_artifacts": [
+            "rally/SKILL.md",
+            "rally/reference/agent-teams-api-reference.md",
+            "rally/reference/anti-patterns-failure-modes.md",
+            "rally/reference/integration-patterns.md",
+            "rally/reference/parallel-learning.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "oracle",
+          "previous_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+          "changed_artifacts": [
+            "oracle/SKILL.md",
+            "oracle/reference/advanced-tool-use.md",
+            "oracle/reference/agent-behavior-contract.md",
+            "oracle/reference/evaluation-observability.md",
+            "oracle/reference/human-ai-trust.md",
+            "oracle/reference/llm-application-patterns.md",
+            "oracle/reference/llm-production-anti-patterns.md",
+            "oracle/reference/prompt-engineering.md",
+            "oracle/reference/reference-index.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "sigil",
+          "previous_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+          "changed_artifacts": [
+            "sigil/SKILL.md",
+            "sigil/reference/operating-layer-blueprint.md",
+            "sigil/reference/operating-layer-handoffs.md",
+            "sigil/reference/operating-layer-recipe-design.md",
+            "sigil/reference/operating-layer-validation.md",
+            "sigil/reference/operating-layer-workflow-design.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "guardian",
+          "previous_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+          "changed_artifacts": [
+            "guardian/SKILL.md",
+            "guardian/reference/collaboration-routing.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "beacon",
+          "previous_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+          "changed_artifacts": [
+            "beacon/SKILL.md",
+            "beacon/reference/alerting-strategy.md",
+            "beacon/reference/llm-observability.md",
+            "beacon/reference/logging-design.md",
+            "beacon/reference/opentelemetry-best-practices.md",
+            "beacon/reference/platform-observability.md",
+            "beacon/reference/slo-sli-design.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "triage",
+          "previous_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+          "changed_artifacts": [
+            "triage/SKILL.md",
+            "triage/reference/collaboration-flows.md",
+            "triage/reference/escalation-matrix.md",
+            "triage/reference/recipes-index.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "gear",
+          "previous_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+          "changed_artifacts": [
+            "gear/SKILL.md",
+            "gear/reference/autorun-schema.md",
+            "gear/reference/dependency-management.md",
+            "gear/reference/docker-patterns.md",
+            "gear/reference/gha-cache-strategy.md",
+            "gear/reference/gha-secrets.md",
+            "gear/reference/github-actions.md",
+            "gear/reference/monorepo-guide.md",
+            "gear/reference/observability.md",
+            "gear/reference/secrets-management.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "ledger",
+          "previous_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+          "changed_artifacts": [
+            "ledger/SKILL.md",
+            "ledger/reference/ai-gpu-cost.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "growth",
+          "previous_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+          "changed_artifacts": [
+            "growth/SKILL.md",
+            "growth/reference/autorun-schema.md",
+            "growth/reference/cro-patterns.md",
+            "growth/reference/retention/winback-campaign.md",
+            "growth/reference/seo-audit.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "compete",
+          "previous_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+          "changed_artifacts": [
+            "compete/SKILL.md",
+            "compete/reference/reference-index.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "pulse",
+          "previous_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+          "changed_artifacts": [
+            "pulse/SKILL.md",
+            "pulse/reference/platform-integration.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "stage",
+          "previous_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+          "changed_artifacts": [
+            "stage/SKILL.md",
+            "stage/reference/narrative-arc-design.md",
+            "stage/reference/slide-visual-design.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "lore",
+          "previous_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+          "changed_artifacts": [
+            ".agents/skills/lore/SKILL.md",
+            ".agents/skills/lore/reference/propagation-protocol.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "tome",
+          "previous_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+          "changed_artifacts": [
+            "tome/SKILL.md",
+            "tome/reference/article-content-repurposing.md",
+            "tome/reference/article-headline-patterns.md",
+            "tome/reference/article-interview-format.md",
+            "tome/reference/article-patterns.md",
+            "tome/reference/recipes-index.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "grove",
+          "previous_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+          "changed_artifacts": [
+            "grove/SKILL.md",
+            "grove/reference/llm-sharding-strategy.md",
+            "grove/reference/tests-layout.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "voice",
+          "previous_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+          "changed_artifacts": [
+            "voice/SKILL.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "trace",
+          "previous_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+          "changed_artifacts": [
+            "trace/SKILL.md",
+            "trace/reference/frustration-signals.md",
+            "trace/reference/persona-integration.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "breach",
+          "previous_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+          "changed_artifacts": [
+            "breach/SKILL.md",
+            "breach/reference/ai-red-teaming.md",
+            "breach/reference/attack-playbooks.md",
+            "breach/reference/phishing-campaign-design.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "cloak",
+          "previous_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+          "changed_artifacts": [
+            "cloak/SKILL.md",
+            "cloak/reference/ccpa-cpra.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "scaffold",
+          "previous_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+          "changed_artifacts": [
+            "scaffold/SKILL.md",
+            "scaffold/reference/terraform-modules.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "cast",
+          "previous_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+          "changed_artifacts": [
+            "cast/SKILL.md",
+            "cast/reference/persona-governance.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "omen",
+          "previous_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+          "changed_artifacts": [
+            "omen/SKILL.md",
+            "omen/reference/ai-production-failure-atlas.md",
+            "omen/reference/tri-engine-failure.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "lens",
+          "previous_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+          "changed_artifacts": [
+            "lens/SKILL.md",
+            "lens/reference/change-hotspot.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "scout",
+          "previous_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+          "changed_artifacts": [
+            "scout/SKILL.md",
+            "scout/reference/5whys-rca.md",
+            "scout/reference/flake-investigation.md",
+            "scout/reference/handoff-formats.md",
+            "scout/reference/observability-debugging.md",
+            "scout/reference/perf-investigation.md",
+            "scout/reference/tri-engine-investigate.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "ripple",
+          "previous_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+          "changed_artifacts": [
+            "ripple/SKILL.md"
+          ],
+          "new_siblings": []
+        }
+      ]
+    },
+    {
+      "repo": "firebase/agent-skills",
+      "observed_commit": "306cc1844c47839bd4f2c7dba7cc3c394e4f3e0b",
+      "error": null,
+      "skills": [
+        {
+          "name": "firebase-security-rules-auditor",
+          "previous_commit": "de359da26586e4fad59b7ebab7592aa137c49b8a",
+          "changed_artifacts": [
+            "skills/firebase-security-rules-auditor/SKILL.md"
+          ],
+          "new_siblings": []
+        }
+      ]
+    },
+    {
+      "repo": "NousResearch/hermes-agent",
+      "observed_commit": "fb6349f84b635f9c4bc39b373137c48baad479c0",
+      "error": null,
+      "skills": [
+        {
+          "name": "llm-wiki",
+          "previous_commit": "343500b3547e12530457c2fda60ec687e25118b4",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "honcho",
+          "previous_commit": "343500b3547e12530457c2fda60ec687e25118b4",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "codebase-inspection",
+          "previous_commit": "343500b3547e12530457c2fda60ec687e25118b4",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "arxiv",
+          "previous_commit": "343500b3547e12530457c2fda60ec687e25118b4",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "obsidian",
+          "previous_commit": "343500b3547e12530457c2fda60ec687e25118b4",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "mcporter",
+          "previous_commit": "343500b3547e12530457c2fda60ec687e25118b4",
+          "changed_artifacts": [],
+          "new_siblings": []
+        }
+      ]
+    },
+    {
+      "repo": "NousResearch/hermes-agent",
+      "observed_commit": "d923a5eb487a17c0a68801bba9ef0f56c81040a8",
+      "error": null,
+      "skills": [
+        {
+          "name": "hermes-agent",
+          "previous_commit": "f97608f178d1ffeca59860195ab7da295f7c8e5f",
+          "changed_artifacts": [
+            "skills/autonomous-ai-agents/hermes-agent/SKILL.md",
+            "skills/autonomous-ai-agents/hermes-agent/references/cli-reference.md",
+            "skills/autonomous-ai-agents/hermes-agent/references/configuration.md",
+            "skills/autonomous-ai-agents/hermes-agent/references/contributor-guide.md",
+            "skills/autonomous-ai-agents/hermes-agent/references/desktop-plugins.md",
+            "skills/autonomous-ai-agents/hermes-agent/references/native-mcp.md",
+            "skills/autonomous-ai-agents/hermes-agent/references/portal-auth-for-third-party-apps.md",
+            "skills/autonomous-ai-agents/hermes-agent/references/troubleshooting.md",
+            "skills/autonomous-ai-agents/hermes-agent/references/windows-quirks.md"
+          ],
+          "new_siblings": []
+        }
+      ]
+    },
+    {
+      "repo": "Linked-API/linkedin-skills",
+      "observed_commit": "43aa7d7620ad0cfc2068ace51f90319f8f2d4c03",
+      "error": null,
+      "skills": [
+        {
+          "name": "linkedin",
+          "previous_commit": "e46beb9aea0af3896fd49dd7b39cff1061bf8f6d",
+          "changed_artifacts": [
+            "linkedin/SKILL.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "linkedin-growth",
+          "previous_commit": "e46beb9aea0af3896fd49dd7b39cff1061bf8f6d",
+          "changed_artifacts": [],
+          "new_siblings": []
+        }
+      ]
+    },
+    {
+      "repo": "mattpocock/skills",
+      "observed_commit": "49dd158d1076134a641b33efb035946536778336",
+      "error": null,
+      "skills": [
+        {
+          "name": "grill-me",
+          "previous_commit": "6acc160e4e0cd062dbbbd7a1b26ae92855edf07e",
+          "changed_artifacts": [
+            "skills/productivity/grill-me/SKILL.md",
+            "skills/productivity/grilling/SKILL.md"
+          ],
+          "new_siblings": []
+        }
+      ]
+    },
+    {
+      "repo": "addyosmani/agent-skills",
+      "observed_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+      "error": null,
+      "skills": [
+        {
+          "name": "api-and-interface-design",
+          "previous_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "browser-testing-with-devtools",
+          "previous_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "ci-cd-and-automation",
+          "previous_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "code-review-and-quality",
+          "previous_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "code-simplification",
+          "previous_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "context-engineering",
+          "previous_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "debugging-and-error-recovery",
+          "previous_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "deprecation-and-migration",
+          "previous_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "documentation-and-adrs",
+          "previous_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "changed_artifacts": [
+            "skills/documentation-and-adrs/SKILL.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "doubt-driven-development",
+          "previous_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "frontend-ui-engineering",
+          "previous_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "changed_artifacts": [
+            "skills/frontend-ui-engineering/SKILL.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "git-workflow-and-versioning",
+          "previous_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "idea-refine",
+          "previous_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "changed_artifacts": [
+            "skills/idea-refine/SKILL.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "incremental-implementation",
+          "previous_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "interview-me",
+          "previous_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "observability-and-instrumentation",
+          "previous_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "performance-optimization",
+          "previous_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "changed_artifacts": [
+            "skills/performance-optimization/SKILL.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "planning-and-task-breakdown",
+          "previous_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "security-and-hardening",
+          "previous_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "changed_artifacts": [
+            "skills/security-and-hardening/references/hardening-patterns.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "shipping-and-launch",
+          "previous_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "changed_artifacts": [
+            "skills/shipping-and-launch/SKILL.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "source-driven-development",
+          "previous_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "spec-driven-development",
+          "previous_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "test-driven-development",
+          "previous_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "changed_artifacts": [
+            "skills/test-driven-development/SKILL.md"
+          ],
+          "new_siblings": []
+        },
+        {
+          "name": "using-agent-skills",
+          "previous_commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
+          "changed_artifacts": [],
+          "new_siblings": []
+        }
+      ]
+    },
+    {
+      "repo": "vercel-labs/agent-browser",
+      "observed_commit": "d9570915f4dd6504dee4070379d2c4f79d81dbb2",
+      "error": null,
+      "skills": [
+        {
+          "name": "agent-browser",
+          "previous_commit": "d9570915f4dd6504dee4070379d2c4f79d81dbb2",
+          "changed_artifacts": [],
+          "new_siblings": []
+        }
+      ]
+    },
+    {
+      "repo": "QingYunA/answer-me-with-html",
+      "observed_commit": "5d5b86ddbeea500b7fec6b3e80ad273ad875b005",
+      "error": null,
+      "skills": [
+        {
+          "name": "answer-me-with-html",
+          "previous_commit": "5d5b86ddbeea500b7fec6b3e80ad273ad875b005",
+          "changed_artifacts": [],
+          "new_siblings": []
+        }
+      ]
+    },
+    {
+      "repo": "microsoft/azure-skills",
+      "observed_commit": "0727d81638d64b6888f796287ee00baecfb08ced",
+      "error": null,
+      "skills": [
+        {
+          "name": "azure-diagnostics",
+          "previous_commit": "0727d81638d64b6888f796287ee00baecfb08ced",
+          "changed_artifacts": [],
+          "new_siblings": []
+        }
+      ]
+    },
+    {
+      "repo": "samber/cc-skills-golang",
+      "observed_commit": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
+      "error": null,
+      "skills": [
+        {
+          "name": "golang-benchmark",
+          "previous_commit": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "golang-observability",
+          "previous_commit": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
+          "changed_artifacts": [],
+          "new_siblings": []
+        },
+        {
+          "name": "golang-performance",
+          "previous_commit": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
+          "changed_artifacts": [],
+          "new_siblings": []
+        }
+      ]
+    },
+    {
+      "repo": "mattpocock/skills",
+      "observed_commit": "49dd158d1076134a641b33efb035946536778336",
+      "error": null,
+      "skills": [
+        {
+          "name": "improve-codebase-architecture",
+          "previous_commit": "49dd158d1076134a641b33efb035946536778336",
+          "changed_artifacts": [],
+          "new_siblings": []
+        }
+      ]
+    },
+    {
+      "repo": "ythx-101/live-panel-skill",
+      "observed_commit": "2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1",
+      "error": null,
+      "skills": [
+        {
+          "name": "live-panel",
+          "previous_commit": "2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1",
+          "changed_artifacts": [],
+          "new_siblings": []
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "ordered_pipeline": "passed",
+    "unit_tests_passed": 690,
+    "quality_pass": 297,
+    "quality_warn": 0,
+    "quality_fail": 0,
+    "source_coverage": "294/294",
+    "instruction_findings": 0,
+    "retirement_policy_violations": 0,
+    "skills_python_compile": "passed",
+    "slides_xsd_compile_and_boundary_probes": "passed",
+    "live_vendor_integration": "not_run",
+    "model_behavior_evaluation": "not_run",
+    "merge": "blocked; keep pull request unmerged"
+  },
+  "initial_blockers": [
+    {
+      "repo": "ythx-101/live-panel-skill",
+      "commit": "2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1",
+      "reason": "license review required: immutable license content produced 0 canonical SPDX matches []",
+      "detail": "MIT body includes an additional third-party examples/design rights notice; preserve original license and assets; automatic licensing classification is unresolved."
+    },
+    {
+      "repo": "simota/agent-skills",
+      "commit": "79690595643d8b9f23ca90e05885afefd26ed05c",
+      "reason": "154 changed declared files; incomplete body retrieval and missing shared-protocol compatibility review."
+    },
+    {
+      "repos": [
+        "Graphify-Labs/graphify",
+        "Xquik-dev/x-twitter-scraper",
+        "Linked-API/linkedin-skills",
+        "mattpocock/skills",
+        "NousResearch/hermes-agent"
+      ],
+      "reason": "Tree changes observed; full semantic, runtime-contract and/or retrieval review remains pending. Do not advance unreviewed checkpoints."
+    }
+  ],
+  "blockers": [],
+  "release_resolution": {
+    "authorization": "2026-10-16: user explicitly requested PR merge, main-only branch cleanup and latest release.",
+    "license_scope": "Retain complete pinned MIT code license and GitHub NOASSERTION; exclude three non-original illustration configs, include a new original simulated sample and local licensing reference. Fixed manually maintained snapshot; global license detector unchanged.",
+    "pending_upstream": "Unabsorbed monitor-only updates remain deferred; their observation is not represented as completed semantic review or latest synchronization.",
+    "release": "v4.1.0",
+    "updated_public_skills_including_release_resolution": 35,
+    "historical_engine_evidence": "The automation memory contains the completed 161-entry pre-checkpoint scan and its exact unavailable classification."
+  }
+}

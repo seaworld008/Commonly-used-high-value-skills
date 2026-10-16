@@ -1,0 +1,34 @@
+{
+  "tag": "v4.1.0",
+  "package_version": "4.1.0",
+  "title": "v4.1.0 · 上游契约策展与跨平台修复",
+  "prerelease": false,
+  "generate_notes": false,
+  "changelog_range": "v4.0.0..v4.1.0",
+  "canonical_skills": 294,
+  "highlights": [
+    "Curate engineering, Lark, AKS and Neon contracts while preserving local authorization overlays",
+    "Replace fictional AKS assessment calls with discovered metadata reads and tested privacy projection",
+    "Fix macOS HTML report path aliases without allowing final-file symlinks",
+    "Retain Live Panel MIT code and full notices; replace three third-party illustration configs with an original simulated example",
+    "Preserve all 294 public skill entry points and provenance for the reviewed release scope"
+  ],
+  "release_gates": [
+    "Exact PR head and merged-main Repository Validation, provenance and CodeQL pass",
+    "Zero open Code Scanning alerts on main before publishing",
+    "Complete repository validation, installer matrix and generator idempotence pass",
+    "Downloaded source/npm archives, manifest and SHA256SUMS match the exact merged-main commit"
+  ],
+  "validation_boundaries": {
+    "upstream": "Six source groups reviewed; other monitor-only changes remain queued and are not described as synchronized.",
+    "licensing": "Live Panel is a manually maintained fixed MIT code snapshot with the full upstream notice; non-original illustration configs are excluded. GitHub NOASSERTION is preserved, not overridden.",
+    "runtime": "Static checks and isolated local CLI/projection tests do not certify live Lark, Azure, Neon, X, Hermes or production behavior.",
+    "security": "Zero open Code Scanning alerts describes the configured scanner results, not a proof that every vulnerability is absent."
+  },
+  "compatibility_notes": [
+    "Live Panel examples/codex-agents, examples/airbnb and examples/agent-architecture are no longer distributed; use examples/service-pipeline/config.json or a user-owned configuration",
+    "Updated Slides schema uses gapWidth and overlap instead of the former gap field",
+    "Canonical skill names and the installer CLI remain unchanged"
+  ],
+  "audit": "docs/maintenance-audit-2026-10-16.md"
+}
