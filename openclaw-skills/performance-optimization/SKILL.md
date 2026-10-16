@@ -2,14 +2,14 @@
 name: performance-optimization
 description: 'Investigate and improve measured frontend, backend, query, or database bottlenecks; use profiling and workload evidence to protect the gains.'
 zh_description: "基于测量优化前后端与数据库性能，并用 CI 预算和真实用户监测防止回退。"
-version: "1.0.5"
+version: "1.0.6"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/performance-optimization/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "performance-optimization", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-10-03"
+updated_at: "2026-10-16"
 quality: 5
 complexity: advanced
 upstream_slug: performance-optimization
@@ -57,12 +57,12 @@ Two complementary approaches — use both:
 - **RUM (web-vitals library, CrUX):** Real user data in real conditions. Required to validate that a fix actually improved user experience.
 
 **Frontend:**
-```bash
-# Synthetic: Lighthouse in Chrome DevTools (or CI)
-# Chrome DevTools → Performance tab → Record
-# Chrome DevTools MCP → Performance trace
+```javascript
+// Synthetic: Lighthouse in Chrome DevTools (or CI)
+// Chrome DevTools → Performance tab → Record
+// Chrome DevTools MCP → Performance trace
 
-# RUM: Web Vitals library in code
+// RUM: Web Vitals library in code
 import { onLCP, onINP, onCLS } from 'web-vitals';
 
 onLCP(console.log);
@@ -71,12 +71,12 @@ onCLS(console.log);
 ```
 
 **Backend:**
-```bash
-# Response time logging
-# Application Performance Monitoring (APM)
-# Database query logging with timing
+```javascript
+// Response time logging
+// Application Performance Monitoring (APM)
+// Database query logging with timing
 
-# Simple timing
+// Simple timing
 console.time('db-query');
 const result = await db.query(...);
 console.timeEnd('db-query');

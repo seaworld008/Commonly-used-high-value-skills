@@ -2,14 +2,14 @@
 name: idea-refine
 description: Explore alternatives and stress-test assumptions when refining a vague idea into a concrete concept or evaluating an early plan.
 zh_description: "澄清初步想法，比较方案并检验关键假设。"
-version: "1.0.2"
+version: "1.0.3"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/idea-refine/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "idea-refine", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-09-07"
+updated_at: "2026-10-16"
 quality: 4
 complexity: advanced
 upstream_slug: idea-refine
@@ -17,7 +17,14 @@ upstream_slug: idea-refine
 
 # Idea Refine
 
+## Overview
+
 Refines raw ideas into sharp, actionable concepts worth building through structured divergent and convergent thinking.
+
+## When to Use
+
+- Use when an idea needs shaping, alternative directions, or assumption testing before planning.
+- If the user is unsure what they want, use `interview-me`; if the direction is already chosen and needs a spec, use `spec-driven-development`.
 
 ## How It Works
 
@@ -31,7 +38,7 @@ This skill is primarily an interactive dialogue. Invoke it with an idea, and the
 
 ```bash
 # Optional: Initialize the ideas directory
-bash skills/idea-refine/scripts/idea-refine.sh
+bash "/path/to/idea-refine/scripts/idea-refine.sh"
 ```
 
 **Trigger Phrases:**

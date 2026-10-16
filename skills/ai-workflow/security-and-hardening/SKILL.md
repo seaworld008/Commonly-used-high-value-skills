@@ -2,14 +2,14 @@
 name: security-and-hardening
 description: 'Harden authentication, input handling, storage, and integrations when implementing security controls or remediating concrete vulnerabilities.'
 zh_description: "加固身份认证、输入处理、数据存储和外部集成。"
-version: "1.0.5"
+version: "1.0.6"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/2686b620fc1fed2e8f60c704839c766b8594c6b6/skills/security-and-hardening/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "security-and-hardening", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-09-30"
+updated_at: "2026-10-16"
 quality: 5
 complexity: advanced
 upstream_slug: security-and-hardening
@@ -210,7 +210,7 @@ Read [the detailed procedure and examples](EXTENDED.md#section-1) when working o
 import { z } from 'zod';
 
 const CreateTaskSchema = z.object({
-  title: z.string().min(1).max(200).trim(),
+  title: z.string().max(200).trim().min(1),
   description: z.string().max(2000).optional(),
   priority: z.enum(['low', 'medium', 'high']).default('medium'),
   dueDate: z.string().datetime().optional(),

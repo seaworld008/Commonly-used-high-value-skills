@@ -1,15 +1,15 @@
 ---
 name: lark-doc
-description: '飞书云文档（Docx / Wiki）内容操作：读取、创建、编辑文档，插入或下载图片附件，以及操作思维笔记。用户提供文档 URL/token（包括 doubao.com 的 /docx/、/wiki/）时使用；按 URL 路径/token 而非域名路由。文档内嵌资源按读取参考中的统一规则分流。独立评论操作走 lark-drive；随正文读取评论使用 docs +fetch。表格或 Base 内部数据操作不在本 skill。'
+description: '读取、创建、编辑飞书 Docx/Wiki，处理正文图片、附件与思维笔记。用户提供 /docx/、/wiki/ URL/token（含 doubao.com）时使用；/page/ 是妙搭应用。内嵌资源按读取参考分流；独立评论走 lark-drive，随正文读取评论用 docs +fetch。表格和 Base 数据操作转对应技能。'
 zh_description: "用于读取、编辑和生成飞书云文档内容。"
-version: "1.0.16"
+version: "1.0.17"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-doc"
 license: MIT
 tags: '[feishu, lark, lark-cli, docs, documents]'
 created_at: "2026-05-19"
-updated_at: "2026-09-30"
+updated_at: "2026-10-16"
 quality: 3
 complexity: intermediate
 metadata:
@@ -56,6 +56,7 @@ metadata:
 
 ## 不在本 Skill 范围
 
+- **妙搭应用链接**：`/page/<token>` 指向妙搭应用，不交给 `docs +fetch`；结合宿主实际可用能力处理。
 - **Drive 文件级操作**：找文档、导入导出、云空间文件上传 / 下载 / 权限管理 → [`lark-drive`](../lark-drive/SKILL.md)。复制文档、创建副本或另存为副本时，按其指引使用 `lark-cli drive files copy`；不要用 `docs +fetch` + `docs +create` 重建正文。
 - **独立评论操作**：添加、分页查看、回复评论或增删 reaction → [`lark-drive`](../lark-drive/SKILL.md)；只需紧凑评论上下文时，直接使用默认 JSON 响应的 `docs +fetch`。
 

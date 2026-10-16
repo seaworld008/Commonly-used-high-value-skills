@@ -2,14 +2,14 @@
 name: using-agent-skills
 description: 'Find the most relevant engineering skill when task routing is unclear; load only the guidance needed for the current work.'
 zh_description: "用于选择、加载和正确使用 Agent Skills 完成任务。"
-version: "1.0.3"
+version: "1.0.4"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/using-agent-skills/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "using-agent-skills", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-09-07"
+updated_at: "2026-10-16"
 quality: 4
 complexity: advanced
 upstream_slug: using-agent-skills

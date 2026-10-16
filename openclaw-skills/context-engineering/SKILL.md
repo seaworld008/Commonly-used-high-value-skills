@@ -2,14 +2,14 @@
 name: context-engineering
 description: Diagnose missing or overloaded agent context and configure project instructions when setup or context quality is the task.
 zh_description: "用于设计上下文工程策略、提示输入结构和长任务信息流。"
-version: "1.0.3"
+version: "1.0.4"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/context-engineering/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "context-engineering", "engineering", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-09-14"
+updated_at: "2026-10-16"
 quality: 5
 complexity: advanced
 upstream_slug: context-engineering

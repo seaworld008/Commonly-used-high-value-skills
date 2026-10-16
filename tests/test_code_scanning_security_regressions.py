@@ -102,6 +102,30 @@ class HardenedRendererTests(unittest.TestCase):
             self.assertEqual([], list((root / ".am-pages").glob("*.html")) if (root / ".am-pages").exists() else [])
 
     @unittest.skipIf(os.name == "nt", "symlink fixture requires Unix permissions")
+    def test_patch_accepts_workspace_alias_but_rejects_final_file_symlink(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            workspace = root / "workspace"
+            workspace.mkdir()
+            alias = root / "alias"
+            alias.symlink_to(workspace, target_is_directory=True)
+            rendered = self.command(workspace, "render", "-", text="## Findings\nOriginal\n")
+            self.assertEqual(0, rendered.returncode, rendered.stderr)
+            target = next((workspace / ".am-pages").glob("*.html"))
+            updated = self.command(alias, "patch", str(alias / ".am-pages" / target.name),
+                                   "--panel", "Findings", text="Updated\n")
+            self.assertEqual(0, updated.returncode, updated.stderr)
+            self.assertIn("Updated", target.read_text())
+
+            linked = target.parent / ("am-" + "0" * 24 + ".html")
+            linked.symlink_to(target)
+            before = target.read_bytes()
+            rejected = self.command(workspace, "patch", str(linked),
+                                    "--panel", "Findings", text="Must not write\n")
+            self.assertNotEqual(0, rejected.returncode)
+            self.assertEqual(before, target.read_bytes())
+
+    @unittest.skipIf(os.name == "nt", "symlink fixture requires Unix permissions")
     def test_rejects_symlinked_output_root(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

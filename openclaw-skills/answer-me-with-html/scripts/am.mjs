@@ -139,8 +139,10 @@ function writeNew(draft){
   console.log('✓ '+filename);
 }
 function openOwned(filename){
-  const root=workspace(),full=path.resolve(filename);
-  if(path.dirname(full)!==root || !SAFE_NAME.test(path.basename(full)))fail('page is not a managed report path');
+  const root=workspace(),requested=path.resolve(filename);
+  if(!SAFE_NAME.test(path.basename(requested)) || fs.realpathSync(path.dirname(requested))!==root)
+    fail('page is not a managed report path');
+  const full=path.join(root,path.basename(requested));
   const fd=fs.openSync(full,fs.constants.O_RDWR|fs.constants.O_NOFOLLOW);
   const stat=fs.fstatSync(fd);
   if(!stat.isFile() || stat.size>MAX_PAGE){fs.closeSync(fd);fail('unsafe or oversized page');}

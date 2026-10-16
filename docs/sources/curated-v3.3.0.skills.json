@@ -2,7 +2,7 @@
   "schema_version": 2,
   "video": {
     "url": "https://github.com/seaworld008/Commonly-used-high-value-skills",
-    "checked_at": "2026-10-12",
+    "checked_at": "2026-10-16",
     "note": "Immutable curated v3.3.0 source overlays"
   },
   "official_references": [
@@ -321,7 +321,7 @@
             "ref": "5d5b86ddbeea500b7fec6b3e80ad273ad875b005",
             "resolved_commit": "5d5b86ddbeea500b7fec6b3e80ad273ad875b005",
             "path_commit": "5d5b86ddbeea500b7fec6b3e80ad273ad875b005",
-            "content_sha256": "7c6cdd8d3cddf506f2b63e2a5c9726fe37d459d99cc246a380f16b3bfafbcea8",
+            "content_sha256": "179846a41307b9b40dfc410f05aea6eeb225784de277b42064a27a966d36bb57",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "17eca290eefa4fa9d5594edcad845be8df899eb0",
@@ -339,7 +339,7 @@
         {
           "path": "skills/office-white-collar/answer-me-with-html/SKILL.md",
           "owner": "answer-me-with-html",
-          "sha256": "7c6cdd8d3cddf506f2b63e2a5c9726fe37d459d99cc246a380f16b3bfafbcea8",
+          "sha256": "179846a41307b9b40dfc410f05aea6eeb225784de277b42064a27a966d36bb57",
           "mode": "100644"
         },
         {
@@ -363,7 +363,7 @@
         {
           "path": "skills/office-white-collar/answer-me-with-html/scripts/am.mjs",
           "owner": "answer-me-with-html",
-          "sha256": "a30948377dd7cb6530b4c13fa86033698769f146ee82a45d5ed0efc013d6da61",
+          "sha256": "7bc60ecd533cf0e89af9f1d8a9cc6f7927a454f511ce0b30a06434e5cfba16e1",
           "mode": "100755"
         }
       ],
@@ -380,8 +380,8 @@
         "repo": "microsoft/azure-skills",
         "path": "skills/azure-diagnostics/SKILL.md",
         "ref": "0727d81638d64b6888f796287ee00baecfb08ced",
-        "last_checked_at": "2026-10-12",
-        "last_synced_at": "2026-10-12",
+        "last_checked_at": "2026-10-16",
+        "last_synced_at": "2026-10-16",
         "last_synced_commit": "0727d81638d64b6888f796287ee00baecfb08ced",
         "sync_mode": "monitor",
         "path_commit": "0727d81638d64b6888f796287ee00baecfb08ced"
@@ -675,8 +675,8 @@
               "resolved_commit": "0727d81638d64b6888f796287ee00baecfb08ced",
               "api_spdx": "MIT"
             },
-            "last_checked_at": "2026-10-12",
-            "last_synced_at": "2026-10-12"
+            "last_checked_at": "2026-10-16",
+            "last_synced_at": "2026-10-16"
           }
         }
       ],
@@ -1746,6 +1746,15 @@
         }
       ],
       "curation_note": "2026-10-12 v4.0.0 security response: static template forbids query-string-config fetch; CSP blocks network connections; local embedded-config animation and selected references remain. Provenance is an MIT-authorized local overlay, not byte-exact upstream code."
+    }
+  ],
+  "verification_attempts": [
+    {
+      "date": "2026-10-16",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "microsoft/azure-skills@0727d81638d64b6888f796287ee00baecfb08ced",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
     }
   ]
 }

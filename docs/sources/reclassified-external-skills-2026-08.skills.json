@@ -2,7 +2,7 @@
   "schema_version": 2,
   "video": {
     "url": "https://github.com/seaworld008/Commonly-used-high-value-skills",
-    "checked_at": "2026-09-14",
+    "checked_at": "2026-10-16",
     "note": "External canonical skills reclassified from the legacy in-house provenance mapping."
   },
   "collection": {
@@ -353,6 +353,20 @@
       "target": "supabase/agent-skills@c9be0e931b7930f7d02126d04774d904c381e7d7",
       "result": "success",
       "evidence": "Compared complete declared artifacts and new regular siblings at fixed commits; decisions, rejected forced gates and marketing-only changes are recorded in docs/maintenance-followup-2026-10-03.json. Static/source review is not live product or model acceptance."
+    },
+    {
+      "date": "2026-10-16",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "microsoft/azure-skills@d1736f313f7a5259006325d8c9dbce046ed128c0",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-10-16",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "neondatabase/agent-skills@5e693d6d5ddbe11d72c93e3b594ecfe574de44b2",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
     }
   ],
   "skills": [
@@ -515,11 +529,11 @@
         "repo": "microsoft/azure-skills",
         "path": "skills/azure-kubernetes/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-03",
-        "last_synced_at": "2026-10-03",
-        "last_synced_commit": "74f27068b21b85807e35ae69ab3976756b060c03",
+        "last_checked_at": "2026-10-16",
+        "last_synced_at": "2026-10-16",
+        "last_synced_commit": "d1736f313f7a5259006325d8c9dbce046ed128c0",
         "sync_mode": "monitor",
-        "path_commit": "3b087be2faf4ff65bedf693986c3446f97645e7f"
+        "path_commit": "0727d81638d64b6888f796287ee00baecfb08ced"
       },
       "kind": "mirror",
       "sync_mode": "monitor",
@@ -771,6 +785,11 @@
               "type": "file"
             },
             {
+              "source": "skills/azure-kubernetes/azure-kubernetes-automatic-readiness/scripts/sanitize-readiness-input.jq",
+              "target": "skills/devops-sre/azure-kubernetes/azure-kubernetes-automatic-readiness/scripts/sanitize-readiness-input.jq",
+              "type": "file"
+            },
+            {
               "source": "skills/azure-kubernetes/references/azure-aks-autoscaler.md",
               "target": "skills/devops-sre/azure-kubernetes/references/azure-aks-autoscaler.md",
               "type": "file"
@@ -794,22 +813,27 @@
               "source": "skills/azure-kubernetes/references/cli-reference.md",
               "target": "skills/devops-sre/azure-kubernetes/references/cli-reference.md",
               "type": "file"
+            },
+            {
+              "source": "skills/azure-kubernetes/references/optional-aks-operations.md",
+              "target": "skills/devops-sre/azure-kubernetes/references/optional-aks-operations.md",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "74f27068b21b85807e35ae69ab3976756b060c03",
-            "path_commit": "3b087be2faf4ff65bedf693986c3446f97645e7f",
-            "content_sha256": "766915a730a1e5e592d05218fec5c69f3e7afa9dc9bcb091ccb1634640eaeaa6",
-            "last_checked_at": "2026-10-03",
-            "last_synced_at": "2026-10-03",
+            "resolved_commit": "d1736f313f7a5259006325d8c9dbce046ed128c0",
+            "path_commit": "0727d81638d64b6888f796287ee00baecfb08ced",
+            "content_sha256": "639bc4ca60aaf1e94943b27da0e54aace3a0883e4f31de4374e41ff5cf4829c3",
+            "last_checked_at": "2026-10-16",
+            "last_synced_at": "2026-10-16",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "356b112bcc4f07e03b6e57569eedf9d79978d2d5",
               "content_sha256": "8a5d8efb70942e65032f930c761d097feeb41a7517ebd04c9d2e4ec3764071c5",
               "spdx": "MIT",
-              "resolved_commit": "74f27068b21b85807e35ae69ab3976756b060c03",
+              "resolved_commit": "d1736f313f7a5259006325d8c9dbce046ed128c0",
               "api_spdx": "MIT"
             }
           }
@@ -819,7 +843,7 @@
         {
           "path": "skills/devops-sre/azure-kubernetes/SKILL.md",
           "owner": "azure-kubernetes",
-          "sha256": "766915a730a1e5e592d05218fec5c69f3e7afa9dc9bcb091ccb1634640eaeaa6",
+          "sha256": "639bc4ca60aaf1e94943b27da0e54aace3a0883e4f31de4374e41ff5cf4829c3",
           "mode": "100644"
         },
         {
@@ -1077,37 +1101,43 @@
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-automatic-readiness/SKILL.md",
           "owner": "azure-kubernetes",
-          "sha256": "edb3cf2c27742796dc03cffcd96963964ee989a92bbdc9d1483ae8fd8369998d",
+          "sha256": "f798aed311d6e692adbb4aeb38a2cf9203e7922ac34f8add0509e0771a0623a7",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-automatic-readiness/references/common-fixes.md",
           "owner": "azure-kubernetes",
-          "sha256": "6197c9fdbc3efcc26ef8984803b8a1bcc464443a7b84420c8800e884602befd0",
+          "sha256": "cc1416d3daf5d46215e049870701d31a76e1f5435e6a31490ac25d5242c39079",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-automatic-readiness/references/constraint-spec-v1.yaml",
           "owner": "azure-kubernetes",
-          "sha256": "51f67a31dab3fcc1bd3b1d82200439451c8f7acf93a4418d423a0c637c874bda",
+          "sha256": "812441aba3acbaec6c52d14a0451e0e7e03c01871aa67a1cff887cae7251dd44",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-automatic-readiness/references/mcp-integration.md",
           "owner": "azure-kubernetes",
-          "sha256": "77da9a1a84ba0e48e91c3798772d97791227235b9eeda2fca8cfb9f523eb0737",
+          "sha256": "54ffeec6cd459ab24ea7ae5ba0ec3d03395f99de6ff9fc311e312ed366f87315",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-automatic-readiness/references/migration-guide-summary.md",
           "owner": "azure-kubernetes",
-          "sha256": "81e555345e5b75c7bb9107e97f8a26206a02510378f05e0c1012d4df828244ce",
+          "sha256": "5988647b7eb6206474c4a43a470c25c05998788e97150b94a1d1ed3e7a73451b",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-automatic-readiness/scripts/sanitize-readiness-input.jq",
+          "owner": "azure-kubernetes",
+          "sha256": "bae0d43d5c36fab6acb75174e16bfa62b1b09cb07768ba2341913e0ecef61362",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/azure-kubernetes/references/azure-aks-autoscaler.md",
           "owner": "azure-kubernetes",
-          "sha256": "715444b6f1fd638c57b0275d822ff9117e99e0f52d6d0dc2d6584fa81c08e967",
+          "sha256": "b759daff511a30e35c2948f7a92a6c2ce18ce47b3345f3f382a3094482736d08",
           "mode": "100644"
         },
         {
@@ -1119,7 +1149,7 @@
         {
           "path": "skills/devops-sre/azure-kubernetes/references/azure-aks-spot.md",
           "owner": "azure-kubernetes",
-          "sha256": "3e91bb2bc5cb3b11a05bc9dcc4a33e7cc8f1fc3d61bf8c3712cc26cea5f52c11",
+          "sha256": "b477bf746cd844986c44e953a72034ab5ca32971f746a2166f556eefd8f2b91a",
           "mode": "100644"
         },
         {
@@ -1132,6 +1162,12 @@
           "path": "skills/devops-sre/azure-kubernetes/references/cli-reference.md",
           "owner": "azure-kubernetes",
           "sha256": "b3c5588bd3abf50244c984f6ee79cfa4d6d157a9ac488a1cc6bf20060087d7f3",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/references/optional-aks-operations.md",
+          "owner": "azure-kubernetes",
+          "sha256": "1039c4433965c110343b398b0f4efa2b40be32d733532b529dbd2b396fb84c20",
           "mode": "100644"
         }
       ]
@@ -1483,11 +1519,11 @@
         "repo": "neondatabase/agent-skills",
         "path": "skills/neon-postgres/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-03",
-        "last_synced_at": "2026-10-03",
-        "last_synced_commit": "ae082b22275461fbb5e303a1bcdc9bb00b73a946",
+        "last_checked_at": "2026-10-16",
+        "last_synced_at": "2026-10-16",
+        "last_synced_commit": "5e693d6d5ddbe11d72c93e3b594ecfe574de44b2",
         "sync_mode": "monitor",
-        "path_commit": "dd290a9d92e8ed9d80365337bd78c9f0ddfbaed3"
+        "path_commit": "f333dd0a59b93f484770d2331de45dddefd3dbf8"
       },
       "kind": "mirror",
       "sync_mode": "monitor",
@@ -1526,17 +1562,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "ae082b22275461fbb5e303a1bcdc9bb00b73a946",
-            "path_commit": "dd290a9d92e8ed9d80365337bd78c9f0ddfbaed3",
-            "content_sha256": "d56bc858a7f603227b8343bb5d527ba381a6b9b9cc2234e87d2cba9195f9aa5e",
-            "last_checked_at": "2026-10-03",
-            "last_synced_at": "2026-10-03",
+            "resolved_commit": "5e693d6d5ddbe11d72c93e3b594ecfe574de44b2",
+            "path_commit": "f333dd0a59b93f484770d2331de45dddefd3dbf8",
+            "content_sha256": "eb24b189864802cca8b094da00557c5600517dca7c8b2f30bca82ad8e6f38ccf",
+            "last_checked_at": "2026-10-16",
+            "last_synced_at": "2026-10-16",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
               "content_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
               "spdx": "Apache-2.0",
-              "resolved_commit": "ae082b22275461fbb5e303a1bcdc9bb00b73a946",
+              "resolved_commit": "5e693d6d5ddbe11d72c93e3b594ecfe574de44b2",
               "api_spdx": "Apache-2.0"
             }
           }
@@ -1546,31 +1582,31 @@
         {
           "path": "skills/developer-engineering/neon-postgres/SKILL.md",
           "owner": "neon-postgres",
-          "sha256": "d56bc858a7f603227b8343bb5d527ba381a6b9b9cc2234e87d2cba9195f9aa5e",
+          "sha256": "eb24b189864802cca8b094da00557c5600517dca7c8b2f30bca82ad8e6f38ccf",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/neon-postgres/references/full-text-search.md",
           "owner": "neon-postgres",
-          "sha256": "025d4380ccfe8e2c745687d82ed6182d501d5678a3941112f37f58bac38e7db4",
+          "sha256": "ddeb529f7a6c520b4a94007f6196c47ed8f632b764b8be31e37a7b51324c8186",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/neon-postgres/references/hybrid-search.md",
           "owner": "neon-postgres",
-          "sha256": "80b9b1a9974c41eea80bfa4159c5be2b89ca0caaf96b06356ce60d49b2443f90",
+          "sha256": "4cd691c80744e64696661dad03eea4e0eb668493e97b82c16400477f1e6c1ecc",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/neon-postgres/references/lakebase-search-drizzle.md",
           "owner": "neon-postgres",
-          "sha256": "9d5193830642719ecd325dd60f2ffc7c1104055e9c7c4f4828963299adb234b7",
+          "sha256": "5f62c91d98e1d8cc2981b07e12e8ffeacbe4d855bb2f91897c1c8d4d625932db",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/neon-postgres/references/vector-search.md",
           "owner": "neon-postgres",
-          "sha256": "4d7c14f1940033e2c379be62f00ef5ba5e17878a44bc11957a5176f91c2aa0ac",
+          "sha256": "1a8e15b0ff2b965c791b19945fc36f444e47f5aeb1fa321291e609e15f0347f6",
           "mode": "100644"
         }
       ]
@@ -1586,9 +1622,9 @@
         "repo": "neondatabase/agent-skills",
         "path": "skills/neon-postgres-egress-optimizer/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-03",
-        "last_synced_at": "2026-10-03",
-        "last_synced_commit": "ae082b22275461fbb5e303a1bcdc9bb00b73a946",
+        "last_checked_at": "2026-10-16",
+        "last_synced_at": "2026-10-16",
+        "last_synced_commit": "5e693d6d5ddbe11d72c93e3b594ecfe574de44b2",
         "sync_mode": "monitor",
         "path_commit": "e5a62ea5e1f44fa39be6017c7b6251e6d2363d5a"
       },
@@ -1609,17 +1645,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "ae082b22275461fbb5e303a1bcdc9bb00b73a946",
+            "resolved_commit": "5e693d6d5ddbe11d72c93e3b594ecfe574de44b2",
             "path_commit": "e5a62ea5e1f44fa39be6017c7b6251e6d2363d5a",
             "content_sha256": "7b0bf839197895bcbd23d26a8ced1fd1ce2f55d2f2e3af413e3ab130151f74d0",
-            "last_checked_at": "2026-10-03",
-            "last_synced_at": "2026-10-03",
+            "last_checked_at": "2026-10-16",
+            "last_synced_at": "2026-10-16",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
               "content_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
               "spdx": "Apache-2.0",
-              "resolved_commit": "ae082b22275461fbb5e303a1bcdc9bb00b73a946",
+              "resolved_commit": "5e693d6d5ddbe11d72c93e3b594ecfe574de44b2",
               "api_spdx": "Apache-2.0"
             }
           }

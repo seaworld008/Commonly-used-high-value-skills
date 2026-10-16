@@ -2,14 +2,14 @@
 name: systematic-debugging
 description: 'Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes'
 zh_description: "通过复现、假设检验和证据定位故障根因。"
-version: "1.0.5"
+version: "1.0.6"
 author: seaworld008
 source: "github:obra/superpowers"
 source_url: "https://github.com/obra/superpowers/tree/main/skills/systematic-debugging"
 license: MIT
 tags: '["debugging", "development", "systematic"]'
 created_at: "2026-03-27"
-updated_at: "2026-09-28"
+updated_at: "2026-10-16"
 quality: 4
 complexity: intermediate
 ---
@@ -99,11 +99,11 @@ You MUST complete each phase before proceeding to the next.
    ```bash
    # Layer 1: Workflow
    echo "=== Secrets available in workflow: ==="
-   echo "IDENTITY: ${IDENTITY:+SET}${IDENTITY:-UNSET}"
+   if [ -n "${IDENTITY:-}" ]; then echo "IDENTITY: SET"; else echo "IDENTITY: UNSET"; fi
 
    # Layer 2: Build script
    echo "=== Env vars in build script: ==="
-   env | grep IDENTITY || echo "IDENTITY not in environment"
+   printenv IDENTITY >/dev/null 2>&1 && echo "IDENTITY in environment" || echo "IDENTITY not in environment"
 
    # Layer 3: Signing script
    echo "=== Keychain state: ==="
