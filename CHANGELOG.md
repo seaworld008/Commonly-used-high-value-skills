@@ -8,13 +8,21 @@ All notable changes to this repository are documented here.
 <!-- AUTO-CHANGELOG:START -->
 ### 自动更新 / Automated updates
 
+变更范围 / Revision range: `v4.1.0..HEAD`.
+
+此范围内暂无可归类的变更。 / No categorized changes in this range.
+<!-- AUTO-CHANGELOG:END -->
+
+## [4.1.0] - 2026-10-16
+
+### 自动更新 / Automated updates
+
 变更范围 / Revision range: `v4.0.0..acb33151d63eac7cb500c5543e1a038e48701efe`.
 
 #### [2026-10-16]
 
 ##### Fixed
 - curate upstream contracts and renderer paths
-<!-- AUTO-CHANGELOG:END -->
 
 ## [4.0.0] - 2026-10-12
 
