@@ -5,12 +5,12 @@
 [![简体中文](https://img.shields.io/badge/README-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1677ff)](./README.md)
 [![English](https://img.shields.io/badge/README-English-111111)](./README.en.md)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b894)](./openclaw-skills/README.md)
-[![Skills](https://img.shields.io/badge/Skills-294-7c3aed)](./skills/)
+[![Skills](https://img.shields.io/badge/Skills-295-7c3aed)](./skills/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
 A high-value skills repository for AI developers, organized by real work scenarios such as developer engineering, DevOps, automation, finance, design, knowledge workflows, and reliability.
 
-This repository currently contains **16 categories / 294 skills**.
+This repository currently contains **16 categories / 295 skills**.
 
 
 ## v4.1.0 Upstream Contracts and Cross-platform Fixes
@@ -374,7 +374,7 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 2. Open the relevant `SKILL.md` and read its triggers, workflow, boundaries, and scripts.
 3. If a skill includes `scripts/`, `references/`, or `assets/`, reuse those files before recreating similar content.
 
-## Skill Overview (by category, 16 categories / 294 skills)
+## Skill Overview (by category, 16 categories / 295 skills)
 
 <a id="cat-developer-engineering"></a>
 ### 1. Developer Engineering (developer-engineering, 52)
@@ -519,7 +519,7 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`yeet`](./skills/engineering-workflow-automation/yeet/)
 
 <a id="cat-devops-sre"></a>
-### 5. DevOps / SRE (devops-sre, 14)
+### 5. DevOps / SRE (devops-sre, 15)
 
 - [`azure-diagnostics`](./skills/devops-sre/azure-diagnostics/)
 - [`azure-kubernetes`](./skills/devops-sre/azure-kubernetes/)
@@ -531,6 +531,7 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`github-ops`](./skills/devops-sre/github-ops/)
 - [`golang-observability`](./skills/devops-sre/golang-observability/)
 - [`incident-commander`](./skills/devops-sre/incident-commander/)
+- [`legacy-php-runtime-migration`](./skills/devops-sre/legacy-php-runtime-migration/)
 - [`observability-designer`](./skills/devops-sre/observability-designer/)
 - [`release-manager`](./skills/devops-sre/release-manager/)
 - [`senior-architect`](./skills/devops-sre/senior-architect/)
