@@ -11144,7 +11144,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "cc9d4c6942100f6cd817171303e3c050a13e27579e925c6f237d47cdd31823bf",
+            "content_sha256": "12d684c2ac1a89662ff22cbc27c7b4378399d0c5e12f88a5b191be024b010538",
             "last_checked_at": "2026-10-23",
             "last_synced_at": "2026-10-23"
           }
@@ -11155,13 +11155,13 @@
         {
           "path": "skills/devops-sre/legacy-php-runtime-migration/SKILL.md",
           "owner": "legacy-php-runtime-migration",
-          "sha256": "cc9d4c6942100f6cd817171303e3c050a13e27579e925c6f237d47cdd31823bf",
+          "sha256": "12d684c2ac1a89662ff22cbc27c7b4378399d0c5e12f88a5b191be024b010538",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/legacy-php-runtime-migration/references/nginx-hot-upgrade.md",
           "owner": "legacy-php-runtime-migration",
-          "sha256": "bbe3a994fd4986a9dc653c508d8a98e93beb5ddc9f71ba503ead424ec454958f",
+          "sha256": "579ea44c26435065d83b917f5ba7bc650976d5cc5c883649504d2f811ba08d23",
           "mode": "100644"
         },
         {

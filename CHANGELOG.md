@@ -17,6 +17,9 @@ All notable changes to this repository are documented here.
 
 ##### Changed
 - add in-house legacy-php-runtime-migration (devops-sre)
+
+##### Fixed
+- legacy-php-runtime-migration 1.0.1 addresses Codex review findings
 <!-- AUTO-CHANGELOG:END -->
 
 ## [4.1.0] - 2026-10-16
