@@ -2,7 +2,7 @@
 name: legacy-php-runtime-migration
 description: 'Migrate end-of-life PHP on long-lived hosts (Remi, OneinStack, CentOS 7) to vendor-patched builds or same-path containers without changing code, nginx, cron or paths: parity, side-by-side FPM checks, staged cutover, rollback.'
 zh_description: "在不改代码、nginx 配置、定时任务和目录的前提下，把宿主机上停止维护的 PHP 换成带补丁的版本或同路径容器：补丁证据、盘点、实际配置对齐、新旧 FPM 并行对比、可回滚的分步切换和切换后验证。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
@@ -67,18 +67,19 @@ x-php: &php
 services:
   php72-fpm:
     <<: *php
-    command: ["php-fpm"]
+    command: ["php-fpm"]                        # 入口脚本执行 php-fpm7.2 -F，前台运行
     cap_add: [SYS_PTRACE]                       # 只在池配置开了慢日志时需要
     volumes:
       - /srv/www:/srv/www                       # 代码、上传、业务日志，按原路径挂载
       - /var/log/php-fpm:/var/log/php-fpm
       - /var/lib/php/session:/var/lib/php/session
+      - ./conf/php-fpm.conf:/etc/php/7.2/fpm/php-fpm.conf:ro     # [global] daemonize = no，pid、error_log 指向容器内路径
       - ./conf/php.ini:/etc/php/7.2/fpm/php.ini:ro               # 宿主机原文件的副本
       - ./conf/www.conf:/etc/php/7.2/fpm/pool.d/www.conf:ro
       - ./conf/zz-host-parity-fpm.ini:/etc/php/7.2/fpm/conf.d/99-zz-host-parity.ini:ro
   php72-cli:
     <<: *php
-    command: ["supervisord"]
+    command: ["supervisord"]                    # 入口脚本执行 supervisord -n，前台运行
     volumes:
       - /srv/www:/srv/www
       - /tmp:/tmp                               # 宿主机上的命令行 PHP 本来就和其他程序共用 /tmp
@@ -89,6 +90,8 @@ services:
       - /var/run/supervisor:/var/run/supervisor  # 宿主机的 supervisorctl 通过同一个 socket 管理
       - /var/log/supervisor:/var/log/supervisor
 ```
+
+两个容器的主进程都必须在前台运行：tini 作为 1 号进程，入口脚本建好账号后执行 `php-fpm7.2 -F` 或 `supervisord -n`。如果直接用发行版默认配置启动（`daemonize = yes`），FPM 会转入后台，主进程退出，容器随之停止，nginx 就找不到监听端口。
 
 转发脚本的核心（`/usr/bin/php` 以 root 身份直接调用它，其他用户经 sudo 调用）：
 

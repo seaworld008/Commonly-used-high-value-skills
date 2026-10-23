@@ -2788,7 +2788,7 @@
       "name": "legacy-php-runtime-migration",
       "category": "devops-sre",
       "description": "Migrate end-of-life PHP on long-lived hosts (Remi, OneinStack, CentOS 7) to vendor-patched builds or same-path containers without changing code, nginx, cron or paths: parity, side-by-side FPM checks, staged cutover, rollback.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -2806,7 +2806,7 @@
       "complexity": "advanced",
       "created_at": "2026-10-23",
       "updated_at": "2026-10-23",
-      "line_count": 233,
+      "line_count": 236,
       "path": "skills/devops-sre/legacy-php-runtime-migration/SKILL.md"
     },
     {

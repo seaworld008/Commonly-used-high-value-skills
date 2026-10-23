@@ -19,6 +19,7 @@ tar czf nginx-conf-backup.tgz -C /usr/local/nginx conf
 # 生成"域名 × 端口"清单，记录基线：每个目标请求首页和一个不存在的地址
 python3 tools/nginx_targets.py --probe nginx-T.txt > targets.tsv
 bash tools/http_probe.sh < targets.tsv > baseline-before.tsv
+head -n 30 targets.tsv > spot.tsv      # 切换时用来抽查的子集，也可以改为只挑核心域名
 ```
 
 ## 平滑切换
@@ -27,7 +28,7 @@ bash tools/http_probe.sh < targets.tsv > baseline-before.tsv
 cp -p sbin/nginx sbin/nginx-旧版本.bak && install -m 755 nginx-new sbin/nginx
 kill -USR2 $(cat logs/nginx.pid)          # 用新程序拉起新 master；旧 pid 文件改名为 nginx.pid.oldbin
 sleep 2; kill -WINCH $(cat logs/nginx.pid.oldbin)   # 旧 worker 处理完手上的请求后退出
-bash tools/http_probe.sh < spot.tsv > spot-check.tsv   # 抽查一批目标
+bash tools/http_probe.sh < spot.tsv > spot-check.tsv   # 抽查一批目标，与 baseline-before.tsv 中对应的行对比
 kill -QUIT $(cat logs/nginx.pid.oldbin)   # 抽查一致后，退出旧 master
 ```
 
