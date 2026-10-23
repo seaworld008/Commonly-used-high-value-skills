@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://github.com/seaworld008/Commonly-used-high-value-skills",
-    "checked_at": "2026-09-22",
+    "checked_at": "2026-10-23",
     "note": "Auto-generated provenance mapping for all local skills."
   },
   "official_references": [
@@ -11085,6 +11085,101 @@
           "path": "skills/engineering-workflow-automation/jupyter-notebook/scripts/new_notebook.py",
           "owner": "jupyter-notebook",
           "sha256": "a004e2ea3115edb24313928be0be6d1dc07e571d7ca6c1b24375f0569c616d2f",
+          "mode": "100644"
+        }
+      ]
+    },
+    {
+      "video_name": "legacy-php-runtime-migration",
+      "normalized_slug": "legacy-php-runtime-migration",
+      "status": "in_house",
+      "repo_skill": "skills/devops-sre/legacy-php-runtime-migration/SKILL.md",
+      "source": "https://github.com/seaworld008/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/devops-sre/legacy-php-runtime-migration",
+        "ref": "main",
+        "last_checked_at": "2026-10-23",
+        "last_synced_at": "2026-10-23",
+        "last_synced_commit": null,
+        "sync_mode": "local-only"
+      },
+      "kind": "in_house",
+      "origins": [
+        {
+          "repo": "local-repo/in-house",
+          "path": "skills/devops-sre/legacy-php-runtime-migration",
+          "license": "MIT",
+          "sync_mode": "local-only",
+          "artifacts": [
+            {
+              "source": "skills/devops-sre/legacy-php-runtime-migration/SKILL.md",
+              "target": "skills/devops-sre/legacy-php-runtime-migration/SKILL.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/devops-sre/legacy-php-runtime-migration/references/nginx-hot-upgrade.md",
+              "target": "skills/devops-sre/legacy-php-runtime-migration/references/nginx-hot-upgrade.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/devops-sre/legacy-php-runtime-migration/references/pitfalls.md",
+              "target": "skills/devops-sre/legacy-php-runtime-migration/references/pitfalls.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/devops-sre/legacy-php-runtime-migration/references/production-safety.md",
+              "target": "skills/devops-sre/legacy-php-runtime-migration/references/production-safety.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/devops-sre/legacy-php-runtime-migration/references/verification.md",
+              "target": "skills/devops-sre/legacy-php-runtime-migration/references/verification.md",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "local",
+            "ref": "main",
+            "resolved_commit": null,
+            "path_commit": null,
+            "content_sha256": "cc9d4c6942100f6cd817171303e3c050a13e27579e925c6f237d47cdd31823bf",
+            "last_checked_at": "2026-10-23",
+            "last_synced_at": "2026-10-23"
+          }
+        }
+      ],
+      "sync_mode": "local-only",
+      "managed_files": [
+        {
+          "path": "skills/devops-sre/legacy-php-runtime-migration/SKILL.md",
+          "owner": "legacy-php-runtime-migration",
+          "sha256": "cc9d4c6942100f6cd817171303e3c050a13e27579e925c6f237d47cdd31823bf",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/legacy-php-runtime-migration/references/nginx-hot-upgrade.md",
+          "owner": "legacy-php-runtime-migration",
+          "sha256": "bbe3a994fd4986a9dc653c508d8a98e93beb5ddc9f71ba503ead424ec454958f",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/legacy-php-runtime-migration/references/pitfalls.md",
+          "owner": "legacy-php-runtime-migration",
+          "sha256": "7a34287d98a09a6a211b326f554e0db738c760da014374d39287e31e86a05097",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/legacy-php-runtime-migration/references/production-safety.md",
+          "owner": "legacy-php-runtime-migration",
+          "sha256": "cd63863f6ac552831fa5534043b6c6fdc6a0c26855815069792a805fff6df6c3",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/legacy-php-runtime-migration/references/verification.md",
+          "owner": "legacy-php-runtime-migration",
+          "sha256": "98d6bd9af09e3afe14fd5cc5d1ebaf0db6e2f1b41eb04b2b1bb64206916d6623",
           "mode": "100644"
         }
       ]
@@ -22341,6 +22436,13 @@
       "target": "skills/*/*/SKILL.md",
       "result": "success",
       "evidence": "Merged provenance for 130 local skills"
+    },
+    {
+      "date": "2026-10-23",
+      "method": "local-scan",
+      "target": "skills/*/*/SKILL.md",
+      "result": "success",
+      "evidence": "Merged provenance for 131 local skills"
     }
   ],
   "schema_version": 2

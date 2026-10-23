@@ -4,7 +4,7 @@
 
 面向发布、CI/CD、可观测性、故障响应和环境治理的技能集合。
 
-当前分类共 **14** 个技能。
+当前分类共 **15** 个技能。
 
 ## 推荐先看
 
@@ -27,6 +27,7 @@
 | `github-ops` | 用于 GitHub 运维、仓库管理、PR/Issue 流程和自动化协作。 | [目录](./github-ops/) | [SKILL.md](./github-ops/SKILL.md) |
 | `golang-observability` | 为 Go 服务设计 slog、OpenTelemetry、Prometheus、持续剖析及可靠性告警。 | [目录](./golang-observability/) | [SKILL.md](./golang-observability/SKILL.md) |
 | `incident-commander` | 用于事故响应中的分诊、角色分配、沟通协调、缓解跟踪和复盘。 | [目录](./incident-commander/) | [SKILL.md](./incident-commander/SKILL.md) |
+| `legacy-php-runtime-migration` | 在不改代码、nginx 配置、定时任务和目录的前提下，把宿主机上停止维护的 PHP 换成带补丁的版本或同路径容器：补丁证据、盘点、实际配置对齐、新旧 FPM 并行对比、可回滚的分步切换和切换后验证。 | [目录](./legacy-php-runtime-migration/) | [SKILL.md](./legacy-php-runtime-migration/SKILL.md) |
 | `observability-designer` | 设计日志、指标、链路追踪、告警和服务运行目标。 | [目录](./observability-designer/) | [SKILL.md](./observability-designer/SKILL.md) |
 | `release-manager` | 组织版本、变更记录、发布制品和发布后验证。 | [目录](./release-manager/) | [SKILL.md](./release-manager/SKILL.md) |
 | `senior-architect` | 分析系统架构、依赖、扩展性和关键技术取舍。 | [目录](./senior-architect/) | [SKILL.md](./senior-architect/SKILL.md) |

@@ -5,10 +5,10 @@
 [![简体中文](https://img.shields.io/badge/README-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1677ff)](./README.md)
 [![English](https://img.shields.io/badge/README-English-111111)](./README.en.md)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b894)](./openclaw-skills/README.md)
-[![Skills](https://img.shields.io/badge/Skills-294-7c3aed)](./skills/)
+[![Skills](https://img.shields.io/badge/Skills-295-7c3aed)](./skills/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
-面向全球 AI 开发者与 Agent 工作流构建者的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理等高频任务场景。当前共 **16 个分类 / 294 个技能**。
+面向全球 AI 开发者与 Agent 工作流构建者的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理等高频任务场景。当前共 **16 个分类 / 295 个技能**。
 
 ## 为什么值得收藏
 
@@ -386,7 +386,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 2. 打开对应技能的 `SKILL.md` 查看触发条件、操作流程和脚本说明。
 3. 若技能下含 `scripts/`、`references/`、`assets/`，优先复用现成内容。
 
-## 技能总览（按分类，16 类 / 294 技能）
+## 技能总览（按分类，16 类 / 295 技能）
 
 <a id="cat-developer-engineering"></a>
 ### 1. 开发工程（developer-engineering，52）
@@ -531,7 +531,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `yeet`：按用户要求暂存、提交、推送改动并创建 GitHub PR。
 
 <a id="cat-devops-sre"></a>
-### 5. DevOps / SRE（devops-sre，14）
+### 5. DevOps / SRE（devops-sre，15）
 
 - `azure-diagnostics`：使用授权范围内的指标、日志和脚本定位 Azure AKS、虚拟机及应用故障。
 - `azure-kubernetes`：用于 Azure Kubernetes 集群管理、部署、排障和运维。
@@ -543,6 +543,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `github-ops`：用于 GitHub 运维、仓库管理、PR/Issue 流程和自动化协作。
 - `golang-observability`：为 Go 服务设计 slog、OpenTelemetry、Prometheus、持续剖析及可靠性告警。
 - `incident-commander`：用于事故响应中的分诊、角色分配、沟通协调、缓解跟踪和复盘。
+- `legacy-php-runtime-migration`：在不改代码、nginx 配置、定时任务和目录的前提下，把宿主机上停止维护的 PHP 换成带补丁的版本或同路径容器：补丁证据、盘点、实际配置对齐、新旧 FPM 并行对比、可回滚的分步切换和切换后验证。
 - `observability-designer`：设计日志、指标、链路追踪、告警和服务运行目标。
 - `release-manager`：组织版本、变更记录、发布制品和发布后验证。
 - `senior-architect`：分析系统架构、依赖、扩展性和关键技术取舍。

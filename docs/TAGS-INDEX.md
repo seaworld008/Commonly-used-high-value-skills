@@ -1,6 +1,6 @@
 # Tags Index
 
-> Auto-generated from 1133 skill-tag mappings across 506 tags.
+> Auto-generated from 1141 skill-tag mappings across 510 tags.
 > Last updated: see git log.
 
 ## Quick Navigation
@@ -19,9 +19,9 @@
 - [`automation`](#automation) (15)
 - [`growth`](#growth) (15)
 - [`planning`](#planning) (15)
+- [`sre`](#sre) (14)
+- [`devops`](#devops) (13)
 - [`marketing`](#marketing) (13)
-- [`sre`](#sre) (13)
-- [`devops`](#devops) (12)
 - [`product`](#product) (12)
 - [`productivity`](#productivity) (11)
 - [`deployment`](#deployment) (7)
@@ -48,6 +48,7 @@
 - [`kubernetes`](#kubernetes) (4)
 - [`media`](#media) (4)
 - [`memory`](#memory) (4)
+- [`migration`](#migration) (4)
 - [`notion`](#notion) (4)
 - [`research`](#research) (4)
 - [`review`](#review) (4)
@@ -59,6 +60,7 @@
 - [`architecture`](#architecture) (3)
 - [`ci`](#ci) (3)
 - [`creator`](#creator) (3)
+- [`docker`](#docker) (3)
 - [`frontend`](#frontend) (3)
 - [`generator`](#generator) (3)
 - [`git`](#git) (3)
@@ -66,7 +68,6 @@
 - [`knowledge-base`](#knowledge-base) (3)
 - [`markdown`](#markdown) (3)
 - [`meeting`](#meeting) (3)
-- [`migration`](#migration) (3)
 - [`observability`](#observability) (3)
 - [`office`](#office) (3)
 - [`postgres`](#postgres) (3)
@@ -92,7 +93,6 @@
 - [`codebase`](#codebase) (2)
 - [`configuration`](#configuration) (2)
 - [`container-security`](#container-security) (2)
-- [`docker`](#docker) (2)
 - [`driven`](#driven) (2)
 - [`engineer`](#engineer) (2)
 - [`evaluation`](#evaluation) (2)
@@ -315,6 +315,7 @@
 - [`lead-generation`](#lead-generation) (1)
 - [`learn`](#learn) (1)
 - [`ledger`](#ledger) (1)
+- [`legacy`](#legacy) (1)
 - [`lens`](#lens) (1)
 - [`levy`](#levy) (1)
 - [`linear`](#linear) (1)
@@ -343,6 +344,7 @@
 - [`navigator`](#navigator) (1)
 - [`netlify`](#netlify) (1)
 - [`nexus`](#nexus) (1)
+- [`nginx`](#nginx) (1)
 - [`nlpm`](#nlpm) (1)
 - [`notebook`](#notebook) (1)
 - [`observability-and-instrumentation`](#observability-and-instrumentation) (1)
@@ -376,6 +378,7 @@
 - [`pdf`](#pdf) (1)
 - [`penetration-testing`](#penetration-testing) (1)
 - [`performance-optimization`](#performance-optimization) (1)
+- [`php`](#php) (1)
 - [`pipe`](#pipe) (1)
 - [`planning-and-task-breakdown`](#planning-and-task-breakdown) (1)
 - [`pmm`](#pmm) (1)
@@ -435,6 +438,7 @@
 - [`sec`](#sec) (1)
 - [`security-and-hardening`](#security-and-hardening) (1)
 - [`security-audit`](#security-audit) (1)
+- [`security-patching`](#security-patching) (1)
 - [`security-rules`](#security-rules) (1)
 - [`self`](#self) (1)
 - [`semgrep`](#semgrep) (1)
@@ -979,6 +983,47 @@
 | [subagent-driven-development](skills/ai-workflow/subagent-driven-development) | ai-workflow | ★★★☆☆ | Use when executing implementation plans with independent tasks in the current se |
 | [grill-me](skills/task-understanding-decomposition/grill-me) | task-understanding-decomposition | ★★★☆☆ | Stress-test a plan, design, or decision when the user explicitly asks to be gril |
 
+## sre
+
+**14 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [beacon](skills/devops-sre/beacon) | devops-sre | ★★★★★ | 可观测性、服务目标、告警、容量和可靠性设计。 |
+| [cloudflare-troubleshooting](skills/devops-sre/cloudflare-troubleshooting) | devops-sre | ★★★★★ | Diagnose Cloudflare DNS, TLS, redirects, and configuration issues using live API |
+| [env-secrets-manager](skills/devops-sre/env-secrets-manager) | devops-sre | ★★★★★ | Manage environment files, required-variable validation, secret storage, leak det |
+| [gear](skills/devops-sre/gear) | devops-sre | ★★★★★ | 依赖、构建、容器、监控和开发环境运维优化。 |
+| [github-ops](skills/devops-sre/github-ops) | devops-sre | ★★★★★ | Operate GitHub repositories, PRs, issues, and Actions through gh CLI and GitHub  |
+| [incident-commander](skills/devops-sre/incident-commander) | devops-sre | ★★★★★ | Coordinate active incidents through severity assessment, roles, mitigation, comm |
+| [observability-designer](skills/devops-sre/observability-designer) | devops-sre | ★★★★★ | Design production observability with SLI/SLO definitions, actionable alerts, tel |
+| [release-manager](skills/devops-sre/release-manager) | devops-sre | ★★★★★ | Prepare software releases with version selection, changelogs, artifacts, validat |
+| [triage](skills/devops-sre/triage) | devops-sre | ★★★★★ | 事故首响、影响范围识别、恢复步骤和复盘整理。 |
+| [runbook-generator](skills/openclaw-memory-and-safety/runbook-generator) | openclaw-memory-and-safety | ★★★★★ | Write or review operational runbooks for deployment, rollback, incidents, recove |
+| [azure-kubernetes](skills/devops-sre/azure-kubernetes) | devops-sre | ★★★★☆ | Plan and configure Azure Kubernetes Service clusters, including SKU, networking, |
+| [cc-devops-skills](skills/devops-sre/cc-devops-skills) | devops-sre | ★★★★☆ | SRE, DevOps, Kubernetes, CI/CD, PromQL, Terraform, Docker, and incident operatio |
+| [legacy-php-runtime-migration](skills/devops-sre/legacy-php-runtime-migration) | devops-sre | ★★★★☆ | Migrate end-of-life PHP on long-lived hosts (Remi, OneinStack, CentOS 7) to vend |
+| [senior-architect](skills/devops-sre/senior-architect) | devops-sre | ★★★★☆ | Design or review system architecture, technical tradeoffs, dependencies, and sca |
+
+## devops
+
+**13 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [beacon](skills/devops-sre/beacon) | devops-sre | ★★★★★ | 可观测性、服务目标、告警、容量和可靠性设计。 |
+| [cloudflare-troubleshooting](skills/devops-sre/cloudflare-troubleshooting) | devops-sre | ★★★★★ | Diagnose Cloudflare DNS, TLS, redirects, and configuration issues using live API |
+| [env-secrets-manager](skills/devops-sre/env-secrets-manager) | devops-sre | ★★★★★ | Manage environment files, required-variable validation, secret storage, leak det |
+| [gear](skills/devops-sre/gear) | devops-sre | ★★★★★ | 依赖、构建、容器、监控和开发环境运维优化。 |
+| [github-ops](skills/devops-sre/github-ops) | devops-sre | ★★★★★ | Operate GitHub repositories, PRs, issues, and Actions through gh CLI and GitHub  |
+| [incident-commander](skills/devops-sre/incident-commander) | devops-sre | ★★★★★ | Coordinate active incidents through severity assessment, roles, mitigation, comm |
+| [observability-designer](skills/devops-sre/observability-designer) | devops-sre | ★★★★★ | Design production observability with SLI/SLO definitions, actionable alerts, tel |
+| [release-manager](skills/devops-sre/release-manager) | devops-sre | ★★★★★ | Prepare software releases with version selection, changelogs, artifacts, validat |
+| [triage](skills/devops-sre/triage) | devops-sre | ★★★★★ | 事故首响、影响范围识别、恢复步骤和复盘整理。 |
+| [azure-kubernetes](skills/devops-sre/azure-kubernetes) | devops-sre | ★★★★☆ | Plan and configure Azure Kubernetes Service clusters, including SKU, networking, |
+| [cc-devops-skills](skills/devops-sre/cc-devops-skills) | devops-sre | ★★★★☆ | SRE, DevOps, Kubernetes, CI/CD, PromQL, Terraform, Docker, and incident operatio |
+| [legacy-php-runtime-migration](skills/devops-sre/legacy-php-runtime-migration) | devops-sre | ★★★★☆ | Migrate end-of-life PHP on long-lived hosts (Remi, OneinStack, CentOS 7) to vend |
+| [senior-architect](skills/devops-sre/senior-architect) | devops-sre | ★★★★☆ | Design or review system architecture, technical tradeoffs, dependencies, and sca |
+
 ## marketing
 
 **13 skills**
@@ -998,45 +1043,6 @@
 | [social-media-analyzer](skills/growth-operations-xiaohongshu/social-media-analyzer) | growth-operations-xiaohongshu | ★★★★★ | Analyze social campaign engagement, ROI, audience behavior, and platform compari |
 | [tweetclaw-source-research](skills/growth-operations-xiaohongshu/tweetclaw-source-research) | growth-operations-xiaohongshu | ★★★★☆ | Use TweetClaw through OpenClaw to collect X/Twitter source context before drafti |
 | [twitter-reader](skills/growth-operations-xiaohongshu/twitter-reader) | growth-operations-xiaohongshu | ★★★☆☆ | Read Twitter/X posts and threads from supplied URLs, including author, text, tim |
-
-## sre
-
-**13 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [beacon](skills/devops-sre/beacon) | devops-sre | ★★★★★ | 可观测性、服务目标、告警、容量和可靠性设计。 |
-| [cloudflare-troubleshooting](skills/devops-sre/cloudflare-troubleshooting) | devops-sre | ★★★★★ | Diagnose Cloudflare DNS, TLS, redirects, and configuration issues using live API |
-| [env-secrets-manager](skills/devops-sre/env-secrets-manager) | devops-sre | ★★★★★ | Manage environment files, required-variable validation, secret storage, leak det |
-| [gear](skills/devops-sre/gear) | devops-sre | ★★★★★ | 依赖、构建、容器、监控和开发环境运维优化。 |
-| [github-ops](skills/devops-sre/github-ops) | devops-sre | ★★★★★ | Operate GitHub repositories, PRs, issues, and Actions through gh CLI and GitHub  |
-| [incident-commander](skills/devops-sre/incident-commander) | devops-sre | ★★★★★ | Coordinate active incidents through severity assessment, roles, mitigation, comm |
-| [observability-designer](skills/devops-sre/observability-designer) | devops-sre | ★★★★★ | Design production observability with SLI/SLO definitions, actionable alerts, tel |
-| [release-manager](skills/devops-sre/release-manager) | devops-sre | ★★★★★ | Prepare software releases with version selection, changelogs, artifacts, validat |
-| [triage](skills/devops-sre/triage) | devops-sre | ★★★★★ | 事故首响、影响范围识别、恢复步骤和复盘整理。 |
-| [runbook-generator](skills/openclaw-memory-and-safety/runbook-generator) | openclaw-memory-and-safety | ★★★★★ | Write or review operational runbooks for deployment, rollback, incidents, recove |
-| [azure-kubernetes](skills/devops-sre/azure-kubernetes) | devops-sre | ★★★★☆ | Plan and configure Azure Kubernetes Service clusters, including SKU, networking, |
-| [cc-devops-skills](skills/devops-sre/cc-devops-skills) | devops-sre | ★★★★☆ | SRE, DevOps, Kubernetes, CI/CD, PromQL, Terraform, Docker, and incident operatio |
-| [senior-architect](skills/devops-sre/senior-architect) | devops-sre | ★★★★☆ | Design or review system architecture, technical tradeoffs, dependencies, and sca |
-
-## devops
-
-**12 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [beacon](skills/devops-sre/beacon) | devops-sre | ★★★★★ | 可观测性、服务目标、告警、容量和可靠性设计。 |
-| [cloudflare-troubleshooting](skills/devops-sre/cloudflare-troubleshooting) | devops-sre | ★★★★★ | Diagnose Cloudflare DNS, TLS, redirects, and configuration issues using live API |
-| [env-secrets-manager](skills/devops-sre/env-secrets-manager) | devops-sre | ★★★★★ | Manage environment files, required-variable validation, secret storage, leak det |
-| [gear](skills/devops-sre/gear) | devops-sre | ★★★★★ | 依赖、构建、容器、监控和开发环境运维优化。 |
-| [github-ops](skills/devops-sre/github-ops) | devops-sre | ★★★★★ | Operate GitHub repositories, PRs, issues, and Actions through gh CLI and GitHub  |
-| [incident-commander](skills/devops-sre/incident-commander) | devops-sre | ★★★★★ | Coordinate active incidents through severity assessment, roles, mitigation, comm |
-| [observability-designer](skills/devops-sre/observability-designer) | devops-sre | ★★★★★ | Design production observability with SLI/SLO definitions, actionable alerts, tel |
-| [release-manager](skills/devops-sre/release-manager) | devops-sre | ★★★★★ | Prepare software releases with version selection, changelogs, artifacts, validat |
-| [triage](skills/devops-sre/triage) | devops-sre | ★★★★★ | 事故首响、影响范围识别、恢复步骤和复盘整理。 |
-| [azure-kubernetes](skills/devops-sre/azure-kubernetes) | devops-sre | ★★★★☆ | Plan and configure Azure Kubernetes Service clusters, including SKU, networking, |
-| [cc-devops-skills](skills/devops-sre/cc-devops-skills) | devops-sre | ★★★★☆ | SRE, DevOps, Kubernetes, CI/CD, PromQL, Terraform, Docker, and incident operatio |
-| [senior-architect](skills/devops-sre/senior-architect) | devops-sre | ★★★★☆ | Design or review system architecture, technical tradeoffs, dependencies, and sca |
 
 ## product
 
@@ -1354,6 +1360,17 @@
 | [warden](skills/openclaw-memory-and-safety/warden) | openclaw-memory-and-safety | ★★★★★ | Guardian of V.A.I.R.E. quality standards (Value/Agency/Identity/Resilience/Echo) |
 | [honcho](skills/openclaw-memory-and-safety/honcho) | openclaw-memory-and-safety | ★★★★☆ | Configure and troubleshoot Honcho memory for Hermes. |
 
+## migration
+
+**4 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [migration-architect](skills/developer-engineering/migration-architect) | developer-engineering | ★★★★★ | Purpose: Zero-downtime migration planning, compatibility validation, and rollbac |
+| [prisma-client-api](skills/developer-engineering/prisma-client-api) | developer-engineering | ★★★★☆ | Use when writing or reviewing Prisma Client queries, relation writes, transactio |
+| [prisma-upgrade-v7](skills/developer-engineering/prisma-upgrade-v7) | developer-engineering | ★★★★☆ | Use when migrating an existing Prisma ORM SQL project from v6 to v7, updating ge |
+| [legacy-php-runtime-migration](skills/devops-sre/legacy-php-runtime-migration) | devops-sre | ★★★★☆ | Migrate end-of-life PHP on long-lived hosts (Remi, OneinStack, CentOS 7) to vend |
+
 ## notion
 
 **4 skills**
@@ -1472,6 +1489,16 @@
 | [content-creator](skills/growth-operations-xiaohongshu/content-creator) | growth-operations-xiaohongshu | ★★★★★ | Create or revise marketing content with a consistent brand voice, audience inten |
 | [slack-gif-creator](skills/operations-general/slack-gif-creator) | operations-general | ★★★★★ | Knowledge and utilities for creating animated GIFs optimized for Slack. Provides |
 
+## docker
+
+**3 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [docker-expert](skills/developer-engineering/docker-expert) | developer-engineering | ★★★★☆ | Use when containerizing an application with Docker, optimizing multi-stage build |
+| [cc-devops-skills](skills/devops-sre/cc-devops-skills) | devops-sre | ★★★★☆ | SRE, DevOps, Kubernetes, CI/CD, PromQL, Terraform, Docker, and incident operatio |
+| [legacy-php-runtime-migration](skills/devops-sre/legacy-php-runtime-migration) | devops-sre | ★★★★☆ | Migrate end-of-life PHP on long-lived hosts (Remi, OneinStack, CentOS 7) to vend |
+
 ## frontend
 
 **3 skills**
@@ -1541,16 +1568,6 @@
 | [meeting-minutes-taker](skills/office-white-collar/meeting-minutes-taker) | office-white-collar | ★★★★★ | Turn meeting transcripts into accurate minutes with decisions, actions, owners,  |
 | [lark-meeting](skills/knowledge-and-pm-integrations/lark-meeting) | knowledge-and-pm-integrations | ★★★★☆ | Use Lark CLI to locate meetings, manage Minutes and AI notes, inspect transcript |
 | [notion-meeting-intelligence](skills/knowledge-and-pm-integrations/notion-meeting-intelligence) | knowledge-and-pm-integrations | ★★★☆☆ | 用于基于 Notion 上下文准备会议材料。 |
-
-## migration
-
-**3 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [migration-architect](skills/developer-engineering/migration-architect) | developer-engineering | ★★★★★ | Purpose: Zero-downtime migration planning, compatibility validation, and rollbac |
-| [prisma-client-api](skills/developer-engineering/prisma-client-api) | developer-engineering | ★★★★☆ | Use when writing or reviewing Prisma Client queries, relation writes, transactio |
-| [prisma-upgrade-v7](skills/developer-engineering/prisma-upgrade-v7) | developer-engineering | ★★★★☆ | Use when migrating an existing Prisma ORM SQL project from v6 to v7, updating ge |
 
 ## observability
 
@@ -1788,15 +1805,6 @@
 |-------|----------|---------|-------------|
 | [grype-syft-sbom-scanner](skills/security-and-reliability/grype-syft-sbom-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Syft 生成 SBOM，并用 Grype 扫描容器镜像、文件系统、软件包、归档和 SBOM 漏洞。 |
 | [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Trivy 扫描仓库、容器镜像、文件系统、rootfs、SBOM、Kubernetes、IaC、密钥、许可证和系统 CVE。 |
-
-## docker
-
-**2 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [docker-expert](skills/developer-engineering/docker-expert) | developer-engineering | ★★★★☆ | Use when containerizing an application with Docker, optimizing multi-stage build |
-| [cc-devops-skills](skills/devops-sre/cc-devops-skills) | devops-sre | ★★★★☆ | SRE, DevOps, Kubernetes, CI/CD, PromQL, Terraform, Docker, and incident operatio |
 
 ## driven
 
@@ -3621,6 +3629,14 @@
 |-------|----------|---------|-------------|
 | [ledger](skills/finance-investing/ledger) | finance-investing | ★★★★★ | 云成本、预算告警、资源规格和人工智能工作负载成本优化。 |
 
+## legacy
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [legacy-php-runtime-migration](skills/devops-sre/legacy-php-runtime-migration) | devops-sre | ★★★★☆ | Migrate end-of-life PHP on long-lived hosts (Remi, OneinStack, CentOS 7) to vend |
+
 ## lens
 
 **1 skills**
@@ -3844,6 +3860,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [nexus](skills/ai-workflow/nexus) | ai-workflow | ★★★★★ | 多智能体任务分解、链路编排、执行协调和结果整合。 |
+
+## nginx
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [legacy-php-runtime-migration](skills/devops-sre/legacy-php-runtime-migration) | devops-sre | ★★★★☆ | Migrate end-of-life PHP on long-lived hosts (Remi, OneinStack, CentOS 7) to vend |
 
 ## nlpm
 
@@ -4108,6 +4132,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [performance-optimization](skills/ai-workflow/performance-optimization) | ai-workflow | ★★★★★ | Investigate and improve measured frontend, backend, query, or database bottlenec |
+
+## php
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [legacy-php-runtime-migration](skills/devops-sre/legacy-php-runtime-migration) | devops-sre | ★★★★☆ | Migrate end-of-life PHP on long-lived hosts (Remi, OneinStack, CentOS 7) to vend |
 
 ## pipe
 
@@ -4580,6 +4612,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [security-audit](skills/security-and-reliability/security-audit) | security-and-reliability | ★★★★☆ | Audit codebases for exploitable security vulnerabilities with concrete attack pa |
+
+## security-patching
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [legacy-php-runtime-migration](skills/devops-sre/legacy-php-runtime-migration) | devops-sre | ★★★★☆ | Migrate end-of-life PHP on long-lived hosts (Remi, OneinStack, CentOS 7) to vend |
 
 ## security-rules
 
