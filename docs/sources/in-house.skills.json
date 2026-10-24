@@ -918,7 +918,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "6e477bf91f43f63b59b14d1ea606636684c01d7635b5bd5a27aa753f56bebf5a",
+            "content_sha256": "5c4a3ac38b41d7c3044f1b259a7a8a0b4204896d319ecda9063c3e163c13268e",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -928,7 +928,7 @@
         {
           "path": "skills/ai-workflow/brainstorming/SKILL.md",
           "owner": "brainstorming",
-          "sha256": "6e477bf91f43f63b59b14d1ea606636684c01d7635b5bd5a27aa753f56bebf5a",
+          "sha256": "5c4a3ac38b41d7c3044f1b259a7a8a0b4204896d319ecda9063c3e163c13268e",
           "mode": "100644"
         }
       ]

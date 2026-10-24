@@ -825,7 +825,7 @@
             "ref": "main",
             "resolved_commit": "d1736f313f7a5259006325d8c9dbce046ed128c0",
             "path_commit": "0727d81638d64b6888f796287ee00baecfb08ced",
-            "content_sha256": "639bc4ca60aaf1e94943b27da0e54aace3a0883e4f31de4374e41ff5cf4829c3",
+            "content_sha256": "0cd753986d0414e63a7b5204443e89b9d45e79083d167270eb51829450f6c2a0",
             "last_checked_at": "2026-10-16",
             "last_synced_at": "2026-10-16",
             "license_checkpoint": {
@@ -843,7 +843,7 @@
         {
           "path": "skills/devops-sre/azure-kubernetes/SKILL.md",
           "owner": "azure-kubernetes",
-          "sha256": "639bc4ca60aaf1e94943b27da0e54aace3a0883e4f31de4374e41ff5cf4829c3",
+          "sha256": "0cd753986d0414e63a7b5204443e89b9d45e79083d167270eb51829450f6c2a0",
           "mode": "100644"
         },
         {
@@ -1564,7 +1564,7 @@
             "ref": "main",
             "resolved_commit": "5e693d6d5ddbe11d72c93e3b594ecfe574de44b2",
             "path_commit": "f333dd0a59b93f484770d2331de45dddefd3dbf8",
-            "content_sha256": "eb24b189864802cca8b094da00557c5600517dca7c8b2f30bca82ad8e6f38ccf",
+            "content_sha256": "f03a1ae8ecaf4bc595e48f9f5670670b1ef8cdc7712258b3c7c2011663ff1972",
             "last_checked_at": "2026-10-16",
             "last_synced_at": "2026-10-16",
             "license_checkpoint": {
@@ -1582,7 +1582,7 @@
         {
           "path": "skills/developer-engineering/neon-postgres/SKILL.md",
           "owner": "neon-postgres",
-          "sha256": "eb24b189864802cca8b094da00557c5600517dca7c8b2f30bca82ad8e6f38ccf",
+          "sha256": "f03a1ae8ecaf4bc595e48f9f5670670b1ef8cdc7712258b3c7c2011663ff1972",
           "mode": "100644"
         },
         {
@@ -1594,7 +1594,7 @@
         {
           "path": "skills/developer-engineering/neon-postgres/references/hybrid-search.md",
           "owner": "neon-postgres",
-          "sha256": "4cd691c80744e64696661dad03eea4e0eb668493e97b82c16400477f1e6c1ecc",
+          "sha256": "9a0faaa400cbfb061dda70496a9102586ec56c3776d2aa31c4038685d16b00a9",
           "mode": "100644"
         },
         {

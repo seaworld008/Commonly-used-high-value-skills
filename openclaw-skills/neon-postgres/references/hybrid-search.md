@@ -30,6 +30,30 @@ Create and validate each retriever independently before combining them. Follow [
 
 Reciprocal Rank Fusion (RRF) is the approach in the Lakebase Search get-started guide and a useful default because it combines ranks instead of incomparable raw distances and scores. It is not the only option: weighted rank fusion, normalized score fusion, or a reranker may fit applications with different relevance signals.
 
+## Optional Decision-Model Reranking (October 2026)
+
+The Neon upstream now documents Jev decision-model reranking as an alternative to
+rank fusion. This is an **optional AI Gateway model call**, not a PostgreSQL
+function or an automatic feature of every database. First check actual model
+availability on the branch, plan eligibility, prepaid credits and expected cost.
+Do not provision a gateway, install an SDK or send data to a model without the
+user's authorization. Keep RRF below as the model-free fallback.
+
+To rerank, query vector and BM25 retrievers independently (for example, at most
+40 candidates from each), deduplicate by document ID, and score only the
+authorized candidate set against the original query. **Apply tenant, row-level
+security and access-control predicates inside both candidate queries before
+ORDER BY / LIMIT**, not merely after the union or after model scoring. Never
+send inaccessible document text, credentials or personal data to the model.
+Use probabilistic relevance scores to order the permitted candidates and apply
+the final top-k cutoff after reranking. If a model is unavailable, fail closed
+to the existing RRF path; do not fabricate relevance scores.
+
+Evaluate recall/relevance on known queries and measure added gateway latency and
+token costs. Rerankers do not replace each retriever's index or query validation.
+See the [upstream implementation guidance](https://github.com/neondatabase/agent-skills/blob/ccca3334a7542d3133134cc6926f2fafc6edeb1f/skills/neon-postgres/references/hybrid-search.md)
+for a version-pinned candidate retrieval and Jev example.
+
 ## RRF Example
 
 For rank `r` and constant `k`, each retriever contributes `1 / (k + r)`. The documented starting point uses 40 candidates per retriever and `k = 60`; tune both for the corpus and workload.

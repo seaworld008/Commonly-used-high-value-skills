@@ -956,7 +956,7 @@
             "ref": "main",
             "resolved_commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
             "path_commit": "5bf4e78011075bcfc0dc295f0724994cd123ee71",
-            "content_sha256": "0bed65581b450b34591a64b13592628663d43bb31a91a60a8c21d3dc55e6f4ae",
+            "content_sha256": "4b398f5215721f21ed3226e9a1c81d502db1cbc11e6f2b5ac17db7cd88cc60f0",
             "last_checked_at": "2026-10-16",
             "last_synced_at": "2026-10-16",
             "license_checkpoint": {
@@ -1017,7 +1017,7 @@
         {
           "path": "skills/ai-workflow/writing-skills/SKILL.md",
           "owner": "writing-skills",
-          "sha256": "0bed65581b450b34591a64b13592628663d43bb31a91a60a8c21d3dc55e6f4ae",
+          "sha256": "4b398f5215721f21ed3226e9a1c81d502db1cbc11e6f2b5ac17db7cd88cc60f0",
           "mode": "100644"
         },
         {

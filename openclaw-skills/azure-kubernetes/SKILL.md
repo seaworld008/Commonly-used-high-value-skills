@@ -2,7 +2,7 @@
 name: azure-kubernetes
 description: 'Plan and configure Azure Kubernetes Service clusters, including SKU, networking, identity, deployment readiness, and operational constraints.'
 zh_description: "用于 Azure Kubernetes 集群管理、部署、排障和运维。"
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:microsoft/azure-skills"
 source_url: "https://skills.sh/microsoft/azure-skills/azure-kubernetes"
@@ -27,7 +27,7 @@ metadata:
 | Property | Value |
 |----------|-------|
 | Best for | AKS cluster planning and Day-0 decisions |
-| MCP Tools | `mcp_azure_mcp_aks` |
+| MCP Tools | Discover the connected Azure AKS surface at runtime (if available) |
 | CLI | `az aks create`, `az aks show`, `kubectl get`, `kubectl describe` |
 | Related skills | azure-kubernetes-app-deploy (deploy an app to an existing cluster), azure-diagnostics (baseline AKS troubleshooting), azure-validate (readiness checks), azure-kubernetes-automatic-readiness (migrate existing cluster to AKS Automatic), optional `aks-skills` operations add-on (focused incident, exact-signature, packet-capture, and GPU Day-2 workflows) |
 
@@ -55,7 +55,7 @@ Activate this skill when user wants to:
 
 ## Rules
 1. Start with the user's requirements for provisioning compute, networking, security, and other settings.
-2. Use the `azure` MCP server and select `mcp_azure_mcp_aks` first to discover the exact AKS-specific MCP tools surfaced by the client. Choose the smallest discovered AKS tool that fits the task, and fall back to Azure CLI (`az aks`) only when the needed functionality is not exposed through the AKS MCP surface.
+2. If an Azure MCP connection is present, discover the AKS tools and their actual schemas at runtime before calling them. Do not assume a fixed tool name or availability. If no supported MCP action exists, use an already authorized Azure CLI context or give the explicit CLI plan; do not perform login, create or modify resources without the user’s authorization.
 3. Determine if AKS Automatic or Standard SKU is more appropriate based on the user's need for control vs convenience. Default to AKS Automatic unless specific customizations are required.
 4. Document decisions and rationale for cluster configuration choices, especially for Day-0 decisions that are hard to change later (networking, API server access).
 

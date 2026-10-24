@@ -2,13 +2,13 @@
 name: brainstorming
 description: 'Use before creative product or engineering work when the user wants to design a feature, component, workflow, behavior change, or other solution whose goals, constraints, and tradeoffs need exploration before implementation.'
 zh_description: "用于在实现前澄清创意型产品或工程需求，探索目标、约束、方案与取舍。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["brainstorming", "planning", "workflow"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-10-24"
 quality: 3
 complexity: "intermediate"
 ---
@@ -66,6 +66,18 @@ Decision: Reuse the existing authorized data-fetch path.
 Check: Export filtered rows, escape CSV cells, preserve column order.
 Clarify only if export scope or access requirements remain ambiguous.
 ```
+
+## Design Checkpoint and Context Handoff
+
+Before a long task or context handoff, preserve a compact decision record: the user's
+stated goal and constraints, verified project facts, alternatives considered, the
+chosen approach, explicit assumptions, and acceptance checks. Keep proposals
+visibly separate from user-confirmed decisions; do not invent approval.
+
+After context compaction or a resumed session, reload the project evidence and
+decision record before changing the plan. Reopen a decision only when new evidence
+or a material conflict requires it, rather than repeating already answered questions.
+Do not turn this checkpoint into a mandatory document for a small reversible edit.
 
 ## Handoff
 
