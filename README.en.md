@@ -13,6 +13,10 @@ A high-value skills repository for AI developers, organized by real work scenari
 This repository currently contains **16 categories / 294 skills**.
 
 
+## v4.2.0 Curated Skill Refresh and Verification Guidance
+
+As of 2026-10-24, this release refines Brainstorming, Writing Skills, Neon Postgres and Azure Kubernetes. It improves decision handoffs, behavioral versus static verification, optional Jev reranking, and runtime tool discovery. All 294 canonical skills across 16 categories remain stable. Unreviewed upstream artifacts remain queued. [Release notes](docs/releases/v4.2.0.md).
+
 ## v4.1.0 Upstream Contracts and Cross-platform Fixes
 
 Updates engineering methods, Lark tasks/charts, AKS readiness and Neon search guidance, and fixes offline HTML report updates on macOS. Live Panel retains its renderer and complete license notice, with an original simulated sample replacing third-party illustration configs. [Release notes](docs/releases/v4.1.0.md).

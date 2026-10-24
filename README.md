@@ -11,6 +11,10 @@
 面向全球 AI 开发者与 Agent 工作流构建者的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理等高频任务场景。当前共 **16 个分类 / 294 个技能**。
 
 
+## v4.2.0 精选技能策展与验证规则升级
+
+截至 2026-10-24，精选更新 Brainstorming、Writing Skills、Neon Postgres 与 Azure Kubernetes，强化上下文续接、静态和行为测试边界、Neon Jev 可选重排序和 AKS 工具发现。保留 294 个技能及 16 个分类，未完成逐文件审阅的上游继续待审。[查看发布说明](docs/releases/v4.2.0.md)。
+
 ## v4.1.0 上游契约与跨平台修复
 
 更新工程方法、飞书任务/图表、AKS readiness 和 Neon 检索指导，修复 macOS 离线 HTML 报告更新。Live Panel 保留渲染能力与许可原文，以原创模拟示例替换第三方图示配置。[查看发布说明](docs/releases/v4.1.0.md)。

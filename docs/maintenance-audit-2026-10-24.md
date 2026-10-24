@@ -1,0 +1,29 @@
+# 2026-10-24 技能策展更新与待审事项
+
+基线：v4.1.0 `fbb58bc1853fa06a8ecc30b82b9dba98a2d61b09`，策展分支：`codex/curation-20261024`。
+
+## 2026-10-24 上游提交核对
+
+| 上游 | 最近已审提交 | 2026-10-24 主分支 | 范围结论 |
+|---|---|---|---|
+| addyosmani/agent-skills | aeac41d4 | aeac41d4 | 相同；不无意义重写 |
+| larksuite/cli | 017b19a7 | 017b19a7 | 相同；不无意义重写 |
+| obra/superpowers | bb92a777 | 2ce8aa15 | 新增 2 提交、64 变更文件；仅吸收明确适配的设计/技能写作方法 |
+| microsoft/azure-skills | d1736f31 | f3b5125 | 新增 5 提交、138 变更文件；保留官方文件级差异待审 |
+| neondatabase/agent-skills | 5e693d6d | ccca3334 | 新增 5 提交、14 变更文件；吸收 Jev 重排序决策与授权边界 |
+| Simota/agent-skills | 待继续审阅 | 18bca759 | 上轮 154 个受管文件曾出现变化；没有完整审阅，不自动替换 |
+
+这些是公开仓库的**主分支快照核对**，并非本仓库全部 294 个技能的在线逐文件最新性结论。未检查成功或尚未审阅的来源继续留在 review 队列，不能声称全量更新完成。
+
+## 选定的变更
+
+- `brainstorming`：加入压缩上下文/任务续接时的决策证据保全，不强制用户再次确认已有授权。
+- `writing-skills`：区分行为变化的场景评测与文档微调的静态验证；修复原文「所有编辑必须先做失败模型测试」与仓库分层验证规则的矛盾。
+- `neon-postgres`：新增 AI Gateway Jev 可选重排序、RRF 回退、模型费用、授权与租户过滤的安全边界；不把模型调用描述为免费的本地 SQL 操作。
+- `azure-kubernetes`：AKS 工具名改为运行时发现，缺少连接时不假设工具存在，不越权创建/登录云资源。
+
+## 验证与边界
+
+要求在 PR 和合并后 exact SHA 上通过 Repository Validation、provenance、CodeQL；发布工作流还必须满足开放 Code Scanning 告警归零、Release 文件与 SHA256SUMS 的下载核对。
+
+本次不运行真实 Neon/Azure 云端变更，不凭静态仓库测试宣称模型行为评测已完成。对仍在 review 队列中的上游，仅记录差异并保留当前可用、合法的快照。

@@ -2,7 +2,7 @@
 name: neon-postgres
 description: 'Build or troubleshoot Neon Postgres connections, branching, pooling, scaling, Auth, and platform integrations using current Neon documentation.'
 zh_description: "用于 Neon Postgres 数据库连接、分支、迁移和运行维护。"
-version: "1.0.6"
+version: "1.0.7"
 author: "seaworld008"
 source: "github:neondatabase/agent-skills"
 source_url: "https://github.com/neondatabase/agent-skills/blob/80164a28443aca7c82ac1a70aed836950d6c29ea/skills/neon-postgres/SKILL.md"
@@ -255,7 +255,7 @@ Use Lakebase Search for semantic, full-text, and hybrid search:
 
 - For semantic search, including embedding generation and dimension alignment, read [Vector search](references/vector-search.md).
 - For full-text search with BM25 ranking, read [Full-text search](references/full-text-search.md).
-- For combining semantic and lexical results, read [Hybrid search](references/hybrid-search.md).
+- For combining semantic and lexical candidates with rank fusion or optional model-based reranking, read [Hybrid search](references/hybrid-search.md).
 - For managing any of the above through Drizzle ORM, read [Managing Lakebase Search with Drizzle](references/lakebase-search-drizzle.md).
 
 Links:
