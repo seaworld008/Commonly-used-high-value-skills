@@ -1,10 +1,10 @@
 {
-  "tag": "v4.2.0",
-  "package_version": "4.2.0",
-  "title": "v4.2.0 · 精选技能策展与验证流程升级",
+  "tag": "v4.3.0",
+  "package_version": "4.3.0",
+  "title": "v4.3.0 · 精选技能策展与验证流程升级",
   "prerelease": false,
   "generate_notes": false,
-  "changelog_range": "v4.1.0..v4.2.0",
+  "changelog_range": "v4.1.0..v4.3.0",
   "canonical_skills": 294,
   "highlights": [
     "Curate four existing skills against current upstream evidence without altering public names or paths",
@@ -22,7 +22,8 @@
     "upstream": "Only selected changes from reviewed Neon, Superpowers and Azure source ranges were absorbed. Addy/Lark heads were unchanged; remaining Simota and other upstream artifacts are not claimed fully synchronized.",
     "licensing": "No unreviewed bulk third-party replacement; existing attribution and license checks retained.",
     "runtime": "Static tests do not certify live Azure/Neon integration or independent model behavior evaluation.",
-    "security": "Code Scanning zero-open gate covers configured GitHub scanning only, not every vulnerability."
+    "security": "Code Scanning zero-open gate covers configured GitHub scanning only, not every vulnerability.",
+    "previous_release": "The existing v4.2.0 tag (30cf0bef) was published on 2026-10-23 and later rolled back from main; it is intentionally left untouched. v4.3.0 is a fresh tag containing this new curated main lineage."
   },
   "compatibility_notes": [
     "Canonical skill names and existing client installer paths are unchanged",
