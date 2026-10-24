@@ -1,6 +1,6 @@
 {
   "name": "common-high-value-skills",
-  "version": "4.1.0",
+  "version": "4.2.0",
   "description": "Cross-agent installer for the Commonly Used High-Value Skills repository.",
   "license": "MIT",
   "type": "commonjs",
@@ -43,7 +43,10 @@
     "docs/releases/v4.1.0.json",
     "docs/releases/v4.1.0.md",
     "docs/maintenance-audit-2026-10-16.md",
-    "docs/maintenance-audit-2026-10-16.json"
+    "docs/maintenance-audit-2026-10-16.json",
+    "docs/releases/v4.2.0.json",
+    "docs/releases/v4.2.0.md",
+    "docs/maintenance-audit-2026-10-24.md"
   ],
   "scripts": {
     "test": "node --check bin/install-skills.js && node bin/install-skills.js --help && node bin/install-skills.js list-bundles && npm pack --dry-run --silent"

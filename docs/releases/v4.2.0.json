@@ -1,0 +1,33 @@
+{
+  "tag": "v4.2.0",
+  "package_version": "4.2.0",
+  "title": "v4.2.0 · 精选技能策展与验证流程升级",
+  "prerelease": false,
+  "generate_notes": false,
+  "changelog_range": "v4.1.0..v4.2.0",
+  "canonical_skills": 294,
+  "highlights": [
+    "Curate four existing skills against current upstream evidence without altering public names or paths",
+    "Improve context-compaction decision handoffs and distinguish static from behavioral verification",
+    "Document optional Neon Jev reranking with authorization, tenant filters, costs and RRF fallback",
+    "Discover actual AKS tool schemas instead of inventing a fixed MCP action"
+  ],
+  "release_gates": [
+    "Exact PR head and merged-main Repository Validation, provenance and CodeQL pass",
+    "Zero open Code Scanning alerts on main before publishing",
+    "Complete repository validation, installer tests and generator idempotence pass",
+    "Downloaded source/npm archives, manifest and SHA256SUMS match exact merged-main commit"
+  ],
+  "validation_boundaries": {
+    "upstream": "Only selected changes from reviewed Neon, Superpowers and Azure source ranges were absorbed. Addy/Lark heads were unchanged; remaining Simota and other upstream artifacts are not claimed fully synchronized.",
+    "licensing": "No unreviewed bulk third-party replacement; existing attribution and license checks retained.",
+    "runtime": "Static tests do not certify live Azure/Neon integration or independent model behavior evaluation.",
+    "security": "Code Scanning zero-open gate covers configured GitHub scanning only, not every vulnerability."
+  },
+  "compatibility_notes": [
+    "Canonical skill names and existing client installer paths are unchanged",
+    "Jev reranking is optional and requires available model access and authorization",
+    "AKS tool discovery is host-specific"
+  ],
+  "audit": "docs/maintenance-audit-2026-10-24.md"
+}
