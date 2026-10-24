@@ -2,14 +2,14 @@
 name: writing-skills
 description: 'Use when creating new skills, editing existing skills, or verifying skills work before deployment'
 zh_description: "编写可复用的技能指导并验证实际触发和执行行为。"
-version: "1.0.5"
+version: "1.0.6"
 author: "seaworld008"
 source: "github:obra/superpowers"
 source_url: "https://github.com/obra/superpowers/blob/main/skills/writing-skills/SKILL.md"
 license: MIT
 tags: '["skills", "authoring", "workflow"]'
 created_at: "2026-04-13"
-updated_at: "2026-09-28"
+updated_at: "2026-10-24"
 quality: 4
 complexity: "intermediate"
 ---
@@ -178,26 +178,23 @@ pptx/
 ```
 When: Reference material too large for inline
 
-## The Iron Law (Same as TDD)
+## Match Verification to the Change
 
-```
-NO SKILL WITHOUT A FAILING TEST FIRST
-```
+New behavior, changed trigger boundaries, and rules that can alter tool actions need
+baseline-versus-candidate scenarios. Record an observable failure mode before
+rewriting a behavioral rule; then test whether the revised rule resolves it under
+similar pressure. Use a real model evaluation only when one is available, and label
+static verification separately from behavior evidence.
 
-This applies to NEW skills AND EDITS to existing skills.
+Editorial corrections, date/URL fixes, and formatting-only changes need focused
+link, lint, example, and repository-generator checks rather than a fabricated
+"failing agent" scenario. A changed executable helper needs an executable
+regression test. Missing model-evaluation access must be reported, not silently
+described as a successful agent test.
 
-Write skill before testing? Delete it. Start over.
-Edit skill without testing? Same violation.
-
-**No exceptions:**
-- Not for "simple additions"
-- Not for "just adding a section"
-- Not for "documentation updates"
-- Don't keep untested changes as "reference"
-- Don't "adapt" while running tests
-- Delete means delete
-
-**REQUIRED BACKGROUND:** The superpowers:test-driven-development skill explains why this matters. Same principles apply to documentation.
+Keep reproducible examples and the acceptance checks with the skill. Apply the
+repository's source provenance, license and generated-output checks before release;
+never replace its own quality gates with a generic slogan.
 
 ## Testing All Skill Types
 
@@ -261,7 +258,7 @@ Different skill types need different test approaches:
 | "Academic review is enough" | Reading ≠ using. Test application scenarios. |
 | "No time to test" | Deploying untested skill wastes more time fixing it later. |
 
-**All of these mean: Test before deploying. No exceptions.**
+**For behavioral changes, validate the new behavior before deploying. For reference-only edits, use relevant deterministic checks and state the evaluation boundary.**
 
 ## Match the Form to the Failure
 
