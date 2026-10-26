@@ -1,6 +1,6 @@
 # Tags Index
 
-> Auto-generated from 1129 skill-tag mappings across 504 tags.
+> Auto-generated from 1146 skill-tag mappings across 513 tags.
 > Last updated: see git log.
 
 ## Quick Navigation
@@ -43,12 +43,14 @@
 - [`cve`](#cve) (4)
 - [`deploy`](#deploy) (4)
 - [`docs`](#docs) (4)
+- [`frontend`](#frontend) (4)
 - [`github`](#github) (4)
 - [`knowledge`](#knowledge) (4)
 - [`kubernetes`](#kubernetes) (4)
 - [`media`](#media) (4)
 - [`memory`](#memory) (4)
 - [`notion`](#notion) (4)
+- [`react`](#react) (4)
 - [`research`](#research) (4)
 - [`review`](#review) (4)
 - [`safety`](#safety) (4)
@@ -56,10 +58,10 @@
 - [`skills`](#skills) (4)
 - [`tools`](#tools) (4)
 - [`vulnerability-scanning`](#vulnerability-scanning) (4)
+- [`animation`](#animation) (3)
 - [`architecture`](#architecture) (3)
 - [`ci`](#ci) (3)
 - [`creator`](#creator) (3)
-- [`frontend`](#frontend) (3)
 - [`generator`](#generator) (3)
 - [`git`](#git) (3)
 - [`go`](#go) (3)
@@ -79,12 +81,13 @@
 - [`typescript`](#typescript) (3)
 - [`vercel`](#vercel) (3)
 - [`web`](#web) (3)
+- [`accessibility`](#accessibility) (2)
 - [`agent-skill`](#agent-skill) (2)
 - [`analyst`](#analyst) (2)
 - [`analyzer`](#analyzer) (2)
-- [`animation`](#animation) (2)
 - [`app`](#app) (2)
 - [`auditor`](#auditor) (2)
+- [`authorization`](#authorization) (2)
 - [`azure`](#azure) (2)
 - [`checker`](#checker) (2)
 - [`cloudflare`](#cloudflare) (2)
@@ -121,7 +124,6 @@
 - [`prisma`](#prisma) (2)
 - [`project-management`](#project-management) (2)
 - [`quality-gate`](#quality-gate) (2)
-- [`react`](#react) (2)
 - [`refactoring`](#refactoring) (2)
 - [`researcher`](#researcher) (2)
 - [`saas`](#saas) (2)
@@ -136,12 +138,13 @@
 - [`tracker`](#tracker) (2)
 - [`transactions`](#transactions) (2)
 - [`transcript`](#transcript) (2)
+- [`validation`](#validation) (2)
 - [`verification`](#verification) (2)
+- [`video`](#video) (2)
 - [`wiki`](#wiki) (2)
 - [`worktree`](#worktree) (2)
 - [`x`](#x) (2)
 - [`academic`](#academic) (1)
-- [`accessibility`](#accessibility) (1)
 - [`acquisition`](#acquisition) (1)
 - [`address`](#address) (1)
 - [`adhd`](#adhd) (1)
@@ -166,7 +169,6 @@
 - [`attendance`](#attendance) (1)
 - [`auth`](#auth) (1)
 - [`authoring`](#authoring) (1)
-- [`authorization`](#authorization) (1)
 - [`aws`](#aws) (1)
 - [`backend`](#backend) (1)
 - [`backtester`](#backtester) (1)
@@ -212,6 +214,7 @@
 - [`competitors`](#competitors) (1)
 - [`compliance`](#compliance) (1)
 - [`comply`](#comply) (1)
+- [`components`](#components) (1)
 - [`comps`](#comps) (1)
 - [`contacts`](#contacts) (1)
 - [`content`](#content) (1)
@@ -378,6 +381,7 @@
 - [`pipe`](#pipe) (1)
 - [`planning-and-task-breakdown`](#planning-and-task-breakdown) (1)
 - [`pmm`](#pmm) (1)
+- [`policy`](#policy) (1)
 - [`portfolio`](#portfolio) (1)
 - [`pprof`](#pprof) (1)
 - [`ppt`](#ppt) (1)
@@ -402,9 +406,12 @@
 - [`reader`](#reader) (1)
 - [`reflect`](#reflect) (1)
 - [`regime`](#regime) (1)
+- [`registry`](#registry) (1)
 - [`regression-testing`](#regression-testing) (1)
 - [`release`](#release) (1)
+- [`remotion`](#remotion) (1)
 - [`render`](#render) (1)
+- [`rendering`](#rendering) (1)
 - [`repomix`](#repomix) (1)
 - [`report`](#report) (1)
 - [`reporting`](#reporting) (1)
@@ -434,11 +441,14 @@
 - [`sec`](#sec) (1)
 - [`security-and-hardening`](#security-and-hardening) (1)
 - [`security-audit`](#security-audit) (1)
+- [`security-model`](#security-model) (1)
+- [`security-review`](#security-review) (1)
 - [`security-rules`](#security-rules) (1)
 - [`semgrep`](#semgrep) (1)
 - [`senior`](#senior) (1)
 - [`sentry`](#sentry) (1)
 - [`setup`](#setup) (1)
+- [`shadcn`](#shadcn) (1)
 - [`shard`](#shard) (1)
 - [`sheets`](#sheets) (1)
 - [`sherpa`](#sherpa) (1)
@@ -478,6 +488,7 @@
 - [`tester`](#tester) (1)
 - [`theme`](#theme) (1)
 - [`threat`](#threat) (1)
+- [`threat-model`](#threat-model) (1)
 - [`tome`](#tome) (1)
 - [`tone`](#tone) (1)
 - [`toolkit`](#toolkit) (1)
@@ -491,10 +502,8 @@
 - [`user-modeling`](#user-modeling) (1)
 - [`using-agent-skills`](#using-agent-skills) (1)
 - [`ux`](#ux) (1)
-- [`validation`](#validation) (1)
 - [`valuation`](#valuation) (1)
 - [`vetter`](#vetter) (1)
-- [`video`](#video) (1)
 - [`visual-regression`](#visual-regression) (1)
 - [`visualization`](#visualization) (1)
 - [`voice`](#voice) (1)
@@ -1295,6 +1304,17 @@
 | [lark-markdown](skills/knowledge-and-pm-integrations/lark-markdown) | knowledge-and-pm-integrations | ★★★☆☆ | 操作飞书云空间中的 Markdown 文件：读取、创建、上传、局部编辑和比较。用于飞书 Markdown 资源操作；本地 Markdown 编辑无需此技能，导入 |
 | [docs-cleaner](skills/operations-general/docs-cleaner) | operations-general | ★★★☆☆ | Consolidate overlapping documentation and remove repetition while preserving use |
 
+## frontend
+
+**4 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [shadcn](skills/developer-engineering/shadcn) | developer-engineering | ★★★★☆ | Use when adding, updating, debugging, or composing shadcn/ui components, registr |
+| [vercel-react-view-transitions](skills/developer-engineering/vercel-react-view-transitions) | developer-engineering | ★★★★☆ | Implement React ViewTransition animations, navigation transitions, transition ty |
+| [ui-ux-pro-max](skills/product-design/ui-ux-pro-max) | product-design | ★★★★☆ | Front-end UI/UX design intelligence for creating, reviewing, and hardening polis |
+| [frontend-design](skills/developer-engineering/frontend-design) | developer-engineering | ★★☆☆☆ | Design and implement polished web components, pages, and applications with a coh |
+
 ## github
 
 **4 skills**
@@ -1360,6 +1380,17 @@
 | [notion-meeting-intelligence](skills/knowledge-and-pm-integrations/notion-meeting-intelligence) | knowledge-and-pm-integrations | ★★★☆☆ | 用于基于 Notion 上下文准备会议材料。 |
 | [notion-research-documentation](skills/knowledge-and-pm-integrations/notion-research-documentation) | knowledge-and-pm-integrations | ★★★☆☆ | 用于整合 Notion 信息并生成研究文档。 |
 | [notion-spec-to-implementation](skills/knowledge-and-pm-integrations/notion-spec-to-implementation) | knowledge-and-pm-integrations | ★★★☆☆ | 用于把 Notion 规格转成计划、任务和进度跟踪。 |
+
+## react
+
+**4 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [shadcn](skills/developer-engineering/shadcn) | developer-engineering | ★★★★☆ | Use when adding, updating, debugging, or composing shadcn/ui components, registr |
+| [vercel-react-best-practices](skills/developer-engineering/vercel-react-best-practices) | developer-engineering | ★★★★☆ | Optimize React and Next.js rendering, data fetching, bundles, and runtime perfor |
+| [vercel-react-view-transitions](skills/developer-engineering/vercel-react-view-transitions) | developer-engineering | ★★★★☆ | Implement React ViewTransition animations, navigation transitions, transition ty |
+| [remotion-video](skills/multimodal-media/remotion-video) | multimodal-media | ★★★☆☆ | Use when creating or repairing a Remotion React video, composition, or render wh |
 
 ## research
 
@@ -1438,6 +1469,16 @@
 | [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Trivy 扫描仓库、容器镜像、文件系统、rootfs、SBOM、Kubernetes、IaC、密钥、许可证和系统 CVE。 |
 | [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Vuls 对 Linux、FreeBSD、容器、WordPress、库和网络设备执行 Agentless CVE 扫描。 |
 
+## animation
+
+**3 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [vercel-react-view-transitions](skills/developer-engineering/vercel-react-view-transitions) | developer-engineering | ★★★★☆ | Implement React ViewTransition animations, navigation transitions, transition ty |
+| [live-panel](skills/multimodal-media/live-panel) | multimodal-media | ★★★☆☆ | Render animated system architecture panels into self-contained HTML and MP4. |
+| [remotion-video](skills/multimodal-media/remotion-video) | multimodal-media | ★★★☆☆ | Use when creating or repairing a Remotion React video, composition, or render wh |
+
 ## architecture
 
 **3 skills**
@@ -1467,16 +1508,6 @@
 | [skill-creator](skills/ai-workflow/skill-creator) | ai-workflow | ★★★★★ | Create or improve agent skills, trigger descriptions, and evaluation cases; use  |
 | [content-creator](skills/growth-operations-xiaohongshu/content-creator) | growth-operations-xiaohongshu | ★★★★★ | Create or revise marketing content with a consistent brand voice, audience inten |
 | [slack-gif-creator](skills/operations-general/slack-gif-creator) | operations-general | ★★★★★ | Knowledge and utilities for creating animated GIFs optimized for Slack. Provides |
-
-## frontend
-
-**3 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [vercel-react-view-transitions](skills/developer-engineering/vercel-react-view-transitions) | developer-engineering | ★★★★☆ | Implement React ViewTransition animations, navigation transitions, transition ty |
-| [ui-ux-pro-max](skills/product-design/ui-ux-pro-max) | product-design | ★★★★☆ | Front-end UI/UX design intelligence for creating, reviewing, and hardening polis |
-| [frontend-design](skills/developer-engineering/frontend-design) | developer-engineering | ★★☆☆☆ | Design and implement polished web components, pages, and applications with a coh |
 
 ## generator
 
@@ -1668,6 +1699,15 @@
 | [web-scraper](skills/engineering-workflow-automation/web-scraper) | engineering-workflow-automation | ★★★★☆ | Use when users need webpage scraping, structured data extraction, crawling strat |
 | [web-artifacts-builder](skills/developer-engineering/web-artifacts-builder) | developer-engineering | ★★★☆☆ | Build complex interactive HTML artifacts with React, Tailwind, and shadcn/ui whe |
 
+## accessibility
+
+**2 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [shadcn](skills/developer-engineering/shadcn) | developer-engineering | ★★★★☆ | Use when adding, updating, debugging, or composing shadcn/ui components, registr |
+| [ui-ux-pro-max](skills/product-design/ui-ux-pro-max) | product-design | ★★★★☆ | Front-end UI/UX design intelligence for creating, reviewing, and hardening polis |
+
 ## agent-skill
 
 **2 skills**
@@ -1695,15 +1735,6 @@
 | [social-media-analyzer](skills/growth-operations-xiaohongshu/social-media-analyzer) | growth-operations-xiaohongshu | ★★★★★ | Analyze social campaign engagement, ROI, audience behavior, and platform compari |
 | [earnings-call-analyzer](skills/finance-investing/earnings-call-analyzer) | finance-investing | ★★☆☆☆ | Use when summarizing earnings calls, extracting management tone changes, surfaci |
 
-## animation
-
-**2 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [vercel-react-view-transitions](skills/developer-engineering/vercel-react-view-transitions) | developer-engineering | ★★★★☆ | Implement React ViewTransition animations, navigation transitions, transition ty |
-| [live-panel](skills/multimodal-media/live-panel) | multimodal-media | ★★★☆☆ | Render animated system architecture panels into self-contained HTML and MP4. |
-
 ## app
 
 **2 skills**
@@ -1721,6 +1752,15 @@
 |-------|----------|---------|-------------|
 | [dependency-auditor](skills/developer-engineering/dependency-auditor) | developer-engineering | ★★★★★ | Audit dependency inventories, verify vulnerability and license evidence, and pla |
 | [skill-security-auditor](skills/security-and-reliability/skill-security-auditor) | security-and-reliability | ★★★★☆ | Audit external agent skills before installation for malicious instructions, unsa |
+
+## authorization
+
+**2 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [firebase-security-rules-auditor](skills/security-and-reliability/firebase-security-rules-auditor) | security-and-reliability | ★★★★☆ | Use when auditing changed Firestore or Cloud Storage rules for authorization, te |
+| [security-model](skills/security-and-reliability/security-model) | security-and-reliability | ★★★★☆ | Use when defining, reviewing, or maintaining SECURITY_MODEL.md policy that secur |
 
 ## azure
 
@@ -2046,15 +2086,6 @@
 | [requesting-code-review](skills/ai-workflow/requesting-code-review) | ai-workflow | ★★★★☆ | Use when completing tasks, implementing major features, or before merging to ver |
 | [verification-before-completion](skills/ai-workflow/verification-before-completion) | ai-workflow | ★★★★☆ | Use when about to claim work is complete, fixed, or passing, before committing o |
 
-## react
-
-**2 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [vercel-react-best-practices](skills/developer-engineering/vercel-react-best-practices) | developer-engineering | ★★★★☆ | Optimize React and Next.js rendering, data fetching, bundles, and runtime perfor |
-| [vercel-react-view-transitions](skills/developer-engineering/vercel-react-view-transitions) | developer-engineering | ★★★★☆ | Implement React ViewTransition animations, navigation transitions, transition ty |
-
 ## refactoring
 
 **2 skills**
@@ -2181,6 +2212,15 @@
 | [lark-meeting](skills/knowledge-and-pm-integrations/lark-meeting) | knowledge-and-pm-integrations | ★★★★☆ | Use Lark CLI to locate meetings, manage Minutes and AI notes, inspect transcript |
 | [transcript-fixer](skills/office-white-collar/transcript-fixer) | office-white-collar | ★★★★☆ | Correct speech-recognition errors, homophones, and mixed Chinese/English termino |
 
+## validation
+
+**2 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [security-audit](skills/security-and-reliability/security-audit) | security-and-reliability | ★★★★☆ | Audit codebases for exploitable security vulnerabilities with concrete attack pa |
+| [remotion-video](skills/multimodal-media/remotion-video) | multimodal-media | ★★★☆☆ | Use when creating or repairing a Remotion React video, composition, or render wh |
+
 ## verification
 
 **2 skills**
@@ -2189,6 +2229,15 @@
 |-------|----------|---------|-------------|
 | [andrej-karpathy-skills](skills/ai-workflow/andrej-karpathy-skills) | ai-workflow | ★★★★☆ | Karpathy-inspired coding discipline for AI agents: think before coding, keep cha |
 | [verification-before-completion](skills/ai-workflow/verification-before-completion) | ai-workflow | ★★★★☆ | Use when about to claim work is complete, fixed, or passing, before committing o |
+
+## video
+
+**2 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [live-panel](skills/multimodal-media/live-panel) | multimodal-media | ★★★☆☆ | Render animated system architecture panels into self-contained HTML and MP4. |
+| [remotion-video](skills/multimodal-media/remotion-video) | multimodal-media | ★★★☆☆ | Use when creating or repairing a Remotion React video, composition, or render wh |
 
 ## wiki
 
@@ -2224,14 +2273,6 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [arxiv](skills/knowledge-and-pm-integrations/arxiv) | knowledge-and-pm-integrations | ★★★★☆ | Search arXiv papers by keyword, author, category, or ID. |
-
-## accessibility
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [ui-ux-pro-max](skills/product-design/ui-ux-pro-max) | product-design | ★★★★☆ | Front-end UI/UX design intelligence for creating, reviewing, and hardening polis |
 
 ## acquisition
 
@@ -2424,14 +2465,6 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [writing-skills](skills/ai-workflow/writing-skills) | ai-workflow | ★★★★☆ | Use when creating new skills, editing existing skills, or verifying skills work  |
-
-## authorization
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [firebase-security-rules-auditor](skills/security-and-reliability/firebase-security-rules-auditor) | security-and-reliability | ★★★★☆ | Use when auditing changed Firestore or Cloud Storage rules for authorization, te |
 
 ## aws
 
@@ -2792,6 +2825,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [comply](skills/security-and-reliability/comply) | security-and-reliability | ★★★★★ | Regulatory compliance and audit agent. Maps business regulatory requirements (SO |
+
+## components
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [shadcn](skills/developer-engineering/shadcn) | developer-engineering | ★★★★☆ | Use when adding, updating, debugging, or composing shadcn/ui components, registr |
 
 ## comps
 
@@ -4121,6 +4162,14 @@
 |-------|----------|---------|-------------|
 | [marketing-strategy-pmm](skills/growth-operations-xiaohongshu/marketing-strategy-pmm) | growth-operations-xiaohongshu | ★★★★★ | Product marketing skill for positioning, GTM strategy, competitive intelligence, |
 
+## policy
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [security-model](skills/security-and-reliability/security-model) | security-and-reliability | ★★★★☆ | Use when defining, reviewing, or maintaining SECURITY_MODEL.md policy that secur |
+
 ## portfolio
 
 **1 skills**
@@ -4313,6 +4362,14 @@
 |-------|----------|---------|-------------|
 | [macro-regime-monitor](skills/finance-investing/macro-regime-monitor) | finance-investing | ★★☆☆☆ | Use when tracking macro regime shifts, summarizing inflation, growth, spreads, a |
 
+## registry
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [shadcn](skills/developer-engineering/shadcn) | developer-engineering | ★★★★☆ | Use when adding, updating, debugging, or composing shadcn/ui components, registr |
+
 ## regression-testing
 
 **1 skills**
@@ -4329,6 +4386,14 @@
 |-------|----------|---------|-------------|
 | [release-manager](skills/devops-sre/release-manager) | devops-sre | ★★★★★ | Prepare software releases with version selection, changelogs, artifacts, validat |
 
+## remotion
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [remotion-video](skills/multimodal-media/remotion-video) | multimodal-media | ★★★☆☆ | Use when creating or repairing a Remotion React video, composition, or render wh |
+
 ## render
 
 **1 skills**
@@ -4336,6 +4401,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [render-deploy](skills/deployment-platforms/render-deploy) | deployment-platforms | ★★★★★ | Deploy applications to Render by analyzing codebases, generating render.yaml Blu |
+
+## rendering
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [remotion-video](skills/multimodal-media/remotion-video) | multimodal-media | ★★★☆☆ | Use when creating or repairing a Remotion React video, composition, or render wh |
 
 ## repomix
 
@@ -4569,6 +4642,22 @@
 |-------|----------|---------|-------------|
 | [security-audit](skills/security-and-reliability/security-audit) | security-and-reliability | ★★★★☆ | Audit codebases for exploitable security vulnerabilities with concrete attack pa |
 
+## security-model
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [security-model](skills/security-and-reliability/security-model) | security-and-reliability | ★★★★☆ | Use when defining, reviewing, or maintaining SECURITY_MODEL.md policy that secur |
+
+## security-review
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [security-model](skills/security-and-reliability/security-model) | security-and-reliability | ★★★★☆ | Use when defining, reviewing, or maintaining SECURITY_MODEL.md policy that secur |
+
 ## security-rules
 
 **1 skills**
@@ -4608,6 +4697,14 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Use, configure, theme, extend, and orchestrate Hermes Agent. |
+
+## shadcn
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [shadcn](skills/developer-engineering/shadcn) | developer-engineering | ★★★★☆ | Use when adding, updating, debugging, or composing shadcn/ui components, registr |
 
 ## shard
 
@@ -4921,6 +5018,14 @@
 |-------|----------|---------|-------------|
 | [security-threat-model](skills/security-and-reliability/security-threat-model) | security-and-reliability | ★★★☆☆ | Use when creating threat models from codebases, architectures, assets, trust bou |
 
+## threat-model
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [security-model](skills/security-and-reliability/security-model) | security-and-reliability | ★★★★☆ | Use when defining, reviewing, or maintaining SECURITY_MODEL.md policy that secur |
+
 ## tome
 
 **1 skills**
@@ -5025,14 +5130,6 @@
 |-------|----------|---------|-------------|
 | [ui-ux-pro-max](skills/product-design/ui-ux-pro-max) | product-design | ★★★★☆ | Front-end UI/UX design intelligence for creating, reviewing, and hardening polis |
 
-## validation
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [security-audit](skills/security-and-reliability/security-audit) | security-and-reliability | ★★★★☆ | Audit codebases for exploitable security vulnerabilities with concrete attack pa |
-
 ## valuation
 
 **1 skills**
@@ -5048,14 +5145,6 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [skill-vetter](skills/security-and-reliability/skill-vetter) | security-and-reliability | ★★☆☆☆ | Use before installing or trusting an external skill to inspect instructions, scr |
-
-## video
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [live-panel](skills/multimodal-media/live-panel) | multimodal-media | ★★★☆☆ | Render animated system architecture panels into self-contained HTML and MP4. |
 
 ## visual-regression
 

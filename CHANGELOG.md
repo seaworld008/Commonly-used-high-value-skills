@@ -12,9 +12,19 @@ All notable changes to this repository are documented here.
 
 #### [2026-10-26]
 
+##### Added
+- `shadcn` (developer-engineering) — shadcn
+- `remotion-video` (multimodal-media) — remotion-video
+- `security-model` (security-and-reliability) — security-model
+
 ##### Changed
+- add curated shadcn security-model and Remotion workflows
 - complete upstream curation and harden skill audit boundaries
 - refactor(skills)!: consolidate reflection and curate upstream contracts
+
+##### Fixed
+- preserve Git path whitespace and normalize pinned references
+- validate every receipt before cache writes
 <!-- AUTO-CHANGELOG:END -->
 
 ## [4.1.0] - 2026-10-16

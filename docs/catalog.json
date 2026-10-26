@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
   "generated_at": "2026-06-08",
-  "total_skills": 293,
+  "total_skills": 296,
   "total_categories": 16,
   "categories": [
     {
       "name": "developer-engineering",
-      "count": 52
+      "count": 53
     },
     {
       "name": "ai-workflow",
@@ -18,7 +18,7 @@
     },
     {
       "name": "security-and-reliability",
-      "count": 23
+      "count": 24
     },
     {
       "name": "finance-investing",
@@ -49,12 +49,12 @@
       "count": 13
     },
     {
-      "name": "operations-general",
+      "name": "multimodal-media",
       "count": 11
     },
     {
-      "name": "multimodal-media",
-      "count": 10
+      "name": "operations-general",
+      "count": 11
     },
     {
       "name": "deployment-platforms",
@@ -2302,6 +2302,29 @@
       "updated_at": "2026-10-26",
       "line_count": 308,
       "path": "skills/developer-engineering/schema/SKILL.md"
+    },
+    {
+      "name": "shadcn",
+      "category": "developer-engineering",
+      "description": "Use when adding, updating, debugging, or composing shadcn/ui components, registries, themes, or presets in a project that uses shadcn.",
+      "version": "1.0.0",
+      "author": "seaworld008; adapted from shadcn-ui/ui",
+      "source": "github:shadcn-ui/ui",
+      "source_url": "https://github.com/shadcn-ui/ui/tree/8f04138777c1b6996e709993362a7b0a12888ecf/skills/shadcn",
+      "tags": [
+        "shadcn",
+        "react",
+        "components",
+        "registry",
+        "frontend",
+        "accessibility"
+      ],
+      "quality": 4,
+      "complexity": "intermediate",
+      "created_at": "2026-10-26",
+      "updated_at": "2026-10-26",
+      "line_count": 128,
+      "path": "skills/developer-engineering/shadcn/SKILL.md"
     },
     {
       "name": "skill-tester",
@@ -4572,6 +4595,29 @@
       "path": "skills/multimodal-media/live-panel/SKILL.md"
     },
     {
+      "name": "remotion-video",
+      "category": "multimodal-media",
+      "description": "Use when creating or repairing a Remotion React video, composition, or render whose frame timing and exported media must be validated.",
+      "version": "1.0.0",
+      "author": "seaworld008",
+      "source": "in-house",
+      "source_url": "",
+      "tags": [
+        "remotion",
+        "react",
+        "video",
+        "animation",
+        "rendering",
+        "validation"
+      ],
+      "quality": 3,
+      "complexity": "advanced",
+      "created_at": "2026-10-26",
+      "updated_at": "2026-10-26",
+      "line_count": 129,
+      "path": "skills/multimodal-media/remotion-video/SKILL.md"
+    },
+    {
       "name": "screenshot",
       "category": "multimodal-media",
       "description": "Use when the user explicitly asks for a desktop or system screenshot (full screen, specific app or window, or a pixel region), or when tool-specific capture capabilities are unavailable and an OS-level capture is needed.",
@@ -5860,6 +5906,28 @@
       "updated_at": "2026-06-29",
       "line_count": 106,
       "path": "skills/security-and-reliability/security-best-practices/SKILL.md"
+    },
+    {
+      "name": "security-model",
+      "category": "security-and-reliability",
+      "description": "Use when defining, reviewing, or maintaining SECURITY_MODEL.md policy that security review tools consume, including trust boundaries, invariants, inheritance, and reportability.",
+      "version": "1.0.1",
+      "author": "seaworld008; adapted from Sentry and OpenAI",
+      "source": "github:getsentry/skills",
+      "source_url": "https://github.com/getsentry/skills/tree/d12f250460ffd961f549dbebf7eeb0cf4afd4c2e/skills/security-model",
+      "tags": [
+        "security-model",
+        "threat-model",
+        "policy",
+        "security-review",
+        "authorization"
+      ],
+      "quality": 4,
+      "complexity": "advanced",
+      "created_at": "2026-10-26",
+      "updated_at": "2026-10-26",
+      "line_count": 143,
+      "path": "skills/security-and-reliability/security-model/SKILL.md"
     },
     {
       "name": "security-ownership-map",

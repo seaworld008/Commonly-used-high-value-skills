@@ -4,7 +4,7 @@
 
 聚焦图像、音频、视频、截图、摘要与转写的多模态生产力技能集合。
 
-当前分类共 **10** 个技能。
+当前分类共 **11** 个技能。
 
 ## 推荐先看
 
@@ -21,6 +21,7 @@
 | `gpt-image2` | 让 Codex 通过本地配置的 gpt-image-2 兼容画图服务生成图片，支持提示词、参考图、比例、清晰度和本地保存。 | [目录](./gpt-image2/) | [SKILL.md](./gpt-image2/SKILL.md) |
 | `imagegen` | 用于生成、编辑和迭代图像内容与视觉素材。 | [目录](./imagegen/) | [SKILL.md](./imagegen/SKILL.md) |
 | `live-panel` | 将系统架构和数据流 JSON 配置渲染为动态面板 HTML 或 MP4。 | [目录](./live-panel/) | [SKILL.md](./live-panel/SKILL.md) |
+| `remotion-video` | 制作和修复 Remotion 视频，以帧时间线、抽帧检查和媒体元数据验证交付结果。 | [目录](./remotion-video/) | [SKILL.md](./remotion-video/SKILL.md) |
 | `screenshot` | 用于截图、屏幕捕获、视觉核查和界面证据收集。 | [目录](./screenshot/) | [SKILL.md](./screenshot/SKILL.md) |
 | `sketch` | 图像生成代码、提示优化、批量生成和成本估算。 | [目录](./sketch/) | [SKILL.md](./sketch/SKILL.md) |
 | `sora` | 用于构思、生成和评审 Sora 视频或视频提示词。 | [目录](./sora/) | [SKILL.md](./sora/SKILL.md) |
