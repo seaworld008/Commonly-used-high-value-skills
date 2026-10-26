@@ -1,14 +1,14 @@
 # Tags Index
 
-> Auto-generated from 1133 skill-tag mappings across 506 tags.
+> Auto-generated from 1129 skill-tag mappings across 504 tags.
 > Last updated: see git log.
 
 ## Quick Navigation
 
 - [`workflow`](#workflow) (58)
 - [`development`](#development) (45)
-- [`ai`](#ai) (37)
-- [`agent`](#agent) (36)
+- [`ai`](#ai) (36)
+- [`agent`](#agent) (35)
 - [`engineering`](#engineering) (24)
 - [`lark`](#lark) (23)
 - [`security`](#security) (23)
@@ -297,7 +297,6 @@
 - [`imagegen`](#imagegen) (1)
 - [`implement`](#implement) (1)
 - [`implementation`](#implementation) (1)
-- [`improving`](#improving) (1)
 - [`incident-response`](#incident-response) (1)
 - [`incremental-implementation`](#incremental-implementation) (1)
 - [`input`](#input) (1)
@@ -436,7 +435,6 @@
 - [`security-and-hardening`](#security-and-hardening) (1)
 - [`security-audit`](#security-audit) (1)
 - [`security-rules`](#security-rules) (1)
-- [`self`](#self) (1)
 - [`semgrep`](#semgrep) (1)
 - [`senior`](#senior) (1)
 - [`sentry`](#sentry) (1)
@@ -633,7 +631,7 @@
 
 ## ai
 
-**37 skills**
+**36 skills**
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
@@ -673,11 +671,10 @@
 | [using-agent-skills](skills/ai-workflow/using-agent-skills) | ai-workflow | ★★★★☆ | Find the most relevant engineering skill when task routing is unclear; load only |
 | [openai-docs](skills/ai-agent-platform/openai-docs) | ai-agent-platform | ★★★☆☆ | Find current official OpenAI guidance for Codex, APIs, models, prompting, or mig |
 | [figma](skills/ai-agent-platform/figma) | ai-agent-platform | ★★☆☆☆ | Fetch Figma design context, variables, screenshots, and assets through MCP when  |
-| [self-improving-agent](skills/ai-agent-platform/self-improving-agent) | ai-agent-platform | ★★☆☆☆ | Use when building or operating agents that should learn from prior runs, capture |
 
 ## agent
 
-**36 skills**
+**35 skills**
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
@@ -716,7 +713,6 @@
 | [using-agent-skills](skills/ai-workflow/using-agent-skills) | ai-workflow | ★★★★☆ | Find the most relevant engineering skill when task routing is unclear; load only |
 | [openai-docs](skills/ai-agent-platform/openai-docs) | ai-agent-platform | ★★★☆☆ | Find current official OpenAI guidance for Codex, APIs, models, prompting, or mig |
 | [figma](skills/ai-agent-platform/figma) | ai-agent-platform | ★★☆☆☆ | Fetch Figma design context, variables, screenshots, and assets through MCP when  |
-| [self-improving-agent](skills/ai-agent-platform/self-improving-agent) | ai-agent-platform | ★★☆☆☆ | Use when building or operating agents that should learn from prior runs, capture |
 
 ## engineering
 
@@ -3477,14 +3473,6 @@
 |-------|----------|---------|-------------|
 | [notion-spec-to-implementation](skills/knowledge-and-pm-integrations/notion-spec-to-implementation) | knowledge-and-pm-integrations | ★★★☆☆ | 用于把 Notion 规格转成计划、任务和进度跟踪。 |
 
-## improving
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [self-improving-agent](skills/ai-agent-platform/self-improving-agent) | ai-agent-platform | ★★☆☆☆ | Use when building or operating agents that should learn from prior runs, capture |
-
 ## incident-response
 
 **1 skills**
@@ -4588,14 +4576,6 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [firebase-security-rules-auditor](skills/security-and-reliability/firebase-security-rules-auditor) | security-and-reliability | ★★★★☆ | Audit Firestore and Cloud Storage rules for authorization, tenant isolation, fie |
-
-## self
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [self-improving-agent](skills/ai-agent-platform/self-improving-agent) | ai-agent-platform | ★★☆☆☆ | Use when building or operating agents that should learn from prior runs, capture |
 
 ## semgrep
 

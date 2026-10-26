@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "generated_at": "2026-06-08",
-  "total_skills": 294,
+  "total_skills": 293,
   "total_categories": 16,
   "categories": [
     {
@@ -29,12 +29,12 @@
       "count": 15
     },
     {
-      "name": "ai-agent-platform",
+      "name": "devops-sre",
       "count": 14
     },
     {
-      "name": "devops-sre",
-      "count": 14
+      "name": "ai-agent-platform",
+      "count": 13
     },
     {
       "name": "engineering-workflow-automation",
@@ -74,7 +74,7 @@
       "name": "agent-hub",
       "category": "ai-agent-platform",
       "description": "Compare independent solutions with agent-hub when parallel competition is requested; isolate Git worktrees, evaluate variants, and integrate the selected result.",
-      "version": "1.0.11",
+      "version": "1.0.12",
       "author": "seaworld008",
       "source": "github:alirezarezvani/claude-skills",
       "source_url": "https://github.com/alirezarezvani/claude-skills/blob/main/engineering/agenthub/skills/agenthub/SKILL.md",
@@ -86,7 +86,7 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-27",
-      "updated_at": "2026-09-22",
+      "updated_at": "2026-10-26",
       "line_count": 297,
       "path": "skills/ai-agent-platform/agent-hub/SKILL.md"
     },
@@ -199,7 +199,7 @@
       "name": "hermes-agent",
       "category": "ai-agent-platform",
       "description": "Use, configure, theme, extend, and orchestrate Hermes Agent.",
-      "version": "2.0.22",
+      "version": "2.0.23",
       "author": "Hermes Agent + Teknium",
       "source": "github:NousResearch/hermes-agent",
       "source_url": "https://github.com/NousResearch/hermes-agent/blob/main/skills/autonomous-ai-agents/hermes-agent/SKILL.md",
@@ -216,7 +216,7 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-04-13",
-      "updated_at": "2026-09-28",
+      "updated_at": "2026-10-26",
       "line_count": 221,
       "path": "skills/ai-agent-platform/hermes-agent/SKILL.md"
     },
@@ -326,27 +326,6 @@
       "path": "skills/ai-agent-platform/oracle/SKILL.md"
     },
     {
-      "name": "self-improving-agent",
-      "category": "ai-agent-platform",
-      "description": "Use when building or operating agents that should learn from prior runs, capture durable feedback, update behavior safely, and improve task performance across iterations.",
-      "version": "1.0.0",
-      "author": "seaworld008",
-      "source": "in-house",
-      "source_url": "",
-      "tags": [
-        "agent",
-        "ai",
-        "improving",
-        "self"
-      ],
-      "quality": 2,
-      "complexity": "intermediate",
-      "created_at": "2026-03-15",
-      "updated_at": "2026-06-29",
-      "line_count": 127,
-      "path": "skills/ai-agent-platform/self-improving-agent/SKILL.md"
-    },
-    {
       "name": "sigil",
       "category": "ai-agent-platform",
       "description": "根据项目代码自动生成贴合仓库约定的技能。",
@@ -370,7 +349,7 @@
       "name": "agent-workflow-designer",
       "category": "ai-workflow",
       "description": "Design agent orchestration, handoffs, state, recovery, and evaluation when a workflow needs multiple coordinated agents or tools.",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -383,8 +362,8 @@
       "quality": 5,
       "complexity": "intermediate",
       "created_at": "2026-03-04",
-      "updated_at": "2026-09-06",
-      "line_count": 457,
+      "updated_at": "2026-10-26",
+      "line_count": 463,
       "path": "skills/ai-workflow/agent-workflow-designer/SKILL.md"
     },
     {
@@ -2038,10 +2017,10 @@
       "name": "neon-postgres",
       "category": "developer-engineering",
       "description": "Build or troubleshoot Neon Postgres connections, branching, pooling, scaling, Auth, and platform integrations using current Neon documentation.",
-      "version": "1.0.7",
+      "version": "1.0.8",
       "author": "seaworld008",
       "source": "github:neondatabase/agent-skills",
-      "source_url": "https://github.com/neondatabase/agent-skills/blob/80164a28443aca7c82ac1a70aed836950d6c29ea/skills/neon-postgres/SKILL.md",
+      "source_url": "https://github.com/neondatabase/agent-skills/blob/ccca3334a7542d3133134cc6926f2fafc6edeb1f/skills/neon-postgres/SKILL.md",
       "tags": [
         "development",
         "neon",
@@ -2050,7 +2029,7 @@
       "quality": 5,
       "complexity": "intermediate",
       "created_at": "2026-06-03",
-      "updated_at": "2026-10-16",
+      "updated_at": "2026-10-26",
       "line_count": 284,
       "path": "skills/developer-engineering/neon-postgres/SKILL.md"
     },
@@ -2911,7 +2890,7 @@
       "name": "gh-address-comments",
       "category": "engineering-workflow-automation",
       "description": "Use when addressing GitHub PR review comments or issue comments on the current branch with gh CLI, including auth checks, comment triage, edits, verification, and replies.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -2924,8 +2903,8 @@
       "quality": 2,
       "complexity": "intermediate",
       "created_at": "2026-03-04",
-      "updated_at": "2026-06-29",
-      "line_count": 121,
+      "updated_at": "2026-10-26",
+      "line_count": 135,
       "path": "skills/engineering-workflow-automation/gh-address-comments/SKILL.md"
     },
     {
@@ -5929,10 +5908,10 @@
       "name": "security-review",
       "category": "security-and-reliability",
       "description": "Review code changes for injection, XSS, authentication, authorization, cryptography, and other security defects with evidence-based severity.",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "author": "seaworld008",
       "source": "github:getsentry/skills",
-      "source_url": "https://github.com/getsentry/skills/blob/d18b7aa8ba878354e5c348310230e652f7690f9c/skills/security-review/SKILL.md",
+      "source_url": "https://github.com/getsentry/skills/blob/d12f250460ffd961f549dbebf7eeb0cf4afd4c2e/skills/security-review/SKILL.md",
       "tags": [
         "review",
         "security"
@@ -5940,8 +5919,8 @@
       "quality": 5,
       "complexity": "intermediate",
       "created_at": "2026-06-21",
-      "updated_at": "2026-09-30",
-      "line_count": 322,
+      "updated_at": "2026-10-26",
+      "line_count": 318,
       "path": "skills/security-and-reliability/security-review/SKILL.md"
     },
     {
@@ -6144,7 +6123,7 @@
       "name": "reflect-learn",
       "category": "task-understanding-decomposition",
       "description": "Review user corrections or session outcomes to propose durable workflow improvements. Persist memory or edit agent guidance only when requested.",
-      "version": "2.0.2",
+      "version": "2.0.3",
       "author": "Claude Code Toolkit",
       "source": "in-house",
       "source_url": "",
@@ -6157,8 +6136,8 @@
       "quality": 5,
       "complexity": "intermediate",
       "created_at": "2026-03-04",
-      "updated_at": "2026-09-07",
-      "line_count": 401,
+      "updated_at": "2026-10-26",
+      "line_count": 414,
       "path": "skills/task-understanding-decomposition/reflect-learn/SKILL.md"
     },
     {

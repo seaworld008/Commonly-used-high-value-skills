@@ -4,7 +4,7 @@
 
 围绕 AI 平台能力、Agent 构建、设计到代码以及主动式工作流的技能集合。
 
-当前分类共 **14** 个技能。
+当前分类共 **13** 个技能。
 
 ## 推荐先看
 
@@ -29,7 +29,6 @@
 | `native-mcp` | 用于构建和调试原生 MCP 集成、服务器和工具调用流程。 | [目录](./native-mcp/) | [SKILL.md](./native-mcp/SKILL.md) |
 | `openai-docs` | 用于查阅和应用 OpenAI 官方文档、API 行为和集成指南。 | [目录](./openai-docs/) | [SKILL.md](./openai-docs/SKILL.md) |
 | `oracle` | 人工智能应用设计、评估、检索增强和安全护栏规划。 | [目录](./oracle/) | [SKILL.md](./oracle/SKILL.md) |
-| `self-improving-agent` | 用于构建具备记忆、反馈吸收和安全自我优化机制的持续改进型 Agent。 | [目录](./self-improving-agent/) | [SKILL.md](./self-improving-agent/SKILL.md) |
 | `sigil` | 根据项目代码自动生成贴合仓库约定的技能。 | [目录](./sigil/) | [SKILL.md](./sigil/SKILL.md) |
 
 ## 维护方式

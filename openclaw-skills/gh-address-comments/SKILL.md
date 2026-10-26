@@ -2,13 +2,13 @@
 name: gh-address-comments
 description: 'Use when addressing GitHub PR review comments or issue comments on the current branch with gh CLI, including auth checks, comment triage, edits, verification, and replies.'
 zh_description: "用于通过 gh CLI 处理当前分支的 GitHub PR Review 评论或 Issue 评论。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["address", "automation", "comments", "workflow"]'
 created_at: "2026-03-04"
-updated_at: "2026-06-29"
+updated_at: "2026-10-26"
 quality: 2
 complexity: "intermediate"
 metadata:
@@ -89,17 +89,31 @@ gh auth login
 
 ### GitHub CLI 常用操作示例
 ```bash
-# 获取当前 PR 的所有未解决对话 (需配合 jq)
-gh pr view --json reviews | jq '.reviews[].comments[] | select(.state != "RESOLVED")'
+# 列出指定 PR 的未解决 review threads；替换 OWNER、REPO 和编号
+gh api graphql --paginate -F owner=OWNER -F name=REPO -F number=123 \
+  -f query='query($owner: String!, $name: String!, $number: Int!, $endCursor: String) {
+    repository(owner: $owner, name: $name) {
+      pullRequest(number: $number) {
+        reviewThreads(first: 100, after: $endCursor) {
+          nodes { id isResolved path line }
+          pageInfo { hasNextPage endCursor }
+        }
+      }
+    }
+  }' --jq '.data.repository.pullRequest.reviewThreads.nodes[] | select(.isResolved == false)'
 
 # 对特定 PR 提交修复后的 Review 回复
 gh pr comment 123 --body "Addressing feedback in commit e5f2a1..."
 ```
 
+`reviews` 与 `reviewThreads` 是不同的数据结构，不能从 review 状态推断
+thread 是否已解决。上例只列出 thread 定位信息；读取其评论时继续遵守
+对应 connection 的分页。只有用户明确要求发送回复时才运行评论写入命令。
+
 ## 进阶应用场景 / Advanced Use Cases
 
 ### 1. 自动重构评审
-- 评审人提出“这段代码太复杂了，请尝试重构”。Agent 利用 `gh-address-comments` 结合 `self-improving-agent` 逻辑，自动提取复杂函数并尝试多种解构方案。
+- 评审人提出“这段代码太复杂了，请尝试重构”。先定位具体评审意见，在授权范围内做最小重构并验证；需要总结可复用的经验时，使用 `reflect-learn` 比较改动与回归证据，只有获得对应授权才持久化规则。
 
 ### 2. 多 PR 同步更新
 - 在 Monorepo 环境中，一个变更可能涉及多个关联 PR。本技能可以跨仓库检索同名分支下的所有评审意见并一并处理。

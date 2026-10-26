@@ -29,16 +29,23 @@ def assert_managed_inventory(item: dict) -> None:
 
 
 def test_using_superpowers_tracks_current_complete_reference_set() -> None:
+    data = mapping("obra-superpowers-2026-04.skills.json")
     item = entry(
-        mapping("obra-superpowers-2026-04.skills.json"),
+        data,
         "using-superpowers",
     )
     origin = item["origins"][0]
     references = ROOT / "skills" / "ai-workflow" / "using-superpowers" / "references"
 
-    assert origin["tracking"]["resolved_commit"] == (
-        "bb92a77741419a4ab5f06e711a283343f1ada0c3"
+    reviewed = next(
+        attempt for attempt in reversed(data["verification_attempts"])
+        if attempt["method"] == "commit-aware-manual-monitor-review"
+        and attempt["target"].startswith(f"{origin['repo']}@")
+        and attempt["result"] == "success"
     )
+    reviewed_commit = reviewed["target"].rsplit("@", 1)[1]
+    assert origin["tracking"]["resolved_commit"] == reviewed_commit
+    assert origin["tracking"]["license_checkpoint"]["resolved_commit"] == reviewed_commit
     assert {path.name for path in references.glob("*.md")} == {
         "antigravity-tools.md",
         "claude-code-tools.md",

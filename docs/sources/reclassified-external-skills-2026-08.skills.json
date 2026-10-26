@@ -2,7 +2,7 @@
   "schema_version": 2,
   "video": {
     "url": "https://github.com/seaworld008/Commonly-used-high-value-skills",
-    "checked_at": "2026-10-16",
+    "checked_at": "2026-10-26",
     "note": "External canonical skills reclassified from the legacy in-house provenance mapping."
   },
   "collection": {
@@ -365,6 +365,20 @@
       "date": "2026-10-16",
       "method": "commit-aware-manual-monitor-review",
       "target": "neondatabase/agent-skills@5e693d6d5ddbe11d72c93e3b594ecfe574de44b2",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-10-26",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "getsentry/skills@d12f250460ffd961f549dbebf7eeb0cf4afd4c2e",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-10-26",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "neondatabase/agent-skills@ccca3334a7542d3133134cc6926f2fafc6edeb1f",
       "result": "success",
       "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
     }
@@ -1302,9 +1316,9 @@
         "repo": "getsentry/skills",
         "path": "skills/gha-security-review/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "d18b7aa8ba878354e5c348310230e652f7690f9c",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "d12f250460ffd961f549dbebf7eeb0cf4afd4c2e",
         "sync_mode": "monitor",
         "path_commit": "e99aa676c22ca6db324c675630dd2b42b793a70e"
       },
@@ -1370,17 +1384,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "d18b7aa8ba878354e5c348310230e652f7690f9c",
+            "resolved_commit": "d12f250460ffd961f549dbebf7eeb0cf4afd4c2e",
             "path_commit": "e99aa676c22ca6db324c675630dd2b42b793a70e",
             "content_sha256": "1303ee58e94777a6f36d16ada296966e046d99c32f9e9571c682a912ed941a70",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "753a6c03c60a9232405d05170bd3ad3cab49a1ef",
               "content_sha256": "96e78a9ce85795b117c8929887bdb78f88bf23f7b85a31f0872cde4dff7e92cd",
               "spdx": "Apache-2.0",
-              "resolved_commit": "d18b7aa8ba878354e5c348310230e652f7690f9c",
+              "resolved_commit": "d12f250460ffd961f549dbebf7eeb0cf4afd4c2e",
               "api_spdx": "Apache-2.0"
             }
           }
@@ -1519,11 +1533,11 @@
         "repo": "neondatabase/agent-skills",
         "path": "skills/neon-postgres/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "5e693d6d5ddbe11d72c93e3b594ecfe574de44b2",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "ccca3334a7542d3133134cc6926f2fafc6edeb1f",
         "sync_mode": "monitor",
-        "path_commit": "f333dd0a59b93f484770d2331de45dddefd3dbf8"
+        "path_commit": "07f288e9cdc714944f929632a7ce6cfc277fae67"
       },
       "kind": "mirror",
       "sync_mode": "monitor",
@@ -1562,17 +1576,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "5e693d6d5ddbe11d72c93e3b594ecfe574de44b2",
-            "path_commit": "f333dd0a59b93f484770d2331de45dddefd3dbf8",
-            "content_sha256": "f03a1ae8ecaf4bc595e48f9f5670670b1ef8cdc7712258b3c7c2011663ff1972",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "resolved_commit": "ccca3334a7542d3133134cc6926f2fafc6edeb1f",
+            "path_commit": "07f288e9cdc714944f929632a7ce6cfc277fae67",
+            "content_sha256": "97cc1fc8280b8bc91b30f04da51a39975aecc99b1d2da6dcdcee915a649f040c",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
               "content_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
               "spdx": "Apache-2.0",
-              "resolved_commit": "5e693d6d5ddbe11d72c93e3b594ecfe574de44b2",
+              "resolved_commit": "ccca3334a7542d3133134cc6926f2fafc6edeb1f",
               "api_spdx": "Apache-2.0"
             }
           }
@@ -1582,7 +1596,7 @@
         {
           "path": "skills/developer-engineering/neon-postgres/SKILL.md",
           "owner": "neon-postgres",
-          "sha256": "f03a1ae8ecaf4bc595e48f9f5670670b1ef8cdc7712258b3c7c2011663ff1972",
+          "sha256": "97cc1fc8280b8bc91b30f04da51a39975aecc99b1d2da6dcdcee915a649f040c",
           "mode": "100644"
         },
         {
@@ -1594,7 +1608,7 @@
         {
           "path": "skills/developer-engineering/neon-postgres/references/hybrid-search.md",
           "owner": "neon-postgres",
-          "sha256": "9a0faaa400cbfb061dda70496a9102586ec56c3776d2aa31c4038685d16b00a9",
+          "sha256": "88b5e50d88ae15e683aad9e10c46e6071b2159a3ff153620977398533bf034b6",
           "mode": "100644"
         },
         {
@@ -1606,7 +1620,7 @@
         {
           "path": "skills/developer-engineering/neon-postgres/references/vector-search.md",
           "owner": "neon-postgres",
-          "sha256": "1a8e15b0ff2b965c791b19945fc36f444e47f5aeb1fa321291e609e15f0347f6",
+          "sha256": "f6fe1535f18b4a8574a8daaf5ae95a61f607f616a01256e7eb76e05abe705fb6",
           "mode": "100644"
         }
       ]
@@ -1622,9 +1636,9 @@
         "repo": "neondatabase/agent-skills",
         "path": "skills/neon-postgres-egress-optimizer/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "5e693d6d5ddbe11d72c93e3b594ecfe574de44b2",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "ccca3334a7542d3133134cc6926f2fafc6edeb1f",
         "sync_mode": "monitor",
         "path_commit": "e5a62ea5e1f44fa39be6017c7b6251e6d2363d5a"
       },
@@ -1645,17 +1659,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "5e693d6d5ddbe11d72c93e3b594ecfe574de44b2",
+            "resolved_commit": "ccca3334a7542d3133134cc6926f2fafc6edeb1f",
             "path_commit": "e5a62ea5e1f44fa39be6017c7b6251e6d2363d5a",
             "content_sha256": "7b0bf839197895bcbd23d26a8ced1fd1ce2f55d2f2e3af413e3ab130151f74d0",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
               "content_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
               "spdx": "Apache-2.0",
-              "resolved_commit": "5e693d6d5ddbe11d72c93e3b594ecfe574de44b2",
+              "resolved_commit": "ccca3334a7542d3133134cc6926f2fafc6edeb1f",
               "api_spdx": "Apache-2.0"
             }
           }
@@ -1884,11 +1898,11 @@
         "repo": "getsentry/skills",
         "path": "skills/security-review/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "d18b7aa8ba878354e5c348310230e652f7690f9c",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "d12f250460ffd961f549dbebf7eeb0cf4afd4c2e",
         "sync_mode": "monitor",
-        "path_commit": "3482d8dd35315adf34607f1c12bf793e14890bfe"
+        "path_commit": "6d20de492725c78e805aa0741507bb90d1982cc7"
       },
       "kind": "mirror",
       "sync_mode": "monitor",
@@ -2012,17 +2026,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "d18b7aa8ba878354e5c348310230e652f7690f9c",
-            "path_commit": "3482d8dd35315adf34607f1c12bf793e14890bfe",
-            "content_sha256": "e1bb20e6572af7872cd5b76c2c9ebac4f23d193d6ff98498e1f298137bc1c029",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30",
+            "resolved_commit": "d12f250460ffd961f549dbebf7eeb0cf4afd4c2e",
+            "path_commit": "6d20de492725c78e805aa0741507bb90d1982cc7",
+            "content_sha256": "a50aa1cda0635118effa2c595097f9949d7631d7a874e4130388b736b05bdb33",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "753a6c03c60a9232405d05170bd3ad3cab49a1ef",
               "content_sha256": "96e78a9ce85795b117c8929887bdb78f88bf23f7b85a31f0872cde4dff7e92cd",
               "spdx": "Apache-2.0",
-              "resolved_commit": "d18b7aa8ba878354e5c348310230e652f7690f9c",
+              "resolved_commit": "d12f250460ffd961f549dbebf7eeb0cf4afd4c2e",
               "api_spdx": "Apache-2.0"
             }
           }
@@ -2038,7 +2052,7 @@
         {
           "path": "skills/security-and-reliability/security-review/SKILL.md",
           "owner": "security-review",
-          "sha256": "e1bb20e6572af7872cd5b76c2c9ebac4f23d193d6ff98498e1f298137bc1c029",
+          "sha256": "a50aa1cda0635118effa2c595097f9949d7631d7a874e4130388b736b05bdb33",
           "mode": "100644"
         },
         {

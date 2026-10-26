@@ -2,13 +2,13 @@
 name: agent-workflow-designer
 description: 'Design agent orchestration, handoffs, state, recovery, and evaluation when a workflow needs multiple coordinated agents or tools.'
 zh_description: "设计多智能体协作流程、任务交接、状态管理和故障恢复。"
-version: "1.1.1"
+version: "1.1.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["agent", "designer", "planning", "workflow"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-10-26"
 quality: 5
 complexity: "intermediate"
 ---
@@ -436,14 +436,20 @@ def truncate_to_budget(text: str, token_budget: int, chars_per_token: float = 4.
 
 ## Cost Optimization Strategies
 
-| Strategy | Savings | Tradeoff |
+| Strategy | Evidence to collect | Tradeoff |
 |---|---|---|
-| Use Haiku for routing/classification | 85-90% | Slightly less nuanced judgment |
-| Cache repeated system prompts | 50-90% | Requires prompt caching setup |
-| Truncate intermediate outputs | 20-40% | May lose detail in handoffs |
-| Batch similar tasks | 50% | Latency increases |
-| Use Sonnet for most, Opus for final step only | 60-70% | Final quality may improve |
-| Short-circuit on confidence threshold | 30-50% | Need confidence scoring |
+| Use an eligible lower-cost model for routing/classification | Same labeled inputs, task success, current price and measured usage | Routing errors can dominate downstream cost |
+| Cache repeated system prompts | Actual cache hits and billed cached/uncached tokens | Provider and request layout must support caching |
+| Reduce intermediate outputs | Downstream acceptance, tokens and repeated-context reads | May lose necessary handoff detail |
+| Batch similar tasks | Total billed cost, queue time and completion rate | Latency or failure recovery may worsen |
+| Reserve a more capable model for difficult steps | End-to-end quality, escalation rate and workflow cost | Extra coordination and repeated context can erase savings |
+| Stop early when an observable acceptance check passes | False accept/reject rates on held-out cases | Uncalibrated model confidence is insufficient |
+
+Choose models from the current host's available catalog and official pricing;
+do not infer a model ID, capability, or price from a family name. Compare the
+baseline and candidate on the same workload, record sample sizes, and report
+unmeasured savings as unmeasured. Include retries, tool/model calls, cache use,
+and coordination overhead in per-completed-task cost.
 
 ---
 
@@ -453,5 +459,5 @@ def truncate_to_budget(text: str, token_budget: int, chars_per_token: float = 4.
 - **Context bleed** — passing entire previous output to every step; summarize or extract only what's needed
 - **No timeout** — a stuck agent blocks the whole pipeline; always set max_tokens and wall-clock timeouts
 - **Silent failures** — agent returns plausible but wrong output; add validation steps for critical paths
-- **Ignoring cost** — 10 parallel Opus calls is $0.50 per workflow; model selection is a cost decision
+- **Ignoring cost** — parallel calls, retries and repeated context all contribute to billed workflow cost; measure the configured models rather than assuming a fixed price
 - **Over-orchestration** — if a single prompt can do it, it should; only add agents when genuinely needed

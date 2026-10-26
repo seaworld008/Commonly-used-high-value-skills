@@ -49,8 +49,11 @@ Use probabilistic relevance scores to order the permitted candidates and apply
 the final top-k cutoff after reranking. If a model is unavailable, fail closed
 to the existing RRF path; do not fabricate relevance scores.
 
-Evaluate recall/relevance on known queries and measure added gateway latency and
-token costs. Rerankers do not replace each retriever's index or query validation.
+Compare vector-only, BM25-only, RRF-only, and reranked candidates on the same
+judged queries. Measure recall before reranking and nDCG@10 or MRR afterward,
+alongside p95 latency, input-token cost, and fallback rate. Calibrate any relevance
+threshold on no-match queries; a relevance probability does not measure answer
+completeness. Rerankers do not replace index or query validation.
 See the [upstream implementation guidance](https://github.com/neondatabase/agent-skills/blob/ccca3334a7542d3133134cc6926f2fafc6edeb1f/skills/neon-postgres/references/hybrid-search.md)
 for a version-pinned candidate retrieval and Jev example.
 
@@ -58,7 +61,7 @@ for a version-pinned candidate retrieval and Jev example.
 
 For rank `r` and constant `k`, each retriever contributes `1 / (k + r)`. The documented starting point uses 40 candidates per retriever and `k = 60`; tune both for the corpus and workload.
 
-Embed the query text through the same gateway model used for the stored documents, then bind that vector as `$1`, the original query text as `$2`, and the final result count as `$3`:
+Embed the query text with the same embedding model used for the stored documents, then bind that vector as `$1`, the original query text as `$2`, and the final result count as `$3`. The embedding provider may differ from Neon when the gateway is unavailable; preserve the same model and dimensions:
 
 ```sql
 WITH vector_ranked AS (
@@ -66,6 +69,7 @@ WITH vector_ranked AS (
   FROM (
     SELECT id, embedding <=> $1::vector AS distance
     FROM documents
+    WHERE embedding IS NOT NULL
     ORDER BY distance
     FETCH FIRST 40 ROWS WITH TIES
   ) AS vector_candidates

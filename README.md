@@ -5,10 +5,10 @@
 [![简体中文](https://img.shields.io/badge/README-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1677ff)](./README.md)
 [![English](https://img.shields.io/badge/README-English-111111)](./README.en.md)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b894)](./openclaw-skills/README.md)
-[![Skills](https://img.shields.io/badge/Skills-294-7c3aed)](./skills/)
+[![Skills](https://img.shields.io/badge/Skills-293-7c3aed)](./skills/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
-面向全球 AI 开发者与 Agent 工作流构建者的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理等高频任务场景。当前共 **16 个分类 / 294 个技能**。
+面向全球 AI 开发者与 Agent 工作流构建者的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理等高频任务场景。当前共 **16 个分类 / 293 个技能**。
 
 
 ## v4.3.0 精选技能策展与验证规则升级
@@ -403,7 +403,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 2. 打开对应技能的 `SKILL.md` 查看触发条件、操作流程和脚本说明。
 3. 若技能下含 `scripts/`、`references/`、`assets/`，优先复用现成内容。
 
-## 技能总览（按分类，16 类 / 294 技能）
+## 技能总览（按分类，16 类 / 293 技能）
 
 <a id="cat-developer-engineering"></a>
 ### 1. 开发工程（developer-engineering，52）
@@ -513,7 +513,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `writing-skills`：编写可复用的技能指导并验证实际触发和执行行为。
 
 <a id="cat-ai-agent-platform"></a>
-### 3. AI 平台与 Agent 开发（ai-agent-platform，14）
+### 3. AI 平台与 Agent 开发（ai-agent-platform，13）
 
 - `agent-hub`：用于管理 Agent 能力中心、技能发现、路由和协作工作流。
 - `arena`：用于构建和运行 Agent 竞技场、评测对战和能力比较流程。
@@ -527,7 +527,6 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `native-mcp`：用于构建和调试原生 MCP 集成、服务器和工具调用流程。
 - `openai-docs`：用于查阅和应用 OpenAI 官方文档、API 行为和集成指南。
 - `oracle`：人工智能应用设计、评估、检索增强和安全护栏规划。
-- `self-improving-agent`：用于构建具备记忆、反馈吸收和安全自我优化机制的持续改进型 Agent。
 - `sigil`：根据项目代码自动生成贴合仓库约定的技能。
 
 <a id="cat-workflow-automation"></a>

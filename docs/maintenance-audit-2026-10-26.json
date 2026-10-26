@@ -1,0 +1,1255 @@
+{
+  "date": "2026-10-26",
+  "completed_at_utc": "2026-10-26T01:21:12.552021+00:00",
+  "baseline": "937497ffde6a53232c8e24662733e7d7d64fc4e5",
+  "portfolio": {
+    "before": 294,
+    "after": 293,
+    "added": 0,
+    "retired": [
+      {
+        "name": "self-improving-agent",
+        "replacement": "reflect-learn",
+        "preserved_asset": "skills/task-understanding-decomposition/reflect-learn/references/controlled-improvement.md"
+      }
+    ],
+    "updated": [
+      "agent-hub",
+      "agent-workflow-designer",
+      "gh-address-comments",
+      "hermes-agent",
+      "neon-postgres",
+      "reflect-learn",
+      "security-review"
+    ]
+  },
+  "initial_scan": {
+    "report": "upstream-check-2026-10-26.json",
+    "sha256": "4eb9dbc0ded7fbd0c4dcf214ba877322b3a326f1e9640328d615cd17f8af7183",
+    "state": "failed",
+    "summary": {
+      "total": 161,
+      "equal": 59,
+      "changed": 1,
+      "monitor_review": 74,
+      "unavailable": 1,
+      "rollback": 0,
+      "expected_skipped": 26
+    },
+    "unavailable": [
+      {
+        "name": "writing-skills",
+        "source": "github:obra/superpowers",
+        "repository": "obra/superpowers",
+        "status": "unavailable",
+        "reason": "declared upstream artifact source is missing: skills/writing-skills/examples/CLAUDE_MD_TESTING.md, skills/writing-skills/graphviz-conventions.dot, skills/writing-skills/testing-skills-with-subagents.md",
+        "resolved_ref": "main",
+        "current_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+        "moved_candidates": {
+          "skills/writing-skills/examples/CLAUDE_MD_TESTING.md": [
+            "skills/writing-skills/references/CLAUDE_MD_TESTING.md"
+          ],
+          "skills/writing-skills/graphviz-conventions.dot": [
+            "skills/writing-skills/references/graphviz-conventions.dot"
+          ]
+        }
+      }
+    ]
+  },
+  "reconciled_summary": {
+    "total": 161,
+    "equal": 59,
+    "reviewed_monitor": 16,
+    "applied_auto": 1,
+    "pending_monitor": 59,
+    "unavailable": 0,
+    "expected_skipped": 26
+  },
+  "state": "degraded",
+  "reviewed_monitor_entries": [
+    {
+      "name": "gha-security-review",
+      "repository": "getsentry/skills",
+      "reviewed_commit": "d12f250460ffd961f549dbebf7eeb0cf4afd4c2e",
+      "evidence": "sentry-reviewed-final.json"
+    },
+    {
+      "name": "security-review",
+      "repository": "getsentry/skills",
+      "reviewed_commit": "d12f250460ffd961f549dbebf7eeb0cf4afd4c2e",
+      "evidence": "sentry-reviewed-final.json"
+    },
+    {
+      "name": "neon-postgres",
+      "repository": "neondatabase/agent-skills",
+      "reviewed_commit": "ccca3334a7542d3133134cc6926f2fafc6edeb1f",
+      "evidence": "neon-reviewed-final.json"
+    },
+    {
+      "name": "neon-postgres-egress-optimizer",
+      "repository": "neondatabase/agent-skills",
+      "reviewed_commit": "ccca3334a7542d3133134cc6926f2fafc6edeb1f",
+      "evidence": "neon-reviewed-final.json"
+    },
+    {
+      "name": "dispatching-parallel-agents",
+      "repository": "obra/superpowers",
+      "reviewed_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+      "evidence": "obra-reviewed-final.json"
+    },
+    {
+      "name": "executing-plans",
+      "repository": "obra/superpowers",
+      "reviewed_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+      "evidence": "obra-reviewed-final.json"
+    },
+    {
+      "name": "finishing-a-development-branch",
+      "repository": "obra/superpowers",
+      "reviewed_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+      "evidence": "obra-reviewed-final.json"
+    },
+    {
+      "name": "receiving-code-review",
+      "repository": "obra/superpowers",
+      "reviewed_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+      "evidence": "obra-reviewed-final.json"
+    },
+    {
+      "name": "requesting-code-review",
+      "repository": "obra/superpowers",
+      "reviewed_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+      "evidence": "obra-reviewed-final.json"
+    },
+    {
+      "name": "subagent-driven-development",
+      "repository": "obra/superpowers",
+      "reviewed_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+      "evidence": "obra-reviewed-final.json"
+    },
+    {
+      "name": "systematic-debugging",
+      "repository": "obra/superpowers",
+      "reviewed_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+      "evidence": "obra-reviewed-final.json"
+    },
+    {
+      "name": "using-git-worktrees",
+      "repository": "obra/superpowers",
+      "reviewed_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+      "evidence": "obra-reviewed-final.json"
+    },
+    {
+      "name": "using-superpowers",
+      "repository": "obra/superpowers",
+      "reviewed_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+      "evidence": "obra-reviewed-final.json"
+    },
+    {
+      "name": "verification-before-completion",
+      "repository": "obra/superpowers",
+      "reviewed_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+      "evidence": "obra-reviewed-final.json"
+    },
+    {
+      "name": "writing-skills",
+      "repository": "obra/superpowers",
+      "reviewed_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+      "evidence": "obra-reviewed-final.json"
+    },
+    {
+      "name": "nlpm-audit",
+      "repository": "xiaolai/nlpm",
+      "reviewed_commit": "6ed91c366892febca10605a952e0a57fcbac7cc0",
+      "evidence": "nlpm-reviewed.json"
+    }
+  ],
+  "applied_auto": {
+    "name": "hermes-agent",
+    "ref": "v0.22.5",
+    "commit": "bf0203a794a07aac3ff764972ab9087baa4e4f4e",
+    "changed_files": [
+      "skills/ai-agent-platform/hermes-agent/SKILL.md",
+      "skills/ai-agent-platform/hermes-agent/references/cli-reference.md",
+      "skills/ai-agent-platform/hermes-agent/references/configuration.md",
+      "skills/ai-agent-platform/hermes-agent/references/contributor-guide.md",
+      "skills/ai-agent-platform/hermes-agent/references/desktop-plugins.md",
+      "skills/ai-agent-platform/hermes-agent/references/native-mcp.md",
+      "skills/ai-agent-platform/hermes-agent/references/portal-auth-for-third-party-apps.md",
+      "skills/ai-agent-platform/hermes-agent/references/troubleshooting.md",
+      "skills/ai-agent-platform/hermes-agent/references/windows-quirks.md"
+    ],
+    "license": "MIT"
+  },
+  "pending_sources": {
+    "Graphify-Labs/graphify": 1,
+    "Jeffallan/claude-skills": 2,
+    "Linked-API/linkedin-skills": 2,
+    "NousResearch/hermes-agent": 6,
+    "Xquik-dev/x-twitter-scraper": 1,
+    "alirezarezvani/claude-skills": 8,
+    "firebase/agent-skills": 1,
+    "mattpocock/skills": 1,
+    "microsoft/azure-skills": 1,
+    "prisma/skills": 2,
+    "simota/agent-skills": 30,
+    "wshobson/agents": 4
+  },
+  "pending_monitor_entries": [
+    {
+      "name": "agent-hub",
+      "repository": "alirezarezvani/claude-skills",
+      "status": "monitor_review",
+      "review_from": "19392f7a08264ed00486a251f5b2098321771f94",
+      "observed_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
+      "changed_files": [
+        "skills/ai-agent-platform/agent-hub/SKILL.md",
+        "skills/ai-agent-platform/agent-hub/scripts/dry_run.py",
+        "skills/ai-agent-platform/agent-hub/scripts/session_manager.py"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/alirezarezvani/claude-skills/compare/19392f7a08264ed00486a251f5b2098321771f94...6d2f02ea077eead1bee5411a31bcc6db5a11a70c"
+    },
+    {
+      "name": "security-pen-testing",
+      "repository": "alirezarezvani/claude-skills",
+      "status": "monitor_review",
+      "review_from": "19392f7a08264ed00486a251f5b2098321771f94",
+      "observed_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
+      "changed_files": [
+        "skills/security-and-reliability/security-pen-testing/SKILL.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/alirezarezvani/claude-skills/compare/19392f7a08264ed00486a251f5b2098321771f94...6d2f02ea077eead1bee5411a31bcc6db5a11a70c"
+    },
+    {
+      "name": "information-security-manager-iso27001",
+      "repository": "alirezarezvani/claude-skills",
+      "status": "monitor_review",
+      "review_from": "19392f7a08264ed00486a251f5b2098321771f94",
+      "observed_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
+      "changed_files": [
+        "skills/security-and-reliability/information-security-manager-iso27001/SKILL.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/alirezarezvani/claude-skills/compare/19392f7a08264ed00486a251f5b2098321771f94...6d2f02ea077eead1bee5411a31bcc6db5a11a70c"
+    },
+    {
+      "name": "landing-page-generator",
+      "repository": "alirezarezvani/claude-skills",
+      "status": "monitor_review",
+      "review_from": "19392f7a08264ed00486a251f5b2098321771f94",
+      "observed_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
+      "changed_files": [
+        "skills/product-design/landing-page-generator/SKILL.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/alirezarezvani/claude-skills/compare/19392f7a08264ed00486a251f5b2098321771f94...6d2f02ea077eead1bee5411a31bcc6db5a11a70c"
+    },
+    {
+      "name": "saas-metrics-coach",
+      "repository": "alirezarezvani/claude-skills",
+      "status": "monitor_review",
+      "review_from": "19392f7a08264ed00486a251f5b2098321771f94",
+      "observed_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
+      "changed_files": [
+        "skills/finance-investing/saas-metrics-coach/SKILL.md",
+        "skills/finance-investing/saas-metrics-coach/scripts/metrics_calculator.py",
+        "skills/finance-investing/saas-metrics-coach/scripts/quick_ratio_calculator.py",
+        "skills/finance-investing/saas-metrics-coach/scripts/unit_economics_simulator.py"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/alirezarezvani/claude-skills/compare/19392f7a08264ed00486a251f5b2098321771f94...6d2f02ea077eead1bee5411a31bcc6db5a11a70c"
+    },
+    {
+      "name": "senior-architect",
+      "repository": "alirezarezvani/claude-skills",
+      "status": "monitor_review",
+      "review_from": "19392f7a08264ed00486a251f5b2098321771f94",
+      "observed_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
+      "changed_files": [
+        "skills/devops-sre/senior-architect/SKILL.md",
+        "skills/devops-sre/senior-architect/scripts/architecture_diagram_generator.py",
+        "skills/devops-sre/senior-architect/scripts/dependency_analyzer.py",
+        "skills/devops-sre/senior-architect/scripts/project_architect.py"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/alirezarezvani/claude-skills/compare/19392f7a08264ed00486a251f5b2098321771f94...6d2f02ea077eead1bee5411a31bcc6db5a11a70c"
+    },
+    {
+      "name": "skill-security-auditor",
+      "repository": "alirezarezvani/claude-skills",
+      "status": "monitor_review",
+      "review_from": "19392f7a08264ed00486a251f5b2098321771f94",
+      "observed_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
+      "changed_files": [
+        "skills/security-and-reliability/skill-security-auditor/SKILL.md",
+        "skills/security-and-reliability/skill-security-auditor/scripts/skill_security_auditor.py"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/alirezarezvani/claude-skills/compare/19392f7a08264ed00486a251f5b2098321771f94...6d2f02ea077eead1bee5411a31bcc6db5a11a70c"
+    },
+    {
+      "name": "firebase-security-rules-auditor",
+      "repository": "firebase/agent-skills",
+      "status": "monitor_review",
+      "review_from": "de359da26586e4fad59b7ebab7592aa137c49b8a",
+      "observed_commit": "92eed24c0976a79a66d5b8038e9eda8b441ef92d",
+      "changed_files": [
+        "skills/security-and-reliability/firebase-security-rules-auditor/SKILL.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/firebase/agent-skills/compare/de359da26586e4fad59b7ebab7592aa137c49b8a...92eed24c0976a79a66d5b8038e9eda8b441ef92d"
+    },
+    {
+      "name": "graphify",
+      "repository": "Graphify-Labs/graphify",
+      "status": "monitor_review",
+      "review_from": "e10df08877f8819a625a1afa38c3297a31fda296",
+      "observed_commit": "92741d162b2094ffc2fed58cfbd8ee823e9da62c",
+      "changed_files": [
+        "skills/developer-engineering/graphify/SKILL.md",
+        "skills/developer-engineering/graphify/references/add-watch.md",
+        "skills/developer-engineering/graphify/references/exports.md",
+        "skills/developer-engineering/graphify/references/extraction-spec.md",
+        "skills/developer-engineering/graphify/references/query.md",
+        "skills/developer-engineering/graphify/references/update.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/Graphify-Labs/graphify/compare/e10df08877f8819a625a1afa38c3297a31fda296...92741d162b2094ffc2fed58cfbd8ee823e9da62c"
+    },
+    {
+      "name": "prisma-client-api",
+      "repository": "prisma/skills",
+      "status": "monitor_review",
+      "review_from": "be16a8740d01363d13552b317042431ee8dfc581",
+      "observed_commit": "ba3f9d73200bbb62e49733ab93a961fd138a2c18",
+      "changed_files": [
+        "skills/developer-engineering/prisma-client-api/SKILL.md",
+        "skills/developer-engineering/prisma-client-api/references/filters.md",
+        "skills/developer-engineering/prisma-client-api/references/raw-queries.md",
+        "skills/developer-engineering/prisma-client-api/references/transactions.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/prisma/skills/compare/be16a8740d01363d13552b317042431ee8dfc581...ba3f9d73200bbb62e49733ab93a961fd138a2c18"
+    },
+    {
+      "name": "prisma-upgrade-v7",
+      "repository": "prisma/skills",
+      "status": "monitor_review",
+      "review_from": "be16a8740d01363d13552b317042431ee8dfc581",
+      "observed_commit": "ba3f9d73200bbb62e49733ab93a961fd138a2c18",
+      "changed_files": [
+        "skills/developer-engineering/prisma-upgrade-v7/SKILL.md",
+        "skills/developer-engineering/prisma-upgrade-v7/references/prisma-config.md",
+        "skills/developer-engineering/prisma-upgrade-v7/references/removed-features.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/prisma/skills/compare/be16a8740d01363d13552b317042431ee8dfc581...ba3f9d73200bbb62e49733ab93a961fd138a2c18"
+    },
+    {
+      "name": "linkedin",
+      "repository": "Linked-API/linkedin-skills",
+      "status": "monitor_review",
+      "review_from": "e46beb9aea0af3896fd49dd7b39cff1061bf8f6d",
+      "observed_commit": "34e1aab8d2f42858148ad954c511288db624b7ee",
+      "changed_files": [
+        "skills/operations-general/linkedin/SKILL.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/Linked-API/linkedin-skills/compare/e46beb9aea0af3896fd49dd7b39cff1061bf8f6d...34e1aab8d2f42858148ad954c511288db624b7ee"
+    },
+    {
+      "name": "linkedin-growth",
+      "repository": "Linked-API/linkedin-skills",
+      "status": "monitor_review",
+      "review_from": "e46beb9aea0af3896fd49dd7b39cff1061bf8f6d",
+      "observed_commit": "34e1aab8d2f42858148ad954c511288db624b7ee",
+      "changed_files": [
+        "skills/growth-operations-xiaohongshu/linkedin-growth/SKILL.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/Linked-API/linkedin-skills/compare/e46beb9aea0af3896fd49dd7b39cff1061bf8f6d...34e1aab8d2f42858148ad954c511288db624b7ee"
+    },
+    {
+      "name": "grill-me",
+      "repository": "mattpocock/skills",
+      "status": "monitor_review",
+      "review_from": "6acc160e4e0cd062dbbbd7a1b26ae92855edf07e",
+      "observed_commit": "24fe0ef7737efae15c87225755e9f6f5965e4888",
+      "changed_files": [
+        "skills/task-understanding-decomposition/grill-me/SKILL.md",
+        "skills/task-understanding-decomposition/grill-me/references/upstream-grill-me.md",
+        "skills/task-understanding-decomposition/grill-me/references/upstream-grilling.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/mattpocock/skills/compare/6acc160e4e0cd062dbbbd7a1b26ae92855edf07e...24fe0ef7737efae15c87225755e9f6f5965e4888"
+    },
+    {
+      "name": "llm-wiki",
+      "repository": "NousResearch/hermes-agent",
+      "status": "monitor_review",
+      "review_from": "343500b3547e12530457c2fda60ec687e25118b4",
+      "observed_commit": "0c771d7a5ba7742bd336adb98d30058ba545e327",
+      "changed_files": [
+        "skills/knowledge-and-pm-integrations/llm-wiki/SKILL.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/NousResearch/hermes-agent/compare/343500b3547e12530457c2fda60ec687e25118b4...0c771d7a5ba7742bd336adb98d30058ba545e327"
+    },
+    {
+      "name": "honcho",
+      "repository": "NousResearch/hermes-agent",
+      "status": "monitor_review",
+      "review_from": "343500b3547e12530457c2fda60ec687e25118b4",
+      "observed_commit": "0c771d7a5ba7742bd336adb98d30058ba545e327",
+      "changed_files": [
+        "skills/openclaw-memory-and-safety/honcho/SKILL.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/NousResearch/hermes-agent/compare/343500b3547e12530457c2fda60ec687e25118b4...0c771d7a5ba7742bd336adb98d30058ba545e327"
+    },
+    {
+      "name": "codebase-inspection",
+      "repository": "NousResearch/hermes-agent",
+      "status": "monitor_review",
+      "review_from": "343500b3547e12530457c2fda60ec687e25118b4",
+      "observed_commit": "0c771d7a5ba7742bd336adb98d30058ba545e327",
+      "changed_files": [
+        "skills/developer-engineering/codebase-inspection/SKILL.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/NousResearch/hermes-agent/compare/343500b3547e12530457c2fda60ec687e25118b4...0c771d7a5ba7742bd336adb98d30058ba545e327"
+    },
+    {
+      "name": "arxiv",
+      "repository": "NousResearch/hermes-agent",
+      "status": "monitor_review",
+      "review_from": "343500b3547e12530457c2fda60ec687e25118b4",
+      "observed_commit": "0c771d7a5ba7742bd336adb98d30058ba545e327",
+      "changed_files": [
+        "skills/knowledge-and-pm-integrations/arxiv/SKILL.md",
+        "skills/knowledge-and-pm-integrations/arxiv/scripts/search_arxiv.py"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/NousResearch/hermes-agent/compare/343500b3547e12530457c2fda60ec687e25118b4...0c771d7a5ba7742bd336adb98d30058ba545e327"
+    },
+    {
+      "name": "obsidian",
+      "repository": "NousResearch/hermes-agent",
+      "status": "monitor_review",
+      "review_from": "343500b3547e12530457c2fda60ec687e25118b4",
+      "observed_commit": "0c771d7a5ba7742bd336adb98d30058ba545e327",
+      "changed_files": [
+        "skills/knowledge-and-pm-integrations/obsidian/SKILL.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/NousResearch/hermes-agent/compare/343500b3547e12530457c2fda60ec687e25118b4...0c771d7a5ba7742bd336adb98d30058ba545e327"
+    },
+    {
+      "name": "mcporter",
+      "repository": "NousResearch/hermes-agent",
+      "status": "monitor_review",
+      "review_from": "343500b3547e12530457c2fda60ec687e25118b4",
+      "observed_commit": "0c771d7a5ba7742bd336adb98d30058ba545e327",
+      "changed_files": [
+        "skills/ai-agent-platform/mcporter/SKILL.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/NousResearch/hermes-agent/compare/343500b3547e12530457c2fda60ec687e25118b4...0c771d7a5ba7742bd336adb98d30058ba545e327"
+    },
+    {
+      "name": "aws-solution-architect",
+      "repository": "alirezarezvani/claude-skills",
+      "status": "monitor_review",
+      "review_from": "19392f7a08264ed00486a251f5b2098321771f94",
+      "observed_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
+      "changed_files": [
+        "skills/developer-engineering/aws-solution-architect/SKILL.md",
+        "skills/developer-engineering/aws-solution-architect/references/service_selection.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/alirezarezvani/claude-skills/compare/19392f7a08264ed00486a251f5b2098321771f94...6d2f02ea077eead1bee5411a31bcc6db5a11a70c"
+    },
+    {
+      "name": "azure-kubernetes",
+      "repository": "microsoft/azure-skills",
+      "status": "monitor_review",
+      "review_from": "d1736f313f7a5259006325d8c9dbce046ed128c0",
+      "observed_commit": "f3b512517ed86feceebfee480a46c971f6c6aff4",
+      "changed_files": [
+        "skills/devops-sre/azure-kubernetes/SKILL.md",
+        "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/SKILL.md",
+        "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/references/base-images.md",
+        "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/python.Dockerfile",
+        "skills/devops-sre/azure-kubernetes/azure-kubernetes-automatic-readiness/SKILL.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/microsoft/azure-skills/compare/d1736f313f7a5259006325d8c9dbce046ed128c0...f3b512517ed86feceebfee480a46c971f6c6aff4"
+    },
+    {
+      "name": "kubernetes-specialist",
+      "repository": "Jeffallan/claude-skills",
+      "status": "monitor_review",
+      "review_from": "1be15d8064f88fc25216442406d40add8fd23b53",
+      "observed_commit": "9e7dbd688015cbd1f440374f8671028bb67c608f",
+      "changed_files": [
+        "skills/developer-engineering/kubernetes-specialist/SKILL.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/Jeffallan/claude-skills/compare/1be15d8064f88fc25216442406d40add8fd23b53...9e7dbd688015cbd1f440374f8671028bb67c608f"
+    },
+    {
+      "name": "nextjs-app-router",
+      "repository": "wshobson/agents",
+      "status": "monitor_review",
+      "review_from": "156b7a5e7a8b93642628a339ee4039c925b34c7f",
+      "observed_commit": "0874a27b17a22e2b7c2e2bcd725768e0803cad06",
+      "changed_files": [
+        "skills/developer-engineering/nextjs-app-router/SKILL.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/wshobson/agents/compare/156b7a5e7a8b93642628a339ee4039c925b34c7f...0874a27b17a22e2b7c2e2bcd725768e0803cad06"
+    },
+    {
+      "name": "python-performance",
+      "repository": "wshobson/agents",
+      "status": "monitor_review",
+      "review_from": "156b7a5e7a8b93642628a339ee4039c925b34c7f",
+      "observed_commit": "0874a27b17a22e2b7c2e2bcd725768e0803cad06",
+      "changed_files": [
+        "skills/developer-engineering/python-performance/SKILL.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/wshobson/agents/compare/156b7a5e7a8b93642628a339ee4039c925b34c7f...0874a27b17a22e2b7c2e2bcd725768e0803cad06"
+    },
+    {
+      "name": "tailwind-design-system",
+      "repository": "wshobson/agents",
+      "status": "monitor_review",
+      "review_from": "156b7a5e7a8b93642628a339ee4039c925b34c7f",
+      "observed_commit": "0874a27b17a22e2b7c2e2bcd725768e0803cad06",
+      "changed_files": [],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/wshobson/agents/compare/156b7a5e7a8b93642628a339ee4039c925b34c7f...0874a27b17a22e2b7c2e2bcd725768e0803cad06"
+    },
+    {
+      "name": "terraform-engineer",
+      "repository": "Jeffallan/claude-skills",
+      "status": "monitor_review",
+      "review_from": "1be15d8064f88fc25216442406d40add8fd23b53",
+      "observed_commit": "9e7dbd688015cbd1f440374f8671028bb67c608f",
+      "changed_files": [
+        "skills/developer-engineering/terraform-engineer/SKILL.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/Jeffallan/claude-skills/compare/1be15d8064f88fc25216442406d40add8fd23b53...9e7dbd688015cbd1f440374f8671028bb67c608f"
+    },
+    {
+      "name": "x-twitter-scraper",
+      "repository": "Xquik-dev/x-twitter-scraper",
+      "status": "monitor_review",
+      "review_from": "18b475cfc571b43e7660c49dbe400be66c9dc0a1",
+      "observed_commit": "9ba3efe58f7ddadbf0d256cb5447eb02d73bbe3c",
+      "changed_files": [
+        "skills/growth-operations-xiaohongshu/x-twitter-scraper/SKILL.md",
+        "skills/growth-operations-xiaohongshu/x-twitter-scraper/metadata.json",
+        "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/compare-faq.md",
+        "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/extractions.md",
+        "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/mcp.md",
+        "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/monitors-webhooks.md",
+        "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/reads.md",
+        "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/writes.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/Xquik-dev/x-twitter-scraper/compare/18b475cfc571b43e7660c49dbe400be66c9dc0a1...9ba3efe58f7ddadbf0d256cb5447eb02d73bbe3c"
+    },
+    {
+      "name": "builder",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "review_from": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "observed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "changed_files": [
+        "skills/developer-engineering/builder/SKILL.md",
+        "skills/developer-engineering/builder/reference/autorun-nexus.md",
+        "skills/developer-engineering/builder/reference/cross-language-port.md",
+        "skills/developer-engineering/builder/reference/handoffs.md",
+        "skills/developer-engineering/builder/reference/image-generation-batch.md",
+        "skills/developer-engineering/builder/reference/reference-index.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/simota/agent-skills/compare/f425adcb2111ca8c0be88b325888ff61b64dec49...18bca759a3611f9562939ce77b776205bd12930a"
+    },
+    {
+      "name": "gateway",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "review_from": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "observed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "changed_files": [
+        "skills/developer-engineering/gateway/SKILL.md",
+        "skills/developer-engineering/gateway/reference/graphql-design.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/simota/agent-skills/compare/f425adcb2111ca8c0be88b325888ff61b64dec49...18bca759a3611f9562939ce77b776205bd12930a"
+    },
+    {
+      "name": "schema",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "review_from": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "observed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "changed_files": [
+        "skills/developer-engineering/schema/SKILL.md",
+        "skills/developer-engineering/schema/reference/advanced-patterns.md",
+        "skills/developer-engineering/schema/reference/partition-strategies.md",
+        "skills/developer-engineering/schema/reference/postgresql17-features.md",
+        "skills/developer-engineering/schema/reference/postgresql18-features.md",
+        "skills/developer-engineering/schema/reference/recipes-index.md",
+        "skills/developer-engineering/schema/reference/reference-index.md",
+        "skills/developer-engineering/schema/reference/schema-examples.md",
+        "skills/developer-engineering/schema/reference/soft-delete-patterns.md",
+        "skills/developer-engineering/schema/reference/tenant-handoffs.md",
+        "skills/developer-engineering/schema/reference/tenant-provisioning.md",
+        "skills/developer-engineering/schema/reference/tenant-quota-throttling.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/simota/agent-skills/compare/f425adcb2111ca8c0be88b325888ff61b64dec49...18bca759a3611f9562939ce77b776205bd12930a"
+    },
+    {
+      "name": "nexus",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "review_from": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "observed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "changed_files": [
+        "skills/ai-workflow/nexus/SKILL.md",
+        "skills/ai-workflow/nexus/reference/abide-recipe.md",
+        "skills/ai-workflow/nexus/reference/adaptive-prompt-policy.md",
+        "skills/ai-workflow/nexus/reference/agent-chains.md",
+        "skills/ai-workflow/nexus/reference/agent-disambiguation.md",
+        "skills/ai-workflow/nexus/reference/anneal-recipe.md",
+        "skills/ai-workflow/nexus/reference/apex-recipe.md",
+        "skills/ai-workflow/nexus/reference/assay-recipe.md",
+        "skills/ai-workflow/nexus/reference/autonomy-quality-protocol.md",
+        "skills/ai-workflow/nexus/reference/cartograph-recipe.md",
+        "skills/ai-workflow/nexus/reference/charter-recipe.md",
+        "skills/ai-workflow/nexus/reference/chorus-recipe.md",
+        "skills/ai-workflow/nexus/reference/chronicle-recipe.md",
+        "skills/ai-workflow/nexus/reference/clone-recipe.md",
+        "skills/ai-workflow/nexus/reference/converge-recipe.md",
+        "skills/ai-workflow/nexus/reference/crucible-recipe.md",
+        "skills/ai-workflow/nexus/reference/deliver-recipe.md",
+        "skills/ai-workflow/nexus/reference/delivery-agent-deployment-matrix.md",
+        "skills/ai-workflow/nexus/reference/delivery-exit-criteria-validation.md",
+        "skills/ai-workflow/nexus/reference/delve-recipe.md",
+        "skills/ai-workflow/nexus/reference/doc-quality-protocol.md",
+        "skills/ai-workflow/nexus/reference/enact-recipe.md",
+        "skills/ai-workflow/nexus/reference/error-handling.md",
+        "skills/ai-workflow/nexus/reference/eureka-recipe.md",
+        "skills/ai-workflow/nexus/reference/evaluator-loop-protocol.md",
+        "skills/ai-workflow/nexus/reference/fuse-recipe.md",
+        "skills/ai-workflow/nexus/reference/gedanken-recipe.md",
+        "skills/ai-workflow/nexus/reference/graft-recipe.md",
+        "skills/ai-workflow/nexus/reference/growth-acceptance-recipe.md",
+        "skills/ai-workflow/nexus/reference/handoff-validation.md",
+        "skills/ai-workflow/nexus/reference/hub-authoring.md",
+        "skills/ai-workflow/nexus/reference/inline-recipes.md",
+        "skills/ai-workflow/nexus/reference/intent-clarification.md",
+        "skills/ai-workflow/nexus/reference/lattice-recipe.md",
+        "skills/ai-workflow/nexus/reference/layer-recipe.md",
+        "skills/ai-workflow/nexus/reference/marquee-recipe.md",
+        "skills/ai-workflow/nexus/reference/optimize-recipe.md",
+        "skills/ai-workflow/nexus/reference/orchestration-patterns.md",
+        "skills/ai-workflow/nexus/reference/pack-subcommand.md",
+        "skills/ai-workflow/nexus/reference/package-recipe.md",
+        "skills/ai-workflow/nexus/reference/podium-recipe.md",
+        "skills/ai-workflow/nexus/reference/rebrand-recipe.md",
+        "skills/ai-workflow/nexus/reference/recipe-contract.md",
+        "skills/ai-workflow/nexus/reference/recipes-detail.md",
+        "skills/ai-workflow/nexus/reference/recipes-index.md",
+        "skills/ai-workflow/nexus/reference/research-grounding.md",
+        "skills/ai-workflow/nexus/reference/restyle-recipe.md",
+        "skills/ai-workflow/nexus/reference/routing-learning.md",
+        "skills/ai-workflow/nexus/reference/routing-matrix.md",
+        "skills/ai-workflow/nexus/reference/runway-recipe.md",
+        "skills/ai-workflow/nexus/reference/signal-keywords.md",
+        "skills/ai-workflow/nexus/reference/silhouette-recipe.md",
+        "skills/ai-workflow/nexus/reference/spec-recipe.md",
+        "skills/ai-workflow/nexus/reference/summit-recipe.md",
+        "skills/ai-workflow/nexus/reference/task-battery.md",
+        "skills/ai-workflow/nexus/reference/transmute-recipe.md",
+        "skills/ai-workflow/nexus/reference/venture-recipe.md",
+        "skills/ai-workflow/nexus/reference/verity-recipe.md",
+        "skills/ai-workflow/nexus/reference/whet-recipe.md",
+        "skills/ai-workflow/nexus/reference/wish-recipe.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/simota/agent-skills/compare/f425adcb2111ca8c0be88b325888ff61b64dec49...18bca759a3611f9562939ce77b776205bd12930a"
+    },
+    {
+      "name": "sherpa",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "review_from": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "observed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "changed_files": [
+        "skills/ai-workflow/sherpa/SKILL.md",
+        "skills/ai-workflow/sherpa/reference/progress-tracking.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/simota/agent-skills/compare/f425adcb2111ca8c0be88b325888ff61b64dec49...18bca759a3611f9562939ce77b776205bd12930a"
+    },
+    {
+      "name": "rally",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "review_from": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "observed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "changed_files": [
+        "skills/ai-workflow/rally/SKILL.md",
+        "skills/ai-workflow/rally/reference/agent-teams-api-reference.md",
+        "skills/ai-workflow/rally/reference/anti-patterns-failure-modes.md",
+        "skills/ai-workflow/rally/reference/integration-patterns.md",
+        "skills/ai-workflow/rally/reference/parallel-learning.md",
+        "skills/ai-workflow/rally/reference/team-design-patterns.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/simota/agent-skills/compare/f425adcb2111ca8c0be88b325888ff61b64dec49...18bca759a3611f9562939ce77b776205bd12930a"
+    },
+    {
+      "name": "oracle",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "review_from": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "observed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "changed_files": [
+        "skills/ai-agent-platform/oracle/SKILL.md",
+        "skills/ai-agent-platform/oracle/reference/advanced-tool-use.md",
+        "skills/ai-agent-platform/oracle/reference/agent-behavior-contract.md",
+        "skills/ai-agent-platform/oracle/reference/evaluation-observability.md",
+        "skills/ai-agent-platform/oracle/reference/human-ai-trust.md",
+        "skills/ai-agent-platform/oracle/reference/llm-application-patterns.md",
+        "skills/ai-agent-platform/oracle/reference/llm-production-anti-patterns.md",
+        "skills/ai-agent-platform/oracle/reference/prompt-engineering.md",
+        "skills/ai-agent-platform/oracle/reference/reference-index.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/simota/agent-skills/compare/f425adcb2111ca8c0be88b325888ff61b64dec49...18bca759a3611f9562939ce77b776205bd12930a"
+    },
+    {
+      "name": "sigil",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "review_from": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "observed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "changed_files": [
+        "skills/ai-agent-platform/sigil/SKILL.md",
+        "skills/ai-agent-platform/sigil/reference/operating-layer-blueprint.md",
+        "skills/ai-agent-platform/sigil/reference/operating-layer-handoffs.md",
+        "skills/ai-agent-platform/sigil/reference/operating-layer-recipe-design.md",
+        "skills/ai-agent-platform/sigil/reference/operating-layer-validation.md",
+        "skills/ai-agent-platform/sigil/reference/operating-layer-workflow-design.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/simota/agent-skills/compare/f425adcb2111ca8c0be88b325888ff61b64dec49...18bca759a3611f9562939ce77b776205bd12930a"
+    },
+    {
+      "name": "guardian",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "review_from": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "observed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "changed_files": [
+        "skills/engineering-workflow-automation/guardian/SKILL.md",
+        "skills/engineering-workflow-automation/guardian/reference/collaboration-routing.md",
+        "skills/engineering-workflow-automation/guardian/reference/coverage-integration.md",
+        "skills/engineering-workflow-automation/guardian/reference/pr-ship-flow.md",
+        "skills/engineering-workflow-automation/guardian/reference/recipes-index.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/simota/agent-skills/compare/f425adcb2111ca8c0be88b325888ff61b64dec49...18bca759a3611f9562939ce77b776205bd12930a"
+    },
+    {
+      "name": "beacon",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "review_from": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "observed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "changed_files": [
+        "skills/devops-sre/beacon/SKILL.md",
+        "skills/devops-sre/beacon/reference/alerting-strategy.md",
+        "skills/devops-sre/beacon/reference/llm-observability.md",
+        "skills/devops-sre/beacon/reference/logging-design.md",
+        "skills/devops-sre/beacon/reference/opentelemetry-best-practices.md",
+        "skills/devops-sre/beacon/reference/platform-observability.md",
+        "skills/devops-sre/beacon/reference/slo-sli-design.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/simota/agent-skills/compare/f425adcb2111ca8c0be88b325888ff61b64dec49...18bca759a3611f9562939ce77b776205bd12930a"
+    },
+    {
+      "name": "triage",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "review_from": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "observed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "changed_files": [
+        "skills/devops-sre/triage/SKILL.md",
+        "skills/devops-sre/triage/reference/collaboration-flows.md",
+        "skills/devops-sre/triage/reference/escalation-matrix.md",
+        "skills/devops-sre/triage/reference/recipes-index.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/simota/agent-skills/compare/f425adcb2111ca8c0be88b325888ff61b64dec49...18bca759a3611f9562939ce77b776205bd12930a"
+    },
+    {
+      "name": "gear",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "review_from": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "observed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "changed_files": [
+        "skills/devops-sre/gear/SKILL.md",
+        "skills/devops-sre/gear/reference/autorun-schema.md",
+        "skills/devops-sre/gear/reference/dependency-management.md",
+        "skills/devops-sre/gear/reference/docker-patterns.md",
+        "skills/devops-sre/gear/reference/gha-cache-strategy.md",
+        "skills/devops-sre/gear/reference/gha-secrets.md",
+        "skills/devops-sre/gear/reference/gha-security-hardening.md",
+        "skills/devops-sre/gear/reference/github-actions.md",
+        "skills/devops-sre/gear/reference/monorepo-guide.md",
+        "skills/devops-sre/gear/reference/observability.md",
+        "skills/devops-sre/gear/reference/secrets-management.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/simota/agent-skills/compare/f425adcb2111ca8c0be88b325888ff61b64dec49...18bca759a3611f9562939ce77b776205bd12930a"
+    },
+    {
+      "name": "ledger",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "review_from": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "observed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "changed_files": [
+        "skills/finance-investing/ledger/SKILL.md",
+        "skills/finance-investing/ledger/reference/ai-gpu-cost.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/simota/agent-skills/compare/f425adcb2111ca8c0be88b325888ff61b64dec49...18bca759a3611f9562939ce77b776205bd12930a"
+    },
+    {
+      "name": "growth",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "review_from": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "observed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "changed_files": [
+        "skills/growth-operations-xiaohongshu/growth/SKILL.md",
+        "skills/growth-operations-xiaohongshu/growth/reference/autorun-schema.md",
+        "skills/growth-operations-xiaohongshu/growth/reference/cro-patterns.md",
+        "skills/growth-operations-xiaohongshu/growth/reference/retention/winback-campaign.md",
+        "skills/growth-operations-xiaohongshu/growth/reference/seo-audit.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/simota/agent-skills/compare/f425adcb2111ca8c0be88b325888ff61b64dec49...18bca759a3611f9562939ce77b776205bd12930a"
+    },
+    {
+      "name": "compete",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "review_from": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "observed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "changed_files": [
+        "skills/growth-operations-xiaohongshu/compete/SKILL.md",
+        "skills/growth-operations-xiaohongshu/compete/reference/reference-index.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/simota/agent-skills/compare/f425adcb2111ca8c0be88b325888ff61b64dec49...18bca759a3611f9562939ce77b776205bd12930a"
+    },
+    {
+      "name": "pulse",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "review_from": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "observed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "changed_files": [
+        "skills/growth-operations-xiaohongshu/pulse/SKILL.md",
+        "skills/growth-operations-xiaohongshu/pulse/reference/platform-integration.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/simota/agent-skills/compare/f425adcb2111ca8c0be88b325888ff61b64dec49...18bca759a3611f9562939ce77b776205bd12930a"
+    },
+    {
+      "name": "stage",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "review_from": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "observed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "changed_files": [
+        "skills/office-white-collar/stage/SKILL.md",
+        "skills/office-white-collar/stage/reference/narrative-arc-design.md",
+        "skills/office-white-collar/stage/reference/slide-visual-design.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/simota/agent-skills/compare/f425adcb2111ca8c0be88b325888ff61b64dec49...18bca759a3611f9562939ce77b776205bd12930a"
+    },
+    {
+      "name": "lore",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "review_from": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "observed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "changed_files": [
+        "skills/knowledge-and-pm-integrations/lore/SKILL.md",
+        "skills/knowledge-and-pm-integrations/lore/reference/decay-detection.md",
+        "skills/knowledge-and-pm-integrations/lore/reference/official-pattern-taxonomy.md",
+        "skills/knowledge-and-pm-integrations/lore/reference/pattern-taxonomy.md",
+        "skills/knowledge-and-pm-integrations/lore/reference/propagation-protocol.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/simota/agent-skills/compare/f425adcb2111ca8c0be88b325888ff61b64dec49...18bca759a3611f9562939ce77b776205bd12930a"
+    },
+    {
+      "name": "tome",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "review_from": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "observed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "changed_files": [
+        "skills/knowledge-and-pm-integrations/tome/SKILL.md",
+        "skills/knowledge-and-pm-integrations/tome/reference/article-content-repurposing.md",
+        "skills/knowledge-and-pm-integrations/tome/reference/article-headline-patterns.md",
+        "skills/knowledge-and-pm-integrations/tome/reference/article-interview-format.md",
+        "skills/knowledge-and-pm-integrations/tome/reference/article-patterns.md",
+        "skills/knowledge-and-pm-integrations/tome/reference/recipes-index.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/simota/agent-skills/compare/f425adcb2111ca8c0be88b325888ff61b64dec49...18bca759a3611f9562939ce77b776205bd12930a"
+    },
+    {
+      "name": "grove",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "review_from": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "observed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "changed_files": [
+        "skills/knowledge-and-pm-integrations/grove/SKILL.md",
+        "skills/knowledge-and-pm-integrations/grove/reference/llm-sharding-strategy.md",
+        "skills/knowledge-and-pm-integrations/grove/reference/tests-layout.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/simota/agent-skills/compare/f425adcb2111ca8c0be88b325888ff61b64dec49...18bca759a3611f9562939ce77b776205bd12930a"
+    },
+    {
+      "name": "voice",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "review_from": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "observed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "changed_files": [
+        "skills/product-design/voice/SKILL.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/simota/agent-skills/compare/f425adcb2111ca8c0be88b325888ff61b64dec49...18bca759a3611f9562939ce77b776205bd12930a"
+    },
+    {
+      "name": "trace",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "review_from": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "observed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "changed_files": [
+        "skills/product-design/trace/SKILL.md",
+        "skills/product-design/trace/reference/frustration-signals.md",
+        "skills/product-design/trace/reference/persona-integration.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/simota/agent-skills/compare/f425adcb2111ca8c0be88b325888ff61b64dec49...18bca759a3611f9562939ce77b776205bd12930a"
+    },
+    {
+      "name": "breach",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "review_from": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "observed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "changed_files": [
+        "skills/security-and-reliability/breach/SKILL.md",
+        "skills/security-and-reliability/breach/reference/ai-red-teaming.md",
+        "skills/security-and-reliability/breach/reference/attack-playbooks.md",
+        "skills/security-and-reliability/breach/reference/phishing-campaign-design.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/simota/agent-skills/compare/f425adcb2111ca8c0be88b325888ff61b64dec49...18bca759a3611f9562939ce77b776205bd12930a"
+    },
+    {
+      "name": "cloak",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "review_from": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "observed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "changed_files": [
+        "skills/security-and-reliability/cloak/SKILL.md",
+        "skills/security-and-reliability/cloak/reference/ccpa-cpra.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/simota/agent-skills/compare/f425adcb2111ca8c0be88b325888ff61b64dec49...18bca759a3611f9562939ce77b776205bd12930a"
+    },
+    {
+      "name": "scaffold",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "review_from": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "observed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "changed_files": [
+        "skills/deployment-platforms/scaffold/SKILL.md",
+        "skills/deployment-platforms/scaffold/reference/terraform-modules.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/simota/agent-skills/compare/f425adcb2111ca8c0be88b325888ff61b64dec49...18bca759a3611f9562939ce77b776205bd12930a"
+    },
+    {
+      "name": "cast",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "review_from": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "observed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "changed_files": [
+        "skills/openclaw-memory-and-safety/cast/SKILL.md",
+        "skills/openclaw-memory-and-safety/cast/reference/persona-governance.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/simota/agent-skills/compare/f425adcb2111ca8c0be88b325888ff61b64dec49...18bca759a3611f9562939ce77b776205bd12930a"
+    },
+    {
+      "name": "omen",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "review_from": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "observed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "changed_files": [
+        "skills/openclaw-memory-and-safety/omen/SKILL.md",
+        "skills/openclaw-memory-and-safety/omen/reference/ai-production-failure-atlas.md",
+        "skills/openclaw-memory-and-safety/omen/reference/tri-engine-failure.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/simota/agent-skills/compare/f425adcb2111ca8c0be88b325888ff61b64dec49...18bca759a3611f9562939ce77b776205bd12930a"
+    },
+    {
+      "name": "lens",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "review_from": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "observed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "changed_files": [
+        "skills/task-understanding-decomposition/lens/SKILL.md",
+        "skills/task-understanding-decomposition/lens/reference/change-hotspot.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/simota/agent-skills/compare/f425adcb2111ca8c0be88b325888ff61b64dec49...18bca759a3611f9562939ce77b776205bd12930a"
+    },
+    {
+      "name": "scout",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "review_from": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "observed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "changed_files": [
+        "skills/task-understanding-decomposition/scout/SKILL.md",
+        "skills/task-understanding-decomposition/scout/reference/5whys-rca.md",
+        "skills/task-understanding-decomposition/scout/reference/flake-investigation.md",
+        "skills/task-understanding-decomposition/scout/reference/handoff-formats.md",
+        "skills/task-understanding-decomposition/scout/reference/observability-debugging.md",
+        "skills/task-understanding-decomposition/scout/reference/perf-investigation.md",
+        "skills/task-understanding-decomposition/scout/reference/tri-engine-investigate.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/simota/agent-skills/compare/f425adcb2111ca8c0be88b325888ff61b64dec49...18bca759a3611f9562939ce77b776205bd12930a"
+    },
+    {
+      "name": "ripple",
+      "repository": "simota/agent-skills",
+      "status": "monitor_review",
+      "review_from": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+      "observed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "changed_files": [
+        "skills/task-understanding-decomposition/ripple/SKILL.md"
+      ],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/simota/agent-skills/compare/f425adcb2111ca8c0be88b325888ff61b64dec49...18bca759a3611f9562939ce77b776205bd12930a"
+    },
+    {
+      "name": "billing-automation",
+      "repository": "wshobson/agents",
+      "status": "monitor_review",
+      "review_from": "156b7a5e7a8b93642628a339ee4039c925b34c7f",
+      "observed_commit": "0874a27b17a22e2b7c2e2bcd725768e0803cad06",
+      "changed_files": [],
+      "added_files": [],
+      "removed_files": [],
+      "compare_url": "https://github.com/wshobson/agents/compare/156b7a5e7a8b93642628a339ee4039c925b34c7f...0874a27b17a22e2b7c2e2bcd725768e0803cad06"
+    }
+  ],
+  "unavailable": [],
+  "equal_entries": [
+    "api-and-interface-design",
+    "browser-testing-with-devtools",
+    "ci-cd-and-automation",
+    "code-review-and-quality",
+    "code-simplification",
+    "context-engineering",
+    "debugging-and-error-recovery",
+    "deprecation-and-migration",
+    "documentation-and-adrs",
+    "doubt-driven-development",
+    "frontend-ui-engineering",
+    "git-workflow-and-versioning",
+    "idea-refine",
+    "incremental-implementation",
+    "interview-me",
+    "observability-and-instrumentation",
+    "performance-optimization",
+    "planning-and-task-breakdown",
+    "security-and-hardening",
+    "shipping-and-launch",
+    "source-driven-development",
+    "spec-driven-development",
+    "test-driven-development",
+    "using-agent-skills",
+    "security-audit",
+    "agent-browser",
+    "answer-me-with-html",
+    "azure-diagnostics",
+    "golang-benchmark",
+    "golang-observability",
+    "golang-performance",
+    "improve-codebase-architecture",
+    "i-have-adhd",
+    "lark-approval",
+    "lark-attendance",
+    "lark-base",
+    "lark-calendar",
+    "lark-contact",
+    "lark-doc",
+    "lark-drive",
+    "lark-event",
+    "lark-im",
+    "lark-mail",
+    "lark-markdown",
+    "lark-okr",
+    "lark-openapi-explorer",
+    "lark-shared",
+    "lark-sheets",
+    "lark-skill-maker",
+    "lark-slides",
+    "lark-task",
+    "lark-whiteboard",
+    "lark-wiki",
+    "lark-workflow-meeting-summary",
+    "lark-workflow-standup-report",
+    "lark-meeting",
+    "cc-devops-skills",
+    "supabase",
+    "supabase-postgres-best-practices"
+  ],
+  "expected_skipped_entries": [
+    "live-panel",
+    "native-mcp",
+    "linear",
+    "guizang-ppt-skill",
+    "docker-expert",
+    "rust-engineer",
+    "vercel-react-best-practices",
+    "vercel-react-view-transitions",
+    "arena",
+    "harvest",
+    "latch",
+    "helm",
+    "levy",
+    "morph",
+    "prism",
+    "crest",
+    "hearth",
+    "dawn",
+    "researcher",
+    "comply",
+    "sketch",
+    "clay",
+    "tone",
+    "pipe",
+    "shard",
+    "warden"
+  ],
+  "validation": {
+    "pytest_passed": 692,
+    "security_node_passed": 65,
+    "skill_python_compiled": 299,
+    "strict_quality_passed": 296,
+    "source_coverage": "293/293",
+    "license_missing": 0,
+    "license_disallowed": 0,
+    "health": "PASS",
+    "remote": "Validate exact PR head through its remote checks; local results do not imply remote success.",
+    "log": "validation-delivery-2026-10-26.log"
+  },
+  "merge_decision": "Keep PR draft: pending commit-aware monitor reviews; no source freshness claim for unreviewed ranges."
+}

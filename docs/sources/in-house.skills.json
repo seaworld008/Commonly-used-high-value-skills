@@ -242,7 +242,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "75654b20a03e752f79d9c5e2362dc2a50011a319b7651927e28455bc3d166501",
+            "content_sha256": "5f75ac7b0957e66802d746cdae873117353af42d7677e7a4f67be07fe30331ca",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -252,7 +252,7 @@
         {
           "path": "skills/ai-workflow/agent-workflow-designer/SKILL.md",
           "owner": "agent-workflow-designer",
-          "sha256": "75654b20a03e752f79d9c5e2362dc2a50011a319b7651927e28455bc3d166501",
+          "sha256": "5f75ac7b0957e66802d746cdae873117353af42d7677e7a4f67be07fe30331ca",
           "mode": "100644"
         }
       ]
@@ -9157,7 +9157,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "02d4b209a05ff328d9d3bc75fd3055d93624ed8383c167346b6146d2d90e65e9",
+            "content_sha256": "286746277ff214949e1d20b2b7f1ab800d37660f46880ee75b0b31bbe6376d3c",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-04-13"
           }
@@ -9173,7 +9173,7 @@
         {
           "path": "skills/engineering-workflow-automation/gh-address-comments/SKILL.md",
           "owner": "gh-address-comments",
-          "sha256": "02d4b209a05ff328d9d3bc75fd3055d93624ed8383c167346b6146d2d90e65e9",
+          "sha256": "286746277ff214949e1d20b2b7f1ab800d37660f46880ee75b0b31bbe6376d3c",
           "mode": "100644"
         },
         {
@@ -9867,7 +9867,7 @@
           }
         ],
         "dependency_lock": {
-          "hermes-agent": "6cd26b16955b78c45fd642960ab9c27e37afdb3ddd5c6fd09e6fb01d2d21a1f1",
+          "hermes-agent": "f6bffce51c3f023549c8e6fddec1e4266b4db8dd9fe5a3a4e0bede417ff319bb",
           "graphify": "8a474a2c170798985419e70a318b99271b779df9985966044e036899c671f6d9",
           "open-gsd/gsd-core": "b7ed2186d397b270a52db5e9816a9fd88a240466b356b1f4a28823f93cb8fd9d",
           "open-gsd/gsd-pi": "16165f4b80211b9e3aa3801e68e04de2f5599ab9a0c247307b1712aa5a9b5df5"
@@ -16037,6 +16037,11 @@
               "type": "file"
             },
             {
+              "source": "skills/task-understanding-decomposition/reflect-learn/references/controlled-improvement.md",
+              "target": "skills/task-understanding-decomposition/reflect-learn/references/controlled-improvement.md",
+              "type": "file"
+            },
+            {
               "source": "skills/task-understanding-decomposition/reflect-learn/references/signal_patterns.md",
               "target": "skills/task-understanding-decomposition/reflect-learn/references/signal_patterns.md",
               "type": "file"
@@ -16102,7 +16107,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "c3b2a4f19540ba9f69c9802b47a86fc375dac0939f170b2979e3d4fd61e6d8a8",
+            "content_sha256": "189faedbf05e4df9660280b2ffc19d27ab852adafda102f68a363f02c571d120",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-09-06"
           }
@@ -16124,7 +16129,7 @@
         {
           "path": "skills/task-understanding-decomposition/reflect-learn/SKILL.md",
           "owner": "reflect-learn",
-          "sha256": "c3b2a4f19540ba9f69c9802b47a86fc375dac0939f170b2979e3d4fd61e6d8a8",
+          "sha256": "189faedbf05e4df9660280b2ffc19d27ab852adafda102f68a363f02c571d120",
           "mode": "100644"
         },
         {
@@ -16251,6 +16256,12 @@
           "path": "skills/task-understanding-decomposition/reflect-learn/skill.json",
           "owner": "reflect-learn",
           "sha256": "2a17ddaab7d60a0664391dca80b3fdb5792c862cbc0d41805473ca64ef29a344",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/task-understanding-decomposition/reflect-learn/references/controlled-improvement.md",
+          "owner": "reflect-learn",
+          "sha256": "ee0a0eec0d97309d540897b3175808317afc1c574887bf2ec154e7a1ec93689f",
           "mode": "100644"
         }
       ]

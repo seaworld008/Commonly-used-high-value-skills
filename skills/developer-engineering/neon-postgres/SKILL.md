@@ -2,14 +2,14 @@
 name: neon-postgres
 description: 'Build or troubleshoot Neon Postgres connections, branching, pooling, scaling, Auth, and platform integrations using current Neon documentation.'
 zh_description: "用于 Neon Postgres 数据库连接、分支、迁移和运行维护。"
-version: "1.0.7"
+version: "1.0.8"
 author: "seaworld008"
 source: "github:neondatabase/agent-skills"
-source_url: "https://github.com/neondatabase/agent-skills/blob/80164a28443aca7c82ac1a70aed836950d6c29ea/skills/neon-postgres/SKILL.md"
+source_url: "https://github.com/neondatabase/agent-skills/blob/ccca3334a7542d3133134cc6926f2fafc6edeb1f/skills/neon-postgres/SKILL.md"
 license: Apache-2.0
 tags: '["development", "neon", "postgres"]'
 created_at: "2026-06-03"
-updated_at: "2026-10-16"
+updated_at: "2026-10-26"
 quality: 5
 complexity: "intermediate"
 ---

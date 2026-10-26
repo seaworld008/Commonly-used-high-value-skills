@@ -2,19 +2,32 @@
 name: reflect-learn
 description: Review user corrections or session outcomes to propose durable workflow improvements. Persist memory or edit agent guidance only when requested.
 zh_description: "分析用户纠正和任务结果，提出可复用的改进建议。"
-version: "2.0.2"
+version: "2.0.3"
 author: Claude Code Toolkit
 source: "in-house"
 source_url: ""
 tags: '["learn", "planning", "reflect", "workflow"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-07"
+updated_at: "2026-10-26"
 quality: 5
 complexity: "intermediate"
 allowed-tools:
 ---
 
 # Reflect - Self-Improvement Skill
+
+## Runtime and Evaluation Contract
+
+Use the current host's available file and conversation tools. The `/reflect`
+commands below are optional client integration examples, not commands that every
+host registers. Run bundled Python helpers from this skill's directory only when
+their state writes are within the user's authorization; analysis alone does not
+require initializing global state or installing hooks.
+
+For repeated-task optimization, use the [controlled improvement worksheet](references/controlled-improvement.md).
+It preserves baseline evidence, a one-variable comparison, regression checks,
+and a rollback decision. Changing memory, prompts, skills, or schedules requires
+authorization for that specific destination; a detected signal grants none.
 
 ## Quick Reference
 

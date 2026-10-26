@@ -2,14 +2,14 @@
 name: hermes-agent
 description: 'Use, configure, theme, extend, and orchestrate Hermes Agent.'
 zh_description: "用于配置、扩展、调试和贡献 Hermes Agent，包括多 Agent、CLI 和网关工作流。"
-version: "2.0.22"
+version: "2.0.23"
 author: Hermes Agent + Teknium
 source: "github:NousResearch/hermes-agent"
 source_url: "https://github.com/NousResearch/hermes-agent/blob/main/skills/autonomous-ai-agents/hermes-agent/SKILL.md"
 license: MIT
 tags: '[hermes, setup, configuration, multi-agent, spawning, cli, gateway, development]'
 created_at: "2026-04-13"
-updated_at: "2026-09-28"
+updated_at: "2026-10-26"
 quality: 4
 complexity: "intermediate"
 metadata:
@@ -53,7 +53,7 @@ Never answer "Hermes can't do that" from memory. Hermes ships far more than this
 ## Quick Start
 
 ```bash
-# Install (shell installer — sets up uv, Python, the venv, and the launcher)
+# Install (shell installer — bootstraps PM, Python, dependencies, and the launcher)
 curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
 
 # Interactive chat (default surface; set display.interface: tui to launch the Ink TUI instead)
