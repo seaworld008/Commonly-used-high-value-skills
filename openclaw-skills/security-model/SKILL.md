@@ -2,7 +2,7 @@
 name: security-model
 description: 'Use when defining, reviewing, or maintaining SECURITY_MODEL.md policy that security review tools consume, including trust boundaries, invariants, inheritance, and reportability.'
 zh_description: "维护供安全审查工具读取的安全模型，核验信任边界、继承、可信版本和抑制规则。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008; adapted from Sentry and OpenAI"
 source: "github:getsentry/skills"
 source_url: "https://github.com/getsentry/skills/tree/d12f250460ffd961f549dbebf7eeb0cf4afd4c2e/skills/security-model"

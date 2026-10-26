@@ -506,7 +506,7 @@
             "ref": "main",
             "resolved_commit": "d12f250460ffd961f549dbebf7eeb0cf4afd4c2e",
             "path_commit": "31cd1798979b19501efb3996d918bda272705cc9",
-            "content_sha256": "c300c90b8c021d8f13788e4bda35c5326d8f12273574c110976c1d684b795679",
+            "content_sha256": "70c485a6a602b9f269d74c32147337b445a6e99fbaa21ee3407de8c08f4f8873",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "753a6c03c60a9232405d05170bd3ad3cab49a1ef",
@@ -592,19 +592,19 @@
         {
           "path": "skills/security-and-reliability/security-model/SKILL.md",
           "owner": "security-model",
-          "sha256": "c300c90b8c021d8f13788e4bda35c5326d8f12273574c110976c1d684b795679",
+          "sha256": "70c485a6a602b9f269d74c32147337b445a6e99fbaa21ee3407de8c08f4f8873",
           "mode": "100644"
         },
         {
           "path": "skills/security-and-reliability/security-model/references/source-and-validation.md",
           "owner": "security-model",
-          "sha256": "0e08acb63dce3f101a17f13992d8453f0ebbf3bdfe07cf7ac0488f9da95113b3",
+          "sha256": "4f36a59818649d1cea17b1025a990121a017042a20a2c8a423ab8a176faa37d8",
           "mode": "100644"
         },
         {
           "path": "skills/security-and-reliability/security-model/scripts/resolve_security_model.py",
           "owner": "security-model",
-          "sha256": "673ce3d9762f2c871d54d374ff5c97fa3c71901d4ad94f9eed057ba61a068065",
+          "sha256": "f943d93c67e44ca424b7ab22117b6aa0a477b06f71adaa53f69f5a8e68bb38d8",
           "mode": "100644"
         },
         {
@@ -616,7 +616,7 @@
         {
           "path": "skills/security-and-reliability/security-model/scripts/test_local_hardening.py",
           "owner": "security-model",
-          "sha256": "1cec15e0a5ac64e7de98bc909eb7393ebce0acd5db5eb2f21cc6ae16498349cb",
+          "sha256": "2022b10ddd57a3ea36585de3e7a859fdf18265d47e4428933efca7825a606f58",
           "mode": "100644"
         },
         {

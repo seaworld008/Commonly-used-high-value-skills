@@ -28,6 +28,7 @@ import argparse
 import fnmatch
 import json
 import os
+import posixpath
 import re
 import stat
 import subprocess
@@ -111,8 +112,8 @@ def run_git(repo: Path, *args: str, binary: bool = False) -> bytes | str:
 def git_context(repo: Path) -> tuple[Path, str] | None:
     """Return (toplevel, prefix) when repo is inside a git work tree."""
     try:
-        top = run_git(repo, "rev-parse", "--show-toplevel").strip()
-        prefix = run_git(repo, "rev-parse", "--show-prefix").strip()
+        top = run_git(repo, "rev-parse", "--show-toplevel").removesuffix("\n")
+        prefix = run_git(repo, "rev-parse", "--show-prefix").removesuffix("\n")
     except PolicyError:
         return None
     return Path(top), prefix
@@ -406,7 +407,11 @@ class Source:
             # (`api/authentication.py` for `src/sentry/api/authentication.py`),
             # so a match on the trailing path segments also counts.
             for cand in candidates:
-                cand = cand.rstrip("/")
+                # Git trees use normalized POSIX paths even on Windows. Never
+                # consult the working tree to resolve a trusted revision.
+                cand = posixpath.normpath(cand)
+                if cand == ".." or cand.startswith("../") or cand.startswith("/"):
+                    continue
                 if any(ch in cand for ch in "*?["):
                     if any(fnmatch.fnmatchcase(f, cand) or fnmatch.fnmatchcase(f, f"*/{cand}") for f in file_set):
                         return "path", True

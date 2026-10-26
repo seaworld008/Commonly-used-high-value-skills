@@ -267,3 +267,58 @@ def test_missing_optional_open_flags_still_read_regular_file(plain_repo, monkeyp
 def test_cli_name_must_be_portable_bare_filename(plain_repo):
     result = run(plain_repo, 'check', '--name', r'..\outside.md')
     assert result.returncode == 2
+
+
+@pytest.mark.parametrize("reference,target", [("../auth.py", "auth.py"), ("./handler.py", "api/handler.py")])
+def test_historical_relative_reference_is_normalized(git_repo, reference, target):
+    (git_repo / "api").mkdir()
+    (git_repo / target).write_text("pass\n")
+    (git_repo / "api/SECURITY_MODEL.md").write_text(f"`{reference}`\n")
+    commit(git_repo)
+    assert run(git_repo).returncode == 0
+    result = run(git_repo, "check", "--ref", "main")
+    assert result.returncode == 0, result.stdout + result.stderr
+
+
+def test_historical_relative_reference_cannot_escape_root(git_repo):
+    (git_repo / "api").mkdir()
+    (git_repo / "outside.py").write_text("pass\n")
+    (git_repo / "api/SECURITY_MODEL.md").write_text("`../../outside.py`\n")
+    commit(git_repo)
+    result = run(git_repo, "check", "--ref", "main")
+    assert result.returncode == 1
+    assert "../../outside.py" in result.stdout
+
+
+def test_normalized_reference_never_falls_back_to_head(git_repo):
+    (git_repo / "api").mkdir()
+    (git_repo / "api/SECURITY_MODEL.md").write_text("`./head_only.py`\n")
+    commit(git_repo)
+    base = git(git_repo, "rev-parse", "HEAD")
+    (git_repo / "api/head_only.py").write_text("pass\n")
+    assert run(git_repo).returncode == 0
+    result = run(git_repo, "check", "--ref", base)
+    assert result.returncode == 1
+    assert "./head_only.py" in result.stdout
+
+
+def test_history_keeps_trailing_whitespace_in_repo_path(tmp_path):
+    repo = tmp_path / "repo "
+    repo.mkdir()
+    (repo / "SECURITY_MODEL.md").write_text("# Trusted whitespace repository\n")
+    git(repo, "init", "-q", "-b", "main")
+    commit(repo)
+    result = run(repo, "resolve", "--scope", ".", "--ref", "main")
+    assert result.returncode == 0, result.stderr
+    assert "Trusted whitespace repository" in result.stdout
+
+
+def test_history_keeps_leading_whitespace_in_component_prefix(git_repo):
+    component = git_repo / " api"
+    component.mkdir()
+    (component / "SECURITY_MODEL.md").write_text("# Trusted whitespace component\n")
+    (component / "handler.py").write_text("pass\n")
+    commit(git_repo)
+    result = run(component, "resolve", "--scope", "handler.py", "--ref", "main")
+    assert result.returncode == 0, result.stderr
+    assert "Trusted whitespace component" in result.stdout

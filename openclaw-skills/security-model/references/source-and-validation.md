@@ -11,7 +11,10 @@ The active `scripts/resolve_security_model.py` is a local hardening of the
 Sentry Python implementation. Changes include explicit-ref validation and OID
 pinning, special-file and path containment checks, current-file filtering,
 historical mode/size checks, and a bounded warning budget. Platform-specific
-open flags are used only when available. Use the active script, not the original
+open flags are used only when available. Historical relative references are
+normalized lexically inside the pinned Git tree; root escapes are rejected
+and missing historical files never fall back to head. Git path output loses
+only its terminating newline, preserving meaningful directory whitespace. Use the active script, not the original
 reference snapshot, for local policy checks.
 
 Upstream's 22 tests and local boundary regressions are retained. The regressions
