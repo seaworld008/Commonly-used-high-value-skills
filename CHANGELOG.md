@@ -23,6 +23,7 @@ All notable changes to this repository are documented here.
 - refactor(skills)!: consolidate reflection and curate upstream contracts
 
 ##### Fixed
+- preserve Git path whitespace and normalize pinned references
 - validate every receipt before cache writes
 <!-- AUTO-CHANGELOG:END -->
 
