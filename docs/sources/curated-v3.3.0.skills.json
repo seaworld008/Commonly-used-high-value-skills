@@ -150,7 +150,7 @@
             "ref": "d9570915f4dd6504dee4070379d2c4f79d81dbb2",
             "resolved_commit": "d9570915f4dd6504dee4070379d2c4f79d81dbb2",
             "path_commit": "d9570915f4dd6504dee4070379d2c4f79d81dbb2",
-            "content_sha256": "62f7cb9d134509b27f0cc122e4e277737e44c0ee100ccdeaaa79faa7e4a36a3e",
+            "content_sha256": "201e4337ed62d29355fcbd24a1f3b40abd6f477296069adfd2f30715095969f6",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "8226d363f88a734e52cc79ead7a5588cc55e76f7",
@@ -168,7 +168,7 @@
         {
           "path": "skills/engineering-workflow-automation/agent-browser/SKILL.md",
           "owner": "agent-browser",
-          "sha256": "62f7cb9d134509b27f0cc122e4e277737e44c0ee100ccdeaaa79faa7e4a36a3e",
+          "sha256": "201e4337ed62d29355fcbd24a1f3b40abd6f477296069adfd2f30715095969f6",
           "mode": "100644"
         },
         {

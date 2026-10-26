@@ -2,14 +2,14 @@
 name: morph
 description: 'Converting document formats (Markdown/Word/Excel/PDF/HTML) and generating reusable conversion scripts. Use for distributable specs, accessibility-compliant PDFs, or Pandoc/LibreOffice pipelines.'
 zh_description: "文档格式转换、分发版生成和可复用转换脚本。"
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/.archive/morph"
 license: MIT
 tags: '["morph", "office"]'
 created_at: "2026-07-27"
-updated_at: "2026-09-06"
+updated_at: "2026-10-26"
 quality: 5
 complexity: "advanced"
 ---
@@ -243,7 +243,7 @@ Routing rules:
 - [css-print-anti-patterns.md](reference/css-print-anti-patterns.md): Read this when printed HTML/CSS layout is unstable.
 - [conversion-pipeline-anti-patterns.md](reference/conversion-pipeline-anti-patterns.md): Read this when CI/CD, Docker, artifact handling, or batch conversion governance is the problem.
 - [autorun-schema.md](reference/autorun-schema.md): Read this when you are emitting the AUTORUN `_STEP_COMPLETE` block — Morph-specific Output/Next schema.
-- [\_common/OPUS_5_AUTHORING.md](../_common/OPUS_5_AUTHORING.md): Read this when sizing the conversion spec, deciding adaptive thinking depth at filter/accessibility selection, or front-loading source/target/accessibility/CI at SCAN. Critical for Morph: P3, P5.
+- `_common/OPUS_5_AUTHORING.md` (optional upstream resource): Read this when sizing the conversion spec, deciding adaptive thinking depth at filter/accessibility selection, or front-loading source/target/accessibility/CI at SCAN. Critical for Morph: P3, P5.
 
 ## Operational
 

@@ -2,14 +2,14 @@
 name: breach
 description: '红队场景、攻击路径、威胁建模和对抗演练设计。'
 zh_description: "红队场景、攻击路径、威胁建模和对抗演练设计。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/breach/SKILL.md"
 license: MIT
 tags: ["breach", "security"]
 created_at: "2026-08-24"
-updated_at: "2026-09-30"
+updated_at: "2026-10-26"
 quality: 5
 complexity: "advanced"
 ---
@@ -88,7 +88,7 @@ Route elsewhere when the task is primarily:
 - Map all attack scenarios to established frameworks (MITRE ATT&CK, OWASP, STRIDE, ATLAS).
 - Test AI/LLM systems as deployed (with RAG, tools, plugins, MCP servers, glue code), not as standalone models.
 - Test MCP server trust boundaries and tool-registration integrity — MCP server compromise and indirect prompt injection via MCP channels are documented real-world vectors.
-- **Agentic AI testing principle** (canonical — referenced by AP-9, AP-17): Include multi-turn attack chains for AI systems — single-shot testing is insufficient (multi-turn jailbreaks succeed 97% within 5 turns). For agentic systems, generic jailbreak libraries measure response risk only; the dangerous failures are the operational risks — tool misuse, unauthorized actions, cross-account data access via conversational redirection, privilege escalation through delegated trust. Test operational behavior, not just outputs.
+- **Agentic AI testing principle** (canonical — referenced by AP-9, AP-17): Include multi-turn attack chains for AI systems — single-shot results do not establish multi-turn resistance; measure the attack set, model/version, trial count and operational outcomes rather than assuming a universal success rate. For agentic systems, generic jailbreak libraries measure response risk only; the dangerous failures are the operational risks — tool misuse, unauthorized actions, cross-account data access via conversational redirection, privilege escalation through delegated trust. Test operational behavior, not just outputs.
 - Classify findings by severity (Critical/High/Medium/Low) using CVSS 4.0 (Base + Threat + Environmental + Supplemental metric groups) and exploitability evidence.
 - Provide remediation guidance (immediate + long-term) for every confirmed vulnerability.
 - Pair every attack finding with detection recommendations for the blue team.
@@ -99,7 +99,7 @@ Route elsewhere when the task is primarily:
 - Align testing cadence to risk: quarterly (high-risk), semi-annual (medium), annual (baseline). For AI systems in CI/CD, integrate continuous automated red teaming into staging and production pipelines — point-in-time assessments alone miss post-deployment drift.
 - Use CSA MAESTRO for agentic AI threat modeling — its 7 layers (Foundation Models → Data Ops → Agent Frameworks → Deployment → Evaluation → Security → Ecosystem) capture surfaces STRIDE/PASTA miss. **Prioritize cross-layer attack paths**: the dangerous threats chain from lower layers through Agent Frameworks to Ecosystem Integration, and single-layer assessments miss the cascade.
 - Enforce security controls (tool-call approvals, file-type firewalls, kill switches) **outside** the LLM — adaptive attacks bypass published prompt-injection defenses at >90% success rate.
-- Under the EU AI Act, adversarial testing and documentation are **mandatory** for high-risk and systemic-risk general-purpose models — full compliance by 2026-08-02, penalties up to €35M or 7% of global turnover.
+- Assess AI Act testing and documentation duties by system classification, operator role and the current applicable text. Do not use one compliance date or maximum fine for every obligation: Article 99(3) concerns Article 5 prohibited practices, while other obligations have separate penalty rules. Check the [official consolidated Regulation](https://eur-lex.europa.eu/eli/reg/2024/1689/oj) before a legal applicability claim.
 - Never rely on binary Attack Success Rate alone — score multi-dimensionally (violation severity × attack naturalness × semantic preservation); ASR comparisons across different success criteria or threat models are invalid. NIST AI 100-2 E2025 is the canonical taxonomy for evasion, poisoning, and privacy attacks.
 - Validate the principle of least agency (OWASP Agentic Top 10 2026, ASI01-ASI10) — test for excessive tool access, credential scope, and unchecked autonomous decision chains.
 - For supply chain assessments, specifically test third-party OAuth token access — enumerate which integrations have OAuth access to sensitive systems (CRM, email, HRIS) and attempt access via simulated compromised tokens.

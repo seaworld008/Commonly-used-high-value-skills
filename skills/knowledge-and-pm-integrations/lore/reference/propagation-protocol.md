@@ -117,7 +117,7 @@ Failure patterns and anti-patterns are the most valuable institutional memory �
 
 1. **Tag explicitly**: All FAILURE and ANTI patterns include a `**What went wrong:**` field with concrete consequences
 2. **Lower confidence threshold for propagation**: Propagate FAILURE/ANTI patterns at Emerging (2) confidence, not Pattern (3+)
-3. **Extend freshness**: FAILURE/ANTI patterns use 1.5× TTL multiplier for decay — negative lessons stay relevant longer
+3. **Freshness follows the domain**: use the domain-specific freshness policy in `decay-detection.md`; FAILURE/ANTI has no additional type-based TTL multiplier. Longevity comes from explicit review before deprecation (rule 4)
 4. **Require explicit deprecation**: FAILURE/ANTI patterns cannot be auto-archived by time alone; require manual review
 
 ---

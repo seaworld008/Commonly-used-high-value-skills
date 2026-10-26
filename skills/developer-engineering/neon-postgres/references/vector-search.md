@@ -35,6 +35,12 @@ CREATE TABLE documents (
 );
 ```
 
+The AI Gateway requires a paid Neon plan and prepaid gateway credits. Check the
+branch's `GET /v1/models` response and use only models with `enabled: true`.
+For a locked model, inspect the reason on the branch's AI Gateway Console page;
+a missing CLI warning does not establish access. Plan changes, credit purchases,
+and enabling the gateway need the user's corresponding authorization.
+
 Enable the AI Gateway on the branch and get `NEON_AI_GATEWAY_TOKEN` and the bare-host `NEON_AI_GATEWAY_BASE_URL`:
 
 - With `neon.ts`, declare `aiGateway: true`, run `neon deploy`, then run `neon env pull --file .env`.

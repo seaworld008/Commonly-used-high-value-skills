@@ -7,7 +7,7 @@ Load this when the user ran `/graphify add <url>` or passed `--watch`. Neither i
 Fetch a URL and add it to the corpus, then update the graph.
 
 ```bash
-$(cat graphify-out/.graphify_python) -c "
+"$(cat graphify-out/.graphify_python)" -c "
 import sys
 from graphify.ingest import ingest
 from pathlib import Path

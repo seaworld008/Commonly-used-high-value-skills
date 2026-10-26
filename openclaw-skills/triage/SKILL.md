@@ -2,14 +2,14 @@
 name: triage
 description: '事故首响、影响范围识别、恢复步骤和复盘整理。'
 zh_description: "事故首响、影响范围识别、恢复步骤和复盘整理。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/triage/SKILL.md"
 license: MIT
 tags: ["devops", "sre", "triage"]
 created_at: "2026-08-24"
-updated_at: "2026-09-30"
+updated_at: "2026-10-26"
 quality: 5
 complexity: "advanced"
 ---

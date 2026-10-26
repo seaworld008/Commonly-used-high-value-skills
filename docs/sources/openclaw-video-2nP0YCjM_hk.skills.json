@@ -355,10 +355,10 @@
     {
       "video_name": "Self-improving agent",
       "normalized_slug": "self-improving-agent",
-      "status": "in_house",
-      "repo_skill": "skills/ai-agent-platform/self-improving-agent/SKILL.md",
+      "status": "retired",
+      "repo_skill": null,
       "source": "https://www.clawhub.com",
-      "notes": "Skill exists in canonical tree.",
+      "notes": "Retired 2026-10-26 into reflect-learn after canonical coverage review; preserved controlled comparison, regression, and rollback guidance in references/controlled-improvement.md. No executable asset or external-system contract existed in the wrapper.",
       "upstream": {
         "repo": "local-repo/in-house",
         "path": "skills/ai-agent-platform/self-improving-agent",
@@ -366,42 +366,29 @@
         "last_checked_at": "2026-04-13",
         "last_synced_at": "2026-04-13",
         "last_synced_commit": null,
-        "sync_mode": "local-only"
+        "sync_mode": "archived"
       },
-      "kind": "in_house",
-      "sync_mode": "local-only",
+      "kind": "reference_only",
+      "sync_mode": "archived",
       "origins": [
         {
           "repo": "local-repo/in-house",
           "path": "skills/ai-agent-platform/self-improving-agent",
           "license": "MIT",
-          "sync_mode": "local-only",
-          "artifacts": [
-            {
-              "source": "skills/ai-agent-platform/self-improving-agent/SKILL.md",
-              "target": "skills/ai-agent-platform/self-improving-agent/SKILL.md",
-              "type": "file"
-            }
-          ],
+          "sync_mode": "archived",
+          "artifacts": [],
           "tracking": {
             "channel": "local",
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "f72ab46587e8c963916f3bc08779f5b61818b775944c1290121f8db8543dd7e6",
+            "content_sha256": null,
             "last_checked_at": "2026-04-13",
             "last_synced_at": "2026-04-13"
           }
         }
       ],
-      "managed_files": [
-        {
-          "path": "skills/ai-agent-platform/self-improving-agent/SKILL.md",
-          "owner": "self-improving-agent",
-          "sha256": "f72ab46587e8c963916f3bc08779f5b61818b775944c1290121f8db8543dd7e6",
-          "mode": "100644"
-        }
-      ]
+      "managed_files": []
     },
     {
       "video_name": "Proactive agent",

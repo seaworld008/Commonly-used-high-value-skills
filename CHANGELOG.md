@@ -8,14 +8,13 @@ All notable changes to this repository are documented here.
 <!-- AUTO-CHANGELOG:START -->
 ### 自动更新 / Automated updates
 
-变更范围 / Revision range: `v4.1.0..HEAD`.
+变更范围 / Revision range: `v4.3.0..HEAD`.
 
-#### [2026-10-24]
+#### [2026-10-26]
 
 ##### Changed
-- prepare v4.2.0 metadata and regenerate-safe changelog
-- regenerate curated skill exports and provenance
-- curate Neon retrieval, AKS discovery and agent workflow guidance
+- complete upstream curation and harden skill audit boundaries
+- refactor(skills)!: consolidate reflection and curate upstream contracts
 <!-- AUTO-CHANGELOG:END -->
 
 ## [4.1.0] - 2026-10-16

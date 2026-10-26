@@ -1,8 +1,10 @@
-# Schema[tenant] Handoff Templates
+# Schema Tenant Context and Handoff Templates
+
+Tenant isolation is handled inside Schema's `tenant` Recipe. Same-skill modes share context directly; they do not require a separate agent or handoff. The internal DB/RLS blocks below are retained as legacy context examples, not messages to emit. Existing external tokens remain compatibility labels; use the host/project contract when exchanging them.
 
 ## Receiving Handoffs
 
-### From Schema (DB Design Context)
+### Internal DB Design Context (Legacy Example)
 
 ```yaml
 SCHEMA_TO_SHARD_HANDOFF:
@@ -29,7 +31,7 @@ GATEWAY_TO_SHARD_HANDOFF:
 
 ## Sending Handoffs
 
-### To Schema (RLS Implementation)
+### Internal RLS Implementation Context (Legacy Example)
 
 ```yaml
 SHARD_TO_SCHEMA_HANDOFF:

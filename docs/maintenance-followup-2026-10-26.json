@@ -1,0 +1,1579 @@
+{
+  "reviewed": [
+    {
+      "name": "agent-hub",
+      "reviewed_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
+      "decision": "selective_absorb",
+      "targets_to_update": [
+        "skills/ai-agent-platform/agent-hub/SKILL.md",
+        "skills/ai-agent-platform/agent-hub/scripts/dry_run.py",
+        "skills/ai-agent-platform/agent-hub/CLAUDE.md",
+        "skills/ai-agent-platform/agent-hub/settings.json",
+        "docs/sources/alirezarezvani-claude-skills-2026-04.skills.json"
+      ],
+      "reason": "吸收hub-run改名；保留本地执行边界；session_manager.py无旧新净变化；README由生成流程处理。",
+      "review_findings": [
+        "快照未包含改名后的命令实现，本地缺少skills/hub-run/SKILL.md，不能声称完整插件dry-run通过。"
+      ],
+      "applied_targets": [
+        "skills/ai-agent-platform/agent-hub/SKILL.md",
+        "skills/ai-agent-platform/agent-hub/scripts/dry_run.py",
+        "skills/ai-agent-platform/agent-hub/CLAUDE.md",
+        "skills/ai-agent-platform/agent-hub/settings.json",
+        "docs/sources/alirezarezvani-claude-skills-2026-04.skills.json"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "arxiv",
+      "reviewed_commit": "daec3cd4c6d34f5befbc8f25a8af3e3b84b94f06",
+      "decision": "checkpoint_only",
+      "targets_to_update": [
+        "docs/sources/nous-hermes-agent-2026-04.skills.json"
+      ],
+      "reason": "3个受管声明零净变化；保留检索脚本、版本化引用和撤稿处理。",
+      "review_findings": [],
+      "applied_targets": [
+        "docs/sources/nous-hermes-agent-2026-04.skills.json"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "aws-solution-architect",
+      "reviewed_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
+      "decision": "checkpoint_only",
+      "targets_to_update": [
+        "docs/sources/reclassified-external-skills-2026-08.skills.json"
+      ],
+      "reason": "9个受管声明零净变化；保留架构、成本、服务选择资料和样例。",
+      "review_findings": [],
+      "applied_targets": [
+        "docs/sources/reclassified-external-skills-2026-08.skills.json"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "azure-kubernetes",
+      "reviewed_commit": "f3b512517ed86feceebfee480a46c971f6c6aff4",
+      "decision": "selective_absorb",
+      "targets_to_update": [
+        "skills/devops-sre/azure-kubernetes/SKILL.md",
+        "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/references/base-images.md",
+        "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/python.Dockerfile",
+        "docs/sources/reclassified-external-skills-2026-08.skills.json"
+      ],
+      "reason": "成对吸收Azure Linux Python镜像及shadow-utils修正；保留非root、多阶段构建和本地授权规则。",
+      "review_findings": [
+        "未验证实际镜像标签、Docker构建和容器运行。"
+      ],
+      "applied_targets": [
+        "skills/devops-sre/azure-kubernetes/SKILL.md",
+        "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/references/base-images.md",
+        "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/python.Dockerfile",
+        "docs/sources/reclassified-external-skills-2026-08.skills.json"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "codebase-inspection",
+      "reviewed_commit": "daec3cd4c6d34f5befbc8f25a8af3e3b84b94f06",
+      "decision": "checkpoint_only",
+      "targets_to_update": [
+        "docs/sources/nous-hermes-agent-2026-04.skills.json"
+      ],
+      "reason": "受管文件零净变化；保留测量范围、可比快照和只读边界。",
+      "review_findings": [],
+      "applied_targets": [
+        "docs/sources/nous-hermes-agent-2026-04.skills.json"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "firebase-security-rules-auditor",
+      "reviewed_commit": "92eed24c0976a79a66d5b8038e9eda8b441ef92d",
+      "decision": "metadata_only",
+      "targets_to_update": [
+        "skills/security-and-reliability/firebase-security-rules-auditor/SKILL.md",
+        "docs/sources/firebase-agent-skills-2026-07.skills.json"
+      ],
+      "reason": "增加metadata.author为Google LLC；其余仅排版，身份与字段校验方法原已存在；保留本地策展作者。",
+      "review_findings": [],
+      "applied_targets": [
+        "skills/security-and-reliability/firebase-security-rules-auditor/SKILL.md",
+        "docs/sources/firebase-agent-skills-2026-07.skills.json"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "graphify",
+      "reviewed_commit": "92741d162b2094ffc2fed58cfbd8ee823e9da62c",
+      "decision": "absorb_with_fixes",
+      "targets_to_update": [
+        "skills/developer-engineering/graphify/SKILL.md",
+        "skills/developer-engineering/graphify/EXTENDED.md",
+        "skills/developer-engineering/graphify/references/exports.md",
+        "skills/developer-engineering/graphify/references/extraction-spec.md",
+        "skills/developer-engineering/graphify/references/query.md",
+        "skills/developer-engineering/graphify/references/update.md",
+        "docs/sources/graphify-2026-04.skills.json",
+        "tests/test_graphify_official_artifacts.py"
+      ],
+      "reason": "吸收排除规则、root锚定、缓存与coverage、语义来源、诱导子图、增量和导出安全修正；保持本地按需拆分，不改runtime安装器。",
+      "review_findings": [
+        "新上游B2与B3失败处理矛盾，必须统一为全部验证后再合并。",
+        "coverage必须完整保留，并检测预期文本文件漏报。",
+        "本地update.md双引号Python参数中的反引号须删除。",
+        "未验证新增runtime helper与参数在实际安装版本中的兼容性。",
+        "最终独立审查修正提前写缓存：所有分块回执验证通过后才写缓存；CLI 失败保留旧缓存回归通过。"
+      ],
+      "applied_targets": [
+        "skills/developer-engineering/graphify/SKILL.md",
+        "skills/developer-engineering/graphify/EXTENDED.md",
+        "skills/developer-engineering/graphify/references/exports.md",
+        "skills/developer-engineering/graphify/references/extraction-spec.md",
+        "skills/developer-engineering/graphify/references/query.md",
+        "skills/developer-engineering/graphify/references/update.md",
+        "docs/sources/graphify-2026-04.skills.json",
+        "tests/test_graphify_official_artifacts.py"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "grill-me",
+      "reviewed_commit": "24fe0ef7737efae15c87225755e9f6f5965e4888",
+      "decision": "refresh_evidence_preserve_overlay",
+      "targets_to_update": [
+        "skills/task-understanding-decomposition/grill-me/SKILL.md",
+        "skills/task-understanding-decomposition/grill-me/references/upstream-grill-me.md",
+        "skills/task-understanding-decomposition/grill-me/references/upstream-grilling.md",
+        "docs/sources/mattpocock-skills-2026-09.skills.json",
+        "tests/test_grill_me_skill.py"
+      ],
+      "reason": "刷新v1.3.1审计原文和固定来源；本地已有双问题示例，保留中文方法、工作表和宿主降级，不将专有Skill调用变成本地依赖。",
+      "review_findings": [],
+      "applied_targets": [
+        "skills/task-understanding-decomposition/grill-me/SKILL.md",
+        "skills/task-understanding-decomposition/grill-me/references/upstream-grill-me.md",
+        "skills/task-understanding-decomposition/grill-me/references/upstream-grilling.md",
+        "docs/sources/mattpocock-skills-2026-09.skills.json",
+        "tests/test_grill_me_skill.py"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "honcho",
+      "reviewed_commit": "daec3cd4c6d34f5befbc8f25a8af3e3b84b94f06",
+      "decision": "checkpoint_only",
+      "targets_to_update": [
+        "docs/sources/nous-hermes-agent-2026-04.skills.json"
+      ],
+      "reason": "受管文件零净变化；保留现有记忆使用、配置和故障排查。",
+      "review_findings": [],
+      "applied_targets": [
+        "docs/sources/nous-hermes-agent-2026-04.skills.json"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "information-security-manager-iso27001",
+      "reviewed_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
+      "decision": "checkpoint_only",
+      "targets_to_update": [
+        "docs/sources/alirezarezvani-claude-skills-2026-04.skills.json"
+      ],
+      "reason": "7个受管声明零净变化；保留风险工具、ISMS证据检查点和医疗示例。",
+      "review_findings": [],
+      "applied_targets": [
+        "docs/sources/alirezarezvani-claude-skills-2026-04.skills.json"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "kubernetes-specialist",
+      "reviewed_commit": "504bb9a067c5c7ea6bf868c7cc337164b213fa57",
+      "decision": "checkpoint_only",
+      "targets_to_update": [
+        "docs/sources/reclassified-external-skills-2026-08.skills.json"
+      ],
+      "reason": "仅上游metadata.version从1.1.1变为1.1.2；无新增领域方法，保留本地中文正文及独立版本。",
+      "review_findings": [],
+      "applied_targets": [
+        "docs/sources/reclassified-external-skills-2026-08.skills.json"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "landing-page-generator",
+      "reviewed_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
+      "decision": "checkpoint_only",
+      "targets_to_update": [
+        "docs/sources/alirezarezvani-claude-skills-2026-04.skills.json"
+      ],
+      "reason": "仅description将小于号改写为under，含义不变；保留策展触发描述和辅助文件。",
+      "review_findings": [],
+      "applied_targets": [
+        "docs/sources/alirezarezvani-claude-skills-2026-04.skills.json"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "linkedin",
+      "reviewed_commit": "34e1aab8d2f42858148ad954c511288db624b7ee",
+      "decision": "absorb_with_fixes",
+      "targets_to_update": [
+        "skills/operations-general/linkedin/SKILL.md",
+        "skills/operations-general/linkedin/EXTENDED.md",
+        "docs/sources/linked-api-linkedin-skills-2026-07.skills.json"
+      ],
+      "reason": "吸收背书、关系度过滤、收件箱、帖子搜索、mention、防重复转发和changelog合约；保留身份权限及外部写入边界。",
+      "review_findings": [
+        "须修正既有认证段要求提供token并置于argv的问题。",
+        "未验证已安装CLI支持新增命令，未运行私有读取或外部写入。"
+      ],
+      "applied_targets": [
+        "skills/operations-general/linkedin/SKILL.md",
+        "skills/operations-general/linkedin/EXTENDED.md",
+        "docs/sources/linked-api-linkedin-skills-2026-07.skills.json"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "linkedin-growth",
+      "reviewed_commit": "34e1aab8d2f42858148ad954c511288db624b7ee",
+      "decision": "checkpoint_only",
+      "targets_to_update": [
+        "docs/sources/linked-api-linkedin-skills-2026-07.skills.json"
+      ],
+      "reason": "35个受管声明零净变化；保留CRM、导入、调度与幂等性，不混入linkedin条目的新增API。",
+      "review_findings": [],
+      "applied_targets": [
+        "docs/sources/linked-api-linkedin-skills-2026-07.skills.json"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "llm-wiki",
+      "reviewed_commit": "daec3cd4c6d34f5befbc8f25a8af3e3b84b94f06",
+      "decision": "checkpoint_only",
+      "targets_to_update": [
+        "docs/sources/nous-hermes-agent-2026-04.skills.json"
+      ],
+      "reason": "受管文件零净变化；保留三层结构、恢复、摄取、查询和lint流程。",
+      "review_findings": [],
+      "applied_targets": [
+        "docs/sources/nous-hermes-agent-2026-04.skills.json"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "mcporter",
+      "reviewed_commit": "daec3cd4c6d34f5befbc8f25a8af3e3b84b94f06",
+      "decision": "checkpoint_only",
+      "targets_to_update": [
+        "docs/sources/nous-hermes-agent-2026-04.skills.json"
+      ],
+      "reason": "受管文件零净变化；保留原生MCP优先、真实错误检查和写入恢复边界。",
+      "review_findings": [],
+      "applied_targets": [
+        "docs/sources/nous-hermes-agent-2026-04.skills.json"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "neon-postgres",
+      "reviewed_commit": "4da86b02402ee8d00b3d365a1fccb62a812ec08e",
+      "decision": "checkpoint_only",
+      "targets_to_update": [
+        "docs/sources/reclassified-external-skills-2026-08.skills.json"
+      ],
+      "reason": "5个受管声明零净变化；保留已有项目、ORM和driver边界。",
+      "review_findings": [],
+      "applied_targets": [
+        "docs/sources/reclassified-external-skills-2026-08.skills.json"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "neon-postgres-egress-optimizer",
+      "reviewed_commit": "4da86b02402ee8d00b3d365a1fccb62a812ec08e",
+      "decision": "checkpoint_only",
+      "targets_to_update": [
+        "docs/sources/reclassified-external-skills-2026-08.skills.json"
+      ],
+      "reason": "受管文件零净变化；保留诊断、列裁剪、分页、缓存、SQL聚合和验证方法。",
+      "review_findings": [],
+      "applied_targets": [
+        "docs/sources/reclassified-external-skills-2026-08.skills.json"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "nextjs-app-router",
+      "reviewed_commit": "0874a27b17a22e2b7c2e2bcd725768e0803cad06",
+      "decision": "checkpoint_only",
+      "targets_to_update": [
+        "docs/sources/reclassified-external-skills-2026-08.skills.json"
+      ],
+      "reason": "2个受管声明零净变化；保留Server Components原则及详细资料拆分。",
+      "review_findings": [],
+      "applied_targets": [
+        "docs/sources/reclassified-external-skills-2026-08.skills.json"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "obsidian",
+      "reviewed_commit": "daec3cd4c6d34f5befbc8f25a8af3e3b84b94f06",
+      "decision": "checkpoint_only",
+      "targets_to_update": [
+        "docs/sources/nous-hermes-agent-2026-04.skills.json"
+      ],
+      "reason": "受管文件零净变化；保留vault范围、工具适配、frontmatter和wikilinks保全。",
+      "review_findings": [],
+      "applied_targets": [
+        "docs/sources/nous-hermes-agent-2026-04.skills.json"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "prisma-client-api",
+      "reviewed_commit": "ba3f9d73200bbb62e49733ab93a961fd138a2c18",
+      "decision": "checkpoint_only",
+      "targets_to_update": [
+        "docs/sources/ingested-external.skills.json"
+      ],
+      "reason": "10个受管声明零净变化；保留参数化查询、租户约束和事务验收。",
+      "review_findings": [],
+      "applied_targets": [
+        "docs/sources/ingested-external.skills.json"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "prisma-upgrade-v7",
+      "reviewed_commit": "ba3f9d73200bbb62e49733ab93a961fd138a2c18",
+      "decision": "checkpoint_only",
+      "targets_to_update": [
+        "docs/sources/ingested-external.skills.json"
+      ],
+      "reason": "9个受管声明零净变化；保留SQL与MongoDB分流、版本盘点和迁移安全。",
+      "review_findings": [],
+      "applied_targets": [
+        "docs/sources/ingested-external.skills.json"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "python-performance",
+      "reviewed_commit": "0874a27b17a22e2b7c2e2bcd725768e0803cad06",
+      "decision": "checkpoint_only",
+      "targets_to_update": [
+        "docs/sources/reclassified-external-skills-2026-08.skills.json"
+      ],
+      "reason": "3个受管声明零净变化；保留详细引用和可比、多样本、结果等价的基准要求。",
+      "review_findings": [],
+      "applied_targets": [
+        "docs/sources/reclassified-external-skills-2026-08.skills.json"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "saas-metrics-coach",
+      "reviewed_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
+      "decision": "checkpoint_only",
+      "targets_to_update": [
+        "docs/sources/alirezarezvani-claude-skills-2026-04.skills.json"
+      ],
+      "reason": "8个受管声明零净变化；保留公式、基准、输入模板和计算工具。",
+      "review_findings": [],
+      "applied_targets": [
+        "docs/sources/alirezarezvani-claude-skills-2026-04.skills.json"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "security-pen-testing",
+      "reviewed_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
+      "decision": "checkpoint_only",
+      "targets_to_update": [
+        "docs/sources/alirezarezvani-claude-skills-2026-04.skills.json"
+      ],
+      "reason": "8个受管声明零净变化；保留授权范围、披露流程和历史扫描器限制。",
+      "review_findings": [],
+      "applied_targets": [
+        "docs/sources/alirezarezvani-claude-skills-2026-04.skills.json"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "senior-architect",
+      "reviewed_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
+      "decision": "checkpoint_only",
+      "targets_to_update": [
+        "docs/sources/alirezarezvani-claude-skills-2026-04.skills.json"
+      ],
+      "reason": "8个受管声明零净变化；保留架构、依赖工具和决策参考。",
+      "review_findings": [],
+      "applied_targets": [
+        "docs/sources/alirezarezvani-claude-skills-2026-04.skills.json"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "skill-security-auditor",
+      "reviewed_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
+      "decision": "checkpoint_only",
+      "targets_to_update": [
+        "docs/sources/alirezarezvani-claude-skills-2026-04.skills.json"
+      ],
+      "reason": "4个受管声明零净变化；保留威胁模型、静态审计和非实时CVE限制。",
+      "review_findings": [],
+      "applied_targets": [
+        "docs/sources/alirezarezvani-claude-skills-2026-04.skills.json"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "tailwind-design-system",
+      "reviewed_commit": "0874a27b17a22e2b7c2e2bcd725768e0803cad06",
+      "decision": "checkpoint_only",
+      "targets_to_update": [
+        "docs/sources/reclassified-external-skills-2026-08.skills.json"
+      ],
+      "reason": "3个受管声明零净变化；保留v4设计token、组件和详细资料拆分。",
+      "review_findings": [],
+      "applied_targets": [
+        "docs/sources/reclassified-external-skills-2026-08.skills.json"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "terraform-engineer",
+      "reviewed_commit": "504bb9a067c5c7ea6bf868c7cc337164b213fa57",
+      "decision": "checkpoint_only",
+      "targets_to_update": [
+        "docs/sources/reclassified-external-skills-2026-08.skills.json"
+      ],
+      "reason": "受管文件零净变化；保留中文模块、状态与plan/apply方法，无本轮CI或provider修正可吸收。",
+      "review_findings": [],
+      "applied_targets": [
+        "docs/sources/reclassified-external-skills-2026-08.skills.json"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "x-twitter-scraper",
+      "reviewed_commit": "9ba3efe58f7ddadbf0d256cb5447eb02d73bbe3c",
+      "decision": "absorb_with_fixes",
+      "targets_to_update": [
+        "skills/growth-operations-xiaohongshu/x-twitter-scraper/SKILL.md",
+        "skills/growth-operations-xiaohongshu/x-twitter-scraper/metadata.json",
+        "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/compare-faq.md",
+        "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/extractions.md",
+        "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/mcp.md",
+        "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/monitors-webhooks.md",
+        "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/reads.md",
+        "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/writes.md",
+        "docs/sources/reclassified-external-skills-2026-08.skills.json"
+      ],
+      "reason": "吸收路由、AI analysis、计费契约、分页预算、脱敏、重试、nonce和写入恢复修正；保留历史引用、实时估算、MCP不执行及账号写入仅计划边界。",
+      "review_findings": [
+        "AI analysis须明确付费外发授权和额度，不能因归入reads就自动执行。",
+        "不能将供应商文档价格当成本次任务的实时估算。",
+        "Redis过期示例应与包含窗口边界的文字一致。",
+        "未进行真实API、计费、MCP或Webhook服务验证。"
+      ],
+      "applied_targets": [
+        "skills/growth-operations-xiaohongshu/x-twitter-scraper/SKILL.md",
+        "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/compare-faq.md",
+        "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/mcp.md",
+        "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/monitors-webhooks.md",
+        "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/reads.md",
+        "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/writes.md",
+        "docs/sources/reclassified-external-skills-2026-08.skills.json"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "beacon",
+      "reviewed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "decision": "建议吸收（择段）",
+      "targets_to_update": [
+        "skills/devops-sre/beacon/SKILL.md",
+        "skills/devops-sre/beacon/reference/alerting-strategy.md",
+        "skills/devops-sre/beacon/reference/llm-observability.md",
+        "skills/devops-sre/beacon/reference/slo-sli-design.md",
+        "skills/devops-sre/beacon/reference/logging-design.md",
+        "skills/devops-sre/beacon/reference/platform-observability.md",
+        "skills/devops-sre/beacon/reference/opentelemetry-best-practices.md"
+      ],
+      "reason": "review.md:8,52,69,182,205,230,247。吸收慢燃阈值、预算消耗门槛和 Sloth 告警窗口修订；更新 GenAI semconv 属性、指标名及弃用事件，并对旧属性提供迁移期双读。Weave→Tempo、Gear log→logs 只在本地目录与技能契约一致时改。保留本地 SLO 门槛、日志/采样政策及宿主支持的后端；缓存计价是厂商特定示例，应留来源且不可当通用价格。",
+      "review_findings": [],
+      "applied_targets": [
+        "skills/devops-sre/beacon/SKILL.md",
+        "skills/devops-sre/beacon/reference/alerting-strategy.md",
+        "skills/devops-sre/beacon/reference/llm-observability.md",
+        "skills/devops-sre/beacon/reference/slo-sli-design.md",
+        "skills/devops-sre/beacon/reference/logging-design.md",
+        "skills/devops-sre/beacon/reference/platform-observability.md",
+        "skills/devops-sre/beacon/reference/opentelemetry-best-practices.md"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "breach",
+      "reviewed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "decision": "建议吸收（法规段落需对齐 Canon）",
+      "targets_to_update": [
+        "skills/security-and-reliability/breach/SKILL.md",
+        "skills/security-and-reliability/breach/reference/ai-red-teaming.md",
+        "skills/security-and-reliability/breach/reference/attack-playbooks.md",
+        "skills/security-and-reliability/breach/reference/phishing-campaign-design.md"
+      ],
+      "reason": "review.md:8,34,50,92。吸收 OWASP Top 10:2025 的编号与类别重排，及相应 SSRF、供应链、异常处理测试覆盖；EU AI Act 罚则和适用日期应按本地 Canon 的法规依据修订，避免把 Art. 5 最高罚则套用到其他义务。保留授权范围、凭据安全和模拟钓鱼限制；术语 credential harvest 可吸收。",
+      "review_findings": [],
+      "applied_targets": [
+        "skills/security-and-reliability/breach/SKILL.md",
+        "skills/security-and-reliability/breach/reference/ai-red-teaming.md",
+        "skills/security-and-reliability/breach/reference/attack-playbooks.md",
+        "skills/security-and-reliability/breach/reference/phishing-campaign-design.md"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "builder",
+      "reviewed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "decision": "建议吸收（保留宿主交接资产）",
+      "targets_to_update": [
+        "skills/developer-engineering/builder/SKILL.md",
+        "skills/developer-engineering/builder/reference/autorun-nexus.md",
+        "skills/developer-engineering/builder/reference/handoffs.md",
+        "skills/developer-engineering/builder/reference/image-generation-batch.md",
+        "skills/developer-engineering/builder/reference/reference-index.md"
+      ],
+      "reason": "review.md:8,42,134,159,176。吸收把公共上下文与完成结构指向公共规范、减少重复 schema 的整理方式，以及 Sherpa 作为计划输入的路由更新。只按本地注册代理改名映射；保留本地 image-generation 等 supplements、参考索引、用户确认与执行边界，不因上游重构删减兼容资产。",
+      "review_findings": [],
+      "applied_targets": [
+        "skills/developer-engineering/builder/SKILL.md",
+        "skills/developer-engineering/builder/reference/image-generation-batch.md",
+        "skills/developer-engineering/builder/reference/reference-index.md"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "cast",
+      "reviewed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "decision": "建议吸收（触发保持人工可控）",
+      "targets_to_update": [
+        "skills/openclaw-memory-and-safety/cast/SKILL.md",
+        "skills/openclaw-memory-and-safety/cast/reference/persona-governance.md"
+      ],
+      "reason": "review.md:8,43。区分多指标行为漂移复核（≥5%）与 TRACE_TO_CAST_DRIFT 专用信号（≥15%、n≥50）的统计方法，避免把两个阈值混成一个自动触发器；补齐 RETIRE 作为审计状态。AI Act 日期仅通过本地 Canon 引用。保留用户授权和人工/预测性复核选择，不启用自动退休或状态机。",
+      "review_findings": [],
+      "applied_targets": [],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "cloak",
+      "reviewed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "decision": "建议吸收（法律时点需本地核准）",
+      "targets_to_update": [
+        "skills/security-and-reliability/cloak/SKILL.md",
+        "skills/security-and-reliability/cloak/reference/ccpa-cpra.md"
+      ],
+      "reason": "review.md:8,36。吸收加州数据泄露通知规则的具体法条/适用情形，并将给 Canon 的交接限定为隐私政策条款审查。欧盟 AI Act 的严重事件和儿童数据条目应以本地法规规范源为准；本次未联网核验法条。保留现有辖区差异和隐私审查边界。",
+      "review_findings": [],
+      "applied_targets": [],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "compete",
+      "reviewed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "decision": "建议吸收（证据标注与路由择段）",
+      "targets_to_update": [
+        "skills/growth-operations-xiaohongshu/compete/SKILL.md",
+        "skills/growth-operations-xiaohongshu/compete/reference/reference-index.md"
+      ],
+      "reason": "review.md:8,60。吸收“无来源内容不得作为发现、训练知识标为未验证”的证据纪律，以及请求不明确时采用 Landscape+Benchmark 的 matrix 默认分析。Field 交接语义可迁移；handoff token 应按本地契约映射，不直接替换成上游 token。保留现有报告格式和来源标注要求。",
+      "review_findings": [],
+      "applied_targets": [],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "gateway",
+      "reviewed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "decision": "建议吸收（路由与术语修订）",
+      "targets_to_update": [
+        "skills/developer-engineering/gateway/SKILL.md",
+        "skills/developer-engineering/gateway/reference/graphql-design.md"
+      ],
+      "reason": "review.md:8,106。GraphQL Connection/Cursor 属 Relay 规范，应修正文中的 Gateway 命名；可吸收 PIPELINE 作为 PRESENT 后按需 CI 集成阶段，以及威胁建模与渗透测试分别路由 Breach/Probe 的边界。保留本地 API 安全职责、工具路由及 Builder 实现接口；外部 agent 名称按本地目录核对。",
+      "review_findings": [],
+      "applied_targets": [
+        "skills/developer-engineering/gateway/SKILL.md",
+        "skills/developer-engineering/gateway/reference/graphql-design.md"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "gear",
+      "reviewed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "decision": "建议吸收（版本事实保留来源）",
+      "targets_to_update": [
+        "skills/devops-sre/gear/SKILL.md",
+        "skills/devops-sre/gear/reference/autorun-schema.md",
+        "skills/devops-sre/gear/reference/dependency-management.md",
+        "skills/devops-sre/gear/reference/docker-patterns.md",
+        "skills/devops-sre/gear/reference/gha-cache-strategy.md",
+        "skills/devops-sre/gear/reference/gha-secrets.md",
+        "skills/devops-sre/gear/reference/github-actions.md",
+        "skills/devops-sre/gear/reference/monorepo-guide.md",
+        "skills/devops-sre/gear/reference/observability.md",
+        "skills/devops-sre/gear/reference/secrets-management.md"
+      ],
+      "reason": "review.md:8,52,77,94,120,180,206,282。吸收 Node 20 runner 移除后的 GHA 运行时迁移、actions/cache 与 setup-node 示例更新、EU CRA 报告/生效日期拆分、Grafana Tempo 名称修订。将版本号作为有来源的时间敏感示例，不当作永久默认；密钥、OIDC、最小权限原则保持。本次未联网验证 release 状态。",
+      "review_findings": [],
+      "applied_targets": [
+        "skills/devops-sre/gear/SKILL.md",
+        "skills/devops-sre/gear/reference/docker-patterns.md",
+        "skills/devops-sre/gear/reference/github-actions.md",
+        "skills/devops-sre/gear/reference/observability.md"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "grove",
+      "reviewed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "decision": "建议吸收（修正 Git 描述）",
+      "targets_to_update": [
+        "skills/knowledge-and-pm-integrations/grove/SKILL.md",
+        "skills/knowledge-and-pm-integrations/grove/reference/llm-sharding-strategy.md",
+        "skills/knowledge-and-pm-integrations/grove/reference/tests-layout.md"
+      ],
+      "reason": "review.md:8,34,51。修正“Git 记录 rename”的不准确说法：Git 基于内容相似度检测重命名，移动与大量内容改动同提交会影响 log/blame 跟踪；保留分离移动与内容编辑的建议。目录索引审计可放进 Grove 自身审计流程，改写交接到 Quill/Radar/Voyager 前先核对本地能力。保留本地文档资产。",
+      "review_findings": [],
+      "applied_targets": [
+        "skills/knowledge-and-pm-integrations/grove/SKILL.md",
+        "skills/knowledge-and-pm-integrations/grove/reference/llm-sharding-strategy.md",
+        "skills/knowledge-and-pm-integrations/grove/reference/tests-layout.md"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "growth",
+      "reviewed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "decision": "建议吸收（补全增长方法与交接）",
+      "targets_to_update": [
+        "skills/growth-operations-xiaohongshu/growth/SKILL.md",
+        "skills/growth-operations-xiaohongshu/growth/reference/autorun-schema.md",
+        "skills/growth-operations-xiaohongshu/growth/reference/cro-patterns.md",
+        "skills/growth-operations-xiaohongshu/growth/reference/retention/winback-campaign.md",
+        "skills/growth-operations-xiaohongshu/growth/reference/seo-audit.md"
+      ],
+      "reason": "review.md:8,68,85,98,119。吸收 GEO 作为增长交付类型、retention Recipe 纳入 win-back/re-engagement/churn 子路径，以及 Voice 双向反馈交接。注意 retention 内容与本地路径一致后再更新引用；本批 cro-patterns 仅见新增结尾代码围栏，应核对格式，不能凭差异摘要推断其新增方法。",
+      "review_findings": [],
+      "applied_targets": [
+        "skills/growth-operations-xiaohongshu/growth/SKILL.md",
+        "skills/growth-operations-xiaohongshu/growth/reference/autorun-schema.md",
+        "skills/growth-operations-xiaohongshu/growth/reference/cro-patterns.md",
+        "skills/growth-operations-xiaohongshu/growth/reference/retention/winback-campaign.md",
+        "skills/growth-operations-xiaohongshu/growth/reference/seo-audit.md"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "guardian",
+      "reviewed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "decision": "保留本地授权边界；建议吸收文案/阈值",
+      "targets_to_update": [
+        "skills/engineering-workflow-automation/guardian/SKILL.md",
+        "skills/engineering-workflow-automation/guardian/reference/collaboration-routing.md",
+        "skills/engineering-workflow-automation/guardian/reference/coverage-integration.md"
+      ],
+      "reason": "review.md:8,46,86。吸收 coverage hotspot 低于 60% 的候选升级提示，并把旧 Plan 输入改为 Sherpa 前先确认本地路由存在。上游 ship 执行 PR 创建、CI 监看、合并、清理的触发描述不能覆盖当前宿主/用户授权；合并仍须按本地授权边界执行。handoff token 按本地兼容映射。",
+      "review_findings": [],
+      "applied_targets": [
+        "skills/engineering-workflow-automation/guardian/SKILL.md",
+        "skills/engineering-workflow-automation/guardian/reference/collaboration-routing.md",
+        "skills/engineering-workflow-automation/guardian/reference/coverage-integration.md"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "ledger",
+      "reviewed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "decision": "建议吸收（修正缓存成本模型）",
+      "targets_to_update": [
+        "skills/finance-investing/ledger/SKILL.md",
+        "skills/finance-investing/ledger/reference/ai-gpu-cost.md"
+      ],
+      "reason": "review.md:8,43。用 cache read 约为基础输入价格 10% 的成本上限和写入费用解释缓存收益，取代“60× 成本降低”这种把命中率直接当成本倍率的说法；把 14 天作为右 sizing 数据下限、30–90 天作为偏好窗口。模型价格和缓存策略属于供应商事实，保留来源及模型适用范围。",
+      "review_findings": [],
+      "applied_targets": [
+        "skills/finance-investing/ledger/SKILL.md",
+        "skills/finance-investing/ledger/reference/ai-gpu-cost.md"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "lens",
+      "reviewed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "decision": "建议吸收",
+      "targets_to_update": [
+        "skills/task-understanding-decomposition/lens/SKILL.md",
+        "skills/task-understanding-decomposition/lens/reference/change-hotspot.md"
+      ],
+      "reason": "review.md:8,43。把具体变更 blame/bisect 取证与聚合热点/演进统计分开路由，明确大代码库搜索停滞后扩展范围的 Stall Protocol；不明确请求默认结构映射。ESLint flat config 示例应移除已失效的 --no-eslintrc 并注明插件前置条件。",
+      "review_findings": [],
+      "applied_targets": [
+        "skills/task-understanding-decomposition/lens/SKILL.md",
+        "skills/task-understanding-decomposition/lens/reference/change-hotspot.md"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "lore",
+      "reviewed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "decision": "建议吸收（保留证据轨迹）",
+      "targets_to_update": [
+        "skills/knowledge-and-pm-integrations/lore/SKILL.md",
+        "skills/knowledge-and-pm-integrations/lore/reference/decay-detection.md",
+        "skills/knowledge-and-pm-integrations/lore/reference/official-pattern-taxonomy.md",
+        "skills/knowledge-and-pm-integrations/lore/reference/pattern-taxonomy.md",
+        "skills/knowledge-and-pm-integrations/lore/reference/propagation-protocol.md"
+      ],
+      "reason": "review.md:8,91,108,139,153。吸收官方模式只能映射领域/类型/范围、不能代替本地证据决定置信等级的治理规则；已失效证据应归档并记录原因而非删除；ANECDOTE/EMERGING 是候选而非长期指导。传播到 Orbit 的流程仅在其为本地可用技能时采用。保留 journal 证据与本地 TTL/置信度治理资产。",
+      "review_findings": [],
+      "applied_targets": [
+        "skills/knowledge-and-pm-integrations/lore/SKILL.md",
+        "skills/knowledge-and-pm-integrations/lore/reference/decay-detection.md",
+        "skills/knowledge-and-pm-integrations/lore/reference/official-pattern-taxonomy.md",
+        "skills/knowledge-and-pm-integrations/lore/reference/pattern-taxonomy.md",
+        "skills/knowledge-and-pm-integrations/lore/reference/propagation-protocol.md"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "nexus",
+      "reviewed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "decision": "部分吸收领域路由；保留宿主协议与授权",
+      "targets_to_update": [
+        "skills/ai-workflow/nexus/SKILL.md",
+        "skills/ai-workflow/nexus/reference/agent-chains.md",
+        "skills/ai-workflow/nexus/reference/agent-disambiguation.md",
+        "skills/ai-workflow/nexus/reference/routing-matrix.md",
+        "skills/ai-workflow/nexus/reference/error-handling.md",
+        "skills/ai-workflow/nexus/reference/handoff-validation.md",
+        "skills/ai-workflow/nexus/reference/recipes-index.md"
+      ],
+      "reason": "review.md:8,87,242 及其余 52 个 reference 小节。吸收分类与配方修正：BUG 保留复现测试先行，REFACTOR 末尾保留等价验证；QA/DESIGN 等任务类型命名对齐；清理旧角色的过期路由；任务残余账本和完成扫描约束明确作用层级。只把本地确实存在的角色、配方和 token 映射纳入本地矩阵。固定 spawn/API schema、模型选择与 AUTORUN 规则属宿主契约；不得覆盖当前工具能力、用户授权或要求强制委派。",
+      "review_findings": [],
+      "applied_targets": [
+        "skills/ai-workflow/nexus/SKILL.md",
+        "skills/ai-workflow/nexus/reference/agent-chains.md",
+        "skills/ai-workflow/nexus/reference/routing-matrix.md",
+        "skills/ai-workflow/nexus/reference/handoff-validation.md"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "omen",
+      "reviewed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "decision": "建议吸收",
+      "targets_to_update": [
+        "skills/openclaw-memory-and-safety/omen/SKILL.md",
+        "skills/openclaw-memory-and-safety/omen/reference/ai-production-failure-atlas.md",
+        "skills/openclaw-memory-and-safety/omen/reference/tri-engine-failure.md"
+      ],
+      "reason": "review.md:8,33,50。新增 Verified 字段应限定在确实宣称验证/完成时，不能强制把未做检查写成通过；修复 F-15 许可维度的无效数量限定；按 RPN/AP 分类修正 tri-engine 的风险级别标记。保留显式审批边界。",
+      "review_findings": [],
+      "applied_targets": [
+        "skills/openclaw-memory-and-safety/omen/SKILL.md",
+        "skills/openclaw-memory-and-safety/omen/reference/ai-production-failure-atlas.md",
+        "skills/openclaw-memory-and-safety/omen/reference/tri-engine-failure.md"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "oracle",
+      "reviewed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "decision": "选择性吸收；Anthropic API 细节保留待宿主适配",
+      "targets_to_update": [
+        "skills/ai-agent-platform/oracle/SKILL.md",
+        "skills/ai-agent-platform/oracle/reference/advanced-tool-use.md",
+        "skills/ai-agent-platform/oracle/reference/agent-behavior-contract.md",
+        "skills/ai-agent-platform/oracle/reference/evaluation-observability.md",
+        "skills/ai-agent-platform/oracle/reference/human-ai-trust.md",
+        "skills/ai-agent-platform/oracle/reference/llm-application-patterns.md",
+        "skills/ai-agent-platform/oracle/reference/llm-production-anti-patterns.md",
+        "skills/ai-agent-platform/oracle/reference/prompt-engineering.md",
+        "skills/ai-agent-platform/oracle/reference/reference-index.md"
+      ],
+      "reason": "review.md:8,78,111,134,151,179,198,215 及 reference-index 小节。吸收增加 AI 系统架构审查入口、评测/信任/韧性内容索引改进与角色定义中的措辞修正。defer_loading、programmatic tool calling、web_fetch/web_search 版本和模型支持是 Anthropic API 专属且时变的工具契约，只有目标运行时匹配并经本地官方依据核验后才移入；保留本地模型无关的评测与工具接口。",
+      "review_findings": [],
+      "applied_targets": [
+        "skills/ai-agent-platform/oracle/SKILL.md",
+        "skills/ai-agent-platform/oracle/reference/agent-behavior-contract.md",
+        "skills/ai-agent-platform/oracle/reference/evaluation-observability.md",
+        "skills/ai-agent-platform/oracle/reference/human-ai-trust.md",
+        "skills/ai-agent-platform/oracle/reference/llm-application-patterns.md",
+        "skills/ai-agent-platform/oracle/reference/llm-production-anti-patterns.md",
+        "skills/ai-agent-platform/oracle/reference/reference-index.md"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "pulse",
+      "reviewed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "decision": "仅建议吸收来源表格结构",
+      "targets_to_update": [
+        "skills/growth-operations-xiaohongshu/pulse/SKILL.md",
+        "skills/growth-operations-xiaohongshu/pulse/reference/platform-integration.md"
+      ],
+      "reason": "review.md:8,25。平台整合表将来源独立列展示，便于审计引用，可吸收该结构；Snowplow 许可、Statsig 收购、dbt/Avo 产品状态均属厂商时态事实，本次未联网核验，不建议直接改写为无日期的现况。DEFINE 阶段名可按本地工作流统一。",
+      "review_findings": [],
+      "applied_targets": [
+        "skills/growth-operations-xiaohongshu/pulse/SKILL.md",
+        "skills/growth-operations-xiaohongshu/pulse/reference/platform-integration.md"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "rally",
+      "reviewed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "decision": "保留宿主并行能力约束；建议吸收方法",
+      "targets_to_update": [
+        "skills/ai-workflow/rally/SKILL.md",
+        "skills/ai-workflow/rally/reference/agent-teams-api-reference.md",
+        "skills/ai-workflow/rally/reference/anti-patterns-failure-modes.md",
+        "skills/ai-workflow/rally/reference/integration-patterns.md",
+        "skills/ai-workflow/rally/reference/parallel-learning.md",
+        "skills/ai-workflow/rally/reference/team-design-patterns.md"
+      ],
+      "reason": "review.md:8,91,112,129,146,163。吸收避免虚假并行、按文件所有权规划和完成后检查冲突的流程；推荐 3–5 人、超过 8 人需理由、禁止 10+ 是上游工具/组织限制，不能覆盖本地工具实际并发上限或用户要求。保留只在获得授权且宿主可用时委派、清理团队资源的规则。",
+      "review_findings": [],
+      "applied_targets": [],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "ripple",
+      "reviewed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "decision": "部分吸收；保留 Ask First",
+      "targets_to_update": [
+        "skills/task-understanding-decomposition/ripple/SKILL.md"
+      ],
+      "reason": "review.md:8。吸收 Impact 分析步骤重命名及 Rename 分析转入 analysis-techniques 的文件引用修正；高风险分数触发 L3 深度可作为分析方法，但不能用上游固定分数替代本地授权政策，Ask First 仍按宿主和用户授权执行。",
+      "review_findings": [],
+      "applied_targets": [],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "scaffold",
+      "reviewed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "decision": "建议吸收（引用与事实修订）",
+      "targets_to_update": [
+        "skills/deployment-platforms/scaffold/SKILL.md",
+        "skills/deployment-platforms/scaffold/reference/terraform-modules.md"
+      ],
+      "reason": "review.md:8,72。吸收监控职责路由至 Beacon、FinOps 策略至 Ledger，以及各阶段加载明确 Terraform 参考文件的改进。OpenTofu CNCF Sandbox 状态需替换原 graduated 声明并保留来源；删去不可核验的 M&S 事故金额，使用一般化 staging 风险表述。保留部署前验证要求。",
+      "review_findings": [],
+      "applied_targets": [
+        "skills/deployment-platforms/scaffold/SKILL.md",
+        "skills/deployment-platforms/scaffold/reference/terraform-modules.md"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "schema",
+      "reviewed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "decision": "建议吸收（租户与法规段落择段）",
+      "targets_to_update": [
+        "skills/developer-engineering/schema/SKILL.md",
+        "skills/developer-engineering/schema/reference/partition-strategies.md",
+        "skills/developer-engineering/schema/reference/recipes-index.md",
+        "skills/developer-engineering/schema/reference/reference-index.md",
+        "skills/developer-engineering/schema/reference/schema-examples.md",
+        "skills/developer-engineering/schema/reference/soft-delete-patterns.md",
+        "skills/developer-engineering/schema/reference/tenant-handoffs.md",
+        "skills/developer-engineering/schema/reference/tenant-provisioning.md",
+        "skills/developer-engineering/schema/reference/tenant-quota-throttling.md"
+      ],
+      "reason": "review.md:8,33,49,69,86,111,128,207。吸收设计期索引与迁移方案分工、观测到慢查询的索引调优路由、tenant Recipe 内部模式不应再伪造内部 handoff 的契约修复。GDPR 一个自然月与复杂请求延期表述比固定 30 天准确；CCPA 时限及 soft-delete 风险要与本地法律依据一致。保留 legal hold 分类与租户隔离安全控制。",
+      "review_findings": [],
+      "applied_targets": [
+        "skills/developer-engineering/schema/SKILL.md",
+        "skills/developer-engineering/schema/reference/partition-strategies.md",
+        "skills/developer-engineering/schema/reference/recipes-index.md",
+        "skills/developer-engineering/schema/reference/reference-index.md",
+        "skills/developer-engineering/schema/reference/schema-examples.md",
+        "skills/developer-engineering/schema/reference/tenant-handoffs.md",
+        "skills/developer-engineering/schema/reference/tenant-quota-throttling.md"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "scout",
+      "reviewed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "decision": "建议吸收（置信分级作校准）",
+      "targets_to_update": [
+        "skills/task-understanding-decomposition/scout/SKILL.md",
+        "skills/task-understanding-decomposition/scout/reference/5whys-rca.md",
+        "skills/task-understanding-decomposition/scout/reference/flake-investigation.md",
+        "skills/task-understanding-decomposition/scout/reference/handoff-formats.md",
+        "skills/task-understanding-decomposition/scout/reference/observability-debugging.md",
+        "skills/task-understanding-decomposition/scout/reference/perf-investigation.md",
+        "skills/task-understanding-decomposition/scout/reference/tri-engine-investigate.md"
+      ],
+      "reason": "review.md:8,52,66,83,100,117,134。吸收 3 个独立证据点才标 HIGH、2 个归 MEDIUM/估计的置信校准，不把稀疏证据硬说成确定根因；同步 canonical handoff token、multi Recipe 名和 Tempo 参考。保留具体项目可用的调查工具与 Lore 缺席时的本地 fallback。",
+      "review_findings": [],
+      "applied_targets": [
+        "skills/task-understanding-decomposition/scout/SKILL.md",
+        "skills/task-understanding-decomposition/scout/reference/flake-investigation.md",
+        "skills/task-understanding-decomposition/scout/reference/observability-debugging.md",
+        "skills/task-understanding-decomposition/scout/reference/perf-investigation.md",
+        "skills/task-understanding-decomposition/scout/reference/tri-engine-investigate.md"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "sherpa",
+      "reviewed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "decision": "保留委派授权；建议吸收并行判断方法",
+      "targets_to_update": [
+        "skills/ai-workflow/sherpa/SKILL.md",
+        "skills/ai-workflow/sherpa/reference/progress-tracking.md"
+      ],
+      "reason": "review.md:8,86。吸收将 1.5× 预期加速、无共享写入文件和清晰 ownership 作为并行判断因素；2–3 分支留在编排层、4+ 才进入 Rally 是上游 Nexus/Rally 架构，不应在当前宿主中强制执行。保留用户授权优先、不因建议自动产生委派的边界。",
+      "review_findings": [],
+      "applied_targets": [
+        "skills/ai-workflow/sherpa/SKILL.md",
+        "skills/ai-workflow/sherpa/reference/progress-tracking.md"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "sigil",
+      "reviewed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "decision": "建议吸收（重命名引用与可用性门）",
+      "targets_to_update": [
+        "skills/ai-agent-platform/sigil/SKILL.md",
+        "skills/ai-agent-platform/sigil/reference/operating-layer-blueprint.md",
+        "skills/ai-agent-platform/sigil/reference/operating-layer-handoffs.md",
+        "skills/ai-agent-platform/sigil/reference/operating-layer-recipe-design.md",
+        "skills/ai-agent-platform/sigil/reference/operating-layer-validation.md",
+        "skills/ai-agent-platform/sigil/reference/operating-layer-workflow-design.md"
+      ],
+      "reason": "review.md:8,49,75,92,109,126。吸收上游对 recipe/workflow 文件改名后的引用修复，先确认 Lore/Orbit 等 project-local 技能可用再路由；缺席时按本地注册 fallback。保留机制选择方法及本地 reference/脚本，不因上游索引重排删配套资产。",
+      "review_findings": [],
+      "applied_targets": [
+        "skills/ai-agent-platform/sigil/SKILL.md",
+        "skills/ai-agent-platform/sigil/reference/operating-layer-blueprint.md",
+        "skills/ai-agent-platform/sigil/reference/operating-layer-handoffs.md",
+        "skills/ai-agent-platform/sigil/reference/operating-layer-recipe-design.md",
+        "skills/ai-agent-platform/sigil/reference/operating-layer-validation.md",
+        "skills/ai-agent-platform/sigil/reference/operating-layer-workflow-design.md"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "stage",
+      "reviewed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "decision": "建议吸收（数字作为经验指引）",
+      "targets_to_update": [
+        "skills/office-white-collar/stage/SKILL.md",
+        "skills/office-white-collar/stage/reference/narrative-arc-design.md",
+        "skills/office-white-collar/stage/reference/slide-visual-design.md"
+      ],
+      "reason": "review.md:8,67,81。吸收 30 分钟 regular、45–60 分钟 keynote 的格式划分，keynote 约 125 WPM 的字数预算修订，以及 Marp/Reveal/Slidev recipe 交接。6×6 应写作可调整的版式启发而非硬性可访问性规则；保留本地格式选择与视觉检查。",
+      "review_findings": [],
+      "applied_targets": [
+        "skills/office-white-collar/stage/SKILL.md",
+        "skills/office-white-collar/stage/reference/narrative-arc-design.md",
+        "skills/office-white-collar/stage/reference/slide-visual-design.md"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "tome",
+      "reviewed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "decision": "建议吸收（ADR 路由和引用修复）",
+      "targets_to_update": [
+        "skills/knowledge-and-pm-integrations/tome/SKILL.md",
+        "skills/knowledge-and-pm-integrations/tome/reference/article-content-repurposing.md",
+        "skills/knowledge-and-pm-integrations/tome/reference/article-headline-patterns.md",
+        "skills/knowledge-and-pm-integrations/tome/reference/article-interview-format.md",
+        "skills/knowledge-and-pm-integrations/tome/reference/article-patterns.md",
+        "skills/knowledge-and-pm-integrations/tome/reference/recipes-index.md"
+      ],
+      "reason": "review.md:8,55,72,89,124,150。吸收架构决策的 tradeoff 归 Atlas、其他已作决定的 ADR 归 Scribe 的路由；“从代码变更提炼学习”与正式 ADR 边界更清晰。修正 hook-design/content-repurposing 等失效路径并保留三候选 hook 的写作方法。Lore fallback 需按本地可用性门处理。",
+      "review_findings": [],
+      "applied_targets": [
+        "skills/knowledge-and-pm-integrations/tome/SKILL.md",
+        "skills/knowledge-and-pm-integrations/tome/reference/article-content-repurposing.md",
+        "skills/knowledge-and-pm-integrations/tome/reference/article-headline-patterns.md",
+        "skills/knowledge-and-pm-integrations/tome/reference/article-interview-format.md",
+        "skills/knowledge-and-pm-integrations/tome/reference/article-patterns.md",
+        "skills/knowledge-and-pm-integrations/tome/reference/recipes-index.md"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "trace",
+      "reviewed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "decision": "建议吸收（阈值作为信号而非结论）",
+      "targets_to_update": [
+        "skills/product-design/trace/SKILL.md",
+        "skills/product-design/trace/reference/frustration-signals.md",
+        "skills/product-design/trace/reference/persona-integration.md"
+      ],
+      "reason": "review.md:8,52,78。吸收 rage-click 参考窗从 1.5s 收窄至 1s，保持同一目标附近的重复点击聚类和设备容差；该信号仍须与 dead click、INP 和会话上下文联合判断，不能单独断定挫败。Field token 更新按本地 handoff 契约映射。",
+      "review_findings": [],
+      "applied_targets": [
+        "skills/product-design/trace/SKILL.md",
+        "skills/product-design/trace/reference/frustration-signals.md"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "triage",
+      "reviewed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "decision": "建议吸收（严重事件复盘方法）",
+      "targets_to_update": [
+        "skills/devops-sre/triage/SKILL.md",
+        "skills/devops-sre/triage/reference/collaboration-flows.md",
+        "skills/devops-sre/triage/reference/escalation-matrix.md",
+        "skills/devops-sre/triage/reference/recipes-index.md"
+      ],
+      "reason": "review.md:8,52,69,97。SEV1/SEV2 复盘以 Howie narrative 叙述背景和促成因素、5 Whys 作补充，优于将单一根因方法设为必需模板；吸收 SEV2 30 分钟升级节点及 24h/48h 复盘截止差异。Nexus/Chain 等新伙伴和交接 token 需映射本地角色，保留既有响应时限和安全升级流程。",
+      "review_findings": [],
+      "applied_targets": [
+        "skills/devops-sre/triage/SKILL.md",
+        "skills/devops-sre/triage/reference/collaboration-flows.md",
+        "skills/devops-sre/triage/reference/escalation-matrix.md",
+        "skills/devops-sre/triage/reference/recipes-index.md"
+      ],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "voice",
+      "reviewed_commit": "18bca759a3611f9562939ce77b776205bd12930a",
+      "decision": "保留本地 handoff 契约；建议吸收语义映射",
+      "targets_to_update": [
+        "skills/product-design/voice/SKILL.md"
+      ],
+      "reason": "review.md:8。Field 取代旧 Researcher 名称，Growth/ Spark/ Echo 的 handoff token 也更新；保留 Voice→Field、Voice→Spark、Voice→Growth、Voice→Echo 的交接语义和需求，具体 token 应服从本地兼容清单并处理旧 token 过渡，不能直接套用上游枚举。",
+      "review_findings": [],
+      "applied_targets": [],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "billing-automation",
+      "reviewed_commit": "0874a27b17a22e2b7c2e2bcd725768e0803cad06",
+      "decision": "retained",
+      "targets_to_update": [],
+      "reason": "Complete governed old/new artifacts have zero net change; retain curated method.",
+      "review_findings": [],
+      "applied_targets": [],
+      "repository_merge_blockers": []
+    },
+    {
+      "name": "nlpm-audit",
+      "reviewed_commit": "bd759b8bfcd755e53a55eff8da0d63ba4d0bb523",
+      "decision": "retained",
+      "targets_to_update": [],
+      "reason": "Complete governed old/new artifacts have zero net change; retain curated method.",
+      "review_findings": [],
+      "applied_targets": [],
+      "repository_merge_blockers": []
+    }
+  ],
+  "updated_public_skills": [
+    "agent-browser",
+    "agent-hub",
+    "agent-workflow-designer",
+    "azure-kubernetes",
+    "beacon",
+    "breach",
+    "builder",
+    "dawn",
+    "firebase-security-rules-auditor",
+    "gateway",
+    "gear",
+    "gh-address-comments",
+    "graphify",
+    "grill-me",
+    "grove",
+    "growth",
+    "guardian",
+    "hermes-agent",
+    "hermes-open-gsd-workflow",
+    "lark-doc",
+    "lark-mail",
+    "lark-meeting",
+    "lark-okr",
+    "lark-skill-maker",
+    "ledger",
+    "lens",
+    "linkedin",
+    "llm-wiki",
+    "lore",
+    "morph",
+    "neon-postgres",
+    "nexus",
+    "obsidian",
+    "omen",
+    "oracle",
+    "prism",
+    "pulse",
+    "reflect-learn",
+    "scaffold",
+    "schema",
+    "scout",
+    "security-pen-testing",
+    "security-review",
+    "sherpa",
+    "sigil",
+    "skill-security-auditor",
+    "skill-vetter",
+    "stage",
+    "tome",
+    "trace",
+    "triage",
+    "writing-plans",
+    "x-twitter-scraper"
+  ],
+  "retired": [
+    "self-improving-agent"
+  ],
+  "licenses": [
+    {
+      "skill": "hermes-open-gsd-workflow",
+      "target": "skills/ai-agent-platform/hermes-open-gsd-workflow/LICENSE.upstream.txt",
+      "sha256": "281f4e958733265748fe44429a72ca4c4518b5dd0fa64f87f6f66b7b24248741",
+      "repo": "local-repo/in-house",
+      "commit": null
+    },
+    {
+      "skill": "oracle",
+      "target": "skills/ai-agent-platform/oracle/LICENSE.upstream.txt",
+      "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+      "repo": "simota/agent-skills",
+      "commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+      "blob": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d"
+    },
+    {
+      "skill": "sigil",
+      "target": "skills/ai-agent-platform/sigil/LICENSE.upstream.txt",
+      "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+      "repo": "simota/agent-skills",
+      "commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+      "blob": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d"
+    },
+    {
+      "skill": "nexus",
+      "target": "skills/ai-workflow/nexus/LICENSE.upstream.txt",
+      "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+      "repo": "simota/agent-skills",
+      "commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+      "blob": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d"
+    },
+    {
+      "skill": "sherpa",
+      "target": "skills/ai-workflow/sherpa/LICENSE.upstream.txt",
+      "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+      "repo": "simota/agent-skills",
+      "commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+      "blob": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d"
+    },
+    {
+      "skill": "writing-plans",
+      "target": "skills/ai-workflow/writing-plans/LICENSE.upstream.txt",
+      "sha256": "281f4e958733265748fe44429a72ca4c4518b5dd0fa64f87f6f66b7b24248741",
+      "repo": "local-repo/in-house",
+      "commit": null
+    },
+    {
+      "skill": "scaffold",
+      "target": "skills/deployment-platforms/scaffold/LICENSE.upstream.txt",
+      "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+      "repo": "simota/agent-skills",
+      "commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+      "blob": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d"
+    },
+    {
+      "skill": "builder",
+      "target": "skills/developer-engineering/builder/LICENSE.upstream.txt",
+      "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+      "repo": "simota/agent-skills",
+      "commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+      "blob": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d"
+    },
+    {
+      "skill": "gateway",
+      "target": "skills/developer-engineering/gateway/LICENSE.upstream.txt",
+      "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+      "repo": "simota/agent-skills",
+      "commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+      "blob": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d"
+    },
+    {
+      "skill": "graphify",
+      "target": "skills/developer-engineering/graphify/LICENSE.upstream.txt",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "repo": "Graphify-Labs/graphify",
+      "commit": "92741d162b2094ffc2fed58cfbd8ee823e9da62c",
+      "blob": "d645695673349e3947e8e5ae42332d0ac3164cd7"
+    },
+    {
+      "skill": "schema",
+      "target": "skills/developer-engineering/schema/LICENSE.upstream.txt",
+      "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+      "repo": "simota/agent-skills",
+      "commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+      "blob": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d"
+    },
+    {
+      "skill": "azure-kubernetes",
+      "target": "skills/devops-sre/azure-kubernetes/LICENSE.upstream.txt",
+      "sha256": "8a5d8efb70942e65032f930c761d097feeb41a7517ebd04c9d2e4ec3764071c5",
+      "repo": "microsoft/azure-skills",
+      "commit": "f3b512517ed86feceebfee480a46c971f6c6aff4",
+      "blob": "356b112bcc4f07e03b6e57569eedf9d79978d2d5"
+    },
+    {
+      "skill": "beacon",
+      "target": "skills/devops-sre/beacon/LICENSE.upstream.txt",
+      "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+      "repo": "simota/agent-skills",
+      "commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+      "blob": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d"
+    },
+    {
+      "skill": "gear",
+      "target": "skills/devops-sre/gear/LICENSE.upstream.txt",
+      "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+      "repo": "simota/agent-skills",
+      "commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+      "blob": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d"
+    },
+    {
+      "skill": "triage",
+      "target": "skills/devops-sre/triage/LICENSE.upstream.txt",
+      "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+      "repo": "simota/agent-skills",
+      "commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+      "blob": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d"
+    },
+    {
+      "skill": "guardian",
+      "target": "skills/engineering-workflow-automation/guardian/LICENSE.upstream.txt",
+      "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+      "repo": "simota/agent-skills",
+      "commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+      "blob": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d"
+    },
+    {
+      "skill": "ledger",
+      "target": "skills/finance-investing/ledger/LICENSE.upstream.txt",
+      "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+      "repo": "simota/agent-skills",
+      "commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+      "blob": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d"
+    },
+    {
+      "skill": "growth",
+      "target": "skills/growth-operations-xiaohongshu/growth/LICENSE.upstream.txt",
+      "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+      "repo": "simota/agent-skills",
+      "commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+      "blob": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d"
+    },
+    {
+      "skill": "pulse",
+      "target": "skills/growth-operations-xiaohongshu/pulse/LICENSE.upstream.txt",
+      "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+      "repo": "simota/agent-skills",
+      "commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+      "blob": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d"
+    },
+    {
+      "skill": "grove",
+      "target": "skills/knowledge-and-pm-integrations/grove/LICENSE.upstream.txt",
+      "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+      "repo": "simota/agent-skills",
+      "commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+      "blob": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d"
+    },
+    {
+      "skill": "lark-doc",
+      "target": "skills/knowledge-and-pm-integrations/lark-doc/LICENSE.upstream.txt",
+      "sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+      "repo": "larksuite/cli",
+      "commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+      "blob": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968"
+    },
+    {
+      "skill": "lark-mail",
+      "target": "skills/knowledge-and-pm-integrations/lark-mail/LICENSE.upstream.txt",
+      "sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+      "repo": "larksuite/cli",
+      "commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+      "blob": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968"
+    },
+    {
+      "skill": "lark-meeting",
+      "target": "skills/knowledge-and-pm-integrations/lark-meeting/LICENSE.upstream.txt",
+      "sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+      "repo": "larksuite/cli",
+      "commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+      "blob": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968"
+    },
+    {
+      "skill": "lark-okr",
+      "target": "skills/knowledge-and-pm-integrations/lark-okr/LICENSE.upstream.txt",
+      "sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+      "repo": "larksuite/cli",
+      "commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+      "blob": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968"
+    },
+    {
+      "skill": "lark-skill-maker",
+      "target": "skills/knowledge-and-pm-integrations/lark-skill-maker/LICENSE.upstream.txt",
+      "sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+      "repo": "larksuite/cli",
+      "commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+      "blob": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968"
+    },
+    {
+      "skill": "llm-wiki",
+      "target": "skills/knowledge-and-pm-integrations/llm-wiki/LICENSE.upstream.txt",
+      "sha256": "821556e6336796450ab852d375117b48a4887e71d255794fd6318d99982a5ab6",
+      "repo": "NousResearch/hermes-agent",
+      "commit": "daec3cd4c6d34f5befbc8f25a8af3e3b84b94f06",
+      "blob": "75410e73319c72cd3e991a501c5455eb78f38375"
+    },
+    {
+      "skill": "lore",
+      "target": "skills/knowledge-and-pm-integrations/lore/LICENSE.upstream.txt",
+      "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+      "repo": "simota/agent-skills",
+      "commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+      "blob": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d"
+    },
+    {
+      "skill": "obsidian",
+      "target": "skills/knowledge-and-pm-integrations/obsidian/LICENSE.upstream.txt",
+      "sha256": "821556e6336796450ab852d375117b48a4887e71d255794fd6318d99982a5ab6",
+      "repo": "NousResearch/hermes-agent",
+      "commit": "daec3cd4c6d34f5befbc8f25a8af3e3b84b94f06",
+      "blob": "75410e73319c72cd3e991a501c5455eb78f38375"
+    },
+    {
+      "skill": "tome",
+      "target": "skills/knowledge-and-pm-integrations/tome/LICENSE.upstream.txt",
+      "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+      "repo": "simota/agent-skills",
+      "commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+      "blob": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d"
+    },
+    {
+      "skill": "morph",
+      "target": "skills/office-white-collar/morph/LICENSE.upstream.txt",
+      "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+      "repo": "simota/agent-skills",
+      "commit": "6502f44cfcd8f456951a7bfdce14d0ed76d724ef",
+      "blob": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d"
+    },
+    {
+      "skill": "prism",
+      "target": "skills/office-white-collar/prism/LICENSE.upstream.txt",
+      "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+      "repo": "simota/agent-skills",
+      "commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+      "blob": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d"
+    },
+    {
+      "skill": "stage",
+      "target": "skills/office-white-collar/stage/LICENSE.upstream.txt",
+      "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+      "repo": "simota/agent-skills",
+      "commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+      "blob": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d"
+    },
+    {
+      "skill": "omen",
+      "target": "skills/openclaw-memory-and-safety/omen/LICENSE.upstream.txt",
+      "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+      "repo": "simota/agent-skills",
+      "commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+      "blob": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d"
+    },
+    {
+      "skill": "dawn",
+      "target": "skills/operations-general/dawn/LICENSE.upstream.txt",
+      "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+      "repo": "simota/agent-skills",
+      "commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+      "blob": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d"
+    },
+    {
+      "skill": "trace",
+      "target": "skills/product-design/trace/LICENSE.upstream.txt",
+      "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+      "repo": "simota/agent-skills",
+      "commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+      "blob": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d"
+    },
+    {
+      "skill": "breach",
+      "target": "skills/security-and-reliability/breach/LICENSE.upstream.txt",
+      "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+      "repo": "simota/agent-skills",
+      "commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+      "blob": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d"
+    },
+    {
+      "skill": "firebase-security-rules-auditor",
+      "target": "skills/security-and-reliability/firebase-security-rules-auditor/LICENSE.upstream.txt",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "repo": "firebase/agent-skills",
+      "commit": "92eed24c0976a79a66d5b8038e9eda8b441ef92d",
+      "blob": "d645695673349e3947e8e5ae42332d0ac3164cd7"
+    },
+    {
+      "skill": "skill-vetter",
+      "target": "skills/security-and-reliability/skill-vetter/LICENSE.upstream.txt",
+      "sha256": "281f4e958733265748fe44429a72ca4c4518b5dd0fa64f87f6f66b7b24248741",
+      "repo": "local-repo/in-house",
+      "commit": null
+    },
+    {
+      "skill": "lens",
+      "target": "skills/task-understanding-decomposition/lens/LICENSE.upstream.txt",
+      "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+      "repo": "simota/agent-skills",
+      "commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+      "blob": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d"
+    },
+    {
+      "skill": "scout",
+      "target": "skills/task-understanding-decomposition/scout/LICENSE.upstream.txt",
+      "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+      "repo": "simota/agent-skills",
+      "commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+      "blob": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d"
+    }
+  ],
+  "validation": {
+    "pytest": 735,
+    "node": 65,
+    "status": "PASS",
+    "log": "validation-continuation-a-finalized-2026-10-26.log"
+  },
+  "final_source_status": {
+    "total": 161,
+    "verified_current": 135,
+    "policy_skipped": 26,
+    "unreviewed": 0,
+    "unavailable": 0,
+    "method": "Full online scan plus immutable incremental reviews and scoped online ownership rechecks; not a perpetual freshness guarantee.",
+    "ownership_recheck": "All live source entries load without ambiguity; Lark directory declarations partitioned with exact responsible-owner paths."
+  },
+  "late_source_reviews": [
+    {
+      "name": "llm-wiki",
+      "from": "daec3cd4c6d34f5befbc8f25a8af3e3b84b94f06",
+      "to": "25db5877c1c78ff13878fa86bab21ba6c9636231",
+      "changes": [],
+      "decision": "zero governed change or upstream frontmatter-only; preserve local canonical method"
+    },
+    {
+      "name": "honcho",
+      "from": "daec3cd4c6d34f5befbc8f25a8af3e3b84b94f06",
+      "to": "25db5877c1c78ff13878fa86bab21ba6c9636231",
+      "changes": [],
+      "decision": "zero governed change or upstream frontmatter-only; preserve local canonical method"
+    },
+    {
+      "name": "codebase-inspection",
+      "from": "daec3cd4c6d34f5befbc8f25a8af3e3b84b94f06",
+      "to": "25db5877c1c78ff13878fa86bab21ba6c9636231",
+      "changes": [],
+      "decision": "zero governed change or upstream frontmatter-only; preserve local canonical method"
+    },
+    {
+      "name": "arxiv",
+      "from": "daec3cd4c6d34f5befbc8f25a8af3e3b84b94f06",
+      "to": "25db5877c1c78ff13878fa86bab21ba6c9636231",
+      "changes": [],
+      "decision": "zero governed change or upstream frontmatter-only; preserve local canonical method"
+    },
+    {
+      "name": "obsidian",
+      "from": "daec3cd4c6d34f5befbc8f25a8af3e3b84b94f06",
+      "to": "25db5877c1c78ff13878fa86bab21ba6c9636231",
+      "changes": [],
+      "decision": "zero governed change or upstream frontmatter-only; preserve local canonical method"
+    },
+    {
+      "name": "mcporter",
+      "from": "daec3cd4c6d34f5befbc8f25a8af3e3b84b94f06",
+      "to": "25db5877c1c78ff13878fa86bab21ba6c9636231",
+      "changes": [],
+      "decision": "zero governed change or upstream frontmatter-only; preserve local canonical method"
+    },
+    {
+      "name": "kubernetes-specialist",
+      "from": "504bb9a067c5c7ea6bf868c7cc337164b213fa57",
+      "to": "77121971ad13322776f26bd5969ecec1f24a4851",
+      "changes": [],
+      "decision": "zero governed change or upstream frontmatter-only; preserve local canonical method"
+    },
+    {
+      "name": "terraform-engineer",
+      "from": "504bb9a067c5c7ea6bf868c7cc337164b213fa57",
+      "to": "77121971ad13322776f26bd5969ecec1f24a4851",
+      "changes": [],
+      "decision": "zero governed change or upstream frontmatter-only; preserve local canonical method"
+    }
+  ],
+  "incremental_relations": [
+    {
+      "repo": "simota/agent-skills",
+      "from": "18bca759a3611f9562939ce77b776205bd12930a",
+      "to": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+      "status": "ahead",
+      "ahead_by": 1,
+      "behind_by": 0
+    }
+  ],
+  "nlpm_incremental": {
+    "from": "bd759b8bfcd755e53a55eff8da0d63ba4d0bb523",
+    "to": "ef19812003d546c14cc572ed70d2de1cba0cd45a",
+    "changed_paths": [
+      "auditor/logs/events.jsonl"
+    ],
+    "decision": "generated reports/registry/logs only; retain curated method",
+    "license": {
+      "path": "LICENSE",
+      "blob_sha": "554937c222c6dd2db191634da77b5486a4a0410b",
+      "content_sha256": "87b3f4064cb76d1c7cc8c39546d7d62790b76372f37cfb9de1bb828a5f652b51",
+      "spdx": "ISC",
+      "resolved_commit": "ef19812003d546c14cc572ed70d2de1cba0cd45a",
+      "api_spdx": "ISC"
+    }
+  },
+  "preserved_frozen_policy": {
+    "name": "prism",
+    "commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
+    "kind": "snapshot",
+    "sync_mode": "local-only"
+  },
+  "adjudications": {
+    "agent-hub": "Verified the renamed hub-run source and bundled it as provenance reference; documented that slash commands/full-plugin dry-run need the separately installed complete plugin. No plugin installation claim.",
+    "graphify": "Verified new SDK signatures in immutable source; repaired all-or-nothing chunk handling, required complete receipts, retained host fallback and offline discovery. No installed runtime/LLM behavior claim.",
+    "linkedin": "Preserved write/account authorization; replaced chat-token/argv setup with secure owner-local authentication and kept the detailed API additions.",
+    "x-twitter-scraper": "Preserved request-planning-only account writes, MCP limits and private-read consent; added paid-analysis, retry and nonce-window corrections. No live API execution.",
+    "additional-assets": "Restored 13 licensed Lark references and authored 2 missing Prism guides; rejected importing unrelated full runtime trees or global framework controls."
+  }
+}

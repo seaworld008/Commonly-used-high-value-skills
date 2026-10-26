@@ -1,15 +1,15 @@
 ---
 name: llm-wiki
-description: 'Karpathy''s LLM Wiki: build/query interlinked markdown KB.'
+description: 'Use when building, querying, ingesting sources into, or auditing an interlinked Markdown knowledge base with immutable raw sources and traceable synthesis.'
 zh_description: "用于构建、查询和维护 Karpathy 风格的互联 Markdown LLM 知识库。"
-version: "2.0.4"
+version: "2.0.5"
 author: Hermes Agent
 source: "github:NousResearch/hermes-agent"
 source_url: "https://github.com/NousResearch/hermes-agent/blob/main/skills/research/llm-wiki/SKILL.md"
 license: MIT
 tags: '[wiki, knowledge-base, research, notes, markdown, rag-alternative]'
 created_at: "2026-04-13"
-updated_at: "2026-09-06"
+updated_at: "2026-10-26"
 quality: 4
 complexity: "intermediate"
 platforms: '[linux, macos, windows]'

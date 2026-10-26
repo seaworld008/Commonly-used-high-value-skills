@@ -9,6 +9,8 @@ MAPPING_PATH = REPO_ROOT / "docs/sources/graphify-2026-04.skills.json"
 EXPECTED_RELATIVE_FILES = {
     "SKILL.md",
     "EXTENDED.md",
+    "LICENSE.upstream.txt",
+    "scripts/validate_semantic_chunks.py",
     "references/add-watch.md",
     "references/exports.md",
     "references/extraction-spec.md",
@@ -28,10 +30,10 @@ def test_graphify_preserves_official_references_with_curated_entry_and_excerpt()
     actual = {
         path.relative_to(SKILL_ROOT).as_posix()
         for path in SKILL_ROOT.rglob("*")
-        if path.is_file()
+        if path.is_file() and "__pycache__" not in path.parts and path.suffix != ".pyc"
     }
     assert actual == EXPECTED_RELATIVE_FILES
-    assert not any(path.suffix in {".py", ".pyc"} for path in SKILL_ROOT.rglob("*"))
+    assert {path.relative_to(SKILL_ROOT).as_posix() for path in SKILL_ROOT.rglob("*.py")} == {"scripts/validate_semantic_chunks.py"}
 
 
 def test_graphify_release_mapping_has_single_owner_and_exact_hashes() -> None:
@@ -50,6 +52,10 @@ def test_graphify_release_mapping_has_single_owner_and_exact_hashes() -> None:
     assert local["artifacts"] == [{
         "source": "skills/developer-engineering/graphify/EXTENDED.md",
         "target": "skills/developer-engineering/graphify/EXTENDED.md",
+        "type": "file",
+    }, {
+        "source": "skills/developer-engineering/graphify/scripts/validate_semantic_chunks.py",
+        "target": "skills/developer-engineering/graphify/scripts/validate_semantic_chunks.py",
         "type": "file",
     }]
     assert origin["tracking"]["channel"] == "latest_release"
@@ -88,6 +94,7 @@ def test_graphify_release_mapping_has_single_owner_and_exact_hashes() -> None:
             "target": "skills/developer-engineering/graphify/references",
             "type": "directory",
         },
+        {"source": "LICENSE", "target": "skills/developer-engineering/graphify/LICENSE.upstream.txt", "type": "file"},
     ]
 
     managed = {item["path"]: item for item in entry["managed_files"]}
@@ -96,7 +103,7 @@ def test_graphify_release_mapping_has_single_owner_and_exact_hashes() -> None:
         for path in EXPECTED_RELATIVE_FILES
     }
     assert set(managed) == expected_paths
-    assert len(managed) == 10
+    assert len(managed) == 12
     assert all(item["owner"] == "graphify" for item in managed.values())
     assert all(item["mode"] == "100644" for item in managed.values())
     for relative_path in EXPECTED_RELATIVE_FILES:
@@ -107,16 +114,16 @@ def test_graphify_release_mapping_has_single_owner_and_exact_hashes() -> None:
     assert origin["tracking"]["content_sha256"] == skill_hash
 
 
-def test_graphify_references_match_reviewed_release_hashes() -> None:
+def test_graphify_curated_references_match_reviewed_hashes() -> None:
     expected_hashes = {
-        "add-watch.md": "7b89268619e2bf6a4432b7dc46624a6d6b40be7dbfc605a6f79a1c2f62cd17b8",
-        "exports.md": "ee47fae477f106d8aed38798c58493b5a7f060a0d9d2581ce6132302827bc14b",
-        "extraction-spec.md": "32d7decad42d58129c6694ea4e4ce1f72a531bc5161827d2095787e9448735e9",
+        "add-watch.md": "50a05e49cf382441afb8cbeb7fb68018c5458e7e2db35f01b61d199ba5b73772",
+        "exports.md": "c39a2f8062be9a5ac319220d6e66ca586ed0b0798292b1321206834be74c1b33",
+        "extraction-spec.md": "e14c596c524ae8c41c796788af00ae9574ff7c5fe131ecbd2ca9def92a19a9cb",
         "github-and-merge.md": "e5ebd90c7686f50363ff7a535556bc2f596d4c47ec1e6c8b95e11e36a0dfea2b",
         "hooks.md": "b9a4e9f66813c6fc720589f1071d1a03c95756ab7101447e14e57291fe7844e5",
-        "query.md": "e563ddcb1e155aa230f107e5ef9380bc1249c5cd8241128de7ed8a7bd9c20cf5",
-        "transcribe.md": "676a1e39aa6d43cdfcc416ec56616e36f7bad74066a82bd33a9485515b9a865c",
-        "update.md": "661f559b3ff4f3db7ba47bc2ba1c7e19f1c1d66a36f647e49221eecb174f2228",
+        "query.md": "a1bbbe678ce93745a575fd4fb0aef43214b761910af71c63945c20ee7a679e6a",
+        "transcribe.md": "ceda4b469c0d34361552c0902e5d3a8f34516175791bd18e3bed71d98dc31971",
+        "update.md": "5e452b84f910a12338185ad96f161f4ee1a09b1c6d8ee0c93ce1af4700a0e44f",
     }
     assert {
         path.name: _sha256(path)

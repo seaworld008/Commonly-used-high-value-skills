@@ -2,14 +2,14 @@
 name: omen
 description: '预演失败模式，识别计划风险并给出优先级。'
 zh_description: "预演失败模式，识别计划风险并给出优先级。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/omen/SKILL.md"
 license: MIT
 tags: ["memory", "omen", "safety"]
 created_at: "2026-08-24"
-updated_at: "2026-09-30"
+updated_at: "2026-10-26"
 quality: 5
 complexity: "advanced"
 ---

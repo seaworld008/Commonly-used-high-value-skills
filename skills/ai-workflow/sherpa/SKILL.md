@@ -2,14 +2,14 @@
 name: sherpa
 description: '把复杂任务拆成短步骤，控制漂移并推进交付。'
 zh_description: "把复杂任务拆成短步骤，控制漂移并推进交付。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/sherpa/SKILL.md"
 license: MIT
 tags: ["ai", "sherpa", "workflow"]
 created_at: "2026-08-24"
-updated_at: "2026-09-30"
+updated_at: "2026-10-26"
 quality: 5
 complexity: "advanced"
 ---

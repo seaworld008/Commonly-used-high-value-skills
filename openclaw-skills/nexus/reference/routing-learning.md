@@ -51,10 +51,12 @@ COLLECT → EVALUATE → EXTRACT → ADAPT → VERIFY → RECORD
 - Whether user manually corrected the chain or re-executed
 - **Near misses** (LT-07): defenses that fired without an incident following — see below
 
-**EVALUATE** — Computes CES (see below). Compares against:
-- Historical average for the same task type
-- Global average across all task types
-- Previous CES for the same chain template
+**EVALUATE** — Retain raw outcomes with run ID, date/window, task type, chain template, experiment variant, final status, recovered/total errors, expected/actual steps, user correction, and any retry's original run ID in the project's chosen evidence store. Preserve history; charge re-execution to the original cohort rather than hiding the first failure. Compute CES only when the comparable series meets the minimum data requirements below. Compare against:
+- Historical average for the same task type, chain template, variant, and window definition
+- Global average across all task types for context only, never as an adaptation baseline
+- Previous CES for the same comparable series
+
+Keep experiment variants separate when calculating sample counts. A declared A/B comparison reports the difference between comparable cohorts, each meeting its own minimum; it does not silently adapt one cohort from the other's baseline. Missing history means no supported trend claim.
 
 **EXTRACT** — Triggered when enough data accumulates (LT-02, LT-03). Looks for:
 - Repeated failure at specific chain positions (e.g., "Agent X fails as 2nd step in BUG chains")
@@ -128,7 +130,7 @@ CES = Success_Rate × 0.35 + Recovery_Efficiency × 0.20 + Step_Economy × 0.20 
 | Component | Weight | Definition | Range |
 |-----------|--------|------------|-------|
 | Success_Rate | 0.35 | Proportion of executions with final STATUS=SUCCESS | 0.0–1.0 |
-| Recovery_Efficiency | 0.20 | Auto-recovery success rate when errors occur | 0.0–1.0 |
+| Recovery_Efficiency | 0.20 | Recovered errors / total errors over the measurement window; use 1.0 when no errors occurred and disclose that denominator | 0.0–1.0 |
 | Step_Economy | 0.20 | Expected steps / Actual steps (capped at 1.0; lower actual = higher score) | 0.0–1.0 |
 | User_Satisfaction | 0.25 | Proportion completed without user correction or re-execution | 0.0–1.0 |
 
@@ -146,9 +148,10 @@ CES = Success_Rate × 0.35 + Recovery_Efficiency × 0.20 + Step_Economy × 0.20 
 
 ### Minimum Data Requirements
 
-- CES calculation requires ≥ 3 data points for the same task-type/chain combination
-- Grades are provisional until ≥ 5 data points
-- Trend analysis requires ≥ 10 data points
+- CES calculation requires ≥ 3 runs in the same task-type/chain/variant series
+- Grades are provisional until that series holds ≥ 5 runs
+- Trend analysis requires ≥ 10 runs in that series
+- Below these minima, report the observations and sample count; do not infer a stable grade, trend, or routing improvement
 
 ## Routing Adaptation Rules
 

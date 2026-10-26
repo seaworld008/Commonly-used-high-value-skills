@@ -2,7 +2,7 @@
   "schema_version": 2,
   "video": {
     "url": "https://github.com/mattpocock/skills",
-    "checked_at": "2026-09-30",
+    "checked_at": "2026-10-26",
     "note": "Reviewed standalone adaptation of grill-me and its grilling dependency."
   },
   "official_references": [
@@ -25,11 +25,12 @@
       "upstream": {
         "repo": "mattpocock/skills",
         "path": "skills/productivity/grilling/SKILL.md",
-        "ref": "v1.2.3",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "6acc160e4e0cd062dbbbd7a1b26ae92855edf07e",
-        "sync_mode": "monitor"
+        "ref": "v1.3.1",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "24fe0ef7737efae15c87225755e9f6f5965e4888",
+        "sync_mode": "monitor",
+        "path_commit": "85f83d3fde1d3a90d5c9a657f6998c79a6c37308"
       },
       "origins": [
         {
@@ -61,20 +62,20 @@
           ],
           "tracking": {
             "channel": "latest_release",
-            "ref": "v1.2.3",
-            "resolved_commit": "6acc160e4e0cd062dbbbd7a1b26ae92855edf07e",
-            "path_commit": "6acc160e4e0cd062dbbbd7a1b26ae92855edf07e",
-            "content_sha256": "d9a98c3bc6dd057da62eae9989c1afd47ff3a9547ad630979fbf79b25b76f022",
+            "ref": "v1.3.1",
+            "resolved_commit": "24fe0ef7737efae15c87225755e9f6f5965e4888",
+            "path_commit": "85f83d3fde1d3a90d5c9a657f6998c79a6c37308",
+            "content_sha256": "053bc738fcc070ef5151a12dd515256032cb92381d360b22e4243c290e31cfce",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
               "content_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
               "spdx": "MIT",
-              "api_spdx": "MIT",
-              "resolved_commit": "6acc160e4e0cd062dbbbd7a1b26ae92855edf07e"
+              "resolved_commit": "24fe0ef7737efae15c87225755e9f6f5965e4888",
+              "api_spdx": "MIT"
             },
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30"
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26"
           }
         },
         {
@@ -110,7 +111,7 @@
         {
           "path": "skills/task-understanding-decomposition/grill-me/SKILL.md",
           "owner": "grill-me",
-          "sha256": "d9a98c3bc6dd057da62eae9989c1afd47ff3a9547ad630979fbf79b25b76f022",
+          "sha256": "053bc738fcc070ef5151a12dd515256032cb92381d360b22e4243c290e31cfce",
           "mode": "100644"
         },
         {
@@ -122,16 +123,25 @@
         {
           "path": "skills/task-understanding-decomposition/grill-me/references/upstream-grill-me.md",
           "owner": "grill-me",
-          "sha256": "6189dfceb7304a6e5558f75d87e68fa3bc7fcf7ba120e44f21f8a61fe01eba54",
+          "sha256": "caaf8b8de1684f96e26b28f3c29189db5c89cce4b73e1c93d86164f66ef88637",
           "mode": "100644"
         },
         {
           "path": "skills/task-understanding-decomposition/grill-me/references/upstream-grilling.md",
           "owner": "grill-me",
-          "sha256": "fa5c1e5ee76b1c8f1ae56101f52c9e239de75d5c578adc61227b92d10b7e52ef",
+          "sha256": "10ff989e7498b23b5acb49d5048f11dcd906757d2f79c5cdf8a00001381296f2",
           "mode": "100644"
         }
       ]
+    }
+  ],
+  "verification_attempts": [
+    {
+      "date": "2026-10-26",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "mattpocock/skills@24fe0ef7737efae15c87225755e9f6f5965e4888",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
     }
   ]
 }

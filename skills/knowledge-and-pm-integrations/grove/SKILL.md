@@ -2,14 +2,14 @@
 name: grove
 description: '仓库结构、文档布局、测试脚本组织和迁移规划。'
 zh_description: "仓库结构、文档布局、测试脚本组织和迁移规划。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/grove/SKILL.md"
 license: MIT
 tags: ["grove", "knowledge"]
 created_at: "2026-08-24"
-updated_at: "2026-09-30"
+updated_at: "2026-10-26"
 quality: 5
 complexity: "advanced"
 ---
@@ -83,7 +83,7 @@ Route elsewhere when the task is primarily:
 - Detect language and framework first. Apply native conventions before applying a generic template.
 - Use the universal base only when it matches the language and framework. Do not force anti-convention layouts (e.g., `src/` in Go, `lib/` in Rust crate roots).
 - Keep `docs/` aligned with Scribe-compatible structures.
-- Preserve history with `git mv` for moves and renames. Never use raw `mv` + `git add` — this loses blame history.
+- Git detects renames from content similarity rather than storing a rename operation. `git mv` is a convenient staging command; a move followed by `git add` can retain the same history. Separate structural moves from large content changes when that improves rename detection and blame review.
 - Prefer incremental migrations. Plan one module or one concern per PR. Maximum 50 files changed per migration PR to keep reviews tractable.
 - Audit structure before proposing high-risk moves. Health score must not decrease after migration.
 - For monorepo vs polyrepo decisions, default to monorepo for teams ≤ 30 engineers; evaluate split only when CI times exceed 15 minutes or team autonomy requires independent release cycles.

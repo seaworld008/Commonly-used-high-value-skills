@@ -1,4 +1,4 @@
-Purpose: Use this file when deciding what an agent should *be* to its users — how much role, policy, memory, relationship, and expressed character it needs, what must never move, and how to detect it moving anyway. Covers products you are building; not the synthetic **user** personas owned by `cast` / `echo` / `plea` / `field` (`_common/AI_PERSONA_RISKS.md`).
+Purpose: Use this file when deciding what an agent should *be* to its users — how much role, policy, memory, relationship, and expressed character it needs, what must never move, and how to detect it moving anyway. Covers products you are building; not the synthetic **user** personas owned by `cast` / `echo` / `field` (`_common/AI_PERSONA_RISKS.md`).
 
 ## Contents
 - Six layers behind "it has a personality"
@@ -15,7 +15,7 @@ An agent that decides and acts over time is read as *someone* whether or not any
 The design question is not "should it have a personality" but **which consistencies it owes, at what
 strength, and what enforces them**. Adding character is the last step and the smallest one.
 
-The counter-intuitive result up front: **capability does not magi personality, and importance does
+The counter-intuitive result up front: **capability does not summon personality, and importance does
 not justify it.** As error cost and trust sensitivity rise, expressed character and relational depth
 get *narrower*, while role, policy, boundary, and identity legibility get stronger.
 

@@ -63,7 +63,7 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
 CMD ["node", "dist/index.js"]
 ```
 
-Use Node 22 LTS (active LTS through Apr 2027) or Node 24 (Oct 2026 release) — Node 20 is in maintenance from Apr 2026. Pin by digest so a hijacked tag cannot silently replace the base layer.
+Choose a currently supported LTS release after checking the official Node.js release schedule and the image's maintained tags. Existing image tags below are historical examples, not a current support recommendation. Pin the reviewed image by digest so a mutable tag cannot silently replace the base layer.
 
 ---
 

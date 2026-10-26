@@ -2,14 +2,14 @@
 name: lark-mail
 description: '飞书邮箱：Use when user mentions 起草邮件、写邮件、草稿、发送/回复/转发邮件、查阅邮件、看邮件、搜索邮件、邮件文件夹、邮件标签、邮件联系人、监听新邮件、邮件收信规则等；use for mail/email intent only. Do not use for docs/sheets/calendar/auth setup/pure contact lookup/IM chat tasks.'
 zh_description: "用于飞书邮件起草、查询、回复、转发及经授权的发送与邮箱管理。"
-version: "1.0.9"
+version: "1.0.10"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-mail"
 license: MIT
 tags: '[feishu, lark, lark-cli, mail, email]'
 created_at: "2026-05-19"
-updated_at: "2026-09-30"
+updated_at: "2026-10-26"
 quality: 4
 complexity: intermediate
 metadata:

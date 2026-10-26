@@ -44,8 +44,9 @@ Per language:
 
 ```bash
 # TS example: per-file complexity report
+# Prerequisite: the project flat config registers eslint-plugin-sonarjs.
 npx eslint --rule '{"sonarjs/cognitive-complexity": ["error", 0]}' \
-  --no-eslintrc src/ --format json | jq '...'
+  src/ --format json | jq '...'
 ```
 
 ### Bug correlation (optional, strengthens signal)

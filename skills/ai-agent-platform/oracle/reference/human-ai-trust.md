@@ -87,7 +87,7 @@ differs sharply between first-time and expert users of the same feature. The sli
 and tenant; cross them here rather than reporting a single number.
 
 **Do not optimize `correct_acceptance` alone.** It is maximized by sending only easy tasks — the
-same degenerate solution described in `reference/cost-optimization.md` § quality floor. Carry
+same degenerate solution described in `reference/cost-optimization.md` § Hard gates apply before optimization, never against it. Carry
 `overreliance` as the paired guardrail metric.
 
 ---
@@ -138,8 +138,8 @@ outcome_record:             the resolution and its audit entry
 because it was easiest is a privacy decision made by omission. State what does not travel — raw
 attachments, inferred sensitive attributes, other tenants' data, prior unrelated conversations —
 and make the exclusion visible to the receiving person so they know to ask rather than assume the
-record is complete. This mirrors the log discipline in `canon[regulatory]/reference/audit-trail-design.md`
-(resource IDs, never values), applied to the transfer instead of the log.
+record is complete. This is the audit-log discipline (log resource IDs, never values) applied to
+the transfer instead of the log.
 
 Three more failure modes worth naming:
 

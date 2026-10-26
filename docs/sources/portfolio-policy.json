@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-09-22",
+  "updated_at": "2026-10-26",
   "decision_rule": "Retire a skill only when it has no unique executable asset, current external-system contract, high-risk domain guardrail, or measurable acceptance standard, and a canonical replacement covers the same user intent.",
   "retired_skills": [
     {
@@ -198,6 +198,11 @@
       "name": "senior-devops",
       "replacement": "cc-devops-skills",
       "reason": "All three advertised automation scripts return success without analysis; all three references are placeholder templates. Use cc-devops-skills, pipe, terraform-engineer, and release-manager for the covered intents."
+    },
+    {
+      "name": "self-improving-agent",
+      "replacement": "reflect-learn",
+      "reason": "The single-file in-house wrapper assumes undefined memory, system-prompt, cron, and sharing commands. Reflect Learn already owns feedback analysis with executable helpers, schemas, and templates; its controlled-improvement reference preserves the useful one-variable comparison, regression, and rollback method."
     }
   ],
   "canonical_groups": [
@@ -277,6 +282,12 @@
       "canonical": "cc-devops-skills",
       "retired_aliases": [
         "senior-devops"
+      ]
+    },
+    {
+      "canonical": "reflect-learn",
+      "retired_aliases": [
+        "self-improving-agent"
       ]
     }
   ],

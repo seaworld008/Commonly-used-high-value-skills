@@ -2,14 +2,14 @@
 name: azure-kubernetes
 description: 'Plan and configure Azure Kubernetes Service clusters, including SKU, networking, identity, deployment readiness, and operational constraints.'
 zh_description: "用于 Azure Kubernetes 集群管理、部署、排障和运维。"
-version: "1.0.5"
+version: "1.0.6"
 author: "seaworld008"
 source: "github:microsoft/azure-skills"
 source_url: "https://skills.sh/microsoft/azure-skills/azure-kubernetes"
 license: MIT
 tags: '["azure", "devops", "kubernetes", "sre"]'
 created_at: "2026-06-03"
-updated_at: "2026-10-16"
+updated_at: "2026-10-26"
 quality: 4
 complexity: "intermediate"
 metadata:

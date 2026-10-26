@@ -2,14 +2,14 @@
 name: lark-okr
 description: '飞书 OKR：管理目标与关键结果。查看和编辑 OKR 周期、目标、关键结果、对齐关系、量化指标和进展记录。当用户需要查看或创建 OKR、管理目标和关键结果、查看对齐关系时使用。不负责：待办任务管理（lark-task）、日程/会议安排（lark-calendar）、绩效评估'
 zh_description: "飞书 OKR：管理目标与关键结果。"
-version: "1.0.7"
+version: "1.0.8"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-okr"
 license: MIT
 tags: '[feishu, lark, lark-cli, okr, planning]'
 created_at: "2026-05-19"
-updated_at: "2026-09-30"
+updated_at: "2026-10-26"
 quality: 4
 complexity: intermediate
 metadata:

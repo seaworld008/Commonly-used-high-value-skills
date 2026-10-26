@@ -43,25 +43,26 @@ EXPECTED_COUNTS = {
     "lark-base": 33,
     "lark-calendar": 15,
     "lark-contact": 4,
-    "lark-doc": 44,
+    "lark-doc": 45,
     "lark-drive": 61,
     "lark-event": 8,
     "lark-im": 61,
-    "lark-mail": 34,
+    "lark-mail": 37,
     "lark-markdown": 6,
-    "lark-okr": 19,
+    "lark-okr": 27,
     "lark-openapi-explorer": 1,
     "lark-shared": 7,
     "lark-sheets": 32,
-    "lark-skill-maker": 1,
+    "lark-skill-maker": 2,
     "lark-slides": 50,
     "lark-task": 19,
     "lark-whiteboard": 31,
     "lark-wiki": 14,
     "lark-workflow-meeting-summary": 1,
     "lark-workflow-standup-report": 1,
-    "lark-meeting": 27
+    "lark-meeting": 32,
 }
+
 EXPECTED_PATH_COMMITS = {
     "lark-approval": "0d5334a0cdfdf18b0313ba051befb2848493ecda",
     "lark-attendance": "69ae326d01a9163ca22408c746e052003cf0af2c",
@@ -129,6 +130,12 @@ def test_lark_complete_directory_mirrors_are_exact_and_owned() -> None:
     for slug, expected_count in EXPECTED_COUNTS.items():
         entry = entries[slug]
         origin = entry["origins"][0]
+        content_artifacts = [a for a in origin["artifacts"] if a["source"] != "LICENSE"]
+        license_artifacts = [a for a in origin["artifacts"] if a["source"] == "LICENSE"]
+        if license_artifacts:
+            expected_target = str(Path(entry["repo_skill"]).parent / "LICENSE.upstream.txt")
+            assert license_artifacts == [{"source": "LICENSE", "target": expected_target, "type": "file"}]
+            assert hashlib.sha256((REPO_ROOT / expected_target).read_bytes()).hexdigest() == origin["tracking"]["license_checkpoint"]["content_sha256"]
         source_root = f"skills/{slug}"
         target_root = f"skills/knowledge-and-pm-integrations/{slug}"
         canonical_root = REPO_ROOT / target_root
@@ -140,15 +147,15 @@ def test_lark_complete_directory_mirrors_are_exact_and_owned() -> None:
         assert len(entry["origins"]) == (
             2 if slug in LOCAL_OVERLAYS or slug == "lark-sheets" else 1
         )
-        assert origin["path"] == (source_root + "/SKILL.md" if slug == "lark-sheets" else source_root)
+        assert origin["path"] == (source_root + "/SKILL.md" if slug in {"lark-sheets", "lark-doc", "lark-skill-maker"} else source_root)
         assert origin["sync_mode"] == "monitor"
         if slug in LOCAL_OVERLAYS:
             local_targets = LOCAL_OVERLAYS[slug]
             claimed_targets = {
-                artifact["target"] for artifact in origin["artifacts"]
+                artifact["target"] for artifact in content_artifacts
             }
             assert local_targets.isdisjoint(claimed_targets)
-            assert len(claimed_targets) == expected_count - len(local_targets)
+            assert len(claimed_targets) == expected_count - len(local_targets) - len(license_artifacts)
             local_origin = entry["origins"][1]
             assert local_origin == {
                 "repo": "local-repo/curation",
@@ -184,10 +191,23 @@ def test_lark_complete_directory_mirrors_are_exact_and_owned() -> None:
             assert {Path(a["target"]).name for a in archived["artifacts"]} == {
                 "sheets_df.py", "lark-sheets-legacy-command-migration.md",
             }
-            assert len(origin["artifacts"]) == expected_count - 2
-            assert all(a["type"] == "file" for a in origin["artifacts"])
+            assert len(content_artifacts) == expected_count - 2
+            assert all(a["type"] == "file" for a in content_artifacts)
+        elif slug in {"lark-doc", "lark-skill-maker"}:
+            expected_content = [{
+                "source": source_root + "/SKILL.md",
+                "target": target_root + "/SKILL.md",
+                "type": "file",
+            }]
+            if slug == "lark-doc":
+                expected_content.append({
+                    "source": source_root + "/references",
+                    "target": target_root + "/references",
+                    "type": "directory",
+                })
+            assert content_artifacts == expected_content
         else:
-            assert origin["artifacts"] == [
+            assert content_artifacts == [
                 {
                     "source": source_root,
                     "target": target_root,
@@ -229,6 +249,13 @@ def test_lark_license_lineage_is_locked_to_reviewed_commit() -> None:
     }
     for entry in mapping["skills"]:
         assert entry["origins"][0]["tracking"]["license_checkpoint"] == expected
+
+
+def test_live_sync_loader_accepts_current_artifact_ownership() -> None:
+    from scripts.sync_upstream import load_skills_with_upstream
+    errors = [(entry["name"], entry["load_error"])
+              for entry in load_skills_with_upstream() if entry.get("load_error")]
+    assert errors == [], "Offline validators and the actual sync loader must agree"
 
 
 def test_lark_whitespace_adaptations_are_scoped_and_clean() -> None:

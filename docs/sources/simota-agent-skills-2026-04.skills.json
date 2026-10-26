@@ -2,7 +2,7 @@
   "schema_version": 2,
   "video": {
     "url": "https://github.com/simota/agent-skills",
-    "checked_at": "2026-09-14",
+    "checked_at": "2026-10-26",
     "note": "Curated per-category import from simota/agent-skills; refresh with scripts/sync_simota_agent_skills.py."
   },
   "official_references": [
@@ -24,11 +24,11 @@
         "repo": "simota/agent-skills",
         "path": "builder/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
         "sync_mode": "monitor",
-        "path_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49"
+        "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -158,23 +158,28 @@
               "source": "builder/reference/targeted-patch.md",
               "target": "skills/developer-engineering/builder/reference/targeted-patch.md",
               "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/developer-engineering/builder/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "path_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "content_sha256": "be11bf94458720936a932592b12d7c56ca4050af748c8323fb260ce2068eadaf",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30",
+            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634",
+            "content_sha256": "21bf59e1741bdfd2a43f9e69f719eb7a87a0155015b5040e1374a97f13249f87",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
-              "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-              "api_spdx": "MIT",
-              "spdx": "MIT"
+              "spdx": "MIT",
+              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "api_spdx": "MIT"
             }
           }
         },
@@ -360,7 +365,7 @@
         {
           "path": "skills/developer-engineering/builder/SKILL.md",
           "owner": "builder",
-          "sha256": "be11bf94458720936a932592b12d7c56ca4050af748c8323fb260ce2068eadaf",
+          "sha256": "21bf59e1741bdfd2a43f9e69f719eb7a87a0155015b5040e1374a97f13249f87",
           "mode": "100644"
         },
         {
@@ -474,7 +479,7 @@
         {
           "path": "skills/developer-engineering/builder/reference/image-generation-batch.md",
           "owner": "builder",
-          "sha256": "419315c59c60c982fbf9719d78bc5a51d31e37ca76922d948cf534b725b156a3",
+          "sha256": "d5409bc1196b6438f18f708764d88b26ffb2fcfe8e58b702f64f73afe463306f",
           "mode": "100644"
         },
         {
@@ -582,7 +587,7 @@
         {
           "path": "skills/developer-engineering/builder/reference/reference-index.md",
           "owner": "builder",
-          "sha256": "b1564de344652a5ad12b9cbe61122055171f17face17afadbe483e4c5f7ed8ea",
+          "sha256": "d30d66d29d5194343d0234431d59e6722e27ce89c48d83c2d48631780048ba47",
           "mode": "100644"
         },
         {
@@ -662,6 +667,12 @@
           "owner": "builder",
           "sha256": "554cbe900ecc64bcb9828df2783a7449739dd54fd04cbfe6eb5618fe40d4fdcb",
           "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/builder/LICENSE.upstream.txt",
+          "owner": "builder",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+          "mode": "100644"
         }
       ]
     },
@@ -676,11 +687,11 @@
         "repo": "simota/agent-skills",
         "path": "gateway/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
         "sync_mode": "monitor",
-        "path_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49"
+        "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -795,23 +806,28 @@
               "source": "gateway/reference/webhook-design.md",
               "target": "skills/developer-engineering/gateway/reference/webhook-design.md",
               "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/developer-engineering/gateway/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "path_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "content_sha256": "6d03407c2f4ff7bfdce6ae374eab215067e18cac5649ea71c59475335d83e00a",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30",
+            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05",
+            "content_sha256": "f511dafcb9452b550261d25783c63973637f101439db66e347cc90a31927bac9",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
-              "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-              "api_spdx": "MIT",
-              "spdx": "MIT"
+              "spdx": "MIT",
+              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "api_spdx": "MIT"
             }
           }
         },
@@ -947,7 +963,7 @@
         {
           "path": "skills/developer-engineering/gateway/SKILL.md",
           "owner": "gateway",
-          "sha256": "6d03407c2f4ff7bfdce6ae374eab215067e18cac5649ea71c59475335d83e00a",
+          "sha256": "f511dafcb9452b550261d25783c63973637f101439db66e347cc90a31927bac9",
           "mode": "100644"
         },
         {
@@ -1025,7 +1041,7 @@
         {
           "path": "skills/developer-engineering/gateway/reference/graphql-design.md",
           "owner": "gateway",
-          "sha256": "236f357528934c49aa628d9b8f2a0bed0c06a691006b00372087a6a1a1d2e781",
+          "sha256": "f1ee14746203886d9a84fafcb02836f207cd13415284d96f02ca5b872bd97f60",
           "mode": "100644"
         },
         {
@@ -1171,6 +1187,12 @@
           "owner": "gateway",
           "sha256": "a77fcc1632bc7e64c8713df6d39803031e836a55ff2c9263924b0c66798a5e51",
           "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/gateway/LICENSE.upstream.txt",
+          "owner": "gateway",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+          "mode": "100644"
         }
       ]
     },
@@ -1185,11 +1207,11 @@
         "repo": "simota/agent-skills",
         "path": "schema/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
         "sync_mode": "monitor",
-        "path_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49"
+        "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -1304,23 +1326,28 @@
               "source": "schema/reference/tenant-quota-throttling.md",
               "target": "skills/developer-engineering/schema/reference/tenant-quota-throttling.md",
               "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/developer-engineering/schema/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "path_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "content_sha256": "47c9c4a902feb21cd616cd7f8b807520e968693103b73c1a530fc83a1568693a",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30",
+            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05",
+            "content_sha256": "16d6b1caa0e1cf40793faa907bac8a52f5b998cd6440d6fa909fefde20b745ba",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
-              "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-              "api_spdx": "MIT",
-              "spdx": "MIT"
+              "spdx": "MIT",
+              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "api_spdx": "MIT"
             }
           }
         },
@@ -1456,7 +1483,7 @@
         {
           "path": "skills/developer-engineering/schema/SKILL.md",
           "owner": "schema",
-          "sha256": "47c9c4a902feb21cd616cd7f8b807520e968693103b73c1a530fc83a1568693a",
+          "sha256": "16d6b1caa0e1cf40793faa907bac8a52f5b998cd6440d6fa909fefde20b745ba",
           "mode": "100644"
         },
         {
@@ -1534,7 +1561,7 @@
         {
           "path": "skills/developer-engineering/schema/reference/partition-strategies.md",
           "owner": "schema",
-          "sha256": "3b144b08d7ca780cbd7d9798156743433df3cfe5f487b91d64bc6c93af9df380",
+          "sha256": "e8005278e8fb43cd112b9647e084cd2e5aa8064102431f0e1e6927e2c738bd6a",
           "mode": "100644"
         },
         {
@@ -1552,13 +1579,13 @@
         {
           "path": "skills/developer-engineering/schema/reference/recipes-index.md",
           "owner": "schema",
-          "sha256": "8a5b8203cdaee6514331ecc23a94a755c8879b8247a261b5d7e39a70c45d4d2a",
+          "sha256": "abb3c16a4c804a417bd78dad8283b7d1487de9faf66a6fb4a0f5b393b44af06d",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/schema/reference/reference-index.md",
           "owner": "schema",
-          "sha256": "ccf8a35f42240cc5a987c5e8ccac3c78b723360dd7997e9170a4da8a862fa1f1",
+          "sha256": "a87d0cbbbd366c13fa2987133f423c110604e61743c0e7503bf902bcaa77d47e",
           "mode": "100644"
         },
         {
@@ -1570,7 +1597,7 @@
         {
           "path": "skills/developer-engineering/schema/reference/schema-examples.md",
           "owner": "schema",
-          "sha256": "73c3c94b6408cdcfb3a55a6f1f6ac966a3962c9c2799303773d37c499821a602",
+          "sha256": "48419bc408a1589301682acb365f7f5c5467841452580a958b11bdc91f29e6b9",
           "mode": "100644"
         },
         {
@@ -1594,7 +1621,7 @@
         {
           "path": "skills/developer-engineering/schema/reference/tenant-handoffs.md",
           "owner": "schema",
-          "sha256": "a941f5a9c2067b3446926dce8d5c68d851cbd6ba62934e53cd4e3a6842d147ac",
+          "sha256": "e37e9590734b34ee05462cc2304337f7f6f6964a854452ecd251884f25ea3461",
           "mode": "100644"
         },
         {
@@ -1612,7 +1639,7 @@
         {
           "path": "skills/developer-engineering/schema/reference/tenant-quota-throttling.md",
           "owner": "schema",
-          "sha256": "20f9db6cd7a9d6c5b5bf92caa05e8e14563348b8897a6edd67a6aa1b2c994ff3",
+          "sha256": "b1e42faa3483fd718ba91cc53bda8334db143a5aecddd8b232d63c5470797a0b",
           "mode": "100644"
         },
         {
@@ -1680,6 +1707,12 @@
           "owner": "schema",
           "sha256": "efe0e3302123326d7a9a426d2fd404dface4b8fea26f9350d2e3ae9fa93b5ed5",
           "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/schema/LICENSE.upstream.txt",
+          "owner": "schema",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+          "mode": "100644"
         }
       ]
     },
@@ -1694,11 +1727,11 @@
         "repo": "simota/agent-skills",
         "path": "nexus/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
         "sync_mode": "monitor",
-        "path_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49"
+        "path_commit": "41329a67a9b1e737f2d3f0c817ae025b3a3a45f5"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -2128,23 +2161,28 @@
               "source": "nexus/reference/wish-recipe.md",
               "target": "skills/ai-workflow/nexus/reference/wish-recipe.md",
               "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-workflow/nexus/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "path_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "content_sha256": "46edfb71bf7291693755f0d1433533270d59d14593e8c4de7313363ee8e3a25e",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30",
+            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "path_commit": "41329a67a9b1e737f2d3f0c817ae025b3a3a45f5",
+            "content_sha256": "703c3ce97d21ab215551f8d33b30b10ab88cf530c5e6e10da99bade6b4e96481",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
-              "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-              "api_spdx": "MIT",
-              "spdx": "MIT"
+              "spdx": "MIT",
+              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "api_spdx": "MIT"
             }
           }
         },
@@ -2425,7 +2463,7 @@
         {
           "path": "skills/ai-workflow/nexus/SKILL.md",
           "owner": "nexus",
-          "sha256": "46edfb71bf7291693755f0d1433533270d59d14593e8c4de7313363ee8e3a25e",
+          "sha256": "703c3ce97d21ab215551f8d33b30b10ab88cf530c5e6e10da99bade6b4e96481",
           "mode": "100644"
         },
         {
@@ -2449,7 +2487,7 @@
         {
           "path": "skills/ai-workflow/nexus/reference/agent-chains.md",
           "owner": "nexus",
-          "sha256": "d174e0468cc52181371a5efbc841412bfcfc8d56b88ed23e4f440a0f493a3608",
+          "sha256": "7cadf1ecf81780e5fde69411a54cf99c11c52e1c6515b59f66d851c5af3a16f3",
           "mode": "100644"
         },
         {
@@ -2599,7 +2637,7 @@
         {
           "path": "skills/ai-workflow/nexus/reference/delivery-exit-criteria-validation.md",
           "owner": "nexus",
-          "sha256": "5230ed5d668eb95ec9df1bb4a7e077f2d791e4eb34e6b2ca1de7f832aea8e52e",
+          "sha256": "ae4dece47af0e6ce798bfb7a46282881445df399a8f51ca3596557182a82a411",
           "mode": "100644"
         },
         {
@@ -2671,13 +2709,13 @@
         {
           "path": "skills/ai-workflow/nexus/reference/eureka-recipe.md",
           "owner": "nexus",
-          "sha256": "003363f5f5e9d049410c1d5ce93730cdd26072fe999a66714dd36f5fd3a9dde9",
+          "sha256": "c3a865483abeabeafe7725f8444bb4b77d3e7a1285be20fa011fa393cce6a0f9",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/nexus/reference/evaluator-loop-protocol.md",
           "owner": "nexus",
-          "sha256": "b0b97732b1b0d9bb6b0d91efacf0e0acd3b28a4455590145a49b36dbf6243f3b",
+          "sha256": "da7e2b71dd9c2201ebd34e86bf8669ba1d53afc6e09fcaaeefb7840a215797ae",
           "mode": "100644"
         },
         {
@@ -2743,7 +2781,7 @@
         {
           "path": "skills/ai-workflow/nexus/reference/handoff-validation.md",
           "owner": "nexus",
-          "sha256": "8c20d14567401d02316d7983518fa93d7921a802eecd2b919125dc4d3f53e1bd",
+          "sha256": "aeddb496ffd56bb1479a3b6cc637d5a2f2ebf6fd61c441ff4c27c2d41c6ae251",
           "mode": "100644"
         },
         {
@@ -2827,7 +2865,7 @@
         {
           "path": "skills/ai-workflow/nexus/reference/optimize-recipe.md",
           "owner": "nexus",
-          "sha256": "ca13d390de6580016545f2f9eb7a14908357d62cf33bcbffe32a9b327b8bc50f",
+          "sha256": "b0259fa356eb595d5dede161a8a282b7a157be689be9e703c9ab2d4567705779",
           "mode": "100644"
         },
         {
@@ -2947,13 +2985,13 @@
         {
           "path": "skills/ai-workflow/nexus/reference/routing-learning.md",
           "owner": "nexus",
-          "sha256": "ae979a7e03f0dae8e6a4c855401e19d990278e8c5ef5ac6bc45ba183a23fed93",
+          "sha256": "415a320b32b99794a9c5b269dc05177a887bbb640f651a696565c063b9d5651a",
           "mode": "100644"
         },
         {
           "path": "skills/ai-workflow/nexus/reference/routing-matrix.md",
           "owner": "nexus",
-          "sha256": "5b6630ed4c164098b49fc25a6aadf80b5a2ba91257d3929fed3be4b1336da115",
+          "sha256": "2bff1a1668d782c94733a254ed03bc276fbcd73c36c13edabe4d3065a9cb2592",
           "mode": "100644"
         },
         {
@@ -3201,6 +3239,12 @@
           "owner": "nexus",
           "sha256": "dcb59b605a4f12b2e8a11e28a0e01306a0a73f164c3e8b4385e14e2e87b4bafa",
           "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/nexus/LICENSE.upstream.txt",
+          "owner": "nexus",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+          "mode": "100644"
         }
       ],
       "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
@@ -3216,11 +3260,11 @@
         "repo": "simota/agent-skills",
         "path": "sherpa/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
         "sync_mode": "monitor",
-        "path_commit": "35ffd55887b6a9e53d2e2b5d3c9266aa4bf5de99"
+        "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -3305,22 +3349,27 @@
               "source": "sherpa/reference/walking-skeleton.md",
               "target": "skills/ai-workflow/sherpa/reference/walking-skeleton.md",
               "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-workflow/sherpa/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "path_commit": "35ffd55887b6a9e53d2e2b5d3c9266aa4bf5de99",
-            "content_sha256": "0617dccdab1eaa51d468116cf49d094f4361d8c9f6dcbd207297938d9c274b17",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30",
+            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05",
+            "content_sha256": "c35c3ffc75e34f18097340cede7d56a77723f808a606612473fe42e4ec642d3b",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
               "api_spdx": "MIT"
             }
           }
@@ -3387,7 +3436,7 @@
         {
           "path": "skills/ai-workflow/sherpa/SKILL.md",
           "owner": "sherpa",
-          "sha256": "0617dccdab1eaa51d468116cf49d094f4361d8c9f6dcbd207297938d9c274b17",
+          "sha256": "c35c3ffc75e34f18097340cede7d56a77723f808a606612473fe42e4ec642d3b",
           "mode": "100644"
         },
         {
@@ -3435,7 +3484,7 @@
         {
           "path": "skills/ai-workflow/sherpa/reference/progress-tracking.md",
           "owner": "sherpa",
-          "sha256": "331d3f984b5d4fb6db07223b473d589a5fe69ba45f719bfcb20fd8427653d181",
+          "sha256": "0630e3a249e4f369adc5c1b68a68a858b32a156e31324cf72172585638fe59fb",
           "mode": "100644"
         },
         {
@@ -3521,6 +3570,12 @@
           "owner": "sherpa",
           "sha256": "1f7204f6a8d98597975525996a809f758d8fcef53a5160fa5e1fb1a48e9e0e4a",
           "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/sherpa/LICENSE.upstream.txt",
+          "owner": "sherpa",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+          "mode": "100644"
         }
       ]
     },
@@ -3535,11 +3590,11 @@
         "repo": "simota/agent-skills",
         "path": "rally/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
         "sync_mode": "monitor",
-        "path_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49"
+        "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -3609,18 +3664,18 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "path_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05",
             "content_sha256": "abc0d5d9189878a618f56a8e4d6b4e25329f8367885bf1d4465fb40464a7407a",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
-              "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-              "api_spdx": "MIT",
-              "spdx": "MIT"
+              "spdx": "MIT",
+              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "api_spdx": "MIT"
             }
           }
         },
@@ -3857,11 +3912,11 @@
         "repo": "simota/agent-skills",
         "path": "oracle/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
         "sync_mode": "monitor",
-        "path_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49"
+        "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -3951,23 +4006,28 @@
               "source": "oracle/reference/reference-index.md",
               "target": "skills/ai-agent-platform/oracle/reference/reference-index.md",
               "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-agent-platform/oracle/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "path_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "content_sha256": "2dc2c1e6cb4e3d854a1b2797acd3153273c5d1d68634095cc6e54ec282059d9d",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30",
+            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05",
+            "content_sha256": "4212f66605d775ab649fba339418d030d45a2980ff2b950ebd6fb5383c2c219b",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
-              "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-              "api_spdx": "MIT",
-              "spdx": "MIT"
+              "spdx": "MIT",
+              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "api_spdx": "MIT"
             }
           }
         },
@@ -4063,7 +4123,7 @@
         {
           "path": "skills/ai-agent-platform/oracle/SKILL.md",
           "owner": "oracle",
-          "sha256": "2dc2c1e6cb4e3d854a1b2797acd3153273c5d1d68634095cc6e54ec282059d9d",
+          "sha256": "4212f66605d775ab649fba339418d030d45a2980ff2b950ebd6fb5383c2c219b",
           "mode": "100644"
         },
         {
@@ -4075,7 +4135,7 @@
         {
           "path": "skills/ai-agent-platform/oracle/reference/agent-behavior-contract.md",
           "owner": "oracle",
-          "sha256": "04366fcab7755f0dc82974ba4416a21dba0e1a0be1274db4cdcef3ad394c64e9",
+          "sha256": "a19b38705062e0ab13f829102c382f2091cec2c1cff8f40347c89778ef61dde1",
           "mode": "100644"
         },
         {
@@ -4117,25 +4177,25 @@
         {
           "path": "skills/ai-agent-platform/oracle/reference/evaluation-observability.md",
           "owner": "oracle",
-          "sha256": "9084eaa447e940a832dd870e91b20cbd7a99ac0c90a97619059ca1091bbb2b2b",
+          "sha256": "403f1cfc0fb0c51c6da975de33f39839db5a36153eecf16134f9c590c6403437",
           "mode": "100644"
         },
         {
           "path": "skills/ai-agent-platform/oracle/reference/human-ai-trust.md",
           "owner": "oracle",
-          "sha256": "185628919bfc2c48c60901d9fc07f5ba3037c7e6b6fd5253c0714f4cd486ac15",
+          "sha256": "4e7e09a8343b6b678ae193bafd81bfc8fbdd3c79f974a46ed9ca2d60adcb3aca",
           "mode": "100644"
         },
         {
           "path": "skills/ai-agent-platform/oracle/reference/llm-application-patterns.md",
           "owner": "oracle",
-          "sha256": "ddbf395541571636a4667647ed02a923854041cf2f8eea89afc53b3c4ed5e427",
+          "sha256": "a8fad5c2ab516417de125d6e3daee9342e96534834a1de1efe63b74f7b55eb8c",
           "mode": "100644"
         },
         {
           "path": "skills/ai-agent-platform/oracle/reference/llm-production-anti-patterns.md",
           "owner": "oracle",
-          "sha256": "c8da0e415f79469fac434cdb7c5bbb00fde94433ae02ab29b6621655cd095600",
+          "sha256": "c8ed8bdf7a6950fbace44297ab266838f1d01316f8135a85eacc0cd12d3bb2fc",
           "mode": "100644"
         },
         {
@@ -4159,7 +4219,7 @@
         {
           "path": "skills/ai-agent-platform/oracle/reference/reference-index.md",
           "owner": "oracle",
-          "sha256": "4b8d7e908e1131afb2ceab1e7c08a9eda61ba36c71deb282853915286029fe6f",
+          "sha256": "24675a421a79e422bb4d8dedb0b9c711e3a686bccd42c9a04e83d9edfc768f40",
           "mode": "100644"
         },
         {
@@ -4208,6 +4268,12 @@
           "path": "skills/ai-agent-platform/oracle/references/rag-design-anti-patterns.md",
           "owner": "oracle",
           "sha256": "0a72ef92b18191c7aee60c01c305696619693e66ddc810896de93c4679da9511",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/oracle/LICENSE.upstream.txt",
+          "owner": "oracle",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
           "mode": "100644"
         }
       ],
@@ -4400,11 +4466,11 @@
         "repo": "simota/agent-skills",
         "path": "sigil/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
         "sync_mode": "monitor",
-        "path_commit": "35ffd55887b6a9e53d2e2b5d3c9266aa4bf5de99"
+        "path_commit": "41329a67a9b1e737f2d3f0c817ae025b3a3a45f5"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -4499,22 +4565,27 @@
               "source": "sigil/reference/skill-templates.md",
               "target": "skills/ai-agent-platform/sigil/reference/skill-templates.md",
               "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-agent-platform/sigil/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "path_commit": "35ffd55887b6a9e53d2e2b5d3c9266aa4bf5de99",
-            "content_sha256": "0f6db072e6fd895d7e541a4a1be2b2d3be76c4b5ce524d2da3e929cdd63350c6",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30",
+            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "path_commit": "41329a67a9b1e737f2d3f0c817ae025b3a3a45f5",
+            "content_sha256": "571083406113053f8636df4997a34064bf3bcd3d4f2627afe2df9a58773db43e",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
               "api_spdx": "MIT"
             }
           }
@@ -4601,7 +4672,7 @@
         {
           "path": "skills/ai-agent-platform/sigil/SKILL.md",
           "owner": "sigil",
-          "sha256": "0f6db072e6fd895d7e541a4a1be2b2d3be76c4b5ce524d2da3e929cdd63350c6",
+          "sha256": "571083406113053f8636df4997a34064bf3bcd3d4f2627afe2df9a58773db43e",
           "mode": "100644"
         },
         {
@@ -4661,31 +4732,31 @@
         {
           "path": "skills/ai-agent-platform/sigil/reference/operating-layer-blueprint.md",
           "owner": "sigil",
-          "sha256": "4dc6e74c09d762b64d1e3b99b438a8e219a225a1ea7a8e9a9df3d0ccb2774f1d",
+          "sha256": "1b5324e6efa5f360b348f30a3b3ba9ab6f0a767cda59a817b47b7b1b8155aa95",
           "mode": "100644"
         },
         {
           "path": "skills/ai-agent-platform/sigil/reference/operating-layer-handoffs.md",
           "owner": "sigil",
-          "sha256": "de69ad8add0c3d3b1616240acd850c9f668ad73201ad1c76153e9b311eb53a02",
+          "sha256": "5d29d741dc992566fd5368bb34c7969f58df71dbd1efae90cf37b52ba65698cc",
           "mode": "100644"
         },
         {
           "path": "skills/ai-agent-platform/sigil/reference/operating-layer-recipe-design.md",
           "owner": "sigil",
-          "sha256": "450e9ed5c53155c11ccaa2f52c576b5997bc4dac5b2ab8ecdcd193c1cf06df1a",
+          "sha256": "c8f32b417fe82efe64e2f3ab2e96173051e36ecfbdb112d0dd7e84612eba6447",
           "mode": "100644"
         },
         {
           "path": "skills/ai-agent-platform/sigil/reference/operating-layer-validation.md",
           "owner": "sigil",
-          "sha256": "b84d5b650c0e6949de687f566b986d98d3217a0738bc6d616e4efc2f0cc9ac41",
+          "sha256": "a377873dc8c8813cb0c1cdcd41b2e46cd7d647425f17340c7688f65517f54ebf",
           "mode": "100644"
         },
         {
           "path": "skills/ai-agent-platform/sigil/reference/operating-layer-workflow-design.md",
           "owner": "sigil",
-          "sha256": "9ac33a601ecde74622fe122d8daf39aefad27403520a1d583ece37f91b6fd2b2",
+          "sha256": "9e8544954e7b6025ad4aa642fa8353e8b7f6ae1f186a705b047eec23557ba465",
           "mode": "100644"
         },
         {
@@ -4771,6 +4842,12 @@
           "owner": "sigil",
           "sha256": "5347078e7a6e3faff4896f4d4f6d4962da572bde9da9828dedaa536f34f11870",
           "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/sigil/LICENSE.upstream.txt",
+          "owner": "sigil",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+          "mode": "100644"
         }
       ],
       "curation_note": "2026-09-07: local cross-agent instruction audit; preserve reviewed upstream tracking and licenses; monitor before replacing curated content."
@@ -4786,11 +4863,11 @@
         "repo": "simota/agent-skills",
         "path": "guardian/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
         "sync_mode": "monitor",
-        "path_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49"
+        "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -4900,23 +4977,28 @@
               "source": "guardian/reference/squash-optimization.md",
               "target": "skills/engineering-workflow-automation/guardian/reference/squash-optimization.md",
               "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/engineering-workflow-automation/guardian/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "path_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "content_sha256": "6488ad2f541d244d0175870d88be94ae0fc3454b2a8a732903067fdb48e1da93",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30",
+            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05",
+            "content_sha256": "66e5421f39bbd8b90aef18e758312e6322bb4214853a191536bbabcfe82b9f6b",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
-              "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-              "api_spdx": "MIT",
-              "spdx": "MIT"
+              "spdx": "MIT",
+              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "api_spdx": "MIT"
             }
           }
         },
@@ -5057,7 +5139,7 @@
         {
           "path": "skills/engineering-workflow-automation/guardian/SKILL.md",
           "owner": "guardian",
-          "sha256": "6488ad2f541d244d0175870d88be94ae0fc3454b2a8a732903067fdb48e1da93",
+          "sha256": "66e5421f39bbd8b90aef18e758312e6322bb4214853a191536bbabcfe82b9f6b",
           "mode": "100644"
         },
         {
@@ -5093,7 +5175,7 @@
         {
           "path": "skills/engineering-workflow-automation/guardian/reference/collaboration-routing.md",
           "owner": "guardian",
-          "sha256": "7e7da4212133f35b64f19fef0b4a26f8b4e6924b72be2c18fc4a2f8ba0a054c4",
+          "sha256": "bfbd37707d11fe488f7bae367af0d4cd9e522fb2b642c8414e4003780ab69b61",
           "mode": "100644"
         },
         {
@@ -5111,7 +5193,7 @@
         {
           "path": "skills/engineering-workflow-automation/guardian/reference/coverage-integration.md",
           "owner": "guardian",
-          "sha256": "ff9abb471fb31f814055e9f50862ae065f89993572bce25d75a8f338b078f41a",
+          "sha256": "a33eb33881ee9177733fc0ec75b68d652d32927cd977fc1ff763560d0fcbba53",
           "mode": "100644"
         },
         {
@@ -5280,6 +5362,12 @@
           "path": "skills/engineering-workflow-automation/guardian/references/security-analysis.md",
           "owner": "guardian",
           "sha256": "ca7d17582644e3ab84dc5abb3b25c487ea5c84f153f003d1b8cf82ec10e14fe2",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/engineering-workflow-automation/guardian/LICENSE.upstream.txt",
+          "owner": "guardian",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
           "mode": "100644"
         }
       ],
@@ -6081,11 +6169,11 @@
         "repo": "simota/agent-skills",
         "path": "beacon/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
         "sync_mode": "monitor",
-        "path_commit": "35ffd55887b6a9e53d2e2b5d3c9266aa4bf5de99"
+        "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -6170,22 +6258,27 @@
               "source": "beacon/reference/toil-reduction.md",
               "target": "skills/devops-sre/beacon/reference/toil-reduction.md",
               "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/devops-sre/beacon/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "path_commit": "35ffd55887b6a9e53d2e2b5d3c9266aa4bf5de99",
-            "content_sha256": "155adc852bbebeea0c9df9e03d28c342f3e0fadc5a50112d1b4fcbb1de9f4032",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30",
+            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634",
+            "content_sha256": "79feeb7c548ee0070fc58eb222b8d05567a28240042c0cdbf712d38bc2813f40",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
               "api_spdx": "MIT"
             }
           }
@@ -6252,13 +6345,13 @@
         {
           "path": "skills/devops-sre/beacon/SKILL.md",
           "owner": "beacon",
-          "sha256": "155adc852bbebeea0c9df9e03d28c342f3e0fadc5a50112d1b4fcbb1de9f4032",
+          "sha256": "79feeb7c548ee0070fc58eb222b8d05567a28240042c0cdbf712d38bc2813f40",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/beacon/reference/alerting-strategy.md",
           "owner": "beacon",
-          "sha256": "e7208602296b1e3816103227beeb8c4066d4d93fcc913652bb0a9bc87ee90cc9",
+          "sha256": "843c17028f338ba84b40362007abd505386c8641ff30cd4d5f29cb794bbc5d34",
           "mode": "100644"
         },
         {
@@ -6294,25 +6387,25 @@
         {
           "path": "skills/devops-sre/beacon/reference/llm-observability.md",
           "owner": "beacon",
-          "sha256": "a51880b9219575e6ec267badfb12feabe1fdfcf903a7a852c43ee852f6e7efe6",
+          "sha256": "2416d4d5864a16a84c0f8ff0319f90ea65855aeba8853552ffef8d4444a108c0",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/beacon/reference/logging-design.md",
           "owner": "beacon",
-          "sha256": "59ef9a7f5915bd745d28238d7fe66e6033960d4e7055b3f1a6aac251a18621d0",
+          "sha256": "a27297ee4224366788ded92f38843b04afadee970d2eacdaf9066f9a6725f68d",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/beacon/reference/opentelemetry-best-practices.md",
           "owner": "beacon",
-          "sha256": "e2e315f36eb7e925ddf4dcb20def5d4a1b6f346756720a3d8e185afbe8d7a739",
+          "sha256": "edff747abacc78ce68fb0ad551f2d851a1ca60980315d144e0e14aab229bbd40",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/beacon/reference/platform-observability.md",
           "owner": "beacon",
-          "sha256": "8b2bc074798cbbec448893057b6f8d2c848667ba4d6ab8b352ebb33d387604f2",
+          "sha256": "4e29ee67ca2cf58d77031a984bb4a9034b40080297740f22cfaccc7be9f1d77c",
           "mode": "100644"
         },
         {
@@ -6324,7 +6417,7 @@
         {
           "path": "skills/devops-sre/beacon/reference/slo-sli-design.md",
           "owner": "beacon",
-          "sha256": "fd25516e7cfc93164ab1c9dde28a9d2f665985aa58f9387011a265b3af7dad8c",
+          "sha256": "ae09aefa6aceeed49fa1aa5cb48fb13b1122767c6143f6b360c6f1fc871dbd9d",
           "mode": "100644"
         },
         {
@@ -6372,7 +6465,7 @@
         {
           "path": "skills/devops-sre/beacon/references/platform-observability.md",
           "owner": "beacon",
-          "sha256": "4e29ee67ca2cf58d77031a984bb4a9034b40080297740f22cfaccc7be9f1d77c",
+          "sha256": "c0a53c965ac7b81af85de82fbfe7a366c71d848508de6bb1762936a5b8a09f41",
           "mode": "100644"
         },
         {
@@ -6385,6 +6478,12 @@
           "path": "skills/devops-sre/beacon/references/toil-automation.md",
           "owner": "beacon",
           "sha256": "5c4f02476fd3e61887d5df4cd83ccad656329c41ea081f813a7386fa1782e37f",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/beacon/LICENSE.upstream.txt",
+          "owner": "beacon",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
           "mode": "100644"
         }
       ]
@@ -6400,11 +6499,11 @@
         "repo": "simota/agent-skills",
         "path": "triage/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
         "sync_mode": "monitor",
-        "path_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49"
+        "path_commit": "41329a67a9b1e737f2d3f0c817ae025b3a3a45f5"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -6454,23 +6553,28 @@
               "source": "triage/reference/scale-and-action-items.md",
               "target": "skills/devops-sre/triage/reference/scale-and-action-items.md",
               "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/devops-sre/triage/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "path_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "content_sha256": "57f66f8c7961429394f589c1a3986e6dc1177692bb4a9b96e9ea6632ccfa1559",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30",
+            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "path_commit": "41329a67a9b1e737f2d3f0c817ae025b3a3a45f5",
+            "content_sha256": "f4f786cd94dbfdaa79e4af4c0f4dc153253138210e3cb4a134579cc76c243ea6",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
-              "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-              "api_spdx": "MIT",
-              "spdx": "MIT"
+              "spdx": "MIT",
+              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "api_spdx": "MIT"
             }
           }
         },
@@ -6561,7 +6665,7 @@
         {
           "path": "skills/devops-sre/triage/SKILL.md",
           "owner": "triage",
-          "sha256": "57f66f8c7961429394f589c1a3986e6dc1177692bb4a9b96e9ea6632ccfa1559",
+          "sha256": "f4f786cd94dbfdaa79e4af4c0f4dc153253138210e3cb4a134579cc76c243ea6",
           "mode": "100644"
         },
         {
@@ -6573,13 +6677,13 @@
         {
           "path": "skills/devops-sre/triage/reference/collaboration-flows.md",
           "owner": "triage",
-          "sha256": "615ea9e356a49a5e49a26e6ede8847c64f31a401fd9474fa14fe49ede11480b5",
+          "sha256": "69a392a5a2d6af714aea455346c1c623444c25a83625cbdaf2456137b284919f",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/triage/reference/escalation-matrix.md",
           "owner": "triage",
-          "sha256": "d1340dea33b407ae5b1819bc2fe1a86cce1d96eb8586dd9aa9e8f16ee778b7c0",
+          "sha256": "4d637e784b76d547cf92ade0e3616664507d023d7683932e3e40d9b3598ffa0e",
           "mode": "100644"
         },
         {
@@ -6603,7 +6707,7 @@
         {
           "path": "skills/devops-sre/triage/reference/recipes-index.md",
           "owner": "triage",
-          "sha256": "d9eb2e586bcd59daf71d27caab35aaa74891e17954230396bd8248a7323eeebc",
+          "sha256": "0ce2cede13df644286f316b497c59d9d39cb18ad63f2e0704183e86dd00ab983",
           "mode": "100644"
         },
         {
@@ -6653,6 +6757,12 @@
           "owner": "triage",
           "sha256": "08fdfe1309797e10f4e6a37bbbe3e4ce15c2362e086e01fb83934131147d0e63",
           "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/triage/LICENSE.upstream.txt",
+          "owner": "triage",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+          "mode": "100644"
         }
       ]
     },
@@ -6667,11 +6777,11 @@
         "repo": "simota/agent-skills",
         "path": "gear/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
         "sync_mode": "monitor",
-        "path_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49"
+        "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -6776,23 +6886,28 @@
               "source": "gear/reference/troubleshooting.md",
               "target": "skills/devops-sre/gear/reference/troubleshooting.md",
               "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/devops-sre/gear/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "path_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "content_sha256": "ae3b99d57dc615745ce8eab8a05bb9cb5515147d5a1eaaaae84cc97fe1aac8a4",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30",
+            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634",
+            "content_sha256": "1a4882b2cfede9d568d0b1ccda3c23e8a94d86b350ff7971a7b30ef51db16d14",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
-              "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-              "api_spdx": "MIT",
-              "spdx": "MIT"
+              "spdx": "MIT",
+              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "api_spdx": "MIT"
             }
           }
         },
@@ -6903,7 +7018,7 @@
         {
           "path": "skills/devops-sre/gear/SKILL.md",
           "owner": "gear",
-          "sha256": "ae3b99d57dc615745ce8eab8a05bb9cb5515147d5a1eaaaae84cc97fe1aac8a4",
+          "sha256": "1a4882b2cfede9d568d0b1ccda3c23e8a94d86b350ff7971a7b30ef51db16d14",
           "mode": "100644"
         },
         {
@@ -6927,7 +7042,7 @@
         {
           "path": "skills/devops-sre/gear/reference/docker-patterns.md",
           "owner": "gear",
-          "sha256": "b4b5d661796c8d9efaf48038dbe9124c1dc8b03cdd9124c1826fed3ddcbddb93",
+          "sha256": "2cad614f76277d73097e9452a2411dd6258fe365a0b3acb8c9497c6dc819b84f",
           "mode": "100644"
         },
         {
@@ -7011,7 +7126,7 @@
         {
           "path": "skills/devops-sre/gear/reference/github-actions.md",
           "owner": "gear",
-          "sha256": "3e669ce6dab09dd0af401889afddc6038bed368431dde32c982daa35806af641",
+          "sha256": "156497989eb5eafe658011595f1465f0855f4e33cc1d9cf2761d4b8e733eba06",
           "mode": "100644"
         },
         {
@@ -7035,7 +7150,7 @@
         {
           "path": "skills/devops-sre/gear/reference/observability.md",
           "owner": "gear",
-          "sha256": "a00cce37fd413de4a181c6a6be4eb601ae53db4c29482e7c37eb63708597f349",
+          "sha256": "6ce699154067af24027cdf1952534c696c978c7bf21790bf2e6fb2e3c7c3ef2a",
           "mode": "100644"
         },
         {
@@ -7085,6 +7200,12 @@
           "owner": "gear",
           "sha256": "ae3184f41b14b30e5226614545321a409472fc54968404cbabe241b0faab5542",
           "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/gear/LICENSE.upstream.txt",
+          "owner": "gear",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+          "mode": "100644"
         }
       ]
     },
@@ -7099,11 +7220,11 @@
         "repo": "simota/agent-skills",
         "path": "ledger/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
         "sync_mode": "monitor",
-        "path_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49"
+        "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -7183,23 +7304,28 @@
               "source": "ledger/reference/unit-economics.md",
               "target": "skills/finance-investing/ledger/reference/unit-economics.md",
               "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/finance-investing/ledger/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "path_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "content_sha256": "59f75e19629bb226c8055abeb196f4518ecad847b352b4579a39aeadcf27b855",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30",
+            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634",
+            "content_sha256": "46de3270d28c859e45c4bc3e01951c4e171e563cf1479003da9a6010dfd200a9",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
-              "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-              "api_spdx": "MIT",
-              "spdx": "MIT"
+              "spdx": "MIT",
+              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "api_spdx": "MIT"
             }
           }
         },
@@ -7305,13 +7431,13 @@
         {
           "path": "skills/finance-investing/ledger/SKILL.md",
           "owner": "ledger",
-          "sha256": "59f75e19629bb226c8055abeb196f4518ecad847b352b4579a39aeadcf27b855",
+          "sha256": "46de3270d28c859e45c4bc3e01951c4e171e563cf1479003da9a6010dfd200a9",
           "mode": "100644"
         },
         {
           "path": "skills/finance-investing/ledger/reference/ai-gpu-cost.md",
           "owner": "ledger",
-          "sha256": "15a1d5e159e37da8767bfa7e73725e414b47df50967db104f7f92dbb7e42b299",
+          "sha256": "d8d71a228e6c16ea0933d07168b4a788d794d897b6efefaf3d45b4c858a4d6bd",
           "mode": "100644"
         },
         {
@@ -7450,6 +7576,12 @@
           "path": "skills/finance-investing/ledger/references/reserved-savings-plans.md",
           "owner": "ledger",
           "sha256": "a6264c964bbdcf4810503ec70258acea8297f3bb7060502981a5b60f0e780c2f",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/finance-investing/ledger/LICENSE.upstream.txt",
+          "owner": "ledger",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
           "mode": "100644"
         }
       ]
@@ -8071,11 +8203,11 @@
         "repo": "simota/agent-skills",
         "path": "growth/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
         "sync_mode": "monitor",
-        "path_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49"
+        "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -8165,23 +8297,28 @@
               "source": "growth/reference/seo-checklist.md",
               "target": "skills/growth-operations-xiaohongshu/growth/reference/seo-checklist.md",
               "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/growth-operations-xiaohongshu/growth/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "path_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "content_sha256": "3cbd8ac5c75e7fc2efe554eef2791c404cc2b5465a98937ad377fe47d77e217e",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30",
+            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634",
+            "content_sha256": "cd17f6d110992198395f54dbbb3972fd56ea04fca26b4c38db29d14a3b6a8f1d",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
-              "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-              "api_spdx": "MIT",
-              "spdx": "MIT"
+              "spdx": "MIT",
+              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "api_spdx": "MIT"
             }
           }
         },
@@ -8282,13 +8419,13 @@
         {
           "path": "skills/growth-operations-xiaohongshu/growth/SKILL.md",
           "owner": "growth",
-          "sha256": "3cbd8ac5c75e7fc2efe554eef2791c404cc2b5465a98937ad377fe47d77e217e",
+          "sha256": "cd17f6d110992198395f54dbbb3972fd56ea04fca26b4c38db29d14a3b6a8f1d",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/growth/reference/autorun-schema.md",
           "owner": "growth",
-          "sha256": "bcac4b7e5c43c961087d809e7524ee429977202cd8be633568298c11f65e86b6",
+          "sha256": "00887e9605ae845042725cfdbb7a518b1a2ed9be064ad279e14251dc38f34a1c",
           "mode": "100644"
         },
         {
@@ -8324,7 +8461,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/growth/reference/cro-patterns.md",
           "owner": "growth",
-          "sha256": "2076fd3732922594c70e5afd1cf2996a05bd0b76228dc1e2524cf207a846bced",
+          "sha256": "672f8d0f9560e3934010e3d9e14c0c46762b0ebcad57521a567bb97ec3f5cacf",
           "mode": "100644"
         },
         {
@@ -8372,13 +8509,13 @@
         {
           "path": "skills/growth-operations-xiaohongshu/growth/reference/retention/winback-campaign.md",
           "owner": "growth",
-          "sha256": "1036724558b362b2c102a2e15e576aab6947d9361c302a11d8dda857213c2608",
+          "sha256": "1770c3c56729581fa21e2d1c4746c4dcda357e2d08d7c44c00c9ec6bb2d057e0",
           "mode": "100644"
         },
         {
           "path": "skills/growth-operations-xiaohongshu/growth/reference/seo-audit.md",
           "owner": "growth",
-          "sha256": "2cfc38b6b007a7b1be3ecf468403dd78f8fd6eef2bd446ec73460fe9230ef8a4",
+          "sha256": "d6a4c214ac49366e39c0a0426763cfbff03c7ff015c7b70d532e04cc9d70618c",
           "mode": "100644"
         },
         {
@@ -8434,6 +8571,12 @@
           "owner": "growth",
           "sha256": "d465229cecc42e4c2028c6537ad1d3dbd430e24c8812846d9f719cbd87841027",
           "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/growth/LICENSE.upstream.txt",
+          "owner": "growth",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+          "mode": "100644"
         }
       ]
     },
@@ -8448,11 +8591,11 @@
         "repo": "simota/agent-skills",
         "path": "compete/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
         "sync_mode": "monitor",
-        "path_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49"
+        "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -8612,18 +8755,18 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "path_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05",
             "content_sha256": "f63873d88e82ab8389ff3bbdb48b734558cbaf827574198bab71be76200d31a2",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
-              "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-              "api_spdx": "MIT",
-              "spdx": "MIT"
+              "spdx": "MIT",
+              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "api_spdx": "MIT"
             }
           }
         },
@@ -9001,11 +9144,11 @@
         "repo": "simota/agent-skills",
         "path": "pulse/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
         "sync_mode": "monitor",
-        "path_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49"
+        "path_commit": "1e2138308d4398e861a0873835142b288ce36e9f"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -9090,23 +9233,28 @@
               "source": "pulse/reference/revenue-analytics.md",
               "target": "skills/growth-operations-xiaohongshu/pulse/reference/revenue-analytics.md",
               "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/growth-operations-xiaohongshu/pulse/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "path_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "content_sha256": "0dd9bfb4f5133a37f08983f4d953ee1b7b2d0a4856d2368f7bc9e4bb686dbd5e",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30",
+            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "path_commit": "1e2138308d4398e861a0873835142b288ce36e9f",
+            "content_sha256": "fdc246b3160232aef75d0fa723ecc7d9dae6ce298a412293d1558b86910ec229",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
-              "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-              "api_spdx": "MIT",
-              "spdx": "MIT"
+              "spdx": "MIT",
+              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "api_spdx": "MIT"
             }
           }
         },
@@ -9222,7 +9370,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/pulse/SKILL.md",
           "owner": "pulse",
-          "sha256": "0dd9bfb4f5133a37f08983f4d953ee1b7b2d0a4856d2368f7bc9e4bb686dbd5e",
+          "sha256": "fdc246b3160232aef75d0fa723ecc7d9dae6ce298a412293d1558b86910ec229",
           "mode": "100644"
         },
         {
@@ -9294,7 +9442,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/pulse/reference/platform-integration.md",
           "owner": "pulse",
-          "sha256": "2e732f1d48abc426e1784ce146448e6372fe6642ac757b2bec27e154082a36f9",
+          "sha256": "f9393edc4b4d25a5783e5859aa2e0e93f5d32ba7014ca1896a1ad0ecc1b42967",
           "mode": "100644"
         },
         {
@@ -9385,6 +9533,12 @@
           "path": "skills/growth-operations-xiaohongshu/pulse/references/revenue-analytics.md",
           "owner": "pulse",
           "sha256": "3f0c34562054589d6bc248ef4bf65e34f8d39d686b54c7a943663953e8a0fa99",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/growth-operations-xiaohongshu/pulse/LICENSE.upstream.txt",
+          "owner": "pulse",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
           "mode": "100644"
         }
       ]
@@ -9506,6 +9660,11 @@
               "source": ".archive/morph/reference/template-library.md",
               "target": "skills/office-white-collar/morph/reference/template-library.md",
               "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/office-white-collar/morph/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -9513,7 +9672,7 @@
             "ref": "6502f44cfcd8f456951a7bfdce14d0ed76d724ef",
             "resolved_commit": "6502f44cfcd8f456951a7bfdce14d0ed76d724ef",
             "path_commit": "6502f44cfcd8f456951a7bfdce14d0ed76d724ef",
-            "content_sha256": "d994fc2dcd1bf0069d0623ebc18270044f8cd2f28532b11e1504d20725c86921",
+            "content_sha256": "6001755b75243e5c0e490f7bea5509752ac91b34645efa8f79d9856c152c6680",
             "last_checked_at": "2026-08-20",
             "last_synced_at": "2026-08-20",
             "license_checkpoint": {
@@ -9599,7 +9758,7 @@
         },
         {
           "path": "skills/office-white-collar/morph/SKILL.md",
-          "sha256": "d994fc2dcd1bf0069d0623ebc18270044f8cd2f28532b11e1504d20725c86921",
+          "sha256": "6001755b75243e5c0e490f7bea5509752ac91b34645efa8f79d9856c152c6680",
           "owner": "morph",
           "mode": "100644"
         },
@@ -9740,6 +9899,12 @@
           "sha256": "32806129fe895806b2ddb1bada72e2d7124809126d0257439dfe2a590a5f21f8",
           "owner": "morph",
           "mode": "100644"
+        },
+        {
+          "path": "skills/office-white-collar/morph/LICENSE.upstream.txt",
+          "owner": "morph",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+          "mode": "100644"
         }
       ]
     },
@@ -9754,11 +9919,11 @@
         "repo": "simota/agent-skills",
         "path": "stage/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
         "sync_mode": "monitor",
-        "path_commit": "965f4f945f04eecdbb673dbbf9cf178d92f2d486"
+        "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -9803,22 +9968,27 @@
               "source": "stage/reference/slide-visual-design.md",
               "target": "skills/office-white-collar/stage/reference/slide-visual-design.md",
               "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/office-white-collar/stage/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "path_commit": "965f4f945f04eecdbb673dbbf9cf178d92f2d486",
-            "content_sha256": "0dc26d07d4bc618da0a9b1ea054d72693ec8e2c29d7918ea81d0b2c6c2e3e734",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30",
+            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634",
+            "content_sha256": "0beb91d4fb8978877822413004a5f85aba600f3d537b327c4fce2dad527f474b",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
               "api_spdx": "MIT"
             }
           }
@@ -9865,7 +10035,7 @@
         {
           "path": "skills/office-white-collar/stage/SKILL.md",
           "owner": "stage",
-          "sha256": "0dc26d07d4bc618da0a9b1ea054d72693ec8e2c29d7918ea81d0b2c6c2e3e734",
+          "sha256": "0beb91d4fb8978877822413004a5f85aba600f3d537b327c4fce2dad527f474b",
           "mode": "100644"
         },
         {
@@ -9889,7 +10059,7 @@
         {
           "path": "skills/office-white-collar/stage/reference/narrative-arc-design.md",
           "owner": "stage",
-          "sha256": "77d5538a6561537453bbd529328d98831d168400a9daf5dcedae6a808bdc30f0",
+          "sha256": "183e3db2cf0db9961a99a5d25ae557c9019ae75705615510e5ec36ccb286dba0",
           "mode": "100644"
         },
         {
@@ -9907,7 +10077,7 @@
         {
           "path": "skills/office-white-collar/stage/reference/slide-visual-design.md",
           "owner": "stage",
-          "sha256": "1f3438aeec37549f4146ef9d6fe15c6f8519e6e73ea02a4f75e3b23338e23ab2",
+          "sha256": "503c1fa5758228a76556efb6797f88093411779ec7a50c48c45bd6f29883d8db",
           "mode": "100644"
         },
         {
@@ -9926,6 +10096,12 @@
           "path": "skills/office-white-collar/stage/references/patterns.md",
           "owner": "stage",
           "sha256": "cf08ec074dcfd198d2602256e3ca63423c3c47e421be89273776145fdda5ebbd",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/office-white-collar/stage/LICENSE.upstream.txt",
+          "owner": "stage",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
           "mode": "100644"
         }
       ]
@@ -10002,6 +10178,11 @@
               "source": "prism/references/steering-prompt-anti-patterns.md",
               "target": "skills/office-white-collar/prism/references/steering-prompt-anti-patterns.md",
               "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/office-white-collar/prism/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -10009,16 +10190,43 @@
             "ref": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
             "resolved_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
             "path_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
-            "content_sha256": "07273962f8be4065032e707f30b77a908868fcf6d81e1f4919ff95f2fc8977c5",
+            "content_sha256": "9a4f27e47494c40c48d0dab3f9638de34bdd746b76b707a3d69a527dd60cf635",
             "last_checked_at": "2026-07-27",
             "last_synced_at": "2026-06-01"
+          }
+        },
+        {
+          "repo": "local-repo/curation",
+          "path": "skills/office-white-collar/prism",
+          "license": null,
+          "sync_mode": "local-only",
+          "artifacts": [
+            {
+              "source": "skills/office-white-collar/prism/references/multilingual-strategy.md",
+              "target": "skills/office-white-collar/prism/references/multilingual-strategy.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/office-white-collar/prism/references/mindmap-design.md",
+              "target": "skills/office-white-collar/prism/references/mindmap-design.md",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "local",
+            "ref": "local",
+            "resolved_commit": null,
+            "path_commit": null,
+            "content_sha256": null,
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26"
           }
         }
       ],
       "managed_files": [
         {
           "path": "skills/office-white-collar/prism/SKILL.md",
-          "sha256": "07273962f8be4065032e707f30b77a908868fcf6d81e1f4919ff95f2fc8977c5",
+          "sha256": "9a4f27e47494c40c48d0dab3f9638de34bdd746b76b707a3d69a527dd60cf635",
           "owner": "prism",
           "mode": "100644"
         },
@@ -10069,6 +10277,24 @@
           "sha256": "4e2a014b292b2d127f7312eb335266423a0f9d5e58ab220de9c60c0cd11f2f8d",
           "owner": "prism",
           "mode": "100644"
+        },
+        {
+          "path": "skills/office-white-collar/prism/references/multilingual-strategy.md",
+          "owner": "prism",
+          "sha256": "0fe9697ec52223ea3de0ae2b39140e48b56cf68098aea5278688983e7a5264a1",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/office-white-collar/prism/references/mindmap-design.md",
+          "owner": "prism",
+          "sha256": "e3438e2619fab08a0cefcc61c3d7596f692ceef866e46703b9dd4f6c47df7bf2",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/office-white-collar/prism/LICENSE.upstream.txt",
+          "owner": "prism",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+          "mode": "100644"
         }
       ]
     },
@@ -10083,11 +10309,11 @@
         "repo": "simota/agent-skills",
         "path": ".agents/skills/lore/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
         "sync_mode": "monitor",
-        "path_commit": "35ffd55887b6a9e53d2e2b5d3c9266aa4bf5de99"
+        "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -10132,22 +10358,27 @@
               "source": ".agents/skills/lore/reference/propagation-protocol.md",
               "target": "skills/knowledge-and-pm-integrations/lore/reference/propagation-protocol.md",
               "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/knowledge-and-pm-integrations/lore/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "path_commit": "35ffd55887b6a9e53d2e2b5d3c9266aa4bf5de99",
-            "content_sha256": "2954a810197103b5451717a8623d4b893dd4f2584ed4fa7a14caa2b7df42fefe",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30",
+            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05",
+            "content_sha256": "06e99e95dbd24ce43ad08acd6e90ce271883b4a29a569ba4ec66d011f65f9c58",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
               "api_spdx": "MIT"
             }
           }
@@ -10199,7 +10430,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lore/SKILL.md",
           "owner": "lore",
-          "sha256": "2954a810197103b5451717a8623d4b893dd4f2584ed4fa7a14caa2b7df42fefe",
+          "sha256": "06e99e95dbd24ce43ad08acd6e90ce271883b4a29a569ba4ec66d011f65f9c58",
           "mode": "100644"
         },
         {
@@ -10211,7 +10442,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lore/reference/decay-detection.md",
           "owner": "lore",
-          "sha256": "fe533881610e13c4c8e65d71ada1dc06230704da0b1bac4baab2e5b171c7c3f8",
+          "sha256": "0aec3585a2257c447895065bea1ac024cf6f889e152d2387e388f6df5050eedb",
           "mode": "100644"
         },
         {
@@ -10223,19 +10454,19 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lore/reference/official-pattern-taxonomy.md",
           "owner": "lore",
-          "sha256": "6c59e02fe83a8a11b1e7009c75dbf89e9f223c6209c2ee9c1946a6947ecf89e1",
+          "sha256": "f2f4b7fa8b3e9619655a70ca04e2be938e1a4c4af6c99351544941af99c0a3b3",
           "mode": "100644"
         },
         {
           "path": "skills/knowledge-and-pm-integrations/lore/reference/pattern-taxonomy.md",
           "owner": "lore",
-          "sha256": "c9d9e4976574b450ec3f5eb9d65cb74a6378554e717f853ceac008a0748ec884",
+          "sha256": "1642a830b0a275f1e05ec3ba9f76a4bf1b11b52f43740545c42fd1d0c4744b6f",
           "mode": "100644"
         },
         {
           "path": "skills/knowledge-and-pm-integrations/lore/reference/propagation-protocol.md",
           "owner": "lore",
-          "sha256": "418940b2135ca78dcb752731ee9e09070f3f6a20cc939eb9bdeaa152ab12d216",
+          "sha256": "9340c043c6c4bcd9f5bff63a3b09c165a8545f68a6fd873b74f4dced6b9d04a1",
           "mode": "100644"
         },
         {
@@ -10267,6 +10498,12 @@
           "owner": "lore",
           "sha256": "82cca7b4d78394129e65e94ec112e56d8aae4dc7714c94d7b74fe03633f0c96e",
           "mode": "100644"
+        },
+        {
+          "path": "skills/knowledge-and-pm-integrations/lore/LICENSE.upstream.txt",
+          "owner": "lore",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+          "mode": "100644"
         }
       ]
     },
@@ -10281,11 +10518,11 @@
         "repo": "simota/agent-skills",
         "path": "tome/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
         "sync_mode": "monitor",
-        "path_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49"
+        "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -10375,23 +10612,28 @@
               "source": "tome/reference/worked-example.md",
               "target": "skills/knowledge-and-pm-integrations/tome/reference/worked-example.md",
               "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/knowledge-and-pm-integrations/tome/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "path_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "content_sha256": "788b82c2bc7e690aecb03982459fba4c7881175154dd576b0b76d8eb96a7e55b",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30",
+            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634",
+            "content_sha256": "77b355044724fc7fca643fcae188e29f8fb149f16ee223de75053eb812b99005",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
-              "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-              "api_spdx": "MIT",
-              "spdx": "MIT"
+              "spdx": "MIT",
+              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "api_spdx": "MIT"
             }
           }
         },
@@ -10487,13 +10729,13 @@
         {
           "path": "skills/knowledge-and-pm-integrations/tome/SKILL.md",
           "owner": "tome",
-          "sha256": "788b82c2bc7e690aecb03982459fba4c7881175154dd576b0b76d8eb96a7e55b",
+          "sha256": "77b355044724fc7fca643fcae188e29f8fb149f16ee223de75053eb812b99005",
           "mode": "100644"
         },
         {
           "path": "skills/knowledge-and-pm-integrations/tome/reference/article-content-repurposing.md",
           "owner": "tome",
-          "sha256": "458a3fd2ebc1cf0d003cfcd998fd3e6ba9794316c8ac872eb1ddc032483bf9ff",
+          "sha256": "7f62f7c836e1d815f0a979ab8ba43999a26e85dad755ae65025e2f6f0b67dd2f",
           "mode": "100644"
         },
         {
@@ -10505,7 +10747,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/tome/reference/article-headline-patterns.md",
           "owner": "tome",
-          "sha256": "4457c3fa869142afe5c1188f0795a62319b53baf4dbbcfee5dedd81c9e07383b",
+          "sha256": "99ca1d71956075b12efbe76229493fa1aa18030b2b0e806fb0a9b7b54389f13d",
           "mode": "100644"
         },
         {
@@ -10517,13 +10759,13 @@
         {
           "path": "skills/knowledge-and-pm-integrations/tome/reference/article-interview-format.md",
           "owner": "tome",
-          "sha256": "d3341ad82755bcc2903465d99964331758107850470f76b79061f3f45dd1e44e",
+          "sha256": "c1082f7d9ed5c4153cf703304821d45778eab8b44e1cd73c6212017342cf8aa8",
           "mode": "100644"
         },
         {
           "path": "skills/knowledge-and-pm-integrations/tome/reference/article-patterns.md",
           "owner": "tome",
-          "sha256": "a623b66ee1945a3e889072cfb83806ec1892020dad8fd806610f6e763631b5c4",
+          "sha256": "2ea3af14261d8339c2ba477be610ff09e910f7e50f4a31ae980fb76379d1b743",
           "mode": "100644"
         },
         {
@@ -10583,7 +10825,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/tome/reference/recipes-index.md",
           "owner": "tome",
-          "sha256": "0572b70b802b25e3aa4b6143df9a5721ca7a1f3561e4fcfaa4dbdd8b104dfe4e",
+          "sha256": "ca2afda57b894943e0b150919d56132c6630ac12b67aa319eb94483e0a06df21",
           "mode": "100644"
         },
         {
@@ -10633,6 +10875,12 @@
           "owner": "tome",
           "sha256": "6dcd9afec54693d7b4dd6d63a4d1383cdf23728df6a9bc3fdb2e4ebf1fd7d3ae",
           "mode": "100644"
+        },
+        {
+          "path": "skills/knowledge-and-pm-integrations/tome/LICENSE.upstream.txt",
+          "owner": "tome",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+          "mode": "100644"
         }
       ]
     },
@@ -10647,11 +10895,11 @@
         "repo": "simota/agent-skills",
         "path": "grove/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
         "sync_mode": "monitor",
-        "path_commit": "35ffd55887b6a9e53d2e2b5d3c9266aa4bf5de99"
+        "path_commit": "27f6d8accb0a75376f660bb23b23117e1f264bca"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -10766,22 +11014,27 @@
               "source": "grove/reference/tests-layout.md",
               "target": "skills/knowledge-and-pm-integrations/grove/reference/tests-layout.md",
               "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/knowledge-and-pm-integrations/grove/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "path_commit": "35ffd55887b6a9e53d2e2b5d3c9266aa4bf5de99",
-            "content_sha256": "da55f49314aa35178e2f153af1691382285dba666e6ca6152ceccb9d60778fd8",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30",
+            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "path_commit": "27f6d8accb0a75376f660bb23b23117e1f264bca",
+            "content_sha256": "62ec9036597ac7b7dc89d07d4b9c02447a5879cf52ef2b1470bb20c4681ee8ba",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
               "api_spdx": "MIT"
             }
           }
@@ -10838,7 +11091,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/grove/SKILL.md",
           "owner": "grove",
-          "sha256": "da55f49314aa35178e2f153af1691382285dba666e6ca6152ceccb9d60778fd8",
+          "sha256": "62ec9036597ac7b7dc89d07d4b9c02447a5879cf52ef2b1470bb20c4681ee8ba",
           "mode": "100644"
         },
         {
@@ -10910,7 +11163,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/grove/reference/llm-sharding-strategy.md",
           "owner": "grove",
-          "sha256": "66bff8c52cd82e943c8800716b01836ac27ba164b29846373b3b888b8f9feae6",
+          "sha256": "e2d40fa0f447c9762f64fec6a1c0bfb6bb5bf78bef639944b06f269162e55d79",
           "mode": "100644"
         },
         {
@@ -10958,7 +11211,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/grove/reference/tests-layout.md",
           "owner": "grove",
-          "sha256": "edac8fe04e110407aff514a483e5bd663343ce8feab39230dc5ea1c0b0abc60b",
+          "sha256": "95763b720f9b5633d1256e3056e40ab674f759401686b51ebc17c74c6f47b659",
           "mode": "100644"
         },
         {
@@ -10995,6 +11248,12 @@
           "path": "skills/knowledge-and-pm-integrations/grove/references/tests-layout.md",
           "owner": "grove",
           "sha256": "25acdf2e3015007bb956f03110909af1fd4cc8e72c273ab892e71b194014c104",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/knowledge-and-pm-integrations/grove/LICENSE.upstream.txt",
+          "owner": "grove",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
           "mode": "100644"
         }
       ]
@@ -11607,6 +11866,11 @@
             {
               "source": "dawn/SKILL.md",
               "target": "skills/operations-general/dawn/SKILL.md"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/operations-general/dawn/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -11614,7 +11878,7 @@
             "ref": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
             "resolved_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
             "path_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
-            "content_sha256": "ac25c79c10bb8507294197d2a3072a6efbe62ef1af4204f46e27948a39d539a9",
+            "content_sha256": "5d5bd68d7974128a47c0de113531fd2495fe613ec8baee91722702b001524b8d",
             "last_checked_at": "2026-07-27",
             "last_synced_at": "2026-05-28"
           }
@@ -11624,7 +11888,13 @@
         {
           "path": "skills/operations-general/dawn/SKILL.md",
           "owner": "dawn",
-          "sha256": "ac25c79c10bb8507294197d2a3072a6efbe62ef1af4204f46e27948a39d539a9",
+          "sha256": "5d5bd68d7974128a47c0de113531fd2495fe613ec8baee91722702b001524b8d",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/operations-general/dawn/LICENSE.upstream.txt",
+          "owner": "dawn",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
           "mode": "100644"
         }
       ]
@@ -11640,11 +11910,11 @@
         "repo": "simota/agent-skills",
         "path": "voice/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
         "sync_mode": "monitor",
-        "path_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49"
+        "path_commit": "41329a67a9b1e737f2d3f0c817ae025b3a3a45f5"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -11704,18 +11974,18 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "path_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "path_commit": "41329a67a9b1e737f2d3f0c817ae025b3a3a45f5",
             "content_sha256": "311ba0dd71230a3fc15b63644a541386274ef84ea39b1acdcf284f6e334908f3",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
-              "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-              "api_spdx": "MIT",
-              "spdx": "MIT"
+              "spdx": "MIT",
+              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "api_spdx": "MIT"
             }
           }
         },
@@ -11918,11 +12188,11 @@
         "repo": "simota/agent-skills",
         "path": "trace/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
         "sync_mode": "monitor",
-        "path_commit": "35ffd55887b6a9e53d2e2b5d3c9266aa4bf5de99"
+        "path_commit": "1e2138308d4398e861a0873835142b288ce36e9f"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -11977,22 +12247,27 @@
               "source": "trace/reference/session-analysis.md",
               "target": "skills/product-design/trace/reference/session-analysis.md",
               "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/product-design/trace/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "path_commit": "35ffd55887b6a9e53d2e2b5d3c9266aa4bf5de99",
-            "content_sha256": "f20c4a3b8cc8ccd4c9a9ca639dde1154985c816cb308ad2478a82facad099bb2",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30",
+            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "path_commit": "1e2138308d4398e861a0873835142b288ce36e9f",
+            "content_sha256": "4a0760a976bbe2d3dbbe6086e75273c69b563b9edeefcf522bbf465e99b87de8",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
               "api_spdx": "MIT"
             }
           }
@@ -12044,7 +12319,7 @@
         {
           "path": "skills/product-design/trace/SKILL.md",
           "owner": "trace",
-          "sha256": "f20c4a3b8cc8ccd4c9a9ca639dde1154985c816cb308ad2478a82facad099bb2",
+          "sha256": "4a0760a976bbe2d3dbbe6086e75273c69b563b9edeefcf522bbf465e99b87de8",
           "mode": "100644"
         },
         {
@@ -12056,7 +12331,7 @@
         {
           "path": "skills/product-design/trace/reference/frustration-signals.md",
           "owner": "trace",
-          "sha256": "dc21de6d309bf0dfcdafb3f8220e0c3b34ca81dafff60303c0aa94181bf16d66",
+          "sha256": "256b9777eb00407ad4c48fa1405a038f7b6c93624df6c4427c738a7c32269df4",
           "mode": "100644"
         },
         {
@@ -12123,6 +12398,12 @@
           "path": "skills/product-design/trace/references/session-analysis.md",
           "owner": "trace",
           "sha256": "eda5c41884e50fb234cd96e77f97ed8904455fed96c1e5a1a5c10b2c035d09b9",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/product-design/trace/LICENSE.upstream.txt",
+          "owner": "trace",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
           "mode": "100644"
         }
       ]
@@ -12324,11 +12605,11 @@
         "repo": "simota/agent-skills",
         "path": "breach/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
         "sync_mode": "monitor",
-        "path_commit": "35ffd55887b6a9e53d2e2b5d3c9266aa4bf5de99"
+        "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -12383,22 +12664,27 @@
               "source": "breach/reference/supply-chain-attack-design.md",
               "target": "skills/security-and-reliability/breach/reference/supply-chain-attack-design.md",
               "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/security-and-reliability/breach/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "path_commit": "35ffd55887b6a9e53d2e2b5d3c9266aa4bf5de99",
-            "content_sha256": "3e2e10da923a4da764963c8a2882b86deb5e1a069062bd93511529d66abeb57b",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30",
+            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634",
+            "content_sha256": "84c7ea4480e9a811e9f75d720959c6300bf35f14a8a7a4511dc2389165118253",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
               "api_spdx": "MIT"
             }
           }
@@ -12460,19 +12746,19 @@
         {
           "path": "skills/security-and-reliability/breach/SKILL.md",
           "owner": "breach",
-          "sha256": "3e2e10da923a4da764963c8a2882b86deb5e1a069062bd93511529d66abeb57b",
+          "sha256": "84c7ea4480e9a811e9f75d720959c6300bf35f14a8a7a4511dc2389165118253",
           "mode": "100644"
         },
         {
           "path": "skills/security-and-reliability/breach/reference/ai-red-teaming.md",
           "owner": "breach",
-          "sha256": "2430a184f52045fb10c1087f00518b9cc26f9dc8efe9e18b575fbccabd9e1150",
+          "sha256": "455ba2e5e7a7ccce33062d436e28072feff7f7139fb087b318726b4af1df43d1",
           "mode": "100644"
         },
         {
           "path": "skills/security-and-reliability/breach/reference/attack-playbooks.md",
           "owner": "breach",
-          "sha256": "43eb4f18315fc92c96379ab09315f67117a2652d4555f27cfa51bd0b663baeb2",
+          "sha256": "543cb11e1c349389241f8cbcf1b5323daa379a47bee36336cc7664c0e1ae9306",
           "mode": "100644"
         },
         {
@@ -12490,7 +12776,7 @@
         {
           "path": "skills/security-and-reliability/breach/reference/phishing-campaign-design.md",
           "owner": "breach",
-          "sha256": "c38f1b1eab726a64e3effe223aff8e22eee03874890941908e75bb795faa56f6",
+          "sha256": "64acc0c8d614c67ff70904bb7adc78cd672a1f1aae97d5fd19d177c7ae23ab9b",
           "mode": "100644"
         },
         {
@@ -12552,6 +12838,12 @@
           "owner": "breach",
           "sha256": "25e1ac61752fd32dc1618cbe130a0c78e539fb80dbbee0e26b1a8b50906908b6",
           "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/breach/LICENSE.upstream.txt",
+          "owner": "breach",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+          "mode": "100644"
         }
       ]
     },
@@ -12566,11 +12858,11 @@
         "repo": "simota/agent-skills",
         "path": "cloak/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
         "sync_mode": "monitor",
-        "path_commit": "35ffd55887b6a9e53d2e2b5d3c9266aa4bf5de99"
+        "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -12615,17 +12907,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "path_commit": "35ffd55887b6a9e53d2e2b5d3c9266aa4bf5de99",
+            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634",
             "content_sha256": "1da482aae33db544cc18bbe60e38b5078558aeda7420427e23a7cf92896a5020",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
               "api_spdx": "MIT"
             }
           }
@@ -13423,11 +13715,11 @@
         "repo": "simota/agent-skills",
         "path": "scaffold/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
         "sync_mode": "monitor",
-        "path_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49"
+        "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -13507,23 +13799,28 @@
               "source": "scaffold/reference/terraform-operations.md",
               "target": "skills/deployment-platforms/scaffold/reference/terraform-operations.md",
               "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/deployment-platforms/scaffold/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "path_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "content_sha256": "8142e7b551983a3c2cb861b533e7da8254d85c10d32160918d14e05608607552",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30",
+            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05",
+            "content_sha256": "1d82dd469f69968abb1d99a622d92f2928c8d5948b5edfafd952cf7cf24c2368",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
-              "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-              "api_spdx": "MIT",
-              "spdx": "MIT"
+              "spdx": "MIT",
+              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "api_spdx": "MIT"
             }
           }
         },
@@ -13624,7 +13921,7 @@
         {
           "path": "skills/deployment-platforms/scaffold/SKILL.md",
           "owner": "scaffold",
-          "sha256": "8142e7b551983a3c2cb861b533e7da8254d85c10d32160918d14e05608607552",
+          "sha256": "1d82dd469f69968abb1d99a622d92f2928c8d5948b5edfafd952cf7cf24c2368",
           "mode": "100644"
         },
         {
@@ -13720,7 +14017,7 @@
         {
           "path": "skills/deployment-platforms/scaffold/reference/terraform-modules.md",
           "owner": "scaffold",
-          "sha256": "12ca5a1326acb9e2cd6eea8ae0b6ab8243f0e62cc6f1060e1eda417128c0163e",
+          "sha256": "bb60dcada990e0ec89c7e0b792c77478591dadd1dfe9439c9f9f36b24395c6b1",
           "mode": "100644"
         },
         {
@@ -13763,6 +14060,12 @@
           "path": "skills/deployment-platforms/scaffold/references/terraform-modules.md",
           "owner": "scaffold",
           "sha256": "f84055b3c20a9774c47d5704c899e1bbd4bd35bb2229e06bb0a6ee7611304fa9",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/deployment-platforms/scaffold/LICENSE.upstream.txt",
+          "owner": "scaffold",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
           "mode": "100644"
         }
       ]
@@ -14233,11 +14536,11 @@
         "repo": "simota/agent-skills",
         "path": "cast/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
         "sync_mode": "monitor",
-        "path_commit": "35ffd55887b6a9e53d2e2b5d3c9266aa4bf5de99"
+        "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -14317,17 +14620,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "path_commit": "35ffd55887b6a9e53d2e2b5d3c9266aa4bf5de99",
+            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634",
             "content_sha256": "b0ef25a9df8d77288fce0e5e24129a2cf4e8438d279d1e082aada3fce7533059",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
               "api_spdx": "MIT"
             }
           }
@@ -14530,11 +14833,11 @@
         "repo": "simota/agent-skills",
         "path": "omen/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
         "sync_mode": "monitor",
-        "path_commit": "c805268f112a735214d5af28dc327561ac1e999d"
+        "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -14594,22 +14897,27 @@
               "source": "omen/reference/tri-engine-failure.md",
               "target": "skills/openclaw-memory-and-safety/omen/reference/tri-engine-failure.md",
               "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/openclaw-memory-and-safety/omen/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "path_commit": "c805268f112a735214d5af28dc327561ac1e999d",
-            "content_sha256": "9a7afb462f3e511e2a941652082f63afa22c58d4a55be1fcb01c2e2a6b5c32ac",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30",
+            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05",
+            "content_sha256": "a98e9ef07cc0f596b41bce60514e5bd39a966f83f93495dd6abefcf7d13c81a9",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
               "api_spdx": "MIT"
             }
           }
@@ -14661,13 +14969,13 @@
         {
           "path": "skills/openclaw-memory-and-safety/omen/SKILL.md",
           "owner": "omen",
-          "sha256": "9a7afb462f3e511e2a941652082f63afa22c58d4a55be1fcb01c2e2a6b5c32ac",
+          "sha256": "a98e9ef07cc0f596b41bce60514e5bd39a966f83f93495dd6abefcf7d13c81a9",
           "mode": "100644"
         },
         {
           "path": "skills/openclaw-memory-and-safety/omen/reference/ai-production-failure-atlas.md",
           "owner": "omen",
-          "sha256": "2d916bc48d344c04781115061c6c09090b57efe75536acc5690cbc1f980b4801",
+          "sha256": "58905aed92720d1e1cd386327999bdce7395d10d41995823e1ad6b8dcf89eeab",
           "mode": "100644"
         },
         {
@@ -14721,7 +15029,7 @@
         {
           "path": "skills/openclaw-memory-and-safety/omen/reference/tri-engine-failure.md",
           "owner": "omen",
-          "sha256": "6254d0650348430d84c4c70f957dbb327f7146afae716b3174e4cceb3fc54b17",
+          "sha256": "72576b8376476e8870fc5372e4126ad811992c48d9bff855ebb012c22e7718c2",
           "mode": "100644"
         },
         {
@@ -14746,6 +15054,12 @@
           "path": "skills/openclaw-memory-and-safety/omen/references/output-templates.md",
           "owner": "omen",
           "sha256": "a38fdd8399fbf60e0ad12a83b15983b9bcaddc8d43f130f02ceeeed48f3cb1e6",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/openclaw-memory-and-safety/omen/LICENSE.upstream.txt",
+          "owner": "omen",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
           "mode": "100644"
         }
       ]
@@ -14903,11 +15217,11 @@
         "repo": "simota/agent-skills",
         "path": "lens/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
         "sync_mode": "monitor",
-        "path_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49"
+        "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -14977,23 +15291,28 @@
               "source": "lens/reference/search-strategies.md",
               "target": "skills/task-understanding-decomposition/lens/reference/search-strategies.md",
               "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/task-understanding-decomposition/lens/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "path_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "content_sha256": "ae6bda5bcc63a30cebb45f6ee909309c3d1e67cdcbaea57e61cf12bec8cbac4f",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30",
+            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "path_commit": "350ad2b18cb8092a3c8c0ccc15e97622a78f2634",
+            "content_sha256": "ce64b0c787a3a68ba7e96d9f1829bdebf60424a50df5c3a1d6f38191e537d787",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
-              "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-              "api_spdx": "MIT",
-              "spdx": "MIT"
+              "spdx": "MIT",
+              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "api_spdx": "MIT"
             }
           }
         },
@@ -15059,7 +15378,7 @@
         {
           "path": "skills/task-understanding-decomposition/lens/SKILL.md",
           "owner": "lens",
-          "sha256": "ae6bda5bcc63a30cebb45f6ee909309c3d1e67cdcbaea57e61cf12bec8cbac4f",
+          "sha256": "ce64b0c787a3a68ba7e96d9f1829bdebf60424a50df5c3a1d6f38191e537d787",
           "mode": "100644"
         },
         {
@@ -15071,7 +15390,7 @@
         {
           "path": "skills/task-understanding-decomposition/lens/reference/change-hotspot.md",
           "owner": "lens",
-          "sha256": "77085a0cfe0a59e41a5c2e299c3b76d9ab1f46f3af18b4d3adb932552fee848c",
+          "sha256": "db68c6548fc3c5b90717cb1850f9007c36d8e8b706f55b9b824efd964e8b2077",
           "mode": "100644"
         },
         {
@@ -15145,6 +15464,12 @@
           "owner": "lens",
           "sha256": "ce289ab80470b8f7ffc63300c1df9460c1d2894736355edbfa12f74ee7ac48ca",
           "mode": "100644"
+        },
+        {
+          "path": "skills/task-understanding-decomposition/lens/LICENSE.upstream.txt",
+          "owner": "lens",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+          "mode": "100644"
         }
       ]
     },
@@ -15159,11 +15484,11 @@
         "repo": "simota/agent-skills",
         "path": "scout/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
         "sync_mode": "monitor",
-        "path_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49"
+        "path_commit": "41329a67a9b1e737f2d3f0c817ae025b3a3a45f5"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -15268,23 +15593,28 @@
               "source": "scout/reference/video-bug-analysis.md",
               "target": "skills/task-understanding-decomposition/scout/reference/video-bug-analysis.md",
               "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/task-understanding-decomposition/scout/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "path_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "content_sha256": "c3df6743a4b56700f17c30305d33e1717e77c92b36f31940c0a4cae12b124f33",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30",
+            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "path_commit": "41329a67a9b1e737f2d3f0c817ae025b3a3a45f5",
+            "content_sha256": "da6327c40d3f6235f0701741a1c4a98fb263f2b866de2f3f9faa1fbd355342d3",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
-              "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-              "api_spdx": "MIT",
-              "spdx": "MIT"
+              "spdx": "MIT",
+              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "api_spdx": "MIT"
             }
           }
         },
@@ -15405,7 +15735,7 @@
         {
           "path": "skills/task-understanding-decomposition/scout/SKILL.md",
           "owner": "scout",
-          "sha256": "c3df6743a4b56700f17c30305d33e1717e77c92b36f31940c0a4cae12b124f33",
+          "sha256": "da6327c40d3f6235f0701741a1c4a98fb263f2b866de2f3f9faa1fbd355342d3",
           "mode": "100644"
         },
         {
@@ -15459,7 +15789,7 @@
         {
           "path": "skills/task-understanding-decomposition/scout/reference/flake-investigation.md",
           "owner": "scout",
-          "sha256": "07c4b5128fbb2bfb1e115144762aec33090ef625e6ab4fa41134ee0a37e4e569",
+          "sha256": "8fa7df7e64620a3430c767146b6a422d83d4216de6836a1f919c55f341eac59c",
           "mode": "100644"
         },
         {
@@ -15501,7 +15831,7 @@
         {
           "path": "skills/task-understanding-decomposition/scout/reference/observability-debugging.md",
           "owner": "scout",
-          "sha256": "49c5ba692a9bcd4748a62d114da10f77f8b8128af46704b91ff0f478af4d5463",
+          "sha256": "e3e317930643b7ed019ba340302d857787e4ccfe93425a0f25dea6d8d020d341",
           "mode": "100644"
         },
         {
@@ -15513,7 +15843,7 @@
         {
           "path": "skills/task-understanding-decomposition/scout/reference/perf-investigation.md",
           "owner": "scout",
-          "sha256": "aec6d34717683f9baa223af691b68c44b117da9a59db228c686be20642520f29",
+          "sha256": "8ad4c0ffcc153654e53501d1c62803af7bcdf14a5e6d70d90c84a3fe4cc66933",
           "mode": "100644"
         },
         {
@@ -15531,7 +15861,7 @@
         {
           "path": "skills/task-understanding-decomposition/scout/reference/tri-engine-investigate.md",
           "owner": "scout",
-          "sha256": "162233b293291c08d52c56db001bf70ac0184a64edebb5f36e358ff4bcb1840c",
+          "sha256": "5edf4a35428358178f6fefcc0b23755871e01365b0422f2aa50be982830ee010",
           "mode": "100644"
         },
         {
@@ -15585,7 +15915,7 @@
         {
           "path": "skills/task-understanding-decomposition/scout/references/observability-debugging.md",
           "owner": "scout",
-          "sha256": "e3e317930643b7ed019ba340302d857787e4ccfe93425a0f25dea6d8d020d341",
+          "sha256": "a08ad03d2d552d80fa7a8cb306d0c8e409ce15b313519755532562ad991d4974",
           "mode": "100644"
         },
         {
@@ -15598,6 +15928,12 @@
           "path": "skills/task-understanding-decomposition/scout/references/perf-investigation.md",
           "owner": "scout",
           "sha256": "670b2fafaa46e6db7e2ad110ac0adfd61803d90e8db1687893087a23a9a5344d",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/task-understanding-decomposition/scout/LICENSE.upstream.txt",
+          "owner": "scout",
+          "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
           "mode": "100644"
         }
       ]
@@ -15613,11 +15949,11 @@
         "repo": "simota/agent-skills",
         "path": "ripple/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
         "sync_mode": "monitor",
-        "path_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49"
+        "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -15677,18 +16013,18 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-            "path_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
+            "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+            "path_commit": "e7cdf4572c7ba74d462a1feecf65c30a36fefb05",
             "content_sha256": "ba62a566b7fd45c15494da79153f5c2f269f85316247de41232bea98fac1d5dd",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
-              "resolved_commit": "f425adcb2111ca8c0be88b325888ff61b64dec49",
-              "api_spdx": "MIT",
-              "spdx": "MIT"
+              "spdx": "MIT",
+              "resolved_commit": "2e02cc9efb3852a45334495df3784d59b87b0e18",
+              "api_spdx": "MIT"
             }
           }
         },
@@ -15875,6 +16211,13 @@
       "target": "simota/agent-skills@f425adcb2111ca8c0be88b325888ff61b64dec49",
       "result": "success",
       "evidence": "Compared the complete declared artifact sets and regular sibling resources at immutable commits; applied reviewed deltas, retained local authorization/host adapters, and isolated removed references as immutable licensed sidecars. Source comparison and targeted semantic review are not live vendor/API or model behavioral certification. See docs/maintenance-audit-2026-09-30.json."
+    },
+    {
+      "date": "2026-10-26",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "simota/agent-skills@2e02cc9efb3852a45334495df3784d59b87b0e18",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
     }
   ]
 }

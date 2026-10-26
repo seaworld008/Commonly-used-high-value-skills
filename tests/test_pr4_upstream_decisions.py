@@ -29,16 +29,23 @@ def assert_managed_inventory(item: dict) -> None:
 
 
 def test_using_superpowers_tracks_current_complete_reference_set() -> None:
+    data = mapping("obra-superpowers-2026-04.skills.json")
     item = entry(
-        mapping("obra-superpowers-2026-04.skills.json"),
+        data,
         "using-superpowers",
     )
     origin = item["origins"][0]
     references = ROOT / "skills" / "ai-workflow" / "using-superpowers" / "references"
 
-    assert origin["tracking"]["resolved_commit"] == (
-        "bb92a77741419a4ab5f06e711a283343f1ada0c3"
+    reviewed = next(
+        attempt for attempt in reversed(data["verification_attempts"])
+        if attempt["method"] == "commit-aware-manual-monitor-review"
+        and attempt["target"].startswith(f"{origin['repo']}@")
+        and attempt["result"] == "success"
     )
+    reviewed_commit = reviewed["target"].rsplit("@", 1)[1]
+    assert origin["tracking"]["resolved_commit"] == reviewed_commit
+    assert origin["tracking"]["license_checkpoint"]["resolved_commit"] == reviewed_commit
     assert {path.name for path in references.glob("*.md")} == {
         "antigravity-tools.md",
         "claude-code-tools.md",
@@ -130,3 +137,13 @@ def test_license_drift_is_frozen_at_permissive_immutable_snapshots() -> None:
         assert tracking["license_checkpoint"]["spdx"] == license_name
         assert tracking["license_checkpoint"]["resolved_commit"] == commit
         assert_managed_inventory(item)
+
+
+def test_local_prism_references_do_not_revive_frozen_upstream() -> None:
+    item = entry(mapping("simota-agent-skills-2026-04.skills.json"), "prism")
+    origin = item["origins"][0]
+    assert item["kind"] == "snapshot"
+    assert item["sync_mode"] == "local-only"
+    assert origin["tracking"]["channel"] == "fixed_ref"
+    assert origin["tracking"]["ref"] == "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097"
+    assert origin["tracking"]["resolved_commit"] == origin["tracking"]["ref"]

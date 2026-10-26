@@ -6,22 +6,24 @@
 
 ---
 
-## OWASP Top 10 (2021/2025) Attack Playbook
+## OWASP Top 10 (2025) Attack Playbook
 
-| # | Vulnerability | Attack Technique | Test Approach |
-|---|--------------|------------------|---------------|
-| A01 | Broken Access Control | IDOR, forced browsing, privilege escalation, JWT manipulation | Enumerate resources with different auth levels; test horizontal/vertical access |
-| A02 | Cryptographic Failures | Weak algorithms, missing encryption, key exposure | Check TLS config, storage encryption, key management |
-| A03 | Injection | SQLi, NoSQLi, Command injection, LDAP injection | Parameterized input testing with payloads across all input vectors |
-| A04 | Insecure Design | Business logic flaws, missing rate limits, abuse cases | Threat model the design; test business logic edge cases |
-| A05 | Security Misconfiguration | Default credentials, verbose errors, unnecessary features | Configuration audit against CIS benchmarks |
-| A06 | Vulnerable Components | Known CVEs in dependencies, outdated libraries | Dependency scanning, version checking, exploit verification |
-| A07 | Auth Failures | Credential stuffing, brute force, session fixation | Test auth flows, session management, password policies |
-| A08 | Data Integrity Failures | Insecure deserialization, unsigned updates, CI/CD compromise | Test serialization, verify update integrity, audit pipeline |
-| A09 | Logging Failures | Missing security logs, log injection, monitoring gaps | Verify critical events are logged; test log integrity |
-| A10 | SSRF | Internal service access, cloud metadata, port scanning | Test URL inputs for internal resource access |
+Use the [official 2025 categories](https://top10.owasp.org/2025/) rather than
+mixing the 2021 IDs with 2025 names. Map findings by their demonstrated cause and
+impact; a category label does not establish exploitability or authorize testing.
 
----
+| Category | Focused assessment |
+|---|---|
+| A01 Broken Access Control | IDOR, forced browsing, horizontal/vertical privilege tests; authorized SSRF tests for internal services, metadata endpoints and URL reachability |
+| A02 Security Misconfiguration | Default credentials, verbose errors, unnecessary services and effective configuration; compare applicable CIS guidance |
+| A03 Software Supply Chain Failures | Known dependency CVEs, version/exposure verification, build provenance, CI permissions, artifact integrity and update paths |
+| A04 Cryptographic Failures | TLS configuration, storage encryption, weak algorithms, key handling and secrets exposure |
+| A05 Injection | Parameterized SQL/NoSQL, command and LDAP injection tests; trace controlled input to interpreters and templates |
+| A06 Insecure Design | Business-logic abuse, missing rate limits and security properties not fixed by input validation alone |
+| A07 Authentication Failures | Authorized credential/brute-force resistance tests, session lifecycle, account recovery, JWT boundaries and bypass paths |
+| A08 Software or Data Integrity Failures | Unsafe deserialization, unsigned updates and CI/data-integrity assumptions |
+| A09 Security Logging and Alerting Failures | Missing critical logs, log injection/tampering, monitoring coverage and actionable alert delivery |
+| A10 Mishandling of Exceptional Conditions | Fail-open error paths, exceptional inputs and resource-exhaustion behavior |
 
 ## OWASP API Security Top 10 Attack Playbook
 

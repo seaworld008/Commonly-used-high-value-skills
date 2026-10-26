@@ -2,14 +2,14 @@
 name: agent-hub
 description: 'Compare independent solutions with agent-hub when parallel competition is requested; isolate Git worktrees, evaluate variants, and integrate the selected result.'
 zh_description: "用于管理 Agent 能力中心、技能发现、路由和协作工作流。"
-version: "1.0.11"
+version: "1.0.13"
 author: "seaworld008"
 source: "github:alirezarezvani/claude-skills"
 source_url: "https://github.com/alirezarezvani/claude-skills/blob/main/engineering/agenthub/skills/agenthub/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "hub"]'
 created_at: "2026-03-27"
-updated_at: "2026-09-22"
+updated_at: "2026-10-26"
 quality: 4
 complexity: "intermediate"
 ---
@@ -17,6 +17,14 @@ complexity: "intermediate"
 # AgentHub — Multi-Agent Collaboration
 
 Spawn N parallel AI agents that compete on the same task. Each agent works in an isolated git worktree. The coordinator evaluates results and merges the winner.
+
+
+Slash commands below belong to the separately installed upstream AgentHub
+plugin; loading this canonical skill does not register those commands. Use the
+bundled Python helpers when appropriate and inspect their actual help. The
+plugin-layout dry_run.py requires a complete upstream plugin checkout; missing
+plugin command files in this portable skill bundle are not a successful plugin
+installation or a reason to invent host commands.
 
 ## Slash Commands
 
@@ -28,7 +36,7 @@ Spawn N parallel AI agents that compete on the same task. Each agent works in an
 | `/hub:eval` | Rank agent results by metric or LLM judge |
 | `/hub:merge` | Merge winning branch, archive losers |
 | `/hub:board` | Read/write the agent message board |
-| `/hub:run` | One-shot lifecycle: init → baseline → spawn → eval → merge |
+| `/hub:hub-run` | One-shot lifecycle: init → baseline → spawn → eval → merge |
 
 ## Agent Templates
 
@@ -258,7 +266,7 @@ npx clawhub@latest install agenthub
 ## Related Skills
 
 - **autoresearch-agent** — Single-agent optimization loop (use AgentHub when you want N agents competing)
-- **self-improving-agent** — Self-modifying agent (use AgentHub when you want external competition)
+- **reflect-learn** — Review feedback and compare controlled workflow improvements; persist guidance only within existing authorization.
 - **git-worktree-manager** — Git worktree utilities (AgentHub uses worktrees internally)
 <!-- LOCAL-QUALITY-SUPPLEMENT:START -->
 ## Usage Notes

@@ -1,11 +1,11 @@
-> Provider contract reference, reviewed at 645ccfbad23f258ed9efb24de1ead641f15938e1. The canonical SKILL.md remains authoritative: read-only/request-planning limits, live usage estimates, privacy, and user authorization apply. Prices and legal statements here are not current advice.
+> Provider contract reference, reviewed at 9ba3efe58f7ddadbf0d256cb5447eb02d73bbe3c. The canonical SKILL.md remains authoritative: read-only/request-planning limits, live usage estimates, privacy, and user authorization apply. Prices and legal statements here are not current advice.
 
 # Xquik MCP server
 
 The remote server lives at `https://xquik.com/mcp` and speaks Streamable HTTP.
-Sign in with OAuth from the client. The server exposes 3 tools: `docs` for
-guidance, `search` for route contracts, and `execute` for calls. Hosted MCP
-adds the `Idempotency-Key` header to writes.
+Sign in with OAuth from the client. The server exposes 3 tools. They are
+`docs` for guidance, `search` for route contracts, and `execute` for calls.
+Hosted MCP adds the `Idempotency-Key` header to writes.
 
 | Client | Setup |
 | --- | --- |
