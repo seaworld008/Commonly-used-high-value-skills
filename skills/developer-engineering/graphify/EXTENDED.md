@@ -85,11 +85,11 @@ Subagent prompt template:
 
 See `references/extraction-spec.md` for the compact subagent prompt (rules, node-ID format, confidence rubric, hyperedge and vision rules, JSON schema). Load it only here, only when at least one chunk holds a doc, paper, or image; a pure-code corpus has skipped Part B and never reads it. Pass each agent that prompt verbatim with FILE_LIST, CHUNK_NUM, TOTAL_CHUNKS, and DEEP_MODE substituted, and have it return the JSON inline.
 
-**Step B3 - Collect, cache, and merge**
+**Step B3 - Collect without mutating the graph or cache**
 
 Wait for all subagents. For each result:
 - Check that `graphify-out/.graphify_chunk_NN.json` exists on disk — this is the success signal
-- If the file exists and contains valid JSON with `nodes` and `edges`, include it and save to cache
+- If the file exists and contains valid JSON with `nodes` and `edges`, retain it as a candidate only. Do not call `save_semantic_cache` until every expected chunk passes B3.5.
 - If the file is missing, the subagent was likely dispatched as read-only (Explore type) — print a warning: "chunk N missing from disk — subagent may have been read-only. Re-run with general-purpose agent." Do not silently skip.
 - If any task fails, has no output, or returns invalid JSON, stop before merge and preserve the previous graph/cache.
 
@@ -112,7 +112,7 @@ coverage receipt is complete. This validates an agent's attestation against file
 lengths; it cannot prove that a model actually read or understood the contents.
 Binary media still needs its own page/frame/content acceptance evidence.
 After all receipts pass, clear only this run's temporary partial-file marker.
-Cache-only runs still execute B3's cached merge; they never replace cached nodes
+Cache-only runs still execute the cached merge below; they never replace cached nodes
 with an empty semantic graph.
 
 Merge all chunk files into `.graphify_semantic_new.json`. When the host exposes actual token usage, record it before merging. Otherwise mark usage unmeasured; placeholder zeros are not measured cost or evidence of free execution. Then run:
@@ -139,7 +139,7 @@ print(f'Merged {len(chunks)} chunks: {total_in:,} in / {total_out:,} out tokens'
 "
 ```
 
-Save new results to cache. Pass the same SPEC_PATH as Step B0 — it stamps each entry with the prompt that produced it, and a write under a different prompt than the read lands where the next run won't look (#1939):
+Only after every receipt has passed B3.5 and the merge above succeeds, save new results to cache. On validation failure, leave all previous cache entries unchanged. Pass the same SPEC_PATH as Step B0 — it stamps each entry with the prompt that produced it, and a write under a different prompt than the read lands where the next run won't look (#1939):
 ```bash
 "$(cat graphify-out/.graphify_python)" -c "
 import json

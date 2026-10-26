@@ -123,7 +123,8 @@
         "新上游B2与B3失败处理矛盾，必须统一为全部验证后再合并。",
         "coverage必须完整保留，并检测预期文本文件漏报。",
         "本地update.md双引号Python参数中的反引号须删除。",
-        "未验证新增runtime helper与参数在实际安装版本中的兼容性。"
+        "未验证新增runtime helper与参数在实际安装版本中的兼容性。",
+        "最终独立审查修正提前写缓存：所有分块回执验证通过后才写缓存；CLI 失败保留旧缓存回归通过。"
       ],
       "applied_targets": [
         "skills/developer-engineering/graphify/SKILL.md",

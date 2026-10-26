@@ -74,3 +74,20 @@ def test_chunk_symlink_is_not_followed(tmp_path):
     try: chunk.symlink_to(target)
     except OSError: pytest.skip('symlinks unavailable')
     with pytest.raises(ValueError): module.validate(tmp_path, manifest, tmp_path, 1)
+
+
+def test_cli_failure_preserves_existing_cache(tmp_path):
+    import subprocess
+    import sys
+
+    manifest, _ = prepare(tmp_path, {})
+    cache = tmp_path / '.graphify_cache.json'
+    original = b'{"previous": "accepted extraction"}\n'
+    cache.write_bytes(original)
+    result = subprocess.run([sys.executable, str(SCRIPT), '--root', str(tmp_path),
+        '--manifest', str(manifest), '--chunks-dir', str(tmp_path),
+        '--expected-chunks', '1'], capture_output=True, text=True)
+    assert result.returncode != 0
+    assert 'missing coverage' in result.stdout + result.stderr
+    assert cache.read_bytes() == original
+    assert not (tmp_path / '.graphify_semantic_new.json').exists()

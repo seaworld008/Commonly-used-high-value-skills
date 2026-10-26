@@ -1858,7 +1858,7 @@
       "name": "graphify",
       "category": "developer-engineering",
       "description": "Build, query, or refresh Graphify knowledge graphs for code and documents when graph-based relationship analysis is useful or explicitly requested.",
-      "version": "1.0.10",
+      "version": "1.0.11",
       "author": "Graphify-Labs",
       "source": "github:Graphify-Labs/graphify",
       "source_url": "https://github.com/Graphify-Labs/graphify/blob/1cd9a36c0c57a661d2d2234bc3207e887e1ba104/graphify/skill-codex.md",

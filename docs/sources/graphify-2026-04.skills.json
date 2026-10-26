@@ -70,7 +70,7 @@
             "ref": "v0.9.95",
             "resolved_commit": "92741d162b2094ffc2fed58cfbd8ee823e9da62c",
             "path_commit": "8a982c4a927e2f185036c339bee7a999364b8c9a",
-            "content_sha256": "a5a4d646264efea4f6b433f10f9cbcce6b21f0d90e025c3b663df89ffd922d3b",
+            "content_sha256": "05c3d96bb51318dc7c3f20d9fe411f9c9022dacc8a3042590464851bd62e4bf4",
             "last_checked_at": "2026-10-26",
             "last_synced_at": "2026-10-26",
             "license_checkpoint": {
@@ -115,13 +115,13 @@
         {
           "path": "skills/developer-engineering/graphify/EXTENDED.md",
           "owner": "graphify",
-          "sha256": "b5ae02f147fb1679744a4bdec88de306a14827688384c44b5731417ee4ba6185",
+          "sha256": "8fc2ff022311091327fc628bf652c0648ef1689a342f43889f0e990aa22a4f14",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/graphify/SKILL.md",
           "owner": "graphify",
-          "sha256": "a5a4d646264efea4f6b433f10f9cbcce6b21f0d90e025c3b663df89ffd922d3b",
+          "sha256": "05c3d96bb51318dc7c3f20d9fe411f9c9022dacc8a3042590464851bd62e4bf4",
           "mode": "100644"
         },
         {
