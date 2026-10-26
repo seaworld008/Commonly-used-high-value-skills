@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://github.com/seaworld008/Commonly-used-high-value-skills",
-    "checked_at": "2026-09-22",
+    "checked_at": "2026-10-26",
     "note": "Auto-generated provenance mapping for all local skills."
   },
   "official_references": [
@@ -16483,6 +16483,101 @@
       ]
     },
     {
+      "video_name": "remotion-video",
+      "normalized_slug": "remotion-video",
+      "status": "in_house",
+      "repo_skill": "skills/multimodal-media/remotion-video/SKILL.md",
+      "source": "https://github.com/seaworld008/Commonly-used-high-value-skills",
+      "notes": "In-house canonical skill (local repository source of truth).",
+      "upstream": {
+        "repo": "local-repo/in-house",
+        "path": "skills/multimodal-media/remotion-video",
+        "ref": "main",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": null,
+        "sync_mode": "local-only"
+      },
+      "kind": "in_house",
+      "origins": [
+        {
+          "repo": "local-repo/in-house",
+          "path": "skills/multimodal-media/remotion-video",
+          "license": "MIT",
+          "sync_mode": "local-only",
+          "artifacts": [
+            {
+              "source": "skills/multimodal-media/remotion-video/LICENSE",
+              "target": "skills/multimodal-media/remotion-video/LICENSE",
+              "type": "file"
+            },
+            {
+              "source": "skills/multimodal-media/remotion-video/SKILL.md",
+              "target": "skills/multimodal-media/remotion-video/SKILL.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/multimodal-media/remotion-video/examples/TitleCard.tsx",
+              "target": "skills/multimodal-media/remotion-video/examples/TitleCard.tsx",
+              "type": "file"
+            },
+            {
+              "source": "skills/multimodal-media/remotion-video/references/official-api.md",
+              "target": "skills/multimodal-media/remotion-video/references/official-api.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/multimodal-media/remotion-video/scripts/validate_media.py",
+              "target": "skills/multimodal-media/remotion-video/scripts/validate_media.py",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "local",
+            "ref": "main",
+            "resolved_commit": null,
+            "path_commit": null,
+            "content_sha256": "12918c96872376de0e47f92fd7bec11dff5aa473c1f0b133964edd44b715d122",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26"
+          }
+        }
+      ],
+      "sync_mode": "local-only",
+      "managed_files": [
+        {
+          "path": "skills/multimodal-media/remotion-video/LICENSE",
+          "owner": "remotion-video",
+          "sha256": "281f4e958733265748fe44429a72ca4c4518b5dd0fa64f87f6f66b7b24248741",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/multimodal-media/remotion-video/SKILL.md",
+          "owner": "remotion-video",
+          "sha256": "12918c96872376de0e47f92fd7bec11dff5aa473c1f0b133964edd44b715d122",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/multimodal-media/remotion-video/examples/TitleCard.tsx",
+          "owner": "remotion-video",
+          "sha256": "c4ec8b4c2bb59b5dfcdd47caa845e9b518cb0abc0a2b87ff93cd93b3bb53049f",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/multimodal-media/remotion-video/references/official-api.md",
+          "owner": "remotion-video",
+          "sha256": "489b759ab64bf5318ae939e79800036c70abba5ccb88084c637d7c9fcacdc4c3",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/multimodal-media/remotion-video/scripts/validate_media.py",
+          "owner": "remotion-video",
+          "sha256": "510dbbf1b7a1004be656c8be8fa23b5e8b14e108d2ce3d6b0de98b7672a55330",
+          "mode": "100644"
+        }
+      ]
+    },
+    {
       "video_name": "render-deploy",
       "normalized_slug": "render-deploy",
       "status": "in_house",
@@ -22385,6 +22480,13 @@
       "target": "skills/*/*/SKILL.md",
       "result": "success",
       "evidence": "Merged provenance for 130 local skills"
+    },
+    {
+      "date": "2026-10-26",
+      "method": "local-scan",
+      "target": "skills/*/*/SKILL.md",
+      "result": "success",
+      "evidence": "Merged provenance for 131 local skills"
     }
   ],
   "schema_version": 2

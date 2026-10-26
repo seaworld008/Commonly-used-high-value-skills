@@ -1,0 +1,6 @@
+interface:
+  display_name: "Security Model"
+  short_description: "Define scoped SECURITY_MODEL.md guidance for security review"
+  default_prompt: "Use $security-model to define or update this repository's SECURITY_MODEL.md and show the proposed diff."
+policy:
+  allow_implicit_invocation: true

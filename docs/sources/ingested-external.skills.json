@@ -424,6 +424,579 @@
         }
       ],
       "curation_note": "2026-09-22: reviewed MIT official skill at 1123817e60d15ca0f3af91878923241dee7e3b09; all references and license mapped to immutable upstream. Local overlay narrows triggers, fixes dependent transaction IDs, replaces stale latest-version wording, labels upstream evidence and constrains destructive migration examples. Markdown trailing whitespace normalized. Runtime Prisma execution not claimed."
+    },
+    {
+      "video_name": "security-model",
+      "normalized_slug": "security-model",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/security-and-reliability/security-model/SKILL.md",
+      "source": "https://github.com/getsentry/skills/tree/d12f250460ffd961f549dbebf7eeb0cf4afd4c2e/skills/security-model",
+      "notes": "Reviewed portable overlay; local canonical entry and hardened helpers are not an upstream release. Immutable originals and legal notices retained as reference data; original executables use .txt suffixes.",
+      "kind": "overlay",
+      "sync_mode": "monitor",
+      "upstream": {
+        "repo": "getsentry/skills",
+        "path": "skills/security-model/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "d12f250460ffd961f549dbebf7eeb0cf4afd4c2e",
+        "sync_mode": "monitor"
+      },
+      "origins": [
+        {
+          "repo": "getsentry/skills",
+          "path": "skills/security-model/SKILL.md",
+          "license": "Apache-2.0",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/security-model/SKILL.md",
+              "target": "skills/security-and-reliability/security-model/SKILL.md",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/security-and-reliability/security-model/LICENSE.upstream.txt",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-model/scripts/selftest_resolve_security_model.py",
+              "target": "skills/security-and-reliability/security-model/scripts/selftest_resolve_security_model.py",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-model/SKILL.md",
+              "target": "skills/security-and-reliability/security-model/upstream/ENTRY.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-model/SOURCES.md",
+              "target": "skills/security-and-reliability/security-model/upstream/SOURCES.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-model/SPEC.md",
+              "target": "skills/security-and-reliability/security-model/upstream/SPEC.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-model/agents/openai.yaml",
+              "target": "skills/security-and-reliability/security-model/upstream/agents/openai.yaml",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-model/references/consuming-policy.md",
+              "target": "skills/security-and-reliability/security-model/upstream/references/consuming-policy.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-model/scripts/resolve_security_model.py",
+              "target": "skills/security-and-reliability/security-model/upstream/scripts/resolve_security_model.py.txt",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-model/scripts/selftest_resolve_security_model.py",
+              "target": "skills/security-and-reliability/security-model/upstream/scripts/selftest_resolve_security_model.py.txt",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "d12f250460ffd961f549dbebf7eeb0cf4afd4c2e",
+            "path_commit": "31cd1798979b19501efb3996d918bda272705cc9",
+            "content_sha256": "c300c90b8c021d8f13788e4bda35c5326d8f12273574c110976c1d684b795679",
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "753a6c03c60a9232405d05170bd3ad3cab49a1ef",
+              "content_sha256": "96e78a9ce85795b117c8929887bdb78f88bf23f7b85a31f0872cde4dff7e92cd",
+              "spdx": "Apache-2.0",
+              "resolved_commit": "d12f250460ffd961f549dbebf7eeb0cf4afd4c2e",
+              "api_spdx": "Apache-2.0"
+            },
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26"
+          }
+        },
+        {
+          "repo": "openai/codex-security",
+          "path": "LICENSE",
+          "license": "Apache-2.0",
+          "sync_mode": "archived",
+          "artifacts": [
+            {
+              "source": "LICENSE",
+              "target": "skills/security-and-reliability/security-model/upstream/LICENSE.openai.txt",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "fixed_ref",
+            "ref": "2b74623e0fe2e92b6832e0cea585944ec60495ae",
+            "resolved_commit": "2b74623e0fe2e92b6832e0cea585944ec60495ae",
+            "path_commit": "01ef6c278f593b5d5ecbb2a9b826b7dcd4092e7e",
+            "content_sha256": null,
+            "license_checkpoint": {
+              "path": "LICENSE",
+              "blob_sha": "4606e72e042564097e8780d66c1d4dcb611869bd",
+              "content_sha256": "d17f227e4df5da1600391338865ce0f3055211760a36688f816941d58232d8dc",
+              "spdx": "Apache-2.0",
+              "resolved_commit": "2b74623e0fe2e92b6832e0cea585944ec60495ae",
+              "api_spdx": "Apache-2.0"
+            },
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26"
+          }
+        },
+        {
+          "repo": "local-repo/curation",
+          "path": "skills/security-and-reliability/security-model",
+          "license": null,
+          "sync_mode": "local-only",
+          "artifacts": [
+            {
+              "source": "skills/security-and-reliability/security-model/references/source-and-validation.md",
+              "target": "skills/security-and-reliability/security-model/references/source-and-validation.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-and-reliability/security-model/scripts/resolve_security_model.py",
+              "target": "skills/security-and-reliability/security-model/scripts/resolve_security_model.py",
+              "type": "file"
+            },
+            {
+              "source": "skills/security-and-reliability/security-model/scripts/test_local_hardening.py",
+              "target": "skills/security-and-reliability/security-model/scripts/test_local_hardening.py",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "local",
+            "ref": "local",
+            "resolved_commit": null,
+            "path_commit": null,
+            "content_sha256": null,
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/security-and-reliability/security-model/LICENSE.upstream.txt",
+          "owner": "security-model",
+          "sha256": "96e78a9ce85795b117c8929887bdb78f88bf23f7b85a31f0872cde4dff7e92cd",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-model/SKILL.md",
+          "owner": "security-model",
+          "sha256": "c300c90b8c021d8f13788e4bda35c5326d8f12273574c110976c1d684b795679",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-model/references/source-and-validation.md",
+          "owner": "security-model",
+          "sha256": "0e08acb63dce3f101a17f13992d8453f0ebbf3bdfe07cf7ac0488f9da95113b3",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-model/scripts/resolve_security_model.py",
+          "owner": "security-model",
+          "sha256": "673ce3d9762f2c871d54d374ff5c97fa3c71901d4ad94f9eed057ba61a068065",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-model/scripts/selftest_resolve_security_model.py",
+          "owner": "security-model",
+          "sha256": "c0ca76f3aeee60b0cda0332efc3e74125a0bed19d4d2bad97334ce94f771d70f",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-model/scripts/test_local_hardening.py",
+          "owner": "security-model",
+          "sha256": "1cec15e0a5ac64e7de98bc909eb7393ebce0acd5db5eb2f21cc6ae16498349cb",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-model/upstream/ENTRY.md",
+          "owner": "security-model",
+          "sha256": "77dc0c410029c23e35a11317182385c8770da7e1bb35a74b4d169f7933804cfd",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-model/upstream/LICENSE.openai.txt",
+          "owner": "security-model",
+          "sha256": "d17f227e4df5da1600391338865ce0f3055211760a36688f816941d58232d8dc",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-model/upstream/SOURCES.md",
+          "owner": "security-model",
+          "sha256": "8cf77f0aebeb5f6eff9f2e977e7bac15cb5e44bdc3cdd50d6aba23bb475d2dd9",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-model/upstream/SPEC.md",
+          "owner": "security-model",
+          "sha256": "39e1a533d5cb5a922a6d713de37a31fc32ea4d2ec1e76959e9745827b6e3b040",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-model/upstream/agents/openai.yaml",
+          "owner": "security-model",
+          "sha256": "67c12399714ebe2a7ed8fe5d9891700abd5a6c51f40ed50b1f0e8063091371f1",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-model/upstream/references/consuming-policy.md",
+          "owner": "security-model",
+          "sha256": "9a3b5b4100877475dd99e074b3413247c60f7691ca26088f5979943f4f81212a",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-model/upstream/scripts/resolve_security_model.py.txt",
+          "owner": "security-model",
+          "sha256": "0aa4908a8de81cbecbcc4da2d1135a7f93113bae816a82932015c7b283234828",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-model/upstream/scripts/selftest_resolve_security_model.py.txt",
+          "owner": "security-model",
+          "sha256": "c0ca76f3aeee60b0cda0332efc3e74125a0bed19d4d2bad97334ce94f771d70f",
+          "mode": "100644"
+        }
+      ]
+    },
+    {
+      "video_name": "shadcn",
+      "normalized_slug": "shadcn",
+      "status": "verified_in_repo",
+      "repo_skill": "skills/developer-engineering/shadcn/SKILL.md",
+      "source": "https://github.com/shadcn-ui/ui/tree/8f04138777c1b6996e709993362a7b0a12888ecf/skills/shadcn",
+      "notes": "Reviewed portable overlay; local canonical entry and hardened helpers are not an upstream release. Immutable originals and legal notices retained as reference data; original executables use .txt suffixes.",
+      "kind": "overlay",
+      "sync_mode": "monitor",
+      "upstream": {
+        "repo": "shadcn-ui/ui",
+        "path": "skills/shadcn/SKILL.md",
+        "ref": "main",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "8f04138777c1b6996e709993362a7b0a12888ecf",
+        "sync_mode": "monitor"
+      },
+      "origins": [
+        {
+          "repo": "shadcn-ui/ui",
+          "path": "skills/shadcn/SKILL.md",
+          "license": "MIT",
+          "sync_mode": "monitor",
+          "artifacts": [
+            {
+              "source": "skills/shadcn/SKILL.md",
+              "target": "skills/developer-engineering/shadcn/SKILL.md",
+              "type": "file"
+            },
+            {
+              "source": "LICENSE.md",
+              "target": "skills/developer-engineering/shadcn/LICENSE.upstream.txt",
+              "type": "file"
+            },
+            {
+              "source": "skills/shadcn/SKILL.md",
+              "target": "skills/developer-engineering/shadcn/upstream/ENTRY.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/shadcn/agents/openai.yml",
+              "target": "skills/developer-engineering/shadcn/upstream/agents/openai.yml",
+              "type": "file"
+            },
+            {
+              "source": "skills/shadcn/assets/shadcn-small.png",
+              "target": "skills/developer-engineering/shadcn/upstream/assets/shadcn-small.png",
+              "type": "file"
+            },
+            {
+              "source": "skills/shadcn/assets/shadcn.png",
+              "target": "skills/developer-engineering/shadcn/upstream/assets/shadcn.png",
+              "type": "file"
+            },
+            {
+              "source": "skills/shadcn/assets/showcase/color-pair.tsx",
+              "target": "skills/developer-engineering/shadcn/upstream/assets/showcase/color-pair.tsx",
+              "type": "file"
+            },
+            {
+              "source": "skills/shadcn/assets/showcase/preview-states.css",
+              "target": "skills/developer-engineering/shadcn/upstream/assets/showcase/preview-states.css",
+              "type": "file"
+            },
+            {
+              "source": "skills/shadcn/assets/showcase/state-matrix.tsx",
+              "target": "skills/developer-engineering/shadcn/upstream/assets/showcase/state-matrix.tsx",
+              "type": "file"
+            },
+            {
+              "source": "skills/shadcn/cli.md",
+              "target": "skills/developer-engineering/shadcn/upstream/cli.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/shadcn/customization.md",
+              "target": "skills/developer-engineering/shadcn/upstream/customization.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/shadcn/design-system-page.md",
+              "target": "skills/developer-engineering/shadcn/upstream/design-system-page.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/shadcn/design-system.md",
+              "target": "skills/developer-engineering/shadcn/upstream/design-system.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/shadcn/evals/evals.json",
+              "target": "skills/developer-engineering/shadcn/upstream/evals/evals.json",
+              "type": "file"
+            },
+            {
+              "source": "skills/shadcn/mcp.md",
+              "target": "skills/developer-engineering/shadcn/upstream/mcp.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/shadcn/registry.md",
+              "target": "skills/developer-engineering/shadcn/upstream/registry.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/shadcn/rules/base-vs-radix.md",
+              "target": "skills/developer-engineering/shadcn/upstream/rules/base-vs-radix.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/shadcn/rules/chat.md",
+              "target": "skills/developer-engineering/shadcn/upstream/rules/chat.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/shadcn/rules/composition.md",
+              "target": "skills/developer-engineering/shadcn/upstream/rules/composition.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/shadcn/rules/forms.md",
+              "target": "skills/developer-engineering/shadcn/upstream/rules/forms.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/shadcn/rules/icons.md",
+              "target": "skills/developer-engineering/shadcn/upstream/rules/icons.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/shadcn/rules/styling.md",
+              "target": "skills/developer-engineering/shadcn/upstream/rules/styling.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/shadcn/scripts/showcase-coverage.mjs",
+              "target": "skills/developer-engineering/shadcn/upstream/scripts/showcase-coverage.mjs.txt",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "default_branch",
+            "ref": "main",
+            "resolved_commit": "8f04138777c1b6996e709993362a7b0a12888ecf",
+            "path_commit": "4233ed1caded8c38f4bc14b14afe1f93ebcaf966",
+            "content_sha256": "944e09447b836527fce34780fa61e87380bfb40943207fdfe72779993d1b24cf",
+            "license_checkpoint": {
+              "path": "LICENSE.md",
+              "blob_sha": "fad4d887a681dd49233e5ed01ee2c7a1513089a0",
+              "content_sha256": "1564074e13439397221ffd522e2e504d56561994a23d371aa5e3ad43e4f5423f",
+              "spdx": "MIT",
+              "resolved_commit": "8f04138777c1b6996e709993362a7b0a12888ecf",
+              "api_spdx": "MIT"
+            },
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26"
+          }
+        },
+        {
+          "repo": "local-repo/curation",
+          "path": "skills/developer-engineering/shadcn",
+          "license": null,
+          "sync_mode": "local-only",
+          "artifacts": [
+            {
+              "source": "skills/developer-engineering/shadcn/references/compatibility.md",
+              "target": "skills/developer-engineering/shadcn/references/compatibility.md",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "local",
+            "ref": "local",
+            "resolved_commit": null,
+            "path_commit": null,
+            "content_sha256": null,
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26"
+          }
+        }
+      ],
+      "managed_files": [
+        {
+          "path": "skills/developer-engineering/shadcn/LICENSE.upstream.txt",
+          "owner": "shadcn",
+          "sha256": "1564074e13439397221ffd522e2e504d56561994a23d371aa5e3ad43e4f5423f",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/shadcn/SKILL.md",
+          "owner": "shadcn",
+          "sha256": "944e09447b836527fce34780fa61e87380bfb40943207fdfe72779993d1b24cf",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/shadcn/references/compatibility.md",
+          "owner": "shadcn",
+          "sha256": "217ee5339db1c9b8187047cdcd4e9041284f258b8aa642ca65aa694652d2aa36",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/shadcn/upstream/ENTRY.md",
+          "owner": "shadcn",
+          "sha256": "93951e5e83f616a3e046491c00d770bd54c0a64164706cd1191822a233d27592",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/shadcn/upstream/agents/openai.yml",
+          "owner": "shadcn",
+          "sha256": "35db91b1eef58b2abe01da9b88577de5a44e233b740cd93d692ddeeadd2afe4d",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/shadcn/upstream/assets/shadcn-small.png",
+          "owner": "shadcn",
+          "sha256": "0ecc62d682727f68fc4937eed19960c706714fa084d44f63028d611ae02bf3d7",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/shadcn/upstream/assets/shadcn.png",
+          "owner": "shadcn",
+          "sha256": "7d60ad6fec4d89a0d44ba5a3c9283d2fea0047af5467f9227040e20d927d39b7",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/shadcn/upstream/assets/showcase/color-pair.tsx",
+          "owner": "shadcn",
+          "sha256": "6028f0b677912216822fdaf76ae6b8863c429916ed4a9626b73f4de4506f8ee4",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/shadcn/upstream/assets/showcase/preview-states.css",
+          "owner": "shadcn",
+          "sha256": "8d9e3cec24dd01b11c5ba12196d0376a131797d9ad247ea624e66eb8bbf61b0e",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/shadcn/upstream/assets/showcase/state-matrix.tsx",
+          "owner": "shadcn",
+          "sha256": "07794119fe05ff735358b3f8ca30a8297617ab64dfb3901dce4d89fe5f443458",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/shadcn/upstream/cli.md",
+          "owner": "shadcn",
+          "sha256": "a381e35bf36fe7bb851952c13707e01e82434fd7a4a4e53f6df26c6370838904",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/shadcn/upstream/customization.md",
+          "owner": "shadcn",
+          "sha256": "a19e81c78843df255e85755e52659268d793845add845b34ad8091f62bff3af9",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/shadcn/upstream/design-system-page.md",
+          "owner": "shadcn",
+          "sha256": "c541d661af159548744be3e27f79e7da710ab83f9afd448a4346f7ff1531d328",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/shadcn/upstream/design-system.md",
+          "owner": "shadcn",
+          "sha256": "9ed11e93e7e80e34c8795d5ba82e5420ca905e8e9949fef79cbe9239184fd06b",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/shadcn/upstream/evals/evals.json",
+          "owner": "shadcn",
+          "sha256": "e82c747326a5c21e37a1c962274d36b1bfebb3e6602ee368b98e2dba5db18369",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/shadcn/upstream/mcp.md",
+          "owner": "shadcn",
+          "sha256": "8d696b4e45b7d0e337367248513bd9acebe8f3bcfd7b748c775e5a337c8f38c8",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/shadcn/upstream/registry.md",
+          "owner": "shadcn",
+          "sha256": "4f239be36bd2b58e17047db1ca80ab7da00e15a8b73242e5e4d50d113c4caa05",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/shadcn/upstream/rules/base-vs-radix.md",
+          "owner": "shadcn",
+          "sha256": "2b2deb47d004285220c1fc6b38bb2edc2d0ccbcdafd031b0b189d5d8ed0d1ba8",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/shadcn/upstream/rules/chat.md",
+          "owner": "shadcn",
+          "sha256": "4b4610d487ddc9751f3cfe0c554a06560ac723fcc2460abad77a1d3c7c9a4b95",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/shadcn/upstream/rules/composition.md",
+          "owner": "shadcn",
+          "sha256": "f282df828d83a91132a846ddb62eea149a7c7c94822e9ca88cfddf85af01aa41",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/shadcn/upstream/rules/forms.md",
+          "owner": "shadcn",
+          "sha256": "29593e14381e34626f8e0e9c15c59f3394b92a0623af6a6ec94585400123853c",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/shadcn/upstream/rules/icons.md",
+          "owner": "shadcn",
+          "sha256": "d4a58266648872d9ee07d0c2368843a1cb88b8253b7f528dd7bda9d68b6c2535",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/shadcn/upstream/rules/styling.md",
+          "owner": "shadcn",
+          "sha256": "f88fbd72dff862805b786dc7d7e4c74c83030fc278c5b97c993e4e665001798c",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/shadcn/upstream/scripts/showcase-coverage.mjs.txt",
+          "owner": "shadcn",
+          "sha256": "fb593e0806414d23b51354a46881f0b2873afc226bda0926a22f83cbd60af2fa",
+          "mode": "100644"
+        }
+      ]
     }
   ],
   "verification_attempts": [

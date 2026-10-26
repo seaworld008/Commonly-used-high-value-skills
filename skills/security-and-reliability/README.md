@@ -4,14 +4,14 @@
 
 覆盖 Sentry、安全最佳实践、威胁建模与安全所有权分析的技能集合。
 
-当前分类共 **23** 个技能。
+当前分类共 **24** 个技能。
 
 ## 推荐先看
 
 - [information-security-manager-iso27001](./information-security-manager-iso27001/) - 建立和审计 ISO 27001 信息安全管理体系及风险控制。
+- [security-model](./security-model/) - 维护供安全审查工具读取的安全模型，核验信任边界、继承、可信版本和抑制规则。
 - [security-ownership-map](./security-ownership-map/) - 用于基于 Git 历史分析安全所有权、敏感代码归属、bus factor、CODEOWNERS 现实差距和风险热点。
 - [security-pen-testing](./security-pen-testing/) - 在授权范围内执行漏洞扫描、渗透测试和修复验证。
-- [sentry](./sentry/) - 用于只读查询 Sentry issues、events 和服务健康数据，汇总线上错误并辅助生产问题排查。
 
 ## 技能总览
 
@@ -30,6 +30,7 @@
 | `security-audit` | 对代码库进行安全审计，聚焦可利用且有真实影响的漏洞，并生成可验证的发现、报告和结构化输出。 | [目录](./security-audit/) | [SKILL.md](./security-audit/SKILL.md) |
 | `security-auditor` | 审查应用、接口、基础设施和依赖中的实际安全风险。 | [目录](./security-auditor/) | [SKILL.md](./security-auditor/SKILL.md) |
 | `security-best-practices` | 用于按语言或框架检查安全最佳实践，生成安全审查报告和 secure-by-default 建议。 | [目录](./security-best-practices/) | [SKILL.md](./security-best-practices/SKILL.md) |
+| `security-model` | 维护供安全审查工具读取的安全模型，核验信任边界、继承、可信版本和抑制规则。 | [目录](./security-model/) | [SKILL.md](./security-model/SKILL.md) |
 | `security-ownership-map` | 用于基于 Git 历史分析安全所有权、敏感代码归属、bus factor、CODEOWNERS 现实差距和风险热点。 | [目录](./security-ownership-map/) | [SKILL.md](./security-ownership-map/SKILL.md) |
 | `security-pen-testing` | 在授权范围内执行漏洞扫描、渗透测试和修复验证。 | [目录](./security-pen-testing/) | [SKILL.md](./security-pen-testing/SKILL.md) |
 | `security-review` | 依据代码证据审查注入、认证、授权和加密漏洞。 | [目录](./security-review/) | [SKILL.md](./security-review/SKILL.md) |

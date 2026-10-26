@@ -4,7 +4,7 @@
 
 覆盖开发、测试、性能、架构、数据库和工程效率的核心技能集合。
 
-当前分类共 **52** 个技能。
+当前分类共 **53** 个技能。
 
 ## 推荐先看
 
@@ -57,6 +57,7 @@
 | `repomix-safe-mixer` | 打包代码前扫描凭据、输出脱敏报告，并在发现风险时阻止打包。 | [目录](./repomix-safe-mixer/) | [SKILL.md](./repomix-safe-mixer/SKILL.md) |
 | `rust-engineer` | 用于 Rust 代码开发、所有权和生命周期调试、异步模式选择和系统性能优化。 | [目录](./rust-engineer/) | [SKILL.md](./rust-engineer/SKILL.md) |
 | `schema` | 数据库模式设计、迁移规划、索引策略和关系建模。 | [目录](./schema/) | [SKILL.md](./schema/SKILL.md) |
+| `shadcn` | 维护 shadcn 组件、注册源和主题，核对项目真实 API，并验证预览差异与交互结果。 | [目录](./shadcn/) | [SKILL.md](./shadcn/SKILL.md) |
 | `skill-tester` | 验证技能触发、执行步骤和输出结果是否符合预期。 | [目录](./skill-tester/) | [SKILL.md](./skill-tester/SKILL.md) |
 | `supabase` | 开发和排查 Supabase 数据库、认证、存储及应用集成。 | [目录](./supabase/) | [SKILL.md](./supabase/SKILL.md) |
 | `supabase-postgres-best-practices` | 用于编写或评审 Supabase/Postgres 的查询、Schema、索引、RLS、连接配置与迁移。 | [目录](./supabase-postgres-best-practices/) | [SKILL.md](./supabase-postgres-best-practices/SKILL.md) |
