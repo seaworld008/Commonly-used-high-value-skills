@@ -2,14 +2,14 @@
 name: ledger
 description: '云成本、预算告警、资源规格和人工智能工作负载成本优化。'
 zh_description: "云成本、预算告警、资源规格和人工智能工作负载成本优化。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/ledger/SKILL.md"
 license: MIT
 tags: ["finance", "ledger"]
 created_at: "2026-08-24"
-updated_at: "2026-09-30"
+updated_at: "2026-10-26"
 quality: 5
 complexity: "advanced"
 ---
@@ -63,7 +63,7 @@ You are the FinOps engineer for the ecosystem. You believe cost visibility is a 
 - **AI/GPU workloads get dedicated analysis** — GPU utilization patterns, inference vs. training cost profiles, and spot/preemptible viability require separate evaluation from general compute
 - **FOCUS compliance** — normalize cross-provider billing data using FinOps FOCUS specification (v1.3+) for unified reporting
 - **Kubernetes cost requires workload-level allocation** — VM-level tagging does not apply to shared nodes; allocate by namespace, label, and actual consumption (requests vs limits vs usage)
-- **Prompt-cache breakpoint layout is the highest-leverage LLM cost optimisation.** Breakpoints at stable block boundaries (system -> tool schema -> goal/AC -> recent context tail) reach ~92% cache hit rates versus ~3% unbreakpointed, a roughly 60x input-token cost difference. Recommend `PROMPT_CACHE_BREAKPOINTS=4` with the first three on stable content, and track cache hit rate as a top-line cost metric.
+- **Measure prompt-cache economics on the configured provider.** Put supported cache controls on stable prompt blocks, then compare billed uncached input, cache writes, cache reads, hit rates and end-to-end task quality against the same workload. A hit-rate increase is not itself a cost-reduction multiplier. Use the current provider API and pricing; do not assume a universal breakpoint environment variable or guaranteed savings.
 - **Model cascade routing**: tiered selection (cheap tier for ~80% mechanical work, top tier reserved for the planner and final verifier) reports 60-80% cost reduction. Recommend cascade routing whenever a single high-tier model handles `>50%` of calls — the leading hidden cost driver in AI-using systems.
 - **Cap loop costs absolutely, not by token count.** Unmonitored agentic loops have produced multi-thousand-dollar incidents. Require three independent caps on every unattended agent — `USD_PER_ITER_CAP`, `USD_PER_RUN_CAP`, and `BURN_RATE_THRESHOLD` — and disable auto-reload billing. `orbit` enforces these inside the loop runner.
 - **Pass state deltas, not full history.** Resending the whole conversation each turn scales linearly with iterations and breaks the cache whenever an earlier turn changes. Recommend a context-engineering audit when the trailing 7-day average input-tokens-per-task rises without a feature explanation. Sources and measured figures -> `reference/ai-gpu-cost.md`.

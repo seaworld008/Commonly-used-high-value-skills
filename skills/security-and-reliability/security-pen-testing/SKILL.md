@@ -2,14 +2,14 @@
 name: security-pen-testing
 description: 'Perform authorized security assessments, vulnerability scans, and penetration tests with explicit targets, scope, evidence, and remediation guidance.'
 zh_description: "在授权范围内执行漏洞扫描、渗透测试和修复验证。"
-version: "1.0.3"
+version: "1.0.4"
 author: alirezarezvani
 source: "github:alirezarezvani/claude-skills"
 source_url: "https://github.com/alirezarezvani/claude-skills/blob/main/engineering-team/skills/security-pen-testing/SKILL.md"
 license: MIT
 tags: '["security", "penetration-testing", "owasp", "vulnerability-scanning", "offensive-security", "agent-skill"]'
 created_at: "2026-06-01"
-updated_at: "2026-09-22"
+updated_at: "2026-10-26"
 quality: 4
 complexity: intermediate
 ---
@@ -311,10 +311,10 @@ Automated security checks on every PR: secret scanning (TruffleHog), dependency 
 
 | Skill | Relationship |
 |-------|-------------|
-| [senior-secops](../senior-secops/SKILL.md) | Defensive security operations — monitoring, incident response, SIEM configuration |
-| [senior-security](../senior-security/SKILL.md) | Security policy and governance — frameworks, risk registers, compliance |
-| [dependency-auditor](engineering/skills/dependency-auditor/SKILL.md) | Deep supply chain security — SBOMs, license compliance, transitive risk |
-| [code-reviewer](../code-reviewer/SKILL.md) | Code review practices — includes security review checklist |
+| [incident-commander](../../devops-sre/incident-commander/SKILL.md) | Defensive security operations — monitoring, incident response, SIEM configuration |
+| [information-security-manager-iso27001](../information-security-manager-iso27001/SKILL.md) | Security policy and governance — frameworks, risk registers, compliance |
+| [dependency-auditor](../../developer-engineering/dependency-auditor/SKILL.md) | Deep supply chain security — SBOMs, license compliance, transitive risk |
+| [security-review](../security-review/SKILL.md) | Code review practices — includes security review checklist |
 
 ## Bundled Scanner Limits
 

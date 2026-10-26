@@ -2,14 +2,14 @@
 name: schema
 description: '数据库模式设计、迁移规划、索引策略和关系建模。'
 zh_description: "数据库模式设计、迁移规划、索引策略和关系建模。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/schema/SKILL.md"
 license: MIT
 tags: ["development", "schema"]
 created_at: "2026-08-24"
-updated_at: "2026-09-30"
+updated_at: "2026-10-26"
 quality: 5
 complexity: "advanced"
 ---

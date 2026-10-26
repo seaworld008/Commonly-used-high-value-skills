@@ -2,14 +2,14 @@
 name: x-twitter-scraper
 description: 'Use Xquik for X/Twitter research and connected-account actions; Radar and support workflows require a named request. Offline text analysis does not need this skill.'
 zh_description: "用于规划和执行 Xquik 的 X/Twitter 数据读取、导出、监控及经确认的账户操作。"
-version: "1.0.7"
+version: "1.0.8"
 author: 'Xquik <support@xquik.com>'
 source: "github:Xquik-dev/x-twitter-scraper"
 source_url: "https://github.com/Xquik-dev/x-twitter-scraper/blob/645ccfbad23f258ed9efb24de1ead641f15938e1/skills/x-twitter-scraper/SKILL.md"
 license: MIT
 tags: [growth, social-media, twitter, x, api, mcp]
 created_at: "2026-06-22"
-updated_at: "2026-10-03"
+updated_at: "2026-10-26"
 quality: 5
 complexity: advanced
 allowed-tools: WebFetch
@@ -296,6 +296,10 @@ Do not choose or expand the query. Ask the user to select its scope.
 4. Request confirmation for that exact plan.
 5. Create it with `POST /api/v1/extractions`.
 6. Poll its status and follow bounded result cursors.
+
+## Paid AI analysis
+
+The six POST analysis routes are documented in [reads](references/reads.md#ai-analysis). They are paid external processing: confirm authorized data, purpose, provider and current task budget. This does not authorize connected-account writes, bypass the MCP request-planning boundary, or justify automatic POST retries.
 
 ## Handle private reads and write plans
 

@@ -2,14 +2,14 @@
 name: dawn
 description: Propose one personal side-project idea scoped to a 1-3 day MVP when the user requests daily inspiration or weekend project ideation.
 zh_description: "提出一个适合一至三天完成的个人项目创意。"
-version: "1.0.5"
+version: "1.0.6"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/5f1bd9e50ee7b13fbd143b1a4a30e6643b458097/dawn/SKILL.md"
 license: MIT
 tags: '["dawn", "productivity"]'
 created_at: "2026-04-25"
-updated_at: "2026-09-06"
+updated_at: "2026-10-26"
 quality: 5
 complexity: "advanced"
 ---
@@ -300,8 +300,8 @@ Read only the files required for the current recipe.
 | `references/tech-stack-rotation.md` | You are running the `stack` recipe and need stack-axis catalog, selection algorithm, stack × domain seeds, or output adjustments for stack-first framing |
 | `references/constraint-modes.md` | You are running the `constraint` recipe and need the constraint catalog, stack-compatibility table, verification methods, or constraint-driven seeds |
 | `references/shareability-design.md` | You are running the `viral` recipe and need the 5-second wow rule, artifact type fit, shareability patterns (personal-data / inversion / number / aesthetic), or demo asset spec |
-| [`_common/BOUNDARIES.md`](../_common/BOUNDARIES.md) | Agent role boundaries are ambiguous |
-| [`_common/OPERATIONAL.md`](../_common/OPERATIONAL.md) | You need journal, activity log, AUTORUN, Nexus, Git, or shared operational defaults |
+| ``_common/BOUNDARIES.md`` (optional upstream resource) | Agent role boundaries are ambiguous |
+| ``_common/OPERATIONAL.md`` (optional upstream resource) | You need journal, activity log, AUTORUN, Nexus, Git, or shared operational defaults |
 | `memory/dawn_log.md` | You need the recent proposal history for diversity decisions |
 
 ## Operational
@@ -342,8 +342,8 @@ On creation, also add one line to `MEMORY.md`:
 
 ### Shared protocols
 
-- Standard protocols → [`_common/OPERATIONAL.md`](../_common/OPERATIONAL.md)
-- Git conventions → [`_common/GIT_GUIDELINES.md`](../_common/GIT_GUIDELINES.md)
+- Standard protocols → ``_common/OPERATIONAL.md`` (optional upstream resource)
+- Git conventions → ``_common/GIT_GUIDELINES.md`` (optional upstream resource)
 
 ## AUTORUN Support
 

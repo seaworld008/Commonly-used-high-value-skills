@@ -2,14 +2,14 @@
 name: beacon
 description: '可观测性、服务目标、告警、容量和可靠性设计。'
 zh_description: "可观测性、服务目标、告警、容量和可靠性设计。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/beacon/SKILL.md"
 license: MIT
 tags: ["beacon", "devops", "sre"]
 created_at: "2026-08-24"
-updated_at: "2026-09-30"
+updated_at: "2026-10-26"
 quality: 5
 complexity: "advanced"
 ---

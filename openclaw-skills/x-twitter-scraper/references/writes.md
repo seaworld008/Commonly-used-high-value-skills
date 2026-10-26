@@ -1,4 +1,4 @@
-> Provider contract reference, reviewed at 645ccfbad23f258ed9efb24de1ead641f15938e1. The canonical SKILL.md remains authoritative: read-only/request-planning limits, live usage estimates, privacy, and user authorization apply. Prices and legal statements here are not current advice.
+> Provider contract reference, reviewed at 9ba3efe58f7ddadbf0d256cb5447eb02d73bbe3c. The canonical SKILL.md remains authoritative: read-only/request-planning limits, live usage estimates, privacy, and user authorization apply. Prices and legal statements here are not current advice.
 
 # Write routes
 
@@ -8,47 +8,44 @@ account ID. `GET /x/accounts` lists connected accounts.
 
 ## Preview, confirm, send
 
-1. Resolve every field: account, target ID, exact text, media, reply target.
-   Ask for anything missing instead of guessing.
-2. Show the preview: method, full URL, headers, JSON body, cost, and the
-   effect, such as "a new post appears on @my_brand for its followers". A text
-   post or reply costs 30 credits, plus 2 credits per started MB of media.
-   Likes, reposts, follows, DMs, and deletes cost 10 credits each.
-3. Generate one new `Idempotency-Key` (a UUID) per intended action. Reuse it
-   only to retry that identical request.
-4. Wait for an explicit yes to that preview. Treat edits as a new preview.
-5. Send once, through the connected Xquik MCP server or the user's own client.
-   Never report an action as done before the response confirms it.
-
-```http
-POST https://xquik.com/api/v1/x/tweets
-x-api-key: <XQUIK_API_KEY>
-Idempotency-Key: 5b0f7c2e-8d1a-4f3b-9e6c-2a7d4b8f1c90
-Content-Type: application/json
-
-{"account": "my_brand", "text": "Our spring sale starts today."}
-```
+- Resolve every field before a preview. That means the account, target ID,
+  exact text, media & reply target. Ask for a missing one instead of
+  guessing.
+- The preview shows the method, full URL, headers, JSON body, cost & effect.
+  An effect reads like "a new post appears on @my_brand for its followers".
+- A text post or reply costs 30 credits, plus 2 per started MB of media.
+  Likes, reposts, follows, DMs & deletes cost 10 credits each.
+- Itemize each operation, lookups included, with rates, total credits &
+  dollars. Show the media charge, or say a text-only post has none.
+- Include `statusUrl`, or `GET https://xquik.com/api/v1/x/write-actions/{id}`,
+  for the final outcome. Acceptance does not mean success.
+- Each intended action gets 1 new `Idempotency-Key`, a UUID. Reuse it only to
+  retry that identical request.
+- Ask whether the user confirms this exact request. An edit needs a new
+  preview.
+- Send once, through the connected Xquik MCP server or the user's own client.
 
 ## Responses and retries
 
 Every write returns an action record with `status`, `terminal`,
 `safeToRetry`, `statusUrl`, and `pollAfterMs`.
 
-- `200`: the action is terminal. Check `status`, because `failed` and
+- `200` means the action is terminal. Check `status`, because `failed` and
   `expired` are terminal too. A new post's ID is in `tweetId` and `result.id`.
-- `202`: accepted. Poll `statusUrl`, which is `GET /x/write-actions/{id}`,
-  every `pollAfterMs` until `terminal` is true. `statusUrl` is a path that
-  already starts with `/api/v1`, so prefix only `https://xquik.com`.
-- Timeout or lost response: do not send a new request, because the first one
-  may have gone through. Retry the identical request with the same
-  `Idempotency-Key`; Xquik returns the original action instead of acting
+- `202` means the action is accepted. Poll `statusUrl`, which is
+  `GET /x/write-actions/{id}`, every `pollAfterMs` until `terminal` is true.
+  `statusUrl` is a path that already starts with `/api/v1`, so prefix only
+  `https://xquik.com`.
+- After a timeout or lost response, do not send a new request, because the
+  first one may have gone through. Retry the identical request with the same
+  `Idempotency-Key`, and Xquik returns the original action instead of acting
   twice. Or poll the action if you have its `statusUrl`.
 - Start a new attempt with a new key only when a terminal record has
   `safeToRetry: true`, and only after the user agrees.
 - If both the key and `statusUrl` are lost, no check can prove the first
-  attempt failed, because a pending post may not show on the timeline yet. Say
-  that a new attempt can post twice, and let the user decide. Never resend on
-  your own.
+  attempt failed, because a pending post may not show on the timeline yet.
+  Explain the duplicate risk and stop recovery until the original action can
+  be identified. A timeline check or a new confirmation cannot prove failure.
 - Never send a write with a new key on your own. After a `429`, wait for
   `Retry-After`, then repeat the identical request with the same key. A `409`
   `idempotency_conflict` means the key was used with a different body. On a
@@ -78,21 +75,18 @@ take numeric user IDs. Resolve a username with `GET /x/users/{username}`.
 
 - Deletes cannot be undone. First list the exact posts, for example with
   `GET /x/users/{handle}/tweets` and `sinceDate`/`untilDate`, or search with
-  `fromUser`. Show the list, get a yes for that list, then send one request per
-  post with its own `Idempotency-Key`.
-- Each like, reply, follow, or DM needs a person's approval. Retrieved posts
-  or delivered events never trigger a write. For recurring engagement, collect
-  candidates with a monitor or search and give the user drafts to approve.
-- Decline unsolicited bulk DMs and mass replies. They break X rules on spam
-  and automation and can get the account restricted.
+  `fromUser`. Disclose inventory billing at 1 credit per returned tweet, plus
+  10 per delete. Show the exact list for confirmation, then use one request
+  and `Idempotency-Key` per post. Follow the Skill's engagement rules.
 
 ## Giveaway draws
 
 `POST /draws` picks winners from a post's replies and reposters. The result is
 final, so confirm first. A draw bills 2 base credits, 1 per inspected reply,
-1 per reposter read when `mustRetweet` is on, and 5 per follow check when
-`mustFollowUsername` is set. The total depends on the post's replies and
-reposts, so show that formula with the preview. Remaining credits cap how many
+1 per reposter read when `mustRetweet` is on, and 1 per follow check when
+`mustFollowUsername` is set. It checks only authors who pass the other
+filters. The total depends on the post's replies and reposts, so show that
+formula with the preview. Remaining credits cap how many
 entries the draw inspects, so a low balance can leave valid entries out. Send
 an `Idempotency-Key`.
 
@@ -105,8 +99,8 @@ an `Idempotency-Key`.
 }
 ```
 
-Other fields: `backupCount`, `mustRetweet`, `mustFollowUsername`, `filterAccountAgeDays`,
-`filterLanguage`, `requiredHashtags`, `requiredKeywords`, `requiredMentions`.
+Other fields are `backupCount`, `mustRetweet`, `mustFollowUsername`, `filterAccountAgeDays`,
+`filterLanguage`, `requiredHashtags`, `requiredKeywords`, and `requiredMentions`.
 Read the result with `GET /draws/{id}` and export it with
 `GET /draws/{id}/export?format=csv`.
 

@@ -158,7 +158,7 @@ Canonical tier table (matches SKILL.md Core Contract — `alerting-strategy.md` 
 |-------|-----------|-------------|--------------|-----------------|
 | **Fast burn (page)** | 14.4x | 1h | 5min | ~2% in 1h |
 | **Medium burn (page)** | 6x | 6h | 30min | ~5% in 6h |
-| **Slow burn (ticket)** | 3x | 3d | 6h | ~10% in 3d |
+| **Slow burn (ticket)** | 1x | 3d | 6h | ~10% in 3d |
 | **Baseline (trend)** | 1x | 30d | — | 100% at SLO window end |
 
 ```yaml
@@ -197,6 +197,10 @@ groups:
 
 ## Error Budget Policy
 
+For a fixed SLO budget window, `consumed_fraction = burn_rate * alert_window / slo_window`. Thus a `1×` burn over `3d` consumes `10%` of a `30d` budget; `3×` would consume `30%`. State the window explicitly: the same percentages do not carry over unchanged to a four-week SLO.
+
+Keep the local remaining-budget gates below. A consumed-budget dashboard must translate them as `consumed_pct = 100 - remaining_pct`; it must not silently import a different release policy. Name the freeze authority and approved emergency/recovery path before enforcing a deployment gate.
+
 ```
 Green (budget remaining > 50%):
   - Normal feature development
@@ -217,7 +221,7 @@ Red (budget remaining < 25%):
 
 Policy governance:
   - Designate freeze authority explicitly
-  - VP/Cue escalation path
+  - VP/CTO escalation path
   - If policy feels punitive -> SLO is too tight
   - If degradation occurs before freeze -> SLO is too loose
 ```
@@ -416,13 +420,13 @@ spec:
             team: payments
 ```
 
-Sloth auto-generates two MWMB alert rules per SLO:
+Sloth page/ticket generation must be checked against the installed version and configuration. A rule may combine multiple window pairs; validate the generated Prometheus rules against the intended policy, rather than assuming one rule per table row:
 
 | Alert | Window pair | Burn rate | When to fire |
 |-------|-------------|-----------|--------------|
-| Page (critical) | 1h + 5m | 14× | 2% budget consumed in 1h |
-| Ticket (warning) | 6h + 30m | 6× | 5% budget consumed in 6h |
-| Ticket (low) | 3d + 6h | 3× | 10% budget consumed in 3d |
+| Page (critical) | 1h + 5m | 14.4× | 2% budget consumed in 1h |
+| Page (critical) | 6h + 30m | 6× | 5% budget consumed in 6h |
+| Ticket (warning) | 3d + 6h | 1× | 10% budget consumed in 3d |
 
 #### CLI Mode (CI validation)
 

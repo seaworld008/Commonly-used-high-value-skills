@@ -4,6 +4,8 @@
 **Read when:** A handoff needs integrity checks, confidence checks, or required-field validation.
 **See also:** This file **prevents** divergence at handoff time. To **resolve** conflicts that still occurred after parallel branches merged, see `conflict-resolution.md`.
 
+Completion claims need inspectable evidence: identify the claim, command or artifact, observed result/exit code, and scope. Distinguish work completed from checks actually run; skipped or unavailable checks remain explicit. A failing reproduction test can be valid evidence of the defect and does not by itself mean the investigation failed. Keep the host/project handoff contract; these evidence requirements do not introduce a new token or mandatory runtime schema.
+
 ## Contents
 - Overview
 - NEXUS_HANDOFF_V2 Required Fields

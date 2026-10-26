@@ -2,7 +2,7 @@
   "schema_version": 2,
   "video": {
     "url": "https://github.com/Graphify-Labs/graphify/releases/tag/v0.9.47",
-    "checked_at": "2026-09-14",
+    "checked_at": "2026-10-26",
     "note": "Official Graphify Codex skill artifact-set mirror. Python package and non-Codex client snapshots are intentionally excluded."
   },
   "official_references": [
@@ -33,12 +33,12 @@
       "upstream": {
         "repo": "Graphify-Labs/graphify",
         "path": "graphify/skill-codex.md",
-        "ref": "v0.9.74",
-        "last_checked_at": "2026-10-03",
-        "last_synced_at": "2026-10-03",
-        "last_synced_commit": "e10df08877f8819a625a1afa38c3297a31fda296",
+        "ref": "v0.9.95",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "92741d162b2094ffc2fed58cfbd8ee823e9da62c",
         "sync_mode": "monitor",
-        "path_commit": "286000d199fdf8d677ed89847c056fa0c6745f33"
+        "path_commit": "8a982c4a927e2f185036c339bee7a999364b8c9a"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -58,22 +58,27 @@
               "source": "graphify/skills/codex/references",
               "target": "skills/developer-engineering/graphify/references",
               "type": "directory"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/developer-engineering/graphify/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "latest_release",
-            "ref": "v0.9.74",
-            "resolved_commit": "e10df08877f8819a625a1afa38c3297a31fda296",
-            "path_commit": "286000d199fdf8d677ed89847c056fa0c6745f33",
-            "content_sha256": "8a474a2c170798985419e70a318b99271b779df9985966044e036899c671f6d9",
-            "last_checked_at": "2026-10-03",
-            "last_synced_at": "2026-10-03",
+            "ref": "v0.9.95",
+            "resolved_commit": "92741d162b2094ffc2fed58cfbd8ee823e9da62c",
+            "path_commit": "8a982c4a927e2f185036c339bee7a999364b8c9a",
+            "content_sha256": "a5a4d646264efea4f6b433f10f9cbcce6b21f0d90e025c3b663df89ffd922d3b",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
               "content_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
               "spdx": "Apache-2.0",
-              "resolved_commit": "e10df08877f8819a625a1afa38c3297a31fda296",
+              "resolved_commit": "92741d162b2094ffc2fed58cfbd8ee823e9da62c",
               "api_spdx": "NOASSERTION"
             }
           }
@@ -87,6 +92,11 @@
             {
               "source": "skills/developer-engineering/graphify/EXTENDED.md",
               "target": "skills/developer-engineering/graphify/EXTENDED.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/developer-engineering/graphify/scripts/validate_semantic_chunks.py",
+              "target": "skills/developer-engineering/graphify/scripts/validate_semantic_chunks.py",
               "type": "file"
             }
           ],
@@ -105,31 +115,31 @@
         {
           "path": "skills/developer-engineering/graphify/EXTENDED.md",
           "owner": "graphify",
-          "sha256": "23036e44ed4135acc701abddc1ef9dad95d388efdd30366d84798b6c797a63cd",
+          "sha256": "b5ae02f147fb1679744a4bdec88de306a14827688384c44b5731417ee4ba6185",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/graphify/SKILL.md",
           "owner": "graphify",
-          "sha256": "8a474a2c170798985419e70a318b99271b779df9985966044e036899c671f6d9",
+          "sha256": "a5a4d646264efea4f6b433f10f9cbcce6b21f0d90e025c3b663df89ffd922d3b",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/graphify/references/add-watch.md",
           "owner": "graphify",
-          "sha256": "7b89268619e2bf6a4432b7dc46624a6d6b40be7dbfc605a6f79a1c2f62cd17b8",
+          "sha256": "50a05e49cf382441afb8cbeb7fb68018c5458e7e2db35f01b61d199ba5b73772",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/graphify/references/exports.md",
           "owner": "graphify",
-          "sha256": "ee47fae477f106d8aed38798c58493b5a7f060a0d9d2581ce6132302827bc14b",
+          "sha256": "c39a2f8062be9a5ac319220d6e66ca586ed0b0798292b1321206834be74c1b33",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/graphify/references/extraction-spec.md",
           "owner": "graphify",
-          "sha256": "32d7decad42d58129c6694ea4e4ce1f72a531bc5161827d2095787e9448735e9",
+          "sha256": "e14c596c524ae8c41c796788af00ae9574ff7c5fe131ecbd2ca9def92a19a9cb",
           "mode": "100644"
         },
         {
@@ -147,19 +157,31 @@
         {
           "path": "skills/developer-engineering/graphify/references/query.md",
           "owner": "graphify",
-          "sha256": "e563ddcb1e155aa230f107e5ef9380bc1249c5cd8241128de7ed8a7bd9c20cf5",
+          "sha256": "a1bbbe678ce93745a575fd4fb0aef43214b761910af71c63945c20ee7a679e6a",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/graphify/references/transcribe.md",
           "owner": "graphify",
-          "sha256": "676a1e39aa6d43cdfcc416ec56616e36f7bad74066a82bd33a9485515b9a865c",
+          "sha256": "ceda4b469c0d34361552c0902e5d3a8f34516175791bd18e3bed71d98dc31971",
           "mode": "100644"
         },
         {
           "path": "skills/developer-engineering/graphify/references/update.md",
           "owner": "graphify",
-          "sha256": "661f559b3ff4f3db7ba47bc2ba1c7e19f1c1d66a36f647e49221eecb174f2228",
+          "sha256": "5e452b84f910a12338185ad96f161f4ee1a09b1c6d8ee0c93ce1af4700a0e44f",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/graphify/scripts/validate_semantic_chunks.py",
+          "owner": "graphify",
+          "sha256": "784203f027d9bb4a7802948f6ecd88121ff319cee94a41518179e14ce602a02f",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/graphify/LICENSE.upstream.txt",
+          "owner": "graphify",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
           "mode": "100644"
         }
       ]
@@ -221,6 +243,13 @@
       "target": "Graphify-Labs/graphify@e10df08877f8819a625a1afa38c3297a31fda296",
       "result": "success",
       "evidence": "Compared complete declared artifacts and new regular siblings at fixed commits; decisions, rejected forced gates and marketing-only changes are recorded in docs/maintenance-followup-2026-10-03.json. Static/source review is not live product or model acceptance."
+    },
+    {
+      "date": "2026-10-26",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "Graphify-Labs/graphify@92741d162b2094ffc2fed58cfbd8ee823e9da62c",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
     }
   ]
 }

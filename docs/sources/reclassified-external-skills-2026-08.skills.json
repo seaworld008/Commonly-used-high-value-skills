@@ -381,6 +381,55 @@
       "target": "neondatabase/agent-skills@ccca3334a7542d3133134cc6926f2fafc6edeb1f",
       "result": "success",
       "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-10-26",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "Jeffallan/claude-skills@504bb9a067c5c7ea6bf868c7cc337164b213fa57",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-10-26",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "Xquik-dev/x-twitter-scraper@9ba3efe58f7ddadbf0d256cb5447eb02d73bbe3c",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-10-26",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "alirezarezvani/claude-skills@6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-10-26",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "microsoft/azure-skills@f3b512517ed86feceebfee480a46c971f6c6aff4",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-10-26",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "neondatabase/agent-skills@4da86b02402ee8d00b3d365a1fccb62a812ec08e",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-10-26",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "wshobson/agents@0874a27b17a22e2b7c2e2bcd725768e0803cad06",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-10-26",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "Jeffallan/claude-skills@77121971ad13322776f26bd5969ecec1f24a4851",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
     }
   ],
   "skills": [
@@ -395,9 +444,9 @@
         "repo": "alirezarezvani/claude-skills",
         "path": "engineering-team/skills/aws-solution-architect/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-08-31",
-        "last_synced_commit": "19392f7a08264ed00486a251f5b2098321771f94",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
         "sync_mode": "monitor",
         "path_commit": "1851c8fb09ea8ff0488d48bd7c312abb1bbf5850"
       },
@@ -459,17 +508,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "19392f7a08264ed00486a251f5b2098321771f94",
+            "resolved_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
             "path_commit": "1851c8fb09ea8ff0488d48bd7c312abb1bbf5850",
             "content_sha256": "0b0e73ca32fdcfa75d609d3b30b04147f72809c6ea5eac67b5e6df06abd103b1",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-08-31",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "c3e30bcc287d6a1ebdb4ab29c10d344fd1053639",
               "content_sha256": "a20126646f93d32a8989c3cf4772d59194f405034f7babe7daebeac22b8ab151",
               "spdx": "MIT",
-              "resolved_commit": "19392f7a08264ed00486a251f5b2098321771f94",
+              "resolved_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
               "api_spdx": "MIT"
             }
           }
@@ -543,11 +592,11 @@
         "repo": "microsoft/azure-skills",
         "path": "skills/azure-kubernetes/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "d1736f313f7a5259006325d8c9dbce046ed128c0",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "f3b512517ed86feceebfee480a46c971f6c6aff4",
         "sync_mode": "monitor",
-        "path_commit": "0727d81638d64b6888f796287ee00baecfb08ced"
+        "path_commit": "f49ac319a7d3b715e4e39cd95a61572a0af7f2ed"
       },
       "kind": "mirror",
       "sync_mode": "monitor",
@@ -832,22 +881,27 @@
               "source": "skills/azure-kubernetes/references/optional-aks-operations.md",
               "target": "skills/devops-sre/azure-kubernetes/references/optional-aks-operations.md",
               "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/devops-sre/azure-kubernetes/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "d1736f313f7a5259006325d8c9dbce046ed128c0",
-            "path_commit": "0727d81638d64b6888f796287ee00baecfb08ced",
-            "content_sha256": "0cd753986d0414e63a7b5204443e89b9d45e79083d167270eb51829450f6c2a0",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "resolved_commit": "f3b512517ed86feceebfee480a46c971f6c6aff4",
+            "path_commit": "f49ac319a7d3b715e4e39cd95a61572a0af7f2ed",
+            "content_sha256": "73b6f925ae860c8116e7cc713843198e28470feaef993fdec1ecaab370b39d86",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "356b112bcc4f07e03b6e57569eedf9d79978d2d5",
               "content_sha256": "8a5d8efb70942e65032f930c761d097feeb41a7517ebd04c9d2e4ec3764071c5",
               "spdx": "MIT",
-              "resolved_commit": "d1736f313f7a5259006325d8c9dbce046ed128c0",
+              "resolved_commit": "f3b512517ed86feceebfee480a46c971f6c6aff4",
               "api_spdx": "MIT"
             }
           }
@@ -857,7 +911,7 @@
         {
           "path": "skills/devops-sre/azure-kubernetes/SKILL.md",
           "owner": "azure-kubernetes",
-          "sha256": "0cd753986d0414e63a7b5204443e89b9d45e79083d167270eb51829450f6c2a0",
+          "sha256": "73b6f925ae860c8116e7cc713843198e28470feaef993fdec1ecaab370b39d86",
           "mode": "100644"
         },
         {
@@ -929,7 +983,7 @@
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/references/base-images.md",
           "owner": "azure-kubernetes",
-          "sha256": "24e31442c3e6ea40810cb10e1e64fc6fb9d0afea9898bee168c683e2b11931be",
+          "sha256": "26a55440e703ba7d314847b7ca0d199447c5b37da9e91d66a2dc509bf9636e1a",
           "mode": "100644"
         },
         {
@@ -1007,7 +1061,7 @@
         {
           "path": "skills/devops-sre/azure-kubernetes/azure-kubernetes-app-deploy/templates/dockerfiles/python.Dockerfile",
           "owner": "azure-kubernetes",
-          "sha256": "1df050f85fa1ff0821672ef6ac950974ea52d66c23fc77901d565cb7cd10d8f4",
+          "sha256": "c5cd3d3ef0f4842b4bfa485c5c7d7ce696e971a19e38d27e40f2fd1fb6f6a303",
           "mode": "100644"
         },
         {
@@ -1182,6 +1236,12 @@
           "path": "skills/devops-sre/azure-kubernetes/references/optional-aks-operations.md",
           "owner": "azure-kubernetes",
           "sha256": "1039c4433965c110343b398b0f4efa2b40be32d733532b529dbd2b396fb84c20",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/devops-sre/azure-kubernetes/LICENSE.upstream.txt",
+          "owner": "azure-kubernetes",
+          "sha256": "8a5d8efb70942e65032f930c761d097feeb41a7517ebd04c9d2e4ec3764071c5",
           "mode": "100644"
         }
       ]
@@ -1474,11 +1534,11 @@
         "repo": "Jeffallan/claude-skills",
         "path": "skills/kubernetes-specialist/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-03",
-        "last_synced_at": "2026-10-03",
-        "last_synced_commit": "1be15d8064f88fc25216442406d40add8fd23b53",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "77121971ad13322776f26bd5969ecec1f24a4851",
         "sync_mode": "monitor",
-        "path_commit": "958e60fb998e008507c978b7943211f337def6a6"
+        "path_commit": "130a59c36026feab1b9ff601600b3ed9def2acc0"
       },
       "kind": "mirror",
       "sync_mode": "monitor",
@@ -1497,17 +1557,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "1be15d8064f88fc25216442406d40add8fd23b53",
-            "path_commit": "958e60fb998e008507c978b7943211f337def6a6",
+            "resolved_commit": "77121971ad13322776f26bd5969ecec1f24a4851",
+            "path_commit": "130a59c36026feab1b9ff601600b3ed9def2acc0",
             "content_sha256": "e41b625752f3324784b452dd8102b792c2be28b98e73ba6e703d80df3b111f6c",
-            "last_checked_at": "2026-10-03",
-            "last_synced_at": "2026-10-03",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "1be15d8064f88fc25216442406d40add8fd23b53",
+              "resolved_commit": "77121971ad13322776f26bd5969ecec1f24a4851",
               "api_spdx": "MIT"
             }
           }
@@ -1535,7 +1595,7 @@
         "ref": "main",
         "last_checked_at": "2026-10-26",
         "last_synced_at": "2026-10-26",
-        "last_synced_commit": "ccca3334a7542d3133134cc6926f2fafc6edeb1f",
+        "last_synced_commit": "4da86b02402ee8d00b3d365a1fccb62a812ec08e",
         "sync_mode": "monitor",
         "path_commit": "07f288e9cdc714944f929632a7ce6cfc277fae67"
       },
@@ -1576,7 +1636,7 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "ccca3334a7542d3133134cc6926f2fafc6edeb1f",
+            "resolved_commit": "4da86b02402ee8d00b3d365a1fccb62a812ec08e",
             "path_commit": "07f288e9cdc714944f929632a7ce6cfc277fae67",
             "content_sha256": "97cc1fc8280b8bc91b30f04da51a39975aecc99b1d2da6dcdcee915a649f040c",
             "last_checked_at": "2026-10-26",
@@ -1586,7 +1646,7 @@
               "blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
               "content_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
               "spdx": "Apache-2.0",
-              "resolved_commit": "ccca3334a7542d3133134cc6926f2fafc6edeb1f",
+              "resolved_commit": "4da86b02402ee8d00b3d365a1fccb62a812ec08e",
               "api_spdx": "Apache-2.0"
             }
           }
@@ -1638,7 +1698,7 @@
         "ref": "main",
         "last_checked_at": "2026-10-26",
         "last_synced_at": "2026-10-26",
-        "last_synced_commit": "ccca3334a7542d3133134cc6926f2fafc6edeb1f",
+        "last_synced_commit": "4da86b02402ee8d00b3d365a1fccb62a812ec08e",
         "sync_mode": "monitor",
         "path_commit": "e5a62ea5e1f44fa39be6017c7b6251e6d2363d5a"
       },
@@ -1659,7 +1719,7 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "ccca3334a7542d3133134cc6926f2fafc6edeb1f",
+            "resolved_commit": "4da86b02402ee8d00b3d365a1fccb62a812ec08e",
             "path_commit": "e5a62ea5e1f44fa39be6017c7b6251e6d2363d5a",
             "content_sha256": "7b0bf839197895bcbd23d26a8ced1fd1ce2f55d2f2e3af413e3ab130151f74d0",
             "last_checked_at": "2026-10-26",
@@ -1669,7 +1729,7 @@
               "blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
               "content_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
               "spdx": "Apache-2.0",
-              "resolved_commit": "ccca3334a7542d3133134cc6926f2fafc6edeb1f",
+              "resolved_commit": "4da86b02402ee8d00b3d365a1fccb62a812ec08e",
               "api_spdx": "Apache-2.0"
             }
           }
@@ -1695,9 +1755,9 @@
         "repo": "wshobson/agents",
         "path": "plugins/frontend-mobile-development/skills/nextjs-app-router-patterns/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "156b7a5e7a8b93642628a339ee4039c925b34c7f",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "0874a27b17a22e2b7c2e2bcd725768e0803cad06",
         "sync_mode": "monitor",
         "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f"
       },
@@ -1724,17 +1784,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "156b7a5e7a8b93642628a339ee4039c925b34c7f",
+            "resolved_commit": "0874a27b17a22e2b7c2e2bcd725768e0803cad06",
             "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f",
             "content_sha256": "75ea8d7f86c3b80fc096eed53ea5decb4b29e4f1e2cbb61177d15069e7fd2b7e",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "326f0a55c96e672fedf9d807ca043c00df05ba0e",
               "content_sha256": "f89abb55d9f073f38f1703e4518f0613c788c6174be7f13b8dfe48a1c076c746",
               "spdx": "MIT",
-              "resolved_commit": "156b7a5e7a8b93642628a339ee4039c925b34c7f",
+              "resolved_commit": "0874a27b17a22e2b7c2e2bcd725768e0803cad06",
               "api_spdx": "MIT"
             }
           }
@@ -1766,9 +1826,9 @@
         "repo": "wshobson/agents",
         "path": "plugins/python-development/skills/python-performance-optimization/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "156b7a5e7a8b93642628a339ee4039c925b34c7f",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "0874a27b17a22e2b7c2e2bcd725768e0803cad06",
         "sync_mode": "monitor",
         "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f"
       },
@@ -1800,17 +1860,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "156b7a5e7a8b93642628a339ee4039c925b34c7f",
+            "resolved_commit": "0874a27b17a22e2b7c2e2bcd725768e0803cad06",
             "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f",
             "content_sha256": "7d92f95bdebc5f57b77fe1a32e0aac0605ae6055f8c64e1ec17838b505f827d4",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "326f0a55c96e672fedf9d807ca043c00df05ba0e",
               "content_sha256": "f89abb55d9f073f38f1703e4518f0613c788c6174be7f13b8dfe48a1c076c746",
               "spdx": "MIT",
-              "resolved_commit": "156b7a5e7a8b93642628a339ee4039c925b34c7f",
+              "resolved_commit": "0874a27b17a22e2b7c2e2bcd725768e0803cad06",
               "api_spdx": "MIT"
             }
           }
@@ -2754,9 +2814,9 @@
         "repo": "wshobson/agents",
         "path": "plugins/frontend-mobile-development/skills/tailwind-design-system/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
-        "last_synced_commit": "156b7a5e7a8b93642628a339ee4039c925b34c7f",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "0874a27b17a22e2b7c2e2bcd725768e0803cad06",
         "sync_mode": "monitor",
         "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f"
       },
@@ -2788,17 +2848,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "156b7a5e7a8b93642628a339ee4039c925b34c7f",
+            "resolved_commit": "0874a27b17a22e2b7c2e2bcd725768e0803cad06",
             "path_commit": "be57c0b2e3c05c528ca6132b87410b385718775f",
             "content_sha256": "bb76df1f2d6fbcde5f306b005f8ac42a6050d71c1e5cdccc1e125b0c865b5998",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "326f0a55c96e672fedf9d807ca043c00df05ba0e",
               "content_sha256": "f89abb55d9f073f38f1703e4518f0613c788c6174be7f13b8dfe48a1c076c746",
               "spdx": "MIT",
-              "resolved_commit": "156b7a5e7a8b93642628a339ee4039c925b34c7f",
+              "resolved_commit": "0874a27b17a22e2b7c2e2bcd725768e0803cad06",
               "api_spdx": "MIT"
             }
           }
@@ -2836,9 +2896,9 @@
         "repo": "Jeffallan/claude-skills",
         "path": "skills/terraform-engineer/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-03",
-        "last_synced_at": "2026-10-03",
-        "last_synced_commit": "1be15d8064f88fc25216442406d40add8fd23b53",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "77121971ad13322776f26bd5969ecec1f24a4851",
         "sync_mode": "monitor",
         "path_commit": "958e60fb998e008507c978b7943211f337def6a6"
       },
@@ -2859,17 +2919,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "1be15d8064f88fc25216442406d40add8fd23b53",
+            "resolved_commit": "77121971ad13322776f26bd5969ecec1f24a4851",
             "path_commit": "958e60fb998e008507c978b7943211f337def6a6",
             "content_sha256": "d7898eb9cccf409022f4670e04662c0c831860ee8d5b6b6102344d1c43f1b5ad",
-            "last_checked_at": "2026-10-03",
-            "last_synced_at": "2026-10-03",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
               "content_sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
               "spdx": "MIT",
-              "resolved_commit": "1be15d8064f88fc25216442406d40add8fd23b53",
+              "resolved_commit": "77121971ad13322776f26bd5969ecec1f24a4851",
               "api_spdx": "MIT"
             }
           }
@@ -3913,11 +3973,11 @@
         "repo": "Xquik-dev/x-twitter-scraper",
         "path": "skills/x-twitter-scraper/SKILL.md",
         "ref": "master",
-        "last_checked_at": "2026-10-03",
-        "last_synced_at": "2026-10-03",
-        "last_synced_commit": "18b475cfc571b43e7660c49dbe400be66c9dc0a1",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "9ba3efe58f7ddadbf0d256cb5447eb02d73bbe3c",
         "sync_mode": "monitor",
-        "path_commit": "18b475cfc571b43e7660c49dbe400be66c9dc0a1"
+        "path_commit": "0fae3588968a6fe11074744c4432618a3841c9d0"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -3977,17 +4037,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "master",
-            "resolved_commit": "18b475cfc571b43e7660c49dbe400be66c9dc0a1",
-            "path_commit": "18b475cfc571b43e7660c49dbe400be66c9dc0a1",
-            "content_sha256": "8036ab105af0b9dcf69487b860660153b64f3bf39d937066e2cdb7722f087929",
-            "last_checked_at": "2026-10-03",
-            "last_synced_at": "2026-10-03",
+            "resolved_commit": "9ba3efe58f7ddadbf0d256cb5447eb02d73bbe3c",
+            "path_commit": "0fae3588968a6fe11074744c4432618a3841c9d0",
+            "content_sha256": "5447ea643a1be9b1fd9183b5d14ce2fd903ac7efefa8661fc266b8e45b73dc55",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "3a5f93c8e882f8f115758ad4e7fa4e91d1c787b2",
               "content_sha256": "591a93ca295f08caf49f4417eef0a085bb64d4b208ba8f186e0f0f027aebd4b5",
               "spdx": "MIT",
-              "resolved_commit": "18b475cfc571b43e7660c49dbe400be66c9dc0a1",
+              "resolved_commit": "9ba3efe58f7ddadbf0d256cb5447eb02d73bbe3c",
               "api_spdx": "MIT"
             }
           }
@@ -4378,7 +4438,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/SKILL.md",
           "owner": "x-twitter-scraper",
-          "sha256": "8036ab105af0b9dcf69487b860660153b64f3bf39d937066e2cdb7722f087929",
+          "sha256": "5447ea643a1be9b1fd9183b5d14ce2fd903ac7efefa8661fc266b8e45b73dc55",
           "mode": "100644"
         },
         {
@@ -4516,7 +4576,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/compare-faq.md",
           "owner": "x-twitter-scraper",
-          "sha256": "c3b855e102aa95087d4bd778fb1c45f4f5e59fae5b493edbd723f56ae4774c15",
+          "sha256": "a2b60242e854ac2f9dc1cf3b164353d85ac330e97a360efcb72c53ec11da37fc",
           "mode": "100644"
         },
         {
@@ -4564,7 +4624,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/mcp.md",
           "owner": "x-twitter-scraper",
-          "sha256": "d544221a045376c94118d1b553bd9455979192364ffa34cb6568dcd85c2bb3ad",
+          "sha256": "4fb5c4b98602e90ba771703ba3b1b7a48af3e946e3549107f8489f146b39f377",
           "mode": "100644"
         },
         {
@@ -4576,7 +4636,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/monitors-webhooks.md",
           "owner": "x-twitter-scraper",
-          "sha256": "4e507b16cdee4c4779590322db6b84cdc37fc3a3feefe22d22b7660f2833ade2",
+          "sha256": "92a191dc94a946ada76107f30c983712effe0270cfebbe1199e921b318077c11",
           "mode": "100644"
         },
         {
@@ -4588,7 +4648,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/reads.md",
           "owner": "x-twitter-scraper",
-          "sha256": "22491c6d2ed9d3dce471fa4e9851b2131cd5d3de24b13fd3053794bc8ac3c8ed",
+          "sha256": "2366432cbe615ce26a7de58669e6b23b8d4b6a4e576350fb5d165d3ccc80ab0a",
           "mode": "100644"
         },
         {
@@ -4810,7 +4870,7 @@
         {
           "path": "skills/growth-operations-xiaohongshu/x-twitter-scraper/references/writes.md",
           "owner": "x-twitter-scraper",
-          "sha256": "a09769b767ae6972f09fda4a96309abf0aebd30f0fbf7a94807a1da374b0155e",
+          "sha256": "78a9a8776f166d501c9042aba6951001ea23d1c5e7693f7971304f6c8cb4512d",
           "mode": "100644"
         }
       ]

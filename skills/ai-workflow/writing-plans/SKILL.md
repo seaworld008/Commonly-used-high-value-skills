@@ -1,14 +1,14 @@
 ---
 name: writing-plans
-description: 'Write a practical implementation plan when multi-step work needs task boundaries, dependencies, and acceptance checks.'
+description: 'Use when the user requests an implementation plan or multi-step work needs documented task boundaries, dependencies, and acceptance checks.'
 zh_description: "编写包含任务依赖、修改范围和验收方法的实现计划。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["planning", "plans", "workflow", "writing"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-22"
+updated_at: "2026-10-26"
 quality: 4
 complexity: "intermediate"
 ---

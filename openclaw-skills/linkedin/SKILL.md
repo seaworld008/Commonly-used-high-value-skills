@@ -2,14 +2,14 @@
 name: linkedin
 description: 'General-purpose LinkedIn automation – fetch profiles, search people and companies, send messages, manage connections, create posts, and more. Use when the user wants to interact with LinkedIn.'
 zh_description: "通过 Linked API 搜索领英资料、管理连接、消息与内容发布。"
-version: "1.0.3"
+version: "1.0.4"
 author: vprudnikoff
 source: github:Linked-API/linkedin-skills
 source_url: "https://github.com/Linked-API/linkedin-skills/blob/e46beb9aea0af3896fd49dd7b39cff1061bf8f6d/linkedin/SKILL.md"
 license: MIT
 tags: '[linkedin, automation, social-media, outreach, cli]'
 created_at: "2026-07-10"
-updated_at: "2026-09-30"
+updated_at: "2026-10-26"
 quality: 5
 complexity: intermediate
 ---
@@ -34,10 +34,11 @@ If a command fails with exit code 2 (authentication error), ask the user to set 
 2. Connect their LinkedIn account
 3. Copy the **Linked API Token** and **Identification Token** from the dashboard
 
-Once the user provides the tokens, run:
+The account owner completes authentication in their own secure local setup. Do not ask for tokens in chat or place them in command arguments. Inspect the installed CLI help for its supported secure configuration path; the following is a local setup responsibility, not an agent command:
 
-```bash
-linkedin setup --linked-api-token=TOKEN --identification-token=TOKEN
+```text
+Account owner: configure Linked API and Identification credentials locally.
+Agent: retry only after the configured CLI reports authentication is available.
 ```
 
 ## Global Flags
@@ -69,6 +70,26 @@ Read [the detailed procedure and examples](EXTENDED.md#section-4) when working o
 
 Read [the detailed procedure and examples](EXTENDED.md#section-3) when working on this part of the task.
 
+### Endorse a Person's Skills
+
+```bash
+linkedin person endorse <url> --skill 'Project Management' --json -q
+linkedin person endorse <url> --pattern manage --pattern '^scrum$' --json -q
+linkedin person endorse <url> --all --json -q
+```
+
+Choose exactly one of `--skill`, `--pattern` or `--all`:
+- Use `--skill` for one exact skill name; letter case and extra spaces are ignored.
+- Use repeatable `--pattern` to select skills matching any of the patterns. Patterns use RE2, are case-insensitive and match anywhere in the name. Anchor with `^…$` to match a whole name. Provide 1-20 patterns, each 1-200 characters; lookaround and backreferences are unsupported.
+- Use `--all` only when the user wants every skill endorsed. It omits the patterns parameter; never send an empty patterns array.
+
+Skill names are in the profile owner's language, regardless of your own LinkedIn language. Fetch the profile with `--skills` first when you need to discover the names; a German profile may list `Projektmanagement` rather than `Project Management`.
+
+Only **1st-degree connections** can receive endorsements. An already-endorsed skill stays endorsed and counts as success. Each successful endorsement, including an existing one, counts toward the account's `stEndorsements` limit. With `--pattern` or `--all`, check every item's `success` and `error.type` in `data`: a failed skill does not stop the others, and `limitExceeded` can affect only part of the result.
+
+
+Endorsements are external account writes. Execute only for the authorized account, selected people/skills and approved batch scope. Enabling ongoing inbox sync is a separate persistent operation.
+
 ### Search People
 
 ```bash
@@ -87,6 +108,7 @@ linkedin person search [flags] --json -q
 | `--current-companies` | Comma-separated current company names |
 | `--previous-companies` | Comma-separated previous company names |
 | `--schools` | Comma-separated school names |
+| `--connection-degrees` | Comma-separated connection degrees: `1st`, `2nd`, `3rd+` |
 
 ```bash
 linkedin person search --term "product manager" --locations "San Francisco" --json -q
@@ -127,13 +149,38 @@ Text up to 1900 characters. Wrap the message in single quotes to avoid shell int
 linkedin message send https://www.linkedin.com/in/username 'Hey, loved your latest post!' --json -q
 ```
 
+### Inbox
+
+To read messages use `inbox get`. Call `message get` only when you need a person's earlier history, and never repeat it to check for new messages.
+
+Enable inbox monitoring once per account, before sending messages whose replies you need – it captures only messages that arrive after it is on:
+
+```bash
+linkedin inbox sync --json -q          # standard inbox
+linkedin inbox sync --nv --json -q     # Sales Navigator inbox
+```
+
+New messages from everyone, with an advancing `--since`:
+
+```bash
+linkedin inbox get --since 2024-01-15T10:30:00Z --json -q
+```
+
+The whole known conversation with one person, including history loaded by `message get`:
+
+```bash
+linkedin inbox get --person https://www.linkedin.com/in/username --json -q
+```
+
+With `--person`, the output has `messages` and `threads`. Each thread has `historyComplete`: if it is `false` and you need earlier messages, run `message get <person-url>` once, then `inbox get --person` again. A hashed person URL (`personHashedUrl` from a message) always matches; a public URL matches only once Linked API knows it, so prefer the hashed URL when messages show `personPublicUrl: null`. Message times are whole minutes: to check for a reply, pass `--type` of your message and `--since` a few minutes before it, take the earliest `us` message in the result (the one you sent, not a later follow-up) and count a `them` message that is not earlier than it; if your message is not in the result yet, the reply is not known yet.
+
 ### Get Conversation
 
 ```bash
 linkedin message get <person-url> [--since TIMESTAMP] --json -q
 ```
 
-The first call for a conversation triggers a background sync and may take longer. Subsequent calls are faster.
+Loads the person's earlier history on the first call, which may take longer; subsequent calls are faster. Prefer `linkedin inbox get --person <url>` to read messages – use this only when you need history from before inbox monitoring was enabled.
 
 ```bash
 linkedin message get https://www.linkedin.com/in/username --json -q
@@ -244,6 +291,28 @@ linkedin post fetch https://www.linkedin.com/posts/username_activity-123 \
   --comments --comments-sort mostRecent --comments-replies --json -q
 ```
 
+#### Search posts
+
+```bash
+linkedin post search [flags] --json -q
+```
+
+| Flag | Description |
+|------|-------------|
+| `--term` | Search keyword or phrase, up to 50 characters |
+| `--limit` | Max results to return, up to 100 |
+| `--from-members` | People whose posts to keep |
+| `--from-companies` | Companies whose posts to keep |
+| `--mentioning-members` | People the post must mention |
+| `--mentioning-companies` | Companies the post must mention |
+| `--author-companies` | Companies the author works at |
+
+Each actor flag is a comma-separated list. An element is `name` or `name:identifier`, where the identifier is a URN or LinkedIn URL of that person or company and pins the filter to exactly them. A name alone may match a namesake. When an entry cannot be applied, the action fails with `filterNotApplied`; correct or remove it rather than retrying.
+
+```bash
+linkedin post search --term "ai" --from-members "Bill Gates,Example Person:urn:li:member:123456789" --json -q
+```
+
 #### Create a post
 
 ```bash
@@ -254,9 +323,11 @@ linkedin post create '<text>' [flags] --json -q
 |------|-------------|
 | `--company-url` | Post on behalf of a company page (requires admin access) |
 | `--attachments` | Attachment as `url:type` or `url:type:name`. Types: `image`, `video`, `document`. Can be specified multiple times. |
-| `--mention` | Mention as `key:name` or `key:name:identifier`, bound to `@[key]` in the text. Can be specified multiple times. |
+| `--mention` | One mention, bound to `@[key]` in the text. Format below. Can be specified multiple times, up to 20. |
 
 Attachment limits: up to 9 images, or 1 video, or 1 document. Cannot mix types.
+
+Mention format — write `@[key]` in the text, then describe that key with `--mention` as `key:name` or `key:name:identifier`. Everything after the second `:` is the identifier, so its own colons need no escaping. The identifier is optional and is one of `urn:li:member:<id>`, `urn:li:organization:<id>`, a hashed profile URL, or a hashed company URL; without it LinkedIn's first suggestion for `name` is used, which may not be the entity you meant. Every `@[key]` must have a matching `--mention` and vice versa, and keys cannot repeat.
 
 ```bash
 linkedin post create 'Excited to share our latest update!' --json -q
@@ -283,9 +354,11 @@ linkedin post repost <url> [flags] --json -q
 | Flag | Description |
 |------|-------------|
 | `--text` | Your own commentary (up to 3000 characters). Without it the post is reposted as is. |
-| `--mention` | Mention as `key:name` or `key:name:identifier`, bound to `@[key]` in `--text`. Can be specified multiple times. |
+| `--mention` | One mention, bound to `@[key]` in `--text`. Same format as for `post create`. Can be specified multiple times, up to 20. |
 
-The repost's own `postUrl` and `postUrn` come back, not those of the post you reposted. Reposting the same post twice from the same account fails with `alreadyReposted`.
+The repost's own `postUrl` and `postUrn` come back, not those of the post you reposted. They are empty when the repost was published but LinkedIn did not return its address — do not retry, the repost is already live.
+
+`alreadyReposted` is returned only when LinkedIn refuses an instant repost (one without `--text`). LinkedIn does not always refuse a repeat repost: a repost of your own post, or a repost with commentary, can be published again. Keep track of what you have already reposted instead of relying on this error.
 
 ```bash
 linkedin post repost https://www.linkedin.com/posts/username_activity-123 --json -q
@@ -329,106 +402,11 @@ linkedin post comment https://www.linkedin.com/posts/username_activity-123 'Well
 
 ### Statistics
 
-```bash
-# Social Selling Index
-linkedin stats ssi --json -q
-
-# Performance analytics (profile views, post impressions, search appearances)
-linkedin stats performance --json -q
-
-# API usage for a date range
-linkedin stats usage --start 2024-01-01T00:00:00Z --end 2024-01-31T00:00:00Z --json -q
-
-# Who viewed your profile
-linkedin stats viewers --limit 50 --json -q
-
-# Only views since a moment
-linkedin stats viewers --since 2026-08-01T00:00:00Z --json -q
-```
-
-Each viewer is either `identified` — carrying `name`, `publicUrl` and `urn` (a member URN, `null`
-when LinkedIn does not expose it) — or `anonymous`, carrying only the `description` LinkedIn showed
-and a `searchUrl` you can pass to `linkedin person search --url` to look for them. Viewers come
-newest first, and `viewedAt` is an estimate derived from the relative age LinkedIn displays.
+Read [the detailed commands and examples](EXTENDED.md#statistics) when this feature is needed.
 
 ### Sales Navigator
 
-Requires a LinkedIn Sales Navigator subscription. Uses hashed URLs for person/company lookups.
-
-#### Fetch person
-
-```bash
-linkedin navigator person fetch <hashed-url> --json -q
-```
-
-#### Search people
-
-```bash
-linkedin navigator person search [flags] --json -q
-```
-
-| Flag | Description |
-|------|-------------|
-| `--term` | Search keyword or phrase |
-| `--limit` | Max results |
-| `--first-name` | Filter by first name |
-| `--last-name` | Filter by last name |
-| `--position` | Filter by job position |
-| `--locations` | Comma-separated locations |
-| `--industries` | Comma-separated industries |
-| `--current-companies` | Comma-separated current company names |
-| `--previous-companies` | Comma-separated previous company names |
-| `--schools` | Comma-separated school names |
-| `--years-of-experience` | Comma-separated ranges: `lessThanOne`, `oneToTwo`, `threeToFive`, `sixToTen`, `moreThanTen` |
-
-```bash
-linkedin navigator person search --term "VP Marketing" --locations "United States" --json -q
-linkedin navigator person search --years-of-experience "moreThanTen" --position "CEO" --json -q
-```
-
-#### Fetch company
-
-Read [the detailed procedure and examples](EXTENDED.md#section-2) when working on this part of the task.
-
-#### Search companies
-
-```bash
-linkedin navigator company search [flags] --json -q
-```
-
-| Flag | Description |
-|------|-------------|
-| `--term` | Search keyword |
-| `--limit` | Max results |
-| `--sizes` | Comma-separated sizes: `1-10`, `11-50`, `51-200`, `201-500`, `501-1000`, `1001-5000`, `5001-10000`, `10001+` |
-| `--locations` | Comma-separated locations |
-| `--industries` | Comma-separated industries |
-| `--revenue-min` | Min annual revenue in M USD: `0`, `0.5`, `1`, `2.5`, `5`, `10`, `20`, `50`, `100`, `500`, `1000` |
-| `--revenue-max` | Max annual revenue in M USD: `0.5`, `1`, `2.5`, `5`, `10`, `20`, `50`, `100`, `500`, `1000`, `1000+` |
-
-```bash
-linkedin navigator company search --term "fintech" --sizes "11-50,51-200" --json -q
-linkedin navigator company search --revenue-min 10 --revenue-max 100 --locations "United States" --json -q
-```
-
-#### Send InMail
-
-```bash
-linkedin navigator message send <person-url> '<text>' --subject '<subject>' --json -q
-```
-
-Text up to 1900 characters. Subject up to 80 characters.
-
-```bash
-linkedin navigator message send https://www.linkedin.com/in/username \
-  'Would love to chat about API integrations' --subject 'Partnership Opportunity' --json -q
-```
-
-#### Get Sales Navigator conversation
-
-```bash
-linkedin navigator message get <person-url> [--since TIMESTAMP] --json -q
-```
+Read [the detailed commands and examples](EXTENDED.md#sales-navigator) when this feature is needed.
 
 ### Custom Workflows
 
@@ -453,6 +431,17 @@ linkedin workflow status <id> --wait --json -q
 ```
 
 See [Building Workflows](https://linkedapi.io/docs/building-workflows/) for the workflow JSON schema.
+
+### Changelog
+
+Read what is new in Linked API. Check it before telling the user that something is not supported yet – the capability may have shipped recently. No authentication is needed:
+
+```bash
+linkedin changelog --json -q                       # Every release, newest first
+linkedin changelog --since 2026-10-01 --json -q    # Releases from that week on
+```
+
+The JSON is the changelog itself, not the usual `success`/`data` envelope: `entries` holds releases, each with a `date` (the Monday of its week) and `items` with `title`, `body` and `docs` (a path on https://linkedapi.io). A release counts as shipped at the end of its week, so `--since` in the middle of a week still returns that week's release – deduplicate by `date`. A malformed `--since` exits with code 5 and the server's message.
 
 ### Account Management
 

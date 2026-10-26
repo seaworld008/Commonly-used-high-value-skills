@@ -2,14 +2,14 @@
 name: gear
 description: '依赖、构建、容器、监控和开发环境运维优化。'
 zh_description: "依赖、构建、容器、监控和开发环境运维优化。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/gear/SKILL.md"
 license: MIT
 tags: ["devops", "gear", "sre"]
 created_at: "2026-08-24"
-updated_at: "2026-09-30"
+updated_at: "2026-10-26"
 quality: 5
 complexity: "advanced"
 ---

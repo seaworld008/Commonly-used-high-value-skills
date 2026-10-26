@@ -8,7 +8,7 @@ Usage:
     python3 skill_security_auditor.py /path/to/skill/ --strict --json
 
 Exit codes:
-    0 = PASS (safe to install)
+    0 = PASS (no critical/high rule matches; not a safety guarantee)
     1 = FAIL (critical findings, do not install)
     2 = WARN (review manually before installing)
 """
@@ -606,12 +606,34 @@ MD_EXTENSIONS = {".md", ".mdx", ".markdown"}
 ALL_SCAN_EXTENSIONS = CODE_EXTENSIONS | MD_EXTENSIONS
 
 
+def resolve_in_root(filepath: Path, skill_path: Path) -> Path:
+    """Resolve links and require path-component containment, not a name prefix."""
+    target = filepath.resolve()
+    target.relative_to(skill_path.resolve())
+    return target
+
+
+def read_skill_text(filepath: Path, report: AuditReport) -> Optional[str]:
+    """Read only regular files within the audit root, including internal links.
+
+    Every content scanner uses this guard. This is not an atomic defense against
+    concurrent filesystem mutation; audit a stable copy of untrusted content.
+    """
+    try:
+        target = resolve_in_root(filepath, Path(report.skill_path))
+        if not stat.S_ISREG(target.stat().st_mode):
+            return None
+        return target.read_text(encoding="utf-8", errors="replace")
+    except (OSError, ValueError, RuntimeError):
+        return None
+
+
 def scan_file_code(filepath: Path, report: AuditReport):
     """Scan a code file for dangerous patterns."""
-    try:
-        content = filepath.read_text(encoding="utf-8", errors="replace")
-    except Exception:
+    content = read_skill_text(filepath, report)
+    if content is None:
         return
+    report.scripts_scanned += 1
 
     lines = content.split("\n")
     ext = filepath.suffix.lower()
@@ -630,11 +652,7 @@ def scan_file_code(filepath: Path, report: AuditReport):
             continue
         if stripped.startswith("//") and ext in {".js", ".ts", ".mjs", ".cjs"}:
             continue
-        # Honor explicit suppression directive (security tooling references its
-        # own dangerous-pattern strings inside regex/check definitions, which
-        # would otherwise trigger every pattern that matches itself)
-        if "noqa: SEC-AUDITOR" in line or "auditor:ignore-line" in line:
-            continue
+        # The audited content cannot authorize suppression of its own findings.
 
         for pat in patterns:
             if re.search(pat["regex"], line):
@@ -653,17 +671,14 @@ def scan_file_code(filepath: Path, report: AuditReport):
 
 def scan_file_prompt_injection(filepath: Path, report: AuditReport):
     """Scan a markdown file for prompt injection patterns."""
-    try:
-        content = filepath.read_text(encoding="utf-8", errors="replace")
-    except Exception:
+    content = read_skill_text(filepath, report)
+    if content is None:
         return
+    report.md_files_scanned += 1
 
     lines = content.split("\n")
 
     for i, line in enumerate(lines, 1):
-        # Honor explicit suppression directive (markdown can use HTML comment)
-        if "noqa: SEC-AUDITOR" in line or "auditor:ignore-line" in line:
-            continue
         for pat in PROMPT_INJECTION_PATTERNS:
             if re.search(pat["regex"], line):
                 report.findings.append(
@@ -683,11 +698,9 @@ def scan_dependencies(skill_path: Path, report: AuditReport):
     """Scan dependency files for supply chain risks."""
     # Check requirements.txt
     req_file = skill_path / "requirements.txt"
-    if req_file.exists():
-        try:
-            lines = req_file.read_text().split("\n")
-        except Exception:
-            return
+    content = read_skill_text(req_file, report)
+    if content is not None:
+        lines = content.split("\n")
 
         all_typosquats = {}
         for real_pkg, fakes in TYPOSQUAT_TARGETS.items():
@@ -732,11 +745,10 @@ def scan_dependencies(skill_path: Path, report: AuditReport):
 
     # Check for pip/npm install in code
     for code_file in skill_path.rglob("*"):
-        if code_file.suffix.lower() not in CODE_EXTENSIONS:
+        if ".git" in code_file.relative_to(skill_path).parts or code_file.suffix.lower() not in CODE_EXTENSIONS:
             continue
-        try:
-            content = code_file.read_text(encoding="utf-8", errors="replace")
-        except Exception:
+        content = read_skill_text(code_file, report)
+        if content is None:
             continue
 
         for i, line in enumerate(content.split("\n"), 1):
@@ -744,8 +756,6 @@ def scan_dependencies(skill_path: Path, report: AuditReport):
             # Skip comments (this line is documentation about install commands,
             # not actual install command at runtime)
             if stripped.startswith("#") or stripped.startswith("//"):
-                continue
-            if "noqa: SEC-AUDITOR" in line or "auditor:ignore-line" in line:
                 continue
             if re.search(r"\bpip\s+install\b", line):
                 report.findings.append(
@@ -805,8 +815,73 @@ def scan_filesystem(skill_path: Path, report: AuditReport):
                 )
             )
 
+        # Validate the real boundary before inspecting target metadata/content.
+        try:
+            target = resolve_in_root(item, skill_path)
+        except ValueError:
+            report.findings.append(
+                Finding(
+                    severity=Severity.CRITICAL,
+                    category="FS-SYMLINK",
+                    file=rel_str,
+                    line=0,
+                    pattern=item.name,
+                    risk="Resolved path points outside skill directory — target skipped",
+                    fix="Remove symlinks pointing outside the skill directory",
+                )
+            )
+            continue
+        except (OSError, RuntimeError):
+            target = None
+
+        try:
+            if target is None:
+                raise OSError("Unable to resolve path")
+            metadata = target.stat()
+        except OSError:
+            report.findings.append(
+                Finding(
+                    severity=Severity.HIGH,
+                    category="FS-UNREADABLE",
+                    file=rel_str,
+                    line=0,
+                    pattern=item.name,
+                    risk="Unresolvable or inaccessible entry — skipped",
+                    fix="Provide an accessible regular file within the skill directory",
+                )
+            )
+            continue
+
+        if stat.S_ISDIR(metadata.st_mode):
+            if item.is_symlink():
+                report.findings.append(
+                    Finding(
+                        severity=Severity.HIGH,
+                        category="FS-SYMLINK",
+                        file=rel_str,
+                        line=0,
+                        pattern=item.name,
+                        risk="Directory symlink is not traversed — coverage is incomplete",
+                        fix="Include a real directory within the skill instead",
+                    )
+                )
+            continue
+        if not stat.S_ISREG(metadata.st_mode):
+            report.findings.append(
+                Finding(
+                    severity=Severity.HIGH,
+                    category="FS-SPECIAL",
+                    file=rel_str,
+                    line=0,
+                    pattern=item.name,
+                    risk="Non-regular file (FIFO, device, or socket) — content skipped",
+                    fix="Remove special files from the skill distribution",
+                )
+            )
+            continue
+
         # Binary files
-        if item.is_file() and item.suffix.lower() in (
+        if item.suffix.lower() in (
             ".exe", ".dll", ".so", ".dylib", ".bin", ".elf",
             ".com", ".msi", ".deb", ".rpm", ".apk",
         ):
@@ -823,61 +898,34 @@ def scan_filesystem(skill_path: Path, report: AuditReport):
             )
 
         # Large files (>1MB)
-        if item.is_file():
-            try:
-                size = item.stat().st_size
-                if size > 1_000_000:
-                    report.findings.append(
-                        Finding(
-                            severity=Severity.INFO,
-                            category="FS-LARGE",
-                            file=rel_str,
-                            line=0,
-                            pattern=f"{size / 1_000_000:.1f}MB",
-                            risk="Large file — may hide payloads or bloat installation",
-                            fix="Review file contents. Consider if this file is necessary",
-                        )
-                    )
-            except OSError:
-                pass
-
-        # Symlinks
-        if item.is_symlink():
-            try:
-                target = item.resolve()
-                if not str(target).startswith(str(skill_path.resolve())):
-                    report.findings.append(
-                        Finding(
-                            severity=Severity.CRITICAL,
-                            category="FS-SYMLINK",
-                            file=rel_str,
-                            line=0,
-                            pattern=f"→ {target}",
-                            risk="Symlink points outside skill directory — directory traversal risk",
-                            fix="Remove symlinks pointing outside the skill directory",
-                        )
-                    )
-            except (OSError, ValueError):
-                pass
+        size = metadata.st_size
+        if size > 1_000_000:
+            report.findings.append(
+                Finding(
+                    severity=Severity.INFO,
+                    category="FS-LARGE",
+                    file=rel_str,
+                    line=0,
+                    pattern=f"{size / 1_000_000:.1f}MB",
+                    risk="Large file — may hide payloads or bloat installation",
+                    fix="Review file contents. Consider if this file is necessary",
+                )
+            )
 
         # SUID/SGID bits
-        if item.is_file():
-            try:
-                mode = item.stat().st_mode
-                if mode & (stat.S_ISUID | stat.S_ISGID):
-                    report.findings.append(
-                        Finding(
-                            severity=Severity.CRITICAL,
-                            category="FS-SUID",
-                            file=rel_str,
-                            line=0,
-                            pattern=f"mode={oct(mode)}",
-                            risk="SUID/SGID bit set — privilege escalation risk",
-                            fix="Remove SUID/SGID bits: chmod u-s,g-s <file>",
-                        )
-                    )
-            except OSError:
-                pass
+        mode = metadata.st_mode
+        if mode & (stat.S_ISUID | stat.S_ISGID):
+            report.findings.append(
+                Finding(
+                    severity=Severity.CRITICAL,
+                    category="FS-SUID",
+                    file=rel_str,
+                    line=0,
+                    pattern=f"mode={oct(mode)}",
+                    risk="SUID/SGID bit set — privilege escalation risk",
+                    fix="Remove SUID/SGID bits: chmod u-s,g-s <file>",
+                )
+            )
 
 
 def scan_skill(skill_path: Path) -> AuditReport:
@@ -909,16 +957,14 @@ def scan_skill(skill_path: Path) -> AuditReport:
     for code_file in skill_path.rglob("*"):
         if ".git" in code_file.parts:
             continue
-        if code_file.is_file() and code_file.suffix.lower() in CODE_EXTENSIONS:
-            report.scripts_scanned += 1
+        if code_file.suffix.lower() in CODE_EXTENSIONS:
             scan_file_code(code_file, report)
 
     # 3. Prompt injection scanning
     for md_file in skill_path.rglob("*"):
         if ".git" in md_file.parts:
             continue
-        if md_file.is_file() and md_file.suffix.lower() in MD_EXTENSIONS:
-            report.md_files_scanned += 1
+        if md_file.suffix.lower() in MD_EXTENSIONS:
             scan_file_prompt_injection(md_file, report)
 
     # 4. Dependency scanning
@@ -984,7 +1030,7 @@ def print_report(report: AuditReport):
     print("╚" + "═" * 54 + "╝")
 
     if not report.findings:
-        print("\n  No security issues found. Skill is safe to install.\n")
+        print("\n  No current rule matches found. This is not a safety guarantee.\n")
         return
 
     print()

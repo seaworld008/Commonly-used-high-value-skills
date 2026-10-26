@@ -12,7 +12,7 @@ Detailed frustration detection, classification, and scoring.
 
 | Signal | Definition | Detection Rule | Weight |
 |--------|------------|----------------|--------|
-| **Rage Click** | Rapid repeated clicks on same area | 3+ clicks within 1.5s, <50px apart | 3 |
+| **Rage Click** | Rapid repeated clicks on same area | 3+ clicks within 1s, <50px apart (desktop: 30px); calibrate to device and target using `rageclick-detection.md` | 3 |
 | **Back Loop** | Quick return to previous page | Back within 5s, repeated 2+ times | 3 |
 | **Form Abandonment** | Started but didn't submit | >2 fields filled, no submit, exit | 3 |
 | **Error Loop** | Repeated error encounters | Same error 2+ times in session | 3 |
@@ -41,10 +41,12 @@ Detailed frustration detection, classification, and scoring.
 
 ### Rage Click Detection
 
+Treat a cluster as a candidate signal. Keep clicks on the same target or nearby target area together with device tolerance; check dead clicks, INP/response timing, expected double-tap behavior, and session context before concluding frustration.
+
 ```yaml
 RAGE_CLICK_ALGORITHM:
   parameters:
-    time_window: 1500ms
+    time_window: 1000ms
     click_threshold: 3
     distance_threshold: 50px
 

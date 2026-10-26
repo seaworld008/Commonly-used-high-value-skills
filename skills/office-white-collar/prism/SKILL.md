@@ -2,14 +2,14 @@
 name: prism
 description: 'Consultant for NotebookLM steering prompt design. Optimizes Audio/Video/Slide/Infographic output quality through source preparation, prompt engineering, and Custom Goals persona design.'
 zh_description: "依据资料和受众设计 NotebookLM 音视频及演示提示词。"
-version: "1.0.5"
+version: "1.0.6"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/5f1bd9e50ee7b13fbd143b1a4a30e6643b458097/prism/SKILL.md"
 license: MIT
 tags: '["office", "prism"]'
 created_at: "2026-04-25"
-updated_at: "2026-09-06"
+updated_at: "2026-10-26"
 quality: 5
 complexity: "advanced"
 ---
@@ -149,12 +149,12 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 
 | Phase      | Goal                              | Keep explicit                                            | Read when needed                                                                                       |
 | ---------- | --------------------------------- | -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| `SOURCE`   | Understand source, goal, audience | Source type (PDF/Docs/Slides/URLs/EPUB/YouTube/Images/CSV), audience, purpose, tier constraints, Custom Goals persona | [source-preparation.md](~/.claude/skills/prism/references/source-preparation.md)                       |
-| `PREPARE`  | Improve notebook inputs           | Composition pattern, source count, tier limits, Discover Sources for gaps | [source-preparation.md](~/.claude/skills/prism/references/source-preparation.md)                       |
-| `STEER`    | Pick format and prompt family     | Three-layer structure, prompt family, duration           | [prompt-catalog.md](~/.claude/skills/prism/references/prompt-catalog.md)                               |
-| `GUIDE`    | Explain how to use the prompt     | Field placement, Free/Plus differences, iteration setup  | [steering-prompt-anti-patterns.md](~/.claude/skills/prism/references/steering-prompt-anti-patterns.md) |
-| `EVALUATE` | Score quality                     | 6-axis rubric, red flags, A/B test                       | [quality-evaluation.md](~/.claude/skills/prism/references/quality-evaluation.md)                       |
-| `REFINE`   | Adjust safely                     | One variable at a time, stop rule, source review trigger | [quality-evaluation.md](~/.claude/skills/prism/references/quality-evaluation.md)                       |
+| `SOURCE`   | Understand source, goal, audience | Source type (PDF/Docs/Slides/URLs/EPUB/YouTube/Images/CSV), audience, purpose, tier constraints, Custom Goals persona | [source-preparation.md](references/source-preparation.md)                       |
+| `PREPARE`  | Improve notebook inputs           | Composition pattern, source count, tier limits, Discover Sources for gaps | [source-preparation.md](references/source-preparation.md)                       |
+| `STEER`    | Pick format and prompt family     | Three-layer structure, prompt family, duration           | [prompt-catalog.md](references/prompt-catalog.md)                               |
+| `GUIDE`    | Explain how to use the prompt     | Field placement, Free/Plus differences, iteration setup  | [steering-prompt-anti-patterns.md](references/steering-prompt-anti-patterns.md) |
+| `EVALUATE` | Score quality                     | 6-axis rubric, red flags, A/B test                       | [quality-evaluation.md](references/quality-evaluation.md)                       |
+| `REFINE`   | Adjust safely                     | One variable at a time, stop rule, source review trigger | [quality-evaluation.md](references/quality-evaluation.md)                       |
 
 ## SPECTRUM
 
@@ -167,7 +167,7 @@ Use `SPECTRUM` after a task or during periodic review.
 - `CALIBRATE`: tune pattern weights and fit heuristics carefully
 - `PROPAGATE`: emit `EVOLUTION_SIGNAL` and share reusable findings with `Lore`
 
-Full calibration rules live in [prompt-effectiveness.md](~/.claude/skills/prism/references/prompt-effectiveness.md).
+Full calibration rules live in [prompt-effectiveness.md](references/prompt-effectiveness.md).
 
 ## Critical Thresholds
 
@@ -263,7 +263,7 @@ Routing rules:
 
 ## Output Requirements
 
-Output language follows the CLI global config (`settings.json` `language` field, `CLAUDE.md`, `AGENTS.md`, or `GEMINI.md`). Prompt templates, technical terms, and format names remain English.
+Use the requested artifact language and verify the product's actual Output Language setting. A host response-language preference does not configure the external product. Preserve identifiers and technical terms when translation would change their meaning.
 
 Use this response shape:
 
@@ -292,16 +292,16 @@ Minimum content:
 
 | File                                                                                                   | Read this when...                                                                             |
 | ------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- |
-| [prompt-catalog.md](~/.claude/skills/prism/references/prompt-catalog.md)                               | You need a ready-to-paste prompt family, duration target, or format style matrix              |
-| [source-preparation.md](~/.claude/skills/prism/references/source-preparation.md)                       | You need to improve sources, notebook composition, or Free/Plus feature guidance              |
-| [quality-evaluation.md](~/.claude/skills/prism/references/quality-evaluation.md)                       | You need scoring, red flags, A/B testing, or REFINE decisions                                 |
-| [prompt-effectiveness.md](~/.claude/skills/prism/references/prompt-effectiveness.md)                   | You need `SPECTRUM`, calibration thresholds, or `EVOLUTION_SIGNAL` format                     |
-| [steering-prompt-anti-patterns.md](~/.claude/skills/prism/references/steering-prompt-anti-patterns.md) | The steering prompt is vague, bloated, contradictory, or placed in the wrong NotebookLM field |
-| [source-curation-anti-patterns.md](~/.claude/skills/prism/references/source-curation-anti-patterns.md) | The source set is noisy, oversized, low-quality, or structured poorly                         |
-| [format-audience-anti-patterns.md](~/.claude/skills/prism/references/format-audience-anti-patterns.md) | Format, duration, or audience fit looks wrong                                                 |
-| [content-quality-anti-patterns.md](~/.claude/skills/prism/references/content-quality-anti-patterns.md) | You need hallucination checks, consistency checks, or content quality failure patterns        |
-| [multilingual-strategy.md](~/.claude/skills/prism/references/multilingual-strategy.md) | You need cross-lingual source handling, output language pinning, terminology glossary design, or code-switching prompt patterns |
-| [mindmap-design.md](~/.claude/skills/prism/references/mindmap-design.md) | You need Mind Map branch hierarchy steering, terminology consistency, density-vs-depth trade-off, or downstream Slides/Infographic handoff |
+| [prompt-catalog.md](references/prompt-catalog.md)                               | You need a ready-to-paste prompt family, duration target, or format style matrix              |
+| [source-preparation.md](references/source-preparation.md)                       | You need to improve sources, notebook composition, or Free/Plus feature guidance              |
+| [quality-evaluation.md](references/quality-evaluation.md)                       | You need scoring, red flags, A/B testing, or REFINE decisions                                 |
+| [prompt-effectiveness.md](references/prompt-effectiveness.md)                   | You need `SPECTRUM`, calibration thresholds, or `EVOLUTION_SIGNAL` format                     |
+| [steering-prompt-anti-patterns.md](references/steering-prompt-anti-patterns.md) | The steering prompt is vague, bloated, contradictory, or placed in the wrong NotebookLM field |
+| [source-curation-anti-patterns.md](references/source-curation-anti-patterns.md) | The source set is noisy, oversized, low-quality, or structured poorly                         |
+| [format-audience-anti-patterns.md](references/format-audience-anti-patterns.md) | Format, duration, or audience fit looks wrong                                                 |
+| [content-quality-anti-patterns.md](references/content-quality-anti-patterns.md) | You need hallucination checks, consistency checks, or content quality failure patterns        |
+| [multilingual-strategy.md](references/multilingual-strategy.md) | You need cross-lingual source handling, output language pinning, terminology glossary design, or code-switching prompt patterns |
+| [mindmap-design.md](references/mindmap-design.md) | You need Mind Map branch hierarchy steering, terminology consistency, density-vs-depth trade-off, or downstream Slides/Infographic handoff |
 
 ## External Sources (2025-2026)
 

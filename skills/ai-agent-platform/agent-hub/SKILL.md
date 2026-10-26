@@ -2,7 +2,7 @@
 name: agent-hub
 description: 'Compare independent solutions with agent-hub when parallel competition is requested; isolate Git worktrees, evaluate variants, and integrate the selected result.'
 zh_description: "用于管理 Agent 能力中心、技能发现、路由和协作工作流。"
-version: "1.0.12"
+version: "1.0.13"
 author: "seaworld008"
 source: "github:alirezarezvani/claude-skills"
 source_url: "https://github.com/alirezarezvani/claude-skills/blob/main/engineering/agenthub/skills/agenthub/SKILL.md"
@@ -18,6 +18,14 @@ complexity: "intermediate"
 
 Spawn N parallel AI agents that compete on the same task. Each agent works in an isolated git worktree. The coordinator evaluates results and merges the winner.
 
+
+Slash commands below belong to the separately installed upstream AgentHub
+plugin; loading this canonical skill does not register those commands. Use the
+bundled Python helpers when appropriate and inspect their actual help. The
+plugin-layout dry_run.py requires a complete upstream plugin checkout; missing
+plugin command files in this portable skill bundle are not a successful plugin
+installation or a reason to invent host commands.
+
 ## Slash Commands
 
 | Command | Description |
@@ -28,7 +36,7 @@ Spawn N parallel AI agents that compete on the same task. Each agent works in an
 | `/hub:eval` | Rank agent results by metric or LLM judge |
 | `/hub:merge` | Merge winning branch, archive losers |
 | `/hub:board` | Read/write the agent message board |
-| `/hub:run` | One-shot lifecycle: init → baseline → spawn → eval → merge |
+| `/hub:hub-run` | One-shot lifecycle: init → baseline → spawn → eval → merge |
 
 ## Agent Templates
 

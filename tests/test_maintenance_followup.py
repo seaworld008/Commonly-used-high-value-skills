@@ -135,7 +135,7 @@ def test_xquik_read_helper_never_follows_credentialed_redirects(monkeypatch):
         return response
     monkeypatch.setitem(sys.modules, 'requests', SimpleNamespace(
         get=get, ConnectionError=ConnectionError, Timeout=TimeoutError,
-        exceptions=SimpleNamespace(ChunkedEncodingError=OSError)))
+        exceptions=SimpleNamespace(ChunkedEncodingError=OSError, ContentDecodingError=OSError)))
     monkeypatch.setenv('XQUIK_API_KEY', 'test-only-not-a-secret')
     namespace = {}
     exec(compile(code, str(path), 'exec'), namespace)

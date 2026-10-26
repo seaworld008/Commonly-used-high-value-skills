@@ -2,7 +2,7 @@
   "schema_version": 2,
   "video": {
     "url": "https://github.com/firebase/agent-skills",
-    "checked_at": "2026-09-14",
+    "checked_at": "2026-10-26",
     "note": "Firebase official Agent Skills repository review. Imported firebase-security-rules-auditor as an expanded curated skill under Apache-2.0."
   },
   "official_references": [
@@ -34,11 +34,11 @@
         "repo": "firebase/agent-skills",
         "path": "skills/firebase-security-rules-auditor/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-03",
-        "last_synced_at": "2026-10-03",
-        "last_synced_commit": "de359da26586e4fad59b7ebab7592aa137c49b8a",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "92eed24c0976a79a66d5b8038e9eda8b441ef92d",
         "sync_mode": "monitor",
-        "path_commit": "e35a2d54bb0f737c0af59545330c1f53086ad52e"
+        "path_commit": "bf6538ef0e147831adc04c31291549f7dc399e97"
       },
       "kind": "mirror",
       "sync_mode": "monitor",
@@ -52,22 +52,27 @@
             {
               "source": "skills/firebase-security-rules-auditor/SKILL.md",
               "target": "skills/security-and-reliability/firebase-security-rules-auditor/SKILL.md"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/security-and-reliability/firebase-security-rules-auditor/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "de359da26586e4fad59b7ebab7592aa137c49b8a",
-            "path_commit": "e35a2d54bb0f737c0af59545330c1f53086ad52e",
-            "content_sha256": "e389e5c312b2555bbde83f1791a666f2fef70f0ba28a34c497cd8828ae0407bf",
-            "last_checked_at": "2026-10-03",
-            "last_synced_at": "2026-10-03",
+            "resolved_commit": "92eed24c0976a79a66d5b8038e9eda8b441ef92d",
+            "path_commit": "bf6538ef0e147831adc04c31291549f7dc399e97",
+            "content_sha256": "d42d317c70cf843cc49b0ce71ba26f76aff4c35da68558e134d7348696bc0adb",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
               "content_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
               "spdx": "Apache-2.0",
-              "resolved_commit": "de359da26586e4fad59b7ebab7592aa137c49b8a",
+              "resolved_commit": "92eed24c0976a79a66d5b8038e9eda8b441ef92d",
               "api_spdx": "Apache-2.0"
             }
           }
@@ -77,7 +82,13 @@
         {
           "path": "skills/security-and-reliability/firebase-security-rules-auditor/SKILL.md",
           "owner": "firebase-security-rules-auditor",
-          "sha256": "e389e5c312b2555bbde83f1791a666f2fef70f0ba28a34c497cd8828ae0407bf",
+          "sha256": "d42d317c70cf843cc49b0ce71ba26f76aff4c35da68558e134d7348696bc0adb",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/firebase-security-rules-auditor/LICENSE.upstream.txt",
+          "owner": "firebase-security-rules-auditor",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
           "mode": "100644"
         }
       ]
@@ -139,6 +150,13 @@
       "target": "firebase/agent-skills@de359da26586e4fad59b7ebab7592aa137c49b8a",
       "result": "success",
       "evidence": "Compared complete declared artifacts and new regular siblings at fixed commits; decisions, rejected forced gates and marketing-only changes are recorded in docs/maintenance-followup-2026-10-03.json. Static/source review is not live product or model acceptance."
+    },
+    {
+      "date": "2026-10-26",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "firebase/agent-skills@92eed24c0976a79a66d5b8038e9eda8b441ef92d",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
     }
   ]
 }

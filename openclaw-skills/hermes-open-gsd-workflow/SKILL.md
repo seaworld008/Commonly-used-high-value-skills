@@ -1,14 +1,14 @@
 ---
 name: hermes-open-gsd-workflow
-description: 'Route a development task to the official Hermes Agent skill, Graphify Codex artifact set, Open GSD Core bundle, or optional GSD Pi bundle without duplicating their installers or state machines.'
+description: 'Use when a development task needs ownership and routing across Hermes Agent, Graphify, Open GSD Core, or an explicitly requested GSD Pi runtime.'
 zh_description: "在 Hermes Agent、Graphify、Open GSD Core 与可选 GSD Pi 之间做薄路由，不复制上游安装器和状态机。"
-version: "1.0.1"
+version: "1.0.2"
 author: seaworld008
 source: in-house
 source_url: ""
 tags: '[hermes, graphify, open-gsd, orchestration, routing]'
 created_at: "2026-08-20"
-updated_at: "2026-08-20"
+updated_at: "2026-10-26"
 quality: 4
 complexity: intermediate
 ---

@@ -22,6 +22,7 @@ CHECKS = (
     ("scripts/validate_skill_sources.py",),
     ("scripts/reconcile_artifact_inventory.py", "--offline", "--check-clean", "--quiet"),
     ("scripts/check_source_coverage.py", "--min-percent", "100"),
+    ("scripts/check_skill_references.py",),
     ("scripts/check_readme_sync.py",),
     ("scripts/check_merge_conflicts.py",),
     ("-m", "pytest", "-q", "tests"),

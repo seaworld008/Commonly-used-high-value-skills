@@ -6,7 +6,9 @@
 
 ## 1. GenAI Semantic Conventions (OTel)
 
-OpenTelemetry defines standardized attribute names for AI/LLM telemetry under the `gen_ai.*` namespace (Semantic Conventions v1.40+).
+OpenTelemetry uses the `gen_ai.*` namespace for AI/LLM telemetry. Pin the semantic-convention schema and instrumentation/exporter versions used by the service; verify current official definitions and actual emitted data before migrating. The legacy examples below are not a verified current SDK contract.
+
+Where the selected instrumentation emits newer keys, normalize provider identity from `gen_ai.provider.name` with a legacy `gen_ai.system` fallback, completion reasons from `gen_ai.response.finish_reasons` (an array) with a scalar `gen_ai.response.finish_reason` fallback, and token direction from `gen_ai.token.type` with a legacy `token.type` fallback. Read both shapes during migration, deduplicate rather than adding the same usage twice, and retire aliases only after checking historical dashboards. Derive total tokens from input plus output when no total is emitted. Content-event names and payload schemas also need a current official check; retain opt-in sampling and PII scrubbing regardless of schema.
 
 ### Key Span Attributes
 
@@ -102,18 +104,19 @@ Derive cost as a computed metric in the collector or Grafana:
 
 ```yaml
 # Prometheus recording rule example
-# NOTE: per-token multipliers below (0.000003 / 0.000015) equal claude-sonnet-5's
-# standard post-2026-09-01 rate ($3.00 / $15.00 per 1M tokens; see the pricing
-# table above). The intro rate through 2026-08-31 is lower ($2.00 / $10.00 per
-# 1M, i.e. 0.000002 / 0.000010) — swap multipliers on that date if this rule
-# must track intro pricing until then.
+# Historical numeric multipliers below are unverified illustrative inputs.
+# Replace them from a dated official provider/model rate card before use;
+# account separately for cache reads/writes, service tiers and platform rates.
+# A token-usage histogram exports its accumulated token amount via _sum in
+# this example. Confirm exporter names/labels; _count counts observations,
+# and a cumulative amount is not a per-request value without a matching count.
 - record: llm_request_cost_usd
   expr: |
     (
-      gen_ai_client_token_usage_total{token_type="input", gen_ai_system="anthropic", gen_ai_request_model="claude-sonnet-5"}
+      gen_ai_client_token_usage_sum{token_type="input", gen_ai_system="anthropic", gen_ai_request_model="claude-sonnet-5"}
       * 0.000003
     ) + (
-      gen_ai_client_token_usage_total{token_type="output", gen_ai_system="anthropic", gen_ai_request_model="claude-sonnet-5"}
+      gen_ai_client_token_usage_sum{token_type="output", gen_ai_system="anthropic", gen_ai_request_model="claude-sonnet-5"}
       * 0.000015
     )
 ```
@@ -197,7 +200,7 @@ Row 4: Cost Analysis
   └── Projected monthly cost (stat + budget threshold line)
 
 Row 5: Traces
-  └── Weave trace explorer link filtered by gen_ai.system
+  └── Configured trace backend (e.g., Tempo) explorer link filtered by normalized provider identity
 ```
 
 ### Key Grafana Variables
@@ -205,11 +208,11 @@ Row 5: Traces
 ```yaml
 variables:
   - name: gen_ai_system
-    query: label_values(gen_ai_client_token_usage_total, gen_ai_system)
+    query: label_values(gen_ai_client_token_usage_sum, gen_ai_system)
   - name: model
-    query: label_values(gen_ai_client_token_usage_total{gen_ai_system="$gen_ai_system"}, gen_ai_request_model)
+    query: label_values(gen_ai_client_token_usage_sum{gen_ai_system="$gen_ai_system"}, gen_ai_request_model)
   - name: environment
-    query: label_values(gen_ai_client_token_usage_total, environment)
+    query: label_values(gen_ai_client_token_usage_sum, environment)
 ```
 
 ---

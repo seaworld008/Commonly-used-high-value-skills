@@ -2,14 +2,14 @@
 name: lark-meeting
 description: 'Use Lark CLI to locate meetings, manage Minutes and AI notes, inspect transcripts, and run authorized live-meeting interactions.'
 zh_description: "统一处理飞书会议、妙记、智能纪要、逐字稿和经授权的会中互动。"
-version: "1.0.3"
+version: "1.0.4"
 author: "Lark CLI contributors"
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-meeting"
 license: MIT
 tags: [lark, meeting, minutes, transcript, cli]
 created_at: "2026-08-24"
-updated_at: "2026-09-30"
+updated_at: "2026-10-26"
 quality: 4
 complexity: advanced
 metadata:

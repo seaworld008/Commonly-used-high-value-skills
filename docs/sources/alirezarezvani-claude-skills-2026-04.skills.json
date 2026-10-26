@@ -2,7 +2,7 @@
   "schema_version": 2,
   "video": {
     "url": "https://github.com/alirezarezvani/claude-skills",
-    "checked_at": "2026-08-31",
+    "checked_at": "2026-10-26",
     "note": "Curated from alirezarezvani/claude-skills with upstream tracking enabled."
   },
   "official_references": [
@@ -25,10 +25,10 @@
         "path": "engineering/agenthub/skills/agenthub/SKILL.md",
         "ref": "main",
         "sync_mode": "monitor",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-08-31",
-        "last_synced_commit": "19392f7a08264ed00486a251f5b2098321771f94",
-        "path_commit": "a80eec2267a93a681958164b27e74ff96a24f518"
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
+        "path_commit": "951ac0d58470b80374a3b9a09f1e9c7d60d6405f"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -92,22 +92,27 @@
               "source": "LICENSE",
               "target": "skills/ai-agent-platform/agent-hub/LICENSE.upstream.txt",
               "type": "file"
+            },
+            {
+              "source": "engineering/agenthub/skills/hub-run/SKILL.md",
+              "target": "skills/ai-agent-platform/agent-hub/references/upstream-hub-run.md",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "19392f7a08264ed00486a251f5b2098321771f94",
-            "path_commit": "a80eec2267a93a681958164b27e74ff96a24f518",
-            "content_sha256": "6c5828cfc550be1e8140f943a382bd82d530ea4e3ca0f2f8b26ea73a0cb708d9",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-08-31",
+            "resolved_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
+            "path_commit": "951ac0d58470b80374a3b9a09f1e9c7d60d6405f",
+            "content_sha256": "1a0f9232346e34d4529a06d8299d7fd25007f4bc6eb9119be3ef0e2a7b39220e",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "c3e30bcc287d6a1ebdb4ab29c10d344fd1053639",
               "content_sha256": "a20126646f93d32a8989c3cf4772d59194f405034f7babe7daebeac22b8ab151",
               "spdx": "MIT",
-              "resolved_commit": "19392f7a08264ed00486a251f5b2098321771f94",
+              "resolved_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
               "api_spdx": "MIT"
             }
           }
@@ -148,7 +153,7 @@
       "managed_files": [
         {
           "path": "skills/ai-agent-platform/agent-hub/CLAUDE.md",
-          "sha256": "002a900117ade74f8dea66bb1dca3179536c324d592527c01152b11139fc49d5",
+          "sha256": "b10276eb73dd4dc6e8e84e8611ac5a9d09bf4ff74a0c9cf67cbb3560ad2e87c4",
           "owner": "agent-hub",
           "mode": "100644"
         },
@@ -166,7 +171,7 @@
         },
         {
           "path": "skills/ai-agent-platform/agent-hub/SKILL.md",
-          "sha256": "6c5828cfc550be1e8140f943a382bd82d530ea4e3ca0f2f8b26ea73a0cb708d9",
+          "sha256": "1a0f9232346e34d4529a06d8299d7fd25007f4bc6eb9119be3ef0e2a7b39220e",
           "owner": "agent-hub",
           "mode": "100644"
         },
@@ -202,7 +207,7 @@
         },
         {
           "path": "skills/ai-agent-platform/agent-hub/scripts/dry_run.py",
-          "sha256": "1a02c84929cfcba641adcbe31275fb2cdc6a226d538990253e1b28d1762626a3",
+          "sha256": "ec4819ee6acc1b845f3c6ca996233af7288a84d81bb37108b116d3f367a4f641",
           "owner": "agent-hub",
           "mode": "100644"
         },
@@ -226,8 +231,14 @@
         },
         {
           "path": "skills/ai-agent-platform/agent-hub/settings.json",
-          "sha256": "1bf3fcb93594d44bbd1cc30af78ac5da4c9bb32d7cb17ad163ad6787867fb760",
+          "sha256": "1c301f76ef3e73f30e6c9ec471c8c032ee91174158cc6c71835e91116e6cf571",
           "owner": "agent-hub",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-agent-platform/agent-hub/references/upstream-hub-run.md",
+          "owner": "agent-hub",
+          "sha256": "18077bf04edcc6a893b06cd41222a1dd7eb1e7aa27eb1be1fab4ec4d88669d90",
           "mode": "100644"
         }
       ],
@@ -244,9 +255,9 @@
         "repo": "alirezarezvani/claude-skills",
         "path": "engineering-team/skills/security-pen-testing/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-08-31",
-        "last_synced_commit": "19392f7a08264ed00486a251f5b2098321771f94",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
         "sync_mode": "monitor",
         "path_commit": "b99505446a787228e776bf51b49d8f4b5939e203"
       },
@@ -302,17 +313,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "19392f7a08264ed00486a251f5b2098321771f94",
+            "resolved_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
             "path_commit": "b99505446a787228e776bf51b49d8f4b5939e203",
-            "content_sha256": "0076b9907a32eda47820dc75e7e09403e5a6d556be9802b136be6ee8d6b0dfae",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-08-31",
+            "content_sha256": "295a5574aa20f322c2057f14f151edfb2c54be080d671256a89dbe6fd8a60164",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "c3e30bcc287d6a1ebdb4ab29c10d344fd1053639",
               "content_sha256": "a20126646f93d32a8989c3cf4772d59194f405034f7babe7daebeac22b8ab151",
               "spdx": "MIT",
-              "resolved_commit": "19392f7a08264ed00486a251f5b2098321771f94",
+              "resolved_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
               "api_spdx": "MIT"
             }
           }
@@ -327,7 +338,7 @@
         },
         {
           "path": "skills/security-and-reliability/security-pen-testing/SKILL.md",
-          "sha256": "0076b9907a32eda47820dc75e7e09403e5a6d556be9802b136be6ee8d6b0dfae",
+          "sha256": "295a5574aa20f322c2057f14f151edfb2c54be080d671256a89dbe6fd8a60164",
           "owner": "security-pen-testing",
           "mode": "100644"
         },
@@ -381,9 +392,9 @@
         "repo": "alirezarezvani/claude-skills",
         "path": "ra-qm-team/skills/information-security-manager-iso27001/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-08-31",
-        "last_synced_commit": "19392f7a08264ed00486a251f5b2098321771f94",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
         "sync_mode": "monitor",
         "path_commit": "aecfb8e0bb71dbf1413082f86b33a5c4c9b8f416"
       },
@@ -434,17 +445,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "19392f7a08264ed00486a251f5b2098321771f94",
+            "resolved_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
             "path_commit": "aecfb8e0bb71dbf1413082f86b33a5c4c9b8f416",
             "content_sha256": "919e7651c83b2725c624e5648e81387b8a09b8f5889eab89ef015201715d7f3e",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-08-31",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "c3e30bcc287d6a1ebdb4ab29c10d344fd1053639",
               "content_sha256": "a20126646f93d32a8989c3cf4772d59194f405034f7babe7daebeac22b8ab151",
               "spdx": "MIT",
-              "resolved_commit": "19392f7a08264ed00486a251f5b2098321771f94",
+              "resolved_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
               "api_spdx": "MIT"
             }
           }
@@ -507,11 +518,11 @@
         "repo": "alirezarezvani/claude-skills",
         "path": "product-team/skills/landing-page-generator/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-08-31",
-        "last_synced_commit": "19392f7a08264ed00486a251f5b2098321771f94",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
         "sync_mode": "monitor",
-        "path_commit": "a088c8ba778319fea026c8a25e9e98b15754f379"
+        "path_commit": "74fa5ea21992277ca70ee9d12388ab0072c402aa"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -560,17 +571,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "19392f7a08264ed00486a251f5b2098321771f94",
-            "path_commit": "a088c8ba778319fea026c8a25e9e98b15754f379",
+            "resolved_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
+            "path_commit": "74fa5ea21992277ca70ee9d12388ab0072c402aa",
             "content_sha256": "9778d9446fda3cc9591e0f6eb5c682b78f5b2b2647e9c3ae9c8766da345f8a59",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-08-31",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "c3e30bcc287d6a1ebdb4ab29c10d344fd1053639",
               "content_sha256": "a20126646f93d32a8989c3cf4772d59194f405034f7babe7daebeac22b8ab151",
               "spdx": "MIT",
-              "resolved_commit": "19392f7a08264ed00486a251f5b2098321771f94",
+              "resolved_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
               "api_spdx": "MIT"
             }
           }
@@ -633,9 +644,9 @@
         "repo": "alirezarezvani/claude-skills",
         "path": "finance/skills/saas-metrics-coach/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-08-31",
-        "last_synced_commit": "19392f7a08264ed00486a251f5b2098321771f94",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
         "sync_mode": "monitor",
         "path_commit": "1851c8fb09ea8ff0488d48bd7c312abb1bbf5850"
       },
@@ -691,17 +702,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "19392f7a08264ed00486a251f5b2098321771f94",
+            "resolved_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
             "path_commit": "1851c8fb09ea8ff0488d48bd7c312abb1bbf5850",
             "content_sha256": "644d4fe6d39015699d67a0f294c400d9d161c2388b7a6d43f4bca394e06eb233",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-08-31",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "c3e30bcc287d6a1ebdb4ab29c10d344fd1053639",
               "content_sha256": "a20126646f93d32a8989c3cf4772d59194f405034f7babe7daebeac22b8ab151",
               "spdx": "MIT",
-              "resolved_commit": "19392f7a08264ed00486a251f5b2098321771f94",
+              "resolved_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
               "api_spdx": "MIT"
             }
           }
@@ -770,9 +781,9 @@
         "repo": "alirezarezvani/claude-skills",
         "path": "engineering-team/skills/senior-architect/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-08-31",
-        "last_synced_commit": "19392f7a08264ed00486a251f5b2098321771f94",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
         "sync_mode": "monitor",
         "path_commit": "1851c8fb09ea8ff0488d48bd7c312abb1bbf5850"
       },
@@ -828,17 +839,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "19392f7a08264ed00486a251f5b2098321771f94",
+            "resolved_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
             "path_commit": "1851c8fb09ea8ff0488d48bd7c312abb1bbf5850",
             "content_sha256": "5fb8bd49ff35d6e05df043b41251bc095220242ca98bbbbbec1e352ab765c090",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-08-31",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "c3e30bcc287d6a1ebdb4ab29c10d344fd1053639",
               "content_sha256": "a20126646f93d32a8989c3cf4772d59194f405034f7babe7daebeac22b8ab151",
               "spdx": "MIT",
-              "resolved_commit": "19392f7a08264ed00486a251f5b2098321771f94",
+              "resolved_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
               "api_spdx": "MIT"
             }
           }
@@ -907,9 +918,9 @@
         "repo": "alirezarezvani/claude-skills",
         "path": "engineering/skills/skill-security-auditor/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-08-31",
-        "last_synced_commit": "19392f7a08264ed00486a251f5b2098321771f94",
+        "last_checked_at": "2026-10-26",
+        "last_synced_at": "2026-10-26",
+        "last_synced_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
         "sync_mode": "monitor",
         "path_commit": "a088c8ba778319fea026c8a25e9e98b15754f379"
       },
@@ -945,17 +956,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "19392f7a08264ed00486a251f5b2098321771f94",
+            "resolved_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
             "path_commit": "a088c8ba778319fea026c8a25e9e98b15754f379",
-            "content_sha256": "5eacf01dc1354604c30c216955876732cdf8fd861c4cd42f3ea09e337c58bdf3",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-08-31",
+            "content_sha256": "e849d3f87f3bff6e0fa76686268701bbc43494a6c5ea4af39a498893df48ec6e",
+            "last_checked_at": "2026-10-26",
+            "last_synced_at": "2026-10-26",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "c3e30bcc287d6a1ebdb4ab29c10d344fd1053639",
               "content_sha256": "a20126646f93d32a8989c3cf4772d59194f405034f7babe7daebeac22b8ab151",
               "spdx": "MIT",
-              "resolved_commit": "19392f7a08264ed00486a251f5b2098321771f94",
+              "resolved_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
               "api_spdx": "MIT"
             }
           }
@@ -970,7 +981,7 @@
         },
         {
           "path": "skills/security-and-reliability/skill-security-auditor/SKILL.md",
-          "sha256": "5eacf01dc1354604c30c216955876732cdf8fd861c4cd42f3ea09e337c58bdf3",
+          "sha256": "e849d3f87f3bff6e0fa76686268701bbc43494a6c5ea4af39a498893df48ec6e",
           "owner": "skill-security-auditor",
           "mode": "100644"
         },
@@ -982,7 +993,7 @@
         },
         {
           "path": "skills/security-and-reliability/skill-security-auditor/scripts/skill_security_auditor.py",
-          "sha256": "7111717862232f0368699ec96ccb09d98052149e012c9d98b600dde4c6661ac4",
+          "sha256": "761c222c0fda9c81ca92b6517e519edd3e487e8faeb04417341b55fa232155bd",
           "owner": "skill-security-auditor",
           "mode": "100644"
         }
@@ -1009,6 +1020,13 @@
       "date": "2026-08-31",
       "method": "commit-aware-manual-monitor-review",
       "target": "alirezarezvani/claude-skills@19392f7a08264ed00486a251f5b2098321771f94",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-10-26",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "alirezarezvani/claude-skills@6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
       "result": "success",
       "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
     }

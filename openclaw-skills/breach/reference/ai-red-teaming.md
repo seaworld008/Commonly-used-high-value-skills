@@ -175,6 +175,6 @@ Variations:
 
 - Use MITRE ATT&CK v19 (released 2026-04-28) for technique mapping — Enterprise contains 15 Tactics, 222 Techniques, 475 Sub-Techniques. [Source: MITRE ATT&CK April 2026 Updates](https://attack.mitre.org/resources/updates/updates-april-2026/)
 
-- For systems subject to EU AI Act: adversarial testing and documentation are mandatory for high-risk and general-purpose AI models with systemic risk. Full compliance required by August 2, 2026; penalties up to €35M or 7% of global annual turnover.
+- For systems subject to the EU AI Act, determine testing/documentation obligations from the applicable system classification, operator role and current legal text. Do not generalize one implementation date or the Article 5 prohibited-practice fine to every obligation. Use the [official Regulation and its current consolidation](https://eur-lex.europa.eu/eli/reg/2024/1689/oj) before an applicability or penalty claim.
 
 - Structure AI red teaming engagements around four assessment areas: model evaluation, implementation testing, infrastructure assessment, and runtime behavior analysis. [Source: OWASP GenAI Red Teaming Guide (2025)](https://genai.owasp.org/resource/genai-red-teaming-guide/)

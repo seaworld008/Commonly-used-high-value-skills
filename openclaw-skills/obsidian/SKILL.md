@@ -1,15 +1,15 @@
 ---
 name: obsidian
-description: 'Read, search, create, or edit notes in an authorized Obsidian vault while preserving frontmatter, wikilinks, and unrelated notes.'
+description: 'Use when reading, searching, creating, or editing notes in an authorized Obsidian vault while preserving frontmatter, wikilinks, and unrelated notes.'
 zh_description: "用于读取、搜索、创建和编辑 Obsidian 知识库笔记，并维护 Markdown 结构和链接关系。"
-version: "1.0.5"
+version: "1.0.6"
 author: "seaworld008"
 source: "github:NousResearch/hermes-agent"
 source_url: "https://github.com/NousResearch/hermes-agent/blob/main/skills/note-taking/obsidian/SKILL.md"
 license: MIT
 tags: '["obsidian", "notes", "knowledge-base"]'
 created_at: "2026-04-13"
-updated_at: "2026-09-06"
+updated_at: "2026-10-26"
 quality: 3
 complexity: "intermediate"
 platforms: '[linux, macos, windows]'

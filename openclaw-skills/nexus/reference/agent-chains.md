@@ -17,6 +17,8 @@
 
 Each row is a **deviation** from the `routing-matrix.md` default for that task type. Read the default there first; apply the variant here when its complexity/sub-type key matches.
 
+BUG variants keep a failing reproduction check before the fix and a passing regression check afterward, even for a small diff. REFACTOR variants keep final behavior-equivalence verification; a pre-change characterization check can be skipped only with an adequate existing safety net. These are verification responsibilities within the authorized workflow; a chain template does not itself authorize delegation.
+
 **Rows are work-phase deltas, not full ship chains.** They deliberately omit the terminal **Guardian** (SHIP) step that `routing-matrix.md`'s default chains end with: Guardian still runs after the variant whenever the task type's matrix row includes it, and is simply not repeated on every row. Rows for types with no matrix row (QA, TEST, COMPARE, UX_DESIGN) and rows whose deliverable is not a code change (advisory, strategy, document packages) end where they are written — no Guardian is implied there.
 
 | Type | Complexity | Chain Template |
@@ -330,7 +332,7 @@ Builder then applies:
 
 ### Skip Triggers
 
-- Changes under 10 lines AND tests exist → May skip Radar
+- Changes under 10 lines AND tests exist → May skip Radar only outside BUG and final REFACTOR equivalence verification
 - Pure documentation changes → Skip Radar/Sentinel
 - Config files only → Only relevant agent
 - Sentinel-only static issues → May skip Probe

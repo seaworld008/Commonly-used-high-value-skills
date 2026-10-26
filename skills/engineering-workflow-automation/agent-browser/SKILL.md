@@ -1,15 +1,15 @@
 ---
 name: agent-browser
-description: Automate authorized browser workflows with agent-browser CLI snapshots and CDP.
+description: 'Use when controlling authorized web pages with agent-browser CLI, accessibility snapshots, element references, or browser workflow verification.'
 zh_description: "在授权浏览器会话中利用官方 agent-browser CLI 快照和 CDP 完成自动化验收。"
-version: "1.0.0"
+version: "1.0.1"
 author: "vercel-labs/agent-browser"
 source: "github:vercel-labs/agent-browser"
 source_url: "https://github.com/vercel-labs/agent-browser/tree/d9570915f4dd6504dee4070379d2c4f79d81dbb2/skill-data/core"
 license: "Apache-2.0"
 tags: ["browser", "cdp", "automation"]
 created_at: "2026-10-12"
-updated_at: "2026-10-12"
+updated_at: "2026-10-26"
 quality: 4
 complexity: "advanced"
 ---
