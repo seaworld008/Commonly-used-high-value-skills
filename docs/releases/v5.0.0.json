@@ -1,0 +1,34 @@
+{
+  "tag": "v5.0.0",
+  "package_version": "5.0.0",
+  "title": "v5.0.0 · 全量策展、能力扩展与可信发布",
+  "prerelease": false,
+  "generate_notes": false,
+  "changelog_range": "v4.3.0..v5.0.0",
+  "canonical_skills": 296,
+  "highlights": [
+    "完成全量来源策展与监控源固定提交审阅，强化技能审计和生成物边界",
+    "将 self-improving-agent 的可复用方法迁入 reflect-learn 并退役旧公开入口",
+    "新增 shadcn、security-model 与原创 remotion-video 三个能力缺口技能",
+    "补齐 provenance v2、许可证全文、资源引用校验、Graphify 回执和安全边界回归"
+  ],
+  "release_gates": [
+    "精确合并 main 提交的 Repository Validation、skills-provenance-ci 与 CodeQL 全部成功",
+    "main 的 Code Scanning 开放告警为零",
+    "完整仓库校验、安装器测试、npm 打包和生成器幂等性通过",
+    "独立下载 GitHub 源码归档和 npm 制品，验证 manifest、SHA256、版本和规范技能数量"
+  ],
+  "validation_boundaries": {
+    "upstream": "本版核验 135 个可检查来源，26 个冻结或可选来源按策略跳过；固定提交和本地策展均有记录，不声称未来默认分支持续同步。",
+    "licensing": "外部资产保留来源、许可证和 attribution；Remotion 能力缺口使用原创实现，不复制无宽松许可的上游技能。",
+    "runtime": "静态测试、CLI 和制品校验不等同真实浏览器、视频播放、云服务、账号操作或模型行为验收。",
+    "security": "发布门禁包含 Code Scanning 零开放告警、来源/许可证校验和本地安全回归，不替代所有运行时安全评估。",
+    "previous_release": "v4.3.0 仍保留为历史稳定版本；v5.0.0 基于合并后的 main 提交 72d0fd3cc1f87270c7e7bb81afe076cbd2db50f5，包含公开入口删除，属于 major release。"
+  },
+  "compatibility_notes": [
+    "公开 self-improving-agent 入口已删除；持续改进方法迁移到 reflect-learn 的 controlled-improvement 参考资料。",
+    "规范技能数量为 296，保持 16 个分类；新增入口均有 canonical source、generated export 和 provenance v2 记录。",
+    "security-model 的本地解析器与 remotion-video 验收器只在明确项目范围内运行，不自动安装、写入外部项目或访问云服务。"
+  ],
+  "audit": "docs/maintenance-followup-2026-10-26.md"
+}

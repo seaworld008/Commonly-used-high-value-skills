@@ -13,9 +13,9 @@ A high-value skills repository for AI developers, organized by real work scenari
 This repository currently contains **16 categories / 296 skills**.
 
 
-## v4.3.0 Curated Skill Refresh and Verification Guidance
+## v5.0.0 Full Portfolio Curation and Capability Expansion
 
-As of 2026-10-24, this release refines Brainstorming, Writing Skills, Neon Postgres and Azure Kubernetes. It improves decision handoffs, behavioral versus static verification, optional Jev reranking, and runtime tool discovery. All 294 canonical skills across 16 categories remain stable. Unreviewed upstream artifacts remain queued. [Release notes](docs/releases/v4.3.0.md).
+As of 2026-10-27, this major release completes the reviewed portfolio curation, adds shadcn, security-model and remotion-video, and publishes 296 canonical skills across 16 categories. The public self-improving-agent entry moved to reflect-learn as a breaking migration. [Release notes](docs/releases/v5.0.0.md).
 
 ## v4.1.0 Upstream Contracts and Cross-platform Fixes
 

@@ -1,6 +1,6 @@
 {
   "name": "common-high-value-skills",
-  "version": "4.3.0",
+  "version": "5.0.0",
   "description": "Cross-agent installer for the Commonly Used High-Value Skills repository.",
   "license": "MIT",
   "type": "commonjs",

@@ -27,6 +27,19 @@ All notable changes to this repository are documented here.
 - validate every receipt before cache writes
 <!-- AUTO-CHANGELOG:END -->
 
+## [4.3.0] - 2026-10-24
+
+### 自动更新 / Automated updates
+
+变更范围 / Revision range: `v4.1.0..v4.3.0`.
+
+#### [2026-10-24]
+
+##### Changed
+- prepare v4.2.0 metadata and regenerate-safe changelog
+- regenerate curated skill exports and provenance
+- curate Neon retrieval, AKS discovery and agent workflow guidance
+
 ## [4.1.0] - 2026-10-16
 
 ### 自动更新 / Automated updates
