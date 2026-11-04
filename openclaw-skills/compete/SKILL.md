@@ -1,15 +1,15 @@
 ---
 name: compete
-description: '竞品研究、差异化定位、矩阵对比和竞争战卡。'
-zh_description: "竞品研究、差异化定位、矩阵对比和竞争战卡。"
-version: "1.0.2"
+description: 'Use when researching competitors: profiles, feature and pricing matrices, positioning maps, battle cards, win-loss analysis, and competitive signal tracking.'
+zh_description: "研究竞争对手时使用：竞品画像、功能与定价对比、定位图、竞争战卡和输赢分析。"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/compete/SKILL.md"
 license: MIT
 tags: ["compete", "growth", "marketing"]
 created_at: "2026-08-24"
-updated_at: "2026-09-30"
+updated_at: "2026-11-04"
 quality: 5
 complexity: "advanced"
 ---

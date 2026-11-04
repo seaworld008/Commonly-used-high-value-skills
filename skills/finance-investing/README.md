@@ -25,7 +25,7 @@
 | `financial-data-collector` | 用于收集股票、财报、宏观和市场数据并生成分析输入。 | [目录](./financial-data-collector/) | [SKILL.md](./financial-data-collector/SKILL.md) |
 | `helm` | 商业战略场景模拟、市场分析、指标预测和路线图规划。 | [目录](./helm/) | [SKILL.md](./helm/SKILL.md) |
 | `investment-memo-writer` | 编写有来源依据、投资逻辑和风险分析的投资备忘录。 | [目录](./investment-memo-writer/) | [SKILL.md](./investment-memo-writer/SKILL.md) |
-| `ledger` | 云成本、预算告警、资源规格和人工智能工作负载成本优化。 | [目录](./ledger/) | [SKILL.md](./ledger/SKILL.md) |
+| `ledger` | 估算或优化云成本时使用：IaC 成本预估、规格调整、预留实例、标签策略和预算告警。 | [目录](./ledger/) | [SKILL.md](./ledger/SKILL.md) |
 | `levy` | 依据目标税年和官方规则分析日本税务及申报问题。 | [目录](./levy/) | [SKILL.md](./levy/SKILL.md) |
 | `macro-regime-monitor` | 监测宏观经济状态、市场指标和投资环境变化。 | [目录](./macro-regime-monitor/) | [SKILL.md](./macro-regime-monitor/SKILL.md) |
 | `options-strategy-evaluator` | 评估期权策略的收益结构、希腊字母和情景风险。 | [目录](./options-strategy-evaluator/) | [SKILL.md](./options-strategy-evaluator/SKILL.md) |

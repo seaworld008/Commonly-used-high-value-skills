@@ -1,14 +1,14 @@
 ---
 name: semgrep-appsec-scanner
-description: '用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。'
+description: 'Use when running Semgrep SAST on source code: registry or custom rules, secrets detection, supply-chain dependency findings, and result triage.'
 zh_description: "用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。"
-version: "1.0.0"
+version: "1.0.1"
 author: seaworld008
 source: "in-house"
 source_url: ""
 tags: '[security, sast, semgrep, code-scanning, supply-chain, secrets, ci, appsec]'
 created_at: "2026-05-20"
-updated_at: "2026-05-20"
+updated_at: "2026-11-04"
 quality: 4
 complexity: advanced
 ---

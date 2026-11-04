@@ -1,14 +1,14 @@
 ---
 name: codeql-security-scanner
-description: '用于通过 CodeQL 执行语义代码扫描、安全查询、自定义规则、SARIF 报告和 GitHub Code Scanning 集成。'
-zh_description: "用于通过 CodeQL 执行语义代码扫描、安全查询、自定义规则、SARIF 报告和 GitHub Code Scan。"
-version: "1.0.0"
+description: 'Use when running CodeQL semantic code scanning: build databases, run security or custom query suites, and produce SARIF for GitHub code scanning.'
+zh_description: "用于通过 CodeQL 执行语义代码扫描、安全查询和自定义规则，并输出 SARIF 接入 GitHub Code Scanning。"
+version: "1.0.1"
 author: seaworld008
 source: "in-house"
 source_url: ""
 tags: '[security, sast, codeql, code-scanning, github, sarif, custom-queries, appsec]'
 created_at: "2026-05-20"
-updated_at: "2026-05-20"
+updated_at: "2026-11-04"
 quality: 4
 complexity: advanced
 ---

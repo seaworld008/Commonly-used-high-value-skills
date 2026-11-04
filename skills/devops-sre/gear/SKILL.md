@@ -1,15 +1,15 @@
 ---
 name: gear
-description: '依赖、构建、容器、监控和开发环境运维优化。'
-zh_description: "依赖、构建、容器、监控和开发环境运维优化。"
-version: "1.0.3"
+description: 'Use when maintaining developer infrastructure: dependency updates and audits, CI workflow tuning, Dockerfiles, linters and git hooks, env and secret setup, or build failures.'
+zh_description: "维护依赖、CI 工作流、容器构建、代码规范工具或排查构建失败时使用。"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/gear/SKILL.md"
 license: MIT
 tags: ["devops", "gear", "sre"]
 created_at: "2026-08-24"
-updated_at: "2026-10-26"
+updated_at: "2026-11-04"
 quality: 5
 complexity: "advanced"
 ---

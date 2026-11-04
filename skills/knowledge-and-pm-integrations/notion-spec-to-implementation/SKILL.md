@@ -1,14 +1,14 @@
 ---
 name: notion-spec-to-implementation
-description: '用于把 Notion 规格转成计划、任务和进度跟踪。'
-zh_description: "用于将 Notion 规格文档转化为可执行实现计划。"
-version: "1.0.0"
+description: 'Use when turning a Notion PRD or feature spec into a linked implementation plan and tasks, then keeping spec, plan, and task status in sync.'
+zh_description: "需要把 Notion 需求规格拆成关联的实施计划与任务，并持续同步进度时使用。"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["implementation", "notion", "spec"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-11-04"
 quality: 3
 complexity: "intermediate"
 metadata:

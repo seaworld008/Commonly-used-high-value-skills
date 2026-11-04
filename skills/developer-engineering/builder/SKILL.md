@@ -1,15 +1,15 @@
 ---
 name: builder
-description: '生产级业务逻辑、接口集成和类型安全实现。'
-zh_description: "生产级业务逻辑、接口集成和类型安全实现。"
-version: "1.0.3"
+description: 'Use when implementing production business logic: type-safe domain models, validated boundaries, resilient API integrations, and CQRS or event sourcing in TypeScript, Go, Python, or Rust.'
+zh_description: "实现生产级业务逻辑时使用：类型安全领域模型、边界校验、健壮的接口集成与 CQRS/事件溯源。"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/builder/SKILL.md"
 license: MIT
 tags: ["builder", "development"]
 created_at: "2026-08-24"
-updated_at: "2026-10-26"
+updated_at: "2026-11-04"
 quality: 5
 complexity: "advanced"
 ---

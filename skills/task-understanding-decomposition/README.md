@@ -10,18 +10,18 @@
 
 - [reflect-learn](./reflect-learn/) - 分析用户纠正和任务结果，提出可复用的改进建议。
 - [grill-me](./grill-me/) - 对方案、设计和关键决策进行追问，检验假设、取舍与遗漏的需求。
-- [lens](./lens/) - 代码库理解、功能发现、数据流追踪和上下文调查。
-- [ripple](./ripple/) - 变更前影响分析，评估依赖链和一致性风险。
+- [lens](./lens/) - 需要理解陌生代码库时使用：确认功能是否存在、追踪执行与数据流、梳理模块边界。
+- [ripple](./ripple/) - 实施高风险变更前使用：评估依赖链、破坏性影响和一致性风险，并给出是否推进的建议。
 
 ## 技能总览
 
 | 技能 | 简介 | 目录 | 详情 |
 |------|------|------|------|
 | `grill-me` | 对方案、设计和关键决策进行追问，检验假设、取舍与遗漏的需求。 | [目录](./grill-me/) | [SKILL.md](./grill-me/SKILL.md) |
-| `lens` | 代码库理解、功能发现、数据流追踪和上下文调查。 | [目录](./lens/) | [SKILL.md](./lens/SKILL.md) |
+| `lens` | 需要理解陌生代码库时使用：确认功能是否存在、追踪执行与数据流、梳理模块边界。 | [目录](./lens/) | [SKILL.md](./lens/SKILL.md) |
 | `reflect-learn` | 分析用户纠正和任务结果，提出可复用的改进建议。 | [目录](./reflect-learn/) | [SKILL.md](./reflect-learn/SKILL.md) |
-| `ripple` | 变更前影响分析，评估依赖链和一致性风险。 | [目录](./ripple/) | [SKILL.md](./ripple/SKILL.md) |
-| `scout` | 缺陷调查、复现步骤、根因分析和影响评估。 | [目录](./scout/) | [SKILL.md](./scout/SKILL.md) |
+| `ripple` | 实施高风险变更前使用：评估依赖链、破坏性影响和一致性风险，并给出是否推进的建议。 | [目录](./ripple/) | [SKILL.md](./ripple/SKILL.md) |
+| `scout` | 调查缺陷时使用：复现问题、逐一验证假设、定位根因并评估影响，在修复前完成。 | [目录](./scout/) | [SKILL.md](./scout/SKILL.md) |
 
 ## 维护方式
 

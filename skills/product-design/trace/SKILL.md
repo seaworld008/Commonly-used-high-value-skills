@@ -1,15 +1,15 @@
 ---
 name: trace
-description: '会话回放分析、行为模式提取和体验问题叙事。'
-zh_description: "会话回放分析、行为模式提取和体验问题叙事。"
-version: "1.0.3"
+description: 'Use when analyzing session replays or event logs for user behavior patterns, frustration signals such as rage or dead clicks, journey breakdowns, and UX anomalies.'
+zh_description: "分析会话回放或行为日志时使用：行为模式、挫败信号、用户旅程和体验异常。"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/trace/SKILL.md"
 license: MIT
 tags: ["design", "product", "trace"]
 created_at: "2026-08-24"
-updated_at: "2026-10-26"
+updated_at: "2026-11-04"
 quality: 5
 complexity: "advanced"
 ---

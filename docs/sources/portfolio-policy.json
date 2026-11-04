@@ -213,6 +213,11 @@
       "name": "github",
       "replacement": "github-ops",
       "reason": "The single-file in-house ClawHub-era wrapper had no executable asset or external contract beyond generic gh commands, and instructed self-installation, MEMORY.md persistence, and blanket confirmation pauses. GitHub Ops owns the same gh CLI and API intent with five references; it now carries the useful auth reuse, warning triage, split-PR, and CI-log guidance."
+    },
+    {
+      "name": "neon-postgres-egress-optimizer",
+      "replacement": "neon-postgres",
+      "reason": "Upstream retired the standalone skill ID and moved its egress workflow into the neon-postgres references (neondatabase/agent-skills#172). Neon Postgres now owns the same egress and transfer-cost intent through references/egress-optimization.md."
     }
   ],
   "canonical_groups": [
@@ -310,6 +315,12 @@
       "canonical": "github-ops",
       "retired_aliases": [
         "github"
+      ]
+    },
+    {
+      "canonical": "neon-postgres",
+      "retired_aliases": [
+        "neon-postgres-egress-optimizer"
       ]
     }
   ],

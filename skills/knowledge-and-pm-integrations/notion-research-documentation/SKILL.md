@@ -1,14 +1,14 @@
 ---
 name: notion-research-documentation
-description: '用于整合 Notion 信息并生成研究文档。'
-zh_description: "用于整合 Notion 信息并生成研究文档。"
-version: "1.0.0"
+description: 'Use when synthesizing several Notion pages into a cited brief, comparison, or recommendation report that links back to its source pages.'
+zh_description: "需要汇总多个 Notion 页面并生成带引用的研究简报或对比报告时使用。"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["documentation", "notion", "research"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-11-04"
 quality: 3
 complexity: "intermediate"
 metadata:

@@ -4920,7 +4920,7 @@
             "ref": "main",
             "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
             "path_commit": "049ddf771b435e86a4f5a71e616336ec44341160",
-            "content_sha256": "a891de44827b89a29be6db59cd71e48f3538c8b7ad3c3c43b55032c521423c97",
+            "content_sha256": "6b2a4ece7d271de4ef0be234c873b2842a10e43e0e968bcb54fac0a7779a5d15",
             "last_checked_at": "2026-10-16",
             "last_synced_at": "2026-10-16",
             "license_checkpoint": {
@@ -4938,7 +4938,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-workflow-standup-report/SKILL.md",
           "owner": "lark-workflow-standup-report",
-          "sha256": "a891de44827b89a29be6db59cd71e48f3538c8b7ad3c3c43b55032c521423c97",
+          "sha256": "6b2a4ece7d271de4ef0be234c873b2842a10e43e0e968bcb54fac0a7779a5d15",
           "mode": "100644"
         }
       ]

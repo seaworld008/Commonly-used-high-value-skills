@@ -1,15 +1,15 @@
 ---
 name: growth
-description: '搜索、社交、转化和人工智能引用优化的一体化增长。'
-zh_description: "搜索、社交、转化和人工智能引用优化的一体化增长。"
-version: "1.0.3"
+description: 'Use when improving organic acquisition for web pages: SEO meta tags, structured data, social cards, Core Web Vitals, AI-answer citation (GEO), and conversion copy.'
+zh_description: "提升网页自然流量与转化时使用：SEO 元信息、结构化数据、社交卡片、核心性能指标和 AI 引用优化。"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/growth/SKILL.md"
 license: MIT
 tags: ["growth", "marketing"]
 created_at: "2026-08-24"
-updated_at: "2026-10-26"
+updated_at: "2026-11-04"
 quality: 5
 complexity: "advanced"
 ---

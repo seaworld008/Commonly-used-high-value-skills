@@ -1,15 +1,15 @@
 ---
 name: beacon
-description: '可观测性、服务目标、告警、容量和可靠性设计。'
-zh_description: "可观测性、服务目标、告警、容量和可靠性设计。"
-version: "1.0.3"
+description: 'Use when defining SLOs and error budgets, burn-rate alerts, OpenTelemetry tracing, dashboards, capacity plans, or production-readiness reviews for a service.'
+zh_description: "为服务设计 SLO、错误预算、告警、链路追踪、仪表盘或容量规划时使用。"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/beacon/SKILL.md"
 license: MIT
 tags: ["beacon", "devops", "sre"]
 created_at: "2026-08-24"
-updated_at: "2026-10-26"
+updated_at: "2026-11-04"
 quality: 5
 complexity: "advanced"
 ---

@@ -5,17 +5,17 @@
 [![简体中文](https://img.shields.io/badge/README-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1677ff)](./README.md)
 [![English](https://img.shields.io/badge/README-English-111111)](./README.en.md)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b894)](./openclaw-skills/README.md)
-[![Skills](https://img.shields.io/badge/Skills-294-7c3aed)](./skills/)
+[![Skills](https://img.shields.io/badge/Skills-293-7c3aed)](./skills/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
 A high-value skills repository for AI developers, organized by real work scenarios such as developer engineering, DevOps, automation, finance, design, knowledge workflows, and reliability.
 
-This repository currently contains **16 categories / 294 skills**.
+This repository currently contains **16 categories / 293 skills**.
 
 
 ## v6.0.0 Portfolio Consolidation and Real Contracts
 
-As of 2026-11-04, this major release retires two duplicate public entries (`skill-vetter` → `skill-security-auditor`, `github` → `github-ops`), rewrites `find-skills`, `link-checker` (now with a read-only checker script) and `figma` around real tools, and removes default `MEMORY.md`/cron writes. 294 canonical skills across 16 categories. [Release notes](docs/releases/v6.0.0.md).
+As of 2026-11-04, this major release retires three duplicate public entries (`skill-vetter` → `skill-security-auditor`, `github` → `github-ops`, `neon-postgres-egress-optimizer` → `neon-postgres`), rewrites `find-skills`, `link-checker` (now with a read-only checker script) and `figma` around real tools, and removes default `MEMORY.md`/cron writes. It also gives 46 skills trigger-based descriptions, runs a full upstream sync check, and upgrades Hermes Agent to v0.22.7. 293 canonical skills across 16 categories. [Release notes](docs/releases/v6.0.0.md).
 
 ## v5.0.0 Full Portfolio Curation and Capability Expansion
 
@@ -382,10 +382,10 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 2. Open the relevant `SKILL.md` and read its triggers, workflow, boundaries, and scripts.
 3. If a skill includes `scripts/`, `references/`, or `assets/`, reuse those files before recreating similar content.
 
-## Skill Overview (by category, 16 categories / 294 skills)
+## Skill Overview (by category, 16 categories / 293 skills)
 
 <a id="cat-developer-engineering"></a>
-### 1. Developer Engineering (developer-engineering, 53)
+### 1. Developer Engineering (developer-engineering, 52)
 
 - [`agent-designer`](./skills/developer-engineering/agent-designer/)
 - [`api-design-reviewer`](./skills/developer-engineering/api-design-reviewer/)
@@ -414,7 +414,6 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`migration-architect`](./skills/developer-engineering/migration-architect/)
 - [`monorepo-navigator`](./skills/developer-engineering/monorepo-navigator/)
 - [`neon-postgres`](./skills/developer-engineering/neon-postgres/)
-- [`neon-postgres-egress-optimizer`](./skills/developer-engineering/neon-postgres-egress-optimizer/)
 - [`nextjs-app-router`](./skills/developer-engineering/nextjs-app-router/)
 - [`performance-profiler`](./skills/developer-engineering/performance-profiler/)
 - [`pr-review-expert`](./skills/developer-engineering/pr-review-expert/)

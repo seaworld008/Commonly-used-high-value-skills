@@ -1,14 +1,14 @@
 ---
 name: notion-knowledge-capture
-description: '用于把对话、决策和笔记沉淀到 Notion。'
-zh_description: "用于把对话、决策和笔记沉淀到 Notion。"
-version: "1.0.0"
+description: 'Use when turning a conversation, decision, or rough notes into a structured Notion page, or updating an existing wiki page instead of creating a duplicate.'
+zh_description: "需要把对话、决策或笔记整理成结构化 Notion 页面，或更新已有知识页时使用。"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["capture", "knowledge", "notion"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-11-04"
 quality: 3
 complexity: "intermediate"
 metadata:

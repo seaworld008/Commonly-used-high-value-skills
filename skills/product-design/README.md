@@ -25,11 +25,11 @@
 | `product-strategist` | 制定产品愿景、目标、市场分析和团队发展策略。 | [目录](./product-strategist/) | [SKILL.md](./product-strategist/SKILL.md) |
 | `researcher` | 设计用户访谈、可用性研究并分析定性证据。 | [目录](./researcher/) | [SKILL.md](./researcher/SKILL.md) |
 | `saas-scaffolder` | 用于依据已验证产品需求搭建可演进的 SaaS 垂直切片，并覆盖鉴权、租户、计费、监控和验收。 | [目录](./saas-scaffolder/) | [SKILL.md](./saas-scaffolder/SKILL.md) |
-| `trace` | 会话回放分析、行为模式提取和体验问题叙事。 | [目录](./trace/) | [SKILL.md](./trace/SKILL.md) |
+| `trace` | 分析会话回放或行为日志时使用：行为模式、挫败信号、用户旅程和体验异常。 | [目录](./trace/) | [SKILL.md](./trace/SKILL.md) |
 | `ui-design-system` | 创建和维护设计变量、组件规范及开发交接资料。 | [目录](./ui-design-system/) | [SKILL.md](./ui-design-system/SKILL.md) |
 | `ui-ux-pro-max` | 设计和审查网页、移动端及业务系统的界面体验。 | [目录](./ui-ux-pro-max/) | [SKILL.md](./ui-ux-pro-max/SKILL.md) |
 | `ux-researcher-designer` | 通过用户画像、旅程图和可用性研究验证设计。 | [目录](./ux-researcher-designer/) | [SKILL.md](./ux-researcher-designer/SKILL.md) |
-| `voice` | 用户反馈收集、满意度调研、评论分析和洞察提炼。 | [目录](./voice/) | [SKILL.md](./voice/SKILL.md) |
+| `voice` | 设计用户调研或分析评论与反馈时使用：情绪、主题、趋势和可执行洞察。 | [目录](./voice/) | [SKILL.md](./voice/SKILL.md) |
 
 ## 维护方式
 

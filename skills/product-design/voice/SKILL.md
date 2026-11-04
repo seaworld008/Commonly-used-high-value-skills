@@ -1,15 +1,15 @@
 ---
 name: voice
-description: '用户反馈收集、满意度调研、评论分析和洞察提炼。'
-zh_description: "用户反馈收集、满意度调研、评论分析和洞察提炼。"
-version: "1.0.2"
+description: 'Use when designing feedback surveys (NPS, CSAT, CES) or analyzing reviews and feedback for sentiment, themes, trends, and prioritized product insights.'
+zh_description: "设计用户调研或分析评论与反馈时使用：情绪、主题、趋势和可执行洞察。"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/voice/SKILL.md"
 license: MIT
 tags: ["design", "product", "voice"]
 created_at: "2026-08-24"
-updated_at: "2026-09-30"
+updated_at: "2026-11-04"
 quality: 5
 complexity: "advanced"
 ---

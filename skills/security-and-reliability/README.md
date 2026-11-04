@@ -17,9 +17,9 @@
 
 | 技能 | 简介 | 目录 | 详情 |
 |------|------|------|------|
-| `breach` | 红队场景、攻击路径、威胁建模和对抗演练设计。 | [目录](./breach/) | [SKILL.md](./breach/SKILL.md) |
-| `cloak` | 隐私工程、敏感信息流、同意管理和数据治理。 | [目录](./cloak/) | [SKILL.md](./cloak/SKILL.md) |
-| `codeql-security-scanner` | 用于通过 CodeQL 执行语义代码扫描、安全查询、自定义规则、SARIF 报告和 GitHub Code Scan。 | [目录](./codeql-security-scanner/) | [SKILL.md](./codeql-security-scanner/SKILL.md) |
+| `breach` | 开展授权红队演练或威胁建模时使用：攻击场景、AI 红队测试、紫队演练和防护验证。 | [目录](./breach/) | [SKILL.md](./breach/SKILL.md) |
+| `cloak` | 系统涉及个人数据时使用：敏感信息识别、数据流梳理、同意管理、GDPR/CCPA 合规和隐私影响评估。 | [目录](./cloak/) | [SKILL.md](./cloak/SKILL.md) |
+| `codeql-security-scanner` | 用于通过 CodeQL 执行语义代码扫描、安全查询和自定义规则，并输出 SARIF 接入 GitHub Code Scanning。 | [目录](./codeql-security-scanner/) | [SKILL.md](./codeql-security-scanner/SKILL.md) |
 | `comply` | 核对法规与合规框架要求，整理控制证据和整改计划。 | [目录](./comply/) | [SKILL.md](./comply/SKILL.md) |
 | `firebase-security-rules-auditor` | 审计 Firestore 与 Cloud Storage 安全规则，检查授权、字段校验、权限提升、资源滥用和模拟器测试覆盖。 | [目录](./firebase-security-rules-auditor/) | [SKILL.md](./firebase-security-rules-auditor/SKILL.md) |
 | `gha-security-review` | 审查 GitHub Actions 触发器、注入、凭据和供应链风险。 | [目录](./gha-security-review/) | [SKILL.md](./gha-security-review/SKILL.md) |
@@ -38,8 +38,8 @@
 | `semgrep-appsec-scanner` | 用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。 | [目录](./semgrep-appsec-scanner/) | [SKILL.md](./semgrep-appsec-scanner/SKILL.md) |
 | `sentry` | 用于只读查询 Sentry issues、events 和服务健康数据，汇总线上错误并辅助生产问题排查。 | [目录](./sentry/) | [SKILL.md](./sentry/SKILL.md) |
 | `skill-security-auditor` | 安装或更新外部技能前，静态扫描并人工审查指令、脚本、权限、依赖、来源和外传风险。 | [目录](./skill-security-auditor/) | [SKILL.md](./skill-security-auditor/SKILL.md) |
-| `trivy-vulnerability-scanner` | 用于通过 Trivy 扫描仓库、容器镜像、文件系统、rootfs、SBOM、Kubernetes、IaC、密钥、许可。 | [目录](./trivy-vulnerability-scanner/) | [SKILL.md](./trivy-vulnerability-scanner/SKILL.md) |
-| `vuls-linux-cve-scanner` | 用于通过 Vuls 对 Linux、FreeBSD、容器、WordPress、库和网络设备执行 Agentless。 | [目录](./vuls-linux-cve-scanner/) | [SKILL.md](./vuls-linux-cve-scanner/SKILL.md) |
+| `trivy-vulnerability-scanner` | 用于通过 Trivy 扫描仓库、镜像、文件系统、SBOM、Kubernetes 和 IaC 中的漏洞、错误配置、密钥与许可证问题。 | [目录](./trivy-vulnerability-scanner/) | [SKILL.md](./trivy-vulnerability-scanner/SKILL.md) |
+| `vuls-linux-cve-scanner` | 用于通过 Vuls 对 Linux、FreeBSD、容器、WordPress、依赖库和网络设备执行无代理 CVE 扫描。 | [目录](./vuls-linux-cve-scanner/) | [SKILL.md](./vuls-linux-cve-scanner/SKILL.md) |
 
 ## 维护方式
 

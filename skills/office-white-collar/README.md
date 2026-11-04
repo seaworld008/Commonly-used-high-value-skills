@@ -27,7 +27,7 @@
 | `pdf` | 读取、生成、编辑、合并、拆分和识别 PDF 文档。 | [目录](./pdf/) | [SKILL.md](./pdf/SKILL.md) |
 | `pptx` | 用于创建、编辑和美化 PowerPoint 演示文稿。 | [目录](./pptx/) | [SKILL.md](./pptx/SKILL.md) |
 | `prism` | 依据资料和受众设计 NotebookLM 音视频及演示提示词。 | [目录](./prism/) | [SKILL.md](./prism/SKILL.md) |
-| `stage` | 演示文稿生成、叙事节奏设计和会议演讲优化。 | [目录](./stage/) | [SKILL.md](./stage/SKILL.md) |
+| `stage` | 制作或优化演讲与幻灯片时使用：Markdown 幻灯片、叙事结构、讲稿和时长适配。 | [目录](./stage/) | [SKILL.md](./stage/SKILL.md) |
 | `transcript-fixer` | 修正语音识别错误、同音词和中英文混合术语。 | [目录](./transcript-fixer/) | [SKILL.md](./transcript-fixer/SKILL.md) |
 | `xlsx` | 创建和编辑电子表格、公式、图表及数据格式。 | [目录](./xlsx/) | [SKILL.md](./xlsx/SKILL.md) |
 

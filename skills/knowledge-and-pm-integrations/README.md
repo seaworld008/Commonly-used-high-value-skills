@@ -18,7 +18,7 @@
 | 技能 | 简介 | 目录 | 详情 |
 |------|------|------|------|
 | `arxiv` | 用于按关键词、作者、分类或编号检索 arXiv 论文。 | [目录](./arxiv/) | [SKILL.md](./arxiv/SKILL.md) |
-| `grove` | 仓库结构、文档布局、测试脚本组织和迁移规划。 | [目录](./grove/) | [SKILL.md](./grove/SKILL.md) |
+| `grove` | 设计或审计仓库结构时使用：目录布局、文档与测试组织、结构反模式和渐进迁移。 | [目录](./grove/) | [SKILL.md](./grove/SKILL.md) |
 | `lark-approval` | 用于查询、处理和发起飞书原生审批，区分审批待办与普通飞书任务。 | [目录](./lark-approval/) | [SKILL.md](./lark-approval/SKILL.md) |
 | `lark-attendance` | 用于查询飞书考勤记录、核对打卡缺失、整理异常考勤并生成可追溯说明。 | [目录](./lark-attendance/) | [SKILL.md](./lark-attendance/SKILL.md) |
 | `lark-base` | 用于操作飞书 Base 数据表、记录、字段和自动化数据流程。 | [目录](./lark-base/) | [SKILL.md](./lark-base/SKILL.md) |
@@ -41,16 +41,16 @@
 | `lark-whiteboard` | 用于查询、导出和编辑飞书云文档中的画板内容和节点结构。 | [目录](./lark-whiteboard/) | [SKILL.md](./lark-whiteboard/SKILL.md) |
 | `lark-wiki` | 飞书知识库：管理知识空间、空间成员和文档节点。 | [目录](./lark-wiki/) | [SKILL.md](./lark-wiki/SKILL.md) |
 | `lark-workflow-meeting-summary` | 用于汇总指定时间范围内的飞书会议纪要，并生成结构化会议报告或周报。 | [目录](./lark-workflow-meeting-summary/) | [SKILL.md](./lark-workflow-meeting-summary/SKILL.md) |
-| `lark-workflow-standup-report` | 日程待办摘要：编排 calendar +agenda 和 task +get-my-tasks，生成指定日期的日程与。 | [目录](./lark-workflow-standup-report/) | [SKILL.md](./lark-workflow-standup-report/SKILL.md) |
-| `linear` | 用于管理 Linear issue、项目、状态流转和工程协作。 | [目录](./linear/) | [SKILL.md](./linear/SKILL.md) |
+| `lark-workflow-standup-report` | 用于汇总指定日期的飞书日程与未完成任务，生成站会或日程待办摘要。 | [目录](./lark-workflow-standup-report/) | [SKILL.md](./lark-workflow-standup-report/SKILL.md) |
+| `linear` | 需要通过 GraphQL API 创建、查询或更新 Linear issue、项目和状态流转时使用。 | [目录](./linear/) | [SKILL.md](./linear/SKILL.md) |
 | `llm-wiki` | 用于构建、查询和维护 Karpathy 风格的互联 Markdown LLM 知识库。 | [目录](./llm-wiki/) | [SKILL.md](./llm-wiki/SKILL.md) |
 | `lore` | 跨智能体知识沉淀、模式提炼和最佳实践传播。 | [目录](./lore/) | [SKILL.md](./lore/SKILL.md) |
-| `notion-knowledge-capture` | 用于把对话、决策和笔记沉淀到 Notion。 | [目录](./notion-knowledge-capture/) | [SKILL.md](./notion-knowledge-capture/SKILL.md) |
-| `notion-meeting-intelligence` | 用于基于 Notion 上下文准备会议材料。 | [目录](./notion-meeting-intelligence/) | [SKILL.md](./notion-meeting-intelligence/SKILL.md) |
-| `notion-research-documentation` | 用于整合 Notion 信息并生成研究文档。 | [目录](./notion-research-documentation/) | [SKILL.md](./notion-research-documentation/SKILL.md) |
-| `notion-spec-to-implementation` | 用于将 Notion 规格文档转化为可执行实现计划。 | [目录](./notion-spec-to-implementation/) | [SKILL.md](./notion-spec-to-implementation/SKILL.md) |
+| `notion-knowledge-capture` | 需要把对话、决策或笔记整理成结构化 Notion 页面，或更新已有知识页时使用。 | [目录](./notion-knowledge-capture/) | [SKILL.md](./notion-knowledge-capture/SKILL.md) |
+| `notion-meeting-intelligence` | 会议前基于 Notion 上下文准备议程、预读材料和待决事项时使用。 | [目录](./notion-meeting-intelligence/) | [SKILL.md](./notion-meeting-intelligence/SKILL.md) |
+| `notion-research-documentation` | 需要汇总多个 Notion 页面并生成带引用的研究简报或对比报告时使用。 | [目录](./notion-research-documentation/) | [SKILL.md](./notion-research-documentation/SKILL.md) |
+| `notion-spec-to-implementation` | 需要把 Notion 需求规格拆成关联的实施计划与任务，并持续同步进度时使用。 | [目录](./notion-spec-to-implementation/) | [SKILL.md](./notion-spec-to-implementation/SKILL.md) |
 | `obsidian` | 用于读取、搜索、创建和编辑 Obsidian 知识库笔记，并维护 Markdown 结构和链接关系。 | [目录](./obsidian/) | [SKILL.md](./obsidian/SKILL.md) |
-| `tome` | 把仓库变更转化为学习文档、术语说明和设计记录。 | [目录](./tome/) | [SKILL.md](./tome/SKILL.md) |
+| `tome` | 需要把代码变更整理成学习文档、术语说明和设计决策记录时使用。 | [目录](./tome/) | [SKILL.md](./tome/SKILL.md) |
 
 ## 维护方式
 

@@ -14,10 +14,10 @@ MAPPING = (
     / "nous-hermes-agent-2026-04.skills.json"
 )
 SKILL_ROOT = REPO_ROOT / "skills" / "ai-agent-platform" / "hermes-agent"
-RELEASE_COMMIT = "bf0203a794a07aac3ff764972ab9087baa4e4f4e"
-PATH_COMMIT = "d7db4d109dd58d13e5ab3c6fba2b4db816ae1b33"
+RELEASE_COMMIT = "b200f5bc60e31588ba2cb60e288029c4a54ba5fa"
+PATH_COMMIT = "0aab6dcf8b7869acbab06507c34881b53036c09a"
 CANONICAL_SHA256 = (
-    "f6bffce51c3f023549c8e6fddec1e4266b4db8dd9fe5a3a4e0bede417ff319bb"
+    "d4eeaea682f76a2bf8a482a7241b3875ad2ad7a96a440e218174400c7b043750"
 )
 
 
@@ -44,7 +44,7 @@ def test_hermes_is_a_complete_pinned_stable_release_mirror() -> None:
     tracking = origin["tracking"]
     assert origin["sync_mode"] == "replace"
     assert tracking["channel"] == "latest_release"
-    assert tracking["ref"] == "v0.22.5"
+    assert tracking["ref"] == "v0.22.7"
     assert tracking["resolved_commit"] == RELEASE_COMMIT
     assert tracking["path_commit"] == PATH_COMMIT
     assert tracking["content_sha256"] == CANONICAL_SHA256
@@ -76,13 +76,13 @@ def test_hermes_is_a_complete_pinned_stable_release_mirror() -> None:
     }
 
 
-def test_hermes_managed_inventory_matches_all_22_regular_files() -> None:
+def test_hermes_managed_inventory_matches_all_23_regular_files() -> None:
     entry = hermes_entry()
     managed = {item["path"]: item for item in entry["managed_files"]}
     disk_files = sorted(path for path in SKILL_ROOT.rglob("*") if path.is_file())
 
-    assert len(disk_files) == 22
-    assert sum(path.parent.name == "references" for path in disk_files) == 18
+    assert len(disk_files) == 23
+    assert sum(path.parent.name == "references" for path in disk_files) == 19
     assert sum(path.parent.name == "templates" for path in disk_files) == 3
     assert not any(path.is_symlink() for path in SKILL_ROOT.rglob("*"))
     assert sha256(SKILL_ROOT / "SKILL.md") == CANONICAL_SHA256

@@ -1019,7 +1019,7 @@ class SyncUpstreamTests(unittest.TestCase):
                     expected.add(entry["normalized_slug"])
         self.assertEqual(expected, {skill["name"] for skill in loaded})
         self.assertEqual(len(expected), len(loaded))
-        self.assertEqual(26, len(snapshots))
+        self.assertEqual(27, len(snapshots))
         self.assertIn("live-panel", {skill["name"] for skill in snapshots})
         self.assertTrue(
             all(skill.get("expected_skip_reason") for skill in snapshots)

@@ -40,17 +40,17 @@
 | `idea-refine` | 澄清初步想法，比较方案并检验关键假设。 | [目录](./idea-refine/) | [SKILL.md](./idea-refine/SKILL.md) |
 | `incremental-implementation` | 将功能拆成可验证的小步改动并逐步完成实现。 | [目录](./incremental-implementation/) | [SKILL.md](./incremental-implementation/SKILL.md) |
 | `interview-me` | 通过逐问访谈澄清真实需求、目标用户与成功标准，避免在含糊请求上过早实施。 | [目录](./interview-me/) | [SKILL.md](./interview-me/SKILL.md) |
-| `nexus` | 多智能体任务分解、链路编排、执行协调和结果整合。 | [目录](./nexus/) | [SKILL.md](./nexus/SKILL.md) |
+| `nexus` | 任务需要多个专家智能体协作时使用：分类任务、选择最小链路、编排执行并验证汇总结果。 | [目录](./nexus/) | [SKILL.md](./nexus/SKILL.md) |
 | `nlpm-audit` | 审计 SKILL.md、AGENTS.md、CLAUDE.md、插件清单、hooks、commands 和提示词，检查安装一致性、质量评分、安全风险与版本漂移。 | [目录](./nlpm-audit/) | [SKILL.md](./nlpm-audit/SKILL.md) |
 | `observability-and-instrumentation` | 为生产代码设计日志、指标、追踪和告警，使行为可观测、问题可诊断。 | [目录](./observability-and-instrumentation/) | [SKILL.md](./observability-and-instrumentation/SKILL.md) |
 | `performance-optimization` | 基于测量优化前后端与数据库性能，并用 CI 预算和真实用户监测防止回退。 | [目录](./performance-optimization/) | [SKILL.md](./performance-optimization/SKILL.md) |
 | `planning-and-task-breakdown` | 将需求拆成有依赖与验收标准的任务，并保护已有未完成计划。 | [目录](./planning-and-task-breakdown/) | [SKILL.md](./planning-and-task-breakdown/SKILL.md) |
 | `prompt-optimizer` | 优化提示词的任务范围、约束和验收条件。 | [目录](./prompt-optimizer/) | [SKILL.md](./prompt-optimizer/SKILL.md) |
-| `rally` | 多会话并行执行编排，协调多个智能体共同完成任务。 | [目录](./rally/) | [SKILL.md](./rally/SKILL.md) |
+| `rally` | 需要把独立任务并行分发到多个智能体会话或引擎时使用，含工作树隔离、冲突处理与汇总校验。 | [目录](./rally/) | [SKILL.md](./rally/SKILL.md) |
 | `receiving-code-review` | 核实代码审查意见并处理有证据支持的问题。 | [目录](./receiving-code-review/) | [SKILL.md](./receiving-code-review/SKILL.md) |
 | `requesting-code-review` | 用于在完成任务、实现重要功能或合并前请求代码审查并验证需求满足情况。 | [目录](./requesting-code-review/) | [SKILL.md](./requesting-code-review/SKILL.md) |
 | `security-and-hardening` | 加固身份认证、输入处理、数据存储和外部集成。 | [目录](./security-and-hardening/) | [SKILL.md](./security-and-hardening/SKILL.md) |
-| `sherpa` | 把复杂任务拆成短步骤，控制漂移并推进交付。 | [目录](./sherpa/) | [SKILL.md](./sherpa/SKILL.md) |
+| `sherpa` | 复杂任务需要拆成短小原子步骤、跟踪进度并防止范围漂移时使用。 | [目录](./sherpa/) | [SKILL.md](./sherpa/SKILL.md) |
 | `shipping-and-launch` | 准备生产发布、分批上线、监控和回滚方案。 | [目录](./shipping-and-launch/) | [SKILL.md](./shipping-and-launch/SKILL.md) |
 | `skill-creator` | 创建和改进技能内容、触发描述及行为评测。 | [目录](./skill-creator/) | [SKILL.md](./skill-creator/SKILL.md) |
 | `skill-reviewer` | 审查技能的触发边界、执行指导、引用和验证质量。 | [目录](./skill-reviewer/) | [SKILL.md](./skill-reviewer/SKILL.md) |

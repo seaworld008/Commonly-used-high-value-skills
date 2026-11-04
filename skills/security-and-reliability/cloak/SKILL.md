@@ -1,15 +1,15 @@
 ---
 name: cloak
-description: '隐私工程、敏感信息流、同意管理和数据治理。'
-zh_description: "隐私工程、敏感信息流、同意管理和数据治理。"
-version: "1.0.2"
+description: 'Use when a system handles personal data: PII discovery, data-flow mapping, consent management, GDPR or CCPA obligations, DPIAs, and privacy-by-design controls.'
+zh_description: "系统涉及个人数据时使用：敏感信息识别、数据流梳理、同意管理、GDPR/CCPA 合规和隐私影响评估。"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/cloak/SKILL.md"
 license: MIT
 tags: ["cloak", "security"]
 created_at: "2026-08-24"
-updated_at: "2026-09-30"
+updated_at: "2026-11-04"
 quality: 5
 complexity: "advanced"
 ---

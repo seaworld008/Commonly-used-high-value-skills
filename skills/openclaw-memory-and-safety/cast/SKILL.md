@@ -1,15 +1,15 @@
 ---
 name: cast
-description: '用户画像生成、角色注册、生命周期和跨智能体同步。'
-zh_description: "用户画像生成、角色注册、生命周期和跨智能体同步。"
-version: "1.0.2"
+description: 'Use when creating or maintaining user personas from docs, code, analytics, or feedback, including a persona registry, evidence-based updates, and freshness audits.'
+zh_description: "需要从文档、数据或反馈生成并维护用户画像及画像注册表时使用。"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/cast/SKILL.md"
 license: MIT
 tags: ["cast", "memory", "safety"]
 created_at: "2026-08-24"
-updated_at: "2026-09-30"
+updated_at: "2026-11-04"
 quality: 5
 complexity: "advanced"
 ---

@@ -5,10 +5,10 @@
 [![简体中文](https://img.shields.io/badge/README-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1677ff)](./README.md)
 [![English](https://img.shields.io/badge/README-English-111111)](./README.en.md)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b894)](./openclaw-skills/README.md)
-[![Skills](https://img.shields.io/badge/Skills-294-7c3aed)](./skills/)
+[![Skills](https://img.shields.io/badge/Skills-293-7c3aed)](./skills/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
-面向全球 AI 开发者与 Agent 工作流构建者的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理等高频任务场景。当前共 **16 个分类 / 294 个技能**。
+面向全球 AI 开发者与 Agent 工作流构建者的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理等高频任务场景。当前共 **16 个分类 / 293 个技能**。
 
 ## 为什么值得收藏
 
@@ -229,7 +229,7 @@ python3 scripts/sync_codex_skills.py --source-root ./skills --codex-root ~/.code
 
 ## v6.0.0 技能组合精简
 
-2026-11-04 发布的主版本退役两个重复入口（`skill-vetter` → `skill-security-auditor`，`github` → `github-ops`），按真实工具重写 `find-skills`、`link-checker`（新增只读检查脚本）和 `figma`，并移除默认写入 `MEMORY.md`／定时任务的指令。当前 294 个技能 / 16 个分类。[发布说明](docs/releases/v6.0.0.md)。
+2026-11-04 发布的主版本退役三个重复入口（`skill-vetter` → `skill-security-auditor`，`github` → `github-ops`，`neon-postgres-egress-optimizer` → `neon-postgres`），按真实工具重写 `find-skills`、`link-checker`（新增只读检查脚本）和 `figma`，并移除默认写入 `MEMORY.md`／定时任务的指令；同时为 46 个技能补齐带触发条件的描述，完成全量上游同步检查并升级 Hermes Agent 至 v0.22.7。当前 293 个技能 / 16 个分类。[发布说明](docs/releases/v6.0.0.md)。
 
 ## 从哪里开始最容易上手
 
@@ -392,16 +392,16 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 2. 打开对应技能的 `SKILL.md` 查看触发条件、操作流程和脚本说明。
 3. 若技能下含 `scripts/`、`references/`、`assets/`，优先复用现成内容。
 
-## 技能总览（按分类，16 类 / 294 技能）
+## 技能总览（按分类，16 类 / 293 技能）
 
 <a id="cat-developer-engineering"></a>
-### 1. 开发工程（developer-engineering，53）
+### 1. 开发工程（developer-engineering，52）
 
 - `agent-designer`：设计智能体的职责、工具、记忆、协作架构和评测方法。
 - `api-design-reviewer`：用于评审 API 设计的一致性、可用性、版本策略、错误语义、安全性和开发者体验。
 - `api-test-suite-builder`：根据接口契约生成认证、输入校验、错误和边界测试。
 - `aws-solution-architect`：用于 AWS 云架构设计、服务选型、成本优化与 Well-Architected Framework 评估。
-- `builder`：生产级业务逻辑、接口集成和类型安全实现。
+- `builder`：实现生产级业务逻辑时使用：类型安全领域模型、边界校验、健壮的接口集成与 CQRS/事件溯源。
 - `cli-demo-generator`：把命令行操作制作成终端录屏和动态演示 GIF。
 - `codebase-inspection`：用于用 pygount 检查代码行数、语言构成、仓库规模和代码/注释比例。
 - `codebase-onboarding`：生成代码库架构、环境搭建和常见开发任务的入门指南。
@@ -410,7 +410,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `dependency-auditor`：梳理依赖清单，核实漏洞与许可证证据，规划可验证的升级。
 - `docker-expert`：用于 Docker 容器化最佳实践、多阶段构建优化与 Docker Compose 编排。
 - `frontend-design`：用于创建高质量、非模板化的前端页面、组件、仪表盘、海报和 Web UI。
-- `gateway`：接口设计、规范生成、版本策略和破坏性变更检查。
+- `gateway`：设计或评审 REST/GraphQL 接口时使用：OpenAPI 规范、版本与弃用策略、破坏性变更检测和接口安全。
 - `git-worktree-manager`：管理并行开发的 Git worktree、环境和端口分配。
 - `github-contributor`：寻找开源贡献机会并准备可审查的 GitHub PR。
 - `golang-benchmark`：使用 Go benchmark、pprof、benchstat 及 CI 回归分析性能。
@@ -424,7 +424,6 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `migration-architect`：规划可回滚、低停机的数据和系统迁移。
 - `monorepo-navigator`：分析多包仓库的依赖、构建、缓存和变更影响。
 - `neon-postgres`：用于 Neon Postgres 数据库连接、分支、迁移和运行维护。
-- `neon-postgres-egress-optimizer`：诊断并降低 Neon / Postgres 数据出口流量与相关成本。
 - `nextjs-app-router`：用于 Next.js App Router 项目开发、路由设计和服务端渲染实践。
 - `performance-profiler`：分析 CPU、内存、I/O 和查询瓶颈并验证优化效果。
 - `pr-review-expert`：审查 PR 的正确性、安全、兼容性和测试覆盖变化。
@@ -436,7 +435,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `react-native-engineering`：用于构建、审查、调试、测试、升级和发布 React Native 与 Expo 应用，覆盖新架构、原生模块、性能、EAS 和双平台验证。
 - `repomix-safe-mixer`：打包代码前扫描凭据、输出脱敏报告，并在发现风险时阻止打包。
 - `rust-engineer`：用于 Rust 代码开发、所有权和生命周期调试、异步模式选择和系统性能优化。
-- `schema`：数据库模式设计、迁移规划、索引策略和关系建模。
+- `schema`：设计或评审数据库模式时使用：数据建模、零停机迁移、索引策略、多租户隔离和向量表。
 - `shadcn`：维护 shadcn 组件、注册源和主题，核对项目真实 API，并验证预览差异与交互结果。
 - `skill-tester`：验证技能触发、执行步骤和输出结果是否符合预期。
 - `supabase`：开发和排查 Supabase 数据库、认证、存储及应用集成。
@@ -477,17 +476,17 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `idea-refine`：澄清初步想法，比较方案并检验关键假设。
 - `incremental-implementation`：将功能拆成可验证的小步改动并逐步完成实现。
 - `interview-me`：通过逐问访谈澄清真实需求、目标用户与成功标准，避免在含糊请求上过早实施。
-- `nexus`：多智能体任务分解、链路编排、执行协调和结果整合。
+- `nexus`：任务需要多个专家智能体协作时使用：分类任务、选择最小链路、编排执行并验证汇总结果。
 - `nlpm-audit`：审计 SKILL.md、AGENTS.md、CLAUDE.md、插件清单、hooks、commands 和提示词，检查安装一致性、质量评分、安全风险与版本漂移。
 - `observability-and-instrumentation`：为生产代码设计日志、指标、追踪和告警，使行为可观测、问题可诊断。
 - `performance-optimization`：基于测量优化前后端与数据库性能，并用 CI 预算和真实用户监测防止回退。
 - `planning-and-task-breakdown`：将需求拆成有依赖与验收标准的任务，并保护已有未完成计划。
 - `prompt-optimizer`：优化提示词的任务范围、约束和验收条件。
-- `rally`：多会话并行执行编排，协调多个智能体共同完成任务。
+- `rally`：需要把独立任务并行分发到多个智能体会话或引擎时使用，含工作树隔离、冲突处理与汇总校验。
 - `receiving-code-review`：核实代码审查意见并处理有证据支持的问题。
 - `requesting-code-review`：用于在完成任务、实现重要功能或合并前请求代码审查并验证需求满足情况。
 - `security-and-hardening`：加固身份认证、输入处理、数据存储和外部集成。
-- `sherpa`：把复杂任务拆成短步骤，控制漂移并推进交付。
+- `sherpa`：复杂任务需要拆成短小原子步骤、跟踪进度并防止范围漂移时使用。
 - `shipping-and-launch`：准备生产发布、分批上线、监控和回滚方案。
 - `skill-creator`：创建和改进技能内容、触发描述及行为评测。
 - `skill-reviewer`：审查技能的触发边界、执行指导、引用和验证质量。
@@ -516,8 +515,8 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `mcporter`：用于通过 mcporter CLI 列出、配置、鉴权和调用 MCP 服务器或工具。
 - `native-mcp`：用于构建和调试原生 MCP 集成、服务器和工具调用流程。
 - `openai-docs`：用于查阅和应用 OpenAI 官方文档、API 行为和集成指南。
-- `oracle`：人工智能应用设计、评估、检索增强和安全护栏规划。
-- `sigil`：根据项目代码自动生成贴合仓库约定的技能。
+- `oracle`：设计或评审大模型应用时使用：提示词、RAG、智能体工具循环、评测、安全护栏和成本路由。
+- `sigil`：需要根据仓库技术栈与约定生成、校验或更新项目专属技能时使用。
 
 <a id="cat-workflow-automation"></a>
 ### 4. 工程工作流自动化（engineering-workflow-automation，12）
@@ -526,7 +525,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `billing-automation`：用于构建订阅计费、自动开票、续费生命周期和催收管理流程。
 - `gh-address-comments`：用于通过 gh CLI 处理当前分支的 GitHub PR Review 评论或 Issue 评论。
 - `gh-fix-ci`：读取 GitHub Actions 失败日志，修复 CI 并验证 PR 检查。
-- `guardian`：提交、分支、合并请求策略和变更粒度把关。
+- `guardian`：整理提交或评审合并请求时使用：变更分类、PR 质量与风险评分、分支策略和合并把关。
 - `harvest`：采集合并请求信息并生成工作报告和发布材料。
 - `jupyter-notebook`：创建和维护用于分析、实验及教学的 Jupyter 笔记本。
 - `latch`：配置和维护生命周期钩子、质量门禁和自动化守卫。
@@ -540,18 +539,18 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 
 - `azure-diagnostics`：使用授权范围内的指标、日志和脚本定位 Azure AKS、虚拟机及应用故障。
 - `azure-kubernetes`：用于 Azure Kubernetes 集群管理、部署、排障和运维。
-- `beacon`：可观测性、服务目标、告警、容量和可靠性设计。
+- `beacon`：为服务设计 SLO、错误预算、告警、链路追踪、仪表盘或容量规划时使用。
 - `cc-devops-skills`：提供基础设施、持续交付、容器和运行维护的实践指导。
 - `cloudflare-troubleshooting`：依据实际配置排查 Cloudflare DNS、TLS 和重定向问题。
 - `env-secrets-manager`：管理环境变量、密钥存储、泄露检测和凭据轮换。
-- `gear`：依赖、构建、容器、监控和开发环境运维优化。
+- `gear`：维护依赖、CI 工作流、容器构建、代码规范工具或排查构建失败时使用。
 - `github-ops`：通过 gh CLI 和 API 处理 GitHub 仓库、PR、Issue、Review、标签、发布和 Actions 协作。
 - `golang-observability`：为 Go 服务设计 slog、OpenTelemetry、Prometheus、持续剖析及可靠性告警。
 - `incident-commander`：用于事故响应中的分诊、角色分配、沟通协调、缓解跟踪和复盘。
 - `observability-designer`：设计日志、指标、链路追踪、告警和服务运行目标。
 - `release-manager`：组织版本、变更记录、发布制品和发布后验证。
 - `senior-architect`：分析系统架构、依赖、扩展性和关键技术取舍。
-- `triage`：事故首响、影响范围识别、恢复步骤和复盘整理。
+- `triage`：处理线上事故时使用：定级、评估影响、协调止损与沟通，并推进根因分析和复盘。
 
 <a id="cat-finance-investing"></a>
 ### 6. 金融投资（finance-investing，16）
@@ -564,7 +563,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `financial-data-collector`：用于收集股票、财报、宏观和市场数据并生成分析输入。
 - `helm`：商业战略场景模拟、市场分析、指标预测和路线图规划。
 - `investment-memo-writer`：编写有来源依据、投资逻辑和风险分析的投资备忘录。
-- `ledger`：云成本、预算告警、资源规格和人工智能工作负载成本优化。
+- `ledger`：估算或优化云成本时使用：IaC 成本预估、规格调整、预留实例、标签策略和预算告警。
 - `levy`：依据目标税年和官方规则分析日本税务及申报问题。
 - `macro-regime-monitor`：监测宏观经济状态、市场指标和投资环境变化。
 - `options-strategy-evaluator`：评估期权策略的收益结构、希腊字母和情景风险。
@@ -579,14 +578,14 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `algorithmic-art`：用代码、随机种子和交互参数创作原创生成艺术。
 - `app-store-optimization`：优化应用商店关键词、页面素材和转化实验。
 - `campaign-analytics`：分析营销活动的渠道表现、转化、归因和投入产出。
-- `compete`：竞品研究、差异化定位、矩阵对比和竞争战卡。
+- `compete`：研究竞争对手时使用：竞品画像、功能与定价对比、定位图、竞争战卡和输赢分析。
 - `competitors-analysis`：Analyze competitor repositories with evidence-based approa。
 - `content-creator`：按受众、品牌语气和搜索意图创作营销内容。
-- `growth`：搜索、社交、转化和人工智能引用优化的一体化增长。
+- `growth`：提升网页自然流量与转化时使用：SEO 元信息、结构化数据、社交卡片、核心性能指标和 AI 引用优化。
 - `linkedin-growth`：构建领英线索导入、筛选、分配、邀请与待处理请求维护流水线。
 - `marketing-demand-acquisition`：规划付费投放、自然渠道和获客转化流程。
 - `marketing-strategy-pmm`：制定产品定位、市场进入、竞争分析和销售支持策略。
-- `pulse`：关键指标、埋点、漏斗、留存和仪表盘规格设计。
+- `pulse`：定义产品指标与埋点时使用：北极星指标、事件规范、漏斗、留存分析和仪表盘规格。
 - `social-media-analyzer`：分析社交媒体互动、受众、活动收益和跨平台表现。
 - `tweetclaw-source-research`：通过 TweetClaw 收集和核实 X 平台研究资料。
 - `twitter-reader`：用于通过 URL 抓取 Twitter/X 帖子内容、作者、时间、图片和线程回复。
@@ -605,7 +604,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `pdf`：读取、生成、编辑、合并、拆分和识别 PDF 文档。
 - `pptx`：用于创建、编辑和美化 PowerPoint 演示文稿。
 - `prism`：依据资料和受众设计 NotebookLM 音视频及演示提示词。
-- `stage`：演示文稿生成、叙事节奏设计和会议演讲优化。
+- `stage`：制作或优化演讲与幻灯片时使用：Markdown 幻灯片、叙事结构、讲稿和时长适配。
 - `transcript-fixer`：修正语音识别错误、同音词和中英文混合术语。
 - `xlsx`：创建和编辑电子表格、公式、图表及数据格式。
 
@@ -613,7 +612,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 ### 9. 项目管理与知识库集成（knowledge-and-pm-integrations，34）
 
 - `arxiv`：用于按关键词、作者、分类或编号检索 arXiv 论文。
-- `grove`：仓库结构、文档布局、测试脚本组织和迁移规划。
+- `grove`：设计或审计仓库结构时使用：目录布局、文档与测试组织、结构反模式和渐进迁移。
 - `lark-approval`：用于查询、处理和发起飞书原生审批，区分审批待办与普通飞书任务。
 - `lark-attendance`：用于查询飞书考勤记录、核对打卡缺失、整理异常考勤并生成可追溯说明。
 - `lark-base`：用于操作飞书 Base 数据表、记录、字段和自动化数据流程。
@@ -636,16 +635,16 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `lark-whiteboard`：用于查询、导出和编辑飞书云文档中的画板内容和节点结构。
 - `lark-wiki`：飞书知识库：管理知识空间、空间成员和文档节点。
 - `lark-workflow-meeting-summary`：用于汇总指定时间范围内的飞书会议纪要，并生成结构化会议报告或周报。
-- `lark-workflow-standup-report`：日程待办摘要：编排 calendar +agenda 和 task +get-my-tasks，生成指定日期的日程与。
-- `linear`：用于管理 Linear issue、项目、状态流转和工程协作。
+- `lark-workflow-standup-report`：用于汇总指定日期的飞书日程与未完成任务，生成站会或日程待办摘要。
+- `linear`：需要通过 GraphQL API 创建、查询或更新 Linear issue、项目和状态流转时使用。
 - `llm-wiki`：用于构建、查询和维护 Karpathy 风格的互联 Markdown LLM 知识库。
 - `lore`：跨智能体知识沉淀、模式提炼和最佳实践传播。
-- `notion-knowledge-capture`：用于把对话、决策和笔记沉淀到 Notion。
-- `notion-meeting-intelligence`：用于基于 Notion 上下文准备会议材料。
-- `notion-research-documentation`：用于整合 Notion 信息并生成研究文档。
-- `notion-spec-to-implementation`：用于将 Notion 规格文档转化为可执行实现计划。
+- `notion-knowledge-capture`：需要把对话、决策或笔记整理成结构化 Notion 页面，或更新已有知识页时使用。
+- `notion-meeting-intelligence`：会议前基于 Notion 上下文准备议程、预读材料和待决事项时使用。
+- `notion-research-documentation`：需要汇总多个 Notion 页面并生成带引用的研究简报或对比报告时使用。
+- `notion-spec-to-implementation`：需要把 Notion 需求规格拆成关联的实施计划与任务，并持续同步进度时使用。
 - `obsidian`：用于读取、搜索、创建和编辑 Obsidian 知识库笔记，并维护 Markdown 结构和链接关系。
-- `tome`：把仓库变更转化为学习文档、术语说明和设计记录。
+- `tome`：需要把代码变更整理成学习文档、术语说明和设计决策记录时使用。
 
 <a id="cat-operations-general"></a>
 ### 10. 通用运营（operations-general，11）
@@ -673,38 +672,38 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `product-strategist`：制定产品愿景、目标、市场分析和团队发展策略。
 - `researcher`：设计用户访谈、可用性研究并分析定性证据。
 - `saas-scaffolder`：用于依据已验证产品需求搭建可演进的 SaaS 垂直切片，并覆盖鉴权、租户、计费、监控和验收。
-- `trace`：会话回放分析、行为模式提取和体验问题叙事。
+- `trace`：分析会话回放或行为日志时使用：行为模式、挫败信号、用户旅程和体验异常。
 - `ui-design-system`：创建和维护设计变量、组件规范及开发交接资料。
 - `ui-ux-pro-max`：设计和审查网页、移动端及业务系统的界面体验。
 - `ux-researcher-designer`：通过用户画像、旅程图和可用性研究验证设计。
-- `voice`：用户反馈收集、满意度调研、评论分析和洞察提炼。
+- `voice`：设计用户调研或分析评论与反馈时使用：情绪、主题、趋势和可执行洞察。
 
 <a id="cat-security-reliability"></a>
 ### 12. 安全治理与稳定性（security-and-reliability，23）
 
-- `breach`：红队场景、攻击路径、威胁建模和对抗演练设计。
-- `cloak`：隐私工程、敏感信息流、同意管理和数据治理。
-- `codeql-security-scanner`：用于通过 CodeQL 执行语义代码扫描、安全查询、自定义规则、SARIF 报告和 GitHub Code Scan。
+- `breach`：开展授权红队演练或威胁建模时使用：攻击场景、AI 红队测试、紫队演练和防护验证。
+- `cloak`：系统涉及个人数据时使用：敏感信息识别、数据流梳理、同意管理、GDPR/CCPA 合规和隐私影响评估。
+- `codeql-security-scanner`：用于通过 CodeQL 执行语义代码扫描、安全查询和自定义规则，并输出 SARIF 接入 GitHub Code Scanning。
 - `comply`：核对法规与合规框架要求，整理控制证据和整改计划。
 - `firebase-security-rules-auditor`：审计 Firestore 与 Cloud Storage 安全规则，检查授权、字段校验、权限提升、资源滥用和模拟器测试覆盖。
 - `gha-security-review`：审查 GitHub Actions 触发器、注入、凭据和供应链风险。
-- `grype-syft-sbom-scanner`：用于基于 SBOM 扫描容器、文件系统和软件包漏洞。
+- `grype-syft-sbom-scanner`：用于通过 Syft 生成 SBOM，并用 Grype 扫描容器镜像、文件系统、软件包、归档和 SBOM 漏洞。
 - `information-security-manager-iso27001`：建立和审计 ISO 27001 信息安全管理体系及风险控制。
 - `link-checker`：检测 URL 可达性、失效链接、跳转链路、可疑域名和文档链接健康度。
-- `osv-scanner`：用于通过 OSV 数据库检查开源依赖、锁文件和 SBOM 漏洞。
+- `osv-scanner`：用于通过 OSV-Scanner 检查锁文件、清单、SBOM、Git 历史和源码树中的开源依赖漏洞。
 - `security-audit`：对代码库进行安全审计，聚焦可利用且有真实影响的漏洞，并生成可验证的发现、报告和结构化输出。
 - `security-auditor`：审查应用、接口、基础设施和依赖中的实际安全风险。
 - `security-best-practices`：用于按语言或框架检查安全最佳实践，生成安全审查报告和 secure-by-default 建议。
 - `security-model`：维护供安全审查工具读取的安全模型，核验信任边界、继承、可信版本和抑制规则。
-- `security-ownership-map`：用于分析代码责任分布、敏感模块归属和人员风险。
+- `security-ownership-map`：用于基于 Git 历史分析安全所有权、敏感代码归属、bus factor、CODEOWNERS 现实差距和风险热点。
 - `security-pen-testing`：在授权范围内执行漏洞扫描、渗透测试和修复验证。
 - `security-review`：依据代码证据审查注入、认证、授权和加密漏洞。
 - `security-threat-model`：用于基于代码库或架构梳理资产、信任边界、攻击者能力、滥用路径和缓解措施。
-- `semgrep-appsec-scanner`：用于 Semgrep SAST、规则编写、供应链和密钥扫描流程。
-- `sentry`：用于查看线上异常、错误事件和服务健康信息。
+- `semgrep-appsec-scanner`：用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。
+- `sentry`：用于只读查询 Sentry issues、events 和服务健康数据，汇总线上错误并辅助生产问题排查。
 - `skill-security-auditor`：安装或更新外部技能前，静态扫描并人工审查指令、脚本、权限、依赖、来源和外传风险。
-- `trivy-vulnerability-scanner`：用于通过 Trivy 扫描仓库、容器镜像、文件系统、rootfs、SBOM、Kubernetes、IaC、密钥、许可。
-- `vuls-linux-cve-scanner`：用于通过 Vuls 对 Linux、FreeBSD、容器、WordPress、库和网络设备执行 Agentless。
+- `trivy-vulnerability-scanner`：用于通过 Trivy 扫描仓库、镜像、文件系统、SBOM、Kubernetes 和 IaC 中的漏洞、错误配置、密钥与许可证问题。
+- `vuls-linux-cve-scanner`：用于通过 Vuls 对 Linux、FreeBSD、容器、WordPress、依赖库和网络设备执行无代理 CVE 扫描。
 
 <a id="cat-multimodal-media"></a>
 ### 13. 多模态内容（multimodal-media，11）
@@ -728,17 +727,17 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `netlify-deploy`：用于将网站或应用部署到 Netlify 并获取预览或生产链接。
 - `pipe`：持续集成工作流、触发策略、安全加固和复用设计。
 - `render-deploy`：用于将服务或应用部署到 Render 并处理运行配置。
-- `scaffold`：云基础设施、环境配置和本地开发部署脚手架。
+- `scaffold`：搭建云基础设施或本地开发环境时使用：Terraform/OpenTofu、Docker Compose、密钥管理与成本门禁。
 - `shard`：多租户架构、租户隔离、路由和规模化设计。
 - `vercel-deploy`：用于将应用或网站部署到 Vercel，创建预览部署或生产发布链接。
 
 <a id="cat-memory-safety"></a>
 ### 15. 记忆与安全（openclaw-memory-and-safety，7）
 
-- `cast`：用户画像生成、角色注册、生命周期和跨智能体同步。
-- `honcho`：用于管理 Agent 记忆、运行状态、协作上下文和安全边界。
+- `cast`：需要从文档、数据或反馈生成并维护用户画像及画像注册表时使用。
+- `honcho`：为 Hermes Agent 配置、调优或排查 Honcho 跨会话记忆时使用。
 - `input-guard`：用于输入安全检查、提示注入防护和高风险请求拦截。
-- `omen`：预演失败模式，识别计划风险并给出优先级。
+- `omen`：上线或实施前预演失败时使用：事前验尸、FMEA、故障树和按优先级排列的缓解措施。
 - `rag-architect`：用于以评测为先设计和诊断生产级 RAG，包括权限、混合检索、重排、引用和监控。
 - `runbook-generator`：用于基于仓库和平台证据编写安全、可演练、可验证的生产运维 Runbook。
 - `warden`：按价值、用户自主性和体验韧性评估产品质量。
@@ -747,10 +746,10 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 ### 16. 任务理解与拆解（task-understanding-decomposition，5）
 
 - `grill-me`：对方案、设计和关键决策进行追问，检验假设、取舍与遗漏的需求。
-- `lens`：代码库理解、功能发现、数据流追踪和上下文调查。
+- `lens`：需要理解陌生代码库时使用：确认功能是否存在、追踪执行与数据流、梳理模块边界。
 - `reflect-learn`：分析用户纠正和任务结果，提出可复用的改进建议。
-- `ripple`：变更前影响分析，评估依赖链和一致性风险。
-- `scout`：缺陷调查、复现步骤、根因分析和影响评估。
+- `ripple`：实施高风险变更前使用：评估依赖链、破坏性影响和一致性风险，并给出是否推进的建议。
+- `scout`：调查缺陷时使用：复现问题、逐一验证假设、定位根因并评估影响，在修复前完成。
 
 ## 下一轮建议补充方向
 

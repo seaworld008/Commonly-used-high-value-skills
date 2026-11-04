@@ -1,15 +1,15 @@
 ---
 name: guardian
-description: '提交、分支、合并请求策略和变更粒度把关。'
-zh_description: "提交、分支、合并请求策略和变更粒度把关。"
-version: "1.0.5"
+description: 'Use when preparing or reviewing commits and pull requests: classify changes, score PR quality and risk, choose branch or squash strategy, and ship a PR through CI gates.'
+zh_description: "整理提交或评审合并请求时使用：变更分类、PR 质量与风险评分、分支策略和合并把关。"
+version: "1.0.6"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/guardian/SKILL.md"
 license: MIT
 tags: ["automation", "guardian", "workflow"]
 created_at: "2026-08-24"
-updated_at: "2026-10-26"
+updated_at: "2026-11-04"
 quality: 5
 complexity: "advanced"
 ---

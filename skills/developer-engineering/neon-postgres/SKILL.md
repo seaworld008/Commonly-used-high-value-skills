@@ -2,14 +2,14 @@
 name: neon-postgres
 description: 'Build or troubleshoot Neon Postgres connections, branching, pooling, scaling, Auth, and platform integrations using current Neon documentation.'
 zh_description: "用于 Neon Postgres 数据库连接、分支、迁移和运行维护。"
-version: "1.0.8"
+version: "1.0.9"
 author: "seaworld008"
 source: "github:neondatabase/agent-skills"
 source_url: "https://github.com/neondatabase/agent-skills/blob/ccca3334a7542d3133134cc6926f2fafc6edeb1f/skills/neon-postgres/SKILL.md"
 license: Apache-2.0
 tags: '["development", "neon", "postgres"]'
 created_at: "2026-06-03"
-updated_at: "2026-10-26"
+updated_at: "2026-11-04"
 quality: 5
 complexity: "intermediate"
 ---
@@ -25,7 +25,9 @@ Lakebase Postgres is the database at the core of Neon. It runs on the lakebase a
 
 It is the same database whether you reach it through Neon or through Databricks; this skill covers the Neon access path.
 
-Login, users, sessions, and `@neondatabase/auth` belong in `neon-auth`.
+Login, users, sessions, and `@neon/auth` belong in `neon-auth`.
+
+Live queries, reactive UIs, and realtime data belong in `neon-realtime`.
 
 ## Setup Flow
 
@@ -82,17 +84,21 @@ Key points:
 
 Link: https://neon.com/docs/introduction/branching.md
 
-For detailed branch creation workflows (normal vs schema-only branches, reset-from-parent, CLI/MCP selection), use the `neon-postgres-branches` skill. If it isn't installed, fetch it from https://neon.com/docs/ai/skills/neon-postgres-branches/SKILL.md or install it with:
-
-```bash
-neon skills -s neon-postgres-branches -y
-```
+For detailed branch creation workflows (normal vs schema-only branches, reset-from-parent, CLI/MCP selection, and CI/CD patterns), read [Branching workflows](references/branching.md). Its CLI installation and authentication steps apply only when the user asked for that setup; otherwise use the connection or project already provided.
 
 ## Migrations
 
 Test a migration on a branch of production, against production-like data, before applying it to production.
 
 Use a **direct (non-pooled)** connection string when you run the migration, not a pooled one. `neon connection-string` returns the direct string by default; make sure the hostname does not include the `-pooler` suffix.
+
+## Egress Optimization
+
+Use this when a user reports high database bills, unexpected network transfer, egress spikes, query overfetching, or wants a cost-efficiency review of database query patterns.
+
+Before editing code, read [Egress optimization](references/egress-optimization.md). Audit all five patterns: unused columns, missing pagination, repeated static reads, application-side aggregation, and JOIN duplication. Do not stop after fixing `SELECT *`.
+
+Work in four steps: diagnose which queries transfer the most data, analyze the code behind them, fix the anti-patterns, then verify that behavior is preserved and transfer drops.
 
 ## Troubleshooting and Neon-Specific Performance
 
@@ -195,6 +201,10 @@ Key points:
 - Storage remains active while compute is suspended.
 
 Link: https://neon.com/docs/introduction/scale-to-zero.md
+
+### Keep hot reads off Postgres
+
+Scale to zero only suspends an idle compute. When the same rarely changing rows (config, categories, feature flags) are read on every request, cache them outside Postgres, for example in [Upstash Redis](https://upstash.com/docs/redis) with a TTL. Cached reads cut egress and cold-start latency, and let an otherwise idle compute stay suspended.
 
 ## Instant Restore
 

@@ -1,15 +1,15 @@
 ---
 name: oracle
-description: '人工智能应用设计、评估、检索增强和安全护栏规划。'
-zh_description: "人工智能应用设计、评估、检索增强和安全护栏规划。"
-version: "1.0.4"
+description: 'Use when designing or reviewing LLM applications: prompts, RAG pipelines, agent tool loops, eval suites, AI safety guardrails, and model cost routing.'
+zh_description: "设计或评审大模型应用时使用：提示词、RAG、智能体工具循环、评测、安全护栏和成本路由。"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/oracle/SKILL.md"
 license: MIT
 tags: ["agent", "ai", "oracle"]
 created_at: "2026-08-24"
-updated_at: "2026-10-26"
+updated_at: "2026-11-04"
 quality: 5
 complexity: "advanced"
 ---

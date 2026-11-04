@@ -1,15 +1,15 @@
 ---
 name: tome
-description: '把仓库变更转化为学习文档、术语说明和设计记录。'
-zh_description: "把仓库变更转化为学习文档、术语说明和设计记录。"
-version: "1.0.3"
+description: 'Use when turning a diff, PR, or commit range into learning material: change rationale, terminology, flow explanations, and glossaries for a chosen audience level.'
+zh_description: "需要把代码变更整理成学习文档、术语说明和设计决策记录时使用。"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/tome/SKILL.md"
 license: MIT
 tags: ["knowledge", "tome"]
 created_at: "2026-08-24"
-updated_at: "2026-10-26"
+updated_at: "2026-11-04"
 quality: 5
 complexity: "advanced"
 ---

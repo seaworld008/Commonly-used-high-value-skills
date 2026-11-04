@@ -28,8 +28,8 @@
 | `mcporter` | 用于通过 mcporter CLI 列出、配置、鉴权和调用 MCP 服务器或工具。 | [目录](./mcporter/) | [SKILL.md](./mcporter/SKILL.md) |
 | `native-mcp` | 用于构建和调试原生 MCP 集成、服务器和工具调用流程。 | [目录](./native-mcp/) | [SKILL.md](./native-mcp/SKILL.md) |
 | `openai-docs` | 用于查阅和应用 OpenAI 官方文档、API 行为和集成指南。 | [目录](./openai-docs/) | [SKILL.md](./openai-docs/SKILL.md) |
-| `oracle` | 人工智能应用设计、评估、检索增强和安全护栏规划。 | [目录](./oracle/) | [SKILL.md](./oracle/SKILL.md) |
-| `sigil` | 根据项目代码自动生成贴合仓库约定的技能。 | [目录](./sigil/) | [SKILL.md](./sigil/SKILL.md) |
+| `oracle` | 设计或评审大模型应用时使用：提示词、RAG、智能体工具循环、评测、安全护栏和成本路由。 | [目录](./oracle/) | [SKILL.md](./oracle/SKILL.md) |
+| `sigil` | 需要根据仓库技术栈与约定生成、校验或更新项目专属技能时使用。 | [目录](./sigil/) | [SKILL.md](./sigil/SKILL.md) |
 
 ## 维护方式
 

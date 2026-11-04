@@ -4,7 +4,7 @@
 
 覆盖开发、测试、性能、架构、数据库和工程效率的核心技能集合。
 
-当前分类共 **53** 个技能。
+当前分类共 **52** 个技能。
 
 ## 推荐先看
 
@@ -21,7 +21,7 @@
 | `api-design-reviewer` | 用于评审 API 设计的一致性、可用性、版本策略、错误语义、安全性和开发者体验。 | [目录](./api-design-reviewer/) | [SKILL.md](./api-design-reviewer/SKILL.md) |
 | `api-test-suite-builder` | 根据接口契约生成认证、输入校验、错误和边界测试。 | [目录](./api-test-suite-builder/) | [SKILL.md](./api-test-suite-builder/SKILL.md) |
 | `aws-solution-architect` | 用于 AWS 云架构设计、服务选型、成本优化与 Well-Architected Framework 评估。 | [目录](./aws-solution-architect/) | [SKILL.md](./aws-solution-architect/SKILL.md) |
-| `builder` | 生产级业务逻辑、接口集成和类型安全实现。 | [目录](./builder/) | [SKILL.md](./builder/SKILL.md) |
+| `builder` | 实现生产级业务逻辑时使用：类型安全领域模型、边界校验、健壮的接口集成与 CQRS/事件溯源。 | [目录](./builder/) | [SKILL.md](./builder/SKILL.md) |
 | `cli-demo-generator` | 把命令行操作制作成终端录屏和动态演示 GIF。 | [目录](./cli-demo-generator/) | [SKILL.md](./cli-demo-generator/SKILL.md) |
 | `codebase-inspection` | 用于用 pygount 检查代码行数、语言构成、仓库规模和代码/注释比例。 | [目录](./codebase-inspection/) | [SKILL.md](./codebase-inspection/SKILL.md) |
 | `codebase-onboarding` | 生成代码库架构、环境搭建和常见开发任务的入门指南。 | [目录](./codebase-onboarding/) | [SKILL.md](./codebase-onboarding/SKILL.md) |
@@ -30,7 +30,7 @@
 | `dependency-auditor` | 梳理依赖清单，核实漏洞与许可证证据，规划可验证的升级。 | [目录](./dependency-auditor/) | [SKILL.md](./dependency-auditor/SKILL.md) |
 | `docker-expert` | 用于 Docker 容器化最佳实践、多阶段构建优化与 Docker Compose 编排。 | [目录](./docker-expert/) | [SKILL.md](./docker-expert/SKILL.md) |
 | `frontend-design` | 用于创建高质量、非模板化的前端页面、组件、仪表盘、海报和 Web UI。 | [目录](./frontend-design/) | [SKILL.md](./frontend-design/SKILL.md) |
-| `gateway` | 接口设计、规范生成、版本策略和破坏性变更检查。 | [目录](./gateway/) | [SKILL.md](./gateway/SKILL.md) |
+| `gateway` | 设计或评审 REST/GraphQL 接口时使用：OpenAPI 规范、版本与弃用策略、破坏性变更检测和接口安全。 | [目录](./gateway/) | [SKILL.md](./gateway/SKILL.md) |
 | `git-worktree-manager` | 管理并行开发的 Git worktree、环境和端口分配。 | [目录](./git-worktree-manager/) | [SKILL.md](./git-worktree-manager/SKILL.md) |
 | `github-contributor` | 寻找开源贡献机会并准备可审查的 GitHub PR。 | [目录](./github-contributor/) | [SKILL.md](./github-contributor/SKILL.md) |
 | `golang-benchmark` | 使用 Go benchmark、pprof、benchstat 及 CI 回归分析性能。 | [目录](./golang-benchmark/) | [SKILL.md](./golang-benchmark/SKILL.md) |
@@ -44,7 +44,6 @@
 | `migration-architect` | 规划可回滚、低停机的数据和系统迁移。 | [目录](./migration-architect/) | [SKILL.md](./migration-architect/SKILL.md) |
 | `monorepo-navigator` | 分析多包仓库的依赖、构建、缓存和变更影响。 | [目录](./monorepo-navigator/) | [SKILL.md](./monorepo-navigator/SKILL.md) |
 | `neon-postgres` | 用于 Neon Postgres 数据库连接、分支、迁移和运行维护。 | [目录](./neon-postgres/) | [SKILL.md](./neon-postgres/SKILL.md) |
-| `neon-postgres-egress-optimizer` | 诊断并降低 Neon / Postgres 数据出口流量与相关成本。 | [目录](./neon-postgres-egress-optimizer/) | [SKILL.md](./neon-postgres-egress-optimizer/SKILL.md) |
 | `nextjs-app-router` | 用于 Next.js App Router 项目开发、路由设计和服务端渲染实践。 | [目录](./nextjs-app-router/) | [SKILL.md](./nextjs-app-router/SKILL.md) |
 | `performance-profiler` | 分析 CPU、内存、I/O 和查询瓶颈并验证优化效果。 | [目录](./performance-profiler/) | [SKILL.md](./performance-profiler/SKILL.md) |
 | `pr-review-expert` | 审查 PR 的正确性、安全、兼容性和测试覆盖变化。 | [目录](./pr-review-expert/) | [SKILL.md](./pr-review-expert/SKILL.md) |
@@ -56,7 +55,7 @@
 | `react-native-engineering` | 用于构建、审查、调试、测试、升级和发布 React Native 与 Expo 应用，覆盖新架构、原生模块、性能、EAS 和双平台验证。 | [目录](./react-native-engineering/) | [SKILL.md](./react-native-engineering/SKILL.md) |
 | `repomix-safe-mixer` | 打包代码前扫描凭据、输出脱敏报告，并在发现风险时阻止打包。 | [目录](./repomix-safe-mixer/) | [SKILL.md](./repomix-safe-mixer/SKILL.md) |
 | `rust-engineer` | 用于 Rust 代码开发、所有权和生命周期调试、异步模式选择和系统性能优化。 | [目录](./rust-engineer/) | [SKILL.md](./rust-engineer/SKILL.md) |
-| `schema` | 数据库模式设计、迁移规划、索引策略和关系建模。 | [目录](./schema/) | [SKILL.md](./schema/SKILL.md) |
+| `schema` | 设计或评审数据库模式时使用：数据建模、零停机迁移、索引策略、多租户隔离和向量表。 | [目录](./schema/) | [SKILL.md](./schema/SKILL.md) |
 | `shadcn` | 维护 shadcn 组件、注册源和主题，核对项目真实 API，并验证预览差异与交互结果。 | [目录](./shadcn/) | [SKILL.md](./shadcn/SKILL.md) |
 | `skill-tester` | 验证技能触发、执行步骤和输出结果是否符合预期。 | [目录](./skill-tester/) | [SKILL.md](./skill-tester/SKILL.md) |
 | `supabase` | 开发和排查 Supabase 数据库、认证、存储及应用集成。 | [目录](./supabase/) | [SKILL.md](./supabase/SKILL.md) |

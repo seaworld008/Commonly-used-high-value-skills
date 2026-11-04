@@ -1,27 +1,3 @@
----
-name: neon-postgres-egress-optimizer
-description: 'Diagnose excessive Postgres or Neon network egress and database transfer costs by tracing query volume, payloads, polling, and connection behavior.'
-zh_description: "诊断并降低 Neon / Postgres 数据出口流量与相关成本。"
-version: "1.0.5"
-author: "seaworld008"
-source: "github:neondatabase/agent-skills"
-source_url: "https://github.com/neondatabase/agent-skills/blob/80164a28443aca7c82ac1a70aed836950d6c29ea/skills/neon-postgres-egress-optimizer/SKILL.md"
-license: Apache-2.0
-tags: '["postgres", "neon", "cost-optimization", "performance"]'
-created_at: "2026-06-29"
-updated_at: "2026-09-30"
-quality: 4
-complexity: "intermediate"
----
-
-**FIRST**: Use the parent `neon` skill for a Neon overview, getting started with Neon, Neon development best practices, and more.
-
-If the `neon` skill is not installed, fetch it from https://neon.com/docs/ai/skills/neon/SKILL.md or install it with:
-
-```bash
-neon skills -s neon -y
-```
-
 # Postgres Egress Optimizer
 
 Guide the user through diagnosing and fixing application-side query patterns that cause excessive data transfer (egress) from their Postgres database. Most high egress bills come from the application fetching more data than it uses.
@@ -44,13 +20,13 @@ If this errors, the extension needs to be created:
 CREATE EXTENSION IF NOT EXISTS pg_stat_statements;
 ```
 
-On Neon the extension is available by default, but it may still need this CREATE EXTENSION step.
+On Neon the extension is available by default, but it may still need this CREATE EXTENSION step. Ask before creating it because installing an extension modifies the database.
 
 ### Handle empty stats
 
 Stats are cleared when a Neon compute scales to zero and restarts. If the stats are empty or the compute recently woke up:
 
-1. Reset the stats to start a clean measurement window: `SELECT pg_stat_statements_reset();`
+1. Ask before resetting the stats, then start a clean measurement window with `SELECT pg_stat_statements_reset();`
 2. Let the application run under representative traffic for at least an hour.
 3. Return and run the diagnostic queries below.
 
@@ -171,7 +147,7 @@ When adding pagination, check whether the consuming client already supports pagi
 
 Look for queries with extremely high call counts relative to other queries. Common examples: configuration tables, category lists, feature flags, user role definitions.
 
-**Fix:** Add a caching layer between the application and the database so it avoids hitting the database on every request.
+**Fix:** Add a caching layer between the application and the database so it avoids hitting the database on every request. Reuse a cache the app already has. Otherwise, a serverless Redis such as [Upstash Redis](https://upstash.com/docs/redis) works from serverless and edge runtimes without connection management.
 
 ### Application-side aggregation
 
@@ -223,7 +199,7 @@ After applying fixes:
 
 1. **Run existing tests** to confirm nothing broke.
 2. **Check the responses** — make sure the API still returns the same data shape. Column selection and pagination changes can break clients that depend on specific fields or full result sets.
-3. **Measure the improvement** — if pg_stat_statements data is available, reset it (`SELECT pg_stat_statements_reset();`), let traffic run, then re-run the diagnostic queries to compare before and after.
+3. **Measure the improvement** — if pg_stat_statements data is available, ask before resetting it (`SELECT pg_stat_statements_reset();`), let traffic run, then re-run the diagnostic queries to compare before and after.
 
 ## Neon Infrastructure as Code (`neon.ts`)
 
@@ -264,29 +240,3 @@ This is complementary, not a substitute: query-pattern fixes are what actually r
 
 - https://neon.com/docs/introduction/network-transfer.md
 - https://neon.com/docs/introduction/cost-optimization.md
-<!-- LOCAL-QUALITY-SUPPLEMENT:START -->
-## Usage Notes
-
-This supplement is maintained by the repository sync pipeline. It keeps the
-imported upstream skill usable inside this curated collection when the upstream
-source is intentionally concise.
-
-## Common Patterns
-
-```text
-1. Confirm that the user's task matches the skill trigger.
-2. Read the relevant project files or user-provided context before acting.
-3. Choose the smallest reversible action that advances the task.
-4. Run the verification command or manual check that proves the result.
-5. Report the outcome, evidence, and any remaining risk.
-```
-
-## Boundaries
-
-- Prefer the upstream workflow for Neon Postgres Egress Optimizer; this section only adds local quality
-  guardrails.
-- Do not invent project facts when required files, vaults, services, or tools are
-  unavailable.
-- Stop and ask for clarification when the next action could overwrite user work,
-  expose private data, or change production state.
-<!-- LOCAL-QUALITY-SUPPLEMENT:END -->

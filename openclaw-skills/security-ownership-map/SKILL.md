@@ -1,14 +1,14 @@
 ---
 name: security-ownership-map
-description: '用于基于 Git 历史分析安全所有权、敏感代码归属、bus factor、CODEOWNERS 现实差距和风险热点。'
+description: 'Use when assessing security ownership from git history: who owns sensitive code, bus factor, CODEOWNERS drift, and co-change risk hotspots.'
 zh_description: "用于基于 Git 历史分析安全所有权、敏感代码归属、bus factor、CODEOWNERS 现实差距和风险热点。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["map", "ownership", "security"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-11-04"
 quality: 5
 complexity: "intermediate"
 ---

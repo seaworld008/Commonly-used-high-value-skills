@@ -1,15 +1,15 @@
 ---
 name: honcho
-description: Configure and troubleshoot Honcho memory for Hermes.
-zh_description: "用于管理 Agent 记忆、运行状态、协作上下文和安全边界。"
-version: "1.0.3"
+description: 'Use when setting up, tuning, or troubleshooting Honcho cross-session memory for Hermes Agent, including per-profile peers, recall settings, and context budgets.'
+zh_description: "为 Hermes Agent 配置、调优或排查 Honcho 跨会话记忆时使用。"
+version: "1.0.4"
 author: Hermes Agent
 source: "github:NousResearch/hermes-agent"
 source_url: "https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/autonomous-ai-agents/honcho/SKILL.md"
 license: MIT
 tags: '[Honcho, Memory, Profiles, Observation, Dialectic, User-Modeling]'
 created_at: "2026-04-13"
-updated_at: "2026-10-03"
+updated_at: "2026-11-04"
 quality: 4
 complexity: "intermediate"
 platforms: '[linux, macos, windows]'
