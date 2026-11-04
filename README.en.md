@@ -10,25 +10,7 @@
 
 A high-value skills repository for AI developers and agent workflow builders worldwide: ready-to-use skills (`SKILL.md` plus scripts and references) organized by real work scenarios across developer engineering, DevOps, product design, operations, office automation, finance, AI platforms, and security. One source tree works with `Codex`, `Claude Code`, `Cursor`, `Hermes Agent`, and `OpenClaw`, and every skill has provenance tracking, a license audit, and automated quality checks. This repository currently contains **16 categories / 293 skills**.
 
-[Quick Start](#quick-start) · [Categories](#categories) · [Skill Overview](#skill-overview) · [Releases](#releases) · [Contributing](#contributing)
-
-<a id="releases"></a>
-## Releases
-
-**v6.0.0 Portfolio Consolidation (2026-11-04)**: retires three duplicate entries (`skill-vetter` → `skill-security-auditor`, `github` → `github-ops`, `neon-postgres-egress-optimizer` → `neon-postgres`), rewrites `find-skills`, `link-checker` (now with a read-only checker script) and `figma` around real tools, and removes default `MEMORY.md`/cron writes. It also gives 46 skills trigger-based descriptions, runs a full upstream sync check, and upgrades Hermes Agent to v0.22.7. 293 skills across 16 categories. [Release notes](docs/releases/v6.0.0.md).
-
-When upgrading from an older version, use `--prune-retired` to clean up retired skills: it deletes only unchanged copies this installer owns and archives everything else.
-
-Recent releases:
-
-- [v5.0.0](docs/releases/v5.0.0.md) (2026-10-27): completes the full portfolio curation and adds `shadcn`, `security-model`, and `remotion-video`; `self-improving-agent` moves to `reflect-learn`.
-- [v4.3.0](docs/releases/v4.3.0.md) (2026-10-24): updates 4 curated skills and upgrades how behavior changes and wording tweaks are verified.
-- [v4.1.0](docs/releases/v4.1.0.md) (2026-10-16): updates engineering methods, Lark tasks and charts, AKS readiness checks, and Neon search guidance, and fixes offline HTML report updates on macOS.
-- [v4.0.0](docs/releases/v4.0.0.md) (2026-10-12): fixes CodeQL findings, adds a zero-open-Code-Scanning-alerts release gate, and replaces the old executable with a safer offline HTML renderer.
-- [v3.3.0](docs/releases/v3.3.0.md) (2026-10-12): adds Go profiling, benchmarking, and observability, plus architecture deepening, HTML reports, animated topology panels, and Azure diagnostics.
-- [v3.2.0](docs/releases/v3.2.0.md) (2026-10-04): adds the `grill-me` plan stress test and completes a full source-maintenance pass.
-
-Full history: [CHANGELOG.md](./CHANGELOG.md) and [GitHub Releases](https://github.com/seaworld008/Commonly-used-high-value-skills/releases).
+[Quick Start](#quick-start) · [Categories](#categories) · [Skill Overview](#skill-overview) · [Contributing](#contributing) · [Releases](docs/RELEASES.en.md)
 
 ## Why It Is Useful
 
@@ -110,6 +92,7 @@ Installer safety guarantees:
 
 - `--dry-run` only computes and prints the install plan; it writes nothing.
 - `--all` means every standard client target and is not a recommended default; pick `--target`, `--category`, and `--skill` as needed.
+- When upgrading from an older version, use `--prune-retired` to clean up retired skills: it deletes only unchanged copies this installer owns and archives everything else.
 - Each target directory gets a `.high-value-skills-manifest.json` with source and file digests. Replacements are staged and verified first, and modified or unowned copies are archived in `.high-value-skills-backups/` next to the destination.
 - This is not one atomic transaction across all targets: if something fails, check the output and the backup directory rather than deleting old copies by hand.
 
