@@ -22,8 +22,30 @@ def parse_frontmatter(content: str) -> dict[str, str]:
         if ":" not in line or line.startswith((" ", "\t")):
             continue
         key, _, value = line.partition(":")
-        data[key.strip()] = value.strip().strip('"').strip("'")
+        value = value.strip()
+        if len(value) >= 2 and value[0] == value[-1] == "'":
+            value = value[1:-1].replace("''", "'")
+        else:
+            value = value.strip('"').strip("'")
+        data[key.strip()] = value
     return data
+
+
+CJK_RE = re.compile(r"[㐀-鿿豈-﫿]")
+
+
+def _sentence(text: str, terminal: str) -> str:
+    text = " ".join(text.split()).rstrip(".。;；")
+    return f"{text}{terminal}" if text else ""
+
+
+def _skill_link(category: str, skill_name: str) -> str:
+    return f"[`{skill_name}`](./skills/{category}/{skill_name}/)"
+
+
+def _has_text_after_link(bullet: str) -> bool:
+    match = re.match(r"^-\s+\[`[^`]+`\]\([^)]*\)\s*[:：—-]\s*(?P<text>.+)$", bullet)
+    return bool(match and match.group("text").strip())
 
 
 def skill_tree_with_descriptions(skills_root: Path) -> dict[str, dict[str, dict[str, str]]]:
@@ -99,14 +121,8 @@ def build_cn_overview(content: str, skills_root: Path, category_count: int, skil
         skills = tree[category]
         lines.extend([anchor, f"### {index}. {title}（{category}，{len(skills)}）", ""])
         for skill_name, metadata in skills.items():
-            existing = bullets.get(category, {}).get(skill_name)
-            description = metadata["zh_description"]
-            has_explicit_zh = bool(description and description != metadata["description"])
-            if existing and not has_explicit_zh:
-                lines.append(existing)
-            else:
-                suffix = description.rstrip(".。") if description else "新增技能"
-                lines.append(f"- `{skill_name}`：{suffix}。")
+            summary = _sentence(metadata["zh_description"], "。") or "新增技能。"
+            lines.append(f"- {_skill_link(category, skill_name)}：{summary}")
         lines.append("")
     return "\n".join(lines).rstrip()
 
@@ -123,12 +139,17 @@ def build_en_overview(content: str, skills_root: Path, category_count: int, skil
         title = titles.get(category, category)
         skills = tree[category]
         lines.extend([anchor, f"### {index}. {title} ({category}, {len(skills)})", ""])
-        for skill_name in skills:
+        for skill_name, metadata in skills.items():
+            description = metadata["description"]
             existing = bullets.get(category, {}).get(skill_name)
-            if existing:
+            if description and not CJK_RE.search(description):
+                lines.append(f"- {_skill_link(category, skill_name)}: {_sentence(description, '.')}")
+            elif existing and _has_text_after_link(existing):
+                # Upstream-owned descriptions in another language keep the
+                # curated English summary already present in README.en.md.
                 lines.append(existing)
             else:
-                lines.append(f"- [`{skill_name}`](./skills/{category}/{skill_name}/)")
+                lines.append(f"- {_skill_link(category, skill_name)}")
         lines.append("")
     return "\n".join(lines).rstrip()
 
@@ -237,7 +258,8 @@ def update_root_readmes(repo_root: Path, category_count: int, skill_count: int) 
                 build_en_overview(updated, skills_root, category_count, skill_count),
             )
         if updated != content:
-            readme_path.write_text(updated, encoding="utf-8")
+            # Write LF on every platform; Windows text mode would emit CRLF.
+            readme_path.write_text(updated, encoding="utf-8", newline="\n")
 
 
 def refresh_repo_views(repo_root: Path | str, scripts_root: Path | str | None = None) -> dict:
