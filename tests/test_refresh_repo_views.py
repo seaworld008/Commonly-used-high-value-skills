@@ -99,6 +99,68 @@ class RefreshRepoViewsTests(unittest.TestCase):
             self.assertIn("### 1. AI Workflow (ai-workflow, 1)", en_updated)
             self.assertIn("[`demo-skill`](./skills/ai-workflow/demo-skill/)", en_updated)
 
+    def test_bilingual_overviews_share_linked_bullets_and_keep_curated_english(self):
+        module = load_module()
+        with tempfile.TemporaryDirectory() as tmpdir:
+            repo = Path(tmpdir)
+            skills = {
+                "english-skill": (
+                    "description: 'Use when the agent''s plan needs a review.'",
+                    'zh_description: "评审计划时使用"',
+                ),
+                "lark-demo": (
+                    "description: '飞书演示：处理飞书文档。'",
+                    'zh_description: "用于处理飞书文档。"',
+                ),
+                "lark-new": (
+                    "description: '飞书新技能。'",
+                    'zh_description: "飞书新技能。"',
+                ),
+            }
+            for name, (description, zh_description) in skills.items():
+                skill_dir = repo / "skills" / "ai-workflow" / name
+                skill_dir.mkdir(parents=True)
+                (skill_dir / "SKILL.md").write_text(
+                    f"---\nname: {name}\n{description}\n{zh_description}\n---\n# {name}\n",
+                    encoding="utf-8",
+                )
+            (repo / "README.md").write_text(
+                "当前共 **1 个分类 / 3 个技能**。\n\n"
+                "## 技能总览（按分类，1 类 / 3 技能）\n\n"
+                '<a id="cat-ai-workflow"></a>\n### 1. AI 工作流（ai-workflow，3）\n\n'
+                "- `english-skill`：旧的手写文字。\n\n"
+                "## 下一轮建议补充方向\n",
+                encoding="utf-8",
+            )
+            (repo / "README.en.md").write_text(
+                "This repository currently contains **1 categories / 3 skills**.\n\n"
+                "## Skill Overview (by category, 1 categories / 3 skills)\n\n"
+                '<a id="cat-ai-workflow"></a>\n### 1. AI Workflow (ai-workflow, 3)\n\n'
+                "- [`english-skill`](./skills/ai-workflow/english-skill/)\n"
+                "- [`lark-demo`](./skills/ai-workflow/lark-demo/): Work with Lark documents.\n\n"
+                "## Next Curation Directions\n",
+                encoding="utf-8",
+            )
+
+            module.update_root_readmes(repo, category_count=1, skill_count=3)
+            cn = (repo / "README.md").read_text(encoding="utf-8")
+            en = (repo / "README.en.md").read_text(encoding="utf-8")
+
+            self.assertIn(
+                "- [`english-skill`](./skills/ai-workflow/english-skill/)：评审计划时使用。", cn
+            )
+            self.assertNotIn("旧的手写文字", cn)
+            self.assertIn(
+                "- [`english-skill`](./skills/ai-workflow/english-skill/): "
+                "Use when the agent's plan needs a review.",
+                en,
+            )
+            self.assertIn(
+                "- [`lark-demo`](./skills/ai-workflow/lark-demo/): Work with Lark documents.", en
+            )
+            self.assertIn("- [`lark-new`](./skills/ai-workflow/lark-new/)\n", en)
+            self.assertNotIn("飞书", en)
+
     def test_refresh_repo_views_generates_category_readmes_and_openclaw_export(self):
         module = load_module()
 
