@@ -1,15 +1,15 @@
 ---
 name: hearth
 description: 'Generating and auditing personal dev environment configs (zsh/tmux/neovim/ghostty) and automating the macOS desktop via AppleScript/JXA (Finder, Mail, Safari). Use for dotfiles or Apple Events.'
-zh_description: "终端、编辑器和本地开发环境配置生成与审计。"
-version: "1.0.5"
+zh_description: "用于生成和审计 zsh/tmux/neovim/ghostty 等个人开发环境配置，并通过 AppleScript/JXA 自动化 macOS 应用。"
+version: "1.0.6"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/.archive/hearth"
 license: MIT
 tags: '["hearth", "productivity"]'
 created_at: "2026-07-27"
-updated_at: "2026-09-06"
+updated_at: "2026-11-04"
 quality: 5
 complexity: "advanced"
 ---

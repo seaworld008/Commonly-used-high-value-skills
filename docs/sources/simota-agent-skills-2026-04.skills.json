@@ -4373,7 +4373,7 @@
             "ref": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
             "resolved_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
             "path_commit": "5f1bd9e50ee7b13fbd143b1a4a30e6643b458097",
-            "content_sha256": "2e08d00f5f45c78603fb15747d71f2a547b5dc811308a7aff586d0bb46904d9a",
+            "content_sha256": "c427f33670c2a24a70fb343e4f35d571e35e13e26b3226f08479ce387fdf2d7b",
             "last_checked_at": "2026-07-27",
             "last_synced_at": "2026-06-01"
           }
@@ -4382,7 +4382,7 @@
       "managed_files": [
         {
           "path": "skills/ai-agent-platform/arena/SKILL.md",
-          "sha256": "2e08d00f5f45c78603fb15747d71f2a547b5dc811308a7aff586d0bb46904d9a",
+          "sha256": "c427f33670c2a24a70fb343e4f35d571e35e13e26b3226f08479ce387fdf2d7b",
           "owner": "arena",
           "mode": "100644"
         },
@@ -11625,7 +11625,7 @@
             "ref": "6502f44cfcd8f456951a7bfdce14d0ed76d724ef",
             "resolved_commit": "6502f44cfcd8f456951a7bfdce14d0ed76d724ef",
             "path_commit": "6502f44cfcd8f456951a7bfdce14d0ed76d724ef",
-            "content_sha256": "4b83a418d54c0e128d3594f33b473335ef069c10c02b4df48c8351d565c65dca",
+            "content_sha256": "7fe9b94b5cff348aeab9ea680a67a0a92bb6d2ddf94d0cca086534f3c0435c17",
             "last_checked_at": "2026-08-20",
             "last_synced_at": "2026-08-20",
             "license_checkpoint": {
@@ -11684,7 +11684,7 @@
       "managed_files": [
         {
           "path": "skills/operations-general/hearth/SKILL.md",
-          "sha256": "4b83a418d54c0e128d3594f33b473335ef069c10c02b4df48c8351d565c65dca",
+          "sha256": "7fe9b94b5cff348aeab9ea680a67a0a92bb6d2ddf94d0cca086534f3c0435c17",
           "owner": "hearth",
           "mode": "100644"
         },

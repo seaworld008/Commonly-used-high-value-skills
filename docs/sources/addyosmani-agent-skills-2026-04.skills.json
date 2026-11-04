@@ -824,7 +824,7 @@
             "ref": "main",
             "resolved_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
             "path_commit": "226bdd3aef2a74f43782c01583d91bcea92915ed",
-            "content_sha256": "8431e96c346e0191948f59c5bca8dfbe5e276f578189177133f82f9dba915667",
+            "content_sha256": "b4d634681a8ca27ee1c2b8672643727386f57556082419ae26a973a84dbe2494",
             "last_checked_at": "2026-10-16",
             "last_synced_at": "2026-10-16",
             "license_checkpoint": {
@@ -894,7 +894,7 @@
         {
           "path": "skills/ai-workflow/context-engineering/SKILL.md",
           "owner": "context-engineering",
-          "sha256": "8431e96c346e0191948f59c5bca8dfbe5e276f578189177133f82f9dba915667",
+          "sha256": "b4d634681a8ca27ee1c2b8672643727386f57556082419ae26a973a84dbe2494",
           "mode": "100644"
         },
         {

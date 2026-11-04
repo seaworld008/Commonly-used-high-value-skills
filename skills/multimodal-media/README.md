@@ -10,7 +10,7 @@
 
 - [imagegen](./imagegen/) - 用于生成、编辑和迭代图像内容与视觉素材。
 - [live-panel](./live-panel/) - 将系统架构和数据流 JSON 配置渲染为动态面板 HTML 或 MP4。
-- [sora](./sora/) - 用于构思、生成和评审 Sora 视频或视频提示词。
+- [sora](./sora/) - 用户需要 Sora 视频工作流时，通过附带的 API CLI 生成、改编（remix）、查看、下载或删除 Sora 视频。
 - [speech](./speech/) - 将文本转换为旁白、配音和批量语音文件。
 
 ## 技能总览
@@ -22,9 +22,9 @@
 | `imagegen` | 用于生成、编辑和迭代图像内容与视觉素材。 | [目录](./imagegen/) | [SKILL.md](./imagegen/SKILL.md) |
 | `live-panel` | 将系统架构和数据流 JSON 配置渲染为动态面板 HTML 或 MP4。 | [目录](./live-panel/) | [SKILL.md](./live-panel/SKILL.md) |
 | `remotion-video` | 制作和修复 Remotion 视频，以帧时间线、抽帧检查和媒体元数据验证交付结果。 | [目录](./remotion-video/) | [SKILL.md](./remotion-video/SKILL.md) |
-| `screenshot` | 用于截图、屏幕捕获、视觉核查和界面证据收集。 | [目录](./screenshot/) | [SKILL.md](./screenshot/SKILL.md) |
+| `screenshot` | 用户明确要求桌面或系统截图（全屏、指定应用或窗口、像素区域），或专用工具无法截取而需系统级捕获时使用。 | [目录](./screenshot/) | [SKILL.md](./screenshot/SKILL.md) |
 | `sketch` | 图像生成代码、提示优化、批量生成和成本估算。 | [目录](./sketch/) | [SKILL.md](./sketch/SKILL.md) |
-| `sora` | 用于构思、生成和评审 Sora 视频或视频提示词。 | [目录](./sora/) | [SKILL.md](./sora/SKILL.md) |
+| `sora` | 用户需要 Sora 视频工作流时，通过附带的 API CLI 生成、改编（remix）、查看、下载或删除 Sora 视频。 | [目录](./sora/) | [SKILL.md](./sora/SKILL.md) |
 | `speech` | 将文本转换为旁白、配音和批量语音文件。 | [目录](./speech/) | [SKILL.md](./speech/SKILL.md) |
 | `tone` | 生成和处理游戏音效、音乐及语音资产。 | [目录](./tone/) | [SKILL.md](./tone/SKILL.md) |
 | `transcribe` | 用于将音频或视频中的语音转写为文本，并可结合说话人分离和已知说话人提示。 | [目录](./transcribe/) | [SKILL.md](./transcribe/SKILL.md) |

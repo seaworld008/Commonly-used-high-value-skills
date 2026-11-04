@@ -326,7 +326,7 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`rust-engineer`](./skills/developer-engineering/rust-engineer/)：用于 Rust 代码开发、所有权和生命周期调试、异步模式选择和系统性能优化。
 - [`schema`](./skills/developer-engineering/schema/)：设计或评审数据库模式时使用：数据建模、零停机迁移、索引策略、多租户隔离和向量表。
 - [`shadcn`](./skills/developer-engineering/shadcn/)：维护 shadcn 组件、注册源和主题，核对项目真实 API，并验证预览差异与交互结果。
-- [`skill-tester`](./skills/developer-engineering/skill-tester/)：验证技能触发、执行步骤和输出结果是否符合预期。
+- [`skill-tester`](./skills/developer-engineering/skill-tester/)：用于对照目标仓库和宿主要求，验证技能目录结构、附带脚本和预期输出。
 - [`supabase`](./skills/developer-engineering/supabase/)：开发和排查 Supabase 数据库、认证、存储及应用集成。
 - [`supabase-postgres-best-practices`](./skills/developer-engineering/supabase-postgres-best-practices/)：用于编写或评审 Supabase/Postgres 的查询、Schema、索引、RLS、连接配置与迁移。
 - [`systematic-debugging`](./skills/developer-engineering/systematic-debugging/)：通过复现、假设检验和证据定位故障根因。
@@ -334,7 +334,7 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`tech-debt-tracker`](./skills/developer-engineering/tech-debt-tracker/)：识别和量化技术债，确定修复优先级并跟踪治理进度。
 - [`terraform-engineer`](./skills/developer-engineering/terraform-engineer/)：用于 Terraform IaC 设计、模块评审、状态管理、Provider 升级和基础设施部署优化。
 - [`typescript-best-practices`](./skills/developer-engineering/typescript-best-practices/)：用于 TypeScript 类型安全设计、高级类型、API 边界、strict 迁移和反模式规避。
-- [`vercel-react-best-practices`](./skills/developer-engineering/vercel-react-best-practices/)：用于 Vercel/React 项目的架构、性能和部署最佳实践。
+- [`vercel-react-best-practices`](./skills/developer-engineering/vercel-react-best-practices/)：用于按 Vercel 工程规则优化 React 与 Next.js 的渲染、数据获取、打包体积和运行时性能。
 - [`vercel-react-view-transitions`](./skills/developer-engineering/vercel-react-view-transitions/)：用于在 React/Vercel 项目中实现和优化 View Transitions。
 - [`web-artifacts-builder`](./skills/developer-engineering/web-artifacts-builder/)：用于构建复杂多组件 HTML/React 网页 artifacts，尤其适合需要状态、路由或 shadcn/ui 的场景。
 - [`webapp-testing`](./skills/developer-engineering/webapp-testing/)：用于使用 Playwright 测试本地 Web 应用、验证前端行为、截图和查看浏览器日志。
@@ -343,14 +343,14 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 ### 2. AI 工作流（ai-workflow，47）
 
 - [`agent-workflow-designer`](./skills/ai-workflow/agent-workflow-designer/)：设计多智能体协作流程、任务交接、状态管理和故障恢复。
-- [`andrej-karpathy-skills`](./skills/ai-workflow/andrej-karpathy-skills/)：用于应用 Andrej Karpathy 风格的 AI 学习、构建和研究实践。
+- [`andrej-karpathy-skills`](./skills/ai-workflow/andrej-karpathy-skills/)：用于按 Karpathy 风格约束 AI 编码：先想清楚再动手、保持改动简单、精准修改，并在实现前定义可验证的成功标准。
 - [`api-and-interface-design`](./skills/ai-workflow/api-and-interface-design/)：设计稳定的 API、模块接口和类型契约。
 - [`brainstorming`](./skills/ai-workflow/brainstorming/)：用于在实现前澄清创意型产品或工程需求，探索目标、约束、方案与取舍。
 - [`browser-testing-with-devtools`](./skills/ai-workflow/browser-testing-with-devtools/)：用于通过浏览器 DevTools 测试、调试和验证前端行为。
 - [`ci-cd-and-automation`](./skills/ai-workflow/ci-cd-and-automation/)：建立和优化持续集成、质量检查与部署自动化。
 - [`code-review-and-quality`](./skills/ai-workflow/code-review-and-quality/)：审查代码正确性、可维护性、安全性和验证证据。
 - [`code-simplification`](./skills/ai-workflow/code-simplification/)：在保持行为一致的前提下简化代码和消除重复。
-- [`context-engineering`](./skills/ai-workflow/context-engineering/)：用于设计上下文工程策略、提示输入结构和长任务信息流。
+- [`context-engineering`](./skills/ai-workflow/context-engineering/)：智能体上下文缺失或过载时使用：诊断上下文质量，并配置项目规则文件等指令。
 - [`debugging-and-error-recovery`](./skills/ai-workflow/debugging-and-error-recovery/)：复现故障、定位根因并验证修复与恢复结果。
 - [`deep-research`](./skills/ai-workflow/deep-research/)：用于执行深度研究、资料收集、来源核验和综合分析。
 - [`deprecation-and-migration`](./skills/ai-workflow/deprecation-and-migration/)：规划旧系统、接口和功能的弃用及迁移。
@@ -393,8 +393,8 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 <a id="cat-ai-agent-platform"></a>
 ### 3. AI 平台与 Agent 开发（ai-agent-platform，13）
 
-- [`agent-hub`](./skills/ai-agent-platform/agent-hub/)：用于管理 Agent 能力中心、技能发现、路由和协作工作流。
-- [`arena`](./skills/ai-agent-platform/arena/)：用于构建和运行 Agent 竞技场、评测对战和能力比较流程。
+- [`agent-hub`](./skills/ai-agent-platform/agent-hub/)：需要多个智能体并行竞争同一任务时使用：在隔离的 Git worktree 中产出方案、评估结果并合并胜出版本。
+- [`arena`](./skills/ai-agent-platform/arena/)：用于通过 codex exec 或 Antigravity CLI 编排多引擎竞争（多方案择优）或协作（拆分任务后集成），支持 Solo/Team/Quick 模式。
 - [`chatgpt-apps`](./skills/ai-agent-platform/chatgpt-apps/)：用于设计、构建和调试 ChatGPT Apps 与相关集成能力。
 - [`develop-web-game`](./skills/ai-agent-platform/develop-web-game/)：用于开发网页游戏原型、玩法循环、交互逻辑和前端实现。
 - [`figma`](./skills/ai-agent-platform/figma/)：通过 Figma MCP 读取设计上下文、变量、截图和素材，并排查连接问题。
@@ -402,7 +402,7 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`hermes-agent`](./skills/ai-agent-platform/hermes-agent/)：用于配置、扩展、调试和贡献 Hermes Agent，包括多 Agent、CLI 和网关工作流。
 - [`hermes-open-gsd-workflow`](./skills/ai-agent-platform/hermes-open-gsd-workflow/)：在 Hermes Agent、Graphify、Open GSD Core 与可选 GSD Pi 之间做薄路由，不复制上游安装器和状态机。
 - [`mcporter`](./skills/ai-agent-platform/mcporter/)：用于通过 mcporter CLI 列出、配置、鉴权和调用 MCP 服务器或工具。
-- [`native-mcp`](./skills/ai-agent-platform/native-mcp/)：用于构建和调试原生 MCP 集成、服务器和工具调用流程。
+- [`native-mcp`](./skills/ai-agent-platform/native-mcp/)：用于配置 Hermes Agent 内置 MCP 客户端：服务器发现、stdio/HTTP 连接、工具注册、认证和重连排查。
 - [`openai-docs`](./skills/ai-agent-platform/openai-docs/)：用于查阅和应用 OpenAI 官方文档、API 行为和集成指南。
 - [`oracle`](./skills/ai-agent-platform/oracle/)：设计或评审大模型应用时使用：提示词、RAG、智能体工具循环、评测、安全护栏和成本路由。
 - [`sigil`](./skills/ai-agent-platform/sigil/)：需要根据仓库技术栈与约定生成、校验或更新项目专属技能时使用。
@@ -418,7 +418,7 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`harvest`](./skills/engineering-workflow-automation/harvest/)：采集合并请求信息并生成工作报告和发布材料。
 - [`jupyter-notebook`](./skills/engineering-workflow-automation/jupyter-notebook/)：创建和维护用于分析、实验及教学的 Jupyter 笔记本。
 - [`latch`](./skills/engineering-workflow-automation/latch/)：配置和维护生命周期钩子、质量门禁和自动化守卫。
-- [`playwright`](./skills/engineering-workflow-automation/playwright/)：用于使用 Playwright 编写、运行和调试端到端测试。
+- [`playwright`](./skills/engineering-workflow-automation/playwright/)：需要在终端用 playwright-cli 自动化真实浏览器时使用：页面导航、表单填写、快照截图、数据提取和界面流程调试。
 - [`playwright-pro`](./skills/engineering-workflow-automation/playwright-pro/)：用于高级 Playwright 测试、诊断、稳定性和浏览器自动化。
 - [`web-scraper`](./skills/engineering-workflow-automation/web-scraper/)：用于网页抓取、结构化数据提取、爬取策略、选择器设计和增量更新。
 - [`yeet`](./skills/engineering-workflow-automation/yeet/)：按用户要求暂存、提交、推送改动并创建 GitHub PR。
@@ -427,7 +427,7 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 ### 5. DevOps / SRE（devops-sre，14）
 
 - [`azure-diagnostics`](./skills/devops-sre/azure-diagnostics/)：使用授权范围内的指标、日志和脚本定位 Azure AKS、虚拟机及应用故障。
-- [`azure-kubernetes`](./skills/devops-sre/azure-kubernetes/)：用于 Azure Kubernetes 集群管理、部署、排障和运维。
+- [`azure-kubernetes`](./skills/devops-sre/azure-kubernetes/)：用于规划和配置 Azure Kubernetes Service 集群，包括 SKU、网络、身份、部署就绪度和运维约束。
 - [`beacon`](./skills/devops-sre/beacon/)：为服务设计 SLO、错误预算、告警、链路追踪、仪表盘或容量规划时使用。
 - [`cc-devops-skills`](./skills/devops-sre/cc-devops-skills/)：提供基础设施、持续交付、容器和运行维护的实践指导。
 - [`cloudflare-troubleshooting`](./skills/devops-sre/cloudflare-troubleshooting/)：依据实际配置排查 Cloudflare DNS、TLS 和重定向问题。
@@ -449,7 +449,7 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`event-driven-tracker`](./skills/finance-investing/event-driven-tracker/)：跟踪影响投资标的的公司事件、催化因素和风险。
 - [`factor-backtester`](./skills/finance-investing/factor-backtester/)：设计和回测投资因子，检查偏差、成本和稳健性。
 - [`financial-analyst`](./skills/finance-investing/financial-analyst/)：分析财务报表、经营表现、估值和情景假设。
-- [`financial-data-collector`](./skills/finance-investing/financial-data-collector/)：用于收集股票、财报、宏观和市场数据并生成分析输入。
+- [`financial-data-collector`](./skills/finance-investing/financial-data-collector/)：用于采集美股上市公司的 SEC 申报与 yfinance 市场数据，整理 DCF 输入并输出带来源标注的结构化数据。
 - [`helm`](./skills/finance-investing/helm/)：商业战略场景模拟、市场分析、指标预测和路线图规划。
 - [`investment-memo-writer`](./skills/finance-investing/investment-memo-writer/)：编写有来源依据、投资逻辑和风险分析的投资备忘录。
 - [`ledger`](./skills/finance-investing/ledger/)：估算或优化云成本时使用：IaC 成本预估、规格调整、预留实例、标签策略和预算告警。
@@ -468,7 +468,7 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`app-store-optimization`](./skills/growth-operations-xiaohongshu/app-store-optimization/)：优化应用商店关键词、页面素材和转化实验。
 - [`campaign-analytics`](./skills/growth-operations-xiaohongshu/campaign-analytics/)：分析营销活动的渠道表现、转化、归因和投入产出。
 - [`compete`](./skills/growth-operations-xiaohongshu/compete/)：研究竞争对手时使用：竞品画像、功能与定价对比、定位图、竞争战卡和输赢分析。
-- [`competitors-analysis`](./skills/growth-operations-xiaohongshu/competitors-analysis/)：Analyze competitor repositories with evidence-based approa。
+- [`competitors-analysis`](./skills/growth-operations-xiaohongshu/competitors-analysis/)：用于基于已核实的代码和来源证据对比竞品代码仓库，开展技术竞品分析或仓库画像。
 - [`content-creator`](./skills/growth-operations-xiaohongshu/content-creator/)：按受众、品牌语气和搜索意图创作营销内容。
 - [`growth`](./skills/growth-operations-xiaohongshu/growth/)：提升网页自然流量与转化时使用：SEO 元信息、结构化数据、社交卡片、核心性能指标和 AI 引用优化。
 - [`linkedin-growth`](./skills/growth-operations-xiaohongshu/linkedin-growth/)：构建领英线索导入、筛选、分配、邀请与待处理请求维护流水线。
@@ -538,12 +538,12 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 <a id="cat-operations-general"></a>
 ### 10. 通用运营（operations-general，11）
 
-- [`brand-guidelines`](./skills/operations-general/brand-guidelines/)：用于在文档、页面或视觉产物中应用 Anthropic 风格的品牌色、字体和视觉规范。
+- [`brand-guidelines`](./skills/operations-general/brand-guidelines/)：用户要求 Anthropic 视觉识别或带 Anthropic 品牌的产物时，用于应用其品牌色和字体。
 - [`crest`](./skills/operations-general/crest/)：技术个人品牌、主页资料、文章和公开形象策略。
 - [`dawn`](./skills/operations-general/dawn/)：提出一个适合一至三天完成的个人项目创意。
 - [`docs-cleaner`](./skills/operations-general/docs-cleaner/)：用于合并冗余文档、减少文档膨胀，并在保留有效内容的前提下整理知识库。
 - [`fact-checker`](./skills/operations-general/fact-checker/)：核实事实与时效性，并按请求修正文档及补充来源。
-- [`hearth`](./skills/operations-general/hearth/)：终端、编辑器和本地开发环境配置生成与审计。
+- [`hearth`](./skills/operations-general/hearth/)：用于生成和审计 zsh/tmux/neovim/ghostty 等个人开发环境配置，并通过 AppleScript/JXA 自动化 macOS 应用。
 - [`i-have-adhd`](./skills/operations-general/i-have-adhd/)：为 ADHD 读者塑造可执行、行动优先的输出：先给下一步、编号步骤、跨轮次重述状态、抑制跑题、给出具体时间估计并展示进展。
 - [`interview-system-designer`](./skills/operations-general/interview-system-designer/)：设计招聘面试、能力矩阵、题库和评分标准。
 - [`linkedin`](./skills/operations-general/linkedin/)：通过 Linked API 搜索领英资料、管理连接、消息与内容发布。
@@ -602,9 +602,9 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`imagegen`](./skills/multimodal-media/imagegen/)：用于生成、编辑和迭代图像内容与视觉素材。
 - [`live-panel`](./skills/multimodal-media/live-panel/)：将系统架构和数据流 JSON 配置渲染为动态面板 HTML 或 MP4。
 - [`remotion-video`](./skills/multimodal-media/remotion-video/)：制作和修复 Remotion 视频，以帧时间线、抽帧检查和媒体元数据验证交付结果。
-- [`screenshot`](./skills/multimodal-media/screenshot/)：用于截图、屏幕捕获、视觉核查和界面证据收集。
+- [`screenshot`](./skills/multimodal-media/screenshot/)：用户明确要求桌面或系统截图（全屏、指定应用或窗口、像素区域），或专用工具无法截取而需系统级捕获时使用。
 - [`sketch`](./skills/multimodal-media/sketch/)：图像生成代码、提示优化、批量生成和成本估算。
-- [`sora`](./skills/multimodal-media/sora/)：用于构思、生成和评审 Sora 视频或视频提示词。
+- [`sora`](./skills/multimodal-media/sora/)：用户需要 Sora 视频工作流时，通过附带的 API CLI 生成、改编（remix）、查看、下载或删除 Sora 视频。
 - [`speech`](./skills/multimodal-media/speech/)：将文本转换为旁白、配音和批量语音文件。
 - [`tone`](./skills/multimodal-media/tone/)：生成和处理游戏音效、音乐及语音资产。
 - [`transcribe`](./skills/multimodal-media/transcribe/)：用于将音频或视频中的语音转写为文本，并可结合说话人分离和已知说话人提示。
@@ -625,7 +625,7 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 
 - [`cast`](./skills/openclaw-memory-and-safety/cast/)：需要从文档、数据或反馈生成并维护用户画像及画像注册表时使用。
 - [`honcho`](./skills/openclaw-memory-and-safety/honcho/)：为 Hermes Agent 配置、调优或排查 Honcho 跨会话记忆时使用。
-- [`input-guard`](./skills/openclaw-memory-and-safety/input-guard/)：用于输入安全检查、提示注入防护和高风险请求拦截。
+- [`input-guard`](./skills/openclaw-memory-and-safety/input-guard/)：出现可疑指令或数据边界风险时，用于检查不可信外部内容中的提示注入。
 - [`omen`](./skills/openclaw-memory-and-safety/omen/)：上线或实施前预演失败时使用：事前验尸、FMEA、故障树和按优先级排列的缓解措施。
 - [`rag-architect`](./skills/openclaw-memory-and-safety/rag-architect/)：用于以评测为先设计和诊断生产级 RAG，包括权限、混合检索、重排、引用和监控。
 - [`runbook-generator`](./skills/openclaw-memory-and-safety/runbook-generator/)：用于基于仓库和平台证据编写安全、可演练、可验证的生产运维 Runbook。

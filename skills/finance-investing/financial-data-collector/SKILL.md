@@ -1,14 +1,14 @@
 ---
 name: financial-data-collector
 description: 'Use when collecting financial data for a US public company, assembling DCF inputs, pulling market and filing facts, or grounding downstream analysis in structured yfinance and SEC data.'
-zh_description: "用于收集股票、财报、宏观和市场数据并生成分析输入。"
-version: "1.0.0"
+zh_description: "用于采集美股上市公司的 SEC 申报与 yfinance 市场数据，整理 DCF 输入并输出带来源标注的结构化数据。"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["collector", "data", "finance", "financial"]'
 created_at: "2026-03-18"
-updated_at: "2026-03-20"
+updated_at: "2026-11-04"
 quality: 4
 complexity: "intermediate"
 ---

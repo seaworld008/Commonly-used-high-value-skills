@@ -57,7 +57,7 @@
 | `rust-engineer` | 用于 Rust 代码开发、所有权和生命周期调试、异步模式选择和系统性能优化。 | [目录](./rust-engineer/) | [SKILL.md](./rust-engineer/SKILL.md) |
 | `schema` | 设计或评审数据库模式时使用：数据建模、零停机迁移、索引策略、多租户隔离和向量表。 | [目录](./schema/) | [SKILL.md](./schema/SKILL.md) |
 | `shadcn` | 维护 shadcn 组件、注册源和主题，核对项目真实 API，并验证预览差异与交互结果。 | [目录](./shadcn/) | [SKILL.md](./shadcn/SKILL.md) |
-| `skill-tester` | 验证技能触发、执行步骤和输出结果是否符合预期。 | [目录](./skill-tester/) | [SKILL.md](./skill-tester/SKILL.md) |
+| `skill-tester` | 用于对照目标仓库和宿主要求，验证技能目录结构、附带脚本和预期输出。 | [目录](./skill-tester/) | [SKILL.md](./skill-tester/SKILL.md) |
 | `supabase` | 开发和排查 Supabase 数据库、认证、存储及应用集成。 | [目录](./supabase/) | [SKILL.md](./supabase/SKILL.md) |
 | `supabase-postgres-best-practices` | 用于编写或评审 Supabase/Postgres 的查询、Schema、索引、RLS、连接配置与迁移。 | [目录](./supabase-postgres-best-practices/) | [SKILL.md](./supabase-postgres-best-practices/SKILL.md) |
 | `systematic-debugging` | 通过复现、假设检验和证据定位故障根因。 | [目录](./systematic-debugging/) | [SKILL.md](./systematic-debugging/SKILL.md) |
@@ -65,7 +65,7 @@
 | `tech-debt-tracker` | 识别和量化技术债，确定修复优先级并跟踪治理进度。 | [目录](./tech-debt-tracker/) | [SKILL.md](./tech-debt-tracker/SKILL.md) |
 | `terraform-engineer` | 用于 Terraform IaC 设计、模块评审、状态管理、Provider 升级和基础设施部署优化。 | [目录](./terraform-engineer/) | [SKILL.md](./terraform-engineer/SKILL.md) |
 | `typescript-best-practices` | 用于 TypeScript 类型安全设计、高级类型、API 边界、strict 迁移和反模式规避。 | [目录](./typescript-best-practices/) | [SKILL.md](./typescript-best-practices/SKILL.md) |
-| `vercel-react-best-practices` | 用于 Vercel/React 项目的架构、性能和部署最佳实践。 | [目录](./vercel-react-best-practices/) | [SKILL.md](./vercel-react-best-practices/SKILL.md) |
+| `vercel-react-best-practices` | 用于按 Vercel 工程规则优化 React 与 Next.js 的渲染、数据获取、打包体积和运行时性能。 | [目录](./vercel-react-best-practices/) | [SKILL.md](./vercel-react-best-practices/SKILL.md) |
 | `vercel-react-view-transitions` | 用于在 React/Vercel 项目中实现和优化 View Transitions。 | [目录](./vercel-react-view-transitions/) | [SKILL.md](./vercel-react-view-transitions/SKILL.md) |
 | `web-artifacts-builder` | 用于构建复杂多组件 HTML/React 网页 artifacts，尤其适合需要状态、路由或 shadcn/ui 的场景。 | [目录](./web-artifacts-builder/) | [SKILL.md](./web-artifacts-builder/SKILL.md) |
 | `webapp-testing` | 用于使用 Playwright 测试本地 Web 应用、验证前端行为、截图和查看浏览器日志。 | [目录](./webapp-testing/) | [SKILL.md](./webapp-testing/SKILL.md) |

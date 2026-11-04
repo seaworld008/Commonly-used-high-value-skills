@@ -18,7 +18,7 @@
 | 技能 | 简介 | 目录 | 详情 |
 |------|------|------|------|
 | `azure-diagnostics` | 使用授权范围内的指标、日志和脚本定位 Azure AKS、虚拟机及应用故障。 | [目录](./azure-diagnostics/) | [SKILL.md](./azure-diagnostics/SKILL.md) |
-| `azure-kubernetes` | 用于 Azure Kubernetes 集群管理、部署、排障和运维。 | [目录](./azure-kubernetes/) | [SKILL.md](./azure-kubernetes/SKILL.md) |
+| `azure-kubernetes` | 用于规划和配置 Azure Kubernetes Service 集群，包括 SKU、网络、身份、部署就绪度和运维约束。 | [目录](./azure-kubernetes/) | [SKILL.md](./azure-kubernetes/SKILL.md) |
 | `beacon` | 为服务设计 SLO、错误预算、告警、链路追踪、仪表盘或容量规划时使用。 | [目录](./beacon/) | [SKILL.md](./beacon/SKILL.md) |
 | `cc-devops-skills` | 提供基础设施、持续交付、容器和运行维护的实践指导。 | [目录](./cc-devops-skills/) | [SKILL.md](./cc-devops-skills/SKILL.md) |
 | `cloudflare-troubleshooting` | 依据实际配置排查 Cloudflare DNS、TLS 和重定向问题。 | [目录](./cloudflare-troubleshooting/) | [SKILL.md](./cloudflare-troubleshooting/SKILL.md) |

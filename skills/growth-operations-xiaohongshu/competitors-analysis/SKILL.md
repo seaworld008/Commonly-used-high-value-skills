@@ -1,14 +1,14 @@
 ---
 name: competitors-analysis
 description: Compare competitor repositories using verified code and source evidence when technical competitive analysis or repository profiling is requested.
-zh_description: "Analyze competitor repositories with evidence-based approa。"
-version: "1.0.1"
+zh_description: "用于基于已核实的代码和来源证据对比竞品代码仓库，开展技术竞品分析或仓库画像。"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["analysis", "competitors", "growth", "marketing"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-04"
 quality: 5
 complexity: "intermediate"
 context: fork
