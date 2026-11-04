@@ -7,23 +7,26 @@ Comprehensive examples for GitHub pull request operations using gh CLI.
 ### Basic PR Creation
 
 ```bash
-# Create PR with NOJIRA prefix (bypasses JIRA enforcement checks)
-gh pr create --title "NOJIRA: Your PR title" --body "PR description"
+# Create PR
+gh pr create --title "feat: Your PR title" --body "PR description"
 
-# Create PR with JIRA ticket reference
-gh pr create --title "GR-1234: Your PR title" --body "PR description"
+# Create PR with a ticket key, when the repository requires one
+gh pr create --title "PROJ-1234: Your PR title" --body "PR description"
 
 # Create PR targeting specific branch
-gh pr create --title "NOJIRA: Feature" --body "Description" --base main --head feature-branch
+gh pr create --title "Feature" --body "Description" --base main --head feature-branch
 
 # Create PR with body from file
-gh pr create --title "NOJIRA: Feature" --body-file pr-description.md
+gh pr create --title "Feature" --body-file pr-description.md
 ```
 
 ### PR Title Convention
 
-- **With JIRA ticket**: `GR-1234: Descriptive title`
-- **Without JIRA ticket**: `NOJIRA: Descriptive title` (bypasses enforcement check)
+Use the target repository's convention. Check `CONTRIBUTING.md`, PR templates,
+title-lint workflows, and recent merged PR titles. Common patterns are
+Conventional Commits (`feat:`, `fix:`) and ticket keys (`PROJ-1234: ...`). Do not
+add a bypass prefix to skip a ticket-enforcement check unless the repository
+documents it for that case.
 
 ---
 

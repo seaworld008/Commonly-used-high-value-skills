@@ -2,13 +2,13 @@
 name: investment-memo-writer
 description: 'Use when turning research notes into an investment memo, writing a buy or sell thesis, or structuring catalysts, risks, and monitoring items for an IC-style document.'
 zh_description: "编写有来源依据、投资逻辑和风险分析的投资备忘录。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["finance", "investment", "memo", "writer"]'
 created_at: "2026-03-18"
-updated_at: "2026-09-06"
+updated_at: "2026-11-04"
 quality: 2
 complexity: "intermediate"
 ---
@@ -133,5 +133,5 @@ python scripts/build_memo.py --input assets/amzn_v1.json --output draft_memo.md
 2. **证据导向**：每一个论点后必须跟着一个数据或一个事实来源。
 3. **重视风险**：花 30% 的篇幅讨论风险，能显著增加 Memo 的可信度。
 4. **视觉辅助**：文字描述复杂的逻辑关系时，调用 `mermaid-tools` 技能插入流程图。
-5. **记忆同步**：将 Memo 中的 Key Monitoring Items 存入 `MEMORY.md` 并在 `cron` 中设定自动刷新任务。
+5. **记录交付**：将 Memo 中的 Key Monitoring Items 写入用户指定的研究记录或工作区文件；用户未要求时只在交付物中列出，不写入持久记忆或设置定时任务。
 6. **分级修订**：先由 Agent 生成草稿（Draft），再由人类研究员填入“软信息”进行最终修饰（Polishing）。

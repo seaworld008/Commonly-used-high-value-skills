@@ -137,7 +137,7 @@ python3 scripts/normalize_codex_skills.py ~/.codex/skills
 
 - `skills/ai-agent-platform/hermes-agent`
 - `skills/developer-engineering/codebase-onboarding`
-- `skills/security-and-reliability/skill-vetter`
+- `skills/security-and-reliability/skill-security-auditor`
 - `skills/ai-workflow/nlpm-audit`（审计 `SKILL.md`、`AGENTS.md`、`CLAUDE.md`、插件 manifests、hooks、commands；用法见 [`nlpm-audit Usage Guide`](./nlpm-audit-usage.md)）
 
 ---
@@ -248,7 +248,7 @@ openclaw skills check
 ### 建议先试的技能
 
 - `openclaw-skills/codebase-onboarding`
-- `openclaw-skills/skill-vetter`
+- `openclaw-skills/skill-security-auditor`
 - `openclaw-skills/hermes-open-gsd-workflow`
 - `openclaw-skills/nlpm-audit`
 

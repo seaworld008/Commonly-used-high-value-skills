@@ -4,7 +4,7 @@
 
 覆盖 Sentry、安全最佳实践、威胁建模与安全所有权分析的技能集合。
 
-当前分类共 **24** 个技能。
+当前分类共 **23** 个技能。
 
 ## 推荐先看
 
@@ -25,7 +25,7 @@
 | `gha-security-review` | 审查 GitHub Actions 触发器、注入、凭据和供应链风险。 | [目录](./gha-security-review/) | [SKILL.md](./gha-security-review/SKILL.md) |
 | `grype-syft-sbom-scanner` | 用于通过 Syft 生成 SBOM，并用 Grype 扫描容器镜像、文件系统、软件包、归档和 SBOM 漏洞。 | [目录](./grype-syft-sbom-scanner/) | [SKILL.md](./grype-syft-sbom-scanner/SKILL.md) |
 | `information-security-manager-iso27001` | 建立和审计 ISO 27001 信息安全管理体系及风险控制。 | [目录](./information-security-manager-iso27001/) | [SKILL.md](./information-security-manager-iso27001/SKILL.md) |
-| `link-checker` | 用于检测 URL 可达性、失效链接、跳转链路、可疑域名和文档链接健康度。 | [目录](./link-checker/) | [SKILL.md](./link-checker/SKILL.md) |
+| `link-checker` | 检测 URL 可达性、失效链接、跳转链路、可疑域名和文档链接健康度。 | [目录](./link-checker/) | [SKILL.md](./link-checker/SKILL.md) |
 | `osv-scanner` | 用于通过 OSV-Scanner 检查锁文件、清单、SBOM、Git 历史和源码树中的开源依赖漏洞。 | [目录](./osv-scanner/) | [SKILL.md](./osv-scanner/SKILL.md) |
 | `security-audit` | 对代码库进行安全审计，聚焦可利用且有真实影响的漏洞，并生成可验证的发现、报告和结构化输出。 | [目录](./security-audit/) | [SKILL.md](./security-audit/SKILL.md) |
 | `security-auditor` | 审查应用、接口、基础设施和依赖中的实际安全风险。 | [目录](./security-auditor/) | [SKILL.md](./security-auditor/SKILL.md) |
@@ -37,8 +37,7 @@
 | `security-threat-model` | 用于基于代码库或架构梳理资产、信任边界、攻击者能力、滥用路径和缓解措施。 | [目录](./security-threat-model/) | [SKILL.md](./security-threat-model/SKILL.md) |
 | `semgrep-appsec-scanner` | 用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。 | [目录](./semgrep-appsec-scanner/) | [SKILL.md](./semgrep-appsec-scanner/SKILL.md) |
 | `sentry` | 用于只读查询 Sentry issues、events 和服务健康数据，汇总线上错误并辅助生产问题排查。 | [目录](./sentry/) | [SKILL.md](./sentry/SKILL.md) |
-| `skill-security-auditor` | 安装前审查技能指令、脚本、权限和数据外传风险。 | [目录](./skill-security-auditor/) | [SKILL.md](./skill-security-auditor/SKILL.md) |
-| `skill-vetter` | 用于安装外部技能前审计指令、脚本、权限、依赖和来源风险。 | [目录](./skill-vetter/) | [SKILL.md](./skill-vetter/SKILL.md) |
+| `skill-security-auditor` | 安装或更新外部技能前，静态扫描并人工审查指令、脚本、权限、依赖、来源和外传风险。 | [目录](./skill-security-auditor/) | [SKILL.md](./skill-security-auditor/SKILL.md) |
 | `trivy-vulnerability-scanner` | 用于通过 Trivy 扫描仓库、容器镜像、文件系统、rootfs、SBOM、Kubernetes、IaC、密钥、许可。 | [目录](./trivy-vulnerability-scanner/) | [SKILL.md](./trivy-vulnerability-scanner/SKILL.md) |
 | `vuls-linux-cve-scanner` | 用于通过 Vuls 对 Linux、FreeBSD、容器、WordPress、库和网络设备执行 Agentless。 | [目录](./vuls-linux-cve-scanner/) | [SKILL.md](./vuls-linux-cve-scanner/SKILL.md) |
 

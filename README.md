@@ -5,10 +5,10 @@
 [![简体中文](https://img.shields.io/badge/README-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1677ff)](./README.md)
 [![English](https://img.shields.io/badge/README-English-111111)](./README.en.md)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b894)](./openclaw-skills/README.md)
-[![Skills](https://img.shields.io/badge/Skills-296-7c3aed)](./skills/)
+[![Skills](https://img.shields.io/badge/Skills-294-7c3aed)](./skills/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
-面向全球 AI 开发者与 Agent 工作流构建者的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理等高频任务场景。当前共 **16 个分类 / 296 个技能**。
+面向全球 AI 开发者与 Agent 工作流构建者的高价值 Skills 仓库，覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理等高频任务场景。当前共 **16 个分类 / 294 个技能**。
 
 ## 为什么值得收藏
 
@@ -19,7 +19,7 @@
 - 仓库已经具备发现新 Skill、同步上游更新、候选优选、质量校验和生成视图的自动化链路，适合持续运营而不是一次性收集。
 - 现在支持用策略文件对白名单来源、黑名单来源、优先来源和基础门槛做统一治理，优选结果更稳定、更可控。
 - 已提供 `scripts/sync_codex_skills.py`，可以把仓库中的最新技能一键同步到 `Codex`、`Claude Code` 等本机技能目录，减少手工拷贝和版本漂移。
-- 除了功能覆盖，仓库也重视安全与可信度：既有来源追踪、候选筛选与安装前风险识别能力，也内置 `skill-vetter`、`skill-security-auditor`、`input-guard`、`link-checker` 等安全审查类技能。
+- 除了功能覆盖，仓库也重视安全与可信度：既有来源追踪、候选筛选与安装前风险识别能力，也内置 `skill-security-auditor`、`security-review`、`input-guard`、`link-checker` 等安全审查类技能。
 - 现在还内置了许可证审计与月度死链巡检：`repo-validation` 会阻止缺失 license 元数据的外源技能进入主分支，`dead-links` 工作流会按月生成外链巡检报告。
 - `Hermes Agent` 也被作为一等支持对象维护：可直接使用 `skills/` 分类目录，并且仓库已包含 `hermes-agent`、`native-mcp` 与薄路由 `hermes-open-gsd-workflow`。
 
@@ -157,7 +157,7 @@ python3 scripts/export_openclaw_skills.py
 
 6. 任选几个技能目录检查是否能正常读取，例如：
    - `skills/developer-engineering/codebase-onboarding`
-   - `skills/security-and-reliability/skill-vetter`
+   - `skills/security-and-reliability/skill-security-auditor`
    - `openclaw-skills/codebase-onboarding`
 
 如果你希望按客户端直接看安装示例，可继续阅读：
@@ -227,6 +227,10 @@ python3 scripts/sync_codex_skills.py --source-root ./skills --codex-root ~/.code
 | 记忆与安全 | 长期记忆、输入防护、RAG、Runbook | [跳转](#cat-memory-safety) | [目录](./skills/openclaw-memory-and-safety/) |
 | 任务理解与拆解 | 联网检索、复盘学习与任务理解补充能力 | [跳转](#cat-task-understanding) | [目录](./skills/task-understanding-decomposition/) |
 
+## v6.0.0 技能组合精简
+
+2026-11-04 发布的主版本退役两个重复入口（`skill-vetter` → `skill-security-auditor`，`github` → `github-ops`），按真实工具重写 `find-skills`、`link-checker`（新增只读检查脚本）和 `figma`，并移除默认写入 `MEMORY.md`／定时任务的指令。当前 294 个技能 / 16 个分类。[发布说明](docs/releases/v6.0.0.md)。
+
 ## 从哪里开始最容易上手
 
 如果你是第一次来到这个仓库，推荐从下面几类开始：
@@ -249,6 +253,8 @@ python3 scripts/sync_codex_skills.py --source-root ./skills --codex-root ~/.code
 - `financial-data-collector`：用于收集股票、财报、市场和宏观金融数据。
 - `notion-spec-to-implementation`：用于把 Notion 规格说明转化为可执行实现任务。
 - `transcribe`：用于把音频或视频转写为文本，并整理说话人和时间信息。
+- `skill-security-auditor`：安装或更新外部技能前，静态扫描并人工审查权限、依赖和来源风险。
+- `github-ops`：通过 `gh` 处理 PR、Issue、Review、发布和 Actions 协作。
 
 ## GPT-6 Astra 指令优化
 
@@ -386,7 +392,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 2. 打开对应技能的 `SKILL.md` 查看触发条件、操作流程和脚本说明。
 3. 若技能下含 `scripts/`、`references/`、`assets/`，优先复用现成内容。
 
-## 技能总览（按分类，16 类 / 296 技能）
+## 技能总览（按分类，16 类 / 294 技能）
 
 <a id="cat-developer-engineering"></a>
 ### 1. 开发工程（developer-engineering，53）
@@ -464,7 +470,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `documentation-and-adrs`：记录架构决策、接口变化和工程交接信息。
 - `doubt-driven-development`：用新上下文的对抗性审查质疑关键决策，适用于高风险或正确性优先的开发任务。
 - `executing-plans`：用于按既定实现计划逐步执行任务，并在关键节点进行审查和完成验证。
-- `find-skills`：用于搜索、比较并安装适合当前任务的技能，帮助 Agent 正确路由能力。
+- `find-skills`：在已安装技能和公开技能目录中检索、比较候选，帮助判断用哪个技能或是否安装。
 - `finishing-a-development-branch`：完成开发分支的验证、PR、合并和工作区收尾。
 - `frontend-ui-engineering`：实现可访问、响应式的前端界面和交互状态。
 - `git-workflow-and-versioning`：管理 Git 分支、提交、冲突、版本和变更记录。
@@ -503,7 +509,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `arena`：用于构建和运行 Agent 竞技场、评测对战和能力比较流程。
 - `chatgpt-apps`：用于设计、构建和调试 ChatGPT Apps 与相关集成能力。
 - `develop-web-game`：用于开发网页游戏原型、玩法循环、交互逻辑和前端实现。
-- `figma`：用于处理 Figma 设计读取、解析、交付和实现协作。
+- `figma`：通过 Figma MCP 读取设计上下文、变量、截图和素材，并排查连接问题。
 - `figma-implement-design`：用于将 Figma 设计转化为可实现的前端界面和组件。
 - `hermes-agent`：用于配置、扩展、调试和贡献 Hermes Agent，包括多 Agent、CLI 和网关工作流。
 - `hermes-open-gsd-workflow`：在 Hermes Agent、Graphify、Open GSD Core 与可选 GSD Pi 之间做薄路由，不复制上游安装器和状态机。
@@ -514,13 +520,12 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `sigil`：根据项目代码自动生成贴合仓库约定的技能。
 
 <a id="cat-workflow-automation"></a>
-### 4. 工程工作流自动化（engineering-workflow-automation，13）
+### 4. 工程工作流自动化（engineering-workflow-automation，12）
 
 - `agent-browser`：在授权浏览器会话中利用官方 agent-browser CLI 快照和 CDP 完成自动化验收。
 - `billing-automation`：用于构建订阅计费、自动开票、续费生命周期和催收管理流程。
 - `gh-address-comments`：用于通过 gh CLI 处理当前分支的 GitHub PR Review 评论或 Issue 评论。
 - `gh-fix-ci`：读取 GitHub Actions 失败日志，修复 CI 并验证 PR 检查。
-- `github`：用于通过 GitHub CLI 自动化 Issue、PR、Review、CI 检查、标签和发布协作。
 - `guardian`：提交、分支、合并请求策略和变更粒度把关。
 - `harvest`：采集合并请求信息并生成工作报告和发布材料。
 - `jupyter-notebook`：创建和维护用于分析、实验及教学的 Jupyter 笔记本。
@@ -540,7 +545,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `cloudflare-troubleshooting`：依据实际配置排查 Cloudflare DNS、TLS 和重定向问题。
 - `env-secrets-manager`：管理环境变量、密钥存储、泄露检测和凭据轮换。
 - `gear`：依赖、构建、容器、监控和开发环境运维优化。
-- `github-ops`：用于 GitHub 运维、仓库管理、PR/Issue 流程和自动化协作。
+- `github-ops`：通过 gh CLI 和 API 处理 GitHub 仓库、PR、Issue、Review、标签、发布和 Actions 协作。
 - `golang-observability`：为 Go 服务设计 slog、OpenTelemetry、Prometheus、持续剖析及可靠性告警。
 - `incident-commander`：用于事故响应中的分诊、角色分配、沟通协调、缓解跟踪和复盘。
 - `observability-designer`：设计日志、指标、链路追踪、告警和服务运行目标。
@@ -675,7 +680,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `voice`：用户反馈收集、满意度调研、评论分析和洞察提炼。
 
 <a id="cat-security-reliability"></a>
-### 12. 安全治理与稳定性（security-and-reliability，24）
+### 12. 安全治理与稳定性（security-and-reliability，23）
 
 - `breach`：红队场景、攻击路径、威胁建模和对抗演练设计。
 - `cloak`：隐私工程、敏感信息流、同意管理和数据治理。
@@ -685,7 +690,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `gha-security-review`：审查 GitHub Actions 触发器、注入、凭据和供应链风险。
 - `grype-syft-sbom-scanner`：用于基于 SBOM 扫描容器、文件系统和软件包漏洞。
 - `information-security-manager-iso27001`：建立和审计 ISO 27001 信息安全管理体系及风险控制。
-- `link-checker`：用于检测 URL 可达性、失效链接、跳转链路、可疑域名和文档链接健康度。
+- `link-checker`：检测 URL 可达性、失效链接、跳转链路、可疑域名和文档链接健康度。
 - `osv-scanner`：用于通过 OSV 数据库检查开源依赖、锁文件和 SBOM 漏洞。
 - `security-audit`：对代码库进行安全审计，聚焦可利用且有真实影响的漏洞，并生成可验证的发现、报告和结构化输出。
 - `security-auditor`：审查应用、接口、基础设施和依赖中的实际安全风险。
@@ -697,8 +702,7 @@ openclaw-skills/                        # 为 OpenClaw 生成的扁平兼容导�
 - `security-threat-model`：用于基于代码库或架构梳理资产、信任边界、攻击者能力、滥用路径和缓解措施。
 - `semgrep-appsec-scanner`：用于 Semgrep SAST、规则编写、供应链和密钥扫描流程。
 - `sentry`：用于查看线上异常、错误事件和服务健康信息。
-- `skill-security-auditor`：安装前审查技能指令、脚本、权限和数据外传风险。
-- `skill-vetter`：用于安装外部技能前审计指令、脚本、权限、依赖和来源风险。
+- `skill-security-auditor`：安装或更新外部技能前，静态扫描并人工审查指令、脚本、权限、依赖、来源和外传风险。
 - `trivy-vulnerability-scanner`：用于通过 Trivy 扫描仓库、容器镜像、文件系统、rootfs、SBOM、Kubernetes、IaC、密钥、许可。
 - `vuls-linux-cve-scanner`：用于通过 Vuls 对 Linux、FreeBSD、容器、WordPress、库和网络设备执行 Agentless。
 

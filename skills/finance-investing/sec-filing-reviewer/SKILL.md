@@ -2,13 +2,13 @@
 name: sec-filing-reviewer
 description: 'Use when reviewing SEC filings, extracting material risk disclosures, scanning 10-K or 10-Q sections, or building a follow-up checklist from filing language.'
 zh_description: "阅读和比较 SEC 申报文件中的财务信息与风险变化。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["filing", "finance", "reviewer", "sec"]'
 created_at: "2026-03-18"
-updated_at: "2026-09-06"
+updated_at: "2026-11-04"
 quality: 2
 complexity: "intermediate"
 ---
@@ -62,7 +62,7 @@ npx clawhub install sec-filing-reviewer
 ### 4. 自动化跟进问题清单 (Follow-up Checklist)
 - **操作步骤**：
   1. 基于文件的模糊陈述（如“某些不确定的法律影响”），生成 3-5 个具体的跟进问题。
-  2. 将这些问题存入 `MEMORY.md`，供下次业绩电话会或投资者关系（IR）调研使用。
+  2. 将这些问题列入交付物的跟进清单，供下次业绩电话会或投资者关系（IR）调研使用。
 
 ## 常用命令/模板 / Common Patterns
 
@@ -127,7 +127,7 @@ python scripts/review_filing.py --cik 320193 --type 10-K --report audit_report.m
 1. **锚定官方来源**：永远优先从 `sec.gov` 直接抓取，而非通过不可靠的第三方采集平台。
 2. **区分“事实”与“评价”**：识别哪些是具体的数字，哪些是管理层的愿景（Prospective Statements）。
 3. **关注变更 (The Deltas)**：相比于文件说了什么，上一期说了但这一期“没说”的内容往往更具风险。
-4. **记忆同步**：将公司历年的法律纠纷进展存入 `MEMORY.md`。
+4. **记录交付**：将公司历年的法律纠纷进展写入用户指定的研究记录或工作区文件；用户未要求时只在交付物中列出，不写入持久记忆或设置定时任务。
 5. **多维核实**：将 SEC 文件的描述与最新的空头研究报告（Short Sellers' Reports）进行对齐。
 6. **关注“审计师变更”**：突然更换四大会计师事务所通常是极高风险信号。
 7. **关注“内幕交易”**：结合 Form 4，看高管在财报提交前后的真实买卖动作。

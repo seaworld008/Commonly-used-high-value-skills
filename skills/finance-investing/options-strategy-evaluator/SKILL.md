@@ -2,13 +2,13 @@
 name: options-strategy-evaluator
 description: 'Use when evaluating an options structure, checking expiry payoff checkpoints, comparing premium outlay versus downside protection, or preparing a short strategy note for a trade review.'
 zh_description: "评估期权策略的收益结构、希腊字母和情景风险。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["evaluator", "finance", "options", "strategy"]'
 created_at: "2026-03-18"
-updated_at: "2026-09-06"
+updated_at: "2026-11-04"
 quality: 2
 complexity: "intermediate"
 ---
@@ -133,7 +133,7 @@ python scripts/evaluate_strategy.py --input assets/spread_a.json --plot --show_g
 1. **先看希腊字母，再看利润**：永远确保风险敞口在可承受范围内。
 2. **重视 Vega 风险**：大多数散户期权玩家死于 IV Crush 而非股价方向。
 3. **分阶段减仓**：在利润达到 50% 或时间价值损耗 80% 时考虑获利了结。
-4. **记忆同步**：将历史上的成功和失败策略记录到 `MEMORY.md`。
+4. **记录交付**：将历史上的成功和失败策略写入用户指定的研究记录或工作区文件；用户未要求时只在交付物中列出，不写入持久记忆或设置定时任务。
 5. **保守的胜率预估**：不要只看期权计算器，要结合当前的宏观环境（Regime）。
 6. **流动性门禁**：交易前必须检查 Open Interest (持仓量) 和 Volume (成交量)。
 7. **备选方案 (Plan B)**：如果股价突破盈亏平衡点，是直接止损、展期（Roll over）还是转化为其他结构？

@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "generated_at": "2026-06-08",
-  "total_skills": 296,
+  "total_skills": 294,
   "total_categories": 16,
   "categories": [
     {
@@ -18,7 +18,7 @@
     },
     {
       "name": "security-and-reliability",
-      "count": 24
+      "count": 23
     },
     {
       "name": "finance-investing",
@@ -37,16 +37,16 @@
       "count": 13
     },
     {
-      "name": "engineering-workflow-automation",
-      "count": 13
-    },
-    {
       "name": "office-white-collar",
       "count": 13
     },
     {
       "name": "product-design",
       "count": 13
+    },
+    {
+      "name": "engineering-workflow-automation",
+      "count": 12
     },
     {
       "name": "multimodal-media",
@@ -157,7 +157,7 @@
       "name": "figma",
       "category": "ai-agent-platform",
       "description": "Fetch Figma design context, variables, screenshots, and assets through MCP when working from Figma URLs or node IDs, or diagnosing its integration.",
-      "version": "1.0.1",
+      "version": "1.1.0",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -166,11 +166,11 @@
         "ai",
         "figma"
       ],
-      "quality": 2,
+      "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-03-04",
-      "updated_at": "2026-09-06",
-      "line_count": 130,
+      "updated_at": "2026-11-04",
+      "line_count": 88,
       "path": "skills/ai-agent-platform/figma/SKILL.md"
     },
     {
@@ -694,8 +694,8 @@
     {
       "name": "find-skills",
       "category": "ai-workflow",
-      "description": "Use when users do not know which skill fits a task, need to search available skill catalogs, compare candidates, install a matching skill, or route work to the best existing capability.",
-      "version": "1.0.1",
+      "description": "Use when users do not know which skill fits a task, need to search installed skills or public skill catalogs, compare candidates, or decide whether to install one.",
+      "version": "1.1.0",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -708,8 +708,8 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-15",
-      "updated_at": "2026-08-10",
-      "line_count": 127,
+      "updated_at": "2026-11-04",
+      "line_count": 101,
       "path": "skills/ai-workflow/find-skills/SKILL.md"
     },
     {
@@ -1738,7 +1738,7 @@
       "name": "frontend-design",
       "category": "developer-engineering",
       "description": "Design and implement polished web components, pages, and applications with a coherent visual direction and usable interaction states.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -1750,7 +1750,7 @@
       "quality": 2,
       "complexity": "intermediate",
       "created_at": "2026-03-04",
-      "updated_at": "2026-09-06",
+      "updated_at": "2026-11-04",
       "line_count": 126,
       "path": "skills/developer-engineering/frontend-design/SKILL.md"
     },
@@ -2727,8 +2727,8 @@
     {
       "name": "github-ops",
       "category": "devops-sre",
-      "description": "Operate GitHub repositories, PRs, issues, and Actions through gh CLI and GitHub API when repository coordination or automation is requested.",
-      "version": "1.0.1",
+      "description": "Operate GitHub repositories, PRs, issues, reviews, labels, releases, and Actions through gh CLI and GitHub API when repository coordination or automation is requested.",
+      "version": "1.1.0",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -2741,8 +2741,8 @@
       "quality": 5,
       "complexity": "intermediate",
       "created_at": "2026-03-04",
-      "updated_at": "2026-09-06",
-      "line_count": 220,
+      "updated_at": "2026-11-04",
+      "line_count": 253,
       "path": "skills/devops-sre/github-ops/SKILL.md"
     },
     {
@@ -2951,26 +2951,6 @@
       "path": "skills/engineering-workflow-automation/gh-fix-ci/SKILL.md"
     },
     {
-      "name": "github",
-      "category": "engineering-workflow-automation",
-      "description": "Use when automating GitHub issues, pull requests, reviews, CI checks, labels, releases, or engineering collaboration loops through the GitHub CLI.",
-      "version": "1.0.0",
-      "author": "seaworld008",
-      "source": "in-house",
-      "source_url": "",
-      "tags": [
-        "automation",
-        "github",
-        "workflow"
-      ],
-      "quality": 2,
-      "complexity": "intermediate",
-      "created_at": "2026-03-15",
-      "updated_at": "2026-06-29",
-      "line_count": 146,
-      "path": "skills/engineering-workflow-automation/github/SKILL.md"
-    },
-    {
       "name": "guardian",
       "category": "engineering-workflow-automation",
       "description": "提交、分支、合并请求策略和变更粒度把关。",
@@ -3141,7 +3121,7 @@
       "name": "comps-valuation-analyst",
       "category": "finance-investing",
       "description": "Use when valuing a public company with peer multiples, building comparable-company tables, or pressure-testing a valuation range with EV/EBITDA, P/E, and EV/Sales.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -3154,7 +3134,7 @@
       "quality": 2,
       "complexity": "intermediate",
       "created_at": "2026-03-18",
-      "updated_at": "2026-09-06",
+      "updated_at": "2026-11-04",
       "line_count": 122,
       "path": "skills/finance-investing/comps-valuation-analyst/SKILL.md"
     },
@@ -3162,7 +3142,7 @@
       "name": "earnings-call-analyzer",
       "category": "finance-investing",
       "description": "Use when summarizing earnings calls, extracting management tone changes, surfacing guidance language, or turning transcript snippets into an actionable investor update.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -3175,7 +3155,7 @@
       "quality": 2,
       "complexity": "intermediate",
       "created_at": "2026-03-18",
-      "updated_at": "2026-06-29",
+      "updated_at": "2026-11-04",
       "line_count": 120,
       "path": "skills/finance-investing/earnings-call-analyzer/SKILL.md"
     },
@@ -3183,7 +3163,7 @@
       "name": "event-driven-tracker",
       "category": "finance-investing",
       "description": "Use when tracking earnings, product launches, M&A, dividends, buybacks, unlocks, or other market-moving dates that need a prioritized event calendar.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -3196,7 +3176,7 @@
       "quality": 2,
       "complexity": "intermediate",
       "created_at": "2026-03-18",
-      "updated_at": "2026-09-06",
+      "updated_at": "2026-11-04",
       "line_count": 129,
       "path": "skills/finance-investing/event-driven-tracker/SKILL.md"
     },
@@ -3204,7 +3184,7 @@
       "name": "factor-backtester",
       "category": "finance-investing",
       "description": "Use when testing factor signals, running long-short spread backtests, checking hit rate and turnover, or sanity-checking whether a ranking signal survives basic transaction cost assumptions.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -3216,7 +3196,7 @@
       "quality": 2,
       "complexity": "intermediate",
       "created_at": "2026-03-18",
-      "updated_at": "2026-09-06",
+      "updated_at": "2026-11-04",
       "line_count": 133,
       "path": "skills/finance-investing/factor-backtester/SKILL.md"
     },
@@ -3284,7 +3264,7 @@
       "name": "investment-memo-writer",
       "category": "finance-investing",
       "description": "Use when turning research notes into an investment memo, writing a buy or sell thesis, or structuring catalysts, risks, and monitoring items for an IC-style document.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -3297,7 +3277,7 @@
       "quality": 2,
       "complexity": "intermediate",
       "created_at": "2026-03-18",
-      "updated_at": "2026-09-06",
+      "updated_at": "2026-11-04",
       "line_count": 137,
       "path": "skills/finance-investing/investment-memo-writer/SKILL.md"
     },
@@ -3343,7 +3323,7 @@
       "name": "macro-regime-monitor",
       "category": "finance-investing",
       "description": "Use when tracking macro regime shifts, summarizing inflation, growth, spreads, and liquidity signals, or creating a house view before updating sector or asset-allocation calls.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -3356,7 +3336,7 @@
       "quality": 2,
       "complexity": "intermediate",
       "created_at": "2026-03-18",
-      "updated_at": "2026-09-06",
+      "updated_at": "2026-11-04",
       "line_count": 136,
       "path": "skills/finance-investing/macro-regime-monitor/SKILL.md"
     },
@@ -3364,7 +3344,7 @@
       "name": "options-strategy-evaluator",
       "category": "finance-investing",
       "description": "Use when evaluating an options structure, checking expiry payoff checkpoints, comparing premium outlay versus downside protection, or preparing a short strategy note for a trade review.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -3377,7 +3357,7 @@
       "quality": 2,
       "complexity": "intermediate",
       "created_at": "2026-03-18",
-      "updated_at": "2026-09-06",
+      "updated_at": "2026-11-04",
       "line_count": 139,
       "path": "skills/finance-investing/options-strategy-evaluator/SKILL.md"
     },
@@ -3385,7 +3365,7 @@
       "name": "portfolio-risk-manager",
       "category": "finance-investing",
       "description": "Use when reviewing portfolio exposures, checking concentration and beta risk, summarizing sector or region tilts, or preparing a risk note before reallocating capital.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -3398,7 +3378,7 @@
       "quality": 2,
       "complexity": "intermediate",
       "created_at": "2026-03-18",
-      "updated_at": "2026-03-20",
+      "updated_at": "2026-11-04",
       "line_count": 140,
       "path": "skills/finance-investing/portfolio-risk-manager/SKILL.md"
     },
@@ -3427,7 +3407,7 @@
       "name": "sec-filing-reviewer",
       "category": "finance-investing",
       "description": "Use when reviewing SEC filings, extracting material risk disclosures, scanning 10-K or 10-Q sections, or building a follow-up checklist from filing language.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -3440,7 +3420,7 @@
       "quality": 2,
       "complexity": "intermediate",
       "created_at": "2026-03-18",
-      "updated_at": "2026-09-06",
+      "updated_at": "2026-11-04",
       "line_count": 133,
       "path": "skills/finance-investing/sec-filing-reviewer/SKILL.md"
     },
@@ -3448,7 +3428,7 @@
       "name": "stock-screener-builder",
       "category": "finance-investing",
       "description": "Use when building a stock screen, filtering a universe by valuation, growth, quality, or momentum rules, or creating a repeatable shortlist for deeper research.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -3461,7 +3441,7 @@
       "quality": 2,
       "complexity": "intermediate",
       "created_at": "2026-03-18",
-      "updated_at": "2026-09-06",
+      "updated_at": "2026-11-04",
       "line_count": 143,
       "path": "skills/finance-investing/stock-screener-builder/SKILL.md"
     },
@@ -5798,7 +5778,7 @@
       "name": "link-checker",
       "category": "security-and-reliability",
       "description": "Use when checking URL availability, dead links, redirect chains, suspicious domains, documentation link health, or link-risk evidence before publishing.",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "author": "seaworld008",
       "source": "in-house",
       "source_url": "",
@@ -5807,11 +5787,11 @@
         "link",
         "security"
       ],
-      "quality": 2,
+      "quality": 3,
       "complexity": "intermediate",
       "created_at": "2026-03-15",
-      "updated_at": "2026-06-29",
-      "line_count": 141,
+      "updated_at": "2026-11-04",
+      "line_count": 117,
       "path": "skills/security-and-reliability/link-checker/SKILL.md"
     },
     {
@@ -6058,8 +6038,8 @@
     {
       "name": "skill-security-auditor",
       "category": "security-and-reliability",
-      "description": "Audit external agent skills before installation for malicious instructions, unsafe scripts, excessive permissions, dependency risks, and data exfiltration.",
-      "version": "1.0.7",
+      "description": "Audit external agent skills before installing, trusting, or updating them: static scans plus manual review of instructions, scripts, permissions, dependencies, provenance, and data exfiltration.",
+      "version": "1.1.0",
       "author": "seaworld008",
       "source": "github:alirezarezvani/claude-skills",
       "source_url": "https://github.com/alirezarezvani/claude-skills/blob/main/engineering/skills/skill-security-auditor/SKILL.md",
@@ -6071,29 +6051,9 @@
       "quality": 4,
       "complexity": "intermediate",
       "created_at": "2026-03-27",
-      "updated_at": "2026-10-26",
-      "line_count": 192,
+      "updated_at": "2026-11-04",
+      "line_count": 208,
       "path": "skills/security-and-reliability/skill-security-auditor/SKILL.md"
-    },
-    {
-      "name": "skill-vetter",
-      "category": "security-and-reliability",
-      "description": "Use before installing or trusting an external skill to inspect instructions, scripts, permissions, dependencies, provenance, and suspicious behavior for security and reliability risks.",
-      "version": "1.0.1",
-      "author": "seaworld008",
-      "source": "in-house",
-      "source_url": "",
-      "tags": [
-        "security",
-        "skill",
-        "vetter"
-      ],
-      "quality": 2,
-      "complexity": "intermediate",
-      "created_at": "2026-03-15",
-      "updated_at": "2026-10-26",
-      "line_count": 119,
-      "path": "skills/security-and-reliability/skill-vetter/SKILL.md"
     },
     {
       "name": "trivy-vulnerability-scanner",

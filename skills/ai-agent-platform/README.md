@@ -11,7 +11,7 @@
 - [develop-web-game](./develop-web-game/) - 用于开发网页游戏原型、玩法循环、交互逻辑和前端实现。
 - [agent-hub](./agent-hub/) - 用于管理 Agent 能力中心、技能发现、路由和协作工作流。
 - [chatgpt-apps](./chatgpt-apps/) - 用于设计、构建和调试 ChatGPT Apps 与相关集成能力。
-- [figma](./figma/) - 用于处理 Figma 设计读取、解析、交付和实现协作。
+- [figma](./figma/) - 通过 Figma MCP 读取设计上下文、变量、截图和素材，并排查连接问题。
 
 ## 技能总览
 
@@ -21,7 +21,7 @@
 | `arena` | 用于构建和运行 Agent 竞技场、评测对战和能力比较流程。 | [目录](./arena/) | [SKILL.md](./arena/SKILL.md) |
 | `chatgpt-apps` | 用于设计、构建和调试 ChatGPT Apps 与相关集成能力。 | [目录](./chatgpt-apps/) | [SKILL.md](./chatgpt-apps/SKILL.md) |
 | `develop-web-game` | 用于开发网页游戏原型、玩法循环、交互逻辑和前端实现。 | [目录](./develop-web-game/) | [SKILL.md](./develop-web-game/SKILL.md) |
-| `figma` | 用于处理 Figma 设计读取、解析、交付和实现协作。 | [目录](./figma/) | [SKILL.md](./figma/SKILL.md) |
+| `figma` | 通过 Figma MCP 读取设计上下文、变量、截图和素材，并排查连接问题。 | [目录](./figma/) | [SKILL.md](./figma/SKILL.md) |
 | `figma-implement-design` | 用于将 Figma 设计转化为可实现的前端界面和组件。 | [目录](./figma-implement-design/) | [SKILL.md](./figma-implement-design/SKILL.md) |
 | `hermes-agent` | 用于配置、扩展、调试和贡献 Hermes Agent，包括多 Agent、CLI 和网关工作流。 | [目录](./hermes-agent/) | [SKILL.md](./hermes-agent/SKILL.md) |
 | `hermes-open-gsd-workflow` | 在 Hermes Agent、Graphify、Open GSD Core 与可选 GSD Pi 之间做薄路由，不复制上游安装器和状态机。 | [目录](./hermes-open-gsd-workflow/) | [SKILL.md](./hermes-open-gsd-workflow/SKILL.md) |

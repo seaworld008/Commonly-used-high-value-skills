@@ -1,127 +1,101 @@
 ---
 name: find-skills
-description: 'Use when users do not know which skill fits a task, need to search available skill catalogs, compare candidates, install a matching skill, or route work to the best existing capability.'
-zh_description: "用于搜索、比较并安装适合当前任务的技能，帮助 Agent 正确路由能力。"
-version: "1.0.1"
+description: 'Use when users do not know which skill fits a task, need to search installed skills or public skill catalogs, compare candidates, or decide whether to install one.'
+zh_description: "在已安装技能和公开技能目录中检索、比较候选，帮助判断用哪个技能或是否安装。"
+version: "1.1.0"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["find", "planning", "skills", "workflow"]'
 created_at: "2026-03-15"
-updated_at: "2026-08-10"
+updated_at: "2026-11-04"
 quality: 4
 complexity: "intermediate"
 ---
 
 # Find Skills
 
-当用户只描述目标、但未指定具体工具或技能时，优先使用本技能做自动匹配。Find Skills 是 Agent 的“大脑插件中心”，它能理解用户意图，并从浩如烟海的 ClawHub 仓库中精准定位、安装并配置合适的技能。
-
-## 安装
-
-```bash
-npx clawhub@latest install find-skills
-```
-
-## 工作方式
-
-1. **语义理解 (Semantic Extraction)**：根据用户复杂、模糊的目标，生成 3-5 个核心技能检索词（如 “SQL optimization”, “React chart libraries”）。
-2. **多源检索 (Multi-Source Search)**：在 ClawHub 官方仓库、本地已安装列表及相关开源索引中搜索候选技能。
-3. **优先级排序 (Prioritization)**：根据技能的评分、下载量、更新频率以及与当前任务的匹配度进行综合排序。
-4. **决策与理由 (Reasoning)**：为前 3 名技能给出详细的推荐安装理由。
-5. **按需执行 (On-Demand Execution)**：按用户确认结果或自主决策执行 `npx clawhub@latest install <skill-name>`。
+用户只描述目标、没有指定技能时，先在已有能力中找匹配项；只有确实缺少能力时才检索公开目录。
+本技能负责检索、比较和给出可复查的推荐。安装属于单独动作：用户请求安装或当前任务已授权时才执行，
+并且先完成来源与安全审查。
 
 ## 触发条件 / When to Use
 
-- **冷启动场景**：新项目开始，用户提出了一个 Agent 之前没处理过的任务类型（如“帮我写一个 Chrome 插件”）。
-- **工具链补强**：Agent 发现现有技能集无法完成任务，提示缺失必要的工具（如缺失 `image-edit` 时）。
-- **优化替代方案**：现有技能效率低下或报错，需要寻找功能类似的“增强版”技能。
-- **批量环境部署**：需要为一套复杂的工程方案（如云原生架构）一键安装全套开发、运维技能。
-- **自动升级检测**：当用户询问最新功能时，Agent 自动搜索是否有对应的 Beta 版技能可用。
+- 用户问“有没有技能能做 X”“该用哪个技能”，或任务类型在本会话中首次出现。
+- 当前加载的技能无法覆盖任务，需要确认缺口是否已有现成能力。
+- 多个技能职责相近，需要说明各自边界并选出一个入口。
+- 用户要求安装、替换或升级某个技能，需要先给出候选对比。
 
-## 核心能力 / Core Capabilities
+不适用：任务已有明确对应的已加载技能；用户只想要答案而不是工具；创建新技能（用 `skill-creator`）。
 
-### 1. 精准意图映射 (Intent Mapping)
-- **操作步骤**：
-  1. 接收到原始 Prompt。
-  2. 调用内部 LLM 对 Prompt 进行“原子任务”拆解。
-  3. 将拆解后的原子任务（如“PDF parsing”, “OCR”, “Summarization”）映射为标准技能标签。
-- **最佳实践**：生成检索词时，应包含“动词 + 名词”结构，如 `parse-xlsx` 而非仅仅是 `xlsx`。
+## 检索顺序 / Search Order
 
-### 2. 候选技能对比评估 (Skill Benchmarking)
-- **操作步骤**：
-  1. 调用 `list_agent` 或搜索接口。
-  2. 提取每个候选技能的 `description` 和 `metadata`。
-  3. 建立评分矩阵（功能覆盖度、稳定性、易用性）。
-- **最佳实践**：优先推荐那些有 `verified` 标签或在大厂生产环境验证过的技能。
+1. **宿主已提供的技能**：先看当前会话的技能列表或宿主的技能搜索工具。已有能力优先，不为同一意图再装一个。
+2. **本仓库目录**：在仓库或已安装副本中按功能检索，而不是只按名称。
 
-### 3. 一键环境就绪 (Zero-Config Readiness)
-- **操作步骤**：
-  1. 确认目标技能后，自动执行 `npx clawhub@latest install <skill-name>`。
-  2. 检查安装后的 `README.md`，识别是否需要环境变量（ENV）或 OAuth 授权。
-  3. 如果需要，主动提示用户配置，并使用当前客户端已连接的原生授权流程；不要假设存在特定第三方连接命令。
-- **最佳实践**：安装完成后，自动运行一个 `hello world` 级别的测试指令，确保技能真实可用。
+   ```bash
+   # 在仓库根目录执行；catalog.json 由生成器维护
+   python3 -c "import json;[print(s['path'],'|',s['description']) for s in json.load(open('docs/catalog.json'))['skills'] if 'pdf' in (s['name']+s['description']).lower()]"
+   rg -n -i --glob 'SKILL.md' '^description:.*(pdf|form)' skills/
+   ```
 
-### 4. 依赖项解析与递归安装
-- **操作步骤**：
-  1. 分析目标技能的依赖链。
-  2. 自动补充安装底层依赖（如 `puppeteer`, `ffmpeg` 等底层二进制工具）。
+3. **公开目录**：只有前两步没有覆盖时才查询，例如 skills.sh 或 ClawHub。先运行 `--help`
+   确认当前 CLI 的子命令和参数，命令名可能随版本变化：
 
-## 常用命令/模板 / Common Patterns
+   ```bash
+   npx skills --help        # skills.sh CLI；常见为 find / add
+   npx clawhub@latest --help   # ClawHub CLI；常见为 search / install
+   ```
 
-### 智能技能匹配模板 (Matching Template)
+   网络受限、CLI 不可用或返回空结果时，如实记录“未检索到/未能检索”，不要编造候选、评分或下载量。
+
+## 检索词 / Query Design
+
+- 把目标拆成原子任务，每个用“动词 + 对象”表达：`fill pdf form`、`review terraform plan`。
+- 同时用中文和英文、领域术语和工具名各查一次：`xlsx`、`spreadsheet`、`Excel 公式`。
+- 记录用过的检索词，便于用户复查或扩展。
+
+## 候选比较 / Comparison
+
+每个候选至少核对以下证据，缺失项写“未核验”：
+
+| 维度 | 需要的证据 |
+|---|---|
+| 功能匹配 | `description` 与正文是否覆盖当前任务，而非只是名字相似 |
+| 可执行资产 | 是否带真实脚本、引用或模板，还是只有通用说明 |
+| 来源与许可 | 仓库、提交或版本、许可证文件 |
+| 维护状态 | 最近提交或发布时间、是否已被替代或退役 |
+| 权限面 | 需要的网络、凭据、写入范围、宿主扩展 |
+| 重叠 | 与已安装技能的职责冲突或命名冲突 |
+
+本仓库的退役名称和替代入口记录在 `docs/sources/portfolio-policy.json`；推荐前确认候选不是已退役别名。
+
+## 输出模板 / Recommendation
+
 ```markdown
-### 用户目标
-[描述：实现一个能够自动分析 XHS 数据并生成周报的机器人]
+目标：<一句话复述任务>
+检索词：<列表>
+已检索范围：宿主技能 / 本仓库 / skills.sh / ClawHub（注明哪些未能检索及原因）
 
-### 识别出的关键词 (Generated Keywords)
-- `xiaohongshu-crawler`
-- `data-analysis-pandas`
-- `markdown-report-generator`
-- `chart-visualizer`
-
-### 推荐技能组合 (Recommended Stack)
-1. **xhs-analyzer** (评分 4.8): 包含成熟的爬虫逻辑和反爬策略。
-2. **super-report** (评分 4.5): 支持将 JSON 直接转化为美观的 Markdown。
-3. **quick-chart** (评分 4.9): 能够生成静态图片图表并插入报告。
-
-### 是否立即安装前两项？ (Confirm Installation?)
-> [Yes] / [No] / [Tell me more]
+推荐：<技能名>（来源、版本或提交）
+理由：<覆盖了哪些原子任务；依据哪段 description 或文件>
+备选：<1-2 个，并说明为何次选>
+缺口：<没有技能覆盖的部分，建议直接完成或创建新技能>
+安装：<已安装无需操作 / 需要安装，等待用户确认 / 已按用户要求安装并验证>
 ```
 
-### 检索接口模拟示例
-```javascript
-// 示例：查询具备“代码审查”能力的技能
-const candidateSkills = await mcp_call({
-  name: 'search_available_skills',
-  arguments: {
-    keyword: 'code-review',
-    limit: 5,
-    sort_by: 'downloads'
-  }
-});
-```
+## 安装与采纳 / Install Only When Asked
 
-## 进阶应用场景 / Advanced Use Cases
-
-### 1. 跨平台能力迁移
-- 用户原本在本地使用 `python-scripts`，现在想迁移到云端。Find Skills 会主动寻找 `vercel-deploy` 和 `supabase-connector` 等技能来适配。
-
-### 2. 紧急漏洞补救
-- 当系统提示 `dependency vulnerability` 时，Find Skills 会搜索具备“安全扫描与自动补救”能力的技能（如 `security-vetter`）。
+1. 用户明确要求安装，或当前任务已授权安装时才执行；仅检索不代表授权。
+2. 安装第三方技能前，用 `skill-security-auditor` 扫描并完成人工审查，记录来源提交和许可。
+3. 按宿主文档安装到正确目录（本仓库见 `docs/client-install-guides.md`），不改写用户全局配置之外的范围。
+4. 安装后读取新技能的 `SKILL.md`，用一个与当前任务相关的小输入验证它能被发现和加载。
+5. 技能依赖的二进制、API key 或 OAuth 授权由用户提供；列出需要的项目，不自行获取或伪造。
 
 ## 边界与限制 / Boundaries
 
-- **安装权限限制**：在受限容器或无 root 权限的环境下，安装可能失败。
-- **冲突检测**：防止安装功能高度重合或命令名称冲突（Name Collision）的多个技能。
-- **Token 消耗**：频繁的大规模搜索和 `description` 解析会消耗较多 Token。
-- **未经验证风险**：对于非官方认证（Community）的技能，Agent 应给予明确的安全警告。
-- **版本不兼容**：由于 ClawHub 版本迭代快，部分老旧技能可能在当前环境无法运行。
-
-## 最佳实践总结
-
-1. **先搜后装**：不要盲目安装，先利用 `find-skills` 进行横向对比。
-2. **最小安装原则**：只安装完成当前任务最核心的 1-2 个技能，保持系统简洁。
-3. **理由先行**：Agent 在推荐安装时，必须说明“为什么这个技能适合你的任务”。
-4. **安装后自检**：安装成功后，立即读取 `SKILL.md` 获取该技能的 `Common Patterns`。
-5. **定期清理**：对于一次性任务使用的技能，在任务结束后提示用户可以卸载（Unload）。
+- 公开目录的排名、下载量和标签不等于质量或安全证明；以文件内容和来源为准。
+- 不递归安装依赖链，不为“以后可能用到”批量安装技能。
+- 受限容器、无写权限目录或离线环境可能无法安装；报告具体错误。
+- 同一意图只推荐一个主入口，避免多个路由技能互相转交。
+- 检索不到合适技能时，直接说明，并给出不依赖技能的完成方式。

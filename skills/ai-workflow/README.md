@@ -33,7 +33,7 @@
 | `documentation-and-adrs` | 记录架构决策、接口变化和工程交接信息。 | [目录](./documentation-and-adrs/) | [SKILL.md](./documentation-and-adrs/SKILL.md) |
 | `doubt-driven-development` | 用新上下文的对抗性审查质疑关键决策，适用于高风险或正确性优先的开发任务。 | [目录](./doubt-driven-development/) | [SKILL.md](./doubt-driven-development/SKILL.md) |
 | `executing-plans` | 用于按既定实现计划逐步执行任务，并在关键节点进行审查和完成验证。 | [目录](./executing-plans/) | [SKILL.md](./executing-plans/SKILL.md) |
-| `find-skills` | 用于搜索、比较并安装适合当前任务的技能，帮助 Agent 正确路由能力。 | [目录](./find-skills/) | [SKILL.md](./find-skills/SKILL.md) |
+| `find-skills` | 在已安装技能和公开技能目录中检索、比较候选，帮助判断用哪个技能或是否安装。 | [目录](./find-skills/) | [SKILL.md](./find-skills/SKILL.md) |
 | `finishing-a-development-branch` | 完成开发分支的验证、PR、合并和工作区收尾。 | [目录](./finishing-a-development-branch/) | [SKILL.md](./finishing-a-development-branch/SKILL.md) |
 | `frontend-ui-engineering` | 实现可访问、响应式的前端界面和交互状态。 | [目录](./frontend-ui-engineering/) | [SKILL.md](./frontend-ui-engineering/SKILL.md) |
 | `git-workflow-and-versioning` | 管理 Git 分支、提交、冲突、版本和变更记录。 | [目录](./git-workflow-and-versioning/) | [SKILL.md](./git-workflow-and-versioning/SKILL.md) |

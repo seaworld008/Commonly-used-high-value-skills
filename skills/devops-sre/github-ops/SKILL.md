@@ -1,14 +1,14 @@
 ---
 name: github-ops
-description: 'Operate GitHub repositories, PRs, issues, and Actions through gh CLI and GitHub API when repository coordination or automation is requested.'
-zh_description: "用于 GitHub 运维、仓库管理、PR/Issue 流程和自动化协作。"
-version: "1.0.1"
+description: 'Operate GitHub repositories, PRs, issues, reviews, labels, releases, and Actions through gh CLI and GitHub API when repository coordination or automation is requested.'
+zh_description: "通过 gh CLI 和 API 处理 GitHub 仓库、PR、Issue、Review、标签、发布和 Actions 协作。"
+version: "1.1.0"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["devops", "github", "ops", "sre"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-04"
 quality: 5
 complexity: "intermediate"
 ---
@@ -23,6 +23,7 @@ This skill provides comprehensive guidance for GitHub operations using the `gh` 
 
 This skill activates for tasks involving:
 - Creating, viewing, editing, or merging pull requests
+- Managing labels, milestones, and releases
 - Managing GitHub issues or repository settings
 - Querying GitHub API endpoints (REST or GraphQL)
 - Working with GitHub Actions workflows
@@ -35,24 +36,27 @@ This skill activates for tasks involving:
 ### Pull Requests
 
 ```bash
-# Create PR with NOJIRA prefix (bypasses JIRA enforcement checks)
-gh pr create --title "NOJIRA: Your PR title" --body "PR description"
+# Create a PR; follow the repository's own title convention (check CONTRIBUTING.md,
+# PR templates, and recent merged titles before choosing a prefix or ticket key)
+gh pr create --title "feat: concise summary" --body-file pr-body.md --base main
+gh pr create --fill --draft           # draft from commit messages
 
 # List and view PRs
 gh pr list --state open
-gh pr view 123
+gh pr view 123 --json title,state,mergeable,reviewDecision,statusCheckRollup
 
-# Manage PRs
-gh pr merge 123 --squash
+# Review, check, and merge
+gh pr checks 123 --watch
 gh pr review 123 --approve
-gh pr comment 123 --body "LGTM"
+gh pr merge 123 --squash --delete-branch
+gh pr comment 123 --body "Addressed in 1a2b3c4"
 ```
 
 📚 See `references/pr_operations.md` for comprehensive PR workflows
 
-**PR Title Convention:**
-- With JIRA ticket: `GR-1234: Descriptive title`
-- Without JIRA ticket: `NOJIRA: Descriptive title`
+**Before merging:** confirm the latest head SHA has passing required checks,
+review threads are resolved or answered, and `mergeable` is not `CONFLICTING`.
+Complex conflicts are resolved in a local git checkout, not through `gh`.
 
 ### Issues
 
@@ -127,6 +131,35 @@ gh config set git_protocol ssh
 gh config list
 ```
 
+### Authentication and rate limits
+
+Run `gh auth status` before automation. When a script calls the GitHub API and no
+explicit `GITHUB_TOKEN` / `GH_TOKEN` is set, reuse the authenticated `gh` session
+(`gh api`, or `GH_TOKEN=$(gh auth token)` for that one process) instead of anonymous
+requests, which hit `401` and early rate limits. Never print the token. Use the
+least-privileged token that covers the task; bulk `gh api` or `gh search` loops can
+trigger secondary rate limits, so page with `--paginate` and back off on `403`/`429`.
+
+## Recurring Maintenance and Warning Triage
+
+- `git fetch origin --prune` before discovery, sync, or release work.
+- Split a small, certain fix and a large batch sync into separate branches and PRs;
+  merge the focused PR first so a rollback does not drag unrelated changes.
+- Classify warnings: a repository quality regression is fixed in place; an external
+  `401` from anonymous calls, an intermediate `404` during upstream fallback probes,
+  or a transient network error is recorded separately and named in the PR, not
+  reported as a repository failure.
+- Fetch failing CI logs before proposing a fix; `gh-fix-ci` covers the full loop:
+
+```bash
+RUN_ID=$(gh run list --status failure --limit 1 --json databaseId -q '.[0].databaseId')
+gh run view "$RUN_ID" --log-failed > ci-failure.log
+```
+
+Destructive or broad actions (force push, deleting branches or releases, bulk
+closing issues, changing collaborators) follow the user's explicit request; state
+the exact target set in the summary.
+
 ## Output Formats
 
 Control output format for programmatic processing:
@@ -148,7 +181,7 @@ gh pr list --template '{{range .}}{{.number}}: {{.title}}{{"\n"}}{{end}}'
 
 **Most Common Operations:**
 ```bash
-gh pr create --title "NOJIRA: Title" --body "Description"  # Create PR
+gh pr create --title "Title" --body "Description"         # Create PR
 gh pr list                                                  # List PRs
 gh pr view 123                                              # View PR details
 gh pr checks 123                                            # Check PR status
@@ -165,7 +198,7 @@ gh api repos/{owner}/{repo}/pulls/{pr_number}              # Direct API call
 ### references/pr_operations.md
 
 Comprehensive pull request operations including:
-- Detailed PR creation patterns (JIRA integration, body from file, targeting branches)
+- Detailed PR creation patterns (ticket-key titles, body from file, targeting branches)
 - Viewing and filtering strategies
 - Review workflows and approval patterns
 - PR lifecycle management

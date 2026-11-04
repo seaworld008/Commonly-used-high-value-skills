@@ -2,13 +2,13 @@
 name: macro-regime-monitor
 description: 'Use when tracking macro regime shifts, summarizing inflation, growth, spreads, and liquidity signals, or creating a house view before updating sector or asset-allocation calls.'
 zh_description: "监测宏观经济状态、市场指标和投资环境变化。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["finance", "macro", "monitor", "regime"]'
 created_at: "2026-03-18"
-updated_at: "2026-09-06"
+updated_at: "2026-11-04"
 quality: 2
 complexity: "intermediate"
 ---
@@ -130,7 +130,7 @@ python scripts/classify_regime.py --input assets/live_macro.json --plot_quadrant
 1. **结论先行，证据在后**：在报告头部直接给出 Regime 结论。
 2. **重视流动性**：在低增长环境下，流动性的多寡往往决定了资产价格。
 3. **区分“预期”与“现实”**：关注宏观数据相对于“市场共识预期”的偏差（Surprise Index）。
-4. **记忆同步**：将每个月的 Regime 演变路径记录到 `MEMORY.md`。
+4. **记录交付**：将每个月的 Regime 演变路径写入用户指定的研究记录或工作区文件；用户未要求时只在交付物中列出，不写入持久记忆或设置定时任务。
 5. **多周期校验**：同时观察月度（短期）、季度（中期）和年度（长期）的宏观趋势。
 6. **动态权重**：根据当前的政策环境，调整增长和通胀在模型中的权重。
 7. **引述来源**：所有数据点必须标注来源（如 Bloomberg, Fred, TradingEconomics）。

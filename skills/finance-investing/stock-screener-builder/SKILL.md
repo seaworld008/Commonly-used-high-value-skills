@@ -2,13 +2,13 @@
 name: stock-screener-builder
 description: 'Use when building a stock screen, filtering a universe by valuation, growth, quality, or momentum rules, or creating a repeatable shortlist for deeper research.'
 zh_description: "建立有明确指标、数据来源和筛选规则的股票筛选器。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["builder", "finance", "screener", "stock"]'
 created_at: "2026-03-18"
-updated_at: "2026-09-06"
+updated_at: "2026-11-04"
 quality: 2
 complexity: "intermediate"
 ---
@@ -137,7 +137,7 @@ python scripts/screen_stocks.py --config assets/garp_config.json --export output
 1. **先宽后严**：第一层过滤应该尽量宽，防止核心标的被漏掉。
 2. **重视现金流**：永远将 P/FCF 或 OCF 作为质量核实的关键维度。
 3. **行业对齐**：对金融、地产、科技、消费应分别设计不同的筛选逻辑（Vertical Screens）。
-4. **记忆同步**：将入选标的的理由和观察日期存入 `MEMORY.md`。
+4. **记录交付**：将入选标的的理由和观察日期写入用户指定的研究记录或工作区文件；用户未要求时只在交付物中列出，不写入持久记忆或设置定时任务。
 5. **动态阈值**：根据宏观象限（Regime）调整筛选门槛。例如：在高息环境下，调高对“资产负债率”的要求。
 6. **逻辑自洽**：确保筛选器反映的是你的真实投资理念（Thesis），而非一堆随机数字的拼凑。
 7. **引述来源**：所有筛选结果必须注明数据截止日期（Snapshot Date）。

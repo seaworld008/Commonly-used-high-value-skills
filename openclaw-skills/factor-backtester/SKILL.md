@@ -2,13 +2,13 @@
 name: factor-backtester
 description: 'Use when testing factor signals, running long-short spread backtests, checking hit rate and turnover, or sanity-checking whether a ranking signal survives basic transaction cost assumptions.'
 zh_description: "设计和回测投资因子，检查偏差、成本和稳健性。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["backtester", "factor", "finance"]'
 created_at: "2026-03-18"
-updated_at: "2026-09-06"
+updated_at: "2026-11-04"
 quality: 2
 complexity: "intermediate"
 ---
@@ -128,6 +128,6 @@ python scripts/backtest_factor.py --input assets/factor_alpha_v1.json --plot --s
 1. **简单至上**：逻辑简单、可解释性强的因子往往比复杂的黑盒因子更稳健。
 2. **扣除成本**：永远不要相信未扣除手续费和滑点的收益曲线。
 3. **样本外验证 (Out-of-sample)**：将数据分为两半，一半用于训练，另一半用于验证。
-4. **记忆同步**：将回测的关键指标及失败原因记入 `MEMORY.md`，防止重复开发。
+4. **记录交付**：将回测的关键指标及失败原因写入用户指定的研究记录或工作区文件；用户未要求时只在交付物中列出，不写入持久记忆或设置定时任务。
 5. **重视换手率**：换手率超过 60% 的月频策略在当前的 A 股或美股环境下很难盈利。
 6. **多市场验证**：一个好的因子应该在不同的市场（如 A 股和美股）同时具备一定的解释力。

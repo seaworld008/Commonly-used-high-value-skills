@@ -2,13 +2,13 @@
 name: event-driven-tracker
 description: 'Use when tracking earnings, product launches, M&A, dividends, buybacks, unlocks, or other market-moving dates that need a prioritized event calendar.'
 zh_description: "跟踪影响投资标的的公司事件、催化因素和风险。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["driven", "event", "finance", "tracker"]'
 created_at: "2026-03-18"
-updated_at: "2026-09-06"
+updated_at: "2026-11-04"
 quality: 2
 complexity: "intermediate"
 ---
@@ -124,6 +124,6 @@ python scripts/track_events.py --ticker MSFT --range 30d
 1. **专注影响力**：过滤掉那些对股价无实质影响的琐碎会议。
 2. **提前布局**：在事件发生前一周完成仓位调整。
 3. **多维同步**：事件日历应与 `portfolio-risk-manager` 技能打通。
-4. **记录“意外”**：每次事件结果后的股价异常表现都要记入 `MEMORY.md`。
+4. **记录交付**：将每次事件结果后的股价异常表现写入用户指定的研究记录或工作区文件；用户未要求时只在交付物中列出，不写入持久记忆或设置定时任务。
 5. **来源可信度**：优先选择官网公告（Official IR）作为日期来源，而非第三方聚合网站。
 6. **动态权重**：根据市场环境（牛市 vs 熊市）动态调整同一事件的影响力分值。

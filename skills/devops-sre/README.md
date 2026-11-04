@@ -24,7 +24,7 @@
 | `cloudflare-troubleshooting` | 依据实际配置排查 Cloudflare DNS、TLS 和重定向问题。 | [目录](./cloudflare-troubleshooting/) | [SKILL.md](./cloudflare-troubleshooting/SKILL.md) |
 | `env-secrets-manager` | 管理环境变量、密钥存储、泄露检测和凭据轮换。 | [目录](./env-secrets-manager/) | [SKILL.md](./env-secrets-manager/SKILL.md) |
 | `gear` | 依赖、构建、容器、监控和开发环境运维优化。 | [目录](./gear/) | [SKILL.md](./gear/SKILL.md) |
-| `github-ops` | 用于 GitHub 运维、仓库管理、PR/Issue 流程和自动化协作。 | [目录](./github-ops/) | [SKILL.md](./github-ops/SKILL.md) |
+| `github-ops` | 通过 gh CLI 和 API 处理 GitHub 仓库、PR、Issue、Review、标签、发布和 Actions 协作。 | [目录](./github-ops/) | [SKILL.md](./github-ops/SKILL.md) |
 | `golang-observability` | 为 Go 服务设计 slog、OpenTelemetry、Prometheus、持续剖析及可靠性告警。 | [目录](./golang-observability/) | [SKILL.md](./golang-observability/SKILL.md) |
 | `incident-commander` | 用于事故响应中的分诊、角色分配、沟通协调、缓解跟踪和复盘。 | [目录](./incident-commander/) | [SKILL.md](./incident-commander/SKILL.md) |
 | `observability-designer` | 设计日志、指标、链路追踪、告警和服务运行目标。 | [目录](./observability-designer/) | [SKILL.md](./observability-designer/SKILL.md) |
