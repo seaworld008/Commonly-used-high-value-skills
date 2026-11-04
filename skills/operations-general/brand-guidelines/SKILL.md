@@ -1,15 +1,15 @@
 ---
 name: brand-guidelines
 description: Apply Anthropic brand colors and typography when the user requests Anthropic visual identity or an Anthropic-branded artifact.
-zh_description: "用于在文档、页面或视觉产物中应用 Anthropic 风格的品牌色、字体和视觉规范。"
-version: "1.0.1"
+zh_description: "用户要求 Anthropic 视觉识别或带 Anthropic 品牌的产物时，用于应用其品牌色和字体。"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 license: Complete terms in LICENSE.txt
 tags: '["brand", "guidelines", "productivity"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-07"
+updated_at: "2026-11-04"
 quality: 3
 complexity: "intermediate"
 ---

@@ -407,7 +407,7 @@
             "ref": "3636f64540a3d80c8425f195f46e53e940956cba",
             "resolved_commit": "3636f64540a3d80c8425f195f46e53e940956cba",
             "path_commit": "3636f64540a3d80c8425f195f46e53e940956cba",
-            "content_sha256": "112a5ee058cb6b8034550d46af142f72f9fc26f826058c8eee1a578d768ba0bd",
+            "content_sha256": "1c448dd0252b02f4ab5a1c6a727de91219adf42cd43b7e512debe8a443ac593a",
             "last_checked_at": "2026-04-13",
             "last_synced_at": "2026-04-13"
           }
@@ -417,7 +417,7 @@
         {
           "path": "skills/ai-agent-platform/native-mcp/SKILL.md",
           "owner": "native-mcp",
-          "sha256": "112a5ee058cb6b8034550d46af142f72f9fc26f826058c8eee1a578d768ba0bd",
+          "sha256": "1c448dd0252b02f4ab5a1c6a727de91219adf42cd43b7e512debe8a443ac593a",
           "mode": "100644"
         }
       ]

@@ -893,7 +893,7 @@
             "ref": "main",
             "resolved_commit": "f3b512517ed86feceebfee480a46c971f6c6aff4",
             "path_commit": "f49ac319a7d3b715e4e39cd95a61572a0af7f2ed",
-            "content_sha256": "73b6f925ae860c8116e7cc713843198e28470feaef993fdec1ecaab370b39d86",
+            "content_sha256": "f274c6a66ec4b9a65c293430a89291f8fd4de4e23c9c345332abe06bc14efb95",
             "last_checked_at": "2026-10-26",
             "last_synced_at": "2026-10-26",
             "license_checkpoint": {
@@ -911,7 +911,7 @@
         {
           "path": "skills/devops-sre/azure-kubernetes/SKILL.md",
           "owner": "azure-kubernetes",
-          "sha256": "73b6f925ae860c8116e7cc713843198e28470feaef993fdec1ecaab370b39d86",
+          "sha256": "f274c6a66ec4b9a65c293430a89291f8fd4de4e23c9c345332abe06bc14efb95",
           "mode": "100644"
         },
         {
@@ -3365,7 +3365,7 @@
             "ref": "b8caa260a420a73042e35521de4b5c8baf6446cc",
             "resolved_commit": "b8caa260a420a73042e35521de4b5c8baf6446cc",
             "path_commit": "805687f34e8c10b420e3d11335a0ca2c3c90d992",
-            "content_sha256": "59ac0a3267db2468f2e1880d6fd9dc7ae0425fd85dc4bd96bdec2733b29bdc6d",
+            "content_sha256": "2aaf9d63ac9fa0669b060d947262faafcb80998d4fbf607e065057d9efb54d43",
             "last_checked_at": "2026-08-20",
             "last_synced_at": "2026-08-20",
             "license_checkpoint": {
@@ -3393,7 +3393,7 @@
         },
         {
           "path": "skills/developer-engineering/vercel-react-best-practices/SKILL.md",
-          "sha256": "59ac0a3267db2468f2e1880d6fd9dc7ae0425fd85dc4bd96bdec2733b29bdc6d",
+          "sha256": "2aaf9d63ac9fa0669b060d947262faafcb80998d4fbf607e065057d9efb54d43",
           "owner": "vercel-react-best-practices",
           "mode": "100644"
         },

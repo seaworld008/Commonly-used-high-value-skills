@@ -1,14 +1,14 @@
 ---
 name: input-guard
 description: Inspect untrusted external content for prompt injection when suspicious instructions or data-boundary risks need explicit analysis.
-zh_description: "用于输入安全检查、提示注入防护和高风险请求拦截。"
-version: "1.1.1"
+zh_description: "出现可疑指令或数据边界风险时，用于检查不可信外部内容中的提示注入。"
+version: "1.1.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["guard", "input"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-04"
 quality: 5
 complexity: "intermediate"
 ---

@@ -1,14 +1,14 @@
 ---
 name: skill-tester
 description: 'Validate skill structure, bundled scripts and expected outputs against the target repository and agent host requirements.'
-zh_description: "验证技能触发、执行步骤和输出结果是否符合预期。"
-version: "1.0.2"
+zh_description: "用于对照目标仓库和宿主要求，验证技能目录结构、附带脚本和预期输出。"
+version: "1.0.3"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["development", "skill", "tester"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-07"
+updated_at: "2026-11-04"
 quality: 5
 complexity: "intermediate"
 ---
