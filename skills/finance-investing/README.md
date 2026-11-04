@@ -22,7 +22,7 @@
 | `event-driven-tracker` | 跟踪影响投资标的的公司事件、催化因素和风险。 | [目录](./event-driven-tracker/) | [SKILL.md](./event-driven-tracker/SKILL.md) |
 | `factor-backtester` | 设计和回测投资因子，检查偏差、成本和稳健性。 | [目录](./factor-backtester/) | [SKILL.md](./factor-backtester/SKILL.md) |
 | `financial-analyst` | 分析财务报表、经营表现、估值和情景假设。 | [目录](./financial-analyst/) | [SKILL.md](./financial-analyst/SKILL.md) |
-| `financial-data-collector` | 用于收集股票、财报、宏观和市场数据并生成分析输入。 | [目录](./financial-data-collector/) | [SKILL.md](./financial-data-collector/SKILL.md) |
+| `financial-data-collector` | 用于采集美股上市公司的 SEC 申报与 yfinance 市场数据，整理 DCF 输入并输出带来源标注的结构化数据。 | [目录](./financial-data-collector/) | [SKILL.md](./financial-data-collector/SKILL.md) |
 | `helm` | 商业战略场景模拟、市场分析、指标预测和路线图规划。 | [目录](./helm/) | [SKILL.md](./helm/SKILL.md) |
 | `investment-memo-writer` | 编写有来源依据、投资逻辑和风险分析的投资备忘录。 | [目录](./investment-memo-writer/) | [SKILL.md](./investment-memo-writer/SKILL.md) |
 | `ledger` | 估算或优化云成本时使用：IaC 成本预估、规格调整、预留实例、标签策略和预算告警。 | [目录](./ledger/) | [SKILL.md](./ledger/SKILL.md) |

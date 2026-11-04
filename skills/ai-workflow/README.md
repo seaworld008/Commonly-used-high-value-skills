@@ -18,14 +18,14 @@
 | 技能 | 简介 | 目录 | 详情 |
 |------|------|------|------|
 | `agent-workflow-designer` | 设计多智能体协作流程、任务交接、状态管理和故障恢复。 | [目录](./agent-workflow-designer/) | [SKILL.md](./agent-workflow-designer/SKILL.md) |
-| `andrej-karpathy-skills` | 用于应用 Andrej Karpathy 风格的 AI 学习、构建和研究实践。 | [目录](./andrej-karpathy-skills/) | [SKILL.md](./andrej-karpathy-skills/SKILL.md) |
+| `andrej-karpathy-skills` | 用于按 Karpathy 风格约束 AI 编码：先想清楚再动手、保持改动简单、精准修改，并在实现前定义可验证的成功标准。 | [目录](./andrej-karpathy-skills/) | [SKILL.md](./andrej-karpathy-skills/SKILL.md) |
 | `api-and-interface-design` | 设计稳定的 API、模块接口和类型契约。 | [目录](./api-and-interface-design/) | [SKILL.md](./api-and-interface-design/SKILL.md) |
 | `brainstorming` | 用于在实现前澄清创意型产品或工程需求，探索目标、约束、方案与取舍。 | [目录](./brainstorming/) | [SKILL.md](./brainstorming/SKILL.md) |
 | `browser-testing-with-devtools` | 用于通过浏览器 DevTools 测试、调试和验证前端行为。 | [目录](./browser-testing-with-devtools/) | [SKILL.md](./browser-testing-with-devtools/SKILL.md) |
 | `ci-cd-and-automation` | 建立和优化持续集成、质量检查与部署自动化。 | [目录](./ci-cd-and-automation/) | [SKILL.md](./ci-cd-and-automation/SKILL.md) |
 | `code-review-and-quality` | 审查代码正确性、可维护性、安全性和验证证据。 | [目录](./code-review-and-quality/) | [SKILL.md](./code-review-and-quality/SKILL.md) |
 | `code-simplification` | 在保持行为一致的前提下简化代码和消除重复。 | [目录](./code-simplification/) | [SKILL.md](./code-simplification/SKILL.md) |
-| `context-engineering` | 用于设计上下文工程策略、提示输入结构和长任务信息流。 | [目录](./context-engineering/) | [SKILL.md](./context-engineering/SKILL.md) |
+| `context-engineering` | 智能体上下文缺失或过载时使用：诊断上下文质量，并配置项目规则文件等指令。 | [目录](./context-engineering/) | [SKILL.md](./context-engineering/SKILL.md) |
 | `debugging-and-error-recovery` | 复现故障、定位根因并验证修复与恢复结果。 | [目录](./debugging-and-error-recovery/) | [SKILL.md](./debugging-and-error-recovery/SKILL.md) |
 | `deep-research` | 用于执行深度研究、资料收集、来源核验和综合分析。 | [目录](./deep-research/) | [SKILL.md](./deep-research/SKILL.md) |
 | `deprecation-and-migration` | 规划旧系统、接口和功能的弃用及迁移。 | [目录](./deprecation-and-migration/) | [SKILL.md](./deprecation-and-migration/SKILL.md) |

@@ -1,14 +1,14 @@
 ---
 name: sora
 description: 'Generate, remix, inspect, download, or delete Sora videos through the bundled API CLI when the user requests a Sora video workflow.'
-zh_description: "用于构思、生成和评审 Sora 视频或视频提示词。"
-version: "1.0.1"
+zh_description: "用户需要 Sora 视频工作流时，通过附带的 API CLI 生成、改编（remix）、查看、下载或删除 Sora 视频。"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["sora"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-04"
 quality: 4
 complexity: "intermediate"
 ---

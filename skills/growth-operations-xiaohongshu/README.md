@@ -21,7 +21,7 @@
 | `app-store-optimization` | 优化应用商店关键词、页面素材和转化实验。 | [目录](./app-store-optimization/) | [SKILL.md](./app-store-optimization/SKILL.md) |
 | `campaign-analytics` | 分析营销活动的渠道表现、转化、归因和投入产出。 | [目录](./campaign-analytics/) | [SKILL.md](./campaign-analytics/SKILL.md) |
 | `compete` | 研究竞争对手时使用：竞品画像、功能与定价对比、定位图、竞争战卡和输赢分析。 | [目录](./compete/) | [SKILL.md](./compete/SKILL.md) |
-| `competitors-analysis` | Analyze competitor repositories with evidence-based approa。 | [目录](./competitors-analysis/) | [SKILL.md](./competitors-analysis/SKILL.md) |
+| `competitors-analysis` | 用于基于已核实的代码和来源证据对比竞品代码仓库，开展技术竞品分析或仓库画像。 | [目录](./competitors-analysis/) | [SKILL.md](./competitors-analysis/SKILL.md) |
 | `content-creator` | 按受众、品牌语气和搜索意图创作营销内容。 | [目录](./content-creator/) | [SKILL.md](./content-creator/SKILL.md) |
 | `growth` | 提升网页自然流量与转化时使用：SEO 元信息、结构化数据、社交卡片、核心性能指标和 AI 引用优化。 | [目录](./growth/) | [SKILL.md](./growth/SKILL.md) |
 | `linkedin-growth` | 构建领英线索导入、筛选、分配、邀请与待处理请求维护流水线。 | [目录](./linkedin-growth/) | [SKILL.md](./linkedin-growth/SKILL.md) |
