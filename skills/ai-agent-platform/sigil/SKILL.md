@@ -1,15 +1,15 @@
 ---
 name: sigil
-description: '根据项目代码自动生成贴合仓库约定的技能。'
-zh_description: "根据项目代码自动生成贴合仓库约定的技能。"
-version: "1.0.3"
+description: 'Use when generating, validating, or updating project-specific agent skills that mirror the stack and conventions of a repository, including skill discovery and description tuning.'
+zh_description: "需要根据仓库技术栈与约定生成、校验或更新项目专属技能时使用。"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/sigil"
 license: MIT
 tags: ["agent", "ai", "sigil"]
 created_at: "2026-08-24"
-updated_at: "2026-10-26"
+updated_at: "2026-11-04"
 quality: 5
 complexity: "advanced"
 ---

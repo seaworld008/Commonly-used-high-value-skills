@@ -2,7 +2,7 @@
   "schema_version": 2,
   "video": {
     "url": "https://github.com/cloudflare/security-audit-skill",
-    "checked_at": "2026-09-14",
+    "checked_at": "2026-11-04",
     "note": "Cloudflare security audit skill imported with companion methodology files under MIT."
   },
   "official_references": [
@@ -34,8 +34,8 @@
         "repo": "cloudflare/security-audit-skill",
         "path": "skills/security-audit/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-09-30",
+        "last_checked_at": "2026-11-04",
+        "last_synced_at": "2026-11-04",
         "last_synced_commit": "c1c8a8c1471069fb0e188eeaff69b8e8db6564a8",
         "sync_mode": "monitor",
         "path_commit": "c1c8a8c1471069fb0e188eeaff69b8e8db6564a8"
@@ -155,8 +155,8 @@
             "resolved_commit": "c1c8a8c1471069fb0e188eeaff69b8e8db6564a8",
             "path_commit": "c1c8a8c1471069fb0e188eeaff69b8e8db6564a8",
             "content_sha256": "c7f4091b9ed9ac1c1a370f463ded0c95ca7a9e5552c8d0dfad4fa8a6f5cfd333",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-09-30",
+            "last_checked_at": "2026-11-04",
+            "last_synced_at": "2026-11-04",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "6dbc9ecb3a5b9080e95b962869e8c7ab16cfdc20",

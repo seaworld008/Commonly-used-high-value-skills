@@ -20,14 +20,14 @@
 | `algorithmic-art` | 用代码、随机种子和交互参数创作原创生成艺术。 | [目录](./algorithmic-art/) | [SKILL.md](./algorithmic-art/SKILL.md) |
 | `app-store-optimization` | 优化应用商店关键词、页面素材和转化实验。 | [目录](./app-store-optimization/) | [SKILL.md](./app-store-optimization/SKILL.md) |
 | `campaign-analytics` | 分析营销活动的渠道表现、转化、归因和投入产出。 | [目录](./campaign-analytics/) | [SKILL.md](./campaign-analytics/SKILL.md) |
-| `compete` | 竞品研究、差异化定位、矩阵对比和竞争战卡。 | [目录](./compete/) | [SKILL.md](./compete/SKILL.md) |
+| `compete` | 研究竞争对手时使用：竞品画像、功能与定价对比、定位图、竞争战卡和输赢分析。 | [目录](./compete/) | [SKILL.md](./compete/SKILL.md) |
 | `competitors-analysis` | Analyze competitor repositories with evidence-based approa。 | [目录](./competitors-analysis/) | [SKILL.md](./competitors-analysis/SKILL.md) |
 | `content-creator` | 按受众、品牌语气和搜索意图创作营销内容。 | [目录](./content-creator/) | [SKILL.md](./content-creator/SKILL.md) |
-| `growth` | 搜索、社交、转化和人工智能引用优化的一体化增长。 | [目录](./growth/) | [SKILL.md](./growth/SKILL.md) |
+| `growth` | 提升网页自然流量与转化时使用：SEO 元信息、结构化数据、社交卡片、核心性能指标和 AI 引用优化。 | [目录](./growth/) | [SKILL.md](./growth/SKILL.md) |
 | `linkedin-growth` | 构建领英线索导入、筛选、分配、邀请与待处理请求维护流水线。 | [目录](./linkedin-growth/) | [SKILL.md](./linkedin-growth/SKILL.md) |
 | `marketing-demand-acquisition` | 规划付费投放、自然渠道和获客转化流程。 | [目录](./marketing-demand-acquisition/) | [SKILL.md](./marketing-demand-acquisition/SKILL.md) |
 | `marketing-strategy-pmm` | 制定产品定位、市场进入、竞争分析和销售支持策略。 | [目录](./marketing-strategy-pmm/) | [SKILL.md](./marketing-strategy-pmm/SKILL.md) |
-| `pulse` | 关键指标、埋点、漏斗、留存和仪表盘规格设计。 | [目录](./pulse/) | [SKILL.md](./pulse/SKILL.md) |
+| `pulse` | 定义产品指标与埋点时使用：北极星指标、事件规范、漏斗、留存分析和仪表盘规格。 | [目录](./pulse/) | [SKILL.md](./pulse/SKILL.md) |
 | `social-media-analyzer` | 分析社交媒体互动、受众、活动收益和跨平台表现。 | [目录](./social-media-analyzer/) | [SKILL.md](./social-media-analyzer/SKILL.md) |
 | `tweetclaw-source-research` | 通过 TweetClaw 收集和核实 X 平台研究资料。 | [目录](./tweetclaw-source-research/) | [SKILL.md](./tweetclaw-source-research/SKILL.md) |
 | `twitter-reader` | 用于通过 URL 抓取 Twitter/X 帖子内容、作者、时间、图片和线程回复。 | [目录](./twitter-reader/) | [SKILL.md](./twitter-reader/SKILL.md) |

@@ -512,7 +512,7 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/systematic-debugging/SKILL.md",
       "source": "https://skills.sh/obra/superpowers/systematic-debugging",
-      "notes": "Reconciled from SKILL.md source declaration; upstream tracking enabled. 2026-09-28: curated reviewed deltas from 8ca22dba9a94f28898bbce59f2537ff4d87c747d; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reconciled from SKILL.md source declaration; upstream tracking enabled. 2026-09-28: curated reviewed deltas from 8ca22dba9a94f28898bbce59f2537ff4d87c747d; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-04: upstream deleted the CREATION-LOG and test-pressure/test-academic sidecars; the local copies were removed with them (SKILL.md never referenced them).",
       "upstream": {
         "repo": "obra/superpowers",
         "path": "skills/systematic-debugging/SKILL.md",
@@ -532,11 +532,6 @@
           "license": "MIT",
           "sync_mode": "monitor",
           "artifacts": [
-            {
-              "source": "skills/systematic-debugging/CREATION-LOG.md",
-              "target": "skills/developer-engineering/systematic-debugging/CREATION-LOG.md",
-              "type": "file"
-            },
             {
               "source": "skills/systematic-debugging/SKILL.md",
               "target": "skills/developer-engineering/systematic-debugging/SKILL.md"
@@ -565,26 +560,6 @@
               "source": "skills/systematic-debugging/root-cause-tracing.md",
               "target": "skills/developer-engineering/systematic-debugging/root-cause-tracing.md",
               "type": "file"
-            },
-            {
-              "source": "skills/systematic-debugging/test-academic.md",
-              "target": "skills/developer-engineering/systematic-debugging/test-academic.md",
-              "type": "file"
-            },
-            {
-              "source": "skills/systematic-debugging/test-pressure-1.md",
-              "target": "skills/developer-engineering/systematic-debugging/test-pressure-1.md",
-              "type": "file"
-            },
-            {
-              "source": "skills/systematic-debugging/test-pressure-2.md",
-              "target": "skills/developer-engineering/systematic-debugging/test-pressure-2.md",
-              "type": "file"
-            },
-            {
-              "source": "skills/systematic-debugging/test-pressure-3.md",
-              "target": "skills/developer-engineering/systematic-debugging/test-pressure-3.md",
-              "type": "file"
             }
           ],
           "tracking": {
@@ -607,12 +582,6 @@
         }
       ],
       "managed_files": [
-        {
-          "path": "skills/developer-engineering/systematic-debugging/CREATION-LOG.md",
-          "owner": "systematic-debugging",
-          "sha256": "c24733a5b1821bd6bed1fc950261f0b9f4e90097e0bbb96459d8179713730789",
-          "mode": "100644"
-        },
         {
           "path": "skills/developer-engineering/systematic-debugging/SKILL.md",
           "owner": "systematic-debugging",
@@ -647,30 +616,6 @@
           "path": "skills/developer-engineering/systematic-debugging/root-cause-tracing.md",
           "owner": "systematic-debugging",
           "sha256": "75b933b6a8c40bdb2031b10f21654395b56ec6ab6bc7b018c18d3fe57aeb7fb8",
-          "mode": "100644"
-        },
-        {
-          "path": "skills/developer-engineering/systematic-debugging/test-academic.md",
-          "owner": "systematic-debugging",
-          "sha256": "fe2ba480d78ac0d686dc025f41c2a32a43d642bf533f91b0c6053a04d35d6486",
-          "mode": "100644"
-        },
-        {
-          "path": "skills/developer-engineering/systematic-debugging/test-pressure-1.md",
-          "owner": "systematic-debugging",
-          "sha256": "0b6a915db0054577819834c79be9eb614e97bddba10d73768e1fbe91cfed048a",
-          "mode": "100644"
-        },
-        {
-          "path": "skills/developer-engineering/systematic-debugging/test-pressure-2.md",
-          "owner": "systematic-debugging",
-          "sha256": "b2030aeffba07050e8ad573ddf87486457c4a016a786bb326235bebd856f2016",
-          "mode": "100644"
-        },
-        {
-          "path": "skills/developer-engineering/systematic-debugging/test-pressure-3.md",
-          "owner": "systematic-debugging",
-          "sha256": "96b50a52e2c7989c9cf20fb752c47c1e9a3a70dc362f8f7989f8f5b64dac7708",
           "mode": "100644"
         }
       ]

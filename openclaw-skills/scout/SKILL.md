@@ -1,15 +1,15 @@
 ---
 name: scout
-description: '缺陷调查、复现步骤、根因分析和影响评估。'
-zh_description: "缺陷调查、复现步骤、根因分析和影响评估。"
-version: "1.0.3"
+description: 'Use when investigating a bug report: reproduce it, test hypotheses one variable at a time, trace the root cause, and assess impact before any fix is written.'
+zh_description: "调查缺陷时使用：复现问题、逐一验证假设、定位根因并评估影响，在修复前完成。"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/scout/SKILL.md"
 license: MIT
 tags: ["analysis", "planning", "scout"]
 created_at: "2026-08-24"
-updated_at: "2026-10-26"
+updated_at: "2026-11-04"
 quality: 5
 complexity: "advanced"
 ---

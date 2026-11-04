@@ -1,7 +1,7 @@
 {
   "video": {
     "url": "https://github.com/seaworld008/Commonly-used-high-value-skills",
-    "checked_at": "2026-10-26",
+    "checked_at": "2026-11-04",
     "note": "Auto-generated provenance mapping for all local skills."
   },
   "official_references": [
@@ -6096,7 +6096,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "601d8a67881a59afe7418fd5ad02b2f232434a39b227e73f11eac83aa0023658",
+            "content_sha256": "d8c67e91f6a90c2c1f1ab40fdce3567f170a17f256bb1659d2883a734bd5ba2b",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-05-20"
           }
@@ -6106,7 +6106,7 @@
         {
           "path": "skills/security-and-reliability/codeql-security-scanner/SKILL.md",
           "owner": "codeql-security-scanner",
-          "sha256": "601d8a67881a59afe7418fd5ad02b2f232434a39b227e73f11eac83aa0023658",
+          "sha256": "d8c67e91f6a90c2c1f1ab40fdce3567f170a17f256bb1659d2883a734bd5ba2b",
           "mode": "100644"
         }
       ]
@@ -6268,8 +6268,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/finance-investing/comps-valuation-analyst",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-04",
+        "last_synced_at": "2026-11-04",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -6308,9 +6308,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "c21312d3025195d7cd99337d70336a36a551e21e259661160663c72982f11d3a",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "9b4ec247e8f956e8f9abacdacf7c6473127522e52903f7c76d8da16fb1253893",
+            "last_checked_at": "2026-11-04",
+            "last_synced_at": "2026-11-04"
           }
         }
       ],
@@ -6318,7 +6318,7 @@
         {
           "path": "skills/finance-investing/comps-valuation-analyst/SKILL.md",
           "owner": "comps-valuation-analyst",
-          "sha256": "c21312d3025195d7cd99337d70336a36a551e21e259661160663c72982f11d3a",
+          "sha256": "9b4ec247e8f956e8f9abacdacf7c6473127522e52903f7c76d8da16fb1253893",
           "mode": "100644"
         },
         {
@@ -8036,8 +8036,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/finance-investing/earnings-call-analyzer",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-04-13",
+        "last_checked_at": "2026-11-04",
+        "last_synced_at": "2026-11-04",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -8076,9 +8076,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "fba3ca2e9d69833dac59fd6ae9ee7e038fe46e8991bca5b9755272e8438d1e92",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-04-13"
+            "content_sha256": "1232416ac1fe7cda7a4416556ec1bc3b5770aeab25721dc3f68b81cfffe6f2e3",
+            "last_checked_at": "2026-11-04",
+            "last_synced_at": "2026-11-04"
           }
         }
       ],
@@ -8086,7 +8086,7 @@
         {
           "path": "skills/finance-investing/earnings-call-analyzer/SKILL.md",
           "owner": "earnings-call-analyzer",
-          "sha256": "fba3ca2e9d69833dac59fd6ae9ee7e038fe46e8991bca5b9755272e8438d1e92",
+          "sha256": "1232416ac1fe7cda7a4416556ec1bc3b5770aeab25721dc3f68b81cfffe6f2e3",
           "mode": "100644"
         },
         {
@@ -8182,8 +8182,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/finance-investing/event-driven-tracker",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-04",
+        "last_synced_at": "2026-11-04",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -8222,9 +8222,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "3477071c58f361e1a6e5a991f82ee365cd6aadd2e79f4a4597839b92c94661b1",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "55a4fd4a32a25770a5d2202e8deff4200d7a3dfcf5234af98a8af1d550ca11e6",
+            "last_checked_at": "2026-11-04",
+            "last_synced_at": "2026-11-04"
           }
         }
       ],
@@ -8232,7 +8232,7 @@
         {
           "path": "skills/finance-investing/event-driven-tracker/SKILL.md",
           "owner": "event-driven-tracker",
-          "sha256": "3477071c58f361e1a6e5a991f82ee365cd6aadd2e79f4a4597839b92c94661b1",
+          "sha256": "55a4fd4a32a25770a5d2202e8deff4200d7a3dfcf5234af98a8af1d550ca11e6",
           "mode": "100644"
         },
         {
@@ -8339,8 +8339,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/finance-investing/factor-backtester",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-04",
+        "last_synced_at": "2026-11-04",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -8379,9 +8379,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "83efe2153ff51c7d536ab2859f29f0402070b570933572709eea86dbbe60fe45",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "9305e1af907982f3c1a62a91e498b6168603466cbfa6f7900c6e1af017843e7d",
+            "last_checked_at": "2026-11-04",
+            "last_synced_at": "2026-11-04"
           }
         }
       ],
@@ -8389,7 +8389,7 @@
         {
           "path": "skills/finance-investing/factor-backtester/SKILL.md",
           "owner": "factor-backtester",
-          "sha256": "83efe2153ff51c7d536ab2859f29f0402070b570933572709eea86dbbe60fe45",
+          "sha256": "9305e1af907982f3c1a62a91e498b6168603466cbfa6f7900c6e1af017843e7d",
           "mode": "100644"
         },
         {
@@ -8423,8 +8423,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/ai-agent-platform/figma",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-04",
+        "last_synced_at": "2026-11-04",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -8483,9 +8483,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "5945caec2c3f52bf77753af29f09a1b4485805720e744a2724abcab8999296d9",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "43850de9536a99339dd86a2c61fb7a6977d7d1dd43db1b1b3edbe6b93b415044",
+            "last_checked_at": "2026-11-04",
+            "last_synced_at": "2026-11-04"
           }
         }
       ],
@@ -8499,7 +8499,7 @@
         {
           "path": "skills/ai-agent-platform/figma/SKILL.md",
           "owner": "figma",
-          "sha256": "5945caec2c3f52bf77753af29f09a1b4485805720e744a2724abcab8999296d9",
+          "sha256": "43850de9536a99339dd86a2c61fb7a6977d7d1dd43db1b1b3edbe6b93b415044",
           "mode": "100644"
         },
         {
@@ -9045,8 +9045,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/developer-engineering/frontend-design",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-04",
+        "last_synced_at": "2026-11-04",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -9075,9 +9075,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "99572db2097b44dcf7128bfbca9ad7381aba6cf6a9bb3ca49597e8bf54cf0d64",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "9a101412f8bfc69a13f2dd0a52ffb4ee11bbd7f9fe7636be51905b96b9e54e29",
+            "last_checked_at": "2026-11-04",
+            "last_synced_at": "2026-11-04"
           }
         }
       ],
@@ -9091,7 +9091,7 @@
         {
           "path": "skills/developer-engineering/frontend-design/SKILL.md",
           "owner": "frontend-design",
-          "sha256": "99572db2097b44dcf7128bfbca9ad7381aba6cf6a9bb3ca49597e8bf54cf0d64",
+          "sha256": "9a101412f8bfc69a13f2dd0a52ffb4ee11bbd7f9fe7636be51905b96b9e54e29",
           "mode": "100644"
         }
       ]
@@ -9360,57 +9360,6 @@
       ]
     },
     {
-      "video_name": "github",
-      "normalized_slug": "github",
-      "status": "in_house",
-      "repo_skill": "skills/engineering-workflow-automation/github/SKILL.md",
-      "source": "https://github.com/seaworld008/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/engineering-workflow-automation/github",
-        "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-04-13",
-        "last_synced_commit": null,
-        "sync_mode": "local-only"
-      },
-      "kind": "in_house",
-      "sync_mode": "local-only",
-      "origins": [
-        {
-          "repo": "local-repo/in-house",
-          "path": "skills/engineering-workflow-automation/github",
-          "license": "MIT",
-          "sync_mode": "local-only",
-          "artifacts": [
-            {
-              "source": "skills/engineering-workflow-automation/github/SKILL.md",
-              "target": "skills/engineering-workflow-automation/github/SKILL.md",
-              "type": "file"
-            }
-          ],
-          "tracking": {
-            "channel": "local",
-            "ref": "main",
-            "resolved_commit": null,
-            "path_commit": null,
-            "content_sha256": "f78d268b7277c99c035136e10ab3e36109af9c0b0bb18bd6910de3e16bf21b12",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-04-13"
-          }
-        }
-      ],
-      "managed_files": [
-        {
-          "path": "skills/engineering-workflow-automation/github/SKILL.md",
-          "owner": "github",
-          "sha256": "f78d268b7277c99c035136e10ab3e36109af9c0b0bb18bd6910de3e16bf21b12",
-          "mode": "100644"
-        }
-      ]
-    },
-    {
       "video_name": "github-contributor",
       "normalized_slug": "github-contributor",
       "status": "in_house",
@@ -9516,8 +9465,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/devops-sre/github-ops",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-04",
+        "last_synced_at": "2026-11-04",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -9566,9 +9515,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "3ab328fa2a1ccf0c302b63a7346a152237f4cfcfee0f2c4e20f4c693371f9b2e",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "6d3e968fa5ce8c5f780c4397e9d5562bdf92cd369163e07cfca1561f33c40de5",
+            "last_checked_at": "2026-11-04",
+            "last_synced_at": "2026-11-04"
           }
         }
       ],
@@ -9576,13 +9525,13 @@
         {
           "path": "skills/devops-sre/github-ops/SKILL.md",
           "owner": "github-ops",
-          "sha256": "3ab328fa2a1ccf0c302b63a7346a152237f4cfcfee0f2c4e20f4c693371f9b2e",
+          "sha256": "6d3e968fa5ce8c5f780c4397e9d5562bdf92cd369163e07cfca1561f33c40de5",
           "mode": "100644"
         },
         {
           "path": "skills/devops-sre/github-ops/references/api_reference.md",
           "owner": "github-ops",
-          "sha256": "913ac3bee15fcc1db5e22c390747dc683faface3f46149d62aa99e3d70b87071",
+          "sha256": "e6d563c788c853051e4d40747a6782f363c82ac00322f5da3c7e532443a9a15c",
           "mode": "100644"
         },
         {
@@ -9600,7 +9549,7 @@
         {
           "path": "skills/devops-sre/github-ops/references/pr_operations.md",
           "owner": "github-ops",
-          "sha256": "4a16b60d261102ab4d474017d87a496f90b305aa947de0df67897ab1515072f8",
+          "sha256": "dbdceeb45920300632e849c8665309ad3609b77df957859687dbb37896b925ce",
           "mode": "100644"
         },
         {
@@ -9782,7 +9731,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "3a1762c57fc9ea40a97141703e232c5aa4d72b627dc8f396f7dc0e654c906f17",
+            "content_sha256": "2947b4b037cf2f0cc8760d19ee9ac45373f1f8a86bf0f110efd6ff80c06df617",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-05-20"
           }
@@ -9792,7 +9741,7 @@
         {
           "path": "skills/security-and-reliability/grype-syft-sbom-scanner/SKILL.md",
           "owner": "grype-syft-sbom-scanner",
-          "sha256": "3a1762c57fc9ea40a97141703e232c5aa4d72b627dc8f396f7dc0e654c906f17",
+          "sha256": "2947b4b037cf2f0cc8760d19ee9ac45373f1f8a86bf0f110efd6ff80c06df617",
           "mode": "100644"
         }
       ]
@@ -9878,7 +9827,7 @@
           }
         ],
         "dependency_lock": {
-          "hermes-agent": "f6bffce51c3f023549c8e6fddec1e4266b4db8dd9fe5a3a4e0bede417ff319bb",
+          "hermes-agent": "d4eeaea682f76a2bf8a482a7241b3875ad2ad7a96a440e218174400c7b043750",
           "graphify": "05c3d96bb51318dc7c3f20d9fe411f9c9022dacc8a3042590464851bd62e4bf4",
           "open-gsd/gsd-core": "b7ed2186d397b270a52db5e9816a9fd88a240466b356b1f4a28823f93cb8fd9d",
           "open-gsd/gsd-pi": "16165f4b80211b9e3aa3801e68e04de2f5599ab9a0c247307b1712aa5a9b5df5"
@@ -10855,8 +10804,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/finance-investing/investment-memo-writer",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-04",
+        "last_synced_at": "2026-11-04",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -10895,9 +10844,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "01a9223eca330801d029f944b0fc9a2d4831420998b302755527e6a9a3d82b86",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "c11875a030cbd57755c627397de57428547846eb78b4abd573744a72a439595d",
+            "last_checked_at": "2026-11-04",
+            "last_synced_at": "2026-11-04"
           }
         }
       ],
@@ -10905,7 +10854,7 @@
         {
           "path": "skills/finance-investing/investment-memo-writer/SKILL.md",
           "owner": "investment-memo-writer",
-          "sha256": "01a9223eca330801d029f944b0fc9a2d4831420998b302755527e6a9a3d82b86",
+          "sha256": "c11875a030cbd57755c627397de57428547846eb78b4abd573744a72a439595d",
           "mode": "100644"
         },
         {
@@ -11111,8 +11060,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/security-and-reliability/link-checker",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-04-13",
+        "last_checked_at": "2026-11-04",
+        "last_synced_at": "2026-11-04",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -11129,6 +11078,11 @@
               "source": "skills/security-and-reliability/link-checker/SKILL.md",
               "target": "skills/security-and-reliability/link-checker/SKILL.md",
               "type": "file"
+            },
+            {
+              "source": "skills/security-and-reliability/link-checker/scripts/check_links.py",
+              "target": "skills/security-and-reliability/link-checker/scripts/check_links.py",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -11136,9 +11090,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "1ad3d11001bb0156a26babb26fabc45671cfb3d5bbd4124aa241583f44513c7f",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-04-13"
+            "content_sha256": "57091cc48febcab403e295ae384f1be116f40ba0d6c820e7ce19f134679405e1",
+            "last_checked_at": "2026-11-04",
+            "last_synced_at": "2026-11-04"
           }
         }
       ],
@@ -11146,8 +11100,14 @@
         {
           "path": "skills/security-and-reliability/link-checker/SKILL.md",
           "owner": "link-checker",
-          "sha256": "1ad3d11001bb0156a26babb26fabc45671cfb3d5bbd4124aa241583f44513c7f",
+          "sha256": "57091cc48febcab403e295ae384f1be116f40ba0d6c820e7ce19f134679405e1",
           "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/link-checker/scripts/check_links.py",
+          "owner": "link-checker",
+          "sha256": "2b12a78e2331c5e3b939b01a948851c952a4b6d00d438345b09fa1b702dec565",
+          "mode": "100755"
         }
       ]
     },
@@ -11162,8 +11122,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/finance-investing/macro-regime-monitor",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-04",
+        "last_synced_at": "2026-11-04",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -11202,9 +11162,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "00c60df37247faddd1b6d1974a69b6f6efca950a6bca161c20199656f318bf6e",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "1791b68ffc6f957a6463b911f6d39b762ab72c54d381d27fefe5883a706c5366",
+            "last_checked_at": "2026-11-04",
+            "last_synced_at": "2026-11-04"
           }
         }
       ],
@@ -11212,7 +11172,7 @@
         {
           "path": "skills/finance-investing/macro-regime-monitor/SKILL.md",
           "owner": "macro-regime-monitor",
-          "sha256": "00c60df37247faddd1b6d1974a69b6f6efca950a6bca161c20199656f318bf6e",
+          "sha256": "1791b68ffc6f957a6463b911f6d39b762ab72c54d381d27fefe5883a706c5366",
           "mode": "100644"
         },
         {
@@ -12486,7 +12446,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "437fbfdc6d1c2dbcaed1407400cedc1ec2859dcccc229f84bcc3a19465684694",
+            "content_sha256": "a80f5d7e3d250034c0a3d343aa245bc2070ad9f017c40d619e9e56a2891be05e",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-04-13"
           }
@@ -12502,7 +12462,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/notion-knowledge-capture/SKILL.md",
           "owner": "notion-knowledge-capture",
-          "sha256": "437fbfdc6d1c2dbcaed1407400cedc1ec2859dcccc229f84bcc3a19465684694",
+          "sha256": "a80f5d7e3d250034c0a3d343aa245bc2070ad9f017c40d619e9e56a2891be05e",
           "mode": "100644"
         },
         {
@@ -12729,7 +12689,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "4d53b6c34f428c680620e23749cac2424996855e8185ba23422fbdde2b913afa",
+            "content_sha256": "9236b00ae05119f0ce5dd07f678eb4f13652d85246e01ea3cf0b4f9f3f17f184",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-04-13"
           }
@@ -12745,7 +12705,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/notion-meeting-intelligence/SKILL.md",
           "owner": "notion-meeting-intelligence",
-          "sha256": "4d53b6c34f428c680620e23749cac2424996855e8185ba23422fbdde2b913afa",
+          "sha256": "9236b00ae05119f0ce5dd07f678eb4f13652d85246e01ea3cf0b4f9f3f17f184",
           "mode": "100644"
         },
         {
@@ -12998,7 +12958,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "a134865e4f0a6081d62f3d3aa54274815f8d3989efa3f03da5afbaa1e7a7f619",
+            "content_sha256": "f1ca356255cdab9e01fa9809d5d80777f42d547ac275875f5d62bf887178dd19",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-04-13"
           }
@@ -13014,7 +12974,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/notion-research-documentation/SKILL.md",
           "owner": "notion-research-documentation",
-          "sha256": "a134865e4f0a6081d62f3d3aa54274815f8d3989efa3f03da5afbaa1e7a7f619",
+          "sha256": "f1ca356255cdab9e01fa9809d5d80777f42d547ac275875f5d62bf887178dd19",
           "mode": "100644"
         },
         {
@@ -13271,7 +13231,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "9a98edca0bfa49486bf71dcf57e1c9bd4303e324a0893a74c67f89c89708efd6",
+            "content_sha256": "35f30086139015ffc79c9bed79b982f0aab703fea18ef7f0a45ea2ec4ae05a22",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-04-13"
           }
@@ -13287,7 +13247,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/notion-spec-to-implementation/SKILL.md",
           "owner": "notion-spec-to-implementation",
-          "sha256": "9a98edca0bfa49486bf71dcf57e1c9bd4303e324a0893a74c67f89c89708efd6",
+          "sha256": "35f30086139015ffc79c9bed79b982f0aab703fea18ef7f0a45ea2ec4ae05a22",
           "mode": "100644"
         },
         {
@@ -13683,8 +13643,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/finance-investing/options-strategy-evaluator",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-04",
+        "last_synced_at": "2026-11-04",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -13723,9 +13683,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "685a9f9e083225a37295f1253081ea58f02645cef6b2fd233284d89eeb13aa77",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "4aeca7349efac9c695e327e65771bed960abb83d48e96b668bc8c5e08713445b",
+            "last_checked_at": "2026-11-04",
+            "last_synced_at": "2026-11-04"
           }
         }
       ],
@@ -13733,7 +13693,7 @@
         {
           "path": "skills/finance-investing/options-strategy-evaluator/SKILL.md",
           "owner": "options-strategy-evaluator",
-          "sha256": "685a9f9e083225a37295f1253081ea58f02645cef6b2fd233284d89eeb13aa77",
+          "sha256": "4aeca7349efac9c695e327e65771bed960abb83d48e96b668bc8c5e08713445b",
           "mode": "100644"
         },
         {
@@ -13792,7 +13752,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "27144186eed821b292fe0f5d898634fa4e32960a2d03f1ba4e190932b56e77b3",
+            "content_sha256": "1a9c9fed23a0edf2815632e37d2f3b6a7dbae870dba47f6cbcc446d1f1fbd17a",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-05-20"
           }
@@ -13802,7 +13762,7 @@
         {
           "path": "skills/security-and-reliability/osv-scanner/SKILL.md",
           "owner": "osv-scanner",
-          "sha256": "27144186eed821b292fe0f5d898634fa4e32960a2d03f1ba4e190932b56e77b3",
+          "sha256": "1a9c9fed23a0edf2815632e37d2f3b6a7dbae870dba47f6cbcc446d1f1fbd17a",
           "mode": "100644"
         }
       ]
@@ -14264,8 +14224,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/finance-investing/portfolio-risk-manager",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-04-13",
+        "last_checked_at": "2026-11-04",
+        "last_synced_at": "2026-11-04",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -14319,9 +14279,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "907d765cddf3cbb762180b3bbc4dea030050526620dfa6422da9a83762a6a452",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-04-13"
+            "content_sha256": "96070463513e2a0dbbd76967d0cc30c09ae0763bc947293dc9ac193980d39ec8",
+            "last_checked_at": "2026-11-04",
+            "last_synced_at": "2026-11-04"
           }
         }
       ],
@@ -14329,7 +14289,7 @@
         {
           "path": "skills/finance-investing/portfolio-risk-manager/SKILL.md",
           "owner": "portfolio-risk-manager",
-          "sha256": "907d765cddf3cbb762180b3bbc4dea030050526620dfa6422da9a83762a6a452",
+          "sha256": "96070463513e2a0dbbd76967d0cc30c09ae0763bc947293dc9ac193980d39ec8",
           "mode": "100644"
         },
         {
@@ -17206,8 +17166,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/finance-investing/sec-filing-reviewer",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-04",
+        "last_synced_at": "2026-11-04",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -17246,9 +17206,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "649f70b91f89ed4098e9b4aba3efec6dc6bee314e569d45903f6869f9700d64e",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "344e4718a0feb99188afd98decc935208989039dde3bd36d2bf5f543aa6fa650",
+            "last_checked_at": "2026-11-04",
+            "last_synced_at": "2026-11-04"
           }
         }
       ],
@@ -17256,7 +17216,7 @@
         {
           "path": "skills/finance-investing/sec-filing-reviewer/SKILL.md",
           "owner": "sec-filing-reviewer",
-          "sha256": "649f70b91f89ed4098e9b4aba3efec6dc6bee314e569d45903f6869f9700d64e",
+          "sha256": "344e4718a0feb99188afd98decc935208989039dde3bd36d2bf5f543aa6fa650",
           "mode": "100644"
         },
         {
@@ -17584,7 +17544,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "b753fa83ade0d5ad2de81c6db02a549550ed90e662a79ccdb5fe6dea5a7cc8df",
+            "content_sha256": "d67141bdd045b18425b2470deac07fcf907d4233382a9beed9acf5ecc7f94211",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-04-13"
           }
@@ -17600,7 +17560,7 @@
         {
           "path": "skills/security-and-reliability/security-ownership-map/SKILL.md",
           "owner": "security-ownership-map",
-          "sha256": "b753fa83ade0d5ad2de81c6db02a549550ed90e662a79ccdb5fe6dea5a7cc8df",
+          "sha256": "d67141bdd045b18425b2470deac07fcf907d4233382a9beed9acf5ecc7f94211",
           "mode": "100644"
         },
         {
@@ -17772,7 +17732,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "f3b65b67690e67daffcb4f16284b9f04669ed6296caa99ac6bbb452d9147c433",
+            "content_sha256": "35c636cab7eed617218ee0b6995b19795ce70e4dba4734e4c020cd4c3414e8c1",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-05-20"
           }
@@ -17782,7 +17742,7 @@
         {
           "path": "skills/security-and-reliability/semgrep-appsec-scanner/SKILL.md",
           "owner": "semgrep-appsec-scanner",
-          "sha256": "f3b65b67690e67daffcb4f16284b9f04669ed6296caa99ac6bbb452d9147c433",
+          "sha256": "35c636cab7eed617218ee0b6995b19795ce70e4dba4734e4c020cd4c3414e8c1",
           "mode": "100644"
         }
       ]
@@ -17848,7 +17808,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "8609b7f9b771c38657357a13860f8c73a7bc15a49065ad43b8510e8e74fd9b7f",
+            "content_sha256": "c049ab5503d7436e2daad034d7e951bb628892f6f98bd09e3175db0747fa6c61",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-04-13"
           }
@@ -17864,7 +17824,7 @@
         {
           "path": "skills/security-and-reliability/sentry/SKILL.md",
           "owner": "sentry",
-          "sha256": "8609b7f9b771c38657357a13860f8c73a7bc15a49065ad43b8510e8e74fd9b7f",
+          "sha256": "c049ab5503d7436e2daad034d7e951bb628892f6f98bd09e3175db0747fa6c61",
           "mode": "100644"
         },
         {
@@ -18200,68 +18160,6 @@
           "path": "skills/developer-engineering/skill-tester/scripts/skill_validator.py",
           "owner": "skill-tester",
           "sha256": "e7faa845a67e6009832f8c806ef9e313160b6cd6d25f22f09b53add57f17f59b",
-          "mode": "100644"
-        }
-      ]
-    },
-    {
-      "video_name": "skill-vetter",
-      "normalized_slug": "skill-vetter",
-      "status": "in_house",
-      "repo_skill": "skills/security-and-reliability/skill-vetter/SKILL.md",
-      "source": "https://github.com/seaworld008/Commonly-used-high-value-skills",
-      "notes": "In-house canonical skill (local repository source of truth).",
-      "upstream": {
-        "repo": "local-repo/in-house",
-        "path": "skills/security-and-reliability/skill-vetter",
-        "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-04-13",
-        "last_synced_commit": null,
-        "sync_mode": "local-only"
-      },
-      "kind": "in_house",
-      "sync_mode": "local-only",
-      "origins": [
-        {
-          "repo": "local-repo/in-house",
-          "path": "skills/security-and-reliability/skill-vetter",
-          "license": "MIT",
-          "sync_mode": "local-only",
-          "artifacts": [
-            {
-              "source": "skills/security-and-reliability/skill-vetter/LICENSE.upstream.txt",
-              "target": "skills/security-and-reliability/skill-vetter/LICENSE.upstream.txt",
-              "type": "file"
-            },
-            {
-              "source": "skills/security-and-reliability/skill-vetter/SKILL.md",
-              "target": "skills/security-and-reliability/skill-vetter/SKILL.md",
-              "type": "file"
-            }
-          ],
-          "tracking": {
-            "channel": "local",
-            "ref": "main",
-            "resolved_commit": null,
-            "path_commit": null,
-            "content_sha256": "8df3223b94c204d99a3b13f10db5595bbd4ea3ac5c7f111551c4c631731dc905",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-04-13"
-          }
-        }
-      ],
-      "managed_files": [
-        {
-          "path": "skills/security-and-reliability/skill-vetter/SKILL.md",
-          "owner": "skill-vetter",
-          "sha256": "8df3223b94c204d99a3b13f10db5595bbd4ea3ac5c7f111551c4c631731dc905",
-          "mode": "100644"
-        },
-        {
-          "path": "skills/security-and-reliability/skill-vetter/LICENSE.upstream.txt",
-          "owner": "skill-vetter",
-          "sha256": "281f4e958733265748fe44429a72ca4c4518b5dd0fa64f87f6f66b7b24248741",
           "mode": "100644"
         }
       ]
@@ -18921,8 +18819,8 @@
         "repo": "local-repo/in-house",
         "path": "skills/finance-investing/stock-screener-builder",
         "ref": "main",
-        "last_checked_at": "2026-09-22",
-        "last_synced_at": "2026-09-06",
+        "last_checked_at": "2026-11-04",
+        "last_synced_at": "2026-11-04",
         "last_synced_commit": null,
         "sync_mode": "local-only"
       },
@@ -18961,9 +18859,9 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "33917e0b49f76de0afca871cbeef5c6dfaf623e82b5ba25fdda8fef5c5065790",
-            "last_checked_at": "2026-09-22",
-            "last_synced_at": "2026-09-06"
+            "content_sha256": "aa3bcd52a0f1652b1d270c26e22f2c325d92798463cbd7626067919ca7990723",
+            "last_checked_at": "2026-11-04",
+            "last_synced_at": "2026-11-04"
           }
         }
       ],
@@ -18971,7 +18869,7 @@
         {
           "path": "skills/finance-investing/stock-screener-builder/SKILL.md",
           "owner": "stock-screener-builder",
-          "sha256": "33917e0b49f76de0afca871cbeef5c6dfaf623e82b5ba25fdda8fef5c5065790",
+          "sha256": "aa3bcd52a0f1652b1d270c26e22f2c325d92798463cbd7626067919ca7990723",
           "mode": "100644"
         },
         {
@@ -20367,7 +20265,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "eee5fe50f8a2109f45f3876c911e724d2bb37601173162f56294a86ece2743d4",
+            "content_sha256": "5d2083db849cab04f0ce09c5228fdcec9822805bcea83d01df1adb33a6b28bf2",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-05-20"
           }
@@ -20377,7 +20275,7 @@
         {
           "path": "skills/security-and-reliability/trivy-vulnerability-scanner/SKILL.md",
           "owner": "trivy-vulnerability-scanner",
-          "sha256": "eee5fe50f8a2109f45f3876c911e724d2bb37601173162f56294a86ece2743d4",
+          "sha256": "5d2083db849cab04f0ce09c5228fdcec9822805bcea83d01df1adb33a6b28bf2",
           "mode": "100644"
         }
       ]
@@ -20973,7 +20871,7 @@
             "ref": "main",
             "resolved_commit": null,
             "path_commit": null,
-            "content_sha256": "ee9788e397a3c01d8f6f901b87a53c97e444cac0c36aaf4bb745e5dade5815c9",
+            "content_sha256": "8ffcc98559456323438303f65969b50291ae7dda28db06e41bb962f21a585477",
             "last_checked_at": "2026-09-22",
             "last_synced_at": "2026-05-20"
           }
@@ -20983,7 +20881,7 @@
         {
           "path": "skills/security-and-reliability/vuls-linux-cve-scanner/SKILL.md",
           "owner": "vuls-linux-cve-scanner",
-          "sha256": "ee9788e397a3c01d8f6f901b87a53c97e444cac0c36aaf4bb745e5dade5815c9",
+          "sha256": "8ffcc98559456323438303f65969b50291ae7dda28db06e41bb962f21a585477",
           "mode": "100644"
         }
       ]
@@ -22487,6 +22385,13 @@
       "target": "skills/*/*/SKILL.md",
       "result": "success",
       "evidence": "Merged provenance for 131 local skills"
+    },
+    {
+      "date": "2026-11-04",
+      "method": "local-scan",
+      "target": "skills/*/*/SKILL.md",
+      "result": "success",
+      "evidence": "Merged provenance for 129 local skills"
     }
   ],
   "schema_version": 2

@@ -1,15 +1,15 @@
 ---
 name: rally
-description: '多会话并行执行编排，协调多个智能体共同完成任务。'
-zh_description: "多会话并行执行编排，协调多个智能体共同完成任务。"
-version: "1.0.2"
+description: 'Use when independent tasks should run in parallel across 3-5 agent sessions or engines, with worktree isolation, dependency wiring, conflict resolution, and fan-in validation.'
+zh_description: "需要把独立任务并行分发到多个智能体会话或引擎时使用，含工作树隔离、冲突处理与汇总校验。"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/rally/SKILL.md"
 license: MIT
 tags: ["ai", "rally", "workflow"]
 created_at: "2026-08-24"
-updated_at: "2026-09-30"
+updated_at: "2026-11-04"
 quality: 5
 complexity: "advanced"
 ---

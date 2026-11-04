@@ -1,15 +1,15 @@
 ---
 name: ripple
-description: '变更前影响分析，评估依赖链和一致性风险。'
-zh_description: "变更前影响分析，评估依赖链和一致性风险。"
-version: "1.0.2"
+description: 'Use before a risky change to estimate its blast radius: dependency chains, breaking changes, pattern consistency, a weighted risk score, and a go or no-go call.'
+zh_description: "实施高风险变更前使用：评估依赖链、破坏性影响和一致性风险，并给出是否推进的建议。"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/ripple/SKILL.md"
 license: MIT
 tags: ["analysis", "planning", "ripple"]
 created_at: "2026-08-24"
-updated_at: "2026-09-30"
+updated_at: "2026-11-04"
 quality: 5
 complexity: "advanced"
 ---

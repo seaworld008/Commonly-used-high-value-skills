@@ -1,15 +1,15 @@
 ---
 name: grove
-description: '仓库结构、文档布局、测试脚本组织和迁移规划。'
-zh_description: "仓库结构、文档布局、测试脚本组织和迁移规划。"
-version: "1.0.3"
+description: 'Use when designing or auditing repository layout: directory structure, docs and test organization, structural anti-patterns, monorepo health, and incremental migrations.'
+zh_description: "设计或审计仓库结构时使用：目录布局、文档与测试组织、结构反模式和渐进迁移。"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/grove/SKILL.md"
 license: MIT
 tags: ["grove", "knowledge"]
 created_at: "2026-08-24"
-updated_at: "2026-10-26"
+updated_at: "2026-11-04"
 quality: 5
 complexity: "advanced"
 ---

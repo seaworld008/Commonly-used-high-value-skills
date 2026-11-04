@@ -33,24 +33,24 @@
 | `documentation-and-adrs` | 记录架构决策、接口变化和工程交接信息。 | [目录](./documentation-and-adrs/) | [SKILL.md](./documentation-and-adrs/SKILL.md) |
 | `doubt-driven-development` | 用新上下文的对抗性审查质疑关键决策，适用于高风险或正确性优先的开发任务。 | [目录](./doubt-driven-development/) | [SKILL.md](./doubt-driven-development/SKILL.md) |
 | `executing-plans` | 用于按既定实现计划逐步执行任务，并在关键节点进行审查和完成验证。 | [目录](./executing-plans/) | [SKILL.md](./executing-plans/SKILL.md) |
-| `find-skills` | 用于搜索、比较并安装适合当前任务的技能，帮助 Agent 正确路由能力。 | [目录](./find-skills/) | [SKILL.md](./find-skills/SKILL.md) |
+| `find-skills` | 在已安装技能和公开技能目录中检索、比较候选，帮助判断用哪个技能或是否安装。 | [目录](./find-skills/) | [SKILL.md](./find-skills/SKILL.md) |
 | `finishing-a-development-branch` | 完成开发分支的验证、PR、合并和工作区收尾。 | [目录](./finishing-a-development-branch/) | [SKILL.md](./finishing-a-development-branch/SKILL.md) |
 | `frontend-ui-engineering` | 实现可访问、响应式的前端界面和交互状态。 | [目录](./frontend-ui-engineering/) | [SKILL.md](./frontend-ui-engineering/SKILL.md) |
 | `git-workflow-and-versioning` | 管理 Git 分支、提交、冲突、版本和变更记录。 | [目录](./git-workflow-and-versioning/) | [SKILL.md](./git-workflow-and-versioning/SKILL.md) |
 | `idea-refine` | 澄清初步想法，比较方案并检验关键假设。 | [目录](./idea-refine/) | [SKILL.md](./idea-refine/SKILL.md) |
 | `incremental-implementation` | 将功能拆成可验证的小步改动并逐步完成实现。 | [目录](./incremental-implementation/) | [SKILL.md](./incremental-implementation/SKILL.md) |
 | `interview-me` | 通过逐问访谈澄清真实需求、目标用户与成功标准，避免在含糊请求上过早实施。 | [目录](./interview-me/) | [SKILL.md](./interview-me/SKILL.md) |
-| `nexus` | 多智能体任务分解、链路编排、执行协调和结果整合。 | [目录](./nexus/) | [SKILL.md](./nexus/SKILL.md) |
+| `nexus` | 任务需要多个专家智能体协作时使用：分类任务、选择最小链路、编排执行并验证汇总结果。 | [目录](./nexus/) | [SKILL.md](./nexus/SKILL.md) |
 | `nlpm-audit` | 审计 SKILL.md、AGENTS.md、CLAUDE.md、插件清单、hooks、commands 和提示词，检查安装一致性、质量评分、安全风险与版本漂移。 | [目录](./nlpm-audit/) | [SKILL.md](./nlpm-audit/SKILL.md) |
 | `observability-and-instrumentation` | 为生产代码设计日志、指标、追踪和告警，使行为可观测、问题可诊断。 | [目录](./observability-and-instrumentation/) | [SKILL.md](./observability-and-instrumentation/SKILL.md) |
 | `performance-optimization` | 基于测量优化前后端与数据库性能，并用 CI 预算和真实用户监测防止回退。 | [目录](./performance-optimization/) | [SKILL.md](./performance-optimization/SKILL.md) |
 | `planning-and-task-breakdown` | 将需求拆成有依赖与验收标准的任务，并保护已有未完成计划。 | [目录](./planning-and-task-breakdown/) | [SKILL.md](./planning-and-task-breakdown/SKILL.md) |
 | `prompt-optimizer` | 优化提示词的任务范围、约束和验收条件。 | [目录](./prompt-optimizer/) | [SKILL.md](./prompt-optimizer/SKILL.md) |
-| `rally` | 多会话并行执行编排，协调多个智能体共同完成任务。 | [目录](./rally/) | [SKILL.md](./rally/SKILL.md) |
+| `rally` | 需要把独立任务并行分发到多个智能体会话或引擎时使用，含工作树隔离、冲突处理与汇总校验。 | [目录](./rally/) | [SKILL.md](./rally/SKILL.md) |
 | `receiving-code-review` | 核实代码审查意见并处理有证据支持的问题。 | [目录](./receiving-code-review/) | [SKILL.md](./receiving-code-review/SKILL.md) |
 | `requesting-code-review` | 用于在完成任务、实现重要功能或合并前请求代码审查并验证需求满足情况。 | [目录](./requesting-code-review/) | [SKILL.md](./requesting-code-review/SKILL.md) |
 | `security-and-hardening` | 加固身份认证、输入处理、数据存储和外部集成。 | [目录](./security-and-hardening/) | [SKILL.md](./security-and-hardening/SKILL.md) |
-| `sherpa` | 把复杂任务拆成短步骤，控制漂移并推进交付。 | [目录](./sherpa/) | [SKILL.md](./sherpa/SKILL.md) |
+| `sherpa` | 复杂任务需要拆成短小原子步骤、跟踪进度并防止范围漂移时使用。 | [目录](./sherpa/) | [SKILL.md](./sherpa/SKILL.md) |
 | `shipping-and-launch` | 准备生产发布、分批上线、监控和回滚方案。 | [目录](./shipping-and-launch/) | [SKILL.md](./shipping-and-launch/SKILL.md) |
 | `skill-creator` | 创建和改进技能内容、触发描述及行为评测。 | [目录](./skill-creator/) | [SKILL.md](./skill-creator/SKILL.md) |
 | `skill-reviewer` | 审查技能的触发边界、执行指导、引用和验证质量。 | [目录](./skill-reviewer/) | [SKILL.md](./skill-reviewer/SKILL.md) |

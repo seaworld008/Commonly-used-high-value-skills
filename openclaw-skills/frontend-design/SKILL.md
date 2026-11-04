@@ -2,14 +2,14 @@
 name: frontend-design
 description: 'Design and implement polished web components, pages, and applications with a coherent visual direction and usable interaction states.'
 zh_description: "用于创建高质量、非模板化的前端页面、组件、仪表盘、海报和 Web UI。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 license: Complete terms in LICENSE.txt
 tags: '["design", "development", "frontend"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-04"
 quality: 2
 complexity: "intermediate"
 ---
@@ -121,6 +121,6 @@ Frontend Design 技能致力于创建极具辨识度、生产级且具备高审�
 2. **像素级打磨**：关注边框、阴影、间距的每一个像素。
 3. **色彩一致性**：使用 CSS Variables 管理调色板，确保全站风格统一。
 4. **代码可读性**：即使是高度复杂的设计，代码也应具备良好的注释和组件化结构。
-5. **记忆同步**：将本次成功的审美配方（色彩、字体、阴影）记录到 `MEMORY.md`。
+5. **记录交付**：将本次成功的审美配方（色彩、字体、阴影）写入用户指定的研究记录或工作区文件；用户未要求时只在交付物中列出，不写入持久记忆或设置定时任务。
 6. **视觉反馈**：每一步关键的 UI 变更，都应主动提供截图预览（通过 Web Artifacts）。
 7. **情感化设计**：思考界面如何与用户产生情感连接（Delight moments）。

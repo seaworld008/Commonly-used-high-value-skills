@@ -2,13 +2,13 @@
 name: earnings-call-analyzer
 description: 'Use when summarizing earnings calls, extracting management tone changes, surfacing guidance language, or turning transcript snippets into an actionable investor update.'
 zh_description: "用于摘要财报电话会、提取管理层语气变化、业绩指引措辞和投资者更新。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["analyzer", "call", "earnings", "finance"]'
 created_at: "2026-03-18"
-updated_at: "2026-06-29"
+updated_at: "2026-11-04"
 quality: 2
 complexity: "intermediate"
 ---
@@ -115,6 +115,6 @@ python scripts/analyze_earnings_call.py --input assets/jpm_q4_2025.json --compar
 1. **对比胜过描述**：永远问自己“这和上个季度比有什么不同？”。
 2. **盯紧 Guidance**：数字化的指引变化是资本市场最敏感的信号。
 3. **识别 Q&A 压力点**：分析师反复追问的地方，就是下个季度的雷区或爆发点。
-4. **记忆同步**：将管理层的核心承诺存入 `MEMORY.md`，用于下季度的“打脸式”复核。
+4. **记录交付**：将管理层的核心承诺写入用户指定的研究记录或工作区文件，供下季度复核；用户未要求时只在交付物中列出，不写入持久记忆或设置定时任务。
 5. **多源核实**：将 Transcript 分析结果与卖方研究报告（Broker Reports）进行交叉验证。
 6. **分段授权**：大任务分段处理，先摘要，再根据用户要求深入特定 Segment。

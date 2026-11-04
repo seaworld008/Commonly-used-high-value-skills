@@ -1,14 +1,14 @@
 ---
 name: notion-meeting-intelligence
-description: '用于基于 Notion 上下文准备会议材料。'
-zh_description: "用于基于 Notion 上下文准备会议材料。"
-version: "1.0.0"
+description: 'Use when preparing for an upcoming meeting from Notion context: agenda, pre-read or briefing memo, open questions, blockers, and decisions needed.'
+zh_description: "会议前基于 Notion 上下文准备议程、预读材料和待决事项时使用。"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["intelligence", "meeting", "notion"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-11-04"
 quality: 3
 complexity: "intermediate"
 metadata:

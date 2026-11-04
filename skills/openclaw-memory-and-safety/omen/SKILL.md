@@ -1,15 +1,15 @@
 ---
 name: omen
-description: '预演失败模式，识别计划风险并给出优先级。'
-zh_description: "预演失败模式，识别计划风险并给出优先级。"
-version: "1.0.3"
+description: 'Use when stress-testing a plan or design before launch: pre-mortems, FMEA scoring, fault trees, concrete failure scenarios, and prioritized mitigations.'
+zh_description: "上线或实施前预演失败时使用：事前验尸、FMEA、故障树和按优先级排列的缓解措施。"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/omen/SKILL.md"
 license: MIT
 tags: ["memory", "omen", "safety"]
 created_at: "2026-08-24"
-updated_at: "2026-10-26"
+updated_at: "2026-11-04"
 quality: 5
 complexity: "advanced"
 ---

@@ -1,15 +1,15 @@
 ---
 name: nexus
-description: '多智能体任务分解、链路编排、执行协调和结果整合。'
-zh_description: "多智能体任务分解、链路编排、执行协调和结果整合。"
-version: "1.0.5"
+description: 'Use when a task needs several specialist agents: classify it, pick the minimum agent chain, run or autorun that chain, coordinate parallel branches, and verify the merged result.'
+zh_description: "任务需要多个专家智能体协作时使用：分类任务、选择最小链路、编排执行并验证汇总结果。"
+version: "1.0.6"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/nexus/SKILL.md"
 license: MIT
 tags: ["ai", "nexus", "workflow"]
 created_at: "2026-08-24"
-updated_at: "2026-10-26"
+updated_at: "2026-11-04"
 quality: 5
 complexity: "advanced"
 ---

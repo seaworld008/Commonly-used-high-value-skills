@@ -1,24 +1,24 @@
 # Tags Index
 
-> Auto-generated from 1146 skill-tag mappings across 513 tags.
+> Auto-generated from 1136 skill-tag mappings across 511 tags.
 > Last updated: see git log.
 
 ## Quick Navigation
 
-- [`workflow`](#workflow) (58)
+- [`workflow`](#workflow) (57)
 - [`development`](#development) (45)
 - [`ai`](#ai) (36)
 - [`agent`](#agent) (35)
 - [`engineering`](#engineering) (24)
 - [`lark`](#lark) (23)
-- [`security`](#security) (23)
 - [`feishu`](#feishu) (22)
 - [`lark-cli`](#lark-cli) (22)
+- [`security`](#security) (22)
 - [`design`](#design) (16)
 - [`finance`](#finance) (16)
-- [`automation`](#automation) (15)
 - [`growth`](#growth) (15)
 - [`planning`](#planning) (15)
+- [`automation`](#automation) (14)
 - [`marketing`](#marketing) (13)
 - [`sre`](#sre) (13)
 - [`devops`](#devops) (12)
@@ -32,8 +32,6 @@
 - [`expert`](#expert) (5)
 - [`manager`](#manager) (5)
 - [`mcp`](#mcp) (5)
-- [`performance`](#performance) (5)
-- [`skill`](#skill) (5)
 - [`analysis`](#analysis) (4)
 - [`appsec`](#appsec) (4)
 - [`architect`](#architect) (4)
@@ -44,17 +42,18 @@
 - [`deploy`](#deploy) (4)
 - [`docs`](#docs) (4)
 - [`frontend`](#frontend) (4)
-- [`github`](#github) (4)
 - [`knowledge`](#knowledge) (4)
 - [`kubernetes`](#kubernetes) (4)
 - [`media`](#media) (4)
 - [`memory`](#memory) (4)
 - [`notion`](#notion) (4)
+- [`performance`](#performance) (4)
 - [`react`](#react) (4)
 - [`research`](#research) (4)
 - [`review`](#review) (4)
 - [`safety`](#safety) (4)
 - [`secrets`](#secrets) (4)
+- [`skill`](#skill) (4)
 - [`skills`](#skills) (4)
 - [`tools`](#tools) (4)
 - [`vulnerability-scanning`](#vulnerability-scanning) (4)
@@ -64,6 +63,7 @@
 - [`creator`](#creator) (3)
 - [`generator`](#generator) (3)
 - [`git`](#git) (3)
+- [`github`](#github) (3)
 - [`go`](#go) (3)
 - [`knowledge-base`](#knowledge-base) (3)
 - [`markdown`](#markdown) (3)
@@ -71,7 +71,6 @@
 - [`migration`](#migration) (3)
 - [`observability`](#observability) (3)
 - [`office`](#office) (3)
-- [`postgres`](#postgres) (3)
 - [`reviewer`](#reviewer) (3)
 - [`sbom`](#sbom) (3)
 - [`social-media`](#social-media) (3)
@@ -112,13 +111,13 @@
 - [`linkedin`](#linkedin) (2)
 - [`metrics`](#metrics) (2)
 - [`minutes`](#minutes) (2)
-- [`neon`](#neon) (2)
 - [`nextjs`](#nextjs) (2)
 - [`notes`](#notes) (2)
 - [`outreach`](#outreach) (2)
 - [`owasp`](#owasp) (2)
 - [`plans`](#plans) (2)
 - [`playwright`](#playwright) (2)
+- [`postgres`](#postgres) (2)
 - [`practices`](#practices) (2)
 - [`presentation`](#presentation) (2)
 - [`prisma`](#prisma) (2)
@@ -220,7 +219,6 @@
 - [`content`](#content) (1)
 - [`context-engineering`](#context-engineering) (1)
 - [`contributor`](#contributor) (1)
-- [`cost-optimization`](#cost-optimization) (1)
 - [`crest`](#crest) (1)
 - [`custom-queries`](#custom-queries) (1)
 - [`data`](#data) (1)
@@ -343,6 +341,7 @@
 - [`multimodal`](#multimodal) (1)
 - [`natural-language-programming`](#natural-language-programming) (1)
 - [`navigator`](#navigator) (1)
+- [`neon`](#neon) (1)
 - [`netlify`](#netlify) (1)
 - [`nexus`](#nexus) (1)
 - [`nlpm`](#nlpm) (1)
@@ -503,7 +502,6 @@
 - [`using-agent-skills`](#using-agent-skills) (1)
 - [`ux`](#ux) (1)
 - [`valuation`](#valuation) (1)
-- [`vetter`](#vetter) (1)
 - [`visual-regression`](#visual-regression) (1)
 - [`visualization`](#visualization) (1)
 - [`voice`](#voice) (1)
@@ -523,7 +521,7 @@
 
 ## workflow
 
-**58 skills**
+**57 skills**
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
@@ -543,24 +541,24 @@
 | [git-workflow-and-versioning](skills/ai-workflow/git-workflow-and-versioning) | ai-workflow | ★★★★★ | Manage branches, commits, conflicts, semantic versions, and changelogs when prep |
 | [incremental-implementation](skills/ai-workflow/incremental-implementation) | ai-workflow | ★★★★★ | Delivers changes incrementally. Use when implementing any feature or change that |
 | [interview-me](skills/ai-workflow/interview-me) | ai-workflow | ★★★★★ | Interview the user when they request guided discovery or when unresolved goals,  |
-| [nexus](skills/ai-workflow/nexus) | ai-workflow | ★★★★★ | 多智能体任务分解、链路编排、执行协调和结果整合。 |
+| [nexus](skills/ai-workflow/nexus) | ai-workflow | ★★★★★ | Use when a task needs several specialist agents: classify it, pick the minimum a |
 | [observability-and-instrumentation](skills/ai-workflow/observability-and-instrumentation) | ai-workflow | ★★★★★ | Add or improve logs, metrics, traces, and alerts when services need diagnosable  |
 | [performance-optimization](skills/ai-workflow/performance-optimization) | ai-workflow | ★★★★★ | Investigate and improve measured frontend, backend, query, or database bottlenec |
 | [planning-and-task-breakdown](skills/ai-workflow/planning-and-task-breakdown) | ai-workflow | ★★★★★ | Turn clear requirements into ordered tasks, dependencies, and acceptance checks; |
-| [rally](skills/ai-workflow/rally) | ai-workflow | ★★★★★ | 多会话并行执行编排，协调多个智能体共同完成任务。 |
+| [rally](skills/ai-workflow/rally) | ai-workflow | ★★★★★ | Use when independent tasks should run in parallel across 3-5 agent sessions or e |
 | [security-and-hardening](skills/ai-workflow/security-and-hardening) | ai-workflow | ★★★★★ | Harden authentication, input handling, storage, and integrations when implementi |
-| [sherpa](skills/ai-workflow/sherpa) | ai-workflow | ★★★★★ | 把复杂任务拆成短步骤，控制漂移并推进交付。 |
+| [sherpa](skills/ai-workflow/sherpa) | ai-workflow | ★★★★★ | Use when a complex epic must be broken into small atomic steps with progress tra |
 | [shipping-and-launch](skills/ai-workflow/shipping-and-launch) | ai-workflow | ★★★★★ | Prepares production launches. Use when preparing to deploy to production. Use wh |
 | [skill-creator](skills/ai-workflow/skill-creator) | ai-workflow | ★★★★★ | Create or improve agent skills, trigger descriptions, and evaluation cases; use  |
 | [skill-reviewer](skills/ai-workflow/skill-reviewer) | ai-workflow | ★★★★★ | Review and improve agent skills for clear triggers, actionable instructions, pro |
 | [spec-driven-development](skills/ai-workflow/spec-driven-development) | ai-workflow | ★★★★★ | Specify new features or substantial behavior changes when goals, boundaries, and |
 | [test-driven-development](skills/ai-workflow/test-driven-development) | ai-workflow | ★★★★★ | Develop testable logic or fix behavioral bugs with focused regression tests and  |
-| [guardian](skills/engineering-workflow-automation/guardian) | engineering-workflow-automation | ★★★★★ | 提交、分支、合并请求策略和变更粒度把关。 |
+| [guardian](skills/engineering-workflow-automation/guardian) | engineering-workflow-automation | ★★★★★ | Use when preparing or reviewing commits and pull requests: classify changes, sco |
 | [harvest](skills/engineering-workflow-automation/harvest) | engineering-workflow-automation | ★★★★★ | Collecting GitHub PR data and generating work reports. Retrieves PR info via gh  |
 | [latch](skills/engineering-workflow-automation/latch) | engineering-workflow-automation | ★★★★★ | Proposing, configuring, debugging, and maintaining Claude Code hooks (PreToolUse |
 | [reflect-learn](skills/task-understanding-decomposition/reflect-learn) | task-understanding-decomposition | ★★★★★ | Review user corrections or session outcomes to propose durable workflow improvem |
 | [dispatching-parallel-agents](skills/ai-workflow/dispatching-parallel-agents) | ai-workflow | ★★★★☆ | Use when facing 2+ independent tasks that can be worked on without shared state  |
-| [find-skills](skills/ai-workflow/find-skills) | ai-workflow | ★★★★☆ | Use when users do not know which skill fits a task, need to search available ski |
+| [find-skills](skills/ai-workflow/find-skills) | ai-workflow | ★★★★☆ | Use when users do not know which skill fits a task, need to search installed ski |
 | [finishing-a-development-branch](skills/ai-workflow/finishing-a-development-branch) | ai-workflow | ★★★★☆ | Use when implementation is complete, all tests pass, and you need to decide how  |
 | [idea-refine](skills/ai-workflow/idea-refine) | ai-workflow | ★★★★☆ | Explore alternatives and stress-test assumptions when refining a vague idea into |
 | [prompt-optimizer](skills/ai-workflow/prompt-optimizer) | ai-workflow | ★★★★☆ | Refine prompts or ambiguous requirements into testable specifications when the u |
@@ -583,7 +581,6 @@
 | [gh-fix-ci](skills/engineering-workflow-automation/gh-fix-ci) | engineering-workflow-automation | ★★★☆☆ | Inspect and fix failing GitHub Actions PR checks using gh logs and focused valid |
 | [lark-approval](skills/knowledge-and-pm-integrations/lark-approval) | knowledge-and-pm-integrations | ★★★☆☆ | 飞书审批：查询和处理审批待办/已办/实例，搜索可发起审批定义、查看定义详情并发起原生审批实例。当用户要处理审批任务、查看审批实例、搜索或发起审批时使用。审批待办 |
 | [gh-address-comments](skills/engineering-workflow-automation/gh-address-comments) | engineering-workflow-automation | ★★☆☆☆ | Use when addressing GitHub PR review comments or issue comments on the current b |
-| [github](skills/engineering-workflow-automation/github) | engineering-workflow-automation | ★★☆☆☆ | Use when automating GitHub issues, pull requests, reviews, CI checks, labels, re |
 | [yeet](skills/engineering-workflow-automation/yeet) | engineering-workflow-automation | ★★☆☆☆ | Use only when the user explicitly asks to stage, commit, push, and open a GitHub |
 
 ## development
@@ -595,13 +592,13 @@
 | [agent-designer](skills/developer-engineering/agent-designer) | developer-engineering | ★★★★★ | Design AI agent responsibilities, tools, memory, orchestration, and evaluation w |
 | [api-design-reviewer](skills/developer-engineering/api-design-reviewer) | developer-engineering | ★★★★★ | Use when reviewing API designs for consistency, usability, versioning, error sem |
 | [api-test-suite-builder](skills/developer-engineering/api-test-suite-builder) | developer-engineering | ★★★★★ | Generate API tests from routes and contracts for authentication, validation, pag |
-| [builder](skills/developer-engineering/builder) | developer-engineering | ★★★★★ | 生产级业务逻辑、接口集成和类型安全实现。 |
+| [builder](skills/developer-engineering/builder) | developer-engineering | ★★★★★ | Use when implementing production business logic: type-safe domain models, valida |
 | [cli-demo-generator](skills/developer-engineering/cli-demo-generator) | developer-engineering | ★★★★★ | Create terminal recordings and animated CLI demo GIFs from command workflows or  |
 | [codebase-onboarding](skills/developer-engineering/codebase-onboarding) | developer-engineering | ★★★★★ | Create repository onboarding guides with architecture, key files, setup, debuggi |
 | [database-designer](skills/developer-engineering/database-designer) | developer-engineering | ★★★★★ | Design, review, or migrate database schemas using workload requirements, data in |
 | [database-schema-designer](skills/developer-engineering/database-schema-designer) | developer-engineering | ★★★★★ | Design relational database schemas from requirements and generate migrations, Ty |
 | [dependency-auditor](skills/developer-engineering/dependency-auditor) | developer-engineering | ★★★★★ | Audit dependency inventories, verify vulnerability and license evidence, and pla |
-| [gateway](skills/developer-engineering/gateway) | developer-engineering | ★★★★★ | 接口设计、规范生成、版本策略和破坏性变更检查。 |
+| [gateway](skills/developer-engineering/gateway) | developer-engineering | ★★★★★ | Use when designing or reviewing REST or GraphQL APIs: OpenAPI specs, versioning  |
 | [github-contributor](skills/developer-engineering/github-contributor) | developer-engineering | ★★★★★ | Find suitable open-source contribution opportunities and prepare focused GitHub  |
 | [graphify](skills/developer-engineering/graphify) | developer-engineering | ★★★★★ | Build, query, or refresh Graphify knowledge graphs for code and documents when g |
 | [mcp-builder](skills/developer-engineering/mcp-builder) | developer-engineering | ★★★★★ | Build MCP servers that expose external APIs or services through well-scoped tool |
@@ -613,7 +610,7 @@
 | [promptfoo-evaluation](skills/developer-engineering/promptfoo-evaluation) | developer-engineering | ★★★★★ | Configure and run Promptfoo evaluations, assertions, rubrics, and datasets when  |
 | [qa-expert](skills/developer-engineering/qa-expert) | developer-engineering | ★★★★★ | Design QA strategies, risk-based test cases, execution plans, and defect reports |
 | [repomix-safe-mixer](skills/developer-engineering/repomix-safe-mixer) | developer-engineering | ★★★★★ | Scan for hardcoded credentials, report redacted findings, and block repomix pack |
-| [schema](skills/developer-engineering/schema) | developer-engineering | ★★★★★ | 数据库模式设计、迁移规划、索引策略和关系建模。 |
+| [schema](skills/developer-engineering/schema) | developer-engineering | ★★★★★ | Use when designing or reviewing database schemas: data models, zero-downtime mig |
 | [skill-tester](skills/developer-engineering/skill-tester) | developer-engineering | ★★★★★ | Validate skill structure, bundled scripts and expected outputs against the targe |
 | [tech-debt-tracker](skills/developer-engineering/tech-debt-tracker) | developer-engineering | ★★★★★ | Identify technical debt, rank remediation by impact and effort, and track progre |
 | [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Use, configure, theme, extend, and orchestrate Hermes Agent. |
@@ -647,8 +644,8 @@
 | [arena](skills/ai-agent-platform/arena) | ai-agent-platform | ★★★★★ | Specialist orchestrating codex exec / Antigravity CLI through dual paradigms — C |
 | [chatgpt-apps](skills/ai-agent-platform/chatgpt-apps) | ai-agent-platform | ★★★★★ | Build or debug ChatGPT Apps SDK projects with MCP tools and widget UIs, using cu |
 | [figma-implement-design](skills/ai-agent-platform/figma-implement-design) | ai-agent-platform | ★★★★★ | Implement UI from Figma URLs or node IDs with visual fidelity, project conventio |
-| [oracle](skills/ai-agent-platform/oracle) | ai-agent-platform | ★★★★★ | 人工智能应用设计、评估、检索增强和安全护栏规划。 |
-| [sigil](skills/ai-agent-platform/sigil) | ai-agent-platform | ★★★★★ | 根据项目代码自动生成贴合仓库约定的技能。 |
+| [oracle](skills/ai-agent-platform/oracle) | ai-agent-platform | ★★★★★ | Use when designing or reviewing LLM applications: prompts, RAG pipelines, agent  |
+| [sigil](skills/ai-agent-platform/sigil) | ai-agent-platform | ★★★★★ | Use when generating, validating, or updating project-specific agent skills that  |
 | [api-and-interface-design](skills/ai-workflow/api-and-interface-design) | ai-workflow | ★★★★★ | Design REST/GraphQL APIs, module interfaces, and type contracts when creating en |
 | [browser-testing-with-devtools](skills/ai-workflow/browser-testing-with-devtools) | ai-workflow | ★★★★★ | Inspect browser DOM, network, console, screenshots, and performance with Chrome  |
 | [ci-cd-and-automation](skills/ai-workflow/ci-cd-and-automation) | ai-workflow | ★★★★★ | Automates CI/CD pipeline setup. Use when setting up or modifying build and deplo |
@@ -663,13 +660,13 @@
 | [git-workflow-and-versioning](skills/ai-workflow/git-workflow-and-versioning) | ai-workflow | ★★★★★ | Manage branches, commits, conflicts, semantic versions, and changelogs when prep |
 | [incremental-implementation](skills/ai-workflow/incremental-implementation) | ai-workflow | ★★★★★ | Delivers changes incrementally. Use when implementing any feature or change that |
 | [interview-me](skills/ai-workflow/interview-me) | ai-workflow | ★★★★★ | Interview the user when they request guided discovery or when unresolved goals,  |
-| [nexus](skills/ai-workflow/nexus) | ai-workflow | ★★★★★ | 多智能体任务分解、链路编排、执行协调和结果整合。 |
+| [nexus](skills/ai-workflow/nexus) | ai-workflow | ★★★★★ | Use when a task needs several specialist agents: classify it, pick the minimum a |
 | [observability-and-instrumentation](skills/ai-workflow/observability-and-instrumentation) | ai-workflow | ★★★★★ | Add or improve logs, metrics, traces, and alerts when services need diagnosable  |
 | [performance-optimization](skills/ai-workflow/performance-optimization) | ai-workflow | ★★★★★ | Investigate and improve measured frontend, backend, query, or database bottlenec |
 | [planning-and-task-breakdown](skills/ai-workflow/planning-and-task-breakdown) | ai-workflow | ★★★★★ | Turn clear requirements into ordered tasks, dependencies, and acceptance checks; |
-| [rally](skills/ai-workflow/rally) | ai-workflow | ★★★★★ | 多会话并行执行编排，协调多个智能体共同完成任务。 |
+| [rally](skills/ai-workflow/rally) | ai-workflow | ★★★★★ | Use when independent tasks should run in parallel across 3-5 agent sessions or e |
 | [security-and-hardening](skills/ai-workflow/security-and-hardening) | ai-workflow | ★★★★★ | Harden authentication, input handling, storage, and integrations when implementi |
-| [sherpa](skills/ai-workflow/sherpa) | ai-workflow | ★★★★★ | 把复杂任务拆成短步骤，控制漂移并推进交付。 |
+| [sherpa](skills/ai-workflow/sherpa) | ai-workflow | ★★★★★ | Use when a complex epic must be broken into small atomic steps with progress tra |
 | [shipping-and-launch](skills/ai-workflow/shipping-and-launch) | ai-workflow | ★★★★★ | Prepares production launches. Use when preparing to deploy to production. Use wh |
 | [spec-driven-development](skills/ai-workflow/spec-driven-development) | ai-workflow | ★★★★★ | Specify new features or substantial behavior changes when goals, boundaries, and |
 | [test-driven-development](skills/ai-workflow/test-driven-development) | ai-workflow | ★★★★★ | Develop testable logic or fix behavioral bugs with focused regression tests and  |
@@ -678,8 +675,8 @@
 | [idea-refine](skills/ai-workflow/idea-refine) | ai-workflow | ★★★★☆ | Explore alternatives and stress-test assumptions when refining a vague idea into |
 | [source-driven-development](skills/ai-workflow/source-driven-development) | ai-workflow | ★★★★☆ | Verify implementation against official documentation when the task requests sour |
 | [using-agent-skills](skills/ai-workflow/using-agent-skills) | ai-workflow | ★★★★☆ | Find the most relevant engineering skill when task routing is unclear; load only |
+| [figma](skills/ai-agent-platform/figma) | ai-agent-platform | ★★★☆☆ | Fetch Figma design context, variables, screenshots, and assets through MCP when  |
 | [openai-docs](skills/ai-agent-platform/openai-docs) | ai-agent-platform | ★★★☆☆ | Find current official OpenAI guidance for Codex, APIs, models, prompting, or mig |
-| [figma](skills/ai-agent-platform/figma) | ai-agent-platform | ★★☆☆☆ | Fetch Figma design context, variables, screenshots, and assets through MCP when  |
 
 ## agent
 
@@ -690,8 +687,8 @@
 | [arena](skills/ai-agent-platform/arena) | ai-agent-platform | ★★★★★ | Specialist orchestrating codex exec / Antigravity CLI through dual paradigms — C |
 | [chatgpt-apps](skills/ai-agent-platform/chatgpt-apps) | ai-agent-platform | ★★★★★ | Build or debug ChatGPT Apps SDK projects with MCP tools and widget UIs, using cu |
 | [figma-implement-design](skills/ai-agent-platform/figma-implement-design) | ai-agent-platform | ★★★★★ | Implement UI from Figma URLs or node IDs with visual fidelity, project conventio |
-| [oracle](skills/ai-agent-platform/oracle) | ai-agent-platform | ★★★★★ | 人工智能应用设计、评估、检索增强和安全护栏规划。 |
-| [sigil](skills/ai-agent-platform/sigil) | ai-agent-platform | ★★★★★ | 根据项目代码自动生成贴合仓库约定的技能。 |
+| [oracle](skills/ai-agent-platform/oracle) | ai-agent-platform | ★★★★★ | Use when designing or reviewing LLM applications: prompts, RAG pipelines, agent  |
+| [sigil](skills/ai-agent-platform/sigil) | ai-agent-platform | ★★★★★ | Use when generating, validating, or updating project-specific agent skills that  |
 | [agent-workflow-designer](skills/ai-workflow/agent-workflow-designer) | ai-workflow | ★★★★★ | Design agent orchestration, handoffs, state, recovery, and evaluation when a wor |
 | [api-and-interface-design](skills/ai-workflow/api-and-interface-design) | ai-workflow | ★★★★★ | Design REST/GraphQL APIs, module interfaces, and type contracts when creating en |
 | [browser-testing-with-devtools](skills/ai-workflow/browser-testing-with-devtools) | ai-workflow | ★★★★★ | Inspect browser DOM, network, console, screenshots, and performance with Chrome  |
@@ -720,8 +717,8 @@
 | [idea-refine](skills/ai-workflow/idea-refine) | ai-workflow | ★★★★☆ | Explore alternatives and stress-test assumptions when refining a vague idea into |
 | [source-driven-development](skills/ai-workflow/source-driven-development) | ai-workflow | ★★★★☆ | Verify implementation against official documentation when the task requests sour |
 | [using-agent-skills](skills/ai-workflow/using-agent-skills) | ai-workflow | ★★★★☆ | Find the most relevant engineering skill when task routing is unclear; load only |
+| [figma](skills/ai-agent-platform/figma) | ai-agent-platform | ★★★☆☆ | Fetch Figma design context, variables, screenshots, and assets through MCP when  |
 | [openai-docs](skills/ai-agent-platform/openai-docs) | ai-agent-platform | ★★★☆☆ | Find current official OpenAI guidance for Codex, APIs, models, prompting, or mig |
-| [figma](skills/ai-agent-platform/figma) | ai-agent-platform | ★★☆☆☆ | Fetch Figma design context, variables, screenshots, and assets through MCP when  |
 
 ## engineering
 
@@ -784,36 +781,6 @@
 | [lark-skill-maker](skills/knowledge-and-pm-integrations/lark-skill-maker) | knowledge-and-pm-integrations | ★★★☆☆ | Use when creating reusable skills around verified Lark CLI or OpenAPI operations |
 | [lark-whiteboard](skills/knowledge-and-pm-integrations/lark-whiteboard) | knowledge-and-pm-integrations | ★★★☆☆ | Use when querying, exporting, or editing Lark whiteboards, including preview ima |
 
-## security
-
-**23 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [dependency-auditor](skills/developer-engineering/dependency-auditor) | developer-engineering | ★★★★★ | Audit dependency inventories, verify vulnerability and license evidence, and pla |
-| [breach](skills/security-and-reliability/breach) | security-and-reliability | ★★★★★ | 红队场景、攻击路径、威胁建模和对抗演练设计。 |
-| [cloak](skills/security-and-reliability/cloak) | security-and-reliability | ★★★★★ | 隐私工程、敏感信息流、同意管理和数据治理。 |
-| [comply](skills/security-and-reliability/comply) | security-and-reliability | ★★★★★ | Regulatory compliance and audit agent. Maps business regulatory requirements (SO |
-| [security-ownership-map](skills/security-and-reliability/security-ownership-map) | security-and-reliability | ★★★★★ | 用于基于 Git 历史分析安全所有权、敏感代码归属、bus factor、CODEOWNERS 现实差距和风险热点。 |
-| [security-review](skills/security-and-reliability/security-review) | security-and-reliability | ★★★★★ | Review code changes for injection, XSS, authentication, authorization, cryptogra |
-| [codeql-security-scanner](skills/security-and-reliability/codeql-security-scanner) | security-and-reliability | ★★★★☆ | 用于通过 CodeQL 执行语义代码扫描、安全查询、自定义规则、SARIF 报告和 GitHub Code Scanning 集成。 |
-| [gha-security-review](skills/security-and-reliability/gha-security-review) | security-and-reliability | ★★★★☆ | Audit GitHub Actions workflows for unsafe triggers, expression injection, creden |
-| [grype-syft-sbom-scanner](skills/security-and-reliability/grype-syft-sbom-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Syft 生成 SBOM，并用 Grype 扫描容器镜像、文件系统、软件包、归档和 SBOM 漏洞。 |
-| [information-security-manager-iso27001](skills/security-and-reliability/information-security-manager-iso27001) | security-and-reliability | ★★★★☆ | Design or audit ISO 27001 ISMS controls, security risk treatment, and compliance |
-| [osv-scanner](skills/security-and-reliability/osv-scanner) | security-and-reliability | ★★★★☆ | 用于通过 OSV-Scanner 检查锁文件、清单、SBOM、Git 历史和源码树中的开源依赖漏洞。 |
-| [security-auditor](skills/security-and-reliability/security-auditor) | security-and-reliability | ★★★★☆ | Security audit workflow for AI-generated application code, APIs, infrastructure  |
-| [security-pen-testing](skills/security-and-reliability/security-pen-testing) | security-and-reliability | ★★★★☆ | Perform authorized security assessments, vulnerability scans, and penetration te |
-| [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。 |
-| [sentry](skills/security-and-reliability/sentry) | security-and-reliability | ★★★★☆ | 用于只读查询 Sentry issues、events 和服务健康数据，汇总线上错误并辅助生产问题排查。 |
-| [skill-security-auditor](skills/security-and-reliability/skill-security-auditor) | security-and-reliability | ★★★★☆ | Audit external agent skills before installation for malicious instructions, unsa |
-| [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Trivy 扫描仓库、容器镜像、文件系统、rootfs、SBOM、Kubernetes、IaC、密钥、许可证和系统 CVE。 |
-| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Vuls 对 Linux、FreeBSD、容器、WordPress、库和网络设备执行 Agentless CVE 扫描。 |
-| [answer-me-with-html](skills/office-white-collar/answer-me-with-html) | office-white-collar | ★★★☆☆ | Create an offline static HTML technical report only when expressly requested, wi |
-| [security-best-practices](skills/security-and-reliability/security-best-practices) | security-and-reliability | ★★★☆☆ | Use when checking language or framework security best practices, producing secur |
-| [security-threat-model](skills/security-and-reliability/security-threat-model) | security-and-reliability | ★★★☆☆ | Use when creating threat models from codebases, architectures, assets, trust bou |
-| [link-checker](skills/security-and-reliability/link-checker) | security-and-reliability | ★★☆☆☆ | Use when checking URL availability, dead links, redirect chains, suspicious doma |
-| [skill-vetter](skills/security-and-reliability/skill-vetter) | security-and-reliability | ★★☆☆☆ | Use before installing or trusting an external skill to inspect instructions, scr |
-
 ## feishu
 
 **22 skills**
@@ -872,6 +839,35 @@
 | [lark-skill-maker](skills/knowledge-and-pm-integrations/lark-skill-maker) | knowledge-and-pm-integrations | ★★★☆☆ | Use when creating reusable skills around verified Lark CLI or OpenAPI operations |
 | [lark-whiteboard](skills/knowledge-and-pm-integrations/lark-whiteboard) | knowledge-and-pm-integrations | ★★★☆☆ | Use when querying, exporting, or editing Lark whiteboards, including preview ima |
 
+## security
+
+**22 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [dependency-auditor](skills/developer-engineering/dependency-auditor) | developer-engineering | ★★★★★ | Audit dependency inventories, verify vulnerability and license evidence, and pla |
+| [breach](skills/security-and-reliability/breach) | security-and-reliability | ★★★★★ | Use when planning authorized red-team or threat-model work: STRIDE or ATT&CK mod |
+| [cloak](skills/security-and-reliability/cloak) | security-and-reliability | ★★★★★ | Use when a system handles personal data: PII discovery, data-flow mapping, conse |
+| [comply](skills/security-and-reliability/comply) | security-and-reliability | ★★★★★ | Regulatory compliance and audit agent. Maps business regulatory requirements (SO |
+| [security-ownership-map](skills/security-and-reliability/security-ownership-map) | security-and-reliability | ★★★★★ | Use when assessing security ownership from git history: who owns sensitive code, |
+| [security-review](skills/security-and-reliability/security-review) | security-and-reliability | ★★★★★ | Review code changes for injection, XSS, authentication, authorization, cryptogra |
+| [codeql-security-scanner](skills/security-and-reliability/codeql-security-scanner) | security-and-reliability | ★★★★☆ | Use when running CodeQL semantic code scanning: build databases, run security or |
+| [gha-security-review](skills/security-and-reliability/gha-security-review) | security-and-reliability | ★★★★☆ | Audit GitHub Actions workflows for unsafe triggers, expression injection, creden |
+| [grype-syft-sbom-scanner](skills/security-and-reliability/grype-syft-sbom-scanner) | security-and-reliability | ★★★★☆ | Use when generating an SBOM with Syft and scanning images, filesystems, packages |
+| [information-security-manager-iso27001](skills/security-and-reliability/information-security-manager-iso27001) | security-and-reliability | ★★★★☆ | Design or audit ISO 27001 ISMS controls, security risk treatment, and compliance |
+| [osv-scanner](skills/security-and-reliability/osv-scanner) | security-and-reliability | ★★★★☆ | Use when checking open-source dependencies for known vulnerabilities with OSV-Sc |
+| [security-auditor](skills/security-and-reliability/security-auditor) | security-and-reliability | ★★★★☆ | Security audit workflow for AI-generated application code, APIs, infrastructure  |
+| [security-pen-testing](skills/security-and-reliability/security-pen-testing) | security-and-reliability | ★★★★☆ | Perform authorized security assessments, vulnerability scans, and penetration te |
+| [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | Use when running Semgrep SAST on source code: registry or custom rules, secrets  |
+| [sentry](skills/security-and-reliability/sentry) | security-and-reliability | ★★★★☆ | Use when inspecting production errors in Sentry read-only: list issues and event |
+| [skill-security-auditor](skills/security-and-reliability/skill-security-auditor) | security-and-reliability | ★★★★☆ | Audit external agent skills before installing, trusting, or updating them: stati |
+| [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | Use when scanning repos, container images, filesystems, SBOMs, Kubernetes, or Ia |
+| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | Use when running agentless CVE scans with Vuls against Linux or FreeBSD hosts, c |
+| [answer-me-with-html](skills/office-white-collar/answer-me-with-html) | office-white-collar | ★★★☆☆ | Create an offline static HTML technical report only when expressly requested, wi |
+| [link-checker](skills/security-and-reliability/link-checker) | security-and-reliability | ★★★☆☆ | Use when checking URL availability, dead links, redirect chains, suspicious doma |
+| [security-best-practices](skills/security-and-reliability/security-best-practices) | security-and-reliability | ★★★☆☆ | Use when checking language or framework security best practices, producing secur |
+| [security-threat-model](skills/security-and-reliability/security-threat-model) | security-and-reliability | ★★★☆☆ | Use when creating threat models from codebases, architectures, assets, trust bou |
+
 ## design
 
 **16 skills**
@@ -886,10 +882,10 @@
 | [product-strategist](skills/product-design/product-strategist) | product-design | ★★★★★ | Strategic product leadership toolkit for Head of Product including OKR cascade g |
 | [researcher](skills/product-design/researcher) | product-design | ★★★★★ | User research specialist. Designs interview guides, usability test plans, qualit |
 | [saas-scaffolder](skills/product-design/saas-scaffolder) | product-design | ★★★★★ | Build a SaaS application or vertical slice from a validated brief, covering auth |
-| [trace](skills/product-design/trace) | product-design | ★★★★★ | 会话回放分析、行为模式提取和体验问题叙事。 |
+| [trace](skills/product-design/trace) | product-design | ★★★★★ | Use when analyzing session replays or event logs for user behavior patterns, fru |
 | [ui-design-system](skills/product-design/ui-design-system) | product-design | ★★★★★ | Create or maintain UI design tokens, component documentation, responsive rules,  |
 | [ux-researcher-designer](skills/product-design/ux-researcher-designer) | product-design | ★★★★★ | Plan and synthesize UX research, personas, journey maps, and usability studies w |
-| [voice](skills/product-design/voice) | product-design | ★★★★★ | 用户反馈收集、满意度调研、评论分析和洞察提炼。 |
+| [voice](skills/product-design/voice) | product-design | ★★★★★ | Use when designing feedback surveys (NPS, CSAT, CES) or analyzing reviews and fe |
 | [tailwind-design-system](skills/developer-engineering/tailwind-design-system) | developer-engineering | ★★★★☆ | Build scalable design systems with Tailwind CSS v4, design tokens, component lib |
 | [canvas-design](skills/product-design/canvas-design) | product-design | ★★★★☆ | Create original static visual designs such as posters, artwork, and compositions |
 | [landing-page-generator](skills/product-design/landing-page-generator) | product-design | ★★★★☆ | Build React/Next.js landing pages with Tailwind, focused copy, accessible sectio |
@@ -902,7 +898,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [helm](skills/finance-investing/helm) | finance-investing | ★★★★★ | Simulating business strategy via short/mid/long-term scenario planning from fina |
-| [ledger](skills/finance-investing/ledger) | finance-investing | ★★★★★ | 云成本、预算告警、资源规格和人工智能工作负载成本优化。 |
+| [ledger](skills/finance-investing/ledger) | finance-investing | ★★★★★ | Use when estimating or reducing cloud spend: IaC cost estimates, right-sizing, R |
 | [levy](skills/finance-investing/levy) | finance-investing | ★★★★★ | Domain knowledge agent for Japanese income tax filing (kakutei shinkoku). Guides |
 | [financial-analyst](skills/finance-investing/financial-analyst) | finance-investing | ★★★★☆ | Performs financial ratio analysis, DCF valuation, budget variance analysis, and  |
 | [financial-data-collector](skills/finance-investing/financial-data-collector) | finance-investing | ★★★★☆ | Use when collecting financial data for a US public company, assembling DCF input |
@@ -918,28 +914,6 @@
 | [sec-filing-reviewer](skills/finance-investing/sec-filing-reviewer) | finance-investing | ★★☆☆☆ | Use when reviewing SEC filings, extracting material risk disclosures, scanning 1 |
 | [stock-screener-builder](skills/finance-investing/stock-screener-builder) | finance-investing | ★★☆☆☆ | Use when building a stock screen, filtering a universe by valuation, growth, qua |
 
-## automation
-
-**15 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [guardian](skills/engineering-workflow-automation/guardian) | engineering-workflow-automation | ★★★★★ | 提交、分支、合并请求策略和变更粒度把关。 |
-| [harvest](skills/engineering-workflow-automation/harvest) | engineering-workflow-automation | ★★★★★ | Collecting GitHub PR data and generating work reports. Retrieves PR info via gh  |
-| [latch](skills/engineering-workflow-automation/latch) | engineering-workflow-automation | ★★★★★ | Proposing, configuring, debugging, and maintaining Claude Code hooks (PreToolUse |
-| [linkedin-growth](skills/growth-operations-xiaohongshu/linkedin-growth) | growth-operations-xiaohongshu | ★★★★★ | Manage LinkedIn lead qualification and follow-up workflows through linkedin-cli  |
-| [linkedin](skills/operations-general/linkedin) | operations-general | ★★★★★ | General-purpose LinkedIn automation – fetch profiles, search people and companie |
-| [agent-browser](skills/engineering-workflow-automation/agent-browser) | engineering-workflow-automation | ★★★★☆ | Use when controlling authorized web pages with agent-browser CLI, accessibility  |
-| [jupyter-notebook](skills/engineering-workflow-automation/jupyter-notebook) | engineering-workflow-automation | ★★★★☆ | Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) |
-| [playwright](skills/engineering-workflow-automation/playwright) | engineering-workflow-automation | ★★★★☆ | Use when the task requires automating a real browser from the terminal (navigati |
-| [web-scraper](skills/engineering-workflow-automation/web-scraper) | engineering-workflow-automation | ★★★★☆ | Use when users need webpage scraping, structured data extraction, crawling strat |
-| [lark-base](skills/knowledge-and-pm-integrations/lark-base) | knowledge-and-pm-integrations | ★★★★☆ | 操作飞书 Base 多维表格、字段、记录、视图、公式、仪表盘、BaseApp 页面和角色权限。处理 /base/、/app/ 链接；导入导出转 lark-dri |
-| [billing-automation](skills/engineering-workflow-automation/billing-automation) | engineering-workflow-automation | ★★★☆☆ | Build automated billing systems for recurring payments, invoicing, subscription  |
-| [gh-fix-ci](skills/engineering-workflow-automation/gh-fix-ci) | engineering-workflow-automation | ★★★☆☆ | Inspect and fix failing GitHub Actions PR checks using gh logs and focused valid |
-| [gh-address-comments](skills/engineering-workflow-automation/gh-address-comments) | engineering-workflow-automation | ★★☆☆☆ | Use when addressing GitHub PR review comments or issue comments on the current b |
-| [github](skills/engineering-workflow-automation/github) | engineering-workflow-automation | ★★☆☆☆ | Use when automating GitHub issues, pull requests, reviews, CI checks, labels, re |
-| [yeet](skills/engineering-workflow-automation/yeet) | engineering-workflow-automation | ★★☆☆☆ | Use only when the user explicitly asks to stage, commit, push, and open a GitHub |
-
 ## growth
 
 **15 skills**
@@ -949,14 +923,14 @@
 | [algorithmic-art](skills/growth-operations-xiaohongshu/algorithmic-art) | growth-operations-xiaohongshu | ★★★★★ | Create original generative art with p5.js, seeded randomness, flow fields, parti |
 | [app-store-optimization](skills/growth-operations-xiaohongshu/app-store-optimization) | growth-operations-xiaohongshu | ★★★★★ | App Store Optimization toolkit for researching keywords, optimizing metadata, an |
 | [campaign-analytics](skills/growth-operations-xiaohongshu/campaign-analytics) | growth-operations-xiaohongshu | ★★★★★ | Analyzes campaign performance with multi-touch attribution, funnel conversion, a |
-| [compete](skills/growth-operations-xiaohongshu/compete) | growth-operations-xiaohongshu | ★★★★★ | 竞品研究、差异化定位、矩阵对比和竞争战卡。 |
+| [compete](skills/growth-operations-xiaohongshu/compete) | growth-operations-xiaohongshu | ★★★★★ | Use when researching competitors: profiles, feature and pricing matrices, positi |
 | [competitors-analysis](skills/growth-operations-xiaohongshu/competitors-analysis) | growth-operations-xiaohongshu | ★★★★★ | Compare competitor repositories using verified code and source evidence when tec |
 | [content-creator](skills/growth-operations-xiaohongshu/content-creator) | growth-operations-xiaohongshu | ★★★★★ | Create or revise marketing content with a consistent brand voice, audience inten |
-| [growth](skills/growth-operations-xiaohongshu/growth) | growth-operations-xiaohongshu | ★★★★★ | 搜索、社交、转化和人工智能引用优化的一体化增长。 |
+| [growth](skills/growth-operations-xiaohongshu/growth) | growth-operations-xiaohongshu | ★★★★★ | Use when improving organic acquisition for web pages: SEO meta tags, structured  |
 | [linkedin-growth](skills/growth-operations-xiaohongshu/linkedin-growth) | growth-operations-xiaohongshu | ★★★★★ | Manage LinkedIn lead qualification and follow-up workflows through linkedin-cli  |
 | [marketing-demand-acquisition](skills/growth-operations-xiaohongshu/marketing-demand-acquisition) | growth-operations-xiaohongshu | ★★★★★ | Multi-channel demand generation, paid media optimization, SEO strategy, and part |
 | [marketing-strategy-pmm](skills/growth-operations-xiaohongshu/marketing-strategy-pmm) | growth-operations-xiaohongshu | ★★★★★ | Product marketing skill for positioning, GTM strategy, competitive intelligence, |
-| [pulse](skills/growth-operations-xiaohongshu/pulse) | growth-operations-xiaohongshu | ★★★★★ | 关键指标、埋点、漏斗、留存和仪表盘规格设计。 |
+| [pulse](skills/growth-operations-xiaohongshu/pulse) | growth-operations-xiaohongshu | ★★★★★ | Use when defining product metrics and tracking: north-star metric trees, event s |
 | [social-media-analyzer](skills/growth-operations-xiaohongshu/social-media-analyzer) | growth-operations-xiaohongshu | ★★★★★ | Analyze social campaign engagement, ROI, audience behavior, and platform compari |
 | [x-twitter-scraper](skills/growth-operations-xiaohongshu/x-twitter-scraper) | growth-operations-xiaohongshu | ★★★★★ | Use Xquik for X/Twitter research and connected-account actions; Radar and suppor |
 | [tweetclaw-source-research](skills/growth-operations-xiaohongshu/tweetclaw-source-research) | growth-operations-xiaohongshu | ★★★★☆ | Use TweetClaw through OpenClaw to collect X/Twitter source context before drafti |
@@ -972,17 +946,38 @@
 | [deep-research](skills/ai-workflow/deep-research) | ai-workflow | ★★★★★ | Produce source-backed research reports, literature reviews, or technical and mar |
 | [skill-creator](skills/ai-workflow/skill-creator) | ai-workflow | ★★★★★ | Create or improve agent skills, trigger descriptions, and evaluation cases; use  |
 | [skill-reviewer](skills/ai-workflow/skill-reviewer) | ai-workflow | ★★★★★ | Review and improve agent skills for clear triggers, actionable instructions, pro |
-| [lens](skills/task-understanding-decomposition/lens) | task-understanding-decomposition | ★★★★★ | 代码库理解、功能发现、数据流追踪和上下文调查。 |
+| [lens](skills/task-understanding-decomposition/lens) | task-understanding-decomposition | ★★★★★ | Use when you need to understand unfamiliar code: confirm whether a feature exist |
 | [reflect-learn](skills/task-understanding-decomposition/reflect-learn) | task-understanding-decomposition | ★★★★★ | Review user corrections or session outcomes to propose durable workflow improvem |
-| [ripple](skills/task-understanding-decomposition/ripple) | task-understanding-decomposition | ★★★★★ | 变更前影响分析，评估依赖链和一致性风险。 |
-| [scout](skills/task-understanding-decomposition/scout) | task-understanding-decomposition | ★★★★★ | 缺陷调查、复现步骤、根因分析和影响评估。 |
-| [find-skills](skills/ai-workflow/find-skills) | ai-workflow | ★★★★☆ | Use when users do not know which skill fits a task, need to search available ski |
+| [ripple](skills/task-understanding-decomposition/ripple) | task-understanding-decomposition | ★★★★★ | Use before a risky change to estimate its blast radius: dependency chains, break |
+| [scout](skills/task-understanding-decomposition/scout) | task-understanding-decomposition | ★★★★★ | Use when investigating a bug report: reproduce it, test hypotheses one variable  |
+| [find-skills](skills/ai-workflow/find-skills) | ai-workflow | ★★★★☆ | Use when users do not know which skill fits a task, need to search installed ski |
 | [prompt-optimizer](skills/ai-workflow/prompt-optimizer) | ai-workflow | ★★★★☆ | Refine prompts or ambiguous requirements into testable specifications when the u |
 | [writing-plans](skills/ai-workflow/writing-plans) | ai-workflow | ★★★★☆ | Use when the user requests an implementation plan or multi-step work needs docum |
 | [lark-okr](skills/knowledge-and-pm-integrations/lark-okr) | knowledge-and-pm-integrations | ★★★★☆ | 飞书 OKR：管理目标与关键结果。查看和编辑 OKR 周期、目标、关键结果、对齐关系、量化指标和进展记录。当用户需要查看或创建 OKR、管理目标和关键结果、查看 |
 | [brainstorming](skills/ai-workflow/brainstorming) | ai-workflow | ★★★☆☆ | Use before creative product or engineering work when the user wants to design a  |
 | [subagent-driven-development](skills/ai-workflow/subagent-driven-development) | ai-workflow | ★★★☆☆ | Use when executing implementation plans with independent tasks in the current se |
 | [grill-me](skills/task-understanding-decomposition/grill-me) | task-understanding-decomposition | ★★★☆☆ | Stress-test a plan, design, or decision when the user explicitly asks to be gril |
+
+## automation
+
+**14 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [guardian](skills/engineering-workflow-automation/guardian) | engineering-workflow-automation | ★★★★★ | Use when preparing or reviewing commits and pull requests: classify changes, sco |
+| [harvest](skills/engineering-workflow-automation/harvest) | engineering-workflow-automation | ★★★★★ | Collecting GitHub PR data and generating work reports. Retrieves PR info via gh  |
+| [latch](skills/engineering-workflow-automation/latch) | engineering-workflow-automation | ★★★★★ | Proposing, configuring, debugging, and maintaining Claude Code hooks (PreToolUse |
+| [linkedin-growth](skills/growth-operations-xiaohongshu/linkedin-growth) | growth-operations-xiaohongshu | ★★★★★ | Manage LinkedIn lead qualification and follow-up workflows through linkedin-cli  |
+| [linkedin](skills/operations-general/linkedin) | operations-general | ★★★★★ | General-purpose LinkedIn automation – fetch profiles, search people and companie |
+| [agent-browser](skills/engineering-workflow-automation/agent-browser) | engineering-workflow-automation | ★★★★☆ | Use when controlling authorized web pages with agent-browser CLI, accessibility  |
+| [jupyter-notebook](skills/engineering-workflow-automation/jupyter-notebook) | engineering-workflow-automation | ★★★★☆ | Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) |
+| [playwright](skills/engineering-workflow-automation/playwright) | engineering-workflow-automation | ★★★★☆ | Use when the task requires automating a real browser from the terminal (navigati |
+| [web-scraper](skills/engineering-workflow-automation/web-scraper) | engineering-workflow-automation | ★★★★☆ | Use when users need webpage scraping, structured data extraction, crawling strat |
+| [lark-base](skills/knowledge-and-pm-integrations/lark-base) | knowledge-and-pm-integrations | ★★★★☆ | 操作飞书 Base 多维表格、字段、记录、视图、公式、仪表盘、BaseApp 页面和角色权限。处理 /base/、/app/ 链接；导入导出转 lark-dri |
+| [billing-automation](skills/engineering-workflow-automation/billing-automation) | engineering-workflow-automation | ★★★☆☆ | Build automated billing systems for recurring payments, invoicing, subscription  |
+| [gh-fix-ci](skills/engineering-workflow-automation/gh-fix-ci) | engineering-workflow-automation | ★★★☆☆ | Inspect and fix failing GitHub Actions PR checks using gh logs and focused valid |
+| [gh-address-comments](skills/engineering-workflow-automation/gh-address-comments) | engineering-workflow-automation | ★★☆☆☆ | Use when addressing GitHub PR review comments or issue comments on the current b |
+| [yeet](skills/engineering-workflow-automation/yeet) | engineering-workflow-automation | ★★☆☆☆ | Use only when the user explicitly asks to stage, commit, push, and open a GitHub |
 
 ## marketing
 
@@ -993,13 +988,13 @@
 | [algorithmic-art](skills/growth-operations-xiaohongshu/algorithmic-art) | growth-operations-xiaohongshu | ★★★★★ | Create original generative art with p5.js, seeded randomness, flow fields, parti |
 | [app-store-optimization](skills/growth-operations-xiaohongshu/app-store-optimization) | growth-operations-xiaohongshu | ★★★★★ | App Store Optimization toolkit for researching keywords, optimizing metadata, an |
 | [campaign-analytics](skills/growth-operations-xiaohongshu/campaign-analytics) | growth-operations-xiaohongshu | ★★★★★ | Analyzes campaign performance with multi-touch attribution, funnel conversion, a |
-| [compete](skills/growth-operations-xiaohongshu/compete) | growth-operations-xiaohongshu | ★★★★★ | 竞品研究、差异化定位、矩阵对比和竞争战卡。 |
+| [compete](skills/growth-operations-xiaohongshu/compete) | growth-operations-xiaohongshu | ★★★★★ | Use when researching competitors: profiles, feature and pricing matrices, positi |
 | [competitors-analysis](skills/growth-operations-xiaohongshu/competitors-analysis) | growth-operations-xiaohongshu | ★★★★★ | Compare competitor repositories using verified code and source evidence when tec |
 | [content-creator](skills/growth-operations-xiaohongshu/content-creator) | growth-operations-xiaohongshu | ★★★★★ | Create or revise marketing content with a consistent brand voice, audience inten |
-| [growth](skills/growth-operations-xiaohongshu/growth) | growth-operations-xiaohongshu | ★★★★★ | 搜索、社交、转化和人工智能引用优化的一体化增长。 |
+| [growth](skills/growth-operations-xiaohongshu/growth) | growth-operations-xiaohongshu | ★★★★★ | Use when improving organic acquisition for web pages: SEO meta tags, structured  |
 | [marketing-demand-acquisition](skills/growth-operations-xiaohongshu/marketing-demand-acquisition) | growth-operations-xiaohongshu | ★★★★★ | Multi-channel demand generation, paid media optimization, SEO strategy, and part |
 | [marketing-strategy-pmm](skills/growth-operations-xiaohongshu/marketing-strategy-pmm) | growth-operations-xiaohongshu | ★★★★★ | Product marketing skill for positioning, GTM strategy, competitive intelligence, |
-| [pulse](skills/growth-operations-xiaohongshu/pulse) | growth-operations-xiaohongshu | ★★★★★ | 关键指标、埋点、漏斗、留存和仪表盘规格设计。 |
+| [pulse](skills/growth-operations-xiaohongshu/pulse) | growth-operations-xiaohongshu | ★★★★★ | Use when defining product metrics and tracking: north-star metric trees, event s |
 | [social-media-analyzer](skills/growth-operations-xiaohongshu/social-media-analyzer) | growth-operations-xiaohongshu | ★★★★★ | Analyze social campaign engagement, ROI, audience behavior, and platform compari |
 | [tweetclaw-source-research](skills/growth-operations-xiaohongshu/tweetclaw-source-research) | growth-operations-xiaohongshu | ★★★★☆ | Use TweetClaw through OpenClaw to collect X/Twitter source context before drafti |
 | [twitter-reader](skills/growth-operations-xiaohongshu/twitter-reader) | growth-operations-xiaohongshu | ★★★☆☆ | Read Twitter/X posts and threads from supplied URLs, including author, text, tim |
@@ -1010,15 +1005,15 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [beacon](skills/devops-sre/beacon) | devops-sre | ★★★★★ | 可观测性、服务目标、告警、容量和可靠性设计。 |
+| [beacon](skills/devops-sre/beacon) | devops-sre | ★★★★★ | Use when defining SLOs and error budgets, burn-rate alerts, OpenTelemetry tracin |
 | [cloudflare-troubleshooting](skills/devops-sre/cloudflare-troubleshooting) | devops-sre | ★★★★★ | Diagnose Cloudflare DNS, TLS, redirects, and configuration issues using live API |
 | [env-secrets-manager](skills/devops-sre/env-secrets-manager) | devops-sre | ★★★★★ | Manage environment files, required-variable validation, secret storage, leak det |
-| [gear](skills/devops-sre/gear) | devops-sre | ★★★★★ | 依赖、构建、容器、监控和开发环境运维优化。 |
-| [github-ops](skills/devops-sre/github-ops) | devops-sre | ★★★★★ | Operate GitHub repositories, PRs, issues, and Actions through gh CLI and GitHub  |
+| [gear](skills/devops-sre/gear) | devops-sre | ★★★★★ | Use when maintaining developer infrastructure: dependency updates and audits, CI |
+| [github-ops](skills/devops-sre/github-ops) | devops-sre | ★★★★★ | Operate GitHub repositories, PRs, issues, reviews, labels, releases, and Actions |
 | [incident-commander](skills/devops-sre/incident-commander) | devops-sre | ★★★★★ | Coordinate active incidents through severity assessment, roles, mitigation, comm |
 | [observability-designer](skills/devops-sre/observability-designer) | devops-sre | ★★★★★ | Design production observability with SLI/SLO definitions, actionable alerts, tel |
 | [release-manager](skills/devops-sre/release-manager) | devops-sre | ★★★★★ | Prepare software releases with version selection, changelogs, artifacts, validat |
-| [triage](skills/devops-sre/triage) | devops-sre | ★★★★★ | 事故首响、影响范围识别、恢复步骤和复盘整理。 |
+| [triage](skills/devops-sre/triage) | devops-sre | ★★★★★ | Use when responding to a live production incident: classify severity, scope impa |
 | [runbook-generator](skills/openclaw-memory-and-safety/runbook-generator) | openclaw-memory-and-safety | ★★★★★ | Write or review operational runbooks for deployment, rollback, incidents, recove |
 | [azure-kubernetes](skills/devops-sre/azure-kubernetes) | devops-sre | ★★★★☆ | Plan and configure Azure Kubernetes Service clusters, including SKU, networking, |
 | [cc-devops-skills](skills/devops-sre/cc-devops-skills) | devops-sre | ★★★★☆ | SRE, DevOps, Kubernetes, CI/CD, PromQL, Terraform, Docker, and incident operatio |
@@ -1030,15 +1025,15 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [beacon](skills/devops-sre/beacon) | devops-sre | ★★★★★ | 可观测性、服务目标、告警、容量和可靠性设计。 |
+| [beacon](skills/devops-sre/beacon) | devops-sre | ★★★★★ | Use when defining SLOs and error budgets, burn-rate alerts, OpenTelemetry tracin |
 | [cloudflare-troubleshooting](skills/devops-sre/cloudflare-troubleshooting) | devops-sre | ★★★★★ | Diagnose Cloudflare DNS, TLS, redirects, and configuration issues using live API |
 | [env-secrets-manager](skills/devops-sre/env-secrets-manager) | devops-sre | ★★★★★ | Manage environment files, required-variable validation, secret storage, leak det |
-| [gear](skills/devops-sre/gear) | devops-sre | ★★★★★ | 依赖、构建、容器、监控和开发环境运维优化。 |
-| [github-ops](skills/devops-sre/github-ops) | devops-sre | ★★★★★ | Operate GitHub repositories, PRs, issues, and Actions through gh CLI and GitHub  |
+| [gear](skills/devops-sre/gear) | devops-sre | ★★★★★ | Use when maintaining developer infrastructure: dependency updates and audits, CI |
+| [github-ops](skills/devops-sre/github-ops) | devops-sre | ★★★★★ | Operate GitHub repositories, PRs, issues, reviews, labels, releases, and Actions |
 | [incident-commander](skills/devops-sre/incident-commander) | devops-sre | ★★★★★ | Coordinate active incidents through severity assessment, roles, mitigation, comm |
 | [observability-designer](skills/devops-sre/observability-designer) | devops-sre | ★★★★★ | Design production observability with SLI/SLO definitions, actionable alerts, tel |
 | [release-manager](skills/devops-sre/release-manager) | devops-sre | ★★★★★ | Prepare software releases with version selection, changelogs, artifacts, validat |
-| [triage](skills/devops-sre/triage) | devops-sre | ★★★★★ | 事故首响、影响范围识别、恢复步骤和复盘整理。 |
+| [triage](skills/devops-sre/triage) | devops-sre | ★★★★★ | Use when responding to a live production incident: classify severity, scope impa |
 | [azure-kubernetes](skills/devops-sre/azure-kubernetes) | devops-sre | ★★★★☆ | Plan and configure Azure Kubernetes Service clusters, including SKU, networking, |
 | [cc-devops-skills](skills/devops-sre/cc-devops-skills) | devops-sre | ★★★★☆ | SRE, DevOps, Kubernetes, CI/CD, PromQL, Terraform, Docker, and incident operatio |
 | [senior-architect](skills/devops-sre/senior-architect) | devops-sre | ★★★★☆ | Design or review system architecture, technical tradeoffs, dependencies, and sca |
@@ -1055,10 +1050,10 @@
 | [product-strategist](skills/product-design/product-strategist) | product-design | ★★★★★ | Strategic product leadership toolkit for Head of Product including OKR cascade g |
 | [researcher](skills/product-design/researcher) | product-design | ★★★★★ | User research specialist. Designs interview guides, usability test plans, qualit |
 | [saas-scaffolder](skills/product-design/saas-scaffolder) | product-design | ★★★★★ | Build a SaaS application or vertical slice from a validated brief, covering auth |
-| [trace](skills/product-design/trace) | product-design | ★★★★★ | 会话回放分析、行为模式提取和体验问题叙事。 |
+| [trace](skills/product-design/trace) | product-design | ★★★★★ | Use when analyzing session replays or event logs for user behavior patterns, fru |
 | [ui-design-system](skills/product-design/ui-design-system) | product-design | ★★★★★ | Create or maintain UI design tokens, component documentation, responsive rules,  |
 | [ux-researcher-designer](skills/product-design/ux-researcher-designer) | product-design | ★★★★★ | Plan and synthesize UX research, personas, journey maps, and usability studies w |
-| [voice](skills/product-design/voice) | product-design | ★★★★★ | 用户反馈收集、满意度调研、评论分析和洞察提炼。 |
+| [voice](skills/product-design/voice) | product-design | ★★★★★ | Use when designing feedback surveys (NPS, CSAT, CES) or analyzing reviews and fe |
 | [canvas-design](skills/product-design/canvas-design) | product-design | ★★★★☆ | Create original static visual designs such as posters, artwork, and compositions |
 | [landing-page-generator](skills/product-design/landing-page-generator) | product-design | ★★★★☆ | Build React/Next.js landing pages with Tailwind, focused copy, accessible sectio |
 
@@ -1074,7 +1069,7 @@
 | [hearth](skills/operations-general/hearth) | operations-general | ★★★★★ | Generating and auditing personal dev environment configs (zsh/tmux/neovim/ghostt |
 | [interview-system-designer](skills/operations-general/interview-system-designer) | operations-general | ★★★★★ | Design hiring interviews, competency matrices, question banks, scoring rubrics,  |
 | [slack-gif-creator](skills/operations-general/slack-gif-creator) | operations-general | ★★★★★ | Knowledge and utilities for creating animated GIFs optimized for Slack. Provides |
-| [linear](skills/knowledge-and-pm-integrations/linear) | knowledge-and-pm-integrations | ★★★★☆ | 用于管理 Linear issues、项目、团队和协作状态。 |
+| [linear](skills/knowledge-and-pm-integrations/linear) | knowledge-and-pm-integrations | ★★★★☆ | Use when creating, querying, or updating Linear issues, projects, teams, and wor |
 | [i-have-adhd](skills/operations-general/i-have-adhd) | operations-general | ★★★★☆ | Shape ADHD-friendly output: lead with the next action, number steps, restate sta |
 | [brand-guidelines](skills/operations-general/brand-guidelines) | operations-general | ★★★☆☆ | Apply Anthropic brand colors and typography when the user requests Anthropic vis |
 | [docs-cleaner](skills/operations-general/docs-cleaner) | operations-general | ★★★☆☆ | Consolidate overlapping documentation and remove repetition while preserving use |
@@ -1090,7 +1085,7 @@
 | [netlify-deploy](skills/deployment-platforms/netlify-deploy) | deployment-platforms | ★★★★★ | Deploy web projects to Netlify using the Netlify CLI (`npx netlify`). Use when t |
 | [pipe](skills/deployment-platforms/pipe) | deployment-platforms | ★★★★★ | Designing GitHub Actions workflows in depth: trigger strategy, security hardenin |
 | [render-deploy](skills/deployment-platforms/render-deploy) | deployment-platforms | ★★★★★ | Deploy applications to Render by analyzing codebases, generating render.yaml Blu |
-| [scaffold](skills/deployment-platforms/scaffold) | deployment-platforms | ★★★★★ | 云基础设施、环境配置和本地开发部署脚手架。 |
+| [scaffold](skills/deployment-platforms/scaffold) | deployment-platforms | ★★★★★ | Use when provisioning infrastructure or dev environments: Terraform or OpenTofu  |
 | [shard](skills/deployment-platforms/shard) | deployment-platforms | ★★★★★ | Designing multi-tenant architectures with tenant isolation strategies, RLS, rout |
 | [vercel-deploy](skills/deployment-platforms/vercel-deploy) | deployment-platforms | ★★★☆☆ | Deploy applications and websites to Vercel. Use when the user requests deploymen |
 
@@ -1118,7 +1113,7 @@
 | [api-test-suite-builder](skills/developer-engineering/api-test-suite-builder) | developer-engineering | ★★★★★ | Generate API tests from routes and contracts for authentication, validation, pag |
 | [x-twitter-scraper](skills/growth-operations-xiaohongshu/x-twitter-scraper) | growth-operations-xiaohongshu | ★★★★★ | Use Xquik for X/Twitter research and connected-account actions; Radar and suppor |
 | [mcporter](skills/ai-agent-platform/mcporter) | ai-agent-platform | ★★★★☆ | Use when a user explicitly needs terminal-based MCP discovery, schema inspection |
-| [arxiv](skills/knowledge-and-pm-integrations/arxiv) | knowledge-and-pm-integrations | ★★★★☆ | Search arXiv papers by keyword, author, category, or ID. |
+| [arxiv](skills/knowledge-and-pm-integrations/arxiv) | knowledge-and-pm-integrations | ★★★★☆ | Use when searching arXiv for papers by keyword, author, category, or ID, or fetc |
 | [lark-openapi-explorer](skills/knowledge-and-pm-integrations/lark-openapi-explorer) | knowledge-and-pm-integrations | ★★★★☆ | 飞书/Lark 原生 OpenAPI 探索：从官方文档库中挖掘未经 CLI 封装的原生 OpenAPI 接口。当用户的需求无法被现有 lark-* skill  |
 
 ## code-review
@@ -1179,31 +1174,7 @@
 | [x-twitter-scraper](skills/growth-operations-xiaohongshu/x-twitter-scraper) | growth-operations-xiaohongshu | ★★★★★ | Use Xquik for X/Twitter research and connected-account actions; Radar and suppor |
 | [mcporter](skills/ai-agent-platform/mcporter) | ai-agent-platform | ★★★★☆ | Use when a user explicitly needs terminal-based MCP discovery, schema inspection |
 | [native-mcp](skills/ai-agent-platform/native-mcp) | ai-agent-platform | ★★★★☆ | Configure Hermes Agent''s built-in MCP client: server discovery, stdio/HTTP conn |
-| [linear](skills/knowledge-and-pm-integrations/linear) | knowledge-and-pm-integrations | ★★★★☆ | 用于管理 Linear issues、项目、团队和协作状态。 |
-
-## performance
-
-**5 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [performance-profiler](skills/developer-engineering/performance-profiler) | developer-engineering | ★★★★★ | Profile Node.js, Python, or Go CPU, memory, I/O, and query bottlenecks; use flam |
-| [react-native-engineering](skills/developer-engineering/react-native-engineering) | developer-engineering | ★★★★★ | Build, debug, upgrade, or ship React Native and Expo apps, including navigation, |
-| [neon-postgres-egress-optimizer](skills/developer-engineering/neon-postgres-egress-optimizer) | developer-engineering | ★★★★☆ | Diagnose excessive Postgres or Neon network egress and database transfer costs b |
-| [python-performance](skills/developer-engineering/python-performance) | developer-engineering | ★★★★☆ | Profile and optimize Python code using cProfile, memory profilers, and performan |
-| [golang-performance](skills/developer-engineering/golang-performance) | developer-engineering | ★★★☆☆ | Optimize Go hot paths after profiling allocations, CPU, GC, caching and I/O. |
-
-## skill
-
-**5 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [skill-creator](skills/ai-workflow/skill-creator) | ai-workflow | ★★★★★ | Create or improve agent skills, trigger descriptions, and evaluation cases; use  |
-| [skill-reviewer](skills/ai-workflow/skill-reviewer) | ai-workflow | ★★★★★ | Review and improve agent skills for clear triggers, actionable instructions, pro |
-| [skill-tester](skills/developer-engineering/skill-tester) | developer-engineering | ★★★★★ | Validate skill structure, bundled scripts and expected outputs against the targe |
-| [skill-security-auditor](skills/security-and-reliability/skill-security-auditor) | security-and-reliability | ★★★★☆ | Audit external agent skills before installation for malicious instructions, unsa |
-| [skill-vetter](skills/security-and-reliability/skill-vetter) | security-and-reliability | ★★☆☆☆ | Use before installing or trusting an external skill to inspect instructions, scr |
+| [linear](skills/knowledge-and-pm-integrations/linear) | knowledge-and-pm-integrations | ★★★★☆ | Use when creating, querying, or updating Linear issues, projects, teams, and wor |
 
 ## analysis
 
@@ -1212,9 +1183,9 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [competitors-analysis](skills/growth-operations-xiaohongshu/competitors-analysis) | growth-operations-xiaohongshu | ★★★★★ | Compare competitor repositories using verified code and source evidence when tec |
-| [lens](skills/task-understanding-decomposition/lens) | task-understanding-decomposition | ★★★★★ | 代码库理解、功能发现、数据流追踪和上下文调查。 |
-| [ripple](skills/task-understanding-decomposition/ripple) | task-understanding-decomposition | ★★★★★ | 变更前影响分析，评估依赖链和一致性风险。 |
-| [scout](skills/task-understanding-decomposition/scout) | task-understanding-decomposition | ★★★★★ | 缺陷调查、复现步骤、根因分析和影响评估。 |
+| [lens](skills/task-understanding-decomposition/lens) | task-understanding-decomposition | ★★★★★ | Use when you need to understand unfamiliar code: confirm whether a feature exist |
+| [ripple](skills/task-understanding-decomposition/ripple) | task-understanding-decomposition | ★★★★★ | Use before a risky change to estimate its blast radius: dependency chains, break |
+| [scout](skills/task-understanding-decomposition/scout) | task-understanding-decomposition | ★★★★★ | Use when investigating a bug report: reproduce it, test hypotheses one variable  |
 
 ## appsec
 
@@ -1222,10 +1193,10 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [codeql-security-scanner](skills/security-and-reliability/codeql-security-scanner) | security-and-reliability | ★★★★☆ | 用于通过 CodeQL 执行语义代码扫描、安全查询、自定义规则、SARIF 报告和 GitHub Code Scanning 集成。 |
+| [codeql-security-scanner](skills/security-and-reliability/codeql-security-scanner) | security-and-reliability | ★★★★☆ | Use when running CodeQL semantic code scanning: build databases, run security or |
 | [firebase-security-rules-auditor](skills/security-and-reliability/firebase-security-rules-auditor) | security-and-reliability | ★★★★☆ | Use when auditing changed Firestore or Cloud Storage rules for authorization, te |
 | [security-auditor](skills/security-and-reliability/security-auditor) | security-and-reliability | ★★★★☆ | Security audit workflow for AI-generated application code, APIs, infrastructure  |
-| [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。 |
+| [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | Use when running Semgrep SAST on source code: registry or custom rules, secrets  |
 
 ## architect
 
@@ -1255,7 +1226,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [builder](skills/developer-engineering/builder) | developer-engineering | ★★★★★ | 生产级业务逻辑、接口集成和类型安全实现。 |
+| [builder](skills/developer-engineering/builder) | developer-engineering | ★★★★★ | Use when implementing production business logic: type-safe domain models, valida |
 | [mcp-builder](skills/developer-engineering/mcp-builder) | developer-engineering | ★★★★★ | Build MCP servers that expose external APIs or services through well-scoped tool |
 | [web-artifacts-builder](skills/developer-engineering/web-artifacts-builder) | developer-engineering | ★★★☆☆ | Build complex interactive HTML artifacts with React, Tailwind, and shadcn/ui whe |
 | [stock-screener-builder](skills/finance-investing/stock-screener-builder) | finance-investing | ★★☆☆☆ | Use when building a stock screen, filtering a universe by valuation, growth, qua |
@@ -1277,10 +1248,10 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [grype-syft-sbom-scanner](skills/security-and-reliability/grype-syft-sbom-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Syft 生成 SBOM，并用 Grype 扫描容器镜像、文件系统、软件包、归档和 SBOM 漏洞。 |
-| [osv-scanner](skills/security-and-reliability/osv-scanner) | security-and-reliability | ★★★★☆ | 用于通过 OSV-Scanner 检查锁文件、清单、SBOM、Git 历史和源码树中的开源依赖漏洞。 |
-| [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Trivy 扫描仓库、容器镜像、文件系统、rootfs、SBOM、Kubernetes、IaC、密钥、许可证和系统 CVE。 |
-| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Vuls 对 Linux、FreeBSD、容器、WordPress、库和网络设备执行 Agentless CVE 扫描。 |
+| [grype-syft-sbom-scanner](skills/security-and-reliability/grype-syft-sbom-scanner) | security-and-reliability | ★★★★☆ | Use when generating an SBOM with Syft and scanning images, filesystems, packages |
+| [osv-scanner](skills/security-and-reliability/osv-scanner) | security-and-reliability | ★★★★☆ | Use when checking open-source dependencies for known vulnerabilities with OSV-Sc |
+| [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | Use when scanning repos, container images, filesystems, SBOMs, Kubernetes, or Ia |
+| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | Use when running agentless CVE scans with Vuls against Linux or FreeBSD hosts, c |
 
 ## deploy
 
@@ -1315,27 +1286,16 @@
 | [ui-ux-pro-max](skills/product-design/ui-ux-pro-max) | product-design | ★★★★☆ | Front-end UI/UX design intelligence for creating, reviewing, and hardening polis |
 | [frontend-design](skills/developer-engineering/frontend-design) | developer-engineering | ★★☆☆☆ | Design and implement polished web components, pages, and applications with a coh |
 
-## github
-
-**4 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [github-contributor](skills/developer-engineering/github-contributor) | developer-engineering | ★★★★★ | Find suitable open-source contribution opportunities and prepare focused GitHub  |
-| [github-ops](skills/devops-sre/github-ops) | devops-sre | ★★★★★ | Operate GitHub repositories, PRs, issues, and Actions through gh CLI and GitHub  |
-| [codeql-security-scanner](skills/security-and-reliability/codeql-security-scanner) | security-and-reliability | ★★★★☆ | 用于通过 CodeQL 执行语义代码扫描、安全查询、自定义规则、SARIF 报告和 GitHub Code Scanning 集成。 |
-| [github](skills/engineering-workflow-automation/github) | engineering-workflow-automation | ★★☆☆☆ | Use when automating GitHub issues, pull requests, reviews, CI checks, labels, re |
-
 ## knowledge
 
 **4 skills**
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [grove](skills/knowledge-and-pm-integrations/grove) | knowledge-and-pm-integrations | ★★★★★ | 仓库结构、文档布局、测试脚本组织和迁移规划。 |
+| [grove](skills/knowledge-and-pm-integrations/grove) | knowledge-and-pm-integrations | ★★★★★ | Use when designing or auditing repository layout: directory structure, docs and  |
 | [lore](skills/knowledge-and-pm-integrations/lore) | knowledge-and-pm-integrations | ★★★★★ | Curating cross-agent knowledge and institutional memory: extracts patterns from  |
-| [tome](skills/knowledge-and-pm-integrations/tome) | knowledge-and-pm-integrations | ★★★★★ | 把仓库变更转化为学习文档、术语说明和设计记录。 |
-| [notion-knowledge-capture](skills/knowledge-and-pm-integrations/notion-knowledge-capture) | knowledge-and-pm-integrations | ★★★☆☆ | 用于把对话、决策和笔记沉淀到 Notion。 |
+| [tome](skills/knowledge-and-pm-integrations/tome) | knowledge-and-pm-integrations | ★★★★★ | Use when turning a diff, PR, or commit range into learning material: change rati |
+| [notion-knowledge-capture](skills/knowledge-and-pm-integrations/notion-knowledge-capture) | knowledge-and-pm-integrations | ★★★☆☆ | Use when turning a conversation, decision, or rough notes into a structured Noti |
 
 ## kubernetes
 
@@ -1346,7 +1306,7 @@
 | [kubernetes-specialist](skills/developer-engineering/kubernetes-specialist) | developer-engineering | ★★★★☆ | Use when managing Kubernetes clusters, debugging Pods and workloads, designing H |
 | [azure-kubernetes](skills/devops-sre/azure-kubernetes) | devops-sre | ★★★★☆ | Plan and configure Azure Kubernetes Service clusters, including SKU, networking, |
 | [cc-devops-skills](skills/devops-sre/cc-devops-skills) | devops-sre | ★★★★☆ | SRE, DevOps, Kubernetes, CI/CD, PromQL, Terraform, Docker, and incident operatio |
-| [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Trivy 扫描仓库、容器镜像、文件系统、rootfs、SBOM、Kubernetes、IaC、密钥、许可证和系统 CVE。 |
+| [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | Use when scanning repos, container images, filesystems, SBOMs, Kubernetes, or Ia |
 
 ## media
 
@@ -1365,10 +1325,10 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [cast](skills/openclaw-memory-and-safety/cast) | openclaw-memory-and-safety | ★★★★★ | 用户画像生成、角色注册、生命周期和跨智能体同步。 |
-| [omen](skills/openclaw-memory-and-safety/omen) | openclaw-memory-and-safety | ★★★★★ | 预演失败模式，识别计划风险并给出优先级。 |
+| [cast](skills/openclaw-memory-and-safety/cast) | openclaw-memory-and-safety | ★★★★★ | Use when creating or maintaining user personas from docs, code, analytics, or fe |
+| [omen](skills/openclaw-memory-and-safety/omen) | openclaw-memory-and-safety | ★★★★★ | Use when stress-testing a plan or design before launch: pre-mortems, FMEA scorin |
 | [warden](skills/openclaw-memory-and-safety/warden) | openclaw-memory-and-safety | ★★★★★ | Guardian of V.A.I.R.E. quality standards (Value/Agency/Identity/Resilience/Echo) |
-| [honcho](skills/openclaw-memory-and-safety/honcho) | openclaw-memory-and-safety | ★★★★☆ | Configure and troubleshoot Honcho memory for Hermes. |
+| [honcho](skills/openclaw-memory-and-safety/honcho) | openclaw-memory-and-safety | ★★★★☆ | Use when setting up, tuning, or troubleshooting Honcho cross-session memory for  |
 
 ## notion
 
@@ -1376,10 +1336,21 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [notion-knowledge-capture](skills/knowledge-and-pm-integrations/notion-knowledge-capture) | knowledge-and-pm-integrations | ★★★☆☆ | 用于把对话、决策和笔记沉淀到 Notion。 |
-| [notion-meeting-intelligence](skills/knowledge-and-pm-integrations/notion-meeting-intelligence) | knowledge-and-pm-integrations | ★★★☆☆ | 用于基于 Notion 上下文准备会议材料。 |
-| [notion-research-documentation](skills/knowledge-and-pm-integrations/notion-research-documentation) | knowledge-and-pm-integrations | ★★★☆☆ | 用于整合 Notion 信息并生成研究文档。 |
-| [notion-spec-to-implementation](skills/knowledge-and-pm-integrations/notion-spec-to-implementation) | knowledge-and-pm-integrations | ★★★☆☆ | 用于把 Notion 规格转成计划、任务和进度跟踪。 |
+| [notion-knowledge-capture](skills/knowledge-and-pm-integrations/notion-knowledge-capture) | knowledge-and-pm-integrations | ★★★☆☆ | Use when turning a conversation, decision, or rough notes into a structured Noti |
+| [notion-meeting-intelligence](skills/knowledge-and-pm-integrations/notion-meeting-intelligence) | knowledge-and-pm-integrations | ★★★☆☆ | Use when preparing for an upcoming meeting from Notion context: agenda, pre-read |
+| [notion-research-documentation](skills/knowledge-and-pm-integrations/notion-research-documentation) | knowledge-and-pm-integrations | ★★★☆☆ | Use when synthesizing several Notion pages into a cited brief, comparison, or re |
+| [notion-spec-to-implementation](skills/knowledge-and-pm-integrations/notion-spec-to-implementation) | knowledge-and-pm-integrations | ★★★☆☆ | Use when turning a Notion PRD or feature spec into a linked implementation plan  |
+
+## performance
+
+**4 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [performance-profiler](skills/developer-engineering/performance-profiler) | developer-engineering | ★★★★★ | Profile Node.js, Python, or Go CPU, memory, I/O, and query bottlenecks; use flam |
+| [react-native-engineering](skills/developer-engineering/react-native-engineering) | developer-engineering | ★★★★★ | Build, debug, upgrade, or ship React Native and Expo apps, including navigation, |
+| [python-performance](skills/developer-engineering/python-performance) | developer-engineering | ★★★★☆ | Profile and optimize Python code using cProfile, memory profilers, and performan |
+| [golang-performance](skills/developer-engineering/golang-performance) | developer-engineering | ★★★☆☆ | Optimize Go hot paths after profiling allocations, CPU, GC, caching and I/O. |
 
 ## react
 
@@ -1399,9 +1370,9 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [deep-research](skills/ai-workflow/deep-research) | ai-workflow | ★★★★★ | Produce source-backed research reports, literature reviews, or technical and mar |
-| [arxiv](skills/knowledge-and-pm-integrations/arxiv) | knowledge-and-pm-integrations | ★★★★☆ | Search arXiv papers by keyword, author, category, or ID. |
+| [arxiv](skills/knowledge-and-pm-integrations/arxiv) | knowledge-and-pm-integrations | ★★★★☆ | Use when searching arXiv for papers by keyword, author, category, or ID, or fetc |
 | [llm-wiki](skills/knowledge-and-pm-integrations/llm-wiki) | knowledge-and-pm-integrations | ★★★★☆ | Use when building, querying, ingesting sources into, or auditing an interlinked  |
-| [notion-research-documentation](skills/knowledge-and-pm-integrations/notion-research-documentation) | knowledge-and-pm-integrations | ★★★☆☆ | 用于整合 Notion 信息并生成研究文档。 |
+| [notion-research-documentation](skills/knowledge-and-pm-integrations/notion-research-documentation) | knowledge-and-pm-integrations | ★★★☆☆ | Use when synthesizing several Notion pages into a cited brief, comparison, or re |
 
 ## review
 
@@ -1420,8 +1391,8 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [cast](skills/openclaw-memory-and-safety/cast) | openclaw-memory-and-safety | ★★★★★ | 用户画像生成、角色注册、生命周期和跨智能体同步。 |
-| [omen](skills/openclaw-memory-and-safety/omen) | openclaw-memory-and-safety | ★★★★★ | 预演失败模式，识别计划风险并给出优先级。 |
+| [cast](skills/openclaw-memory-and-safety/cast) | openclaw-memory-and-safety | ★★★★★ | Use when creating or maintaining user personas from docs, code, analytics, or fe |
+| [omen](skills/openclaw-memory-and-safety/omen) | openclaw-memory-and-safety | ★★★★★ | Use when stress-testing a plan or design before launch: pre-mortems, FMEA scorin |
 | [runbook-generator](skills/openclaw-memory-and-safety/runbook-generator) | openclaw-memory-and-safety | ★★★★★ | Write or review operational runbooks for deployment, rollback, incidents, recove |
 | [warden](skills/openclaw-memory-and-safety/warden) | openclaw-memory-and-safety | ★★★★★ | Guardian of V.A.I.R.E. quality standards (Value/Agency/Identity/Resilience/Echo) |
 
@@ -1433,8 +1404,19 @@
 |-------|----------|---------|-------------|
 | [env-secrets-manager](skills/devops-sre/env-secrets-manager) | devops-sre | ★★★★★ | Manage environment files, required-variable validation, secret storage, leak det |
 | [security-auditor](skills/security-and-reliability/security-auditor) | security-and-reliability | ★★★★☆ | Security audit workflow for AI-generated application code, APIs, infrastructure  |
-| [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。 |
-| [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Trivy 扫描仓库、容器镜像、文件系统、rootfs、SBOM、Kubernetes、IaC、密钥、许可证和系统 CVE。 |
+| [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | Use when running Semgrep SAST on source code: registry or custom rules, secrets  |
+| [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | Use when scanning repos, container images, filesystems, SBOMs, Kubernetes, or Ia |
+
+## skill
+
+**4 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [skill-creator](skills/ai-workflow/skill-creator) | ai-workflow | ★★★★★ | Create or improve agent skills, trigger descriptions, and evaluation cases; use  |
+| [skill-reviewer](skills/ai-workflow/skill-reviewer) | ai-workflow | ★★★★★ | Review and improve agent skills for clear triggers, actionable instructions, pro |
+| [skill-tester](skills/developer-engineering/skill-tester) | developer-engineering | ★★★★★ | Validate skill structure, bundled scripts and expected outputs against the targe |
+| [skill-security-auditor](skills/security-and-reliability/skill-security-auditor) | security-and-reliability | ★★★★☆ | Audit external agent skills before installing, trusting, or updating them: stati |
 
 ## skills
 
@@ -1442,7 +1424,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [find-skills](skills/ai-workflow/find-skills) | ai-workflow | ★★★★☆ | Use when users do not know which skill fits a task, need to search available ski |
+| [find-skills](skills/ai-workflow/find-skills) | ai-workflow | ★★★★☆ | Use when users do not know which skill fits a task, need to search installed ski |
 | [using-superpowers](skills/ai-workflow/using-superpowers) | ai-workflow | ★★★★☆ | Select relevant Superpowers workflow skills when the user requests that workflow |
 | [writing-skills](skills/ai-workflow/writing-skills) | ai-workflow | ★★★★☆ | Use when creating new skills, editing existing skills, or verifying skills work  |
 | [lark-skill-maker](skills/knowledge-and-pm-integrations/lark-skill-maker) | knowledge-and-pm-integrations | ★★★☆☆ | Use when creating reusable skills around verified Lark CLI or OpenAPI operations |
@@ -1464,10 +1446,10 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [grype-syft-sbom-scanner](skills/security-and-reliability/grype-syft-sbom-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Syft 生成 SBOM，并用 Grype 扫描容器镜像、文件系统、软件包、归档和 SBOM 漏洞。 |
+| [grype-syft-sbom-scanner](skills/security-and-reliability/grype-syft-sbom-scanner) | security-and-reliability | ★★★★☆ | Use when generating an SBOM with Syft and scanning images, filesystems, packages |
 | [security-pen-testing](skills/security-and-reliability/security-pen-testing) | security-and-reliability | ★★★★☆ | Perform authorized security assessments, vulnerability scans, and penetration te |
-| [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Trivy 扫描仓库、容器镜像、文件系统、rootfs、SBOM、Kubernetes、IaC、密钥、许可证和系统 CVE。 |
-| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Vuls 对 Linux、FreeBSD、容器、WordPress、库和网络设备执行 Agentless CVE 扫描。 |
+| [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | Use when scanning repos, container images, filesystems, SBOMs, Kubernetes, or Ia |
+| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | Use when running agentless CVE scans with Vuls against Linux or FreeBSD hosts, c |
 
 ## animation
 
@@ -1497,7 +1479,7 @@
 |-------|----------|---------|-------------|
 | [nlpm-audit](skills/ai-workflow/nlpm-audit) | ai-workflow | ★★★★☆ | Audit SKILL.md, AGENTS.md, prompts, hooks, and plugin manifests for instruction  |
 | [playwright-pro](skills/engineering-workflow-automation/playwright-pro) | engineering-workflow-automation | ★★★★☆ | Production-grade Playwright testing skill for E2E suites, flaky test diagnosis,  |
-| [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。 |
+| [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | Use when running Semgrep SAST on source code: registry or custom rules, secrets  |
 
 ## creator
 
@@ -1528,6 +1510,16 @@
 | [finishing-a-development-branch](skills/ai-workflow/finishing-a-development-branch) | ai-workflow | ★★★★☆ | Use when implementation is complete, all tests pass, and you need to decide how  |
 | [using-git-worktrees](skills/ai-workflow/using-git-worktrees) | ai-workflow | ★★★★☆ | Use when starting feature work that needs isolation from current workspace or be |
 | [git-worktree-manager](skills/developer-engineering/git-worktree-manager) | developer-engineering | ★★★★☆ | Create, inspect, and clean up Git worktrees for parallel development, with expli |
+
+## github
+
+**3 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [github-contributor](skills/developer-engineering/github-contributor) | developer-engineering | ★★★★★ | Find suitable open-source contribution opportunities and prepare focused GitHub  |
+| [github-ops](skills/devops-sre/github-ops) | devops-sre | ★★★★★ | Operate GitHub repositories, PRs, issues, reviews, labels, releases, and Actions |
+| [codeql-security-scanner](skills/security-and-reliability/codeql-security-scanner) | security-and-reliability | ★★★★☆ | Use when running CodeQL semantic code scanning: build databases, run security or |
 
 ## go
 
@@ -1567,7 +1559,7 @@
 |-------|----------|---------|-------------|
 | [meeting-minutes-taker](skills/office-white-collar/meeting-minutes-taker) | office-white-collar | ★★★★★ | Turn meeting transcripts into accurate minutes with decisions, actions, owners,  |
 | [lark-meeting](skills/knowledge-and-pm-integrations/lark-meeting) | knowledge-and-pm-integrations | ★★★★☆ | Use Lark CLI to locate meetings, manage Minutes and AI notes, inspect transcript |
-| [notion-meeting-intelligence](skills/knowledge-and-pm-integrations/notion-meeting-intelligence) | knowledge-and-pm-integrations | ★★★☆☆ | 用于基于 Notion 上下文准备会议材料。 |
+| [notion-meeting-intelligence](skills/knowledge-and-pm-integrations/notion-meeting-intelligence) | knowledge-and-pm-integrations | ★★★☆☆ | Use when preparing for an upcoming meeting from Notion context: agenda, pre-read |
 
 ## migration
 
@@ -1597,17 +1589,7 @@
 |-------|----------|---------|-------------|
 | [morph](skills/office-white-collar/morph) | office-white-collar | ★★★★★ | Converting document formats (Markdown/Word/Excel/PDF/HTML) and generating reusab |
 | [prism](skills/office-white-collar/prism) | office-white-collar | ★★★★★ | Consultant for NotebookLM steering prompt design. Optimizes Audio/Video/Slide/In |
-| [stage](skills/office-white-collar/stage) | office-white-collar | ★★★★★ | 演示文稿生成、叙事节奏设计和会议演讲优化。 |
-
-## postgres
-
-**3 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [neon-postgres](skills/developer-engineering/neon-postgres) | developer-engineering | ★★★★★ | Build or troubleshoot Neon Postgres connections, branching, pooling, scaling, Au |
-| [neon-postgres-egress-optimizer](skills/developer-engineering/neon-postgres-egress-optimizer) | developer-engineering | ★★★★☆ | Diagnose excessive Postgres or Neon network egress and database transfer costs b |
-| [supabase-postgres-best-practices](skills/developer-engineering/supabase-postgres-best-practices) | developer-engineering | ★★★☆☆ | Use when writing or reviewing Postgres schemas, queries, indexes, RLS policies,  |
+| [stage](skills/office-white-collar/stage) | office-white-collar | ★★★★★ | Use when creating or improving a talk or slide deck: Markdown slides (Marp, reve |
 
 ## reviewer
 
@@ -1625,9 +1607,9 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [grype-syft-sbom-scanner](skills/security-and-reliability/grype-syft-sbom-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Syft 生成 SBOM，并用 Grype 扫描容器镜像、文件系统、软件包、归档和 SBOM 漏洞。 |
-| [osv-scanner](skills/security-and-reliability/osv-scanner) | security-and-reliability | ★★★★☆ | 用于通过 OSV-Scanner 检查锁文件、清单、SBOM、Git 历史和源码树中的开源依赖漏洞。 |
-| [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Trivy 扫描仓库、容器镜像、文件系统、rootfs、SBOM、Kubernetes、IaC、密钥、许可证和系统 CVE。 |
+| [grype-syft-sbom-scanner](skills/security-and-reliability/grype-syft-sbom-scanner) | security-and-reliability | ★★★★☆ | Use when generating an SBOM with Syft and scanning images, filesystems, packages |
+| [osv-scanner](skills/security-and-reliability/osv-scanner) | security-and-reliability | ★★★★☆ | Use when checking open-source dependencies for known vulnerabilities with OSV-Sc |
+| [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | Use when scanning repos, container images, filesystems, SBOMs, Kubernetes, or Ia |
 
 ## social-media
 
@@ -1645,9 +1627,9 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [grype-syft-sbom-scanner](skills/security-and-reliability/grype-syft-sbom-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Syft 生成 SBOM，并用 Grype 扫描容器镜像、文件系统、软件包、归档和 SBOM 漏洞。 |
-| [osv-scanner](skills/security-and-reliability/osv-scanner) | security-and-reliability | ★★★★☆ | 用于通过 OSV-Scanner 检查锁文件、清单、SBOM、Git 历史和源码树中的开源依赖漏洞。 |
-| [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。 |
+| [grype-syft-sbom-scanner](skills/security-and-reliability/grype-syft-sbom-scanner) | security-and-reliability | ★★★★☆ | Use when generating an SBOM with Syft and scanning images, filesystems, packages |
+| [osv-scanner](skills/security-and-reliability/osv-scanner) | security-and-reliability | ★★★★☆ | Use when checking open-source dependencies for known vulnerabilities with OSV-Sc |
+| [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | Use when running Semgrep SAST on source code: registry or custom rules, secrets  |
 
 ## system
 
@@ -1751,7 +1733,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [dependency-auditor](skills/developer-engineering/dependency-auditor) | developer-engineering | ★★★★★ | Audit dependency inventories, verify vulnerability and license evidence, and pla |
-| [skill-security-auditor](skills/security-and-reliability/skill-security-auditor) | security-and-reliability | ★★★★☆ | Audit external agent skills before installation for malicious instructions, unsa |
+| [skill-security-auditor](skills/security-and-reliability/skill-security-auditor) | security-and-reliability | ★★★★☆ | Audit external agent skills before installing, trusting, or updating them: stati |
 
 ## authorization
 
@@ -1778,7 +1760,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [fact-checker](skills/operations-general/fact-checker) | operations-general | ★★★★★ | Verify factual claims against current authoritative sources and apply requested  |
-| [link-checker](skills/security-and-reliability/link-checker) | security-and-reliability | ★★☆☆☆ | Use when checking URL availability, dead links, redirect chains, suspicious doma |
+| [link-checker](skills/security-and-reliability/link-checker) | security-and-reliability | ★★★☆☆ | Use when checking URL availability, dead links, redirect chains, suspicious doma |
 
 ## cloudflare
 
@@ -1795,8 +1777,8 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [codeql-security-scanner](skills/security-and-reliability/codeql-security-scanner) | security-and-reliability | ★★★★☆ | 用于通过 CodeQL 执行语义代码扫描、安全查询、自定义规则、SARIF 报告和 GitHub Code Scanning 集成。 |
-| [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。 |
+| [codeql-security-scanner](skills/security-and-reliability/codeql-security-scanner) | security-and-reliability | ★★★★☆ | Use when running CodeQL semantic code scanning: build databases, run security or |
+| [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | Use when running Semgrep SAST on source code: registry or custom rules, secrets  |
 
 ## codebase
 
@@ -1822,8 +1804,8 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [grype-syft-sbom-scanner](skills/security-and-reliability/grype-syft-sbom-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Syft 生成 SBOM，并用 Grype 扫描容器镜像、文件系统、软件包、归档和 SBOM 漏洞。 |
-| [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Trivy 扫描仓库、容器镜像、文件系统、rootfs、SBOM、Kubernetes、IaC、密钥、许可证和系统 CVE。 |
+| [grype-syft-sbom-scanner](skills/security-and-reliability/grype-syft-sbom-scanner) | security-and-reliability | ★★★★☆ | Use when generating an SBOM with Syft and scanning images, filesystems, packages |
+| [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | Use when scanning repos, container images, filesystems, SBOMs, Kubernetes, or Ia |
 
 ## docker
 
@@ -1868,7 +1850,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [figma-implement-design](skills/ai-agent-platform/figma-implement-design) | ai-agent-platform | ★★★★★ | Implement UI from Figma URLs or node IDs with visual fidelity, project conventio |
-| [figma](skills/ai-agent-platform/figma) | ai-agent-platform | ★★☆☆☆ | Fetch Figma design context, variables, screenshots, and assets through MCP when  |
+| [figma](skills/ai-agent-platform/figma) | ai-agent-platform | ★★★☆☆ | Fetch Figma design context, variables, screenshots, and assets through MCP when  |
 
 ## financial
 
@@ -1885,7 +1867,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [gateway](skills/developer-engineering/gateway) | developer-engineering | ★★★★★ | 接口设计、规范生成、版本策略和破坏性变更检查。 |
+| [gateway](skills/developer-engineering/gateway) | developer-engineering | ★★★★★ | Use when designing or reviewing REST or GraphQL APIs: OpenAPI specs, versioning  |
 | [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Use, configure, theme, extend, and orchestrate Hermes Agent. |
 
 ## graphify
@@ -1904,7 +1886,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [graphql-expert](skills/developer-engineering/graphql-expert) | developer-engineering | ★★★★☆ | Use when designing GraphQL APIs, reviewing schemas and resolvers, optimizing que |
-| [linear](skills/knowledge-and-pm-integrations/linear) | knowledge-and-pm-integrations | ★★★★☆ | 用于管理 Linear issues、项目、团队和协作状态。 |
+| [linear](skills/knowledge-and-pm-integrations/linear) | knowledge-and-pm-integrations | ★★★★☆ | Use when creating, querying, or updating Linear issues, projects, teams, and wor |
 
 ## hermes
 
@@ -1978,15 +1960,6 @@
 | [meeting-minutes-taker](skills/office-white-collar/meeting-minutes-taker) | office-white-collar | ★★★★★ | Turn meeting transcripts into accurate minutes with decisions, actions, owners,  |
 | [lark-meeting](skills/knowledge-and-pm-integrations/lark-meeting) | knowledge-and-pm-integrations | ★★★★☆ | Use Lark CLI to locate meetings, manage Minutes and AI notes, inspect transcript |
 
-## neon
-
-**2 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [neon-postgres](skills/developer-engineering/neon-postgres) | developer-engineering | ★★★★★ | Build or troubleshoot Neon Postgres connections, branching, pooling, scaling, Au |
-| [neon-postgres-egress-optimizer](skills/developer-engineering/neon-postgres-egress-optimizer) | developer-engineering | ★★★★☆ | Diagnose excessive Postgres or Neon network egress and database transfer costs b |
-
 ## nextjs
 
 **2 skills**
@@ -2041,6 +2014,15 @@
 | [playwright](skills/engineering-workflow-automation/playwright) | engineering-workflow-automation | ★★★★☆ | Use when the task requires automating a real browser from the terminal (navigati |
 | [playwright-pro](skills/engineering-workflow-automation/playwright-pro) | engineering-workflow-automation | ★★★★☆ | Production-grade Playwright testing skill for E2E suites, flaky test diagnosis,  |
 
+## postgres
+
+**2 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [neon-postgres](skills/developer-engineering/neon-postgres) | developer-engineering | ★★★★★ | Build or troubleshoot Neon Postgres connections, branching, pooling, scaling, Au |
+| [supabase-postgres-best-practices](skills/developer-engineering/supabase-postgres-best-practices) | developer-engineering | ★★★☆☆ | Use when writing or reviewing Postgres schemas, queries, indexes, RLS policies,  |
+
 ## practices
 
 **2 skills**
@@ -2075,7 +2057,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [lark-task](skills/knowledge-and-pm-integrations/lark-task) | knowledge-and-pm-integrations | ★★★★☆ | 飞书任务：管理任务、清单和任务智能体。创建待办任务、查看和更新任务状态、拆分子任务、组织任务清单、分配协作成员、上传任务附件、注册或注销任务智能体、更新任务智能 |
-| [linear](skills/knowledge-and-pm-integrations/linear) | knowledge-and-pm-integrations | ★★★★☆ | 用于管理 Linear issues、项目、团队和协作状态。 |
+| [linear](skills/knowledge-and-pm-integrations/linear) | knowledge-and-pm-integrations | ★★★★☆ | Use when creating, querying, or updating Linear issues, projects, teams, and wor |
 
 ## quality-gate
 
@@ -2119,8 +2101,8 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [codeql-security-scanner](skills/security-and-reliability/codeql-security-scanner) | security-and-reliability | ★★★★☆ | 用于通过 CodeQL 执行语义代码扫描、安全查询、自定义规则、SARIF 报告和 GitHub Code Scanning 集成。 |
-| [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。 |
+| [codeql-security-scanner](skills/security-and-reliability/codeql-security-scanner) | security-and-reliability | ★★★★☆ | Use when running CodeQL semantic code scanning: build databases, run security or |
+| [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | Use when running Semgrep SAST on source code: registry or custom rules, secrets  |
 
 ## schema
 
@@ -2129,7 +2111,7 @@
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
 | [database-schema-designer](skills/developer-engineering/database-schema-designer) | developer-engineering | ★★★★★ | Design relational database schemas from requirements and generate migrations, Ty |
-| [schema](skills/developer-engineering/schema) | developer-engineering | ★★★★★ | 数据库模式设计、迁移规划、索引策略和关系建模。 |
+| [schema](skills/developer-engineering/schema) | developer-engineering | ★★★★★ | Use when designing or reviewing database schemas: data models, zero-downtime mig |
 
 ## slides
 
@@ -2272,7 +2254,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [arxiv](skills/knowledge-and-pm-integrations/arxiv) | knowledge-and-pm-integrations | ★★★★☆ | Search arXiv papers by keyword, author, category, or ID. |
+| [arxiv](skills/knowledge-and-pm-integrations/arxiv) | knowledge-and-pm-integrations | ★★★★☆ | Use when searching arXiv for papers by keyword, author, category, or ID, or fetc |
 
 ## acquisition
 
@@ -2440,7 +2422,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [arxiv](skills/knowledge-and-pm-integrations/arxiv) | knowledge-and-pm-integrations | ★★★★☆ | Search arXiv papers by keyword, author, category, or ID. |
+| [arxiv](skills/knowledge-and-pm-integrations/arxiv) | knowledge-and-pm-integrations | ★★★★☆ | Use when searching arXiv for papers by keyword, author, category, or ID, or fetc |
 
 ## attendance
 
@@ -2504,7 +2486,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [beacon](skills/devops-sre/beacon) | devops-sre | ★★★★★ | 可观测性、服务目标、告警、容量和可靠性设计。 |
+| [beacon](skills/devops-sre/beacon) | devops-sre | ★★★★★ | Use when defining SLOs and error budgets, burn-rate alerts, OpenTelemetry tracin |
 
 ## benchmark
 
@@ -2544,7 +2526,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [breach](skills/security-and-reliability/breach) | security-and-reliability | ★★★★★ | 红队场景、攻击路径、威胁建模和对抗演练设计。 |
+| [breach](skills/security-and-reliability/breach) | security-and-reliability | ★★★★★ | Use when planning authorized red-team or threat-model work: STRIDE or ATT&CK mod |
 
 ## browser
 
@@ -2608,7 +2590,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [notion-knowledge-capture](skills/knowledge-and-pm-integrations/notion-knowledge-capture) | knowledge-and-pm-integrations | ★★★☆☆ | 用于把对话、决策和笔记沉淀到 Notion。 |
+| [notion-knowledge-capture](skills/knowledge-and-pm-integrations/notion-knowledge-capture) | knowledge-and-pm-integrations | ★★★☆☆ | Use when turning a conversation, decision, or rough notes into a structured Noti |
 
 ## cast
 
@@ -2616,7 +2598,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [cast](skills/openclaw-memory-and-safety/cast) | openclaw-memory-and-safety | ★★★★★ | 用户画像生成、角色注册、生命周期和跨智能体同步。 |
+| [cast](skills/openclaw-memory-and-safety/cast) | openclaw-memory-and-safety | ★★★★★ | Use when creating or maintaining user personas from docs, code, analytics, or fe |
 
 ## cdp
 
@@ -2680,7 +2662,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [cloak](skills/security-and-reliability/cloak) | security-and-reliability | ★★★★★ | 隐私工程、敏感信息流、同意管理和数据治理。 |
+| [cloak](skills/security-and-reliability/cloak) | security-and-reliability | ★★★★★ | Use when a system handles personal data: PII discovery, data-flow mapping, conse |
 
 ## cloud-storage
 
@@ -2728,7 +2710,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [codeql-security-scanner](skills/security-and-reliability/codeql-security-scanner) | security-and-reliability | ★★★★☆ | 用于通过 CodeQL 执行语义代码扫描、安全查询、自定义规则、SARIF 报告和 GitHub Code Scanning 集成。 |
+| [codeql-security-scanner](skills/security-and-reliability/codeql-security-scanner) | security-and-reliability | ★★★★☆ | Use when running CodeQL semantic code scanning: build databases, run security or |
 
 ## codex
 
@@ -2792,7 +2774,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [compete](skills/growth-operations-xiaohongshu/compete) | growth-operations-xiaohongshu | ★★★★★ | 竞品研究、差异化定位、矩阵对比和竞争战卡。 |
+| [compete](skills/growth-operations-xiaohongshu/compete) | growth-operations-xiaohongshu | ★★★★★ | Use when researching competitors: profiles, feature and pricing matrices, positi |
 
 ## competitive
 
@@ -2874,14 +2856,6 @@
 |-------|----------|---------|-------------|
 | [github-contributor](skills/developer-engineering/github-contributor) | developer-engineering | ★★★★★ | Find suitable open-source contribution opportunities and prepare focused GitHub  |
 
-## cost-optimization
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [neon-postgres-egress-optimizer](skills/developer-engineering/neon-postgres-egress-optimizer) | developer-engineering | ★★★★☆ | Diagnose excessive Postgres or Neon network egress and database transfer costs b |
-
 ## crest
 
 **1 skills**
@@ -2896,7 +2870,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [codeql-security-scanner](skills/security-and-reliability/codeql-security-scanner) | security-and-reliability | ★★★★☆ | 用于通过 CodeQL 执行语义代码扫描、安全查询、自定义规则、SARIF 报告和 GitHub Code Scanning 集成。 |
+| [codeql-security-scanner](skills/security-and-reliability/codeql-security-scanner) | security-and-reliability | ★★★★☆ | Use when running CodeQL semantic code scanning: build databases, run security or |
 
 ## data
 
@@ -3000,7 +2974,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [osv-scanner](skills/security-and-reliability/osv-scanner) | security-and-reliability | ★★★★☆ | 用于通过 OSV-Scanner 检查锁文件、清单、SBOM、Git 历史和源码树中的开源依赖漏洞。 |
+| [osv-scanner](skills/security-and-reliability/osv-scanner) | security-and-reliability | ★★★★☆ | Use when checking open-source dependencies for known vulnerabilities with OSV-Sc |
 
 ## deprecation-and-migration
 
@@ -3048,7 +3022,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [honcho](skills/openclaw-memory-and-safety/honcho) | openclaw-memory-and-safety | ★★★★☆ | Configure and troubleshoot Honcho memory for Hermes. |
+| [honcho](skills/openclaw-memory-and-safety/honcho) | openclaw-memory-and-safety | ★★★★☆ | Use when setting up, tuning, or troubleshooting Honcho cross-session memory for  |
 
 ## documentation
 
@@ -3056,7 +3030,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [notion-research-documentation](skills/knowledge-and-pm-integrations/notion-research-documentation) | knowledge-and-pm-integrations | ★★★☆☆ | 用于整合 Notion 信息并生成研究文档。 |
+| [notion-research-documentation](skills/knowledge-and-pm-integrations/notion-research-documentation) | knowledge-and-pm-integrations | ★★★☆☆ | Use when synthesizing several Notion pages into a cited brief, comparison, or re |
 
 ## documentation-and-adrs
 
@@ -3240,7 +3214,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [find-skills](skills/ai-workflow/find-skills) | ai-workflow | ★★★★☆ | Use when users do not know which skill fits a task, need to search available ski |
+| [find-skills](skills/ai-workflow/find-skills) | ai-workflow | ★★★★☆ | Use when users do not know which skill fits a task, need to search installed ski |
 
 ## firebase
 
@@ -3288,7 +3262,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Vuls 对 Linux、FreeBSD、容器、WordPress、库和网络设备执行 Agentless CVE 扫描。 |
+| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | Use when running agentless CVE scans with Vuls against Linux or FreeBSD hosts, c |
 
 ## frontend-ui-engineering
 
@@ -3320,7 +3294,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [gear](skills/devops-sre/gear) | devops-sre | ★★★★★ | 依赖、构建、容器、监控和开发环境运维优化。 |
+| [gear](skills/devops-sre/gear) | devops-sre | ★★★★★ | Use when maintaining developer infrastructure: dependency updates and audits, CI |
 
 ## gha
 
@@ -3368,7 +3342,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [grove](skills/knowledge-and-pm-integrations/grove) | knowledge-and-pm-integrations | ★★★★★ | 仓库结构、文档布局、测试脚本组织和迁移规划。 |
+| [grove](skills/knowledge-and-pm-integrations/grove) | knowledge-and-pm-integrations | ★★★★★ | Use when designing or auditing repository layout: directory structure, docs and  |
 
 ## grype
 
@@ -3376,7 +3350,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [grype-syft-sbom-scanner](skills/security-and-reliability/grype-syft-sbom-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Syft 生成 SBOM，并用 Grype 扫描容器镜像、文件系统、软件包、归档和 SBOM 漏洞。 |
+| [grype-syft-sbom-scanner](skills/security-and-reliability/grype-syft-sbom-scanner) | security-and-reliability | ★★★★☆ | Use when generating an SBOM with Syft and scanning images, filesystems, packages |
 
 ## guard
 
@@ -3392,7 +3366,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [guardian](skills/engineering-workflow-automation/guardian) | engineering-workflow-automation | ★★★★★ | 提交、分支、合并请求策略和变更粒度把关。 |
+| [guardian](skills/engineering-workflow-automation/guardian) | engineering-workflow-automation | ★★★★★ | Use when preparing or reviewing commits and pull requests: classify changes, sco |
 
 ## guidelines
 
@@ -3432,7 +3406,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [honcho](skills/openclaw-memory-and-safety/honcho) | openclaw-memory-and-safety | ★★★★☆ | Configure and troubleshoot Honcho memory for Hermes. |
+| [honcho](skills/openclaw-memory-and-safety/honcho) | openclaw-memory-and-safety | ★★★★☆ | Use when setting up, tuning, or troubleshooting Honcho cross-session memory for  |
 
 ## host-security
 
@@ -3440,7 +3414,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Vuls 对 Linux、FreeBSD、容器、WordPress、库和网络设备执行 Agentless CVE 扫描。 |
+| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | Use when running agentless CVE scans with Vuls against Linux or FreeBSD hosts, c |
 
 ## hub
 
@@ -3464,7 +3438,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Trivy 扫描仓库、容器镜像、文件系统、rootfs、SBOM、Kubernetes、IaC、密钥、许可证和系统 CVE。 |
+| [trivy-vulnerability-scanner](skills/security-and-reliability/trivy-vulnerability-scanner) | security-and-reliability | ★★★★☆ | Use when scanning repos, container images, filesystems, SBOMs, Kubernetes, or Ia |
 
 ## idea-refine
 
@@ -3512,7 +3486,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [notion-spec-to-implementation](skills/knowledge-and-pm-integrations/notion-spec-to-implementation) | knowledge-and-pm-integrations | ★★★☆☆ | 用于把 Notion 规格转成计划、任务和进度跟踪。 |
+| [notion-spec-to-implementation](skills/knowledge-and-pm-integrations/notion-spec-to-implementation) | knowledge-and-pm-integrations | ★★★☆☆ | Use when turning a Notion PRD or feature spec into a linked implementation plan  |
 
 ## incident-response
 
@@ -3544,7 +3518,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [notion-meeting-intelligence](skills/knowledge-and-pm-integrations/notion-meeting-intelligence) | knowledge-and-pm-integrations | ★★★☆☆ | 用于基于 Notion 上下文准备会议材料。 |
+| [notion-meeting-intelligence](skills/knowledge-and-pm-integrations/notion-meeting-intelligence) | knowledge-and-pm-integrations | ★★★☆☆ | Use when preparing for an upcoming meeting from Notion context: agenda, pre-read |
 
 ## interop
 
@@ -3600,7 +3574,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [linear](skills/knowledge-and-pm-integrations/linear) | knowledge-and-pm-integrations | ★★★★☆ | 用于管理 Linear issues、项目、团队和协作状态。 |
+| [linear](skills/knowledge-and-pm-integrations/linear) | knowledge-and-pm-integrations | ★★★★☆ | Use when creating, querying, or updating Linear issues, projects, teams, and wor |
 
 ## jupyter
 
@@ -3648,7 +3622,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [ledger](skills/finance-investing/ledger) | finance-investing | ★★★★★ | 云成本、预算告警、资源规格和人工智能工作负载成本优化。 |
+| [ledger](skills/finance-investing/ledger) | finance-investing | ★★★★★ | Use when estimating or reducing cloud spend: IaC cost estimates, right-sizing, R |
 
 ## lens
 
@@ -3656,7 +3630,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [lens](skills/task-understanding-decomposition/lens) | task-understanding-decomposition | ★★★★★ | 代码库理解、功能发现、数据流追踪和上下文调查。 |
+| [lens](skills/task-understanding-decomposition/lens) | task-understanding-decomposition | ★★★★★ | Use when you need to understand unfamiliar code: confirm whether a feature exist |
 
 ## levy
 
@@ -3672,7 +3646,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [linear](skills/knowledge-and-pm-integrations/linear) | knowledge-and-pm-integrations | ★★★★☆ | 用于管理 Linear issues、项目、团队和协作状态。 |
+| [linear](skills/knowledge-and-pm-integrations/linear) | knowledge-and-pm-integrations | ★★★★☆ | Use when creating, querying, or updating Linear issues, projects, teams, and wor |
 
 ## link
 
@@ -3680,7 +3654,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [link-checker](skills/security-and-reliability/link-checker) | security-and-reliability | ★★☆☆☆ | Use when checking URL availability, dead links, redirect chains, suspicious doma |
+| [link-checker](skills/security-and-reliability/link-checker) | security-and-reliability | ★★★☆☆ | Use when checking URL availability, dead links, redirect chains, suspicious doma |
 
 ## linux
 
@@ -3688,7 +3662,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Vuls 对 Linux、FreeBSD、容器、WordPress、库和网络设备执行 Agentless CVE 扫描。 |
+| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | Use when running agentless CVE scans with Vuls against Linux or FreeBSD hosts, c |
 
 ## loc
 
@@ -3704,7 +3678,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [osv-scanner](skills/security-and-reliability/osv-scanner) | security-and-reliability | ★★★★☆ | 用于通过 OSV-Scanner 检查锁文件、清单、SBOM、Git 历史和源码树中的开源依赖漏洞。 |
+| [osv-scanner](skills/security-and-reliability/osv-scanner) | security-and-reliability | ★★★★☆ | Use when checking open-source dependencies for known vulnerabilities with OSV-Sc |
 
 ## lore
 
@@ -3744,7 +3718,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [security-ownership-map](skills/security-and-reliability/security-ownership-map) | security-and-reliability | ★★★★★ | 用于基于 Git 历史分析安全所有权、敏感代码归属、bus factor、CODEOWNERS 现实差距和风险热点。 |
+| [security-ownership-map](skills/security-and-reliability/security-ownership-map) | security-and-reliability | ★★★★★ | Use when assessing security ownership from git history: who owns sensitive code, |
 
 ## meetings
 
@@ -3858,6 +3832,14 @@
 |-------|----------|---------|-------------|
 | [monorepo-navigator](skills/developer-engineering/monorepo-navigator) | developer-engineering | ★★★★★ | Inspect or improve Turborepo, Nx, pnpm, or Lerna monorepos: package boundaries,  |
 
+## neon
+
+**1 skills**
+
+| Skill | Category | Quality | Description |
+|-------|----------|---------|-------------|
+| [neon-postgres](skills/developer-engineering/neon-postgres) | developer-engineering | ★★★★★ | Build or troubleshoot Neon Postgres connections, branching, pooling, scaling, Au |
+
 ## netlify
 
 **1 skills**
@@ -3872,7 +3854,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [nexus](skills/ai-workflow/nexus) | ai-workflow | ★★★★★ | 多智能体任务分解、链路编排、执行协调和结果整合。 |
+| [nexus](skills/ai-workflow/nexus) | ai-workflow | ★★★★★ | Use when a task needs several specialist agents: classify it, pick the minimum a |
 
 ## nlpm
 
@@ -3904,7 +3886,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [honcho](skills/openclaw-memory-and-safety/honcho) | openclaw-memory-and-safety | ★★★★☆ | Configure and troubleshoot Honcho memory for Hermes. |
+| [honcho](skills/openclaw-memory-and-safety/honcho) | openclaw-memory-and-safety | ★★★★☆ | Use when setting up, tuning, or troubleshooting Honcho cross-session memory for  |
 
 ## obsidian
 
@@ -3944,7 +3926,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [omen](skills/openclaw-memory-and-safety/omen) | openclaw-memory-and-safety | ★★★★★ | 预演失败模式，识别计划风险并给出优先级。 |
+| [omen](skills/openclaw-memory-and-safety/omen) | openclaw-memory-and-safety | ★★★★★ | Use when stress-testing a plan or design before launch: pre-mortems, FMEA scorin |
 
 ## onboarding
 
@@ -4008,7 +3990,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [github-ops](skills/devops-sre/github-ops) | devops-sre | ★★★★★ | Operate GitHub repositories, PRs, issues, and Actions through gh CLI and GitHub  |
+| [github-ops](skills/devops-sre/github-ops) | devops-sre | ★★★★★ | Operate GitHub repositories, PRs, issues, reviews, labels, releases, and Actions |
 
 ## optimization
 
@@ -4040,7 +4022,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [oracle](skills/ai-agent-platform/oracle) | ai-agent-platform | ★★★★★ | 人工智能应用设计、评估、检索增强和安全护栏规划。 |
+| [oracle](skills/ai-agent-platform/oracle) | ai-agent-platform | ★★★★★ | Use when designing or reviewing LLM applications: prompts, RAG pipelines, agent  |
 
 ## orchestration
 
@@ -4056,7 +4038,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [osv-scanner](skills/security-and-reliability/osv-scanner) | security-and-reliability | ★★★★☆ | 用于通过 OSV-Scanner 检查锁文件、清单、SBOM、Git 历史和源码树中的开源依赖漏洞。 |
+| [osv-scanner](skills/security-and-reliability/osv-scanner) | security-and-reliability | ★★★★☆ | Use when checking open-source dependencies for known vulnerabilities with OSV-Sc |
 
 ## output-style
 
@@ -4080,7 +4062,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [security-ownership-map](skills/security-and-reliability/security-ownership-map) | security-and-reliability | ★★★★★ | 用于基于 Git 历史分析安全所有权、敏感代码归属、bus factor、CODEOWNERS 现实差距和风险热点。 |
+| [security-ownership-map](skills/security-and-reliability/security-ownership-map) | security-and-reliability | ★★★★★ | Use when assessing security ownership from git history: who owns sensitive code, |
 
 ## page
 
@@ -4096,7 +4078,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [arxiv](skills/knowledge-and-pm-integrations/arxiv) | knowledge-and-pm-integrations | ★★★★☆ | Search arXiv papers by keyword, author, category, or ID. |
+| [arxiv](skills/knowledge-and-pm-integrations/arxiv) | knowledge-and-pm-integrations | ★★★★☆ | Use when searching arXiv for papers by keyword, author, category, or ID, or fetc |
 
 ## parallel
 
@@ -4112,7 +4094,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Vuls 对 Linux、FreeBSD、容器、WordPress、库和网络设备执行 Agentless CVE 扫描。 |
+| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | Use when running agentless CVE scans with Vuls against Linux or FreeBSD hosts, c |
 
 ## pdf
 
@@ -4232,7 +4214,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [honcho](skills/openclaw-memory-and-safety/honcho) | openclaw-memory-and-safety | ★★★★☆ | Configure and troubleshoot Honcho memory for Hermes. |
+| [honcho](skills/openclaw-memory-and-safety/honcho) | openclaw-memory-and-safety | ★★★★☆ | Use when setting up, tuning, or troubleshooting Honcho cross-session memory for  |
 
 ## profiling
 
@@ -4280,7 +4262,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [pulse](skills/growth-operations-xiaohongshu/pulse) | growth-operations-xiaohongshu | ★★★★★ | 关键指标、埋点、漏斗、留存和仪表盘规格设计。 |
+| [pulse](skills/growth-operations-xiaohongshu/pulse) | growth-operations-xiaohongshu | ★★★★★ | Use when defining product metrics and tracking: north-star metric trees, event s |
 
 ## pygount
 
@@ -4328,7 +4310,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [rally](skills/ai-workflow/rally) | ai-workflow | ★★★★★ | 多会话并行执行编排，协调多个智能体共同完成任务。 |
+| [rally](skills/ai-workflow/rally) | ai-workflow | ★★★★★ | Use when independent tasks should run in parallel across 3-5 agent sessions or e |
 
 ## react-native
 
@@ -4472,7 +4454,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [ripple](skills/task-understanding-decomposition/ripple) | task-understanding-decomposition | ★★★★★ | 变更前影响分析，评估依赖链和一致性风险。 |
+| [ripple](skills/task-understanding-decomposition/ripple) | task-understanding-decomposition | ★★★★★ | Use before a risky change to estimate its blast radius: dependency chains, break |
 
 ## risk
 
@@ -4536,7 +4518,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [codeql-security-scanner](skills/security-and-reliability/codeql-security-scanner) | security-and-reliability | ★★★★☆ | 用于通过 CodeQL 执行语义代码扫描、安全查询、自定义规则、SARIF 报告和 GitHub Code Scanning 集成。 |
+| [codeql-security-scanner](skills/security-and-reliability/codeql-security-scanner) | security-and-reliability | ★★★★☆ | Use when running CodeQL semantic code scanning: build databases, run security or |
 
 ## sca
 
@@ -4544,7 +4526,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [osv-scanner](skills/security-and-reliability/osv-scanner) | security-and-reliability | ★★★★☆ | 用于通过 OSV-Scanner 检查锁文件、清单、SBOM、Git 历史和源码树中的开源依赖漏洞。 |
+| [osv-scanner](skills/security-and-reliability/osv-scanner) | security-and-reliability | ★★★★☆ | Use when checking open-source dependencies for known vulnerabilities with OSV-Sc |
 
 ## scaffold
 
@@ -4552,7 +4534,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [scaffold](skills/deployment-platforms/scaffold) | deployment-platforms | ★★★★★ | 云基础设施、环境配置和本地开发部署脚手架。 |
+| [scaffold](skills/deployment-platforms/scaffold) | deployment-platforms | ★★★★★ | Use when provisioning infrastructure or dev environments: Terraform or OpenTofu  |
 
 ## scaffolder
 
@@ -4576,7 +4558,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [arxiv](skills/knowledge-and-pm-integrations/arxiv) | knowledge-and-pm-integrations | ★★★★☆ | Search arXiv papers by keyword, author, category, or ID. |
+| [arxiv](skills/knowledge-and-pm-integrations/arxiv) | knowledge-and-pm-integrations | ★★★★☆ | Use when searching arXiv for papers by keyword, author, category, or ID, or fetc |
 
 ## scout
 
@@ -4584,7 +4566,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [scout](skills/task-understanding-decomposition/scout) | task-understanding-decomposition | ★★★★★ | 缺陷调查、复现步骤、根因分析和影响评估。 |
+| [scout](skills/task-understanding-decomposition/scout) | task-understanding-decomposition | ★★★★★ | Use when investigating a bug report: reproduce it, test hypotheses one variable  |
 
 ## scraper
 
@@ -4672,7 +4654,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。 |
+| [semgrep-appsec-scanner](skills/security-and-reliability/semgrep-appsec-scanner) | security-and-reliability | ★★★★☆ | Use when running Semgrep SAST on source code: registry or custom rules, secrets  |
 
 ## senior
 
@@ -4688,7 +4670,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [sentry](skills/security-and-reliability/sentry) | security-and-reliability | ★★★★☆ | 用于只读查询 Sentry issues、events 和服务健康数据，汇总线上错误并辅助生产问题排查。 |
+| [sentry](skills/security-and-reliability/sentry) | security-and-reliability | ★★★★☆ | Use when inspecting production errors in Sentry read-only: list issues and event |
 
 ## setup
 
@@ -4728,7 +4710,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [sherpa](skills/ai-workflow/sherpa) | ai-workflow | ★★★★★ | 把复杂任务拆成短步骤，控制漂移并推进交付。 |
+| [sherpa](skills/ai-workflow/sherpa) | ai-workflow | ★★★★★ | Use when a complex epic must be broken into small atomic steps with progress tra |
 
 ## shipping-and-launch
 
@@ -4744,7 +4726,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [sigil](skills/ai-agent-platform/sigil) | ai-agent-platform | ★★★★★ | 根据项目代码自动生成贴合仓库约定的技能。 |
+| [sigil](skills/ai-agent-platform/sigil) | ai-agent-platform | ★★★★★ | Use when generating, validating, or updating project-specific agent skills that  |
 
 ## sketch
 
@@ -4824,7 +4806,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [notion-spec-to-implementation](skills/knowledge-and-pm-integrations/notion-spec-to-implementation) | knowledge-and-pm-integrations | ★★★☆☆ | 用于把 Notion 规格转成计划、任务和进度跟踪。 |
+| [notion-spec-to-implementation](skills/knowledge-and-pm-integrations/notion-spec-to-implementation) | knowledge-and-pm-integrations | ★★★☆☆ | Use when turning a Notion PRD or feature spec into a linked implementation plan  |
 
 ## spec-driven-development
 
@@ -4864,7 +4846,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [stage](skills/office-white-collar/stage) | office-white-collar | ★★★★★ | 演示文稿生成、叙事节奏设计和会议演讲优化。 |
+| [stage](skills/office-white-collar/stage) | office-white-collar | ★★★★★ | Use when creating or improving a talk or slide deck: Markdown slides (Marp, reve |
 
 ## standup
 
@@ -4928,7 +4910,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [grype-syft-sbom-scanner](skills/security-and-reliability/grype-syft-sbom-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Syft 生成 SBOM，并用 Grype 扫描容器镜像、文件系统、软件包、归档和 SBOM 漏洞。 |
+| [grype-syft-sbom-scanner](skills/security-and-reliability/grype-syft-sbom-scanner) | security-and-reliability | ★★★★☆ | Use when generating an SBOM with Syft and scanning images, filesystems, packages |
 
 ## systematic
 
@@ -5032,7 +5014,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [tome](skills/knowledge-and-pm-integrations/tome) | knowledge-and-pm-integrations | ★★★★★ | 把仓库变更转化为学习文档、术语说明和设计记录。 |
+| [tome](skills/knowledge-and-pm-integrations/tome) | knowledge-and-pm-integrations | ★★★★★ | Use when turning a diff, PR, or commit range into learning material: change rati |
 
 ## tone
 
@@ -5056,7 +5038,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [trace](skills/product-design/trace) | product-design | ★★★★★ | 会话回放分析、行为模式提取和体验问题叙事。 |
+| [trace](skills/product-design/trace) | product-design | ★★★★★ | Use when analyzing session replays or event logs for user behavior patterns, fru |
 
 ## transcribe
 
@@ -5080,7 +5062,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [triage](skills/devops-sre/triage) | devops-sre | ★★★★★ | 事故首响、影响范围识别、恢复步骤和复盘整理。 |
+| [triage](skills/devops-sre/triage) | devops-sre | ★★★★★ | Use when responding to a live production incident: classify severity, scope impa |
 
 ## troubleshooting
 
@@ -5112,7 +5094,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [honcho](skills/openclaw-memory-and-safety/honcho) | openclaw-memory-and-safety | ★★★★☆ | Configure and troubleshoot Honcho memory for Hermes. |
+| [honcho](skills/openclaw-memory-and-safety/honcho) | openclaw-memory-and-safety | ★★★★☆ | Use when setting up, tuning, or troubleshooting Honcho cross-session memory for  |
 
 ## using-agent-skills
 
@@ -5138,14 +5120,6 @@
 |-------|----------|---------|-------------|
 | [comps-valuation-analyst](skills/finance-investing/comps-valuation-analyst) | finance-investing | ★★☆☆☆ | Use when valuing a public company with peer multiples, building comparable-compa |
 
-## vetter
-
-**1 skills**
-
-| Skill | Category | Quality | Description |
-|-------|----------|---------|-------------|
-| [skill-vetter](skills/security-and-reliability/skill-vetter) | security-and-reliability | ★★☆☆☆ | Use before installing or trusting an external skill to inspect instructions, scr |
-
 ## visual-regression
 
 **1 skills**
@@ -5168,7 +5142,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [voice](skills/product-design/voice) | product-design | ★★★★★ | 用户反馈收集、满意度调研、评论分析和洞察提炼。 |
+| [voice](skills/product-design/voice) | product-design | ★★★★★ | Use when designing feedback surveys (NPS, CSAT, CES) or analyzing reviews and fe |
 
 ## vulnerability-research
 
@@ -5184,7 +5158,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | 用于通过 Vuls 对 Linux、FreeBSD、容器、WordPress、库和网络设备执行 Agentless CVE 扫描。 |
+| [vuls-linux-cve-scanner](skills/security-and-reliability/vuls-linux-cve-scanner) | security-and-reliability | ★★★★☆ | Use when running agentless CVE scans with Vuls against Linux or FreeBSD hosts, c |
 
 ## warden
 

@@ -2,13 +2,13 @@
 name: comps-valuation-analyst
 description: 'Use when valuing a public company with peer multiples, building comparable-company tables, or pressure-testing a valuation range with EV/EBITDA, P/E, and EV/Sales.'
 zh_description: "依据可比公司和统一财务口径开展相对估值分析。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["analyst", "comps", "finance", "valuation"]'
 created_at: "2026-03-18"
-updated_at: "2026-09-06"
+updated_at: "2026-11-04"
 quality: 2
 complexity: "intermediate"
 ---
@@ -118,5 +118,5 @@ cat assets/sample_comps_input.json
 2. **剔除异常值**：手动检查那些倍数 > 100x 或为负的对标项。
 3. **重视中位数**：优先使用中位数（Median）而非平均值（Mean），以减少离群值的干扰。
 4. **动态更新**：估值是动态的，每当重大宏观事件发生或 Peer 财报发布后，必须重新运行分析。
-5. **记忆同步**：将估值区间和关键假设记录到 `MEMORY.md`。
+5. **记录交付**：将估值区间和关键假设写入用户指定的研究记录或工作区文件；用户未要求时只在交付物中列出，不写入持久记忆或设置定时任务。
 6. **严谨的注释**：每一个标准化调整步骤（Normalization）都必须有详细的脚注说明。

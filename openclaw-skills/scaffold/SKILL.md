@@ -1,15 +1,15 @@
 ---
 name: scaffold
-description: '云基础设施、环境配置和本地开发部署脚手架。'
-zh_description: "云基础设施、环境配置和本地开发部署脚手架。"
-version: "1.0.3"
+description: 'Use when provisioning infrastructure or dev environments: Terraform or OpenTofu modules, Docker Compose setups, multi-cloud layouts, secret management, and IaC cost gates.'
+zh_description: "搭建云基础设施或本地开发环境时使用：Terraform/OpenTofu、Docker Compose、密钥管理与成本门禁。"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/scaffold/SKILL.md"
 license: MIT
 tags: ["deployment", "scaffold"]
 created_at: "2026-08-24"
-updated_at: "2026-10-26"
+updated_at: "2026-11-04"
 quality: 5
 complexity: "advanced"
 ---

@@ -2,7 +2,7 @@
   "schema_version": 2,
   "video": {
     "url": "https://github.com/seaworld008/Commonly-used-high-value-skills",
-    "checked_at": "2026-10-26",
+    "checked_at": "2026-11-04",
     "note": "External canonical skills reclassified from the legacy in-house provenance mapping."
   },
   "collection": {
@@ -1257,8 +1257,8 @@
         "repo": "akin-ozer/cc-devops-skills",
         "path": "README.md",
         "ref": "main",
-        "last_checked_at": "2026-09-30",
-        "last_synced_at": "2026-08-31",
+        "last_checked_at": "2026-11-04",
+        "last_synced_at": "2026-11-04",
         "last_synced_commit": "276af751e659315aaf56d3ad13d7c26f4e72e28a",
         "sync_mode": "monitor",
         "path_commit": "84f796a092ff67d05e56dab16acf48b965b95d56"
@@ -1284,8 +1284,8 @@
             "resolved_commit": "276af751e659315aaf56d3ad13d7c26f4e72e28a",
             "path_commit": "84f796a092ff67d05e56dab16acf48b965b95d56",
             "content_sha256": "9d253f88c04ec3556e91756a025318c438df66516c4702ecb768ad1a148168e4",
-            "last_checked_at": "2026-09-30",
-            "last_synced_at": "2026-08-31",
+            "last_checked_at": "2026-11-04",
+            "last_synced_at": "2026-11-04",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "f49a4e16e68b128803cc2dcea614603632b04eac",
@@ -1588,16 +1588,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/neon-postgres/SKILL.md",
       "source": "https://github.com/neondatabase/agent-skills/blob/80164a28443aca7c82ac1a70aed836950d6c29ea/skills/neon-postgres/SKILL.md",
-      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-28: curated reviewed deltas from 80164a28443aca7c82ac1a70aed836950d6c29ea; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json.",
+      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-28: curated reviewed deltas from 80164a28443aca7c82ac1a70aed836950d6c29ea; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json.\n2026-11-04: three-way review of upstream ae9babb (neondatabase/agent-skills#172 consolidation). Absorbed the egress optimization section, the hot-read caching note, the @neon/auth rename, neon-realtime routing, and the new branching.md and egress-optimization.md references verbatim; retained the local scope/authorization boundary, the no-auto-install policy, and vendor-neutral embedding guidance. Replaces the retired neon-postgres-egress-optimizer skill.",
       "upstream": {
         "repo": "neondatabase/agent-skills",
         "path": "skills/neon-postgres/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "4da86b02402ee8d00b3d365a1fccb62a812ec08e",
+        "last_checked_at": "2026-11-04",
+        "last_synced_at": "2026-11-04",
+        "last_synced_commit": "ae9babbf804e90bf42e9444ebbc9278dfcb105eb",
         "sync_mode": "monitor",
-        "path_commit": "07f288e9cdc714944f929632a7ce6cfc277fae67"
+        "path_commit": "96e53a4a6ebf5960d6f50f0c9f859877ab3243ad"
       },
       "kind": "mirror",
       "sync_mode": "monitor",
@@ -1611,6 +1611,16 @@
             {
               "source": "skills/neon-postgres/SKILL.md",
               "target": "skills/developer-engineering/neon-postgres/SKILL.md"
+            },
+            {
+              "source": "skills/neon-postgres/references/branching.md",
+              "target": "skills/developer-engineering/neon-postgres/references/branching.md",
+              "type": "file"
+            },
+            {
+              "source": "skills/neon-postgres/references/egress-optimization.md",
+              "target": "skills/developer-engineering/neon-postgres/references/egress-optimization.md",
+              "type": "file"
             },
             {
               "source": "skills/neon-postgres/references/full-text-search.md",
@@ -1636,17 +1646,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "4da86b02402ee8d00b3d365a1fccb62a812ec08e",
-            "path_commit": "07f288e9cdc714944f929632a7ce6cfc277fae67",
-            "content_sha256": "97cc1fc8280b8bc91b30f04da51a39975aecc99b1d2da6dcdcee915a649f040c",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "resolved_commit": "ae9babbf804e90bf42e9444ebbc9278dfcb105eb",
+            "path_commit": "96e53a4a6ebf5960d6f50f0c9f859877ab3243ad",
+            "content_sha256": "643886832b2b1ae70d18da968a7b8e8c8f21717133bb9983605406391240e78a",
+            "last_checked_at": "2026-11-04",
+            "last_synced_at": "2026-11-04",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
               "content_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
               "spdx": "Apache-2.0",
-              "resolved_commit": "4da86b02402ee8d00b3d365a1fccb62a812ec08e",
+              "resolved_commit": "ae9babbf804e90bf42e9444ebbc9278dfcb105eb",
               "api_spdx": "Apache-2.0"
             }
           }
@@ -1656,7 +1666,19 @@
         {
           "path": "skills/developer-engineering/neon-postgres/SKILL.md",
           "owner": "neon-postgres",
-          "sha256": "97cc1fc8280b8bc91b30f04da51a39975aecc99b1d2da6dcdcee915a649f040c",
+          "sha256": "643886832b2b1ae70d18da968a7b8e8c8f21717133bb9983605406391240e78a",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/neon-postgres/references/branching.md",
+          "owner": "neon-postgres",
+          "sha256": "2212db6f23cfe5ac666ace66f1e434a40234bfcb1c046e9ab883d6206643ab1a",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/developer-engineering/neon-postgres/references/egress-optimization.md",
+          "owner": "neon-postgres",
+          "sha256": "c103951687a0f9d6ca2c3ee74b3fa68a0925c2269fb0aa13156f087d44a78e18",
           "mode": "100644"
         },
         {
@@ -1688,10 +1710,10 @@
     {
       "video_name": "neon-postgres-egress-optimizer",
       "normalized_slug": "neon-postgres-egress-optimizer",
-      "status": "verified_in_repo",
-      "repo_skill": "skills/developer-engineering/neon-postgres-egress-optimizer/SKILL.md",
+      "status": "retired",
+      "repo_skill": null,
       "source": "https://github.com/neondatabase/agent-skills/blob/80164a28443aca7c82ac1a70aed836950d6c29ea/skills/neon-postgres-egress-optimizer/SKILL.md",
-      "notes": "Reclassified from the in-house mapping after canonical frontmatter and upstream license/path verification; legacy fields retained for sync compatibility. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Declared artifact bytes and modes are unchanged between the pinned commits; retain local overlay and advance the reviewed checkpoint only. See docs/maintenance-followup-2026-10-03.json.",
+      "notes": "Retired 2026-11-04: upstream neondatabase/agent-skills#172 consolidated the standalone egress skill into neon-postgres/references/egress-optimization.md and retired the skill ID; use neon-postgres.",
       "upstream": {
         "repo": "neondatabase/agent-skills",
         "path": "skills/neon-postgres-egress-optimizer/SKILL.md",
@@ -1699,23 +1721,18 @@
         "last_checked_at": "2026-10-26",
         "last_synced_at": "2026-10-26",
         "last_synced_commit": "4da86b02402ee8d00b3d365a1fccb62a812ec08e",
-        "sync_mode": "monitor",
+        "sync_mode": "archived",
         "path_commit": "e5a62ea5e1f44fa39be6017c7b6251e6d2363d5a"
       },
-      "kind": "mirror",
-      "sync_mode": "monitor",
+      "kind": "reference_only",
+      "sync_mode": "archived",
       "origins": [
         {
           "repo": "neondatabase/agent-skills",
           "path": "skills/neon-postgres-egress-optimizer/SKILL.md",
           "license": "Apache-2.0",
-          "sync_mode": "monitor",
-          "artifacts": [
-            {
-              "source": "skills/neon-postgres-egress-optimizer/SKILL.md",
-              "target": "skills/developer-engineering/neon-postgres-egress-optimizer/SKILL.md"
-            }
-          ],
+          "sync_mode": "archived",
+          "artifacts": [],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
@@ -1735,14 +1752,7 @@
           }
         }
       ],
-      "managed_files": [
-        {
-          "path": "skills/developer-engineering/neon-postgres-egress-optimizer/SKILL.md",
-          "owner": "neon-postgres-egress-optimizer",
-          "sha256": "7b0bf839197895bcbd23d26a8ced1fd1ce2f55d2f2e3af413e3ab130151f74d0",
-          "mode": "100644"
-        }
-      ]
+      "managed_files": []
     },
     {
       "video_name": "nextjs-app-router",
@@ -2248,8 +2258,8 @@
         "repo": "supabase/agent-skills",
         "path": "skills/supabase/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-03",
-        "last_synced_at": "2026-10-03",
+        "last_checked_at": "2026-11-04",
+        "last_synced_at": "2026-11-04",
         "last_synced_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
         "sync_mode": "monitor",
         "path_commit": "551274ed2fe97c8fea1325f7ceb05803a542f8df"
@@ -2290,8 +2300,8 @@
             "resolved_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
             "path_commit": "551274ed2fe97c8fea1325f7ceb05803a542f8df",
             "content_sha256": "69a7fc20ec97b60a3d51679d5bcf41dfe8cc596088ac02ceb1a45ef3b70f4832",
-            "last_checked_at": "2026-10-03",
-            "last_synced_at": "2026-10-03",
+            "last_checked_at": "2026-11-04",
+            "last_synced_at": "2026-11-04",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d3c9e94fbc6c28f66ecb5a01407d543c99c811b6",
@@ -2369,8 +2379,8 @@
         "repo": "supabase/agent-skills",
         "path": "skills/supabase-postgres-best-practices/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-03",
-        "last_synced_at": "2026-10-03",
+        "last_checked_at": "2026-11-04",
+        "last_synced_at": "2026-11-04",
         "last_synced_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
         "sync_mode": "monitor",
         "path_commit": "32912161e2732c3e5001c6811a76c1f8308ed0da"
@@ -2571,8 +2581,8 @@
             "resolved_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
             "path_commit": "32912161e2732c3e5001c6811a76c1f8308ed0da",
             "content_sha256": "06641745423da5a205f718e1a363d98165b76023ba84c32ce3ce80163bfb8c13",
-            "last_checked_at": "2026-10-03",
-            "last_synced_at": "2026-10-03",
+            "last_checked_at": "2026-11-04",
+            "last_synced_at": "2026-11-04",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "d3c9e94fbc6c28f66ecb5a01407d543c99c811b6",

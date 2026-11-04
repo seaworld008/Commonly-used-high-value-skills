@@ -1,15 +1,15 @@
 ---
 name: lark-workflow-standup-report
 description: '日程待办摘要：编排 calendar +agenda 和 task +get-my-tasks，生成指定日期的日程与未完成任务摘要。适用于了解今天/明天/本周的安排。'
-zh_description: "日程待办摘要：编排 calendar +agenda 和 task +get-my-tasks，生成指定日期的日程与。"
-version: "1.0.4"
+zh_description: "用于汇总指定日期的飞书日程与未完成任务，生成站会或日程待办摘要。"
+version: "1.0.5"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-workflow-standup-report"
 license: MIT
 tags: '[feishu, lark, lark-cli, standup, reporting]'
 created_at: "2026-05-19"
-updated_at: "2026-09-30"
+updated_at: "2026-11-04"
 quality: 4
 complexity: intermediate
 metadata:

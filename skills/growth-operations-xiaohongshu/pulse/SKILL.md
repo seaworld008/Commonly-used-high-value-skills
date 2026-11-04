@@ -1,15 +1,15 @@
 ---
 name: pulse
-description: '关键指标、埋点、漏斗、留存和仪表盘规格设计。'
-zh_description: "关键指标、埋点、漏斗、留存和仪表盘规格设计。"
-version: "1.0.3"
+description: 'Use when defining product metrics and tracking: north-star metric trees, event schemas, funnels, retention cohorts, dashboard specs, and consent-aware analytics setup.'
+zh_description: "定义产品指标与埋点时使用：北极星指标、事件规范、漏斗、留存分析和仪表盘规格。"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/pulse/SKILL.md"
 license: MIT
 tags: ["growth", "marketing", "pulse"]
 created_at: "2026-08-24"
-updated_at: "2026-10-26"
+updated_at: "2026-11-04"
 quality: 5
 complexity: "advanced"
 ---

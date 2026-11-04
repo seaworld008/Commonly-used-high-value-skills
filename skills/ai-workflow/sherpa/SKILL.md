@@ -1,15 +1,15 @@
 ---
 name: sherpa
-description: '把复杂任务拆成短步骤，控制漂移并推进交付。'
-zh_description: "把复杂任务拆成短步骤，控制漂移并推进交付。"
-version: "1.0.3"
+description: 'Use when a complex epic must be broken into small atomic steps with progress tracking, scope-drift checks, blocker risks, and suggested commit points.'
+zh_description: "复杂任务需要拆成短小原子步骤、跟踪进度并防止范围漂移时使用。"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/sherpa/SKILL.md"
 license: MIT
 tags: ["ai", "sherpa", "workflow"]
 created_at: "2026-08-24"
-updated_at: "2026-10-26"
+updated_at: "2026-11-04"
 quality: 5
 complexity: "advanced"
 ---

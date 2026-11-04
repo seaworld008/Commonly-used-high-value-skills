@@ -1,15 +1,15 @@
 ---
 name: breach
-description: '红队场景、攻击路径、威胁建模和对抗演练设计。'
-zh_description: "红队场景、攻击路径、威胁建模和对抗演练设计。"
-version: "1.0.3"
+description: 'Use when planning authorized red-team or threat-model work: STRIDE or ATT&CK models, attack scenarios, AI and LLM red teaming, purple-team exercises, and control validation.'
+zh_description: "开展授权红队演练或威胁建模时使用：攻击场景、AI 红队测试、紫队演练和防护验证。"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/breach/SKILL.md"
 license: MIT
 tags: ["breach", "security"]
 created_at: "2026-08-24"
-updated_at: "2026-10-26"
+updated_at: "2026-11-04"
 quality: 5
 complexity: "advanced"
 ---

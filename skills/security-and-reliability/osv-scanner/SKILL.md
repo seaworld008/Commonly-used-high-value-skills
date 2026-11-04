@@ -1,14 +1,14 @@
 ---
 name: osv-scanner
-description: '用于通过 OSV-Scanner 检查锁文件、清单、SBOM、Git 历史和源码树中的开源依赖漏洞。'
+description: 'Use when checking open-source dependencies for known vulnerabilities with OSV-Scanner across lockfiles, manifests, SBOMs, git history, or source trees.'
 zh_description: "用于通过 OSV-Scanner 检查锁文件、清单、SBOM、Git 历史和源码树中的开源依赖漏洞。"
-version: "1.0.0"
+version: "1.0.1"
 author: seaworld008
 source: "in-house"
 source_url: ""
 tags: '[security, dependency-scanning, cve, osv, sca, sbom, lockfiles, supply-chain]'
 created_at: "2026-05-20"
-updated_at: "2026-05-20"
+updated_at: "2026-11-04"
 quality: 4
 complexity: intermediate
 ---

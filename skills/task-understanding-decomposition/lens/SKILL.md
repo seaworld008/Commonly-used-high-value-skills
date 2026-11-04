@@ -1,15 +1,15 @@
 ---
 name: lens
-description: '代码库理解、功能发现、数据流追踪和上下文调查。'
-zh_description: "代码库理解、功能发现、数据流追踪和上下文调查。"
-version: "1.0.3"
+description: 'Use when you need to understand unfamiliar code: confirm whether a feature exists, trace execution or data flow from an entry point, and map module boundaries.'
+zh_description: "需要理解陌生代码库时使用：确认功能是否存在、追踪执行与数据流、梳理模块边界。"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/lens/SKILL.md"
 license: MIT
 tags: ["analysis", "lens", "planning"]
 created_at: "2026-08-24"
-updated_at: "2026-10-26"
+updated_at: "2026-11-04"
 quality: 5
 complexity: "advanced"
 ---

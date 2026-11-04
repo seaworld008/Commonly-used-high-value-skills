@@ -1,15 +1,15 @@
 ---
 name: linear
-description: '用于管理 Linear issues、项目、团队和协作状态。'
-zh_description: "用于管理 Linear issue、项目、状态流转和工程协作。"
-version: "2.0.3"
+description: 'Use when creating, querying, or updating Linear issues, projects, teams, and workflow states through the Linear GraphQL API with a personal API key.'
+zh_description: "需要通过 GraphQL API 创建、查询或更新 Linear issue、项目和状态流转时使用。"
+version: "2.0.4"
 author: "seaworld008"
 source: "adapted-from-hermes-agent"
 source_url: "https://github.com/NousResearch/hermes-agent/blob/3636f64540a3d80c8425f195f46e53e940956cba/skills/productivity/linear/SKILL.md"
 license: "MIT"
 tags: '["graphql", "issues", "linear", "mcp", "productivity", "project-management"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-22"
+updated_at: "2026-11-04"
 quality: 4
 complexity: "intermediate"
 metadata:

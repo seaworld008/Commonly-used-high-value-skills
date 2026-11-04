@@ -1,15 +1,15 @@
 ---
 name: arxiv
-description: 'Search arXiv papers by keyword, author, category, or ID.'
+description: 'Use when searching arXiv for papers by keyword, author, category, or ID, or fetching abstracts and PDFs through the free arXiv export API.'
 zh_description: "用于按关键词、作者、分类或编号检索 arXiv 论文。"
-version: "1.0.5"
+version: "1.0.6"
 author: Hermes Agent
 source: "github:NousResearch/hermes-agent"
 source_url: "https://github.com/NousResearch/hermes-agent/blob/main/skills/research/arxiv/SKILL.md"
 license: MIT
 tags: '[Research, Arxiv, Papers, Academic, Science, API]'
 created_at: "2026-04-13"
-updated_at: "2026-09-22"
+updated_at: "2026-11-04"
 quality: 4
 complexity: "intermediate"
 platforms: '[linux, macos, windows]'

@@ -83,7 +83,7 @@ gh api repos/{owner}/{repo}/pulls/123 --jq '.title, .state, .mergeable'
 ```bash
 # Create PR via API
 gh api repos/{owner}/{repo}/pulls \
-  -f title="NOJIRA: New feature" \
+  -f title="New feature" \
   -f body="Description of changes" \
   -f head="feature-branch" \
   -f base="main"

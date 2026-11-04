@@ -1,15 +1,15 @@
 ---
 name: gateway
-description: '接口设计、规范生成、版本策略和破坏性变更检查。'
-zh_description: "接口设计、规范生成、版本策略和破坏性变更检查。"
-version: "1.0.3"
+description: 'Use when designing or reviewing REST or GraphQL APIs: OpenAPI specs, versioning and deprecation, breaking-change detection, RFC 9457 error bodies, and API security.'
+zh_description: "设计或评审 REST/GraphQL 接口时使用：OpenAPI 规范、版本与弃用策略、破坏性变更检测和接口安全。"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/gateway/SKILL.md"
 license: MIT
 tags: ["development", "gateway"]
 created_at: "2026-08-24"
-updated_at: "2026-10-26"
+updated_at: "2026-11-04"
 quality: 5
 complexity: "advanced"
 ---

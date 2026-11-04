@@ -2,13 +2,13 @@
 name: portfolio-risk-manager
 description: 'Use when reviewing portfolio exposures, checking concentration and beta risk, summarizing sector or region tilts, or preparing a risk note before reallocating capital.'
 zh_description: "用于投资组合风险分析、仓位约束和风险报告生成。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["finance", "manager", "portfolio", "risk"]'
 created_at: "2026-03-18"
-updated_at: "2026-03-20"
+updated_at: "2026-11-04"
 quality: 2
 complexity: "intermediate"
 ---
@@ -134,7 +134,7 @@ python scripts/build_optimizer_inputs.py --returns assets/historical_returns.jso
 1. **意图第一**：明确哪些风险是“故意的”（如为了博取超额收益而主动重仓某个行业），哪些是“意外的”。
 2. **重视 Beta 漂移**：随着股价上涨，强势股的权重会自然增加，导致 Beta 悄悄上升。
 3. **小而美的持仓**：不要为了多元化而买入自己不熟悉的标的。
-4. **记忆同步**：将每一次重大的风险调整决策记入 `MEMORY.md`。
+4. **记录交付**：将每一次重大的风险调整决策写入用户指定的研究记录或工作区文件；用户未要求时只在交付物中列出，不写入持久记忆或设置定时任务。
 5. **分级监控**：设置“黄灯”预警线（减速）和“红灯”强制线（强制平仓）。
 6. **关注流动性**：在计算持仓占比时，也要核对自己的持仓量占该股日均交易量的比例。
 7. **数据来源核实**：所有 Beta 数据必须标注时间窗口（如：基于 5 年月度数据 vs 1 年日度数据）。

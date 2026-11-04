@@ -21,7 +21,7 @@
 | `netlify-deploy` | 用于将网站或应用部署到 Netlify 并获取预览或生产链接。 | [目录](./netlify-deploy/) | [SKILL.md](./netlify-deploy/SKILL.md) |
 | `pipe` | 持续集成工作流、触发策略、安全加固和复用设计。 | [目录](./pipe/) | [SKILL.md](./pipe/SKILL.md) |
 | `render-deploy` | 用于将服务或应用部署到 Render 并处理运行配置。 | [目录](./render-deploy/) | [SKILL.md](./render-deploy/SKILL.md) |
-| `scaffold` | 云基础设施、环境配置和本地开发部署脚手架。 | [目录](./scaffold/) | [SKILL.md](./scaffold/SKILL.md) |
+| `scaffold` | 搭建云基础设施或本地开发环境时使用：Terraform/OpenTofu、Docker Compose、密钥管理与成本门禁。 | [目录](./scaffold/) | [SKILL.md](./scaffold/SKILL.md) |
 | `shard` | 多租户架构、租户隔离、路由和规模化设计。 | [目录](./shard/) | [SKILL.md](./shard/SKILL.md) |
 | `vercel-deploy` | 用于将应用或网站部署到 Vercel，创建预览部署或生产发布链接。 | [目录](./vercel-deploy/) | [SKILL.md](./vercel-deploy/SKILL.md) |
 

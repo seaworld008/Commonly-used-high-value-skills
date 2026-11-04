@@ -1,0 +1,34 @@
+{
+  "tag": "v6.0.0",
+  "package_version": "6.0.0",
+  "title": "v6.0.0 · 技能组合精简与真实契约修正",
+  "prerelease": false,
+  "generate_notes": false,
+  "changelog_range": "v5.0.0..v6.0.0",
+  "canonical_skills": 293,
+  "highlights": [
+    "退役 skill-vetter、github 与 neon-postgres-egress-optimizer，能力分别并入 skill-security-auditor、github-ops 与 neon-postgres",
+    "46 个技能补齐带触发条件的描述并修复截断的中文描述",
+    "全量上游同步检查：hermes-agent 升级到 v0.22.7，llm-wiki、systematic-debugging、honcho 跟随上游变化",
+    "find-skills 改为证据化检索与按请求安装，link-checker 新增只读检查脚本，figma 改用 Figma MCP 实际工具名",
+    "移除 github-ops 的组织专用标题约定和金融技能的默认持久化写入"
+  ],
+  "release_gates": [
+    "精确合并 main 提交的 Repository Validation、skills-provenance-ci 与 CodeQL 全部成功",
+    "main 的 Code Scanning 开放告警为零",
+    "完整仓库校验、安装器测试、npm 打包和生成器幂等性通过"
+  ],
+  "validation_boundaries": {
+    "upstream": "已对 163 个上游来源运行全量检查：hermes-agent 按 replace 通道升级到 v0.22.7；llm-wiki 路径迁移、systematic-debugging 附件删除、honcho 归档快照、neon-postgres 三方合并均已记录；复查 46 个来源与上游一致，检查过期的 4 个来源已记录检查日期；89 个 monitor 来源仍待人工复核，检查点不变。",
+    "licensing": "迁入 skill-security-auditor 的人工审查参考为本仓库原创内容，以 local-repo/curation origin 登记，上游 MIT 许可检查点不变。",
+    "runtime": "静态测试与本地 HTTP 冒烟不等同真实 Figma MCP、GitHub 写操作、Neon 或 Hermes 运行时、公开技能目录或模型行为验收。",
+    "previous_release": "v5.0.0 保留为历史稳定版本；v6.0.0 删除三个公开入口，属于 major release。"
+  },
+  "compatibility_notes": [
+    "公开 skill-vetter 入口已删除；改用 skill-security-auditor，并按需读取 references/manual-review.md。",
+    "公开 github 入口已删除；改用 github-ops。",
+    "公开 neon-postgres-egress-optimizer 入口已删除；改用 neon-postgres，并按需读取 references/egress-optimization.md。",
+    "规范技能数量为 293，保持 16 个分类。"
+  ],
+  "audit": "docs/maintenance-audit-2026-11-04.md"
+}

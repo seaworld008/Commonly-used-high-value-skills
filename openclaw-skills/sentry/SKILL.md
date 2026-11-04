@@ -1,14 +1,14 @@
 ---
 name: sentry
-description: '用于只读查询 Sentry issues、events 和服务健康数据，汇总线上错误并辅助生产问题排查。'
+description: 'Use when inspecting production errors in Sentry read-only: list issues and events, summarize error trends, and check service health with a scoped auth token.'
 zh_description: "用于只读查询 Sentry issues、events 和服务健康数据，汇总线上错误并辅助生产问题排查。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["security", "sentry"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-11-04"
 quality: 4
 complexity: "intermediate"
 ---

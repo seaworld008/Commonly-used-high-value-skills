@@ -1,15 +1,15 @@
 ---
 name: ledger
-description: '云成本、预算告警、资源规格和人工智能工作负载成本优化。'
-zh_description: "云成本、预算告警、资源规格和人工智能工作负载成本优化。"
-version: "1.0.3"
+description: 'Use when estimating or reducing cloud spend: IaC cost estimates, right-sizing, Reserved Instance or Savings Plan choices, tagging, budget alerts, and AI workload costs.'
+zh_description: "估算或优化云成本时使用：IaC 成本预估、规格调整、预留实例、标签策略和预算告警。"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/ledger/SKILL.md"
 license: MIT
 tags: ["finance", "ledger"]
 created_at: "2026-08-24"
-updated_at: "2026-10-26"
+updated_at: "2026-11-04"
 quality: 5
 complexity: "advanced"
 ---

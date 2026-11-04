@@ -958,7 +958,7 @@
             "ref": "main",
             "resolved_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
             "path_commit": "a088c8ba778319fea026c8a25e9e98b15754f379",
-            "content_sha256": "e849d3f87f3bff6e0fa76686268701bbc43494a6c5ea4af39a498893df48ec6e",
+            "content_sha256": "217ae92d3315af77567304bfafec53e5655c0573c559804d9ea4c3f52f7b5000",
             "last_checked_at": "2026-10-26",
             "last_synced_at": "2026-10-26",
             "license_checkpoint": {
@@ -969,6 +969,28 @@
               "resolved_commit": "6d2f02ea077eead1bee5411a31bcc6db5a11a70c",
               "api_spdx": "MIT"
             }
+          }
+        },
+        {
+          "repo": "local-repo/curation",
+          "path": "skills/security-and-reliability/skill-security-auditor",
+          "license": null,
+          "sync_mode": "local-only",
+          "artifacts": [
+            {
+              "source": "skills/security-and-reliability/skill-security-auditor/references/manual-review.md",
+              "target": "skills/security-and-reliability/skill-security-auditor/references/manual-review.md",
+              "type": "file"
+            }
+          ],
+          "tracking": {
+            "channel": "local",
+            "ref": "local",
+            "resolved_commit": null,
+            "path_commit": null,
+            "content_sha256": null,
+            "last_checked_at": "2026-11-04",
+            "last_synced_at": "2026-11-04"
           }
         }
       ],
@@ -981,7 +1003,13 @@
         },
         {
           "path": "skills/security-and-reliability/skill-security-auditor/SKILL.md",
-          "sha256": "e849d3f87f3bff6e0fa76686268701bbc43494a6c5ea4af39a498893df48ec6e",
+          "sha256": "217ae92d3315af77567304bfafec53e5655c0573c559804d9ea4c3f52f7b5000",
+          "owner": "skill-security-auditor",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/skill-security-auditor/references/manual-review.md",
+          "sha256": "15f7e8de2b0307d9c085bf3725f115b3c9d2ab4fa8ac96faceeb2a817abbe363",
           "owner": "skill-security-auditor",
           "mode": "100644"
         },
@@ -998,7 +1026,7 @@
           "mode": "100644"
         }
       ],
-      "curation_note": "2026-09-22: restore all omitted sibling scripts/references/assets at the existing immutable licensed checkpoint; preserve local entry curation. Resource checks are static and CLI smoke tests, not security certification. Trailing whitespace in restored Python helpers is normalized locally; agent-hub cleanup also preserves dirty worktrees."
+      "curation_note": "2026-09-22: restore all omitted sibling scripts/references/assets at the existing immutable licensed checkpoint; preserve local entry curation. Resource checks are static and CLI smoke tests, not security certification. Trailing whitespace in restored Python helpers is normalized locally; agent-hub cleanup also preserves dirty worktrees. 2026-11-04: merged the retired in-house skill-vetter manual review method into local references/manual-review.md (local curation, not upstream content); upstream checkpoint unchanged."
     }
   ],
   "verification_attempts": [
