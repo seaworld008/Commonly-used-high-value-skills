@@ -10,6 +10,7 @@ Welcome to the documentation directory for the Commonly Used High-Value Skills r
 
 ## Other Documentation
 
+- [Release History / 版本动态](./RELEASES.en.md) ([简体中文](./RELEASES.md))
 - [Client Install Guides](./client-install-guides.md)
 - [nlpm-audit Usage Guide](./nlpm-audit-usage.md)
 - [Optimization Roadmap](./OPTIMIZATION-ROADMAP.md)

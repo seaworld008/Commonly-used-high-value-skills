@@ -10,25 +10,7 @@
 
 面向全球 AI 开发者与 Agent 工作流构建者的高价值 Skills 仓库：按真实工作场景整理可直接复用的技能（`SKILL.md` + 脚本 + 参考资料），覆盖开发工程、DevOps、产品设计、运营、办公自动化、金融投资、AI 平台与安全治理。同一份源码适配 `Codex`、`Claude Code`、`Cursor`、`Hermes Agent` 和 `OpenClaw`，每个技能都有来源追踪、许可证审计和自动化质量校验。当前共 **16 个分类 / 293 个技能**。
 
-[快速开始](#quick-start) · [分类导航](#categories) · [技能总览](#skill-overview) · [版本动态](#releases) · [参与共建](#contributing)
-
-<a id="releases"></a>
-## 版本动态
-
-**v6.0.0 技能组合精简（2026-11-04）**：退役三个重复入口（`skill-vetter` → `skill-security-auditor`，`github` → `github-ops`，`neon-postgres-egress-optimizer` → `neon-postgres`），按真实工具重写 `find-skills`、`link-checker`（新增只读检查脚本）和 `figma`，并移除默认写入 `MEMORY.md`／定时任务的指令；同时为 46 个技能补齐带触发条件的描述，完成全量上游同步检查并升级 Hermes Agent 至 v0.22.7。当前 293 个技能 / 16 个分类。[发布说明](docs/releases/v6.0.0.md)。
-
-从旧版本升级时，可用 `--prune-retired` 清理已退役的技能：只删除由本安装器安装且未改动过的副本，其余一律归档保留。
-
-近期版本：
-
-- [v5.0.0](docs/releases/v5.0.0.md)（2026-10-27）：完成全量策展，新增 `shadcn`、`security-model`、`remotion-video`；`self-improving-agent` 迁移为 `reflect-learn`。
-- [v4.3.0](docs/releases/v4.3.0.md)（2026-10-24）：更新 4 个精选技能，升级行为改动与文字微调的验证流程。
-- [v4.1.0](docs/releases/v4.1.0.md)（2026-10-16）：更新工程方法、飞书任务与图表、AKS 就绪检查和 Neon 检索指南，修复 macOS 离线 HTML 报告更新。
-- [v4.0.0](docs/releases/v4.0.0.md)（2026-10-12）：修复 CodeQL 发现，新增“零开放 Code Scanning 告警”发布门禁，用更安全的离线 HTML 渲染器替换旧可执行文件。
-- [v3.3.0](docs/releases/v3.3.0.md)（2026-10-12）：新增 Go 性能分析、基准测试与可观测性，架构深化、HTML 报告、动画拓扑面板和 Azure 诊断。
-- [v3.2.0](docs/releases/v3.2.0.md)（2026-10-04）：新增 `grill-me` 计划压力测试，完成全量来源维护。
-
-完整历史见 [CHANGELOG.md](./CHANGELOG.md) 与 [GitHub Releases](https://github.com/seaworld008/Commonly-used-high-value-skills/releases)。
+[快速开始](#quick-start) · [分类导航](#categories) · [技能总览](#skill-overview) · [参与共建](#contributing) · [版本动态](docs/RELEASES.md)
 
 ## 为什么值得收藏
 
@@ -110,6 +92,7 @@ npx github:seaworld008/Commonly-used-high-value-skills list-targets
 
 - `--dry-run` 只计算并打印安装计划，不写入任何文件。
 - `--all` 表示写入所有标准客户端目标，并不是推荐的默认选项；按需选择 `--target`、`--category`、`--skill` 即可。
+- 从旧版本升级时，可用 `--prune-retired` 清理已退役的技能：只删除由本安装器安装且未改动过的副本，其余一律归档保留。
 - 每个目标目录都会写入 `.high-value-skills-manifest.json`，记录来源与文件摘要；替换前先暂存并校验，被修改过或非本安装器管理的副本会归档到目标旁的 `.high-value-skills-backups/`。
 - 这不是跨所有目标的原子事务：遇到报错时先检查输出和备份目录，不要手动删除旧副本。
 
