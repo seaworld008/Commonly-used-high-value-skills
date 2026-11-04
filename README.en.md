@@ -5,13 +5,17 @@
 [![简体中文](https://img.shields.io/badge/README-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1677ff)](./README.md)
 [![English](https://img.shields.io/badge/README-English-111111)](./README.en.md)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b894)](./openclaw-skills/README.md)
-[![Skills](https://img.shields.io/badge/Skills-296-7c3aed)](./skills/)
+[![Skills](https://img.shields.io/badge/Skills-294-7c3aed)](./skills/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
 A high-value skills repository for AI developers, organized by real work scenarios such as developer engineering, DevOps, automation, finance, design, knowledge workflows, and reliability.
 
-This repository currently contains **16 categories / 296 skills**.
+This repository currently contains **16 categories / 294 skills**.
 
+
+## v6.0.0 Portfolio Consolidation and Real Contracts
+
+As of 2026-11-04, this major release retires two duplicate public entries (`skill-vetter` → `skill-security-auditor`, `github` → `github-ops`), rewrites `find-skills`, `link-checker` (now with a read-only checker script) and `figma` around real tools, and removes default `MEMORY.md`/cron writes. 294 canonical skills across 16 categories. [Release notes](docs/releases/v6.0.0.md).
 
 ## v5.0.0 Full Portfolio Curation and Capability Expansion
 
@@ -69,7 +73,7 @@ The dependency auditor no longer presents hard-coded advisories or simulated ver
 - The repo now supports automated discovery, upstream sync, candidate ranking, quality checks, and generated view refreshes, so it can be maintained as a living skill system rather than a static dump
 - Curation is policy-driven: trusted sources can be preferred, noisy sources can be denied, and minimum quality thresholds can be enforced in one place
 - `scripts/sync_codex_skills.py` lets you sync the latest repository skills into local Codex, Claude Code, or similar skills directories without manual copying
-- The repository also emphasizes trust and safety through provenance tracking, curated source controls, and built-in security-review skills such as `skill-vetter`, `skill-security-auditor`, `input-guard`, and `link-checker`
+- The repository also emphasizes trust and safety through provenance tracking, curated source controls, and built-in security-review skills such as `skill-security-auditor`, `security-review`, `input-guard`, and `link-checker`
 - The repository now also includes license auditing and scheduled dead-link checks: `repo-validation` blocks external skills that are missing license metadata, while the monthly `dead-links` workflow produces a link health report instead of silently drifting.
 - `Hermes Agent` is also treated as a first-class supported client: it uses the same categorized `skills/` tree and has dedicated Hermes runtime, MCP, and the thin `hermes-open-gsd-workflow` router.
 
@@ -200,7 +204,7 @@ Then point OpenClaw at `openclaw-skills/`. Do not point OpenClaw at the reposito
 
 6. Verify by opening a few known skills, for example:
    - `skills/developer-engineering/codebase-onboarding`
-   - `skills/security-and-reliability/skill-vetter`
+   - `skills/security-and-reliability/skill-security-auditor`
    - `openclaw-skills/codebase-onboarding`
 
 If you want client-specific examples instead of the generic setup above, continue with:
@@ -378,7 +382,7 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 2. Open the relevant `SKILL.md` and read its triggers, workflow, boundaries, and scripts.
 3. If a skill includes `scripts/`, `references/`, or `assets/`, reuse those files before recreating similar content.
 
-## Skill Overview (by category, 16 categories / 296 skills)
+## Skill Overview (by category, 16 categories / 294 skills)
 
 <a id="cat-developer-engineering"></a>
 ### 1. Developer Engineering (developer-engineering, 53)
@@ -506,13 +510,12 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`sigil`](./skills/ai-agent-platform/sigil/)
 
 <a id="cat-workflow-automation"></a>
-### 4. Engineering Workflow Automation (engineering-workflow-automation, 13)
+### 4. Engineering Workflow Automation (engineering-workflow-automation, 12)
 
 - [`agent-browser`](./skills/engineering-workflow-automation/agent-browser/)
 - [`billing-automation`](./skills/engineering-workflow-automation/billing-automation/)
 - [`gh-address-comments`](./skills/engineering-workflow-automation/gh-address-comments/)
 - [`gh-fix-ci`](./skills/engineering-workflow-automation/gh-fix-ci/)
-- [`github`](./skills/engineering-workflow-automation/github/)
 - [`guardian`](./skills/engineering-workflow-automation/guardian/)
 - [`harvest`](./skills/engineering-workflow-automation/harvest/)
 - [`jupyter-notebook`](./skills/engineering-workflow-automation/jupyter-notebook/)
@@ -667,7 +670,7 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`voice`](./skills/product-design/voice/)
 
 <a id="cat-security-reliability"></a>
-### 12. Security and Reliability (security-and-reliability, 24)
+### 12. Security and Reliability (security-and-reliability, 23)
 
 - [`breach`](./skills/security-and-reliability/breach/)
 - [`cloak`](./skills/security-and-reliability/cloak/)
@@ -690,7 +693,6 @@ openclaw-skills/                        # Generated flat export for OpenClaw
 - [`semgrep-appsec-scanner`](./skills/security-and-reliability/semgrep-appsec-scanner/)
 - [`sentry`](./skills/security-and-reliability/sentry/)
 - [`skill-security-auditor`](./skills/security-and-reliability/skill-security-auditor/)
-- [`skill-vetter`](./skills/security-and-reliability/skill-vetter/)
 - [`trivy-vulnerability-scanner`](./skills/security-and-reliability/trivy-vulnerability-scanner/)
 - [`vuls-linux-cve-scanner`](./skills/security-and-reliability/vuls-linux-cve-scanner/)
 

@@ -1,0 +1,32 @@
+{
+  "tag": "v6.0.0",
+  "package_version": "6.0.0",
+  "title": "v6.0.0 · 技能组合精简与真实契约修正",
+  "prerelease": false,
+  "generate_notes": false,
+  "changelog_range": "v5.0.0..v6.0.0",
+  "canonical_skills": 294,
+  "highlights": [
+    "退役 skill-vetter 与 github，方法分别并入 skill-security-auditor 与 github-ops",
+    "find-skills 改为证据化检索与按请求安装，安装前先做安全审查",
+    "link-checker 新增只读链接检查脚本，figma 改用 Figma MCP 实际工具名",
+    "移除 github-ops 的组织专用标题约定和金融技能的默认持久化写入"
+  ],
+  "release_gates": [
+    "精确合并 main 提交的 Repository Validation、skills-provenance-ci 与 CodeQL 全部成功",
+    "main 的 Code Scanning 开放告警为零",
+    "完整仓库校验、安装器测试、npm 打包和生成器幂等性通过"
+  ],
+  "validation_boundaries": {
+    "upstream": "本轮会话无法访问 GitHub API，未运行上游同步检查；所有上游检查点保持 v5.0.0 之后的原值，不声称外部来源为最新。",
+    "licensing": "迁入 skill-security-auditor 的人工审查参考为本仓库原创内容，以 local-repo/curation origin 登记，上游 MIT 许可检查点不变。",
+    "runtime": "静态测试与本地 HTTP 冒烟不等同真实 Figma MCP、GitHub 写操作、公开技能目录或模型行为验收。",
+    "previous_release": "v5.0.0 保留为历史稳定版本；v6.0.0 删除两个公开入口，属于 major release。"
+  },
+  "compatibility_notes": [
+    "公开 skill-vetter 入口已删除；改用 skill-security-auditor，并按需读取 references/manual-review.md。",
+    "公开 github 入口已删除；改用 github-ops。",
+    "规范技能数量为 294，保持 16 个分类。"
+  ],
+  "audit": "docs/maintenance-audit-2026-11-04.md"
+}

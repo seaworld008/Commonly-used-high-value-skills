@@ -8,7 +8,25 @@ All notable changes to this repository are documented here.
 <!-- AUTO-CHANGELOG:START -->
 ### 自动更新 / Automated updates
 
-变更范围 / Revision range: `v4.3.0..HEAD`.
+变更范围 / Revision range: `v5.0.0..HEAD`.
+
+#### [2026-11-04]
+
+##### Changed
+- refactor(skills)!: retire skill-vetter and github, fix fabricated contracts
+
+#### [2026-10-30]
+
+##### Changed
+- fill public navigation release workflow (#149)
+- record public navigation release workflow (#148)
+<!-- AUTO-CHANGELOG:END -->
+
+## [5.0.0] - 2026-10-27
+
+### 自动更新 / Automated updates
+
+变更范围 / Revision range: `v4.3.0..v5.0.0`.
 
 #### [2026-10-26]
 
@@ -25,7 +43,6 @@ All notable changes to this repository are documented here.
 ##### Fixed
 - preserve Git path whitespace and normalize pinned references
 - validate every receipt before cache writes
-<!-- AUTO-CHANGELOG:END -->
 
 ## [4.3.0] - 2026-10-24
 
