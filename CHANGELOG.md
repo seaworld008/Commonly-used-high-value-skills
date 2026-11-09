@@ -8,7 +8,24 @@ All notable changes to this repository are documented here.
 <!-- AUTO-CHANGELOG:START -->
 ### 自动更新 / Automated updates
 
-变更范围 / Revision range: `v5.0.0..HEAD`.
+变更范围 / Revision range: `v6.0.0..HEAD`.
+
+#### [2026-11-04]
+
+##### Changed
+- regenerate repo views for zh_description fixes
+- move release history out of the READMEs into docs/RELEASES
+- mirror README.en.md to README.md and tidy shared structure
+
+##### Fixed
+- align zh_description with English capability for 16 skills
+<!-- AUTO-CHANGELOG:END -->
+
+## [6.0.0] - 2026-11-04
+
+### 自动更新 / Automated updates
+
+变更范围 / Revision range: `v5.0.0..v6.0.0`.
 
 #### [2026-11-04]
 
@@ -20,7 +37,6 @@ All notable changes to this repository are documented here.
 ##### Changed
 - fill public navigation release workflow (#149)
 - record public navigation release workflow (#148)
-<!-- AUTO-CHANGELOG:END -->
 
 ## [5.0.0] - 2026-10-27
 
