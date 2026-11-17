@@ -3,22 +3,19 @@
 Taxonomy Cache — Loads and optionally refreshes the MoltThreats LLM Security
 Threats Classification taxonomy.
 
-The taxonomy ships as taxonomy.json in the skill root directory and works
-out of the box with no API key. When PROMPTINTEL_API_KEY is set, the file
-is refreshed from the MoltThreats API (at most once per 24 hours).
+Reads use the bundled taxonomy.json or a selected cache. Use fetch with
+--cache-file or INPUT_GUARD_TAXONOMY_CACHE to refresh an external cache.
 """
 
 import os
 import sys
 import json
-import time
-import requests
+import tempfile
 from pathlib import Path
 from typing import Optional, Dict, Any
 
 SKILL_ROOT = Path(__file__).parent.parent
 TAXONOMY_FILE = SKILL_ROOT / "taxonomy.json"
-REFRESH_TTL_SECONDS = 86400  # 24 hours
 
 API_BASE = "https://api.promptintel.novahunting.ai/api/v1"
 
@@ -30,6 +27,8 @@ def get_api_key() -> Optional[str]:
 
 def fetch_taxonomy(api_key: str) -> Dict[str, Any]:
     """Fetch taxonomy from MoltThreats API."""
+    import requests
+
     response = requests.get(
         f"{API_BASE}/taxonomy",
         headers={"Authorization": f"Bearer {api_key}"},
@@ -39,49 +38,75 @@ def fetch_taxonomy(api_key: str) -> Dict[str, Any]:
     return response.json()
 
 
-def _needs_refresh() -> bool:
-    """Check if taxonomy.json is older than the refresh TTL."""
-    if not TAXONOMY_FILE.exists():
-        return True
-    try:
-        mtime = TAXONOMY_FILE.stat().st_mtime
-        return (time.time() - mtime) > REFRESH_TTL_SECONDS
-    except OSError:
-        return True
+def selected_cache(cache_file=None) -> Optional[Path]:
+    value = cache_file or os.environ.get("INPUT_GUARD_TAXONOMY_CACHE")
+    if value:
+        path = Path(value)
+        root = SKILL_ROOT.resolve()
+        parent = path.parent.resolve()
+        if parent == root or root in parent.parents or root in path.resolve().parents:
+            raise ValueError("Select a taxonomy cache outside the skill directory")
+        return path
+    return None
 
 
-def get_taxonomy(force_refresh: bool = False) -> Optional[Dict[str, Any]]:
-    """
-    Get taxonomy data.
+def validate_taxonomy(taxonomy):
+    """Check the fields consumed by build_threat_reference before use or storage."""
+    categories = taxonomy.get("categories") if isinstance(taxonomy, dict) else None
+    if not isinstance(categories, list) or not categories:
+        raise ValueError("Taxonomy requires a nonempty categories list")
 
-    Loads from taxonomy.json (shipped with the skill). If PROMPTINTEL_API_KEY
-    is set and the file is older than 24h (or force_refresh=True), refreshes
-    from the API and overwrites the file.
+    def named_entry(entry):
+        return (isinstance(entry, dict) and isinstance(entry.get("name"), str)
+                and entry["name"].strip() and isinstance(entry.get("description", ""), str))
 
-    Returns None only if taxonomy.json doesn't exist and no API key is set.
-    """
-    api_key = get_api_key()
+    for category in categories:
+        if not named_entry(category) or not isinstance(category.get("threats", []), list):
+            raise ValueError("Invalid taxonomy category")
+        for threat in category.get("threats", []):
+            if not named_entry(threat) or not isinstance(threat.get("example", ""), str):
+                raise ValueError("Invalid taxonomy threat")
+    return taxonomy
 
-    # Refresh from API if key is available and file is stale
-    if api_key and (force_refresh or _needs_refresh()):
+
+def get_taxonomy(force_refresh: bool = False, cache_file=None) -> Optional[Dict[str, Any]]:
+    """Read a selected cache or the bundled taxonomy. Only an explicit refresh writes."""
+    cache = selected_cache(cache_file)
+    if force_refresh:
+        api_key = get_api_key()
+        if not api_key:
+            print("❌ PROMPTINTEL_API_KEY not set — cannot fetch from API", file=sys.stderr)
+            return None
+        if cache is None:
+            print("Select a cache with --cache-file or INPUT_GUARD_TAXONOMY_CACHE", file=sys.stderr)
+            return None
+        temporary = None
         try:
             result = fetch_taxonomy(api_key)
-            taxonomy = result.get("data", result)
-            with open(TAXONOMY_FILE, "w") as f:
+            taxonomy = validate_taxonomy(result.get("data", result) if isinstance(result, dict) else result)
+            cache.parent.mkdir(parents=True, exist_ok=True)
+            with tempfile.NamedTemporaryFile(mode="w", dir=cache.parent, delete=False) as f:
+                temporary = Path(f.name)
                 json.dump(taxonomy, f, indent=2)
+            temporary.replace(cache)
             return taxonomy
-        except Exception as e:
-            print(f"[taxonomy] API refresh failed: {e}", file=sys.stderr)
-            # Fall through to load existing file
-
-    # Load from file
-    if TAXONOMY_FILE.exists():
-        try:
-            with open(TAXONOMY_FILE) as f:
-                return json.load(f)
-        except (json.JSONDecodeError, OSError) as e:
-            print(f"[taxonomy] Failed to read {TAXONOMY_FILE}: {e}", file=sys.stderr)
+        except Exception:
+            print("[taxonomy] API refresh failed", file=sys.stderr)
             return None
+        finally:
+            if temporary is not None:
+                temporary.unlink(missing_ok=True)
+
+    for path in (cache, TAXONOMY_FILE):
+        if path is None:
+            continue
+        try:
+            with path.open() as f:
+                return validate_taxonomy(json.load(f))
+        except FileNotFoundError:
+            continue
+        except (ValueError, OSError) as e:
+            print(f"[taxonomy] Failed to read {path}: {e}", file=sys.stderr)
 
     return None
 
@@ -114,19 +139,17 @@ def build_threat_reference(taxonomy: Dict[str, Any]) -> str:
     return "\n".join(lines)
 
 
-if __name__ == "__main__":
+def main():
     import argparse
 
     parser = argparse.ArgumentParser(description="Taxonomy Manager")
-    parser.add_argument("action", choices=["fetch", "show", "prompt", "clear"],
-                        help="fetch=refresh from API, show=display taxonomy, prompt=show LLM reference, clear=delete file")
+    parser.add_argument("action", choices=["fetch", "refresh", "show", "prompt", "clear"],
+                        help="fetch/refresh=update cache from API, show=display taxonomy, prompt=show LLM reference, clear=delete cache")
+    parser.add_argument("--cache-file", type=Path,
+                        help="external cache file (or set INPUT_GUARD_TAXONOMY_CACHE)")
     args = parser.parse_args()
-
-    if args.action == "fetch":
-        if not get_api_key():
-            print("❌ PROMPTINTEL_API_KEY not set — cannot fetch from API")
-            sys.exit(1)
-        taxonomy = get_taxonomy(force_refresh=True)
+    if args.action in ("fetch", "refresh"):
+        taxonomy = get_taxonomy(force_refresh=True, cache_file=args.cache_file)
         if taxonomy:
             print(f"✅ Taxonomy updated ({len(taxonomy.get('categories', []))} categories)")
         else:
@@ -134,7 +157,7 @@ if __name__ == "__main__":
             sys.exit(1)
 
     elif args.action == "show":
-        taxonomy = get_taxonomy()
+        taxonomy = get_taxonomy(cache_file=args.cache_file)
         if taxonomy:
             print(json.dumps(taxonomy, indent=2))
         else:
@@ -142,7 +165,7 @@ if __name__ == "__main__":
             sys.exit(1)
 
     elif args.action == "prompt":
-        taxonomy = get_taxonomy()
+        taxonomy = get_taxonomy(cache_file=args.cache_file)
         if taxonomy:
             print(build_threat_reference(taxonomy))
         else:
@@ -150,8 +173,16 @@ if __name__ == "__main__":
             sys.exit(1)
 
     elif args.action == "clear":
-        if TAXONOMY_FILE.exists():
-            TAXONOMY_FILE.unlink()
-            print("✅ taxonomy.json deleted")
+        cache = selected_cache(args.cache_file)
+        if cache and cache.exists():
+            cache.unlink()
+            print(f"✅ Cache deleted: {cache}")
         else:
             print("No taxonomy file to clear")
+
+
+if __name__ == "__main__":
+    try:
+        main()
+    except ValueError as exc:
+        sys.exit(str(exc))

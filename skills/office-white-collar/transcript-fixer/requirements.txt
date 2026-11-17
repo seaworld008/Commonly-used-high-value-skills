@@ -1,5 +1,7 @@
 # Transcript Fixer Dependencies
 
+# Shared by preinstalled environments and the enhanced uv wrapper.
+# Provider code must support this minimum environment; HTTP/2/h2 is optional.
 # HTTP client for GLM API calls
 httpx>=0.24.0
 

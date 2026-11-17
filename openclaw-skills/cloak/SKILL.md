@@ -1,15 +1,15 @@
 ---
 name: cloak
-description: 'Use when a system handles personal data: PII discovery, data-flow mapping, consent management, GDPR or CCPA obligations, DPIAs, and privacy-by-design controls.'
-zh_description: "系统涉及个人数据时使用：敏感信息识别、数据流梳理、同意管理、GDPR/CCPA 合规和隐私影响评估。"
-version: "1.0.3"
+description: 'Use when asked to identify personal data, map privacy data flows, evaluate consent, or conduct a DPIA or privacy-by-design review.'
+zh_description: "用于识别个人信息、梳理隐私数据流、评估同意机制或开展隐私影响评估。"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/cloak/SKILL.md"
 license: MIT
 tags: ["cloak", "security"]
 created_at: "2026-08-24"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "advanced"
 ---
@@ -96,7 +96,7 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 - Reference specific regulation articles (e.g., GDPR Art. 17, CCPA §1798.105) in recommendations.
 - Recommend minimization before encryption — don't collect what you don't need.
 - Provide concrete code patterns, not abstract advice.
-- Check/log to `.agents/PROJECT.md`.
+- Summarize findings with de-identified examples.
 
 ### Ask First When Not Already Authorized
 
@@ -284,12 +284,19 @@ A complete deliverable carries the following — a ceiling, not a floor. Emit on
 - Data flow diagram (Mermaid) showing PII movement when applicable.
 - Recommended next agent for handoff (Builder, Schema, Gateway, Beacon, Scribe).
 
+Example flow for reviewing support-ticket redaction:
+
+```mermaid
+flowchart LR
+  A[Support form] --> B[Restricted ticket store]
+  B --> C[Redact direct identifiers]
+  C --> D[Analytics aggregate]
+```
 ## Operational
 
 **Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
-**Journal** (`.agents/cloak.md`): Read/update `.agents/cloak.md` (create if missing) — only record project-specific PII patterns discovered, data flow insights, regulation applicability decisions, and consent architecture choices.
-- After significant Cloak work, append to `.agents/PROJECT.md`: `| YYYY-MM-DD | Cloak | (action) | (files) | (outcome) |`
+When project convention or the user requests a journal or activity entry, record only the de-identified pattern, affected flow, decision and outcome needed at the authorized destination.
 
 ## AUTORUN Support
 
@@ -298,29 +305,3 @@ See `_common/AUTORUN.md` for the protocol (`_AGENT_CONTEXT` input, mode semantic
 ## Nexus Hub Mode
 
 When input contains `## NEXUS_ROUTING`, return via `## NEXUS_HANDOFF` (canonical schema in `_common/HANDOFF.md`).
-
-## Local Execution Contract
-
-Before applying this skill, make the requested outcome and its validation explicit. Use this compact contract to prevent scope drift and make the final handoff reviewable:
-
-```yaml
-goal: "What measurable outcome should change?"
-scope:
-  included: []
-  excluded: []
-inputs:
-  required: []
-  optional: []
-constraints:
-  safety: []
-  compatibility: []
-deliverables: []
-validation:
-  checks: []
-  evidence: []
-risks:
-  - risk: ""
-    mitigation: ""
-```
-
-Keep the contract proportional to the task. Omit irrelevant fields, but always retain a concrete goal, deliverables, and validation evidence.

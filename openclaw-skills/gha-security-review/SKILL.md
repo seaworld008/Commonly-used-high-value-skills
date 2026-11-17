@@ -2,14 +2,14 @@
 name: gha-security-review
 description: 'Audit GitHub Actions workflows for unsafe triggers, expression injection, credential exposure, and supply-chain attack paths.'
 zh_description: "审查 GitHub Actions 触发器、注入、凭据和供应链风险。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:getsentry/skills"
 source_url: "https://github.com/getsentry/skills/blob/d18b7aa8ba878354e5c348310230e652f7690f9c/skills/gha-security-review/SKILL.md"
 license: Apache-2.0
 tags: '["gha", "review", "security"]'
 created_at: "2026-06-21"
-updated_at: "2026-09-30"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 allowed-tools: 'Read Grep Glob Bash Task'
@@ -32,9 +32,9 @@ Review the workflows provided (file, diff, or repo). Research the codebase as ne
 
 ### Files to Review
 
-- `.github/workflows/*.yml` — all workflow definitions
+- `.github/workflows/*.yml` and `.github/workflows/*.yaml` — enumerate both extensions within the requested scope
 - `action.yml` / `action.yaml` — composite actions in the repo
-- `.github/actions/*/action.yml` — local reusable actions
+- `.github/actions/*/action.yml` and `action.yaml` — local action definitions
 - Config files loaded by workflows: `CLAUDE.md`, `AGENTS.md`, `Makefile`, shell scripts under `.github/`
 
 ### Out of Scope
@@ -191,7 +191,7 @@ If any link is broken, mark MEDIUM (needs verification) or drop the finding.
 [MEDIUM confidence items with explanation of what to verify]
 
 ### Reviewed and Cleared
-[Workflows reviewed and confirmed safe]
+[List reviewed files and the threat model assessed. Identify omitted or inaccessible files separately.]
 ````
 
-If no findings: "No exploitable vulnerabilities identified. All workflows reviewed and cleared."
+If no findings, state which workflows and threat model the conclusion covers.

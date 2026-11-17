@@ -2,14 +2,14 @@
 name: improve-codebase-architecture
 description: 'Review module boundaries, interface depth and high-leverage refactors with evidence.'
 zh_description: "结合变更热点、接口深度与测试证据识别高价值架构重构。"
-version: "1.0.0"
+version: "1.0.1"
 author: "mattpocock/skills"
 source: "github:mattpocock/skills"
 source_url: "https://github.com/mattpocock/skills/tree/49dd158d1076134a641b33efb035946536778336/skills/engineering/improve-codebase-architecture"
 license: "MIT"
 tags: ["architecture", "refactoring", "review"]
 created_at: "2026-10-12"
-updated_at: "2026-10-12"
+updated_at: "2026-11-17"
 quality: 3
 complexity: "advanced"
 ---
@@ -33,7 +33,7 @@ complexity: "advanced"
 4. Apply deletion tests and interface-depth heuristics using concrete examples.
 5. Read references/deepening.md and references/design-it-twice.md for alternate designs.
 6. Explain maintainability cost, migration risk, incremental sequencing and rollback.
-7. Deliver HTML only when the user asks or the host supports it; otherwise Markdown is valid.
+7. Deliver the requested format, using Markdown by default. Use the HTML scaffold when HTML is appropriate and supported.
 8. Do not invoke missing Skill commands, agents or destructive refactors by default.
 9. Public APIs, databases and distributed transactions demand compatibility checks.
 10. Use prior ADRs as historical constraints, not instructions to ignore fresh evidence.
@@ -73,7 +73,7 @@ This command is _informed_ by the project's domain model and built on a shared d
 
 Read the project's domain glossary (`GLOSSARY.md`) and any ADRs in the area you're touching first.
 
-Then spawn a sub-agent to walk the codebase. Don't follow rigid heuristics; explore organically and note where you experience friction:
+Explore the selected modules directly. Delegate an independent area only when useful, supported and authorized. Look for concrete friction:
 
 - Where does understanding one concept require bouncing between many small modules?
 - Where are modules **shallow**, with an interface nearly as complex as the implementation?
@@ -83,20 +83,18 @@ Then spawn a sub-agent to walk the codebase. Don't follow rigid heuristics; expl
 
 Apply the **deletion test** to anything you suspect is shallow: would deleting it concentrate complexity, or just move it? A "yes, concentrates" is the signal you want.
 
-### 2. Present candidates as an HTML report
+### 2. Present candidates
 
-Write a self-contained HTML file to the OS temp directory so nothing lands in the repo. Resolve the temp dir from `$TMPDIR`, falling back to `/tmp` (or `%TEMP%` on Windows), and write to `<tmpdir>/architecture-review-<timestamp>.html` so each run gets a fresh file. Open it for the user (`xdg-open <path>` on Linux, `open <path>` on macOS, `start <path>` on Windows) and tell them the absolute path.
+Use Markdown or the requested report format. For HTML, use a permitted output location and provide its path. Embed diagrams or styles locally when needed. Open a desktop preview only if requested and available.
 
-The report uses **Tailwind via CDN** for layout and styling, and **Mermaid via CDN** for diagrams where a graph/flow/sequence reliably communicates the structure. Mix Mermaid with hand-crafted CSS/SVG visuals: use Mermaid when relationships are graph-shaped (call graphs, dependencies, sequences), and hand-built divs/SVG when you want something more editorial (mass diagrams, cross-sections, collapse animations). Each candidate gets a **before/after visualisation**. Be visual.
-
-For each candidate, render a card with:
+For each candidate, include:
 
 - **Files**: which files/modules are involved
 - **Problem**: why the current architecture is causing friction
 - **Solution**: plain English description of what would change
 - **Benefits**: explained in terms of locality and leverage, and how tests would improve
-- **Before / After diagram**: side-by-side, custom-drawn, illustrating the shallowness and the deepening
-- **Recommendation strength**: one of `Strong`, `Worth exploring`, `Speculative`, rendered as a badge
+- **Before / after**: describe or diagram the change in interface and responsibility
+- **Recommendation strength**: `Strong`, `Worth exploring` or `Speculative`
 
 End the report with a **Top recommendation** section: which candidate you'd tackle first and why.
 
@@ -106,15 +104,10 @@ End the report with a **Top recommendation** section: which candidate you'd tack
 
 See [HTML-REPORT.md](HTML-REPORT.md) for the full HTML scaffold, diagram patterns, and styling guidance.
 
-Do NOT propose interfaces yet. After the file is written, ask the user: "Which of these would you like to explore?"
+For a candidate review, deliver the ranking. If the user already selected a candidate for design work, proceed with it.
 
-### 3. Grilling loop
+### 3. Explore the selected candidate
 
-Once the user picks a candidate, call the Skill tool with "grilling" to walk the decision tree with them: constraints, dependencies, the shape of the deepened module, what sits behind the seam, what tests survive.
+Walk through its constraints, dependencies, interface, implementation and surviving tests. Use the existing glossary and ADR language where available. Propose a term or ADR when a new name or load-bearing decision needs to be preserved. Write project documentation only within explicit editing scope.
 
-Side effects happen inline as decisions crystallize; call the Skill tool with "domain-modeling" to keep the domain model current as you go:
-
-- **Naming a deepened module after a concept not in `GLOSSARY.md`?** Add the term to `GLOSSARY.md`. Create the file lazily if it doesn't exist.
-- **Sharpening a fuzzy term during the conversation?** Update `GLOSSARY.md` right there.
-- **User rejects the candidate with a load-bearing reason?** Offer an ADR, framed as: _"Want me to record this as an ADR so future architecture reviews don't re-suggest it?"_ Only offer when the reason would actually be needed by a future explorer to avoid re-suggesting the same thing; skip ephemeral reasons ("not worth it right now") and self-evident ones.
-- **Want to explore alternative interfaces for the deepened module?** Read references/codebase-design.md and use its design-it-twice parallel sub-agent pattern.
+For competing interfaces, use the design-it-twice method in `references/design-it-twice.md`. Compare alternatives directly or through independent reviewers when available and authorized.

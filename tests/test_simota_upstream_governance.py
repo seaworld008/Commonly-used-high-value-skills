@@ -12,8 +12,8 @@ MAPPING = (
     / "sources"
     / "simota-agent-skills-2026-04.skills.json"
 )
-CURRENT_COMMIT = "2e02cc9efb3852a45334495df3784d59b87b0e18"
-WEEKLY_REVIEW_COMMIT = "2e02cc9efb3852a45334495df3784d59b87b0e18"
+CURRENT_COMMIT = "c1189c2111e47c1a38378e238ca027d3c231ec83"
+WEEKLY_REVIEW_COMMIT = "c1189c2111e47c1a38378e238ca027d3c231ec83"
 # The complete retry succeeded for every active monitor entry; archived
 # snapshots below retain their immutable historical checkpoints.
 WEEKLY_REVIEWED = {
@@ -95,7 +95,9 @@ class SimotaUpstreamGovernanceTests(unittest.TestCase):
         )
 
     def test_reviewed_monitor_entries_advance_to_current_commit(self):
-        for slug in MONITOR_REVIEWED | WEEKLY_REVIEWED:
+        monitors = {slug for slug, entry in self.entries.items() if entry["sync_mode"] == "monitor"}
+        self.assertEqual(30, len(monitors))
+        for slug in monitors:
             with self.subTest(slug=slug):
                 entry = self.entries[slug]
                 origin = entry["origins"][0]
@@ -112,7 +114,7 @@ class SimotaUpstreamGovernanceTests(unittest.TestCase):
                 self.assertEqual("MIT", tracking["license_checkpoint"]["spdx"])
                 self.assertRegex(tracking["path_commit"], r"^[0-9a-f]{40}$")
                 if slug in WEEKLY_REVIEWED:
-                    self.assertEqual("2026-10-26", tracking["last_checked_at"])
+                    self.assertEqual("2026-11-17", tracking["last_checked_at"])
                     self.assertTrue(any(
                         attempt.get("method") == "commit-aware-manual-monitor-review"
                         and attempt.get("target") == (

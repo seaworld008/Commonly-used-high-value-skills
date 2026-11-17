@@ -2,14 +2,14 @@
 name: linkedin
 description: 'General-purpose LinkedIn automation – fetch profiles, search people and companies, send messages, manage connections, create posts, and more. Use when the user wants to interact with LinkedIn.'
 zh_description: "通过 Linked API 搜索领英资料、管理连接、消息与内容发布。"
-version: "1.0.4"
+version: "1.0.5"
 author: vprudnikoff
 source: github:Linked-API/linkedin-skills
 source_url: "https://github.com/Linked-API/linkedin-skills/blob/e46beb9aea0af3896fd49dd7b39cff1061bf8f6d/linkedin/SKILL.md"
 license: MIT
 tags: '[linkedin, automation, social-media, outreach, cli]'
 created_at: "2026-07-10"
-updated_at: "2026-10-26"
+updated_at: "2026-11-17"
 quality: 5
 complexity: intermediate
 ---
@@ -20,7 +20,7 @@ You have access to `linkedin` – a CLI tool for LinkedIn automation. Use it to 
 
 Each command sends a request to Linked API, which runs a real cloud browser to perform the action on LinkedIn. Operations are **not instant** – expect 30 seconds to several minutes depending on complexity.
 
-If `linkedin` is not available, install it:
+Check `command -v linkedin` first. If it is missing, explain that the following command installs the CLI globally. Run it only when the task authorizes a global installation.
 
 ```bash
 npm install -g @linkedapi/linkedin-cli
@@ -112,7 +112,7 @@ linkedin person search [flags] --json -q
 
 ```bash
 linkedin person search --term "product manager" --locations "San Francisco" --json -q
-linkedin person search --current-companies "Google" --position "Engineer" --limit 20 --json -q
+linkedin person search --term "engineer" --current-companies "Google" --position "Engineer" --limit 20 --json -q
 ```
 
 ### Fetch a Company
@@ -153,7 +153,7 @@ linkedin message send https://www.linkedin.com/in/username 'Hey, loved your late
 
 To read messages use `inbox get`. Call `message get` only when you need a person's earlier history, and never repeat it to check for new messages.
 
-Enable inbox monitoring once per account, before sending messages whose replies you need – it captures only messages that arrive after it is on:
+If the account holder authorized ongoing monitoring of this inbox, enable sync once for that inbox. It captures only messages received after activation.
 
 ```bash
 linkedin inbox sync --json -q          # standard inbox
@@ -482,3 +482,11 @@ linkedin reset --all                             # Remove all accounts
 - If the requested authority, target set, or effect is ambiguous, pause before the first
   write and ask the user to clarify it.
 <!-- LOCAL-CURATION-SUPPLEMENT:END -->
+
+## Reviewed CLI compatibility (2026-11-17)
+
+Standard and Sales Navigator person/company searches require a term or a correctly typed search URL; URL input overrides words and filters. In CLI ≥ 1.2.24, list items containing commas use a single JSON string-array argument, e.g. `--locations '["Chicago, Illinois","Denver"]'`. Search-based identification of anonymous viewers returns candidates, not proof of identity.
+
+Signals (CLI ≥ 1.4.0), Sales Navigator saved lists/searches (≥ 1.2.26, Plus), and Recruiter Lite (≥ 1.3.0, Plus and a Recruiter seat) are optional contracts. Do not create ongoing monitoring from a one-off search. Signals consume quotas, first checks generally establish a baseline, events require a `detectedAt` cursor and ID deduplication, and stopped signals cannot resume.
+
+For saved-list operations distinguish removing one membership, unsaving from all lists, and deleting a list while keeping members saved. Preserve IDs as strings. Recruiter search URLs and filter/term input are mutually exclusive. Never add `--allow-paid-credit` unless the specific message and its paid-credit use are authorized. An uncertain send or create result must be reconciled by reading before retrying. Verify installed CLI help and account entitlements before these optional workflows; no live account operation was performed in this review.

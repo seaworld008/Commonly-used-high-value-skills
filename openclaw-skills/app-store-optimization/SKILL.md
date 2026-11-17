@@ -2,13 +2,13 @@
 name: app-store-optimization
 description: 'App Store Optimization toolkit for researching keywords, optimizing metadata, and tracking mobile app performance on Apple App Store and Google Play Store.'
 zh_description: "优化应用商店关键词、页面素材和转化实验。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["app", "growth", "marketing", "optimization", "store"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 triggers:
@@ -422,14 +422,22 @@ Trusted by 500,000+ professionals.
 
 | Script | Purpose | Usage |
 |--------|---------|-------|
-| [keyword_analyzer.py](scripts/keyword_analyzer.py) | Analyze keywords for volume and competition | `python keyword_analyzer.py --keywords "todo,task,planner"` |
-| [metadata_optimizer.py](scripts/metadata_optimizer.py) | Validate metadata character limits and density | `python metadata_optimizer.py --platform ios --title "App Title"` |
-| [competitor_analyzer.py](scripts/competitor_analyzer.py) | Extract and compare competitor keywords | `python competitor_analyzer.py --competitors "App1,App2,App3"` |
-| [aso_scorer.py](scripts/aso_scorer.py) | Calculate overall ASO health score | `python aso_scorer.py --app-id com.example.app` |
-| [ab_test_planner.py](scripts/ab_test_planner.py) | Plan tests and calculate sample sizes | `python ab_test_planner.py --cvr 0.05 --lift 0.10` |
-| [review_analyzer.py](scripts/review_analyzer.py) | Analyze review sentiment and themes | `python review_analyzer.py --app-id com.example.app` |
-| [launch_checklist.py](scripts/launch_checklist.py) | Generate platform-specific launch checklists | `python launch_checklist.py --platform ios` |
-| [localization_helper.py](scripts/localization_helper.py) | Manage multi-language metadata | `python localization_helper.py --locales "en,es,de,ja"` |
+| [keyword_analyzer.py](scripts/keyword_analyzer.py) | Rank supplied keyword data | `analyze_keyword_set(keywords_data)`; records contain keyword, search_volume, competing_apps, relevance_score |
+| [metadata_optimizer.py](scripts/metadata_optimizer.py) | Optimize supplied metadata | `optimize_app_metadata(platform, app_info, target_keywords)`; platform is apple/google |
+| [competitor_analyzer.py](scripts/competitor_analyzer.py) | Compare supplied competitor metadata | `analyze_competitor_set(category, competitors_data, platform='apple')` |
+| [aso_scorer.py](scripts/aso_scorer.py) | Score supplied ASO metrics | `calculate_aso_score(metadata, ratings, keyword_performance, conversion)` |
+| [ab_test_planner.py](scripts/ab_test_planner.py) | Plan a test | `plan_ab_test(test_type, variant_a, variant_b, hypothesis, baseline_conversion)` |
+| [review_analyzer.py](scripts/review_analyzer.py) | Analyze supplied reviews | `analyze_reviews(app_name, reviews)` |
+| [launch_checklist.py](scripts/launch_checklist.py) | Generate launch checklist | `generate_launch_checklist(platform, app_info, launch_date=None)` |
+| [localization_helper.py](scripts/localization_helper.py) | Plan localization | `plan_localization_strategy(current_market, budget_level, monthly_downloads)` |
+
+These are Python modules, not argument-parsing CLIs. They do not fetch live app data from an app ID. Prepare and verify the required input data first. From the skill directory, a small illustrative keyword input can be run as follows:
+
+```bash
+python3 -c 'import sys,json; sys.path.insert(0,"scripts"); from keyword_analyzer import analyze_keyword_set; print(json.dumps(analyze_keyword_set([{"keyword":"task planner","search_volume":1000,"competing_apps":100,"relevance_score":0.8}]),indent=2))'
+```
+
+The numbers above are demonstration inputs. Localization planning uses built-in estimates; `translate_metadata` returns original text, length estimates and notes, not translated copy. Validate real localized copy and current store requirements separately.
 
 ### References
 

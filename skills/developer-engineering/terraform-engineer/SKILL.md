@@ -2,14 +2,14 @@
 name: terraform-engineer
 description: 'Use when designing Terraform IaC, reviewing modules, managing state, planning provider upgrades, or improving repeatable infrastructure deployment workflows.'
 zh_description: "用于 Terraform IaC 设计、模块评审、状态管理、Provider 升级和基础设施部署优化。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "skills.sh"
 source_url: "https://skills.sh/jeffallan/claude-skills/terraform-engineer"
 license: "MIT"
 tags: '["development", "engineer", "terraform"]'
 created_at: "2026-03-27"
-updated_at: "2026-06-29"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 ---
@@ -64,7 +64,7 @@ complexity: "intermediate"
 ### 基础运维组合
 ```bash
 # 初始化并拉取所有模块/插件
-terraform init -upgrade
+terraform init
 
 # 生成变更计划并保存到文件（CI/CD 常用）
 terraform plan -out=tfplan
@@ -72,8 +72,10 @@ terraform plan -out=tfplan
 # 应用之前保存的计划，跳过确认
 terraform apply "tfplan"
 
-# 强行同步特定资源状态
-terraform apply -replace="aws_instance.web"
+# 请求替换资源，可能销毁并重建；先审查计划和依赖影响
+terraform plan -replace="aws_instance.web" -out=replace.tfplan
+# 仅在本次替换已获授权后应用
+terraform apply "replace.tfplan"
 
 # 图形化展示资源依赖关系
 terraform graph | dot -Tsvg > graph.svg
@@ -136,6 +138,7 @@ terraform {
 ## 边界与限制
 - **循环依赖**: 两个资源互相引用会导致 Deadlock，通常通过引入中间层或拆分模块解决。
 - **大规模状态**: 单个状态文件过大（数千个资源）会导致 Plan 速度极慢，此时应按功能域或环境拆分为多个 Workspace/State。
-- **API 速率限制**: 频繁执行 Plan 可能会触发云厂商的 API Rate Limit，建议在 CI 中开启 `refresh=false` 加速检测。
+- **API 速率限制**: 调整 CI 频率与并发以减少 API 请求。漂移检测保留 refresh；`-refresh=false` 仅用于明确不检查实时状态的离线或特殊计划，不能据此宣称已检测漂移。
+- **Provider 升级**: 仅在升级任务中使用 `terraform init -upgrade`，审查 lockfile 与计划差异后再应用。
 - **Secrets 管理**: 虽然 Terraform 支持处理敏感信息，但状态文件中始终是明文，建议配合专门的 Secret Manager（如 AWS Secrets Manager）使用引用模式。
 - **应用层配置**: Terraform 擅长“修路”，不擅长“开车”。对于应用内部复杂的配置文件、用户账号管理等，应结合 Ansible 或云原生初始化脚本（Cloud-init）。

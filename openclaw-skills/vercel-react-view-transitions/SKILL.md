@@ -2,14 +2,14 @@
 name: vercel-react-view-transitions
 description: 'Implement React ViewTransition animations, navigation transitions, transition types, and CSS pseudo-elements using the target React version''s API.'
 zh_description: "用于在 React/Vercel 项目中实现和优化 View Transitions。"
-version: "1.0.3"
+version: "1.0.4"
 author: seaworld008
 source: github:vercel-labs/agent-skills
 source_url: "https://github.com/vercel-labs/agent-skills/blob/b8caa260a420a73042e35521de4b5c8baf6446cc/skills/react-view-transitions/SKILL.md"
 license: MIT
 tags: '[react, nextjs, animation, transitions, frontend, vercel]'
 created_at: "2026-06-08"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 4
 complexity: intermediate
 ---
@@ -22,7 +22,8 @@ Animate between UI states using the browser's native `document.startViewTransiti
 
 Every `<ViewTransition>` should communicate a spatial relationship or continuity. If you can't articulate what it communicates, don't add it.
 
-Implement **all** applicable patterns from this list, in this order:
+For the routes and states in this request, choose patterns that communicate the
+relationship the user wants. The list is a priority guide:
 
 | Priority | Pattern | What it communicates |
 |----------|---------|---------------------|
@@ -32,7 +33,8 @@ Implement **all** applicable patterns from this list, in this order:
 | 4 | **State change** (`enter`/`exit`) | "Something appeared/disappeared" |
 | 5 | **Route change** (page-level) | "Going to a new place" |
 
-This is an implementation order, not a "pick one" list. Implement every pattern that fits the app. Only skip a pattern if the app has no use case for it.
+Keep the audit and changes within the requested routes and states; loading this
+skill does not authorize an app-wide animation retrofit.
 
 ### Choosing Animation Style
 
@@ -49,15 +51,19 @@ Reserve directional slides for hierarchical navigation (list → detail) and ord
 
 ## Availability
 
-- **Next.js:** Do **not** install `react@canary` — the App Router already bundles React canary internally. `ViewTransition` works out of the box. `npm ls react` may show a stable-looking version; this is expected.
-- **Without Next.js:** Install `react@canary react-dom@canary` (`ViewTransition` is not in stable React).
-- Browser support: Chromium 125+ (React needs the v2 object form of `startViewTransition`), Firefox 144+, Safari 18.2+. Graceful degradation on unsupported browsers.
+- Inspect the project's React/Next.js versions, lockfile, actual exports and framework configuration before selecting an API or release channel.
+- Treat reference setup examples as version-dependent. Loading this skill does not authorize installing canary; any required dependency change follows the current task's installation authorization.
+- Check support in the project's target browsers and test graceful fallback; the bundled snapshot is not evidence of current platform support.
 
 ---
 
 ## Implementation Workflow
 
-When adding view transitions to an existing app, **follow [references/implementation.md](references/implementation.md) step by step.** Start with the audit — do not skip it. Copy the CSS recipes from [references/css-recipes.md](references/css-recipes.md) into the global stylesheet — do not write your own animation CSS.
+Use [references/implementation.md](references/implementation.md) for the relevant
+steps after auditing the requested routes and states. Its app-wide audit,
+whole-stylesheet copy and every-Suspense suggestions do not expand this task.
+Reuse only needed [CSS recipes](references/css-recipes.md), adapt them to the
+project and preserve reduced-motion behavior.
 
 ---
 

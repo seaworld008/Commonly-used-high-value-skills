@@ -24,3 +24,5 @@ environment variable or the client's secret store, and reference it from the
 config. The client sends it as `Authorization: Bearer <key>`, for example
 through Codex's `bearer_token_env_var = "XQUIK_API_KEY"`. Never
 commit a key to a config file in a repository.
+
+The reviewed MCP snapshot includes `whoami` for the Xquik account identity. Discover the actual tool inventory from the host before calling it; it does not establish the identity of a separate X account.

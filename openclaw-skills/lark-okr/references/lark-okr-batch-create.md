@@ -10,25 +10,28 @@
 # 批量创建 2 个 Objective，各带 2 个 KR。
 lark-cli okr +batch-create \
   --cycle-id 7000000000000000001 \
-  --input '[{"text":"提升产品用户体验","mention":["ou_xxxxxxxx"],"notes":"重点关注核心路径体验","krs":[{"text":"页面加载速度提升 50%","mention":["ou_yyyyyyyy"]},{"text":"用户满意度达到 4.8 分"}]},{"text":"拓展新市场份额","krs":[{"text":"新增 10 个城市覆盖"},{"text":"市场份额提升至 25%"}]}]' \
+  --input '[{"text":"提升产品用户体验","mention":["ou_xxxxxxxx"],"krs":[{"text":"页面加载速度提升 50%","mention":["ou_yyyyyyyy"]},{"text":"用户满意度达到 4.8 分"}]},{"text":"拓展新市场份额","krs":[{"text":"新增 10 个城市覆盖"},{"text":"市场份额提升至 25%"}]}]' \
+  --apply-to-draft=true \
   --as user
 
 # 从文件读取输入
 lark-cli okr +batch-create \
   --cycle-id 7000000000000000001 \
   --input @okr_batch.json \
+  --apply-to-draft=true \
   --as user
 
 # 预览 API 调用（Dry-run）
 lark-cli okr +batch-create \
   --cycle-id 7000000000000000001 \
   --input @okr_batch.json \
+  --apply-to-draft=false \
   --dry-run \
   --as user
 ```
 - mention 是可选参数，不需要使用“@”提及其他用户时不传入。
   - 传入的 mention 参数会以 @对应用户的形式，添加在文本后。
-- Objective 的 notes / notes_mention 是可选参数，用于创建目标备注；KR 不支持备注。
+- Objective 的 notes / notes_mention 是发布态备注参数，草稿创建不传；KR 不支持备注。不要为写备注擅自发布草稿。
 - Objective 的 category_id 是可选参数；也可以通过 `--category-id` 给所有未显式设置分类的 Objective 指定默认分类。
 
 ## 参数
@@ -39,12 +42,15 @@ lark-cli okr +batch-create \
 | `--input`        | 是  | —         | JSON 数组格式的 Objective 列表。支持 `@文件路径` 从文件读取或 `-` 从 stdin 读取。 |
 | `--category-id`  | 否  | —         | 默认 Objective 分类 ID。仅用于 input 中未设置 `category_id` 的 Objective。通常不需要传入，见下方“分类提示”。 |
 | `--user-id-type` | 否  | `open_id` | mention 中使用的用户 ID 类型：`open_id` \| `union_id` \| `user_id`  |
+| `--apply-to-draft` | 否 | `true` | `true` 批量创建未发布的 O 草稿及其 KR；`false` 直接创建发布态，按 [草稿工作流](lark-okr-drafts.md) 显式传值。 |
 | `--dry-run`      | 否  | —         | 预览 API 调用而不实际执行                                            |
 | `--format`       | 否  | `json`    | 输出格式                                                       |
 
 > **分类提示**：当用户明确要求设置 Objective 分类，或创建 Objective 返回 `invalid parameters` 且怀疑租户强制开启分类时，可以配置 category-id 字段进行创建。先运行 `lark-cli okr categories list --as user` 查看可用分类，然后选择一个语义合适且 `enabled=true` 的分类 ID 作为 `category-id`。分类创建后可以再调整；不必因为分类选择停下等待用户确认。
 
 ## 输入格式
+
+以下包含 notes 的输入用于已授权的发布态创建（`--apply-to-draft=false`）；草稿输入省略 notes / notes_mention。文件输入同样遵守此规则。
 
 ```json
 [
@@ -77,7 +83,7 @@ lark-cli okr +batch-create \
 
 1. 使用 `+cycle-list` 获取可用的 OKR 周期 ID
 2. 构造 `--input` JSON 数组，包含要创建的 Objective 和 KR
-3. 执行 `lark-cli okr +batch-create --cycle-id <id> --input '...'`
+3. 按 [草稿工作流](lark-okr-drafts.md) 显式选择 `--apply-to-draft=true|false`，再执行批量创建。
 
 ## 输出
 

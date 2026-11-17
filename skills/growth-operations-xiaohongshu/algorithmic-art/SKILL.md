@@ -2,14 +2,14 @@
 name: algorithmic-art
 description: 'Create original generative art with p5.js, seeded randomness, flow fields, particles, and interactive parameters when code-based artwork is requested.'
 zh_description: "用代码、随机种子和交互参数创作原创生成艺术。"
-version: "1.0.1"
-author: "seaworld008"
-source: "in-house"
-source_url: ""
-license: Complete terms in LICENSE.txt
+version: "1.0.2"
+author: "Anthropic contributors; local curators"
+source: "https://github.com/anthropics/skills"
+source_url: "https://github.com/anthropics/skills/blob/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/algorithmic-art/SKILL.md"
+license: "Apache-2.0"
 tags: '["algorithmic", "art", "growth", "marketing"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -77,7 +77,7 @@ To capture the ALGORITHMIC essence, express how this philosophy manifests throug
 
 **CRITICAL GUIDELINES:**
 - **Avoid redundancy**: Each algorithmic aspect should be mentioned once. Avoid repeating concepts about noise theory, particle dynamics, or mathematical principles unless adding new depth.
-- **Emphasize craftsmanship REPEATEDLY**: The philosophy MUST stress multiple times that the final algorithm should appear as though it took countless hours to develop, was refined with care, and comes from someone at the absolute top of their field. This framing is essential - repeat phrases like "meticulously crafted algorithm," "the product of deep computational expertise," "painstaking optimization," "master-level implementation."
+- **Reproducibility**: Specify how the same seed and parameters reproduce the same composition; verify this behavior rather than claiming time spent or expertise.
 - **Leave creative space**: Be specific about the algorithmic direction, but concise enough that the next Claude has room to make interpretive implementation choices at an extremely high level of craftsmanship.
 
 The philosophy must guide the next version to express ideas ALGORITHMICALLY, not through static images. Beauty lives in the process, not the final frame.
@@ -112,7 +112,7 @@ Algorithmic expression: Randomized circle packing or Voronoi tessellation. Start
 - **PARAMETRIC EXPRESSION**: Ideas communicate through mathematical relationships, forces, behaviors - not static composition
 - **ARTISTIC FREEDOM**: The next Claude interprets the philosophy algorithmically - provide creative implementation room
 - **PURE GENERATIVE ART**: This is about making LIVING ALGORITHMS, not static images with randomness
-- **EXPERT CRAFTSMANSHIP**: Repeatedly emphasize the final algorithm must feel meticulously crafted, refined through countless iterations, the product of deep expertise by someone at the absolute top of their field in computational aesthetics
+- **IMPLEMENTATION QUALITY**: Make seed control, parameter ranges and composition behavior testable; describe refinements concretely.
 
 **The algorithmic philosophy should be 4-6 paragraphs long.** Fill it with poetic computational philosophy that brings together the intended vision. Avoid repeating the same points. Output this algorithmic philosophy as a .md file.
 
@@ -140,20 +140,20 @@ With the philosophy AND conceptual framework established, express it through cod
 1. **Read** `templates/viewer.html` using the Read tool
 2. **Study** the exact structure, styling, and Anthropic branding
 3. **Use that file as the LITERAL STARTING POINT** - not just inspiration
-4. **Keep all FIXED sections exactly as shown** (header, sidebar structure, Anthropic colors/fonts, seed controls, action buttons)
-5. **Replace only the VARIABLE sections** marked in the file's comments (algorithm, parameters, UI controls for parameters)
+4. **Keep the template layout and seed navigation** as the base. Its Actions area currently has Reset only: add Regenerate (same seed and parameters) and Download PNG with working handlers.
+5. **Replace VARIABLE sections** (algorithm, parameters and their controls); complete the missing actions as described below. Fonts may use a declared local fallback for offline delivery.
 
 **Avoid:**
 - ❌ Creating HTML from scratch
 - ❌ Inventing custom styling or color schemes
-- ❌ Using system fonts or dark themes
+- ❌ Changing visual styling without a task reason; offline delivery may use declared local font fallbacks
 - ❌ Changing the sidebar structure
 
 **Follow these practices:**
-- ✅ Copy the template's exact HTML structure
-- ✅ Keep Anthropic branding (Poppins/Lora fonts, light colors, gradient backdrop)
+- ✅ Use the template's HTML structure as the base and add the missing action controls
+- ✅ Keep Anthropic branding (light colors and gradient backdrop; Poppins/Lora fonts or declared offline fallbacks)
 - ✅ Maintain the sidebar layout (Seed → Parameters → Colors? → Actions)
-- ✅ Replace only the p5.js algorithm and parameter controls
+- ✅ Replace the p5.js algorithm and parameter controls, and implement the missing action controls
 
 The template is the foundation. Build on it, don't rebuild it.
 
@@ -259,7 +259,7 @@ To allow exploration of the generative art, create a single, self-contained HTML
 
 The `templates/viewer.html` file is the foundation. It contains the exact structure and styling needed.
 
-**FIXED (always include exactly as shown):**
+**BASE STRUCTURE (preserve layout; complete missing actions):**
 - Layout structure (header, sidebar, main canvas area)
 - Anthropic branding (UI colors, fonts, gradients)
 - Seed section in sidebar:
@@ -268,8 +268,9 @@ The `templates/viewer.html` file is the foundation. It contains the exact struct
   - Random button
   - Jump to seed input + Go button
 - Actions section in sidebar:
-  - Regenerate button
+  - Regenerate button (add same-seed redraw handler)
   - Reset button
+  - Download PNG button (add canvas export handler)
 
 **VARIABLE (customize for each artwork):**
 - The entire p5.js algorithm (setup/draw/classes)
@@ -307,7 +308,7 @@ The `templates/viewer.html` file is the foundation. It contains the exact struct
 <!DOCTYPE html>
 <html>
 <head>
-  <!-- p5.js from CDN - always available -->
+  <!-- Network dependency: p5.js CDN; availability must be checked -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
   <style>
     /* All styling inline - clean, minimal */
@@ -330,7 +331,7 @@ The `templates/viewer.html` file is the foundation. It contains the exact struct
 </html>
 ```
 
-**CRITICAL**: This is a single artifact. No external files, no imports (except p5.js CDN). Everything inline.
+**DEPENDENCIES**: Inline the algorithm and UI in one HTML artifact. The template loads p5.js from a CDN and optional Poppins/Lora fonts from Google Fonts. Declare these network dependencies; for offline delivery, use authorized local/embedded p5.js and font fallbacks or bundled licensed fonts, then verify offline behavior.
 
 **4. Implementation Details - BUILD THE SIDEBAR**
 
@@ -355,7 +356,7 @@ Add as many control-group divs as there are parameters.
 - Skip this section if the art uses fixed colors
 - Skip if the art is monochrome
 
-**4. Actions (FIXED)** - Always include exactly as shown:
+**4. Actions** - Complete the template skeleton with:
 - Regenerate button
 - Reset button
 - Download PNG button
@@ -420,7 +421,7 @@ This skill includes helpful templates and documentation:
 
 - **templates/viewer.html**: REQUIRED STARTING POINT for all HTML artifacts.
   - This is the foundation - contains the exact structure and Anthropic branding
-  - **Keep unchanged**: Layout structure, sidebar organization, Anthropic colors/fonts, seed controls, action buttons
+  - **Preserve as a base**: Layout, sidebar organization, colors and seed controls; complete the currently missing Regenerate and PNG export controls, with declared font fallbacks when needed
   - **Replace**: The p5.js algorithm, parameter definitions, and UI controls in Parameters section
   - The extensive comments in the file mark exactly what to keep vs replace
 

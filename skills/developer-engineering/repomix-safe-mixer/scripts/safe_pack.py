@@ -2,33 +2,79 @@
 """
 Safe packaging workflow for repomix.
 
-Scans for secrets, reports findings, and optionally packs after user confirmation.
+Packs only after the scanner completes without findings.
 """
 
-import os
 import sys
 import subprocess
 import json
+import os
+import stat
+import importlib.util
+from contextlib import contextmanager
+from contextvars import ContextVar
 from pathlib import Path
+
+SCAN_TIMEOUT_SECONDS = 60
+
+# Load the sibling explicitly so this file also works when imported by path.
+_scan_spec = importlib.util.spec_from_file_location(
+    '_safe_pack_scan', Path(__file__).with_name('scan_secrets.py'))
+_scan_module = importlib.util.module_from_spec(_scan_spec)
+_scan_spec.loader.exec_module(_scan_module)
+ScanRoot = _scan_module.ScanRoot
+_active_root = ContextVar('safe_pack_root', default=None)
+
+
+@contextmanager
+def packing_root(directory):
+    """Share one pinned root across scanning, reporting and process launch."""
+    active = _active_root.get()
+    if active is not None:
+        if Path(directory) != active.path:
+            raise OSError("Packaging root differs from the scanned root")
+        active.verify()
+        yield active
+        active.verify()
+    else:
+        with ScanRoot(directory) as root:
+            token = _active_root.set(root)
+            try:
+                yield root
+                root.verify()
+            finally:
+                _active_root.reset(token)
+
 
 def run_secret_scan(directory: Path, exclude_patterns: list = None):
     """Run secret scanner and return findings."""
     script_dir = Path(__file__).parent
     scan_script = script_dir / 'scan_secrets.py'
 
-    cmd = [sys.executable, str(scan_script), str(directory), '--json']
-
-    if exclude_patterns:
-        cmd.extend(['--exclude'] + exclude_patterns)
-
-    result = subprocess.run(cmd, capture_output=True, text=True)
-
     try:
-        findings = json.loads(result.stdout) if result.stdout.strip() else []
-    except json.JSONDecodeError:
-        print(f"Error: Could not parse scan results", file=sys.stderr)
-        print(f"Scanner output: {result.stdout}", file=sys.stderr)
-        sys.exit(1)
+        with packing_root(directory) as root:
+            cmd = [sys.executable, str(scan_script), str(root.path), '--json',
+                   '--root-identity', json.dumps(root.snapshot())]
+            if exclude_patterns:
+                cmd.extend(['--exclude'] + exclude_patterns)
+            result = subprocess.run(cmd, capture_output=True, text=True,
+                                    timeout=SCAN_TIMEOUT_SECONDS)
+        if result.returncode not in (0, 1) or result.stderr.strip():
+            raise ValueError
+        findings = json.loads(result.stdout)
+        if not isinstance(findings, list) or bool(findings) != (result.returncode == 1):
+            raise ValueError
+        for finding in findings:
+            if not (isinstance(finding, dict)
+                    and isinstance(finding.get('file'), str)
+                    and type(finding.get('line')) is int and finding['line'] > 0
+                    and isinstance(finding.get('type'), str)
+                    and finding.get('match') == '[REDACTED]'
+                    and finding.get('context') == '[REDACTED]'):
+                raise ValueError
+    except (OSError, ValueError, subprocess.SubprocessError):
+        print("Error: Secret scan failed or returned an invalid report. Packaging stopped.", file=sys.stderr)
+        sys.exit(2)
 
     return findings
 
@@ -60,22 +106,53 @@ def print_findings_report(findings: list):
         else:
             print()
 
+def resolve_config(config_file: Path) -> Path:
+    """Validate explicit configuration in the caller's working directory."""
+    try:
+        resolved = config_file.resolve(strict=True)
+        before = resolved.stat()
+        if not stat.S_ISREG(before.st_mode):
+            raise OSError("Configuration must be a regular file")
+        fd = os.open(resolved, os.O_RDONLY | os.O_NONBLOCK | os.O_NOFOLLOW)
+        try:
+            opened = os.fstat(fd)
+            if (not stat.S_ISREG(opened.st_mode)
+                    or (before.st_dev, before.st_ino) != (opened.st_dev, opened.st_ino)):
+                raise OSError("Configuration changed during validation")
+            os.read(fd, 1)
+        finally:
+            os.close(fd)
+        return resolved
+    except (OSError, RuntimeError):
+        print("Error: Explicit config must be an existing readable regular file.", file=sys.stderr)
+        sys.exit(2)
+
+
 def run_repomix(directory: Path, output_file: Path = None, config_file: Path = None):
     """Run repomix to package the directory."""
     cmd = ['repomix']
 
-    if config_file and config_file.exists():
-        cmd.extend(['--config', str(config_file)])
+    if config_file is not None:
+        cmd.extend(['--config', str(resolve_config(config_file))])
 
     if output_file:
         cmd.extend(['--output', str(output_file)])
 
-    # Change to directory before running repomix
-    result = subprocess.run(cmd, cwd=directory, capture_output=True, text=True)
+    # Reopening cwd by pathname alone would reintroduce the scan-to-pack race.
+    # This CLI launches from one thread; the child validates the original
+    # ancestry and fchdir's to the held FD immediately before exec.
+    try:
+        if os.name != 'posix' or not hasattr(os, 'fchdir'):
+            raise OSError("Safe pack working-directory setup is unavailable")
+        with packing_root(directory) as root:
+            result = subprocess.run(cmd, cwd=root.path, capture_output=True, text=True,
+                                    pass_fds=(root.fd,), preexec_fn=root.enter_for_pack)
+    except (OSError, subprocess.SubprocessError):
+        print("Error: Packaging root changed or safe launch failed. Packaging stopped.", file=sys.stderr)
+        sys.exit(2)
 
     if result.returncode != 0:
-        print(f"Error: repomix failed", file=sys.stderr)
-        print(result.stderr, file=sys.stderr)
+        print(f"Error: repomix failed with exit code {result.returncode}", file=sys.stderr)
         sys.exit(1)
 
     print(result.stdout)
@@ -87,25 +164,19 @@ def main():
         print("\nOptions:")
         print("  --output <file>     Output file path for repomix")
         print("  --config <file>     Repomix config file")
-        print("  --force             Skip confirmation, pack anyway (dangerous!)")
+        print("  --force             Accepted for compatibility; a clean scan is required")
         print("  --exclude <patterns> Patterns to exclude from secret scanning")
         print("\nExamples:")
         print("  safe_pack.py ./my-project")
         print("  safe_pack.py ./my-project --output package.xml")
         print(r"  safe_pack.py ./my-project --exclude '.*test.*' '.*\.example'")
-        print("  safe_pack.py ./my-project --force  # Dangerous! Skip scan")
         sys.exit(1)
 
-    directory = Path(sys.argv[1]).resolve()
-
-    if not directory.is_dir():
-        print(f"Error: {directory} is not a directory", file=sys.stderr)
-        sys.exit(1)
+    directory = Path(sys.argv[1])
 
     # Parse arguments
     output_file = None
     config_file = None
-    force = '--force' in sys.argv
     exclude_patterns = []
 
     if '--output' in sys.argv:
@@ -115,8 +186,10 @@ def main():
 
     if '--config' in sys.argv:
         config_idx = sys.argv.index('--config')
-        if config_idx + 1 < len(sys.argv):
-            config_file = Path(sys.argv[config_idx + 1])
+        if config_idx + 1 >= len(sys.argv) or sys.argv[config_idx + 1].startswith('--'):
+            print("Error: --config requires a file path.", file=sys.stderr)
+            sys.exit(2)
+        config_file = resolve_config(Path(sys.argv[config_idx + 1]))
 
     if '--exclude' in sys.argv:
         exclude_idx = sys.argv.index('--exclude')
@@ -125,6 +198,16 @@ def main():
             if not arg.startswith('--') and arg != str(directory)
         ]
 
+    try:
+        with packing_root(directory) as root:
+            _scan_and_pack(root, output_file, config_file, exclude_patterns)
+    except (OSError, RuntimeError):
+        print("Error: Scan root changed or cannot be pinned safely. Packaging stopped.", file=sys.stderr)
+        sys.exit(2)
+
+
+def _scan_and_pack(root, output_file, config_file, exclude_patterns):
+    directory = root.path
     print(f"🔍 Scanning {directory} for hardcoded secrets...\n")
 
     # Step 1: Scan for secrets
@@ -135,29 +218,19 @@ def main():
 
     # Step 3: Decision point
     if findings:
-        if force:
-            print("⚠️  WARNING: --force flag set, packing anyway despite secrets found!\n")
-        else:
-            print("❌ Cannot pack: Secrets detected!")
-            print("\nRecommended actions:")
-            print("1. Review the findings above")
-            print("2. Replace hardcoded credentials with environment variables")
-            print("3. Run scan_secrets.py to verify cleanup")
-            print("4. Run this script again")
-            print("\nOr use --force to pack anyway (NOT RECOMMENDED)")
-            sys.exit(1)
+        print("❌ Cannot pack: Secrets detected!")
+        print("Review the findings and run the scan again after cleanup.")
+        sys.exit(1)
 
     # Step 4: Pack with repomix
     print(f"📦 Packing {directory} with repomix...\n")
+    root.verify()
     run_repomix(directory, output_file, config_file)
+    root.verify()
 
     print("\n✅ Packaging complete!")
 
-    if findings:
-        print("\n⚠️  WARNING: Package contains secrets (--force was used)")
-        print("   DO NOT share this package publicly!")
-    else:
-        print("   Package is safe to distribute.")
+    print("   No matches in the scanned scope. Review the package file list before sharing.")
 
 if __name__ == '__main__':
     main()

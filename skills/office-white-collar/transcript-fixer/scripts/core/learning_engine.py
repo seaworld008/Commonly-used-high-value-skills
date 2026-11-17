@@ -21,6 +21,8 @@ from __future__ import annotations
 
 import json
 import logging
+import os
+import tempfile
 from pathlib import Path
 from typing import List, Dict, Optional
 from dataclasses import dataclass, asdict
@@ -73,7 +75,8 @@ class LearningEngine:
     AUTO_APPROVE_FREQUENCY = 5  # Must appear at least 5 times
     AUTO_APPROVE_CONFIDENCE = 0.85  # Must have 85%+ confidence
 
-    def __init__(self, history_dir: Path, learned_dir: Path, correction_service=None):
+    def __init__(self, history_dir: Path, learned_dir: Path, correction_service=None,
+                 *, enable_learning: bool = False, enable_auto_approval: bool = False):
         """
         Initialize learning engine
 
@@ -88,6 +91,8 @@ class LearningEngine:
         self.rejected_file = learned_dir / "rejected.json"
         self.auto_approved_file = learned_dir / "auto_approved.json"
         self.correction_service = correction_service
+        self.enable_learning = enable_learning
+        self.enable_auto_approval = enable_auto_approval
 
         # CRITICAL FIX: Lock files for thread-safe operations
         # Each JSON file gets its own lock file
@@ -122,6 +127,7 @@ class LearningEngine:
                 data.append(new_item)
                 self._save_suggestions(data, self.pending_file)
         """
+        lock_path.parent.mkdir(parents=True, exist_ok=True)
         lock = FileLock(str(lock_path), timeout=self.lock_timeout)
 
         try:
@@ -148,6 +154,9 @@ class LearningEngine:
         Returns:
             List of new suggestions for user review
         """
+        if not self.enable_learning:
+            return []
+
         # Load all history
         patterns = self._extract_patterns()
 
@@ -440,13 +449,10 @@ class LearningEngine:
 
     def analyze_and_auto_approve(self, changes: List, domain: str = "general") -> Dict:
         """
-        Analyze AI changes and auto-approve high-confidence patterns
+        Analyze AI changes only when learning is explicitly enabled.
 
-        This is the CORE learning loop:
-        1. Group changes by pattern
-        2. Find high-frequency, high-confidence patterns
-        3. Auto-add to dictionary (no manual review needed)
-        4. Track auto-approvals for transparency
+        Dictionary writes additionally require enable_auto_approval. Otherwise
+        suggestions are returned for review without persisting them.
 
         Args:
             changes: List of AIChange objects from recent AI processing
@@ -461,8 +467,9 @@ class LearningEngine:
                 "savings_potential": str
             }
         """
-        if not changes:
-            return {"total_changes": 0, "unique_patterns": 0, "auto_approved": 0, "pending_review": 0}
+        if not self.enable_learning or not changes:
+            return {"total_changes": len(changes), "unique_patterns": 0,
+                    "auto_approved": 0, "pending_review": 0, "suggestions": []}
 
         # Group changes by pattern
         patterns = {}
@@ -491,23 +498,17 @@ class LearningEngine:
             avg_confidence = sum(confidences) / len(confidences)
 
             # Auto-approve if meets strict criteria
-            if (frequency >= self.AUTO_APPROVE_FREQUENCY and
+            if (self.enable_auto_approval and
+                frequency >= self.AUTO_APPROVE_FREQUENCY and
                 avg_confidence >= self.AUTO_APPROVE_CONFIDENCE):
 
-                if self.correction_service:
-                    try:
-                        self.correction_service.add_correction(from_text, to_text, domain)
-                        auto_approved_patterns.append({
-                            "from": from_text,
-                            "to": to_text,
-                            "frequency": frequency,
-                            "confidence": avg_confidence,
-                            "domain": domain
-                        })
-                        stats["auto_approved"] += 1
-                    except Exception as e:
-                        # Already exists or validation error
-                        pass
+                auto_approved_patterns.append({
+                    "from": from_text,
+                    "to": to_text,
+                    "frequency": frequency,
+                    "confidence": avg_confidence,
+                    "domain": domain
+                })
 
             # Add to pending review if meets minimum criteria
             elif (frequency >= self.MIN_FREQUENCY and
@@ -520,9 +521,22 @@ class LearningEngine:
                 })
                 stats["pending_review"] += 1
 
-        # Save auto-approved for transparency
         if auto_approved_patterns:
-            self._save_auto_approved(auto_approved_patterns)
+            if self.correction_service is None:
+                raise RuntimeError("Auto-approval requires a correction service")
+            committed = []
+            try:
+                for pattern in auto_approved_patterns:
+                    self.correction_service.add_correction(pattern["from"], pattern["to"], domain)
+                    committed.append(pattern)
+            finally:
+                # Each dictionary insert has its own transaction. Record earlier
+                # commits even if a later pattern fails, then propagate the error.
+                if committed:
+                    self._save_auto_approved(committed)
+            stats["auto_approved"] = len(committed)
+
+        stats["suggestions"] = pending_patterns
 
         # Calculate savings potential
         total_dict_covered = sum(p["frequency"] for p in auto_approved_patterns)
@@ -546,20 +560,27 @@ class LearningEngine:
         with self._file_lock(self.auto_approved_lock, "save auto-approved"):
             # Load existing
             existing = []
+            file_mode = 0o600
             if self.auto_approved_file.exists():
                 with open(self.auto_approved_file, 'r', encoding='utf-8') as f:
+                    file_mode = os.fstat(f.fileno()).st_mode & 0o777
                     content = f.read().strip()
                     if content:
-                        data = json.load(json.loads(content) if isinstance(content, str) else f)
+                        data = json.loads(content)
                         existing = data.get("auto_approved", [])
 
             # Append new
             all_patterns = existing + patterns
 
             # Save
-            self.auto_approved_file.parent.mkdir(parents=True, exist_ok=True)
             data = {"auto_approved": all_patterns}
-            with open(self.auto_approved_file, 'w', encoding='utf-8') as f:
-                json.dump(data, f, ensure_ascii=False, indent=2)
+            with tempfile.TemporaryDirectory(dir=self.learned_dir) as staging:
+                staged = Path(staging) / self.auto_approved_file.name
+                with staged.open("w", encoding="utf-8") as f:
+                    json.dump(data, f, ensure_ascii=False, indent=2)
+                    f.flush()
+                    os.chmod(staged, file_mode)
+                    os.fsync(f.fileno())
+                staged.replace(self.auto_approved_file)
 
             logger.info(f"Saved {len(patterns)} auto-approved patterns (total: {len(all_patterns)})")

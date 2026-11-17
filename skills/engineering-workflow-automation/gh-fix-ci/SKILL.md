@@ -3,12 +3,13 @@ name: gh-fix-ci
 description: 'Inspect and fix failing GitHub Actions PR checks using gh logs and focused validation; report external-provider failures with their details URL.'
 zh_description: "读取 GitHub Actions 失败日志，修复 CI 并验证 PR 检查。"
 version: "1.0.1"
-author: "seaworld008"
-source: "in-house"
-source_url: ""
+author: "OpenAI contributors; local curators"
+source: "https://github.com/openai/skills"
+source_url: "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/gh-fix-ci/SKILL.md"
+license: "Apache-2.0"
 tags: '["automation", "fix", "workflow"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 3
 complexity: "intermediate"
 ---

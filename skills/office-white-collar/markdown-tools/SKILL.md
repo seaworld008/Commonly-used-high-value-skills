@@ -2,13 +2,13 @@
 name: markdown-tools
 description: 'Convert PDF, DOCX, PPTX, and other documents to Markdown, preserving tables, images, and structure with the appropriate extraction tool.'
 zh_description: "把文档转换为保留结构、表格和图片的 Markdown。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["markdown", "tools"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 ---
@@ -43,7 +43,7 @@ choose quick or heavy mode
 | Mode | Speed | Quality | Use Case |
 |------|-------|---------|----------|
 | **Quick** (default) | Fast | Good | Drafts, simple documents |
-| **Heavy** | Slower | Best | Final documents, complex layouts |
+| **Heavy** | Slower | Heuristic selection | Final documents, complex layouts |
 
 ## Quick Start
 
@@ -62,11 +62,11 @@ brew install pandoc
 # Quick Mode (default) - fast, single best tool
 uv run --with pymupdf4llm --with markitdown scripts/convert.py document.pdf -o output.md
 
-# Heavy Mode - multi-tool parallel execution with merge
+# Heavy Mode - sequential converters, select one complete result and combine image inventories
 uv run --with pymupdf4llm --with markitdown scripts/convert.py document.pdf -o output.md --heavy
 
-# Check available tools
-uv run scripts/convert.py --list-tools
+# Check available tools (current parser requires an input token; list mode does not convert it)
+uv run scripts/convert.py document.pdf --list-tools
 ```
 
 ## Tool Selection Matrix
@@ -86,22 +86,14 @@ uv run scripts/convert.py --list-tools
 
 ## Heavy Mode Workflow
 
-Heavy Mode runs multiple tools in parallel and selects the best segments:
+Heavy mode runs available converters sequentially, selects one complete Markdown result by heuristic score, and combines image inventories. It does not select or merge the best text segment from each converter.
 
-1. **Parallel Execution**: Run all applicable tools simultaneously
-2. **Segment Analysis**: Parse each output into segments (tables, headings, images, paragraphs)
-3. **Quality Scoring**: Score each segment based on completeness and structure
-4. **Intelligent Merge**: Select best version of each segment across tools
+1. Run applicable converters in sequence.
+2. Discard failed or empty results.
+3. Score complete Markdown results with the bundled heuristic.
+4. Return the highest-scoring complete text and combined image inventory.
 
-### Merge Criteria
-
-| Segment Type | Selection Criteria |
-|--------------|-------------------|
-| Tables | More rows/columns, proper header separator |
-| Images | Alt text present, local paths preferred |
-| Headings | Proper hierarchy, appropriate length |
-| Lists | More items, nested structure preserved |
-| Paragraphs | Content completeness |
+A higher score does not prove source completeness. Compare tables, headings and unique passages against the source; another converter may retain text absent from the selected result. For segment-level merging, explicitly use `scripts/merge_outputs.py` (below) and verify against the source.
 
 ## Image Extraction
 
@@ -171,7 +163,7 @@ brew install pandoc
 - Or extract separately with `scripts/extract_pdf_images.py`
 
 **Tables broken in output**
-- Use Heavy Mode - it selects the most complete table version
+- Compare converter outputs against the source; Heavy Mode selects a complete document, not individual tables
 - Or validate with `scripts/validate_output.py`
 
 ## Bundled Scripts

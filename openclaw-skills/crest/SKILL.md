@@ -2,14 +2,14 @@
 name: crest
 description: Building engineer self-branding by turning technical contributions into a professional brand. Use for GitHub/LinkedIn/blog/conference positioning or content strategy.
 zh_description: "技术个人品牌、主页资料、文章和公开形象策略。"
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/.archive/crest"
 license: MIT
 tags: '["crest", "productivity"]'
 created_at: "2026-07-27"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "advanced"
 ---
@@ -138,7 +138,7 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 | SNS Strategy | `sns` | | X, Bluesky, LinkedIn SNS publishing strategy, zero-click design | `reference/amplification-playbook.md` |
 | Topic DNA | `topic-dna` | | Topic DNA / niche positioning — define what the engineer is known for; tech × domain × perspective triangulation | `reference/topic-dna.md` |
 | Portfolio | `portfolio` | | Personal portfolio site / homepage architecture — projects, case studies, contact, hire-readiness | `reference/portfolio-architecture.md` |
-| Bio | `bio` | | Multi-platform bio writing — GitHub one-line, LinkedIn About ≤275 chars, X 160-char, conference 50-word, long 200-word variants | `reference/multi-platform-bio.md` |
+| Bio | `bio` | | Multi-platform bio writing — GitHub one-line, LinkedIn About with a strong ~275-character opening preview and a full section within the platform’s verified limit, X 160-char, conference 50-word, long 200-word variants | `reference/multi-platform-bio.md` |
 
 ## Subcommand Dispatch
 
@@ -149,7 +149,7 @@ Parse the first token of user input.
 Behavior notes per Recipe:
 - `topic-dna`: Define the engineer's niche via Tech × Domain × Perspective triangulation; produce a single-sentence positioning statement and 3–5 content pillars; verify defensibility, audience fit, and 12-month durability.
 - `portfolio`: Design a personal portfolio / homepage IA — hero + projects + case studies + writing + speaking + contact — with hire-readiness checklist (CTA, contact, response time, availability signal).
-- `bio`: Author a coherent bio family across platforms — GitHub one-line, LinkedIn About ≤275 chars, X 160-char, conference 50-word, long 200-word — derived from one canonical positioning statement.
+- `bio`: Author a coherent bio family across platforms — GitHub one-line, LinkedIn About with a strong ~275-character opening preview and a full section within the platform’s verified limit, X 160-char, conference 50-word, long 200-word — derived from one canonical positioning statement.
 
 ## Output Routing
 
@@ -157,7 +157,7 @@ Behavior notes per Recipe:
 |--------|----------|-----------|
 | `ブランド診断`, `brand audit` | **AUDIT** — Multi-channel scoring → Brand Health Report | `reference/metrics-guide.md` |
 | `ニッチ決定`, `positioning` | **POSITION** — Tech×Domain×Perspective analysis → Positioning Statement | `reference/positioning-frameworks.md` |
-| `GitHub README`, `LinkedIn`, `profile` | **PROFILE** — Channel-specific optimization → Channel-optimized content (LinkedIn: align 360Brew Topic DNA + 80% content pillar rule, 100% profile completion, mobile-first About ≤275 chars, pin top 3 skills; GitHub: pin 4–6 strongest repos) | `reference/channel-templates.md` |
+| `GitHub README`, `LinkedIn`, `profile` | **PROFILE** — Channel-specific optimization → Channel-optimized content (LinkedIn: align 360Brew Topic DNA + 80% content pillar rule, 100% profile completion, mobile-first About preview (~275 characters), full section within the platform’s verified limit, pin top 3 skills; GitHub: pin 4–6 strongest repos) | `reference/channel-templates.md` |
 | `実績まとめ`, `自己紹介`, `achievement` | **NARRATIVE** — Contribution data → Achievement narrative | `reference/channel-templates.md` |
 | `ブランド戦略`, `brand strategy` | **STRATEGY** — Annual roadmap → Branding roadmap | `reference/amplification-playbook.md` |
 | `ブログネタ`, `登壇テーマ`, `content ideas` | **CONTENT** — Content planning → Content plan + repurpose map (LinkedIn: zero-click strategy — deliver value in-feed via document/carousel posts and short-form video <60 s; no outbound URLs in post body; optimize for depth, saves, and late engagement; maintain 80%+ within Topic DNA pillars) | `reference/amplification-playbook.md` |

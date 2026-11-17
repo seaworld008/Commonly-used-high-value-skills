@@ -2,13 +2,13 @@
 name: macro-regime-monitor
 description: 'Use when tracking macro regime shifts, summarizing inflation, growth, spreads, and liquidity signals, or creating a house view before updating sector or asset-allocation calls.'
 zh_description: "监测宏观经济状态、市场指标和投资环境变化。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["finance", "macro", "monitor", "regime"]'
 created_at: "2026-03-18"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 2
 complexity: "intermediate"
 ---
@@ -17,14 +17,14 @@ complexity: "intermediate"
 
 从宏观噪音中提取信号，识别当前的宏观范式（Macro Regime），为资产配置和行业轮动提供决策依据。本技能通过整合通胀、增长、利差和流动性等多维指标，帮助投资者判断市场正处于何种周期阶段，从而决定是“Risk-on”还是“Risk-off”。
 
-## 安装与前提条件
+## 运行前提与实际脚本范围
 
-```bash
-# 确保已安装宏观数据抓取与分析库
-pip install pandas numpy openbb requests
-# 下载宏观分类脚本
-npx clawhub install macro-regime-monitor
-```
+仓库已附带脚本和样例，使用 Python 3 标准库即可运行，无需额外安装第三方包或重新安装技能。
+从本技能目录执行下方命令；在其他工作目录调用时，使用脚本和输入文件的完整路径。
+
+比较 inflation、growth、credit_spreads、liquidity 的 current/previous，输出简单方向评分与 current_regime。它不抓取宏观数据、不回测分类有效性，也不输出象限图。
+
+后续领域方法描述的是研究工作流。超出上述输出的指标需补充数据、方法和独立验证，不能声称由附带脚本自动生成。报告中的示例数值为格式示意，不是模型输出或投资结论。
 
 ## 触发条件 / When to Use
 
@@ -71,15 +71,15 @@ npx clawhub install macro-regime-monitor
 ### 宏观监控数据 JSON 模板 (Macro Indicators JSON)
 ```json
 {
-  "region": "US",
-  "data_points": {
-    "pmi_composite": 52.5,
-    "cpi_yoy": 3.4,
-    "fed_funds_rate": 5.25,
-    "yield_curve_10y2y": -0.45,
-    "m2_growth": 0.02
-  },
-  "trend": "Growth decelerating, Inflation sticky"
+  "inflation": {"current": 3.1, "previous": 3.4},
+  "growth": {"current": 2.2, "previous": 1.9},
+  "credit_spreads": {"current": 3.8, "previous": 4.1},
+  "liquidity": {"current": 1.4, "previous": 1.2},
+  "watch_items": [
+    "Next CPI print",
+    "Payroll revisions",
+    "High-yield spread widening"
+  ]
 }
 ```
 
@@ -105,8 +105,8 @@ npx clawhub install macro-regime-monitor
 
 ### 快速查询命令
 ```bash
-# 获取并分类最新的宏观环境
-python scripts/classify_regime.py --input assets/live_macro.json --plot_quadrant
+# 离线样例，结果以 JSON 输出到标准输出
+python3 scripts/classify_regime.py assets/sample_macro_data.json
 ```
 
 ## 进阶应用场景 / Advanced Use Cases

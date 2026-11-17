@@ -2,14 +2,14 @@
 name: golang-benchmark
 description: 'Run reproducible Go benchmarks, profiling, benchstat and CI regression analysis.'
 zh_description: "使用 Go benchmark、pprof、benchstat 及 CI 回归分析性能。"
-version: "1.0.0"
+version: "1.0.1"
 author: "samber/cc-skills-golang"
 source: "github:samber/cc-skills-golang"
 source_url: "https://github.com/samber/cc-skills-golang/tree/8e899e20ff0cd4dc524af3993e4c62d8ee8c5717/skills/golang-benchmark"
 license: "MIT"
 tags: ["go", "benchmark", "pprof"]
 created_at: "2026-10-12"
-updated_at: "2026-10-12"
+updated_at: "2026-11-17"
 quality: 3
 complexity: "advanced"
 ---
@@ -56,7 +56,7 @@ This skill covers the full measurement workflow: write a benchmark, run it, prof
 
 Benchmark functions live in a `_bench_test.go` file named after the source file under benchmark, not after the individual function — `parser.go` -> `parser_bench_test.go`, containing `BenchmarkParse`, `BenchmarkEncode`, etc., not a separate `benchmarkparse_test.go` per function.
 
-- Keeping benchmarks in their own file (instead of mixed into `parser_test.go`) keeps `go test -bench=. ./pkg/parser` output free of unrelated `Test*` noise.
+- A dedicated file groups measurement fixtures. To run only benchmarks, use `go test -run='^$' -bench=. ./pkg/parser`.
 - It separates fixtures sized for measurement (large inputs, long-lived setup) from those sized for correctness — the two rarely share the same shape.
 - The file still follows Go's one-test-file-per-source-file convention (→ See `samber/cc-skills-golang@golang-testing` skill), just with the `_bench` suffix marking its narrower purpose.
 
@@ -116,7 +116,7 @@ func BenchmarkEncode(b *testing.B) {
 ## Running Benchmarks
 
 ```bash
-go test -bench=BenchmarkEncode -benchmem -count=10 ./pkg/... | tee bench.txt
+go test -run='^$' -bench=BenchmarkEncode -benchmem -count=10 ./pkg/... | tee bench.txt
 ```
 
 | Flag                   | Purpose                                   |

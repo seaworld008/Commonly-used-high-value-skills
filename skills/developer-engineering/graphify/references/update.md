@@ -14,7 +14,7 @@ from pathlib import Path
 
 from graphify.paths import out_path
 from graphify.watch import _read_build_excludes, _read_build_gitignore
-result = detect_incremental(Path('INPUT_PATH'), extra_excludes=_read_build_excludes(out_path()), gitignore=_read_build_gitignore(out_path()))
+result = detect_incremental(Path(Path('graphify-out/.graphify_root').read_text(encoding='utf-8')), extra_excludes=_read_build_excludes(out_path()), gitignore=_read_build_gitignore(out_path()))
 new_total = result.get('new_total', 0)
 nf = result.get('new_files', {})
 print(json.dumps({
@@ -124,7 +124,7 @@ G = build_merge(
     [new_extraction],
     graph_path='graphify-out/graph.json',
     prune_sources=prune,
-    root='INPUT_PATH',
+    root=Path('graphify-out/.graphify_root').read_text(encoding='utf-8'),
     directed=IS_DIRECTED,
 )
 print(f'[graphify update] Merged: {G.number_of_nodes()} nodes, {G.number_of_edges()} edges')
@@ -161,7 +161,7 @@ print(f'[graphify update] Merged extraction written ({len(merged_out[\"nodes\"])
 # is lost forever (#2015). Mirrors the library extract path
 # (cli._stamped_manifest_files + clear_semantic + scan_corpus).
 from graphify.cli import _stamped_manifest_files
-_manifest_files = _stamped_manifest_files(incremental['files'], new_extraction, Path('INPUT_PATH'))
+_manifest_files = _stamped_manifest_files(incremental['files'], new_extraction, Path(Path('graphify-out/.graphify_root').read_text(encoding='utf-8')))
 # Changed semantic files dispatched this run but NOT stamped had their chunk fail
 # or be omitted; clear any stale semantic_hash so they are re-queued (#1948).
 _sem_types = ('document', 'paper', 'image')
@@ -171,7 +171,7 @@ _cleared = _dispatched - _stamped
 # scan_corpus = the RAW full corpus so in-root files newly excluded since last run
 # are dropped rather than masquerading as deletions; untouched rows preserved (#1908).
 _scan = {f for fl in incremental['files'].values() for f in fl}
-save_manifest(_manifest_files, root='INPUT_PATH', scan_corpus=_scan, clear_semantic=_cleared or None)
+save_manifest(_manifest_files, root=Path('graphify-out/.graphify_root').read_text(encoding='utf-8'), scan_corpus=_scan, clear_semantic=_cleared or None)
 print('[graphify update] Manifest saved.')
 "
 ```

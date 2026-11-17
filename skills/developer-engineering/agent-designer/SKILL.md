@@ -2,13 +2,13 @@
 name: agent-designer
 description: 'Design AI agent responsibilities, tools, memory, orchestration, and evaluation when defining an agent architecture or system contract.'
 zh_description: "设计智能体的职责、工具、记忆、协作架构和评测方法。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["agent", "designer", "development"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -207,7 +207,7 @@ Agent Designer is a comprehensive toolkit for designing, architecting, and evalu
 
 #### Cost Analysis
 - **Token Usage:** Input/output token consumption per task
-- **API Costs:** External service usage and charges
+- **API costs:** Count tasks with recorded `cost_usd` in the original logs and report the known sum, covered count and unknown count. The evaluator substitutes zero for an absent field, so its total and per-task average are incomplete whenever coverage is partial.
 - **Compute Resources:** CPU, memory, storage utilization
 - **Time-to-Value:** Cost per successful task completion
 

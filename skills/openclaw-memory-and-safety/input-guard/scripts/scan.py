@@ -481,6 +481,21 @@ def scan(text: str, sensitivity: str = "medium") -> ScanResult:
     )
 
 
+def alert_pattern_result(result, threshold, mode):
+    sev_name = result.severity.name
+    alert_sev_val = ALERT_SEVERITY_ORDER.get(sev_name, 0)
+    alert_threshold = ALERT_SEVERITY_ORDER.get(threshold, 2)
+    if alert_sev_val >= alert_threshold:
+        msg = "\n".join([
+            "Input-Guard Alert",
+            f"Severity: {sev_name}",
+            f"Score: {result.score}/100",
+            f"Mode: {mode}",
+            f"Findings: {len(result.findings)}",
+        ])
+        send_alert(msg)
+
+
 def main():
     parser = argparse.ArgumentParser(description="Input Guard — Scan text for prompt injection")
     parser.add_argument("text", nargs="?", help="Text to scan")
@@ -524,32 +539,47 @@ def main():
         parser.print_help()
         sys.exit(1)
 
-    if not text.strip():
+    if not text.strip() and not (args.llm or args.llm_only):
         print("✅ SAFE — Empty input.")
         sys.exit(0)
 
-    use_llm = args.llm or args.llm_only or args.llm_auto
-
-    # ---------------------------------------------------------------
-    # LLM-only mode: skip pattern matching entirely
-    # ---------------------------------------------------------------
-    if args.llm_only:
+    result = None if args.llm_only else scan(text, args.sensitivity)
+    run_llm = (args.llm_only or args.llm
+               or (args.llm_auto and result.severity.value >= Severity.MEDIUM.value))
+    mode = "llm-only" if args.llm_only else ("pattern+llm" if run_llm else "pattern")
+    if run_llm:
+        failure = None
         try:
-            from llm_scanner import scan_with_llm, SEVERITY_ORDER
+            from llm_scanner import scan_with_llm, merge_results, SEVERITY_ORDER
+
+            llm_result = scan_with_llm(
+                text, provider=args.llm_provider, model=args.llm_model, timeout=args.llm_timeout,
+            )
+            if llm_result is None:
+                failure = "No LLM provider available. Configure the selected provider's key and model."
+            elif llm_result.verdict == "ERROR":
+                failure = llm_result.reasoning
         except ImportError:
-            print("❌ LLM scanner module not found. Ensure llm_scanner.py is in the same directory.", file=sys.stderr)
-            sys.exit(1)
+            failure = "LLM scanner or dependency unavailable"
+        except Exception:
+            failure = "LLM scan failed"
 
-        llm_result = scan_with_llm(
-            text,
-            provider=args.llm_provider,
-            model=args.llm_model,
-            timeout=args.llm_timeout,
-        )
-        if llm_result is None:
-            print("❌ No LLM provider available. Set OPENAI_API_KEY or ANTHROPIC_API_KEY.", file=sys.stderr)
-            sys.exit(1)
+        if failure is not None:
+            if args.json:
+                out = {"mode": mode, "severity": "ERROR", "score": None,
+                       "llm": {"verdict": "ERROR", "reasoning": failure}}
+                if result is not None:
+                    out["pattern"] = result.to_dict()
+                print(json.dumps(out))
+            elif args.quiet:
+                print("ERROR")
+            else:
+                print(f"ERROR — {failure}", file=sys.stderr)
+            if args.alert and result is not None:
+                alert_pattern_result(result, args.alert_threshold, "pattern (LLM incomplete)")
+            sys.exit(2)
 
+    if args.llm_only:
         if args.json:
             out = {
                 "severity": llm_result.severity,
@@ -601,64 +631,39 @@ def main():
         sev_val = SEVERITY_ORDER.get(llm_result.severity, 0)
         sys.exit(0 if sev_val <= 1 else 1)
 
-    # ---------------------------------------------------------------
-    # Standard mode: pattern scan (+ optional LLM layer)
-    # ---------------------------------------------------------------
-    result = scan(text, args.sensitivity)
-
-    # Determine if LLM scan should run
-    run_llm = args.llm  # Explicit --llm always runs
-    if args.llm_auto and result.severity.value >= Severity.MEDIUM.value:
-        run_llm = True  # Auto-escalate on MEDIUM+
-
     llm_analysis = None
     if run_llm:
-        try:
-            from llm_scanner import scan_with_llm, merge_results as llm_merge, SEVERITY_ORDER
-            llm_result = scan_with_llm(
-                text,
-                provider=args.llm_provider,
-                model=args.llm_model,
-                timeout=args.llm_timeout,
-            )
-            if llm_result and llm_result.verdict != "ERROR":
-                merged = llm_merge(
-                    result.severity.name,
-                    result.score,
-                    result.findings,
-                    llm_result,
-                )
-                # Update result with merged data
-                result = ScanResult(
-                    severity=Severity[merged["severity"]],
-                    score=merged["score"],
-                    findings=merged["findings"],
-                    summary="",  # Will regenerate below
-                )
-                llm_analysis = merged.get("llm_analysis")
+        merged = merge_results(
+            result.severity.name,
+            result.score,
+            result.findings,
+            llm_result,
+        )
+        # Update result with merged data
+        result = ScanResult(
+            severity=Severity[merged["severity"]],
+            score=merged["score"],
+            findings=merged["findings"],
+            summary="",  # Will regenerate below
+        )
+        llm_analysis = merged.get("llm_analysis")
 
-                # Regenerate summary
-                if result.severity == Severity.SAFE:
-                    result.summary = "✅ SAFE — No prompt injection detected. [pattern+LLM]"
-                elif result.severity == Severity.LOW:
-                    result.summary = f"📝 LOW — {len(result.findings)} finding(s). Likely benign. [pattern+LLM]"
-                elif result.severity == Severity.MEDIUM:
-                    result.summary = f"⚠️ MEDIUM — {len(result.findings)} finding(s). Possible manipulation. [pattern+LLM]"
-                elif result.severity == Severity.HIGH:
-                    result.summary = f"🔴 HIGH — {len(result.findings)} finding(s). Likely prompt injection. [pattern+LLM]"
-                else:
-                    result.summary = f"🚨 CRITICAL — {len(result.findings)} finding(s). Active injection attack! [pattern+LLM]"
-            elif llm_result:
-                llm_analysis = {"error": llm_result.reasoning}
-        except ImportError:
-            llm_analysis = {"error": "LLM scanner module not found"}
-        except Exception as e:
-            llm_analysis = {"error": str(e)}
+        # Regenerate summary
+        if result.severity == Severity.SAFE:
+            result.summary = "✅ SAFE — No prompt injection detected. [pattern+LLM]"
+        elif result.severity == Severity.LOW:
+            result.summary = f"📝 LOW — {len(result.findings)} finding(s). Likely benign. [pattern+LLM]"
+        elif result.severity == Severity.MEDIUM:
+            result.summary = f"⚠️ MEDIUM — {len(result.findings)} finding(s). Possible manipulation. [pattern+LLM]"
+        elif result.severity == Severity.HIGH:
+            result.summary = f"🔴 HIGH — {len(result.findings)} finding(s). Likely prompt injection. [pattern+LLM]"
+        else:
+            result.summary = f"🚨 CRITICAL — {len(result.findings)} finding(s). Active injection attack! [pattern+LLM]"
 
     # Output
     if args.json:
         out = result.to_dict()
-        out["mode"] = "pattern+llm" if run_llm else "pattern"
+        out["mode"] = mode
         if llm_analysis:
             out["llm"] = llm_analysis
         print(json.dumps(out, indent=2, ensure_ascii=False))
@@ -680,30 +685,16 @@ def main():
                 if evidence:
                     print(f"       Evidence: \"{evidence[:120]}\"")
 
-        if llm_analysis and not llm_analysis.get("error"):
+        if llm_analysis:
             print(f"\n🤖 LLM Analysis ({llm_analysis.get('model', '?')}):")
             print(f"   Verdict: {llm_analysis.get('verdict')} (confidence: {llm_analysis.get('confidence', 0):.0%})")
             print(f"   Reasoning: {llm_analysis.get('reasoning', 'N/A')}")
             print(f"   Latency: {llm_analysis.get('latency_ms', 0)}ms | Tokens: {llm_analysis.get('tokens_used', 0)}")
-        elif llm_analysis and llm_analysis.get("error"):
-            print(f"\n⚠️ LLM scan failed: {llm_analysis['error']}")
 
         print(f"\nSeverity: {result.severity.name} | Score: {result.score}/100")
 
     if args.alert:
-        sev_name = result.severity.name
-        alert_sev_val = ALERT_SEVERITY_ORDER.get(sev_name, 0)
-        alert_threshold = ALERT_SEVERITY_ORDER.get(args.alert_threshold, 2)
-        if alert_sev_val >= alert_threshold:
-            mode = "pattern+llm" if run_llm else "pattern"
-            msg = "\n".join([
-                "Input-Guard Alert",
-                f"Severity: {sev_name}",
-                f"Score: {result.score}/100",
-                f"Mode: {mode}",
-                f"Findings: {len(result.findings)}",
-            ])
-            send_alert(msg)
+        alert_pattern_result(result, args.alert_threshold, mode)
 
     # Exit code: 0 for SAFE/LOW, 1 for MEDIUM+
     sys.exit(0 if result.severity.value <= Severity.LOW.value else 1)

@@ -68,7 +68,7 @@ npx github:seaworld008/Commonly-used-high-value-skills install --target codex --
 npx github:seaworld008/Commonly-used-high-value-skills install --target custom --dir ./vendor/agent-skills
 
 # 固定到某个发布版本，便于团队复现
-npx github:seaworld008/Commonly-used-high-value-skills#v6.0.0 install --target codex
+npx github:seaworld008/Commonly-used-high-value-skills#v6.1.0 install --target codex
 
 # 浏览可选技能、分类和安装目标
 npx github:seaworld008/Commonly-used-high-value-skills list-skills
@@ -298,7 +298,7 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`database-schema-designer`](./skills/developer-engineering/database-schema-designer/)：设计数据表、约束、索引、迁移和行级权限策略。
 - [`dependency-auditor`](./skills/developer-engineering/dependency-auditor/)：梳理依赖清单，核实漏洞与许可证证据，规划可验证的升级。
 - [`docker-expert`](./skills/developer-engineering/docker-expert/)：用于 Docker 容器化最佳实践、多阶段构建优化与 Docker Compose 编排。
-- [`frontend-design`](./skills/developer-engineering/frontend-design/)：用于创建高质量、非模板化的前端页面、组件、仪表盘、海报和 Web UI。
+- [`frontend-design`](./skills/developer-engineering/frontend-design/)：按产品目标与品牌约束设计和实现网页、组件及应用界面，兼顾视觉表达、响应式和交互验收。
 - [`gateway`](./skills/developer-engineering/gateway/)：设计或评审 REST/GraphQL 接口时使用：OpenAPI 规范、版本与弃用策略、破坏性变更检测和接口安全。
 - [`git-worktree-manager`](./skills/developer-engineering/git-worktree-manager/)：管理并行开发的 Git worktree、环境和端口分配。
 - [`github-contributor`](./skills/developer-engineering/github-contributor/)：寻找开源贡献机会并准备可审查的 GitHub PR。
@@ -323,7 +323,7 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`qa-expert`](./skills/developer-engineering/qa-expert/)：制定测试策略、风险用例、执行计划和缺陷跟踪流程。
 - [`react-native-engineering`](./skills/developer-engineering/react-native-engineering/)：用于构建、审查、调试、测试、升级和发布 React Native 与 Expo 应用，覆盖新架构、原生模块、性能、EAS 和双平台验证。
 - [`repomix-safe-mixer`](./skills/developer-engineering/repomix-safe-mixer/)：打包代码前扫描凭据、输出脱敏报告，并在发现风险时阻止打包。
-- [`rust-engineer`](./skills/developer-engineering/rust-engineer/)：用于 Rust 代码开发、所有权和生命周期调试、异步模式选择和系统性能优化。
+- [`rust-engineer`](./skills/developer-engineering/rust-engineer/)：用于 Rust 实现与审查：分析所有权和错误类型、设计 trait 与异步取消、核对 unsafe/FFI 不变量、兼容性和性能证据。
 - [`schema`](./skills/developer-engineering/schema/)：设计或评审数据库模式时使用：数据建模、零停机迁移、索引策略、多租户隔离和向量表。
 - [`shadcn`](./skills/developer-engineering/shadcn/)：维护 shadcn 组件、注册源和主题，核对项目真实 API，并验证预览差异与交互结果。
 - [`skill-tester`](./skills/developer-engineering/skill-tester/)：用于对照目标仓库和宿主要求，验证技能目录结构、附带脚本和预期输出。
@@ -397,8 +397,8 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`arena`](./skills/ai-agent-platform/arena/)：用于通过 codex exec 或 Antigravity CLI 编排多引擎竞争（多方案择优）或协作（拆分任务后集成），支持 Solo/Team/Quick 模式。
 - [`chatgpt-apps`](./skills/ai-agent-platform/chatgpt-apps/)：用于设计、构建和调试 ChatGPT Apps 与相关集成能力。
 - [`develop-web-game`](./skills/ai-agent-platform/develop-web-game/)：用于开发网页游戏原型、玩法循环、交互逻辑和前端实现。
-- [`figma`](./skills/ai-agent-platform/figma/)：通过 Figma MCP 读取设计上下文、变量、截图和素材，并排查连接问题。
-- [`figma-implement-design`](./skills/ai-agent-platform/figma-implement-design/)：用于将 Figma 设计转化为可实现的前端界面和组件。
+- [`figma`](./skills/ai-agent-platform/figma/)：读取 Figma 设计节点、变量、截图和素材，定位链接目标并排查 MCP 访问问题。
+- [`figma-implement-design`](./skills/ai-agent-platform/figma-implement-design/)：将具体 Figma 画面适配既有项目，复用组件与样式并按响应式、键盘和视觉标准验收。
 - [`hermes-agent`](./skills/ai-agent-platform/hermes-agent/)：用于配置、扩展、调试和贡献 Hermes Agent，包括多 Agent、CLI 和网关工作流。
 - [`hermes-open-gsd-workflow`](./skills/ai-agent-platform/hermes-open-gsd-workflow/)：在 Hermes Agent、Graphify、Open GSD Core 与可选 GSD Pi 之间做薄路由，不复制上游安装器和状态机。
 - [`mcporter`](./skills/ai-agent-platform/mcporter/)：用于通过 mcporter CLI 列出、配置、鉴权和调用 MCP 服务器或工具。
@@ -478,24 +478,24 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`social-media-analyzer`](./skills/growth-operations-xiaohongshu/social-media-analyzer/)：分析社交媒体互动、受众、活动收益和跨平台表现。
 - [`tweetclaw-source-research`](./skills/growth-operations-xiaohongshu/tweetclaw-source-research/)：通过 TweetClaw 收集和核实 X 平台研究资料。
 - [`twitter-reader`](./skills/growth-operations-xiaohongshu/twitter-reader/)：用于通过 URL 抓取 Twitter/X 帖子内容、作者、时间、图片和线程回复。
-- [`x-twitter-scraper`](./skills/growth-operations-xiaohongshu/x-twitter-scraper/)：用于规划和执行 Xquik 的 X/Twitter 数据读取、导出、监控及经确认的账户操作。
+- [`x-twitter-scraper`](./skills/growth-operations-xiaohongshu/x-twitter-scraper/)：在宿主权限内读取 Xquik 数据，规划导出与监控；账户变更生成确认计划，由受支持客户端执行。
 
 <a id="cat-office-white-collar"></a>
 ### 8. 办公与文档（office-white-collar，13）
 
 - [`answer-me-with-html`](./skills/office-white-collar/answer-me-with-html/)：仅在明确要求时生成离线静态 HTML 技术报告，不执行不可信 HTML、shell 或网络请求。
-- [`docx`](./skills/office-white-collar/docx/)：用于创建、编辑和检查 Word `.docx` 文档。
-- [`guizang-ppt-skill`](./skills/office-white-collar/guizang-ppt-skill/)：生成横向翻页网页 PPT（单 HTML 文件），含 WebGL 背景、章节幕封、数据大字报、图片网格等模板。
+- [`docx`](./skills/office-white-collar/docx/)：创建、编辑和检查 Word 文档、修订、批注与排版。
+- [`guizang-ppt-skill`](./skills/office-white-collar/guizang-ppt-skill/)：使用随包杂志风模板制作可翻页的 HTML 网页演示，适用于内容已提供的网页 PPT 请求。
 - [`markdown-tools`](./skills/office-white-collar/markdown-tools/)：把文档转换为保留结构、表格和图片的 Markdown。
 - [`meeting-minutes-taker`](./skills/office-white-collar/meeting-minutes-taker/)：从会议转录中整理准确的决策、行动项和责任人。
 - [`mermaid-tools`](./skills/office-white-collar/mermaid-tools/)：提取 Markdown 中的 Mermaid 图并渲染为图片。
 - [`morph`](./skills/office-white-collar/morph/)：文档格式转换、分发版生成和可复用转换脚本。
 - [`pdf`](./skills/office-white-collar/pdf/)：读取、生成、编辑、合并、拆分和识别 PDF 文档。
-- [`pptx`](./skills/office-white-collar/pptx/)：用于创建、编辑和美化 PowerPoint 演示文稿。
+- [`pptx`](./skills/office-white-collar/pptx/)：创建和编辑 PowerPoint，检查图表、模板、字体与逐页版面。
 - [`prism`](./skills/office-white-collar/prism/)：依据资料和受众设计 NotebookLM 音视频及演示提示词。
 - [`stage`](./skills/office-white-collar/stage/)：制作或优化演讲与幻灯片时使用：Markdown 幻灯片、叙事结构、讲稿和时长适配。
 - [`transcript-fixer`](./skills/office-white-collar/transcript-fixer/)：修正语音识别错误、同音词和中英文混合术语。
-- [`xlsx`](./skills/office-white-collar/xlsx/)：创建和编辑电子表格、公式、图表及数据格式。
+- [`xlsx`](./skills/office-white-collar/xlsx/)：创建、编辑和检查电子表格、公式、样式与重算结果。
 
 <a id="cat-knowledge-pm"></a>
 ### 9. 项目管理与知识库集成（knowledge-and-pm-integrations，34）
@@ -533,7 +533,7 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`notion-research-documentation`](./skills/knowledge-and-pm-integrations/notion-research-documentation/)：需要汇总多个 Notion 页面并生成带引用的研究简报或对比报告时使用。
 - [`notion-spec-to-implementation`](./skills/knowledge-and-pm-integrations/notion-spec-to-implementation/)：需要把 Notion 需求规格拆成关联的实施计划与任务，并持续同步进度时使用。
 - [`obsidian`](./skills/knowledge-and-pm-integrations/obsidian/)：用于读取、搜索、创建和编辑 Obsidian 知识库笔记，并维护 Markdown 结构和链接关系。
-- [`tome`](./skills/knowledge-and-pm-integrations/tome/)：需要把代码变更整理成学习文档、术语说明和设计决策记录时使用。
+- [`tome`](./skills/knowledge-and-pm-integrations/tome/)：需要把代码变更整理成学习材料，或把技术草稿、概念和采访整理成文章或系列时使用。
 
 <a id="cat-operations-general"></a>
 ### 10. 通用运营（operations-general，11）
@@ -570,8 +570,8 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 <a id="cat-security-reliability"></a>
 ### 12. 安全治理与稳定性（security-and-reliability，23）
 
-- [`breach`](./skills/security-and-reliability/breach/)：开展授权红队演练或威胁建模时使用：攻击场景、AI 红队测试、紫队演练和防护验证。
-- [`cloak`](./skills/security-and-reliability/cloak/)：系统涉及个人数据时使用：敏感信息识别、数据流梳理、同意管理、GDPR/CCPA 合规和隐私影响评估。
+- [`breach`](./skills/security-and-reliability/breach/)：为授权红队和威胁建模工作设计桌面场景、检测覆盖与修复验收。
+- [`cloak`](./skills/security-and-reliability/cloak/)：用于识别个人信息、梳理隐私数据流、评估同意机制或开展隐私影响评估。
 - [`codeql-security-scanner`](./skills/security-and-reliability/codeql-security-scanner/)：用于通过 CodeQL 执行语义代码扫描、安全查询和自定义规则，并输出 SARIF 接入 GitHub Code Scanning。
 - [`comply`](./skills/security-and-reliability/comply/)：核对法规与合规框架要求，整理控制证据和整改计划。
 - [`firebase-security-rules-auditor`](./skills/security-and-reliability/firebase-security-rules-auditor/)：审计 Firestore 与 Cloud Storage 安全规则，检查授权、字段校验、权限提升、资源滥用和模拟器测试覆盖。
@@ -586,13 +586,13 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`security-model`](./skills/security-and-reliability/security-model/)：维护供安全审查工具读取的安全模型，核验信任边界、继承、可信版本和抑制规则。
 - [`security-ownership-map`](./skills/security-and-reliability/security-ownership-map/)：用于基于 Git 历史分析安全所有权、敏感代码归属、bus factor、CODEOWNERS 现实差距和风险热点。
 - [`security-pen-testing`](./skills/security-and-reliability/security-pen-testing/)：在授权范围内执行漏洞扫描、渗透测试和修复验证。
-- [`security-review`](./skills/security-and-reliability/security-review/)：依据代码证据审查注入、认证、授权和加密漏洞。
+- [`security-review`](./skills/security-and-reliability/security-review/)：用于代码差异与应用漏洞审查，沿攻击者输入追踪边界、控制与危险操作，交付有证据的缺陷、最小修复及正反验收。
 - [`security-threat-model`](./skills/security-and-reliability/security-threat-model/)：用于基于代码库或架构梳理资产、信任边界、攻击者能力、滥用路径和缓解措施。
 - [`semgrep-appsec-scanner`](./skills/security-and-reliability/semgrep-appsec-scanner/)：用于通过 Semgrep 执行应用安全 SAST、源码扫描、自定义规则、密钥流程和供应链依赖分析。
-- [`sentry`](./skills/security-and-reliability/sentry/)：用于只读查询 Sentry issues、events 和服务健康数据，汇总线上错误并辅助生产问题排查。
+- [`sentry`](./skills/security-and-reliability/sentry/)：只读查询 Sentry issues 与 events，汇总线上错误趋势和事件详情。
 - [`skill-security-auditor`](./skills/security-and-reliability/skill-security-auditor/)：安装或更新外部技能前，静态扫描并人工审查指令、脚本、权限、依赖、来源和外传风险。
 - [`trivy-vulnerability-scanner`](./skills/security-and-reliability/trivy-vulnerability-scanner/)：用于通过 Trivy 扫描仓库、镜像、文件系统、SBOM、Kubernetes 和 IaC 中的漏洞、错误配置、密钥与许可证问题。
-- [`vuls-linux-cve-scanner`](./skills/security-and-reliability/vuls-linux-cve-scanner/)：用于通过 Vuls 对 Linux、FreeBSD、容器、WordPress、依赖库和网络设备执行无代理 CVE 扫描。
+- [`vuls-linux-cve-scanner`](./skills/security-and-reliability/vuls-linux-cve-scanner/)：通过 Vuls 对授权的 Linux 或 FreeBSD 主机进行本地或 SSH 漏洞扫描，安排补丁优先级并核验重启需求。
 
 <a id="cat-multimodal-media"></a>
 ### 13. 多模态内容（multimodal-media，11）

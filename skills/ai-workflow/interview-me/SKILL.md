@@ -2,14 +2,14 @@
 name: interview-me
 description: 'Interview the user when they request guided discovery or when unresolved goals, audience, or constraints materially affect a proposed solution.'
 zh_description: "通过逐问访谈澄清真实需求、目标用户与成功标准，避免在含糊请求上过早实施。"
-version: "1.0.3"
+version: "1.0.4"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/interview-me/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "interview-me", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-10-16"
+updated_at: "2026-11-17"
 quality: 5
 complexity: advanced
 upstream_slug: interview-me
@@ -122,16 +122,11 @@ Yes / no / refine?
 
 Including "Out of scope" is non-negotiable. Half of misalignment is silent disagreement about what is *not* being built.
 
-### Step 5: Confirm — explicit yes, not "whatever you think"
+### Step 5: Confirm intent or accept delegated judgment
 
-The gate is an explicit "yes." The following are **not** yes:
+Accept semantically clear confirmation such as "Sounds good" or "Sure, let's go" in context. If the user delegates judgment ("Whatever you think is best"), make a reasonable choice within that scope and identify assumptions. Silence alone is not authorization.
 
-- "Whatever you think is best." → The user is delegating, which means they don't have 95% confidence either. Re-ask with two concrete options framed as a choice.
-- "Sounds good." → Ambiguous. Ask: "Anything you'd refine?" Silence isn't confirmation.
-- "Sure, let's go." → Often a polite exit, not an endorsement. Same follow-up.
-- Silence followed by "okay let's start." → The user has given up on the interview, not converged. Stop and ask whether you've missed something.
-
-If they correct you, fold the correction in and restate. Loop until you get an explicit yes.
+Record what was explicitly confirmed and what was inferred. Ask again only when a material ambiguity would change the outcome; do not require a particular confirmation phrase. If corrected, incorporate the correction and proceed when the intent is clear.
 
 ### The 95% Confidence Stop
 
@@ -145,7 +140,7 @@ This is a checkable test, not a vibe. It also has a floor: if you've gone severa
 
 ## Output
 
-The output of this skill is a **confirmed statement of intent**: the restate from Step 4, with an explicit yes from Step 5. That's the deliverable. Specs, plans, and task lists are downstream; they consume the intent this skill produces.
+The output of this skill is a **confirmed statement of intent**: the restate from Step 4, with clear confirmation or delegated judgment from Step 5, distinguishing confirmed facts from assumptions. That's the deliverable. Specs, plans, and task lists are downstream; they consume the intent this skill produces.
 
 If the user wants the intent to persist (a multi-session project, a handoff to another collaborator), offer to save it to `docs/intent/[topic].md`. Only save if they confirm.
 
@@ -204,18 +199,18 @@ Two questions in, the agent has discovered the actual ask isn't "a dashboard." I
 | "The ask is clear enough" | If you can't write the user's desired outcome in one sentence right now, the ask isn't clear. Run Step 1 before deciding. |
 | "Asking too many questions wastes their time" | Time wasted by 4–6 targeted questions is small. Time wasted by building the wrong thing is enormous, and the user is the one bearing that cost. |
 | "I'll figure it out as I build" | Switching costs after code exists are 10x what they are now. Discovery during implementation is rework. |
-| "They said 'whatever you think,' so I should just decide" | "Whatever you think" is delegation, not decision. Re-ask with two concrete options as a choice. |
+| "Delegation confirms every assumption" | Accept delegated judgment within scope, record assumptions, and ask only about material unresolved constraints. |
 | "I should give them several options to pick from" | Options work when the user knows what they want and is choosing between trade-offs. They don't know what they want yet. Listing options widens the search; asking narrows it. |
 | "If I attach my guess, I'm leading them" | Leading is the point. Reacting is faster than generating from scratch. The risk is sycophancy, not leading; mitigate by being visibly willing to be wrong. |
 | "We've talked enough, I get it" | Test it: can you predict their reaction to the next three questions? If not, you don't get it yet. |
-| "The user said yes, we're done" | If the yes followed a vague restate or an open-ended "sounds good," the yes is hollow. Restate concretely and re-confirm. |
+| "The user said yes, so ambiguity cannot remain" | Clear confirmation is sufficient; clarify only a remaining ambiguity that would materially change the result. |
 
 ## Red Flags
 
 - Three or more questions in a single message: that's batching, not interviewing
 - A question without your hypothesis attached: that's surveying, not committing
-- Accepting "whatever you think is best" as a terminal answer
-- Producing a spec, plan, or task list before the user has explicitly confirmed your restate
+- Treating delegated judgment as confirmation of unstated facts
+- Producing a spec, plan, or task list while material intent remains unresolved and judgment has not been delegated
 - Questions framed as "what would be best practice?" instead of "what do you actually want?"
 - The user gives a sophistication-signaling answer ("scalable", "clean", "modern") and you accept it without probing whether it's what they actually want
 - Three or more rounds without your confidence visibly rising: you're asking the wrong questions, step back and reframe
@@ -232,6 +227,6 @@ After applying interview-me:
 - [ ] Questions were asked one at a time, each with the agent's guess attached
 - [ ] At least one "what would you actually want if you didn't have to justify it?" probe ran when the user gave a sophistication-signaling or convention-signaling answer
 - [ ] A concrete restate (Outcome / User / Why now / Success / Constraint / Out of scope) was written back to the user
-- [ ] The user confirmed the restate with an explicit yes (not "whatever you think," not "sounds good," not silence)
+- [ ] Clear confirmation or delegated judgment was accepted; confirmed intent and inferred assumptions were distinguished
 - [ ] At the stop point, the agent could predict reactions to the next three questions it would ask
 - [ ] Any handoff to a downstream skill (`idea-refine`, `spec-driven-development`) was framed in terms of the confirmed intent, not the original underspecified ask

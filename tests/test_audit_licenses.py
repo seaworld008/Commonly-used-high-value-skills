@@ -6,6 +6,8 @@ import tempfile
 import unittest
 from pathlib import Path
 
+from tests.test_bundled_license_evidence import tracking_for_notice
+
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SCRIPT_PATH = REPO_ROOT / "scripts" / "audit_licenses.py"
@@ -84,23 +86,38 @@ class AuditLicensesTests(unittest.TestCase):
     def test_report_writers_emit_expected_files(self):
         rows = self.module.audit()
         payload = self.module.summarize(rows)
-        with tempfile.TemporaryDirectory(dir=REPO_ROOT) as tmp:
-            rel_dir = Path(tmp).relative_to(REPO_ROOT)
-            json_path = rel_dir / "license-audit.json"
-            md_path = rel_dir / "license-audit.md"
-            self.module.write_json_report(payload, str(json_path))
-            self.module.write_markdown_report(payload, str(md_path))
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            self.module.write_json_report(payload, "license-audit.json", root)
+            self.module.write_markdown_report(payload, "license-audit.md", root)
 
-            written_json = json.loads((REPO_ROOT / json_path).read_text(encoding="utf-8"))
-            written_md = (REPO_ROOT / md_path).read_text(encoding="utf-8")
+            written_json = json.loads((root / "license-audit.json").read_text(encoding="utf-8"))
+            written_md = (root / "license-audit.md").read_text(encoding="utf-8")
 
             self.assertEqual(payload["total"], written_json["total"])
             self.assertIn("# License Audit Report", written_md)
             self.assertIn("Total skills", written_md)
 
+    def test_v1_external_metadata_fallback_remains_labeled(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            repo_skill = "skills/category/legacy/SKILL.md"
+            mapping = self.make_v2_repo(root, origins=[], repo_skill=repo_skill,
+                                        frontmatter_source="fixture/upstream")
+            mapping.write_text(json.dumps({
+                "schema_version": 1, "skills": [{"repo_skill": repo_skill}],
+            }))
+            [row] = self.module.audit(root)
+            self.assertEqual("OK", row["status"])
+            self.assertEqual("frontmatter_v1_fallback", row["evidence"])
+            self.assertEqual([], row["origins"])
+            self.assertEqual(1, self.module.summarize([row])["v1_fallback_skills"])
+
     def test_v2_external_origin_license_is_source_of_truth(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
+            notice = (REPO_ROOT / "LICENSE").read_bytes().replace(b"seaworld008", b"Example Upstream")
+            commit = "1" * 40
             self.make_v2_repo(
                 root,
                 origins=[
@@ -108,12 +125,16 @@ class AuditLicensesTests(unittest.TestCase):
                         "repo": "example/upstream",
                         "path": "skills/fixture/SKILL.md",
                         "license": "MIT",
-                        "tracking": {"channel": "release", "ref": "v1.0.0"},
+                        "tracking": {
+                            "channel": "release", "ref": "v1.0.0",
+                            **tracking_for_notice(notice, commit=commit),
+                        },
                     }
                 ],
                 frontmatter_source="in-house",
                 frontmatter_license="",
             )
+            (root / "skills/ai-workflow/fixture-skill/LICENSE").write_bytes(notice)
 
             [row] = self.module.audit(repo_root=root)
 
@@ -247,6 +268,7 @@ class AuditLicensesTests(unittest.TestCase):
                         "repo": "example/bundle",
                         "path": "packages/runtime",
                         "license": "MIT",
+                        "tracking": tracking_for_notice((REPO_ROOT / "LICENSE").read_bytes()),
                     }
                 ],
                 kind="bundle",
@@ -359,6 +381,7 @@ class AuditLicensesTests(unittest.TestCase):
                         "repo": "example/bundle",
                         "path": "packages/runtime",
                         "license": "MIT",
+                        "tracking": tracking_for_notice((REPO_ROOT / "LICENSE").read_bytes()),
                     }
                 ],
                 kind="bundle",

@@ -2,14 +2,14 @@
 name: deprecation-and-migration
 description: 'Plan deprecation and migration of systems, APIs, and production schemas, including expand-contract changes with compatibility and rollback requirements.'
 zh_description: "规划旧系统、接口和功能的弃用及迁移。"
-version: "1.0.3"
+version: "1.0.4"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/deprecation-and-migration/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "deprecation-and-migration", "engineering", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-10-16"
+updated_at: "2026-11-17"
 quality: 5
 complexity: advanced
 upstream_slug: deprecation-and-migration
@@ -100,7 +100,7 @@ Don't deprecate without a working alternative. The replacement must:
 ### Migration Guide
 1. Replace `import { client } from 'old-service'` with `import { client } from 'new-service'`
 2. Update configuration (see examples below)
-3. Run the migration verification script: `npx migrate-check`
+3. Run `<project-verified-migration-check-command>` (replace with the project's documented check; this is a placeholder, not a package to install).
 ```
 
 ### Step 3: Migrate Incrementally
@@ -157,6 +157,11 @@ class LegacyTaskService implements OldTaskAPI {
     const task = this.newService.findById(String(id));
     return this.toOldFormat(task);
   }
+
+  // Translate the new shape back into what old consumers expect
+  private toOldFormat(task: Task): OldTask {
+    return { id: Number(task.id), title: task.title, done: task.status === 'done' };
+  }
 }
 ```
 
@@ -169,7 +174,7 @@ function getTaskService(userId: string): TaskService {
   if (featureFlags.isEnabled('new-task-service', { userId })) {
     return new NewTaskService();
   }
-  return new LegacyTaskService();
+  return new OldTaskService();
 }
 ```
 

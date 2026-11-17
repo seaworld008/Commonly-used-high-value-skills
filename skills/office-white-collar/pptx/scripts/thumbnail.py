@@ -1,3 +1,8 @@
+# Adapted from anthropics/skills: skills/pptx/scripts/thumbnail.py
+# Source commit: e4bb5d960d87126ff3b3a8af1a104b7db67560ba (Apache-2.0).
+# SPDX-License-Identifier: Apache-2.0
+# Local modifications Copyright (c) 2026 seaworld008.
+# Local changes: closed dependencies, API compatibility, safe offline validation.
 """Create thumbnail grids from PowerPoint presentation slides.
 
 Creates a grid layout of slide thumbnails for quick visual analysis.
@@ -16,6 +21,7 @@ Examples:
 """
 
 import argparse
+import posixpath
 import subprocess
 import sys
 import tempfile
@@ -23,8 +29,11 @@ import zipfile
 from pathlib import Path
 
 import defusedxml.minidom
-from office.soffice import get_soffice_env
+from defusedxml import ElementTree
+from office.helpers import SLIDE_REL_TYPE, opc_target, validate_archive, assert_regular_path, check_tree
+from office.soffice import run_soffice
 from PIL import Image, ImageDraw, ImageFont
+
 
 THUMBNAIL_WIDTH = 300
 CONVERSION_DPI = 100
@@ -57,6 +66,8 @@ def main():
 
     args = parser.parse_args()
 
+    if args.cols < 1:
+        parser.error("--cols must be positive")
     cols = min(args.cols, MAX_COLS)
     if args.cols > MAX_COLS:
         print(f"Warning: Columns limited to {MAX_COLS}")
@@ -92,28 +103,47 @@ def main():
         sys.exit(1)
 
 
+def _is_hidden(zf: zipfile.ZipFile, part: str) -> bool:
+    try:
+        with zf.open(part) as f:
+            for _, root in ElementTree.iterparse(f, events=("start",)):
+                return root.get("show") in ("0", "false")
+    except (KeyError, ElementTree.ParseError):
+        return False
+    return False
+
+
 def get_slide_info(pptx_path: Path) -> list[dict]:
+    assert_regular_path(pptx_path)
     with zipfile.ZipFile(pptx_path, "r") as zf:
+        validate_archive(zf)
         rels_content = zf.read("ppt/_rels/presentation.xml.rels").decode("utf-8")
         rels_dom = defusedxml.minidom.parseString(rels_content)
 
-        rid_to_slide = {}
+        rid_to_part = {}
         for rel in rels_dom.getElementsByTagName("Relationship"):
-            rid = rel.getAttribute("Id")
-            target = rel.getAttribute("Target")
-            rel_type = rel.getAttribute("Type")
-            if "slide" in rel_type and target.startswith("slides/"):
-                rid_to_slide[rid] = target.replace("slides/", "")
+            if rel.getAttribute("Type") != SLIDE_REL_TYPE:
+                continue
+            part = opc_target(
+                rel.getAttribute("Target"),
+                "ppt/presentation.xml",
+                rel.getAttribute("TargetMode"),
+            )
+            if part is not None:
+                rid_to_part[rel.getAttribute("Id")] = part
 
         pres_content = zf.read("ppt/presentation.xml").decode("utf-8")
         pres_dom = defusedxml.minidom.parseString(pres_content)
 
+        present = set(zf.namelist())
+
         slides = []
-        for sld_id in pres_dom.getElementsByTagName("p:sldId"):
-            rid = sld_id.getAttribute("r:id")
-            if rid in rid_to_slide:
-                hidden = sld_id.getAttribute("show") == "0"
-                slides.append({"name": rid_to_slide[rid], "hidden": hidden})
+        for sld_id in pres_dom.getElementsByTagNameNS("http://schemas.openxmlformats.org/presentationml/2006/main", "sldId"):
+            part = rid_to_part.get(sld_id.getAttributeNS("http://schemas.openxmlformats.org/officeDocument/2006/relationships", "id"))
+            if part is not None and part in present:
+                slides.append(
+                    {"name": posixpath.basename(part), "hidden": _is_hidden(zf, part)}
+                )
 
         return slides
 
@@ -123,6 +153,18 @@ def build_slide_list(
     visible_images: list[Path],
     temp_dir: Path,
 ) -> list[tuple[Path, str]]:
+    for info in slide_info:
+        if Path(info['name']).name != info['name'] or '/' in info['name'] or '\\' in info['name']:
+            raise ValueError('slide label must be a basename')
+    visible_count = sum(1 for info in slide_info if not info["hidden"])
+    rendered_hidden = len(visible_images) == len(slide_info) != visible_count
+
+    if not rendered_hidden and visible_count != len(visible_images):
+        raise ValueError(
+            f"LibreOffice rendered {len(visible_images)} page(s) for {visible_count} "
+            f"visible slide(s) of {len(slide_info)}; thumbnails would be mislabeled"
+        )
+
     if visible_images:
         with Image.open(visible_images[0]) as img:
             placeholder_size = img.size
@@ -133,15 +175,15 @@ def build_slide_list(
     visible_idx = 0
 
     for info in slide_info:
-        if info["hidden"]:
+        if info["hidden"] and not rendered_hidden:
             placeholder_path = temp_dir / f"hidden-{info['name']}.jpg"
             placeholder_img = create_hidden_placeholder(placeholder_size)
             placeholder_img.save(placeholder_path, "JPEG")
             slides.append((placeholder_path, f"{info['name']} (hidden)"))
         else:
-            if visible_idx < len(visible_images):
-                slides.append((visible_images[visible_idx], info["name"]))
-                visible_idx += 1
+            label = f"{info['name']} (hidden)" if info["hidden"] else info["name"]
+            slides.append((visible_images[visible_idx], label))
+            visible_idx += 1
 
     return slides
 
@@ -156,25 +198,29 @@ def create_hidden_placeholder(size: tuple[int, int]) -> Image.Image:
 
 
 def convert_to_images(pptx_path: Path, temp_dir: Path) -> list[Path]:
+    assert_regular_path(pptx_path)
+    check_tree(temp_dir)
+    with zipfile.ZipFile(pptx_path) as zf:
+        validate_archive(zf)
     pdf_path = temp_dir / f"{pptx_path.stem}.pdf"
+    if pdf_path.exists() or list(temp_dir.glob('slide-*.jpg')):
+        raise ValueError('conversion directory contains stale output')
+    profile = temp_dir / 'office-profile'
+    if profile.exists():
+        raise ValueError('conversion directory contains a stale Office profile')
+    profile.mkdir(mode=0o700)
 
-    result = subprocess.run(
-        [
-            "soffice",
-            "--headless",
-            "--convert-to",
-            "pdf",
-            "--outdir",
-            str(temp_dir),
-            str(pptx_path),
-        ],
+    result = run_soffice(
+        [f"-env:UserInstallation={profile.resolve().as_uri()}", "--headless", "--norestore", "--convert-to", "pdf", "--outdir", str(temp_dir), str(pptx_path.resolve())],
         capture_output=True,
         text=True,
-        env=get_soffice_env(),
+        timeout=120,
     )
     if result.returncode != 0 or not pdf_path.exists():
-        raise RuntimeError("PDF conversion failed")
+        detail = (result.stderr or result.stdout or "").strip()
+        raise RuntimeError(f"PDF conversion failed: {detail}" if detail else "PDF conversion failed")
 
+    assert_regular_path(pdf_path)
     result = subprocess.run(
         [
             "pdftoppm",
@@ -186,11 +232,19 @@ def convert_to_images(pptx_path: Path, temp_dir: Path) -> list[Path]:
         ],
         capture_output=True,
         text=True,
+        timeout=120,
     )
     if result.returncode != 0:
         raise RuntimeError("Image conversion failed")
 
-    return sorted(temp_dir.glob("slide-*.jpg"))
+    images = list(temp_dir.glob('slide-*.jpg'))
+    if not images:
+        raise RuntimeError('Image conversion produced no pages')
+    for image in images:
+        assert_regular_path(image)
+        with Image.open(image) as decoded:
+            decoded.verify()
+    return sorted(images, key=lambda p: int(p.stem.rsplit('-', 1)[1]))
 
 
 def create_grids(
@@ -199,6 +253,8 @@ def create_grids(
     width: int,
     output_path: Path,
 ) -> list[str]:
+    if cols < 1 or width < 1:
+        raise ValueError("cols and width must be positive")
     max_per_grid = cols * (cols + 1)
     grid_files = []
 
@@ -227,7 +283,9 @@ def create_grid(
     cols: int,
     width: int,
 ) -> Image.Image:
-    font_size = int(width * FONT_SIZE_RATIO)
+    if not slides or cols < 1 or width < 1:
+        raise ValueError("slides, positive cols and width are required")
+    font_size = max(1, int(width * FONT_SIZE_RATIO))
     label_padding = int(font_size * LABEL_PADDING_RATIO)
 
     with Image.open(slides[0][0]) as img:

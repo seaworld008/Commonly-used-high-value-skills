@@ -2,14 +2,14 @@
 name: mcp-builder
 description: Build MCP servers that expose external APIs or services through well-scoped tools in Python or TypeScript.
 zh_description: "开发连接外部服务的 MCP 工具服务器。"
-version: "1.1.1"
-author: "seaworld008"
-source: "in-house"
-source_url: ""
-license: Complete terms in LICENSE.txt
+version: "1.1.2"
+author: "Anthropic contributors; local curators"
+source: "https://github.com/anthropics/skills"
+source_url: "https://github.com/anthropics/skills/blob/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/mcp-builder/SKILL.md"
+license: "Apache-2.0"
 tags: '["builder", "development", "mcp"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -162,7 +162,7 @@ See language-specific guides for detailed testing approaches and quality checkli
 
 After implementing your MCP server, create comprehensive evaluations to test its effectiveness.
 
-**Load [✅ Evaluation Guide](./reference/evaluation.md) for complete evaluation guidelines.**
+Use the [evaluation guide](./reference/evaluation.md) for question design. The bundled runner requires a backend-supported Claude model via `--model` or `ANTHROPIC_MODEL`. Its parser reports an error when both are absent.
 
 #### 4.1 Understand Evaluation Purpose
 
@@ -172,8 +172,8 @@ Use evaluations to test whether LLMs can effectively use your MCP server to answ
 
 To create effective evaluations, follow the process outlined in the evaluation guide:
 
-1. **Tool Inspection**: List available tools and understand their capabilities
-2. **Content Exploration**: Use READ-ONLY operations to explore available data
+1. **Tool inspection**: The runner advertises every tool exposed by its connection and dispatches model-selected calls. Before running it, use a read-only account with a server view or proxy that lists only reviewed read-only tools and rejects all other names at invocation. Check both enumeration and enforcement. If these controls are unavailable, prepare the questions offline.
+2. **Content exploration**: Explore the evaluation dataset through that restricted connection.
 3. **Question Generation**: Create 10 complex, realistic questions
 4. **Answer Verification**: Solve each question yourself to verify answers
 

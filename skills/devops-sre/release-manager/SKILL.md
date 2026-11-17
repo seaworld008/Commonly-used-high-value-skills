@@ -2,13 +2,13 @@
 name: release-manager
 description: 'Prepare software releases with version selection, changelogs, artifacts, validation, and release verification from the repository''s current state.'
 zh_description: "组织版本、变更记录、发布制品和发布后验证。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["devops", "manager", "release", "sre"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -149,7 +149,7 @@ Changelogs are automatically generated from conventional commits, organized by:
 
 #### Metadata Extraction
 - Link to pull requests and issues: `(#123)`
-- Breaking changes highlighted prominently
+- Header `!` marks breaking changes. `changelog_generator.py` misses footer-only `BREAKING CHANGE:` because its footer regex excludes spaces; `version_bumper.py` detects it. Independently review these commits and reconcile the changelog and version bump before release; generated breaking-change output alone is incomplete.
 - Scope-based grouping: `auth:`, `api:`, `ui:`
 - Co-authored-by for contributor recognition
 
@@ -158,7 +158,7 @@ Changelogs are automatically generated from conventional commits, organized by:
 Version bumps are determined by analyzing commits since the last release:
 
 #### Automatic Detection Rules
-1. **MAJOR**: Any commit with `BREAKING CHANGE` or `!` after type
+1. **MAJOR**: `version_bumper.py` recognizes `BREAKING CHANGE:` or `!` after type; reconcile the footer-only changelog omission above before publishing.
 2. **MINOR**: Any `feat` type commits without breaking changes
 3. **PATCH**: `fix`, `perf`, `security` type commits
 4. **NO BUMP**: `docs`, `style`, `test`, `chore`, `ci`, `build` only

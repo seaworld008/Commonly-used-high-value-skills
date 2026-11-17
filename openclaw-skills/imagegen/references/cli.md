@@ -1,6 +1,6 @@
 # CLI reference (`scripts/image_gen.py`)
 
-This file contains the “command catalog” for the bundled image generation CLI. Keep `SKILL.md` as overview-first; put verbose CLI details here.
+This file describes the bundled CLI only. Follow the host's actual image-tool contract first; do not pass these CLI flags to host tools unless their schema supports them.
 
 ## What this CLI does
 - `generate`: generate new images from a prompt
@@ -10,11 +10,10 @@ This file contains the “command catalog” for the bundled image generation CL
 Real API calls require **network access** + `OPENAI_API_KEY`. `--dry-run` does not.
 
 ## Quick start (works from any repo)
-Set a stable path to the skill CLI (default `CODEX_HOME` is `~/.codex`):
+Resolve the actual installed skill directory. For example, from that directory:
 
 ```
-export CODEX_HOME="${CODEX_HOME:-$HOME/.codex}"
-export IMAGE_GEN="$CODEX_HOME/skills/imagegen/scripts/image_gen.py"
+IMAGE_GEN="$PWD/scripts/image_gen.py"
 ```
 
 Dry-run (no API call; no network required; does not require the `openai` package):
@@ -23,13 +22,9 @@ Dry-run (no API call; no network required; does not require the `openai` package
 python "$IMAGE_GEN" generate --prompt "Test" --dry-run
 ```
 
+Dry-run prints the normalized payload and computed output/downscale paths without an SDK call. It does not validate account/model availability or image/mask pixels, and `--out-dir` may create an output directory. Prompts and local paths appear in the preview; keep sensitive previews out of shared logs.
+
 Generate (requires `OPENAI_API_KEY` + network):
-
-```
-uv run --with openai python "$IMAGE_GEN" generate --prompt "A cozy alpine cabin at dawn" --size 1024x1024
-```
-
-No `uv` installed? Use your active Python env:
 
 ```
 python "$IMAGE_GEN" generate --prompt "A cozy alpine cabin at dawn" --size 1024x1024
@@ -38,10 +33,11 @@ python "$IMAGE_GEN" generate --prompt "A cozy alpine cabin at dawn" --size 1024x
 ## Guardrails (important)
 - Use `python "$IMAGE_GEN" ...` (or equivalent full path) for generations/edits/batch work.
 - Do **not** create one-off runners (e.g. `gen_images.py`) unless the user explicitly asks for a custom wrapper.
-- **Never modify** `scripts/image_gen.py`. If something is missing, ask the user before doing anything else.
+- Preserve the bundled interfaces unless changing them is within task scope. Report unsupported features; do not invent host capabilities or silently switch credentials/endpoints.
 
 ## Defaults (unless overridden by flags)
 - Model: `gpt-image-1.5`
+- Model family: `gpt-image-*`; passing this prefix check does not prove live API support. Check the chosen model's current docs and installed SDK before sending optional parameters.
 - Size: `1024x1024`
 - Quality: `auto`
 - Output format: `png`
@@ -49,7 +45,7 @@ python "$IMAGE_GEN" generate --prompt "A cozy alpine cabin at dawn" --size 1024x
 
 ## Quality + input fidelity
 - `--quality` works for `generate`, `edit`, and `generate-batch`: `low|medium|high|auto`.
-- `--input-fidelity` is **edit-only**: `low|high` (use `high` for strict edits like identity or layout lock).
+- `--input-fidelity` is **edit-only** and locally validated as `low|high`; omission sends no fidelity parameter. Model-specific support still needs verification.
 
 Example:
 ```
@@ -59,10 +55,11 @@ python "$IMAGE_GEN" edit --image input.png --prompt "Change only the background"
 ## Masks (edits)
 - Use a **PNG** mask; an alpha channel is strongly recommended.
 - The mask should match the input image dimensions.
+- Repeated `--image` flags preserve input order; label their roles in the prompt. The CLI accepts a single `--mask`. File existence/size warnings do not validate alpha, dimensions, or image contents; inspect them separately before a live edit.
 - In the edit prompt, repeat invariants (e.g., “change only the background; keep the subject unchanged”) to reduce drift.
 
 ## Optional deps
-Prefer `uv run --with ...` for an out-of-the-box run without changing the current project env; otherwise install into your active env:
+Use the selected project environment and its lockfile/dependency workflow. Install only within existing authorization; `uv run --with ...` can download packages and is not an offline bypass. If dependencies are missing, report them rather than modifying global packages. For an authorized install in the active environment:
 
 ```
 uv pip install openai
@@ -73,7 +70,7 @@ uv pip install openai
 Generate + also write a downscaled copy for fast web loading:
 
 ```
-uv run --with openai --with pillow python "$IMAGE_GEN" generate \
+python "$IMAGE_GEN" generate \
   --prompt "A cozy alpine cabin at dawn" \
   --size 1024x1024 \
   --downscale-max-dim 1024
@@ -81,7 +78,7 @@ uv run --with openai --with pillow python "$IMAGE_GEN" generate \
 
 Notes:
 - Downscaling writes an extra file next to the original (default suffix `-web`, e.g. `output-web.png`).
-- Downscaling requires Pillow (use `uv run --with pillow ...` or install it into your env).
+- Downscaling requires Pillow in the selected environment; install it only within task authorization.
 
 Generate with augmentation fields:
 
@@ -97,23 +94,24 @@ python "$IMAGE_GEN" generate \
 Generate multiple prompts concurrently (async batch):
 
 ```
-mkdir -p tmp/imagegen
-cat > tmp/imagegen/prompts.jsonl << 'EOF'
+batch_input=$(mktemp -p "$TMPDIR" imagegen-batch.XXXXXX)
+cat > "$batch_input" << 'EOF'
 {"prompt":"Cavernous hangar interior with a compact shuttle parked center-left, open bay door","use_case":"game concept art environment","composition":"wide-angle, low-angle, cinematic framing","lighting":"volumetric light rays through drifting fog","constraints":"no logos or trademarks; no watermark","size":"1536x1024"}
 {"prompt":"Gray wolf in profile in a snowy forest, crisp fur texture","use_case":"wildlife photography print","composition":"100mm, eye-level, shallow depth of field","constraints":"no logos or trademarks; no watermark","size":"1024x1024"}
 EOF
 
-python "$IMAGE_GEN" generate-batch --input tmp/imagegen/prompts.jsonl --out-dir out --concurrency 5
+python "$IMAGE_GEN" generate-batch --input "$batch_input" --out-dir output/imagegen/batch --concurrency 5
 
 # Cleanup (recommended)
-rm -f tmp/imagegen/prompts.jsonl
+rm -- "$batch_input"
 ```
 
 Notes:
 - Use `--concurrency` to control parallelism (default `5`). Higher concurrency can hit rate limits; the CLI retries on transient errors.
-- Per-job overrides are supported in JSONL (e.g., `size`, `quality`, `background`, `output_format`, `n`, and prompt-augmentation fields).
+- Per-job overrides include `model`, `size`, `quality`, `background`, `output_format`, `output_compression`, `moderation`, `n`, `out`, and prompt-augmentation fields. Model-family and output-format validation also apply to each job; omitted output format is explicitly sent as `png`.
 - `--n` generates multiple variants for a single prompt; `generate-batch` is for many different prompts.
-- Treat the JSONL file as temporary: write it under `tmp/` and delete it after the run (don’t commit it).
+- `generate-batch` requires `--out-dir`; per-job `out` is treated as a filename within that directory. Preview with `--dry-run` before an authorized live batch; it does not test rate limits or retries.
+- Treat the JSONL file as temporary: use the task's allowed temporary directory and delete only that file after the run (don't commit it).
 
 Edit:
 

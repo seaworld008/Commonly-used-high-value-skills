@@ -2,14 +2,14 @@
 name: content-creator
 description: 'Create or revise marketing content with a consistent brand voice, audience intent, SEO structure, and publishing requirements.'
 zh_description: "按受众、品牌语气和搜索意图创作营销内容。"
-version: "1.0.1"
+version: "1.0.2"
 author: Alireza Rezvani
 source: "in-house"
 source_url: ""
 license: MIT
 tags: '["content", "creator", "growth", "marketing"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 metadata:
@@ -196,7 +196,7 @@ python scripts/brand_voice_analyzer.py content.txt json
 
 ### SEO Optimizer
 
-Analyzes content for SEO optimization and provides actionable recommendations.
+Analyzes content for SEO optimization and provides actionable recommendations. Unlike the brand-voice tool, this CLI has no output-format argument: a third argument is always interpreted as secondary keywords.
 
 **Usage:**
 
@@ -207,8 +207,7 @@ python scripts/seo_optimizer.py article.md "main keyword"
 # With secondary keywords
 python scripts/seo_optimizer.py article.md "main keyword" "secondary,keywords,list"
 
-# JSON output
-python scripts/seo_optimizer.py article.md "keyword" --json
+# Prints the default text report; there is no JSON CLI flag
 ```
 
 **Parameters:**
@@ -218,7 +217,6 @@ python scripts/seo_optimizer.py article.md "keyword" --json
 | `file` | Yes | Path to content file (md or html) |
 | `primary_keyword` | Yes | Main target keyword |
 | `secondary_keywords` | No | Comma-separated secondary keywords |
-| `--json` | No | Output in JSON format |
 
 **Output:**
 

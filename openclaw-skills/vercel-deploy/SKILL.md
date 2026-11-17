@@ -1,26 +1,27 @@
 ---
 name: vercel-deploy
-description: 'Deploy applications and websites to Vercel. Use when the user requests deployment actions like "deploy my app", "deploy and give me the link", "push this live", or "create a preview deployment".'
+description: Create Vercel preview or production deployments when the user selects Vercel or the repository already binds the project to Vercel.
 zh_description: "用于将应用或网站部署到 Vercel，创建预览部署或生产发布链接。"
-version: "1.0.0"
-author: "seaworld008"
-source: "in-house"
-source_url: ""
+version: "1.0.1"
+author: "OpenAI contributors; local curators"
+source: "https://github.com/openai/skills"
+source_url: "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/vercel-deploy/SKILL.md"
+license: "MIT"
 tags: '["deploy", "deployment", "vercel"]'
 created_at: "2026-03-04"
-updated_at: "2026-06-29"
+updated_at: "2026-11-17"
 quality: 3
 complexity: "intermediate"
 ---
 
 # Vercel Deploy
 
-Deploy any project to Vercel instantly. **Always deploy as preview** (not production) unless the user explicitly asks for production.
+Use the selected Vercel account, project and team. Default to a preview unless production is explicitly requested.
 
 ## Prerequisites
 
 - Check whether the Vercel CLI is installed **without** escalated permissions (for example, `command -v vercel`).
-- Only escalate the actual deploy command if sandboxing blocks the deployment network calls (`sandbox_permissions=require_escalated`).
+- Check that the host permits the requested upload to the selected Vercel target.
 - The deployment might take a few minutes. Use appropriate timeout values.
 
 ## Quick Start
@@ -31,35 +32,26 @@ Deploy any project to Vercel instantly. **Always deploy as preview** (not produc
 command -v vercel
 ```
 
-2. If `vercel` is installed, run this (with a 10 minute timeout):
+2. Verify the CLI identity and project/team binding match the requested target, then run the preview deploy:
 ```bash
 vercel deploy [path] -y
 ```
 
 **Important:** Use a 10 minute (600000ms) timeout for the deploy command since builds can take a while.
 
-3. If `vercel` is not installed, or if the CLI fails with "No existing credentials found", use the fallback method below.
+3. If the CLI or credentials are missing, report what is needed for the selected account.
 
-## Fallback (No Auth)
+## Optional claimable deployment
 
-If CLI fails with auth error, use the deploy script:
+The bundled script posts to `https://codex-deploy-skills.vercel.sh/api/deploy`. It returns a claim link for subsequent ownership. Use this service only when the user selects that recipient and claim flow. It does not use the CLI's selected project/team binding.
+
+Directory mode excludes `node_modules`, `.git`, `.env` and `.env.*` and packages the staged files. A supplied `.tgz` is sent as supplied. Review the exact contents, including hidden files and credentials, and confirm the upload scope before sending. Prefer a reviewed archive to make the approved contents reproducible.
 
 ```bash
-skill_dir="<path-to-skill>"
-
-# Deploy current directory
-bash "$skill_dir/scripts/deploy.sh"
-
-# Deploy specific project
-bash "$skill_dir/scripts/deploy.sh" /path/to/project
-
-# Deploy existing tarball
-bash "$skill_dir/scripts/deploy.sh" /path/to/project.tgz
+bash "$skill_dir/scripts/deploy.sh" /path/to/reviewed-project.tgz
 ```
 
-The script handles framework detection, packaging, and deployment. It waits for the build to complete and returns JSON with `previewUrl` and `claimUrl`.
-
-**Tell the user:** "Your deployment is ready at [previewUrl]. Claim it at [claimUrl] to manage your deployment."
+A returned `previewUrl` and `claimUrl` establish submission. The script may print "ready" for 4xx or return URLs after polling times out. Report build status from the platform and runtime status from an authorized application check.
 
 ## Production Deploys
 
@@ -70,21 +62,13 @@ vercel deploy [path] --prod -y
 
 ## Output
 
-Show the user the deployment URL. For fallback deployments, also show the claim URL.
-
-**Do not** curl or fetch the deployed URL to verify it works. Just return the link.
+Return the deployment URL and, for a claimable deployment, the claim URL to the requester. When acceptance includes runtime verification, check the expected response and report the observed status, including access errors or timeout.
 
 ## Troubleshooting
 
-### Escalated Network Access
+### Network failures
 
-If deployment fails due to network issues (timeouts, DNS errors, connection resets), rerun the actual deploy command with escalated permissions (use `sandbox_permissions=require_escalated`). Do not escalate the `command -v vercel` installation check. The deploy requires escalated network access when sandbox networking blocks outbound requests.
-
-Example guidance to the user:
-
-```
-The deploy needs escalated network access to deploy to Vercel. I can rerun the command with escalated permissions—want me to proceed?
-```
+Check the CLI error and platform status to distinguish authentication, DNS, service availability and host permission failures. For a confirmed permission denial, use the host approval mechanism only if available and permitted. If networking is unavailable, deliver the prepared artifacts and record which deployment checks are pending.
 
 ## Pre-deploy Checklist
 

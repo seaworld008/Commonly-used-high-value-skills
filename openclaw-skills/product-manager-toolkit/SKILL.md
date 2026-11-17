@@ -2,13 +2,13 @@
 name: product-manager-toolkit
 description: 'Prioritize features, synthesize customer research, and write PRDs or go-to-market plans using practical product management frameworks.'
 zh_description: "开展需求优先级排序、用户研究和产品需求文档编写。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["design", "manager", "product", "toolkit"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -213,7 +213,7 @@ Select from `references/prd_templates.md`:
 Advanced RICE framework implementation with portfolio analysis.
 
 **Features:**
-- RICE score calculation with configurable weights
+- RICE scores using the bundled impact, confidence and effort mappings
 - Portfolio balance analysis (quick wins vs big bets)
 - Quarterly roadmap generation based on capacity
 - Multiple output formats (text, JSON, CSV)
@@ -297,48 +297,50 @@ RICE PRIORITIZATION RESULTS
 📊 TOP PRIORITIZED FEATURES
 
 1. Onboarding Flow
-   RICE Score: 16000.0
+   RICE Score: 20000.0
    Reach: 20000 | Impact: massive | Confidence: high | Effort: s
 
 2. Search Improvements
-   RICE Score: 4800.0
+   RICE Score: 6000.0
    Reach: 15000 | Impact: high | Confidence: high | Effort: m
 
-3. Social Login
-   RICE Score: 3072.0
-   Reach: 12000 | Impact: high | Confidence: medium | Effort: m
-
-4. Push Notifications
-   RICE Score: 3840.0
+3. Push Notifications
+   RICE Score: 4800.0
    Reach: 10000 | Impact: massive | Confidence: medium | Effort: m
 
+4. Social Login
+   RICE Score: 3840.0
+   Reach: 12000 | Impact: high | Confidence: medium | Effort: m
+
 5. Dark Mode
-   RICE Score: 2133.33
+   RICE Score: 2666.67
    Reach: 8000 | Impact: medium | Confidence: high | Effort: s
+
 
 📈 PORTFOLIO ANALYSIS
 
 Total Features: 5
-Total Effort: 19 person-months
+Total Effort: 21 person-months
 Total Reach: 65,000 users
-Average RICE Score: 5969.07
+Average RICE Score: 7461.33
 
-🎯 Quick Wins: 2 features
-   • Onboarding Flow (RICE: 16000.0)
-   • Dark Mode (RICE: 2133.33)
+🎯 Quick Wins: 1 features
+   • Onboarding Flow (RICE: 20000.0)
 
 🚀 Big Bets: 0 features
 
+
 📅 SUGGESTED ROADMAP
 
-Q1 - Capacity: 11/15 person-months
-   • Onboarding Flow (RICE: 16000.0)
-   • Search Improvements (RICE: 4800.0)
-   • Dark Mode (RICE: 2133.33)
 
-Q2 - Capacity: 10/15 person-months
-   • Push Notifications (RICE: 3840.0)
-   • Social Login (RICE: 3072.0)
+Q1 - Capacity: 13/15 person-months
+   • Onboarding Flow (RICE: 20000.0)
+   • Search Improvements (RICE: 6000.0)
+   • Push Notifications (RICE: 4800.0)
+
+Q2 - Capacity: 8/15 person-months
+   • Social Login (RICE: 3840.0)
+   • Dark Mode (RICE: 2666.67)
 ```
 
 ---

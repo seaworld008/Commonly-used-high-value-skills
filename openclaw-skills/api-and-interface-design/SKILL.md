@@ -2,14 +2,14 @@
 name: api-and-interface-design
 description: 'Design REST/GraphQL APIs, module interfaces, and type contracts when creating endpoints or changing public boundaries.'
 zh_description: "设计稳定的 API、模块接口和类型契约。"
-version: "1.0.5"
+version: "1.0.6"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/api-and-interface-design/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "api-and-interface-design", "engineering", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-10-16"
+updated_at: "2026-11-17"
 quality: 5
 complexity: advanced
 upstream_slug: api-and-interface-design
@@ -208,7 +208,9 @@ The unique constraint *is* the mechanism. A store that cannot enforce uniqueness
 
 ```typescript
 if (existing.requestHash !== hash(req.body)) {
-  return res.status(422).json({ error: 'idempotency key reused with a different payload' });
+  return res.status(422).json({
+    error: { code: 'IDEMPOTENCY_KEY_REUSED', message: 'Idempotency key reused with a different payload' },
+  });
 }
 ```
 

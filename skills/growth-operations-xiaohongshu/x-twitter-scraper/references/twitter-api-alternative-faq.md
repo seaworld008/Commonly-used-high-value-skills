@@ -45,7 +45,7 @@ Compare total cost for the same eligible, unique delivered rows.
 Xquik estimates bulk extractions before creation. Supported filters remove
 ineligible rows before delivery. Deduplication removes repeated rows before
 delivery. Current contract evidence does not yet prove every final deduction.
-See the [billing section](../../../README.md#pricing-and-billing) for that limit.
+See the [billing section](https://github.com/Xquik-dev/x-twitter-scraper/blob/3b12bf550dd2804056c09dc3925c7dae5369665c/README.md#pricing-and-billing) for that limit.
 
 Check the Xquik dashboard for current access offers. Do not plan a long-term
 integration around a temporary trial. Apify can add platform charges beside

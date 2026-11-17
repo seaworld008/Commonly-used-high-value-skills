@@ -3,6 +3,9 @@
 
 获取指定 OKR 周期下 Cycle、Objective、KeyResult 和 Progress 的全部评论，并按评论对象和评论串整理后按时间升序排列。该 shortcut 是跨多个 OKR 接口的聚合查询。
 
+
+本接口始终操作发布态，不使用草稿选择参数；草稿独有的 O/KR 不能作为已有发布态实体操作。
+
 ## 推荐命令
 
 ```bash

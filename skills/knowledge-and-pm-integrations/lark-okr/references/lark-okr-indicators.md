@@ -8,6 +8,10 @@
 >
 > 本指南中的原生 API 适用于需要修改指标其他字段（如 `unit`、`target_value`、`status_calculate_type` 等）的场景。
 
+写入前按 [草稿工作流](lark-okr-drafts.md) 选择状态。下列原生示例读写草稿：读取通过 `--params` 显式传 `prefer_draft`，更新通过 `--data` 显式传 `apply_to_draft`，不能使用 shortcut 顶层 flag。若任务明确写发布态且范围清楚，读写都改为 false；保留已有草稿。
+
+`prefer_draft=true` 不创建草稿；`apply_to_draft=true` 在无草稿时先创建所属 Objective 草稿。指标随 O/KR 聚合发布或撤销，查询与更新必须匹配状态。
+
 ---
 
 ## 指标字段说明
@@ -23,7 +27,8 @@
 | `status_calculate_type`     | int    | 状态计算方式：0=手动更新，1=基于进度和当前时间自动更新，2=基于风险最高的 KR 状态更新       |
 | `current_value_calculate_type` | int | 当前值计算方式：0=手动更新，1=基于 KR 进度自动更新（目标），2=基于拆解 KR 进度更新（KR） |
 | `unit`                      | object | 单位，包含 `unit_type`（0=公共，1=自定义）和 `unit_value`（如 PERCENT、YUAN 等）       |
-| `owner`                     | object | 所有者                                                                 |
+| `owner` | object | 所有者 |
+| `is_draft` | boolean | 返回的是草稿还是发布态指标 |
 
 ---
 
@@ -32,18 +37,18 @@
 ### 命令
 
 ```bash
-lark-cli okr objective.indicators list --objective-id "<目标ID>" [flags]
+lark-cli okr objective.indicators list --objective-id "<目标ID>" [flags] --params '{"prefer_draft":true}' --as user
 ```
 
 ### 常用示例
 
 ```bash
 # 获取目标的量化指标
-lark-cli okr objective.indicators list \
+lark-cli okr objective.indicators list --params '{"prefer_draft":true}' --as user \
   --objective-id 7000000000000000001
 
 # 指定用户 ID 类型
-lark-cli okr objective.indicators list \
+lark-cli okr objective.indicators list --params '{"prefer_draft":true}' --as user \
   --objective-id 7000000000000000001 \
   --user-id-type "user_id"
 ```
@@ -54,6 +59,7 @@ lark-cli okr objective.indicators list \
 |----------------------|----|----------------|-----------------------------------------------------|
 | `--objective-id`     | 是  | —              | 目标 ID                                               |
 | `--user-id-type`     | 否  | `open_id`      | 用户 ID 类型：`open_id` \| `union_id` \| `user_id`     |
+| `--params` | 否 | — | JSON query：显式传 prefer_draft=true 或 false。 |
 | `--department-id-type` | 否 | `open_department_id` | 部门 ID 类型：`open_department_id` \| `department_id` |
 
 ### 返回
@@ -70,7 +76,7 @@ lark-cli okr objective.indicators list \
       "indicator": {
          "create_time": "1782835200000",    // 创建时间
          "current_value": 60,               // 当前值
-         "current_value_calculate_type": 0, // 当前值计算方式 0(手动更新)|2(按KR计算)|3(按拆解计算)。 仅当此处为 0 时，允许使用 patch API 更新当前值
+         "current_value_calculate_type": 0, // 当前值计算方式：0=手动，1=按 KR 进度（目标），2=按拆解 KR 进度（KR）；仅 0 可手动修改当前值
          "entity_id": "7000000000000000001",// 指标挂载的 Objective/KR id
          "entity_type": 2,                  // 指标挂载在 Objective还是KR 上 2(Objective)|3(KR)
          "id": "7000000000000000002",       // 指标本身的 ID
@@ -124,14 +130,14 @@ lark-cli okr objective.indicators list \
 ### 命令
 
 ```bash
-lark-cli okr key_result.indicators list --key-result-id "<关键结果ID>" [flags]
+lark-cli okr key_result.indicators list --key-result-id "<关键结果ID>" [flags] --params '{"prefer_draft":true}' --as user
 ```
 
 ### 常用示例
 
 ```bash
 # 获取关键结果的量化指标
-lark-cli okr key_result.indicators list \
+lark-cli okr key_result.indicators list --params '{"prefer_draft":true}' --as user \
   --key-result-id "7652569715131075780"
 ```
 
@@ -141,6 +147,7 @@ lark-cli okr key_result.indicators list \
 |----------------------|----|----------------|-----------------------------------------------------|
 | `--key-result-id`    | 是  | —              | 关键结果 ID                                            |
 | `--user-id-type`     | 否  | `open_id`      | 用户 ID 类型：`open_id` \| `union_id` \| `user_id`     |
+| `--params` | 否 | — | JSON query：显式传 prefer_draft=true 或 false。 |
 | `--department-id-type` | 否 | `open_department_id` | 部门 ID 类型：`open_department_id` \| `department_id` |
 
 ### 返回
@@ -154,32 +161,29 @@ lark-cli okr key_result.indicators list \
 ### 命令
 
 ```bash
-lark-cli okr indicators patch --indicator-id "<指标ID>" --data '<JSON>'
+lark-cli okr indicators patch --indicator-id "<指标ID>" --data '{"apply_to_draft":true,"current_value":75.5}' --as user
 ```
 
 ### 常用示例
 
 ```bash
 # 更新指标的当前值（手动更新方式）
-lark-cli okr indicators patch \
+lark-cli okr indicators patch --as user \
   --indicator-id "ind-123" \
-  --data '{"current_value": 75.5, "current_value_calculate_type": 0}'
+  --data '{"apply_to_draft":true,"current_value":75.5,"current_value_calculate_type":0}'
 
 # 更新指标状态为"有风险"（需 status_calculate_type=0）
-lark-cli okr indicators patch \
+lark-cli okr indicators patch --as user \
   --indicator-id "ind-123" \
-  --data '{"indicator_status": 1, "status_calculate_type": 0}'
+  --data '{"apply_to_draft":true,"indicator_status":1,"status_calculate_type":0}'
 
 # 更新关键结果指标的目标值和单位
-lark-cli okr indicators patch \
+lark-cli okr indicators patch --as user \
   --indicator-id "ind-456" \
-  --data '{
-    "target_value": 100,
-    "unit": {"unit_type": 0, "unit_value": "PERCENT"}
-  }'
+  --data '{"apply_to_draft":true,"target_value":100,"unit":{"unit_type":0,"unit_value":"PERCENT"}}'
 
-# 从文件读取请求体
-lark-cli okr indicators patch \
+# 从文件读取请求体（indicator_update.json 必须包含 apply_to_draft=true）
+lark-cli okr indicators patch --as user \
   --indicator-id "ind-123" \
   --data @indicator_update.json
 ```
@@ -198,6 +202,7 @@ lark-cli okr indicators patch \
 
 | 字段                          | 类型   | 适用实体 | 说明                                                                 |
 |-----------------------------|------|------|--------------------------------------------------------------------|
+| `apply_to_draft` | boolean | 全部 | 显式选择 true 写草稿（无草稿时先创建），false 写发布态。 |
 | `current_value`             | number | 全部   | 当前值，范围 -99999999999 到 99999999999                                  |
 | `current_value_calculate_type` | int  | 全部   | 当前值计算方式：0=手动，1=基于 KR 进度（目标），2=基于拆解 KR 进度（KR）              |
 | `indicator_status`          | int    | 全部   | 状态：-1=未定义，0=正常，1=有风险，2=已延期。仅 `status_calculate_type=0` 时可修改      |
@@ -232,7 +237,7 @@ lark-cli okr indicators patch \
 
 1. **查询关键结果的指标**（获取 `indicator_id` 和当前配置）
    ```bash
-   lark-cli okr key_result.indicators list \
+   lark-cli okr key_result.indicators list --params '{"prefer_draft":true}' --as user \
      --key-result-id 7652569715131075780
    ```
 
@@ -242,14 +247,14 @@ lark-cli okr indicators patch \
 
 3. **更新指标**
    ```bash
-   lark-cli okr indicators patch \
+   lark-cli okr indicators patch --as user \
      --indicator-id "ind-123" \
-     --data '{"current_value":65.0,"current_value_calculate_type":0,"indicator_status":1,"status_calculate_type":0}'
+     --data '{"apply_to_draft":true,"current_value":65.0,"current_value_calculate_type":0,"indicator_status":1,"status_calculate_type":0}'
    ```
 
 4. **验证更新结果**
    ```bash
-   lark-cli okr key_result.indicators list \
+   lark-cli okr key_result.indicators list --params '{"prefer_draft":true}' --as user \
      --key-result-id 7652569715131075780
    ```
 
@@ -257,12 +262,12 @@ lark-cli okr indicators patch \
 
 ```bash
 # 1. 查询获取 indicator_id
-lark-cli okr key_result.indicators list --key-result-id 7652569715131075780
+lark-cli okr key_result.indicators list --key-result-id 7652569715131075780 --params '{"prefer_draft":true}' --as user
 
 # 2. 更新目标值和单位
-lark-cli okr indicators patch \
+lark-cli okr indicators patch --as user \
   --indicator-id 7652569715131075781 \
-  --data '{"target_value":500,"unit":{"unit_type":0,"unit_value":"YUAN"}}'
+  --data '{"apply_to_draft":true,"target_value":500,"unit":{"unit_type":0,"unit_value":"YUAN"}}'
 ```
 
 ## 参考

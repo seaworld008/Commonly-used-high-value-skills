@@ -2,13 +2,13 @@
 name: deep-research
 description: 'Produce source-backed research reports, literature reviews, or technical and market briefs when evidence tracking and a defined report format matter.'
 zh_description: "用于执行深度研究、资料收集、来源核验和综合分析。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["deep", "planning", "research", "workflow"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -21,10 +21,10 @@ Create high-fidelity research reports with strict format control, evidence mappi
 
 1. Clarify the report spec and format contract
 2. Build a research plan and query set
-3. Collect evidence with the deepresearch tool (multi-pass if needed)
+3. Collect evidence with available research/search and original-page reading tools
 4. Triage sources and build an evidence table
-5. Draft the full report in multiple complete passes (parallel subagents)
-6. UNION merge, enforce format compliance, verify citations
+5. Draft from the evidence table; add independent comparisons only for concrete gaps
+6. Merge relevant verified findings, enforce format compliance, verify citations
 7. Present draft for human review and iterate
 
 ## Core Workflow
@@ -35,11 +35,11 @@ Copy this checklist and track progress:
 Deep Research Progress:
 - [ ] Step 1: Intake and format contract
 - [ ] Step 2: Research plan and query set
-- [ ] Step 3: Evidence collection (deepresearch tool)
+- [ ] Step 3: Evidence collection (available retrieval operations)
 - [ ] Step 4: Source triage and evidence table
 - [ ] Step 5: Outline and section map
-- [ ] Step 6: Multi-pass full drafting (parallel subagents)
-- [ ] Step 7: UNION merge and format compliance
+- [ ] Step 6: Evidence-based draft; optional independent comparison
+- [ ] Step 7: Evidence-filtered merge and format compliance
 - [ ] Step 8: Evidence and citation verification
 - [ ] Step 9: Present draft for human review and iterate
 ```
@@ -88,11 +88,11 @@ Define the research strategy before calling tools:
 
 Use [references/research_plan_checklist.md](references/research_plan_checklist.md) for guidance.
 
-### Step 3: Evidence Collection (Deepresearch Tool)
+### Step 3: Evidence Collection (Available Research Tools)
 
-Use the deepresearch tool to collect evidence and citations.
+Discover the host's research, search, and page-reading operations and bind their actual schemas. Use available tools to collect evidence and verify original sources; a tool named `deepresearch` is not required.
 
-- Run multiple complete passes if coverage is uncertain
+- Run additional targeted searches where coverage is uncertain
 - Vary query phrasing to reduce blind spots
 - Preserve raw tool output in files for traceability
 
@@ -104,7 +104,7 @@ Use the deepresearch tool to collect evidence and citations.
   deepresearch_pass3.md
 ```
 
-If deepresearch is unavailable, rely on user-provided sources only and state limitations explicitly.
+Without an automated research tool, use search plus original-page verification to build the same evidence table. Only when all retrieval is unavailable, use user-provided sources and state the coverage limit. Save raw outputs only within authorized output or temporary locations.
 
 ### Step 4: Source Triage and Evidence Table
 
@@ -132,23 +132,21 @@ Create an outline that enforces the format contract:
 - Produce a section map with required elements per section
 - Confirm ordering and headings match the report spec
 
-### Step 6: Multi-Pass Full Drafting (Parallel Subagents)
+### Step 6: Evidence-Based Drafting
 
-Avoid single-pass drafting; generate multiple complete reports, then merge.
+Produce one draft from the evidence table, respecting coverage, conflicts, and the user's length limit. Add targeted research or independent drafts only for material blind spots, disputed conclusions, or an explicitly requested comparison.
 
-#### Preferred Strategy: Parallel Subagents (Complete Draft Each)
+#### Optional Strategy: Independent Drafts
 
-Use the Task tool to spawn parallel subagents with isolated context. Each subagent must:
+When delegation is available and authorized, bind the host's actual delegation schema. Each independent reviewer or drafter should:
 
 - Load the report spec, outline, and evidence table
-- Draft the FULL report (all sections)
+- Review or draft the assigned scope; use complete drafts only when whole-report comparison is useful
 - Enforce formatting rules and citation style
 
-**Implementation pattern:**
+**Conceptual pattern (not executable host calls):**
 ```
-Task(subagent_type="general-purpose", prompt="Draft complete report ...", run_in_background=false) -> version1.md
-Task(subagent_type="general-purpose", prompt="Draft complete report ...", run_in_background=false) -> version2.md
-Task(subagent_type="general-purpose", prompt="Draft complete report ...", run_in_background=false) -> version3.md
+available_delegate(verified evidence, assigned scope, output contract) -> optional draft
 ```
 
 **Write drafts to files, not conversation context:**
@@ -158,12 +156,13 @@ Task(subagent_type="general-purpose", prompt="Draft complete report ...", run_in
 <output_dir>/intermediate/<topic-name>/version3.md
 ```
 
-### Step 7: UNION Merge and Format Compliance
+### Step 7: Evidence-Filtered Merge and Format Compliance
 
-Merge using UNION, never remove content without evidence-based justification:
+If multiple drafts exist, merge findings by relevance and evidence:
 
-- Keep all unique findings from all versions
-- Consolidate duplicates while preserving the most detailed phrasing
+- Keep verified unique findings that serve the research question
+- Consolidate duplicates at the detail level allowed by the user's scope and length
+- Exclude unsupported or out-of-scope material; record reasons for significant exclusions
 - Ensure every claim in the merged draft has a cited source
 - Enforce the exact section order, headings, and formatting
 - Re-run formatting rules from [references/formatting_rules.md](references/formatting_rules.md)
@@ -186,7 +185,7 @@ Present the draft as a reviewable version:
 
 - Emphasize that format compliance and factual accuracy need human review
 - Accept edits to format, structure, and scope
-- If the user provides another AI output, cross-compare and UNION merge
+- If the user provides another AI output, cross-compare claims against sources and merge relevant verified findings
 
 ## Output Requirements
 
@@ -207,8 +206,8 @@ Present the draft as a reviewable version:
 
 ## Anti-Patterns
 
-- Single-pass drafting without parallel complete passes
-- Splitting passes by section instead of full report drafts
+- Drafting without checking evidence coverage and material conflicts
+- Generating multiple full drafts without a concrete uncertainty or comparison need
 - Ignoring the format contract or user template
 - Claims without citations or evidence table mapping
 - Mixing conflicting dates without calling out discrepancies

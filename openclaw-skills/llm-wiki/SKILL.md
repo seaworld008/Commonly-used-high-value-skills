@@ -2,14 +2,14 @@
 name: llm-wiki
 description: 'Use when building, querying, ingesting sources into, or auditing an interlinked Markdown knowledge base with immutable raw sources and traceable synthesis.'
 zh_description: "用于构建、查询和维护 Karpathy 风格的互联 Markdown LLM 知识库。"
-version: "2.0.5"
+version: "2.0.6"
 author: Hermes Agent
 source: "github:NousResearch/hermes-agent"
 source_url: "https://github.com/NousResearch/hermes-agent/blob/main/skills/research/llm-wiki/SKILL.md"
 license: MIT
 tags: '[wiki, knowledge-base, research, notes, markdown, rag-alternative]'
 created_at: "2026-04-13"
-updated_at: "2026-10-26"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 platforms: '[linux, macos, windows]'
@@ -37,9 +37,11 @@ summarizes, cross-references, files, and maintains consistency.
 Use this skill when the user:
 - Asks to create, build, or start a wiki or knowledge base
 - Asks to ingest, add, or process a source into their wiki
-- Asks a question and an existing wiki is present at the configured path
+- Asks a question about the configured wiki or its domain
 - Asks to lint, audit, or health-check their wiki
 - References their wiki, knowledge base, or "notes" in a research context
+
+Query and lint are read-only unless persistence or repair is already authorized. Ingest and maintenance writes stay within the requested wiki scope.
 
 ## Wiki Location
 
@@ -73,8 +75,8 @@ wiki/
 ```
 
 **Layer 1 — Raw Sources:** Immutable. The agent reads but never modifies these.
-**Layer 2 — The Wiki:** Agent-owned markdown files. Created, updated, and
-cross-referenced by the agent.
+**Layer 2 — The Wiki:** Markdown synthesis files. Created, updated, and
+cross-referenced within the authorized task scope.
 **Layer 3 — The Schema:** `SCHEMA.md` defines structure, conventions, and tag taxonomy.
 
 ## Resuming an Existing Wiki (CRITICAL — do this every session)
@@ -171,8 +173,9 @@ When the user provides a source (URL, file, paste), integrate it into the wiki:
    - Name the file descriptively: `raw/articles/karpathy-llm-wiki-2026.md`
    - **Add raw frontmatter** (`source_url`, `ingested`, `sha256` of the body).
      On re-ingest of the same URL: recompute the sha256, compare to the stored value —
-     skip if identical, flag drift and update if different. This is cheap enough to
-     do on every re-ingest and catches silent source changes.
+     skip if identical; otherwise preserve the original raw file and save a new version
+     with its hash and capture date. Flag drift and update synthesis links within
+     the authorized scope; never overwrite the original raw evidence.
 
 ② **Discuss takeaways** with the user — what's interesting, what matters for
    the domain. (Skip this in automated/cron contexts — proceed directly.)
@@ -216,10 +219,10 @@ When the user asks a question about the wiki's domain:
 ③ **Read the relevant pages** using `read_file`.
 ④ **Synthesize an answer** from the compiled knowledge. Cite the wiki pages
    you drew from: "Based on [[page-a]] and [[page-b]]..."
-⑤ **File valuable answers back** — if the answer is a substantial comparison,
-   deep dive, or novel synthesis, create a page in `queries/` or `comparisons/`.
-   Don't file trivial lookups — only answers that would be painful to re-derive.
-⑥ **Update log.md** with the query and whether it was filed.
+⑤ **File valuable answers only when persistence is authorized** — a substantial
+   comparison, deep dive, or novel synthesis may go in `queries/` or `comparisons/`.
+   Otherwise return the answer without creating pages.
+⑥ **Update log.md only for authorized persistence**, noting whether the query was filed.
 
 ### 3. Lint
 
@@ -264,12 +267,12 @@ wiki = "<WIKI_PATH>"
 
 ⑩ **Tag audit:** List all tags in use, flag any not in the SCHEMA.md taxonomy.
 
-⑪ **Log rotation:** If log.md exceeds 500 entries, rotate it.
+⑪ **Log rotation:** Report when log.md exceeds 500 entries; rotate only within authorized maintenance.
 
 ⑫ **Report findings** with specific file paths and suggested actions, grouped by
    severity (broken links > orphans > source drift > contested pages > stale content > style issues).
 
-⑬ **Append to log.md:** `## [YYYY-MM-DD] lint | N issues found`
+⑬ **Log only if authorized:** Append `## [YYYY-MM-DD] lint | N issues found` only when persistence is in scope; otherwise include findings in the response.
 
 ## Working with the Wiki
 
@@ -385,8 +388,8 @@ vault in Obsidian on your laptop/phone — changes appear within seconds.
 - **Never modify files in `raw/`** — sources are immutable. Corrections go in wiki pages.
 - **Always orient first** — read SCHEMA + index + recent log before any operation in a new session.
   Skipping this causes duplicates and missed cross-references.
-- **Always update index.md and log.md** — skipping this makes the wiki degrade. These are the
-  navigational backbone.
+- **Update index.md and log.md for authorized content changes** — keep navigation and
+  provenance consistent. Read-only query/lint requests do not write either file.
 - **Don't create pages for passing mentions** — follow the Page Thresholds in SCHEMA.md. A name
   appearing once in a footnote doesn't warrant an entity page.
 - **Don't create pages without cross-references** — isolated pages are invisible. Every page must
@@ -398,8 +401,8 @@ vault in Obsidian on your laptop/phone — changes appear within seconds.
   200 lines. Move detailed analysis to dedicated deep-dive pages.
 - **Ask before mass-updating** — if an ingest would touch 10+ existing pages, confirm
   the scope with the user first.
-- **Rotate the log** — when log.md exceeds 500 entries, rename it `log-YYYY.md` and start fresh.
-  The agent should check log size during lint.
+- **Rotate the log during authorized maintenance** — when log.md exceeds 500 entries,
+  rename it `log-YYYY.md` and start fresh. Read-only lint reports the need without rotating.
 - **Handle contradictions explicitly** — don't silently overwrite. Note both claims with dates,
   mark in frontmatter, flag for user review.
 

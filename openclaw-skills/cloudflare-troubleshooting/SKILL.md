@@ -2,13 +2,13 @@
 name: cloudflare-troubleshooting
 description: 'Diagnose Cloudflare DNS, TLS, redirects, and configuration issues using live API settings and request evidence.'
 zh_description: "依据实际配置排查 Cloudflare DNS、TLS 和重定向问题。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["cloudflare", "devops", "sre", "troubleshooting"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -21,14 +21,13 @@ complexity: "intermediate"
 
 ## Investigation Methodology
 
-### 1. Gather Credentials
+### 1. Resolve Authorized Scope
 
-Request from user:
-- Domain name
-- Cloudflare account email
-- Cloudflare Global API Key (or API Token)
-
-Global API Key location: Cloudflare Dashboard → My Profile → API Tokens → View Global API Key
+Identify the domain from task context. Reuse an already authorized host connection
+or a securely injected, minimally scoped API token. Do not ask users to paste
+keys or tokens, and never print them. The curl examples assume a securely supplied
+`CLOUDFLARE_API_TOKEN`; disable shell tracing and redact request logs. If access
+is unavailable, work from supplied evidence and report the missing live checks.
 
 ### 2. Get Zone Information
 
@@ -36,8 +35,7 @@ First step for any Cloudflare troubleshooting - obtain the zone ID:
 
 ```bash
 curl -s -X GET "https://api.cloudflare.com/client/v4/zones?name=<domain>" \
-  -H "X-Auth-Email: <email>" \
-  -H "X-Auth-Key: <api_key>" | jq '.'
+  -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" | jq '.'
 ```
 
 Extract `zone_id` from `result[0].id` for subsequent API calls.
@@ -58,8 +56,7 @@ For each issue, gather evidence before making conclusions. Use Cloudflare API to
 1. **Check SSL/TLS mode:**
    ```bash
    curl -X GET "https://api.cloudflare.com/client/v4/zones/{zone_id}/settings/ssl" \
-     -H "X-Auth-Email: email" \
-     -H "X-Auth-Key: key"
+     -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN"
    ```
 
    Look for: `result.value` - tells current SSL mode
@@ -67,15 +64,13 @@ For each issue, gather evidence before making conclusions. Use Cloudflare API to
 2. **Check Always Use HTTPS setting:**
    ```bash
    curl -X GET "https://api.cloudflare.com/client/v4/zones/{zone_id}/settings/always_use_https" \
-     -H "X-Auth-Email: email" \
-     -H "X-Auth-Key: key"
+     -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN"
    ```
 
 3. **Check Page Rules for redirects:**
    ```bash
    curl -X GET "https://api.cloudflare.com/client/v4/zones/{zone_id}/pagerules" \
-     -H "X-Auth-Email: email" \
-     -H "X-Auth-Key: key"
+     -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN"
    ```
 
    Look for: `forwarding_url` or `always_use_https` actions
@@ -90,21 +85,25 @@ For each issue, gather evidence before making conclusions. Use Cloudflare API to
 - Multiple redirect rules can conflict
 - Check browser vs curl behavior differences
 
-**Fix:**
+**Targeted fix within the user's existing write authorization:**
+Verify the origin certificate chain and hostname first. Prefer preserving or
+moving to Full (Strict); repair the origin certificate rather than defaulting
+to Full. A temporary Full exception needs explicit scope, risk and rollback
+because it does not verify origin identity. Example after evidence supports Strict:
 ```bash
 curl -X PATCH "https://api.cloudflare.com/client/v4/zones/{zone_id}/settings/ssl" \
-  -H "X-Auth-Email: email" \
-  -H "X-Auth-Key: key" \
+  -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
   -H "Content-Type: application/json" \
-  --data '{"value":"full"}'
+  --data '{"value":"strict"}'
 ```
 
-Purge cache after fix:
+Only if evidence shows stale cached content, purge the affected URLs under the
+authorized scope. A full-zone purge requires authorization for that wider scope:
 ```bash
 curl -X POST "https://api.cloudflare.com/client/v4/zones/{zone_id}/purge_cache" \
-  -H "X-Auth-Email: email" \
-  -H "X-Auth-Key: key" \
-  -d '{"purge_everything":true}'
+  -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"files":["https://example.com/affected-path"]}'
 ```
 
 ### DNS Issues
@@ -114,8 +113,7 @@ curl -X POST "https://api.cloudflare.com/client/v4/zones/{zone_id}/purge_cache" 
 1. **List DNS records:**
    ```bash
    curl -X GET "https://api.cloudflare.com/client/v4/zones/{zone_id}/dns_records" \
-     -H "X-Auth-Email: email" \
-     -H "X-Auth-Key: key"
+     -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN"
    ```
 
 2. **Check external DNS resolution:**
@@ -127,8 +125,7 @@ curl -X POST "https://api.cloudflare.com/client/v4/zones/{zone_id}/purge_cache" 
 3. **Check DNSSEC status:**
    ```bash
    curl -X GET "https://api.cloudflare.com/client/v4/zones/{zone_id}/dnssec" \
-     -H "X-Auth-Email: email" \
-     -H "X-Auth-Key: key"
+     -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN"
    ```
 
 **Look for:**
@@ -144,8 +141,7 @@ curl -X POST "https://api.cloudflare.com/client/v4/zones/{zone_id}/purge_cache" 
 1. **Check SSL certificate status:**
    ```bash
    curl -X GET "https://api.cloudflare.com/client/v4/zones/{zone_id}/ssl/certificate_packs" \
-     -H "X-Auth-Email: email" \
-     -H "X-Auth-Key: key"
+     -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN"
    ```
 
 2. **Check origin certificate (if using Full Strict):**
@@ -175,22 +171,19 @@ curl -X POST "https://api.cloudflare.com/client/v4/zones/{zone_id}/purge_cache" 
 2. **Check DNS records point to correct origin:**
    ```bash
    curl -X GET "https://api.cloudflare.com/client/v4/zones/{zone_id}/dns_records" \
-     -H "X-Auth-Email: email" \
-     -H "X-Auth-Key: key"
+     -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN"
    ```
 
 3. **Review load balancer config (if applicable):**
    ```bash
    curl -X GET "https://api.cloudflare.com/client/v4/zones/{zone_id}/load_balancers" \
-     -H "X-Auth-Email: email" \
-     -H "X-Auth-Key: key"
+     -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN"
    ```
 
 4. **Check firewall rules:**
    ```bash
    curl -X GET "https://api.cloudflare.com/client/v4/zones/{zone_id}/firewall/rules" \
-     -H "X-Auth-Email: email" \
-     -H "X-Auth-Key: key"
+     -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN"
    ```
 
 ## Learning New APIs
@@ -201,14 +194,13 @@ When encountering issues not covered above, consult Cloudflare API documentation
 2. **Search for relevant endpoints** using issue keywords
 3. **Check API schema** to understand available operations
 4. **Test with GET requests** first to understand data structure
-5. **Make changes with PATCH/POST** after confirming approach
+5. **Make changes with PATCH/POST** only when evidence supports the fix and current authorization covers the target and operation
 
 **Pattern for exploring new APIs:**
 ```bash
 # List available settings for a zone
 curl -X GET "https://api.cloudflare.com/client/v4/zones/{zone_id}/settings" \
-  -H "X-Auth-Email: email" \
-  -H "X-Auth-Key: key"
+  -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN"
 ```
 
 ## API Reference Overview
@@ -267,21 +259,22 @@ Consult `references/common_issues.md` for:
 
 - Never log API keys in output
 - Warn if user shares credentials in public context
-- Recommend API Tokens with scoped permissions over Global API Key
+- Reuse an authorized connection or a securely supplied token with least privilege;
+  apply these limits to reference scripts too
 - Use read-only operations for investigation
 
 ## Workflow Template
 
 ```
-1. Gather: domain, email, API key
+1. Resolve domain and authorized connection/token scope without exposing credentials
 2. Get zone_id via zones API
 3. Investigate:
    - Query relevant APIs for evidence
    - Check multiple related settings
    - Verify with external tools (dig, curl)
 4. Analyze evidence to determine root cause
-5. Apply fix via appropriate API endpoint
-6. Purge cache if configuration change affects delivery
+5. Apply the evidenced fix only within existing write authorization
+6. Purge relevant URLs only when needed; full-zone purge requires that scope
 7. Verify fix via API query and external testing
 8. Inform user of resolution and any required actions
 ```
@@ -293,28 +286,24 @@ When user reports "site shows ERR_TOO_MANY_REDIRECTS":
 ```bash
 # 1. Get zone ID
 curl -s -X GET "https://api.cloudflare.com/client/v4/zones?name=example.com" \
-  -H "X-Auth-Email: user@example.com" \
-  -H "X-Auth-Key: abc123" | jq '.result[0].id'
+  -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" | jq '.result[0].id'
 
 # 2. Check SSL mode (primary suspect for redirect loops)
 curl -s -X GET "https://api.cloudflare.com/client/v4/zones/ZONE_ID/settings/ssl" \
-  -H "X-Auth-Email: user@example.com" \
-  -H "X-Auth-Key: abc123" | jq '.result.value'
+  -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" | jq '.result.value'
 
-# If returns "flexible" and origin is GitHub Pages/Netlify/Vercel:
-
-# 3. Fix by changing to "full"
+# If flexible mode conflicts with origin HTTPS enforcement, verify origin TLS.
+# 3. After certificate validation and write authorization, use Strict
 curl -X PATCH "https://api.cloudflare.com/client/v4/zones/ZONE_ID/settings/ssl" \
-  -H "X-Auth-Email: user@example.com" \
-  -H "X-Auth-Key: abc123" \
+  -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
   -H "Content-Type: application/json" \
-  --data '{"value":"full"}'
+  --data '{"value":"strict"}'
 
-# 4. Purge cache
+# 4. Only if stale cache is evidenced and the URLs are within write scope
 curl -X POST "https://api.cloudflare.com/client/v4/zones/ZONE_ID/purge_cache" \
-  -H "X-Auth-Email: user@example.com" \
-  -H "X-Auth-Key: abc123" \
-  -d '{"purge_everything":true}'
+  -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"files":["https://example.com/affected-path"]}'
 
 # 5. Inform user: Wait 60 seconds, clear browser cache, retry
 ```

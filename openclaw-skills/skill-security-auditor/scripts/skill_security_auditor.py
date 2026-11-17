@@ -973,6 +973,36 @@ def scan_skill(skill_path: Path) -> AuditReport:
     return report
 
 
+def select_remote_skill(repo: Path, skill_name: str) -> Path:
+    """Select an explicit relative path or a unique skill with the given name."""
+    name = Path(skill_name)
+    if not skill_name or name.anchor or ".." in name.parts or ".git" in name.parts:
+        raise ValueError("expected a relative skill path within the clone")
+
+    repo = repo.resolve()
+    if name.name == skill_name:
+        # Match literal names, including a top-level match, without following
+        # directory links or treating the supplied name as a glob pattern.
+        candidates = (p for p in repo.rglob("*") if p.name == name.name
+                      and ".git" not in p.relative_to(repo).parts)
+    else:
+        candidates = [repo / name]
+
+    selected = None
+    for candidate in candidates:
+        root = resolve_in_root(candidate, repo)
+        if ".git" in root.relative_to(repo).parts:
+            raise ValueError("skill resolves inside git metadata")
+        manifest = resolve_in_root(root / "SKILL.md", root)
+        if root.is_dir() and manifest.is_file():
+            if selected is not None:
+                raise ValueError("ambiguous skill name; specify the relative path")
+            selected = root
+    if selected is None:
+        raise ValueError("no matching skill directory containing SKILL.md")
+    return selected
+
+
 def clone_repo(url: str, skill_name: Optional[str] = None, cleanup: bool = False):
     """Clone a git repo to a temp directory and return the skill path."""
     tmp_dir = tempfile.mkdtemp(prefix="skill-audit-")
@@ -988,19 +1018,14 @@ def clone_repo(url: str, skill_name: Optional[str] = None, cleanup: bool = False
         shutil.rmtree(tmp_dir, ignore_errors=True)  # noqa: SEC-AUDITOR
         sys.exit(1)
 
-    if skill_name:
-        skill_path = Path(tmp_dir) / skill_name
-        if not skill_path.exists():
-            # Try finding it
-            matches = list(Path(tmp_dir).rglob(skill_name))
-            if matches:
-                skill_path = matches[0]
-            else:
-                print(f"Skill '{skill_name}' not found in repo", file=sys.stderr)
-                shutil.rmtree(tmp_dir, ignore_errors=True)  # noqa: SEC-AUDITOR
-                sys.exit(1)
-    else:
-        skill_path = Path(tmp_dir)
+    skill_path = Path(tmp_dir)
+    if skill_name is not None:
+        try:
+            skill_path = select_remote_skill(skill_path, skill_name)
+        except (OSError, RuntimeError, ValueError) as exc:
+            print(f"Invalid remote skill {skill_name!r}: {exc}", file=sys.stderr)
+            shutil.rmtree(tmp_dir, ignore_errors=True)  # noqa: SEC-AUDITOR
+            sys.exit(1)
 
     return skill_path, tmp_dir if cleanup else None
 
@@ -1097,7 +1122,7 @@ def main():
         report = scan_skill(skill_path)
 
         if args.json_output:
-            print(json.dumps(report.to_dict(), indent=2))
+            print(json.dumps(report.to_dict()))
         else:
             print_report(report)
 

@@ -69,9 +69,9 @@ except ModuleNotFoundError:  # pragma: no cover - import path used by unit tests
     )
 
 try:
-    from audit_licenses import PERMISSIVE_LICENSES
+    from audit_licenses import PERMISSIVE_LICENSES, SCOPED_FONT_LICENSES, scoped_font_license_error
 except ModuleNotFoundError:  # pragma: no cover - import path used by tests
-    from scripts.audit_licenses import PERMISSIVE_LICENSES
+    from scripts.audit_licenses import PERMISSIVE_LICENSES, SCOPED_FONT_LICENSES, scoped_font_license_error
 
 REQUIRED_TOP = {"video", "official_references", "skills"}
 REQUIRED_SKILL_KEYS = {"video_name", "normalized_slug", "status", "repo_skill", "source", "notes"}
@@ -732,7 +732,7 @@ def _validate_tracking(
                     f"{checkpoint_label}.content_sha256 must be SHA-256"
                 )
             checkpoint_spdx = license_checkpoint.get("spdx")
-            if checkpoint_spdx not in PERMISSIVE_LICENSES:
+            if checkpoint_spdx not in PERMISSIVE_LICENSES | SCOPED_FONT_LICENSES:
                 errors.append(
                     f"{checkpoint_label}.spdx must be a permitted SPDX identifier"
                 )
@@ -1187,6 +1187,9 @@ def _validate_frontmatter_semantics(
             str(origin.get("license")).strip().lower()
             for origin in origins
             if isinstance(origin, dict) and not is_local_repo(origin.get("repo"))
+            # Scoped font licenses remain attached to separately checked
+            # binaries/notices; they do not relicense the SKILL.md software.
+            and str(origin.get("license")) not in SCOPED_FONT_LICENSES
         }
         if frontmatter_license and origin_licenses:
             expression = frontmatter_license.strip()
@@ -1273,6 +1276,9 @@ def _validate_v2_entry(
             errors=errors,
             repo_skill=item.get("repo_skill"),
         )
+        if isinstance(origin, dict) and str(origin.get("license")) in SCOPED_FONT_LICENSES:
+            if error := scoped_font_license_error(origin, item, repo_root):
+                errors.append(f"{mapping}: skills[{idx}].origins[{origin_idx}]: {error}")
         if isinstance(origin, dict) and isinstance(origin.get("artifacts"), list):
             for artifact in origin["artifacts"]:
                 if isinstance(artifact, dict) and isinstance(
@@ -1957,13 +1963,19 @@ def main() -> int:
         help="Specific mapping file to validate (default: validate all docs/sources/*.skills.json)",
     )
     parser.add_argument(
+        "--repo-root",
+        type=Path,
+        default=Path(__file__).resolve().parents[1],
+        help="Repository root to validate (primarily for isolated tests).",
+    )
+    parser.add_argument(
         "--allow-v1",
         action="store_true",
         help="Explicitly allow legacy mappings without schema_version=2",
     )
     args = parser.parse_args()
 
-    repo_root = Path(__file__).resolve().parents[1]
+    repo_root = args.repo_root.resolve()
     mappings = discover_mappings(repo_root, args.mapping)
     if not mappings:
         print("No mapping files found under docs/sources/*.skills.json")

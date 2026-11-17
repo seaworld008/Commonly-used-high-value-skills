@@ -15,6 +15,7 @@ lark-cli okr +weight \
     {"id": "7000000000000000002", "weight": 0.6},
     {"id": "7000000000000000003", "weight": 0.3}
   ]' \
+  --apply-to-draft=true \
   --as user
 
 # 调整 KR 权重（全部指定，和为 1）
@@ -26,6 +27,7 @@ lark-cli okr +weight \
     {"id": "7000000000000000004", "weight": 0.6},
     {"id": "7000000000000000005", "weight": 0.4}
   ]' \
+  --apply-to-draft=true \
   --as user
 
 # 从文件读取 weights
@@ -33,6 +35,7 @@ lark-cli okr +weight \
   --cycle-id 7000000000000000001 \
   --level objective \
   --weights @weights.json \
+  --apply-to-draft=false \
   --as user
 ```
 
@@ -55,13 +58,14 @@ lark-cli okr +weight \
 | `--cycle-id`     | 是  | —      | OKR 周期 ID（int64 类型）                                                 |
 | `--objective-id` | 条件 | —      | 目标 ID。当 `--level=key-result` 时**必填**，用于定位父目标。                       |
 | `--weights`      | 是  | —      | JSON 数组格式的权重分配。支持 `@文件路径` 或 `@-` 从 stdin 读取。权重保留三位小数，分配的所有权重和不能大于 1 |
+| `--apply-to-draft` | 否 | `true` | KR：`true` 写草稿（无草稿时先创建），`false` 写发布态；Objective 权重两态共用，不能用此参数隔离。显式传值。 |
 | `--dry-run`      | 否  | —      | 预览 API 调用而不实际执行                                                     |
 | `--format`       | 否  | `json` | 输出格式                                                                |
 
 ## 工作流程
 
 1. 使用 `+cycle-list` 和 `+cycle-detail` 获取周期 ID、目标 ID、KR ID 和当前权重。
-2. 构造 `--weights` JSON 数组，指定要调整的 ID 和权重，执行命令。
+2. 构造 `--weights` JSON 数组。KR 按 [草稿工作流](lark-okr-drafts.md) 显式选择状态，查询与写入使用同一状态；Objective 权重两态共用，立即生效，撤销草稿不回滚。
 3. 返回调整后的完整权重列表。
 
 ## 输出
@@ -83,6 +87,8 @@ lark-cli okr +weight \
   }
 }
 ```
+
+原生 `objectives key_results_weight` 用 `--data` 中的 `apply_to_draft` 选择状态，必须包含对应状态下该 Objective 的全部 KR，权重和等于 1；shortcut 的部分指定与自动归一化不能照搬到原生请求。
 
 ## 关于 1001001 错误
 

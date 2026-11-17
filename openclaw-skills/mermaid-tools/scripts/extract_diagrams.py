@@ -3,23 +3,61 @@
 Extract Mermaid diagrams from markdown file and create numbered .mmd files
 """
 
+import argparse
+import os
 import re
+import shutil
+import stat
 import sys
+import tempfile
 from pathlib import Path
+
+
+def mermaid_blocks(content):
+    """Track Markdown fences, including non-Mermaid example blocks.
+
+    A closing fence uses the same character and at least the opening length.
+    Backtick info strings cannot contain backticks. Up to three leading spaces
+    are allowed; an unclosed fence extends to EOF, as in Markdown.
+    """
+    fence = None
+    context = []
+    body = []
+    for line in content.splitlines():
+        if fence is None:
+            opening = re.match(r"^( {0,3})(`{3,}|~{3,})(.*)$", line)
+            if opening:
+                indent, marker, info = opening.groups()
+                if marker[0] == '`' and '`' in info:
+                    context.append(line)
+                    continue
+                language = info.strip().split()
+                fence = (marker, len(indent), bool(language and language[0].lower() == 'mermaid'))
+                body = []
+            else:
+                context.append(line)
+        else:
+            marker, indent, is_mermaid = fence
+            if re.fullmatch(r" {0,3}" + re.escape(marker[0]) + r"{" + str(len(marker)) + r",}[ \t]*", line):
+                if is_mermaid:
+                    yield context[-20:], '\n'.join(body)
+                fence = None
+                # Keep context positions bounded without taking names from examples.
+                context.append('')
+            elif is_mermaid:
+                leading = len(line) - len(line.lstrip(' '))
+                body.append(line[min(indent, leading):])
+    if fence is not None and fence[2]:
+        yield context[-20:], '\n'.join(body)
+
 
 def extract_mermaid_diagrams(markdown_file, output_dir):
     """Extract Mermaid diagrams from markdown file and create numbered .mmd files"""
     
-    try:
-        with open(markdown_file, 'r', encoding='utf-8') as f:
-            content = f.read()
-    except Exception as e:
-        print(f"ERROR: Cannot read markdown file: {e}")
-        return []
+    with open(markdown_file, 'r', encoding='utf-8') as f:
+        content = f.read()
     
-    # Find all mermaid code blocks with their content
-    mermaid_pattern = r'```mermaid\n(.*?)\n```'
-    matches = re.findall(mermaid_pattern, content, re.DOTALL)
+    matches = list(mermaid_blocks(content))
     
     if not matches:
         print("No Mermaid diagrams found in markdown file")
@@ -27,31 +65,9 @@ def extract_mermaid_diagrams(markdown_file, output_dir):
     
     # Extract diagram names from context (look backwards for section headers)
     diagrams = []
-    lines = content.split('\n')
-    
-    for i, match in enumerate(matches, 1):
-        # Find the position of this diagram in the content
-        diagram_pattern = f'```mermaid\n{re.escape(match)}\n```'
-        diagram_match = re.search(diagram_pattern, content)
-        
-        if not diagram_match:
-            # Fallback: use simple search
-            diagram_start = content.find(f'```mermaid\n{match}\n```')
-        else:
-            diagram_start = diagram_match.start()
-        
-        # Count lines up to this point to find context
-        if diagram_start >= 0:
-            lines_before = content[:diagram_start].count('\n')
-        else:
-            lines_before = 0
-        
+    for i, (context_lines, match) in enumerate(matches, 1):
         # Look backwards for the most recent section header or meaningful context
         diagram_name = f"diagram-{i:02d}"  # Default fallback
-        
-        # Look for context clues in the 20 lines before the diagram
-        context_start = max(0, lines_before - 20)
-        context_lines = lines[context_start:lines_before] if lines_before > 0 else []
         
         # Priority 1: Look for specific diagram descriptions
         for line in reversed(context_lines):
@@ -112,23 +128,95 @@ def extract_mermaid_diagrams(markdown_file, output_dir):
     created_files = []
     for diagram in diagrams:
         mmd_file = output_path / f"{diagram['name']}.mmd"
-        try:
-            with open(mmd_file, 'w', encoding='utf-8') as f:
-                f.write(diagram['content'])
-            created_files.append(str(mmd_file))
-            print(f"Created: {mmd_file}")
-        except Exception as e:
-            print(f"ERROR: Cannot create {mmd_file}: {e}")
+        with open(mmd_file, 'w', encoding='utf-8') as f:
+            f.write(diagram['content'])
+        created_files.append(str(mmd_file))
+        print(f"Created: {mmd_file}")
     
     return created_files
 
+
+def publish_pair(source, png, output_dir):
+    """Replace one validated pair, restoring originals on publication errors.
+
+    Copy into the destination filesystem before replacing either public path.
+    Backups remain available until both replacements succeed. This is rollback
+    protection for reported I/O failures, not a crash-atomic two-file rename.
+    """
+    source, png, output = Path(source), Path(png), Path(output_dir)
+    if source.suffix != '.mmd' or png.name != source.with_suffix('.png').name:
+        raise ValueError('source and PNG names must describe the same diagram')
+    targets = [output / source.name, output / png.name]
+    for path in [source, png, *targets]:
+        try:
+            mode = path.lstat().st_mode
+        except FileNotFoundError:
+            if path in targets:
+                continue
+            raise
+        if not stat.S_ISREG(mode):
+            raise ValueError(f'refusing non-regular publication file: {path}')
+
+    # Destination-local publication copies permit atomic individual replacements
+    # even when TMPDIR and the output directory are on different filesystems.
+    stage = Path(tempfile.mkdtemp(prefix='.mermaid-publish.', dir=output))
+    changed = []
+    originals = {}
+    preserve = False
+    try:
+        for index, (new, target) in enumerate(zip([source, png], targets)):
+            shutil.copy2(new, stage / f'new-{index}')
+            if target.exists():
+                backup = stage / f'old-{index}'
+                shutil.copy2(target, backup)
+                originals[target] = backup
+            else:
+                originals[target] = None
+        for index, target in enumerate(targets):
+            os.replace(stage / f'new-{index}', target)
+            changed.append(target)
+    except BaseException as exc:
+        rollback_errors = []
+        for target in reversed(changed):
+            try:
+                backup = originals[target]
+                if backup is None:
+                    target.unlink()
+                else:
+                    os.replace(backup, target)
+            except OSError as rollback_exc:
+                rollback_errors.append(f'{target}: {rollback_exc}')
+        if rollback_errors:
+            preserve = True
+            raise RuntimeError(f'{exc}; rollback incomplete: {rollback_errors}; '
+                               f'recovery files retained at {stage}') from exc
+        raise
+    finally:
+        if not preserve:
+            try:
+                shutil.rmtree(stage)
+            except OSError as exc:
+                # A cleanup error must not turn a fully published pair into a
+                # claimed publication failure, or hide an earlier I/O failure.
+                print(f'WARNING: Publication copies could not be removed: {stage}: {exc}', file=sys.stderr)
+
+
 if __name__ == "__main__":
-    if len(sys.argv) != 3:
-        print("Usage: python3 extract_diagrams.py <markdown_file> <output_directory>")
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("markdown_file")
+    parser.add_argument("output_directory")
+    parser.add_argument("--manifest", help="write this batch's NUL-separated .mmd filenames")
+    parser.add_argument("--publish-png", help="internal: publish input .mmd and this validated PNG as a pair")
+    args = parser.parse_args()
+    try:
+        if args.publish_png:
+            publish_pair(args.markdown_file, args.publish_png, args.output_directory)
+            sys.exit(0)
+        files = extract_mermaid_diagrams(args.markdown_file, args.output_directory)
+        if args.manifest:
+            Path(args.manifest).write_bytes(b"".join(os.fsencode(Path(f).name) + b"\0" for f in files))
+    except Exception as exc:
+        action = 'publish diagram pair' if args.publish_png else 'extract diagrams'
+        print(f"ERROR: Failed to {action}: {exc}", file=sys.stderr)
         sys.exit(1)
-    
-    markdown_file = sys.argv[1]
-    output_dir = sys.argv[2]
-    
-    files = extract_mermaid_diagrams(markdown_file, output_dir)
     print(f"\nExtracted {len(files)} diagrams successfully")

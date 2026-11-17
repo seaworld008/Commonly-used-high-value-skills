@@ -2,13 +2,13 @@
 name: twitter-reader
 description: 'Read Twitter/X posts and threads from supplied URLs, including author, text, timestamp, and available media, using the documented retrieval tools.'
 zh_description: "用于通过 URL 抓取 Twitter/X 帖子内容、作者、时间、图片和线程回复。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["growth", "marketing", "reader", "twitter"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 3
 complexity: "intermediate"
 ---
@@ -34,15 +34,11 @@ export JINA_API_KEY="your_api_key_here"
 For a single tweet, use curl directly:
 
 ```bash
-curl "https://r.jina.ai/https://x.com/USER/status/ID" \
+curl --fail-with-body --show-error "https://r.jina.ai/https://x.com/USER/status/ID" \
   -H "Authorization: Bearer ${JINA_API_KEY}"
 ```
 
-For multiple tweets, use the bundled script:
-
-```bash
-scripts/fetch_tweets.sh url1 url2 url3
-```
+For multiple tweets, repeat the checked request above per URL and inspect each returned body before treating it as post content. The raw batch helper below does not preserve per-URL HTTP failures.
 
 ## What Gets Returned
 
@@ -55,15 +51,15 @@ scripts/fetch_tweets.sh url1 url2 url3
 
 ### fetch_tweet.py
 
-Python script for fetching individual tweets.
+Raw helper for fetching individual tweets. It uses `curl -s` and checks only process exit, so HTTP error pages may be returned or saved as successful content. For evidence, first verify HTTP success with a checked request and inspect that the body is the requested post rather than an error/login/rate-limit page; only then save verified text. Do not use its optional output file as proof of a successful fetch.
 
 ```bash
-python scripts/fetch_tweet.py https://x.com/user/status/123 output.md
+python scripts/fetch_tweet.py https://x.com/user/status/123
 ```
 
 ### fetch_tweets.sh
 
-Bash script for batch fetching multiple tweets.
+Raw batch helper. Separators and its final exit status do not establish individual success; record each URL as success/error/partial after checking HTTP status and returned content. Preserve successful items and report individual failures.
 
 ```bash
 scripts/fetch_tweets.sh \

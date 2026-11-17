@@ -1,519 +1,97 @@
-# API Security Reference
+# API 字段、对象与成本边界审查
 
-## Overview
+Original local reference, Copyright (c)2026 seaworld008, MIT
 
-APIs expose application functionality and data, making them prime targets for attackers. This reference covers security for REST APIs, GraphQL, and general API patterns.
+## 数据流与攻击前提
 
-## Authentication
+请求经过代理、路由、解析器、身份恢复和业务服务，最后进入存储、队列或第三方调用。
+攻击者可以绕过页面直接构造 JSON、重复查询参数、批量请求和旧版本 API 调用。
+每个入口都要确认主体从哪里恢复、对象由谁选择、字段能改变什么，以及成本由谁承担。
+内部 API、已登录请求和 server-config 中的 URL 都可能跨越租户或服务权限边界。
 
-### Token-Based Authentication
-
-```python
-# JWT Best Practices
-# 1. Use strong signing algorithms
-# VULNERABLE: None algorithm
-jwt.decode(token, algorithms=['none'])
-
-# SAFE: Explicit algorithm
-jwt.decode(token, secret_key, algorithms=['HS256'])
-
-# 2. Validate standard claims
-def validate_jwt(token):
-    payload = jwt.decode(token, SECRET_KEY, algorithms=['HS256'])
-
-    # Validate issuer
-    if payload.get('iss') != EXPECTED_ISSUER:
-        raise ValueError("Invalid issuer")
-
-    # Validate audience
-    if payload.get('aud') != EXPECTED_AUDIENCE:
-        raise ValueError("Invalid audience")
-
-    # Validate expiration (jwt library does this automatically)
-    # Validate not-before (jwt library does this automatically)
-
-    return payload
-```
-
-### API Key Security
+## 自写示例：批量赋值扩大权限
 
 ```python
-# VULNERABLE: API key in URL (logged, cached, visible)
-GET /api/users?api_key=secret123
-
-# SAFE: API key in header
-GET /api/users
-Authorization: Bearer api_key_here
-# Or
-X-API-Key: api_key_here
-
-# Server-side validation
-def require_api_key(f):
-    @wraps(f)
-    def decorated(*args, **kwargs):
-        api_key = request.headers.get('X-API-Key')
-        if not api_key or not validate_api_key(api_key):
-            return jsonify({'error': 'Invalid API key'}), 401
-
-        # Rate limit by API key
-        if is_rate_limited(api_key):
-            return jsonify({'error': 'Rate limit exceeded'}), 429
-
-        return f(*args, **kwargs)
-    return decorated
+def unsafe_patch_profile(row, body):
+    row.update(body)
+    return row
 ```
 
----
-
-## Authorization
-
-### Endpoint-Level Authorization
+若 `row` 同时保存 `role` 或 `tenant_id`，调用者就能借普通资料编辑修改权限。
+修正示例只处理已经解析为普通字典的请求；主体由可信会话层提供，不读 body 中的身份。
+传输层须先限制请求大小，并拒绝重复 JSON 键；解析要求另见[反序列化](deserialization.md)。
 
 ```python
-# VULNERABLE: No authorization check
-@app.route('/api/users/<user_id>', methods=['GET'])
-def get_user(user_id):
-    return User.query.get(user_id).to_dict()
-
-# SAFE: Authorization check
-@app.route('/api/users/<user_id>', methods=['GET'])
-@require_auth
-def get_user(user_id):
-    if not current_user.can_access_user(user_id):
-        return jsonify({'error': 'Forbidden'}), 403
-    return User.query.get(user_id).to_dict()
+def patch_profile(row, actor, body):
+    if actor is None or (row['user_id'], row['tenant_id']) != (
+        actor['user_id'], actor['tenant_id']
+    ):
+        raise PermissionError('profile unavailable')
+    if type(body) is not dict or not body or set(body) - {'display_name', 'timezone'}:
+        raise ValueError('unsupported fields')
+    changes = {}
+    if 'display_name' in body:
+        name = body['display_name']
+        if type(name) is not str or not 1 <= len(name) <= 80:
+            raise ValueError('invalid display name')
+        if any(ord(char) < 32 or ord(char) == 127 for char in name):
+            raise ValueError('control character')
+        changes['display_name'] = name
+    if 'timezone' in body:
+        zone = body['timezone']
+        if type(zone) is not str or zone not in {'UTC', 'Asia/Shanghai'}:
+            raise ValueError('unsupported timezone')
+        changes['timezone'] = zone
+    result = dict(row)
+    result.update(changes)
+    return {key: result[key] for key in ('display_name', 'timezone')}
 ```
 
-### Field-Level Authorization
+本例返回可公开的资料投影，不承担数据库持久化；集成时仅保存 `changes` 对应的允许字段。
+若改成数据库写入，须把主体、租户和对象条件放入同一次写入，并处理版本冲突。
+代码验证完全部字段才构造结果，不能先写一个字段再因第二个字段错误退出。
+展示名仍是文字，前端按输出上下文处理，不能把通过此校验的值当可信 HTML。
 
-```python
-# VULNERABLE: All fields returned
-@app.route('/api/users/<user_id>')
-def get_user(user_id):
-    user = User.query.get(user_id)
-    return jsonify({
-        'id': user.id,
-        'email': user.email,
-        'ssn': user.ssn,  # Sensitive!
-        'is_admin': user.is_admin,  # Internal!
-        'password_hash': user.password_hash  # NEVER expose!
-    })
+## 协议与成本需要单独拒绝的情形
 
-# SAFE: Filtered response based on permissions
-@app.route('/api/users/<user_id>')
-@require_auth
-def get_user(user_id):
-    user = User.query.get(user_id)
+- 不支持的方法、媒体类型、未知字段、超量数组及多义参数应有明确失败响应。
+- 分页上限同时限制响应体积；导出、聚合、搜索和 GraphQL 嵌套还需单独预算。
+- 计费和写操作限制主体、租户、目标资源与并发，单一 IP 限流不能覆盖分布式调用。
+- 重试同一支付或创建请求需要持久化幂等键并绑定请求内容，不能把冲突覆盖成成功。
+- 资源 URL、回调 URL 和代理转发要限制出站目的地及重定向，不能只检查初始域名。
+- 上传需限制实际接收字节和解压后大小；不能信任 `Content-Length` 或文件后缀。
+- 旧版本、批量入口、任务消费者须执行相同对象策略；路由名称相似不是策略证据。
+- CORS 仅约束部分浏览器读取行为，不能替代身份、授权或[CSRF](csrf.md) 控制。
 
-    response = {
-        'id': user.id,
-        'name': user.name,
-    }
+## 正反验收输入
 
-    # Add fields based on permissions
-    if current_user.id == user_id or current_user.is_admin:
-        response['email'] = user.email
+| 输入 | 预期 |
+| --- | --- |
+| 本人资料，`{"display_name":"测试","timezone":"UTC"}` | 返回两项资料，身份与角色不变 |
+| `{"role":"admin"}` 或 `{"tenant_id":"other"}` | 拒绝全部修改 |
+| `{"display_name":null}`、列表或空对象 | 拒绝，不隐式转换 |
+| 本人合法名字加非法 timezone | 整体拒绝，原记录不变 |
+| 其他租户对象加合法字段 | 拒绝，不泄露是否存在私有资料 |
+| 重复 JSON 键或超限请求体 | 在调用本函数前拒绝 |
 
-    if current_user.is_admin:
-        response['is_admin'] = user.is_admin
+只用合成账户和测试对象验收，不向真实外部 API 发送攻击请求。
 
-    return jsonify(response)
-```
+## 易误报与适用边界
 
----
+允许 PATCH 不等于批量赋值漏洞，必须证明哪些输入字段能到达受保护属性。
+公开、只读、有限大小的 API 可以不要求登录；仍需评估成本和公开数据的确定范围。
+本例的两个时区是业务枚举示范，实际产品应使用明确的完整支持集合。
+返回对象投影不等于删除数据库中的敏感字段；二者需要分别验证。
 
-## Input Validation
+## 实际验证证据
 
-### Request Validation
+保留路由到服务/存储的调用链、允许字段集合、错误路径与写入前后差异。
+记录批量和旧版本入口的授权结果，以及实际网关和应用的大小、超时、并发配置。
+静态审阅不能证明代理解析一致、限流已部署或重试一定只产生一次副作用。
 
-```python
-from pydantic import BaseModel, validator, Field
-from typing import Optional
+## 官方接口核对入口
 
-class CreateUserRequest(BaseModel):
-    name: str = Field(..., min_length=1, max_length=100)
-    email: str = Field(..., regex=r'^[\w\.-]+@[\w\.-]+\.\w+$')
-    age: Optional[int] = Field(None, ge=0, le=150)
+- [Python JSON API](https://docs.python.org/3/library/json.html)
+- [HTTP 语义规范](https://www.rfc-editor.org/rfc/rfc9110.html)
 
-    @validator('name')
-    def name_must_not_be_empty(cls, v):
-        if not v.strip():
-            raise ValueError('Name cannot be empty')
-        return v.strip()
-
-@app.route('/api/users', methods=['POST'])
-def create_user():
-    try:
-        data = CreateUserRequest(**request.json)
-    except ValidationError as e:
-        return jsonify({'error': e.errors()}), 400
-
-    # Process validated data
-    return create_user_from_data(data)
-```
-
-### Content-Type Validation
-
-```python
-# VULNERABLE: Accept any content type
-@app.route('/api/data', methods=['POST'])
-def process_data():
-    data = request.get_json()  # May fail silently
-
-# SAFE: Validate content type
-@app.route('/api/data', methods=['POST'])
-def process_data():
-    if request.content_type != 'application/json':
-        return jsonify({'error': 'Content-Type must be application/json'}), 415
-
-    data = request.get_json()
-    if data is None:
-        return jsonify({'error': 'Invalid JSON'}), 400
-
-    return process(data)
-```
-
-### Request Size Limits
-
-```python
-# Flask
-app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB max
-
-# Express
-app.use(express.json({ limit: '10mb' }))
-
-# Handle large request errors
-@app.errorhandler(413)
-def request_too_large(e):
-    return jsonify({'error': 'Request too large'}), 413
-```
-
----
-
-## Rate Limiting
-
-### Implementation
-
-```python
-from flask_limiter import Limiter
-from flask_limiter.util import get_remote_address
-
-limiter = Limiter(
-    app,
-    key_func=get_remote_address,
-    default_limits=["200 per day", "50 per hour"]
-)
-
-# Endpoint-specific limits
-@app.route('/api/login', methods=['POST'])
-@limiter.limit("5 per minute")  # Prevent brute force
-def login():
-    pass
-
-@app.route('/api/password-reset', methods=['POST'])
-@limiter.limit("3 per hour")  # Prevent enumeration
-def password_reset():
-    pass
-
-# Return proper headers
-# X-RateLimit-Limit: 50
-# X-RateLimit-Remaining: 45
-# X-RateLimit-Reset: 1623456789
-# Retry-After: 3600  (when limited)
-```
-
-### Rate Limit by API Key
-
-```python
-def get_rate_limit_key():
-    # Prefer API key over IP for authenticated requests
-    api_key = request.headers.get('X-API-Key')
-    if api_key:
-        return f"api_key:{api_key}"
-    return f"ip:{get_remote_address()}"
-
-limiter = Limiter(key_func=get_rate_limit_key)
-```
-
----
-
-## Mass Assignment Prevention
-
-```python
-# VULNERABLE: Accepting all fields
-@app.route('/api/users/<id>', methods=['PATCH'])
-def update_user(id):
-    user = User.query.get(id)
-    user.update(**request.json)  # Attacker sets is_admin=True
-    return user.to_dict()
-
-# SAFE: Allowlist of fields
-ALLOWED_USER_FIELDS = {'name', 'email', 'bio'}
-
-@app.route('/api/users/<id>', methods=['PATCH'])
-def update_user(id):
-    user = User.query.get(id)
-    data = {k: v for k, v in request.json.items() if k in ALLOWED_USER_FIELDS}
-    user.update(**data)
-    return user.to_dict()
-
-# BETTER: Use DTOs
-class UserUpdateDTO(BaseModel):
-    name: Optional[str]
-    email: Optional[str]
-    bio: Optional[str]
-    # is_admin NOT included - can't be set
-
-@app.route('/api/users/<id>', methods=['PATCH'])
-def update_user(id):
-    dto = UserUpdateDTO(**request.json)
-    user = User.query.get(id)
-    user.update(**dto.dict(exclude_unset=True))
-    return user.to_dict()
-```
-
----
-
-## GraphQL Security
-
-### Query Depth Limiting
-
-```python
-# VULNERABLE: Unbounded depth
-# query { user { friends { friends { friends { ... } } } } }
-
-# SAFE: Limit query depth
-from graphql import validate
-from graphql_core import depth_limit_validator
-
-schema = build_schema(...)
-
-def execute_query(query):
-    errors = validate(
-        schema,
-        parse(query),
-        [depth_limit_validator(max_depth=5)]
-    )
-    if errors:
-        return {'errors': [str(e) for e in errors]}
-    return graphql_sync(schema, query)
-```
-
-### Query Cost Analysis
-
-```python
-# Assign costs to fields and limit total cost
-from graphene import ObjectType, Field, Int
-
-class Query(ObjectType):
-    user = Field(User, cost=1)
-    users = Field(List(User), cost=lambda info, **args: args.get('limit', 10))
-    expensive_query = Field(Report, cost=100)
-
-# Reject queries exceeding cost threshold
-MAX_QUERY_COST = 1000
-```
-
-### Disable Introspection in Production
-
-```python
-# VULNERABLE: Introspection enabled
-# Attackers can discover entire schema
-
-# SAFE: Disable introspection
-from graphql import GraphQLSchema
-
-class NoIntrospectionMiddleware:
-    def resolve(self, next, root, info, **args):
-        if info.field_name in ('__schema', '__type'):
-            return None
-        return next(root, info, **args)
-
-# Or in configuration
-app.config['GRAPHQL_INTROSPECTION'] = False
-```
-
-### Batching Attack Prevention
-
-```python
-# VULNERABLE: Allows unlimited batched mutations
-# [
-#   { "query": "mutation { login(user: 'a', pass: 'a') }" },
-#   { "query": "mutation { login(user: 'a', pass: 'b') }" },
-#   ...
-# ]
-
-# SAFE: Limit batch size
-MAX_BATCH_SIZE = 10
-
-@app.route('/graphql', methods=['POST'])
-def graphql_endpoint():
-    data = request.json
-
-    if isinstance(data, list):
-        if len(data) > MAX_BATCH_SIZE:
-            return jsonify({'error': 'Batch size exceeded'}), 400
-```
-
----
-
-## Error Handling
-
-### Generic Error Responses
-
-```python
-# VULNERABLE: Detailed errors
-@app.errorhandler(Exception)
-def handle_error(e):
-    return jsonify({
-        'error': str(e),
-        'traceback': traceback.format_exc(),
-        'query': last_query
-    }), 500
-
-# SAFE: Generic errors
-@app.errorhandler(Exception)
-def handle_error(e):
-    # Log full details server-side
-    app.logger.error(f"Error: {e}", exc_info=True)
-
-    # Return generic message
-    return jsonify({'error': 'An unexpected error occurred'}), 500
-
-# Use RFC 7807 Problem Details
-@app.errorhandler(404)
-def not_found(e):
-    return jsonify({
-        'type': 'https://example.com/problems/not-found',
-        'title': 'Resource Not Found',
-        'status': 404,
-        'detail': 'The requested resource was not found'
-    }), 404
-```
-
----
-
-## Security Headers
-
-```python
-@app.after_request
-def add_security_headers(response):
-    # Prevent caching of sensitive data
-    if request.endpoint in SENSITIVE_ENDPOINTS:
-        response.headers['Cache-Control'] = 'no-store'
-
-    response.headers['X-Content-Type-Options'] = 'nosniff'
-    response.headers['X-Frame-Options'] = 'DENY'
-    response.headers['Content-Security-Policy'] = "default-src 'none'"
-
-    return response
-```
-
----
-
-## CORS Configuration
-
-```python
-# VULNERABLE: Allow all origins
-CORS(app, origins='*')
-
-# VULNERABLE: Reflect origin header
-@app.after_request
-def add_cors(response):
-    response.headers['Access-Control-Allow-Origin'] = request.headers.get('Origin')
-    return response
-
-# SAFE: Explicit allowlist
-CORS(app, origins=[
-    'https://app.example.com',
-    'https://admin.example.com'
-], supports_credentials=True)
-
-# SAFE: Dynamic with validation
-ALLOWED_ORIGINS = {'https://app.example.com', 'https://admin.example.com'}
-
-@app.after_request
-def add_cors(response):
-    origin = request.headers.get('Origin')
-    if origin in ALLOWED_ORIGINS:
-        response.headers['Access-Control-Allow-Origin'] = origin
-        response.headers['Access-Control-Allow-Credentials'] = 'true'
-    return response
-```
-
----
-
-## HTTP Methods
-
-```python
-# VULNERABLE: Method not enforced
-@app.route('/api/users', methods=['GET', 'POST', 'PUT', 'DELETE'])
-def users():
-    pass
-
-# SAFE: Explicit method handling
-@app.route('/api/users', methods=['GET'])
-def list_users():
-    pass
-
-@app.route('/api/users', methods=['POST'])
-@require_auth
-def create_user():
-    pass
-
-# Return 405 for unsupported methods
-@app.errorhandler(405)
-def method_not_allowed(e):
-    return jsonify({'error': 'Method not allowed'}), 405
-```
-
----
-
-## Grep Patterns for Detection
-
-```bash
-# Missing authentication
-grep -rn "@app\.route\|@router\." --include="*.py" | grep -v "@require_auth\|@login_required"
-
-# Returning all fields
-grep -rn "to_dict()\|__dict__\|serialize" --include="*.py"
-
-# Mass assignment
-grep -rn "\*\*request\.\|update(\*\*\|create(\*\*" --include="*.py"
-
-# Missing rate limiting
-grep -rn "login\|password\|reset" --include="*.py" | grep "route" | grep -v "limiter\|rate"
-
-# GraphQL introspection
-grep -rn "__schema\|introspection" --include="*.py"
-
-# CORS wildcards
-grep -rn "origins.*\*\|Access-Control-Allow-Origin.*\*" --include="*.py"
-```
-
----
-
-## Testing Checklist
-
-- [ ] All endpoints require authentication (except public ones)
-- [ ] Authorization checked for every request
-- [ ] Input validation on all parameters
-- [ ] Response filtering (no sensitive data exposure)
-- [ ] Rate limiting on authentication endpoints
-- [ ] Rate limiting on resource-intensive endpoints
-- [ ] Mass assignment prevented (field allowlists)
-- [ ] Proper error handling (no information leakage)
-- [ ] Security headers configured
-- [ ] CORS properly configured
-- [ ] HTTP methods restricted
-- [ ] GraphQL depth/cost limiting (if applicable)
-- [ ] GraphQL introspection disabled in production
-
----
-
-## References
-
-- [OWASP REST Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html)
-- [OWASP GraphQL Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/GraphQL_Cheat_Sheet.html)
-- [OWASP API Security Top 10](https://owasp.org/www-project-api-security/)
-- [CWE-285: Improper Authorization](https://cwe.mitre.org/data/definitions/285.html)
+先核对项目框架、解析器与代理版本；不同组件对重复字段和请求边界的解释可能不同。

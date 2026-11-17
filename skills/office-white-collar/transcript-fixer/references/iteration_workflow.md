@@ -10,13 +10,13 @@ The core value of transcript-fixer is building a personalized correction diction
 │                    ↓                            │
 │  2. Identify new ASR errors during fixing       │
 │                    ↓                            │
-│  3. IMMEDIATELY save to dictionary              │
+│  3. Review reusable terms; save if authorized    │
 │                    ↓                            │
 │  4. Next time: Stage 1 auto-corrects these      │
 └─────────────────────────────────────────────────┘
 ```
 
-**Key principle**: Every correction you make should be saved to the dictionary. This transforms one-time work into permanent value.
+**Key principle**: Review source meaning and counterexamples first. Persist only confirmed reusable corrections within existing dictionary-maintenance authorization; a one-off correction may return review-only suggestions. Reuse authorized setup without adding a new approval loop.
 
 ## Workflow Checklist
 
@@ -27,14 +27,14 @@ Correction Progress:
 - [ ] Run correction: --input file.md --stage 3
 - [ ] Review output file for remaining ASR errors
 - [ ] Fix errors manually with Edit tool
-- [ ] Save EACH correction to dictionary with --add
+- [ ] Save confirmed reusable corrections with --add when persistence is in scope
 - [ ] Verify with --list that corrections were saved
 - [ ] Next time: Stage 1 handles these automatically
 ```
 
 ## Save Corrections Immediately
 
-After fixing any transcript, save corrections:
+After source review, save authorized reusable corrections (commands run from the skill root). The following mappings are contextual examples, not universal replacements:
 
 ```bash
 # Single correction
@@ -93,17 +93,17 @@ Build your dictionary with these common patterns:
 
 ## When GLM API Fails
 
-If you see `[CLAUDE_FALLBACK]` output, the GLM API is unavailable.
+Use the failure exit status (normally 1) and current-run output manifest to identify unavailable AI. There is no guaranteed host-specific fallback marker. Stage 2 includes dictionary processing first; pass the original input directly. Outputs are `*_stage1.md` and, only on AI success, `*_stage2.md`. Stage 3 does not generate HTML; explicitly run `scripts/generate_word_diff.py original.md corrected.md output.html`.
 
 Steps:
-1. Claude Code should analyze the text directly for ASR errors
-2. Fix using Edit tool
-3. **MUST save corrections to dictionary** - this is critical
+1. The available host can analyze the supplied text within existing authorization
+2. Save manual corrections separately, preserving uncertainty and attribution
+3. Save only source-supported reusable corrections when dictionary maintenance is authorized
 4. Dictionary corrections work even without AI
 
 ## Auto-Learning Feature
 
-After running Stage 3 multiple times:
+Learning and automatic approval are off by default, independently gated. When learning is explicitly enabled, review recurring patterns with their source context and counterexamples. The current CLI review and approval handlers are placeholders; these commands only print "not yet implemented":
 
 ```bash
 # Check learned patterns
@@ -113,12 +113,12 @@ uv run scripts/fix_transcription.py --review-learned
 uv run scripts/fix_transcription.py --approve "错误词" "正确词"
 ```
 
-Patterns appearing ≥3 times at ≥80% confidence are suggested for review.
+Frequency and confidence thresholds are candidate-screening methods, not proof of correctness. Use manual review and authorized `--add` for approved reusable terms. The wrapper reads only explicit process credentials and does not open a browser by default.
 
 ## Best Practices
 
-1. **Save immediately**: Don't batch corrections - save each one right after fixing
+1. **Review before saving**: Confirm meaning, reusability, domain and counterexamples
 2. **Be specific**: Use exact phrases, not partial words
 3. **Use domains**: Organize corrections by topic for better precision
 4. **Verify**: Always run --list to confirm saves
-5. **Review suggestions**: Periodically check --review-learned for auto-detected patterns
+5. **Review suggestions**: Keep a human-reviewed candidate list; do not rely on placeholder CLI approval

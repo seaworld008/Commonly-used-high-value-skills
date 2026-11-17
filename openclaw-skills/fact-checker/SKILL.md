@@ -2,13 +2,13 @@
 name: fact-checker
 description: 'Verify factual claims against current authoritative sources and apply requested corrections with citations; use for accuracy checks or outdated documentation.'
 zh_description: "核实事实与时效性，并按请求修正文档及补充来源。"
-version: "1.1.1"
+version: "1.1.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["checker", "fact", "productivity"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -36,7 +36,7 @@ Fact-checking Progress:
 - [ ] Step 2: Search authoritative sources
 - [ ] Step 3: Compare claims against sources
 - [ ] Step 4: Generate correction report
-- [ ] Step 5: Apply corrections with user approval
+- [ ] Step 5: Edits stay within existing authorization; review-only requests remain read-only
 ```
 
 ### Step 1: Identify factual claims
@@ -247,7 +247,7 @@ Link to sources when possible.
 2. Search for official benchmark publications
 3. Compare reported vs. source values
 4. Flag any discrepancies with source links
-5. Update with verified figures
+5. Report verified figures; apply only if correction is in scope
 
 ### Example 3: Version number validation
 
@@ -258,7 +258,7 @@ Link to sources when possible.
 2. Check package registries (npm, PyPI, etc.)
 3. Identify outdated versions
 4. Suggest updates with changelog references
-5. Update after user confirms
+5. Apply only within existing correction authorization; review-only tasks remain read-only
 
 ## Quality checklist
 
@@ -269,7 +269,7 @@ Before completing fact-check:
 - [ ] Sources are authoritative and current
 - [ ] Correction report is clear and actionable
 - [ ] Temporal context included where relevant
-- [ ] User approval obtained before changes
+- [ ] Edits stay within existing authorization; review-only requests remain read-only
 - [ ] All edits verified successful
 - [ ] Summary provided to user
 

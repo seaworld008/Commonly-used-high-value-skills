@@ -2,14 +2,14 @@
 name: ci-cd-and-automation
 description: 'Automates CI/CD pipeline setup. Use when setting up or modifying build and deployment pipelines. Use when you need to automate quality gates, configure test runners in CI, or establish deployment strategies.'
 zh_description: "建立和优化持续集成、质量检查与部署自动化。"
-version: "1.0.3"
+version: "1.0.4"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/ci-cd-and-automation/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "ci-cd-and-automation", "engineering", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-10-16"
+updated_at: "2026-11-17"
 quality: 5
 complexity: advanced
 upstream_slug: ci-cd-and-automation
@@ -196,7 +196,7 @@ Agent fixes → pushes → CI runs again
 **Key patterns:**
 
 ```
-Lint failure → Agent runs `npm run lint --fix` and commits
+Lint failure → Agent runs `npm run lint -- --fix` and commits
 Type error  → Agent reads the error location and fixes the type
 Test failure → Agent follows debugging-and-error-recovery skill
 Build error → Agent checks config and dependencies
@@ -275,9 +275,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Rollback deployment
+        env:
+          VERSION: ${{ inputs.version }}
         run: |
-          # Deploy the specified previous version
-          npx vercel rollback ${{ inputs.version }}
+          # Deploy the specified previous version. Pass the input through env,
+          # never interpolate it into the script (shell injection).
+          # Example policy: an opaque deployment identifier, not a URL or option.
+          # Align this allowlist and CLI arguments with the project's installed CLI.
+          case "$VERSION" in
+            ''|-*|*[!A-Za-z0-9._-]*)
+              echo "Invalid deployment identifier" >&2
+              exit 1
+              ;;
+          esac
+          npx vercel rollback "$VERSION"
 ```
 
 ## Environment Management
@@ -298,7 +309,7 @@ CI should never have production secrets. Use separate secrets for CI testing.
 
 ```yaml
 # .github/dependabot.yml
-version: "1.0.1"
+version: 2
 updates:
   - package-ecosystem: npm
     directory: /
@@ -325,7 +336,7 @@ When the pipeline exceeds 10 minutes, apply these strategies in order of impact:
 ```
 Slow CI pipeline?
 ├── Cache dependencies
-│   └── Use actions/cache or setup-node cache option for node_modules
+│   └── Use the setup-node cache option (or actions/cache) for the package manager cache, not node_modules
 ├── Run jobs in parallel
 │   └── Split lint, typecheck, test, build into separate parallel jobs
 ├── Only run what changed

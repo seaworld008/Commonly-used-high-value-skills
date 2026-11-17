@@ -2,14 +2,14 @@
 name: builder
 description: 'Use when implementing production business logic: type-safe domain models, validated boundaries, resilient API integrations, and CQRS or event sourcing in TypeScript, Go, Python, or Rust.'
 zh_description: "实现生产级业务逻辑时使用：类型安全领域模型、边界校验、健壮的接口集成与 CQRS/事件溯源。"
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/builder/SKILL.md"
 license: MIT
 tags: ["builder", "development"]
 created_at: "2026-08-24"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "advanced"
 ---
@@ -134,7 +134,6 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 
 ### Always
 - All Core Contract rules apply unconditionally
-- Log activity to `.agents/PROJECT.md`
 - Two-step validation: field-level parsing on DTOs with the configured validator, plus domain-level invariant enforcement inside entities or factories
 - Run the 5-axis Impact Scope Check at VERIFY (callers, tests, types, configs, docs) and report each axis verdict — never declare "done" without all 5 axes verified or explicitly N/A
 
@@ -295,10 +294,9 @@ Read only the files required for the current decision.
 
 ## Operational
 
-**Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
+**Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here.
 
-- **Journal** (`.agents/builder.md`): Record domain model insights (business rules, data integrity constraints, DDD pattern decisions). Create the file if missing on first use.
-- Add an activity row to `.agents/PROJECT.md` after task completion: `| YYYY-MM-DD | Builder | (action) | (files) | (outcome) |`.
+- Include domain invariants and data integrity decisions in the handoff. Update a designated journal only when this task authorizes writing and the project or user specifies that log.
 - Output language follows the CLI global config (`settings.json` `language` field, `CLAUDE.md`, `AGENTS.md`, or `GEMINI.md`). Code identifiers and technical terms remain in English.
 - Do not include agent names in commits or PRs.
 
@@ -309,3 +307,5 @@ See `_common/AUTORUN.md` for the protocol (`_AGENT_CONTEXT` input, mode semantic
 ## Nexus Hub Mode
 
 When input contains `## NEXUS_ROUTING`, return via `## NEXUS_HANDOFF` (canonical schema in `_common/HANDOFF.md`).
+
+When designing an interface, start with a concrete caller use case and write the expected call before choosing implementation structure. Distinguish legitimate domain errors from broken invariants; for an invariant violation, trace the producing path and check sibling paths sharing the same premise rather than adding another defensive default.

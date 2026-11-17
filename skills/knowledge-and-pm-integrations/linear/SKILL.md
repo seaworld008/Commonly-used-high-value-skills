@@ -2,23 +2,23 @@
 name: linear
 description: 'Use when creating, querying, or updating Linear issues, projects, teams, and workflow states through the Linear GraphQL API with a personal API key.'
 zh_description: "需要通过 GraphQL API 创建、查询或更新 Linear issue、项目和状态流转时使用。"
-version: "2.0.4"
+version: "2.0.5"
 author: "seaworld008"
 source: "adapted-from-hermes-agent"
 source_url: "https://github.com/NousResearch/hermes-agent/blob/3636f64540a3d80c8425f195f46e53e940956cba/skills/productivity/linear/SKILL.md"
 license: "MIT"
 tags: '["graphql", "issues", "linear", "mcp", "productivity", "project-management"]'
 created_at: "2026-03-04"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 metadata:
-short-description: 'Manage Linear with GraphQL API first, MCP second'
+short-description: 'Manage Linear with connected tools or GraphQL API'
 ---
 
 # Linear — Issue & Project Management
 
-Manage Linear issues, projects, and teams directly via the GraphQL API using `curl`. No MCP server, no OAuth flow, no extra dependencies.
+Manage Linear issues, projects, and teams with the host's connected Linear tools. When no suitable connector is available, use the GraphQL API examples with `curl` and an environment-provided API key.
 
 ## Setup
 
@@ -289,11 +289,6 @@ curl -s -X POST https://api.linear.app/graphql \
   | python3 -m json.tool
 ```
 
-Or via the Python helper:
-```bash
-python3 scripts/linear_api.py get-document 38359beef67c
-```
-
 ### Fetch a document by UUID
 
 ```bash
@@ -371,7 +366,7 @@ Combine filters with `or: [...]` for OR logic (default is AND within a filter ob
 
 ## Important Notes
 
-- Always use `terminal` tool with `curl` for API calls — do NOT use `web_extract` or `browser`
+- Prefer connected Linear tools; use the GraphQL curl examples only when no suitable connector is available.
 - Always check the `errors` array in GraphQL responses — HTTP 200 can still contain errors
 - If `stateId` is omitted when creating issues, Linear defaults to the first backlog state
 - The `description` field supports Markdown

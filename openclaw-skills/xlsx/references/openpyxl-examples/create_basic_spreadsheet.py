@@ -1,51 +1,42 @@
-"""Create a basic spreadsheet with two sheets and a simple formula.
-
-Usage:
-  python3 create_basic_spreadsheet.py --output /tmp/basic_spreadsheet.xlsx
-"""
-
-from __future__ import annotations
+#!/usr/bin/env python3
+# Copyright (c) 2026 seaworld008
+# SPDX-License-Identifier: MIT
+"""Create a small synthetic inventory. Run with --output OUTPUT.xlsx."""
 
 import argparse
 from pathlib import Path
+import sys
 
 from openpyxl import Workbook
-from openpyxl.utils import get_column_letter
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'scripts'))
+from create_formatted_excel import save_verified_workbook
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser(description="Create a basic spreadsheet with example data.")
-    parser.add_argument(
-        "--output",
-        type=Path,
-        default=Path("basic_spreadsheet.xlsx"),
-        help="Output .xlsx path (default: basic_spreadsheet.xlsx)",
-    )
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--output', required=True, type=Path)
     args = parser.parse_args()
-
     wb = Workbook()
-    overview = wb.active
-    overview.title = "Overview"
-    employees = wb.create_sheet("Employees")
+    ws = wb.active
+    ws.title = 'Inventory'
+    ws.append(['Item', 'Quantity', 'Unit price', 'Amount'])
+    ws.append(['Notebook', 12, 3.5, '=B2*C2'])
+    ws.append(['Pen', 20, 1.25, '=B3*C3'])
+    ws.append(['Total', None, None, '=SUM(D2:D3)'])
+    for row in ws.iter_rows(min_row=2, min_col=3, max_col=4):
+        for cell in row:
+            cell.number_format = '#,##0.00'
+    def check_style(book):
+        if book['Inventory']['D2'].number_format != '#,##0.00':
+            raise ValueError('Amount format was lost')
 
-    overview["A1"] = "Description"
-    overview["A2"] = "Awesome Company Report"
-
-    employees.append(["Title", "Name", "Address", "Score"])
-    employees.append(["Engineer", "Vicky", "90 50th Street", 98])
-    employees.append(["Manager", "Alex", "500 Market Street", 92])
-    employees.append(["Designer", "Jordan", "200 Pine Street", 88])
-
-    employees["A6"] = "Total Score"
-    employees["D6"] = "=SUM(D2:D4)"
-
-    for col in range(1, 5):
-        employees.column_dimensions[get_column_letter(col)].width = 20
-
-    args.output.parent.mkdir(parents=True, exist_ok=True)
-    wb.save(args.output)
-    print(f"Saved workbook to {args.output}")
+    print(save_verified_workbook(wb, args.output, [
+        ('Inventory', 'B2', 12), ('Inventory', 'D4', '=SUM(D2:D3)'),
+        check_style,
+    ]).resolve())
+    print('Synthetic inventory; formula caches require a spreadsheet calculation engine.')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

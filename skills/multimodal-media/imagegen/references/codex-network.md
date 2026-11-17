@@ -1,28 +1,20 @@
 # Codex network approvals / sandbox notes
 
-This guidance is intentionally isolated from `SKILL.md` because it can vary by environment and may become stale. Prefer the defaults in your environment when in doubt.
+This guidance applies to the bundled CLI. Host image tools have their own network and authentication contract. Follow the current host policy; these notes do not authorize configuration changes.
 
 ## Why am I asked to approve every image generation call?
 Image generation uses the OpenAI Image API, so the CLI needs outbound network access. In many Codex setups, network access is disabled by default (especially under stricter sandbox modes), and/or the approval policy may require confirmation before networked commands run.
 
-## How do I reduce repeated approval prompts (network)?
-If you trust the repo and want fewer prompts, enable network access for the relevant sandbox mode and relax the approval policy.
+## Separate network access from approval policy
 
-Example `~/.codex/config.toml` pattern:
+- Disabling approval prompts does not grant network access. In particular, `--ask-for-approval never` does not enable outbound traffic.
+- Diagnose the actual failure: sandbox denial, DNS/connectivity, missing SDK, authentication, and unsupported API parameters need different fixes.
+- Use a scoped retry or approved environment only when the current host permits it and task authorization covers it. If policy forbids escalation, report the limitation and continue offline preparation with `--dry-run`.
+- Do not change global configuration, persist approval exceptions, or weaken sandbox settings merely to avoid repeated prompts. Configuration changes require an explicit configuration task and must remain within managed policy.
 
-```
-approval_policy = "never"
-sandbox_mode = "workspace-write"
+## Dependencies and credentials
 
-[sandbox_workspace_write]
-network_access = true
-```
-
-Or for a single session:
-
-```
-codex --sandbox workspace-write --ask-for-approval never
-```
-
-## Safety note
-Use caution: enabling network and disabling approvals reduces friction but increases risk if you run untrusted code or work in an untrusted repository.
+- Activate the project's selected environment using its normal workflow. Package installation and `uv run --with ...` may require network access; neither bypasses installation authorization.
+- Use locally configured `OPENAI_API_KEY` for authorized CLI calls. Do not read unrelated credential stores or `.env` files by default, and never print keys.
+- Establish the SDK's effective endpoint and authorized receiving service before uploading prompts/images. A custom endpoint is not automatically trusted to receive an OpenAI credential; do not silently switch providers after a failure.
+- Dry-run needs neither the SDK nor a key/network call. It previews prompts, parameters, and paths, not actual endpoint reachability, account permissions, or generated quality.

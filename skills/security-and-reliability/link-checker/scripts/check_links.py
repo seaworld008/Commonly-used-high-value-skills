@@ -11,11 +11,13 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import ssl
 import sys
 import time
 import urllib.error
 import urllib.parse
 import urllib.request
+from http.client import InvalidURL
 from pathlib import Path
 
 URL_RE = re.compile(r"https?://[^\s)\"'<>\]`]+")
@@ -25,8 +27,11 @@ USER_AGENT = "link-checker-skill/1.1 (+https://github.com/seaworld008/Commonly-u
 
 
 class NoRedirect(urllib.request.HTTPRedirectHandler):
-    def redirect_request(self, *args, **kwargs):  # noqa: D401 - stdlib hook
+    def http_error_302(self, req, fp, code, msg, headers):
+        # Defer to HTTPError without urllib parsing or following Location.
         return None
+
+    http_error_301 = http_error_303 = http_error_307 = http_error_308 = http_error_302
 
 
 OPENER = urllib.request.build_opener(NoRedirect)
@@ -47,50 +52,107 @@ def extract(paths: list[Path]) -> list[tuple[str, str]]:
     return [(url, where) for url, where in found.items()]
 
 
-def request(url: str, method: str, timeout: float) -> tuple[int | None, str | None, str]:
+def request(url: str, method: str, timeout: float, host: str,
+            delay: float, last_hit: dict[str, float]) -> tuple[int | None, str | None, str]:
     req = urllib.request.Request(url, method=method, headers={"User-Agent": USER_AGENT})
+    if host in last_hit:
+        wait = delay - (time.monotonic() - last_hit[host])
+        if wait > 0:
+            time.sleep(wait)
+    last_hit[host] = time.monotonic()
     try:
         with OPENER.open(req, timeout=timeout) as resp:
             return resp.status, None, resp.headers.get("Content-Type", "")
     except urllib.error.HTTPError as exc:
-        return exc.code, exc.headers.get("Location"), exc.headers.get("Content-Type", "")
+        with exc:
+            return exc.code, exc.headers.get("Location"), exc.headers.get("Content-Type", "")
+    except (InvalidURL, UnicodeError):
+        return None, None, "invalid-url"
     except (urllib.error.URLError, TimeoutError, OSError) as exc:
         reason = getattr(exc, "reason", exc)
+        if isinstance(reason, ssl.SSLError):
+            return None, None, "tls-error"
         return None, None, f"error: {reason}"
 
 
-def check(url: str, timeout: float, max_redirects: int) -> dict:
+def http_target(url: str) -> urllib.parse.SplitResult:
+    if re.search(r"[\x00-\x20\x7f]", url):
+        raise ValueError("invalid-url")
+    try:
+        parts = urllib.parse.urlsplit(url)
+        _ = parts.port  # validate the port syntax and range
+        host = parts.hostname
+    except ValueError:
+        raise ValueError("invalid-url") from None
+    if parts.scheme not in ("http", "https"):
+        raise ValueError("unsupported-scheme")
+    # urllib.request unquotes the authority before sending it. Accept only an
+    # unambiguous host and optional port for the hostname comparison below.
+    if not host or any(c in parts.netloc for c in ("@", "%", "\\")):
+        raise ValueError("invalid-url")
+    if "[" in parts.netloc and not re.fullmatch(r"\[[^\]]+\](?::[0-9]+)?", parts.netloc):
+        raise ValueError("invalid-url")
+    return parts
+
+
+def check(url: str, timeout: float, max_redirects: int, delay: float = 0.5,
+          last_hit: dict[str, float] | None = None) -> dict:
+    if last_hit is None:
+        last_hit = {}
     chain: list[dict] = []
     current = url
-    for _ in range(max_redirects + 1):
-        status, location, ctype = request(current, "HEAD", timeout)
+    hints = []
+    ctype = ""
+    start_host = None
+    final_path = ""
+    while True:
+        try:
+            target = http_target(current)
+        except ValueError as exc:
+            hints.append(str(exc))
+            break
+        host = target.hostname
+        if start_host is None:
+            start_host = host
+        if host != start_host:
+            hints.append("cross-domain-redirect")
+            break
+        if chain and len(chain) > max_redirects:
+            break
+        final_path = target.path
+        if target.scheme == "http" and "plain-http" not in hints:
+            hints.append("plain-http")
+        status, location, ctype = request(current, "HEAD", timeout, host, delay, last_hit)
         if status in (403, 405, 501):
-            status, location, ctype = request(current, "GET", timeout)
+            status, location, ctype = request(current, "GET", timeout, host, delay, last_hit)
         chain.append({"url": current, "status": status})
         if status in (301, 302, 303, 307, 308) and location:
-            current = urllib.parse.urljoin(current, location)
+            chain[-1]["location"] = location
+            try:
+                current = urllib.parse.urljoin(current, location)
+            except ValueError:
+                hints.append("invalid-url")
+                break
             continue
         break
-    final = chain[-1]
-    hints = []
-    start_host = urllib.parse.urlsplit(url).hostname or ""
-    final_host = urllib.parse.urlsplit(final["url"]).hostname or ""
-    if url.startswith("http://"):
-        hints.append("plain-http")
+    final = chain[-1] if chain else {"url": url, "status": None}
     if start_host in SHORTENERS:
         hints.append("shortener")
-    if "xn--" in start_host or "xn--" in final_host:
+    if "xn--" in (start_host or ""):
         hints.append("punycode")
-    if final_host and start_host and final_host.split(".")[-2:] != start_host.split(".")[-2:]:
-        hints.append("cross-domain-redirect")
-    if any(hop["status"] in (301, 308) for hop in chain[:-1]):
+    if any(hop["status"] in (301, 308) and "location" in hop for hop in chain):
         hints.append("permanent-redirect")
     if len(chain) - 1 > 3:
         hints.append("long-redirect-chain")
-    if urllib.parse.urlsplit(final["url"]).path.lower().endswith(RISKY_EXT):
+    if final_path.lower().endswith(RISKY_EXT):
         hints.append("executable-download")
     status = final["status"]
-    if status is None or (status >= 400 and status not in (401, 403, 429)):
+    if status is None and ctype in ("tls-error", "invalid-url"):
+        hints.append(ctype)
+        verdict = "review"
+    elif not chain:
+        verdict = "review"
+    elif status is None or (status >= 400 and status not in (401, 403, 429)):
         verdict = "broken"
     elif status in (401, 403, 429) or hints or status in (301, 302, 303, 307, 308):
         verdict = "review"
@@ -100,7 +162,7 @@ def check(url: str, timeout: float, max_redirects: int) -> dict:
         "url": url,
         "final_url": final["url"],
         "status": status,
-        "redirects": len(chain) - 1,
+        "redirects": max(0, len(chain) - 1),
         "chain": chain,
         "content_type": ctype,
         "hints": hints,
@@ -127,12 +189,7 @@ def main() -> int:
     last_hit: dict[str, float] = {}
     results = []
     for url, where in urls:
-        host = urllib.parse.urlsplit(url).hostname or ""
-        wait = args.delay - (time.monotonic() - last_hit.get(host, 0.0))
-        if wait > 0:
-            time.sleep(wait)
-        result = check(url, args.timeout, args.max_redirects)
-        last_hit[host] = time.monotonic()
+        result = check(url, args.timeout, args.max_redirects, args.delay, last_hit)
         result["where"] = where
         results.append(result)
 

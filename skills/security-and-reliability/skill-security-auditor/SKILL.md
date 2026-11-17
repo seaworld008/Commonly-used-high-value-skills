@@ -2,14 +2,14 @@
 name: skill-security-auditor
 description: 'Audit external agent skills before installing, trusting, or updating them: static scans plus manual review of instructions, scripts, permissions, dependencies, provenance, and data exfiltration.'
 zh_description: "安装或更新外部技能前，静态扫描并人工审查指令、脚本、权限、依赖、来源和外传风险。"
-version: "1.1.0"
+version: "1.1.1"
 author: "seaworld008"
 source: "github:alirezarezvani/claude-skills"
 source_url: "https://github.com/alirezarezvani/claude-skills/blob/main/engineering/skills/skill-security-auditor/SKILL.md"
 license: MIT
 tags: '["auditor", "security", "skill"]'
 created_at: "2026-03-27"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 ---
@@ -38,8 +38,8 @@ Use both for a first adoption or an upstream update.
 # Audit a local skill directory
 python3 scripts/skill_security_auditor.py /path/to/skill-name/
 
-# Audit a skill from a git repo
-python3 scripts/skill_security_auditor.py https://github.com/user/repo --skill skill-name
+# For a remote source, first obtain a stable, pinned checkout under the task's authorization.
+# Pass the verified local skill directory as above.
 
 # Audit with strict mode (any WARN becomes FAIL)
 python3 scripts/skill_security_auditor.py /path/to/skill-name/ --strict
@@ -105,15 +105,16 @@ parse `package.json` dependencies or perform a complete npm dependency review.
 | **Symlinks** | Symbolic links pointing outside skill directory | 🔴 CRITICAL |
 | **Special files** | Skip FIFOs, devices, and sockets without reading their contents | 🟡 HIGH |
 
-All content scans resolve paths and require a regular file inside the resolved
-skill root. Internal links to regular files are supported; directory links are
+Verify the starting directory first. For a checkout, select the unique requested directory with a regular SKILL.md and confirm both resolved paths remain inside the checkout and the entry resides in that skill. Reject ambiguous matches or escapes. The remote `--skill` selector enforces this boundary and rejects ambiguous or escaping selections.
+
+Once the root is verified, content scans require a regular file inside the resolved skill root. Internal links to regular files are supported; directory links are
 not traversed and are reported for review. Broken links and entries whose metadata
 cannot be read are also reported. An external link is rejected even when its target directory has
 the same name prefix as the skill root.
 
 ## Audit Workflow
 
-1. **Run the scanner** on the skill directory or repo URL
+1. **Run the scanner** on the verified local skill root.
 2. **Review the report** — findings grouped by severity
 3. **Verdict interpretation:**
    - **✅ PASS** — No current critical or high rule matches; informational findings may remain. This does not guarantee safety.
@@ -166,12 +167,9 @@ produce findings that require contextual review.
 
 ## Advanced Usage
 
-### Audit a Skill from Git Before Cloning
+### Select a skill from a reviewed checkout
 
-```bash
-# Clone to temp dir, audit, then clean up
-python3 scripts/skill_security_auditor.py https://github.com/user/skill-repo --skill my-skill --cleanup
-```
+Identify the intended revision and relative directory in the pinned checkout. Resolve the checkout, candidate root and its `SKILL.md` before scanning. Reject an outside target, a missing entry, or multiple directories matching a name. Pass the verified directory to the local command in Quick Start.
 
 ### CI/CD Integration
 
@@ -185,11 +183,32 @@ python3 scripts/skill_security_auditor.py https://github.com/user/skill-repo --s
 
 ### Batch Audit
 
-```bash
-# Audit all skills in a directory
-for skill in skills/*/; do
-  python3 scripts/skill_security_auditor.py "$skill" --json >> audit-results.jsonl
-done
+Run from this skill's directory against a stable checkout. Set `SKILLS_TREE` to its verified skills directory and `AUDIT_JSONL` to a new output path. Skip directory symlinks. Serialize each scanner result individually and preserve non-passing verdicts.
+
+```python
+import json
+import os
+import subprocess
+import sys
+from pathlib import Path
+
+tree = Path(os.environ["SKILLS_TREE"]).resolve(strict=True)
+failed = False
+with Path(os.environ["AUDIT_JSONL"]).open("x") as output:
+    for directory, _, files in os.walk(tree, followlinks=False):
+        entry = Path(directory) / "SKILL.md"
+        if "SKILL.md" not in files:
+            continue
+        if entry.is_symlink() or not entry.is_file():
+            raise ValueError(f"Review irregular skill entry: {entry}")
+        result = subprocess.run(
+            [sys.executable, "scripts/skill_security_auditor.py", directory, "--json"],
+            stdout=subprocess.PIPE, text=True,
+        )
+        record = json.loads(result.stdout)
+        print(json.dumps(record, ensure_ascii=False), file=output)
+        failed |= result.returncode != 0
+sys.exit(int(failed))
 ```
 
 ## Threat Model Reference

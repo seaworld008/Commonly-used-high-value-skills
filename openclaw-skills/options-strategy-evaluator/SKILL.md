@@ -2,13 +2,13 @@
 name: options-strategy-evaluator
 description: 'Use when evaluating an options structure, checking expiry payoff checkpoints, comparing premium outlay versus downside protection, or preparing a short strategy note for a trade review.'
 zh_description: "评估期权策略的收益结构、希腊字母和情景风险。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["evaluator", "finance", "options", "strategy"]'
 created_at: "2026-03-18"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 2
 complexity: "intermediate"
 ---
@@ -17,14 +17,14 @@ complexity: "intermediate"
 
 将期权投资想法转化为可视化的盈亏平衡点（Payoff Shape）和风险指标。本技能旨在帮助交易员和风险经理在开仓前深入理解期权结构的收益风险比，避免将复杂的“结构”误认为真实的“阿尔法”优势。
 
-## 安装与前提条件
+## 运行前提与实际脚本范围
 
-```bash
-# 确保已安装期权定价与数值计算库
-pip install numpy pandas scipy pyvol
-# 准备策略参数
-npx clawhub install options-strategy-evaluator
-```
+仓库已附带脚本和样例，使用 Python 3 标准库即可运行，无需额外安装第三方包或重新安装技能。
+从本技能目录执行下方命令；在其他工作目录调用时，使用脚本和输入文件的完整路径。
+
+仅计算给定 price_checkpoints 上的到期盈亏和净权利金；best/worst_checkpoint_pnl 是离散采样极值，不是全价格区间最大盈亏。type 只用小写 call/put，side 只用 long/short，数量字段为 quantity。脚本未验证非法枚举，不计算 Greeks、胜率、T+0 曲线或自动对冲。quantity 按计算单位输入，脚本不自动乘期权合约乘数。
+
+后续领域方法描述的是研究工作流。超出上述输出的指标需补充数据、方法和独立验证，不能声称由附带脚本自动生成。报告中的示例数值为格式示意，不是模型输出或投资结论。
 
 ## 触发条件 / When to Use
 
@@ -69,13 +69,16 @@ npx clawhub install options-strategy-evaluator
 ### 期权策略输入 JSON 模板 (Options JSON)
 ```json
 {
-  "ticker": "AAPL",
-  "strategy": "Bull Call Spread",
-  "underlying_price": 190.50,
-  "iv": 0.28,
+  "strategy_name": "Bull Call Spread",
+  "underlying": "ACME",
+  "price_checkpoints": [35, 40, 45, 50, 55],
+  "risk_notes": [
+    "Implied volatility crush can hurt mark-to-market before expiry.",
+    "Liquidity should be checked at both strikes."
+  ],
   "legs": [
-    { "type": "Call", "strike": 195, "expiry": "2026-05-15", "side": "Long", "qty": 10, "premium": 4.5 },
-    { "type": "Call", "strike": 205, "expiry": "2026-05-15", "side": "Short", "qty": 10, "premium": 1.2 }
+    {"type": "call", "side": "long", "strike": 40, "premium": 4.2, "quantity": 1},
+    {"type": "call", "side": "short", "strike": 50, "premium": 1.3, "quantity": 1}
   ]
 }
 ```
@@ -108,8 +111,8 @@ npx clawhub install options-strategy-evaluator
 
 ### 快速评估命令
 ```bash
-# 运行策略评估脚本并输出可视化图表
-python scripts/evaluate_strategy.py --input assets/spread_a.json --plot --show_greeks
+# 离线样例，结果以 JSON 输出到标准输出
+python3 scripts/evaluate_strategy.py assets/sample_options_strategy.json
 ```
 
 ## 进阶应用场景 / Advanced Use Cases

@@ -28,6 +28,12 @@ CANONICAL_LICENSE_NORMALIZED_SHA256 = {
     "948703bcf1cb4a2dafd21676dd01e40a58fe21bd9b425c000b9070eccb441092": (
         "Apache-2.0"
     ),
+    # Complete Apache-2.0 variants verified at anthropics/skills@e4bb5d96:
+    # concrete 2026 Anthropic copyright in the application appendix, and
+    # complete sections 1-9 without the optional "How to apply" appendix.
+    # Match the whole text; headings or isolated grant phrases are insufficient.
+    "146bec5e3de3d6ea981bc4bf22ee415c048af0f54a22205cf0aeb5d68ad588a3": "Apache-2.0",
+    "95cef6332b35354c12f9d666ab9ff47002e6f7ef937924896882b2e0cdb7a0d6": "Apache-2.0",
     "78f11354a160ad5309cb9d24f8c4385dc807d9d098e8d8878f8732a5c2d395cd": (
         "BSD-2-Clause"
     ),
@@ -120,6 +126,7 @@ class GitHubArtifactProvider:
         self._blob_cache: dict[tuple[str, str], bytes] = {}
         self._path_commit_cache: dict[tuple[str, str, str], str] = {}
         self._license_cache: dict[tuple[str, str], LicenseEvidence] = {}
+        self._path_license_cache: dict[tuple[str, str, str], LicenseEvidence] = {}
 
     def _get_json(self, url: str) -> Any:
         if url in self._json_cache:
@@ -503,6 +510,54 @@ class GitHubArtifactProvider:
             hashlib.sha256(normalized).hexdigest()
         )
         return (detected,) if detected is not None else ()
+
+    def license_evidence_at_path(
+        self, repo: str, commit: str, path: str
+    ) -> LicenseEvidence:
+        """Verify a declared license path in this commit, without root fallback."""
+        repo = self._validate_repo(repo)
+        if not isinstance(commit, str) or not FULL_COMMIT_RE.fullmatch(commit):
+            raise GitHubUnavailable(
+                "license query ref must be a full immutable commit SHA"
+            )
+        if not self._safe_repo_path(path):
+            raise GitHubUnavailable(f"invalid license path: {path!r}")
+        commit = commit.lower()
+        key = (repo, commit, path)
+        if key in self._path_license_cache:
+            return self._path_license_cache[key]
+        item = self.tree(repo, commit).get(path)
+        if not self._is_regular_blob(item):
+            raise GitHubUnavailable(
+                f"license path is missing or not a regular file: {repo}@{commit}:{path}"
+            )
+        size = item.get("size")
+        if isinstance(size, bool) or not isinstance(size, int) or size < 0:
+            raise GitHubUnavailable(
+                f"invalid license tree size for {repo}@{commit}:{path}"
+            )
+        blob_sha = item["sha"].lower()
+        raw = self.blob(repo, blob_sha)
+        if size != len(raw):
+            raise GitHubUnavailable(
+                f"license tree/blob size mismatch for {repo}@{commit}:{path}"
+            )
+        candidates = self._detect_license_spdx(raw)
+        if len(candidates) != 1:
+            raise GitHubUnavailable(
+                "license review required: immutable license content has no "
+                f"unique complete canonical SPDX match: {repo}@{commit}:{path}"
+            )
+        evidence = LicenseEvidence(
+            path=path,
+            blob_sha=blob_sha,
+            content_sha256=hashlib.sha256(raw).hexdigest(),
+            resolved_commit=commit,
+            spdx_candidates=candidates,
+            api_spdx=None,
+        )
+        self._path_license_cache[key] = evidence
+        return evidence
 
     def license_evidence(self, repo: str, commit: str) -> LicenseEvidence:
         """Fetch and verify GitHub's license file at one immutable commit."""

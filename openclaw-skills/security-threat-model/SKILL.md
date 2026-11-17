@@ -2,13 +2,14 @@
 name: security-threat-model
 description: 'Use when creating threat models from codebases, architectures, assets, trust boundaries, attacker capabilities, abuse paths, and mitigation plans.'
 zh_description: "用于基于代码库或架构梳理资产、信任边界、攻击者能力、滥用路径和缓解措施。"
-version: "1.0.0"
-author: "seaworld008"
-source: "in-house"
-source_url: ""
+version: "1.0.1"
+author: "OpenAI contributors; local curators"
+source: "https://github.com/openai/skills"
+source_url: "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/security-threat-model/SKILL.md"
+license: "Apache-2.0"
 tags: '["model", "security", "threat"]'
 created_at: "2026-03-04"
-updated_at: "2026-06-29"
+updated_at: "2026-11-17"
 quality: 3
 complexity: "intermediate"
 ---
@@ -24,7 +25,7 @@ Deliver an actionable AppSec-grade threat model that is specific to the reposito
 - Intended usage, deployment model, internet exposure, and auth expectations (if known).
 - Any existing repository summary or architecture spec.
 - Use prompts in `references/prompt-template.md` to generate a repository summary.
-- Follow the required output contract in `references/prompt-template.md`. Use it verbatim when possible.
+- Use the report sections in `references/prompt-template.md`. Apply Step 6 below to decide whether a context check-in is needed.
 
 ## Workflow
 
@@ -56,11 +57,9 @@ Deliver an actionable AppSec-grade threat model that is specific to the reposito
 - Set overall priority (critical/high/medium/low) using likelihood x impact, adjusted for existing controls.
 - State which assumptions most influence the ranking.
 
-### 6) Validate service context and assumptions with the user
-- Summarize key assumptions that materially affect threat ranking or scope, then ask the user to confirm or correct them.
-- Ask 1–3 targeted questions to resolve missing context (service owner and environment, scale/users, deployment model, authn/authz, internet exposure, data sensitivity, multi-tenancy).
-- Pause and wait for user feedback before producing the final report.
-- If the user declines or can’t answer, state which assumptions remain and how they influence priority.
+### 6) Resolve material uncertainties
+- Check available evidence about exposure, tenants, identity, sensitive assets and deployment.
+- Group questions only where a missing fact could change the scope or threat ranking. If context is sufficient or an offline report is requested, complete the report with conditional rankings and identify the facts that would change them.
 
 ### 7) Recommend mitigations and focus paths
 - Distinguish existing mitigations (with evidence) from recommended mitigations.

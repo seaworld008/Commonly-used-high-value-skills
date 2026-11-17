@@ -68,3 +68,5 @@ lark-cli docs +script --command parse --content "@./document.xml" --presentation
 | `--json` | `--format json` 的别名。 |
 | `--jq` / `-q` | 裁剪 JSON；不得与非 JSON 格式同时使用。 |
 | `-h` / `--help` | 查看帮助。 |
+
+校验范围：未识别或拼错的决策字段会被忽略，不能据 `passed` 推断这些约束已经执行。先核对字段名和已启用的检查，再复查服务端写入结果。保留本地 genre / adapter 的事实、体裁和发送边界。

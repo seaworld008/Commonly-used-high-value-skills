@@ -2,7 +2,7 @@
   "schema_version": 2,
   "video": {
     "url": "https://nlpm.com/",
-    "checked_at": "2026-10-26",
+    "checked_at": "2026-11-17",
     "note": "Curated from xiaolai/nlpm after reviewing the website, why page, README, LICENSE, author docs, rules, scoring, and testing materials. Imported as an original repository skill that captures the durable audit method rather than mirroring the full upstream command/plugin product."
   },
   "official_references": [
@@ -44,15 +44,15 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/ai-workflow/nlpm-audit/SKILL.md",
       "source": "https://github.com/xiaolai/nlpm",
-      "notes": "Curated as a durable NL artifact audit workflow. The local skill preserves source attribution and ISC license, but intentionally abstracts the method so future maintenance is not coupled to every upstream slash command or product-specific file. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Retain the portable local audit rather than replacing it with a product README: manifest verification, client-specific evaluation and advisory scoring already have explicit local boundaries. See docs/maintenance-followup-2026-10-03.json.",
+      "notes": "Curated as a durable NL artifact audit workflow. The local skill preserves source attribution and ISC license, but intentionally abstracts the method so future maintenance is not coupled to every upstream slash command or product-specific file. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: Retain the portable local audit rather than replacing it with a product README: manifest verification, client-specific evaluation and advisory scoring already have explicit local boundaries. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at d62b95367ec5c0f1c4017ba1b575317f81b1e5de; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "xiaolai/nlpm",
         "path": "README.md",
         "ref": "main",
         "sync_mode": "monitor",
-        "last_checked_at": "2026-10-26",
-        "last_synced_at": "2026-10-26",
-        "last_synced_commit": "ef19812003d546c14cc572ed70d2de1cba0cd45a",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "745d30bbf193cc4cfb5d47e4e14317e99838c42e",
         "path_commit": "49b7a7377cdde9afdd0c5e55d5cad5c0be75757c"
       },
       "kind": "overlay",
@@ -67,22 +67,27 @@
             {
               "source": "README.md",
               "target": "skills/ai-workflow/nlpm-audit/SKILL.md"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/ai-workflow/nlpm-audit/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "ef19812003d546c14cc572ed70d2de1cba0cd45a",
+            "resolved_commit": "745d30bbf193cc4cfb5d47e4e14317e99838c42e",
             "path_commit": "49b7a7377cdde9afdd0c5e55d5cad5c0be75757c",
             "content_sha256": "0f4df860e8ab1b47d45b439b49b1fb595cf258bf3b5216a5e1a6d78426cb23a8",
-            "last_checked_at": "2026-10-26",
-            "last_synced_at": "2026-10-26",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "554937c222c6dd2db191634da77b5486a4a0410b",
               "content_sha256": "87b3f4064cb76d1c7cc8c39546d7d62790b76372f37cfb9de1bb828a5f652b51",
               "spdx": "ISC",
-              "resolved_commit": "ef19812003d546c14cc572ed70d2de1cba0cd45a",
+              "resolved_commit": "745d30bbf193cc4cfb5d47e4e14317e99838c42e",
               "api_spdx": "ISC"
             }
           }
@@ -187,6 +192,12 @@
           "path": "skills/ai-workflow/nlpm-audit/scripts/nl_artifact_check.py",
           "owner": "nlpm-audit",
           "sha256": "0600d88a50b1430008894961f7833f2cc6332b14fbf5180c4a83bf8f3d54ec92",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ai-workflow/nlpm-audit/LICENSE.upstream.txt",
+          "owner": "nlpm-audit",
+          "sha256": "87b3f4064cb76d1c7cc8c39546d7d62790b76372f37cfb9de1bb828a5f652b51",
           "mode": "100644"
         }
       ]
@@ -337,6 +348,20 @@
       "date": "2026-10-26",
       "method": "commit-aware-manual-monitor-review",
       "target": "xiaolai/nlpm@ef19812003d546c14cc572ed70d2de1cba0cd45a",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-11-17",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "xiaolai/nlpm@d62b95367ec5c0f1c4017ba1b575317f81b1e5de",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-11-17",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "xiaolai/nlpm@745d30bbf193cc4cfb5d47e4e14317e99838c42e",
       "result": "success",
       "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
     }

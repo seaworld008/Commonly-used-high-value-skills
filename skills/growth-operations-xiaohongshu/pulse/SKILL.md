@@ -2,14 +2,14 @@
 name: pulse
 description: 'Use when defining product metrics and tracking: north-star metric trees, event schemas, funnels, retention cohorts, dashboard specs, and consent-aware analytics setup.'
 zh_description: "定义产品指标与埋点时使用：北极星指标、事件规范、漏斗、留存分析和仪表盘规格。"
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/pulse/SKILL.md"
 license: MIT
 tags: ["growth", "marketing", "pulse"]
 created_at: "2026-08-24"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "advanced"
 ---
@@ -161,7 +161,7 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 
 ## Subcommand Dispatch
 
-Parse the first token of user input and activate the matching Recipe. If the token matches no subcommand, activate `kpi` (default).
+Explicit subcommands take priority. Otherwise choose the matching business intent in Output Routing; use `kpi` only when intent remains unclear. Load only the references needed for that choice.
 
 | First Token | Recipe Activated |
 |------------|-----------------|
@@ -173,7 +173,7 @@ Parse the first token of user input and activate the matching Recipe. If the tok
 | `northstar` | North Star Deep-Dive |
 | `retention` | Retention Curve Analysis |
 | `activation` | Activation Rate Design |
-| _(no match)_ | KPI Framework (default) |
+| _(no explicit subcommand)_ | Match business intent first; `kpi` only if still unclear |
 
 Behavior notes per Recipe:
 - `kpi`: Metric tree entry point (NSM + 3-5 input KPIs + output KPIs) with counter metrics. Remain at the tree level; delegate NSM-selection depth to `northstar`.
@@ -281,9 +281,7 @@ A complete deliverable carries the following — a ceiling, not a floor. Emit on
 
 **Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
-- Journal domain insights and metrics learnings in `.agents/pulse.md`; create it if missing.
-- Record effective metric patterns, data quality findings, and analytics platform quirks.
-- After significant Pulse work, append to `.agents/PROJECT.md`: `| YYYY-MM-DD | Pulse | (action) | (files) | (outcome) |`
+- Only when requested by the user or required by an existing project record convention, write one necessary summary of metric patterns, data quality findings and platform quirks to the agreed journal/project log; otherwise include it in the deliverable.
 
 ## AUTORUN Support
 

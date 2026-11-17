@@ -2,14 +2,14 @@
 name: guardian
 description: 'Use when preparing or reviewing commits and pull requests: classify changes, score PR quality and risk, choose branch or squash strategy, and ship a PR through CI gates.'
 zh_description: "整理提交或评审合并请求时使用：变更分类、PR 质量与风险评分、分支策略和合并把关。"
-version: "1.0.6"
+version: "1.0.7"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/guardian/SKILL.md"
 license: MIT
 tags: ["automation", "guardian", "workflow"]
 created_at: "2026-08-24"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "advanced"
 ---
@@ -225,15 +225,8 @@ Parse the first token:
 - `reshape`: a **backup branch is created before any history rewrite**; force-push and shared-branch application are Ask First; commands are proposals run only after consent; the reshaped tip's diff against base must be **identical** to the original (history changes, the tree never does).
 - `audit`: zero side effects — no branch, commit, or index mutation.
 - `health`: branch deletion is Ask First; never auto-deleted.
-- `ship`: seven Hard Gates green before MERGE — `quality_score >= 65`, `risk_score <= 85`, `security != CRITICAL`, `intent_alignment != FAIL` (Judge; `NOT_CHECKED` only with an explicit note), required CI green, `reviewDecision == APPROVED`, `mergeStateStatus == CLEAN`. Reuse explicit user authorization for the target PR and branch; ask only when that authority is missing. Do not bypass branch protection or failing required checks. XXL/MEGA branches are refused and routed to `split`.
-- `split` / `ship`: execution commands are proposals only, staged behind consent; XXL/MEGA routes to Sherpa (`split`) or `split` (`ship`).
-
-Non-negotiable Recipe safety:
-- `reshape`: create a backup branch before history rewrite; force-push/shared-branch application are Ask First; execute only after consent; reshaped tip diff against base must equal the original.
-- `audit`: zero side effects.
-- `health`: branch deletion is Ask First.
-- `ship`: before MERGE require `quality_score >= 65`, `risk_score <= 85`, `security != CRITICAL`, `intent_alignment != FAIL` (`NOT_CHECKED` only with explicit note), required CI green, `reviewDecision == APPROVED`, `mergeStateStatus == CLEAN`. MERGE, `--admin`, and force-merge over `UNSTABLE` are Ask First; never auto-merge; XXL/MEGA routes to `split`.
-- `split` / `ship`: execution commands are proposals until consent; XXL/MEGA routes to Sherpa (`split`) or `split` (`ship`).
+- `ship`: record quality/risk scores, security findings and intent alignment as analysis (mark missing evidence `NOT_CHECKED`). Before merging, verify the latest target head, required checks, mergeability and the repository's actual protection/review requirements. Require approval only when those rules require it. Reuse explicit user authorization for the target PR/branch; ask only if authority is missing or the target is unclear. Never bypass failing required checks or protection. Judge/Sherpa names describe optional capabilities, not mandatory host tools. Assess XXL/MEGA semantic scope and recommend `split` where needed.
+- `split` / `ship`: execute within existing explicit scope; seek clarification only for missing authority or material ambiguity. History rewrite and destructive operations retain their specific safeguards.
 
 ## Output Requirements
 

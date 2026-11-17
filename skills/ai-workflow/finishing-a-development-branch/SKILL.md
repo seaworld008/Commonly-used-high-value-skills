@@ -2,14 +2,14 @@
 name: finishing-a-development-branch
 description: 'Use when implementation is complete, all tests pass, and you need to decide how to integrate the work'
 zh_description: "完成开发分支的验证、PR、合并和工作区收尾。"
-version: "1.0.5"
+version: "1.0.6"
 author: "seaworld008"
 source: "github:obra/superpowers"
 source_url: "https://github.com/obra/superpowers/blob/main/skills/finishing-a-development-branch/SKILL.md"
 license: MIT
 tags: '["git", "workflow", "delivery"]'
 created_at: "2026-04-13"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 ---
@@ -179,8 +179,10 @@ Step 2, from before that directory change.
 
 **If `GIT_DIR == GIT_COMMON`:** Normal repo, no worktree to clean up. Done.
 
-**If `WORKTREE_PATH` is under `.worktrees/` or `worktrees/`:** Superpowers
-created this worktree — we own cleanup:
+**Prove cleanup ownership:** check this task's creation record, exact target path,
+and matching branch, then apply the authorized delivery cleanup. Directory names
+such as `.worktrees/` or `worktrees/` are discovery hints only. If ownership cannot
+be established, preserve the worktree and report it. Once established:
 
 ```bash
 git worktree remove "$WORKTREE_PATH"
@@ -231,7 +233,7 @@ place. If your platform provides a workspace-exit tool, use it.
 | "They seem done with this feature — I'll offer to discard it" | The menu is complete as written. Discard happens only when your human partner asks for it in so many words. |
 | "'Yeah, get rid of it' counts as confirmation" | Only the typed word `discard` authorizes deletion. |
 | "The PR is up, so the worktree is clutter now" | PR feedback gets fixed in that worktree. It stays until the work lands. |
-| "This other worktree looks stale — I'll clean it too" | Clean up only worktrees under `.worktrees/` or `worktrees/`. Everything else belongs to the host. |
+| "This other worktree looks stale — I'll clean it too" | Clean up only the worktree whose task ownership and cleanup authorization are established. A directory name proves neither. |
 | "Removal refused — `--force` is just finishing the cleanup" | The refusal means files exist only in that worktree. `--force` destroys them permanently. Show your human partner and ask. |
 | "The merged-result failure is probably flaky" | A failing merged result stops everything. Branch and worktree stay put while you investigate. |
 | "The base branch is obviously main" | Confirm the fork point or ask. Merging into the wrong base is expensive to undo. |

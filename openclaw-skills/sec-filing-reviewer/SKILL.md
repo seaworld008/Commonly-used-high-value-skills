@@ -2,13 +2,13 @@
 name: sec-filing-reviewer
 description: 'Use when reviewing SEC filings, extracting material risk disclosures, scanning 10-K or 10-Q sections, or building a follow-up checklist from filing language.'
 zh_description: "阅读和比较 SEC 申报文件中的财务信息与风险变化。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["filing", "finance", "reviewer", "sec"]'
 created_at: "2026-03-18"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 2
 complexity: "intermediate"
 ---
@@ -17,14 +17,14 @@ complexity: "intermediate"
 
 在数百页的冗长文件中，精准捕捉被隐藏的控制风险、流动性危机、法律纠纷及重大会计披露。本技能旨在帮助分析师从 10-K, 10-Q, 8-K 等 SEC 官方文件中提取关键变量，并识别出那些可能被市场忽视的“红旗”信号（Red Flags）。
 
-## 安装与前提条件
+## 运行前提与实际脚本范围
 
-```bash
-# 确保已安装 EDGAR 数据处理库
-pip install sec-edgar-downloader sec-parser beautifulsoup4
-# 下载审计脚本
-npx clawhub install sec-filing-reviewer
-```
+仓库已附带脚本和样例，使用 Python 3 标准库即可运行，无需额外安装第三方包或重新安装技能。
+从本技能目录执行下方命令；在其他工作目录调用时，使用脚本和输入文件的完整路径。
+
+扫描调用者提供的 sections 文本中的固定风险词并输出 follow_up_questions。不下载 EDGAR、不验证申报完整性；否定句也可能触发，未匹配不能证明不存在风险。
+
+后续领域方法描述的是研究工作流。超出上述输出的指标需补充数据、方法和独立验证，不能声称由附带脚本自动生成。报告中的示例数值为格式示意，不是模型输出或投资结论。
 
 ## 触发条件 / When to Use
 
@@ -69,11 +69,20 @@ npx clawhub install sec-filing-reviewer
 ### 财报审计输入 JSON 模板 (Filing Sections JSON)
 ```json
 {
-  "cik": "0000320193",
-  "filing_type": "10-K",
-  "fiscal_year": 2025,
-  "sections_to_scan": ["Risk Factors", "Legal", "MD&A"],
-  "focus_keywords": ["Cybersecurity", "Litigation", "Inventory write-down"]
+  "sections": [
+    {
+      "name": "Risk Factors",
+      "text": "The company is subject to ongoing litigation and increased regulatory investigation in multiple jurisdictions."
+    },
+    {
+      "name": "Management Discussion and Analysis",
+      "text": "Liquidity remains adequate, although rising rates create pressure on refinancing costs."
+    },
+    {
+      "name": "Controls and Procedures",
+      "text": "Management identified a material weakness in internal control over financial reporting."
+    }
+  ]
 }
 ```
 
@@ -102,8 +111,8 @@ npx clawhub install sec-filing-reviewer
 
 ### 快速执行命令
 ```bash
-# 自动抓取并审计最新的 10-K 摘要
-python scripts/review_filing.py --cik 320193 --type 10-K --report audit_report.md
+# 离线样例，结果以 JSON 输出到标准输出
+python3 scripts/review_filing.py assets/sample_filing_sections.json
 ```
 
 ## 进阶应用场景 / Advanced Use Cases

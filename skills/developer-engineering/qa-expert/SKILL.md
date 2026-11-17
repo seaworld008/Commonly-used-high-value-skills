@@ -2,13 +2,13 @@
 name: qa-expert
 description: 'Design QA strategies, risk-based test cases, execution plans, and defect reports when establishing or improving software quality assurance.'
 zh_description: "制定测试策略、风险用例、执行计划和缺陷跟踪流程。"
-version: "1.0.1"
+version: "1.0.3"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["development", "expert"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 keywords: '[qa, testing, test-cases, bug-tracking, google-standards, owasp, security, automation, quality-gates, metrics]'
@@ -33,7 +33,10 @@ Trigger this skill when:
 
 ## Quick Start
 
-**One-command initialization**:
+**Initialization into a new, empty destination only**:
+The initializer preflights the complete target list and refuses existing records.
+Use an empty destination for a new project; merge templates into an existing project only within the requested scope.
+Replacing existing records requires an explicit target list and authorization.
 ```bash
 python scripts/init_qa_project.py <project-name> [output-directory]
 ```
@@ -45,7 +48,7 @@ python scripts/init_qa_project.py <project-name> [output-directory]
 - Master QA Prompt for autonomous execution
 - README with complete quickstart guide
 
-**For autonomous execution** (recommended): See `references/master_qa_prompt.md` - single copy-paste command for 100x speedup.
+**For assisted execution**: Adapt `references/master_qa_prompt.md` to this session's authorized scope and available tools; resume from verified tracking records.
 
 ## Core Capabilities
 
@@ -90,9 +93,10 @@ Write standardized, reproducible test cases following AAA pattern (Arrange-Act-A
 **Autonomous execution** (recommended):
 1. Copy master prompt from `references/master_qa_prompt.md`
 2. Paste to LLM session
-3. LLM auto-executes, auto-tracks, auto-files bugs, auto-generates reports
+3. LLM assists with authorized cases, records observed outcomes and drafts reports;
+   unrun cases remain pending, and external notifications require authorization
 
-**Innovation**: 100x faster vs manual + zero human error in tracking + auto-resume capability.
+Execution speed and completeness depend on actual results. Reconcile tracking records with test evidence before resuming; a prompt does not provide unattended scheduling.
 
 ### 4. Bug Reporting
 
@@ -124,10 +128,15 @@ python scripts/calculate_metrics.py <path/to/TEST-EXECUTION-TRACKING.csv>
 **Metrics dashboard includes**:
 - Test execution progress (X/Y tests, Z% complete)
 - Pass rate (passed/executed %)
-- Bug analysis (unique bugs, P0/P1/P2 breakdown)
-- Quality gates status (✅/❌ for each gate)
+- Unique bug IDs and test-priority counts (not defect-severity counts)
+- Three printed checks: execution, pass rate and a P0 heuristic based on Notes.
+  The P0 heuristic does not read the bug table's Severity/Status and cannot prove
+  there are no open P0 defects. Use the bug table for severity and status.
 
-**Quality gates** (all must pass for release):
+**Example quality gates** (agree targets with the project before release).
+The script supplies execution and pass-rate evidence only. Verify P0/P1 from the
+bug table, coverage from a coverage report, and security from independent tests.
+Mark gates with missing evidence as **unverified**, even if the script prints ✅:
 | Gate | Target | Blocker |
 |------|--------|---------|
 | Test Execution | 100% | Yes |
@@ -193,19 +202,21 @@ Enable LLM-driven autonomous QA testing with single master prompt:
 
 **Features**:
 - Auto-resume from last completed test (reads tracking CSV)
-- Auto-execute test cases (Week 1-5 progression)
+- Assist with the provided test cases within the current session and authorization
 - Auto-track results (updates CSV after each test)
 - Auto-file bugs (creates bug reports for failures)
 - Auto-generate reports (daily summaries, weekly reports)
-- Auto-escalate P0 bugs (stops testing, notifies stakeholders)
+- Flag P0 bugs and stop affected unsafe tests; send external notifications only when authorized
 
 **Benefits**:
-- 100x faster execution vs manual
-- Zero human error in tracking
+- Record observed execution time and tracking accuracy
+- Reconcile failures and incomplete runs before continuing
 - Consistent bug documentation
 - Immediate progress visibility
 
-**Usage**: Copy master prompt, paste to LLM, let it run autonomously for 5 weeks.
+**Usage**: Adapt the master prompt to the current session and supplied cases.
+A multi-week plan needs an actual execution arrangement; preserve verified
+tracking records so a later session can resume. No speed or completeness guarantee.
 
 ## Adapting for Your Project
 
@@ -232,7 +243,7 @@ Enable LLM-driven autonomous QA testing with single master prompt:
 Access detailed guidelines from bundled references:
 
 - **`references/day1_onboarding.md`** - 5-hour onboarding guide for new QA engineers
-- **`references/master_qa_prompt.md`** - Single command for autonomous LLM execution (100x speedup)
+- **`references/master_qa_prompt.md`** - Prompt template for session-scoped assisted QA execution
 - **`references/llm_prompts_library.md`** - 30+ ready-to-use prompts for specific QA tasks
 - **`references/google_testing_standards.md`** - AAA pattern, coverage thresholds, fail-fast validation
 - **`references/ground_truth_principle.md`** - Preventing doc/CSV sync issues (critical for test suite integrity)
@@ -254,7 +265,7 @@ Automation scripts for QA infrastructure:
 
 ### Pattern 1: Starting Fresh QA
 ```
-1. python scripts/init_qa_project.py my-app ./
+1. python scripts/init_qa_project.py my-app ./new-empty-qa
 2. Fill in BASELINE-METRICS.md (document current state)
 3. Write test cases using assets/templates/TEST-CASE-TEMPLATE.md
 4. Copy master prompt from references/master_qa_prompt.md
@@ -266,7 +277,7 @@ Automation scripts for QA infrastructure:
 1. Read references/master_qa_prompt.md
 2. Copy the single master prompt (one paragraph)
 3. Paste to LLM conversation
-4. LLM executes all 342 test cases over 5 weeks
+4. LLM assists with supplied cases within this session's scope; record pending cases
 5. LLM updates tracking CSVs automatically
 6. LLM generates weekly reports automatically
 ```
@@ -285,7 +296,7 @@ Automation scripts for QA infrastructure:
 2. Verify BASELINE-METRICS.md complete
 3. Package tests/docs/ folder
 4. Include references/master_qa_prompt.md for autonomous execution
-5. QA team can start immediately (Day 1 onboarding → 5 weeks testing)
+5. QA team verifies environment and cases, then schedules the agreed test plan
 ```
 
 ## Success Criteria
@@ -295,5 +306,5 @@ This skill is effective when:
 - ✅ Quality gates objectively measured
 - ✅ Bugs fully documented with repro steps
 - ✅ Progress visible in real-time (CSV tracking)
-- ✅ Autonomous execution enabled (LLM can execute full plan)
+- ✅ Assisted execution and pending cases are documented within the authorized scope
 - ✅ Third-party QA teams can start testing immediately

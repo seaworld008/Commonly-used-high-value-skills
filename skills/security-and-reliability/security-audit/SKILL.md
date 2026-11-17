@@ -2,14 +2,14 @@
 name: security-audit
 description: 'Audit codebases for exploitable security vulnerabilities with concrete attack paths, impact, and source evidence.'
 zh_description: "对代码库进行安全审计，聚焦可利用且有真实影响的漏洞，并生成可验证的发现、报告和结构化输出。"
-version: "1.0.2"
+version: "1.0.3"
 author: seaworld008
 source: github:cloudflare/security-audit-skill
 source_url: "https://github.com/cloudflare/security-audit-skill/blob/c1c8a8c1471069fb0e188eeaff69b8e8db6564a8/skills/security-audit/SKILL.md"
 license: MIT
 tags: '[security-audit, vulnerability-research, application-security, threat-modeling, code-review, validation]'
 created_at: "2026-07-20"
-updated_at: "2026-09-30"
+updated_at: "2026-11-17"
 quality: 4
 complexity: advanced
 ---
@@ -22,10 +22,10 @@ You are a security auditor. Your job is to find **exploitable vulnerabilities wi
 
 This skill is guidance by default. Loading it does not authorize the complete audit workflow or file creation.
 
-- **Guidance mode**: For security questions, focused reviews, methodology, triage, or investigation of specific findings, use only the relevant parts of this skill. Do not automatically run all six phases, create an output directory, or write audit artifacts. You may launch focused agents when useful; they return results to the current task.
-- **Full audit mode**: Use the complete workflow when the user explicitly asks to audit or pen-test a codebase, asks for a full, comprehensive, or end-to-end security review, or requests report artifacts. Run all six phases and write the files defined below.
+- **Focused review**: Review the requested question, files or findings. Provide the requested report inline or at the authorized destination. Use focused reviewers only when supported and authorized.
+- **Full audit**: Run the six phases and produce the artifacts below when the user explicitly requests a comprehensive audit.
 
-If the request could mean either mode, ask one focused question before creating files or starting the complete workflow.
+If scope is unclear, review the identified area and clarify only what would materially change coverage.
 
 ## Platform terminology
 
@@ -36,13 +36,13 @@ This skill is agent-neutral. In the methodology:
 - **`general` agent** means a delegated agent that can investigate broadly and spawn focused research agents.
 - **`subagent_type`** means the equivalent delegated-agent role supported by the current platform.
 
-Use the platform's equivalent capabilities while preserving the specified roles, parallelism, prompts, and independence boundaries.
+Use independent reviewers where available and authorized. Otherwise perform separate evidence and verification passes and identify who actually reviewed the claims.
 
 ## Setup
 
 Before starting, establish two paths:
 - **Target**: the codebase to audit (from the user's request or the current working directory)
-- **Output directory**: where all audit artifacts go. Ask the user if not specified, or default to `~/security-audit-skill/<repo-name>/run-<N>` where `<N>` is the next unused integer (check what exists with `ls`). Create it if it doesn't exist. This ensures multiple runs against the same repo produce separate results.
+- **Output directory**: for a full audit, use a new run directory under the authorized output parent. Record the target repository identity and revision in `architecture.md`.
 
 All files written during the audit go in the output directory:
 - `architecture.md` — Phase 1 output, fed into Phase 2 agent prompts
@@ -54,21 +54,20 @@ All files written during the audit go in the output directory:
 Example artifact setup:
 
 ```bash
-repo_name="$(basename "$PWD")"
-run_dir="$HOME/security-audit-skill/$repo_name/run-1"
-mkdir -p "$run_dir"
-touch "$run_dir/architecture.md" "$run_dir/REPORT.md" "$run_dir/FINDINGS-DETAIL.md" "$run_dir/findings.json"
+# Set AUDIT_OUTPUT to the existing, authorized output parent.
+run_dir=$(mktemp -d "${AUDIT_OUTPUT:?set the audit output parent}/run-XXXXXXXX") || exit 1
+# Write this run's artifacts inside "$run_dir".
 ```
 <!-- LOCAL-QUALITY-SUPPLEMENT:END -->
 
-Subagents (Phases 1, 2, 3, 6) do NOT write files — they return results to you via the Task tool. You are responsible for writing all files to the output directory.
+When using delegated reviewers, collect their evidence in the current task. Write artifacts to the selected run directory.
 
 ### Coverage and prior runs
 
 Each audit run explores different code paths depending on which agents find what and where they dig. No single run finds everything. Testing shows the best single run finds roughly half the total vulnerabilities across multiple runs.
 
-**If prior runs exist** for the same repo (check `~/security-audit-skill/<repo-name>/`), read their `findings.json` files before starting Phase 2. Use them to:
-1. **Skip known findings** — don't waste agents re-discovering the same status bypass. Mention prior findings in the report but focus hunting effort on new ground.
+Use earlier findings only from authorized records whose repository identity and revision match the current scope. Treat records from other revisions as leads requiring fresh verification. For matching records:
+1. **Check known findings** against current evidence before carrying them into this report.
 2. **Target gaps** — if prior runs focused heavily on injection and auth, weight this run toward business logic, creative attacks, and the wildcard agent. If prior runs missed public endpoints, focus there.
 3. **Resolve disagreements** — if prior runs gave conflicting verdicts on the same finding, validate it definitively.
 
@@ -82,9 +81,9 @@ Include a brief summary of prior runs in the architecture summary so Phase 2 age
 
 Every finding must have a concrete attack scenario: who is the attacker, what do they do, and what do they get? "An attacker could theoretically..." is not a finding. "Send this request, get this result" is.
 
-### Confirm dynamically when you can
+### Establish the evidence for each claim
 
-This is a source-first audit, but a claim you can execute beats one you can only argue. Where the target is locally buildable — a parser, a library, a CLI, a native component — build and run it: reproduce the crash, run the payload, diff the two parsers on the same bytes. Better still, **extract the suspect code into a minimal standalone harness** and test the hypothesis in isolation — fuzz the one function, feed it the crafted input, watch what it does. Where confirmation needs infrastructure you don't have — a proxy chain, a live cache, production auth — you cannot confirm from source alone: mark it "requires deployment testing" and do not report it as confirmed. Dynamic evidence is what resolves the memory-safety and request-framing classes that static reading leaves ambiguous.
+Start with source evidence. Record what the code establishes, what depends on deployment, and what remains unverified. Run a defensive regression check only when the target, environment and operation are authorized. Mark unresolved runtime claims as requiring deployment verification.
 
 ### Determine the baseline dynamically
 
@@ -120,7 +119,7 @@ In full audit mode, follow all six phases in order:
 2. **Hunt** — Use [HUNTING.md](HUNTING.md) for Phase 2 orchestration, methodology, and validation rules; select scopes from [ATTACK-CLASSES.md](ATTACK-CLASSES.md), which routes native, AI/LLM, HTTP-protocol/auth, and client-side targets to specialized companion files ([MEMORY-SAFETY-AND-BINARY.md](MEMORY-SAFETY-AND-BINARY.md), [AI-AND-LLM.md](AI-AND-LLM.md), [WEB-PROTOCOL-AND-AUTH.md](WEB-PROTOCOL-AND-AUTH.md), [CLIENT-SIDE.md](CLIENT-SIDE.md)).
 3. **Validate** — Use Phase 3 in [VALIDATION-AND-REPORTING.md](VALIDATION-AND-REPORTING.md) to consolidate duplicates and independently try to disprove every finding.
 4. **Report** — Use Phase 4 in [VALIDATION-AND-REPORTING.md](VALIDATION-AND-REPORTING.md) to write `REPORT.md` and `FINDINGS-DETAIL.md`.
-5. **Structured output** — Use Phase 5 in [VALIDATION-AND-REPORTING.md](VALIDATION-AND-REPORTING.md), `report-schema.json`, and `validate-findings.cjs` to write and validate `findings.json`.
+5. **Structured output** — Follow Phase 5 in [VALIDATION-AND-REPORTING.md](VALIDATION-AND-REPORTING.md). Validate `findings.json` with `report-schema.json` and `validate-findings.cjs`. If the run includes a coverage ledger, validate that file separately with `validate-coverage-ledger.cjs`.
 6. **Independent verification** — Use Phase 6 in [VALIDATION-AND-REPORTING.md](VALIDATION-AND-REPORTING.md) to verify every factual claim and reconcile all outputs.
 
 ## Anti-Patterns to Avoid

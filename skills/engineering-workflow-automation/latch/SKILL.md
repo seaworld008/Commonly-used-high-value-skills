@@ -2,14 +2,14 @@
 name: latch
 description: 'Proposing, configuring, debugging, and maintaining Claude Code hooks (PreToolUse/PostToolUse/Stop and other lifecycle events). Use for workflow automation or quality gates via hooks.'
 zh_description: "配置和维护生命周期钩子、质量门禁和自动化守卫。"
-version: "1.0.5"
+version: "1.0.6"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/.archive/latch"
 license: MIT
 tags: '["automation", "latch", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "advanced"
 ---
@@ -99,10 +99,10 @@ Route elsewhere when the task is primarily:
 ## Core Contract
 
 - Follow the workflow phases in order for every task; document evidence and rationale.
-- Never modify code directly; hand implementation to the appropriate agent. Stay within Latch's domain.
+- Implement scoped hook configuration/scripts with available host tools. Use a specialist only when available and useful; a named upstream role is not a required runtime tool.
 - Hooks are hard constraints, not suggestions — every hook is a deterministic enforcement point.
 - Instruction→hook triage: a CLAUDE.md/rule instruction is **soft** (fails under long sessions, ambiguity, or prompt injection). Any "every time X" automation or "never do X" hard constraint belongs in a hook, not an instruction. Full mechanism-selection matrix → `_common/MECHANISM_SELECTION.md`.
-- `PreToolUse` permission decisions: `allow` (proceed), `deny` (block), `ask` (dialog), `defer` (fall through). Use `deny` for enforcement, `ask` for human-in-the-loop, `defer` when the hook cannot decide. PreToolUse `deny` blocks even in `bypassPermissions` mode — the strongest policy enforcement layer.
+- Before choosing PreToolUse output fields/values, verify the target host version's actual schema. Bundled references disagree (flat decisions versus `hookSpecificOutput`); do not copy the flat security template as a validated contract. A decision is effective only after a real host blocking test.
 - `updatedInput` must always pair with `permissionDecision: "allow"`; it is only applied when permission is explicitly granted, never with `ask`/`defer`.
 - Only one PreToolUse hook may modify the same tool's `updatedInput` — parallel execution makes last-writer-wins unpredictable.
 - Stderr-only for human-readable output from command hooks; stdout is the JSON protocol channel.
@@ -144,7 +144,7 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 - Use `set -e` in hook scripts — premature exits on benign failures. Use `set -uo pipefail` instead.
 - Clone hooks from untrusted repos without review — malicious `.claude/settings.json` hooks can achieve RCE and token exfiltration on first session start.
 - Use `$HOME` or other env vars in hook `command` paths in JSON — JSON does not expand them. Use absolute paths or `~` (which Claude Code expands).
-- Use deprecated `decision: "approve|block"` in PreToolUse output — use `hookSpecificOutput.permissionDecision: "allow|deny|ask|defer"`.
+- Mix event-specific output schemas: use the target host's validated PreToolUse wrapper and supported decision values; do not infer `defer` support from a reference snapshot.
 
 ## Session Scope
 
@@ -158,7 +158,7 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 
 | Trigger | When it fires | Required action |
 |---------|---------------|-----------------|
-| `ON_BLOCKING_HOOK` | The proposed hook blocks with `exit 2` or `permissionDecision: "deny"` | Document the justification and confirm before enabling |
+| `ON_BLOCKING_HOOK` | The proposed hook blocks with `exit 2` or `permissionDecision: "deny"` | Document the justification; reuse existing enablement authorization and ask only if it is absent |
 
 ## Workflow
 
@@ -195,7 +195,7 @@ Full tables (hook types, exit codes, matcher patterns, `settings.json` structure
 
 **Hook types and default timeouts** — `command` `600s` (fast deterministic checks; no token quota), `prompt` `30s` (context-aware policy decisions), `http` `30s` (external integration/audit), `agent` `60s` (multi-turn verification with tool access). Start with `command` for formatting/linting, graduate to `prompt` for security and policy, reserve `agent` for deep verification. Target `<= 200ms` per hook on latency-sensitive paths; `prompt`/`agent` invoke the model and consume quota.
 
-**Decision precedence** — strictest wins: `deny > defer > ask > allow` (PreToolUse); `deny > allow` (PermissionRequest). Identical command hooks (same command string) or HTTP hooks (same URL) matched by several matchers are deduplicated and run once.
+**Decision handling** — verify event-specific precedence, supported values and duplicate-hook behavior against the selected host version before composing hooks. Security guards must reject dependency failures, execution failures and malformed output; do not silently fall through to allow.
 
 **Exit codes** — `0` success (stdout parsed for JSON output fields); `2` blocking error (stderr fed back to Claude); anything else non-blocking (first stderr line shown). Hook output injected into context is capped at 10,000 characters; excess is written to a file with a preview and path.
 
@@ -205,7 +205,23 @@ Full tables (hook types, exit codes, matcher patterns, `settings.json` structure
 
 **Common fields** — `if` (conditional filter within a matcher), `async` (background, non-blocking; command/http), `statusMessage` (spinner text), `once` (skills/agents only — once per session), `timeout` (override).
 
-**Command hook rules** — read stdin exactly once; on `exit 2` write blocking JSON to stderr, not stdout.
+**Command hook rules** — read stdin once. Keep valid decision JSON on stdout
+using the selected host's schema, and human-readable redacted errors on stderr.
+For a host-confirmed `exit 2` blocking path, stderr is the error channel; do not
+claim that JSON sent there is parsed as a decision.
+
+**Security recipe adaptation before enablement** —
+`reference/security-guard-hook.md` is an unvalidated pattern catalog, not a
+copy-and-install template. Replace its flat output with the target schema;
+unify the ACL path as `security-mcp-acl.sh` (the composition currently calls the
+nonexistent `security-mcp-guard.sh`). Check dependencies, each guard's exit
+status and parsed result; any missing guard, parse failure or illegal response
+must take the tested blocking path. Never continue to final allow on failure.
+Replace its audit logger's raw `INPUT` append with a whitelist of time, event,
+tool name, rule ID, result and duration. Do not persist tool input/output by
+default; new logging needs project/user authorization. Validate allow, deny,
+missing-dependency, missing-ACL, malformed-JSON and synthetic-secret cases in a
+dedicated host before calling the guard effective.
 
 
 ## Recipes
@@ -218,7 +234,7 @@ Full tables (hook types, exit codes, matcher patterns, `settings.json` structure
 | PostToolUse | `posttool` | | PostToolUse hook specialization (logging, automation, quality gate) | `reference/hook-system.md`, `reference/hook-recipes.md` |
 | Notification | `notification` | | Notification event — desktop/Slack/Discord push, permission sounds, idle alerts, per-project mute, dedup | `reference/notification-hook.md` |
 | SessionStart | `sessionstart` | | SessionStart event — context preloading (CLAUDE.md summary, PR list, branch/CI status), env gates, warm-up scripts | `reference/sessionstart-hook.md` |
-| Security | `security` | | PreToolUse guard — PII/secret regex denial, dangerous Bash interception, env-var leakage block, MCP tool ACL | `reference/security-guard-hook.md` |
+| Security | `security` | | Design a PreToolUse guard; apply the Hook Contract adaptations and real host blocking tests before enabling | Hook Contract above, then `reference/security-guard-hook.md` (pattern catalog only) |
 | Skill Quarantine | `quarantine` | | SessionStart drift/unaudited-skill detection, PreToolUse plugin-install gate, MCP rug-pull check | `reference/skill-quarantine-hook.md` |
 | CLAUDE.md Proposer | `claudemd-update` | | Stop hook drafting non-blocking `CLAUDE.md` update proposals from the finished session; never auto-edits | `reference/claude-md-update-proposer.md` |
 | Skill Usage Telemetry | `skill-telemetry` | | PreToolUse hook logging `Skill` invocations to append-only JSONL; feeds Darwin / Prune / Gauge / Lore | `reference/skill-usage-telemetry.md` |
@@ -277,11 +293,15 @@ Project affinity: universal.
 
 ## Operational
 
-**Before starting (mandatory):** read `.agents/latch.md` and `.agents/PROJECT.md`; create if missing.
+**When project conventions or the user request journals:** read existing
+`.agents/latch.md` / `.agents/PROJECT.md` if relevant. Create them only within
+that authorized persistence scope.
 
 **Journal** (`.agents/latch.md`): record only reusable hook design patterns, safe matcher lessons, debugging insights, or recurring failure modes. Do not store secrets or user data.
 
-**After task completion (mandatory):** append `| YYYY-MM-DD | Latch | (action) | (files) | (outcome) |` to `.agents/PROJECT.md`. Log significant hook configurations, matcher decisions, and blocking hook justifications for cross-agent visibility.
+**After completion, when journals are authorized:** append
+`| YYYY-MM-DD | Latch | (action) | (files) | (outcome) |` to `.agents/PROJECT.md`.
+Keep only reusable hook decisions and verified outcomes; exclude raw tool data.
 
 Standard protocols and Pre-Handoff Checklist -> `_common/OPERATIONAL.md`
 

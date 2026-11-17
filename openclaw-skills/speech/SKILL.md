@@ -2,20 +2,21 @@
 name: speech
 description: 'Create text-to-speech narration, voiceovers, or batch audio with OpenAI''s Audio API and the bundled text_to_speech.py CLI.'
 zh_description: "将文本转换为旁白、配音和批量语音文件。"
-version: "1.0.1"
-author: "seaworld008"
-source: "in-house"
-source_url: ""
+version: "1.0.2"
+author: "OpenAI contributors; local curators"
+source: "https://github.com/openai/skills"
+source_url: "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/speech/SKILL.md"
+license: "Apache-2.0"
 tags: '["speech"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 ---
 
 # Speech Generation Skill
 
-Generate spoken audio for the current project (narration, product demo voiceover, IVR prompts, accessibility reads). Defaults to `gpt-4o-mini-tts-2025-12-15` and built-in voices, and prefers the bundled CLI for deterministic, reproducible runs.
+Generate spoken audio for the current project (narration, product demo voiceover, IVR prompts, accessibility reads). Defaults to `gpt-4o-mini-tts-2025-12-15` and built-in voices, and uses the bundled CLI when appropriate and available. Follow host tool requirements first.
 
 ## When to use
 - Generate a single spoken clip from text
@@ -30,7 +31,7 @@ Generate spoken audio for the current project (narration, product demo voiceover
 2. Collect inputs up front: exact text (verbatim), desired voice, delivery style, format, and any constraints.
 3. If batch: write a temporary JSONL under tmp/ (one job per line), run once, then delete the JSONL.
 4. Augment instructions into a short labeled spec without rewriting the input text.
-5. Run the bundled CLI (`scripts/text_to_speech.py`) with sensible defaults (see references/cli.md).
+5. Use the host-required tool, or when appropriate and available run the bundled CLI (`scripts/text_to_speech.py`) with sensible defaults (see references/cli.md).
 6. For important clips, validate: intelligibility, pacing, pronunciation, and adherence to constraints.
 7. Iterate with a single targeted change (voice, speed, or instructions), then re-check.
 8. Save/return final outputs and note the final text + instructions + flags used.
@@ -40,8 +41,8 @@ Generate spoken audio for the current project (narration, product demo voiceover
 - Write final artifacts under `output/speech/` when working in this repo.
 - Use `--out` or `--out-dir` to control output paths; keep filenames stable and descriptive.
 
-## Dependencies (install if missing)
-Prefer `uv` for dependency management.
+## Dependencies (bundled CLI only)
+Install dependencies only within existing task authorization. If installation is outside scope, report the missing dependency and continue independent prompt/script drafting or use a supported host tool. Prefer `uv` for authorized dependency management.
 
 Python packages:
 ```
@@ -53,7 +54,7 @@ python3 -m pip install openai
 ```
 
 ## Environment
-- `OPENAI_API_KEY` must be set for live API calls.
+- `OPENAI_API_KEY` must be set for bundled CLI/API calls; host tools may manage authentication separately.
 
 If the key is missing, give the user these steps:
 1. Create an API key in the OpenAI platform UI: https://platform.openai.com/api-keys
@@ -70,11 +71,11 @@ If installation isn't possible in this environment, tell the user which dependen
 - `instructions` are supported for GPT-4o mini TTS models, but not for `tts-1` or `tts-1-hd`.
 - Input length must be <= 4096 characters per request. Split longer text into chunks.
 - Enforce 50 requests/minute. The CLI caps `--rpm` at 50.
-- Require `OPENAI_API_KEY` before any live API call.
+- Require `OPENAI_API_KEY` for bundled CLI/API calls; host tools use their own authentication contract.
 - Provide a clear disclosure to end users that the voice is AI-generated.
-- Use the OpenAI Python SDK (`openai` package) for all API calls; do not use raw HTTP.
-- Prefer the bundled CLI (`scripts/text_to_speech.py`) over writing new one-off scripts.
-- Never modify `scripts/text_to_speech.py`. If something is missing, ask the user before doing anything else.
+- For the Python CLI path, use the OpenAI Python SDK (`openai` package); follow the host contract for host tools.
+- Follow host tool requirements first; when a CLI is appropriate, prefer the bundled `scripts/text_to_speech.py` over a new one-off script.
+- Preserve `scripts/text_to_speech.py` unless modifying it is within scope. If a feature is missing, explain the limitation and use an available supported path or continue independent work; ask only for a blocking choice.
 
 ## Instruction augmentation
 Reformat user direction into a short, labeled spec. Only make implicit details explicit; do not invent new requirements.

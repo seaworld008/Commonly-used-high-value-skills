@@ -1,6 +1,6 @@
 # Best Practices
 
-Recommendations for effective use of transcript-fixer based on production experience.
+领域策展方法与运行建议；不表示已完成生产模型评测。命令在技能根目录运行，复用既有 setup 授权。当前参数与边界见 script_parameters.md。
 
 ## Table of Contents
 
@@ -45,24 +45,24 @@ uv run scripts/fix_transcription.py --add "巨升" "具身" --domain embodied_ai
 uv run scripts/fix_transcription.py --add "奇迹创坛" "奇绩创坛" --domain embodied_ai
 ```
 
-**Let learning discover others**: After 3-5 correction runs, the learning system will suggest additional patterns automatically.
+**Review recurring patterns**: Learning and automatic approval default off. Only explicitly enabled learning persists history/candidates; manually collect source-supported recurring patterns otherwise.
 
-**Rationale**: Manual corrections provide high-quality training data. Learning amplifies your corrections exponentially.
+**Rationale**: Reviewed reusable corrections reduce repeated ASR errors. Frequency alone cannot establish semantic correctness.
 
 ### Review Learned Suggestions Regularly
 
 **Frequency**: Every 3-5 correction runs
 
 ```bash
-uv run scripts/fix_transcription.py --review-learned
+# Manually review candidates with source context; CLI --review-learned is a placeholder
 ```
 
 **Why**: Learned corrections move from Stage 2 (AI, expensive) to Stage 1 (dictionary, cheap/instant).
 
 **Impact**:
-- 10x faster processing (no API calls)
+- Dictionary-only Stage 1 avoids provider calls for covered terms
 - Zero cost for repeated patterns
-- Builds domain-specific vocabulary automatically
+- Builds domain-specific vocabulary from reviewed reusable corrections
 
 ## Domain Organization
 
@@ -72,11 +72,11 @@ uv run scripts/fix_transcription.py --review-learned
 
 **Example**:
 - Finance domain: "股价" (stock price) is correct
-- General domain: "股价" → "框架" (framework) ASR error
+- Embodied AI domain: "股价系统" → "框架系统" only when supported by the source
 
 ```bash
 # Domain-specific corrections
-uv run scripts/fix_transcription.py --add "股价" "框架" --domain general
+uv run scripts/fix_transcription.py --add "股价系统" "框架系统" --domain embodied_ai
 # No correction needed in finance domain - "股价" is correct there
 ```
 
@@ -86,7 +86,7 @@ uv run scripts/fix_transcription.py --add "股价" "框架" --domain general
 - `finance` - Financial terminology
 - `medical` - Medical terminology
 
-**Custom domains**: Any string matching `^[a-z0-9_]+$` (lowercase, numbers, underscore).
+**Custom domains**: Core CLI validates names (up to 50 characters; letters, numbers, underscores, hyphens and supported CJK). The wrapper offers only general, embodied_ai, finance and medical.
 
 ### Domain Selection Strategy
 
@@ -128,7 +128,7 @@ uv run scripts/fix_transcription.py --input large_file.md --stage 3
 **Check suggestions regularly**:
 
 ```bash
-uv run scripts/fix_transcription.py --review-learned
+# Manually review candidates with source context; CLI --review-learned is a placeholder
 ```
 
 **Approve suggestions with**:
@@ -147,49 +147,19 @@ uv run scripts/fix_transcription.py --review-learned
 - Database grows over time (bloats repository)
 - Not human-reviewable
 
-**Do commit** JSON exports:
+**Share reviewed JSON knowledge**: Record exact phrases, domain, source and counterexamples in a dedicated knowledge repository. Core CLI does not implement import/export/merge options; do not infer CLI support from Service APIs.
 
-```bash
-# Export domain dictionaries
-uv run scripts/fix_transcription.py --export general_$(date +%Y%m%d).json --domain general
-uv run scripts/fix_transcription.py --export embodied_ai_$(date +%Y%m%d).json --domain embodied_ai
+### Share Corrections via Review
 
-# .gitignore
-*.db
-*.db-journal
-*.bak
+Compare entries by from_text + domain. Keep identical entries with their provenance; manually resolve differing values through source context, domain separation or longer phrases. Preserve local customizations and do not automatically overwrite on confidence alone. Apply reviewed reusable terms through authorized --add, then test Stage 1. Service API exchange examples are in file_formats.md; review scripts/examples/bulk_import.py before bulk writes.
 
-# Commit exports
-git add *_corrections.json
-git commit -m "Update correction dictionaries"
-```
-
-### Share Corrections via Import/Merge
-
-**Always use `--merge` flag** to combine corrections:
-
-```bash
-# Pull latest from team
-git pull origin main
-
-# Import new corrections (merge mode)
-uv run scripts/fix_transcription.py --import general_20250128.json --merge
-uv run scripts/fix_transcription.py --import embodied_ai_20250128.json --merge
-```
-
-**Merge behavior**:
-- New corrections: inserted
-- Existing corrections with higher confidence: updated
-- Existing corrections with lower confidence: skipped
-- Preserves local customizations
-
-See `team_collaboration.md` for Git workflows and conflict handling.
+See team_collaboration.md for conflict handling and selective domain sharing.
 
 ## Data Management
 
 ### Database Backup Strategy
 
-**Automatic backups**: Database creates timestamped backups before migrations:
+**Backups**: Confirm an actual consistent backup before maintenance; do not assume every initialization/migration command creates one. Example retained backup layout:
 
 ```
 ~/.transcript-fixer/
@@ -198,7 +168,7 @@ See `team_collaboration.md` for Git workflows and conflict handling.
 └── corrections.20250127_093021.bak
 ```
 
-**Manual backups** before bulk changes:
+**Manual backups** before bulk changes: the main-file copy below is valid only after writers stop and all committed data is in the main file; never omit an active WAL.
 
 ```bash
 cp ~/.transcript-fixer/corrections.db ~/backups/corrections_$(date +%Y%m%d).db
@@ -211,6 +181,8 @@ sqlite3 ~/.transcript-fixer/corrections.db ".backup ~/backups/corrections.db"
 ```
 
 ### Cleanup Strategy
+
+The following deletes/updates/VACUUM are optional authorized maintenance, never preflight. Preserve a consistent backup and confirm the retention policy before applying to the selected database. Default learning is disabled, so absent history is expected.
 
 **History retention**: Keep recent history, archive old entries:
 
@@ -250,17 +222,10 @@ meeting_20250128_stage2.md    # Final corrected version
 **Generate diff reports** for review:
 
 ```bash
-uv run scripts/diff_generator.py \
-  meeting_20250128.md \
-  meeting_20250128_stage1.md \
-  meeting_20250128_stage2.md
+python scripts/generate_word_diff.py meeting_20250128.md meeting_20250128_stage2.md review.html
 ```
 
-**Output formats**:
-- Markdown report (what changed, statistics)
-- Unified diff (git-style)
-- HTML side-by-side (visual review)
-- Inline markers (for direct editing)
+**Output**: review.html only (word-level comparison). Stage 3 merely prints a hint; the independent script does not open a browser or create other reports.
 
 ### Batch Processing
 
@@ -268,16 +233,16 @@ uv run scripts/diff_generator.py \
 
 ```bash
 # Day 1: Process 5 similar meetings
-for file in meeting_*.md; do
+for file in transcripts/*.md; do
   uv run scripts/fix_transcription.py --input "$file" --stage 3 --domain embodied_ai
 done
 
 # Day 2: Review learned patterns
-uv run scripts/fix_transcription.py --review-learned
+# Manually review candidates with source context; CLI --review-learned is a placeholder
 
 # Approve good suggestions
-uv run scripts/fix_transcription.py --approve "常见错误1" "正确词1"
-uv run scripts/fix_transcription.py --approve "常见错误2" "正确词2"
+uv run scripts/fix_transcription.py --add "常见错误1" "正确词1" --domain embodied_ai
+uv run scripts/fix_transcription.py --add "常见错误2" "正确词2" --domain embodied_ai
 
 # Day 3: Future files benefit from dictionary corrections
 ```
@@ -308,6 +273,8 @@ VALUES ('近距离搏杀', '近距离搏杀', '的 is correct here (noun modifie
 ## Quality Assurance
 
 ### Validate After Manual Changes
+
+--validate checks the selected config.database.path without initialization or user-side writes. Missing/corrupt/incomplete databases fail with 1. WAL/SHM/journal sidecars mean explicitly not verified (1); provide a quiescent consistent copy without active journals, never delete sidecars. This is structural validation, not semantic review.
 
 **After direct SQL edits**:
 
@@ -365,11 +332,10 @@ WHERE s.confidence < 0.8 AND s.status = 'pending';
 
 ### Environment Variables
 
-**Set permanently** in production:
+**Inject safely** using the already authorized deployment environment. Do not place real keys in shell tracing/history, checked-in files, or diagnostic output. Presence check reads inside Python and returns only status:
 
 ```bash
-# Add to /etc/environment or systemd service
-GLM_API_KEY=your-production-key
+python -c 'import os, sys; sys.exit(0 if os.environ.get("GLM_API_KEY") else 1)'
 ```
 
 ### Monitoring
@@ -422,7 +388,4 @@ sqlite3 ~/.transcript-fixer/corrections.db "VACUUM;"
 7. Monitor learning quality
 8. Backup before bulk operations
 
-**ROI timeline**:
-- Week 1: Build foundation (10-20 manual corrections)
-- Week 2-3: Learning kicks in (20-50 suggestions)
-- Month 2+: Mature vocabulary (80%+ dictionary coverage, minimal AI calls)
+**Measure actual coverage** on reviewed samples rather than promising timelines or percentages. Record missed terms and false replacements per domain.

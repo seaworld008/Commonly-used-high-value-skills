@@ -2,13 +2,13 @@
 name: codebase-onboarding
 description: 'Create repository onboarding guides with architecture, key files, setup, debugging, and contribution workflows for a defined audience.'
 zh_description: "生成代码库架构、环境搭建和常见开发任务的入门指南。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["codebase", "development", "onboarding"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -282,8 +282,9 @@ await myJobQueue.add('process', { userId, data }, {
 
 **`Error: DATABASE_URL is not set`**
 ```bash
-# Check your .env file exists and has the var
-cat .env | grep DATABASE_URL
+# For file-based local config, report presence without printing the value.
+if grep -q '^DATABASE_URL=.' .env; then echo configured; else echo missing; fi
+# For managed configuration, use the project's presence-only diagnostic.
 
 # Start Postgres if not running
 docker compose up -d postgres

@@ -2,13 +2,13 @@
 name: meeting-minutes-taker
 description: 'Turn meeting transcripts into accurate minutes with decisions, actions, owners, and source evidence; also review or merge minutes and resolve speaker ambiguity.'
 zh_description: "从会议转录中整理准确的决策、行动项和责任人。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["meeting", "minutes", "taker"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -29,7 +29,7 @@ Transform raw meeting transcripts into comprehensive, evidence-based meeting min
 2. Load project-specific context file if provided by user (optional)
 3. **Intelligent file naming**: Auto-generate filename from content (see below)
 4. **Speaker identification**: If transcript has "Speaker 1/2/3", identify speakers before generation
-5. **Multi-turn generation**: Use multiple passes or subagents with isolated context, merge using UNION
+5. **Draft and verify**: Draft once, then verify decisions, owners, numbers and quotations against the transcript; use additional independent passes for long/high-stakes material or demonstrated gaps
 6. Self-review using [references/completeness_review_checklist.md](references/completeness_review_checklist.md)
 7. Present draft to user for human line-by-line review
 8. **Cross-AI comparison** (optional): Human may provide output from other AI tools (e.g., Gemini, ChatGPT) - merge to reduce bias
@@ -52,7 +52,7 @@ Auto-generate output filename from transcript content:
 - `2026-01-20-q1-sprint-planning.md`
 - `2026-01-18-onboarding-flow-sync.md`
 
-**Ask user to confirm** the suggested filename before writing.
+Reuse an authorized filename/path. If none is supplied, use a descriptive filename within the authorized output scope; ask only about a real naming conflict or material ambiguity.
 
 ## Core Workflow
 
@@ -114,50 +114,23 @@ After user confirmation, apply mappings consistently throughout the document.
 
 Read [the detailed procedure and examples](EXTENDED.md#section-3) when working on this part of the task.
 
-### Step 2: Multi-Turn Initial Generation (Critical)
+### Step 2: Draft and Verify Against the Transcript
 
-**A single pass will absolutely lose content.** Use multi-turn generation with **redundant complete passes**:
+Draft complete minutes once, then verify decisions, owners, numbers and quotations against the transcript. Use independent passes or available subagents for long/high-stakes material or demonstrated coverage gaps, within host capabilities and task authorization.
 
-#### Core Principle: Multiple Complete Passes + UNION Merge
+#### Optional Independent Review
 
-Each pass generates **COMPLETE minutes (all sections)** from the full transcript. Multiple passes with isolated context catch different details. UNION merge consolidates all findings.
+- Give each reviewer the source transcript and requested coverage, with isolated context when supported.
+- Review decisions, action items, numeric details, deferred topics and diagrams against source locations.
+- Merge only transcript-supported claims and diagrams; consolidate duplicates.
+- Remove unsupported or contradicted items with a review note; agreement between generated drafts is not source evidence.
+- Keep intermediate files only within the authorized task output/temp directory. No fixed pass count or specific host `Task` tool is required.
 
-**❌ WRONG: Narrow-focused passes** (wastes tokens, causes bias)
-```
-Pass 1: Only extract decisions
-Pass 2: Only extract action items
-Pass 3: Only extract discussion
-```
-
-**✅ CORRECT: Complete passes with isolated context**
-```
-Pass 1: Generate COMPLETE minutes (all sections) → version1.md
-Pass 2: Generate COMPLETE minutes (all sections) with fresh context → version2.md
-Pass 3: Generate COMPLETE minutes (all sections) with fresh context → version3.md
-Merge: UNION all versions, consolidate duplicates → draft_minutes.md
-```
-
-#### Strategy A: Sequential Multi-Pass (Complete Minutes Each Pass)
-
-```
-Pass 1: Read transcript → Generate complete minutes → Write to: <output_dir>/intermediate/version1.md
-Pass 2: Fresh context → Read transcript → Generate complete minutes → Write to: <output_dir>/intermediate/version2.md
-Pass 3: Fresh context → Read transcript → Generate complete minutes → Write to: <output_dir>/intermediate/version3.md
-Merge: Read all versions → UNION merge (consolidate duplicates) → Write to: draft_minutes.md
-Final: Compare draft against transcript → Add any remaining omissions → final_minutes.md
-```
-
-#### Strategy B: Parallel Multi-Agent (Complete Minutes Each Agent) - PREFERRED
-
-Read [the detailed procedure and examples](EXTENDED.md#section-2) when working on this part of the task.
-
-#### Progressive Context Offloading (Use File System)
-
-Read [the detailed procedure and examples](EXTENDED.md#section-1) when working on this part of the task.
+The optional multi-agent/offloading examples in `EXTENDED.md` apply only when this escalation is selected and supported; they do not mandate three drafts for every transcript.
 
 #### Output Requirements
 
-- **Chinese output** with English technical terms preserved
+- Follow the user's language preference; otherwise use the transcript language, preserving technical terms
 - **Evidence-based decisions** - Every significant decision needs a supporting quote
 - **Structured sections** - Executive Summary, Key Decisions, Discussion, Action Items, Parking Lot
 - **Proper quote formatting** - See Quote Formatting Requirements section below
@@ -174,9 +147,9 @@ Read [the detailed procedure and examples](EXTENDED.md#section-1) when working o
 
 - Never assume - Ask user to confirm if unclear
 - Quote controversial decisions verbatim
-- Assign action items to specific people, not teams
+- Use only source-supported owners. Preserve `Speaker N`, a named team, or `owner TBD` when identity or personal assignment is unconfirmed
 - Preserve numerical values (ranges, counts, priorities)
-- **Always use multiple passes** - Single turn is guaranteed to lose content
+- **Verify against the transcript**; use additional independent passes where scope or observed gaps justify them
 - **Normalize equivalent terminology** - Treat trivial variations (e.g., "backend architecture" vs "backend", "API endpoint" vs "endpoint") as equivalent; do NOT point out or highlight such differences between speakers
 - **Single source of truth** - Place each piece of information in ONE location only; avoid duplicating tables, lists, or summaries across sections (e.g., API list belongs in Discussion OR Reference, not both)
 
@@ -189,7 +162,7 @@ Completeness Checklist:
 - [ ] All discussion topics covered?
 - [ ] All decisions have supporting quotes?
 - [ ] All speakers attributed correctly?
-- [ ] All action items have specific owners?
+- [ ] Action-item owners match the source, with unconfirmed assignments marked TBD?
 - [ ] Numerical values preserved (ranges, counts)?
 - [ ] Entity relationships captured?
 - [ ] State machines complete (all states listed)?
@@ -247,35 +220,17 @@ This step is valuable because:
 
 **When user provides another version to merge:**
 
-Merge Principle: **UNION, never remove**
+Merge Principle: **Source-verified consolidation**
 
-1. Keep ALL content from existing version
-2. Add ALL new content from incoming version
-3. Consolidate duplicates (don't repeat same info)
-4. Preserve more detailed version when depth differs
-5. Maintain logical section numbering
+1. Compare claims in each version with the original transcript.
+2. Add supported missing details and consolidate duplicates.
+3. Preserve useful detail only when source-supported; remove unsupported or contradicted items with a review note.
+4. Preserve `Speaker N`, a team, or `owner TBD` where identity/assignment is unconfirmed.
+5. Maintain logical section numbering and source locators.
 
-### Aggressive Diagram Inclusion (CRITICAL)
+### Diagram Review During Merge
 
-**During merge phase, MUST aggressively include ALL diagrams from ALL versions.**
-
-Diagrams are high-value content that took effort to generate. Different subagents may produce different diagrams based on what they focused on. Missing a diagram during merge is a significant loss.
-
-**Merge diagram strategy:**
-1. **Inventory ALL diagrams** from each version (v1, v2, v3)
-2. **Include ALL unique diagrams** - don't assume a diagram is redundant
-3. **If similar diagrams exist**, keep the more detailed/complete one
-4. **Check every section** that could contain diagrams: Executive Summary, Discussion, API design, State machines, Data flow, etc.
-
-**Common diagram types to look for:**
-- Sequence diagrams (data flow, API interactions)
-- ER diagrams (database schema, table relationships)
-- State diagrams (state machines, status transitions)
-- Flowcharts (decision flows, process workflows)
-- Component diagrams (system architecture)
-
-**Example: Missed diagram from v3**
-If v3 has a flowchart for "Status Query Mechanism" but v1/v2 don't have it, that flowchart MUST appear in the merged output. Don't assume it's covered by other diagrams.
+Inventory diagrams from each version, then retain useful, nonduplicative diagrams whose entities, relationships and transitions are supported by the transcript. A generated diagram is a representation to verify, not independent evidence. If a diagram introduces unsupported edges or states, correct or omit it and record the reason. Preserve supported technical detail rather than keeping every generated diagram automatically.
 
 ## Output Language
 
@@ -318,7 +273,7 @@ markitdown "录音转写.docx" -o transcript.md
 **Benefits of combo workflow:**
 - **Tables preserved**: markitdown converts Word tables to Markdown tables
 - **Images extracted**: Can be embedded in final minutes
-- **Cleaner quotes**: transcript-fixer removes ASR typos before quote extraction
+- **Readable corrected text**: preserve the original transcript for quotations; label corrected wording and retain its source locator instead of presenting it as verbatim speech
 - **Accurate speaker ID**: Style analysis works better on clean text
 - **正交设计**: Each skill does one thing well, composable pipeline
 
@@ -381,6 +336,8 @@ sequenceDiagram
 ```
 
 ### Quote Formatting Requirements (CRITICAL)
+
+Quote the original transcript and retain a source locator (timestamp, line or section). Label any corrected wording explicitly; do not silently quote an ASR correction as verbatim speech.
 
 **Quotes MUST use proper markdown blockquote format on separate lines:**
 
@@ -456,15 +413,15 @@ Round 4: Update to use "Annotation" instead of "Note"
 
 ## Anti-Patterns
 
-- ❌ **Single-pass generation** - One turn through transcript will absolutely lose content
-- ❌ **Divided sections without overlap** - Each pass must cover FULL transcript, not split by sections
-- ❌ **Narrow-focused passes** - Each pass must generate COMPLETE minutes (all sections), not just one section type (wastes tokens, causes bias)
+- ❌ Delivering an unchecked draft without verifying it against the transcript
+- ❌ Splitting review scope without checking cross-section decisions and dependencies
+- ❌ Repeating complete drafts without using source evidence to resolve differences
 - ❌ Generic summaries without supporting quotes
-- ❌ Action items assigned to "team" instead of specific person
+- ❌ Inventing a personal owner when the source assigns only a team or leaves ownership open
 - ❌ Missing numerical values (priorities, ranges, state counts)
 - ❌ State machines with incomplete states
 - ❌ Circular debate transcribed verbatim instead of summarized
-- ❌ Removing content during multi-version merge
+- ❌ Removing source-supported detail during multi-version consolidation without checking coverage
 - ❌ Claiming "nothing missing" without section-by-section review
 - ❌ Treating first draft as final without human review
 - ❌ Using terminology without checking for conflicts with existing systems
@@ -474,10 +431,10 @@ Round 4: Update to use "Annotation" instead of "Note"
 - ❌ **Deleting intermediate files after merge** - Preserve for human review and debugging
 - ❌ **Blindly copying external AI output** - Always verify against transcript before merging
 - ❌ **Ignoring cross-AI comparison opportunity** - Different AI models catch different details
-- ❌ **Sequential subagent execution** - MUST launch v1, v2, v3 subagents in PARALLEL using multiple Task tool calls in a single message
+- ❌ Assuming a particular subagent tool or parallel execution is required in every host
 - ❌ **Flat intermediate directory** - MUST use transcript-specific subdirectory `intermediate/<transcript-name>/` to avoid conflicts
 - ❌ **Inline quote formatting** - Quotes MUST use blockquote format on separate lines, not inline `> "quote"`
-- ❌ **Omitting diagrams during merge** - MUST aggressively include ALL diagrams from ALL versions, even if they seem similar
+- ❌ Retaining unsupported diagrams, or dropping unique source-supported relationships without review
 - ❌ **Highlighting trivial terminology variations** - Do NOT point out differences like "backend architecture" vs "backend" or "API" vs "endpoint" between speakers; these are equivalent terms and highlighting such differences is disrespectful
 - ❌ **Duplicate content across sections** - Do NOT repeat the same information in multiple sections (e.g., API endpoint table in both "Discussion" and "Reference"); place content in ONE authoritative location and reference it if needed
 - ❌ **Creating non-existent links** - Do NOT create markdown links to files that don't exist in the repo (e.g., `[doc.md](reviewed-document)`); use plain text for external/local documents not in the repository

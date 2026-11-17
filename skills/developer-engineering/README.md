@@ -29,7 +29,7 @@
 | `database-schema-designer` | 设计数据表、约束、索引、迁移和行级权限策略。 | [目录](./database-schema-designer/) | [SKILL.md](./database-schema-designer/SKILL.md) |
 | `dependency-auditor` | 梳理依赖清单，核实漏洞与许可证证据，规划可验证的升级。 | [目录](./dependency-auditor/) | [SKILL.md](./dependency-auditor/SKILL.md) |
 | `docker-expert` | 用于 Docker 容器化最佳实践、多阶段构建优化与 Docker Compose 编排。 | [目录](./docker-expert/) | [SKILL.md](./docker-expert/SKILL.md) |
-| `frontend-design` | 用于创建高质量、非模板化的前端页面、组件、仪表盘、海报和 Web UI。 | [目录](./frontend-design/) | [SKILL.md](./frontend-design/SKILL.md) |
+| `frontend-design` | 按产品目标与品牌约束设计和实现网页、组件及应用界面，兼顾视觉表达、响应式和交互验收。 | [目录](./frontend-design/) | [SKILL.md](./frontend-design/SKILL.md) |
 | `gateway` | 设计或评审 REST/GraphQL 接口时使用：OpenAPI 规范、版本与弃用策略、破坏性变更检测和接口安全。 | [目录](./gateway/) | [SKILL.md](./gateway/SKILL.md) |
 | `git-worktree-manager` | 管理并行开发的 Git worktree、环境和端口分配。 | [目录](./git-worktree-manager/) | [SKILL.md](./git-worktree-manager/SKILL.md) |
 | `github-contributor` | 寻找开源贡献机会并准备可审查的 GitHub PR。 | [目录](./github-contributor/) | [SKILL.md](./github-contributor/SKILL.md) |
@@ -54,7 +54,7 @@
 | `qa-expert` | 制定测试策略、风险用例、执行计划和缺陷跟踪流程。 | [目录](./qa-expert/) | [SKILL.md](./qa-expert/SKILL.md) |
 | `react-native-engineering` | 用于构建、审查、调试、测试、升级和发布 React Native 与 Expo 应用，覆盖新架构、原生模块、性能、EAS 和双平台验证。 | [目录](./react-native-engineering/) | [SKILL.md](./react-native-engineering/SKILL.md) |
 | `repomix-safe-mixer` | 打包代码前扫描凭据、输出脱敏报告，并在发现风险时阻止打包。 | [目录](./repomix-safe-mixer/) | [SKILL.md](./repomix-safe-mixer/SKILL.md) |
-| `rust-engineer` | 用于 Rust 代码开发、所有权和生命周期调试、异步模式选择和系统性能优化。 | [目录](./rust-engineer/) | [SKILL.md](./rust-engineer/SKILL.md) |
+| `rust-engineer` | 用于 Rust 实现与审查：分析所有权和错误类型、设计 trait 与异步取消、核对 unsafe/FFI 不变量、兼容性和性能证据。 | [目录](./rust-engineer/) | [SKILL.md](./rust-engineer/SKILL.md) |
 | `schema` | 设计或评审数据库模式时使用：数据建模、零停机迁移、索引策略、多租户隔离和向量表。 | [目录](./schema/) | [SKILL.md](./schema/SKILL.md) |
 | `shadcn` | 维护 shadcn 组件、注册源和主题，核对项目真实 API，并验证预览差异与交互结果。 | [目录](./shadcn/) | [SKILL.md](./shadcn/SKILL.md) |
 | `skill-tester` | 用于对照目标仓库和宿主要求，验证技能目录结构、附带脚本和预期输出。 | [目录](./skill-tester/) | [SKILL.md](./skill-tester/SKILL.md) |

@@ -2,14 +2,14 @@
 name: writing-skills
 description: 'Use when creating new skills, editing existing skills, or verifying skills work before deployment'
 zh_description: "编写可复用的技能指导并验证实际触发和执行行为。"
-version: "1.0.6"
+version: "1.0.7"
 author: "seaworld008"
 source: "github:obra/superpowers"
 source_url: "https://github.com/obra/superpowers/blob/main/skills/writing-skills/SKILL.md"
 license: MIT
 tags: '["skills", "authoring", "workflow"]'
 created_at: "2026-04-13"
-updated_at: "2026-10-24"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 ---
@@ -466,8 +466,7 @@ Deploying untested skills = deploying untested code. It's a violation of quality
 - [ ] Supporting files only for tools or heavy reference
 
 **Deployment:**
-- [ ] Commit skill to git and push to your fork (if configured)
-- [ ] Consider contributing back via PR (if broadly useful)
+- [ ] Deliver the local skill, commit or PR specified by the task. Push to the selected remote only when remote delivery is authorized.
 
 ## Discovery Workflow
 

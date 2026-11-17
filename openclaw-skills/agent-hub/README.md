@@ -15,32 +15,32 @@ Or step by step:
 
 ```bash
 # 1. Initialize a session — define the task, agent count, and evaluation criteria
-/hub:init --task "Reduce API p50 latency" --agents 3 \
+/hub-init --task "Reduce API p50 latency" --agents 3 \
   --eval "pytest bench.py --json" --metric p50_ms --direction lower
 
 # 2. Spawn agents — launches 3 parallel agents in isolated worktrees
-/hub:spawn --template optimizer
+/agenthub:spawn --template optimizer
 
 # 3. Check progress
-/hub:status
+/hub-status
 
 # 4. Evaluate — rank agents by metric
-/hub:eval
+/agenthub:eval
 
 # 5. Merge the winner into your branch
-/hub:merge
+/agenthub:merge
 ```
 
 ## Commands Reference
 
 | Command | Purpose | Example |
 |---------|---------|---------|
-| `/hub:init` | Create session with task, agents, eval criteria | `/hub:init --task "Optimize DB queries" --agents 4 --eval "python bench.py" --metric query_ms --direction lower` |
-| `/hub:spawn` | Launch all agents in parallel worktrees | `/hub:spawn` (uses latest session) |
-| `/hub:status` | Show DAG state, branches, progress posts | `/hub:status` |
-| `/hub:eval` | Rank results by metric or LLM judge | `/hub:eval --judge` (LLM judge mode) |
-| `/hub:merge` | Merge winner, archive losers, cleanup | `/hub:merge --agent agent-2` (force pick) |
-| `/hub:board` | Read/write the message board | `/hub:board --read progress` |
+| `/hub-init` | Create session with task, agents, eval criteria | `/hub-init --task "Optimize DB queries" --agents 4 --eval "python bench.py" --metric query_ms --direction lower` |
+| `/agenthub:spawn` | Launch all agents in parallel worktrees | `/agenthub:spawn` (uses latest session) |
+| `/hub-status` | Show DAG state, branches, progress posts | `/hub-status` |
+| `/agenthub:eval` | Rank results by metric or LLM judge | `/agenthub:eval --judge` (LLM judge mode) |
+| `/agenthub:merge` | Merge winner, archive losers, cleanup | `/agenthub:merge --agent agent-2` (force pick) |
+| `/agenthub:board` | Read/write the message board | `/agenthub:board --read progress` |
 | `/hub:run` | One-shot full lifecycle | `/hub:run --task "Reduce latency" --agents 3 --eval "pytest bench.py" --metric p50_ms --direction lower --template optimizer` |
 
 ## The Optimizer Pattern
@@ -76,7 +76,7 @@ The `optimizer` template embeds the iteration loop directly in each agent's disp
 
 ### Agent Templates
 
-Templates define the dispatch prompt pattern. Use `--template` with `/hub:spawn` or `/hub:run`:
+Templates define the dispatch prompt pattern. Use `--template` with `/agenthub:spawn` or `/hub:run`:
 
 | Template | Pattern | Use Case |
 |----------|---------|----------|
@@ -212,7 +212,7 @@ openclaw install agenthub
 
 ### Session Model
 
-Each `/hub:init` creates a session with a timestamp-based ID (`YYYYMMDD-HHMMSS`). Sessions progress through states:
+Each `/hub-init` creates a session with a timestamp-based ID (`YYYYMMDD-HHMMSS`). Sessions progress through states:
 
 ```
 init → running → evaluating → merged

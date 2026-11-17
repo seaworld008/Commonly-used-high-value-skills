@@ -1,14 +1,7 @@
 interface:
-  display_name: "Figma Implement Design"
-  short_description: "Turn Figma designs into production-ready code"
+  display_name: "Figma 项目实现"
+  short_description: "将具体设计适配既有组件与样式，按响应式、键盘操作和视觉误差验收"
   icon_small: "./assets/figma-small.svg"
   icon_large: "./assets/figma.png"
-  default_prompt: "Implement this Figma design in this codebase, matching layout, states, and responsive behavior."
-
-dependencies:
-  tools:
-    - type: "mcp"
-      value: "figma"
-      description: "Figma MCP server"
-      transport: "streamable_http"
-      url: "https://mcp.figma.com/mcp"
+  brand_color: "#3568B0"
+  default_prompt: "使用 $figma-implement-design 将指定 frame 实现到现有项目，复用组件并报告实际运行的验收结果与差异。"

@@ -2,13 +2,13 @@
 name: i18n-expert
 description: 'Implement or audit UI internationalization: translation keys, locale files, pluralization, formatting, hard-coded strings, and parity checks.'
 zh_description: "实现和审查界面国际化、翻译键、语言文件与格式一致性。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["development", "expert", "i18n"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 ---
@@ -39,11 +39,11 @@ Deliver a complete i18n setup + audit pass: configure the i18n framework, replac
 
 ## Workflow (Audit -> Fix -> Validate)
 
-1) Confirm scope and locale targets
+1) Confirm scope and locale targets. For a read-only audit, use existing locale files, perform steps 3–4 and report findings. If locale resources are absent, report that coverage gap.
 - Identify the i18n framework and locale locations.
 - Confirm locales; default to en-US + zh-CN when specified.
 
-2) Setup i18n baseline (if missing)
+2) Set up a missing baseline only for an authorized implementation that needs it
 - Choose a framework-appropriate library (e.g., React: react-i18next; Next.js: next-intl; Vue: vue-i18n).
 - Install packages and create the i18n entry/config file.
 - Wire the provider at the app root and load locale resources.
@@ -57,7 +57,7 @@ Deliver a complete i18n setup + audit pass: configure the i18n framework, replac
   ```bash
   python scripts/i18n_audit.py --src <src-root> --locale <path/to/en-US.json> --locale <path/to/zh-CN.json>
   ```
-- Treat missing keys/parity gaps as blockers.
+- Exit 0 means the scan completed. In CI, use `--json` and inspect the arrays in `missing_by_locale` and `parity_missing` to gate required coverage.
 - Manually verify dynamic keys (`t(var)`).
 
 4) Find raw user-facing strings
@@ -66,11 +66,11 @@ Deliver a complete i18n setup + audit pass: configure the i18n framework, replac
   rg -n --glob '<src>/**/*.{ts,tsx,js,jsx}' "<[^>]+>[^<{]*[A-Za-z][^<{]*<"
   rg -n --glob '<src>/**/*.{ts,tsx,js,jsx}' "aria-label=\"[^\"]+\"|title=\"[^\"]+\"|placeholder=\"[^\"]+\""
   ```
-- Localize accessibility labels.
+- Include accessibility labels in the findings. For an audit, deliver the key gaps and raw strings here.
 
-5) Replace strings with keys
+5) For an authorized fix, replace strings with keys
 - Use `t('namespace.key')` for UI text.
-- For plurals use `t('key', { count })` + `_one/_other` keys.
+- For plurals, use the framework's count mechanism and the plural categories required by each target language.
 - Use Intl/app formatters for time/date/number.
 
 6) Localize error handling (critical)

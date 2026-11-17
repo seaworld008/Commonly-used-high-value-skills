@@ -2,13 +2,13 @@
 name: writing-plans
 description: 'Use when the user requests an implementation plan or multi-step work needs documented task boundaries, dependencies, and acceptance checks.'
 zh_description: "编写包含任务依赖、修改范围和验收方法的实现计划。"
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["planning", "plans", "workflow", "writing"]'
 created_at: "2026-03-04"
-updated_at: "2026-10-26"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 ---
@@ -25,7 +25,7 @@ Describe the constraints and interfaces that matter; rely on the implementer's j
 
 **Context:** Reuse the current task workspace; isolate it when existing changes or parallel work require that.
 
-**Save plans to:** `docs/plans/YYYY-MM-DD-<feature-name>.md`
+**Plan location:** Reuse the existing plan or the location specified by the user or repository. If a separate file is needed and no convention exists, use `docs/plans/YYYY-MM-DD-<feature-name>.md`. Hand off that same file.
 
 ## Bite-Sized Task Granularity
 

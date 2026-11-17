@@ -129,27 +129,29 @@ function reconcileAccountsTable(db) {
 
 export function openDb({ readonly = false } = {}) {
   const path = dbPath();
-  ensureDir(dirname(path));
-  ensureDir(dataDir());
-  // A readonly connection never migrates, and a readonly open on a missing file throws.
-  // So before opening readonly, briefly open a writable connection to create the file (if
-  // missing) AND apply any pending migrations (e.g. after a skill upgrade). This keeps read
-  // commands correct without a separate `db.mjs init` step.
-  if (readonly) {
-    const w = new Database(path);
-    w.pragma('journal_mode = WAL');
-    w.pragma('busy_timeout = 5000');
-    migrate(w);
-    w.close();
+  if (!readonly) {
+    ensureDir(dirname(path));
+    ensureDir(dataDir());
   }
   const db = new Database(path, { readonly, fileMustExist: readonly });
-  db.pragma('journal_mode = WAL');
-  db.pragma('foreign_keys = ON');
-  // Per-account workers run concurrently now, so several short writes can land at once.
-  // Wait (don't fail) up to 5s for the write lock instead of throwing SQLITE_BUSY.
-  db.pragma('busy_timeout = 5000');
-  if (!readonly) migrate(db);
-  return db;
+  try {
+    db.pragma('busy_timeout = 5000');
+    db.pragma('foreign_keys = ON');
+    if (readonly) {
+      const tracking = db.prepare("SELECT 1 FROM sqlite_master WHERE type = 'table' AND name = 'schema_version'").get();
+      const version = tracking ? db.prepare('SELECT MAX(version) AS v FROM schema_version').get().v : 0;
+      if ((version ?? 0) < MIGRATIONS.length) {
+        throw new Error(`Database needs migration (schema ${version ?? 0}, expected ${MIGRATIONS.length}). Run node scripts/db.mjs migrate.`);
+      }
+    } else {
+      db.pragma('journal_mode = WAL');
+      migrate(db);
+    }
+    return db;
+  } catch (err) {
+    db.close();
+    throw err;
+  }
 }
 
 export function migrate(db) {

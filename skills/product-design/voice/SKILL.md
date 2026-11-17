@@ -2,14 +2,14 @@
 name: voice
 description: 'Use when designing feedback surveys (NPS, CSAT, CES) or analyzing reviews and feedback for sentiment, themes, trends, and prioritized product insights.'
 zh_description: "设计用户调研或分析评论与反馈时使用：情绪、主题、趋势和可执行洞察。"
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/voice/SKILL.md"
 license: MIT
 tags: ["design", "product", "voice"]
 created_at: "2026-08-24"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "advanced"
 ---
@@ -87,8 +87,8 @@ Route elsewhere when the task is primarily:
 ## Core Contract
 
 - Use `NPS` for loyalty and advocacy. Preserve score bands `0-6` (Detractor), `7-8` (Passive), `9-10` (Promoter). Compare only against dated benchmarks for a comparable industry, audience, touchpoint, and period; do not use universal “good/excellent/world-class” cutoffs. Set relationship and transactional cadence from the program context and survey-fatigue policy.
-- Use `CSAT` for satisfaction at a specific touchpoint. Preserve the `1-5` scale. Benchmarks: > 80% top-two-box is good, ≥ 85% is world-class, ≤ 5% bottom-box target. Capture immediately after interactions while the experience is fresh (delayed surveys degrade accuracy).
-- Use `CES` for task effort. Preserve the `1-7` scale and treat `1-3` as high effort. Benchmark: ≥ 5 on the 7-point scale is a good score. Use after support interactions or self-service flows.
+- For touchpoint `CSAT`, report the percentage of valid 1–5 responses scoring 4 or 5. State the denominator, channel and collection period.
+- For task `CES`, report the mean of valid 1–7 responses and the scale direction. Compare each metric with a baseline using the same instrument, channel and period. With no valid responses, mark it not estimable.
 - Use an `Exit Survey` when cancellation, downgrade, or trial-end churn is the moment of truth.
 - Use `Multi-Channel Synthesis` when input spans `2+` sources or when prioritization depends on segment, journey stage, or revenue exposure.
 - No single metric captures the full customer experience — use NPS (long-term loyalty), CSAT (touchpoint satisfaction), and CES (process friction) together for a well-rounded picture. Complement with retention, churn, CLV, and FCR for operational ROI linkage.
@@ -164,7 +164,7 @@ Behavior notes per Recipe:
 - `insight`: Prioritize patterns over individual cases; tie to segment, journey stage, and business impact.
 - `kano`: Classify paired questions (functional + dysfunctional) via the Berger matrix. Present priority via Better/Worse coefficients. Delighters decay over time — re-measure every 12-18 months.
 - `thematic`: Follow Braun & Clarke's 6 phases. Stop on the saturation curve; with multiple coders, measure inter-coder agreement via κ or α.
-- `csat`: Report CSAT as 1-5 / Top-Two-Box and CES as 1-7 / mean. Triangulate across NPS on 3 axes and always surface the "high CSAT × low CES" silent-churn cohort.
+- `csat`: Cross-tabulate CSAT, CES and NPS only for comparable, authorized, linkable samples. Report the group's churn risk only with adequate linked retention evidence. Where the join or outcome is missing, mark the cohort or its risk as not estimable.
 
 ## Output Routing
 
@@ -208,6 +208,12 @@ Routing rules:
   - `Feedback Analysis Report`
 - Optionally emit `Infographic_Payload` per `_common/INFOGRAPHIC.md` (recommended: layout=hero-stat, style_pack=corporate-clean) for a visual sentiment headline.
 
+Example for one channel and reporting period:
+
+```text
+CSAT ratings: 5, 4, 2, unanswered → 2 of 3 valid ratings in the top two boxes (66.7%).
+CES and retention: no linked records → cross-metric cohort and churn risk not estimable.
+```
 ## Collaboration
 
 | Direction | Handoff | Purpose |
@@ -254,7 +260,7 @@ Overlap boundaries:
 **Journal** (`.agents/voice.md`): recurring pain themes, segment-specific issues, feedback-to-retention signals, and response patterns worth reusing.
 
 
-- After significant Voice work, append to `.agents/PROJECT.md`: `| YYYY-MM-DD | Voice | (action) | (files) | (outcome) |`.
+- When activity logging is authorized, record the analysis scope and outcome.
 
 ## AUTORUN Support
 
@@ -263,29 +269,3 @@ See `_common/AUTORUN.md` for the protocol (`_AGENT_CONTEXT` input, mode semantic
 ## Nexus Hub Mode
 
 When input contains `## NEXUS_ROUTING`, return via `## NEXUS_HANDOFF` (canonical schema in `_common/HANDOFF.md`).
-
-## Local Execution Contract
-
-Before applying this skill, make the requested outcome and its validation explicit. Use this compact contract to prevent scope drift and make the final handoff reviewable:
-
-```yaml
-goal: "What measurable outcome should change?"
-scope:
-  included: []
-  excluded: []
-inputs:
-  required: []
-  optional: []
-constraints:
-  safety: []
-  compatibility: []
-deliverables: []
-validation:
-  checks: []
-  evidence: []
-risks:
-  - risk: ""
-    mitigation: ""
-```
-
-Keep the contract proportional to the task. Omit irrelevant fields, but always retain a concrete goal, deliverables, and validation evidence.

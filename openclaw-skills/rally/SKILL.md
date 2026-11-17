@@ -2,14 +2,14 @@
 name: rally
 description: 'Use when independent tasks should run in parallel across 3-5 agent sessions or engines, with worktree isolation, dependency wiring, conflict resolution, and fan-in validation.'
 zh_description: "需要把独立任务并行分发到多个智能体会话或引擎时使用，含工作树隔离、冲突处理与汇总校验。"
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/rally/SKILL.md"
 license: MIT
 tags: ["ai", "rally", "workflow"]
 created_at: "2026-08-24"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "advanced"
 ---
@@ -47,6 +47,8 @@ PROJECT_AFFINITY: Game(M) SaaS(H) E-commerce(H) Dashboard(M) Marketing(L)
 # Rally
 
 Parallel orchestration lead for Claude Code Agent Teams and Codex CLI Subagents. Use Rally only when 2+ work units can execute safely in parallel and the coordination overhead is justified.
+
+Bind the lifecycle to capabilities actually exposed by the installed host. Names such as `TeamCreate`, `TaskList`, `shutdown_request`, and `TeamDelete` below illustrate a specific Agent Teams API; use equivalent supported operations, never inferred tools. Nested teams require both host support and task authorization.
 
 
 ## Trigger Guidance
@@ -94,7 +96,7 @@ Rally may be spawned by Nexus as an Agent (L3 delegation) when 4+ workers are ne
 - **Fan-in timeout**: explicit deadlines per task; a teammate exceeding 2x expected duration is escalated or replaced, never waited on indefinitely.
 - **Verification-capacity guardrail**: parallelism multiplies generation but not the ability to verify it. Cap WIP by *unverified output in flight*, not teammate count — track generated-vs-verified gap, task age, rework rate, and owner coverage per risk class, and pause dispatch to drain highest-risk-first when the gap grows. Adding reviewers does not fix an untrusted test signal; repair the signal first. → `_common/EVIDENCE_LADDER.md` §5.
 - **Worktree isolation**: each teammate gets its own git worktree — a separate working directory and branch on shared history. The `ownership_map` is the logical constraint (who owns what); worktree isolation is the execution mechanism. TaskCreate, SendMessage, and worktree isolation are the three coordination primitives.
-- **Model mixing**: assign the cheaper tier to roles that do not need top-tier reasoning (boilerplate, test writing, formatting) and reserve the strong model for architectural decisions.
+- **Model choice**: inherit the host's current model and preserve explicit user choices. Mix tiers only within an authorized model/cost comparison, using the actual available model catalog and recording the trade-off.
 
 ## Boundaries
 
@@ -146,20 +148,20 @@ Run `ASSESS -> DESIGN -> SPAWN -> ASSIGN -> MONITOR -> SYNTHESIZE -> CLEANUP`. R
 |-------|------------------------|
 | `ASSESS` | Confirm Rally is appropriate, identify independent units, and reject false parallelism  `reference/` |
 | `DESIGN` | Choose a team pattern, teammate roles, models, modes, and `ownership_map`  `reference/` |
-| `SPAWN` | `TeamCreate`, then spawn teammates with complete context  `reference/` |
-| `ASSIGN` | `TaskCreate`, assign owners, and wire dependencies through `addBlockedBy`  `reference/` |
-| `MONITOR` | Poll `TaskList`, respond to `idle`, resolve blockers, and handle failures  `reference/` |
+| `SPAWN` | Discover the host's delegation schema, then create the supported team/session and spawn with complete context  `reference/` |
+| `ASSIGN` | Create or record tasks, owners, and dependencies using supported host operations  `reference/` |
+| `MONITOR` | Read supported task/status operations, respond to idle workers, resolve blockers, and handle failures  `reference/` |
 | `SYNTHESIZE` | Collect `files_changed`, detect ownership conflicts, run verification, and trigger `ON_RESULT_CONFLICT` when needed  `reference/` |
-| `CLEANUP` | Confirm completion, send `shutdown_request`, wait for approval, then `TeamDelete` and report  `reference/` |
+| `CLEANUP` | Verify completion, use the host's supported shutdown/cleanup lifecycle, and report  `reference/` |
 | `HARMONIZE` | `COLLECT -> EVALUATE -> EXTRACT -> ADAPT -> SAFEGUARD -> RECORD`  `reference/` |
 
 ## Teammate Modes
 
 | Mode | Use when | Approval model |
 |------|----------|----------------|
-| `bypassPermissions` | Low-risk implementation or verification work | Default |
-| `plan` | High-risk work where Rally must review the plan first | Rally approves via `plan_approval_response` |
-| `default` | Work that must ask the user for approval | User confirmation |
+| Inherited permissions | Default for all work, including low-risk implementation | Host policy and existing task authorization |
+| Plan/review mode, if supported | High-risk work that needs a plan gate | Use the installed host's actual approval flow |
+| Elevated permissions, if supported | Only when separately authorized and host policy permits | Never enable bypass automatically based on a risk estimate |
 
 ## Parallel Learning
 
@@ -217,7 +219,7 @@ Parse the first token of user input.
 - Otherwise → default Recipe (`parallel` = Parallel Execution). Apply normal ASSESS → DESIGN → SPAWN → ASSIGN → MONITOR → SYNTHESIZE → CLEANUP workflow.
 
 Behavior notes per Recipe:
-- `engine-paradigm`: Two sub-modes. **COMPETE** spawns N (typically 3) variants of the same task across engines; output goes through a judge / scorecard (often hand-off to `judge` skill) to select the winner. Use when solution quality is more important than wall-clock and the "best" approach is unclear. **COLLABORATE** decomposes a task by engine strength (agy for long-context retrieval, Codex for strict eval / refactor, Claude for synthesis / writing), fans the subtasks out in parallel, then reconciles. Solo / Team / Quick modes scale 1 / 3 / 5 engines respectively. Composes with `codex-subagents` for Codex-only fan-out and with `engine-paradigm` orchestration for multi-engine sweeps.
+- `engine-paradigm`: Two sub-modes. **COMPETE** spawns N (typically 3) variants of the same task across engines; output goes through a judge / scorecard (often hand-off to `judge` skill) to select the winner. Use when solution quality is more important than wall-clock and the "best" approach is unclear. **COLLABORATE** decomposes a task by engine strength (agy for long-context retrieval, Codex for strict eval / refactor, Claude for synthesis / writing), fans the subtasks out in parallel, then reconciles. Solo runs sequentially; Team parallelizes sufficient independent work; Quick uses the smallest comparison/integration budget. Engine counts depend on available capabilities and authorization. Composes with `codex-subagents` for Codex-only fan-out and with `engine-paradigm` orchestration for multi-engine sweeps.
 
 ## Output Routing
 
@@ -248,7 +250,7 @@ Routing rules:
 
 ## Codex CLI Subagent Orchestration
 
-When running on Codex CLI, Rally uses `spawn_agent` / `wait_agent` / `send_input` / `close_agent` instead of Agent Teams API — same 7-phase lifecycle, different primitives. Full API mapping, the parallel-spawn pattern, and `agents.max_depth` configuration → `reference/orchestration-patterns.md`.
+Discover the installed host's spawn, message, wait, status, and cleanup schemas before binding the lifecycle. Preserve its permissions and model unless a change is authorized. The names and parameters in `reference/orchestration-patterns.md` and `reference/agent-teams-api-reference.md` are installation-specific examples, not portable calls. If delegation is unavailable or prohibited, run independent units sequentially and report the reduced parallelism; do not invent operations or install a runtime automatically.
 
 ## Reference Map
 
@@ -271,10 +273,10 @@ When running on Codex CLI, Rally uses `spawn_agent` / `wait_agent` / `send_input
 
 **Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
-- Before starting (mandatory): read `.agents/rally.md` and `.agents/PROJECT.md`; create if missing.
-- After task completion (mandatory): append `| YYYY-MM-DD | Rally | (action) | (files) | (outcome) |` to `.agents/PROJECT.md`. Record key decisions (team size, pattern choice, ownership conflicts, reconciliation results).
-- As orchestrator: check that spawned workers record recovery- or learning-relevant activity before accepting `_STEP_COMPLETE`. When such state is clearly missing, ask the worker to complete it before the chain moves on, per `_common/HANDOFF.md` → *Pre-Handoff Journaling*.
-- Journal: record domain insights in `.agents/rally.md`. Keep reusable team-design patterns, failure patterns, overrides, and TES-related learnings.
+- Under an existing project logging convention or task authorization, read `.agents/rally.md` and `.agents/PROJECT.md` and create missing records only within that scope.
+- When that persistence is authorized, append `| YYYY-MM-DD | Rally | (action) | (files) | (outcome) |` to `.agents/PROJECT.md` with key decisions (team size, pattern choice, ownership conflicts, reconciliation results). Otherwise report them in the response.
+- As orchestrator: collect recovery- or learning-relevant activity in the worker report. Require a durable record before `_STEP_COMPLETE` only when the project handoff contract already calls for one, per `_common/HANDOFF.md` → *Pre-Handoff Journaling*.
+- When journaling is authorized, record domain insights in `.agents/rally.md`: reusable team-design patterns, failure patterns, overrides, and TES-related learnings. Otherwise include them in the response.
 - Standard protocols and Pre-Handoff Checklist: `_common/OPERATIONAL.md`
 
 ## AUTORUN Support

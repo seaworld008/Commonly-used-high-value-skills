@@ -2,13 +2,13 @@
 name: migration-architect
 description: 'Purpose: Zero-downtime migration planning, compatibility validation, and rollback strategy generation.'
 zh_description: "规划可回滚、低停机的数据和系统迁移。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["architect", "development", "migration"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -459,14 +459,16 @@ Metrics:
 
 ### CI/CD Integration
 ```yaml
-# Example migration pipeline stage
+# Set MIGRATION_SKILL_DIR to the installed migration-architect directory.
 migration_validation:
   stage: test
   script:
-    - python scripts/compatibility_checker.py --before=old_schema.json --after=new_schema.json
-    - python scripts/migration_planner.py --config=migration_config.json --validate
+    - python "$MIGRATION_SKILL_DIR/scripts/migration_planner.py" --input migration_config.json --validate
+    - python "$MIGRATION_SKILL_DIR/scripts/migration_planner.py" --input migration_config.json --format json --output migration_plan.json
+    - python "$MIGRATION_SKILL_DIR/scripts/compatibility_checker.py" --before old_schema.json --after new_schema.json --format json --output compatibility_report.json
   artifacts:
-    reports:
+    when: always
+    paths:
       - compatibility_report.json
       - migration_plan.json
 ```

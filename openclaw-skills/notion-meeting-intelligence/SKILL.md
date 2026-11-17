@@ -2,13 +2,14 @@
 name: notion-meeting-intelligence
 description: 'Use when preparing for an upcoming meeting from Notion context: agenda, pre-read or briefing memo, open questions, blockers, and decisions needed.'
 zh_description: "会议前基于 Notion 上下文准备议程、预读材料和待决事项时使用。"
-version: "1.0.1"
-author: "seaworld008"
-source: "in-house"
-source_url: ""
+version: "1.0.2"
+author: "Notion Labs, Inc.; local curators"
+source: "https://github.com/openai/skills"
+source_url: "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/notion-meeting-intelligence/SKILL.md"
+license: "MIT"
 tags: '["intelligence", "meeting", "notion"]'
 created_at: "2026-03-04"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 3
 complexity: "intermediate"
 metadata:
@@ -62,15 +63,12 @@ search relevant meeting context
 
 ## Workflow
 
-### 0) If any MCP call fails because Notion MCP is not connected, pause and set it up:
-1. Add the Notion MCP:
-   - `codex mcp add notion --url https://mcp.notion.com/mcp`
-2. Enable remote MCP client:
-   - Set `[features].rmcp_client = true` in `config.toml` **or** run `codex --enable rmcp_client`
-3. Log in with OAuth:
-   - `codex mcp login notion`
+### 0) Discover the available Notion connection
+Discover and use the host's available Notion connector; map the example tool names below to its supported operations. If unavailable, explain the missing capability and continue independent local drafting from supplied material. Do not claim to have fetched or published pages without a working connection.
 
-After successful login, the user will have to restart codex. You should finish your answer and tell them so when they try again they can continue with Step 1.
+Installation, configuration, and OAuth setup are separate user-requested tasks. For such a task, check the installed CLI help and host instructions before changing configuration; do not assume a specific feature flag or restart requirement.
+
+Ask about source or destination only when ambiguity materially changes the result and cannot be resolved from the request or workspace context.
 
 ### 1) Gather inputs
 - Ask for objective, desired outcomes/decisions, attendees, duration, date/time, and prior materials.

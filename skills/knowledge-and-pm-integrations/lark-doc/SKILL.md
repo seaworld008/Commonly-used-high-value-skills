@@ -2,14 +2,14 @@
 name: lark-doc
 description: '用于读取、创建和编辑飞书 Docx/Wiki，处理正文图片、附件与思维笔记。用户提供 /docx/、/wiki/ URL/token（含 doubao.com）时使用；/page/ 是妙搭应用。内嵌资源按读取参考分流；独立评论走 lark-drive，随正文读取评论用 docs +fetch。表格和 Base 数据操作转对应技能。'
 zh_description: "用于读取、编辑和生成飞书云文档内容。"
-version: "1.0.18"
+version: "1.0.19"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-doc"
 license: MIT
 tags: '[feishu, lark, lark-cli, docs, documents]'
 created_at: "2026-05-19"
-updated_at: "2026-10-26"
+updated_at: "2026-11-17"
 quality: 3
 complexity: intermediate
 metadata:
@@ -27,7 +27,7 @@ metadata:
 
 **身份：文档操作推荐显式指定 `--as user`。**
 
-**本地文件引用统一遵循文件访问权限：CWD 内优先使用 `@./相对路径`，其他目录使用 `@绝对路径`。XML 内的相对资源路径先查 CWD；仅文件不存在时再查源 XML 文件所在目录，同名文件以 CWD 为准。内联内容、stdin、在线文档没有源文件目录，不执行回退。**
+**本地文件访问：优先使用已授权的 CWD 相对路径；区别文档内容引用（如 `@file`）、文件 flag 与输出路径，其他形式按该命令已安装版本的帮助和宿主文件权限选择，不假定所有命令都接受 `@绝对路径`。XML 相对资源按文档参考先查 CWD，缺失时再查源 XML 目录，同名文件以 CWD 为准；两处均须在授权范围内。内联内容、stdin、在线文档没有源文件目录，不执行回退。**
 
 ### 文档内容
 
@@ -57,7 +57,7 @@ metadata:
 ## 不在本 Skill 范围
 
 - **妙搭应用链接**：`/page/<token>` 指向妙搭应用，不交给 `docs +fetch`；结合宿主实际可用能力处理。
-- **Drive 文件级操作**：找文档、导入导出、云空间文件上传 / 下载 / 权限管理 → [`lark-drive`](../lark-drive/SKILL.md)。复制文档、创建副本或另存为副本时，按其指引使用 `lark-cli drive files copy`；不要用 `docs +fetch` + `docs +create` 重建正文。
+- **Drive 文件级操作**：找文档、导入导出、云空间文件上传 / 下载 / 权限管理 → [`lark-drive`](../lark-drive/SKILL.md)。复制文档到云盘或文件夹时，按 `lark-drive` 的 `lark-cli drive +copy` 解析源与目标；复制为 Wiki 节点时按 `lark-wiki` 的 `wiki +node-copy`；不要用 `docs +fetch` + `docs +create` 重建正文。
 - **独立评论操作**：添加、分页查看、回复评论或增删 reaction → [`lark-drive`](../lark-drive/SKILL.md)；只需紧凑评论上下文时，直接使用默认 JSON 响应的 `docs +fetch`。
 
 <!-- LOCAL-QUALITY-SUPPLEMENT:START -->

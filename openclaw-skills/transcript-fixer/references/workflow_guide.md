@@ -1,483 +1,136 @@
 # Workflow Guide
 
-Detailed step-by-step workflows for transcript correction and management.
-
-## Table of Contents
-
-- [Pre-Flight Checklist](#pre-flight-checklist)
-  - [Initial Setup](#initial-setup)
-  - [File Preparation](#file-preparation)
-  - [Execution Parameters](#execution-parameters)
-  - [Environment](#environment)
-- [Core Workflows](#core-workflows)
-  - [1. First-Time Correction](#1-first-time-correction)
-  - [2. Iterative Improvement](#2-iterative-improvement)
-  - [3. Domain-Specific Corrections](#3-domain-specific-corrections)
-  - [4. Team Collaboration](#4-team-collaboration)
-  - [5. Stage-by-Stage Execution](#5-stage-by-stage-execution)
-  - [6. Context-Aware Rules](#6-context-aware-rules)
-  - [7. Diff Report Generation](#7-diff-report-generation)
-- [Batch Processing](#batch-processing)
-  - [Process Multiple Files](#process-multiple-files)
-  - [Parallel Processing](#parallel-processing)
-- [Maintenance Workflows](#maintenance-workflows)
-  - [Weekly: Review Learning](#weekly-review-learning)
-  - [Monthly: Export and Backup](#monthly-export-and-backup)
-  - [Quarterly: Clean Up](#quarterly-clean-up)
-- [Next Steps](#next-steps)
+在技能根目录运行以下命令。保留原稿、说话人归属、数字和专有名词；上下文不足的改写标为候选。已有 setup 授权持续有效，复用所选配置与已授权环境。
 
 ## Pre-Flight Checklist
 
-Before running corrections, verify these prerequisites:
+### Initial Setup（仅需持久字典时）
 
-### Initial Setup
-- [ ] Initialized with `uv run scripts/fix_transcription.py --init`
-- [ ] Database exists at `~/.transcript-fixer/corrections.db`
-- [ ] `GLM_API_KEY` environment variable set (run `echo $GLM_API_KEY`)
-- [ ] Configuration validated (run `--validate`)
+一次性校正无需初始化全局库。已有字典通过当前配置选择；`TRANSCRIPT_FIXER_DB_PATH` 优先，否则为 `TRANSCRIPT_FIXER_CONFIG_DIR/corrections.db`（目录默认 `~/.transcript-fixer`）。持久 setup 已获授权时：
 
-### File Preparation
-- [ ] Input file exists and is readable
-- [ ] File uses supported format (`.md`, `.txt`)
-- [ ] File encoding is UTF-8
-- [ ] File size is reasonable (<10MB for first runs)
+```bash
+python scripts/fix_transcription.py --init
+python scripts/fix_transcription.py --add "巨升智能" "具身智能" --domain embodied_ai
+```
 
-### Execution Parameters
-- [ ] Using `--stage 3` for full pipeline (or specific stage if testing)
-- [ ] Domain specified with `--domain` if using specialized dictionaries
-- [ ] Using `--merge` flag when importing team corrections
+使用满足 `requirements.txt` 的 Python 环境，或包装器内的 uv 依赖入口。不要修改已有授权之外的账号配置、shell 登录文件。AI 需要用户安全提供进程环境中的 key；不回显、不复制到报告。
 
-### Environment
-- [ ] Sufficient disk space for output files (~2x input size)
-- [ ] API quota available for Stage 2 corrections
-- [ ] Network connectivity for API calls
+### 文件与参数
+
+- 原稿为可读的 UTF-8 文本；先在小样本上确认领域和词典规则。
+- 输出写所选目录，原稿保留；核对磁盘空间和本次输出清单。
+- Stage 1 无需联网和 key；Stage 2/3 会把文本发往所配置提供商，遵守已有数据共享授权。
 
 **Quick validation**:
 
 ```bash
-uv run scripts/fix_transcription.py --validate && echo $GLM_API_KEY
+uv run scripts/fix_transcription.py --validate &&
+python -c 'import os, sys; sys.exit(0 if os.environ.get("GLM_API_KEY") else 1)'
 ```
 
-## Core Workflows
+后半句仅返回存在性退出状态（有值 0、缺失/空值 1），不打印 key；即使 shell 开启 xtrace，也不会把环境值展开进命令参数。`--validate` 仅验当前已有库，不做 setup。缺库、缺表、损坏返回 1；WAL/SHM/journal 侧车存在时返回 1 并报告未验收。正常只读校验采用私有静态快照，不写用户库或侧车。无持久库的一次性校正可以直接 Stage 1；校验失败不表示它必须创建默认库。
 
-### 1. First-Time Correction
-
-**Goal**: Correct a transcript for the first time.
-
-**Steps**:
-
-1. **Initialize** (if not done):
-   ```bash
-   uv run scripts/fix_transcription.py --init
-   export GLM_API_KEY="your-key"
-   ```
-
-2. **Add initial corrections** (5-10 common errors):
-   ```bash
-   uv run scripts/fix_transcription.py --add "常见错误1" "正确词1" --domain general
-   uv run scripts/fix_transcription.py --add "常见错误2" "正确词2" --domain general
-   ```
-
-3. **Test on small sample** (Stage 1 only):
-   ```bash
-   uv run scripts/fix_transcription.py --input sample.md --stage 1
-   less sample_stage1.md  # Review output
-   ```
-
-4. **Run full pipeline**:
-   ```bash
-   uv run scripts/fix_transcription.py --input transcript.md --stage 3 --domain general
-   ```
-
-5. **Review outputs**:
-   ```bash
-   # Stage 1: Dictionary corrections
-   less transcript_stage1.md
-
-   # Stage 2: Final corrected version
-   less transcript_stage2.md
-
-   # Generate diff report
-   uv run scripts/diff_generator.py transcript.md transcript_stage1.md transcript_stage2.md
-   ```
-
-**Expected duration**:
-- Stage 1: Instant (dictionary lookup)
-- Stage 2: ~1-2 minutes per 1000 lines (API calls)
-
-### 2. Iterative Improvement
-
-**Goal**: Improve correction quality over time through learning.
-
-**Steps**:
-
-1. **Run corrections** on 3-5 similar transcripts:
-   ```bash
-   uv run scripts/fix_transcription.py --input day1.md --stage 3 --domain embodied_ai
-   uv run scripts/fix_transcription.py --input day2.md --stage 3 --domain embodied_ai
-   uv run scripts/fix_transcription.py --input day3.md --stage 3 --domain embodied_ai
-   ```
-
-2. **Review learned suggestions**:
-   ```bash
-   uv run scripts/fix_transcription.py --review-learned
-   ```
-
-   **Output example**:
-   ```
-   📚 Learned Suggestions (Pending Review)
-   ========================================
-
-   1. "巨升方向" → "具身方向"
-      Frequency: 5  Confidence: 0.95
-      Examples: day1.md (line 45), day2.md (line 23), ...
-
-   2. "奇迹创坛" → "奇绩创坛"
-      Frequency: 3  Confidence: 0.87
-      Examples: day1.md (line 102), day3.md (line 67)
-   ```
-
-3. **Approve high-quality suggestions**:
-   ```bash
-   uv run scripts/fix_transcription.py --approve "巨升方向" "具身方向"
-   uv run scripts/fix_transcription.py --approve "奇迹创坛" "奇绩创坛"
-   ```
-
-4. **Verify approved corrections**:
-   ```bash
-   uv run scripts/fix_transcription.py --list --domain embodied_ai | grep "learned"
-   ```
-
-5. **Run next batch** (benefits from approved corrections):
-   ```bash
-   uv run scripts/fix_transcription.py --input day4.md --stage 3 --domain embodied_ai
-   ```
-
-**Impact**: Approved corrections move to Stage 1 (instant, free).
-
-**Cycle**: Repeat every 3-5 transcripts for continuous improvement.
-
-### 3. Domain-Specific Corrections
-
-**Goal**: Build specialized dictionaries for different fields.
-
-**Steps**:
-
-1. **Identify domain**:
-   - `embodied_ai` - Robotics, AI terminology
-   - `finance` - Financial terminology
-   - `medical` - Medical terminology
-   - `general` - General-purpose
-
-2. **Add domain-specific terms**:
-   ```bash
-   # Embodied AI domain
-   uv run scripts/fix_transcription.py --add "巨升智能" "具身智能" --domain embodied_ai
-   uv run scripts/fix_transcription.py --add "机器学习" "机器学习" --domain embodied_ai
-
-   # Finance domain
-   uv run scripts/fix_transcription.py --add "股价" "股价" --domain finance  # Keep as-is
-   uv run scripts/fix_transcription.py --add "PE比率" "市盈率" --domain finance
-   ```
-
-3. **Use appropriate domain** when correcting:
-   ```bash
-   # AI meeting transcript
-   uv run scripts/fix_transcription.py --input ai_meeting.md --stage 3 --domain embodied_ai
-
-   # Financial report transcript
-   uv run scripts/fix_transcription.py --input earnings_call.md --stage 3 --domain finance
-   ```
-
-4. **Review domain statistics**:
-   ```bash
-   sqlite3 ~/.transcript-fixer/corrections.db "SELECT * FROM correction_statistics;"
-   ```
-
-**Benefits**:
-- Prevents cross-domain conflicts
-- Higher accuracy per domain
-- Targeted vocabulary building
-
-### 4. Team Collaboration
-
-**Goal**: Share corrections across team members.
-
-**Steps**:
-
-#### Setup (One-time per team)
-
-1. **Create shared repository**:
-   ```bash
-   mkdir transcript-corrections
-   cd transcript-corrections
-   git init
-
-   # .gitignore
-   echo "*.db\n*.db-journal\n*.bak" > .gitignore
-   ```
-
-2. **Export initial corrections**:
-   ```bash
-   uv run scripts/fix_transcription.py --export general.json --domain general
-   uv run scripts/fix_transcription.py --export embodied_ai.json --domain embodied_ai
-
-   git add *.json
-   git commit -m "Initial correction dictionaries"
-   git push origin main
-   ```
-
-#### Daily Workflow
-
-**Team Member A** (adds new corrections):
+## 1. First-Time Correction
 
 ```bash
-# 1. Run corrections
-uv run scripts/fix_transcription.py --input transcript.md --stage 3 --domain embodied_ai
-
-# 2. Review and approve learned suggestions
-uv run scripts/fix_transcription.py --review-learned
-uv run scripts/fix_transcription.py --approve "新错误" "正确词"
-
-# 3. Export updated corrections
-uv run scripts/fix_transcription.py --export embodied_ai_$(date +%Y%m%d).json --domain embodied_ai
-
-# 4. Commit and push
-git add embodied_ai_*.json
-git commit -m "Add embodied AI corrections from today's transcripts"
-git push origin main
+python scripts/fix_transcription.py --input meeting.md --stage 1 --domain embodied_ai
+python scripts/fix_transcription.py --input meeting.md --stage 2 --domain embodied_ai
 ```
 
-**Team Member B** (imports team corrections):
+Stage 2 是累计阶段：先词典，再 AI，直接传原稿。成功得到 `meeting_stage1.md` 和 `meeting_stage2.md`。Stage 3 同样执行这两步，再打印 diff 提示；不自动生成 HTML。使用包装器可选输出目录：
 
 ```bash
-# 1. Pull latest corrections
-git pull origin main
-
-# 2. Import with merge
-uv run scripts/fix_transcription.py --import embodied_ai_20250128.json --merge
-
-# 3. Verify
-uv run scripts/fix_transcription.py --list --domain embodied_ai | tail -10
+python scripts/fix_transcript_enhanced.py meeting.md --output ./corrected --stage 2 --domain embodied_ai
 ```
 
-**Conflict resolution**: See `team_collaboration.md` for handling merge conflicts.
+包装器不搜 shell 凭据、不默认打开浏览器，内部 uv 按 requirements 安装两项依赖。普通直接 Python 环境也须同时有 httpx、filelock；不要求安装可选 h2。
 
-### 5. Stage-by-Stage Execution
+## 2. Iterative Improvement
 
-**Goal**: Test dictionary changes without wasting API quota.
-
-#### Stage 1 Only (Dictionary)
-
-**Use when**: Testing new corrections, verifying domain setup.
+1. 将同一领域原稿逐次校正，人工核对 AI 的改写与源音频/上下文。
+2. 收集“错误短语 → 正确短语”、领域、出处和不确定性。高频并不等于正确，先检查人名、数字和多义词。
+3. 对已获授权且确认可复用的词条执行 `--add`，然后用小样本 Stage 1 确认下次能命中。
+4. 再跑后续同领域原稿，比对剩余错误，保留误改的反例。
 
 ```bash
-uv run scripts/fix_transcription.py --input file.md --stage 1 --domain general
+python scripts/fix_transcription.py --add "巨升方向" "具身方向" --domain embodied_ai
+python scripts/fix_transcription.py --input next_meeting.md --stage 1 --domain embodied_ai
 ```
 
-**Output**: `file_stage1.md` with dictionary corrections only.
+学习默认关闭。显式启用学习可持久化历史/候选，自动批准还有独立开关；`--review-learned` 与 `--approve` 当前仅打印未实现，不能把它们当成审阅工具或成功批准。默认返回人工待审候选，批准写库使用 `--add`。领域流程详见 `iteration_workflow.md`。
 
-**Review**: Check if dictionary corrections are sufficient.
+## 3. Domain-Specific Corrections
 
-#### Stage 2 Only (AI)
+| Domain | 使用场景 |
+|--------|----------|
+| general | 通用术语与已核实专名 |
+| embodied_ai | 具身智能、机器人、技术交流 |
+| finance | 财务、投资，重点核对金额与口径 |
+| medical | 医疗术语，保留源语义和不确定性 |
 
-**Use when**: Running AI corrections on pre-processed file.
-
-**Prerequisites**: Stage 1 output exists.
+核心 CLI 可用合法自定义领域名；包装器限定上述四种。避免将 `股价 → 框架` 这样的歧义替换无条件加入 general，优先保存已核实的完整短语。
 
 ```bash
-# Stage 1 first
-uv run scripts/fix_transcription.py --input file.md --stage 1
-
-# Then Stage 2
-uv run scripts/fix_transcription.py --input file_stage1.md --stage 2
+python scripts/fix_transcription.py --add "股价系统" "框架系统" --domain embodied_ai
+python scripts/fix_transcription.py --input lecture.md --stage 1 --domain embodied_ai
 ```
 
-**Output**: `file_stage1_stage2.md` (confusing naming - use Stage 3 instead).
+## 4. Team Collaboration
 
-#### Stage 3 (Full Pipeline)
+用经过审阅的词条 JSON、出处与反例交换知识，按 `from_text + domain` 检查冲突。不要共享含原稿历史的数据库或凭据。当前 CLI 不实现 `--export/--import/--merge`；共享文件格式和人工合并见 `team_collaboration.md`、`file_formats.md`。用已确认词条调用 `--add`；批量示例位于 `scripts/examples/bulk_import.py`，先审查其输入与写入范围。远端发布沿用既有授权。
 
-**Use when**: Production runs, full correction workflow.
+## 5. Stage-by-Stage Execution
+
+| `--stage` | 执行到 | 输出 |
+|-------------|--------|------|
+| 1 | 词典及上下文规则 | `file_stage1.md` |
+| 2 | 词典 → AI | `file_stage1.md`、`file_stage2.md` |
+| 3（默认） | 同 2，另有 diff 提示 | 同 2 |
+
+始终传本次原稿 `file.md`。预先传 `file_stage1.md` 会重复词典处理并生成双重后缀；不需要这样串联。
+
+处理成功 0；缺文件、缺 key、AI 失败或存储错误为 1。非法参数通常为 argparse 的 2；不存在“缺 key=2、API 失败=3”的约定。核心 AI 失败时可能已交付 Stage 1；包装器在缺 key 时提前退出。不能根据旧文件的存在判断本次成功。自动化可给核心 CLI 设置本次私有 `TRANSCRIPT_FIXER_OUTPUT_MANIFEST`，读取 JSON 的 `outputs` 并核对退出码；包装器自动使用私有清单。
+
+## 6. Context-Aware Rules
+
+上下文规则按高优先级先执行。先读 `database_schema.md`，备份所选数据库并确认写入在既有维护范围内。此示例用于人工 SQL 会话，路径应替换为当前选中的字典：
+
+```sql
+INSERT INTO context_rules (pattern, replacement, description, priority)
+VALUES ('近距离的去看', '近距离地去看', '的→地 before verb', 10);
+```
+
+先保留“近距离搏杀”等不应改写的反例，在小样本 Stage 1 上比对结果。不要以验证命令代替语义评审；`--validate` 只验已有结构与 SQLite 完整性。
+
+## 7. Diff Report Generation
 
 ```bash
-uv run scripts/fix_transcription.py --input file.md --stage 3 --domain general
+python scripts/generate_word_diff.py meeting.md meeting_stage2.md review.html
 ```
 
-**Output**: Both `file_stage1.md` and `file_stage2.md`.
-
-**Recommended**: Use Stage 3 for most workflows.
-
-### 6. Context-Aware Rules
-
-**Goal**: Handle edge cases with regex patterns.
-
-**Use cases**:
-- Positional corrections (e.g., "的" vs "地")
-- Multi-word patterns
-- Conditional corrections
-
-**Steps**:
-
-1. **Identify pattern** that simple dictionary can't handle:
-   ```
-   Problem: "近距离的去看" (wrong - should be "地")
-   Problem: "近距离搏杀" (correct - should keep "的")
-   ```
-
-2. **Add context rules**:
-   ```bash
-   sqlite3 ~/.transcript-fixer/corrections.db
-
-   -- Higher priority for specific context
-   INSERT INTO context_rules (pattern, replacement, description, priority)
-   VALUES ('近距离的去看', '近距离地去看', '的→地 before verb', 10);
-
-   -- Lower priority for general pattern
-   INSERT INTO context_rules (pattern, replacement, description, priority)
-   VALUES ('近距离搏杀', '近距离搏杀', 'Keep 的 for noun modifier', 5);
-
-   .quit
-   ```
-
-3. **Test context rules**:
-   ```bash
-   uv run scripts/fix_transcription.py --input test.md --stage 1
-   ```
-
-4. **Validate**:
-   ```bash
-   uv run scripts/fix_transcription.py --validate
-   ```
-
-**Priority**: Higher numbers run first (use for exceptions/edge cases).
-
-See `file_formats.md` for context_rules schema.
-
-### 7. Diff Report Generation
-
-**Goal**: Visualize all changes for review.
-
-**Use when**:
-- Reviewing corrections before publishing
-- Training new team members
-- Documenting ASR error patterns
-
-**Steps**:
-
-1. **Run corrections**:
-   ```bash
-   uv run scripts/fix_transcription.py --input transcript.md --stage 3
-   ```
-
-2. **Generate diff reports**:
-   ```bash
-   uv run scripts/diff_generator.py \
-     transcript.md \
-     transcript_stage1.md \
-     transcript_stage2.md
-   ```
-
-3. **Review outputs**:
-   ```bash
-   # Markdown report (statistics + summary)
-   less diff_report.md
-
-   # Unified diff (git-style)
-   less transcript_unified.diff
-
-   # HTML side-by-side (visual review)
-   open transcript_sidebyside.html
-
-   # Inline markers (for editing)
-   less transcript_inline.md
-   ```
-
-**Report contents**:
-- Total changes count
-- Stage 1 vs Stage 2 breakdown
-- Character/word count changes
-- Side-by-side comparison
-
-See `script_parameters.md` for advanced diff options.
+唯一此处交付是 `review.html`。省略第三参数时默认 `meeting_对比_词语级.html`，不生成 Markdown、unified diff 等额外报告。先确认 Stage 2 属于本次成功运行。浏览器默认不开，已有授权要求可视检查时手工打开 HTML；`--auto-open` 仅尝试打开包装器本次清单中的 HTML，不负责创建它。
 
 ## Batch Processing
 
-### Process Multiple Files
+保持每个原稿的独立退出状态和输出目录；先确认单文件小样本，再在授权配额范围内批处理：
 
 ```bash
-# Simple loop
-for file in meeting_*.md; do
-  uv run scripts/fix_transcription.py --input "$file" --stage 3 --domain embodied_ai
-done
-
-# With error handling
-for file in meeting_*.md; do
-  echo "Processing $file..."
-  if uv run scripts/fix_transcription.py --input "$file" --stage 3 --domain embodied_ai; then
-    echo "✅ $file completed"
+for file in transcripts/*.md; do
+  if python scripts/fix_transcription.py --input "$file" --stage 2 --domain embodied_ai; then
+    printf '%s\n' "completed: $file"
   else
-    echo "❌ $file failed"
+    printf '%s\n' "failed or partial: $file" >&2
   fi
 done
 ```
 
-### Parallel Processing
-
-```bash
-# GNU parallel (install: brew install parallel)
-ls meeting_*.md | parallel -j 4 \
-  "uv run scripts/fix_transcription.py --input {} --stage 3 --domain embodied_ai"
-```
-
-**Caution**: Monitor API rate limits when processing in parallel.
+避免将 `*_stage1.md`、`*_stage2.md` 再当原稿输入。并发运行需评估提供商限额和持久化锁；失败时记录部分交付，不复用旧报告。
 
 ## Maintenance Workflows
 
-### Weekly: Review Learning
+- 每周：人工审阅候选、出处和反例；只把已确认可复用词条加入已授权字典。
+- 每月：为所选库制作一致备份，WAL 使用 SQLite backup 机制或停写后的完整一致副本；不能只复制主文件而遗漏活动 WAL。
+- 清理、迁移、VACUUM 等会写数据，仅在已授权维护中执行，先审查保留策略并验证备份；不要作为普通只读 preflight。
+- `--validate` 遇 WAL 明确未验收。维护者可提供无活动侧车的静止一致副本供核验，不能删除侧车或宣称已全部通过。
 
-```bash
-# Review suggestions
-uv run scripts/fix_transcription.py --review-learned
-
-# Approve high-confidence patterns
-uv run scripts/fix_transcription.py --approve "错误1" "正确1"
-uv run scripts/fix_transcription.py --approve "错误2" "正确2"
-```
-
-### Monthly: Export and Backup
-
-```bash
-# Export all domains
-uv run scripts/fix_transcription.py --export general_$(date +%Y%m%d).json --domain general
-uv run scripts/fix_transcription.py --export embodied_ai_$(date +%Y%m%d).json --domain embodied_ai
-
-# Backup database
-cp ~/.transcript-fixer/corrections.db ~/backups/corrections_$(date +%Y%m%d).db
-
-# Database maintenance
-sqlite3 ~/.transcript-fixer/corrections.db "VACUUM; REINDEX; ANALYZE;"
-```
-
-### Quarterly: Clean Up
-
-```bash
-# Archive old history (> 90 days)
-sqlite3 ~/.transcript-fixer/corrections.db "
-DELETE FROM correction_history
-WHERE run_timestamp < datetime('now', '-90 days');
-"
-
-# Reject low-confidence suggestions
-sqlite3 ~/.transcript-fixer/corrections.db "
-UPDATE learned_suggestions
-SET status = 'rejected'
-WHERE confidence < 0.6 AND frequency < 3;
-"
-```
-
-## Next Steps
-
-- See `best_practices.md` for optimization tips
-- See `troubleshooting.md` for error resolution
-- See `file_formats.md` for database schema
-- See `script_parameters.md` for advanced CLI options
+模型不可用时检查退出状态与本次清单，返回已完成的 Stage 1 和未完成的 Stage 2。脚本不保证任何 fallback 标记。若当前宿主在已有授权内继续人工校正，应另存结果、标注不确定性，按源文复核；沿用已授权 setup，无须添加新的批准循环。

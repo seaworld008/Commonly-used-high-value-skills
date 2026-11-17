@@ -2,14 +2,14 @@
 name: landing-page-generator
 description: 'Build React/Next.js landing pages with Tailwind, focused copy, accessible sections, calls to action, metadata, and performance validation.'
 zh_description: "生成具备清晰文案、行动入口和可访问性的落地页。"
-version: "1.0.8"
+version: "1.0.9"
 author: "seaworld008"
 source: "github:alirezarezvani/claude-skills"
 source_url: "https://github.com/alirezarezvani/claude-skills/blob/main/product-team/skills/landing-page-generator/SKILL.md"
 license: MIT
 tags: '["design", "generator", "landing", "page", "product"]'
 created_at: "2026-03-27"
-updated_at: "2026-09-22"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 ---
@@ -50,7 +50,7 @@ Follow these steps in order for every landing page request:
 4. **Apply copy framework** — write all headline and body copy using the chosen framework (PAS / AIDA / BAB) before generating components. Match the voice profile's formality and tone throughout.
 5. **Generate sections in order** — Hero → Features → Pricing → FAQ → Testimonials → CTA → Footer. Skip sections not relevant to the product.
 6. **Validate against SEO checklist** — run through every item in the SEO Checklist before outputting final code. Fix any gaps inline.
-7. **Output final components** — deliver complete, copy-paste-ready TSX files with all Tailwind classes, SEO meta, and structured data included.
+7. **Check the TSX before delivery** — From the skill directory, `python3 scripts/landing_page_scaffolder.py page.json --format tsx` reads a page-config JSON file and writes TSX to stdout. The scaffolder inserts configuration directly into JSX, so braces in copy can become expressions. Review the draft, represent copy as string data, validate link schemes and destinations, then compile the components in the target project.
 
 ---
 
@@ -202,16 +202,19 @@ Inject `FAQPage` JSON-LD via `<script type="application/ld+json" dangerouslySetI
 
 ---
 
+<!-- LOCAL-CURATION-SUPPLEMENT:START -->
 ## Related Skills
 
-- **Brand Voice Analyzer** — Optional helper in the separately installed `content-creator` skill. If unavailable, use the bundled copy frameworks to establish tone.
-- **UI Design System** (`product-team/ui-design-system/`) — Generate design tokens from brand color before building the page
-- **Competitive Teardown** (`product-team/competitive-teardown/`) — Competitive positioning informs landing page messaging and differentiation
-
-<!-- LOCAL-CURATION-SUPPLEMENT:START -->
-## Repository Routing Override
-
-For competitive evidence in this repository, use
-`skills/growth-operations-xiaohongshu/compete/`. The upstream
-`product-team/competitive-teardown/` path is not part of this repository.
+- **Brand Voice Analyzer** — If the separately installed `content-creator` helper is unavailable, use the bundled copy frameworks.
+- [UI Design System](../ui-design-system/SKILL.md) — Generate tokens from brand colors.
+- [Competitive Teardown](../competitive-teardown/SKILL.md) — Compare competitors' positioning and messaging. Use [Compete](../compete/SKILL.md) for ongoing competitive intelligence when relevant.
 <!-- LOCAL-CURATION-SUPPLEMENT:END -->
+
+## Bundled resources
+
+Use `python3 scripts/landing_page_scaffolder.py --help` to inspect the optional page-config scaffolder before generating a requested page. Load only the needed reference:
+
+- [Conversion patterns](references/conversion-patterns.md) for conversion layout.
+- [Copy frameworks](references/copy-frameworks.md) for page copy.
+- [Landing page patterns](references/landing-page-patterns.md) for page structures.
+- [SEO checklist](references/seo-checklist.md) for page-level checks.

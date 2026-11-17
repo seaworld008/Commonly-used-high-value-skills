@@ -2,14 +2,14 @@
 name: theme-factory
 description: 'Use when styling artifacts with reusable themes, applying preset color/font systems, or generating new visual themes for slides, documents, reports, HTML pages, and landing pages.'
 zh_description: "用于为幻灯片、文档、报告和网页应用预设主题或生成新的颜色字体系统。"
-version: "1.0.0"
-author: "seaworld008"
-source: "in-house"
-source_url: ""
-license: Complete terms in LICENSE.txt
+version: "1.0.1"
+author: "Anthropic contributors; local curators"
+source: "https://github.com/anthropics/skills"
+source_url: "https://github.com/anthropics/skills/blob/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/theme-factory/SKILL.md"
+license: "Apache-2.0"
 tags: '["factory", "productivity", "theme"]'
 created_at: "2026-03-04"
-updated_at: "2026-06-29"
+updated_at: "2026-11-17"
 quality: 3
 complexity: "intermediate"
 ---
@@ -29,10 +29,9 @@ To apply consistent, professional styling to presentation slide decks, use this 
 
 To apply styling to a slide deck or other artifact:
 
-1. **Show the theme showcase**: Display the `theme-showcase.pdf` file to allow users to see all available themes visually. Do not make any modifications to it; simply show the file for viewing.
-2. **Ask for their choice**: Ask which theme to apply to the deck
-3. **Wait for selection**: Get explicit confirmation about the chosen theme
-4. **Apply the theme**: Once a theme has been chosen, apply the selected theme's colors and fonts to the deck/artifact
+- If the user named a theme, read its preset and follow the application process below.
+- If the user wants to compare themes, offer the bundled `theme-showcase.pdf` and ask which one fits.
+- If the user delegated the choice, select a preset for the audience and content, explain the choice briefly, and apply it.
 
 ## Themes Available
 

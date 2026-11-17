@@ -2,14 +2,14 @@
 name: security-and-hardening
 description: 'Harden authentication, input handling, storage, and integrations when implementing security controls or remediating concrete vulnerabilities.'
 zh_description: "加固身份认证、输入处理、数据存储和外部集成。"
-version: "1.0.6"
+version: "1.0.7"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/2686b620fc1fed2e8f60c704839c766b8594c6b6/skills/security-and-hardening/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "engineering", "security-and-hardening", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-10-16"
+updated_at: "2026-11-17"
 quality: 5
 complexity: advanced
 upstream_slug: security-and-hardening
@@ -49,7 +49,7 @@ Controls bolted on without a threat model are guesses. Before hardening, spend f
 
 4. **Write abuse cases next to use cases.** For each feature, ask "how would I misuse this?" — then make that your first test.
 
-If you can't name the trust boundaries for a feature, you're not ready to secure it. This is OWASP **A04: Insecure Design** — most breaches begin in design, not code.
+If you can't name the trust boundaries for a feature, you're not ready to secure it. This is OWASP **A06:2025 Insecure Design** — most breaches begin in design, not code.
 
 ## The Three-Tier Boundary System
 
@@ -112,8 +112,10 @@ const hashedPassword = await hash(plaintext, SALT_ROUNDS);
 const isValid = await compare(plaintext, hashedPassword);
 
 // Session management
+const SESSION_SECRET = process.env.SESSION_SECRET;
+if (!SESSION_SECRET) throw new Error("SESSION_SECRET not configured");
 app.use(session({
-  secret: process.env.SESSION_SECRET,  // From environment, not code
+  secret: SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
   cookie: {
@@ -145,6 +147,7 @@ const clean = DOMPurify.sanitize(userInput);
 // Always check authorization, not just authentication
 app.patch('/api/tasks/:id', authenticate, async (req, res) => {
   const task = await taskService.findById(req.params.id);
+  if (!task) return res.status(404).json({ error: { code: "NOT_FOUND", message: "Task not found" } });
 
   // Check that the authenticated user owns this resource
   if (task.ownerId !== req.user.id) {
@@ -189,8 +192,7 @@ app.use(cors({
 ```typescript
 // Never return sensitive fields in API responses
 function sanitizeUser(user: UserRecord): PublicUser {
-  const { passwordHash, resetToken, ...publicFields } = user;
-  return publicFields;
+  return { id: user.id, displayName: user.displayName };
 }
 
 // Use environment variables for secrets
@@ -290,7 +292,7 @@ Audits only find known advisories; they do not catch a newly malicious or typosq
 
 - **Never apply forced audit remediation automatically** (`npm audit fix --force` or equivalent). Preview the remediation, read changelogs, and test each resulting upgrade; forced fixes may cross declared dependency ranges.
 - **Verify registry signatures and provenance where supported** (`npm audit signatures`, `pnpm audit signatures`) and treat absence as a signal to investigate, not automatic proof of compromise.
-- **Review new dependencies, lockfile diffs, and script-policy changes together** — ownership, maintenance, release age, provenance, transitive graph, and typosquats such as `cross-env` vs `crossenv` (OWASP **A06**, **LLM03**).
+- **Review new dependencies, lockfile diffs, and script-policy changes together** — ownership, maintenance, release age, provenance, transitive graph, and typosquats such as `cross-env` vs `crossenv` (OWASP **A03:2025**, **LLM03**).
 
 ## Rate Limiting
 

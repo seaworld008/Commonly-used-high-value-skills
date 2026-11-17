@@ -12,29 +12,108 @@ Example:
     python scripts/init_qa_project.py my-app ./tests
 """
 
-import os
 import sys
 import csv
+import os
+import stat
+import tempfile
 from pathlib import Path
 from datetime import datetime
 
+DOCS = Path("tests/docs")
+TEMPLATES = DOCS / "templates"
+DIRECTORIES = (DOCS, TEMPLATES, Path("tests/e2e"), Path("tests/fixtures"))
+TRACKING = TEMPLATES / "TEST-EXECUTION-TRACKING.csv"
+BUGS = TEMPLATES / "BUG-TRACKING-TEMPLATE.csv"
+BASELINE = DOCS / "BASELINE-METRICS.md"
+WEEKLY = TEMPLATES / "WEEKLY-PROGRESS-REPORT.md"
+MASTER = DOCS / "MASTER-QA-PROMPT.md"
+README = DOCS / "README.md"
+TARGET_FILES = (TRACKING, BUGS, BASELINE, WEEKLY, MASTER, README)
+
+
+def file_identity(info):
+    return info.st_dev, info.st_ino, info.st_size, info.st_mtime_ns
+
+
+def rollback_created(created):
+    """Remove only unchanged files still belonging to this publication."""
+    for path, identity, content in reversed(created):
+        try:
+            if file_identity(path.lstat()) != identity:
+                continue
+            fd = os.open(path, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK)
+            with os.fdopen(fd, 'rb') as stream:
+                info = os.fstat(stream.fileno())
+                if not stat.S_ISREG(info.st_mode) or file_identity(info) != identity:
+                    continue
+                if stream.read() != content:
+                    continue
+            if file_identity(path.lstat()) == identity:
+                path.unlink()
+        except FileNotFoundError:
+            pass
+        except OSError:
+            # If ownership cannot be established, preserve the file.
+            print(f"⚠️ Could not safely roll back: {path}", file=sys.stderr)
+
+
+def publish_templates(staged, base_path):
+    """Publish exclusively; track each successful write for guarded rollback."""
+    created = []
+    try:
+        for name in TARGET_FILES:
+            content = (staged / name).read_bytes()
+            path = base_path / name
+            # QA records are owner-writable only, even with a permissive umask.
+            fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
+            record = [path, file_identity(os.fstat(fd)), b'']
+            created.append(record)
+            try:
+                offset = 0
+                while offset < len(content):
+                    written = os.write(fd, content[offset:])
+                    if written <= 0:
+                        raise OSError("Template write made no progress")
+                    offset += written
+                    record[1] = file_identity(os.fstat(fd))
+                    record[2] = content[:offset]
+            finally:
+                os.close(fd)
+    except BaseException:
+        rollback_created(created)
+        raise
+
+
+def check_targets(base_path):
+    """Detect conflicts across the complete plan before creating anything."""
+    for directory in (Path("tests"), *DIRECTORIES):
+        path = base_path / directory
+        if path.is_symlink() or (path.exists() and not path.is_dir()):
+            raise FileExistsError(f"Conflicting QA directory: {path}")
+
+    conflicts = []
+    for name in TARGET_FILES:
+        path = base_path / name
+        try:
+            path.lstat()
+        except FileNotFoundError:
+            continue
+        conflicts.append(path)
+    if conflicts:
+        raise FileExistsError("QA targets already exist:\n" + "\n".join(map(str, conflicts)))
+
+
 def create_directory_structure(base_path):
     """Create QA project directory structure."""
-    dirs = [
-        "tests/docs",
-        "tests/docs/templates",
-        "tests/e2e",
-        "tests/fixtures"
-    ]
-
-    for dir_path in dirs:
+    for dir_path in DIRECTORIES:
         full_path = base_path / dir_path
         full_path.mkdir(parents=True, exist_ok=True)
         print(f"✅ Created: {full_path}")
 
 def create_test_execution_tracking(base_path, project_name):
     """Create TEST-EXECUTION-TRACKING.csv with headers."""
-    csv_path = base_path / "tests/docs/templates/TEST-EXECUTION-TRACKING.csv"
+    csv_path = base_path / TRACKING
 
     headers = [
         "Test Case ID", "Category", "Priority", "Test Name",
@@ -43,7 +122,7 @@ def create_test_execution_tracking(base_path, project_name):
         "Notes", "Screenshot/Log"
     ]
 
-    with open(csv_path, 'w', newline='') as f:
+    with open(csv_path, 'x', newline='') as f:
         writer = csv.writer(f)
         writer.writerow(headers)
         # Add example row
@@ -57,7 +136,7 @@ def create_test_execution_tracking(base_path, project_name):
 
 def create_bug_tracking_template(base_path):
     """Create BUG-TRACKING-TEMPLATE.csv."""
-    csv_path = base_path / "tests/docs/templates/BUG-TRACKING-TEMPLATE.csv"
+    csv_path = base_path / BUGS
 
     headers = [
         "Bug ID", "Title", "Severity", "Component", "Test Case ID",
@@ -67,7 +146,7 @@ def create_bug_tracking_template(base_path):
         "Resolution", "Resolved Date", "Verified By", "Verification Date"
     ]
 
-    with open(csv_path, 'w', newline='') as f:
+    with open(csv_path, 'x', newline='') as f:
         writer = csv.writer(f)
         writer.writerow(headers)
         # Add example bug
@@ -170,8 +249,8 @@ def create_baseline_metrics(base_path, project_name):
 **Next Steps**: Begin Week 1 testing with baseline established.
 """
 
-    file_path = base_path / "tests/docs/BASELINE-METRICS.md"
-    with open(file_path, 'w') as f:
+    file_path = base_path / BASELINE
+    with open(file_path, 'x') as f:
         f.write(content)
 
     print(f"✅ Created: {file_path}")
@@ -273,8 +352,8 @@ def create_weekly_report_template(base_path):
 **Date**: [Date]
 """
 
-    file_path = base_path / "tests/docs/templates/WEEKLY-PROGRESS-REPORT.md"
-    with open(file_path, 'w') as f:
+    file_path = base_path / WEEKLY
+    with open(file_path, 'x') as f:
         f.write(content)
 
     print(f"✅ Created: {file_path}")
@@ -354,8 +433,8 @@ The master prompt automatically:
 **Usage**: Copy the master prompt above and paste it to start autonomous QA execution.
 """
 
-    file_path = base_path / "tests/docs/MASTER-QA-PROMPT.md"
-    with open(file_path, 'w') as f:
+    file_path = base_path / MASTER
+    with open(file_path, 'x') as f:
         f.write(content)
 
     print(f"✅ Created: {file_path}")
@@ -436,8 +515,8 @@ def create_readme(base_path, project_name):
 **Contact**: QA Lead - [Your Name]
 """
 
-    file_path = base_path / "tests/docs/README.md"
-    with open(file_path, 'w') as f:
+    file_path = base_path / README
+    with open(file_path, 'x') as f:
         f.write(content)
 
     print(f"✅ Created: {file_path}")
@@ -456,18 +535,28 @@ def main():
     print(f"\n🚀 Initializing QA Project: {project_name}")
     print(f"   Location: {base_path}\n")
 
-    # Create directory structure
-    create_directory_structure(base_path)
+    try:
+        check_targets(base_path)
+    except OSError as error:
+        sys.exit(str(error))
 
-    # Create tracking files
-    create_test_execution_tracking(base_path, project_name)
-    create_bug_tracking_template(base_path)
-
-    # Create documentation
-    create_baseline_metrics(base_path, project_name)
-    create_weekly_report_template(base_path)
-    create_master_qa_prompt(base_path, project_name)
-    create_readme(base_path, project_name)
+    try:
+        # Rendering failures leave no target files. TemporaryDirectory respects
+        # TMPDIR, and publication also works across filesystem boundaries.
+        with tempfile.TemporaryDirectory(prefix="qa-init-") as temporary:
+            staged = Path(temporary)
+            create_directory_structure(staged)
+            create_test_execution_tracking(staged, project_name)
+            create_bug_tracking_template(staged)
+            create_baseline_metrics(staged, project_name)
+            create_weekly_report_template(staged)
+            create_master_qa_prompt(staged, project_name)
+            create_readme(staged, project_name)
+            check_targets(base_path)
+            create_directory_structure(base_path)
+            publish_templates(staged, base_path)
+    except OSError as error:
+        sys.exit(str(error))
 
     print(f"\n✅ QA Project '{project_name}' initialized successfully!")
     print(f"\n📝 Next Steps:")

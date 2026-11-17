@@ -2,14 +2,14 @@
 name: code-simplification
 description: 'Refactor working code for clarity and maintainability while preserving behavior; use when complexity or duplication obstructs changes.'
 zh_description: "在保持行为一致的前提下简化代码和消除重复。"
-version: "1.0.3"
+version: "1.0.4"
 author: addyosmani
 source: "github:addyosmani/agent-skills"
 source_url: "https://github.com/addyosmani/agent-skills/blob/main/skills/code-simplification/SKILL.md"
 license: MIT
 tags: '["agent", "ai", "code-simplification", "engineering", "workflow"]'
 created_at: "2026-07-27"
-updated_at: "2026-10-16"
+updated_at: "2026-11-17"
 quality: 5
 complexity: advanced
 upstream_slug: code-simplification
@@ -93,11 +93,15 @@ const result = items.reduce((acc, item) => ({
   ...acc,
   [item.id]: { ...acc[item.id], count: (acc[item.id]?.count ?? 0) + 1 }
 }), {});
+```
 
-// CLEAR: Named intermediate step
-const countById = new Map<string, number>();
+```typescript
+// CLEAR: Explicit accumulation, preserving the ordinary object and entry shape
+let result = {};
 for (const item of items) {
-  countById.set(item.id, (countById.get(item.id) ?? 0) + 1);
+  const previous = result[item.id];
+  const entry = { ...previous, count: (previous?.count ?? 0) + 1 };
+  result = { ...result, [item.id]: entry };
 }
 ```
 

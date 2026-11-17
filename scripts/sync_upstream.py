@@ -61,27 +61,38 @@ try:
 except ImportError:  # pragma: no cover - repository CI is POSIX
     fcntl = None  # type: ignore[assignment]
 
-try:
-    from github_artifact_provider import (
+if __package__:
+    # Keep provider exception identities stable under package imports, even
+    # when a host also exposes scripts/ as a top-level import directory.
+    from .github_artifact_provider import (
         ArtifactNotFound,
         GITHUB_REPO_RE,
         GitHubArtifactProvider,
         GitHubProviderError,
         LicenseEvidence,
     )
-except ModuleNotFoundError:  # pragma: no cover - import path used by test loaders
-    from scripts.github_artifact_provider import (
-        ArtifactNotFound,
-        GITHUB_REPO_RE,
-        GitHubArtifactProvider,
-        GitHubProviderError,
-        LicenseEvidence,
-    )
+else:
+    try:
+        from github_artifact_provider import (
+            ArtifactNotFound,
+            GITHUB_REPO_RE,
+            GitHubArtifactProvider,
+            GitHubProviderError,
+            LicenseEvidence,
+        )
+    except ModuleNotFoundError:  # pragma: no cover - import path used by test loaders
+        from scripts.github_artifact_provider import (
+            ArtifactNotFound,
+            GITHUB_REPO_RE,
+            GitHubArtifactProvider,
+            GitHubProviderError,
+            LicenseEvidence,
+        )
 
 try:
-    from audit_licenses import PERMISSIVE_LICENSES
+    from audit_licenses import PERMISSIVE_LICENSES, SCOPED_FONT_LICENSES, scoped_font_license_error
 except ModuleNotFoundError:  # pragma: no cover - import path used by tests
-    from scripts.audit_licenses import PERMISSIVE_LICENSES
+    from scripts.audit_licenses import PERMISSIVE_LICENSES, SCOPED_FONT_LICENSES, scoped_font_license_error
 
 try:
     from durable_file_batch import (
@@ -772,7 +783,7 @@ def _v2_sync_entry_errors(entry: dict) -> list[str]:
                 )
 
     external_modes: list[str] = []
-    artifact_owners: dict[str, int] = {path: 0 for path in managed_by_path}
+    origin_owners: dict[str, set[int]] = {path: set() for path in managed_by_path}
     for origin_index, origin in enumerate(origins):
         if not isinstance(origin, dict):
             errors.append(f"origins[{origin_index}] must be an object")
@@ -805,9 +816,18 @@ def _v2_sync_entry_errors(entry: dict) -> list[str]:
         if origin_path is not None and not _safe_mapping_path(origin_path):
             errors.append(f"origins[{origin_index}] has unsafe path")
         license_value = origin.get("license")
+        scoped_font_ok = False
+        if not is_local and isinstance(license_value, str) and license_value in SCOPED_FONT_LICENSES:
+            # Font grants never authorize code or a second sync authority.
+            # Reuse the full on-disk font/notice/CP gate, only for immutable
+            # archived sidecars. Do not widen PERMISSIVE_LICENSES.
+            scoped_font_ok = bool(
+                is_archived_sidecar(origin, repo_skill, kind)
+                and not scoped_font_license_error(origin, entry, REPO_ROOT)
+            )
         if not is_local and (
             not isinstance(license_value, str)
-            or license_value not in PERMISSIVE_LICENSES
+            or license_value not in PERMISSIVE_LICENSES and not scoped_font_ok
         ):
             errors.append(
                 f"origins[{origin_index}] has no permitted external license"
@@ -820,6 +840,7 @@ def _v2_sync_entry_errors(entry: dict) -> list[str]:
         if not isinstance(artifacts, list) or (not artifacts and not is_local):
             errors.append(f"origins[{origin_index}] has no artifact inventory")
             artifacts = []
+        declared_targets: set[str] = set()
         for artifact_index, artifact in enumerate(artifacts):
             if not isinstance(artifact, dict):
                 errors.append(
@@ -840,6 +861,11 @@ def _v2_sync_entry_errors(entry: dict) -> list[str]:
                     "is invalid"
                 )
                 continue
+            if target in declared_targets:
+                errors.append(
+                    f"origins[{origin_index}].artifacts has duplicate target: {target}"
+                )
+            declared_targets.add(target)
             target_path = PurePosixPath(str(target))
             if not (
                 target_path.is_relative_to(skill_root)
@@ -852,9 +878,9 @@ def _v2_sync_entry_errors(entry: dict) -> list[str]:
                     f"origins[{origin_index}].artifacts[{artifact_index}] "
                     "escapes the canonical skill root"
                 )
-            for managed_path in artifact_owners:
+            for managed_path, owners in origin_owners.items():
                 if _artifact_owns_target(artifact, managed_path):
-                    artifact_owners[managed_path] += 1
+                    owners.add(origin_index)
 
         tracking = origin.get("tracking")
         if not isinstance(tracking, dict):
@@ -1028,11 +1054,11 @@ def _v2_sync_entry_errors(entry: dict) -> list[str]:
         )
     elif entry_mode != external_modes[0]:
         errors.append("entry/external origin sync_mode conflict")
-    for path, owners in artifact_owners.items():
-        if owners != 1:
+    for path, owners in origin_owners.items():
+        if len(owners) != 1:
             errors.append(
                 f"managed file {path!r} must have exactly one artifact owner; "
-                f"found {owners}"
+                f"found {len(owners)}"
             )
     if str(repo_skill) not in managed_by_path:
         errors.append("repo_skill is absent from managed_files")
@@ -1141,6 +1167,7 @@ def _v2_loaded_skill(entry: dict, mapping_path: Path, entry_index: int) -> dict 
             if isinstance(origin, dict)
             and isinstance(origin.get("repo"), str)
             and not origin["repo"].startswith("local-repo/")
+            and not is_archived_sidecar(origin, repo_skill, kind)
         ]
         if len(external_origins) != 1:
             return {
@@ -2031,9 +2058,23 @@ def _check_v2_upstream_changes(
     provider = _provider_for(token)
     try:
         resolved = provider.resolve_tracking(skill["repo"], tracking)
-        license_evidence = provider.license_evidence(
-            skill["repo"], resolved.commit
+        previous_license = tracking.get("license_checkpoint")
+        license_path = (
+            previous_license.get("path")
+            if isinstance(previous_license, dict)
+            else None
         )
+        if isinstance(license_path, str) and "/" in license_path:
+            # Only an explicitly reviewed nested path selects tree/blob evidence.
+            # Revalidate at the current commit; never borrow the old checkpoint
+            # bytes or fall back to a potentially different root license.
+            license_evidence = provider.license_evidence_at_path(
+                skill["repo"], resolved.commit, license_path
+            )
+        else:
+            license_evidence = provider.license_evidence(
+                skill["repo"], resolved.commit
+            )
         license_checkpoint, license_error = _validate_license_evidence(
             skill, license_evidence
         )

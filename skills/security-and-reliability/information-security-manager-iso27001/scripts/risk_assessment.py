@@ -2,18 +2,21 @@
 """
 Security Risk Assessment Tool
 
-Automated risk assessment following ISO 27001 Clause 6.1.2 methodology.
-Identifies assets, threats, vulnerabilities, and calculates risk scores.
+Offline catalog scenario analysis supporting ISO 27001 risk workshops.
+Does not discover assets, scan vulnerabilities, or verify control evidence.
 
 Usage:
-    python risk_assessment.py --scope "system-name" --output risks.json
-    python risk_assessment.py --assets assets.csv --template healthcare
+    python risk_assessment.py --scope "example" --demo --format json
+    python risk_assessment.py --scope "system-name" --assets assets.csv --template healthcare
 """
 
 import argparse
 import csv
+import io
 import json
+import math
 import sys
+import unicodedata
 from datetime import datetime
 from typing import Dict, List, Any, Optional
 
@@ -103,28 +106,82 @@ def get_risk_level(score: int) -> str:
     return "minimal"
 
 
+def validate_csv_headers(reader: csv.DictReader, label: str) -> None:
+    """Reject ambiguous columns before DictReader can overwrite row evidence."""
+    headers = [unicodedata.normalize("NFKC", name).strip().casefold()
+               for name in (reader.fieldnames or [])]
+    seen = set()
+    for name in headers:
+        if not name:
+            raise ValueError(f"{label} CSV has an empty column name")
+        if name in seen:
+            raise ValueError(f"{label} CSV has a duplicate column name: {name}")
+        seen.add(name)
+
+
 def load_assets_from_csv(filepath: str) -> List[Dict[str, Any]]:
-    """Load asset inventory from CSV file."""
+    """Load a supplied inventory; never substitute missing data with samples."""
     assets = []
-    try:
-        with open(filepath, "r", encoding="utf-8") as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                asset = {
-                    "id": row.get("id", f"A{len(assets)+1:03d}"),
-                    "name": row.get("name", "Unknown"),
-                    "type": row.get("type", "Information"),
-                    "owner": row.get("owner", "Unassigned"),
-                    "classification": row.get("classification", "medium").lower(),
-                }
-                assets.append(asset)
-    except FileNotFoundError:
-        print(f"Error: Asset file not found: {filepath}", file=sys.stderr)
-        sys.exit(1)
-    except Exception as e:
-        print(f"Error reading asset file: {e}", file=sys.stderr)
-        sys.exit(1)
+    with open(filepath, "r", encoding="utf-8-sig", newline="") as f:
+        reader = csv.DictReader(f)
+        validate_csv_headers(reader, "Asset")
+        if not {"id", "name", "classification"}.issubset(reader.fieldnames or []):
+            raise ValueError("Asset CSV requires id,name,classification columns")
+        seen = set()
+        for row in reader:
+            asset = {key: (row.get(key) or "").strip()
+                     for key in ("id", "name", "type", "owner", "classification")}
+            asset["classification"] = asset["classification"].lower()
+            if not asset["id"] or not asset["name"] or asset["id"] in seen:
+                raise ValueError("Assets require unique nonempty id and nonempty name")
+            if asset["classification"] not in CLASSIFICATION_CRITERIA:
+                raise ValueError("Unknown asset classification; use critical/high/medium/low/minimal")
+            asset["type"] = asset["type"] or "Unspecified"
+            asset["owner"] = asset["owner"] or "Unassigned"
+            assets.append(asset)
+            seen.add(asset["id"])
+    if not assets:
+        raise ValueError("Asset inventory is empty; use --demo for synthetic examples")
     return assets
+
+
+def load_control_evidence(filepath: str, assets: List[Dict[str, Any]], template: str) -> Dict:
+    """Read supplied attestations, without opening or fetching evidence references.
+
+    Completeness is checked here; authenticity and applicability require review.
+    Missing or invalid attestations leave effectiveness unknown.
+    """
+    controls = {}
+    asset_ids = {asset["id"] for asset in assets}
+    threat_ids = {threat["id"] for threat in THREAT_CATALOGS[template][:5]}
+    with open(filepath, encoding="utf-8-sig", newline="") as f:
+        reader = csv.DictReader(f)
+        validate_csv_headers(reader, "Control evidence")
+        required = {"asset_id", "threat_id", "status", "effectiveness",
+                    "evidence_ref", "assessed_by", "assessed_at"}
+        if not required.issubset(reader.fieldnames or []):
+            raise ValueError("Control evidence CSV requires " + ",".join(sorted(required)))
+        for row in reader:
+            row = {key: (row.get(key) or "").strip() for key in required}
+            key = (row["asset_id"], row["threat_id"])
+            if key[0] not in asset_ids or key[1] not in threat_ids or key in controls:
+                raise ValueError("Control evidence has an unknown or duplicate asset/threat pair")
+            row["accepted"] = False
+            try:
+                effectiveness = float(row["effectiveness"])
+                assessed_at = datetime.fromisoformat(row["assessed_at"])
+                row["accepted"] = (
+                    row["status"].lower() == "verified"
+                    and bool(row["evidence_ref"] and row["assessed_by"])
+                    and math.isfinite(effectiveness) and 0 <= effectiveness <= 1
+                    and assessed_at.date() <= datetime.now().date()
+                )
+                if row["accepted"]:
+                    row["effectiveness"] = effectiveness
+            except ValueError:
+                pass
+            controls[key] = row
+    return controls
 
 
 def generate_sample_assets(scope: str, template: str) -> List[Dict[str, Any]]:
@@ -176,7 +233,7 @@ def assess_risks(
     assets: List[Dict[str, Any]],
     template: str
 ) -> List[Dict[str, Any]]:
-    """Perform risk assessment on assets."""
+    """Expand catalog scenarios, not observations about the supplied assets."""
     threats = THREAT_CATALOGS.get(template, THREAT_CATALOGS["general"])
     risks = []
     risk_id = 1
@@ -209,6 +266,10 @@ def assess_risks(
                 "threat_name": threat["name"],
                 "threat_category": threat["category"],
                 "vulnerability": vulns[0] if vulns else "Unidentified",
+                "vulnerability_status": "unknown",
+                "scenario_source": f"bundled_catalog:{template}",
+                "scenario_status": "unverified_catalog_scenario",
+                "score_basis": "assumed_catalog_likelihood_x_supplied_classification_impact",
                 "likelihood": likelihood,
                 "impact": impact,
                 "score": score,
@@ -223,19 +284,37 @@ def assess_risks(
     return risks
 
 
-def calculate_residual_risk(risk: Dict[str, Any], control_effectiveness: float = 0.7) -> Dict[str, Any]:
-    """Calculate residual risk after applying controls."""
-    residual_likelihood = max(1, int(risk["likelihood"] * (1 - control_effectiveness)))
-    residual_score = calculate_risk_score(residual_likelihood, risk["impact"])
-
-    return {
+def calculate_residual_risk(risk: Dict[str, Any], evidence: Optional[Dict] = None) -> Dict[str, Any]:
+    """Estimate only with complete supplied evidence; catalog scores stay assumed."""
+    result = {
         "risk_id": risk["id"],
         "inherent_score": risk["score"],
-        "control_effectiveness": control_effectiveness,
-        "residual_likelihood": residual_likelihood,
-        "residual_score": residual_score,
-        "residual_level": get_risk_level(residual_score),
+        "control_status": "unknown",
+        "control_effectiveness": None,
+        "residual_status": "not_estimable",
+        "residual_likelihood": None,
+        "residual_score": None,
+        "residual_level": None,
+        "evidence_ref": evidence.get("evidence_ref") if evidence else None,
+        "assessed_by": evidence.get("assessed_by") if evidence else None,
+        "assessed_at": evidence.get("assessed_at") if evidence else None,
+        "basis": "Missing or incomplete verified control evidence; no effectiveness assumed",
     }
+    if evidence and evidence.get("accepted"):
+        effectiveness = evidence["effectiveness"]
+        likelihood = max(1, math.ceil(risk["likelihood"] * (1 - effectiveness)))
+        score = calculate_risk_score(likelihood, risk["impact"])
+        result.update({
+            "control_status": "reported_verified",
+            "control_effectiveness": effectiveness,
+            "residual_status": "conditional_estimate",
+            "residual_likelihood": likelihood,
+            "residual_score": score,
+            "residual_level": get_risk_level(score),
+            "basis": "Supplied control attestation applied to assumed catalog likelihood; "
+                     "evidence authenticity and scenario applicability not independently verified",
+        })
+    return result
 
 
 def generate_report(
@@ -243,7 +322,12 @@ def generate_report(
     template: str,
     assets: List[Dict[str, Any]],
     risks: List[Dict[str, Any]],
-    output_format: str
+    output_format: str,
+    *,
+    demo: bool = False,
+    asset_source: Optional[str] = None,
+    control_source: Optional[str] = None,
+    controls: Optional[Dict] = None,
 ) -> str:
     """Generate risk assessment report."""
     timestamp = datetime.now().isoformat()
@@ -259,6 +343,18 @@ def generate_report(
             "template": template,
             "timestamp": timestamp,
             "methodology": "ISO 27001 Clause 6.1.2",
+            "assessment_kind": "catalog_scenario_analysis",
+            "demo": demo,
+            "asset_source": "synthetic_demo" if demo else "user_supplied_csv",
+            "asset_source_ref": asset_source,
+            "control_source_ref": control_source,
+            "scenario_source": f"bundled_catalog:{template}",
+            "limitations": "Catalog scenario analysis, not a site scan or formal assessment. "
+                           "Scope is a label, not system discovery. Threats, vulnerability candidates "
+                           "and likelihoods are unverified catalog assumptions. Classification impact "
+                           "comes from synthetic demo assets or the supplied inventory. "
+                           "Unknown controls have no residual estimate; supplied evidence is not "
+                           "independently verified. Treatment timelines are catalog suggestions.",
         },
         "summary": {
             "total_assets": len(assets),
@@ -269,28 +365,34 @@ def generate_report(
         },
         "assets": assets,
         "risks": risks,
-        "residual_risks": [calculate_residual_risk(r) for r in risks[:10]],  # Top 10
+        "residual_risks": [calculate_residual_risk(
+            r, (controls or {}).get((r["asset_id"], r["threat_id"]))) for r in risks],
     }
 
     if output_format == "json":
         return json.dumps(report_data, indent=2)
     elif output_format == "csv":
-        lines = ["risk_id,asset,threat,likelihood,impact,score,level,treatment"]
-        for risk in risks:
-            lines.append(
-                f"{risk['id']},{risk['asset_name']},{risk['threat_name']},"
-                f"{risk['likelihood']},{risk['impact']},{risk['score']},"
-                f"{risk['level']},{risk['treatment']}"
-            )
-        return "\n".join(lines)
+        output = io.StringIO(newline="")
+        rows = []
+        for risk, residual in zip(risks, report_data["residual_risks"]):
+            rows.append({**report_data["metadata"], **risk, **residual})
+        writer = csv.DictWriter(output, fieldnames=list(rows[0]))
+        writer.writeheader()
+        writer.writerows(rows)
+        return output.getvalue()
     else:  # markdown
         lines = [
-            f"# Security Risk Assessment Report",
+            "# Catalog Scenario Analysis" + (" — DEMO (synthetic assets)" if demo else ""),
             f"",
             f"**Scope:** {scope}",
             f"**Template:** {template}",
             f"**Date:** {timestamp}",
             f"**Methodology:** ISO 27001 Clause 6.1.2",
+            f"**Demo:** {demo}",
+            f"**Asset source:** {report_data['metadata']['asset_source']} ({asset_source or 'built-in sample'})",
+            f"**Scenario source:** bundled_catalog:{template}",
+            f"**Control source:** {control_source or 'none'}",
+            f"**Limitations:** {report_data['metadata']['limitations']}",
             f"",
             f"## Summary",
             f"",
@@ -315,16 +417,28 @@ def generate_report(
 
         lines.extend([
             f"",
-            f"## Risk Register",
+            f"## Unverified Catalog Scenarios (scores are assumptions)",
             f"",
             f"| Risk ID | Asset | Threat | L | I | Score | Level |",
             f"|---------|-------|--------|---|---|-------|-------|",
         ])
-        for risk in risks[:20]:  # Top 20 risks
+        for risk in risks:
             lines.append(
                 f"| {risk['id']} | {risk['asset_name']} | {risk['threat_name']} | "
                 f"{risk['likelihood']} | {risk['impact']} | {risk['score']} | "
                 f"{risk['level'].capitalize()} |"
+            )
+
+        lines.extend(["", "## Conditional Residual Estimates", ""])
+        for residual in report_data["residual_risks"]:
+            effect = residual["control_effectiveness"]
+            effect_text = "unknown" if effect is None else f"{effect:.1%}"
+            lines.append(
+                f"- {residual['risk_id']}: control={residual['control_status']}; "
+                f"effectiveness={effect_text}; residual={residual['residual_score']} "
+                f"({residual['residual_status']}); evidence={residual['evidence_ref'] or 'none'}; "
+                f"assessed_by={residual['assessed_by'] or 'unknown'}; "
+                f"assessed_at={residual['assessed_at'] or 'unknown'}. {residual['basis']}"
             )
 
         lines.extend([
@@ -342,12 +456,12 @@ def generate_report(
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Security Risk Assessment Tool - ISO 27001 Clause 6.1.2"
+        description="Offline catalog scenario analysis - no discovery, scanning or evidence verification"
     )
     parser.add_argument(
         "--scope", "-s",
         required=True,
-        help="System or area to assess"
+        help="Scope label only; does not discover or access the system"
     )
     parser.add_argument(
         "--template", "-t",
@@ -355,10 +469,13 @@ def main():
         default="general",
         help="Assessment template (default: general)"
     )
-    parser.add_argument(
+    inputs = parser.add_mutually_exclusive_group(required=True)
+    inputs.add_argument("--demo", action="store_true", help="Use labeled synthetic demo assets")
+    inputs.add_argument(
         "--assets", "-a",
-        help="CSV file with asset inventory"
+        help="Supplied asset CSV (id,name,classification required)"
     )
+    parser.add_argument("--control-evidence", help="CSV of per-asset/threat control attestations")
     parser.add_argument(
         "--output", "-o",
         help="Output file path (default: stdout)"
@@ -372,11 +489,15 @@ def main():
 
     args = parser.parse_args()
 
-    # Load or generate assets
-    if args.assets:
-        assets = load_assets_from_csv(args.assets)
-    else:
-        assets = generate_sample_assets(args.scope, args.template)
+    if args.demo and args.control_evidence:
+        parser.error("--control-evidence requires --assets; demo assets are synthetic")
+    try:
+        assets = (generate_sample_assets(args.scope, args.template) if args.demo
+                  else load_assets_from_csv(args.assets))
+        controls = (load_control_evidence(args.control_evidence, assets, args.template)
+                    if args.control_evidence else {})
+    except (OSError, ValueError, csv.Error) as exc:
+        parser.error(str(exc))
 
     # Perform risk assessment
     risks = assess_risks(assets, args.template)
@@ -387,7 +508,11 @@ def main():
         args.template,
         assets,
         risks,
-        args.format
+        args.format,
+        demo=args.demo,
+        asset_source=args.assets,
+        control_source=args.control_evidence,
+        controls=controls,
     )
 
     # Output

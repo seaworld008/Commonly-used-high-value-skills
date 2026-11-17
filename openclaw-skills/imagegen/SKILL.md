@@ -2,20 +2,21 @@
 name: imagegen
 description: 'Generate or edit images with OpenAI image tools or the bundled API CLI, including inpainting, background changes, transparent assets, and variants.'
 zh_description: "用于生成、编辑和迭代图像内容与视觉素材。"
-version: "1.0.1"
-author: "seaworld008"
-source: "in-house"
-source_url: ""
+version: "1.0.3"
+author: "OpenAI contributors; local curators"
+source: "https://github.com/openai/skills"
+source_url: "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.system/imagegen/SKILL.md"
+license: "Apache-2.0"
 tags: '["imagegen"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 ---
 
 # Image Generation Skill
 
-Generates or edits images for the current project (e.g., website assets, game assets, UI mockups, product mockups, wireframes, logo design, photorealistic images, infographics). Defaults to `gpt-image-1.5` and the OpenAI Image API, and prefers the bundled CLI for deterministic, reproducible runs.
+Generates or edits images for the current project (e.g., website assets, game assets, UI mockups, product mockups, wireframes, logo design, photorealistic images, infographics). Follow the actual host's image-tool contract first. The bundled CLI defaults to `gpt-image-1.5` and the OpenAI Image API; its flags are not automatically host-tool arguments.
 
 ## When to use
 - Generate a new image (concept art, product shot, cover, website hero)
@@ -23,39 +24,42 @@ Generates or edits images for the current project (e.g., website assets, game as
 - Batch runs (many prompts, or many variants across prompts)
 
 ## Decision tree (generate vs edit vs batch)
-- If the user provides an input image (or says “edit/retouch/inpaint/mask/translate/localize/change only X”) → **edit**
+- If the user asks to change an existing image while preserving parts of it → **edit**; inspect the target first using an available host image viewer.
+- If supplied images are only style/composition references, distinguish them from edit targets and label each input's role. Follow the actual tool's supported reference mechanism.
 - Else if the user needs many different prompts/assets → **generate-batch**
 - Else → **generate**
 
 ## Workflow
 1. Decide intent: generate vs edit vs batch (see decision tree above).
 2. Collect inputs up front: prompt(s), exact text (verbatim), constraints/avoid list, and any input image(s)/mask(s). For multi-image edits, label each input by index and role; for edits, list invariants explicitly.
-3. If batch: write a temporary JSONL under tmp/ (one job per line), run once, then delete the JSONL.
+3. If using CLI batch: write temporary JSONL in the task's allowed temporary directory (one job per line), run once, then delete only that task file. Host tools may require separate calls instead.
 4. Augment prompt into a short labeled spec (structure + constraints) without inventing new creative requirements.
-5. Run the bundled CLI (`scripts/image_gen.py`) with sensible defaults (see references/cli.md).
-6. For complex edits/generations, inspect outputs (open/view images) and validate: subject, style, composition, text accuracy, and invariants/avoid items.
+5. Use the host-required tool, or when appropriate and available run the bundled CLI (`scripts/image_gen.py`) with sensible defaults (see references/cli.md).
+6. Inspect outputs using an available image viewer and validate: subject, style, composition, text accuracy, and invariants/avoid items. For transparent assets, check the alpha channel; successful CLI execution alone does not establish visual correctness.
 7. Iterate: make a single targeted change (prompt or mask), re-run, re-check.
 8. Save/return final outputs and note the final prompt + flags used.
 
 ## Temp and output conventions
-- Use `tmp/imagegen/` for intermediate files (for example JSONL batches); delete when done.
+- Use the task's allowed temporary directory (for example `$TMPDIR`) for intermediate files; delete only files created for this task.
 - Write final artifacts under `output/imagegen/` when working in this repo.
 - Use `--out` or `--out-dir` to control output paths; keep filenames stable and descriptive.
+- Copy selected project assets from the host's actual returned location into the workspace and report their final paths. Do not assume a host-specific save directory or overwrite existing assets without replacement authorization.
 
-## Dependencies (install if missing)
-Prefer `uv` for dependency management.
+## Dependencies (bundled CLI only)
+Install dependencies only within existing task authorization. If installation is outside scope, report the missing dependency and continue independent prompt/script drafting or use a supported host tool. Prefer `uv` for authorized dependency management.
 
-Python packages:
+Use the project's selected Python environment and dependency workflow. `openai` is required for live CLI calls; Pillow is only needed for downscaling. Example when dependency installation is authorized:
 ```
-uv pip install openai pillow
+uv pip install openai
 ```
 If `uv` is unavailable:
 ```
-python3 -m pip install openai pillow
+python3 -m pip install openai
 ```
 
 ## Environment
-- `OPENAI_API_KEY` must be set for live API calls.
+- `OPENAI_API_KEY` must be set for bundled CLI/API calls; host tools may manage authentication separately.
+- Do not discover credentials by reading `.env`, other tools' login stores, or global configuration by default. Before a live SDK call, establish that its configured endpoint and receiving service are authorized; do not send an OpenAI key to an unverified override. Never echo credentials or automatically relax persistent network/approval settings.
 
 If the key is missing, give the user these steps:
 1. Create an API key in the OpenAI platform UI: https://platform.openai.com/api-keys
@@ -66,13 +70,13 @@ If the key is missing, give the user these steps:
 If installation isn't possible in this environment, tell the user which dependency is missing and how to install it locally.
 
 ## Defaults & rules
-- Use `gpt-image-1.5` unless the user explicitly asks for `gpt-image-1-mini` or explicitly prefers a cheaper/faster model.
+- The CLI default remains `gpt-image-1.5`; preserve an explicit model choice and verify current model-specific API/SDK support before live calls. The CLI's `gpt-image-` prefix check is a family guard, not proof that any particular model ID or option is available.
 - Assume the user wants a new image unless they explicitly ask for an edit.
-- Require `OPENAI_API_KEY` before any live API call.
-- Use the OpenAI Python SDK (`openai` package) for all API calls; do not use raw HTTP.
+- Require `OPENAI_API_KEY` for bundled CLI/API calls; host tools use their own authentication contract.
+- For the Python CLI path, use the OpenAI Python SDK (`openai` package); follow the host contract for host tools.
 - If the user requests edits, use `client.images.edit(...)` and include input images (and mask if provided).
-- Prefer the bundled CLI (`scripts/image_gen.py`) over writing new one-off scripts.
-- Never modify `scripts/image_gen.py`. If something is missing, ask the user before doing anything else.
+- Follow host tool requirements first; when a CLI is appropriate, prefer the bundled `scripts/image_gen.py` over a new one-off script.
+- Preserve `scripts/image_gen.py` unless modifying it is within scope. If a feature is missing, explain the limitation and use an available supported path or continue independent work; ask only for a blocking choice.
 - If the result isn’t clearly relevant or doesn’t satisfy constraints, iterate with small targeted prompt changes; only ask a question if a missing detail blocks success.
 
 ## Prompt augmentation

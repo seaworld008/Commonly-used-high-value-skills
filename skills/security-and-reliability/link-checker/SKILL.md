@@ -2,13 +2,13 @@
 name: link-checker
 description: 'Use when checking URL availability, dead links, redirect chains, suspicious domains, documentation link health, or link-risk evidence before publishing.'
 zh_description: "检测 URL 可达性、失效链接、跳转链路、可疑域名和文档链接健康度。"
-version: "1.1.0"
+version: "1.1.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["checker", "link", "security"]'
 created_at: "2026-03-15"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 3
 complexity: "intermediate"
 ---
@@ -42,36 +42,24 @@ wc -l urls.txt
 
 ### 2. 检查可达性与跳转链
 
-本技能自带只读脚本 `scripts/check_links.py`（仅标准库）：提取文件中的绝对 URL，逐跳记录状态码，
-`HEAD` 被拒时回退 `GET`，按主机限速，并给出 `pass` / `review` / `broken` 分级和风险提示
-（`plain-http`、`shortener`、`punycode`、`cross-domain-redirect`、`permanent-redirect`、
-`long-redirect-chain`、`executable-download`）。存在 `broken` 时退出码为 1，便于接入 CI。
-
+脚本 `scripts/check_links.py` 提取绝对 URL，可输出逐跳状态、最终地址和风险提示。同主机重定向会逐跳校验，跨主机时停止并标记复核；HEAD 返回 403、405 或 501 时可回退 GET。每个实际请求（含跳转和回退）都按目标主机限速。
+先用 `--list-only` 列清单。无法确认网络授权时只交付清单。需要限定目标时，对每次请求先核对协议、主机和路径，并按实际目标主机限速。
+脚本可标记 `plain-http`、`shortener`、`punycode`、`cross-domain-redirect`、`permanent-redirect`、`long-redirect-chain` 和 `executable-download`。JSON 包含各跳状态，默认 TSV 汇总首尾地址与提示。
 ```bash
 python3 scripts/check_links.py --list-only README.md docs/*.md   # 只列出 URL，不发请求
-python3 scripts/check_links.py README.md docs/*.md > link-report.tsv
+# 在已授权的网络范围内检查；跨主机跳转由结果列出待复核：
 python3 scripts/check_links.py --json --timeout 10 --delay 1 README.md
 ```
 
-需要逐跳细节或脚本不适用时，使用 `curl` / `lychee`：
+对范围受限的检查，一次只取已核准 URL 的响应头：
 
 ```bash
-# 单个 URL：逐跳显示状态码与 Location，限制跳数和超时
-curl -sS -o /dev/null -I -L --max-redirs 10 --max-time 15 \
-  -w '%{http_code} %{num_redirects} %{url_effective}\n' "https://example.com/doc"
-
-# 批量：低并发、带超时，结果写入 TSV
-while read -r u; do
-  printf '%s\t%s\n' "$u" "$(curl -sS -o /dev/null -L --max-redirs 10 --max-time 15 \
-    -w '%{http_code}\t%{num_redirects}\t%{url_effective}' "$u" 2>&1)"
-  sleep 0.5
-done < urls.txt > link-report.tsv
-
-# lychee 已安装时可直接扫描文件（先 --help 确认参数）
-lychee --max-concurrency 4 --timeout 15 --format markdown docs/ README.md
+curl -q --proto '=http,https' --head --silent --show-error --max-time 15 \
+  "https://example.com/doc"
 ```
 
-- 某些站点对 `HEAD` 返回 403/405，此时改用 `GET`（`curl -sS -o /dev/null -L ...` 去掉 `-I`）再判断。
+- 遇到 3xx，把 Location 相对当前地址解析成完整 URL，先验证协议、目标和授权范围，再决定是否请求下一跳。目标超出范围时记录 Location 并停止。
+- HEAD 被拒且允许回退时，对同一已核准 URL 延时后单次 GET，丢弃正文。每跳沿用相同核验和限速规则。
 - 使用工具默认或明确标识自身的 User-Agent；不要伪装浏览器绕过站点的访问控制或反爬策略。
 - 遵守站点速率限制，对同一域名保持低并发；收到 429 时退避重试一次，仍失败则记为“受限”。
 
@@ -80,7 +68,7 @@ lychee --max-concurrency 4 --timeout 15 --format markdown docs/ README.md
 | 信号 | 检查方法 |
 |---|---|
 | 非 HTTPS 或证书错误 | `curl -v` 中的 TLS 错误；`http://` 链接是否有 HTTPS 版本 |
-| 跳转到无关域名 | 对比原始域名与 `url_effective` 的注册域 |
+| 跳转到其他主机 | 比较链上相邻主机。脚本仅比较首尾域名末两段，可能漏掉 `co.uk` 下的不同站点。缺少公共后缀数据时将主机变化列为需复核。 |
 | 短链与多层跳转 | 跳数 > 3，或经过多个短链服务 |
 | 仿冒域名 | 混合字符集或 punycode（`xn--`）、相似字符（`rn`/`m`、`I`/`l`）、品牌词出现在子域而非注册域 |
 | 链接文本与目标不符 | 锚文本写“下载发票”，目标却是登录页或可执行文件 |
@@ -91,8 +79,8 @@ lychee --max-concurrency 4 --timeout 15 --format markdown docs/ README.md
 
 ### 4. 分级与输出
 
-- **失效**：4xx/5xx（排除 401/403 的受保护页面）、DNS 失败、超时。
-- **需复核**：401/403、429、跳转到其他域名、证书问题、可疑特征命中。
+- **失效**：确认的 HTTP 错误（排除 401、403、429）、DNS 失败或超时。脚本对 `broken` 返回退出码 1。
+- **需复核**：401/403、429、主机变化、证书问题或可疑特征。脚本把证书错误也归入 `broken`；据错误详情在人工报告中标为需复核。
 - **通过**：2xx，跳转链合理且与链接上下文一致。
 
 ```markdown

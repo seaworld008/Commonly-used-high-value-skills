@@ -2,9 +2,9 @@
 
 ## 词典结构
 
-纠错词典位于 `fix_transcription.py` 中,包含两部分:
+当前词典位于所选 SQLite 数据库，路径优先由 `TRANSCRIPT_FIXER_DB_PATH` 指定，否则为 `TRANSCRIPT_FIXER_CONFIG_DIR/corrections.db`（目录默认 `~/.transcript-fixer`）。不通过编辑入口脚本维护常量。下面的 Python 数据仅说明领域规则形状；实际持久化应使用已授权的 CLI/SQL 入口，沿用已有 setup 授权。
 
-### 1. 上下文规则 (CONTEXT_RULES)
+### 1. 上下文规则 (context_rules 表)
 
 用于需要结合上下文判断的替换:
 
@@ -27,7 +27,7 @@ CONTEXT_RULES = [
 }
 ```
 
-### 2. 通用词典 (CORRECTIONS_DICT)
+### 2. 领域词典 (corrections 表)
 
 用于直接字符串替换:
 
@@ -50,7 +50,7 @@ CORRECTIONS_DICT = {
 
 ### 步骤1: 识别错误模式
 
-从修复报告中识别重复出现的错误。
+从原稿与本次修正文的差异中识别重复错误，核对源语义、说话人及反例。Stage 3 不自动生成报告；需要时显式运行 `scripts/generate_word_diff.py original.md corrected.md output.html`。
 
 ### 步骤2: 选择规则类型
 
@@ -59,18 +59,15 @@ CORRECTIONS_DICT = {
 
 ### 步骤3: 添加到词典
 
-编辑 `scripts/fix_transcription.py`:
+在技能根目录，将已经确认可复用的词条写入已授权字典：
 
-```python
-CORRECTIONS_DICT = {
-    # 现有规则...
-    "你的错误": "正确词汇",  # 添加新规则
-}
+```bash
+python scripts/fix_transcription.py --add "你的错误" "正确词汇" --domain general
 ```
 
 ### 步骤4: 测试
 
-运行修复脚本测试新规则。
+运行 `python scripts/fix_transcription.py --input sample.md --stage 1 --domain general`，比对 `sample_stage1.md` 和反例。Stage 2 是累计词典与 AI，直接传原稿，成功另有 `sample_stage2.md`。学习、自动批准与浏览器打开默认关闭；CLI 审阅/批准是占位，不能替代人工确认。
 
 ## 常见错误类型
 
@@ -95,3 +92,5 @@ CORRECTIONS_DICT = {
 
 1. 先应用 CONTEXT_RULES (精确匹配)
 2. 再应用 CORRECTIONS_DICT (全局替换)
+
+上述同音词示例依赖上下文，不可无条件将“股价”或“近距离”替换成技术术语。先确认领域与完整短语，避免重复误改。结构验证用 `--validate`，不会初始化用户库；WAL/侧车或不一致快照明确未验收，不能把结构通过当作规则准确。

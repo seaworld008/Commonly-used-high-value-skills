@@ -5,21 +5,21 @@
 直接更新目标（Objective）或关键结果（Key Result）的指标当前值，无需手动查询指标 ID。
 
 > **查询指标：** 如需查看指标详情，请使用原生 API：
-> - 目标指标：`lark-cli okr objective.indicators list --objective-id <id>`
-> - KR 指标：`lark-cli okr key_result.indicators list --key-result-id <id>`
+> - 目标指标：`lark-cli okr objective.indicators list --objective-id <id> --params '{"prefer_draft":true}' --as user`
+> - KR 指标：`lark-cli okr key_result.indicators list --key-result-id <id> --params '{"prefer_draft":true}' --as user`
 
 ## 推荐命令
 
 ```bash
 # 更新 Objective 的指标值
-lark-cli okr +indicator-update \
+lark-cli okr +indicator-update --apply-to-draft=true \
   --level objective \
   --id 7000000000000000001 \
   --value 75.5 \
   --as user
 
 # 更新 Key Result 的指标值
-lark-cli okr +indicator-update \
+lark-cli okr +indicator-update --apply-to-draft=true \
   --level key-result \
   --id 7000000000000000002 \
   --value 100 \
@@ -33,6 +33,7 @@ lark-cli okr +indicator-update \
 | `--level`  | 是  | —      | 操作层级：`objective`（更新目标指标）\| `key-result`（更新 KR 指标） |
 | `--id`     | 是  | —      | 目标 ID 或 KR ID（int64 类型）                                       |
 | `--value`  | 是  | —      | 新的指标当前值（数字，范围：-99999999999 到 99999999999）              |
+| `--apply-to-draft` | 否 | `true` | `true` 写草稿，无草稿时先创建所属 Objective 草稿；`false` 写发布态，显式传值。 |
 | `--dry-run`| 否  | —      | 预览 API 调用而不实际执行                                            |
 | `--format` | 否  | `json` | 输出格式                                                             |
 
@@ -41,7 +42,7 @@ lark-cli okr +indicator-update \
 1. 使用 `+cycle-list` 和 `+cycle-detail` 获取目标 ID 或 KR ID。
 2. 如需查看当前指标值，使用 `objective.indicators list` 或 `key_result.indicators list` 查询。
   若当前量化指标没有 start_value/current_value/target_value/unit 这些字段，代表当前量化指标为未设置的默认初始进度。
-3. 执行 `+indicator-update` 指定层级、ID 和新值。
+3. 按 [草稿工作流](lark-okr-drafts.md) 显式传 `--apply-to-draft=true|false`，指定层级、ID 和新值；读取指标时在原生 `--params` 中使用对应 `prefer_draft`，查询和更新保持同一状态。
   使用 +indicator-update 为默认初始进度设置当前值会将该量化指标配置为默认的百分比模式。若用户不希望将指标设置为百分比，请使用原生 API 详细设置，参考 [lark-okr-indicators.md](lark-okr-indicators.md)
 4. 命令自动查询指标 ID 并更新当前值。
 
@@ -71,6 +72,9 @@ lark-cli okr +indicator-update \
 | `target_id`    | string | 目标或 KR 的 ID            |
 
 ## 注意事项
+
+- 草稿指标随所属 Objective 聚合发布或撤销；用户指定发布态且范围明确可直接写 false，保留已有草稿。
+- 进展记录及其附带数字进度始终操作发布态；只更新草稿数字进度用本命令，不能改用 `+progress-create`。
 - 仅更新 `current_value` 字段，`unit`、`start_value`、`target_value` 等其他字段保持不变
   - 若需要这些字段进行修改，使用原生接口 indicators.patch
 - 指标的 `current_value_calculate_type` 必须为「手动更新」才能通过此命令修改。

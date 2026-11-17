@@ -9,8 +9,9 @@ indirect instruction extraction, etc.).
 
 Provider detection order:
 1. OPENAI_API_KEY → OpenAI API (model configurable with INPUT_GUARD_OPENAI_MODEL)
-2. ANTHROPIC_API_KEY → Anthropic API (uses claude-sonnet-4-5)
-3. OpenClaw gateway chat completions endpoint (fallback)
+2. ANTHROPIC_API_KEY → Anthropic API (requires a configured model)
+Credentials and model settings come from the environment by default. Set
+INPUT_GUARD_CREDENTIAL_SOURCE=gateway to select OpenClaw gateway config instead.
 
 The LLM scanner is NOT a replacement for pattern-based scanning.
 It's a second layer that provides semantic understanding.
@@ -19,13 +20,16 @@ It's a second layer that provides semantic understanding.
 import os
 import sys
 import json
-import re
 import subprocess
 import time
-import requests
 from dataclasses import dataclass
-from typing import Optional, Dict, Any, List, Tuple
+from typing import Optional, Dict, List, Tuple
 from pathlib import Path
+
+try:
+    import requests
+except ImportError:
+    requests = None
 
 # Import taxonomy helper
 sys.path.insert(0, str(Path(__file__).parent))
@@ -79,6 +83,9 @@ Respond ONLY with valid JSON (no markdown, no explanation outside the JSON):
   "reasoning": "<1-3 sentence overall assessment>"
 }}
 
+For SUSPICIOUS or MALICIOUS, include at least one threat and a non-SAFE severity.
+Use at least MEDIUM for MALICIOUS. Quote evidence directly from the input.
+
 If the text is safe, return:
 {{
   "verdict": "SAFE",
@@ -90,30 +97,44 @@ If the text is safe, return:
 
 
 # Fallback prompt when taxonomy is unavailable
-FALLBACK_TAXONOMY = """
-## Prompt Manipulation
-Attacks that force the model to change behavior or follow attacker instructions.
-- **Direct prompt injection**: Explicit instruction to ignore rules
-- **Indirect prompt injection**: Malicious payload embedded in retrieved content
-- **Jailbreak**: Roleplay or persona used to bypass safety
-- **Hidden instruction in code or comments**: Commands inside code blocks or comments
-
-## Abusing Legitimate Functions
-Attacks that use model features to perform malicious work.
-- **Data exfiltration via prompt**: Request secret or sensitive content
-- **Fraud and social engineering**: Craft believable phishing or scam text
-
-## Suspicious Prompt Patterns
-Techniques to hide intent or evade detection.
-- **Encoding and obfuscation**: Payload hidden in Base64, hex, or rot schemes
-- **Unicode tricks**: Homoglyphs, zero-width characters
-- **Prompt tunneling via roleplay**: Wrap malicious request in a pretend scenario
-
-## Abnormal Outputs
-Model responses that reveal compromise or cause harm.
-- **System prompt leak**: Response reveals hidden system instructions
-- **Credential leak**: Exposure of API keys, tokens, passwords
-"""
+FALLBACK_TAXONOMY = {"categories": [
+    {
+        "id": "manipulation", "name": "Prompt Manipulation",
+        "description": "Attacks that force the model to change behavior or follow attacker instructions.",
+        "threats": [
+            {"name": "Direct prompt injection", "description": "Explicit instruction to ignore rules"},
+            {"name": "Indirect prompt injection", "description": "Malicious payload embedded in retrieved content"},
+            {"name": "Jailbreak", "description": "Roleplay or persona used to bypass safety"},
+            {"name": "Hidden instruction in code or comments", "description": "Commands inside code blocks or comments"},
+        ],
+    },
+    {
+        "id": "abuse", "name": "Abusing Legitimate Functions",
+        "description": "Attacks that use model features to perform malicious work.",
+        "threats": [
+            {"name": "Data exfiltration via prompt", "description": "Request secret or sensitive content"},
+            {"name": "Fraud and social engineering", "description": "Craft believable phishing or scam text"},
+        ],
+    },
+    {
+        "id": "patterns", "name": "Suspicious Prompt Patterns",
+        "description": "Techniques to hide intent or evade detection.",
+        "threats": [
+            {"name": "Encoding and obfuscation", "description": "Payload hidden in Base64, hex, or rot schemes"},
+            {"name": "Unicode tricks", "description": "Homoglyphs, zero-width characters"},
+            {"name": "Prompt tunneling via roleplay", "description": "Wrap malicious request in a pretend scenario"},
+        ],
+    },
+    {
+        "id": "outputs", "name": "Abnormal Outputs",
+        "description": "Model responses that reveal compromise or cause harm.",
+        "threats": [
+            {"name": "System prompt leak", "description": "Response reveals hidden system instructions"},
+            {"name": "Credential leak", "description": "Exposure of API keys, tokens, passwords"},
+        ],
+    },
+]}
+CATEGORY_IDS = {category["name"]: category["id"] for category in FALLBACK_TAXONOMY["categories"]}
 
 
 # ---------------------------------------------------------------------------
@@ -133,63 +154,45 @@ class LLMResponse:
     latency_ms: int     # Time taken
     tokens_used: int    # Approximate token usage
 
+    @classmethod
+    def error(cls, reason, model="", latency_ms=0):
+        return cls(verdict="ERROR", confidence=0, severity="ERROR", threats=[], reasoning=reason,
+                   raw="", model=model, latency_ms=latency_ms, tokens_used=0)
+
+
+def _credential_config():
+    source = os.environ.get("INPUT_GUARD_CREDENTIAL_SOURCE", "env")
+    if source == "env":
+        return os.environ
+    if source == "gateway":
+        try:
+            result = subprocess.run(
+                ["openclaw", "gateway", "config.get"], capture_output=True,
+                text=True, check=True, timeout=10,
+            )
+            config = json.loads(result.stdout)
+            if isinstance(config, dict) and isinstance(config.get("env"), dict):
+                return config["env"]
+        except (OSError, subprocess.SubprocessError, ValueError):
+            pass
+    return {}
+
+
+def _provider_settings(config, provider):
+    if provider not in ("openai", "anthropic"):
+        return ("none", "", "")
+    prefix = provider.upper()
+    key = config.get(f"{prefix}_API_KEY")
+    model = (config.get(f"INPUT_GUARD_{prefix}_MODEL") or config.get(f"{prefix}_MODEL")
+             or ("gpt-5-mini" if provider == "openai" else ""))
+    return (provider, key, model)
+
 
 def _detect_provider() -> Tuple[str, str, str]:
-    """
-    Detect available LLM provider.
-
-    Returns: (provider, api_key, model)
-    """
-    # 1. OpenAI
-    openai_key = os.environ.get("OPENAI_API_KEY")
-    if openai_key:
-        model = (
-            os.environ.get("INPUT_GUARD_OPENAI_MODEL")
-            or os.environ.get("OPENAI_MODEL")
-            or "gpt-5-mini"
-        )
-        return ("openai", openai_key, model)
-
-    # 2. Anthropic
-    anthropic_key = os.environ.get("ANTHROPIC_API_KEY")
-    if anthropic_key:
-        model = (
-            os.environ.get("INPUT_GUARD_ANTHROPIC_MODEL")
-            or os.environ.get("ANTHROPIC_MODEL")
-        )
-        if model:
-            return ("anthropic", anthropic_key, model)
-
-    # 3. Try OpenClaw gateway config
-    try:
-        result = subprocess.run(
-            ["openclaw", "gateway", "config.get"],
-            capture_output=True,
-            text=True,
-            check=True
-        )
-        config = json.loads(result.stdout)
-
-        if config.get("env", {}).get("OPENAI_API_KEY"):
-            model = (
-                config["env"].get("INPUT_GUARD_OPENAI_MODEL")
-                or config["env"].get("OPENAI_MODEL")
-                or "gpt-5-mini"
-            )
-            return ("openai", config["env"]["OPENAI_API_KEY"], model)
-
-        if config.get("env", {}).get("ANTHROPIC_API_KEY"):
-            model = (
-                config["env"].get("INPUT_GUARD_ANTHROPIC_MODEL")
-                or config["env"].get("ANTHROPIC_MODEL")
-            )
-            if model:
-                return ("anthropic", config["env"]["ANTHROPIC_API_KEY"], model)
-
-    except Exception:
-        pass
-
-    # 4. No provider available
+    config = _credential_config()
+    for provider in ("openai", "anthropic"):
+        if config.get(f"{provider.upper()}_API_KEY"):
+            return _provider_settings(config, provider)
     return ("none", "", "")
 
 
@@ -213,6 +216,7 @@ def _call_openai(api_key: str, model: str, system_prompt: str, user_text: str,
             "response_format": {"type": "json_object"},
         },
         timeout=timeout,
+        allow_redirects=False,
     )
     response.raise_for_status()
     return response.json()
@@ -238,6 +242,7 @@ def _call_anthropic(api_key: str, model: str, system_prompt: str, user_text: str
             "temperature": 0.1,
         },
         timeout=timeout,
+        allow_redirects=False,
     )
     response.raise_for_status()
     return response.json()
@@ -247,43 +252,56 @@ def _call_anthropic(api_key: str, model: str, system_prompt: str, user_text: str
 # Core scanner
 # ---------------------------------------------------------------------------
 
-def _build_system_prompt(taxonomy: Optional[Dict] = None) -> str:
-    """Build the detector system prompt with taxonomy reference."""
-    if taxonomy:
-        ref = build_threat_reference(taxonomy)
-    else:
-        ref = FALLBACK_TAXONOMY
+def _parse_llm_response(raw_text: str, taxonomy: Dict, text: str) -> Dict:
+    """Only a single, complete detector assessment can contribute a verdict."""
+    parsed = json.loads(raw_text, object_pairs_hook=_unique_fields)
+    if (not isinstance(parsed, dict)
+            or parsed.keys() != {"verdict", "severity", "confidence", "threats", "reasoning"}):
+        raise ValueError("Invalid LLM analysis")
+    verdict = parsed["verdict"]
+    severity = parsed["severity"]
+    confidence = parsed["confidence"]
+    threats = parsed["threats"]
+    if (verdict not in ("SAFE", "SUSPICIOUS", "MALICIOUS")
+            or severity not in SEVERITY_ORDER
+            or type(confidence) not in (int, float) or not 0 <= confidence <= 1
+            or not isinstance(threats, list) or not _nonempty_text(parsed["reasoning"])):
+        raise ValueError("Invalid LLM analysis")
+    safe = verdict == "SAFE"
+    if (safe != (severity == "SAFE") or safe != (not threats)
+            or (verdict == "MALICIOUS" and severity == "LOW")):
+        raise ValueError("Inconsistent LLM assessment")
+    for threat in threats:
+        if (not isinstance(threat, dict)
+                or threat.keys() != {"category", "threat_type", "description", "evidence"}
+                or threat["category"] not in CATEGORY_IDS.values()
+                or not all(_nonempty_text(threat.get(field))
+                           for field in ("threat_type", "description", "evidence"))):
+            raise ValueError("Invalid LLM threat")
+        if threat["evidence"] not in text:
+            raise ValueError("Evidence is absent from input")
+        # Older external taxonomies may identify categories only by display name.
+        if not any(entry["name"].casefold() == threat["threat_type"].casefold()
+                   for category in taxonomy["categories"]
+                   if category.get("id", CATEGORY_IDS.get(category["name"])) == threat["category"]
+                   for entry in category.get("threats", [])):
+            raise ValueError("Invalid taxonomy classification")
+    return parsed
 
-    return DETECTOR_SYSTEM_PROMPT.format(taxonomy_reference=ref)
+
+def _unique_fields(pairs):
+    result = dict(pairs)
+    if len(result) != len(pairs):
+        raise ValueError("Ambiguous LLM analysis")
+    return result
 
 
-def _parse_llm_response(raw_text: str) -> Dict:
-    """Parse JSON response from LLM, handling edge cases."""
-    # Strip markdown code fences if present
-    cleaned = raw_text.strip()
-    if cleaned.startswith("```"):
-        cleaned = re.sub(r"^```(?:json)?\s*\n?", "", cleaned)
-        cleaned = re.sub(r"\n?```\s*$", "", cleaned)
+def _nonempty_text(value):
+    # Escaped lone surrogates are accepted by json.loads but cannot be rendered.
+    return isinstance(value, str) and bool(value.strip()) and bool(value.encode("utf-8"))
 
-    try:
-        return json.loads(cleaned)
-    except json.JSONDecodeError:
-        # Try to extract JSON from the response
-        json_match = re.search(r'\{[\s\S]*\}', cleaned)
-        if json_match:
-            try:
-                return json.loads(json_match.group(0))
-            except json.JSONDecodeError:
-                pass
 
-        # Couldn't parse — return error structure
-        return {
-            "verdict": "SUSPICIOUS",
-            "confidence": 0.5,
-            "severity": "MEDIUM",
-            "threats": [],
-            "reasoning": f"LLM response could not be parsed as JSON: {raw_text[:200]}",
-        }
+MAX_INPUT_CHARS = 4000
 
 
 def scan_with_llm(
@@ -304,69 +322,64 @@ def scan_with_llm(
     Returns:
         LLMResponse with analysis results, or None if no provider available
     """
-    # Detect provider
-    detected_provider, api_key, default_model = _detect_provider()
-    use_provider = provider or detected_provider
+    if provider is None:
+        use_provider, api_key, default_model = _detect_provider()
+    else:
+        use_provider, api_key, default_model = _provider_settings(_credential_config(), provider)
     use_model = model or default_model
-
-    if use_provider == "none":
+    if (not isinstance(api_key, str) or not api_key.strip()
+            or not isinstance(use_model, str) or not use_model.strip()):
         return None
 
-    # Override api_key if provider was forced
-    if provider == "openai":
-        api_key = os.environ.get("OPENAI_API_KEY", api_key)
-    elif provider == "anthropic":
-        api_key = os.environ.get("ANTHROPIC_API_KEY", api_key)
-
-    if not api_key:
-        return None
-
-    # Build prompt with taxonomy
-    taxonomy = get_taxonomy()
-    system_prompt = _build_system_prompt(taxonomy)
-
-    # Truncate very long texts to avoid token limits (keep first 4000 chars)
-    scan_text = text[:4000] if len(text) > 4000 else text
-
-    # Call LLM
-    start = time.time()
+    start = time.monotonic()
+    if len(text) > MAX_INPUT_CHARS or not text.strip():
+        return LLMResponse.error(
+            f"LLM scan requires nonblank input of at most {MAX_INPUT_CHARS} characters.", use_model)
+    if requests is None:
+        return LLMResponse.error("LLM scanner dependency unavailable", use_model)
     try:
+        taxonomy = get_taxonomy() or FALLBACK_TAXONOMY
+        system_prompt = DETECTOR_SYSTEM_PROMPT.format(taxonomy_reference=build_threat_reference(taxonomy))
         if use_provider == "openai":
-            result = _call_openai(api_key, use_model, system_prompt, scan_text, timeout)
-            raw_text = result["choices"][0]["message"]["content"]
-            tokens = result.get("usage", {}).get("total_tokens", 0)
+            result = _call_openai(api_key, use_model, system_prompt, text, timeout)
+            choice = result["choices"][0]
+            if choice.get("finish_reason", "stop") != "stop" or choice["message"].get("refusal"):
+                raise ValueError("Incomplete LLM analysis")
+            raw_text = choice["message"]["content"]
+            counts = [result.get("usage", {}).get("total_tokens", 0)]
         elif use_provider == "anthropic":
-            result = _call_anthropic(api_key, use_model, system_prompt, scan_text, timeout)
+            result = _call_anthropic(api_key, use_model, system_prompt, text, timeout)
+            if (result.get("stop_reason", "end_turn") != "end_turn"
+                    or len(result["content"]) != 1 or result["content"][0].get("type", "text") != "text"):
+                raise ValueError("Incomplete LLM analysis")
             raw_text = result["content"][0]["text"]
-            tokens = result.get("usage", {}).get("input_tokens", 0) + result.get("usage", {}).get("output_tokens", 0)
+            usage = result.get("usage", {})
+            counts = [usage.get("input_tokens", 0), usage.get("output_tokens", 0)]
         else:
             return None
+        if not isinstance(raw_text, str) or any(type(n) is not int or n < 0 for n in counts):
+            raise ValueError("Invalid provider response")
+        tokens = sum(counts)
+        parsed = _parse_llm_response(raw_text, taxonomy, text)
+    except (ValueError, KeyError, IndexError, TypeError, AttributeError, RecursionError):
+        failure = "Invalid LLM analysis"
     except requests.exceptions.Timeout:
-        return LLMResponse(
-            verdict="ERROR", confidence=0, severity="SAFE",
-            threats=[], reasoning="LLM API call timed out",
-            raw="", model=use_model, latency_ms=int((time.time() - start) * 1000),
-            tokens_used=0,
-        )
-    except requests.exceptions.RequestException as e:
-        return LLMResponse(
-            verdict="ERROR", confidence=0, severity="SAFE",
-            threats=[], reasoning=f"LLM API call failed: {str(e)[:200]}",
-            raw="", model=use_model, latency_ms=int((time.time() - start) * 1000),
-            tokens_used=0,
-        )
+        failure = "LLM API call timed out"
+    except requests.exceptions.RequestException:
+        failure = "LLM API call failed"
+    else:
+        failure = None
 
-    latency = int((time.time() - start) * 1000)
-
-    # Parse response
-    parsed = _parse_llm_response(raw_text)
+    latency = int((time.monotonic() - start) * 1000)
+    if failure:
+        return LLMResponse.error(failure, use_model, latency)
 
     return LLMResponse(
-        verdict=parsed.get("verdict", "SUSPICIOUS"),
-        confidence=parsed.get("confidence", 0.5),
-        severity=parsed.get("severity", "MEDIUM"),
-        threats=parsed.get("threats", []),
-        reasoning=parsed.get("reasoning", ""),
+        verdict=parsed["verdict"],
+        confidence=parsed["confidence"],
+        severity=parsed["severity"],
+        threats=parsed["threats"],
+        reasoning=parsed["reasoning"],
         raw=raw_text,
         model=use_model,
         latency_ms=latency,
@@ -394,11 +407,8 @@ def merge_results(pattern_severity: str, pattern_score: int,
     - Final score is weighted combination
     """
     if llm_result.verdict == "ERROR":
-        # LLM failed — return pattern results unchanged
         return {
-            "severity": pattern_severity,
-            "score": pattern_score,
-            "findings": pattern_findings,
+            "severity": "ERROR", "score": None, "findings": pattern_findings,
             "llm_note": f"LLM scan failed: {llm_result.reasoning}",
         }
 
@@ -487,15 +497,10 @@ if __name__ == "__main__":
         parser.print_help()
         sys.exit(1)
 
-    if not text.strip():
-        print("SAFE — Empty input")
-        sys.exit(0)
-
     result = scan_with_llm(text, provider=args.provider, model=args.model, timeout=args.timeout)
 
     if result is None:
-        print("❌ No LLM provider available. Set OPENAI_API_KEY or ANTHROPIC_API_KEY.")
-        sys.exit(1)
+        result = LLMResponse.error("No configured LLM provider available.")
 
     if args.json:
         out = {
@@ -525,5 +530,7 @@ if __name__ == "__main__":
         print(f"\nReasoning: {result.reasoning}")
 
     # Exit code: 0 for SAFE/LOW, 1 for MEDIUM+
-    sev_val = SEVERITY_ORDER.get(result.severity, 0)
+    if result.verdict == "ERROR":
+        sys.exit(2)
+    sev_val = SEVERITY_ORDER[result.severity]
     sys.exit(0 if sev_val <= 1 else 1)

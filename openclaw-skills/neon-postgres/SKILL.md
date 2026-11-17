@@ -2,14 +2,14 @@
 name: neon-postgres
 description: 'Build or troubleshoot Neon Postgres connections, branching, pooling, scaling, Auth, and platform integrations using current Neon documentation.'
 zh_description: "用于 Neon Postgres 数据库连接、分支、迁移和运行维护。"
-version: "1.0.9"
+version: "1.0.10"
 author: "seaworld008"
 source: "github:neondatabase/agent-skills"
 source_url: "https://github.com/neondatabase/agent-skills/blob/ccca3334a7542d3133134cc6926f2fafc6edeb1f/skills/neon-postgres/SKILL.md"
 license: Apache-2.0
 tags: '["development", "neon", "postgres"]'
 created_at: "2026-06-03"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -292,3 +292,9 @@ schema work; do not enumerate organizations or create another project by default
 Preserve the existing ORM and driver. Suggest a new ORM only when no project
 choice exists and the task actually needs one. Read an existing environment file
 before editing it, and do not expose connection strings in logs or responses.
+
+## Compute and quota diagnostics
+
+When compute or network allowances are exhausted, distinguish suspended compute from a storage-limit write failure. For the Free-plan recovery and export behavior, consult the current [plan documentation](https://neon.com/docs/introduction/plans); suspended connections may report SQLSTATE `53000`. Record the affected project and quota before proposing recovery. Plan changes affect billing and need the user's authorization; never promise a zero-cost round trip.
+
+The reviewed CLI exposes `neon postgres computes list` and `get <compute-id>` for inspection, and `update`, `start`, `suspend`, `restart`, `delete` for state changes. Check the installed help first and use the [current postgres CLI contract](https://neon.com/docs/cli/postgres). Scope any mutation to an authorized project and compute. With `--no-wait`, API acceptance is not operation completion; inspect the resulting operation before claiming success.

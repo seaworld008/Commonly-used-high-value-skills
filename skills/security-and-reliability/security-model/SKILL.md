@@ -2,14 +2,14 @@
 name: security-model
 description: 'Use when defining, reviewing, or maintaining SECURITY_MODEL.md policy that security review tools consume, including trust boundaries, invariants, inheritance, and reportability.'
 zh_description: "维护供安全审查工具读取的安全模型，核验信任边界、继承、可信版本和抑制规则。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008; adapted from Sentry and OpenAI"
 source: "github:getsentry/skills"
-source_url: "https://github.com/getsentry/skills/tree/d12f250460ffd961f549dbebf7eeb0cf4afd4c2e/skills/security-model"
+source_url: "https://github.com/getsentry/skills/tree/a582c51ee29d0f35e6ac321340796f77d43da733/skills/security-model"
 license: Apache-2.0
 tags: [security-model, threat-model, policy, security-review, authorization]
 created_at: "2026-10-26"
-updated_at: "2026-10-26"
+updated_at: "2026-11-17"
 quality: 4
 complexity: advanced
 ---
@@ -80,11 +80,14 @@ Document these separately:
 | Element | Required substance |
 |---|---|
 | System and scope | Component, deployment/exposure, assets and covered paths |
+| Component map | Security-critical paths grouped by input trust level, purpose and invariant IDs |
 | Actors and trust | What each caller controls and which boundary it crosses |
 | Invariants | Stable `INV-n` identifiers and properties that must hold |
 | Enforcement | Actual rejecting/blocking code, with a checkable path or symbol |
 | Reportability | Finding classes, impact conditions and severity context |
 | Exclusions | Specific class and location, owner-confirmed reason and review date |
+
+Map directories that parse untrusted inputs, enforce boundaries, handle secrets, or cross native/language interfaces. Name individual files when they hold a control. Leave out tests, fixtures and paths without a security role unless an exclusion specifically requires them. Backtick paths so `check` can detect moved references; mark unknown trust levels `Unresolved`.
 
 Monitoring that only logs or alerts is not enforcement. A suspected control gap
 must not be recorded as an accepted risk merely to make a draft look complete.

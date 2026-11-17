@@ -2,7 +2,7 @@
   "schema_version": 2,
   "video": {
     "url": "https://github.com/seaworld008/Commonly-used-high-value-skills",
-    "checked_at": "2026-10-16",
+    "checked_at": "2026-11-17",
     "note": "Immutable curated v3.3.0 source overlays"
   },
   "official_references": [
@@ -44,16 +44,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/engineering-workflow-automation/agent-browser/SKILL.md",
       "source": "https://github.com/vercel-labs/agent-browser/blob/d9570915f4dd6504dee4070379d2c4f79d81dbb2/skill-data/core/SKILL.md",
-      "notes": "Pinned licensed upstream and reviewed authorization-limited local overlay; imported scripts not executed.",
+      "notes": "Pinned licensed upstream and reviewed authorization-limited local overlay; imported scripts not executed. 2026-11-17: commit-aware semantic review at d9570915f4dd6504dee4070379d2c4f79d81dbb2; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "vercel-labs/agent-browser",
         "path": "skill-data/core/SKILL.md",
         "ref": "d9570915f4dd6504dee4070379d2c4f79d81dbb2",
-        "last_checked_at": "2026-10-12",
-        "last_synced_at": "2026-10-12",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
         "last_synced_commit": "d9570915f4dd6504dee4070379d2c4f79d81dbb2",
         "sync_mode": "monitor",
-        "path_commit": "d9570915f4dd6504dee4070379d2c4f79d81dbb2"
+        "path_commit": "0207911f1bd4d0393eddaa90f2e50f96e0fb8974"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -149,7 +149,7 @@
             "channel": "fixed_ref",
             "ref": "d9570915f4dd6504dee4070379d2c4f79d81dbb2",
             "resolved_commit": "d9570915f4dd6504dee4070379d2c4f79d81dbb2",
-            "path_commit": "d9570915f4dd6504dee4070379d2c4f79d81dbb2",
+            "path_commit": "0207911f1bd4d0393eddaa90f2e50f96e0fb8974",
             "content_sha256": "201e4337ed62d29355fcbd24a1f3b40abd6f477296069adfd2f30715095969f6",
             "license_checkpoint": {
               "path": "LICENSE",
@@ -159,8 +159,8 @@
               "resolved_commit": "d9570915f4dd6504dee4070379d2c4f79d81dbb2",
               "api_spdx": "Apache-2.0"
             },
-            "last_checked_at": "2026-10-12",
-            "last_synced_at": "2026-10-12"
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17"
           }
         }
       ],
@@ -270,16 +270,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/office-white-collar/answer-me-with-html/SKILL.md",
       "source": "https://github.com/QingYunA/answer-me-with-html/blob/5d5b86ddbeea500b7fec6b3e80ad273ad875b005/skills/answer-me-with-html/SKILL.md",
-      "notes": "Pinned licensed upstream and reviewed authorization-limited local overlay; imported scripts not executed.\n2026-10-12: security-hardened independently implemented CLI. The pinned upstream ref represents original historical concept only; commands are explicitly not feature-equivalent.",
+      "notes": "Pinned licensed upstream and reviewed authorization-limited local overlay; imported scripts not executed.\n2026-10-12: security-hardened independently implemented CLI. The pinned upstream ref represents original historical concept only; commands are explicitly not feature-equivalent. 2026-11-17: commit-aware semantic review at 5d5b86ddbeea500b7fec6b3e80ad273ad875b005; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "QingYunA/answer-me-with-html",
         "path": "skills/answer-me-with-html/SKILL.md",
         "ref": "5d5b86ddbeea500b7fec6b3e80ad273ad875b005",
-        "last_checked_at": "2026-10-12",
-        "last_synced_at": "2026-10-12",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
         "last_synced_commit": "5d5b86ddbeea500b7fec6b3e80ad273ad875b005",
         "sync_mode": "monitor",
-        "path_commit": "5d5b86ddbeea500b7fec6b3e80ad273ad875b005"
+        "path_commit": "b0ebc162d92515b49544e99e059e586156cd74d5"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -320,7 +320,7 @@
             "channel": "fixed_ref",
             "ref": "5d5b86ddbeea500b7fec6b3e80ad273ad875b005",
             "resolved_commit": "5d5b86ddbeea500b7fec6b3e80ad273ad875b005",
-            "path_commit": "5d5b86ddbeea500b7fec6b3e80ad273ad875b005",
+            "path_commit": "b0ebc162d92515b49544e99e059e586156cd74d5",
             "content_sha256": "179846a41307b9b40dfc410f05aea6eeb225784de277b42064a27a966d36bb57",
             "license_checkpoint": {
               "path": "LICENSE",
@@ -330,8 +330,8 @@
               "resolved_commit": "5d5b86ddbeea500b7fec6b3e80ad273ad875b005",
               "api_spdx": "MIT"
             },
-            "last_checked_at": "2026-10-12",
-            "last_synced_at": "2026-10-12"
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17"
           }
         }
       ],
@@ -375,13 +375,13 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/devops-sre/azure-diagnostics/SKILL.md",
       "source": "https://github.com/microsoft/azure-skills/blob/0727d81638d64b6888f796287ee00baecfb08ced/skills/azure-diagnostics/SKILL.md",
-      "notes": "Pinned licensed upstream and reviewed authorization-limited local overlay; imported scripts not executed.",
+      "notes": "Pinned licensed upstream and reviewed authorization-limited local overlay; imported scripts not executed. 2026-11-17: commit-aware semantic review at 0727d81638d64b6888f796287ee00baecfb08ced; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "microsoft/azure-skills",
         "path": "skills/azure-diagnostics/SKILL.md",
         "ref": "0727d81638d64b6888f796287ee00baecfb08ced",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
         "last_synced_commit": "0727d81638d64b6888f796287ee00baecfb08ced",
         "sync_mode": "monitor",
         "path_commit": "0727d81638d64b6888f796287ee00baecfb08ced"
@@ -675,8 +675,8 @@
               "resolved_commit": "0727d81638d64b6888f796287ee00baecfb08ced",
               "api_spdx": "MIT"
             },
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16"
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17"
           }
         }
       ],
@@ -1008,16 +1008,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/golang-benchmark/SKILL.md",
       "source": "https://github.com/samber/cc-skills-golang/blob/8e899e20ff0cd4dc524af3993e4c62d8ee8c5717/skills/golang-benchmark/SKILL.md",
-      "notes": "Pinned licensed upstream and reviewed authorization-limited local overlay; imported scripts not executed.",
+      "notes": "Pinned licensed upstream and reviewed authorization-limited local overlay; imported scripts not executed. 2026-11-17: commit-aware semantic review at 8e899e20ff0cd4dc524af3993e4c62d8ee8c5717; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "samber/cc-skills-golang",
         "path": "skills/golang-benchmark/SKILL.md",
         "ref": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
-        "last_checked_at": "2026-10-12",
-        "last_synced_at": "2026-10-12",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
         "last_synced_commit": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
         "sync_mode": "monitor",
-        "path_commit": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717"
+        "path_commit": "bac46b0bed2677f840837e16be2c790341bda2df"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -1083,8 +1083,8 @@
             "channel": "fixed_ref",
             "ref": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
             "resolved_commit": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
-            "path_commit": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
-            "content_sha256": "165432207efc59f4d98da74507bec4229d1f91a5e0781af73ee47012d1176325",
+            "path_commit": "bac46b0bed2677f840837e16be2c790341bda2df",
+            "content_sha256": "514e855c7871b50e79ea9a7199407f7492fd1c5a41a7a3186075218fbc4ac48b",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "e01f008a1febe41946345c425832c6aa093731d3",
@@ -1093,8 +1093,8 @@
               "resolved_commit": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
               "api_spdx": "MIT"
             },
-            "last_checked_at": "2026-10-12",
-            "last_synced_at": "2026-10-12"
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17"
           }
         }
       ],
@@ -1102,7 +1102,7 @@
         {
           "path": "skills/developer-engineering/golang-benchmark/SKILL.md",
           "owner": "golang-benchmark",
-          "sha256": "165432207efc59f4d98da74507bec4229d1f91a5e0781af73ee47012d1176325",
+          "sha256": "514e855c7871b50e79ea9a7199407f7492fd1c5a41a7a3186075218fbc4ac48b",
           "mode": "100644"
         },
         {
@@ -1168,16 +1168,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/devops-sre/golang-observability/SKILL.md",
       "source": "https://github.com/samber/cc-skills-golang/blob/8e899e20ff0cd4dc524af3993e4c62d8ee8c5717/skills/golang-observability/SKILL.md",
-      "notes": "Pinned licensed upstream and reviewed authorization-limited local overlay; imported scripts not executed.",
+      "notes": "Pinned licensed upstream and reviewed authorization-limited local overlay; imported scripts not executed. 2026-11-17: commit-aware semantic review at 8e899e20ff0cd4dc524af3993e4c62d8ee8c5717; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "samber/cc-skills-golang",
         "path": "skills/golang-observability/SKILL.md",
         "ref": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
-        "last_checked_at": "2026-10-12",
-        "last_synced_at": "2026-10-12",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
         "last_synced_commit": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
         "sync_mode": "monitor",
-        "path_commit": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717"
+        "path_commit": "bac46b0bed2677f840837e16be2c790341bda2df"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -1238,8 +1238,8 @@
             "channel": "fixed_ref",
             "ref": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
             "resolved_commit": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
-            "path_commit": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
-            "content_sha256": "0bec7f792583594d557274e71a1b14735b5e3a0eaea08ccfaeeb28461351b915",
+            "path_commit": "bac46b0bed2677f840837e16be2c790341bda2df",
+            "content_sha256": "4b03e1c2ed4caa9cdf59c4cece805f8ef9c167faa151b75abeefe534470d5b7d",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "e01f008a1febe41946345c425832c6aa093731d3",
@@ -1248,8 +1248,8 @@
               "resolved_commit": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
               "api_spdx": "MIT"
             },
-            "last_checked_at": "2026-10-12",
-            "last_synced_at": "2026-10-12"
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17"
           }
         }
       ],
@@ -1257,7 +1257,7 @@
         {
           "path": "skills/devops-sre/golang-observability/SKILL.md",
           "owner": "golang-observability",
-          "sha256": "0bec7f792583594d557274e71a1b14735b5e3a0eaea08ccfaeeb28461351b915",
+          "sha256": "4b03e1c2ed4caa9cdf59c4cece805f8ef9c167faa151b75abeefe534470d5b7d",
           "mode": "100644"
         },
         {
@@ -1317,16 +1317,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/golang-performance/SKILL.md",
       "source": "https://github.com/samber/cc-skills-golang/blob/8e899e20ff0cd4dc524af3993e4c62d8ee8c5717/skills/golang-performance/SKILL.md",
-      "notes": "Pinned licensed upstream and reviewed authorization-limited local overlay; imported scripts not executed.",
+      "notes": "Pinned licensed upstream and reviewed authorization-limited local overlay; imported scripts not executed. 2026-11-17: commit-aware semantic review at 8e899e20ff0cd4dc524af3993e4c62d8ee8c5717; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "samber/cc-skills-golang",
         "path": "skills/golang-performance/SKILL.md",
         "ref": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
-        "last_checked_at": "2026-10-12",
-        "last_synced_at": "2026-10-12",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
         "last_synced_commit": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
         "sync_mode": "monitor",
-        "path_commit": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717"
+        "path_commit": "bac46b0bed2677f840837e16be2c790341bda2df"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -1387,8 +1387,8 @@
             "channel": "fixed_ref",
             "ref": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
             "resolved_commit": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
-            "path_commit": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
-            "content_sha256": "f5a6671d95a07be4ebde8e2ce9b3e2fd4da65311413a7cc401f9bcfd9cb96f95",
+            "path_commit": "bac46b0bed2677f840837e16be2c790341bda2df",
+            "content_sha256": "d51366468d8f417e5dfde6be7bcb5f9631b833c30d3e54b80e04132252fd9dcc",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "e01f008a1febe41946345c425832c6aa093731d3",
@@ -1397,8 +1397,8 @@
               "resolved_commit": "8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
               "api_spdx": "MIT"
             },
-            "last_checked_at": "2026-10-12",
-            "last_synced_at": "2026-10-12"
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17"
           }
         }
       ],
@@ -1406,7 +1406,7 @@
         {
           "path": "skills/developer-engineering/golang-performance/SKILL.md",
           "owner": "golang-performance",
-          "sha256": "f5a6671d95a07be4ebde8e2ce9b3e2fd4da65311413a7cc401f9bcfd9cb96f95",
+          "sha256": "d51366468d8f417e5dfde6be7bcb5f9631b833c30d3e54b80e04132252fd9dcc",
           "mode": "100644"
         },
         {
@@ -1466,16 +1466,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/developer-engineering/improve-codebase-architecture/SKILL.md",
       "source": "https://github.com/mattpocock/skills/blob/49dd158d1076134a641b33efb035946536778336/skills/engineering/improve-codebase-architecture/SKILL.md",
-      "notes": "Pinned licensed upstream and reviewed authorization-limited local overlay; imported scripts not executed.",
+      "notes": "Pinned licensed upstream and reviewed authorization-limited local overlay; imported scripts not executed. 2026-11-17: commit-aware semantic review at 49dd158d1076134a641b33efb035946536778336; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "mattpocock/skills",
         "path": "skills/engineering/improve-codebase-architecture/SKILL.md",
         "ref": "49dd158d1076134a641b33efb035946536778336",
-        "last_checked_at": "2026-10-12",
-        "last_synced_at": "2026-10-12",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
         "last_synced_commit": "49dd158d1076134a641b33efb035946536778336",
         "sync_mode": "monitor",
-        "path_commit": "49dd158d1076134a641b33efb035946536778336"
+        "path_commit": "d80fa0f4ebe0c5714af0adf8670336065233ecc6"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -1521,8 +1521,8 @@
             "channel": "fixed_ref",
             "ref": "49dd158d1076134a641b33efb035946536778336",
             "resolved_commit": "49dd158d1076134a641b33efb035946536778336",
-            "path_commit": "49dd158d1076134a641b33efb035946536778336",
-            "content_sha256": "b4166a3faa3348de9c6fa0bd2013779d430f9c2d697f4e1f5950e49614ce526d",
+            "path_commit": "d80fa0f4ebe0c5714af0adf8670336065233ecc6",
+            "content_sha256": "3895425ec7117c326579499e8869bc25edfd0515b7024ee2b71b405b248039ce",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
@@ -1531,8 +1531,8 @@
               "resolved_commit": "49dd158d1076134a641b33efb035946536778336",
               "api_spdx": "MIT"
             },
-            "last_checked_at": "2026-10-12",
-            "last_synced_at": "2026-10-12"
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17"
           }
         }
       ],
@@ -1540,7 +1540,7 @@
         {
           "path": "skills/developer-engineering/improve-codebase-architecture/SKILL.md",
           "owner": "improve-codebase-architecture",
-          "sha256": "b4166a3faa3348de9c6fa0bd2013779d430f9c2d697f4e1f5950e49614ce526d",
+          "sha256": "3895425ec7117c326579499e8869bc25edfd0515b7024ee2b71b405b248039ce",
           "mode": "100644"
         },
         {
@@ -1648,7 +1648,7 @@
             "ref": "2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1",
             "resolved_commit": "2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1",
             "path_commit": "2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1",
-            "content_sha256": "e3ea7d8b4784dcd878259df37eee2b3822fd8be6c226828d4b1f6ba0b4477fc6",
+            "content_sha256": "a5b7baddf97cff0f2fd9ed32fe2240dbf10ccc9b522681cdd2105018e4588cf0",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "5895384436b9865fc09a784622204a7d742165be",
@@ -1699,7 +1699,7 @@
         {
           "path": "skills/multimodal-media/live-panel/SKILL.md",
           "owner": "live-panel",
-          "sha256": "e3ea7d8b4784dcd878259df37eee2b3822fd8be6c226828d4b1f6ba0b4477fc6",
+          "sha256": "a5b7baddf97cff0f2fd9ed32fe2240dbf10ccc9b522681cdd2105018e4588cf0",
           "mode": "100644"
         },
         {
@@ -1735,19 +1735,19 @@
         {
           "path": "skills/multimodal-media/live-panel/scripts/check_frames.py",
           "owner": "live-panel",
-          "sha256": "88130f6c2ac79eb8a4c42cd66f1542dfbb331ce1d63445c2dbbd21be1c4b7857",
+          "sha256": "2fe319e7ca43bf80c4644661b5d9211751fbef608ca00952e93c2cccfc9a9955",
           "mode": "100755"
         },
         {
           "path": "skills/multimodal-media/live-panel/scripts/livepanel.py",
           "owner": "live-panel",
-          "sha256": "0e1c138977774449b7737dac36030a5e1299840c71444624c6fd16a204f17154",
+          "sha256": "124c72660214a6bc4be41e32efd43b62e255f59223dc894adc7b3888027625c4",
           "mode": "100755"
         },
         {
           "path": "skills/multimodal-media/live-panel/scripts/render.py",
           "owner": "live-panel",
-          "sha256": "5b7df430aef51f0955dee85005159fb5c0e277f1993c4164040e34fda905d7c9",
+          "sha256": "99b456606f4762fe2f03f0609f0bba01e0deae833df2d744a5c0008b238a4603",
           "mode": "100755"
         }
       ],
@@ -1768,6 +1768,41 @@
       "target": "ythx-101/live-panel-skill@2a5dc1ea9983c193f20c9ff4000c8a11efb3b5e1",
       "result": "success",
       "evidence": "Read the complete immutable MIT code grant and third-party illustration reservation. Preserved LICENSE verbatim; excluded three non-original configs; retained renderer/method assets and a new original simulated example. Frozen snapshot with explicit local ownership; automatic NOASSERTION result is not overridden. See docs/releases/v4.1.0.md and skill references/licensing.md."
+    },
+    {
+      "date": "2026-11-17",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "QingYunA/answer-me-with-html@5d5b86ddbeea500b7fec6b3e80ad273ad875b005",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-11-17",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "mattpocock/skills@49dd158d1076134a641b33efb035946536778336",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-11-17",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "microsoft/azure-skills@0727d81638d64b6888f796287ee00baecfb08ced",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-11-17",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "samber/cc-skills-golang@8e899e20ff0cd4dc524af3993e4c62d8ee8c5717",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-11-17",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "vercel-labs/agent-browser@d9570915f4dd6504dee4070379d2c4f79d81dbb2",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
     }
   ]
 }

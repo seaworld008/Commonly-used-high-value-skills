@@ -2,14 +2,14 @@
 name: stage
 description: 'Use when creating or improving a talk or slide deck: Markdown slides (Marp, reveal.js, Slidev), narrative arc, speaker notes, code slides, and timing for the format.'
 zh_description: "制作或优化演讲与幻灯片时使用：Markdown 幻灯片、叙事结构、讲稿和时长适配。"
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/stage/SKILL.md"
 license: MIT
 tags: ["office", "stage"]
 created_at: "2026-08-24"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "advanced"
 ---
@@ -58,7 +58,7 @@ Use Stage when the user needs:
 Route elsewhere when the task is primarily:
 - diagrams or charts without slide context: `Canvas`
 - specification or design documents: `Scribe`
-- document format conversion: `Scribe`
+- document format conversion: use `morph` or the relevant available format skill
 - UX writing or microcopy: `Prose`
 - video scripts or storyboards: `Cue`
 - learning document creation: `Tome`

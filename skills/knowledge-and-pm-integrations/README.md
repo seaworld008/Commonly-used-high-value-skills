@@ -50,7 +50,7 @@
 | `notion-research-documentation` | 需要汇总多个 Notion 页面并生成带引用的研究简报或对比报告时使用。 | [目录](./notion-research-documentation/) | [SKILL.md](./notion-research-documentation/SKILL.md) |
 | `notion-spec-to-implementation` | 需要把 Notion 需求规格拆成关联的实施计划与任务，并持续同步进度时使用。 | [目录](./notion-spec-to-implementation/) | [SKILL.md](./notion-spec-to-implementation/SKILL.md) |
 | `obsidian` | 用于读取、搜索、创建和编辑 Obsidian 知识库笔记，并维护 Markdown 结构和链接关系。 | [目录](./obsidian/) | [SKILL.md](./obsidian/SKILL.md) |
-| `tome` | 需要把代码变更整理成学习文档、术语说明和设计决策记录时使用。 | [目录](./tome/) | [SKILL.md](./tome/SKILL.md) |
+| `tome` | 需要把代码变更整理成学习材料，或把技术草稿、概念和采访整理成文章或系列时使用。 | [目录](./tome/) | [SKILL.md](./tome/SKILL.md) |
 
 ## 维护方式
 

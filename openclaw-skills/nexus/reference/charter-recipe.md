@@ -143,7 +143,7 @@ The Charter is **multi-engine by default** (`engines=claude+codex`). Phase 3 ass
 **Authoring rules:**
 - Tag every §5 roster entry with `engine:`, the actual model and supported effort. Preserve a named model or inherit the configured host model; use `reference/hub-authoring.md` § Model Selection for capability binding.
 - Where §5 nominates **Orbit** for a build loop, pin its sub-hub engine to **Codex CLI** (Orbit drives `spawn_agent` per iteration), mirroring Apex.
-- Record per-engine **prerequisites** in §6 so `enact` Phase 1 can verify them: Codex needs `multi_agent = true` + `[agents] max_depth ≥ 2` (`reference/execution-layers.md`, `_common/CLI_COMPATIBILITY.md §9`); agy needs a TTY/real-pty headless path.
+- Record per-engine **prerequisites** in §6 so `enact` Phase 1 can verify them: Verify the active host's actual delegation tool, allowed capacity, permissions, loading and result capture. Test a fallback when unavailable; a PTY is required only when the installed CLI actually needs it. Do not change global settings as an implicit prerequisite.
 - Specify a **fallback** per Codex/agy package (`fallback_engine: claude-code`) so `enact` degrades gracefully when an engine is unreachable instead of hard-failing — and note the cost/throughput trade-off the fallback implies.
 - `engines=claude` forces single-engine (no Codex) when the environment cannot reach Codex; `engines=all` adds agy as a third axis; `engines=auto` lets Phase 3 pick per detected availability, defaulting to `claude+codex`.
 
@@ -187,7 +187,7 @@ The Charter (`docs/CHARTER.md`) contains these sections; the companion `CHARTER.
 ### Pre-flight
 - [ ] Charter §1-§8 present and self-consistent
 - [ ] Every §4 package maps to a constructable §5 owner skill
-- [ ] Engine prereqs met (Codex `max_depth ≥ 2`) or `fallback_engine` set
+- [ ] Required host capabilities verified, or an available fallback has been tested
 - [ ] Working tree clean; branch per §3 policy
 
 ### Team readiness (human-agent teaming — 5 diagnostic questions)

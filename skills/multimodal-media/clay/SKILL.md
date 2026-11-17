@@ -2,14 +2,14 @@
 name: clay
 description: 'AI 3D model generation agent. Generates text-to-3D and image-to-3D code (Python/JS/OpenSCAD) using Meshy, Tripo, Hunyuan3D, Rodin, Sloyd, and Stability APIs. Handles game pipeline integration, LOD, retopology, UV, and QC validation.'
 zh_description: "生成和优化面向目标引擎的三维模型及纹理资产。"
-version: "1.0.5"
+version: "1.0.6"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/5f1bd9e50ee7b13fbd143b1a4a30e6643b458097/clay/SKILL.md"
 license: MIT
 tags: '["clay", "media"]'
 created_at: "2026-04-25"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "advanced"
 ---
@@ -145,9 +145,9 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 | Retopology | `retopo` | | Retopology processing | `references/game-pipeline.md` |
 | UV Unwrap | `uv` | | UV unwrap | `references/game-pipeline.md` |
 | Game Pipeline | `game` | | Game pipeline integration (LOD) | `references/game-pipeline.md`, `references/quality-validation.md` |
-| Auto-Rigging | `rigging` | | Auto-rig via Mixamo / Rodin / Meshy / Anything-World, skeleton + skin weight | `references/auto-rigging.md` |
-| Texture Baking | `baking` | | PBR baking (normal / AO / metallic / roughness / curvature / height) high→low poly | `references/texture-baking.md` |
-| Animation Retarget | `retarget` | | Mocap / animation retargeting across rigs (Mixamo→custom, BVH/FBX, root-motion handling) | `references/animation-retargeting.md` |
+| Auto-Rigging | `rigging` | | Auto-rig via Mixamo / Rodin / Meshy / Anything-World, skeleton + skin weight | Not bundled in this snapshot; use the domain methods below (no required reference file). |
+| Texture Baking | `baking` | | PBR baking (normal / AO / metallic / roughness / curvature / height) high→low poly | Not bundled in this snapshot; use the domain methods below (no required reference file). |
+| Animation Retarget | `retarget` | | Mocap / animation retargeting across rigs (Mixamo→custom, BVH/FBX, root-motion handling) | Not bundled in this snapshot; use the domain methods below (no required reference file). |
 
 ## Subcommand Dispatch
 
@@ -257,9 +257,9 @@ Every deliverable should include:
 | `references/quality-validation.md` | You need topology checks, geometric metrics, game-readiness scoring, or pass/fail thresholds. |
 | `references/prompt-engineering.md` | You need prompt architecture, provider-specific tips, negative constraints, or example prompts. |
 | `references/anti-patterns.md` | You need to avoid common pitfalls in AI 3D generation workflows. |
-| `references/auto-rigging.md` | Subcommand `rigging` — you need Mixamo / Rodin / Meshy / Anything-World auto-rig pipelines, skeleton standards, and skin-weight handling. |
-| `references/texture-baking.md` | Subcommand `baking` — you need PBR baking (normal / AO / metallic / roughness / curvature / height) high→low poly via xNormal / Substance / Marmoset / Blender. |
-| `references/animation-retargeting.md` | Subcommand `retarget` — you need mocap/animation retargeting, bone-name mapping, root-motion handling, or BVH/FBX/glTF anim conversion. |
+
+
+
 
 ## Operational
 

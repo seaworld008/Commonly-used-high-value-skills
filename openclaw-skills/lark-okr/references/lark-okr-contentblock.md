@@ -282,7 +282,7 @@ OKR shortcuts 支持 `--style` 标志控制 content/notes 字段的输入输出�
 
 使用方式：
 ```bash
-lark-cli okr +patch --level objective --style simple --target-id 123 --content '{"text":"提升用户满意度","mention":["ou_123"]}'
+lark-cli okr +patch --level objective --style simple --target-id 123 --apply-to-draft=true --as user --content '{"text":"提升用户满意度","mention":["ou_123"]}'
 ```
 
 ### 示例 1：简单文本段落（richtext 风格）

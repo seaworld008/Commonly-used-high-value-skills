@@ -2,14 +2,14 @@
 name: verification-before-completion
 description: 'Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always'
 zh_description: "在宣告完成前核对当前代码的验证证据与适用范围。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "github:obra/superpowers"
 source_url: "https://skills.sh/obra/superpowers/verification-before-completion"
 license: MIT
 tags: '["verification", "workflow", "quality-gate"]'
 created_at: "2026-04-13"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 ---
@@ -33,9 +33,9 @@ Use recorded evidence from the current code and relevant environment. Do not rer
 ## The Gate Function
 
 ```
-BEFORE claiming any status or expressing satisfaction:
+BEFORE claiming a verifiable delivery result:
 
-1. IDENTIFY: What command proves this claim?
+1. IDENTIFY: Which check or inspected artifact establishes this result?
 2. RUN: Execute the relevant command if current evidence is missing or invalidated
 3. READ: Full output, check exit code, count failures
 4. VERIFY: Does output confirm the claim?
@@ -55,13 +55,13 @@ Skip any step = lying, not verifying
 | Build succeeds | Build command: exit 0 | Linter passing, logs look good |
 | Bug fixed | Test original symptom: passes | Code changed, assumed fixed |
 | Regression test works | Red-green cycle verified | Test passes once |
-| Agent completed | VCS diff shows changes | Agent reports "success" |
+| Delegated task complete | Inspect the deliverable: review findings and references for a read-only audit, or the diff and relevant checks for a fix | Success message alone |
 | Requirements met | Line-by-line checklist | Tests passing |
 
 ## Red Flags - STOP
 
 - Using "should", "probably", "seems to"
-- Expressing satisfaction before verification ("Great!", "Perfect!", "Done!", etc.)
+- Claiming the deliverable passed before checking the evidence
 - About to commit/push/PR without verification
 - Trusting agent success reports
 - Relying on partial verification
@@ -110,22 +110,10 @@ Skip any step = lying, not verifying
 
 **Agent delegation:**
 ```
-✅ Agent reports success → Check VCS diff → Verify changes → Report actual state
+✅ Agent reports success → Inspect the requested artifact and supporting evidence → Report verified scope
 ❌ Trust agent report
 ```
 
 ## When To Apply
 
-**ALWAYS before:**
-- ANY variation of success/completion claims
-- ANY expression of satisfaction
-- ANY positive statement about work state
-- Committing, PR creation, task completion
-- Moving to next task
-- Delegating to agents
-
-**Rule applies to:**
-- Exact phrases
-- Paraphrases and synonyms
-- Implications of success
-- ANY communication suggesting completion/correctness
+Apply the gate when a statement asserts completion, correctness or a passing check. Identify the deliverable and match it to current evidence. A progress update or dispatch can report the work in flight and any observed result directly.

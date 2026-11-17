@@ -2,13 +2,13 @@
 name: investment-memo-writer
 description: 'Use when turning research notes into an investment memo, writing a buy or sell thesis, or structuring catalysts, risks, and monitoring items for an IC-style document.'
 zh_description: "编写有来源依据、投资逻辑和风险分析的投资备忘录。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["finance", "investment", "memo", "writer"]'
 created_at: "2026-03-18"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 2
 complexity: "intermediate"
 ---
@@ -17,14 +17,14 @@ complexity: "intermediate"
 
 将零散的研究笔记转化为能够承受投资委员会（IC）审视的决策文档。本技能专注于将事实、逻辑与前瞻性判断有机融合，生成一份包含投资论据（Thesis）、催化剂（Catalysts）、风险（Risks）及估值（Valuation）的专业投资备忘录。
 
-## 安装与前提条件
+## 运行前提与实际脚本范围
 
-```bash
-# 确保已安装文档处理库
-pip install markdown docx
-# 下载备忘录模板
-npx clawhub install investment-memo-writer
-```
+仓库已附带脚本和样例，使用 Python 3 标准库即可运行，无需额外安装第三方包或重新安装技能。
+从本技能目录执行下方命令；在其他工作目录调用时，使用脚本和输入文件的完整路径。
+
+把 company、recommendation、thesis_points、catalysts、risks、monitoring_items 组装为 memo_markdown 等 JSON 字段。输入观点由研究者提供；脚本不验证估值、不生成交易建议，也不导出 DOCX/PDF。
+
+后续领域方法描述的是研究工作流。超出上述输出的指标需补充数据、方法和独立验证，不能声称由附带脚本自动生成。报告中的示例数值为格式示意，不是模型输出或投资结论。
 
 ## 触发条件 / When to Use
 
@@ -67,23 +67,26 @@ npx clawhub install investment-memo-writer
 ### 投资备忘录输入 JSON 模板 (Memo Input JSON)
 ```json
 {
-  "ticker": "AMZN",
-  "recommendation": "BUY",
-  "target_price": 245.0,
-  "horizon": "12-18 Months",
-  "thesis": [
-    "AWS growth re-acceleration driven by AI workload migration",
-    "Advertising margins improving with high incremental EBITDA",
-    "Logistics optimization reducing per-package delivery cost"
+  "company": "ACME Holdings",
+  "recommendation": "Buy for a 12-18 month horizon based on margin expansion and multiple re-rating potential.",
+  "thesis_points": [
+    "Core product growth is accelerating after two muted quarters.",
+    "Operating leverage is improving as cloud costs normalize.",
+    "Management has restarted buybacks after de-levering."
   ],
   "catalysts": [
-    "Q3 Cloud Revenue guidance beat",
-    "Prime Day record sales volume",
-    "Capex efficiency metrics showing lower intensity"
+    "Next earnings call with updated FY guidance",
+    "Large enterprise customer launch",
+    "Margin inflection in the second half"
   ],
   "risks": [
-    "Regulatory pressure on cloud dominance",
-    "Consumer spend softening in EU/NA markets"
+    "Demand slows if enterprise budgets tighten.",
+    "Competitive pricing pressure hits gross margin."
+  ],
+  "monitoring_items": [
+    "Net retention",
+    "Free cash flow conversion",
+    "Peer multiple spread"
   ]
 }
 ```
@@ -108,8 +111,8 @@ npx clawhub install investment-memo-writer
 
 ### 快速生成文档命令
 ```bash
-# 基于 JSON 模板生成 Markdown 格式的初步草案
-python scripts/build_memo.py --input assets/amzn_v1.json --output draft_memo.md
+# 离线样例，结果以 JSON 输出到标准输出
+python3 scripts/build_memo.py assets/sample_thesis.json
 ```
 
 ## 进阶应用场景 / Advanced Use Cases

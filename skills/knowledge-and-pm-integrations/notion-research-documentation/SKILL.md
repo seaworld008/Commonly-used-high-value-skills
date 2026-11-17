@@ -2,13 +2,14 @@
 name: notion-research-documentation
 description: 'Use when synthesizing several Notion pages into a cited brief, comparison, or recommendation report that links back to its source pages.'
 zh_description: "需要汇总多个 Notion 页面并生成带引用的研究简报或对比报告时使用。"
-version: "1.0.1"
-author: "seaworld008"
-source: "in-house"
-source_url: ""
+version: "1.0.2"
+author: "Notion Labs, Inc.; local curators"
+source: "https://github.com/openai/skills"
+source_url: "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/notion-research-documentation/SKILL.md"
+license: "MIT"
 tags: '["documentation", "notion", "research"]'
 created_at: "2026-03-04"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 3
 complexity: "intermediate"
 metadata:
@@ -64,18 +65,15 @@ search pages
 
 ## Workflow
 
-### 0) If any MCP call fails because Notion MCP is not connected, pause and set it up:
-1. Add the Notion MCP:
-   - `codex mcp add notion --url https://mcp.notion.com/mcp`
-2. Enable remote MCP client:
-   - Set `[features].rmcp_client = true` in `config.toml` **or** run `codex --enable rmcp_client`
-3. Log in with OAuth:
-   - `codex mcp login notion`
+### 0) Discover the available Notion connection
+Discover and use the host's available Notion connector; map the example tool names below to its supported operations. If unavailable, explain the missing capability and continue independent local drafting from supplied material. Do not claim to have fetched or published pages without a working connection.
 
-After successful login, the user will have to restart codex. You should finish your answer and tell them so when they try again they can continue with Step 1.
+Installation, configuration, and OAuth setup are separate user-requested tasks. For such a task, check the installed CLI help and host instructions before changing configuration; do not assume a specific feature flag or restart requirement.
+
+Ask about source or destination only when ambiguity materially changes the result and cannot be resolved from the request or workspace context.
 
 ### 1) Gather sources
-- Search first (`Notion:notion-search`); refine queries, and ask the user to confirm if multiple results appear.
+- Search first (`Notion:notion-search`); refine queries and select relevant sources from context. Ask only if unresolved source ambiguity materially changes the report.
 - Fetch relevant pages (`Notion:notion-fetch`), skim for facts, metrics, claims, constraints, and dates.
 - Track each source URL/ID for later citation; prefer direct quotes for critical facts.
 - For database-backed sources, fetch the data source details first if the schema matters to the report.

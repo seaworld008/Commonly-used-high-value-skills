@@ -33,6 +33,20 @@ Category (分类): Objective 的分组标签
 
 ---
 
+## 关于草稿
+
+Objective、KR、Indicator 和 Alignment 支持草稿；草稿仅对所有者本人的 user 身份以及具备相应应用数据权限的 bot 可见，bot 仅在用户明确要求时使用。user 查看他人的 OKR 总是发布态，不能据此断言无草稿。
+
+草稿以 Objective 为聚合单位：Objective、其下全部 KR、O/KR 指标以及该 Objective **发起的**对齐统一发布或撤销。已有发布态 O 首次进入草稿时复制当前聚合快照；后续发布态变更不会自动同步到草稿，Objective 的位置和权重除外。
+
+发布草稿时，草稿支持的内容覆盖对应发布态；撤销则丢弃草稿并保留当前发布态，不回滚发布态修改或共用位置/权重。Objective 的位置和权重两态共用，修改立即在两态生效；KR 的位置和权重分别保存。
+
+可直接创建仅草稿的 O，发布后才生成发布态目标；在已有草稿中新增 KR 和对齐，发布前不能通过发布态读取。Indicator 随 O/KR 创建。`score` 和 Objective `notes` 不支持草稿；评论、文字进展、进展记录/图片和分类操作发布态，不随草稿撤销回滚。
+
+读取的 `prefer_draft=true` 不会创建草稿；支持草稿的写入使用 `apply_to_draft=true` 时会在无草稿时自动创建所属 Objective 草稿。发布/撤销授权必须覆盖整个当前聚合，见 [草稿工作流](lark-okr-drafts.md)。
+
+---
+
 ## Cycle (用户周期)
 
 用户周期是 OKR 的顶层容器，代表一个时间段内的所有目标与关键结果。
@@ -88,11 +102,12 @@ Category (分类): Objective 的分组标签
 | `cycle_id`    | `string`       | 是  | 所属用户周期 ID                                               |
 | `position`    | `integer`      | 是  | 排序序号，从 1 开始，范围 [1, 100]                                 |
 | `content`     | `ContentBlock` | 否  | 目标内容（富文本），见 [ContentBlock 定义](lark-okr-contentblock.md) |
-| `score`       | `number`       | 否  | 目标分数，范围 [0, 1]，支持一位小数                                   |
-| `notes`       | `ContentBlock` | 否  | 目标备注（富文本），见 [ContentBlock 定义](lark-okr-contentblock.md) |
+| `score`       | `number`       | 否  | 发布态目标分数，范围 [0, 1]，支持一位小数                                   |
+| `notes`       | `ContentBlock` | 否  | 发布态目标备注（富文本），见 [ContentBlock 定义](lark-okr-contentblock.md) |
 | `weight`      | `number`       | 否  | 目标权重，范围 [0, 1]，支持三位小数                                   |
 | `deadline`    | `string`       | 否  | 截止时间，毫秒时间戳，shortcut 会将其解析为日期时间                          |
 | `category_id` | `string`       | 否  | 所属分类 ID                                                 |
+| `is_draft` | `boolean` | 否 | 本次返回的是草稿（true）还是发布态（false） |
 
 > **SHORTCUT：**
 > - `okr +cycle-detail` [lark-okr-cycle-detail.md](lark-okr-cycle-detail.md) 获取某个用户周期下的全部目标和关键结果。时间相关的字段会以日期时间格式解析
@@ -120,9 +135,10 @@ Category (分类): Objective 的分组标签
 | `objective_id` | `string`       | 是  | 所属目标 ID                                                   |
 | `position`     | `integer`      | 是  | 排序序号，从 1 开始，范围 [1, 100]                                   |
 | `content`      | `ContentBlock` | 否  | 关键结果内容（富文本），见 [ContentBlock 定义](lark-okr-contentblock.md) |
-| `score`        | `number`       | 否  | 关键结果分数，范围 [0, 1]，支持一位小数                                   |
+| `score`        | `number`       | 否  | 发布态关键结果分数，范围 [0, 1]，支持一位小数                                   |
 | `weight`       | `number`       | 否  | 权重，范围 [0, 1]，支持三位小数                                       |
 | `deadline`     | `string`       | 否  | 截止时间，毫秒时间戳                                                |
+| `is_draft` | `boolean` | 否 | 本次返回的是草稿（true）还是发布态（false） |
 
 > **API：**
 > - `objective.key_results.list` — 获取目标下的关键结果列表
@@ -258,6 +274,7 @@ Category (分类): Objective 的分组标签
 | `current_value`                | `number`        | 否  | 当前值，范围 [-99999999999, 99999999999] |
 | `current_value_calculate_type` | `integer`       | 否  | 当前值计算方式，见下表                        |
 | `unit`                         | `IndicatorUnit` | 否  | 指标单位                               |
+| `is_draft` | `boolean` | 否 | 本次返回的是草稿（true）还是发布态（false） |
 
 ### 修改指南
 
@@ -320,6 +337,7 @@ Category (分类): Objective 的分组标签
 | `from_entity_id`   | `string`  | 是  | 发起对齐的实体 ID            |
 | `to_entity_type`   | `integer` | 是  | 被对齐的实体类型，固定为 `2`（目标）  |
 | `to_entity_id`     | `string`  | 是  | 被对齐的实体 ID             |
+| `is_draft` | `boolean` | 否 | 本次返回的是草稿（true）还是发布态（false） |
 
 > **API：**
 > - `alignments.get` — 获取对齐关系

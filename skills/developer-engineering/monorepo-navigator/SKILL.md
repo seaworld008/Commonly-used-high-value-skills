@@ -2,13 +2,13 @@
 name: monorepo-navigator
 description: 'Inspect or improve Turborepo, Nx, pnpm, or Lerna monorepos: package boundaries, dependency graphs, selective tests, caching, and migrations.'
 zh_description: "分析多包仓库的依赖、构建、缓存和变更影响。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["development", "monorepo", "navigator"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -292,21 +292,26 @@ Read [the detailed procedure and examples](EXTENDED.md#section-1) when working o
 
 ```bash
 # Step 1: Create monorepo scaffold
-mkdir my-monorepo && cd my-monorepo
+mkdir my-monorepo && cd my-monorepo || exit 1
+git init || exit 1
+test "$(git rev-parse --show-toplevel)" = "$(pwd -P)" || exit 1
 pnpm init
-echo "packages:\n  - 'apps/*'\n  - 'packages/*'" > pnpm-workspace.yaml
+printf "packages:\n  - 'apps/*'\n  - 'packages/*'\n" > pnpm-workspace.yaml
+git add package.json pnpm-workspace.yaml && git commit -m "Initialize monorepo workspace" || exit 1
 
 # Step 2: Move repos with git history preserved
 mkdir -p apps packages
 
-# For each existing repo:
-git clone https://github.com/myorg/web-app
-cd web-app
-git filter-repo --to-subdirectory-filter apps/web  # rewrites history into subdir
-cd ..
-git remote add web-app ./web-app
-git fetch web-app --tags
-git merge web-app/main --allow-unrelated-histories
+# Rewrite a disposable clone of the reviewed source, outside the destination.
+import_dir=$(mktemp -d "${TMPDIR:?}/web-import.XXXXXXXX") || exit 1
+git clone https://github.com/myorg/web-app "$import_dir/web-app" || exit 1
+git -C "$import_dir/web-app" filter-repo --to-subdirectory-filter apps/web || exit 1
+git remote add web-app "$import_dir/web-app" || exit 1
+git fetch web-app --tags || exit 1
+# Use the reviewed source branch (main in this example).
+git merge web-app/main --allow-unrelated-histories || exit 1
+git ls-tree HEAD apps/web
+git log --oneline -- apps/web
 
 # Step 3: Update package names to scoped
 # In each package.json, change "name": "web" to "name": "@myorg/web"

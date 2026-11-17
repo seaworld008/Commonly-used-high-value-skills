@@ -2,14 +2,14 @@
 name: trace
 description: 'Use when analyzing session replays or event logs for user behavior patterns, frustration signals such as rage or dead clicks, journey breakdowns, and UX anomalies.'
 zh_description: "分析会话回放或行为日志时使用：行为模式、挫败信号、用户旅程和体验异常。"
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/trace/SKILL.md"
 license: MIT
 tags: ["design", "product", "trace"]
 created_at: "2026-08-24"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "advanced"
 ---
@@ -19,7 +19,7 @@ CAPABILITIES_SUMMARY:
 - session_replay_analysis: Analyze click/scroll/navigation patterns from session recordings to extract behavioral insights
 - persona_segmentation: Segment sessions by persona definitions and build behavior-based cohorts
 - behavior_pattern_extraction: Classify and quantify recurring user behavior patterns across sessions
-- frustration_detection: Detect rage clicks (≥3 clicks/1.5s), dead clicks (≤600ms no feedback), error clicks, back loops, scroll thrashing, mouse thrashing; correlate with INP (Interaction to Next Paint) >200ms as predictive frustration signal
+- frustration_detection: Detect rage clicks, dead clicks, error clicks, back loops and thrashing. Correlate with interaction latency.
 - journey_reconstruction: Reconstruct user journeys as evidence-based narratives from logs and event streams
 - heatmap_specification: Specify heatmap and flow analysis requirements for visualization tools
 - anomaly_detection: Identify behavioral anomalies and deviations from expected user flows
@@ -64,7 +64,7 @@ Behavioral archaeologist analyzing real user session data to uncover stories beh
 
 Use Trace when the user needs:
 - session replay analysis or user behavior pattern extraction
-- frustration signal detection (rage clicks ≥3 clicks/1.5s, dead clicks ≤600ms no feedback, error clicks, back loops, scroll thrashing, mouse thrashing)
+- frustration signal detection (rage clicks, dead clicks, error clicks, back loops, scroll thrashing, mouse thrashing)
 - persona-based session segmentation and behavior-based cohort building
 - user journey reconstruction from logs, event streams, or replay data
 - UX problem storytelling with evidence-based narratives explaining WHY users struggle
@@ -86,7 +86,7 @@ Route elsewhere when the task is primarily:
 ## Core Contract
 
 - Segment all analysis by persona before drawing conclusions.
-- Detect and score frustration signals: rage clicks (repeated clicks on the same element within a short window are a sign of frustration, not intent — as a reference, roughly ≥3 clicks within ~1.5s, clustered close together), dead clicks (click with no visual feedback or navigation change within 600ms), error clicks (click that triggers a client-side error), back loops (≥3 returns to same page within a flow), scroll thrashing (rapid direction reversals ≥3 within 3s), mouse thrashing (rapid back-and-forth cursor movement).
+- Score rage clicks using the `rageclick` recipe. Check dead clicks for missing visual feedback or navigation within 600 ms, error clicks for client errors, back loops for repeated returns and thrashing for rapid direction reversals.
 - Benchmark frustration rates against industry baselines (e.g., rage clicks in ~5.3% of retail sessions; checkout rage-click conversion drops from 4.1% to 0.9%). Mobile taps are less precise than desktop clicks, so cluster repeated taps with a wider position tolerance on mobile than desktop (as a reference, ~50px mobile / ~30px desktop). On mobile, verify touch targets meet Material Design's 48×48 CSS-pixel minimum — undersized targets generate systematic mis-taps that appear as rage clicks on adjacent elements (Source: web.dev — Core Web Vitals; material.io).
 - Correlate frustration signals with Core Web Vitals Interaction to Next Paint (INP). INP ≤200ms at p75 is the official "good" threshold; >500ms is "poor" (Google Core Web Vitals, March 2024). Pages with INP >200ms show significantly higher rage-click density — treat INP regression as a **predictive** frustration signal, not just a reactive one, and escalate to Bolt/Beacon before users complain (Source: web.dev/articles/inp; inspectlet.com 2026 rage-click guide).
 - Treat session replay privacy compliance as a litigation risk, not just a policy concern — 1,853 wiretapping/pen-register cases were filed in the US (Feb 2022–Mar 2025), 83% in California, with expansion to FL/IL/PA (Source: Loeb & Loeb LLP, insideclassactions.com).
@@ -178,7 +178,7 @@ Behavior notes per Recipe:
 - `persona`: Load Cast persona definitions, validate behavioral clusters and statistical significance, then build cohorts.
 - `story`: Organize high-impact sessions in storytelling format, keeping the TRACE_TO_SAGA handoff in mind.
 - `archaeology`: Focus on motive and intent inference — reason backward from behavior patterns to answer "why did they do that?"
-- `rageclick`: Apply industry-standard thresholds (>=3 clicks/1s, <50px on mobile / <30px on desktop), filter false positives (intentional double-click, slow INP, drag intent), then link each flagged signal to anonymized replay for qualitative confirmation. Hand off to Palette/Bolt based on rage-vs-dead distinction.
+- `rageclick`: Record the tool, device, time window and spatial radius. When no window is specified, start with ≥3 clicks on the same element within 1 second (<50px on mobile or <30px on desktop). Calibrate against the project's baseline, filter double-clicks, delayed feedback and drag intent, then review the anonymized replay to confirm friction.
 - `funnel`: Decompose conversion into step-level drop-offs with cohort slicing (new/returning, device, referrer, locale); rank by friction score (drop-off % × downstream value) and surface the single highest-leverage step. Emit `TRACE_TO_EXPERIMENT` when Hypothesis Readiness Score >=7.
 - `heatmap`: Choose heatmap type by question (click/move/scroll/attention), normalize coordinates per breakpoint bucket, apply KDE or grid density, then extract hotspots via DBSCAN. Always mask form fields at capture and disclose session count on every overlay.
 
@@ -216,6 +216,13 @@ A complete deliverable carries the following — a ceiling, not a floor. Emit on
 - Actionable recommendations with target agent for handoff.
 - Privacy compliance confirmation.
 
+Example using synthetic desktop events and a 1-second window:
+
+```text
+checkout.submit at 0, 420 and 910 ms, all within 12 px → candidate
+checkout.submit at 0, 420 and 1210 ms → outside the window
+Replay review: check for an intentional repeat or delayed feedback before counting frustration.
+```
 ## Collaboration
 
 **Receives:** Field (persona definitions for session filtering), Echo (prediction verification), Pulse (quantitative anomaly triggers), Voice (feedback to map onto behavioral evidence).
@@ -266,7 +273,7 @@ During **ANALYZE** phase, when actual behavior deviates from expected persona pa
 
 **Journal** (`.agents/trace.md`): Domain insights only — patterns and learnings worth preserving.
 
-- After significant Trace work, append to `.agents/PROJECT.md`: `| YYYY-MM-DD | Trace | (action) | (files) | (outcome) |`.
+- When activity logging is authorized, record the action and outcome without user identifiers.
 
 ## AUTORUN Support
 
@@ -275,29 +282,3 @@ See `_common/AUTORUN.md` for the protocol (`_AGENT_CONTEXT` input, mode semantic
 ## Nexus Hub Mode
 
 When input contains `## NEXUS_ROUTING`, return via `## NEXUS_HANDOFF` (canonical schema in `_common/HANDOFF.md`).
-
-## Local Execution Contract
-
-Before applying this skill, make the requested outcome and its validation explicit. Use this compact contract to prevent scope drift and make the final handoff reviewable:
-
-```yaml
-goal: "What measurable outcome should change?"
-scope:
-  included: []
-  excluded: []
-inputs:
-  required: []
-  optional: []
-constraints:
-  safety: []
-  compatibility: []
-deliverables: []
-validation:
-  checks: []
-  evidence: []
-risks:
-  - risk: ""
-    mitigation: ""
-```
-
-Keep the contract proportional to the task. Omit irrelevant fields, but always retain a concrete goal, deliverables, and validation evidence.

@@ -2,13 +2,13 @@
 name: competitive-teardown
 description: 'Analyze competitors from product, pricing, reviews, SEO, and hiring evidence to produce feature comparisons, positioning, and actionable recommendations.'
 zh_description: "依据产品、定价和用户反馈分析竞争格局与改进机会。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["competitive", "design", "product", "teardown"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -77,7 +77,7 @@ print('\n'.join(p.text[:200]))
 # Check changelog / release notes
 curl -s "https://competitor.com/changelog" | grep -i "added\|new\|launched\|improved"
 
-# Feature list from sitemap
+# Feature list from sitemap (requires GNU grep with PCRE support)
 curl -s "https://competitor.com/sitemap.xml" | grep -oP '(?<=<loc>)[^<]+' | head -50
 ```
 
@@ -129,7 +129,9 @@ def get_jobs(company_token):
 jobs = get_jobs("competitor-name")
 departments = {}
 for job in jobs:
-    dept = job.get('departments', [{}])[0].get('name', 'Unknown')
+    # Count each opening once, under its first listed department.
+    listed = job.get('departments') or []
+    dept = (listed[0].get('name') if listed else None) or 'Unknown'
     departments[dept] = departments.get(dept, 0) + 1
 
 print("Team breakdown by open roles:")
@@ -154,7 +156,7 @@ Signals from job postings:
 curl "https://moz.com/api/free/v2/url-metrics?targets[]=competitor.com" \
   -H "x-moz-token: YOUR_TOKEN"
 
-# Check their blog topics (sitemap)
+# Check their blog topics (requires GNU grep with PCRE support)
 curl "https://competitor.com/sitemap-posts.xml" | \
   grep -oP '(?<=<loc>)[^<]+' | \
   sed 's|.*/||' | \

@@ -1,0 +1,39 @@
+{
+  "tag": "v6.1.0",
+  "package_version": "6.1.0",
+  "title": "v6.1.0 · 全量技能审查与证据边界修正",
+  "prerelease": false,
+  "generate_notes": false,
+  "changelog_range": "v6.0.0..v6.1.0",
+  "canonical_skills": 293,
+  "highlights": [
+    "全量审查293个规范技能，修正235个入口，保留独有执行资产与完整工作流",
+    "恢复36项真实外部来源，原创重建受限或缺乏来源证据的实现",
+    "补齐字体、内嵌组件和运行依赖的完整许可通知",
+    "修复数据证据、认证接收方、批处理完整性、文件交付和只读检查边界",
+    "独立复查修复回滚备份丢失、DOCX原稿误拒绝、XLSX校验旁路及稀疏表遍历",
+    "以干净模板构建、真实Office/浏览器/视频示例及完整仓库流水线分层验收"
+  ],
+  "release_gates": [
+    "完整仓库流水线与生成器幂等性通过",
+    "精确PR head的远端检查与审阅通过后合并",
+    "精确main CI和Code Scanning零开放告警后发布",
+    "独立下载公开制品核对提交、数量及SHA256"
+  ],
+  "validation_boundaries": {
+    "runtime": "离线回归、静态审查和打包检查不等于293个外部系统、模型、GUI或生产环境验收。",
+    "sources": "默认分支按固定观察提交审阅；归档与不可变快照按来源策略保留，未做全局安装。",
+    "bundles": "Open GSD Core和Pi保持已审不可变安装器版本，复核分发包完整性；不自动安装或升级用户运行态。"
+  },
+  "compatibility_notes": [
+    "公开技能入口保持293项，无新增、无退役。",
+    "部分工具对缺失数据、未完成操作和扫描错误改为明确失败或未验收；调用方应读取状态。",
+    "本地凭据回退、浏览器降级隔离与跨任务学习遵从显式授权。",
+    "rust-engineer 与 security-review 原创替代旧实现，Guizang 保持已核实 MIT 快照，未接收当前 AGPL 内容。",
+    "Office来源重建保留公开工具接口；无效包、无法确认的缓存和不完整交付会明确失败。",
+    "Web模板使用已审锁文件与原创本地滚动条模块；禁用依赖生命周期脚本，并传播101个默认运行依赖的通知。"
+  ],
+  "audit": "docs/maintenance-audit-2026-11-17.md",
+  "publication_status": "ready",
+  "provenance_review": "docs/maintenance-provenance-2026-11-17.md"
+}

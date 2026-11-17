@@ -1,433 +1,74 @@
-# Security Logging Reference
+# 一次角色变更应该留下怎样的记录
 
-## Overview
+Original local reference, Copyright (c)2026 seaworld008, MIT
 
-Insufficient logging and monitoring failures allow attacks to go undetected. This includes missing audit trails, sensitive data in logs, log injection attacks, and inadequate alerting on security events.
+角色管理接口收到请求后作出授权决定，应用、反向代理和审计消费者可能各自产生记录。
+租户管理员能改自己的显示名或请求备注，但不应能替另一名操作者留下事件。
+还要画出读者范围：业务接口看不到的字段，进入集中日志后可能被更多人长期检索。
 
----
+## 缺陷示例
 
-## Missing Security Event Logging
-
-### Events That Must Be Logged
+这里让请求决定操作者和换行位置，并把自由文本带入长期存储。
+即使接入层已认证，正文里的操作者声明仍由请求者控制。
 
 ```python
-# VULNERABLE: No logging of security events
-def login(username, password):
-    user = authenticate(username, password)
-    if user:
-        return create_session(user)
-    return None  # Failed login not logged
-
-def change_password(user, old_pass, new_pass):
-    if verify_password(old_pass, user.password):
-        user.password = hash_password(new_pass)
-        user.save()  # Password change not logged
+def unsafe_event(request):
+    return f"role.change by={request['display']} note={request['note']}"
 ```
 
-### Required Security Events
+## 修正示例
+
+接口适配器只从会话和授权后的目标对象取内部编号，决定取自实际执行结果。
+示例序列化一个固定事件，供按行收集 JSON 的采集器使用；写入器拒收不合契约的字段。
 
 ```python
-import logging
-from datetime import datetime
-
-security_logger = logging.getLogger('security')
-
-# Authentication events
-def login(username, password):
-    user = authenticate(username, password)
-    if user:
-        security_logger.info(
-            "login_success",
-            extra={
-                'user_id': user.id,
-                'username': username,
-                'ip': request.remote_addr,
-                'user_agent': request.user_agent.string,
-                'timestamp': datetime.utcnow().isoformat()
-            }
-        )
-        return create_session(user)
-    else:
-        security_logger.warning(
-            "login_failure",
-            extra={
-                'username': username,
-                'ip': request.remote_addr,
-                'reason': 'invalid_credentials',
-                'timestamp': datetime.utcnow().isoformat()
-            }
-        )
-        return None
-
-# Access control events
-def access_resource(user, resource):
-    if not user.can_access(resource):
-        security_logger.warning(
-            "access_denied",
-            extra={
-                'user_id': user.id,
-                'resource': resource.id,
-                'action': 'read',
-                'ip': request.remote_addr
-            }
-        )
-        raise PermissionDenied()
-
-# Critical data changes
-def update_user_role(admin, user, new_role):
-    old_role = user.role
-    user.role = new_role
-    user.save()
-    security_logger.info(
-        "role_change",
-        extra={
-            'admin_id': admin.id,
-            'target_user_id': user.id,
-            'old_role': old_role,
-            'new_role': new_role
-        }
-    )
-```
-
-### Security Events Checklist
-
-| Event Type | Must Log |
-|------------|----------|
-| Login success/failure | User, IP, timestamp, method |
-| Logout | User, session duration |
-| Password change | User, IP, timestamp |
-| Password reset request | Email/user, IP |
-| Account lockout | User, reason, duration |
-| MFA enrollment/removal | User, method |
-| Permission changes | Admin, target, old/new |
-| Access denied | User, resource, action |
-| Data export | User, data type, volume |
-| Admin actions | Admin, action, target |
-| API key creation/revocation | User, key ID (not key) |
-| Security setting changes | User, setting, old/new |
-
----
-
-## Sensitive Data in Logs
-
-### Dangerous Patterns
-
-```python
-# VULNERABLE: Logging passwords
-logger.info(f"User {username} login attempt with password {password}")
-logger.debug(f"Auth request: {request.json}")  # Contains password
-
-# VULNERABLE: Logging tokens/secrets
-logger.info(f"API request with key: {api_key}")
-logger.debug(f"JWT token: {token}")
-logger.info(f"Session: {session_cookie}")
-
-# VULNERABLE: Logging PII
-logger.info(f"Processing payment for SSN: {ssn}")
-logger.debug(f"User data: {user.__dict__}")  # May contain sensitive fields
-
-# VULNERABLE: Logging credit card numbers
-logger.info(f"Payment with card: {card_number}")
-```
-
-### Secure Logging
-
-```python
-# SAFE: Never log credentials
-logger.info(f"Login attempt for user: {username}")  # No password
-
-# SAFE: Mask sensitive data
-def mask_token(token):
-    if len(token) > 8:
-        return token[:4] + '****' + token[-4:]
-    return '****'
-
-logger.info(f"API request with key: {mask_token(api_key)}")
-
-# SAFE: Redact PII
-def redact_pii(data):
-    sensitive_fields = {'password', 'ssn', 'credit_card', 'api_key', 'token'}
-    if isinstance(data, dict):
-        return {k: '[REDACTED]' if k in sensitive_fields else v
-                for k, v in data.items()}
-    return data
-
-logger.debug(f"Request data: {redact_pii(request.json)}")
-
-# SAFE: Use structured logging with explicit fields
-logger.info(
-    "payment_processed",
-    extra={
-        'user_id': user.id,
-        'amount': amount,
-        'card_last_four': card_number[-4:],  # Only last 4
-        'transaction_id': txn_id
-    }
-)
-```
-
----
-
-## Log Injection
-
-### Attack Vector
-
-Attackers inject malicious content into logs to:
-- Forge log entries
-- Exploit log viewers (XSS in log dashboards)
-- Manipulate log analysis tools
-- Hide malicious activity
-
-### Vulnerable Patterns
-
-```python
-# VULNERABLE: Unsanitized user input in logs
-logger.info(f"User search: {user_input}")
-# Attack: user_input = "search\n2024-01-01 INFO admin logged in successfully"
-
-# VULNERABLE: Direct interpolation
-logger.info("Search query: " + query)
-# Attack: query contains newlines and fake log entries
-
-# VULNERABLE: Format string injection
-logger.info("User %s performed action" % user_input)
-```
-
-### Secure Logging
-
-```python
-# SAFE: Sanitize input before logging
+import json
 import re
 
-def sanitize_log_input(value):
-    """Remove newlines and control characters."""
-    if isinstance(value, str):
-        # Remove newlines and carriage returns
-        value = value.replace('\n', '\\n').replace('\r', '\\r')
-        # Remove other control characters
-        value = re.sub(r'[\x00-\x1f\x7f-\x9f]', '', value)
-    return value
-
-logger.info(f"User search: {sanitize_log_input(user_input)}")
-
-# SAFE: Use structured logging (JSON)
-import json_logging
-json_logging.init_non_web()
-
-logger.info("search_performed", extra={
-    'query': user_input,  # JSON encoding handles special chars
-    'user_id': user.id
-})
-
-# SAFE: Use parameterized logging
-logger.info("User %s searched for %s", user_id, sanitize_log_input(query))
-```
-
----
-
-## Log Storage Security
-
-### Insecure Patterns
-
-```python
-# VULNERABLE: World-readable log files
-logging.basicConfig(filename='/var/log/app.log')
-os.chmod('/var/log/app.log', 0o644)  # Anyone can read
-
-# VULNERABLE: Logs in web-accessible directory
-logging.basicConfig(filename='/var/www/html/logs/app.log')
-
-# VULNERABLE: No log rotation (can fill disk)
-logging.basicConfig(filename='app.log')  # Grows forever
-```
-
-### Secure Log Configuration
-
-```python
-# SAFE: Restricted permissions
-import os
-from logging.handlers import RotatingFileHandler
-
-log_file = '/var/log/app/security.log'
-handler = RotatingFileHandler(
-    log_file,
-    maxBytes=10*1024*1024,  # 10MB
-    backupCount=10
-)
-
-# Set restrictive permissions
-os.chmod(log_file, 0o600)  # Owner only
-
-# SAFE: Centralized logging with encryption
-import logging.handlers
-
-syslog_handler = logging.handlers.SysLogHandler(
-    address=('secure-syslog.company.com', 514),
-    socktype=socket.SOCK_STREAM  # TCP for reliability
-)
-# Use TLS for syslog transport
-```
-
----
-
-## Missing Alerting
-
-### Security Events Requiring Alerts
-
-```python
-# These should trigger immediate alerts, not just logging
-
-ALERT_THRESHOLDS = {
-    'failed_logins': 5,        # Per user per hour
-    'access_denied': 10,       # Per user per hour
-    'admin_login': 1,          # Any admin login from new IP
-    'privilege_escalation': 1, # Any role change
-    'data_export': 1,          # Large data exports
-}
-
-def check_alert_threshold(event_type, user_id):
-    count = get_recent_event_count(event_type, user_id, hours=1)
-    if count >= ALERT_THRESHOLDS.get(event_type, float('inf')):
-        send_security_alert(
-            event_type=event_type,
-            user_id=user_id,
-            count=count,
-            severity='high' if event_type in ['admin_login', 'privilege_escalation'] else 'medium'
-        )
-```
-
-### Alert Configuration
-
-```python
-# Security monitoring rules
-MONITORING_RULES = [
-    {
-        'name': 'brute_force_detection',
-        'condition': 'failed_logins > 5 in 5 minutes from same IP',
-        'action': 'block_ip, alert_security_team'
-    },
-    {
-        'name': 'impossible_travel',
-        'condition': 'login from geographically impossible location',
-        'action': 'require_mfa, alert_user'
-    },
-    {
-        'name': 'off_hours_admin',
-        'condition': 'admin action outside business hours',
-        'action': 'alert_security_team'
-    },
-    {
-        'name': 'mass_data_access',
-        'condition': 'data export > 10000 records',
-        'action': 'alert_security_team, require_approval'
+def role_event(actor_id, subject_id, result):
+    for value in (actor_id, subject_id):
+        if not isinstance(value, str) or not re.fullmatch(r"u-[0-9]{1,12}", value):
+            raise ValueError("invalid account identifier")
+    if result not in ("applied", "denied"):
+        raise ValueError("invalid role result")
+    event = {
+        "event": "role.change",
+        "actor": actor_id,
+        "subject": subject_id,
+        "result": result,
     }
-]
+    return json.dumps(event, separators=(",", ":")) + "\n"
 ```
 
----
+备注、Cookie、认证头和整个请求对象没有进入此接口的入口。
+实际写入时增加来自可信时钟的时间，以及服务端生成的事件编号。多租户系统需绑定租户范围。
+用户编号仍可能属于个人信息，检查索引的读权限、导出权限、保留期限与备份的过期策略。
 
-## Audit Trail Requirements
+## 检查记录是否对应真实效果
 
-### Immutable Audit Logs
+- 对已提交的变更生成 applied。先记成功再提交事务会留下不存在的成功操作。
+- 需要保证写操作和事件一致时，在同一事务写业务记录与待发送事件，消费者按事件编号去重。
+- 拒绝事件独立记录；放在将要回滚的业务事务内，会把拒绝证据一起丢掉。
+- 输入无效时记录固定的失败类别，避免在异常处理或调试日志中再次输出原始对象。
+- 单独核对采集器的限流和截断。反复拒绝产生的事件不应耗尽业务进程的磁盘。
 
-```python
-# VULNERABLE: Mutable logs
-def delete_audit_log(log_id):
-    AuditLog.query.filter_by(id=log_id).delete()  # Can be deleted
+## 合成验收
 
-# SAFE: Append-only audit logs
-class AuditLog(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    timestamp = db.Column(db.DateTime, nullable=False)
-    event_type = db.Column(db.String, nullable=False)
-    user_id = db.Column(db.Integer)
-    details = db.Column(db.JSON)
-    checksum = db.Column(db.String)  # Hash of previous entry
+| 输入或故障 | 观察结果 |
+| --- | --- |
+| u-2 对 u-5 的操作被拒 | 解码得到 denied，只有一个 JSON 事件 |
+| 客户端备注含换行和合成标记 | 适配器忽略备注，标记未出现在事件和旁路日志 |
+| 传入含换行的主体编号 | 序列化前抛错，写入器收不到记录 |
+| 结果为调用方自报的任意句子 | 字段拒绝，未落入结果索引 |
+| 已提交事件重复投递 | 审计视图按同一事件编号保留一次 |
 
-    @classmethod
-    def create(cls, event_type, user_id, details):
-        # Get previous entry's checksum for chain
-        prev = cls.query.order_by(cls.id.desc()).first()
-        prev_checksum = prev.checksum if prev else 'genesis'
+## 容易误判的情形
 
-        entry = cls(
-            timestamp=datetime.utcnow(),
-            event_type=event_type,
-            user_id=user_id,
-            details=details
-        )
-        # Chain checksum
-        entry.checksum = hashlib.sha256(
-            f"{prev_checksum}{entry.timestamp}{entry.event_type}".encode()
-        ).hexdigest()
-        db.session.add(entry)
-        db.session.commit()
-        return entry
+JSON 编码可以维持记录边界，但下游转为纯文本、CSV 或 HTML 时会引入新的解释规则。
+变量出现在日志调用中不能直接说明泄露；检查其来源、敏感度、格式化器和真实目的地。
+用本地内存写入器与合成标记观察事件数量，再核对项目采集器解析后的字段及访问策略。
+取证时保留字段名、事件数和脱敏配置，不导出人员操作记录。
 
-# No delete method - audit logs are immutable
-```
+异常响应与内部诊断的分工见[错误处理](error-handling.md)。
 
-### Retention Requirements
-
-```python
-# Configure retention based on compliance requirements
-LOG_RETENTION = {
-    'security_events': 365,      # 1 year
-    'authentication': 90,         # 90 days
-    'access_logs': 30,           # 30 days
-    'debug_logs': 7,             # 7 days
-    'audit_trail': 2555,         # 7 years (compliance)
-}
-
-def cleanup_old_logs():
-    for log_type, days in LOG_RETENTION.items():
-        cutoff = datetime.utcnow() - timedelta(days=days)
-        delete_logs_before(log_type, cutoff)
-```
-
----
-
-## Grep Patterns for Detection
-
-```bash
-# Missing security logging
-grep -rn "def login\|def authenticate" --include="*.py" | xargs -I {} grep -L "logger\|logging" {}
-
-# Sensitive data in logs
-grep -rn "logger.*password\|logging.*password\|log.*password" --include="*.py"
-grep -rn "logger.*token\|logger.*secret\|logger.*key" --include="*.py"
-
-# Unsanitized log input
-grep -rn "logger.*f\"\|logger.*%s.*%" --include="*.py"
-
-# Missing log rotation
-grep -rn "basicConfig.*filename\|FileHandler" --include="*.py" | grep -v "Rotating"
-
-# World-readable logs
-grep -rn "chmod.*644\|chmod.*755" --include="*.py" | grep -i log
-```
-
----
-
-## Testing Checklist
-
-- [ ] Authentication events (success/failure) logged
-- [ ] Authorization failures logged
-- [ ] Sensitive operations logged (password change, role change)
-- [ ] No passwords/tokens/secrets in logs
-- [ ] Log injection prevented (newlines sanitized)
-- [ ] Logs have restricted file permissions
-- [ ] Log rotation configured
-- [ ] Centralized logging for production
-- [ ] Alerts configured for security events
-- [ ] Audit trail is immutable
-- [ ] Log retention meets compliance requirements
-
----
-
-## References
-
-- [OWASP Logging Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
-- [OWASP Logging Vocabulary](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Vocabulary_Cheat_Sheet.html)
-- [CWE-778: Insufficient Logging](https://cwe.mitre.org/data/definitions/778.html)
-- [CWE-532: Information Exposure Through Log Files](https://cwe.mitre.org/data/definitions/532.html)
+平台资料：[Python JSON 编码器](https://docs.python.org/3/library/json.html#json.dumps)。

@@ -4,22 +4,22 @@ Enhanced transcript fixer wrapper with improved user experience.
 
 Features:
 - Custom output directory support
-- Automatic HTML diff opening in browser
-- Smart API key detection from shell config files
+- Optional HTML diff opening with --auto-open
+- API key supplied explicitly via GLM_API_KEY
 - Progress feedback
 
 CRITICAL FIX: Now uses secure API key handling (Critical-2)
 """
 
 import argparse
+import json
 import os
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
-# CRITICAL FIX: Import secure secret handling
 sys.path.insert(0, str(Path(__file__).parent))
-from utils.security import validate_api_key
 
 # CRITICAL FIX: Import path validation (Critical-5)
 from utils.path_validator import PathValidator, PathValidationError, add_allowed_directory
@@ -29,62 +29,8 @@ path_validator = PathValidator()
 
 
 def find_glm_api_key():
-    """
-    Search for GLM API key in common shell config files.
-
-    Looks for keys near ANTHROPIC_BASE_URL or GLM-related configs,
-    not just by exact variable name.
-
-    Returns:
-        str or None: API key if found, None otherwise
-    """
-    shell_configs = [
-        Path.home() / ".zshrc",
-        Path.home() / ".bashrc",
-        Path.home() / ".bash_profile",
-        Path.home() / ".profile",
-    ]
-
-    for config_file in shell_configs:
-        if not config_file.exists():
-            continue
-
-        try:
-            with open(config_file, 'r', encoding='utf-8') as f:
-                lines = f.readlines()
-
-            # Look for ANTHROPIC_BASE_URL with bigmodel
-            for i, line in enumerate(lines):
-                if 'ANTHROPIC_BASE_URL' in line and 'bigmodel.cn' in line:
-                    # Check surrounding lines for API key
-                    start = max(0, i - 2)
-                    end = min(len(lines), i + 3)
-
-                    for check_line in lines[start:end]:
-                        # Look for uncommented export with token/key
-                        if check_line.strip().startswith('#'):
-                            # Check if it's a commented export with token
-                            if 'export' in check_line and ('TOKEN' in check_line or 'KEY' in check_line):
-                                parts = check_line.split('=', 1)
-                                if len(parts) == 2:
-                                    key = parts[1].strip().strip('"').strip("'")
-                                    # Never emit any portion of the credential.
-                                    if validate_api_key(key):
-                                        print(f"✓ Found API key configuration in {config_file}")
-                                        return key
-                        elif 'export' in check_line and ('TOKEN' in check_line or 'KEY' in check_line):
-                            parts = check_line.split('=', 1)
-                            if len(parts) == 2:
-                                key = parts[1].strip().strip('"').strip("'")
-                                # Never emit any portion of the credential.
-                                if validate_api_key(key):
-                                    print(f"✓ Found API key configuration in {config_file}")
-                                    return key
-        except Exception as e:
-            print(f"⚠️  Could not read {config_file}: {e}", file=sys.stderr)
-            continue
-
-    return None
+    """Read only the explicitly supplied process environment; never shell files."""
+    return os.environ.get('GLM_API_KEY')
 
 
 def open_html_in_browser(html_path):
@@ -115,7 +61,7 @@ def open_html_in_browser(html_path):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Enhanced transcript fixer with auto-open HTML diff",
+        description="Enhanced transcript fixer with optional HTML diff opening",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
@@ -136,9 +82,9 @@ Examples:
                        choices=['general', 'embodied_ai', 'finance', 'medical'],
                        help='Domain for corrections (default: general)')
     parser.add_argument('--stage', type=int, default=3, choices=[1, 2, 3],
-                       help='Processing stage: 1=dict, 2=AI, 3=both (default: 3)')
-    parser.add_argument('--auto-open', action='store_true', default=True,
-                       help='Automatically open HTML diff in browser (default: True)')
+                       help='Processing through stage: 1=dict, 2=dict+AI, 3=both+diff hint (default: 3)')
+    parser.add_argument('--auto-open', action='store_true', default=False,
+                       help='Automatically open HTML diff in browser (default: False)')
     parser.add_argument('--no-auto-open', dest='auto_open', action='store_false',
                        help='Do not open HTML diff automatically')
 
@@ -175,16 +121,10 @@ Examples:
 
     # Check/find API key if Stage 2 or 3
     if args.stage in [2, 3]:
-        api_key = os.environ.get('GLM_API_KEY')
+        api_key = find_glm_api_key()
         if not api_key:
-            print("🔍 GLM_API_KEY not set, searching shell configs...")
-            api_key = find_glm_api_key()
-            if api_key:
-                os.environ['GLM_API_KEY'] = api_key
-            else:
-                print("❌ GLM_API_KEY not found. Please set it or run with --stage 1")
-                print("   Get API key from: https://open.bigmodel.cn/")
-                sys.exit(1)
+            print("❌ GLM_API_KEY not set. Supply it explicitly or run with --stage 1")
+            sys.exit(1)
 
     # Get script directory
     script_dir = Path(__file__).parent
@@ -194,11 +134,18 @@ Examples:
         print(f"❌ Main script not found: {main_script}")
         sys.exit(1)
 
-    # Build command
+    # One dependency source for both uv and preinstalled Python environments.
+    requirements = (script_dir.parent / 'requirements.txt').read_text(encoding='utf-8')
+    dependency_args = []
+    for line in requirements.splitlines():
+        requirement = line.split('#', 1)[0].strip()
+        if requirement:
+            dependency_args.extend(['--with', requirement])
     cmd = [
-        'uv', 'run', '--with', 'httpx',
+        'uv', 'run', *dependency_args,
         str(main_script),
         '--input', str(input_path),
+        '--output', str(output_dir),
         '--stage', str(args.stage),
         '--domain', args.domain
     ]
@@ -209,47 +156,64 @@ Examples:
     print(f"⚙️  Stage: {args.stage}")
     print()
 
-    # Run main script
-    try:
-        result = subprocess.run(cmd, check=True, cwd=script_dir.parent)
-    except subprocess.CalledProcessError as e:
-        print(f"❌ Processing failed with exit code {e.returncode}")
-        sys.exit(e.returncode)
+    # A private receipt identifies this run's files, including partial delivery.
+    # Never infer generation from old files left beside the input or output.
+    produced_files = []
+    exit_code = 0
+    with tempfile.TemporaryDirectory(prefix="transcript-delivery-") as task_dir:
+        manifest = Path(task_dir) / "outputs.json"
+        env = os.environ.copy()
+        env["TRANSCRIPT_FIXER_OUTPUT_MANIFEST"] = str(manifest)
+        try:
+            subprocess.run(cmd, check=True, cwd=script_dir.parent, env=env)
+        except subprocess.CalledProcessError as exc:
+            exit_code = exc.returncode
 
-    # Move output files to desired directory if different from input directory
-    if output_dir != input_path.parent:
-        print(f"\n📦 Moving output files to {output_dir}...")
+        allowed_suffixes = ['_stage1.md']
+        if args.stage >= 2:
+            allowed_suffixes.append('_stage2.md')
+        if args.stage >= 3:
+            allowed_suffixes.extend(['_对比.html', '_对比报告.md', '_修复报告.md'])
+        allowed = {
+            (output_dir / f"{input_path.stem}{suffix}").resolve()
+            for suffix in allowed_suffixes
+        }
+        try:
+            outputs = json.loads(manifest.read_text(encoding='utf-8'))['outputs']
+            if not isinstance(outputs, list) or not all(isinstance(p, str) for p in outputs):
+                raise ValueError("Invalid output list")
+            for item in outputs:
+                path = Path(item).resolve()
+                if path in allowed and path.is_file() and path not in produced_files:
+                    produced_files.append(path)
+        except (OSError, ValueError, KeyError, TypeError):
+            print("⚠️  Current-run output manifest unavailable; no files listed or opened")
 
-        base_name = input_path.stem
-        output_patterns = [
-            f"{base_name}_stage1.md",
-            f"{base_name}_stage2.md",
-            f"{base_name}_对比.html",
-            f"{base_name}_对比报告.md",
-            f"{base_name}_修复报告.md",
-        ]
-
-        for pattern in output_patterns:
-            source = input_path.parent / pattern
-            if source.exists():
-                dest = output_dir / pattern
-                source.rename(dest)
-                print(f"  ✓ {pattern}")
+    required = {(output_dir / f"{input_path.stem}_stage1.md").resolve()}
+    if args.stage >= 2:
+        required.add((output_dir / f"{input_path.stem}_stage2.md").resolve())
+    if not exit_code and not required.issubset(produced_files):
+        print("❌ Required current-run text outputs are unverified")
+        exit_code = 1
 
     # Auto-open HTML diff
-    if args.auto_open:
-        html_file = output_dir / f"{input_path.stem}_对比.html"
-        if html_file.exists():
+    if args.auto_open and not exit_code:
+        html_file = (output_dir / f"{input_path.stem}_对比.html").resolve()
+        if html_file in produced_files:
             print("\n🌐 Opening HTML diff in browser...")
             open_html_in_browser(html_file)
         else:
-            print(f"\n⚠️  HTML diff not generated (may require Stage 2/3)")
+            print(f"\n⚠️  HTML diff not generated; run scripts/generate_word_diff.py explicitly")
 
-    print("\n✅ Processing complete!")
+    if exit_code:
+        print(f"\n❌ Processing failed with exit code {exit_code}")
+    else:
+        print("\n✅ Processing complete!")
     print(f"\n📄 Output files in: {output_dir}")
-    print(f"   - {input_path.stem}_stage1.md (dictionary corrections)")
-    print(f"   - {input_path.stem}_stage2.md (AI corrections - final version)")
-    print(f"   - {input_path.stem}_对比.html (visual diff)")
+    for produced in produced_files:
+        print(f"   - {produced.name}")
+    if exit_code:
+        sys.exit(exit_code)
 
 
 if __name__ == '__main__':

@@ -2,13 +2,13 @@
 name: repomix-safe-mixer
 description: 'Scan for hardcoded credentials, report redacted findings, and block repomix packaging when risks are found. Use when packaging code for distribution, creating reference packages, or checking credentials before sharing a codebase.'
 zh_description: "打包代码前扫描凭据、输出脱敏报告，并在发现风险时阻止打包。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["development", "mixer", "repomix", "safe"]'
 created_at: "2026-03-04"
-updated_at: "2026-08-31"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -20,7 +20,8 @@ complexity: "intermediate"
 Scan for hardcoded credentials before packaging codebases with repomix, report
 redacted findings, and block packaging until the user resolves them.
 
-This skill prevents accidental credential exposure when packaging code with repomix. It scans for hardcoded secrets (API keys, database credentials, tokens), reports findings, and ensures safe packaging.
+This skill helps find common credential patterns before packaging. A pattern
+scan cannot guarantee that a package is safe to share.
 
 **When to use**: When packaging code with repomix for distribution, creating shareable reference packages, or whenever security concerns exist about hardcoded credentials in code.
 
@@ -28,24 +29,26 @@ This skill prevents accidental credential exposure when packaging code with repo
 
 ### Standard Safe Packaging
 
-Use `safe_pack.py` from this skill's `scripts/` directory for the complete workflow: scan → report → pack.
+The gate distinguishes **clean / findings / scan-error**. `safe_pack.py` proceeds only after a completed clean scan. Findings and scan failures have distinct nonzero exits; `--force` does not bypass either. The scanner includes env files and ordinary PEM keys.
+
+Check the actual packing manifest and scanner limitations. A clean pattern scan means no matches in the completed scope, not a guarantee that no secret exists. Keep explicit config paths intact and review exclusions before sharing.
 
 ```bash
 python3 scripts/safe_pack.py <directory>
 ```
 
-**What it does**:
-1. Scans directory for hardcoded credentials
-2. Reports findings with file/line details
-3. Blocks packaging if secrets found
-4. Packs with repomix only if scan is clean
+**Current wrapper behavior**:
+1. Invokes the bundled pattern scanner
+2. Reports parsed findings with redacted locations
+3. Blocks on findings or an incomplete scan; `--force` cannot bypass the gate
+4. Packs on empty findings even when completeness is unproven
 
 **Example**:
 ```bash
 python3 scripts/safe_pack.py ./my-project
 ```
 
-**Output if clean**:
+**Existing wrapper output for empty findings (not a safety verdict)**:
 ```
 🔍 Scanning ./my-project for hardcoded secrets...
 ✅ No secrets detected!
@@ -89,11 +92,13 @@ python3 scripts/safe_pack.py \
   --exclude '.*test.*' '.*\.example'
 ```
 
-**Force pack (dangerous, skip scan)**:
+**Force pack (dangerous, bypass findings block)**:
+The flag still scans; it allows packaging despite findings. Do not use it for
+shareable packages or as a workaround for scan errors.
 ```bash
 python3 scripts/safe_pack.py \
   ./my-project \
-  --force  # ⚠️ NOT RECOMMENDED
+  --force  # legacy compatibility flag; cannot bypass findings or scan errors
 ```
 
 ## Standalone Secret Scanning
@@ -151,7 +156,8 @@ The scanner detects common credential patterns including:
 **Authentication**:
 - JWT Tokens (`eyJ...`)
 - OAuth Client Secrets
-- Private Keys (`-----BEGIN PRIVATE KEY-----`)
+- Qualified private-key headers (`RSA`, `EC`, `OPENSSH`, `DSA`); ordinary
+  `-----BEGIN PRIVATE KEY-----` requires another reviewed check
 - Turnstile Keys (`0x...`)
 
 See `references/common_secrets.md` for complete list and patterns.
@@ -198,14 +204,16 @@ VITE_API_KEY=your-api-key-here
 
 ### Step 4: Verify Cleanup
 
-Run scanner again to confirm secrets removed:
+Run the scanner again for pattern candidates, then verify all intended targets
+with the reviewed complete scan described above:
 ```bash
 python3 scripts/scan_secrets.py ./my-project
 ```
 
 ### Step 5: Safe Pack
 
-Once clean, package safely:
+After the independent gate is complete and clean, packaging may proceed.
+The legacy wrapper below does not replace that gate:
 ```bash
 python3 scripts/safe_pack.py ./my-project
 ```
@@ -265,14 +273,17 @@ python3 scripts/safe_pack.py \
   --output ~/Downloads/package-clean.xml
 ```
 
-The skill runs repomix internally after security validation, passing through config and output options.
+The wrapper runs repomix after its limited findings check, passing config and
+output options. Review the actual packing manifest and exclusions. Report only
+“no matches in the verified scanned scope”; do not repeat the wrapper's absolute
+“safe to distribute” verdict as evidence.
 
 ## Example Workflows
 
 ### Workflow 1: Package a Clean Project
 
 ```bash
-# Scan and pack in one command
+# Legacy scan-and-pack example; requires the independent gate above
 python3 scripts/safe_pack.py \
   ~/workspace/my-project \
   --output ~/Downloads/my-project-package.xml
@@ -303,7 +314,7 @@ python3 scripts/safe_pack.py \
 python3 scripts/scan_secrets.py . --json
 
 # Exit code 1 if secrets found (blocks commit)
-# Exit code 0 if clean (allows commit)
+# Exit code 0 means no findings, not complete coverage; scan errors must block commit
 ```
 
 ## Resources

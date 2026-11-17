@@ -12,7 +12,9 @@ Usage:
 
 import argparse
 import json
+import re
 import sys
+import unicodedata
 from typing import Dict, List, Any, Optional
 from datetime import datetime
 import html as html_module
@@ -21,6 +23,27 @@ import html as html_module
 def escape(text: str) -> str:
     """HTML-escape text."""
     return html_module.escape(str(text))
+
+
+def js_string(value: Any) -> str:
+    """Encode configuration data as a JavaScript string literal."""
+    return json.dumps(str(value), ensure_ascii=True)
+
+
+def tsx_string(value: Any) -> str:
+    """Keep JSX text and attribute values inside a string expression."""
+    return "{" + js_string(value) + "}"
+
+
+def validate_href(value: Any) -> str:
+    """Accept ordinary web/contact links and relative references, never scripts."""
+    url = str(value)
+    if any(ord(char) < 32 or 127 <= ord(char) <= 159 for char in url):
+        raise ValueError("Link URLs must not contain control characters")
+    scheme = re.match(r"^([a-zA-Z][a-zA-Z0-9+.-]*):", url.strip())
+    if scheme and scheme.group(1).lower() not in {"http", "https", "mailto", "tel", "ftp"}:
+        raise ValueError("Unsupported link URL scheme")
+    return url
 
 
 # ---------------------------------------------------------------------------
@@ -68,11 +91,11 @@ DESIGN_STYLES = {
 # ---------------------------------------------------------------------------
 
 def tsx_nav(config: Dict[str, Any], style: Dict[str, str]) -> str:
-    brand = config.get("brand", "Brand")
+    brand = tsx_string(config.get("brand", "Brand"))
     nav_links = config.get("nav_links", [])
     cta = config.get("nav_cta", {"text": "Get Started", "url": "#"})
     links_jsx = "\n          ".join(
-        f'<a href="{l.get("url", "#")}" className="{style["muted"]} hover:{style["text"]} font-medium transition-colors">{l.get("text", "")}</a>'
+        f'<a href={tsx_string(validate_href(l.get("url", "#")))} className="{style["muted"]} hover:{style["text"]} font-medium transition-colors">{tsx_string(l.get("text", ""))}</a>'
         for l in nav_links
     )
     return f'''function Navbar() {{
@@ -82,8 +105,8 @@ def tsx_nav(config: Dict[str, Any], style: Dict[str, str]) -> str:
         <a href="#" className="text-xl font-bold {style["text"]}">{brand}</a>
         <div className="hidden items-center gap-8 md:flex">
           {links_jsx}
-          <a href="{cta.get("url", "#")}" className="rounded-lg {style["btn"]} px-5 py-2.5 text-sm font-semibold transition-colors">
-            {cta.get("text", "Get Started")}
+          <a href={tsx_string(validate_href(cta.get("url", "#")))} className="rounded-lg {style["btn"]} px-5 py-2.5 text-sm font-semibold transition-colors">
+            {tsx_string(cta.get("text", "Get Started"))}
           </a>
         </div>
       </div>
@@ -93,15 +116,15 @@ def tsx_nav(config: Dict[str, Any], style: Dict[str, str]) -> str:
 
 
 def tsx_hero(hero: Dict[str, Any], style: Dict[str, str]) -> str:
-    h1 = hero.get("headline", "Your Headline Here")
-    sub = hero.get("subheadline", "")
+    h1 = tsx_string(hero.get("headline", "Your Headline Here"))
+    sub = tsx_string(hero.get("subheadline", ""))
     primary_cta = hero.get("primary_cta", {"text": "Get Started", "url": "#"})
     secondary_cta = hero.get("secondary_cta", None)
     secondary_jsx = ""
     if secondary_cta:
         secondary_jsx = f'''
-          <a href="{secondary_cta.get("url", "#")}" className="rounded-lg {style["btn_secondary"]} px-8 py-3 text-lg font-semibold transition-colors">
-            {secondary_cta.get("text", "Learn More")}
+          <a href={tsx_string(validate_href(secondary_cta.get("url", "#")))} className="rounded-lg {style["btn_secondary"]} px-8 py-3 text-lg font-semibold transition-colors">
+            {tsx_string(secondary_cta.get("text", "Learn More"))}
           </a>'''
     return f'''function Hero() {{
   return (
@@ -114,8 +137,8 @@ def tsx_hero(hero: Dict[str, Any], style: Dict[str, str]) -> str:
           {sub}
         </p>
         <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-          <a href="{primary_cta.get("url", "#")}" className="rounded-lg {style["btn"]} px-8 py-3 text-lg font-semibold transition-colors">
-            {primary_cta.get("text", "Get Started")}
+          <a href={tsx_string(validate_href(primary_cta.get("url", "#")))} className="rounded-lg {style["btn"]} px-8 py-3 text-lg font-semibold transition-colors">
+            {tsx_string(primary_cta.get("text", "Get Started"))}
           </a>{secondary_jsx}
         </div>
       </div>
@@ -125,14 +148,14 @@ def tsx_hero(hero: Dict[str, Any], style: Dict[str, str]) -> str:
 
 
 def tsx_features(features: Dict[str, Any], style: Dict[str, str]) -> str:
-    title = features.get("title", "Features")
-    subtitle = features.get("subtitle", "")
+    title = tsx_string(features.get("title", "Features"))
+    subtitle = tsx_string(features.get("subtitle", ""))
     items = features.get("items", [])
     cards_jsx = "\n        ".join(
         f'''<div className="{style["card_bg"]} rounded-xl p-8">
-          <div className="mb-4 text-3xl">{f.get("icon", "")}</div>
-          <h3 className="mb-3 text-xl font-semibold {style["text"]}">{f.get("title", "")}</h3>
-          <p className="{style["muted"]}">{f.get("description", "")}</p>
+          <div className="mb-4 text-3xl">{tsx_string(f.get("icon", ""))}</div>
+          <h3 className="mb-3 text-xl font-semibold {style["text"]}">{tsx_string(f.get("title", ""))}</h3>
+          <p className="{style["muted"]}">{tsx_string(f.get("description", ""))}</p>
         </div>'''
         for f in items
     )
@@ -152,16 +175,16 @@ def tsx_features(features: Dict[str, Any], style: Dict[str, str]) -> str:
 
 
 def tsx_testimonials(testimonials: Dict[str, Any], style: Dict[str, str]) -> str:
-    title = testimonials.get("title", "What Our Customers Say")
+    title = tsx_string(testimonials.get("title", "What Our Customers Say"))
     items = testimonials.get("items", [])
     if not items:
         return ""
     cards_jsx = "\n        ".join(
         f'''<div className="rounded-xl border {style["border"]} p-8">
-          <p className="mb-6 text-lg italic {style["muted"]}">"{t.get("quote", "")}"</p>
+          <p className="mb-6 text-lg italic {style["muted"]}">"{tsx_string(t.get("quote", ""))}"</p>
           <div>
-            <p className="font-semibold {style["text"]}">{t.get("name", "")}</p>
-            <p className="text-sm {style["muted"]}">{t.get("title", "")}, {t.get("company", "")}</p>
+            <p className="font-semibold {style["text"]}">{tsx_string(t.get("name", ""))}</p>
+            <p className="text-sm {style["muted"]}">{tsx_string(t.get("title", ""))}, {tsx_string(t.get("company", ""))}</p>
           </div>
         </div>'''
         for t in items
@@ -181,7 +204,7 @@ def tsx_testimonials(testimonials: Dict[str, Any], style: Dict[str, str]) -> str
 
 
 def tsx_pricing(pricing: Dict[str, Any], style: Dict[str, str]) -> str:
-    title = pricing.get("title", "Pricing")
+    title = tsx_string(pricing.get("title", "Pricing"))
     plans = pricing.get("plans", [])
     if not plans:
         return ""
@@ -192,18 +215,18 @@ def tsx_pricing(pricing: Dict[str, Any], style: Dict[str, str]) -> str:
         border_cls = f"border-2 border-{accent}-500 ring-4 ring-{accent}-500/20" if featured else f"border {style['border']}"
         badge = f'\n            <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-{accent}-600 px-4 py-1 text-xs font-semibold text-white">Most Popular</div>' if featured else ""
         features_jsx = "\n              ".join(
-            f'<li className="flex items-center gap-2 py-2"><span className="text-{accent}-500 font-bold">&#10003;</span> {feat}</li>'
+            f'<li className="flex items-center gap-2 py-2"><span className="text-{accent}-500 font-bold">&#10003;</span> {tsx_string(feat)}</li>'
             for feat in p.get("features", [])
         )
         cards.append(f'''<div className="relative rounded-2xl {border_cls} {style["card_bg"]} p-8 text-center">{badge}
-            <h3 className="mb-2 text-xl font-semibold {style["text"]}">{p.get("name", "")}</h3>
-            <div className="my-6 text-5xl font-extrabold {style["text"]}">${p.get("price", "0")}<span className="text-base font-normal {style["muted"]}">/mo</span></div>
-            <p className="{style["muted"]} mb-6">{p.get("description", "")}</p>
+            <h3 className="mb-2 text-xl font-semibold {style["text"]}">{tsx_string(p.get("name", ""))}</h3>
+            <div className="my-6 text-5xl font-extrabold {style["text"]}">${tsx_string(p.get("price", "0"))}<span className="text-base font-normal {style["muted"]}">/mo</span></div>
+            <p className="{style["muted"]} mb-6">{tsx_string(p.get("description", ""))}</p>
             <ul className="mb-8 space-y-1 text-left {style["muted"]}">
               {features_jsx}
             </ul>
-            <a href="{p.get("cta_url", "#")}" className="block w-full rounded-lg {style["btn"]} py-3 text-center font-semibold transition-colors">
-              {p.get("cta_text", "Choose Plan")}
+            <a href={tsx_string(validate_href(p.get("cta_url", "#")))} className="block w-full rounded-lg {style["btn"]} py-3 text-center font-semibold transition-colors">
+              {tsx_string(p.get("cta_text", "Choose Plan"))}
             </a>
           </div>''')
     cards_jsx = "\n        ".join(cards)
@@ -227,10 +250,10 @@ def tsx_cta(cta: Dict[str, Any], style: Dict[str, str]) -> str:
   return (
     <section className="bg-{accent}-600 px-6 py-24 text-center text-white">
       <div className="mx-auto max-w-3xl">
-        <h2 className="mb-4 text-4xl font-bold">{cta.get("headline", "Ready to get started?")}</h2>
-        <p className="mb-10 text-xl opacity-90">{cta.get("subheadline", "")}</p>
-        <a href="{cta.get("url", "#")}" className="rounded-lg bg-white px-8 py-3 text-lg font-semibold text-{accent}-600 transition-colors hover:bg-gray-100">
-          {cta.get("text", "Start Free Trial")}
+        <h2 className="mb-4 text-4xl font-bold">{tsx_string(cta.get("headline", "Ready to get started?"))}</h2>
+        <p className="mb-10 text-xl opacity-90">{tsx_string(cta.get("subheadline", ""))}</p>
+        <a href={tsx_string(validate_href(cta.get("url", "#")))} className="rounded-lg bg-white px-8 py-3 text-lg font-semibold text-{accent}-600 transition-colors hover:bg-gray-100">
+          {tsx_string(cta.get("text", "Start Free Trial"))}
         </a>
       </div>
     </section>
@@ -245,7 +268,7 @@ def tsx_footer(config: Dict[str, Any], style: Dict[str, str]) -> str:
     return f'''function Footer() {{
   return (
     <footer className="border-t {style["border"]} {style["bg"]} px-6 py-10 text-center {style["muted"]}">
-      <p>&copy; {footer_text}</p>
+      <p>&copy; {tsx_string(footer_text)}</p>
     </footer>
   );
 }}'''
@@ -254,7 +277,9 @@ def tsx_footer(config: Dict[str, Any], style: Dict[str, str]) -> str:
 def generate_tsx(config: Dict[str, Any]) -> str:
     """Generate complete Next.js/React TSX landing page with Tailwind CSS."""
     style_name = config.get("design_style", "clean-minimal")
-    style = DESIGN_STYLES.get(style_name, DESIGN_STYLES["clean-minimal"])
+    if style_name not in DESIGN_STYLES:
+        style_name = "clean-minimal"
+    style = DESIGN_STYLES[style_name]
 
     components = []
     component_names = []
@@ -298,11 +323,11 @@ def generate_tsx(config: Dict[str, Any]) -> str:
 import type {{ Metadata }} from "next";
 
 export const metadata: Metadata = {{
-  title: "{title}",
-  description: "{meta_desc}",
+  title: {js_string(title)},
+  description: {js_string(meta_desc)},
   openGraph: {{
-    title: "{title}",
-    description: "{meta_desc}",
+    title: {js_string(title)},
+    description: {js_string(meta_desc)},
     type: "website",
   }},
 }};
@@ -323,14 +348,108 @@ export default function LandingPage() {{
 # HTML generators (existing)
 # ---------------------------------------------------------------------------
 
+HTML_THEME_DEFAULTS = {
+    "primary_color": "#2563eb",
+    "secondary_color": "#1e40af",
+    "background": "#ffffff",
+    "text_color": "#1f2937",
+    "font": "Inter, system-ui, -apple-system, sans-serif",
+}
+
+# Deliberately support literal colors only, never URLs, variables, escapes,
+# comments or arbitrary CSS functions. These values enter a raw HTML style tag.
+CSS_COLOR_NAMES = frozenset("""
+    aliceblue antiquewhite aqua aquamarine azure beige bisque black blanchedalmond
+    blue blueviolet brown burlywood cadetblue chartreuse chocolate coral
+    cornflowerblue cornsilk crimson cyan darkblue darkcyan darkgoldenrod darkgray
+    darkgreen darkgrey darkkhaki darkmagenta darkolivegreen darkorange darkorchid
+    darkred darksalmon darkseagreen darkslateblue darkslategray darkslategrey
+    darkturquoise darkviolet deeppink deepskyblue dimgray dimgrey dodgerblue
+    firebrick floralwhite forestgreen fuchsia gainsboro ghostwhite gold goldenrod
+    gray green greenyellow grey honeydew hotpink indianred indigo ivory khaki
+    lavender lavenderblush lawngreen lemonchiffon lightblue lightcoral lightcyan
+    lightgoldenrodyellow lightgray lightgreen lightgrey lightpink lightsalmon
+    lightseagreen lightskyblue lightslategray lightslategrey lightsteelblue
+    lightyellow lime limegreen linen magenta maroon mediumaquamarine mediumblue
+    mediumorchid mediumpurple mediumseagreen mediumslateblue mediumspringgreen
+    mediumturquoise mediumvioletred midnightblue mintcream mistyrose moccasin
+    navajowhite navy oldlace olive olivedrab orange orangered orchid palegoldenrod
+    palegreen paleturquoise palevioletred papayawhip peachpuff peru pink plum
+    powderblue purple rebeccapurple red rosybrown royalblue saddlebrown salmon
+    sandybrown seagreen seashell sienna silver skyblue slateblue slategray slategrey
+    snow springgreen steelblue tan teal thistle tomato turquoise violet wheat
+    white whitesmoke yellow yellowgreen transparent currentcolor
+""".split())
+
+
+def validate_theme_value(value: Any, field: str) -> str:
+    """Reject non-text and invisible controls before any whitespace trimming."""
+    if not isinstance(value, str) or not value.strip():
+        raise ValueError(f"theme.{field} must be a non-empty CSS value string")
+    if any(unicodedata.category(char).startswith("C") or
+           unicodedata.category(char) in {"Zl", "Zp"} for char in value):
+        raise ValueError(f"theme.{field} must not contain control characters")
+    return value.strip(" ")
+
+
+def validate_css_color(value: Any, field: str) -> str:
+    """Allow named/hex colors and numeric rgb(a)/hsl(a), with no nested CSS."""
+    value = validate_theme_value(value, field)
+    if value.lower() in CSS_COLOR_NAMES or re.fullmatch(
+        r"#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{4}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})", value
+    ):
+        return value
+
+    number = r"[+-]?(?:[0-9]+(?:\.[0-9]+)?|\.[0-9]+)"
+    percent = number + "%"
+    channel = number + "%?"
+    alpha = rf"(?: *, *{channel})?"
+    slash_alpha = rf"(?: */ *{channel})?"
+    rgb_legacy = rf"(?:{number} *, *{number} *, *{number}|{percent} *, *{percent} *, *{percent}){alpha}"
+    rgb_modern = rf"{channel} +{channel} +{channel}{slash_alpha}"
+    hue = number + r"(?:deg|grad|rad|turn)?"
+    hsl_legacy = rf"{hue} *, *{percent} *, *{percent}{alpha}"
+    hsl_modern = rf"{hue} +{percent} +{percent}{slash_alpha}"
+    if re.fullmatch(
+        rf"(?:rgba?\( *(?:{rgb_legacy}|{rgb_modern}) *\)|"
+        rf"hsla?\( *(?:{hsl_legacy}|{hsl_modern}) *\))",
+        value, flags=re.IGNORECASE | re.ASCII,
+    ):
+        return value
+    raise ValueError(f"theme.{field} must be a named, hex, rgb(a) or hsl(a) color")
+
+
+def validate_css_font(value: Any) -> str:
+    """Allow comma-separated family names, optionally quoted, without CSS code."""
+    value = validate_theme_value(value, "font")
+    # Unicode letters allow local font names; punctuation that could change the
+    # declaration or HTML structure, CSS escapes and functions are unsupported.
+    word = r"(?:[^\W\d]|-[^\W\d-])[\w-]*"
+    family = rf"(?:{word}(?: +{word})*|'[\w .+-]+'|\"[\w .+-]+\")"
+    if not re.fullmatch(rf"{family}(?: *, *{family})*", value):
+        raise ValueError("theme.font must be a comma-separated list of font family names")
+    return value
+
+
+def validate_html_theme(config: Dict[str, Any]) -> Dict[str, str]:
+    """Validate every supported field, including the reserved secondary color."""
+    theme = config.get("theme", {})
+    if not isinstance(theme, dict):
+        raise ValueError("theme must be an object")
+    return {
+        field: (validate_css_font(theme.get(field, default)) if field == "font"
+                else validate_css_color(theme.get(field, default), field))
+        for field, default in HTML_THEME_DEFAULTS.items()
+    }
+
+
 def generate_css(config: Dict[str, Any]) -> str:
     """Generate responsive CSS from config theme."""
-    theme = config.get("theme", {})
-    primary = theme.get("primary_color", "#2563eb")
-    secondary = theme.get("secondary_color", "#1e40af")
-    bg = theme.get("background", "#ffffff")
-    text_color = theme.get("text_color", "#1f2937")
-    font = theme.get("font", "Inter, system-ui, -apple-system, sans-serif")
+    theme = validate_html_theme(config)
+    primary = theme["primary_color"]
+    bg = theme["background"]
+    text_color = theme["text_color"]
+    font = theme["font"]
 
     return f"""
     * {{ margin: 0; padding: 0; box-sizing: border-box; }}
@@ -394,14 +513,14 @@ def render_nav(config: Dict[str, Any]) -> str:
     nav_links = config.get("nav_links", [])
     cta = config.get("nav_cta", {"text": "Get Started", "url": "#"})
     links = "\n".join(
-        f'<li><a href="{escape(l.get("url", "#"))}">{escape(l.get("text", ""))}</a></li>'
+        f'<li><a href="{escape(validate_href(l.get("url", "#")))}">{escape(l.get("text", ""))}</a></li>'
         for l in nav_links
     )
     return f"""
     <nav><div class="container">
         <a href="#" class="nav-logo">{brand}</a>
         <ul class="nav-links">{links}</ul>
-        <a href="{escape(cta.get('url', '#'))}" class="nav-cta">{escape(cta.get('text', 'Get Started'))}</a>
+        <a href="{escape(validate_href(cta.get('url', '#')))}" class="nav-cta">{escape(cta.get('text', 'Get Started'))}</a>
     </div></nav>"""
 
 
@@ -410,9 +529,9 @@ def render_hero(hero: Dict[str, Any]) -> str:
     sub = escape(hero.get("subheadline", ""))
     primary_cta = hero.get("primary_cta", {"text": "Get Started", "url": "#"})
     secondary_cta = hero.get("secondary_cta", None)
-    cta_html = f'<a href="{escape(primary_cta.get("url", "#"))}" class="btn-primary">{escape(primary_cta.get("text", "Get Started"))}</a>'
+    cta_html = f'<a href="{escape(validate_href(primary_cta.get("url", "#")))}" class="btn-primary">{escape(primary_cta.get("text", "Get Started"))}</a>'
     if secondary_cta:
-        cta_html += f'\n<a href="{escape(secondary_cta.get("url", "#"))}" class="btn-secondary">{escape(secondary_cta.get("text", "Learn More"))}</a>'
+        cta_html += f'\n<a href="{escape(validate_href(secondary_cta.get("url", "#")))}" class="btn-secondary">{escape(secondary_cta.get("text", "Learn More"))}</a>'
     return f"""
     <section class="hero"><div class="container">
         <h1>{h1}</h1>
@@ -474,7 +593,7 @@ def render_pricing(pricing: Dict[str, Any]) -> str:
             <ul class="pricing-features">
                 {"".join(f'<li>{escape(f)}</li>' for f in p.get('features', []))}
             </ul>
-            <a href="{escape(p.get('cta_url', '#'))}" class="btn-primary">{escape(p.get('cta_text', 'Choose Plan'))}</a>
+            <a href="{escape(validate_href(p.get('cta_url', '#')))}" class="btn-primary">{escape(p.get('cta_text', 'Choose Plan'))}</a>
         </div>""" for p in plans)
     return f"""
     <section class="pricing"><div class="container">
@@ -488,7 +607,7 @@ def render_cta(cta: Dict[str, Any]) -> str:
     <section class="cta-section"><div class="container">
         <h2>{escape(cta.get('headline', 'Ready to get started?'))}</h2>
         <p>{escape(cta.get('subheadline', ''))}</p>
-        <a href="{escape(cta.get('url', '#'))}" class="btn-white">{escape(cta.get('text', 'Start Free Trial'))}</a>
+        <a href="{escape(validate_href(cta.get('url', '#')))}" class="btn-white">{escape(cta.get('text', 'Start Free Trial'))}</a>
     </div></section>"""
 
 

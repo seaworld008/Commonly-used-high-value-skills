@@ -2,7 +2,7 @@
   "schema_version": 2,
   "video": {
     "url": "https://github.com/cloudflare/security-audit-skill",
-    "checked_at": "2026-11-04",
+    "checked_at": "2026-11-17",
     "note": "Cloudflare security audit skill imported with companion methodology files under MIT."
   },
   "official_references": [
@@ -29,13 +29,13 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/security-and-reliability/security-audit/SKILL.md",
       "source": "https://github.com/cloudflare/security-audit-skill/blob/c1c8a8c1471069fb0e188eeaff69b8e8db6564a8/skills/security-audit/SKILL.md",
-      "notes": "Imported from Cloudflare under MIT with all companion audit methodology files. Local frontmatter and one setup command example were added to satisfy repository metadata and quality gates. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Imported from Cloudflare under MIT with all companion audit methodology files. Local frontmatter and one setup command example were added to satisfy repository metadata and quality gates. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at c1c8a8c1471069fb0e188eeaff69b8e8db6564a8; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17 distribution closure: included the exact upstream MIT LICENSE/copyright body inside the independently installed skill.",
       "upstream": {
         "repo": "cloudflare/security-audit-skill",
         "path": "skills/security-audit/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-11-04",
-        "last_synced_at": "2026-11-04",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
         "last_synced_commit": "c1c8a8c1471069fb0e188eeaff69b8e8db6564a8",
         "sync_mode": "monitor",
         "path_commit": "c1c8a8c1471069fb0e188eeaff69b8e8db6564a8"
@@ -147,6 +147,11 @@
               "source": "skills/security-audit/validate-findings.test.cjs",
               "target": "skills/security-and-reliability/security-audit/validate-findings.test.cjs",
               "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/security-and-reliability/security-audit/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
@@ -154,9 +159,9 @@
             "ref": "main",
             "resolved_commit": "c1c8a8c1471069fb0e188eeaff69b8e8db6564a8",
             "path_commit": "c1c8a8c1471069fb0e188eeaff69b8e8db6564a8",
-            "content_sha256": "c7f4091b9ed9ac1c1a370f463ded0c95ca7a9e5552c8d0dfad4fa8a6f5cfd333",
-            "last_checked_at": "2026-11-04",
-            "last_synced_at": "2026-11-04",
+            "content_sha256": "1e4b0eb68b667788894ff6d6e7c23d51524c3a338044592fdd069fa286a4c53c",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "6dbc9ecb3a5b9080e95b962869e8c7ab16cfdc20",
@@ -238,7 +243,7 @@
         {
           "path": "skills/security-and-reliability/security-audit/SKILL.md",
           "owner": "security-audit",
-          "sha256": "c7f4091b9ed9ac1c1a370f463ded0c95ca7a9e5552c8d0dfad4fa8a6f5cfd333",
+          "sha256": "1e4b0eb68b667788894ff6d6e7c23d51524c3a338044592fdd069fa286a4c53c",
           "mode": "100644"
         },
         {
@@ -288,6 +293,12 @@
           "owner": "security-audit",
           "sha256": "b92001117a92c4161d43777a0ba2fa182a8a4d97f2304cc8c0cee5331497b73b",
           "mode": "100644"
+        },
+        {
+          "path": "skills/security-and-reliability/security-audit/LICENSE.upstream.txt",
+          "owner": "security-audit",
+          "sha256": "e598e694aa506650c7192d5ea3be0e50aca0d356ea00551c53429f0b01eb6391",
+          "mode": "100644"
         }
       ]
     }
@@ -327,6 +338,13 @@
       "target": "cloudflare/security-audit-skill@c1c8a8c1471069fb0e188eeaff69b8e8db6564a8",
       "result": "success",
       "evidence": "Compared the complete declared artifact sets and regular sibling resources at immutable commits; applied reviewed deltas, retained local authorization/host adapters, and isolated removed references as immutable licensed sidecars. Source comparison and targeted semantic review are not live vendor/API or model behavioral certification. See docs/maintenance-audit-2026-09-30.json."
+    },
+    {
+      "date": "2026-11-17",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "cloudflare/security-audit-skill@c1c8a8c1471069fb0e188eeaff69b8e8db6564a8",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
     }
   ]
 }

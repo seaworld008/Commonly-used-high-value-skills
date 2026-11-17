@@ -2,21 +2,21 @@
 name: gpt-image2
 description: 'Generate or edit images with gpt-image-2 when explicitly requested, using the documented credential flow, reference images, and output settings.'
 zh_description: "让 Codex 通过本地配置的 gpt-image-2 兼容画图服务生成图片，支持提示词、参考图、比例、清晰度和本地保存。"
-version: "1.0.1"
+version: "1.0.3"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 license: MIT
 tags: '["codex", "gpt-image-2", "image-generation", "multimodal"]'
 created_at: "2026-06-24"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 ---
 
 # GPT Image 2
 
-This skill lets Codex behave like a drawing assistant that can call a `gpt-image-2` compatible image service. It first tries to inherit OpenAI/Codex-compatible environment credentials already exposed to the current process, then reads the current Codex provider base URL from `~/.codex/config.toml` and the Codex `OPENAI_API_KEY` from `~/.codex/auth.json`, and it also supports local `GPT_IMAGE2_*` overrides. It is for direct generation from the current machine: interpret the user's visual request, run the bundled CLI, save the returned image files, and report the local paths.
+This skill uses the bundled `scripts/gpt-image2.mjs` CLI to call a configured `gpt-image-2` compatible service, save image files, and report local paths. Follow host tool and credential-access requirements before selecting this path.
 
 Use the existing `imagegen` skill when the user needs the official OpenAI Image API workflow with editing, masking, background work, or broader project asset generation. Use this skill when the user specifically wants this gpt-image-2 compatible drawing path, inherited Codex/OpenAI-style credentials, a configured URL/sk pair, or a simple "Codex, draw this for me" workflow backed by `scripts/gpt-image2.mjs`.
 
@@ -45,32 +45,21 @@ Reference-image requests currently save only the first returned image even if th
 
 ## Configuration Resolution
 
-For normal use, do not ask the user for configuration before checking whether credentials are already available. The CLI resolves configuration in this order:
+Value precedence is explicit flags → process environment (`GPT_IMAGE2_*` first) → `scripts/.env` → an explicitly enabled local Codex fallback → non-secret defaults. Parse all flags and ordinary configuration before considering fallback.
 
-1. Command-line flags such as `--api-key`, `--base-url`, and other explicit flags.
-2. Process environment variables, with `GPT_IMAGE2_*` first.
-3. `scripts/.env`, with `GPT_IMAGE2_*` first.
-4. Codex local config fallbacks: current provider `base_url` from `~/.codex/config.toml`, and `OPENAI_API_KEY` from `~/.codex/auth.json`.
-5. Built-in defaults for non-secret settings.
+Local credential fallback is off by default. Use `--use-codex-auth` only when local configuration access is within the task authorization and host permissions. Even then, read only the address or key still missing after the earlier layers; supplied values never trigger the corresponding local reader. `--dry-run` follows the same boundary.
 
-Secret and endpoint variables resolve as:
+The fallback readers target provider `base_url` in `~/.codex/config.toml` and `OPENAI_API_KEY` in `~/.codex/auth.json`. Do not search other credential locations or print secrets. Existing environment variables can be checked by name/presence without exposing their values.
 
-```text
-API key:  GPT_IMAGE2_API_KEY -> OPENAI_API_KEY -> CODEX_OPENAI_API_KEY -> Codex auth.json OPENAI_API_KEY
-Base URL: GPT_IMAGE2_BASE_URL -> OPENAI_BASE_URL -> OPENAI_API_BASE_URL -> OPENAI_API_BASE -> CODEX_OPENAI_BASE_URL -> CODEX_OPENAI_API_BASE_URL -> current Codex model_provider base_url
-```
-
-This lets the skill use the same OpenAI-compatible key and base URL as the surrounding Codex configuration, including official API endpoints or third-party relay endpoints. It does not hard-code the official OpenAI endpoint. It reads only the local Codex config/auth fields needed for this API call and never prints the API key. It does not read session tokens, browser storage, or hidden app state.
-
-If `scripts/.env` does not exist and the environment is missing required values, copy `scripts/.env.example` to `scripts/.env`. Never commit `scripts/.env`; it is ignored because it may contain secrets.
+Only for authorized local configuration, if `scripts/.env` does not exist and required values are missing, copy `scripts/.env.example` to `scripts/.env`. Never commit `scripts/.env`; it is ignored because it may contain secrets.
 
 If the API key is still missing, do not generate yet. Ask the user in Chinese or the user's language:
 
 ```text
-当前进程和 Codex auth.json 都没有可用于画图接口的 API key。请设置 GPT_IMAGE2_API_KEY 或 OPENAI_API_KEY；画图接口 URL 默认会读取 Codex 当前模型提供商的 base_url，也可以用 GPT_IMAGE2_BASE_URL 覆盖。
+获准的配置来源尚未提供画图接口所需的 API key。请在本地设置 GPT_IMAGE2_API_KEY 或 OPENAI_API_KEY，并提供获准使用的服务地址。
 ```
 
-Write configuration values to `scripts/.env`:
+When local configuration persistence is authorized, write configuration values to `scripts/.env`:
 
 - URL -> `GPT_IMAGE2_BASE_URL`
 - sk -> `GPT_IMAGE2_API_KEY`
@@ -80,7 +69,7 @@ Write configuration values to `scripts/.env`:
 - default quality -> `GPT_IMAGE2_QUALITY`
 - default output directory -> `GPT_IMAGE2_OUT_DIR`
 
-When optional defaults are omitted, write the defaults explicitly:
+For authorized setup, these are the optional defaults:
 
 ```dotenv
 GPT_IMAGE2_MODEL=gpt-image-2
@@ -116,7 +105,7 @@ After writing `.env`, tell the user the effective drawing defaults in natural la
    Use the configured default. If blank, the current drawing path falls back to low quality. Use `high` or `medium` only when the user asks for high detail, premium polish, print quality, small text, or a named quality level.
 
 7. Execute generation.
-   Run `scripts/gpt-image2.mjs` from this skill directory. For long prompts, pass `--prompt` rather than relying on shell positionals.
+   After the credential-access check above, run `scripts/gpt-image2.mjs` from this skill directory with an explicit user/project output directory (`--out-dir`). For long prompts, pass `--prompt` rather than relying on shell positionals.
 
 8. Report results.
    Give the saved local file path(s), plus concise actionable errors if configuration is missing, the request is rejected, the response has no image payload, or a download fails.
@@ -145,12 +134,12 @@ Avoid internal terms unless the user is configuring or debugging:
 If configuration is missing outside setup, ask only for the missing pieces:
 
 ```text
-当前进程和 Codex auth.json 都没有可用于画图接口的 API key。请设置 GPT_IMAGE2_API_KEY 或 OPENAI_API_KEY。
+获准的配置来源尚未提供画图接口所需的 API key。请在本地设置 GPT_IMAGE2_API_KEY 或 OPENAI_API_KEY；不要在对话中发送密钥。
 ```
 
 ## Execution Examples
 
-Run from `skills/multimodal-media/gpt-image2`:
+After the credential-access check above, run from the installed skill directory. Add `--out-dir /path/to/authorized-output` to each generation command:
 
 ```bash
 node scripts/gpt-image2.mjs --prompt "生成一张雨夜街头的电影感海报"
@@ -166,8 +155,7 @@ Use `--dry-run` only for internal validation or when the user explicitly asks to
 
 ## Configuration Reference
 
-The CLI reads command-line flags first, then process environment variables, then `scripts/.env`, then Codex local config/auth fallbacks, then defaults for non-secret settings. `GPT_IMAGE2_*` variables are the skill-specific override layer. Standard OpenAI/Codex-compatible variables are fallback layers so the skill can use the same visible key/base URL as Codex when the runtime exposes them.
-
+The optional local readers are evaluated lazily and only with `--use-codex-auth`; the presence of credentials elsewhere does not authorize reading them.
 ```dotenv
 GPT_IMAGE2_API_KEY=
 GPT_IMAGE2_BASE_URL=
@@ -181,9 +169,9 @@ GPT_IMAGE2_OUT_DIR=./image2_output
 GPT_IMAGE2_TIMEOUT_MS=240000
 ```
 
-If `GPT_IMAGE2_BASE_URL` is blank, the script falls back to `OPENAI_BASE_URL`, `OPENAI_API_BASE_URL`, `OPENAI_API_BASE`, `CODEX_OPENAI_BASE_URL`, `CODEX_OPENAI_API_BASE_URL`, and then the active `model_provider` `base_url` in `~/.codex/config.toml`.
+If `GPT_IMAGE2_BASE_URL` is blank, the script falls back to `OPENAI_BASE_URL`, `OPENAI_API_BASE_URL`, `OPENAI_API_BASE`, `CODEX_OPENAI_BASE_URL`, `CODEX_OPENAI_API_BASE_URL`, and, only with `--use-codex-auth` and a still-missing address, the active `model_provider` `base_url` in `~/.codex/config.toml`.
 
-If `GPT_IMAGE2_API_KEY` is blank, the script falls back to `OPENAI_API_KEY`, `CODEX_OPENAI_API_KEY`, and then `OPENAI_API_KEY` in `~/.codex/auth.json`.
+If `GPT_IMAGE2_API_KEY` is blank, the script falls back to `OPENAI_API_KEY`, `CODEX_OPENAI_API_KEY`, and, only with `--use-codex-auth` and a still-missing key, `OPENAI_API_KEY` in `~/.codex/auth.json`.
 
 `GPT_IMAGE2_BASE_URL` should be the service root. The script appends `/images/generations` for prompt-only requests and `/images/edits` for reference-image requests.
 
@@ -227,7 +215,7 @@ The script saves images from these response forms:
 
 If the response contains no usable image payload, report that the generation returned no image. If URL download fails, report the download failure instead of retrying indefinitely.
 
-Generated files default to `scripts/image2_output/`, which is ignored by git.
+Without an explicit output directory, generated files default to `image2_output/` under the current working directory (the skill root for these examples). The bundled `.gitignore` covers only `scripts/image2_output/`, so that default is not covered. Use an explicit user/project output directory and verify its tracking policy; do not claim the current default is ignored.
 
 ## Prompt Guidance
 

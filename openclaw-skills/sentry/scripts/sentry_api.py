@@ -5,9 +5,11 @@ import os
 import re
 import sys
 import time
+from http import HTTPStatus
+from http.client import HTTPException, InvalidURL
 from urllib.error import HTTPError, URLError
-from urllib.parse import urlencode
-from urllib.request import Request, urlopen
+from urllib.parse import urlencode, urlsplit
+from urllib.request import HTTPRedirectHandler, Request, build_opener
 
 DEFAULT_BASE_URL = "https://sentry.io"
 DEFAULT_ORG = "your-org"
@@ -51,34 +53,78 @@ def next_cursor(link_header):
     return None
 
 
+def url_origin(url):
+    try:
+        parts = urlsplit(url)
+        if (parts.scheme not in ("http", "https") or not parts.hostname
+                or parts.username is not None or "%" in parts.netloc or "\\" in url
+                or re.search(r"[\x00-\x20\x7f]", url)):
+            raise ValueError
+        if "[" in parts.netloc and not re.fullmatch(r"\[[^]]+\](?::[0-9]+)?", parts.netloc):
+            raise ValueError
+        port = parts.port
+        if port is None:
+            port = 443 if parts.scheme == "https" else 80
+        return parts.scheme, parts.hostname, port
+    except ValueError:
+        raise RuntimeError("Invalid Sentry URL") from None
+
+
+class SentryRedirectHandler(HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        try:
+            if url_origin(newurl) != url_origin(req.full_url):
+                raise RuntimeError("Sentry redirect to a different origin refused")
+            redirected = super().redirect_request(req, fp, code, msg, headers, newurl)
+            if redirected is not None:
+                redirected.add_unredirected_header("Authorization", req.get_header("Authorization"))
+            return redirected
+        except RuntimeError:
+            fp.close()
+            raise
+
+
 def request_json(url, token, retries=1):
+    url_origin(url)
     req = Request(url)
-    req.add_header("Authorization", f"Bearer {token}")
+    req.add_unredirected_header("Authorization", f"Bearer {token}")
     req.add_header("Accept", "application/json")
+    opener = build_opener(SentryRedirectHandler())
 
     attempt = 0
     while True:
         try:
-            with urlopen(req) as resp:
+            with opener.open(req) as resp:
                 body = resp.read().decode("utf-8")
                 data = json.loads(body) if body else None
                 return data, resp.headers
         except HTTPError as err:
-            body = err.read().decode("utf-8", "ignore")
+            err.close()
             if attempt < retries and (err.code >= 500 or err.code == 429):
                 attempt += 1
                 time.sleep(1)
                 continue
-            raise RuntimeError(f"HTTP {err.code} for {url}: {body or 'request failed'}") from err
-        except URLError as err:
+            try:
+                summary = HTTPStatus(err.code).phrase
+            except ValueError:
+                summary = "Request failed"
+            raise RuntimeError(f"HTTP {err.code}: {summary}") from None
+        except URLError:
             if attempt < retries:
                 attempt += 1
                 time.sleep(1)
                 continue
-            raise RuntimeError(f"Network error for {url}: {err.reason}") from err
+            raise RuntimeError("Network error contacting Sentry") from None
+        except (InvalidURL, ValueError):
+            raise RuntimeError("Invalid Sentry URL or response") from None
+        except (OSError, HTTPException):
+            raise RuntimeError("Network error contacting Sentry") from None
 
 
 def build_url(base_url, path, params=None):
+    url_origin(base_url)
+    if "?" in base_url or "#" in base_url:
+        raise RuntimeError("Invalid Sentry base URL")
     base = base_url.rstrip("/")
     url = f"{base}{path}"
     if params:
@@ -110,6 +156,13 @@ def require_org_project(org, project):
         raise RuntimeError(
             "Missing org/project. Set SENTRY_ORG and SENTRY_PROJECT or pass --org/--project."
         )
+    require_segment(org)
+    require_segment(project)
+
+
+def require_segment(value):
+    if not re.fullmatch(r"[A-Za-z0-9._~-]+", value) or value in {".", ".."}:
+        raise RuntimeError("Invalid Sentry path segment")
 
 
 def handle_list_issues(args, token, base_url):
@@ -128,6 +181,7 @@ def handle_list_issues(args, token, base_url):
 
 
 def handle_issue_detail(args, token, base_url):
+    require_segment(args.issue_id)
     path = f"/api/0/issues/{args.issue_id}/"
     url = build_url(base_url, path)
     data, _ = request_json(url, token)
@@ -135,6 +189,7 @@ def handle_issue_detail(args, token, base_url):
 
 
 def handle_issue_events(args, token, base_url):
+    require_segment(args.issue_id)
     limit = min(args.limit, MAX_LIMIT)
     path = f"/api/0/issues/{args.issue_id}/events/"
     events = paged_get(base_url, path, {}, token, limit)
@@ -143,6 +198,7 @@ def handle_issue_events(args, token, base_url):
 
 def handle_event_detail(args, token, base_url):
     require_org_project(args.org, args.project)
+    require_segment(args.event_id)
     path = f"/api/0/projects/{args.org}/{args.project}/events/{args.event_id}/"
     url = build_url(base_url, path)
     data, _ = request_json(url, token)

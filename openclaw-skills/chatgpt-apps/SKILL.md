@@ -2,13 +2,14 @@
 name: chatgpt-apps
 description: 'Build or debug ChatGPT Apps SDK projects with MCP tools and widget UIs, using current official guidance for resources, bridges, metadata, and CSP.'
 zh_description: "用于设计、构建和调试 ChatGPT Apps 与相关集成能力。"
-version: "1.0.2"
-author: "seaworld008"
-source: "in-house"
-source_url: ""
+version: "1.0.3"
+author: "OpenAI contributors; local curators"
+source: "https://github.com/openai/skills"
+source_url: "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/chatgpt-apps/SKILL.md"
+license: "Apache-2.0"
 tags: '["agent", "ai", "apps", "chatgpt"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -230,6 +231,14 @@ Use `window.openai` for compatibility and extensions (file upload, modal, displa
 - For ChatGPT-facing guidance, prefer the current documented surface: `window.openai.callTool(...)`, `window.openai.sendFollowUpMessage(...)`, `window.openai.openExternal(...)`, `window.openai.requestDisplayMode(...)`, and direct globals like `window.openai.theme`, `window.openai.locale`, `window.openai.displayMode`, `window.openai.toolInput`, `window.openai.toolOutput`, `window.openai.toolResponseMetadata`, and `window.openai.widgetState`.
 - If you reference wrapper helpers from repo examples, map them back to the documented `window.openai` or MCP Apps bridge primitives and call out that the wrapper is not the normative API surface.
 - Use `references/window-openai-patterns.md` for the wrapper-to-canonical mapping and for React helper extraction patterns.
+
+#### File Library and Upload Boundaries
+
+- Check the current Apps SDK reference and the installed bridge/SDK types before using file helpers; feature-detect the actual host surface rather than assuming every client exposes it.
+- `window.openai.uploadFile(file, options?)` uploads a new local file; `{ library: true }` also saves it to the user's ChatGPT file library. Use library persistence only when the requested flow calls for it.
+- `window.openai.selectFiles()` opens the library picker for app-authorized files. If unavailable, offer a local upload flow only when `uploadFile` is available; otherwise explain the host limitation.
+- `window.openai.getFileDownloadUrl({ fileId })` resolves a temporary URL. Verify response fields against the current docs/types; do not invent file metadata or treat the URL as a permanent public asset.
+- A user's file selection authorizes access in the app flow, not an arbitrary onward upload. Before forwarding file bytes or a download URL, establish the intended receiving service and task authorization. Keep temporary URLs out of persistent logs and model-visible output unless needed for the task; CSP allowlisting alone does not authorize transfer.
 
 ### 5. Add Resource Metadata and Security
 

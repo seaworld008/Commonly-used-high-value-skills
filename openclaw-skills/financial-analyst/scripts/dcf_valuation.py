@@ -28,6 +28,48 @@ def safe_divide(numerator: float, denominator: float, default: float = 0.0) -> f
     return numerator / denominator
 
 
+def is_finite_number(value: Any) -> bool:
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
+        return False
+    try:
+        return math.isfinite(value)
+    except OverflowError:  # An integer outside the model's floating-point range.
+        return False
+
+
+def finite_result(value: float, field: str) -> float:
+    if not is_finite_number(value):
+        raise ValueError(f"{field} exceeds the numeric range")
+    return value
+
+
+def perpetuity_unavailable_reason(wacc: float, growth: float) -> Optional[str]:
+    """Require an ordinary economic perpetuity and a convergent discounted series.
+
+    Its geometric ratio is (1 + growth) / (1 + wacc), with absolute value < 1.
+    Growth below -100% alternates cash-flow signs and is outside this model even
+    when that series converges. At exactly -100%, all future cash flows are zero.
+    """
+    if not is_finite_number(wacc) or wacc <= -1:
+        return "WACC must be finite and greater than -1; perpetuity values are unavailable"
+    if not is_finite_number(growth):
+        return "terminal_growth_rate must be finite; perpetuity values are unavailable"
+    # For growth >= -1, convergence is exactly WACC > growth. Compare rates
+    # directly so adding 1 does not erase a small, valid rate difference.
+    if wacc <= growth or (growth < -1 and abs(1 + growth) >= 1 + wacc):
+        return (
+            "Discounted perpetuity series does not converge; requires abs(1 + "
+            "terminal_growth_rate) < 1 + WACC and WACC must exceed "
+            "terminal_growth_rate; perpetuity values are unavailable"
+        )
+    if growth < -1:
+        return (
+            "terminal_growth_rate below -100% implies alternating cash-flow signs; "
+            "ordinary economic perpetuity is not estimable (requires growth >= -1)"
+        )
+    return None
+
+
 class DCFModel:
     """Discounted Cash Flow valuation model."""
 
@@ -39,14 +81,15 @@ class DCFModel:
         self.projected_revenue: List[float] = []
         self.projected_fcf: List[float] = []
         self.projection_years: int = 5
-        self.terminal_value_perpetuity: float = 0.0
-        self.terminal_value_exit_multiple: float = 0.0
-        self.enterprise_value_perpetuity: float = 0.0
-        self.enterprise_value_exit_multiple: float = 0.0
-        self.equity_value_perpetuity: float = 0.0
-        self.equity_value_exit_multiple: float = 0.0
-        self.value_per_share_perpetuity: float = 0.0
-        self.value_per_share_exit_multiple: float = 0.0
+        self.terminal_value_perpetuity: Optional[float] = None
+        self.terminal_value_exit_multiple: Optional[float] = None
+        self.enterprise_value_perpetuity: Optional[float] = None
+        self.enterprise_value_exit_multiple: Optional[float] = None
+        self.equity_value_perpetuity: Optional[float] = None
+        self.equity_value_exit_multiple: Optional[float] = None
+        self.value_per_share_perpetuity: Optional[float] = None
+        self.value_per_share_exit_multiple: Optional[float] = None
+        self.unavailable_reasons: Dict[str, str] = {}
 
     def set_historical_financials(self, historical: Dict[str, Any]) -> None:
         """Set historical financial data."""
@@ -83,20 +126,27 @@ class DCFModel:
     def project_cash_flows(self) -> Tuple[List[float], List[float]]:
         """Project revenue and free cash flow over the projection period."""
         base_revenue = self.historical.get("revenue", [])
-        if not base_revenue:
+        if not isinstance(base_revenue, (list, tuple)) or not base_revenue:
             raise ValueError("Historical revenue data is required")
 
         last_revenue = base_revenue[-1]
+        if not is_finite_number(last_revenue) or last_revenue < 0:
+            raise ValueError("Latest historical revenue must be finite and nonnegative")
+        if type(self.projection_years) is not int or self.projection_years <= 0:
+            raise ValueError("projection_years must be a positive integer")
 
         revenue_growth_rates = self.assumptions.get("revenue_growth_rates", [])
         fcf_margins = self.assumptions.get("fcf_margins", [])
+        for field, values in (("revenue_growth_rates", revenue_growth_rates), ("fcf_margins", fcf_margins)):
+            if not isinstance(values, (list, tuple)):
+                raise ValueError(f"{field} must be a sequence of numbers")
 
-        # If growth rates not provided for all years, use average or default
+        # Apply defaults only for years without an explicit assumption.
         default_growth = self.assumptions.get("default_revenue_growth", 0.05)
         default_fcf_margin = self.assumptions.get("default_fcf_margin", 0.10)
 
-        self.projected_revenue = []
-        self.projected_fcf = []
+        revenues = []
+        cash_flows = []
         current_revenue = last_revenue
 
         for year in range(self.projection_years):
@@ -111,15 +161,28 @@ class DCFModel:
                 else default_fcf_margin
             )
 
-            current_revenue = current_revenue * (1 + growth)
-            fcf = current_revenue * fcf_margin
+            if not is_finite_number(growth) or growth < -1:
+                raise ValueError(f"Year {year + 1} revenue growth must be finite and at least -1")
+            if not is_finite_number(fcf_margin):
+                raise ValueError(f"Year {year + 1} FCF margin must be a finite number")
 
-            self.projected_revenue.append(current_revenue)
-            self.projected_fcf.append(fcf)
+            current_revenue = finite_result(current_revenue * (1 + growth), f"Year {year + 1} projected revenue")
+            fcf = finite_result(current_revenue * fcf_margin, f"Year {year + 1} projected FCF")
 
+            revenues.append(current_revenue)
+            cash_flows.append(fcf)
+
+        self.projected_revenue = revenues
+        self.projected_fcf = cash_flows
         return self.projected_revenue, self.projected_fcf
 
-    def calculate_terminal_value(self) -> Tuple[float, float]:
+    def _finite_exit_value(self, value: float, field: str) -> Optional[float]:
+        if is_finite_number(value):
+            return value
+        self.unavailable_reasons["exit_multiple"] = f"Exit multiple {field} exceeds the numeric range"
+        return None
+
+    def calculate_terminal_value(self) -> Tuple[Optional[float], Optional[float]]:
         """Calculate terminal value using both perpetuity growth and exit multiple."""
         if not self.projected_fcf:
             raise ValueError("Must project cash flows before terminal value")
@@ -129,22 +192,42 @@ class DCFModel:
         exit_multiple = self.assumptions.get("exit_ev_ebitda_multiple", 12.0)
 
         # Perpetuity growth method: TV = FCF * (1+g) / (WACC - g)
-        if self.wacc > terminal_growth:
-            self.terminal_value_perpetuity = (
-                terminal_fcf * (1 + terminal_growth)
-            ) / (self.wacc - terminal_growth)
+        if not is_finite_number(self.wacc) or self.wacc <= -1:
+            raise ValueError("WACC must be finite and greater than -1")
+        if not is_finite_number(terminal_growth):
+            raise ValueError("terminal_growth_rate must be a finite number")
+        self.unavailable_reasons.pop("perpetuity_growth", None)
+        reason = perpetuity_unavailable_reason(self.wacc, terminal_growth)
+        if reason is None:
+            self.terminal_value_perpetuity = finite_result(
+                terminal_fcf * (1 + terminal_growth) / (self.wacc - terminal_growth),
+                "Perpetuity terminal value",
+            )
         else:
-            self.terminal_value_perpetuity = 0.0
+            self.terminal_value_perpetuity = None
+            self.unavailable_reasons["perpetuity_growth"] = reason
 
         # Exit multiple method: TV = Terminal EBITDA * Exit Multiple
         terminal_revenue = self.projected_revenue[-1]
         ebitda_margin = self.assumptions.get("terminal_ebitda_margin", 0.20)
-        terminal_ebitda = terminal_revenue * ebitda_margin
-        self.terminal_value_exit_multiple = terminal_ebitda * exit_multiple
+        self.unavailable_reasons.pop("exit_multiple", None)
+        self.terminal_value_exit_multiple = None
+        if not is_finite_number(exit_multiple) or exit_multiple <= 0:
+            self.unavailable_reasons["exit_multiple"] = "exit_ev_ebitda_multiple must be finite and positive"
+        elif not is_finite_number(ebitda_margin) or ebitda_margin <= 0:
+            self.unavailable_reasons["exit_multiple"] = "terminal_ebitda_margin must be finite and positive"
+        else:
+            terminal_ebitda = terminal_revenue * ebitda_margin
+            if not is_finite_number(terminal_ebitda) or terminal_ebitda <= 0:
+                self.unavailable_reasons["exit_multiple"] = "Projected terminal EBITDA must be finite and positive"
+            else:
+                self.terminal_value_exit_multiple = self._finite_exit_value(
+                    terminal_ebitda * exit_multiple, "terminal value"
+                )
 
         return self.terminal_value_perpetuity, self.terminal_value_exit_multiple
 
-    def calculate_enterprise_value(self) -> Tuple[float, float]:
+    def calculate_enterprise_value(self) -> Tuple[Optional[float], Optional[float]]:
         """Calculate enterprise value by discounting projected FCFs and terminal value."""
         if not self.projected_fcf:
             raise ValueError("Must project cash flows first")
@@ -158,31 +241,62 @@ class DCFModel:
         # Discount terminal values
         terminal_discount = (1 + self.wacc) ** self.projection_years
 
-        pv_tv_perpetuity = self.terminal_value_perpetuity / terminal_discount
-        pv_tv_exit = self.terminal_value_exit_multiple / terminal_discount
-
-        self.enterprise_value_perpetuity = pv_fcf + pv_tv_perpetuity
-        self.enterprise_value_exit_multiple = pv_fcf + pv_tv_exit
+        self.enterprise_value_perpetuity = (
+            finite_result(pv_fcf + self.terminal_value_perpetuity / terminal_discount, "Perpetuity enterprise value")
+            if self.terminal_value_perpetuity is not None else None
+        )
+        self.enterprise_value_exit_multiple = (
+            self._finite_exit_value(
+                pv_fcf + self.terminal_value_exit_multiple / terminal_discount, "enterprise value"
+            )
+            if self.terminal_value_exit_multiple is not None else None
+        )
 
         return self.enterprise_value_perpetuity, self.enterprise_value_exit_multiple
 
-    def calculate_equity_value(self) -> Tuple[float, float]:
+    def _equity_input_issues(self) -> Dict[str, str]:
+        issues = {}
+        if not is_finite_number(self.historical.get("net_debt")):
+            issues["net_debt"] = (
+                "net_debt is missing or invalid; equity and per-share values are unavailable "
+                "(cash/debt cannot be assumed zero)"
+            )
+        shares = self.historical.get("shares_outstanding")
+        if not is_finite_number(shares) or shares <= 0:
+            issues["shares_outstanding"] = (
+                "shares_outstanding must be a known positive number; per-share values are unavailable"
+            )
+        return issues
+
+    def calculate_equity_value(self) -> Tuple[Optional[float], Optional[float]]:
         """Calculate equity value from enterprise value."""
-        net_debt = self.historical.get("net_debt", 0)
-        shares_outstanding = self.historical.get("shares_outstanding", 1)
+        net_debt = self.historical.get("net_debt")
+        shares_outstanding = self.historical.get("shares_outstanding")
+        issues = self._equity_input_issues()
+        for field in ("net_debt", "shares_outstanding"):
+            self.unavailable_reasons.pop(field, None)
+        self.unavailable_reasons.update(issues)
 
         self.equity_value_perpetuity = (
-            self.enterprise_value_perpetuity - net_debt
+            finite_result(self.enterprise_value_perpetuity - net_debt, "Perpetuity equity value")
+            if self.enterprise_value_perpetuity is not None and "net_debt" not in issues
+            else None
         )
         self.equity_value_exit_multiple = (
-            self.enterprise_value_exit_multiple - net_debt
+            self._finite_exit_value(self.enterprise_value_exit_multiple - net_debt, "equity value")
+            if self.enterprise_value_exit_multiple is not None and "net_debt" not in issues
+            else None
         )
 
-        self.value_per_share_perpetuity = safe_divide(
-            self.equity_value_perpetuity, shares_outstanding
+        self.value_per_share_perpetuity = (
+            finite_result(self.equity_value_perpetuity / shares_outstanding, "Perpetuity per-share value")
+            if self.equity_value_perpetuity is not None and "shares_outstanding" not in issues
+            else None
         )
-        self.value_per_share_exit_multiple = safe_divide(
-            self.equity_value_exit_multiple, shares_outstanding
+        self.value_per_share_exit_multiple = (
+            self._finite_exit_value(self.equity_value_exit_multiple / shares_outstanding, "per-share value")
+            if self.equity_value_exit_multiple is not None and "shares_outstanding" not in issues
+            else None
         )
 
         return self.equity_value_perpetuity, self.equity_value_exit_multiple
@@ -221,16 +335,20 @@ class DCFModel:
         cols = len(growth_range)
 
         # Initialize sensitivity table as nested lists
-        ev_table = [[0.0] * cols for _ in range(rows)]
-        share_price_table = [[0.0] * cols for _ in range(rows)]
+        ev_table = [[None] * cols for _ in range(rows)]
+        share_price_table = [[None] * cols for _ in range(rows)]
+        issues = self._equity_input_issues()
+        reasons = dict(issues)
+        perpetuity_reasons = []
 
         terminal_fcf = self.projected_fcf[-1] if self.projected_fcf else 0
 
         for i, wacc_val in enumerate(wacc_range):
             for j, growth_val in enumerate(growth_range):
-                if wacc_val <= growth_val:
-                    ev_table[i][j] = float("inf")
-                    share_price_table[i][j] = float("inf")
+                reason = perpetuity_unavailable_reason(wacc_val, growth_val)
+                if reason is not None:
+                    if reason not in perpetuity_reasons:
+                        perpetuity_reasons.append(reason)
                     continue
 
                 # Recalculate PV of projected FCFs with this WACC
@@ -242,25 +360,34 @@ class DCFModel:
                 tv = (terminal_fcf * (1 + growth_val)) / (wacc_val - growth_val)
                 pv_tv = tv / ((1 + wacc_val) ** self.projection_years)
 
-                ev = pv_fcf + pv_tv
+                ev = finite_result(pv_fcf + pv_tv, "Sensitivity enterprise value")
                 ev_table[i][j] = round(ev, 2)
 
-                net_debt = self.historical.get("net_debt", 0)
-                shares = self.historical.get("shares_outstanding", 1)
-                equity = ev - net_debt
-                share_price_table[i][j] = round(
-                    safe_divide(equity, shares), 2
-                )
+                if not issues:
+                    equity = ev - self.historical["net_debt"]
+                    price = finite_result(equity / self.historical["shares_outstanding"], "Sensitivity per-share value")
+                    share_price_table[i][j] = round(price, 2)
+
+        if perpetuity_reasons:
+            reasons["perpetuity_growth"] = "; ".join(perpetuity_reasons)
 
         return {
             "wacc_values": wacc_range,
             "growth_values": growth_range,
             "enterprise_value_table": ev_table,
             "share_price_table": share_price_table,
+            "unavailable_reasons": reasons,
         }
 
     def run_full_valuation(self) -> Dict[str, Any]:
-        """Run the complete DCF valuation."""
+        """Run DCF; unavailable methods/values are null with unavailable_reasons.
+
+        Invalid economic growth or nonconvergence disables perpetuity growth.
+        Growth == -100% gives zero terminal cash flow. Invalid exit multiples or
+        terminal EBITDA disable the exit method. Both use the same projected FCFs.
+        Missing net debt blocks equity values; missing positive shares blocks only
+        per-share values. Sensitivity tables follow the same null convention.
+        """
         self.calculate_wacc()
         self.project_cash_flows()
         self.calculate_terminal_value()
@@ -289,6 +416,7 @@ class DCFModel:
                 "exit_multiple": self.value_per_share_exit_multiple,
             },
             "sensitivity_analysis": sensitivity,
+            "unavailable_reasons": dict(self.unavailable_reasons),
         }
 
     def format_text(self, results: Dict[str, Any]) -> str:
@@ -298,7 +426,9 @@ class DCFModel:
         lines.append("DCF VALUATION ANALYSIS")
         lines.append("=" * 70)
 
-        def fmt_money(val: float) -> str:
+        def fmt_money(val: Optional[float]) -> str:
+            if val is None:
+                return "N/A"
             if val == float("inf"):
                 return "N/A (WACC <= growth)"
             if abs(val) >= 1e9:
@@ -308,6 +438,9 @@ class DCFModel:
             if abs(val) >= 1e3:
                 return f"${val / 1e3:,.1f}K"
             return f"${val:,.2f}"
+
+        def fmt_price(val: Optional[float]) -> str:
+            return f"${val:,.2f}" if val is not None else "N/A"
 
         lines.append(f"\n--- WACC ---")
         lines.append(f"  Weighted Average Cost of Capital: {results['wacc'] * 100:.2f}%")
@@ -352,13 +485,20 @@ class DCFModel:
 
         lines.append(f"\n--- VALUE PER SHARE ---")
         vps = results["value_per_share"]
-        lines.append(f"  Perpetuity Growth Method: ${vps['perpetuity_growth']:,.2f}")
-        lines.append(f"  Exit Multiple Method:     ${vps['exit_multiple']:,.2f}")
+        lines.append(f"  Perpetuity Growth Method: {fmt_price(vps['perpetuity_growth'])}")
+        lines.append(f"  Exit Multiple Method:     {fmt_price(vps['exit_multiple'])}")
+
+        if results.get("unavailable_reasons"):
+            lines.append("\n--- UNAVAILABLE REASONS ---")
+            for field, reason in results["unavailable_reasons"].items():
+                lines.append(f"  {field}: {reason}")
 
         # Sensitivity table
         sens = results["sensitivity_analysis"]
         lines.append(f"\n--- SENSITIVITY ANALYSIS (Enterprise Value) ---")
         lines.append(f"  WACC vs Terminal Growth Rate")
+        for field, reason in sens.get("unavailable_reasons", {}).items():
+            lines.append(f"  {field}: {reason}")
         lines.append("")
 
         header = "  {:>10s}".format("WACC \\ g")
@@ -425,24 +565,13 @@ def main() -> None:
 
     try:
         results = model.run_full_valuation()
-    except ValueError as e:
+        if args.format == "json":
+            print(json.dumps(results, indent=2, allow_nan=False))
+        else:
+            print(model.format_text(results))
+    except (ValueError, ArithmeticError) as e:
         print(f"Error: {e}", file=sys.stderr)
         sys.exit(1)
-
-    if args.format == "json":
-        # Handle inf values for JSON serialization
-        def sanitize(obj: Any) -> Any:
-            if isinstance(obj, float) and math.isinf(obj):
-                return None
-            if isinstance(obj, dict):
-                return {k: sanitize(v) for k, v in obj.items()}
-            if isinstance(obj, list):
-                return [sanitize(v) for v in obj]
-            return obj
-
-        print(json.dumps(sanitize(results), indent=2))
-    else:
-        print(model.format_text(results))
 
 
 if __name__ == "__main__":

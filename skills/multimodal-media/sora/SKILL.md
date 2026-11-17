@@ -2,13 +2,13 @@
 name: sora
 description: 'Generate, remix, inspect, download, or delete Sora videos through the bundled API CLI when the user requests a Sora video workflow.'
 zh_description: "用户需要 Sora 视频工作流时，通过附带的 API CLI 生成、改编（remix）、查看、下载或删除 Sora 视频。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["sora"]'
 created_at: "2026-03-04"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 ---
@@ -38,7 +38,7 @@ Creates or manages short video clips for the current project (product demos, mar
 5. Run the bundled CLI (`scripts/sora.py`) with sensible defaults (see references/cli.md). For long prompts, prefer `--prompt-file` to avoid shell-escaping issues; pair with `--no-augment` if the prompt is already structured.
 6. For async jobs, poll until complete (or use create-and-poll).
 7. Download assets (video/thumbnail/spritesheet) and save locally.
-8. Remove intermediate files created during invocation (for example `prompt.txt`, `remix_job.json`, temp JSONL). If the sandbox blocks `rm`, skip cleanup or truncate the files without surfacing an error.
+8. Clean up only invocation-owned intermediates when permitted (for example `prompt.txt`, `remix_job.json`, temp JSONL). If cleanup is blocked, leave them intact and briefly report their paths; do not truncate them as a workaround.
 9. Iterate with a single targeted change per prompt.
 
 ## Authentication

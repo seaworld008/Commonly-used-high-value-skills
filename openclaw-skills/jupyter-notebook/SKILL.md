@@ -2,13 +2,14 @@
 name: jupyter-notebook
 description: 'Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) for experiments, explorations, or tutorials; prefer the bundled templates and run the helper script `new_notebook.py` to generate a clean starting notebook.'
 zh_description: "创建和维护用于分析、实验及教学的 Jupyter 笔记本。"
-version: "1.0.1"
-author: "seaworld008"
-source: "in-house"
-source_url: ""
+version: "1.0.2"
+author: "OpenAI contributors; local curators"
+source: "https://github.com/openai/skills"
+source_url: "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/jupyter-notebook/SKILL.md"
+license: "Apache-2.0"
 tags: '["automation", "jupyter", "notebook", "workflow"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 ---
@@ -36,11 +37,14 @@ Prefer the bundled templates and the helper script for consistent structure and 
 ## Skill path (set once)
 
 ```bash
-export CODEX_HOME="${CODEX_HOME:-$HOME/.codex}"
-export JUPYTER_NOTEBOOK_CLI="$CODEX_HOME/skills/jupyter-notebook/scripts/new_notebook.py"
+NOTEBOOK_SKILL_DIR="/absolute/path/to/loaded/jupyter-notebook"
+JUPYTER_NOTEBOOK_CLI="$NOTEBOOK_SKILL_DIR/scripts/new_notebook.py"
 ```
 
-User-scoped skills install under `$CODEX_HOME/skills` (default: `~/.codex/skills`).
+Resolve the helper from the actual loaded skill directory, in any supported host;
+keep host environment variables unchanged. Always pass an explicit project-local
+`--out`. The helper currently derives its default from the skill installation's
+repository, not the caller's project; omitting `--out` can target the wrong repo.
 
 ## Workflow
 1. Lock the intent.
@@ -88,10 +92,11 @@ Use the final pass checklist in `references/quality-checklist.md`.
 - The helper script loads a template, updates the title cell, and writes a notebook.
 
 Script path:
-- `$JUPYTER_NOTEBOOK_CLI` (installed default: `$CODEX_HOME/skills/jupyter-notebook/scripts/new_notebook.py`)
+- `$JUPYTER_NOTEBOOK_CLI`, resolved from the loaded skill directory above.
+- Existing outputs are refused unless `--force` is supplied; preserve that protection.
 
 ## Temp and output conventions
-- Use `tmp/jupyter-notebook/` for intermediate files; delete when done.
+- Use the host's task temporary directory for intermediate files; follow project cleanup rules.
 - Write final artifacts under `output/jupyter-notebook/` when working in this repo.
 - Use stable, descriptive filenames (for example, `ablation-temperature.ipynb`).
 

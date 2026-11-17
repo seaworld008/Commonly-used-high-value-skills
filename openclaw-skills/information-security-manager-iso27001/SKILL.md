@@ -2,14 +2,14 @@
 name: information-security-manager-iso27001
 description: 'Design or audit ISO 27001 ISMS controls, security risk treatment, and compliance evidence, including healthcare and medical-device contexts.'
 zh_description: "建立和审计 ISO 27001 信息安全管理体系及风险控制。"
-version: "1.0.2"
+version: "1.0.3"
 author: alirezarezvani
 source: "github:alirezarezvani/claude-skills"
 source_url: "https://github.com/alirezarezvani/claude-skills/blob/main/ra-qm-team/skills/information-security-manager-iso27001/SKILL.md"
 license: MIT
 tags: '["security", "iso27001", "isms", "compliance", "risk-assessment", "governance", "agent-skill"]'
 created_at: "2026-06-01"
-updated_at: "2026-09-22"
+updated_at: "2026-11-17"
 quality: 4
 complexity: intermediate
 ---
@@ -52,7 +52,7 @@ Use this skill when you hear:
 ### Run Security Risk Assessment
 
 ```bash
-python scripts/risk_assessment.py --scope "patient-data-system" --output risk_register.json
+python scripts/risk_assessment.py --scope "patient-data-system" --assets assets.csv --format json --output risk_register.json
 ```
 
 ### Check Compliance Status
@@ -64,7 +64,7 @@ python scripts/compliance_checker.py --standard iso27001 --controls-file control
 ### Generate Gap Analysis Report
 
 ```bash
-python scripts/compliance_checker.py --standard iso27001 --gap-analysis --output gaps.md
+python scripts/compliance_checker.py --standard iso27001 --controls-file controls.csv --gap-analysis --output gaps.md
 ```
 
 ---
@@ -73,73 +73,88 @@ python scripts/compliance_checker.py --standard iso27001 --gap-analysis --output
 
 ### risk_assessment.py
 
-Automated security risk assessment following ISO 27001 Clause 6.1.2 methodology.
+Offline catalog scenario analysis supporting ISO 27001 Clause 6.1.2 workshops. Requires a supplied asset inventory or explicit `--demo`. Scope is only a report label: the script does not discover assets, scan systems, or verify threats, vulnerabilities or evidence authenticity. Existing user authorization is sufficient to run the appropriate mode.
 
 **Usage:**
 
 ```bash
-# Full risk assessment
-python scripts/risk_assessment.py --scope "cloud-infrastructure" --output risks.json
+# Supplied assets; candidate scenarios, with unknown control effectiveness
+python scripts/risk_assessment.py --scope "cloud-infrastructure" --assets assets.csv --format json --output risks.json
 
-# Healthcare-specific assessment
-python scripts/risk_assessment.py --scope "ehr-system" --template healthcare --output risks.json
+# Explicit synthetic healthcare demo
+python scripts/risk_assessment.py --scope "example-ehr" --demo --template healthcare --format json --output demo_risks.json
 
-# Quick asset-based assessment
-python scripts/risk_assessment.py --assets assets.csv --output risks.json
+# Conditional estimates from supplied control attestations
+python scripts/risk_assessment.py --scope "ehr-system" --assets assets.csv --template healthcare --control-evidence control_evidence.csv --format json --output risks.json
 ```
 
 **Parameters:**
 
 | Parameter | Required | Description |
 |-----------|----------|-------------|
-| `--scope` | Yes | System or area to assess |
+| `--scope` | Yes | Scope label, not discovery or evidence of system access |
 | `--template` | No | Assessment template: `general`, `healthcare`, `cloud` |
-| `--assets` | No | CSV file with asset inventory |
+| `--assets` | One input mode | Nonempty asset CSV; mutually exclusive with `--demo` |
+| `--demo` | One input mode | Explicitly generate synthetic sample assets, labeled in every output format |
+| `--control-evidence` | No | Control attestation CSV for supplied assets; unavailable with demo |
 | `--output` | No | Output file (default: stdout) |
 | `--format` | No | Output format: `json`, `csv`, `markdown` |
 
-**Output:**
-- Asset inventory with classification
-- Threat and vulnerability mapping
-- Risk scores (likelihood × impact)
-- Treatment recommendations
-- Residual risk calculations
+**Input contracts and interpretation:**
+
+Asset CSV requires unique nonempty `id`, nonempty `name`, and `classification` from `critical`, `high`, `medium`, `low`, `minimal`; `type` and `owner` are optional. Empty or invalid inventories fail without producing a report. Example input (illustrative data, not a discovered inventory):
+
+```csv
+id,name,type,owner,classification
+DB01,Example database,Information,Example owner,critical
+```
+
+Control evidence is matched by `asset_id` and catalog `threat_id` (T01–T05 of the selected template), not the generated risk rank. Example attestation schema; substitute reviewed evidence and measured effectiveness before use:
+
+```csv
+asset_id,threat_id,status,effectiveness,evidence_ref,assessed_by,assessed_at
+DB01,T01,verified,0.5,review-record-001,Example assessor,2026-01-15
+```
+
+- A control is `unknown` unless its row has `status=verified`, finite effectiveness in [0,1], a nonempty evidence reference and assessor, and a valid ISO date/time no later than today. Missing, incomplete or unverified rows produce `null` residual estimates, never a default 70% reduction. Unknown/duplicate asset-threat pairs fail to avoid applying evidence to the wrong scenario.
+- Complete attestations are labeled `reported_verified`: the script checks input completeness, does not open evidence references, and cannot establish authenticity, measurement quality, freshness or applicability. Residual results are conditional estimates using `max(1, ceil(catalog_likelihood × (1 − effectiveness))) × classification_impact`.
+- All JSON, CSV and Markdown outputs identify demo status, asset/control sources, the bundled scenario catalog and limitations. Threats and vulnerability candidates remain unverified even with real assets and control records. Scores use assumed catalog likelihoods and classification-derived impact; treatment deadlines are suggestions. This is not a formal completed assessment or certification decision.
 
 ### compliance_checker.py
 
-Verify ISO 27001/27002 control implementation status.
+Summarize the implementation statuses you supply for the bundled control catalog. Both standard options use the same local catalog. The report covers only the selected catalog controls. A full ISO assessment and certification decision require independent review.
 
 **Usage:**
 
 ```bash
-# Check all ISO 27001 controls
+# List the bundled controls as unassessed until statuses are supplied
 python scripts/compliance_checker.py --standard iso27001
 
 # Gap analysis with recommendations
-python scripts/compliance_checker.py --standard iso27001 --gap-analysis
+python scripts/compliance_checker.py --standard iso27001 --controls-file controls.csv --gap-analysis
 
 # Check specific control domains
-python scripts/compliance_checker.py --standard iso27001 --domains "access-control,cryptography"
+python scripts/compliance_checker.py --standard iso27001 --controls-file controls.csv --domains "people,technological"
 
 # Export compliance report
-python scripts/compliance_checker.py --standard iso27001 --output compliance_report.md
+python scripts/compliance_checker.py --standard iso27001 --controls-file controls.json --output compliance_report.md
 ```
 
 **Parameters:**
 
 | Parameter | Required | Description |
 |-----------|----------|-------------|
-| `--standard` | Yes | Standard to check: `iso27001`, `iso27002`, `hipaa` |
-| `--controls-file` | No | CSV with current control status |
+| `--standard` | Yes | `iso27001` or `iso27002` |
+| `--controls-file` | No | CSV with `control_id` (or `id`) and `status`, or a `.json` mapping such as `{"A.5.1": "implemented"}` |
 | `--gap-analysis` | No | Include remediation recommendations |
 | `--domains` | No | Specific control domains to check |
 | `--output` | No | Output file path |
 
-**Output:**
-- Control implementation status
-- Compliance percentage by domain
-- Gap analysis with priorities
-- Remediation recommendations
+**Interpreting the report**
+
+- Supply `implemented`, `partial`, or `not_implemented` based on your control records. A missing control, blank field, or unrecognized value is `unknown`. With no input every control is unassessed.
+- Assessment coverage is the count of controls with recognized statuses divided by all selected catalog controls. The catalog score uses the same denominator, with one point for implemented and half a point for partial. If no controls have been assessed, the JSON score is `null` and Markdown shows `Unassessed`.
+- Findings and remediation cover high and critical priority controls explicitly reported as `not_implemented`. Collect evidence for unknown controls before drawing conclusions.
 
 ---
 
@@ -159,22 +174,22 @@ Document organizational context and ISMS boundaries:
 **Step 2: Conduct Risk Assessment**
 
 ```bash
-python scripts/risk_assessment.py --scope "full-organization" --template general --output initial_risks.json
+python scripts/risk_assessment.py --scope "full-organization" --assets assets.csv --template general --format json --output initial_risks.json
 ```
 
-- Identify information assets
-- Assess threats and vulnerabilities
-- Calculate risk levels
-- Determine risk treatment options
+- Supply an actual asset inventory with owners and classifications
+- Use catalog candidates to guide threat and vulnerability review
+- Validate applicability and likelihood/impact with local evidence
+- Review treatment options; unknown controls have no residual estimate
 
-**Validation:** Risk register contains all critical assets with assigned owners.
+**Validation:** Review critical asset coverage and assigned owners against the supplied inventory. Script output alone does not validate observed risks.
 
 **Step 3: Select and Implement Controls**
 
 Map risks to ISO 27002 controls:
 
 ```bash
-python scripts/compliance_checker.py --standard iso27002 --gap-analysis --output control_gaps.md
+python scripts/compliance_checker.py --standard iso27002 --controls-file controls.csv --gap-analysis --output control_gaps.md
 ```
 
 Control categories:
@@ -227,15 +242,15 @@ Identify threats per asset category:
 **Step 3: Vulnerability Assessment**
 
 ```bash
-python scripts/risk_assessment.py --scope "network-infrastructure" --output vuln_risks.json
+python scripts/risk_assessment.py --scope "network-infrastructure" --assets assets.csv --format json --output scenario_risks.json
 ```
 
-Document vulnerabilities:
+Use the catalog to plan evidence collection; it does not perform a vulnerability scan. Document independently observed vulnerabilities:
 - Technical (unpatched systems, weak configs)
 - Process (missing procedures, gaps)
 - People (lack of training, insider risk)
 
-**Validation:** Vulnerability scan results mapped to risk register.
+**Validation:** Map independently collected scan results to the register; catalog vulnerability candidates are unverified.
 
 **Step 4: Risk Evaluation and Treatment**
 
@@ -358,36 +373,36 @@ Run periodic checks:
 
 ```bash
 # Monthly compliance check
-python scripts/compliance_checker.py --standard iso27001 --output monthly_$(date +%Y%m).md
+python scripts/compliance_checker.py --standard iso27001 --controls-file controls.csv --output monthly_$(date +%Y%m).md
 
 # Quarterly gap analysis
-python scripts/compliance_checker.py --standard iso27001 --gap-analysis --output quarterly_gaps.md
+python scripts/compliance_checker.py --standard iso27001 --controls-file controls.csv --gap-analysis --output quarterly_gaps.md
 ```
 
 ---
 
 ## Worked Example: Healthcare Risk Assessment
 
-**Scenario:** Assess security risks for a patient data management system.
+**Scenario:** Synthetic healthcare workshop, not a site assessment. Tables below are manually authored illustrative scenarios and treatment ideas, not exact CLI output or verified findings. Run with `--demo` to inspect the bundled catalog; use `--assets` for your supplied inventory.
 
 ### Step 1: Define Assets
 
 ```bash
-python scripts/risk_assessment.py --scope "patient-data-system" --template healthcare
+python scripts/risk_assessment.py --scope "example-patient-data-system" --demo --template healthcare
 ```
 
-**Asset inventory output:**
+**Illustrative synthetic inventory:**
 
 | Asset ID | Asset | Type | Owner | Classification |
 |----------|-------|------|-------|----------------|
-| A001 | Patient database | Information | DBA Team | Confidential |
+| A001 | Patient database | Information | DBA Team | Critical |
 | A002 | EHR application | Software | App Team | Critical |
 | A003 | Database server | Hardware | Infra Team | High |
 | A004 | Admin credentials | Access | Security | Critical |
 
 ### Step 2: Identify Risks
 
-**Risk register output:**
+**Illustrative scenario register (unverified assumptions):**
 
 | Risk ID | Asset | Threat | Vulnerability | L | I | Score |
 |---------|-------|--------|---------------|---|---|-------|
@@ -403,28 +418,19 @@ python scripts/risk_assessment.py --scope "patient-data-system" --template healt
 | R002 | Mitigate | Add input validation, WAF | 14 days |
 | R003 | Mitigate | Enforce MFA for all admins | 7 days |
 
-### Step 4: Verify Implementation
+### Step 4: Report Assessed Controls
+
+If the control owners' records support these three statuses, save them as `implemented_controls.csv`.
+
+```csv
+control_id,status
+A.8.24,implemented
+A.8.5,implemented
+A.8.26,partial
+```
 
 ```bash
-python scripts/compliance_checker.py --controls-file implemented_controls.csv
+python scripts/compliance_checker.py --standard iso27001 --domains technological --controls-file implemented_controls.csv
 ```
 
-**Verification output:**
-
-```
-Control Implementation Status
-=============================
-Cryptography (A.8.24): IMPLEMENTED
-  - AES-256 at rest: YES
-  - TLS 1.3 in transit: YES
-
-Access Control (A.8.5): IMPLEMENTED
-  - MFA enabled: YES
-  - Admin accounts: 100% coverage
-
-Application Security (A.8.26): PARTIAL
-  - Input validation: YES
-  - WAF deployed: PENDING
-
-Overall Compliance: 87%
-```
+With the bundled technological catalog, this example reports 2 implemented, 1 partial and 25 unknown. Assessment coverage is 3/28 (10.7%) and the catalog score is 2.5/28 (8.9%).

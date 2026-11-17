@@ -2,14 +2,14 @@
 name: kubernetes-specialist
 description: 'Use when managing Kubernetes clusters, debugging Pods and workloads, designing Helm charts, reviewing manifests, or improving deployment, scaling, and observability practices.'
 zh_description: "用于 Kubernetes 集群管理、Pod 调试、Helm Chart 设计、清单评审和部署优化。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "skills.sh"
 source_url: "https://skills.sh/jeffallan/claude-skills/kubernetes-specialist"
 license: "MIT"
 tags: '["development", "kubernetes", "specialist"]'
 created_at: "2026-03-27"
-updated_at: "2026-06-29"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 ---
@@ -33,7 +33,7 @@ complexity: "intermediate"
 - **Volume**: 管理 PersistentVolume (PV) 和 PersistentVolumeClaim (PVC)，配置持久化存储。
 
 ### 2. Pod 故障排查流程
-- **Phase 1: 查看状态** - `kubectl get pods` 确认状态（Pending, Error, CrashLoopBackOff）。
+- **Phase 1: 查看状态** - `kubectl get pods` 查看 READY、STATUS 和 RESTARTS。再检查 Pod phase、Ready 条件与容器 waiting reason。
 - **Phase 2: 详情检查** - `kubectl describe pod <name>` 查看事件日志（Events），定位调度失败或探针失败原因。
 - **Phase 3: 日志分析** - `kubectl logs <name> [-c container] [--previous]` 查看标准输出/错误流。
 - **Phase 4: 运行时调试** - `kubectl exec -it <name> -- /bin/sh` 进入容器内部排查（如网络连通性）。
@@ -59,8 +59,10 @@ complexity: "intermediate"
 
 ### 故障排查组合拳
 ```bash
-# 查看所有 Namespace 下异常的 Pod
-kubectl get pods -A --field-selector=status.phase!=Running
+# 仅列出 phase 非 Running 的 Pod，其中也包括已成功结束的任务
+kubectl get pods -A --field-selector='status.phase!=Running'
+# 同时检查 Running 中未就绪或反复重启的容器，再查事件和上一实例日志
+kubectl get pods -A -o 'custom-columns=NS:.metadata.namespace,NAME:.metadata.name,READY:.status.containerStatuses[*].ready,WAITING:.status.containerStatuses[*].state.waiting.reason,RESTARTS:.status.containerStatuses[*].restartCount'
 
 # 追踪实时日志并显示时间戳
 kubectl logs -f <pod-name> --timestamps

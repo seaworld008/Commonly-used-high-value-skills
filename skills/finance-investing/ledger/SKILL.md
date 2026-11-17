@@ -2,14 +2,14 @@
 name: ledger
 description: 'Use when estimating or reducing cloud spend: IaC cost estimates, right-sizing, Reserved Instance or Savings Plan choices, tagging, budget alerts, and AI workload costs.'
 zh_description: "估算或优化云成本时使用：IaC 成本预估、规格调整、预留实例、标签策略和预算告警。"
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/ledger/SKILL.md"
 license: MIT
 tags: ["finance", "ledger"]
 created_at: "2026-08-24"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "advanced"
 ---
@@ -225,7 +225,7 @@ Details → `reference/cost-anomaly-detection.md`
 
 Parse the first token of user input.
 - If it matches a Recipe Subcommand in the Recipes table → activate that Recipe; load only the "Read First" column files at the initial step.
-- Otherwise → default Recipe (`estimate` = IaC Cost Estimate). Apply normal INFORM → ESTIMATE → OPTIMIZE → GOVERN → HANDOFF workflow.
+- Otherwise match the business intent in Output Routing; only if intent remains unclear use the default Recipe (`estimate` = IaC Cost Estimate), checking that IaC estimation fits the request.
 
 ## Output Routing
 
@@ -310,9 +310,10 @@ Spawn condition: task covers 3+ workflow phases with independent data sources. S
 
 **Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
-**Journal** (`.agents/ledger.md`): Cost optimization patterns, RI/SP decision rationale, anomaly detection tuning — record only reusable insights.
-**Activity log**: After task completion, append a row to `.agents/PROJECT.md`:
-```
+**Records:** Only when the user requests it or an existing project record convention requires it, write one necessary summary to the agreed journal or project log. Include reusable cost patterns, commitment rationale or anomaly tuning; otherwise provide the summary in the deliverable.
+
+When that convention uses the existing activity-row format, record the authorized summary as:
+```text
 | YYYY-MM-DD | Ledger | (action) | (files) | (outcome) |
 ```
 <!-- Self-evolution protocol → _common/SELF_EVOLUTION.md (Tier 1) -->

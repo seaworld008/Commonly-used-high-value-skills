@@ -2,13 +2,13 @@
 name: api-design-reviewer
 description: 'Use when reviewing API designs for consistency, usability, versioning, error semantics, security, backward compatibility, and developer experience before implementation or release.'
 zh_description: "用于评审 API 设计的一致性、可用性、版本策略、错误语义、安全性和开发者体验。"
-version: "1.0.0"
+version: "1.0.1"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["api", "design", "development", "reviewer"]'
 created_at: "2026-03-04"
-updated_at: "2026-06-29"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -377,21 +377,23 @@ Provides comprehensive scoring of API design quality.
 ## Integration Examples
 
 ### CI/CD Integration
+
+Set `API_REVIEW_SKILL_DIR` to the installed `api-design-reviewer` directory in CI and hook environments. The compatibility check exits nonzero on breaking changes only with `--exit-on-breaking`.
 ```yaml
 - name: API Linting
-  run: python scripts/api_linter.py openapi.json
+  run: python "$API_REVIEW_SKILL_DIR/scripts/api_linter.py" openapi.json
 
 - name: Breaking Change Detection
-  run: python scripts/breaking_change_detector.py openapi-v1.json openapi-v2.json
+  run: python "$API_REVIEW_SKILL_DIR/scripts/breaking_change_detector.py" openapi-v1.json openapi-v2.json --exit-on-breaking
 
 - name: API Scorecard
-  run: python scripts/api_scorecard.py openapi.json
+  run: python "$API_REVIEW_SKILL_DIR/scripts/api_scorecard.py" openapi.json
 ```
 
 ### Pre-commit Hooks
 ```bash
 #!/bin/bash
-python engineering/api-design-reviewer/scripts/api_linter.py api/openapi.json
+python "${API_REVIEW_SKILL_DIR:?Set the installed skill directory}/scripts/api_linter.py" api/openapi.json
 if [ $? -ne 0 ]; then
   echo "API linting failed. Please fix the issues before committing."
   exit 1

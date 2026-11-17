@@ -1,140 +1,60 @@
-# ORCHESTRATION_DATA_CHARTS.md
+<!-- Copyright (c) 2026 seaworld008 -->
+<!-- SPDX-License-Identifier: MIT -->
 
-> **Purpose**: Detailed specifications for Stage 8b (Data Synthesis) and Stage 8c (Chart Generation) in orchestration mode.
->
-> **Navigation**: [← Back to Overview](ORCHESTRATION_OVERVIEW.md) | [Next: PPTX Creation →](ORCHESTRATION_PPTX.md)
+# 从数据证据到图表资产
 
----
+输入先通过口径检查，再进入绘制。图表的美观不能弥补错误分母或缺失来源。
+脚本只负责数据结构和数值的技术检查；证据真实性仍由制作流程核对。
 
-## Stage 8b: Data Synthesis
+## 数据契约
+一行代表一个观察对象或时间点；列名唯一。
+记录各列的含义、单位、采样窗口、缺失值处理和重复行处理规则。
+统一比较口径后再做计算，保留原始表和变换步骤，不覆盖原始证据。
+百分比保留分子、分母及公式；金额注明币种和是否含税。
+不知道的值保持缺失，确认实际为零时才填写 0。
+图表标题或来源行说明合成数据、预测值和真实测量之间的区别。
 
-### When to Synthesize Data
+## 图形与问题
+| --type | 适用问题 | chartkit 的具体语义 |
+| --- | --- | --- |
+| bar | 类别数量比较 | 同组多列并排，保留零基线 |
+| barh | 长类别名比较 | 横向分组条形，数值在横轴 |
+| line | 有序类别或时间趋势 | 按输入行顺序连线，不自动排序或补日期 |
+| area | 非负组成随顺序变化 | 多列堆叠，拒绝负数 |
+| scatter | 两个数值量之间的关系 | x 和 y 都须为有限数值，不拟合因果 |
+| hist | 数值分布 | y 是逐条观察值，自动共同分箱，纵轴为计数 |
+| waterfall | 有顺序的增减贡献 | 单列有符号变化从零累加，无隐含总计行 |
 
-Generate synthetic data when:
-1. refs.md contains data specifications (e.g., "Solar LCOE: $0.38/kWh → $0.05/kWh")
-2. User did NOT upload CSV/Excel files
-3. Charts require data to render (not just conceptual diagrams)
+line 和 area 的横轴按输入顺序等距排列，适合已整理的类别/等间隔时点。
+不规则时间间隔必须先明确转换，或用符合实际间隔的其他绘图方式，不能假装均匀时间轴。
+hist 仍要求 --x 存在作为观察标识，但其值不参与分箱。
+waterfall 的期初余额若需要表达，应作为第一条变化显式提供；不能再把期末总额当变化添加。
 
-### Data Synthesis Guidelines
-
-**Source of Truth**: Use refs.md data specifications
-
-Example refs.md content:
-```markdown
-## Chart 1: Renewable Energy Cost Trends (2010-2024)
-
-Data source: IRENA Renewable Power Generation Costs 2024
-- Solar PV LCOE: $0.38/kWh (2010) → $0.05/kWh (2024), -87% decline
-- Onshore Wind LCOE: $0.09/kWh (2010) → $0.04/kWh (2024), -56% decline
-- Coal baseline (comparison): $0.11/kWh (stable)
-
-Required CSV: data/cost_trend.csv
-Columns: year, solar_pv_cost, onshore_wind_cost, coal_cost
+## 脚本契约
+从仓库根目录运行：
+```sh
+python skills/office-white-collar/pptx/scripts/chartkit.py --help
 ```
+需要 matplotlib、numpy、pandas；--help 不加载这些依赖。
+输入支持 UTF-8 CSV 和 JSON 行对象数组。--y 接受逗号分隔的数值列。
+--out 是输出目录，--filename 必须是以 .svg 或 .png 结尾的单独文件名。
+--title 为可选标题。完整可运行合成样例见[示例](EXAMPLES.md)。
+代码接口为 render_chart(df, chart_type, x, y_cols, title, out_path)，成功返回输出 Path。
+DataFrame 不得为空；缺列、重复列、缺失/非有限 y、非数值 y、布尔测量均拒绝。
+除 scatter/hist 外，重复 x 标签需要先显式聚合，脚本不会擅自求和。
+文件解析、依赖或绘制失败时 CLI 非零退出，不覆盖已有有效图。
 
-**Python Code Pattern** (generate CSV):
-```python
-import pandas as pd
-import numpy as np
+## 输出与复现
+PNG 固定为 1200 × 675 像素，SVG 画布为 864 × 486 pt。
+SVG 保留文本；颜色与 SVG 元素 ID 固定，元数据不含生成日期。
+同一数据、参数、依赖及字体环境下输出应可复现；跨版本不能承诺字节一致。
+脚本使用 Agg，无需 GUI 或网络。绘制成功后通过同目录临时文件原子替换目标。
+长标签、中文字体与高密度数据仍需实际渲染检查；默认 DejaVu Sans 不保证中文覆盖。
+图表标题应准确表达单位，来源行由页面制作阶段加入。
 
-# Synthesize cost_trend.csv
-years = list(range(2010, 2025))
-solar_costs = np.linspace(0.38, 0.05, len(years))  # -87% decline
-wind_costs = np.linspace(0.09, 0.04, len(years))   # -56% decline
-coal_costs = [0.11] * len(years)                   # stable baseline
-
-df = pd.DataFrame({
-    'year': years,
-    'solar_pv_cost': solar_costs,
-    'onshore_wind_cost': wind_costs,
-    'coal_cost': coal_costs
-})
-df.to_csv('output/data/cost_trend.csv', index=False)
-```
-
-**Key Principles**:
-- Match refs.md specifications exactly (start/end values, trends)
-- Add realistic noise (±3-5%) to avoid straight lines
-- Use authoritative source calibration (IRENA/IEA/IPCC/WHO/World Bank)
-- Document assumptions in data file headers or README
-
-**File Organization**:
-```
-/output/data/
-  ├── cost_trend.csv
-  ├── capacity_growth.csv
-  ├── employment.csv
-  ├── solar_roi.csv
-  └── README.md (documents synthesis methodology)
-```
-
----
-
-## Stage 8c: Chart Generation
-
-### Chart Generation Script Pattern
-
-Create a comprehensive `generate_charts.py` script that reads CSV data and generates all PNG charts.
-
-**Template Structure**:
-```python
-#!/usr/bin/env python3
-"""Generate all charts for presentation"""
-import pandas as pd
-import matplotlib.pyplot as plt
-import matplotlib
-matplotlib.use('Agg')  # Non-interactive backend
-
-# Chinese font configuration
-plt.rcParams['font.sans-serif'] = ['SimHei', 'Arial Unicode MS', 'DejaVu Sans']
-plt.rcParams['axes.unicode_minus'] = False
-
-def create_chart_1():
-    """Cost Trend Line Chart"""
-    df = pd.read_csv('data/cost_trend.csv')
-
-    fig, ax = plt.subplots(figsize=(10, 6))
-    ax.plot(df['year'], df['solar_pv_cost'], marker='o', label='太阳能光伏', linewidth=2)
-    ax.plot(df['year'], df['onshore_wind_cost'], marker='s', label='陆上风能', linewidth=2)
-    ax.plot(df['year'], df['coal_cost'], linestyle='--', label='煤电(对比)', linewidth=2, alpha=0.7)
-
-    ax.set_xlabel('年份', fontsize=12)
-    ax.set_ylabel('平准化度电成本 ($/kWh)', fontsize=12)
-    ax.set_title('可再生能源成本趋势 (2010-2024)', fontsize=14, fontweight='bold')
-    ax.legend(fontsize=11)
-    ax.grid(True, alpha=0.3)
-
-    plt.tight_layout()
-    plt.savefig('assets/cost_trend.png', dpi=180, bbox_inches='tight')
-    plt.close()
-    print("✓ Generated: assets/cost_trend.png")
-
-# Call all chart generation functions
-if __name__ == "__main__":
-    create_chart_1()
-    create_chart_2()
-    # ... (all charts)
-    print("\n✅ All charts generated successfully")
-```
-
-**Execution Pattern**:
-```bash
-# Background execution to avoid blocking
-cd /output
-python generate_charts.py
-
-# OR using uv if dependencies unavailable
-uv run --with pandas --with matplotlib generate_charts.py
-```
-
-**Quality Standards**:
-- DPI: 180 (presentation-quality)
-- Size: 10×6 inches (fits 16:9 slide with margins)
-- File format: PNG with transparency
-- Color palette: Use colorblind-friendly colors from STYLE-GUIDE.md
-- Labels: Chinese/English matching slide language
-- Source citation: Add footnote to chart (e.g., "数据来源: IRENA 2024")
-
----
-
-**Navigation**: [← Back to Overview](ORCHESTRATION_OVERVIEW.md) | [Next: PPTX Creation →](ORCHESTRATION_PPTX.md)
+## 插入与验收
+SVG/PNG 是静态媒体，不是带可编辑数据表的原生 PPT 图表。
+若要求修改图表数据，应由制作库创建原生图表并交付对应数据，
+chartkit 图可作为视觉参照或预览。
+每张图记录数据文件、选择的列、类型、标题、输出路径与依赖版本。
+复核点包括原始值、汇总值、方向、类别顺序、单位、基线、来源和缺失数据声明。

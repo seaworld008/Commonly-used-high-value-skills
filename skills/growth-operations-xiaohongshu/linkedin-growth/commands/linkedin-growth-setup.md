@@ -13,8 +13,7 @@ Follow the skill's "First-run setup" section end to end:
    missing, run `npm install --omit=dev` and re-check.
 3. For each failing check, apply the documented remediation:
    - install `linkedin-cli` if absent
-   - if no LinkedIn accounts are connected, ask me for my Linked API Token and
-     Identification Token (from app.linkedapi.io) and run `linkedin setup ...` per account
+   - if no LinkedIn accounts are connected, have the account owner use the trusted local account setup flow (app.linkedapi.io); never request tokens in chat or expose them in logs. Verify the resulting connection status
    - register each connected account into the DB with `node scripts/account.mjs add`,
      asking me for a short name, a daily invite limit, and the daily hours during which
      invites should go out (`--active-start` / `--active-end`, e.g. 09:00–18:00). If I
@@ -29,13 +28,15 @@ Follow the skill's "First-run setup" section end to end:
 6. Ask me about the retry policy: "If someone doesn't accept the request, should we try
    connecting from another account?" — then set it with
    `node scripts/settings.mjs set max_connect_attempts <1|N|all>` (default 1 = no retry).
-7. Once at least one account is registered, turn on the background scheduler with
+7. Only when persistent outreach for these accounts is already authorized, enable or replace the background scheduler with
    `node scripts/schedule.mjs install` and confirm with `node scripts/schedule.mjs status`.
 
 Then summarize in plain language: which accounts are connected, how many invites per day
 each sends, during which hours, and at what pace (one every N minutes), the retry policy, and
-that the pipeline now runs in the background on its own. Do NOT mention internal scheduling
-details (wake-up intervals, ticks). Do not send any invites during setup.
+whether the background scheduler was enabled. Describe it as running on its own only if it
+was enabled or already running. Do NOT mention internal scheduling details (wake-up intervals,
+ticks). Do not manually invoke invites during setup; an existing queue may be consumed as soon
+as an authorized scheduler is enabled.
 
 8. Optionally capture my ICP now so the first import is smooth. Ask who my ideal leads are
    and who to filter out — roles/seniority, industries/company types, company size/stage,
@@ -44,9 +45,12 @@ details (wake-up intervals, ticks). Do not send any invites during setup.
    heredoc — it is stored in the database, not a file; do not leave stray ICP files around).
    If I'd rather decide later, skip this — the import flow will ask before qualifying.
 
-**Finally — and this is required — give me the next step and offer to do it now.** Setup
-alone imports nothing; the pipeline stays empty until leads are added. Say something like:
-"To start filling the pipeline, send me a LinkedIn or Sales Navigator search URL (or search
-filters) plus a name for the list, and I'll import and qualify your first batch." If I give
-you one, continue straight into the import (the `/linkedin-growth-import` flow). Never end the setup
-without offering this next step.
+**Finally — give me the next step and offer to do it now.** Say something like:
+"Send me a LinkedIn or Sales Navigator search URL (or a term plus filters), a list name,
+and a limit, and I'll prepare and qualify the candidates. Research-only work ends with the
+qualification results. Committing suitable leads puts them in the outreach send queue, which
+a running scheduler may consume immediately; I'll do that only when our existing session
+authorization specifically covers this batch and every active (non-paused) sending account
+eligible for assignment." If I provide a search, continue into the `/linkedin-growth-import`
+flow within that scope. Setup or a search URL alone does not authorize outreach to a new batch.
+Reuse authorization that already covers the batch/accounts; do not require another confirmation.

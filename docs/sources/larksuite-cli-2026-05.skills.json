@@ -2,7 +2,7 @@
   "schema_version": 2,
   "video": {
     "url": "https://github.com/larksuite/cli",
-    "checked_at": "2026-10-16",
+    "checked_at": "2026-11-17",
     "note": "Official Lark/Feishu CLI AI Agent Skills complete-directory mirrors, manually reviewed through commit 56ad837c3d8f4c49d6b9725a3530c37408533ead. The upstream meeting consolidation is represented by canonical lark-meeting."
   },
   "official_references": [
@@ -24,14 +24,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/knowledge-and-pm-integrations/lark-approval/SKILL.md",
       "source": "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-approval",
-      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 1 upstream whitespace-only sidecar defect(s) are normalized by an explicit local curation overlay. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 1 upstream whitespace-only sidecar defect(s) are normalized by an explicit local curation overlay. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 3d82c85419ad7560ad017db7a3972a596b5fbeb1; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "larksuite/cli",
         "path": "skills/lark-approval/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
         "sync_mode": "monitor",
         "path_commit": "0d5334a0cdfdf18b0313ba051befb2848493ecda"
       },
@@ -123,22 +123,27 @@
               "source": "skills/lark-approval/references/lark-approval-tasks-transfer.md",
               "target": "skills/knowledge-and-pm-integrations/lark-approval/references/lark-approval-tasks-transfer.md",
               "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/knowledge-and-pm-integrations/lark-approval/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
             "path_commit": "0d5334a0cdfdf18b0313ba051befb2848493ecda",
-            "content_sha256": "df6c47ebd206c253c8b4566ea4fcaf47b2e02d8843c40868d203c3b30b31424f",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "content_sha256": "c9171a28f659e022af1e7d7881862d570664478bcf40cd951146fbc857e7509e",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
               "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
               "spdx": "MIT",
-              "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+              "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
               "api_spdx": "MIT"
             }
           }
@@ -170,7 +175,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-approval/SKILL.md",
           "owner": "lark-approval",
-          "sha256": "df6c47ebd206c253c8b4566ea4fcaf47b2e02d8843c40868d203c3b30b31424f",
+          "sha256": "c9171a28f659e022af1e7d7881862d570664478bcf40cd951146fbc857e7509e",
           "mode": "100644"
         },
         {
@@ -268,6 +273,12 @@
           "owner": "lark-approval",
           "sha256": "4c761de1edb1c1ff1ee15b2ed4ef1f708255bcaa84b02ccf4800e92ed9d566cb",
           "mode": "100644"
+        },
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-approval/LICENSE.upstream.txt",
+          "owner": "lark-approval",
+          "sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+          "mode": "100644"
         }
       ]
     },
@@ -277,14 +288,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/knowledge-and-pm-integrations/lark-attendance/SKILL.md",
       "source": "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-attendance",
-      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 3d82c85419ad7560ad017db7a3972a596b5fbeb1; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "larksuite/cli",
         "path": "skills/lark-attendance",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
         "sync_mode": "monitor",
         "path_commit": "69ae326d01a9163ca22408c746e052003cf0af2c"
       },
@@ -301,22 +312,27 @@
               "source": "skills/lark-attendance",
               "target": "skills/knowledge-and-pm-integrations/lark-attendance",
               "type": "directory"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/knowledge-and-pm-integrations/lark-attendance/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
             "path_commit": "69ae326d01a9163ca22408c746e052003cf0af2c",
-            "content_sha256": "6f803cdd1895d847b2572cc8aff0f0c20e4c25ff71aea8da6f8897871e008fc2",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "content_sha256": "0b18d8754318500fe67117d66b74a2b8d51b5d03f495cba613507160e0726943",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
               "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
               "spdx": "MIT",
-              "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+              "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
               "api_spdx": "MIT"
             }
           }
@@ -326,7 +342,13 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-attendance/SKILL.md",
           "owner": "lark-attendance",
-          "sha256": "6f803cdd1895d847b2572cc8aff0f0c20e4c25ff71aea8da6f8897871e008fc2",
+          "sha256": "0b18d8754318500fe67117d66b74a2b8d51b5d03f495cba613507160e0726943",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-attendance/LICENSE.upstream.txt",
+          "owner": "lark-attendance",
+          "sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
           "mode": "100644"
         }
       ]
@@ -337,14 +359,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/knowledge-and-pm-integrations/lark-base/SKILL.md",
       "source": "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-base",
-      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 3d82c85419ad7560ad017db7a3972a596b5fbeb1; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. Retained previously licensed historical sidecars/genre controls absent from the new upstream inventory as local overlay resources; they are not claimed as current upstream files. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "larksuite/cli",
         "path": "skills/lark-base",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
         "sync_mode": "monitor",
         "path_commit": "9067ec079bfa0b1ae2266cd91d1c1ee4a1ce824d"
       },
@@ -361,22 +383,27 @@
               "source": "skills/lark-base",
               "target": "skills/knowledge-and-pm-integrations/lark-base",
               "type": "directory"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/knowledge-and-pm-integrations/lark-base/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
             "path_commit": "9067ec079bfa0b1ae2266cd91d1c1ee4a1ce824d",
             "content_sha256": "ed10ddea288e7b255022df763668d5b087b3379a50cfc15e639a3e4f090e99f4",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
               "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
               "spdx": "MIT",
-              "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+              "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
               "api_spdx": "MIT"
             }
           }
@@ -580,6 +607,12 @@
           "owner": "lark-base",
           "sha256": "2ab361882a3f82f66c73b5f1187372ab2ffbbc83c51ef5b9257b1b0773a9cf9c",
           "mode": "100644"
+        },
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-base/LICENSE.upstream.txt",
+          "owner": "lark-base",
+          "sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+          "mode": "100644"
         }
       ]
     },
@@ -589,14 +622,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/knowledge-and-pm-integrations/lark-calendar/SKILL.md",
       "source": "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-calendar",
-      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. The upstream SKILL trailing-space defect is normalized locally; main-artifact comparison is whitespace-insensitive. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. The upstream SKILL trailing-space defect is normalized locally; main-artifact comparison is whitespace-insensitive. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 3d82c85419ad7560ad017db7a3972a596b5fbeb1; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "larksuite/cli",
         "path": "skills/lark-calendar",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
         "sync_mode": "monitor",
         "path_commit": "7bd7708fae3eb8c637e9cc1221ca310a2ab77cb2"
       },
@@ -613,22 +646,27 @@
               "source": "skills/lark-calendar",
               "target": "skills/knowledge-and-pm-integrations/lark-calendar",
               "type": "directory"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/knowledge-and-pm-integrations/lark-calendar/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
             "path_commit": "7bd7708fae3eb8c637e9cc1221ca310a2ab77cb2",
             "content_sha256": "b79f278326eef5ab12906c2696b6e3c0b465371f536774109886ae70bdea2e8a",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
               "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
               "spdx": "MIT",
-              "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+              "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
               "api_spdx": "MIT"
             }
           }
@@ -724,6 +762,12 @@
           "owner": "lark-calendar",
           "sha256": "2e87b4bb1758570535cefafdc4539642af818e63a246f2a2bfef1e294adbb767",
           "mode": "100644"
+        },
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-calendar/LICENSE.upstream.txt",
+          "owner": "lark-calendar",
+          "sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+          "mode": "100644"
         }
       ]
     },
@@ -733,14 +777,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/knowledge-and-pm-integrations/lark-contact/SKILL.md",
       "source": "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-contact",
-      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 3d82c85419ad7560ad017db7a3972a596b5fbeb1; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "larksuite/cli",
         "path": "skills/lark-contact",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
         "sync_mode": "monitor",
         "path_commit": "87be09ef5f227c7b63d5eba40649544b5bec0133"
       },
@@ -757,22 +801,27 @@
               "source": "skills/lark-contact",
               "target": "skills/knowledge-and-pm-integrations/lark-contact",
               "type": "directory"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/knowledge-and-pm-integrations/lark-contact/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
             "path_commit": "87be09ef5f227c7b63d5eba40649544b5bec0133",
             "content_sha256": "1c2280b2d6de9f9f758cbcd6cea321e51adb0b999185fabafd95bd5ee5333569",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
               "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
               "spdx": "MIT",
-              "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+              "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
               "api_spdx": "MIT"
             }
           }
@@ -802,6 +851,12 @@
           "owner": "lark-contact",
           "sha256": "afd023c446b4cc3837ceb9cafcf45bc7d9fef66df6f8a1c0daba66add9603671",
           "mode": "100644"
+        },
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-contact/LICENSE.upstream.txt",
+          "owner": "lark-contact",
+          "sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+          "mode": "100644"
         }
       ]
     },
@@ -811,14 +866,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/knowledge-and-pm-integrations/lark-doc/SKILL.md",
       "source": "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-doc",
-      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 3d82c85419ad7560ad017db7a3972a596b5fbeb1; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. Retained previously licensed historical sidecars/genre controls absent from the new upstream inventory as local overlay resources; they are not claimed as current upstream files.",
       "upstream": {
         "repo": "larksuite/cli",
         "path": "skills/lark-doc/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
         "sync_mode": "monitor",
         "path_commit": "97f0dabe7b046f45cfd820453b8305aeed47a601"
       },
@@ -850,17 +905,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
             "path_commit": "97f0dabe7b046f45cfd820453b8305aeed47a601",
-            "content_sha256": "889045ebae01a29a77f6304603b13c45e18321cc04ebd0cde4a2219a662e2b21",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "content_sha256": "26bf5ad96cc4409275f3a94a53201366783048c093d31e4874256a78bb810846",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
               "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
               "spdx": "MIT",
-              "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+              "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
               "api_spdx": "MIT"
             }
           }
@@ -870,7 +925,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-doc/SKILL.md",
           "owner": "lark-doc",
-          "sha256": "889045ebae01a29a77f6304603b13c45e18321cc04ebd0cde4a2219a662e2b21",
+          "sha256": "26bf5ad96cc4409275f3a94a53201366783048c093d31e4874256a78bb810846",
           "mode": "100644"
         },
         {
@@ -1104,7 +1159,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-doc/references/lark-doc-script.md",
           "owner": "lark-doc",
-          "sha256": "7fb8a1d3031e49ef076b0f3a705b8f6527d2cd31f4797a29f4fb6adc7c29aaeb",
+          "sha256": "cf88ccc87dcf55843a4abd68e3047114a201e6b1bf1629e8e745ec9805410d31",
           "mode": "100644"
         },
         {
@@ -1145,14 +1200,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/knowledge-and-pm-integrations/lark-drive/SKILL.md",
       "source": "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-drive",
-      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 3d82c85419ad7560ad017db7a3972a596b5fbeb1; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "larksuite/cli",
         "path": "skills/lark-drive",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
         "sync_mode": "monitor",
         "path_commit": "a3e6b9ef362e689a0af0a8aeedf4d4381012a0ef"
       },
@@ -1169,22 +1224,27 @@
               "source": "skills/lark-drive",
               "target": "skills/knowledge-and-pm-integrations/lark-drive",
               "type": "directory"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/knowledge-and-pm-integrations/lark-drive/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
             "path_commit": "a3e6b9ef362e689a0af0a8aeedf4d4381012a0ef",
             "content_sha256": "436b2f3a54f862680b217e6f9e801c96a93846c9b1f860a2e61dec8464a08b78",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
               "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
               "spdx": "MIT",
-              "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+              "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
               "api_spdx": "MIT"
             }
           }
@@ -1428,7 +1488,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-drive/references/lark-drive-update-title.md",
           "owner": "lark-drive",
-          "sha256": "a0d91e70996eec9a1b645ae666427b6b544226e899dbc4443b601cc572d63a94",
+          "sha256": "7e7c3ffb52e39a5f4a732c272502f93d9096bbcf5e2cf9c486d33e7a739bb217",
           "mode": "100644"
         },
         {
@@ -1556,6 +1616,12 @@
           "owner": "lark-drive",
           "sha256": "43e2e855f0e4f5713eefc6edca607777a8da82cc05eb09ba655977befb77f0e9",
           "mode": "100644"
+        },
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-drive/LICENSE.upstream.txt",
+          "owner": "lark-drive",
+          "sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+          "mode": "100644"
         }
       ]
     },
@@ -1565,16 +1631,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/knowledge-and-pm-integrations/lark-event/SKILL.md",
       "source": "https://github.com/larksuite/cli/tree/main/skills/lark-event",
-      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 3d82c85419ad7560ad017db7a3972a596b5fbeb1; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "larksuite/cli",
         "path": "skills/lark-event",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
         "sync_mode": "monitor",
-        "path_commit": "fcdef499bb23739b720c665d49875a9957c97d48"
+        "path_commit": "ecfe7f3f5af7bf844af858e52c21386eb68fee46"
       },
       "kind": "mirror",
       "sync_mode": "monitor",
@@ -1589,22 +1655,27 @@
               "source": "skills/lark-event",
               "target": "skills/knowledge-and-pm-integrations/lark-event",
               "type": "directory"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/knowledge-and-pm-integrations/lark-event/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
-            "path_commit": "fcdef499bb23739b720c665d49875a9957c97d48",
-            "content_sha256": "111dbe929a17c1dd019a6c35508eaaefd302d52dc43677f8201715f64bfc8edf",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
+            "path_commit": "ecfe7f3f5af7bf844af858e52c21386eb68fee46",
+            "content_sha256": "2f03af84d5868181f1eed59cc5a438a56e69cc7c83e4ecc5d401be22d7eb7925",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
               "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
               "spdx": "MIT",
-              "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+              "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
               "api_spdx": "MIT"
             }
           }
@@ -1614,7 +1685,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-event/SKILL.md",
           "owner": "lark-event",
-          "sha256": "111dbe929a17c1dd019a6c35508eaaefd302d52dc43677f8201715f64bfc8edf",
+          "sha256": "2f03af84d5868181f1eed59cc5a438a56e69cc7c83e4ecc5d401be22d7eb7925",
           "mode": "100644"
         },
         {
@@ -1632,7 +1703,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-event/references/lark-event-im.md",
           "owner": "lark-event",
-          "sha256": "b023f08657250ae2d1b513cbeb80d4776d786b270ffc459a1bd142eae156f3a6",
+          "sha256": "943985b354bb20672604aae06401a648d85943239a932692c28a57586640472a",
           "mode": "100644"
         },
         {
@@ -1658,6 +1729,18 @@
           "owner": "lark-event",
           "sha256": "24f29bc6b7aac10cfcbb5250f8fb27e239bfb4c36d3e58cd5e1e51b156aa717b",
           "mode": "100644"
+        },
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-event/references/lark-event-drive.md",
+          "owner": "lark-event",
+          "sha256": "69f06cfd19e4dcd6a666ec5bd1dd291d52687ce87a41c9e5384f4a6e23145be0",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-event/LICENSE.upstream.txt",
+          "owner": "lark-event",
+          "sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+          "mode": "100644"
         }
       ]
     },
@@ -1667,14 +1750,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/knowledge-and-pm-integrations/lark-im/SKILL.md",
       "source": "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-im",
-      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 3d82c85419ad7560ad017db7a3972a596b5fbeb1; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "larksuite/cli",
         "path": "skills/lark-im",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
         "sync_mode": "monitor",
         "path_commit": "341ee384fd668a963a68382cb48f73b8143879be"
       },
@@ -1691,22 +1774,27 @@
               "source": "skills/lark-im",
               "target": "skills/knowledge-and-pm-integrations/lark-im",
               "type": "directory"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/knowledge-and-pm-integrations/lark-im/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
             "path_commit": "341ee384fd668a963a68382cb48f73b8143879be",
             "content_sha256": "fa8ebbe0b3c89439ee8befe89d9d812304fdfffa3106a962f892b7688e56d442",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
               "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
               "spdx": "MIT",
-              "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+              "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
               "api_spdx": "MIT"
             }
           }
@@ -2078,6 +2166,12 @@
           "owner": "lark-im",
           "sha256": "830c3642db3668e7bd6379ce26c1476d45cc47cdb15864130b84ff60e86aa3a2",
           "mode": "100644"
+        },
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-im/LICENSE.upstream.txt",
+          "owner": "lark-im",
+          "sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+          "mode": "100644"
         }
       ]
     },
@@ -2087,14 +2181,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/knowledge-and-pm-integrations/lark-mail/SKILL.md",
       "source": "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-mail",
-      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 1 upstream whitespace-only sidecar defect(s) are normalized by an explicit local curation overlay. 2026-09-28: curated reviewed deltas from 32e14dea9041e7876c8b41aead963b10866267d1; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 1 upstream whitespace-only sidecar defect(s) are normalized by an explicit local curation overlay. 2026-09-28: curated reviewed deltas from 32e14dea9041e7876c8b41aead963b10866267d1; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 3d82c85419ad7560ad017db7a3972a596b5fbeb1; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "larksuite/cli",
         "path": "skills/lark-mail/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
         "sync_mode": "monitor",
         "path_commit": "d1ae4727324533f30b12c866f47f25a03f21f56d"
       },
@@ -2291,17 +2385,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
             "path_commit": "d1ae4727324533f30b12c866f47f25a03f21f56d",
             "content_sha256": "d3af67180ccf357f23daab8ad392b937f57fb964bbae441edce1969d56885217",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
               "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
               "spdx": "MIT",
-              "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+              "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
               "api_spdx": "MIT"
             }
           }
@@ -2560,14 +2654,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/knowledge-and-pm-integrations/lark-markdown/SKILL.md",
       "source": "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-markdown",
-      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 3d82c85419ad7560ad017db7a3972a596b5fbeb1; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "larksuite/cli",
         "path": "skills/lark-markdown",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
         "sync_mode": "monitor",
         "path_commit": "d1ae4727324533f30b12c866f47f25a03f21f56d"
       },
@@ -2584,22 +2678,27 @@
               "source": "skills/lark-markdown",
               "target": "skills/knowledge-and-pm-integrations/lark-markdown",
               "type": "directory"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/knowledge-and-pm-integrations/lark-markdown/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
             "path_commit": "d1ae4727324533f30b12c866f47f25a03f21f56d",
             "content_sha256": "1ca8a9884eba99ede46d48723a27e36e64e26860531c349124dd92013c446ab5",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
               "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
               "spdx": "MIT",
-              "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+              "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
               "api_spdx": "MIT"
             }
           }
@@ -2641,6 +2740,12 @@
           "owner": "lark-markdown",
           "sha256": "45a09affb3f6dba9e42dfb1262ec279c9fe5702f4e767cb313be2ea01ecf9e4f",
           "mode": "100644"
+        },
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-markdown/LICENSE.upstream.txt",
+          "owner": "lark-markdown",
+          "sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+          "mode": "100644"
         }
       ],
       "curation_note": "2026-09-07: local frontmatter-only trigger refinement; upstream skill body, artifact directory and reviewed commit remain unchanged; monitor mode protects local metadata."
@@ -2651,16 +2756,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/knowledge-and-pm-integrations/lark-okr/SKILL.md",
       "source": "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-okr",
-      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 3 upstream whitespace-only sidecar defect(s) are normalized by an explicit local curation overlay. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 3 upstream whitespace-only sidecar defect(s) are normalized by an explicit local curation overlay. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 3d82c85419ad7560ad017db7a3972a596b5fbeb1; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "larksuite/cli",
         "path": "skills/lark-okr/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
         "sync_mode": "monitor",
-        "path_commit": "baf9640bec9eddb658ec351956553b8fa0bad6cb"
+        "path_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -2790,22 +2895,27 @@
               "source": "LICENSE",
               "target": "skills/knowledge-and-pm-integrations/lark-okr/LICENSE.upstream.txt",
               "type": "file"
+            },
+            {
+              "source": "skills/lark-okr/references/lark-okr-drafts.md",
+              "target": "skills/knowledge-and-pm-integrations/lark-okr/references/lark-okr-drafts.md",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
-            "path_commit": "baf9640bec9eddb658ec351956553b8fa0bad6cb",
-            "content_sha256": "d568ca54018e2d6fc9145a678a935516f3d757393512df7181f716b4dc1731eb",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
+            "path_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
+            "content_sha256": "47ed7b12c2da096576aca84d17e6b2b0e9840b16c97501ef17c1300b818e993e",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
               "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
               "spdx": "MIT",
-              "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+              "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
               "api_spdx": "MIT"
             }
           }
@@ -2847,37 +2957,37 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-okr/SKILL.md",
           "owner": "lark-okr",
-          "sha256": "d568ca54018e2d6fc9145a678a935516f3d757393512df7181f716b4dc1731eb",
+          "sha256": "47ed7b12c2da096576aca84d17e6b2b0e9840b16c97501ef17c1300b818e993e",
           "mode": "100644"
         },
         {
           "path": "skills/knowledge-and-pm-integrations/lark-okr/references/lark-okr-alignments.md",
           "owner": "lark-okr",
-          "sha256": "5a0701e9eb747d91a877fc6c3986366922528a87777f034f45dcebe757116753",
+          "sha256": "21cafa58805598f9bee79066a5cc13472b86a0dc88205e0feb374ecd976fe75b",
           "mode": "100644"
         },
         {
           "path": "skills/knowledge-and-pm-integrations/lark-okr/references/lark-okr-batch-create.md",
           "owner": "lark-okr",
-          "sha256": "3c8662ab49c9af8c55ebae7e61a50074a9efeb5ba8d262057adb047ed6ac0e2e",
+          "sha256": "7663cb3a6ab6d8cce84433eaf66535663a26bb9635d6921881b04ada28640a8c",
           "mode": "100644"
         },
         {
           "path": "skills/knowledge-and-pm-integrations/lark-okr/references/lark-okr-contentblock.md",
           "owner": "lark-okr",
-          "sha256": "c8ebabde306ae0c3312e0bbdfe51a73a31c7123583ec2196e2615211b70e20fc",
+          "sha256": "29b26e57be5862b08ac0609c7f8cdf6b57adca724e768978f5801c4002a9165d",
           "mode": "100644"
         },
         {
           "path": "skills/knowledge-and-pm-integrations/lark-okr/references/lark-okr-create.md",
           "owner": "lark-okr",
-          "sha256": "edcfd20fc1a616a97b61b33adf12f4e651523930ec95870f654a1d868e2b53d5",
+          "sha256": "b16acc7018494f64b00088b45776379d5427f29cd0bfdb987a4d5e849c26835f",
           "mode": "100644"
         },
         {
           "path": "skills/knowledge-and-pm-integrations/lark-okr/references/lark-okr-cycle-detail.md",
           "owner": "lark-okr",
-          "sha256": "69fef9becb64d635d088c734ad5957194017041fc0303d804d96d91f27e13079",
+          "sha256": "2287afebcedad85d67f717e4c55e69e9115bad643009f896b56fa50cc284df8e",
           "mode": "100644"
         },
         {
@@ -2889,121 +2999,127 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-okr/references/lark-okr-entities.md",
           "owner": "lark-okr",
-          "sha256": "2c253d57e14cdbca70256d055fcc6d05c721d3c2cc39a60c6b1200087caa6a2b",
+          "sha256": "0cab989738a492d6ee13c73b0d19f32a8e87fa7809fa0f66a890897fec503b85",
           "mode": "100644"
         },
         {
           "path": "skills/knowledge-and-pm-integrations/lark-okr/references/lark-okr-image-upload.md",
           "owner": "lark-okr",
-          "sha256": "4a5324ab2cc5b4ca42d51ef8066ed9e3375c921cf243eb40bbb41d73bb7e7bdd",
+          "sha256": "0f5c28e99256ef23771966cadc2ed9c89694cb71a9caeb283811924a4f4fba73",
           "mode": "100644"
         },
         {
           "path": "skills/knowledge-and-pm-integrations/lark-okr/references/lark-okr-indicator-update.md",
           "owner": "lark-okr",
-          "sha256": "5c60f1ea2c9a5021528badc6ac46c52b63fac085d3995035e239c4b5ee15528a",
+          "sha256": "a391feef3dd1174507aab2d441895af998feda55095dcde3215b50611e5a2f44",
           "mode": "100644"
         },
         {
           "path": "skills/knowledge-and-pm-integrations/lark-okr/references/lark-okr-indicators.md",
           "owner": "lark-okr",
-          "sha256": "d708fb47e8382f57c76f15ab0ebfc45221edd4e48695153ec03baa0ae0e53556",
+          "sha256": "f25c61d5a72703cd5c9f33e8631bd667b692e9001e43022ab45f014b1d686709",
           "mode": "100644"
         },
         {
           "path": "skills/knowledge-and-pm-integrations/lark-okr/references/lark-okr-patch.md",
           "owner": "lark-okr",
-          "sha256": "c07f0484a1325e4981856648e0ee5119cbd512140cf5457859cea9d8ad23e734",
+          "sha256": "e73e6eb33886d8fd96f22cbccd5a2f50bb6ab79eaab3010bf355c2c3a0b0f50a",
           "mode": "100644"
         },
         {
           "path": "skills/knowledge-and-pm-integrations/lark-okr/references/lark-okr-progress-create.md",
           "owner": "lark-okr",
-          "sha256": "637765ccf34b23b46e06f5816e4a22e1912d831af3bec4a95262a92a4e8e1ca0",
+          "sha256": "102c48b75183823e912b4d9f032ecd00fbc548a36a9bc1e0d4e5f887028a31ba",
           "mode": "100644"
         },
         {
           "path": "skills/knowledge-and-pm-integrations/lark-okr/references/lark-okr-progress-delete.md",
           "owner": "lark-okr",
-          "sha256": "c96a580dc99bdd5e675718cf799870d6d84b7aa9b7f6f5f51c88182f9965d7c6",
+          "sha256": "3e58a50790b69ba1101416fd3f365eae968b76589c0e5c85da5344f8aae477b5",
           "mode": "100644"
         },
         {
           "path": "skills/knowledge-and-pm-integrations/lark-okr/references/lark-okr-progress-get.md",
           "owner": "lark-okr",
-          "sha256": "a070f250dce7ca7cfe4b69140f23c6ce879bde78b612d372c52c8274cfc2648f",
+          "sha256": "931093efa18d399bad6c2df5417c241da53d0a8657cbcf8c69b66bf1d2e675d9",
           "mode": "100644"
         },
         {
           "path": "skills/knowledge-and-pm-integrations/lark-okr/references/lark-okr-progress-list.md",
           "owner": "lark-okr",
-          "sha256": "0cac018ee83b8a8968a006b158fb0c054fe2df3768309d6b9a6352d2927c4e74",
+          "sha256": "33bfea8f1a3f9fd0f458edc04ef368b1d1a0b63055bc8aa4fa6fed9062097d9b",
           "mode": "100644"
         },
         {
           "path": "skills/knowledge-and-pm-integrations/lark-okr/references/lark-okr-progress-update.md",
           "owner": "lark-okr",
-          "sha256": "dd09623ea1c8372499d9f8ebc96a8deebc36e7f5a810e15eff9e6486a21d8545",
+          "sha256": "b852dfcb70a498799aef1df4d5d84314cd0d496b7876d620fdb3589ac8320f09",
           "mode": "100644"
         },
         {
           "path": "skills/knowledge-and-pm-integrations/lark-okr/references/lark-okr-reorder.md",
           "owner": "lark-okr",
-          "sha256": "7ebabc5a4eb2f5b708f98d31a2e572276cc2d413b630757907dcc0c963b87906",
+          "sha256": "c84844f7090f60f22d74cc31185eac2f4b2be79c1d8d1fadbc63bec7a95923c4",
           "mode": "100644"
         },
         {
           "path": "skills/knowledge-and-pm-integrations/lark-okr/references/lark-okr-weight.md",
           "owner": "lark-okr",
-          "sha256": "b71f2e7b4c3f2b0d6654933909d5e11f1d4c980793205a7c635643465a9d6637",
+          "sha256": "3ad63df463497600772446427815f791e07a6dae69831e14dc3563a228dd5eaa",
           "mode": "100644"
         },
         {
           "path": "skills/knowledge-and-pm-integrations/lark-okr/references/lark-okr-comment-list.md",
           "owner": "lark-okr",
-          "sha256": "a4558aba77575de193f971e3256537bef68cf3d0c1f1b06dfb3ec232bd66a3d5",
+          "sha256": "839d1ecfcc1b4dd798fb0cf5b212916eb5c6429d524e9121b576d566e564591b",
           "mode": "100644"
         },
         {
           "path": "skills/knowledge-and-pm-integrations/lark-okr/references/lark-okr-comment-create.md",
           "owner": "lark-okr",
-          "sha256": "ece149dffdb69b69f01d2a4f8d4f9c2525a809e003b4671d681dd382c72b2ec3",
+          "sha256": "915fa153569c645a0c16e0daf4f40e1be1bce6d3c37cfe3beb41aa5352870d3e",
           "mode": "100644"
         },
         {
           "path": "skills/knowledge-and-pm-integrations/lark-okr/references/lark-okr-comment-solve-reopen.md",
           "owner": "lark-okr",
-          "sha256": "a5856e83b3e8cfe4450ffac512d6cd53612794f6bff1b2f69f69758681cb14cb",
+          "sha256": "c0f9fb6c08586f57723218967fdc20b5f9d76353d0d7b51e3fc0ee0ca86bb4ba",
           "mode": "100644"
         },
         {
           "path": "skills/knowledge-and-pm-integrations/lark-okr/references/lark-okr-comment-detail.md",
           "owner": "lark-okr",
-          "sha256": "ab23177e9e93bba31a9acbdbe670d8f51059b427cffb6aa72bafb8727515f8dc",
+          "sha256": "5441aac2c0d2f5eaa7eda1099b581f1f00df1d16a0b6dc704a1372b9c211a14a",
           "mode": "100644"
         },
         {
           "path": "skills/knowledge-and-pm-integrations/lark-okr/references/lark-okr-comment-get.md",
           "owner": "lark-okr",
-          "sha256": "d5d71d971a26c85760f47890ff3e9a9e6036fea4affbef86bfc4dd96a1f82241",
+          "sha256": "df650697d7ff3c25cab7f188a0b6734585ce58b8196e6e8e0d338c10282ef1d8",
           "mode": "100644"
         },
         {
           "path": "skills/knowledge-and-pm-integrations/lark-okr/references/lark-okr-comment-patch.md",
           "owner": "lark-okr",
-          "sha256": "01b3a1fa8e749b35c86ee8d73a80dcfd23f16fc9a2fc713f9663bd1c09cc2df2",
+          "sha256": "83234aa94f83707bc07f24f29da028bad632570dfe0bbb3c24f3e7f37f59d18a",
           "mode": "100644"
         },
         {
           "path": "skills/knowledge-and-pm-integrations/lark-okr/references/lark-okr-comment-delete.md",
           "owner": "lark-okr",
-          "sha256": "787769af9c18c15fd57ab128ce0a6744664333054dc8c4fad075fd6395dd8557",
+          "sha256": "e296f5bef4afd3d3813d0b6bb7b89e6d832c8d264781b5a8b9a0a845206eff6c",
           "mode": "100644"
         },
         {
           "path": "skills/knowledge-and-pm-integrations/lark-okr/LICENSE.upstream.txt",
           "owner": "lark-okr",
           "sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-okr/references/lark-okr-drafts.md",
+          "owner": "lark-okr",
+          "sha256": "9cb75c8709201d798589c0026c4c566df3604d4ed95b935c7d22580bacb40697",
           "mode": "100644"
         }
       ]
@@ -3014,14 +3130,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/knowledge-and-pm-integrations/lark-openapi-explorer/SKILL.md",
       "source": "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-openapi-explorer",
-      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 3d82c85419ad7560ad017db7a3972a596b5fbeb1; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "larksuite/cli",
         "path": "skills/lark-openapi-explorer",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
         "sync_mode": "monitor",
         "path_commit": "83dfb068ad8bb4052787d80ca415118a20849b85"
       },
@@ -3038,22 +3154,27 @@
               "source": "skills/lark-openapi-explorer",
               "target": "skills/knowledge-and-pm-integrations/lark-openapi-explorer",
               "type": "directory"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/knowledge-and-pm-integrations/lark-openapi-explorer/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
             "path_commit": "83dfb068ad8bb4052787d80ca415118a20849b85",
-            "content_sha256": "f6101af6207fddbb49f05e5c04dc765e0c38379ecca9bd3d6b55332c938bae9e",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "content_sha256": "b9660015848972421af957f073fb1a41857e40ca34da648f1d528c936b9066ef",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
               "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
               "spdx": "MIT",
-              "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+              "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
               "api_spdx": "MIT"
             }
           }
@@ -3063,7 +3184,13 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-openapi-explorer/SKILL.md",
           "owner": "lark-openapi-explorer",
-          "sha256": "f6101af6207fddbb49f05e5c04dc765e0c38379ecca9bd3d6b55332c938bae9e",
+          "sha256": "b9660015848972421af957f073fb1a41857e40ca34da648f1d528c936b9066ef",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-openapi-explorer/LICENSE.upstream.txt",
+          "owner": "lark-openapi-explorer",
+          "sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
           "mode": "100644"
         }
       ]
@@ -3074,16 +3201,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/knowledge-and-pm-integrations/lark-shared/SKILL.md",
       "source": "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-shared",
-      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 3d82c85419ad7560ad017db7a3972a596b5fbeb1; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "larksuite/cli",
         "path": "skills/lark-shared",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
         "sync_mode": "monitor",
-        "path_commit": "dd8edc738f3acc592c366247ccd4a595c7c44d65"
+        "path_commit": "74991aa69d997506a196bb8fa514f435b4e9aa60"
       },
       "kind": "mirror",
       "sync_mode": "monitor",
@@ -3098,22 +3225,27 @@
               "source": "skills/lark-shared",
               "target": "skills/knowledge-and-pm-integrations/lark-shared",
               "type": "directory"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/knowledge-and-pm-integrations/lark-shared/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
-            "path_commit": "dd8edc738f3acc592c366247ccd4a595c7c44d65",
-            "content_sha256": "0ec68e076943e96196b4224bce5866a3f4322843164a957ada04a7da68b82275",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
+            "path_commit": "74991aa69d997506a196bb8fa514f435b4e9aa60",
+            "content_sha256": "77359a32b72f22c9bb3e612babdbe559a6d2c542b1cb6effc3669a6e4c767b16",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
               "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
               "spdx": "MIT",
-              "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+              "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
               "api_spdx": "MIT"
             }
           }
@@ -3123,7 +3255,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-shared/SKILL.md",
           "owner": "lark-shared",
-          "sha256": "0ec68e076943e96196b4224bce5866a3f4322843164a957ada04a7da68b82275",
+          "sha256": "77359a32b72f22c9bb3e612babdbe559a6d2c542b1cb6effc3669a6e4c767b16",
           "mode": "100644"
         },
         {
@@ -3141,7 +3273,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-shared/references/lark-shared-identity-and-permissions.md",
           "owner": "lark-shared",
-          "sha256": "68c8f409ceeb062b4460a63ea4a8822e4150db475b7ca2f4baaf1e67162907f1",
+          "sha256": "2fe31e2724f3858e12182cdac4600377f68db36468094c500daa59031a05a18c",
           "mode": "100644"
         },
         {
@@ -3161,6 +3293,12 @@
           "owner": "lark-shared",
           "sha256": "8109dd583c0ed2193621ff83f341a9c7b0af7cf711aff5e69f4790821b4355db",
           "mode": "100644"
+        },
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-shared/LICENSE.upstream.txt",
+          "owner": "lark-shared",
+          "sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+          "mode": "100644"
         }
       ]
     },
@@ -3170,14 +3308,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/knowledge-and-pm-integrations/lark-sheets/SKILL.md",
       "source": "https://github.com/larksuite/cli/blob/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-sheets/SKILL.md",
-      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: PR #129 findings fixed with read-only grid selection and one bounded transient read retry; upstream checkpoint unchanged. See docs/maintenance-followup-2026-10-03.json.",
+      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.\n2026-10-03: PR #129 findings fixed with read-only grid selection and one bounded transient read retry; upstream checkpoint unchanged. See docs/maintenance-followup-2026-10-03.json. 2026-11-17: commit-aware semantic review at 3d82c85419ad7560ad017db7a3972a596b5fbeb1; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "larksuite/cli",
         "path": "skills/lark-sheets/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
         "sync_mode": "monitor",
         "path_commit": "d5a32489b93050c88a21e54784593dd3effd452b"
       },
@@ -3339,22 +3477,27 @@
               "source": "skills/lark-sheets/scripts/lark_sheets_df.py",
               "target": "skills/knowledge-and-pm-integrations/lark-sheets/scripts/lark_sheets_df.py",
               "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/knowledge-and-pm-integrations/lark-sheets/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
             "path_commit": "d5a32489b93050c88a21e54784593dd3effd452b",
-            "content_sha256": "db4587cc4d7868c9770d2960cf383714992a13ee5143f7e845e5ca134b15c136",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "content_sha256": "8765a5261dd91e3df2d9f89d2cdbed3e2ee49ad88104d9f5c77bc7c54f5bb3f4",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
               "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
               "spdx": "MIT",
-              "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+              "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
               "api_spdx": "MIT"
             }
           }
@@ -3399,7 +3542,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-sheets/SKILL.md",
           "owner": "lark-sheets",
-          "sha256": "db4587cc4d7868c9770d2960cf383714992a13ee5143f7e845e5ca134b15c136",
+          "sha256": "8765a5261dd91e3df2d9f89d2cdbed3e2ee49ad88104d9f5c77bc7c54f5bb3f4",
           "mode": "100644"
         },
         {
@@ -3587,6 +3730,12 @@
           "owner": "lark-sheets",
           "sha256": "8166b9a624e362c7408418b7fecf14421f4465fe3056f6793cfb2f840dd6371b",
           "mode": "100644"
+        },
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-sheets/LICENSE.upstream.txt",
+          "owner": "lark-sheets",
+          "sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+          "mode": "100644"
         }
       ]
     },
@@ -3596,14 +3745,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/knowledge-and-pm-integrations/lark-skill-maker/SKILL.md",
       "source": "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-skill-maker",
-      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 3d82c85419ad7560ad017db7a3972a596b5fbeb1; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "larksuite/cli",
         "path": "skills/lark-skill-maker/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
         "sync_mode": "monitor",
         "path_commit": "83dfb068ad8bb4052787d80ca415118a20849b85"
       },
@@ -3630,17 +3779,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
             "path_commit": "83dfb068ad8bb4052787d80ca415118a20849b85",
-            "content_sha256": "a95bad1895fe3e2f91be789ea06e9d96a4cc7060596379b122d5eca2c126c7c4",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "content_sha256": "b6212423c4085a22e2338ec2cdf7a37fba8dfd97615348c4f3fb589b7f5f4f27",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
               "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
               "spdx": "MIT",
-              "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+              "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
               "api_spdx": "MIT"
             }
           }
@@ -3650,7 +3799,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-skill-maker/SKILL.md",
           "owner": "lark-skill-maker",
-          "sha256": "a95bad1895fe3e2f91be789ea06e9d96a4cc7060596379b122d5eca2c126c7c4",
+          "sha256": "b6212423c4085a22e2338ec2cdf7a37fba8dfd97615348c4f3fb589b7f5f4f27",
           "mode": "100644"
         },
         {
@@ -3667,14 +3816,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/knowledge-and-pm-integrations/lark-slides/SKILL.md",
       "source": "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-slides",
-      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 1 upstream whitespace-only sidecar defect(s) are normalized by an explicit local curation overlay. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 1 upstream whitespace-only sidecar defect(s) are normalized by an explicit local curation overlay. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 3d82c85419ad7560ad017db7a3972a596b5fbeb1; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "larksuite/cli",
         "path": "skills/lark-slides/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
         "sync_mode": "monitor",
         "path_commit": "017b19a793ad71794a02887ede04757f3d82e10d"
       },
@@ -3931,22 +4080,27 @@
               "source": "skills/lark-slides/scripts/xml_text_overlap_lint_test.py",
               "target": "skills/knowledge-and-pm-integrations/lark-slides/scripts/xml_text_overlap_lint_test.py",
               "type": "file"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/knowledge-and-pm-integrations/lark-slides/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
             "path_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
-            "content_sha256": "378cbd10a3b6d9639bf2b16a04096206316e891b9027a7993a52d5890546f4d6",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "content_sha256": "88fe6a4e9ceb4d251ed89b6c7a0e61524e6d9fbd5ac1730f0881a3a48ee3bfe4",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
               "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
               "spdx": "MIT",
-              "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+              "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
               "api_spdx": "MIT"
             }
           }
@@ -3978,7 +4132,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-slides/SKILL.md",
           "owner": "lark-slides",
-          "sha256": "378cbd10a3b6d9639bf2b16a04096206316e891b9027a7993a52d5890546f4d6",
+          "sha256": "88fe6a4e9ceb4d251ed89b6c7a0e61524e6d9fbd5ac1730f0881a3a48ee3bfe4",
           "mode": "100644"
         },
         {
@@ -4274,6 +4428,12 @@
           "owner": "lark-slides",
           "sha256": "9e6af04d8b16b09422fba80773b32e668aef50943187ecd66ccc9e232bb4d98a",
           "mode": "100644"
+        },
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-slides/LICENSE.upstream.txt",
+          "owner": "lark-slides",
+          "sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+          "mode": "100644"
         }
       ]
     },
@@ -4283,16 +4443,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/knowledge-and-pm-integrations/lark-task/SKILL.md",
       "source": "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-task",
-      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 3d82c85419ad7560ad017db7a3972a596b5fbeb1; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "larksuite/cli",
         "path": "skills/lark-task",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
         "sync_mode": "monitor",
-        "path_commit": "64b0d51f1159dfac12be35f839103af86a93fdd9"
+        "path_commit": "daeed8575c9393f7ed633f39e69a6b47c60fa658"
       },
       "kind": "mirror",
       "sync_mode": "monitor",
@@ -4307,22 +4467,27 @@
               "source": "skills/lark-task",
               "target": "skills/knowledge-and-pm-integrations/lark-task",
               "type": "directory"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/knowledge-and-pm-integrations/lark-task/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
-            "path_commit": "64b0d51f1159dfac12be35f839103af86a93fdd9",
-            "content_sha256": "d87117f01a652e5698902842cc33a54efe741bf42fca077ad6f237062be61a0b",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
+            "path_commit": "daeed8575c9393f7ed633f39e69a6b47c60fa658",
+            "content_sha256": "712be6fc26b37229793dd3f0bbad8402df91ff049f18895b7780a59632fd8e05",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
               "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
               "spdx": "MIT",
-              "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+              "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
               "api_spdx": "MIT"
             }
           }
@@ -4332,7 +4497,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-task/SKILL.md",
           "owner": "lark-task",
-          "sha256": "d87117f01a652e5698902842cc33a54efe741bf42fca077ad6f237062be61a0b",
+          "sha256": "712be6fc26b37229793dd3f0bbad8402df91ff049f18895b7780a59632fd8e05",
           "mode": "100644"
         },
         {
@@ -4442,6 +4607,12 @@
           "owner": "lark-task",
           "sha256": "1d528518d1ec251183999f0f3efd73d1c46ffcbb33bc45216e68eaa034471f5d",
           "mode": "100644"
+        },
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-task/LICENSE.upstream.txt",
+          "owner": "lark-task",
+          "sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+          "mode": "100644"
         }
       ]
     },
@@ -4451,14 +4622,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/knowledge-and-pm-integrations/lark-whiteboard/SKILL.md",
       "source": "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-whiteboard",
-      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 3d82c85419ad7560ad017db7a3972a596b5fbeb1; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "larksuite/cli",
         "path": "skills/lark-whiteboard",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
         "sync_mode": "monitor",
         "path_commit": "27ab8fbea3e6f2b07e93a26bc635e0e52023d7a0"
       },
@@ -4475,22 +4646,27 @@
               "source": "skills/lark-whiteboard",
               "target": "skills/knowledge-and-pm-integrations/lark-whiteboard",
               "type": "directory"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/knowledge-and-pm-integrations/lark-whiteboard/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
             "path_commit": "27ab8fbea3e6f2b07e93a26bc635e0e52023d7a0",
-            "content_sha256": "a235eab52048ea69d8c5f01674d56dec7b982609168e585a792ebd7037446c8f",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "content_sha256": "02f9a192d1b4897f79028547df3dd53124ef5a4167b60f3a41dfb4d5545d03df",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
               "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
               "spdx": "MIT",
-              "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+              "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
               "api_spdx": "MIT"
             }
           }
@@ -4500,7 +4676,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-whiteboard/SKILL.md",
           "owner": "lark-whiteboard",
-          "sha256": "a235eab52048ea69d8c5f01674d56dec7b982609168e585a792ebd7037446c8f",
+          "sha256": "02f9a192d1b4897f79028547df3dd53124ef5a4167b60f3a41dfb4d5545d03df",
           "mode": "100644"
         },
         {
@@ -4682,6 +4858,12 @@
           "owner": "lark-whiteboard",
           "sha256": "15f34c71addf36645a68c5fbbfb637f879d87e3cbe6ae5b1b5119722f0e3fbcc",
           "mode": "100644"
+        },
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-whiteboard/LICENSE.upstream.txt",
+          "owner": "lark-whiteboard",
+          "sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+          "mode": "100644"
         }
       ]
     },
@@ -4691,14 +4873,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/knowledge-and-pm-integrations/lark-wiki/SKILL.md",
       "source": "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-wiki",
-      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 3d82c85419ad7560ad017db7a3972a596b5fbeb1; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "larksuite/cli",
         "path": "skills/lark-wiki",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
         "sync_mode": "monitor",
         "path_commit": "d1ae4727324533f30b12c866f47f25a03f21f56d"
       },
@@ -4715,22 +4897,27 @@
               "source": "skills/lark-wiki",
               "target": "skills/knowledge-and-pm-integrations/lark-wiki",
               "type": "directory"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/knowledge-and-pm-integrations/lark-wiki/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
             "path_commit": "d1ae4727324533f30b12c866f47f25a03f21f56d",
             "content_sha256": "9d2977ed2893b22aa4c2b0d9fe81777d734e799a4d9c82384cd842db8103c9a8",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
               "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
               "spdx": "MIT",
-              "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+              "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
               "api_spdx": "MIT"
             }
           }
@@ -4820,6 +5007,12 @@
           "owner": "lark-wiki",
           "sha256": "d4921cfbfaba564217f214b6f87daf7e3ccbfda5b9759f73ab6a999c682913ae",
           "mode": "100644"
+        },
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-wiki/LICENSE.upstream.txt",
+          "owner": "lark-wiki",
+          "sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
+          "mode": "100644"
         }
       ]
     },
@@ -4829,14 +5022,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/knowledge-and-pm-integrations/lark-workflow-meeting-summary/SKILL.md",
       "source": "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-workflow-meeting-summary",
-      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 3d82c85419ad7560ad017db7a3972a596b5fbeb1; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "larksuite/cli",
         "path": "skills/lark-workflow-meeting-summary",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
         "sync_mode": "monitor",
         "path_commit": "e525beb8d6ddecbde68ea3b2df292f1d70a66fa5"
       },
@@ -4853,22 +5046,27 @@
               "source": "skills/lark-workflow-meeting-summary",
               "target": "skills/knowledge-and-pm-integrations/lark-workflow-meeting-summary",
               "type": "directory"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/knowledge-and-pm-integrations/lark-workflow-meeting-summary/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
             "path_commit": "e525beb8d6ddecbde68ea3b2df292f1d70a66fa5",
-            "content_sha256": "25ae4d4994933bca42c9142fc50bfb1df7457f15c2ff2e4519ecc23a73f4533c",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "content_sha256": "f4377e177ae3fa63ead241923ffe976d6d57b9cf4d998816d0a74e783c554524",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
               "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
               "spdx": "MIT",
-              "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+              "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
               "api_spdx": "MIT"
             }
           }
@@ -4878,7 +5076,13 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-workflow-meeting-summary/SKILL.md",
           "owner": "lark-workflow-meeting-summary",
-          "sha256": "25ae4d4994933bca42c9142fc50bfb1df7457f15c2ff2e4519ecc23a73f4533c",
+          "sha256": "f4377e177ae3fa63ead241923ffe976d6d57b9cf4d998816d0a74e783c554524",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-workflow-meeting-summary/LICENSE.upstream.txt",
+          "owner": "lark-workflow-meeting-summary",
+          "sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
           "mode": "100644"
         }
       ]
@@ -4889,14 +5093,14 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/knowledge-and-pm-integrations/lark-workflow-standup-report/SKILL.md",
       "source": "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-workflow-standup-report",
-      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Reviewed complete-directory mirror of the official Lark CLI skill at commit ca35f60; historical upstream files removed by that tree had no local-only ownership and were safely pruned. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 3d82c85419ad7560ad017db7a3972a596b5fbeb1; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases. 2026-11-17: exact immutable upstream license/authorization notice included in the independently installed skill; origin copyright and source retained.",
       "upstream": {
         "repo": "larksuite/cli",
         "path": "skills/lark-workflow-standup-report",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
         "sync_mode": "monitor",
         "path_commit": "049ddf771b435e86a4f5a71e616336ec44341160"
       },
@@ -4913,22 +5117,27 @@
               "source": "skills/lark-workflow-standup-report",
               "target": "skills/knowledge-and-pm-integrations/lark-workflow-standup-report",
               "type": "directory"
+            },
+            {
+              "source": "LICENSE",
+              "target": "skills/knowledge-and-pm-integrations/lark-workflow-standup-report/LICENSE.upstream.txt",
+              "type": "file"
             }
           ],
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+            "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
             "path_commit": "049ddf771b435e86a4f5a71e616336ec44341160",
-            "content_sha256": "6b2a4ece7d271de4ef0be234c873b2842a10e43e0e968bcb54fac0a7779a5d15",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "content_sha256": "a34aa3309b40b2d79a8e7ebb9e229f79d457606100e3b832cb0756a066b05329",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
               "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
               "spdx": "MIT",
-              "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+              "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
               "api_spdx": "MIT"
             }
           }
@@ -4938,7 +5147,13 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-workflow-standup-report/SKILL.md",
           "owner": "lark-workflow-standup-report",
-          "sha256": "6b2a4ece7d271de4ef0be234c873b2842a10e43e0e968bcb54fac0a7779a5d15",
+          "sha256": "a34aa3309b40b2d79a8e7ebb9e229f79d457606100e3b832cb0756a066b05329",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/knowledge-and-pm-integrations/lark-workflow-standup-report/LICENSE.upstream.txt",
+          "owner": "lark-workflow-standup-report",
+          "sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
           "mode": "100644"
         }
       ]
@@ -4949,16 +5164,16 @@
       "status": "verified_in_repo",
       "repo_skill": "skills/knowledge-and-pm-integrations/lark-meeting/SKILL.md",
       "source": "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-meeting",
-      "notes": "Official unified Lark meeting workflow reviewed at commit 56ad837c3d8f4c49d6b9725a3530c37408533ead; merged lark-minutes, lark-vc, and lark-vc-agent while preserving the local cross-domain boundary reference. 2026-09-28: curated reviewed deltas from 32e14dea9041e7876c8b41aead963b10866267d1; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json.",
+      "notes": "Official unified Lark meeting workflow reviewed at commit 56ad837c3d8f4c49d6b9725a3530c37408533ead; merged lark-minutes, lark-vc, and lark-vc-agent while preserving the local cross-domain boundary reference. 2026-09-28: curated reviewed deltas from 32e14dea9041e7876c8b41aead963b10866267d1; preserved local guidance and monitor-only checkpoints. See docs/maintenance-audit-2026-09-28.md for scope and deferred differences. 2026-09-30: complete declared artifact comparison plus regular sibling dependency closure; reviewed three-way updates retain local authorization/tool compatibility; removed helpers are immutable archived sidecars, not live mirrors. See docs/maintenance-audit-2026-09-30.json. 2026-11-17: commit-aware semantic review at 3d82c85419ad7560ad017db7a3972a596b5fbeb1; preserved local curation and executable assets; see docs/maintenance-audit-2026-11-17.md. Local versions are not upstream releases.",
       "upstream": {
         "repo": "larksuite/cli",
         "path": "skills/lark-meeting/SKILL.md",
         "ref": "main",
-        "last_checked_at": "2026-10-16",
-        "last_synced_at": "2026-10-16",
-        "last_synced_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+        "last_checked_at": "2026-11-17",
+        "last_synced_at": "2026-11-17",
+        "last_synced_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
         "sync_mode": "monitor",
-        "path_commit": "1da5768f96ed22e774a09fa2aa60af607d63a99e"
+        "path_commit": "05e9c6ef74290f78601892ed9eb8a6389d8fc8ca"
       },
       "kind": "overlay",
       "sync_mode": "monitor",
@@ -5100,11 +5315,6 @@
               "type": "file"
             },
             {
-              "source": "skills/lark-meeting/references/lark-vc-meeting-screenshot.md",
-              "target": "skills/knowledge-and-pm-integrations/lark-meeting/references/lark-vc-meeting-screenshot.md",
-              "type": "file"
-            },
-            {
               "source": "skills/lark-meeting/references/lark-vc-meeting-countdown.md",
               "target": "skills/knowledge-and-pm-integrations/lark-meeting/references/lark-vc-meeting-countdown.md",
               "type": "file"
@@ -5128,17 +5338,17 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
-            "path_commit": "1da5768f96ed22e774a09fa2aa60af607d63a99e",
-            "content_sha256": "fd8e410bd2013976fec46e57c82c971c4acea8a4bc1fad440079137f0a8cd557",
-            "last_checked_at": "2026-10-16",
-            "last_synced_at": "2026-10-16",
+            "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
+            "path_commit": "05e9c6ef74290f78601892ed9eb8a6389d8fc8ca",
+            "content_sha256": "3f2d7190ed19e00b9bd80caf90ce37928a29cf963126c6bdf0ab3df26c28f160",
+            "last_checked_at": "2026-11-17",
+            "last_synced_at": "2026-11-17",
             "license_checkpoint": {
               "path": "LICENSE",
               "blob_sha": "2b8bbb5e9c46b1abc3a5ac68ee190baf046ba968",
               "content_sha256": "c969fc7e3af68e6bf40b0d8dd9c3dcc377eb685a2139535b203b39fdcad739ee",
               "spdx": "MIT",
-              "resolved_commit": "017b19a793ad71794a02887ede04757f3d82e10d",
+              "resolved_commit": "3d82c85419ad7560ad017db7a3972a596b5fbeb1",
               "api_spdx": "MIT"
             }
           }
@@ -5170,7 +5380,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-meeting/SKILL.md",
           "owner": "lark-meeting",
-          "sha256": "fd8e410bd2013976fec46e57c82c971c4acea8a4bc1fad440079137f0a8cd557",
+          "sha256": "3f2d7190ed19e00b9bd80caf90ce37928a29cf963126c6bdf0ab3df26c28f160",
           "mode": "100644"
         },
         {
@@ -5308,7 +5518,7 @@
         {
           "path": "skills/knowledge-and-pm-integrations/lark-meeting/scenes/live-meeting-interact.md",
           "owner": "lark-meeting",
-          "sha256": "3bbb092f218f7144cf46295a862776d8f4a1ecf584bb32067caea8b1ee9e2cb0",
+          "sha256": "09cfca2565ff7ea28f857dd2d4dc0addedc9eac32dc12b272c57ceb4933090e3",
           "mode": "100644"
         },
         {
@@ -5327,12 +5537,6 @@
           "path": "skills/knowledge-and-pm-integrations/lark-meeting/scenes/query-note-and-artifacts.md",
           "owner": "lark-meeting",
           "sha256": "76a6fdc080e27beea72865a34736ae2b0d61ad570479fec897cb59f167a009c0",
-          "mode": "100644"
-        },
-        {
-          "path": "skills/knowledge-and-pm-integrations/lark-meeting/references/lark-vc-meeting-screenshot.md",
-          "owner": "lark-meeting",
-          "sha256": "5ce0e81398bfaab1a1532250bff374b81f927a068427b1ba867eb5224a47d01f",
           "mode": "100644"
         },
         {
@@ -5423,6 +5627,13 @@
       "date": "2026-10-16",
       "method": "commit-aware-manual-monitor-review",
       "target": "larksuite/cli@017b19a793ad71794a02887ede04757f3d82e10d",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-11-17",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "larksuite/cli@3d82c85419ad7560ad017db7a3972a596b5fbeb1",
       "result": "success",
       "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
     }

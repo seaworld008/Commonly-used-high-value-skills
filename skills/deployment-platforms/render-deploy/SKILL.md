@@ -2,13 +2,14 @@
 name: render-deploy
 description: 'Deploy applications to Render by analyzing codebases, generating render.yaml Blueprints, and providing Dashboard deeplinks. Use when the user wants to deploy, host, publish, or set up their application on Render''s cloud platform.'
 zh_description: "用于将服务或应用部署到 Render 并处理运行配置。"
-version: "1.0.0"
-author: "seaworld008"
-source: "in-house"
-source_url: ""
+version: "1.0.1"
+author: "OpenAI contributors; local curators"
+source: "https://github.com/openai/skills"
+source_url: "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/render-deploy/SKILL.md"
+license: "Apache-2.0"
 tags: '["deploy", "deployment", "render"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -23,13 +24,11 @@ This skill covers **Git-backed** flows:
 
 Blueprints can also run a **prebuilt Docker image** by using `runtime: image`, but the `render.yaml` still must live in a Git repo.
 
-If there is no Git remote, stop and ask the user to either:
-- Create/push a Git remote (can be minimal if only the Blueprint is needed), or
-- Use the Render Dashboard/API to deploy a prebuilt Docker image (MCP cannot create image-backed services).
+A local Blueprint can be delivered without a remote. For a Git-backed deployment, identify the authorized repository and source branch. For prebuilt images use the supported Render Dashboard/API flow.
 
 ## Prerequisites
 
-- When sandboxing blocks the deployment network calls, rerun with `sandbox_permissions=require_escalated`.
+- Check outbound access when the task includes remote validation or deployment.
 - The deployment might take a few minutes. Use appropriate timeout values.
 
 ## When to Use This Skill
@@ -51,7 +50,7 @@ Then proceed with the appropriate method below.
 
 ## Choose Your Source Path
 
-**Git Repo Path:** Required for both Blueprint and Direct Creation. The repo must be pushed to GitHub, GitLab, or Bitbucket.
+**Git Repo Path:** Required to deploy via Blueprint or Git-backed Direct Creation. The repo must be pushed to GitHub, GitLab, or Bitbucket.
 
 **Prebuilt Docker Image Path:** Supported by Render via image-backed services. This is **not** supported by MCP; use the Dashboard/API. Ask for:
 - Image URL (registry + tag)
@@ -290,20 +289,13 @@ Service type details: [references/service-types.md](references/service-types.md)
 Runtime options: [references/runtimes.md](references/runtimes.md)
 Template examples: [assets/](assets/)
 
-### Step 2.5: Immediate Next Steps (Always Provide)
+### Step 2.5: Deliver the Blueprint
 
-After creating `render.yaml`, always give the user a short, explicit checklist and run validation immediately when the CLI is available:
-1. **Authenticate (CLI)**: run `render whoami -o json` (if not logged in, run `render login` or set `RENDER_API_KEY`)
-2. **Validate (recommended)**: run `render blueprints validate`
-   - If the CLI isn't installed, offer to install it and provide the command.
-3. **Commit + push**: `git add render.yaml && git commit -m "Add Render deployment configuration" && git push origin main`
-4. **Open Dashboard**: Use the Blueprint deeplink and complete Git OAuth if prompted
-5. **Fill secrets**: Set env vars marked `sync: false`
-6. **Deploy**: Click "Apply" and monitor the deploy
+For a configuration request, deliver `render.yaml`, validation results and the required `sync: false` settings. Continue to publication and Dashboard steps only for an authorized deployment.
 
 ### Step 3: Validate Configuration
 
-Validate the render.yaml file to catch errors before deployment. If the CLI is installed, run the commands directly; only prompt the user if the CLI is missing:
+Validate the Blueprint using the installed CLI and permitted connection when available. Record any validation that could not run.
 
 ```bash
 render whoami -o json  # Ensure CLI is authenticated (won't always prompt)
@@ -318,23 +310,9 @@ Fix any validation errors before proceeding. Common issues:
 
 Configuration guide: [references/configuration-guide.md](references/configuration-guide.md)
 
-### Step 4: Commit and Push
+### Step 4: Publish to the Blueprint source branch
 
-**IMPORTANT:** You must merge the `render.yaml` file into your repository before deploying.
-
-Ensure the `render.yaml` file is committed and pushed to your Git remote:
-
-```bash
-git add render.yaml
-git commit -m "Add Render deployment configuration"
-git push origin main
-```
-
-If there is no Git remote yet, stop here and guide the user to create a GitHub/GitLab/Bitbucket repo, add it as `origin`, and push before continuing.
-
-**Why this matters:** The Dashboard deeplink will read the render.yaml from your repository. If the file isn't merged and pushed, Render won't find the configuration and deployment will fail.
-
-Verify the file is in your remote repository before proceeding to the next step.
+For an authorized release, use the repository's branch and PR workflow. Confirm the Render source repository and branch, then verify that the remote commit contains the reviewed `render.yaml` before applying the Blueprint. If a remote prerequisite is missing, deliver the local configuration and identify the pending release step.
 
 ### Step 5: Generate Deeplink
 
@@ -424,7 +402,7 @@ For simple deployments without Infrastructure-as-Code, create services directly 
 
 ```bash
 git remote -v  # Verify remote exists
-git push origin main  # Ensure code is pushed
+git ls-remote --exit-code origin "refs/heads/$SOURCE_BRANCH"  # Check the configured branch and expected commit
 ```
 
 Supported providers: GitHub, GitLab, Bitbucket
@@ -475,15 +453,9 @@ If the service fails to start or health checks time out, use the basic triage gu
 
 ## Troubleshooting
 
-### Escalated Network Access
+### Network failures
 
-If deployment fails due to network issues (timeouts, DNS errors, connection resets), rerun the deploy with escalated permissions (use `sandbox_permissions=require_escalated`). The deploy requires escalated network access when sandbox networking blocks outbound requests.
-
-Example guidance to the user:
-
-```
-The deploy needs escalated network access to deploy to Render. I can rerun the command with escalated permissions—want me to proceed?
-```
+Check the CLI error and platform status to distinguish authentication, DNS, service availability and host permission failures. For a confirmed permission denial, use the host approval mechanism only if available and permitted. If networking is unavailable, deliver the prepared artifacts and record which deployment checks are pending.
 
 Optional: If you need deeper diagnostics (metrics/DB checks/error catalog), suggest installing the
 `render-debug` skill. It is not required for the core deploy flow.

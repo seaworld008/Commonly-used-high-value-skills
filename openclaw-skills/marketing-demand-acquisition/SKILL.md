@@ -2,13 +2,13 @@
 name: marketing-demand-acquisition
 description: 'Multi-channel demand generation, paid media optimization, SEO strategy, and partnership programs for Series A+ startups'
 zh_description: "规划付费投放、自然渠道和获客转化流程。"
-version: "1.1.1"
+version: "1.1.2"
 author: Alireza Rezvani
 source: "in-house"
 source_url: ""
 tags: '["acquisition", "demand", "growth", "marketing"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 triggers:
@@ -244,7 +244,15 @@ See [attribution-guide.md](references/attribution-guide.md) for detailed setup.
 
 | Script | Purpose | Usage |
 |--------|---------|-------|
-| `calculate_cac.py` | Calculate blended and channel CAC | `python scripts/calculate_cac.py --spend 40000 --customers 50` |
+| `calculate_cac.py` | Calculate blended and channel CAC | Import `calculate_channel_cac(channel_data)` with actual channel, spend and customers records |
+
+From the skill directory:
+
+```bash
+python3 -c 'import sys,json; sys.path.insert(0,"scripts"); from calculate_cac import calculate_channel_cac; print(json.dumps(calculate_channel_cac([{"channel":"Actual campaign","spend":40000,"customers":50}]),indent=2))'
+```
+
+This example returns CAC 800. Running the script directly ignores CLI arguments and prints fixed demonstration data (35000 / 50 = 700). Its zero-customer branch returns zero; report CAC as unavailable for such channels, preserve their spend in any valid blended total, and never rank them as low-cost acquisitions.
 
 ### HubSpot Integration
 

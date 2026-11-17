@@ -2,14 +2,14 @@
 name: receiving-code-review
 description: 'Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable - requires technical rigor and verification, not performative agreement or blind implementation'
 zh_description: "核实代码审查意见并处理有证据支持的问题。"
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:obra/superpowers"
 source_url: "https://skills.sh/obra/superpowers/receiving-code-review"
 license: MIT
 tags: '["code-review", "workflow", "feedback"]'
 created_at: "2026-04-13"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 ---
@@ -52,10 +52,12 @@ WHEN receiving code review feedback:
 
 ```
 IF any item is unclear:
-  STOP - do not implement anything yet
-  ASK for clarification on unclear items
+  CHECK dependencies on unclear items
+  PAUSE only changes that depend on those items
+  CONTINUE independent, understood, authorized fixes
+  ASK together for the necessary clarification
 
-WHY: Items may be related. Partial understanding = wrong implementation.
+WHY: Related items need shared understanding; unrelated fixes need not wait.
 ```
 
 **Example:**
@@ -63,8 +65,8 @@ WHY: Items may be related. Partial understanding = wrong implementation.
 your human partner: "Fix 1-6"
 You understand 1,2,3,6. Unclear on 4,5.
 
-❌ WRONG: Implement 1,2,3,6 now, ask about 4,5 later
-✅ RIGHT: "I understand items 1,2,3,6. Need clarification on 4 and 5 before proceeding."
+❌ WRONG: Implement a fix that depends on unclear items 4 or 5 by guessing
+✅ RIGHT: "I will fix independent items 1,2,3,6. Please clarify 4 and 5; dependent changes will wait."
 ```
 
 ## Source-Specific Handling
@@ -181,7 +183,7 @@ State the correction factually and move on.
 | Batch without testing | One at a time, test each |
 | Assuming reviewer is right | Check if breaks things |
 | Avoiding pushback | Technical correctness > comfort |
-| Partial implementation | Clarify all items first |
+| Guessing dependent fixes | Clarify dependencies; continue independent authorized fixes |
 | Can't verify, proceed anyway | State limitation, ask for direction |
 
 ## Real Examples
@@ -208,7 +210,7 @@ Reviewer: "Implement proper metrics tracking with database, date filters, CSV ex
 ```
 your human partner: "Fix items 1-6"
 You understand 1,2,3,6. Unclear on 4,5.
-✅ "Understand 1,2,3,6. Need clarification on 4 and 5 before implementing."
+✅ "Understand 1,2,3,6 and will fix them if independent. Need clarification on 4 and 5 for dependent changes."
 ```
 
 ## GitHub Thread Replies

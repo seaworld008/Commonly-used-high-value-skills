@@ -2,13 +2,13 @@
 name: database-schema-designer
 description: 'Design relational database schemas from requirements and generate migrations, TypeScript/Python types, seed data, RLS policies, and indexes. Handles multi-tenancy, soft deletes, audit trails, versioning, and polymorphic associations.'
 zh_description: "设计数据表、约束、索引、迁移和行级权限策略。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["database", "designer", "development", "schema"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -199,39 +199,41 @@ ALTER TABLE projects ENABLE ROW LEVEL SECURITY;
 -- Create app role
 CREATE ROLE app_user;
 
--- Users can only see tasks in their organization's projects
-CREATE POLICY tasks_org_isolation ON tasks
-  FOR ALL TO app_user
-  USING (
-    project_id IN (
-      SELECT p.id FROM projects p
-      JOIN organization_members om ON om.organization_id = p.organization_id
-      WHERE om.user_id = current_setting('app.current_user_id')::text
-    )
-  );
+-- The trusted request handler sets the authenticated user inside its transaction.
+-- Clients cannot issue arbitrary SQL as this role. Give it SELECT access to
+-- its membership rows and projects, and no rights to grant itself membership.
+-- Use a non-owner application role without BYPASSRLS. Grant only required columns:
+-- exclude project_id and created_by_id from UPDATE to keep ownership stable.
+CREATE POLICY projects_member_read ON projects FOR SELECT TO app_user
+  USING (EXISTS (
+    SELECT 1 FROM organization_members om
+    WHERE om.organization_id = projects.organization_id
+      AND om.user_id = current_setting('app.current_user_id', true)
+  ));
 
--- Soft delete: never show deleted records
-CREATE POLICY tasks_no_deleted ON tasks
-  FOR SELECT TO app_user
-  USING (deleted_at IS NULL);
-
--- Only task creator or admin can delete
-CREATE POLICY tasks_delete_policy ON tasks
-  FOR DELETE TO app_user
-  USING (
-    created_by_id = current_setting('app.current_user_id')::text
-    OR EXISTS (
-      SELECT 1 FROM organization_members om
-      JOIN projects p ON p.organization_id = om.organization_id
-      WHERE p.id = tasks.project_id
-        AND om.user_id = current_setting('app.current_user_id')::text
+-- The projects subquery is itself filtered by projects_member_read.
+CREATE POLICY tasks_read ON tasks FOR SELECT TO app_user
+  USING (deleted_at IS NULL AND project_id IN (SELECT id FROM projects));
+CREATE POLICY tasks_insert ON tasks FOR INSERT TO app_user
+  WITH CHECK (deleted_at IS NULL AND project_id IN (SELECT id FROM projects)
+    AND created_by_id = current_setting('app.current_user_id', true));
+CREATE POLICY tasks_update ON tasks FOR UPDATE TO app_user
+  USING (deleted_at IS NULL AND project_id IN (SELECT id FROM projects))
+  WITH CHECK (deleted_at IS NULL AND project_id IN (SELECT id FROM projects));
+CREATE POLICY tasks_delete ON tasks FOR DELETE TO app_user
+  USING (deleted_at IS NULL AND project_id IN (SELECT id FROM projects)
+    AND (created_by_id = current_setting('app.current_user_id', true) OR EXISTS (
+      SELECT 1 FROM projects p JOIN organization_members om
+        ON om.organization_id = p.organization_id
+      WHERE p.id = tasks.project_id AND om.user_id = current_setting('app.current_user_id', true)
         AND om.role IN ('owner', 'admin')
-    )
-  );
+    )));
 
--- Set user context (call at start of each request)
+-- Set transaction-local identity before application queries.
 SELECT set_config('app.current_user_id', $1, true);
 ```
+
+Verify with actual application grants and two tenants: members see active tasks in their projects, see no foreign or soft-deleted rows, and cannot delete another member’s task. Check creator and same-organization admin deletion separately. In an existing schema, replace overlapping permissive policies in the same transaction. Leaving the old FOR ALL policy active would still broaden access.
 
 ---
 

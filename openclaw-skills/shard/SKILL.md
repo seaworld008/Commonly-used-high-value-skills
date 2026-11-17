@@ -2,14 +2,14 @@
 name: shard
 description: 'Designing multi-tenant architectures with tenant isolation strategies, RLS, routing, and scale design for SaaS. Use when designing multi-tenant SaaS systems or tenant isolation.'
 zh_description: "多租户架构、租户隔离、路由和规模化设计。"
-version: "1.0.3"
+version: "1.0.4"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/.archive/shard"
 license: MIT
 tags: '["deployment", "shard"]'
 created_at: "2026-07-27"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "advanced"
 ---
@@ -78,7 +78,7 @@ Route elsewhere when the task is primarily:
 
 ## Boundaries
 
-`_common/` references require the separately installed upstream ecosystem. Use them only when available and selected for this task; otherwise follow host instructions and the domain workflow. Persist journals only when requested by the user or project.
+`_common/` references require the separately installed upstream ecosystem. Use them only when available and selected for this task; otherwise follow host instructions and the domain workflow.
 
 
 Agent role boundaries -> `_common/BOUNDARIES.md`
@@ -170,7 +170,7 @@ Parse the first token of user input.
 
 **Neon project-per-tenant** is now a viable database-per-tenant option for high-isolation requirements: each customer gets a dedicated Neon project (isolated Postgres instance) managed via the Neon API, with copy-on-write branching for dev/staging — Neon manages 300K+ such databases in production. Particularly suited for HIPAA-regulated SaaS. Source: [Neon — Multitenancy](https://neon.tech/docs/guides/multitenancy), [How Neon Solves HIPAA Compliance, Multi-Tenancy, and Scaling for B2B SaaS](https://neon.tech/blog/hipaa-multitenancy-b2b-saas)
 
-**Data residency requirement (EU AI Act / GDPR):** As of 2026, Article 16 of the EU AI Act activates for Annex III high-risk systems (August 2026), with penalties up to €15M or 3% of global turnover. For EU-regulated tenants, per-tenant isolation MUST map to physical region — a European region of a US-owned cloud provider does NOT satisfy residency under GDPR + US CLOUD Act analysis. Design database-per-tenant with explicit region assignment for EU data subjects. Source: [EU Data Residency for AI Infrastructure: 2026 Guide](https://lyceum.technology/magazine/eu-data-residency-ai-infrastructure/)
+**Data residency and transfers:** Identify the affected data, tenant regions, permitted processing and transfer locations, provider access and contractual restrictions. Select placement and isolation against customer-confirmed requirements. Verify any applicable legal dates or amounts against official sources for the target year before recording them.
 
 ### Decision Factors
 
@@ -237,9 +237,7 @@ Key design points:
 
 ## Operational
 
-- Journal tenant architecture decisions and isolation patterns in `.agents/shard.md`; create if missing.
-- Record only reusable isolation strategies and migration patterns.
-- After significant Shard work, append to `.agents/PROJECT.md`: `| YYYY-MM-DD | Shard | (action) | (files) | (outcome) |`
+- Report tenant isolation decisions and reusable migration patterns in the handoff. Update a designated journal only when this task authorizes writing and the project or user specifies that log.
 - Follow `_common/OPERATIONAL.md` and `_common/GIT_GUIDELINES.md`.
 
 ## AUTORUN Support

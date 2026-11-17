@@ -2,14 +2,14 @@
 name: grill-me
 description: 'Stress-test a plan, design, or decision when the user explicitly asks to be grilled, challenged, or interviewed about assumptions, trade-offs, and unresolved requirements.'
 zh_description: "对方案、设计和关键决策进行追问，检验假设、取舍与遗漏的需求。"
-version: "1.0.1"
+version: "1.0.2"
 author: "Matt Pocock; seaworld008 (portable adaptation)"
 source: github:mattpocock/skills
-source_url: https://github.com/mattpocock/skills/tree/24fe0ef7737efae15c87225755e9f6f5965e4888/skills/productivity/grilling
+source_url: https://github.com/mattpocock/skills/tree/d1478fcb140db0b93c0c8df17bcfd311844749d0/skills/productivity/grilling
 license: MIT
 tags: [planning, requirements, design-review, decision-making, interview]
 created_at: "2026-09-30"
-updated_at: "2026-10-26"
+updated_at: "2026-11-17"
 quality: 3
 complexity: intermediate
 disable-model-invocation: true
@@ -51,7 +51,7 @@ D1 目标：在报名高峰保持可用                 settled
 
 当前可问集合（frontier）是前置条件已经解决、现在回答不会依赖猜测的所有决策。
 同一轮可以包含互相独立的问题；依赖本轮其他答案的问题放到下一轮。
-每个问题提供建议答案和简短理由，但明确这是建议，不代替用户做价值判断。
+每个问题提供建议答案和简短理由，尽量让“是”表示接受建议，避免正反方向混杂；明确这只是建议，不代替用户做价值判断。
 用户要求一次只问一个时，按影响与不确定性排序，每轮取最重要的一项。
 可问集合很大时按主题分批，并列出尚未讨论的分支，避免把长问卷直接倾倒给用户。
 
@@ -118,7 +118,7 @@ Q2 — 交付范围：这次是否必须具备跨地域容灾？
 本入口包含完整方法，不要求另行安装名为 `grilling` 的技能，不依赖某个专有 `Skill` 工具。
 `disable-model-invocation` 是支持该字段的宿主中的显式调用提示；其他宿主仍按上面的触发边界使用。
 参考 [决策树工作表](references/decision-tree-template.md) 记录多轮访谈，按需加载而不是在每轮重复全文。
-上游稳定版 `mattpocock/skills v1.3.1` 固定在 `6acc160e4e0cd062dbbbd7a1b26ae92855edf07e`。
+当前已审上游提交固定在本入口的 `source_url`；完整维护记录见[本仓库来源锁](https://github.com/seaworld008/Commonly-used-high-value-skills/blob/main/docs/sources/mattpocock-skills-2026-09.skills.json)。该记录属于仓库资料，不要求单技能安装包含 `docs/`。
 上游 `grill-me` 只是入口，实际方法位于 `grilling`；两者的原文保留在引用文件中供来源审计，不是本地运行入口。
 本地中文说明、宿主降级、停止条件与示例是仓库适配，不声称是 Matt Pocock 的新版本。
 版权和许可见 [上游 MIT 许可](LICENSE.upstream.txt)。

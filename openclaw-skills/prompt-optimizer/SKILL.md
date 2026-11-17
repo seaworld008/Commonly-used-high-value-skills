@@ -2,13 +2,13 @@
 name: prompt-optimizer
 description: 'Refine prompts or ambiguous requirements into testable specifications when the user asks to improve wording, scope, constraints, or acceptance criteria.'
 zh_description: "优化提示词的任务范围、约束和验收条件。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["optimizer", "planning", "prompt", "workflow"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 ---
@@ -25,7 +25,7 @@ Optimize vague prompts into precise, actionable specifications using EARS (Easy 
 
 1. **EARS syntax transformation** - Convert descriptive language to normative specifications
 2. **Domain theory grounding** - Apply relevant industry frameworks (GTD, BJ Fogg, Gestalt, etc.)
-3. **Example extraction** - Surface concrete use cases with real data
+3. **Example extraction** - Use supplied data or clearly labeled synthetic examples
 4. **Structured prompt generation** - Format using Role/Skills/Workflows/Examples/Formats framework
 
 ## When to Use
@@ -61,17 +61,19 @@ Convert requirements to EARS patterns. See `references/ears_syntax.md` for compl
 ```
 Before: "Create a reminder app with task management"
 
-After (EARS):
-1. When user creates a task, the system shall guide decomposition into executable sub-tasks
-2. When task deadline is within 30 minutes AND user has not started, the system shall send notification with sound alert
-3. When user completes a sub-task, the system shall update progress and provide positive feedback
+After (separate requirements from proposals):
+1. User-stated scope: task management and reminders; exact operations and reminder policy remain unspecified.
+2. Proposed feature, not confirmed: guide decomposition into executable sub-tasks when a task is created.
+3. Proposed policy, not confirmed: remind before a deadline; lead time, start-state condition, channel, and sound are TBD.
+4. Proposed feature, not confirmed: update progress and provide positive feedback on sub-task completion.
+Convert proposals to normative "shall" requirements only after confirmation or a clearly scoped delegation of product judgment.
 ```
 
 **Transformation checklist:**
 - [ ] Identify implicit conditions and make explicit
 - [ ] Specify triggering events or states
 - [ ] Use precise action verbs (shall, must, should)
-- [ ] Add measurable criteria ("within 30 minutes", "at least 8 characters")
+- [ ] Preserve supplied measurable criteria; label new thresholds as proposed or TBD, with their evidence or assumption
 - [ ] Break compound requirements into atomic statements
 - [ ] Remove ambiguous language ("user-friendly", "fast")
 
@@ -88,12 +90,12 @@ Match requirements to established frameworks. See `references/domain_theories.md
 **Selection process:**
 1. Identify primary domain from requirement keywords
 2. Match to 2-4 complementary theories
-3. Apply theory principles to specific features
+3. Use theory principles to suggest features or constraints, labeling additions as proposals rather than user requirements
 4. Cite theories in enhanced prompt for credibility
 
 ### Step 4: Extract Concrete Examples
 
-Generate specific examples with real data:
+Use supplied real data when authorized, or label generated scenarios and values as synthetic examples:
 - User scenarios: "When user logs in on mobile device..."
 - Data examples: "Product: 'Laptop', Price: $999, Stock: 15"
 - Workflow examples: "Task: Write report → Sub-tasks: Research (2h), Draft (3h), Edit (1h)"
@@ -119,7 +121,7 @@ Structure using the standard framework:
 [Complete step-by-step process]
 
 ## Examples
-[Concrete examples with real data, not placeholders]
+[Concrete examples labeled as supplied data or synthetic; unresolved product parameters remain TBD]
 
 ## Formats
 [Precise output specifications:
@@ -133,7 +135,7 @@ Structure using the standard framework:
 - **Role specificity**: "Product designer specializing in time management apps" > "Designer"
 - **Theory grounding**: Reference frameworks explicitly
 - **Actionable workflows**: Clear inputs/outputs and decision points
-- **Concrete examples**: Real data, not "Example 1", "Example 2"
+- **Concrete examples**: Specific, labeled data; do not invent user facts
 - **Measurable formats**: Specific requirements, not "good design"
 
 ### Step 6: Present Optimization Results
@@ -150,6 +152,9 @@ Output in structured format:
 
 ## EARS Transformation
 [Numbered list of EARS-formatted requirements]
+
+## Proposals and Unresolved Parameters
+[Separate user-stated requirements, derived constraints, proposed additions, and assumptions/TBD values. Ask only about decisions that materially affect the result.]
 
 ## Domain & Theories
 **Primary Domain:** [e.g., Authentication Security]
@@ -178,16 +183,16 @@ For complex scenarios, see `references/advanced_techniques.md`:
 
 **Do's:**
 ✅ Break down compound requirements (one EARS statement per requirement)
-✅ Specify measurable criteria (numbers, timeframes, percentages)
+✅ Specify evidenced criteria; mark new numbers, timeframes, or percentages as proposed/TBD
 ✅ Include error/edge cases
 ✅ Ground in established theories
-✅ Use concrete examples with real data
+✅ Use supplied data or explicitly labeled synthetic examples
 
 **Don'ts:**
 ❌ Avoid vague language ("fast", "user-friendly")
 ❌ Don't assume implicit knowledge
 ❌ Don't mix multiple actions in one statement
-❌ Don't use placeholders in examples
+❌ Don't turn invented features or thresholds into confirmed requirements; keep unknown parameters TBD
 
 ## Resources
 

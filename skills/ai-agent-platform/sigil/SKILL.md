@@ -2,14 +2,14 @@
 name: sigil
 description: 'Use when generating, validating, or updating project-specific agent skills that mirror the stack and conventions of a repository, including skill discovery and description tuning.'
 zh_description: "需要根据仓库技术栈与约定生成、校验或更新项目专属技能时使用。"
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/main/sigil"
 license: MIT
 tags: ["agent", "ai", "sigil"]
 created_at: "2026-08-24"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "advanced"
 ---
@@ -19,7 +19,7 @@ CAPABILITIES_SUMMARY:
 - project_analysis: Detect stack, structure, conventions, existing skills, and sync drift
 - skill_discovery: Rank high-value skill opportunities using Priority = Frequency x Complexity x Risk
 - skill_generation: Author Micro and Full skills mirroring project conventions
-- skill_installation: Place and sync skills to .claude/skills/ and .agents/skills/
+- skill_installation: Place skills in the project's authorized canonical and installation targets
 - skill_validation: 12-point rubric scoring with 3-pass majority vote and pass/recraft/abort thresholds
 - description_optimization: Train/test split activation testing (60/40 on ~20 synthetic prompts) per Anthropic skill-creator 2.0
 - skill_evolution: Update stale skills when dependencies, frameworks, or conventions change
@@ -53,7 +53,7 @@ PROJECT_AFFINITY: Game(H) SaaS(H) E-commerce(H) Dashboard(H) Marketing(H)
 
 # Sigil
 
-Generate and evolve project-specific Claude Code skills from live repository context. Mirror the project's real conventions, keep both skill directories synchronized, and optimize from measured outcomes instead of guesswork.
+Generate and evolve project-specific agent skills from live repository context. Mirror the project's real conventions, write only to authorized targets, and optimize from measured outcomes instead of guesswork.
 
 ## Trigger Guidance
 
@@ -81,7 +81,7 @@ Measured activation rates, spec citations, and full rationale -> `reference/offi
 - Validate `name` against the target host's current schema: portable directory names use lowercase letters, digits and hyphens, at most `64` characters, without leading, trailing or consecutive hyphens. Describe the task clearly; gerund form is optional. Keep plugin invocation namespaces separate from the skill directory name.
 - Emit an `agents/eval-set.json` trigger dataset alongside each non-trivial skill: `13+` queries mixing positive, negative, and edge cases, each tagged `should_trigger: true|false`. Run the loop at `--max-iterations 5 --holdout 0.4` with `3` evaluations per query; pick the winner by **held-out test score**, never train score.
 - Validate every skill against the 12-point rubric; install only at `9+/12`. Run `3` independent grading passes and take the majority vote to counter grader non-determinism.
-- Sync-write to both `.claude/skills/` and `.agents/skills/`; avoid duplicating ecosystem agent functionality.
+- Determine the canonical source, installation targets, symlinks, and generators from project configuration. Write only to targets authorized for this task; avoid duplicating ecosystem agent functionality.
 - Set `disable-model-invocation: true` only for skills that must be user-invoked (destructive operations, one-off migrations).
 - Use ATTUNE data to improve future discovery and ranking; compare child skill performance against the parent baseline before archiving improvements.
 
@@ -92,11 +92,11 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 ### Always
 - Run `SCAN` before generating or updating any skill.
 - Audit `.claude/skills/` and `.agents/skills/`; a skill found in either directory already exists.
-- Repair sync drift before adding new skills.
+- Report sync drift; repair it only when synchronization is part of the current task. Do not copy unrelated orphan skills as a prerequisite to generation.
 - Include frontmatter `name` and `description`.
 - Validate structure and quality before install; install only at `9+/12`.
-- Sync-write `SKILL.md` and `reference/` to both directories.
-- Log activity, record calibration data, and check evolution opportunities during `SCAN`.
+- Write `SKILL.md` and needed references through the project's authorized generation/installation mechanism; synchronize multiple targets only when required by that contract.
+- Check evolution opportunities during `SCAN`; persist logs and calibration only under a project convention or existing task authorization, otherwise include them in the response.
 
 ### Ask First When Not Already Authorized
 - A batch would generate `10+` skills.
@@ -108,7 +108,7 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 - Generate without project analysis — blind generation produces generic skills with `< 30%` activation rate, wasting context budget on every invocation.
 - Include secrets, credentials, or machine-specific private data.
 - Modify ecosystem agents in `~/.claude/skills/`.
-- Overwrite user skills without confirmation.
+- Overwrite user skills outside the existing edit authorization.
 - Duplicate an ecosystem agent's core function.
 - Trade quality for batch volume — a few high-value skills outperform large low-quality ones.
 - Embed prompts directly in code without separating static logic from dynamic data — use template patterns for maintainability and versioning.
@@ -131,8 +131,8 @@ ATTUNE is mandatory after every batch of 2+ skills or any refresh; deferrable fo
 |-------|---------|----------------|-----------|
 | `SCAN` | Detect stack, structure, rule files, existing skills, drift | Mandatory: audit both directories, collect evolution signals, infer conventions first. Hook/rule-better instructions route via `_common/MECHANISM_SELECTION.md`. | `reference/context-analysis.md`, `reference/cross-tool-rules-landscape.md`, `reference/claude-md-best-practices.md` |
 | `DISCOVER` | Rank high-value opportunities | `Priority = Frequency x Complexity x Risk`; at most `20` candidates; reject duplicates and ecosystem overlap. | `reference/skill-catalog.md` |
-| `CRAFT` | Choose type and author the skill | Mirror conventions, substitute detected variables, keep references one hop away, set `disable-model-invocation` for explicit-only skills, decide inline vs fork (below), write platform-neutral instructions. | `reference/skill-templates.md`, `reference/advanced-patterns.md`, `reference/claude-code-skills-api.md` |
-| `INSTALL` | Place and sync generated skills | Identical content to `.claude/skills/` and `.agents/skills/`; `reference/` only for Full Skills. | `reference/claude-code-skills-api.md` |
+| `CRAFT` | Choose type and author the skill | Mirror conventions, substitute detected variables, keep references one hop away, set explicit-only invocation when needed, and decide inline vs supported fork. Template descriptions use the target repository's skill language, or the user/host language if no convention exists; replace the reference's fixed Japanese placeholders accordingly. | `reference/skill-templates.md`, `reference/advanced-patterns.md`, `reference/claude-code-skills-api.md` |
+| `INSTALL` | Place generated skills in authorized targets | Follow canonical source, links, and generators; identical copies only where the project requires them. Report other drift without copying unrelated skills. | `reference/claude-code-skills-api.md` |
 | `VERIFY` | Score and validate before finalizing | `12`-point rubric: pass `9+`, recraft `6-8`, abort `0-5`. | `reference/validation-rules.md`, `reference/official-skill-guide.md` |
 | `ATTUNE` | Learn from batch outcomes | Record quality signals, recalibrate safely, emit reusable insights. | `reference/skill-effectiveness.md`, `reference/meta-prompting-self-improvement.md` |
 
@@ -146,7 +146,7 @@ Inline (default) for reference content (conventions, style, domain knowledge) th
 
 ### ATTUNE Phase (Post-batch)
 
-- Run `OBSERVE -> MEASURE -> ADAPT -> PERSIST` after `VERIFY`.
+- Run `OBSERVE -> MEASURE -> ADAPT` after `VERIFY`; run `PERSIST` only to already authorized project records, otherwise report the observations in the response.
 - Adjust ranking weights only after `3+` data points, capped at `±0.3` per batch, decaying `10%` per month toward defaults.
 - Emit `EVOLUTION_SIGNAL` when a reusable pattern appears; flag skills `< 50%` activation for description refinement.
 - Rubric grading stays multi-pass majority vote per Core Contract.
@@ -223,10 +223,10 @@ Archive deprecated active skills only when the change requires removal or replac
 Sigil never silently degrades — every error surfaces in `## Sigil's Report` with the chosen recovery action. Full failure-mode / detection / recovery table -> `reference/validation-rules.md` § Error Handling.
 
 - **`SCAN`** — no detectable stack: ask one focused question (framework + domain), never generic templates. Ambiguous monorepo: per-package generation, path-scoped `PROJECT_AFFINITY`, ask before shared root-level skills.
-- **`DISCOVER`** — ecosystem overlap: drop candidate, journal it, surface `ecosystem_overlap_detected: true`. Already exists: switch to Skill Evolution (`DIFF -> PLAN -> UPDATE`), never overwrite without confirmation. Batch `>= 10`: ask before CRAFT.
+- **`DISCOVER`** — ecosystem overlap: drop candidate, report it (journal only if authorized), surface `ecosystem_overlap_detected: true`. Already exists: switch to Skill Evolution (`DIFF -> PLAN -> UPDATE`), update only within existing edit authorization. Batch `>= 10`: ask before CRAFT only if not already authorized.
 - **`CRAFT`** — `<3` comparable files: drop confidence one tier, mark `confidence: medium`, default that axis project-agnostic. Held-out activation `< 50%`: iterate up to `5` times, pick winner by **test** score; still `< 50%` -> ship `PARTIAL`, ask for trigger guidance.
 - **`VERIFY`** — `6-8/12`: recraft once; a second `6-8` escalates to `Judge`. `0-5/12`: abort, journal failing dimensions, re-check SCAN inputs; never retry unchanged.
-- **`INSTALL`** — one-sided write failure: roll back the successful side, report `sync_status: drift_detected`. Content drift on refresh: ask which side is canonical, never auto-merge (`.claude/skills/` wins on a timestamp tie).
+- **`INSTALL`** — failure across authorized targets: undo only this task's identified writes and report `sync_status: drift_detected`. Resolve the canonical side from project configuration; if that remains materially ambiguous, ask. Do not infer authority from timestamps or auto-merge unrelated skills.
 - **`ATTUNE`** — asked to modify its own rubric weights/thresholds/decay constants: refuse (immutable per Core Contract), emit `EVOLUTION_SIGNAL`. `<3` contributing batches: skip adjustment, record observation, `Action: No weight change`.
 
 **Escalation rule**: two consecutive failures on the same skill stop retrying and escalate to `Judge`. Never enter unbounded recraft loops.
@@ -274,7 +274,7 @@ Use the canonical schema in `_common/HANDOFF.md` for all inter-agent communicati
 
 - Journal: `.agents/sigil.md`
 - Record framework-specific patterns, project structures, failures, calibration changes, and reusable insights.
-- After completing the task, append a row to `.agents/PROJECT.md`: `| YYYY-MM-DD | Sigil | (action) | (files) | (outcome) |`
+- When project logging is already authorized, after completing the task append a row to `.agents/PROJECT.md`: `| YYYY-MM-DD | Sigil | (action) | (files) | (outcome) |`
 
 ## AUTORUN Support
 

@@ -2,14 +2,14 @@
 name: pdf
 description: 'Read, create, edit, merge, split, OCR, or fill PDF documents when PDF content or a PDF deliverable is the task.'
 zh_description: "读取、生成、编辑、合并、拆分和识别 PDF 文档。"
-version: "1.1.1"
-author: "seaworld008"
-source: "in-house"
-source_url: ""
-license: Proprietary. LICENSE.txt has complete terms
+version: "1.1.3"
+author: "Anthropic contributors; local curators"
+source: "https://github.com/anthropics/skills"
+source_url: "https://github.com/anthropics/skills/blob/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/pdf/SKILL.md"
+license: "Apache-2.0"
 tags: '["pdf"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -18,7 +18,7 @@ complexity: "intermediate"
 
 ## Overview
 
-This guide covers essential PDF processing operations using Python libraries and command-line tools. For advanced features, JavaScript libraries, and detailed examples, see REFERENCE.md. If you need to fill out a PDF form, read FORMS.md and follow its instructions.
+This guide covers essential PDF processing operations using Python libraries and command-line tools. For advanced features, JavaScript libraries, and detailed examples, see reference.md. If you need to fill out a PDF form, read forms.md and follow its instructions.
 
 ## Quick Start
 
@@ -314,7 +314,7 @@ with open("encrypted.pdf", "wb") as output:
 | Create PDFs | reportlab | Canvas or Platypus |
 | Command line merge | qpdf | `qpdf --empty --pages ...` |
 | OCR scanned PDFs | pytesseract | Convert to image first |
-| Fill PDF forms | pdf-lib or pypdf (see FORMS.md) | See FORMS.md |
+| Fill PDF forms | pdf-lib or pypdf (see forms.md) | See forms.md |
 
 ## Deterministic Markdown-to-PDF Creation
 
@@ -332,7 +332,7 @@ not prove that tables, page breaks, or fonts are correct.
 
 ## Next Steps
 
-- For advanced pypdfium2 usage, see REFERENCE.md
-- For JavaScript libraries (pdf-lib), see REFERENCE.md
-- If you need to fill out a PDF form, follow the instructions in FORMS.md
-- For troubleshooting guides, see REFERENCE.md
+- For advanced pypdfium2 usage, see reference.md
+- For JavaScript libraries (pdf-lib), see reference.md
+- If you need to fill out a PDF form, follow the instructions in forms.md
+- For troubleshooting guides, see reference.md

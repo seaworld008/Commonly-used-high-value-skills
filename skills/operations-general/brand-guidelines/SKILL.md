@@ -3,13 +3,13 @@ name: brand-guidelines
 description: Apply Anthropic brand colors and typography when the user requests Anthropic visual identity or an Anthropic-branded artifact.
 zh_description: "用户要求 Anthropic 视觉识别或带 Anthropic 品牌的产物时，用于应用其品牌色和字体。"
 version: "1.0.2"
-author: "seaworld008"
-source: "in-house"
-source_url: ""
-license: Complete terms in LICENSE.txt
+author: "Anthropic contributors; local curators"
+source: "https://github.com/anthropics/skills"
+source_url: "https://github.com/anthropics/skills/blob/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/brand-guidelines/SKILL.md"
+license: "Apache-2.0"
 tags: '["brand", "guidelines", "productivity"]'
 created_at: "2026-03-04"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 3
 complexity: "intermediate"
 ---

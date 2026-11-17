@@ -2,14 +2,14 @@
 name: arxiv
 description: 'Use when searching arXiv for papers by keyword, author, category, or ID, or fetching abstracts and PDFs through the free arXiv export API.'
 zh_description: "用于按关键词、作者、分类或编号检索 arXiv 论文。"
-version: "1.0.6"
+version: "1.0.7"
 author: Hermes Agent
 source: "github:NousResearch/hermes-agent"
 source_url: "https://github.com/NousResearch/hermes-agent/blob/main/skills/research/arxiv/SKILL.md"
 license: MIT
 tags: '[Research, Arxiv, Papers, Academic, Science, API]'
 created_at: "2026-04-13"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 platforms: '[linux, macos, windows]'
@@ -29,8 +29,8 @@ Search and retrieve academic papers from arXiv via their free REST API. No API k
 |--------|---------|
 | Search papers | `curl "https://export.arxiv.org/api/query?search_query=all:QUERY&max_results=5"` |
 | Get specific paper | `curl "https://export.arxiv.org/api/query?id_list=2402.03300"` |
-| Read abstract (web) | `web_extract(urls=["https://arxiv.org/abs/2402.03300"])` |
-| Read full paper (PDF) | `web_extract(urls=["https://arxiv.org/pdf/2402.03300"])` |
+| Read abstract (web) | Use the host-provided webpage reader on `https://arxiv.org/abs/<versioned-id>` |
+| Read full paper (PDF) | Use the host-provided PDF reader on `https://arxiv.org/pdf/<versioned-id>` |
 
 ## Searching Papers
 
@@ -156,14 +156,12 @@ print('}')
 After finding a paper, read it:
 
 ```
-# Abstract page (fast, metadata + abstract)
-web_extract(urls=["https://arxiv.org/abs/2402.03300"])
-
-# Full paper (PDF → markdown via Firecrawl)
-web_extract(urls=["https://arxiv.org/pdf/2402.03300"])
+# Read abstract metadata using the host-provided webpage reader.
+# Read the full PDF using the host-provided PDF capability.
+# Use the versioned ID returned by the Atom API for both URLs.
 ```
 
-For local PDF processing, see the `ocr-and-documents` skill.
+For local PDF processing, use the `pdf` skill when available.
 
 ## Common Categories
 
@@ -253,8 +251,8 @@ curl -s "https://api.semanticscholar.org/graph/v1/author/search?query=Yann+LeCun
 
 1. **Discover**: `python scripts/search_arxiv.py "your topic" --sort date --max 10`
 2. **Assess impact**: `curl -s "https://api.semanticscholar.org/graph/v1/paper/arXiv:ID?fields=citationCount,influentialCitationCount"`
-3. **Read abstract**: `web_extract(urls=["https://arxiv.org/abs/ID"])`
-4. **Read full paper**: `web_extract(urls=["https://arxiv.org/pdf/ID"])`
+3. **Read abstract**: use the host-provided webpage reader on `https://arxiv.org/abs/<versioned-id>`
+4. **Read full paper**: use the host-provided PDF reader on `https://arxiv.org/pdf/<versioned-id>`
 5. **Find related work**: `curl -s "https://api.semanticscholar.org/graph/v1/paper/arXiv:ID/references?fields=title,citationCount&limit=20"`
 6. **Get recommendations**: POST to Semantic Scholar recommendations endpoint
 7. **Track authors**: `curl -s "https://api.semanticscholar.org/graph/v1/author/search?query=NAME"`
@@ -273,13 +271,13 @@ curl -s "https://api.semanticscholar.org/graph/v1/author/search?query=Yann+LeCun
 - arXiv IDs: old format (`hep-th/0601001`) vs new (`2402.03300`)
 - PDF: `https://arxiv.org/pdf/{id}` — Abstract: `https://arxiv.org/abs/{id}`
 - HTML (when available): `https://arxiv.org/html/{id}`
-- For local PDF processing, see the `ocr-and-documents` skill
+- For local PDF processing, use the `pdf` skill when available
 
 ## ID Versioning
 
 - `arxiv.org/abs/1706.03762` always resolves to the **latest** version
 - `arxiv.org/abs/1706.03762v1` points to a **specific** immutable version
-- When generating citations, preserve the version suffix you actually read to prevent citation drift (a later version may substantially change content)
+- When generating citations, preserve the version suffix you actually read to prevent citation drift (a later version may substantially change content). The bundled search script displays the versioned ID but strips it from links, and splitting on the first `v` also damages legacy IDs such as `solv-int`. Reconstruct abstract/PDF links from the complete Atom `full_id`, including its suffix; only strip a final `v[0-9]+$` when a base ID is actually needed. Do not cite the helper's unversioned links as a fixed read version.
 - The API `<id>` field returns the versioned URL (e.g., `http://arxiv.org/abs/1706.03762v7`)
 
 ## Withdrawn Papers

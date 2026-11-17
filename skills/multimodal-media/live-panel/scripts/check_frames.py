@@ -5,10 +5,11 @@ and (with --repeat) prove replays are identical.
   python3 scripts/check_frames.py --config examples/service-pipeline/config.json --out-dir /tmp/check
 Exit status 1 when any problem is found. With --video, the PNGs are cut from that mp4 instead of the live page.
 """
-import argparse, base64, os, subprocess, sys, tempfile
+import argparse, base64, os, subprocess, sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import livepanel as lp
+from render import generated_page, check_page_error
 
 
 TOL_PIXELS = 50   # allowed number of visibly different pixels (sub-pixel anti-aliasing noise); a real state difference changes thousands
@@ -25,6 +26,7 @@ def pixel_diff(br, a, b, delta=24):
     return br.eval(js)
 
 
+@lp.handle_sigterm()
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--config", required=True)
@@ -34,49 +36,69 @@ def main():
     ap.add_argument("--video", help="cut the PNGs from this mp4 instead of the page")
     ap.add_argument("--repeat", action="store_true", help="screenshot each exported time twice (with a seek elsewhere in between) and compare the pixels")
     ap.add_argument("--chrome"); ap.add_argument("--ffmpeg"); ap.add_argument("--template")
+    ap.add_argument("--html-out", help="keep the generated self-contained page here")
     ap.add_argument("--no-sandbox", action="store_true")
     a = ap.parse_args()
+    if a.samples < 0 or a.png < 0:
+        ap.error("--samples and --png must be non-negative")
+    if not (a.samples or a.png):
+        ap.error("at least one DOM sample or PNG time point is required")
+    if a.repeat and not a.png:
+        ap.error("--repeat requires at least one PNG time point")
     chrome = lp.find_chrome(a.chrome)
     os.makedirs(a.out_dir, exist_ok=True)
-    page = os.path.join(tempfile.mkdtemp(prefix="livepanel-page-"), "page.html")
-    cfg = lp.build_page(a.config, page, a.template)
-    w, h, dur, _ = lp.canvas(cfg)
-    times = [dur * i / a.samples + 0.013 * i for i in range(a.samples)]
-    shots = [dur * (i + 0.5) / a.png for i in range(a.png)]
-    problems = {}
-    with lp.Chrome(chrome, w, h, True if a.no_sandbox else None) as br:
-        br.open("file://" + os.path.abspath(page) + "?manual")
-        for t in times + shots:
-            br.seek(t)
-            for p in br.eval("window.__check()"):
-                problems.setdefault(p, []).append(round(t, 2))
-        err = br.eval("window.__error||''")
-        if err:
-            problems["page error: " + err] = [0]
-        same = True
-        for i, t in enumerate(shots):
-            name = Path(a.out_dir) / f"frame_{i + 1}_t{t:05.2f}.png"
-            br.seek(t); png = br.shot()
-            if not a.video:
-                name.write_bytes(png)
-            if a.repeat:
-                br.seek((t + dur / 2) % dur); br.shot()
-                br.seek(t); again = br.shot()
-                n, mx = pixel_diff(br, png, again)
-                ok = n <= TOL_PIXELS
-                same &= ok
-                print(f"replay t={t:.2f}s: {n} pixels differ visibly (max channel delta {mx}) -> {'identical' if ok else 'DIFFERENT'}")
-    if a.video:
-        ffmpeg = lp.find_exe(a.ffmpeg, ["ffmpeg"], "ffmpeg")
-        for i, t in enumerate(shots):
-            subprocess.run([ffmpeg, "-y", "-loglevel", "error", "-ss", f"{t:.3f}", "-i", a.video, "-frames:v", "1",
-                            str(Path(a.out_dir) / f"frame_{i + 1}_t{t:05.2f}.png")], check=True)
+    with lp.MediaOutputs() as outputs:
+        check_frames(a, chrome, outputs)
+        outputs.publish()
+    message = f"; PNGs in {a.out_dir}" if a.png else ""
+    print(f"checked {a.samples + a.png} time points, 0 distinct problems{message}")
+    sys.exit(0)
+
+
+def check_frames(a, chrome, outputs):
+    with generated_page(a.config, a.html_out, a.template) as (page, cfg):
+        w, h, dur, _ = lp.canvas(cfg)
+        times = [dur * i / a.samples + 0.013 * i for i in range(a.samples)]
+        shots = [dur * (i + 0.5) / a.png for i in range(a.png)]
+        problems = {}
+        with lp.Chrome(chrome, w, h, a.no_sandbox) as br:
+            br.open("file://" + os.path.abspath(page) + "?manual")
+            check_page_error(br)
+            for t in times + shots:
+                br.seek(t)
+                check_page_error(br)
+                for p in br.eval("window.__check()"):
+                    problems.setdefault(p, []).append(round(t, 2))
+            same = True
+            for i, t in enumerate(shots):
+                br.seek(t); check_page_error(br)
+                png = br.shot(); check_page_error(br)
+                if not a.video:
+                    outputs.stage(frame_path(a.out_dir, i, t), "PNG").write_bytes(png)
+                if a.repeat:
+                    br.seek((t + dur / 2) % dur); check_page_error(br)
+                    br.shot(); check_page_error(br)
+                    br.seek(t); check_page_error(br)
+                    again = br.shot(); check_page_error(br)
+                    n, mx = pixel_diff(br, png, again)
+                    ok = n <= TOL_PIXELS
+                    same &= ok
+                    print(f"replay t={t:.2f}s: {n} pixels differ visibly (max channel delta {mx}) -> {'identical' if ok else 'DIFFERENT'}")
+            check_page_error(br)
     for p, ts in problems.items():
         print(f"PROBLEM: {p}  (first at t={ts[0]}s, {len(ts)} of {a.samples + a.png} samples)")
-    print(f"checked {a.samples + a.png} time points, {len(problems)} distinct problems; PNGs in {a.out_dir}")
-    if a.repeat and not same:
+    if problems or not same:
         sys.exit(1)
-    sys.exit(1 if problems else 0)
+    if a.video and shots:
+        ffmpeg = lp.find_exe(a.ffmpeg, ["ffmpeg"], "ffmpeg")
+        for i, t in enumerate(shots):
+            staged = outputs.stage(frame_path(a.out_dir, i, t), "PNG")
+            subprocess.run([ffmpeg, "-y", "-loglevel", "error", "-ss", f"{t:.3f}", "-i", a.video, "-frames:v", "1",
+                            str(staged)], check=True)
+
+
+def frame_path(directory, i, t):
+    return Path(directory) / f"frame_{i + 1}_t{t:05.2f}.png"
 
 
 if __name__ == "__main__":

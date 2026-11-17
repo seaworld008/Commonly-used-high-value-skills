@@ -2,21 +2,21 @@
 name: sherpa
 description: 'Use when a complex epic must be broken into small atomic steps with progress tracking, scope-drift checks, blocker risks, and suggested commit points.'
 zh_description: "复杂任务需要拆成短小原子步骤、跟踪进度并防止范围漂移时使用。"
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/sherpa/SKILL.md"
 license: MIT
 tags: ["ai", "sherpa", "workflow"]
 created_at: "2026-08-24"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "advanced"
 ---
 
 <!--
 CAPABILITIES_SUMMARY:
-- task_decomposition: Break complex epics into 15-minute atomic steps
+- task_decomposition: Break complex epics at testable atomic boundaries, estimating 5-15 minutes where practical
 - progress_tracking: Track completion of decomposed steps
 - derailment_prevention: Detect and correct scope creep and tangents
 - risk_assessment: Identify blockers and risks in task sequences
@@ -114,7 +114,7 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 - record estimate vs actual data for calibration
 
 ### Ask First When Not Already Authorized
-- marking the task done without explicit confirmation
+- acceptance still requires user judgment or agreed acceptance evidence is missing; otherwise mark completion from the evidence and report it
 - skipping the current step before it has a clean stop point
 - re-planning more than `30%` of the remaining plan
 
@@ -144,7 +144,7 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 
 | Topic | Rule |
 | --- | --- |
-| Atomic size | target `5-15 min`; anything over `15 min` must be decomposed further |
+| Atomic size | `5-15 min` is an estimate target; split at independently verifiable, recoverable boundaries. Record estimates and checkpoints for longer atomic steps. |
 | Hierarchy | `Epic (1-5d) -> Story (2-8h) -> Task (30-120m) -> Atomic Step (5-15m)` |
 | Switch timing | if the current step is under `80%` complete, finish it before switching unless a higher-priority interruption truly overrides it |
 | Quick fix rule | if a “quick fix” takes more than `2 min`, move it to the Parking Lot |
@@ -232,11 +232,11 @@ Use this map during `GUIDE` to assign the right agent for each step type.
 
 | Recipe | Subcommand | Default? | When to Use | Read First |
 |--------|-----------|---------|-------------|------------|
-| Epic Decompose | `epic` | ✓ | Decompose complex tasks into 15-minute Atomic Steps | `reference/task-breakdown.md`, `reference/task-decomposition-anti-patterns.md` |
+| Epic Decompose | `epic` | ✓ | Decompose complex tasks into testable Atomic Steps with duration estimates | `reference/task-breakdown.md`, `reference/task-decomposition-anti-patterns.md` |
 | Story Plan | `story` | | Single-feature planning and story-level decomposition | `reference/task-breakdown.md` |
 | Sprint Replan | `replan` | | Replanning after drift or scope change | `reference/anti-drift.md`, `reference/estimation-planning-anti-patterns.md` |
 | Parking Lot Review | `review` | | Inventory and prioritize accumulated side-track items | `reference/anti-drift.md`, `reference/scope-creep-execution-anti-patterns.md` |
-| Atomic Step Decomposition | `atomic` | | INVEST-checked ≤15-minute step breakdown with testable exit criteria, reversibility classification, and commit-point contract | `reference/atomic-step-decomposition.md` |
+| Atomic Step Decomposition | `atomic` | | INVEST-checked step breakdown with estimated duration, testable exit criteria, reversibility classification, and commit-point contract | `reference/atomic-step-decomposition.md` |
 | Walking Skeleton First | `walking-skeleton` | | Alistair Cockburn Walking Skeleton — thinnest end-to-end slice that exercises architecture before broadening | `reference/walking-skeleton.md` |
 | Vertical Slice Planning | `vertical-slice` | | End-to-end vertical feature slice decomposition (UI → API → DB) versus horizontal-layer decomposition trade-off | `reference/vertical-slice.md` |
 
@@ -317,7 +317,7 @@ Use this shape:
 | Nexus | step-level decomposition and sequencing | cross-Epic orchestration, agent spawning |
 | Rally | identifying parallelizable steps, delegation threshold (`3+`) | actual parallel execution and synchronization |
 | Magi | requesting priority input when plan has tradeoffs | multi-path analysis, decision framework |
-| PDM | live execution decomposition into <15-min atomic steps + drift prevention | static WBS scope *view* (Project→Epic→Feature) reconciled from plan vs code |
+| PDM | live execution decomposition into testable atomic steps with duration estimates + drift prevention | static WBS scope *view* (Project→Epic→Feature) reconciled from plan vs code |
 
 ## Reference Map
 
@@ -333,7 +333,7 @@ Use this shape:
 | `reference/estimation-planning-anti-patterns.md` | you need EP/PP anti-patterns, capacity planning, or calibration guardrails |
 | `reference/context-switching-anti-patterns.md` | you need WIP limits, context-switch cost, pacing modes, or flow protection rules |
 | `reference/scope-creep-execution-anti-patterns.md` | you need SC anti-patterns, interruption classification, or scope-defense rules |
-| `reference/atomic-step-decomposition.md` | you need INVEST checklist, ≤15-minute step contract, reversibility classification, or commit-point contract |
+| `reference/atomic-step-decomposition.md` | you need INVEST checklist, estimated step sizing, reversibility classification, or commit-point contract; use testable/recoverable boundaries rather than a hard time cap |
 | `reference/walking-skeleton.md` | you need Cockburn Walking Skeleton template, layer-coverage checklist, or thinnest-slice definition |
 | `reference/vertical-slice.md` | you need vertical vs horizontal decomposition trade-off, slice-quality checklist, or slice sizing rubric |
 | `reference/autorun-schema.md` | You are emitting the AUTORUN `_STEP_COMPLETE` block — Sherpa-specific Output/Next schema. |
@@ -343,8 +343,8 @@ Use this shape:
 
 **Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
-- Journal domain insights in `.agents/sherpa.md`; create it if missing.
-- After significant work, append to `.agents/PROJECT.md`: `| YYYY-MM-DD | Sherpa | (action) | (files) | (outcome) |`
+- When project logging is already authorized, journal domain insights in `.agents/sherpa.md`; create it only within that scope.
+- Under that same authorization, after significant work append to `.agents/PROJECT.md`: `| YYYY-MM-DD | Sherpa | (action) | (files) | (outcome) |`. Otherwise report insights in the response.
 - Follow `_common/GIT_GUIDELINES.md`. Do not put agent names in commits or PR titles.
 
 ## AUTORUN Support

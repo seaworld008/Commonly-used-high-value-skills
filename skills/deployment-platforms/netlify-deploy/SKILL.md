@@ -2,13 +2,14 @@
 name: netlify-deploy
 description: 'Deploy web projects to Netlify using the Netlify CLI (`npx netlify`). Use when the user asks to deploy, host, publish, or link a site/repo on Netlify, including preview and production deploys.'
 zh_description: "用于将网站或应用部署到 Netlify 并获取预览或生产链接。"
-version: "1.0.0"
-author: "seaworld008"
-source: "in-house"
-source_url: ""
+version: "1.0.1"
+author: "OpenAI contributors; local curators"
+source: "https://github.com/openai/skills"
+source_url: "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/netlify-deploy/SKILL.md"
+license: "Apache-2.0"
 tags: '["deploy", "deployment", "netlify"]'
 created_at: "2026-03-04"
-updated_at: "2026-03-20"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -35,7 +36,7 @@ verify auth
 -> detect linked site or create/link one
 -> install dependencies
 -> deploy preview first
--> promote to production when ready
+-> publish to production only when explicitly requested
 ```
 
 ## Overview
@@ -51,7 +52,7 @@ This skill automates Netlify deployments by:
 - **Netlify CLI**: Installed via npx (no global install required)
 - **Authentication**: Netlify account with active login session
 - **Project**: Valid web project in current directory
-- When sandboxing blocks the deployment network calls, rerun with `sandbox_permissions=require_escalated`.
+- Check the host permits access to the selected account and site.
 - The deployment might take a few minutes. Use appropriate timeout values.
 
 ## Authentication Pattern
@@ -121,7 +122,7 @@ git remote show origin
 npx netlify link --git-remote-url <REMOTE_URL>
 ```
 
-**If link fails** (site doesn't exist on Netlify):
+**If linking fails**, inspect identity, team/site selection, permissions and connectivity. Confirm that no intended site exists before creating one. Only initialize a site when creation is authorized:
 
 ```bash
 # Create new site interactively
@@ -150,7 +151,7 @@ npm install
 
 Choose deployment type based on context:
 
-**Preview/Draft Deploy** (default for existing sites):
+**Preview/Draft Deploy** (default for new and existing sites):
 
 ```bash
 npx netlify deploy
@@ -158,7 +159,7 @@ npx netlify deploy
 
 This creates a deploy preview with a unique URL for testing.
 
-**Production Deploy** (for new sites or explicit production deployments):
+**Production Deploy** (only for an explicitly requested production release):
 
 ```bash
 npx netlify deploy --prod
@@ -193,32 +194,21 @@ Common framework defaults:
 
 The skill should detect framework from `package.json` if possible and suggest appropriate settings.
 
-## Example Full Workflow
+## Example draft deployment for a linked site
+
+For a project already linked to the intended team and site, check the identity and link before deploying:
 
 ```bash
-# 1. Check authentication
 npx netlify status
-
-# If not authenticated:
-npx netlify login
-
-# 2. Link site (if needed)
-# Try Git-based linking first
-git remote show origin
-npx netlify link --git-remote-url https://github.com/user/repo
-
-# If no site exists, create new one:
-npx netlify init
-
-# 3. Install dependencies
-npm install
-
-# 4. Deploy (preview for testing)
-npx netlify deploy
-
-# 5. Deploy to production (when ready)
-npx netlify deploy --prod
 ```
+
+If the status matches the expected destination and the project is ready to build, submit the draft:
+
+```bash
+npx netlify deploy
+```
+
+For an unlinked project, follow Step 3 before running this example. The production command in Step 5 applies to an explicitly requested production release.
 
 ## Error Handling
 
@@ -228,7 +218,7 @@ Common issues and solutions:
 → Run `npx netlify login`
 
 **"No site linked"**
-→ Run `npx netlify link` or `npx netlify init`
+→ Check the selected team and link the intended site. Initialize a new site only within creation scope.
 
 **"Build failed"**
 → Check build command and publish directory in netlify.toml or CLI prompts
@@ -241,15 +231,9 @@ Common issues and solutions:
 
 ## Troubleshooting
 
-### Escalated Network Access
+### Network failures
 
-If deployment fails due to network issues (timeouts, DNS errors, connection resets), rerun the deploy with escalated permissions (use `sandbox_permissions=require_escalated`). The deploy requires escalated network access when sandbox networking blocks outbound requests.
-
-Example guidance to the user:
-
-```
-The deploy needs escalated network access to deploy to Netlify. I can rerun the command with escalated permissions—want me to proceed?
-```
+Check the CLI error and platform status to distinguish authentication, DNS, service availability and host permission failures. For a confirmed permission denial, use the host approval mechanism only if available and permitted. If networking is unavailable, deliver the prepared artifacts and record which deployment checks are pending.
 
 ## Environment Variables
 

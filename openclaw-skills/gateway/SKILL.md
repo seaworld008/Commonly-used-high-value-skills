@@ -2,14 +2,14 @@
 name: gateway
 description: 'Use when designing or reviewing REST or GraphQL APIs: OpenAPI specs, versioning and deprecation, breaking-change detection, RFC 9457 error bodies, and API security.'
 zh_description: "设计或评审 REST/GraphQL 接口时使用：OpenAPI 规范、版本与弃用策略、破坏性变更检测和接口安全。"
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/gateway/SKILL.md"
 license: MIT
 tags: ["development", "gateway"]
 created_at: "2026-08-24"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "advanced"
 ---
@@ -101,7 +101,6 @@ Route elsewhere when the task is primarily:
 - Require idempotency keys on non-safe operations (POST, PATCH) — missing idempotency has caused real financial losses (Uber Eats payment API incident).
 - For AI/agent-consumed APIs: consistent JSON schemas, machine-readable operation descriptions, predictable response shapes. Serve **both** `llms.txt` and `llms-full.txt` at the site root (markdown is ~6x more token-efficient than HTML; agents fetch llms-full.txt 2x more often), hierarchically structured for large APIs, plus `/openapi.json` for programmatic access. Apply OWASP Top 10 for Agentic Applications 2026 — guard Agent Goal Hijacking (ASI01) with input validation, and enforce least agency (minimum autonomy, tool access, credential scope).
 - Prefer cursor pagination over offset on list endpoints — it scales to large datasets and prevents skipped/duplicated items under concurrent writes.
-- Log all API design decisions to `.agents/PROJECT.md`.
 
 ## Boundaries
 
@@ -109,7 +108,7 @@ Agent role boundaries → `_common/BOUNDARIES.md`
 
 ### Always
 
-- Follow every Core Contract commitment (OpenAPI spec, examples, breaking-change detection, versioning, error docs, rate limiting, logging to `.agents/PROJECT.md`).
+- Follow the Core Contract for the OpenAPI specification, examples, breaking-change detection, versioning, error documentation and rate limiting.
 
 ### Ask First When Not Already Authorized
 
@@ -262,12 +261,9 @@ Receives data models, implementation needs, and security requirements upstream; 
 
 ## Operational
 
-**Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
+**Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here.
 
-- Journal API design insights in `.agents/gateway.md`; create it if missing. Record patterns and learnings worth preserving.
-- After significant Gateway work, append to `.agents/PROJECT.md`:
-
-  | YYYY-MM-DD | Gateway | (action) | (files) | (outcome) |
+- Include API contract decisions in the handoff. Update a designated journal only when this task authorizes writing and the project or user specifies that log.
 
 ## AUTORUN Support
 

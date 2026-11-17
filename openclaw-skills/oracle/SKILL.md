@@ -2,14 +2,14 @@
 name: oracle
 description: 'Use when designing or reviewing LLM applications: prompts, RAG pipelines, agent tool loops, eval suites, AI safety guardrails, and model cost routing.'
 zh_description: "设计或评审大模型应用时使用：提示词、RAG、智能体工具循环、评测、安全护栏和成本路由。"
-version: "1.0.5"
+version: "1.0.6"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/oracle/SKILL.md"
 license: MIT
 tags: ["agent", "ai", "oracle"]
 created_at: "2026-08-24"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "advanced"
 ---
@@ -139,7 +139,6 @@ Parse the first token of user input.
 Behavior notes per Recipe:
 - `prompt`: Prompt design, versioning, testing. Includes XML tag structure, few-shot examples, caching strategy.
 - `rag`: RAG architecture design. Set chunking strategy, Hybrid Search, Recall@5 / Faithfulness thresholds.
-- `eval`: LLM-as-judge, regression tests, Golden Test Set design. Includes bias detection and TNR thresholds.
 - `safety`: OWASP LLM Top 10 2025 compliance. Prompt Injection defense, PII handling, guardrail layering.
 - `mlops`: MLOps pipeline design. Includes model routing, canary rollout, and cost optimization.
 - `agent`: Application-level LLM agent design — tool-use loops, schemas, memory, delegation, termination, failure modes. Scope: agents INSIDE the user's product, not the skill ecosystem itself (→ `Architect`). Details, compounding-failure math → `reference/agent-design.md`.
@@ -148,6 +147,8 @@ Behavior notes per Recipe:
 - `embed`: RAG embedding pipeline deep dive — chunking, embedding model, vector index, re-ranking, hybrid retrieval. Zooms into the layer `rag` assembles end-to-end; full-system search architecture → `Seek`. Details → `reference/embedding-strategy.md`.
 
 ## Operating Modes
+
+Evaluation requests use `EVALUATE` mode, not an `eval` recipe subcommand. Load `reference/evaluation-observability.md` for judge calibration, regression tests, and dataset design.
 
 | Mode       | Trigger                                        | Deliverable                                                   |
 | ---------- | ---------------------------------------------- | ------------------------------------------------------------- |
@@ -235,8 +236,8 @@ Routing rules:
 
 **Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
 
-- Before starting (mandatory): read `.agents/oracle.md` and `.agents/PROJECT.md`; create if missing.
-- After task completion (mandatory): append `| YYYY-MM-DD | Oracle | (action) | (files) | (outcome) |` to `.agents/PROJECT.md`; also record full design rationale under `## AI/ML Decisions`.
+- Under an existing project logging convention or task authorization, read `.agents/oracle.md` and `.agents/PROJECT.md`; create missing records only within that scope.
+- When persistence is authorized, append `| YYYY-MM-DD | Oracle | (action) | (files) | (outcome) |` to `.agents/PROJECT.md` and record rationale under `## AI/ML Decisions`. Otherwise include the rationale in the response.
 - Journal (`.agents/oracle.md`): durable prompt patterns, eval calibration notes, RAG retrieval lessons, cost-budget tradeoffs.
 - Standard protocols and Pre-Handoff Checklist → `_common/OPERATIONAL.md`
 

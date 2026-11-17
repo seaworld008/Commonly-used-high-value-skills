@@ -2,13 +2,13 @@
 name: stock-screener-builder
 description: 'Use when building a stock screen, filtering a universe by valuation, growth, quality, or momentum rules, or creating a repeatable shortlist for deeper research.'
 zh_description: "建立有明确指标、数据来源和筛选规则的股票筛选器。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["builder", "finance", "screener", "stock"]'
 created_at: "2026-03-18"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 2
 complexity: "intermediate"
 ---
@@ -17,14 +17,14 @@ complexity: "intermediate"
 
 建立一个清晰的研究漏斗（Research Funnel），而不是对着成千上万的股票清单漫无目的地看。本技能旨在帮助投资者构建可重复的筛选逻辑，从全市场数千只标的中通过多维财务指标（估值、增长、质量、动量）快速筛选出具有潜力的“候选池”。
 
-## 安装与前提条件
+## 运行前提与实际脚本范围
 
-```bash
-# 确保已安装金融数据接口与数据处理库
-pip install pandas numpy openbb requests
-# 下载筛选模板
-npx clawhub install stock-screener-builder
-```
+仓库已附带脚本和样例，使用 Python 3 标准库即可运行，无需额外安装第三方包或重新安装技能。
+从本技能目录执行下方命令；在其他工作目录调用时，使用脚本和输入文件的完整路径。
+
+使用 filters 中每个字段的 min/max 对输入 universe 对象列表过滤，按 quality_score 降序、ticker 升序返回 JSON。它不拉取行情、不按任意 sort_by 排序，也不提供 limit 或 CSV 导出参数。
+
+后续领域方法描述的是研究工作流。超出上述输出的指标需补充数据、方法和独立验证，不能声称由附带脚本自动生成。报告中的示例数值为格式示意，不是模型输出或投资结论。
 
 ## 触发条件 / When to Use
 
@@ -69,19 +69,18 @@ npx clawhub install stock-screener-builder
 ### 股票筛选 JSON 配置文件模板 (Screener Config JSON)
 ```json
 {
-  "name": "GARP_Strategy_V1",
-  "universe": "S&P 500",
   "filters": {
-    "market_cap_min": 5000000000,
-    "pe_ratio_max": 25.0,
-    "peg_ratio_max": 1.2,
-    "revenue_growth_min": 0.15,
-    "roe_min": 0.18,
-    "debt_to_equity_max": 0.5
+    "revenue_growth": {"min": 0.1},
+    "gross_margin": {"min": 0.45},
+    "net_debt_to_ebitda": {"max": 2.0},
+    "forward_pe": {"max": 28.0}
   },
-  "sort_by": "peg_ratio",
-  "ascending": true,
-  "limit": 20
+  "universe": [
+    {"ticker": "AAA", "revenue_growth": 0.14, "gross_margin": 0.51, "net_debt_to_ebitda": 1.2, "forward_pe": 26.0, "quality_score": 91},
+    {"ticker": "BBB", "revenue_growth": 0.08, "gross_margin": 0.47, "net_debt_to_ebitda": 1.0, "forward_pe": 22.0, "quality_score": 82},
+    {"ticker": "CCC", "revenue_growth": 0.19, "gross_margin": 0.58, "net_debt_to_ebitda": 0.4, "forward_pe": 30.0, "quality_score": 88},
+    {"ticker": "DDD", "revenue_growth": 0.11, "gross_margin": 0.49, "net_debt_to_ebitda": 1.7, "forward_pe": 24.0, "quality_score": 85}
+  ]
 }
 ```
 
@@ -112,8 +111,8 @@ npx clawhub install stock-screener-builder
 
 ### 快速执行命令
 ```bash
-# 运行预定义的筛选规则
-python scripts/screen_stocks.py --config assets/garp_config.json --export output/screener_results.csv
+# 离线样例，结果以 JSON 输出到标准输出
+python3 scripts/screen_stocks.py assets/sample_universe.json
 ```
 
 ## 进阶应用场景 / Advanced Use Cases

@@ -9,10 +9,27 @@ spec = importlib.util.spec_from_file_location('graphify_receipts', SCRIPT)
 module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
 
+MEDIA_SOURCES = {
+    'paper.pdf': (
+        b'%PDF-1.4\n1 0 obj\n<< /Type /Catalog /Pages 2 0 R >>\nendobj\n'
+        b'2 0 obj\n<< /Type /Pages /Kids [3 0 R] /Count 1 >>\nendobj\n'
+        b'3 0 obj\n<< /Type /Page /Parent 2 0 R /MediaBox [0 0 72 72] /Resources << >> >>\nendobj\n'
+        b'xref\n0 4\n0000000000 65535 f \n0000000009 00000 n \n'
+        b'0000000058 00000 n \n0000000115 00000 n \n'
+        b'trailer\n<< /Size 4 /Root 1 0 R >>\nstartxref\n201\n%%EOF\n'
+    ),
+    'image.png': bytes.fromhex(
+        '89504e470d0a1a0a0000000d4948445200000001000000010804000000b51c0c02'
+        '0000000b4944415478da6364f80f00010501012718e3660000000049454e44ae426082'
+    ),
+}
 
-def prepare(tmp_path, receipt):
-    (tmp_path / 'doc.md').write_text('first\nsecond\n')
-    manifest = tmp_path / 'manifest.txt'; manifest.write_text('doc.md\n')
+
+def prepare(tmp_path, receipt, source_name='doc.md', source_bytes=None):
+    if source_bytes is None:
+        source_bytes = MEDIA_SOURCES.get(source_name, b'first\nsecond\n')
+    (tmp_path / source_name).write_bytes(source_bytes)
+    manifest = tmp_path / 'manifest.txt'; manifest.write_text(source_name + '\n')
     chunk = tmp_path / '.graphify_chunk_01.json'
     chunk.write_text(json.dumps({'nodes': [], 'edges': [], 'coverage': receipt}))
     return manifest, chunk
@@ -20,6 +37,26 @@ def prepare(tmp_path, receipt):
 
 def test_complete_empty_extraction_is_valid(tmp_path):
     manifest, _ = prepare(tmp_path, {'doc.md': 2})
+    assert module.validate(tmp_path, manifest, tmp_path, 1) == []
+
+
+def test_empty_text_accepts_zero_coverage(tmp_path):
+    manifest, _ = prepare(tmp_path, {'doc.md': 0}, source_bytes=b'')
+    assert module.validate(tmp_path, manifest, tmp_path, 1) == []
+
+
+@pytest.mark.parametrize('source_name', MEDIA_SOURCES)
+def test_non_text_zero_coverage_cannot_pass(tmp_path, source_name):
+    manifest, _ = prepare(tmp_path, {source_name: 0}, source_name)
+    assert module.validate(tmp_path, manifest, tmp_path, 1) == [
+        f'non-text coverage must be positive: {source_name}'
+    ]
+
+
+@pytest.mark.parametrize('source_name', MEDIA_SOURCES)
+@pytest.mark.parametrize('coverage', [1, 17])
+def test_non_text_positive_coverage_attestation_is_valid(tmp_path, source_name, coverage):
+    manifest, _ = prepare(tmp_path, {source_name: coverage}, source_name)
     assert module.validate(tmp_path, manifest, tmp_path, 1) == []
 
 
@@ -76,11 +113,17 @@ def test_chunk_symlink_is_not_followed(tmp_path):
     with pytest.raises(ValueError): module.validate(tmp_path, manifest, tmp_path, 1)
 
 
-def test_cli_failure_preserves_existing_cache(tmp_path):
+@pytest.mark.parametrize('source_name, receipt, failure', [
+    ('doc.md', {}, 'missing coverage: doc.md'),
+    ('paper.pdf', {'paper.pdf': 0}, 'non-text coverage must be positive: paper.pdf'),
+    ('image.png', {'image.png': 0}, 'non-text coverage must be positive: image.png'),
+])
+def test_cli_failure_preserves_existing_cache(tmp_path, source_name, receipt, failure):
     import subprocess
     import sys
 
-    manifest, _ = prepare(tmp_path, {})
+    manifest, chunk = prepare(tmp_path, receipt, source_name)
+    original_chunk = chunk.read_bytes()
     cache = tmp_path / '.graphify_cache.json'
     original = b'{"previous": "accepted extraction"}\n'
     cache.write_bytes(original)
@@ -88,6 +131,7 @@ def test_cli_failure_preserves_existing_cache(tmp_path):
         '--manifest', str(manifest), '--chunks-dir', str(tmp_path),
         '--expected-chunks', '1'], capture_output=True, text=True)
     assert result.returncode != 0
-    assert 'missing coverage' in result.stdout + result.stderr
+    assert json.loads(result.stdout) == {'ok': False, 'failures': [failure]}
     assert cache.read_bytes() == original
+    assert chunk.read_bytes() == original_chunk
     assert not (tmp_path / '.graphify_semantic_new.json').exists()

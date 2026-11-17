@@ -26,8 +26,9 @@ Load this reference when a task needs ChatGPT-only widget features, when transla
 - `window.openai.requestDisplayMode({ mode })`: request `inline`, `pip`, or `fullscreen`
 - `window.openai.requestModal({ params, template? })`: open a host-owned modal
 - `window.openai.requestClose()`: ask ChatGPT to close the widget
-- `window.openai.uploadFile(file)`: upload an image file from the widget
-- `window.openai.getFileDownloadUrl({ fileId })`: resolve a temporary download URL
+- `window.openai.uploadFile(file, options?)`: upload a supported file; use `{ library: true }` only when the user chooses persistent library storage and the current host supports it
+- `window.openai.selectFiles()`: choose authorized library files when this optional method is exposed
+- `window.openai.getFileDownloadUrl({ fileId })`: resolve a temporary download URL; treat it as an expiring capability and keep it out of persistent logs
 - `window.openai.notifyIntrinsicHeight(...)`: report dynamic height changes
 - `window.openai.setOpenInAppUrl({ href })`: override the fullscreen punch-out target
 

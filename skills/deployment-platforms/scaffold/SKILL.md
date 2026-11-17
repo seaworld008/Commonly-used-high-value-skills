@@ -2,14 +2,14 @@
 name: scaffold
 description: 'Use when provisioning infrastructure or dev environments: Terraform or OpenTofu modules, Docker Compose setups, multi-cloud layouts, secret management, and IaC cost gates.'
 zh_description: "搭建云基础设施或本地开发环境时使用：Terraform/OpenTofu、Docker Compose、密钥管理与成本门禁。"
-version: "1.0.4"
+version: "1.0.5"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/blob/f425adcb2111ca8c0be88b325888ff61b64dec49/scaffold/SKILL.md"
 license: MIT
 tags: ["deployment", "scaffold"]
 created_at: "2026-08-24"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "advanced"
 ---
@@ -88,7 +88,6 @@ Route elsewhere when the task is primarily:
 - Use remote state with locking for team-managed Terraform.
 - Validate before apply and run policy checks.
 - Document variables, outputs, assumptions, and provider-specific caveats.
-- Record durable infra decisions in `.agents/scaffold.md` and `.agents/PROJECT.md`.
 
 ### Ask First When Not Already Authorized
 - New cloud accounts or projects
@@ -113,7 +112,7 @@ Route elsewhere when the task is primarily:
 - Leave orphaned resources after teardown or migration — shadow assets and abandoned cloud services become exploitation footholds
 - Use `apply -auto-approve` in production CI/CD without plan artifact review and manual gate
 - Run `terraform apply` / `tofu apply` from local machines for team-managed infrastructure — no audit trail, risk of stale local state, no approval process; use CI/CD pipelines with plan artifacts instead
-- Skip scheduled drift detection — out-of-band console/API changes accumulate silently; undetected drift is the primary vector for misconfiguration breaches ($4.3M average cost per incident)
+- Leave out how out-of-band infrastructure changes will be detected and triaged.
 
 ## Workflow
 
@@ -179,7 +178,7 @@ Behavior notes per Recipe (full routing detail in each Recipe's "Read First" ref
 - Prefer manual approval for destructive or boundary-changing operations.
 - For local environments, require health checks, named volumes where appropriate, secret-safe configuration (Docker Compose secrets over env vars for sensitive data), and service profiles for optional dependencies. Recommend watch mode for live-reload development workflows.
 - Set realistic resource timeouts in definitions based on observed creation times. Configure lock timeouts between 10-15 minutes to balance protection against stuck operations while allowing legitimate long-running deployments. Monitor plan duration and state file size; investigate when state file exceeds ~10 MB (performance degradation onset), alert at ~50 MB (timeout risk in resource-constrained environments).
-- Schedule drift detection (`terraform plan -refresh-only` or `tofu plan -refresh-only`) via CI cron jobs or orchestration platforms (Spacelift, env0, Scalr). Run daily for production, weekly for non-production. Reserve auto-reconciliation for low-risk resources only; route drift alerts through approval gates for stateful or security-boundary resources.
+- Plan drift detection with `terraform plan -refresh-only` or `tofu plan -refresh-only`, a read-only identity, resource-appropriate cadence and alert routing. Configure CI or enable a schedule only when that work is in scope. Follow the project's cadence and review stateful or security-boundary remediation before applying changes.
 
 ## Provider And Architecture Rules
 
@@ -228,11 +227,9 @@ Add these when relevant:
 
 ## Operational
 
-**Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here. Journals and shared project logs require a project convention or user request.
+**Host integration:** `_common/` paths refer to the separately installed upstream ecosystem. Apply those protocols only when available and selected for this task; otherwise use host instructions and the domain workflow here.
 
-- Before starting (mandatory): read `.agents/scaffold.md` and `.agents/PROJECT.md`; create `.agents/scaffold.md` if missing.
-- After task completion (mandatory): append `| YYYY-MM-DD | Scaffold | (action) | (files) | (outcome) |` to `.agents/PROJECT.md`.
-- Record durable provider constraints, cost-saving patterns, security decisions, and unresolved infra risks in `.agents/scaffold.md`.
+- Report provider constraints, cost decisions and unresolved risks in the handoff. Update a designated journal only when this task authorizes writing and the project or user specifies that log.
 - Follow `_common/OPERATIONAL.md` for shared operational protocol and Pre-Handoff Checklist.
 
 ## Collaboration

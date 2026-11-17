@@ -2,13 +2,14 @@
 name: notion-knowledge-capture
 description: 'Use when turning a conversation, decision, or rough notes into a structured Notion page, or updating an existing wiki page instead of creating a duplicate.'
 zh_description: "需要把对话、决策或笔记整理成结构化 Notion 页面，或更新已有知识页时使用。"
-version: "1.0.1"
-author: "seaworld008"
-source: "in-house"
-source_url: ""
+version: "1.0.2"
+author: "Notion Labs, Inc.; local curators"
+source: "https://github.com/openai/skills"
+source_url: "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/notion-knowledge-capture/SKILL.md"
+license: "MIT"
 tags: '["capture", "knowledge", "notion"]'
 created_at: "2026-03-04"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 3
 complexity: "intermediate"
 metadata:
@@ -63,15 +64,12 @@ Default output shape:
 
 ## Workflow
 
-### 0) If any MCP call fails because Notion MCP is not connected, pause and set it up:
-1. Add the Notion MCP:
-   - `codex mcp add notion --url https://mcp.notion.com/mcp`
-2. Enable remote MCP client:
-   - Set `[features].rmcp_client = true` in `config.toml` **or** run `codex --enable rmcp_client`
-3. Log in with OAuth:
-   - `codex mcp login notion`
+### 0) Discover the available Notion connection
+Discover and use the host's available Notion connector; map the example tool names below to its supported operations. If unavailable, explain the missing capability and continue independent local drafting from supplied material. Do not claim to have fetched or published pages without a working connection.
 
-After successful login, the user will have to restart codex. You should finish your answer and tell them so when they try again they can continue with Step 1.
+Installation, configuration, and OAuth setup are separate user-requested tasks. For such a task, check the installed CLI help and host instructions before changing configuration; do not assume a specific feature flag or restart requirement.
+
+Ask about source or destination only when ambiguity materially changes the result and cannot be resolved from the request or workspace context.
 
 ### 1) Define the capture
 - Ask purpose, audience, freshness, and whether this is new or an update.
@@ -79,7 +77,7 @@ After successful login, the user will have to restart codex. You should finish y
 
 ### 2) Locate destination
 - Pick the correct database using `reference/*-database.md` guides; confirm required properties (title, tags, owner, status, date, relations).
-- If multiple candidate databases, ask the user which to use; otherwise, create in the primary wiki/documentation DB.
+- Use the requested or context-established destination; ask only when unresolved database ambiguity materially changes where content is written.
 - If the destination is a database URL, fetch it first and identify the correct `data_source_id` before creating pages.
 - Prefer updating an existing page when the new content is incremental and the original page is still the canonical source.
 

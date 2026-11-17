@@ -2,14 +2,14 @@
 name: webapp-testing
 description: 'Use when testing local web applications with Playwright, verifying frontend behavior, debugging UI issues, capturing screenshots, inspecting browser logs, or validating user flows.'
 zh_description: "用于使用 Playwright 测试本地 Web 应用、验证前端行为、截图和查看浏览器日志。"
-version: "1.0.0"
-author: "seaworld008"
-source: "in-house"
-source_url: ""
-license: Complete terms in LICENSE.txt
+version: "1.0.1"
+author: "Anthropic contributors; local curators"
+source: "https://github.com/anthropics/skills"
+source_url: "https://github.com/anthropics/skills/blob/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/webapp-testing/SKILL.md"
+license: "Apache-2.0"
 tags: '["development", "testing", "webapp"]'
 created_at: "2026-03-04"
-updated_at: "2026-06-29"
+updated_at: "2026-11-17"
 quality: 3
 complexity: "intermediate"
 ---
@@ -19,9 +19,16 @@ complexity: "intermediate"
 To test local web applications, write native Python Playwright scripts.
 
 **Helper Scripts Available**:
-- `scripts/with_server.py` - Manages server lifecycle (supports multiple servers)
+- `scripts/with_server.py` - Starts multiple servers and attempts cleanup.
+  Current implementation uses `shell=True`, unread stdout/stderr pipes and
+  termination of the shell Popen only. Verbose logs can block and descendants
+  may survive. Use only reviewed commands in authorized environments; prefer
+  existing servers or a host runner that consumes logs and manages its process
+  group. Confirm owned descendants exit; the helper alone does not prove cleanup.
 
-**Always run scripts with `--help` first** to see usage. DO NOT read the source until you try running the script first and find that a customized solution is abslutely necessary. These scripts can be very large and thus pollute your context window. They exist to be called directly as black-box scripts rather than ingested into your context window.
+Usually inspect `--help` for usage. Read source first when side effects,
+modification scope or lifecycle handling need review; do not execute an unknown
+helper merely to avoid reading it.
 
 ## Decision Tree: Choosing Your Approach
 
@@ -36,7 +43,7 @@ User task → Is it static HTML?
         │        Then use the helper + write simplified Playwright script
         │
         └─ Yes → Reconnaissance-then-action:
-            1. Navigate and wait for networkidle
+            1. Navigate and wait for the target element/app-ready signal
             2. Take screenshot or inspect DOM
             3. Identify selectors from rendered state
             4. Execute actions with discovered selectors
@@ -59,7 +66,8 @@ python scripts/with_server.py \
   -- python your_automation.py
 ```
 
-To create an automation script, include only Playwright logic (servers are managed automatically):
+Keep browser logic in the automation script. The helper starts servers and
+attempts cleanup; verify its owned descendants exit as noted above:
 ```python
 from playwright.sync_api import sync_playwright
 
@@ -67,7 +75,8 @@ with sync_playwright() as p:
     browser = p.chromium.launch(headless=True) # Always launch chromium in headless mode
     page = browser.new_page()
     page.goto('http://localhost:5173') # Server already running and ready
-    page.wait_for_load_state('networkidle') # CRITICAL: Wait for JS to execute
+    page.get_by_role('button', name='Submit').wait_for(state='visible')
+    # Replace with this app's ready marker/expected response and assert its state
     # ... your automation logic
     browser.close()
 ```
@@ -87,16 +96,17 @@ with sync_playwright() as p:
 
 ## Common Pitfall
 
-❌ **Don't** inspect the DOM before waiting for `networkidle` on dynamic apps
-✅ **Do** wait for `page.wait_for_load_state('networkidle')` before inspection
+Wait for the target element, application-ready marker or expected response
+before inspecting the relevant state. Use `networkidle` only when appropriate
+for that page; polling may prevent it, and network quiet does not prove UI readiness.
 
 ## Best Practices
 
-- **Use bundled scripts as black boxes** - To accomplish a task, consider whether one of the scripts available in `scripts/` can help. These scripts handle common, complex workflows reliably without cluttering the context window. Use `--help` to see usage, then invoke directly. 
+- Inspect bundled helper usage and lifecycle limits before choosing it; review source when needed.
 - Use `sync_playwright()` for synchronous scripts
 - Always close the browser when done
 - Use descriptive selectors: `text=`, `role=`, CSS selectors, or IDs
-- Add appropriate waits: `page.wait_for_selector()` or `page.wait_for_timeout()`
+- Use locator assertions or explicit application readiness; fixed sleeps do not establish readiness
 
 ## Reference Files
 

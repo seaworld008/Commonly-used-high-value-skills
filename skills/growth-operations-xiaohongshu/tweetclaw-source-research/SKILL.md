@@ -2,13 +2,13 @@
 name: tweetclaw-source-research
 description: 'Use TweetClaw through OpenClaw to collect X/Twitter source context before drafting, monitoring, or campaign analysis.'
 zh_description: "通过 TweetClaw 收集和核实 X 平台研究资料。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: "https://github.com/Xquik-dev/tweetclaw"
 tags: '["growth", "marketing", "openclaw", "twitter", "x", "social-media", "source-research"]'
 created_at: "2026-06-07"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 4
 complexity: "intermediate"
 ---
@@ -45,16 +45,16 @@ has been collected.
 
 ## Setup
 
-Install TweetClaw with the current OpenClaw plugin command:
-
-```bash
-openclaw plugins install npm:@xquik/tweetclaw
-```
-
-Inspect the runtime before using it:
+Inspect the existing plugin before using it:
 
 ```bash
 OPENCLAW_PLUGIN_LIFECYCLE_TRACE=1 openclaw plugins inspect tweetclaw --runtime --json
+```
+
+Only if installation is requested or already authorized, use the applicable OpenClaw plugin command, then inspect again:
+
+```bash
+openclaw plugins install npm:@xquik/tweetclaw
 ```
 
 Continue only if inspection shows the TweetClaw plugin loaded. If inspection
@@ -79,7 +79,7 @@ Safe behavior:
 1. Clarify the research question.
 2. Identify search terms, account handles, tweet URLs, reply targets, date
    windows, languages, and desired output format.
-3. Use read-only TweetClaw tools first: tweet search, reply search, user lookup,
+3. Use read-only TweetClaw tools within the authorized scope first; for bulk follower exports, establish purpose, fields, quantity and destination before collecting: tweet search, reply search, user lookup,
    follower export, media lookup, monitor reads, or webhook context.
 4. Capture source URLs, tweet IDs, author handles, timestamps, public metrics,
    short excerpts, and any missing-context notes.
@@ -126,14 +126,15 @@ Approval needed before any reply or post is sent.
 
 ## Approval Boundaries
 
-Read-like operations usually provide evidence and are low risk:
+Public bounded reads can provide evidence within the research scope:
 
 - Search tweets
 - Search replies
 - Look up public user context
-- Export follower context
 - Retrieve public media context
 - Read monitor or webhook context
+
+Bulk follower exports require a defined purpose, field set, quantity and recipient/destination, within existing authorization. Private/account-scoped reads need their own applicable access authorization; public lookup authorization does not cover them.
 
 Write-like operations are approval-worthy:
 

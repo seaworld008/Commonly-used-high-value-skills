@@ -2,13 +2,13 @@
 name: pr-review-expert
 description: 'Review GitHub PRs or GitLab MRs for correctness, security, compatibility, and affected test coverage, with actionable evidence tied to the diff.'
 zh_description: "审查 PR 的正确性、安全、兼容性和测试覆盖变化。"
-version: "1.0.1"
+version: "1.0.2"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["development", "expert", "review"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -230,22 +230,26 @@ grep "^-" /tmp/pr-$PR.diff | grep -oE "process\.env\.[A-Z_]+" | sort -u
 
 ### Step 6 — Performance Impact
 
+These grep checks generate candidates only. The numeric prefix locates a diff
+line, not a source line; verify candidates in real source context and affected
+paths. Empty output is not evidence that performance or security is safe.
+
 ```bash
 # N+1 query patterns (DB calls inside loops)
-grep -n "\.find\|\.findOne\|\.query\|db\." /tmp/pr-$PR.diff | grep "^+" | head -20
+grep -n "\.find\|\.findOne\|\.query\|db\." /tmp/pr-$PR.diff | grep -E "^[0-9]+:\\+" | head -20
 # Then check surrounding context for forEach/map/for loops
 
 # Heavy new dependencies
 grep "^+" /tmp/pr-$PR.diff | grep -E '"[a-z@].*":\s*"[0-9^~]' | head -20
 
 # Unbounded loops
-grep -n "while (true\|while(true" /tmp/pr-$PR.diff | grep "^+"
+grep -n "while (true\|while(true" /tmp/pr-$PR.diff | grep -E "^[0-9]+:\\+"
 
 # Missing await (accidentally sequential promises)
-grep -n "await.*await" /tmp/pr-$PR.diff | grep "^+" | head -10
+grep -n "await.*await" /tmp/pr-$PR.diff | grep -E "^[0-9]+:\\+" | head -10
 
 # Large in-memory allocations
-grep -n "new Array([0-9]\{4,\}\|Buffer\.alloc" /tmp/pr-$PR.diff | grep "^+"
+grep -n "new Array([0-9]\{4,\}\|Buffer\.alloc" /tmp/pr-$PR.diff | grep -E "^[0-9]+:\\+"
 ```
 
 ---

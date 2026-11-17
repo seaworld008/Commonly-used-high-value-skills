@@ -1,259 +1,71 @@
-# Injection Prevention Reference
+# 在查询编译之前划清结构和值
 
-## Overview
+Original local reference, Copyright (c)2026 seaworld008, MIT
 
-Injection flaws occur when untrusted data is sent to an interpreter as part of a command or query. The attacker's hostile data tricks the interpreter into executing unintended commands or accessing data without proper authorization.
+客服界面接收队列名和排序模式，查询当前租户的工单。
+收藏的筛选器会在夜间任务中复用，因此从数据库读出的字符串也可能源自低权限用户。
+审查时标出每个字段最终占据的位置：比较值、列名、运算符，还是一整段表达式。
 
-## SQL Injection
+## 缺陷示例
 
-### Primary Defenses
-
-**1. Prepared Statements (Parameterized Queries) - REQUIRED**
-
-The database distinguishes between code and data regardless of user input.
-
-```java
-// SAFE: Parameterized query
-String query = "SELECT * FROM users WHERE username = ?";
-PreparedStatement pstmt = connection.prepareStatement(query);
-pstmt.setString(1, userInput);
-```
+查询构造器把显示名称直接写进 SQL 文本。即使名称来自已登录客服，数据库仍按 SQL 语法解释它。
 
 ```python
-# SAFE: Parameterized query
-cursor.execute("SELECT * FROM users WHERE username = %s", (user_input,))
+def unsafe_queue_query(queue):
+    return f"SELECT ticket_id FROM ticket WHERE queue = '{queue}'"
 ```
 
-```javascript
-// SAFE: Parameterized query (node-postgres)
-const result = await client.query('SELECT * FROM users WHERE id = $1', [userId]);
-```
+## 修正示例
 
-**2. Stored Procedures**
-
-Safe when implemented without dynamic SQL construction.
-
-```java
-// SAFE: Stored procedure
-CallableStatement cs = connection.prepareCall("{call sp_getUser(?)}");
-cs.setString(1, username);
-```
-
-**3. Allow-list Input Validation**
-
-For elements that cannot be parameterized (table names, column names, sort order).
-
-```java
-// SAFE: Allowlist for table names
-switch(tableName) {
-    case "users": return "users";
-    case "orders": return "orders";
-    default: throw new InputValidationException("Invalid table");
-}
-```
-
-### Vulnerable Patterns to Find
+以下使用 Python sqlite3 的问号占位符。部署使用其他驱动时，核对它自己的绑定接口。
+租户编号取自已验证的访问上下文，调用方还需具有该租户的队列检索权限。
 
 ```python
-# VULNERABLE: String concatenation
-query = "SELECT * FROM users WHERE name = '" + user_input + "'"
-
-# VULNERABLE: f-string interpolation
-query = f"SELECT * FROM users WHERE id = {user_id}"
-
-# VULNERABLE: format() method
-query = "SELECT * FROM users WHERE name = '{}'".format(user_input)
+def queue_tickets(db, tenant, queue, order):
+    ordering = {"first": "ticket_id ASC", "last": "ticket_id DESC"}
+    if not isinstance(order, str) or order not in ordering:
+        raise ValueError("unsupported order")
+    if not isinstance(queue, str) or not 1 <= len(queue) <= 80:
+        raise ValueError("unsupported queue")
+    statement = (
+        "SELECT ticket_id FROM ticket WHERE tenant = ? AND queue = ? "
+        "ORDER BY " + ordering[order]
+    )
+    return db.execute(statement, (tenant, queue)).fetchall()
 ```
 
-```javascript
-// VULNERABLE: Template literal
-const query = `SELECT * FROM users WHERE id = ${userId}`;
+排序是语法位置，由本地映射给出完整片段。队列名永远通过值通道送入驱动。
+已有 ORM 的代码也要追到最后一层：原始谓词、动态列名或自定义排序可重新引入字符串编译。
 
-// VULNERABLE: String concatenation
-const query = "SELECT * FROM users WHERE name = '" + userName + "'";
-```
+## 对其他解释器提出具体问题
 
-### ORM Safety Considerations
+| 目的端 | 需要确认的拒绝点 |
+| --- | --- |
+| 文档数据库 | 标量筛选字段先做类型检查，服务端构造固定查询对象；拒绝由请求对象定义运算符 |
+| 命令行程序 | 固定可执行文件与操作模式，按独立参数传值，并按该程序的选项规则限制操作数 |
+| LDAP | 区分过滤器值与 DN 分量，在实际库中使用对应的构造或编码 API |
+| 模板引擎 | 模板源来自受控发布物，用户字段仅填入数据上下文；拒绝将存储的正文编译成模板 |
+| 搜索或表达式语言 | 明确是否授权用户写表达式，限制可调用的函数、字段和执行成本 |
 
-**Django ORM**
-```python
-# SAFE: ORM methods
-User.objects.filter(username=user_input)
+进程启动时关闭 shell 可消除一层解释；被调用程序仍可能解析选项、配置或嵌套语言。
+字符串替换可能适用于一个语法位置，不能自动延伸至嵌套解释器。
 
-# VULNERABLE: raw() with interpolation
-User.objects.raw(f"SELECT * FROM users WHERE name = '{user_input}'")
+## 用内存数据库验收
 
-# VULNERABLE: extra() with unvalidated input
-User.objects.extra(where=[f"name = '{user_input}'"])
-```
+建立 ticket(tenant, queue, ticket_id) 夹具，两租户都添加名为 O'Brien 的队列。
+在本租户插入工单 3 和 8，另一租户插入 9。所有名称和记录均为合成数据。
 
-**SQLAlchemy**
-```python
-# SAFE: ORM methods
-session.query(User).filter(User.name == user_input)
+- 正例：队列 O'Brien 配 last，仅返回 8、3；配 first，仅返回 3、8。
+- 反例：排序为 sideways，或队列为对象，在调用 execute 前被拒绝。
+- 边界：查询不存在的普通队列应返回空集；单引号作为名称的一部分应能精确匹配。
+- 重放同一份收藏条件，确认后台任务从自己的授权上下文取得租户，而非相信收藏记录中的声明。
 
-# VULNERABLE: text() with interpolation
-session.execute(text(f"SELECT * FROM users WHERE name = '{user_input}'"))
-```
+## 如何判读证据
 
----
+只拼接不可变映射中的列片段时，字符串拼接本身不足以报告注入。
+记录请求和持久化字段的写入者、最终语句模板、绑定参数个数以及实际驱动版本。
+生产查询日志可能含客户输入；保留夹具与结果集即可，无需采集真实语句参数。
 
-## NoSQL Injection
+模板输出还会经过浏览器解释时，继续检查[页面输出位置](xss.md)。
 
-### MongoDB Injection Patterns
-
-```javascript
-// VULNERABLE: User-controlled query operators
-db.users.find({ username: req.body.username, password: req.body.password });
-// Attack: { "username": "admin", "password": { "$gt": "" } }
-
-// SAFE: Explicit type checking
-const username = String(req.body.username);
-const password = String(req.body.password);
-db.users.find({ username: username, password: password });
-```
-
-**Dangerous Operators**
-- `$where` - Allows JavaScript execution
-- `$regex` - Can be used for ReDoS
-- `$gt`, `$ne`, `$in` - Query manipulation when user-controlled
-
----
-
-## OS Command Injection
-
-### Primary Defenses
-
-**1. Avoid Shell Commands - PREFERRED**
-
-Use language built-in functions instead of shell commands.
-
-```python
-# VULNERABLE: Shell command
-os.system(f"mkdir {directory_name}")
-
-# SAFE: Built-in function
-os.makedirs(directory_name, exist_ok=True)
-```
-
-**2. Parameterization**
-
-```python
-# VULNERABLE: Shell=True with user input
-subprocess.run(f"convert {input_file} {output_file}", shell=True)
-
-# SAFE: List of arguments, shell=False
-subprocess.run(["convert", input_file, output_file], shell=False)
-```
-
-**3. Input Validation**
-
-```python
-# Allowlist for permitted commands
-ALLOWED_COMMANDS = {"convert", "resize", "rotate"}
-if command not in ALLOWED_COMMANDS:
-    raise ValueError("Invalid command")
-
-# Validate arguments against safe patterns
-if not re.match(r'^[a-zA-Z0-9_\-\.]+$', filename):
-    raise ValueError("Invalid filename")
-```
-
-### Dangerous Characters
-
-Block or escape: `& | ; $ > < \ ! ' " ( ) { } [ ] \n \r`
-
-### Language-Specific Dangerous Functions
-
-| Language | Dangerous Functions |
-|----------|-------------------|
-| Python | `os.system()`, `subprocess.run(shell=True)`, `os.popen()`, `eval()`, `exec()` |
-| JavaScript | `child_process.exec()`, `eval()` |
-| PHP | `exec()`, `shell_exec()`, `system()`, `passthru()`, backticks |
-| Ruby | `system()`, `exec()`, backticks, `%x{}` |
-| Java | `Runtime.exec()`, `ProcessBuilder` with shell |
-
----
-
-## LDAP Injection
-
-### Prevention
-
-```java
-// SAFE: Escape special characters
-String safeName = LdapEncoder.filterEncode(userName);
-String filter = "(&(uid=" + safeName + ")(userPassword=" + safePassword + "))";
-```
-
-**Characters to Escape in LDAP**
-- Filter context: `* ( ) \ NUL`
-- DN context: `\ # + < > ; " = /`
-
----
-
-## Template Injection
-
-### Server-Side Template Injection (SSTI)
-
-```python
-# VULNERABLE: User input in template
-template = Template(f"Hello {user_input}")
-
-# SAFE: Pass user input as variable
-template = Template("Hello {{ name }}")
-template.render(name=user_input)
-```
-
-**Detection Payloads**
-- Jinja2: `{{7*7}}` → `49`
-- FreeMarker: `${7*7}` → `49`
-- Thymeleaf: `[[${7*7}]]` → `49`
-
----
-
-## XPath Injection
-
-### Prevention
-
-```java
-// VULNERABLE: String concatenation
-String query = "//users/user[name='" + userName + "']";
-
-// SAFE: Use parameterized XPath
-XPathExpression expr = xpath.compile("//users/user[name=$name]");
-expr.setVariable("name", userName);
-```
-
----
-
-## Key Grep Patterns for Detection
-
-```bash
-# SQL Injection
-grep -rn "execute.*+" --include="*.py"
-grep -rn "raw_sql\|rawQuery\|raw(" --include="*.py" --include="*.js"
-grep -rn "\\.query\\(.*\\+" --include="*.js"
-grep -rn "\\$.*\\+" --include="*.php"
-
-# Command Injection
-grep -rn "os\\.system\\|subprocess\\.run.*shell=True\\|os\\.popen" --include="*.py"
-grep -rn "child_process\\.exec" --include="*.js"
-grep -rn "system(\\|exec(\\|shell_exec(" --include="*.php"
-
-# Template Injection
-grep -rn "Template(.*\\+" --include="*.py"
-grep -rn "render_template_string" --include="*.py"
-
-# LDAP Injection
-grep -rn "ldap_search\\|ldap_bind" --include="*.py" --include="*.php"
-```
-
----
-
-## References
-
-- [OWASP SQL Injection Prevention](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
-- [OWASP OS Command Injection Defense](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)
-- [OWASP LDAP Injection Prevention](https://cheatsheetseries.owasp.org/cheatsheets/LDAP_Injection_Prevention_Cheat_Sheet.html)
-- [CWE-89: SQL Injection](https://cwe.mitre.org/data/definitions/89.html)
-- [CWE-78: OS Command Injection](https://cwe.mitre.org/data/definitions/78.html)
+平台资料：[Python sqlite3 参数绑定](https://docs.python.org/3/library/sqlite3.html#how-to-use-placeholders-to-bind-values-in-sql-queries)。

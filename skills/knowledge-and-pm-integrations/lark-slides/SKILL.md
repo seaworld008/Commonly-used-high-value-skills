@@ -2,14 +2,14 @@
 name: lark-slides
 description: '创建、读取和编辑飞书幻灯片与页面；支持飞书或 doubao.com 的 /slides/ 链接和 token。文件导入导出转 lark-drive，独立画板转 lark-whiteboard。'
 zh_description: "飞书幻灯片：创建和编辑幻灯片。"
-version: "1.0.13"
+version: "1.0.14"
 author: larksuite
 source: "github:larksuite/cli"
 source_url: "https://github.com/larksuite/cli/tree/7beffb086d7fa3c5b843d8affa7c089f49cfc65e/skills/lark-slides"
 license: MIT
 tags: '[feishu, lark, lark-cli, slides, presentation]'
 created_at: "2026-05-19"
-updated_at: "2026-10-16"
+updated_at: "2026-11-17"
 quality: 4
 complexity: advanced
 metadata:
@@ -20,17 +20,17 @@ metadata:
 
 # slides (v1)
 
-> 本技能文档较长，务必使用 Read 工具阅读两次，必须阅读完整全文。
+> 先按任务范围读取对应参考：只读、局部编辑、新建或大幅改版分流；使用宿主可用的文件读取能力，不要求重复阅读全文。
 
 ## 权威经验
 
-**权威经验是全局硬约束和高频易错点，必须牢记并严格遵守。**
+**按任务应用以下约束：XML 属性与页面边界用于相关写入；视觉创作要求只用于新建或大幅改版。只读与局部改字不触发重排或补图。**
 
 - 你有充足的时间完成这个 PPT，质量永远比速度重要。
 - PPT 的尺寸是 960x540，必须严格确保主体内容在页面边界内。
-- !!!禁止交付无图产物!!! 必须使用大量图片增强视觉效果!!! 禁止重复使用同一张图!!!
-- 封面页的主视觉必须是 `<img>`（来自生图工具或搜图工具），不要使用 `<shape>` 或 `<icon>` 拼出封面视觉。
-- 禁止用 `<shape>` 和 `<line>` 拟形具体物项，必须使用生图工具生成的 `<img>`。
+- 新建或大幅改版时，选择与内容、受众和用户要求相符的图片、图标、图表等视觉素材；局部编辑保留未点名元素。
+- 新建或重设计封面时，按内容选择主视觉；使用图片时以 `<img>` 表达，素材获取采用宿主可用且已授权的能力。
+- 创作具体物项插图时优先使用合适的 `<img>`；流程、矩阵和示意图可按其语义使用形状与连线。
 - 禁止在 `headline` 或 `title` 下方放置用于分隔或装饰的 `rect` 或 `<line>`。
 - 禁止在任何页面内部使用无意义的装饰线条或色块条带，页面任何一边都不要使用贴边窄条。
 - 生图工具的指令参数必须以“不要出现任何文字和颜色色号”结尾，避免生成的图片上出现干扰文字。
@@ -50,13 +50,13 @@ metadata:
 - 填充渐变颜色必须用 `<fill><fillColor color="linear-gradient(135deg, rgba(R,G,B,A) 0%, rgba(R,G,B,A) 100%)"/></fill>`。
 - 编辑页面前必须阅读 [`workflow/slides-editing.md`](references/workflow/slides-editing.md)。
 - 绘制图表前必须阅读 [`xml/slides_chart_demo.xml`](references/xml/slides_chart_demo.xml)。
-- 当用户要求无损复述历史上下文时，必须无损复述以上权威经验、必读的技能文档（需要重新阅读）和易错元素语法（尤其是 `<table>` 和 `<chart>`）。
+- 交接时保留本次用到的约束、定位标识与验证状态；仅在信息缺失或需要核对时重读对应参考。
 
 ## 豆包设计原则
 
-适用范围：
+适用范围：仅用于新建或大幅改版的普通内容页；只读及局部编辑不套用创作要求。
 
-- 普通内容页的设计必须以豆包设计原则为最高准则，除非用户要求使用模板或直接提供设计方案。
+- 普通内容页的设计遵循以下原则，用户模板与明确设计要求优先。
 - 不适用于 `title-cover`、`section-divider`、`conclusion`、`quote-highlight` 和 `big-number`。
 
 核心要求：
@@ -174,7 +174,7 @@ lark-cli auth login --domain slides
 
 ## Workflow
 
-### Design Ideas
+### Design Ideas（仅新建或大幅改版）
 
 不要生成无设计感的幻灯片。纯白背景 + 标题 + bullets 只能作为极简临时稿，不能作为正式交付。
 

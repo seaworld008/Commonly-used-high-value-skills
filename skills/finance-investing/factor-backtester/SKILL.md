@@ -2,13 +2,13 @@
 name: factor-backtester
 description: 'Use when testing factor signals, running long-short spread backtests, checking hit rate and turnover, or sanity-checking whether a ranking signal survives basic transaction cost assumptions.'
 zh_description: "设计和回测投资因子，检查偏差、成本和稳健性。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["backtester", "factor", "finance"]'
 created_at: "2026-03-18"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 2
 complexity: "intermediate"
 ---
@@ -17,14 +17,14 @@ complexity: "intermediate"
 
 在投入重金之前，先验证你的因子（Factor）是否真的具备“阿尔法”收益。本技能旨在提供一个轻量级的因子筛选层，帮助量化研究员和投资经理快速验证信号的有效性，并识别那些仅在“理想实验室”中存在的伪因子。
 
-## 安装与前提条件
+## 运行前提与实际脚本范围
 
-```bash
-# 确保已安装量化回测与数学统计库
-pip install pandas numpy matplotlib scipy pyfolio
-# 准备回测数据
-npx clawhub install factor-backtester
-```
+仓库已附带脚本和样例，使用 Python 3 标准库即可运行，无需额外安装第三方包或重新安装技能。
+从本技能目录执行下方命令；在其他工作目录调用时，使用脚本和输入文件的完整路径。
+
+用给定 long_return、short_return、benchmark_return 和 turnover 计算多空价差、成本、累计收益、回撤与换手率。hit_rate 统计扣费前正收益期；不计算 Sharpe、IC 或统计显著性，不绘图或生成 PDF。
+
+后续领域方法描述的是研究工作流。超出上述输出的指标需补充数据、方法和独立验证，不能声称由附带脚本自动生成。报告中的示例数值为格式示意，不是模型输出或投资结论。
 
 ## 触发条件 / When to Use
 
@@ -68,12 +68,12 @@ npx clawhub install factor-backtester
 ### 回测输入数据 JSON 模板 (Backtest Data JSON)
 ```json
 {
-  "factor_name": "OperatingProfitMargin",
   "periods": [
-    { "date": "2025-01-31", "long_ret": 0.05, "short_ret": 0.02, "bench_ret": 0.03, "turnover": 0.12 },
-    { "date": "2025-02-28", "long_ret": -0.01, "short_ret": -0.04, "bench_ret": -0.02, "turnover": 0.08 }
-  ],
-  "transaction_cost": 0.0015
+    {"period": "2025-01", "long_return": 0.034, "short_return": -0.011, "benchmark_return": 0.018, "turnover": 0.21},
+    {"period": "2025-02", "long_return": -0.012, "short_return": -0.026, "benchmark_return": -0.014, "turnover": 0.18},
+    {"period": "2025-03", "long_return": 0.021, "short_return": -0.008, "benchmark_return": 0.011, "turnover": 0.24},
+    {"period": "2025-04", "long_return": 0.009, "short_return": 0.002, "benchmark_return": 0.004, "turnover": 0.19}
+  ]
 }
 ```
 
@@ -103,8 +103,8 @@ npx clawhub install factor-backtester
 
 ### 快速回测执行示例
 ```bash
-# 针对特定数据文件运行回测脚本并输出 PDF 报告
-python scripts/backtest_factor.py --input assets/factor_alpha_v1.json --plot --save report.pdf
+# 离线样例，结果以 JSON 输出到标准输出
+python3 scripts/backtest_factor.py assets/sample_factor_data.json
 ```
 
 ## 进阶应用场景 / Advanced Use Cases

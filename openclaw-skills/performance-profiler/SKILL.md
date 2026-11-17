@@ -2,13 +2,13 @@
 name: performance-profiler
 description: 'Profile Node.js, Python, or Go CPU, memory, I/O, and query bottlenecks; use flamegraphs and representative load tests to verify improvements.'
 zh_description: "分析 CPU、内存、I/O 和查询瓶颈并验证优化效果。"
-version: "1.0.2"
+version: "1.0.3"
 author: "seaworld008"
 source: "in-house"
 source_url: ""
 tags: '["development", "performance", "profiler"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-22"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "intermediate"
 ---
@@ -96,26 +96,13 @@ node --inspect dist/server.js
 
 ### Heap Snapshot / Memory Leak Detection
 
-```javascript
-// Add to your server for on-demand heap snapshots
-import v8 from 'v8'
-import fs from 'fs'
-
-// Endpoint: POST /debug/heap-snapshot (protect with auth!)
-app.post('/debug/heap-snapshot', (req, res) => {
-  const filename = `heap-${Date.now()}.heapsnapshot`
-  const snapshot = v8.writeHeapSnapshot(filename)
-  res.json({ snapshot })
-})
-```
+In a controlled local reproduction on a trusted host, start the Node process with the inspector bound to loopback. Attach DevTools locally and capture two snapshots around representative load (Memory → Heap snapshot). Save them in a private directory accessible only to the operator. Snapshots can contain application data.
 
 ```bash
-# Take snapshots over time and compare in Chrome DevTools
-curl -X POST http://localhost:3000/debug/heap-snapshot
-# Wait 5 minutes of load
-curl -X POST http://localhost:3000/debug/heap-snapshot
-# Open both snapshots in Chrome → Memory → Compare
+node --inspect=127.0.0.1:9229 dist/server.js
 ```
+
+Compare retained objects and retaining paths, then stop the debug process. Use the project's authenticated diagnostic channel for remote collection.
 
 ### Detect Event Loop Blocking
 
@@ -211,28 +198,32 @@ python -m memory_profiler path/to/your_profile_target.py
 ## Go Profiling with pprof
 
 ```go
-// main.go — add pprof endpoints
-import _ "net/http/pprof"
-import "net/http"
+// In a local profiling build. Serve the application on its own explicit mux:
+// importing net/http/pprof also registers handlers on DefaultServeMux.
+import (
+    "log"
+    "net/http"
+    "net/http/pprof"
+)
 
-func main() {
-    // pprof endpoints at /debug/pprof/
-    go func() {
-        log.Println(http.ListenAndServe(":6060", nil))
-    }()
-    // ... rest of your app
+func serveLocalProfiles() {
+    mux := http.NewServeMux()
+    mux.HandleFunc("/debug/pprof/profile", pprof.Profile)
+    mux.Handle("/debug/pprof/heap", pprof.Handler("heap"))
+    mux.Handle("/debug/pprof/goroutine", pprof.Handler("goroutine"))
+    log.Print(http.ListenAndServe("127.0.0.1:6060", mux))
 }
 ```
 
 ```bash
-# CPU profile (30s)
-go tool pprof -http=:8080 http://localhost:6060/debug/pprof/profile?seconds=30
+# Start serveLocalProfiles in the local process for the capture window only.
+go tool pprof -http=127.0.0.1:8080 'http://127.0.0.1:6060/debug/pprof/profile?seconds=30'
 
 # Memory profile
-go tool pprof -http=:8080 http://localhost:6060/debug/pprof/heap
+go tool pprof -http=127.0.0.1:8080 http://127.0.0.1:6060/debug/pprof/heap
 
 # Goroutine leak detection
-curl http://localhost:6060/debug/pprof/goroutine?debug=1
+curl 'http://127.0.0.1:6060/debug/pprof/goroutine?debug=1'
 
 # In pprof UI: "Flame Graph" view → find the tallest bars
 ```

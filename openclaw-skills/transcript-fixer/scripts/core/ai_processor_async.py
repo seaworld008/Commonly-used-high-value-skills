@@ -36,7 +36,7 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from utils.logging_config import TimedLogger, ErrorCounter
-from utils.retry_logic import retry_async, RetryConfig
+from utils.retry_logic import RetryConfig, calculate_delay, is_transient_error
 
 # Setup logger
 logger = logging.getLogger(__name__)
@@ -98,6 +98,8 @@ class AIProcessorAsync:
         self.max_chunk_size = 6000  # Characters per chunk
         self.max_concurrent = max_concurrent  # Concurrency limit
         self.change_extractor = ChangeExtractor()  # For learning from AI results
+        # Published only after a whole run succeeds; never infer chunks from edits.
+        self.last_run_metadata: dict = {}
 
         # CRITICAL FIX: Shared client for connection pooling (prevents connection leaks)
         self._http_client: Optional[httpx.AsyncClient] = None
@@ -120,7 +122,7 @@ class AIProcessorAsync:
                 self._http_client = httpx.AsyncClient(
                     timeout=60.0,
                     limits=limits,
-                    http2=True  # Enable HTTP/2 for better performance
+                    http2=False  # HTTP/1 works with base httpx, without optional h2
                 )
                 logger.debug("Created new HTTP client with connection pooling")
 
@@ -147,6 +149,7 @@ class AIProcessorAsync:
 
         CRITICAL FIX (P1-3): Ensures HTTP client cleanup
         """
+        self.last_run_metadata = {}
         # Run async processing in sync context
         async def _run_with_cleanup():
             try:
@@ -155,7 +158,12 @@ class AIProcessorAsync:
                 # Ensure HTTP client is closed in the same event loop
                 await self._close_http_client()
 
-        return asyncio.run(_run_with_cleanup())
+        try:
+            return asyncio.run(_run_with_cleanup())
+        except BaseException:
+            # Cleanup failures/cancellation must not leave a successful receipt.
+            self.last_run_metadata = {}
+            raise
 
     async def _process_async(self, text: str, context: str) -> Tuple[str, List[AIChange]]:
         """
@@ -166,6 +174,11 @@ class AIProcessorAsync:
         - Releases intermediate results
         - Monitors memory usage
         """
+        self.last_run_metadata = {}
+        if not text:
+            self.last_run_metadata = {"models_used": [], "chunks_processed": 0}
+            return text, []
+
         chunks = self._split_into_chunks(text)
         all_changes = []
 
@@ -177,14 +190,13 @@ class AIProcessorAsync:
             )
 
         logger.info(
-            f"Starting batch processing",
-            total_chunks=len(chunks),
-            model=self.model,
-            max_concurrent=self.max_concurrent
+            "Starting batch processing",
+            extra={"total_chunks": len(chunks), "model": self.model,
+                   "max_concurrent": self.max_concurrent}
         )
 
         # CRITICAL FIX: Error rate monitoring
-        error_counter = ErrorCounter(threshold=0.3)  # Abort if >30% fail
+        error_counter = ErrorCounter(threshold=0.3)
 
         # CRITICAL FIX: Calculate change sampling rate to limit memory
         # For large files, only track a sample of changes
@@ -210,35 +222,24 @@ class AIProcessorAsync:
 
         # Process results (maintaining order)
         corrected_chunks = []
+        models_used = []
         for i, (chunk, result) in enumerate(zip(chunks, results), 1):
             if isinstance(result, Exception):
                 logger.error(
-                    f"Chunk {i} raised exception",
-                    chunk_index=i,
-                    error=str(result),
-                    exc_info=True
+                    "Chunk failed after model attempts",
+                    extra={"chunk_index": i, "error_type": type(result).__name__}
                 )
-                corrected_chunks.append(chunk)
                 error_counter.failure()
-
-                # CRITICAL FIX: Check error rate threshold
-                if error_counter.should_abort():
-                    stats = error_counter.get_stats()
-                    logger.critical(
-                        f"Error rate exceeded threshold, aborting",
-                        **stats
-                    )
-                    raise RuntimeError(
-                        f"Error rate {stats['window_failure_rate']:.1%} exceeds "
-                        f"threshold {stats['threshold']:.1%}. Processed {i}/{len(chunks)} chunks."
-                    )
             else:
-                corrected_chunks.append(result)
+                corrected_text, successful_model = result
+                corrected_chunks.append(corrected_text)
+                if successful_model not in models_used:
+                    models_used.append(successful_model)
                 error_counter.success()
 
                 # Extract actual changes for learning
-                if result != chunk:
-                    extracted_changes = self.change_extractor.extract_changes(chunk, result)
+                if corrected_text != chunk:
+                    extracted_changes = self.change_extractor.extract_changes(chunk, corrected_text)
 
                     # CRITICAL FIX: Limit changes tracking to prevent memory bloat
                     # Sample changes if we're already tracking too many
@@ -274,14 +275,46 @@ class AIProcessorAsync:
         stats = error_counter.get_stats()
         logger.info(
             "Batch processing completed",
-            total_chunks=len(chunks),
-            successes=stats['total_successes'],
-            failures=stats['total_failures'],
-            failure_rate=stats['window_failure_rate'],
-            changes_extracted=len(all_changes)
+            extra={"total_chunks": len(chunks),
+                   "successes": stats['total_successes'],
+                   "failures": stats['total_failures'],
+                   "failure_rate": stats['window_failure_rate'],
+                   "changes_extracted": len(all_changes),
+                   "status": "failed" if stats['total_failures'] else "success"}
         )
 
-        return "\n\n".join(corrected_chunks), all_changes
+        # Do not deliver an unchanged failed chunk as an AI-corrected result.
+        if stats['total_failures']:
+            first_error = next(result for result in results if isinstance(result, Exception))
+            raise RuntimeError(
+                f"AI correction failed for {stats['total_failures']}/{len(chunks)} chunks"
+            ) from first_error
+
+        corrected_text = "\n\n".join(corrected_chunks)
+        self.last_run_metadata = {
+            "models_used": models_used,
+            "chunks_processed": len(corrected_chunks),
+        }
+        return corrected_text, all_changes
+
+    async def _request_with_retry(self, chunk: str, context: str, model: str,
+                                  attempts: int, chunk_index: int) -> str:
+        """Preserve transient retries without logging provider exception bodies."""
+        config = RetryConfig(max_attempts=attempts, base_delay=1.0)
+        for attempt in range(attempts):
+            try:
+                return await self._process_chunk_async(chunk, context, model)
+            except Exception as exc:
+                retrying = is_transient_error(exc) and attempt + 1 < attempts
+                logger.warning(
+                    "Model request failed",
+                    extra={"chunk_index": chunk_index, "model": model,
+                           "attempt": attempt + 1, "retrying": retrying,
+                           "error_type": type(exc).__name__}
+                )
+                if not retrying:
+                    raise
+                await asyncio.sleep(calculate_delay(attempt, config))
 
     async def _process_chunk_with_semaphore(
         self,
@@ -290,83 +323,52 @@ class AIProcessorAsync:
         context: str,
         semaphore: asyncio.Semaphore,
         total_chunks: int
-    ) -> str:
-        """
-        Process chunk with concurrency control.
-
-        CRITICAL FIX: Now uses structured logging and retry logic
-        """
+    ) -> Tuple[str, str]:
+        """Try the primary model, then the fallback; never silently reuse text."""
         async with semaphore:
             logger.info(
-                f"Processing chunk {chunk_index}/{total_chunks}",
-                chunk_index=chunk_index,
-                total_chunks=total_chunks,
-                chunk_length=len(chunk)
+                "Processing chunk",
+                extra={"chunk_index": chunk_index, "total_chunks": total_chunks,
+                       "chunk_length": len(chunk)}
             )
-
             try:
-                # Use retry logic with exponential backoff
-                @retry_async(RetryConfig(max_attempts=3, base_delay=1.0))
-                async def process_with_retry():
-                    return await self._process_chunk_async(chunk, context, self.model)
-
-                with timed_logger.timed("chunk_processing", chunk_index=chunk_index):
-                    result = await process_with_retry()
+                result = await self._request_with_retry(
+                    chunk, context, self.model, 3, chunk_index
+                )
+                logger.info(
+                    "Chunk completed with primary model",
+                    extra={"chunk_index": chunk_index, "model": self.model}
+                )
+                return result, self.model
+            except Exception as primary_error:
+                logger.warning(
+                    "Chunk failed with primary model",
+                    extra={"chunk_index": chunk_index, "model": self.model,
+                           "error_type": type(primary_error).__name__}
+                )
+                if not self.fallback_model or self.fallback_model == self.model:
+                    raise RuntimeError("Primary model failed; no fallback configured") from primary_error
 
                 logger.info(
-                    f"Chunk {chunk_index} completed successfully",
-                    chunk_index=chunk_index
+                    "Retrying chunk with fallback model",
+                    extra={"chunk_index": chunk_index, "fallback_model": self.fallback_model}
                 )
-                return result
-
-            except Exception as e:
-                logger.warning(
-                    f"Chunk {chunk_index} failed with primary model: {e}",
-                    chunk_index=chunk_index,
-                    error_type=type(e).__name__,
-                    exc_info=True
-                )
-
-                # Retry with fallback model
-                if self.fallback_model and self.fallback_model != self.model:
-                    logger.info(
-                        f"Retrying chunk {chunk_index} with fallback model: {self.fallback_model}",
-                        chunk_index=chunk_index,
-                        fallback_model=self.fallback_model
+                try:
+                    result = await self._request_with_retry(
+                        chunk, context, self.fallback_model, 2, chunk_index
                     )
-
-                    try:
-                        @retry_async(RetryConfig(max_attempts=2, base_delay=1.0))
-                        async def fallback_with_retry():
-                            return await self._process_chunk_async(chunk, context, self.fallback_model)
-
-                        result = await fallback_with_retry()
-                        logger.info(
-                            f"Chunk {chunk_index} succeeded with fallback model",
-                            chunk_index=chunk_index
-                        )
-                        return result
-
-                    except Exception as e2:
-                        logger.error(
-                            f"Chunk {chunk_index} failed with fallback model: {e2}",
-                            chunk_index=chunk_index,
-                            error_type=type(e2).__name__,
-                            exc_info=True
-                        )
-
-                # CLAUDE_FALLBACK: Signal Claude Code to take over manual correction
-                print("[CLAUDE_FALLBACK] GLM API unavailable. Claude Code should analyze this text for ASR errors:")
-                print("---")
-                print(chunk[:2000] if len(chunk) > 2000 else chunk)
-                print("---")
-                print("After fixing, MUST save corrections: --add \"错误词\" \"正确词\" --domain general")
-
-                logger.warning(
-                    f"Using original text for chunk {chunk_index} after all retries failed",
-                    chunk_index=chunk_index
+                except Exception as fallback_error:
+                    logger.error(
+                        "Chunk failed with fallback model",
+                        extra={"chunk_index": chunk_index, "model": self.fallback_model,
+                               "error_type": type(fallback_error).__name__}
+                    )
+                    raise RuntimeError("Primary and fallback models failed") from fallback_error
+                logger.info(
+                    "Chunk succeeded with fallback model",
+                    extra={"chunk_index": chunk_index, "model": self.fallback_model}
                 )
-                return chunk
+                return result, self.fallback_model
 
     def _split_into_chunks(self, text: str) -> List[str]:
         """
@@ -448,7 +450,57 @@ class AIProcessorAsync:
         response = await client.post(url, headers=headers, json=data)
         response.raise_for_status()
         result = response.json()
-        return result["content"][0]["text"]
+        return self._validated_response_text(result, chunk)
+
+    @staticmethod
+    def _validated_response_text(result: object, chunk: str) -> str:
+        """Accept a completed text message, never a partial/error response.
+
+        This request configures neither tools nor stop sequences: only end_turn
+        confirms normal completion. Error messages deliberately omit payloads.
+        This validates the response contract, not the model's correction accuracy.
+        """
+        if not isinstance(result, dict):
+            raise ValueError("Model response must be a message object")
+        if (result.get("type", "message") != "message"
+                or result.get("role", "assistant") != "assistant"
+                or result.get("error") is not None
+                or result.get("status", "completed") != "completed"
+                or result.get("incomplete_details") is not None
+                or result.get("incomplete", False) is not False):
+            raise ValueError("Model response reports an error or incomplete message")
+        if result.get("stop_reason") != "end_turn":
+            raise ValueError("Model response did not finish normally")
+
+        content = result.get("content")
+        if not isinstance(content, list) or not content:
+            raise ValueError("Model response has no content blocks")
+        texts = []
+        for block in content:
+            if not isinstance(block, dict):
+                raise ValueError("Model response contains an invalid content block")
+            block_type = block.get("type")
+            if block.get("error") is not None:
+                raise ValueError("Model response contains a content error")
+            if block_type == "text":
+                if not isinstance(block.get("text"), str):
+                    raise ValueError("Model response contains invalid text")
+                texts.append(block["text"])
+            elif block_type in ("thinking", "redacted_thinking"):
+                # Reasoning blocks are legal, but are not corrected transcript.
+                field = "thinking" if block_type == "thinking" else "data"
+                if not isinstance(block.get(field), str):
+                    raise ValueError("Model response contains invalid reasoning")
+            else:
+                # Includes error/refusal/tool blocks and unrecognized formats.
+                raise ValueError("Model response contains unsupported content")
+
+        if not texts:
+            raise ValueError("Model response has no text blocks")
+        corrected_text = "".join(texts)
+        if chunk and not corrected_text.strip():
+            raise ValueError("Model returned empty text for a nonempty transcript")
+        return corrected_text
 
     def _build_prompt(self, chunk: str, context: str) -> str:
         """Build correction prompt for GLM"""

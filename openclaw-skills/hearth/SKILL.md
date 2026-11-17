@@ -2,14 +2,14 @@
 name: hearth
 description: 'Generating and auditing personal dev environment configs (zsh/tmux/neovim/ghostty) and automating the macOS desktop via AppleScript/JXA (Finder, Mail, Safari). Use for dotfiles or Apple Events.'
 zh_description: "用于生成和审计 zsh/tmux/neovim/ghostty 等个人开发环境配置，并通过 AppleScript/JXA 自动化 macOS 应用。"
-version: "1.0.6"
+version: "1.0.7"
 author: "seaworld008"
 source: "github:simota/agent-skills"
 source_url: "https://github.com/simota/agent-skills/tree/6502f44cfcd8f456951a7bfdce14d0ed76d724ef/.archive/hearth"
 license: MIT
 tags: '["hearth", "productivity"]'
 created_at: "2026-07-27"
-updated_at: "2026-11-04"
+updated_at: "2026-11-17"
 quality: 5
 complexity: "advanced"
 ---
@@ -172,9 +172,11 @@ Agent role boundaries -> `_common/BOUNDARIES.md`
 | `bash` | `bash -n ~/.bashrc` | `time bash -i -c exit` |
 | `fish` | `fish -n ~/.config/fish/config.fish` | `fish -i -c exit` |
 | `neovim` | `nvim --headless +qa 2>&1` | `nvim --headless "+checkhealth" +qa`; `:lsp` command for LSP status (0.12+) |
-| `tmux` | `tmux source-file ~/.config/tmux/tmux.conf` | `tmux new-session -d -s test && tmux kill-session -t test` |
+| `tmux` | Audit the config text without sourcing into the user’s tmux server | Only for authorized runtime checks: use a separate task-owned server/socket and copied config; source the copy there, then stop only that server |
 | `starship` | `starship config` | `starship prompt` |
 | `ghostty` | `ghostty +show-config` for config validation | Visual confirmation of font, theme, keybinding, key tables, scrollbars, and click-events behavior |
+
+For read-only `audit`, do not apply configuration to a running tmux server. `source-file` changes runtime state and belongs only to authorized apply/functional testing. If a separate server/socket cannot be used within host permissions, report runtime testing as not run.
 
 ### Shell Startup Targets
 

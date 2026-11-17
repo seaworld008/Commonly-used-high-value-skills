@@ -13,6 +13,8 @@ const PACKAGE = require(path.join(REPO_ROOT, "package.json"));
 const INSTALLER_ID = "common-high-value-skills";
 const MANIFEST_NAME = ".high-value-skills-manifest.json";
 const DEFAULT_TARGET = "agents-project";
+const REPOSITORY_BLOB_URL =
+  "https://github.com/seaworld008/Commonly-used-high-value-skills/blob/main/";
 const BUNDLE_MANIFESTS = {
   "gsd-core": "open-gsd-core-2026-08.bundle.json",
   "gsd-pi": "open-gsd-pi-2026-08.bundle.json",
@@ -439,12 +441,14 @@ function listBundles() {
 function resolveInstallPlan(args, target) {
   if (target === "custom") {
     if (!args.destDir) throw new Error("--target custom requires --dir <path>");
+    const availableSkills = discoverCategorizedSkills(args.sourceRoot);
     return {
       target,
       label: "custom skills directory",
       destRoot: args.destDir,
       sourceRoot: args.sourceRoot,
-      skills: filterSkills(discoverCategorizedSkills(args.sourceRoot), args),
+      availableSkills,
+      skills: filterSkills(availableSkills, args),
     };
   }
   const config = TARGETS[target];
@@ -457,17 +461,122 @@ function resolveInstallPlan(args, target) {
   const hasOpenClawExport =
     config.source === "openclaw" && fs.existsSync(args.openclawRoot);
   const sourceRoot = hasOpenClawExport ? args.openclawRoot : args.sourceRoot;
+  const availableSkills = hasOpenClawExport
+    ? discoverFlatSkills(sourceRoot)
+    : discoverCategorizedSkills(sourceRoot);
   return {
     target,
     label: config.label,
     destRoot: args.destDir || config.dest(),
     sourceRoot,
-    skills: filterSkills(
-      hasOpenClawExport
-        ? discoverFlatSkills(sourceRoot)
-        : discoverCategorizedSkills(sourceRoot),
-      args
-    ),
+    availableSkills: hasOpenClawExport ? null : availableSkills,
+    skills: filterSkills(availableSkills, args),
+  };
+}
+
+// Match destinations only; labels, wrappers, optional titles and code examples
+// stay byte-for-byte intact. Keep this grammar aligned with markdown_destinations
+// in scripts/check_skill_references.py without requiring a Python runtime.
+function* markdownDestinations(text) {
+  let fence = null;
+  let offset = 0;
+  for (const line of text.split(/(?<=\n)/)) {
+    const marker = /^\s*(`{3,}|~{3,})(.*)$/.exec(line.replace(/[\r\n]+$/, ""));
+    if (marker) {
+      const [, value, tail] = marker;
+      if (!fence) fence = value;
+      else if (value[0] === fence[0] && value.length >= fence.length && !tail.trim()) fence = null;
+    } else if (!fence) {
+      const prose = line.replace(/(`+)(?!`).*?(?<!`)\1(?!`)/g, (match) => " ".repeat(match.length));
+      const starts = [...prose.matchAll(/!?\[(?:\\.|[^\]\\\n])*\]\(\s*/g)]
+        .map((match) => [match.index + match[0].length, false]);
+      const definition = /^\s{0,3}\[(?:\\.|[^\]\\\n])+\]:\s*/.exec(prose);
+      if (definition) starts.push([definition[0].length, true]);
+      for (let [start, isDefinition] of starts.sort((a, b) => a[0] - b[0])) {
+        let end = start;
+        if (prose[start] === "<") {
+          start += 1;
+          end = prose.indexOf(">", start);
+          if (end < 0) continue;
+        } else {
+          let depth = 0;
+          while (end < prose.length) {
+            const char = prose[end];
+            if (char === "\\" && end + 1 < prose.length) { end += 2; continue; }
+            if (/\s/.test(char)) break;
+            if (char === "(") depth += 1;
+            else if (char === ")") {
+              if (!depth) break;
+              depth -= 1;
+            }
+            end += 1;
+          }
+          if (depth) continue;
+        }
+        const tail = prose.slice(end + (prose[end] === ">" ? 1 : 0)).trim();
+        if (end > start && (isDefinition || /^(?:["'].*["']\s*|\(.*\)\s*)?\).*$/.test(tail))) {
+          yield { start: offset + start, end: offset + end, target: line.slice(start, end) };
+        }
+      }
+    }
+    offset += line.length;
+  }
+}
+
+function containsPath(parent, child) {
+  const relative = path.relative(parent, child);
+  return relative === "" ||
+    (relative !== ".." && !relative.startsWith(`..${path.sep}`) && !path.isAbsolute(relative));
+}
+
+function quoteResourcePath(value) {
+  return value.split(path.sep).join("/").split("/")
+    .map((part) => encodeURIComponent(part).replace(/[!'*]/g,
+      (char) => `%${char.charCodeAt(0).toString(16).toUpperCase()}`)).join("/");
+}
+
+function relocateResourceLinks(text, source, destination, context) {
+  const replacements = [];
+  for (const { start, end, target } of markdownDestinations(text)) {
+    if ((target.includes("{{") && target.includes("}}")) ||
+        /^(?:[a-z][a-z0-9+.-]*:|\/\/)/i.test(target)) continue;
+    const split = target.search(/[?#]/);
+    const resource = split < 0 ? target : target.slice(0, split);
+    const suffix = split < 0 ? "" : target.slice(split);
+    if (!resource || path.isAbsolute(resource)) continue;
+    let local;
+    try {
+      local = decodeURIComponent(resource.replace(/\\([!"#$%&'()*+,\-./:;<=>?@[\]^_`{|}~\\])/g, "$1"));
+    } catch { continue; } // Invalid escapes are left visible for reference checks.
+    const resolved = canonicalPath(path.resolve(path.dirname(source), local));
+    const owner = context.roots.find((skill) => containsPath(skill.root, resolved));
+    let relocated;
+    if (owner) {
+      const mapped = path.join(context.outputRoot, owner.name, path.relative(owner.root, resolved));
+      if (path.resolve(path.dirname(destination), local) === mapped) continue;
+      relocated = quoteResourcePath(path.relative(path.dirname(destination), mapped)) + suffix;
+    } else if (containsPath(context.repositoryRoot, resolved)) {
+      const relative = path.relative(context.repositoryRoot, resolved);
+      // npm omits most repository docs. Recognize that repository namespace even
+      // when the requested document is absent from the installed package.
+      if (!fs.existsSync(resolved) && relative.split(path.sep)[0] !== "docs") continue;
+      relocated = REPOSITORY_BLOB_URL + quoteResourcePath(relative) + suffix;
+    } else continue;
+    replacements.push({ start, end, relocated });
+  }
+  for (const { start, end, relocated } of replacements.reverse()) {
+    text = text.slice(0, start) + relocated + text.slice(end);
+  }
+  return text;
+}
+
+function resourceTransform(plan, skill, context) {
+  return (relative, bytes) => {
+    if (!/\.(md|markdown)$/i.test(relative)) return bytes;
+    const text = bytes.toString("utf8");
+    const relocated = relocateResourceLinks(text, path.join(skill.sourceDir, relative),
+      path.join(plan.destRoot, skill.name, relative), context);
+    return relocated === text ? bytes : Buffer.from(relocated, "utf8");
   };
 }
 
@@ -504,10 +613,12 @@ function lstatExists(file) {
   }
 }
 
-function inventorySkill(root, owner) {
+function inventorySkill(root, owner, transform = null) {
   const files = relativeFiles(root).map(({ absolute, relative, stat }) => ({
     path: relative,
-    sha256: sha256File(absolute),
+    sha256: transform
+      ? crypto.createHash("sha256").update(transform(relative, fs.readFileSync(absolute))).digest("hex")
+      : sha256File(absolute),
     mode: (stat.mode & 0o777).toString(8).padStart(3, "0"),
     owner,
   }));
@@ -617,6 +728,12 @@ function prepareInstallPlans(plans) {
   return plans.map((plan) => {
     const manifest = readInstallManifest(plan.destRoot);
     const expected = new Map();
+    const transforms = new Map();
+    const context = plan.availableSkills ? {
+      roots: plan.availableSkills.map((skill) => ({ name: skill.name, root: canonicalPath(skill.sourceDir) })),
+      repositoryRoot: canonicalPath(path.dirname(plan.sourceRoot)),
+      outputRoot: plan.destRoot,
+    } : null;
     for (const skill of plan.skills) {
       if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(skill.name)) {
         throw new Error(`Unsafe skill name: ${skill.name}`);
@@ -625,17 +742,19 @@ function prepareInstallPlans(plans) {
       if (!fs.lstatSync(skill.sourceDir).isDirectory()) {
         throw new Error(`Skill source must be a real directory: ${skill.sourceDir}`);
       }
-      const inventory = inventorySkill(skill.sourceDir, skill.name);
+      const transform = context ? resourceTransform(plan, skill, context) : null;
+      transforms.set(skill.name, transform);
+      const inventory = inventorySkill(skill.sourceDir, skill.name, transform);
       expected.set(skill.name, { ...inventory, owner: skill.name });
     }
     const danglingDestination = lstatExists(plan.destRoot) &&
       fs.lstatSync(plan.destRoot).isSymbolicLink() && !fs.existsSync(plan.destRoot)
       ? fs.readlinkSync(plan.destRoot) : null;
-    return { ...plan, manifest, expected, danglingDestination };
+    return { ...plan, manifest, expected, transforms, danglingDestination };
   });
 }
 
-function copySkill(sourceDir, destDir, expected, owned, archive) {
+function copySkill(sourceDir, destDir, expected, owned, archive, transform) {
   const stage = fs.mkdtempSync(path.join(path.dirname(destDir), ".high-value-skills-stage-"));
   const next = path.join(stage, "next");
   let previous = null;
@@ -646,6 +765,14 @@ function copySkill(sourceDir, destDir, expected, owned, archive) {
       recursive: true,
       filter: (source) => !source.split(path.sep).includes("__pycache__"),
     });
+    if (transform) {
+      for (const { absolute, relative } of relativeFiles(next)) {
+        if (!/\.(md|markdown)$/i.test(relative)) continue;
+        const original = fs.readFileSync(absolute);
+        const relocated = transform(relative, original);
+        if (!original.equals(relocated)) fs.writeFileSync(absolute, relocated);
+      }
+    }
     if (!inventoryMatches(next, expected)) {
       throw new Error(`Staged skill failed inventory verification: ${sourceDir}`);
     }
@@ -790,7 +917,7 @@ function installPlan(plan, args, timestamp) {
       if (args.dryRun) {
         if (lstatExists(destDir) && (!owned || !inventoryMatches(destDir, owned))) archived += 1;
       } else if (copySkill(skill.sourceDir, destDir, entry, owned,
-        path.join(backupRoot(plan.destRoot, timestamp), skill.name))) {
+        path.join(backupRoot(plan.destRoot, timestamp), skill.name), plan.transforms.get(skill.name))) {
         archived += 1;
       }
     }

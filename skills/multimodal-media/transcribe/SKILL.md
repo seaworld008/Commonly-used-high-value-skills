@@ -2,13 +2,14 @@
 name: transcribe
 description: 'Transcribe audio files to text with optional diarization and known-speaker hints. Use when a user asks to transcribe speech from audio/video, extract text from recordings, or label speakers in interviews or meetings.'
 zh_description: "用于将音频或视频中的语音转写为文本，并可结合说话人分离和已知说话人提示。"
-version: "1.0.0"
-author: "seaworld008"
-source: "in-house"
-source_url: ""
+version: "1.0.1"
+author: "OpenAI contributors; local curators"
+source: "https://github.com/openai/skills"
+source_url: "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/transcribe/SKILL.md"
+license: "Apache-2.0"
 tags: '["transcribe"]'
 created_at: "2026-03-04"
-updated_at: "2026-06-29"
+updated_at: "2026-11-17"
 quality: 3
 complexity: "intermediate"
 ---
@@ -106,6 +107,6 @@ Choose the output format based on the task:
 
 - `text`: fastest path for simple transcripts.
 - `diarized_json`: structured speaker turns for meetings and interviews.
-- `markdown`: readable transcript with headings, timestamps, and notes.
+- `markdown` (post-processing only): first request `text` or `diarized_json`, then format the returned transcript without inventing timestamps or speaker labels. Do not pass `markdown` to `--response-format`.
 
 Always state the model used, whether diarization was enabled, and any audio-quality limitations that affect confidence.
