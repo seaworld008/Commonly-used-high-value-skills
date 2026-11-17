@@ -144,7 +144,7 @@ def test_adam7_png_has_complete_pass_rows(image_cli, route):
     raw = png_with(ihdr=header, raster=zlib.compress(b"\x00" * 23))
     with image.open(io.BytesIO(raw)) as decoded:
         decoded.load()
-        assert decoded.size == (2, 3) and set(decoded.getdata()) == {(0, 0, 0)}
+        assert decoded.size == (2, 3) and set(decoded.get_flattened_data() if hasattr(decoded, "get_flattened_data") else decoded.getdata()) == {(0, 0, 0)}
     result, files, _ = image_cli(raw, route=route)
     assert result.returncode == 0, result.stdout + result.stderr
     assert len(files) == 1 and files[0].read_bytes() == raw
