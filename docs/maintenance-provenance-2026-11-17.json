@@ -21357,7 +21357,7 @@
       "Register artifact-runtime.mjs source owner and digest",
       "Merge installed NOTICE with exact-version full publisher terms"
     ],
-    "validation": "Actual workflow preflight and real immutable source fixture tests added; full pipeline pending.",
+    "validation": "All three findings independently closed by actual preflight/source/Node fixtures; root full suite passed 3659 tests and 397 subtests.",
     "remaining_findings": 0
   },
   "current_asset_count": 934,
@@ -21459,7 +21459,8 @@
       "failed": 0
     },
     "pipeline": "Ordered gates plus complete validate_repository.py --refresh; final full suite passed after the outdated source-URL test assertion was corrected.",
-    "post_commit_generation_idempotence": "pending",
-    "remote_delivery": "pending"
+    "post_commit_generation_idempotence": "passed",
+    "remote_delivery": "pending",
+    "validated_source_commit": "18fd52b3b1b7b08560632e7564a32443c5e21a54"
   }
 }

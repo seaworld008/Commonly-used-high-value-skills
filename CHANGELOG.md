@@ -8,12 +8,24 @@ All notable changes to this repository are documented here.
 <!-- AUTO-CHANGELOG:START -->
 ### 自动更新 / Automated updates
 
-变更范围 / Revision range: `v6.0.0..HEAD`.
+变更范围 / Revision range: `v6.0.0..HEAD^`.
+
+#### [2026-11-18]
+
+##### Fixed
+- reconstruct verified skill sources and close independent audit findings
+- close integrated regression gaps and hold unverified source assets
+- reject distribution bans hidden by in-house source labels
+- preserve resource links in flattened client installations
+- close independent review findings and bundle verified license evidence
 
 #### [2026-11-17]
 
 ##### Changed
 - harden portfolio contracts and refresh reviewed sources
+
+##### Fixed
+- harden completion evidence and installed resource validation
 
 #### [2026-11-04]
 
