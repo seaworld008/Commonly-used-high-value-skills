@@ -97,3 +97,15 @@ class LicenseLineageTests(BundledLicenseFixture):
         self.assertIn("retired metadata only", self.audit(0)["note"])
         upstream["artifacts"] = [{"source": "LICENSE", "target": "licenses/copy.txt"}]
         self.assertIn("missing license_checkpoint", self.audit(1)["note"])
+
+    def test_inhouse_label_cannot_override_bundled_redistribution_ban(self):
+        self.entry["kind"] = "in_house"
+        self.entry["origins"] = [{"repo": "local-repo/in-house", "license": "MIT", "artifacts": []}]
+        notice = self.root / SKILL / "LICENSE.txt"
+        notice.write_text("Copyright Foreign Publisher.\nUsers may not:\n- Distribute, sublicense, or transfer these materials to any third party.\n")
+        row = self.audit(1)
+        self.assertEqual("UNKNOWN", row["status"])
+        self.assertIn("prohibit redistribution", row["note"])
+        self.assertEqual(str(SKILL / "LICENSE.txt"), row["distribution_restrictions"][0]["path"])
+        notice.write_bytes(self.notice)
+        self.assertEqual("EXEMPT", self.audit(0)["status"])

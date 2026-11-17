@@ -6282,5 +6282,39 @@
       "preserved_asset_files": 7,
       "removed_unverified_project_sidecars": 5
     }
+  },
+  "independent_integrated_review": {
+    "commit": "65034229f013c7034b87e5a9799742e5d8dd56a2",
+    "security": {
+      "P1": 0,
+      "P2": 5
+    },
+    "distribution": {
+      "P1": 1,
+      "P2": 5
+    },
+    "contracts": {
+      "P1": 3,
+      "P2": 16
+    },
+    "status": "corrective work in progress; this candidate is not cleared for merge"
+  },
+  "runtime_evidence": {
+    "chrome": {
+      "default_sandbox": true,
+      "time_points": 15,
+      "frames": 3,
+      "replay_visible_pixel_differences": 0,
+      "implicit_pages_cleaned": true
+    },
+    "libreoffice": {
+      "stable_version": "26.8.3.1",
+      "sum_cached_value": 3,
+      "formula_error_reported": "#DIV/0!",
+      "private_profile_cleanup": true,
+      "user_macro_sentinel_unchanged": true,
+      "bundled_alpha": "no success receipt; correctly reported unverified, not runtime-accepted"
+    },
+    "image_validation": "CLI validates structure; Pillow decodes positive fixture images. No live image model request."
   }
 }

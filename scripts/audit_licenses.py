@@ -465,6 +465,30 @@ def _skill_entries(repo_root: Path) -> dict[str, Path]:
     return entries
 
 
+def _distribution_restrictions(skill_dir: Path, repo_root: Path) -> list[dict[str, str]]:
+    """An in-house label cannot override explicit bundled redistribution bans."""
+    restrictions = []
+    for directory, dirs, names in os.walk(skill_dir, followlinks=False):
+        dirs[:] = [name for name in dirs if name not in {"__pycache__", ".git", "node_modules"}
+                   and not (Path(directory) / name).is_symlink()]
+        for name in sorted(names):
+            if not re.fullmatch(r"(?:licen[cs]e|copying|notice|copyright)(?:[.-].+)?", name, re.I):
+                continue
+            path = Path(directory) / name
+            if path.is_symlink() or not path.is_file():
+                continue
+            raw = path.read_bytes()
+            text = " ".join(raw.decode("utf-8-sig", errors="replace").casefold().split())
+            prohibited = (
+                "redistribution is prohibited" in text
+                or re.search(r"users may not:.{0,2500}distribute, sublicense, or transfer", text)
+            )
+            if prohibited:
+                restrictions.append({"path": path.relative_to(repo_root).as_posix(),
+                                     "sha256": hashlib.sha256(raw).hexdigest()})
+    return restrictions
+
+
 def audit(
     repo_root: Path = REPO_ROOT,
     mapping_paths: list[Path] | None = None,
@@ -507,6 +531,16 @@ def audit(
             continue
         fm = parse_frontmatter(skill_md.read_text(encoding="utf-8", errors="replace"))
         rows.append(_frontmatter_row(skill_md=skill_md, repo_root=repo_root, fm=fm))
+    for row in rows:
+        skill_md = skills.get(row.get("path"))
+        if skill_md is None:
+            continue
+        restrictions = _distribution_restrictions(skill_md.parent, repo_root)
+        if restrictions:
+            row["status"] = "UNKNOWN"
+            row["distribution_restrictions"] = restrictions
+            reason = "Bundled third-party terms prohibit redistribution; source/in-house labels do not grant permission: "
+            row["note"] = "; ".join(filter(None, [row["note"], reason + ", ".join(r["path"] for r in restrictions)]))
     return rows
 
 
