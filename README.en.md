@@ -68,7 +68,7 @@ npx github:seaworld008/Commonly-used-high-value-skills install --target codex --
 npx github:seaworld008/Commonly-used-high-value-skills install --target custom --dir ./vendor/agent-skills
 
 # Pin a release so your team gets reproducible installs
-npx github:seaworld008/Commonly-used-high-value-skills#v6.0.0 install --target codex
+npx github:seaworld008/Commonly-used-high-value-skills#v6.1.0 install --target codex
 
 # Browse available skills, categories, and install targets
 npx github:seaworld008/Commonly-used-high-value-skills list-skills
@@ -298,7 +298,7 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`database-schema-designer`](./skills/developer-engineering/database-schema-designer/): Design relational database schemas from requirements and generate migrations, TypeScript/Python types, seed data, RLS policies, and indexes. Handles multi-tenancy, soft deletes, audit trails, versioning, and polymorphic associations.
 - [`dependency-auditor`](./skills/developer-engineering/dependency-auditor/): Audit dependency inventories, verify vulnerability and license evidence, and plan tested upgrades for an existing project.
 - [`docker-expert`](./skills/developer-engineering/docker-expert/): Use when containerizing an application with Docker, optimizing multi-stage builds and image size, designing Docker Compose services, troubleshooting container networking or volumes, or adding secure image build and CI/CD practices.
-- [`frontend-design`](./skills/developer-engineering/frontend-design/): Design and implement polished web components, pages, and applications with a coherent visual direction and usable interaction states.
+- [`frontend-design`](./skills/developer-engineering/frontend-design/): Design and implement web pages, components, and application interfaces with a product-specific visual direction, responsive layouts, and usable interaction states.
 - [`gateway`](./skills/developer-engineering/gateway/): Use when designing or reviewing REST or GraphQL APIs: OpenAPI specs, versioning and deprecation, breaking-change detection, RFC 9457 error bodies, and API security.
 - [`git-worktree-manager`](./skills/developer-engineering/git-worktree-manager/): Create, inspect, and clean up Git worktrees for parallel development, with explicit ownership, environment handling, and port allocation.
 - [`github-contributor`](./skills/developer-engineering/github-contributor/): Find suitable open-source contribution opportunities and prepare focused GitHub pull requests with project-specific validation and review context.
@@ -397,8 +397,8 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`arena`](./skills/ai-agent-platform/arena/): Specialist orchestrating codex exec / Antigravity CLI through dual paradigms — COMPETE (multi-variant comparison, select best) and COLLABORATE (decompose tasks across engines, integrate). Supports Solo/Team/Quick execution modes.
 - [`chatgpt-apps`](./skills/ai-agent-platform/chatgpt-apps/): Build or debug ChatGPT Apps SDK projects with MCP tools and widget UIs, using current official guidance for resources, bridges, metadata, and CSP.
 - [`develop-web-game`](./skills/ai-agent-platform/develop-web-game/): Build or iterate on HTML/JS web games with Playwright input bursts, gameplay screenshots, state inspection, and console checks.
-- [`figma`](./skills/ai-agent-platform/figma/): Fetch Figma design context, variables, screenshots, and assets through MCP when working from Figma URLs or node IDs, or diagnosing its integration.
-- [`figma-implement-design`](./skills/ai-agent-platform/figma-implement-design/): Implement UI from Figma URLs or node IDs with visual fidelity, project conventions, and design assets. Requires an available Figma MCP connection.
+- [`figma`](./skills/ai-agent-platform/figma/): Read Figma design nodes, variables, visual references and assets; locate URL targets and diagnose MCP access using the current host tool contract.
+- [`figma-implement-design`](./skills/ai-agent-platform/figma-implement-design/): Implement a specific Figma frame in an existing project, reuse its components and tokens, and verify responsive states, keyboard access and measured visual differences.
 - [`hermes-agent`](./skills/ai-agent-platform/hermes-agent/): Use, configure, theme, extend, and orchestrate Hermes Agent.
 - [`hermes-open-gsd-workflow`](./skills/ai-agent-platform/hermes-open-gsd-workflow/): Use when a development task needs ownership and routing across Hermes Agent, Graphify, Open GSD Core, or an explicitly requested GSD Pi runtime.
 - [`mcporter`](./skills/ai-agent-platform/mcporter/): Use when a user explicitly needs terminal-based MCP discovery, schema inspection, authentication diagnostics, or scripted tool calls through mcporter; verify server trust, argument schemas, and mutation authority before execution.

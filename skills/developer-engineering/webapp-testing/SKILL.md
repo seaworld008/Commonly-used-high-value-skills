@@ -3,10 +3,10 @@ name: webapp-testing
 description: 'Use when testing local web applications with Playwright, verifying frontend behavior, debugging UI issues, capturing screenshots, inspecting browser logs, or validating user flows.'
 zh_description: "用于使用 Playwright 测试本地 Web 应用、验证前端行为、截图和查看浏览器日志。"
 version: "1.0.1"
-author: "seaworld008"
-source: "in-house"
-source_url: ""
-license: Complete terms in LICENSE.txt
+author: "Anthropic contributors; local curators"
+source: "https://github.com/anthropics/skills"
+source_url: "https://github.com/anthropics/skills/blob/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/webapp-testing/SKILL.md"
+license: "Apache-2.0"
 tags: '["development", "testing", "webapp"]'
 created_at: "2026-03-04"
 updated_at: "2026-11-17"

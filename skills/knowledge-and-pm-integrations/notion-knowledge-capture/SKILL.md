@@ -3,9 +3,10 @@ name: notion-knowledge-capture
 description: 'Use when turning a conversation, decision, or rough notes into a structured Notion page, or updating an existing wiki page instead of creating a duplicate.'
 zh_description: "需要把对话、决策或笔记整理成结构化 Notion 页面，或更新已有知识页时使用。"
 version: "1.0.2"
-author: "seaworld008"
-source: "in-house"
-source_url: ""
+author: "Notion Labs, Inc.; local curators"
+source: "https://github.com/openai/skills"
+source_url: "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/notion-knowledge-capture/SKILL.md"
+license: "MIT"
 tags: '["capture", "knowledge", "notion"]'
 created_at: "2026-03-04"
 updated_at: "2026-11-17"

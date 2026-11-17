@@ -1,34 +1,99 @@
-# Figma MCP tools and prompt patterns
+# 工具选择与证据组织
 
-Quick reference for the Figma MCP toolset, when to use each tool, and prompt examples to steer output toward your stack.
+本参考提供原创的读取方法和提示示例，工具短名仅表达 API 能力事实。
+主入口见 [设计读取指南](../SKILL.md)，连接问题见 [连接参考](figma-mcp-config.md)。
 
-## Core tools
-- `get_design_context` (Figma Design, Figma Make): Primary tool. Returns structured design data and default React + Tailwind code. Selection-based prompting works on desktop; the remote server uses a frame/layer link to extract the node ID.
-- `get_variable_defs` (Figma Design): Lists variables/styles (colors, spacing, typography) used in the selection. Useful to align with tokens.
-- `get_metadata` (Figma Design): Sparse XML outline of layer IDs/names/types/positions/sizes. Use before re-calling `get_design_context` on large nodes to avoid truncation.
-- `get_screenshot` (Figma Design, FigJam): Screenshot of the selection for visual fidelity checks.
-- `get_figjam` (FigJam): XML + screenshots for FigJam diagrams (architecture, flows).
-- `create_design_system_rules` (no file context): Generates a rule file with design-to-code guidance for your stack. Save it where the agent can read it.
-- `get_code_connect_map` (Figma Design): Returns mapping of Figma node IDs to code components (`codeConnectSrc`, `codeConnectName`). Use to reuse existing components.
-- `add_code_connect_map` (Figma Design): Adds/updates a mapping between a Figma node and a code component to improve reuse.
-- `get_strategy_for_mapping` (alpha, local only): Figma-prompted tool to decide mapping strategy for connecting a node to a code component.
-- `send_get_strategy_response` (alpha, local only): Sends the response after `get_strategy_for_mapping`.
-- `whoami` (remote only): Returns the authenticated Figma user identity (email, plans, seat types).
+## 用问题选择最小能力
 
-## Prompt patterns (design context)
-- Change framework: “generate my Figma selection in Vue” or “in plain HTML + CSS” or “for iOS”.
-- Use my components: “generate my Figma selection using components from `src/components/ui`”.
-- Combine: “generate my Figma selection using components from `src/ui` and style with Tailwind”.
-- Note: On the remote server, selection-based prompting requires a frame/layer link; the server extracts the node ID from the URL.
+| 设计问题 | 可用能力短名 | 应保留的证据 | 不能推断的结论 |
+| --- | --- | --- | --- |
+| 目标里有哪些子 frame | `get_metadata` | 编号、父子层次、尺寸 | 不代表视觉已验收 |
+| 当前节点如何表达布局 | `get_design_context` | 上下文、参考代码、截图 | 不代表参考代码适合项目 |
+| 颜色/间距引用哪个变量 | `get_variable_defs` | 名称、模式、值、别名 | 不代表项目已采用同名 token |
+| 这个节点实际长什么样 | `get_screenshot` | 节点、尺寸、时间、图像 | 不代表所有交互状态已覆盖 |
+| 设计是否已有代码组件映射 | `get_code_connect_map` | 节点与组件关联 | 不代表组件 API 仍然匹配 |
+| 需要哪些素材源文件 | `download_assets`（若暴露） | 原图/渲染区别、格式、清单 | 不代表可以批量下载全文件 |
+| 白板有哪些讨论对象 | `get_figjam`（若暴露） | 白板对象与上下文 | 不代表可用于 Design 节点 |
+| 宿主要求任务会话 | `create_session`（若要求） | 文件键、任务说明、会话引用 | 不代表所有宿主必须先创建 |
 
-## Prompt patterns (variables/styles)
-- “get the variables used in my Figma selection”
-- “what color and spacing variables are used in my Figma selection?”
-- “list the variable names and their values used in my Figma selection”
+调用前读取实际宿主的完整工具名、必填字段、类型、返回资源读取方法。
+如果工具描述有厂商 guidance 前置条件，先通过实际暴露入口加载。
+不要把 capability 短名拼成猜测的 MCP 工具名，也不要发出未经 schema 核对的参数。
+同名工具也可能接受 URL、节点字段或会话字段的不同组合。
+文件键、节点编号和会话引用只有真实 schema 要求时才作为对应参数传入。
+工具未提供某项能力时，写明缺口，可用现有材料继续分析其余问题。
+读取映射、保存映射、修改画布是三个独立契约；本读取流程不触发后两者。
 
-## Prompt patterns (code connect)
-- “show the code connect map for this selection”
-- “map this node to `src/components/ui/Button.tsx` with name `Button`”
+## 从 URL 到局部证据
 
-## Best-practice flow reminder
-Use `get_design_context` → (optionally `get_metadata` for large nodes) → `get_screenshot`, and keep project rules from `SKILL.md` in mind when applying the generated output.
+1. 核对 HTTPS、精确主机 `figma.com`/`www.figma.com` 与 `/design/` 路径，取出文件键及 `node-id`。
+2. 常见 `40-7` 编码转换为 `40:7`，但不转换标题内的任意连字符。
+3. 分支目标按宿主 schema 核对 branchKey 的用途，不混用主文件与分支节点。
+4. 如目标过大，先取得 metadata，按区域列出待读子树编号。
+5. 读取目标上下文及对应截图，逐个核对是否截断、遗漏或类型不符。
+6. 追加变量和只读组件映射，将结果与节点绑定，避免来自不同 frame 的证据混合。
+7. 仅下载本次问题实际涉及的素材，记录尚未取得的依赖。
+
+每批上限 8 个子树，维护已读取、待读取、失败和不适用四种覆盖状态。
+返回 reference code 的行数不等于节点覆盖率，必须结合层次与截图确认。
+存在截断时逐子树读取；不通过增加猜测参数或反复请求整页来规避预算。
+合并局部证据时保留父容器约束，避免将子节点坐标当页面坐标。
+
+## 原创提示示例
+
+给宿主代理的自然语言示例，均不是 API 调用语法：
+
+> 读取这个具体节点的布局和截图，列出容器 padding、子项 gap、字体与颜色变量。
+> 只回答当前节点；未知属性标注未知，并说明是否存在截断。
+
+> 先枚举目标的直属子 frame，选择包含筛选栏的子树获取上下文。
+> 为每条证据注明节点别名，记录还有哪些区域没有读取。
+
+> 检查这个节点是否已有只读组件映射，列出组件路径和需要到项目核对的 API。
+> 不保存映射，不修改画布，也不假设项目组件与设计版本同步。
+
+> 仅提取当前模式下标题与按钮使用的颜色、字号和间距变量。
+> 同时保留别名引用和解析值，避免把变量名误当成已有项目 token。
+
+## 证据记录格式
+
+以下字段用于工作记录，不能直接复制为工具参数：
+
+```json
+{
+  "target": "frame-A",
+  "coverage": {
+    "context": "complete",
+    "screenshot": "available",
+    "variables": "partial"
+  },
+  "layout": {"direction": "horizontal", "gapCssPx": 16},
+  "variableLinks": [
+    {"property": "foreground", "name": "text.primary", "mode": "light"}
+  ],
+  "unknowns": ["窄屏设计未提供"]
+}
+```
+
+变量缺失与变量工具不存在不同：前者写真实返回，后者写能力缺口。
+截图和 metadata 不一致时先复核节点、模式和读取时刻，不任意选一个覆盖另一份。
+字体缺失导致尺寸变化时保留字体属性和替代情况，不以猜测的行高补齐证据。
+没有图像来源时不要从技能展示图标或品牌图猜测设计资产。
+
+## 素材边界
+
+默认每批 10 个文件、单文件 10 MiB、总量 40 MiB，只覆盖当前目标使用的素材。
+工具未暴露下载能力则保留未取得清单；不伪造成功路径。
+对返回 URL 核对源主机、MIME、大小和跳转目标，禁止任意 URL 递归抓取。
+对宿主资源 URI 使用宿主实际提供的读取工具，不猜测路径映射。
+目标文件保存在任务范围，拒绝绝对输出路径、路径穿越和符号链接逃逸。
+SVG 导入项目前检查脚本、事件属性、外链与嵌入对象。
+签名 URL、资源 URI 和临时路径不写入日志或产品；对外只用素材别名和格式。
+token、cookie、Authorization 和原始错误请求头不进入证据记录。
+
+## 如何结束一次读取
+
+明确写出已经定位的对象、覆盖范围、变量/素材缺口和不能验证的假设。
+如果下一步是实现项目代码，交付证据给实现入口即可，不要求重复读取相同节点。
+连接或厂商 guidance 不可用时，说明最后成功步骤和恢复后应执行的最小调用。
+官方能力说明见 [工具文档](https://developers.figma.com/docs/figma-mcp-server/tools-and-prompts/)。

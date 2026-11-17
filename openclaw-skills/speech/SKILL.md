@@ -3,9 +3,10 @@ name: speech
 description: 'Create text-to-speech narration, voiceovers, or batch audio with OpenAI''s Audio API and the bundled text_to_speech.py CLI.'
 zh_description: "将文本转换为旁白、配音和批量语音文件。"
 version: "1.0.2"
-author: "seaworld008"
-source: "in-house"
-source_url: ""
+author: "OpenAI contributors; local curators"
+source: "https://github.com/openai/skills"
+source_url: "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/speech/SKILL.md"
+license: "Apache-2.0"
 tags: '["speech"]'
 created_at: "2026-03-04"
 updated_at: "2026-11-17"

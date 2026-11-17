@@ -1,132 +1,157 @@
-"""Unpack Office files (DOCX, PPTX, XLSX) for editing.
-
-Extracts the ZIP archive, pretty-prints XML files, and optionally:
-- Merges adjacent runs with identical formatting (DOCX only)
-- Simplifies adjacent tracked changes from same author (DOCX only)
-
-Usage:
-    python unpack.py <office_file> <output_dir> [options]
-
-Examples:
-    python unpack.py document.docx unpacked/
-    python unpack.py presentation.pptx unpacked/
-    python unpack.py document.docx unpacked/ --merge-runs false
-"""
+# Copyright (c) 2026 seaworld008
+# SPDX-License-Identifier: MIT
+"""Unpack DOCX, PPTX and XLSX using private, bounded staging."""
 
 import argparse
-import sys
-import zipfile
+import importlib.util
+import os
 from pathlib import Path
+import shutil
+import stat
+import sys
+import tempfile
+import zipfile
 
-import defusedxml.minidom
-
-from helpers.merge_runs import merge_runs as do_merge_runs
-from helpers.simplify_redlines import simplify_redlines as do_simplify_redlines
-
-SMART_QUOTE_REPLACEMENTS = {
-    "\u201c": "&#x201C;",  
-    "\u201d": "&#x201D;",  
-    "\u2018": "&#x2018;",  
-    "\u2019": "&#x2019;",  
-}
+_spec = importlib.util.spec_from_file_location(
+    "_office_package_io", Path(__file__).with_name("pack.py"))
+_io = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(_io)
 
 
-def unpack(
-    input_file: str,
-    output_directory: str,
-    merge_runs: bool = True,
-    simplify_redlines: bool = True,
-) -> tuple[None, str]:
-    input_path = Path(input_file)
-    output_path = Path(output_directory)
-    suffix = input_path.suffix.lower()
+def _pretty_print_xml(xml_file):
+    # Generic pretty-printers insert whitespace into mixed content.
+    _io._condense_xml(xml_file)
 
-    if not input_path.exists():
-        return None, f"Error: {input_file} does not exist"
 
-    if suffix not in {".docx", ".pptx", ".xlsx"}:
-        return None, f"Error: {input_file} must be a .docx, .pptx, or .xlsx file"
+def _escape_smart_quotes(xml_file):
+    # Unicode quotes are legal XML characters; retain user text verbatim.
+    _io._condense_xml(xml_file)
 
+
+def _members(archive):
+    members = archive.infolist()
+    if len(members) > _io.MAX_FILES:
+        raise ValueError("archive entry count exceeds limit")
+    total = 0
+    for member in members:
+        if member.orig_filename != member.filename:
+            raise ValueError("truncated archive path")
+        _io._part_name(member.filename)
+        mode = member.external_attr >> 16
+        kind = stat.S_IFMT(mode)
+        allowed = (0, stat.S_IFDIR) if member.is_dir() else (0, stat.S_IFREG)
+        if kind not in allowed or member.flag_bits & 1:
+            raise ValueError("special, symlink, or encrypted archive entry")
+        if member.is_dir() and member.file_size:
+            raise ValueError("directory entry has content")
+        total += member.file_size
+        if member.file_size > _io.MAX_FILE_BYTES or total > _io.MAX_TOTAL_BYTES:
+            raise ValueError("archive expanded size exceeds limit")
+        if member.file_size > 1024 * 1024 and (
+            member.file_size / max(member.compress_size, 1) > _io.MAX_RATIO
+        ):
+            raise ValueError("archive compression ratio exceeds limit")
+    _io._check_names((m.filename, m.is_dir()) for m in members)
+    return members
+
+
+def unpack(input_file, output_directory, merge_runs=True, simplify_redlines=True):
+    """Return (success, message); restore existing output on publish failure."""
     try:
-        output_path.mkdir(parents=True, exist_ok=True)
+        source = _io._safe_directory(input_file)
+        output = _io._safe_directory(output_directory)
+        suffix = source.suffix.lower()
+        if suffix not in _io.FAMILIES or not source.is_file():
+            raise ValueError("input must be a .docx, .pptx, or .xlsx file")
+        if source.stat().st_size > _io.MAX_TOTAL_BYTES:
+            raise ValueError("archive file size exceeds limit")
+        if source.is_relative_to(output):
+            raise ValueError("input cannot be inside output directory")
+        if not output.parent.is_dir() or (output.exists() and not output.is_dir()):
+            raise ValueError("output parent must exist; output must be a directory")
+        # Own cleanup explicitly: an unrecovered backup must outlive this call.
+        tmp = Path(tempfile.mkdtemp(prefix="office-unpack-", dir=_io._temp_root())).resolve()
+        preserve_backup = False
+        try:
+            stage = tmp / "parts"
+            stage.mkdir()
+            count = 0
+            with zipfile.ZipFile(source) as archive:
+                for member in _members(archive):
+                    target = stage / member.filename
+                    if member.is_dir():
+                        target.mkdir(parents=True, exist_ok=True)
+                        continue
+                    limit = _io.MAX_XML_BYTES if _io._xml_name(member.filename) else _io.MAX_FILE_BYTES
+                    with archive.open(member) as stream:
+                        data = stream.read(limit + 1)
+                    if len(data) > limit or len(data) != member.file_size:
+                        raise ValueError("archive member size mismatch or size limit")
+                    if _io._xml_name(member.filename):
+                        _io._parse_xml(data).unlink()
+                    target.parent.mkdir(parents=True, exist_ok=True)
+                    target.write_bytes(data)
+                    count += 1
+            _io._check_package(stage, suffix)
+            stats = []
+            if suffix == ".docx":
+                for enabled, name in ((merge_runs, "merge_runs"),
+                                      (simplify_redlines, "simplify_redlines")):
+                    if enabled:
+                        module = _io._load_local(Path(__file__).parent / f"helpers/{name}.py",
+                                                 f"_office_{name}")
+                        changed, message = getattr(module, name)(str(stage))
+                        if message.startswith("Error"):
+                            raise ValueError(message)
+                        stats.append(message)
+            # No destination changes before the same-filesystem check.
+            if stage.stat().st_dev != output.parent.stat().st_dev:
+                raise ValueError("TMPDIR and output must share a filesystem for atomic publication")
+            backup = tmp / "previous-output"
+            existed = output.exists()
+            if existed:
+                os.replace(output, backup)
+                preserve_backup = True
+            try:
+                os.replace(stage, output)
+            except BaseException as publish_error:
+                if existed:
+                    try:
+                        # A different process may have created another output.
+                        # Never replace that directory or follow a new symlink.
+                        if output.exists() or output.is_symlink():
+                            raise FileExistsError(f"output appeared during rollback: {output}")
+                        os.replace(backup, output)
+                    except BaseException as restore_error:
+                        raise RuntimeError(
+                            f"publication failed: {publish_error}; "
+                            f"rollback failed: {restore_error}; "
+                            f"previous output preserved at {backup}"
+                        ) from restore_error
+                    preserve_backup = False
+                raise
+            preserve_backup = False
+        finally:
+            if not preserve_backup:
+                shutil.rmtree(tmp, ignore_errors=True)
+        detail = "; ".join(stats)
+        return True, f"Unpacked {count} parts into {output}" + (f"; {detail}" if detail else "")
+    except Exception as exc:
+        return False, f"Error: {exc}"
 
-        with zipfile.ZipFile(input_path, "r") as zf:
-            zf.extractall(output_path)
 
-        xml_files = list(output_path.rglob("*.xml")) + list(output_path.rglob("*.rels"))
-        for xml_file in xml_files:
-            _pretty_print_xml(xml_file)
-
-        message = f"Unpacked {input_file} ({len(xml_files)} XML files)"
-
-        if suffix == ".docx":
-            if simplify_redlines:
-                simplify_count, _ = do_simplify_redlines(str(output_path))
-                message += f", simplified {simplify_count} tracked changes"
-
-            if merge_runs:
-                merge_count, _ = do_merge_runs(str(output_path))
-                message += f", merged {merge_count} runs"
-
-        for xml_file in xml_files:
-            _escape_smart_quotes(xml_file)
-
-        return None, message
-
-    except zipfile.BadZipFile:
-        return None, f"Error: {input_file} is not a valid Office file"
-    except Exception as e:
-        return None, f"Error unpacking: {e}"
-
-
-def _pretty_print_xml(xml_file: Path) -> None:
-    try:
-        content = xml_file.read_text(encoding="utf-8")
-        dom = defusedxml.minidom.parseString(content)
-        xml_file.write_bytes(dom.toprettyxml(indent="  ", encoding="utf-8"))
-    except Exception:
-        pass  
-
-
-def _escape_smart_quotes(xml_file: Path) -> None:
-    try:
-        content = xml_file.read_text(encoding="utf-8")
-        for char, entity in SMART_QUOTE_REPLACEMENTS.items():
-            content = content.replace(char, entity)
-        xml_file.write_text(content, encoding="utf-8")
-    except Exception:
-        pass
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("input_file")
+    parser.add_argument("output_directory")
+    parser.add_argument("--merge-runs", type=_io._boolean, nargs="?", const=True, default=True)
+    parser.add_argument("--simplify-redlines", type=_io._boolean, nargs="?", const=True, default=True)
+    args = parser.parse_args()
+    success, message = unpack(args.input_file, args.output_directory,
+                              args.merge_runs, args.simplify_redlines)
+    print(message, file=sys.stdout if success else sys.stderr)
+    return 0 if success else 1
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(
-        description="Unpack an Office file (DOCX, PPTX, XLSX) for editing"
-    )
-    parser.add_argument("input_file", help="Office file to unpack")
-    parser.add_argument("output_directory", help="Output directory")
-    parser.add_argument(
-        "--merge-runs",
-        type=lambda x: x.lower() == "true",
-        default=True,
-        metavar="true|false",
-        help="Merge adjacent runs with identical formatting (DOCX only, default: true)",
-    )
-    parser.add_argument(
-        "--simplify-redlines",
-        type=lambda x: x.lower() == "true",
-        default=True,
-        metavar="true|false",
-        help="Merge adjacent tracked changes from same author (DOCX only, default: true)",
-    )
-    args = parser.parse_args()
-
-    _, message = unpack(
-        args.input_file,
-        args.output_directory,
-        merge_runs=args.merge_runs,
-        simplify_redlines=args.simplify_redlines,
-    )
-    print(message)
-
-    if "Error" in message:
-        sys.exit(1)
+    sys.exit(main())

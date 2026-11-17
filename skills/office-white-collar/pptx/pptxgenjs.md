@@ -1,420 +1,104 @@
-# PptxGenJS Tutorial
+# 使用 PptxGenJS 创建可编辑页面
 
-## Setup & Basic Structure
+方法改编自 [Anthropic pptx/SKILL.md](https://github.com/anthropics/skills/blob/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/pptx/SKILL.md)，Apache-2.0；原许可说明：`Complete terms in LICENSE.txt`。
+本地修改：seaworld008，2026-11-18；提供独立示例与本地可用工具路径，不依赖未附带的 JS helper。
+SPDX-License-Identifier: Apache-2.0
 
-```javascript
-const pptxgen = require("pptxgenjs");
+## 建模顺序
 
-let pres = new pptxgen();
-pres.layout = 'LAYOUT_16x9';  // or 'LAYOUT_16x10', 'LAYOUT_4x3', 'LAYOUT_WIDE'
-pres.author = 'Your Name';
-pres.title = 'Presentation Title';
+先设置画布、主题字体、颜色和页面框架，再创建文字、形状、表格与图表。
+每份文件使用新的 `pptxgenjs` 实例；坐标以英寸表示，加入对象前计算其右边与下边是否超出画布。
+通过 `defineSlideMaster()` 定义可复用版式时，给占位符稳定名称，再按名称填充。
+主题字体与版式应服务后续编辑；使用主题色前检查当前库能否实际写入需要的主题颜色，不能仅设置字体就声称主题配色已应用。
+无占位符的文本框设置 `isTextBox: true`，让读屏工具识别为文本；演讲备注使用 `slide.addNotes()`。
 
-let slide = pres.addSlide();
-slide.addText("Hello World!", { x: 0.5, y: 0.5, fontSize: 36, color: "363636" });
+## 可执行的新建示例
 
-pres.writeFile({ fileName: "Presentation.pptx" });
-```
-
-## Layout Dimensions
-
-Slide dimensions (coordinates in inches):
-- `LAYOUT_16x9`: 10" × 5.625" (default)
-- `LAYOUT_16x10`: 10" × 6.25"
-- `LAYOUT_4x3`: 10" × 7.5"
-- `LAYOUT_WIDE`: 13.3" × 7.5"
-
----
-
-## Text & Formatting
+以下 JavaScript 为本地独立编写，Copyright (c) 2026 seaworld008；SPDX-License-Identifier: MIT。
+将代码保存为 `create-deck.cjs`，在已有 `pptxgenjs` 的环境执行 `node create-deck.cjs output.pptx`。
+示例不需要旧 JS 库。当前重建环境缺少 `pptxgenjs`，仅验证语法；字体和图表实际呈现需另行渲染验收。
 
 ```javascript
-// Basic text
-slide.addText("Simple Text", {
-  x: 1, y: 1, w: 8, h: 2, fontSize: 24, fontFace: "Arial",
-  color: "363636", bold: true, align: "center", valign: "middle"
-});
+// Copyright (c) 2026 seaworld008
+// SPDX-License-Identifier: MIT
+const PptxGenJS = require("pptxgenjs");
 
-// Character spacing (use charSpacing, not letterSpacing which is silently ignored)
-slide.addText("SPACED TEXT", { x: 1, y: 1, w: 8, h: 1, charSpacing: 6 });
-
-// Rich text arrays
-slide.addText([
-  { text: "Bold ", options: { bold: true } },
-  { text: "Italic ", options: { italic: true } }
-], { x: 1, y: 3, w: 8, h: 1 });
-
-// Multi-line text (requires breakLine: true)
-slide.addText([
-  { text: "Line 1", options: { breakLine: true } },
-  { text: "Line 2", options: { breakLine: true } },
-  { text: "Line 3" }  // Last item doesn't need breakLine
-], { x: 0.5, y: 0.5, w: 8, h: 2 });
-
-// Text box margin (internal padding)
-slide.addText("Title", {
-  x: 0.5, y: 0.3, w: 9, h: 0.6,
-  margin: 0  // Use 0 when aligning text with other elements like shapes or icons
-});
-```
-
-**Tip:** Text boxes have internal margin by default. Set `margin: 0` when you need text to align precisely with shapes, lines, or icons at the same x-position.
-
----
-
-## Lists & Bullets
-
-```javascript
-// ✅ CORRECT: Multiple bullets
-slide.addText([
-  { text: "First item", options: { bullet: true, breakLine: true } },
-  { text: "Second item", options: { bullet: true, breakLine: true } },
-  { text: "Third item", options: { bullet: true } }
-], { x: 0.5, y: 0.5, w: 8, h: 3 });
-
-// ❌ WRONG: Never use unicode bullets
-slide.addText("• First item", { ... });  // Creates double bullets
-
-// Sub-items and numbered lists
-{ text: "Sub-item", options: { bullet: true, indentLevel: 1 } }
-{ text: "First", options: { bullet: { type: "number" }, breakLine: true } }
-```
-
----
-
-## Shapes
-
-```javascript
-slide.addShape(pres.shapes.RECTANGLE, {
-  x: 0.5, y: 0.8, w: 1.5, h: 3.0,
-  fill: { color: "FF0000" }, line: { color: "000000", width: 2 }
-});
-
-slide.addShape(pres.shapes.OVAL, { x: 4, y: 1, w: 2, h: 2, fill: { color: "0000FF" } });
-
-slide.addShape(pres.shapes.LINE, {
-  x: 1, y: 3, w: 5, h: 0, line: { color: "FF0000", width: 3, dashType: "dash" }
-});
-
-// With transparency
-slide.addShape(pres.shapes.RECTANGLE, {
-  x: 1, y: 1, w: 3, h: 2,
-  fill: { color: "0088CC", transparency: 50 }
-});
-
-// Rounded rectangle (rectRadius only works with ROUNDED_RECTANGLE, not RECTANGLE)
-// ⚠️ Don't pair with rectangular accent overlays — they won't cover rounded corners. Use RECTANGLE instead.
-slide.addShape(pres.shapes.ROUNDED_RECTANGLE, {
-  x: 1, y: 1, w: 3, h: 2,
-  fill: { color: "FFFFFF" }, rectRadius: 0.1
-});
-
-// With shadow
-slide.addShape(pres.shapes.RECTANGLE, {
-  x: 1, y: 1, w: 3, h: 2,
-  fill: { color: "FFFFFF" },
-  shadow: { type: "outer", color: "000000", blur: 6, offset: 2, angle: 135, opacity: 0.15 }
-});
-```
-
-Shadow options:
-
-| Property | Type | Range | Notes |
-|----------|------|-------|-------|
-| `type` | string | `"outer"`, `"inner"` | |
-| `color` | string | 6-char hex (e.g. `"000000"`) | No `#` prefix, no 8-char hex — see Common Pitfalls |
-| `blur` | number | 0-100 pt | |
-| `offset` | number | 0-200 pt | **Must be non-negative** — negative values corrupt the file |
-| `angle` | number | 0-359 degrees | Direction the shadow falls (135 = bottom-right, 270 = upward) |
-| `opacity` | number | 0.0-1.0 | Use this for transparency, never encode in color string |
-
-To cast a shadow upward (e.g. on a footer bar), use `angle: 270` with a positive offset — do **not** use a negative offset.
-
-**Note**: Gradient fills are not natively supported. Use a gradient image as a background instead.
-
----
-
-## Images
-
-### Image Sources
-
-```javascript
-// From file path
-slide.addImage({ path: "images/chart.png", x: 1, y: 1, w: 5, h: 3 });
-
-// From URL
-slide.addImage({ path: "https://example.com/image.jpg", x: 1, y: 1, w: 5, h: 3 });
-
-// From base64 (faster, no file I/O)
-slide.addImage({ data: "image/png;base64,iVBORw0KGgo...", x: 1, y: 1, w: 5, h: 3 });
-```
-
-### Image Options
-
-```javascript
-slide.addImage({
-  path: "image.png",
-  x: 1, y: 1, w: 5, h: 3,
-  rotate: 45,              // 0-359 degrees
-  rounding: true,          // Circular crop
-  transparency: 50,        // 0-100
-  flipH: true,             // Horizontal flip
-  flipV: false,            // Vertical flip
-  altText: "Description",  // Accessibility
-  hyperlink: { url: "https://example.com" }
-});
-```
-
-### Image Sizing Modes
-
-```javascript
-// Contain - fit inside, preserve ratio
-{ sizing: { type: 'contain', w: 4, h: 3 } }
-
-// Cover - fill area, preserve ratio (may crop)
-{ sizing: { type: 'cover', w: 4, h: 3 } }
-
-// Crop - cut specific portion
-{ sizing: { type: 'crop', x: 0.5, y: 0.5, w: 2, h: 2 } }
-```
-
-### Calculate Dimensions (preserve aspect ratio)
-
-```javascript
-const origWidth = 1978, origHeight = 923, maxHeight = 3.0;
-const calcWidth = maxHeight * (origWidth / origHeight);
-const centerX = (10 - calcWidth) / 2;
-
-slide.addImage({ path: "image.png", x: centerX, y: 1.2, w: calcWidth, h: maxHeight });
-```
-
-### Supported Formats
-
-- **Standard**: PNG, JPG, GIF (animated GIFs work in Microsoft 365)
-- **SVG**: Works in modern PowerPoint/Microsoft 365
-
----
-
-## Icons
-
-Use react-icons to generate SVG icons, then rasterize to PNG for universal compatibility.
-
-### Setup
-
-```javascript
-const React = require("react");
-const ReactDOMServer = require("react-dom/server");
-const sharp = require("sharp");
-const { FaCheckCircle, FaChartLine } = require("react-icons/fa");
-
-function renderIconSvg(IconComponent, color = "#000000", size = 256) {
-  return ReactDOMServer.renderToStaticMarkup(
-    React.createElement(IconComponent, { color, size: String(size) })
-  );
+async function main() {
+  const fileName = process.argv[2];
+  if (!fileName) throw new Error("Usage: node create-deck.cjs output.pptx");
+  const deck = new PptxGenJS();
+  deck.layout = "LAYOUT_WIDE";
+  deck.author = "seaworld008";
+  deck.subject = "Synthetic chart example";
+  deck.title = "季度交付数量";
+  deck.lang = "zh-CN";
+  deck.theme = { headFontFace: "Arial", bodyFontFace: "Arial", lang: "zh-CN" };
+  const slide = deck.addSlide();
+  slide.background = { color: "FFFFFF" };
+  slide.addText("交付数量在第三季度增加", {
+    x: 0.6, y: 0.4, w: 12, h: 0.7, fontSize: 32,
+    bold: true, color: "172D40", margin: 0, isTextBox: true,
+  });
+  slide.addChart(deck.ChartType.bar, [{
+    name: "交付数量", labels: ["Q1", "Q2", "Q3"], values: [18, 21, 29],
+  }], {
+    x: 0.7, y: 1.5, w: 8.3, h: 4.8,
+    catAxisLabelFontFace: "Arial", catAxisLabelFontSize: 18,
+    valAxisLabelFontFace: "Arial", valAxisLabelFontSize: 14,
+    chartColors: ["176B87"], showLegend: false,
+    showValue: true, dataLabelPosition: "outEnd",
+    valAxisMinVal: 0, valAxisMaxVal: 40,
+    showTitle: true, title: "交付数量（件）",
+  });
+  slide.addText("第三季度比第二季度多 8 件", {
+    x: 9.5, y: 2.2, w: 3.1, h: 1.8, fontSize: 24,
+    color: "172D40", margin: 0, isTextBox: true,
+  });
+  slide.addText("来源：本地合成示例，不代表实际业务数据", {
+    x: 0.7, y: 6.9, w: 12, h: 0.3, fontSize: 12,
+    color: "445566", margin: 0, isTextBox: true,
+  });
+  slide.addNotes("验收时打开图表的编辑数据，核对 Q1/Q2/Q3 对应 18/21/29。");
+  await deck.writeFile({ fileName });
 }
-
-async function iconToBase64Png(IconComponent, color, size = 256) {
-  const svg = renderIconSvg(IconComponent, color, size);
-  const pngBuffer = await sharp(Buffer.from(svg)).png().toBuffer();
-  return "image/png;base64," + pngBuffer.toString("base64");
-}
+main().catch((error) => { console.error(error.message); process.exitCode = 1; });
 ```
 
-### Add Icon to Slide
+验收：标题、正文和图表可分别选择；图表系列的值是 18、21、29；数轴从零开始；右侧说明与数据一致。
+此例用普通柱状图，`outEnd` 不可直接照搬到堆积柱/条形图；后者用 `ctr`、`inEnd` 或 `inBase`。
 
-```javascript
-const iconData = await iconToBase64Png(FaCheckCircle, "#4472C4", 256);
+## 容易写出错误文件的选项
 
-slide.addImage({
-  data: iconData,
-  x: 1, y: 1, w: 0.5, h: 0.5  // Size in inches
-});
+| 位置 | 使用方式 | 检查点 |
+| --- | --- | --- |
+| 颜色 | 六位十六进制，不带 `#` | 不把透明度拼为八位颜色 |
+| 透明度 | 填充使用 `transparency`，阴影使用 `opacity` | 查看渲染后实际效果 |
+| 阴影 | 非负 `offset`，方向使用 `angle` | 阴影不能遮挡标签 |
+| 选项对象 | 每次调用构造新对象，尤其阴影 | 防止库内部单位转换污染复用对象 |
+| 字距 | 使用 `charSpacing` | 不以无效选项判定视觉已生效 |
+| 列表 | `bullet`、段落换行和段后间距 | 不手写圆点导致双重项目符号 |
+| 文本边距 | 对齐对象时显式 `margin` | 文字可见边缘与形状边缘一致 |
+
+表格超出一页时检查续页标题、页脚与实际行数；自动分页结果同样逐页验收。
+组合图使用第二轴时，同时声明相应 `valAxes` 与 `catAxes`，检查每个轴 ID 有定义且连接正确。
+某些元数据或版式字段的 XML 转义行为随库版本不同；带 `&` 的名称要检查生成 XML，避免遗漏或重复转义。
+写入成功、Python 能打开或 LibreOffice 能渲染，均不足以排除 PowerPoint 对图表的修复提示。
+
+## 图像与数据来源
+
+原生支持的图表优先 `addChart()`；不支持的视觉再使用静态图像，并保留源数据。
+本地 [chartkit.py](scripts/chartkit.py) 的数据、类型、轴和输出参数如下；输出为图形素材，不能冒充可编辑图表。
+
+```bash
+python scripts/chartkit.py --data metrics.csv --type bar --x quarter --y deliveries --out charts --filename deliveries --title "季度交付"
 ```
 
-**Note**: Use size 256 or higher for crisp icons. The size parameter controls the rasterization resolution, not the display size on the slide (which is set by `w` and `h` in inches).
+它支持 `line`、`area`、`bar`、`barh`、`scatter`、`hist`、`waterfall`；选择图型前检查数据口径、缺失值与单位。
+插入图片时保持比例，预留清晰的来源脚注；为辅助技术提供说明文本。
 
-### Icon Libraries
+## 生成后的检查
 
-Install: `npm install -g react-icons react react-dom sharp`
-
-Popular icon sets in react-icons:
-- `react-icons/fa` - Font Awesome
-- `react-icons/md` - Material Design
-- `react-icons/hi` - Heroicons
-- `react-icons/bi` - Bootstrap Icons
-
----
-
-## Slide Backgrounds
-
-```javascript
-// Solid color
-slide.background = { color: "F1F1F1" };
-
-// Color with transparency
-slide.background = { color: "FF3399", transparency: 50 };
-
-// Image from URL
-slide.background = { path: "https://example.com/bg.jpg" };
-
-// Image from base64
-slide.background = { data: "image/png;base64,iVBORw0KGgo..." };
-```
-
----
-
-## Tables
-
-```javascript
-slide.addTable([
-  ["Header 1", "Header 2"],
-  ["Cell 1", "Cell 2"]
-], {
-  x: 1, y: 1, w: 8, h: 2,
-  border: { pt: 1, color: "999999" }, fill: { color: "F1F1F1" }
-});
-
-// Advanced with merged cells
-let tableData = [
-  [{ text: "Header", options: { fill: { color: "6699CC" }, color: "FFFFFF", bold: true } }, "Cell"],
-  [{ text: "Merged", options: { colspan: 2 } }]
-];
-slide.addTable(tableData, { x: 1, y: 3.5, w: 8, colW: [4, 4] });
-```
-
----
-
-## Charts
-
-```javascript
-// Bar chart
-slide.addChart(pres.charts.BAR, [{
-  name: "Sales", labels: ["Q1", "Q2", "Q3", "Q4"], values: [4500, 5500, 6200, 7100]
-}], {
-  x: 0.5, y: 0.6, w: 6, h: 3, barDir: 'col',
-  showTitle: true, title: 'Quarterly Sales'
-});
-
-// Line chart
-slide.addChart(pres.charts.LINE, [{
-  name: "Temp", labels: ["Jan", "Feb", "Mar"], values: [32, 35, 42]
-}], { x: 0.5, y: 4, w: 6, h: 3, lineSize: 3, lineSmooth: true });
-
-// Pie chart
-slide.addChart(pres.charts.PIE, [{
-  name: "Share", labels: ["A", "B", "Other"], values: [35, 45, 20]
-}], { x: 7, y: 1, w: 5, h: 4, showPercent: true });
-```
-
-### Better-Looking Charts
-
-Default charts look dated. Apply these options for a modern, clean appearance:
-
-```javascript
-slide.addChart(pres.charts.BAR, chartData, {
-  x: 0.5, y: 1, w: 9, h: 4, barDir: "col",
-
-  // Custom colors (match your presentation palette)
-  chartColors: ["0D9488", "14B8A6", "5EEAD4"],
-
-  // Clean background
-  chartArea: { fill: { color: "FFFFFF" }, roundedCorners: true },
-
-  // Muted axis labels
-  catAxisLabelColor: "64748B",
-  valAxisLabelColor: "64748B",
-
-  // Subtle grid (value axis only)
-  valGridLine: { color: "E2E8F0", size: 0.5 },
-  catGridLine: { style: "none" },
-
-  // Data labels on bars
-  showValue: true,
-  dataLabelPosition: "outEnd",
-  dataLabelColor: "1E293B",
-
-  // Hide legend for single series
-  showLegend: false,
-});
-```
-
-**Key styling options:**
-- `chartColors: [...]` - hex colors for series/segments
-- `chartArea: { fill, border, roundedCorners }` - chart background
-- `catGridLine/valGridLine: { color, style, size }` - grid lines (`style: "none"` to hide)
-- `lineSmooth: true` - curved lines (line charts)
-- `legendPos: "r"` - legend position: "b", "t", "l", "r", "tr"
-
----
-
-## Slide Masters
-
-```javascript
-pres.defineSlideMaster({
-  title: 'TITLE_SLIDE', background: { color: '283A5E' },
-  objects: [{
-    placeholder: { options: { name: 'title', type: 'title', x: 1, y: 2, w: 8, h: 2 } }
-  }]
-});
-
-let titleSlide = pres.addSlide({ masterName: "TITLE_SLIDE" });
-titleSlide.addText("My Title", { placeholder: "title" });
-```
-
----
-
-## Common Pitfalls
-
-⚠️ These issues cause file corruption, visual bugs, or broken output. Avoid them.
-
-1. **NEVER use "#" with hex colors** - causes file corruption
-   ```javascript
-   color: "FF0000"      // ✅ CORRECT
-   color: "#FF0000"     // ❌ WRONG
-   ```
-
-2. **NEVER encode opacity in hex color strings** - 8-char colors (e.g., `"00000020"`) corrupt the file. Use the `opacity` property instead.
-   ```javascript
-   shadow: { type: "outer", blur: 6, offset: 2, color: "00000020" }          // ❌ CORRUPTS FILE
-   shadow: { type: "outer", blur: 6, offset: 2, color: "000000", opacity: 0.12 }  // ✅ CORRECT
-   ```
-
-3. **Use `bullet: true`** - NEVER unicode symbols like "•" (creates double bullets)
-
-4. **Use `breakLine: true`** between array items or text runs together
-
-5. **Avoid `lineSpacing` with bullets** - causes excessive gaps; use `paraSpaceAfter` instead
-
-6. **Each presentation needs fresh instance** - don't reuse `pptxgen()` objects
-
-7. **NEVER reuse option objects across calls** - PptxGenJS mutates objects in-place (e.g. converting shadow values to EMU). Sharing one object between multiple calls corrupts the second shape.
-   ```javascript
-   const shadow = { type: "outer", blur: 6, offset: 2, color: "000000", opacity: 0.15 };
-   slide.addShape(pres.shapes.RECTANGLE, { shadow, ... });  // ❌ second call gets already-converted values
-   slide.addShape(pres.shapes.RECTANGLE, { shadow, ... });
-
-   const makeShadow = () => ({ type: "outer", blur: 6, offset: 2, color: "000000", opacity: 0.15 });
-   slide.addShape(pres.shapes.RECTANGLE, { shadow: makeShadow(), ... });  // ✅ fresh object each time
-   slide.addShape(pres.shapes.RECTANGLE, { shadow: makeShadow(), ... });
-   ```
-
-8. **Don't use `ROUNDED_RECTANGLE` with accent borders** - rectangular overlay bars won't cover rounded corners. Use `RECTANGLE` instead.
-   ```javascript
-   // ❌ WRONG: Accent bar doesn't cover rounded corners
-   slide.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 1, y: 1, w: 3, h: 1.5, fill: { color: "FFFFFF" } });
-   slide.addShape(pres.shapes.RECTANGLE, { x: 1, y: 1, w: 0.08, h: 1.5, fill: { color: "0891B2" } });
-
-   // ✅ CORRECT: Use RECTANGLE for clean alignment
-   slide.addShape(pres.shapes.RECTANGLE, { x: 1, y: 1, w: 3, h: 1.5, fill: { color: "FFFFFF" } });
-   slide.addShape(pres.shapes.RECTANGLE, { x: 1, y: 1, w: 0.08, h: 1.5, fill: { color: "0891B2" } });
-   ```
-
----
-
-## Quick Reference
-
-- **Shapes**: RECTANGLE, OVAL, LINE, ROUNDED_RECTANGLE
-- **Charts**: BAR, LINE, PIE, DOUGHNUT, SCATTER, BUBBLE, RADAR
-- **Layouts**: LAYOUT_16x9 (10"×5.625"), LAYOUT_16x10, LAYOUT_4x3, LAYOUT_WIDE
-- **Alignment**: "left", "center", "right"
-- **Chart data labels**: "outEnd", "inEnd", "center"
+运行 `python scripts/office/validate.py output.pptx`，按诊断修改生成代码后重新生成。
+按 [SKILL.md](SKILL.md#内容文件视觉分别验收) 转成 PDF 和逐页图片，检查所有文字和图表标签。
+在目标 PowerPoint 打开并试改图表值，检查图形随数据变化，字体无异常替换，所有对象没有越界。
+若使用模板而非从零创建，转到 [editing.md](editing.md)，不要用新建库重新绘制整个模板来代替编辑。

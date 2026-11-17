@@ -617,6 +617,7 @@
 | [hermes-agent](skills/ai-agent-platform/hermes-agent) | ai-agent-platform | ★★★★☆ | Use, configure, theme, extend, and orchestrate Hermes Agent. |
 | [aws-solution-architect](skills/developer-engineering/aws-solution-architect) | developer-engineering | ★★★★☆ | Design or review AWS architecture and infrastructure as code for serverless syst |
 | [docker-expert](skills/developer-engineering/docker-expert) | developer-engineering | ★★★★☆ | Use when containerizing an application with Docker, optimizing multi-stage build |
+| [frontend-design](skills/developer-engineering/frontend-design) | developer-engineering | ★★★★☆ | Design and implement web pages, components, and application interfaces with a pr |
 | [git-worktree-manager](skills/developer-engineering/git-worktree-manager) | developer-engineering | ★★★★☆ | Create, inspect, and clean up Git worktrees for parallel development, with expli |
 | [graphql-expert](skills/developer-engineering/graphql-expert) | developer-engineering | ★★★★☆ | Use when designing GraphQL APIs, reviewing schemas and resolvers, optimizing que |
 | [i18n-expert](skills/developer-engineering/i18n-expert) | developer-engineering | ★★★★☆ | Implement or audit UI internationalization: translation keys, locale files, plur |
@@ -634,7 +635,6 @@
 | [supabase-postgres-best-practices](skills/developer-engineering/supabase-postgres-best-practices) | developer-engineering | ★★★☆☆ | Use when writing or reviewing Postgres schemas, queries, indexes, RLS policies,  |
 | [web-artifacts-builder](skills/developer-engineering/web-artifacts-builder) | developer-engineering | ★★★☆☆ | Build complex interactive HTML artifacts with React, Tailwind, and shadcn/ui whe |
 | [webapp-testing](skills/developer-engineering/webapp-testing) | developer-engineering | ★★★☆☆ | Use when testing local web applications with Playwright, verifying frontend beha |
-| [frontend-design](skills/developer-engineering/frontend-design) | developer-engineering | ★★☆☆☆ | Design and implement polished web components, pages, and applications with a coh |
 
 ## ai
 
@@ -644,7 +644,7 @@
 |-------|----------|---------|-------------|
 | [arena](skills/ai-agent-platform/arena) | ai-agent-platform | ★★★★★ | Specialist orchestrating codex exec / Antigravity CLI through dual paradigms — C |
 | [chatgpt-apps](skills/ai-agent-platform/chatgpt-apps) | ai-agent-platform | ★★★★★ | Build or debug ChatGPT Apps SDK projects with MCP tools and widget UIs, using cu |
-| [figma-implement-design](skills/ai-agent-platform/figma-implement-design) | ai-agent-platform | ★★★★★ | Implement UI from Figma URLs or node IDs with visual fidelity, project conventio |
+| [figma-implement-design](skills/ai-agent-platform/figma-implement-design) | ai-agent-platform | ★★★★★ | Implement a specific Figma frame in an existing project, reuse its components an |
 | [oracle](skills/ai-agent-platform/oracle) | ai-agent-platform | ★★★★★ | Use when designing or reviewing LLM applications: prompts, RAG pipelines, agent  |
 | [sigil](skills/ai-agent-platform/sigil) | ai-agent-platform | ★★★★★ | Use when generating, validating, or updating project-specific agent skills that  |
 | [api-and-interface-design](skills/ai-workflow/api-and-interface-design) | ai-workflow | ★★★★★ | Design REST/GraphQL APIs, module interfaces, and type contracts when creating en |
@@ -676,7 +676,7 @@
 | [idea-refine](skills/ai-workflow/idea-refine) | ai-workflow | ★★★★☆ | Explore alternatives and stress-test assumptions when refining a vague idea into |
 | [source-driven-development](skills/ai-workflow/source-driven-development) | ai-workflow | ★★★★☆ | Verify implementation against official documentation when the task requests sour |
 | [using-agent-skills](skills/ai-workflow/using-agent-skills) | ai-workflow | ★★★★☆ | Find the most relevant engineering skill when task routing is unclear; load only |
-| [figma](skills/ai-agent-platform/figma) | ai-agent-platform | ★★★☆☆ | Fetch Figma design context, variables, screenshots, and assets through MCP when  |
+| [figma](skills/ai-agent-platform/figma) | ai-agent-platform | ★★★☆☆ | Read Figma design nodes, variables, visual references and assets; locate URL tar |
 | [openai-docs](skills/ai-agent-platform/openai-docs) | ai-agent-platform | ★★★☆☆ | Find current official OpenAI guidance for Codex, APIs, models, prompting, or mig |
 
 ## agent
@@ -687,7 +687,7 @@
 |-------|----------|---------|-------------|
 | [arena](skills/ai-agent-platform/arena) | ai-agent-platform | ★★★★★ | Specialist orchestrating codex exec / Antigravity CLI through dual paradigms — C |
 | [chatgpt-apps](skills/ai-agent-platform/chatgpt-apps) | ai-agent-platform | ★★★★★ | Build or debug ChatGPT Apps SDK projects with MCP tools and widget UIs, using cu |
-| [figma-implement-design](skills/ai-agent-platform/figma-implement-design) | ai-agent-platform | ★★★★★ | Implement UI from Figma URLs or node IDs with visual fidelity, project conventio |
+| [figma-implement-design](skills/ai-agent-platform/figma-implement-design) | ai-agent-platform | ★★★★★ | Implement a specific Figma frame in an existing project, reuse its components an |
 | [oracle](skills/ai-agent-platform/oracle) | ai-agent-platform | ★★★★★ | Use when designing or reviewing LLM applications: prompts, RAG pipelines, agent  |
 | [sigil](skills/ai-agent-platform/sigil) | ai-agent-platform | ★★★★★ | Use when generating, validating, or updating project-specific agent skills that  |
 | [agent-workflow-designer](skills/ai-workflow/agent-workflow-designer) | ai-workflow | ★★★★★ | Design agent orchestration, handoffs, state, recovery, and evaluation when a wor |
@@ -718,7 +718,7 @@
 | [idea-refine](skills/ai-workflow/idea-refine) | ai-workflow | ★★★★☆ | Explore alternatives and stress-test assumptions when refining a vague idea into |
 | [source-driven-development](skills/ai-workflow/source-driven-development) | ai-workflow | ★★★★☆ | Verify implementation against official documentation when the task requests sour |
 | [using-agent-skills](skills/ai-workflow/using-agent-skills) | ai-workflow | ★★★★☆ | Find the most relevant engineering skill when task routing is unclear; load only |
-| [figma](skills/ai-agent-platform/figma) | ai-agent-platform | ★★★☆☆ | Fetch Figma design context, variables, screenshots, and assets through MCP when  |
+| [figma](skills/ai-agent-platform/figma) | ai-agent-platform | ★★★☆☆ | Read Figma design nodes, variables, visual references and assets; locate URL tar |
 | [openai-docs](skills/ai-agent-platform/openai-docs) | ai-agent-platform | ★★★☆☆ | Find current official OpenAI guidance for Codex, APIs, models, prompting, or mig |
 
 ## engineering
@@ -875,7 +875,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [figma-implement-design](skills/ai-agent-platform/figma-implement-design) | ai-agent-platform | ★★★★★ | Implement UI from Figma URLs or node IDs with visual fidelity, project conventio |
+| [figma-implement-design](skills/ai-agent-platform/figma-implement-design) | ai-agent-platform | ★★★★★ | Implement a specific Figma frame in an existing project, reuse its components an |
 | [api-design-reviewer](skills/developer-engineering/api-design-reviewer) | developer-engineering | ★★★★★ | Use when reviewing API designs for consistency, usability, versioning, error sem |
 | [agile-product-owner](skills/product-design/agile-product-owner) | product-design | ★★★★★ | Manage product backlogs and sprints: user stories, acceptance criteria, epic bre |
 | [competitive-teardown](skills/product-design/competitive-teardown) | product-design | ★★★★★ | Analyze competitors from product, pricing, reviews, SEO, and hiring evidence to  |
@@ -887,10 +887,10 @@
 | [ui-design-system](skills/product-design/ui-design-system) | product-design | ★★★★★ | Create or maintain UI design tokens, component documentation, responsive rules,  |
 | [ux-researcher-designer](skills/product-design/ux-researcher-designer) | product-design | ★★★★★ | Plan and synthesize UX research, personas, journey maps, and usability studies w |
 | [voice](skills/product-design/voice) | product-design | ★★★★★ | Use when designing feedback surveys (NPS, CSAT, CES) or analyzing reviews and fe |
+| [frontend-design](skills/developer-engineering/frontend-design) | developer-engineering | ★★★★☆ | Design and implement web pages, components, and application interfaces with a pr |
 | [tailwind-design-system](skills/developer-engineering/tailwind-design-system) | developer-engineering | ★★★★☆ | Build scalable design systems with Tailwind CSS v4, design tokens, component lib |
 | [canvas-design](skills/product-design/canvas-design) | product-design | ★★★★☆ | Create original static visual designs such as posters, artwork, and compositions |
 | [landing-page-generator](skills/product-design/landing-page-generator) | product-design | ★★★★☆ | Build React/Next.js landing pages with Tailwind, focused copy, accessible sectio |
-| [frontend-design](skills/developer-engineering/frontend-design) | developer-engineering | ★★☆☆☆ | Design and implement polished web components, pages, and applications with a coh |
 
 ## finance
 
@@ -1283,10 +1283,10 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
+| [frontend-design](skills/developer-engineering/frontend-design) | developer-engineering | ★★★★☆ | Design and implement web pages, components, and application interfaces with a pr |
 | [shadcn](skills/developer-engineering/shadcn) | developer-engineering | ★★★★☆ | Use when adding, updating, debugging, or composing shadcn/ui components, registr |
 | [vercel-react-view-transitions](skills/developer-engineering/vercel-react-view-transitions) | developer-engineering | ★★★★☆ | Implement React ViewTransition animations, navigation transitions, transition ty |
 | [ui-ux-pro-max](skills/product-design/ui-ux-pro-max) | product-design | ★★★★☆ | Front-end UI/UX design intelligence for creating, reviewing, and hardening polis |
-| [frontend-design](skills/developer-engineering/frontend-design) | developer-engineering | ★★☆☆☆ | Design and implement polished web components, pages, and applications with a coh |
 
 ## knowledge
 
@@ -1859,8 +1859,8 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [figma-implement-design](skills/ai-agent-platform/figma-implement-design) | ai-agent-platform | ★★★★★ | Implement UI from Figma URLs or node IDs with visual fidelity, project conventio |
-| [figma](skills/ai-agent-platform/figma) | ai-agent-platform | ★★★☆☆ | Fetch Figma design context, variables, screenshots, and assets through MCP when  |
+| [figma-implement-design](skills/ai-agent-platform/figma-implement-design) | ai-agent-platform | ★★★★★ | Implement a specific Figma frame in an existing project, reuse its components an |
+| [figma](skills/ai-agent-platform/figma) | ai-agent-platform | ★★★☆☆ | Read Figma design nodes, variables, visual references and assets; locate URL tar |
 
 ## financial
 
@@ -3480,7 +3480,7 @@
 
 | Skill | Category | Quality | Description |
 |-------|----------|---------|-------------|
-| [figma-implement-design](skills/ai-agent-platform/figma-implement-design) | ai-agent-platform | ★★★★★ | Implement UI from Figma URLs or node IDs with visual fidelity, project conventio |
+| [figma-implement-design](skills/ai-agent-platform/figma-implement-design) | ai-agent-platform | ★★★★★ | Implement a specific Figma frame in an existing project, reuse its components an |
 
 ## implementation
 

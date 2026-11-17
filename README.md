@@ -68,7 +68,7 @@ npx github:seaworld008/Commonly-used-high-value-skills install --target codex --
 npx github:seaworld008/Commonly-used-high-value-skills install --target custom --dir ./vendor/agent-skills
 
 # 固定到某个发布版本，便于团队复现
-npx github:seaworld008/Commonly-used-high-value-skills#v6.0.0 install --target codex
+npx github:seaworld008/Commonly-used-high-value-skills#v6.1.0 install --target codex
 
 # 浏览可选技能、分类和安装目标
 npx github:seaworld008/Commonly-used-high-value-skills list-skills
@@ -298,7 +298,7 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`database-schema-designer`](./skills/developer-engineering/database-schema-designer/)：设计数据表、约束、索引、迁移和行级权限策略。
 - [`dependency-auditor`](./skills/developer-engineering/dependency-auditor/)：梳理依赖清单，核实漏洞与许可证证据，规划可验证的升级。
 - [`docker-expert`](./skills/developer-engineering/docker-expert/)：用于 Docker 容器化最佳实践、多阶段构建优化与 Docker Compose 编排。
-- [`frontend-design`](./skills/developer-engineering/frontend-design/)：用于创建高质量、非模板化的前端页面、组件、仪表盘、海报和 Web UI。
+- [`frontend-design`](./skills/developer-engineering/frontend-design/)：按产品目标与品牌约束设计和实现网页、组件及应用界面，兼顾视觉表达、响应式和交互验收。
 - [`gateway`](./skills/developer-engineering/gateway/)：设计或评审 REST/GraphQL 接口时使用：OpenAPI 规范、版本与弃用策略、破坏性变更检测和接口安全。
 - [`git-worktree-manager`](./skills/developer-engineering/git-worktree-manager/)：管理并行开发的 Git worktree、环境和端口分配。
 - [`github-contributor`](./skills/developer-engineering/github-contributor/)：寻找开源贡献机会并准备可审查的 GitHub PR。
@@ -397,8 +397,8 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 - [`arena`](./skills/ai-agent-platform/arena/)：用于通过 codex exec 或 Antigravity CLI 编排多引擎竞争（多方案择优）或协作（拆分任务后集成），支持 Solo/Team/Quick 模式。
 - [`chatgpt-apps`](./skills/ai-agent-platform/chatgpt-apps/)：用于设计、构建和调试 ChatGPT Apps 与相关集成能力。
 - [`develop-web-game`](./skills/ai-agent-platform/develop-web-game/)：用于开发网页游戏原型、玩法循环、交互逻辑和前端实现。
-- [`figma`](./skills/ai-agent-platform/figma/)：通过 Figma MCP 读取设计上下文、变量、截图和素材，并排查连接问题。
-- [`figma-implement-design`](./skills/ai-agent-platform/figma-implement-design/)：用于将 Figma 设计转化为可实现的前端界面和组件。
+- [`figma`](./skills/ai-agent-platform/figma/)：读取 Figma 设计节点、变量、截图和素材，定位链接目标并排查 MCP 访问问题。
+- [`figma-implement-design`](./skills/ai-agent-platform/figma-implement-design/)：将具体 Figma 画面适配既有项目，复用组件与样式并按响应式、键盘和视觉标准验收。
 - [`hermes-agent`](./skills/ai-agent-platform/hermes-agent/)：用于配置、扩展、调试和贡献 Hermes Agent，包括多 Agent、CLI 和网关工作流。
 - [`hermes-open-gsd-workflow`](./skills/ai-agent-platform/hermes-open-gsd-workflow/)：在 Hermes Agent、Graphify、Open GSD Core 与可选 GSD Pi 之间做薄路由，不复制上游安装器和状态机。
 - [`mcporter`](./skills/ai-agent-platform/mcporter/)：用于通过 mcporter CLI 列出、配置、鉴权和调用 MCP 服务器或工具。
@@ -484,18 +484,18 @@ rg -n -g SKILL.md "prompt|security|pdf|deploy" skills
 ### 8. 办公与文档（office-white-collar，13）
 
 - [`answer-me-with-html`](./skills/office-white-collar/answer-me-with-html/)：仅在明确要求时生成离线静态 HTML 技术报告，不执行不可信 HTML、shell 或网络请求。
-- [`docx`](./skills/office-white-collar/docx/)：用于创建、编辑和检查 Word `.docx` 文档。
+- [`docx`](./skills/office-white-collar/docx/)：创建、编辑和检查 Word 文档、修订、批注与排版。
 - [`guizang-ppt-skill`](./skills/office-white-collar/guizang-ppt-skill/)：使用随包杂志风模板制作可翻页的 HTML 网页演示，适用于内容已提供的网页 PPT 请求。
 - [`markdown-tools`](./skills/office-white-collar/markdown-tools/)：把文档转换为保留结构、表格和图片的 Markdown。
 - [`meeting-minutes-taker`](./skills/office-white-collar/meeting-minutes-taker/)：从会议转录中整理准确的决策、行动项和责任人。
 - [`mermaid-tools`](./skills/office-white-collar/mermaid-tools/)：提取 Markdown 中的 Mermaid 图并渲染为图片。
 - [`morph`](./skills/office-white-collar/morph/)：文档格式转换、分发版生成和可复用转换脚本。
 - [`pdf`](./skills/office-white-collar/pdf/)：读取、生成、编辑、合并、拆分和识别 PDF 文档。
-- [`pptx`](./skills/office-white-collar/pptx/)：用于创建、编辑和美化 PowerPoint 演示文稿。
+- [`pptx`](./skills/office-white-collar/pptx/)：创建和编辑 PowerPoint，检查图表、模板、字体与逐页版面。
 - [`prism`](./skills/office-white-collar/prism/)：依据资料和受众设计 NotebookLM 音视频及演示提示词。
 - [`stage`](./skills/office-white-collar/stage/)：制作或优化演讲与幻灯片时使用：Markdown 幻灯片、叙事结构、讲稿和时长适配。
 - [`transcript-fixer`](./skills/office-white-collar/transcript-fixer/)：修正语音识别错误、同音词和中英文混合术语。
-- [`xlsx`](./skills/office-white-collar/xlsx/)：创建和编辑电子表格、公式、图表及数据格式。
+- [`xlsx`](./skills/office-white-collar/xlsx/)：创建、编辑和检查电子表格、公式、样式与重算结果。
 
 <a id="cat-knowledge-pm"></a>
 ### 9. 项目管理与知识库集成（knowledge-and-pm-integrations，34）

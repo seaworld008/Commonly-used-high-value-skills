@@ -18,3 +18,15 @@ skills/developer-engineering/python-performance/LICENSE.upstream.txt whitespace=
 openclaw-skills/python-performance/LICENSE.upstream.txt whitespace=-blank-at-eol
 skills/developer-engineering/tailwind-design-system/LICENSE.upstream.txt whitespace=-blank-at-eol
 openclaw-skills/tailwind-design-system/LICENSE.upstream.txt whitespace=-blank-at-eol
+
+# Preserve the original CRLF bytes of the reviewed Microsoft/Playwright notice.
+skills/engineering-workflow-automation/playwright/LICENSE.upstream.txt -text whitespace=cr-at-eol
+openclaw-skills/playwright/LICENSE.upstream.txt -text whitespace=cr-at-eol
+
+# Preserve verified immutable publisher notices, including their original spacing.
+openclaw-skills/canvas-design/canvas-fonts/IBMPlexSerif-OFL.txt -text whitespace=-blank-at-eol,cr-at-eol
+openclaw-skills/canvas-design/canvas-fonts/InstrumentSerif-OFL.txt -text whitespace=-blank-at-eol,cr-at-eol
+openclaw-skills/web-artifacts-builder/THIRD_PARTY_NOTICES.md -text whitespace=-blank-at-eol,cr-at-eol
+skills/developer-engineering/web-artifacts-builder/THIRD_PARTY_NOTICES.md -text whitespace=-blank-at-eol,cr-at-eol
+skills/product-design/canvas-design/canvas-fonts/IBMPlexSerif-OFL.txt -text whitespace=-blank-at-eol,cr-at-eol
+skills/product-design/canvas-design/canvas-fonts/InstrumentSerif-OFL.txt -text whitespace=-blank-at-eol,cr-at-eol

@@ -3,10 +3,10 @@ name: slack-gif-creator
 description: 'Knowledge and utilities for creating animated GIFs optimized for Slack. Provides constraints, validation tools, and animation concepts. Use when users request animated GIFs for Slack like "make me a GIF of X doing Y for Slack."'
 zh_description: "创建适合 Slack 展示的轻量动态 GIF。"
 version: "1.0.2"
-author: "seaworld008"
-source: "in-house"
-source_url: ""
-license: Complete terms in LICENSE.txt
+author: "Anthropic contributors; local curators"
+source: "https://github.com/anthropics/skills"
+source_url: "https://github.com/anthropics/skills/blob/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/slack-gif-creator/SKILL.md"
+license: "Apache-2.0"
 tags: '["creator", "gif", "productivity", "slack"]'
 created_at: "2026-03-04"
 updated_at: "2026-11-17"

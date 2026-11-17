@@ -3,10 +3,10 @@ name: algorithmic-art
 description: 'Create original generative art with p5.js, seeded randomness, flow fields, particles, and interactive parameters when code-based artwork is requested.'
 zh_description: "用代码、随机种子和交互参数创作原创生成艺术。"
 version: "1.0.2"
-author: "seaworld008"
-source: "in-house"
-source_url: ""
-license: Complete terms in LICENSE.txt
+author: "Anthropic contributors; local curators"
+source: "https://github.com/anthropics/skills"
+source_url: "https://github.com/anthropics/skills/blob/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/algorithmic-art/SKILL.md"
+license: "Apache-2.0"
 tags: '["algorithmic", "art", "growth", "marketing"]'
 created_at: "2026-03-04"
 updated_at: "2026-11-17"

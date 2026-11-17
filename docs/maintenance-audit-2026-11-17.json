@@ -3,7 +3,7 @@
   "date": "2026-11-17",
   "canonical_skills": 293,
   "categories": 16,
-  "entry_changes": 230,
+  "entry_changes": 235,
   "added": 0,
   "retired": 0,
   "source_scope": {
@@ -32,7 +32,7 @@
       "path": "skills/ai-agent-platform/chatgpt-apps/SKILL.md",
       "review": "full-entry-audit-1",
       "decision": "retain",
-      "entry_changed": false
+      "entry_changed": true
     },
     {
       "name": "develop-web-game",
@@ -88,7 +88,7 @@
       "path": "skills/ai-agent-platform/openai-docs/SKILL.md",
       "review": "full-entry-audit-1",
       "decision": "retain",
-      "entry_changed": false
+      "entry_changed": true
     },
     {
       "name": "oracle",
@@ -970,7 +970,7 @@
       "path": "skills/engineering-workflow-automation/gh-fix-ci/SKILL.md",
       "review": "full-entry-audit-3",
       "decision": "retain",
-      "entry_changed": false
+      "entry_changed": true
     },
     {
       "name": "guardian",
@@ -1523,7 +1523,7 @@
       "path": "skills/multimodal-media/screenshot/SKILL.md",
       "review": "full-entry-audit-5",
       "decision": "retain",
-      "entry_changed": false
+      "entry_changed": true
     },
     {
       "name": "sketch",
@@ -1705,7 +1705,7 @@
       "path": "skills/operations-general/brand-guidelines/SKILL.md",
       "review": "full-entry-audit-5",
       "decision": "retain",
-      "entry_changed": false
+      "entry_changed": true
     },
     {
       "name": "crest",
@@ -6236,11 +6236,10 @@
     }
   ],
   "final_source_scope": {
-    "active_external_entries": 160,
-    "reviewed_retained_monitors": 133,
+    "total": 196,
+    "reviewed_monitors": 169,
     "stable_update": 1,
-    "retained_policy_snapshots": 26,
-    "original_replacements": 2
+    "policy_skips": 26
   },
   "initial_candidate_validation": {
     "python_tests": 1245,
@@ -6335,33 +6334,65 @@
       "both_notices_in_test_deliverable": true
     }
   },
-  "publication_status": "blocked_pending_provenance",
+  "publication_status": "validated_pending_remote_delivery",
   "provenance_blindspot": {
-    "current_commit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
-    "license_transition_commit": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
-    "current_official_license": "Apache-2.0",
-    "source_classification_corrections_pending": 13,
-    "office": {
-      "files": 209,
-      "same_bytes": 146,
-      "local_adaptation": 5,
-      "blocked_old_license": 4,
-      "other_files_without_complete_licensed_basis": 54,
-      "legacy_independent_assets_without_rights_chain": 17
+    "status": "current-distribution-remediated",
+    "external_reclassifications": 36,
+    "original_figma_replacements": 2,
+    "details": "docs/maintenance-provenance-2026-11-17.json"
+  },
+  "third_independent_review": {
+    "confirmed_findings": {
+      "P1": 1,
+      "P2": 3
     },
-    "canvas_fonts": {
-      "fonts": 54,
-      "families": 29,
-      "complete_notice_files": 27,
-      "unresolved_families": [
-        "IBMPlexSerif",
-        "InstrumentSerif"
-      ],
-      "affected_fonts": 6
+    "resolution": "All four Office findings repaired and tested; final publish/runtime review identified three additional P2 findings, all independently rechecked as closed."
+  },
+  "freshness_recheck": {
+    "default_branch_repo_refs": 23,
+    "default_branch_origin_entries": 160,
+    "new_commits_without_governed_asset_change": 7,
+    "stable_hermes_tag": "v0.23.2",
+    "remaining_external_scope": "9 fixed monitor origins and 26 policy snapshots retained at their reviewed immutable refs"
+  },
+  "source_reconstruction_validation": {
+    "current_external_entries": 196,
+    "genuine_original_replacements": [
+      "rust-engineer",
+      "security-review",
+      "figma",
+      "figma-implement-design"
+    ],
+    "office_current_unresolved_assets": 0,
+    "runtime_notice_packages": 101,
+    "frozen_template_lockfile": true,
+    "full_pipeline": "passed"
+  },
+  "final_independent_review": {
+    "P1": 0,
+    "P2": 3,
+    "status": "closed",
+    "findings": [
+      "Missing publication_status must fail closed",
+      "Register artifact-runtime.mjs source owner and digest",
+      "Merge installed NOTICE with exact-version full publisher terms"
+    ],
+    "validation": "Actual workflow preflight and real immutable source fixture tests added; full pipeline pending.",
+    "remaining_findings": 0
+  },
+  "local_final_validation": {
+    "status": "passed",
+    "python_tests": 3659,
+    "python_subtests": 397,
+    "node_security_tests": 65,
+    "compiled_skill_python_files": 305,
+    "strict_quality": {
+      "passed": 296,
+      "warnings": 0,
+      "failed": 0
     },
-    "other_pending": [
-      "frontend-design historical Chinese draft requires an identified licensed basis or fresh reconstruction",
-      "web-artifacts-builder embedded component archive needs third-party attribution verification"
-    ]
+    "pipeline": "Ordered gates plus complete validate_repository.py --refresh; final full suite passed after the outdated source-URL test assertion was corrected.",
+    "post_commit_generation_idempotence": "pending",
+    "remote_delivery": "pending"
   }
 }

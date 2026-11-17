@@ -3,9 +3,10 @@ name: security-best-practices
 description: 'Use when checking language or framework security best practices, producing security review reports, identifying insecure defaults, and recommending secure-by-default improvements.'
 zh_description: "用于按语言或框架检查安全最佳实践，生成安全审查报告和 secure-by-default 建议。"
 version: "1.0.1"
-author: "seaworld008"
-source: "in-house"
-source_url: ""
+author: "OpenAI contributors; local curators"
+source: "https://github.com/openai/skills"
+source_url: "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/security-best-practices/SKILL.md"
+license: "Apache-2.0"
 tags: '["best", "practices", "security"]'
 created_at: "2026-03-04"
 updated_at: "2026-11-17"

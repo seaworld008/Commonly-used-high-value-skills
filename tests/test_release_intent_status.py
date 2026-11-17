@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 @pytest.mark.parametrize('status,success', [
-    ('ready', True), ('absent', True), ('blocked_pending_provenance', False),
+    ('ready', True), ('absent', False), ('blocked_pending_provenance', False),
     ('pending', False), ('', False), (None, False), (False, False), (0, False),
 ])
 def test_actual_release_preflight_honors_source_hold(tmp_path, status, success):

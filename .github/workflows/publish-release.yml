@@ -59,7 +59,7 @@ jobs:
           if not info.is_file() or not notes.is_file():
               raise SystemExit("Missing release metadata or notes")
           metadata = json.loads(info.read_text())
-          status = metadata.get("publication_status", "ready")
+          status = metadata.get("publication_status")
           if status != "ready":
               raise SystemExit(f"Release metadata blocks publication: {status}")
           skills = len(list(pathlib.Path("skills").glob("*/*/SKILL.md")))
@@ -83,7 +83,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          python -m pip install pyyaml pytest jsonschema openpyxl filelock click rich httpx pillow
+          python -m pip install pyyaml pytest jsonschema openpyxl filelock click rich httpx pillow lxml defusedxml python-docx matplotlib pandas tinycss2 PyMuPDF markdown-it-py
           python scripts/validate_repository.py --refresh
           git diff --exit-code
           npm test

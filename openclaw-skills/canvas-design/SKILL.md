@@ -3,10 +3,10 @@ name: canvas-design
 description: 'Create original static visual designs such as posters, artwork, and compositions as PNG or PDF artifacts.'
 zh_description: "创作海报、静态视觉设计和 PNG、PDF 艺术作品。"
 version: "1.0.2"
-author: "seaworld008"
-source: "in-house"
-source_url: ""
-license: Complete terms in LICENSE.txt
+author: "Anthropic contributors; local curators"
+source: "https://github.com/anthropics/skills"
+source_url: "https://github.com/anthropics/skills/blob/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/canvas-design/SKILL.md"
+license: "Apache-2.0"
 tags: '["canvas", "design", "product"]'
 created_at: "2026-03-04"
 updated_at: "2026-11-17"
@@ -15,6 +15,8 @@ complexity: "intermediate"
 ---
 
 These are instructions for creating design philosophies - aesthetic movements that are then EXPRESSED VISUALLY. Output only .md files, .pdf files, and .png files.
+
+The 54 bundled fonts have separate OFL-1.1 grants in `canvas-fonts/`; preserve each family notice when distributing the fonts. The Apache license applies to this guide, not to relicensing those font files. IBM Plex Serif and Instrument Serif use verified publisher binaries and their accompanying original notices.
 
 ## When to Use
 

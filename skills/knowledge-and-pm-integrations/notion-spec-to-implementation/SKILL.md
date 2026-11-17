@@ -3,9 +3,10 @@ name: notion-spec-to-implementation
 description: 'Use when turning a Notion PRD or feature spec into a linked implementation plan and tasks, then keeping spec, plan, and task status in sync.'
 zh_description: "需要把 Notion 需求规格拆成关联的实施计划与任务，并持续同步进度时使用。"
 version: "1.0.2"
-author: "seaworld008"
-source: "in-house"
-source_url: ""
+author: "Notion Labs, Inc.; local curators"
+source: "https://github.com/openai/skills"
+source_url: "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/notion-spec-to-implementation/SKILL.md"
+license: "MIT"
 tags: '["implementation", "notion", "spec"]'
 created_at: "2026-03-04"
 updated_at: "2026-11-17"

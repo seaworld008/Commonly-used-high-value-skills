@@ -31,7 +31,7 @@
         "ref": "main",
         "last_checked_at": "2026-11-17",
         "last_synced_at": "2026-11-17",
-        "last_synced_commit": "27e389359263b7294e2788fee048953fc34b82d1",
+        "last_synced_commit": "9dbaa77c4c5b6391510832602f841bc95d390b22",
         "sync_mode": "monitor",
         "path_commit": "183b5ddd5fbc0e05a8545a862f0f015d369e15e0"
       },
@@ -57,7 +57,7 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "27e389359263b7294e2788fee048953fc34b82d1",
+            "resolved_commit": "9dbaa77c4c5b6391510832602f841bc95d390b22",
             "path_commit": "183b5ddd5fbc0e05a8545a862f0f015d369e15e0",
             "content_sha256": "0e4871eafba1d0dd92daa739ff8aef79a2eef172e61744991486a9e7d4980769",
             "last_checked_at": "2026-11-17",
@@ -67,7 +67,7 @@
               "blob_sha": "75410e73319c72cd3e991a501c5455eb78f38375",
               "content_sha256": "821556e6336796450ab852d375117b48a4887e71d255794fd6318d99982a5ab6",
               "spdx": "MIT",
-              "resolved_commit": "27e389359263b7294e2788fee048953fc34b82d1",
+              "resolved_commit": "9dbaa77c4c5b6391510832602f841bc95d390b22",
               "api_spdx": "MIT"
             }
           }
@@ -484,7 +484,7 @@
         "ref": "main",
         "last_checked_at": "2026-11-17",
         "last_synced_at": "2026-11-17",
-        "last_synced_commit": "27e389359263b7294e2788fee048953fc34b82d1",
+        "last_synced_commit": "9dbaa77c4c5b6391510832602f841bc95d390b22",
         "sync_mode": "monitor",
         "path_commit": "c49fa88b80753071e7b7bb83e2882232e43e87c0"
       },
@@ -510,7 +510,7 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "27e389359263b7294e2788fee048953fc34b82d1",
+            "resolved_commit": "9dbaa77c4c5b6391510832602f841bc95d390b22",
             "path_commit": "c49fa88b80753071e7b7bb83e2882232e43e87c0",
             "content_sha256": "7eb5a51d0533dfe2aa16878abe9134965d8a948611eac36c868f6254e914aa7a",
             "last_checked_at": "2026-11-17",
@@ -520,7 +520,7 @@
               "blob_sha": "75410e73319c72cd3e991a501c5455eb78f38375",
               "content_sha256": "821556e6336796450ab852d375117b48a4887e71d255794fd6318d99982a5ab6",
               "spdx": "MIT",
-              "resolved_commit": "27e389359263b7294e2788fee048953fc34b82d1",
+              "resolved_commit": "9dbaa77c4c5b6391510832602f841bc95d390b22",
               "api_spdx": "MIT"
             }
           }
@@ -554,7 +554,7 @@
         "ref": "main",
         "last_checked_at": "2026-11-17",
         "last_synced_at": "2026-11-17",
-        "last_synced_commit": "27e389359263b7294e2788fee048953fc34b82d1",
+        "last_synced_commit": "9dbaa77c4c5b6391510832602f841bc95d390b22",
         "sync_mode": "monitor",
         "path_commit": "c49fa88b80753071e7b7bb83e2882232e43e87c0"
       },
@@ -585,7 +585,7 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "27e389359263b7294e2788fee048953fc34b82d1",
+            "resolved_commit": "9dbaa77c4c5b6391510832602f841bc95d390b22",
             "path_commit": "c49fa88b80753071e7b7bb83e2882232e43e87c0",
             "content_sha256": "d1c51c517bb775e97b0117679787e59af90007f1aaf38d04ba88afbde7100ba6",
             "last_checked_at": "2026-11-17",
@@ -595,7 +595,7 @@
               "blob_sha": "75410e73319c72cd3e991a501c5455eb78f38375",
               "content_sha256": "821556e6336796450ab852d375117b48a4887e71d255794fd6318d99982a5ab6",
               "spdx": "MIT",
-              "resolved_commit": "27e389359263b7294e2788fee048953fc34b82d1",
+              "resolved_commit": "9dbaa77c4c5b6391510832602f841bc95d390b22",
               "api_spdx": "MIT"
             }
           }
@@ -636,7 +636,7 @@
         "ref": "main",
         "last_checked_at": "2026-11-17",
         "last_synced_at": "2026-11-17",
-        "last_synced_commit": "27e389359263b7294e2788fee048953fc34b82d1",
+        "last_synced_commit": "9dbaa77c4c5b6391510832602f841bc95d390b22",
         "sync_mode": "monitor",
         "path_commit": "1c9433897c7b8a3b2754a84875e8f86d0a42991a"
       },
@@ -662,7 +662,7 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "27e389359263b7294e2788fee048953fc34b82d1",
+            "resolved_commit": "9dbaa77c4c5b6391510832602f841bc95d390b22",
             "path_commit": "1c9433897c7b8a3b2754a84875e8f86d0a42991a",
             "content_sha256": "e5b8ef8a6b5a454f95ec0f243cf7a208755e80ef544103e71b69b93cd9e99547",
             "last_checked_at": "2026-11-17",
@@ -672,7 +672,7 @@
               "blob_sha": "75410e73319c72cd3e991a501c5455eb78f38375",
               "content_sha256": "821556e6336796450ab852d375117b48a4887e71d255794fd6318d99982a5ab6",
               "spdx": "MIT",
-              "resolved_commit": "27e389359263b7294e2788fee048953fc34b82d1",
+              "resolved_commit": "9dbaa77c4c5b6391510832602f841bc95d390b22",
               "api_spdx": "MIT"
             }
           }
@@ -706,7 +706,7 @@
         "ref": "main",
         "last_checked_at": "2026-11-17",
         "last_synced_at": "2026-11-17",
-        "last_synced_commit": "27e389359263b7294e2788fee048953fc34b82d1",
+        "last_synced_commit": "9dbaa77c4c5b6391510832602f841bc95d390b22",
         "sync_mode": "monitor",
         "path_commit": "b0ef72a8a0a20fb9dd85d1e74b85edabc0c80813"
       },
@@ -732,7 +732,7 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "27e389359263b7294e2788fee048953fc34b82d1",
+            "resolved_commit": "9dbaa77c4c5b6391510832602f841bc95d390b22",
             "path_commit": "b0ef72a8a0a20fb9dd85d1e74b85edabc0c80813",
             "content_sha256": "e6bc7bb0650355a0ec887ed53f4d2244998d4521ffd2f5bc4d393aa699235e40",
             "last_checked_at": "2026-11-17",
@@ -742,7 +742,7 @@
               "blob_sha": "75410e73319c72cd3e991a501c5455eb78f38375",
               "content_sha256": "821556e6336796450ab852d375117b48a4887e71d255794fd6318d99982a5ab6",
               "spdx": "MIT",
-              "resolved_commit": "27e389359263b7294e2788fee048953fc34b82d1",
+              "resolved_commit": "9dbaa77c4c5b6391510832602f841bc95d390b22",
               "api_spdx": "MIT"
             }
           }
@@ -1000,6 +1000,13 @@
       "date": "2026-11-17",
       "method": "commit-aware-manual-monitor-review",
       "target": "NousResearch/hermes-agent@27e389359263b7294e2788fee048953fc34b82d1",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-11-17",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "NousResearch/hermes-agent@9dbaa77c4c5b6391510832602f841bc95d390b22",
       "result": "success",
       "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
     }

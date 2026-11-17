@@ -52,7 +52,7 @@
         "sync_mode": "monitor",
         "last_checked_at": "2026-11-17",
         "last_synced_at": "2026-11-17",
-        "last_synced_commit": "d62b95367ec5c0f1c4017ba1b575317f81b1e5de",
+        "last_synced_commit": "745d30bbf193cc4cfb5d47e4e14317e99838c42e",
         "path_commit": "49b7a7377cdde9afdd0c5e55d5cad5c0be75757c"
       },
       "kind": "overlay",
@@ -77,7 +77,7 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "d62b95367ec5c0f1c4017ba1b575317f81b1e5de",
+            "resolved_commit": "745d30bbf193cc4cfb5d47e4e14317e99838c42e",
             "path_commit": "49b7a7377cdde9afdd0c5e55d5cad5c0be75757c",
             "content_sha256": "0f4df860e8ab1b47d45b439b49b1fb595cf258bf3b5216a5e1a6d78426cb23a8",
             "last_checked_at": "2026-11-17",
@@ -87,7 +87,7 @@
               "blob_sha": "554937c222c6dd2db191634da77b5486a4a0410b",
               "content_sha256": "87b3f4064cb76d1c7cc8c39546d7d62790b76372f37cfb9de1bb828a5f652b51",
               "spdx": "ISC",
-              "resolved_commit": "d62b95367ec5c0f1c4017ba1b575317f81b1e5de",
+              "resolved_commit": "745d30bbf193cc4cfb5d47e4e14317e99838c42e",
               "api_spdx": "ISC"
             }
           }
@@ -355,6 +355,13 @@
       "date": "2026-11-17",
       "method": "commit-aware-manual-monitor-review",
       "target": "xiaolai/nlpm@d62b95367ec5c0f1c4017ba1b575317f81b1e5de",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
+    },
+    {
+      "date": "2026-11-17",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "xiaolai/nlpm@745d30bbf193cc4cfb5d47e4e14317e99838c42e",
       "result": "success",
       "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
     }

@@ -3,10 +3,10 @@ name: theme-factory
 description: 'Use when styling artifacts with reusable themes, applying preset color/font systems, or generating new visual themes for slides, documents, reports, HTML pages, and landing pages.'
 zh_description: "用于为幻灯片、文档、报告和网页应用预设主题或生成新的颜色字体系统。"
 version: "1.0.1"
-author: "seaworld008"
-source: "in-house"
-source_url: ""
-license: Complete terms in LICENSE.txt
+author: "Anthropic contributors; local curators"
+source: "https://github.com/anthropics/skills"
+source_url: "https://github.com/anthropics/skills/blob/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/theme-factory/SKILL.md"
+license: "Apache-2.0"
 tags: '["factory", "productivity", "theme"]'
 created_at: "2026-03-04"
 updated_at: "2026-11-17"

@@ -50,10 +50,13 @@
 
 所有活动 mapping 默认必须是 `schema_version: 2`。只有兼容旧 fixture 或迁移排障时才允许显式使用 `validate_skill_sources.py --allow-v1`。
 
-`managed_files` 不是“当前目录文件列表”的同义词，而是覆盖、更新和删除授权。每条记录同时锁定 `sha256` 与 Git 可移植模式 `100644`/`100755`；仅执行位变化也属于必须复核或受管修复的状态变化。只有以下两类文件可进入：
+`managed_files` 不是“当前目录文件列表”的同义词，而是覆盖、更新和删除授权。每条记录同时锁定 `sha256` 与 Git 可移植模式 `100644`/`100755`；仅执行位变化也属于必须复核或受管修复的状态变化。可进入的文件必须有下列已核实来源之一：
 
 - 在锁定 commit 上与上游 blob 字节完全一致的 external artifact；
-- 明确归属于 `local-repo/curation`、永不被外部 origin 覆盖的本地 overlay。
+- 已证明基于该固定来源、保留许可并记录改动的 `overlay` 改编；其外部 owner 表示派生来源，必须保持 `monitor`，不能自动覆盖本地字节；
+- 明确归属于 `local-repo/curation`、永不被外部 origin 覆盖的本地原创文件。
+
+`managed_files.sha256` 锁定实际本地交付；它不证明与上游原样相同。上游 blob、摘要、模式与本地改编关系应另外保留在 artifact 证据中。只有逐字节复核后的文件才能称为 external exact；本地摘要刷新不能替代来源或许可证据。
 
 首次治理或历史目录补录时先只读盘点，再显式写入：
 

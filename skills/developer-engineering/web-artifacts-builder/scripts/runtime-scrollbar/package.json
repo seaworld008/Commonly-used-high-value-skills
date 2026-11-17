@@ -1,0 +1,31 @@
+{
+  "name": "@high-value-skills/scrollbar-compensation",
+  "version": "1.0.0",
+  "description": "Original, document-scoped body scrollbar compensation for generated React artifacts",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js"
+    },
+    "./constants": {
+      "types": "./constants.d.ts",
+      "import": "./constants.js"
+    }
+  },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "constants.js",
+    "constants.d.ts",
+    "LICENSE.txt"
+  ],
+  "peerDependencies": {
+    "react": "^18.3.1 || ^19.0.0"
+  },
+  "main": "./index.js",
+  "module": "./index.js",
+  "types": "./index.d.ts"
+}

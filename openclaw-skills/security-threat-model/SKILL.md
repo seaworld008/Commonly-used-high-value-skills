@@ -3,9 +3,10 @@ name: security-threat-model
 description: 'Use when creating threat models from codebases, architectures, assets, trust boundaries, attacker capabilities, abuse paths, and mitigation plans.'
 zh_description: "用于基于代码库或架构梳理资产、信任边界、攻击者能力、滥用路径和缓解措施。"
 version: "1.0.1"
-author: "seaworld008"
-source: "in-house"
-source_url: ""
+author: "OpenAI contributors; local curators"
+source: "https://github.com/openai/skills"
+source_url: "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/security-threat-model/SKILL.md"
+license: "Apache-2.0"
 tags: '["model", "security", "threat"]'
 created_at: "2026-03-04"
 updated_at: "2026-11-17"

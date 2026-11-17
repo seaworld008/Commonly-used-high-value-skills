@@ -3,9 +3,10 @@ name: vercel-deploy
 description: Create Vercel preview or production deployments when the user selects Vercel or the repository already binds the project to Vercel.
 zh_description: "用于将应用或网站部署到 Vercel，创建预览部署或生产发布链接。"
 version: "1.0.1"
-author: "seaworld008"
-source: "in-house"
-source_url: ""
+author: "OpenAI contributors; local curators"
+source: "https://github.com/openai/skills"
+source_url: "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/vercel-deploy/SKILL.md"
+license: "MIT"
 tags: '["deploy", "deployment", "vercel"]'
 created_at: "2026-03-04"
 updated_at: "2026-11-17"

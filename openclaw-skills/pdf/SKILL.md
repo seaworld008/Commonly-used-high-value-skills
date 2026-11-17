@@ -3,10 +3,10 @@ name: pdf
 description: 'Read, create, edit, merge, split, OCR, or fill PDF documents when PDF content or a PDF deliverable is the task.'
 zh_description: "读取、生成、编辑、合并、拆分和识别 PDF 文档。"
 version: "1.1.2"
-author: "seaworld008"
-source: "in-house"
-source_url: ""
-license: Proprietary. LICENSE.txt has complete terms
+author: "Anthropic contributors; local curators"
+source: "https://github.com/anthropics/skills"
+source_url: "https://github.com/anthropics/skills/blob/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/pdf/SKILL.md"
+license: "Apache-2.0"
 tags: '["pdf"]'
 created_at: "2026-03-04"
 updated_at: "2026-11-17"

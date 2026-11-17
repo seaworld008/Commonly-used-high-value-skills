@@ -6,7 +6,7 @@
 
 ## 最新版本
 
-**v6.0.0 技能组合精简（2026-11-04）**：退役三个重复入口（`skill-vetter` → `skill-security-auditor`，`github` → `github-ops`，`neon-postgres-egress-optimizer` → `neon-postgres`），按真实工具重写 `find-skills`、`link-checker`（新增只读检查脚本）和 `figma`，并移除默认写入 `MEMORY.md`／定时任务的指令；同时为 46 个技能补齐带触发条件的描述，完成全量上游同步检查并升级 Hermes Agent 至 v0.22.7。当前 293 个技能 / 16 个分类。[发布说明](./releases/v6.0.0.md)。
+**v6.1.0 全量技能审查与来源修复（2026-11-17）**：审查全部 293 个技能，修正 235 个入口，保留 16 个分类；恢复真实来源与完整许可通知，原创重建缺乏来源证据的实现，修复工具状态、Office 校验与原子交付问题，并通过多轮独立复查及分层验证。[发布说明](./releases/v6.1.0.md)。
 
 从旧版本升级时，可用 `--prune-retired` 清理已退役的技能：只删除由本安装器安装且未改动过的副本，其余一律归档保留。
 
@@ -15,6 +15,8 @@ npx github:seaworld008/Commonly-used-high-value-skills install --target codex --
 ```
 
 ## 近期版本
+
+- [v6.0.0](./releases/v6.0.0.md)（2026-11-04）：精简三个重复入口，保留 293 个技能，更新触发描述、工具发现及上游检查。
 
 - [v5.0.0](./releases/v5.0.0.md)（2026-10-27）：完成全量策展，新增 `shadcn`、`security-model`、`remotion-video`；`self-improving-agent` 迁移为 `reflect-learn`。
 - [v4.3.0](./releases/v4.3.0.md)（2026-10-24）：更新 4 个精选技能，升级行为改动与文字微调的验证流程。

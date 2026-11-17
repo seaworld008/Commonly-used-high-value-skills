@@ -500,6 +500,13 @@
       "target": "microsoft/azure-skills@65922d293cba61a40d5edf61a9eb4b6b0e799788",
       "result": "success",
       "evidence": "Verified and bundled the MIT-licensed azure-aks-nap-readiness reference at the already-reviewed immutable commit; checked local resource closure."
+    },
+    {
+      "date": "2026-11-17",
+      "method": "commit-aware-manual-monitor-review",
+      "target": "neondatabase/agent-skills@067f9fb2df21953b216867d60ec500ddaf3e5647",
+      "result": "success",
+      "evidence": "Explicit reviewer checkpoint recorded after curating durable method, compatibility, security, CI, and validation changes."
     }
   ],
   "skills": [
@@ -1731,7 +1738,7 @@
         "ref": "main",
         "last_checked_at": "2026-11-17",
         "last_synced_at": "2026-11-17",
-        "last_synced_commit": "60b9a53fdd08c3be22781c5e51f6b689a77d3e39",
+        "last_synced_commit": "067f9fb2df21953b216867d60ec500ddaf3e5647",
         "sync_mode": "monitor",
         "path_commit": "a874fd709f0bcad54d085d442b7962470b53c234"
       },
@@ -1787,7 +1794,7 @@
           "tracking": {
             "channel": "default_branch",
             "ref": "main",
-            "resolved_commit": "60b9a53fdd08c3be22781c5e51f6b689a77d3e39",
+            "resolved_commit": "067f9fb2df21953b216867d60ec500ddaf3e5647",
             "path_commit": "a874fd709f0bcad54d085d442b7962470b53c234",
             "content_sha256": "b92395131d458fa6001e571d1576612e7a43319b6baea5b618eba74a8436af2c",
             "last_checked_at": "2026-11-17",
@@ -1797,7 +1804,7 @@
               "blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
               "content_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
               "spdx": "Apache-2.0",
-              "resolved_commit": "60b9a53fdd08c3be22781c5e51f6b689a77d3e39",
+              "resolved_commit": "067f9fb2df21953b216867d60ec500ddaf3e5647",
               "api_spdx": "Apache-2.0"
             }
           }

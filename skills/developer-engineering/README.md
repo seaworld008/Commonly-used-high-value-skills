@@ -29,7 +29,7 @@
 | `database-schema-designer` | 设计数据表、约束、索引、迁移和行级权限策略。 | [目录](./database-schema-designer/) | [SKILL.md](./database-schema-designer/SKILL.md) |
 | `dependency-auditor` | 梳理依赖清单，核实漏洞与许可证证据，规划可验证的升级。 | [目录](./dependency-auditor/) | [SKILL.md](./dependency-auditor/SKILL.md) |
 | `docker-expert` | 用于 Docker 容器化最佳实践、多阶段构建优化与 Docker Compose 编排。 | [目录](./docker-expert/) | [SKILL.md](./docker-expert/SKILL.md) |
-| `frontend-design` | 用于创建高质量、非模板化的前端页面、组件、仪表盘、海报和 Web UI。 | [目录](./frontend-design/) | [SKILL.md](./frontend-design/SKILL.md) |
+| `frontend-design` | 按产品目标与品牌约束设计和实现网页、组件及应用界面，兼顾视觉表达、响应式和交互验收。 | [目录](./frontend-design/) | [SKILL.md](./frontend-design/SKILL.md) |
 | `gateway` | 设计或评审 REST/GraphQL 接口时使用：OpenAPI 规范、版本与弃用策略、破坏性变更检测和接口安全。 | [目录](./gateway/) | [SKILL.md](./gateway/SKILL.md) |
 | `git-worktree-manager` | 管理并行开发的 Git worktree、环境和端口分配。 | [目录](./git-worktree-manager/) | [SKILL.md](./git-worktree-manager/SKILL.md) |
 | `github-contributor` | 寻找开源贡献机会并准备可审查的 GitHub PR。 | [目录](./github-contributor/) | [SKILL.md](./github-contributor/SKILL.md) |

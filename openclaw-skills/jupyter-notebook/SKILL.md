@@ -3,9 +3,10 @@ name: jupyter-notebook
 description: 'Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) for experiments, explorations, or tutorials; prefer the bundled templates and run the helper script `new_notebook.py` to generate a clean starting notebook.'
 zh_description: "创建和维护用于分析、实验及教学的 Jupyter 笔记本。"
 version: "1.0.2"
-author: "seaworld008"
-source: "in-house"
-source_url: ""
+author: "OpenAI contributors; local curators"
+source: "https://github.com/openai/skills"
+source_url: "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/jupyter-notebook/SKILL.md"
+license: "Apache-2.0"
 tags: '["automation", "jupyter", "notebook", "workflow"]'
 created_at: "2026-03-04"
 updated_at: "2026-11-17"

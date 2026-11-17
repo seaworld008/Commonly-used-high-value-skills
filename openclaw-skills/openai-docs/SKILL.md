@@ -2,13 +2,14 @@
 name: openai-docs
 description: 'Find current official OpenAI guidance for Codex, APIs, models, prompting, or migrations. Preserve a named target model and cite fetched documentation.'
 zh_description: "用于查阅和应用 OpenAI 官方文档、API 行为和集成指南。"
-version: "1.0.2"
-author: "seaworld008"
-source: "in-house"
-source_url: ""
+version: "1.0.3"
+author: "OpenAI contributors; local curators"
+source: "https://github.com/openai/skills"
+source_url: "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/openai-docs/SKILL.md"
+license: "Apache-2.0"
 tags: '["agent", "ai", "docs", "openai"]'
 created_at: "2026-03-04"
-updated_at: "2026-09-06"
+updated_at: "2026-11-17"
 quality: 3
 complexity: "intermediate"
 ---
@@ -104,6 +105,15 @@ names or pause an otherwise answerable documentation task for installation.
 3. Fetch the best page and the specific section needed (use `anchor` when possible).
 4. Answer with concise guidance and cite the doc source.
 5. Provide code snippets only when the docs support them.
+
+## Migration evidence
+
+- Identify the installed SDK version, active API surface, and requested target from the project before editing. Distinguish a model/prompt update from an SDK or API migration.
+- For latest/current/default requests, fetch the current official latest-model guide and follow its explicit migration and prompting links. Preserve a named target; a newer example is not authorization to replace it.
+- Check the current official SDK/API reference for changed methods, required fields, schemas, and supported parameters. Use the connector's OpenAPI operation when actually available, alongside the guide; do not assume a host-specific tool or bundled migration helper exists.
+- For a claimed deprecation, fetch the official deprecations entry and linked migration guide. Record the affected API/model, replacement, dates, and retrieval date; distinguish announced deprecation from removal. If evidence is missing or conflicts with the installed SDK, state the uncertainty instead of inventing a deadline or compatibility claim.
+- Keep changes within the requested migration: preserve unrelated fixtures, historical examples, eval baselines, provider settings, credentials, and fallback models. Complete necessary API/schema changes within existing authorization; ask only when the required scope materially exceeds it.
+- Report the before/after API or model, source URLs, checks run, and remaining live compatibility checks. Static schema checks do not establish account availability or model quality.
 
 ## Quality rules
 

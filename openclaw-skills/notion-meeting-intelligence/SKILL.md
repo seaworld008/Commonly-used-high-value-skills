@@ -3,9 +3,10 @@ name: notion-meeting-intelligence
 description: 'Use when preparing for an upcoming meeting from Notion context: agenda, pre-read or briefing memo, open questions, blockers, and decisions needed.'
 zh_description: "会议前基于 Notion 上下文准备议程、预读材料和待决事项时使用。"
 version: "1.0.2"
-author: "seaworld008"
-source: "in-house"
-source_url: ""
+author: "Notion Labs, Inc.; local curators"
+source: "https://github.com/openai/skills"
+source_url: "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/notion-meeting-intelligence/SKILL.md"
+license: "MIT"
 tags: '["intelligence", "meeting", "notion"]'
 created_at: "2026-03-04"
 updated_at: "2026-11-17"

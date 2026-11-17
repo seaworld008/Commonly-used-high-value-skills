@@ -1,59 +1,83 @@
-"""Read an existing .xlsx and print a small summary.
+#!/usr/bin/env python3
+# Copyright (c) 2026 seaworld008
+# SPDX-License-Identifier: MIT
+"""Read values and formulas without editing an input workbook.
 
-If --input is not provided, this script creates a tiny sample workbook in /tmp
-and reads that instead.
+Use --input INPUT.xlsx. Without --input a synthetic sample is created and read in
+a TemporaryDirectory under TMPDIR, whose location is printed before cleanup.
 """
 
-from __future__ import annotations
-
 import argparse
-import tempfile
 from pathlib import Path
+import sys
 
 from openpyxl import Workbook, load_workbook
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'scripts'))
+from create_formatted_excel import save_verified_workbook
 
-def create_sample(path: Path) -> Path:
+from hashlib import sha256
+import json
+import tempfile
+
+
+def create_sample(path):
     wb = Workbook()
     ws = wb.active
-    ws.title = "Sample"
-    ws.append(["Item", "Qty", "Price"])
-    ws.append(["Apples", 3, 1.25])
-    ws.append(["Oranges", 2, 0.95])
-    ws.append(["Bananas", 5, 0.75])
-    ws["D1"] = "Total"
-    ws["D2"] = "=B2*C2"
-    ws["D3"] = "=B3*C3"
-    ws["D4"] = "=B4*C4"
-    wb.save(path)
-    return path
+    ws.title = 'Measurements'
+    ws.append(['Batch', 'Count', 'Double'])
+    ws.append(['Synthetic A', 7, '=B2*2'])
+    ws.append(['Synthetic B', None, '=IF(ISBLANK(B3),NA(),B3*2)'])
+    ws['B2'].number_format = '0'
+
+    def check_style(book):
+        if book['Measurements']['B2'].number_format != '0':
+            raise ValueError('Count format was lost')
+
+    return save_verified_workbook(wb, path, [
+        ('Measurements', 'B2', 7), ('Measurements', 'C2', '=B2*2'),
+        check_style,
+    ])
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser(description="Read an existing spreadsheet.")
-    parser.add_argument("--input", type=Path, help="Path to an .xlsx file")
+def _read(path):
+    before = sha256(path.read_bytes()).hexdigest()
+    formulas = load_workbook(path, data_only=False, keep_links=True)
+    cached = None
+    try:
+        cached = load_workbook(path, data_only=True, keep_links=True)
+        rows = []
+        for ws in formulas:
+            for row in ws:
+                for cell in row:
+                    if cell.value is None:
+                        continue
+                    rows.append({'sheet': ws.title, 'cell': cell.coordinate,
+                                 'value': cell.value,
+                                 'cached_value': cached[ws.title][cell.coordinate].value
+                                                 if cell.data_type == 'f' else None,
+                                 'is_formula': cell.data_type == 'f'})
+        print(json.dumps({'input': str(path.resolve()), 'sha256': before,
+                          'calculation': 'No recalculation; caches may be missing or stale.',
+                          'cells': rows}, ensure_ascii=False, default=str))
+    finally:
+        formulas.close()
+        if cached is not None:
+            cached.close()
+    if sha256(path.read_bytes()).hexdigest() != before:
+        raise RuntimeError('Input changed while reading')
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--input', type=Path)
     args = parser.parse_args()
-
-    if args.input:
-        input_path = args.input
+    if args.input is not None:
+        _read(args.input)
     else:
-        tmp_dir = Path(tempfile.gettempdir())
-        input_path = tmp_dir / "sample_read_existing.xlsx"
-        create_sample(input_path)
-
-    wb = load_workbook(input_path, data_only=False)
-    print(f"Loaded: {input_path}")
-    print("Sheet names:", wb.sheetnames)
-
-    for name in wb.sheetnames:
-        ws = wb[name]
-        max_row = ws.max_row or 0
-        max_col = ws.max_column or 0
-        print(f"\n== {name} (rows: {max_row}, cols: {max_col})")
-        for row in ws.iter_rows(min_row=1, max_row=min(max_row, 5), max_col=min(max_col, 5)):
-            values = [cell.value for cell in row]
-            print(values)
+        with tempfile.TemporaryDirectory(prefix='excel-reading-example-') as temp:
+            _read(create_sample(Path(temp) / 'synthetic-measurements.xlsx'))
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

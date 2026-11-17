@@ -3,9 +3,10 @@ name: playwright
 description: 'Use when the task requires automating a real browser from the terminal (navigation, form filling, snapshots, screenshots, data extraction, UI-flow debugging) via `playwright-cli` or the bundled wrapper script.'
 zh_description: "需要在终端用 playwright-cli 自动化真实浏览器时使用：页面导航、表单填写、快照截图、数据提取和界面流程调试。"
 version: "1.0.2"
-author: "seaworld008"
-source: "in-house"
-source_url: ""
+author: "OpenAI contributors; local curators"
+source: "https://github.com/openai/skills"
+source_url: "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/playwright/SKILL.md"
+license: "Apache-2.0"
 tags: '["automation", "playwright", "workflow"]'
 created_at: "2026-03-04"
 updated_at: "2026-11-17"

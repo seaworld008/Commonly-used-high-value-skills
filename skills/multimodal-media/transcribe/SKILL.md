@@ -3,9 +3,10 @@ name: transcribe
 description: 'Transcribe audio files to text with optional diarization and known-speaker hints. Use when a user asks to transcribe speech from audio/video, extract text from recordings, or label speakers in interviews or meetings.'
 zh_description: "用于将音频或视频中的语音转写为文本，并可结合说话人分离和已知说话人提示。"
 version: "1.0.1"
-author: "seaworld008"
-source: "in-house"
-source_url: ""
+author: "OpenAI contributors; local curators"
+source: "https://github.com/openai/skills"
+source_url: "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/transcribe/SKILL.md"
+license: "Apache-2.0"
 tags: '["transcribe"]'
 created_at: "2026-03-04"
 updated_at: "2026-11-17"

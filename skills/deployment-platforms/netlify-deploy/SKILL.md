@@ -3,9 +3,10 @@ name: netlify-deploy
 description: 'Deploy web projects to Netlify using the Netlify CLI (`npx netlify`). Use when the user asks to deploy, host, publish, or link a site/repo on Netlify, including preview and production deploys.'
 zh_description: "用于将网站或应用部署到 Netlify 并获取预览或生产链接。"
 version: "1.0.1"
-author: "seaworld008"
-source: "in-house"
-source_url: ""
+author: "OpenAI contributors; local curators"
+source: "https://github.com/openai/skills"
+source_url: "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/netlify-deploy/SKILL.md"
+license: "Apache-2.0"
 tags: '["deploy", "deployment", "netlify"]'
 created_at: "2026-03-04"
 updated_at: "2026-11-17"

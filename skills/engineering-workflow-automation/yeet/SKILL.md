@@ -2,10 +2,11 @@
 name: yeet
 description: 'Use only when the user explicitly asks to stage, commit, push, and open a GitHub pull request in one flow using the GitHub CLI (`gh`).'
 zh_description: "按用户要求暂存、提交、推送改动并创建 GitHub PR。"
-version: "1.0.2"
-author: "seaworld008"
-source: "in-house"
-source_url: ""
+version: "1.0.3"
+author: "OpenAI contributors; local curators"
+source: "https://github.com/openai/skills"
+source_url: "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/yeet/SKILL.md"
+license: "Apache-2.0"
 tags: '["automation", "workflow", "yeet"]'
 created_at: "2026-03-04"
 updated_at: "2026-11-17"
@@ -69,10 +70,12 @@ gh auth status
 
 ### 5. 语义化 PR 描述生成 (Rich PR Content)
 - **操作步骤**：
-  1. 提取全量 Diff 摘要。
-  2. 自动生成 Markdown 格式的 PR Body，包含：背景、根本原因、修复方案、测试证明。
-  3. 使用 `gh pr create --draft --fill` 创建 PR。
-- **最佳实践**：将 PR 设为 `Draft` (草稿) 状态，给用户最后一次人工复核的机会。
+  1. 核对当前分支、head/base 仓库与目标分支，使用 `gh pr view "$(git branch --show-current)" --json number,url,state,isDraft,headRefName,baseRefName,body` 查询已有 PR；鉴权、网络或定位失败不能当作“没有 PR”。
+  2. 已有匹配的开放 PR 时就地更新，保留当前 draft/ready 状态；已关闭或合并的 PR 先核实后续目标，不能直接当作可更新 PR。只有确认不存在对应 PR 时才创建新的草稿 PR。
+  3. 从仓库根目录查阅适用 PR 模板，并保留已有正文中的有效信息、图片、必要清单。根据最终净差异更新标题和正文，说明问题、改动与实际验证结果。
+  4. 正文写入任务专用临时文件，通过 `gh pr edit <number> --title "..." --body-file "$pr_body"` 更新；新建时使用 `gh pr create --draft --title "..." --body-file "$pr_body"`。
+  5. 推送后核对 PR 的最新 head、检查结果和审阅状态，例如 `gh pr view <number> --json headRefOid,isDraft,reviewDecision,mergeStateStatus,statusCheckRollup`。待运行或失败的检查如实报告，不把 PR 创建成功等同于可合并。
+- **最佳实践**：只给新 PR 默认设置 `Draft`；已有 ready PR 不退回草稿，状态转换与合并按用户现有授权执行。
 
 ## 常用命令/模板 / Common Patterns
 
@@ -84,7 +87,7 @@ gh auth status
 3. **[Commit]**: `fix: correct typo in login error message`。
 4. **[Pre-Check]**: 运行 `pytest` ... **PASSED**.
 5. **[Push]**: 推送至 `origin/codex/fix-login-typo`。
-6. **[PR]**: 创建 PR #456 并生成描述。
+6. **[PR]**: 更新当前分支已有 PR #456；不存在时创建草稿，并核对最新 head 的检查与审阅状态。
 
 ### 📄 自动生成的 PR Body 预览
 > **Title**: [codex] fix login typo
@@ -94,7 +97,7 @@ gh auth status
 > **Tests**: Ran unit tests and verified manually.
 ```
 
-### 快速创建 PR 示例 (CLI)
+### 已确认没有对应 PR 时的创建示例 (CLI)
 ```bash
 # 在任务专用临时目录创建唯一文件；填入已核实的描述
 pr_body=$(mktemp -p "$TMPDIR" pr-body.XXXXXX)

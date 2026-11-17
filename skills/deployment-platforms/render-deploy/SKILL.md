@@ -3,9 +3,10 @@ name: render-deploy
 description: 'Deploy applications to Render by analyzing codebases, generating render.yaml Blueprints, and providing Dashboard deeplinks. Use when the user wants to deploy, host, publish, or set up their application on Render''s cloud platform.'
 zh_description: "用于将服务或应用部署到 Render 并处理运行配置。"
 version: "1.0.1"
-author: "seaworld008"
-source: "in-house"
-source_url: ""
+author: "OpenAI contributors; local curators"
+source: "https://github.com/openai/skills"
+source_url: "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/render-deploy/SKILL.md"
+license: "Apache-2.0"
 tags: '["deploy", "deployment", "render"]'
 created_at: "2026-03-04"
 updated_at: "2026-11-17"

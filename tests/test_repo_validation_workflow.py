@@ -37,7 +37,7 @@ class RepoValidationWorkflowTests(unittest.TestCase):
         job_commands = run_commands(job)
         commands = "\n".join(job_commands)
         self.assertTrue(any(
-            set("pyyaml pytest jsonschema openpyxl filelock click rich httpx pillow".split()).issubset(command.split())
+            set("pyyaml pytest jsonschema openpyxl filelock click rich httpx pillow lxml defusedxml python-docx matplotlib pandas tinycss2 PyMuPDF markdown-it-py".split()).issubset(command.split())
             and "pip install" in command for command in job_commands
         ))
         self.assertEqual(1, job_commands.count("python scripts/validate_repository.py --refresh"))

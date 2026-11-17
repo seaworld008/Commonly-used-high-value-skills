@@ -227,6 +227,7 @@ def _has_notice_body(path: Path, spdx: str) -> bool:
             "this font software is licensed under the sil open font license, version 1.1.",
             "this license is copied below, and is also available with a faq at:",
             "https://openfontlicense.org", "http://scripts.sil.org/ofl",
+            "https://scripts.sil.org/ofl",
         )
         if any(line.strip() and set(line.strip()) != {"-"}
                and not line.strip().startswith(allowed_prefixes) for line in prefix_lines):
@@ -235,6 +236,13 @@ def _has_notice_body(path: Path, spdx: str) -> bool:
             found and re.search(r"\bcopyright\b.*\d{4}[,\s]+\S", prefix)
             and hashlib.sha256((heading + body).encode()).hexdigest() == OFL_BODY_SHA256
         )
+    # Complete Apache clauses 1-9 without the optional how-to appendix.
+    # Reviewed against the full Apache template, with no legal term omitted.
+    # Exact normalized text only; changed grants and appended conditions fail.
+    if spdx == "Apache-2.0":
+        normalized = " ".join(raw.decode("utf-8-sig", errors="replace").lower().split())
+        if hashlib.sha256(normalized.encode()).hexdigest() == "95cef6332b35354c12f9d666ab9ff47002e6f7ef937924896882b2e0cdb7a0d6":
+            return True
     # This exact Vercel README was manually reviewed at b8caa260...: its
     # explicit License/MIT declaration is preserved with separate full terms.
     # A changed README needs a fresh review; arbitrary READMEs are not grants.

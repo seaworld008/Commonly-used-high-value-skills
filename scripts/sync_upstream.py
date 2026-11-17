@@ -90,9 +90,9 @@ else:
         )
 
 try:
-    from audit_licenses import PERMISSIVE_LICENSES
+    from audit_licenses import PERMISSIVE_LICENSES, SCOPED_FONT_LICENSES, scoped_font_license_error
 except ModuleNotFoundError:  # pragma: no cover - import path used by tests
-    from scripts.audit_licenses import PERMISSIVE_LICENSES
+    from scripts.audit_licenses import PERMISSIVE_LICENSES, SCOPED_FONT_LICENSES, scoped_font_license_error
 
 try:
     from durable_file_batch import (
@@ -816,9 +816,18 @@ def _v2_sync_entry_errors(entry: dict) -> list[str]:
         if origin_path is not None and not _safe_mapping_path(origin_path):
             errors.append(f"origins[{origin_index}] has unsafe path")
         license_value = origin.get("license")
+        scoped_font_ok = False
+        if not is_local and isinstance(license_value, str) and license_value in SCOPED_FONT_LICENSES:
+            # Font grants never authorize code or a second sync authority.
+            # Reuse the full on-disk font/notice/CP gate, only for immutable
+            # archived sidecars. Do not widen PERMISSIVE_LICENSES.
+            scoped_font_ok = bool(
+                is_archived_sidecar(origin, repo_skill, kind)
+                and not scoped_font_license_error(origin, entry, REPO_ROOT)
+            )
         if not is_local and (
             not isinstance(license_value, str)
-            or license_value not in PERMISSIVE_LICENSES
+            or license_value not in PERMISSIVE_LICENSES and not scoped_font_ok
         ):
             errors.append(
                 f"origins[{origin_index}] has no permitted external license"
